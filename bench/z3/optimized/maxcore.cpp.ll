@@ -6313,11 +6313,11 @@ entry:
   %ref.tmp.i9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %struct.mk_pp, align 8
-  %ref.tmp.sroa.gep37 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %ref.tmp15 = alloca %struct.mk_pp, align 8
-  %ref.tmp15.sroa.gep38 = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
-  %ref.tmp15.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
+  %ref.tmp15.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %ref.tmp15.sink.sroa.gep37 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %ref.tmp15.sink.sroa.gep38 = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
+  %ref.tmp15.sink.sroa.gep39 = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
   %call = tail call noundef i32 @_Z19get_verbosity_levelv()
   %cmp = icmp ugt i32 %call, 12
   br i1 %cmp, label %if.then, label %if.end26
@@ -6507,8 +6507,8 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   ret void
 
 eh.resume:                                        ; preds = %lpad17, %lpad.i11, %lpad, %lpad.i
+  %ref.tmp15.sink.sroa.phi = phi ptr [ %ref.tmp15.sink.sroa.gep, %lpad.i ], [ %ref.tmp15.sink.sroa.gep37, %lpad ], [ %ref.tmp15.sink.sroa.gep38, %lpad.i11 ], [ %ref.tmp15.sink.sroa.gep39, %lpad17 ]
   %.pn = phi { ptr, i32 } [ %2, %lpad.i ], [ %3, %lpad ], [ %6, %lpad.i11 ], [ %7, %lpad17 ]
-  %ref.tmp15.sink.sroa.phi = phi ptr [ %ref.tmp.sroa.gep, %lpad.i ], [ %ref.tmp.sroa.gep37, %lpad ], [ %ref.tmp15.sroa.gep, %lpad.i11 ], [ %ref.tmp15.sroa.gep38, %lpad17 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15.sink.sroa.phi) #16
   resume { ptr, i32 } %.pn
 }

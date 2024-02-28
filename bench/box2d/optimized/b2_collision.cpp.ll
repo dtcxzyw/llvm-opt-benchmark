@@ -437,65 +437,71 @@ for.end60:                                        ; preds = %for.inc58, %for.con
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZNK6b2AABB7RayCastEP15b2RayCastOutputRK14b2RayCastInput(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this, ptr nocapture noundef writeonly %output, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %input) local_unnamed_addr #0 align 2 {
 entry:
-  %p = alloca %struct.b2Vec2, align 8
-  %d = alloca %struct.b2Vec2, align 8
-  %absD = alloca %struct.b2Vec2, align 8
+  %p.sroa.0 = alloca float, align 8
+  %p.sroa.3 = alloca float, align 4
+  %d.sroa.0 = alloca <2 x float>, align 8
   %normal = alloca %struct.b2Vec2, align 8
-  %0 = load i64, ptr %input, align 4
-  store i64 %0, ptr %p, align 8
+  %d.sroa.0.4.gep61.sroa_idx62 = getelementptr inbounds i8, ptr %d.sroa.0, i64 4
+  %normal.4.gep57.sroa_idx = getelementptr inbounds i8, ptr %normal, i64 4
+  %0 = load float, ptr %input, align 4
+  %input.sroa_idx = getelementptr inbounds i8, ptr %input, i64 4
+  %1 = load float, ptr %input.sroa_idx, align 4
+  %2 = load i64, ptr %input, align 4
+  store float %0, ptr %p.sroa.0, align 8
+  store float %1, ptr %p.sroa.3, align 4
   %p2 = getelementptr inbounds i8, ptr %input, i64 8
-  %1 = lshr i64 %0, 32
-  %2 = load <2 x float>, ptr %p2, align 4
-  %3 = insertelement <2 x i64> poison, i64 %0, i64 0
-  %4 = insertelement <2 x i64> %3, i64 %1, i64 1
-  %5 = trunc <2 x i64> %4 to <2 x i32>
-  %6 = bitcast <2 x i32> %5 to <2 x float>
-  %7 = fsub <2 x float> %2, %6
-  store <2 x float> %7, ptr %d, align 8
-  %8 = fcmp ogt <2 x float> %7, zeroinitializer
-  %9 = fneg <2 x float> %7
-  %10 = select <2 x i1> %8, <2 x float> %7, <2 x float> %9
-  store <2 x float> %10, ptr %absD, align 8
+  %3 = lshr i64 %2, 32
+  %4 = load <2 x float>, ptr %p2, align 4
+  %5 = insertelement <2 x i64> poison, i64 %2, i64 0
+  %6 = insertelement <2 x i64> %5, i64 %3, i64 1
+  %7 = trunc <2 x i64> %6 to <2 x i32>
+  %8 = bitcast <2 x i32> %7 to <2 x float>
+  %9 = fsub <2 x float> %4, %8
+  store <2 x float> %9, ptr %d.sroa.0, align 8
+  %10 = fcmp ogt <2 x float> %9, zeroinitializer
+  %11 = fneg <2 x float> %9
+  %12 = select <2 x i1> %10, <2 x float> %9, <2 x float> %11
   %upperBound17 = getelementptr inbounds i8, ptr %this, i64 8
+  %absD.sroa.0.0.vec.extract = extractelement <2 x float> %12, i64 0
+  %absD.sroa.0.4.vec.extract = extractelement <2 x float> %12, i64 1
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
+  %indvars.iv.sroa.phi = phi ptr [ %normal, %entry ], [ %normal.4.gep57.sroa_idx, %for.inc ]
+  %indvars.iv.sroa.phi58.sroa.speculated = phi float [ %absD.sroa.0.0.vec.extract, %entry ], [ %absD.sroa.0.4.vec.extract, %for.inc ]
+  %indvars.iv.sroa.phi60 = phi ptr [ %d.sroa.0, %entry ], [ %d.sroa.0.4.gep61.sroa_idx62, %for.inc ]
+  %indvars.iv.sroa.phi65 = phi ptr [ %p.sroa.0, %entry ], [ %p.sroa.3, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 1, %for.inc ]
   %tmax.053 = phi float [ 0x47EFFFFFE0000000, %entry ], [ %tmax.1, %for.inc ]
   %tmin.052 = phi float [ 0xC7EFFFFFE0000000, %entry ], [ %tmin.2, %for.inc ]
-  %arrayidx.i = getelementptr inbounds float, ptr %absD, i64 %indvars.iv
-  %11 = load float, ptr %arrayidx.i, align 4
-  %cmp5 = fcmp olt float %11, 0x3E80000000000000
+  %cmp5 = fcmp olt float %indvars.iv.sroa.phi58.sroa.speculated, 0x3E80000000000000
   br i1 %cmp5, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %arrayidx.i27 = getelementptr inbounds float, ptr %p, i64 %indvars.iv
-  %12 = load float, ptr %arrayidx.i27, align 4
+  %13 = load float, ptr %indvars.iv.sroa.phi65, align 4
   %arrayidx.i29 = getelementptr inbounds float, ptr %this, i64 %indvars.iv
-  %13 = load float, ptr %arrayidx.i29, align 4
-  %cmp8 = fcmp olt float %12, %13
+  %14 = load float, ptr %arrayidx.i29, align 4
+  %cmp8 = fcmp olt float %13, %14
   br i1 %cmp8, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
   %arrayidx.i31 = getelementptr inbounds float, ptr %upperBound17, i64 %indvars.iv
-  %14 = load float, ptr %arrayidx.i31, align 4
-  %cmp11 = fcmp olt float %14, %12
+  %15 = load float, ptr %arrayidx.i31, align 4
+  %cmp11 = fcmp olt float %15, %13
   br i1 %cmp11, label %return, label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %arrayidx.i35 = getelementptr inbounds float, ptr %d, i64 %indvars.iv
-  %15 = load float, ptr %arrayidx.i35, align 4
-  %div = fdiv float 1.000000e+00, %15
+  %16 = load float, ptr %indvars.iv.sroa.phi60, align 4
+  %div = fdiv float 1.000000e+00, %16
   %arrayidx.i37 = getelementptr inbounds float, ptr %this, i64 %indvars.iv
-  %16 = load float, ptr %arrayidx.i37, align 4
-  %arrayidx.i39 = getelementptr inbounds float, ptr %p, i64 %indvars.iv
-  %17 = load float, ptr %arrayidx.i39, align 4
-  %sub = fsub float %16, %17
+  %17 = load float, ptr %arrayidx.i37, align 4
+  %18 = load float, ptr %indvars.iv.sroa.phi65, align 4
+  %sub = fsub float %17, %18
   %mul = fmul float %div, %sub
   %arrayidx.i41 = getelementptr inbounds float, ptr %upperBound17, i64 %indvars.iv
-  %18 = load float, ptr %arrayidx.i41, align 4
-  %sub20 = fsub float %18, %17
+  %19 = load float, ptr %arrayidx.i41, align 4
+  %sub20 = fsub float %19, %18
   %mul21 = fmul float %div, %sub20
   %cmp22 = fcmp ogt float %mul, %mul21
   %t1.0 = select i1 %cmp22, float %mul21, float %mul
@@ -506,8 +512,7 @@ if.else:                                          ; preds = %for.body
 if.then26:                                        ; preds = %if.else
   %s.0 = select i1 %cmp22, float 1.000000e+00, float -1.000000e+00
   store <2 x float> zeroinitializer, ptr %normal, align 8
-  %arrayidx.i46 = getelementptr inbounds float, ptr %normal, i64 %indvars.iv
-  store float %s.0, ptr %arrayidx.i46, align 4
+  store float %s.0, ptr %indvars.iv.sroa.phi, align 4
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then26, %if.else
@@ -525,16 +530,16 @@ for.inc:                                          ; preds = %lor.lhs.false, %if.
 for.end:                                          ; preds = %for.inc
   %cmp34 = fcmp olt float %tmin.2, 0.000000e+00
   %maxFraction = getelementptr inbounds i8, ptr %input, i64 16
-  %19 = load float, ptr %maxFraction, align 4
-  %cmp36 = fcmp olt float %19, %tmin.2
+  %20 = load float, ptr %maxFraction, align 4
+  %cmp36 = fcmp olt float %20, %tmin.2
   %or.cond = select i1 %cmp34, i1 true, i1 %cmp36
   br i1 %or.cond, label %return, label %if.end38
 
 if.end38:                                         ; preds = %for.end
   %fraction = getelementptr inbounds i8, ptr %output, i64 8
   store float %tmin.2, ptr %fraction, align 4
-  %20 = load i64, ptr %normal, align 8
-  store i64 %20, ptr %output, align 4
+  %normal.0. = load i64, ptr %normal, align 8
+  store i64 %normal.0., ptr %output, align 4
   br label %return
 
 return:                                           ; preds = %if.end28, %if.then, %lor.lhs.false, %for.end, %if.end38

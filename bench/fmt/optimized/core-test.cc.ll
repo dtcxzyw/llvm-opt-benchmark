@@ -9367,10 +9367,6 @@ entry:
   %rhs.addr.i = alloca ptr, align 8
   %ref.tmp.i = alloca ptr, align 8
   %buffer = alloca %struct.mock_buffer, align 8
-  %buffer.sroa.gep266 = getelementptr inbounds i8, ptr %buffer, i64 32
-  %buffer.sroa.gep265 = getelementptr inbounds i8, ptr %buffer, i64 32
-  %buffer.sroa.gep264 = getelementptr inbounds i8, ptr %buffer, i64 32
-  %buffer.sroa.gep = getelementptr inbounds i8, ptr %buffer, i64 32
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca %"class.testing::Message", align 8
   %ref.tmp6 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -9386,10 +9382,6 @@ entry:
   %ref.tmp49 = alloca %"class.testing::internal::AssertHelper", align 8
   %dummy = alloca i32, align 4
   %buffer61 = alloca %struct.mock_buffer, align 8
-  %buffer61.sroa.gep269 = getelementptr inbounds i8, ptr %buffer61, i64 32
-  %buffer61.sroa.gep268 = getelementptr inbounds i8, ptr %buffer61, i64 32
-  %buffer61.sroa.gep267 = getelementptr inbounds i8, ptr %buffer61, i64 32
-  %buffer61.sroa.gep = getelementptr inbounds i8, ptr %buffer61, i64 32
   %gtest_ar62 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp63 = alloca ptr, align 8
   %ref.tmp64 = alloca ptr, align 8
@@ -9408,10 +9400,6 @@ entry:
   %dummy134 = alloca i32, align 4
   %capacity = alloca i64, align 8
   %buffer136 = alloca %struct.mock_buffer, align 8
-  %buffer136.sroa.gep272 = getelementptr inbounds i8, ptr %buffer136, i64 32
-  %buffer136.sroa.gep271 = getelementptr inbounds i8, ptr %buffer136, i64 32
-  %buffer136.sroa.gep270 = getelementptr inbounds i8, ptr %buffer136, i64 32
-  %buffer136.sroa.gep = getelementptr inbounds i8, ptr %buffer136, i64 32
   %gtest_ar137 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp138 = alloca ptr, align 8
   %ref.tmp139 = alloca ptr, align 8
@@ -9426,6 +9414,18 @@ entry:
   %ref.tmp186 = alloca i64, align 8
   %ref.tmp194 = alloca %"class.testing::Message", align 8
   %ref.tmp196 = alloca %"class.testing::internal::AssertHelper", align 8
+  %buffer136.sink.sroa.gep = getelementptr inbounds i8, ptr %buffer, i64 32
+  %buffer136.sink.sroa.gep264 = getelementptr inbounds i8, ptr %buffer, i64 32
+  %buffer136.sink.sroa.gep265 = getelementptr inbounds i8, ptr %buffer, i64 32
+  %buffer136.sink.sroa.gep266 = getelementptr inbounds i8, ptr %buffer, i64 32
+  %buffer136.sink.sroa.gep267 = getelementptr inbounds i8, ptr %buffer61, i64 32
+  %buffer136.sink.sroa.gep268 = getelementptr inbounds i8, ptr %buffer61, i64 32
+  %buffer136.sink.sroa.gep269 = getelementptr inbounds i8, ptr %buffer61, i64 32
+  %buffer136.sink.sroa.gep270 = getelementptr inbounds i8, ptr %buffer61, i64 32
+  %buffer136.sink.sroa.gep271 = getelementptr inbounds i8, ptr %buffer136, i64 32
+  %buffer136.sink.sroa.gep272 = getelementptr inbounds i8, ptr %buffer136, i64 32
+  %buffer136.sink.sroa.gep273 = getelementptr inbounds i8, ptr %buffer136, i64 32
+  %buffer136.sink.sroa.gep274 = getelementptr inbounds i8, ptr %buffer136, i64 32
   call void @_ZN11mock_bufferIiEC2EPim(ptr noundef nonnull align 8 dereferenceable(104) %buffer, ptr noundef null, i64 noundef 0)
   %ptr_.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %0 = load ptr, ptr %ptr_.i, align 8
@@ -10465,8 +10465,8 @@ ehcleanup206:                                     ; preds = %_ZN7testing7Message
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad140, %ehcleanup161, %ehcleanup184, %ehcleanup206, %lpad65, %ehcleanup86, %ehcleanup109, %ehcleanup132, %lpad, %ehcleanup13, %ehcleanup36, %ehcleanup59
+  %buffer136.sink.sroa.phi = phi ptr [ %buffer136.sink.sroa.gep, %ehcleanup59 ], [ %buffer136.sink.sroa.gep264, %ehcleanup36 ], [ %buffer136.sink.sroa.gep265, %ehcleanup13 ], [ %buffer136.sink.sroa.gep266, %lpad ], [ %buffer136.sink.sroa.gep267, %ehcleanup132 ], [ %buffer136.sink.sroa.gep268, %ehcleanup109 ], [ %buffer136.sink.sroa.gep269, %ehcleanup86 ], [ %buffer136.sink.sroa.gep270, %lpad65 ], [ %buffer136.sink.sroa.gep271, %ehcleanup206 ], [ %buffer136.sink.sroa.gep272, %ehcleanup184 ], [ %buffer136.sink.sroa.gep273, %ehcleanup161 ], [ %buffer136.sink.sroa.gep274, %lpad140 ]
   %.pn26.pn.pn.pn = phi { ptr, i32 } [ %.pn6.pn, %ehcleanup59 ], [ %.pn3.pn, %ehcleanup36 ], [ %.pn.pn, %ehcleanup13 ], [ %3, %lpad ], [ %.pn16.pn, %ehcleanup132 ], [ %.pn13.pn, %ehcleanup109 ], [ %.pn10.pn, %ehcleanup86 ], [ %40, %lpad65 ], [ %.pn26.pn, %ehcleanup206 ], [ %.pn23.pn, %ehcleanup184 ], [ %.pn20.pn, %ehcleanup161 ], [ %77, %lpad140 ]
-  %buffer136.sink.sroa.phi = phi ptr [ %buffer.sroa.gep, %ehcleanup59 ], [ %buffer.sroa.gep264, %ehcleanup36 ], [ %buffer.sroa.gep265, %ehcleanup13 ], [ %buffer.sroa.gep266, %lpad ], [ %buffer61.sroa.gep, %ehcleanup132 ], [ %buffer61.sroa.gep267, %ehcleanup109 ], [ %buffer61.sroa.gep268, %ehcleanup86 ], [ %buffer61.sroa.gep269, %lpad65 ], [ %buffer136.sroa.gep, %ehcleanup206 ], [ %buffer136.sroa.gep270, %ehcleanup184 ], [ %buffer136.sroa.gep271, %ehcleanup161 ], [ %buffer136.sroa.gep272, %lpad140 ]
   call void @_ZN7testing8internal14FunctionMockerIFmmEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %buffer136.sink.sroa.phi) #23
   resume { ptr, i32 } %.pn26.pn.pn.pn
 }
@@ -24018,7 +24018,7 @@ declare void @_ZN7testing8internal25UntypedFunctionMockerBase15SetOwnerAndNameEP
 
 declare noundef ptr @_ZN7testing8internal25UntypedFunctionMockerBase17UntypedInvokeWithEPv(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
@@ -24030,15 +24030,15 @@ entry:
   %call = call noundef ptr @_ZN7testing8internal25UntypedFunctionMockerBase17UntypedInvokeWithEPv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %tuple)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %entry
+dynamic_cast.end.i:                               ; preds = %entry
   %0 = call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7testing8internal29UntypedActionResultHolderBaseE, ptr nonnull @_ZTIN7testing8internal18ActionResultHolderI11test_resultEE, i64 0) #23
   %cmp1.i = icmp ne ptr %0, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %entry
-  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %entry
+  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %1)
   br i1 %call.i, label %invoke.cont, label %if.else.i
 
@@ -24955,15 +24955,15 @@ entry:
   %call = call noundef ptr @_ZN7testing8internal25UntypedFunctionMockerBase17UntypedInvokeWithEPv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %tuple)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %entry
+dynamic_cast.end.i:                               ; preds = %entry
   %0 = call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7testing8internal29UntypedActionResultHolderBaseE, ptr nonnull @_ZTIN7testing8internal18ActionResultHolderI11test_resultEE, i64 0) #23
   %cmp1.i = icmp ne ptr %0, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %entry
-  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %entry
+  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %1)
   br i1 %call.i, label %invoke.cont, label %if.else.i
 
@@ -25545,15 +25545,15 @@ entry:
   %call = call noundef ptr @_ZN7testing8internal25UntypedFunctionMockerBase17UntypedInvokeWithEPv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %tuple)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %entry
+dynamic_cast.end.i:                               ; preds = %entry
   %0 = call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7testing8internal29UntypedActionResultHolderBaseE, ptr nonnull @_ZTIN7testing8internal18ActionResultHolderI11test_resultEE, i64 0) #23
   %cmp1.i = icmp ne ptr %0, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %entry
-  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %entry
+  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %1)
   br i1 %call.i, label %invoke.cont, label %if.else.i
 
@@ -26167,15 +26167,15 @@ entry:
   %call = call noundef ptr @_ZN7testing8internal25UntypedFunctionMockerBase17UntypedInvokeWithEPv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %tuple)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %entry
+dynamic_cast.end.i:                               ; preds = %entry
   %0 = call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7testing8internal29UntypedActionResultHolderBaseE, ptr nonnull @_ZTIN7testing8internal18ActionResultHolderI11test_resultEE, i64 0) #23
   %cmp1.i = icmp ne ptr %0, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %entry
-  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %entry
+  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %1)
   br i1 %call.i, label %invoke.cont, label %if.else.i
 
@@ -26757,15 +26757,15 @@ entry:
   %call = call noundef ptr @_ZN7testing8internal25UntypedFunctionMockerBase17UntypedInvokeWithEPv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %tuple)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %entry
+dynamic_cast.end.i:                               ; preds = %entry
   %0 = call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7testing8internal29UntypedActionResultHolderBaseE, ptr nonnull @_ZTIN7testing8internal18ActionResultHolderI11test_resultEE, i64 0) #23
   %cmp1.i = icmp ne ptr %0, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %entry
-  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %entry
+  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %1)
   br i1 %call.i, label %invoke.cont, label %if.else.i
 
@@ -27382,15 +27382,15 @@ entry:
   %call = call noundef ptr @_ZN7testing8internal25UntypedFunctionMockerBase17UntypedInvokeWithEPv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %tuple)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %entry
+dynamic_cast.end.i:                               ; preds = %entry
   %0 = call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7testing8internal29UntypedActionResultHolderBaseE, ptr nonnull @_ZTIN7testing8internal18ActionResultHolderI11test_resultEE, i64 0) #23
   %cmp1.i = icmp ne ptr %0, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %entry
-  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %entry
+  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %1)
   br i1 %call.i, label %invoke.cont, label %if.else.i
 
@@ -28003,15 +28003,15 @@ entry:
   %call = call noundef ptr @_ZN7testing8internal25UntypedFunctionMockerBase17UntypedInvokeWithEPv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %tuple)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %entry
+dynamic_cast.end.i:                               ; preds = %entry
   %0 = call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7testing8internal29UntypedActionResultHolderBaseE, ptr nonnull @_ZTIN7testing8internal18ActionResultHolderI11test_resultEE, i64 0) #23
   %cmp1.i = icmp ne ptr %0, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %entry
-  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %entry
+  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %1)
   br i1 %call.i, label %invoke.cont, label %if.else.i
 
@@ -28664,15 +28664,15 @@ entry:
   %call = call noundef ptr @_ZN7testing8internal25UntypedFunctionMockerBase17UntypedInvokeWithEPv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %tuple)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %entry
+dynamic_cast.end.i:                               ; preds = %entry
   %0 = call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7testing8internal29UntypedActionResultHolderBaseE, ptr nonnull @_ZTIN7testing8internal18ActionResultHolderI11test_resultEE, i64 0) #23
   %cmp1.i = icmp ne ptr %0, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %entry
-  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %entry
+  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %1)
   br i1 %call.i, label %invoke.cont, label %if.else.i
 
@@ -32531,15 +32531,15 @@ entry:
   %call = call noundef ptr @_ZN7testing8internal25UntypedFunctionMockerBase17UntypedInvokeWithEPv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %tuple)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %entry
+dynamic_cast.end.i:                               ; preds = %entry
   %0 = call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7testing8internal29UntypedActionResultHolderBaseE, ptr nonnull @_ZTIN7testing8internal18ActionResultHolderImEE, i64 0) #23
   %cmp1.i = icmp ne ptr %0, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %entry
-  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %entry
+  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %1)
   br i1 %call.i, label %_ZNSt10unique_ptrIN7testing8internal18ActionResultHolderImEESt14default_deleteIS3_EED2Ev.exit, label %if.else.i
 
@@ -33630,7 +33630,7 @@ land.rhs.i:                                       ; preds = %if.end.i
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %typeid.end, %if.end.i, %land.rhs.i
   %retval.0.i = phi i1 [ true, %typeid.end ], [ false, %if.end.i ], [ %cmp7.i, %land.rhs.i ]
   %call1 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %retval.0.i)
-  br i1 %call1, label %dynamic_cast.notnull, label %if.else
+  br i1 %call1, label %dynamic_cast.end, label %if.else
 
 if.else:                                          ; preds = %_ZNKSt9type_infoeqERKS_.exit
   call void @_ZN7testing8internal8GTestLogC1ENS0_16GTestLogSeverityEPKci(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, i32 noundef 3, ptr noundef nonnull @.str.197, i32 noundef 1367)
@@ -33639,7 +33639,7 @@ if.else:                                          ; preds = %_ZNKSt9type_infoeqE
 
 invoke.cont:                                      ; preds = %if.else
   call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #23
-  br label %dynamic_cast.notnull
+  br label %dynamic_cast.end
 
 lpad:                                             ; preds = %if.else
   %5 = landingpad { ptr, i32 }
@@ -33647,7 +33647,7 @@ lpad:                                             ; preds = %if.else
   call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp) #23
   resume { ptr, i32 } %5
 
-dynamic_cast.notnull:                             ; preds = %invoke.cont, %_ZNKSt9type_infoeqERKS_.exit
+dynamic_cast.end:                                 ; preds = %_ZNKSt9type_infoeqERKS_.exit, %invoke.cont
   %6 = call ptr @__dynamic_cast(ptr nonnull %base, ptr nonnull @_ZTIN7testing8internal26ThreadLocalValueHolderBaseE, ptr nonnull @_ZTIN7testing8internal11ThreadLocalIPNS_8SequenceEE11ValueHolderE, i64 0) #23
   ret ptr %6
 }
@@ -41736,15 +41736,15 @@ entry:
   %call = call noundef ptr @_ZN7testing8internal25UntypedFunctionMockerBase17UntypedInvokeWithEPv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %tuple)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %entry
+dynamic_cast.end.i:                               ; preds = %entry
   %0 = call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7testing8internal29UntypedActionResultHolderBaseE, ptr nonnull @_ZTIN7testing8internal18ActionResultHolderI11test_resultEE, i64 0) #23
   %cmp1.i = icmp ne ptr %0, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %entry
-  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %entry
+  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %1)
   br i1 %call.i, label %invoke.cont, label %if.else.i
 
@@ -47369,15 +47369,15 @@ entry:
   %call = call noundef ptr @_ZN7testing8internal25UntypedFunctionMockerBase17UntypedInvokeWithEPv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %tuple)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %entry
+dynamic_cast.end.i:                               ; preds = %entry
   %0 = call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7testing8internal29UntypedActionResultHolderBaseE, ptr nonnull @_ZTIN7testing8internal18ActionResultHolderI11test_resultEE, i64 0) #23
   %cmp1.i = icmp ne ptr %0, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %entry
-  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %entry
+  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %1)
   br i1 %call.i, label %invoke.cont, label %if.else.i
 
@@ -53002,15 +53002,15 @@ entry:
   %call = call noundef ptr @_ZN7testing8internal25UntypedFunctionMockerBase17UntypedInvokeWithEPv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %tuple)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %entry
+dynamic_cast.end.i:                               ; preds = %entry
   %0 = call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7testing8internal29UntypedActionResultHolderBaseE, ptr nonnull @_ZTIN7testing8internal18ActionResultHolderI11test_resultEE, i64 0) #23
   %cmp1.i = icmp ne ptr %0, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %entry
-  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %entry
+  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %1)
   br i1 %call.i, label %invoke.cont, label %if.else.i
 
@@ -63977,15 +63977,15 @@ entry:
   %call = call noundef ptr @_ZN7testing8internal25UntypedFunctionMockerBase17UntypedInvokeWithEPv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %tuple)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %entry
+dynamic_cast.end.i:                               ; preds = %entry
   %0 = call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7testing8internal29UntypedActionResultHolderBaseE, ptr nonnull @_ZTIN7testing8internal18ActionResultHolderI11test_resultEE, i64 0) #23
   %cmp1.i = icmp ne ptr %0, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %entry
-  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %entry
+  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %1)
   br i1 %call.i, label %invoke.cont, label %if.else.i
 
@@ -69612,15 +69612,15 @@ entry:
   %call = call noundef ptr @_ZN7testing8internal25UntypedFunctionMockerBase17UntypedInvokeWithEPv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %tuple)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %entry
+dynamic_cast.end.i:                               ; preds = %entry
   %0 = call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7testing8internal29UntypedActionResultHolderBaseE, ptr nonnull @_ZTIN7testing8internal18ActionResultHolderI11test_resultEE, i64 0) #23
   %cmp1.i = icmp ne ptr %0, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %entry
-  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %entry
+  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %1)
   br i1 %call.i, label %invoke.cont, label %if.else.i
 
@@ -77929,15 +77929,15 @@ entry:
   %call = call noundef ptr @_ZN7testing8internal25UntypedFunctionMockerBase17UntypedInvokeWithEPv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %tuple)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %entry
+dynamic_cast.end.i:                               ; preds = %entry
   %0 = call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7testing8internal29UntypedActionResultHolderBaseE, ptr nonnull @_ZTIN7testing8internal18ActionResultHolderI11test_resultEE, i64 0) #23
   %cmp1.i = icmp ne ptr %0, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %entry
-  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %entry
+  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %1)
   br i1 %call.i, label %invoke.cont, label %if.else.i
 
@@ -83562,15 +83562,15 @@ entry:
   %call = call noundef ptr @_ZN7testing8internal25UntypedFunctionMockerBase17UntypedInvokeWithEPv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %tuple)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %entry
+dynamic_cast.end.i:                               ; preds = %entry
   %0 = call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7testing8internal29UntypedActionResultHolderBaseE, ptr nonnull @_ZTIN7testing8internal18ActionResultHolderI11test_resultEE, i64 0) #23
   %cmp1.i = icmp ne ptr %0, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %entry
-  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %entry
+  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %1)
   br i1 %call.i, label %invoke.cont, label %if.else.i
 
@@ -89430,15 +89430,15 @@ entry:
   %call = call noundef ptr @_ZN7testing8internal25UntypedFunctionMockerBase17UntypedInvokeWithEPv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %tuple)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp eq ptr %call, null
-  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %entry
+dynamic_cast.end.i:                               ; preds = %entry
   %0 = call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7testing8internal29UntypedActionResultHolderBaseE, ptr nonnull @_ZTIN7testing8internal18ActionResultHolderI11test_resultEE, i64 0) #23
   %cmp1.i = icmp ne ptr %0, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %entry
-  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %entry
+  %1 = phi i1 [ true, %entry ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %1)
   br i1 %call.i, label %invoke.cont, label %if.else.i
 
@@ -122830,7 +122830,7 @@ attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind memory(read) }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

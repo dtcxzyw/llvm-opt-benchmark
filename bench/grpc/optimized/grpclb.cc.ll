@@ -11271,14 +11271,16 @@ entry:
   %ref.tmp33 = alloca %"class.grpc_core::EndpointAddresses", align 8
   %ref.tmp34 = alloca %"class.grpc_core::ChannelArgs", align 8
   %ref.tmp35 = alloca %"class.grpc_core::ChannelArgs", align 8
+  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %addr, i64 8
+  %.sink.i.sroa.gep37 = getelementptr inbounds i8, ptr %addr, i64 4
   %serverlist_ = getelementptr inbounds i8, ptr %this, i64 8
-  %serverlist_.val1540 = load ptr, ptr %serverlist_, align 8
-  %serverlist_241 = getelementptr inbounds i8, ptr %serverlist_.val1540, i64 16
-  %_M_finish.i42 = getelementptr inbounds i8, ptr %serverlist_.val1540, i64 24
-  %0 = load ptr, ptr %_M_finish.i42, align 8
-  %1 = load ptr, ptr %serverlist_241, align 8
-  %cmp47.not = icmp eq ptr %0, %1
-  br i1 %cmp47.not, label %for.end, label %for.body.lr.ph
+  %serverlist_.val1541 = load ptr, ptr %serverlist_, align 8
+  %serverlist_242 = getelementptr inbounds i8, ptr %serverlist_.val1541, i64 16
+  %_M_finish.i43 = getelementptr inbounds i8, ptr %serverlist_.val1541, i64 24
+  %0 = load ptr, ptr %_M_finish.i43, align 8
+  %1 = load ptr, ptr %serverlist_242, align 8
+  %cmp48.not = icmp eq ptr %0, %1
+  br i1 %cmp48.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %len8.i = getelementptr inbounds i8, ptr %addr, i64 128
@@ -11290,10 +11292,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %serverlist_.val1551 = phi ptr [ %serverlist_.val1540, %for.body.lr.ph ], [ %serverlist_.val15, %for.inc ]
+  %serverlist_.val1552 = phi ptr [ %serverlist_.val1541, %for.body.lr.ph ], [ %serverlist_.val15, %for.inc ]
   %3 = phi ptr [ %1, %for.body.lr.ph ], [ %37, %for.inc ]
-  %i.048 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %add.ptr.i = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %3, i64 %i.048
+  %i.049 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %add.ptr.i = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %3, i64 %i.049
   %drop.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 74
   %4 = load i8, ptr %drop.i, align 2
   %5 = and i8 %4, 1
@@ -11334,14 +11336,13 @@ if.then7.i:                                       ; preds = %if.end.i
 if.end15.sink.split.i:                            ; preds = %if.then7.i, %if.end.i
   %.sink18.i = phi i32 [ 28, %if.then7.i ], [ 16, %if.end.i ]
   %.sink17.i = phi i16 [ 10, %if.then7.i ], [ 2, %if.end.i ]
-  %.sink.i = phi i64 [ 8, %if.then7.i ], [ 4, %if.end.i ]
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %if.then7.i ], [ %.sink.i.sroa.gep37, %if.end.i ]
   store i32 %.sink18.i, ptr %len8.i, align 4
   store i16 %.sink17.i, ptr %addr, align 4
-  %sin6_addr.i = getelementptr inbounds i8, ptr %addr, i64 %.sink.i
   %ip_addr10.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %12 = load i32, ptr %add.ptr.i, align 4
   %conv13.i = sext i32 %12 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %sin6_addr.i, ptr nonnull align 4 %ip_addr10.i, i64 %conv13.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sink.i.sroa.phi, ptr nonnull align 4 %ip_addr10.i, i64 %conv13.i, i1 false)
   store i16 %call.i, ptr %sin6_port.i, align 2
   br label %_ZN9grpc_core12_GLOBAL__N_111ParseServerERKNS_12GrpcLbServerEP21grpc_resolved_address.exit
 
@@ -11537,8 +11538,8 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_16GrpcLb22TokenAndClientStatsArgEED
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN9grpc_core12_GLOBAL__N_113IsServerValidERKNS_12GrpcLbServerEmb.exit, %for.body, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_16GrpcLb22TokenAndClientStatsArgEED2Ev.exit
-  %serverlist_.val15 = phi ptr [ %serverlist_.val1551, %_ZN9grpc_core12_GLOBAL__N_113IsServerValidERKNS_12GrpcLbServerEmb.exit ], [ %serverlist_.val1551, %for.body ], [ %serverlist_.val15.pre, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_16GrpcLb22TokenAndClientStatsArgEED2Ev.exit ]
-  %inc = add nuw i64 %i.048, 1
+  %serverlist_.val15 = phi ptr [ %serverlist_.val1552, %_ZN9grpc_core12_GLOBAL__N_113IsServerValidERKNS_12GrpcLbServerEmb.exit ], [ %serverlist_.val1552, %for.body ], [ %serverlist_.val15.pre, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_16GrpcLb22TokenAndClientStatsArgEED2Ev.exit ]
+  %inc = add nuw i64 %i.049, 1
   %serverlist_2 = getelementptr inbounds i8, ptr %serverlist_.val15, i64 16
   %_M_finish.i = getelementptr inbounds i8, ptr %serverlist_.val15, i64 24
   %36 = load ptr, ptr %_M_finish.i, align 8
@@ -19950,13 +19951,15 @@ entry:
   %addr_str = alloca %"class.absl::lts_20230802::StatusOr.457", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
+  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %addr, i64 8
+  %.sink.i.sroa.gep13 = getelementptr inbounds i8, ptr %addr, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %entries, i8 0, i64 24, i1 false)
   %serverlist_ = getelementptr inbounds i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %serverlist_, align 8
-  %cmp18.not = icmp eq ptr %0, %1
-  br i1 %cmp18.not, label %for.end, label %for.body.lr.ph
+  %cmp19.not = icmp eq ptr %0, %1
+  br i1 %cmp19.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %len8.i = getelementptr inbounds i8, ptr %addr, i64 128
@@ -19973,8 +19976,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont21
   %3 = phi ptr [ %1, %for.body.lr.ph ], [ %22, %invoke.cont21 ]
-  %storemerge19 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont21 ]
-  %add.ptr.i = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %3, i64 %storemerge19
+  %storemerge20 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont21 ]
+  %add.ptr.i = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %3, i64 %storemerge20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ipport) #32
   %drop = getelementptr inbounds i8, ptr %add.ptr.i, i64 74
   %4 = load i8, ptr %drop, align 2
@@ -20018,14 +20021,13 @@ if.then7.i:                                       ; preds = %call.i.noexc
 if.end15.sink.split.i:                            ; preds = %if.then7.i, %call.i.noexc
   %.sink18.i = phi i32 [ 28, %if.then7.i ], [ 16, %call.i.noexc ]
   %.sink17.i = phi i16 [ 10, %if.then7.i ], [ 2, %call.i.noexc ]
-  %.sink.i = phi i64 [ 8, %if.then7.i ], [ 4, %call.i.noexc ]
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %if.then7.i ], [ %.sink.i.sroa.gep13, %call.i.noexc ]
   store i32 %.sink18.i, ptr %len8.i, align 4
   store i16 %.sink17.i, ptr %addr, align 4
-  %sin6_addr.i = getelementptr inbounds i8, ptr %addr, i64 %.sink.i
   %ip_addr10.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %11 = load i32, ptr %add.ptr.i, align 4
   %conv13.i = sext i32 %11 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %sin6_addr.i, ptr nonnull align 4 %ip_addr10.i, i64 %conv13.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sink.i.sroa.phi, ptr nonnull align 4 %ip_addr10.i, i64 %conv13.i, i1 false)
   store i16 %call.i5, ptr %sin6_port.i, align 2
   br label %invoke.cont5
 
@@ -20082,7 +20084,7 @@ lpad7:                                            ; preds = %cond.false, %invoke
 invoke.cont18:                                    ; preds = %if.then, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, %if.else.i.i, %if.then.i.i3.i.i
   %load_balance_token = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  %17 = inttoptr i64 %storemerge19 to ptr
+  %17 = inttoptr i64 %storemerge20 to ptr
   store ptr %17, ptr %ref.tmp.i, align 8, !noalias !245
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchImEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !245
   store ptr %ipport, ptr %arrayinit.element.i, align 8, !noalias !245
@@ -20113,7 +20115,7 @@ if.else.i.i9:                                     ; preds = %invoke.cont19
 invoke.cont21:                                    ; preds = %if.then.i.i8, %if.else.i.i9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ipport) #32
-  %inc = add nuw i64 %storemerge19, 1
+  %inc = add nuw i64 %storemerge20, 1
   %21 = load ptr, ptr %_M_finish.i, align 8
   %22 = load ptr, ptr %serverlist_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %21 to i64
@@ -20136,11 +20138,11 @@ ehcleanup:                                        ; preds = %lpad20, %lpad7, %lp
 
 for.end.loopexit:                                 ; preds = %invoke.cont21
   %.pre = load ptr, ptr %entries, align 8, !noalias !249
-  %.pre20 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !249
+  %.pre21 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !249
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %24 = phi ptr [ %.pre20, %for.end.loopexit ], [ null, %entry ]
+  %24 = phi ptr [ %.pre21, %for.end.loopexit ], [ null, %entry ]
   %25 = phi ptr [ %.pre, %for.end.loopexit ], [ null, %entry ]
   invoke void @_ZN4absl12lts_2023080216strings_internal13JoinAlgorithmIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEvEESA_T_SH_St17basic_string_viewIcS8_ENS1_11NoFormatterE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr %25, ptr %24, i64 0, ptr nonnull @.str.21)
           to label %invoke.cont23 unwind label %lpad22

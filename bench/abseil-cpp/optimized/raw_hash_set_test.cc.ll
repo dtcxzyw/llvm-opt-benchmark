@@ -100607,9 +100607,7 @@ entry:
 define internal void @_ZN4absl18container_internal12_GLOBAL__N_144Table_ReplacingDeletedSlotDoesNotRehash_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
-  %t.sroa.gep = getelementptr inbounds i8, ptr %t, i64 24
   %t7 = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
-  %t7.sroa.gep = getelementptr inbounds i8, ptr %t7, i64 24
   %c10 = alloca i64, align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp21 = alloca i64, align 8
@@ -100619,6 +100617,8 @@ entry:
   %ref.tmp48 = alloca i64, align 8
   %ref.tmp55 = alloca %"class.testing::Message", align 8
   %ref.tmp63 = alloca %"class.testing::internal::AssertHelper", align 8
+  %t7.sink.sroa.gep = getelementptr inbounds i8, ptr %t, i64 24
+  %t7.sink.sroa.gep299 = getelementptr inbounds i8, ptr %t7, i64 24
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 0, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %t, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
@@ -101280,9 +101280,9 @@ ehcleanup73:                                      ; preds = %lpad8.loopexit, %lp
   br i1 %cmp.i.i.i243, label %eh.resume, label %eh.resume.sink.split
 
 eh.resume.sink.split:                             ; preds = %ehcleanup73, %lpad
+  %t7.sink.sroa.phi = phi ptr [ %t7.sink.sroa.gep, %lpad ], [ %t7.sink.sroa.gep299, %ehcleanup73 ]
   %t7.sink = phi ptr [ %t, %lpad ], [ %t7, %ehcleanup73 ]
   %.pn9.ph = phi { ptr, i32 } [ %lpad.phi265, %lpad ], [ %.pn7, %ehcleanup73 ]
-  %t7.sink.sroa.phi = phi ptr [ %t.sroa.gep, %lpad ], [ %t7.sroa.gep, %ehcleanup73 ]
   %.sink = load ptr, ptr %t7.sink, align 8
   %72 = load i64, ptr %t7.sink.sroa.phi, align 8
   %and.i.i.i.i.i.i246 = and i64 %72, 1

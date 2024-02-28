@@ -17312,9 +17312,9 @@ define linkonce_odr dso_local noundef i32 @_ZN4node4quic7Session4Impl15on_stream
 entry:
   %scope = alloca %"struct.node::quic::NgTcp2CallbackScope", align 8
   %agg.tmp = alloca %"class.node::quic::QuicError", align 8
-  %agg.tmp.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %agg.tmp10 = alloca %"class.node::quic::QuicError", align 8
-  %agg.tmp10.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp10, i64 8
+  %agg.tmp10.sink9.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp10, i64 8
+  %agg.tmp10.sink9.sroa.gep10 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %ptr_.i.i = getelementptr inbounds i8, ptr %user_data, i64 128
   %0 = load ptr, ptr %ptr_.i.i, align 8
   %destroyed.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -17344,8 +17344,8 @@ if.else:                                          ; preds = %if.end
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %if.then4
+  %agg.tmp10.sink9.sroa.phi = phi ptr [ %agg.tmp10.sink9.sroa.gep, %if.else ], [ %agg.tmp10.sink9.sroa.gep10, %if.then4 ]
   %agg.tmp10.sink9 = phi ptr [ %agg.tmp10, %if.else ], [ %agg.tmp, %if.then4 ]
-  %agg.tmp10.sink9.sroa.phi = phi ptr [ %agg.tmp10.sroa.gep, %if.else ], [ %agg.tmp.sroa.gep, %if.then4 ]
   %vtable12 = load ptr, ptr %4, align 8
   %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 144
   %5 = load ptr, ptr %vfn13, align 8

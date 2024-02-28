@@ -627,12 +627,14 @@ define void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
   %12 = alloca { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, align 8
   %13 = alloca { ptr, i64 }, align 8
   %14 = alloca { { ptr, i64 }, i64, { {} }, {} }, align 8
+  %.0122.sroa.gep = getelementptr inbounds i8, ptr %11, i64 8
   %15 = icmp eq i64 %2, 0
-  %16 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %16)
-  br i1 %15, label %17, label %25
+  br i1 %15, label %16, label %24
 
-17:                                               ; preds = %3
+16:                                               ; preds = %3
+  %.0121.sroa.gep = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = icmp ne ptr %1, null
+  tail call void @llvm.assume(i1 %17)
   call void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h344548579fad2990E"(ptr nonnull align 1 %4)
   %18 = call { ptr, i64 } @"_ZN5alloc11collections5btree4node117NodeRef$LT$alloc..collections..btree..node..marker..Owned$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$8new_leaf17heeda1abddab5db0bE"()
   %19 = extractvalue { ptr, i64 } %18, 0
@@ -640,14 +642,15 @@ define void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
   %21 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %21)
   store ptr %19, ptr %14, align 8
-  %22 = getelementptr inbounds i8, ptr %14, i64 8
-  store i64 %20, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %14, i64 16
-  store i64 0, ptr %23, align 8
-  %24 = icmp eq i64 %20, 0
-  br i1 %24, label %33, label %37
+  store i64 %20, ptr %.0121.sroa.gep, align 8
+  %22 = getelementptr inbounds i8, ptr %14, i64 16
+  store i64 0, ptr %22, align 8
+  %23 = icmp eq i64 %20, 0
+  br i1 %23, label %33, label %37
 
-25:                                               ; preds = %3
+24:                                               ; preds = %3
+  %25 = icmp ne ptr %1, null
+  tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds i8, ptr %1, i64 456
   %27 = load ptr, ptr %26, align 8, !nonnull !5, !noundef !5
   call void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h344548579fad2990E"(ptr nonnull align 1 %4)
@@ -675,7 +678,7 @@ define void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
 32:                                               ; preds = %59, %37
   unreachable
 
-33:                                               ; preds = %17
+33:                                               ; preds = %16
   store ptr %19, ptr %13, align 8
   %34 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 0, ptr %34, align 8
@@ -689,7 +692,7 @@ define void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
   %.sroa.422.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
   br label %38
 
-37:                                               ; preds = %17
+37:                                               ; preds = %16
   invoke void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr nonnull align 1 @anon.4e10c5124a9251a609dc244efb7969d2.5, i64 40, ptr nonnull align 8 @anon.4e10c5124a9251a609dc244efb7969d2.6) #7
           to label %32 unwind label %.loopexit.split-lp
 
@@ -722,9 +725,9 @@ define void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
           to label %49 unwind label %45
 
 49:                                               ; preds = %47
-  %50 = load i64, ptr %23, align 8, !noundef !5
+  %50 = load i64, ptr %22, align 8, !noundef !5
   %51 = add i64 %50, 1
-  store i64 %51, ptr %23, align 8
+  store i64 %51, ptr %22, align 8
   %52 = load i16, ptr %35, align 2, !noundef !5
   %53 = zext i16 %52 to i64
   %54 = icmp ult i64 %42, %53
@@ -742,11 +745,11 @@ define void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #9
   unreachable
 
-59:                                               ; preds = %25
+59:                                               ; preds = %24
   invoke void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr nonnull align 1 @anon.4e10c5124a9251a609dc244efb7969d2.0, i64 43, ptr nonnull align 8 @anon.4e10c5124a9251a609dc244efb7969d2.7) #7
           to label %32 unwind label %.loopexit.split-lp159
 
-60:                                               ; preds = %25
+60:                                               ; preds = %24
   invoke void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h344548579fad2990E"(ptr nonnull align 1 %4)
           to label %62 unwind label %.loopexit.split-lp159
 
@@ -770,8 +773,7 @@ define void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
           to label %63 unwind label %.loopexit.split-lp159
 
 63:                                               ; preds = %62
-  %.sroa.gep = getelementptr inbounds i8, ptr %11, i64 8
-  %64 = load i64, ptr %.sroa.gep, align 8, !noundef !5
+  %64 = load i64, ptr %.0122.sroa.gep, align 8, !noundef !5
   %65 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %66 = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %64, ptr %66, align 8

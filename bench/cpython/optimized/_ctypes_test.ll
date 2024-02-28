@@ -16,7 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Test = type { i64, i64, i64 }
 %struct.Test2 = type { [16 x i8] }
 %struct.Test3A = type { [2 x float], [2 x float] }
-%struct.Test3B = type { [2 x double] }
 %struct.Test3C = type { [4 x double] }
 %struct.Test3D = type { [8 x double] }
 %struct.Test3E = type { [9 x double] }
@@ -154,6 +153,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 define double @_testfunc_array_in_struct3A(<2 x float> %in.coerce0, <2 x float> %in.coerce1) local_unnamed_addr #6 {
 entry:
   %in = alloca %struct.Test3A, align 8
+  %indvars.iv.sroa.gep15 = getelementptr inbounds i8, ptr %in, i64 4
   store <2 x float> %in.coerce0, ptr %in, align 8
   %0 = getelementptr inbounds i8, ptr %in, i64 8
   store <2 x float> %in.coerce1, ptr %0, align 8
@@ -161,10 +161,9 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %cmp = phi i1 [ true, %entry ], [ false, %for.body ]
-  %indvars.iv = phi i64 [ 0, %entry ], [ 1, %for.body ]
+  %indvars.iv.sroa.phi = phi ptr [ %in, %entry ], [ %indvars.iv.sroa.gep15, %for.body ]
   %result.07 = phi double [ 0.000000e+00, %entry ], [ %add, %for.body ]
-  %arrayidx = getelementptr [2 x float], ptr %in, i64 0, i64 %indvars.iv
-  %1 = load float, ptr %arrayidx, align 4
+  %1 = load float, ptr %indvars.iv.sroa.phi, align 4
   %conv2 = fpext float %1 to double
   %add = fadd double %result.07, %conv2
   br i1 %cmp, label %for.body, label %for.body8, !llvm.loop !6
@@ -186,19 +185,13 @@ for.end15:                                        ; preds = %for.body8
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define double @_testfunc_array_in_struct3B(double %in.coerce0, double %in.coerce1) local_unnamed_addr #4 {
 entry:
-  %in = alloca %struct.Test3B, align 8
-  store double %in.coerce0, ptr %in, align 8
-  %0 = getelementptr inbounds i8, ptr %in, i64 8
-  store double %in.coerce1, ptr %0, align 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %cmp = phi i1 [ true, %entry ], [ false, %for.body ]
-  %indvars.iv = phi i64 [ 0, %entry ], [ 1, %for.body ]
+  %indvars.iv.sroa.phi.sroa.speculated = phi double [ %in.coerce0, %entry ], [ %in.coerce1, %for.body ]
   %result.04 = phi double [ 0.000000e+00, %entry ], [ %add, %for.body ]
-  %arrayidx = getelementptr [2 x double], ptr %in, i64 0, i64 %indvars.iv
-  %1 = load double, ptr %arrayidx, align 8
-  %add = fadd double %result.04, %1
+  %add = fadd double %result.04, %indvars.iv.sroa.phi.sroa.speculated
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body

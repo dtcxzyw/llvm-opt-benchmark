@@ -4618,7 +4618,7 @@ for.body.preheader:                               ; preds = %lor.lhs.false26
   br i1 %tobool38.not47, label %err, label %lor.lhs.false39
 
 lor.lhs.false39:                                  ; preds = %for.body.preheader, %for.inc
-  %cmp8948 = phi i1 [ true, %for.inc ], [ false, %for.body.preheader ]
+  %cmp8948.not = phi i1 [ true, %for.inc ], [ false, %for.body.preheader ]
   %call40 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2593, ptr noundef nonnull @.str.110, ptr noundef %call) #7
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %err, label %lor.lhs.false42
@@ -4686,7 +4686,7 @@ lor.lhs.false78:                                  ; preds = %lor.lhs.false75
 lor.lhs.false84:                                  ; preds = %lor.lhs.false78
   %call85 = tail call i32 @test_BN_eq_zero(ptr noundef nonnull @.str.17, i32 noundef 2603, ptr noundef nonnull @.str.110, ptr noundef %call) #7
   %tobool86.not = icmp eq i32 %call85, 0
-  %brmerge = or i1 %tobool86.not, %cmp8948
+  %brmerge = or i1 %tobool86.not, %cmp8948.not
   br i1 %brmerge, label %err.loopexit.split.loop.exit81, label %for.inc
 
 for.inc:                                          ; preds = %lor.lhs.false84
@@ -5211,8 +5211,6 @@ err:                                              ; preds = %for.cond, %if.end41
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_gf2m_mod() #1 {
 entry:
-  %b = alloca [2 x ptr], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %b, i8 0, i64 16, i1 false)
   %call = tail call ptr @BN_new() #7
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 774, ptr noundef nonnull @.str.63, ptr noundef %call) #7
   %tobool.not = icmp eq i32 %call1, 0
@@ -5220,15 +5218,12 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call2 = tail call ptr @BN_new() #7
-  store ptr %call2, ptr %b, align 16
   %call3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 775, ptr noundef nonnull @.str.507, ptr noundef %call2) #7
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %err, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
   %call6 = tail call ptr @BN_new() #7
-  %arrayidx7 = getelementptr inbounds i8, ptr %b, i64 8
-  store ptr %call6, ptr %arrayidx7, align 8
   %call8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 776, ptr noundef nonnull @.str.508, ptr noundef %call6) #7
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %err, label %lor.lhs.false10
@@ -5281,10 +5276,8 @@ for.cond43:                                       ; preds = %land.lhs.true67
 
 for.body46:                                       ; preds = %for.body, %for.cond43
   %cmp44 = phi i1 [ false, %for.cond43 ], [ true, %for.body ]
-  %indvars.iv = phi i64 [ 1, %for.cond43 ], [ 0, %for.body ]
-  %arrayidx47 = getelementptr inbounds [2 x ptr], ptr %b, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx47, align 8
-  %call48 = tail call i32 @BN_GF2m_mod(ptr noundef %call11, ptr noundef %call, ptr noundef %0) #7
+  %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %call6, %for.cond43 ], [ %call2, %for.body ]
+  %call48 = tail call i32 @BN_GF2m_mod(ptr noundef %call11, ptr noundef %call, ptr noundef %indvars.iv.sroa.phi.sroa.speculated) #7
   %cmp49 = icmp ne i32 %call48, 0
   %conv50 = zext i1 %cmp49 to i32
   %call51 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 790, ptr noundef nonnull @.str.511, i32 noundef %conv50) #7
@@ -5300,7 +5293,7 @@ land.lhs.true53:                                  ; preds = %for.body46
   br i1 %tobool58.not, label %err, label %land.lhs.true59
 
 land.lhs.true59:                                  ; preds = %land.lhs.true53
-  %call62 = tail call i32 @BN_GF2m_mod(ptr noundef %call19, ptr noundef %call15, ptr noundef %0) #7
+  %call62 = tail call i32 @BN_GF2m_mod(ptr noundef %call19, ptr noundef %call15, ptr noundef %indvars.iv.sroa.phi.sroa.speculated) #7
   %cmp63 = icmp ne i32 %call62, 0
   %conv64 = zext i1 %cmp63 to i32
   %call65 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 792, ptr noundef nonnull @.str.513, i32 noundef %conv64) #7
@@ -5318,15 +5311,15 @@ for.inc72:                                        ; preds = %for.cond43
   br i1 %exitcond.not, label %err, label %for.body, !llvm.loop !21
 
 err:                                              ; preds = %for.inc72, %for.body, %for.body46, %land.lhs.true53, %land.lhs.true59, %land.lhs.true67, %if.end, %land.lhs.true, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false10, %lor.lhs.false14, %lor.lhs.false18
-  %1 = phi ptr [ %call6, %land.lhs.true ], [ %call6, %if.end ], [ %call6, %lor.lhs.false18 ], [ %call6, %lor.lhs.false14 ], [ %call6, %lor.lhs.false10 ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %land.lhs.true67 ], [ %call6, %land.lhs.true59 ], [ %call6, %land.lhs.true53 ], [ %call6, %for.body46 ], [ %call6, %for.body ], [ %call6, %for.inc72 ]
-  %c.0 = phi ptr [ %call11, %land.lhs.true ], [ %call11, %if.end ], [ %call11, %lor.lhs.false18 ], [ %call11, %lor.lhs.false14 ], [ %call11, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call11, %land.lhs.true67 ], [ %call11, %land.lhs.true59 ], [ %call11, %land.lhs.true53 ], [ %call11, %for.body46 ], [ %call11, %for.body ], [ %call11, %for.inc72 ]
-  %d.0 = phi ptr [ %call15, %land.lhs.true ], [ %call15, %if.end ], [ %call15, %lor.lhs.false18 ], [ %call15, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call15, %land.lhs.true67 ], [ %call15, %land.lhs.true59 ], [ %call15, %land.lhs.true53 ], [ %call15, %for.body46 ], [ %call15, %for.body ], [ %call15, %for.inc72 ]
-  %e.0 = phi ptr [ %call19, %land.lhs.true ], [ %call19, %if.end ], [ %call19, %lor.lhs.false18 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call19, %land.lhs.true67 ], [ %call19, %land.lhs.true59 ], [ %call19, %land.lhs.true53 ], [ %call19, %for.body46 ], [ %call19, %for.body ], [ %call19, %for.inc72 ]
-  %st.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %if.end ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true67 ], [ 0, %land.lhs.true59 ], [ 0, %land.lhs.true53 ], [ 0, %for.body46 ], [ 1, %for.inc72 ], [ 0, %for.body ]
+  %b.sroa.0.0 = phi ptr [ null, %entry ], [ %call2, %lor.lhs.false ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false10 ], [ %call2, %lor.lhs.false14 ], [ %call2, %lor.lhs.false18 ], [ %call2, %if.end ], [ %call2, %land.lhs.true ], [ %call2, %land.lhs.true67 ], [ %call2, %land.lhs.true59 ], [ %call2, %land.lhs.true53 ], [ %call2, %for.body46 ], [ %call2, %for.body ], [ %call2, %for.inc72 ]
+  %0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ %call6, %lor.lhs.false5 ], [ %call6, %lor.lhs.false10 ], [ %call6, %lor.lhs.false14 ], [ %call6, %lor.lhs.false18 ], [ %call6, %if.end ], [ %call6, %land.lhs.true ], [ %call6, %land.lhs.true67 ], [ %call6, %land.lhs.true59 ], [ %call6, %land.lhs.true53 ], [ %call6, %for.body46 ], [ %call6, %for.body ], [ %call6, %for.inc72 ]
+  %c.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ %call11, %lor.lhs.false10 ], [ %call11, %lor.lhs.false14 ], [ %call11, %lor.lhs.false18 ], [ %call11, %if.end ], [ %call11, %land.lhs.true ], [ %call11, %land.lhs.true67 ], [ %call11, %land.lhs.true59 ], [ %call11, %land.lhs.true53 ], [ %call11, %for.body46 ], [ %call11, %for.body ], [ %call11, %for.inc72 ]
+  %d.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ %call15, %lor.lhs.false14 ], [ %call15, %lor.lhs.false18 ], [ %call15, %if.end ], [ %call15, %land.lhs.true ], [ %call15, %land.lhs.true67 ], [ %call15, %land.lhs.true59 ], [ %call15, %land.lhs.true53 ], [ %call15, %for.body46 ], [ %call15, %for.body ], [ %call15, %for.inc72 ]
+  %e.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false14 ], [ %call19, %lor.lhs.false18 ], [ %call19, %if.end ], [ %call19, %land.lhs.true ], [ %call19, %land.lhs.true67 ], [ %call19, %land.lhs.true59 ], [ %call19, %land.lhs.true53 ], [ %call19, %for.body46 ], [ %call19, %for.body ], [ %call19, %for.inc72 ]
+  %st.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false18 ], [ 0, %if.end ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true67 ], [ 0, %land.lhs.true59 ], [ 0, %land.lhs.true53 ], [ 0, %for.body46 ], [ 1, %for.inc72 ], [ 0, %for.body ]
   tail call void @BN_free(ptr noundef %call) #7
-  %2 = load ptr, ptr %b, align 16
-  tail call void @BN_free(ptr noundef %2) #7
-  tail call void @BN_free(ptr noundef %1) #7
+  tail call void @BN_free(ptr noundef %b.sroa.0.0) #7
+  tail call void @BN_free(ptr noundef %0) #7
   tail call void @BN_free(ptr noundef %c.0) #7
   tail call void @BN_free(ptr noundef %d.0) #7
   tail call void @BN_free(ptr noundef %e.0) #7
@@ -5336,8 +5329,6 @@ err:                                              ; preds = %for.inc72, %for.bod
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_gf2m_mul() #1 {
 entry:
-  %b = alloca [2 x ptr], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %b, i8 0, i64 16, i1 false)
   %call = tail call ptr @BN_new() #7
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 815, ptr noundef nonnull @.str.63, ptr noundef %call) #7
   %tobool.not = icmp eq i32 %call1, 0
@@ -5345,15 +5336,12 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call2 = tail call ptr @BN_new() #7
-  store ptr %call2, ptr %b, align 16
   %call3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 816, ptr noundef nonnull @.str.507, ptr noundef %call2) #7
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %err, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
   %call6 = tail call ptr @BN_new() #7
-  %arrayidx7 = getelementptr inbounds i8, ptr %b, i64 8
-  store ptr %call6, ptr %arrayidx7, align 8
   %call8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 817, ptr noundef nonnull @.str.508, ptr noundef %call6) #7
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %err, label %lor.lhs.false10
@@ -5440,11 +5428,9 @@ for.cond67:                                       ; preds = %land.lhs.true111
 
 for.body70:                                       ; preds = %land.lhs.true59, %for.cond67
   %cmp68 = phi i1 [ false, %for.cond67 ], [ true, %land.lhs.true59 ]
-  %indvars.iv = phi i64 [ 1, %for.cond67 ], [ 0, %land.lhs.true59 ]
-  %arrayidx71 = getelementptr inbounds [2 x ptr], ptr %b, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx71, align 8
-  %1 = load ptr, ptr @ctx, align 8
-  %call72 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %call19, ptr noundef %call, ptr noundef %call11, ptr noundef %0, ptr noundef %1) #7
+  %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %call6, %for.cond67 ], [ %call2, %land.lhs.true59 ]
+  %0 = load ptr, ptr @ctx, align 8
+  %call72 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %call19, ptr noundef %call, ptr noundef %call11, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %0) #7
   %cmp73 = icmp ne i32 %call72, 0
   %conv74 = zext i1 %cmp73 to i32
   %call75 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 836, ptr noundef nonnull @.str.519, i32 noundef %conv74) #7
@@ -5460,8 +5446,8 @@ land.lhs.true77:                                  ; preds = %for.body70
   br i1 %tobool82.not, label %err, label %land.lhs.true83
 
 land.lhs.true83:                                  ; preds = %land.lhs.true77
-  %2 = load ptr, ptr @ctx, align 8
-  %call86 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %call27, ptr noundef %call23, ptr noundef %call11, ptr noundef %0, ptr noundef %2) #7
+  %1 = load ptr, ptr @ctx, align 8
+  %call86 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %call27, ptr noundef %call23, ptr noundef %call11, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %1) #7
   %cmp87 = icmp ne i32 %call86, 0
   %conv88 = zext i1 %cmp87 to i32
   %call89 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 838, ptr noundef nonnull @.str.521, i32 noundef %conv88) #7
@@ -5469,8 +5455,8 @@ land.lhs.true83:                                  ; preds = %land.lhs.true77
   br i1 %tobool90.not, label %err, label %land.lhs.true91
 
 land.lhs.true91:                                  ; preds = %land.lhs.true83
-  %3 = load ptr, ptr @ctx, align 8
-  %call94 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %call31, ptr noundef %call15, ptr noundef %call11, ptr noundef %0, ptr noundef %3) #7
+  %2 = load ptr, ptr @ctx, align 8
+  %call94 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %call31, ptr noundef %call15, ptr noundef %call11, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %2) #7
   %cmp95 = icmp ne i32 %call94, 0
   %conv96 = zext i1 %cmp95 to i32
   %call97 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 839, ptr noundef nonnull @.str.522, i32 noundef %conv96) #7
@@ -5504,18 +5490,18 @@ for.inc116:                                       ; preds = %for.cond67
   br i1 %exitcond.not, label %err, label %for.body, !llvm.loop !23
 
 err:                                              ; preds = %for.inc116, %for.body, %land.lhs.true53, %land.lhs.true59, %for.body70, %land.lhs.true77, %land.lhs.true83, %land.lhs.true91, %land.lhs.true99, %land.lhs.true105, %land.lhs.true111, %if.end, %land.lhs.true, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false10, %lor.lhs.false14, %lor.lhs.false18, %lor.lhs.false22, %lor.lhs.false26, %lor.lhs.false30
-  %4 = phi ptr [ %call6, %land.lhs.true ], [ %call6, %if.end ], [ %call6, %lor.lhs.false30 ], [ %call6, %lor.lhs.false26 ], [ %call6, %lor.lhs.false22 ], [ %call6, %lor.lhs.false18 ], [ %call6, %lor.lhs.false14 ], [ %call6, %lor.lhs.false10 ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %land.lhs.true111 ], [ %call6, %land.lhs.true105 ], [ %call6, %land.lhs.true99 ], [ %call6, %land.lhs.true91 ], [ %call6, %land.lhs.true83 ], [ %call6, %land.lhs.true77 ], [ %call6, %for.body70 ], [ %call6, %land.lhs.true59 ], [ %call6, %land.lhs.true53 ], [ %call6, %for.body ], [ %call6, %for.inc116 ]
-  %c.0 = phi ptr [ %call11, %land.lhs.true ], [ %call11, %if.end ], [ %call11, %lor.lhs.false30 ], [ %call11, %lor.lhs.false26 ], [ %call11, %lor.lhs.false22 ], [ %call11, %lor.lhs.false18 ], [ %call11, %lor.lhs.false14 ], [ %call11, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call11, %land.lhs.true111 ], [ %call11, %land.lhs.true105 ], [ %call11, %land.lhs.true99 ], [ %call11, %land.lhs.true91 ], [ %call11, %land.lhs.true83 ], [ %call11, %land.lhs.true77 ], [ %call11, %for.body70 ], [ %call11, %land.lhs.true59 ], [ %call11, %land.lhs.true53 ], [ %call11, %for.body ], [ %call11, %for.inc116 ]
-  %d.0 = phi ptr [ %call15, %land.lhs.true ], [ %call15, %if.end ], [ %call15, %lor.lhs.false30 ], [ %call15, %lor.lhs.false26 ], [ %call15, %lor.lhs.false22 ], [ %call15, %lor.lhs.false18 ], [ %call15, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call15, %land.lhs.true111 ], [ %call15, %land.lhs.true105 ], [ %call15, %land.lhs.true99 ], [ %call15, %land.lhs.true91 ], [ %call15, %land.lhs.true83 ], [ %call15, %land.lhs.true77 ], [ %call15, %for.body70 ], [ %call15, %land.lhs.true59 ], [ %call15, %land.lhs.true53 ], [ %call15, %for.body ], [ %call15, %for.inc116 ]
-  %e.0 = phi ptr [ %call19, %land.lhs.true ], [ %call19, %if.end ], [ %call19, %lor.lhs.false30 ], [ %call19, %lor.lhs.false26 ], [ %call19, %lor.lhs.false22 ], [ %call19, %lor.lhs.false18 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call19, %land.lhs.true111 ], [ %call19, %land.lhs.true105 ], [ %call19, %land.lhs.true99 ], [ %call19, %land.lhs.true91 ], [ %call19, %land.lhs.true83 ], [ %call19, %land.lhs.true77 ], [ %call19, %for.body70 ], [ %call19, %land.lhs.true59 ], [ %call19, %land.lhs.true53 ], [ %call19, %for.body ], [ %call19, %for.inc116 ]
-  %f.0 = phi ptr [ %call23, %land.lhs.true ], [ %call23, %if.end ], [ %call23, %lor.lhs.false30 ], [ %call23, %lor.lhs.false26 ], [ %call23, %lor.lhs.false22 ], [ null, %lor.lhs.false18 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call23, %land.lhs.true111 ], [ %call23, %land.lhs.true105 ], [ %call23, %land.lhs.true99 ], [ %call23, %land.lhs.true91 ], [ %call23, %land.lhs.true83 ], [ %call23, %land.lhs.true77 ], [ %call23, %for.body70 ], [ %call23, %land.lhs.true59 ], [ %call23, %land.lhs.true53 ], [ %call23, %for.body ], [ %call23, %for.inc116 ]
-  %g.0 = phi ptr [ %call27, %land.lhs.true ], [ %call27, %if.end ], [ %call27, %lor.lhs.false30 ], [ %call27, %lor.lhs.false26 ], [ null, %lor.lhs.false22 ], [ null, %lor.lhs.false18 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call27, %land.lhs.true111 ], [ %call27, %land.lhs.true105 ], [ %call27, %land.lhs.true99 ], [ %call27, %land.lhs.true91 ], [ %call27, %land.lhs.true83 ], [ %call27, %land.lhs.true77 ], [ %call27, %for.body70 ], [ %call27, %land.lhs.true59 ], [ %call27, %land.lhs.true53 ], [ %call27, %for.body ], [ %call27, %for.inc116 ]
-  %h.0 = phi ptr [ %call31, %land.lhs.true ], [ %call31, %if.end ], [ %call31, %lor.lhs.false30 ], [ null, %lor.lhs.false26 ], [ null, %lor.lhs.false22 ], [ null, %lor.lhs.false18 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call31, %land.lhs.true111 ], [ %call31, %land.lhs.true105 ], [ %call31, %land.lhs.true99 ], [ %call31, %land.lhs.true91 ], [ %call31, %land.lhs.true83 ], [ %call31, %land.lhs.true77 ], [ %call31, %for.body70 ], [ %call31, %land.lhs.true59 ], [ %call31, %land.lhs.true53 ], [ %call31, %for.body ], [ %call31, %for.inc116 ]
-  %st.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %if.end ], [ 0, %lor.lhs.false30 ], [ 0, %lor.lhs.false26 ], [ 0, %lor.lhs.false22 ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true111 ], [ 0, %land.lhs.true105 ], [ 0, %land.lhs.true99 ], [ 0, %land.lhs.true91 ], [ 0, %land.lhs.true83 ], [ 0, %land.lhs.true77 ], [ 0, %for.body70 ], [ 1, %for.inc116 ], [ 0, %for.body ], [ 0, %land.lhs.true53 ], [ 0, %land.lhs.true59 ]
+  %b.sroa.0.0 = phi ptr [ null, %entry ], [ %call2, %lor.lhs.false ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false10 ], [ %call2, %lor.lhs.false14 ], [ %call2, %lor.lhs.false18 ], [ %call2, %lor.lhs.false22 ], [ %call2, %lor.lhs.false26 ], [ %call2, %lor.lhs.false30 ], [ %call2, %if.end ], [ %call2, %land.lhs.true ], [ %call2, %land.lhs.true111 ], [ %call2, %land.lhs.true105 ], [ %call2, %land.lhs.true99 ], [ %call2, %land.lhs.true91 ], [ %call2, %land.lhs.true83 ], [ %call2, %land.lhs.true77 ], [ %call2, %for.body70 ], [ %call2, %land.lhs.true59 ], [ %call2, %land.lhs.true53 ], [ %call2, %for.body ], [ %call2, %for.inc116 ]
+  %3 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ %call6, %lor.lhs.false5 ], [ %call6, %lor.lhs.false10 ], [ %call6, %lor.lhs.false14 ], [ %call6, %lor.lhs.false18 ], [ %call6, %lor.lhs.false22 ], [ %call6, %lor.lhs.false26 ], [ %call6, %lor.lhs.false30 ], [ %call6, %if.end ], [ %call6, %land.lhs.true ], [ %call6, %land.lhs.true111 ], [ %call6, %land.lhs.true105 ], [ %call6, %land.lhs.true99 ], [ %call6, %land.lhs.true91 ], [ %call6, %land.lhs.true83 ], [ %call6, %land.lhs.true77 ], [ %call6, %for.body70 ], [ %call6, %land.lhs.true59 ], [ %call6, %land.lhs.true53 ], [ %call6, %for.body ], [ %call6, %for.inc116 ]
+  %c.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ %call11, %lor.lhs.false10 ], [ %call11, %lor.lhs.false14 ], [ %call11, %lor.lhs.false18 ], [ %call11, %lor.lhs.false22 ], [ %call11, %lor.lhs.false26 ], [ %call11, %lor.lhs.false30 ], [ %call11, %if.end ], [ %call11, %land.lhs.true ], [ %call11, %land.lhs.true111 ], [ %call11, %land.lhs.true105 ], [ %call11, %land.lhs.true99 ], [ %call11, %land.lhs.true91 ], [ %call11, %land.lhs.true83 ], [ %call11, %land.lhs.true77 ], [ %call11, %for.body70 ], [ %call11, %land.lhs.true59 ], [ %call11, %land.lhs.true53 ], [ %call11, %for.body ], [ %call11, %for.inc116 ]
+  %d.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ %call15, %lor.lhs.false14 ], [ %call15, %lor.lhs.false18 ], [ %call15, %lor.lhs.false22 ], [ %call15, %lor.lhs.false26 ], [ %call15, %lor.lhs.false30 ], [ %call15, %if.end ], [ %call15, %land.lhs.true ], [ %call15, %land.lhs.true111 ], [ %call15, %land.lhs.true105 ], [ %call15, %land.lhs.true99 ], [ %call15, %land.lhs.true91 ], [ %call15, %land.lhs.true83 ], [ %call15, %land.lhs.true77 ], [ %call15, %for.body70 ], [ %call15, %land.lhs.true59 ], [ %call15, %land.lhs.true53 ], [ %call15, %for.body ], [ %call15, %for.inc116 ]
+  %e.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false14 ], [ %call19, %lor.lhs.false18 ], [ %call19, %lor.lhs.false22 ], [ %call19, %lor.lhs.false26 ], [ %call19, %lor.lhs.false30 ], [ %call19, %if.end ], [ %call19, %land.lhs.true ], [ %call19, %land.lhs.true111 ], [ %call19, %land.lhs.true105 ], [ %call19, %land.lhs.true99 ], [ %call19, %land.lhs.true91 ], [ %call19, %land.lhs.true83 ], [ %call19, %land.lhs.true77 ], [ %call19, %for.body70 ], [ %call19, %land.lhs.true59 ], [ %call19, %land.lhs.true53 ], [ %call19, %for.body ], [ %call19, %for.inc116 ]
+  %f.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false18 ], [ %call23, %lor.lhs.false22 ], [ %call23, %lor.lhs.false26 ], [ %call23, %lor.lhs.false30 ], [ %call23, %if.end ], [ %call23, %land.lhs.true ], [ %call23, %land.lhs.true111 ], [ %call23, %land.lhs.true105 ], [ %call23, %land.lhs.true99 ], [ %call23, %land.lhs.true91 ], [ %call23, %land.lhs.true83 ], [ %call23, %land.lhs.true77 ], [ %call23, %for.body70 ], [ %call23, %land.lhs.true59 ], [ %call23, %land.lhs.true53 ], [ %call23, %for.body ], [ %call23, %for.inc116 ]
+  %g.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false18 ], [ null, %lor.lhs.false22 ], [ %call27, %lor.lhs.false26 ], [ %call27, %lor.lhs.false30 ], [ %call27, %if.end ], [ %call27, %land.lhs.true ], [ %call27, %land.lhs.true111 ], [ %call27, %land.lhs.true105 ], [ %call27, %land.lhs.true99 ], [ %call27, %land.lhs.true91 ], [ %call27, %land.lhs.true83 ], [ %call27, %land.lhs.true77 ], [ %call27, %for.body70 ], [ %call27, %land.lhs.true59 ], [ %call27, %land.lhs.true53 ], [ %call27, %for.body ], [ %call27, %for.inc116 ]
+  %h.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false18 ], [ null, %lor.lhs.false22 ], [ null, %lor.lhs.false26 ], [ %call31, %lor.lhs.false30 ], [ %call31, %if.end ], [ %call31, %land.lhs.true ], [ %call31, %land.lhs.true111 ], [ %call31, %land.lhs.true105 ], [ %call31, %land.lhs.true99 ], [ %call31, %land.lhs.true91 ], [ %call31, %land.lhs.true83 ], [ %call31, %land.lhs.true77 ], [ %call31, %for.body70 ], [ %call31, %land.lhs.true59 ], [ %call31, %land.lhs.true53 ], [ %call31, %for.body ], [ %call31, %for.inc116 ]
+  %st.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false22 ], [ 0, %lor.lhs.false26 ], [ 0, %lor.lhs.false30 ], [ 0, %if.end ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true111 ], [ 0, %land.lhs.true105 ], [ 0, %land.lhs.true99 ], [ 0, %land.lhs.true91 ], [ 0, %land.lhs.true83 ], [ 0, %land.lhs.true77 ], [ 0, %for.body70 ], [ 1, %for.inc116 ], [ 0, %for.body ], [ 0, %land.lhs.true53 ], [ 0, %land.lhs.true59 ]
   tail call void @BN_free(ptr noundef %call) #7
-  %5 = load ptr, ptr %b, align 16
-  tail call void @BN_free(ptr noundef %5) #7
-  tail call void @BN_free(ptr noundef %4) #7
+  tail call void @BN_free(ptr noundef %b.sroa.0.0) #7
+  tail call void @BN_free(ptr noundef %3) #7
   tail call void @BN_free(ptr noundef %c.0) #7
   tail call void @BN_free(ptr noundef %d.0) #7
   tail call void @BN_free(ptr noundef %e.0) #7
@@ -5528,8 +5514,6 @@ err:                                              ; preds = %for.inc116, %for.bo
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_gf2m_sqr() #1 {
 entry:
-  %b = alloca [2 x ptr], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %b, i8 0, i64 16, i1 false)
   %call = tail call ptr @BN_new() #7
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 867, ptr noundef nonnull @.str.63, ptr noundef %call) #7
   %tobool.not = icmp eq i32 %call1, 0
@@ -5537,15 +5521,12 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call2 = tail call ptr @BN_new() #7
-  store ptr %call2, ptr %b, align 16
   %call3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 868, ptr noundef nonnull @.str.507, ptr noundef %call2) #7
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %err, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
   %call6 = tail call ptr @BN_new() #7
-  %arrayidx7 = getelementptr inbounds i8, ptr %b, i64 8
-  store ptr %call6, ptr %arrayidx7, align 8
   %call8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 869, ptr noundef nonnull @.str.508, ptr noundef %call6) #7
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %err, label %lor.lhs.false10
@@ -5592,11 +5573,9 @@ for.cond39:                                       ; preds = %land.lhs.true69
 
 for.body42:                                       ; preds = %for.body, %for.cond39
   %cmp40 = phi i1 [ false, %for.cond39 ], [ true, %for.body ]
-  %indvars.iv = phi i64 [ 1, %for.cond39 ], [ 0, %for.body ]
-  %arrayidx43 = getelementptr inbounds [2 x ptr], ptr %b, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx43, align 8
-  %1 = load ptr, ptr @ctx, align 8
-  %call44 = tail call i32 @BN_GF2m_mod_sqr(ptr noundef %call11, ptr noundef %call, ptr noundef %0, ptr noundef %1) #7
+  %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %call6, %for.cond39 ], [ %call2, %for.body ]
+  %0 = load ptr, ptr @ctx, align 8
+  %call44 = tail call i32 @BN_GF2m_mod_sqr(ptr noundef %call11, ptr noundef %call, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %0) #7
   %cmp45 = icmp ne i32 %call44, 0
   %conv46 = zext i1 %cmp45 to i32
   %call47 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 882, ptr noundef nonnull @.str.526, i32 noundef %conv46) #7
@@ -5612,8 +5591,8 @@ land.lhs.true49:                                  ; preds = %for.body42
   br i1 %tobool54.not, label %err, label %land.lhs.true55
 
 land.lhs.true55:                                  ; preds = %land.lhs.true49
-  %2 = load ptr, ptr @ctx, align 8
-  %call58 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %call15, ptr noundef %call, ptr noundef %call15, ptr noundef %0, ptr noundef %2) #7
+  %1 = load ptr, ptr @ctx, align 8
+  %call58 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %call15, ptr noundef %call, ptr noundef %call15, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %1) #7
   %cmp59 = icmp ne i32 %call58, 0
   %conv60 = zext i1 %cmp59 to i32
   %call61 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 884, ptr noundef nonnull @.str.528, i32 noundef %conv60) #7
@@ -5639,14 +5618,14 @@ for.inc74:                                        ; preds = %for.cond39
   br i1 %exitcond.not, label %err, label %for.body, !llvm.loop !25
 
 err:                                              ; preds = %for.inc74, %for.body, %for.body42, %land.lhs.true49, %land.lhs.true55, %land.lhs.true63, %land.lhs.true69, %if.end, %land.lhs.true, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false10, %lor.lhs.false14
-  %3 = phi ptr [ %call6, %land.lhs.true ], [ %call6, %if.end ], [ %call6, %lor.lhs.false14 ], [ %call6, %lor.lhs.false10 ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %land.lhs.true69 ], [ %call6, %land.lhs.true63 ], [ %call6, %land.lhs.true55 ], [ %call6, %land.lhs.true49 ], [ %call6, %for.body42 ], [ %call6, %for.body ], [ %call6, %for.inc74 ]
-  %c.0 = phi ptr [ %call11, %land.lhs.true ], [ %call11, %if.end ], [ %call11, %lor.lhs.false14 ], [ %call11, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call11, %land.lhs.true69 ], [ %call11, %land.lhs.true63 ], [ %call11, %land.lhs.true55 ], [ %call11, %land.lhs.true49 ], [ %call11, %for.body42 ], [ %call11, %for.body ], [ %call11, %for.inc74 ]
-  %d.0 = phi ptr [ %call15, %land.lhs.true ], [ %call15, %if.end ], [ %call15, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call15, %land.lhs.true69 ], [ %call15, %land.lhs.true63 ], [ %call15, %land.lhs.true55 ], [ %call15, %land.lhs.true49 ], [ %call15, %for.body42 ], [ %call15, %for.body ], [ %call15, %for.inc74 ]
-  %st.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %if.end ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true69 ], [ 0, %land.lhs.true63 ], [ 0, %land.lhs.true55 ], [ 0, %land.lhs.true49 ], [ 0, %for.body42 ], [ 1, %for.inc74 ], [ 0, %for.body ]
+  %b.sroa.0.0 = phi ptr [ null, %entry ], [ %call2, %lor.lhs.false ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false10 ], [ %call2, %lor.lhs.false14 ], [ %call2, %if.end ], [ %call2, %land.lhs.true ], [ %call2, %land.lhs.true69 ], [ %call2, %land.lhs.true63 ], [ %call2, %land.lhs.true55 ], [ %call2, %land.lhs.true49 ], [ %call2, %for.body42 ], [ %call2, %for.body ], [ %call2, %for.inc74 ]
+  %2 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ %call6, %lor.lhs.false5 ], [ %call6, %lor.lhs.false10 ], [ %call6, %lor.lhs.false14 ], [ %call6, %if.end ], [ %call6, %land.lhs.true ], [ %call6, %land.lhs.true69 ], [ %call6, %land.lhs.true63 ], [ %call6, %land.lhs.true55 ], [ %call6, %land.lhs.true49 ], [ %call6, %for.body42 ], [ %call6, %for.body ], [ %call6, %for.inc74 ]
+  %c.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ %call11, %lor.lhs.false10 ], [ %call11, %lor.lhs.false14 ], [ %call11, %if.end ], [ %call11, %land.lhs.true ], [ %call11, %land.lhs.true69 ], [ %call11, %land.lhs.true63 ], [ %call11, %land.lhs.true55 ], [ %call11, %land.lhs.true49 ], [ %call11, %for.body42 ], [ %call11, %for.body ], [ %call11, %for.inc74 ]
+  %d.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ %call15, %lor.lhs.false14 ], [ %call15, %if.end ], [ %call15, %land.lhs.true ], [ %call15, %land.lhs.true69 ], [ %call15, %land.lhs.true63 ], [ %call15, %land.lhs.true55 ], [ %call15, %land.lhs.true49 ], [ %call15, %for.body42 ], [ %call15, %for.body ], [ %call15, %for.inc74 ]
+  %st.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false14 ], [ 0, %if.end ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true69 ], [ 0, %land.lhs.true63 ], [ 0, %land.lhs.true55 ], [ 0, %land.lhs.true49 ], [ 0, %for.body42 ], [ 1, %for.inc74 ], [ 0, %for.body ]
   tail call void @BN_free(ptr noundef %call) #7
-  %4 = load ptr, ptr %b, align 16
-  tail call void @BN_free(ptr noundef %4) #7
-  tail call void @BN_free(ptr noundef %3) #7
+  tail call void @BN_free(ptr noundef %b.sroa.0.0) #7
+  tail call void @BN_free(ptr noundef %2) #7
   tail call void @BN_free(ptr noundef %c.0) #7
   tail call void @BN_free(ptr noundef %d.0) #7
   ret i32 %st.0
@@ -5655,8 +5634,6 @@ err:                                              ; preds = %for.inc74, %for.bod
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_gf2m_modinv() #1 {
 entry:
-  %b = alloca [2 x ptr], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %b, i8 0, i64 16, i1 false)
   %call = tail call ptr @BN_new() #7
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 906, ptr noundef nonnull @.str.63, ptr noundef %call) #7
   %tobool.not = icmp eq i32 %call1, 0
@@ -5664,15 +5641,12 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call2 = tail call ptr @BN_new() #7
-  store ptr %call2, ptr %b, align 16
   %call3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 907, ptr noundef nonnull @.str.507, ptr noundef %call2) #7
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %err, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
   %call6 = tail call ptr @BN_new() #7
-  %arrayidx7 = getelementptr inbounds i8, ptr %b, i64 8
-  store ptr %call6, ptr %arrayidx7, align 8
   %call8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 908, ptr noundef nonnull @.str.508, ptr noundef %call6) #7
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %err, label %lor.lhs.false10
@@ -5744,11 +5718,9 @@ for.cond62:                                       ; preds = %land.lhs.true80
 
 for.body65:                                       ; preds = %for.body, %for.cond62
   %cmp63 = phi i1 [ false, %for.cond62 ], [ true, %for.body ]
-  %indvars.iv = phi i64 [ 1, %for.cond62 ], [ 0, %for.body ]
-  %arrayidx66 = getelementptr inbounds [2 x ptr], ptr %b, i64 0, i64 %indvars.iv
-  %1 = load ptr, ptr %arrayidx66, align 8
-  %2 = load ptr, ptr @ctx, align 8
-  %call67 = tail call i32 @BN_GF2m_mod_inv(ptr noundef %call11, ptr noundef %call, ptr noundef %1, ptr noundef %2) #7
+  %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %call6, %for.cond62 ], [ %call2, %for.body ]
+  %1 = load ptr, ptr @ctx, align 8
+  %call67 = tail call i32 @BN_GF2m_mod_inv(ptr noundef %call11, ptr noundef %call, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %1) #7
   %cmp68 = icmp ne i32 %call67, 0
   %conv69 = zext i1 %cmp68 to i32
   %call70 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 929, ptr noundef nonnull @.str.532, i32 noundef %conv69) #7
@@ -5756,8 +5728,8 @@ for.body65:                                       ; preds = %for.body, %for.cond
   br i1 %tobool71.not, label %err, label %land.lhs.true72
 
 land.lhs.true72:                                  ; preds = %for.body65
-  %3 = load ptr, ptr @ctx, align 8
-  %call75 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %call15, ptr noundef %call, ptr noundef %call11, ptr noundef %1, ptr noundef %3) #7
+  %2 = load ptr, ptr @ctx, align 8
+  %call75 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %call15, ptr noundef %call, ptr noundef %call11, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %2) #7
   %cmp76 = icmp ne i32 %call75, 0
   %conv77 = zext i1 %cmp76 to i32
   %call78 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 930, ptr noundef nonnull @.str.533, i32 noundef %conv77) #7
@@ -5775,14 +5747,14 @@ for.inc85:                                        ; preds = %for.cond62
   br i1 %exitcond.not, label %err, label %for.body, !llvm.loop !27
 
 err:                                              ; preds = %for.inc85, %for.body, %for.body65, %land.lhs.true72, %land.lhs.true80, %if.end38, %land.lhs.true, %if.end30, %if.end23, %if.end, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false10, %lor.lhs.false14
-  %4 = phi ptr [ %call6, %land.lhs.true ], [ %call6, %if.end38 ], [ %call6, %if.end30 ], [ %call6, %if.end23 ], [ %call6, %if.end ], [ %call6, %lor.lhs.false14 ], [ %call6, %lor.lhs.false10 ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %land.lhs.true80 ], [ %call6, %land.lhs.true72 ], [ %call6, %for.body65 ], [ %call6, %for.body ], [ %call6, %for.inc85 ]
-  %c.0 = phi ptr [ %call11, %land.lhs.true ], [ %call11, %if.end38 ], [ %call11, %if.end30 ], [ %call11, %if.end23 ], [ %call11, %if.end ], [ %call11, %lor.lhs.false14 ], [ %call11, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call11, %land.lhs.true80 ], [ %call11, %land.lhs.true72 ], [ %call11, %for.body65 ], [ %call11, %for.body ], [ %call11, %for.inc85 ]
-  %d.0 = phi ptr [ %call15, %land.lhs.true ], [ %call15, %if.end38 ], [ %call15, %if.end30 ], [ %call15, %if.end23 ], [ %call15, %if.end ], [ %call15, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call15, %land.lhs.true80 ], [ %call15, %land.lhs.true72 ], [ %call15, %for.body65 ], [ %call15, %for.body ], [ %call15, %for.inc85 ]
-  %st.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %if.end38 ], [ 0, %if.end30 ], [ 0, %if.end23 ], [ 0, %if.end ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true80 ], [ 0, %land.lhs.true72 ], [ 0, %for.body65 ], [ 1, %for.inc85 ], [ 0, %for.body ]
+  %b.sroa.0.0 = phi ptr [ null, %entry ], [ %call2, %lor.lhs.false ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false10 ], [ %call2, %lor.lhs.false14 ], [ %call2, %if.end ], [ %call2, %if.end23 ], [ %call2, %if.end30 ], [ %call2, %if.end38 ], [ %call2, %land.lhs.true ], [ %call2, %land.lhs.true80 ], [ %call2, %land.lhs.true72 ], [ %call2, %for.body65 ], [ %call2, %for.body ], [ %call2, %for.inc85 ]
+  %3 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ %call6, %lor.lhs.false5 ], [ %call6, %lor.lhs.false10 ], [ %call6, %lor.lhs.false14 ], [ %call6, %if.end ], [ %call6, %if.end23 ], [ %call6, %if.end30 ], [ %call6, %if.end38 ], [ %call6, %land.lhs.true ], [ %call6, %land.lhs.true80 ], [ %call6, %land.lhs.true72 ], [ %call6, %for.body65 ], [ %call6, %for.body ], [ %call6, %for.inc85 ]
+  %c.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ %call11, %lor.lhs.false10 ], [ %call11, %lor.lhs.false14 ], [ %call11, %if.end ], [ %call11, %if.end23 ], [ %call11, %if.end30 ], [ %call11, %if.end38 ], [ %call11, %land.lhs.true ], [ %call11, %land.lhs.true80 ], [ %call11, %land.lhs.true72 ], [ %call11, %for.body65 ], [ %call11, %for.body ], [ %call11, %for.inc85 ]
+  %d.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ %call15, %lor.lhs.false14 ], [ %call15, %if.end ], [ %call15, %if.end23 ], [ %call15, %if.end30 ], [ %call15, %if.end38 ], [ %call15, %land.lhs.true ], [ %call15, %land.lhs.true80 ], [ %call15, %land.lhs.true72 ], [ %call15, %for.body65 ], [ %call15, %for.body ], [ %call15, %for.inc85 ]
+  %st.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false14 ], [ 0, %if.end ], [ 0, %if.end23 ], [ 0, %if.end30 ], [ 0, %if.end38 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true80 ], [ 0, %land.lhs.true72 ], [ 0, %for.body65 ], [ 1, %for.inc85 ], [ 0, %for.body ]
   tail call void @BN_free(ptr noundef %call) #7
-  %5 = load ptr, ptr %b, align 16
-  tail call void @BN_free(ptr noundef %5) #7
-  tail call void @BN_free(ptr noundef %4) #7
+  tail call void @BN_free(ptr noundef %b.sroa.0.0) #7
+  tail call void @BN_free(ptr noundef %3) #7
   tail call void @BN_free(ptr noundef %c.0) #7
   tail call void @BN_free(ptr noundef %d.0) #7
   ret i32 %st.0
@@ -5791,8 +5763,6 @@ err:                                              ; preds = %for.inc85, %for.bod
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_gf2m_moddiv() #1 {
 entry:
-  %b = alloca [2 x ptr], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %b, i8 0, i64 16, i1 false)
   %call = tail call ptr @BN_new() #7
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 952, ptr noundef nonnull @.str.63, ptr noundef %call) #7
   %tobool.not = icmp eq i32 %call1, 0
@@ -5800,15 +5770,12 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call2 = tail call ptr @BN_new() #7
-  store ptr %call2, ptr %b, align 16
   %call3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 953, ptr noundef nonnull @.str.507, ptr noundef %call2) #7
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %err, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
   %call6 = tail call ptr @BN_new() #7
-  %arrayidx7 = getelementptr inbounds i8, ptr %b, i64 8
-  store ptr %call6, ptr %arrayidx7, align 8
   %call8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 954, ptr noundef nonnull @.str.508, ptr noundef %call6) #7
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %err, label %lor.lhs.false10
@@ -5875,11 +5842,9 @@ for.cond53:                                       ; preds = %land.lhs.true79
 
 for.body56:                                       ; preds = %land.lhs.true45, %for.cond53
   %cmp54 = phi i1 [ false, %for.cond53 ], [ true, %land.lhs.true45 ]
-  %indvars.iv = phi i64 [ 1, %for.cond53 ], [ 0, %land.lhs.true45 ]
-  %arrayidx57 = getelementptr inbounds [2 x ptr], ptr %b, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx57, align 8
-  %1 = load ptr, ptr @ctx, align 8
-  %call58 = tail call i32 @BN_GF2m_mod_div(ptr noundef %call15, ptr noundef %call, ptr noundef %call11, ptr noundef %0, ptr noundef %1) #7
+  %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %call6, %for.cond53 ], [ %call2, %land.lhs.true45 ]
+  %0 = load ptr, ptr @ctx, align 8
+  %call58 = tail call i32 @BN_GF2m_mod_div(ptr noundef %call15, ptr noundef %call, ptr noundef %call11, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %0) #7
   %cmp59 = icmp ne i32 %call58, 0
   %conv60 = zext i1 %cmp59 to i32
   %call61 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 970, ptr noundef nonnull @.str.535, i32 noundef %conv60) #7
@@ -5887,8 +5852,8 @@ for.body56:                                       ; preds = %land.lhs.true45, %f
   br i1 %tobool62.not, label %err, label %land.lhs.true63
 
 land.lhs.true63:                                  ; preds = %for.body56
-  %2 = load ptr, ptr @ctx, align 8
-  %call66 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %call19, ptr noundef %call15, ptr noundef %call11, ptr noundef %0, ptr noundef %2) #7
+  %1 = load ptr, ptr @ctx, align 8
+  %call66 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %call19, ptr noundef %call15, ptr noundef %call11, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %1) #7
   %cmp67 = icmp ne i32 %call66, 0
   %conv68 = zext i1 %cmp67 to i32
   %call69 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 971, ptr noundef nonnull @.str.536, i32 noundef %conv68) #7
@@ -5896,8 +5861,8 @@ land.lhs.true63:                                  ; preds = %for.body56
   br i1 %tobool70.not, label %err, label %land.lhs.true71
 
 land.lhs.true71:                                  ; preds = %land.lhs.true63
-  %3 = load ptr, ptr @ctx, align 8
-  %call74 = tail call i32 @BN_GF2m_mod_div(ptr noundef %call23, ptr noundef %call, ptr noundef %call19, ptr noundef %0, ptr noundef %3) #7
+  %2 = load ptr, ptr @ctx, align 8
+  %call74 = tail call i32 @BN_GF2m_mod_div(ptr noundef %call23, ptr noundef %call, ptr noundef %call19, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %2) #7
   %cmp75 = icmp ne i32 %call74, 0
   %conv76 = zext i1 %cmp75 to i32
   %call77 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 972, ptr noundef nonnull @.str.537, i32 noundef %conv76) #7
@@ -5915,16 +5880,16 @@ for.inc84:                                        ; preds = %for.cond53
   br i1 %exitcond.not, label %err, label %for.body, !llvm.loop !29
 
 err:                                              ; preds = %for.inc84, %for.body, %land.lhs.true45, %for.body56, %land.lhs.true63, %land.lhs.true71, %land.lhs.true79, %if.end, %land.lhs.true, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false10, %lor.lhs.false14, %lor.lhs.false18, %lor.lhs.false22
-  %4 = phi ptr [ %call6, %land.lhs.true ], [ %call6, %if.end ], [ %call6, %lor.lhs.false22 ], [ %call6, %lor.lhs.false18 ], [ %call6, %lor.lhs.false14 ], [ %call6, %lor.lhs.false10 ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %land.lhs.true79 ], [ %call6, %land.lhs.true71 ], [ %call6, %land.lhs.true63 ], [ %call6, %for.body56 ], [ %call6, %land.lhs.true45 ], [ %call6, %for.body ], [ %call6, %for.inc84 ]
-  %c.0 = phi ptr [ %call11, %land.lhs.true ], [ %call11, %if.end ], [ %call11, %lor.lhs.false22 ], [ %call11, %lor.lhs.false18 ], [ %call11, %lor.lhs.false14 ], [ %call11, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call11, %land.lhs.true79 ], [ %call11, %land.lhs.true71 ], [ %call11, %land.lhs.true63 ], [ %call11, %for.body56 ], [ %call11, %land.lhs.true45 ], [ %call11, %for.body ], [ %call11, %for.inc84 ]
-  %d.0 = phi ptr [ %call15, %land.lhs.true ], [ %call15, %if.end ], [ %call15, %lor.lhs.false22 ], [ %call15, %lor.lhs.false18 ], [ %call15, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call15, %land.lhs.true79 ], [ %call15, %land.lhs.true71 ], [ %call15, %land.lhs.true63 ], [ %call15, %for.body56 ], [ %call15, %land.lhs.true45 ], [ %call15, %for.body ], [ %call15, %for.inc84 ]
-  %e.0 = phi ptr [ %call19, %land.lhs.true ], [ %call19, %if.end ], [ %call19, %lor.lhs.false22 ], [ %call19, %lor.lhs.false18 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call19, %land.lhs.true79 ], [ %call19, %land.lhs.true71 ], [ %call19, %land.lhs.true63 ], [ %call19, %for.body56 ], [ %call19, %land.lhs.true45 ], [ %call19, %for.body ], [ %call19, %for.inc84 ]
-  %f.0 = phi ptr [ %call23, %land.lhs.true ], [ %call23, %if.end ], [ %call23, %lor.lhs.false22 ], [ null, %lor.lhs.false18 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call23, %land.lhs.true79 ], [ %call23, %land.lhs.true71 ], [ %call23, %land.lhs.true63 ], [ %call23, %for.body56 ], [ %call23, %land.lhs.true45 ], [ %call23, %for.body ], [ %call23, %for.inc84 ]
-  %st.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %if.end ], [ 0, %lor.lhs.false22 ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true79 ], [ 0, %land.lhs.true71 ], [ 0, %land.lhs.true63 ], [ 0, %for.body56 ], [ 1, %for.inc84 ], [ 0, %for.body ], [ 0, %land.lhs.true45 ]
+  %b.sroa.0.0 = phi ptr [ null, %entry ], [ %call2, %lor.lhs.false ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false10 ], [ %call2, %lor.lhs.false14 ], [ %call2, %lor.lhs.false18 ], [ %call2, %lor.lhs.false22 ], [ %call2, %if.end ], [ %call2, %land.lhs.true ], [ %call2, %land.lhs.true79 ], [ %call2, %land.lhs.true71 ], [ %call2, %land.lhs.true63 ], [ %call2, %for.body56 ], [ %call2, %land.lhs.true45 ], [ %call2, %for.body ], [ %call2, %for.inc84 ]
+  %3 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ %call6, %lor.lhs.false5 ], [ %call6, %lor.lhs.false10 ], [ %call6, %lor.lhs.false14 ], [ %call6, %lor.lhs.false18 ], [ %call6, %lor.lhs.false22 ], [ %call6, %if.end ], [ %call6, %land.lhs.true ], [ %call6, %land.lhs.true79 ], [ %call6, %land.lhs.true71 ], [ %call6, %land.lhs.true63 ], [ %call6, %for.body56 ], [ %call6, %land.lhs.true45 ], [ %call6, %for.body ], [ %call6, %for.inc84 ]
+  %c.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ %call11, %lor.lhs.false10 ], [ %call11, %lor.lhs.false14 ], [ %call11, %lor.lhs.false18 ], [ %call11, %lor.lhs.false22 ], [ %call11, %if.end ], [ %call11, %land.lhs.true ], [ %call11, %land.lhs.true79 ], [ %call11, %land.lhs.true71 ], [ %call11, %land.lhs.true63 ], [ %call11, %for.body56 ], [ %call11, %land.lhs.true45 ], [ %call11, %for.body ], [ %call11, %for.inc84 ]
+  %d.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ %call15, %lor.lhs.false14 ], [ %call15, %lor.lhs.false18 ], [ %call15, %lor.lhs.false22 ], [ %call15, %if.end ], [ %call15, %land.lhs.true ], [ %call15, %land.lhs.true79 ], [ %call15, %land.lhs.true71 ], [ %call15, %land.lhs.true63 ], [ %call15, %for.body56 ], [ %call15, %land.lhs.true45 ], [ %call15, %for.body ], [ %call15, %for.inc84 ]
+  %e.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false14 ], [ %call19, %lor.lhs.false18 ], [ %call19, %lor.lhs.false22 ], [ %call19, %if.end ], [ %call19, %land.lhs.true ], [ %call19, %land.lhs.true79 ], [ %call19, %land.lhs.true71 ], [ %call19, %land.lhs.true63 ], [ %call19, %for.body56 ], [ %call19, %land.lhs.true45 ], [ %call19, %for.body ], [ %call19, %for.inc84 ]
+  %f.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false18 ], [ %call23, %lor.lhs.false22 ], [ %call23, %if.end ], [ %call23, %land.lhs.true ], [ %call23, %land.lhs.true79 ], [ %call23, %land.lhs.true71 ], [ %call23, %land.lhs.true63 ], [ %call23, %for.body56 ], [ %call23, %land.lhs.true45 ], [ %call23, %for.body ], [ %call23, %for.inc84 ]
+  %st.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false22 ], [ 0, %if.end ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true79 ], [ 0, %land.lhs.true71 ], [ 0, %land.lhs.true63 ], [ 0, %for.body56 ], [ 1, %for.inc84 ], [ 0, %for.body ], [ 0, %land.lhs.true45 ]
   tail call void @BN_free(ptr noundef %call) #7
-  %5 = load ptr, ptr %b, align 16
-  tail call void @BN_free(ptr noundef %5) #7
-  tail call void @BN_free(ptr noundef %4) #7
+  tail call void @BN_free(ptr noundef %b.sroa.0.0) #7
+  tail call void @BN_free(ptr noundef %3) #7
   tail call void @BN_free(ptr noundef %c.0) #7
   tail call void @BN_free(ptr noundef %d.0) #7
   tail call void @BN_free(ptr noundef %e.0) #7
@@ -5935,8 +5900,6 @@ err:                                              ; preds = %for.inc84, %for.bod
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_gf2m_modexp() #1 {
 entry:
-  %b = alloca [2 x ptr], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %b, i8 0, i64 16, i1 false)
   %call = tail call ptr @BN_new() #7
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 996, ptr noundef nonnull @.str.63, ptr noundef %call) #7
   %tobool.not = icmp eq i32 %call1, 0
@@ -5944,15 +5907,12 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call2 = tail call ptr @BN_new() #7
-  store ptr %call2, ptr %b, align 16
   %call3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 997, ptr noundef nonnull @.str.507, ptr noundef %call2) #7
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %err, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
   %call6 = tail call ptr @BN_new() #7
-  %arrayidx7 = getelementptr inbounds i8, ptr %b, i64 8
-  store ptr %call6, ptr %arrayidx7, align 8
   %call8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 998, ptr noundef nonnull @.str.508, ptr noundef %call6) #7
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %err, label %lor.lhs.false10
@@ -6027,11 +5987,9 @@ for.cond59:                                       ; preds = %land.lhs.true105
 
 for.body62:                                       ; preds = %land.lhs.true51, %for.cond59
   %cmp60 = phi i1 [ false, %for.cond59 ], [ true, %land.lhs.true51 ]
-  %indvars.iv = phi i64 [ 1, %for.cond59 ], [ 0, %land.lhs.true51 ]
-  %arrayidx63 = getelementptr inbounds [2 x ptr], ptr %b, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx63, align 8
-  %1 = load ptr, ptr @ctx, align 8
-  %call64 = tail call i32 @BN_GF2m_mod_exp(ptr noundef %call19, ptr noundef %call, ptr noundef %call11, ptr noundef %0, ptr noundef %1) #7
+  %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %call6, %for.cond59 ], [ %call2, %land.lhs.true51 ]
+  %0 = load ptr, ptr @ctx, align 8
+  %call64 = tail call i32 @BN_GF2m_mod_exp(ptr noundef %call19, ptr noundef %call, ptr noundef %call11, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %0) #7
   %cmp65 = icmp ne i32 %call64, 0
   %conv66 = zext i1 %cmp65 to i32
   %call67 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1015, ptr noundef nonnull @.str.539, i32 noundef %conv66) #7
@@ -6039,8 +5997,8 @@ for.body62:                                       ; preds = %land.lhs.true51, %f
   br i1 %tobool68.not, label %err, label %land.lhs.true69
 
 land.lhs.true69:                                  ; preds = %for.body62
-  %2 = load ptr, ptr @ctx, align 8
-  %call72 = tail call i32 @BN_GF2m_mod_exp(ptr noundef %call23, ptr noundef %call, ptr noundef %call15, ptr noundef %0, ptr noundef %2) #7
+  %1 = load ptr, ptr @ctx, align 8
+  %call72 = tail call i32 @BN_GF2m_mod_exp(ptr noundef %call23, ptr noundef %call, ptr noundef %call15, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %1) #7
   %cmp73 = icmp ne i32 %call72, 0
   %conv74 = zext i1 %cmp73 to i32
   %call75 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1016, ptr noundef nonnull @.str.540, i32 noundef %conv74) #7
@@ -6048,8 +6006,8 @@ land.lhs.true69:                                  ; preds = %for.body62
   br i1 %tobool76.not, label %err, label %land.lhs.true77
 
 land.lhs.true77:                                  ; preds = %land.lhs.true69
-  %3 = load ptr, ptr @ctx, align 8
-  %call80 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %call19, ptr noundef %call19, ptr noundef %call23, ptr noundef %0, ptr noundef %3) #7
+  %2 = load ptr, ptr @ctx, align 8
+  %call80 = tail call i32 @BN_GF2m_mod_mul(ptr noundef %call19, ptr noundef %call19, ptr noundef %call23, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %2) #7
   %cmp81 = icmp ne i32 %call80, 0
   %conv82 = zext i1 %cmp81 to i32
   %call83 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1017, ptr noundef nonnull @.str.541, i32 noundef %conv82) #7
@@ -6065,8 +6023,8 @@ land.lhs.true85:                                  ; preds = %land.lhs.true77
   br i1 %tobool90.not, label %err, label %land.lhs.true91
 
 land.lhs.true91:                                  ; preds = %land.lhs.true85
-  %4 = load ptr, ptr @ctx, align 8
-  %call94 = tail call i32 @BN_GF2m_mod_exp(ptr noundef %call23, ptr noundef %call, ptr noundef %call23, ptr noundef %0, ptr noundef %4) #7
+  %3 = load ptr, ptr @ctx, align 8
+  %call94 = tail call i32 @BN_GF2m_mod_exp(ptr noundef %call23, ptr noundef %call, ptr noundef %call23, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %3) #7
   %cmp95 = icmp ne i32 %call94, 0
   %conv96 = zext i1 %cmp95 to i32
   %call97 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1019, ptr noundef nonnull @.str.543, i32 noundef %conv96) #7
@@ -6092,16 +6050,16 @@ for.inc110:                                       ; preds = %for.cond59
   br i1 %exitcond.not, label %err, label %for.body, !llvm.loop !31
 
 err:                                              ; preds = %for.inc110, %for.body, %land.lhs.true45, %land.lhs.true51, %for.body62, %land.lhs.true69, %land.lhs.true77, %land.lhs.true85, %land.lhs.true91, %land.lhs.true99, %land.lhs.true105, %if.end, %land.lhs.true, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false10, %lor.lhs.false14, %lor.lhs.false18, %lor.lhs.false22
-  %5 = phi ptr [ %call6, %land.lhs.true ], [ %call6, %if.end ], [ %call6, %lor.lhs.false22 ], [ %call6, %lor.lhs.false18 ], [ %call6, %lor.lhs.false14 ], [ %call6, %lor.lhs.false10 ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %land.lhs.true105 ], [ %call6, %land.lhs.true99 ], [ %call6, %land.lhs.true91 ], [ %call6, %land.lhs.true85 ], [ %call6, %land.lhs.true77 ], [ %call6, %land.lhs.true69 ], [ %call6, %for.body62 ], [ %call6, %land.lhs.true51 ], [ %call6, %land.lhs.true45 ], [ %call6, %for.body ], [ %call6, %for.inc110 ]
-  %c.0 = phi ptr [ %call11, %land.lhs.true ], [ %call11, %if.end ], [ %call11, %lor.lhs.false22 ], [ %call11, %lor.lhs.false18 ], [ %call11, %lor.lhs.false14 ], [ %call11, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call11, %land.lhs.true105 ], [ %call11, %land.lhs.true99 ], [ %call11, %land.lhs.true91 ], [ %call11, %land.lhs.true85 ], [ %call11, %land.lhs.true77 ], [ %call11, %land.lhs.true69 ], [ %call11, %for.body62 ], [ %call11, %land.lhs.true51 ], [ %call11, %land.lhs.true45 ], [ %call11, %for.body ], [ %call11, %for.inc110 ]
-  %d.0 = phi ptr [ %call15, %land.lhs.true ], [ %call15, %if.end ], [ %call15, %lor.lhs.false22 ], [ %call15, %lor.lhs.false18 ], [ %call15, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call15, %land.lhs.true105 ], [ %call15, %land.lhs.true99 ], [ %call15, %land.lhs.true91 ], [ %call15, %land.lhs.true85 ], [ %call15, %land.lhs.true77 ], [ %call15, %land.lhs.true69 ], [ %call15, %for.body62 ], [ %call15, %land.lhs.true51 ], [ %call15, %land.lhs.true45 ], [ %call15, %for.body ], [ %call15, %for.inc110 ]
-  %e.0 = phi ptr [ %call19, %land.lhs.true ], [ %call19, %if.end ], [ %call19, %lor.lhs.false22 ], [ %call19, %lor.lhs.false18 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call19, %land.lhs.true105 ], [ %call19, %land.lhs.true99 ], [ %call19, %land.lhs.true91 ], [ %call19, %land.lhs.true85 ], [ %call19, %land.lhs.true77 ], [ %call19, %land.lhs.true69 ], [ %call19, %for.body62 ], [ %call19, %land.lhs.true51 ], [ %call19, %land.lhs.true45 ], [ %call19, %for.body ], [ %call19, %for.inc110 ]
-  %f.0 = phi ptr [ %call23, %land.lhs.true ], [ %call23, %if.end ], [ %call23, %lor.lhs.false22 ], [ null, %lor.lhs.false18 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call23, %land.lhs.true105 ], [ %call23, %land.lhs.true99 ], [ %call23, %land.lhs.true91 ], [ %call23, %land.lhs.true85 ], [ %call23, %land.lhs.true77 ], [ %call23, %land.lhs.true69 ], [ %call23, %for.body62 ], [ %call23, %land.lhs.true51 ], [ %call23, %land.lhs.true45 ], [ %call23, %for.body ], [ %call23, %for.inc110 ]
-  %st.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %if.end ], [ 0, %lor.lhs.false22 ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true105 ], [ 0, %land.lhs.true99 ], [ 0, %land.lhs.true91 ], [ 0, %land.lhs.true85 ], [ 0, %land.lhs.true77 ], [ 0, %land.lhs.true69 ], [ 0, %for.body62 ], [ 1, %for.inc110 ], [ 0, %for.body ], [ 0, %land.lhs.true45 ], [ 0, %land.lhs.true51 ]
+  %b.sroa.0.0 = phi ptr [ null, %entry ], [ %call2, %lor.lhs.false ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false10 ], [ %call2, %lor.lhs.false14 ], [ %call2, %lor.lhs.false18 ], [ %call2, %lor.lhs.false22 ], [ %call2, %if.end ], [ %call2, %land.lhs.true ], [ %call2, %land.lhs.true105 ], [ %call2, %land.lhs.true99 ], [ %call2, %land.lhs.true91 ], [ %call2, %land.lhs.true85 ], [ %call2, %land.lhs.true77 ], [ %call2, %land.lhs.true69 ], [ %call2, %for.body62 ], [ %call2, %land.lhs.true51 ], [ %call2, %land.lhs.true45 ], [ %call2, %for.body ], [ %call2, %for.inc110 ]
+  %4 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ %call6, %lor.lhs.false5 ], [ %call6, %lor.lhs.false10 ], [ %call6, %lor.lhs.false14 ], [ %call6, %lor.lhs.false18 ], [ %call6, %lor.lhs.false22 ], [ %call6, %if.end ], [ %call6, %land.lhs.true ], [ %call6, %land.lhs.true105 ], [ %call6, %land.lhs.true99 ], [ %call6, %land.lhs.true91 ], [ %call6, %land.lhs.true85 ], [ %call6, %land.lhs.true77 ], [ %call6, %land.lhs.true69 ], [ %call6, %for.body62 ], [ %call6, %land.lhs.true51 ], [ %call6, %land.lhs.true45 ], [ %call6, %for.body ], [ %call6, %for.inc110 ]
+  %c.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ %call11, %lor.lhs.false10 ], [ %call11, %lor.lhs.false14 ], [ %call11, %lor.lhs.false18 ], [ %call11, %lor.lhs.false22 ], [ %call11, %if.end ], [ %call11, %land.lhs.true ], [ %call11, %land.lhs.true105 ], [ %call11, %land.lhs.true99 ], [ %call11, %land.lhs.true91 ], [ %call11, %land.lhs.true85 ], [ %call11, %land.lhs.true77 ], [ %call11, %land.lhs.true69 ], [ %call11, %for.body62 ], [ %call11, %land.lhs.true51 ], [ %call11, %land.lhs.true45 ], [ %call11, %for.body ], [ %call11, %for.inc110 ]
+  %d.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ %call15, %lor.lhs.false14 ], [ %call15, %lor.lhs.false18 ], [ %call15, %lor.lhs.false22 ], [ %call15, %if.end ], [ %call15, %land.lhs.true ], [ %call15, %land.lhs.true105 ], [ %call15, %land.lhs.true99 ], [ %call15, %land.lhs.true91 ], [ %call15, %land.lhs.true85 ], [ %call15, %land.lhs.true77 ], [ %call15, %land.lhs.true69 ], [ %call15, %for.body62 ], [ %call15, %land.lhs.true51 ], [ %call15, %land.lhs.true45 ], [ %call15, %for.body ], [ %call15, %for.inc110 ]
+  %e.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false14 ], [ %call19, %lor.lhs.false18 ], [ %call19, %lor.lhs.false22 ], [ %call19, %if.end ], [ %call19, %land.lhs.true ], [ %call19, %land.lhs.true105 ], [ %call19, %land.lhs.true99 ], [ %call19, %land.lhs.true91 ], [ %call19, %land.lhs.true85 ], [ %call19, %land.lhs.true77 ], [ %call19, %land.lhs.true69 ], [ %call19, %for.body62 ], [ %call19, %land.lhs.true51 ], [ %call19, %land.lhs.true45 ], [ %call19, %for.body ], [ %call19, %for.inc110 ]
+  %f.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false18 ], [ %call23, %lor.lhs.false22 ], [ %call23, %if.end ], [ %call23, %land.lhs.true ], [ %call23, %land.lhs.true105 ], [ %call23, %land.lhs.true99 ], [ %call23, %land.lhs.true91 ], [ %call23, %land.lhs.true85 ], [ %call23, %land.lhs.true77 ], [ %call23, %land.lhs.true69 ], [ %call23, %for.body62 ], [ %call23, %land.lhs.true51 ], [ %call23, %land.lhs.true45 ], [ %call23, %for.body ], [ %call23, %for.inc110 ]
+  %st.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false22 ], [ 0, %if.end ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true105 ], [ 0, %land.lhs.true99 ], [ 0, %land.lhs.true91 ], [ 0, %land.lhs.true85 ], [ 0, %land.lhs.true77 ], [ 0, %land.lhs.true69 ], [ 0, %for.body62 ], [ 1, %for.inc110 ], [ 0, %for.body ], [ 0, %land.lhs.true45 ], [ 0, %land.lhs.true51 ]
   tail call void @BN_free(ptr noundef %call) #7
-  %6 = load ptr, ptr %b, align 16
-  tail call void @BN_free(ptr noundef %6) #7
-  tail call void @BN_free(ptr noundef %5) #7
+  tail call void @BN_free(ptr noundef %b.sroa.0.0) #7
+  tail call void @BN_free(ptr noundef %4) #7
   tail call void @BN_free(ptr noundef %c.0) #7
   tail call void @BN_free(ptr noundef %d.0) #7
   tail call void @BN_free(ptr noundef %e.0) #7
@@ -6112,8 +6070,6 @@ err:                                              ; preds = %for.inc110, %for.bo
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_gf2m_modsqrt() #1 {
 entry:
-  %b = alloca [2 x ptr], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %b, i8 0, i64 16, i1 false)
   %call = tail call ptr @BN_new() #7
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1044, ptr noundef nonnull @.str.63, ptr noundef %call) #7
   %tobool.not = icmp eq i32 %call1, 0
@@ -6121,15 +6077,12 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call2 = tail call ptr @BN_new() #7
-  store ptr %call2, ptr %b, align 16
   %call3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1045, ptr noundef nonnull @.str.507, ptr noundef %call2) #7
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %err, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
   %call6 = tail call ptr @BN_new() #7
-  %arrayidx7 = getelementptr inbounds i8, ptr %b, i64 8
-  store ptr %call6, ptr %arrayidx7, align 8
   %call8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1046, ptr noundef nonnull @.str.508, ptr noundef %call6) #7
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %err, label %lor.lhs.false10
@@ -6188,10 +6141,8 @@ for.cond47:                                       ; preds = %land.lhs.true79
 
 for.body50:                                       ; preds = %for.body, %for.cond47
   %cmp48 = phi i1 [ false, %for.cond47 ], [ true, %for.body ]
-  %indvars.iv = phi i64 [ 1, %for.cond47 ], [ 0, %for.body ]
-  %arrayidx51 = getelementptr inbounds [2 x ptr], ptr %b, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx51, align 8
-  %call52 = tail call i32 @BN_GF2m_mod(ptr noundef %call11, ptr noundef %call, ptr noundef %0) #7
+  %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %call6, %for.cond47 ], [ %call2, %for.body ]
+  %call52 = tail call i32 @BN_GF2m_mod(ptr noundef %call11, ptr noundef %call, ptr noundef %indvars.iv.sroa.phi.sroa.speculated) #7
   %cmp53 = icmp ne i32 %call52, 0
   %conv54 = zext i1 %cmp53 to i32
   %call55 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1062, ptr noundef nonnull @.str.511, i32 noundef %conv54) #7
@@ -6199,8 +6150,8 @@ for.body50:                                       ; preds = %for.body, %for.cond
   br i1 %tobool56.not, label %err, label %land.lhs.true57
 
 land.lhs.true57:                                  ; preds = %for.body50
-  %1 = load ptr, ptr @ctx, align 8
-  %call60 = tail call i32 @BN_GF2m_mod_sqrt(ptr noundef %call15, ptr noundef %call, ptr noundef %0, ptr noundef %1) #7
+  %0 = load ptr, ptr @ctx, align 8
+  %call60 = tail call i32 @BN_GF2m_mod_sqrt(ptr noundef %call15, ptr noundef %call, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %0) #7
   %cmp61 = icmp ne i32 %call60, 0
   %conv62 = zext i1 %cmp61 to i32
   %call63 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1063, ptr noundef nonnull @.str.545, i32 noundef %conv62) #7
@@ -6208,8 +6159,8 @@ land.lhs.true57:                                  ; preds = %for.body50
   br i1 %tobool64.not, label %err, label %land.lhs.true65
 
 land.lhs.true65:                                  ; preds = %land.lhs.true57
-  %2 = load ptr, ptr @ctx, align 8
-  %call68 = tail call i32 @BN_GF2m_mod_sqr(ptr noundef %call19, ptr noundef %call15, ptr noundef %0, ptr noundef %2) #7
+  %1 = load ptr, ptr @ctx, align 8
+  %call68 = tail call i32 @BN_GF2m_mod_sqr(ptr noundef %call19, ptr noundef %call15, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %1) #7
   %cmp69 = icmp ne i32 %call68, 0
   %conv70 = zext i1 %cmp69 to i32
   %call71 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1064, ptr noundef nonnull @.str.546, i32 noundef %conv70) #7
@@ -6235,16 +6186,16 @@ for.inc84:                                        ; preds = %for.cond47
   br i1 %exitcond.not, label %err, label %for.body, !llvm.loop !33
 
 err:                                              ; preds = %for.inc84, %for.body, %for.body50, %land.lhs.true57, %land.lhs.true65, %land.lhs.true73, %land.lhs.true79, %if.end, %land.lhs.true, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false10, %lor.lhs.false14, %lor.lhs.false18, %lor.lhs.false22
-  %3 = phi ptr [ %call6, %land.lhs.true ], [ %call6, %if.end ], [ %call6, %lor.lhs.false22 ], [ %call6, %lor.lhs.false18 ], [ %call6, %lor.lhs.false14 ], [ %call6, %lor.lhs.false10 ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %land.lhs.true79 ], [ %call6, %land.lhs.true73 ], [ %call6, %land.lhs.true65 ], [ %call6, %land.lhs.true57 ], [ %call6, %for.body50 ], [ %call6, %for.body ], [ %call6, %for.inc84 ]
-  %c.0 = phi ptr [ %call11, %land.lhs.true ], [ %call11, %if.end ], [ %call11, %lor.lhs.false22 ], [ %call11, %lor.lhs.false18 ], [ %call11, %lor.lhs.false14 ], [ %call11, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call11, %land.lhs.true79 ], [ %call11, %land.lhs.true73 ], [ %call11, %land.lhs.true65 ], [ %call11, %land.lhs.true57 ], [ %call11, %for.body50 ], [ %call11, %for.body ], [ %call11, %for.inc84 ]
-  %d.0 = phi ptr [ %call15, %land.lhs.true ], [ %call15, %if.end ], [ %call15, %lor.lhs.false22 ], [ %call15, %lor.lhs.false18 ], [ %call15, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call15, %land.lhs.true79 ], [ %call15, %land.lhs.true73 ], [ %call15, %land.lhs.true65 ], [ %call15, %land.lhs.true57 ], [ %call15, %for.body50 ], [ %call15, %for.body ], [ %call15, %for.inc84 ]
-  %e.0 = phi ptr [ %call19, %land.lhs.true ], [ %call19, %if.end ], [ %call19, %lor.lhs.false22 ], [ %call19, %lor.lhs.false18 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call19, %land.lhs.true79 ], [ %call19, %land.lhs.true73 ], [ %call19, %land.lhs.true65 ], [ %call19, %land.lhs.true57 ], [ %call19, %for.body50 ], [ %call19, %for.body ], [ %call19, %for.inc84 ]
-  %f.0 = phi ptr [ %call23, %land.lhs.true ], [ %call23, %if.end ], [ %call23, %lor.lhs.false22 ], [ null, %lor.lhs.false18 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call23, %land.lhs.true79 ], [ %call23, %land.lhs.true73 ], [ %call23, %land.lhs.true65 ], [ %call23, %land.lhs.true57 ], [ %call23, %for.body50 ], [ %call23, %for.body ], [ %call23, %for.inc84 ]
-  %st.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %if.end ], [ 0, %lor.lhs.false22 ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true79 ], [ 0, %land.lhs.true73 ], [ 0, %land.lhs.true65 ], [ 0, %land.lhs.true57 ], [ 0, %for.body50 ], [ 1, %for.inc84 ], [ 0, %for.body ]
+  %b.sroa.0.0 = phi ptr [ null, %entry ], [ %call2, %lor.lhs.false ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false10 ], [ %call2, %lor.lhs.false14 ], [ %call2, %lor.lhs.false18 ], [ %call2, %lor.lhs.false22 ], [ %call2, %if.end ], [ %call2, %land.lhs.true ], [ %call2, %land.lhs.true79 ], [ %call2, %land.lhs.true73 ], [ %call2, %land.lhs.true65 ], [ %call2, %land.lhs.true57 ], [ %call2, %for.body50 ], [ %call2, %for.body ], [ %call2, %for.inc84 ]
+  %2 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ %call6, %lor.lhs.false5 ], [ %call6, %lor.lhs.false10 ], [ %call6, %lor.lhs.false14 ], [ %call6, %lor.lhs.false18 ], [ %call6, %lor.lhs.false22 ], [ %call6, %if.end ], [ %call6, %land.lhs.true ], [ %call6, %land.lhs.true79 ], [ %call6, %land.lhs.true73 ], [ %call6, %land.lhs.true65 ], [ %call6, %land.lhs.true57 ], [ %call6, %for.body50 ], [ %call6, %for.body ], [ %call6, %for.inc84 ]
+  %c.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ %call11, %lor.lhs.false10 ], [ %call11, %lor.lhs.false14 ], [ %call11, %lor.lhs.false18 ], [ %call11, %lor.lhs.false22 ], [ %call11, %if.end ], [ %call11, %land.lhs.true ], [ %call11, %land.lhs.true79 ], [ %call11, %land.lhs.true73 ], [ %call11, %land.lhs.true65 ], [ %call11, %land.lhs.true57 ], [ %call11, %for.body50 ], [ %call11, %for.body ], [ %call11, %for.inc84 ]
+  %d.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ %call15, %lor.lhs.false14 ], [ %call15, %lor.lhs.false18 ], [ %call15, %lor.lhs.false22 ], [ %call15, %if.end ], [ %call15, %land.lhs.true ], [ %call15, %land.lhs.true79 ], [ %call15, %land.lhs.true73 ], [ %call15, %land.lhs.true65 ], [ %call15, %land.lhs.true57 ], [ %call15, %for.body50 ], [ %call15, %for.body ], [ %call15, %for.inc84 ]
+  %e.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false14 ], [ %call19, %lor.lhs.false18 ], [ %call19, %lor.lhs.false22 ], [ %call19, %if.end ], [ %call19, %land.lhs.true ], [ %call19, %land.lhs.true79 ], [ %call19, %land.lhs.true73 ], [ %call19, %land.lhs.true65 ], [ %call19, %land.lhs.true57 ], [ %call19, %for.body50 ], [ %call19, %for.body ], [ %call19, %for.inc84 ]
+  %f.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false18 ], [ %call23, %lor.lhs.false22 ], [ %call23, %if.end ], [ %call23, %land.lhs.true ], [ %call23, %land.lhs.true79 ], [ %call23, %land.lhs.true73 ], [ %call23, %land.lhs.true65 ], [ %call23, %land.lhs.true57 ], [ %call23, %for.body50 ], [ %call23, %for.body ], [ %call23, %for.inc84 ]
+  %st.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false22 ], [ 0, %if.end ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true79 ], [ 0, %land.lhs.true73 ], [ 0, %land.lhs.true65 ], [ 0, %land.lhs.true57 ], [ 0, %for.body50 ], [ 1, %for.inc84 ], [ 0, %for.body ]
   tail call void @BN_free(ptr noundef %call) #7
-  %4 = load ptr, ptr %b, align 16
-  tail call void @BN_free(ptr noundef %4) #7
-  tail call void @BN_free(ptr noundef %3) #7
+  tail call void @BN_free(ptr noundef %b.sroa.0.0) #7
+  tail call void @BN_free(ptr noundef %2) #7
   tail call void @BN_free(ptr noundef %c.0) #7
   tail call void @BN_free(ptr noundef %d.0) #7
   tail call void @BN_free(ptr noundef %e.0) #7
@@ -6255,8 +6206,6 @@ err:                                              ; preds = %for.inc84, %for.bod
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_gf2m_modsolvequad() #1 {
 entry:
-  %b = alloca [2 x ptr], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %b, i8 0, i64 16, i1 false)
   %call = tail call ptr @BN_new() #7
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1089, ptr noundef nonnull @.str.63, ptr noundef %call) #7
   %tobool.not = icmp eq i32 %call1, 0
@@ -6264,15 +6213,12 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call2 = tail call ptr @BN_new() #7
-  store ptr %call2, ptr %b, align 16
   %call3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1090, ptr noundef nonnull @.str.507, ptr noundef %call2) #7
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %err, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
   %call6 = tail call ptr @BN_new() #7
-  %arrayidx7 = getelementptr inbounds i8, ptr %b, i64 8
-  store ptr %call6, ptr %arrayidx7, align 8
   %call8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1091, ptr noundef nonnull @.str.508, ptr noundef %call6) #7
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %err, label %lor.lhs.false10
@@ -6323,19 +6269,17 @@ for.body:                                         ; preds = %land.lhs.true, %for
 
 for.body46:                                       ; preds = %for.body, %for.inc
   %cmp44 = phi i1 [ false, %for.inc ], [ true, %for.body ]
-  %indvars.iv = phi i64 [ 1, %for.inc ], [ 0, %for.body ]
+  %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %call6, %for.inc ], [ %call2, %for.body ]
   %s.126 = phi i32 [ %s.2, %for.inc ], [ %s.028, %for.body ]
-  %arrayidx47 = getelementptr inbounds [2 x ptr], ptr %b, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx47, align 8
-  %1 = load ptr, ptr @ctx, align 8
-  %call48 = tail call i32 @BN_GF2m_mod_solve_quad(ptr noundef %call11, ptr noundef %call, ptr noundef %0, ptr noundef %1) #7
+  %0 = load ptr, ptr @ctx, align 8
+  %call48 = tail call i32 @BN_GF2m_mod_solve_quad(ptr noundef %call11, ptr noundef %call, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %0) #7
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %for.inc, label %if.then50
 
 if.then50:                                        ; preds = %for.body46
   %inc = add nsw i32 %s.126, 1
-  %2 = load ptr, ptr @ctx, align 8
-  %call53 = tail call i32 @BN_GF2m_mod_sqr(ptr noundef %call15, ptr noundef %call11, ptr noundef %0, ptr noundef %2) #7
+  %1 = load ptr, ptr @ctx, align 8
+  %call53 = tail call i32 @BN_GF2m_mod_sqr(ptr noundef %call15, ptr noundef %call11, ptr noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef %1) #7
   %cmp54 = icmp ne i32 %call53, 0
   %conv55 = zext i1 %cmp54 to i32
   %call56 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1108, ptr noundef nonnull @.str.548, i32 noundef %conv55) #7
@@ -6351,7 +6295,7 @@ land.lhs.true58:                                  ; preds = %if.then50
   br i1 %tobool63.not, label %err, label %land.lhs.true64
 
 land.lhs.true64:                                  ; preds = %land.lhs.true58
-  %call67 = tail call i32 @BN_GF2m_mod(ptr noundef %call19, ptr noundef %call, ptr noundef %0) #7
+  %call67 = tail call i32 @BN_GF2m_mod(ptr noundef %call19, ptr noundef %call, ptr noundef %indvars.iv.sroa.phi.sroa.speculated) #7
   %cmp68 = icmp ne i32 %call67, 0
   %conv69 = zext i1 %cmp68 to i32
   %call70 = tail call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 1110, ptr noundef nonnull @.str.549, i32 noundef %conv69) #7
@@ -6390,15 +6334,15 @@ if.then90:                                        ; preds = %for.end87
   br label %err
 
 err:                                              ; preds = %for.body, %if.then50, %land.lhs.true58, %land.lhs.true64, %land.lhs.true72, %land.lhs.true78, %for.end87, %if.end, %land.lhs.true, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false10, %lor.lhs.false14, %lor.lhs.false18, %if.then90
-  %3 = phi ptr [ %call6, %if.then90 ], [ %call6, %land.lhs.true ], [ %call6, %if.end ], [ %call6, %lor.lhs.false18 ], [ %call6, %lor.lhs.false14 ], [ %call6, %lor.lhs.false10 ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %for.end87 ], [ %call6, %land.lhs.true78 ], [ %call6, %land.lhs.true72 ], [ %call6, %land.lhs.true64 ], [ %call6, %land.lhs.true58 ], [ %call6, %if.then50 ], [ %call6, %for.body ]
-  %c.0 = phi ptr [ %call11, %if.then90 ], [ %call11, %land.lhs.true ], [ %call11, %if.end ], [ %call11, %lor.lhs.false18 ], [ %call11, %lor.lhs.false14 ], [ %call11, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call11, %for.end87 ], [ %call11, %land.lhs.true78 ], [ %call11, %land.lhs.true72 ], [ %call11, %land.lhs.true64 ], [ %call11, %land.lhs.true58 ], [ %call11, %if.then50 ], [ %call11, %for.body ]
-  %d.0 = phi ptr [ %call15, %if.then90 ], [ %call15, %land.lhs.true ], [ %call15, %if.end ], [ %call15, %lor.lhs.false18 ], [ %call15, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call15, %for.end87 ], [ %call15, %land.lhs.true78 ], [ %call15, %land.lhs.true72 ], [ %call15, %land.lhs.true64 ], [ %call15, %land.lhs.true58 ], [ %call15, %if.then50 ], [ %call15, %for.body ]
-  %e.0 = phi ptr [ %call19, %if.then90 ], [ %call19, %land.lhs.true ], [ %call19, %if.end ], [ %call19, %lor.lhs.false18 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call19, %for.end87 ], [ %call19, %land.lhs.true78 ], [ %call19, %land.lhs.true72 ], [ %call19, %land.lhs.true64 ], [ %call19, %land.lhs.true58 ], [ %call19, %if.then50 ], [ %call19, %for.body ]
-  %st.0 = phi i32 [ 0, %if.then90 ], [ 0, %land.lhs.true ], [ 0, %if.end ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %for.end87 ], [ 0, %land.lhs.true78 ], [ 0, %land.lhs.true72 ], [ 0, %land.lhs.true64 ], [ 0, %land.lhs.true58 ], [ 0, %if.then50 ], [ 0, %for.body ]
+  %b.sroa.0.0 = phi ptr [ null, %entry ], [ %call2, %lor.lhs.false ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false10 ], [ %call2, %lor.lhs.false14 ], [ %call2, %lor.lhs.false18 ], [ %call2, %if.end ], [ %call2, %land.lhs.true ], [ %call2, %if.then90 ], [ %call2, %for.end87 ], [ %call2, %land.lhs.true78 ], [ %call2, %land.lhs.true72 ], [ %call2, %land.lhs.true64 ], [ %call2, %land.lhs.true58 ], [ %call2, %if.then50 ], [ %call2, %for.body ]
+  %2 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ %call6, %lor.lhs.false5 ], [ %call6, %lor.lhs.false10 ], [ %call6, %lor.lhs.false14 ], [ %call6, %lor.lhs.false18 ], [ %call6, %if.end ], [ %call6, %land.lhs.true ], [ %call6, %if.then90 ], [ %call6, %for.end87 ], [ %call6, %land.lhs.true78 ], [ %call6, %land.lhs.true72 ], [ %call6, %land.lhs.true64 ], [ %call6, %land.lhs.true58 ], [ %call6, %if.then50 ], [ %call6, %for.body ]
+  %c.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ %call11, %lor.lhs.false10 ], [ %call11, %lor.lhs.false14 ], [ %call11, %lor.lhs.false18 ], [ %call11, %if.end ], [ %call11, %land.lhs.true ], [ %call11, %if.then90 ], [ %call11, %for.end87 ], [ %call11, %land.lhs.true78 ], [ %call11, %land.lhs.true72 ], [ %call11, %land.lhs.true64 ], [ %call11, %land.lhs.true58 ], [ %call11, %if.then50 ], [ %call11, %for.body ]
+  %d.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ %call15, %lor.lhs.false14 ], [ %call15, %lor.lhs.false18 ], [ %call15, %if.end ], [ %call15, %land.lhs.true ], [ %call15, %if.then90 ], [ %call15, %for.end87 ], [ %call15, %land.lhs.true78 ], [ %call15, %land.lhs.true72 ], [ %call15, %land.lhs.true64 ], [ %call15, %land.lhs.true58 ], [ %call15, %if.then50 ], [ %call15, %for.body ]
+  %e.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false14 ], [ %call19, %lor.lhs.false18 ], [ %call19, %if.end ], [ %call19, %land.lhs.true ], [ %call19, %if.then90 ], [ %call19, %for.end87 ], [ %call19, %land.lhs.true78 ], [ %call19, %land.lhs.true72 ], [ %call19, %land.lhs.true64 ], [ %call19, %land.lhs.true58 ], [ %call19, %if.then50 ], [ %call19, %for.body ]
+  %st.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false14 ], [ 0, %lor.lhs.false18 ], [ 0, %if.end ], [ 0, %land.lhs.true ], [ 0, %if.then90 ], [ 1, %for.end87 ], [ 0, %land.lhs.true78 ], [ 0, %land.lhs.true72 ], [ 0, %land.lhs.true64 ], [ 0, %land.lhs.true58 ], [ 0, %if.then50 ], [ 0, %for.body ]
   tail call void @BN_free(ptr noundef %call) #7
-  %4 = load ptr, ptr %b, align 16
-  tail call void @BN_free(ptr noundef %4) #7
-  tail call void @BN_free(ptr noundef %3) #7
+  tail call void @BN_free(ptr noundef %b.sroa.0.0) #7
+  tail call void @BN_free(ptr noundef %2) #7
   tail call void @BN_free(ptr noundef %c.0) #7
   tail call void @BN_free(ptr noundef %d.0) #7
   tail call void @BN_free(ptr noundef %e.0) #7
@@ -6421,7 +6365,7 @@ for.cond.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %lor.lhs.false, %for.cond.preheader
-  %cmp = phi i1 [ false, %for.cond.preheader ], [ true, %lor.lhs.false ]
+  %cmp.not = phi i1 [ false, %for.cond.preheader ], [ true, %lor.lhs.false ]
   %call2 = tail call i32 @BN_set_word(ptr noundef %call, i64 noundef %conv) #7
   %cmp3 = icmp ne i32 %call2, 0
   %conv4 = zext i1 %cmp3 to i32
@@ -6434,7 +6378,7 @@ lor.lhs.false:                                    ; preds = %for.body
   %call7 = tail call i32 @BN_check_prime(ptr noundef %call, ptr noundef %1, ptr noundef null) #7
   %call8 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.17, i32 noundef 2683, ptr noundef nonnull @.str.554, ptr noundef nonnull @.str.123, i32 noundef %call7, i32 noundef 1) #7
   %tobool9.not = icmp eq i32 %call8, 0
-  %brmerge = or i1 %tobool9.not, %cmp
+  %brmerge = or i1 %tobool9.not, %cmp.not
   br i1 %brmerge, label %err.loopexit.split.loop.exit, label %for.body
 
 err.loopexit.split.loop.exit:                     ; preds = %lor.lhs.false
@@ -6464,7 +6408,7 @@ for.cond.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %lor.lhs.false, %for.cond.preheader
-  %cmp = phi i1 [ false, %for.cond.preheader ], [ true, %lor.lhs.false ]
+  %cmp.not = phi i1 [ false, %for.cond.preheader ], [ true, %lor.lhs.false ]
   %call2 = tail call i32 @BN_set_word(ptr noundef %call, i64 noundef %conv) #7
   %cmp3 = icmp ne i32 %call2, 0
   %conv4 = zext i1 %cmp3 to i32
@@ -6479,7 +6423,7 @@ lor.lhs.false:                                    ; preds = %for.body
   %conv9 = zext i1 %cmp8 to i32
   %call10 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 2706, ptr noundef nonnull @.str.554, i32 noundef %conv9) #7
   %tobool11.not = icmp eq i32 %call10, 0
-  %brmerge = or i1 %tobool11.not, %cmp
+  %brmerge = or i1 %tobool11.not, %cmp.not
   br i1 %brmerge, label %err.loopexit.split.loop.exit, label %for.body
 
 err.loopexit.split.loop.exit:                     ; preds = %lor.lhs.false

@@ -714,14 +714,14 @@ entry:
   %newPoolBundle = alloca %"class.icu_75::LocalPointer", align 8
   %poolFileName = alloca %"class.icu_75::CharString", align 8
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
-  %agg.tmp.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %agg.tmp180 = alloca %"class.icu_75::StringPiece", align 8
-  %agg.tmp180.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp180, i64 8
   %agg.tmp186 = alloca %"class.icu_75::StringPiece", align 8
   %theCurrentFileName = alloca %"class.icu_75::CharString", align 8
   %agg.tmp465 = alloca %"class.icu_75::StringPiece", align 8
   %agg.tmp471 = alloca %"class.icu_75::StringPiece", align 8
   %outputFileName = alloca [256 x i8], align 16
+  %agg.tmp180.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %agg.tmp180.sink.sroa.gep194 = getelementptr inbounds i8, ptr %agg.tmp180, i64 8
   store i32 0, ptr %status, align 4
   store ptr @.str.26, ptr getelementptr inbounds ([25 x %struct.UOption], ptr @options, i64 0, i64 11, i32 1), align 16
   store ptr @.str.27, ptr getelementptr inbounds ([25 x %struct.UOption], ptr @options, i64 0, i64 12, i32 1), align 8
@@ -1112,8 +1112,8 @@ if.then172:                                       ; preds = %invoke.cont170
           to label %invoke.cont174.invoke unwind label %lpad173.loopexit.split-lp
 
 invoke.cont174.invoke:                            ; preds = %if.then179, %if.then172
+  %agg.tmp180.sink.sroa.phi = phi ptr [ %agg.tmp180.sink.sroa.gep, %if.then172 ], [ %agg.tmp180.sink.sroa.gep194, %if.then179 ]
   %agg.tmp180.sink = phi ptr [ %agg.tmp, %if.then172 ], [ %agg.tmp180, %if.then179 ]
-  %agg.tmp180.sink.sroa.phi = phi ptr [ %agg.tmp.sroa.gep, %if.then172 ], [ %agg.tmp180.sroa.gep, %if.then179 ]
   %82 = load ptr, ptr %agg.tmp180.sink, align 8
   %83 = load i32, ptr %agg.tmp180.sink.sroa.phi, align 8
   %84 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %poolFileName, ptr noundef %82, i32 noundef %83, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -1921,9 +1921,7 @@ invoke.cont4:
   %inputDirBuf = alloca %"class.icu_75::CharString", align 8
   %outputFileName = alloca [256 x i8], align 16
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
-  %agg.tmp.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %agg.tmp40 = alloca %"class.icu_75::StringPiece", align 8
-  %agg.tmp40.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp40, i64 8
   %agg.tmp46 = alloca %"class.icu_75::StringPiece", align 8
   %filterFileName = alloca %"class.icu_75::CharString", align 8
   %agg.tmp114 = alloca %"class.icu_75::StringPiece", align 8
@@ -1933,6 +1931,8 @@ invoke.cont4:
   %currentLine = alloca %"class.std::__cxx11::basic_string", align 8
   %path = alloca %class.ResKeyPath, align 8
   %newKeysLength = alloca i32, align 4
+  %agg.tmp.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %agg.tmp.sink.sroa.gep137 = getelementptr inbounds i8, ptr %agg.tmp40, i64 8
   store ptr %cp, ptr %cp.addr, align 8
   store ptr null, ptr %data, align 8
   store ptr null, ptr %ucbuf, align 8
@@ -2019,8 +2019,8 @@ if.else39:                                        ; preds = %if.else
           to label %invoke.cont41.invoke unwind label %lpad5
 
 invoke.cont41.invoke:                             ; preds = %if.else39, %if.then34
+  %agg.tmp.sink.sroa.phi = phi ptr [ %agg.tmp.sink.sroa.gep, %if.then34 ], [ %agg.tmp.sink.sroa.gep137, %if.else39 ]
   %agg.tmp.sink = phi ptr [ %agg.tmp, %if.then34 ], [ %agg.tmp40, %if.else39 ]
-  %agg.tmp.sink.sroa.phi = phi ptr [ %agg.tmp.sroa.gep, %if.then34 ], [ %agg.tmp40.sroa.gep, %if.else39 ]
   %6 = load ptr, ptr %agg.tmp.sink, align 8
   %7 = load i32, ptr %agg.tmp.sink.sroa.phi, align 8
   %8 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %openFileName, ptr noundef %6, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %status)

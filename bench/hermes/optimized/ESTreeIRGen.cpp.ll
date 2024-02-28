@@ -1738,19 +1738,19 @@ declare void @_ZN6hermes5irgen15FunctionContextC1EPNS0_11ESTreeIRGenEPNS_8Functi
 define hidden void @_ZN6hermes5irgen11ESTreeIRGen22processDeclarationFileEPNS_6ESTree11ProgramNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %programNode) local_unnamed_addr #0 align 2 {
 entry:
   %DH = alloca %"struct.hermes::irgen::(anonymous namespace)::DeclHoisting", align 8
+  %.sink.i.i.i.sroa.gep = getelementptr inbounds i8, ptr %DH, i64 16
+  %.sink.i.i.i.sroa.gep13 = getelementptr inbounds i8, ptr %DH, i64 96
   %tobool.not = icmp eq ptr %programNode, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %DH, i64 16
-  store ptr %add.ptr.i.i.i.i.i.i, ptr %DH, align 8
+  store ptr %.sink.i.i.i.sroa.gep, ptr %DH, align 8
   %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %DH, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %DH, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i.i, align 4
   %closures.i = getelementptr inbounds i8, ptr %DH, i64 80
-  %add.ptr.i.i.i.i.i1.i = getelementptr inbounds i8, ptr %DH, i64 96
-  store ptr %add.ptr.i.i.i.i.i1.i, ptr %closures.i, align 8
+  store ptr %.sink.i.i.i.sroa.gep13, ptr %closures.i, align 8
   %Size.i.i.i.i.i2.i = getelementptr inbounds i8, ptr %DH, i64 88
   store i32 0, ptr %Size.i.i.i.i.i2.i, align 8
   %Capacity2.i.i.i.i.i3.i = getelementptr inbounds i8, ptr %DH, i64 92
@@ -1766,7 +1766,7 @@ if.then4.i.i.i:                                   ; preds = %if.end
   br label %if.end5.sink.split.i.i.i
 
 if.end5.sink.split.i.i.i:                         ; preds = %if.then4.i.i.i, %if.end
-  %1 = phi ptr [ %add.ptr.i.i.i.i.i1.i, %if.then4.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.end ]
+  %1 = phi ptr [ %.sink.i.i.i.sroa.gep13, %if.then4.i.i.i ], [ %.sink.i.i.i.sroa.gep, %if.end ]
   %Size.i.i5.sink16.i.i.i = phi ptr [ %Size.i.i.i.i.i2.i, %if.then4.i.i.i ], [ %Size.i.i.i.i.i.i, %if.end ]
   %2 = ptrtoint ptr %programNode to i64
   store i64 %2, ptr %1, align 1
@@ -1802,18 +1802,18 @@ _ZN6hermes6ESTree11ProgramNode5visitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT
   %7 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i = zext i32 %7 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %6, i64 %conv.i
-  %cmp.not13 = icmp eq i32 %7, 0
-  br i1 %cmp.not13, label %for.end, label %for.body
+  %cmp.not14 = icmp eq i32 %7, 0
+  br i1 %cmp.not14, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN6hermes6ESTree11ProgramNode5visitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_.exit, %for.body
-  %__begin2.014 = phi ptr [ %incdec.ptr, %for.body ], [ %6, %_ZN6hermes6ESTree11ProgramNode5visitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_.exit ]
-  %8 = load ptr, ptr %__begin2.014, align 8
+  %__begin2.015 = phi ptr [ %incdec.ptr, %for.body ], [ %6, %_ZN6hermes6ESTree11ProgramNode5visitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_.exit ]
+  %8 = load ptr, ptr %__begin2.015, align 8
   %_id = getelementptr inbounds i8, ptr %8, i64 56
   %9 = load ptr, ptr %_id, align 8
   %_name.i = getelementptr inbounds i8, ptr %9, i64 48
   %10 = load ptr, ptr %_name.i, align 8
   %call6 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen28declareAmbientGlobalPropertyENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr %10)
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.014, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.015, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -1822,28 +1822,28 @@ for.end:                                          ; preds = %for.body, %_ZN6herm
   %12 = load i32, ptr %Size.i.i.i.i.i2.i, align 8
   %conv.i9 = zext i32 %12 to i64
   %add.ptr.i33 = getelementptr inbounds ptr, ptr %11, i64 %conv.i9
-  %cmp13.not15 = icmp eq i32 %12, 0
-  br i1 %cmp13.not15, label %for.end23, label %for.body14
+  %cmp13.not16 = icmp eq i32 %12, 0
+  br i1 %cmp13.not16, label %for.end23, label %for.body14
 
 for.body14:                                       ; preds = %for.end, %for.body14
-  %__begin28.016 = phi ptr [ %incdec.ptr22, %for.body14 ], [ %11, %for.end ]
-  %13 = load ptr, ptr %__begin28.016, align 8
+  %__begin28.017 = phi ptr [ %incdec.ptr22, %for.body14 ], [ %11, %for.end ]
+  %13 = load ptr, ptr %__begin28.017, align 8
   %_id16 = getelementptr inbounds i8, ptr %13, i64 72
   %14 = load ptr, ptr %_id16, align 8
   %_name.i10 = getelementptr inbounds i8, ptr %14, i64 48
   %15 = load ptr, ptr %_name.i10, align 8
   %call20 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen28declareAmbientGlobalPropertyENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr %15)
-  %incdec.ptr22 = getelementptr inbounds i8, ptr %__begin28.016, i64 8
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %__begin28.017, i64 8
   %cmp13.not = icmp eq ptr %incdec.ptr22, %add.ptr.i33
   br i1 %cmp13.not, label %for.end23.loopexit, label %for.body14
 
 for.end23.loopexit:                               ; preds = %for.body14
-  %.pre17 = load ptr, ptr %closures.i, align 8
+  %.pre18 = load ptr, ptr %closures.i, align 8
   br label %for.end23
 
 for.end23:                                        ; preds = %for.end23.loopexit, %for.end
-  %16 = phi ptr [ %.pre17, %for.end23.loopexit ], [ %11, %for.end ]
-  %cmp.i.i.i.i = icmp eq ptr %16, %add.ptr.i.i.i.i.i1.i
+  %16 = phi ptr [ %.pre18, %for.end23.loopexit ], [ %11, %for.end ]
+  %cmp.i.i.i.i = icmp eq ptr %16, %.sink.i.i.i.sroa.gep13
   br i1 %cmp.i.i.i.i, label %_ZN4llvh11SmallVectorIPN6hermes6ESTree23FunctionDeclarationNodeELj8EED2Ev.exit.i, label %if.then.i.i.i12
 
 if.then.i.i.i12:                                  ; preds = %for.end23
@@ -1852,7 +1852,7 @@ if.then.i.i.i12:                                  ; preds = %for.end23
 
 _ZN4llvh11SmallVectorIPN6hermes6ESTree23FunctionDeclarationNodeELj8EED2Ev.exit.i: ; preds = %if.then.i.i.i12, %for.end23
   %17 = load ptr, ptr %DH, align 8
-  %cmp.i.i.i2.i = icmp eq ptr %17, %add.ptr.i.i.i.i.i.i
+  %cmp.i.i.i2.i = icmp eq ptr %17, %.sink.i.i.i.sroa.gep
   br i1 %cmp.i.i.i2.i, label %return, label %if.then.i.i3.i
 
 if.then.i.i3.i:                                   ; preds = %_ZN4llvh11SmallVectorIPN6hermes6ESTree23FunctionDeclarationNodeELj8EED2Ev.exit.i

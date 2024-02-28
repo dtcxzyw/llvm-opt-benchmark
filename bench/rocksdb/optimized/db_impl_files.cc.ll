@@ -5260,23 +5260,23 @@ define void @_ZN7rocksdb6DBImpl22DeleteObsoleteFileImplEiRKNSt7__cxx1112basic_st
 entry:
   %file_deletion_status = alloca %"class.rocksdb::Status", align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
-  %ref.tmp.sroa.gep87 = getelementptr inbounds i8, ptr %ref.tmp, i64 2
-  %ref.tmp.sroa.gep84 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
-  %ref.tmp.sroa.gep81 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %ref.tmp.sroa.gep78 = getelementptr inbounds i8, ptr %ref.tmp, i64 5
-  %ref.tmp.sroa.gep75 = getelementptr inbounds i8, ptr %ref.tmp, i64 3
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %ref.tmp6 = alloca %"class.rocksdb::Status", align 8
-  %ref.tmp6.sroa.gep88 = getelementptr inbounds i8, ptr %ref.tmp6, i64 2
-  %ref.tmp6.sroa.gep85 = getelementptr inbounds i8, ptr %ref.tmp6, i64 4
-  %ref.tmp6.sroa.gep82 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
-  %ref.tmp6.sroa.gep79 = getelementptr inbounds i8, ptr %ref.tmp6, i64 5
-  %ref.tmp6.sroa.gep76 = getelementptr inbounds i8, ptr %ref.tmp6, i64 3
-  %ref.tmp6.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6, i64 1
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp22 = alloca %"class.rocksdb::Status", align 8
   %ref.tmp36 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp47 = alloca %"class.std::__cxx11::basic_string", align 8
+  %ref.tmp.sink73.sroa.gep88 = getelementptr inbounds i8, ptr %ref.tmp, i64 2
+  %ref.tmp.sink73.sroa.gep89 = getelementptr inbounds i8, ptr %ref.tmp6, i64 2
+  %ref.tmp.sink73.sroa.gep85 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %ref.tmp.sink73.sroa.gep86 = getelementptr inbounds i8, ptr %ref.tmp6, i64 4
+  %ref.tmp.sink73.sroa.gep82 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %ref.tmp.sink73.sroa.gep83 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
+  %ref.tmp.sink73.sroa.gep79 = getelementptr inbounds i8, ptr %ref.tmp, i64 5
+  %ref.tmp.sink73.sroa.gep80 = getelementptr inbounds i8, ptr %ref.tmp6, i64 5
+  %ref.tmp.sink73.sroa.gep76 = getelementptr inbounds i8, ptr %ref.tmp, i64 3
+  %ref.tmp.sink73.sroa.gep77 = getelementptr inbounds i8, ptr %ref.tmp6, i64 3
+  %ref.tmp.sink73.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 1
+  %ref.tmp.sink73.sroa.gep74 = getelementptr inbounds i8, ptr %ref.tmp6, i64 1
   %state_.i = getelementptr inbounds i8, ptr %file_deletion_status, i64 8
   store ptr null, ptr %state_.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %file_deletion_status, i8 0, i64 6, i1 false)
@@ -5324,35 +5324,35 @@ _ZN7rocksdb6StatusD2Ev.exit46:                    ; preds = %if.else
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %_ZN7rocksdb6StatusD2Ev.exit46
+  %ref.tmp.sink73.sroa.phi = phi ptr [ %ref.tmp.sink73.sroa.gep, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink73.sroa.gep74, %_ZN7rocksdb6StatusD2Ev.exit46 ]
+  %ref.tmp.sink73.sroa.phi75 = phi ptr [ %ref.tmp.sink73.sroa.gep76, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink73.sroa.gep77, %_ZN7rocksdb6StatusD2Ev.exit46 ]
+  %ref.tmp.sink73.sroa.phi78 = phi ptr [ %ref.tmp.sink73.sroa.gep79, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink73.sroa.gep80, %_ZN7rocksdb6StatusD2Ev.exit46 ]
+  %ref.tmp.sink73.sroa.phi81 = phi ptr [ %ref.tmp.sink73.sroa.gep82, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink73.sroa.gep83, %_ZN7rocksdb6StatusD2Ev.exit46 ]
+  %ref.tmp.sink73.sroa.phi84 = phi ptr [ %ref.tmp.sink73.sroa.gep85, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink73.sroa.gep86, %_ZN7rocksdb6StatusD2Ev.exit46 ]
+  %ref.tmp.sink73.sroa.phi87 = phi ptr [ %ref.tmp.sink73.sroa.gep88, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink73.sroa.gep89, %_ZN7rocksdb6StatusD2Ev.exit46 ]
   %7 = phi i8 [ %2, %_ZN7rocksdb6StatusD2Ev.exit ], [ %6, %_ZN7rocksdb6StatusD2Ev.exit46 ]
-  %ref.tmp.sink73.sroa.phi = phi ptr [ %ref.tmp.sroa.gep, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp6.sroa.gep, %_ZN7rocksdb6StatusD2Ev.exit46 ]
-  %ref.tmp.sink73.sroa.phi74 = phi ptr [ %ref.tmp.sroa.gep75, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp6.sroa.gep76, %_ZN7rocksdb6StatusD2Ev.exit46 ]
-  %ref.tmp.sink73.sroa.phi77 = phi ptr [ %ref.tmp.sroa.gep78, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp6.sroa.gep79, %_ZN7rocksdb6StatusD2Ev.exit46 ]
-  %ref.tmp.sink73.sroa.phi80 = phi ptr [ %ref.tmp.sroa.gep81, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp6.sroa.gep82, %_ZN7rocksdb6StatusD2Ev.exit46 ]
-  %ref.tmp.sink73.sroa.phi83 = phi ptr [ %ref.tmp.sroa.gep84, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp6.sroa.gep85, %_ZN7rocksdb6StatusD2Ev.exit46 ]
-  %ref.tmp.sink73.sroa.phi86 = phi ptr [ %ref.tmp.sroa.gep87, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp6.sroa.gep88, %_ZN7rocksdb6StatusD2Ev.exit46 ]
   %8 = load i8, ptr %ref.tmp.sink73.sroa.phi, align 1
   %subcode_5.i = getelementptr inbounds i8, ptr %file_deletion_status, i64 1
   store i8 %8, ptr %subcode_5.i, align 1
-  %9 = load i8, ptr %ref.tmp.sink73.sroa.phi86, align 2
+  %9 = load i8, ptr %ref.tmp.sink73.sroa.phi87, align 2
   %sev_7.i = getelementptr inbounds i8, ptr %file_deletion_status, i64 2
   store i8 %9, ptr %sev_7.i, align 2
-  %10 = load i8, ptr %ref.tmp.sink73.sroa.phi74, align 1
+  %10 = load i8, ptr %ref.tmp.sink73.sroa.phi75, align 1
   %11 = and i8 %10, 1
   %retryable_9.i = getelementptr inbounds i8, ptr %file_deletion_status, i64 3
   store i8 %11, ptr %retryable_9.i, align 1
-  %12 = load i8, ptr %ref.tmp.sink73.sroa.phi83, align 4
+  %12 = load i8, ptr %ref.tmp.sink73.sroa.phi84, align 4
   %13 = and i8 %12, 1
   %data_loss_12.i = getelementptr inbounds i8, ptr %file_deletion_status, i64 4
   store i8 %13, ptr %data_loss_12.i, align 4
   store <4 x i8> zeroinitializer, ptr %ref.tmp.sink73.sroa.phi, align 1
-  %14 = load i8, ptr %ref.tmp.sink73.sroa.phi77, align 1
+  %14 = load i8, ptr %ref.tmp.sink73.sroa.phi78, align 1
   %scope_15.i = getelementptr inbounds i8, ptr %file_deletion_status, i64 5
   store i8 %14, ptr %scope_15.i, align 1
-  store i8 0, ptr %ref.tmp.sink73.sroa.phi77, align 1
-  %15 = load ptr, ptr %ref.tmp.sink73.sroa.phi80, align 8
+  store i8 0, ptr %ref.tmp.sink73.sroa.phi78, align 1
+  %15 = load ptr, ptr %ref.tmp.sink73.sroa.phi81, align 8
   store ptr %15, ptr %state_.i, align 8
-  store ptr null, ptr %ref.tmp.sink73.sroa.phi80, align 8
+  store ptr null, ptr %ref.tmp.sink73.sroa.phi81, align 8
   %cmp.i = icmp eq i8 %7, 0
   br i1 %cmp.i, label %if.then11, label %if.else21
 

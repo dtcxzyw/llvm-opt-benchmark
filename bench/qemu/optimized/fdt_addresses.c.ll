@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [12 x i8] c"#size-cells\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_address_cells(ptr noundef %fdt, i32 noundef %nodeoffset) local_unnamed_addr #0 {
+define dso_local noundef i32 @fdt_address_cells(ptr noundef %fdt, i32 noundef %nodeoffset) local_unnamed_addr #0 {
 entry:
   %len.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
@@ -22,7 +22,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end3.i:                                        ; preds = %if.end.i
   %1 = load i32, ptr %call.i, align 4
-  %rev.i.i = call i32 @llvm.bswap.i32(i32 %1)
+  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %1)
   %cmp5.i = icmp ugt i32 %rev.i.i, 4
   br i1 %cmp5.i, label %fdt_cells.exit.thread, label %fdt_cells.exit
 
@@ -50,7 +50,7 @@ return:                                           ; preds = %fdt_cells.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_size_cells(ptr noundef %fdt, i32 noundef %nodeoffset) local_unnamed_addr #0 {
+define dso_local noundef i32 @fdt_size_cells(ptr noundef %fdt, i32 noundef %nodeoffset) local_unnamed_addr #0 {
 entry:
   %len.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
@@ -66,7 +66,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end3.i:                                        ; preds = %if.end.i
   %1 = load i32, ptr %call.i, align 4
-  %rev.i.i = call i32 @llvm.bswap.i32(i32 %1)
+  %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %1)
   %cmp5.i = icmp ugt i32 %rev.i.i, 4
   %spec.select = select i1 %cmp5.i, i32 -14, i32 %rev.i.i
   br label %fdt_cells.exit.thread
@@ -93,6 +93,12 @@ entry:
   %len.i.i24 = alloca i32, align 4
   %len.i.i = alloca i32, align 4
   %data = alloca [16 x i8], align 16
+  %.sink88.sroa.gep = getelementptr inbounds i8, ptr %data, i64 5
+  %.sink88.sroa.gep94 = getelementptr inbounds i8, ptr %data, i64 1
+  %.sink87.sroa.gep = getelementptr inbounds i8, ptr %data, i64 6
+  %.sink87.sroa.gep93 = getelementptr inbounds i8, ptr %data, i64 2
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %data, i64 7
+  %.sink.sroa.gep92 = getelementptr inbounds i8, ptr %data, i64 3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i.i)
   %call.i.i = call ptr @fdt_getprop(ptr noundef %fdt, i32 noundef %parent, ptr noundef nonnull @.str, ptr noundef nonnull %len.i.i) #4
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
@@ -105,7 +111,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
   %1 = load i32, ptr %call.i.i, align 4
-  %rev.i.i.i = call i32 @llvm.bswap.i32(i32 %1)
+  %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %1)
   %cmp5.i.i = icmp ugt i32 %rev.i.i.i, 4
   br i1 %cmp5.i.i, label %fdt_cells.exit.thread.i, label %fdt_cells.exit.i
 
@@ -140,7 +146,7 @@ if.end.i.i27:                                     ; preds = %if.end
 
 if.end3.i.i30:                                    ; preds = %if.end.i.i27
   %3 = load i32, ptr %call.i.i25, align 4
-  %rev.i.i.i31 = call i32 @llvm.bswap.i32(i32 %3)
+  %rev.i.i.i31 = call noundef i32 @llvm.bswap.i32(i32 %3)
   %cmp5.i.i32 = icmp ugt i32 %rev.i.i.i31, 4
   %spec.select.i = select i1 %cmp5.i.i32, i32 -14, i32 %rev.i.i.i31
   br label %fdt_cells.exit.thread.i29
@@ -203,20 +209,17 @@ if.then13:                                        ; preds = %if.end4
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then13, %if.end10
-  %.sink88 = phi i64 [ 5, %if.then13 ], [ 1, %if.end10 ]
-  %.sink87 = phi i64 [ 6, %if.then13 ], [ 2, %if.end10 ]
-  %.sink = phi i64 [ 7, %if.then13 ], [ 3, %if.end10 ]
+  %.sink88.sroa.phi = phi ptr [ %.sink88.sroa.gep, %if.then13 ], [ %.sink88.sroa.gep94, %if.end10 ]
+  %.sink87.sroa.phi = phi ptr [ %.sink87.sroa.gep, %if.then13 ], [ %.sink87.sroa.gep93, %if.end10 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.then13 ], [ %.sink.sroa.gep92, %if.end10 ]
   %shr16.i = lshr i64 %addr, 16
   %conv18.i = trunc i64 %shr16.i to i8
-  %arrayidx19.i = getelementptr inbounds i8, ptr %data, i64 %.sink88
-  store i8 %conv18.i, ptr %arrayidx19.i, align 1
+  store i8 %conv18.i, ptr %.sink88.sroa.phi, align 1
   %shr20.i = lshr i64 %addr, 8
   %conv22.i = trunc i64 %shr20.i to i8
-  %arrayidx23.i = getelementptr inbounds i8, ptr %data, i64 %.sink87
-  store i8 %conv22.i, ptr %arrayidx23.i, align 2
+  store i8 %conv22.i, ptr %.sink87.sroa.phi, align 2
   %conv25.i = trunc i64 %addr to i8
-  %arrayidx26.i = getelementptr inbounds i8, ptr %data, i64 %.sink
-  store i8 %conv25.i, ptr %arrayidx26.i, align 1
+  store i8 %conv25.i, ptr %.sink.sroa.phi, align 1
   %conv17 = zext nneg i32 %retval.0.i79 to i64
   %mul = shl nuw nsw i64 %conv17, 2
   %add.ptr = getelementptr i8, ptr %data, i64 %mul

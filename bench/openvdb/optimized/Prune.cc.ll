@@ -55593,8 +55593,6 @@ for.end:                                          ; preds = %for.inc.i.i.i, %_ZN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IfEELj3EE10isConstantERS5_S7_RbRKS5_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 4 dereferenceable(12) %minValue, ptr noundef nonnull align 4 dereferenceable(12) %maxValue, ptr noundef nonnull align 1 dereferenceable(1) %state, ptr noundef nonnull align 4 dereferenceable(12) %tolerance) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3.236", align 8
-  %ref.tmp14 = alloca %"class.openvdb::v11_0::math::Vec3.236", align 8
   %mValueMask = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mValueMask, align 8
   %cmp.i = icmp eq i64 %0, -1
@@ -55652,8 +55650,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EEixEj.exit: ; preds = 
   %arrayidx.i.i17.i84 = getelementptr inbounds i8, ptr %tolerance, i64 8
   %arrayidx.i.i17.i = getelementptr inbounds i8, ptr %minValue, i64 8
   %arrayidx.i.i17.i55 = getelementptr inbounds i8, ptr %maxValue, i64 8
-  %tmp.coerce18.sroa.2.0.coerce.dive17.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp14, i64 8
-  %tmp.coerce.sroa.2.0.coerce.dive8.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %arrayidx.i.i.i.i64 = getelementptr inbounds i8, ptr %minValue, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EEixEj.exit, %for.inc
@@ -55725,11 +55722,14 @@ if.then6:                                         ; preds = %if.then.i.if.then6_
   %15 = phi float [ %.pre, %if.then.i.if.then6_crit_edge ], [ %13, %_ZN7openvdb5v11_04mathltILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit ]
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %maxValue, align 4
   %retval.sroa.6.0.copyload.i = load float, ptr %arrayidx.i.i17.i55, align 4
-  %16 = load <2 x float>, ptr %retval.0.i.i21, align 4
-  %17 = fsub <2 x float> %retval.sroa.0.0.copyload.i, %16
+  %16 = load float, ptr %retval.0.i.i21, align 4
+  %retval.sroa.0.0.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 0
+  %sub.i.i = fsub float %retval.sroa.0.0.vec.extract.i, %16
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i21, i64 4
+  %17 = load float, ptr %arrayidx.i.i.i.i, align 4
+  %retval.sroa.0.4.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 1
+  %sub5.i.i = fsub float %retval.sroa.0.4.vec.extract.i, %17
   %sub9.i.i = fsub float %retval.sroa.6.0.copyload.i, %15
-  store <2 x float> %17, ptr %ref.tmp, align 8
-  store float %sub9.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive8.sroa_idx, align 8
   br label %for.body.i29
 
 for.cond.i38:                                     ; preds = %for.body.i29
@@ -55737,21 +55737,20 @@ for.cond.i38:                                     ; preds = %for.body.i29
 
 for.body.i29:                                     ; preds = %for.cond.i38, %if.then6
   %cmp.i30 = phi i1 [ true, %if.then6 ], [ false, %for.cond.i38 ]
+  %indvars.iv.i31.sroa.phi.sroa.speculated = phi float [ %sub.i.i, %if.then6 ], [ %sub5.i.i, %for.cond.i38 ]
   %indvars.iv.i31 = phi i64 [ 0, %if.then6 ], [ 1, %for.cond.i38 ]
-  %arrayidx.i.i.i32 = getelementptr inbounds [3 x float], ptr %ref.tmp, i64 0, i64 %indvars.iv.i31
-  %18 = load float, ptr %arrayidx.i.i.i32, align 4
   %arrayidx.i.i11.i33 = getelementptr inbounds [3 x float], ptr %tolerance, i64 0, i64 %indvars.iv.i31
-  %19 = load float, ptr %arrayidx.i.i11.i33, align 4
-  %cmp.i.i34 = fcmp oeq float %18, %19
+  %18 = load float, ptr %arrayidx.i.i11.i33, align 4
+  %cmp.i.i34 = fcmp oeq float %indvars.iv.i31.sroa.phi.sroa.speculated, %18
   br i1 %cmp.i.i34, label %for.cond.i38, label %if.then.i35
 
 if.then.i35:                                      ; preds = %for.body.i29
-  %cmp6.i36 = fcmp ogt float %18, %19
+  %cmp6.i36 = fcmp ogt float %indvars.iv.i31.sroa.phi.sroa.speculated, %18
   br i1 %cmp6.i36, label %return, label %for.inc.sink.split
 
 _ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit: ; preds = %for.cond.i38
-  %20 = load float, ptr %arrayidx.i.i17.i84, align 4
-  %cmp9.i42 = fcmp ogt float %sub9.i.i, %20
+  %19 = load float, ptr %arrayidx.i.i17.i84, align 4
+  %cmp9.i42 = fcmp ogt float %sub9.i.i, %19
   br i1 %cmp9.i42, label %return, label %for.inc.sink.split
 
 for.cond.i52:                                     ; preds = %for.body.i43
@@ -55761,14 +55760,14 @@ for.body.i43:                                     ; preds = %for.body.i43.prehea
   %cmp.i44 = phi i1 [ false, %for.cond.i52 ], [ true, %for.body.i43.preheader ]
   %indvars.iv.i45 = phi i64 [ 1, %for.cond.i52 ], [ 0, %for.body.i43.preheader ]
   %arrayidx.i.i.i46 = getelementptr inbounds [3 x float], ptr %retval.0.i.i21, i64 0, i64 %indvars.iv.i45
-  %21 = load float, ptr %arrayidx.i.i.i46, align 4
+  %20 = load float, ptr %arrayidx.i.i.i46, align 4
   %arrayidx.i.i11.i47 = getelementptr inbounds [3 x float], ptr %maxValue, i64 0, i64 %indvars.iv.i45
-  %22 = load float, ptr %arrayidx.i.i11.i47, align 4
-  %cmp.i.i48 = fcmp oeq float %21, %22
+  %21 = load float, ptr %arrayidx.i.i11.i47, align 4
+  %cmp.i.i48 = fcmp oeq float %20, %21
   br i1 %cmp.i.i48, label %for.cond.i52, label %if.then.i49
 
 if.then.i49:                                      ; preds = %for.body.i43
-  %cmp6.i50 = fcmp ogt float %21, %22
+  %cmp6.i50 = fcmp ogt float %20, %21
   br i1 %cmp6.i50, label %if.then.i49.if.then13_crit_edge, label %for.inc
 
 if.then.i49.if.then13_crit_edge:                  ; preds = %if.then.i49
@@ -55778,20 +55777,22 @@ if.then.i49.if.then13_crit_edge:                  ; preds = %if.then.i49
 
 _ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit57: ; preds = %for.cond.i52
   %arrayidx.i.i16.i54 = getelementptr inbounds i8, ptr %retval.0.i.i21, i64 8
-  %23 = load float, ptr %arrayidx.i.i16.i54, align 4
-  %24 = load float, ptr %arrayidx.i.i17.i55, align 4
-  %cmp9.i56 = fcmp ogt float %23, %24
+  %22 = load float, ptr %arrayidx.i.i16.i54, align 4
+  %23 = load float, ptr %arrayidx.i.i17.i55, align 4
+  %cmp9.i56 = fcmp ogt float %22, %23
   br i1 %cmp9.i56, label %if.then13, label %for.inc
 
 if.then13:                                        ; preds = %if.then.i49.if.then13_crit_edge, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit57
-  %retval.sroa.6.0.copyload.i60 = phi float [ %retval.sroa.6.0.copyload.i60.pre, %if.then.i49.if.then13_crit_edge ], [ %23, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit57 ]
+  %retval.sroa.6.0.copyload.i60 = phi float [ %retval.sroa.6.0.copyload.i60.pre, %if.then.i49.if.then13_crit_edge ], [ %22, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit57 ]
   %retval.sroa.0.0.copyload.i58 = load <2 x float>, ptr %retval.0.i.i21, align 4
-  %25 = load <2 x float>, ptr %minValue, align 4
-  %26 = fsub <2 x float> %retval.sroa.0.0.copyload.i58, %25
-  %27 = load float, ptr %arrayidx.i.i17.i, align 4
-  %sub9.i.i69 = fsub float %retval.sroa.6.0.copyload.i60, %27
-  store <2 x float> %26, ptr %ref.tmp14, align 8
-  store float %sub9.i.i69, ptr %tmp.coerce18.sroa.2.0.coerce.dive17.sroa_idx, align 8
+  %24 = load float, ptr %minValue, align 4
+  %retval.sroa.0.0.vec.extract.i61 = extractelement <2 x float> %retval.sroa.0.0.copyload.i58, i64 0
+  %sub.i.i62 = fsub float %retval.sroa.0.0.vec.extract.i61, %24
+  %25 = load float, ptr %arrayidx.i.i.i.i64, align 4
+  %retval.sroa.0.4.vec.extract.i65 = extractelement <2 x float> %retval.sroa.0.0.copyload.i58, i64 1
+  %sub5.i.i66 = fsub float %retval.sroa.0.4.vec.extract.i65, %25
+  %26 = load float, ptr %arrayidx.i.i17.i, align 4
+  %sub9.i.i69 = fsub float %retval.sroa.6.0.copyload.i60, %26
   br label %for.body.i72
 
 for.cond.i81:                                     ; preds = %for.body.i72
@@ -55799,21 +55800,20 @@ for.cond.i81:                                     ; preds = %for.body.i72
 
 for.body.i72:                                     ; preds = %for.cond.i81, %if.then13
   %cmp.i73 = phi i1 [ true, %if.then13 ], [ false, %for.cond.i81 ]
+  %indvars.iv.i74.sroa.phi.sroa.speculated = phi float [ %sub.i.i62, %if.then13 ], [ %sub5.i.i66, %for.cond.i81 ]
   %indvars.iv.i74 = phi i64 [ 0, %if.then13 ], [ 1, %for.cond.i81 ]
-  %arrayidx.i.i.i75 = getelementptr inbounds [3 x float], ptr %ref.tmp14, i64 0, i64 %indvars.iv.i74
-  %28 = load float, ptr %arrayidx.i.i.i75, align 4
   %arrayidx.i.i11.i76 = getelementptr inbounds [3 x float], ptr %tolerance, i64 0, i64 %indvars.iv.i74
-  %29 = load float, ptr %arrayidx.i.i11.i76, align 4
-  %cmp.i.i77 = fcmp oeq float %28, %29
+  %27 = load float, ptr %arrayidx.i.i11.i76, align 4
+  %cmp.i.i77 = fcmp oeq float %indvars.iv.i74.sroa.phi.sroa.speculated, %27
   br i1 %cmp.i.i77, label %for.cond.i81, label %if.then.i78
 
 if.then.i78:                                      ; preds = %for.body.i72
-  %cmp6.i79 = fcmp ogt float %28, %29
+  %cmp6.i79 = fcmp ogt float %indvars.iv.i74.sroa.phi.sroa.speculated, %27
   br i1 %cmp6.i79, label %return, label %for.inc.sink.split
 
 _ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit86: ; preds = %for.cond.i81
-  %30 = load float, ptr %arrayidx.i.i17.i84, align 4
-  %cmp9.i85 = fcmp ogt float %sub9.i.i69, %30
+  %28 = load float, ptr %arrayidx.i.i17.i84, align 4
+  %cmp9.i85 = fcmp ogt float %sub9.i.i69, %28
   br i1 %cmp9.i85, label %return, label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit86, %if.then.i78, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit, %if.then.i35
@@ -57439,34 +57439,33 @@ _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IfEESt14default_deleteIS5_EED2Ev.ex
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt13__introselectIPN7openvdb5v11_04math4Vec3IfEElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_T0_T1_(ptr noundef %__first, ptr noundef %__nth, ptr noundef %__last, i64 noundef %__depth_limit) local_unnamed_addr #5 comdat {
 entry:
-  %__val.i.i = alloca %"class.openvdb::v11_0::math::Vec3.236", align 4
   %__val.sroa.0.i = alloca [3 x float], align 4
   %__tmp.sroa.0.i.i.i.i = alloca [3 x float], align 4
   %__tmp.sroa.0.i.i = alloca [3 x float], align 4
   %__comp.i = alloca %"struct.__gnu_cxx::__ops::_Iter_less_iter", align 1
-  %sub.ptr.lhs.cast67 = ptrtoint ptr %__last to i64
-  %sub.ptr.rhs.cast68 = ptrtoint ptr %__first to i64
-  %sub.ptr.sub69 = sub i64 %sub.ptr.lhs.cast67, %sub.ptr.rhs.cast68
-  %cmp70 = icmp sgt i64 %sub.ptr.sub69, 36
-  br i1 %cmp70, label %while.body, label %while.end
+  %sub.ptr.lhs.cast64 = ptrtoint ptr %__last to i64
+  %sub.ptr.rhs.cast65 = ptrtoint ptr %__first to i64
+  %sub.ptr.sub66 = sub i64 %sub.ptr.lhs.cast64, %sub.ptr.rhs.cast65
+  %cmp67 = icmp sgt i64 %sub.ptr.sub66, 36
+  br i1 %cmp67, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit
-  %sub.ptr.sub74 = phi i64 [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %sub.ptr.sub69, %entry ]
-  %__first.addr.073 = phi ptr [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %__first, %entry ]
-  %__depth_limit.addr.072 = phi i64 [ %dec, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %__depth_limit, %entry ]
-  %__last.addr.071 = phi ptr [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %__last, %entry ]
-  %cmp1 = icmp eq i64 %__depth_limit.addr.072, 0
+  %sub.ptr.sub71 = phi i64 [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %sub.ptr.sub66, %entry ]
+  %__first.addr.070 = phi ptr [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %__first, %entry ]
+  %__depth_limit.addr.069 = phi i64 [ %dec, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %__depth_limit, %entry ]
+  %__last.addr.068 = phi ptr [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %__last, %entry ]
+  %cmp1 = icmp eq i64 %__depth_limit.addr.069, 0
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
   %add.ptr = getelementptr inbounds i8, ptr %__nth, i64 12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
-  call void @_ZSt11__make_heapIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_RT0_(ptr noundef %__first.addr.073, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
-  %cmp11.i = icmp ult ptr %add.ptr, %__last.addr.071
+  call void @_ZSt11__make_heapIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_RT0_(ptr noundef %__first.addr.070, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  %cmp11.i = icmp ult ptr %add.ptr, %__last.addr.068
   br i1 %cmp11.i, label %for.body.i.i.preheader.lr.ph.i, label %_ZSt13__heap_selectIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_T0_.exit
 
 for.body.i.i.preheader.lr.ph.i:                   ; preds = %if.then
-  %arrayidx.i.i17.i.i.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 8
+  %arrayidx.i.i17.i.i.i = getelementptr inbounds i8, ptr %__first.addr.070, i64 8
   br label %for.body.i.i.preheader.i
 
 for.body.i.i.preheader.i:                         ; preds = %for.inc.i, %for.body.i.i.preheader.lr.ph.i
@@ -57481,7 +57480,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   %indvars.iv.i.i.i = phi i64 [ 1, %for.cond.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %arrayidx.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %__i.012.i, i64 0, i64 %indvars.iv.i.i.i
   %0 = load float, ptr %arrayidx.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.070, i64 0, i64 %indvars.iv.i.i.i
   %1 = load float, ptr %arrayidx.i.i11.i.i.i, align 4
   %cmp.i.i.i.i = fcmp oeq float %0, %1
   br i1 %cmp.i.i.i.i, label %for.cond.i.i.i, label %if.then.i.i.i
@@ -57498,34 +57497,34 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0
   br i1 %cmp9.i.i.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i, %if.then.i.i.i
-  call void @_ZSt10__pop_heapIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_RT0_(ptr noundef nonnull %__first.addr.073, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__i.012.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  call void @_ZSt10__pop_heapIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_RT0_(ptr noundef nonnull %__first.addr.070, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__i.012.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i, %if.then.i.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__i.012.i, i64 12
-  %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.addr.071
+  %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.addr.068
   br i1 %cmp.i, label %for.body.i.i.preheader.i, label %_ZSt13__heap_selectIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_T0_.exit, !llvm.loop !699
 
 _ZSt13__heap_selectIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_T0_.exit: ; preds = %for.inc.i, %if.then
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__tmp.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__tmp.sroa.0.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.073, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.073, ptr noundef nonnull align 4 dereferenceable(12) %__nth, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__tmp.sroa.0.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.070, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.070, ptr noundef nonnull align 4 dereferenceable(12) %__nth, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__nth, ptr noundef nonnull align 4 dereferenceable(12) %__tmp.sroa.0.i.i, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__tmp.sroa.0.i.i)
   br label %return
 
 if.end:                                           ; preds = %while.body
-  %div.i44 = udiv i64 %sub.ptr.sub74, 24
-  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first.addr.073, i64 %div.i44
-  %add.ptr1.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 12
-  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.071, i64 -12
-  tail call void @_ZSt22__move_median_to_firstIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_S9_T0_(ptr noundef %__first.addr.073, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
-  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 8
+  %div.i42 = udiv i64 %sub.ptr.sub71, 24
+  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first.addr.070, i64 %div.i42
+  %add.ptr1.i = getelementptr inbounds i8, ptr %__first.addr.070, i64 12
+  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.068, i64 -12
+  tail call void @_ZSt22__move_median_to_firstIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_S9_T0_(ptr noundef %__first.addr.070, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
+  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.070, i64 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %if.end
-  %__last.addr.0.i.i = phi ptr [ %__last.addr.071, %if.end ], [ %__last.addr.1.i.i, %if.end.i.i ]
+  %__last.addr.0.i.i = phi ptr [ %__last.addr.068, %if.end ], [ %__last.addr.1.i.i, %if.end.i.i ]
   %__first.addr.0.i.i = phi ptr [ %add.ptr1.i, %if.end ], [ %incdec.ptr9.i.i, %if.end.i.i ]
   br label %while.cond1.i.i
 
@@ -57541,7 +57540,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %
   %indvars.iv.i.i.i.i = phi i64 [ 0, %while.cond1.i.i ], [ 1, %for.cond.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.1.i.i, i64 0, i64 %indvars.iv.i.i.i.i
   %4 = load float, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i.i.i
+  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.070, i64 0, i64 %indvars.iv.i.i.i.i
   %5 = load float, ptr %arrayidx.i.i11.i.i.i.i, align 4
   %cmp.i.i.i.i.i = fcmp oeq float %4, %5
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
@@ -57575,7 +57574,7 @@ for.cond.i.i20.i.i:                               ; preds = %for.body.i.i11.i.i
 for.body.i.i11.i.i:                               ; preds = %for.cond.i.i20.i.i, %while.cond4.i.i
   %cmp.i.i12.i.i = phi i1 [ true, %while.cond4.i.i ], [ false, %for.cond.i.i20.i.i ]
   %indvars.iv.i.i13.i.i = phi i64 [ 0, %while.cond4.i.i ], [ 1, %for.cond.i.i20.i.i ]
-  %arrayidx.i.i.i.i14.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i13.i.i
+  %arrayidx.i.i.i.i14.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.070, i64 0, i64 %indvars.iv.i.i13.i.i
   %8 = load float, ptr %arrayidx.i.i.i.i14.i.i, align 4
   %arrayidx.i.i11.i.i15.i.i = getelementptr inbounds [3 x float], ptr %__last.addr.1.i.i, i64 0, i64 %indvars.iv.i.i13.i.i
   %9 = load float, ptr %arrayidx.i.i11.i.i15.i.i, align 4
@@ -57610,10 +57609,10 @@ if.end.i.i:                                       ; preds = %while.end8.i.i
   br label %while.body.i.i, !llvm.loop !702
 
 _ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit: ; preds = %while.end8.i.i
-  %dec = add nsw i64 %__depth_limit.addr.072, -1
+  %dec = add nsw i64 %__depth_limit.addr.069, -1
   %cmp3.not = icmp ugt ptr %__first.addr.1.i.i, %__nth
-  %call.__last.addr.0 = select i1 %cmp3.not, ptr %__first.addr.1.i.i, ptr %__last.addr.071
-  %__first.addr.0.call = select i1 %cmp3.not, ptr %__first.addr.073, ptr %__first.addr.1.i.i
+  %call.__last.addr.0 = select i1 %cmp3.not, ptr %__first.addr.1.i.i, ptr %__last.addr.068
+  %__first.addr.0.call = select i1 %cmp3.not, ptr %__first.addr.070, ptr %__first.addr.1.i.i
   %sub.ptr.lhs.cast = ptrtoint ptr %call.__last.addr.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first.addr.0.call to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -57623,110 +57622,115 @@ _ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__op
 while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit, %entry
   %__last.addr.0.lcssa = phi ptr [ %__last, %entry ], [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ]
   %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ]
-  %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast68, %entry ], [ %sub.ptr.rhs.cast, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ]
+  %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast65, %entry ], [ %sub.ptr.rhs.cast, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__val.sroa.0.i)
   %cmp.i14 = icmp eq ptr %__first.addr.0.lcssa, %__last.addr.0.lcssa
   br i1 %cmp.i14, label %_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end
-  %__i.020.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 12
-  %cmp1.not21.i = icmp eq ptr %__i.020.i, %__last.addr.0.lcssa
-  br i1 %cmp1.not21.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit, label %for.body.i.i.preheader.lr.ph.i15
+  %__i.019.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 12
+  %cmp1.not20.i = icmp eq ptr %__i.019.i, %__last.addr.0.lcssa
+  br i1 %cmp1.not20.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit, label %for.body.i.i.preheader.lr.ph.i15
 
 for.body.i.i.preheader.lr.ph.i15:                 ; preds = %for.cond.preheader.i
   %arrayidx.i.i17.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 8
-  %arrayidx.i.i16.i.i.i.i17 = getelementptr inbounds i8, ptr %__val.i.i, i64 8
-  br label %for.body.i.i.preheader.i18
+  br label %for.body.i.i.preheader.i17
 
-for.body.i.i.preheader.i18:                       ; preds = %for.inc.i35, %for.body.i.i.preheader.lr.ph.i15
-  %__i.023.i = phi ptr [ %__i.020.i, %for.body.i.i.preheader.lr.ph.i15 ], [ %__i.0.i, %for.inc.i35 ]
-  %__first.pn22.i = phi ptr [ %__first.addr.0.lcssa, %for.body.i.i.preheader.lr.ph.i15 ], [ %__i.023.i, %for.inc.i35 ]
-  br label %for.body.i.i.i19
+for.body.i.i.preheader.i17:                       ; preds = %for.inc.i33, %for.body.i.i.preheader.lr.ph.i15
+  %__i.022.i = phi ptr [ %__i.019.i, %for.body.i.i.preheader.lr.ph.i15 ], [ %__i.0.i, %for.inc.i33 ]
+  %__first.pn21.i = phi ptr [ %__first.addr.0.lcssa, %for.body.i.i.preheader.lr.ph.i15 ], [ %__i.022.i, %for.inc.i33 ]
+  br label %for.body.i.i.i18
 
-for.cond.i.i.i40:                                 ; preds = %for.body.i.i.i19
-  br i1 %cmp.i.i.i20, label %for.body.i.i.i19, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i41, !llvm.loop !692
+for.cond.i.i.i38:                                 ; preds = %for.body.i.i.i18
+  br i1 %cmp.i.i.i19, label %for.body.i.i.i18, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i39, !llvm.loop !692
 
-for.body.i.i.i19:                                 ; preds = %for.cond.i.i.i40, %for.body.i.i.preheader.i18
-  %cmp.i.i.i20 = phi i1 [ false, %for.cond.i.i.i40 ], [ true, %for.body.i.i.preheader.i18 ]
-  %indvars.iv.i.i.i21 = phi i64 [ 1, %for.cond.i.i.i40 ], [ 0, %for.body.i.i.preheader.i18 ]
-  %arrayidx.i.i.i.i.i22 = getelementptr inbounds [3 x float], ptr %__i.023.i, i64 0, i64 %indvars.iv.i.i.i21
-  %12 = load float, ptr %arrayidx.i.i.i.i.i22, align 4
-  %arrayidx.i.i11.i.i.i23 = getelementptr inbounds [3 x float], ptr %__first.addr.0.lcssa, i64 0, i64 %indvars.iv.i.i.i21
-  %13 = load float, ptr %arrayidx.i.i11.i.i.i23, align 4
-  %cmp.i.i.i.i24 = fcmp oeq float %12, %13
-  br i1 %cmp.i.i.i.i24, label %for.cond.i.i.i40, label %if.then.i.i.i25
+for.body.i.i.i18:                                 ; preds = %for.cond.i.i.i38, %for.body.i.i.preheader.i17
+  %cmp.i.i.i19 = phi i1 [ false, %for.cond.i.i.i38 ], [ true, %for.body.i.i.preheader.i17 ]
+  %indvars.iv.i.i.i20 = phi i64 [ 1, %for.cond.i.i.i38 ], [ 0, %for.body.i.i.preheader.i17 ]
+  %arrayidx.i.i.i.i.i21 = getelementptr inbounds [3 x float], ptr %__i.022.i, i64 0, i64 %indvars.iv.i.i.i20
+  %12 = load float, ptr %arrayidx.i.i.i.i.i21, align 4
+  %arrayidx.i.i11.i.i.i22 = getelementptr inbounds [3 x float], ptr %__first.addr.0.lcssa, i64 0, i64 %indvars.iv.i.i.i20
+  %13 = load float, ptr %arrayidx.i.i11.i.i.i22, align 4
+  %cmp.i.i.i.i23 = fcmp oeq float %12, %13
+  br i1 %cmp.i.i.i.i23, label %for.cond.i.i.i38, label %if.then.i.i.i24
 
-if.then.i.i.i25:                                  ; preds = %for.body.i.i.i19
-  %cmp6.i.i.i26 = fcmp olt float %12, %13
-  br i1 %cmp6.i.i.i26, label %if.then2.i, label %if.else.i
+if.then.i.i.i24:                                  ; preds = %for.body.i.i.i18
+  %cmp6.i.i.i25 = fcmp olt float %12, %13
+  br i1 %cmp6.i.i.i25, label %if.then2.i, label %if.then.i.i.if.else_crit_edge.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i41: ; preds = %for.cond.i.i.i40
-  %arrayidx.i.i16.i.i.i42 = getelementptr inbounds i8, ptr %__first.pn22.i, i64 20
-  %14 = load float, ptr %arrayidx.i.i16.i.i.i42, align 4
+if.then.i.i.if.else_crit_edge.i:                  ; preds = %if.then.i.i.i24
+  %__val.sroa.4.0.__last.sroa_idx.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 20
+  %__val.sroa.4.0.copyload.i.pre.i = load float, ptr %__val.sroa.4.0.__last.sroa_idx.i.phi.trans.insert.i, align 4
+  br label %if.else.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i39: ; preds = %for.cond.i.i.i38
+  %arrayidx.i.i16.i.i.i40 = getelementptr inbounds i8, ptr %__first.pn21.i, i64 20
+  %14 = load float, ptr %arrayidx.i.i16.i.i.i40, align 4
   %15 = load float, ptr %arrayidx.i.i17.i.i.i16, align 4
-  %cmp9.i.i.i43 = fcmp olt float %14, %15
-  br i1 %cmp9.i.i.i43, label %if.then2.i, label %if.else.i
+  %cmp9.i.i.i41 = fcmp olt float %14, %15
+  br i1 %cmp9.i.i.i41, label %if.then2.i, label %if.else.i
 
-if.then2.i:                                       ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i41, %if.then.i.i.i25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__val.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(12) %__i.023.i, i64 12, i1 false)
-  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn22.i, i64 24
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.023.i to i64
+if.then2.i:                                       ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i39, %if.then.i.i.i24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__val.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(12) %__i.022.i, i64 12, i1 false)
+  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 24
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.022.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.lcssa
   %sub.ptr.div.neg.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, -12
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %add.ptr3.i, i64 %sub.ptr.div.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %__first.addr.0.lcssa, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.0.lcssa, ptr noundef nonnull align 4 dereferenceable(12) %__val.sroa.0.i, i64 12, i1 false)
-  br label %for.inc.i35
+  br label %for.inc.i33
 
-if.else.i:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i41, %if.then.i.i.i25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__val.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__val.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__i.023.i, i64 12, i1 false)
-  %16 = load float, ptr %arrayidx.i.i16.i.i.i.i17, align 4
+if.else.i:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i39, %if.then.i.i.if.else_crit_edge.i
+  %__val.sroa.4.0.copyload.i.i = phi float [ %__val.sroa.4.0.copyload.i.pre.i, %if.then.i.i.if.else_crit_edge.i ], [ %14, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i39 ]
+  %16 = load <2 x float>, ptr %__i.022.i, align 4
+  %17 = extractelement <2 x float> %16, i64 0
+  %18 = extractelement <2 x float> %16, i64 1
   br label %while.cond.i.i
 
-while.cond.i.i:                                   ; preds = %while.body.i.i36, %if.else.i
-  %__last.addr.0.i.i27 = phi ptr [ %__i.023.i, %if.else.i ], [ %__next.0.i.i, %while.body.i.i36 ]
-  %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i27, i64 -12
-  br label %for.body.i.i.i.i28
+while.cond.i.i:                                   ; preds = %while.body.i.i34, %if.else.i
+  %__last.addr.0.i.i26 = phi ptr [ %__i.022.i, %if.else.i ], [ %__next.0.i.i, %while.body.i.i34 ]
+  %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i26, i64 -12
+  br label %for.body.i.i.i.i27
 
-for.cond.i.i.i.i37:                               ; preds = %for.body.i.i.i.i28
-  br i1 %cmp.i.i.i12.i, label %for.body.i.i.i.i28, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IfEEPS7_EEbRT_T0_.exit.i.i, !llvm.loop !692
+for.cond.i.i.i.i35:                               ; preds = %for.body.i.i.i.i27
+  br i1 %cmp.i.i.i12.i, label %for.body.i.i.i.i27, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IfEEPS7_EEbRT_T0_.exit.i.i, !llvm.loop !692
 
-for.body.i.i.i.i28:                               ; preds = %for.cond.i.i.i.i37, %while.cond.i.i
-  %cmp.i.i.i12.i = phi i1 [ true, %while.cond.i.i ], [ false, %for.cond.i.i.i.i37 ]
-  %indvars.iv.i.i.i.i29 = phi i64 [ 0, %while.cond.i.i ], [ 1, %for.cond.i.i.i.i37 ]
-  %arrayidx.i.i.i.i.i.i30 = getelementptr inbounds [3 x float], ptr %__val.i.i, i64 0, i64 %indvars.iv.i.i.i.i29
-  %17 = load float, ptr %arrayidx.i.i.i.i.i.i30, align 4
-  %arrayidx.i.i11.i.i.i.i31 = getelementptr inbounds [3 x float], ptr %__next.0.i.i, i64 0, i64 %indvars.iv.i.i.i.i29
-  %18 = load float, ptr %arrayidx.i.i11.i.i.i.i31, align 4
-  %cmp.i.i.i.i.i32 = fcmp oeq float %17, %18
-  br i1 %cmp.i.i.i.i.i32, label %for.cond.i.i.i.i37, label %if.then.i.i.i.i33
+for.body.i.i.i.i27:                               ; preds = %for.cond.i.i.i.i35, %while.cond.i.i
+  %cmp.i.i.i12.i = phi i1 [ true, %while.cond.i.i ], [ false, %for.cond.i.i.i.i35 ]
+  %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i = phi float [ %17, %while.cond.i.i ], [ %18, %for.cond.i.i.i.i35 ]
+  %indvars.iv.i.i.i.i28 = phi i64 [ 0, %while.cond.i.i ], [ 1, %for.cond.i.i.i.i35 ]
+  %arrayidx.i.i11.i.i.i.i29 = getelementptr inbounds [3 x float], ptr %__next.0.i.i, i64 0, i64 %indvars.iv.i.i.i.i28
+  %19 = load float, ptr %arrayidx.i.i11.i.i.i.i29, align 4
+  %cmp.i.i.i.i.i30 = fcmp oeq float %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i, %19
+  br i1 %cmp.i.i.i.i.i30, label %for.cond.i.i.i.i35, label %if.then.i.i.i.i31
 
-if.then.i.i.i.i33:                                ; preds = %for.body.i.i.i.i28
-  %cmp6.i.i.i.i34 = fcmp olt float %17, %18
-  br i1 %cmp6.i.i.i.i34, label %while.body.i.i36, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
+if.then.i.i.i.i31:                                ; preds = %for.body.i.i.i.i27
+  %cmp6.i.i.i.i32 = fcmp olt float %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i, %19
+  br i1 %cmp6.i.i.i.i32, label %while.body.i.i34, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IfEEPS7_EEbRT_T0_.exit.i.i: ; preds = %for.cond.i.i.i.i37
-  %arrayidx.i.i17.i.i.i.i38 = getelementptr inbounds i8, ptr %__last.addr.0.i.i27, i64 -4
-  %19 = load float, ptr %arrayidx.i.i17.i.i.i.i38, align 4
-  %cmp9.i.i.i.i39 = fcmp olt float %16, %19
-  br i1 %cmp9.i.i.i.i39, label %while.body.i.i36, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IfEEPS7_EEbRT_T0_.exit.i.i: ; preds = %for.cond.i.i.i.i35
+  %arrayidx.i.i17.i.i.i.i36 = getelementptr inbounds i8, ptr %__last.addr.0.i.i26, i64 -4
+  %20 = load float, ptr %arrayidx.i.i17.i.i.i.i36, align 4
+  %cmp9.i.i.i.i37 = fcmp olt float %__val.sroa.4.0.copyload.i.i, %20
+  br i1 %cmp9.i.i.i.i37, label %while.body.i.i34, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
 
-while.body.i.i36:                                 ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IfEEPS7_EEbRT_T0_.exit.i.i, %if.then.i.i.i.i33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__last.addr.0.i.i27, ptr noundef nonnull align 4 dereferenceable(12) %__next.0.i.i, i64 12, i1 false)
+while.body.i.i34:                                 ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IfEEPS7_EEbRT_T0_.exit.i.i, %if.then.i.i.i.i31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__last.addr.0.i.i26, ptr noundef nonnull align 4 dereferenceable(12) %__next.0.i.i, i64 12, i1 false)
   br label %while.cond.i.i, !llvm.loop !704
 
-_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IfEEPS7_EEbRT_T0_.exit.i.i, %if.then.i.i.i.i33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__last.addr.0.i.i27, ptr noundef nonnull align 4 dereferenceable(12) %__val.i.i, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__val.i.i)
-  br label %for.inc.i35
+_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IfEEPS7_EEbRT_T0_.exit.i.i, %if.then.i.i.i.i31
+  store <2 x float> %16, ptr %__last.addr.0.i.i26, align 4
+  %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i26, i64 8
+  store float %__val.sroa.4.0.copyload.i.i, ptr %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i, align 4
+  br label %for.inc.i33
 
-for.inc.i35:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, %if.then2.i
-  %__i.0.i = getelementptr inbounds i8, ptr %__i.023.i, i64 12
+for.inc.i33:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, %if.then2.i
+  %__i.0.i = getelementptr inbounds i8, ptr %__i.022.i, i64 12
   %cmp1.not.i = icmp eq ptr %__i.0.i, %__last.addr.0.lcssa
-  br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit, label %for.body.i.i.preheader.i18, !llvm.loop !705
+  br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit, label %for.body.i.i.preheader.i17, !llvm.loop !705
 
-_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit: ; preds = %for.inc.i35, %while.end, %for.cond.preheader.i
+_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit: ; preds = %for.inc.i33, %while.end, %for.cond.preheader.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__val.sroa.0.i)
   br label %return
 
@@ -57737,8 +57741,6 @@ return:                                           ; preds = %_ZSt16__insertion_s
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt11__make_heapIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_RT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %__comp) local_unnamed_addr #7 comdat {
 entry:
-  %__value.i.i18 = alloca %"class.openvdb::v11_0::math::Vec3.236", align 8
-  %__value.i.i = alloca %"class.openvdb::v11_0::math::Vec3.236", align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -57755,12 +57757,12 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.2.0.copyload12 = load float, ptr %__value.sroa.2.0.add.ptr.sroa_idx11, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i = sdiv i64 %sub.i, 2
-  %cmp31.i = icmp sgt i64 %div.i, %div17
-  br i1 %cmp31.i, label %while.body.i, label %while.end.i
+  %cmp30.i = icmp sgt i64 %div.i, %div17
+  br i1 %cmp30.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i
-  %__holeIndex.addr.032.i = phi i64 [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i ], [ %div17, %if.end.split ]
-  %add.i = shl i64 %__holeIndex.addr.032.i, 1
+  %__holeIndex.addr.031.i = phi i64 [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i ], [ %div17, %if.end.split ]
+  %add.i = shl i64 %__holeIndex.addr.031.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -57796,7 +57798,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0
   %retval.0.i.i.i = phi i1 [ %cmp6.i.i.i, %if.then.i.i.i ], [ %cmp9.i.i.i, %for.end.i.i.i ]
   %spec.select.i = select i1 %retval.0.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__holeIndex.addr.032.i
+  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__holeIndex.addr.031.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr4.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr3.i, i64 12, i1 false)
   %cmp.i = icmp slt i64 %spec.select.i, %div.i
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !706
@@ -57820,18 +57822,19 @@ if.then9.i:                                       ; preds = %while.end.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__value.i.i)
-  store <2 x float> %__value.sroa.0.0.copyload10, ptr %__value.i.i, align 8
-  %coerce.sroa.2.0.__value.sroa_idx.i.i = getelementptr inbounds i8, ptr %__value.i.i, i64 8
-  store float %__value.sroa.2.0.copyload12, ptr %coerce.sroa.2.0.__value.sroa_idx.i.i, align 8
-  %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %div17
-  br i1 %cmp15.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
+  %cmp16.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %div17
+  br i1 %cmp16.i.i, label %land.rhs.lr.ph.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
-land.rhs.i.i:                                     ; preds = %if.end16.i, %while.body.i.i
-  %__holeIndex.addr.016.i.i = phi i64 [ %__parent.017.i.i, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end16.i ]
-  %__parent.017.in.i.i = add nsw i64 %__holeIndex.addr.016.i.i, -1
-  %__parent.017.i.i = sdiv i64 %__parent.017.in.i.i, 2
-  %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__parent.017.i.i
+land.rhs.lr.ph.i.i:                               ; preds = %if.end16.i
+  %__value.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %__value.sroa.0.0.copyload10, i64 0
+  %__value.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %__value.sroa.0.0.copyload10, i64 1
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
+  %__holeIndex.addr.017.i.i = phi i64 [ %__holeIndex.addr.1.i, %land.rhs.lr.ph.i.i ], [ %__parent.018.i.i, %while.body.i.i ]
+  %__parent.018.in.i.i = add nsw i64 %__holeIndex.addr.017.i.i, -1
+  %__parent.018.i.i = sdiv i64 %__parent.018.in.i.i, 2
+  %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__parent.018.i.i
   br label %for.body.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
@@ -57839,168 +57842,168 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %land.rhs.i.i
   %cmp.i.i.i23.i = phi i1 [ true, %land.rhs.i.i ], [ false, %for.cond.i.i.i.i ]
+  %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i = phi float [ %__value.sroa.0.0.vec.extract.i.i, %land.rhs.i.i ], [ %__value.sroa.0.4.vec.extract.i.i, %for.cond.i.i.i.i ]
   %indvars.iv.i.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ 1, %for.cond.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %add.ptr.i.i, i64 0, i64 %indvars.iv.i.i.i.i
   %4 = load float, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x float], ptr %__value.i.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %5 = load float, ptr %arrayidx.i.i11.i.i.i.i, align 4
-  %cmp.i.i.i.i.i = fcmp oeq float %4, %5
+  %cmp.i.i.i.i.i = fcmp oeq float %4, %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %cmp6.i.i.i.i = fcmp olt float %4, %5
+  %cmp6.i.i.i.i = fcmp olt float %4, %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp6.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i: ; preds = %for.cond.i.i.i.i
   %arrayidx.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %6 = load float, ptr %arrayidx.i.i16.i.i.i.i, align 4
-  %cmp9.i.i.i.i = fcmp olt float %6, %__value.sroa.2.0.copyload12
+  %5 = load float, ptr %arrayidx.i.i16.i.i.i.i, align 4
+  %cmp9.i.i.i.i = fcmp olt float %5, %__value.sroa.2.0.copyload12
   br i1 %cmp9.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i, %if.then.i.i.i.i
-  %add.ptr2.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__holeIndex.addr.016.i.i
+  %add.ptr2.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__holeIndex.addr.017.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr2.i.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i, i64 12, i1 false)
-  %cmp.i.i = icmp sgt i64 %__parent.017.i.i, %div17
+  %cmp.i.i = icmp sgt i64 %__parent.018.i.i, %div17
   br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, !llvm.loop !707
 
 _ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit: ; preds = %if.then.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
-  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.016.i.i, %if.then.i.i.i.i ], [ %__parent.017.i.i, %while.body.i.i ], [ %__holeIndex.addr.016.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.017.i.i, %if.then.i.i.i.i ], [ %__parent.018.i.i, %while.body.i.i ], [ %__holeIndex.addr.017.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(12) %__value.i.i, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__value.i.i)
+  store <2 x float> %__value.sroa.0.0.copyload10, ptr %add.ptr5.i.i, align 4
+  %__value.sroa.4.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 8
+  store float %__value.sroa.2.0.copyload12, ptr %__value.sroa.4.0.add.ptr5.sroa_idx.i.i, align 4
   %cmp6104 = icmp ult i64 %sub, 2
   br i1 %cmp6104, label %return, label %if.end8.split.lr.ph
 
 if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
-  %coerce.sroa.2.0.__value.sroa_idx.i.i28 = getelementptr inbounds i8, ptr %__value.i.i18, i64 8
-  %sub12.i58 = or disjoint i64 %sub, 1
-  %add.ptr13.i59 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %sub12.i58
-  %add.ptr14.i60 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %div7.i
+  %sub12.i60 = or disjoint i64 %sub, 1
+  %add.ptr13.i61 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %sub12.i60
+  %add.ptr14.i62 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %div7.i
   br label %if.end8.split
 
-if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit87
-  %__parent.0105 = phi i64 [ %div17, %if.end8.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit87 ]
+if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit89
+  %__parent.0105 = phi i64 [ %div17, %if.end8.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit89 ]
   %dec = add nsw i64 %__parent.0105, -1
   %add.ptr13 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload14 = load <2 x float>, ptr %add.ptr13, align 4
   %__value.sroa.2.0.add.ptr.sroa_idx15 = getelementptr inbounds i8, ptr %add.ptr13, i64 8
   %__value.sroa.2.0.copyload16 = load float, ptr %__value.sroa.2.0.add.ptr.sroa_idx15, align 4
-  %cmp31.i21.not = icmp slt i64 %div.i, %__parent.0105
-  br i1 %cmp31.i21.not, label %while.end.i22, label %while.body.i61
+  %cmp30.i20.not = icmp slt i64 %div.i, %__parent.0105
+  br i1 %cmp30.i20.not, label %while.end.i21, label %while.body.i63
 
-while.body.i61:                                   ; preds = %if.end8.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i76
-  %__holeIndex.addr.032.i62 = phi i64 [ %spec.select.i78, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i76 ], [ %dec, %if.end8.split ]
-  %add.i63 = shl i64 %__holeIndex.addr.032.i62, 1
-  %mul.i64 = add i64 %add.i63, 2
-  %add.ptr.i65 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %mul.i64
-  %sub1.i66 = or disjoint i64 %add.i63, 1
-  %add.ptr2.i67 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %sub1.i66
-  br label %for.body.i.i.i68
+while.body.i63:                                   ; preds = %if.end8.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i78
+  %__holeIndex.addr.031.i64 = phi i64 [ %spec.select.i80, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i78 ], [ %dec, %if.end8.split ]
+  %add.i65 = shl i64 %__holeIndex.addr.031.i64, 1
+  %mul.i66 = add i64 %add.i65, 2
+  %add.ptr.i67 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %mul.i66
+  %sub1.i68 = or disjoint i64 %add.i65, 1
+  %add.ptr2.i69 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %sub1.i68
+  br label %for.body.i.i.i70
 
-for.cond.i.i.i82:                                 ; preds = %for.body.i.i.i68
-  br i1 %cmp.i.i.i69, label %for.body.i.i.i68, label %for.end.i.i.i83, !llvm.loop !692
+for.cond.i.i.i84:                                 ; preds = %for.body.i.i.i70
+  br i1 %cmp.i.i.i71, label %for.body.i.i.i70, label %for.end.i.i.i85, !llvm.loop !692
 
-for.body.i.i.i68:                                 ; preds = %for.cond.i.i.i82, %while.body.i61
-  %cmp.i.i.i69 = phi i1 [ true, %while.body.i61 ], [ false, %for.cond.i.i.i82 ]
-  %indvars.iv.i.i.i70 = phi i64 [ 0, %while.body.i61 ], [ 1, %for.cond.i.i.i82 ]
-  %arrayidx.i.i.i.i.i71 = getelementptr inbounds [3 x float], ptr %add.ptr.i65, i64 0, i64 %indvars.iv.i.i.i70
-  %7 = load float, ptr %arrayidx.i.i.i.i.i71, align 4
-  %arrayidx.i.i11.i.i.i72 = getelementptr inbounds [3 x float], ptr %add.ptr2.i67, i64 0, i64 %indvars.iv.i.i.i70
-  %8 = load float, ptr %arrayidx.i.i11.i.i.i72, align 4
-  %cmp.i.i.i.i73 = fcmp oeq float %7, %8
-  br i1 %cmp.i.i.i.i73, label %for.cond.i.i.i82, label %if.then.i.i.i74
+for.body.i.i.i70:                                 ; preds = %for.cond.i.i.i84, %while.body.i63
+  %cmp.i.i.i71 = phi i1 [ true, %while.body.i63 ], [ false, %for.cond.i.i.i84 ]
+  %indvars.iv.i.i.i72 = phi i64 [ 0, %while.body.i63 ], [ 1, %for.cond.i.i.i84 ]
+  %arrayidx.i.i.i.i.i73 = getelementptr inbounds [3 x float], ptr %add.ptr.i67, i64 0, i64 %indvars.iv.i.i.i72
+  %6 = load float, ptr %arrayidx.i.i.i.i.i73, align 4
+  %arrayidx.i.i11.i.i.i74 = getelementptr inbounds [3 x float], ptr %add.ptr2.i69, i64 0, i64 %indvars.iv.i.i.i72
+  %7 = load float, ptr %arrayidx.i.i11.i.i.i74, align 4
+  %cmp.i.i.i.i75 = fcmp oeq float %6, %7
+  br i1 %cmp.i.i.i.i75, label %for.cond.i.i.i84, label %if.then.i.i.i76
 
-if.then.i.i.i74:                                  ; preds = %for.body.i.i.i68
-  %cmp6.i.i.i75 = fcmp olt float %7, %8
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i76
+if.then.i.i.i76:                                  ; preds = %for.body.i.i.i70
+  %cmp6.i.i.i77 = fcmp olt float %6, %7
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i78
 
-for.end.i.i.i83:                                  ; preds = %for.cond.i.i.i82
-  %arrayidx.i.i16.i.i.i84 = getelementptr inbounds i8, ptr %add.ptr.i65, i64 8
-  %9 = load float, ptr %arrayidx.i.i16.i.i.i84, align 4
-  %arrayidx.i.i17.i.i.i85 = getelementptr inbounds i8, ptr %add.ptr2.i67, i64 8
-  %10 = load float, ptr %arrayidx.i.i17.i.i.i85, align 4
-  %cmp9.i.i.i86 = fcmp olt float %9, %10
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i76
+for.end.i.i.i85:                                  ; preds = %for.cond.i.i.i84
+  %arrayidx.i.i16.i.i.i86 = getelementptr inbounds i8, ptr %add.ptr.i67, i64 8
+  %8 = load float, ptr %arrayidx.i.i16.i.i.i86, align 4
+  %arrayidx.i.i17.i.i.i87 = getelementptr inbounds i8, ptr %add.ptr2.i69, i64 8
+  %9 = load float, ptr %arrayidx.i.i17.i.i.i87, align 4
+  %cmp9.i.i.i88 = fcmp olt float %8, %9
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i78
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i76: ; preds = %for.end.i.i.i83, %if.then.i.i.i74
-  %retval.0.i.i.i77 = phi i1 [ %cmp6.i.i.i75, %if.then.i.i.i74 ], [ %cmp9.i.i.i86, %for.end.i.i.i83 ]
-  %spec.select.i78 = select i1 %retval.0.i.i.i77, i64 %sub1.i66, i64 %mul.i64
-  %add.ptr3.i79 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %spec.select.i78
-  %add.ptr4.i80 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__holeIndex.addr.032.i62
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr4.i80, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr3.i79, i64 12, i1 false)
-  %cmp.i81 = icmp slt i64 %spec.select.i78, %div.i
-  br i1 %cmp.i81, label %while.body.i61, label %while.end.i22, !llvm.loop !706
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i78: ; preds = %for.end.i.i.i85, %if.then.i.i.i76
+  %retval.0.i.i.i79 = phi i1 [ %cmp6.i.i.i77, %if.then.i.i.i76 ], [ %cmp9.i.i.i88, %for.end.i.i.i85 ]
+  %spec.select.i80 = select i1 %retval.0.i.i.i79, i64 %sub1.i68, i64 %mul.i66
+  %add.ptr3.i81 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %spec.select.i80
+  %add.ptr4.i82 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__holeIndex.addr.031.i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr4.i82, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr3.i81, i64 12, i1 false)
+  %cmp.i83 = icmp slt i64 %spec.select.i80, %div.i
+  br i1 %cmp.i83, label %while.body.i63, label %while.end.i21, !llvm.loop !706
 
-while.end.i22:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i76, %if.end8.split
-  %__holeIndex.addr.0.lcssa.i23 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i78, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i76 ]
-  %cmp8.i55 = icmp eq i64 %__holeIndex.addr.0.lcssa.i23, %div7.i
-  %or.cond88 = select i1 %cmp5.i, i1 %cmp8.i55, i1 false
-  br i1 %or.cond88, label %if.then9.i56, label %if.end16.i26
+while.end.i21:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i78, %if.end8.split
+  %__holeIndex.addr.0.lcssa.i22 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i80, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i78 ]
+  %cmp8.i57 = icmp eq i64 %__holeIndex.addr.0.lcssa.i22, %div7.i
+  %or.cond90 = select i1 %cmp5.i, i1 %cmp8.i57, i1 false
+  br i1 %or.cond90, label %if.then9.i58, label %if.end16.i25
 
-if.then9.i56:                                     ; preds = %while.end.i22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr14.i60, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr13.i59, i64 12, i1 false)
-  br label %if.end16.i26
+if.then9.i58:                                     ; preds = %while.end.i21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr14.i62, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr13.i61, i64 12, i1 false)
+  br label %if.end16.i25
 
-if.end16.i26:                                     ; preds = %if.then9.i56, %while.end.i22
-  %__holeIndex.addr.1.i27 = phi i64 [ %sub12.i58, %if.then9.i56 ], [ %__holeIndex.addr.0.lcssa.i23, %while.end.i22 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__value.i.i18)
-  store <2 x float> %__value.sroa.0.0.copyload14, ptr %__value.i.i18, align 8
-  store float %__value.sroa.2.0.copyload16, ptr %coerce.sroa.2.0.__value.sroa_idx.i.i28, align 8
-  %cmp15.i.i29.not = icmp slt i64 %__holeIndex.addr.1.i27, %__parent.0105
-  br i1 %cmp15.i.i29.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit87, label %land.rhs.i.i32
+if.end16.i25:                                     ; preds = %if.then9.i58, %while.end.i21
+  %__holeIndex.addr.1.i26 = phi i64 [ %sub12.i60, %if.then9.i58 ], [ %__holeIndex.addr.0.lcssa.i22, %while.end.i21 ]
+  %cmp16.i.i27.not = icmp slt i64 %__holeIndex.addr.1.i26, %__parent.0105
+  br i1 %cmp16.i.i27.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit89, label %land.rhs.lr.ph.i.i31
 
-land.rhs.i.i32:                                   ; preds = %if.end16.i26, %while.body.i.i45
-  %__holeIndex.addr.016.i.i33 = phi i64 [ %__parent.017.i.i35, %while.body.i.i45 ], [ %__holeIndex.addr.1.i27, %if.end16.i26 ]
-  %__parent.017.in.i.i34 = add nsw i64 %__holeIndex.addr.016.i.i33, -1
-  %__parent.017.i.i35 = sdiv i64 %__parent.017.in.i.i34, 2
-  %add.ptr.i.i36 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__parent.017.i.i35
-  br label %for.body.i.i.i.i37
+land.rhs.lr.ph.i.i31:                             ; preds = %if.end16.i25
+  %__value.sroa.0.0.vec.extract.i.i32 = extractelement <2 x float> %__value.sroa.0.0.copyload14, i64 0
+  %__value.sroa.0.4.vec.extract.i.i33 = extractelement <2 x float> %__value.sroa.0.0.copyload14, i64 1
+  br label %land.rhs.i.i34
 
-for.cond.i.i.i.i48:                               ; preds = %for.body.i.i.i.i37
-  br i1 %cmp.i.i.i23.i38, label %for.body.i.i.i.i37, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i49, !llvm.loop !692
+land.rhs.i.i34:                                   ; preds = %while.body.i.i47, %land.rhs.lr.ph.i.i31
+  %__holeIndex.addr.017.i.i35 = phi i64 [ %__holeIndex.addr.1.i26, %land.rhs.lr.ph.i.i31 ], [ %__parent.018.i.i37, %while.body.i.i47 ]
+  %__parent.018.in.i.i36 = add nsw i64 %__holeIndex.addr.017.i.i35, -1
+  %__parent.018.i.i37 = sdiv i64 %__parent.018.in.i.i36, 2
+  %add.ptr.i.i38 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__parent.018.i.i37
+  br label %for.body.i.i.i.i39
 
-for.body.i.i.i.i37:                               ; preds = %for.cond.i.i.i.i48, %land.rhs.i.i32
-  %cmp.i.i.i23.i38 = phi i1 [ true, %land.rhs.i.i32 ], [ false, %for.cond.i.i.i.i48 ]
-  %indvars.iv.i.i.i.i39 = phi i64 [ 0, %land.rhs.i.i32 ], [ 1, %for.cond.i.i.i.i48 ]
-  %arrayidx.i.i.i.i.i.i40 = getelementptr inbounds [3 x float], ptr %add.ptr.i.i36, i64 0, i64 %indvars.iv.i.i.i.i39
-  %11 = load float, ptr %arrayidx.i.i.i.i.i.i40, align 4
-  %arrayidx.i.i11.i.i.i.i41 = getelementptr inbounds [3 x float], ptr %__value.i.i18, i64 0, i64 %indvars.iv.i.i.i.i39
-  %12 = load float, ptr %arrayidx.i.i11.i.i.i.i41, align 4
-  %cmp.i.i.i.i.i42 = fcmp oeq float %11, %12
-  br i1 %cmp.i.i.i.i.i42, label %for.cond.i.i.i.i48, label %if.then.i.i.i.i43
+for.cond.i.i.i.i50:                               ; preds = %for.body.i.i.i.i39
+  br i1 %cmp.i.i.i23.i40, label %for.body.i.i.i.i39, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i51, !llvm.loop !692
 
-if.then.i.i.i.i43:                                ; preds = %for.body.i.i.i.i37
-  %cmp6.i.i.i.i44 = fcmp olt float %11, %12
-  br i1 %cmp6.i.i.i.i44, label %while.body.i.i45, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit87
+for.body.i.i.i.i39:                               ; preds = %for.cond.i.i.i.i50, %land.rhs.i.i34
+  %cmp.i.i.i23.i40 = phi i1 [ true, %land.rhs.i.i34 ], [ false, %for.cond.i.i.i.i50 ]
+  %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i41 = phi float [ %__value.sroa.0.0.vec.extract.i.i32, %land.rhs.i.i34 ], [ %__value.sroa.0.4.vec.extract.i.i33, %for.cond.i.i.i.i50 ]
+  %indvars.iv.i.i.i.i42 = phi i64 [ 0, %land.rhs.i.i34 ], [ 1, %for.cond.i.i.i.i50 ]
+  %arrayidx.i.i.i.i.i.i43 = getelementptr inbounds [3 x float], ptr %add.ptr.i.i38, i64 0, i64 %indvars.iv.i.i.i.i42
+  %10 = load float, ptr %arrayidx.i.i.i.i.i.i43, align 4
+  %cmp.i.i.i.i.i44 = fcmp oeq float %10, %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i41
+  br i1 %cmp.i.i.i.i.i44, label %for.cond.i.i.i.i50, label %if.then.i.i.i.i45
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i49: ; preds = %for.cond.i.i.i.i48
-  %arrayidx.i.i16.i.i.i.i50 = getelementptr inbounds i8, ptr %add.ptr.i.i36, i64 8
-  %13 = load float, ptr %arrayidx.i.i16.i.i.i.i50, align 4
-  %cmp9.i.i.i.i51 = fcmp olt float %13, %__value.sroa.2.0.copyload16
-  br i1 %cmp9.i.i.i.i51, label %while.body.i.i45, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit87
+if.then.i.i.i.i45:                                ; preds = %for.body.i.i.i.i39
+  %cmp6.i.i.i.i46 = fcmp olt float %10, %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i41
+  br i1 %cmp6.i.i.i.i46, label %while.body.i.i47, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit89
 
-while.body.i.i45:                                 ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i49, %if.then.i.i.i.i43
-  %add.ptr2.i.i46 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__holeIndex.addr.016.i.i33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr2.i.i46, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i36, i64 12, i1 false)
-  %cmp.i.i47.not = icmp slt i64 %__parent.017.i.i35, %__parent.0105
-  br i1 %cmp.i.i47.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit87, label %land.rhs.i.i32, !llvm.loop !707
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i51: ; preds = %for.cond.i.i.i.i50
+  %arrayidx.i.i16.i.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i38, i64 8
+  %11 = load float, ptr %arrayidx.i.i16.i.i.i.i52, align 4
+  %cmp9.i.i.i.i53 = fcmp olt float %11, %__value.sroa.2.0.copyload16
+  br i1 %cmp9.i.i.i.i53, label %while.body.i.i47, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit89
 
-_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit87: ; preds = %if.then.i.i.i.i43, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i49, %while.body.i.i45, %if.end16.i26
-  %__holeIndex.addr.0.lcssa.i.i30 = phi i64 [ %__holeIndex.addr.1.i27, %if.end16.i26 ], [ %__holeIndex.addr.016.i.i33, %if.then.i.i.i.i43 ], [ %__parent.017.i.i35, %while.body.i.i45 ], [ %__holeIndex.addr.016.i.i33, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i49 ]
-  %add.ptr5.i.i31 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr5.i.i31, ptr noundef nonnull align 8 dereferenceable(12) %__value.i.i18, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__value.i.i18)
+while.body.i.i47:                                 ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i51, %if.then.i.i.i.i45
+  %add.ptr2.i.i48 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__holeIndex.addr.017.i.i35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr2.i.i48, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i38, i64 12, i1 false)
+  %cmp.i.i49.not = icmp slt i64 %__parent.018.i.i37, %__parent.0105
+  br i1 %cmp.i.i49.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit89, label %land.rhs.i.i34, !llvm.loop !707
+
+_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit89: ; preds = %if.then.i.i.i.i45, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i51, %while.body.i.i47, %if.end16.i25
+  %__holeIndex.addr.0.lcssa.i.i28 = phi i64 [ %__holeIndex.addr.1.i26, %if.end16.i25 ], [ %__holeIndex.addr.017.i.i35, %if.then.i.i.i.i45 ], [ %__parent.018.i.i37, %while.body.i.i47 ], [ %__holeIndex.addr.017.i.i35, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i51 ]
+  %add.ptr5.i.i29 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i28
+  store <2 x float> %__value.sroa.0.0.copyload14, ptr %add.ptr5.i.i29, align 4
+  %__value.sroa.4.0.add.ptr5.sroa_idx.i.i30 = getelementptr inbounds i8, ptr %add.ptr5.i.i29, i64 8
+  store float %__value.sroa.2.0.copyload16, ptr %__value.sroa.4.0.add.ptr5.sroa_idx.i.i30, align 4
   %cmp6 = icmp eq i64 %dec, 0
   br i1 %cmp6, label %return, label %if.end8.split, !llvm.loop !708
 
-return:                                           ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit87, %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, %entry
+return:                                           ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit89, %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt10__pop_heapIPN7openvdb5v11_04math4Vec3IfEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_RT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__comp) local_unnamed_addr #7 comdat {
 entry:
-  %__value.i.i = alloca %"class.openvdb::v11_0::math::Vec3.236", align 8
   %__value.sroa.0.0.copyload = load <2 x float>, ptr %__result, align 4
   %__value.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__result, i64 8
   %__value.sroa.2.0.copyload = load float, ptr %__value.sroa.2.0..sroa_idx, align 4
@@ -58011,12 +58014,12 @@ entry:
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 12
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i = sdiv i64 %sub.i, 2
-  %cmp31.i = icmp sgt i64 %sub.ptr.sub, 24
-  br i1 %cmp31.i, label %while.body.i, label %while.end.i
+  %cmp30.i = icmp sgt i64 %sub.ptr.sub, 24
+  br i1 %cmp30.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %entry, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i
-  %__holeIndex.addr.032.i = phi i64 [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i ], [ 0, %entry ]
-  %add.i = shl i64 %__holeIndex.addr.032.i, 1
+  %__holeIndex.addr.031.i = phi i64 [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0_.exit.i ], [ 0, %entry ]
+  %add.i = shl i64 %__holeIndex.addr.031.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -58052,7 +58055,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IfEES8_EEbT_T0
   %retval.0.i.i.i = phi i1 [ %cmp6.i.i.i, %if.then.i.i.i ], [ %cmp9.i.i.i, %for.end.i.i.i ]
   %spec.select.i = select i1 %retval.0.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__holeIndex.addr.032.i
+  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__holeIndex.addr.031.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr4.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr3.i, i64 12, i1 false)
   %cmp.i = icmp slt i64 %spec.select.i, %div.i
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !706
@@ -58079,18 +58082,19 @@ if.then9.i:                                       ; preds = %land.lhs.true.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %land.lhs.true.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__holeIndex.addr.0.lcssa.i, %land.lhs.true.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__value.i.i)
-  store <2 x float> %__value.sroa.0.0.copyload, ptr %__value.i.i, align 8
-  %coerce.sroa.2.0.__value.sroa_idx.i.i = getelementptr inbounds i8, ptr %__value.i.i, i64 8
-  store float %__value.sroa.2.0.copyload, ptr %coerce.sroa.2.0.__value.sroa_idx.i.i, align 8
-  %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, 0
-  br i1 %cmp15.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
+  %cmp16.i.i = icmp sgt i64 %__holeIndex.addr.1.i, 0
+  br i1 %cmp16.i.i, label %land.rhs.lr.ph.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
-land.rhs.i.i:                                     ; preds = %if.end16.i, %while.body.i.i
-  %__holeIndex.addr.016.i.i = phi i64 [ %__parent.017.i.i45, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end16.i ]
-  %__parent.017.in.i.i = add nsw i64 %__holeIndex.addr.016.i.i, -1
-  %__parent.017.i.i45 = lshr i64 %__parent.017.in.i.i, 1
-  %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__parent.017.i.i45
+land.rhs.lr.ph.i.i:                               ; preds = %if.end16.i
+  %__value.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %__value.sroa.0.0.copyload, i64 0
+  %__value.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %__value.sroa.0.0.copyload, i64 1
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
+  %__holeIndex.addr.017.i.i = phi i64 [ %__holeIndex.addr.1.i, %land.rhs.lr.ph.i.i ], [ %__parent.018.i.i45, %while.body.i.i ]
+  %__parent.018.in.i.i = add nsw i64 %__holeIndex.addr.017.i.i, -1
+  %__parent.018.i.i45 = lshr i64 %__parent.018.in.i.i, 1
+  %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__parent.018.i.i45
   br label %for.body.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
@@ -58098,35 +58102,35 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %land.rhs.i.i
   %cmp.i.i.i23.i = phi i1 [ true, %land.rhs.i.i ], [ false, %for.cond.i.i.i.i ]
+  %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i = phi float [ %__value.sroa.0.0.vec.extract.i.i, %land.rhs.i.i ], [ %__value.sroa.0.4.vec.extract.i.i, %for.cond.i.i.i.i ]
   %indvars.iv.i.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ 1, %for.cond.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %add.ptr.i.i, i64 0, i64 %indvars.iv.i.i.i.i
   %4 = load float, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x float], ptr %__value.i.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %5 = load float, ptr %arrayidx.i.i11.i.i.i.i, align 4
-  %cmp.i.i.i.i.i = fcmp oeq float %4, %5
+  %cmp.i.i.i.i.i = fcmp oeq float %4, %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %cmp6.i.i.i.i = fcmp olt float %4, %5
+  %cmp6.i.i.i.i = fcmp olt float %4, %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp6.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i: ; preds = %for.cond.i.i.i.i
   %arrayidx.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %6 = load float, ptr %arrayidx.i.i16.i.i.i.i, align 4
-  %cmp9.i.i.i.i = fcmp olt float %6, %__value.sroa.2.0.copyload
+  %5 = load float, ptr %arrayidx.i.i16.i.i.i.i, align 4
+  %cmp9.i.i.i.i = fcmp olt float %5, %__value.sroa.2.0.copyload
   br i1 %cmp9.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i, %if.then.i.i.i.i
-  %add.ptr2.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__holeIndex.addr.016.i.i
+  %add.ptr2.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__holeIndex.addr.017.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr2.i.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i, i64 12, i1 false)
-  %cmp.i.i.not = icmp ult i64 %__parent.017.in.i.i, 2
+  %cmp.i.i.not = icmp ult i64 %__parent.018.in.i.i, 2
   br i1 %cmp.i.i.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, label %land.rhs.i.i, !llvm.loop !707
 
 _ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IfEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit: ; preds = %if.then.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
-  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.016.i.i, %if.then.i.i.i.i ], [ %__parent.017.i.i45, %while.body.i.i ], [ %__holeIndex.addr.016.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.017.i.i, %if.then.i.i.i.i ], [ %__parent.018.i.i45, %while.body.i.i ], [ %__holeIndex.addr.017.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IfEES7_EEbT_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.236", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(12) %__value.i.i, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__value.i.i)
+  store <2 x float> %__value.sroa.0.0.copyload, ptr %add.ptr5.i.i, align 4
+  %__value.sroa.4.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 8
+  store float %__value.sroa.2.0.copyload, ptr %__value.sroa.4.0.add.ptr5.sroa_idx.i.i, align 4
   ret void
 }
 
@@ -59334,8 +59338,6 @@ for.end:                                          ; preds = %for.inc.i.i.i, %_ZN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE10isConstantERS6_S9_RbRKS6_(ptr noundef nonnull align 8 dereferenceable(66576) %this, ptr noundef nonnull align 4 dereferenceable(12) %minValue, ptr noundef nonnull align 4 dereferenceable(12) %maxValue, ptr noundef nonnull align 1 dereferenceable(1) %state, ptr noundef nonnull align 4 dereferenceable(12) %tolerance) local_unnamed_addr #7 comdat align 2 {
 entry:
-  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3.236", align 8
-  %ref.tmp16 = alloca %"class.openvdb::v11_0::math::Vec3.236", align 8
   %mChildMask = getelementptr inbounds i8, ptr %this, i64 65536
   br label %for.cond.i
 
@@ -59381,12 +59383,11 @@ if.end:                                           ; preds = %while.body.i
   %arrayidx.i.i17.i76 = getelementptr inbounds i8, ptr %tolerance, i64 8
   %arrayidx.i.i17.i = getelementptr inbounds i8, ptr %minValue, i64 8
   %arrayidx.i.i17.i47 = getelementptr inbounds i8, ptr %maxValue, i64 8
+  %arrayidx.i.i.i.i56 = getelementptr inbounds i8, ptr %minValue, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 1, %if.end ], [ %indvars.iv.next, %for.inc ]
-  %sub9.i.i104 = phi float [ undef, %if.end ], [ %sub9.i.i105, %for.inc ]
-  %sub9.i.i61103 = phi float [ undef, %if.end ], [ %sub9.i.i61102, %for.inc ]
   %arrayidx5 = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.917"], ptr %this, i64 0, i64 %indvars.iv
   br label %for.body.i
 
@@ -59426,10 +59427,14 @@ if.then8:                                         ; preds = %if.then.i.if.then8_
   %8 = phi float [ %.pre, %if.then.i.if.then8_crit_edge ], [ %6, %_ZN7openvdb5v11_04mathltILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit ]
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %maxValue, align 4
   %retval.sroa.6.0.copyload.i = load float, ptr %arrayidx.i.i17.i47, align 4
-  %9 = load <2 x float>, ptr %arrayidx5, align 8
-  %10 = fsub <2 x float> %retval.sroa.0.0.copyload.i, %9
+  %9 = load float, ptr %arrayidx5, align 8
+  %retval.sroa.0.0.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 0
+  %sub.i.i = fsub float %retval.sroa.0.0.vec.extract.i, %9
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx5, i64 4
+  %10 = load float, ptr %arrayidx.i.i.i.i, align 4
+  %retval.sroa.0.4.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 1
+  %sub5.i.i = fsub float %retval.sroa.0.4.vec.extract.i, %10
   %sub9.i.i = fsub float %retval.sroa.6.0.copyload.i, %8
-  store <2 x float> %10, ptr %ref.tmp, align 8
   br label %for.body.i21
 
 for.cond.i30:                                     ; preds = %for.body.i21
@@ -59437,21 +59442,20 @@ for.cond.i30:                                     ; preds = %for.body.i21
 
 for.body.i21:                                     ; preds = %for.cond.i30, %if.then8
   %cmp.i22 = phi i1 [ true, %if.then8 ], [ false, %for.cond.i30 ]
+  %indvars.iv.i23.sroa.phi.sroa.speculated = phi float [ %sub.i.i, %if.then8 ], [ %sub5.i.i, %for.cond.i30 ]
   %indvars.iv.i23 = phi i64 [ 0, %if.then8 ], [ 1, %for.cond.i30 ]
-  %arrayidx.i.i.i24 = getelementptr inbounds [3 x float], ptr %ref.tmp, i64 0, i64 %indvars.iv.i23
-  %11 = load float, ptr %arrayidx.i.i.i24, align 4
   %arrayidx.i.i11.i25 = getelementptr inbounds [3 x float], ptr %tolerance, i64 0, i64 %indvars.iv.i23
-  %12 = load float, ptr %arrayidx.i.i11.i25, align 4
-  %cmp.i.i26 = fcmp oeq float %11, %12
+  %11 = load float, ptr %arrayidx.i.i11.i25, align 4
+  %cmp.i.i26 = fcmp oeq float %indvars.iv.i23.sroa.phi.sroa.speculated, %11
   br i1 %cmp.i.i26, label %for.cond.i30, label %if.then.i27
 
 if.then.i27:                                      ; preds = %for.body.i21
-  %cmp6.i28 = fcmp ogt float %11, %12
+  %cmp6.i28 = fcmp ogt float %indvars.iv.i23.sroa.phi.sroa.speculated, %11
   br i1 %cmp6.i28, label %return, label %for.inc.sink.split
 
 _ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit: ; preds = %for.cond.i30
-  %13 = load float, ptr %arrayidx.i.i17.i76, align 4
-  %cmp9.i34 = fcmp ogt float %sub9.i.i, %13
+  %12 = load float, ptr %arrayidx.i.i17.i76, align 4
+  %cmp9.i34 = fcmp ogt float %sub9.i.i, %12
   br i1 %cmp9.i34, label %return, label %for.inc.sink.split
 
 for.cond.i44:                                     ; preds = %for.body.i35
@@ -59461,14 +59465,14 @@ for.body.i35:                                     ; preds = %for.body.i35.prehea
   %cmp.i36 = phi i1 [ false, %for.cond.i44 ], [ true, %for.body.i35.preheader ]
   %indvars.iv.i37 = phi i64 [ 1, %for.cond.i44 ], [ 0, %for.body.i35.preheader ]
   %arrayidx.i.i.i38 = getelementptr inbounds [3 x float], ptr %arrayidx5, i64 0, i64 %indvars.iv.i37
-  %14 = load float, ptr %arrayidx.i.i.i38, align 4
+  %13 = load float, ptr %arrayidx.i.i.i38, align 4
   %arrayidx.i.i11.i39 = getelementptr inbounds [3 x float], ptr %maxValue, i64 0, i64 %indvars.iv.i37
-  %15 = load float, ptr %arrayidx.i.i11.i39, align 4
-  %cmp.i.i40 = fcmp oeq float %14, %15
+  %14 = load float, ptr %arrayidx.i.i11.i39, align 4
+  %cmp.i.i40 = fcmp oeq float %13, %14
   br i1 %cmp.i.i40, label %for.cond.i44, label %if.then.i41
 
 if.then.i41:                                      ; preds = %for.body.i35
-  %cmp6.i42 = fcmp ogt float %14, %15
+  %cmp6.i42 = fcmp ogt float %13, %14
   br i1 %cmp6.i42, label %if.then.i41.if.then15_crit_edge, label %for.inc
 
 if.then.i41.if.then15_crit_edge:                  ; preds = %if.then.i41
@@ -59478,19 +59482,22 @@ if.then.i41.if.then15_crit_edge:                  ; preds = %if.then.i41
 
 _ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49: ; preds = %for.cond.i44
   %arrayidx.i.i16.i46 = getelementptr inbounds i8, ptr %arrayidx5, i64 8
-  %16 = load float, ptr %arrayidx.i.i16.i46, align 8
-  %17 = load float, ptr %arrayidx.i.i17.i47, align 4
-  %cmp9.i48 = fcmp ogt float %16, %17
+  %15 = load float, ptr %arrayidx.i.i16.i46, align 8
+  %16 = load float, ptr %arrayidx.i.i17.i47, align 4
+  %cmp9.i48 = fcmp ogt float %15, %16
   br i1 %cmp9.i48, label %if.then15, label %for.inc
 
 if.then15:                                        ; preds = %if.then.i41.if.then15_crit_edge, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49
-  %retval.sroa.6.0.copyload.i52 = phi float [ %retval.sroa.6.0.copyload.i52.pre, %if.then.i41.if.then15_crit_edge ], [ %16, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49 ]
+  %retval.sroa.6.0.copyload.i52 = phi float [ %retval.sroa.6.0.copyload.i52.pre, %if.then.i41.if.then15_crit_edge ], [ %15, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49 ]
   %retval.sroa.0.0.copyload.i50 = load <2 x float>, ptr %arrayidx5, align 8
-  %18 = load <2 x float>, ptr %minValue, align 4
-  %19 = fsub <2 x float> %retval.sroa.0.0.copyload.i50, %18
-  %20 = load float, ptr %arrayidx.i.i17.i, align 4
-  %sub9.i.i61 = fsub float %retval.sroa.6.0.copyload.i52, %20
-  store <2 x float> %19, ptr %ref.tmp16, align 8
+  %17 = load float, ptr %minValue, align 4
+  %retval.sroa.0.0.vec.extract.i53 = extractelement <2 x float> %retval.sroa.0.0.copyload.i50, i64 0
+  %sub.i.i54 = fsub float %retval.sroa.0.0.vec.extract.i53, %17
+  %18 = load float, ptr %arrayidx.i.i.i.i56, align 4
+  %retval.sroa.0.4.vec.extract.i57 = extractelement <2 x float> %retval.sroa.0.0.copyload.i50, i64 1
+  %sub5.i.i58 = fsub float %retval.sroa.0.4.vec.extract.i57, %18
+  %19 = load float, ptr %arrayidx.i.i17.i, align 4
+  %sub9.i.i61 = fsub float %retval.sroa.6.0.copyload.i52, %19
   br label %for.body.i64
 
 for.cond.i73:                                     ; preds = %for.body.i64
@@ -59498,33 +59505,28 @@ for.cond.i73:                                     ; preds = %for.body.i64
 
 for.body.i64:                                     ; preds = %for.cond.i73, %if.then15
   %cmp.i65 = phi i1 [ true, %if.then15 ], [ false, %for.cond.i73 ]
+  %indvars.iv.i66.sroa.phi.sroa.speculated = phi float [ %sub.i.i54, %if.then15 ], [ %sub5.i.i58, %for.cond.i73 ]
   %indvars.iv.i66 = phi i64 [ 0, %if.then15 ], [ 1, %for.cond.i73 ]
-  %arrayidx.i.i.i67 = getelementptr inbounds [3 x float], ptr %ref.tmp16, i64 0, i64 %indvars.iv.i66
-  %21 = load float, ptr %arrayidx.i.i.i67, align 4
   %arrayidx.i.i11.i68 = getelementptr inbounds [3 x float], ptr %tolerance, i64 0, i64 %indvars.iv.i66
-  %22 = load float, ptr %arrayidx.i.i11.i68, align 4
-  %cmp.i.i69 = fcmp oeq float %21, %22
+  %20 = load float, ptr %arrayidx.i.i11.i68, align 4
+  %cmp.i.i69 = fcmp oeq float %indvars.iv.i66.sroa.phi.sroa.speculated, %20
   br i1 %cmp.i.i69, label %for.cond.i73, label %if.then.i70
 
 if.then.i70:                                      ; preds = %for.body.i64
-  %cmp6.i71 = fcmp ogt float %21, %22
+  %cmp6.i71 = fcmp ogt float %indvars.iv.i66.sroa.phi.sroa.speculated, %20
   br i1 %cmp6.i71, label %return, label %for.inc.sink.split
 
 _ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit78: ; preds = %for.cond.i73
-  %23 = load float, ptr %arrayidx.i.i17.i76, align 4
-  %cmp9.i77 = fcmp ogt float %sub9.i.i61, %23
+  %21 = load float, ptr %arrayidx.i.i17.i76, align 4
+  %cmp9.i77 = fcmp ogt float %sub9.i.i61, %21
   br i1 %cmp9.i77, label %return, label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit78, %if.then.i70, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit, %if.then.i27
   %minValue.sink = phi ptr [ %minValue, %if.then.i27 ], [ %minValue, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit ], [ %maxValue, %if.then.i70 ], [ %maxValue, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit78 ]
-  %sub9.i.i105.ph = phi float [ %sub9.i.i, %if.then.i27 ], [ %sub9.i.i, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit ], [ %sub9.i.i104, %if.then.i70 ], [ %sub9.i.i104, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit78 ]
-  %sub9.i.i61102.ph = phi float [ %sub9.i.i61103, %if.then.i27 ], [ %sub9.i.i61103, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit ], [ %sub9.i.i61, %if.then.i70 ], [ %sub9.i.i61, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit78 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %minValue.sink, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx5, i64 12, i1 false)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.then.i41, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49
-  %sub9.i.i105 = phi float [ %sub9.i.i104, %if.then.i41 ], [ %sub9.i.i104, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49 ], [ %sub9.i.i105.ph, %for.inc.sink.split ]
-  %sub9.i.i61102 = phi float [ %sub9.i.i61103, %if.then.i41 ], [ %sub9.i.i61103, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49 ], [ %sub9.i.i61102.ph, %for.inc.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4096
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !716
@@ -59537,34 +59539,33 @@ return:                                           ; preds = %land.rhs.i, %land.r
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt13__introselectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_T0_T1_(ptr noundef %__first, ptr noundef %__nth, ptr noundef %__last, i64 noundef %__depth_limit) local_unnamed_addr #5 comdat {
 entry:
-  %__val.i.i = alloca %"class.openvdb::v11_0::tree::NodeUnion.917", align 8
   %__val.sroa.0.i = alloca %union.anon.918, align 8
   %__tmp.sroa.0.i.i.i.i = alloca %union.anon.918, align 8
   %__tmp.sroa.0.i.i = alloca %union.anon.918, align 8
   %__comp.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.981", align 1
-  %sub.ptr.lhs.cast70 = ptrtoint ptr %__last to i64
-  %sub.ptr.rhs.cast71 = ptrtoint ptr %__first to i64
-  %sub.ptr.sub72 = sub i64 %sub.ptr.lhs.cast70, %sub.ptr.rhs.cast71
-  %cmp73 = icmp sgt i64 %sub.ptr.sub72, 48
-  br i1 %cmp73, label %while.body, label %while.end
+  %sub.ptr.lhs.cast67 = ptrtoint ptr %__last to i64
+  %sub.ptr.rhs.cast68 = ptrtoint ptr %__first to i64
+  %sub.ptr.sub69 = sub i64 %sub.ptr.lhs.cast67, %sub.ptr.rhs.cast68
+  %cmp70 = icmp sgt i64 %sub.ptr.sub69, 48
+  br i1 %cmp70, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit
-  %sub.ptr.sub77 = phi i64 [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %sub.ptr.sub72, %entry ]
-  %__first.addr.076 = phi ptr [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %__first, %entry ]
-  %__last.addr.075 = phi ptr [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %__last, %entry ]
-  %__depth_limit.addr.074 = phi i64 [ %dec, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %__depth_limit, %entry ]
-  %cmp1 = icmp eq i64 %__depth_limit.addr.074, 0
+  %sub.ptr.sub74 = phi i64 [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %sub.ptr.sub69, %entry ]
+  %__first.addr.073 = phi ptr [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %__first, %entry ]
+  %__last.addr.072 = phi ptr [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %__last, %entry ]
+  %__depth_limit.addr.071 = phi i64 [ %dec, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %__depth_limit, %entry ]
+  %cmp1 = icmp eq i64 %__depth_limit.addr.071, 0
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
   %add.ptr = getelementptr inbounds i8, ptr %__nth, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
-  call void @_ZSt11__make_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_RT0_(ptr noundef %__first.addr.076, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
-  %cmp11.i = icmp ult ptr %add.ptr, %__last.addr.075
+  call void @_ZSt11__make_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_RT0_(ptr noundef %__first.addr.073, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  %cmp11.i = icmp ult ptr %add.ptr, %__last.addr.072
   br i1 %cmp11.i, label %for.body.i.i.i.preheader.lr.ph.i, label %_ZSt13__heap_selectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_T0_.exit
 
 for.body.i.i.i.preheader.lr.ph.i:                 ; preds = %if.then
-  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.076, i64 8
+  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 8
   br label %for.body.i.i.i.preheader.i
 
 for.body.i.i.i.preheader.i:                       ; preds = %for.inc.i, %for.body.i.i.i.preheader.lr.ph.i
@@ -59579,7 +59580,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %
   %indvars.iv.i.i.i.i = phi i64 [ 1, %for.cond.i.i.i.i ], [ 0, %for.body.i.i.i.preheader.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %__i.012.i, i64 0, i64 %indvars.iv.i.i.i.i
   %0 = load float, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.076, i64 0, i64 %indvars.iv.i.i.i.i
+  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i.i.i
   %1 = load float, ptr %arrayidx.i.i11.i.i.i.i, align 4
   %cmp.i.i.i.i.i = fcmp oeq float %0, %1
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
@@ -59596,34 +59597,34 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpIN
   br i1 %cmp9.i.i.i.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i, %if.then.i.i.i.i
-  call void @_ZSt10__pop_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_RT0_(ptr noundef nonnull %__first.addr.076, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__i.012.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  call void @_ZSt10__pop_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_RT0_(ptr noundef nonnull %__first.addr.073, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__i.012.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i, %if.then.i.i.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__i.012.i, i64 16
-  %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.addr.075
+  %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.addr.072
   br i1 %cmp.i, label %for.body.i.i.i.preheader.i, label %_ZSt13__heap_selectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_T0_.exit, !llvm.loop !717
 
 _ZSt13__heap_selectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_T0_.exit: ; preds = %for.inc.i, %if.then
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.076, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.076, ptr noundef nonnull align 8 dereferenceable(16) %__nth, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.073, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.073, ptr noundef nonnull align 8 dereferenceable(16) %__nth, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__nth, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   br label %return
 
 if.end:                                           ; preds = %while.body
-  %div.i4647 = lshr i64 %sub.ptr.sub77, 5
-  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first.addr.076, i64 %div.i4647
-  %add.ptr1.i = getelementptr inbounds i8, ptr %__first.addr.076, i64 16
-  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.075, i64 -16
-  tail call void @_ZSt22__move_median_to_firstIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_SP_T0_(ptr noundef %__first.addr.076, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
-  %arrayidx.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.076, i64 8
+  %div.i4445 = lshr i64 %sub.ptr.sub74, 5
+  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first.addr.073, i64 %div.i4445
+  %add.ptr1.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 16
+  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.072, i64 -16
+  tail call void @_ZSt22__move_median_to_firstIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_SP_T0_(ptr noundef %__first.addr.073, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
+  %arrayidx.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %if.end
-  %__last.addr.0.i.i = phi ptr [ %__last.addr.075, %if.end ], [ %__last.addr.1.i.i, %if.end.i.i ]
+  %__last.addr.0.i.i = phi ptr [ %__last.addr.072, %if.end ], [ %__last.addr.1.i.i, %if.end.i.i ]
   %__first.addr.0.i.i = phi ptr [ %add.ptr1.i, %if.end ], [ %incdec.ptr9.i.i, %if.end.i.i ]
   br label %while.cond1.i.i
 
@@ -59639,7 +59640,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i,
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %while.cond1.i.i ], [ 1, %for.cond.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.1.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
   %4 = load float, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.076, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i.i.i.i
   %5 = load float, ptr %arrayidx.i.i11.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i = fcmp oeq float %4, %5
   br i1 %cmp.i.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -59673,7 +59674,7 @@ for.cond.i.i.i20.i.i:                             ; preds = %for.body.i.i.i11.i.
 for.body.i.i.i11.i.i:                             ; preds = %for.cond.i.i.i20.i.i, %while.cond4.i.i
   %cmp.i.i.i12.i.i = phi i1 [ true, %while.cond4.i.i ], [ false, %for.cond.i.i.i20.i.i ]
   %indvars.iv.i.i.i13.i.i = phi i64 [ 0, %while.cond4.i.i ], [ 1, %for.cond.i.i.i20.i.i ]
-  %arrayidx.i.i.i.i.i14.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.076, i64 0, i64 %indvars.iv.i.i.i13.i.i
+  %arrayidx.i.i.i.i.i14.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i.i13.i.i
   %8 = load float, ptr %arrayidx.i.i.i.i.i14.i.i, align 4
   %arrayidx.i.i11.i.i.i15.i.i = getelementptr inbounds [3 x float], ptr %__last.addr.1.i.i, i64 0, i64 %indvars.iv.i.i.i13.i.i
   %9 = load float, ptr %arrayidx.i.i11.i.i.i15.i.i, align 4
@@ -59708,10 +59709,10 @@ if.end.i.i:                                       ; preds = %while.end8.i.i
   br label %while.body.i.i, !llvm.loop !720
 
 _ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit: ; preds = %while.end8.i.i
-  %dec = add nsw i64 %__depth_limit.addr.074, -1
+  %dec = add nsw i64 %__depth_limit.addr.071, -1
   %cmp3.not = icmp ugt ptr %__first.addr.1.i.i, %__nth
-  %call.__last.addr.0 = select i1 %cmp3.not, ptr %__first.addr.1.i.i, ptr %__last.addr.075
-  %__first.addr.0.call = select i1 %cmp3.not, ptr %__first.addr.076, ptr %__first.addr.1.i.i
+  %call.__last.addr.0 = select i1 %cmp3.not, ptr %__first.addr.1.i.i, ptr %__last.addr.072
+  %__first.addr.0.call = select i1 %cmp3.not, ptr %__first.addr.073, ptr %__first.addr.1.i.i
   %sub.ptr.lhs.cast = ptrtoint ptr %call.__last.addr.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first.addr.0.call to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -59721,111 +59722,123 @@ _ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3
 while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit, %entry
   %__last.addr.0.lcssa = phi ptr [ %__last, %entry ], [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ]
   %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ]
-  %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast71, %entry ], [ %sub.ptr.rhs.cast, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ]
+  %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast68, %entry ], [ %sub.ptr.rhs.cast, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__val.sroa.0.i)
   %cmp.i16 = icmp eq ptr %__first.addr.0.lcssa, %__last.addr.0.lcssa
   br i1 %cmp.i16, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end
-  %__i.020.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 16
-  %cmp1.not21.i = icmp eq ptr %__i.020.i, %__last.addr.0.lcssa
-  br i1 %cmp1.not21.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.lr.ph.i17
+  %__i.019.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 16
+  %cmp1.not20.i = icmp eq ptr %__i.019.i, %__last.addr.0.lcssa
+  br i1 %cmp1.not20.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.lr.ph.i17
 
 for.body.i.i.i.preheader.lr.ph.i17:               ; preds = %for.cond.preheader.i
   %arrayidx.i.i17.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 8
-  %arrayidx.i.i16.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__val.i.i, i64 8
-  br label %for.body.i.i.i.preheader.i20
+  br label %for.body.i.i.i.preheader.i19
 
-for.body.i.i.i.preheader.i20:                     ; preds = %for.inc.i37, %for.body.i.i.i.preheader.lr.ph.i17
-  %__i.023.i = phi ptr [ %__i.020.i, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.0.i, %for.inc.i37 ]
-  %__first.pn22.i = phi ptr [ %__first.addr.0.lcssa, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.023.i, %for.inc.i37 ]
-  br label %for.body.i.i.i.i21
+for.body.i.i.i.preheader.i19:                     ; preds = %for.inc.i35, %for.body.i.i.i.preheader.lr.ph.i17
+  %__i.022.i = phi ptr [ %__i.019.i, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.0.i, %for.inc.i35 ]
+  %__first.pn21.i = phi ptr [ %__first.addr.0.lcssa, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.022.i, %for.inc.i35 ]
+  br label %for.body.i.i.i.i20
 
-for.cond.i.i.i.i42:                               ; preds = %for.body.i.i.i.i21
-  br i1 %cmp.i.i.i.i22, label %for.body.i.i.i.i21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43, !llvm.loop !692
+for.cond.i.i.i.i40:                               ; preds = %for.body.i.i.i.i20
+  br i1 %cmp.i.i.i.i21, label %for.body.i.i.i.i20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41, !llvm.loop !692
 
-for.body.i.i.i.i21:                               ; preds = %for.cond.i.i.i.i42, %for.body.i.i.i.preheader.i20
-  %cmp.i.i.i.i22 = phi i1 [ false, %for.cond.i.i.i.i42 ], [ true, %for.body.i.i.i.preheader.i20 ]
-  %indvars.iv.i.i.i.i23 = phi i64 [ 1, %for.cond.i.i.i.i42 ], [ 0, %for.body.i.i.i.preheader.i20 ]
-  %arrayidx.i.i.i.i.i.i24 = getelementptr inbounds [3 x float], ptr %__i.023.i, i64 0, i64 %indvars.iv.i.i.i.i23
-  %12 = load float, ptr %arrayidx.i.i.i.i.i.i24, align 4
-  %arrayidx.i.i11.i.i.i.i25 = getelementptr inbounds [3 x float], ptr %__first.addr.0.lcssa, i64 0, i64 %indvars.iv.i.i.i.i23
-  %13 = load float, ptr %arrayidx.i.i11.i.i.i.i25, align 4
-  %cmp.i.i.i.i.i26 = fcmp oeq float %12, %13
-  br i1 %cmp.i.i.i.i.i26, label %for.cond.i.i.i.i42, label %if.then.i.i.i.i27
+for.body.i.i.i.i20:                               ; preds = %for.cond.i.i.i.i40, %for.body.i.i.i.preheader.i19
+  %cmp.i.i.i.i21 = phi i1 [ false, %for.cond.i.i.i.i40 ], [ true, %for.body.i.i.i.preheader.i19 ]
+  %indvars.iv.i.i.i.i22 = phi i64 [ 1, %for.cond.i.i.i.i40 ], [ 0, %for.body.i.i.i.preheader.i19 ]
+  %arrayidx.i.i.i.i.i.i23 = getelementptr inbounds [3 x float], ptr %__i.022.i, i64 0, i64 %indvars.iv.i.i.i.i22
+  %12 = load float, ptr %arrayidx.i.i.i.i.i.i23, align 4
+  %arrayidx.i.i11.i.i.i.i24 = getelementptr inbounds [3 x float], ptr %__first.addr.0.lcssa, i64 0, i64 %indvars.iv.i.i.i.i22
+  %13 = load float, ptr %arrayidx.i.i11.i.i.i.i24, align 4
+  %cmp.i.i.i.i.i25 = fcmp oeq float %12, %13
+  br i1 %cmp.i.i.i.i.i25, label %for.cond.i.i.i.i40, label %if.then.i.i.i.i26
 
-if.then.i.i.i.i27:                                ; preds = %for.body.i.i.i.i21
-  %cmp6.i.i.i.i28 = fcmp olt float %12, %13
-  br i1 %cmp6.i.i.i.i28, label %if.then2.i, label %if.else.i
+if.then.i.i.i.i26:                                ; preds = %for.body.i.i.i.i20
+  %cmp6.i.i.i.i27 = fcmp olt float %12, %13
+  br i1 %cmp6.i.i.i.i27, label %if.then2.i, label %if.then.i.i.i.if.else_crit_edge.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43: ; preds = %for.cond.i.i.i.i42
-  %arrayidx.i.i16.i.i.i.i44 = getelementptr inbounds i8, ptr %__first.pn22.i, i64 24
-  %14 = load float, ptr %arrayidx.i.i16.i.i.i.i44, align 4
+if.then.i.i.i.if.else_crit_edge.i:                ; preds = %if.then.i.i.i.i26
+  %__val.sroa.4.0.__last.sroa_idx.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 24
+  %__val.sroa.4.0.copyload.i.pre.i = load float, ptr %__val.sroa.4.0.__last.sroa_idx.i.phi.trans.insert.i, align 8
+  br label %if.else.i
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41: ; preds = %for.cond.i.i.i.i40
+  %arrayidx.i.i16.i.i.i.i42 = getelementptr inbounds i8, ptr %__first.pn21.i, i64 24
+  %14 = load float, ptr %arrayidx.i.i16.i.i.i.i42, align 4
   %15 = load float, ptr %arrayidx.i.i17.i.i.i.i18, align 4
-  %cmp9.i.i.i.i45 = fcmp olt float %14, %15
-  br i1 %cmp9.i.i.i.i45, label %if.then2.i, label %if.else.i
+  %cmp9.i.i.i.i43 = fcmp olt float %14, %15
+  br i1 %cmp9.i.i.i.i43, label %if.then2.i, label %if.else.i
 
-if.then2.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43, %if.then.i.i.i.i27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %__i.023.i, i64 16, i1 false)
-  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn22.i, i64 32
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.023.i to i64
+if.then2.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41, %if.then.i.i.i.i26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %__i.022.i, i64 16, i1 false)
+  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 32
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.022.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.lcssa
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 4
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %add.ptr3.i, i64 %.pre.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.addr.0.lcssa, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.0.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.0.i, i64 16, i1 false)
-  br label %for.inc.i37
+  br label %for.inc.i35
 
-if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43, %if.then.i.i.i.i27
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__val.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__i.023.i, i64 16, i1 false)
-  %16 = load float, ptr %arrayidx.i.i16.i.i.i.i.i19, align 8
+if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41, %if.then.i.i.i.if.else_crit_edge.i
+  %__val.sroa.4.0.copyload.i.i = phi float [ %__val.sroa.4.0.copyload.i.pre.i, %if.then.i.i.i.if.else_crit_edge.i ], [ %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41 ]
+  %__val.sroa.0.0.copyload.i.i = load i32, ptr %__i.022.i, align 8
+  %__val.sroa.3.0.__last.sroa_idx.i.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 20
+  %__val.sroa.3.0.copyload.i.i = load i32, ptr %__val.sroa.3.0.__last.sroa_idx.i.i, align 4
+  %__val.sroa.5.0.__last.sroa_idx.i.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 28
+  %__val.sroa.5.0.copyload.i.i = load i32, ptr %__val.sroa.5.0.__last.sroa_idx.i.i, align 4
   br label %while.cond.i.i
 
-while.cond.i.i:                                   ; preds = %while.body.i.i38, %if.else.i
-  %__last.addr.0.i.i29 = phi ptr [ %__i.023.i, %if.else.i ], [ %__next.0.i.i, %while.body.i.i38 ]
-  %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i29, i64 -16
-  br label %for.body.i.i.i.i.i30
+while.cond.i.i:                                   ; preds = %while.body.i.i36, %if.else.i
+  %__last.addr.0.i.i28 = phi ptr [ %__i.022.i, %if.else.i ], [ %__next.0.i.i, %while.body.i.i36 ]
+  %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 -16
+  br label %for.body.i.i.i.i.i29
 
-for.cond.i.i.i.i.i39:                             ; preds = %for.body.i.i.i.i.i30
-  br i1 %cmp.i.i.i.i12.i, label %for.body.i.i.i.i.i30, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, !llvm.loop !692
+for.cond.i.i.i.i.i37:                             ; preds = %for.body.i.i.i.i.i29
+  br i1 %cmp.i.i.i.i12.i, label %for.body.i.i.i.i.i29, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, !llvm.loop !692
 
-for.body.i.i.i.i.i30:                             ; preds = %for.cond.i.i.i.i.i39, %while.cond.i.i
-  %cmp.i.i.i.i12.i = phi i1 [ true, %while.cond.i.i ], [ false, %for.cond.i.i.i.i.i39 ]
-  %indvars.iv.i.i.i.i.i31 = phi i64 [ 0, %while.cond.i.i ], [ 1, %for.cond.i.i.i.i.i39 ]
-  %arrayidx.i.i.i.i.i.i.i32 = getelementptr inbounds [3 x float], ptr %__val.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i31
-  %17 = load float, ptr %arrayidx.i.i.i.i.i.i.i32, align 4
-  %arrayidx.i.i11.i.i.i.i.i33 = getelementptr inbounds [3 x float], ptr %__next.0.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i31
-  %18 = load float, ptr %arrayidx.i.i11.i.i.i.i.i33, align 4
-  %cmp.i.i.i.i.i.i34 = fcmp oeq float %17, %18
-  br i1 %cmp.i.i.i.i.i.i34, label %for.cond.i.i.i.i.i39, label %if.then.i.i.i.i.i35
+for.body.i.i.i.i.i29:                             ; preds = %for.cond.i.i.i.i.i37, %while.cond.i.i
+  %cmp.i.i.i.i12.i = phi i1 [ true, %while.cond.i.i ], [ false, %for.cond.i.i.i.i.i37 ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i = phi i32 [ %__val.sroa.0.0.copyload.i.i, %while.cond.i.i ], [ %__val.sroa.3.0.copyload.i.i, %for.cond.i.i.i.i.i37 ]
+  %indvars.iv.i.i.i.i.i30 = phi i64 [ 0, %while.cond.i.i ], [ 1, %for.cond.i.i.i.i.i37 ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i = bitcast i32 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i to float
+  %arrayidx.i.i11.i.i.i.i.i31 = getelementptr inbounds [3 x float], ptr %__next.0.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i30
+  %16 = load float, ptr %arrayidx.i.i11.i.i.i.i.i31, align 4
+  %cmp.i.i.i.i.i.i32 = fcmp oeq float %16, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
+  br i1 %cmp.i.i.i.i.i.i32, label %for.cond.i.i.i.i.i37, label %if.then.i.i.i.i.i33
 
-if.then.i.i.i.i.i35:                              ; preds = %for.body.i.i.i.i.i30
-  %cmp6.i.i.i.i.i36 = fcmp olt float %17, %18
-  br i1 %cmp6.i.i.i.i.i36, label %while.body.i.i38, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i
+if.then.i.i.i.i.i33:                              ; preds = %for.body.i.i.i.i.i29
+  %cmp6.i.i.i.i.i34 = fcmp ogt float %16, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
+  br i1 %cmp6.i.i.i.i.i34, label %while.body.i.i36, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i39
-  %arrayidx.i.i17.i.i.i.i.i40 = getelementptr inbounds i8, ptr %__last.addr.0.i.i29, i64 -8
-  %19 = load float, ptr %arrayidx.i.i17.i.i.i.i.i40, align 4
-  %cmp9.i.i.i.i.i41 = fcmp olt float %16, %19
-  br i1 %cmp9.i.i.i.i.i41, label %while.body.i.i38, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i37
+  %arrayidx.i.i17.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 -8
+  %17 = load float, ptr %arrayidx.i.i17.i.i.i.i.i38, align 4
+  %cmp9.i.i.i.i.i39 = fcmp olt float %__val.sroa.4.0.copyload.i.i, %17
+  br i1 %cmp9.i.i.i.i.i39, label %while.body.i.i36, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i
 
-while.body.i.i38:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0.i.i29, ptr noundef nonnull align 8 dereferenceable(16) %__next.0.i.i, i64 16, i1 false)
+while.body.i.i36:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0.i.i28, ptr noundef nonnull align 8 dereferenceable(16) %__next.0.i.i, i64 16, i1 false)
   br label %while.cond.i.i, !llvm.loop !722
 
-_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0.i.i29, ptr noundef nonnull align 8 dereferenceable(16) %__val.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__val.i.i)
-  br label %for.inc.i37
+_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i33
+  store i32 %__val.sroa.0.0.copyload.i.i, ptr %__last.addr.0.i.i28, align 8
+  %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 4
+  store i32 %__val.sroa.3.0.copyload.i.i, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i, align 4
+  %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 8
+  store float %__val.sroa.4.0.copyload.i.i, ptr %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i, align 8
+  %__val.sroa.5.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 12
+  store i32 %__val.sroa.5.0.copyload.i.i, ptr %__val.sroa.5.0.__last.addr.0.sroa_idx.i.i, align 4
+  br label %for.inc.i35
 
-for.inc.i37:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i, %if.then2.i
-  %__i.0.i = getelementptr inbounds i8, ptr %__i.023.i, i64 16
+for.inc.i35:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i, %if.then2.i
+  %__i.0.i = getelementptr inbounds i8, ptr %__i.022.i, i64 16
   %cmp1.not.i = icmp eq ptr %__i.0.i, %__last.addr.0.lcssa
-  br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.i20, !llvm.loop !723
+  br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.i19, !llvm.loop !723
 
-_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit: ; preds = %for.inc.i37, %while.end, %for.cond.preheader.i
+_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit: ; preds = %for.inc.i35, %while.end, %for.cond.preheader.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__val.sroa.0.i)
   br label %return
 
@@ -59836,8 +59849,6 @@ return:                                           ; preds = %_ZSt16__insertion_s
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt11__make_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_RT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %__comp) local_unnamed_addr #5 comdat {
 entry:
-  %__value.i.i18 = alloca %"class.openvdb::v11_0::tree::NodeUnion.917", align 8
-  %__value.i.i = alloca %"class.openvdb::v11_0::tree::NodeUnion.917", align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -59853,13 +59864,13 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.2.0.add.ptr.sroa_idx11 = getelementptr inbounds i8, ptr %add.ptr9, i64 8
   %__value.sroa.2.0.copyload12 = load double, ptr %__value.sroa.2.0.add.ptr.sroa_idx11, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
-  %div.i8789 = lshr i64 %sub.i, 1
-  %cmp31.i = icmp ugt i64 %div.i8789, %div17
-  br i1 %cmp31.i, label %while.body.i, label %while.end.i
+  %div.i8991 = lshr i64 %sub.i, 1
+  %cmp30.i = icmp ugt i64 %div.i8991, %div17
+  br i1 %cmp30.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
-  %__holeIndex.addr.032.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ %div17, %if.end.split ]
-  %add.i = shl i64 %__holeIndex.addr.032.i, 1
+  %__holeIndex.addr.031.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ %div17, %if.end.split ]
+  %add.i = shl i64 %__holeIndex.addr.031.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -59895,9 +59906,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpIN
   %retval.0.i.i.i.i = phi i1 [ %cmp6.i.i.i.i, %if.then.i.i.i.i ], [ %cmp9.i.i.i.i, %for.end.i.i.i.i ]
   %spec.select.i = select i1 %retval.0.i.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__holeIndex.addr.032.i
+  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__holeIndex.addr.031.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i, i64 16, i1 false)
-  %cmp.i = icmp slt i64 %spec.select.i, %div.i8789
+  %cmp.i = icmp slt i64 %spec.select.i, %div.i8991
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !724
 
 while.end.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i, %if.end.split
@@ -59919,21 +59930,19 @@ if.then9.i:                                       ; preds = %while.end.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__value.i.i)
-  store ptr %__value.sroa.0.0.copyload10, ptr %__value.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %__value.i.i, i64 8
-  store double %__value.sroa.2.0.copyload12, ptr %5, align 8
-  %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %div17
-  %6 = bitcast double %__value.sroa.2.0.copyload12 to i64
-  %7 = trunc i64 %6 to i32
-  %8 = bitcast i32 %7 to float
-  br i1 %cmp15.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
+  %cmp16.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %div17
+  %5 = ptrtoint ptr %__value.sroa.0.0.copyload10 to i64
+  %6 = lshr i64 %5, 32
+  %7 = bitcast double %__value.sroa.2.0.copyload12 to i64
+  %8 = trunc i64 %7 to i32
+  %9 = bitcast i32 %8 to float
+  br i1 %cmp16.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 land.rhs.i.i:                                     ; preds = %if.end16.i, %while.body.i.i
-  %__holeIndex.addr.016.i.i = phi i64 [ %__parent.017.i.i, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end16.i ]
-  %__parent.017.in.i.i = add nsw i64 %__holeIndex.addr.016.i.i, -1
-  %__parent.017.i.i = sdiv i64 %__parent.017.in.i.i, 2
-  %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__parent.017.i.i
+  %__holeIndex.addr.017.i.i = phi i64 [ %__parent.018.i.i, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end16.i ]
+  %__parent.018.in.i.i = add nsw i64 %__holeIndex.addr.017.i.i, -1
+  %__parent.018.i.i = sdiv i64 %__parent.018.in.i.i, 2
+  %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__parent.018.i.i
   br label %for.body.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
@@ -59941,171 +59950,172 @@ for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i, %land.rhs.i.i
   %cmp.i.i.i.i23.i = phi i1 [ true, %land.rhs.i.i ], [ false, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.in.i.i = phi i64 [ %5, %land.rhs.i.i ], [ %6, %for.cond.i.i.i.i.i ]
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ 1, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i = trunc i64 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.in.i.i to i32
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i = bitcast i32 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i to float
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %add.ptr.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %9 = load float, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %__value.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %10 = load float, ptr %arrayidx.i.i11.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i.i = fcmp oeq float %9, %10
+  %10 = load float, ptr %arrayidx.i.i.i.i.i.i.i, align 4
+  %cmp.i.i.i.i.i.i = fcmp oeq float %10, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp.i.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %cmp6.i.i.i.i.i = fcmp olt float %9, %10
+  %cmp6.i.i.i.i.i = fcmp olt float %10, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp6.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i
   %arrayidx.i.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %11 = load float, ptr %arrayidx.i.i16.i.i.i.i.i, align 4
-  %cmp9.i.i.i.i.i = fcmp olt float %11, %8
+  %cmp9.i.i.i.i.i = fcmp olt float %11, %9
   br i1 %cmp9.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %if.then.i.i.i.i.i
-  %add.ptr2.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__holeIndex.addr.016.i.i
+  %add.ptr2.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__holeIndex.addr.017.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false)
-  %cmp.i.i = icmp sgt i64 %__parent.017.i.i, %div17
+  %cmp.i.i = icmp sgt i64 %__parent.018.i.i, %div17
   br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit, !llvm.loop !725
 
 _ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit: ; preds = %if.then.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
-  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.016.i.i, %if.then.i.i.i.i.i ], [ %__parent.017.i.i, %while.body.i.i ], [ %__holeIndex.addr.016.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.017.i.i, %if.then.i.i.i.i.i ], [ %__parent.018.i.i, %while.body.i.i ], [ %__holeIndex.addr.017.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__value.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__value.i.i)
+  store ptr %__value.sroa.0.0.copyload10, ptr %add.ptr5.i.i, align 8
+  %__value.sroa.4.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 8
+  store double %__value.sroa.2.0.copyload12, ptr %__value.sroa.4.0.add.ptr5.sroa_idx.i.i, align 8
   %cmp6105 = icmp ult i64 %sub, 2
   br i1 %cmp6105, label %return, label %if.end8.split.lr.ph
 
 if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
-  %12 = getelementptr inbounds i8, ptr %__value.i.i18, i64 8
-  %sub12.i57 = or disjoint i64 %sub, 1
-  %add.ptr13.i58 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %sub12.i57
-  %add.ptr14.i59 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %div7.i
+  %sub12.i59 = or disjoint i64 %sub, 1
+  %add.ptr13.i60 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %sub12.i59
+  %add.ptr14.i61 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %div7.i
   br label %if.end8.split
 
-if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit86
-  %__parent.0106 = phi i64 [ %div17, %if.end8.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit86 ]
+if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit88
+  %__parent.0106 = phi i64 [ %div17, %if.end8.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit88 ]
   %dec = add nsw i64 %__parent.0106, -1
   %add.ptr13 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload14 = load ptr, ptr %add.ptr13, align 8
   %__value.sroa.2.0.add.ptr.sroa_idx15 = getelementptr inbounds i8, ptr %add.ptr13, i64 8
   %__value.sroa.2.0.copyload16 = load double, ptr %__value.sroa.2.0.add.ptr.sroa_idx15, align 8
-  %cmp31.i21.not = icmp slt i64 %div.i8789, %__parent.0106
-  br i1 %cmp31.i21.not, label %while.end.i22, label %while.body.i60
+  %cmp30.i20.not = icmp slt i64 %div.i8991, %__parent.0106
+  br i1 %cmp30.i20.not, label %while.end.i21, label %while.body.i62
 
-while.body.i60:                                   ; preds = %if.end8.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75
-  %__holeIndex.addr.032.i61 = phi i64 [ %spec.select.i77, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75 ], [ %dec, %if.end8.split ]
-  %add.i62 = shl i64 %__holeIndex.addr.032.i61, 1
-  %mul.i63 = add i64 %add.i62, 2
-  %add.ptr.i64 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %mul.i63
-  %sub1.i65 = or disjoint i64 %add.i62, 1
-  %add.ptr2.i66 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %sub1.i65
-  br label %for.body.i.i.i.i67
+while.body.i62:                                   ; preds = %if.end8.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i77
+  %__holeIndex.addr.031.i63 = phi i64 [ %spec.select.i79, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i77 ], [ %dec, %if.end8.split ]
+  %add.i64 = shl i64 %__holeIndex.addr.031.i63, 1
+  %mul.i65 = add i64 %add.i64, 2
+  %add.ptr.i66 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %mul.i65
+  %sub1.i67 = or disjoint i64 %add.i64, 1
+  %add.ptr2.i68 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %sub1.i67
+  br label %for.body.i.i.i.i69
 
-for.cond.i.i.i.i81:                               ; preds = %for.body.i.i.i.i67
-  br i1 %cmp.i.i.i.i68, label %for.body.i.i.i.i67, label %for.end.i.i.i.i82, !llvm.loop !692
+for.cond.i.i.i.i83:                               ; preds = %for.body.i.i.i.i69
+  br i1 %cmp.i.i.i.i70, label %for.body.i.i.i.i69, label %for.end.i.i.i.i84, !llvm.loop !692
 
-for.body.i.i.i.i67:                               ; preds = %for.cond.i.i.i.i81, %while.body.i60
-  %cmp.i.i.i.i68 = phi i1 [ true, %while.body.i60 ], [ false, %for.cond.i.i.i.i81 ]
-  %indvars.iv.i.i.i.i69 = phi i64 [ 0, %while.body.i60 ], [ 1, %for.cond.i.i.i.i81 ]
-  %arrayidx.i.i.i.i.i.i70 = getelementptr inbounds [3 x float], ptr %add.ptr.i64, i64 0, i64 %indvars.iv.i.i.i.i69
-  %13 = load float, ptr %arrayidx.i.i.i.i.i.i70, align 4
-  %arrayidx.i.i11.i.i.i.i71 = getelementptr inbounds [3 x float], ptr %add.ptr2.i66, i64 0, i64 %indvars.iv.i.i.i.i69
-  %14 = load float, ptr %arrayidx.i.i11.i.i.i.i71, align 4
-  %cmp.i.i.i.i.i72 = fcmp oeq float %13, %14
-  br i1 %cmp.i.i.i.i.i72, label %for.cond.i.i.i.i81, label %if.then.i.i.i.i73
+for.body.i.i.i.i69:                               ; preds = %for.cond.i.i.i.i83, %while.body.i62
+  %cmp.i.i.i.i70 = phi i1 [ true, %while.body.i62 ], [ false, %for.cond.i.i.i.i83 ]
+  %indvars.iv.i.i.i.i71 = phi i64 [ 0, %while.body.i62 ], [ 1, %for.cond.i.i.i.i83 ]
+  %arrayidx.i.i.i.i.i.i72 = getelementptr inbounds [3 x float], ptr %add.ptr.i66, i64 0, i64 %indvars.iv.i.i.i.i71
+  %12 = load float, ptr %arrayidx.i.i.i.i.i.i72, align 4
+  %arrayidx.i.i11.i.i.i.i73 = getelementptr inbounds [3 x float], ptr %add.ptr2.i68, i64 0, i64 %indvars.iv.i.i.i.i71
+  %13 = load float, ptr %arrayidx.i.i11.i.i.i.i73, align 4
+  %cmp.i.i.i.i.i74 = fcmp oeq float %12, %13
+  br i1 %cmp.i.i.i.i.i74, label %for.cond.i.i.i.i83, label %if.then.i.i.i.i75
 
-if.then.i.i.i.i73:                                ; preds = %for.body.i.i.i.i67
-  %cmp6.i.i.i.i74 = fcmp olt float %13, %14
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75
+if.then.i.i.i.i75:                                ; preds = %for.body.i.i.i.i69
+  %cmp6.i.i.i.i76 = fcmp olt float %12, %13
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i77
 
-for.end.i.i.i.i82:                                ; preds = %for.cond.i.i.i.i81
-  %arrayidx.i.i16.i.i.i.i83 = getelementptr inbounds i8, ptr %add.ptr.i64, i64 8
-  %15 = load float, ptr %arrayidx.i.i16.i.i.i.i83, align 4
-  %arrayidx.i.i17.i.i.i.i84 = getelementptr inbounds i8, ptr %add.ptr2.i66, i64 8
-  %16 = load float, ptr %arrayidx.i.i17.i.i.i.i84, align 4
-  %cmp9.i.i.i.i85 = fcmp olt float %15, %16
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75
+for.end.i.i.i.i84:                                ; preds = %for.cond.i.i.i.i83
+  %arrayidx.i.i16.i.i.i.i85 = getelementptr inbounds i8, ptr %add.ptr.i66, i64 8
+  %14 = load float, ptr %arrayidx.i.i16.i.i.i.i85, align 4
+  %arrayidx.i.i17.i.i.i.i86 = getelementptr inbounds i8, ptr %add.ptr2.i68, i64 8
+  %15 = load float, ptr %arrayidx.i.i17.i.i.i.i86, align 4
+  %cmp9.i.i.i.i87 = fcmp olt float %14, %15
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i77
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75: ; preds = %for.end.i.i.i.i82, %if.then.i.i.i.i73
-  %retval.0.i.i.i.i76 = phi i1 [ %cmp6.i.i.i.i74, %if.then.i.i.i.i73 ], [ %cmp9.i.i.i.i85, %for.end.i.i.i.i82 ]
-  %spec.select.i77 = select i1 %retval.0.i.i.i.i76, i64 %sub1.i65, i64 %mul.i63
-  %add.ptr3.i78 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %spec.select.i77
-  %add.ptr4.i79 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__holeIndex.addr.032.i61
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i79, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i78, i64 16, i1 false)
-  %cmp.i80 = icmp slt i64 %spec.select.i77, %div.i8789
-  br i1 %cmp.i80, label %while.body.i60, label %while.end.i22, !llvm.loop !724
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i77: ; preds = %for.end.i.i.i.i84, %if.then.i.i.i.i75
+  %retval.0.i.i.i.i78 = phi i1 [ %cmp6.i.i.i.i76, %if.then.i.i.i.i75 ], [ %cmp9.i.i.i.i87, %for.end.i.i.i.i84 ]
+  %spec.select.i79 = select i1 %retval.0.i.i.i.i78, i64 %sub1.i67, i64 %mul.i65
+  %add.ptr3.i80 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %spec.select.i79
+  %add.ptr4.i81 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__holeIndex.addr.031.i63
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i81, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i80, i64 16, i1 false)
+  %cmp.i82 = icmp slt i64 %spec.select.i79, %div.i8991
+  br i1 %cmp.i82, label %while.body.i62, label %while.end.i21, !llvm.loop !724
 
-while.end.i22:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75, %if.end8.split
-  %__holeIndex.addr.0.lcssa.i23 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i77, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75 ]
-  %cmp8.i54 = icmp eq i64 %__holeIndex.addr.0.lcssa.i23, %div7.i
-  %or.cond88 = select i1 %cmp5.i, i1 %cmp8.i54, i1 false
-  br i1 %or.cond88, label %if.then9.i55, label %if.end16.i26
+while.end.i21:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i77, %if.end8.split
+  %__holeIndex.addr.0.lcssa.i22 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i79, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i77 ]
+  %cmp8.i56 = icmp eq i64 %__holeIndex.addr.0.lcssa.i22, %div7.i
+  %or.cond90 = select i1 %cmp5.i, i1 %cmp8.i56, i1 false
+  br i1 %or.cond90, label %if.then9.i57, label %if.end16.i25
 
-if.then9.i55:                                     ; preds = %while.end.i22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr14.i59, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr13.i58, i64 16, i1 false)
-  br label %if.end16.i26
+if.then9.i57:                                     ; preds = %while.end.i21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr14.i61, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr13.i60, i64 16, i1 false)
+  br label %if.end16.i25
 
-if.end16.i26:                                     ; preds = %if.then9.i55, %while.end.i22
-  %__holeIndex.addr.1.i27 = phi i64 [ %sub12.i57, %if.then9.i55 ], [ %__holeIndex.addr.0.lcssa.i23, %while.end.i22 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__value.i.i18)
-  store ptr %__value.sroa.0.0.copyload14, ptr %__value.i.i18, align 8
-  store double %__value.sroa.2.0.copyload16, ptr %12, align 8
-  %cmp15.i.i28.not = icmp slt i64 %__holeIndex.addr.1.i27, %__parent.0106
-  %17 = bitcast double %__value.sroa.2.0.copyload16 to i64
-  %18 = trunc i64 %17 to i32
-  %19 = bitcast i32 %18 to float
-  br i1 %cmp15.i.i28.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit86, label %land.rhs.i.i31
+if.end16.i25:                                     ; preds = %if.then9.i57, %while.end.i21
+  %__holeIndex.addr.1.i26 = phi i64 [ %sub12.i59, %if.then9.i57 ], [ %__holeIndex.addr.0.lcssa.i22, %while.end.i21 ]
+  %cmp16.i.i27.not = icmp slt i64 %__holeIndex.addr.1.i26, %__parent.0106
+  %16 = ptrtoint ptr %__value.sroa.0.0.copyload14 to i64
+  %17 = lshr i64 %16, 32
+  %18 = bitcast double %__value.sroa.2.0.copyload16 to i64
+  %19 = trunc i64 %18 to i32
+  %20 = bitcast i32 %19 to float
+  br i1 %cmp16.i.i27.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit88, label %land.rhs.i.i31
 
-land.rhs.i.i31:                                   ; preds = %if.end16.i26, %while.body.i.i44
-  %__holeIndex.addr.016.i.i32 = phi i64 [ %__parent.017.i.i34, %while.body.i.i44 ], [ %__holeIndex.addr.1.i27, %if.end16.i26 ]
-  %__parent.017.in.i.i33 = add nsw i64 %__holeIndex.addr.016.i.i32, -1
-  %__parent.017.i.i34 = sdiv i64 %__parent.017.in.i.i33, 2
-  %add.ptr.i.i35 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__parent.017.i.i34
+land.rhs.i.i31:                                   ; preds = %if.end16.i25, %while.body.i.i46
+  %__holeIndex.addr.017.i.i32 = phi i64 [ %__parent.018.i.i34, %while.body.i.i46 ], [ %__holeIndex.addr.1.i26, %if.end16.i25 ]
+  %__parent.018.in.i.i33 = add nsw i64 %__holeIndex.addr.017.i.i32, -1
+  %__parent.018.i.i34 = sdiv i64 %__parent.018.in.i.i33, 2
+  %add.ptr.i.i35 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__parent.018.i.i34
   br label %for.body.i.i.i.i.i36
 
-for.cond.i.i.i.i.i47:                             ; preds = %for.body.i.i.i.i.i36
-  br i1 %cmp.i.i.i.i23.i37, label %for.body.i.i.i.i.i36, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48, !llvm.loop !692
+for.cond.i.i.i.i.i49:                             ; preds = %for.body.i.i.i.i.i36
+  br i1 %cmp.i.i.i.i23.i37, label %for.body.i.i.i.i.i36, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i50, !llvm.loop !692
 
-for.body.i.i.i.i.i36:                             ; preds = %for.cond.i.i.i.i.i47, %land.rhs.i.i31
-  %cmp.i.i.i.i23.i37 = phi i1 [ true, %land.rhs.i.i31 ], [ false, %for.cond.i.i.i.i.i47 ]
-  %indvars.iv.i.i.i.i.i38 = phi i64 [ 0, %land.rhs.i.i31 ], [ 1, %for.cond.i.i.i.i.i47 ]
-  %arrayidx.i.i.i.i.i.i.i39 = getelementptr inbounds [3 x float], ptr %add.ptr.i.i35, i64 0, i64 %indvars.iv.i.i.i.i.i38
-  %20 = load float, ptr %arrayidx.i.i.i.i.i.i.i39, align 4
-  %arrayidx.i.i11.i.i.i.i.i40 = getelementptr inbounds [3 x float], ptr %__value.i.i18, i64 0, i64 %indvars.iv.i.i.i.i.i38
-  %21 = load float, ptr %arrayidx.i.i11.i.i.i.i.i40, align 4
-  %cmp.i.i.i.i.i.i41 = fcmp oeq float %20, %21
-  br i1 %cmp.i.i.i.i.i.i41, label %for.cond.i.i.i.i.i47, label %if.then.i.i.i.i.i42
+for.body.i.i.i.i.i36:                             ; preds = %for.cond.i.i.i.i.i49, %land.rhs.i.i31
+  %cmp.i.i.i.i23.i37 = phi i1 [ true, %land.rhs.i.i31 ], [ false, %for.cond.i.i.i.i.i49 ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.in.i.i38 = phi i64 [ %16, %land.rhs.i.i31 ], [ %17, %for.cond.i.i.i.i.i49 ]
+  %indvars.iv.i.i.i.i.i39 = phi i64 [ 0, %land.rhs.i.i31 ], [ 1, %for.cond.i.i.i.i.i49 ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i40 = trunc i64 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.in.i.i38 to i32
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i41 = bitcast i32 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i40 to float
+  %arrayidx.i.i.i.i.i.i.i42 = getelementptr inbounds [3 x float], ptr %add.ptr.i.i35, i64 0, i64 %indvars.iv.i.i.i.i.i39
+  %21 = load float, ptr %arrayidx.i.i.i.i.i.i.i42, align 4
+  %cmp.i.i.i.i.i.i43 = fcmp oeq float %21, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i41
+  br i1 %cmp.i.i.i.i.i.i43, label %for.cond.i.i.i.i.i49, label %if.then.i.i.i.i.i44
 
-if.then.i.i.i.i.i42:                              ; preds = %for.body.i.i.i.i.i36
-  %cmp6.i.i.i.i.i43 = fcmp olt float %20, %21
-  br i1 %cmp6.i.i.i.i.i43, label %while.body.i.i44, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit86
+if.then.i.i.i.i.i44:                              ; preds = %for.body.i.i.i.i.i36
+  %cmp6.i.i.i.i.i45 = fcmp olt float %21, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i41
+  br i1 %cmp6.i.i.i.i.i45, label %while.body.i.i46, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit88
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48: ; preds = %for.cond.i.i.i.i.i47
-  %arrayidx.i.i16.i.i.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i35, i64 8
-  %22 = load float, ptr %arrayidx.i.i16.i.i.i.i.i49, align 4
-  %cmp9.i.i.i.i.i50 = fcmp olt float %22, %19
-  br i1 %cmp9.i.i.i.i.i50, label %while.body.i.i44, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit86
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i50: ; preds = %for.cond.i.i.i.i.i49
+  %arrayidx.i.i16.i.i.i.i.i51 = getelementptr inbounds i8, ptr %add.ptr.i.i35, i64 8
+  %22 = load float, ptr %arrayidx.i.i16.i.i.i.i.i51, align 4
+  %cmp9.i.i.i.i.i52 = fcmp olt float %22, %20
+  br i1 %cmp9.i.i.i.i.i52, label %while.body.i.i46, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit88
 
-while.body.i.i44:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48, %if.then.i.i.i.i.i42
-  %add.ptr2.i.i45 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__holeIndex.addr.016.i.i32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i45, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i35, i64 16, i1 false)
-  %cmp.i.i46.not = icmp slt i64 %__parent.017.i.i34, %__parent.0106
-  br i1 %cmp.i.i46.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit86, label %land.rhs.i.i31, !llvm.loop !725
+while.body.i.i46:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i50, %if.then.i.i.i.i.i44
+  %add.ptr2.i.i47 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__holeIndex.addr.017.i.i32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i47, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i35, i64 16, i1 false)
+  %cmp.i.i48.not = icmp slt i64 %__parent.018.i.i34, %__parent.0106
+  br i1 %cmp.i.i48.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit88, label %land.rhs.i.i31, !llvm.loop !725
 
-_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit86: ; preds = %if.then.i.i.i.i.i42, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48, %while.body.i.i44, %if.end16.i26
-  %__holeIndex.addr.0.lcssa.i.i29 = phi i64 [ %__holeIndex.addr.1.i27, %if.end16.i26 ], [ %__holeIndex.addr.016.i.i32, %if.then.i.i.i.i.i42 ], [ %__parent.017.i.i34, %while.body.i.i44 ], [ %__holeIndex.addr.016.i.i32, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48 ]
-  %add.ptr5.i.i30 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr5.i.i30, ptr noundef nonnull align 8 dereferenceable(16) %__value.i.i18, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__value.i.i18)
+_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit88: ; preds = %if.then.i.i.i.i.i44, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i50, %while.body.i.i46, %if.end16.i25
+  %__holeIndex.addr.0.lcssa.i.i28 = phi i64 [ %__holeIndex.addr.1.i26, %if.end16.i25 ], [ %__holeIndex.addr.017.i.i32, %if.then.i.i.i.i.i44 ], [ %__parent.018.i.i34, %while.body.i.i46 ], [ %__holeIndex.addr.017.i.i32, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i50 ]
+  %add.ptr5.i.i29 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i28
+  store ptr %__value.sroa.0.0.copyload14, ptr %add.ptr5.i.i29, align 8
+  %__value.sroa.4.0.add.ptr5.sroa_idx.i.i30 = getelementptr inbounds i8, ptr %add.ptr5.i.i29, i64 8
+  store double %__value.sroa.2.0.copyload16, ptr %__value.sroa.4.0.add.ptr5.sroa_idx.i.i30, align 8
   %cmp6 = icmp eq i64 %dec, 0
   br i1 %cmp6, label %return, label %if.end8.split, !llvm.loop !726
 
-return:                                           ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit86, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit, %entry
+return:                                           ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit88, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt10__pop_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_RT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__comp) local_unnamed_addr #5 comdat {
 entry:
-  %__value.i.i = alloca %"class.openvdb::v11_0::tree::NodeUnion.917", align 8
   %__value.sroa.0.0.copyload = load ptr, ptr %__result, align 8
   %__value.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__result, i64 8
   %__value.sroa.2.0.copyload = load double, ptr %__value.sroa.2.0..sroa_idx, align 8
@@ -60116,12 +60126,12 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i = sdiv i64 %sub.i, 2
-  %cmp31.i = icmp sgt i64 %sub.ptr.div, 2
-  br i1 %cmp31.i, label %while.body.i, label %while.end.i
+  %cmp30.i = icmp sgt i64 %sub.ptr.div, 2
+  br i1 %cmp30.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
-  %__holeIndex.addr.032.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ 0, %entry ]
-  %add.i = shl i64 %__holeIndex.addr.032.i, 1
+  %__holeIndex.addr.031.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ 0, %entry ]
+  %add.i = shl i64 %__holeIndex.addr.031.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -60157,7 +60167,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpIN
   %retval.0.i.i.i.i = phi i1 [ %cmp6.i.i.i.i, %if.then.i.i.i.i ], [ %cmp9.i.i.i.i, %for.end.i.i.i.i ]
   %spec.select.i = select i1 %retval.0.i.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__holeIndex.addr.032.i
+  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__holeIndex.addr.031.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i, i64 16, i1 false)
   %cmp.i = icmp slt i64 %spec.select.i, %div.i
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !724
@@ -60184,21 +60194,19 @@ if.then9.i:                                       ; preds = %land.lhs.true.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %land.lhs.true.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__holeIndex.addr.0.lcssa.i, %land.lhs.true.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__value.i.i)
-  store ptr %__value.sroa.0.0.copyload, ptr %__value.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %__value.i.i, i64 8
-  store double %__value.sroa.2.0.copyload, ptr %5, align 8
-  %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, 0
-  %6 = bitcast double %__value.sroa.2.0.copyload to i64
-  %7 = trunc i64 %6 to i32
-  %8 = bitcast i32 %7 to float
-  br i1 %cmp15.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
+  %cmp16.i.i = icmp sgt i64 %__holeIndex.addr.1.i, 0
+  %5 = ptrtoint ptr %__value.sroa.0.0.copyload to i64
+  %6 = lshr i64 %5, 32
+  %7 = bitcast double %__value.sroa.2.0.copyload to i64
+  %8 = trunc i64 %7 to i32
+  %9 = bitcast i32 %8 to float
+  br i1 %cmp16.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 land.rhs.i.i:                                     ; preds = %if.end16.i, %while.body.i.i
-  %__holeIndex.addr.016.i.i = phi i64 [ %__parent.017.i.i45, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end16.i ]
-  %__parent.017.in.i.i = add nsw i64 %__holeIndex.addr.016.i.i, -1
-  %__parent.017.i.i45 = lshr i64 %__parent.017.in.i.i, 1
-  %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__parent.017.i.i45
+  %__holeIndex.addr.017.i.i = phi i64 [ %__parent.018.i.i45, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end16.i ]
+  %__parent.018.in.i.i = add nsw i64 %__holeIndex.addr.017.i.i, -1
+  %__parent.018.i.i45 = lshr i64 %__parent.018.in.i.i, 1
+  %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__parent.018.i.i45
   br label %for.body.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
@@ -60206,35 +60214,37 @@ for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i, %land.rhs.i.i
   %cmp.i.i.i.i23.i = phi i1 [ true, %land.rhs.i.i ], [ false, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.in.i.i = phi i64 [ %5, %land.rhs.i.i ], [ %6, %for.cond.i.i.i.i.i ]
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ 1, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i = trunc i64 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.in.i.i to i32
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i = bitcast i32 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i to float
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %add.ptr.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %9 = load float, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %__value.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %10 = load float, ptr %arrayidx.i.i11.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i.i = fcmp oeq float %9, %10
+  %10 = load float, ptr %arrayidx.i.i.i.i.i.i.i, align 4
+  %cmp.i.i.i.i.i.i = fcmp oeq float %10, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp.i.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %cmp6.i.i.i.i.i = fcmp olt float %9, %10
+  %cmp6.i.i.i.i.i = fcmp olt float %10, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp6.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i
   %arrayidx.i.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %11 = load float, ptr %arrayidx.i.i16.i.i.i.i.i, align 4
-  %cmp9.i.i.i.i.i = fcmp olt float %11, %8
+  %cmp9.i.i.i.i.i = fcmp olt float %11, %9
   br i1 %cmp9.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %if.then.i.i.i.i.i
-  %add.ptr2.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__holeIndex.addr.016.i.i
+  %add.ptr2.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__holeIndex.addr.017.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false)
-  %cmp.i.i.not = icmp ult i64 %__parent.017.in.i.i, 2
+  %cmp.i.i.not = icmp ult i64 %__parent.018.in.i.i, 2
   br i1 %cmp.i.i.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit, label %land.rhs.i.i, !llvm.loop !725
 
 _ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit: ; preds = %if.then.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
-  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.016.i.i, %if.then.i.i.i.i.i ], [ %__parent.017.i.i45, %while.body.i.i ], [ %__holeIndex.addr.016.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.017.i.i, %if.then.i.i.i.i.i ], [ %__parent.018.i.i45, %while.body.i.i ], [ %__holeIndex.addr.017.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.917", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__value.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__value.i.i)
+  store ptr %__value.sroa.0.0.copyload, ptr %add.ptr5.i.i, align 8
+  %__value.sroa.4.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 8
+  store double %__value.sroa.2.0.copyload, ptr %__value.sroa.4.0.add.ptr5.sroa_idx.i.i, align 8
   ret void
 }
 
@@ -60949,8 +60959,6 @@ _ZNSt3setIN7openvdb5v11_04math5CoordESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %f
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE10isConstantERS6_SA_RbRKS6_(ptr noundef nonnull align 8 dereferenceable(532496) %this, ptr noundef nonnull align 4 dereferenceable(12) %minValue, ptr noundef nonnull align 4 dereferenceable(12) %maxValue, ptr noundef nonnull align 1 dereferenceable(1) %state, ptr noundef nonnull align 4 dereferenceable(12) %tolerance) local_unnamed_addr #7 comdat align 2 {
 entry:
-  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3.236", align 8
-  %ref.tmp16 = alloca %"class.openvdb::v11_0::math::Vec3.236", align 8
   %mChildMask = getelementptr inbounds i8, ptr %this, i64 524288
   br label %for.cond.i
 
@@ -60996,12 +61004,11 @@ if.end:                                           ; preds = %while.body.i
   %arrayidx.i.i17.i76 = getelementptr inbounds i8, ptr %tolerance, i64 8
   %arrayidx.i.i17.i = getelementptr inbounds i8, ptr %minValue, i64 8
   %arrayidx.i.i17.i47 = getelementptr inbounds i8, ptr %maxValue, i64 8
+  %arrayidx.i.i.i.i56 = getelementptr inbounds i8, ptr %minValue, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 1, %if.end ], [ %indvars.iv.next, %for.inc ]
-  %sub9.i.i104 = phi float [ undef, %if.end ], [ %sub9.i.i105, %for.inc ]
-  %sub9.i.i61103 = phi float [ undef, %if.end ], [ %sub9.i.i61102, %for.inc ]
   %arrayidx5 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.906"], ptr %this, i64 0, i64 %indvars.iv
   br label %for.body.i
 
@@ -61041,10 +61048,14 @@ if.then8:                                         ; preds = %if.then.i.if.then8_
   %8 = phi float [ %.pre, %if.then.i.if.then8_crit_edge ], [ %6, %_ZN7openvdb5v11_04mathltILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit ]
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %maxValue, align 4
   %retval.sroa.6.0.copyload.i = load float, ptr %arrayidx.i.i17.i47, align 4
-  %9 = load <2 x float>, ptr %arrayidx5, align 8
-  %10 = fsub <2 x float> %retval.sroa.0.0.copyload.i, %9
+  %9 = load float, ptr %arrayidx5, align 8
+  %retval.sroa.0.0.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 0
+  %sub.i.i = fsub float %retval.sroa.0.0.vec.extract.i, %9
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx5, i64 4
+  %10 = load float, ptr %arrayidx.i.i.i.i, align 4
+  %retval.sroa.0.4.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 1
+  %sub5.i.i = fsub float %retval.sroa.0.4.vec.extract.i, %10
   %sub9.i.i = fsub float %retval.sroa.6.0.copyload.i, %8
-  store <2 x float> %10, ptr %ref.tmp, align 8
   br label %for.body.i21
 
 for.cond.i30:                                     ; preds = %for.body.i21
@@ -61052,21 +61063,20 @@ for.cond.i30:                                     ; preds = %for.body.i21
 
 for.body.i21:                                     ; preds = %for.cond.i30, %if.then8
   %cmp.i22 = phi i1 [ true, %if.then8 ], [ false, %for.cond.i30 ]
+  %indvars.iv.i23.sroa.phi.sroa.speculated = phi float [ %sub.i.i, %if.then8 ], [ %sub5.i.i, %for.cond.i30 ]
   %indvars.iv.i23 = phi i64 [ 0, %if.then8 ], [ 1, %for.cond.i30 ]
-  %arrayidx.i.i.i24 = getelementptr inbounds [3 x float], ptr %ref.tmp, i64 0, i64 %indvars.iv.i23
-  %11 = load float, ptr %arrayidx.i.i.i24, align 4
   %arrayidx.i.i11.i25 = getelementptr inbounds [3 x float], ptr %tolerance, i64 0, i64 %indvars.iv.i23
-  %12 = load float, ptr %arrayidx.i.i11.i25, align 4
-  %cmp.i.i26 = fcmp oeq float %11, %12
+  %11 = load float, ptr %arrayidx.i.i11.i25, align 4
+  %cmp.i.i26 = fcmp oeq float %indvars.iv.i23.sroa.phi.sroa.speculated, %11
   br i1 %cmp.i.i26, label %for.cond.i30, label %if.then.i27
 
 if.then.i27:                                      ; preds = %for.body.i21
-  %cmp6.i28 = fcmp ogt float %11, %12
+  %cmp6.i28 = fcmp ogt float %indvars.iv.i23.sroa.phi.sroa.speculated, %11
   br i1 %cmp6.i28, label %return, label %for.inc.sink.split
 
 _ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit: ; preds = %for.cond.i30
-  %13 = load float, ptr %arrayidx.i.i17.i76, align 4
-  %cmp9.i34 = fcmp ogt float %sub9.i.i, %13
+  %12 = load float, ptr %arrayidx.i.i17.i76, align 4
+  %cmp9.i34 = fcmp ogt float %sub9.i.i, %12
   br i1 %cmp9.i34, label %return, label %for.inc.sink.split
 
 for.cond.i44:                                     ; preds = %for.body.i35
@@ -61076,14 +61086,14 @@ for.body.i35:                                     ; preds = %for.body.i35.prehea
   %cmp.i36 = phi i1 [ false, %for.cond.i44 ], [ true, %for.body.i35.preheader ]
   %indvars.iv.i37 = phi i64 [ 1, %for.cond.i44 ], [ 0, %for.body.i35.preheader ]
   %arrayidx.i.i.i38 = getelementptr inbounds [3 x float], ptr %arrayidx5, i64 0, i64 %indvars.iv.i37
-  %14 = load float, ptr %arrayidx.i.i.i38, align 4
+  %13 = load float, ptr %arrayidx.i.i.i38, align 4
   %arrayidx.i.i11.i39 = getelementptr inbounds [3 x float], ptr %maxValue, i64 0, i64 %indvars.iv.i37
-  %15 = load float, ptr %arrayidx.i.i11.i39, align 4
-  %cmp.i.i40 = fcmp oeq float %14, %15
+  %14 = load float, ptr %arrayidx.i.i11.i39, align 4
+  %cmp.i.i40 = fcmp oeq float %13, %14
   br i1 %cmp.i.i40, label %for.cond.i44, label %if.then.i41
 
 if.then.i41:                                      ; preds = %for.body.i35
-  %cmp6.i42 = fcmp ogt float %14, %15
+  %cmp6.i42 = fcmp ogt float %13, %14
   br i1 %cmp6.i42, label %if.then.i41.if.then15_crit_edge, label %for.inc
 
 if.then.i41.if.then15_crit_edge:                  ; preds = %if.then.i41
@@ -61093,19 +61103,22 @@ if.then.i41.if.then15_crit_edge:                  ; preds = %if.then.i41
 
 _ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49: ; preds = %for.cond.i44
   %arrayidx.i.i16.i46 = getelementptr inbounds i8, ptr %arrayidx5, i64 8
-  %16 = load float, ptr %arrayidx.i.i16.i46, align 8
-  %17 = load float, ptr %arrayidx.i.i17.i47, align 4
-  %cmp9.i48 = fcmp ogt float %16, %17
+  %15 = load float, ptr %arrayidx.i.i16.i46, align 8
+  %16 = load float, ptr %arrayidx.i.i17.i47, align 4
+  %cmp9.i48 = fcmp ogt float %15, %16
   br i1 %cmp9.i48, label %if.then15, label %for.inc
 
 if.then15:                                        ; preds = %if.then.i41.if.then15_crit_edge, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49
-  %retval.sroa.6.0.copyload.i52 = phi float [ %retval.sroa.6.0.copyload.i52.pre, %if.then.i41.if.then15_crit_edge ], [ %16, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49 ]
+  %retval.sroa.6.0.copyload.i52 = phi float [ %retval.sroa.6.0.copyload.i52.pre, %if.then.i41.if.then15_crit_edge ], [ %15, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49 ]
   %retval.sroa.0.0.copyload.i50 = load <2 x float>, ptr %arrayidx5, align 8
-  %18 = load <2 x float>, ptr %minValue, align 4
-  %19 = fsub <2 x float> %retval.sroa.0.0.copyload.i50, %18
-  %20 = load float, ptr %arrayidx.i.i17.i, align 4
-  %sub9.i.i61 = fsub float %retval.sroa.6.0.copyload.i52, %20
-  store <2 x float> %19, ptr %ref.tmp16, align 8
+  %17 = load float, ptr %minValue, align 4
+  %retval.sroa.0.0.vec.extract.i53 = extractelement <2 x float> %retval.sroa.0.0.copyload.i50, i64 0
+  %sub.i.i54 = fsub float %retval.sroa.0.0.vec.extract.i53, %17
+  %18 = load float, ptr %arrayidx.i.i.i.i56, align 4
+  %retval.sroa.0.4.vec.extract.i57 = extractelement <2 x float> %retval.sroa.0.0.copyload.i50, i64 1
+  %sub5.i.i58 = fsub float %retval.sroa.0.4.vec.extract.i57, %18
+  %19 = load float, ptr %arrayidx.i.i17.i, align 4
+  %sub9.i.i61 = fsub float %retval.sroa.6.0.copyload.i52, %19
   br label %for.body.i64
 
 for.cond.i73:                                     ; preds = %for.body.i64
@@ -61113,33 +61126,28 @@ for.cond.i73:                                     ; preds = %for.body.i64
 
 for.body.i64:                                     ; preds = %for.cond.i73, %if.then15
   %cmp.i65 = phi i1 [ true, %if.then15 ], [ false, %for.cond.i73 ]
+  %indvars.iv.i66.sroa.phi.sroa.speculated = phi float [ %sub.i.i54, %if.then15 ], [ %sub5.i.i58, %for.cond.i73 ]
   %indvars.iv.i66 = phi i64 [ 0, %if.then15 ], [ 1, %for.cond.i73 ]
-  %arrayidx.i.i.i67 = getelementptr inbounds [3 x float], ptr %ref.tmp16, i64 0, i64 %indvars.iv.i66
-  %21 = load float, ptr %arrayidx.i.i.i67, align 4
   %arrayidx.i.i11.i68 = getelementptr inbounds [3 x float], ptr %tolerance, i64 0, i64 %indvars.iv.i66
-  %22 = load float, ptr %arrayidx.i.i11.i68, align 4
-  %cmp.i.i69 = fcmp oeq float %21, %22
+  %20 = load float, ptr %arrayidx.i.i11.i68, align 4
+  %cmp.i.i69 = fcmp oeq float %indvars.iv.i66.sroa.phi.sroa.speculated, %20
   br i1 %cmp.i.i69, label %for.cond.i73, label %if.then.i70
 
 if.then.i70:                                      ; preds = %for.body.i64
-  %cmp6.i71 = fcmp ogt float %21, %22
+  %cmp6.i71 = fcmp ogt float %indvars.iv.i66.sroa.phi.sroa.speculated, %20
   br i1 %cmp6.i71, label %return, label %for.inc.sink.split
 
 _ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit78: ; preds = %for.cond.i73
-  %23 = load float, ptr %arrayidx.i.i17.i76, align 4
-  %cmp9.i77 = fcmp ogt float %sub9.i.i61, %23
+  %21 = load float, ptr %arrayidx.i.i17.i76, align 4
+  %cmp9.i77 = fcmp ogt float %sub9.i.i61, %21
   br i1 %cmp9.i77, label %return, label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit78, %if.then.i70, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit, %if.then.i27
   %minValue.sink = phi ptr [ %minValue, %if.then.i27 ], [ %minValue, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit ], [ %maxValue, %if.then.i70 ], [ %maxValue, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit78 ]
-  %sub9.i.i105.ph = phi float [ %sub9.i.i, %if.then.i27 ], [ %sub9.i.i, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit ], [ %sub9.i.i104, %if.then.i70 ], [ %sub9.i.i104, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit78 ]
-  %sub9.i.i61102.ph = phi float [ %sub9.i.i61103, %if.then.i27 ], [ %sub9.i.i61103, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit ], [ %sub9.i.i61, %if.then.i70 ], [ %sub9.i.i61, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit78 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %minValue.sink, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx5, i64 12, i1 false)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.then.i41, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49
-  %sub9.i.i105 = phi float [ %sub9.i.i104, %if.then.i41 ], [ %sub9.i.i104, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49 ], [ %sub9.i.i105.ph, %for.inc.sink.split ]
-  %sub9.i.i61102 = phi float [ %sub9.i.i61103, %if.then.i41 ], [ %sub9.i.i61103, %_ZN7openvdb5v11_04mathgtILi3EffEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49 ], [ %sub9.i.i61102.ph, %for.inc.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32768
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !736
@@ -61152,34 +61160,33 @@ return:                                           ; preds = %land.rhs.i, %land.r
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt13__introselectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_T0_T1_(ptr noundef %__first, ptr noundef %__nth, ptr noundef %__last, i64 noundef %__depth_limit) local_unnamed_addr #5 comdat {
 entry:
-  %__val.i.i = alloca %"class.openvdb::v11_0::tree::NodeUnion.906", align 8
   %__val.sroa.0.i = alloca %union.anon.907, align 8
   %__tmp.sroa.0.i.i.i.i = alloca %union.anon.907, align 8
   %__tmp.sroa.0.i.i = alloca %union.anon.907, align 8
   %__comp.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.986", align 1
-  %sub.ptr.lhs.cast70 = ptrtoint ptr %__last to i64
-  %sub.ptr.rhs.cast71 = ptrtoint ptr %__first to i64
-  %sub.ptr.sub72 = sub i64 %sub.ptr.lhs.cast70, %sub.ptr.rhs.cast71
-  %cmp73 = icmp sgt i64 %sub.ptr.sub72, 48
-  br i1 %cmp73, label %while.body, label %while.end
+  %sub.ptr.lhs.cast67 = ptrtoint ptr %__last to i64
+  %sub.ptr.rhs.cast68 = ptrtoint ptr %__first to i64
+  %sub.ptr.sub69 = sub i64 %sub.ptr.lhs.cast67, %sub.ptr.rhs.cast68
+  %cmp70 = icmp sgt i64 %sub.ptr.sub69, 48
+  br i1 %cmp70, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit
-  %sub.ptr.sub77 = phi i64 [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %sub.ptr.sub72, %entry ]
-  %__first.addr.076 = phi ptr [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %__first, %entry ]
-  %__last.addr.075 = phi ptr [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %__last, %entry ]
-  %__depth_limit.addr.074 = phi i64 [ %dec, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %__depth_limit, %entry ]
-  %cmp1 = icmp eq i64 %__depth_limit.addr.074, 0
+  %sub.ptr.sub74 = phi i64 [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %sub.ptr.sub69, %entry ]
+  %__first.addr.073 = phi ptr [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %__first, %entry ]
+  %__last.addr.072 = phi ptr [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %__last, %entry ]
+  %__depth_limit.addr.071 = phi i64 [ %dec, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %__depth_limit, %entry ]
+  %cmp1 = icmp eq i64 %__depth_limit.addr.071, 0
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
   %add.ptr = getelementptr inbounds i8, ptr %__nth, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
-  call void @_ZSt11__make_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_RT0_(ptr noundef %__first.addr.076, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
-  %cmp11.i = icmp ult ptr %add.ptr, %__last.addr.075
+  call void @_ZSt11__make_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_RT0_(ptr noundef %__first.addr.073, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  %cmp11.i = icmp ult ptr %add.ptr, %__last.addr.072
   br i1 %cmp11.i, label %for.body.i.i.i.preheader.lr.ph.i, label %_ZSt13__heap_selectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_T0_.exit
 
 for.body.i.i.i.preheader.lr.ph.i:                 ; preds = %if.then
-  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.076, i64 8
+  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 8
   br label %for.body.i.i.i.preheader.i
 
 for.body.i.i.i.preheader.i:                       ; preds = %for.inc.i, %for.body.i.i.i.preheader.lr.ph.i
@@ -61194,7 +61201,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %
   %indvars.iv.i.i.i.i = phi i64 [ 1, %for.cond.i.i.i.i ], [ 0, %for.body.i.i.i.preheader.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %__i.012.i, i64 0, i64 %indvars.iv.i.i.i.i
   %0 = load float, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.076, i64 0, i64 %indvars.iv.i.i.i.i
+  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i.i.i
   %1 = load float, ptr %arrayidx.i.i11.i.i.i.i, align 4
   %cmp.i.i.i.i.i = fcmp oeq float %0, %1
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
@@ -61211,34 +61218,34 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpIN
   br i1 %cmp9.i.i.i.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i, %if.then.i.i.i.i
-  call void @_ZSt10__pop_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_RT0_(ptr noundef nonnull %__first.addr.076, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__i.012.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  call void @_ZSt10__pop_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_RT0_(ptr noundef nonnull %__first.addr.073, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__i.012.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i, %if.then.i.i.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__i.012.i, i64 16
-  %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.addr.075
+  %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.addr.072
   br i1 %cmp.i, label %for.body.i.i.i.preheader.i, label %_ZSt13__heap_selectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_T0_.exit, !llvm.loop !737
 
 _ZSt13__heap_selectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_T0_.exit: ; preds = %for.inc.i, %if.then
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.076, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.076, ptr noundef nonnull align 8 dereferenceable(16) %__nth, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.073, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.073, ptr noundef nonnull align 8 dereferenceable(16) %__nth, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__nth, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   br label %return
 
 if.end:                                           ; preds = %while.body
-  %div.i4647 = lshr i64 %sub.ptr.sub77, 5
-  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first.addr.076, i64 %div.i4647
-  %add.ptr1.i = getelementptr inbounds i8, ptr %__first.addr.076, i64 16
-  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.075, i64 -16
-  tail call void @_ZSt22__move_median_to_firstIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_SP_T0_(ptr noundef %__first.addr.076, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
-  %arrayidx.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.076, i64 8
+  %div.i4445 = lshr i64 %sub.ptr.sub74, 5
+  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first.addr.073, i64 %div.i4445
+  %add.ptr1.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 16
+  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.072, i64 -16
+  tail call void @_ZSt22__move_median_to_firstIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_SP_T0_(ptr noundef %__first.addr.073, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
+  %arrayidx.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %if.end
-  %__last.addr.0.i.i = phi ptr [ %__last.addr.075, %if.end ], [ %__last.addr.1.i.i, %if.end.i.i ]
+  %__last.addr.0.i.i = phi ptr [ %__last.addr.072, %if.end ], [ %__last.addr.1.i.i, %if.end.i.i ]
   %__first.addr.0.i.i = phi ptr [ %add.ptr1.i, %if.end ], [ %incdec.ptr9.i.i, %if.end.i.i ]
   br label %while.cond1.i.i
 
@@ -61254,7 +61261,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i,
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %while.cond1.i.i ], [ 1, %for.cond.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.1.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
   %4 = load float, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.076, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i.i.i.i
   %5 = load float, ptr %arrayidx.i.i11.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i = fcmp oeq float %4, %5
   br i1 %cmp.i.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -61288,7 +61295,7 @@ for.cond.i.i.i20.i.i:                             ; preds = %for.body.i.i.i11.i.
 for.body.i.i.i11.i.i:                             ; preds = %for.cond.i.i.i20.i.i, %while.cond4.i.i
   %cmp.i.i.i12.i.i = phi i1 [ true, %while.cond4.i.i ], [ false, %for.cond.i.i.i20.i.i ]
   %indvars.iv.i.i.i13.i.i = phi i64 [ 0, %while.cond4.i.i ], [ 1, %for.cond.i.i.i20.i.i ]
-  %arrayidx.i.i.i.i.i14.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.076, i64 0, i64 %indvars.iv.i.i.i13.i.i
+  %arrayidx.i.i.i.i.i14.i.i = getelementptr inbounds [3 x float], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i.i13.i.i
   %8 = load float, ptr %arrayidx.i.i.i.i.i14.i.i, align 4
   %arrayidx.i.i11.i.i.i15.i.i = getelementptr inbounds [3 x float], ptr %__last.addr.1.i.i, i64 0, i64 %indvars.iv.i.i.i13.i.i
   %9 = load float, ptr %arrayidx.i.i11.i.i.i15.i.i, align 4
@@ -61323,10 +61330,10 @@ if.end.i.i:                                       ; preds = %while.end8.i.i
   br label %while.body.i.i, !llvm.loop !740
 
 _ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit: ; preds = %while.end8.i.i
-  %dec = add nsw i64 %__depth_limit.addr.074, -1
+  %dec = add nsw i64 %__depth_limit.addr.071, -1
   %cmp3.not = icmp ugt ptr %__first.addr.1.i.i, %__nth
-  %call.__last.addr.0 = select i1 %cmp3.not, ptr %__first.addr.1.i.i, ptr %__last.addr.075
-  %__first.addr.0.call = select i1 %cmp3.not, ptr %__first.addr.076, ptr %__first.addr.1.i.i
+  %call.__last.addr.0 = select i1 %cmp3.not, ptr %__first.addr.1.i.i, ptr %__last.addr.072
+  %__first.addr.0.call = select i1 %cmp3.not, ptr %__first.addr.073, ptr %__first.addr.1.i.i
   %sub.ptr.lhs.cast = ptrtoint ptr %call.__last.addr.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first.addr.0.call to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -61336,111 +61343,123 @@ _ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3
 while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit, %entry
   %__last.addr.0.lcssa = phi ptr [ %__last, %entry ], [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ]
   %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ]
-  %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast71, %entry ], [ %sub.ptr.rhs.cast, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ]
+  %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast68, %entry ], [ %sub.ptr.rhs.cast, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__val.sroa.0.i)
   %cmp.i16 = icmp eq ptr %__first.addr.0.lcssa, %__last.addr.0.lcssa
   br i1 %cmp.i16, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end
-  %__i.020.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 16
-  %cmp1.not21.i = icmp eq ptr %__i.020.i, %__last.addr.0.lcssa
-  br i1 %cmp1.not21.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.lr.ph.i17
+  %__i.019.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 16
+  %cmp1.not20.i = icmp eq ptr %__i.019.i, %__last.addr.0.lcssa
+  br i1 %cmp1.not20.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.lr.ph.i17
 
 for.body.i.i.i.preheader.lr.ph.i17:               ; preds = %for.cond.preheader.i
   %arrayidx.i.i17.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 8
-  %arrayidx.i.i16.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__val.i.i, i64 8
-  br label %for.body.i.i.i.preheader.i20
+  br label %for.body.i.i.i.preheader.i19
 
-for.body.i.i.i.preheader.i20:                     ; preds = %for.inc.i37, %for.body.i.i.i.preheader.lr.ph.i17
-  %__i.023.i = phi ptr [ %__i.020.i, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.0.i, %for.inc.i37 ]
-  %__first.pn22.i = phi ptr [ %__first.addr.0.lcssa, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.023.i, %for.inc.i37 ]
-  br label %for.body.i.i.i.i21
+for.body.i.i.i.preheader.i19:                     ; preds = %for.inc.i35, %for.body.i.i.i.preheader.lr.ph.i17
+  %__i.022.i = phi ptr [ %__i.019.i, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.0.i, %for.inc.i35 ]
+  %__first.pn21.i = phi ptr [ %__first.addr.0.lcssa, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.022.i, %for.inc.i35 ]
+  br label %for.body.i.i.i.i20
 
-for.cond.i.i.i.i42:                               ; preds = %for.body.i.i.i.i21
-  br i1 %cmp.i.i.i.i22, label %for.body.i.i.i.i21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43, !llvm.loop !692
+for.cond.i.i.i.i40:                               ; preds = %for.body.i.i.i.i20
+  br i1 %cmp.i.i.i.i21, label %for.body.i.i.i.i20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41, !llvm.loop !692
 
-for.body.i.i.i.i21:                               ; preds = %for.cond.i.i.i.i42, %for.body.i.i.i.preheader.i20
-  %cmp.i.i.i.i22 = phi i1 [ false, %for.cond.i.i.i.i42 ], [ true, %for.body.i.i.i.preheader.i20 ]
-  %indvars.iv.i.i.i.i23 = phi i64 [ 1, %for.cond.i.i.i.i42 ], [ 0, %for.body.i.i.i.preheader.i20 ]
-  %arrayidx.i.i.i.i.i.i24 = getelementptr inbounds [3 x float], ptr %__i.023.i, i64 0, i64 %indvars.iv.i.i.i.i23
-  %12 = load float, ptr %arrayidx.i.i.i.i.i.i24, align 4
-  %arrayidx.i.i11.i.i.i.i25 = getelementptr inbounds [3 x float], ptr %__first.addr.0.lcssa, i64 0, i64 %indvars.iv.i.i.i.i23
-  %13 = load float, ptr %arrayidx.i.i11.i.i.i.i25, align 4
-  %cmp.i.i.i.i.i26 = fcmp oeq float %12, %13
-  br i1 %cmp.i.i.i.i.i26, label %for.cond.i.i.i.i42, label %if.then.i.i.i.i27
+for.body.i.i.i.i20:                               ; preds = %for.cond.i.i.i.i40, %for.body.i.i.i.preheader.i19
+  %cmp.i.i.i.i21 = phi i1 [ false, %for.cond.i.i.i.i40 ], [ true, %for.body.i.i.i.preheader.i19 ]
+  %indvars.iv.i.i.i.i22 = phi i64 [ 1, %for.cond.i.i.i.i40 ], [ 0, %for.body.i.i.i.preheader.i19 ]
+  %arrayidx.i.i.i.i.i.i23 = getelementptr inbounds [3 x float], ptr %__i.022.i, i64 0, i64 %indvars.iv.i.i.i.i22
+  %12 = load float, ptr %arrayidx.i.i.i.i.i.i23, align 4
+  %arrayidx.i.i11.i.i.i.i24 = getelementptr inbounds [3 x float], ptr %__first.addr.0.lcssa, i64 0, i64 %indvars.iv.i.i.i.i22
+  %13 = load float, ptr %arrayidx.i.i11.i.i.i.i24, align 4
+  %cmp.i.i.i.i.i25 = fcmp oeq float %12, %13
+  br i1 %cmp.i.i.i.i.i25, label %for.cond.i.i.i.i40, label %if.then.i.i.i.i26
 
-if.then.i.i.i.i27:                                ; preds = %for.body.i.i.i.i21
-  %cmp6.i.i.i.i28 = fcmp olt float %12, %13
-  br i1 %cmp6.i.i.i.i28, label %if.then2.i, label %if.else.i
+if.then.i.i.i.i26:                                ; preds = %for.body.i.i.i.i20
+  %cmp6.i.i.i.i27 = fcmp olt float %12, %13
+  br i1 %cmp6.i.i.i.i27, label %if.then2.i, label %if.then.i.i.i.if.else_crit_edge.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43: ; preds = %for.cond.i.i.i.i42
-  %arrayidx.i.i16.i.i.i.i44 = getelementptr inbounds i8, ptr %__first.pn22.i, i64 24
-  %14 = load float, ptr %arrayidx.i.i16.i.i.i.i44, align 4
+if.then.i.i.i.if.else_crit_edge.i:                ; preds = %if.then.i.i.i.i26
+  %__val.sroa.4.0.__last.sroa_idx.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 24
+  %__val.sroa.4.0.copyload.i.pre.i = load float, ptr %__val.sroa.4.0.__last.sroa_idx.i.phi.trans.insert.i, align 8
+  br label %if.else.i
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41: ; preds = %for.cond.i.i.i.i40
+  %arrayidx.i.i16.i.i.i.i42 = getelementptr inbounds i8, ptr %__first.pn21.i, i64 24
+  %14 = load float, ptr %arrayidx.i.i16.i.i.i.i42, align 4
   %15 = load float, ptr %arrayidx.i.i17.i.i.i.i18, align 4
-  %cmp9.i.i.i.i45 = fcmp olt float %14, %15
-  br i1 %cmp9.i.i.i.i45, label %if.then2.i, label %if.else.i
+  %cmp9.i.i.i.i43 = fcmp olt float %14, %15
+  br i1 %cmp9.i.i.i.i43, label %if.then2.i, label %if.else.i
 
-if.then2.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43, %if.then.i.i.i.i27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %__i.023.i, i64 16, i1 false)
-  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn22.i, i64 32
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.023.i to i64
+if.then2.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41, %if.then.i.i.i.i26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %__i.022.i, i64 16, i1 false)
+  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 32
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.022.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.lcssa
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 4
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %add.ptr3.i, i64 %.pre.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.addr.0.lcssa, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.0.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.0.i, i64 16, i1 false)
-  br label %for.inc.i37
+  br label %for.inc.i35
 
-if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43, %if.then.i.i.i.i27
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__val.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__i.023.i, i64 16, i1 false)
-  %16 = load float, ptr %arrayidx.i.i16.i.i.i.i.i19, align 8
+if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41, %if.then.i.i.i.if.else_crit_edge.i
+  %__val.sroa.4.0.copyload.i.i = phi float [ %__val.sroa.4.0.copyload.i.pre.i, %if.then.i.i.i.if.else_crit_edge.i ], [ %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41 ]
+  %__val.sroa.0.0.copyload.i.i = load i32, ptr %__i.022.i, align 8
+  %__val.sroa.3.0.__last.sroa_idx.i.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 20
+  %__val.sroa.3.0.copyload.i.i = load i32, ptr %__val.sroa.3.0.__last.sroa_idx.i.i, align 4
+  %__val.sroa.5.0.__last.sroa_idx.i.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 28
+  %__val.sroa.5.0.copyload.i.i = load i32, ptr %__val.sroa.5.0.__last.sroa_idx.i.i, align 4
   br label %while.cond.i.i
 
-while.cond.i.i:                                   ; preds = %while.body.i.i38, %if.else.i
-  %__last.addr.0.i.i29 = phi ptr [ %__i.023.i, %if.else.i ], [ %__next.0.i.i, %while.body.i.i38 ]
-  %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i29, i64 -16
-  br label %for.body.i.i.i.i.i30
+while.cond.i.i:                                   ; preds = %while.body.i.i36, %if.else.i
+  %__last.addr.0.i.i28 = phi ptr [ %__i.022.i, %if.else.i ], [ %__next.0.i.i, %while.body.i.i36 ]
+  %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 -16
+  br label %for.body.i.i.i.i.i29
 
-for.cond.i.i.i.i.i39:                             ; preds = %for.body.i.i.i.i.i30
-  br i1 %cmp.i.i.i.i12.i, label %for.body.i.i.i.i.i30, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, !llvm.loop !692
+for.cond.i.i.i.i.i37:                             ; preds = %for.body.i.i.i.i.i29
+  br i1 %cmp.i.i.i.i12.i, label %for.body.i.i.i.i.i29, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, !llvm.loop !692
 
-for.body.i.i.i.i.i30:                             ; preds = %for.cond.i.i.i.i.i39, %while.cond.i.i
-  %cmp.i.i.i.i12.i = phi i1 [ true, %while.cond.i.i ], [ false, %for.cond.i.i.i.i.i39 ]
-  %indvars.iv.i.i.i.i.i31 = phi i64 [ 0, %while.cond.i.i ], [ 1, %for.cond.i.i.i.i.i39 ]
-  %arrayidx.i.i.i.i.i.i.i32 = getelementptr inbounds [3 x float], ptr %__val.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i31
-  %17 = load float, ptr %arrayidx.i.i.i.i.i.i.i32, align 4
-  %arrayidx.i.i11.i.i.i.i.i33 = getelementptr inbounds [3 x float], ptr %__next.0.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i31
-  %18 = load float, ptr %arrayidx.i.i11.i.i.i.i.i33, align 4
-  %cmp.i.i.i.i.i.i34 = fcmp oeq float %17, %18
-  br i1 %cmp.i.i.i.i.i.i34, label %for.cond.i.i.i.i.i39, label %if.then.i.i.i.i.i35
+for.body.i.i.i.i.i29:                             ; preds = %for.cond.i.i.i.i.i37, %while.cond.i.i
+  %cmp.i.i.i.i12.i = phi i1 [ true, %while.cond.i.i ], [ false, %for.cond.i.i.i.i.i37 ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i = phi i32 [ %__val.sroa.0.0.copyload.i.i, %while.cond.i.i ], [ %__val.sroa.3.0.copyload.i.i, %for.cond.i.i.i.i.i37 ]
+  %indvars.iv.i.i.i.i.i30 = phi i64 [ 0, %while.cond.i.i ], [ 1, %for.cond.i.i.i.i.i37 ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i = bitcast i32 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i to float
+  %arrayidx.i.i11.i.i.i.i.i31 = getelementptr inbounds [3 x float], ptr %__next.0.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i30
+  %16 = load float, ptr %arrayidx.i.i11.i.i.i.i.i31, align 4
+  %cmp.i.i.i.i.i.i32 = fcmp oeq float %16, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
+  br i1 %cmp.i.i.i.i.i.i32, label %for.cond.i.i.i.i.i37, label %if.then.i.i.i.i.i33
 
-if.then.i.i.i.i.i35:                              ; preds = %for.body.i.i.i.i.i30
-  %cmp6.i.i.i.i.i36 = fcmp olt float %17, %18
-  br i1 %cmp6.i.i.i.i.i36, label %while.body.i.i38, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i
+if.then.i.i.i.i.i33:                              ; preds = %for.body.i.i.i.i.i29
+  %cmp6.i.i.i.i.i34 = fcmp ogt float %16, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
+  br i1 %cmp6.i.i.i.i.i34, label %while.body.i.i36, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i39
-  %arrayidx.i.i17.i.i.i.i.i40 = getelementptr inbounds i8, ptr %__last.addr.0.i.i29, i64 -8
-  %19 = load float, ptr %arrayidx.i.i17.i.i.i.i.i40, align 4
-  %cmp9.i.i.i.i.i41 = fcmp olt float %16, %19
-  br i1 %cmp9.i.i.i.i.i41, label %while.body.i.i38, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i37
+  %arrayidx.i.i17.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 -8
+  %17 = load float, ptr %arrayidx.i.i17.i.i.i.i.i38, align 4
+  %cmp9.i.i.i.i.i39 = fcmp olt float %__val.sroa.4.0.copyload.i.i, %17
+  br i1 %cmp9.i.i.i.i.i39, label %while.body.i.i36, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i
 
-while.body.i.i38:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0.i.i29, ptr noundef nonnull align 8 dereferenceable(16) %__next.0.i.i, i64 16, i1 false)
+while.body.i.i36:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0.i.i28, ptr noundef nonnull align 8 dereferenceable(16) %__next.0.i.i, i64 16, i1 false)
   br label %while.cond.i.i, !llvm.loop !742
 
-_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0.i.i29, ptr noundef nonnull align 8 dereferenceable(16) %__val.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__val.i.i)
-  br label %for.inc.i37
+_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i33
+  store i32 %__val.sroa.0.0.copyload.i.i, ptr %__last.addr.0.i.i28, align 8
+  %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 4
+  store i32 %__val.sroa.3.0.copyload.i.i, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i, align 4
+  %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 8
+  store float %__val.sroa.4.0.copyload.i.i, ptr %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i, align 8
+  %__val.sroa.5.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 12
+  store i32 %__val.sroa.5.0.copyload.i.i, ptr %__val.sroa.5.0.__last.addr.0.sroa_idx.i.i, align 4
+  br label %for.inc.i35
 
-for.inc.i37:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i, %if.then2.i
-  %__i.0.i = getelementptr inbounds i8, ptr %__i.023.i, i64 16
+for.inc.i35:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i, %if.then2.i
+  %__i.0.i = getelementptr inbounds i8, ptr %__i.022.i, i64 16
   %cmp1.not.i = icmp eq ptr %__i.0.i, %__last.addr.0.lcssa
-  br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.i20, !llvm.loop !743
+  br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.i19, !llvm.loop !743
 
-_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit: ; preds = %for.inc.i37, %while.end, %for.cond.preheader.i
+_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit: ; preds = %for.inc.i35, %while.end, %for.cond.preheader.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__val.sroa.0.i)
   br label %return
 
@@ -61451,8 +61470,6 @@ return:                                           ; preds = %_ZSt16__insertion_s
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt11__make_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_RT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %__comp) local_unnamed_addr #5 comdat {
 entry:
-  %__value.i.i18 = alloca %"class.openvdb::v11_0::tree::NodeUnion.906", align 8
-  %__value.i.i = alloca %"class.openvdb::v11_0::tree::NodeUnion.906", align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -61468,13 +61485,13 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.2.0.add.ptr.sroa_idx11 = getelementptr inbounds i8, ptr %add.ptr9, i64 8
   %__value.sroa.2.0.copyload12 = load double, ptr %__value.sroa.2.0.add.ptr.sroa_idx11, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
-  %div.i8789 = lshr i64 %sub.i, 1
-  %cmp31.i = icmp ugt i64 %div.i8789, %div17
-  br i1 %cmp31.i, label %while.body.i, label %while.end.i
+  %div.i8991 = lshr i64 %sub.i, 1
+  %cmp30.i = icmp ugt i64 %div.i8991, %div17
+  br i1 %cmp30.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
-  %__holeIndex.addr.032.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ %div17, %if.end.split ]
-  %add.i = shl i64 %__holeIndex.addr.032.i, 1
+  %__holeIndex.addr.031.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ %div17, %if.end.split ]
+  %add.i = shl i64 %__holeIndex.addr.031.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -61510,9 +61527,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpIN
   %retval.0.i.i.i.i = phi i1 [ %cmp6.i.i.i.i, %if.then.i.i.i.i ], [ %cmp9.i.i.i.i, %for.end.i.i.i.i ]
   %spec.select.i = select i1 %retval.0.i.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__holeIndex.addr.032.i
+  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__holeIndex.addr.031.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i, i64 16, i1 false)
-  %cmp.i = icmp slt i64 %spec.select.i, %div.i8789
+  %cmp.i = icmp slt i64 %spec.select.i, %div.i8991
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !744
 
 while.end.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i, %if.end.split
@@ -61534,21 +61551,19 @@ if.then9.i:                                       ; preds = %while.end.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__value.i.i)
-  store ptr %__value.sroa.0.0.copyload10, ptr %__value.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %__value.i.i, i64 8
-  store double %__value.sroa.2.0.copyload12, ptr %5, align 8
-  %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %div17
-  %6 = bitcast double %__value.sroa.2.0.copyload12 to i64
-  %7 = trunc i64 %6 to i32
-  %8 = bitcast i32 %7 to float
-  br i1 %cmp15.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
+  %cmp16.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %div17
+  %5 = ptrtoint ptr %__value.sroa.0.0.copyload10 to i64
+  %6 = lshr i64 %5, 32
+  %7 = bitcast double %__value.sroa.2.0.copyload12 to i64
+  %8 = trunc i64 %7 to i32
+  %9 = bitcast i32 %8 to float
+  br i1 %cmp16.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 land.rhs.i.i:                                     ; preds = %if.end16.i, %while.body.i.i
-  %__holeIndex.addr.016.i.i = phi i64 [ %__parent.017.i.i, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end16.i ]
-  %__parent.017.in.i.i = add nsw i64 %__holeIndex.addr.016.i.i, -1
-  %__parent.017.i.i = sdiv i64 %__parent.017.in.i.i, 2
-  %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__parent.017.i.i
+  %__holeIndex.addr.017.i.i = phi i64 [ %__parent.018.i.i, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end16.i ]
+  %__parent.018.in.i.i = add nsw i64 %__holeIndex.addr.017.i.i, -1
+  %__parent.018.i.i = sdiv i64 %__parent.018.in.i.i, 2
+  %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__parent.018.i.i
   br label %for.body.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
@@ -61556,171 +61571,172 @@ for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i, %land.rhs.i.i
   %cmp.i.i.i.i23.i = phi i1 [ true, %land.rhs.i.i ], [ false, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.in.i.i = phi i64 [ %5, %land.rhs.i.i ], [ %6, %for.cond.i.i.i.i.i ]
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ 1, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i = trunc i64 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.in.i.i to i32
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i = bitcast i32 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i to float
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %add.ptr.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %9 = load float, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %__value.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %10 = load float, ptr %arrayidx.i.i11.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i.i = fcmp oeq float %9, %10
+  %10 = load float, ptr %arrayidx.i.i.i.i.i.i.i, align 4
+  %cmp.i.i.i.i.i.i = fcmp oeq float %10, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp.i.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %cmp6.i.i.i.i.i = fcmp olt float %9, %10
+  %cmp6.i.i.i.i.i = fcmp olt float %10, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp6.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i
   %arrayidx.i.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %11 = load float, ptr %arrayidx.i.i16.i.i.i.i.i, align 4
-  %cmp9.i.i.i.i.i = fcmp olt float %11, %8
+  %cmp9.i.i.i.i.i = fcmp olt float %11, %9
   br i1 %cmp9.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %if.then.i.i.i.i.i
-  %add.ptr2.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__holeIndex.addr.016.i.i
+  %add.ptr2.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__holeIndex.addr.017.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false)
-  %cmp.i.i = icmp sgt i64 %__parent.017.i.i, %div17
+  %cmp.i.i = icmp sgt i64 %__parent.018.i.i, %div17
   br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit, !llvm.loop !745
 
 _ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit: ; preds = %if.then.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
-  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.016.i.i, %if.then.i.i.i.i.i ], [ %__parent.017.i.i, %while.body.i.i ], [ %__holeIndex.addr.016.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.017.i.i, %if.then.i.i.i.i.i ], [ %__parent.018.i.i, %while.body.i.i ], [ %__holeIndex.addr.017.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__value.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__value.i.i)
+  store ptr %__value.sroa.0.0.copyload10, ptr %add.ptr5.i.i, align 8
+  %__value.sroa.4.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 8
+  store double %__value.sroa.2.0.copyload12, ptr %__value.sroa.4.0.add.ptr5.sroa_idx.i.i, align 8
   %cmp6105 = icmp ult i64 %sub, 2
   br i1 %cmp6105, label %return, label %if.end8.split.lr.ph
 
 if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
-  %12 = getelementptr inbounds i8, ptr %__value.i.i18, i64 8
-  %sub12.i57 = or disjoint i64 %sub, 1
-  %add.ptr13.i58 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %sub12.i57
-  %add.ptr14.i59 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %div7.i
+  %sub12.i59 = or disjoint i64 %sub, 1
+  %add.ptr13.i60 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %sub12.i59
+  %add.ptr14.i61 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %div7.i
   br label %if.end8.split
 
-if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit86
-  %__parent.0106 = phi i64 [ %div17, %if.end8.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit86 ]
+if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit88
+  %__parent.0106 = phi i64 [ %div17, %if.end8.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit88 ]
   %dec = add nsw i64 %__parent.0106, -1
   %add.ptr13 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload14 = load ptr, ptr %add.ptr13, align 8
   %__value.sroa.2.0.add.ptr.sroa_idx15 = getelementptr inbounds i8, ptr %add.ptr13, i64 8
   %__value.sroa.2.0.copyload16 = load double, ptr %__value.sroa.2.0.add.ptr.sroa_idx15, align 8
-  %cmp31.i21.not = icmp slt i64 %div.i8789, %__parent.0106
-  br i1 %cmp31.i21.not, label %while.end.i22, label %while.body.i60
+  %cmp30.i20.not = icmp slt i64 %div.i8991, %__parent.0106
+  br i1 %cmp30.i20.not, label %while.end.i21, label %while.body.i62
 
-while.body.i60:                                   ; preds = %if.end8.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75
-  %__holeIndex.addr.032.i61 = phi i64 [ %spec.select.i77, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75 ], [ %dec, %if.end8.split ]
-  %add.i62 = shl i64 %__holeIndex.addr.032.i61, 1
-  %mul.i63 = add i64 %add.i62, 2
-  %add.ptr.i64 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %mul.i63
-  %sub1.i65 = or disjoint i64 %add.i62, 1
-  %add.ptr2.i66 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %sub1.i65
-  br label %for.body.i.i.i.i67
+while.body.i62:                                   ; preds = %if.end8.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i77
+  %__holeIndex.addr.031.i63 = phi i64 [ %spec.select.i79, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i77 ], [ %dec, %if.end8.split ]
+  %add.i64 = shl i64 %__holeIndex.addr.031.i63, 1
+  %mul.i65 = add i64 %add.i64, 2
+  %add.ptr.i66 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %mul.i65
+  %sub1.i67 = or disjoint i64 %add.i64, 1
+  %add.ptr2.i68 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %sub1.i67
+  br label %for.body.i.i.i.i69
 
-for.cond.i.i.i.i81:                               ; preds = %for.body.i.i.i.i67
-  br i1 %cmp.i.i.i.i68, label %for.body.i.i.i.i67, label %for.end.i.i.i.i82, !llvm.loop !692
+for.cond.i.i.i.i83:                               ; preds = %for.body.i.i.i.i69
+  br i1 %cmp.i.i.i.i70, label %for.body.i.i.i.i69, label %for.end.i.i.i.i84, !llvm.loop !692
 
-for.body.i.i.i.i67:                               ; preds = %for.cond.i.i.i.i81, %while.body.i60
-  %cmp.i.i.i.i68 = phi i1 [ true, %while.body.i60 ], [ false, %for.cond.i.i.i.i81 ]
-  %indvars.iv.i.i.i.i69 = phi i64 [ 0, %while.body.i60 ], [ 1, %for.cond.i.i.i.i81 ]
-  %arrayidx.i.i.i.i.i.i70 = getelementptr inbounds [3 x float], ptr %add.ptr.i64, i64 0, i64 %indvars.iv.i.i.i.i69
-  %13 = load float, ptr %arrayidx.i.i.i.i.i.i70, align 4
-  %arrayidx.i.i11.i.i.i.i71 = getelementptr inbounds [3 x float], ptr %add.ptr2.i66, i64 0, i64 %indvars.iv.i.i.i.i69
-  %14 = load float, ptr %arrayidx.i.i11.i.i.i.i71, align 4
-  %cmp.i.i.i.i.i72 = fcmp oeq float %13, %14
-  br i1 %cmp.i.i.i.i.i72, label %for.cond.i.i.i.i81, label %if.then.i.i.i.i73
+for.body.i.i.i.i69:                               ; preds = %for.cond.i.i.i.i83, %while.body.i62
+  %cmp.i.i.i.i70 = phi i1 [ true, %while.body.i62 ], [ false, %for.cond.i.i.i.i83 ]
+  %indvars.iv.i.i.i.i71 = phi i64 [ 0, %while.body.i62 ], [ 1, %for.cond.i.i.i.i83 ]
+  %arrayidx.i.i.i.i.i.i72 = getelementptr inbounds [3 x float], ptr %add.ptr.i66, i64 0, i64 %indvars.iv.i.i.i.i71
+  %12 = load float, ptr %arrayidx.i.i.i.i.i.i72, align 4
+  %arrayidx.i.i11.i.i.i.i73 = getelementptr inbounds [3 x float], ptr %add.ptr2.i68, i64 0, i64 %indvars.iv.i.i.i.i71
+  %13 = load float, ptr %arrayidx.i.i11.i.i.i.i73, align 4
+  %cmp.i.i.i.i.i74 = fcmp oeq float %12, %13
+  br i1 %cmp.i.i.i.i.i74, label %for.cond.i.i.i.i83, label %if.then.i.i.i.i75
 
-if.then.i.i.i.i73:                                ; preds = %for.body.i.i.i.i67
-  %cmp6.i.i.i.i74 = fcmp olt float %13, %14
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75
+if.then.i.i.i.i75:                                ; preds = %for.body.i.i.i.i69
+  %cmp6.i.i.i.i76 = fcmp olt float %12, %13
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i77
 
-for.end.i.i.i.i82:                                ; preds = %for.cond.i.i.i.i81
-  %arrayidx.i.i16.i.i.i.i83 = getelementptr inbounds i8, ptr %add.ptr.i64, i64 8
-  %15 = load float, ptr %arrayidx.i.i16.i.i.i.i83, align 4
-  %arrayidx.i.i17.i.i.i.i84 = getelementptr inbounds i8, ptr %add.ptr2.i66, i64 8
-  %16 = load float, ptr %arrayidx.i.i17.i.i.i.i84, align 4
-  %cmp9.i.i.i.i85 = fcmp olt float %15, %16
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75
+for.end.i.i.i.i84:                                ; preds = %for.cond.i.i.i.i83
+  %arrayidx.i.i16.i.i.i.i85 = getelementptr inbounds i8, ptr %add.ptr.i66, i64 8
+  %14 = load float, ptr %arrayidx.i.i16.i.i.i.i85, align 4
+  %arrayidx.i.i17.i.i.i.i86 = getelementptr inbounds i8, ptr %add.ptr2.i68, i64 8
+  %15 = load float, ptr %arrayidx.i.i17.i.i.i.i86, align 4
+  %cmp9.i.i.i.i87 = fcmp olt float %14, %15
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i77
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75: ; preds = %for.end.i.i.i.i82, %if.then.i.i.i.i73
-  %retval.0.i.i.i.i76 = phi i1 [ %cmp6.i.i.i.i74, %if.then.i.i.i.i73 ], [ %cmp9.i.i.i.i85, %for.end.i.i.i.i82 ]
-  %spec.select.i77 = select i1 %retval.0.i.i.i.i76, i64 %sub1.i65, i64 %mul.i63
-  %add.ptr3.i78 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %spec.select.i77
-  %add.ptr4.i79 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__holeIndex.addr.032.i61
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i79, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i78, i64 16, i1 false)
-  %cmp.i80 = icmp slt i64 %spec.select.i77, %div.i8789
-  br i1 %cmp.i80, label %while.body.i60, label %while.end.i22, !llvm.loop !744
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i77: ; preds = %for.end.i.i.i.i84, %if.then.i.i.i.i75
+  %retval.0.i.i.i.i78 = phi i1 [ %cmp6.i.i.i.i76, %if.then.i.i.i.i75 ], [ %cmp9.i.i.i.i87, %for.end.i.i.i.i84 ]
+  %spec.select.i79 = select i1 %retval.0.i.i.i.i78, i64 %sub1.i67, i64 %mul.i65
+  %add.ptr3.i80 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %spec.select.i79
+  %add.ptr4.i81 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__holeIndex.addr.031.i63
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i81, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i80, i64 16, i1 false)
+  %cmp.i82 = icmp slt i64 %spec.select.i79, %div.i8991
+  br i1 %cmp.i82, label %while.body.i62, label %while.end.i21, !llvm.loop !744
 
-while.end.i22:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75, %if.end8.split
-  %__holeIndex.addr.0.lcssa.i23 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i77, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75 ]
-  %cmp8.i54 = icmp eq i64 %__holeIndex.addr.0.lcssa.i23, %div7.i
-  %or.cond88 = select i1 %cmp5.i, i1 %cmp8.i54, i1 false
-  br i1 %or.cond88, label %if.then9.i55, label %if.end16.i26
+while.end.i21:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i77, %if.end8.split
+  %__holeIndex.addr.0.lcssa.i22 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i79, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i77 ]
+  %cmp8.i56 = icmp eq i64 %__holeIndex.addr.0.lcssa.i22, %div7.i
+  %or.cond90 = select i1 %cmp5.i, i1 %cmp8.i56, i1 false
+  br i1 %or.cond90, label %if.then9.i57, label %if.end16.i25
 
-if.then9.i55:                                     ; preds = %while.end.i22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr14.i59, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr13.i58, i64 16, i1 false)
-  br label %if.end16.i26
+if.then9.i57:                                     ; preds = %while.end.i21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr14.i61, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr13.i60, i64 16, i1 false)
+  br label %if.end16.i25
 
-if.end16.i26:                                     ; preds = %if.then9.i55, %while.end.i22
-  %__holeIndex.addr.1.i27 = phi i64 [ %sub12.i57, %if.then9.i55 ], [ %__holeIndex.addr.0.lcssa.i23, %while.end.i22 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__value.i.i18)
-  store ptr %__value.sroa.0.0.copyload14, ptr %__value.i.i18, align 8
-  store double %__value.sroa.2.0.copyload16, ptr %12, align 8
-  %cmp15.i.i28.not = icmp slt i64 %__holeIndex.addr.1.i27, %__parent.0106
-  %17 = bitcast double %__value.sroa.2.0.copyload16 to i64
-  %18 = trunc i64 %17 to i32
-  %19 = bitcast i32 %18 to float
-  br i1 %cmp15.i.i28.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit86, label %land.rhs.i.i31
+if.end16.i25:                                     ; preds = %if.then9.i57, %while.end.i21
+  %__holeIndex.addr.1.i26 = phi i64 [ %sub12.i59, %if.then9.i57 ], [ %__holeIndex.addr.0.lcssa.i22, %while.end.i21 ]
+  %cmp16.i.i27.not = icmp slt i64 %__holeIndex.addr.1.i26, %__parent.0106
+  %16 = ptrtoint ptr %__value.sroa.0.0.copyload14 to i64
+  %17 = lshr i64 %16, 32
+  %18 = bitcast double %__value.sroa.2.0.copyload16 to i64
+  %19 = trunc i64 %18 to i32
+  %20 = bitcast i32 %19 to float
+  br i1 %cmp16.i.i27.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit88, label %land.rhs.i.i31
 
-land.rhs.i.i31:                                   ; preds = %if.end16.i26, %while.body.i.i44
-  %__holeIndex.addr.016.i.i32 = phi i64 [ %__parent.017.i.i34, %while.body.i.i44 ], [ %__holeIndex.addr.1.i27, %if.end16.i26 ]
-  %__parent.017.in.i.i33 = add nsw i64 %__holeIndex.addr.016.i.i32, -1
-  %__parent.017.i.i34 = sdiv i64 %__parent.017.in.i.i33, 2
-  %add.ptr.i.i35 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__parent.017.i.i34
+land.rhs.i.i31:                                   ; preds = %if.end16.i25, %while.body.i.i46
+  %__holeIndex.addr.017.i.i32 = phi i64 [ %__parent.018.i.i34, %while.body.i.i46 ], [ %__holeIndex.addr.1.i26, %if.end16.i25 ]
+  %__parent.018.in.i.i33 = add nsw i64 %__holeIndex.addr.017.i.i32, -1
+  %__parent.018.i.i34 = sdiv i64 %__parent.018.in.i.i33, 2
+  %add.ptr.i.i35 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__parent.018.i.i34
   br label %for.body.i.i.i.i.i36
 
-for.cond.i.i.i.i.i47:                             ; preds = %for.body.i.i.i.i.i36
-  br i1 %cmp.i.i.i.i23.i37, label %for.body.i.i.i.i.i36, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48, !llvm.loop !692
+for.cond.i.i.i.i.i49:                             ; preds = %for.body.i.i.i.i.i36
+  br i1 %cmp.i.i.i.i23.i37, label %for.body.i.i.i.i.i36, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i50, !llvm.loop !692
 
-for.body.i.i.i.i.i36:                             ; preds = %for.cond.i.i.i.i.i47, %land.rhs.i.i31
-  %cmp.i.i.i.i23.i37 = phi i1 [ true, %land.rhs.i.i31 ], [ false, %for.cond.i.i.i.i.i47 ]
-  %indvars.iv.i.i.i.i.i38 = phi i64 [ 0, %land.rhs.i.i31 ], [ 1, %for.cond.i.i.i.i.i47 ]
-  %arrayidx.i.i.i.i.i.i.i39 = getelementptr inbounds [3 x float], ptr %add.ptr.i.i35, i64 0, i64 %indvars.iv.i.i.i.i.i38
-  %20 = load float, ptr %arrayidx.i.i.i.i.i.i.i39, align 4
-  %arrayidx.i.i11.i.i.i.i.i40 = getelementptr inbounds [3 x float], ptr %__value.i.i18, i64 0, i64 %indvars.iv.i.i.i.i.i38
-  %21 = load float, ptr %arrayidx.i.i11.i.i.i.i.i40, align 4
-  %cmp.i.i.i.i.i.i41 = fcmp oeq float %20, %21
-  br i1 %cmp.i.i.i.i.i.i41, label %for.cond.i.i.i.i.i47, label %if.then.i.i.i.i.i42
+for.body.i.i.i.i.i36:                             ; preds = %for.cond.i.i.i.i.i49, %land.rhs.i.i31
+  %cmp.i.i.i.i23.i37 = phi i1 [ true, %land.rhs.i.i31 ], [ false, %for.cond.i.i.i.i.i49 ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.in.i.i38 = phi i64 [ %16, %land.rhs.i.i31 ], [ %17, %for.cond.i.i.i.i.i49 ]
+  %indvars.iv.i.i.i.i.i39 = phi i64 [ 0, %land.rhs.i.i31 ], [ 1, %for.cond.i.i.i.i.i49 ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i40 = trunc i64 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.in.i.i38 to i32
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i41 = bitcast i32 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i40 to float
+  %arrayidx.i.i.i.i.i.i.i42 = getelementptr inbounds [3 x float], ptr %add.ptr.i.i35, i64 0, i64 %indvars.iv.i.i.i.i.i39
+  %21 = load float, ptr %arrayidx.i.i.i.i.i.i.i42, align 4
+  %cmp.i.i.i.i.i.i43 = fcmp oeq float %21, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i41
+  br i1 %cmp.i.i.i.i.i.i43, label %for.cond.i.i.i.i.i49, label %if.then.i.i.i.i.i44
 
-if.then.i.i.i.i.i42:                              ; preds = %for.body.i.i.i.i.i36
-  %cmp6.i.i.i.i.i43 = fcmp olt float %20, %21
-  br i1 %cmp6.i.i.i.i.i43, label %while.body.i.i44, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit86
+if.then.i.i.i.i.i44:                              ; preds = %for.body.i.i.i.i.i36
+  %cmp6.i.i.i.i.i45 = fcmp olt float %21, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i41
+  br i1 %cmp6.i.i.i.i.i45, label %while.body.i.i46, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit88
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48: ; preds = %for.cond.i.i.i.i.i47
-  %arrayidx.i.i16.i.i.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i35, i64 8
-  %22 = load float, ptr %arrayidx.i.i16.i.i.i.i.i49, align 4
-  %cmp9.i.i.i.i.i50 = fcmp olt float %22, %19
-  br i1 %cmp9.i.i.i.i.i50, label %while.body.i.i44, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit86
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i50: ; preds = %for.cond.i.i.i.i.i49
+  %arrayidx.i.i16.i.i.i.i.i51 = getelementptr inbounds i8, ptr %add.ptr.i.i35, i64 8
+  %22 = load float, ptr %arrayidx.i.i16.i.i.i.i.i51, align 4
+  %cmp9.i.i.i.i.i52 = fcmp olt float %22, %20
+  br i1 %cmp9.i.i.i.i.i52, label %while.body.i.i46, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit88
 
-while.body.i.i44:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48, %if.then.i.i.i.i.i42
-  %add.ptr2.i.i45 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__holeIndex.addr.016.i.i32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i45, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i35, i64 16, i1 false)
-  %cmp.i.i46.not = icmp slt i64 %__parent.017.i.i34, %__parent.0106
-  br i1 %cmp.i.i46.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit86, label %land.rhs.i.i31, !llvm.loop !745
+while.body.i.i46:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i50, %if.then.i.i.i.i.i44
+  %add.ptr2.i.i47 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__holeIndex.addr.017.i.i32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i47, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i35, i64 16, i1 false)
+  %cmp.i.i48.not = icmp slt i64 %__parent.018.i.i34, %__parent.0106
+  br i1 %cmp.i.i48.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit88, label %land.rhs.i.i31, !llvm.loop !745
 
-_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit86: ; preds = %if.then.i.i.i.i.i42, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48, %while.body.i.i44, %if.end16.i26
-  %__holeIndex.addr.0.lcssa.i.i29 = phi i64 [ %__holeIndex.addr.1.i27, %if.end16.i26 ], [ %__holeIndex.addr.016.i.i32, %if.then.i.i.i.i.i42 ], [ %__parent.017.i.i34, %while.body.i.i44 ], [ %__holeIndex.addr.016.i.i32, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48 ]
-  %add.ptr5.i.i30 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr5.i.i30, ptr noundef nonnull align 8 dereferenceable(16) %__value.i.i18, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__value.i.i18)
+_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit88: ; preds = %if.then.i.i.i.i.i44, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i50, %while.body.i.i46, %if.end16.i25
+  %__holeIndex.addr.0.lcssa.i.i28 = phi i64 [ %__holeIndex.addr.1.i26, %if.end16.i25 ], [ %__holeIndex.addr.017.i.i32, %if.then.i.i.i.i.i44 ], [ %__parent.018.i.i34, %while.body.i.i46 ], [ %__holeIndex.addr.017.i.i32, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i50 ]
+  %add.ptr5.i.i29 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i28
+  store ptr %__value.sroa.0.0.copyload14, ptr %add.ptr5.i.i29, align 8
+  %__value.sroa.4.0.add.ptr5.sroa_idx.i.i30 = getelementptr inbounds i8, ptr %add.ptr5.i.i29, i64 8
+  store double %__value.sroa.2.0.copyload16, ptr %__value.sroa.4.0.add.ptr5.sroa_idx.i.i30, align 8
   %cmp6 = icmp eq i64 %dec, 0
   br i1 %cmp6, label %return, label %if.end8.split, !llvm.loop !746
 
-return:                                           ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit86, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit, %entry
+return:                                           ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit88, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt10__pop_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_RT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__comp) local_unnamed_addr #5 comdat {
 entry:
-  %__value.i.i = alloca %"class.openvdb::v11_0::tree::NodeUnion.906", align 8
   %__value.sroa.0.0.copyload = load ptr, ptr %__result, align 8
   %__value.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__result, i64 8
   %__value.sroa.2.0.copyload = load double, ptr %__value.sroa.2.0..sroa_idx, align 8
@@ -61731,12 +61747,12 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i = sdiv i64 %sub.i, 2
-  %cmp31.i = icmp sgt i64 %sub.ptr.div, 2
-  br i1 %cmp31.i, label %while.body.i, label %while.end.i
+  %cmp30.i = icmp sgt i64 %sub.ptr.div, 2
+  br i1 %cmp30.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
-  %__holeIndex.addr.032.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ 0, %entry ]
-  %add.i = shl i64 %__holeIndex.addr.032.i, 1
+  %__holeIndex.addr.031.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ 0, %entry ]
+  %add.i = shl i64 %__holeIndex.addr.031.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -61772,7 +61788,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpIN
   %retval.0.i.i.i.i = phi i1 [ %cmp6.i.i.i.i, %if.then.i.i.i.i ], [ %cmp9.i.i.i.i, %for.end.i.i.i.i ]
   %spec.select.i = select i1 %retval.0.i.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__holeIndex.addr.032.i
+  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__holeIndex.addr.031.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i, i64 16, i1 false)
   %cmp.i = icmp slt i64 %spec.select.i, %div.i
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !744
@@ -61799,21 +61815,19 @@ if.then9.i:                                       ; preds = %land.lhs.true.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %land.lhs.true.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__holeIndex.addr.0.lcssa.i, %land.lhs.true.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__value.i.i)
-  store ptr %__value.sroa.0.0.copyload, ptr %__value.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %__value.i.i, i64 8
-  store double %__value.sroa.2.0.copyload, ptr %5, align 8
-  %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, 0
-  %6 = bitcast double %__value.sroa.2.0.copyload to i64
-  %7 = trunc i64 %6 to i32
-  %8 = bitcast i32 %7 to float
-  br i1 %cmp15.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
+  %cmp16.i.i = icmp sgt i64 %__holeIndex.addr.1.i, 0
+  %5 = ptrtoint ptr %__value.sroa.0.0.copyload to i64
+  %6 = lshr i64 %5, 32
+  %7 = bitcast double %__value.sroa.2.0.copyload to i64
+  %8 = trunc i64 %7 to i32
+  %9 = bitcast i32 %8 to float
+  br i1 %cmp16.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 land.rhs.i.i:                                     ; preds = %if.end16.i, %while.body.i.i
-  %__holeIndex.addr.016.i.i = phi i64 [ %__parent.017.i.i45, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end16.i ]
-  %__parent.017.in.i.i = add nsw i64 %__holeIndex.addr.016.i.i, -1
-  %__parent.017.i.i45 = lshr i64 %__parent.017.in.i.i, 1
-  %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__parent.017.i.i45
+  %__holeIndex.addr.017.i.i = phi i64 [ %__parent.018.i.i45, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end16.i ]
+  %__parent.018.in.i.i = add nsw i64 %__holeIndex.addr.017.i.i, -1
+  %__parent.018.i.i45 = lshr i64 %__parent.018.in.i.i, 1
+  %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__parent.018.i.i45
   br label %for.body.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
@@ -61821,35 +61835,37 @@ for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i, %land.rhs.i.i
   %cmp.i.i.i.i23.i = phi i1 [ true, %land.rhs.i.i ], [ false, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.in.i.i = phi i64 [ %5, %land.rhs.i.i ], [ %6, %for.cond.i.i.i.i.i ]
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ 1, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i = trunc i64 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.in.i.i to i32
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i = bitcast i32 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i to float
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %add.ptr.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %9 = load float, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %__value.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %10 = load float, ptr %arrayidx.i.i11.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i.i = fcmp oeq float %9, %10
+  %10 = load float, ptr %arrayidx.i.i.i.i.i.i.i, align 4
+  %cmp.i.i.i.i.i.i = fcmp oeq float %10, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp.i.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %cmp6.i.i.i.i.i = fcmp olt float %9, %10
+  %cmp6.i.i.i.i.i = fcmp olt float %10, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp6.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i
   %arrayidx.i.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %11 = load float, ptr %arrayidx.i.i16.i.i.i.i.i, align 4
-  %cmp9.i.i.i.i.i = fcmp olt float %11, %8
+  %cmp9.i.i.i.i.i = fcmp olt float %11, %9
   br i1 %cmp9.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %if.then.i.i.i.i.i
-  %add.ptr2.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__holeIndex.addr.016.i.i
+  %add.ptr2.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__holeIndex.addr.017.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false)
-  %cmp.i.i.not = icmp ult i64 %__parent.017.in.i.i, 2
+  %cmp.i.i.not = icmp ult i64 %__parent.018.in.i.i, 2
   br i1 %cmp.i.i.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit, label %land.rhs.i.i, !llvm.loop !745
 
 _ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IfEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit: ; preds = %if.then.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
-  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.016.i.i, %if.then.i.i.i.i.i ], [ %__parent.017.i.i45, %while.body.i.i ], [ %__holeIndex.addr.016.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.017.i.i, %if.then.i.i.i.i.i ], [ %__parent.018.i.i45, %while.body.i.i ], [ %__holeIndex.addr.017.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.906", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__value.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__value.i.i)
+  store ptr %__value.sroa.0.0.copyload, ptr %add.ptr5.i.i, align 8
+  %__value.sroa.4.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 8
+  store double %__value.sroa.2.0.copyload, ptr %__value.sroa.4.0.add.ptr5.sroa_idx.i.i, align 8
   ret void
 }
 
@@ -66341,8 +66357,6 @@ for.end:                                          ; preds = %for.inc.i.i.i, %_ZN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IdEELj3EE10isConstantERS5_S7_RbRKS5_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(24) %minValue, ptr noundef nonnull align 8 dereferenceable(24) %maxValue, ptr noundef nonnull align 1 dereferenceable(1) %state, ptr noundef nonnull align 8 dereferenceable(24) %tolerance) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3", align 16
-  %ref.tmp12 = alloca %"class.openvdb::v11_0::math::Vec3", align 16
   %mValueMask = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mValueMask, align 8
   %cmp.i = icmp eq i64 %0, -1
@@ -66399,8 +66413,8 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EEixEj.exit: ; preds = 
   %arrayidx.i.i17.i77 = getelementptr inbounds i8, ptr %tolerance, i64 16
   %arrayidx.i.i17.i = getelementptr inbounds i8, ptr %minValue, i64 16
   %arrayidx.i.i17.i55 = getelementptr inbounds i8, ptr %maxValue, i64 16
-  %arrayidx8.i.i63 = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
-  %arrayidx8.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx.i.i.i.i59 = getelementptr inbounds i8, ptr %minValue, i64 8
+  %ref.tmp.sroa.4.0.maxValue.sroa_idx = getelementptr inbounds i8, ptr %maxValue, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EEixEj.exit, %for.inc
@@ -66469,15 +66483,15 @@ for.body.i43.preheader:                           ; preds = %if.then.i, %_ZN7ope
 
 if.then6:                                         ; preds = %if.then.i.if.then6_crit_edge, %_ZN7openvdb5v11_04mathltILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit
   %15 = phi double [ %.pre, %if.then.i.if.then6_crit_edge ], [ %13, %_ZN7openvdb5v11_04mathltILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !802)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %maxValue, i64 24, i1 false)
-  %16 = load <2 x double>, ptr %retval.0.i.i21, align 8, !noalias !802
-  %17 = load <2 x double>, ptr %ref.tmp, align 16, !alias.scope !802
-  %18 = fsub <2 x double> %17, %16
-  store <2 x double> %18, ptr %ref.tmp, align 16, !alias.scope !802
-  %19 = load double, ptr %arrayidx8.i.i, align 16, !alias.scope !802
-  %sub9.i.i = fsub double %19, %15
-  store double %sub9.i.i, ptr %arrayidx8.i.i, align 16, !alias.scope !802
+  %ref.tmp.sroa.0.0.copyload = load double, ptr %maxValue, align 8
+  %ref.tmp.sroa.4.0.copyload = load double, ptr %ref.tmp.sroa.4.0.maxValue.sroa_idx, align 8
+  %ref.tmp.sroa.7.0.copyload = load double, ptr %arrayidx.i.i17.i55, align 8
+  %16 = load double, ptr %retval.0.i.i21, align 8, !noalias !802
+  %sub.i.i = fsub double %ref.tmp.sroa.0.0.copyload, %16
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i21, i64 8
+  %17 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !802
+  %sub5.i.i = fsub double %ref.tmp.sroa.4.0.copyload, %17
+  %sub9.i.i = fsub double %ref.tmp.sroa.7.0.copyload, %15
   br label %for.body.i29
 
 for.cond.i38:                                     ; preds = %for.body.i29
@@ -66485,21 +66499,20 @@ for.cond.i38:                                     ; preds = %for.body.i29
 
 for.body.i29:                                     ; preds = %for.cond.i38, %if.then6
   %cmp.i30 = phi i1 [ true, %if.then6 ], [ false, %for.cond.i38 ]
+  %indvars.iv.i31.sroa.phi.sroa.speculated = phi double [ %sub.i.i, %if.then6 ], [ %sub5.i.i, %for.cond.i38 ]
   %indvars.iv.i31 = phi i64 [ 0, %if.then6 ], [ 1, %for.cond.i38 ]
-  %arrayidx.i.i.i32 = getelementptr inbounds [3 x double], ptr %ref.tmp, i64 0, i64 %indvars.iv.i31
-  %20 = load double, ptr %arrayidx.i.i.i32, align 8
   %arrayidx.i.i11.i33 = getelementptr inbounds [3 x double], ptr %tolerance, i64 0, i64 %indvars.iv.i31
-  %21 = load double, ptr %arrayidx.i.i11.i33, align 8
-  %cmp.i.i34 = fcmp oeq double %20, %21
+  %18 = load double, ptr %arrayidx.i.i11.i33, align 8
+  %cmp.i.i34 = fcmp oeq double %indvars.iv.i31.sroa.phi.sroa.speculated, %18
   br i1 %cmp.i.i34, label %for.cond.i38, label %if.then.i35
 
 if.then.i35:                                      ; preds = %for.body.i29
-  %cmp6.i36 = fcmp ogt double %20, %21
+  %cmp6.i36 = fcmp ogt double %indvars.iv.i31.sroa.phi.sroa.speculated, %18
   br i1 %cmp6.i36, label %return, label %for.inc.sink.split
 
 _ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit: ; preds = %for.cond.i38
-  %22 = load double, ptr %arrayidx.i.i17.i77, align 8
-  %cmp9.i42 = fcmp ogt double %sub9.i.i, %22
+  %19 = load double, ptr %arrayidx.i.i17.i77, align 8
+  %cmp9.i42 = fcmp ogt double %sub9.i.i, %19
   br i1 %cmp9.i42, label %return, label %for.inc.sink.split
 
 for.cond.i52:                                     ; preds = %for.body.i43
@@ -66509,34 +66522,39 @@ for.body.i43:                                     ; preds = %for.body.i43.prehea
   %cmp.i44 = phi i1 [ false, %for.cond.i52 ], [ true, %for.body.i43.preheader ]
   %indvars.iv.i45 = phi i64 [ 1, %for.cond.i52 ], [ 0, %for.body.i43.preheader ]
   %arrayidx.i.i.i46 = getelementptr inbounds [3 x double], ptr %retval.0.i.i21, i64 0, i64 %indvars.iv.i45
-  %23 = load double, ptr %arrayidx.i.i.i46, align 8
+  %20 = load double, ptr %arrayidx.i.i.i46, align 8
   %arrayidx.i.i11.i47 = getelementptr inbounds [3 x double], ptr %maxValue, i64 0, i64 %indvars.iv.i45
-  %24 = load double, ptr %arrayidx.i.i11.i47, align 8
-  %cmp.i.i48 = fcmp oeq double %23, %24
+  %21 = load double, ptr %arrayidx.i.i11.i47, align 8
+  %cmp.i.i48 = fcmp oeq double %20, %21
   br i1 %cmp.i.i48, label %for.cond.i52, label %if.then.i49
 
 if.then.i49:                                      ; preds = %for.body.i43
-  %cmp6.i50 = fcmp ogt double %23, %24
-  br i1 %cmp6.i50, label %if.then11, label %for.inc
+  %cmp6.i50 = fcmp ogt double %20, %21
+  br i1 %cmp6.i50, label %if.then.i49.if.then11_crit_edge, label %for.inc
+
+if.then.i49.if.then11_crit_edge:                  ; preds = %if.then.i49
+  %ref.tmp12.sroa.7.0.retval.0.i.i21.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %retval.0.i.i21, i64 16
+  %ref.tmp12.sroa.7.0.copyload.pre = load double, ptr %ref.tmp12.sroa.7.0.retval.0.i.i21.sroa_idx.phi.trans.insert, align 8
+  br label %if.then11
 
 _ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit57: ; preds = %for.cond.i52
   %arrayidx.i.i16.i54 = getelementptr inbounds i8, ptr %retval.0.i.i21, i64 16
-  %25 = load double, ptr %arrayidx.i.i16.i54, align 8
-  %26 = load double, ptr %arrayidx.i.i17.i55, align 8
-  %cmp9.i56 = fcmp ogt double %25, %26
+  %22 = load double, ptr %arrayidx.i.i16.i54, align 8
+  %23 = load double, ptr %arrayidx.i.i17.i55, align 8
+  %cmp9.i56 = fcmp ogt double %22, %23
   br i1 %cmp9.i56, label %if.then11, label %for.inc
 
-if.then11:                                        ; preds = %if.then.i49, %_ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit57
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !806)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %retval.0.i.i21, i64 24, i1 false)
-  %27 = load <2 x double>, ptr %minValue, align 8, !noalias !806
-  %28 = load <2 x double>, ptr %ref.tmp12, align 16, !alias.scope !806
-  %29 = fsub <2 x double> %28, %27
-  store <2 x double> %29, ptr %ref.tmp12, align 16, !alias.scope !806
-  %30 = load double, ptr %arrayidx.i.i17.i, align 8, !noalias !806
-  %31 = load double, ptr %arrayidx8.i.i63, align 16, !alias.scope !806
-  %sub9.i.i64 = fsub double %31, %30
-  store double %sub9.i.i64, ptr %arrayidx8.i.i63, align 16, !alias.scope !806
+if.then11:                                        ; preds = %if.then.i49.if.then11_crit_edge, %_ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit57
+  %ref.tmp12.sroa.7.0.copyload = phi double [ %ref.tmp12.sroa.7.0.copyload.pre, %if.then.i49.if.then11_crit_edge ], [ %22, %_ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit57 ]
+  %ref.tmp12.sroa.0.0.copyload = load double, ptr %retval.0.i.i21, align 8
+  %ref.tmp12.sroa.4.0.retval.0.i.i21.sroa_idx = getelementptr inbounds i8, ptr %retval.0.i.i21, i64 8
+  %ref.tmp12.sroa.4.0.copyload = load double, ptr %ref.tmp12.sroa.4.0.retval.0.i.i21.sroa_idx, align 8
+  %24 = load double, ptr %minValue, align 8, !noalias !806
+  %sub.i.i58 = fsub double %ref.tmp12.sroa.0.0.copyload, %24
+  %25 = load double, ptr %arrayidx.i.i.i.i59, align 8, !noalias !806
+  %sub5.i.i61 = fsub double %ref.tmp12.sroa.4.0.copyload, %25
+  %26 = load double, ptr %arrayidx.i.i17.i, align 8, !noalias !806
+  %sub9.i.i64 = fsub double %ref.tmp12.sroa.7.0.copyload, %26
   br label %for.body.i65
 
 for.cond.i74:                                     ; preds = %for.body.i65
@@ -66544,21 +66562,20 @@ for.cond.i74:                                     ; preds = %for.body.i65
 
 for.body.i65:                                     ; preds = %for.cond.i74, %if.then11
   %cmp.i66 = phi i1 [ true, %if.then11 ], [ false, %for.cond.i74 ]
+  %indvars.iv.i67.sroa.phi.sroa.speculated = phi double [ %sub.i.i58, %if.then11 ], [ %sub5.i.i61, %for.cond.i74 ]
   %indvars.iv.i67 = phi i64 [ 0, %if.then11 ], [ 1, %for.cond.i74 ]
-  %arrayidx.i.i.i68 = getelementptr inbounds [3 x double], ptr %ref.tmp12, i64 0, i64 %indvars.iv.i67
-  %32 = load double, ptr %arrayidx.i.i.i68, align 8
   %arrayidx.i.i11.i69 = getelementptr inbounds [3 x double], ptr %tolerance, i64 0, i64 %indvars.iv.i67
-  %33 = load double, ptr %arrayidx.i.i11.i69, align 8
-  %cmp.i.i70 = fcmp oeq double %32, %33
+  %27 = load double, ptr %arrayidx.i.i11.i69, align 8
+  %cmp.i.i70 = fcmp oeq double %indvars.iv.i67.sroa.phi.sroa.speculated, %27
   br i1 %cmp.i.i70, label %for.cond.i74, label %if.then.i71
 
 if.then.i71:                                      ; preds = %for.body.i65
-  %cmp6.i72 = fcmp ogt double %32, %33
+  %cmp6.i72 = fcmp ogt double %indvars.iv.i67.sroa.phi.sroa.speculated, %27
   br i1 %cmp6.i72, label %return, label %for.inc.sink.split
 
 _ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit79: ; preds = %for.cond.i74
-  %34 = load double, ptr %arrayidx.i.i17.i77, align 8
-  %cmp9.i78 = fcmp ogt double %sub9.i.i64, %34
+  %28 = load double, ptr %arrayidx.i.i17.i77, align 8
+  %cmp9.i78 = fcmp ogt double %sub9.i.i64, %28
   br i1 %cmp9.i78, label %return, label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %_ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit79, %if.then.i71, %_ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit, %if.then.i35
@@ -68186,34 +68203,33 @@ _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IdEESt14default_deleteIS5_EED2Ev.ex
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt13__introselectIPN7openvdb5v11_04math4Vec3IdEElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_T0_T1_(ptr noundef %__first, ptr noundef %__nth, ptr noundef %__last, i64 noundef %__depth_limit) local_unnamed_addr #5 comdat {
 entry:
-  %__val.i.i = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %__val.sroa.0.i = alloca [3 x double], align 8
   %__tmp.sroa.0.i.i.i.i = alloca [3 x double], align 8
   %__tmp.sroa.0.i.i = alloca [3 x double], align 8
   %__comp.i = alloca %"struct.__gnu_cxx::__ops::_Iter_less_iter", align 1
-  %sub.ptr.lhs.cast67 = ptrtoint ptr %__last to i64
-  %sub.ptr.rhs.cast68 = ptrtoint ptr %__first to i64
-  %sub.ptr.sub69 = sub i64 %sub.ptr.lhs.cast67, %sub.ptr.rhs.cast68
-  %cmp70 = icmp sgt i64 %sub.ptr.sub69, 72
-  br i1 %cmp70, label %while.body, label %while.end
+  %sub.ptr.lhs.cast64 = ptrtoint ptr %__last to i64
+  %sub.ptr.rhs.cast65 = ptrtoint ptr %__first to i64
+  %sub.ptr.sub66 = sub i64 %sub.ptr.lhs.cast64, %sub.ptr.rhs.cast65
+  %cmp67 = icmp sgt i64 %sub.ptr.sub66, 72
+  br i1 %cmp67, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit
-  %sub.ptr.sub74 = phi i64 [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %sub.ptr.sub69, %entry ]
-  %__first.addr.073 = phi ptr [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %__first, %entry ]
-  %__depth_limit.addr.072 = phi i64 [ %dec, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %__depth_limit, %entry ]
-  %__last.addr.071 = phi ptr [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %__last, %entry ]
-  %cmp1 = icmp eq i64 %__depth_limit.addr.072, 0
+  %sub.ptr.sub71 = phi i64 [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %sub.ptr.sub66, %entry ]
+  %__first.addr.070 = phi ptr [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %__first, %entry ]
+  %__depth_limit.addr.069 = phi i64 [ %dec, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %__depth_limit, %entry ]
+  %__last.addr.068 = phi ptr [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %__last, %entry ]
+  %cmp1 = icmp eq i64 %__depth_limit.addr.069, 0
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
   %add.ptr = getelementptr inbounds i8, ptr %__nth, i64 24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
-  call void @_ZSt11__make_heapIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_RT0_(ptr noundef %__first.addr.073, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
-  %cmp11.i = icmp ult ptr %add.ptr, %__last.addr.071
+  call void @_ZSt11__make_heapIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_RT0_(ptr noundef %__first.addr.070, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  %cmp11.i = icmp ult ptr %add.ptr, %__last.addr.068
   br i1 %cmp11.i, label %for.body.i.i.preheader.lr.ph.i, label %_ZSt13__heap_selectIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_T0_.exit
 
 for.body.i.i.preheader.lr.ph.i:                   ; preds = %if.then
-  %arrayidx.i.i17.i.i.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 16
+  %arrayidx.i.i17.i.i.i = getelementptr inbounds i8, ptr %__first.addr.070, i64 16
   br label %for.body.i.i.preheader.i
 
 for.body.i.i.preheader.i:                         ; preds = %for.inc.i, %for.body.i.i.preheader.lr.ph.i
@@ -68228,7 +68244,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   %indvars.iv.i.i.i = phi i64 [ 1, %for.cond.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %arrayidx.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %__i.012.i, i64 0, i64 %indvars.iv.i.i.i
   %0 = load double, ptr %arrayidx.i.i.i.i.i, align 8
-  %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.070, i64 0, i64 %indvars.iv.i.i.i
   %1 = load double, ptr %arrayidx.i.i11.i.i.i, align 8
   %cmp.i.i.i.i = fcmp oeq double %0, %1
   br i1 %cmp.i.i.i.i, label %for.cond.i.i.i, label %if.then.i.i.i
@@ -68245,34 +68261,34 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0
   br i1 %cmp9.i.i.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i, %if.then.i.i.i
-  call void @_ZSt10__pop_heapIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_RT0_(ptr noundef nonnull %__first.addr.073, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__i.012.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  call void @_ZSt10__pop_heapIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_RT0_(ptr noundef nonnull %__first.addr.070, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__i.012.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i, %if.then.i.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__i.012.i, i64 24
-  %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.addr.071
+  %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.addr.068
   br i1 %cmp.i, label %for.body.i.i.preheader.i, label %_ZSt13__heap_selectIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_T0_.exit, !llvm.loop !818
 
 _ZSt13__heap_selectIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_T0_.exit: ; preds = %for.inc.i, %if.then
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.073, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.073, ptr noundef nonnull align 8 dereferenceable(24) %__nth, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.070, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.070, ptr noundef nonnull align 8 dereferenceable(24) %__nth, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__nth, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.0.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__tmp.sroa.0.i.i)
   br label %return
 
 if.end:                                           ; preds = %while.body
-  %div.i44 = udiv i64 %sub.ptr.sub74, 48
-  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %__first.addr.073, i64 %div.i44
-  %add.ptr1.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 24
-  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.071, i64 -24
-  tail call void @_ZSt22__move_median_to_firstIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_S9_T0_(ptr noundef %__first.addr.073, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
-  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 16
+  %div.i42 = udiv i64 %sub.ptr.sub71, 48
+  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %__first.addr.070, i64 %div.i42
+  %add.ptr1.i = getelementptr inbounds i8, ptr %__first.addr.070, i64 24
+  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.068, i64 -24
+  tail call void @_ZSt22__move_median_to_firstIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_S9_T0_(ptr noundef %__first.addr.070, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
+  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.070, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %if.end
-  %__last.addr.0.i.i = phi ptr [ %__last.addr.071, %if.end ], [ %__last.addr.1.i.i, %if.end.i.i ]
+  %__last.addr.0.i.i = phi ptr [ %__last.addr.068, %if.end ], [ %__last.addr.1.i.i, %if.end.i.i ]
   %__first.addr.0.i.i = phi ptr [ %add.ptr1.i, %if.end ], [ %incdec.ptr9.i.i, %if.end.i.i ]
   br label %while.cond1.i.i
 
@@ -68288,7 +68304,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %
   %indvars.iv.i.i.i.i = phi i64 [ 0, %while.cond1.i.i ], [ 1, %for.cond.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.1.i.i, i64 0, i64 %indvars.iv.i.i.i.i
   %4 = load double, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i.i.i
+  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.070, i64 0, i64 %indvars.iv.i.i.i.i
   %5 = load double, ptr %arrayidx.i.i11.i.i.i.i, align 8
   %cmp.i.i.i.i.i = fcmp oeq double %4, %5
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
@@ -68322,7 +68338,7 @@ for.cond.i.i20.i.i:                               ; preds = %for.body.i.i11.i.i
 for.body.i.i11.i.i:                               ; preds = %for.cond.i.i20.i.i, %while.cond4.i.i
   %cmp.i.i12.i.i = phi i1 [ true, %while.cond4.i.i ], [ false, %for.cond.i.i20.i.i ]
   %indvars.iv.i.i13.i.i = phi i64 [ 0, %while.cond4.i.i ], [ 1, %for.cond.i.i20.i.i ]
-  %arrayidx.i.i.i.i14.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i13.i.i
+  %arrayidx.i.i.i.i14.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.070, i64 0, i64 %indvars.iv.i.i13.i.i
   %8 = load double, ptr %arrayidx.i.i.i.i14.i.i, align 8
   %arrayidx.i.i11.i.i15.i.i = getelementptr inbounds [3 x double], ptr %__last.addr.1.i.i, i64 0, i64 %indvars.iv.i.i13.i.i
   %9 = load double, ptr %arrayidx.i.i11.i.i15.i.i, align 8
@@ -68357,10 +68373,10 @@ if.end.i.i:                                       ; preds = %while.end8.i.i
   br label %while.body.i.i, !llvm.loop !821
 
 _ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit: ; preds = %while.end8.i.i
-  %dec = add nsw i64 %__depth_limit.addr.072, -1
+  %dec = add nsw i64 %__depth_limit.addr.069, -1
   %cmp3.not = icmp ugt ptr %__first.addr.1.i.i, %__nth
-  %call.__last.addr.0 = select i1 %cmp3.not, ptr %__first.addr.1.i.i, ptr %__last.addr.071
-  %__first.addr.0.call = select i1 %cmp3.not, ptr %__first.addr.073, ptr %__first.addr.1.i.i
+  %call.__last.addr.0 = select i1 %cmp3.not, ptr %__first.addr.1.i.i, ptr %__last.addr.068
+  %__first.addr.0.call = select i1 %cmp3.not, ptr %__first.addr.070, ptr %__first.addr.1.i.i
   %sub.ptr.lhs.cast = ptrtoint ptr %call.__last.addr.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first.addr.0.call to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -68370,110 +68386,115 @@ _ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__op
 while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit, %entry
   %__last.addr.0.lcssa = phi ptr [ %__last, %entry ], [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ]
   %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ]
-  %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast68, %entry ], [ %sub.ptr.rhs.cast, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ]
+  %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast65, %entry ], [ %sub.ptr.rhs.cast, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__val.sroa.0.i)
   %cmp.i14 = icmp eq ptr %__first.addr.0.lcssa, %__last.addr.0.lcssa
   br i1 %cmp.i14, label %_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end
-  %__i.020.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 24
-  %cmp1.not21.i = icmp eq ptr %__i.020.i, %__last.addr.0.lcssa
-  br i1 %cmp1.not21.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit, label %for.body.i.i.preheader.lr.ph.i15
+  %__i.019.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 24
+  %cmp1.not20.i = icmp eq ptr %__i.019.i, %__last.addr.0.lcssa
+  br i1 %cmp1.not20.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit, label %for.body.i.i.preheader.lr.ph.i15
 
 for.body.i.i.preheader.lr.ph.i15:                 ; preds = %for.cond.preheader.i
   %arrayidx.i.i17.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 16
-  %arrayidx.i.i16.i.i.i.i17 = getelementptr inbounds i8, ptr %__val.i.i, i64 16
-  br label %for.body.i.i.preheader.i18
+  br label %for.body.i.i.preheader.i17
 
-for.body.i.i.preheader.i18:                       ; preds = %for.inc.i35, %for.body.i.i.preheader.lr.ph.i15
-  %__i.023.i = phi ptr [ %__i.020.i, %for.body.i.i.preheader.lr.ph.i15 ], [ %__i.0.i, %for.inc.i35 ]
-  %__first.pn22.i = phi ptr [ %__first.addr.0.lcssa, %for.body.i.i.preheader.lr.ph.i15 ], [ %__i.023.i, %for.inc.i35 ]
-  br label %for.body.i.i.i19
+for.body.i.i.preheader.i17:                       ; preds = %for.inc.i33, %for.body.i.i.preheader.lr.ph.i15
+  %__i.022.i = phi ptr [ %__i.019.i, %for.body.i.i.preheader.lr.ph.i15 ], [ %__i.0.i, %for.inc.i33 ]
+  %__first.pn21.i = phi ptr [ %__first.addr.0.lcssa, %for.body.i.i.preheader.lr.ph.i15 ], [ %__i.022.i, %for.inc.i33 ]
+  br label %for.body.i.i.i18
 
-for.cond.i.i.i40:                                 ; preds = %for.body.i.i.i19
-  br i1 %cmp.i.i.i20, label %for.body.i.i.i19, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i41, !llvm.loop !801
+for.cond.i.i.i38:                                 ; preds = %for.body.i.i.i18
+  br i1 %cmp.i.i.i19, label %for.body.i.i.i18, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i39, !llvm.loop !801
 
-for.body.i.i.i19:                                 ; preds = %for.cond.i.i.i40, %for.body.i.i.preheader.i18
-  %cmp.i.i.i20 = phi i1 [ false, %for.cond.i.i.i40 ], [ true, %for.body.i.i.preheader.i18 ]
-  %indvars.iv.i.i.i21 = phi i64 [ 1, %for.cond.i.i.i40 ], [ 0, %for.body.i.i.preheader.i18 ]
-  %arrayidx.i.i.i.i.i22 = getelementptr inbounds [3 x double], ptr %__i.023.i, i64 0, i64 %indvars.iv.i.i.i21
-  %12 = load double, ptr %arrayidx.i.i.i.i.i22, align 8
-  %arrayidx.i.i11.i.i.i23 = getelementptr inbounds [3 x double], ptr %__first.addr.0.lcssa, i64 0, i64 %indvars.iv.i.i.i21
-  %13 = load double, ptr %arrayidx.i.i11.i.i.i23, align 8
-  %cmp.i.i.i.i24 = fcmp oeq double %12, %13
-  br i1 %cmp.i.i.i.i24, label %for.cond.i.i.i40, label %if.then.i.i.i25
+for.body.i.i.i18:                                 ; preds = %for.cond.i.i.i38, %for.body.i.i.preheader.i17
+  %cmp.i.i.i19 = phi i1 [ false, %for.cond.i.i.i38 ], [ true, %for.body.i.i.preheader.i17 ]
+  %indvars.iv.i.i.i20 = phi i64 [ 1, %for.cond.i.i.i38 ], [ 0, %for.body.i.i.preheader.i17 ]
+  %arrayidx.i.i.i.i.i21 = getelementptr inbounds [3 x double], ptr %__i.022.i, i64 0, i64 %indvars.iv.i.i.i20
+  %12 = load double, ptr %arrayidx.i.i.i.i.i21, align 8
+  %arrayidx.i.i11.i.i.i22 = getelementptr inbounds [3 x double], ptr %__first.addr.0.lcssa, i64 0, i64 %indvars.iv.i.i.i20
+  %13 = load double, ptr %arrayidx.i.i11.i.i.i22, align 8
+  %cmp.i.i.i.i23 = fcmp oeq double %12, %13
+  br i1 %cmp.i.i.i.i23, label %for.cond.i.i.i38, label %if.then.i.i.i24
 
-if.then.i.i.i25:                                  ; preds = %for.body.i.i.i19
-  %cmp6.i.i.i26 = fcmp olt double %12, %13
-  br i1 %cmp6.i.i.i26, label %if.then2.i, label %if.else.i
+if.then.i.i.i24:                                  ; preds = %for.body.i.i.i18
+  %cmp6.i.i.i25 = fcmp olt double %12, %13
+  br i1 %cmp6.i.i.i25, label %if.then2.i, label %if.then.i.i.if.else_crit_edge.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i41: ; preds = %for.cond.i.i.i40
-  %arrayidx.i.i16.i.i.i42 = getelementptr inbounds i8, ptr %__first.pn22.i, i64 40
-  %14 = load double, ptr %arrayidx.i.i16.i.i.i42, align 8
+if.then.i.i.if.else_crit_edge.i:                  ; preds = %if.then.i.i.i24
+  %__val.sroa.4.0.__last.sroa_idx.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 40
+  %__val.sroa.4.0.copyload.i.pre.i = load double, ptr %__val.sroa.4.0.__last.sroa_idx.i.phi.trans.insert.i, align 8
+  br label %if.else.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i39: ; preds = %for.cond.i.i.i38
+  %arrayidx.i.i16.i.i.i40 = getelementptr inbounds i8, ptr %__first.pn21.i, i64 40
+  %14 = load double, ptr %arrayidx.i.i16.i.i.i40, align 8
   %15 = load double, ptr %arrayidx.i.i17.i.i.i16, align 8
-  %cmp9.i.i.i43 = fcmp olt double %14, %15
-  br i1 %cmp9.i.i.i43, label %if.then2.i, label %if.else.i
+  %cmp9.i.i.i41 = fcmp olt double %14, %15
+  br i1 %cmp9.i.i.i41, label %if.then2.i, label %if.else.i
 
-if.then2.i:                                       ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i41, %if.then.i.i.i25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__val.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %__i.023.i, i64 24, i1 false)
-  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn22.i, i64 48
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.023.i to i64
+if.then2.i:                                       ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i39, %if.then.i.i.i24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__val.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %__i.022.i, i64 24, i1 false)
+  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 48
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.022.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.lcssa
   %sub.ptr.div.neg.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, -24
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %add.ptr3.i, i64 %sub.ptr.div.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.addr.0.lcssa, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.0.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %__val.sroa.0.i, i64 24, i1 false)
-  br label %for.inc.i35
+  br label %for.inc.i33
 
-if.else.i:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i41, %if.then.i.i.i25
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__val.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__val.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__i.023.i, i64 24, i1 false)
-  %16 = load double, ptr %arrayidx.i.i16.i.i.i.i17, align 8
+if.else.i:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i39, %if.then.i.i.if.else_crit_edge.i
+  %__val.sroa.4.0.copyload.i.i = phi double [ %__val.sroa.4.0.copyload.i.pre.i, %if.then.i.i.if.else_crit_edge.i ], [ %14, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i39 ]
+  %16 = load <2 x double>, ptr %__i.022.i, align 8
+  %17 = extractelement <2 x double> %16, i64 0
+  %18 = extractelement <2 x double> %16, i64 1
   br label %while.cond.i.i
 
-while.cond.i.i:                                   ; preds = %while.body.i.i36, %if.else.i
-  %__last.addr.0.i.i27 = phi ptr [ %__i.023.i, %if.else.i ], [ %__next.0.i.i, %while.body.i.i36 ]
-  %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i27, i64 -24
-  br label %for.body.i.i.i.i28
+while.cond.i.i:                                   ; preds = %while.body.i.i34, %if.else.i
+  %__last.addr.0.i.i26 = phi ptr [ %__i.022.i, %if.else.i ], [ %__next.0.i.i, %while.body.i.i34 ]
+  %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i26, i64 -24
+  br label %for.body.i.i.i.i27
 
-for.cond.i.i.i.i37:                               ; preds = %for.body.i.i.i.i28
-  br i1 %cmp.i.i.i12.i, label %for.body.i.i.i.i28, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IdEEPS7_EEbRT_T0_.exit.i.i, !llvm.loop !801
+for.cond.i.i.i.i35:                               ; preds = %for.body.i.i.i.i27
+  br i1 %cmp.i.i.i12.i, label %for.body.i.i.i.i27, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IdEEPS7_EEbRT_T0_.exit.i.i, !llvm.loop !801
 
-for.body.i.i.i.i28:                               ; preds = %for.cond.i.i.i.i37, %while.cond.i.i
-  %cmp.i.i.i12.i = phi i1 [ true, %while.cond.i.i ], [ false, %for.cond.i.i.i.i37 ]
-  %indvars.iv.i.i.i.i29 = phi i64 [ 0, %while.cond.i.i ], [ 1, %for.cond.i.i.i.i37 ]
-  %arrayidx.i.i.i.i.i.i30 = getelementptr inbounds [3 x double], ptr %__val.i.i, i64 0, i64 %indvars.iv.i.i.i.i29
-  %17 = load double, ptr %arrayidx.i.i.i.i.i.i30, align 8
-  %arrayidx.i.i11.i.i.i.i31 = getelementptr inbounds [3 x double], ptr %__next.0.i.i, i64 0, i64 %indvars.iv.i.i.i.i29
-  %18 = load double, ptr %arrayidx.i.i11.i.i.i.i31, align 8
-  %cmp.i.i.i.i.i32 = fcmp oeq double %17, %18
-  br i1 %cmp.i.i.i.i.i32, label %for.cond.i.i.i.i37, label %if.then.i.i.i.i33
+for.body.i.i.i.i27:                               ; preds = %for.cond.i.i.i.i35, %while.cond.i.i
+  %cmp.i.i.i12.i = phi i1 [ true, %while.cond.i.i ], [ false, %for.cond.i.i.i.i35 ]
+  %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i = phi double [ %17, %while.cond.i.i ], [ %18, %for.cond.i.i.i.i35 ]
+  %indvars.iv.i.i.i.i28 = phi i64 [ 0, %while.cond.i.i ], [ 1, %for.cond.i.i.i.i35 ]
+  %arrayidx.i.i11.i.i.i.i29 = getelementptr inbounds [3 x double], ptr %__next.0.i.i, i64 0, i64 %indvars.iv.i.i.i.i28
+  %19 = load double, ptr %arrayidx.i.i11.i.i.i.i29, align 8
+  %cmp.i.i.i.i.i30 = fcmp oeq double %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i, %19
+  br i1 %cmp.i.i.i.i.i30, label %for.cond.i.i.i.i35, label %if.then.i.i.i.i31
 
-if.then.i.i.i.i33:                                ; preds = %for.body.i.i.i.i28
-  %cmp6.i.i.i.i34 = fcmp olt double %17, %18
-  br i1 %cmp6.i.i.i.i34, label %while.body.i.i36, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
+if.then.i.i.i.i31:                                ; preds = %for.body.i.i.i.i27
+  %cmp6.i.i.i.i32 = fcmp olt double %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i, %19
+  br i1 %cmp6.i.i.i.i32, label %while.body.i.i34, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IdEEPS7_EEbRT_T0_.exit.i.i: ; preds = %for.cond.i.i.i.i37
-  %arrayidx.i.i17.i.i.i.i38 = getelementptr inbounds i8, ptr %__last.addr.0.i.i27, i64 -8
-  %19 = load double, ptr %arrayidx.i.i17.i.i.i.i38, align 8
-  %cmp9.i.i.i.i39 = fcmp olt double %16, %19
-  br i1 %cmp9.i.i.i.i39, label %while.body.i.i36, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IdEEPS7_EEbRT_T0_.exit.i.i: ; preds = %for.cond.i.i.i.i35
+  %arrayidx.i.i17.i.i.i.i36 = getelementptr inbounds i8, ptr %__last.addr.0.i.i26, i64 -8
+  %20 = load double, ptr %arrayidx.i.i17.i.i.i.i36, align 8
+  %cmp9.i.i.i.i37 = fcmp olt double %__val.sroa.4.0.copyload.i.i, %20
+  br i1 %cmp9.i.i.i.i37, label %while.body.i.i34, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
 
-while.body.i.i36:                                 ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IdEEPS7_EEbRT_T0_.exit.i.i, %if.then.i.i.i.i33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__last.addr.0.i.i27, ptr noundef nonnull align 8 dereferenceable(24) %__next.0.i.i, i64 24, i1 false)
+while.body.i.i34:                                 ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IdEEPS7_EEbRT_T0_.exit.i.i, %if.then.i.i.i.i31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__last.addr.0.i.i26, ptr noundef nonnull align 8 dereferenceable(24) %__next.0.i.i, i64 24, i1 false)
   br label %while.cond.i.i, !llvm.loop !823
 
-_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IdEEPS7_EEbRT_T0_.exit.i.i, %if.then.i.i.i.i33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__last.addr.0.i.i27, ptr noundef nonnull align 8 dereferenceable(24) %__val.i.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__val.i.i)
-  br label %for.inc.i35
+_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IdEEPS7_EEbRT_T0_.exit.i.i, %if.then.i.i.i.i31
+  store <2 x double> %16, ptr %__last.addr.0.i.i26, align 8
+  %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i26, i64 16
+  store double %__val.sroa.4.0.copyload.i.i, ptr %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i, align 8
+  br label %for.inc.i33
 
-for.inc.i35:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, %if.then2.i
-  %__i.0.i = getelementptr inbounds i8, ptr %__i.023.i, i64 24
+for.inc.i33:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, %if.then2.i
+  %__i.0.i = getelementptr inbounds i8, ptr %__i.022.i, i64 24
   %cmp1.not.i = icmp eq ptr %__i.0.i, %__last.addr.0.lcssa
-  br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit, label %for.body.i.i.preheader.i18, !llvm.loop !824
+  br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit, label %for.body.i.i.preheader.i17, !llvm.loop !824
 
-_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit: ; preds = %for.inc.i35, %while.end, %for.cond.preheader.i
+_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit: ; preds = %for.inc.i33, %while.end, %for.cond.preheader.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__val.sroa.0.i)
   br label %return
 
@@ -68484,8 +68505,6 @@ return:                                           ; preds = %_ZSt16__insertion_s
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt11__make_heapIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_RT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %__comp) local_unnamed_addr #5 comdat {
 entry:
-  %agg.tmp1723.i = alloca %"class.openvdb::v11_0::math::Vec3", align 8
-  %agg.tmp10.sroa.0 = alloca [3 x double], align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -68497,11 +68516,10 @@ if.end:                                           ; preds = %entry
   %sub = add nsw i64 %sub.ptr.div, -2
   %div9 = lshr i64 %sub, 1
   %sub.i = add nsw i64 %sub.ptr.div, -1
-  %div.i2533 = lshr i64 %sub.i, 1
+  %div.i2330 = lshr i64 %sub.i, 1
   %and.i = and i64 %sub.ptr.div, 1
   %cmp5.i = icmp eq i64 %and.i, 0
   %div7.i = lshr exact i64 %sub, 1
-  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1723.i, i64 16
   %sub12.i = or disjoint i64 %sub, 1
   %add.ptr13.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %__first, i64 %sub12.i
   %add.ptr14.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %__first, i64 %div7.i
@@ -68510,14 +68528,15 @@ if.end:                                           ; preds = %entry
 while.body:                                       ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IdEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, %if.end
   %__parent.0 = phi i64 [ %div9, %if.end ], [ %dec, %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IdEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit ]
   %add.ptr = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %__first, i64 %__parent.0
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp10.sroa.0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp10.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, i64 24, i1 false)
-  %cmp32.i = icmp sgt i64 %div.i2533, %__parent.0
-  br i1 %cmp32.i, label %while.body.i, label %while.end.i
+  %0 = load <2 x double>, ptr %add.ptr, align 8
+  %__value.sroa.0.sroa.3.0.add.ptr.sroa_idx = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %__value.sroa.0.sroa.3.0.copyload = load double, ptr %__value.sroa.0.sroa.3.0.add.ptr.sroa_idx, align 8
+  %cmp35.i = icmp sgt i64 %div.i2330, %__parent.0
+  br i1 %cmp35.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.body, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i
-  %__secondChild.033.i = phi i64 [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i ], [ %__parent.0, %while.body ]
-  %add.i = shl i64 %__secondChild.033.i, 1
+  %__secondChild.036.i = phi i64 [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i ], [ %__parent.0, %while.body ]
+  %add.i = shl i64 %__secondChild.036.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -68531,31 +68550,31 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %wh
   %cmp.i.i.i = phi i1 [ true, %while.body.i ], [ false, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %while.body.i ], [ 1, %for.cond.i.i.i ]
   %arrayidx.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %add.ptr.i, i64 0, i64 %indvars.iv.i.i.i
-  %0 = load double, ptr %arrayidx.i.i.i.i.i, align 8
+  %1 = load double, ptr %arrayidx.i.i.i.i.i, align 8
   %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x double], ptr %add.ptr2.i, i64 0, i64 %indvars.iv.i.i.i
-  %1 = load double, ptr %arrayidx.i.i11.i.i.i, align 8
-  %cmp.i.i.i.i = fcmp oeq double %0, %1
+  %2 = load double, ptr %arrayidx.i.i11.i.i.i, align 8
+  %cmp.i.i.i.i = fcmp oeq double %1, %2
   br i1 %cmp.i.i.i.i, label %for.cond.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
-  %cmp6.i.i.i = fcmp olt double %0, %1
+  %cmp6.i.i.i = fcmp olt double %1, %2
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i
 
 for.end.i.i.i:                                    ; preds = %for.cond.i.i.i
   %arrayidx.i.i16.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
-  %2 = load double, ptr %arrayidx.i.i16.i.i.i, align 8
+  %3 = load double, ptr %arrayidx.i.i16.i.i.i, align 8
   %arrayidx.i.i17.i.i.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 16
-  %3 = load double, ptr %arrayidx.i.i17.i.i.i, align 8
-  %cmp9.i.i.i = fcmp olt double %2, %3
+  %4 = load double, ptr %arrayidx.i.i17.i.i.i, align 8
+  %cmp9.i.i.i = fcmp olt double %3, %4
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i: ; preds = %for.end.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i1 [ %cmp6.i.i.i, %if.then.i.i.i ], [ %cmp9.i.i.i, %for.end.i.i.i ]
   %spec.select.i = select i1 %retval.0.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %__first, i64 %__secondChild.033.i
+  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %__first, i64 %__secondChild.036.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr4.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr3.i, i64 24, i1 false)
-  %cmp.i = icmp slt i64 %spec.select.i, %div.i2533
+  %cmp.i = icmp slt i64 %spec.select.i, %div.i2330
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !825
 
 while.end.i:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i, %while.body
@@ -68570,17 +68589,16 @@ if.then9.i:                                       ; preds = %while.end.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__secondChild.0.lcssa.i, %while.end.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1723.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1723.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp10.sroa.0, i64 24, i1 false)
   %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %__parent.0
-  br i1 %cmp15.i.i, label %land.rhs.lr.ph.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IdEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
+  br i1 %cmp15.i.i, label %land.rhs.i.i.preheader, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IdEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
-land.rhs.lr.ph.i.i:                               ; preds = %if.end16.i
-  %4 = load double, ptr %arrayidx.i.i17.i.i.i.i, align 8
+land.rhs.i.i.preheader:                           ; preds = %if.end16.i
+  %5 = extractelement <2 x double> %0, i64 0
+  %6 = extractelement <2 x double> %0, i64 1
   br label %land.rhs.i.i
 
-land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
-  %__holeIndex.addr.016.i.i = phi i64 [ %__holeIndex.addr.1.i, %land.rhs.lr.ph.i.i ], [ %__parent.017.i.i, %while.body.i.i ]
+land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %while.body.i.i
+  %__holeIndex.addr.016.i.i = phi i64 [ %__parent.017.i.i, %while.body.i.i ], [ %__holeIndex.addr.1.i, %land.rhs.i.i.preheader ]
   %__parent.017.in.i.i = add nsw i64 %__holeIndex.addr.016.i.i, -1
   %__parent.017.i.i = sdiv i64 %__parent.017.in.i.i, 2
   %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %__first, i64 %__parent.017.i.i
@@ -68591,22 +68609,21 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %land.rhs.i.i
   %cmp.i.i.i24.i = phi i1 [ true, %land.rhs.i.i ], [ false, %for.cond.i.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i = phi double [ %5, %land.rhs.i.i ], [ %6, %for.cond.i.i.i.i ]
   %indvars.iv.i.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ 1, %for.cond.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %add.ptr.i.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %5 = load double, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x double], ptr %agg.tmp1723.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %6 = load double, ptr %arrayidx.i.i11.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = fcmp oeq double %5, %6
+  %7 = load double, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i = fcmp oeq double %7, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %cmp6.i.i.i.i = fcmp olt double %5, %6
+  %cmp6.i.i.i.i = fcmp olt double %7, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i
   br i1 %cmp6.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IdEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IdEES7_EEbT_RT0_.exit.i.i: ; preds = %for.cond.i.i.i.i
   %arrayidx.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
-  %7 = load double, ptr %arrayidx.i.i16.i.i.i.i, align 8
-  %cmp9.i.i.i.i = fcmp olt double %7, %4
+  %8 = load double, ptr %arrayidx.i.i16.i.i.i.i, align 8
+  %cmp9.i.i.i.i = fcmp olt double %8, %__value.sroa.0.sroa.3.0.copyload
   br i1 %cmp9.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IdEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IdEES7_EEbT_RT0_.exit.i.i, %if.then.i.i.i.i
@@ -68618,9 +68635,9 @@ while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__op
 _ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IdEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit: ; preds = %if.then.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IdEES7_EEbT_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.016.i.i, %if.then.i.i.i.i ], [ %__parent.017.i.i, %while.body.i.i ], [ %__holeIndex.addr.016.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IdEES7_EEbT_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp10.sroa.0, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1723.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp10.sroa.0)
+  store <2 x double> %0, ptr %add.ptr5.i.i, align 8
+  %agg.tmp1723.sroa.6.0.add.ptr5.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 16
+  store double %__value.sroa.0.sroa.3.0.copyload, ptr %agg.tmp1723.sroa.6.0.add.ptr5.i.sroa_idx.i, align 8
   %cmp6 = icmp eq i64 %__parent.0, 0
   %dec = add nsw i64 %__parent.0, -1
   br i1 %cmp6, label %return, label %while.body, !llvm.loop !827
@@ -68632,8 +68649,9 @@ return:                                           ; preds = %_ZSt13__adjust_heap
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt10__pop_heapIPN7openvdb5v11_04math4Vec3IdEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_RT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__comp) local_unnamed_addr #5 comdat {
 entry:
-  %agg.tmp4.sroa.0 = alloca [3 x double], align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %__result, i64 24, i1 false)
+  %0 = load <2 x double>, ptr %__result, align 8
+  %__value.sroa.0.sroa.3.0.__result.sroa_idx = getelementptr inbounds i8, ptr %__result, i64 16
+  %__value.sroa.0.sroa.3.0.copyload = load double, ptr %__value.sroa.0.sroa.3.0.__result.sroa_idx, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__result, ptr noundef nonnull align 8 dereferenceable(24) %__first, i64 24, i1 false)
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
@@ -68641,12 +68659,12 @@ entry:
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 24
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i = sdiv i64 %sub.i, 2
-  %cmp32.i = icmp sgt i64 %sub.ptr.sub, 48
-  br i1 %cmp32.i, label %while.body.i, label %while.end.i
+  %cmp35.i = icmp sgt i64 %sub.ptr.sub, 48
+  br i1 %cmp35.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %entry, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i
-  %__secondChild.033.i = phi i64 [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i ], [ 0, %entry ]
-  %add.i = shl i64 %__secondChild.033.i, 1
+  %__secondChild.036.i = phi i64 [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i ], [ 0, %entry ]
+  %add.i = shl i64 %__secondChild.036.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -68660,29 +68678,29 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %wh
   %cmp.i.i.i = phi i1 [ true, %while.body.i ], [ false, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %while.body.i ], [ 1, %for.cond.i.i.i ]
   %arrayidx.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %add.ptr.i, i64 0, i64 %indvars.iv.i.i.i
-  %0 = load double, ptr %arrayidx.i.i.i.i.i, align 8
+  %1 = load double, ptr %arrayidx.i.i.i.i.i, align 8
   %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x double], ptr %add.ptr2.i, i64 0, i64 %indvars.iv.i.i.i
-  %1 = load double, ptr %arrayidx.i.i11.i.i.i, align 8
-  %cmp.i.i.i.i = fcmp oeq double %0, %1
+  %2 = load double, ptr %arrayidx.i.i11.i.i.i, align 8
+  %cmp.i.i.i.i = fcmp oeq double %1, %2
   br i1 %cmp.i.i.i.i, label %for.cond.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
-  %cmp6.i.i.i = fcmp olt double %0, %1
+  %cmp6.i.i.i = fcmp olt double %1, %2
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i
 
 for.end.i.i.i:                                    ; preds = %for.cond.i.i.i
   %arrayidx.i.i16.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
-  %2 = load double, ptr %arrayidx.i.i16.i.i.i, align 8
+  %3 = load double, ptr %arrayidx.i.i16.i.i.i, align 8
   %arrayidx.i.i17.i.i.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 16
-  %3 = load double, ptr %arrayidx.i.i17.i.i.i, align 8
-  %cmp9.i.i.i = fcmp olt double %2, %3
+  %4 = load double, ptr %arrayidx.i.i17.i.i.i, align 8
+  %cmp9.i.i.i = fcmp olt double %3, %4
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IdEES8_EEbT_T0_.exit.i: ; preds = %for.end.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i1 [ %cmp6.i.i.i, %if.then.i.i.i ], [ %cmp9.i.i.i, %for.end.i.i.i ]
   %spec.select.i = select i1 %retval.0.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %__first, i64 %__secondChild.033.i
+  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %__first, i64 %__secondChild.036.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr4.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr3.i, i64 24, i1 false)
   %cmp.i = icmp slt i64 %spec.select.i, %div.i
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !825
@@ -68710,15 +68728,15 @@ if.then9.i:                                       ; preds = %land.lhs.true.i
 if.end16.i:                                       ; preds = %if.then9.i, %land.lhs.true.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__secondChild.0.lcssa.i, %land.lhs.true.i ], [ %__secondChild.0.lcssa.i, %while.end.i ]
   %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, 0
-  br i1 %cmp15.i.i, label %land.rhs.lr.ph.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IdEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
+  br i1 %cmp15.i.i, label %land.rhs.i.i.preheader, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IdEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
-land.rhs.lr.ph.i.i:                               ; preds = %if.end16.i
-  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp4.sroa.0, i64 16
-  %4 = load double, ptr %arrayidx.i.i17.i.i.i.i, align 8
+land.rhs.i.i.preheader:                           ; preds = %if.end16.i
+  %5 = extractelement <2 x double> %0, i64 0
+  %6 = extractelement <2 x double> %0, i64 1
   br label %land.rhs.i.i
 
-land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
-  %__holeIndex.addr.016.i.i = phi i64 [ %__holeIndex.addr.1.i, %land.rhs.lr.ph.i.i ], [ %__parent.017.i.i56, %while.body.i.i ]
+land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %while.body.i.i
+  %__holeIndex.addr.016.i.i = phi i64 [ %__parent.017.i.i56, %while.body.i.i ], [ %__holeIndex.addr.1.i, %land.rhs.i.i.preheader ]
   %__parent.017.in.i.i = add nsw i64 %__holeIndex.addr.016.i.i, -1
   %__parent.017.i.i56 = lshr i64 %__parent.017.in.i.i, 1
   %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %__first, i64 %__parent.017.i.i56
@@ -68729,22 +68747,21 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %land.rhs.i.i
   %cmp.i.i.i24.i = phi i1 [ true, %land.rhs.i.i ], [ false, %for.cond.i.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i = phi double [ %5, %land.rhs.i.i ], [ %6, %for.cond.i.i.i.i ]
   %indvars.iv.i.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ 1, %for.cond.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %add.ptr.i.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %5 = load double, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x double], ptr %agg.tmp4.sroa.0, i64 0, i64 %indvars.iv.i.i.i.i
-  %6 = load double, ptr %arrayidx.i.i11.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = fcmp oeq double %5, %6
+  %7 = load double, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i = fcmp oeq double %7, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %cmp6.i.i.i.i = fcmp olt double %5, %6
+  %cmp6.i.i.i.i = fcmp olt double %7, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i
   br i1 %cmp6.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IdEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IdEES7_EEbT_RT0_.exit.i.i: ; preds = %for.cond.i.i.i.i
   %arrayidx.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
-  %7 = load double, ptr %arrayidx.i.i16.i.i.i.i, align 8
-  %cmp9.i.i.i.i = fcmp olt double %7, %4
+  %8 = load double, ptr %arrayidx.i.i16.i.i.i.i, align 8
+  %cmp9.i.i.i.i = fcmp olt double %8, %__value.sroa.0.sroa.3.0.copyload
   br i1 %cmp9.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IdEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IdEES7_EEbT_RT0_.exit.i.i, %if.then.i.i.i.i
@@ -68756,7 +68773,9 @@ while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__op
 _ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IdEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit: ; preds = %if.then.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IdEES7_EEbT_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.016.i.i, %if.then.i.i.i.i ], [ %__parent.017.i.i56, %while.body.i.i ], [ %__holeIndex.addr.016.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IdEES7_EEbT_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4.sroa.0, i64 24, i1 false)
+  store <2 x double> %0, ptr %add.ptr5.i.i, align 8
+  %agg.tmp1723.sroa.6.0.add.ptr5.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 16
+  store double %__value.sroa.0.sroa.3.0.copyload, ptr %agg.tmp1723.sroa.6.0.add.ptr5.i.sroa_idx.i, align 8
   ret void
 }
 
@@ -69959,8 +69978,6 @@ for.end:                                          ; preds = %for.inc.i.i.i, %_ZN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE10isConstantERS6_S9_RbRKS6_(ptr noundef nonnull align 8 dereferenceable(99344) %this, ptr noundef nonnull align 8 dereferenceable(24) %minValue, ptr noundef nonnull align 8 dereferenceable(24) %maxValue, ptr noundef nonnull align 1 dereferenceable(1) %state, ptr noundef nonnull align 8 dereferenceable(24) %tolerance) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3", align 16
-  %ref.tmp14 = alloca %"class.openvdb::v11_0::math::Vec3", align 16
   %mChildMask = getelementptr inbounds i8, ptr %this, i64 98304
   br label %for.cond.i
 
@@ -70006,8 +70023,8 @@ if.end:                                           ; preds = %while.body.i
   %arrayidx.i.i17.i69 = getelementptr inbounds i8, ptr %tolerance, i64 16
   %arrayidx.i.i17.i = getelementptr inbounds i8, ptr %minValue, i64 16
   %arrayidx.i.i17.i47 = getelementptr inbounds i8, ptr %maxValue, i64 16
-  %arrayidx8.i.i55 = getelementptr inbounds i8, ptr %ref.tmp14, i64 16
-  %arrayidx8.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx.i.i.i.i51 = getelementptr inbounds i8, ptr %minValue, i64 8
+  %ref.tmp.sroa.4.0.maxValue.sroa_idx = getelementptr inbounds i8, ptr %maxValue, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
@@ -70049,15 +70066,15 @@ for.body.i35.preheader:                           ; preds = %if.then.i, %_ZN7ope
 
 if.then8:                                         ; preds = %if.then.i.if.then8_crit_edge, %_ZN7openvdb5v11_04mathltILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit
   %8 = phi double [ %.pre, %if.then.i.if.then8_crit_edge ], [ %6, %_ZN7openvdb5v11_04mathltILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !838)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %maxValue, i64 24, i1 false)
-  %9 = load <2 x double>, ptr %arrayidx5, align 8, !noalias !838
-  %10 = load <2 x double>, ptr %ref.tmp, align 16, !alias.scope !838
-  %11 = fsub <2 x double> %10, %9
-  store <2 x double> %11, ptr %ref.tmp, align 16, !alias.scope !838
-  %12 = load double, ptr %arrayidx8.i.i, align 16, !alias.scope !838
-  %sub9.i.i = fsub double %12, %8
-  store double %sub9.i.i, ptr %arrayidx8.i.i, align 16, !alias.scope !838
+  %ref.tmp.sroa.0.0.copyload = load double, ptr %maxValue, align 8
+  %ref.tmp.sroa.4.0.copyload = load double, ptr %ref.tmp.sroa.4.0.maxValue.sroa_idx, align 8
+  %ref.tmp.sroa.7.0.copyload = load double, ptr %arrayidx.i.i17.i47, align 8
+  %9 = load double, ptr %arrayidx5, align 8, !noalias !838
+  %sub.i.i = fsub double %ref.tmp.sroa.0.0.copyload, %9
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx5, i64 8
+  %10 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !838
+  %sub5.i.i = fsub double %ref.tmp.sroa.4.0.copyload, %10
+  %sub9.i.i = fsub double %ref.tmp.sroa.7.0.copyload, %8
   br label %for.body.i21
 
 for.cond.i30:                                     ; preds = %for.body.i21
@@ -70065,21 +70082,20 @@ for.cond.i30:                                     ; preds = %for.body.i21
 
 for.body.i21:                                     ; preds = %for.cond.i30, %if.then8
   %cmp.i22 = phi i1 [ true, %if.then8 ], [ false, %for.cond.i30 ]
+  %indvars.iv.i23.sroa.phi.sroa.speculated = phi double [ %sub.i.i, %if.then8 ], [ %sub5.i.i, %for.cond.i30 ]
   %indvars.iv.i23 = phi i64 [ 0, %if.then8 ], [ 1, %for.cond.i30 ]
-  %arrayidx.i.i.i24 = getelementptr inbounds [3 x double], ptr %ref.tmp, i64 0, i64 %indvars.iv.i23
-  %13 = load double, ptr %arrayidx.i.i.i24, align 8
   %arrayidx.i.i11.i25 = getelementptr inbounds [3 x double], ptr %tolerance, i64 0, i64 %indvars.iv.i23
-  %14 = load double, ptr %arrayidx.i.i11.i25, align 8
-  %cmp.i.i26 = fcmp oeq double %13, %14
+  %11 = load double, ptr %arrayidx.i.i11.i25, align 8
+  %cmp.i.i26 = fcmp oeq double %indvars.iv.i23.sroa.phi.sroa.speculated, %11
   br i1 %cmp.i.i26, label %for.cond.i30, label %if.then.i27
 
 if.then.i27:                                      ; preds = %for.body.i21
-  %cmp6.i28 = fcmp ogt double %13, %14
+  %cmp6.i28 = fcmp ogt double %indvars.iv.i23.sroa.phi.sroa.speculated, %11
   br i1 %cmp6.i28, label %return, label %for.inc.sink.split
 
 _ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit: ; preds = %for.cond.i30
-  %15 = load double, ptr %arrayidx.i.i17.i69, align 8
-  %cmp9.i34 = fcmp ogt double %sub9.i.i, %15
+  %12 = load double, ptr %arrayidx.i.i17.i69, align 8
+  %cmp9.i34 = fcmp ogt double %sub9.i.i, %12
   br i1 %cmp9.i34, label %return, label %for.inc.sink.split
 
 for.cond.i44:                                     ; preds = %for.body.i35
@@ -70089,34 +70105,39 @@ for.body.i35:                                     ; preds = %for.body.i35.prehea
   %cmp.i36 = phi i1 [ false, %for.cond.i44 ], [ true, %for.body.i35.preheader ]
   %indvars.iv.i37 = phi i64 [ 1, %for.cond.i44 ], [ 0, %for.body.i35.preheader ]
   %arrayidx.i.i.i38 = getelementptr inbounds [3 x double], ptr %arrayidx5, i64 0, i64 %indvars.iv.i37
-  %16 = load double, ptr %arrayidx.i.i.i38, align 8
+  %13 = load double, ptr %arrayidx.i.i.i38, align 8
   %arrayidx.i.i11.i39 = getelementptr inbounds [3 x double], ptr %maxValue, i64 0, i64 %indvars.iv.i37
-  %17 = load double, ptr %arrayidx.i.i11.i39, align 8
-  %cmp.i.i40 = fcmp oeq double %16, %17
+  %14 = load double, ptr %arrayidx.i.i11.i39, align 8
+  %cmp.i.i40 = fcmp oeq double %13, %14
   br i1 %cmp.i.i40, label %for.cond.i44, label %if.then.i41
 
 if.then.i41:                                      ; preds = %for.body.i35
-  %cmp6.i42 = fcmp ogt double %16, %17
-  br i1 %cmp6.i42, label %if.then13, label %for.inc
+  %cmp6.i42 = fcmp ogt double %13, %14
+  br i1 %cmp6.i42, label %if.then.i41.if.then13_crit_edge, label %for.inc
+
+if.then.i41.if.then13_crit_edge:                  ; preds = %if.then.i41
+  %ref.tmp14.sroa.7.0.arrayidx5.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx5, i64 16
+  %ref.tmp14.sroa.7.0.copyload.pre = load double, ptr %ref.tmp14.sroa.7.0.arrayidx5.sroa_idx.phi.trans.insert, align 8
+  br label %if.then13
 
 _ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49: ; preds = %for.cond.i44
   %arrayidx.i.i16.i46 = getelementptr inbounds i8, ptr %arrayidx5, i64 16
-  %18 = load double, ptr %arrayidx.i.i16.i46, align 8
-  %19 = load double, ptr %arrayidx.i.i17.i47, align 8
-  %cmp9.i48 = fcmp ogt double %18, %19
+  %15 = load double, ptr %arrayidx.i.i16.i46, align 8
+  %16 = load double, ptr %arrayidx.i.i17.i47, align 8
+  %cmp9.i48 = fcmp ogt double %15, %16
   br i1 %cmp9.i48, label %if.then13, label %for.inc
 
-if.then13:                                        ; preds = %if.then.i41, %_ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !841)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx5, i64 24, i1 false)
-  %20 = load <2 x double>, ptr %minValue, align 8, !noalias !841
-  %21 = load <2 x double>, ptr %ref.tmp14, align 16, !alias.scope !841
-  %22 = fsub <2 x double> %21, %20
-  store <2 x double> %22, ptr %ref.tmp14, align 16, !alias.scope !841
-  %23 = load double, ptr %arrayidx.i.i17.i, align 8, !noalias !841
-  %24 = load double, ptr %arrayidx8.i.i55, align 16, !alias.scope !841
-  %sub9.i.i56 = fsub double %24, %23
-  store double %sub9.i.i56, ptr %arrayidx8.i.i55, align 16, !alias.scope !841
+if.then13:                                        ; preds = %if.then.i41.if.then13_crit_edge, %_ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49
+  %ref.tmp14.sroa.7.0.copyload = phi double [ %ref.tmp14.sroa.7.0.copyload.pre, %if.then.i41.if.then13_crit_edge ], [ %15, %_ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49 ]
+  %ref.tmp14.sroa.0.0.copyload = load double, ptr %arrayidx5, align 8
+  %ref.tmp14.sroa.4.0.arrayidx5.sroa_idx = getelementptr inbounds i8, ptr %arrayidx5, i64 8
+  %ref.tmp14.sroa.4.0.copyload = load double, ptr %ref.tmp14.sroa.4.0.arrayidx5.sroa_idx, align 8
+  %17 = load double, ptr %minValue, align 8, !noalias !841
+  %sub.i.i50 = fsub double %ref.tmp14.sroa.0.0.copyload, %17
+  %18 = load double, ptr %arrayidx.i.i.i.i51, align 8, !noalias !841
+  %sub5.i.i53 = fsub double %ref.tmp14.sroa.4.0.copyload, %18
+  %19 = load double, ptr %arrayidx.i.i17.i, align 8, !noalias !841
+  %sub9.i.i56 = fsub double %ref.tmp14.sroa.7.0.copyload, %19
   br label %for.body.i57
 
 for.cond.i66:                                     ; preds = %for.body.i57
@@ -70124,21 +70145,20 @@ for.cond.i66:                                     ; preds = %for.body.i57
 
 for.body.i57:                                     ; preds = %for.cond.i66, %if.then13
   %cmp.i58 = phi i1 [ true, %if.then13 ], [ false, %for.cond.i66 ]
+  %indvars.iv.i59.sroa.phi.sroa.speculated = phi double [ %sub.i.i50, %if.then13 ], [ %sub5.i.i53, %for.cond.i66 ]
   %indvars.iv.i59 = phi i64 [ 0, %if.then13 ], [ 1, %for.cond.i66 ]
-  %arrayidx.i.i.i60 = getelementptr inbounds [3 x double], ptr %ref.tmp14, i64 0, i64 %indvars.iv.i59
-  %25 = load double, ptr %arrayidx.i.i.i60, align 8
   %arrayidx.i.i11.i61 = getelementptr inbounds [3 x double], ptr %tolerance, i64 0, i64 %indvars.iv.i59
-  %26 = load double, ptr %arrayidx.i.i11.i61, align 8
-  %cmp.i.i62 = fcmp oeq double %25, %26
+  %20 = load double, ptr %arrayidx.i.i11.i61, align 8
+  %cmp.i.i62 = fcmp oeq double %indvars.iv.i59.sroa.phi.sroa.speculated, %20
   br i1 %cmp.i.i62, label %for.cond.i66, label %if.then.i63
 
 if.then.i63:                                      ; preds = %for.body.i57
-  %cmp6.i64 = fcmp ogt double %25, %26
+  %cmp6.i64 = fcmp ogt double %indvars.iv.i59.sroa.phi.sroa.speculated, %20
   br i1 %cmp6.i64, label %return, label %for.inc.sink.split
 
 _ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit71: ; preds = %for.cond.i66
-  %27 = load double, ptr %arrayidx.i.i17.i69, align 8
-  %cmp9.i70 = fcmp ogt double %sub9.i.i56, %27
+  %21 = load double, ptr %arrayidx.i.i17.i69, align 8
+  %cmp9.i70 = fcmp ogt double %sub9.i.i56, %21
   br i1 %cmp9.i70, label %return, label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %_ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit71, %if.then.i63, %_ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit, %if.then.i27
@@ -70159,34 +70179,33 @@ return:                                           ; preds = %land.rhs.i, %land.r
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt13__introselectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEElN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_T0_T1_(ptr noundef %__first, ptr noundef %__nth, ptr noundef %__last, i64 noundef %__depth_limit) local_unnamed_addr #5 comdat {
 entry:
-  %__val.i.i = alloca %"class.openvdb::v11_0::tree::NodeUnion.1006", align 8
   %__val.sroa.0.i = alloca [3 x double], align 8
   %__tmp.sroa.0.i.i.i.i = alloca [3 x double], align 8
   %__tmp.sroa.0.i.i = alloca [3 x double], align 8
   %__comp.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.1061", align 1
-  %sub.ptr.lhs.cast69 = ptrtoint ptr %__last to i64
-  %sub.ptr.rhs.cast70 = ptrtoint ptr %__first to i64
-  %sub.ptr.sub71 = sub i64 %sub.ptr.lhs.cast69, %sub.ptr.rhs.cast70
-  %cmp72 = icmp sgt i64 %sub.ptr.sub71, 72
-  br i1 %cmp72, label %while.body, label %while.end
+  %sub.ptr.lhs.cast66 = ptrtoint ptr %__last to i64
+  %sub.ptr.rhs.cast67 = ptrtoint ptr %__first to i64
+  %sub.ptr.sub68 = sub i64 %sub.ptr.lhs.cast66, %sub.ptr.rhs.cast67
+  %cmp69 = icmp sgt i64 %sub.ptr.sub68, 72
+  br i1 %cmp69, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit
-  %sub.ptr.sub76 = phi i64 [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %sub.ptr.sub71, %entry ]
-  %__first.addr.075 = phi ptr [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %__first, %entry ]
-  %__last.addr.074 = phi ptr [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %__last, %entry ]
-  %__depth_limit.addr.073 = phi i64 [ %dec, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %__depth_limit, %entry ]
-  %cmp1 = icmp eq i64 %__depth_limit.addr.073, 0
+  %sub.ptr.sub73 = phi i64 [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %sub.ptr.sub68, %entry ]
+  %__first.addr.072 = phi ptr [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %__first, %entry ]
+  %__last.addr.071 = phi ptr [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %__last, %entry ]
+  %__depth_limit.addr.070 = phi i64 [ %dec, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %__depth_limit, %entry ]
+  %cmp1 = icmp eq i64 %__depth_limit.addr.070, 0
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
   %add.ptr = getelementptr inbounds i8, ptr %__nth, i64 24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
-  call void @_ZSt11__make_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_RT0_(ptr noundef %__first.addr.075, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
-  %cmp11.i = icmp ult ptr %add.ptr, %__last.addr.074
+  call void @_ZSt11__make_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_RT0_(ptr noundef %__first.addr.072, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  %cmp11.i = icmp ult ptr %add.ptr, %__last.addr.071
   br i1 %cmp11.i, label %for.body.i.i.i.preheader.lr.ph.i, label %_ZSt13__heap_selectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_T0_.exit
 
 for.body.i.i.i.preheader.lr.ph.i:                 ; preds = %if.then
-  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.075, i64 16
+  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.072, i64 16
   br label %for.body.i.i.i.preheader.i
 
 for.body.i.i.i.preheader.i:                       ; preds = %for.inc.i, %for.body.i.i.i.preheader.lr.ph.i
@@ -70201,7 +70220,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %
   %indvars.iv.i.i.i.i = phi i64 [ 1, %for.cond.i.i.i.i ], [ 0, %for.body.i.i.i.preheader.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %__i.012.i, i64 0, i64 %indvars.iv.i.i.i.i
   %0 = load double, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.075, i64 0, i64 %indvars.iv.i.i.i.i
+  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.072, i64 0, i64 %indvars.iv.i.i.i.i
   %1 = load double, ptr %arrayidx.i.i11.i.i.i.i, align 8
   %cmp.i.i.i.i.i = fcmp oeq double %0, %1
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
@@ -70218,34 +70237,34 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpIN
   br i1 %cmp9.i.i.i.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i, %if.then.i.i.i.i
-  call void @_ZSt10__pop_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_RT0_(ptr noundef nonnull %__first.addr.075, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__i.012.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  call void @_ZSt10__pop_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_RT0_(ptr noundef nonnull %__first.addr.072, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__i.012.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i, %if.then.i.i.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__i.012.i, i64 24
-  %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.addr.074
+  %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.addr.071
   br i1 %cmp.i, label %for.body.i.i.i.preheader.i, label %_ZSt13__heap_selectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_T0_.exit, !llvm.loop !845
 
 _ZSt13__heap_selectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_T0_.exit: ; preds = %for.inc.i, %if.then
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.075, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.075, ptr noundef nonnull align 8 dereferenceable(24) %__nth, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.072, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.072, ptr noundef nonnull align 8 dereferenceable(24) %__nth, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__nth, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.0.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__tmp.sroa.0.i.i)
   br label %return
 
 if.end:                                           ; preds = %while.body
-  %div.i46 = udiv i64 %sub.ptr.sub76, 48
-  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1006", ptr %__first.addr.075, i64 %div.i46
-  %add.ptr1.i = getelementptr inbounds i8, ptr %__first.addr.075, i64 24
-  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.074, i64 -24
-  tail call void @_ZSt22__move_median_to_firstIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_SP_T0_(ptr noundef %__first.addr.075, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
-  %arrayidx.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.075, i64 16
+  %div.i44 = udiv i64 %sub.ptr.sub73, 48
+  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1006", ptr %__first.addr.072, i64 %div.i44
+  %add.ptr1.i = getelementptr inbounds i8, ptr %__first.addr.072, i64 24
+  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.071, i64 -24
+  tail call void @_ZSt22__move_median_to_firstIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_SP_T0_(ptr noundef %__first.addr.072, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
+  %arrayidx.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.072, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %if.end
-  %__last.addr.0.i.i = phi ptr [ %__last.addr.074, %if.end ], [ %__last.addr.1.i.i, %if.end.i.i ]
+  %__last.addr.0.i.i = phi ptr [ %__last.addr.071, %if.end ], [ %__last.addr.1.i.i, %if.end.i.i ]
   %__first.addr.0.i.i = phi ptr [ %add.ptr1.i, %if.end ], [ %incdec.ptr9.i.i, %if.end.i.i ]
   br label %while.cond1.i.i
 
@@ -70261,7 +70280,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i,
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %while.cond1.i.i ], [ 1, %for.cond.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.1.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
   %4 = load double, ptr %arrayidx.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.075, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.072, i64 0, i64 %indvars.iv.i.i.i.i.i
   %5 = load double, ptr %arrayidx.i.i11.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = fcmp oeq double %4, %5
   br i1 %cmp.i.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -70295,7 +70314,7 @@ for.cond.i.i.i20.i.i:                             ; preds = %for.body.i.i.i11.i.
 for.body.i.i.i11.i.i:                             ; preds = %for.cond.i.i.i20.i.i, %while.cond4.i.i
   %cmp.i.i.i12.i.i = phi i1 [ true, %while.cond4.i.i ], [ false, %for.cond.i.i.i20.i.i ]
   %indvars.iv.i.i.i13.i.i = phi i64 [ 0, %while.cond4.i.i ], [ 1, %for.cond.i.i.i20.i.i ]
-  %arrayidx.i.i.i.i.i14.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.075, i64 0, i64 %indvars.iv.i.i.i13.i.i
+  %arrayidx.i.i.i.i.i14.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.072, i64 0, i64 %indvars.iv.i.i.i13.i.i
   %8 = load double, ptr %arrayidx.i.i.i.i.i14.i.i, align 8
   %arrayidx.i.i11.i.i.i15.i.i = getelementptr inbounds [3 x double], ptr %__last.addr.1.i.i, i64 0, i64 %indvars.iv.i.i.i13.i.i
   %9 = load double, ptr %arrayidx.i.i11.i.i.i15.i.i, align 8
@@ -70330,10 +70349,10 @@ if.end.i.i:                                       ; preds = %while.end8.i.i
   br label %while.body.i.i, !llvm.loop !848
 
 _ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit: ; preds = %while.end8.i.i
-  %dec = add nsw i64 %__depth_limit.addr.073, -1
+  %dec = add nsw i64 %__depth_limit.addr.070, -1
   %cmp3.not = icmp ugt ptr %__first.addr.1.i.i, %__nth
-  %call.__last.addr.0 = select i1 %cmp3.not, ptr %__first.addr.1.i.i, ptr %__last.addr.074
-  %__first.addr.0.call = select i1 %cmp3.not, ptr %__first.addr.075, ptr %__first.addr.1.i.i
+  %call.__last.addr.0 = select i1 %cmp3.not, ptr %__first.addr.1.i.i, ptr %__last.addr.071
+  %__first.addr.0.call = select i1 %cmp3.not, ptr %__first.addr.072, ptr %__first.addr.1.i.i
   %sub.ptr.lhs.cast = ptrtoint ptr %call.__last.addr.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first.addr.0.call to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -70343,110 +70362,115 @@ _ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3
 while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit, %entry
   %__last.addr.0.lcssa = phi ptr [ %__last, %entry ], [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ]
   %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ]
-  %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast70, %entry ], [ %sub.ptr.rhs.cast, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ]
+  %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast67, %entry ], [ %sub.ptr.rhs.cast, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__val.sroa.0.i)
   %cmp.i16 = icmp eq ptr %__first.addr.0.lcssa, %__last.addr.0.lcssa
   br i1 %cmp.i16, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end
-  %__i.020.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 24
-  %cmp1.not21.i = icmp eq ptr %__i.020.i, %__last.addr.0.lcssa
-  br i1 %cmp1.not21.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.lr.ph.i17
+  %__i.019.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 24
+  %cmp1.not20.i = icmp eq ptr %__i.019.i, %__last.addr.0.lcssa
+  br i1 %cmp1.not20.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.lr.ph.i17
 
 for.body.i.i.i.preheader.lr.ph.i17:               ; preds = %for.cond.preheader.i
   %arrayidx.i.i17.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 16
-  %arrayidx.i.i16.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__val.i.i, i64 16
-  br label %for.body.i.i.i.preheader.i20
+  br label %for.body.i.i.i.preheader.i19
 
-for.body.i.i.i.preheader.i20:                     ; preds = %for.inc.i37, %for.body.i.i.i.preheader.lr.ph.i17
-  %__i.023.i = phi ptr [ %__i.020.i, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.0.i, %for.inc.i37 ]
-  %__first.pn22.i = phi ptr [ %__first.addr.0.lcssa, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.023.i, %for.inc.i37 ]
-  br label %for.body.i.i.i.i21
+for.body.i.i.i.preheader.i19:                     ; preds = %for.inc.i35, %for.body.i.i.i.preheader.lr.ph.i17
+  %__i.022.i = phi ptr [ %__i.019.i, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.0.i, %for.inc.i35 ]
+  %__first.pn21.i = phi ptr [ %__first.addr.0.lcssa, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.022.i, %for.inc.i35 ]
+  br label %for.body.i.i.i.i20
 
-for.cond.i.i.i.i42:                               ; preds = %for.body.i.i.i.i21
-  br i1 %cmp.i.i.i.i22, label %for.body.i.i.i.i21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43, !llvm.loop !801
+for.cond.i.i.i.i40:                               ; preds = %for.body.i.i.i.i20
+  br i1 %cmp.i.i.i.i21, label %for.body.i.i.i.i20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41, !llvm.loop !801
 
-for.body.i.i.i.i21:                               ; preds = %for.cond.i.i.i.i42, %for.body.i.i.i.preheader.i20
-  %cmp.i.i.i.i22 = phi i1 [ false, %for.cond.i.i.i.i42 ], [ true, %for.body.i.i.i.preheader.i20 ]
-  %indvars.iv.i.i.i.i23 = phi i64 [ 1, %for.cond.i.i.i.i42 ], [ 0, %for.body.i.i.i.preheader.i20 ]
-  %arrayidx.i.i.i.i.i.i24 = getelementptr inbounds [3 x double], ptr %__i.023.i, i64 0, i64 %indvars.iv.i.i.i.i23
-  %12 = load double, ptr %arrayidx.i.i.i.i.i.i24, align 8
-  %arrayidx.i.i11.i.i.i.i25 = getelementptr inbounds [3 x double], ptr %__first.addr.0.lcssa, i64 0, i64 %indvars.iv.i.i.i.i23
-  %13 = load double, ptr %arrayidx.i.i11.i.i.i.i25, align 8
-  %cmp.i.i.i.i.i26 = fcmp oeq double %12, %13
-  br i1 %cmp.i.i.i.i.i26, label %for.cond.i.i.i.i42, label %if.then.i.i.i.i27
+for.body.i.i.i.i20:                               ; preds = %for.cond.i.i.i.i40, %for.body.i.i.i.preheader.i19
+  %cmp.i.i.i.i21 = phi i1 [ false, %for.cond.i.i.i.i40 ], [ true, %for.body.i.i.i.preheader.i19 ]
+  %indvars.iv.i.i.i.i22 = phi i64 [ 1, %for.cond.i.i.i.i40 ], [ 0, %for.body.i.i.i.preheader.i19 ]
+  %arrayidx.i.i.i.i.i.i23 = getelementptr inbounds [3 x double], ptr %__i.022.i, i64 0, i64 %indvars.iv.i.i.i.i22
+  %12 = load double, ptr %arrayidx.i.i.i.i.i.i23, align 8
+  %arrayidx.i.i11.i.i.i.i24 = getelementptr inbounds [3 x double], ptr %__first.addr.0.lcssa, i64 0, i64 %indvars.iv.i.i.i.i22
+  %13 = load double, ptr %arrayidx.i.i11.i.i.i.i24, align 8
+  %cmp.i.i.i.i.i25 = fcmp oeq double %12, %13
+  br i1 %cmp.i.i.i.i.i25, label %for.cond.i.i.i.i40, label %if.then.i.i.i.i26
 
-if.then.i.i.i.i27:                                ; preds = %for.body.i.i.i.i21
-  %cmp6.i.i.i.i28 = fcmp olt double %12, %13
-  br i1 %cmp6.i.i.i.i28, label %if.then2.i, label %if.else.i
+if.then.i.i.i.i26:                                ; preds = %for.body.i.i.i.i20
+  %cmp6.i.i.i.i27 = fcmp olt double %12, %13
+  br i1 %cmp6.i.i.i.i27, label %if.then2.i, label %if.then.i.i.i.if.else_crit_edge.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43: ; preds = %for.cond.i.i.i.i42
-  %arrayidx.i.i16.i.i.i.i44 = getelementptr inbounds i8, ptr %__first.pn22.i, i64 40
-  %14 = load double, ptr %arrayidx.i.i16.i.i.i.i44, align 8
+if.then.i.i.i.if.else_crit_edge.i:                ; preds = %if.then.i.i.i.i26
+  %__val.sroa.4.0.__last.sroa_idx.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 40
+  %__val.sroa.4.0.copyload.i.pre.i = load double, ptr %__val.sroa.4.0.__last.sroa_idx.i.phi.trans.insert.i, align 8
+  br label %if.else.i
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41: ; preds = %for.cond.i.i.i.i40
+  %arrayidx.i.i16.i.i.i.i42 = getelementptr inbounds i8, ptr %__first.pn21.i, i64 40
+  %14 = load double, ptr %arrayidx.i.i16.i.i.i.i42, align 8
   %15 = load double, ptr %arrayidx.i.i17.i.i.i.i18, align 8
-  %cmp9.i.i.i.i45 = fcmp olt double %14, %15
-  br i1 %cmp9.i.i.i.i45, label %if.then2.i, label %if.else.i
+  %cmp9.i.i.i.i43 = fcmp olt double %14, %15
+  br i1 %cmp9.i.i.i.i43, label %if.then2.i, label %if.else.i
 
-if.then2.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43, %if.then.i.i.i.i27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__val.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %__i.023.i, i64 24, i1 false)
-  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn22.i, i64 48
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.023.i to i64
+if.then2.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41, %if.then.i.i.i.i26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__val.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %__i.022.i, i64 24, i1 false)
+  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 48
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.022.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.lcssa
   %sub.ptr.div.neg.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, -24
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1006", ptr %add.ptr3.i, i64 %sub.ptr.div.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.addr.0.lcssa, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.0.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %__val.sroa.0.i, i64 24, i1 false)
-  br label %for.inc.i37
+  br label %for.inc.i35
 
-if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43, %if.then.i.i.i.i27
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__val.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__val.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__i.023.i, i64 24, i1 false)
-  %16 = load double, ptr %arrayidx.i.i16.i.i.i.i.i19, align 8
+if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41, %if.then.i.i.i.if.else_crit_edge.i
+  %__val.sroa.4.0.copyload.i.i = phi double [ %__val.sroa.4.0.copyload.i.pre.i, %if.then.i.i.i.if.else_crit_edge.i ], [ %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41 ]
+  %16 = load <2 x double>, ptr %__i.022.i, align 8
+  %17 = extractelement <2 x double> %16, i64 0
+  %18 = extractelement <2 x double> %16, i64 1
   br label %while.cond.i.i
 
-while.cond.i.i:                                   ; preds = %while.body.i.i38, %if.else.i
-  %__last.addr.0.i.i29 = phi ptr [ %__i.023.i, %if.else.i ], [ %__next.0.i.i, %while.body.i.i38 ]
-  %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i29, i64 -24
-  br label %for.body.i.i.i.i.i30
+while.cond.i.i:                                   ; preds = %while.body.i.i36, %if.else.i
+  %__last.addr.0.i.i28 = phi ptr [ %__i.022.i, %if.else.i ], [ %__next.0.i.i, %while.body.i.i36 ]
+  %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 -24
+  br label %for.body.i.i.i.i.i29
 
-for.cond.i.i.i.i.i39:                             ; preds = %for.body.i.i.i.i.i30
-  br i1 %cmp.i.i.i.i12.i, label %for.body.i.i.i.i.i30, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, !llvm.loop !801
+for.cond.i.i.i.i.i37:                             ; preds = %for.body.i.i.i.i.i29
+  br i1 %cmp.i.i.i.i12.i, label %for.body.i.i.i.i.i29, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, !llvm.loop !801
 
-for.body.i.i.i.i.i30:                             ; preds = %for.cond.i.i.i.i.i39, %while.cond.i.i
-  %cmp.i.i.i.i12.i = phi i1 [ true, %while.cond.i.i ], [ false, %for.cond.i.i.i.i.i39 ]
-  %indvars.iv.i.i.i.i.i31 = phi i64 [ 0, %while.cond.i.i ], [ 1, %for.cond.i.i.i.i.i39 ]
-  %arrayidx.i.i.i.i.i.i.i32 = getelementptr inbounds [3 x double], ptr %__val.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i31
-  %17 = load double, ptr %arrayidx.i.i.i.i.i.i.i32, align 8
-  %arrayidx.i.i11.i.i.i.i.i33 = getelementptr inbounds [3 x double], ptr %__next.0.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i31
-  %18 = load double, ptr %arrayidx.i.i11.i.i.i.i.i33, align 8
-  %cmp.i.i.i.i.i.i34 = fcmp oeq double %17, %18
-  br i1 %cmp.i.i.i.i.i.i34, label %for.cond.i.i.i.i.i39, label %if.then.i.i.i.i.i35
+for.body.i.i.i.i.i29:                             ; preds = %for.cond.i.i.i.i.i37, %while.cond.i.i
+  %cmp.i.i.i.i12.i = phi i1 [ true, %while.cond.i.i ], [ false, %for.cond.i.i.i.i.i37 ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i = phi double [ %17, %while.cond.i.i ], [ %18, %for.cond.i.i.i.i.i37 ]
+  %indvars.iv.i.i.i.i.i30 = phi i64 [ 0, %while.cond.i.i ], [ 1, %for.cond.i.i.i.i.i37 ]
+  %arrayidx.i.i11.i.i.i.i.i31 = getelementptr inbounds [3 x double], ptr %__next.0.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i30
+  %19 = load double, ptr %arrayidx.i.i11.i.i.i.i.i31, align 8
+  %cmp.i.i.i.i.i.i32 = fcmp oeq double %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i, %19
+  br i1 %cmp.i.i.i.i.i.i32, label %for.cond.i.i.i.i.i37, label %if.then.i.i.i.i.i33
 
-if.then.i.i.i.i.i35:                              ; preds = %for.body.i.i.i.i.i30
-  %cmp6.i.i.i.i.i36 = fcmp olt double %17, %18
-  br i1 %cmp6.i.i.i.i.i36, label %while.body.i.i38, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i
+if.then.i.i.i.i.i33:                              ; preds = %for.body.i.i.i.i.i29
+  %cmp6.i.i.i.i.i34 = fcmp olt double %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i, %19
+  br i1 %cmp6.i.i.i.i.i34, label %while.body.i.i36, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i39
-  %arrayidx.i.i17.i.i.i.i.i40 = getelementptr inbounds i8, ptr %__last.addr.0.i.i29, i64 -8
-  %19 = load double, ptr %arrayidx.i.i17.i.i.i.i.i40, align 8
-  %cmp9.i.i.i.i.i41 = fcmp olt double %16, %19
-  br i1 %cmp9.i.i.i.i.i41, label %while.body.i.i38, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i37
+  %arrayidx.i.i17.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 -8
+  %20 = load double, ptr %arrayidx.i.i17.i.i.i.i.i38, align 8
+  %cmp9.i.i.i.i.i39 = fcmp olt double %__val.sroa.4.0.copyload.i.i, %20
+  br i1 %cmp9.i.i.i.i.i39, label %while.body.i.i36, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i
 
-while.body.i.i38:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__last.addr.0.i.i29, ptr noundef nonnull align 8 dereferenceable(24) %__next.0.i.i, i64 24, i1 false)
+while.body.i.i36:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__last.addr.0.i.i28, ptr noundef nonnull align 8 dereferenceable(24) %__next.0.i.i, i64 24, i1 false)
   br label %while.cond.i.i, !llvm.loop !850
 
-_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__last.addr.0.i.i29, ptr noundef nonnull align 8 dereferenceable(24) %__val.i.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__val.i.i)
-  br label %for.inc.i37
+_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i33
+  store <2 x double> %16, ptr %__last.addr.0.i.i28, align 8
+  %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 16
+  store double %__val.sroa.4.0.copyload.i.i, ptr %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i, align 8
+  br label %for.inc.i35
 
-for.inc.i37:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i, %if.then2.i
-  %__i.0.i = getelementptr inbounds i8, ptr %__i.023.i, i64 24
+for.inc.i35:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i, %if.then2.i
+  %__i.0.i = getelementptr inbounds i8, ptr %__i.022.i, i64 24
   %cmp1.not.i = icmp eq ptr %__i.0.i, %__last.addr.0.lcssa
-  br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.i20, !llvm.loop !851
+  br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.i19, !llvm.loop !851
 
-_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit: ; preds = %for.inc.i37, %while.end, %for.cond.preheader.i
+_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit: ; preds = %for.inc.i35, %while.end, %for.cond.preheader.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__val.sroa.0.i)
   br label %return
 
@@ -70457,8 +70481,6 @@ return:                                           ; preds = %_ZSt16__insertion_s
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt11__make_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_RT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %__comp) local_unnamed_addr #5 comdat {
 entry:
-  %agg.tmp23.i = alloca %"class.openvdb::v11_0::tree::NodeUnion.1006", align 8
-  %agg.tmp10.sroa.0 = alloca [3 x double], align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -70470,11 +70492,10 @@ if.end:                                           ; preds = %entry
   %sub = add nsw i64 %sub.ptr.div, -2
   %div9 = lshr i64 %sub, 1
   %sub.i = add nsw i64 %sub.ptr.div, -1
-  %div.i2533 = lshr i64 %sub.i, 1
+  %div.i2330 = lshr i64 %sub.i, 1
   %and.i = and i64 %sub.ptr.div, 1
   %cmp5.i = icmp eq i64 %and.i, 0
   %div7.i = lshr exact i64 %sub, 1
-  %arrayidx.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp23.i, i64 16
   %sub12.i = or disjoint i64 %sub, 1
   %add.ptr13.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1006", ptr %__first, i64 %sub12.i
   %add.ptr14.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1006", ptr %__first, i64 %div7.i
@@ -70483,14 +70504,15 @@ if.end:                                           ; preds = %entry
 while.body:                                       ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit, %if.end
   %__parent.0 = phi i64 [ %div9, %if.end ], [ %dec, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit ]
   %add.ptr = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1006", ptr %__first, i64 %__parent.0
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp10.sroa.0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp10.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, i64 24, i1 false)
-  %cmp32.i = icmp sgt i64 %div.i2533, %__parent.0
-  br i1 %cmp32.i, label %while.body.i, label %while.end.i
+  %0 = load <2 x double>, ptr %add.ptr, align 8
+  %__value.sroa.0.sroa.3.0.add.ptr.sroa_idx = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %__value.sroa.0.sroa.3.0.copyload = load double, ptr %__value.sroa.0.sroa.3.0.add.ptr.sroa_idx, align 8
+  %cmp35.i = icmp sgt i64 %div.i2330, %__parent.0
+  br i1 %cmp35.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.body, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
-  %__secondChild.033.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ %__parent.0, %while.body ]
-  %add.i = shl i64 %__secondChild.033.i, 1
+  %__secondChild.036.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ %__parent.0, %while.body ]
+  %add.i = shl i64 %__secondChild.036.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1006", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -70504,31 +70526,31 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %
   %cmp.i.i.i.i = phi i1 [ true, %while.body.i ], [ false, %for.cond.i.i.i.i ]
   %indvars.iv.i.i.i.i = phi i64 [ 0, %while.body.i ], [ 1, %for.cond.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %add.ptr.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %0 = load double, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %1 = load double, ptr %arrayidx.i.i.i.i.i.i, align 8
   %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x double], ptr %add.ptr2.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %1 = load double, ptr %arrayidx.i.i11.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = fcmp oeq double %0, %1
+  %2 = load double, ptr %arrayidx.i.i11.i.i.i.i, align 8
+  %cmp.i.i.i.i.i = fcmp oeq double %1, %2
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %cmp6.i.i.i.i = fcmp olt double %0, %1
+  %cmp6.i.i.i.i = fcmp olt double %1, %2
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
 
 for.end.i.i.i.i:                                  ; preds = %for.cond.i.i.i.i
   %arrayidx.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
-  %2 = load double, ptr %arrayidx.i.i16.i.i.i.i, align 8
+  %3 = load double, ptr %arrayidx.i.i16.i.i.i.i, align 8
   %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 16
-  %3 = load double, ptr %arrayidx.i.i17.i.i.i.i, align 8
-  %cmp9.i.i.i.i = fcmp olt double %2, %3
+  %4 = load double, ptr %arrayidx.i.i17.i.i.i.i, align 8
+  %cmp9.i.i.i.i = fcmp olt double %3, %4
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i: ; preds = %for.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi i1 [ %cmp6.i.i.i.i, %if.then.i.i.i.i ], [ %cmp9.i.i.i.i, %for.end.i.i.i.i ]
   %spec.select.i = select i1 %retval.0.i.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1006", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1006", ptr %__first, i64 %__secondChild.033.i
+  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1006", ptr %__first, i64 %__secondChild.036.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr4.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr3.i, i64 24, i1 false)
-  %cmp.i = icmp slt i64 %spec.select.i, %div.i2533
+  %cmp.i = icmp slt i64 %spec.select.i, %div.i2330
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !852
 
 while.end.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i, %while.body
@@ -70543,17 +70565,16 @@ if.then9.i:                                       ; preds = %while.end.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__secondChild.0.lcssa.i, %while.end.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp23.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp23.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp10.sroa.0, i64 24, i1 false)
   %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %__parent.0
-  br i1 %cmp15.i.i, label %land.rhs.lr.ph.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
+  br i1 %cmp15.i.i, label %land.rhs.i.i.preheader, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
-land.rhs.lr.ph.i.i:                               ; preds = %if.end16.i
-  %4 = load double, ptr %arrayidx.i.i17.i.i.i.i.i, align 8
+land.rhs.i.i.preheader:                           ; preds = %if.end16.i
+  %5 = extractelement <2 x double> %0, i64 0
+  %6 = extractelement <2 x double> %0, i64 1
   br label %land.rhs.i.i
 
-land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
-  %__holeIndex.addr.016.i.i = phi i64 [ %__holeIndex.addr.1.i, %land.rhs.lr.ph.i.i ], [ %__parent.017.i.i, %while.body.i.i ]
+land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %while.body.i.i
+  %__holeIndex.addr.016.i.i = phi i64 [ %__parent.017.i.i, %while.body.i.i ], [ %__holeIndex.addr.1.i, %land.rhs.i.i.preheader ]
   %__parent.017.in.i.i = add nsw i64 %__holeIndex.addr.016.i.i, -1
   %__parent.017.i.i = sdiv i64 %__parent.017.in.i.i, 2
   %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1006", ptr %__first, i64 %__parent.017.i.i
@@ -70564,22 +70585,21 @@ for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i, %land.rhs.i.i
   %cmp.i.i.i.i24.i = phi i1 [ true, %land.rhs.i.i ], [ false, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.i.sroa.phi.sroa.speculated.i = phi double [ %5, %land.rhs.i.i ], [ %6, %for.cond.i.i.i.i.i ]
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ 1, %for.cond.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %add.ptr.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %5 = load double, ptr %arrayidx.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %agg.tmp23.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %6 = load double, ptr %arrayidx.i.i11.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = fcmp oeq double %5, %6
+  %7 = load double, ptr %arrayidx.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i = fcmp oeq double %7, %indvars.iv.i.i.i.i.sroa.phi.sroa.speculated.i
   br i1 %cmp.i.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %cmp6.i.i.i.i.i = fcmp olt double %5, %6
+  %cmp6.i.i.i.i.i = fcmp olt double %7, %indvars.iv.i.i.i.i.sroa.phi.sroa.speculated.i
   br i1 %cmp6.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i
   %arrayidx.i.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
-  %7 = load double, ptr %arrayidx.i.i16.i.i.i.i.i, align 8
-  %cmp9.i.i.i.i.i = fcmp olt double %7, %4
+  %8 = load double, ptr %arrayidx.i.i16.i.i.i.i.i, align 8
+  %cmp9.i.i.i.i.i = fcmp olt double %8, %__value.sroa.0.sroa.3.0.copyload
   br i1 %cmp9.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %if.then.i.i.i.i.i
@@ -70591,9 +70611,9 @@ while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops
 _ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit: ; preds = %if.then.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.016.i.i, %if.then.i.i.i.i.i ], [ %__parent.017.i.i, %while.body.i.i ], [ %__holeIndex.addr.016.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1006", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp10.sroa.0, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp23.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp10.sroa.0)
+  store <2 x double> %0, ptr %add.ptr5.i.i, align 8
+  %agg.tmp23.sroa.6.0.add.ptr5.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 16
+  store double %__value.sroa.0.sroa.3.0.copyload, ptr %agg.tmp23.sroa.6.0.add.ptr5.i.sroa_idx.i, align 8
   %cmp6 = icmp eq i64 %__parent.0, 0
   %dec = add nsw i64 %__parent.0, -1
   br i1 %cmp6, label %return, label %while.body, !llvm.loop !854
@@ -70605,8 +70625,9 @@ return:                                           ; preds = %_ZSt13__adjust_heap
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt10__pop_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_RT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__comp) local_unnamed_addr #5 comdat {
 entry:
-  %agg.tmp4.sroa.0 = alloca [3 x double], align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %__result, i64 24, i1 false)
+  %0 = load <2 x double>, ptr %__result, align 8
+  %__value.sroa.0.sroa.3.0.__result.sroa_idx = getelementptr inbounds i8, ptr %__result, i64 16
+  %__value.sroa.0.sroa.3.0.copyload = load double, ptr %__value.sroa.0.sroa.3.0.__result.sroa_idx, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__result, ptr noundef nonnull align 8 dereferenceable(24) %__first, i64 24, i1 false)
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
@@ -70614,12 +70635,12 @@ entry:
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 24
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i = sdiv i64 %sub.i, 2
-  %cmp32.i = icmp sgt i64 %sub.ptr.sub, 48
-  br i1 %cmp32.i, label %while.body.i, label %while.end.i
+  %cmp35.i = icmp sgt i64 %sub.ptr.sub, 48
+  br i1 %cmp35.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
-  %__secondChild.033.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ 0, %entry ]
-  %add.i = shl i64 %__secondChild.033.i, 1
+  %__secondChild.036.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ 0, %entry ]
+  %add.i = shl i64 %__secondChild.036.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1006", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -70633,29 +70654,29 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %
   %cmp.i.i.i.i = phi i1 [ true, %while.body.i ], [ false, %for.cond.i.i.i.i ]
   %indvars.iv.i.i.i.i = phi i64 [ 0, %while.body.i ], [ 1, %for.cond.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %add.ptr.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %0 = load double, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %1 = load double, ptr %arrayidx.i.i.i.i.i.i, align 8
   %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x double], ptr %add.ptr2.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %1 = load double, ptr %arrayidx.i.i11.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = fcmp oeq double %0, %1
+  %2 = load double, ptr %arrayidx.i.i11.i.i.i.i, align 8
+  %cmp.i.i.i.i.i = fcmp oeq double %1, %2
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %cmp6.i.i.i.i = fcmp olt double %0, %1
+  %cmp6.i.i.i.i = fcmp olt double %1, %2
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
 
 for.end.i.i.i.i:                                  ; preds = %for.cond.i.i.i.i
   %arrayidx.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
-  %2 = load double, ptr %arrayidx.i.i16.i.i.i.i, align 8
+  %3 = load double, ptr %arrayidx.i.i16.i.i.i.i, align 8
   %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 16
-  %3 = load double, ptr %arrayidx.i.i17.i.i.i.i, align 8
-  %cmp9.i.i.i.i = fcmp olt double %2, %3
+  %4 = load double, ptr %arrayidx.i.i17.i.i.i.i, align 8
+  %cmp9.i.i.i.i = fcmp olt double %3, %4
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i: ; preds = %for.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi i1 [ %cmp6.i.i.i.i, %if.then.i.i.i.i ], [ %cmp9.i.i.i.i, %for.end.i.i.i.i ]
   %spec.select.i = select i1 %retval.0.i.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1006", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1006", ptr %__first, i64 %__secondChild.033.i
+  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1006", ptr %__first, i64 %__secondChild.036.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr4.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr3.i, i64 24, i1 false)
   %cmp.i = icmp slt i64 %spec.select.i, %div.i
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !852
@@ -70683,15 +70704,15 @@ if.then9.i:                                       ; preds = %land.lhs.true.i
 if.end16.i:                                       ; preds = %if.then9.i, %land.lhs.true.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__secondChild.0.lcssa.i, %land.lhs.true.i ], [ %__secondChild.0.lcssa.i, %while.end.i ]
   %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, 0
-  br i1 %cmp15.i.i, label %land.rhs.lr.ph.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
+  br i1 %cmp15.i.i, label %land.rhs.i.i.preheader, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
-land.rhs.lr.ph.i.i:                               ; preds = %if.end16.i
-  %arrayidx.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp4.sroa.0, i64 16
-  %4 = load double, ptr %arrayidx.i.i17.i.i.i.i.i, align 8
+land.rhs.i.i.preheader:                           ; preds = %if.end16.i
+  %5 = extractelement <2 x double> %0, i64 0
+  %6 = extractelement <2 x double> %0, i64 1
   br label %land.rhs.i.i
 
-land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
-  %__holeIndex.addr.016.i.i = phi i64 [ %__holeIndex.addr.1.i, %land.rhs.lr.ph.i.i ], [ %__parent.017.i.i56, %while.body.i.i ]
+land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %while.body.i.i
+  %__holeIndex.addr.016.i.i = phi i64 [ %__parent.017.i.i56, %while.body.i.i ], [ %__holeIndex.addr.1.i, %land.rhs.i.i.preheader ]
   %__parent.017.in.i.i = add nsw i64 %__holeIndex.addr.016.i.i, -1
   %__parent.017.i.i56 = lshr i64 %__parent.017.in.i.i, 1
   %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1006", ptr %__first, i64 %__parent.017.i.i56
@@ -70702,22 +70723,21 @@ for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i, %land.rhs.i.i
   %cmp.i.i.i.i24.i = phi i1 [ true, %land.rhs.i.i ], [ false, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.i.sroa.phi.sroa.speculated.i = phi double [ %5, %land.rhs.i.i ], [ %6, %for.cond.i.i.i.i.i ]
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ 1, %for.cond.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %add.ptr.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %5 = load double, ptr %arrayidx.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %agg.tmp4.sroa.0, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %6 = load double, ptr %arrayidx.i.i11.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = fcmp oeq double %5, %6
+  %7 = load double, ptr %arrayidx.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i = fcmp oeq double %7, %indvars.iv.i.i.i.i.sroa.phi.sroa.speculated.i
   br i1 %cmp.i.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %cmp6.i.i.i.i.i = fcmp olt double %5, %6
+  %cmp6.i.i.i.i.i = fcmp olt double %7, %indvars.iv.i.i.i.i.sroa.phi.sroa.speculated.i
   br i1 %cmp6.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i
   %arrayidx.i.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
-  %7 = load double, ptr %arrayidx.i.i16.i.i.i.i.i, align 8
-  %cmp9.i.i.i.i.i = fcmp olt double %7, %4
+  %8 = load double, ptr %arrayidx.i.i16.i.i.i.i.i, align 8
+  %cmp9.i.i.i.i.i = fcmp olt double %8, %__value.sroa.0.sroa.3.0.copyload
   br i1 %cmp9.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %if.then.i.i.i.i.i
@@ -70729,7 +70749,9 @@ while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops
 _ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit: ; preds = %if.then.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.016.i.i, %if.then.i.i.i.i.i ], [ %__parent.017.i.i56, %while.body.i.i ], [ %__holeIndex.addr.016.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1006", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4.sroa.0, i64 24, i1 false)
+  store <2 x double> %0, ptr %add.ptr5.i.i, align 8
+  %agg.tmp23.sroa.6.0.add.ptr5.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 16
+  store double %__value.sroa.0.sroa.3.0.copyload, ptr %agg.tmp23.sroa.6.0.add.ptr5.i.sroa_idx.i, align 8
   ret void
 }
 
@@ -71444,8 +71466,6 @@ _ZNSt3setIN7openvdb5v11_04math5CoordESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %f
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE10isConstantERS6_SA_RbRKS6_(ptr noundef nonnull align 8 dereferenceable(794640) %this, ptr noundef nonnull align 8 dereferenceable(24) %minValue, ptr noundef nonnull align 8 dereferenceable(24) %maxValue, ptr noundef nonnull align 1 dereferenceable(1) %state, ptr noundef nonnull align 8 dereferenceable(24) %tolerance) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3", align 16
-  %ref.tmp14 = alloca %"class.openvdb::v11_0::math::Vec3", align 16
   %mChildMask = getelementptr inbounds i8, ptr %this, i64 786432
   br label %for.cond.i
 
@@ -71491,8 +71511,8 @@ if.end:                                           ; preds = %while.body.i
   %arrayidx.i.i17.i69 = getelementptr inbounds i8, ptr %tolerance, i64 16
   %arrayidx.i.i17.i = getelementptr inbounds i8, ptr %minValue, i64 16
   %arrayidx.i.i17.i47 = getelementptr inbounds i8, ptr %maxValue, i64 16
-  %arrayidx8.i.i55 = getelementptr inbounds i8, ptr %ref.tmp14, i64 16
-  %arrayidx8.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx.i.i.i.i51 = getelementptr inbounds i8, ptr %minValue, i64 8
+  %ref.tmp.sroa.4.0.maxValue.sroa_idx = getelementptr inbounds i8, ptr %maxValue, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
@@ -71534,15 +71554,15 @@ for.body.i35.preheader:                           ; preds = %if.then.i, %_ZN7ope
 
 if.then8:                                         ; preds = %if.then.i.if.then8_crit_edge, %_ZN7openvdb5v11_04mathltILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit
   %8 = phi double [ %.pre, %if.then.i.if.then8_crit_edge ], [ %6, %_ZN7openvdb5v11_04mathltILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !864)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %maxValue, i64 24, i1 false)
-  %9 = load <2 x double>, ptr %arrayidx5, align 8, !noalias !864
-  %10 = load <2 x double>, ptr %ref.tmp, align 16, !alias.scope !864
-  %11 = fsub <2 x double> %10, %9
-  store <2 x double> %11, ptr %ref.tmp, align 16, !alias.scope !864
-  %12 = load double, ptr %arrayidx8.i.i, align 16, !alias.scope !864
-  %sub9.i.i = fsub double %12, %8
-  store double %sub9.i.i, ptr %arrayidx8.i.i, align 16, !alias.scope !864
+  %ref.tmp.sroa.0.0.copyload = load double, ptr %maxValue, align 8
+  %ref.tmp.sroa.4.0.copyload = load double, ptr %ref.tmp.sroa.4.0.maxValue.sroa_idx, align 8
+  %ref.tmp.sroa.7.0.copyload = load double, ptr %arrayidx.i.i17.i47, align 8
+  %9 = load double, ptr %arrayidx5, align 8, !noalias !864
+  %sub.i.i = fsub double %ref.tmp.sroa.0.0.copyload, %9
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx5, i64 8
+  %10 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !864
+  %sub5.i.i = fsub double %ref.tmp.sroa.4.0.copyload, %10
+  %sub9.i.i = fsub double %ref.tmp.sroa.7.0.copyload, %8
   br label %for.body.i21
 
 for.cond.i30:                                     ; preds = %for.body.i21
@@ -71550,21 +71570,20 @@ for.cond.i30:                                     ; preds = %for.body.i21
 
 for.body.i21:                                     ; preds = %for.cond.i30, %if.then8
   %cmp.i22 = phi i1 [ true, %if.then8 ], [ false, %for.cond.i30 ]
+  %indvars.iv.i23.sroa.phi.sroa.speculated = phi double [ %sub.i.i, %if.then8 ], [ %sub5.i.i, %for.cond.i30 ]
   %indvars.iv.i23 = phi i64 [ 0, %if.then8 ], [ 1, %for.cond.i30 ]
-  %arrayidx.i.i.i24 = getelementptr inbounds [3 x double], ptr %ref.tmp, i64 0, i64 %indvars.iv.i23
-  %13 = load double, ptr %arrayidx.i.i.i24, align 8
   %arrayidx.i.i11.i25 = getelementptr inbounds [3 x double], ptr %tolerance, i64 0, i64 %indvars.iv.i23
-  %14 = load double, ptr %arrayidx.i.i11.i25, align 8
-  %cmp.i.i26 = fcmp oeq double %13, %14
+  %11 = load double, ptr %arrayidx.i.i11.i25, align 8
+  %cmp.i.i26 = fcmp oeq double %indvars.iv.i23.sroa.phi.sroa.speculated, %11
   br i1 %cmp.i.i26, label %for.cond.i30, label %if.then.i27
 
 if.then.i27:                                      ; preds = %for.body.i21
-  %cmp6.i28 = fcmp ogt double %13, %14
+  %cmp6.i28 = fcmp ogt double %indvars.iv.i23.sroa.phi.sroa.speculated, %11
   br i1 %cmp6.i28, label %return, label %for.inc.sink.split
 
 _ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit: ; preds = %for.cond.i30
-  %15 = load double, ptr %arrayidx.i.i17.i69, align 8
-  %cmp9.i34 = fcmp ogt double %sub9.i.i, %15
+  %12 = load double, ptr %arrayidx.i.i17.i69, align 8
+  %cmp9.i34 = fcmp ogt double %sub9.i.i, %12
   br i1 %cmp9.i34, label %return, label %for.inc.sink.split
 
 for.cond.i44:                                     ; preds = %for.body.i35
@@ -71574,34 +71593,39 @@ for.body.i35:                                     ; preds = %for.body.i35.prehea
   %cmp.i36 = phi i1 [ false, %for.cond.i44 ], [ true, %for.body.i35.preheader ]
   %indvars.iv.i37 = phi i64 [ 1, %for.cond.i44 ], [ 0, %for.body.i35.preheader ]
   %arrayidx.i.i.i38 = getelementptr inbounds [3 x double], ptr %arrayidx5, i64 0, i64 %indvars.iv.i37
-  %16 = load double, ptr %arrayidx.i.i.i38, align 8
+  %13 = load double, ptr %arrayidx.i.i.i38, align 8
   %arrayidx.i.i11.i39 = getelementptr inbounds [3 x double], ptr %maxValue, i64 0, i64 %indvars.iv.i37
-  %17 = load double, ptr %arrayidx.i.i11.i39, align 8
-  %cmp.i.i40 = fcmp oeq double %16, %17
+  %14 = load double, ptr %arrayidx.i.i11.i39, align 8
+  %cmp.i.i40 = fcmp oeq double %13, %14
   br i1 %cmp.i.i40, label %for.cond.i44, label %if.then.i41
 
 if.then.i41:                                      ; preds = %for.body.i35
-  %cmp6.i42 = fcmp ogt double %16, %17
-  br i1 %cmp6.i42, label %if.then13, label %for.inc
+  %cmp6.i42 = fcmp ogt double %13, %14
+  br i1 %cmp6.i42, label %if.then.i41.if.then13_crit_edge, label %for.inc
+
+if.then.i41.if.then13_crit_edge:                  ; preds = %if.then.i41
+  %ref.tmp14.sroa.7.0.arrayidx5.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx5, i64 16
+  %ref.tmp14.sroa.7.0.copyload.pre = load double, ptr %ref.tmp14.sroa.7.0.arrayidx5.sroa_idx.phi.trans.insert, align 8
+  br label %if.then13
 
 _ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49: ; preds = %for.cond.i44
   %arrayidx.i.i16.i46 = getelementptr inbounds i8, ptr %arrayidx5, i64 16
-  %18 = load double, ptr %arrayidx.i.i16.i46, align 8
-  %19 = load double, ptr %arrayidx.i.i17.i47, align 8
-  %cmp9.i48 = fcmp ogt double %18, %19
+  %15 = load double, ptr %arrayidx.i.i16.i46, align 8
+  %16 = load double, ptr %arrayidx.i.i17.i47, align 8
+  %cmp9.i48 = fcmp ogt double %15, %16
   br i1 %cmp9.i48, label %if.then13, label %for.inc
 
-if.then13:                                        ; preds = %if.then.i41, %_ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !867)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx5, i64 24, i1 false)
-  %20 = load <2 x double>, ptr %minValue, align 8, !noalias !867
-  %21 = load <2 x double>, ptr %ref.tmp14, align 16, !alias.scope !867
-  %22 = fsub <2 x double> %21, %20
-  store <2 x double> %22, ptr %ref.tmp14, align 16, !alias.scope !867
-  %23 = load double, ptr %arrayidx.i.i17.i, align 8, !noalias !867
-  %24 = load double, ptr %arrayidx8.i.i55, align 16, !alias.scope !867
-  %sub9.i.i56 = fsub double %24, %23
-  store double %sub9.i.i56, ptr %arrayidx8.i.i55, align 16, !alias.scope !867
+if.then13:                                        ; preds = %if.then.i41.if.then13_crit_edge, %_ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49
+  %ref.tmp14.sroa.7.0.copyload = phi double [ %ref.tmp14.sroa.7.0.copyload.pre, %if.then.i41.if.then13_crit_edge ], [ %15, %_ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49 ]
+  %ref.tmp14.sroa.0.0.copyload = load double, ptr %arrayidx5, align 8
+  %ref.tmp14.sroa.4.0.arrayidx5.sroa_idx = getelementptr inbounds i8, ptr %arrayidx5, i64 8
+  %ref.tmp14.sroa.4.0.copyload = load double, ptr %ref.tmp14.sroa.4.0.arrayidx5.sroa_idx, align 8
+  %17 = load double, ptr %minValue, align 8, !noalias !867
+  %sub.i.i50 = fsub double %ref.tmp14.sroa.0.0.copyload, %17
+  %18 = load double, ptr %arrayidx.i.i.i.i51, align 8, !noalias !867
+  %sub5.i.i53 = fsub double %ref.tmp14.sroa.4.0.copyload, %18
+  %19 = load double, ptr %arrayidx.i.i17.i, align 8, !noalias !867
+  %sub9.i.i56 = fsub double %ref.tmp14.sroa.7.0.copyload, %19
   br label %for.body.i57
 
 for.cond.i66:                                     ; preds = %for.body.i57
@@ -71609,21 +71633,20 @@ for.cond.i66:                                     ; preds = %for.body.i57
 
 for.body.i57:                                     ; preds = %for.cond.i66, %if.then13
   %cmp.i58 = phi i1 [ true, %if.then13 ], [ false, %for.cond.i66 ]
+  %indvars.iv.i59.sroa.phi.sroa.speculated = phi double [ %sub.i.i50, %if.then13 ], [ %sub5.i.i53, %for.cond.i66 ]
   %indvars.iv.i59 = phi i64 [ 0, %if.then13 ], [ 1, %for.cond.i66 ]
-  %arrayidx.i.i.i60 = getelementptr inbounds [3 x double], ptr %ref.tmp14, i64 0, i64 %indvars.iv.i59
-  %25 = load double, ptr %arrayidx.i.i.i60, align 8
   %arrayidx.i.i11.i61 = getelementptr inbounds [3 x double], ptr %tolerance, i64 0, i64 %indvars.iv.i59
-  %26 = load double, ptr %arrayidx.i.i11.i61, align 8
-  %cmp.i.i62 = fcmp oeq double %25, %26
+  %20 = load double, ptr %arrayidx.i.i11.i61, align 8
+  %cmp.i.i62 = fcmp oeq double %indvars.iv.i59.sroa.phi.sroa.speculated, %20
   br i1 %cmp.i.i62, label %for.cond.i66, label %if.then.i63
 
 if.then.i63:                                      ; preds = %for.body.i57
-  %cmp6.i64 = fcmp ogt double %25, %26
+  %cmp6.i64 = fcmp ogt double %indvars.iv.i59.sroa.phi.sroa.speculated, %20
   br i1 %cmp6.i64, label %return, label %for.inc.sink.split
 
 _ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit71: ; preds = %for.cond.i66
-  %27 = load double, ptr %arrayidx.i.i17.i69, align 8
-  %cmp9.i70 = fcmp ogt double %sub9.i.i56, %27
+  %21 = load double, ptr %arrayidx.i.i17.i69, align 8
+  %cmp9.i70 = fcmp ogt double %sub9.i.i56, %21
   br i1 %cmp9.i70, label %return, label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %_ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit71, %if.then.i63, %_ZN7openvdb5v11_04mathgtILi3EddEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit, %if.then.i27
@@ -71644,34 +71667,33 @@ return:                                           ; preds = %land.rhs.i, %land.r
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt13__introselectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_T0_T1_(ptr noundef %__first, ptr noundef %__nth, ptr noundef %__last, i64 noundef %__depth_limit) local_unnamed_addr #5 comdat {
 entry:
-  %__val.i.i = alloca %"class.openvdb::v11_0::tree::NodeUnion.995", align 8
   %__val.sroa.0.i = alloca [3 x double], align 8
   %__tmp.sroa.0.i.i.i.i = alloca [3 x double], align 8
   %__tmp.sroa.0.i.i = alloca [3 x double], align 8
   %__comp.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.1066", align 1
-  %sub.ptr.lhs.cast69 = ptrtoint ptr %__last to i64
-  %sub.ptr.rhs.cast70 = ptrtoint ptr %__first to i64
-  %sub.ptr.sub71 = sub i64 %sub.ptr.lhs.cast69, %sub.ptr.rhs.cast70
-  %cmp72 = icmp sgt i64 %sub.ptr.sub71, 72
-  br i1 %cmp72, label %while.body, label %while.end
+  %sub.ptr.lhs.cast66 = ptrtoint ptr %__last to i64
+  %sub.ptr.rhs.cast67 = ptrtoint ptr %__first to i64
+  %sub.ptr.sub68 = sub i64 %sub.ptr.lhs.cast66, %sub.ptr.rhs.cast67
+  %cmp69 = icmp sgt i64 %sub.ptr.sub68, 72
+  br i1 %cmp69, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit
-  %sub.ptr.sub76 = phi i64 [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %sub.ptr.sub71, %entry ]
-  %__first.addr.075 = phi ptr [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %__first, %entry ]
-  %__last.addr.074 = phi ptr [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %__last, %entry ]
-  %__depth_limit.addr.073 = phi i64 [ %dec, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %__depth_limit, %entry ]
-  %cmp1 = icmp eq i64 %__depth_limit.addr.073, 0
+  %sub.ptr.sub73 = phi i64 [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %sub.ptr.sub68, %entry ]
+  %__first.addr.072 = phi ptr [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %__first, %entry ]
+  %__last.addr.071 = phi ptr [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %__last, %entry ]
+  %__depth_limit.addr.070 = phi i64 [ %dec, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %__depth_limit, %entry ]
+  %cmp1 = icmp eq i64 %__depth_limit.addr.070, 0
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
   %add.ptr = getelementptr inbounds i8, ptr %__nth, i64 24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
-  call void @_ZSt11__make_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_RT0_(ptr noundef %__first.addr.075, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
-  %cmp11.i = icmp ult ptr %add.ptr, %__last.addr.074
+  call void @_ZSt11__make_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_RT0_(ptr noundef %__first.addr.072, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  %cmp11.i = icmp ult ptr %add.ptr, %__last.addr.071
   br i1 %cmp11.i, label %for.body.i.i.i.preheader.lr.ph.i, label %_ZSt13__heap_selectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_T0_.exit
 
 for.body.i.i.i.preheader.lr.ph.i:                 ; preds = %if.then
-  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.075, i64 16
+  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.072, i64 16
   br label %for.body.i.i.i.preheader.i
 
 for.body.i.i.i.preheader.i:                       ; preds = %for.inc.i, %for.body.i.i.i.preheader.lr.ph.i
@@ -71686,7 +71708,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %
   %indvars.iv.i.i.i.i = phi i64 [ 1, %for.cond.i.i.i.i ], [ 0, %for.body.i.i.i.preheader.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %__i.012.i, i64 0, i64 %indvars.iv.i.i.i.i
   %0 = load double, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.075, i64 0, i64 %indvars.iv.i.i.i.i
+  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.072, i64 0, i64 %indvars.iv.i.i.i.i
   %1 = load double, ptr %arrayidx.i.i11.i.i.i.i, align 8
   %cmp.i.i.i.i.i = fcmp oeq double %0, %1
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
@@ -71703,34 +71725,34 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpIN
   br i1 %cmp9.i.i.i.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i, %if.then.i.i.i.i
-  call void @_ZSt10__pop_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_RT0_(ptr noundef nonnull %__first.addr.075, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__i.012.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  call void @_ZSt10__pop_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_RT0_(ptr noundef nonnull %__first.addr.072, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__i.012.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i, %if.then.i.i.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__i.012.i, i64 24
-  %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.addr.074
+  %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.addr.071
   br i1 %cmp.i, label %for.body.i.i.i.preheader.i, label %_ZSt13__heap_selectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_T0_.exit, !llvm.loop !871
 
 _ZSt13__heap_selectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_T0_.exit: ; preds = %for.inc.i, %if.then
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.075, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.075, ptr noundef nonnull align 8 dereferenceable(24) %__nth, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.072, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.072, ptr noundef nonnull align 8 dereferenceable(24) %__nth, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__nth, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.0.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__tmp.sroa.0.i.i)
   br label %return
 
 if.end:                                           ; preds = %while.body
-  %div.i46 = udiv i64 %sub.ptr.sub76, 48
-  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.995", ptr %__first.addr.075, i64 %div.i46
-  %add.ptr1.i = getelementptr inbounds i8, ptr %__first.addr.075, i64 24
-  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.074, i64 -24
-  tail call void @_ZSt22__move_median_to_firstIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_SP_T0_(ptr noundef %__first.addr.075, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
-  %arrayidx.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.075, i64 16
+  %div.i44 = udiv i64 %sub.ptr.sub73, 48
+  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.995", ptr %__first.addr.072, i64 %div.i44
+  %add.ptr1.i = getelementptr inbounds i8, ptr %__first.addr.072, i64 24
+  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.071, i64 -24
+  tail call void @_ZSt22__move_median_to_firstIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_SP_T0_(ptr noundef %__first.addr.072, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
+  %arrayidx.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.072, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %if.end
-  %__last.addr.0.i.i = phi ptr [ %__last.addr.074, %if.end ], [ %__last.addr.1.i.i, %if.end.i.i ]
+  %__last.addr.0.i.i = phi ptr [ %__last.addr.071, %if.end ], [ %__last.addr.1.i.i, %if.end.i.i ]
   %__first.addr.0.i.i = phi ptr [ %add.ptr1.i, %if.end ], [ %incdec.ptr9.i.i, %if.end.i.i ]
   br label %while.cond1.i.i
 
@@ -71746,7 +71768,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i,
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %while.cond1.i.i ], [ 1, %for.cond.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.1.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
   %4 = load double, ptr %arrayidx.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.075, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.072, i64 0, i64 %indvars.iv.i.i.i.i.i
   %5 = load double, ptr %arrayidx.i.i11.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = fcmp oeq double %4, %5
   br i1 %cmp.i.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -71780,7 +71802,7 @@ for.cond.i.i.i20.i.i:                             ; preds = %for.body.i.i.i11.i.
 for.body.i.i.i11.i.i:                             ; preds = %for.cond.i.i.i20.i.i, %while.cond4.i.i
   %cmp.i.i.i12.i.i = phi i1 [ true, %while.cond4.i.i ], [ false, %for.cond.i.i.i20.i.i ]
   %indvars.iv.i.i.i13.i.i = phi i64 [ 0, %while.cond4.i.i ], [ 1, %for.cond.i.i.i20.i.i ]
-  %arrayidx.i.i.i.i.i14.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.075, i64 0, i64 %indvars.iv.i.i.i13.i.i
+  %arrayidx.i.i.i.i.i14.i.i = getelementptr inbounds [3 x double], ptr %__first.addr.072, i64 0, i64 %indvars.iv.i.i.i13.i.i
   %8 = load double, ptr %arrayidx.i.i.i.i.i14.i.i, align 8
   %arrayidx.i.i11.i.i.i15.i.i = getelementptr inbounds [3 x double], ptr %__last.addr.1.i.i, i64 0, i64 %indvars.iv.i.i.i13.i.i
   %9 = load double, ptr %arrayidx.i.i11.i.i.i15.i.i, align 8
@@ -71815,10 +71837,10 @@ if.end.i.i:                                       ; preds = %while.end8.i.i
   br label %while.body.i.i, !llvm.loop !874
 
 _ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit: ; preds = %while.end8.i.i
-  %dec = add nsw i64 %__depth_limit.addr.073, -1
+  %dec = add nsw i64 %__depth_limit.addr.070, -1
   %cmp3.not = icmp ugt ptr %__first.addr.1.i.i, %__nth
-  %call.__last.addr.0 = select i1 %cmp3.not, ptr %__first.addr.1.i.i, ptr %__last.addr.074
-  %__first.addr.0.call = select i1 %cmp3.not, ptr %__first.addr.075, ptr %__first.addr.1.i.i
+  %call.__last.addr.0 = select i1 %cmp3.not, ptr %__first.addr.1.i.i, ptr %__last.addr.071
+  %__first.addr.0.call = select i1 %cmp3.not, ptr %__first.addr.072, ptr %__first.addr.1.i.i
   %sub.ptr.lhs.cast = ptrtoint ptr %call.__last.addr.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first.addr.0.call to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -71828,110 +71850,115 @@ _ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3
 while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit, %entry
   %__last.addr.0.lcssa = phi ptr [ %__last, %entry ], [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ]
   %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ]
-  %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast70, %entry ], [ %sub.ptr.rhs.cast, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ]
+  %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast67, %entry ], [ %sub.ptr.rhs.cast, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__val.sroa.0.i)
   %cmp.i16 = icmp eq ptr %__first.addr.0.lcssa, %__last.addr.0.lcssa
   br i1 %cmp.i16, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end
-  %__i.020.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 24
-  %cmp1.not21.i = icmp eq ptr %__i.020.i, %__last.addr.0.lcssa
-  br i1 %cmp1.not21.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.lr.ph.i17
+  %__i.019.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 24
+  %cmp1.not20.i = icmp eq ptr %__i.019.i, %__last.addr.0.lcssa
+  br i1 %cmp1.not20.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.lr.ph.i17
 
 for.body.i.i.i.preheader.lr.ph.i17:               ; preds = %for.cond.preheader.i
   %arrayidx.i.i17.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 16
-  %arrayidx.i.i16.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__val.i.i, i64 16
-  br label %for.body.i.i.i.preheader.i20
+  br label %for.body.i.i.i.preheader.i19
 
-for.body.i.i.i.preheader.i20:                     ; preds = %for.inc.i37, %for.body.i.i.i.preheader.lr.ph.i17
-  %__i.023.i = phi ptr [ %__i.020.i, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.0.i, %for.inc.i37 ]
-  %__first.pn22.i = phi ptr [ %__first.addr.0.lcssa, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.023.i, %for.inc.i37 ]
-  br label %for.body.i.i.i.i21
+for.body.i.i.i.preheader.i19:                     ; preds = %for.inc.i35, %for.body.i.i.i.preheader.lr.ph.i17
+  %__i.022.i = phi ptr [ %__i.019.i, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.0.i, %for.inc.i35 ]
+  %__first.pn21.i = phi ptr [ %__first.addr.0.lcssa, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.022.i, %for.inc.i35 ]
+  br label %for.body.i.i.i.i20
 
-for.cond.i.i.i.i42:                               ; preds = %for.body.i.i.i.i21
-  br i1 %cmp.i.i.i.i22, label %for.body.i.i.i.i21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43, !llvm.loop !801
+for.cond.i.i.i.i40:                               ; preds = %for.body.i.i.i.i20
+  br i1 %cmp.i.i.i.i21, label %for.body.i.i.i.i20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41, !llvm.loop !801
 
-for.body.i.i.i.i21:                               ; preds = %for.cond.i.i.i.i42, %for.body.i.i.i.preheader.i20
-  %cmp.i.i.i.i22 = phi i1 [ false, %for.cond.i.i.i.i42 ], [ true, %for.body.i.i.i.preheader.i20 ]
-  %indvars.iv.i.i.i.i23 = phi i64 [ 1, %for.cond.i.i.i.i42 ], [ 0, %for.body.i.i.i.preheader.i20 ]
-  %arrayidx.i.i.i.i.i.i24 = getelementptr inbounds [3 x double], ptr %__i.023.i, i64 0, i64 %indvars.iv.i.i.i.i23
-  %12 = load double, ptr %arrayidx.i.i.i.i.i.i24, align 8
-  %arrayidx.i.i11.i.i.i.i25 = getelementptr inbounds [3 x double], ptr %__first.addr.0.lcssa, i64 0, i64 %indvars.iv.i.i.i.i23
-  %13 = load double, ptr %arrayidx.i.i11.i.i.i.i25, align 8
-  %cmp.i.i.i.i.i26 = fcmp oeq double %12, %13
-  br i1 %cmp.i.i.i.i.i26, label %for.cond.i.i.i.i42, label %if.then.i.i.i.i27
+for.body.i.i.i.i20:                               ; preds = %for.cond.i.i.i.i40, %for.body.i.i.i.preheader.i19
+  %cmp.i.i.i.i21 = phi i1 [ false, %for.cond.i.i.i.i40 ], [ true, %for.body.i.i.i.preheader.i19 ]
+  %indvars.iv.i.i.i.i22 = phi i64 [ 1, %for.cond.i.i.i.i40 ], [ 0, %for.body.i.i.i.preheader.i19 ]
+  %arrayidx.i.i.i.i.i.i23 = getelementptr inbounds [3 x double], ptr %__i.022.i, i64 0, i64 %indvars.iv.i.i.i.i22
+  %12 = load double, ptr %arrayidx.i.i.i.i.i.i23, align 8
+  %arrayidx.i.i11.i.i.i.i24 = getelementptr inbounds [3 x double], ptr %__first.addr.0.lcssa, i64 0, i64 %indvars.iv.i.i.i.i22
+  %13 = load double, ptr %arrayidx.i.i11.i.i.i.i24, align 8
+  %cmp.i.i.i.i.i25 = fcmp oeq double %12, %13
+  br i1 %cmp.i.i.i.i.i25, label %for.cond.i.i.i.i40, label %if.then.i.i.i.i26
 
-if.then.i.i.i.i27:                                ; preds = %for.body.i.i.i.i21
-  %cmp6.i.i.i.i28 = fcmp olt double %12, %13
-  br i1 %cmp6.i.i.i.i28, label %if.then2.i, label %if.else.i
+if.then.i.i.i.i26:                                ; preds = %for.body.i.i.i.i20
+  %cmp6.i.i.i.i27 = fcmp olt double %12, %13
+  br i1 %cmp6.i.i.i.i27, label %if.then2.i, label %if.then.i.i.i.if.else_crit_edge.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43: ; preds = %for.cond.i.i.i.i42
-  %arrayidx.i.i16.i.i.i.i44 = getelementptr inbounds i8, ptr %__first.pn22.i, i64 40
-  %14 = load double, ptr %arrayidx.i.i16.i.i.i.i44, align 8
+if.then.i.i.i.if.else_crit_edge.i:                ; preds = %if.then.i.i.i.i26
+  %__val.sroa.4.0.__last.sroa_idx.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 40
+  %__val.sroa.4.0.copyload.i.pre.i = load double, ptr %__val.sroa.4.0.__last.sroa_idx.i.phi.trans.insert.i, align 8
+  br label %if.else.i
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41: ; preds = %for.cond.i.i.i.i40
+  %arrayidx.i.i16.i.i.i.i42 = getelementptr inbounds i8, ptr %__first.pn21.i, i64 40
+  %14 = load double, ptr %arrayidx.i.i16.i.i.i.i42, align 8
   %15 = load double, ptr %arrayidx.i.i17.i.i.i.i18, align 8
-  %cmp9.i.i.i.i45 = fcmp olt double %14, %15
-  br i1 %cmp9.i.i.i.i45, label %if.then2.i, label %if.else.i
+  %cmp9.i.i.i.i43 = fcmp olt double %14, %15
+  br i1 %cmp9.i.i.i.i43, label %if.then2.i, label %if.else.i
 
-if.then2.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43, %if.then.i.i.i.i27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__val.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %__i.023.i, i64 24, i1 false)
-  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn22.i, i64 48
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.023.i to i64
+if.then2.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41, %if.then.i.i.i.i26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__val.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %__i.022.i, i64 24, i1 false)
+  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 48
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.022.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.lcssa
   %sub.ptr.div.neg.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, -24
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.995", ptr %add.ptr3.i, i64 %sub.ptr.div.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.addr.0.lcssa, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.0.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %__val.sroa.0.i, i64 24, i1 false)
-  br label %for.inc.i37
+  br label %for.inc.i35
 
-if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43, %if.then.i.i.i.i27
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__val.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__val.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__i.023.i, i64 24, i1 false)
-  %16 = load double, ptr %arrayidx.i.i16.i.i.i.i.i19, align 8
+if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41, %if.then.i.i.i.if.else_crit_edge.i
+  %__val.sroa.4.0.copyload.i.i = phi double [ %__val.sroa.4.0.copyload.i.pre.i, %if.then.i.i.i.if.else_crit_edge.i ], [ %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41 ]
+  %16 = load <2 x double>, ptr %__i.022.i, align 8
+  %17 = extractelement <2 x double> %16, i64 0
+  %18 = extractelement <2 x double> %16, i64 1
   br label %while.cond.i.i
 
-while.cond.i.i:                                   ; preds = %while.body.i.i38, %if.else.i
-  %__last.addr.0.i.i29 = phi ptr [ %__i.023.i, %if.else.i ], [ %__next.0.i.i, %while.body.i.i38 ]
-  %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i29, i64 -24
-  br label %for.body.i.i.i.i.i30
+while.cond.i.i:                                   ; preds = %while.body.i.i36, %if.else.i
+  %__last.addr.0.i.i28 = phi ptr [ %__i.022.i, %if.else.i ], [ %__next.0.i.i, %while.body.i.i36 ]
+  %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 -24
+  br label %for.body.i.i.i.i.i29
 
-for.cond.i.i.i.i.i39:                             ; preds = %for.body.i.i.i.i.i30
-  br i1 %cmp.i.i.i.i12.i, label %for.body.i.i.i.i.i30, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, !llvm.loop !801
+for.cond.i.i.i.i.i37:                             ; preds = %for.body.i.i.i.i.i29
+  br i1 %cmp.i.i.i.i12.i, label %for.body.i.i.i.i.i29, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, !llvm.loop !801
 
-for.body.i.i.i.i.i30:                             ; preds = %for.cond.i.i.i.i.i39, %while.cond.i.i
-  %cmp.i.i.i.i12.i = phi i1 [ true, %while.cond.i.i ], [ false, %for.cond.i.i.i.i.i39 ]
-  %indvars.iv.i.i.i.i.i31 = phi i64 [ 0, %while.cond.i.i ], [ 1, %for.cond.i.i.i.i.i39 ]
-  %arrayidx.i.i.i.i.i.i.i32 = getelementptr inbounds [3 x double], ptr %__val.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i31
-  %17 = load double, ptr %arrayidx.i.i.i.i.i.i.i32, align 8
-  %arrayidx.i.i11.i.i.i.i.i33 = getelementptr inbounds [3 x double], ptr %__next.0.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i31
-  %18 = load double, ptr %arrayidx.i.i11.i.i.i.i.i33, align 8
-  %cmp.i.i.i.i.i.i34 = fcmp oeq double %17, %18
-  br i1 %cmp.i.i.i.i.i.i34, label %for.cond.i.i.i.i.i39, label %if.then.i.i.i.i.i35
+for.body.i.i.i.i.i29:                             ; preds = %for.cond.i.i.i.i.i37, %while.cond.i.i
+  %cmp.i.i.i.i12.i = phi i1 [ true, %while.cond.i.i ], [ false, %for.cond.i.i.i.i.i37 ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i = phi double [ %17, %while.cond.i.i ], [ %18, %for.cond.i.i.i.i.i37 ]
+  %indvars.iv.i.i.i.i.i30 = phi i64 [ 0, %while.cond.i.i ], [ 1, %for.cond.i.i.i.i.i37 ]
+  %arrayidx.i.i11.i.i.i.i.i31 = getelementptr inbounds [3 x double], ptr %__next.0.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i30
+  %19 = load double, ptr %arrayidx.i.i11.i.i.i.i.i31, align 8
+  %cmp.i.i.i.i.i.i32 = fcmp oeq double %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i, %19
+  br i1 %cmp.i.i.i.i.i.i32, label %for.cond.i.i.i.i.i37, label %if.then.i.i.i.i.i33
 
-if.then.i.i.i.i.i35:                              ; preds = %for.body.i.i.i.i.i30
-  %cmp6.i.i.i.i.i36 = fcmp olt double %17, %18
-  br i1 %cmp6.i.i.i.i.i36, label %while.body.i.i38, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i
+if.then.i.i.i.i.i33:                              ; preds = %for.body.i.i.i.i.i29
+  %cmp6.i.i.i.i.i34 = fcmp olt double %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i, %19
+  br i1 %cmp6.i.i.i.i.i34, label %while.body.i.i36, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i39
-  %arrayidx.i.i17.i.i.i.i.i40 = getelementptr inbounds i8, ptr %__last.addr.0.i.i29, i64 -8
-  %19 = load double, ptr %arrayidx.i.i17.i.i.i.i.i40, align 8
-  %cmp9.i.i.i.i.i41 = fcmp olt double %16, %19
-  br i1 %cmp9.i.i.i.i.i41, label %while.body.i.i38, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i37
+  %arrayidx.i.i17.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 -8
+  %20 = load double, ptr %arrayidx.i.i17.i.i.i.i.i38, align 8
+  %cmp9.i.i.i.i.i39 = fcmp olt double %__val.sroa.4.0.copyload.i.i, %20
+  br i1 %cmp9.i.i.i.i.i39, label %while.body.i.i36, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i
 
-while.body.i.i38:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__last.addr.0.i.i29, ptr noundef nonnull align 8 dereferenceable(24) %__next.0.i.i, i64 24, i1 false)
+while.body.i.i36:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__last.addr.0.i.i28, ptr noundef nonnull align 8 dereferenceable(24) %__next.0.i.i, i64 24, i1 false)
   br label %while.cond.i.i, !llvm.loop !876
 
-_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__last.addr.0.i.i29, ptr noundef nonnull align 8 dereferenceable(24) %__val.i.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__val.i.i)
-  br label %for.inc.i37
+_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i33
+  store <2 x double> %16, ptr %__last.addr.0.i.i28, align 8
+  %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 16
+  store double %__val.sroa.4.0.copyload.i.i, ptr %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i, align 8
+  br label %for.inc.i35
 
-for.inc.i37:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i, %if.then2.i
-  %__i.0.i = getelementptr inbounds i8, ptr %__i.023.i, i64 24
+for.inc.i35:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i, %if.then2.i
+  %__i.0.i = getelementptr inbounds i8, ptr %__i.022.i, i64 24
   %cmp1.not.i = icmp eq ptr %__i.0.i, %__last.addr.0.lcssa
-  br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.i20, !llvm.loop !877
+  br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.i19, !llvm.loop !877
 
-_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit: ; preds = %for.inc.i37, %while.end, %for.cond.preheader.i
+_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit: ; preds = %for.inc.i35, %while.end, %for.cond.preheader.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__val.sroa.0.i)
   br label %return
 
@@ -71942,8 +71969,6 @@ return:                                           ; preds = %_ZSt16__insertion_s
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt11__make_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_RT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %__comp) local_unnamed_addr #5 comdat {
 entry:
-  %agg.tmp23.i = alloca %"class.openvdb::v11_0::tree::NodeUnion.995", align 8
-  %agg.tmp10.sroa.0 = alloca [3 x double], align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -71955,11 +71980,10 @@ if.end:                                           ; preds = %entry
   %sub = add nsw i64 %sub.ptr.div, -2
   %div9 = lshr i64 %sub, 1
   %sub.i = add nsw i64 %sub.ptr.div, -1
-  %div.i2533 = lshr i64 %sub.i, 1
+  %div.i2330 = lshr i64 %sub.i, 1
   %and.i = and i64 %sub.ptr.div, 1
   %cmp5.i = icmp eq i64 %and.i, 0
   %div7.i = lshr exact i64 %sub, 1
-  %arrayidx.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp23.i, i64 16
   %sub12.i = or disjoint i64 %sub, 1
   %add.ptr13.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.995", ptr %__first, i64 %sub12.i
   %add.ptr14.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.995", ptr %__first, i64 %div7.i
@@ -71968,14 +71992,15 @@ if.end:                                           ; preds = %entry
 while.body:                                       ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit, %if.end
   %__parent.0 = phi i64 [ %div9, %if.end ], [ %dec, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit ]
   %add.ptr = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.995", ptr %__first, i64 %__parent.0
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp10.sroa.0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp10.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, i64 24, i1 false)
-  %cmp32.i = icmp sgt i64 %div.i2533, %__parent.0
-  br i1 %cmp32.i, label %while.body.i, label %while.end.i
+  %0 = load <2 x double>, ptr %add.ptr, align 8
+  %__value.sroa.0.sroa.3.0.add.ptr.sroa_idx = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %__value.sroa.0.sroa.3.0.copyload = load double, ptr %__value.sroa.0.sroa.3.0.add.ptr.sroa_idx, align 8
+  %cmp35.i = icmp sgt i64 %div.i2330, %__parent.0
+  br i1 %cmp35.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.body, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
-  %__secondChild.033.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ %__parent.0, %while.body ]
-  %add.i = shl i64 %__secondChild.033.i, 1
+  %__secondChild.036.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ %__parent.0, %while.body ]
+  %add.i = shl i64 %__secondChild.036.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.995", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -71989,31 +72014,31 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %
   %cmp.i.i.i.i = phi i1 [ true, %while.body.i ], [ false, %for.cond.i.i.i.i ]
   %indvars.iv.i.i.i.i = phi i64 [ 0, %while.body.i ], [ 1, %for.cond.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %add.ptr.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %0 = load double, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %1 = load double, ptr %arrayidx.i.i.i.i.i.i, align 8
   %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x double], ptr %add.ptr2.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %1 = load double, ptr %arrayidx.i.i11.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = fcmp oeq double %0, %1
+  %2 = load double, ptr %arrayidx.i.i11.i.i.i.i, align 8
+  %cmp.i.i.i.i.i = fcmp oeq double %1, %2
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %cmp6.i.i.i.i = fcmp olt double %0, %1
+  %cmp6.i.i.i.i = fcmp olt double %1, %2
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
 
 for.end.i.i.i.i:                                  ; preds = %for.cond.i.i.i.i
   %arrayidx.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
-  %2 = load double, ptr %arrayidx.i.i16.i.i.i.i, align 8
+  %3 = load double, ptr %arrayidx.i.i16.i.i.i.i, align 8
   %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 16
-  %3 = load double, ptr %arrayidx.i.i17.i.i.i.i, align 8
-  %cmp9.i.i.i.i = fcmp olt double %2, %3
+  %4 = load double, ptr %arrayidx.i.i17.i.i.i.i, align 8
+  %cmp9.i.i.i.i = fcmp olt double %3, %4
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i: ; preds = %for.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi i1 [ %cmp6.i.i.i.i, %if.then.i.i.i.i ], [ %cmp9.i.i.i.i, %for.end.i.i.i.i ]
   %spec.select.i = select i1 %retval.0.i.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.995", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.995", ptr %__first, i64 %__secondChild.033.i
+  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.995", ptr %__first, i64 %__secondChild.036.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr4.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr3.i, i64 24, i1 false)
-  %cmp.i = icmp slt i64 %spec.select.i, %div.i2533
+  %cmp.i = icmp slt i64 %spec.select.i, %div.i2330
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !878
 
 while.end.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i, %while.body
@@ -72028,17 +72053,16 @@ if.then9.i:                                       ; preds = %while.end.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__secondChild.0.lcssa.i, %while.end.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp23.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp23.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp10.sroa.0, i64 24, i1 false)
   %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %__parent.0
-  br i1 %cmp15.i.i, label %land.rhs.lr.ph.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
+  br i1 %cmp15.i.i, label %land.rhs.i.i.preheader, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
-land.rhs.lr.ph.i.i:                               ; preds = %if.end16.i
-  %4 = load double, ptr %arrayidx.i.i17.i.i.i.i.i, align 8
+land.rhs.i.i.preheader:                           ; preds = %if.end16.i
+  %5 = extractelement <2 x double> %0, i64 0
+  %6 = extractelement <2 x double> %0, i64 1
   br label %land.rhs.i.i
 
-land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
-  %__holeIndex.addr.016.i.i = phi i64 [ %__holeIndex.addr.1.i, %land.rhs.lr.ph.i.i ], [ %__parent.017.i.i, %while.body.i.i ]
+land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %while.body.i.i
+  %__holeIndex.addr.016.i.i = phi i64 [ %__parent.017.i.i, %while.body.i.i ], [ %__holeIndex.addr.1.i, %land.rhs.i.i.preheader ]
   %__parent.017.in.i.i = add nsw i64 %__holeIndex.addr.016.i.i, -1
   %__parent.017.i.i = sdiv i64 %__parent.017.in.i.i, 2
   %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.995", ptr %__first, i64 %__parent.017.i.i
@@ -72049,22 +72073,21 @@ for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i, %land.rhs.i.i
   %cmp.i.i.i.i24.i = phi i1 [ true, %land.rhs.i.i ], [ false, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.i.sroa.phi.sroa.speculated.i = phi double [ %5, %land.rhs.i.i ], [ %6, %for.cond.i.i.i.i.i ]
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ 1, %for.cond.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %add.ptr.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %5 = load double, ptr %arrayidx.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %agg.tmp23.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %6 = load double, ptr %arrayidx.i.i11.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = fcmp oeq double %5, %6
+  %7 = load double, ptr %arrayidx.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i = fcmp oeq double %7, %indvars.iv.i.i.i.i.sroa.phi.sroa.speculated.i
   br i1 %cmp.i.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %cmp6.i.i.i.i.i = fcmp olt double %5, %6
+  %cmp6.i.i.i.i.i = fcmp olt double %7, %indvars.iv.i.i.i.i.sroa.phi.sroa.speculated.i
   br i1 %cmp6.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i
   %arrayidx.i.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
-  %7 = load double, ptr %arrayidx.i.i16.i.i.i.i.i, align 8
-  %cmp9.i.i.i.i.i = fcmp olt double %7, %4
+  %8 = load double, ptr %arrayidx.i.i16.i.i.i.i.i, align 8
+  %cmp9.i.i.i.i.i = fcmp olt double %8, %__value.sroa.0.sroa.3.0.copyload
   br i1 %cmp9.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %if.then.i.i.i.i.i
@@ -72076,9 +72099,9 @@ while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops
 _ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit: ; preds = %if.then.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.016.i.i, %if.then.i.i.i.i.i ], [ %__parent.017.i.i, %while.body.i.i ], [ %__holeIndex.addr.016.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.995", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp10.sroa.0, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp23.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp10.sroa.0)
+  store <2 x double> %0, ptr %add.ptr5.i.i, align 8
+  %agg.tmp23.sroa.6.0.add.ptr5.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 16
+  store double %__value.sroa.0.sroa.3.0.copyload, ptr %agg.tmp23.sroa.6.0.add.ptr5.i.sroa_idx.i, align 8
   %cmp6 = icmp eq i64 %__parent.0, 0
   %dec = add nsw i64 %__parent.0, -1
   br i1 %cmp6, label %return, label %while.body, !llvm.loop !880
@@ -72090,8 +72113,9 @@ return:                                           ; preds = %_ZSt13__adjust_heap
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt10__pop_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_RT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__comp) local_unnamed_addr #5 comdat {
 entry:
-  %agg.tmp4.sroa.0 = alloca [3 x double], align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %__result, i64 24, i1 false)
+  %0 = load <2 x double>, ptr %__result, align 8
+  %__value.sroa.0.sroa.3.0.__result.sroa_idx = getelementptr inbounds i8, ptr %__result, i64 16
+  %__value.sroa.0.sroa.3.0.copyload = load double, ptr %__value.sroa.0.sroa.3.0.__result.sroa_idx, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__result, ptr noundef nonnull align 8 dereferenceable(24) %__first, i64 24, i1 false)
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
@@ -72099,12 +72123,12 @@ entry:
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 24
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i = sdiv i64 %sub.i, 2
-  %cmp32.i = icmp sgt i64 %sub.ptr.sub, 48
-  br i1 %cmp32.i, label %while.body.i, label %while.end.i
+  %cmp35.i = icmp sgt i64 %sub.ptr.sub, 48
+  br i1 %cmp35.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
-  %__secondChild.033.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ 0, %entry ]
-  %add.i = shl i64 %__secondChild.033.i, 1
+  %__secondChild.036.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ 0, %entry ]
+  %add.i = shl i64 %__secondChild.036.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.995", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -72118,29 +72142,29 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %
   %cmp.i.i.i.i = phi i1 [ true, %while.body.i ], [ false, %for.cond.i.i.i.i ]
   %indvars.iv.i.i.i.i = phi i64 [ 0, %while.body.i ], [ 1, %for.cond.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %add.ptr.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %0 = load double, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %1 = load double, ptr %arrayidx.i.i.i.i.i.i, align 8
   %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x double], ptr %add.ptr2.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %1 = load double, ptr %arrayidx.i.i11.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = fcmp oeq double %0, %1
+  %2 = load double, ptr %arrayidx.i.i11.i.i.i.i, align 8
+  %cmp.i.i.i.i.i = fcmp oeq double %1, %2
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %cmp6.i.i.i.i = fcmp olt double %0, %1
+  %cmp6.i.i.i.i = fcmp olt double %1, %2
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
 
 for.end.i.i.i.i:                                  ; preds = %for.cond.i.i.i.i
   %arrayidx.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
-  %2 = load double, ptr %arrayidx.i.i16.i.i.i.i, align 8
+  %3 = load double, ptr %arrayidx.i.i16.i.i.i.i, align 8
   %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 16
-  %3 = load double, ptr %arrayidx.i.i17.i.i.i.i, align 8
-  %cmp9.i.i.i.i = fcmp olt double %2, %3
+  %4 = load double, ptr %arrayidx.i.i17.i.i.i.i, align 8
+  %cmp9.i.i.i.i = fcmp olt double %3, %4
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i: ; preds = %for.end.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi i1 [ %cmp6.i.i.i.i, %if.then.i.i.i.i ], [ %cmp9.i.i.i.i, %for.end.i.i.i.i ]
   %spec.select.i = select i1 %retval.0.i.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.995", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.995", ptr %__first, i64 %__secondChild.033.i
+  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.995", ptr %__first, i64 %__secondChild.036.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr4.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr3.i, i64 24, i1 false)
   %cmp.i = icmp slt i64 %spec.select.i, %div.i
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !878
@@ -72168,15 +72192,15 @@ if.then9.i:                                       ; preds = %land.lhs.true.i
 if.end16.i:                                       ; preds = %if.then9.i, %land.lhs.true.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__secondChild.0.lcssa.i, %land.lhs.true.i ], [ %__secondChild.0.lcssa.i, %while.end.i ]
   %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, 0
-  br i1 %cmp15.i.i, label %land.rhs.lr.ph.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
+  br i1 %cmp15.i.i, label %land.rhs.i.i.preheader, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
-land.rhs.lr.ph.i.i:                               ; preds = %if.end16.i
-  %arrayidx.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp4.sroa.0, i64 16
-  %4 = load double, ptr %arrayidx.i.i17.i.i.i.i.i, align 8
+land.rhs.i.i.preheader:                           ; preds = %if.end16.i
+  %5 = extractelement <2 x double> %0, i64 0
+  %6 = extractelement <2 x double> %0, i64 1
   br label %land.rhs.i.i
 
-land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
-  %__holeIndex.addr.016.i.i = phi i64 [ %__holeIndex.addr.1.i, %land.rhs.lr.ph.i.i ], [ %__parent.017.i.i56, %while.body.i.i ]
+land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %while.body.i.i
+  %__holeIndex.addr.016.i.i = phi i64 [ %__parent.017.i.i56, %while.body.i.i ], [ %__holeIndex.addr.1.i, %land.rhs.i.i.preheader ]
   %__parent.017.in.i.i = add nsw i64 %__holeIndex.addr.016.i.i, -1
   %__parent.017.i.i56 = lshr i64 %__parent.017.in.i.i, 1
   %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.995", ptr %__first, i64 %__parent.017.i.i56
@@ -72187,22 +72211,21 @@ for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i, %land.rhs.i.i
   %cmp.i.i.i.i24.i = phi i1 [ true, %land.rhs.i.i ], [ false, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.i.sroa.phi.sroa.speculated.i = phi double [ %5, %land.rhs.i.i ], [ %6, %for.cond.i.i.i.i.i ]
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ 1, %for.cond.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %add.ptr.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %5 = load double, ptr %arrayidx.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %agg.tmp4.sroa.0, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %6 = load double, ptr %arrayidx.i.i11.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = fcmp oeq double %5, %6
+  %7 = load double, ptr %arrayidx.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i = fcmp oeq double %7, %indvars.iv.i.i.i.i.sroa.phi.sroa.speculated.i
   br i1 %cmp.i.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %cmp6.i.i.i.i.i = fcmp olt double %5, %6
+  %cmp6.i.i.i.i.i = fcmp olt double %7, %indvars.iv.i.i.i.i.sroa.phi.sroa.speculated.i
   br i1 %cmp6.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i
   %arrayidx.i.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
-  %7 = load double, ptr %arrayidx.i.i16.i.i.i.i.i, align 8
-  %cmp9.i.i.i.i.i = fcmp olt double %7, %4
+  %8 = load double, ptr %arrayidx.i.i16.i.i.i.i.i, align 8
+  %cmp9.i.i.i.i.i = fcmp olt double %8, %__value.sroa.0.sroa.3.0.copyload
   br i1 %cmp9.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %if.then.i.i.i.i.i
@@ -72214,7 +72237,9 @@ while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops
 _ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IdEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit: ; preds = %if.then.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.016.i.i, %if.then.i.i.i.i.i ], [ %__parent.017.i.i56, %while.body.i.i ], [ %__holeIndex.addr.016.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.995", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4.sroa.0, i64 24, i1 false)
+  store <2 x double> %0, ptr %add.ptr5.i.i, align 8
+  %agg.tmp23.sroa.6.0.add.ptr5.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 16
+  store double %__value.sroa.0.sroa.3.0.copyload, ptr %agg.tmp23.sroa.6.0.add.ptr5.i.sroa_idx.i, align 8
   ret void
 }
 
@@ -76711,8 +76736,6 @@ for.end:                                          ; preds = %for.inc.i.i.i, %_ZN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK7openvdb5v11_04tree8LeafNodeINS0_4math4Vec3IiEELj3EE10isConstantERS5_S7_RbRKS5_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 4 dereferenceable(12) %minValue, ptr noundef nonnull align 4 dereferenceable(12) %maxValue, ptr noundef nonnull align 1 dereferenceable(1) %state, ptr noundef nonnull align 4 dereferenceable(12) %tolerance) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3.341", align 8
-  %ref.tmp14 = alloca %"class.openvdb::v11_0::math::Vec3.341", align 8
   %mValueMask = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mValueMask, align 8
   %cmp.i = icmp eq i64 %0, -1
@@ -76771,8 +76794,6 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EEixEj.exit: ; preds = 
   %arrayidx.i.i17.i = getelementptr inbounds i8, ptr %minValue, i64 8
   %arrayidx.i.i17.i55 = getelementptr inbounds i8, ptr %maxValue, i64 8
   %arrayidx.i.i.i.i65 = getelementptr inbounds i8, ptr %minValue, i64 4
-  %tmp.coerce18.sroa.2.0.coerce.dive17.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp14, i64 8
-  %tmp.coerce.sroa.2.0.coerce.dive8.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EEixEj.exit, %for.inc
@@ -76853,12 +76874,6 @@ if.then6:                                         ; preds = %if.then.i.if.then6_
   %17 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %sub5.i.i = sub nsw i32 %retval.sroa.0.sroa.4.0.extract.trunc.i, %17
   %sub9.i.i = sub nsw i32 %retval.sroa.6.0.copyload.i, %15
-  %retval.sroa.0.sroa.4.0.insert.ext.i = zext i32 %sub5.i.i to i64
-  %retval.sroa.0.sroa.4.0.insert.shift.i = shl nuw i64 %retval.sroa.0.sroa.4.0.insert.ext.i, 32
-  %retval.sroa.0.sroa.0.0.insert.ext.i = zext i32 %sub.i.i to i64
-  %retval.sroa.0.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.0.sroa.4.0.insert.shift.i, %retval.sroa.0.sroa.0.0.insert.ext.i
-  store i64 %retval.sroa.0.sroa.0.0.insert.insert.i, ptr %ref.tmp, align 8
-  store i32 %sub9.i.i, ptr %tmp.coerce.sroa.2.0.coerce.dive8.sroa_idx, align 8
   br label %for.body.i29
 
 for.cond.i38:                                     ; preds = %for.body.i29
@@ -76866,21 +76881,20 @@ for.cond.i38:                                     ; preds = %for.body.i29
 
 for.body.i29:                                     ; preds = %for.cond.i38, %if.then6
   %cmp.i30 = phi i1 [ true, %if.then6 ], [ false, %for.cond.i38 ]
+  %indvars.iv.i31.sroa.phi.sroa.speculated = phi i32 [ %sub.i.i, %if.then6 ], [ %sub5.i.i, %for.cond.i38 ]
   %indvars.iv.i31 = phi i64 [ 0, %if.then6 ], [ 1, %for.cond.i38 ]
-  %arrayidx.i.i.i32 = getelementptr inbounds [3 x i32], ptr %ref.tmp, i64 0, i64 %indvars.iv.i31
-  %18 = load i32, ptr %arrayidx.i.i.i32, align 4
   %arrayidx.i.i11.i33 = getelementptr inbounds [3 x i32], ptr %tolerance, i64 0, i64 %indvars.iv.i31
-  %19 = load i32, ptr %arrayidx.i.i11.i33, align 4
-  %cmp.i.i34 = icmp eq i32 %18, %19
+  %18 = load i32, ptr %arrayidx.i.i11.i33, align 4
+  %cmp.i.i34 = icmp eq i32 %indvars.iv.i31.sroa.phi.sroa.speculated, %18
   br i1 %cmp.i.i34, label %for.cond.i38, label %if.then.i35
 
 if.then.i35:                                      ; preds = %for.body.i29
-  %cmp6.i36 = icmp sgt i32 %18, %19
+  %cmp6.i36 = icmp sgt i32 %indvars.iv.i31.sroa.phi.sroa.speculated, %18
   br i1 %cmp6.i36, label %return, label %for.inc.sink.split
 
 _ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit: ; preds = %for.cond.i38
-  %20 = load i32, ptr %arrayidx.i.i17.i87, align 4
-  %cmp9.i42 = icmp sgt i32 %sub9.i.i, %20
+  %19 = load i32, ptr %arrayidx.i.i17.i87, align 4
+  %cmp9.i42 = icmp sgt i32 %sub9.i.i, %19
   br i1 %cmp9.i42, label %return, label %for.inc.sink.split
 
 for.cond.i52:                                     ; preds = %for.body.i43
@@ -76890,14 +76904,14 @@ for.body.i43:                                     ; preds = %for.body.i43.prehea
   %cmp.i44 = phi i1 [ false, %for.cond.i52 ], [ true, %for.body.i43.preheader ]
   %indvars.iv.i45 = phi i64 [ 1, %for.cond.i52 ], [ 0, %for.body.i43.preheader ]
   %arrayidx.i.i.i46 = getelementptr inbounds [3 x i32], ptr %retval.0.i.i21, i64 0, i64 %indvars.iv.i45
-  %21 = load i32, ptr %arrayidx.i.i.i46, align 4
+  %20 = load i32, ptr %arrayidx.i.i.i46, align 4
   %arrayidx.i.i11.i47 = getelementptr inbounds [3 x i32], ptr %maxValue, i64 0, i64 %indvars.iv.i45
-  %22 = load i32, ptr %arrayidx.i.i11.i47, align 4
-  %cmp.i.i48 = icmp eq i32 %21, %22
+  %21 = load i32, ptr %arrayidx.i.i11.i47, align 4
+  %cmp.i.i48 = icmp eq i32 %20, %21
   br i1 %cmp.i.i48, label %for.cond.i52, label %if.then.i49
 
 if.then.i49:                                      ; preds = %for.body.i43
-  %cmp6.i50 = icmp sgt i32 %21, %22
+  %cmp6.i50 = icmp sgt i32 %20, %21
   br i1 %cmp6.i50, label %if.then.i49.if.then13_crit_edge, label %for.inc
 
 if.then.i49.if.then13_crit_edge:                  ; preds = %if.then.i49
@@ -76907,29 +76921,23 @@ if.then.i49.if.then13_crit_edge:                  ; preds = %if.then.i49
 
 _ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit57: ; preds = %for.cond.i52
   %arrayidx.i.i16.i54 = getelementptr inbounds i8, ptr %retval.0.i.i21, i64 8
-  %23 = load i32, ptr %arrayidx.i.i16.i54, align 4
-  %24 = load i32, ptr %arrayidx.i.i17.i55, align 4
-  %cmp9.i56 = icmp sgt i32 %23, %24
+  %22 = load i32, ptr %arrayidx.i.i16.i54, align 4
+  %23 = load i32, ptr %arrayidx.i.i17.i55, align 4
+  %cmp9.i56 = icmp sgt i32 %22, %23
   br i1 %cmp9.i56, label %if.then13, label %for.inc
 
 if.then13:                                        ; preds = %if.then.i49.if.then13_crit_edge, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit57
-  %retval.sroa.6.0.copyload.i63 = phi i32 [ %retval.sroa.6.0.copyload.i63.pre, %if.then.i49.if.then13_crit_edge ], [ %23, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit57 ]
+  %retval.sroa.6.0.copyload.i63 = phi i32 [ %retval.sroa.6.0.copyload.i63.pre, %if.then.i49.if.then13_crit_edge ], [ %22, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit57 ]
   %retval.sroa.0.0.copyload.i58 = load i64, ptr %retval.0.i.i21, align 4
   %retval.sroa.0.sroa.0.0.extract.trunc.i59 = trunc i64 %retval.sroa.0.0.copyload.i58 to i32
   %retval.sroa.0.sroa.4.0.extract.shift.i60 = lshr i64 %retval.sroa.0.0.copyload.i58, 32
   %retval.sroa.0.sroa.4.0.extract.trunc.i61 = trunc i64 %retval.sroa.0.sroa.4.0.extract.shift.i60 to i32
-  %25 = load i32, ptr %minValue, align 4
-  %sub.i.i64 = sub nsw i32 %retval.sroa.0.sroa.0.0.extract.trunc.i59, %25
-  %26 = load i32, ptr %arrayidx.i.i.i.i65, align 4
-  %sub5.i.i66 = sub nsw i32 %retval.sroa.0.sroa.4.0.extract.trunc.i61, %26
-  %27 = load i32, ptr %arrayidx.i.i17.i, align 4
-  %sub9.i.i68 = sub nsw i32 %retval.sroa.6.0.copyload.i63, %27
-  %retval.sroa.0.sroa.4.0.insert.ext.i69 = zext i32 %sub5.i.i66 to i64
-  %retval.sroa.0.sroa.4.0.insert.shift.i70 = shl nuw i64 %retval.sroa.0.sroa.4.0.insert.ext.i69, 32
-  %retval.sroa.0.sroa.0.0.insert.ext.i71 = zext i32 %sub.i.i64 to i64
-  %retval.sroa.0.sroa.0.0.insert.insert.i72 = or disjoint i64 %retval.sroa.0.sroa.4.0.insert.shift.i70, %retval.sroa.0.sroa.0.0.insert.ext.i71
-  store i64 %retval.sroa.0.sroa.0.0.insert.insert.i72, ptr %ref.tmp14, align 8
-  store i32 %sub9.i.i68, ptr %tmp.coerce18.sroa.2.0.coerce.dive17.sroa_idx, align 8
+  %24 = load i32, ptr %minValue, align 4
+  %sub.i.i64 = sub nsw i32 %retval.sroa.0.sroa.0.0.extract.trunc.i59, %24
+  %25 = load i32, ptr %arrayidx.i.i.i.i65, align 4
+  %sub5.i.i66 = sub nsw i32 %retval.sroa.0.sroa.4.0.extract.trunc.i61, %25
+  %26 = load i32, ptr %arrayidx.i.i17.i, align 4
+  %sub9.i.i68 = sub nsw i32 %retval.sroa.6.0.copyload.i63, %26
   br label %for.body.i75
 
 for.cond.i84:                                     ; preds = %for.body.i75
@@ -76937,21 +76945,20 @@ for.cond.i84:                                     ; preds = %for.body.i75
 
 for.body.i75:                                     ; preds = %for.cond.i84, %if.then13
   %cmp.i76 = phi i1 [ true, %if.then13 ], [ false, %for.cond.i84 ]
+  %indvars.iv.i77.sroa.phi.sroa.speculated = phi i32 [ %sub.i.i64, %if.then13 ], [ %sub5.i.i66, %for.cond.i84 ]
   %indvars.iv.i77 = phi i64 [ 0, %if.then13 ], [ 1, %for.cond.i84 ]
-  %arrayidx.i.i.i78 = getelementptr inbounds [3 x i32], ptr %ref.tmp14, i64 0, i64 %indvars.iv.i77
-  %28 = load i32, ptr %arrayidx.i.i.i78, align 4
   %arrayidx.i.i11.i79 = getelementptr inbounds [3 x i32], ptr %tolerance, i64 0, i64 %indvars.iv.i77
-  %29 = load i32, ptr %arrayidx.i.i11.i79, align 4
-  %cmp.i.i80 = icmp eq i32 %28, %29
+  %27 = load i32, ptr %arrayidx.i.i11.i79, align 4
+  %cmp.i.i80 = icmp eq i32 %indvars.iv.i77.sroa.phi.sroa.speculated, %27
   br i1 %cmp.i.i80, label %for.cond.i84, label %if.then.i81
 
 if.then.i81:                                      ; preds = %for.body.i75
-  %cmp6.i82 = icmp sgt i32 %28, %29
+  %cmp6.i82 = icmp sgt i32 %indvars.iv.i77.sroa.phi.sroa.speculated, %27
   br i1 %cmp6.i82, label %return, label %for.inc.sink.split
 
 _ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit89: ; preds = %for.cond.i84
-  %30 = load i32, ptr %arrayidx.i.i17.i87, align 4
-  %cmp9.i88 = icmp sgt i32 %sub9.i.i68, %30
+  %28 = load i32, ptr %arrayidx.i.i17.i87, align 4
+  %cmp9.i88 = icmp sgt i32 %sub9.i.i68, %28
   br i1 %cmp9.i88, label %return, label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit89, %if.then.i81, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit, %if.then.i35
@@ -78316,34 +78323,33 @@ _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IiEESt14default_deleteIS5_EED2Ev.ex
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt13__introselectIPN7openvdb5v11_04math4Vec3IiEElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_T0_T1_(ptr noundef %__first, ptr noundef %__nth, ptr noundef %__last, i64 noundef %__depth_limit) local_unnamed_addr #5 comdat {
 entry:
-  %__val.i.i = alloca %"class.openvdb::v11_0::math::Vec3.341", align 4
   %__val.sroa.0.i = alloca [3 x i32], align 4
   %__tmp.sroa.0.i.i.i.i = alloca [3 x i32], align 4
   %__tmp.sroa.0.i.i = alloca [3 x i32], align 4
   %__comp.i = alloca %"struct.__gnu_cxx::__ops::_Iter_less_iter", align 1
-  %sub.ptr.lhs.cast67 = ptrtoint ptr %__last to i64
-  %sub.ptr.rhs.cast68 = ptrtoint ptr %__first to i64
-  %sub.ptr.sub69 = sub i64 %sub.ptr.lhs.cast67, %sub.ptr.rhs.cast68
-  %cmp70 = icmp sgt i64 %sub.ptr.sub69, 36
-  br i1 %cmp70, label %while.body, label %while.end
+  %sub.ptr.lhs.cast64 = ptrtoint ptr %__last to i64
+  %sub.ptr.rhs.cast65 = ptrtoint ptr %__first to i64
+  %sub.ptr.sub66 = sub i64 %sub.ptr.lhs.cast64, %sub.ptr.rhs.cast65
+  %cmp67 = icmp sgt i64 %sub.ptr.sub66, 36
+  br i1 %cmp67, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit
-  %sub.ptr.sub74 = phi i64 [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %sub.ptr.sub69, %entry ]
-  %__first.addr.073 = phi ptr [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %__first, %entry ]
-  %__depth_limit.addr.072 = phi i64 [ %dec, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %__depth_limit, %entry ]
-  %__last.addr.071 = phi ptr [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %__last, %entry ]
-  %cmp1 = icmp eq i64 %__depth_limit.addr.072, 0
+  %sub.ptr.sub71 = phi i64 [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %sub.ptr.sub66, %entry ]
+  %__first.addr.070 = phi ptr [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %__first, %entry ]
+  %__depth_limit.addr.069 = phi i64 [ %dec, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %__depth_limit, %entry ]
+  %__last.addr.068 = phi ptr [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %__last, %entry ]
+  %cmp1 = icmp eq i64 %__depth_limit.addr.069, 0
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
   %add.ptr = getelementptr inbounds i8, ptr %__nth, i64 12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
-  call void @_ZSt11__make_heapIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_RT0_(ptr noundef %__first.addr.073, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
-  %cmp11.i = icmp ult ptr %add.ptr, %__last.addr.071
+  call void @_ZSt11__make_heapIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_RT0_(ptr noundef %__first.addr.070, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  %cmp11.i = icmp ult ptr %add.ptr, %__last.addr.068
   br i1 %cmp11.i, label %for.body.i.i.preheader.lr.ph.i, label %_ZSt13__heap_selectIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_T0_.exit
 
 for.body.i.i.preheader.lr.ph.i:                   ; preds = %if.then
-  %arrayidx.i.i17.i.i.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 8
+  %arrayidx.i.i17.i.i.i = getelementptr inbounds i8, ptr %__first.addr.070, i64 8
   br label %for.body.i.i.preheader.i
 
 for.body.i.i.preheader.i:                         ; preds = %for.inc.i, %for.body.i.i.preheader.lr.ph.i
@@ -78358,7 +78364,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   %indvars.iv.i.i.i = phi i64 [ 1, %for.cond.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
   %arrayidx.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__i.012.i, i64 0, i64 %indvars.iv.i.i.i
   %0 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.070, i64 0, i64 %indvars.iv.i.i.i
   %1 = load i32, ptr %arrayidx.i.i11.i.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %0, %1
   br i1 %cmp.i.i.i.i, label %for.cond.i.i.i, label %if.then.i.i.i
@@ -78375,34 +78381,34 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0
   br i1 %cmp9.i.i.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i, %if.then.i.i.i
-  call void @_ZSt10__pop_heapIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_RT0_(ptr noundef nonnull %__first.addr.073, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__i.012.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  call void @_ZSt10__pop_heapIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_RT0_(ptr noundef nonnull %__first.addr.070, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__i.012.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i, %if.then.i.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__i.012.i, i64 12
-  %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.addr.071
+  %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.addr.068
   br i1 %cmp.i, label %for.body.i.i.preheader.i, label %_ZSt13__heap_selectIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_T0_.exit, !llvm.loop !931
 
 _ZSt13__heap_selectIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_T0_.exit: ; preds = %for.inc.i, %if.then
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__tmp.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__tmp.sroa.0.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.073, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.073, ptr noundef nonnull align 4 dereferenceable(12) %__nth, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__tmp.sroa.0.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.070, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.070, ptr noundef nonnull align 4 dereferenceable(12) %__nth, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__nth, ptr noundef nonnull align 4 dereferenceable(12) %__tmp.sroa.0.i.i, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__tmp.sroa.0.i.i)
   br label %return
 
 if.end:                                           ; preds = %while.body
-  %div.i44 = udiv i64 %sub.ptr.sub74, 24
-  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first.addr.073, i64 %div.i44
-  %add.ptr1.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 12
-  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.071, i64 -12
-  tail call void @_ZSt22__move_median_to_firstIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_S9_T0_(ptr noundef %__first.addr.073, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
-  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 8
+  %div.i42 = udiv i64 %sub.ptr.sub71, 24
+  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first.addr.070, i64 %div.i42
+  %add.ptr1.i = getelementptr inbounds i8, ptr %__first.addr.070, i64 12
+  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.068, i64 -12
+  tail call void @_ZSt22__move_median_to_firstIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_S9_T0_(ptr noundef %__first.addr.070, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
+  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.070, i64 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %if.end
-  %__last.addr.0.i.i = phi ptr [ %__last.addr.071, %if.end ], [ %__last.addr.1.i.i, %if.end.i.i ]
+  %__last.addr.0.i.i = phi ptr [ %__last.addr.068, %if.end ], [ %__last.addr.1.i.i, %if.end.i.i ]
   %__first.addr.0.i.i = phi ptr [ %add.ptr1.i, %if.end ], [ %incdec.ptr9.i.i, %if.end.i.i ]
   br label %while.cond1.i.i
 
@@ -78418,7 +78424,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %
   %indvars.iv.i.i.i.i = phi i64 [ 0, %while.cond1.i.i ], [ 1, %for.cond.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.1.i.i, i64 0, i64 %indvars.iv.i.i.i.i
   %4 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i.i.i
+  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.070, i64 0, i64 %indvars.iv.i.i.i.i
   %5 = load i32, ptr %arrayidx.i.i11.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %4, %5
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
@@ -78452,7 +78458,7 @@ for.cond.i.i20.i.i:                               ; preds = %for.body.i.i11.i.i
 for.body.i.i11.i.i:                               ; preds = %for.cond.i.i20.i.i, %while.cond4.i.i
   %cmp.i.i12.i.i = phi i1 [ true, %while.cond4.i.i ], [ false, %for.cond.i.i20.i.i ]
   %indvars.iv.i.i13.i.i = phi i64 [ 0, %while.cond4.i.i ], [ 1, %for.cond.i.i20.i.i ]
-  %arrayidx.i.i.i.i14.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i13.i.i
+  %arrayidx.i.i.i.i14.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.070, i64 0, i64 %indvars.iv.i.i13.i.i
   %8 = load i32, ptr %arrayidx.i.i.i.i14.i.i, align 4
   %arrayidx.i.i11.i.i15.i.i = getelementptr inbounds [3 x i32], ptr %__last.addr.1.i.i, i64 0, i64 %indvars.iv.i.i13.i.i
   %9 = load i32, ptr %arrayidx.i.i11.i.i15.i.i, align 4
@@ -78487,10 +78493,10 @@ if.end.i.i:                                       ; preds = %while.end8.i.i
   br label %while.body.i.i, !llvm.loop !934
 
 _ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit: ; preds = %while.end8.i.i
-  %dec = add nsw i64 %__depth_limit.addr.072, -1
+  %dec = add nsw i64 %__depth_limit.addr.069, -1
   %cmp3.not = icmp ugt ptr %__first.addr.1.i.i, %__nth
-  %call.__last.addr.0 = select i1 %cmp3.not, ptr %__first.addr.1.i.i, ptr %__last.addr.071
-  %__first.addr.0.call = select i1 %cmp3.not, ptr %__first.addr.073, ptr %__first.addr.1.i.i
+  %call.__last.addr.0 = select i1 %cmp3.not, ptr %__first.addr.1.i.i, ptr %__last.addr.068
+  %__first.addr.0.call = select i1 %cmp3.not, ptr %__first.addr.070, ptr %__first.addr.1.i.i
   %sub.ptr.lhs.cast = ptrtoint ptr %call.__last.addr.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first.addr.0.call to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -78500,110 +78506,117 @@ _ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__op
 while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit, %entry
   %__last.addr.0.lcssa = phi ptr [ %__last, %entry ], [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ]
   %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ]
-  %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast68, %entry ], [ %sub.ptr.rhs.cast, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ]
+  %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast65, %entry ], [ %sub.ptr.rhs.cast, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__val.sroa.0.i)
   %cmp.i14 = icmp eq ptr %__first.addr.0.lcssa, %__last.addr.0.lcssa
   br i1 %cmp.i14, label %_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end
-  %__i.020.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 12
-  %cmp1.not21.i = icmp eq ptr %__i.020.i, %__last.addr.0.lcssa
-  br i1 %cmp1.not21.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit, label %for.body.i.i.preheader.lr.ph.i15
+  %__i.019.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 12
+  %cmp1.not20.i = icmp eq ptr %__i.019.i, %__last.addr.0.lcssa
+  br i1 %cmp1.not20.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit, label %for.body.i.i.preheader.lr.ph.i15
 
 for.body.i.i.preheader.lr.ph.i15:                 ; preds = %for.cond.preheader.i
   %arrayidx.i.i17.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 8
-  %arrayidx.i.i16.i.i.i.i17 = getelementptr inbounds i8, ptr %__val.i.i, i64 8
-  br label %for.body.i.i.preheader.i18
+  br label %for.body.i.i.preheader.i17
 
-for.body.i.i.preheader.i18:                       ; preds = %for.inc.i35, %for.body.i.i.preheader.lr.ph.i15
-  %__i.023.i = phi ptr [ %__i.020.i, %for.body.i.i.preheader.lr.ph.i15 ], [ %__i.0.i, %for.inc.i35 ]
-  %__first.pn22.i = phi ptr [ %__first.addr.0.lcssa, %for.body.i.i.preheader.lr.ph.i15 ], [ %__i.023.i, %for.inc.i35 ]
-  br label %for.body.i.i.i19
+for.body.i.i.preheader.i17:                       ; preds = %for.inc.i33, %for.body.i.i.preheader.lr.ph.i15
+  %__i.022.i = phi ptr [ %__i.019.i, %for.body.i.i.preheader.lr.ph.i15 ], [ %__i.0.i, %for.inc.i33 ]
+  %__first.pn21.i = phi ptr [ %__first.addr.0.lcssa, %for.body.i.i.preheader.lr.ph.i15 ], [ %__i.022.i, %for.inc.i33 ]
+  br label %for.body.i.i.i18
 
-for.cond.i.i.i40:                                 ; preds = %for.body.i.i.i19
-  br i1 %cmp.i.i.i20, label %for.body.i.i.i19, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i41, !llvm.loop !926
+for.cond.i.i.i38:                                 ; preds = %for.body.i.i.i18
+  br i1 %cmp.i.i.i19, label %for.body.i.i.i18, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i39, !llvm.loop !926
 
-for.body.i.i.i19:                                 ; preds = %for.cond.i.i.i40, %for.body.i.i.preheader.i18
-  %cmp.i.i.i20 = phi i1 [ false, %for.cond.i.i.i40 ], [ true, %for.body.i.i.preheader.i18 ]
-  %indvars.iv.i.i.i21 = phi i64 [ 1, %for.cond.i.i.i40 ], [ 0, %for.body.i.i.preheader.i18 ]
-  %arrayidx.i.i.i.i.i22 = getelementptr inbounds [3 x i32], ptr %__i.023.i, i64 0, i64 %indvars.iv.i.i.i21
-  %12 = load i32, ptr %arrayidx.i.i.i.i.i22, align 4
-  %arrayidx.i.i11.i.i.i23 = getelementptr inbounds [3 x i32], ptr %__first.addr.0.lcssa, i64 0, i64 %indvars.iv.i.i.i21
-  %13 = load i32, ptr %arrayidx.i.i11.i.i.i23, align 4
-  %cmp.i.i.i.i24 = icmp eq i32 %12, %13
-  br i1 %cmp.i.i.i.i24, label %for.cond.i.i.i40, label %if.then.i.i.i25
+for.body.i.i.i18:                                 ; preds = %for.cond.i.i.i38, %for.body.i.i.preheader.i17
+  %cmp.i.i.i19 = phi i1 [ false, %for.cond.i.i.i38 ], [ true, %for.body.i.i.preheader.i17 ]
+  %indvars.iv.i.i.i20 = phi i64 [ 1, %for.cond.i.i.i38 ], [ 0, %for.body.i.i.preheader.i17 ]
+  %arrayidx.i.i.i.i.i21 = getelementptr inbounds [3 x i32], ptr %__i.022.i, i64 0, i64 %indvars.iv.i.i.i20
+  %12 = load i32, ptr %arrayidx.i.i.i.i.i21, align 4
+  %arrayidx.i.i11.i.i.i22 = getelementptr inbounds [3 x i32], ptr %__first.addr.0.lcssa, i64 0, i64 %indvars.iv.i.i.i20
+  %13 = load i32, ptr %arrayidx.i.i11.i.i.i22, align 4
+  %cmp.i.i.i.i23 = icmp eq i32 %12, %13
+  br i1 %cmp.i.i.i.i23, label %for.cond.i.i.i38, label %if.then.i.i.i24
 
-if.then.i.i.i25:                                  ; preds = %for.body.i.i.i19
-  %cmp6.i.i.i26 = icmp slt i32 %12, %13
-  br i1 %cmp6.i.i.i26, label %if.then2.i, label %if.else.i
+if.then.i.i.i24:                                  ; preds = %for.body.i.i.i18
+  %cmp6.i.i.i25 = icmp slt i32 %12, %13
+  br i1 %cmp6.i.i.i25, label %if.then2.i, label %if.then.i.i.if.else_crit_edge.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i41: ; preds = %for.cond.i.i.i40
-  %arrayidx.i.i16.i.i.i42 = getelementptr inbounds i8, ptr %__first.pn22.i, i64 20
-  %14 = load i32, ptr %arrayidx.i.i16.i.i.i42, align 4
+if.then.i.i.if.else_crit_edge.i:                  ; preds = %if.then.i.i.i24
+  %__val.sroa.4.0.__last.sroa_idx.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 20
+  %__val.sroa.4.0.copyload.i.pre.i = load i32, ptr %__val.sroa.4.0.__last.sroa_idx.i.phi.trans.insert.i, align 4
+  br label %if.else.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i39: ; preds = %for.cond.i.i.i38
+  %arrayidx.i.i16.i.i.i40 = getelementptr inbounds i8, ptr %__first.pn21.i, i64 20
+  %14 = load i32, ptr %arrayidx.i.i16.i.i.i40, align 4
   %15 = load i32, ptr %arrayidx.i.i17.i.i.i16, align 4
-  %cmp9.i.i.i43 = icmp slt i32 %14, %15
-  br i1 %cmp9.i.i.i43, label %if.then2.i, label %if.else.i
+  %cmp9.i.i.i41 = icmp slt i32 %14, %15
+  br i1 %cmp9.i.i.i41, label %if.then2.i, label %if.else.i
 
-if.then2.i:                                       ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i41, %if.then.i.i.i25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__val.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(12) %__i.023.i, i64 12, i1 false)
-  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn22.i, i64 24
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.023.i to i64
+if.then2.i:                                       ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i39, %if.then.i.i.i24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__val.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(12) %__i.022.i, i64 12, i1 false)
+  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 24
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.022.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.lcssa
   %sub.ptr.div.neg.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, -12
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %add.ptr3.i, i64 %sub.ptr.div.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %__first.addr.0.lcssa, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.0.lcssa, ptr noundef nonnull align 4 dereferenceable(12) %__val.sroa.0.i, i64 12, i1 false)
-  br label %for.inc.i35
+  br label %for.inc.i33
 
-if.else.i:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i41, %if.then.i.i.i25
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__val.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__val.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__i.023.i, i64 12, i1 false)
-  %16 = load i32, ptr %arrayidx.i.i16.i.i.i.i17, align 4
+if.else.i:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i39, %if.then.i.i.if.else_crit_edge.i
+  %__val.sroa.4.0.copyload.i.i = phi i32 [ %__val.sroa.4.0.copyload.i.pre.i, %if.then.i.i.if.else_crit_edge.i ], [ %14, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i39 ]
+  %__val.sroa.0.0.copyload.i.i = load i32, ptr %__i.022.i, align 4
+  %__val.sroa.3.0.__last.sroa_idx.i.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 16
+  %__val.sroa.3.0.copyload.i.i = load i32, ptr %__val.sroa.3.0.__last.sroa_idx.i.i, align 4
   br label %while.cond.i.i
 
-while.cond.i.i:                                   ; preds = %while.body.i.i36, %if.else.i
-  %__last.addr.0.i.i27 = phi ptr [ %__i.023.i, %if.else.i ], [ %__next.0.i.i, %while.body.i.i36 ]
-  %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i27, i64 -12
-  br label %for.body.i.i.i.i28
+while.cond.i.i:                                   ; preds = %while.body.i.i34, %if.else.i
+  %__last.addr.0.i.i26 = phi ptr [ %__i.022.i, %if.else.i ], [ %__next.0.i.i, %while.body.i.i34 ]
+  %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i26, i64 -12
+  br label %for.body.i.i.i.i27
 
-for.cond.i.i.i.i37:                               ; preds = %for.body.i.i.i.i28
-  br i1 %cmp.i.i.i12.i, label %for.body.i.i.i.i28, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IiEEPS7_EEbRT_T0_.exit.i.i, !llvm.loop !926
+for.cond.i.i.i.i35:                               ; preds = %for.body.i.i.i.i27
+  br i1 %cmp.i.i.i12.i, label %for.body.i.i.i.i27, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IiEEPS7_EEbRT_T0_.exit.i.i, !llvm.loop !926
 
-for.body.i.i.i.i28:                               ; preds = %for.cond.i.i.i.i37, %while.cond.i.i
-  %cmp.i.i.i12.i = phi i1 [ true, %while.cond.i.i ], [ false, %for.cond.i.i.i.i37 ]
-  %indvars.iv.i.i.i.i29 = phi i64 [ 0, %while.cond.i.i ], [ 1, %for.cond.i.i.i.i37 ]
-  %arrayidx.i.i.i.i.i.i30 = getelementptr inbounds [3 x i32], ptr %__val.i.i, i64 0, i64 %indvars.iv.i.i.i.i29
-  %17 = load i32, ptr %arrayidx.i.i.i.i.i.i30, align 4
-  %arrayidx.i.i11.i.i.i.i31 = getelementptr inbounds [3 x i32], ptr %__next.0.i.i, i64 0, i64 %indvars.iv.i.i.i.i29
-  %18 = load i32, ptr %arrayidx.i.i11.i.i.i.i31, align 4
-  %cmp.i.i.i.i.i32 = icmp eq i32 %17, %18
-  br i1 %cmp.i.i.i.i.i32, label %for.cond.i.i.i.i37, label %if.then.i.i.i.i33
+for.body.i.i.i.i27:                               ; preds = %for.cond.i.i.i.i35, %while.cond.i.i
+  %cmp.i.i.i12.i = phi i1 [ true, %while.cond.i.i ], [ false, %for.cond.i.i.i.i35 ]
+  %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i = phi i32 [ %__val.sroa.0.0.copyload.i.i, %while.cond.i.i ], [ %__val.sroa.3.0.copyload.i.i, %for.cond.i.i.i.i35 ]
+  %indvars.iv.i.i.i.i28 = phi i64 [ 0, %while.cond.i.i ], [ 1, %for.cond.i.i.i.i35 ]
+  %arrayidx.i.i11.i.i.i.i29 = getelementptr inbounds [3 x i32], ptr %__next.0.i.i, i64 0, i64 %indvars.iv.i.i.i.i28
+  %16 = load i32, ptr %arrayidx.i.i11.i.i.i.i29, align 4
+  %cmp.i.i.i.i.i30 = icmp eq i32 %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i, %16
+  br i1 %cmp.i.i.i.i.i30, label %for.cond.i.i.i.i35, label %if.then.i.i.i.i31
 
-if.then.i.i.i.i33:                                ; preds = %for.body.i.i.i.i28
-  %cmp6.i.i.i.i34 = icmp slt i32 %17, %18
-  br i1 %cmp6.i.i.i.i34, label %while.body.i.i36, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
+if.then.i.i.i.i31:                                ; preds = %for.body.i.i.i.i27
+  %cmp6.i.i.i.i32 = icmp slt i32 %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i, %16
+  br i1 %cmp6.i.i.i.i32, label %while.body.i.i34, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IiEEPS7_EEbRT_T0_.exit.i.i: ; preds = %for.cond.i.i.i.i37
-  %arrayidx.i.i17.i.i.i.i38 = getelementptr inbounds i8, ptr %__last.addr.0.i.i27, i64 -4
-  %19 = load i32, ptr %arrayidx.i.i17.i.i.i.i38, align 4
-  %cmp9.i.i.i.i39 = icmp slt i32 %16, %19
-  br i1 %cmp9.i.i.i.i39, label %while.body.i.i36, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IiEEPS7_EEbRT_T0_.exit.i.i: ; preds = %for.cond.i.i.i.i35
+  %arrayidx.i.i17.i.i.i.i36 = getelementptr inbounds i8, ptr %__last.addr.0.i.i26, i64 -4
+  %17 = load i32, ptr %arrayidx.i.i17.i.i.i.i36, align 4
+  %cmp9.i.i.i.i37 = icmp slt i32 %__val.sroa.4.0.copyload.i.i, %17
+  br i1 %cmp9.i.i.i.i37, label %while.body.i.i34, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
 
-while.body.i.i36:                                 ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IiEEPS7_EEbRT_T0_.exit.i.i, %if.then.i.i.i.i33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__last.addr.0.i.i27, ptr noundef nonnull align 4 dereferenceable(12) %__next.0.i.i, i64 12, i1 false)
+while.body.i.i34:                                 ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IiEEPS7_EEbRT_T0_.exit.i.i, %if.then.i.i.i.i31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__last.addr.0.i.i26, ptr noundef nonnull align 4 dereferenceable(12) %__next.0.i.i, i64 12, i1 false)
   br label %while.cond.i.i, !llvm.loop !936
 
-_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IiEEPS7_EEbRT_T0_.exit.i.i, %if.then.i.i.i.i33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__last.addr.0.i.i27, ptr noundef nonnull align 4 dereferenceable(12) %__val.i.i, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__val.i.i)
-  br label %for.inc.i35
+_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN7openvdb5v11_04math4Vec3IiEEPS7_EEbRT_T0_.exit.i.i, %if.then.i.i.i.i31
+  store i32 %__val.sroa.0.0.copyload.i.i, ptr %__last.addr.0.i.i26, align 4
+  %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i26, i64 4
+  store i32 %__val.sroa.3.0.copyload.i.i, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i, align 4
+  %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i26, i64 8
+  store i32 %__val.sroa.4.0.copyload.i.i, ptr %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i, align 4
+  br label %for.inc.i33
 
-for.inc.i35:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, %if.then2.i
-  %__i.0.i = getelementptr inbounds i8, ptr %__i.023.i, i64 12
+for.inc.i33:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, %if.then2.i
+  %__i.0.i = getelementptr inbounds i8, ptr %__i.022.i, i64 12
   %cmp1.not.i = icmp eq ptr %__i.0.i, %__last.addr.0.lcssa
-  br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit, label %for.body.i.i.preheader.i18, !llvm.loop !937
+  br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit, label %for.body.i.i.preheader.i17, !llvm.loop !937
 
-_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit: ; preds = %for.inc.i35, %while.end, %for.cond.preheader.i
+_ZSt16__insertion_sortIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_T0_.exit: ; preds = %for.inc.i33, %while.end, %for.cond.preheader.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__val.sroa.0.i)
   br label %return
 
@@ -78614,8 +78627,6 @@ return:                                           ; preds = %_ZSt16__insertion_s
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt11__make_heapIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_RT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %__comp) local_unnamed_addr #5 comdat {
 entry:
-  %__value.i.i18 = alloca %"class.openvdb::v11_0::math::Vec3.341", align 8
-  %__value.i.i = alloca %"class.openvdb::v11_0::math::Vec3.341", align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -78632,12 +78643,12 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.2.0.copyload12 = load i32, ptr %__value.sroa.2.0.add.ptr.sroa_idx11, align 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i = sdiv i64 %sub.i, 2
-  %cmp31.i = icmp sgt i64 %div.i, %div17
-  br i1 %cmp31.i, label %while.body.i, label %while.end.i
+  %cmp30.i = icmp sgt i64 %div.i, %div17
+  br i1 %cmp30.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i
-  %__holeIndex.addr.032.i = phi i64 [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i ], [ %div17, %if.end.split ]
-  %add.i = shl i64 %__holeIndex.addr.032.i, 1
+  %__holeIndex.addr.031.i = phi i64 [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i ], [ %div17, %if.end.split ]
+  %add.i = shl i64 %__holeIndex.addr.031.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -78673,7 +78684,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0
   %retval.0.i.i.i = phi i1 [ %cmp6.i.i.i, %if.then.i.i.i ], [ %cmp9.i.i.i, %for.end.i.i.i ]
   %spec.select.i = select i1 %retval.0.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %__holeIndex.addr.032.i
+  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %__holeIndex.addr.031.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr4.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr3.i, i64 12, i1 false)
   %cmp.i = icmp slt i64 %spec.select.i, %div.i
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !938
@@ -78697,10 +78708,7 @@ if.then9.i:                                       ; preds = %while.end.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__value.i.i)
-  store i64 %__value.sroa.0.0.copyload10, ptr %__value.i.i, align 8
-  %coerce.sroa.2.0.__value.sroa_idx.i.i = getelementptr inbounds i8, ptr %__value.i.i, i64 8
-  store i32 %__value.sroa.2.0.copyload12, ptr %coerce.sroa.2.0.__value.sroa_idx.i.i, align 8
+  %__value.sroa.0.sroa.3.0.extract.shift.i.i = lshr i64 %__value.sroa.0.0.copyload10, 32
   %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %div17
   br i1 %cmp15.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
@@ -78716,22 +78724,22 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %land.rhs.i.i
   %cmp.i.i.i23.i = phi i1 [ true, %land.rhs.i.i ], [ false, %for.cond.i.i.i.i ]
+  %indvars.iv.i.i.sroa.phi.sroa.speculated.in.i.i = phi i64 [ %__value.sroa.0.0.copyload10, %land.rhs.i.i ], [ %__value.sroa.0.sroa.3.0.extract.shift.i.i, %for.cond.i.i.i.i ]
   %indvars.iv.i.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ 1, %for.cond.i.i.i.i ]
+  %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i = trunc i64 %indvars.iv.i.i.sroa.phi.sroa.speculated.in.i.i to i32
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %add.ptr.i.i, i64 0, i64 %indvars.iv.i.i.i.i
   %4 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__value.i.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %5 = load i32, ptr %arrayidx.i.i11.i.i.i.i, align 4
-  %cmp.i.i.i.i.i = icmp eq i32 %4, %5
+  %cmp.i.i.i.i.i = icmp eq i32 %4, %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %cmp6.i.i.i.i = icmp slt i32 %4, %5
+  %cmp6.i.i.i.i = icmp slt i32 %4, %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp6.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IiEES7_EEbT_RT0_.exit.i.i: ; preds = %for.cond.i.i.i.i
   %arrayidx.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %6 = load i32, ptr %arrayidx.i.i16.i.i.i.i, align 4
-  %cmp9.i.i.i.i = icmp slt i32 %6, %__value.sroa.2.0.copyload12
+  %5 = load i32, ptr %arrayidx.i.i16.i.i.i.i, align 4
+  %cmp9.i.i.i.i = icmp slt i32 %5, %__value.sroa.2.0.copyload12
   br i1 %cmp9.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IiEES7_EEbT_RT0_.exit.i.i, %if.then.i.i.i.i
@@ -78743,141 +78751,139 @@ while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__op
 _ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit: ; preds = %if.then.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IiEES7_EEbT_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.016.i.i, %if.then.i.i.i.i ], [ %__parent.017.i.i, %while.body.i.i ], [ %__holeIndex.addr.016.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IiEES7_EEbT_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(12) %__value.i.i, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__value.i.i)
-  %cmp6104 = icmp ult i64 %sub, 2
-  br i1 %cmp6104, label %return, label %if.end8.split.lr.ph
+  store i64 %__value.sroa.0.0.copyload10, ptr %add.ptr5.i.i, align 4
+  %__value.sroa.4.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 8
+  store i32 %__value.sroa.2.0.copyload12, ptr %__value.sroa.4.0.add.ptr5.sroa_idx.i.i, align 4
+  %cmp6103 = icmp ult i64 %sub, 2
+  br i1 %cmp6103, label %return, label %if.end8.split.lr.ph
 
 if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
-  %coerce.sroa.2.0.__value.sroa_idx.i.i28 = getelementptr inbounds i8, ptr %__value.i.i18, i64 8
-  %sub12.i58 = or disjoint i64 %sub, 1
-  %add.ptr13.i59 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %sub12.i58
-  %add.ptr14.i60 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %div7.i
+  %sub12.i59 = or disjoint i64 %sub, 1
+  %add.ptr13.i60 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %sub12.i59
+  %add.ptr14.i61 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %div7.i
   br label %if.end8.split
 
-if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit87
-  %__parent.0105 = phi i64 [ %div17, %if.end8.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit87 ]
-  %dec = add nsw i64 %__parent.0105, -1
+if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit88
+  %__parent.0104 = phi i64 [ %div17, %if.end8.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit88 ]
+  %dec = add nsw i64 %__parent.0104, -1
   %add.ptr13 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload14 = load i64, ptr %add.ptr13, align 4
   %__value.sroa.2.0.add.ptr.sroa_idx15 = getelementptr inbounds i8, ptr %add.ptr13, i64 8
   %__value.sroa.2.0.copyload16 = load i32, ptr %__value.sroa.2.0.add.ptr.sroa_idx15, align 4
-  %cmp31.i21.not = icmp slt i64 %div.i, %__parent.0105
-  br i1 %cmp31.i21.not, label %while.end.i22, label %while.body.i61
+  %cmp30.i20.not = icmp slt i64 %div.i, %__parent.0104
+  br i1 %cmp30.i20.not, label %while.end.i21, label %while.body.i62
 
-while.body.i61:                                   ; preds = %if.end8.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i76
-  %__holeIndex.addr.032.i62 = phi i64 [ %spec.select.i78, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i76 ], [ %dec, %if.end8.split ]
-  %add.i63 = shl i64 %__holeIndex.addr.032.i62, 1
-  %mul.i64 = add i64 %add.i63, 2
-  %add.ptr.i65 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %mul.i64
-  %sub1.i66 = or disjoint i64 %add.i63, 1
-  %add.ptr2.i67 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %sub1.i66
-  br label %for.body.i.i.i68
+while.body.i62:                                   ; preds = %if.end8.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i77
+  %__holeIndex.addr.031.i63 = phi i64 [ %spec.select.i79, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i77 ], [ %dec, %if.end8.split ]
+  %add.i64 = shl i64 %__holeIndex.addr.031.i63, 1
+  %mul.i65 = add i64 %add.i64, 2
+  %add.ptr.i66 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %mul.i65
+  %sub1.i67 = or disjoint i64 %add.i64, 1
+  %add.ptr2.i68 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %sub1.i67
+  br label %for.body.i.i.i69
 
-for.cond.i.i.i82:                                 ; preds = %for.body.i.i.i68
-  br i1 %cmp.i.i.i69, label %for.body.i.i.i68, label %for.end.i.i.i83, !llvm.loop !926
+for.cond.i.i.i83:                                 ; preds = %for.body.i.i.i69
+  br i1 %cmp.i.i.i70, label %for.body.i.i.i69, label %for.end.i.i.i84, !llvm.loop !926
 
-for.body.i.i.i68:                                 ; preds = %for.cond.i.i.i82, %while.body.i61
-  %cmp.i.i.i69 = phi i1 [ true, %while.body.i61 ], [ false, %for.cond.i.i.i82 ]
-  %indvars.iv.i.i.i70 = phi i64 [ 0, %while.body.i61 ], [ 1, %for.cond.i.i.i82 ]
-  %arrayidx.i.i.i.i.i71 = getelementptr inbounds [3 x i32], ptr %add.ptr.i65, i64 0, i64 %indvars.iv.i.i.i70
-  %7 = load i32, ptr %arrayidx.i.i.i.i.i71, align 4
-  %arrayidx.i.i11.i.i.i72 = getelementptr inbounds [3 x i32], ptr %add.ptr2.i67, i64 0, i64 %indvars.iv.i.i.i70
-  %8 = load i32, ptr %arrayidx.i.i11.i.i.i72, align 4
-  %cmp.i.i.i.i73 = icmp eq i32 %7, %8
-  br i1 %cmp.i.i.i.i73, label %for.cond.i.i.i82, label %if.then.i.i.i74
+for.body.i.i.i69:                                 ; preds = %for.cond.i.i.i83, %while.body.i62
+  %cmp.i.i.i70 = phi i1 [ true, %while.body.i62 ], [ false, %for.cond.i.i.i83 ]
+  %indvars.iv.i.i.i71 = phi i64 [ 0, %while.body.i62 ], [ 1, %for.cond.i.i.i83 ]
+  %arrayidx.i.i.i.i.i72 = getelementptr inbounds [3 x i32], ptr %add.ptr.i66, i64 0, i64 %indvars.iv.i.i.i71
+  %6 = load i32, ptr %arrayidx.i.i.i.i.i72, align 4
+  %arrayidx.i.i11.i.i.i73 = getelementptr inbounds [3 x i32], ptr %add.ptr2.i68, i64 0, i64 %indvars.iv.i.i.i71
+  %7 = load i32, ptr %arrayidx.i.i11.i.i.i73, align 4
+  %cmp.i.i.i.i74 = icmp eq i32 %6, %7
+  br i1 %cmp.i.i.i.i74, label %for.cond.i.i.i83, label %if.then.i.i.i75
 
-if.then.i.i.i74:                                  ; preds = %for.body.i.i.i68
-  %cmp6.i.i.i75 = icmp slt i32 %7, %8
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i76
+if.then.i.i.i75:                                  ; preds = %for.body.i.i.i69
+  %cmp6.i.i.i76 = icmp slt i32 %6, %7
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i77
 
-for.end.i.i.i83:                                  ; preds = %for.cond.i.i.i82
-  %arrayidx.i.i16.i.i.i84 = getelementptr inbounds i8, ptr %add.ptr.i65, i64 8
-  %9 = load i32, ptr %arrayidx.i.i16.i.i.i84, align 4
-  %arrayidx.i.i17.i.i.i85 = getelementptr inbounds i8, ptr %add.ptr2.i67, i64 8
-  %10 = load i32, ptr %arrayidx.i.i17.i.i.i85, align 4
-  %cmp9.i.i.i86 = icmp slt i32 %9, %10
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i76
+for.end.i.i.i84:                                  ; preds = %for.cond.i.i.i83
+  %arrayidx.i.i16.i.i.i85 = getelementptr inbounds i8, ptr %add.ptr.i66, i64 8
+  %8 = load i32, ptr %arrayidx.i.i16.i.i.i85, align 4
+  %arrayidx.i.i17.i.i.i86 = getelementptr inbounds i8, ptr %add.ptr2.i68, i64 8
+  %9 = load i32, ptr %arrayidx.i.i17.i.i.i86, align 4
+  %cmp9.i.i.i87 = icmp slt i32 %8, %9
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i77
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i76: ; preds = %for.end.i.i.i83, %if.then.i.i.i74
-  %retval.0.i.i.i77 = phi i1 [ %cmp6.i.i.i75, %if.then.i.i.i74 ], [ %cmp9.i.i.i86, %for.end.i.i.i83 ]
-  %spec.select.i78 = select i1 %retval.0.i.i.i77, i64 %sub1.i66, i64 %mul.i64
-  %add.ptr3.i79 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %spec.select.i78
-  %add.ptr4.i80 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %__holeIndex.addr.032.i62
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr4.i80, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr3.i79, i64 12, i1 false)
-  %cmp.i81 = icmp slt i64 %spec.select.i78, %div.i
-  br i1 %cmp.i81, label %while.body.i61, label %while.end.i22, !llvm.loop !938
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i77: ; preds = %for.end.i.i.i84, %if.then.i.i.i75
+  %retval.0.i.i.i78 = phi i1 [ %cmp6.i.i.i76, %if.then.i.i.i75 ], [ %cmp9.i.i.i87, %for.end.i.i.i84 ]
+  %spec.select.i79 = select i1 %retval.0.i.i.i78, i64 %sub1.i67, i64 %mul.i65
+  %add.ptr3.i80 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %spec.select.i79
+  %add.ptr4.i81 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %__holeIndex.addr.031.i63
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr4.i81, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr3.i80, i64 12, i1 false)
+  %cmp.i82 = icmp slt i64 %spec.select.i79, %div.i
+  br i1 %cmp.i82, label %while.body.i62, label %while.end.i21, !llvm.loop !938
 
-while.end.i22:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i76, %if.end8.split
-  %__holeIndex.addr.0.lcssa.i23 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i78, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i76 ]
-  %cmp8.i55 = icmp eq i64 %__holeIndex.addr.0.lcssa.i23, %div7.i
-  %or.cond88 = select i1 %cmp5.i, i1 %cmp8.i55, i1 false
-  br i1 %or.cond88, label %if.then9.i56, label %if.end16.i26
+while.end.i21:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i77, %if.end8.split
+  %__holeIndex.addr.0.lcssa.i22 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i79, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i77 ]
+  %cmp8.i56 = icmp eq i64 %__holeIndex.addr.0.lcssa.i22, %div7.i
+  %or.cond89 = select i1 %cmp5.i, i1 %cmp8.i56, i1 false
+  br i1 %or.cond89, label %if.then9.i57, label %if.end16.i25
 
-if.then9.i56:                                     ; preds = %while.end.i22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr14.i60, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr13.i59, i64 12, i1 false)
-  br label %if.end16.i26
+if.then9.i57:                                     ; preds = %while.end.i21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr14.i61, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr13.i60, i64 12, i1 false)
+  br label %if.end16.i25
 
-if.end16.i26:                                     ; preds = %if.then9.i56, %while.end.i22
-  %__holeIndex.addr.1.i27 = phi i64 [ %sub12.i58, %if.then9.i56 ], [ %__holeIndex.addr.0.lcssa.i23, %while.end.i22 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__value.i.i18)
-  store i64 %__value.sroa.0.0.copyload14, ptr %__value.i.i18, align 8
-  store i32 %__value.sroa.2.0.copyload16, ptr %coerce.sroa.2.0.__value.sroa_idx.i.i28, align 8
-  %cmp15.i.i29.not = icmp slt i64 %__holeIndex.addr.1.i27, %__parent.0105
-  br i1 %cmp15.i.i29.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit87, label %land.rhs.i.i32
+if.end16.i25:                                     ; preds = %if.then9.i57, %while.end.i21
+  %__holeIndex.addr.1.i26 = phi i64 [ %sub12.i59, %if.then9.i57 ], [ %__holeIndex.addr.0.lcssa.i22, %while.end.i21 ]
+  %__value.sroa.0.sroa.3.0.extract.shift.i.i27 = lshr i64 %__value.sroa.0.0.copyload14, 32
+  %cmp15.i.i28.not = icmp slt i64 %__holeIndex.addr.1.i26, %__parent.0104
+  br i1 %cmp15.i.i28.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit88, label %land.rhs.i.i32
 
-land.rhs.i.i32:                                   ; preds = %if.end16.i26, %while.body.i.i45
-  %__holeIndex.addr.016.i.i33 = phi i64 [ %__parent.017.i.i35, %while.body.i.i45 ], [ %__holeIndex.addr.1.i27, %if.end16.i26 ]
+land.rhs.i.i32:                                   ; preds = %if.end16.i25, %while.body.i.i46
+  %__holeIndex.addr.016.i.i33 = phi i64 [ %__parent.017.i.i35, %while.body.i.i46 ], [ %__holeIndex.addr.1.i26, %if.end16.i25 ]
   %__parent.017.in.i.i34 = add nsw i64 %__holeIndex.addr.016.i.i33, -1
   %__parent.017.i.i35 = sdiv i64 %__parent.017.in.i.i34, 2
   %add.ptr.i.i36 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %__parent.017.i.i35
   br label %for.body.i.i.i.i37
 
-for.cond.i.i.i.i48:                               ; preds = %for.body.i.i.i.i37
-  br i1 %cmp.i.i.i23.i38, label %for.body.i.i.i.i37, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IiEES7_EEbT_RT0_.exit.i.i49, !llvm.loop !926
+for.cond.i.i.i.i49:                               ; preds = %for.body.i.i.i.i37
+  br i1 %cmp.i.i.i23.i38, label %for.body.i.i.i.i37, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IiEES7_EEbT_RT0_.exit.i.i50, !llvm.loop !926
 
-for.body.i.i.i.i37:                               ; preds = %for.cond.i.i.i.i48, %land.rhs.i.i32
-  %cmp.i.i.i23.i38 = phi i1 [ true, %land.rhs.i.i32 ], [ false, %for.cond.i.i.i.i48 ]
-  %indvars.iv.i.i.i.i39 = phi i64 [ 0, %land.rhs.i.i32 ], [ 1, %for.cond.i.i.i.i48 ]
-  %arrayidx.i.i.i.i.i.i40 = getelementptr inbounds [3 x i32], ptr %add.ptr.i.i36, i64 0, i64 %indvars.iv.i.i.i.i39
-  %11 = load i32, ptr %arrayidx.i.i.i.i.i.i40, align 4
-  %arrayidx.i.i11.i.i.i.i41 = getelementptr inbounds [3 x i32], ptr %__value.i.i18, i64 0, i64 %indvars.iv.i.i.i.i39
-  %12 = load i32, ptr %arrayidx.i.i11.i.i.i.i41, align 4
-  %cmp.i.i.i.i.i42 = icmp eq i32 %11, %12
-  br i1 %cmp.i.i.i.i.i42, label %for.cond.i.i.i.i48, label %if.then.i.i.i.i43
+for.body.i.i.i.i37:                               ; preds = %for.cond.i.i.i.i49, %land.rhs.i.i32
+  %cmp.i.i.i23.i38 = phi i1 [ true, %land.rhs.i.i32 ], [ false, %for.cond.i.i.i.i49 ]
+  %indvars.iv.i.i.sroa.phi.sroa.speculated.in.i.i39 = phi i64 [ %__value.sroa.0.0.copyload14, %land.rhs.i.i32 ], [ %__value.sroa.0.sroa.3.0.extract.shift.i.i27, %for.cond.i.i.i.i49 ]
+  %indvars.iv.i.i.i.i40 = phi i64 [ 0, %land.rhs.i.i32 ], [ 1, %for.cond.i.i.i.i49 ]
+  %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i41 = trunc i64 %indvars.iv.i.i.sroa.phi.sroa.speculated.in.i.i39 to i32
+  %arrayidx.i.i.i.i.i.i42 = getelementptr inbounds [3 x i32], ptr %add.ptr.i.i36, i64 0, i64 %indvars.iv.i.i.i.i40
+  %10 = load i32, ptr %arrayidx.i.i.i.i.i.i42, align 4
+  %cmp.i.i.i.i.i43 = icmp eq i32 %10, %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i41
+  br i1 %cmp.i.i.i.i.i43, label %for.cond.i.i.i.i49, label %if.then.i.i.i.i44
 
-if.then.i.i.i.i43:                                ; preds = %for.body.i.i.i.i37
-  %cmp6.i.i.i.i44 = icmp slt i32 %11, %12
-  br i1 %cmp6.i.i.i.i44, label %while.body.i.i45, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit87
+if.then.i.i.i.i44:                                ; preds = %for.body.i.i.i.i37
+  %cmp6.i.i.i.i45 = icmp slt i32 %10, %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i41
+  br i1 %cmp6.i.i.i.i45, label %while.body.i.i46, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit88
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IiEES7_EEbT_RT0_.exit.i.i49: ; preds = %for.cond.i.i.i.i48
-  %arrayidx.i.i16.i.i.i.i50 = getelementptr inbounds i8, ptr %add.ptr.i.i36, i64 8
-  %13 = load i32, ptr %arrayidx.i.i16.i.i.i.i50, align 4
-  %cmp9.i.i.i.i51 = icmp slt i32 %13, %__value.sroa.2.0.copyload16
-  br i1 %cmp9.i.i.i.i51, label %while.body.i.i45, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit87
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IiEES7_EEbT_RT0_.exit.i.i50: ; preds = %for.cond.i.i.i.i49
+  %arrayidx.i.i16.i.i.i.i51 = getelementptr inbounds i8, ptr %add.ptr.i.i36, i64 8
+  %11 = load i32, ptr %arrayidx.i.i16.i.i.i.i51, align 4
+  %cmp9.i.i.i.i52 = icmp slt i32 %11, %__value.sroa.2.0.copyload16
+  br i1 %cmp9.i.i.i.i52, label %while.body.i.i46, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit88
 
-while.body.i.i45:                                 ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IiEES7_EEbT_RT0_.exit.i.i49, %if.then.i.i.i.i43
-  %add.ptr2.i.i46 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %__holeIndex.addr.016.i.i33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr2.i.i46, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i36, i64 12, i1 false)
-  %cmp.i.i47.not = icmp slt i64 %__parent.017.i.i35, %__parent.0105
-  br i1 %cmp.i.i47.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit87, label %land.rhs.i.i32, !llvm.loop !939
+while.body.i.i46:                                 ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IiEES7_EEbT_RT0_.exit.i.i50, %if.then.i.i.i.i44
+  %add.ptr2.i.i47 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %__holeIndex.addr.016.i.i33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr2.i.i47, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i36, i64 12, i1 false)
+  %cmp.i.i48.not = icmp slt i64 %__parent.017.i.i35, %__parent.0104
+  br i1 %cmp.i.i48.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit88, label %land.rhs.i.i32, !llvm.loop !939
 
-_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit87: ; preds = %if.then.i.i.i.i43, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IiEES7_EEbT_RT0_.exit.i.i49, %while.body.i.i45, %if.end16.i26
-  %__holeIndex.addr.0.lcssa.i.i30 = phi i64 [ %__holeIndex.addr.1.i27, %if.end16.i26 ], [ %__holeIndex.addr.016.i.i33, %if.then.i.i.i.i43 ], [ %__parent.017.i.i35, %while.body.i.i45 ], [ %__holeIndex.addr.016.i.i33, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IiEES7_EEbT_RT0_.exit.i.i49 ]
-  %add.ptr5.i.i31 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr5.i.i31, ptr noundef nonnull align 8 dereferenceable(12) %__value.i.i18, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__value.i.i18)
+_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit88: ; preds = %if.then.i.i.i.i44, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IiEES7_EEbT_RT0_.exit.i.i50, %while.body.i.i46, %if.end16.i25
+  %__holeIndex.addr.0.lcssa.i.i29 = phi i64 [ %__holeIndex.addr.1.i26, %if.end16.i25 ], [ %__holeIndex.addr.016.i.i33, %if.then.i.i.i.i44 ], [ %__parent.017.i.i35, %while.body.i.i46 ], [ %__holeIndex.addr.016.i.i33, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IiEES7_EEbT_RT0_.exit.i.i50 ]
+  %add.ptr5.i.i30 = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i29
+  store i64 %__value.sroa.0.0.copyload14, ptr %add.ptr5.i.i30, align 4
+  %__value.sroa.4.0.add.ptr5.sroa_idx.i.i31 = getelementptr inbounds i8, ptr %add.ptr5.i.i30, i64 8
+  store i32 %__value.sroa.2.0.copyload16, ptr %__value.sroa.4.0.add.ptr5.sroa_idx.i.i31, align 4
   %cmp6 = icmp eq i64 %dec, 0
   br i1 %cmp6, label %return, label %if.end8.split, !llvm.loop !940
 
-return:                                           ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit87, %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, %entry
+return:                                           ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit88, %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt10__pop_heapIPN7openvdb5v11_04math4Vec3IiEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S9_S9_RT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__comp) local_unnamed_addr #5 comdat {
 entry:
-  %__value.i.i = alloca %"class.openvdb::v11_0::math::Vec3.341", align 8
   %__value.sroa.0.0.copyload = load i64, ptr %__result, align 4
   %__value.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__result, i64 8
   %__value.sroa.2.0.copyload = load i32, ptr %__value.sroa.2.0..sroa_idx, align 4
@@ -78888,12 +78894,12 @@ entry:
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 12
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i = sdiv i64 %sub.i, 2
-  %cmp31.i = icmp sgt i64 %sub.ptr.sub, 24
-  br i1 %cmp31.i, label %while.body.i, label %while.end.i
+  %cmp30.i = icmp sgt i64 %sub.ptr.sub, 24
+  br i1 %cmp30.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %entry, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i
-  %__holeIndex.addr.032.i = phi i64 [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i ], [ 0, %entry ]
-  %add.i = shl i64 %__holeIndex.addr.032.i, 1
+  %__holeIndex.addr.031.i = phi i64 [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0_.exit.i ], [ 0, %entry ]
+  %add.i = shl i64 %__holeIndex.addr.031.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -78929,7 +78935,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN7openvdb5v11_04math4Vec3IiEES8_EEbT_T0
   %retval.0.i.i.i = phi i1 [ %cmp6.i.i.i, %if.then.i.i.i ], [ %cmp9.i.i.i, %for.end.i.i.i ]
   %spec.select.i = select i1 %retval.0.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %__holeIndex.addr.032.i
+  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %__holeIndex.addr.031.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr4.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr3.i, i64 12, i1 false)
   %cmp.i = icmp slt i64 %spec.select.i, %div.i
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !938
@@ -78956,10 +78962,7 @@ if.then9.i:                                       ; preds = %land.lhs.true.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %land.lhs.true.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__holeIndex.addr.0.lcssa.i, %land.lhs.true.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %__value.i.i)
-  store i64 %__value.sroa.0.0.copyload, ptr %__value.i.i, align 8
-  %coerce.sroa.2.0.__value.sroa_idx.i.i = getelementptr inbounds i8, ptr %__value.i.i, i64 8
-  store i32 %__value.sroa.2.0.copyload, ptr %coerce.sroa.2.0.__value.sroa_idx.i.i, align 8
+  %__value.sroa.0.sroa.3.0.extract.shift.i.i = lshr i64 %__value.sroa.0.0.copyload, 32
   %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, 0
   br i1 %cmp15.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
@@ -78975,22 +78978,22 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %land.rhs.i.i
   %cmp.i.i.i23.i = phi i1 [ true, %land.rhs.i.i ], [ false, %for.cond.i.i.i.i ]
+  %indvars.iv.i.i.sroa.phi.sroa.speculated.in.i.i = phi i64 [ %__value.sroa.0.0.copyload, %land.rhs.i.i ], [ %__value.sroa.0.sroa.3.0.extract.shift.i.i, %for.cond.i.i.i.i ]
   %indvars.iv.i.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ 1, %for.cond.i.i.i.i ]
+  %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i = trunc i64 %indvars.iv.i.i.sroa.phi.sroa.speculated.in.i.i to i32
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %add.ptr.i.i, i64 0, i64 %indvars.iv.i.i.i.i
   %4 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__value.i.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %5 = load i32, ptr %arrayidx.i.i11.i.i.i.i, align 4
-  %cmp.i.i.i.i.i = icmp eq i32 %4, %5
+  %cmp.i.i.i.i.i = icmp eq i32 %4, %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %cmp6.i.i.i.i = icmp slt i32 %4, %5
+  %cmp6.i.i.i.i = icmp slt i32 %4, %indvars.iv.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp6.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IiEES7_EEbT_RT0_.exit.i.i: ; preds = %for.cond.i.i.i.i
   %arrayidx.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %6 = load i32, ptr %arrayidx.i.i16.i.i.i.i, align 4
-  %cmp9.i.i.i.i = icmp slt i32 %6, %__value.sroa.2.0.copyload
+  %5 = load i32, ptr %arrayidx.i.i16.i.i.i.i, align 4
+  %cmp9.i.i.i.i = icmp slt i32 %5, %__value.sroa.2.0.copyload
   br i1 %cmp9.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IiEES7_EEbT_RT0_.exit.i.i, %if.then.i.i.i.i
@@ -79002,8 +79005,9 @@ while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__op
 _ZSt13__adjust_heapIPN7openvdb5v11_04math4Vec3IiEElS4_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit: ; preds = %if.then.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IiEES7_EEbT_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.016.i.i, %if.then.i.i.i.i ], [ %__parent.017.i.i45, %while.body.i.i ], [ %__holeIndex.addr.016.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN7openvdb5v11_04math4Vec3IiEES7_EEbT_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.341", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(12) %__value.i.i, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__value.i.i)
+  store i64 %__value.sroa.0.0.copyload, ptr %add.ptr5.i.i, align 4
+  %__value.sroa.4.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 8
+  store i32 %__value.sroa.2.0.copyload, ptr %__value.sroa.4.0.add.ptr5.sroa_idx.i.i, align 4
   ret void
 }
 
@@ -80211,8 +80215,6 @@ for.end:                                          ; preds = %for.inc.i.i.i, %_ZN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE10isConstantERS6_S9_RbRKS6_(ptr noundef nonnull align 8 dereferenceable(66576) %this, ptr noundef nonnull align 4 dereferenceable(12) %minValue, ptr noundef nonnull align 4 dereferenceable(12) %maxValue, ptr noundef nonnull align 1 dereferenceable(1) %state, ptr noundef nonnull align 4 dereferenceable(12) %tolerance) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3.341", align 8
-  %ref.tmp16 = alloca %"class.openvdb::v11_0::math::Vec3.341", align 8
   %mChildMask = getelementptr inbounds i8, ptr %this, i64 65536
   br label %for.cond.i
 
@@ -80263,8 +80265,6 @@ if.end:                                           ; preds = %while.body.i
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 1, %if.end ], [ %indvars.iv.next, %for.inc ]
-  %sub9.i.i107 = phi i32 [ undef, %if.end ], [ %sub9.i.i108, %for.inc ]
-  %sub9.i.i60106 = phi i32 [ undef, %if.end ], [ %sub9.i.i60105, %for.inc ]
   %arrayidx5 = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.1087"], ptr %this, i64 0, i64 %indvars.iv
   br label %for.body.i
 
@@ -80313,11 +80313,6 @@ if.then8:                                         ; preds = %if.then.i.if.then8_
   %10 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %sub5.i.i = sub nsw i32 %retval.sroa.0.sroa.4.0.extract.trunc.i, %10
   %sub9.i.i = sub nsw i32 %retval.sroa.6.0.copyload.i, %8
-  %retval.sroa.0.sroa.4.0.insert.ext.i = zext i32 %sub5.i.i to i64
-  %retval.sroa.0.sroa.4.0.insert.shift.i = shl nuw i64 %retval.sroa.0.sroa.4.0.insert.ext.i, 32
-  %retval.sroa.0.sroa.0.0.insert.ext.i = zext i32 %sub.i.i to i64
-  %retval.sroa.0.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.0.sroa.4.0.insert.shift.i, %retval.sroa.0.sroa.0.0.insert.ext.i
-  store i64 %retval.sroa.0.sroa.0.0.insert.insert.i, ptr %ref.tmp, align 8
   br label %for.body.i21
 
 for.cond.i30:                                     ; preds = %for.body.i21
@@ -80325,21 +80320,20 @@ for.cond.i30:                                     ; preds = %for.body.i21
 
 for.body.i21:                                     ; preds = %for.cond.i30, %if.then8
   %cmp.i22 = phi i1 [ true, %if.then8 ], [ false, %for.cond.i30 ]
+  %indvars.iv.i23.sroa.phi.sroa.speculated = phi i32 [ %sub.i.i, %if.then8 ], [ %sub5.i.i, %for.cond.i30 ]
   %indvars.iv.i23 = phi i64 [ 0, %if.then8 ], [ 1, %for.cond.i30 ]
-  %arrayidx.i.i.i24 = getelementptr inbounds [3 x i32], ptr %ref.tmp, i64 0, i64 %indvars.iv.i23
-  %11 = load i32, ptr %arrayidx.i.i.i24, align 4
   %arrayidx.i.i11.i25 = getelementptr inbounds [3 x i32], ptr %tolerance, i64 0, i64 %indvars.iv.i23
-  %12 = load i32, ptr %arrayidx.i.i11.i25, align 4
-  %cmp.i.i26 = icmp eq i32 %11, %12
+  %11 = load i32, ptr %arrayidx.i.i11.i25, align 4
+  %cmp.i.i26 = icmp eq i32 %indvars.iv.i23.sroa.phi.sroa.speculated, %11
   br i1 %cmp.i.i26, label %for.cond.i30, label %if.then.i27
 
 if.then.i27:                                      ; preds = %for.body.i21
-  %cmp6.i28 = icmp sgt i32 %11, %12
+  %cmp6.i28 = icmp sgt i32 %indvars.iv.i23.sroa.phi.sroa.speculated, %11
   br i1 %cmp6.i28, label %return, label %for.inc.sink.split
 
 _ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit: ; preds = %for.cond.i30
-  %13 = load i32, ptr %arrayidx.i.i17.i79, align 4
-  %cmp9.i34 = icmp sgt i32 %sub9.i.i, %13
+  %12 = load i32, ptr %arrayidx.i.i17.i79, align 4
+  %cmp9.i34 = icmp sgt i32 %sub9.i.i, %12
   br i1 %cmp9.i34, label %return, label %for.inc.sink.split
 
 for.cond.i44:                                     ; preds = %for.body.i35
@@ -80349,14 +80343,14 @@ for.body.i35:                                     ; preds = %for.body.i35.prehea
   %cmp.i36 = phi i1 [ false, %for.cond.i44 ], [ true, %for.body.i35.preheader ]
   %indvars.iv.i37 = phi i64 [ 1, %for.cond.i44 ], [ 0, %for.body.i35.preheader ]
   %arrayidx.i.i.i38 = getelementptr inbounds [3 x i32], ptr %arrayidx5, i64 0, i64 %indvars.iv.i37
-  %14 = load i32, ptr %arrayidx.i.i.i38, align 4
+  %13 = load i32, ptr %arrayidx.i.i.i38, align 4
   %arrayidx.i.i11.i39 = getelementptr inbounds [3 x i32], ptr %maxValue, i64 0, i64 %indvars.iv.i37
-  %15 = load i32, ptr %arrayidx.i.i11.i39, align 4
-  %cmp.i.i40 = icmp eq i32 %14, %15
+  %14 = load i32, ptr %arrayidx.i.i11.i39, align 4
+  %cmp.i.i40 = icmp eq i32 %13, %14
   br i1 %cmp.i.i40, label %for.cond.i44, label %if.then.i41
 
 if.then.i41:                                      ; preds = %for.body.i35
-  %cmp6.i42 = icmp sgt i32 %14, %15
+  %cmp6.i42 = icmp sgt i32 %13, %14
   br i1 %cmp6.i42, label %if.then.i41.if.then15_crit_edge, label %for.inc
 
 if.then.i41.if.then15_crit_edge:                  ; preds = %if.then.i41
@@ -80366,28 +80360,23 @@ if.then.i41.if.then15_crit_edge:                  ; preds = %if.then.i41
 
 _ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49: ; preds = %for.cond.i44
   %arrayidx.i.i16.i46 = getelementptr inbounds i8, ptr %arrayidx5, i64 8
-  %16 = load i32, ptr %arrayidx.i.i16.i46, align 8
-  %17 = load i32, ptr %arrayidx.i.i17.i47, align 4
-  %cmp9.i48 = icmp sgt i32 %16, %17
+  %15 = load i32, ptr %arrayidx.i.i16.i46, align 8
+  %16 = load i32, ptr %arrayidx.i.i17.i47, align 4
+  %cmp9.i48 = icmp sgt i32 %15, %16
   br i1 %cmp9.i48, label %if.then15, label %for.inc
 
 if.then15:                                        ; preds = %if.then.i41.if.then15_crit_edge, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49
-  %retval.sroa.6.0.copyload.i55 = phi i32 [ %retval.sroa.6.0.copyload.i55.pre, %if.then.i41.if.then15_crit_edge ], [ %16, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49 ]
+  %retval.sroa.6.0.copyload.i55 = phi i32 [ %retval.sroa.6.0.copyload.i55.pre, %if.then.i41.if.then15_crit_edge ], [ %15, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49 ]
   %retval.sroa.0.0.copyload.i50 = load i64, ptr %arrayidx5, align 8
   %retval.sroa.0.sroa.0.0.extract.trunc.i51 = trunc i64 %retval.sroa.0.0.copyload.i50 to i32
   %retval.sroa.0.sroa.4.0.extract.shift.i52 = lshr i64 %retval.sroa.0.0.copyload.i50, 32
   %retval.sroa.0.sroa.4.0.extract.trunc.i53 = trunc i64 %retval.sroa.0.sroa.4.0.extract.shift.i52 to i32
-  %18 = load i32, ptr %minValue, align 4
-  %sub.i.i56 = sub nsw i32 %retval.sroa.0.sroa.0.0.extract.trunc.i51, %18
-  %19 = load i32, ptr %arrayidx.i.i.i.i57, align 4
-  %sub5.i.i58 = sub nsw i32 %retval.sroa.0.sroa.4.0.extract.trunc.i53, %19
-  %20 = load i32, ptr %arrayidx.i.i17.i, align 4
-  %sub9.i.i60 = sub nsw i32 %retval.sroa.6.0.copyload.i55, %20
-  %retval.sroa.0.sroa.4.0.insert.ext.i61 = zext i32 %sub5.i.i58 to i64
-  %retval.sroa.0.sroa.4.0.insert.shift.i62 = shl nuw i64 %retval.sroa.0.sroa.4.0.insert.ext.i61, 32
-  %retval.sroa.0.sroa.0.0.insert.ext.i63 = zext i32 %sub.i.i56 to i64
-  %retval.sroa.0.sroa.0.0.insert.insert.i64 = or disjoint i64 %retval.sroa.0.sroa.4.0.insert.shift.i62, %retval.sroa.0.sroa.0.0.insert.ext.i63
-  store i64 %retval.sroa.0.sroa.0.0.insert.insert.i64, ptr %ref.tmp16, align 8
+  %17 = load i32, ptr %minValue, align 4
+  %sub.i.i56 = sub nsw i32 %retval.sroa.0.sroa.0.0.extract.trunc.i51, %17
+  %18 = load i32, ptr %arrayidx.i.i.i.i57, align 4
+  %sub5.i.i58 = sub nsw i32 %retval.sroa.0.sroa.4.0.extract.trunc.i53, %18
+  %19 = load i32, ptr %arrayidx.i.i17.i, align 4
+  %sub9.i.i60 = sub nsw i32 %retval.sroa.6.0.copyload.i55, %19
   br label %for.body.i67
 
 for.cond.i76:                                     ; preds = %for.body.i67
@@ -80395,33 +80384,28 @@ for.cond.i76:                                     ; preds = %for.body.i67
 
 for.body.i67:                                     ; preds = %for.cond.i76, %if.then15
   %cmp.i68 = phi i1 [ true, %if.then15 ], [ false, %for.cond.i76 ]
+  %indvars.iv.i69.sroa.phi.sroa.speculated = phi i32 [ %sub.i.i56, %if.then15 ], [ %sub5.i.i58, %for.cond.i76 ]
   %indvars.iv.i69 = phi i64 [ 0, %if.then15 ], [ 1, %for.cond.i76 ]
-  %arrayidx.i.i.i70 = getelementptr inbounds [3 x i32], ptr %ref.tmp16, i64 0, i64 %indvars.iv.i69
-  %21 = load i32, ptr %arrayidx.i.i.i70, align 4
   %arrayidx.i.i11.i71 = getelementptr inbounds [3 x i32], ptr %tolerance, i64 0, i64 %indvars.iv.i69
-  %22 = load i32, ptr %arrayidx.i.i11.i71, align 4
-  %cmp.i.i72 = icmp eq i32 %21, %22
+  %20 = load i32, ptr %arrayidx.i.i11.i71, align 4
+  %cmp.i.i72 = icmp eq i32 %indvars.iv.i69.sroa.phi.sroa.speculated, %20
   br i1 %cmp.i.i72, label %for.cond.i76, label %if.then.i73
 
 if.then.i73:                                      ; preds = %for.body.i67
-  %cmp6.i74 = icmp sgt i32 %21, %22
+  %cmp6.i74 = icmp sgt i32 %indvars.iv.i69.sroa.phi.sroa.speculated, %20
   br i1 %cmp6.i74, label %return, label %for.inc.sink.split
 
 _ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit81: ; preds = %for.cond.i76
-  %23 = load i32, ptr %arrayidx.i.i17.i79, align 4
-  %cmp9.i80 = icmp sgt i32 %sub9.i.i60, %23
+  %21 = load i32, ptr %arrayidx.i.i17.i79, align 4
+  %cmp9.i80 = icmp sgt i32 %sub9.i.i60, %21
   br i1 %cmp9.i80, label %return, label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit81, %if.then.i73, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit, %if.then.i27
   %minValue.sink = phi ptr [ %minValue, %if.then.i27 ], [ %minValue, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit ], [ %maxValue, %if.then.i73 ], [ %maxValue, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit81 ]
-  %sub9.i.i108.ph = phi i32 [ %sub9.i.i, %if.then.i27 ], [ %sub9.i.i, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit ], [ %sub9.i.i107, %if.then.i73 ], [ %sub9.i.i107, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit81 ]
-  %sub9.i.i60105.ph = phi i32 [ %sub9.i.i60106, %if.then.i27 ], [ %sub9.i.i60106, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit ], [ %sub9.i.i60, %if.then.i73 ], [ %sub9.i.i60, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit81 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %minValue.sink, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx5, i64 12, i1 false)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.then.i41, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49
-  %sub9.i.i108 = phi i32 [ %sub9.i.i107, %if.then.i41 ], [ %sub9.i.i107, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49 ], [ %sub9.i.i108.ph, %for.inc.sink.split ]
-  %sub9.i.i60105 = phi i32 [ %sub9.i.i60106, %if.then.i41 ], [ %sub9.i.i60106, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49 ], [ %sub9.i.i60105.ph, %for.inc.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4096
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !948
@@ -80434,34 +80418,33 @@ return:                                           ; preds = %land.rhs.i, %land.r
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt13__introselectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_T0_T1_(ptr noundef %__first, ptr noundef %__nth, ptr noundef %__last, i64 noundef %__depth_limit) local_unnamed_addr #5 comdat {
 entry:
-  %__val.i.i = alloca %"class.openvdb::v11_0::tree::NodeUnion.1087", align 8
   %__val.sroa.0.i = alloca %union.anon.1088, align 8
   %__tmp.sroa.0.i.i.i.i = alloca %union.anon.1088, align 8
   %__tmp.sroa.0.i.i = alloca %union.anon.1088, align 8
   %__comp.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.1143", align 1
-  %sub.ptr.lhs.cast70 = ptrtoint ptr %__last to i64
-  %sub.ptr.rhs.cast71 = ptrtoint ptr %__first to i64
-  %sub.ptr.sub72 = sub i64 %sub.ptr.lhs.cast70, %sub.ptr.rhs.cast71
-  %cmp73 = icmp sgt i64 %sub.ptr.sub72, 48
-  br i1 %cmp73, label %while.body, label %while.end
+  %sub.ptr.lhs.cast67 = ptrtoint ptr %__last to i64
+  %sub.ptr.rhs.cast68 = ptrtoint ptr %__first to i64
+  %sub.ptr.sub69 = sub i64 %sub.ptr.lhs.cast67, %sub.ptr.rhs.cast68
+  %cmp70 = icmp sgt i64 %sub.ptr.sub69, 48
+  br i1 %cmp70, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit
-  %sub.ptr.sub77 = phi i64 [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %sub.ptr.sub72, %entry ]
-  %__first.addr.076 = phi ptr [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %__first, %entry ]
-  %__last.addr.075 = phi ptr [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %__last, %entry ]
-  %__depth_limit.addr.074 = phi i64 [ %dec, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %__depth_limit, %entry ]
-  %cmp1 = icmp eq i64 %__depth_limit.addr.074, 0
+  %sub.ptr.sub74 = phi i64 [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %sub.ptr.sub69, %entry ]
+  %__first.addr.073 = phi ptr [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %__first, %entry ]
+  %__last.addr.072 = phi ptr [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %__last, %entry ]
+  %__depth_limit.addr.071 = phi i64 [ %dec, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ], [ %__depth_limit, %entry ]
+  %cmp1 = icmp eq i64 %__depth_limit.addr.071, 0
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
   %add.ptr = getelementptr inbounds i8, ptr %__nth, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
-  call void @_ZSt11__make_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_RT0_(ptr noundef %__first.addr.076, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
-  %cmp11.i = icmp ult ptr %add.ptr, %__last.addr.075
+  call void @_ZSt11__make_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_RT0_(ptr noundef %__first.addr.073, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  %cmp11.i = icmp ult ptr %add.ptr, %__last.addr.072
   br i1 %cmp11.i, label %for.body.i.i.i.preheader.lr.ph.i, label %_ZSt13__heap_selectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_T0_.exit
 
 for.body.i.i.i.preheader.lr.ph.i:                 ; preds = %if.then
-  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.076, i64 8
+  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 8
   br label %for.body.i.i.i.preheader.i
 
 for.body.i.i.i.preheader.i:                       ; preds = %for.inc.i, %for.body.i.i.i.preheader.lr.ph.i
@@ -80476,7 +80459,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %
   %indvars.iv.i.i.i.i = phi i64 [ 1, %for.cond.i.i.i.i ], [ 0, %for.body.i.i.i.preheader.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__i.012.i, i64 0, i64 %indvars.iv.i.i.i.i
   %0 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.076, i64 0, i64 %indvars.iv.i.i.i.i
+  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i.i.i
   %1 = load i32, ptr %arrayidx.i.i11.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %0, %1
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
@@ -80493,34 +80476,34 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpIN
   br i1 %cmp9.i.i.i.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i, %if.then.i.i.i.i
-  call void @_ZSt10__pop_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_RT0_(ptr noundef nonnull %__first.addr.076, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__i.012.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  call void @_ZSt10__pop_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_RT0_(ptr noundef nonnull %__first.addr.073, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__i.012.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i, %if.then.i.i.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__i.012.i, i64 16
-  %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.addr.075
+  %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.addr.072
   br i1 %cmp.i, label %for.body.i.i.i.preheader.i, label %_ZSt13__heap_selectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_T0_.exit, !llvm.loop !949
 
 _ZSt13__heap_selectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_T0_.exit: ; preds = %for.inc.i, %if.then
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.076, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.076, ptr noundef nonnull align 8 dereferenceable(16) %__nth, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.073, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.073, ptr noundef nonnull align 8 dereferenceable(16) %__nth, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__nth, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   br label %return
 
 if.end:                                           ; preds = %while.body
-  %div.i4647 = lshr i64 %sub.ptr.sub77, 5
-  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first.addr.076, i64 %div.i4647
-  %add.ptr1.i = getelementptr inbounds i8, ptr %__first.addr.076, i64 16
-  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.075, i64 -16
-  tail call void @_ZSt22__move_median_to_firstIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_SP_T0_(ptr noundef %__first.addr.076, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
-  %arrayidx.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.076, i64 8
+  %div.i4445 = lshr i64 %sub.ptr.sub74, 5
+  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first.addr.073, i64 %div.i4445
+  %add.ptr1.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 16
+  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.072, i64 -16
+  tail call void @_ZSt22__move_median_to_firstIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_SP_T0_(ptr noundef %__first.addr.073, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
+  %arrayidx.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %if.end
-  %__last.addr.0.i.i = phi ptr [ %__last.addr.075, %if.end ], [ %__last.addr.1.i.i, %if.end.i.i ]
+  %__last.addr.0.i.i = phi ptr [ %__last.addr.072, %if.end ], [ %__last.addr.1.i.i, %if.end.i.i ]
   %__first.addr.0.i.i = phi ptr [ %add.ptr1.i, %if.end ], [ %incdec.ptr9.i.i, %if.end.i.i ]
   br label %while.cond1.i.i
 
@@ -80536,7 +80519,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i,
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %while.cond1.i.i ], [ 1, %for.cond.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.1.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
   %4 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.076, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i.i.i.i
   %5 = load i32, ptr %arrayidx.i.i11.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   br i1 %cmp.i.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -80570,7 +80553,7 @@ for.cond.i.i.i20.i.i:                             ; preds = %for.body.i.i.i11.i.
 for.body.i.i.i11.i.i:                             ; preds = %for.cond.i.i.i20.i.i, %while.cond4.i.i
   %cmp.i.i.i12.i.i = phi i1 [ true, %while.cond4.i.i ], [ false, %for.cond.i.i.i20.i.i ]
   %indvars.iv.i.i.i13.i.i = phi i64 [ 0, %while.cond4.i.i ], [ 1, %for.cond.i.i.i20.i.i ]
-  %arrayidx.i.i.i.i.i14.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.076, i64 0, i64 %indvars.iv.i.i.i13.i.i
+  %arrayidx.i.i.i.i.i14.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i.i13.i.i
   %8 = load i32, ptr %arrayidx.i.i.i.i.i14.i.i, align 4
   %arrayidx.i.i11.i.i.i15.i.i = getelementptr inbounds [3 x i32], ptr %__last.addr.1.i.i, i64 0, i64 %indvars.iv.i.i.i13.i.i
   %9 = load i32, ptr %arrayidx.i.i11.i.i.i15.i.i, align 4
@@ -80605,10 +80588,10 @@ if.end.i.i:                                       ; preds = %while.end8.i.i
   br label %while.body.i.i, !llvm.loop !952
 
 _ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit: ; preds = %while.end8.i.i
-  %dec = add nsw i64 %__depth_limit.addr.074, -1
+  %dec = add nsw i64 %__depth_limit.addr.071, -1
   %cmp3.not = icmp ugt ptr %__first.addr.1.i.i, %__nth
-  %call.__last.addr.0 = select i1 %cmp3.not, ptr %__first.addr.1.i.i, ptr %__last.addr.075
-  %__first.addr.0.call = select i1 %cmp3.not, ptr %__first.addr.076, ptr %__first.addr.1.i.i
+  %call.__last.addr.0 = select i1 %cmp3.not, ptr %__first.addr.1.i.i, ptr %__last.addr.072
+  %__first.addr.0.call = select i1 %cmp3.not, ptr %__first.addr.073, ptr %__first.addr.1.i.i
   %sub.ptr.lhs.cast = ptrtoint ptr %call.__last.addr.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first.addr.0.call to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -80618,111 +80601,122 @@ _ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3
 while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit, %entry
   %__last.addr.0.lcssa = phi ptr [ %__last, %entry ], [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ]
   %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ]
-  %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast71, %entry ], [ %sub.ptr.rhs.cast, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ]
+  %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast68, %entry ], [ %sub.ptr.rhs.cast, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEESP_SP_SP_T0_.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__val.sroa.0.i)
   %cmp.i16 = icmp eq ptr %__first.addr.0.lcssa, %__last.addr.0.lcssa
   br i1 %cmp.i16, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end
-  %__i.020.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 16
-  %cmp1.not21.i = icmp eq ptr %__i.020.i, %__last.addr.0.lcssa
-  br i1 %cmp1.not21.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.lr.ph.i17
+  %__i.019.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 16
+  %cmp1.not20.i = icmp eq ptr %__i.019.i, %__last.addr.0.lcssa
+  br i1 %cmp1.not20.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.lr.ph.i17
 
 for.body.i.i.i.preheader.lr.ph.i17:               ; preds = %for.cond.preheader.i
   %arrayidx.i.i17.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 8
-  %arrayidx.i.i16.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__val.i.i, i64 8
-  br label %for.body.i.i.i.preheader.i20
+  br label %for.body.i.i.i.preheader.i19
 
-for.body.i.i.i.preheader.i20:                     ; preds = %for.inc.i37, %for.body.i.i.i.preheader.lr.ph.i17
-  %__i.023.i = phi ptr [ %__i.020.i, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.0.i, %for.inc.i37 ]
-  %__first.pn22.i = phi ptr [ %__first.addr.0.lcssa, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.023.i, %for.inc.i37 ]
-  br label %for.body.i.i.i.i21
+for.body.i.i.i.preheader.i19:                     ; preds = %for.inc.i35, %for.body.i.i.i.preheader.lr.ph.i17
+  %__i.022.i = phi ptr [ %__i.019.i, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.0.i, %for.inc.i35 ]
+  %__first.pn21.i = phi ptr [ %__first.addr.0.lcssa, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.022.i, %for.inc.i35 ]
+  br label %for.body.i.i.i.i20
 
-for.cond.i.i.i.i42:                               ; preds = %for.body.i.i.i.i21
-  br i1 %cmp.i.i.i.i22, label %for.body.i.i.i.i21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43, !llvm.loop !926
+for.cond.i.i.i.i40:                               ; preds = %for.body.i.i.i.i20
+  br i1 %cmp.i.i.i.i21, label %for.body.i.i.i.i20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41, !llvm.loop !926
 
-for.body.i.i.i.i21:                               ; preds = %for.cond.i.i.i.i42, %for.body.i.i.i.preheader.i20
-  %cmp.i.i.i.i22 = phi i1 [ false, %for.cond.i.i.i.i42 ], [ true, %for.body.i.i.i.preheader.i20 ]
-  %indvars.iv.i.i.i.i23 = phi i64 [ 1, %for.cond.i.i.i.i42 ], [ 0, %for.body.i.i.i.preheader.i20 ]
-  %arrayidx.i.i.i.i.i.i24 = getelementptr inbounds [3 x i32], ptr %__i.023.i, i64 0, i64 %indvars.iv.i.i.i.i23
-  %12 = load i32, ptr %arrayidx.i.i.i.i.i.i24, align 4
-  %arrayidx.i.i11.i.i.i.i25 = getelementptr inbounds [3 x i32], ptr %__first.addr.0.lcssa, i64 0, i64 %indvars.iv.i.i.i.i23
-  %13 = load i32, ptr %arrayidx.i.i11.i.i.i.i25, align 4
-  %cmp.i.i.i.i.i26 = icmp eq i32 %12, %13
-  br i1 %cmp.i.i.i.i.i26, label %for.cond.i.i.i.i42, label %if.then.i.i.i.i27
+for.body.i.i.i.i20:                               ; preds = %for.cond.i.i.i.i40, %for.body.i.i.i.preheader.i19
+  %cmp.i.i.i.i21 = phi i1 [ false, %for.cond.i.i.i.i40 ], [ true, %for.body.i.i.i.preheader.i19 ]
+  %indvars.iv.i.i.i.i22 = phi i64 [ 1, %for.cond.i.i.i.i40 ], [ 0, %for.body.i.i.i.preheader.i19 ]
+  %arrayidx.i.i.i.i.i.i23 = getelementptr inbounds [3 x i32], ptr %__i.022.i, i64 0, i64 %indvars.iv.i.i.i.i22
+  %12 = load i32, ptr %arrayidx.i.i.i.i.i.i23, align 4
+  %arrayidx.i.i11.i.i.i.i24 = getelementptr inbounds [3 x i32], ptr %__first.addr.0.lcssa, i64 0, i64 %indvars.iv.i.i.i.i22
+  %13 = load i32, ptr %arrayidx.i.i11.i.i.i.i24, align 4
+  %cmp.i.i.i.i.i25 = icmp eq i32 %12, %13
+  br i1 %cmp.i.i.i.i.i25, label %for.cond.i.i.i.i40, label %if.then.i.i.i.i26
 
-if.then.i.i.i.i27:                                ; preds = %for.body.i.i.i.i21
-  %cmp6.i.i.i.i28 = icmp slt i32 %12, %13
-  br i1 %cmp6.i.i.i.i28, label %if.then2.i, label %if.else.i
+if.then.i.i.i.i26:                                ; preds = %for.body.i.i.i.i20
+  %cmp6.i.i.i.i27 = icmp slt i32 %12, %13
+  br i1 %cmp6.i.i.i.i27, label %if.then2.i, label %if.then.i.i.i.if.else_crit_edge.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43: ; preds = %for.cond.i.i.i.i42
-  %arrayidx.i.i16.i.i.i.i44 = getelementptr inbounds i8, ptr %__first.pn22.i, i64 24
-  %14 = load i32, ptr %arrayidx.i.i16.i.i.i.i44, align 4
+if.then.i.i.i.if.else_crit_edge.i:                ; preds = %if.then.i.i.i.i26
+  %__val.sroa.4.0.__last.sroa_idx.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 24
+  %__val.sroa.4.0.copyload.i.pre.i = load i32, ptr %__val.sroa.4.0.__last.sroa_idx.i.phi.trans.insert.i, align 8
+  br label %if.else.i
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41: ; preds = %for.cond.i.i.i.i40
+  %arrayidx.i.i16.i.i.i.i42 = getelementptr inbounds i8, ptr %__first.pn21.i, i64 24
+  %14 = load i32, ptr %arrayidx.i.i16.i.i.i.i42, align 4
   %15 = load i32, ptr %arrayidx.i.i17.i.i.i.i18, align 4
-  %cmp9.i.i.i.i45 = icmp slt i32 %14, %15
-  br i1 %cmp9.i.i.i.i45, label %if.then2.i, label %if.else.i
+  %cmp9.i.i.i.i43 = icmp slt i32 %14, %15
+  br i1 %cmp9.i.i.i.i43, label %if.then2.i, label %if.else.i
 
-if.then2.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43, %if.then.i.i.i.i27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %__i.023.i, i64 16, i1 false)
-  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn22.i, i64 32
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.023.i to i64
+if.then2.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41, %if.then.i.i.i.i26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %__i.022.i, i64 16, i1 false)
+  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 32
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.022.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.lcssa
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 4
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %add.ptr3.i, i64 %.pre.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.addr.0.lcssa, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.0.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.0.i, i64 16, i1 false)
-  br label %for.inc.i37
+  br label %for.inc.i35
 
-if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43, %if.then.i.i.i.i27
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__val.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__i.023.i, i64 16, i1 false)
-  %16 = load i32, ptr %arrayidx.i.i16.i.i.i.i.i19, align 8
+if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41, %if.then.i.i.i.if.else_crit_edge.i
+  %__val.sroa.4.0.copyload.i.i = phi i32 [ %__val.sroa.4.0.copyload.i.pre.i, %if.then.i.i.i.if.else_crit_edge.i ], [ %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41 ]
+  %__val.sroa.0.0.copyload.i.i = load i32, ptr %__i.022.i, align 8
+  %__val.sroa.3.0.__last.sroa_idx.i.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 20
+  %__val.sroa.3.0.copyload.i.i = load i32, ptr %__val.sroa.3.0.__last.sroa_idx.i.i, align 4
+  %__val.sroa.5.0.__last.sroa_idx.i.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 28
+  %__val.sroa.5.0.copyload.i.i = load i32, ptr %__val.sroa.5.0.__last.sroa_idx.i.i, align 4
   br label %while.cond.i.i
 
-while.cond.i.i:                                   ; preds = %while.body.i.i38, %if.else.i
-  %__last.addr.0.i.i29 = phi ptr [ %__i.023.i, %if.else.i ], [ %__next.0.i.i, %while.body.i.i38 ]
-  %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i29, i64 -16
-  br label %for.body.i.i.i.i.i30
+while.cond.i.i:                                   ; preds = %while.body.i.i36, %if.else.i
+  %__last.addr.0.i.i28 = phi ptr [ %__i.022.i, %if.else.i ], [ %__next.0.i.i, %while.body.i.i36 ]
+  %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 -16
+  br label %for.body.i.i.i.i.i29
 
-for.cond.i.i.i.i.i39:                             ; preds = %for.body.i.i.i.i.i30
-  br i1 %cmp.i.i.i.i12.i, label %for.body.i.i.i.i.i30, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, !llvm.loop !926
+for.cond.i.i.i.i.i37:                             ; preds = %for.body.i.i.i.i.i29
+  br i1 %cmp.i.i.i.i12.i, label %for.body.i.i.i.i.i29, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, !llvm.loop !926
 
-for.body.i.i.i.i.i30:                             ; preds = %for.cond.i.i.i.i.i39, %while.cond.i.i
-  %cmp.i.i.i.i12.i = phi i1 [ true, %while.cond.i.i ], [ false, %for.cond.i.i.i.i.i39 ]
-  %indvars.iv.i.i.i.i.i31 = phi i64 [ 0, %while.cond.i.i ], [ 1, %for.cond.i.i.i.i.i39 ]
-  %arrayidx.i.i.i.i.i.i.i32 = getelementptr inbounds [3 x i32], ptr %__val.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i31
-  %17 = load i32, ptr %arrayidx.i.i.i.i.i.i.i32, align 4
-  %arrayidx.i.i11.i.i.i.i.i33 = getelementptr inbounds [3 x i32], ptr %__next.0.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i31
-  %18 = load i32, ptr %arrayidx.i.i11.i.i.i.i.i33, align 4
-  %cmp.i.i.i.i.i.i34 = icmp eq i32 %17, %18
-  br i1 %cmp.i.i.i.i.i.i34, label %for.cond.i.i.i.i.i39, label %if.then.i.i.i.i.i35
+for.body.i.i.i.i.i29:                             ; preds = %for.cond.i.i.i.i.i37, %while.cond.i.i
+  %cmp.i.i.i.i12.i = phi i1 [ true, %while.cond.i.i ], [ false, %for.cond.i.i.i.i.i37 ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i = phi i32 [ %__val.sroa.0.0.copyload.i.i, %while.cond.i.i ], [ %__val.sroa.3.0.copyload.i.i, %for.cond.i.i.i.i.i37 ]
+  %indvars.iv.i.i.i.i.i30 = phi i64 [ 0, %while.cond.i.i ], [ 1, %for.cond.i.i.i.i.i37 ]
+  %arrayidx.i.i11.i.i.i.i.i31 = getelementptr inbounds [3 x i32], ptr %__next.0.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i30
+  %16 = load i32, ptr %arrayidx.i.i11.i.i.i.i.i31, align 4
+  %cmp.i.i.i.i.i.i32 = icmp eq i32 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i, %16
+  br i1 %cmp.i.i.i.i.i.i32, label %for.cond.i.i.i.i.i37, label %if.then.i.i.i.i.i33
 
-if.then.i.i.i.i.i35:                              ; preds = %for.body.i.i.i.i.i30
-  %cmp6.i.i.i.i.i36 = icmp slt i32 %17, %18
-  br i1 %cmp6.i.i.i.i.i36, label %while.body.i.i38, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i
+if.then.i.i.i.i.i33:                              ; preds = %for.body.i.i.i.i.i29
+  %cmp6.i.i.i.i.i34 = icmp slt i32 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i, %16
+  br i1 %cmp6.i.i.i.i.i34, label %while.body.i.i36, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i39
-  %arrayidx.i.i17.i.i.i.i.i40 = getelementptr inbounds i8, ptr %__last.addr.0.i.i29, i64 -8
-  %19 = load i32, ptr %arrayidx.i.i17.i.i.i.i.i40, align 4
-  %cmp9.i.i.i.i.i41 = icmp slt i32 %16, %19
-  br i1 %cmp9.i.i.i.i.i41, label %while.body.i.i38, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i37
+  %arrayidx.i.i17.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 -8
+  %17 = load i32, ptr %arrayidx.i.i17.i.i.i.i.i38, align 4
+  %cmp9.i.i.i.i.i39 = icmp slt i32 %__val.sroa.4.0.copyload.i.i, %17
+  br i1 %cmp9.i.i.i.i.i39, label %while.body.i.i36, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i
 
-while.body.i.i38:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0.i.i29, ptr noundef nonnull align 8 dereferenceable(16) %__next.0.i.i, i64 16, i1 false)
+while.body.i.i36:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0.i.i28, ptr noundef nonnull align 8 dereferenceable(16) %__next.0.i.i, i64 16, i1 false)
   br label %while.cond.i.i, !llvm.loop !954
 
-_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0.i.i29, ptr noundef nonnull align 8 dereferenceable(16) %__val.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__val.i.i)
-  br label %for.inc.i37
+_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i33
+  store i32 %__val.sroa.0.0.copyload.i.i, ptr %__last.addr.0.i.i28, align 8
+  %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 4
+  store i32 %__val.sroa.3.0.copyload.i.i, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i, align 4
+  %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 8
+  store i32 %__val.sroa.4.0.copyload.i.i, ptr %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i, align 8
+  %__val.sroa.5.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 12
+  store i32 %__val.sroa.5.0.copyload.i.i, ptr %__val.sroa.5.0.__last.addr.0.sroa_idx.i.i, align 4
+  br label %for.inc.i35
 
-for.inc.i37:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i, %if.then2.i
-  %__i.0.i = getelementptr inbounds i8, ptr %__i.023.i, i64 16
+for.inc.i35:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_.exit.i, %if.then2.i
+  %__i.0.i = getelementptr inbounds i8, ptr %__i.022.i, i64 16
   %cmp1.not.i = icmp eq ptr %__i.0.i, %__last.addr.0.lcssa
-  br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.i20, !llvm.loop !955
+  br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.i19, !llvm.loop !955
 
-_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit: ; preds = %for.inc.i37, %while.end, %for.cond.preheader.i
+_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_T0_.exit: ; preds = %for.inc.i35, %while.end, %for.cond.preheader.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__val.sroa.0.i)
   br label %return
 
@@ -80733,8 +80727,6 @@ return:                                           ; preds = %_ZSt16__insertion_s
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt11__make_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_RT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %__comp) local_unnamed_addr #5 comdat {
 entry:
-  %__value.i.i18 = alloca %"class.openvdb::v11_0::tree::NodeUnion.1087", align 8
-  %__value.i.i = alloca %"class.openvdb::v11_0::tree::NodeUnion.1087", align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -80750,13 +80742,13 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.2.0.add.ptr.sroa_idx11 = getelementptr inbounds i8, ptr %add.ptr9, i64 8
   %__value.sroa.2.0.copyload12 = load i64, ptr %__value.sroa.2.0.add.ptr.sroa_idx11, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
-  %div.i8789 = lshr i64 %sub.i, 1
-  %cmp31.i = icmp ugt i64 %div.i8789, %div17
-  br i1 %cmp31.i, label %while.body.i, label %while.end.i
+  %div.i9193 = lshr i64 %sub.i, 1
+  %cmp30.i = icmp ugt i64 %div.i9193, %div17
+  br i1 %cmp30.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
-  %__holeIndex.addr.032.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ %div17, %if.end.split ]
-  %add.i = shl i64 %__holeIndex.addr.032.i, 1
+  %__holeIndex.addr.031.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ %div17, %if.end.split ]
+  %add.i = shl i64 %__holeIndex.addr.031.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -80792,9 +80784,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpIN
   %retval.0.i.i.i.i = phi i1 [ %cmp6.i.i.i.i, %if.then.i.i.i.i ], [ %cmp9.i.i.i.i, %for.end.i.i.i.i ]
   %spec.select.i = select i1 %retval.0.i.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %__holeIndex.addr.032.i
+  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %__holeIndex.addr.031.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i, i64 16, i1 false)
-  %cmp.i = icmp slt i64 %spec.select.i, %div.i8789
+  %cmp.i = icmp slt i64 %spec.select.i, %div.i9193
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !956
 
 while.end.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i, %if.end.split
@@ -80816,16 +80808,17 @@ if.then9.i:                                       ; preds = %while.end.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__value.i.i)
-  store ptr %__value.sroa.0.0.copyload10, ptr %__value.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %__value.i.i, i64 8
-  store i64 %__value.sroa.2.0.copyload12, ptr %5, align 8
   %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %div17
-  %6 = trunc i64 %__value.sroa.2.0.copyload12 to i32
-  br i1 %cmp15.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
+  br i1 %cmp15.i.i, label %land.rhs.lr.ph.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
-land.rhs.i.i:                                     ; preds = %if.end16.i, %while.body.i.i
-  %__holeIndex.addr.016.i.i = phi i64 [ %__parent.017.i.i, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end16.i ]
+land.rhs.lr.ph.i.i:                               ; preds = %if.end16.i
+  %5 = ptrtoint ptr %__value.sroa.0.0.copyload10 to i64
+  %__value.sroa.0.4.extract.shift.i.i = lshr i64 %5, 32
+  %__value.sroa.4.8.extract.trunc.i.i = trunc i64 %__value.sroa.2.0.copyload12 to i32
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
+  %__holeIndex.addr.016.i.i = phi i64 [ %__holeIndex.addr.1.i, %land.rhs.lr.ph.i.i ], [ %__parent.017.i.i, %while.body.i.i ]
   %__parent.017.in.i.i = add nsw i64 %__holeIndex.addr.016.i.i, -1
   %__parent.017.i.i = sdiv i64 %__parent.017.in.i.i, 2
   %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %__parent.017.i.i
@@ -80836,22 +80829,22 @@ for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i, %land.rhs.i.i
   %cmp.i.i.i.i23.i = phi i1 [ true, %land.rhs.i.i ], [ false, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i = phi i64 [ %5, %land.rhs.i.i ], [ %__value.sroa.0.4.extract.shift.i.i, %for.cond.i.i.i.i.i ]
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ 1, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i = trunc i64 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i to i32
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %add.ptr.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %7 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__value.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %8 = load i32, ptr %arrayidx.i.i11.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i.i = icmp eq i32 %7, %8
+  %6 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
+  %cmp.i.i.i.i.i.i = icmp eq i32 %6, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp.i.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %cmp6.i.i.i.i.i = icmp slt i32 %7, %8
+  %cmp6.i.i.i.i.i = icmp slt i32 %6, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp6.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i
   %arrayidx.i.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %9 = load i32, ptr %arrayidx.i.i16.i.i.i.i.i, align 4
-  %cmp9.i.i.i.i.i = icmp slt i32 %9, %6
+  %7 = load i32, ptr %arrayidx.i.i16.i.i.i.i.i, align 4
+  %cmp9.i.i.i.i.i = icmp slt i32 %7, %__value.sroa.4.8.extract.trunc.i.i
   br i1 %cmp9.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %if.then.i.i.i.i.i
@@ -80863,142 +80856,144 @@ while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops
 _ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit: ; preds = %if.then.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.016.i.i, %if.then.i.i.i.i.i ], [ %__parent.017.i.i, %while.body.i.i ], [ %__holeIndex.addr.016.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__value.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__value.i.i)
-  %cmp6105 = icmp ult i64 %sub, 2
-  br i1 %cmp6105, label %return, label %if.end8.split.lr.ph
+  store ptr %__value.sroa.0.0.copyload10, ptr %add.ptr5.i.i, align 8
+  %__value.sroa.4.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 8
+  store i64 %__value.sroa.2.0.copyload12, ptr %__value.sroa.4.0.add.ptr5.sroa_idx.i.i, align 8
+  %cmp6107 = icmp ult i64 %sub, 2
+  br i1 %cmp6107, label %return, label %if.end8.split.lr.ph
 
 if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
-  %10 = getelementptr inbounds i8, ptr %__value.i.i18, i64 8
-  %sub12.i57 = or disjoint i64 %sub, 1
-  %add.ptr13.i58 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %sub12.i57
-  %add.ptr14.i59 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %div7.i
+  %sub12.i61 = or disjoint i64 %sub, 1
+  %add.ptr13.i62 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %sub12.i61
+  %add.ptr14.i63 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %div7.i
   br label %if.end8.split
 
-if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit86
-  %__parent.0106 = phi i64 [ %div17, %if.end8.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit86 ]
-  %dec = add nsw i64 %__parent.0106, -1
+if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit90
+  %__parent.0108 = phi i64 [ %div17, %if.end8.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit90 ]
+  %dec = add nsw i64 %__parent.0108, -1
   %add.ptr13 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload14 = load ptr, ptr %add.ptr13, align 8
   %__value.sroa.2.0.add.ptr.sroa_idx15 = getelementptr inbounds i8, ptr %add.ptr13, i64 8
   %__value.sroa.2.0.copyload16 = load i64, ptr %__value.sroa.2.0.add.ptr.sroa_idx15, align 8
-  %cmp31.i21.not = icmp slt i64 %div.i8789, %__parent.0106
-  br i1 %cmp31.i21.not, label %while.end.i22, label %while.body.i60
+  %cmp30.i20.not = icmp slt i64 %div.i9193, %__parent.0108
+  br i1 %cmp30.i20.not, label %while.end.i21, label %while.body.i64
 
-while.body.i60:                                   ; preds = %if.end8.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75
-  %__holeIndex.addr.032.i61 = phi i64 [ %spec.select.i77, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75 ], [ %dec, %if.end8.split ]
-  %add.i62 = shl i64 %__holeIndex.addr.032.i61, 1
-  %mul.i63 = add i64 %add.i62, 2
-  %add.ptr.i64 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %mul.i63
-  %sub1.i65 = or disjoint i64 %add.i62, 1
-  %add.ptr2.i66 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %sub1.i65
-  br label %for.body.i.i.i.i67
+while.body.i64:                                   ; preds = %if.end8.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i79
+  %__holeIndex.addr.031.i65 = phi i64 [ %spec.select.i81, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i79 ], [ %dec, %if.end8.split ]
+  %add.i66 = shl i64 %__holeIndex.addr.031.i65, 1
+  %mul.i67 = add i64 %add.i66, 2
+  %add.ptr.i68 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %mul.i67
+  %sub1.i69 = or disjoint i64 %add.i66, 1
+  %add.ptr2.i70 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %sub1.i69
+  br label %for.body.i.i.i.i71
 
-for.cond.i.i.i.i81:                               ; preds = %for.body.i.i.i.i67
-  br i1 %cmp.i.i.i.i68, label %for.body.i.i.i.i67, label %for.end.i.i.i.i82, !llvm.loop !926
+for.cond.i.i.i.i85:                               ; preds = %for.body.i.i.i.i71
+  br i1 %cmp.i.i.i.i72, label %for.body.i.i.i.i71, label %for.end.i.i.i.i86, !llvm.loop !926
 
-for.body.i.i.i.i67:                               ; preds = %for.cond.i.i.i.i81, %while.body.i60
-  %cmp.i.i.i.i68 = phi i1 [ true, %while.body.i60 ], [ false, %for.cond.i.i.i.i81 ]
-  %indvars.iv.i.i.i.i69 = phi i64 [ 0, %while.body.i60 ], [ 1, %for.cond.i.i.i.i81 ]
-  %arrayidx.i.i.i.i.i.i70 = getelementptr inbounds [3 x i32], ptr %add.ptr.i64, i64 0, i64 %indvars.iv.i.i.i.i69
-  %11 = load i32, ptr %arrayidx.i.i.i.i.i.i70, align 4
-  %arrayidx.i.i11.i.i.i.i71 = getelementptr inbounds [3 x i32], ptr %add.ptr2.i66, i64 0, i64 %indvars.iv.i.i.i.i69
-  %12 = load i32, ptr %arrayidx.i.i11.i.i.i.i71, align 4
-  %cmp.i.i.i.i.i72 = icmp eq i32 %11, %12
-  br i1 %cmp.i.i.i.i.i72, label %for.cond.i.i.i.i81, label %if.then.i.i.i.i73
+for.body.i.i.i.i71:                               ; preds = %for.cond.i.i.i.i85, %while.body.i64
+  %cmp.i.i.i.i72 = phi i1 [ true, %while.body.i64 ], [ false, %for.cond.i.i.i.i85 ]
+  %indvars.iv.i.i.i.i73 = phi i64 [ 0, %while.body.i64 ], [ 1, %for.cond.i.i.i.i85 ]
+  %arrayidx.i.i.i.i.i.i74 = getelementptr inbounds [3 x i32], ptr %add.ptr.i68, i64 0, i64 %indvars.iv.i.i.i.i73
+  %8 = load i32, ptr %arrayidx.i.i.i.i.i.i74, align 4
+  %arrayidx.i.i11.i.i.i.i75 = getelementptr inbounds [3 x i32], ptr %add.ptr2.i70, i64 0, i64 %indvars.iv.i.i.i.i73
+  %9 = load i32, ptr %arrayidx.i.i11.i.i.i.i75, align 4
+  %cmp.i.i.i.i.i76 = icmp eq i32 %8, %9
+  br i1 %cmp.i.i.i.i.i76, label %for.cond.i.i.i.i85, label %if.then.i.i.i.i77
 
-if.then.i.i.i.i73:                                ; preds = %for.body.i.i.i.i67
-  %cmp6.i.i.i.i74 = icmp slt i32 %11, %12
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75
+if.then.i.i.i.i77:                                ; preds = %for.body.i.i.i.i71
+  %cmp6.i.i.i.i78 = icmp slt i32 %8, %9
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i79
 
-for.end.i.i.i.i82:                                ; preds = %for.cond.i.i.i.i81
-  %arrayidx.i.i16.i.i.i.i83 = getelementptr inbounds i8, ptr %add.ptr.i64, i64 8
-  %13 = load i32, ptr %arrayidx.i.i16.i.i.i.i83, align 4
-  %arrayidx.i.i17.i.i.i.i84 = getelementptr inbounds i8, ptr %add.ptr2.i66, i64 8
-  %14 = load i32, ptr %arrayidx.i.i17.i.i.i.i84, align 4
-  %cmp9.i.i.i.i85 = icmp slt i32 %13, %14
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75
+for.end.i.i.i.i86:                                ; preds = %for.cond.i.i.i.i85
+  %arrayidx.i.i16.i.i.i.i87 = getelementptr inbounds i8, ptr %add.ptr.i68, i64 8
+  %10 = load i32, ptr %arrayidx.i.i16.i.i.i.i87, align 4
+  %arrayidx.i.i17.i.i.i.i88 = getelementptr inbounds i8, ptr %add.ptr2.i70, i64 8
+  %11 = load i32, ptr %arrayidx.i.i17.i.i.i.i88, align 4
+  %cmp9.i.i.i.i89 = icmp slt i32 %10, %11
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i79
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75: ; preds = %for.end.i.i.i.i82, %if.then.i.i.i.i73
-  %retval.0.i.i.i.i76 = phi i1 [ %cmp6.i.i.i.i74, %if.then.i.i.i.i73 ], [ %cmp9.i.i.i.i85, %for.end.i.i.i.i82 ]
-  %spec.select.i77 = select i1 %retval.0.i.i.i.i76, i64 %sub1.i65, i64 %mul.i63
-  %add.ptr3.i78 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %spec.select.i77
-  %add.ptr4.i79 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %__holeIndex.addr.032.i61
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i79, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i78, i64 16, i1 false)
-  %cmp.i80 = icmp slt i64 %spec.select.i77, %div.i8789
-  br i1 %cmp.i80, label %while.body.i60, label %while.end.i22, !llvm.loop !956
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i79: ; preds = %for.end.i.i.i.i86, %if.then.i.i.i.i77
+  %retval.0.i.i.i.i80 = phi i1 [ %cmp6.i.i.i.i78, %if.then.i.i.i.i77 ], [ %cmp9.i.i.i.i89, %for.end.i.i.i.i86 ]
+  %spec.select.i81 = select i1 %retval.0.i.i.i.i80, i64 %sub1.i69, i64 %mul.i67
+  %add.ptr3.i82 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %spec.select.i81
+  %add.ptr4.i83 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %__holeIndex.addr.031.i65
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i83, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i82, i64 16, i1 false)
+  %cmp.i84 = icmp slt i64 %spec.select.i81, %div.i9193
+  br i1 %cmp.i84, label %while.body.i64, label %while.end.i21, !llvm.loop !956
 
-while.end.i22:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75, %if.end8.split
-  %__holeIndex.addr.0.lcssa.i23 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i77, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75 ]
-  %cmp8.i54 = icmp eq i64 %__holeIndex.addr.0.lcssa.i23, %div7.i
-  %or.cond88 = select i1 %cmp5.i, i1 %cmp8.i54, i1 false
-  br i1 %or.cond88, label %if.then9.i55, label %if.end16.i26
+while.end.i21:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i79, %if.end8.split
+  %__holeIndex.addr.0.lcssa.i22 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i81, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i79 ]
+  %cmp8.i58 = icmp eq i64 %__holeIndex.addr.0.lcssa.i22, %div7.i
+  %or.cond92 = select i1 %cmp5.i, i1 %cmp8.i58, i1 false
+  br i1 %or.cond92, label %if.then9.i59, label %if.end16.i25
 
-if.then9.i55:                                     ; preds = %while.end.i22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr14.i59, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr13.i58, i64 16, i1 false)
-  br label %if.end16.i26
+if.then9.i59:                                     ; preds = %while.end.i21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr14.i63, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr13.i62, i64 16, i1 false)
+  br label %if.end16.i25
 
-if.end16.i26:                                     ; preds = %if.then9.i55, %while.end.i22
-  %__holeIndex.addr.1.i27 = phi i64 [ %sub12.i57, %if.then9.i55 ], [ %__holeIndex.addr.0.lcssa.i23, %while.end.i22 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__value.i.i18)
-  store ptr %__value.sroa.0.0.copyload14, ptr %__value.i.i18, align 8
-  store i64 %__value.sroa.2.0.copyload16, ptr %10, align 8
-  %cmp15.i.i28.not = icmp slt i64 %__holeIndex.addr.1.i27, %__parent.0106
-  %15 = trunc i64 %__value.sroa.2.0.copyload16 to i32
-  br i1 %cmp15.i.i28.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit86, label %land.rhs.i.i31
+if.end16.i25:                                     ; preds = %if.then9.i59, %while.end.i21
+  %__holeIndex.addr.1.i26 = phi i64 [ %sub12.i61, %if.then9.i59 ], [ %__holeIndex.addr.0.lcssa.i22, %while.end.i21 ]
+  %cmp15.i.i27.not = icmp slt i64 %__holeIndex.addr.1.i26, %__parent.0108
+  br i1 %cmp15.i.i27.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit90, label %land.rhs.lr.ph.i.i31
 
-land.rhs.i.i31:                                   ; preds = %if.end16.i26, %while.body.i.i44
-  %__holeIndex.addr.016.i.i32 = phi i64 [ %__parent.017.i.i34, %while.body.i.i44 ], [ %__holeIndex.addr.1.i27, %if.end16.i26 ]
-  %__parent.017.in.i.i33 = add nsw i64 %__holeIndex.addr.016.i.i32, -1
-  %__parent.017.i.i34 = sdiv i64 %__parent.017.in.i.i33, 2
-  %add.ptr.i.i35 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %__parent.017.i.i34
-  br label %for.body.i.i.i.i.i36
+land.rhs.lr.ph.i.i31:                             ; preds = %if.end16.i25
+  %12 = ptrtoint ptr %__value.sroa.0.0.copyload14 to i64
+  %__value.sroa.0.4.extract.shift.i.i32 = lshr i64 %12, 32
+  %__value.sroa.4.8.extract.trunc.i.i33 = trunc i64 %__value.sroa.2.0.copyload16 to i32
+  br label %land.rhs.i.i34
 
-for.cond.i.i.i.i.i47:                             ; preds = %for.body.i.i.i.i.i36
-  br i1 %cmp.i.i.i.i23.i37, label %for.body.i.i.i.i.i36, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48, !llvm.loop !926
+land.rhs.i.i34:                                   ; preds = %while.body.i.i48, %land.rhs.lr.ph.i.i31
+  %__holeIndex.addr.016.i.i35 = phi i64 [ %__holeIndex.addr.1.i26, %land.rhs.lr.ph.i.i31 ], [ %__parent.017.i.i37, %while.body.i.i48 ]
+  %__parent.017.in.i.i36 = add nsw i64 %__holeIndex.addr.016.i.i35, -1
+  %__parent.017.i.i37 = sdiv i64 %__parent.017.in.i.i36, 2
+  %add.ptr.i.i38 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %__parent.017.i.i37
+  br label %for.body.i.i.i.i.i39
 
-for.body.i.i.i.i.i36:                             ; preds = %for.cond.i.i.i.i.i47, %land.rhs.i.i31
-  %cmp.i.i.i.i23.i37 = phi i1 [ true, %land.rhs.i.i31 ], [ false, %for.cond.i.i.i.i.i47 ]
-  %indvars.iv.i.i.i.i.i38 = phi i64 [ 0, %land.rhs.i.i31 ], [ 1, %for.cond.i.i.i.i.i47 ]
-  %arrayidx.i.i.i.i.i.i.i39 = getelementptr inbounds [3 x i32], ptr %add.ptr.i.i35, i64 0, i64 %indvars.iv.i.i.i.i.i38
-  %16 = load i32, ptr %arrayidx.i.i.i.i.i.i.i39, align 4
-  %arrayidx.i.i11.i.i.i.i.i40 = getelementptr inbounds [3 x i32], ptr %__value.i.i18, i64 0, i64 %indvars.iv.i.i.i.i.i38
-  %17 = load i32, ptr %arrayidx.i.i11.i.i.i.i.i40, align 4
-  %cmp.i.i.i.i.i.i41 = icmp eq i32 %16, %17
-  br i1 %cmp.i.i.i.i.i.i41, label %for.cond.i.i.i.i.i47, label %if.then.i.i.i.i.i42
+for.cond.i.i.i.i.i51:                             ; preds = %for.body.i.i.i.i.i39
+  br i1 %cmp.i.i.i.i23.i40, label %for.body.i.i.i.i.i39, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i52, !llvm.loop !926
 
-if.then.i.i.i.i.i42:                              ; preds = %for.body.i.i.i.i.i36
-  %cmp6.i.i.i.i.i43 = icmp slt i32 %16, %17
-  br i1 %cmp6.i.i.i.i.i43, label %while.body.i.i44, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit86
+for.body.i.i.i.i.i39:                             ; preds = %for.cond.i.i.i.i.i51, %land.rhs.i.i34
+  %cmp.i.i.i.i23.i40 = phi i1 [ true, %land.rhs.i.i34 ], [ false, %for.cond.i.i.i.i.i51 ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i41 = phi i64 [ %12, %land.rhs.i.i34 ], [ %__value.sroa.0.4.extract.shift.i.i32, %for.cond.i.i.i.i.i51 ]
+  %indvars.iv.i.i.i.i.i42 = phi i64 [ 0, %land.rhs.i.i34 ], [ 1, %for.cond.i.i.i.i.i51 ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i43 = trunc i64 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i41 to i32
+  %arrayidx.i.i.i.i.i.i.i44 = getelementptr inbounds [3 x i32], ptr %add.ptr.i.i38, i64 0, i64 %indvars.iv.i.i.i.i.i42
+  %13 = load i32, ptr %arrayidx.i.i.i.i.i.i.i44, align 4
+  %cmp.i.i.i.i.i.i45 = icmp eq i32 %13, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i43
+  br i1 %cmp.i.i.i.i.i.i45, label %for.cond.i.i.i.i.i51, label %if.then.i.i.i.i.i46
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48: ; preds = %for.cond.i.i.i.i.i47
-  %arrayidx.i.i16.i.i.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i35, i64 8
-  %18 = load i32, ptr %arrayidx.i.i16.i.i.i.i.i49, align 4
-  %cmp9.i.i.i.i.i50 = icmp slt i32 %18, %15
-  br i1 %cmp9.i.i.i.i.i50, label %while.body.i.i44, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit86
+if.then.i.i.i.i.i46:                              ; preds = %for.body.i.i.i.i.i39
+  %cmp6.i.i.i.i.i47 = icmp slt i32 %13, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i43
+  br i1 %cmp6.i.i.i.i.i47, label %while.body.i.i48, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit90
 
-while.body.i.i44:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48, %if.then.i.i.i.i.i42
-  %add.ptr2.i.i45 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %__holeIndex.addr.016.i.i32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i45, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i35, i64 16, i1 false)
-  %cmp.i.i46.not = icmp slt i64 %__parent.017.i.i34, %__parent.0106
-  br i1 %cmp.i.i46.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit86, label %land.rhs.i.i31, !llvm.loop !957
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i52: ; preds = %for.cond.i.i.i.i.i51
+  %arrayidx.i.i16.i.i.i.i.i53 = getelementptr inbounds i8, ptr %add.ptr.i.i38, i64 8
+  %14 = load i32, ptr %arrayidx.i.i16.i.i.i.i.i53, align 4
+  %cmp9.i.i.i.i.i54 = icmp slt i32 %14, %__value.sroa.4.8.extract.trunc.i.i33
+  br i1 %cmp9.i.i.i.i.i54, label %while.body.i.i48, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit90
 
-_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit86: ; preds = %if.then.i.i.i.i.i42, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48, %while.body.i.i44, %if.end16.i26
-  %__holeIndex.addr.0.lcssa.i.i29 = phi i64 [ %__holeIndex.addr.1.i27, %if.end16.i26 ], [ %__holeIndex.addr.016.i.i32, %if.then.i.i.i.i.i42 ], [ %__parent.017.i.i34, %while.body.i.i44 ], [ %__holeIndex.addr.016.i.i32, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48 ]
-  %add.ptr5.i.i30 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr5.i.i30, ptr noundef nonnull align 8 dereferenceable(16) %__value.i.i18, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__value.i.i18)
+while.body.i.i48:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i52, %if.then.i.i.i.i.i46
+  %add.ptr2.i.i49 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %__holeIndex.addr.016.i.i35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i49, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i38, i64 16, i1 false)
+  %cmp.i.i50.not = icmp slt i64 %__parent.017.i.i37, %__parent.0108
+  br i1 %cmp.i.i50.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit90, label %land.rhs.i.i34, !llvm.loop !957
+
+_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit90: ; preds = %if.then.i.i.i.i.i46, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i52, %while.body.i.i48, %if.end16.i25
+  %__holeIndex.addr.0.lcssa.i.i28 = phi i64 [ %__holeIndex.addr.1.i26, %if.end16.i25 ], [ %__holeIndex.addr.016.i.i35, %if.then.i.i.i.i.i46 ], [ %__parent.017.i.i37, %while.body.i.i48 ], [ %__holeIndex.addr.016.i.i35, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i52 ]
+  %add.ptr5.i.i29 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i28
+  store ptr %__value.sroa.0.0.copyload14, ptr %add.ptr5.i.i29, align 8
+  %__value.sroa.4.0.add.ptr5.sroa_idx.i.i30 = getelementptr inbounds i8, ptr %add.ptr5.i.i29, i64 8
+  store i64 %__value.sroa.2.0.copyload16, ptr %__value.sroa.4.0.add.ptr5.sroa_idx.i.i30, align 8
   %cmp6 = icmp eq i64 %dec, 0
   br i1 %cmp6, label %return, label %if.end8.split, !llvm.loop !958
 
-return:                                           ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit86, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit, %entry
+return:                                           ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit90, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt10__pop_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_SP_SP_RT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__comp) local_unnamed_addr #5 comdat {
 entry:
-  %__value.i.i = alloca %"class.openvdb::v11_0::tree::NodeUnion.1087", align 8
   %__value.sroa.0.0.copyload = load ptr, ptr %__result, align 8
   %__value.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__result, i64 8
   %__value.sroa.2.0.copyload = load i64, ptr %__value.sroa.2.0..sroa_idx, align 8
@@ -81009,12 +81004,12 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i = sdiv i64 %sub.i, 2
-  %cmp31.i = icmp sgt i64 %sub.ptr.div, 2
-  br i1 %cmp31.i, label %while.body.i, label %while.end.i
+  %cmp30.i = icmp sgt i64 %sub.ptr.div, 2
+  br i1 %cmp30.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
-  %__holeIndex.addr.032.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ 0, %entry ]
-  %add.i = shl i64 %__holeIndex.addr.032.i, 1
+  %__holeIndex.addr.031.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ 0, %entry ]
+  %add.i = shl i64 %__holeIndex.addr.031.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -81050,7 +81045,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpIN
   %retval.0.i.i.i.i = phi i1 [ %cmp6.i.i.i.i, %if.then.i.i.i.i ], [ %cmp9.i.i.i.i, %for.end.i.i.i.i ]
   %spec.select.i = select i1 %retval.0.i.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %__holeIndex.addr.032.i
+  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %__holeIndex.addr.031.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i, i64 16, i1 false)
   %cmp.i = icmp slt i64 %spec.select.i, %div.i
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !956
@@ -81077,16 +81072,17 @@ if.then9.i:                                       ; preds = %land.lhs.true.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %land.lhs.true.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__holeIndex.addr.0.lcssa.i, %land.lhs.true.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__value.i.i)
-  store ptr %__value.sroa.0.0.copyload, ptr %__value.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %__value.i.i, i64 8
-  store i64 %__value.sroa.2.0.copyload, ptr %5, align 8
   %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, 0
-  %6 = trunc i64 %__value.sroa.2.0.copyload to i32
-  br i1 %cmp15.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
+  br i1 %cmp15.i.i, label %land.rhs.lr.ph.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
-land.rhs.i.i:                                     ; preds = %if.end16.i, %while.body.i.i
-  %__holeIndex.addr.016.i.i = phi i64 [ %__parent.017.i.i45, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end16.i ]
+land.rhs.lr.ph.i.i:                               ; preds = %if.end16.i
+  %5 = ptrtoint ptr %__value.sroa.0.0.copyload to i64
+  %__value.sroa.0.4.extract.shift.i.i = lshr i64 %5, 32
+  %__value.sroa.4.8.extract.trunc.i.i = trunc i64 %__value.sroa.2.0.copyload to i32
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
+  %__holeIndex.addr.016.i.i = phi i64 [ %__holeIndex.addr.1.i, %land.rhs.lr.ph.i.i ], [ %__parent.017.i.i45, %while.body.i.i ]
   %__parent.017.in.i.i = add nsw i64 %__holeIndex.addr.016.i.i, -1
   %__parent.017.i.i45 = lshr i64 %__parent.017.in.i.i, 1
   %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %__parent.017.i.i45
@@ -81097,22 +81093,22 @@ for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i, %land.rhs.i.i
   %cmp.i.i.i.i23.i = phi i1 [ true, %land.rhs.i.i ], [ false, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i = phi i64 [ %5, %land.rhs.i.i ], [ %__value.sroa.0.4.extract.shift.i.i, %for.cond.i.i.i.i.i ]
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ 1, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i = trunc i64 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i to i32
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %add.ptr.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %7 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__value.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %8 = load i32, ptr %arrayidx.i.i11.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i.i = icmp eq i32 %7, %8
+  %6 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
+  %cmp.i.i.i.i.i.i = icmp eq i32 %6, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp.i.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %cmp6.i.i.i.i.i = icmp slt i32 %7, %8
+  %cmp6.i.i.i.i.i = icmp slt i32 %6, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp6.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i
   %arrayidx.i.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %9 = load i32, ptr %arrayidx.i.i16.i.i.i.i.i, align 4
-  %cmp9.i.i.i.i.i = icmp slt i32 %9, %6
+  %7 = load i32, ptr %arrayidx.i.i16.i.i.i.i.i, align 4
+  %cmp9.i.i.i.i.i = icmp slt i32 %7, %__value.sroa.4.8.extract.trunc.i.i
   br i1 %cmp9.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %if.then.i.i.i.i.i
@@ -81124,8 +81120,9 @@ while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops
 _ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_8LeafNodeIS6_Lj3EEEvEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS2_12InternalNodeINSI_IS8_Lj4EEELj5EEEEEEELj0EE6medianISJ_EENT_9ValueTypeERSP_EUlRKS9_ST_E_EEEvSP_T0_SW_T1_T2_.exit: ; preds = %if.then.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.016.i.i, %if.then.i.i.i.i.i ], [ %__parent.017.i.i45, %while.body.i.i ], [ %__holeIndex.addr.016.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISF_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SE_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1087", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__value.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__value.i.i)
+  store ptr %__value.sroa.0.0.copyload, ptr %add.ptr5.i.i, align 8
+  %__value.sroa.4.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 8
+  store i64 %__value.sroa.2.0.copyload, ptr %__value.sroa.4.0.add.ptr5.sroa_idx.i.i, align 8
   ret void
 }
 
@@ -81834,8 +81831,6 @@ _ZNSt3setIN7openvdb5v11_04math5CoordESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %f
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE10isConstantERS6_SA_RbRKS6_(ptr noundef nonnull align 8 dereferenceable(532496) %this, ptr noundef nonnull align 4 dereferenceable(12) %minValue, ptr noundef nonnull align 4 dereferenceable(12) %maxValue, ptr noundef nonnull align 1 dereferenceable(1) %state, ptr noundef nonnull align 4 dereferenceable(12) %tolerance) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %ref.tmp = alloca %"class.openvdb::v11_0::math::Vec3.341", align 8
-  %ref.tmp16 = alloca %"class.openvdb::v11_0::math::Vec3.341", align 8
   %mChildMask = getelementptr inbounds i8, ptr %this, i64 524288
   br label %for.cond.i
 
@@ -81886,8 +81881,6 @@ if.end:                                           ; preds = %while.body.i
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 1, %if.end ], [ %indvars.iv.next, %for.inc ]
-  %sub9.i.i107 = phi i32 [ undef, %if.end ], [ %sub9.i.i108, %for.inc ]
-  %sub9.i.i60106 = phi i32 [ undef, %if.end ], [ %sub9.i.i60105, %for.inc ]
   %arrayidx5 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.1075"], ptr %this, i64 0, i64 %indvars.iv
   br label %for.body.i
 
@@ -81936,11 +81929,6 @@ if.then8:                                         ; preds = %if.then.i.if.then8_
   %10 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %sub5.i.i = sub nsw i32 %retval.sroa.0.sroa.4.0.extract.trunc.i, %10
   %sub9.i.i = sub nsw i32 %retval.sroa.6.0.copyload.i, %8
-  %retval.sroa.0.sroa.4.0.insert.ext.i = zext i32 %sub5.i.i to i64
-  %retval.sroa.0.sroa.4.0.insert.shift.i = shl nuw i64 %retval.sroa.0.sroa.4.0.insert.ext.i, 32
-  %retval.sroa.0.sroa.0.0.insert.ext.i = zext i32 %sub.i.i to i64
-  %retval.sroa.0.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.0.sroa.4.0.insert.shift.i, %retval.sroa.0.sroa.0.0.insert.ext.i
-  store i64 %retval.sroa.0.sroa.0.0.insert.insert.i, ptr %ref.tmp, align 8
   br label %for.body.i21
 
 for.cond.i30:                                     ; preds = %for.body.i21
@@ -81948,21 +81936,20 @@ for.cond.i30:                                     ; preds = %for.body.i21
 
 for.body.i21:                                     ; preds = %for.cond.i30, %if.then8
   %cmp.i22 = phi i1 [ true, %if.then8 ], [ false, %for.cond.i30 ]
+  %indvars.iv.i23.sroa.phi.sroa.speculated = phi i32 [ %sub.i.i, %if.then8 ], [ %sub5.i.i, %for.cond.i30 ]
   %indvars.iv.i23 = phi i64 [ 0, %if.then8 ], [ 1, %for.cond.i30 ]
-  %arrayidx.i.i.i24 = getelementptr inbounds [3 x i32], ptr %ref.tmp, i64 0, i64 %indvars.iv.i23
-  %11 = load i32, ptr %arrayidx.i.i.i24, align 4
   %arrayidx.i.i11.i25 = getelementptr inbounds [3 x i32], ptr %tolerance, i64 0, i64 %indvars.iv.i23
-  %12 = load i32, ptr %arrayidx.i.i11.i25, align 4
-  %cmp.i.i26 = icmp eq i32 %11, %12
+  %11 = load i32, ptr %arrayidx.i.i11.i25, align 4
+  %cmp.i.i26 = icmp eq i32 %indvars.iv.i23.sroa.phi.sroa.speculated, %11
   br i1 %cmp.i.i26, label %for.cond.i30, label %if.then.i27
 
 if.then.i27:                                      ; preds = %for.body.i21
-  %cmp6.i28 = icmp sgt i32 %11, %12
+  %cmp6.i28 = icmp sgt i32 %indvars.iv.i23.sroa.phi.sroa.speculated, %11
   br i1 %cmp6.i28, label %return, label %for.inc.sink.split
 
 _ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit: ; preds = %for.cond.i30
-  %13 = load i32, ptr %arrayidx.i.i17.i79, align 4
-  %cmp9.i34 = icmp sgt i32 %sub9.i.i, %13
+  %12 = load i32, ptr %arrayidx.i.i17.i79, align 4
+  %cmp9.i34 = icmp sgt i32 %sub9.i.i, %12
   br i1 %cmp9.i34, label %return, label %for.inc.sink.split
 
 for.cond.i44:                                     ; preds = %for.body.i35
@@ -81972,14 +81959,14 @@ for.body.i35:                                     ; preds = %for.body.i35.prehea
   %cmp.i36 = phi i1 [ false, %for.cond.i44 ], [ true, %for.body.i35.preheader ]
   %indvars.iv.i37 = phi i64 [ 1, %for.cond.i44 ], [ 0, %for.body.i35.preheader ]
   %arrayidx.i.i.i38 = getelementptr inbounds [3 x i32], ptr %arrayidx5, i64 0, i64 %indvars.iv.i37
-  %14 = load i32, ptr %arrayidx.i.i.i38, align 4
+  %13 = load i32, ptr %arrayidx.i.i.i38, align 4
   %arrayidx.i.i11.i39 = getelementptr inbounds [3 x i32], ptr %maxValue, i64 0, i64 %indvars.iv.i37
-  %15 = load i32, ptr %arrayidx.i.i11.i39, align 4
-  %cmp.i.i40 = icmp eq i32 %14, %15
+  %14 = load i32, ptr %arrayidx.i.i11.i39, align 4
+  %cmp.i.i40 = icmp eq i32 %13, %14
   br i1 %cmp.i.i40, label %for.cond.i44, label %if.then.i41
 
 if.then.i41:                                      ; preds = %for.body.i35
-  %cmp6.i42 = icmp sgt i32 %14, %15
+  %cmp6.i42 = icmp sgt i32 %13, %14
   br i1 %cmp6.i42, label %if.then.i41.if.then15_crit_edge, label %for.inc
 
 if.then.i41.if.then15_crit_edge:                  ; preds = %if.then.i41
@@ -81989,28 +81976,23 @@ if.then.i41.if.then15_crit_edge:                  ; preds = %if.then.i41
 
 _ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49: ; preds = %for.cond.i44
   %arrayidx.i.i16.i46 = getelementptr inbounds i8, ptr %arrayidx5, i64 8
-  %16 = load i32, ptr %arrayidx.i.i16.i46, align 8
-  %17 = load i32, ptr %arrayidx.i.i17.i47, align 4
-  %cmp9.i48 = icmp sgt i32 %16, %17
+  %15 = load i32, ptr %arrayidx.i.i16.i46, align 8
+  %16 = load i32, ptr %arrayidx.i.i17.i47, align 4
+  %cmp9.i48 = icmp sgt i32 %15, %16
   br i1 %cmp9.i48, label %if.then15, label %for.inc
 
 if.then15:                                        ; preds = %if.then.i41.if.then15_crit_edge, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49
-  %retval.sroa.6.0.copyload.i55 = phi i32 [ %retval.sroa.6.0.copyload.i55.pre, %if.then.i41.if.then15_crit_edge ], [ %16, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49 ]
+  %retval.sroa.6.0.copyload.i55 = phi i32 [ %retval.sroa.6.0.copyload.i55.pre, %if.then.i41.if.then15_crit_edge ], [ %15, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49 ]
   %retval.sroa.0.0.copyload.i50 = load i64, ptr %arrayidx5, align 8
   %retval.sroa.0.sroa.0.0.extract.trunc.i51 = trunc i64 %retval.sroa.0.0.copyload.i50 to i32
   %retval.sroa.0.sroa.4.0.extract.shift.i52 = lshr i64 %retval.sroa.0.0.copyload.i50, 32
   %retval.sroa.0.sroa.4.0.extract.trunc.i53 = trunc i64 %retval.sroa.0.sroa.4.0.extract.shift.i52 to i32
-  %18 = load i32, ptr %minValue, align 4
-  %sub.i.i56 = sub nsw i32 %retval.sroa.0.sroa.0.0.extract.trunc.i51, %18
-  %19 = load i32, ptr %arrayidx.i.i.i.i57, align 4
-  %sub5.i.i58 = sub nsw i32 %retval.sroa.0.sroa.4.0.extract.trunc.i53, %19
-  %20 = load i32, ptr %arrayidx.i.i17.i, align 4
-  %sub9.i.i60 = sub nsw i32 %retval.sroa.6.0.copyload.i55, %20
-  %retval.sroa.0.sroa.4.0.insert.ext.i61 = zext i32 %sub5.i.i58 to i64
-  %retval.sroa.0.sroa.4.0.insert.shift.i62 = shl nuw i64 %retval.sroa.0.sroa.4.0.insert.ext.i61, 32
-  %retval.sroa.0.sroa.0.0.insert.ext.i63 = zext i32 %sub.i.i56 to i64
-  %retval.sroa.0.sroa.0.0.insert.insert.i64 = or disjoint i64 %retval.sroa.0.sroa.4.0.insert.shift.i62, %retval.sroa.0.sroa.0.0.insert.ext.i63
-  store i64 %retval.sroa.0.sroa.0.0.insert.insert.i64, ptr %ref.tmp16, align 8
+  %17 = load i32, ptr %minValue, align 4
+  %sub.i.i56 = sub nsw i32 %retval.sroa.0.sroa.0.0.extract.trunc.i51, %17
+  %18 = load i32, ptr %arrayidx.i.i.i.i57, align 4
+  %sub5.i.i58 = sub nsw i32 %retval.sroa.0.sroa.4.0.extract.trunc.i53, %18
+  %19 = load i32, ptr %arrayidx.i.i17.i, align 4
+  %sub9.i.i60 = sub nsw i32 %retval.sroa.6.0.copyload.i55, %19
   br label %for.body.i67
 
 for.cond.i76:                                     ; preds = %for.body.i67
@@ -82018,33 +82000,28 @@ for.cond.i76:                                     ; preds = %for.body.i67
 
 for.body.i67:                                     ; preds = %for.cond.i76, %if.then15
   %cmp.i68 = phi i1 [ true, %if.then15 ], [ false, %for.cond.i76 ]
+  %indvars.iv.i69.sroa.phi.sroa.speculated = phi i32 [ %sub.i.i56, %if.then15 ], [ %sub5.i.i58, %for.cond.i76 ]
   %indvars.iv.i69 = phi i64 [ 0, %if.then15 ], [ 1, %for.cond.i76 ]
-  %arrayidx.i.i.i70 = getelementptr inbounds [3 x i32], ptr %ref.tmp16, i64 0, i64 %indvars.iv.i69
-  %21 = load i32, ptr %arrayidx.i.i.i70, align 4
   %arrayidx.i.i11.i71 = getelementptr inbounds [3 x i32], ptr %tolerance, i64 0, i64 %indvars.iv.i69
-  %22 = load i32, ptr %arrayidx.i.i11.i71, align 4
-  %cmp.i.i72 = icmp eq i32 %21, %22
+  %20 = load i32, ptr %arrayidx.i.i11.i71, align 4
+  %cmp.i.i72 = icmp eq i32 %indvars.iv.i69.sroa.phi.sroa.speculated, %20
   br i1 %cmp.i.i72, label %for.cond.i76, label %if.then.i73
 
 if.then.i73:                                      ; preds = %for.body.i67
-  %cmp6.i74 = icmp sgt i32 %21, %22
+  %cmp6.i74 = icmp sgt i32 %indvars.iv.i69.sroa.phi.sroa.speculated, %20
   br i1 %cmp6.i74, label %return, label %for.inc.sink.split
 
 _ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit81: ; preds = %for.cond.i76
-  %23 = load i32, ptr %arrayidx.i.i17.i79, align 4
-  %cmp9.i80 = icmp sgt i32 %sub9.i.i60, %23
+  %21 = load i32, ptr %arrayidx.i.i17.i79, align 4
+  %cmp9.i80 = icmp sgt i32 %sub9.i.i60, %21
   br i1 %cmp9.i80, label %return, label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit81, %if.then.i73, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit, %if.then.i27
   %minValue.sink = phi ptr [ %minValue, %if.then.i27 ], [ %minValue, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit ], [ %maxValue, %if.then.i73 ], [ %maxValue, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit81 ]
-  %sub9.i.i108.ph = phi i32 [ %sub9.i.i, %if.then.i27 ], [ %sub9.i.i, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit ], [ %sub9.i.i107, %if.then.i73 ], [ %sub9.i.i107, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit81 ]
-  %sub9.i.i60105.ph = phi i32 [ %sub9.i.i60106, %if.then.i27 ], [ %sub9.i.i60106, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit ], [ %sub9.i.i60, %if.then.i73 ], [ %sub9.i.i60, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit81 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %minValue.sink, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx5, i64 12, i1 false)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.then.i41, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49
-  %sub9.i.i108 = phi i32 [ %sub9.i.i107, %if.then.i41 ], [ %sub9.i.i107, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49 ], [ %sub9.i.i108.ph, %for.inc.sink.split ]
-  %sub9.i.i60105 = phi i32 [ %sub9.i.i60106, %if.then.i41 ], [ %sub9.i.i60106, %_ZN7openvdb5v11_04mathgtILi3EiiEEbRKNS1_5TupleIXT_ET0_EERKNS3_IXT_ET1_EE.exit49 ], [ %sub9.i.i60105.ph, %for.inc.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32768
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !968
@@ -82057,34 +82034,33 @@ return:                                           ; preds = %land.rhs.i, %land.r
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt13__introselectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_T0_T1_(ptr noundef %__first, ptr noundef %__nth, ptr noundef %__last, i64 noundef %__depth_limit) local_unnamed_addr #5 comdat {
 entry:
-  %__val.i.i = alloca %"class.openvdb::v11_0::tree::NodeUnion.1075", align 8
   %__val.sroa.0.i = alloca %union.anon.1076, align 8
   %__tmp.sroa.0.i.i.i.i = alloca %union.anon.1076, align 8
   %__tmp.sroa.0.i.i = alloca %union.anon.1076, align 8
   %__comp.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.1148", align 1
-  %sub.ptr.lhs.cast70 = ptrtoint ptr %__last to i64
-  %sub.ptr.rhs.cast71 = ptrtoint ptr %__first to i64
-  %sub.ptr.sub72 = sub i64 %sub.ptr.lhs.cast70, %sub.ptr.rhs.cast71
-  %cmp73 = icmp sgt i64 %sub.ptr.sub72, 48
-  br i1 %cmp73, label %while.body, label %while.end
+  %sub.ptr.lhs.cast67 = ptrtoint ptr %__last to i64
+  %sub.ptr.rhs.cast68 = ptrtoint ptr %__first to i64
+  %sub.ptr.sub69 = sub i64 %sub.ptr.lhs.cast67, %sub.ptr.rhs.cast68
+  %cmp70 = icmp sgt i64 %sub.ptr.sub69, 48
+  br i1 %cmp70, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit
-  %sub.ptr.sub77 = phi i64 [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %sub.ptr.sub72, %entry ]
-  %__first.addr.076 = phi ptr [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %__first, %entry ]
-  %__last.addr.075 = phi ptr [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %__last, %entry ]
-  %__depth_limit.addr.074 = phi i64 [ %dec, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %__depth_limit, %entry ]
-  %cmp1 = icmp eq i64 %__depth_limit.addr.074, 0
+  %sub.ptr.sub74 = phi i64 [ %sub.ptr.sub, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %sub.ptr.sub69, %entry ]
+  %__first.addr.073 = phi ptr [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %__first, %entry ]
+  %__last.addr.072 = phi ptr [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %__last, %entry ]
+  %__depth_limit.addr.071 = phi i64 [ %dec, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ], [ %__depth_limit, %entry ]
+  %cmp1 = icmp eq i64 %__depth_limit.addr.071, 0
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
   %add.ptr = getelementptr inbounds i8, ptr %__nth, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
-  call void @_ZSt11__make_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_RT0_(ptr noundef %__first.addr.076, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
-  %cmp11.i = icmp ult ptr %add.ptr, %__last.addr.075
+  call void @_ZSt11__make_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_RT0_(ptr noundef %__first.addr.073, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  %cmp11.i = icmp ult ptr %add.ptr, %__last.addr.072
   br i1 %cmp11.i, label %for.body.i.i.i.preheader.lr.ph.i, label %_ZSt13__heap_selectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_T0_.exit
 
 for.body.i.i.i.preheader.lr.ph.i:                 ; preds = %if.then
-  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.076, i64 8
+  %arrayidx.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 8
   br label %for.body.i.i.i.preheader.i
 
 for.body.i.i.i.preheader.i:                       ; preds = %for.inc.i, %for.body.i.i.i.preheader.lr.ph.i
@@ -82099,7 +82075,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %
   %indvars.iv.i.i.i.i = phi i64 [ 1, %for.cond.i.i.i.i ], [ 0, %for.body.i.i.i.preheader.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__i.012.i, i64 0, i64 %indvars.iv.i.i.i.i
   %0 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.076, i64 0, i64 %indvars.iv.i.i.i.i
+  %arrayidx.i.i11.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i.i.i
   %1 = load i32, ptr %arrayidx.i.i11.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %0, %1
   br i1 %cmp.i.i.i.i.i, label %for.cond.i.i.i.i, label %if.then.i.i.i.i
@@ -82116,34 +82092,34 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpIN
   br i1 %cmp9.i.i.i.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i, %if.then.i.i.i.i
-  call void @_ZSt10__pop_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_RT0_(ptr noundef nonnull %__first.addr.076, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__i.012.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
+  call void @_ZSt10__pop_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_RT0_(ptr noundef nonnull %__first.addr.073, ptr noundef nonnull %add.ptr, ptr noundef nonnull %__i.012.i, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i, %if.then.i.i.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__i.012.i, i64 16
-  %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.addr.075
+  %cmp.i = icmp ult ptr %incdec.ptr.i, %__last.addr.072
   br i1 %cmp.i, label %for.body.i.i.i.preheader.i, label %_ZSt13__heap_selectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_T0_.exit, !llvm.loop !969
 
 _ZSt13__heap_selectIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_T0_.exit: ; preds = %for.inc.i, %if.then
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.076, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.076, ptr noundef nonnull align 8 dereferenceable(16) %__nth, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.073, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.073, ptr noundef nonnull align 8 dereferenceable(16) %__nth, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__nth, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   br label %return
 
 if.end:                                           ; preds = %while.body
-  %div.i4647 = lshr i64 %sub.ptr.sub77, 5
-  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first.addr.076, i64 %div.i4647
-  %add.ptr1.i = getelementptr inbounds i8, ptr %__first.addr.076, i64 16
-  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.075, i64 -16
-  tail call void @_ZSt22__move_median_to_firstIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_SP_T0_(ptr noundef %__first.addr.076, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
-  %arrayidx.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.076, i64 8
+  %div.i4445 = lshr i64 %sub.ptr.sub74, 5
+  %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first.addr.073, i64 %div.i4445
+  %add.ptr1.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 16
+  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.072, i64 -16
+  tail call void @_ZSt22__move_median_to_firstIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_SP_T0_(ptr noundef %__first.addr.073, ptr noundef nonnull %add.ptr1.i, ptr noundef %add.ptr.i, ptr noundef nonnull %add.ptr2.i)
+  %arrayidx.i.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.073, i64 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %if.end
-  %__last.addr.0.i.i = phi ptr [ %__last.addr.075, %if.end ], [ %__last.addr.1.i.i, %if.end.i.i ]
+  %__last.addr.0.i.i = phi ptr [ %__last.addr.072, %if.end ], [ %__last.addr.1.i.i, %if.end.i.i ]
   %__first.addr.0.i.i = phi ptr [ %add.ptr1.i, %if.end ], [ %incdec.ptr9.i.i, %if.end.i.i ]
   br label %while.cond1.i.i
 
@@ -82159,7 +82135,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i,
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %while.cond1.i.i ], [ 1, %for.cond.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.1.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
   %4 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.076, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i.i.i.i
   %5 = load i32, ptr %arrayidx.i.i11.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %5
   br i1 %cmp.i.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -82193,7 +82169,7 @@ for.cond.i.i.i20.i.i:                             ; preds = %for.body.i.i.i11.i.
 for.body.i.i.i11.i.i:                             ; preds = %for.cond.i.i.i20.i.i, %while.cond4.i.i
   %cmp.i.i.i12.i.i = phi i1 [ true, %while.cond4.i.i ], [ false, %for.cond.i.i.i20.i.i ]
   %indvars.iv.i.i.i13.i.i = phi i64 [ 0, %while.cond4.i.i ], [ 1, %for.cond.i.i.i20.i.i ]
-  %arrayidx.i.i.i.i.i14.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.076, i64 0, i64 %indvars.iv.i.i.i13.i.i
+  %arrayidx.i.i.i.i.i14.i.i = getelementptr inbounds [3 x i32], ptr %__first.addr.073, i64 0, i64 %indvars.iv.i.i.i13.i.i
   %8 = load i32, ptr %arrayidx.i.i.i.i.i14.i.i, align 4
   %arrayidx.i.i11.i.i.i15.i.i = getelementptr inbounds [3 x i32], ptr %__last.addr.1.i.i, i64 0, i64 %indvars.iv.i.i.i13.i.i
   %9 = load i32, ptr %arrayidx.i.i11.i.i.i15.i.i, align 4
@@ -82228,10 +82204,10 @@ if.end.i.i:                                       ; preds = %while.end8.i.i
   br label %while.body.i.i, !llvm.loop !972
 
 _ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit: ; preds = %while.end8.i.i
-  %dec = add nsw i64 %__depth_limit.addr.074, -1
+  %dec = add nsw i64 %__depth_limit.addr.071, -1
   %cmp3.not = icmp ugt ptr %__first.addr.1.i.i, %__nth
-  %call.__last.addr.0 = select i1 %cmp3.not, ptr %__first.addr.1.i.i, ptr %__last.addr.075
-  %__first.addr.0.call = select i1 %cmp3.not, ptr %__first.addr.076, ptr %__first.addr.1.i.i
+  %call.__last.addr.0 = select i1 %cmp3.not, ptr %__first.addr.1.i.i, ptr %__last.addr.072
+  %__first.addr.0.call = select i1 %cmp3.not, ptr %__first.addr.073, ptr %__first.addr.1.i.i
   %sub.ptr.lhs.cast = ptrtoint ptr %call.__last.addr.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first.addr.0.call to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -82241,111 +82217,122 @@ _ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3
 while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit, %entry
   %__last.addr.0.lcssa = phi ptr [ %__last, %entry ], [ %call.__last.addr.0, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ]
   %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %__first.addr.0.call, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ]
-  %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast71, %entry ], [ %sub.ptr.rhs.cast, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ]
+  %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast68, %entry ], [ %sub.ptr.rhs.cast, %_ZSt27__unguarded_partition_pivotIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEESP_SP_SP_T0_.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__val.sroa.0.i)
   %cmp.i16 = icmp eq ptr %__first.addr.0.lcssa, %__last.addr.0.lcssa
   br i1 %cmp.i16, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end
-  %__i.020.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 16
-  %cmp1.not21.i = icmp eq ptr %__i.020.i, %__last.addr.0.lcssa
-  br i1 %cmp1.not21.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.lr.ph.i17
+  %__i.019.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 16
+  %cmp1.not20.i = icmp eq ptr %__i.019.i, %__last.addr.0.lcssa
+  br i1 %cmp1.not20.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.lr.ph.i17
 
 for.body.i.i.i.preheader.lr.ph.i17:               ; preds = %for.cond.preheader.i
   %arrayidx.i.i17.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 8
-  %arrayidx.i.i16.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__val.i.i, i64 8
-  br label %for.body.i.i.i.preheader.i20
+  br label %for.body.i.i.i.preheader.i19
 
-for.body.i.i.i.preheader.i20:                     ; preds = %for.inc.i37, %for.body.i.i.i.preheader.lr.ph.i17
-  %__i.023.i = phi ptr [ %__i.020.i, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.0.i, %for.inc.i37 ]
-  %__first.pn22.i = phi ptr [ %__first.addr.0.lcssa, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.023.i, %for.inc.i37 ]
-  br label %for.body.i.i.i.i21
+for.body.i.i.i.preheader.i19:                     ; preds = %for.inc.i35, %for.body.i.i.i.preheader.lr.ph.i17
+  %__i.022.i = phi ptr [ %__i.019.i, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.0.i, %for.inc.i35 ]
+  %__first.pn21.i = phi ptr [ %__first.addr.0.lcssa, %for.body.i.i.i.preheader.lr.ph.i17 ], [ %__i.022.i, %for.inc.i35 ]
+  br label %for.body.i.i.i.i20
 
-for.cond.i.i.i.i42:                               ; preds = %for.body.i.i.i.i21
-  br i1 %cmp.i.i.i.i22, label %for.body.i.i.i.i21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43, !llvm.loop !926
+for.cond.i.i.i.i40:                               ; preds = %for.body.i.i.i.i20
+  br i1 %cmp.i.i.i.i21, label %for.body.i.i.i.i20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41, !llvm.loop !926
 
-for.body.i.i.i.i21:                               ; preds = %for.cond.i.i.i.i42, %for.body.i.i.i.preheader.i20
-  %cmp.i.i.i.i22 = phi i1 [ false, %for.cond.i.i.i.i42 ], [ true, %for.body.i.i.i.preheader.i20 ]
-  %indvars.iv.i.i.i.i23 = phi i64 [ 1, %for.cond.i.i.i.i42 ], [ 0, %for.body.i.i.i.preheader.i20 ]
-  %arrayidx.i.i.i.i.i.i24 = getelementptr inbounds [3 x i32], ptr %__i.023.i, i64 0, i64 %indvars.iv.i.i.i.i23
-  %12 = load i32, ptr %arrayidx.i.i.i.i.i.i24, align 4
-  %arrayidx.i.i11.i.i.i.i25 = getelementptr inbounds [3 x i32], ptr %__first.addr.0.lcssa, i64 0, i64 %indvars.iv.i.i.i.i23
-  %13 = load i32, ptr %arrayidx.i.i11.i.i.i.i25, align 4
-  %cmp.i.i.i.i.i26 = icmp eq i32 %12, %13
-  br i1 %cmp.i.i.i.i.i26, label %for.cond.i.i.i.i42, label %if.then.i.i.i.i27
+for.body.i.i.i.i20:                               ; preds = %for.cond.i.i.i.i40, %for.body.i.i.i.preheader.i19
+  %cmp.i.i.i.i21 = phi i1 [ false, %for.cond.i.i.i.i40 ], [ true, %for.body.i.i.i.preheader.i19 ]
+  %indvars.iv.i.i.i.i22 = phi i64 [ 1, %for.cond.i.i.i.i40 ], [ 0, %for.body.i.i.i.preheader.i19 ]
+  %arrayidx.i.i.i.i.i.i23 = getelementptr inbounds [3 x i32], ptr %__i.022.i, i64 0, i64 %indvars.iv.i.i.i.i22
+  %12 = load i32, ptr %arrayidx.i.i.i.i.i.i23, align 4
+  %arrayidx.i.i11.i.i.i.i24 = getelementptr inbounds [3 x i32], ptr %__first.addr.0.lcssa, i64 0, i64 %indvars.iv.i.i.i.i22
+  %13 = load i32, ptr %arrayidx.i.i11.i.i.i.i24, align 4
+  %cmp.i.i.i.i.i25 = icmp eq i32 %12, %13
+  br i1 %cmp.i.i.i.i.i25, label %for.cond.i.i.i.i40, label %if.then.i.i.i.i26
 
-if.then.i.i.i.i27:                                ; preds = %for.body.i.i.i.i21
-  %cmp6.i.i.i.i28 = icmp slt i32 %12, %13
-  br i1 %cmp6.i.i.i.i28, label %if.then2.i, label %if.else.i
+if.then.i.i.i.i26:                                ; preds = %for.body.i.i.i.i20
+  %cmp6.i.i.i.i27 = icmp slt i32 %12, %13
+  br i1 %cmp6.i.i.i.i27, label %if.then2.i, label %if.then.i.i.i.if.else_crit_edge.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43: ; preds = %for.cond.i.i.i.i42
-  %arrayidx.i.i16.i.i.i.i44 = getelementptr inbounds i8, ptr %__first.pn22.i, i64 24
-  %14 = load i32, ptr %arrayidx.i.i16.i.i.i.i44, align 4
+if.then.i.i.i.if.else_crit_edge.i:                ; preds = %if.then.i.i.i.i26
+  %__val.sroa.4.0.__last.sroa_idx.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 24
+  %__val.sroa.4.0.copyload.i.pre.i = load i32, ptr %__val.sroa.4.0.__last.sroa_idx.i.phi.trans.insert.i, align 8
+  br label %if.else.i
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41: ; preds = %for.cond.i.i.i.i40
+  %arrayidx.i.i16.i.i.i.i42 = getelementptr inbounds i8, ptr %__first.pn21.i, i64 24
+  %14 = load i32, ptr %arrayidx.i.i16.i.i.i.i42, align 4
   %15 = load i32, ptr %arrayidx.i.i17.i.i.i.i18, align 4
-  %cmp9.i.i.i.i45 = icmp slt i32 %14, %15
-  br i1 %cmp9.i.i.i.i45, label %if.then2.i, label %if.else.i
+  %cmp9.i.i.i.i43 = icmp slt i32 %14, %15
+  br i1 %cmp9.i.i.i.i43, label %if.then2.i, label %if.else.i
 
-if.then2.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43, %if.then.i.i.i.i27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %__i.023.i, i64 16, i1 false)
-  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn22.i, i64 32
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.023.i to i64
+if.then2.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41, %if.then.i.i.i.i26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %__i.022.i, i64 16, i1 false)
+  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 32
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.022.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.lcssa
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 4
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %add.ptr3.i, i64 %.pre.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.addr.0.lcssa, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.0.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %__val.sroa.0.i, i64 16, i1 false)
-  br label %for.inc.i37
+  br label %for.inc.i35
 
-if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i43, %if.then.i.i.i.i27
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__val.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__i.023.i, i64 16, i1 false)
-  %16 = load i32, ptr %arrayidx.i.i16.i.i.i.i.i19, align 8
+if.else.i:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41, %if.then.i.i.i.if.else_crit_edge.i
+  %__val.sroa.4.0.copyload.i.i = phi i32 [ %__val.sroa.4.0.copyload.i.pre.i, %if.then.i.i.i.if.else_crit_edge.i ], [ %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i41 ]
+  %__val.sroa.0.0.copyload.i.i = load i32, ptr %__i.022.i, align 8
+  %__val.sroa.3.0.__last.sroa_idx.i.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 20
+  %__val.sroa.3.0.copyload.i.i = load i32, ptr %__val.sroa.3.0.__last.sroa_idx.i.i, align 4
+  %__val.sroa.5.0.__last.sroa_idx.i.i = getelementptr inbounds i8, ptr %__first.pn21.i, i64 28
+  %__val.sroa.5.0.copyload.i.i = load i32, ptr %__val.sroa.5.0.__last.sroa_idx.i.i, align 4
   br label %while.cond.i.i
 
-while.cond.i.i:                                   ; preds = %while.body.i.i38, %if.else.i
-  %__last.addr.0.i.i29 = phi ptr [ %__i.023.i, %if.else.i ], [ %__next.0.i.i, %while.body.i.i38 ]
-  %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i29, i64 -16
-  br label %for.body.i.i.i.i.i30
+while.cond.i.i:                                   ; preds = %while.body.i.i36, %if.else.i
+  %__last.addr.0.i.i28 = phi ptr [ %__i.022.i, %if.else.i ], [ %__next.0.i.i, %while.body.i.i36 ]
+  %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 -16
+  br label %for.body.i.i.i.i.i29
 
-for.cond.i.i.i.i.i39:                             ; preds = %for.body.i.i.i.i.i30
-  br i1 %cmp.i.i.i.i12.i, label %for.body.i.i.i.i.i30, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, !llvm.loop !926
+for.cond.i.i.i.i.i37:                             ; preds = %for.body.i.i.i.i.i29
+  br i1 %cmp.i.i.i.i12.i, label %for.body.i.i.i.i.i29, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, !llvm.loop !926
 
-for.body.i.i.i.i.i30:                             ; preds = %for.cond.i.i.i.i.i39, %while.cond.i.i
-  %cmp.i.i.i.i12.i = phi i1 [ true, %while.cond.i.i ], [ false, %for.cond.i.i.i.i.i39 ]
-  %indvars.iv.i.i.i.i.i31 = phi i64 [ 0, %while.cond.i.i ], [ 1, %for.cond.i.i.i.i.i39 ]
-  %arrayidx.i.i.i.i.i.i.i32 = getelementptr inbounds [3 x i32], ptr %__val.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i31
-  %17 = load i32, ptr %arrayidx.i.i.i.i.i.i.i32, align 4
-  %arrayidx.i.i11.i.i.i.i.i33 = getelementptr inbounds [3 x i32], ptr %__next.0.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i31
-  %18 = load i32, ptr %arrayidx.i.i11.i.i.i.i.i33, align 4
-  %cmp.i.i.i.i.i.i34 = icmp eq i32 %17, %18
-  br i1 %cmp.i.i.i.i.i.i34, label %for.cond.i.i.i.i.i39, label %if.then.i.i.i.i.i35
+for.body.i.i.i.i.i29:                             ; preds = %for.cond.i.i.i.i.i37, %while.cond.i.i
+  %cmp.i.i.i.i12.i = phi i1 [ true, %while.cond.i.i ], [ false, %for.cond.i.i.i.i.i37 ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i = phi i32 [ %__val.sroa.0.0.copyload.i.i, %while.cond.i.i ], [ %__val.sroa.3.0.copyload.i.i, %for.cond.i.i.i.i.i37 ]
+  %indvars.iv.i.i.i.i.i30 = phi i64 [ 0, %while.cond.i.i ], [ 1, %for.cond.i.i.i.i.i37 ]
+  %arrayidx.i.i11.i.i.i.i.i31 = getelementptr inbounds [3 x i32], ptr %__next.0.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i30
+  %16 = load i32, ptr %arrayidx.i.i11.i.i.i.i.i31, align 4
+  %cmp.i.i.i.i.i.i32 = icmp eq i32 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i, %16
+  br i1 %cmp.i.i.i.i.i.i32, label %for.cond.i.i.i.i.i37, label %if.then.i.i.i.i.i33
 
-if.then.i.i.i.i.i35:                              ; preds = %for.body.i.i.i.i.i30
-  %cmp6.i.i.i.i.i36 = icmp slt i32 %17, %18
-  br i1 %cmp6.i.i.i.i.i36, label %while.body.i.i38, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i
+if.then.i.i.i.i.i33:                              ; preds = %for.body.i.i.i.i.i29
+  %cmp6.i.i.i.i.i34 = icmp slt i32 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i, %16
+  br i1 %cmp6.i.i.i.i.i34, label %while.body.i.i36, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i39
-  %arrayidx.i.i17.i.i.i.i.i40 = getelementptr inbounds i8, ptr %__last.addr.0.i.i29, i64 -8
-  %19 = load i32, ptr %arrayidx.i.i17.i.i.i.i.i40, align 4
-  %cmp9.i.i.i.i.i41 = icmp slt i32 %16, %19
-  br i1 %cmp9.i.i.i.i.i41, label %while.body.i.i38, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i37
+  %arrayidx.i.i17.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 -8
+  %17 = load i32, ptr %arrayidx.i.i17.i.i.i.i.i38, align 4
+  %cmp9.i.i.i.i.i39 = icmp slt i32 %__val.sroa.4.0.copyload.i.i, %17
+  br i1 %cmp9.i.i.i.i.i39, label %while.body.i.i36, label %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i
 
-while.body.i.i38:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0.i.i29, ptr noundef nonnull align 8 dereferenceable(16) %__next.0.i.i, i64 16, i1 false)
+while.body.i.i36:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0.i.i28, ptr noundef nonnull align 8 dereferenceable(16) %__next.0.i.i, i64 16, i1 false)
   br label %while.cond.i.i, !llvm.loop !974
 
-_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0.i.i29, ptr noundef nonnull align 8 dereferenceable(16) %__val.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__val.i.i)
-  br label %for.inc.i37
+_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclISP_PSP_EEbSN_T0_.exit.i.i, %if.then.i.i.i.i.i33
+  store i32 %__val.sroa.0.0.copyload.i.i, ptr %__last.addr.0.i.i28, align 8
+  %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 4
+  store i32 %__val.sroa.3.0.copyload.i.i, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i, align 4
+  %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 8
+  store i32 %__val.sroa.4.0.copyload.i.i, ptr %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i, align 8
+  %__val.sroa.5.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i28, i64 12
+  store i32 %__val.sroa.5.0.copyload.i.i, ptr %__val.sroa.5.0.__last.addr.0.sroa_idx.i.i, align 4
+  br label %for.inc.i35
 
-for.inc.i37:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i, %if.then2.i
-  %__i.0.i = getelementptr inbounds i8, ptr %__i.023.i, i64 16
+for.inc.i35:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops14_Val_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_.exit.i, %if.then2.i
+  %__i.0.i = getelementptr inbounds i8, ptr %__i.022.i, i64 16
   %cmp1.not.i = icmp eq ptr %__i.0.i, %__last.addr.0.lcssa
-  br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.i20, !llvm.loop !975
+  br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit, label %for.body.i.i.i.preheader.i19, !llvm.loop !975
 
-_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit: ; preds = %for.inc.i37, %while.end, %for.cond.preheader.i
+_ZSt16__insertion_sortIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_T0_.exit: ; preds = %for.inc.i35, %while.end, %for.cond.preheader.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__val.sroa.0.i)
   br label %return
 
@@ -82356,8 +82343,6 @@ return:                                           ; preds = %_ZSt16__insertion_s
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt11__make_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_RT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %__comp) local_unnamed_addr #5 comdat {
 entry:
-  %__value.i.i18 = alloca %"class.openvdb::v11_0::tree::NodeUnion.1075", align 8
-  %__value.i.i = alloca %"class.openvdb::v11_0::tree::NodeUnion.1075", align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -82373,13 +82358,13 @@ if.end.split:                                     ; preds = %entry
   %__value.sroa.2.0.add.ptr.sroa_idx11 = getelementptr inbounds i8, ptr %add.ptr9, i64 8
   %__value.sroa.2.0.copyload12 = load i64, ptr %__value.sroa.2.0.add.ptr.sroa_idx11, align 8
   %sub.i = add nsw i64 %sub.ptr.div, -1
-  %div.i8789 = lshr i64 %sub.i, 1
-  %cmp31.i = icmp ugt i64 %div.i8789, %div17
-  br i1 %cmp31.i, label %while.body.i, label %while.end.i
+  %div.i9193 = lshr i64 %sub.i, 1
+  %cmp30.i = icmp ugt i64 %div.i9193, %div17
+  br i1 %cmp30.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
-  %__holeIndex.addr.032.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ %div17, %if.end.split ]
-  %add.i = shl i64 %__holeIndex.addr.032.i, 1
+  %__holeIndex.addr.031.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ %div17, %if.end.split ]
+  %add.i = shl i64 %__holeIndex.addr.031.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -82415,9 +82400,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpIN
   %retval.0.i.i.i.i = phi i1 [ %cmp6.i.i.i.i, %if.then.i.i.i.i ], [ %cmp9.i.i.i.i, %for.end.i.i.i.i ]
   %spec.select.i = select i1 %retval.0.i.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %__holeIndex.addr.032.i
+  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %__holeIndex.addr.031.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i, i64 16, i1 false)
-  %cmp.i = icmp slt i64 %spec.select.i, %div.i8789
+  %cmp.i = icmp slt i64 %spec.select.i, %div.i9193
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !976
 
 while.end.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i, %if.end.split
@@ -82439,16 +82424,17 @@ if.then9.i:                                       ; preds = %while.end.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__value.i.i)
-  store ptr %__value.sroa.0.0.copyload10, ptr %__value.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %__value.i.i, i64 8
-  store i64 %__value.sroa.2.0.copyload12, ptr %5, align 8
   %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %div17
-  %6 = trunc i64 %__value.sroa.2.0.copyload12 to i32
-  br i1 %cmp15.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
+  br i1 %cmp15.i.i, label %land.rhs.lr.ph.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
-land.rhs.i.i:                                     ; preds = %if.end16.i, %while.body.i.i
-  %__holeIndex.addr.016.i.i = phi i64 [ %__parent.017.i.i, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end16.i ]
+land.rhs.lr.ph.i.i:                               ; preds = %if.end16.i
+  %5 = ptrtoint ptr %__value.sroa.0.0.copyload10 to i64
+  %__value.sroa.0.4.extract.shift.i.i = lshr i64 %5, 32
+  %__value.sroa.4.8.extract.trunc.i.i = trunc i64 %__value.sroa.2.0.copyload12 to i32
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
+  %__holeIndex.addr.016.i.i = phi i64 [ %__holeIndex.addr.1.i, %land.rhs.lr.ph.i.i ], [ %__parent.017.i.i, %while.body.i.i ]
   %__parent.017.in.i.i = add nsw i64 %__holeIndex.addr.016.i.i, -1
   %__parent.017.i.i = sdiv i64 %__parent.017.in.i.i, 2
   %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %__parent.017.i.i
@@ -82459,22 +82445,22 @@ for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i, %land.rhs.i.i
   %cmp.i.i.i.i23.i = phi i1 [ true, %land.rhs.i.i ], [ false, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i = phi i64 [ %5, %land.rhs.i.i ], [ %__value.sroa.0.4.extract.shift.i.i, %for.cond.i.i.i.i.i ]
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ 1, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i = trunc i64 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i to i32
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %add.ptr.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %7 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__value.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %8 = load i32, ptr %arrayidx.i.i11.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i.i = icmp eq i32 %7, %8
+  %6 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
+  %cmp.i.i.i.i.i.i = icmp eq i32 %6, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp.i.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %cmp6.i.i.i.i.i = icmp slt i32 %7, %8
+  %cmp6.i.i.i.i.i = icmp slt i32 %6, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp6.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i
   %arrayidx.i.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %9 = load i32, ptr %arrayidx.i.i16.i.i.i.i.i, align 4
-  %cmp9.i.i.i.i.i = icmp slt i32 %9, %6
+  %7 = load i32, ptr %arrayidx.i.i16.i.i.i.i.i, align 4
+  %cmp9.i.i.i.i.i = icmp slt i32 %7, %__value.sroa.4.8.extract.trunc.i.i
   br i1 %cmp9.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %if.then.i.i.i.i.i
@@ -82486,142 +82472,144 @@ while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops
 _ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit: ; preds = %if.then.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.016.i.i, %if.then.i.i.i.i.i ], [ %__parent.017.i.i, %while.body.i.i ], [ %__holeIndex.addr.016.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__value.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__value.i.i)
-  %cmp6105 = icmp ult i64 %sub, 2
-  br i1 %cmp6105, label %return, label %if.end8.split.lr.ph
+  store ptr %__value.sroa.0.0.copyload10, ptr %add.ptr5.i.i, align 8
+  %__value.sroa.4.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 8
+  store i64 %__value.sroa.2.0.copyload12, ptr %__value.sroa.4.0.add.ptr5.sroa_idx.i.i, align 8
+  %cmp6107 = icmp ult i64 %sub, 2
+  br i1 %cmp6107, label %return, label %if.end8.split.lr.ph
 
 if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
-  %10 = getelementptr inbounds i8, ptr %__value.i.i18, i64 8
-  %sub12.i57 = or disjoint i64 %sub, 1
-  %add.ptr13.i58 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %sub12.i57
-  %add.ptr14.i59 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %div7.i
+  %sub12.i61 = or disjoint i64 %sub, 1
+  %add.ptr13.i62 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %sub12.i61
+  %add.ptr14.i63 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %div7.i
   br label %if.end8.split
 
-if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit86
-  %__parent.0106 = phi i64 [ %div17, %if.end8.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit86 ]
-  %dec = add nsw i64 %__parent.0106, -1
+if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit90
+  %__parent.0108 = phi i64 [ %div17, %if.end8.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit90 ]
+  %dec = add nsw i64 %__parent.0108, -1
   %add.ptr13 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload14 = load ptr, ptr %add.ptr13, align 8
   %__value.sroa.2.0.add.ptr.sroa_idx15 = getelementptr inbounds i8, ptr %add.ptr13, i64 8
   %__value.sroa.2.0.copyload16 = load i64, ptr %__value.sroa.2.0.add.ptr.sroa_idx15, align 8
-  %cmp31.i21.not = icmp slt i64 %div.i8789, %__parent.0106
-  br i1 %cmp31.i21.not, label %while.end.i22, label %while.body.i60
+  %cmp30.i20.not = icmp slt i64 %div.i9193, %__parent.0108
+  br i1 %cmp30.i20.not, label %while.end.i21, label %while.body.i64
 
-while.body.i60:                                   ; preds = %if.end8.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75
-  %__holeIndex.addr.032.i61 = phi i64 [ %spec.select.i77, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75 ], [ %dec, %if.end8.split ]
-  %add.i62 = shl i64 %__holeIndex.addr.032.i61, 1
-  %mul.i63 = add i64 %add.i62, 2
-  %add.ptr.i64 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %mul.i63
-  %sub1.i65 = or disjoint i64 %add.i62, 1
-  %add.ptr2.i66 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %sub1.i65
-  br label %for.body.i.i.i.i67
+while.body.i64:                                   ; preds = %if.end8.split, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i79
+  %__holeIndex.addr.031.i65 = phi i64 [ %spec.select.i81, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i79 ], [ %dec, %if.end8.split ]
+  %add.i66 = shl i64 %__holeIndex.addr.031.i65, 1
+  %mul.i67 = add i64 %add.i66, 2
+  %add.ptr.i68 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %mul.i67
+  %sub1.i69 = or disjoint i64 %add.i66, 1
+  %add.ptr2.i70 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %sub1.i69
+  br label %for.body.i.i.i.i71
 
-for.cond.i.i.i.i81:                               ; preds = %for.body.i.i.i.i67
-  br i1 %cmp.i.i.i.i68, label %for.body.i.i.i.i67, label %for.end.i.i.i.i82, !llvm.loop !926
+for.cond.i.i.i.i85:                               ; preds = %for.body.i.i.i.i71
+  br i1 %cmp.i.i.i.i72, label %for.body.i.i.i.i71, label %for.end.i.i.i.i86, !llvm.loop !926
 
-for.body.i.i.i.i67:                               ; preds = %for.cond.i.i.i.i81, %while.body.i60
-  %cmp.i.i.i.i68 = phi i1 [ true, %while.body.i60 ], [ false, %for.cond.i.i.i.i81 ]
-  %indvars.iv.i.i.i.i69 = phi i64 [ 0, %while.body.i60 ], [ 1, %for.cond.i.i.i.i81 ]
-  %arrayidx.i.i.i.i.i.i70 = getelementptr inbounds [3 x i32], ptr %add.ptr.i64, i64 0, i64 %indvars.iv.i.i.i.i69
-  %11 = load i32, ptr %arrayidx.i.i.i.i.i.i70, align 4
-  %arrayidx.i.i11.i.i.i.i71 = getelementptr inbounds [3 x i32], ptr %add.ptr2.i66, i64 0, i64 %indvars.iv.i.i.i.i69
-  %12 = load i32, ptr %arrayidx.i.i11.i.i.i.i71, align 4
-  %cmp.i.i.i.i.i72 = icmp eq i32 %11, %12
-  br i1 %cmp.i.i.i.i.i72, label %for.cond.i.i.i.i81, label %if.then.i.i.i.i73
+for.body.i.i.i.i71:                               ; preds = %for.cond.i.i.i.i85, %while.body.i64
+  %cmp.i.i.i.i72 = phi i1 [ true, %while.body.i64 ], [ false, %for.cond.i.i.i.i85 ]
+  %indvars.iv.i.i.i.i73 = phi i64 [ 0, %while.body.i64 ], [ 1, %for.cond.i.i.i.i85 ]
+  %arrayidx.i.i.i.i.i.i74 = getelementptr inbounds [3 x i32], ptr %add.ptr.i68, i64 0, i64 %indvars.iv.i.i.i.i73
+  %8 = load i32, ptr %arrayidx.i.i.i.i.i.i74, align 4
+  %arrayidx.i.i11.i.i.i.i75 = getelementptr inbounds [3 x i32], ptr %add.ptr2.i70, i64 0, i64 %indvars.iv.i.i.i.i73
+  %9 = load i32, ptr %arrayidx.i.i11.i.i.i.i75, align 4
+  %cmp.i.i.i.i.i76 = icmp eq i32 %8, %9
+  br i1 %cmp.i.i.i.i.i76, label %for.cond.i.i.i.i85, label %if.then.i.i.i.i77
 
-if.then.i.i.i.i73:                                ; preds = %for.body.i.i.i.i67
-  %cmp6.i.i.i.i74 = icmp slt i32 %11, %12
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75
+if.then.i.i.i.i77:                                ; preds = %for.body.i.i.i.i71
+  %cmp6.i.i.i.i78 = icmp slt i32 %8, %9
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i79
 
-for.end.i.i.i.i82:                                ; preds = %for.cond.i.i.i.i81
-  %arrayidx.i.i16.i.i.i.i83 = getelementptr inbounds i8, ptr %add.ptr.i64, i64 8
-  %13 = load i32, ptr %arrayidx.i.i16.i.i.i.i83, align 4
-  %arrayidx.i.i17.i.i.i.i84 = getelementptr inbounds i8, ptr %add.ptr2.i66, i64 8
-  %14 = load i32, ptr %arrayidx.i.i17.i.i.i.i84, align 4
-  %cmp9.i.i.i.i85 = icmp slt i32 %13, %14
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75
+for.end.i.i.i.i86:                                ; preds = %for.cond.i.i.i.i85
+  %arrayidx.i.i16.i.i.i.i87 = getelementptr inbounds i8, ptr %add.ptr.i68, i64 8
+  %10 = load i32, ptr %arrayidx.i.i16.i.i.i.i87, align 4
+  %arrayidx.i.i17.i.i.i.i88 = getelementptr inbounds i8, ptr %add.ptr2.i70, i64 8
+  %11 = load i32, ptr %arrayidx.i.i17.i.i.i.i88, align 4
+  %cmp9.i.i.i.i89 = icmp slt i32 %10, %11
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i79
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75: ; preds = %for.end.i.i.i.i82, %if.then.i.i.i.i73
-  %retval.0.i.i.i.i76 = phi i1 [ %cmp6.i.i.i.i74, %if.then.i.i.i.i73 ], [ %cmp9.i.i.i.i85, %for.end.i.i.i.i82 ]
-  %spec.select.i77 = select i1 %retval.0.i.i.i.i76, i64 %sub1.i65, i64 %mul.i63
-  %add.ptr3.i78 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %spec.select.i77
-  %add.ptr4.i79 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %__holeIndex.addr.032.i61
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i79, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i78, i64 16, i1 false)
-  %cmp.i80 = icmp slt i64 %spec.select.i77, %div.i8789
-  br i1 %cmp.i80, label %while.body.i60, label %while.end.i22, !llvm.loop !976
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i79: ; preds = %for.end.i.i.i.i86, %if.then.i.i.i.i77
+  %retval.0.i.i.i.i80 = phi i1 [ %cmp6.i.i.i.i78, %if.then.i.i.i.i77 ], [ %cmp9.i.i.i.i89, %for.end.i.i.i.i86 ]
+  %spec.select.i81 = select i1 %retval.0.i.i.i.i80, i64 %sub1.i69, i64 %mul.i67
+  %add.ptr3.i82 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %spec.select.i81
+  %add.ptr4.i83 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %__holeIndex.addr.031.i65
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i83, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i82, i64 16, i1 false)
+  %cmp.i84 = icmp slt i64 %spec.select.i81, %div.i9193
+  br i1 %cmp.i84, label %while.body.i64, label %while.end.i21, !llvm.loop !976
 
-while.end.i22:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75, %if.end8.split
-  %__holeIndex.addr.0.lcssa.i23 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i77, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i75 ]
-  %cmp8.i54 = icmp eq i64 %__holeIndex.addr.0.lcssa.i23, %div7.i
-  %or.cond88 = select i1 %cmp5.i, i1 %cmp8.i54, i1 false
-  br i1 %or.cond88, label %if.then9.i55, label %if.end16.i26
+while.end.i21:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i79, %if.end8.split
+  %__holeIndex.addr.0.lcssa.i22 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i81, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i79 ]
+  %cmp8.i58 = icmp eq i64 %__holeIndex.addr.0.lcssa.i22, %div7.i
+  %or.cond92 = select i1 %cmp5.i, i1 %cmp8.i58, i1 false
+  br i1 %or.cond92, label %if.then9.i59, label %if.end16.i25
 
-if.then9.i55:                                     ; preds = %while.end.i22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr14.i59, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr13.i58, i64 16, i1 false)
-  br label %if.end16.i26
+if.then9.i59:                                     ; preds = %while.end.i21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr14.i63, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr13.i62, i64 16, i1 false)
+  br label %if.end16.i25
 
-if.end16.i26:                                     ; preds = %if.then9.i55, %while.end.i22
-  %__holeIndex.addr.1.i27 = phi i64 [ %sub12.i57, %if.then9.i55 ], [ %__holeIndex.addr.0.lcssa.i23, %while.end.i22 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__value.i.i18)
-  store ptr %__value.sroa.0.0.copyload14, ptr %__value.i.i18, align 8
-  store i64 %__value.sroa.2.0.copyload16, ptr %10, align 8
-  %cmp15.i.i28.not = icmp slt i64 %__holeIndex.addr.1.i27, %__parent.0106
-  %15 = trunc i64 %__value.sroa.2.0.copyload16 to i32
-  br i1 %cmp15.i.i28.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit86, label %land.rhs.i.i31
+if.end16.i25:                                     ; preds = %if.then9.i59, %while.end.i21
+  %__holeIndex.addr.1.i26 = phi i64 [ %sub12.i61, %if.then9.i59 ], [ %__holeIndex.addr.0.lcssa.i22, %while.end.i21 ]
+  %cmp15.i.i27.not = icmp slt i64 %__holeIndex.addr.1.i26, %__parent.0108
+  br i1 %cmp15.i.i27.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit90, label %land.rhs.lr.ph.i.i31
 
-land.rhs.i.i31:                                   ; preds = %if.end16.i26, %while.body.i.i44
-  %__holeIndex.addr.016.i.i32 = phi i64 [ %__parent.017.i.i34, %while.body.i.i44 ], [ %__holeIndex.addr.1.i27, %if.end16.i26 ]
-  %__parent.017.in.i.i33 = add nsw i64 %__holeIndex.addr.016.i.i32, -1
-  %__parent.017.i.i34 = sdiv i64 %__parent.017.in.i.i33, 2
-  %add.ptr.i.i35 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %__parent.017.i.i34
-  br label %for.body.i.i.i.i.i36
+land.rhs.lr.ph.i.i31:                             ; preds = %if.end16.i25
+  %12 = ptrtoint ptr %__value.sroa.0.0.copyload14 to i64
+  %__value.sroa.0.4.extract.shift.i.i32 = lshr i64 %12, 32
+  %__value.sroa.4.8.extract.trunc.i.i33 = trunc i64 %__value.sroa.2.0.copyload16 to i32
+  br label %land.rhs.i.i34
 
-for.cond.i.i.i.i.i47:                             ; preds = %for.body.i.i.i.i.i36
-  br i1 %cmp.i.i.i.i23.i37, label %for.body.i.i.i.i.i36, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48, !llvm.loop !926
+land.rhs.i.i34:                                   ; preds = %while.body.i.i48, %land.rhs.lr.ph.i.i31
+  %__holeIndex.addr.016.i.i35 = phi i64 [ %__holeIndex.addr.1.i26, %land.rhs.lr.ph.i.i31 ], [ %__parent.017.i.i37, %while.body.i.i48 ]
+  %__parent.017.in.i.i36 = add nsw i64 %__holeIndex.addr.016.i.i35, -1
+  %__parent.017.i.i37 = sdiv i64 %__parent.017.in.i.i36, 2
+  %add.ptr.i.i38 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %__parent.017.i.i37
+  br label %for.body.i.i.i.i.i39
 
-for.body.i.i.i.i.i36:                             ; preds = %for.cond.i.i.i.i.i47, %land.rhs.i.i31
-  %cmp.i.i.i.i23.i37 = phi i1 [ true, %land.rhs.i.i31 ], [ false, %for.cond.i.i.i.i.i47 ]
-  %indvars.iv.i.i.i.i.i38 = phi i64 [ 0, %land.rhs.i.i31 ], [ 1, %for.cond.i.i.i.i.i47 ]
-  %arrayidx.i.i.i.i.i.i.i39 = getelementptr inbounds [3 x i32], ptr %add.ptr.i.i35, i64 0, i64 %indvars.iv.i.i.i.i.i38
-  %16 = load i32, ptr %arrayidx.i.i.i.i.i.i.i39, align 4
-  %arrayidx.i.i11.i.i.i.i.i40 = getelementptr inbounds [3 x i32], ptr %__value.i.i18, i64 0, i64 %indvars.iv.i.i.i.i.i38
-  %17 = load i32, ptr %arrayidx.i.i11.i.i.i.i.i40, align 4
-  %cmp.i.i.i.i.i.i41 = icmp eq i32 %16, %17
-  br i1 %cmp.i.i.i.i.i.i41, label %for.cond.i.i.i.i.i47, label %if.then.i.i.i.i.i42
+for.cond.i.i.i.i.i51:                             ; preds = %for.body.i.i.i.i.i39
+  br i1 %cmp.i.i.i.i23.i40, label %for.body.i.i.i.i.i39, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i52, !llvm.loop !926
 
-if.then.i.i.i.i.i42:                              ; preds = %for.body.i.i.i.i.i36
-  %cmp6.i.i.i.i.i43 = icmp slt i32 %16, %17
-  br i1 %cmp6.i.i.i.i.i43, label %while.body.i.i44, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit86
+for.body.i.i.i.i.i39:                             ; preds = %for.cond.i.i.i.i.i51, %land.rhs.i.i34
+  %cmp.i.i.i.i23.i40 = phi i1 [ true, %land.rhs.i.i34 ], [ false, %for.cond.i.i.i.i.i51 ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i41 = phi i64 [ %12, %land.rhs.i.i34 ], [ %__value.sroa.0.4.extract.shift.i.i32, %for.cond.i.i.i.i.i51 ]
+  %indvars.iv.i.i.i.i.i42 = phi i64 [ 0, %land.rhs.i.i34 ], [ 1, %for.cond.i.i.i.i.i51 ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i43 = trunc i64 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i41 to i32
+  %arrayidx.i.i.i.i.i.i.i44 = getelementptr inbounds [3 x i32], ptr %add.ptr.i.i38, i64 0, i64 %indvars.iv.i.i.i.i.i42
+  %13 = load i32, ptr %arrayidx.i.i.i.i.i.i.i44, align 4
+  %cmp.i.i.i.i.i.i45 = icmp eq i32 %13, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i43
+  br i1 %cmp.i.i.i.i.i.i45, label %for.cond.i.i.i.i.i51, label %if.then.i.i.i.i.i46
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48: ; preds = %for.cond.i.i.i.i.i47
-  %arrayidx.i.i16.i.i.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i35, i64 8
-  %18 = load i32, ptr %arrayidx.i.i16.i.i.i.i.i49, align 4
-  %cmp9.i.i.i.i.i50 = icmp slt i32 %18, %15
-  br i1 %cmp9.i.i.i.i.i50, label %while.body.i.i44, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit86
+if.then.i.i.i.i.i46:                              ; preds = %for.body.i.i.i.i.i39
+  %cmp6.i.i.i.i.i47 = icmp slt i32 %13, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i43
+  br i1 %cmp6.i.i.i.i.i47, label %while.body.i.i48, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit90
 
-while.body.i.i44:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48, %if.then.i.i.i.i.i42
-  %add.ptr2.i.i45 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %__holeIndex.addr.016.i.i32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i45, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i35, i64 16, i1 false)
-  %cmp.i.i46.not = icmp slt i64 %__parent.017.i.i34, %__parent.0106
-  br i1 %cmp.i.i46.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit86, label %land.rhs.i.i31, !llvm.loop !977
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i52: ; preds = %for.cond.i.i.i.i.i51
+  %arrayidx.i.i16.i.i.i.i.i53 = getelementptr inbounds i8, ptr %add.ptr.i.i38, i64 8
+  %14 = load i32, ptr %arrayidx.i.i16.i.i.i.i.i53, align 4
+  %cmp9.i.i.i.i.i54 = icmp slt i32 %14, %__value.sroa.4.8.extract.trunc.i.i33
+  br i1 %cmp9.i.i.i.i.i54, label %while.body.i.i48, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit90
 
-_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit86: ; preds = %if.then.i.i.i.i.i42, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48, %while.body.i.i44, %if.end16.i26
-  %__holeIndex.addr.0.lcssa.i.i29 = phi i64 [ %__holeIndex.addr.1.i27, %if.end16.i26 ], [ %__holeIndex.addr.016.i.i32, %if.then.i.i.i.i.i42 ], [ %__parent.017.i.i34, %while.body.i.i44 ], [ %__holeIndex.addr.016.i.i32, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i48 ]
-  %add.ptr5.i.i30 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr5.i.i30, ptr noundef nonnull align 8 dereferenceable(16) %__value.i.i18, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__value.i.i18)
+while.body.i.i48:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i52, %if.then.i.i.i.i.i46
+  %add.ptr2.i.i49 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %__holeIndex.addr.016.i.i35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i.i49, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i38, i64 16, i1 false)
+  %cmp.i.i50.not = icmp slt i64 %__parent.017.i.i37, %__parent.0108
+  br i1 %cmp.i.i50.not, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit90, label %land.rhs.i.i34, !llvm.loop !977
+
+_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit90: ; preds = %if.then.i.i.i.i.i46, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i52, %while.body.i.i48, %if.end16.i25
+  %__holeIndex.addr.0.lcssa.i.i28 = phi i64 [ %__holeIndex.addr.1.i26, %if.end16.i25 ], [ %__holeIndex.addr.016.i.i35, %if.then.i.i.i.i.i46 ], [ %__parent.017.i.i37, %while.body.i.i48 ], [ %__holeIndex.addr.016.i.i35, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i52 ]
+  %add.ptr5.i.i29 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i28
+  store ptr %__value.sroa.0.0.copyload14, ptr %add.ptr5.i.i29, align 8
+  %__value.sroa.4.0.add.ptr5.sroa_idx.i.i30 = getelementptr inbounds i8, ptr %add.ptr5.i.i29, i64 8
+  store i64 %__value.sroa.2.0.copyload16, ptr %__value.sroa.4.0.add.ptr5.sroa_idx.i.i30, align 8
   %cmp6 = icmp eq i64 %dec, 0
   br i1 %cmp6, label %return, label %if.end8.split, !llvm.loop !978
 
-return:                                           ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit86, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit, %entry
+return:                                           ; preds = %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit90, %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt10__pop_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_SP_SP_RT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__comp) local_unnamed_addr #5 comdat {
 entry:
-  %__value.i.i = alloca %"class.openvdb::v11_0::tree::NodeUnion.1075", align 8
   %__value.sroa.0.0.copyload = load ptr, ptr %__result, align 8
   %__value.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__result, i64 8
   %__value.sroa.2.0.copyload = load i64, ptr %__value.sroa.2.0..sroa_idx, align 8
@@ -82632,12 +82620,12 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 4
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i = sdiv i64 %sub.i, 2
-  %cmp31.i = icmp sgt i64 %sub.ptr.div, 2
-  br i1 %cmp31.i, label %while.body.i, label %while.end.i
+  %cmp30.i = icmp sgt i64 %sub.ptr.div, 2
+  br i1 %cmp30.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i
-  %__holeIndex.addr.032.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ 0, %entry ]
-  %add.i = shl i64 %__holeIndex.addr.032.i, 1
+  %__holeIndex.addr.031.i = phi i64 [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SV_EEbSL_T0_.exit.i ], [ 0, %entry ]
+  %add.i = shl i64 %__holeIndex.addr.031.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -82673,7 +82661,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7openvdb5v11_05tools16TolerancePruneOpIN
   %retval.0.i.i.i.i = phi i1 [ %cmp6.i.i.i.i, %if.then.i.i.i.i ], [ %cmp9.i.i.i.i, %for.end.i.i.i.i ]
   %spec.select.i = select i1 %retval.0.i.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %__holeIndex.addr.032.i
+  %add.ptr4.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %__holeIndex.addr.031.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3.i, i64 16, i1 false)
   %cmp.i = icmp slt i64 %spec.select.i, %div.i
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !976
@@ -82700,16 +82688,17 @@ if.then9.i:                                       ; preds = %land.lhs.true.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %land.lhs.true.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__holeIndex.addr.0.lcssa.i, %land.lhs.true.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__value.i.i)
-  store ptr %__value.sroa.0.0.copyload, ptr %__value.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %__value.i.i, i64 8
-  store i64 %__value.sroa.2.0.copyload, ptr %5, align 8
   %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, 0
-  %6 = trunc i64 %__value.sroa.2.0.copyload to i32
-  br i1 %cmp15.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
+  br i1 %cmp15.i.i, label %land.rhs.lr.ph.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
-land.rhs.i.i:                                     ; preds = %if.end16.i, %while.body.i.i
-  %__holeIndex.addr.016.i.i = phi i64 [ %__parent.017.i.i45, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end16.i ]
+land.rhs.lr.ph.i.i:                               ; preds = %if.end16.i
+  %5 = ptrtoint ptr %__value.sroa.0.0.copyload to i64
+  %__value.sroa.0.4.extract.shift.i.i = lshr i64 %5, 32
+  %__value.sroa.4.8.extract.trunc.i.i = trunc i64 %__value.sroa.2.0.copyload to i32
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
+  %__holeIndex.addr.016.i.i = phi i64 [ %__holeIndex.addr.1.i, %land.rhs.lr.ph.i.i ], [ %__parent.017.i.i45, %while.body.i.i ]
   %__parent.017.in.i.i = add nsw i64 %__holeIndex.addr.016.i.i, -1
   %__parent.017.i.i45 = lshr i64 %__parent.017.in.i.i, 1
   %add.ptr.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %__parent.017.i.i45
@@ -82720,22 +82709,22 @@ for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i, %land.rhs.i.i
   %cmp.i.i.i.i23.i = phi i1 [ true, %land.rhs.i.i ], [ false, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i = phi i64 [ %5, %land.rhs.i.i ], [ %__value.sroa.0.4.extract.shift.i.i, %for.cond.i.i.i.i.i ]
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ 1, %for.cond.i.i.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i = trunc i64 %indvars.iv.i.i.i.sroa.phi.sroa.speculated.in.i.i to i32
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %add.ptr.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %7 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %__value.i.i, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %8 = load i32, ptr %arrayidx.i.i11.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i.i = icmp eq i32 %7, %8
+  %6 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
+  %cmp.i.i.i.i.i.i = icmp eq i32 %6, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp.i.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %cmp6.i.i.i.i.i = icmp slt i32 %7, %8
+  %cmp6.i.i.i.i.i = icmp slt i32 %6, %indvars.iv.i.i.i.sroa.phi.sroa.speculated.i.i
   br i1 %cmp6.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i: ; preds = %for.cond.i.i.i.i.i
   %arrayidx.i.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %9 = load i32, ptr %arrayidx.i.i16.i.i.i.i.i, align 4
-  %cmp9.i.i.i.i.i = icmp slt i32 %9, %6
+  %7 = load i32, ptr %arrayidx.i.i16.i.i.i.i.i, align 4
+  %cmp9.i.i.i.i.i = icmp slt i32 %7, %__value.sroa.4.8.extract.trunc.i.i
   br i1 %cmp9.i.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit
 
 while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %if.then.i.i.i.i.i
@@ -82747,8 +82736,9 @@ while.body.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops
 _ZSt13__adjust_heapIPN7openvdb5v11_04tree9NodeUnionINS1_4math4Vec3IiEENS2_12InternalNodeINS2_8LeafNodeIS6_Lj3EEELj4EEEvEElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_5tools16TolerancePruneOpINS2_4TreeINS2_8RootNodeINS7_ISA_Lj5EEEEEEELj0EE6medianISK_EENT_9ValueTypeERSP_EUlRKSB_ST_E_EEEvSP_T0_SW_T1_T2_.exit: ; preds = %if.then.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i, %while.body.i.i, %if.end16.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__holeIndex.addr.016.i.i, %if.then.i.i.i.i.i ], [ %__parent.017.i.i45, %while.body.i.i ], [ %__holeIndex.addr.016.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK7openvdb5v11_05tools16TolerancePruneOpINS3_4tree4TreeINS6_8RootNodeINS6_12InternalNodeINS9_INS6_8LeafNodeINS3_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELj0EE6medianISG_EENT_9ValueTypeERSL_EUlRKNS6_9NodeUnionISD_SF_vEESR_E_EclIPSP_SP_EEbSL_RT0_.exit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.1075", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__value.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__value.i.i)
+  store ptr %__value.sroa.0.0.copyload, ptr %add.ptr5.i.i, align 8
+  %__value.sroa.4.0.add.ptr5.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr5.i.i, i64 8
+  store i64 %__value.sroa.2.0.copyload, ptr %__value.sroa.4.0.add.ptr5.sroa_idx.i.i, align 8
   ret void
 }
 

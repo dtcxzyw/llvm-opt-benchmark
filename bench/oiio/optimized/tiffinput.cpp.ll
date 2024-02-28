@@ -2327,75 +2327,19 @@ entry:
   %patch = alloca i32, align 4
   %sampleformat = alloca i16, align 2
   %agg.tmp141 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp141.sroa.gep652 = getelementptr inbounds i8, ptr %agg.tmp141, i64 4
-  %agg.tmp141.sroa.gep637 = getelementptr inbounds i8, ptr %agg.tmp141, i64 3
-  %agg.tmp141.sroa.gep622 = getelementptr inbounds i8, ptr %agg.tmp141, i64 2
-  %agg.tmp141.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp141, i64 1
   %agg.tmp147 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp147.sroa.gep654 = getelementptr inbounds i8, ptr %agg.tmp147, i64 4
-  %agg.tmp147.sroa.gep639 = getelementptr inbounds i8, ptr %agg.tmp147, i64 3
-  %agg.tmp147.sroa.gep624 = getelementptr inbounds i8, ptr %agg.tmp147, i64 2
-  %agg.tmp147.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp147, i64 1
   %agg.tmp150 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp150.sroa.gep653 = getelementptr inbounds i8, ptr %agg.tmp150, i64 4
-  %agg.tmp150.sroa.gep638 = getelementptr inbounds i8, ptr %agg.tmp150, i64 3
-  %agg.tmp150.sroa.gep623 = getelementptr inbounds i8, ptr %agg.tmp150, i64 2
-  %agg.tmp150.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp150, i64 1
   %agg.tmp158 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp158.sroa.gep648 = getelementptr inbounds i8, ptr %agg.tmp158, i64 4
-  %agg.tmp158.sroa.gep633 = getelementptr inbounds i8, ptr %agg.tmp158, i64 3
-  %agg.tmp158.sroa.gep618 = getelementptr inbounds i8, ptr %agg.tmp158, i64 2
-  %agg.tmp158.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp158, i64 1
   %agg.tmp164 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp164.sroa.gep651 = getelementptr inbounds i8, ptr %agg.tmp164, i64 4
-  %agg.tmp164.sroa.gep636 = getelementptr inbounds i8, ptr %agg.tmp164, i64 3
-  %agg.tmp164.sroa.gep621 = getelementptr inbounds i8, ptr %agg.tmp164, i64 2
-  %agg.tmp164.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp164, i64 1
   %agg.tmp170 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp170.sroa.gep649 = getelementptr inbounds i8, ptr %agg.tmp170, i64 4
-  %agg.tmp170.sroa.gep634 = getelementptr inbounds i8, ptr %agg.tmp170, i64 3
-  %agg.tmp170.sroa.gep619 = getelementptr inbounds i8, ptr %agg.tmp170, i64 2
-  %agg.tmp170.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp170, i64 1
   %agg.tmp173 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp173.sroa.gep650 = getelementptr inbounds i8, ptr %agg.tmp173, i64 4
-  %agg.tmp173.sroa.gep635 = getelementptr inbounds i8, ptr %agg.tmp173, i64 3
-  %agg.tmp173.sroa.gep620 = getelementptr inbounds i8, ptr %agg.tmp173, i64 2
-  %agg.tmp173.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp173, i64 1
   %agg.tmp182 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp182.sroa.gep644 = getelementptr inbounds i8, ptr %agg.tmp182, i64 4
-  %agg.tmp182.sroa.gep629 = getelementptr inbounds i8, ptr %agg.tmp182, i64 3
-  %agg.tmp182.sroa.gep614 = getelementptr inbounds i8, ptr %agg.tmp182, i64 2
-  %agg.tmp182.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp182, i64 1
   %agg.tmp188 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp188.sroa.gep647 = getelementptr inbounds i8, ptr %agg.tmp188, i64 4
-  %agg.tmp188.sroa.gep632 = getelementptr inbounds i8, ptr %agg.tmp188, i64 3
-  %agg.tmp188.sroa.gep617 = getelementptr inbounds i8, ptr %agg.tmp188, i64 2
-  %agg.tmp188.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp188, i64 1
   %agg.tmp194 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp194.sroa.gep645 = getelementptr inbounds i8, ptr %agg.tmp194, i64 4
-  %agg.tmp194.sroa.gep630 = getelementptr inbounds i8, ptr %agg.tmp194, i64 3
-  %agg.tmp194.sroa.gep615 = getelementptr inbounds i8, ptr %agg.tmp194, i64 2
-  %agg.tmp194.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp194, i64 1
   %agg.tmp197 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp197.sroa.gep646 = getelementptr inbounds i8, ptr %agg.tmp197, i64 4
-  %agg.tmp197.sroa.gep631 = getelementptr inbounds i8, ptr %agg.tmp197, i64 3
-  %agg.tmp197.sroa.gep616 = getelementptr inbounds i8, ptr %agg.tmp197, i64 2
-  %agg.tmp197.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp197, i64 1
   %agg.tmp206 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp206.sroa.gep642 = getelementptr inbounds i8, ptr %agg.tmp206, i64 4
-  %agg.tmp206.sroa.gep627 = getelementptr inbounds i8, ptr %agg.tmp206, i64 3
-  %agg.tmp206.sroa.gep612 = getelementptr inbounds i8, ptr %agg.tmp206, i64 2
-  %agg.tmp206.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp206, i64 1
   %agg.tmp209 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp209.sroa.gep643 = getelementptr inbounds i8, ptr %agg.tmp209, i64 4
-  %agg.tmp209.sroa.gep628 = getelementptr inbounds i8, ptr %agg.tmp209, i64 3
-  %agg.tmp209.sroa.gep613 = getelementptr inbounds i8, ptr %agg.tmp209, i64 2
-  %agg.tmp209.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp209, i64 1
   %agg.tmp212 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp212.sroa.gep655 = getelementptr inbounds i8, ptr %agg.tmp212, i64 4
-  %agg.tmp212.sroa.gep640 = getelementptr inbounds i8, ptr %agg.tmp212, i64 3
-  %agg.tmp212.sroa.gep625 = getelementptr inbounds i8, ptr %agg.tmp212, i64 2
-  %agg.tmp212.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp212, i64 1
   %agg.tmp216 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp221 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp224 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -2483,6 +2427,62 @@ entry:
   %agg.tmp725 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp729 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp730 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
+  %agg.tmp206.sink606.sroa.gep655 = getelementptr inbounds i8, ptr %agg.tmp206, i64 4
+  %agg.tmp206.sink606.sroa.gep656 = getelementptr inbounds i8, ptr %agg.tmp209, i64 4
+  %agg.tmp206.sink606.sroa.gep657 = getelementptr inbounds i8, ptr %agg.tmp182, i64 4
+  %agg.tmp206.sink606.sroa.gep658 = getelementptr inbounds i8, ptr %agg.tmp194, i64 4
+  %agg.tmp206.sink606.sroa.gep659 = getelementptr inbounds i8, ptr %agg.tmp197, i64 4
+  %agg.tmp206.sink606.sroa.gep660 = getelementptr inbounds i8, ptr %agg.tmp188, i64 4
+  %agg.tmp206.sink606.sroa.gep661 = getelementptr inbounds i8, ptr %agg.tmp158, i64 4
+  %agg.tmp206.sink606.sroa.gep662 = getelementptr inbounds i8, ptr %agg.tmp170, i64 4
+  %agg.tmp206.sink606.sroa.gep663 = getelementptr inbounds i8, ptr %agg.tmp173, i64 4
+  %agg.tmp206.sink606.sroa.gep664 = getelementptr inbounds i8, ptr %agg.tmp164, i64 4
+  %agg.tmp206.sink606.sroa.gep665 = getelementptr inbounds i8, ptr %agg.tmp141, i64 4
+  %agg.tmp206.sink606.sroa.gep666 = getelementptr inbounds i8, ptr %agg.tmp150, i64 4
+  %agg.tmp206.sink606.sroa.gep667 = getelementptr inbounds i8, ptr %agg.tmp147, i64 4
+  %agg.tmp206.sink606.sroa.gep668 = getelementptr inbounds i8, ptr %agg.tmp212, i64 4
+  %agg.tmp206.sink606.sroa.gep640 = getelementptr inbounds i8, ptr %agg.tmp206, i64 3
+  %agg.tmp206.sink606.sroa.gep641 = getelementptr inbounds i8, ptr %agg.tmp209, i64 3
+  %agg.tmp206.sink606.sroa.gep642 = getelementptr inbounds i8, ptr %agg.tmp182, i64 3
+  %agg.tmp206.sink606.sroa.gep643 = getelementptr inbounds i8, ptr %agg.tmp194, i64 3
+  %agg.tmp206.sink606.sroa.gep644 = getelementptr inbounds i8, ptr %agg.tmp197, i64 3
+  %agg.tmp206.sink606.sroa.gep645 = getelementptr inbounds i8, ptr %agg.tmp188, i64 3
+  %agg.tmp206.sink606.sroa.gep646 = getelementptr inbounds i8, ptr %agg.tmp158, i64 3
+  %agg.tmp206.sink606.sroa.gep647 = getelementptr inbounds i8, ptr %agg.tmp170, i64 3
+  %agg.tmp206.sink606.sroa.gep648 = getelementptr inbounds i8, ptr %agg.tmp173, i64 3
+  %agg.tmp206.sink606.sroa.gep649 = getelementptr inbounds i8, ptr %agg.tmp164, i64 3
+  %agg.tmp206.sink606.sroa.gep650 = getelementptr inbounds i8, ptr %agg.tmp141, i64 3
+  %agg.tmp206.sink606.sroa.gep651 = getelementptr inbounds i8, ptr %agg.tmp150, i64 3
+  %agg.tmp206.sink606.sroa.gep652 = getelementptr inbounds i8, ptr %agg.tmp147, i64 3
+  %agg.tmp206.sink606.sroa.gep653 = getelementptr inbounds i8, ptr %agg.tmp212, i64 3
+  %agg.tmp206.sink606.sroa.gep625 = getelementptr inbounds i8, ptr %agg.tmp206, i64 2
+  %agg.tmp206.sink606.sroa.gep626 = getelementptr inbounds i8, ptr %agg.tmp209, i64 2
+  %agg.tmp206.sink606.sroa.gep627 = getelementptr inbounds i8, ptr %agg.tmp182, i64 2
+  %agg.tmp206.sink606.sroa.gep628 = getelementptr inbounds i8, ptr %agg.tmp194, i64 2
+  %agg.tmp206.sink606.sroa.gep629 = getelementptr inbounds i8, ptr %agg.tmp197, i64 2
+  %agg.tmp206.sink606.sroa.gep630 = getelementptr inbounds i8, ptr %agg.tmp188, i64 2
+  %agg.tmp206.sink606.sroa.gep631 = getelementptr inbounds i8, ptr %agg.tmp158, i64 2
+  %agg.tmp206.sink606.sroa.gep632 = getelementptr inbounds i8, ptr %agg.tmp170, i64 2
+  %agg.tmp206.sink606.sroa.gep633 = getelementptr inbounds i8, ptr %agg.tmp173, i64 2
+  %agg.tmp206.sink606.sroa.gep634 = getelementptr inbounds i8, ptr %agg.tmp164, i64 2
+  %agg.tmp206.sink606.sroa.gep635 = getelementptr inbounds i8, ptr %agg.tmp141, i64 2
+  %agg.tmp206.sink606.sroa.gep636 = getelementptr inbounds i8, ptr %agg.tmp150, i64 2
+  %agg.tmp206.sink606.sroa.gep637 = getelementptr inbounds i8, ptr %agg.tmp147, i64 2
+  %agg.tmp206.sink606.sroa.gep638 = getelementptr inbounds i8, ptr %agg.tmp212, i64 2
+  %agg.tmp206.sink606.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp206, i64 1
+  %agg.tmp206.sink606.sroa.gep611 = getelementptr inbounds i8, ptr %agg.tmp209, i64 1
+  %agg.tmp206.sink606.sroa.gep612 = getelementptr inbounds i8, ptr %agg.tmp182, i64 1
+  %agg.tmp206.sink606.sroa.gep613 = getelementptr inbounds i8, ptr %agg.tmp194, i64 1
+  %agg.tmp206.sink606.sroa.gep614 = getelementptr inbounds i8, ptr %agg.tmp197, i64 1
+  %agg.tmp206.sink606.sroa.gep615 = getelementptr inbounds i8, ptr %agg.tmp188, i64 1
+  %agg.tmp206.sink606.sroa.gep616 = getelementptr inbounds i8, ptr %agg.tmp158, i64 1
+  %agg.tmp206.sink606.sroa.gep617 = getelementptr inbounds i8, ptr %agg.tmp170, i64 1
+  %agg.tmp206.sink606.sroa.gep618 = getelementptr inbounds i8, ptr %agg.tmp173, i64 1
+  %agg.tmp206.sink606.sroa.gep619 = getelementptr inbounds i8, ptr %agg.tmp164, i64 1
+  %agg.tmp206.sink606.sroa.gep620 = getelementptr inbounds i8, ptr %agg.tmp141, i64 1
+  %agg.tmp206.sink606.sroa.gep621 = getelementptr inbounds i8, ptr %agg.tmp150, i64 1
+  %agg.tmp206.sink606.sroa.gep622 = getelementptr inbounds i8, ptr %agg.tmp147, i64 1
+  %agg.tmp206.sink606.sroa.gep623 = getelementptr inbounds i8, ptr %agg.tmp212, i64 1
   store i32 0, ptr %width, align 4
   store i32 0, ptr %height, align 4
   store i32 0, ptr %depth, align 4
@@ -2884,15 +2884,15 @@ sw.default:                                       ; preds = %if.end125
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then204, %if.else207, %if.then180, %if.then192, %if.else195, %if.then186, %if.then156, %if.then168, %if.else171, %if.then162, %if.then139, %if.else148, %if.then145, %sw.default
+  %agg.tmp206.sink606.sroa.phi = phi ptr [ %agg.tmp206.sink606.sroa.gep, %if.then204 ], [ %agg.tmp206.sink606.sroa.gep611, %if.else207 ], [ %agg.tmp206.sink606.sroa.gep612, %if.then180 ], [ %agg.tmp206.sink606.sroa.gep613, %if.then192 ], [ %agg.tmp206.sink606.sroa.gep614, %if.else195 ], [ %agg.tmp206.sink606.sroa.gep615, %if.then186 ], [ %agg.tmp206.sink606.sroa.gep616, %if.then156 ], [ %agg.tmp206.sink606.sroa.gep617, %if.then168 ], [ %agg.tmp206.sink606.sroa.gep618, %if.else171 ], [ %agg.tmp206.sink606.sroa.gep619, %if.then162 ], [ %agg.tmp206.sink606.sroa.gep620, %if.then139 ], [ %agg.tmp206.sink606.sroa.gep621, %if.else148 ], [ %agg.tmp206.sink606.sroa.gep622, %if.then145 ], [ %agg.tmp206.sink606.sroa.gep623, %sw.default ]
+  %agg.tmp206.sink606.sroa.phi624 = phi ptr [ %agg.tmp206.sink606.sroa.gep625, %if.then204 ], [ %agg.tmp206.sink606.sroa.gep626, %if.else207 ], [ %agg.tmp206.sink606.sroa.gep627, %if.then180 ], [ %agg.tmp206.sink606.sroa.gep628, %if.then192 ], [ %agg.tmp206.sink606.sroa.gep629, %if.else195 ], [ %agg.tmp206.sink606.sroa.gep630, %if.then186 ], [ %agg.tmp206.sink606.sroa.gep631, %if.then156 ], [ %agg.tmp206.sink606.sroa.gep632, %if.then168 ], [ %agg.tmp206.sink606.sroa.gep633, %if.else171 ], [ %agg.tmp206.sink606.sroa.gep634, %if.then162 ], [ %agg.tmp206.sink606.sroa.gep635, %if.then139 ], [ %agg.tmp206.sink606.sroa.gep636, %if.else148 ], [ %agg.tmp206.sink606.sroa.gep637, %if.then145 ], [ %agg.tmp206.sink606.sroa.gep638, %sw.default ]
+  %agg.tmp206.sink606.sroa.phi639 = phi ptr [ %agg.tmp206.sink606.sroa.gep640, %if.then204 ], [ %agg.tmp206.sink606.sroa.gep641, %if.else207 ], [ %agg.tmp206.sink606.sroa.gep642, %if.then180 ], [ %agg.tmp206.sink606.sroa.gep643, %if.then192 ], [ %agg.tmp206.sink606.sroa.gep644, %if.else195 ], [ %agg.tmp206.sink606.sroa.gep645, %if.then186 ], [ %agg.tmp206.sink606.sroa.gep646, %if.then156 ], [ %agg.tmp206.sink606.sroa.gep647, %if.then168 ], [ %agg.tmp206.sink606.sroa.gep648, %if.else171 ], [ %agg.tmp206.sink606.sroa.gep649, %if.then162 ], [ %agg.tmp206.sink606.sroa.gep650, %if.then139 ], [ %agg.tmp206.sink606.sroa.gep651, %if.else148 ], [ %agg.tmp206.sink606.sroa.gep652, %if.then145 ], [ %agg.tmp206.sink606.sroa.gep653, %sw.default ]
+  %agg.tmp206.sink606.sroa.phi654 = phi ptr [ %agg.tmp206.sink606.sroa.gep655, %if.then204 ], [ %agg.tmp206.sink606.sroa.gep656, %if.else207 ], [ %agg.tmp206.sink606.sroa.gep657, %if.then180 ], [ %agg.tmp206.sink606.sroa.gep658, %if.then192 ], [ %agg.tmp206.sink606.sroa.gep659, %if.else195 ], [ %agg.tmp206.sink606.sroa.gep660, %if.then186 ], [ %agg.tmp206.sink606.sroa.gep661, %if.then156 ], [ %agg.tmp206.sink606.sroa.gep662, %if.then168 ], [ %agg.tmp206.sink606.sroa.gep663, %if.else171 ], [ %agg.tmp206.sink606.sroa.gep664, %if.then162 ], [ %agg.tmp206.sink606.sroa.gep665, %if.then139 ], [ %agg.tmp206.sink606.sroa.gep666, %if.else148 ], [ %agg.tmp206.sink606.sroa.gep667, %if.then145 ], [ %agg.tmp206.sink606.sroa.gep668, %sw.default ]
   %agg.tmp206.sink606 = phi ptr [ %agg.tmp206, %if.then204 ], [ %agg.tmp209, %if.else207 ], [ %agg.tmp182, %if.then180 ], [ %agg.tmp194, %if.then192 ], [ %agg.tmp197, %if.else195 ], [ %agg.tmp188, %if.then186 ], [ %agg.tmp158, %if.then156 ], [ %agg.tmp170, %if.then168 ], [ %agg.tmp173, %if.else171 ], [ %agg.tmp164, %if.then162 ], [ %agg.tmp141, %if.then139 ], [ %agg.tmp150, %if.else148 ], [ %agg.tmp147, %if.then145 ], [ %agg.tmp212, %sw.default ]
-  %agg.tmp206.sink606.sroa.phi = phi ptr [ %agg.tmp206.sroa.gep, %if.then204 ], [ %agg.tmp209.sroa.gep, %if.else207 ], [ %agg.tmp182.sroa.gep, %if.then180 ], [ %agg.tmp194.sroa.gep, %if.then192 ], [ %agg.tmp197.sroa.gep, %if.else195 ], [ %agg.tmp188.sroa.gep, %if.then186 ], [ %agg.tmp158.sroa.gep, %if.then156 ], [ %agg.tmp170.sroa.gep, %if.then168 ], [ %agg.tmp173.sroa.gep, %if.else171 ], [ %agg.tmp164.sroa.gep, %if.then162 ], [ %agg.tmp141.sroa.gep, %if.then139 ], [ %agg.tmp150.sroa.gep, %if.else148 ], [ %agg.tmp147.sroa.gep, %if.then145 ], [ %agg.tmp212.sroa.gep, %sw.default ]
-  %agg.tmp206.sink606.sroa.phi611 = phi ptr [ %agg.tmp206.sroa.gep612, %if.then204 ], [ %agg.tmp209.sroa.gep613, %if.else207 ], [ %agg.tmp182.sroa.gep614, %if.then180 ], [ %agg.tmp194.sroa.gep615, %if.then192 ], [ %agg.tmp197.sroa.gep616, %if.else195 ], [ %agg.tmp188.sroa.gep617, %if.then186 ], [ %agg.tmp158.sroa.gep618, %if.then156 ], [ %agg.tmp170.sroa.gep619, %if.then168 ], [ %agg.tmp173.sroa.gep620, %if.else171 ], [ %agg.tmp164.sroa.gep621, %if.then162 ], [ %agg.tmp141.sroa.gep622, %if.then139 ], [ %agg.tmp150.sroa.gep623, %if.else148 ], [ %agg.tmp147.sroa.gep624, %if.then145 ], [ %agg.tmp212.sroa.gep625, %sw.default ]
-  %agg.tmp206.sink606.sroa.phi626 = phi ptr [ %agg.tmp206.sroa.gep627, %if.then204 ], [ %agg.tmp209.sroa.gep628, %if.else207 ], [ %agg.tmp182.sroa.gep629, %if.then180 ], [ %agg.tmp194.sroa.gep630, %if.then192 ], [ %agg.tmp197.sroa.gep631, %if.else195 ], [ %agg.tmp188.sroa.gep632, %if.then186 ], [ %agg.tmp158.sroa.gep633, %if.then156 ], [ %agg.tmp170.sroa.gep634, %if.then168 ], [ %agg.tmp173.sroa.gep635, %if.else171 ], [ %agg.tmp164.sroa.gep636, %if.then162 ], [ %agg.tmp141.sroa.gep637, %if.then139 ], [ %agg.tmp150.sroa.gep638, %if.else148 ], [ %agg.tmp147.sroa.gep639, %if.then145 ], [ %agg.tmp212.sroa.gep640, %sw.default ]
-  %agg.tmp206.sink606.sroa.phi641 = phi ptr [ %agg.tmp206.sroa.gep642, %if.then204 ], [ %agg.tmp209.sroa.gep643, %if.else207 ], [ %agg.tmp182.sroa.gep644, %if.then180 ], [ %agg.tmp194.sroa.gep645, %if.then192 ], [ %agg.tmp197.sroa.gep646, %if.else195 ], [ %agg.tmp188.sroa.gep647, %if.then186 ], [ %agg.tmp158.sroa.gep648, %if.then156 ], [ %agg.tmp170.sroa.gep649, %if.then168 ], [ %agg.tmp173.sroa.gep650, %if.else171 ], [ %agg.tmp164.sroa.gep651, %if.then162 ], [ %agg.tmp141.sroa.gep652, %if.then139 ], [ %agg.tmp150.sroa.gep653, %if.else148 ], [ %agg.tmp147.sroa.gep654, %if.then145 ], [ %agg.tmp212.sroa.gep655, %sw.default ]
   store i8 1, ptr %agg.tmp206.sink606.sroa.phi, align 1
-  store i8 0, ptr %agg.tmp206.sink606.sroa.phi611, align 2
-  store i8 0, ptr %agg.tmp206.sink606.sroa.phi626, align 1
-  store i32 0, ptr %agg.tmp206.sink606.sroa.phi641, align 4
+  store i8 0, ptr %agg.tmp206.sink606.sroa.phi624, align 2
+  store i8 0, ptr %agg.tmp206.sink606.sroa.phi639, align 1
+  store i32 0, ptr %agg.tmp206.sink606.sroa.phi654, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec10set_formatENS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(160) %m_spec65, ptr noundef nonnull %agg.tmp206.sink606) #7
   br i1 %read_meta, label %if.then214, label %if.end241
 

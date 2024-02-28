@@ -93,27 +93,27 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %tm.addr.0 = phi ptr [ %sys, %if.then ], [ %tm, %entry ]
-  %tm_wday = getelementptr inbounds i8, ptr %tm.addr.0, i64 24
-  %0 = load i32, ptr %tm_wday, align 8
+  %tm.addr.0.sroa.phi24 = phi ptr [ %sys, %if.then ], [ %tm, %entry ]
+  %tm.addr.0.sroa.phi24.sroa.phi72 = getelementptr inbounds i8, ptr %tm.addr.0.sroa.phi24, i64 4
+  %tm.addr.0.sroa.phi24.sroa.phi69 = getelementptr inbounds i8, ptr %tm.addr.0.sroa.phi24, i64 8
+  %tm.addr.0.sroa.phi24.sroa.phi66 = getelementptr inbounds i8, ptr %tm.addr.0.sroa.phi24, i64 20
+  %tm.addr.0.sroa.phi24.sroa.phi = getelementptr inbounds i8, ptr %tm.addr.0.sroa.phi24, i64 16
+  %tm.addr.0.sroa.phi24.sroa.phi61 = getelementptr inbounds i8, ptr %tm.addr.0.sroa.phi24, i64 12
+  %tm.addr.0.sroa.phi24.sroa.phi59 = getelementptr inbounds i8, ptr %tm.addr.0.sroa.phi24, i64 24
+  %0 = load i32, ptr %tm.addr.0.sroa.phi24.sroa.phi59, align 8
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds [7 x ptr], ptr @evutil_date_rfc1123.DAYS, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
-  %tm_mday = getelementptr inbounds i8, ptr %tm.addr.0, i64 12
-  %2 = load i32, ptr %tm_mday, align 4
-  %tm_mon = getelementptr inbounds i8, ptr %tm.addr.0, i64 16
-  %3 = load i32, ptr %tm_mon, align 8
+  %2 = load i32, ptr %tm.addr.0.sroa.phi24.sroa.phi61, align 4
+  %3 = load i32, ptr %tm.addr.0.sroa.phi24.sroa.phi, align 8
   %idxprom2 = sext i32 %3 to i64
   %arrayidx3 = getelementptr inbounds [12 x ptr], ptr @evutil_date_rfc1123.MONTHS, i64 0, i64 %idxprom2
   %4 = load ptr, ptr %arrayidx3, align 8
-  %tm_year = getelementptr inbounds i8, ptr %tm.addr.0, i64 20
-  %5 = load i32, ptr %tm_year, align 4
+  %5 = load i32, ptr %tm.addr.0.sroa.phi24.sroa.phi66, align 4
   %add = add nsw i32 %5, 1900
-  %tm_hour = getelementptr inbounds i8, ptr %tm.addr.0, i64 8
-  %6 = load i32, ptr %tm_hour, align 8
-  %tm_min = getelementptr inbounds i8, ptr %tm.addr.0, i64 4
-  %7 = load i32, ptr %tm_min, align 4
-  %8 = load i32, ptr %tm.addr.0, align 8
+  %6 = load i32, ptr %tm.addr.0.sroa.phi24.sroa.phi69, align 8
+  %7 = load i32, ptr %tm.addr.0.sroa.phi24.sroa.phi72, align 4
+  %8 = load i32, ptr %tm.addr.0.sroa.phi24, align 8
   %call4 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef %date, i64 noundef %datelen, ptr noundef nonnull @.str.19, ptr noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef %add, i32 noundef %6, i32 noundef %7, i32 noundef %8) #8
   ret i32 %call4
 }

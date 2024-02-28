@@ -47808,16 +47808,16 @@ entry:
   %rot = alloca %class.btMatrix3x3, align 8
   %local_impulse_matrix = alloca %class.btMatrix3x3, align 4
   %ref.tmp145 = alloca %class.btMatrix3x3, align 4
-  %ref.tmp145.sroa.gep142 = getelementptr inbounds i8, ptr %ref.tmp145, i64 32
-  %ref.tmp145.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp145, i64 16
   %ref.tmp149 = alloca %class.btMatrix3x3, align 4
-  %ref.tmp149.sroa.gep143 = getelementptr inbounds i8, ptr %ref.tmp149, i64 32
-  %ref.tmp149.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp149, i64 16
   %ref.tmp150 = alloca %class.btMatrix3x3, align 4
   %ref.tmp152 = alloca %class.btMatrix3x3, align 4
   %ref.tmp158 = alloca %class.btMatrix3x3, align 4
   %ref.tmp159 = alloca %class.btMatrix3x3, align 4
   %ref.tmp160 = alloca %class.btMatrix3x3, align 4
+  %ref.tmp145.sink140.sroa.gep143 = getelementptr inbounds i8, ptr %ref.tmp145, i64 32
+  %ref.tmp145.sink140.sroa.gep144 = getelementptr inbounds i8, ptr %ref.tmp149, i64 32
+  %ref.tmp145.sink140.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp145, i64 16
+  %ref.tmp145.sink140.sroa.gep141 = getelementptr inbounds i8, ptr %ref.tmp149, i64 16
   %m_im = getelementptr inbounds i8, ptr %n, i64 112
   %0 = load float, ptr %m_im, align 8
   %cmp = fcmp ogt float %0, 0.000000e+00
@@ -48595,14 +48595,14 @@ invoke.cont154:                                   ; preds = %if.else148
           to label %invoke.cont161 unwind label %lpad104
 
 invoke.cont161:                                   ; preds = %invoke.cont154, %if.then144
+  %ref.tmp145.sink140.sroa.phi = phi ptr [ %ref.tmp145.sink140.sroa.gep, %if.then144 ], [ %ref.tmp145.sink140.sroa.gep141, %invoke.cont154 ]
+  %ref.tmp145.sink140.sroa.phi142 = phi ptr [ %ref.tmp145.sink140.sroa.gep143, %if.then144 ], [ %ref.tmp145.sink140.sroa.gep144, %invoke.cont154 ]
   %ref.tmp145.sink140 = phi ptr [ %ref.tmp145, %if.then144 ], [ %ref.tmp149, %invoke.cont154 ]
-  %ref.tmp145.sink140.sroa.phi = phi ptr [ %ref.tmp145.sroa.gep, %if.then144 ], [ %ref.tmp149.sroa.gep, %invoke.cont154 ]
-  %ref.tmp145.sink140.sroa.phi141 = phi ptr [ %ref.tmp145.sroa.gep142, %if.then144 ], [ %ref.tmp149.sroa.gep143, %invoke.cont154 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %local_impulse_matrix, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp145.sink140, i64 16, i1 false)
   %arrayidx7.i122 = getelementptr inbounds i8, ptr %local_impulse_matrix, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i122, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp145.sink140.sroa.phi, i64 16, i1 false)
   %arrayidx11.i124 = getelementptr inbounds i8, ptr %local_impulse_matrix, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i124, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp145.sink140.sroa.phi141, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i124, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp145.sink140.sroa.phi142, i64 16, i1 false)
   %181 = extractelement <2 x float> %169, i64 0
   store float %181, ptr %ref.tmp160, align 4, !alias.scope !546
   %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp160, i64 4

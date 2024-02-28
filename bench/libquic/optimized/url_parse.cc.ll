@@ -4538,9 +4538,9 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_i
 entry:
   %authority = alloca %"struct.url::Component", align 8
   %ref.tmp2 = alloca %"struct.url::Component", align 4
-  %ref.tmp2.4.gep.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 4
   %ref.tmp3 = alloca %"struct.url::Component", align 4
   %ref.tmp3.4.gep.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp3, i64 4
+  %ref.tmp2.4.gep53.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 4
   %cmp5.i = icmp slt i32 %after_scheme, %spec_len
   br i1 %cmp5.i, label %land.rhs.preheader.i, label %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit
 
@@ -4626,9 +4626,9 @@ if.else:                                          ; preds = %_ZN3url12_GLOBAL__N
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
+  %ref.tmp3.sink.sroa.phi = phi ptr [ %ref.tmp3.4.gep.sroa_idx, %if.else ], [ %ref.tmp2.4.gep53.sroa_idx, %if.then ]
   %ref.tmp3.sink = phi ptr [ %ref.tmp3, %if.else ], [ %ref.tmp2, %if.then ]
   %sub4.sink = phi i32 [ %sub4, %if.else ], [ -1, %if.then ]
-  %ref.tmp3.sink.sroa.phi = phi ptr [ %ref.tmp3.4.gep.sroa_idx, %if.else ], [ %ref.tmp2.4.gep.sroa_idx, %if.then ]
   store i32 %sub4.sink, ptr %ref.tmp3.sink.sroa.phi, align 4
   %storemerge = load i64, ptr %ref.tmp3.sink, align 4
   %full_path.sroa.0.0.extract.trunc = trunc i64 %storemerge to i32
@@ -4774,9 +4774,9 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_i
 entry:
   %authority = alloca %"struct.url::Component", align 8
   %ref.tmp2 = alloca %"struct.url::Component", align 4
-  %ref.tmp2.4.gep.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 4
   %ref.tmp3 = alloca %"struct.url::Component", align 4
   %ref.tmp3.4.gep.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp3, i64 4
+  %ref.tmp2.4.gep53.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 4
   %cmp5.i = icmp slt i32 %after_scheme, %spec_len
   br i1 %cmp5.i, label %land.rhs.preheader.i, label %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit
 
@@ -4862,9 +4862,9 @@ if.else:                                          ; preds = %_ZN3url12_GLOBAL__N
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
+  %ref.tmp3.sink.sroa.phi = phi ptr [ %ref.tmp3.4.gep.sroa_idx, %if.else ], [ %ref.tmp2.4.gep53.sroa_idx, %if.then ]
   %ref.tmp3.sink = phi ptr [ %ref.tmp3, %if.else ], [ %ref.tmp2, %if.then ]
   %sub4.sink = phi i32 [ %sub4, %if.else ], [ -1, %if.then ]
-  %ref.tmp3.sink.sroa.phi = phi ptr [ %ref.tmp3.4.gep.sroa_idx, %if.else ], [ %ref.tmp2.4.gep.sroa_idx, %if.then ]
   store i32 %sub4.sink, ptr %ref.tmp3.sink.sroa.phi, align 4
   %storemerge = load i64, ptr %ref.tmp3.sink, align 4
   %full_path.sroa.0.0.extract.trunc = trunc i64 %storemerge to i32

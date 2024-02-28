@@ -520,6 +520,10 @@ entry:
   %stackArgs = alloca %struct.UConverterLoadArgs, align 8
   %internalErrorCode = alloca i32, align 4
   %mayContainOption = alloca i8, align 1
+  %pPieces.addr.0.sroa.gep144 = getelementptr inbounds i8, ptr %pPieces, i64 220
+  %pPieces.addr.0.sroa.gep145 = getelementptr inbounds i8, ptr %stackPieces, i64 220
+  %pPieces.addr.0.sroa.gep = getelementptr inbounds i8, ptr %pPieces, i64 60
+  %pPieces.addr.0.sroa.gep142 = getelementptr inbounds i8, ptr %stackPieces, i64 60
   store i32 0, ptr %internalErrorCode, align 4
   store i8 1, ptr %mayContainOption, align 1
   %0 = load i32, ptr %err, align 4
@@ -542,31 +546,36 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp2.not, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.then1, %if.end5
-  %pPieces.addr.064 = phi ptr [ %pPieces, %if.end5 ], [ %stackPieces, %if.then1 ]
+  %pPieces.addr.0155 = phi ptr [ %pPieces, %if.end5 ], [ %stackPieces, %if.then1 ]
+  %pPieces.addr.0.sroa.phi143153 = phi ptr [ %pPieces.addr.0.sroa.gep144, %if.end5 ], [ %pPieces.addr.0.sroa.gep145, %if.then1 ]
+  %pPieces.addr.0.sroa.phi151 = phi ptr [ %pPieces.addr.0.sroa.gep, %if.end5 ], [ %pPieces.addr.0.sroa.gep142, %if.then1 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %stackArgs, i8 0, i64 40, i1 false)
   store i32 40, ptr %stackArgs, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then7, %if.end5
-  %pPieces.addr.063 = phi ptr [ %pPieces.addr.064, %if.then7 ], [ %pPieces, %if.end5 ]
+  %pPieces.addr.0154 = phi ptr [ %pPieces.addr.0155, %if.then7 ], [ %pPieces, %if.end5 ]
+  %pPieces.addr.0.sroa.phi143152 = phi ptr [ %pPieces.addr.0.sroa.phi143153, %if.then7 ], [ %pPieces.addr.0.sroa.gep144, %if.end5 ]
+  %pPieces.addr.0.sroa.phi150 = phi ptr [ %pPieces.addr.0.sroa.phi151, %if.then7 ], [ %pPieces.addr.0.sroa.gep, %if.end5 ]
   %pArgs.addr.0 = phi ptr [ %stackArgs, %if.then7 ], [ %pArgs, %if.end5 ]
-  store i8 0, ptr %pPieces.addr.063, align 4
-  %locale = getelementptr inbounds i8, ptr %pPieces.addr.063, i64 60
-  store i8 0, ptr %locale, align 4
-  %options = getelementptr inbounds i8, ptr %pPieces.addr.063, i64 220
-  store i32 0, ptr %options, align 4
-  %name = getelementptr inbounds i8, ptr %pArgs.addr.0, i64 24
-  store ptr %converterName, ptr %name, align 8
-  %locale11 = getelementptr inbounds i8, ptr %pArgs.addr.0, i64 32
-  store ptr %locale, ptr %locale11, align 8
-  %1 = load i32, ptr %options, align 4
-  %options13 = getelementptr inbounds i8, ptr %pArgs.addr.0, i64 12
-  store i32 %1, ptr %options13, align 4
+  %pArgs.addr.0.sroa.phi195 = getelementptr inbounds i8, ptr %pArgs.addr.0, i64 8
+  %pArgs.addr.0.sroa.phi192 = getelementptr inbounds i8, ptr %pArgs.addr.0, i64 24
+  %pArgs.addr.0.sroa.phi189 = getelementptr inbounds i8, ptr %pArgs.addr.0, i64 16
+  %pArgs.addr.0.sroa.phi = getelementptr inbounds i8, ptr %pArgs.addr.0, i64 4
+  %pArgs.addr.0.sroa.phi184 = getelementptr inbounds i8, ptr %pArgs.addr.0, i64 12
+  %pArgs.addr.0.sroa.phi182 = getelementptr inbounds i8, ptr %pArgs.addr.0, i64 32
+  store i8 0, ptr %pPieces.addr.0154, align 4
+  store i8 0, ptr %pPieces.addr.0.sroa.phi150, align 4
+  store i32 0, ptr %pPieces.addr.0.sroa.phi143152, align 4
+  store ptr %converterName, ptr %pArgs.addr.0.sroa.phi192, align 8
+  store ptr %pPieces.addr.0.sroa.phi150, ptr %pArgs.addr.0.sroa.phi182, align 8
+  %1 = load i32, ptr %pPieces.addr.0.sroa.phi143152, align 4
+  store i32 %1, ptr %pArgs.addr.0.sroa.phi184, align 4
   %cmp14 = icmp eq ptr %converterName, null
   br i1 %cmp14, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %if.end8
-  store ptr @.str, ptr %name, align 8
+  store ptr @.str, ptr %pArgs.addr.0.sroa.phi192, align 8
   br label %return
 
 if.else:                                          ; preds = %if.end8
@@ -627,27 +636,27 @@ land.lhs.true52:                                  ; preds = %land.lhs.true36
   br i1 %cmp55, label %if.then56, label %if.else58
 
 if.then56:                                        ; preds = %land.lhs.true52, %land.lhs.true44
-  store ptr @.str, ptr %name, align 8
+  store ptr @.str, ptr %pArgs.addr.0.sroa.phi192, align 8
   br label %return
 
 if.else58:                                        ; preds = %land.lhs.true36, %if.else, %land.lhs.true52, %land.lhs.true44, %cond.true40, %land.lhs.true32, %land.lhs.true28, %land.lhs.true, %cond.true
-  call fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef nonnull %converterName, ptr noundef nonnull %pPieces.addr.063, ptr noundef nonnull %pArgs.addr.0, ptr noundef nonnull %err)
+  call fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef nonnull %converterName, ptr noundef nonnull %pPieces.addr.0154, ptr noundef nonnull %pArgs.addr.0, ptr noundef nonnull %err)
   %11 = load i32, ptr %err, align 4
-  %cmp.i50 = icmp slt i32 %11, 1
-  br i1 %cmp.i50, label %if.end62, label %return
+  %cmp.i109 = icmp slt i32 %11, 1
+  br i1 %cmp.i109, label %if.end62, label %return
 
 if.end62:                                         ; preds = %if.else58
-  %12 = load ptr, ptr %name, align 8
+  %12 = load ptr, ptr %pArgs.addr.0.sroa.phi192, align 8
   %call64 = call ptr @ucnv_io_getConverterName_75(ptr noundef %12, ptr noundef nonnull %mayContainOption, ptr noundef nonnull %internalErrorCode)
-  store ptr %call64, ptr %name, align 8
+  store ptr %call64, ptr %pArgs.addr.0.sroa.phi192, align 8
   %13 = load i32, ptr %internalErrorCode, align 4
-  %cmp.i52 = icmp sgt i32 %13, 0
+  %cmp.i111 = icmp sgt i32 %13, 0
   %cmp69 = icmp eq ptr %call64, null
-  %or.cond67 = select i1 %cmp.i52, i1 true, i1 %cmp69
-  br i1 %or.cond67, label %if.then70, label %if.else74
+  %or.cond158 = select i1 %cmp.i111, i1 true, i1 %cmp69
+  br i1 %or.cond158, label %if.then70, label %if.else74
 
 if.then70:                                        ; preds = %if.end62
-  store ptr %pPieces.addr.063, ptr %name, align 8
+  store ptr %pPieces.addr.0154, ptr %pArgs.addr.0.sroa.phi192, align 8
   br label %if.end80
 
 if.else74:                                        ; preds = %if.end62
@@ -656,26 +665,26 @@ if.else74:                                        ; preds = %if.end62
 
 if.then76:                                        ; preds = %if.else74
   store i32 -122, ptr %err, align 4
-  %.pre70.pre = load ptr, ptr %name, align 8
+  %.pre177.pre = load ptr, ptr %pArgs.addr.0.sroa.phi192, align 8
   br label %if.end80
 
 if.end80:                                         ; preds = %if.else74, %if.then76, %if.then70
-  %.pre70 = phi ptr [ %call64, %if.else74 ], [ %.pre70.pre, %if.then76 ], [ %pPieces.addr.063, %if.then70 ]
+  %.pre177 = phi ptr [ %call64, %if.else74 ], [ %.pre177.pre, %if.then76 ], [ %pPieces.addr.0154, %if.then70 ]
   %14 = load i8, ptr %mayContainOption, align 1
   %tobool81.not = icmp eq i8 %14, 0
   br i1 %tobool81.not, label %if.then91, label %land.lhs.true82
 
 land.lhs.true82:                                  ; preds = %if.end80
-  %cmp86.not = icmp eq ptr %.pre70, %pPieces.addr.063
+  %cmp86.not = icmp eq ptr %.pre177, %pPieces.addr.0154
   br i1 %cmp86.not, label %if.then91, label %if.then87
 
 if.then87:                                        ; preds = %land.lhs.true82
-  call fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef %.pre70, ptr noundef nonnull %pPieces.addr.063, ptr noundef nonnull %pArgs.addr.0, ptr noundef nonnull %err)
-  %.pre = load ptr, ptr %name, align 8
+  call fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef %.pre177, ptr noundef nonnull %pPieces.addr.0154, ptr noundef nonnull %pArgs.addr.0, ptr noundef nonnull %err)
+  %.pre = load ptr, ptr %pArgs.addr.0.sroa.phi192, align 8
   br label %if.then91
 
 if.then91:                                        ; preds = %if.end80, %land.lhs.true82, %if.then87
-  %15 = phi ptr [ %.pre70, %if.end80 ], [ %pPieces.addr.063, %land.lhs.true82 ], [ %.pre, %if.then87 ]
+  %15 = phi ptr [ %.pre177, %if.end80 ], [ %pPieces.addr.0154, %land.lhs.true82 ], [ %.pre, %if.then87 ]
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %strippedName.i)
   %call.i = call ptr @ucnv_io_stripASCIIForCompare_75(ptr noundef nonnull %strippedName.i, ptr noundef %15)
   br label %if.end.i
@@ -700,8 +709,8 @@ if.end13.i:                                       ; preds = %if.else.i, %if.end.
   %limit.1.i = phi i32 [ %div811.i, %if.end.i ], [ %limit.010.i, %if.else.i ]
   %add.i = add i32 %limit.1.i, %start.1.i
   %div8.i = lshr i32 %add.i, 1
-  %cmp.i54 = icmp eq i32 %div811.i, %div8.i
-  br i1 %cmp.i54, label %_ZL26getAlgorithmicTypeFromNamePKc.exit.thread, label %if.end.i, !llvm.loop !4
+  %cmp.i113 = icmp eq i32 %div811.i, %div8.i
+  br i1 %cmp.i113, label %_ZL26getAlgorithmicTypeFromNamePKc.exit.thread, label %if.end.i, !llvm.loop !4
 
 _ZL26getAlgorithmicTypeFromNamePKc.exit.thread:   ; preds = %if.end13.i
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %strippedName.i)
@@ -720,21 +729,19 @@ _ZL26getAlgorithmicTypeFromNamePKc.exit:          ; preds = %if.else.i
   br i1 %cmp95.not, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %_ZL26getAlgorithmicTypeFromNamePKc.exit, %_ZL26getAlgorithmicTypeFromNamePKc.exit.thread
-  %nestedLoads = getelementptr inbounds i8, ptr %pArgs.addr.0, i64 4
-  store i32 1, ptr %nestedLoads, align 4
-  %pkg = getelementptr inbounds i8, ptr %pArgs.addr.0, i64 16
-  store ptr null, ptr %pkg, align 8
+  store i32 1, ptr %pArgs.addr.0.sroa.phi, align 4
+  store ptr null, ptr %pArgs.addr.0.sroa.phi189, align 8
   call void @umtx_lock_75(ptr noundef nonnull @_ZL13cnvCacheMutex)
   %21 = load i32, ptr %err, align 4
   %cmp.i.i = icmp slt i32 %21, 1
-  br i1 %cmp.i.i, label %if.end.i57, label %ucnv_load_75.exit
+  br i1 %cmp.i.i, label %if.end.i116, label %ucnv_load_75.exit
 
-if.end.i57:                                       ; preds = %lor.lhs.false.i
-  %22 = load ptr, ptr %pkg, align 8
+if.end.i116:                                      ; preds = %lor.lhs.false.i
+  %22 = load ptr, ptr %pArgs.addr.0.sroa.phi189, align 8
   %cmp1.not.i = icmp eq ptr %22, null
   br i1 %cmp1.not.i, label %if.end6.i, label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %if.end.i57
+land.lhs.true.i:                                  ; preds = %if.end.i116
   %23 = load i8, ptr %22, align 1
   %cmp3.not.i = icmp eq i8 %23, 0
   br i1 %cmp3.not.i, label %if.end6.i, label %if.then4.i
@@ -743,13 +750,13 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   %call5.i = call fastcc noundef ptr @_ZL23createConverterFromFileP18UConverterLoadArgsP10UErrorCode(ptr noundef nonnull %pArgs.addr.0, ptr noundef nonnull %err)
   br label %ucnv_load_75.exit
 
-if.end6.i:                                        ; preds = %land.lhs.true.i, %if.end.i57
+if.end6.i:                                        ; preds = %land.lhs.true.i, %if.end.i116
   %24 = load ptr, ptr @_ZL21SHARED_DATA_HASHTABLE, align 8
   %cmp.i14.i = icmp eq ptr %24, null
   br i1 %cmp.i14.i, label %if.then9.i, label %_ZL27ucnv_getSharedConverterDataPKc.exit.i
 
 _ZL27ucnv_getSharedConverterDataPKc.exit.i:       ; preds = %if.end6.i
-  %25 = load ptr, ptr %name, align 8
+  %25 = load ptr, ptr %pArgs.addr.0.sroa.phi192, align 8
   %call.i.i = call ptr @uhash_get_75(ptr noundef nonnull %24, ptr noundef %25)
   %cmp8.i = icmp eq ptr %call.i.i, null
   br i1 %cmp8.i, label %if.then9.i, label %if.else20.i
@@ -760,15 +767,14 @@ if.then9.i:                                       ; preds = %_ZL27ucnv_getShared
   %cmp.i15.i = icmp sgt i32 %26, 0
   %cmp14.i = icmp eq ptr %call10.i, null
   %or.cond.i = or i1 %cmp14.i, %cmp.i15.i
-  br i1 %or.cond.i, label %ucnv_load_75.exit, label %if.else.i58
+  br i1 %or.cond.i, label %ucnv_load_75.exit, label %if.else.i117
 
-if.else.i58:                                      ; preds = %if.then9.i
-  %onlyTestIsLoadable.i = getelementptr inbounds i8, ptr %pArgs.addr.0, i64 8
-  %27 = load i8, ptr %onlyTestIsLoadable.i, align 8
+if.else.i117:                                     ; preds = %if.then9.i
+  %27 = load i8, ptr %pArgs.addr.0.sroa.phi195, align 8
   %tobool16.not.i = icmp eq i8 %27, 0
   br i1 %tobool16.not.i, label %if.then17.i, label %ucnv_load_75.exit
 
-if.then17.i:                                      ; preds = %if.else.i58
+if.then17.i:                                      ; preds = %if.else.i117
   call fastcc void @_ZL23ucnv_shareConverterDataP20UConverterSharedData(ptr noundef nonnull %call10.i)
   br label %ucnv_load_75.exit
 
@@ -779,12 +785,12 @@ if.else20.i:                                      ; preds = %_ZL27ucnv_getShared
   store i32 %inc.i, ptr %referenceCounter.i, align 4
   br label %ucnv_load_75.exit
 
-ucnv_load_75.exit:                                ; preds = %lor.lhs.false.i, %if.then4.i, %if.then9.i, %if.else.i58, %if.then17.i, %if.else20.i
-  %retval.0.i56 = phi ptr [ %call5.i, %if.then4.i ], [ null, %lor.lhs.false.i ], [ null, %if.then9.i ], [ %call10.i, %if.else.i58 ], [ %call10.i, %if.then17.i ], [ %call.i.i, %if.else20.i ]
+ucnv_load_75.exit:                                ; preds = %lor.lhs.false.i, %if.then4.i, %if.then9.i, %if.else.i117, %if.then17.i, %if.else20.i
+  %retval.0.i115 = phi ptr [ %call5.i, %if.then4.i ], [ null, %lor.lhs.false.i ], [ null, %if.then9.i ], [ %call10.i, %if.else.i117 ], [ %call10.i, %if.then17.i ], [ %call.i.i, %if.else20.i ]
   call void @umtx_unlock_75(ptr noundef nonnull @_ZL13cnvCacheMutex)
   %29 = load i32, ptr %err, align 4
-  %cmp.i59 = icmp sgt i32 %29, 0
-  %spec.select = select i1 %cmp.i59, ptr null, ptr %retval.0.i56
+  %cmp.i118 = icmp sgt i32 %29, 0
+  %spec.select = select i1 %cmp.i118, ptr null, ptr %retval.0.i115
   br label %return
 
 return:                                           ; preds = %ucnv_load_75.exit, %_ZL26getAlgorithmicTypeFromNamePKc.exit, %if.else58, %entry, %if.then56, %if.then15, %if.then3
@@ -1551,15 +1557,15 @@ ucnv_loadSharedData_75.exit.i:                    ; preds = %if.end.i3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %stackArgs.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %stackArgs.i.i, i8 0, i64 24, i1 false)
   store i32 40, ptr %stackArgs.i.i, align 8
+  %pPieces.addr.0.sroa.gep144.i.i = getelementptr inbounds i8, ptr %stackPieces.i.i, i64 220
+  %pPieces.addr.0.sroa.gep.i.i = getelementptr inbounds i8, ptr %stackPieces.i.i, i64 60
+  %pArgs.addr.0.sroa.phi171.i.i = getelementptr inbounds i8, ptr %stackArgs.i.i, i64 24
+  %pArgs.addr.0.sroa.phi161.i.i = getelementptr inbounds i8, ptr %stackArgs.i.i, i64 32
   store i8 0, ptr %stackPieces.i.i, align 4
-  %locale.i.i = getelementptr inbounds i8, ptr %stackPieces.i.i, i64 60
-  store i8 0, ptr %locale.i.i, align 4
-  %options.i.i = getelementptr inbounds i8, ptr %stackPieces.i.i, i64 220
-  store i32 0, ptr %options.i.i, align 4
-  %name.i.i = getelementptr inbounds i8, ptr %stackArgs.i.i, i64 24
-  %locale11.i.i = getelementptr inbounds i8, ptr %stackArgs.i.i, i64 32
-  store ptr %locale.i.i, ptr %locale11.i.i, align 8
-  store ptr @.str, ptr %name.i.i, align 8
+  store i8 0, ptr %pPieces.addr.0.sroa.gep.i.i, align 4
+  store i32 0, ptr %pPieces.addr.0.sroa.gep144.i.i, align 4
+  store ptr %pPieces.addr.0.sroa.gep.i.i, ptr %pArgs.addr.0.sroa.phi161.i.i, align 8
+  store ptr @.str, ptr %pArgs.addr.0.sroa.phi171.i.i, align 8
   %call2.i.i = call ptr @ucnv_createConverterFromSharedData_75(ptr noundef nonnull %tempConverter.i, ptr noundef nonnull @_UTF8Data_75, ptr noundef nonnull %stackArgs.i.i, ptr noundef nonnull %localStatus.i)
   %3 = load i32, ptr %localStatus.i, align 4
   %cmp.i5.i.i = icmp sgt i32 %3, 0

@@ -1446,6 +1446,9 @@ _ZN6Assimp3LWO8EnvelopeD2Ev.exit35:               ; preds = %_ZN6Assimp3LWO8Enve
 if.end23:                                         ; preds = %land.lhs.true, %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.end
   %6 = phi ptr [ %_envl_x, %if.end ], [ %def_x, %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %_envl_x, %land.lhs.true ]
   %key_dummy.sroa.8.0241 = phi float [ %key_dummy.sroa.8.0, %if.end ], [ %key_dummy.sroa.8.0, %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ 1.000000e+00, %land.lhs.true ]
+  %.sroa.phi273 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.phi269 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.phi265 = getelementptr inbounds i8, ptr %6, i64 24
   %tobool25.not = icmp eq ptr %_envl_y, null
   br i1 %tobool25.not, label %cond.true.i.i.i53, label %if.end31
 
@@ -1472,6 +1475,7 @@ _ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx1
 
 if.end31:                                         ; preds = %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i70, %if.end23
   %7 = phi ptr [ %def_y, %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i70 ], [ %_envl_y, %if.end23 ]
+  %.sroa.phi262 = getelementptr inbounds i8, ptr %7, i64 24
   %tobool33.not = icmp eq ptr %_envl_z, null
   br i1 %tobool33.not, label %cond.true.i.i.i94, label %if.end39
 
@@ -1503,6 +1507,7 @@ if.end39:                                         ; preds = %_ZNSt6vectorIN6Assi
   br i1 %tobool41.not, label %if.else68, label %invoke.cont61
 
 invoke.cont61:                                    ; preds = %if.end39
+  %.sroa.phi = getelementptr inbounds i8, ptr %8, i64 24
   %sample_rate = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load double, ptr %sample_rate, align 8
   %tobool43 = fcmp une double %9, 0.000000e+00
@@ -1510,14 +1515,11 @@ invoke.cont61:                                    ; preds = %if.end39
   %div = fdiv double 1.000000e+00, %.
   %sample_delta = getelementptr inbounds i8, ptr %this, i64 168
   store double %div, ptr %sample_delta, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !14
+  %10 = load ptr, ptr %.sroa.phi265, align 8, !noalias !14
   %incdec.ptr.i.i118 = getelementptr inbounds i8, ptr %10, i64 -40
-  %_M_finish.i.i119 = getelementptr inbounds i8, ptr %7, i64 24
-  %11 = load ptr, ptr %_M_finish.i.i119, align 8, !noalias !17
+  %11 = load ptr, ptr %.sroa.phi262, align 8, !noalias !17
   %incdec.ptr.i.i120 = getelementptr inbounds i8, ptr %11, i64 -40
-  %_M_finish.i.i121 = getelementptr inbounds i8, ptr %8, i64 24
-  %12 = load ptr, ptr %_M_finish.i.i121, align 8, !noalias !20
+  %12 = load ptr, ptr %.sroa.phi, align 8, !noalias !20
   %incdec.ptr.i.i122 = getelementptr inbounds i8, ptr %12, i64 -40
   %13 = load double, ptr %incdec.ptr.i.i120, align 8
   %14 = load double, ptr %incdec.ptr.i.i122, align 8
@@ -1531,18 +1533,16 @@ invoke.cont61:                                    ; preds = %if.end39
   br label %if.end85
 
 if.else68:                                        ; preds = %if.end39
-  %keys71 = getelementptr inbounds i8, ptr %6, i64 16
-  %_M_finish.i125 = getelementptr inbounds i8, ptr %6, i64 24
-  %18 = load ptr, ptr %_M_finish.i125, align 8
-  %19 = load ptr, ptr %keys71, align 8
+  %.sroa.phi259 = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.phi256 = getelementptr inbounds i8, ptr %8, i64 24
+  %18 = load ptr, ptr %.sroa.phi269, align 8
+  %19 = load ptr, ptr %.sroa.phi273, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
-  %keys79 = getelementptr inbounds i8, ptr %8, i64 16
-  %_M_finish.i131 = getelementptr inbounds i8, ptr %8, i64 24
-  %20 = load ptr, ptr %_M_finish.i131, align 8
-  %21 = load ptr, ptr %keys79, align 8
+  %20 = load ptr, ptr %.sroa.phi256, align 8
+  %21 = load ptr, ptr %.sroa.phi259, align 8
   %sub.ptr.lhs.cast.i132 = ptrtoint ptr %20 to i64
   %sub.ptr.rhs.cast.i133 = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i134 = sub i64 %sub.ptr.lhs.cast.i132, %sub.ptr.rhs.cast.i133

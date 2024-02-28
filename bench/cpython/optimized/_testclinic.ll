@@ -5738,10 +5738,12 @@ exit:                                             ; preds = %entry, %str_convert
 ; Function Attrs: nounwind uwtable
 define internal ptr @py_buffer_converter(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
-  %in.i = alloca [2 x ptr], align 16
-  %out.i = alloca [2 x ptr], align 16
+  %out.i.sroa.0 = alloca ptr, align 16
+  %out.i.sroa.8 = alloca ptr, align 8
   %a = alloca %struct.Py_buffer, align 8
   %b = alloca %struct.Py_buffer, align 8
+  %indvars.iv.i.sroa.phi7.sroa.speculated.sroa.gep = getelementptr inbounds i8, ptr %a, i64 16
+  %indvars.iv.i.sroa.phi7.sroa.speculated.sroa.gep9 = getelementptr inbounds i8, ptr %b, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %a, i8 0, i64 80, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %b, i8 0, i64 80, i1 false)
   %call = call i32 (ptr, i64, ptr, ...) @_PyArg_ParseStack(ptr noundef %args, i64 noundef %nargs, ptr noundef nonnull @.str.136, ptr noundef nonnull %a, ptr noundef nonnull %b) #9
@@ -5749,8 +5751,8 @@ entry:
   br i1 %tobool.not, label %exit, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %in.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %out.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out.i.sroa.0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out.i.sroa.8)
   %call.i = call ptr @PyErr_Occurred() #9
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %cond.end.i, label %cond.false.i
@@ -5760,38 +5762,35 @@ cond.false.i:                                     ; preds = %if.end
   unreachable
 
 cond.end.i:                                       ; preds = %if.end
-  store ptr %a, ptr %in.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %in.i, i64 8
-  store ptr %b, ptr %arrayinit.element.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %out.i, i8 0, i64 16, i1 false)
+  store ptr null, ptr %out.i.sroa.0, align 16
+  store ptr null, ptr %out.i.sroa.8, align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc20.i, %cond.end.i
   %cmp.i = phi i1 [ true, %cond.end.i ], [ false, %for.inc20.i ]
-  %indvars.iv.i = phi i64 [ 0, %cond.end.i ], [ 1, %for.inc20.i ]
-  %arrayidx.i = getelementptr [2 x ptr], ptr %in.i, i64 0, i64 %indvars.iv.i
-  %0 = load ptr, ptr %arrayidx.i, align 8
-  %len.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %1 = load i64, ptr %len.i.i, align 8
-  %call.i.i = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %1) #9
+  %indvars.iv.i.sroa.phi = phi ptr [ %out.i.sroa.0, %cond.end.i ], [ %out.i.sroa.8, %for.inc20.i ]
+  %indvars.iv.i.sroa.phi7.sroa.speculated.sroa.phi = phi ptr [ %indvars.iv.i.sroa.phi7.sroa.speculated.sroa.gep, %cond.end.i ], [ %indvars.iv.i.sroa.phi7.sroa.speculated.sroa.gep9, %for.inc20.i ]
+  %indvars.iv.i.sroa.phi7.sroa.speculated = phi ptr [ %a, %cond.end.i ], [ %b, %for.inc20.i ]
+  %0 = load i64, ptr %indvars.iv.i.sroa.phi7.sroa.speculated.sroa.phi, align 8
+  %call.i.i = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %0) #9
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %lor.lhs.false.i, label %if.end.i20.i
 
 if.end.i20.i:                                     ; preds = %for.body.i
   %ob_sval.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
-  %2 = load i64, ptr %len.i.i, align 8
-  %call2.i.i = call i32 @PyBuffer_ToContiguous(ptr noundef nonnull %ob_sval.i.i, ptr noundef nonnull %0, i64 noundef %2, i8 noundef signext 67) #9
+  %1 = load i64, ptr %indvars.iv.i.sroa.phi7.sroa.speculated.sroa.phi, align 8
+  %call2.i.i = call i32 @PyBuffer_ToContiguous(ptr noundef nonnull %ob_sval.i.i, ptr noundef nonnull %indvars.iv.i.sroa.phi7.sroa.speculated, i64 noundef %1, i8 noundef signext 67) #9
   %cmp.i21.i = icmp slt i32 %call2.i.i, 0
   br i1 %cmp.i21.i, label %if.then3.i.i, label %for.inc20.i
 
 if.then3.i.i:                                     ; preds = %if.end.i20.i
-  %3 = load i64, ptr %call.i.i, align 8
-  %4 = and i64 %3, 2147483648
-  %cmp.i6.not.i.i = icmp eq i64 %4, 0
+  %2 = load i64, ptr %call.i.i, align 8
+  %3 = and i64 %2, 2147483648
+  %cmp.i6.not.i.i = icmp eq i64 %3, 0
   br i1 %cmp.i6.not.i.i, label %if.end.i.i.i, label %lor.lhs.false.i
 
 if.end.i.i.i:                                     ; preds = %if.then3.i.i
-  %dec.i.i.i = add i64 %3, -1
+  %dec.i.i.i = add i64 %2, -1
   store i64 %dec.i.i.i, ptr %call.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %lor.lhs.false.i
@@ -5801,8 +5800,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i, %if.then1.i.i.i, %if.end.i.i.i, %if.then3.i.i
-  %arrayidx32.i = getelementptr [2 x ptr], ptr %out.i, i64 0, i64 %indvars.iv.i
-  store ptr null, ptr %arrayidx32.i, align 8
+  store ptr null, ptr %indvars.iv.i.sroa.phi, align 8
   %call7.i = call ptr @PyErr_Occurred() #9
   %tobool8.not.i = icmp eq ptr %call7.i, null
   br i1 %tobool8.not.i, label %cond.false10.i, label %for.cond15.preheader.i
@@ -5815,25 +5813,24 @@ cond.false10.i:                                   ; preds = %lor.lhs.false.i
   unreachable
 
 for.body17.i:                                     ; preds = %for.cond15.preheader.i
-  %5 = load ptr, ptr %out.i, align 16
-  %6 = load i64, ptr %5, align 8
-  %7 = and i64 %6, 2147483648
-  %cmp.i55.not.i = icmp eq i64 %7, 0
+  %out.i.sroa.0.0.out.i.sroa.0.0.out.i.sroa.0.0.out.i.sroa.0.0. = load ptr, ptr %out.i.sroa.0, align 16
+  %4 = load i64, ptr %out.i.sroa.0.0.out.i.sroa.0.0.out.i.sroa.0.0.out.i.sroa.0.0., align 8
+  %5 = and i64 %4, 2147483648
+  %cmp.i55.not.i = icmp eq i64 %5, 0
   br i1 %cmp.i55.not.i, label %if.end.i48.i, label %py_buffer_converter_impl.exit
 
 if.end.i48.i:                                     ; preds = %for.body17.i
-  %dec.i49.i = add i64 %6, -1
-  store i64 %dec.i49.i, ptr %5, align 8
+  %dec.i49.i = add i64 %4, -1
+  store i64 %dec.i49.i, ptr %out.i.sroa.0.0.out.i.sroa.0.0.out.i.sroa.0.0.out.i.sroa.0.0., align 8
   %cmp.i50.i = icmp eq i64 %dec.i49.i, 0
   br i1 %cmp.i50.i, label %if.then1.i51.i, label %py_buffer_converter_impl.exit
 
 if.then1.i51.i:                                   ; preds = %if.end.i48.i
-  call void @_Py_Dealloc(ptr noundef nonnull %5) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %out.i.sroa.0.0.out.i.sroa.0.0.out.i.sroa.0.0.out.i.sroa.0.0.) #9
   br label %py_buffer_converter_impl.exit
 
 for.inc20.i:                                      ; preds = %if.end.i20.i
-  %arrayidx3.i = getelementptr [2 x ptr], ptr %out.i, i64 0, i64 %indvars.iv.i
-  store ptr %call.i.i, ptr %arrayidx3.i, align 8
+  store ptr %call.i.i, ptr %indvars.iv.i.sroa.phi, align 8
   br i1 %cmp.i, label %for.body.i, label %for.end22.i, !llvm.loop !45
 
 for.end22.i:                                      ; preds = %for.inc20.i
@@ -5843,46 +5840,44 @@ for.end22.i:                                      ; preds = %for.inc20.i
 
 for.body29.i:                                     ; preds = %for.end22.i, %for.inc32.i
   %cmp28.i = phi i1 [ false, %for.inc32.i ], [ true, %for.end22.i ]
-  %indvars.iv32.i = phi i64 [ 1, %for.inc32.i ], [ 0, %for.end22.i ]
-  %arrayidx31.i = getelementptr [2 x ptr], ptr %out.i, i64 0, i64 %indvars.iv32.i
-  %8 = load ptr, ptr %arrayidx31.i, align 8
-  %9 = load i64, ptr %8, align 8
-  %10 = and i64 %9, 2147483648
-  %cmp.i58.not.i = icmp eq i64 %10, 0
+  %indvars.iv32.i.sroa.phi = phi ptr [ %out.i.sroa.8, %for.inc32.i ], [ %out.i.sroa.0, %for.end22.i ]
+  %6 = load ptr, ptr %indvars.iv32.i.sroa.phi, align 8
+  %7 = load i64, ptr %6, align 8
+  %8 = and i64 %7, 2147483648
+  %cmp.i58.not.i = icmp eq i64 %8, 0
   br i1 %cmp.i58.not.i, label %if.end.i.i, label %for.inc32.i
 
 if.end.i.i:                                       ; preds = %for.body29.i
-  %dec.i.i = add i64 %9, -1
-  store i64 %dec.i.i, ptr %8, align 8
+  %dec.i.i = add i64 %7, -1
+  store i64 %dec.i.i, ptr %6, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %for.inc32.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %8) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %6) #9
   br label %for.inc32.i
 
 for.inc32.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body29.i
   br i1 %cmp28.i, label %for.body29.i, label %py_buffer_converter_impl.exit, !llvm.loop !46
 
 for.body39.i:                                     ; preds = %for.end22.i
-  %11 = load ptr, ptr %out.i, align 16
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call23.i, i64 noundef 0, ptr noundef %11)
-  %arrayidx41.i.c = getelementptr inbounds i8, ptr %out.i, i64 8
-  %12 = load ptr, ptr %arrayidx41.i.c, align 8
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call23.i, i64 noundef 1, ptr noundef %12)
+  %out.i.sroa.0.0.out.i.sroa.0.0. = load ptr, ptr %out.i.sroa.0, align 16
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call23.i, i64 noundef 0, ptr noundef %out.i.sroa.0.0.out.i.sroa.0.0.)
+  %out.i.sroa.8.0.out.i.sroa.8.0. = load ptr, ptr %out.i.sroa.8, align 8
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call23.i, i64 noundef 1, ptr noundef %out.i.sroa.8.0.out.i.sroa.8.0.)
   br label %py_buffer_converter_impl.exit
 
 py_buffer_converter_impl.exit:                    ; preds = %for.inc32.i, %for.body39.i, %for.cond15.preheader.i, %for.body17.i, %if.end.i48.i, %if.then1.i51.i
   %retval.0.i = phi ptr [ null, %if.end.i48.i ], [ null, %if.then1.i51.i ], [ null, %for.body17.i ], [ null, %for.cond15.preheader.i ], [ %call23.i, %for.body39.i ], [ null, %for.inc32.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %in.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %out.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out.i.sroa.0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out.i.sroa.8)
   br label %exit
 
 exit:                                             ; preds = %entry, %py_buffer_converter_impl.exit
   %return_value.0 = phi ptr [ %retval.0.i, %py_buffer_converter_impl.exit ], [ null, %entry ]
   %obj = getelementptr inbounds i8, ptr %a, i64 8
-  %13 = load ptr, ptr %obj, align 8
-  %tobool2.not = icmp eq ptr %13, null
+  %9 = load ptr, ptr %obj, align 8
+  %tobool2.not = icmp eq ptr %9, null
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %exit
@@ -5891,8 +5886,8 @@ if.then3:                                         ; preds = %exit
 
 if.end4:                                          ; preds = %if.then3, %exit
   %obj5 = getelementptr inbounds i8, ptr %b, i64 8
-  %14 = load ptr, ptr %obj5, align 8
-  %tobool6.not = icmp eq ptr %14, null
+  %10 = load ptr, ptr %obj5, align 8
+  %tobool6.not = icmp eq ptr %10, null
   br i1 %tobool6.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %if.end4

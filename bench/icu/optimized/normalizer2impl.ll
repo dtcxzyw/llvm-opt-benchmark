@@ -2494,6 +2494,8 @@ declare i32 @ucptrie_internalSmallIndex_75(ptr noundef, i32 noundef) local_unnam
 define noundef signext i8 @_ZNK6icu_7515Normalizer2Impl9decomposeEitRNS_16ReorderingBufferER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i32 noundef %c, i16 noundef zeroext %norm16, ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 {
 entry:
   %jamos = alloca [3 x i16], align 2
+  %retval.0.i.sroa.gep = getelementptr inbounds i8, ptr %jamos, i64 6
+  %retval.0.i.sroa.gep48 = getelementptr inbounds i8, ptr %jamos, i64 4
   %limitNoNo = getelementptr inbounds i8, ptr %this, i64 26
   %0 = load i16, ptr %limitNoNo, align 2
   %cmp.not = icmp ugt i16 %0, %norm16
@@ -2632,14 +2634,12 @@ if.then18:                                        ; preds = %lor.lhs.false, %if.
 if.else.i:                                        ; preds = %if.then18
   %18 = trunc i32 %rem.i to i16
   %conv7.i = add nsw i16 %18, 4519
-  %arrayidx8.i = getelementptr inbounds i8, ptr %jamos, i64 4
-  store i16 %conv7.i, ptr %arrayidx8.i, align 2
+  store i16 %conv7.i, ptr %retval.0.i.sroa.gep48, align 2
   br label %_ZN6icu_756Hangul9decomposeEiPDs.exit
 
 _ZN6icu_756Hangul9decomposeEiPDs.exit:            ; preds = %if.then18, %if.else.i
-  %retval.0.i = phi i64 [ 3, %if.else.i ], [ 2, %if.then18 ]
-  %add.ptr = getelementptr inbounds i16, ptr %jamos, i64 %retval.0.i
-  %call22 = call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef nonnull %jamos, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !10
+  %retval.0.i.sroa.phi = phi ptr [ %retval.0.i.sroa.gep, %if.else.i ], [ %retval.0.i.sroa.gep48, %if.then18 ]
+  %call22 = call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef nonnull %jamos, ptr noundef nonnull %retval.0.i.sroa.phi, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !10
   br label %return
 
 if.end24:                                         ; preds = %lor.lhs.false
@@ -3431,6 +3431,8 @@ return:                                           ; preds = %if.end12, %lor.rhs1
 define noundef ptr @_ZNK6icu_7515Normalizer2Impl14decomposeShortEPKhS2_NS0_6StopAtEaRNS_16ReorderingBufferER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef %src, ptr noundef readnone %limit, i32 noundef %stopAt, i8 noundef signext %onlyContiguous, ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 {
 entry:
   %jamos = alloca [3 x i16], align 2
+  %retval.0.i234.sroa.gep = getelementptr inbounds i8, ptr %jamos, i64 6
+  %retval.0.i234.sroa.gep287 = getelementptr inbounds i8, ptr %jamos, i64 4
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %while.cond.preheader, label %return
@@ -3453,7 +3455,6 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   %minYesNoMappingsOnly.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %extraData.i = getelementptr inbounds i8, ptr %this, i64 48
   %arrayidx5.i = getelementptr inbounds i8, ptr %jamos, i64 2
-  %arrayidx8.i233 = getelementptr inbounds i8, ptr %jamos, i64 4
   %tobool.not.i = icmp eq i8 %onlyContiguous, 0
   %not.cmp110 = xor i1 %cmp110, true
   br label %while.body
@@ -3483,12 +3484,12 @@ cond.true7:                                       ; preds = %cond.true
   %idxprom = zext nneg i32 %and8 to i64
   %arrayidx = getelementptr inbounds [17 x i8], ptr @.str, i64 0, i64 %idxprom
   %2 = load i8, ptr %arrayidx, align 1
-  %conv9289 = zext i8 %2 to i32
+  %conv9290 = zext i8 %2 to i32
   %3 = load i8, ptr %incdec.ptr, align 1
   %conv10 = zext i8 %3 to i32
   %shr = lshr i32 %conv10, 5
   %shl = shl nuw nsw i32 1, %shr
-  %and11 = and i32 %shl, %conv9289
+  %and11 = and i32 %shl, %conv9290
   %tobool12.not = icmp eq i32 %and11, 0
   br i1 %tobool12.not, label %if.else, label %land.lhs.true13
 
@@ -3874,8 +3875,8 @@ if.end140.thread:                                 ; preds = %if.else132
 
 if.end140.thread.if.then146_crit_edge:            ; preds = %if.end140.thread
   %.pre = ptrtoint ptr %src.addr.3 to i64
-  %.pre287 = ptrtoint ptr %src.addr.0271 to i64
-  %.pre288 = sub i64 %.pre, %.pre287
+  %.pre288 = ptrtoint ptr %src.addr.0271 to i64
+  %.pre289 = sub i64 %.pre, %.pre288
   br label %if.then146
 
 if.then144:                                       ; preds = %if.end140
@@ -3883,7 +3884,7 @@ if.then144:                                       ; preds = %if.end140
   br i1 %cmp145, label %if.then146, label %if.end148
 
 if.then146:                                       ; preds = %if.end140.thread.if.then146_crit_edge, %if.then144
-  %sub.ptr.sub.i142.pre-phi = phi i64 [ %.pre288, %if.end140.thread.if.then146_crit_edge ], [ %sub.ptr.sub.i93, %if.then144 ]
+  %sub.ptr.sub.i142.pre-phi = phi i64 [ %.pre289, %if.end140.thread.if.then146_crit_edge ], [ %sub.ptr.sub.i93, %if.then144 ]
   %norm16.0248253 = phi i16 [ %23, %if.end140.thread.if.then146_crit_edge ], [ %66, %if.then144 ]
   %69 = load i8, ptr %src.addr.0271, align 1
   switch i64 %sub.ptr.sub.i142.pre-phi, label %sw.default.i177 [
@@ -4076,13 +4077,12 @@ if.end162:                                        ; preds = %sw.bb19.i194, %sw.b
 if.else.i:                                        ; preds = %if.end162
   %104 = trunc i32 %rem.i to i16
   %conv7.i = add nsw i16 %104, 4519
-  store i16 %conv7.i, ptr %arrayidx8.i233, align 2
+  store i16 %conv7.i, ptr %retval.0.i234.sroa.gep287, align 2
   br label %_ZN6icu_756Hangul9decomposeEiPDs.exit
 
 _ZN6icu_756Hangul9decomposeEiPDs.exit:            ; preds = %if.end162, %if.else.i
-  %retval.0.i234 = phi i64 [ 3, %if.else.i ], [ 2, %if.end162 ]
-  %add.ptr = getelementptr inbounds i16, ptr %jamos, i64 %retval.0.i234
-  %call166 = call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef nonnull %jamos, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !10
+  %retval.0.i234.sroa.phi = phi ptr [ %retval.0.i234.sroa.gep, %if.else.i ], [ %retval.0.i234.sroa.gep287, %if.end162 ]
+  %call166 = call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef nonnull %jamos, ptr noundef nonnull %retval.0.i234.sroa.phi, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !10
   %tobool167.not = icmp eq i8 %call166, 0
   br i1 %tobool167.not, label %return, label %if.end199
 

@@ -1580,7 +1580,6 @@ entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   %ref.tmp5 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp7 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp7.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   %decoded_internal_key = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp13 = alloca %"class.rocksdb::Status", align 8
   %tmp_slice = alloca %"class.rocksdb::Slice", align 8
@@ -1589,7 +1588,8 @@ entry:
   %ref.tmp83 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp146 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp148 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp148.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp148, i64 8
+  %ref.tmp148.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp148, i64 8
+  %ref.tmp148.sink.sroa.gep439 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 2
   %retryable_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 3
@@ -1683,9 +1683,9 @@ if.then4:                                         ; preds = %if.end
   br label %if.then4.invoke
 
 if.then4.invoke:                                  ; preds = %sw.default, %if.then4
+  %ref.tmp148.sink.sroa.phi = phi ptr [ %ref.tmp148.sink.sroa.gep, %sw.default ], [ %ref.tmp148.sink.sroa.gep439, %if.then4 ]
   %ref.tmp148.sink = phi ptr [ %ref.tmp148, %sw.default ], [ %ref.tmp7, %if.then4 ]
   %12 = phi ptr [ %ref.tmp146, %sw.default ], [ %ref.tmp5, %if.then4 ]
-  %ref.tmp148.sink.sroa.phi = phi ptr [ %ref.tmp148.sroa.gep, %sw.default ], [ %ref.tmp7.sroa.gep, %if.then4 ]
   store i64 0, ptr %ref.tmp148.sink.sroa.phi, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp148.sink, i8 noundef zeroext 0)
           to label %cleanup unwind label %lpad.loopexit.split-lp

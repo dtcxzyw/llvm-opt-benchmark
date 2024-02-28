@@ -295,7 +295,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl.594" = type { %"struct.std::_Head_base.595" }
 %"struct.std::_Head_base.595" = type { ptr }
 %"struct.std::_Head_base.596" = type { ptr }
-%"struct.std::array.574" = type { [2 x i32] }
 %"struct.tf::ScalablePipeline<__gnu_cxx::__normal_iterator<tf::Pipe<> *, std::vector<tf::Pipe<>>>>::Line" = type { %"struct.std::atomic" }
 %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::vector<unsigned long>>, std::allocator<std::pair<const unsigned long, std::vector<unsigned long>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node" = type { ptr, ptr }
 %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, tf::DeferredPipeflow>, std::allocator<std::pair<const unsigned long, tf::DeferredPipeflow>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node" = type { ptr, ptr }
@@ -24955,7 +24954,8 @@ define linkonce_odr dso_local void @_ZZN2tf16ScalablePipelineIN9__gnu_cxx17__nor
 entry:
   %ref.tmp.i = alloca %"class.std::tuple.588", align 8
   %ref.tmp2.i = alloca %"class.std::tuple.591", align 8
-  %retval = alloca %"struct.std::array.574", align 4
+  %retval.sroa.0 = alloca i32, align 4
+  %retval.sroa.4 = alloca i32, align 4
   %0 = load ptr, ptr %this, align 8
   %_pipeflows = getelementptr inbounds i8, ptr %0, i64 80
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -25198,10 +25198,11 @@ land.lhs.true:                                    ; preds = %if.end43
   br i1 %cmp60, label %if.then61, label %if.end64
 
 if.then61:                                        ; preds = %land.lhs.true
-  store i32 1, ptr %retval, align 4
+  store i32 1, ptr %retval.sroa.0, align 4
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then61, %land.lhs.true, %if.end43
+  %n.0.sroa.phi = phi ptr [ %retval.sroa.4, %if.then61 ], [ %retval.sroa.0, %land.lhs.true ], [ %retval.sroa.0, %if.end43 ]
   %n.0 = phi i64 [ 1, %if.then61 ], [ 0, %land.lhs.true ], [ 0, %if.end43 ]
   %56 = load i64, ptr %pf.0.ph.ph, align 8
   %57 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -25220,8 +25221,7 @@ if.end64:                                         ; preds = %if.then61, %land.lh
 
 if.then70:                                        ; preds = %if.end64
   %inc71 = add nuw nsw i64 %n.0, 1
-  %arrayidx.i.i83 = getelementptr inbounds [2 x i32], ptr %retval, i64 0, i64 %n.0
-  store i32 0, ptr %arrayidx.i.i83, align 4
+  store i32 0, ptr %n.0.sroa.phi, align 4
   br label %if.end73
 
 if.end73:                                         ; preds = %if.then70, %if.end64
@@ -25262,13 +25262,13 @@ _ZN2tf7Runtime8scheduleENS_4TaskE.exit:           ; preds = %cond.true.i, %cond.
   br label %pipeline.backedge
 
 sw.bb76:                                          ; preds = %if.end73
-  %70 = load i32, ptr %retval, align 4
-  %cmp78 = icmp eq i32 %70, 1
+  %retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0. = load i32, ptr %retval.sroa.0, align 4
+  %cmp78 = icmp eq i32 %retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0., 1
   br i1 %cmp78, label %if.then79, label %pipeline.outer
 
 if.then79:                                        ; preds = %sw.bb76
-  %71 = load ptr, ptr %_pipeflows, align 8
-  %add.ptr.i85 = getelementptr inbounds %"class.tf::Pipeflow", ptr %71, i64 %rem50
+  %70 = load ptr, ptr %_pipeflows, align 8
+  %add.ptr.i85 = getelementptr inbounds %"class.tf::Pipeflow", ptr %70, i64 %rem50
   br label %pipeline.outer.outer
 
 sw.epilog:                                        ; preds = %if.end73, %_ZN2tf16ScalablePipelineIN9__gnu_cxx17__normal_iteratorIPNS_4PipeISt8functionIFvRNS_8PipeflowEEEEESt6vectorIS9_SaIS9_EEEEE8_on_pipeES6_RNS_7RuntimeE.exit

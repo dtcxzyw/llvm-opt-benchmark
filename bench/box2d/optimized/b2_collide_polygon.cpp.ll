@@ -18,6 +18,8 @@ entry:
   %clipPoints1 = alloca [2 x %struct.b2ClipVertex], align 16
   %clipPoints2 = alloca [2 x %struct.b2ClipVertex], align 16
   %ref.tmp35 = alloca %struct.b2Vec2, align 8
+  %indvars.iv178.sroa.gep = getelementptr inbounds i8, ptr %clipPoints2, i64 12
+  %indvars.iv.sroa.gep = getelementptr inbounds i8, ptr %clipPoints2, i64 12
   %pointCount = getelementptr inbounds i8, ptr %manifold, i64 60
   store i32 0, ptr %pointCount, align 4
   %m_radius = getelementptr inbounds i8, ptr %polyA, i64 12
@@ -262,11 +264,10 @@ for.body.us.preheader:                            ; preds = %if.end46
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
   %cmp49.us = phi i1 [ false, %for.inc.us ], [ true, %for.body.us.preheader ]
-  %indvars.iv178 = phi i64 [ 1, %for.inc.us ], [ 0, %for.body.us.preheader ]
+  %indvars.iv178.sroa.phi = phi ptr [ %indvars.iv178.sroa.gep, %for.inc.us ], [ %clipPoints2, %for.body.us.preheader ]
   %pointCount48.0175.us = phi i32 [ %pointCount48.1.us, %for.inc.us ], [ 0, %for.body.us.preheader ]
-  %arrayidx51.us = getelementptr inbounds [2 x %struct.b2ClipVertex], ptr %clipPoints2, i64 0, i64 %indvars.iv178
-  %83 = load float, ptr %arrayidx51.us, align 4
-  %y2.i99.us = getelementptr inbounds i8, ptr %arrayidx51.us, i64 4
+  %83 = load float, ptr %indvars.iv178.sroa.phi, align 4
+  %y2.i99.us = getelementptr inbounds i8, ptr %indvars.iv178.sroa.phi, i64 4
   %84 = load float, ptr %y2.i99.us, align 4
   %mul3.i100.us = fmul float %84, %68
   %85 = call noundef float @llvm.fmuladd.f32(float %64, float %83, float %mul3.i100.us)
@@ -286,7 +287,7 @@ if.then54.us:                                     ; preds = %for.body.us
   %90 = shufflevector <2 x float> %89, <2 x float> poison, <2 x i32> zeroinitializer
   %91 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %82, <2 x float> %90, <2 x float> %88)
   store <2 x float> %91, ptr %add.ptr.us, align 4
-  %id.us = getelementptr inbounds i8, ptr %arrayidx51.us, i64 8
+  %id.us = getelementptr inbounds i8, ptr %indvars.iv178.sroa.phi, i64 8
   %id64.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 16
   %92 = load i32, ptr %id.us, align 4
   store i32 %92, ptr %id64.us, align 4
@@ -299,11 +300,10 @@ for.inc.us:                                       ; preds = %if.then54.us, %for.
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %cmp49 = phi i1 [ false, %for.inc ], [ true, %for.body.preheader ]
-  %indvars.iv = phi i64 [ 1, %for.inc ], [ 0, %for.body.preheader ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.inc ], [ %clipPoints2, %for.body.preheader ]
   %pointCount48.0175 = phi i32 [ %pointCount48.1, %for.inc ], [ 0, %for.body.preheader ]
-  %arrayidx51 = getelementptr inbounds [2 x %struct.b2ClipVertex], ptr %clipPoints2, i64 0, i64 %indvars.iv
-  %93 = load float, ptr %arrayidx51, align 4
-  %y2.i99 = getelementptr inbounds i8, ptr %arrayidx51, i64 4
+  %93 = load float, ptr %indvars.iv.sroa.phi, align 4
+  %y2.i99 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 4
   %94 = load float, ptr %y2.i99, align 4
   %mul3.i100 = fmul float %94, %68
   %95 = call noundef float @llvm.fmuladd.f32(float %64, float %93, float %mul3.i100)
@@ -323,7 +323,7 @@ if.then54:                                        ; preds = %for.body
   %100 = shufflevector <2 x float> %99, <2 x float> poison, <2 x i32> zeroinitializer
   %101 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %78, <2 x float> %100, <2 x float> %98)
   store <2 x float> %101, ptr %add.ptr, align 4
-  %id = getelementptr inbounds i8, ptr %arrayidx51, i64 8
+  %id = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 8
   %id64 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %102 = load i32, ptr %id, align 4
   %103 = trunc i32 %102 to i8

@@ -6397,9 +6397,9 @@ _ZNK3app13get_family_idEv.exit:                   ; preds = %entry, %cond.false.
 define weak_odr hidden void @_ZN3smt17theory_diff_logicINS_7idl_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(2492) %this, ptr noundef %n) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %ref.tmp12 = alloca %struct.mk_pp, align 8
-  %ref.tmp12.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
+  %ref.tmp12.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
+  %ref.tmp12.sink.sroa.gep7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %m_non_diff_logic_exprs = getelementptr inbounds i8, ptr %this, i64 732
   %0 = load i8, ptr %m_non_diff_logic_exprs, align 4
   %1 = and i8 %0, 1
@@ -6509,8 +6509,8 @@ if.end25:                                         ; preds = %invoke.cont23, %ent
   ret void
 
 eh.resume:                                        ; preds = %lpad14, %lpad
+  %ref.tmp12.sink.sroa.phi = phi ptr [ %ref.tmp12.sink.sroa.gep, %lpad14 ], [ %ref.tmp12.sink.sroa.gep7, %lpad ]
   %.pn = phi { ptr, i32 } [ %5, %lpad14 ], [ %3, %lpad ]
-  %ref.tmp12.sink.sroa.phi = phi ptr [ %ref.tmp12.sroa.gep, %lpad14 ], [ %ref.tmp.sroa.gep, %lpad ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.sink.sroa.phi) #19
   resume { ptr, i32 } %.pn
 }
@@ -30618,9 +30618,9 @@ _ZNK3app13get_family_idEv.exit:                   ; preds = %entry, %cond.false.
 define weak_odr hidden void @_ZN3smt17theory_diff_logicINS_8sidl_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(2468) %this, ptr noundef %n) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %ref.tmp12 = alloca %struct.mk_pp, align 8
-  %ref.tmp12.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
+  %ref.tmp12.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
+  %ref.tmp12.sink.sroa.gep7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %m_non_diff_logic_exprs = getelementptr inbounds i8, ptr %this, i64 708
   %0 = load i8, ptr %m_non_diff_logic_exprs, align 4
   %1 = and i8 %0, 1
@@ -30730,8 +30730,8 @@ if.end25:                                         ; preds = %invoke.cont23, %ent
   ret void
 
 eh.resume:                                        ; preds = %lpad14, %lpad
+  %ref.tmp12.sink.sroa.phi = phi ptr [ %ref.tmp12.sink.sroa.gep, %lpad14 ], [ %ref.tmp12.sink.sroa.gep7, %lpad ]
   %.pn = phi { ptr, i32 } [ %5, %lpad14 ], [ %3, %lpad ]
-  %ref.tmp12.sink.sroa.phi = phi ptr [ %ref.tmp12.sroa.gep, %lpad14 ], [ %ref.tmp.sroa.gep, %lpad ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.sink.sroa.phi) #19
   resume { ptr, i32 } %.pn
 }
@@ -48458,9 +48458,9 @@ _ZNK3app13get_family_idEv.exit:                   ; preds = %entry, %cond.false.
 define weak_odr hidden void @_ZN3smt17theory_diff_logicINS_7rdl_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(2500) %this, ptr noundef %n) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %ref.tmp12 = alloca %struct.mk_pp, align 8
-  %ref.tmp12.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
+  %ref.tmp12.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
+  %ref.tmp12.sink.sroa.gep7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %m_non_diff_logic_exprs = getelementptr inbounds i8, ptr %this, i64 740
   %0 = load i8, ptr %m_non_diff_logic_exprs, align 4
   %1 = and i8 %0, 1
@@ -48570,8 +48570,8 @@ if.end25:                                         ; preds = %invoke.cont23, %ent
   ret void
 
 eh.resume:                                        ; preds = %lpad14, %lpad
+  %ref.tmp12.sink.sroa.phi = phi ptr [ %ref.tmp12.sink.sroa.gep, %lpad14 ], [ %ref.tmp12.sink.sroa.gep7, %lpad ]
   %.pn = phi { ptr, i32 } [ %5, %lpad14 ], [ %3, %lpad ]
-  %ref.tmp12.sink.sroa.phi = phi ptr [ %ref.tmp12.sroa.gep, %lpad14 ], [ %ref.tmp.sroa.gep, %lpad ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.sink.sroa.phi) #19
   resume { ptr, i32 } %.pn
 }
@@ -69114,9 +69114,9 @@ _ZNK3app13get_family_idEv.exit:                   ; preds = %entry, %cond.false.
 define weak_odr hidden void @_ZN3smt17theory_diff_logicINS_8srdl_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(2500) %this, ptr noundef %n) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %ref.tmp12 = alloca %struct.mk_pp, align 8
-  %ref.tmp12.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
+  %ref.tmp12.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
+  %ref.tmp12.sink.sroa.gep7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %m_non_diff_logic_exprs = getelementptr inbounds i8, ptr %this, i64 740
   %0 = load i8, ptr %m_non_diff_logic_exprs, align 4
   %1 = and i8 %0, 1
@@ -69226,8 +69226,8 @@ if.end25:                                         ; preds = %invoke.cont23, %ent
   ret void
 
 eh.resume:                                        ; preds = %lpad14, %lpad
+  %ref.tmp12.sink.sroa.phi = phi ptr [ %ref.tmp12.sink.sroa.gep, %lpad14 ], [ %ref.tmp12.sink.sroa.gep7, %lpad ]
   %.pn = phi { ptr, i32 } [ %5, %lpad14 ], [ %3, %lpad ]
-  %ref.tmp12.sink.sroa.phi = phi ptr [ %ref.tmp12.sroa.gep, %lpad14 ], [ %ref.tmp.sroa.gep, %lpad ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.sink.sroa.phi) #19
   resume { ptr, i32 } %.pn
 }
@@ -92831,12 +92831,12 @@ _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE3endEv.exit: ; preds = %invoke
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
   %add.ptr.i34.idx = shl nuw nsw i64 %2, 2
-  %add.ptr.i34.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i34.idx
+  %add.ptr.i34 = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i34.idx
   %cmp.not71 = icmp eq i32 %1, 1
   br i1 %cmp.not71, label %if.then44, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont, %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE3endEv.exit
-  %add.ptr.i34.ptr83 = phi ptr [ %add.ptr.i34.ptr, %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE3endEv.exit ], [ null, %invoke.cont ]
+  %add.ptr.i3483 = phi ptr [ %add.ptr.i34, %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE3endEv.exit ], [ null, %invoke.cont ]
   %it.070 = getelementptr inbounds i8, ptr %0, i64 4
   %m_vars = getelementptr inbounds i8, ptr %this, i64 1592
   br i1 %least, label %for.body.us, label %for.body
@@ -92915,7 +92915,7 @@ if.then39.us:                                     ; preds = %invoke.cont37.us, %
 for.inc.us:                                       ; preds = %if.then39.us, %invoke.cont37.us, %invoke.cont16.us, %if.else.us
   %best.1.us = phi i32 [ %best.072.us, %invoke.cont37.us ], [ %best.072.us, %invoke.cont16.us ], [ %3, %if.then39.us ], [ %best.072.us, %if.else.us ]
   %it.0.us = getelementptr inbounds i8, ptr %it.073.us, i64 4
-  %cmp.not.us = icmp eq ptr %it.0.us, %add.ptr.i34.ptr83
+  %cmp.not.us = icmp eq ptr %it.0.us, %add.ptr.i3483
   br i1 %cmp.not.us, label %for.end, label %for.body.us, !llvm.loop !492
 
 lpad3.loopexit.split.us:                          ; preds = %if.then18.us.invoke, %if.then39.us, %lor.lhs.false.us, %land.rhs.i43.us, %land.rhs.i.us
@@ -93013,7 +93013,7 @@ if.then39:                                        ; preds = %invoke.cont30, %if.
 for.inc:                                          ; preds = %if.else, %if.then39, %invoke.cont30, %invoke.cont16
   %best.1 = phi i32 [ %best.072, %invoke.cont16 ], [ %best.072, %invoke.cont30 ], [ %11, %if.then39 ], [ %best.072, %if.else ]
   %it.0 = getelementptr inbounds i8, ptr %it.073, i64 4
-  %cmp.not = icmp eq ptr %it.0, %add.ptr.i34.ptr83
+  %cmp.not = icmp eq ptr %it.0, %add.ptr.i3483
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !492
 
 for.end:                                          ; preds = %for.inc, %for.inc.us

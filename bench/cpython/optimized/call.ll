@@ -1455,7 +1455,6 @@ _PyObject_VectorcallTstate.exit:                  ; preds = %if.then12.i, %_PyEr
 define hidden noundef ptr @_PyObject_Call_Prepend(ptr noundef %tstate, ptr noundef %callable, ptr noundef %obj, ptr nocapture noundef readonly %args, ptr noundef %kwargs) local_unnamed_addr #0 {
 entry:
   %small_stack = alloca [5 x ptr], align 16
-  %small_stack.sroa.gep = getelementptr inbounds i8, ptr %small_stack, i64 8
   %0 = getelementptr i8, ptr %args, i64 16
   %args.val = load i64, ptr %0, align 8
   %add = add i64 %args.val, 1
@@ -1465,7 +1464,6 @@ entry:
 if.else:                                          ; preds = %entry
   %mul = shl i64 %add, 3
   %call2 = tail call ptr @PyMem_Malloc(i64 noundef %mul) #8
-  %call2.sroa.gep = getelementptr i8, ptr %call2, i64 8
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %if.then4, label %if.end6
 
@@ -1475,11 +1473,11 @@ if.then4:                                         ; preds = %if.else
 
 if.end6:                                          ; preds = %entry, %if.else
   %stack.0 = phi ptr [ %call2, %if.else ], [ %small_stack, %entry ]
-  %stack.0.sroa.phi = phi ptr [ %call2.sroa.gep, %if.else ], [ %small_stack.sroa.gep, %entry ]
   store ptr %obj, ptr %stack.0, align 8
+  %arrayidx7 = getelementptr i8, ptr %stack.0, i64 8
   %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   %mul9 = shl i64 %args.val, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %stack.0.sroa.phi, ptr nonnull align 8 %ob_item, i64 %mul9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx7, ptr nonnull align 8 %ob_item, i64 %mul9, i1 false)
   %call11 = call ptr @_PyObject_VectorcallDictTstate(ptr noundef %tstate, ptr noundef %callable, ptr noundef nonnull %stack.0, i64 noundef %add, ptr noundef %kwargs)
   %cmp13.not = icmp eq ptr %stack.0, %small_stack
   br i1 %cmp13.not, label %return, label %if.then14

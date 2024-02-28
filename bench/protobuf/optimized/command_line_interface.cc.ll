@@ -1366,7 +1366,7 @@ if.end33.i:                                       ; preds = %if.then.i, %invoke.
           to label %for.inc.i unwind label %lpad10.loopexit.i
 
 for.inc.i:                                        ; preds = %if.end33.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = load ptr, ptr %_M_finish.i.i, align 8
   %20 = load ptr, ptr %parts.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %19 to i64
@@ -3171,7 +3171,7 @@ if.then111:                                       ; preds = %invoke.cont107
 
 for.inc:                                          ; preds = %invoke.cont107, %if.then111
   %indent_size.1 = phi i32 [ %conv114, %if.then111 ], [ %indent_size.066, %invoke.cont107 ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %call103 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %data_26) #29
   %cmp104 = icmp ugt i64 %call103, %indvars.iv.next
   br i1 %cmp104, label %for.body, label %for.end.loopexit, !llvm.loop !50
@@ -5485,7 +5485,7 @@ for.cond153.preheader:                            ; preds = %invoke.cont149
   br i1 %cmp155487.not, label %if.end202, label %for.body156
 
 for.cond153:                                      ; preds = %cleanup196
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %160 = load ptr, ptr %_M_finish.i132, align 8
   %161 = load ptr, ptr %output_directives_, align 8
   %sub.ptr.lhs.cast.i133 = ptrtoint ptr %160 to i64
@@ -5985,7 +5985,7 @@ for.inc353.loopexit:                              ; preds = %for.inc350
 for.inc353:                                       ; preds = %for.inc353.loopexit, %for.body339
   %235 = phi ptr [ %.pre536, %for.inc353.loopexit ], [ %228, %for.body339 ]
   %236 = phi ptr [ %.pre535, %for.inc353.loopexit ], [ %229, %for.body339 ]
-  %indvars.iv.next530 = add nuw i64 %indvars.iv529, 1
+  %indvars.iv.next530 = add nuw nsw i64 %indvars.iv529, 1
   %sub.ptr.lhs.cast.i231 = ptrtoint ptr %236 to i64
   %sub.ptr.rhs.cast.i232 = ptrtoint ptr %235 to i64
   %sub.ptr.sub.i233 = sub i64 %sub.ptr.lhs.cast.i231, %sub.ptr.rhs.cast.i232
@@ -7568,7 +7568,7 @@ for.body:                                         ; preds = %_ZN6google8protobuf
   %28 = extractvalue { i64, ptr } %call11, 0
   %29 = extractvalue { i64, ptr } %call11, 1
   call void @_ZN6google8protobuf8compiler14DiskSourceTree7MapPathESt17basic_string_viewIcSt11char_traitsIcEES6_(ptr noundef nonnull align 8 dereferenceable(64) %source_tree, i64 %25, ptr %26, i64 %28, ptr %29)
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load ptr, ptr %_M_finish.i, align 8
   %31 = load ptr, ptr %proto_path_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %30 to i64
@@ -9155,7 +9155,7 @@ invoke.cont5:                                     ; preds = %invoke.cont5.lr.ph,
           to label %for.inc unwind label %lpad4
 
 for.inc:                                          ; preds = %invoke.cont5
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load ptr, ptr %_M_finish.i, align 8
   %6 = load ptr, ptr %parsed_files, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
@@ -9305,7 +9305,7 @@ if.else.i:                                        ; preds = %if.end
 
 invoke.cont39:                                    ; preds = %.noexc36, %if.else.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_filename) #29
-  %indvars.iv.next212 = add nuw i64 %indvars.iv211, 1
+  %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %26 = load ptr, ptr %_M_finish.i29, align 8
   %27 = load ptr, ptr %relative_output_filenames, align 8
   %sub.ptr.lhs.cast.i30 = ptrtoint ptr %26 to i64
@@ -10186,7 +10186,7 @@ for.inc30.loopexit:                               ; preds = %for.inc
 for.inc30:                                        ; preds = %for.inc30.loopexit, %for.body
   %48 = phi ptr [ %.pre136, %for.inc30.loopexit ], [ %18, %for.body ]
   %49 = phi ptr [ %.pre135, %for.inc30.loopexit ], [ %19, %for.body ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %49 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %48 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -10243,7 +10243,7 @@ invoke.cont45:                                    ; preds = %invoke.cont45.lr.ph
           to label %for.inc48 unwind label %lpad2.loopexit.split-lp.loopexit
 
 for.inc48:                                        ; preds = %invoke.cont45
-  %indvars.iv.next132 = add nuw i64 %indvars.iv131, 1
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %62 = load ptr, ptr %_M_finish.i79, align 8
   %63 = load ptr, ptr %parsed_files, align 8
   %sub.ptr.lhs.cast.i80 = ptrtoint ptr %62 to i64
@@ -12724,7 +12724,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont15
   br label %for.body
 
 for.cond:                                         ; preds = %cleanup
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %.pre303.pre to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %.pre302.pre to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -15989,6 +15989,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf2io7Printer5PrintIJA10_cNSt7
 entry:
   %vars = alloca [3 x %"class.std::basic_string_view"], align 16
   %map = alloca %"class.absl::lts_20230802::flat_hash_map.590", align 8
+  %i.0.sroa.gep13 = getelementptr inbounds i8, ptr %vars, i64 32
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #29
   store i64 %call.i.i, ptr %vars, align 16
   %_M_str.i = getelementptr inbounds i8, ptr %vars, i64 8
@@ -16000,8 +16001,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %vars, i64 24
   %2 = extractvalue { i64, ptr } %call, 1
   store ptr %2, ptr %1, align 8
-  %arrayinit.element4 = getelementptr inbounds i8, ptr %vars, i64 32
-  store i64 0, ptr %arrayinit.element4, align 16
+  store i64 0, ptr %i.0.sroa.gep13, align 16
   %_M_str.i5 = getelementptr inbounds i8, ptr %vars, i64 40
   store ptr @.str.5, ptr %_M_str.i5, align 8
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %map, align 8
@@ -16035,17 +16035,17 @@ if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.i.i.i.i.no
   br label %for.end
 
 lpad.loopexit:                                    ; preds = %for.body
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit14 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %for.end, %if.then.i
-  %lpad.loopexit.split-lp14 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit14, %lpad.loopexit ], [ %lpad.loopexit.split-lp15, %lpad.loopexit.split-lp ]
   %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %map, i64 16
   %8 = load i64, ptr %capacity_.i.i.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i64 %8, 0

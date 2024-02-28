@@ -47,6 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @cpu_restore_state_from_tb(ptr noundef %cpu, ptr noundef %tb, i64 noundef %host_pc) local_unnamed_addr #0 {
 entry:
   %data = alloca [2 x i64], align 16
+  %indvars.iv.i.sroa.gep6 = getelementptr inbounds i8, ptr %data, i64 8
   %tc.i = getelementptr inbounds i8, ptr %tb, i64 32
   %0 = load ptr, ptr %tc.i, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -85,7 +86,7 @@ for.cond9.preheader.i:                            ; preds = %if.end6.i, %for.inc
 
 do.body.i.preheader.i:                            ; preds = %decode_sleb128.exit.i, %for.cond9.preheader.i
   %cmp10.i = phi i1 [ true, %for.cond9.preheader.i ], [ false, %decode_sleb128.exit.i ]
-  %indvars.iv.i = phi i64 [ 0, %for.cond9.preheader.i ], [ 1, %decode_sleb128.exit.i ]
+  %indvars.iv.i.sroa.phi = phi ptr [ %data, %for.cond9.preheader.i ], [ %indvars.iv.i.sroa.gep6, %decode_sleb128.exit.i ]
   %p.139.i = phi ptr [ %p.042.i, %for.cond9.preheader.i ], [ %incdec.ptr.i.i, %decode_sleb128.exit.i ]
   br label %do.body.i.i
 
@@ -112,10 +113,9 @@ decode_sleb128.exit.i:                            ; preds = %do.body.i.i
   %shl7.i.i = shl nsw i64 -1, %sh_prom6.i.i
   %or8.i.i = select i1 %or.cond.i.i, i64 0, i64 %shl7.i.i
   %val.1.i.i = or i64 %or.i.i, %or8.i.i
-  %arrayidx14.i = getelementptr i64, ptr %data, i64 %indvars.iv.i
-  %8 = load i64, ptr %arrayidx14.i, align 8
+  %8 = load i64, ptr %indvars.iv.i.sroa.phi, align 8
   %add.i = add i64 %8, %val.1.i.i
-  store i64 %add.i, ptr %arrayidx14.i, align 8
+  store i64 %add.i, ptr %indvars.iv.i.sroa.phi, align 8
   br i1 %cmp10.i, label %do.body.i.preheader.i, label %do.body.i17.i, !llvm.loop !7
 
 do.body.i17.i:                                    ; preds = %decode_sleb128.exit.i, %do.body.i17.i

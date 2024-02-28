@@ -21,6 +21,7 @@ define dso_local void @meshopt_optimizeOverdraw(ptr noundef writeonly %destinati
 entry:
   %histogram.i = alloca [2048 x i32], align 16
   %allocator = alloca %class.meshopt_Allocator, align 8
+  %.sroa.gep = getelementptr inbounds i8, ptr %allocator, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %allocator, i8 0, i64 200, i1 false)
   %cmp = icmp eq i64 %index_count, 0
   %cmp1 = icmp eq i64 %vertex_count, 0
@@ -53,6 +54,7 @@ lpad:                                             ; preds = %invoke.cont19, %_ZN
   resume { ptr, i32 } %1
 
 if.end4:                                          ; preds = %invoke.cont, %if.end
+  %.sroa.phi = phi ptr [ %.sroa.gep, %invoke.cont ], [ %allocator, %if.end ]
   %2 = phi i64 [ 1, %invoke.cont ], [ 0, %if.end ]
   %indices.addr.0 = phi ptr [ %call.i41, %invoke.cont ], [ %indices, %if.end ]
   %3 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
@@ -66,8 +68,7 @@ invoke.cont5:                                     ; preds = %if.end4
   %count.i45 = getelementptr inbounds i8, ptr %allocator, i64 192
   %inc.i46 = add nuw nsw i64 %2, 1
   store i64 %inc.i46, ptr %count.i45, align 8
-  %arrayidx.i47 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %2
-  store ptr %call.i48, ptr %arrayidx.i47, align 8
+  store ptr %call.i48, ptr %.sroa.phi, align 8
   %div = udiv i64 %index_count, 3
   %4 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i50 = icmp ugt i64 %index_count, -4611686018427387905

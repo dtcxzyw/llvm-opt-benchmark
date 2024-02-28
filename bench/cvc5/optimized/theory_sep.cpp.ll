@@ -47309,6 +47309,8 @@ entry:
   %agg.tmp4 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %toAdd = alloca [2 x %"class.std::vector.65"], align 16
   %agg.tmp22 = alloca %"class.cvc5::internal::NodeTemplate", align 8
+  %i34.0130.sroa.gep = getelementptr inbounds i8, ptr %toAdd, i64 24
+  %i.0127.sroa.gep = getelementptr inbounds i8, ptr %toAdd, i64 24
   %0 = load ptr, ptr %t2, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 40
@@ -47492,7 +47494,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit54: ; preds = %invoke.cont6, %if.t
 
 for.body:                                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit54, %for.inc32
   %cmp8 = phi i1 [ false, %for.inc32 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit54 ]
-  %i.0127 = phi i64 [ 1, %for.inc32 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit54 ]
+  %i.0127.sroa.phi = phi ptr [ %i.0127.sroa.gep, %for.inc32 ], [ %toAdd, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit54 ]
   %cond-lvalue.idx = select i1 %cmp8, i64 0, i64 80
   %cond-lvalue = getelementptr inbounds i8, ptr %retval.0.i, i64 %cond-lvalue.idx
   %d_list.i55 = getelementptr inbounds i8, ptr %cond-lvalue, i64 40
@@ -47503,9 +47505,8 @@ for.body:                                         ; preds = %_ZN4cvc58internal12
   br i1 %cmp.i.not125, label %for.inc32, label %for.body20.lr.ph
 
 for.body20.lr.ph:                                 ; preds = %for.body
-  %arrayidx = getelementptr inbounds [2 x %"class.std::vector.65"], ptr %toAdd, i64 0, i64 %i.0127
-  %_M_finish.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %i.0127.sroa.phi, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %i.0127.sroa.phi, i64 16
   br label %for.body20
 
 for.body20:                                       ; preds = %for.body20.lr.ph, %for.inc
@@ -47612,7 +47613,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_J
   br label %for.inc
 
 if.else.i:                                        ; preds = %if.then28
-  invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, ptr %27, ptr noundef nonnull align 8 dereferenceable(8) %__begin4.sroa.0.0126)
+  invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %i.0127.sroa.phi, ptr %27, ptr noundef nonnull align 8 dereferenceable(8) %__begin4.sroa.0.0126)
           to label %for.inc unwind label %lpad12.loopexit.split-lp
 
 lpad5:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit43
@@ -47647,12 +47648,11 @@ for.inc32:                                        ; preds = %for.inc, %for.body
 
 for.body37:                                       ; preds = %for.inc32, %for.inc62
   %cmp38 = phi i1 [ false, %for.inc62 ], [ true, %for.inc32 ]
-  %i34.0130 = phi i64 [ 1, %for.inc62 ], [ 0, %for.inc32 ]
+  %i34.0130.sroa.phi = phi ptr [ %i34.0130.sroa.gep, %for.inc62 ], [ %toAdd, %for.inc32 ]
   %cond-lvalue44.idx = select i1 %cmp38, i64 0, i64 80
   %cond-lvalue44 = getelementptr inbounds i8, ptr %call7, i64 %cond-lvalue44.idx
-  %arrayidx46 = getelementptr inbounds [2 x %"class.std::vector.65"], ptr %toAdd, i64 0, i64 %i34.0130
-  %34 = load ptr, ptr %arrayidx46, align 8
-  %_M_finish.i85 = getelementptr inbounds i8, ptr %arrayidx46, i64 8
+  %34 = load ptr, ptr %i34.0130.sroa.phi, align 8
+  %_M_finish.i85 = getelementptr inbounds i8, ptr %i34.0130.sroa.phi, i64 8
   %35 = load ptr, ptr %_M_finish.i85, align 8
   %cmp.i86.not128 = icmp eq ptr %34, %35
   br i1 %cmp.i86.not128, label %for.inc62, label %for.body55.lr.ph
@@ -54548,8 +54548,8 @@ _ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_E
   br label %return
 
 return:                                           ; preds = %for.cond.i.i.i.i.i.i.i, %for.body.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EE6insertERKS4_RKb.exit
-  %cmp.i.i.i7 = phi i1 [ true, %_ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EE6insertERKS4_RKb.exit ], [ false, %if.end.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i.i ], [ false, %for.cond.i.i.i.i.i.i.i ]
-  ret i1 %cmp.i.i.i7
+  %retval.0 = phi i1 [ true, %_ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EE6insertERKS4_RKb.exit ], [ false, %if.end.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i.i ], [ false, %for.cond.i.i.i.i.i.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

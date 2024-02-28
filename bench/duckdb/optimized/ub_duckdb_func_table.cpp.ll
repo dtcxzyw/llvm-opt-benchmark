@@ -44018,6 +44018,14 @@ entry:
   %ref.tmp556 = alloca %"struct.duckdb::StrpTimeFormat", align 8
   %ref.tmp586 = alloca %"class.duckdb::Value", align 8
   %agg.tmp587 = alloca %"class.std::__cxx11::basic_string", align 8
+  %.sink1870.sroa.gep = getelementptr inbounds i8, ptr %new_line_identifier, i64 20
+  %.sink1870.sroa.gep4 = getelementptr inbounds i8, ptr %new_line_identifier, i64 18
+  %.sink.i1077.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp329, i64 18
+  %.sink.i1077.sroa.gep3 = getelementptr inbounds i8, ptr %ref.tmp329, i64 17
+  %.sink.i1112.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp355, i64 18
+  %.sink.i1112.sroa.gep2 = getelementptr inbounds i8, ptr %ref.tmp355, i64 17
+  %.sink.i1149.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp383, i64 18
+  %.sink.i1149.sroa.gep1 = getelementptr inbounds i8, ptr %ref.tmp383, i64 17
   %global_state1 = getelementptr inbounds i8, ptr %data_p, i64 16
   tail call void @_ZNK6duckdb12optional_ptrINS_24GlobalTableFunctionStateEE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %global_state1)
   %0 = load ptr, ptr %global_state1, align 8, !tbaa !293
@@ -44472,11 +44480,10 @@ if.end.i.i819:                                    ; preds = %_ZNSt7__cxx1112basi
 
 if.end.i.i.i.i.i823:                              ; preds = %sw.bb1.i, %sw.bb.i
   %.sink1871 = phi i64 [ 4, %sw.bb1.i ], [ 2, %sw.bb.i ]
-  %.sink1870 = phi i64 [ 20, %sw.bb1.i ], [ 18, %sw.bb.i ]
+  %.sink1870.sroa.phi = phi ptr [ %.sink1870.sroa.gep, %sw.bb1.i ], [ %.sink1870.sroa.gep4, %sw.bb.i ]
   %_M_string_length.i.i.i.i15.i = getelementptr inbounds i8, ptr %new_line_identifier, i64 8
   store i64 %.sink1871, ptr %_M_string_length.i.i.i.i15.i, align 8, !tbaa !17, !alias.scope !1022
-  %arrayidx.i.i.i16.i = getelementptr inbounds i8, ptr %new_line_identifier, i64 %.sink1870
-  store i8 0, ptr %arrayidx.i.i.i16.i, align 2, !tbaa !16, !alias.scope !1022
+  store i8 0, ptr %.sink1870.sroa.phi, align 2, !tbaa !16, !alias.scope !1022
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp92) #29
   %60 = getelementptr inbounds i8, ptr %agg.tmp93, i64 16
   store ptr %60, ptr %agg.tmp93, align 8, !tbaa !11
@@ -45683,13 +45690,13 @@ if.then.i.i.i.i1031:                              ; preds = %if.end.i.i1028
 if.end.i.i.i.i.i1032:                             ; preds = %if.end.i.i1028, %if.end.i.i1028.thread
   %204 = phi ptr [ %call2.i12.i1035, %if.end.i.i1028.thread ], [ %200, %if.end.i.i1028 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %204, ptr align 1 %201, i64 %196, i1 false)
-  %.pre112 = load i64, ptr %__dnew.i.i1025, align 8, !tbaa !13
-  %.pre113 = load ptr, ptr %agg.tmp290, align 8, !tbaa !14
+  %.pre116 = load i64, ptr %__dnew.i.i1025, align 8, !tbaa !13
+  %.pre117 = load ptr, ptr %agg.tmp290, align 8, !tbaa !14
   br label %invoke.cont294
 
 invoke.cont294:                                   ; preds = %if.end.i.i.i.i.i1032, %if.then.i.i.i.i1031
-  %205 = phi ptr [ %.pre113, %if.end.i.i.i.i.i1032 ], [ %200, %if.then.i.i.i.i1031 ]
-  %206 = phi i64 [ %.pre112, %if.end.i.i.i.i.i1032 ], [ 1, %if.then.i.i.i.i1031 ]
+  %205 = phi ptr [ %.pre117, %if.end.i.i.i.i.i1032 ], [ %200, %if.then.i.i.i.i1031 ]
+  %206 = phi i64 [ %.pre116, %if.end.i.i.i.i.i1032 ], [ 1, %if.then.i.i.i.i1031 ]
   %_M_string_length.i.i.i.i1029 = getelementptr inbounds i8, ptr %agg.tmp290, i64 8
   store i64 %206, ptr %_M_string_length.i.i.i.i1029, align 8, !tbaa !17
   %arrayidx.i.i.i1030 = getelementptr inbounds i8, ptr %205, i64 %206
@@ -45826,11 +45833,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i: ; preds = %inv
 
 invoke.cont336:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i, %if.then.i1078
   %.sink = phi i64 [ 2, %if.then.i1078 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i ]
-  %.sink.i1077 = phi i64 [ 18, %if.then.i1078 ], [ 17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i ]
+  %.sink.i1077.sroa.phi = phi ptr [ %.sink.i1077.sroa.gep, %if.then.i1078 ], [ %.sink.i1077.sroa.gep3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i ]
   %223 = getelementptr inbounds i8, ptr %ref.tmp329, i64 8
   store i64 %.sink, ptr %223, align 8
-  %arrayidx.i.i.i9.i = getelementptr inbounds i8, ptr %ref.tmp329, i64 %.sink.i1077
-  store i8 0, ptr %arrayidx.i.i.i9.i, align 1, !tbaa !16, !alias.scope !1046
+  store i8 0, ptr %.sink.i1077.sroa.phi, align 1, !tbaa !16, !alias.scope !1046
   %call2.i1081 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %csv_read, ptr noundef nonnull %222, i64 noundef %.sink)
           to label %invoke.cont338 unwind label %lpad337
 
@@ -45925,11 +45931,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i1110: ; preds = 
 
 invoke.cont362:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i1110, %if.then.i1114
   %.sink1834 = phi i64 [ 2, %if.then.i1114 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i1110 ]
-  %.sink.i1112 = phi i64 [ 18, %if.then.i1114 ], [ 17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i1110 ]
+  %.sink.i1112.sroa.phi = phi ptr [ %.sink.i1112.sroa.gep, %if.then.i1114 ], [ %.sink.i1112.sroa.gep2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i1110 ]
   %236 = getelementptr inbounds i8, ptr %ref.tmp355, i64 8
   store i64 %.sink1834, ptr %236, align 8
-  %arrayidx.i.i.i9.i1113 = getelementptr inbounds i8, ptr %ref.tmp355, i64 %.sink.i1112
-  store i8 0, ptr %arrayidx.i.i.i9.i1113, align 1, !tbaa !16, !alias.scope !1049
+  store i8 0, ptr %.sink.i1112.sroa.phi, align 1, !tbaa !16, !alias.scope !1049
   %call2.i1118 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %csv_read, ptr noundef nonnull %235, i64 noundef %.sink1834)
           to label %invoke.cont364 unwind label %lpad363
 
@@ -46014,11 +46019,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i1147: ; preds = 
 
 invoke.cont390:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i1147, %if.then.i1151
   %.sink1835 = phi i64 [ 2, %if.then.i1151 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i1147 ]
-  %.sink.i1149 = phi i64 [ 18, %if.then.i1151 ], [ 17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i1147 ]
+  %.sink.i1149.sroa.phi = phi ptr [ %.sink.i1149.sroa.gep, %if.then.i1151 ], [ %.sink.i1149.sroa.gep1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i1147 ]
   %247 = getelementptr inbounds i8, ptr %ref.tmp383, i64 8
   store i64 %.sink1835, ptr %247, align 8
-  %arrayidx.i.i.i9.i1150 = getelementptr inbounds i8, ptr %ref.tmp383, i64 %.sink.i1149
-  store i8 0, ptr %arrayidx.i.i.i9.i1150, align 1, !tbaa !16, !alias.scope !1052
+  store i8 0, ptr %.sink.i1149.sroa.phi, align 1, !tbaa !16, !alias.scope !1052
   %call2.i1155 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %csv_read, ptr noundef nonnull %246, i64 noundef %.sink1835)
           to label %invoke.cont392 unwind label %lpad391
 

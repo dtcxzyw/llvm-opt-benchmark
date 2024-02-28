@@ -1714,7 +1714,7 @@ if.end46:                                         ; preds = %invoke.cont, %if.en
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont, %land.lhs.true28, %if.end46
-  %cleanup.dest.slot.0 = phi i1 [ true, %if.end46 ], [ false, %land.lhs.true28 ], [ false, %invoke.cont ]
+  %switch = phi i1 [ true, %if.end46 ], [ false, %land.lhs.true28 ], [ false, %invoke.cont ]
   invoke void @umtx_unlock_75(ptr noundef nonnull @_ZN6icu_75L15gFormatterMutexE)
           to label %_ZN6icu_755MutexD2Ev.exit63 unwind label %terminate.lpad.i62
 
@@ -1726,7 +1726,7 @@ terminate.lpad.i62:                               ; preds = %cleanup
   unreachable
 
 _ZN6icu_755MutexD2Ev.exit63:                      ; preds = %cleanup
-  br i1 %cleanup.dest.slot.0, label %cleanup.cont, label %return
+  br i1 %switch, label %cleanup.cont, label %return
 
 cleanup.cont:                                     ; preds = %_ZN6icu_755MutexD2Ev.exit63
   %fSkeleton = getelementptr inbounds i8, ptr %this, i64 584
@@ -1972,7 +1972,7 @@ declare noundef i32 @_ZNK6icu_7511Formattable7getTypeEv(ptr noundef nonnull alig
 
 declare noundef ptr @_ZNK6icu_7511Formattable9getObjectEv(ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #5
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
@@ -5896,9 +5896,12 @@ entry:
   %realPattern = alloca %"class.icu_75::UnicodeString", align 8
   %firstPart = alloca %"class.icu_75::UnicodeString", align 8
   %secondPart = alloca %"class.icu_75::UnicodeString", align 8
+  %pattern.0.sroa.gep81 = getelementptr inbounds i8, ptr %intervalPattern, i64 12
+  %pattern.0.sroa.gep82 = getelementptr inbounds i8, ptr %realPattern, i64 12
+  %pattern.0.sroa.gep77 = getelementptr inbounds i8, ptr %intervalPattern, i64 8
+  %pattern.0.sroa.gep78 = getelementptr inbounds i8, ptr %realPattern, i64 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %realPattern, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %realPattern, i64 8
-  store i16 2, ptr %fUnion2.i, align 8
+  store i16 2, ptr %pattern.0.sroa.gep78, align 8
   %call5.i20 = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString17doEqualsSubstringEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %intervalPattern, i32 noundef 0, i32 noundef 12, ptr noundef nonnull @_ZN6icu_75L17gLaterFirstPrefixE, i32 noundef 0, i32 noundef 12)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -5908,13 +5911,11 @@ invoke.cont3:                                     ; preds = %entry
   br i1 %tobool.not, label %if.else, label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %fUnion.i.i = getelementptr inbounds i8, ptr %intervalPattern, i64 8
-  %0 = load i16, ptr %fUnion.i.i, align 8
+  %0 = load i16, ptr %pattern.0.sroa.gep77, align 8
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds i8, ptr %intervalPattern, i64 12
-  %2 = load i32, ptr %fLength.i, align 4
+  %2 = load i32, ptr %pattern.0.sroa.gep81, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   %sub = add nsw i32 %cond.i, -12
   %call.i.i.i21 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %realPattern, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(64) %intervalPattern, i32 noundef 12, i32 noundef %sub)
@@ -5941,21 +5942,18 @@ invoke.cont13:                                    ; preds = %if.else
   br i1 %tobool15.not, label %if.end23, label %invoke.cont18
 
 invoke.cont18:                                    ; preds = %invoke.cont13
-  %fUnion.i.i24 = getelementptr inbounds i8, ptr %intervalPattern, i64 8
-  %5 = load i16, ptr %fUnion.i.i24, align 8
+  %5 = load i16, ptr %pattern.0.sroa.gep77, align 8
   %cmp.i.i25 = icmp slt i16 %5, 0
   %6 = ashr i16 %5, 5
   %shr.i.i26 = sext i16 %6 to i32
-  %fLength.i27 = getelementptr inbounds i8, ptr %intervalPattern, i64 12
-  %7 = load i32, ptr %fLength.i27, align 4
+  %7 = load i32, ptr %pattern.0.sroa.gep81, align 4
   %cond.i28 = select i1 %cmp.i.i25, i32 %7, i32 %shr.i.i26
   %sub21 = add nsw i32 %cond.i28, -14
-  %8 = load i16, ptr %fUnion2.i, align 8
+  %8 = load i16, ptr %pattern.0.sroa.gep78, align 8
   %cmp.i.i.i.i30 = icmp slt i16 %8, 0
   %9 = ashr i16 %8, 5
   %shr.i.i.i.i31 = sext i16 %9 to i32
-  %fLength.i.i.i32 = getelementptr inbounds i8, ptr %realPattern, i64 12
-  %10 = load i32, ptr %fLength.i.i.i32, align 4
+  %10 = load i32, ptr %pattern.0.sroa.gep82, align 4
   %cond.i.i.i33 = select i1 %cmp.i.i.i.i30, i32 %10, i32 %shr.i.i.i.i31
   %call.i.i.i34 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %realPattern, i32 noundef 0, i32 noundef %cond.i.i.i33, ptr noundef nonnull align 8 dereferenceable(64) %intervalPattern, i32 noundef 14, i32 noundef %sub21)
           to label %if.end23 unwind label %lpad
@@ -5968,6 +5966,8 @@ lpad12:                                           ; preds = %if.else
 
 if.end23:                                         ; preds = %invoke.cont18, %invoke.cont5, %invoke.cont13
   %order.0 = phi i8 [ %laterDateFirst, %invoke.cont13 ], [ 1, %invoke.cont5 ], [ 0, %invoke.cont18 ]
+  %pattern.0.sroa.phi = phi ptr [ %pattern.0.sroa.gep77, %invoke.cont13 ], [ %pattern.0.sroa.gep78, %invoke.cont5 ], [ %pattern.0.sroa.gep78, %invoke.cont18 ]
+  %pattern.0.sroa.phi72 = phi ptr [ %pattern.0.sroa.gep81, %invoke.cont13 ], [ %pattern.0.sroa.gep82, %invoke.cont5 ], [ %pattern.0.sroa.gep82, %invoke.cont18 ]
   %pattern.0 = phi ptr [ %intervalPattern, %invoke.cont13 ], [ %realPattern, %invoke.cont5 ], [ %realPattern, %invoke.cont18 ]
   %call25 = call noundef i32 @_ZN6icu_7518DateIntervalFormat21splitPatternInto2PartERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %pattern.0)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %firstPart, align 8
@@ -5980,13 +5980,11 @@ if.end23:                                         ; preds = %invoke.cont18, %inv
           to label %invoke.cont31 unwind label %lpad29
 
 invoke.cont31:                                    ; preds = %if.end23
-  %fUnion.i.i45 = getelementptr inbounds i8, ptr %pattern.0, i64 8
-  %12 = load i16, ptr %fUnion.i.i45, align 8
+  %12 = load i16, ptr %pattern.0.sroa.phi, align 8
   %cmp.i.i46 = icmp slt i16 %12, 0
   %13 = ashr i16 %12, 5
   %shr.i.i47 = sext i16 %13 to i32
-  %fLength.i48 = getelementptr inbounds i8, ptr %pattern.0, i64 12
-  %14 = load i32, ptr %fLength.i48, align 4
+  %14 = load i32, ptr %pattern.0.sroa.phi72, align 4
   %cond.i49 = select i1 %cmp.i.i46, i32 %14, i32 %shr.i.i47
   %cmp = icmp slt i32 %call25, %cond.i49
   br i1 %cmp, label %invoke.cont34, label %if.end38
@@ -7364,7 +7362,7 @@ attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind memory(read) }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

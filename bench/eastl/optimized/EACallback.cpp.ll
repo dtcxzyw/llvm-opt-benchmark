@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.EA::Thread::ThreadTime" = type { %struct.timespec }
 %struct.timespec = type { i64, i64 }
 %"struct.EA::Thread::ThreadParameters" = type <{ ptr, i64, i32, i32, ptr, i64, i8, [7 x i8] }>
-%"struct.EA::StdC::TempUnitsInfo" = type { i64, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -1079,9 +1078,12 @@ entry:
 define dso_local void @_ZN2EA4StdC15CallbackManager14UpdateInternalERlS2_S2_(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %curTick, ptr nocapture noundef nonnull align 8 dereferenceable(8) %curTime, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %curUserEvent) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nextCallBackUserEvent = alloca i64, align 8
-  %timeInfo = alloca %"struct.EA::StdC::TempUnitsInfo", align 8
-  %tickInfo = alloca %"struct.EA::StdC::TempUnitsInfo", align 8
-  %userEventInfo = alloca %"struct.EA::StdC::TempUnitsInfo", align 8
+  %timeInfo.sroa.0 = alloca i64, align 8
+  %timeInfo.sroa.7 = alloca ptr, align 8
+  %tickInfo.sroa.0 = alloca i64, align 8
+  %tickInfo.sroa.7 = alloca ptr, align 8
+  %userEventInfo.sroa.0 = alloca i64, align 8
+  %userEventInfo.sroa.7 = alloca ptr, align 8
   %mMutex = getelementptr inbounds i8, ptr %this, i64 184
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %mTickCounter = getelementptr inbounds i8, ptr %this, i64 120
@@ -1104,29 +1106,26 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   store i64 0, ptr %nextCallBackUserEvent, align 8
   %5 = load i64, ptr %curTime, align 8
-  store i64 %5, ptr %timeInfo, align 8
-  %mpNextEventUnits = getelementptr inbounds i8, ptr %timeInfo, i64 8
+  store i64 %5, ptr %timeInfo.sroa.0, align 8
   %mNextCallbackEventTime = getelementptr inbounds i8, ptr %this, i64 168
-  store ptr %mNextCallbackEventTime, ptr %mpNextEventUnits, align 8
+  store ptr %mNextCallbackEventTime, ptr %timeInfo.sroa.7, align 8
   %6 = load i64, ptr %curTick, align 8
-  store i64 %6, ptr %tickInfo, align 8
-  %mpNextEventUnits7 = getelementptr inbounds i8, ptr %tickInfo, i64 8
+  store i64 %6, ptr %tickInfo.sroa.0, align 8
   %mNextCallbackEventTick = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr %mNextCallbackEventTick, ptr %mpNextEventUnits7, align 8
-  store i64 %2, ptr %userEventInfo, align 8
-  %mpNextEventUnits9 = getelementptr inbounds i8, ptr %userEventInfo, i64 8
-  store ptr %nextCallBackUserEvent, ptr %mpNextEventUnits9, align 8
-  %sub.ptr.lhs.cast.i48 = ptrtoint ptr %4 to i64
+  store ptr %mNextCallbackEventTick, ptr %tickInfo.sroa.7, align 8
+  store i64 %2, ptr %userEventInfo.sroa.0, align 8
+  store ptr %nextCallBackUserEvent, ptr %userEventInfo.sroa.7, align 8
+  %sub.ptr.lhs.cast.i78 = ptrtoint ptr %4 to i64
   %mRandom = getelementptr inbounds i8, ptr %this, i64 140
   %mbAsync = getelementptr inbounds i8, ptr %this, i64 138
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %7 = phi ptr [ %4, %for.body.lr.ph ], [ %39, %for.inc ]
-  %sub.ptr.lhs.cast.i54 = phi i64 [ %sub.ptr.lhs.cast.i48, %for.body.lr.ph ], [ %sub.ptr.lhs.cast.i, %for.inc ]
+  %sub.ptr.lhs.cast.i84 = phi i64 [ %sub.ptr.lhs.cast.i78, %for.body.lr.ph ], [ %sub.ptr.lhs.cast.i, %for.inc ]
   %8 = phi ptr [ %3, %for.body.lr.ph ], [ %40, %for.inc ]
-  %i.053 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %8, i64 %i.053
+  %i.083 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %arrayidx.i = getelementptr inbounds ptr, ptr %8, i64 %i.083
   %9 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %if.else64, label %if.then14
@@ -1146,8 +1145,9 @@ sw.bb17:                                          ; preds = %if.then14
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then14, %sw.bb17, %sw.bb16
-  %pTUI.0.sroa.phi = phi ptr [ %userEventInfo, %sw.bb17 ], [ %tickInfo, %sw.bb16 ], [ %timeInfo, %if.then14 ]
-  %11 = load i64, ptr %pTUI.0.sroa.phi, align 8
+  %pTUI.0.sroa.phi52 = phi ptr [ %userEventInfo.sroa.0, %sw.bb17 ], [ %tickInfo.sroa.0, %sw.bb16 ], [ %timeInfo.sroa.0, %if.then14 ]
+  %pTUI.0.sroa.phi60 = phi ptr [ %userEventInfo.sroa.7, %sw.bb17 ], [ %tickInfo.sroa.7, %sw.bb16 ], [ %timeInfo.sroa.7, %if.then14 ]
+  %11 = load i64, ptr %pTUI.0.sroa.phi52, align 8
   %mNextCallbackEvent = getelementptr inbounds i8, ptr %9, i64 64
   %12 = load i64, ptr %mNextCallbackEvent, align 8
   %cmp19.not = icmp slt i64 %11, %12
@@ -1167,27 +1167,27 @@ if.then.i:                                        ; preds = %if.then20
   %15 = load ptr, ptr %mpFunctionArg.i, align 8
   call void %13(ptr noundef nonnull %9, ptr noundef %15, i64 noundef %11, i64 noundef %sub)
   %.pre = load ptr, ptr %mpEnd.i, align 8
-  %.pre55 = load ptr, ptr %mCallbackArray, align 8
+  %.pre85 = load ptr, ptr %mCallbackArray, align 8
   br label %_ZN2EA4StdC8Callback4CallEmm.exit
 
 _ZN2EA4StdC8Callback4CallEmm.exit:                ; preds = %if.then20, %if.then.i
-  %16 = phi ptr [ %8, %if.then20 ], [ %.pre55, %if.then.i ]
+  %16 = phi ptr [ %8, %if.then20 ], [ %.pre85, %if.then.i ]
   %17 = phi ptr [ %7, %if.then20 ], [ %.pre, %if.then.i ]
-  %sub.ptr.lhs.cast.i37 = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast.i38 = ptrtoint ptr %16 to i64
-  %sub.ptr.sub.i39 = sub i64 %sub.ptr.lhs.cast.i37, %sub.ptr.rhs.cast.i38
-  %sub.ptr.div.i40 = ashr exact i64 %sub.ptr.sub.i39, 3
-  %cmp25 = icmp ult i64 %i.053, %sub.ptr.div.i40
+  %sub.ptr.lhs.cast.i67 = ptrtoint ptr %17 to i64
+  %sub.ptr.rhs.cast.i68 = ptrtoint ptr %16 to i64
+  %sub.ptr.sub.i69 = sub i64 %sub.ptr.lhs.cast.i67, %sub.ptr.rhs.cast.i68
+  %sub.ptr.div.i70 = ashr exact i64 %sub.ptr.sub.i69, 3
+  %cmp25 = icmp ult i64 %i.083, %sub.ptr.div.i70
   br i1 %cmp25, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %_ZN2EA4StdC8Callback4CallEmm.exit
-  %arrayidx.i41 = getelementptr inbounds ptr, ptr %16, i64 %i.053
-  %18 = load ptr, ptr %arrayidx.i41, align 8
+  %arrayidx.i71 = getelementptr inbounds ptr, ptr %16, i64 %i.083
+  %18 = load ptr, ptr %arrayidx.i71, align 8
   %cmp28 = icmp eq ptr %18, %9
   br i1 %cmp28, label %if.then29, label %for.inc
 
 if.then29:                                        ; preds = %land.lhs.true
-  %19 = load i64, ptr %pTUI.0.sroa.phi, align 8
+  %19 = load i64, ptr %pTUI.0.sroa.phi52, align 8
   store i64 %19, ptr %mLastCallbackEvent, align 8
   %mbOneShot = getelementptr inbounds i8, ptr %9, i64 56
   %20 = load i8, ptr %mbOneShot, align 8
@@ -1198,10 +1198,10 @@ if.then29:                                        ; preds = %land.lhs.true
 if.then33:                                        ; preds = %if.then29
   %mbStarted.i = getelementptr inbounds i8, ptr %9, i64 52
   %22 = load atomic i32, ptr %mbStarted.i seq_cst, align 4
-  %tobool.not.i42 = icmp eq i32 %22, 0
-  br i1 %tobool.not.i42, label %for.inc, label %if.then.i43
+  %tobool.not.i72 = icmp eq i32 %22, 0
+  br i1 %tobool.not.i72, label %for.inc, label %if.then.i73
 
-if.then.i43:                                      ; preds = %if.then33
+if.then.i73:                                      ; preds = %if.then33
   %mpCallbackManager.i = getelementptr inbounds i8, ptr %9, i64 24
   %23 = load ptr, ptr %mpCallbackManager.i, align 8
   %vtable.i = load ptr, ptr %23, align 8
@@ -1215,7 +1215,7 @@ if.then.i43:                                      ; preds = %if.then33
   %tobool5.not.i = icmp eq i8 %26, 0
   br i1 %tobool5.not.i, label %for.inc, label %if.then6.i
 
-if.then6.i:                                       ; preds = %if.then.i43
+if.then6.i:                                       ; preds = %if.then.i73
   %27 = load ptr, ptr %mpFunction.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i, label %for.inc, label %if.then.i.i.i
@@ -1245,7 +1245,7 @@ if.then39:                                        ; preds = %if.else
   %31 = load i64, ptr %mNextCallbackEvent, align 8
   %conv44 = sext i32 %add.i to i64
   %add45 = add nsw i64 %31, %conv44
-  %32 = load i64, ptr %pTUI.0.sroa.phi, align 8
+  %32 = load i64, ptr %pTUI.0.sroa.phi52, align 8
   %cmp47 = icmp sgt i64 %add45, %32
   br i1 %cmp47, label %if.then48, label %if.end50
 
@@ -1261,8 +1261,7 @@ if.end50:                                         ; preds = %if.then39, %if.then
   br i1 %tobool51.not, label %for.inc, label %if.then52
 
 if.then52:                                        ; preds = %if.end50
-  %mpNextEventUnits53 = getelementptr inbounds i8, ptr %pTUI.0.sroa.phi, i64 8
-  %36 = load ptr, ptr %mpNextEventUnits53, align 8
+  %36 = load ptr, ptr %pTUI.0.sroa.phi60, align 8
   %37 = load i64, ptr %36, align 8
   %cmp55 = icmp sgt i64 %37, %33
   br i1 %cmp55, label %if.then56, label %for.inc
@@ -1272,18 +1271,18 @@ if.then56:                                        ; preds = %if.then52
   br label %for.inc
 
 if.else64:                                        ; preds = %for.body
-  %sub.ptr.rhs.cast.i47 = ptrtoint ptr %arrayidx.i to i64
+  %sub.ptr.rhs.cast.i77 = ptrtoint ptr %arrayidx.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %reass.sub.i = add i64 %sub.ptr.lhs.cast.i54, -8
-  %mul.i = sub i64 %reass.sub.i, %sub.ptr.rhs.cast.i47
+  %reass.sub.i = add i64 %sub.ptr.lhs.cast.i84, -8
+  %mul.i = sub i64 %reass.sub.i, %sub.ptr.rhs.cast.i77
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %arrayidx.i, ptr nonnull align 8 %add.ptr.i, i64 %mul.i, i1 false)
   %38 = load ptr, ptr %mpEnd.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %38, i64 -8
   store ptr %incdec.ptr.i, ptr %mpEnd.i, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %if.then.i.i.i, %if.then6.i, %if.then.i43, %if.then33, %if.else64, %_ZN2EA4StdC8Callback4CallEmm.exit, %land.lhs.true, %if.end50, %if.then56, %if.then52, %sw.epilog
-  %inc = add nuw i64 %i.053, 1
+for.inc:                                          ; preds = %if.then.i.i.i, %if.then6.i, %if.then.i73, %if.then33, %if.else64, %_ZN2EA4StdC8Callback4CallEmm.exit, %land.lhs.true, %if.end50, %if.then56, %if.then52, %sw.epilog
+  %inc = add nuw i64 %i.083, 1
   %39 = load ptr, ptr %mpEnd.i, align 8
   %40 = load ptr, ptr %mCallbackArray, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %39 to i64

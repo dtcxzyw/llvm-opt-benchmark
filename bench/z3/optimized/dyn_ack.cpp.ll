@@ -4930,6 +4930,8 @@ define linkonce_odr hidden void @_ZN3smt24dyn_ack_cc_justification18display_debu
 entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
   %ref.tmp7 = alloca %struct.mk_pp, align 8
+  %ref.tmp7.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
+  %ref.tmp7.sink.sroa.gep7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %m.i = getelementptr inbounds i8, ptr %cr, i64 8
   %0 = load ptr, ptr %m.i, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.10)
@@ -4973,10 +4975,9 @@ lpad8:                                            ; preds = %invoke.cont9, %invo
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad8, %lpad
-  %ref.tmp7.sink = phi ptr [ %ref.tmp7, %lpad8 ], [ %ref.tmp, %lpad ]
+  %ref.tmp7.sink.sroa.phi = phi ptr [ %ref.tmp7.sink.sroa.gep, %lpad8 ], [ %ref.tmp7.sink.sroa.gep7, %lpad ]
   %.pn = phi { ptr, i32 } [ %4, %lpad8 ], [ %3, %lpad ]
-  %m_empty.i.i6 = getelementptr inbounds i8, ptr %ref.tmp7.sink, i64 16
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_empty.i.i6) #16
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7.sink.sroa.phi) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -7081,7 +7082,7 @@ while.body.i.i:                                   ; preds = %if.end, %if.end4.i.
   %storemerge27.i.i.in.in = phi i64 [ %storemerge27.i.i, %if.end4.i.i ], [ %sub.ptr.div, %if.end ]
   %storemerge27.i.i.in = add nuw nsw i64 %storemerge27.i.i.in.in, 1
   %storemerge27.i.i = lshr i64 %storemerge27.i.i.in, 1
-  %mul.i.i = shl i64 %storemerge27.i.i, 4
+  %mul.i.i = shl nuw nsw i64 %storemerge27.i.i, 4
   %call.i.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #20
   %cmp2.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %if.then.i
@@ -10868,7 +10869,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
   %storemerge27.i.i.in.in = phi i64 [ %storemerge27.i.i, %if.end4.i.i ], [ %sub.ptr.div39, %while.body.i.i.preheader ]
   %storemerge27.i.i.in = add nuw nsw i64 %storemerge27.i.i.in.in, 1
   %storemerge27.i.i = lshr i64 %storemerge27.i.i.in, 1
-  %mul.i.i = mul i64 %storemerge27.i.i, 24
+  %mul.i.i = mul nuw nsw i64 %storemerge27.i.i, 24
   %call.i.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #20
   %cmp2.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %if.then.i

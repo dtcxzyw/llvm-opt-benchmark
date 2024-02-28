@@ -1383,6 +1383,8 @@ cond.end:
   %ref.tmp20 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp22 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp55 = alloca %"class.cvc5::internal::NodeTemplate", align 8
+  %indvars.iv.sroa.gep284 = getelementptr inbounds i8, ptr %r, i64 8
+  %indvars.iv.sroa.gep281 = getelementptr inbounds i8, ptr %r, i64 8
   %call7 = tail call noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ccs, i8 0, i64 24, i1 false)
   %arrayctor.end = getelementptr inbounds i8, ptr %r, i64 16
@@ -1435,7 +1437,8 @@ for.cond.preheader:                               ; preds = %invoke.cont
 
 for.body:                                         ; preds = %for.cond.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit225
   %cmp9 = phi i1 [ true, %for.cond.preheader ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit225 ]
-  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit225 ]
+  %indvars.iv.sroa.phi = phi ptr [ %r, %for.cond.preheader ], [ %indvars.iv.sroa.gep281, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit225 ]
+  %indvars.iv.sroa.phi282 = phi ptr [ %r, %for.cond.preheader ], [ %indvars.iv.sroa.gep284, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit225 ]
   %t.prev = select i1 %cmp9, ptr %t, ptr %prev
   %4 = load ptr, ptr %t.prev, align 8
   store ptr %4, ptr %tp, align 8
@@ -1643,8 +1646,7 @@ if.then13.i.i.i137:                               ; preds = %if.else.i.i.i135
           to label %cond.end31 unwind label %lpad27
 
 cond.end31:                                       ; preds = %if.else.i.i.i135, %if.then.i.i.i139, %if.then13.i.i.i137, %_ZN4cvc58internal11NodeManager6mkNodeENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEE.exit
-  %arrayidx = getelementptr inbounds [2 x %"class.cvc5::internal::NodeTemplate"], ptr %r, i64 0, i64 %indvars.iv
-  %19 = load ptr, ptr %arrayidx, align 8
+  %19 = load ptr, ptr %indvars.iv.sroa.phi, align 8
   %20 = load ptr, ptr %ref.tmp20, align 8
   %cmp.not.i148 = icmp eq ptr %19, %20
   br i1 %cmp.not.i148, label %invoke.cont33, label %if.then.i149
@@ -1670,7 +1672,7 @@ if.then13.i.i163:                                 ; preds = %if.then.i.i151
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %if.then13.i.i163, %if.then.i.i151, %if.then.i149
   %22 = load ptr, ptr %ref.tmp20, align 8
-  store ptr %22, ptr %arrayidx, align 8
+  store ptr %22, ptr %indvars.iv.sroa.phi, align 8
   %bf.load.i2.i = load i64, ptr %22, align 8
   %bf.lshr.i.i157 = lshr i64 %bf.load.i2.i, 40
   %23 = trunc i64 %bf.lshr.i.i157 to i32
@@ -1796,8 +1798,7 @@ cleanup.action36:                                 ; preds = %ehcleanup.thread, %
   br label %ehcleanup49
 
 if.else:                                          ; preds = %invoke.cont14
-  %arrayidx46 = getelementptr inbounds [2 x %"class.cvc5::internal::NodeTemplate"], ptr %r, i64 0, i64 %indvars.iv
-  %35 = load ptr, ptr %arrayidx46, align 8
+  %35 = load ptr, ptr %indvars.iv.sroa.phi282, align 8
   %cmp.not.i186 = icmp eq ptr %35, %6
   br i1 %cmp.not.i186, label %if.end, label %if.then.i187
 
@@ -1822,7 +1823,7 @@ if.then13.i.i211:                                 ; preds = %if.then.i.i190
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i196: ; preds = %if.then13.i.i211, %if.then.i.i190, %if.then.i187
   %37 = load ptr, ptr %tp, align 8
-  store ptr %37, ptr %arrayidx46, align 8
+  store ptr %37, ptr %indvars.iv.sroa.phi282, align 8
   %bf.load.i2.i197 = load i64, ptr %37, align 8
   %bf.lshr.i.i198 = lshr i64 %bf.load.i2.i197, 40
   %38 = trunc i64 %bf.lshr.i.i198 to i32

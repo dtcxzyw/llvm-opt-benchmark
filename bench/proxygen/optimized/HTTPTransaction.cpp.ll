@@ -8596,11 +8596,11 @@ entry:
   %g = alloca %"class.folly::DelayedDestructionBase::DestructorGuard", align 8
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
   %ex = alloca %"class.proxygen::HTTPException", align 8
-  %ex.sroa.gep = getelementptr inbounds i8, ptr %ex, i64 8
   %ref.tmp29 = alloca %"class.std::__cxx11::basic_string", align 8
   %ex37 = alloca %"class.proxygen::HTTPException", align 8
-  %ex37.sroa.gep = getelementptr inbounds i8, ptr %ex37, i64 8
   %ref.tmp38 = alloca %"class.std::__cxx11::basic_string", align 8
+  %ex37.sink25.sroa.gep = getelementptr inbounds i8, ptr %ex37, i64 8
+  %ex37.sink25.sroa.gep26 = getelementptr inbounds i8, ptr %ex, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr, ptr %g, align 8
   %guardCount_.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -8863,8 +8863,8 @@ invoke.cont47:                                    ; preds = %if.else46
           to label %if.then.i unwind label %lpad
 
 if.then.i.sink.split:                             ; preds = %_ZN8proxygen13HTTPExceptionD2Ev.exit, %_ZN8proxygen13HTTPExceptionD2Ev.exit21
+  %ex37.sink25.sroa.phi = phi ptr [ %ex37.sink25.sroa.gep, %_ZN8proxygen13HTTPExceptionD2Ev.exit21 ], [ %ex37.sink25.sroa.gep26, %_ZN8proxygen13HTTPExceptionD2Ev.exit ]
   %ex37.sink25 = phi ptr [ %ex37, %_ZN8proxygen13HTTPExceptionD2Ev.exit21 ], [ %ex, %_ZN8proxygen13HTTPExceptionD2Ev.exit ]
-  %ex37.sink25.sroa.phi = phi ptr [ %ex37.sroa.gep, %_ZN8proxygen13HTTPExceptionD2Ev.exit21 ], [ %ex.sroa.gep, %_ZN8proxygen13HTTPExceptionD2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ex37.sink25.sroa.phi) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ex37.sink25) #27
   br label %if.then.i
@@ -11341,6 +11341,8 @@ define noundef zeroext i1 @_ZN8proxygen15HTTPTransaction13addBufferMetaEv(ptr no
 entry:
   %agg.tmp = alloca %"class.proxygen::HTTPException", align 8
   %agg.tmp13 = alloca %"class.proxygen::HTTPException", align 8
+  %agg.tmp.sink24.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %agg.tmp.sink24.sroa.gep25 = getelementptr inbounds i8, ptr %agg.tmp13, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 64
   %guardCount_.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %guardCount_.i, align 8
@@ -11492,9 +11494,9 @@ invoke.cont22:                                    ; preds = %if.else.i.i, %invok
           to label %if.then.i unwind label %terminate.lpad
 
 if.then.i.sink.split:                             ; preds = %_ZN8proxygen13HTTPExceptionD2Ev.exit9, %_ZN8proxygen13HTTPExceptionD2Ev.exit
+  %agg.tmp.sink24.sroa.phi = phi ptr [ %agg.tmp.sink24.sroa.gep, %_ZN8proxygen13HTTPExceptionD2Ev.exit ], [ %agg.tmp.sink24.sroa.gep25, %_ZN8proxygen13HTTPExceptionD2Ev.exit9 ]
   %agg.tmp.sink24 = phi ptr [ %agg.tmp, %_ZN8proxygen13HTTPExceptionD2Ev.exit ], [ %agg.tmp13, %_ZN8proxygen13HTTPExceptionD2Ev.exit9 ]
-  %msg_.i.i = getelementptr inbounds i8, ptr %agg.tmp.sink24, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sink24.sroa.phi) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.sink24) #27
   br label %if.then.i
 

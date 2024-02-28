@@ -518,11 +518,11 @@ declare void @_ZN3zmq13socket_base_t15event_listeningERKNS_19endpoint_uri_pair_t
 define noundef i32 @_ZN3zmq14ipc_listener_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1592) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.zmq::endpoint_uri_pair_t", align 8
-  %ref.tmp.sroa.gep13 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %ref.tmp38 = alloca %"struct.zmq::endpoint_uri_pair_t", align 8
-  %ref.tmp38.sroa.gep14 = getelementptr inbounds i8, ptr %ref.tmp38, i64 32
-  %ref.tmp38.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp38, i64 32
+  %ref.tmp38.sink10.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %ref.tmp38.sink10.sroa.gep14 = getelementptr inbounds i8, ptr %ref.tmp38, i64 32
+  %ref.tmp38.sink12.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp38, i64 32
+  %ref.tmp38.sink12.sroa.gep13 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %_s = getelementptr inbounds i8, ptr %this, i64 1464
   %0 = load i32, ptr %_s, align 8
   %cmp.not = icmp eq i32 %0, -1
@@ -620,17 +620,17 @@ lpad40:                                           ; preds = %if.end36
   br label %eh.resume
 
 return:                                           ; preds = %if.end36, %invoke.cont
+  %ref.tmp38.sink10.sroa.phi = phi ptr [ %ref.tmp38.sink10.sroa.gep, %invoke.cont ], [ %ref.tmp38.sink10.sroa.gep14, %if.end36 ]
   %ref.tmp38.sink10 = phi ptr [ %ref.tmp, %invoke.cont ], [ %ref.tmp38, %if.end36 ]
   %retval.0 = phi i32 [ -1, %invoke.cont ], [ 0, %if.end36 ]
-  %ref.tmp38.sink10.sroa.phi = phi ptr [ %ref.tmp.sroa.gep13, %invoke.cont ], [ %ref.tmp38.sroa.gep14, %if.end36 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38.sink10.sroa.phi) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38.sink10) #11
   ret i32 %retval.0
 
 eh.resume:                                        ; preds = %lpad40, %lpad
+  %ref.tmp38.sink12.sroa.phi = phi ptr [ %ref.tmp38.sink12.sroa.gep, %lpad40 ], [ %ref.tmp38.sink12.sroa.gep13, %lpad ]
   %ref.tmp38.sink12 = phi ptr [ %ref.tmp38, %lpad40 ], [ %ref.tmp, %lpad ]
   %.pn = phi { ptr, i32 } [ %13, %lpad40 ], [ %11, %lpad ]
-  %ref.tmp38.sink12.sroa.phi = phi ptr [ %ref.tmp38.sroa.gep, %lpad40 ], [ %ref.tmp.sroa.gep, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38.sink12.sroa.phi) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38.sink12) #11
   resume { ptr, i32 } %.pn

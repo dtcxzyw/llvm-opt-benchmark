@@ -4568,13 +4568,13 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end11.i
 
 if.end.i54:                                       ; preds = %if.then
+  %nargs.0.sroa.gep11.i = getelementptr inbounds i8, ptr %stack2.i, i64 16
+  %nargs.0.sroa.gep.i = getelementptr inbounds i8, ptr %stack2.i, i64 24
   store ptr %1, ptr %stack2.i, align 16
   %arrayidx3.i = getelementptr inbounds i8, ptr %stack2.i, i64 8
   store ptr %0, ptr %arrayidx3.i, align 8
-  %arrayidx6.i = getelementptr inbounds i8, ptr %stack2.i, i64 16
-  store ptr %fut, ptr %arrayidx6.i, align 16
-  %arrayidx7.i = getelementptr inbounds i8, ptr %stack2.i, i64 24
-  store ptr %2, ptr %arrayidx7.i, align 8
+  store ptr %fut, ptr %nargs.0.sroa.gep11.i, align 16
+  store ptr %2, ptr %nargs.0.sroa.gep.i, align 8
   %context_kwname.i = getelementptr inbounds i8, ptr %state, i64 40
   %3 = load ptr, ptr %context_kwname.i, align 8
   %call10.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 257), ptr noundef nonnull %stack2.i, i64 noundef -9223372036854775805, ptr noundef %3) #6
@@ -4687,9 +4687,9 @@ for.cond.preheader:                               ; preds = %if.end26
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %fut_loop46 = getelementptr inbounds i8, ptr %fut, i64 16
-  %arrayidx3.i59 = getelementptr inbounds i8, ptr %stack2.i56, i64 8
-  %arrayidx6.i62 = getelementptr inbounds i8, ptr %stack2.i56, i64 16
-  %arrayidx7.i65 = getelementptr inbounds i8, ptr %stack2.i56, i64 24
+  %nargs.0.sroa.gep11.i58 = getelementptr inbounds i8, ptr %stack2.i56, i64 16
+  %nargs.0.sroa.gep.i57 = getelementptr inbounds i8, ptr %stack2.i56, i64 24
+  %arrayidx3.i61 = getelementptr inbounds i8, ptr %stack2.i56, i64 8
   %context_kwname.i67 = getelementptr inbounds i8, ptr %state, i64 40
   %arrayinit.element.i80 = getelementptr inbounds i8, ptr %stack.i55, i64 8
   %arrayinit.element1.i81 = getelementptr inbounds i8, ptr %stack.i55, i64 16
@@ -4722,8 +4722,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %24 = load ptr, ptr %fut_loop46, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %stack.i55)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %stack2.i56)
-  %cmp.i57 = icmp eq ptr %23, null
-  br i1 %cmp.i57, label %if.then.i79, label %if.end.i63
+  %cmp.i59 = icmp eq ptr %23, null
+  br i1 %cmp.i59, label %if.then.i79, label %if.end.i64
 
 if.then.i79:                                      ; preds = %for.body
   store ptr %24, ptr %stack.i55, align 16
@@ -4732,17 +4732,17 @@ if.then.i79:                                      ; preds = %for.body
   %call.i82 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 257), ptr noundef nonnull %stack.i55, i64 noundef -9223372036854775805, ptr noundef null) #6
   br label %if.end11.i69
 
-if.end.i63:                                       ; preds = %for.body
+if.end.i64:                                       ; preds = %for.body
   store ptr %24, ptr %stack2.i56, align 16
-  store ptr %22, ptr %arrayidx3.i59, align 8
-  store ptr %fut, ptr %arrayidx6.i62, align 16
-  store ptr %23, ptr %arrayidx7.i65, align 8
+  store ptr %22, ptr %arrayidx3.i61, align 8
+  store ptr %fut, ptr %nargs.0.sroa.gep11.i58, align 16
+  store ptr %23, ptr %nargs.0.sroa.gep.i57, align 8
   %25 = load ptr, ptr %context_kwname.i67, align 8
   %call10.i68 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 257), ptr noundef nonnull %stack2.i56, i64 noundef -9223372036854775805, ptr noundef %25) #6
   br label %if.end11.i69
 
-if.end11.i69:                                     ; preds = %if.end.i63, %if.then.i79
-  %handle.0.i70 = phi ptr [ %call.i82, %if.then.i79 ], [ %call10.i68, %if.end.i63 ]
+if.end11.i69:                                     ; preds = %if.end.i64, %if.then.i79
+  %handle.0.i70 = phi ptr [ %call.i82, %if.then.i79 ], [ %call10.i68, %if.end.i64 ]
   %cmp12.i71 = icmp eq ptr %handle.0.i70, null
   br i1 %cmp12.i71, label %do.body50, label %if.end14.i72
 
@@ -4860,13 +4860,13 @@ if.then.i:                                        ; preds = %if.then1
   br label %if.end11.i
 
 if.end.i38:                                       ; preds = %if.then1
+  %nargs.0.sroa.gep11.i = getelementptr inbounds i8, ptr %stack2.i, i64 16
+  %nargs.0.sroa.gep.i = getelementptr inbounds i8, ptr %stack2.i, i64 24
   store ptr %fut.val, ptr %stack2.i, align 16
   %arrayidx3.i = getelementptr inbounds i8, ptr %stack2.i, i64 8
   store ptr %arg, ptr %arrayidx3.i, align 8
-  %arrayidx6.i = getelementptr inbounds i8, ptr %stack2.i, i64 16
-  store ptr %fut, ptr %arrayidx6.i, align 16
-  %arrayidx7.i = getelementptr inbounds i8, ptr %stack2.i, i64 24
-  store ptr %ctx, ptr %arrayidx7.i, align 8
+  store ptr %fut, ptr %nargs.0.sroa.gep11.i, align 16
+  store ptr %ctx, ptr %nargs.0.sroa.gep.i, align 8
   %context_kwname.i = getelementptr inbounds i8, ptr %state, i64 40
   %3 = load ptr, ptr %context_kwname.i, align 8
   %call10.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 257), ptr noundef nonnull %stack2.i, i64 noundef -9223372036854775805, ptr noundef %3) #6
@@ -5109,11 +5109,11 @@ if.then.i:                                        ; preds = %if.end
   br label %if.end11.i
 
 if.else.i:                                        ; preds = %if.end
+  %nargs.0.sroa.gep11.i = getelementptr inbounds i8, ptr %stack2.i, i64 16
   store ptr %5, ptr %stack2.i, align 16
   %arrayidx3.i = getelementptr inbounds i8, ptr %stack2.i, i64 8
   store ptr %call1.i, ptr %arrayidx3.i, align 8
-  %arrayidx7.i = getelementptr inbounds i8, ptr %stack2.i, i64 16
-  store ptr %6, ptr %arrayidx7.i, align 16
+  store ptr %6, ptr %nargs.0.sroa.gep11.i, align 16
   %context_kwname.i = getelementptr inbounds i8, ptr %state, i64 40
   %7 = load ptr, ptr %context_kwname.i, align 8
   %call10.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 257), ptr noundef nonnull %stack2.i, i64 noundef -9223372036854775806, ptr noundef %7) #6

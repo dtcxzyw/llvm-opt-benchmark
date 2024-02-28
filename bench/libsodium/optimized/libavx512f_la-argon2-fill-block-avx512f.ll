@@ -15,6 +15,8 @@ entry:
   %zero_block.i = alloca [16 x <8 x i64>], align 64
   %zero2_block.i = alloca [16 x <8 x i64>], align 64
   %state = alloca [16 x <8 x i64>], align 64
+  %indvars.iv995.i.sroa.gep = getelementptr inbounds i8, ptr %state, i64 64
+  %indvars.iv984.i.sroa.gep = getelementptr inbounds i8, ptr %state, i64 512
   %position.sroa.0.0.extract.trunc = trunc i64 %position.coerce0 to i32
   %position.sroa.7.0.extract.shift = lshr i64 %position.coerce0, 32
   %position.sroa.7.0.extract.trunc = trunc i64 %position.sroa.7.0.extract.shift to i32
@@ -29,8 +31,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.end6, label %if.end6.thread
 
 if.end6.thread:                                   ; preds = %if.end
-  %pseudo_rands765 = getelementptr inbounds i8, ptr %instance, i64 8
-  %1 = load ptr, ptr %pseudo_rands765, align 8
+  %pseudo_rands767 = getelementptr inbounds i8, ptr %instance, i64 8
+  %1 = load ptr, ptr %pseudo_rands767, align 8
   br label %if.then8
 
 if.end6:                                          ; preds = %if.end
@@ -127,7 +129,7 @@ generate_addresses.exit:                          ; preds = %if.end.i, %if.then8
 if.end9:                                          ; preds = %if.end6.if.end9_crit_edge, %generate_addresses.exit
   %12 = phi i32 [ %11, %generate_addresses.exit ], [ %.pre, %if.end6.if.end9_crit_edge ]
   %13 = phi ptr [ %3, %generate_addresses.exit ], [ %2, %if.end6.if.end9_crit_edge ]
-  %tobool.not67 = phi i1 [ false, %generate_addresses.exit ], [ true, %if.end6.if.end9_crit_edge ]
+  %tobool.not69 = phi i1 [ false, %generate_addresses.exit ], [ true, %if.end6.if.end9_crit_edge ]
   %cmp11 = icmp eq i32 %position.sroa.0.0.extract.trunc, 0
   %cmp16 = icmp eq i8 %position.sroa.11.8.extract.trunc, 0
   %or.cond1 = select i1 %cmp11, i1 %cmp16, i1 false
@@ -152,8 +154,8 @@ if.end9:                                          ; preds = %if.end6.if.end9_cri
   %idx.ext = zext i32 %prev_offset.0 to i64
   %add.ptr = getelementptr %struct.block_, ptr %18, i64 %idx.ext
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %state, ptr noundef nonnull align 8 dereferenceable(1024) %add.ptr, i64 1024, i1 false)
-  %cmp3469 = icmp ult i32 %spec.select37, %12
-  br i1 %cmp3469, label %for.body.lr.ph, label %for.end
+  %cmp3471 = icmp ult i32 %spec.select37, %12
+  br i1 %cmp3471, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end9
   %lanes = getelementptr inbounds i8, ptr %instance, i64 36
@@ -165,14 +167,14 @@ for.body.lr.ph:                                   ; preds = %if.end9
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %19, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %20 = phi i32 [ %12, %for.body.lr.ph ], [ %212, %for.inc ]
-  %curr_offset.071 = phi i32 [ %add23, %for.body.lr.ph ], [ %inc100, %for.inc ]
-  %prev_offset.170 = phi i32 [ %prev_offset.0, %for.body.lr.ph ], [ %inc101, %for.inc ]
+  %curr_offset.073 = phi i32 [ %add23, %for.body.lr.ph ], [ %inc100, %for.inc ]
+  %prev_offset.172 = phi i32 [ %prev_offset.0, %for.body.lr.ph ], [ %inc101, %for.inc ]
   %21 = load i32, ptr %lane_length, align 8
-  %rem37 = urem i32 %curr_offset.071, %21
+  %rem37 = urem i32 %curr_offset.073, %21
   %cmp38 = icmp eq i32 %rem37, 1
-  %sub41 = add i32 %curr_offset.071, -1
-  %spec.select38 = select i1 %cmp38, i32 %sub41, i32 %prev_offset.170
-  br i1 %tobool.not67, label %if.else45, label %if.then44
+  %sub41 = add i32 %curr_offset.073, -1
+  %spec.select38 = select i1 %cmp38, i32 %sub41, i32 %prev_offset.172
+  br i1 %tobool.not69, label %if.else45, label %if.then44
 
 if.then44:                                        ; preds = %for.body
   %arrayidx = getelementptr i64, ptr %13, i64 %indvars.iv
@@ -192,8 +194,8 @@ if.end52:                                         ; preds = %if.else45, %if.then
   %shr = lshr i64 %pseudo_rand.0, 32
   %24 = load i32, ptr %lanes, align 4
   %rem54.lhs.trunc = trunc i64 %shr to i32
-  %rem5468 = urem i32 %rem54.lhs.trunc, %24
-  %rem54.zext = zext i32 %rem5468 to i64
+  %rem5470 = urem i32 %rem54.lhs.trunc, %24
+  %rem54.zext = zext i32 %rem5470 to i64
   %ref_lane.0 = select i1 %or.cond1, i64 %position.sroa.7.0.extract.shift, i64 %rem54.zext
   %cmp70.not = icmp eq i64 %ref_lane.0, %position.sroa.7.0.extract.shift
   br i1 %cmp11, label %if.then.i, label %if.else19.i
@@ -268,7 +270,7 @@ index_alpha.exit:                                 ; preds = %if.then3.i, %if.the
   %mul77 = mul nuw i64 %ref_lane.0, %conv64.i
   %add.ptr78 = getelementptr %struct.block_, ptr %31, i64 %mul77
   %add.ptr79 = getelementptr %struct.block_, ptr %add.ptr78, i64 %rem.i
-  %idx.ext82 = zext i32 %curr_offset.071 to i64
+  %idx.ext82 = zext i32 %curr_offset.073 to i64
   %add.ptr83 = getelementptr %struct.block_, ptr %31, i64 %idx.ext82
   br i1 %cmp11, label %if.else93, label %if.then87
 
@@ -297,9 +299,9 @@ for.body.i42:                                     ; preds = %for.body.i42, %if.e
 
 do.body11.i:                                      ; preds = %for.body.i42, %do.body11.i
   %cmp9.i = phi i1 [ false, %do.body11.i ], [ true, %for.body.i42 ]
+  %indvars.iv984.i.sroa.phi = phi ptr [ %indvars.iv984.i.sroa.gep, %do.body11.i ], [ %state, %for.body.i42 ]
   %indvars.iv984.i = phi i64 [ 8, %do.body11.i ], [ 0, %for.body.i42 ]
-  %arrayidx14.i = getelementptr <8 x i64>, ptr %state, i64 %indvars.iv984.i
-  %35 = load <8 x i64>, ptr %arrayidx14.i, align 64
+  %35 = load <8 x i64>, ptr %indvars.iv984.i.sroa.phi, align 64
   %36 = or disjoint i64 %indvars.iv984.i, 2
   %arrayidx18.i = getelementptr <8 x i64>, ptr %state, i64 %36
   %37 = load <8 x i64>, ptr %arrayidx18.i, align 64
@@ -471,7 +473,7 @@ do.body11.i:                                      ; preds = %for.body.i42, %do.b
   %perm784.i = shufflevector <8 x i64> %105, <8 x i64> poison, <8 x i32> <i32 1, i32 2, i32 3, i32 0, i32 5, i32 6, i32 7, i32 4>
   %shuf802.i = shufflevector <8 x i64> %add.i.i920.i, <8 x i64> %perm739.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %shuf811.i = shufflevector <8 x i64> %add.i.i920.i, <8 x i64> %perm739.i, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
-  store <8 x i64> %shuf802.i, ptr %arrayidx14.i, align 64
+  store <8 x i64> %shuf802.i, ptr %indvars.iv984.i.sroa.phi, align 64
   store <8 x i64> %shuf811.i, ptr %arrayidx18.i, align 64
   %shuf832.i = shufflevector <8 x i64> %perm757.i, <8 x i64> %perm775.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %shuf841.i = shufflevector <8 x i64> %perm757.i, <8 x i64> %perm775.i, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -489,9 +491,9 @@ do.body11.i:                                      ; preds = %for.body.i42, %do.b
 
 do.body920.i:                                     ; preds = %do.body11.i, %do.body920.i
   %cmp916.i = phi i1 [ false, %do.body920.i ], [ true, %do.body11.i ]
+  %indvars.iv995.i.sroa.phi = phi ptr [ %indvars.iv995.i.sroa.gep, %do.body920.i ], [ %state, %do.body11.i ]
   %indvars.iv995.i = phi i64 [ 1, %do.body920.i ], [ 0, %do.body11.i ]
-  %arrayidx925.i = getelementptr <8 x i64>, ptr %state, i64 %indvars.iv995.i
-  %114 = load <8 x i64>, ptr %arrayidx925.i, align 64
+  %114 = load <8 x i64>, ptr %indvars.iv995.i.sroa.phi, align 64
   %115 = or disjoint i64 %indvars.iv995.i, 2
   %arrayidx928.i = getelementptr <8 x i64>, ptr %state, i64 %115
   %116 = load <8 x i64>, ptr %arrayidx928.i, align 64
@@ -673,7 +675,7 @@ do.body920.i:                                     ; preds = %do.body11.i, %do.bo
   %202 = shufflevector <8 x i64> %add.i.i971.i, <8 x i64> poison, <8 x i32> <i32 0, i32 1, i32 4, i32 5, i32 2, i32 3, i32 6, i32 7>
   %shuf1627.i = shufflevector <8 x i64> %201, <8 x i64> %202, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %shuf1634.i = shufflevector <8 x i64> %201, <8 x i64> %202, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
-  store <8 x i64> %shuf1627.i, ptr %arrayidx925.i, align 64
+  store <8 x i64> %shuf1627.i, ptr %indvars.iv995.i.sroa.phi, align 64
   store <8 x i64> %shuf1634.i, ptr %arrayidx928.i, align 64
   %203 = shufflevector <8 x i64> %perm1560.i, <8 x i64> poison, <8 x i32> <i32 0, i32 1, i32 4, i32 5, i32 2, i32 3, i32 6, i32 7>
   %204 = shufflevector <8 x i64> %perm1567.i, <8 x i64> poison, <8 x i32> <i32 0, i32 1, i32 4, i32 5, i32 2, i32 3, i32 6, i32 7>
@@ -716,7 +718,7 @@ fill_block.exit:                                  ; preds = %for.body1775.i
 
 for.inc:                                          ; preds = %if.then87, %fill_block.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %inc100 = add i32 %curr_offset.071, 1
+  %inc100 = add i32 %curr_offset.073, 1
   %inc101 = add i32 %spec.select38, 1
   %212 = load i32, ptr %segment_length, align 4
   %213 = zext i32 %212 to i64

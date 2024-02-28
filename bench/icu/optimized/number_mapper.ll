@@ -657,6 +657,12 @@ entry:
   %ref.tmp342 = alloca %"class.icu_75::number::Scale", align 8
   %ref.tmp364 = alloca %"class.icu_75::number::Precision", align 8
   %dq = alloca %"class.icu_75::number::impl::DecimalQuantity", align 8
+  %precision.sink215.sroa.gep221 = getelementptr inbounds i8, ptr %ref.tmp364, i64 18
+  %precision.sink215.sroa.gep222 = getelementptr inbounds i8, ptr %precision, i64 18
+  %precision.sink215.sroa.gep218 = getelementptr inbounds i8, ptr %ref.tmp364, i64 16
+  %precision.sink215.sroa.gep219 = getelementptr inbounds i8, ptr %precision, i64 16
+  %precision.sink215.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp364, i64 8
+  %precision.sink215.sroa.gep216 = getelementptr inbounds i8, ptr %precision, i64 8
   tail call void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %agg.result)
   %locale.i = getelementptr inbounds i8, ptr %symbols, i64 1936
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
@@ -1255,14 +1261,13 @@ invoke.cont365:                                   ; preds = %if.then363
   br label %if.end367
 
 if.end367:                                        ; preds = %invoke.cont348, %invoke.cont365
-  %precision.sink215 = phi ptr [ %ref.tmp364, %invoke.cont365 ], [ %precision, %invoke.cont348 ]
+  %precision.sink215.sroa.phi = phi ptr [ %precision.sink215.sroa.gep, %invoke.cont365 ], [ %precision.sink215.sroa.gep216, %invoke.cont348 ]
+  %precision.sink215.sroa.phi217 = phi ptr [ %precision.sink215.sroa.gep218, %invoke.cont365 ], [ %precision.sink215.sroa.gep219, %invoke.cont348 ]
+  %precision.sink215.sroa.phi220 = phi ptr [ %precision.sink215.sroa.gep221, %invoke.cont365 ], [ %precision.sink215.sroa.gep222, %invoke.cont348 ]
   %rounding_.sroa.0.0 = phi i32 [ %rounding_.sroa.0.0.copyload, %invoke.cont365 ], [ %35, %invoke.cont348 ]
-  %rounding_.sroa.4157.0.precision.sroa_idx = getelementptr inbounds i8, ptr %precision.sink215, i64 8
-  %rounding_.sroa.4157.0.copyload158 = load i64, ptr %rounding_.sroa.4157.0.precision.sroa_idx, align 8
-  %rounding_.sroa.9.0.precision.sroa_idx = getelementptr inbounds i8, ptr %precision.sink215, i64 16
-  %rounding_.sroa.9.0.copyload160 = load i16, ptr %rounding_.sroa.9.0.precision.sroa_idx, align 8
-  %rounding_.sroa.10.0.precision.sroa_idx = getelementptr inbounds i8, ptr %precision.sink215, i64 18
-  %rounding_.sroa.10.0.copyload161 = load i16, ptr %rounding_.sroa.10.0.precision.sroa_idx, align 2
+  %rounding_.sroa.4157.0.copyload158 = load i64, ptr %precision.sink215.sroa.phi, align 8
+  %rounding_.sroa.9.0.copyload160 = load i16, ptr %precision.sink215.sroa.phi217, align 8
+  %rounding_.sroa.10.0.copyload161 = load i16, ptr %precision.sink215.sroa.phi220, align 2
   %cmp373 = icmp eq i32 %rounding_.sroa.0.0, 2
   br i1 %cmp373, label %if.then374, label %if.else378
 

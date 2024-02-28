@@ -83,28 +83,28 @@ define void @_ZN4core5slice4sort10merge_sort17hc5a9aa925b50ef18E(ptr align 8 %0,
   %4 = alloca {}, align 1
   %5 = alloca { i64, i64, i8, [7 x i8] }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep106 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sroa.gep101 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.gep96 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.gep91 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep105 = getelementptr inbounds i8, ptr %7, i64 24
-  %.sroa.gep100 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sroa.gep95 = getelementptr inbounds i8, ptr %7, i64 32
-  %.sroa.gep90 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = alloca { ptr, ptr, ptr }, align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep104 = getelementptr inbounds i8, ptr %9, i64 24
-  %.sroa.gep99 = getelementptr inbounds i8, ptr %9, i64 16
-  %.sroa.gep94 = getelementptr inbounds i8, ptr %9, i64 32
-  %.sroa.gep89 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep103 = getelementptr inbounds i8, ptr %10, i64 24
-  %.sroa.gep98 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.gep93 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
   %11 = alloca { ptr, i64, i64, {}, {} }, align 8
   %12 = alloca { ptr, i64 }, align 8
+  %.sink84.sroa.gep103 = getelementptr inbounds i8, ptr %10, i64 24
+  %.sink84.sroa.gep104 = getelementptr inbounds i8, ptr %9, i64 24
+  %.sink84.sroa.gep105 = getelementptr inbounds i8, ptr %7, i64 24
+  %.sink84.sroa.gep106 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sink84.sroa.gep98 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sink84.sroa.gep99 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sink84.sroa.gep100 = getelementptr inbounds i8, ptr %7, i64 16
+  %.sink84.sroa.gep101 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink84.sroa.gep93 = getelementptr inbounds i8, ptr %10, i64 32
+  %.sink84.sroa.gep94 = getelementptr inbounds i8, ptr %9, i64 32
+  %.sink84.sroa.gep95 = getelementptr inbounds i8, ptr %7, i64 32
+  %.sink84.sroa.gep96 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink84.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
+  %.sink84.sroa.gep89 = getelementptr inbounds i8, ptr %9, i64 8
+  %.sink84.sroa.gep90 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sink84.sroa.gep91 = getelementptr inbounds i8, ptr %6, i64 8
   %13 = freeze i64 %1
   %14 = icmp ult i64 %13, 21
   br i1 %14, label %27, label %15
@@ -524,12 +524,12 @@ define void @_ZN4core5slice4sort10merge_sort17hc5a9aa925b50ef18E(ptr align 8 %0,
   br label %.invoke
 
 .invoke:                                          ; preds = %90, %99, %157, %164
+  %.sink84.sroa.phi = phi ptr [ %.sink84.sroa.gep, %90 ], [ %.sink84.sroa.gep89, %99 ], [ %.sink84.sroa.gep90, %157 ], [ %.sink84.sroa.gep91, %164 ]
+  %.sink84.sroa.phi92 = phi ptr [ %.sink84.sroa.gep93, %90 ], [ %.sink84.sroa.gep94, %99 ], [ %.sink84.sroa.gep95, %157 ], [ %.sink84.sroa.gep96, %164 ]
+  %.sink84.sroa.phi97 = phi ptr [ %.sink84.sroa.gep98, %90 ], [ %.sink84.sroa.gep99, %99 ], [ %.sink84.sroa.gep100, %157 ], [ %.sink84.sroa.gep101, %164 ]
+  %.sink84.sroa.phi102 = phi ptr [ %.sink84.sroa.gep103, %90 ], [ %.sink84.sroa.gep104, %99 ], [ %.sink84.sroa.gep105, %157 ], [ %.sink84.sroa.gep106, %164 ]
   %.sink84 = phi ptr [ %10, %90 ], [ %9, %99 ], [ %7, %157 ], [ %6, %164 ]
   %165 = phi ptr [ @anon.883c26e78aefde9b1fe92685782f4d2b.9, %90 ], [ @anon.883c26e78aefde9b1fe92685782f4d2b.10, %99 ], [ @anon.883c26e78aefde9b1fe92685782f4d2b.12, %157 ], [ @anon.883c26e78aefde9b1fe92685782f4d2b.18, %164 ]
-  %.sink84.sroa.phi = phi ptr [ %.sroa.gep, %90 ], [ %.sroa.gep89, %99 ], [ %.sroa.gep90, %157 ], [ %.sroa.gep91, %164 ]
-  %.sink84.sroa.phi92 = phi ptr [ %.sroa.gep93, %90 ], [ %.sroa.gep94, %99 ], [ %.sroa.gep95, %157 ], [ %.sroa.gep96, %164 ]
-  %.sink84.sroa.phi97 = phi ptr [ %.sroa.gep98, %90 ], [ %.sroa.gep99, %99 ], [ %.sroa.gep100, %157 ], [ %.sroa.gep101, %164 ]
-  %.sink84.sroa.phi102 = phi ptr [ %.sroa.gep103, %90 ], [ %.sroa.gep104, %99 ], [ %.sroa.gep105, %157 ], [ %.sroa.gep106, %164 ]
   store i64 1, ptr %.sink84.sroa.phi, align 8
   store ptr null, ptr %.sink84.sroa.phi92, align 8
   store ptr @anon.883c26e78aefde9b1fe92685782f4d2b.2, ptr %.sink84.sroa.phi97, align 8

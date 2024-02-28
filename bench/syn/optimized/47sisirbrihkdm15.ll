@@ -263,11 +263,9 @@ define void @"_ZN3syn4data7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$
   %14 = alloca { { { { ptr, i64 }, i64 } } }, align 8
   %15 = alloca { ptr, [5 x i64] }, align 8
   %16 = alloca { ptr, [5 x i64] }, align 8
-  %.sroa.gep = getelementptr inbounds i8, ptr %16, i64 8
   %17 = alloca { { { { ptr, i64 }, i64 } } }, align 8
   %18 = alloca { ptr, [5 x i64] }, align 8
   %19 = alloca { ptr, [5 x i64] }, align 8
-  %.sroa.gep70 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = alloca { i64, [6 x i64] }, align 8
   %21 = alloca { { { { ptr, i64 }, i64 } } }, align 8
   %22 = alloca { [24 x i8], i8, [7 x i8] }, align 8
@@ -281,6 +279,8 @@ define void @"_ZN3syn4data7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$
   %30 = alloca { i64, [3 x i64] }, align 8
   %31 = alloca { i64, [3 x i64] }, align 8
   %32 = alloca { { ptr, i64 }, i64 }, align 8
+  %.sink69.sroa.gep = getelementptr inbounds i8, ptr %16, i64 8
+  %.sink69.sroa.gep70 = getelementptr inbounds i8, ptr %19, i64 8
   call void @_ZN3syn5parse11ParseBuffer4call17h563f126cfd1a59faE(ptr nonnull sret({ i64, [3 x i64] }) align 8 %30, ptr align 8 %1, ptr nonnull @_ZN3syn4attr9Attribute11parse_outer17h610fd39a6dd76357E)
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h08ba75a78abae4b4E"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %31, ptr nonnull align 8 %30)
   %33 = load i64, ptr %31, align 8, !range !7, !noundef !6
@@ -424,9 +424,9 @@ define void @"_ZN3syn4data7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$
   br label %64
 
 .invoke:                                          ; preds = %73, %67
+  %.sink69.sroa.phi = phi ptr [ %.sink69.sroa.gep, %67 ], [ %.sink69.sroa.gep70, %73 ]
   %.sink = phi ptr [ %14, %67 ], [ %17, %73 ]
   %77 = phi ptr [ @anon.6d1ce534228d1c0ae463e8f6c79ee1fd.1, %67 ], [ @anon.6d1ce534228d1c0ae463e8f6c79ee1fd.4, %73 ]
-  %.sink69.sroa.phi = phi ptr [ %.sroa.gep, %67 ], [ %.sroa.gep70, %73 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sink, ptr noundef nonnull align 8 dereferenceable(24) %.sink69.sroa.phi, i64 24, i1 false)
   invoke void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17ha1dea62d83c9ae55E"(ptr sret({ i64, [36 x i64] }) align 8 %0, ptr nonnull align 8 %.sink, ptr nonnull align 8 %77)
           to label %71 unwind label %55

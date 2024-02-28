@@ -1840,19 +1840,16 @@ entry:
   %agg.tmp1480 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp1484 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp1485 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
-  %agg.tmp1485.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp1485, i64 8
   %agg.tmp1491 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp1492 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp1494 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp1495 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp1499 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp1500 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
-  %agg.tmp1500.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp1500, i64 8
   %agg.tmp1504 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp1505 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp1509 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp1510 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
-  %agg.tmp1510.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp1510, i64 8
   %fixnan = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1520 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp1521 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -2010,6 +2007,9 @@ entry:
   %all = alloca double, align 8
   %ref.tmp2466 = alloca double, align 8
   %ref.tmp2473 = alloca %"class.std::__cxx11::basic_string", align 8
+  %agg.tmp1485.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp1485, i64 8
+  %agg.tmp1485.sink.sroa.gep2884 = getelementptr inbounds i8, ptr %agg.tmp1500, i64 8
+  %agg.tmp1485.sink.sroa.gep2885 = getelementptr inbounds i8, ptr %agg.tmp1510, i64 8
   %0 = icmp ult i32 %mode, 5
   br i1 %0, label %cond.end, label %cond.false
 
@@ -7111,10 +7111,10 @@ if.then1508:                                      ; preds = %invoke.cont1506
   br label %if.then1508.invoke
 
 if.then1508.invoke:                               ; preds = %if.then1483, %if.then1498, %if.then1508
+  %agg.tmp1485.sink.sroa.phi = phi ptr [ %agg.tmp1485.sink.sroa.gep, %if.then1483 ], [ %agg.tmp1485.sink.sroa.gep2884, %if.then1498 ], [ %agg.tmp1485.sink.sroa.gep2885, %if.then1508 ]
   %agg.tmp1485.sink = phi ptr [ %agg.tmp1485, %if.then1483 ], [ %agg.tmp1500, %if.then1498 ], [ %agg.tmp1510, %if.then1508 ]
   %.sink2865 = phi i64 [ 6, %if.then1483 ], [ 19, %if.then1498 ], [ 13, %if.then1508 ]
   %543 = phi ptr [ %agg.tmp1484, %if.then1483 ], [ %agg.tmp1499, %if.then1498 ], [ %agg.tmp1509, %if.then1508 ]
-  %agg.tmp1485.sink.sroa.phi = phi ptr [ %agg.tmp1485.sroa.gep, %if.then1483 ], [ %agg.tmp1500.sroa.gep, %if.then1498 ], [ %agg.tmp1510.sroa.gep, %if.then1508 ]
   store i64 %.sink2865, ptr %agg.tmp1485.sink.sroa.phi, align 8
   invoke void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEES4_(ptr noundef nonnull align 8 dereferenceable(160) %dstspec, ptr noundef nonnull %543, ptr noundef nonnull %agg.tmp1485.sink)
           to label %if.then1516 unwind label %lpad1443
@@ -41164,7 +41164,7 @@ _ZN3fmt2v86detail9normalizeILi0EEENS1_2fpES3_.exit: ; preds = %if.end42, %while.
   %ptr_.i93 = getelementptr inbounds i8, ptr %buf, i64 8
   %24 = load ptr, ptr %ptr_.i93, align 8
   %sub54 = sub nsw i32 348, %mul6.i
-  %sh_prom.i = zext i32 %add3.i.neg to i64
+  %sh_prom.i = zext nneg i32 %add3.i.neg to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %shr.i = lshr i64 %cond.i.i, %sh_prom.i
   %conv.i = trunc i64 %shr.i to i32

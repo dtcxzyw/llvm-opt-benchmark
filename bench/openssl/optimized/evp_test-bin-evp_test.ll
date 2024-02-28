@@ -3566,7 +3566,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %indvars.iv.next280 = add nuw i64 %indvars.iv279, 1
+  %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %arrayidx242 = getelementptr inbounds [4 x ptr], ptr %aad, i64 0, i64 %indvars.iv.next280
   %33 = load ptr, ptr %arrayidx242, align 8
   %cmp243.not = icmp eq ptr %33, null
@@ -3633,7 +3633,7 @@ land.lhs.true308:                                 ; preds = %if.end302
 
 for.inc317:                                       ; preds = %for.body262, %if.end302, %land.lhs.true308
   %donelen.2254 = phi i64 [ %donelen.2, %if.end302 ], [ %donelen.2, %land.lhs.true308 ], [ %donelen.0269, %for.body262 ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx259 = getelementptr inbounds [4 x ptr], ptr %aad, i64 0, i64 %indvars.iv.next
   %43 = load ptr, ptr %arrayidx259, align 8
   %cmp260.not = icmp eq ptr %43, null
@@ -7033,6 +7033,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ivparams.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp261.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp265.i)
+  %params_n.1.sroa.gep226.i = getelementptr inbounds i8, ptr %params.i, i64 40
   store i64 0, ptr %got_len.i, align 8
   store i64 0, ptr %size.i, align 8
   store i32 -1, ptr %block_size.i, align 4
@@ -7102,6 +7103,7 @@ if.end38.sink.split.i:                            ; preds = %if.else23.i, %if.el
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.end38.sink.split.i, %if.end.i
+  %params_n.1.sroa.phi.i = phi ptr [ %params.i, %if.end.i ], [ %params_n.1.sroa.gep226.i, %if.end38.sink.split.i ]
   %params_n.1.i = phi i64 [ 0, %if.end.i ], [ 1, %if.end38.sink.split.i ]
   %custom.i = getelementptr inbounds i8, ptr %0, i64 96
   %10 = load ptr, ptr %custom.i, align 8
@@ -7110,11 +7112,10 @@ if.end38.i:                                       ; preds = %if.end38.sink.split
 
 if.then40.i:                                      ; preds = %if.end38.i
   %inc41.i = add nuw nsw i64 %params_n.1.i, 1
-  %arrayidx42.i = getelementptr inbounds [21 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 %params_n.1.i
   %custom_len.i = getelementptr inbounds i8, ptr %0, i64 104
   %11 = load i64, ptr %custom_len.i, align 8
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp43.i, ptr noundef nonnull @.str.322, ptr noundef nonnull %10, i64 noundef %11) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx42.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp43.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %params_n.1.sroa.phi.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp43.i, i64 40, i1 false)
   br label %if.end45.i
 
 if.end45.i:                                       ; preds = %if.then40.i, %if.end38.i
@@ -7629,10 +7630,10 @@ while.end.sink.split.i:                           ; preds = %if.then33.i, %if.el
   br label %mac_test_run_mac.exit
 
 mac_test_run_mac.exit:                            ; preds = %while.body.i, %err311.i, %while.end.sink.split.i
-  %ctx.0232.i = phi ptr [ %ctx.0.i, %err311.i ], [ null, %while.end.sink.split.i ], [ %ctx.0.i, %while.body.i ]
-  %got.2231.i = phi ptr [ %got.2.i, %err311.i ], [ null, %while.end.sink.split.i ], [ %got.2.i, %while.body.i ]
-  call void @EVP_MAC_CTX_free(ptr noundef %ctx.0232.i) #11
-  call void @CRYPTO_free(ptr noundef %got.2231.i, ptr noundef nonnull @.str.27, i32 noundef 1761) #11
+  %ctx.0234.i = phi ptr [ %ctx.0.i, %err311.i ], [ null, %while.end.sink.split.i ], [ %ctx.0.i, %while.body.i ]
+  %got.2233.i = phi ptr [ %got.2.i, %err311.i ], [ null, %while.end.sink.split.i ], [ %got.2.i, %while.body.i ]
+  call void @EVP_MAC_CTX_free(ptr noundef %ctx.0234.i) #11
+  call void @CRYPTO_free(ptr noundef %got.2233.i, ptr noundef nonnull @.str.27, i32 noundef 1761) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %got_len.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %block_size.i)

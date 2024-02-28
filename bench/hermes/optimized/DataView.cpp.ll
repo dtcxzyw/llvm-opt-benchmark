@@ -525,8 +525,8 @@ if.then8.i.i.i:                                   ; preds = %if.end37.i
 
 if.end11.i.i.i:                                   ; preds = %if.end37.i
   %call.i.i31.i = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %16) #6
-  %agg.tmp.sroa.0.0.copyload.i.i34.pre.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
-  %.pre8.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i34.pre.i, 281474976710655
+  %agg.tmp.sroa.0.0.copyload.i.i33.pre.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
+  %.pre8.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i33.pre.i, 281474976710655
   %.pre9.i = inttoptr i64 %.pre8.i to ptr
   br label %_ZN6hermes2vm12JSTypedArrayIaLNS0_8CellKindE35EE10toDestTypeERKNS0_11HermesValueE.exit.i
 
@@ -542,12 +542,12 @@ _ZN6hermes2vm12JSTypedArrayIaLNS0_8CellKindE35EE10toDestTypeERKNS0_11HermesValue
   br i1 %cmp.i, label %if.then42.i, label %if.end45.i
 
 if.then42.i:                                      ; preds = %_ZN6hermes2vm12JSTypedArrayIaLNS0_8CellKindE35EE10toDestTypeERKNS0_11HermesValueE.exit.i
-  %rightKind_.i3.i37.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 24
-  store i32 1, ptr %rightKind_.i3.i37.i, align 8
-  %leftSize_.i4.i38.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 32
-  store i64 60, ptr %leftSize_.i4.i38.i, align 8
-  %rightSize_.i5.i39.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 40
-  store i64 0, ptr %rightSize_.i5.i39.i, align 8
+  %rightKind_.i3.i36.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 24
+  store i32 1, ptr %rightKind_.i3.i36.i, align 8
+  %leftSize_.i4.i37.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 32
+  store i64 60, ptr %leftSize_.i4.i37.i, align 8
+  %rightSize_.i5.i38.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 40
+  store i64 0, ptr %rightSize_.i5.i38.i, align 8
   store ptr @.str.13, ptr %ref.tmp43.i, align 8
   %18 = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 8
   store i32 3, ptr %18, align 8
@@ -559,18 +559,18 @@ if.end45.i:                                       ; preds = %_ZN6hermes2vm12JSTy
   %19 = load i8, ptr %hasArrayBuffer_.i.i.i.i, align 4
   %20 = and i8 %19, 1
   %tobool.i.not.i.i.i = icmp eq i8 %20, 0
-  br i1 %tobool.i.not.i.i.i, label %if.then.i.i50.i, label %_ZN6hermes2vm10JSDataView3setIaEEvRNS0_7RuntimeEjT_b.exit.i
+  br i1 %tobool.i.not.i.i.i, label %if.then.i.i49.i, label %_ZN6hermes2vm10JSDataView3setIaEEvRNS0_7RuntimeEjT_b.exit.i
 
-if.then.i.i50.i:                                  ; preds = %if.end45.i
+if.then.i.i49.i:                                  ; preds = %if.end45.i
   tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.10) #7
   unreachable
 
 _ZN6hermes2vm10JSDataView3setIaEEvRNS0_7RuntimeEjT_b.exit.i: ; preds = %if.end45.i
-  %buffer_.i46.i = getelementptr inbounds i8, ptr %.pre-phi.i, i64 20
-  %agg.tmp.sroa.0.0.copyload.i.i.i47.i = load i32, ptr %buffer_.i46.i, align 4
-  %conv.i.i.i.i48.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i47.i to i64
-  %add.i.i.i.i49.i = add i64 %conv.i.i.i.i48.i, %11
-  %21 = inttoptr i64 %add.i.i.i.i49.i to ptr
+  %buffer_.i45.i = getelementptr inbounds i8, ptr %.pre-phi.i, i64 20
+  %agg.tmp.sroa.0.0.copyload.i.i.i46.i = load i32, ptr %buffer_.i45.i, align 4
+  %conv.i.i.i.i47.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i46.i to i64
+  %add.i.i.i.i48.i = add i64 %conv.i.i.i.i47.i, %11
+  %21 = inttoptr i64 %add.i.i.i.i48.i to ptr
   %data_.i.i.i = getelementptr inbounds i8, ptr %21, i64 24
   %22 = load i64, ptr %data_.i.i.i, align 8
   %pointerEncryptionKey_.i.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 1520
@@ -890,8 +890,8 @@ if.then8.i.i.i:                                   ; preds = %if.end37.i
 
 if.end11.i.i.i:                                   ; preds = %if.end37.i
   %call.i.i31.i = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %16) #6
-  %agg.tmp.sroa.0.0.copyload.i.i34.pre.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
-  %.pre8.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i34.pre.i, 281474976710655
+  %agg.tmp.sroa.0.0.copyload.i.i33.pre.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
+  %.pre8.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i33.pre.i, 281474976710655
   %.pre9.i = inttoptr i64 %.pre8.i to ptr
   br label %_ZN6hermes2vm12JSTypedArrayIsLNS0_8CellKindE36EE10toDestTypeERKNS0_11HermesValueE.exit.i
 
@@ -907,12 +907,12 @@ _ZN6hermes2vm12JSTypedArrayIsLNS0_8CellKindE36EE10toDestTypeERKNS0_11HermesValue
   br i1 %cmp.i, label %if.then42.i, label %if.end45.i
 
 if.then42.i:                                      ; preds = %_ZN6hermes2vm12JSTypedArrayIsLNS0_8CellKindE36EE10toDestTypeERKNS0_11HermesValueE.exit.i
-  %rightKind_.i3.i37.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 24
-  store i32 1, ptr %rightKind_.i3.i37.i, align 8
-  %leftSize_.i4.i38.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 32
-  store i64 60, ptr %leftSize_.i4.i38.i, align 8
-  %rightSize_.i5.i39.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 40
-  store i64 0, ptr %rightSize_.i5.i39.i, align 8
+  %rightKind_.i3.i36.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 24
+  store i32 1, ptr %rightKind_.i3.i36.i, align 8
+  %leftSize_.i4.i37.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 32
+  store i64 60, ptr %leftSize_.i4.i37.i, align 8
+  %rightSize_.i5.i38.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 40
+  store i64 0, ptr %rightSize_.i5.i38.i, align 8
   store ptr @.str.13, ptr %ref.tmp43.i, align 8
   %18 = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 8
   store i32 3, ptr %18, align 8
@@ -924,18 +924,18 @@ if.end45.i:                                       ; preds = %_ZN6hermes2vm12JSTy
   %19 = load i8, ptr %hasArrayBuffer_.i.i.i.i, align 4
   %20 = and i8 %19, 1
   %tobool.i.not.i.i.i = icmp eq i8 %20, 0
-  br i1 %tobool.i.not.i.i.i, label %if.then.i.i50.i, label %_ZN6hermes2vm10JSDataView3setIsEEvRNS0_7RuntimeEjT_b.exit.i
+  br i1 %tobool.i.not.i.i.i, label %if.then.i.i49.i, label %_ZN6hermes2vm10JSDataView3setIsEEvRNS0_7RuntimeEjT_b.exit.i
 
-if.then.i.i50.i:                                  ; preds = %if.end45.i
+if.then.i.i49.i:                                  ; preds = %if.end45.i
   tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.10) #7
   unreachable
 
 _ZN6hermes2vm10JSDataView3setIsEEvRNS0_7RuntimeEjT_b.exit.i: ; preds = %if.end45.i
-  %buffer_.i46.i = getelementptr inbounds i8, ptr %.pre-phi.i, i64 20
-  %agg.tmp.sroa.0.0.copyload.i.i.i47.i = load i32, ptr %buffer_.i46.i, align 4
-  %conv.i.i.i.i48.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i47.i to i64
-  %add.i.i.i.i49.i = add i64 %conv.i.i.i.i48.i, %11
-  %21 = inttoptr i64 %add.i.i.i.i49.i to ptr
+  %buffer_.i45.i = getelementptr inbounds i8, ptr %.pre-phi.i, i64 20
+  %agg.tmp.sroa.0.0.copyload.i.i.i46.i = load i32, ptr %buffer_.i45.i, align 4
+  %conv.i.i.i.i47.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i46.i to i64
+  %add.i.i.i.i48.i = add i64 %conv.i.i.i.i47.i, %11
+  %21 = inttoptr i64 %add.i.i.i.i48.i to ptr
   %rev.i.i.i.i.i.i = tail call i16 @llvm.bswap.i16(i16 %conv.i32.i)
   %value.addr.0.i.i.i = select i1 %call19.i, i16 %conv.i32.i, i16 %rev.i.i.i.i.i.i
   %data_.i.i.i = getelementptr inbounds i8, ptr %21, i64 24
@@ -1257,8 +1257,8 @@ if.then8.i.i.i:                                   ; preds = %if.end37.i
 
 if.end11.i.i.i:                                   ; preds = %if.end37.i
   %call.i.i31.i = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %16) #6
-  %agg.tmp.sroa.0.0.copyload.i.i33.pre.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
-  %.pre8.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i33.pre.i, 281474976710655
+  %agg.tmp.sroa.0.0.copyload.i.i32.pre.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
+  %.pre8.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i32.pre.i, 281474976710655
   %.pre9.i = inttoptr i64 %.pre8.i to ptr
   br label %_ZN6hermes2vm12JSTypedArrayIiLNS0_8CellKindE37EE10toDestTypeERKNS0_11HermesValueE.exit.i
 
@@ -1273,12 +1273,12 @@ _ZN6hermes2vm12JSTypedArrayIiLNS0_8CellKindE37EE10toDestTypeERKNS0_11HermesValue
   br i1 %cmp.i, label %if.then42.i, label %if.end45.i
 
 if.then42.i:                                      ; preds = %_ZN6hermes2vm12JSTypedArrayIiLNS0_8CellKindE37EE10toDestTypeERKNS0_11HermesValueE.exit.i
-  %rightKind_.i3.i36.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 24
-  store i32 1, ptr %rightKind_.i3.i36.i, align 8
-  %leftSize_.i4.i37.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 32
-  store i64 60, ptr %leftSize_.i4.i37.i, align 8
-  %rightSize_.i5.i38.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 40
-  store i64 0, ptr %rightSize_.i5.i38.i, align 8
+  %rightKind_.i3.i35.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 24
+  store i32 1, ptr %rightKind_.i3.i35.i, align 8
+  %leftSize_.i4.i36.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 32
+  store i64 60, ptr %leftSize_.i4.i36.i, align 8
+  %rightSize_.i5.i37.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 40
+  store i64 0, ptr %rightSize_.i5.i37.i, align 8
   store ptr @.str.13, ptr %ref.tmp43.i, align 8
   %18 = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 8
   store i32 3, ptr %18, align 8
@@ -1290,18 +1290,18 @@ if.end45.i:                                       ; preds = %_ZN6hermes2vm12JSTy
   %19 = load i8, ptr %hasArrayBuffer_.i.i.i.i, align 4
   %20 = and i8 %19, 1
   %tobool.i.not.i.i.i = icmp eq i8 %20, 0
-  br i1 %tobool.i.not.i.i.i, label %if.then.i.i49.i, label %_ZN6hermes2vm10JSDataView3setIiEEvRNS0_7RuntimeEjT_b.exit.i
+  br i1 %tobool.i.not.i.i.i, label %if.then.i.i48.i, label %_ZN6hermes2vm10JSDataView3setIiEEvRNS0_7RuntimeEjT_b.exit.i
 
-if.then.i.i49.i:                                  ; preds = %if.end45.i
+if.then.i.i48.i:                                  ; preds = %if.end45.i
   tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.10) #7
   unreachable
 
 _ZN6hermes2vm10JSDataView3setIiEEvRNS0_7RuntimeEjT_b.exit.i: ; preds = %if.end45.i
-  %buffer_.i45.i = getelementptr inbounds i8, ptr %.pre-phi.i, i64 20
-  %agg.tmp.sroa.0.0.copyload.i.i.i46.i = load i32, ptr %buffer_.i45.i, align 4
-  %conv.i.i.i.i47.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i46.i to i64
-  %add.i.i.i.i48.i = add i64 %conv.i.i.i.i47.i, %11
-  %21 = inttoptr i64 %add.i.i.i.i48.i to ptr
+  %buffer_.i44.i = getelementptr inbounds i8, ptr %.pre-phi.i, i64 20
+  %agg.tmp.sroa.0.0.copyload.i.i.i45.i = load i32, ptr %buffer_.i44.i, align 4
+  %conv.i.i.i.i46.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i45.i to i64
+  %add.i.i.i.i47.i = add i64 %conv.i.i.i.i46.i, %11
+  %21 = inttoptr i64 %add.i.i.i.i47.i to ptr
   %22 = tail call i32 @llvm.bswap.i32(i32 %retval.0.i.i.i)
   %value.addr.0.i.i.i = select i1 %call19.i, i32 %retval.0.i.i.i, i32 %22
   %data_.i.i.i = getelementptr inbounds i8, ptr %21, i64 24
@@ -1621,8 +1621,8 @@ if.then8.i.i.i:                                   ; preds = %if.end37.i
 
 if.end11.i.i.i:                                   ; preds = %if.end37.i
   %call.i.i31.i = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %16) #6
-  %agg.tmp.sroa.0.0.copyload.i.i34.pre.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
-  %.pre8.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i34.pre.i, 281474976710655
+  %agg.tmp.sroa.0.0.copyload.i.i33.pre.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
+  %.pre8.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i33.pre.i, 281474976710655
   %.pre9.i = inttoptr i64 %.pre8.i to ptr
   br label %_ZN6hermes2vm12JSTypedArrayIhLNS0_8CellKindE38EE10toDestTypeERKNS0_11HermesValueE.exit.i
 
@@ -1638,12 +1638,12 @@ _ZN6hermes2vm12JSTypedArrayIhLNS0_8CellKindE38EE10toDestTypeERKNS0_11HermesValue
   br i1 %cmp.i, label %if.then42.i, label %if.end45.i
 
 if.then42.i:                                      ; preds = %_ZN6hermes2vm12JSTypedArrayIhLNS0_8CellKindE38EE10toDestTypeERKNS0_11HermesValueE.exit.i
-  %rightKind_.i3.i37.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 24
-  store i32 1, ptr %rightKind_.i3.i37.i, align 8
-  %leftSize_.i4.i38.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 32
-  store i64 60, ptr %leftSize_.i4.i38.i, align 8
-  %rightSize_.i5.i39.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 40
-  store i64 0, ptr %rightSize_.i5.i39.i, align 8
+  %rightKind_.i3.i36.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 24
+  store i32 1, ptr %rightKind_.i3.i36.i, align 8
+  %leftSize_.i4.i37.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 32
+  store i64 60, ptr %leftSize_.i4.i37.i, align 8
+  %rightSize_.i5.i38.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 40
+  store i64 0, ptr %rightSize_.i5.i38.i, align 8
   store ptr @.str.13, ptr %ref.tmp43.i, align 8
   %18 = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 8
   store i32 3, ptr %18, align 8
@@ -1655,18 +1655,18 @@ if.end45.i:                                       ; preds = %_ZN6hermes2vm12JSTy
   %19 = load i8, ptr %hasArrayBuffer_.i.i.i.i, align 4
   %20 = and i8 %19, 1
   %tobool.i.not.i.i.i = icmp eq i8 %20, 0
-  br i1 %tobool.i.not.i.i.i, label %if.then.i.i50.i, label %_ZN6hermes2vm10JSDataView3setIhEEvRNS0_7RuntimeEjT_b.exit.i
+  br i1 %tobool.i.not.i.i.i, label %if.then.i.i49.i, label %_ZN6hermes2vm10JSDataView3setIhEEvRNS0_7RuntimeEjT_b.exit.i
 
-if.then.i.i50.i:                                  ; preds = %if.end45.i
+if.then.i.i49.i:                                  ; preds = %if.end45.i
   tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.10) #7
   unreachable
 
 _ZN6hermes2vm10JSDataView3setIhEEvRNS0_7RuntimeEjT_b.exit.i: ; preds = %if.end45.i
-  %buffer_.i46.i = getelementptr inbounds i8, ptr %.pre-phi.i, i64 20
-  %agg.tmp.sroa.0.0.copyload.i.i.i47.i = load i32, ptr %buffer_.i46.i, align 4
-  %conv.i.i.i.i48.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i47.i to i64
-  %add.i.i.i.i49.i = add i64 %conv.i.i.i.i48.i, %11
-  %21 = inttoptr i64 %add.i.i.i.i49.i to ptr
+  %buffer_.i45.i = getelementptr inbounds i8, ptr %.pre-phi.i, i64 20
+  %agg.tmp.sroa.0.0.copyload.i.i.i46.i = load i32, ptr %buffer_.i45.i, align 4
+  %conv.i.i.i.i47.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i46.i to i64
+  %add.i.i.i.i48.i = add i64 %conv.i.i.i.i47.i, %11
+  %21 = inttoptr i64 %add.i.i.i.i48.i to ptr
   %data_.i.i.i = getelementptr inbounds i8, ptr %21, i64 24
   %22 = load i64, ptr %data_.i.i.i, align 8
   %pointerEncryptionKey_.i.i.i.i.i = getelementptr inbounds i8, ptr %rt, i64 1520
@@ -1986,8 +1986,8 @@ if.then8.i.i.i:                                   ; preds = %if.end37.i
 
 if.end11.i.i.i:                                   ; preds = %if.end37.i
   %call.i.i31.i = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %16) #6
-  %agg.tmp.sroa.0.0.copyload.i.i34.pre.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
-  %.pre8.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i34.pre.i, 281474976710655
+  %agg.tmp.sroa.0.0.copyload.i.i33.pre.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
+  %.pre8.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i33.pre.i, 281474976710655
   %.pre9.i = inttoptr i64 %.pre8.i to ptr
   br label %_ZN6hermes2vm12JSTypedArrayItLNS0_8CellKindE40EE10toDestTypeERKNS0_11HermesValueE.exit.i
 
@@ -2003,12 +2003,12 @@ _ZN6hermes2vm12JSTypedArrayItLNS0_8CellKindE40EE10toDestTypeERKNS0_11HermesValue
   br i1 %cmp.i, label %if.then42.i, label %if.end45.i
 
 if.then42.i:                                      ; preds = %_ZN6hermes2vm12JSTypedArrayItLNS0_8CellKindE40EE10toDestTypeERKNS0_11HermesValueE.exit.i
-  %rightKind_.i3.i37.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 24
-  store i32 1, ptr %rightKind_.i3.i37.i, align 8
-  %leftSize_.i4.i38.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 32
-  store i64 60, ptr %leftSize_.i4.i38.i, align 8
-  %rightSize_.i5.i39.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 40
-  store i64 0, ptr %rightSize_.i5.i39.i, align 8
+  %rightKind_.i3.i36.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 24
+  store i32 1, ptr %rightKind_.i3.i36.i, align 8
+  %leftSize_.i4.i37.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 32
+  store i64 60, ptr %leftSize_.i4.i37.i, align 8
+  %rightSize_.i5.i38.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 40
+  store i64 0, ptr %rightSize_.i5.i38.i, align 8
   store ptr @.str.13, ptr %ref.tmp43.i, align 8
   %18 = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 8
   store i32 3, ptr %18, align 8
@@ -2020,18 +2020,18 @@ if.end45.i:                                       ; preds = %_ZN6hermes2vm12JSTy
   %19 = load i8, ptr %hasArrayBuffer_.i.i.i.i, align 4
   %20 = and i8 %19, 1
   %tobool.i.not.i.i.i = icmp eq i8 %20, 0
-  br i1 %tobool.i.not.i.i.i, label %if.then.i.i50.i, label %_ZN6hermes2vm10JSDataView3setItEEvRNS0_7RuntimeEjT_b.exit.i
+  br i1 %tobool.i.not.i.i.i, label %if.then.i.i49.i, label %_ZN6hermes2vm10JSDataView3setItEEvRNS0_7RuntimeEjT_b.exit.i
 
-if.then.i.i50.i:                                  ; preds = %if.end45.i
+if.then.i.i49.i:                                  ; preds = %if.end45.i
   tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.10) #7
   unreachable
 
 _ZN6hermes2vm10JSDataView3setItEEvRNS0_7RuntimeEjT_b.exit.i: ; preds = %if.end45.i
-  %buffer_.i46.i = getelementptr inbounds i8, ptr %.pre-phi.i, i64 20
-  %agg.tmp.sroa.0.0.copyload.i.i.i47.i = load i32, ptr %buffer_.i46.i, align 4
-  %conv.i.i.i.i48.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i47.i to i64
-  %add.i.i.i.i49.i = add i64 %conv.i.i.i.i48.i, %11
-  %21 = inttoptr i64 %add.i.i.i.i49.i to ptr
+  %buffer_.i45.i = getelementptr inbounds i8, ptr %.pre-phi.i, i64 20
+  %agg.tmp.sroa.0.0.copyload.i.i.i46.i = load i32, ptr %buffer_.i45.i, align 4
+  %conv.i.i.i.i47.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i46.i to i64
+  %add.i.i.i.i48.i = add i64 %conv.i.i.i.i47.i, %11
+  %21 = inttoptr i64 %add.i.i.i.i48.i to ptr
   %rev.i.i.i.i.i.i = tail call i16 @llvm.bswap.i16(i16 %conv.i32.i)
   %value.addr.0.i.i.i = select i1 %call19.i, i16 %conv.i32.i, i16 %rev.i.i.i.i.i.i
   %data_.i.i.i = getelementptr inbounds i8, ptr %21, i64 24
@@ -2353,8 +2353,8 @@ if.then8.i.i.i:                                   ; preds = %if.end37.i
 
 if.end11.i.i.i:                                   ; preds = %if.end37.i
   %call.i.i31.i = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %16) #6
-  %agg.tmp.sroa.0.0.copyload.i.i33.pre.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
-  %.pre8.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i33.pre.i, 281474976710655
+  %agg.tmp.sroa.0.0.copyload.i.i32.pre.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
+  %.pre8.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i32.pre.i, 281474976710655
   %.pre9.i = inttoptr i64 %.pre8.i to ptr
   br label %_ZN6hermes2vm12JSTypedArrayIjLNS0_8CellKindE41EE10toDestTypeERKNS0_11HermesValueE.exit.i
 
@@ -2369,12 +2369,12 @@ _ZN6hermes2vm12JSTypedArrayIjLNS0_8CellKindE41EE10toDestTypeERKNS0_11HermesValue
   br i1 %cmp.i, label %if.then42.i, label %if.end45.i
 
 if.then42.i:                                      ; preds = %_ZN6hermes2vm12JSTypedArrayIjLNS0_8CellKindE41EE10toDestTypeERKNS0_11HermesValueE.exit.i
-  %rightKind_.i3.i36.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 24
-  store i32 1, ptr %rightKind_.i3.i36.i, align 8
-  %leftSize_.i4.i37.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 32
-  store i64 60, ptr %leftSize_.i4.i37.i, align 8
-  %rightSize_.i5.i38.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 40
-  store i64 0, ptr %rightSize_.i5.i38.i, align 8
+  %rightKind_.i3.i35.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 24
+  store i32 1, ptr %rightKind_.i3.i35.i, align 8
+  %leftSize_.i4.i36.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 32
+  store i64 60, ptr %leftSize_.i4.i36.i, align 8
+  %rightSize_.i5.i37.i = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 40
+  store i64 0, ptr %rightSize_.i5.i37.i, align 8
   store ptr @.str.13, ptr %ref.tmp43.i, align 8
   %18 = getelementptr inbounds i8, ptr %ref.tmp43.i, i64 8
   store i32 3, ptr %18, align 8
@@ -2386,18 +2386,18 @@ if.end45.i:                                       ; preds = %_ZN6hermes2vm12JSTy
   %19 = load i8, ptr %hasArrayBuffer_.i.i.i.i, align 4
   %20 = and i8 %19, 1
   %tobool.i.not.i.i.i = icmp eq i8 %20, 0
-  br i1 %tobool.i.not.i.i.i, label %if.then.i.i49.i, label %_ZN6hermes2vm10JSDataView3setIjEEvRNS0_7RuntimeEjT_b.exit.i
+  br i1 %tobool.i.not.i.i.i, label %if.then.i.i48.i, label %_ZN6hermes2vm10JSDataView3setIjEEvRNS0_7RuntimeEjT_b.exit.i
 
-if.then.i.i49.i:                                  ; preds = %if.end45.i
+if.then.i.i48.i:                                  ; preds = %if.end45.i
   tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.10) #7
   unreachable
 
 _ZN6hermes2vm10JSDataView3setIjEEvRNS0_7RuntimeEjT_b.exit.i: ; preds = %if.end45.i
-  %buffer_.i45.i = getelementptr inbounds i8, ptr %.pre-phi.i, i64 20
-  %agg.tmp.sroa.0.0.copyload.i.i.i46.i = load i32, ptr %buffer_.i45.i, align 4
-  %conv.i.i.i.i47.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i46.i to i64
-  %add.i.i.i.i48.i = add i64 %conv.i.i.i.i47.i, %11
-  %21 = inttoptr i64 %add.i.i.i.i48.i to ptr
+  %buffer_.i44.i = getelementptr inbounds i8, ptr %.pre-phi.i, i64 20
+  %agg.tmp.sroa.0.0.copyload.i.i.i45.i = load i32, ptr %buffer_.i44.i, align 4
+  %conv.i.i.i.i46.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i45.i to i64
+  %add.i.i.i.i47.i = add i64 %conv.i.i.i.i46.i, %11
+  %21 = inttoptr i64 %add.i.i.i.i47.i to ptr
   %22 = tail call i32 @llvm.bswap.i32(i32 %retval.0.i.i.i)
   %value.addr.0.i.i.i = select i1 %call19.i, i32 %retval.0.i.i.i, i32 %22
   %data_.i.i.i = getelementptr inbounds i8, ptr %21, i64 24
@@ -4122,14 +4122,14 @@ declare i64 @llvm.bswap.i64(i64) #3
 define linkonce_odr hidden { i32, i64 } @_ZN6hermes2vm15BigIntPrimitive9fromBytesERNS0_7RuntimeEN4llvh8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %bytes.coerce0, i64 %bytes.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %ref.tmp3.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp3.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
   %ref.tmp6.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp6.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
   %ref.tmp9.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp9.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 8
   %ref.tmp3.i.i = alloca %"class.hermes::vm::TwineChar16", align 8
+  %ref.tmp9.sink28.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep6 = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep7 = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep8 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %conv = trunc i64 %bytes.coerce1 to i32
   %sub1.i.i = add i32 %conv, 7
   %div1.i = lshr i32 %sub1.i.i, 3
@@ -4246,8 +4246,8 @@ sw.epilog.i:                                      ; preds = %if.end
   unreachable
 
 _ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15OperationStatusE.exit: ; preds = %sw.bb1.i, %sw.bb2.i, %sw.bb5.i, %sw.bb8.i
+  %ref.tmp9.sink28.i.sroa.phi = phi ptr [ %ref.tmp9.sink28.i.sroa.gep, %sw.bb8.i ], [ %ref.tmp9.sink28.i.sroa.gep6, %sw.bb5.i ], [ %ref.tmp9.sink28.i.sroa.gep7, %sw.bb2.i ], [ %ref.tmp9.sink28.i.sroa.gep8, %sw.bb1.i ]
   %ref.tmp9.sink28.i = phi ptr [ %ref.tmp9.i, %sw.bb8.i ], [ %ref.tmp6.i, %sw.bb5.i ], [ %ref.tmp3.i, %sw.bb2.i ], [ %ref.tmp.i, %sw.bb1.i ]
-  %ref.tmp9.sink28.i.sroa.phi = phi ptr [ %ref.tmp9.i.sroa.gep, %sw.bb8.i ], [ %ref.tmp6.i.sroa.gep, %sw.bb5.i ], [ %ref.tmp3.i.sroa.gep, %sw.bb2.i ], [ %ref.tmp.i.sroa.gep, %sw.bb1.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi, align 8
   %call10.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i) #6
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)

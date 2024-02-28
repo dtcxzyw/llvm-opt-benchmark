@@ -45366,38 +45366,38 @@ PyUnicode_DATA.exit:                              ; preds = %if.then.i, %if.end.
   %retval.0.i = phi ptr [ %retval.0.i.i, %if.then.i ], [ %op.val3.i, %if.end.i ]
   %bf.lshr = lshr i32 %op.val.i, 2
   %bf.clear = and i32 %bf.lshr, 7
-  %cmp797 = icmp sgt i64 %unicode.val, 0
-  br i1 %cmp797, label %for.body, label %.thread
+  %cmp795 = icmp sgt i64 %unicode.val, 0
+  br i1 %cmp795, label %for.body, label %.thread
 
 .thread:                                          ; preds = %PyUnicode_DATA.exit
-  %cmp29817 = icmp eq i64 %unicode.val, 0
+  %cmp29815 = icmp eq i64 %unicode.val, 0
   br label %10
 
 for.body:                                         ; preds = %PyUnicode_DATA.exit, %if.end27
-  %osize.0802 = phi i64 [ %add, %if.end27 ], [ 0, %PyUnicode_DATA.exit ]
-  %squote.0801 = phi i64 [ %squote.1, %if.end27 ], [ 0, %PyUnicode_DATA.exit ]
-  %dquote.0800 = phi i64 [ %dquote.1, %if.end27 ], [ 0, %PyUnicode_DATA.exit ]
-  %i.0799 = phi i64 [ %inc28, %if.end27 ], [ 0, %PyUnicode_DATA.exit ]
-  %max.0798 = phi i32 [ %max.1, %if.end27 ], [ 127, %PyUnicode_DATA.exit ]
+  %osize.0800 = phi i64 [ %add, %if.end27 ], [ 0, %PyUnicode_DATA.exit ]
+  %squote.0799 = phi i64 [ %squote.1, %if.end27 ], [ 0, %PyUnicode_DATA.exit ]
+  %dquote.0798 = phi i64 [ %dquote.1, %if.end27 ], [ 0, %PyUnicode_DATA.exit ]
+  %i.0797 = phi i64 [ %inc28, %if.end27 ], [ 0, %PyUnicode_DATA.exit ]
+  %max.0796 = phi i32 [ %max.1, %if.end27 ], [ 127, %PyUnicode_DATA.exit ]
   switch i32 %bf.clear, label %if.end6.i [
     i32 1, label %if.then.i170
     i32 2, label %if.then3.i
   ]
 
 if.then.i170:                                     ; preds = %for.body
-  %arrayidx.i = getelementptr i8, ptr %retval.0.i, i64 %i.0799
+  %arrayidx.i = getelementptr i8, ptr %retval.0.i, i64 %i.0797
   %5 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %5 to i32
   br label %PyUnicode_READ.exit
 
 if.then3.i:                                       ; preds = %for.body
-  %arrayidx4.i = getelementptr i16, ptr %retval.0.i, i64 %i.0799
+  %arrayidx4.i = getelementptr i16, ptr %retval.0.i, i64 %i.0797
   %6 = load i16, ptr %arrayidx4.i, align 2
   %conv5.i = zext i16 %6 to i32
   br label %PyUnicode_READ.exit
 
 if.end6.i:                                        ; preds = %for.body
-  %arrayidx7.i = getelementptr i32, ptr %retval.0.i, i64 %i.0799
+  %arrayidx7.i = getelementptr i32, ptr %retval.0.i, i64 %i.0797
   %7 = load i32, ptr %arrayidx7.i, align 4
   br label %PyUnicode_READ.exit
 
@@ -45413,11 +45413,11 @@ PyUnicode_READ.exit:                              ; preds = %if.then.i170, %if.t
   ]
 
 sw.bb:                                            ; preds = %PyUnicode_READ.exit
-  %inc = add i64 %squote.0801, 1
+  %inc = add i64 %squote.0799, 1
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %PyUnicode_READ.exit
-  %inc4 = add i64 %dquote.0800, 1
+  %inc4 = add i64 %dquote.0798, 1
   br label %sw.epilog
 
 sw.default:                                       ; preds = %PyUnicode_READ.exit
@@ -45436,7 +45436,7 @@ if.else10:                                        ; preds = %if.else
   br i1 %tobool.not, label %if.else14, label %if.then12
 
 if.then12:                                        ; preds = %if.else10
-  %cond = tail call i32 @llvm.umax.i32(i32 %retval.0.i169, i32 %max.0798)
+  %cond = tail call i32 @llvm.umax.i32(i32 %retval.0.i169, i32 %max.0796)
   br label %sw.epilog
 
 if.else14:                                        ; preds = %if.else10
@@ -45449,12 +45449,12 @@ if.else17:                                        ; preds = %if.else14
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.else17, %if.else14, %sw.default, %PyUnicode_READ.exit, %PyUnicode_READ.exit, %PyUnicode_READ.exit, %PyUnicode_READ.exit, %if.then12, %if.else, %sw.bb3, %sw.bb
-  %max.1 = phi i32 [ %max.0798, %if.else ], [ %cond, %if.then12 ], [ %max.0798, %sw.bb3 ], [ %max.0798, %sw.bb ], [ %max.0798, %PyUnicode_READ.exit ], [ %max.0798, %PyUnicode_READ.exit ], [ %max.0798, %PyUnicode_READ.exit ], [ %max.0798, %PyUnicode_READ.exit ], [ %max.0798, %sw.default ], [ %max.0798, %if.else14 ], [ %max.0798, %if.else17 ]
-  %dquote.1 = phi i64 [ %dquote.0800, %if.else ], [ %dquote.0800, %if.then12 ], [ %inc4, %sw.bb3 ], [ %dquote.0800, %sw.bb ], [ %dquote.0800, %PyUnicode_READ.exit ], [ %dquote.0800, %PyUnicode_READ.exit ], [ %dquote.0800, %PyUnicode_READ.exit ], [ %dquote.0800, %PyUnicode_READ.exit ], [ %dquote.0800, %sw.default ], [ %dquote.0800, %if.else14 ], [ %dquote.0800, %if.else17 ]
-  %squote.1 = phi i64 [ %squote.0801, %if.else ], [ %squote.0801, %if.then12 ], [ %squote.0801, %sw.bb3 ], [ %inc, %sw.bb ], [ %squote.0801, %PyUnicode_READ.exit ], [ %squote.0801, %PyUnicode_READ.exit ], [ %squote.0801, %PyUnicode_READ.exit ], [ %squote.0801, %PyUnicode_READ.exit ], [ %squote.0801, %sw.default ], [ %squote.0801, %if.else14 ], [ %squote.0801, %if.else17 ]
+  %max.1 = phi i32 [ %max.0796, %if.else ], [ %cond, %if.then12 ], [ %max.0796, %sw.bb3 ], [ %max.0796, %sw.bb ], [ %max.0796, %PyUnicode_READ.exit ], [ %max.0796, %PyUnicode_READ.exit ], [ %max.0796, %PyUnicode_READ.exit ], [ %max.0796, %PyUnicode_READ.exit ], [ %max.0796, %sw.default ], [ %max.0796, %if.else14 ], [ %max.0796, %if.else17 ]
+  %dquote.1 = phi i64 [ %dquote.0798, %if.else ], [ %dquote.0798, %if.then12 ], [ %inc4, %sw.bb3 ], [ %dquote.0798, %sw.bb ], [ %dquote.0798, %PyUnicode_READ.exit ], [ %dquote.0798, %PyUnicode_READ.exit ], [ %dquote.0798, %PyUnicode_READ.exit ], [ %dquote.0798, %PyUnicode_READ.exit ], [ %dquote.0798, %sw.default ], [ %dquote.0798, %if.else14 ], [ %dquote.0798, %if.else17 ]
+  %squote.1 = phi i64 [ %squote.0799, %if.else ], [ %squote.0799, %if.then12 ], [ %squote.0799, %sw.bb3 ], [ %inc, %sw.bb ], [ %squote.0799, %PyUnicode_READ.exit ], [ %squote.0799, %PyUnicode_READ.exit ], [ %squote.0799, %PyUnicode_READ.exit ], [ %squote.0799, %PyUnicode_READ.exit ], [ %squote.0799, %sw.default ], [ %squote.0799, %if.else14 ], [ %squote.0799, %if.else17 ]
   %incr.0 = phi i64 [ 1, %if.else ], [ 1, %if.then12 ], [ 1, %sw.bb3 ], [ 1, %sw.bb ], [ 2, %PyUnicode_READ.exit ], [ 2, %PyUnicode_READ.exit ], [ 2, %PyUnicode_READ.exit ], [ 2, %PyUnicode_READ.exit ], [ 4, %sw.default ], [ 4, %if.else14 ], [ %., %if.else17 ]
   %sub = xor i64 %incr.0, 9223372036854775807
-  %cmp25 = icmp sgt i64 %osize.0802, %sub
+  %cmp25 = icmp sgt i64 %osize.0800, %sub
   br i1 %cmp25, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %sw.epilog
@@ -45463,8 +45463,8 @@ if.then26:                                        ; preds = %sw.epilog
   br label %return
 
 if.end27:                                         ; preds = %sw.epilog
-  %add = add i64 %incr.0, %osize.0802
-  %inc28 = add nuw nsw i64 %i.0799, 1
+  %add = add i64 %incr.0, %osize.0800
+  %inc28 = add nuw nsw i64 %i.0797, 1
   %exitcond.not = icmp eq i64 %inc28, %unicode.val
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !262
 
@@ -45472,24 +45472,24 @@ for.end:                                          ; preds = %if.end27
   %9 = icmp eq i64 %dquote.1, 0
   %cmp29 = icmp eq i64 %add, %unicode.val
   %tobool30.not = icmp eq i64 %squote.1, 0
-  %.856 = select i1 %9, i32 34, i32 39
-  %spec.select = select i1 %tobool30.not, i32 39, i32 %.856
+  %.854 = select i1 %9, i32 34, i32 39
+  %spec.select = select i1 %tobool30.not, i32 39, i32 %.854
   br label %10
 
 10:                                               ; preds = %for.end, %.thread
-  %max.0.lcssa820850 = phi i32 [ 127, %.thread ], [ %max.1, %for.end ]
-  %dquote.0.lcssa822848 = phi i1 [ true, %.thread ], [ %9, %for.end ]
-  %squote.0.lcssa824846 = phi i64 [ 0, %.thread ], [ %squote.1, %for.end ]
-  %osize.0.lcssa826844 = phi i64 [ 0, %.thread ], [ %add, %for.end ]
-  %cmp29828842 = phi i1 [ %cmp29817, %.thread ], [ %cmp29, %for.end ]
-  %tobool30.not830840 = phi i1 [ true, %.thread ], [ %tobool30.not, %for.end ]
+  %max.0.lcssa818848 = phi i32 [ 127, %.thread ], [ %max.1, %for.end ]
+  %dquote.0.lcssa820846 = phi i1 [ true, %.thread ], [ %9, %for.end ]
+  %squote.0.lcssa822844 = phi i64 [ 0, %.thread ], [ %squote.1, %for.end ]
+  %osize.0.lcssa824842 = phi i64 [ 0, %.thread ], [ %add, %for.end ]
+  %cmp29826840 = phi i1 [ %cmp29815, %.thread ], [ %cmp29, %for.end ]
+  %tobool30.not828838 = phi i1 [ true, %.thread ], [ %tobool30.not, %for.end ]
   %11 = phi i32 [ 39, %.thread ], [ %spec.select, %for.end ]
-  %narrow.not = select i1 %tobool30.not830840, i1 %cmp29828842, i1 false
-  %12 = select i1 %tobool30.not830840, i1 true, i1 %dquote.0.lcssa822848
-  %spec.select168 = select i1 %12, i64 0, i64 %squote.0.lcssa824846
-  %osize.1 = add i64 %spec.select168, %osize.0.lcssa826844
+  %narrow.not = select i1 %tobool30.not828838, i1 %cmp29826840, i1 false
+  %12 = select i1 %tobool30.not828838, i1 true, i1 %dquote.0.lcssa820846
+  %spec.select168 = select i1 %12, i64 0, i64 %squote.0.lcssa822844
+  %osize.1 = add i64 %spec.select168, %osize.0.lcssa824842
   %add38 = add i64 %osize.1, 2
-  %call39 = tail call ptr @PyUnicode_New(i64 noundef %add38, i32 noundef %max.0.lcssa820850)
+  %call39 = tail call ptr @PyUnicode_New(i64 noundef %add38, i32 noundef %max.0.lcssa818848)
   %cmp40 = icmp eq ptr %call39, null
   br i1 %cmp40, label %return, label %if.end43
 
@@ -45548,34 +45548,34 @@ PyUnicode_WRITE.exit191:                          ; preds = %PyUnicode_WRITE.exi
   br i1 %narrow.not, label %if.then51, label %for.cond53.preheader
 
 for.cond53.preheader:                             ; preds = %PyUnicode_WRITE.exit191
-  br i1 %cmp797, label %for.body56, label %return
+  br i1 %cmp795, label %for.body56, label %return
 
 if.then51:                                        ; preds = %PyUnicode_WRITE.exit191
   %call.i = tail call fastcc i32 @_copy_characters(ptr noundef nonnull %call39, i64 noundef 1, ptr noundef %unicode, i64 noundef 0, i64 noundef %unicode.val, i32 noundef 0), !range !7
   br label %return
 
 for.body56:                                       ; preds = %for.cond53.preheader, %for.inc213
-  %i.1808 = phi i64 [ %inc214, %for.inc213 ], [ 0, %for.cond53.preheader ]
-  %o.0807 = phi i64 [ %o.1, %for.inc213 ], [ 1, %for.cond53.preheader ]
+  %i.1806 = phi i64 [ %inc214, %for.inc213 ], [ 0, %for.cond53.preheader ]
+  %o.0805 = phi i64 [ %o.1, %for.inc213 ], [ 1, %for.cond53.preheader ]
   switch i32 %bf.clear, label %if.end6.i199 [
     i32 1, label %if.then.i196
     i32 2, label %if.then3.i192
   ]
 
 if.then.i196:                                     ; preds = %for.body56
-  %arrayidx.i197 = getelementptr i8, ptr %retval.0.i, i64 %i.1808
+  %arrayidx.i197 = getelementptr i8, ptr %retval.0.i, i64 %i.1806
   %16 = load i8, ptr %arrayidx.i197, align 1
   %conv.i198 = zext i8 %16 to i32
   br label %PyUnicode_READ.exit201
 
 if.then3.i192:                                    ; preds = %for.body56
-  %arrayidx4.i193 = getelementptr i16, ptr %retval.0.i, i64 %i.1808
+  %arrayidx4.i193 = getelementptr i16, ptr %retval.0.i, i64 %i.1806
   %17 = load i16, ptr %arrayidx4.i193, align 2
   %conv5.i194 = zext i16 %17 to i32
   br label %PyUnicode_READ.exit201
 
 if.end6.i199:                                     ; preds = %for.body56
-  %arrayidx7.i200 = getelementptr i32, ptr %retval.0.i, i64 %i.1808
+  %arrayidx7.i200 = getelementptr i32, ptr %retval.0.i, i64 %i.1806
   %18 = load i32, ptr %arrayidx7.i200, align 4
   br label %PyUnicode_READ.exit201
 
@@ -45587,15 +45587,15 @@ PyUnicode_READ.exit201:                           ; preds = %if.then.i196, %if.t
   br i1 %or.cond1, label %if.then64, label %if.end67
 
 if.then64:                                        ; preds = %PyUnicode_READ.exit201
-  %inc65 = add i64 %o.0807, 1
-  %inc66 = add i64 %o.0807, 2
+  %inc65 = add i64 %o.0805, 1
+  %inc66 = add i64 %o.0805, 2
   switch i32 %bf.clear47, label %PyUnicode_WRITE.exit208 [
     i32 1, label %PyUnicode_WRITE.exit208.thread
     i32 2, label %PyUnicode_WRITE.exit208.thread456
   ]
 
 PyUnicode_WRITE.exit208.thread:                   ; preds = %if.then64
-  %arrayidx.i205 = getelementptr i8, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx.i205 = getelementptr i8, ptr %retval.0.i177, i64 %o.0805
   store i8 92, ptr %arrayidx.i205, align 1
   %conv.i213 = trunc i32 %retval.0.i195 to i8
   %arrayidx.i214 = getelementptr i8, ptr %retval.0.i177, i64 %inc65
@@ -45603,7 +45603,7 @@ PyUnicode_WRITE.exit208.thread:                   ; preds = %if.then64
   br label %for.inc213
 
 PyUnicode_WRITE.exit208.thread456:                ; preds = %if.then64
-  %arrayidx5.i203 = getelementptr i16, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx5.i203 = getelementptr i16, ptr %retval.0.i177, i64 %o.0805
   store i16 92, ptr %arrayidx5.i203, align 2
   %conv4.i210 = trunc i32 %retval.0.i195 to i16
   %arrayidx5.i211 = getelementptr i16, ptr %retval.0.i177, i64 %inc65
@@ -45611,7 +45611,7 @@ PyUnicode_WRITE.exit208.thread456:                ; preds = %if.then64
   br label %for.inc213
 
 PyUnicode_WRITE.exit208:                          ; preds = %if.then64
-  %arrayidx7.i207 = getelementptr i32, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx7.i207 = getelementptr i32, ptr %retval.0.i177, i64 %o.0805
   store i32 92, ptr %arrayidx7.i207, align 4
   %arrayidx7.i216 = getelementptr i32, ptr %retval.0.i177, i64 %inc65
   store i32 %retval.0.i195, ptr %arrayidx7.i216, align 4
@@ -45625,87 +45625,87 @@ if.end67:                                         ; preds = %PyUnicode_READ.exit
   ]
 
 if.then70:                                        ; preds = %if.end67
-  %inc71 = add i64 %o.0807, 1
-  %inc72 = add i64 %o.0807, 2
+  %inc71 = add i64 %o.0805, 1
+  %inc72 = add i64 %o.0805, 2
   switch i32 %bf.clear47, label %PyUnicode_WRITE.exit224 [
     i32 1, label %PyUnicode_WRITE.exit224.thread
     i32 2, label %PyUnicode_WRITE.exit224.thread462
   ]
 
 PyUnicode_WRITE.exit224.thread:                   ; preds = %if.then70
-  %arrayidx.i221 = getelementptr i8, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx.i221 = getelementptr i8, ptr %retval.0.i177, i64 %o.0805
   store i8 92, ptr %arrayidx.i221, align 1
   %arrayidx.i228 = getelementptr i8, ptr %retval.0.i177, i64 %inc71
   store i8 116, ptr %arrayidx.i228, align 1
   br label %for.inc213
 
 PyUnicode_WRITE.exit224.thread462:                ; preds = %if.then70
-  %arrayidx5.i219 = getelementptr i16, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx5.i219 = getelementptr i16, ptr %retval.0.i177, i64 %o.0805
   store i16 92, ptr %arrayidx5.i219, align 2
   %arrayidx5.i226 = getelementptr i16, ptr %retval.0.i177, i64 %inc71
   store i16 116, ptr %arrayidx5.i226, align 2
   br label %for.inc213
 
 PyUnicode_WRITE.exit224:                          ; preds = %if.then70
-  %arrayidx7.i223 = getelementptr i32, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx7.i223 = getelementptr i32, ptr %retval.0.i177, i64 %o.0805
   store i32 92, ptr %arrayidx7.i223, align 4
   %arrayidx7.i230 = getelementptr i32, ptr %retval.0.i177, i64 %inc71
   store i32 116, ptr %arrayidx7.i230, align 4
   br label %for.inc213
 
 if.then76:                                        ; preds = %if.end67
-  %inc77 = add i64 %o.0807, 1
-  %inc78 = add i64 %o.0807, 2
+  %inc77 = add i64 %o.0805, 1
+  %inc78 = add i64 %o.0805, 2
   switch i32 %bf.clear47, label %PyUnicode_WRITE.exit238 [
     i32 1, label %PyUnicode_WRITE.exit238.thread
     i32 2, label %PyUnicode_WRITE.exit238.thread468
   ]
 
 PyUnicode_WRITE.exit238.thread:                   ; preds = %if.then76
-  %arrayidx.i235 = getelementptr i8, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx.i235 = getelementptr i8, ptr %retval.0.i177, i64 %o.0805
   store i8 92, ptr %arrayidx.i235, align 1
   %arrayidx.i242 = getelementptr i8, ptr %retval.0.i177, i64 %inc77
   store i8 110, ptr %arrayidx.i242, align 1
   br label %for.inc213
 
 PyUnicode_WRITE.exit238.thread468:                ; preds = %if.then76
-  %arrayidx5.i233 = getelementptr i16, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx5.i233 = getelementptr i16, ptr %retval.0.i177, i64 %o.0805
   store i16 92, ptr %arrayidx5.i233, align 2
   %arrayidx5.i240 = getelementptr i16, ptr %retval.0.i177, i64 %inc77
   store i16 110, ptr %arrayidx5.i240, align 2
   br label %for.inc213
 
 PyUnicode_WRITE.exit238:                          ; preds = %if.then76
-  %arrayidx7.i237 = getelementptr i32, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx7.i237 = getelementptr i32, ptr %retval.0.i177, i64 %o.0805
   store i32 92, ptr %arrayidx7.i237, align 4
   %arrayidx7.i244 = getelementptr i32, ptr %retval.0.i177, i64 %inc77
   store i32 110, ptr %arrayidx7.i244, align 4
   br label %for.inc213
 
 if.then82:                                        ; preds = %if.end67
-  %inc83 = add i64 %o.0807, 1
-  %inc84 = add i64 %o.0807, 2
+  %inc83 = add i64 %o.0805, 1
+  %inc84 = add i64 %o.0805, 2
   switch i32 %bf.clear47, label %PyUnicode_WRITE.exit252 [
     i32 1, label %PyUnicode_WRITE.exit252.thread
     i32 2, label %PyUnicode_WRITE.exit252.thread474
   ]
 
 PyUnicode_WRITE.exit252.thread:                   ; preds = %if.then82
-  %arrayidx.i249 = getelementptr i8, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx.i249 = getelementptr i8, ptr %retval.0.i177, i64 %o.0805
   store i8 92, ptr %arrayidx.i249, align 1
   %arrayidx.i256 = getelementptr i8, ptr %retval.0.i177, i64 %inc83
   store i8 114, ptr %arrayidx.i256, align 1
   br label %for.inc213
 
 PyUnicode_WRITE.exit252.thread474:                ; preds = %if.then82
-  %arrayidx5.i247 = getelementptr i16, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx5.i247 = getelementptr i16, ptr %retval.0.i177, i64 %o.0805
   store i16 92, ptr %arrayidx5.i247, align 2
   %arrayidx5.i254 = getelementptr i16, ptr %retval.0.i177, i64 %inc83
   store i16 114, ptr %arrayidx5.i254, align 2
   br label %for.inc213
 
 PyUnicode_WRITE.exit252:                          ; preds = %if.then82
-  %arrayidx7.i251 = getelementptr i32, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx7.i251 = getelementptr i32, ptr %retval.0.i177, i64 %o.0805
   store i32 92, ptr %arrayidx7.i251, align 4
   %arrayidx7.i258 = getelementptr i32, ptr %retval.0.i177, i64 %inc83
   store i32 114, ptr %arrayidx7.i258, align 4
@@ -45718,9 +45718,9 @@ if.else85:                                        ; preds = %if.end67
   br i1 %or.cond2, label %if.then91, label %if.else101
 
 if.then91:                                        ; preds = %if.else85
-  %inc92 = add i64 %o.0807, 1
-  %inc93 = add i64 %o.0807, 2
-  %inc94 = add i64 %o.0807, 3
+  %inc92 = add i64 %o.0805, 1
+  %inc93 = add i64 %o.0805, 2
+  %inc94 = add i64 %o.0805, 3
   %shr = lshr i32 %retval.0.i195, 4
   %idxprom = zext nneg i32 %shr to i64
   switch i32 %bf.clear47, label %PyUnicode_WRITE.exit266 [
@@ -45729,49 +45729,49 @@ if.then91:                                        ; preds = %if.else85
   ]
 
 PyUnicode_WRITE.exit266.thread:                   ; preds = %if.then91
-  %arrayidx.i263 = getelementptr i8, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx.i263 = getelementptr i8, ptr %retval.0.i177, i64 %o.0805
   store i8 92, ptr %arrayidx.i263, align 1
   %arrayidx.i270 = getelementptr i8, ptr %retval.0.i177, i64 %inc92
   store i8 120, ptr %arrayidx.i270, align 1
   %19 = load ptr, ptr @Py_hexdigits, align 8
-  %arrayidx488 = getelementptr i8, ptr %19, i64 %idxprom
-  %20 = load i8, ptr %arrayidx488, align 1
+  %arrayidx487 = getelementptr i8, ptr %19, i64 %idxprom
+  %20 = load i8, ptr %arrayidx487, align 1
   %arrayidx.i278 = getelementptr i8, ptr %retval.0.i177, i64 %inc93
   store i8 %20, ptr %arrayidx.i278, align 1
-  %inc96505 = add i64 %o.0807, 4
+  %inc96503 = add i64 %o.0805, 4
   %21 = load ptr, ptr @Py_hexdigits, align 8
-  %and97506 = and i32 %retval.0.i195, 15
-  %idxprom98507 = zext nneg i32 %and97506 to i64
-  %arrayidx99508 = getelementptr i8, ptr %21, i64 %idxprom98507
-  %22 = load i8, ptr %arrayidx99508, align 1
+  %and97504 = and i32 %retval.0.i195, 15
+  %idxprom98505 = zext nneg i32 %and97504 to i64
+  %arrayidx99506 = getelementptr i8, ptr %21, i64 %idxprom98505
+  %22 = load i8, ptr %arrayidx99506, align 1
   %arrayidx.i286 = getelementptr i8, ptr %retval.0.i177, i64 %inc94
   store i8 %22, ptr %arrayidx.i286, align 1
   br label %for.inc213
 
 PyUnicode_WRITE.exit266.thread480:                ; preds = %if.then91
-  %arrayidx5.i261 = getelementptr i16, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx5.i261 = getelementptr i16, ptr %retval.0.i177, i64 %o.0805
   store i16 92, ptr %arrayidx5.i261, align 2
   %arrayidx5.i268 = getelementptr i16, ptr %retval.0.i177, i64 %inc92
   store i16 120, ptr %arrayidx5.i268, align 2
   %23 = load ptr, ptr @Py_hexdigits, align 8
-  %arrayidx499 = getelementptr i8, ptr %23, i64 %idxprom
-  %24 = load i8, ptr %arrayidx499, align 1
+  %arrayidx497 = getelementptr i8, ptr %23, i64 %idxprom
+  %24 = load i8, ptr %arrayidx497, align 1
   %conv4.i275 = sext i8 %24 to i16
   %arrayidx5.i276 = getelementptr i16, ptr %retval.0.i177, i64 %inc93
   store i16 %conv4.i275, ptr %arrayidx5.i276, align 2
-  %inc96515 = add i64 %o.0807, 4
+  %inc96513 = add i64 %o.0805, 4
   %25 = load ptr, ptr @Py_hexdigits, align 8
-  %and97516 = and i32 %retval.0.i195, 15
-  %idxprom98517 = zext nneg i32 %and97516 to i64
-  %arrayidx99518 = getelementptr i8, ptr %25, i64 %idxprom98517
-  %26 = load i8, ptr %arrayidx99518, align 1
+  %and97514 = and i32 %retval.0.i195, 15
+  %idxprom98515 = zext nneg i32 %and97514 to i64
+  %arrayidx99516 = getelementptr i8, ptr %25, i64 %idxprom98515
+  %26 = load i8, ptr %arrayidx99516, align 1
   %conv4.i283 = sext i8 %26 to i16
   %arrayidx5.i284 = getelementptr i16, ptr %retval.0.i177, i64 %inc94
   store i16 %conv4.i283, ptr %arrayidx5.i284, align 2
   br label %for.inc213
 
 PyUnicode_WRITE.exit266:                          ; preds = %if.then91
-  %arrayidx7.i265 = getelementptr i32, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx7.i265 = getelementptr i32, ptr %retval.0.i177, i64 %o.0805
   store i32 92, ptr %arrayidx7.i265, align 4
   %arrayidx7.i272 = getelementptr i32, ptr %retval.0.i177, i64 %inc92
   store i32 120, ptr %arrayidx7.i272, align 4
@@ -45781,7 +45781,7 @@ PyUnicode_WRITE.exit266:                          ; preds = %if.then91
   %conv95 = sext i8 %28 to i32
   %arrayidx7.i280 = getelementptr i32, ptr %retval.0.i177, i64 %inc93
   store i32 %conv95, ptr %arrayidx7.i280, align 4
-  %inc96 = add i64 %o.0807, 4
+  %inc96 = add i64 %o.0805, 4
   %29 = load ptr, ptr @Py_hexdigits, align 8
   %and97 = and i32 %retval.0.i195, 15
   %idxprom98 = zext nneg i32 %and97 to i64
@@ -45797,7 +45797,7 @@ if.else101:                                       ; preds = %if.else85
   br i1 %cmp102, label %if.then104, label %if.else106
 
 if.then104:                                       ; preds = %if.else101
-  %inc105 = add i64 %o.0807, 1
+  %inc105 = add i64 %o.0805, 1
   switch i32 %bf.clear47, label %if.else6.i296 [
     i32 1, label %if.then.i293
     i32 2, label %if.then3.i290
@@ -45805,25 +45805,25 @@ if.then104:                                       ; preds = %if.else101
 
 if.then.i293:                                     ; preds = %if.then104
   %conv.i294 = trunc i32 %retval.0.i195 to i8
-  %arrayidx.i295 = getelementptr i8, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx.i295 = getelementptr i8, ptr %retval.0.i177, i64 %o.0805
   store i8 %conv.i294, ptr %arrayidx.i295, align 1
   br label %for.inc213
 
 if.then3.i290:                                    ; preds = %if.then104
   %conv4.i291 = trunc i32 %retval.0.i195 to i16
-  %arrayidx5.i292 = getelementptr i16, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx5.i292 = getelementptr i16, ptr %retval.0.i177, i64 %o.0805
   store i16 %conv4.i291, ptr %arrayidx5.i292, align 2
   br label %for.inc213
 
 if.else6.i296:                                    ; preds = %if.then104
-  %arrayidx7.i297 = getelementptr i32, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx7.i297 = getelementptr i32, ptr %retval.0.i177, i64 %o.0805
   store i32 %retval.0.i195, ptr %arrayidx7.i297, align 4
   br label %for.inc213
 
 if.else106:                                       ; preds = %if.else101
   %call107 = tail call i32 @_PyUnicode_IsPrintable(i32 noundef %retval.0.i195) #33
   %tobool108.not = icmp eq i32 %call107, 0
-  %inc110 = add i64 %o.0807, 1
+  %inc110 = add i64 %o.0805, 1
   br i1 %tobool108.not, label %if.then109, label %if.else205
 
 if.then109:                                       ; preds = %if.else106
@@ -45833,17 +45833,17 @@ if.then109:                                       ; preds = %if.else106
   ]
 
 if.then.i301:                                     ; preds = %if.then109
-  %arrayidx.i302 = getelementptr i8, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx.i302 = getelementptr i8, ptr %retval.0.i177, i64 %o.0805
   store i8 92, ptr %arrayidx.i302, align 1
   br label %PyUnicode_WRITE.exit305
 
 if.then3.i299:                                    ; preds = %if.then109
-  %arrayidx5.i300 = getelementptr i16, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx5.i300 = getelementptr i16, ptr %retval.0.i177, i64 %o.0805
   store i16 92, ptr %arrayidx5.i300, align 2
   br label %PyUnicode_WRITE.exit305
 
 if.else6.i303:                                    ; preds = %if.then109
-  %arrayidx7.i304 = getelementptr i32, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx7.i304 = getelementptr i32, ptr %retval.0.i177, i64 %o.0805
   store i32 92, ptr %arrayidx7.i304, align 4
   br label %PyUnicode_WRITE.exit305
 
@@ -45852,48 +45852,48 @@ PyUnicode_WRITE.exit305:                          ; preds = %if.then.i301, %if.t
   br i1 %cmp111, label %if.then113, label %if.else126
 
 if.then113:                                       ; preds = %PyUnicode_WRITE.exit305
-  %inc114 = add i64 %o.0807, 2
-  %inc115 = add i64 %o.0807, 3
+  %inc114 = add i64 %o.0805, 2
+  %inc115 = add i64 %o.0805, 3
   %shr116 = lshr i32 %retval.0.i195, 4
   %idxprom118 = zext nneg i32 %shr116 to i64
   switch i32 %bf.clear47, label %PyUnicode_WRITE.exit312 [
     i32 1, label %PyUnicode_WRITE.exit312.thread
-    i32 2, label %PyUnicode_WRITE.exit312.thread530
+    i32 2, label %PyUnicode_WRITE.exit312.thread528
   ]
 
 PyUnicode_WRITE.exit312.thread:                   ; preds = %if.then113
   %arrayidx.i309 = getelementptr i8, ptr %retval.0.i177, i64 %inc110
   store i8 120, ptr %arrayidx.i309, align 1
   %31 = load ptr, ptr @Py_hexdigits, align 8
-  %arrayidx119526 = getelementptr i8, ptr %31, i64 %idxprom118
-  %32 = load i8, ptr %arrayidx119526, align 1
+  %arrayidx119524 = getelementptr i8, ptr %31, i64 %idxprom118
+  %32 = load i8, ptr %arrayidx119524, align 1
   %arrayidx.i317 = getelementptr i8, ptr %retval.0.i177, i64 %inc114
   store i8 %32, ptr %arrayidx.i317, align 1
-  %inc121539 = add i64 %o.0807, 4
+  %inc121537 = add i64 %o.0805, 4
   %33 = load ptr, ptr @Py_hexdigits, align 8
-  %and122540 = and i32 %retval.0.i195, 15
-  %idxprom123541 = zext nneg i32 %and122540 to i64
-  %arrayidx124542 = getelementptr i8, ptr %33, i64 %idxprom123541
-  %34 = load i8, ptr %arrayidx124542, align 1
+  %and122538 = and i32 %retval.0.i195, 15
+  %idxprom123539 = zext nneg i32 %and122538 to i64
+  %arrayidx124540 = getelementptr i8, ptr %33, i64 %idxprom123539
+  %34 = load i8, ptr %arrayidx124540, align 1
   %arrayidx.i325 = getelementptr i8, ptr %retval.0.i177, i64 %inc115
   store i8 %34, ptr %arrayidx.i325, align 1
   br label %for.inc213
 
-PyUnicode_WRITE.exit312.thread530:                ; preds = %if.then113
+PyUnicode_WRITE.exit312.thread528:                ; preds = %if.then113
   %arrayidx5.i307 = getelementptr i16, ptr %retval.0.i177, i64 %inc110
   store i16 120, ptr %arrayidx5.i307, align 2
   %35 = load ptr, ptr @Py_hexdigits, align 8
-  %arrayidx119534 = getelementptr i8, ptr %35, i64 %idxprom118
-  %36 = load i8, ptr %arrayidx119534, align 1
+  %arrayidx119532 = getelementptr i8, ptr %35, i64 %idxprom118
+  %36 = load i8, ptr %arrayidx119532, align 1
   %conv4.i314 = sext i8 %36 to i16
   %arrayidx5.i315 = getelementptr i16, ptr %retval.0.i177, i64 %inc114
   store i16 %conv4.i314, ptr %arrayidx5.i315, align 2
-  %inc121549 = add i64 %o.0807, 4
+  %inc121547 = add i64 %o.0805, 4
   %37 = load ptr, ptr @Py_hexdigits, align 8
-  %and122550 = and i32 %retval.0.i195, 15
-  %idxprom123551 = zext nneg i32 %and122550 to i64
-  %arrayidx124552 = getelementptr i8, ptr %37, i64 %idxprom123551
-  %38 = load i8, ptr %arrayidx124552, align 1
+  %and122548 = and i32 %retval.0.i195, 15
+  %idxprom123549 = zext nneg i32 %and122548 to i64
+  %arrayidx124550 = getelementptr i8, ptr %37, i64 %idxprom123549
+  %38 = load i8, ptr %arrayidx124550, align 1
   %conv4.i322 = sext i8 %38 to i16
   %arrayidx5.i323 = getelementptr i16, ptr %retval.0.i177, i64 %inc115
   store i16 %conv4.i322, ptr %arrayidx5.i323, align 2
@@ -45908,7 +45908,7 @@ PyUnicode_WRITE.exit312:                          ; preds = %if.then113
   %conv120 = sext i8 %40 to i32
   %arrayidx7.i319 = getelementptr i32, ptr %retval.0.i177, i64 %inc114
   store i32 %conv120, ptr %arrayidx7.i319, align 4
-  %inc121 = add i64 %o.0807, 4
+  %inc121 = add i64 %o.0805, 4
   %41 = load ptr, ptr @Py_hexdigits, align 8
   %and122 = and i32 %retval.0.i195, 15
   %idxprom123 = zext nneg i32 %and122 to i64
@@ -45921,8 +45921,8 @@ PyUnicode_WRITE.exit312:                          ; preds = %if.then113
 
 if.else126:                                       ; preds = %PyUnicode_WRITE.exit305
   %cmp127 = icmp ult i32 %retval.0.i195, 65536
-  %inc130 = add i64 %o.0807, 2
-  %inc131 = add i64 %o.0807, 3
+  %inc130 = add i64 %o.0805, 2
+  %inc131 = add i64 %o.0805, 3
   br i1 %cmp127, label %if.then129, label %if.else154
 
 if.then129:                                       ; preds = %if.else126
@@ -45930,82 +45930,82 @@ if.then129:                                       ; preds = %if.else126
   %idxprom134 = zext nneg i32 %shr132 to i64
   switch i32 %bf.clear47, label %PyUnicode_WRITE.exit335 [
     i32 1, label %PyUnicode_WRITE.exit335.thread
-    i32 2, label %PyUnicode_WRITE.exit335.thread564
+    i32 2, label %PyUnicode_WRITE.exit335.thread562
   ]
 
 PyUnicode_WRITE.exit335.thread:                   ; preds = %if.then129
   %arrayidx.i332 = getelementptr i8, ptr %retval.0.i177, i64 %inc110
   store i8 117, ptr %arrayidx.i332, align 1
   %43 = load ptr, ptr @Py_hexdigits, align 8
-  %arrayidx135560 = getelementptr i8, ptr %43, i64 %idxprom134
-  %44 = load i8, ptr %arrayidx135560, align 1
+  %arrayidx135558 = getelementptr i8, ptr %43, i64 %idxprom134
+  %44 = load i8, ptr %arrayidx135558, align 1
   %arrayidx.i340 = getelementptr i8, ptr %retval.0.i177, i64 %inc130
   store i8 %44, ptr %arrayidx.i340, align 1
-  %inc137573 = add i64 %o.0807, 4
+  %inc137571 = add i64 %o.0805, 4
   %45 = load ptr, ptr @Py_hexdigits, align 8
-  %shr138574 = lshr i32 %retval.0.i195, 8
-  %and139575 = and i32 %shr138574, 15
-  %idxprom140576 = zext nneg i32 %and139575 to i64
-  %arrayidx141577 = getelementptr i8, ptr %45, i64 %idxprom140576
-  %46 = load i8, ptr %arrayidx141577, align 1
+  %shr138572 = lshr i32 %retval.0.i195, 8
+  %and139573 = and i32 %shr138572, 15
+  %idxprom140574 = zext nneg i32 %and139573 to i64
+  %arrayidx141575 = getelementptr i8, ptr %45, i64 %idxprom140574
+  %46 = load i8, ptr %arrayidx141575, align 1
   %arrayidx.i348 = getelementptr i8, ptr %retval.0.i177, i64 %inc131
   store i8 %46, ptr %arrayidx.i348, align 1
-  %inc143594 = add i64 %o.0807, 5
+  %inc143592 = add i64 %o.0805, 5
   %47 = load ptr, ptr @Py_hexdigits, align 8
-  %shr144595 = lshr i32 %retval.0.i195, 4
-  %and145596 = and i32 %shr144595, 15
-  %idxprom146597 = zext nneg i32 %and145596 to i64
-  %arrayidx147598 = getelementptr i8, ptr %47, i64 %idxprom146597
-  %48 = load i8, ptr %arrayidx147598, align 1
-  %arrayidx.i356 = getelementptr i8, ptr %retval.0.i177, i64 %inc137573
+  %shr144593 = lshr i32 %retval.0.i195, 4
+  %and145594 = and i32 %shr144593, 15
+  %idxprom146595 = zext nneg i32 %and145594 to i64
+  %arrayidx147596 = getelementptr i8, ptr %47, i64 %idxprom146595
+  %48 = load i8, ptr %arrayidx147596, align 1
+  %arrayidx.i356 = getelementptr i8, ptr %retval.0.i177, i64 %inc137571
   store i8 %48, ptr %arrayidx.i356, align 1
-  %inc149615 = add i64 %o.0807, 6
+  %inc149613 = add i64 %o.0805, 6
   %49 = load ptr, ptr @Py_hexdigits, align 8
-  %and150616 = and i32 %retval.0.i195, 15
-  %idxprom151617 = zext nneg i32 %and150616 to i64
-  %arrayidx152618 = getelementptr i8, ptr %49, i64 %idxprom151617
-  %50 = load i8, ptr %arrayidx152618, align 1
-  %arrayidx.i364 = getelementptr i8, ptr %retval.0.i177, i64 %inc143594
+  %and150614 = and i32 %retval.0.i195, 15
+  %idxprom151615 = zext nneg i32 %and150614 to i64
+  %arrayidx152616 = getelementptr i8, ptr %49, i64 %idxprom151615
+  %50 = load i8, ptr %arrayidx152616, align 1
+  %arrayidx.i364 = getelementptr i8, ptr %retval.0.i177, i64 %inc143592
   store i8 %50, ptr %arrayidx.i364, align 1
   br label %for.inc213
 
-PyUnicode_WRITE.exit335.thread564:                ; preds = %if.then129
+PyUnicode_WRITE.exit335.thread562:                ; preds = %if.then129
   %arrayidx5.i330 = getelementptr i16, ptr %retval.0.i177, i64 %inc110
   store i16 117, ptr %arrayidx5.i330, align 2
   %51 = load ptr, ptr @Py_hexdigits, align 8
-  %arrayidx135568 = getelementptr i8, ptr %51, i64 %idxprom134
-  %52 = load i8, ptr %arrayidx135568, align 1
+  %arrayidx135566 = getelementptr i8, ptr %51, i64 %idxprom134
+  %52 = load i8, ptr %arrayidx135566, align 1
   %conv4.i337 = sext i8 %52 to i16
   %arrayidx5.i338 = getelementptr i16, ptr %retval.0.i177, i64 %inc130
   store i16 %conv4.i337, ptr %arrayidx5.i338, align 2
-  %inc137584 = add i64 %o.0807, 4
+  %inc137582 = add i64 %o.0805, 4
   %53 = load ptr, ptr @Py_hexdigits, align 8
-  %shr138585 = lshr i32 %retval.0.i195, 8
-  %and139586 = and i32 %shr138585, 15
-  %idxprom140587 = zext nneg i32 %and139586 to i64
-  %arrayidx141588 = getelementptr i8, ptr %53, i64 %idxprom140587
-  %54 = load i8, ptr %arrayidx141588, align 1
+  %shr138583 = lshr i32 %retval.0.i195, 8
+  %and139584 = and i32 %shr138583, 15
+  %idxprom140585 = zext nneg i32 %and139584 to i64
+  %arrayidx141586 = getelementptr i8, ptr %53, i64 %idxprom140585
+  %54 = load i8, ptr %arrayidx141586, align 1
   %conv4.i345 = sext i8 %54 to i16
   %arrayidx5.i346 = getelementptr i16, ptr %retval.0.i177, i64 %inc131
   store i16 %conv4.i345, ptr %arrayidx5.i346, align 2
-  %inc143605 = add i64 %o.0807, 5
+  %inc143603 = add i64 %o.0805, 5
   %55 = load ptr, ptr @Py_hexdigits, align 8
-  %shr144606 = lshr i32 %retval.0.i195, 4
-  %and145607 = and i32 %shr144606, 15
-  %idxprom146608 = zext nneg i32 %and145607 to i64
-  %arrayidx147609 = getelementptr i8, ptr %55, i64 %idxprom146608
-  %56 = load i8, ptr %arrayidx147609, align 1
+  %shr144604 = lshr i32 %retval.0.i195, 4
+  %and145605 = and i32 %shr144604, 15
+  %idxprom146606 = zext nneg i32 %and145605 to i64
+  %arrayidx147607 = getelementptr i8, ptr %55, i64 %idxprom146606
+  %56 = load i8, ptr %arrayidx147607, align 1
   %conv4.i353 = sext i8 %56 to i16
-  %arrayidx5.i354 = getelementptr i16, ptr %retval.0.i177, i64 %inc137584
+  %arrayidx5.i354 = getelementptr i16, ptr %retval.0.i177, i64 %inc137582
   store i16 %conv4.i353, ptr %arrayidx5.i354, align 2
-  %inc149625 = add i64 %o.0807, 6
+  %inc149623 = add i64 %o.0805, 6
   %57 = load ptr, ptr @Py_hexdigits, align 8
-  %and150626 = and i32 %retval.0.i195, 15
-  %idxprom151627 = zext nneg i32 %and150626 to i64
-  %arrayidx152628 = getelementptr i8, ptr %57, i64 %idxprom151627
-  %58 = load i8, ptr %arrayidx152628, align 1
+  %and150624 = and i32 %retval.0.i195, 15
+  %idxprom151625 = zext nneg i32 %and150624 to i64
+  %arrayidx152626 = getelementptr i8, ptr %57, i64 %idxprom151625
+  %58 = load i8, ptr %arrayidx152626, align 1
   %conv4.i361 = sext i8 %58 to i16
-  %arrayidx5.i362 = getelementptr i16, ptr %retval.0.i177, i64 %inc143605
+  %arrayidx5.i362 = getelementptr i16, ptr %retval.0.i177, i64 %inc143603
   store i16 %conv4.i361, ptr %arrayidx5.i362, align 2
   br label %for.inc213
 
@@ -46018,7 +46018,7 @@ PyUnicode_WRITE.exit335:                          ; preds = %if.then129
   %conv136 = sext i8 %60 to i32
   %arrayidx7.i342 = getelementptr i32, ptr %retval.0.i177, i64 %inc130
   store i32 %conv136, ptr %arrayidx7.i342, align 4
-  %inc137 = add i64 %o.0807, 4
+  %inc137 = add i64 %o.0805, 4
   %61 = load ptr, ptr @Py_hexdigits, align 8
   %shr138 = lshr i32 %retval.0.i195, 8
   %and139 = and i32 %shr138, 15
@@ -46028,7 +46028,7 @@ PyUnicode_WRITE.exit335:                          ; preds = %if.then129
   %conv142 = sext i8 %62 to i32
   %arrayidx7.i350 = getelementptr i32, ptr %retval.0.i177, i64 %inc131
   store i32 %conv142, ptr %arrayidx7.i350, align 4
-  %inc143 = add i64 %o.0807, 5
+  %inc143 = add i64 %o.0805, 5
   %63 = load ptr, ptr @Py_hexdigits, align 8
   %shr144 = lshr i32 %retval.0.i195, 4
   %and145 = and i32 %shr144, 15
@@ -46038,7 +46038,7 @@ PyUnicode_WRITE.exit335:                          ; preds = %if.then129
   %conv148 = sext i8 %64 to i32
   %arrayidx7.i358 = getelementptr i32, ptr %retval.0.i177, i64 %inc137
   store i32 %conv148, ptr %arrayidx7.i358, align 4
-  %inc149 = add i64 %o.0807, 6
+  %inc149 = add i64 %o.0805, 6
   %65 = load ptr, ptr @Py_hexdigits, align 8
   %and150 = and i32 %retval.0.i195, 15
   %idxprom151 = zext nneg i32 %and150 to i64
@@ -46054,158 +46054,158 @@ if.else154:                                       ; preds = %if.else126
   %idxprom159 = zext nneg i32 %shr157 to i64
   switch i32 %bf.clear47, label %PyUnicode_WRITE.exit374 [
     i32 1, label %PyUnicode_WRITE.exit374.thread
-    i32 2, label %PyUnicode_WRITE.exit374.thread640
+    i32 2, label %PyUnicode_WRITE.exit374.thread638
   ]
 
 PyUnicode_WRITE.exit374.thread:                   ; preds = %if.else154
   %arrayidx.i371 = getelementptr i8, ptr %retval.0.i177, i64 %inc110
   store i8 85, ptr %arrayidx.i371, align 1
   %67 = load ptr, ptr @Py_hexdigits, align 8
-  %arrayidx160636 = getelementptr i8, ptr %67, i64 %idxprom159
-  %68 = load i8, ptr %arrayidx160636, align 1
+  %arrayidx160634 = getelementptr i8, ptr %67, i64 %idxprom159
+  %68 = load i8, ptr %arrayidx160634, align 1
   %arrayidx.i379 = getelementptr i8, ptr %retval.0.i177, i64 %inc130
   store i8 %68, ptr %arrayidx.i379, align 1
-  %inc162649 = add i64 %o.0807, 4
+  %inc162647 = add i64 %o.0805, 4
   %69 = load ptr, ptr @Py_hexdigits, align 8
-  %shr163650 = lshr i32 %retval.0.i195, 24
-  %and164651 = and i32 %shr163650, 15
-  %idxprom165652 = zext nneg i32 %and164651 to i64
-  %arrayidx166653 = getelementptr i8, ptr %69, i64 %idxprom165652
-  %70 = load i8, ptr %arrayidx166653, align 1
+  %shr163648 = lshr i32 %retval.0.i195, 24
+  %and164649 = and i32 %shr163648, 15
+  %idxprom165650 = zext nneg i32 %and164649 to i64
+  %arrayidx166651 = getelementptr i8, ptr %69, i64 %idxprom165650
+  %70 = load i8, ptr %arrayidx166651, align 1
   %arrayidx.i387 = getelementptr i8, ptr %retval.0.i177, i64 %inc131
   store i8 %70, ptr %arrayidx.i387, align 1
-  %inc168670 = add i64 %o.0807, 5
+  %inc168668 = add i64 %o.0805, 5
   %71 = load ptr, ptr @Py_hexdigits, align 8
-  %shr169671 = lshr i32 %retval.0.i195, 20
-  %and170672 = and i32 %shr169671, 15
-  %idxprom171673 = zext nneg i32 %and170672 to i64
-  %arrayidx172674 = getelementptr i8, ptr %71, i64 %idxprom171673
-  %72 = load i8, ptr %arrayidx172674, align 1
-  %arrayidx.i395 = getelementptr i8, ptr %retval.0.i177, i64 %inc162649
+  %shr169669 = lshr i32 %retval.0.i195, 20
+  %and170670 = and i32 %shr169669, 15
+  %idxprom171671 = zext nneg i32 %and170670 to i64
+  %arrayidx172672 = getelementptr i8, ptr %71, i64 %idxprom171671
+  %72 = load i8, ptr %arrayidx172672, align 1
+  %arrayidx.i395 = getelementptr i8, ptr %retval.0.i177, i64 %inc162647
   store i8 %72, ptr %arrayidx.i395, align 1
-  %inc174691 = add i64 %o.0807, 6
+  %inc174689 = add i64 %o.0805, 6
   %73 = load ptr, ptr @Py_hexdigits, align 8
-  %shr175692 = lshr i32 %retval.0.i195, 16
-  %and176693 = and i32 %shr175692, 15
-  %idxprom177694 = zext nneg i32 %and176693 to i64
-  %arrayidx178695 = getelementptr i8, ptr %73, i64 %idxprom177694
-  %74 = load i8, ptr %arrayidx178695, align 1
-  %arrayidx.i403 = getelementptr i8, ptr %retval.0.i177, i64 %inc168670
+  %shr175690 = lshr i32 %retval.0.i195, 16
+  %and176691 = and i32 %shr175690, 15
+  %idxprom177692 = zext nneg i32 %and176691 to i64
+  %arrayidx178693 = getelementptr i8, ptr %73, i64 %idxprom177692
+  %74 = load i8, ptr %arrayidx178693, align 1
+  %arrayidx.i403 = getelementptr i8, ptr %retval.0.i177, i64 %inc168668
   store i8 %74, ptr %arrayidx.i403, align 1
-  %inc180712 = add i64 %o.0807, 7
+  %inc180710 = add i64 %o.0805, 7
   %75 = load ptr, ptr @Py_hexdigits, align 8
-  %shr181713 = lshr i32 %retval.0.i195, 12
-  %and182714 = and i32 %shr181713, 15
-  %idxprom183715 = zext nneg i32 %and182714 to i64
-  %arrayidx184716 = getelementptr i8, ptr %75, i64 %idxprom183715
-  %76 = load i8, ptr %arrayidx184716, align 1
-  %arrayidx.i411 = getelementptr i8, ptr %retval.0.i177, i64 %inc174691
+  %shr181711 = lshr i32 %retval.0.i195, 12
+  %and182712 = and i32 %shr181711, 15
+  %idxprom183713 = zext nneg i32 %and182712 to i64
+  %arrayidx184714 = getelementptr i8, ptr %75, i64 %idxprom183713
+  %76 = load i8, ptr %arrayidx184714, align 1
+  %arrayidx.i411 = getelementptr i8, ptr %retval.0.i177, i64 %inc174689
   store i8 %76, ptr %arrayidx.i411, align 1
-  %inc186733 = add i64 %o.0807, 8
+  %inc186731 = add i64 %o.0805, 8
   %77 = load ptr, ptr @Py_hexdigits, align 8
-  %shr187734 = lshr i32 %retval.0.i195, 8
-  %and188735 = and i32 %shr187734, 15
-  %idxprom189736 = zext nneg i32 %and188735 to i64
-  %arrayidx190737 = getelementptr i8, ptr %77, i64 %idxprom189736
-  %78 = load i8, ptr %arrayidx190737, align 1
-  %arrayidx.i419 = getelementptr i8, ptr %retval.0.i177, i64 %inc180712
+  %shr187732 = lshr i32 %retval.0.i195, 8
+  %and188733 = and i32 %shr187732, 15
+  %idxprom189734 = zext nneg i32 %and188733 to i64
+  %arrayidx190735 = getelementptr i8, ptr %77, i64 %idxprom189734
+  %78 = load i8, ptr %arrayidx190735, align 1
+  %arrayidx.i419 = getelementptr i8, ptr %retval.0.i177, i64 %inc180710
   store i8 %78, ptr %arrayidx.i419, align 1
-  %inc192754 = add i64 %o.0807, 9
+  %inc192752 = add i64 %o.0805, 9
   %79 = load ptr, ptr @Py_hexdigits, align 8
-  %shr193755 = lshr i32 %retval.0.i195, 4
-  %and194756 = and i32 %shr193755, 15
-  %idxprom195757 = zext nneg i32 %and194756 to i64
-  %arrayidx196758 = getelementptr i8, ptr %79, i64 %idxprom195757
-  %80 = load i8, ptr %arrayidx196758, align 1
-  %arrayidx.i427 = getelementptr i8, ptr %retval.0.i177, i64 %inc186733
+  %shr193753 = lshr i32 %retval.0.i195, 4
+  %and194754 = and i32 %shr193753, 15
+  %idxprom195755 = zext nneg i32 %and194754 to i64
+  %arrayidx196756 = getelementptr i8, ptr %79, i64 %idxprom195755
+  %80 = load i8, ptr %arrayidx196756, align 1
+  %arrayidx.i427 = getelementptr i8, ptr %retval.0.i177, i64 %inc186731
   store i8 %80, ptr %arrayidx.i427, align 1
-  %inc198775 = add i64 %o.0807, 10
+  %inc198773 = add i64 %o.0805, 10
   %81 = load ptr, ptr @Py_hexdigits, align 8
-  %and199776 = and i32 %retval.0.i195, 15
-  %idxprom200777 = zext nneg i32 %and199776 to i64
-  %arrayidx201778 = getelementptr i8, ptr %81, i64 %idxprom200777
-  %82 = load i8, ptr %arrayidx201778, align 1
-  %arrayidx.i435 = getelementptr i8, ptr %retval.0.i177, i64 %inc192754
+  %and199774 = and i32 %retval.0.i195, 15
+  %idxprom200775 = zext nneg i32 %and199774 to i64
+  %arrayidx201776 = getelementptr i8, ptr %81, i64 %idxprom200775
+  %82 = load i8, ptr %arrayidx201776, align 1
+  %arrayidx.i435 = getelementptr i8, ptr %retval.0.i177, i64 %inc192752
   store i8 %82, ptr %arrayidx.i435, align 1
   br label %for.inc213
 
-PyUnicode_WRITE.exit374.thread640:                ; preds = %if.else154
+PyUnicode_WRITE.exit374.thread638:                ; preds = %if.else154
   %arrayidx5.i369 = getelementptr i16, ptr %retval.0.i177, i64 %inc110
   store i16 85, ptr %arrayidx5.i369, align 2
   %83 = load ptr, ptr @Py_hexdigits, align 8
-  %arrayidx160644 = getelementptr i8, ptr %83, i64 %idxprom159
-  %84 = load i8, ptr %arrayidx160644, align 1
+  %arrayidx160642 = getelementptr i8, ptr %83, i64 %idxprom159
+  %84 = load i8, ptr %arrayidx160642, align 1
   %conv4.i376 = sext i8 %84 to i16
   %arrayidx5.i377 = getelementptr i16, ptr %retval.0.i177, i64 %inc130
   store i16 %conv4.i376, ptr %arrayidx5.i377, align 2
-  %inc162660 = add i64 %o.0807, 4
+  %inc162658 = add i64 %o.0805, 4
   %85 = load ptr, ptr @Py_hexdigits, align 8
-  %shr163661 = lshr i32 %retval.0.i195, 24
-  %and164662 = and i32 %shr163661, 15
-  %idxprom165663 = zext nneg i32 %and164662 to i64
-  %arrayidx166664 = getelementptr i8, ptr %85, i64 %idxprom165663
-  %86 = load i8, ptr %arrayidx166664, align 1
+  %shr163659 = lshr i32 %retval.0.i195, 24
+  %and164660 = and i32 %shr163659, 15
+  %idxprom165661 = zext nneg i32 %and164660 to i64
+  %arrayidx166662 = getelementptr i8, ptr %85, i64 %idxprom165661
+  %86 = load i8, ptr %arrayidx166662, align 1
   %conv4.i384 = sext i8 %86 to i16
   %arrayidx5.i385 = getelementptr i16, ptr %retval.0.i177, i64 %inc131
   store i16 %conv4.i384, ptr %arrayidx5.i385, align 2
-  %inc168681 = add i64 %o.0807, 5
+  %inc168679 = add i64 %o.0805, 5
   %87 = load ptr, ptr @Py_hexdigits, align 8
-  %shr169682 = lshr i32 %retval.0.i195, 20
-  %and170683 = and i32 %shr169682, 15
-  %idxprom171684 = zext nneg i32 %and170683 to i64
-  %arrayidx172685 = getelementptr i8, ptr %87, i64 %idxprom171684
-  %88 = load i8, ptr %arrayidx172685, align 1
+  %shr169680 = lshr i32 %retval.0.i195, 20
+  %and170681 = and i32 %shr169680, 15
+  %idxprom171682 = zext nneg i32 %and170681 to i64
+  %arrayidx172683 = getelementptr i8, ptr %87, i64 %idxprom171682
+  %88 = load i8, ptr %arrayidx172683, align 1
   %conv4.i392 = sext i8 %88 to i16
-  %arrayidx5.i393 = getelementptr i16, ptr %retval.0.i177, i64 %inc162660
+  %arrayidx5.i393 = getelementptr i16, ptr %retval.0.i177, i64 %inc162658
   store i16 %conv4.i392, ptr %arrayidx5.i393, align 2
-  %inc174702 = add i64 %o.0807, 6
+  %inc174700 = add i64 %o.0805, 6
   %89 = load ptr, ptr @Py_hexdigits, align 8
-  %shr175703 = lshr i32 %retval.0.i195, 16
-  %and176704 = and i32 %shr175703, 15
-  %idxprom177705 = zext nneg i32 %and176704 to i64
-  %arrayidx178706 = getelementptr i8, ptr %89, i64 %idxprom177705
-  %90 = load i8, ptr %arrayidx178706, align 1
+  %shr175701 = lshr i32 %retval.0.i195, 16
+  %and176702 = and i32 %shr175701, 15
+  %idxprom177703 = zext nneg i32 %and176702 to i64
+  %arrayidx178704 = getelementptr i8, ptr %89, i64 %idxprom177703
+  %90 = load i8, ptr %arrayidx178704, align 1
   %conv4.i400 = sext i8 %90 to i16
-  %arrayidx5.i401 = getelementptr i16, ptr %retval.0.i177, i64 %inc168681
+  %arrayidx5.i401 = getelementptr i16, ptr %retval.0.i177, i64 %inc168679
   store i16 %conv4.i400, ptr %arrayidx5.i401, align 2
-  %inc180723 = add i64 %o.0807, 7
+  %inc180721 = add i64 %o.0805, 7
   %91 = load ptr, ptr @Py_hexdigits, align 8
-  %shr181724 = lshr i32 %retval.0.i195, 12
-  %and182725 = and i32 %shr181724, 15
-  %idxprom183726 = zext nneg i32 %and182725 to i64
-  %arrayidx184727 = getelementptr i8, ptr %91, i64 %idxprom183726
-  %92 = load i8, ptr %arrayidx184727, align 1
+  %shr181722 = lshr i32 %retval.0.i195, 12
+  %and182723 = and i32 %shr181722, 15
+  %idxprom183724 = zext nneg i32 %and182723 to i64
+  %arrayidx184725 = getelementptr i8, ptr %91, i64 %idxprom183724
+  %92 = load i8, ptr %arrayidx184725, align 1
   %conv4.i408 = sext i8 %92 to i16
-  %arrayidx5.i409 = getelementptr i16, ptr %retval.0.i177, i64 %inc174702
+  %arrayidx5.i409 = getelementptr i16, ptr %retval.0.i177, i64 %inc174700
   store i16 %conv4.i408, ptr %arrayidx5.i409, align 2
-  %inc186744 = add i64 %o.0807, 8
+  %inc186742 = add i64 %o.0805, 8
   %93 = load ptr, ptr @Py_hexdigits, align 8
-  %shr187745 = lshr i32 %retval.0.i195, 8
-  %and188746 = and i32 %shr187745, 15
-  %idxprom189747 = zext nneg i32 %and188746 to i64
-  %arrayidx190748 = getelementptr i8, ptr %93, i64 %idxprom189747
-  %94 = load i8, ptr %arrayidx190748, align 1
+  %shr187743 = lshr i32 %retval.0.i195, 8
+  %and188744 = and i32 %shr187743, 15
+  %idxprom189745 = zext nneg i32 %and188744 to i64
+  %arrayidx190746 = getelementptr i8, ptr %93, i64 %idxprom189745
+  %94 = load i8, ptr %arrayidx190746, align 1
   %conv4.i416 = sext i8 %94 to i16
-  %arrayidx5.i417 = getelementptr i16, ptr %retval.0.i177, i64 %inc180723
+  %arrayidx5.i417 = getelementptr i16, ptr %retval.0.i177, i64 %inc180721
   store i16 %conv4.i416, ptr %arrayidx5.i417, align 2
-  %inc192765 = add i64 %o.0807, 9
+  %inc192763 = add i64 %o.0805, 9
   %95 = load ptr, ptr @Py_hexdigits, align 8
-  %shr193766 = lshr i32 %retval.0.i195, 4
-  %and194767 = and i32 %shr193766, 15
-  %idxprom195768 = zext nneg i32 %and194767 to i64
-  %arrayidx196769 = getelementptr i8, ptr %95, i64 %idxprom195768
-  %96 = load i8, ptr %arrayidx196769, align 1
+  %shr193764 = lshr i32 %retval.0.i195, 4
+  %and194765 = and i32 %shr193764, 15
+  %idxprom195766 = zext nneg i32 %and194765 to i64
+  %arrayidx196767 = getelementptr i8, ptr %95, i64 %idxprom195766
+  %96 = load i8, ptr %arrayidx196767, align 1
   %conv4.i424 = sext i8 %96 to i16
-  %arrayidx5.i425 = getelementptr i16, ptr %retval.0.i177, i64 %inc186744
+  %arrayidx5.i425 = getelementptr i16, ptr %retval.0.i177, i64 %inc186742
   store i16 %conv4.i424, ptr %arrayidx5.i425, align 2
-  %inc198785 = add i64 %o.0807, 10
+  %inc198783 = add i64 %o.0805, 10
   %97 = load ptr, ptr @Py_hexdigits, align 8
-  %and199786 = and i32 %retval.0.i195, 15
-  %idxprom200787 = zext nneg i32 %and199786 to i64
-  %arrayidx201788 = getelementptr i8, ptr %97, i64 %idxprom200787
-  %98 = load i8, ptr %arrayidx201788, align 1
+  %and199784 = and i32 %retval.0.i195, 15
+  %idxprom200785 = zext nneg i32 %and199784 to i64
+  %arrayidx201786 = getelementptr i8, ptr %97, i64 %idxprom200785
+  %98 = load i8, ptr %arrayidx201786, align 1
   %conv4.i432 = sext i8 %98 to i16
-  %arrayidx5.i433 = getelementptr i16, ptr %retval.0.i177, i64 %inc192765
+  %arrayidx5.i433 = getelementptr i16, ptr %retval.0.i177, i64 %inc192763
   store i16 %conv4.i432, ptr %arrayidx5.i433, align 2
   br label %for.inc213
 
@@ -46218,7 +46218,7 @@ PyUnicode_WRITE.exit374:                          ; preds = %if.else154
   %conv161 = sext i8 %100 to i32
   %arrayidx7.i381 = getelementptr i32, ptr %retval.0.i177, i64 %inc130
   store i32 %conv161, ptr %arrayidx7.i381, align 4
-  %inc162 = add i64 %o.0807, 4
+  %inc162 = add i64 %o.0805, 4
   %101 = load ptr, ptr @Py_hexdigits, align 8
   %shr163 = lshr i32 %retval.0.i195, 24
   %and164 = and i32 %shr163, 15
@@ -46228,7 +46228,7 @@ PyUnicode_WRITE.exit374:                          ; preds = %if.else154
   %conv167 = sext i8 %102 to i32
   %arrayidx7.i389 = getelementptr i32, ptr %retval.0.i177, i64 %inc131
   store i32 %conv167, ptr %arrayidx7.i389, align 4
-  %inc168 = add i64 %o.0807, 5
+  %inc168 = add i64 %o.0805, 5
   %103 = load ptr, ptr @Py_hexdigits, align 8
   %shr169 = lshr i32 %retval.0.i195, 20
   %and170 = and i32 %shr169, 15
@@ -46238,7 +46238,7 @@ PyUnicode_WRITE.exit374:                          ; preds = %if.else154
   %conv173 = sext i8 %104 to i32
   %arrayidx7.i397 = getelementptr i32, ptr %retval.0.i177, i64 %inc162
   store i32 %conv173, ptr %arrayidx7.i397, align 4
-  %inc174 = add i64 %o.0807, 6
+  %inc174 = add i64 %o.0805, 6
   %105 = load ptr, ptr @Py_hexdigits, align 8
   %shr175 = lshr i32 %retval.0.i195, 16
   %and176 = and i32 %shr175, 15
@@ -46248,7 +46248,7 @@ PyUnicode_WRITE.exit374:                          ; preds = %if.else154
   %conv179 = sext i8 %106 to i32
   %arrayidx7.i405 = getelementptr i32, ptr %retval.0.i177, i64 %inc168
   store i32 %conv179, ptr %arrayidx7.i405, align 4
-  %inc180 = add i64 %o.0807, 7
+  %inc180 = add i64 %o.0805, 7
   %107 = load ptr, ptr @Py_hexdigits, align 8
   %shr181 = lshr i32 %retval.0.i195, 12
   %and182 = and i32 %shr181, 15
@@ -46258,7 +46258,7 @@ PyUnicode_WRITE.exit374:                          ; preds = %if.else154
   %conv185 = sext i8 %108 to i32
   %arrayidx7.i413 = getelementptr i32, ptr %retval.0.i177, i64 %inc174
   store i32 %conv185, ptr %arrayidx7.i413, align 4
-  %inc186 = add i64 %o.0807, 8
+  %inc186 = add i64 %o.0805, 8
   %109 = load ptr, ptr @Py_hexdigits, align 8
   %shr187 = lshr i32 %retval.0.i195, 8
   %and188 = and i32 %shr187, 15
@@ -46268,7 +46268,7 @@ PyUnicode_WRITE.exit374:                          ; preds = %if.else154
   %conv191 = sext i8 %110 to i32
   %arrayidx7.i421 = getelementptr i32, ptr %retval.0.i177, i64 %inc180
   store i32 %conv191, ptr %arrayidx7.i421, align 4
-  %inc192 = add i64 %o.0807, 9
+  %inc192 = add i64 %o.0805, 9
   %111 = load ptr, ptr @Py_hexdigits, align 8
   %shr193 = lshr i32 %retval.0.i195, 4
   %and194 = and i32 %shr193, 15
@@ -46278,7 +46278,7 @@ PyUnicode_WRITE.exit374:                          ; preds = %if.else154
   %conv197 = sext i8 %112 to i32
   %arrayidx7.i429 = getelementptr i32, ptr %retval.0.i177, i64 %inc186
   store i32 %conv197, ptr %arrayidx7.i429, align 4
-  %inc198 = add i64 %o.0807, 10
+  %inc198 = add i64 %o.0805, 10
   %113 = load ptr, ptr @Py_hexdigits, align 8
   %and199 = and i32 %retval.0.i195, 15
   %idxprom200 = zext nneg i32 %and199 to i64
@@ -46297,26 +46297,26 @@ if.else205:                                       ; preds = %if.else106
 
 if.then.i442:                                     ; preds = %if.else205
   %conv.i443 = trunc i32 %retval.0.i195 to i8
-  %arrayidx.i444 = getelementptr i8, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx.i444 = getelementptr i8, ptr %retval.0.i177, i64 %o.0805
   store i8 %conv.i443, ptr %arrayidx.i444, align 1
   br label %for.inc213
 
 if.then3.i439:                                    ; preds = %if.else205
   %conv4.i440 = trunc i32 %retval.0.i195 to i16
-  %arrayidx5.i441 = getelementptr i16, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx5.i441 = getelementptr i16, ptr %retval.0.i177, i64 %o.0805
   store i16 %conv4.i440, ptr %arrayidx5.i441, align 2
   br label %for.inc213
 
 if.else6.i445:                                    ; preds = %if.else205
-  %arrayidx7.i446 = getelementptr i32, ptr %retval.0.i177, i64 %o.0807
+  %arrayidx7.i446 = getelementptr i32, ptr %retval.0.i177, i64 %o.0805
   store i32 %retval.0.i195, ptr %arrayidx7.i446, align 4
   br label %for.inc213
 
-for.inc213:                                       ; preds = %if.else6.i445, %if.then3.i439, %if.then.i442, %PyUnicode_WRITE.exit374, %PyUnicode_WRITE.exit374.thread640, %PyUnicode_WRITE.exit374.thread, %PyUnicode_WRITE.exit335, %PyUnicode_WRITE.exit335.thread564, %PyUnicode_WRITE.exit335.thread, %PyUnicode_WRITE.exit312, %PyUnicode_WRITE.exit312.thread530, %PyUnicode_WRITE.exit312.thread, %if.else6.i296, %if.then3.i290, %if.then.i293, %PyUnicode_WRITE.exit266, %PyUnicode_WRITE.exit266.thread480, %PyUnicode_WRITE.exit266.thread, %PyUnicode_WRITE.exit252, %PyUnicode_WRITE.exit252.thread474, %PyUnicode_WRITE.exit252.thread, %PyUnicode_WRITE.exit238, %PyUnicode_WRITE.exit238.thread468, %PyUnicode_WRITE.exit238.thread, %PyUnicode_WRITE.exit224, %PyUnicode_WRITE.exit224.thread462, %PyUnicode_WRITE.exit224.thread, %PyUnicode_WRITE.exit208, %PyUnicode_WRITE.exit208.thread456, %PyUnicode_WRITE.exit208.thread
-  %o.1 = phi i64 [ %inc66, %PyUnicode_WRITE.exit208.thread ], [ %inc66, %PyUnicode_WRITE.exit208.thread456 ], [ %inc66, %PyUnicode_WRITE.exit208 ], [ %inc72, %PyUnicode_WRITE.exit224.thread ], [ %inc72, %PyUnicode_WRITE.exit224.thread462 ], [ %inc72, %PyUnicode_WRITE.exit224 ], [ %inc78, %PyUnicode_WRITE.exit238.thread ], [ %inc78, %PyUnicode_WRITE.exit238.thread468 ], [ %inc78, %PyUnicode_WRITE.exit238 ], [ %inc84, %PyUnicode_WRITE.exit252.thread ], [ %inc84, %PyUnicode_WRITE.exit252.thread474 ], [ %inc84, %PyUnicode_WRITE.exit252 ], [ %inc96505, %PyUnicode_WRITE.exit266.thread ], [ %inc96515, %PyUnicode_WRITE.exit266.thread480 ], [ %inc96, %PyUnicode_WRITE.exit266 ], [ %inc105, %if.then.i293 ], [ %inc105, %if.then3.i290 ], [ %inc105, %if.else6.i296 ], [ %inc121539, %PyUnicode_WRITE.exit312.thread ], [ %inc121549, %PyUnicode_WRITE.exit312.thread530 ], [ %inc121, %PyUnicode_WRITE.exit312 ], [ %inc149615, %PyUnicode_WRITE.exit335.thread ], [ %inc149625, %PyUnicode_WRITE.exit335.thread564 ], [ %inc149, %PyUnicode_WRITE.exit335 ], [ %inc198775, %PyUnicode_WRITE.exit374.thread ], [ %inc198785, %PyUnicode_WRITE.exit374.thread640 ], [ %inc198, %PyUnicode_WRITE.exit374 ], [ %inc110, %if.then.i442 ], [ %inc110, %if.then3.i439 ], [ %inc110, %if.else6.i445 ]
-  %inc214 = add nuw nsw i64 %i.1808, 1
-  %exitcond812.not = icmp eq i64 %inc214, %unicode.val
-  br i1 %exitcond812.not, label %return, label %for.body56, !llvm.loop !263
+for.inc213:                                       ; preds = %if.else6.i445, %if.then3.i439, %if.then.i442, %PyUnicode_WRITE.exit374, %PyUnicode_WRITE.exit374.thread638, %PyUnicode_WRITE.exit374.thread, %PyUnicode_WRITE.exit335, %PyUnicode_WRITE.exit335.thread562, %PyUnicode_WRITE.exit335.thread, %PyUnicode_WRITE.exit312, %PyUnicode_WRITE.exit312.thread528, %PyUnicode_WRITE.exit312.thread, %if.else6.i296, %if.then3.i290, %if.then.i293, %PyUnicode_WRITE.exit266, %PyUnicode_WRITE.exit266.thread480, %PyUnicode_WRITE.exit266.thread, %PyUnicode_WRITE.exit252, %PyUnicode_WRITE.exit252.thread474, %PyUnicode_WRITE.exit252.thread, %PyUnicode_WRITE.exit238, %PyUnicode_WRITE.exit238.thread468, %PyUnicode_WRITE.exit238.thread, %PyUnicode_WRITE.exit224, %PyUnicode_WRITE.exit224.thread462, %PyUnicode_WRITE.exit224.thread, %PyUnicode_WRITE.exit208, %PyUnicode_WRITE.exit208.thread456, %PyUnicode_WRITE.exit208.thread
+  %o.1 = phi i64 [ %inc66, %PyUnicode_WRITE.exit208.thread ], [ %inc66, %PyUnicode_WRITE.exit208.thread456 ], [ %inc66, %PyUnicode_WRITE.exit208 ], [ %inc72, %PyUnicode_WRITE.exit224.thread ], [ %inc72, %PyUnicode_WRITE.exit224.thread462 ], [ %inc72, %PyUnicode_WRITE.exit224 ], [ %inc78, %PyUnicode_WRITE.exit238.thread ], [ %inc78, %PyUnicode_WRITE.exit238.thread468 ], [ %inc78, %PyUnicode_WRITE.exit238 ], [ %inc84, %PyUnicode_WRITE.exit252.thread ], [ %inc84, %PyUnicode_WRITE.exit252.thread474 ], [ %inc84, %PyUnicode_WRITE.exit252 ], [ %inc96503, %PyUnicode_WRITE.exit266.thread ], [ %inc96513, %PyUnicode_WRITE.exit266.thread480 ], [ %inc96, %PyUnicode_WRITE.exit266 ], [ %inc105, %if.then.i293 ], [ %inc105, %if.then3.i290 ], [ %inc105, %if.else6.i296 ], [ %inc121537, %PyUnicode_WRITE.exit312.thread ], [ %inc121547, %PyUnicode_WRITE.exit312.thread528 ], [ %inc121, %PyUnicode_WRITE.exit312 ], [ %inc149613, %PyUnicode_WRITE.exit335.thread ], [ %inc149623, %PyUnicode_WRITE.exit335.thread562 ], [ %inc149, %PyUnicode_WRITE.exit335 ], [ %inc198773, %PyUnicode_WRITE.exit374.thread ], [ %inc198783, %PyUnicode_WRITE.exit374.thread638 ], [ %inc198, %PyUnicode_WRITE.exit374 ], [ %inc110, %if.then.i442 ], [ %inc110, %if.then3.i439 ], [ %inc110, %if.else6.i445 ]
+  %inc214 = add nuw nsw i64 %i.1806, 1
+  %exitcond810.not = icmp eq i64 %inc214, %unicode.val
+  br i1 %exitcond810.not, label %return, label %for.body56, !llvm.loop !263
 
 return:                                           ; preds = %for.inc213, %for.cond53.preheader, %if.then51, %10, %if.then26
   %retval.0 = phi ptr [ null, %if.then26 ], [ null, %10 ], [ %call39, %if.then51 ], [ %call39, %for.cond53.preheader ], [ %call39, %for.inc213 ]
@@ -63887,7 +63887,9 @@ entry:
   %first.i.i = alloca %struct.SubString, align 8
   %index.i.i = alloca i64, align 8
   %rest.i.i = alloca %struct.FieldNameIterator, align 8
-  %expanded_format_spec.i = alloca %struct.SubString, align 8
+  %expanded_format_spec.i.sroa.0 = alloca ptr, align 8
+  %expanded_format_spec.i.sroa.4 = alloca i64, align 8
+  %expanded_format_spec.i.sroa.7 = alloca i64, align 8
   %iter.i = alloca %struct.MarkupIterator, align 8
   %format_spec_needs_expanding.i = alloca i32, align 4
   %field_present.i = alloca i32, align 4
@@ -63896,6 +63898,8 @@ entry:
   %format_spec.i = alloca %struct.SubString, align 8
   %conversion.i = alloca i32, align 4
   %writer = alloca %struct._PyUnicodeWriter, align 8
+  %actual_format_spec.0.i.sroa.gep22 = getelementptr inbounds i8, ptr %format_spec.i, i64 16
+  %actual_format_spec.0.i.sroa.gep19 = getelementptr inbounds i8, ptr %format_spec.i, i64 8
   %cmp = icmp slt i32 %recursion_depth, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -63929,9 +63933,9 @@ if.end:                                           ; preds = %entry
   %end3.i.i12 = getelementptr inbounds i8, ptr %iter.i, i64 16
   %3 = load <2 x i64>, ptr %start.i, align 8
   store <2 x i64> %3, ptr %start2.i.i11, align 8
-  %call1.i47 = call fastcc i32 @MarkupIterator_next(ptr noundef nonnull %iter.i, ptr noundef nonnull %literal.i, ptr noundef nonnull %field_present.i, ptr noundef nonnull %field_name.i, ptr noundef nonnull %format_spec.i, ptr noundef nonnull %conversion.i, ptr noundef nonnull %format_spec_needs_expanding.i), !range !143
-  %cmp.i48 = icmp eq i32 %call1.i47, 2
-  br i1 %cmp.i48, label %while.body.i.lr.ph, label %do_markup.exit
+  %call1.i57 = call fastcc i32 @MarkupIterator_next(ptr noundef nonnull %iter.i, ptr noundef nonnull %literal.i, ptr noundef nonnull %field_present.i, ptr noundef nonnull %field_name.i, ptr noundef nonnull %format_spec.i, ptr noundef nonnull %conversion.i, ptr noundef nonnull %format_spec_needs_expanding.i), !range !143
+  %cmp.i58 = icmp eq i32 %call1.i57, 2
+  br i1 %cmp.i58, label %while.body.i.lr.ph, label %do_markup.exit
 
 while.body.i.lr.ph:                               ; preds = %if.end
   %end2.i = getelementptr inbounds i8, ptr %literal.i, i64 16
@@ -63945,8 +63949,6 @@ while.body.i.lr.ph:                               ; preds = %if.end
   %start.i.i.i.i = getelementptr inbounds i8, ptr %name.i.i, i64 8
   %end.i.i.i.i = getelementptr inbounds i8, ptr %name.i.i, i64 16
   %sub.i = add nsw i32 %recursion_depth, -1
-  %start2.i.i = getelementptr inbounds i8, ptr %expanded_format_spec.i, i64 8
-  %end3.i.i = getelementptr inbounds i8, ptr %expanded_format_spec.i, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %if.end33.i
@@ -63993,7 +63995,9 @@ if.then26.i:                                      ; preds = %if.then20.i
 if.end28.i:                                       ; preds = %if.then26.i, %if.then20.i
   %11 = load i32, ptr %format_spec_needs_expanding.i, align 4
   %12 = load i32, ptr %conversion.i, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %expanded_format_spec.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %expanded_format_spec.i.sroa.0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %expanded_format_spec.i.sroa.4)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %expanded_format_spec.i.sroa.7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %is_attribute.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %name.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %first.i.i)
@@ -64310,13 +64314,15 @@ if.then8.i:                                       ; preds = %if.end7.i
 if.end12.i:                                       ; preds = %if.then8.i
   %49 = getelementptr i8, ptr %call9.i, i64 16
   %call9.val.i = load i64, ptr %49, align 8
-  store ptr %call9.i, ptr %expanded_format_spec.i, align 8
-  store i64 0, ptr %start2.i.i, align 8
-  store i64 %call9.val.i, ptr %end3.i.i, align 8
+  store ptr %call9.i, ptr %expanded_format_spec.i.sroa.0, align 8
+  store i64 0, ptr %expanded_format_spec.i.sroa.4, align 8
+  store i64 %call9.val.i, ptr %expanded_format_spec.i.sroa.7, align 8
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end12.i, %if.end7.i
-  %actual_format_spec.0.i = phi ptr [ %expanded_format_spec.i, %if.end12.i ], [ %format_spec.i, %if.end7.i ]
+  %actual_format_spec.0.i.sroa.phi = phi ptr [ %expanded_format_spec.i.sroa.4, %if.end12.i ], [ %actual_format_spec.0.i.sroa.gep19, %if.end7.i ]
+  %actual_format_spec.0.i.sroa.phi14 = phi ptr [ %expanded_format_spec.i.sroa.7, %if.end12.i ], [ %actual_format_spec.0.i.sroa.gep22, %if.end7.i ]
+  %actual_format_spec.0.i = phi ptr [ %expanded_format_spec.i.sroa.0, %if.end12.i ], [ %format_spec.i, %if.end7.i ]
   %tmp.1.i = phi ptr [ %call9.i, %if.end12.i ], [ null, %if.end7.i ]
   %50 = getelementptr i8, ptr %fieldobj.0.i, i64 8
   %fieldobj.val22.i.i = load ptr, ptr %50, align 8
@@ -64338,10 +64344,8 @@ if.end14.i.i:                                     ; preds = %if.else4.i.i
 if.then16.i.i:                                    ; preds = %if.end14.i.i, %if.else4.i.i, %if.else.i24.i, %if.end14.i
   %formatter.039.i.i = phi ptr [ @_PyComplex_FormatAdvancedWriter, %if.end14.i.i ], [ @_PyFloat_FormatAdvancedWriter, %if.else4.i.i ], [ @_PyLong_FormatAdvancedWriter, %if.else.i24.i ], [ @_PyUnicode_FormatAdvancedWriter, %if.end14.i ]
   %51 = load ptr, ptr %actual_format_spec.0.i, align 8
-  %start.i32.i = getelementptr inbounds i8, ptr %actual_format_spec.0.i, i64 8
-  %52 = load i64, ptr %start.i32.i, align 8
-  %end.i33.i = getelementptr inbounds i8, ptr %actual_format_spec.0.i, i64 16
-  %53 = load i64, ptr %end.i33.i, align 8
+  %52 = load i64, ptr %actual_format_spec.0.i.sroa.phi, align 8
+  %53 = load i64, ptr %actual_format_spec.0.i.sroa.phi14, align 8
   %call17.i.i = call i32 %formatter.039.i.i(ptr noundef nonnull %writer, ptr noundef nonnull %fieldobj.0.i, ptr noundef %51, i64 noundef %52, i64 noundef %53) #33, !callees !405
   %cmp.i34.i = icmp eq i32 %call17.i.i, 0
   %conv.i.i = zext i1 %cmp.i34.i to i32
@@ -64353,10 +64357,8 @@ if.else18.i.i:                                    ; preds = %if.end14.i.i
   br i1 %tobool20.not.i.i, label %if.end32.i.i, label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.else18.i.i
-  %start23.i.i = getelementptr inbounds i8, ptr %actual_format_spec.0.i, i64 8
-  %55 = load i64, ptr %start23.i.i, align 8
-  %end24.i.i = getelementptr inbounds i8, ptr %actual_format_spec.0.i, i64 16
-  %56 = load i64, ptr %end24.i.i, align 8
+  %55 = load i64, ptr %actual_format_spec.0.i.sroa.phi, align 8
+  %56 = load i64, ptr %actual_format_spec.0.i.sroa.phi14, align 8
   %call25.i.i = call ptr @PyUnicode_Substring(ptr noundef nonnull %54, i64 noundef %55, i64 noundef %56)
   %cmp29.i.i = icmp eq ptr %call25.i.i, null
   br i1 %cmp29.i.i, label %render_field.exit.i.thread, label %if.end32.i.i
@@ -64424,7 +64426,9 @@ output_markup.exit.thread:                        ; preds = %SubString_new_objec
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %first.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %index.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rest.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %expanded_format_spec.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %expanded_format_spec.i.sroa.0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %expanded_format_spec.i.sroa.4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %expanded_format_spec.i.sroa.7)
   br label %do_markup.exit.thread
 
 if.then.i35.i:                                    ; preds = %if.then.i.i, %if.else.i23.i, %do_conversion.exit.i, %if.then8.i, %render_field.exit.i, %render_field.exit.i.thread
@@ -64467,7 +64471,9 @@ if.then1.i.i48.i:                                 ; preds = %if.end.i.i45.i
   br label %output_markup.exit
 
 output_markup.exit:                               ; preds = %Py_XDECREF.exit.i, %if.then.i42.i, %if.end.i.i45.i, %if.then1.i.i48.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %expanded_format_spec.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %expanded_format_spec.i.sroa.0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %expanded_format_spec.i.sroa.4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %expanded_format_spec.i.sroa.7)
   br i1 %tobool30.not.i, label %do_markup.exit.thread, label %if.end33.i
 
 if.end33.i:                                       ; preds = %output_markup.exit, %if.end18.i
@@ -64486,7 +64492,7 @@ do_markup.exit.thread:                            ; preds = %if.end.i, %output_m
   br label %if.then2
 
 do_markup.exit:                                   ; preds = %if.end33.i, %if.end
-  %call1.i.lcssa = phi i32 [ %call1.i47, %if.end ], [ %call1.i, %if.end33.i ]
+  %call1.i.lcssa = phi i32 [ %call1.i57, %if.end ], [ %call1.i, %if.end33.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %format_spec_needs_expanding.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %field_present.i)

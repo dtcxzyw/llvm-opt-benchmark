@@ -6,10 +6,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable
 define hidden i32 @FLAC__fixed_compute_best_predictor_limit_residual_intrin_sse42(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
 entry:
-  %prev_err0_scalar = alloca [2 x i64], align 16
-  %prev_err1_scalar = alloca [2 x i64], align 16
-  %prev_err2_scalar = alloca [2 x i64], align 16
-  %prev_err3_scalar = alloca [2 x i64], align 16
+  %prev_err0_scalar.sroa.0 = alloca <2 x i64>, align 16
+  %prev_err1_scalar.sroa.0 = alloca <2 x i64>, align 16
+  %prev_err2_scalar.sroa.0 = alloca <2 x i64>, align 16
+  %prev_err3_scalar.sroa.0 = alloca <2 x i64>, align 16
+  %prev_err0_scalar.sroa.0.8.gep466.sroa_idx467 = getelementptr inbounds i8, ptr %prev_err0_scalar.sroa.0, i64 8
+  %prev_err1_scalar.sroa.0.8.gep463.sroa_idx464 = getelementptr inbounds i8, ptr %prev_err1_scalar.sroa.0, i64 8
+  %prev_err2_scalar.sroa.0.8.gep460.sroa_idx461 = getelementptr inbounds i8, ptr %prev_err2_scalar.sroa.0, i64 8
+  %prev_err3_scalar.sroa.0.8.gep457.sroa_idx458 = getelementptr inbounds i8, ptr %prev_err3_scalar.sroa.0, i64 8
   %arrayidx116 = getelementptr inbounds i8, ptr %data, i64 -8
   %arrayidx122 = getelementptr inbounds i8, ptr %data, i64 -12
   %arrayidx128 = getelementptr inbounds i8, ptr %data, i64 -16
@@ -90,27 +94,28 @@ cond.end179:                                      ; preds = %for.body, %cond.end
 
 for.body191:                                      ; preds = %for.cond188.preheader, %for.body191
   %cmp189 = phi i1 [ true, %for.cond188.preheader ], [ false, %for.body191 ]
+  %indvars.iv440.sroa.phi = phi ptr [ %prev_err3_scalar.sroa.0, %for.cond188.preheader ], [ %prev_err3_scalar.sroa.0.8.gep457.sroa_idx458, %for.body191 ]
+  %indvars.iv440.sroa.phi459 = phi ptr [ %prev_err2_scalar.sroa.0, %for.cond188.preheader ], [ %prev_err2_scalar.sroa.0.8.gep460.sroa_idx461, %for.body191 ]
+  %indvars.iv440.sroa.phi462 = phi ptr [ %prev_err1_scalar.sroa.0, %for.cond188.preheader ], [ %prev_err1_scalar.sroa.0.8.gep463.sroa_idx464, %for.body191 ]
+  %indvars.iv440.sroa.phi465 = phi ptr [ %prev_err0_scalar.sroa.0, %for.cond188.preheader ], [ %prev_err0_scalar.sroa.0.8.gep466.sroa_idx467, %for.body191 ]
   %indvars.iv440 = phi i64 [ 0, %for.cond188.preheader ], [ 1, %for.body191 ]
   %11 = mul nuw nsw i64 %indvars.iv440, %0
   %12 = getelementptr i32, ptr %data, i64 %11
   %arrayidx195 = getelementptr i8, ptr %12, i64 -4
   %13 = load i32, ptr %arrayidx195, align 4
   %conv196 = sext i32 %13 to i64
-  %arrayidx198 = getelementptr inbounds [2 x i64], ptr %prev_err0_scalar, i64 0, i64 %indvars.iv440
-  store i64 %conv196, ptr %arrayidx198, align 8
+  store i64 %conv196, ptr %indvars.iv440.sroa.phi465, align 8
   %arrayidx209 = getelementptr i8, ptr %12, i64 -8
   %14 = load i32, ptr %arrayidx209, align 4
   %conv210 = sext i32 %14 to i64
   %sub211 = sub nsw i64 %conv196, %conv210
-  %arrayidx213 = getelementptr inbounds [2 x i64], ptr %prev_err1_scalar, i64 0, i64 %indvars.iv440
-  store i64 %sub211, ptr %arrayidx213, align 8
+  store i64 %sub211, ptr %indvars.iv440.sroa.phi462, align 8
   %arrayidx226 = getelementptr i8, ptr %12, i64 -12
   %15 = load i32, ptr %arrayidx226, align 4
   %conv227 = sext i32 %15 to i64
   %sub228.neg = sub nsw i64 %conv227, %conv210
   %sub229 = add nsw i64 %sub228.neg, %sub211
-  %arrayidx231 = getelementptr inbounds [2 x i64], ptr %prev_err2_scalar, i64 0, i64 %indvars.iv440
-  store i64 %sub229, ptr %arrayidx231, align 8
+  store i64 %sub229, ptr %indvars.iv440.sroa.phi459, align 8
   %mul246 = shl nsw i64 %conv227, 1
   %arrayidx252 = getelementptr i8, ptr %12, i64 -16
   %16 = load i32, ptr %arrayidx252, align 4
@@ -118,8 +123,7 @@ for.body191:                                      ; preds = %for.cond188.prehead
   %17 = add nsw i64 %conv210, %conv253
   %add254.neg = sub nsw i64 %mul246, %17
   %sub255 = add nsw i64 %add254.neg, %sub229
-  %arrayidx257 = getelementptr inbounds [2 x i64], ptr %prev_err3_scalar, i64 0, i64 %indvars.iv440
-  store i64 %sub255, ptr %arrayidx257, align 8
+  store i64 %sub255, ptr %indvars.iv440.sroa.phi, align 8
   br i1 %cmp189, label %for.body191, label %for.end260, !llvm.loop !6
 
 for.end260:                                       ; preds = %for.body191
@@ -127,22 +131,22 @@ for.end260:                                       ; preds = %for.body191
   br i1 %cmp270410, label %for.body272.lr.ph, label %for.end321
 
 for.body272.lr.ph:                                ; preds = %for.end260
-  %18 = load <2 x i64>, ptr %prev_err3_scalar, align 16
-  %19 = load <2 x i64>, ptr %prev_err2_scalar, align 16
-  %20 = load <2 x i64>, ptr %prev_err1_scalar, align 16
-  %21 = load <2 x i64>, ptr %prev_err0_scalar, align 16
+  %prev_err3_scalar.sroa.0.0.prev_err3_scalar.sroa.0.0. = load <2 x i64>, ptr %prev_err3_scalar.sroa.0, align 16
+  %prev_err2_scalar.sroa.0.0.prev_err2_scalar.sroa.0.0. = load <2 x i64>, ptr %prev_err2_scalar.sroa.0, align 16
+  %prev_err1_scalar.sroa.0.0.prev_err1_scalar.sroa.0.0. = load <2 x i64>, ptr %prev_err1_scalar.sroa.0, align 16
+  %prev_err0_scalar.sroa.0.0.prev_err0_scalar.sroa.0.0. = load <2 x i64>, ptr %prev_err0_scalar.sroa.0, align 16
   %div277366 = lshr i32 %data_len, 1
-  %22 = zext nneg i32 %div277366 to i64
+  %18 = zext nneg i32 %div277366 to i64
   %wide.trip.count = zext nneg i32 %div to i64
-  %invariant.gep = getelementptr i32, ptr %data, i64 %22
+  %invariant.gep = getelementptr i32, ptr %data, i64 %18
   br label %for.body272
 
 for.body272:                                      ; preds = %for.body272.lr.ph, %for.body272
   %indvars.iv444 = phi i64 [ 0, %for.body272.lr.ph ], [ %indvars.iv.next445, %for.body272 ]
-  %prev_err3.0425 = phi <2 x i64> [ %18, %for.body272.lr.ph ], [ %sub.i812, %for.body272 ]
-  %prev_err2.0424 = phi <2 x i64> [ %19, %for.body272.lr.ph ], [ %sub.i818, %for.body272 ]
-  %prev_err1.0423 = phi <2 x i64> [ %20, %for.body272.lr.ph ], [ %sub.i824, %for.body272 ]
-  %prev_err0.0422 = phi <2 x i64> [ %21, %for.body272.lr.ph ], [ %data_scalar.sroa.0.8.vec.insert, %for.body272 ]
+  %prev_err3.0425 = phi <2 x i64> [ %prev_err3_scalar.sroa.0.0.prev_err3_scalar.sroa.0.0., %for.body272.lr.ph ], [ %sub.i812, %for.body272 ]
+  %prev_err2.0424 = phi <2 x i64> [ %prev_err2_scalar.sroa.0.0.prev_err2_scalar.sroa.0.0., %for.body272.lr.ph ], [ %sub.i818, %for.body272 ]
+  %prev_err1.0423 = phi <2 x i64> [ %prev_err1_scalar.sroa.0.0.prev_err1_scalar.sroa.0.0., %for.body272.lr.ph ], [ %sub.i824, %for.body272 ]
+  %prev_err0.0422 = phi <2 x i64> [ %prev_err0_scalar.sroa.0.0.prev_err0_scalar.sroa.0.0., %for.body272.lr.ph ], [ %data_scalar.sroa.0.8.vec.insert, %for.body272 ]
   %shadow_err4.0421 = phi <2 x i64> [ zeroinitializer, %for.body272.lr.ph ], [ %or.i, %for.body272 ]
   %shadow_err3.0420 = phi <2 x i64> [ zeroinitializer, %for.body272.lr.ph ], [ %or.i846, %for.body272 ]
   %shadow_err2.0419 = phi <2 x i64> [ zeroinitializer, %for.body272.lr.ph ], [ %or.i849, %for.body272 ]
@@ -154,12 +158,12 @@ for.body272:                                      ; preds = %for.body272.lr.ph, 
   %total_err1.0413 = phi <2 x i64> [ zeroinitializer, %for.body272.lr.ph ], [ %add.i838, %for.body272 ]
   %total_err0.0412 = phi <2 x i64> [ zeroinitializer, %for.body272.lr.ph ], [ %add.i841, %for.body272 ]
   %arrayidx274 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv444
-  %23 = load i32, ptr %arrayidx274, align 4
-  %conv275 = sext i32 %23 to i64
+  %19 = load i32, ptr %arrayidx274, align 4
+  %conv275 = sext i32 %19 to i64
   %data_scalar.sroa.0.0.vec.insert = insertelement <2 x i64> poison, i64 %conv275, i64 0
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv444
-  %24 = load i32, ptr %gep, align 4
-  %conv281 = sext i32 %24 to i64
+  %20 = load i32, ptr %gep, align 4
+  %conv281 = sext i32 %20 to i64
   %data_scalar.sroa.0.8.vec.insert = insertelement <2 x i64> %data_scalar.sroa.0.0.vec.insert, i64 %conv281, i64 1
   %sub.i827 = tail call <2 x i64> @llvm.abs.v2i64(<2 x i64> %data_scalar.sroa.0.8.vec.insert, i1 false)
   %add.i841 = add <2 x i64> %sub.i827, %total_err0.0412
@@ -213,29 +217,29 @@ for.end321:                                       ; preds = %for.body272, %for.e
   %add340 = add i64 %data_scalar.sroa.0.8.vec.extract351, %add184
   %add341 = add i64 %add340, %data_scalar.sroa.0.0.vec.extract332
   %shift = shufflevector <2 x i64> %total_err4.0.lcssa, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %25 = add nsw <2 x i64> %total_err4.0.lcssa, %shift
-  %add345 = extractelement <2 x i64> %25, i64 0
+  %21 = add nsw <2 x i64> %total_err4.0.lcssa, %shift
+  %add345 = extractelement <2 x i64> %21, i64 0
   %shift452 = shufflevector <2 x i64> %shadow_err0.0.lcssa, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %26 = or <2 x i64> %shift452, %shadow_err0.0.lcssa
-  %27 = extractelement <2 x i64> %26, i64 0
-  %or351 = or i64 %27, %or
+  %22 = or <2 x i64> %shift452, %shadow_err0.0.lcssa
+  %23 = extractelement <2 x i64> %22, i64 0
+  %or351 = or i64 %23, %or
   %shift453 = shufflevector <2 x i64> %shadow_err1.0.lcssa, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %28 = or <2 x i64> %shift453, %shadow_err1.0.lcssa
-  %29 = extractelement <2 x i64> %28, i64 0
-  %or356 = or i64 %29, %or185
+  %24 = or <2 x i64> %shift453, %shadow_err1.0.lcssa
+  %25 = extractelement <2 x i64> %24, i64 0
+  %or356 = or i64 %25, %or185
   %shift454 = shufflevector <2 x i64> %shadow_err2.0.lcssa, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %30 = or <2 x i64> %shift454, %shadow_err2.0.lcssa
-  %31 = extractelement <2 x i64> %30, i64 0
-  %or361 = or i64 %31, %or186
+  %26 = or <2 x i64> %shift454, %shadow_err2.0.lcssa
+  %27 = extractelement <2 x i64> %26, i64 0
+  %or361 = or i64 %27, %or186
   %shift455 = shufflevector <2 x i64> %shadow_err3.0.lcssa, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %32 = or <2 x i64> %shift455, %shadow_err3.0.lcssa
-  %33 = extractelement <2 x i64> %32, i64 0
-  %or366 = or i64 %33, %or187
+  %28 = or <2 x i64> %shift455, %shadow_err3.0.lcssa
+  %29 = extractelement <2 x i64> %28, i64 0
+  %or366 = or i64 %29, %or187
   %shift456 = shufflevector <2 x i64> %shadow_err4.0.lcssa, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %34 = or <2 x i64> %shadow_err4.0.lcssa, %shift456
-  %or370 = extractelement <2 x i64> %34, i64 0
-  %35 = and i32 %data_len, -2147483647
-  %cmp372 = icmp eq i32 %35, 1
+  %30 = or <2 x i64> %shadow_err4.0.lcssa, %shift456
+  %or370 = extractelement <2 x i64> %30, i64 0
+  %31 = and i32 %data_len, -2147483647
+  %cmp372 = icmp eq i32 %31, 1
   br i1 %cmp372, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end321
@@ -243,38 +247,38 @@ if.then:                                          ; preds = %for.end321
   %add375 = add nuw nsw i32 %i.2.lcssa, %div374364
   %idxprom376 = sext i32 %add375 to i64
   %arrayidx377 = getelementptr inbounds i32, ptr %data, i64 %idxprom376
-  %36 = load i32, ptr %arrayidx377, align 4
-  %conv378 = sext i32 %36 to i64
+  %32 = load i32, ptr %arrayidx377, align 4
+  %conv378 = sext i32 %32 to i64
   %cond391 = tail call i64 @llvm.abs.i64(i64 %conv378, i1 true)
   %arrayidx397 = getelementptr i8, ptr %arrayidx377, i64 -4
-  %37 = load i32, ptr %arrayidx397, align 4
-  %conv398 = sext i32 %37 to i64
+  %33 = load i32, ptr %arrayidx397, align 4
+  %conv398 = sext i32 %33 to i64
   %sub399 = sub nsw i64 %conv378, %conv398
   %cond422 = tail call i64 @llvm.abs.i64(i64 %sub399, i1 true)
-  %38 = shl nsw i64 %conv398, 1
-  %sub431 = sub nsw i64 %conv378, %38
+  %34 = shl nsw i64 %conv398, 1
+  %sub431 = sub nsw i64 %conv378, %34
   %arrayidx434 = getelementptr i8, ptr %arrayidx377, i64 -8
-  %39 = load i32, ptr %arrayidx434, align 4
-  %conv435 = sext i32 %39 to i64
+  %35 = load i32, ptr %arrayidx434, align 4
+  %conv435 = sext i32 %35 to i64
   %add436 = add nsw i64 %sub431, %conv435
   %cond471 = tail call i64 @llvm.abs.i64(i64 %add436, i1 true)
   %arrayidx489 = getelementptr i8, ptr %arrayidx377, i64 -12
-  %40 = load i32, ptr %arrayidx489, align 4
-  %conv490 = sext i32 %40 to i64
+  %36 = load i32, ptr %arrayidx489, align 4
+  %conv490 = sext i32 %36 to i64
   %reass.add = sub nsw i64 %conv435, %conv398
   %reass.mul = mul nsw i64 %reass.add, 3
   %add486 = sub nsw i64 %conv378, %conv490
   %sub491 = add nsw i64 %add486, %reass.mul
   %cond538 = tail call i64 @llvm.abs.i64(i64 %sub491, i1 true)
   %mul552 = mul nsw i64 %conv435, 6
-  %41 = add nsw i64 %mul552, %conv378
+  %37 = add nsw i64 %mul552, %conv378
   %mul546365 = add nsw i64 %conv490, %conv398
   %arrayidx562 = getelementptr i8, ptr %arrayidx377, i64 -16
-  %42 = load i32, ptr %arrayidx562, align 4
-  %conv563 = sext i32 %42 to i64
-  %sub559 = add nsw i64 %41, %conv563
-  %43 = shl nsw i64 %mul546365, 2
-  %add564 = sub nsw i64 %sub559, %43
+  %38 = load i32, ptr %arrayidx562, align 4
+  %conv563 = sext i32 %38 to i64
+  %sub559 = add nsw i64 %37, %conv563
+  %39 = shl nsw i64 %mul546365, 2
+  %add564 = sub nsw i64 %sub559, %39
   %cond623 = tail call i64 @llvm.abs.i64(i64 %add564, i1 true)
   %add624 = add i64 %cond391, %add326
   %add625 = add i64 %cond422, %add331
@@ -313,11 +317,11 @@ cond.true643:                                     ; preds = %if.then636
   %div647 = fdiv reassoc nsz arcp double %mul645, %conv646
   %call648 = tail call reassoc nsz arcp double @log(double noundef %div647) #3
   %div649 = fmul reassoc nsz arcp double %call648, 0x3FF71547652B82FE
-  %44 = fptrunc double %div649 to float
+  %40 = fptrunc double %div649 to float
   br label %if.end656
 
 if.end656:                                        ; preds = %if.end, %cond.true643
-  %storemerge = phi float [ %44, %cond.true643 ], [ 3.400000e+01, %if.end ]
+  %storemerge = phi float [ %40, %cond.true643 ], [ 3.400000e+01, %if.end ]
   %smallest_error.1 = phi i64 [ %total_error_0.1, %cond.true643 ], [ -1, %if.end ]
   store float %storemerge, ptr %residual_bits_per_sample, align 4
   %cmp657 = icmp ult i64 %shadow_error_1.1, 2147483648
@@ -340,13 +344,13 @@ cond.true666:                                     ; preds = %if.then659
   %div670 = fdiv reassoc nsz arcp double %mul668, %conv669
   %call671 = tail call reassoc nsz arcp double @log(double noundef %div670) #3
   %div672 = fmul reassoc nsz arcp double %call671, 0x3FF71547652B82FE
-  %45 = fptrunc double %div672 to float
+  %41 = fptrunc double %div672 to float
   br label %cond.end674
 
 cond.end674:                                      ; preds = %if.end656.thread, %if.then659, %cond.true666
   %smallest_error.1.pn = phi i64 [ %smallest_error.1, %cond.true666 ], [ %smallest_error.1, %if.then659 ], [ 0, %if.end656.thread ]
   %spec.select367395 = phi i64 [ %spec.select367, %cond.true666 ], [ %spec.select367, %if.then659 ], [ 0, %if.end656.thread ]
-  %cond675 = phi float [ %45, %cond.true666 ], [ 0.000000e+00, %if.then659 ], [ 0.000000e+00, %if.end656.thread ]
+  %cond675 = phi float [ %41, %cond.true666 ], [ 0.000000e+00, %if.then659 ], [ 0.000000e+00, %if.end656.thread ]
   %spec.select368396.in = icmp ult i64 %total_error_1.1, %smallest_error.1.pn
   %spec.select368396 = zext i1 %spec.select368396.in to i32
   br label %if.end680
@@ -374,11 +378,11 @@ cond.true690:                                     ; preds = %if.then683
   %div694 = fdiv reassoc nsz arcp double %mul692, %conv693
   %call695 = tail call reassoc nsz arcp double @log(double noundef %div694) #3
   %div696 = fmul reassoc nsz arcp double %call695, 0x3FF71547652B82FE
-  %46 = fptrunc double %div696 to float
+  %42 = fptrunc double %div696 to float
   br label %if.end704
 
 if.end704:                                        ; preds = %if.end680, %cond.true690, %if.then683
-  %.sink449 = phi float [ %46, %cond.true690 ], [ 0.000000e+00, %if.then683 ], [ 3.400000e+01, %if.end680 ]
+  %.sink449 = phi float [ %42, %cond.true690 ], [ 0.000000e+00, %if.then683 ], [ 3.400000e+01, %if.end680 ]
   %smallest_error.5 = phi i64 [ %spec.select369, %cond.true690 ], [ %spec.select369, %if.then683 ], [ %smallest_error.3, %if.end680 ]
   %order.5 = phi i32 [ %spec.select370, %cond.true690 ], [ %spec.select370, %if.then683 ], [ %order.3, %if.end680 ]
   %arrayidx703 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 8
@@ -400,11 +404,11 @@ cond.true714:                                     ; preds = %if.then707
   %div718 = fdiv reassoc nsz arcp double %mul716, %conv717
   %call719 = tail call reassoc nsz arcp double @log(double noundef %div718) #3
   %div720 = fmul reassoc nsz arcp double %call719, 0x3FF71547652B82FE
-  %47 = fptrunc double %div720 to float
+  %43 = fptrunc double %div720 to float
   br label %if.end728
 
 if.end728:                                        ; preds = %if.end704, %cond.true714, %if.then707
-  %.sink450 = phi float [ %47, %cond.true714 ], [ 0.000000e+00, %if.then707 ], [ 3.400000e+01, %if.end704 ]
+  %.sink450 = phi float [ %43, %cond.true714 ], [ 0.000000e+00, %if.then707 ], [ 3.400000e+01, %if.end704 ]
   %smallest_error.7 = phi i64 [ %spec.select371, %cond.true714 ], [ %spec.select371, %if.then707 ], [ %smallest_error.5, %if.end704 ]
   %order.7 = phi i32 [ %spec.select372, %cond.true714 ], [ %spec.select372, %if.then707 ], [ %order.5, %if.end704 ]
   %arrayidx727 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 12
@@ -425,11 +429,11 @@ cond.true738:                                     ; preds = %if.then731
   %div742 = fdiv reassoc nsz arcp double %mul740, %conv741
   %call743 = tail call reassoc nsz arcp double @log(double noundef %div742) #3
   %div744 = fmul reassoc nsz arcp double %call743, 0x3FF71547652B82FE
-  %48 = fptrunc double %div744 to float
+  %44 = fptrunc double %div744 to float
   br label %if.end752
 
 if.end752:                                        ; preds = %if.end728, %cond.true738, %if.then731
-  %.sink451 = phi float [ %48, %cond.true738 ], [ 0.000000e+00, %if.then731 ], [ 3.400000e+01, %if.end728 ]
+  %.sink451 = phi float [ %44, %cond.true738 ], [ 0.000000e+00, %if.then731 ], [ 3.400000e+01, %if.end728 ]
   %order.9 = phi i32 [ %spec.select373, %cond.true738 ], [ %spec.select373, %if.then731 ], [ %order.7, %if.end728 ]
   %arrayidx751 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 16
   store float %.sink451, ptr %arrayidx751, align 4

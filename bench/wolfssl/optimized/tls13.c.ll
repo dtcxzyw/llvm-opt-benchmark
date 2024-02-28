@@ -1702,27 +1702,28 @@ define i32 @RestartHandshakeHash(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %header = alloca [4 x i8], align 4
   %hashes = alloca %struct.Hashes, align 1
+  %.sink.i.sroa.gep16 = getelementptr inbounds i8, ptr %hashes, i64 36
   store i32 254, ptr %header, align 4
   %call = call i32 @BuildCertHashes(ptr noundef %ssl, ptr noundef nonnull %hashes) #11
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
+  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %hashes, i64 68
   %mac_algorithm.i = getelementptr inbounds i8, ptr %ssl, i64 708
   %0 = load i8, ptr %mac_algorithm.i, align 2
   switch i8 %0, label %CreateCookie.exit [
-    i8 4, label %CreateCookie.exit.thread
-    i8 5, label %sw.bb1.i
+    i8 4, label %sw.epilog.sink.split.i
+    i8 5, label %CreateCookie.exit.thread
   ]
 
-sw.bb1.i:                                         ; preds = %if.end
+sw.epilog.sink.split.i:                           ; preds = %if.end
   br label %CreateCookie.exit.thread
 
-CreateCookie.exit.thread:                         ; preds = %if.end, %sw.bb1.i
-  %.sink.i = phi i64 [ 68, %sw.bb1.i ], [ 36, %if.end ]
-  %sha384.i = getelementptr inbounds i8, ptr %hashes, i64 %.sink.i
-  %hash_size.i17 = getelementptr inbounds i8, ptr %ssl, i64 711
-  %1 = load i8, ptr %hash_size.i17, align 1
+CreateCookie.exit.thread:                         ; preds = %sw.epilog.sink.split.i, %if.end
+  %hash.0.ph = phi ptr [ %.sink.i.sroa.gep16, %sw.epilog.sink.split.i ], [ %.sink.i.sroa.gep, %if.end ]
+  %hash_size.i18 = getelementptr inbounds i8, ptr %ssl, i64 711
+  %1 = load i8, ptr %hash_size.i18, align 1
   br label %if.end4
 
 CreateCookie.exit:                                ; preds = %if.end
@@ -1733,7 +1734,7 @@ CreateCookie.exit:                                ; preds = %if.end
 
 if.end4:                                          ; preds = %CreateCookie.exit.thread, %CreateCookie.exit
   %3 = phi i8 [ %1, %CreateCookie.exit.thread ], [ 0, %CreateCookie.exit ]
-  %hash.022 = phi ptr [ %sha384.i, %CreateCookie.exit.thread ], [ null, %CreateCookie.exit ]
+  %hash.023 = phi ptr [ %hash.0.ph, %CreateCookie.exit.thread ], [ null, %CreateCookie.exit ]
   %conv = zext i8 %3 to i32
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %header, i64 3
   store i8 %3, ptr %arrayidx7.i.i, align 1
@@ -1747,7 +1748,7 @@ if.end9:                                          ; preds = %if.end4
   br i1 %cmp12.not, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end9
-  %call17 = call i32 @HashRaw(ptr noundef nonnull %ssl, ptr noundef %hash.022, i32 noundef %conv) #11
+  %call17 = call i32 @HashRaw(ptr noundef nonnull %ssl, ptr noundef %hash.023, i32 noundef %conv) #11
   br label %return
 
 return:                                           ; preds = %if.end9, %if.end4, %CreateCookie.exit, %entry, %if.end15
@@ -2924,27 +2925,28 @@ entry:
 do.end5:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %header.i)
   call void @llvm.lifetime.start.p0(i64 180, ptr nonnull %hashes.i)
+  %.sink.i.sroa.gep16.i = getelementptr inbounds i8, ptr %hashes.i, i64 36
   store i32 254, ptr %header.i, align 4
   %call.i = call i32 @BuildCertHashes(ptr noundef %ssl, ptr noundef nonnull %hashes.i) #11
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %RestartHandshakeHash.exit
 
 if.end.i:                                         ; preds = %do.end5
+  %.sink.i.sroa.gep.i = getelementptr inbounds i8, ptr %hashes.i, i64 68
   %mac_algorithm.i.i = getelementptr inbounds i8, ptr %ssl, i64 708
   %0 = load i8, ptr %mac_algorithm.i.i, align 2
   switch i8 %0, label %CreateCookie.exit.i [
-    i8 4, label %CreateCookie.exit.thread.i
-    i8 5, label %sw.bb1.i.i
+    i8 4, label %sw.epilog.sink.split.i.i
+    i8 5, label %CreateCookie.exit.thread.i
   ]
 
-sw.bb1.i.i:                                       ; preds = %if.end.i
+sw.epilog.sink.split.i.i:                         ; preds = %if.end.i
   br label %CreateCookie.exit.thread.i
 
-CreateCookie.exit.thread.i:                       ; preds = %sw.bb1.i.i, %if.end.i
-  %.sink.i.i = phi i64 [ 68, %sw.bb1.i.i ], [ 36, %if.end.i ]
-  %sha384.i.i = getelementptr inbounds i8, ptr %hashes.i, i64 %.sink.i.i
-  %hash_size.i17.i = getelementptr inbounds i8, ptr %ssl, i64 711
-  %1 = load i8, ptr %hash_size.i17.i, align 1
+CreateCookie.exit.thread.i:                       ; preds = %sw.epilog.sink.split.i.i, %if.end.i
+  %hash.0.ph.i = phi ptr [ %.sink.i.sroa.gep16.i, %sw.epilog.sink.split.i.i ], [ %.sink.i.sroa.gep.i, %if.end.i ]
+  %hash_size.i18.i = getelementptr inbounds i8, ptr %ssl, i64 711
+  %1 = load i8, ptr %hash_size.i18.i, align 1
   br label %if.end4.i
 
 CreateCookie.exit.i:                              ; preds = %if.end.i
@@ -2960,7 +2962,7 @@ RestartHandshakeHash.exit.thread:                 ; preds = %CreateCookie.exit.i
 
 if.end4.i:                                        ; preds = %CreateCookie.exit.i, %CreateCookie.exit.thread.i
   %3 = phi i8 [ %1, %CreateCookie.exit.thread.i ], [ 0, %CreateCookie.exit.i ]
-  %hash.022.i = phi ptr [ %sha384.i.i, %CreateCookie.exit.thread.i ], [ null, %CreateCookie.exit.i ]
+  %hash.023.i = phi ptr [ %hash.0.ph.i, %CreateCookie.exit.thread.i ], [ null, %CreateCookie.exit.i ]
   %conv.i = zext i8 %3 to i32
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %header.i, i64 3
   store i8 %3, ptr %arrayidx7.i.i.i, align 1
@@ -2974,7 +2976,7 @@ if.end9.i:                                        ; preds = %if.end4.i
   br i1 %cmp12.not.i, label %if.end15.i, label %RestartHandshakeHash.exit
 
 if.end15.i:                                       ; preds = %if.end9.i
-  %call17.i = call i32 @HashRaw(ptr noundef nonnull %ssl, ptr noundef %hash.022.i, i32 noundef %conv.i) #11
+  %call17.i = call i32 @HashRaw(ptr noundef nonnull %ssl, ptr noundef %hash.023.i, i32 noundef %conv.i) #11
   br label %RestartHandshakeHash.exit
 
 RestartHandshakeHash.exit:                        ; preds = %do.end5, %if.end4.i, %if.end9.i, %if.end15.i

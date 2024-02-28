@@ -155,14 +155,16 @@ entry:
   %nowtm = alloca i64, align 8
   %tmResult = alloca %struct.tm, align 8
   %tobool.not = icmp eq ptr %pTZ, null
-  %spec.select = select i1 %tobool.not, ptr %tz, ptr %pTZ
+  %spec.select.v = select i1 %tobool.not, ptr %tz, ptr %pTZ
+  %spec.select.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not, ptr %tz, ptr %pTZ
+  %spec.select.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.select.v.sroa.sel.v.sroa.sel.v, i64 4
   %tobool1.not = icmp eq ptr %pTV, null
   %spec.store.select = select i1 %tobool1.not, ptr %tv, ptr %pTV
-  %call = call i32 @gettimeofday(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.select) #19
+  %call = call i32 @gettimeofday(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.select.v) #19
   %0 = load i64, ptr @timezone, align 8
   %div = sdiv i64 %0, 60
   %conv = trunc i64 %div to i32
-  store i32 %conv, ptr %spec.select, align 4
+  store i32 %conv, ptr %spec.select.v, align 4
   %1 = load i64, ptr %spec.store.select, align 8
   store i64 %1, ptr %nowtm, align 8
   %call4 = call ptr @localtime_r(ptr noundef nonnull %nowtm, ptr noundef nonnull %tmResult) #19
@@ -170,15 +172,13 @@ entry:
   %cmp5 = icmp ne ptr %call4, %tmResult
   %tm_isdst = getelementptr inbounds i8, ptr %tmResult, i64 32
   %2 = load i32, ptr %tm_isdst, align 8
-  %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not, ptr %tz, ptr %pTZ
-  %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 4
-  store i32 %2, ptr %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  store i32 %2, ptr %spec.select.v.sroa.sel.v.sroa.sel, align 4
   %cmp7 = select i1 %cmp.not, i1 true, i1 %cmp5
   %brmerge = or i1 %cmp7, %bUTC
   br i1 %brmerge, label %if.end20, label %if.then11
 
 if.then11:                                        ; preds = %entry
-  %3 = load i32, ptr %spec.select, align 4
+  %3 = load i32, ptr %spec.select.v, align 4
   %mul = mul nsw i32 %3, 60
   %tobool14.not = icmp eq i32 %2, 0
   %cond15.neg = select i1 %tobool14.not, i32 0, i32 -3600

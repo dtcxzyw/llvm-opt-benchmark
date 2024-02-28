@@ -2945,7 +2945,6 @@ entry:
   %ref.tmp26 = alloca %"class.rocksdb::Status", align 8
   %ref.tmp35 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp37 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp37.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp37, i64 8
   %ref.tmp45 = alloca %"class.rocksdb::Status", align 8
   %ref.tmp56 = alloca %"class.rocksdb::Status", align 8
   %ref.tmp68 = alloca %"class.rocksdb::Status", align 8
@@ -2978,10 +2977,11 @@ entry:
   %ref.tmp244 = alloca %"class.rocksdb::Status", align 8
   %ref.tmp255 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp257 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp257.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp257, i64 8
   %ref.tmp272 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp274 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp274.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp274, i64 8
+  %ref.tmp274.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp274, i64 8
+  %ref.tmp274.sink.sroa.gep667 = getelementptr inbounds i8, ptr %ref.tmp257, i64 8
+  %ref.tmp274.sink.sroa.gep668 = getelementptr inbounds i8, ptr %ref.tmp37, i64 8
   %rep_ = getelementptr inbounds i8, ptr %wb, i64 64
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %rep_) #24
   %cmp = icmp ult i64 %call, %begin
@@ -3322,9 +3322,9 @@ if.then34:                                        ; preds = %if.else
   br label %if.then34.invoke
 
 if.then34.invoke:                                 ; preds = %if.then271, %sw.default, %if.then34
+  %ref.tmp274.sink.sroa.phi = phi ptr [ %ref.tmp274.sink.sroa.gep, %if.then271 ], [ %ref.tmp274.sink.sroa.gep667, %sw.default ], [ %ref.tmp274.sink.sroa.gep668, %if.then34 ]
   %ref.tmp274.sink = phi ptr [ %ref.tmp274, %if.then271 ], [ %ref.tmp257, %sw.default ], [ %ref.tmp37, %if.then34 ]
   %25 = phi ptr [ %ref.tmp272, %if.then271 ], [ %ref.tmp255, %sw.default ], [ %ref.tmp35, %if.then34 ]
-  %ref.tmp274.sink.sroa.phi = phi ptr [ %ref.tmp274.sroa.gep, %if.then271 ], [ %ref.tmp257.sroa.gep, %sw.default ], [ %ref.tmp37.sroa.gep, %if.then34 ]
   store i64 0, ptr %ref.tmp274.sink.sroa.phi, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp274.sink, i8 noundef zeroext 0)
           to label %cleanup unwind label %lpad.loopexit.split-lp

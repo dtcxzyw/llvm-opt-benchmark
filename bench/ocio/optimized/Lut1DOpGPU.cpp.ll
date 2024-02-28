@@ -122,8 +122,6 @@ entry:
   %ss = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText", align 8
   %ref.tmp118 = alloca %"class.std::__cxx11::basic_string", align 8
   %ss127 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText", align 8
-  %ss127.sroa.gep590 = getelementptr inbounds i8, ptr %ss127, i64 8
-  %ss127.sroa.gep = getelementptr inbounds i8, ptr %ss127, i64 384
   %ref.tmp131 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp134 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp148 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
@@ -161,8 +159,6 @@ entry:
   %ref.tmp385 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp392 = alloca %"class.std::__cxx11::basic_string", align 8
   %ss402 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText", align 8
-  %ss402.sroa.gep591 = getelementptr inbounds i8, ptr %ss402, i64 8
-  %ss402.sroa.gep = getelementptr inbounds i8, ptr %ss402, i64 384
   %ref.tmp409 = alloca %"class.std::__cxx11::basic_string", align 8
   %ss419 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText", align 8
   %ref.tmp425 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
@@ -224,6 +220,10 @@ entry:
   %ref.tmp884 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp896 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp903 = alloca %"class.std::__cxx11::basic_string", align 8
+  %ss402.sink526.sroa.gep591 = getelementptr inbounds i8, ptr %ss127, i64 8
+  %ss402.sink526.sroa.gep592 = getelementptr inbounds i8, ptr %ss402, i64 8
+  %ss402.sink526.sroa.gep = getelementptr inbounds i8, ptr %ss127, i64 384
+  %ss402.sink526.sroa.gep589 = getelementptr inbounds i8, ptr %ss402, i64 384
   %0 = load ptr, ptr %shaderCreator, align 8
   %call1 = tail call noundef i32 @_ZNK19OpenColorIO_v2_4dev16GpuShaderCreator11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #10
   %cmp = icmp eq i32 %call1, 5
@@ -2882,11 +2882,11 @@ ehcleanup417:                                     ; preds = %lpad414, %lpad406
 
 if.end418:                                        ; preds = %invoke.cont410, %invoke.cont393
   %ref.tmp409.sink = phi ptr [ %ref.tmp392, %invoke.cont393 ], [ %ref.tmp409, %invoke.cont410 ]
-  %ss402.sink526.sroa.phi = phi ptr [ %ss127.sroa.gep, %invoke.cont393 ], [ %ss402.sroa.gep, %invoke.cont410 ]
-  %ss402.sink526.sroa.phi589 = phi ptr [ %ss127.sroa.gep590, %invoke.cont393 ], [ %ss402.sroa.gep591, %invoke.cont410 ]
+  %ss402.sink526.sroa.phi = phi ptr [ %ss402.sink526.sroa.gep, %invoke.cont393 ], [ %ss402.sink526.sroa.gep589, %invoke.cont410 ]
+  %ss402.sink526.sroa.phi590 = phi ptr [ %ss402.sink526.sroa.gep591, %invoke.cont393 ], [ %ss402.sink526.sroa.gep592, %invoke.cont410 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp409.sink) #10
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ss402.sink526.sroa.phi) #10
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ss402.sink526.sroa.phi589) #10
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ss402.sink526.sroa.phi590) #10
   %146 = load ptr, ptr %shaderCreator, align 8
   %call421 = call noundef i32 @_ZNK19OpenColorIO_v2_4dev16GpuShaderCreator11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(16) %146) #10
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderTextC1ENS_11GpuLanguageE(ptr noundef nonnull align 8 dereferenceable(764) %ss419, i32 noundef %call421)

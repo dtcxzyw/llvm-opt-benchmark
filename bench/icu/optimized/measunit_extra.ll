@@ -2677,9 +2677,9 @@ entry:
   %agg.tmp7 = alloca %"class.icu_75::StringPiece", align 8
   %agg.tmp12 = alloca %"class.icu_75::StringPiece", align 8
   %agg.tmp15 = alloca %"class.icu_75::StringPiece", align 8
-  %agg.tmp15.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
   %agg.tmp30 = alloca %"class.icu_75::StringPiece", align 8
   %agg.tmp37 = alloca %"class.icu_75::StringPiece", align 8
+  %agg.tmp.sink.sroa.gep37 = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
   %dimensionality = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %dimensionality, align 4
   %1 = tail call i32 @llvm.abs.i32(i32 %0, i1 true)
@@ -2690,12 +2690,12 @@ entry:
   ]
 
 if.then3:                                         ; preds = %entry
-  %agg.tmp.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %agg.tmp.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef nonnull @.str)
   br label %if.end20.sink.split
 
 if.then6:                                         ; preds = %entry
-  %agg.tmp7.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
+  %agg.tmp.sink.sroa.gep38 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp7, ptr noundef nonnull @.str.1)
   br label %if.end20.sink.split
 
@@ -2718,8 +2718,8 @@ if.else17:                                        ; preds = %if.else9
   br label %return
 
 if.end20.sink.split:                              ; preds = %if.then6, %if.then11, %if.then3
+  %agg.tmp.sink.sroa.phi = phi ptr [ %agg.tmp.sink.sroa.gep, %if.then3 ], [ %agg.tmp.sink.sroa.gep37, %if.then11 ], [ %agg.tmp.sink.sroa.gep38, %if.then6 ]
   %agg.tmp.sink = phi ptr [ %agg.tmp, %if.then3 ], [ %agg.tmp15, %if.then11 ], [ %agg.tmp7, %if.then6 ]
-  %agg.tmp.sink.sroa.phi = phi ptr [ %agg.tmp.sroa.gep, %if.then3 ], [ %agg.tmp15.sroa.gep, %if.then11 ], [ %agg.tmp7.sroa.gep, %if.then6 ]
   %.sink = load ptr, ptr %agg.tmp.sink, align 8
   %5 = load i32, ptr %agg.tmp.sink.sroa.phi, align 8
   %call3.i = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, ptr noundef %.sink, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %status)

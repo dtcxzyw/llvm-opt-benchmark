@@ -29270,28 +29270,28 @@ entry:
   %agg.tmp3 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp6 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp7 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
-  %agg.tmp7.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   %agg.tmp8 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp9 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp12 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp13 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
-  %agg.tmp13.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp13, i64 8
   %agg.tmp15 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp16 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
-  %agg.tmp16.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp16, i64 8
   %agg.tmp19 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp20 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp23 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp24 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
-  %agg.tmp24.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp24, i64 8
   %agg.tmp26 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp27 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp30 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp31 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
-  %agg.tmp31.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp31, i64 8
   %agg.tmp33 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp34 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
-  %agg.tmp34.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp34, i64 8
+  %agg.tmp24.sink88.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp24, i64 8
+  %agg.tmp24.sink88.sroa.gep89 = getelementptr inbounds i8, ptr %agg.tmp34, i64 8
+  %agg.tmp24.sink88.sroa.gep90 = getelementptr inbounds i8, ptr %agg.tmp31, i64 8
+  %agg.tmp24.sink88.sroa.gep91 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
+  %agg.tmp24.sink88.sroa.gep92 = getelementptr inbounds i8, ptr %agg.tmp16, i64 8
+  %agg.tmp24.sink88.sroa.gep93 = getelementptr inbounds i8, ptr %agg.tmp13, i64 8
   %0 = load ptr, ptr %__a, align 8
   store ptr %0, ptr %agg.tmp, align 8
   %m_it.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
@@ -29421,10 +29421,10 @@ if.else32:                                        ; preds = %if.else25
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then22, %if.else32, %if.then29, %if.then5, %if.else14, %if.then11
+  %agg.tmp24.sink88.sroa.phi = phi ptr [ %agg.tmp24.sink88.sroa.gep, %if.then22 ], [ %agg.tmp24.sink88.sroa.gep89, %if.else32 ], [ %agg.tmp24.sink88.sroa.gep90, %if.then29 ], [ %agg.tmp24.sink88.sroa.gep91, %if.then5 ], [ %agg.tmp24.sink88.sroa.gep92, %if.else14 ], [ %agg.tmp24.sink88.sroa.gep93, %if.then11 ]
   %agg.tmp24.sink88 = phi ptr [ %agg.tmp24, %if.then22 ], [ %agg.tmp34, %if.else32 ], [ %agg.tmp31, %if.then29 ], [ %agg.tmp7, %if.then5 ], [ %agg.tmp16, %if.else14 ], [ %agg.tmp13, %if.then11 ]
   %m_it3.i.sink = phi ptr [ %m_it3.i, %if.then22 ], [ %m_it3.i2, %if.else32 ], [ %m_it3.i6, %if.then29 ], [ %m_it3.i2, %if.then5 ], [ %m_it3.i, %if.else14 ], [ %m_it3.i6, %if.then11 ]
   %agg.tmp23.sink = phi ptr [ %agg.tmp23, %if.then22 ], [ %agg.tmp33, %if.else32 ], [ %agg.tmp30, %if.then29 ], [ %agg.tmp6, %if.then5 ], [ %agg.tmp15, %if.else14 ], [ %agg.tmp12, %if.then11 ]
-  %agg.tmp24.sink88.sroa.phi = phi ptr [ %agg.tmp24.sroa.gep, %if.then22 ], [ %agg.tmp34.sroa.gep, %if.else32 ], [ %agg.tmp31.sroa.gep, %if.then29 ], [ %agg.tmp7.sroa.gep, %if.then5 ], [ %agg.tmp16.sroa.gep, %if.else14 ], [ %agg.tmp13.sroa.gep, %if.then11 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp24.sink88.sroa.phi, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i.sink, i64 24, i1 false)
   %call.i51 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23.sink)
   %call1.i52 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp24.sink88)
@@ -30526,28 +30526,22 @@ entry:
   %agg.tmp3.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp6.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp7.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
-  %agg.tmp7.i.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp7.i, i64 8
   %agg.tmp8.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp9.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp12.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp13.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
-  %agg.tmp13.i.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp13.i, i64 8
   %agg.tmp15.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp16.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
-  %agg.tmp16.i.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp16.i, i64 8
   %agg.tmp19.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp20.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp23.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp24.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
-  %agg.tmp24.i.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp24.i, i64 8
   %agg.tmp26.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp27.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp30.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp31.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
-  %agg.tmp31.i.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp31.i, i64 8
   %agg.tmp33.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp34.i = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
-  %agg.tmp34.i.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp34.i, i64 8
   %__mid = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp.sroa.5 = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::internal_iterator", align 8
   %agg.tmp1 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
@@ -30556,6 +30550,12 @@ entry:
   %agg.tmp5 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp6 = alloca %"class.nlohmann::json_abi_v3_11_3::detail::iter_impl", align 8
   %agg.tmp7.sroa.3 = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::internal_iterator", align 8
+  %agg.tmp24.sink192.i.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp24.i, i64 8
+  %agg.tmp24.sink192.i.sroa.gep62 = getelementptr inbounds i8, ptr %agg.tmp34.i, i64 8
+  %agg.tmp24.sink192.i.sroa.gep63 = getelementptr inbounds i8, ptr %agg.tmp31.i, i64 8
+  %agg.tmp24.sink192.i.sroa.gep64 = getelementptr inbounds i8, ptr %agg.tmp7.i, i64 8
+  %agg.tmp24.sink192.i.sroa.gep65 = getelementptr inbounds i8, ptr %agg.tmp16.i, i64 8
+  %agg.tmp24.sink192.i.sroa.gep66 = getelementptr inbounds i8, ptr %agg.tmp13.i, i64 8
   %call = tail call noundef i64 @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEmiERKSG_(ptr noundef nonnull align 8 dereferenceable(32) %__last, ptr noundef nonnull align 8 dereferenceable(32) %__first)
   %div = sdiv i64 %call, 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !733)
@@ -31007,10 +31007,10 @@ if.else32.i:                                      ; preds = %"_ZN9__gnu_cxx5__op
   br label %"_ZSt22__move_median_to_firstIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_SN_SN_T0_.exit"
 
 "_ZSt22__move_median_to_firstIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_SN_SN_T0_.exit": ; preds = %if.then5.i, %if.then11.i, %if.else14.i, %if.then22.i, %if.then29.i, %if.else32.i
+  %agg.tmp24.sink192.i.sroa.phi = phi ptr [ %agg.tmp24.sink192.i.sroa.gep, %if.then22.i ], [ %agg.tmp24.sink192.i.sroa.gep62, %if.else32.i ], [ %agg.tmp24.sink192.i.sroa.gep63, %if.then29.i ], [ %agg.tmp24.sink192.i.sroa.gep64, %if.then5.i ], [ %agg.tmp24.sink192.i.sroa.gep65, %if.else14.i ], [ %agg.tmp24.sink192.i.sroa.gep66, %if.then11.i ]
   %agg.tmp24.sink192.i = phi ptr [ %agg.tmp24.i, %if.then22.i ], [ %agg.tmp34.i, %if.else32.i ], [ %agg.tmp31.i, %if.then29.i ], [ %agg.tmp7.i, %if.then5.i ], [ %agg.tmp16.i, %if.else14.i ], [ %agg.tmp13.i, %if.then11.i ]
   %m_it3.i.sink.i = phi ptr [ %m_it.i.i2, %if.then22.i ], [ %m_it.i5, %if.else32.i ], [ %m_it.i.i7, %if.then29.i ], [ %m_it.i5, %if.then5.i ], [ %m_it.i.i2, %if.else14.i ], [ %m_it.i.i7, %if.then11.i ]
   %agg.tmp23.sink.i = phi ptr [ %agg.tmp23.i, %if.then22.i ], [ %agg.tmp33.i, %if.else32.i ], [ %agg.tmp30.i, %if.then29.i ], [ %agg.tmp6.i, %if.then5.i ], [ %agg.tmp15.i, %if.else14.i ], [ %agg.tmp12.i, %if.then11.i ]
-  %agg.tmp24.sink192.i.sroa.phi = phi ptr [ %agg.tmp24.i.sroa.gep, %if.then22.i ], [ %agg.tmp34.i.sroa.gep, %if.else32.i ], [ %agg.tmp31.i.sroa.gep, %if.then29.i ], [ %agg.tmp7.i.sroa.gep, %if.then5.i ], [ %agg.tmp16.i.sroa.gep, %if.else14.i ], [ %agg.tmp13.i.sroa.gep, %if.then11.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp24.sink192.i.sroa.phi, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i.sink.i, i64 24, i1 false)
   %call.i129.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23.sink.i)
   %call1.i130.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp24.sink192.i)

@@ -819,6 +819,8 @@ entry:
 define internal fastcc void @evws_send(ptr nocapture noundef readonly %evws, i32 noundef %frame_type, ptr noundef %packet_str, i64 noundef %str_len) unnamed_addr #0 {
 entry:
   %header.i = alloca [16 x i8], align 16
+  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %header.i, i64 3
+  %.sink.i.sroa.gep3 = getelementptr inbounds i8, ptr %header.i, i64 1
   %bufev = getelementptr inbounds i8, ptr %evws, i64 16
   %0 = load ptr, ptr %bufev, align 8
   tail call void @bufferevent_lock(ptr noundef %0) #9
@@ -834,11 +836,10 @@ entry:
 
 if.else.i:                                        ; preds = %entry
   %cmp7.i = icmp ult i64 %str_len, 65536
-  %arrayidx11.i = getelementptr inbounds i8, ptr %header.i, i64 1
   br i1 %cmp7.i, label %if.then9.i, label %if.else19.i
 
 if.then9.i:                                       ; preds = %if.else.i
-  store i8 126, ptr %arrayidx11.i, align 1
+  store i8 126, ptr %.sink.i.sroa.gep3, align 1
   %shr.i = lshr i64 %str_len, 8
   %conv12.i = trunc i64 %shr.i to i8
   %arrayidx14.i = getelementptr inbounds i8, ptr %header.i, i64 2
@@ -846,7 +847,7 @@ if.then9.i:                                       ; preds = %if.else.i
   br label %if.end29.sink.split.i
 
 if.else19.i:                                      ; preds = %if.else.i
-  store i8 127, ptr %arrayidx11.i, align 1
+  store i8 127, ptr %.sink.i.sroa.gep3, align 1
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.else19.i
@@ -862,11 +863,10 @@ for.body.i:                                       ; preds = %for.body.i, %if.els
   br i1 %exitcond.not.i, label %make_ws_frame.exit, label %for.body.i, !llvm.loop !9
 
 if.end29.sink.split.i:                            ; preds = %if.then9.i, %entry
-  %.sink.i = phi i64 [ 3, %if.then9.i ], [ 1, %entry ]
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %if.then9.i ], [ %.sink.i.sroa.gep3, %entry ]
   %pos.1.ph.i = phi i64 [ 4, %if.then9.i ], [ 2, %entry ]
   %conv16.i = trunc i64 %str_len to i8
-  %arrayidx18.i = getelementptr inbounds i8, ptr %header.i, i64 %.sink.i
-  store i8 %conv16.i, ptr %arrayidx18.i, align 1
+  store i8 %conv16.i, ptr %.sink.i.sroa.phi, align 1
   br label %make_ws_frame.exit
 
 make_ws_frame.exit:                               ; preds = %for.body.i, %if.end29.sink.split.i

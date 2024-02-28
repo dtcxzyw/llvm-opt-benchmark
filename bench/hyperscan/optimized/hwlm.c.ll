@@ -589,6 +589,7 @@ if.end14:                                         ; preds = %if.end
   %spec.select.v = select i1 %cmp15, i64 16, i64 96
   %spec.select = getelementptr inbounds i8, ptr %t, i64 %spec.select.v
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %temp.i)
+  %buf.addr.i2121.1.idx.sroa.gep2059.i = getelementptr inbounds i8, ptr %temp.i, i64 16
   %5 = load i8, ptr %spec.select, align 16
   %cmp.i = icmp eq i8 %5, 0
   %sub.i = sub i64 %len, %start
@@ -1118,13 +1119,12 @@ sw.bb.i113.i:                                     ; preds = %if.end36.i
 
 for.cond15.i2137.i:                               ; preds = %for.body19.i2141.i, %sw.bb.i113.i
   %cmp17.i2139.i = phi i1 [ true, %sw.bb.i113.i ], [ false, %for.body19.i2141.i ]
-  %buf.addr.i2121.1.idx.i = phi i64 [ 0, %sw.bb.i113.i ], [ 16, %for.body19.i2141.i ]
+  %buf.addr.i2121.1.idx.sroa.phi.i = phi ptr [ %temp.i, %sw.bb.i113.i ], [ %buf.addr.i2121.1.idx.sroa.gep2059.i, %for.body19.i2141.i ]
   br i1 %cmp17.i2139.i, label %for.body19.i2141.i, label %cond.false40.i260.i
 
 for.body19.i2141.i:                               ; preds = %for.cond15.i2137.i
-  %buf.addr.i2121.1.ptr.i = getelementptr inbounds i8, ptr %temp.i, i64 %buf.addr.i2121.1.idx.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i2121.1.ptr.i, i64 16) ]
-  %105 = load <16 x i8>, ptr %buf.addr.i2121.1.ptr.i, align 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i2121.1.idx.sroa.phi.i, i64 16) ]
+  %105 = load <16 x i8>, ptr %buf.addr.i2121.1.idx.sroa.phi.i, align 16
   %cmp.i3681.i = icmp eq <16 x i8> %vecinit15.i2881.i, %105
   %106 = bitcast <16 x i1> %cmp.i3681.i to i16
   %tobool29.i2147.not.i = icmp eq i16 %106, 0
@@ -1133,7 +1133,7 @@ for.body19.i2141.i:                               ; preds = %for.cond15.i2137.i
 cond.end30.i254.i:                                ; preds = %for.body19.i2141.i
   %107 = call i16 @llvm.cttz.i16(i16 %106, i1 true), !range !7
   %idx.ext39.i2155.i = zext nneg i16 %107 to i64
-  %add.ptr40.i2156.i = getelementptr inbounds i8, ptr %buf.addr.i2121.1.ptr.i, i64 %idx.ext39.i2155.i
+  %add.ptr40.i2156.i = getelementptr inbounds i8, ptr %buf.addr.i2121.1.idx.sroa.phi.i, i64 %idx.ext39.i2155.i
   br label %run_hwlm_accel.exit117.i
 
 cond.false40.i260.i:                              ; preds = %for.cond15.i2137.i
@@ -1157,13 +1157,12 @@ sw.bb1.i110.i:                                    ; preds = %if.end36.i
 
 for.cond18.i1685.i:                               ; preds = %for.body22.i1689.i, %sw.bb1.i110.i
   %cmp20.i1687.i = phi i1 [ true, %sw.bb1.i110.i ], [ false, %for.body22.i1689.i ]
-  %buf.addr.i1667.1.idx.i = phi i64 [ 0, %sw.bb1.i110.i ], [ 16, %for.body22.i1689.i ]
+  %buf.addr.i1667.1.idx.sroa.phi.i = phi ptr [ %temp.i, %sw.bb1.i110.i ], [ %buf.addr.i2121.1.idx.sroa.gep2059.i, %for.body22.i1689.i ]
   br i1 %cmp20.i1687.i, label %for.body22.i1689.i, label %cond.true37.i349.i
 
 for.body22.i1689.i:                               ; preds = %for.cond18.i1685.i
-  %buf.addr.i1667.1.ptr.i = getelementptr inbounds i8, ptr %temp.i, i64 %buf.addr.i1667.1.idx.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i1667.1.ptr.i, i64 16) ]
-  %112 = load <16 x i8>, ptr %buf.addr.i1667.1.ptr.i, align 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i1667.1.idx.sroa.phi.i, i64 16) ]
+  %112 = load <16 x i8>, ptr %buf.addr.i1667.1.idx.sroa.phi.i, align 16
   %113 = and <16 x i8> %112, <i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33>
   %cmp.i3765.i = icmp eq <16 x i8> %vecinit15.i2848.i, %113
   %114 = bitcast <16 x i1> %cmp.i3765.i to i16
@@ -1173,7 +1172,7 @@ for.body22.i1689.i:                               ; preds = %for.cond18.i1685.i
 cond.end30.i333.i:                                ; preds = %for.body22.i1689.i
   %115 = call i16 @llvm.cttz.i16(i16 %114, i1 true), !range !7
   %idx.ext43.i1704.i = zext nneg i16 %115 to i64
-  %add.ptr44.i1705.i = getelementptr inbounds i8, ptr %buf.addr.i1667.1.ptr.i, i64 %idx.ext43.i1704.i
+  %add.ptr44.i1705.i = getelementptr inbounds i8, ptr %buf.addr.i1667.1.idx.sroa.phi.i, i64 %idx.ext43.i1704.i
   br label %run_hwlm_accel.exit117.i
 
 cond.true37.i349.i:                               ; preds = %for.cond18.i1685.i
@@ -1198,19 +1197,18 @@ sw.bb6.i106.i:                                    ; preds = %if.end36.i
   %vecinit15.i2617.i = shufflevector <16 x i8> %vecinit.i2602.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %vecinit.i2569.i = insertelement <16 x i8> poison, i8 %121, i64 0
   %vecinit15.i2584.i = shufflevector <16 x i8> %vecinit.i2569.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  %invariant.gep1965.i = getelementptr inbounds i8, ptr %temp.i, i64 16
   br label %for.cond.i6262.i
 
 for.cond.i6262.i:                                 ; preds = %if.end.i6278.i, %sw.bb6.i106.i
   %cmp.i6264.i = phi i1 [ true, %sw.bb6.i106.i ], [ false, %if.end.i6278.i ]
+  %buf.addr.i6257.0.idx.sroa.phi.i = phi ptr [ %temp.i, %sw.bb6.i106.i ], [ %buf.addr.i2121.1.idx.sroa.gep2059.i, %if.end.i6278.i ]
   %buf.addr.i6257.0.idx.i = phi i64 [ 0, %sw.bb6.i106.i ], [ 16, %if.end.i6278.i ]
-  %buf.addr.i6257.0.ptr.i = getelementptr inbounds i8, ptr %temp.i, i64 %buf.addr.i6257.0.idx.i
-  %gep1966.i = getelementptr i8, ptr %invariant.gep1965.i, i64 %buf.addr.i6257.0.idx.i
+  %gep1966.i = getelementptr i8, ptr %buf.addr.i2121.1.idx.sroa.gep2059.i, i64 %buf.addr.i6257.0.idx.i
   br i1 %cmp.i6264.i, label %for.body.i6266.i, label %cond.false25.i664.i
 
 for.body.i6266.i:                                 ; preds = %for.cond.i6262.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i6257.0.ptr.i, i64 16) ]
-  %122 = load <16 x i8>, ptr %buf.addr.i6257.0.ptr.i, align 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i6257.0.idx.sroa.phi.i, i64 16) ]
+  %122 = load <16 x i8>, ptr %buf.addr.i6257.0.idx.sroa.phi.i, align 16
   %cmp.i25.i6267.i = icmp eq <16 x i8> %vecinit15.i2617.i, %122
   %cmp.i.i6269.i = icmp eq <16 x i8> %vecinit15.i2584.i, %122
   %sext.i.i6270.i = sext <16 x i1> %cmp.i.i6269.i to <16 x i8>
@@ -1239,7 +1237,7 @@ cond.end15.i658.i:                                ; preds = %if.end.i6278.i, %co
   %z.i6260.01872.in.i = phi i16 [ %128, %cond.end15.i658.split.loop.exit.i ], [ %125, %if.end.i6278.i ]
   %129 = call i16 @llvm.cttz.i16(i16 %z.i6260.01872.in.i, i1 true), !range !7
   %idx.ext.i6286.i = zext nneg i16 %129 to i64
-  %add.ptr19.i6287.i = getelementptr inbounds i8, ptr %buf.addr.i6257.0.ptr.i, i64 %idx.ext.i6286.i
+  %add.ptr19.i6287.i = getelementptr inbounds i8, ptr %buf.addr.i6257.0.idx.sroa.phi.i, i64 %idx.ext.i6286.i
   br label %run_hwlm_accel.exit117.i
 
 cond.false25.i664.i:                              ; preds = %for.cond.i6262.i
@@ -1261,7 +1259,7 @@ cond.false25.i664.i:                              ; preds = %for.cond.i6262.i
 if.end32.i670.i:                                  ; preds = %cond.false25.i664.i
   %135 = extractelement <16 x i8> %130, i64 15
   %cmp.i680.i = icmp eq i8 %135, %120
-  %arrayidx.i675.add.ptr39.i = select i1 %cmp.i680.i, ptr %invariant.gep1965.i, ptr %add.ptr39.i
+  %arrayidx.i675.add.ptr39.i = select i1 %cmp.i680.i, ptr %buf.addr.i2121.1.idx.sroa.gep2059.i, ptr %add.ptr39.i
   br label %run_hwlm_accel.exit117.i
 
 sw.bb10.i102.i:                                   ; preds = %if.end36.i
@@ -1273,19 +1271,18 @@ sw.bb10.i102.i:                                   ; preds = %if.end36.i
   %vecinit15.i2551.i = shufflevector <16 x i8> %vecinit.i2536.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %vecinit.i2503.i = insertelement <16 x i8> poison, i8 %137, i64 0
   %vecinit15.i2518.i = shufflevector <16 x i8> %vecinit.i2503.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  %invariant.gep.i = getelementptr inbounds i8, ptr %temp.i, i64 16
   br label %for.cond.i5751.i
 
 for.cond.i5751.i:                                 ; preds = %if.end.i5769.i, %sw.bb10.i102.i
   %cmp.i5753.i = phi i1 [ true, %sw.bb10.i102.i ], [ false, %if.end.i5769.i ]
+  %buf.addr.i5728.0.idx.sroa.phi.i = phi ptr [ %temp.i, %sw.bb10.i102.i ], [ %buf.addr.i2121.1.idx.sroa.gep2059.i, %if.end.i5769.i ]
   %buf.addr.i5728.0.idx.i = phi i64 [ 0, %sw.bb10.i102.i ], [ 16, %if.end.i5769.i ]
-  %buf.addr.i5728.0.ptr.i = getelementptr inbounds i8, ptr %temp.i, i64 %buf.addr.i5728.0.idx.i
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %buf.addr.i5728.0.idx.i
+  %gep.i = getelementptr i8, ptr %buf.addr.i2121.1.idx.sroa.gep2059.i, i64 %buf.addr.i5728.0.idx.i
   br i1 %cmp.i5753.i, label %for.body.i5755.i, label %cond.true22.i754.i
 
 for.body.i5755.i:                                 ; preds = %for.cond.i5751.i
-  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i5728.0.ptr.i, i64 16) ]
-  %138 = load <16 x i8>, ptr %buf.addr.i5728.0.ptr.i, align 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %buf.addr.i5728.0.idx.sroa.phi.i, i64 16) ]
+  %138 = load <16 x i8>, ptr %buf.addr.i5728.0.idx.sroa.phi.i, align 16
   %139 = and <16 x i8> %138, <i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33>
   %cmp.i30.i5757.i = icmp eq <16 x i8> %vecinit15.i2551.i, %139
   %cmp.i.i5759.i = icmp eq <16 x i8> %vecinit15.i2518.i, %139
@@ -1317,7 +1314,7 @@ cond.end15.i727.i:                                ; preds = %if.end.i5769.i, %co
   %z.i5733.01878.in.i = phi i16 [ %147, %cond.end15.i727.split.loop.exit.i ], [ %142, %if.end.i5769.i ]
   %148 = call i16 @llvm.cttz.i16(i16 %z.i5733.01878.in.i, i1 true), !range !7
   %idx.ext.i5777.i = zext nneg i16 %148 to i64
-  %add.ptr22.i5778.i = getelementptr inbounds i8, ptr %buf.addr.i5728.0.ptr.i, i64 %idx.ext.i5777.i
+  %add.ptr22.i5778.i = getelementptr inbounds i8, ptr %buf.addr.i5728.0.idx.sroa.phi.i, i64 %idx.ext.i5777.i
   br label %run_hwlm_accel.exit117.i
 
 cond.true22.i754.i:                               ; preds = %for.cond.i5751.i
@@ -1341,7 +1338,7 @@ if.end32.i739.i:                                  ; preds = %cond.true22.i754.i
   %155 = extractelement <16 x i8> %149, i64 15
   %156 = and i8 %155, -33
   %cmp.i749.i = icmp eq i8 %156, %136
-  %arrayidx.i744.add.ptr39.i = select i1 %cmp.i749.i, ptr %invariant.gep.i, ptr %add.ptr39.i
+  %arrayidx.i744.add.ptr39.i = select i1 %cmp.i749.i, ptr %buf.addr.i2121.1.idx.sroa.gep2059.i, ptr %add.ptr39.i
   br label %run_hwlm_accel.exit117.i
 
 sw.bb16.i98.i:                                    ; preds = %if.end36.i
@@ -1375,11 +1372,11 @@ if.end51.i:                                       ; preds = %sw.bb.i142.i, %sw.b
   br i1 %cmp52.not.i, label %if.end51.do.end60_crit_edge.i, label %do_accel_streaming.exit
 
 if.end51.do.end60_crit_edge.i:                    ; preds = %if.end51.i, %land.lhs.true16.i
-  %.pre2056.i = load i8, ptr %spec.select, align 16
+  %.pre2060.i = load i8, ptr %spec.select, align 16
   br label %do.end60.i
 
 do.end60.i:                                       ; preds = %if.end51.do.end60_crit_edge.i, %if.end.i
-  %161 = phi i8 [ %.pre2056.i, %if.end51.do.end60_crit_edge.i ], [ %5, %if.end.i ]
+  %161 = phi i8 [ %.pre2060.i, %if.end51.do.end60_crit_edge.i ], [ %5, %if.end.i ]
   %add.ptr61.i = getelementptr inbounds i8, ptr %2, i64 %start
   %add.ptr62.i = getelementptr inbounds i8, ptr %2, i64 %len
   switch i8 %161, label %run_hwlm_accel.exit.i [

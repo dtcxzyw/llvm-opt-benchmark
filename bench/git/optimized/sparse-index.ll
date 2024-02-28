@@ -839,8 +839,10 @@ if.end:                                           ; preds = %ensure_full_index.e
 define dso_local void @clear_skip_worktree_from_present_files(ptr noundef %istate) local_unnamed_addr #0 {
 entry:
   %st.i = alloca %struct.stat, align 8
-  %path_count = alloca [2 x i32], align 8
-  store i64 0, ptr %path_count, align 8
+  %path_count.sroa.0 = alloca i32, align 4
+  %path_count.sroa.3 = alloca i32, align 4
+  store i32 0, ptr %path_count.sroa.0, align 4
+  store i32 0, ptr %path_count.sroa.3, align 4
   %0 = load i32, ptr @core_apply_sparse_checkout, align 4
   %tobool = icmp eq i32 %0, 0
   %1 = load i32, ptr @sparse_expect_files_outside_of_patterns, align 4
@@ -854,23 +856,22 @@ if.end:                                           ; preds = %entry
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.5, i32 noundef 504, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.13, ptr noundef %2) #12
   %cache_nr = getelementptr inbounds i8, ptr %istate, i64 12
   %3 = load i32, ptr %cache_nr, align 4
-  %cmp2935.not = icmp eq i32 %3, 0
-  br i1 %cmp2935.not, label %for.end, label %for.body.lr.ph
+  %cmp3036.not = icmp eq i32 %3, 0
+  br i1 %cmp3036.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end, %ensure_full_index.exit
-  %restarted.040 = phi i64 [ 1, %ensure_full_index.exit ], [ 0, %if.end ]
-  %tobool25.not39 = phi i1 [ false, %ensure_full_index.exit ], [ true, %if.end ]
-  %dir_found.038 = phi i32 [ %dir_found.132, %ensure_full_index.exit ], [ 1, %if.end ]
-  %dir_len.037 = phi i64 [ %dir_len.131, %ensure_full_index.exit ], [ 0, %if.end ]
-  %last_dirname.036 = phi ptr [ %last_dirname.130, %ensure_full_index.exit ], [ null, %if.end ]
-  %arrayidx5 = getelementptr inbounds [2 x i32], ptr %path_count, i64 0, i64 %restarted.040
+  %restarted.0.sroa.phi41 = phi ptr [ %path_count.sroa.3, %ensure_full_index.exit ], [ %path_count.sroa.0, %if.end ]
+  %tobool25.not40 = phi i1 [ false, %ensure_full_index.exit ], [ true, %if.end ]
+  %dir_found.039 = phi i32 [ %dir_found.133, %ensure_full_index.exit ], [ 1, %if.end ]
+  %dir_len.038 = phi i64 [ %dir_len.132, %ensure_full_index.exit ], [ 0, %if.end ]
+  %last_dirname.037 = phi ptr [ %last_dirname.131, %ensure_full_index.exit ], [ null, %if.end ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %dir_found.132 = phi i32 [ %dir_found.038, %for.body.lr.ph ], [ %dir_found.3, %for.inc ]
-  %dir_len.131 = phi i64 [ %dir_len.037, %for.body.lr.ph ], [ %dir_len.3, %for.inc ]
-  %last_dirname.130 = phi ptr [ %last_dirname.036, %for.body.lr.ph ], [ %last_dirname.3, %for.inc ]
+  %dir_found.133 = phi i32 [ %dir_found.039, %for.body.lr.ph ], [ %dir_found.3, %for.inc ]
+  %dir_len.132 = phi i64 [ %dir_len.038, %for.body.lr.ph ], [ %dir_len.3, %for.inc ]
+  %last_dirname.131 = phi ptr [ %last_dirname.037, %for.body.lr.ph ], [ %last_dirname.3, %for.inc ]
   %4 = load ptr, ptr %istate, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
@@ -881,16 +882,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool2.not, label %for.inc, label %if.then3
 
 if.then3:                                         ; preds = %for.body
-  %7 = load i32, ptr %arrayidx5, align 4
+  %7 = load i32, ptr %restarted.0.sroa.phi41, align 4
   %inc = add nsw i32 %7, 1
-  store i32 %inc, ptr %arrayidx5, align 4
+  store i32 %inc, ptr %restarted.0.sroa.phi41, align 4
   %name = getelementptr inbounds i8, ptr %5, i64 108
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
-  %tobool.not.i = icmp eq i32 %dir_found.132, 0
+  %tobool.not.i = icmp eq i32 %dir_found.133, 0
   br i1 %tobool.not.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.then3
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %name, ptr %last_dirname.130, i64 %dir_len.131)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %name, ptr %last_dirname.131, i64 %dir_len.132)
   %tobool1.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool1.not.i, label %path_found.exit.thread, label %if.end.i
 
@@ -905,12 +906,12 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %tobool7.not.i, label %path_found.exit.thread, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %tobool12.not.i = icmp eq ptr %last_dirname.130, null
-  %or.cond24 = select i1 %tobool.not.i, i1 true, i1 %tobool12.not.i
-  br i1 %or.cond24, label %if.end17.i, label %land.lhs.true13.i
+  %tobool12.not.i = icmp eq ptr %last_dirname.131, null
+  %or.cond25 = select i1 %tobool.not.i, i1 true, i1 %tobool12.not.i
+  br i1 %or.cond25, label %if.end17.i, label %land.lhs.true13.i
 
 land.lhs.true13.i:                                ; preds = %if.end9.i
-  %bcmp17.i = tail call i32 @bcmp(ptr nonnull %name, ptr nonnull %last_dirname.130, i64 %dir_len.131)
+  %bcmp17.i = tail call i32 @bcmp(ptr nonnull %name, ptr nonnull %last_dirname.131, i64 %dir_len.132)
   %tobool15.not.i = icmp eq i32 %bcmp17.i, 0
   br i1 %tobool15.not.i, label %if.end17.i, label %path_found.exit.thread
 
@@ -927,9 +928,9 @@ if.end17.i:                                       ; preds = %land.lhs.true13.i, 
   br label %path_found.exit.thread
 
 path_found.exit.thread:                           ; preds = %if.end17.i, %land.lhs.true.i, %if.end5.i, %land.lhs.true13.i
-  %last_dirname.2.ph = phi ptr [ %last_dirname.130, %land.lhs.true13.i ], [ %name, %if.end17.i ], [ %last_dirname.130, %if.end5.i ], [ %last_dirname.130, %land.lhs.true.i ]
-  %dir_len.2.ph = phi i64 [ %dir_len.131, %land.lhs.true13.i ], [ %add.i, %if.end17.i ], [ %dir_len.131, %if.end5.i ], [ %dir_len.131, %land.lhs.true.i ]
-  %dir_found.2.ph = phi i32 [ %dir_found.132, %land.lhs.true13.i ], [ %lnot.ext.i, %if.end17.i ], [ %dir_found.132, %if.end5.i ], [ 0, %land.lhs.true.i ]
+  %last_dirname.2.ph = phi ptr [ %last_dirname.131, %land.lhs.true13.i ], [ %name, %if.end17.i ], [ %last_dirname.131, %if.end5.i ], [ %last_dirname.131, %land.lhs.true.i ]
+  %dir_len.2.ph = phi i64 [ %dir_len.132, %land.lhs.true13.i ], [ %add.i, %if.end17.i ], [ %dir_len.132, %if.end5.i ], [ %dir_len.132, %land.lhs.true.i ]
+  %dir_found.2.ph = phi i32 [ %dir_found.133, %land.lhs.true13.i ], [ %lnot.ext.i, %if.end17.i ], [ %dir_found.133, %if.end5.i ], [ 0, %land.lhs.true.i ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
   br label %for.inc
 
@@ -941,7 +942,7 @@ if.then7:                                         ; preds = %if.end.i
   br i1 %cmp8, label %if.then9, label %if.end13
 
 if.then9:                                         ; preds = %if.then7
-  br i1 %tobool25.not39, label %ensure_full_index.exit, label %if.then11
+  br i1 %tobool25.not40, label %ensure_full_index.exit, label %if.then11
 
 if.then11:                                        ; preds = %if.then9
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.5, i32 noundef 514, ptr noundef nonnull @.str.14) #14
@@ -950,8 +951,8 @@ if.then11:                                        ; preds = %if.then9
 ensure_full_index.exit:                           ; preds = %if.then9
   tail call void @expand_index(ptr noundef nonnull %istate, ptr noundef null)
   %9 = load i32, ptr %cache_nr, align 4
-  %cmp29.not = icmp eq i32 %9, 0
-  br i1 %cmp29.not, label %for.end, label %for.body.lr.ph
+  %cmp30.not = icmp eq i32 %9, 0
+  br i1 %cmp30.not, label %for.end, label %for.body.lr.ph
 
 if.end13:                                         ; preds = %if.then7
   %10 = load i32, ptr %ce_flags, align 8
@@ -960,9 +961,9 @@ if.end13:                                         ; preds = %if.then7
   br label %for.inc
 
 for.inc:                                          ; preds = %path_found.exit.thread, %for.body, %if.end13
-  %last_dirname.3 = phi ptr [ %last_dirname.130, %for.body ], [ %last_dirname.130, %if.end13 ], [ %last_dirname.2.ph, %path_found.exit.thread ]
-  %dir_len.3 = phi i64 [ %dir_len.131, %for.body ], [ %dir_len.131, %if.end13 ], [ %dir_len.2.ph, %path_found.exit.thread ]
-  %dir_found.3 = phi i32 [ %dir_found.132, %for.body ], [ %dir_found.132, %if.end13 ], [ %dir_found.2.ph, %path_found.exit.thread ]
+  %last_dirname.3 = phi ptr [ %last_dirname.131, %for.body ], [ %last_dirname.131, %if.end13 ], [ %last_dirname.2.ph, %path_found.exit.thread ]
+  %dir_len.3 = phi i64 [ %dir_len.132, %for.body ], [ %dir_len.132, %if.end13 ], [ %dir_len.2.ph, %path_found.exit.thread ]
+  %dir_found.3 = phi i32 [ %dir_found.133, %for.body ], [ %dir_found.133, %if.end13 ], [ %dir_found.2.ph, %path_found.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %cache_nr, align 4
   %12 = zext i32 %11 to i64
@@ -970,31 +971,30 @@ for.inc:                                          ; preds = %path_found.exit.thr
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %ensure_full_index.exit, %for.inc, %if.end
-  %tobool25.not.lcssa = phi i1 [ true, %if.end ], [ %tobool25.not39, %for.inc ], [ false, %ensure_full_index.exit ]
-  %13 = load i32, ptr %path_count, align 8
-  %tobool20.not = icmp eq i32 %13, 0
+  %tobool25.not.lcssa = phi i1 [ true, %if.end ], [ %tobool25.not40, %for.inc ], [ false, %ensure_full_index.exit ]
+  %path_count.sroa.0.0.path_count.sroa.0.0.path_count.sroa.0.0.path_count.sroa.0.0. = load i32, ptr %path_count.sroa.0, align 4
+  %tobool20.not = icmp eq i32 %path_count.sroa.0.0.path_count.sroa.0.0.path_count.sroa.0.0.path_count.sroa.0.0., 0
   br i1 %tobool20.not, label %if.end24, label %if.then21
 
 if.then21:                                        ; preds = %for.end
-  %14 = load ptr, ptr %repo, align 8
-  %conv = sext i32 %13 to i64
-  tail call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.5, i32 noundef 526, ptr noundef nonnull @.str.6, ptr noundef %14, ptr noundef nonnull @.str.15, i64 noundef %conv) #12
+  %13 = load ptr, ptr %repo, align 8
+  %conv = sext i32 %path_count.sroa.0.0.path_count.sroa.0.0.path_count.sroa.0.0.path_count.sroa.0.0. to i64
+  tail call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.5, i32 noundef 526, ptr noundef nonnull @.str.6, ptr noundef %13, ptr noundef nonnull @.str.15, i64 noundef %conv) #12
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then21, %for.end
   br i1 %tobool25.not.lcssa, label %if.end30, label %if.then26
 
 if.then26:                                        ; preds = %if.end24
-  %15 = load ptr, ptr %repo, align 8
-  %arrayidx28 = getelementptr inbounds i8, ptr %path_count, i64 4
-  %16 = load i32, ptr %arrayidx28, align 4
-  %conv29 = sext i32 %16 to i64
-  tail call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.5, i32 noundef 529, ptr noundef nonnull @.str.6, ptr noundef %15, ptr noundef nonnull @.str.16, i64 noundef %conv29) #12
+  %14 = load ptr, ptr %repo, align 8
+  %path_count.sroa.3.0.path_count.sroa.3.0.path_count.sroa.3.0.path_count.sroa.3.4. = load i32, ptr %path_count.sroa.3, align 4
+  %conv29 = sext i32 %path_count.sroa.3.0.path_count.sroa.3.0.path_count.sroa.3.0.path_count.sroa.3.4. to i64
+  tail call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.5, i32 noundef 529, ptr noundef nonnull @.str.6, ptr noundef %14, ptr noundef nonnull @.str.16, i64 noundef %conv29) #12
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then26, %if.end24
-  %17 = load ptr, ptr %repo, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.5, i32 noundef 531, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.13, ptr noundef %17) #12
+  %15 = load ptr, ptr %repo, align 8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.5, i32 noundef 531, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.13, ptr noundef %15) #12
   br label %return
 
 return:                                           ; preds = %entry, %if.end30

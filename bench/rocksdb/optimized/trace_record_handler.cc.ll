@@ -1015,9 +1015,7 @@ entry:
   %lower = alloca %"class.rocksdb::Slice", align 8
   %upper = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp42 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp42.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp42, i64 8
   %ref.tmp50 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp50.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp50, i64 8
   %ps_key = alloca %"class.rocksdb::PinnableSlice", align 8
   %ps_value = alloca %"class.rocksdb::PinnableSlice", align 8
   %agg.tmp = alloca %"class.rocksdb::Status", align 8
@@ -1026,6 +1024,8 @@ entry:
   %ref.tmp110 = alloca %"class.std::allocator.41", align 1
   %ref.tmp113 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp114 = alloca %"class.std::allocator.41", align 1
+  %ref.tmp42.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp42, i64 8
+  %ref.tmp42.sink.sroa.gep167 = getelementptr inbounds i8, ptr %ref.tmp50, i64 8
   %cmp = icmp ne ptr %result, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -1263,10 +1263,10 @@ invoke.cont53:                                    ; preds = %sw.default
   br label %invoke.cont53.invoke
 
 invoke.cont53.invoke:                             ; preds = %invoke.cont45, %invoke.cont53
+  %ref.tmp42.sink.sroa.phi = phi ptr [ %ref.tmp42.sink.sroa.gep, %invoke.cont45 ], [ %ref.tmp42.sink.sroa.gep167, %invoke.cont53 ]
   %ref.tmp42.sink = phi ptr [ %ref.tmp42, %invoke.cont45 ], [ %ref.tmp50, %invoke.cont53 ]
   %call46.sink = phi { ptr, i64 } [ %call46, %invoke.cont45 ], [ %call54, %invoke.cont53 ]
   %.sink = phi i64 [ 48, %invoke.cont45 ], [ 40, %invoke.cont53 ]
-  %ref.tmp42.sink.sroa.phi = phi ptr [ %ref.tmp42.sroa.gep, %invoke.cont45 ], [ %ref.tmp50.sroa.gep, %invoke.cont53 ]
   %37 = extractvalue { ptr, i64 } %call46.sink, 1
   store i64 %37, ptr %ref.tmp42.sink.sroa.phi, align 8
   %vtable47 = load ptr, ptr %call33, align 8
@@ -1758,14 +1758,14 @@ entry:
   %keys = alloca %"class.std::vector.55", align 8
   %ref.tmp40 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp43 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp43.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp43, i64 8
   %ref.tmp51 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp53 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp53.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp53, i64 8
   %values = alloca %"class.std::vector.60", align 16
   %ss = alloca %"class.std::vector.65", align 8
   %agg.tmp = alloca %"class.std::vector.65", align 8
   %agg.tmp96 = alloca %"class.std::vector.60", align 16
+  %ref.tmp43.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp43, i64 8
+  %ref.tmp43.sink.sroa.gep183 = getelementptr inbounds i8, ptr %ref.tmp53, i64 8
   %cmp.not = icmp eq ptr %result, null
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -2136,9 +2136,9 @@ if.then50:                                        ; preds = %if.end46
   br label %if.then50.invoke
 
 if.then50.invoke:                                 ; preds = %if.then39, %if.then50
+  %ref.tmp43.sink.sroa.phi = phi ptr [ %ref.tmp43.sink.sroa.gep, %if.then39 ], [ %ref.tmp43.sink.sroa.gep183, %if.then50 ]
   %ref.tmp43.sink = phi ptr [ %ref.tmp43, %if.then39 ], [ %ref.tmp53, %if.then50 ]
   %41 = phi ptr [ %ref.tmp40, %if.then39 ], [ %ref.tmp51, %if.then50 ]
-  %ref.tmp43.sink.sroa.phi = phi ptr [ %ref.tmp43.sroa.gep, %if.then39 ], [ %ref.tmp53.sroa.gep, %if.then50 ]
   store i64 0, ptr %ref.tmp43.sink.sroa.phi, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp43.sink, i8 noundef zeroext 0)
           to label %cleanup108 unwind label %lpad41

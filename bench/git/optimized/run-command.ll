@@ -368,14 +368,14 @@ entry:
   %key.i.i = alloca %struct.strbuf, align 8
   %buf.i = alloca %struct.strbuf, align 8
   %fdin = alloca [2 x i32], align 4
-  %fdin.sroa.gep = getelementptr inbounds i8, ptr %fdin, i64 4
   %fdout = alloca [2 x i32], align 4
-  %fdout.sroa.gep = getelementptr inbounds i8, ptr %fdout, i64 4
   %fderr = alloca [2 x i32], align 4
   %notify_pipe = alloca [2 x i32], align 4
   %argv = alloca %struct.strvec, align 8
   %cerr = alloca %struct.child_err, align 4
   %as = alloca %struct.atfork_state, align 8
+  %fdin.sink.sroa.gep = getelementptr inbounds i8, ptr %fdin, i64 4
+  %fdin.sink.sroa.gep297 = getelementptr inbounds i8, ptr %fdout, i64 4
   %no_stdin = getelementptr inbounds i8, ptr %cmd, i64 104
   %bf.load = load i16, ptr %no_stdin, align 8
   %bf.clear = and i16 %bf.load, 1
@@ -494,11 +494,11 @@ if.else77:                                        ; preds = %if.end73
   br i1 %tobool79.not, label %fail_pipe, label %fail_pipe.sink.split
 
 fail_pipe.sink.split.sink.split:                  ; preds = %if.end73, %if.then31
+  %fdin.sink.sroa.phi = phi ptr [ %fdin.sink.sroa.gep, %if.then31 ], [ %fdin.sink.sroa.gep297, %if.end73 ]
   %fdin.sink = phi ptr [ %fdin, %if.then31 ], [ %fdout, %if.end73 ]
   %call89.pre-phi.ph.ph = phi ptr [ %call32, %if.then31 ], [ %call62, %if.end73 ]
   %failed_errno.0.ph.ph = phi i32 [ %7, %if.then31 ], [ %13, %if.end73 ]
   %str.0.ph.ph = phi ptr [ @.str.2, %if.then31 ], [ @.str.3, %if.end73 ]
-  %fdin.sink.sroa.phi = phi ptr [ %fdin.sroa.gep, %if.then31 ], [ %fdout.sroa.gep, %if.end73 ]
   %.sink288 = load i32, ptr %fdin.sink, align 4
   %call.i = call i32 @close(i32 noundef %.sink288) #21
   %18 = load i32, ptr %fdin.sink.sroa.phi, align 4
@@ -669,14 +669,14 @@ if.then19.i.i:                                    ; preds = %if.end17.i.i
   br label %for.inc21.thread.i.i
 
 for.inc21.i.i:                                    ; preds = %lor.lhs.false.i.i, %for.body8.i.i
-  %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp.i.i = icmp ugt i64 %.ph.i.i, %indvars.iv.next.i.i
   br i1 %cmp.i.i, label %for.body8.i.i, label %for.end22.i.i, !llvm.loop !5
 
 for.inc21.thread.i.i:                             ; preds = %if.then19.i.i, %if.end17.i.i
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf.i, ptr noundef nonnull @.str.37, ptr noundef %39) #21
   %.pre41.i.i = load i64, ptr %nr.phi.trans.insert.i.phi.trans.insert.i, align 8
-  %indvars.iv.next49.i.i = add nuw i64 %indvars.iv.i.i, 1
+  %indvars.iv.next49.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp50.i.i = icmp ugt i64 %.pre41.i.i, %indvars.iv.next49.i.i
   br i1 %cmp50.i.i, label %for.body8.outer.i.i, label %if.then24.i.i, !llvm.loop !5
 
@@ -752,7 +752,7 @@ if.end50.i.i:                                     ; preds = %land.lhs.true.i.i, 
 
 for.inc51.i.i:                                    ; preds = %if.end50.i.i, %land.lhs.true.i.i, %for.body31.i.i
   %50 = phi i64 [ %46, %land.lhs.true.i.i ], [ %46, %for.body31.i.i ], [ %.pre40.i.i, %if.end50.i.i ]
-  %indvars.iv.next37.i.i = add nuw i64 %indvars.iv36.i.i, 1
+  %indvars.iv.next37.i.i = add nuw nsw i64 %indvars.iv36.i.i, 1
   %cmp29.i.i = icmp ugt i64 %50, %indvars.iv.next37.i.i
   br i1 %cmp29.i.i, label %for.body31.i.i, label %trace_add_env.exit.i, !llvm.loop !7
 

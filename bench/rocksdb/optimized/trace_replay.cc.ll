@@ -636,7 +636,7 @@ entry:
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp10 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp10.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
+  %ref.tmp1.sink.sroa.gep16 = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
   call void @_ZN7rocksdb12TracerHelper11DecodeTraceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_5TraceE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %s, ptr noundef nonnull align 8 dereferenceable(32) %encoded_trace, ptr noundef %header)
   %type = getelementptr inbounds i8, ptr %header, i64 8
   %0 = load i8, ptr %type, align 8
@@ -644,7 +644,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ref.tmp1.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
+  %ref.tmp1.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   store ptr @.str.5, ptr %ref.tmp, align 8
   %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 39, ptr %size_.i, align 8
@@ -707,9 +707,9 @@ if.then7:                                         ; preds = %_ZStneIcSt11char_tr
   br label %if.then7.invoke
 
 if.then7.invoke:                                  ; preds = %if.then, %if.then7
+  %ref.tmp1.sink.sroa.phi = phi ptr [ %ref.tmp1.sink.sroa.gep, %if.then ], [ %ref.tmp1.sink.sroa.gep16, %if.then7 ]
   %ref.tmp1.sink = phi ptr [ %ref.tmp1, %if.then ], [ %ref.tmp10, %if.then7 ]
   %3 = phi ptr [ %ref.tmp, %if.then ], [ %ref.tmp8, %if.then7 ]
-  %ref.tmp1.sink.sroa.phi = phi ptr [ %ref.tmp1.sroa.gep, %if.then ], [ %ref.tmp10.sroa.gep, %if.then7 ]
   store i64 0, ptr %ref.tmp1.sink.sroa.phi, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1.sink, i8 noundef zeroext 0)
           to label %cleanup unwind label %lpad

@@ -1929,15 +1929,7 @@ define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_07PNG_pvt10write_infoB5cx
 entry:
   %agg.tmp.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp.sroa.gep260 = getelementptr inbounds i8, ptr %agg.tmp, i64 4
-  %agg.tmp.sroa.gep257 = getelementptr inbounds i8, ptr %agg.tmp, i64 3
-  %agg.tmp.sroa.gep254 = getelementptr inbounds i8, ptr %agg.tmp, i64 2
-  %agg.tmp.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp, i64 1
   %agg.tmp3 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp3.sroa.gep259 = getelementptr inbounds i8, ptr %agg.tmp3, i64 4
-  %agg.tmp3.sroa.gep256 = getelementptr inbounds i8, ptr %agg.tmp3, i64 3
-  %agg.tmp3.sroa.gep253 = getelementptr inbounds i8, ptr %agg.tmp3, i64 2
-  %agg.tmp3.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp3, i64 1
   %ref.tmp = alloca %"class.std::allocator.12", align 1
   %ref.tmp15 = alloca %"class.std::allocator.12", align 1
   %agg.tmp19 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -1979,6 +1971,14 @@ entry:
   %exifBlob = alloca %"class.std::vector.150", align 8
   %agg.tmp205 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
   %ref.tmp227 = alloca %"class.std::allocator.12", align 1
+  %agg.tmp3.sink251.sroa.gep260 = getelementptr inbounds i8, ptr %agg.tmp3, i64 4
+  %agg.tmp3.sink251.sroa.gep261 = getelementptr inbounds i8, ptr %agg.tmp, i64 4
+  %agg.tmp3.sink251.sroa.gep257 = getelementptr inbounds i8, ptr %agg.tmp3, i64 3
+  %agg.tmp3.sink251.sroa.gep258 = getelementptr inbounds i8, ptr %agg.tmp, i64 3
+  %agg.tmp3.sink251.sroa.gep254 = getelementptr inbounds i8, ptr %agg.tmp3, i64 2
+  %agg.tmp3.sink251.sroa.gep255 = getelementptr inbounds i8, ptr %agg.tmp, i64 2
+  %agg.tmp3.sink251.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp3, i64 1
+  %agg.tmp3.sink251.sroa.gep252 = getelementptr inbounds i8, ptr %agg.tmp, i64 1
   %format = getelementptr inbounds i8, ptr %spec, i64 64
   %0 = load i8, ptr %format, align 8
   %cmp.i = icmp eq i8 %0, 2
@@ -2007,15 +2007,15 @@ if.else:                                          ; preds = %lor.lhs.false
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
+  %agg.tmp3.sink251.sroa.phi = phi ptr [ %agg.tmp3.sink251.sroa.gep, %if.else ], [ %agg.tmp3.sink251.sroa.gep252, %if.then ]
+  %agg.tmp3.sink251.sroa.phi253 = phi ptr [ %agg.tmp3.sink251.sroa.gep254, %if.else ], [ %agg.tmp3.sink251.sroa.gep255, %if.then ]
+  %agg.tmp3.sink251.sroa.phi256 = phi ptr [ %agg.tmp3.sink251.sroa.gep257, %if.else ], [ %agg.tmp3.sink251.sroa.gep258, %if.then ]
+  %agg.tmp3.sink251.sroa.phi259 = phi ptr [ %agg.tmp3.sink251.sroa.gep260, %if.else ], [ %agg.tmp3.sink251.sroa.gep261, %if.then ]
   %agg.tmp3.sink251 = phi ptr [ %agg.tmp3, %if.else ], [ %agg.tmp, %if.then ]
-  %agg.tmp3.sink251.sroa.phi = phi ptr [ %agg.tmp3.sroa.gep, %if.else ], [ %agg.tmp.sroa.gep, %if.then ]
-  %agg.tmp3.sink251.sroa.phi252 = phi ptr [ %agg.tmp3.sroa.gep253, %if.else ], [ %agg.tmp.sroa.gep254, %if.then ]
-  %agg.tmp3.sink251.sroa.phi255 = phi ptr [ %agg.tmp3.sroa.gep256, %if.else ], [ %agg.tmp.sroa.gep257, %if.then ]
-  %agg.tmp3.sink251.sroa.phi258 = phi ptr [ %agg.tmp3.sroa.gep259, %if.else ], [ %agg.tmp.sroa.gep260, %if.then ]
   store i8 1, ptr %agg.tmp3.sink251.sroa.phi, align 1
-  store i8 0, ptr %agg.tmp3.sink251.sroa.phi252, align 2
-  store i8 0, ptr %agg.tmp3.sink251.sroa.phi255, align 1
-  store i32 0, ptr %agg.tmp3.sink251.sroa.phi258, align 4
+  store i8 0, ptr %agg.tmp3.sink251.sroa.phi253, align 2
+  store i8 0, ptr %agg.tmp3.sink251.sroa.phi256, align 1
+  store i32 0, ptr %agg.tmp3.sink251.sroa.phi259, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec10set_formatENS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %agg.tmp3.sink251) #23
   %5 = load ptr, ptr %sp, align 8
   %call4 = call ptr @png_set_longjmp_fn(ptr noundef %5, ptr noundef nonnull @longjmp, i64 noundef 200)
@@ -17525,7 +17525,7 @@ _ZN3fmt2v86detail9normalizeILi0EEENS1_2fpES3_.exit: ; preds = %if.end42, %while.
   %ptr_.i93 = getelementptr inbounds i8, ptr %buf, i64 8
   %24 = load ptr, ptr %ptr_.i93, align 8
   %sub54 = sub nsw i32 348, %mul6.i
-  %sh_prom.i = zext i32 %add3.i.neg to i64
+  %sh_prom.i = zext nneg i32 %add3.i.neg to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %shr.i = lshr i64 %cond.i.i, %sh_prom.i
   %conv.i = trunc i64 %shr.i to i32

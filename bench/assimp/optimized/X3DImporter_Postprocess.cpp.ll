@@ -170,8 +170,8 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 define hidden void @_ZNK6Assimp11X3DImporter40PostprocessHelper_Matrix_GlobalToCurrentEv(ptr noalias nocapture writeonly sret(%class.aiMatrix4x4t) align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %matr = alloca %"class.std::__cxx11::list", align 8
-  %matr.sroa.gep = getelementptr inbounds i8, ptr %matr, i64 8
-  store ptr %matr, ptr %matr.sroa.gep, align 8
+  %_M_prev.i.i.i.i.i = getelementptr inbounds i8, ptr %matr, i64 8
+  store ptr %matr, ptr %_M_prev.i.i.i.i.i, align 8
   store ptr %matr, ptr %matr, align 8
   %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %matr, i64 16
   store i64 0, ptr %_M_size.i.i.i.i.i, align 8
@@ -249,10 +249,10 @@ invoke.cont10.lr.ph:                              ; preds = %if.end5
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %invoke.cont10.lr.ph, %invoke.cont10
-  %rit.sroa.0.054.sroa.phi = phi ptr [ %matr.sroa.gep, %invoke.cont10.lr.ph ], [ %.sroa.gep, %invoke.cont10 ]
+  %rit.sroa.0.054 = phi ptr [ %matr, %invoke.cont10.lr.ph ], [ %8, %invoke.cont10 ]
   %7 = phi <16 x float> [ <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 1.000000e+00>, %invoke.cont10.lr.ph ], [ %57, %invoke.cont10 ]
-  %8 = load ptr, ptr %rit.sroa.0.054.sroa.phi, align 8
-  %.sroa.gep = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_prev.i.i = getelementptr inbounds i8, ptr %rit.sroa.0.054, i64 8
+  %8 = load ptr, ptr %_M_prev.i.i, align 8
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %b1.i = getelementptr inbounds i8, ptr %8, i64 32
   %c1.i = getelementptr inbounds i8, ptr %8, i64 48

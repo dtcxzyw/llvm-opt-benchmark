@@ -13,6 +13,8 @@ define hidden i32 @AES_CMAC(ptr noundef %out, ptr noundef %key, i64 noundef %key
 entry:
   %scratch.i = alloca [16 x i8], align 16
   %ctx = alloca %struct.cmac_ctx_st, align 8
+  %.sroa.gep15 = getelementptr inbounds i8, ptr %ctx, i64 168
+  %.sroa.gep16 = getelementptr inbounds i8, ptr %ctx, i64 152
   switch i64 %key_len, label %return [
     i64 16, label %sw.bb
     i64 32, label %sw.bb1
@@ -120,8 +122,8 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end10.i:                                       ; preds = %if.then2.i, %if.end.i
   %5 = phi i64 [ 168, %if.then2.i ], [ 152, %if.end.i ]
-  %6 = getelementptr inbounds i8, ptr %ctx, i64 %5
   %block13.i = getelementptr inbounds i8, ptr %ctx, i64 184
+  %6 = getelementptr inbounds i8, ptr %ctx, i64 %5
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end10.i
@@ -146,10 +148,8 @@ for.end.i:                                        ; preds = %for.body.i
 land.end:                                         ; preds = %for.end.i, %land.rhs, %CMAC_Update.exit.thread, %sw.epilog
   %land.ext = phi i32 [ 0, %sw.epilog ], [ 0, %CMAC_Update.exit.thread ], [ %10, %for.end.i ], [ 1, %land.rhs ]
   %call.i10 = call i32 @EVP_CIPHER_CTX_cleanup(ptr noundef nonnull %ctx) #8
-  %k1.i = getelementptr inbounds i8, ptr %ctx, i64 152
-  call void @OPENSSL_cleanse(ptr noundef nonnull %k1.i, i64 noundef 16) #8
-  %k2.i = getelementptr inbounds i8, ptr %ctx, i64 168
-  call void @OPENSSL_cleanse(ptr noundef nonnull %k2.i, i64 noundef 16) #8
+  call void @OPENSSL_cleanse(ptr noundef nonnull %.sroa.gep16, i64 noundef 16) #8
+  call void @OPENSSL_cleanse(ptr noundef nonnull %.sroa.gep15, i64 noundef 16) #8
   %block.i11 = getelementptr inbounds i8, ptr %ctx, i64 184
   call void @OPENSSL_cleanse(ptr noundef nonnull %block.i11, i64 noundef 16) #8
   br label %return

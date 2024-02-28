@@ -1584,6 +1584,8 @@ entry:
   %addrStorage = alloca %struct.sockaddr_storage, align 8
   %msg = alloca %struct.msghdr, align 8
   %control = alloca [48 x i8], align 16
+  %add.sroa.gep = getelementptr inbounds i8, ptr %control, i64 48
+  %add.sroa.gep5 = getelementptr inbounds i8, ptr %control, i64 24
   %control.sroa.gep217 = getelementptr inbounds i8, ptr %control, i64 16
   %control.sroa.gep214 = getelementptr inbounds i8, ptr %control, i64 12
   %control.sroa.gep = getelementptr inbounds i8, ptr %control, i64 8
@@ -1813,6 +1815,7 @@ if.then64:                                        ; preds = %if.end58
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then64, %if.end58
+  %add.sroa.phi = phi ptr [ %add.sroa.gep, %if.then64 ], [ %add.sroa.gep5, %if.end58 ]
   %add = phi i64 [ 48, %if.then64 ], [ 24, %if.end58 ]
   %cm.0 = phi ptr [ %control, %if.then64 ], [ null, %if.end58 ]
   %cmp78 = icmp sgt i64 %options.coerce1, 0
@@ -1841,14 +1844,13 @@ if.then87:                                        ; preds = %if.then84
   %and.i = and i64 %sub.i, -8
   %add.ptr.i = getelementptr inbounds i8, ptr %cm.0, i64 %and.i
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
-  %add.ptr3.i = getelementptr inbounds i8, ptr %control, i64 %add
-  %cmp4.i = icmp ule ptr %add.ptr2.i, %add.ptr3.i
+  %cmp4.i = icmp ule ptr %add.ptr2.i, %add.sroa.phi
   call void @llvm.assume(i1 %cmp4.i)
   %23 = load i64, ptr %add.ptr.i, align 8, !tbaa !30
   %sub7.i = add i64 %23, 7
   %and8.i = and i64 %sub7.i, -8
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %and8.i
-  %cmp13.i = icmp ugt ptr %add.ptr9.i, %add.ptr3.i
+  %cmp13.i = icmp ugt ptr %add.ptr9.i, %add.sroa.phi
   %spec.select.i = select i1 %cmp13.i, ptr null, ptr %add.ptr.i
   %spec.select.i.sroa.sel = select i1 %cmp13.i, ptr inttoptr (i64 16 to ptr), ptr %add.ptr2.i
   %add.ptr.i.sroa.gep1 = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
@@ -6197,24 +6199,28 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
+  %.sink.sroa.gep11 = getelementptr inbounds i8, ptr %ref.tmp3, i64 23
   %0 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store ptr %0, ptr %ref.tmp3, align 8, !tbaa !27, !alias.scope !197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %0, ptr noundef nonnull align 1 dereferenceable(7) @.str.22, i64 7, i1 false)
   br label %invoke.cont.sink.split
 
 sw.bb1.i:                                         ; preds = %entry
+  %.sink.sroa.gep10 = getelementptr inbounds i8, ptr %ref.tmp3, i64 24
   %1 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store ptr %1, ptr %ref.tmp3, align 8, !tbaa !27, !alias.scope !197
   store i64 3914830178632549953, ptr %1, align 8, !alias.scope !197
   br label %invoke.cont.sink.split
 
 sw.bb5.i:                                         ; preds = %entry
+  %.sink.sroa.gep9 = getelementptr inbounds i8, ptr %ref.tmp3, i64 25
   %2 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store ptr %2, ptr %ref.tmp3, align 8, !tbaa !27, !alias.scope !197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %2, ptr noundef nonnull align 1 dereferenceable(9) @.str.24, i64 9, i1 false)
   br label %invoke.cont.sink.split
 
 sw.bb9.i:                                         ; preds = %entry
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp3, i64 23
   %3 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store ptr %3, ptr %ref.tmp3, align 8, !tbaa !27, !alias.scope !197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %3, ptr noundef nonnull align 1 dereferenceable(7) @.str.25, i64 7, i1 false)
@@ -6226,11 +6232,10 @@ sw.default.i:                                     ; preds = %entry
 
 invoke.cont.sink.split:                           ; preds = %sw.bb9.i, %sw.bb5.i, %sw.bb1.i, %sw.bb.i
   %.sink8 = phi i64 [ 7, %sw.bb9.i ], [ 9, %sw.bb5.i ], [ 8, %sw.bb1.i ], [ 7, %sw.bb.i ]
-  %.sink = phi i64 [ 23, %sw.bb9.i ], [ 25, %sw.bb5.i ], [ 24, %sw.bb1.i ], [ 23, %sw.bb.i ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %sw.bb9.i ], [ %.sink.sroa.gep9, %sw.bb5.i ], [ %.sink.sroa.gep10, %sw.bb1.i ], [ %.sink.sroa.gep11, %sw.bb.i ]
   %_M_string_length.i.i.i.i45.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store i64 %.sink8, ptr %_M_string_length.i.i.i.i45.i, align 8, !tbaa !29, !alias.scope !197
-  %arrayidx.i.i.i46.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 %.sink
-  store i8 0, ptr %arrayidx.i.i.i46.i, align 1, !tbaa !31, !alias.scope !197
+  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !31, !alias.scope !197
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.cont.sink.split, %sw.default.i

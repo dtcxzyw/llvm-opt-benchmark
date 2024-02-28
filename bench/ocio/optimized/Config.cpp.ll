@@ -13887,11 +13887,8 @@ define void @_ZNK19OpenColorIO_v2_4dev6Config4Impl22buildInactiveNamesListB5cxx1
 entry:
   %inactiveNames = alloca %"class.std::vector.26", align 8
   %ref.tmp = alloca %"class.std::vector.26", align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %ref.tmp6 = alloca %"class.std::vector.26", align 8
-  %ref.tmp6.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
   %ref.tmp13 = alloca %"class.std::vector.26", align 8
-  %ref.tmp13.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp13, i64 16
   %ref.tmp24 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp30 = alloca %"class.std::shared_ptr.79", align 8
@@ -13900,6 +13897,9 @@ entry:
   %ref.tmp46 = alloca %"class.std::shared_ptr.86", align 8
   %ref.tmp50 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp53 = alloca %"class.std::allocator", align 1
+  %ref.tmp13.sink142.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp13, i64 16
+  %ref.tmp13.sink142.sroa.gep143 = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
+  %ref.tmp13.sink142.sroa.gep144 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %inactiveNames, i8 0, i64 24, i1 false)
   %m_inactiveColorSpaceNamesAPI = getelementptr inbounds i8, ptr %this, i64 208
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %m_inactiveColorSpaceNamesAPI) #27
@@ -13967,11 +13967,11 @@ invoke.cont.i60:                                  ; preds = %if.then12
   br label %if.end18
 
 if.end18:                                         ; preds = %invoke.cont.i60, %invoke.cont.i35, %invoke.cont.i
+  %ref.tmp13.sink142.sroa.phi = phi ptr [ %ref.tmp13.sink142.sroa.gep, %invoke.cont.i60 ], [ %ref.tmp13.sink142.sroa.gep143, %invoke.cont.i35 ], [ %ref.tmp13.sink142.sroa.gep144, %invoke.cont.i ]
   %ref.tmp13.sink142 = phi ptr [ %ref.tmp13, %invoke.cont.i60 ], [ %ref.tmp6, %invoke.cont.i35 ], [ %ref.tmp, %invoke.cont.i ]
   %_M_end_of_storage.i.i.i.i40.sink = phi ptr [ %_M_end_of_storage.i.i.i.i40, %invoke.cont.i60 ], [ %_M_end_of_storage.i.i.i.i15, %invoke.cont.i35 ], [ %_M_end_of_storage.i.i.i.i, %invoke.cont.i ]
   %7 = phi ptr [ %6, %invoke.cont.i60 ], [ %4, %invoke.cont.i35 ], [ %1, %invoke.cont.i ]
   %8 = phi ptr [ %5, %invoke.cont.i60 ], [ %3, %invoke.cont.i35 ], [ %0, %invoke.cont.i ]
-  %ref.tmp13.sink142.sroa.phi = phi ptr [ %ref.tmp13.sroa.gep, %invoke.cont.i60 ], [ %ref.tmp6.sroa.gep, %invoke.cont.i35 ], [ %ref.tmp.sroa.gep, %invoke.cont.i ]
   %9 = load ptr, ptr %ref.tmp13.sink142.sroa.phi, align 8
   store ptr %9, ptr %_M_end_of_storage.i.i.i.i40.sink, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp13.sink142, i8 0, i64 24, i1 false)

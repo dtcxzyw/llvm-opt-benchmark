@@ -20255,9 +20255,9 @@ define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWr
 entry:
   %styleStr = alloca ptr, align 8
   %ref.tmp = alloca %"struct.std::pair", align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %ref.tmp10 = alloca %"struct.std::pair", align 8
-  %ref.tmp10.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp10, i64 32
+  %ref.tmp10.sink17.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp10, i64 32
+  %ref.tmp10.sink17.sroa.gep18 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   tail call void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriter13getAttributesERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %attributes)
   %m_curves = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_curves, align 8
@@ -20340,9 +20340,9 @@ if.end:                                           ; preds = %invoke.cont12, %inv
   ret void
 
 eh.resume:                                        ; preds = %lpad11, %lpad
+  %ref.tmp10.sink17.sroa.phi = phi ptr [ %ref.tmp10.sink17.sroa.gep, %lpad11 ], [ %ref.tmp10.sink17.sroa.gep18, %lpad ]
   %ref.tmp10.sink17 = phi ptr [ %ref.tmp10, %lpad11 ], [ %ref.tmp, %lpad ]
   %.pn = phi { ptr, i32 } [ %12, %lpad11 ], [ %11, %lpad ]
-  %ref.tmp10.sink17.sroa.phi = phi ptr [ %ref.tmp10.sroa.gep, %lpad11 ], [ %ref.tmp.sroa.gep, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.sink17.sroa.phi) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.sink17) #25
   resume { ptr, i32 } %.pn
@@ -23619,13 +23619,13 @@ define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriter13getA
 entry:
   %interpolationName = alloca ptr, align 8
   %ref.tmp = alloca %"struct.std::pair", align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %ref.tmp9 = alloca %"struct.std::pair", align 8
-  %ref.tmp9.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9, i64 32
   %ref.tmp17 = alloca %"struct.std::pair", align 8
-  %ref.tmp17.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp17, i64 32
   %ref.tmp25 = alloca %"struct.std::pair", align 8
-  %ref.tmp25.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp25, i64 32
+  %ref.tmp25.sink46.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp25, i64 32
+  %ref.tmp25.sink46.sroa.gep47 = getelementptr inbounds i8, ptr %ref.tmp17, i64 32
+  %ref.tmp25.sink46.sroa.gep48 = getelementptr inbounds i8, ptr %ref.tmp9, i64 32
+  %ref.tmp25.sink46.sroa.gep49 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   tail call void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriter13getAttributesERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %attributes)
   %m_lut = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_lut, align 8
@@ -23807,9 +23807,9 @@ if.end28:                                         ; preds = %invoke.cont27, %if.
   ret void
 
 eh.resume:                                        ; preds = %lpad26, %lpad18, %lpad10, %lpad
+  %ref.tmp25.sink46.sroa.phi = phi ptr [ %ref.tmp25.sink46.sroa.gep, %lpad26 ], [ %ref.tmp25.sink46.sroa.gep47, %lpad18 ], [ %ref.tmp25.sink46.sroa.gep48, %lpad10 ], [ %ref.tmp25.sink46.sroa.gep49, %lpad ]
   %ref.tmp25.sink46 = phi ptr [ %ref.tmp25, %lpad26 ], [ %ref.tmp17, %lpad18 ], [ %ref.tmp9, %lpad10 ], [ %ref.tmp, %lpad ]
   %.pn = phi { ptr, i32 } [ %24, %lpad26 ], [ %18, %lpad18 ], [ %12, %lpad10 ], [ %6, %lpad ]
-  %ref.tmp25.sink46.sroa.phi = phi ptr [ %ref.tmp25.sroa.gep, %lpad26 ], [ %ref.tmp17.sroa.gep, %lpad18 ], [ %ref.tmp9.sroa.gep, %lpad10 ], [ %ref.tmp.sroa.gep, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25.sink46.sroa.phi) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25.sink46) #25
   resume { ptr, i32 } %.pn
@@ -27082,7 +27082,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEESaIS4_EE13_M_
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
@@ -27639,7 +27639,7 @@ attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { nofree nounwind memory(read) }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

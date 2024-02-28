@@ -573,77 +573,75 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_debug_upvaluejoin(ptr noundef %L) #0 {
 entry:
-  %fn = alloca [2 x ptr], align 16
-  %p = alloca [2 x ptr], align 16
+  %fn.sroa.0 = alloca ptr, align 16
+  %fn.sroa.2 = alloca ptr, align 8
+  %p.sroa.0 = alloca ptr, align 16
+  %p.sroa.2 = alloca ptr, align 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %if.end18
   %cmp = phi i1 [ true, %entry ], [ false, %if.end18 ]
-  %indvars.iv = phi i64 [ 0, %entry ], [ 1, %if.end18 ]
-  %0 = shl nuw nsw i64 %indvars.iv, 1
-  %1 = trunc i64 %0 to i32
-  %2 = or disjoint i32 %1, 1
-  %call = tail call ptr @lj_lib_checkfunc(ptr noundef %L, i32 noundef %2) #8
-  %arrayidx = getelementptr inbounds [2 x ptr], ptr %fn, i64 0, i64 %indvars.iv
-  store ptr %call, ptr %arrayidx, align 8
+  %indvars.iv.sroa.phi = phi ptr [ %p.sroa.0, %entry ], [ %p.sroa.2, %if.end18 ]
+  %indvars.iv.sroa.phi38 = phi ptr [ %fn.sroa.0, %entry ], [ %fn.sroa.2, %if.end18 ]
+  %indvars.iv = phi i32 [ 0, %entry ], [ 2, %if.end18 ]
+  %0 = or disjoint i32 %indvars.iv, 1
+  %call = tail call ptr @lj_lib_checkfunc(ptr noundef %L, i32 noundef %0) #8
+  store ptr %call, ptr %indvars.iv.sroa.phi38, align 8
   %ffid = getelementptr inbounds i8, ptr %call, i64 10
-  %3 = load i8, ptr %ffid, align 2
-  %cmp3 = icmp eq i8 %3, 0
+  %1 = load i8, ptr %ffid, align 2
+  %cmp3 = icmp eq i8 %1, 0
   br i1 %cmp3, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  tail call void @lj_err_arg(ptr noundef %L, i32 noundef %2, i32 noundef 607) #9
+  tail call void @lj_err_arg(ptr noundef %L, i32 noundef %0, i32 noundef 607) #9
   unreachable
 
 if.end:                                           ; preds = %for.body
-  %4 = trunc i64 %0 to i32
-  %5 = add nuw nsw i32 %4, 2
-  %call9 = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef %5) #8
+  %2 = add nuw nsw i32 %indvars.iv, 2
+  %call9 = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef %2) #8
   %sub = add nsw i32 %call9, -1
   %nupvalues = getelementptr inbounds i8, ptr %call, i64 11
-  %6 = load i8, ptr %nupvalues, align 1
-  %conv12 = zext i8 %6 to i32
+  %3 = load i8, ptr %nupvalues, align 1
+  %conv12 = zext i8 %3 to i32
   %cmp13.not = icmp ult i32 %sub, %conv12
   br i1 %cmp13.not, label %if.end18, label %if.then15
 
 if.then15:                                        ; preds = %if.end
-  tail call void @lj_err_arg(ptr noundef %L, i32 noundef %5, i32 noundef 1114) #9
+  tail call void @lj_err_arg(ptr noundef %L, i32 noundef %2, i32 noundef 1114) #9
   unreachable
 
 if.end18:                                         ; preds = %if.end
   %uvptr = getelementptr inbounds i8, ptr %call, i64 40
   %idxprom21 = zext nneg i32 %sub to i64
   %arrayidx22 = getelementptr inbounds [1 x %struct.GCRef], ptr %uvptr, i64 0, i64 %idxprom21
-  %arrayidx24 = getelementptr inbounds [2 x ptr], ptr %p, i64 0, i64 %indvars.iv
-  store ptr %arrayidx22, ptr %arrayidx24, align 8
+  store ptr %arrayidx22, ptr %indvars.iv.sroa.phi, align 8
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %if.end18
-  %arrayidx25 = getelementptr inbounds i8, ptr %p, i64 8
-  %7 = load ptr, ptr %arrayidx25, align 8
-  %8 = load i64, ptr %7, align 8
-  %9 = load ptr, ptr %p, align 16
-  store i64 %8, ptr %9, align 8
-  %10 = inttoptr i64 %8 to ptr
-  %marked = getelementptr inbounds i8, ptr %10, i64 8
-  %11 = load i8, ptr %marked, align 8
-  %12 = and i8 %11, 3
-  %tobool.not = icmp eq i8 %12, 0
+  %p.sroa.2.0.p.sroa.2.8. = load ptr, ptr %p.sroa.2, align 8
+  %4 = load i64, ptr %p.sroa.2.0.p.sroa.2.8., align 8
+  %p.sroa.0.0.p.sroa.0.0. = load ptr, ptr %p.sroa.0, align 16
+  store i64 %4, ptr %p.sroa.0.0.p.sroa.0.0., align 8
+  %5 = inttoptr i64 %4 to ptr
+  %marked = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = load i8, ptr %marked, align 8
+  %7 = and i8 %6, 3
+  %tobool.not = icmp eq i8 %7, 0
   br i1 %tobool.not, label %if.end40, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.end
-  %13 = load ptr, ptr %fn, align 16
-  %marked32 = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = load i8, ptr %marked32, align 8
-  %15 = and i8 %14, 4
-  %tobool35.not = icmp eq i8 %15, 0
+  %fn.sroa.0.0.fn.sroa.0.0. = load ptr, ptr %fn.sroa.0, align 16
+  %marked32 = getelementptr inbounds i8, ptr %fn.sroa.0.0.fn.sroa.0.0., i64 8
+  %8 = load i8, ptr %marked32, align 8
+  %9 = and i8 %8, 4
+  %tobool35.not = icmp eq i8 %9, 0
   br i1 %tobool35.not, label %if.end40, label %if.then36
 
 if.then36:                                        ; preds = %land.lhs.true
   %glref = getelementptr inbounds i8, ptr %L, i64 16
-  %16 = load i64, ptr %glref, align 8
-  %17 = inttoptr i64 %16 to ptr
-  tail call void @lj_gc_barrierf(ptr noundef %17, ptr noundef nonnull %13, ptr noundef nonnull %10) #8
+  %10 = load i64, ptr %glref, align 8
+  %11 = inttoptr i64 %10 to ptr
+  tail call void @lj_gc_barrierf(ptr noundef %11, ptr noundef nonnull %fn.sroa.0.0.fn.sroa.0.0., ptr noundef nonnull %5) #8
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then36, %land.lhs.true, %for.end

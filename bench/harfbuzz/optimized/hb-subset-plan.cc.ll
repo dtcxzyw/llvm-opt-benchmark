@@ -27195,7 +27195,7 @@ entry:
   br i1 %cmp217, label %for.cond.preheader, label %if.else.lr.ph
 
 if.else.lr.ph:                                    ; preds = %entry
-  %idx.neg19 = sub i64 0, %w
+  %idx.neg19 = sub nsw i64 0, %w
   %cmp7.i = icmp sgt i64 %w, 0
   br label %if.else
 
@@ -31322,13 +31322,13 @@ return:                                           ; preds = %if.else39, %if.then
 define linkonce_odr dso_local void @_ZN2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEEC2EP9hb_face_t(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef %face) unnamed_addr #0 comdat align 2 {
 entry:
   %env = alloca %"struct.CFF::cff1_top_dict_interp_env_t", align 8
-  %env.sroa.gep285 = getelementptr inbounds i8, ptr %env, i64 12
   %env183 = alloca %"struct.CFF::cff1_top_dict_interp_env_t", align 8
   %font_interp = alloca %"struct.CFF::dict_interpreter_t.388", align 8
   %env2 = alloca %"struct.CFF::interp_env_t", align 8
   %priv_interp = alloca %"struct.CFF::dict_interpreter_t.390", align 8
   %env226 = alloca %"struct.CFF::interp_env_t", align 8
   %priv_interp227 = alloca %"struct.CFF::dict_interpreter_t.390", align 8
+  %.sroa.gep = getelementptr inbounds i8, ptr %env, i64 12
   store i32 0, ptr %this, align 8
   %start.i = getelementptr inbounds i8, ptr %this, i64 8
   %edit_count.i = getelementptr inbounds i8, ptr %this, i64 44
@@ -31602,7 +31602,7 @@ if.end48:                                         ; preds = %_ZNK10hb_array_tIKh
   store ptr %28, ptr %env, align 8
   %topDictStr.sroa.3.0.env.sroa_idx = getelementptr inbounds i8, ptr %env, i64 8
   store i64 %29, ptr %topDictStr.sroa.3.0.env.sroa_idx, align 8
-  store i32 0, ptr %env.sroa.gep285, align 4
+  store i32 0, ptr %.sroa.gep, align 4
   %prev_offset.i = getelementptr inbounds i8, ptr %env, i64 4128
   store i32 0, ptr %prev_offset.i, align 8
   %last_offset.i = getelementptr inbounds i8, ptr %env, i64 4132
@@ -31629,7 +31629,7 @@ if.end.i.i:                                       ; preds = %while.cond.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %37, i64 %idxprom.i.i.i
   %38 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv.i.i48 = zext i8 %38 to i32
-  store i32 %add.i.i46, ptr %env.sroa.gep285, align 4
+  store i32 %add.i.i46, ptr %.sroa.gep, align 4
   %cmp.i2.i = icmp eq i8 %38, 12
   br i1 %cmp.i2.i, label %if.then5.i.i, label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i
 
@@ -31644,13 +31644,13 @@ if.end9.i.i:                                      ; preds = %if.then5.i.i
   %39 = load i8, ptr %arrayidx.i11.i.i, align 1
   %conv12.i.i = zext i8 %39 to i32
   %add.i3.i = or disjoint i32 %conv12.i.i, 256
-  store i32 %add.i6.i.i, ptr %env.sroa.gep285, align 4
+  store i32 %add.i6.i.i, ptr %.sroa.gep, align 4
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i
 
 _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i: ; preds = %if.end9.i.i, %if.then5.i.i, %if.end.i.i
   %retval.0.i.i49 = phi i32 [ 65535, %if.then5.i.i ], [ %add.i3.i, %if.end9.i.i ], [ %conv.i.i48, %if.end.i.i ]
   call void @_ZN3CFF21cff1_top_dict_opset_t10process_opEjRNS_26cff1_top_dict_interp_env_tERNS_22cff1_top_dict_values_tE(i32 noundef %retval.0.i.i49, ptr noundef nonnull align 8 dereferenceable(4136) %env, ptr noundef nonnull align 8 dereferenceable(112) %topDict)
-  %40 = load i32, ptr %env.sroa.gep285, align 4
+  %40 = load i32, ptr %.sroa.gep, align 4
   %41 = load i32, ptr %topDictStr.sroa.3.0.env.sroa_idx, align 8
   %cmp.i.i.i = icmp ugt i32 %40, %41
   %42 = load i8, ptr %argStack.i.i, align 8
@@ -87402,10 +87402,12 @@ while.end:                                        ; preds = %"_ZNK4$_14clIRPK8hb
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNK13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEE7__end__Ev(ptr noalias sret(%struct.hb_zip_iter_t.1082) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %ref.tmp = alloca %"struct.OT::Layout::Common::Coverage::iter_t", align 8
+  %ref.tmp.sroa.11 = alloca i32, align 8
+  %ref.tmp.sroa.18 = alloca i32, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !629)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !632)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
+  store i32 0, ptr %ref.tmp.sroa.11, align 8
+  store i32 0, ptr %ref.tmp.sroa.18, align 8
   %0 = load i8, ptr @_hb_NullPool, align 16
   %conv.i.i.i = zext i8 %0 to i16
   %shl.i.i.i = shl nuw i16 %conv.i.i.i, 8
@@ -87413,21 +87415,11 @@ entry:
   %conv4.i.i.i = zext i8 %1 to i16
   %add.i.i.i = or disjoint i16 %shl.i.i.i, %conv4.i.i.i
   switch i16 %add.i.i.i, label %_ZN2OT6Layout6Common8Coverage6iter_tC2ERKS2_.exit [
-    i16 1, label %sw.bb.i
+    i16 1, label %return.sink.split.i
     i16 2, label %sw.bb7.i
   ]
 
-sw.bb.i:                                          ; preds = %entry
-  %u5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr @_hb_NullPool, ptr %u5.i, align 8
-  %i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  br label %return.sink.split.i
-
 sw.bb7.i:                                         ; preds = %entry
-  %u8.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr @_hb_NullPool, ptr %u8.i, align 8
-  %i.i3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store i32 0, ptr %i.i3.i, align 8
   %2 = load i8, ptr getelementptr inbounds (i8, ptr @_hb_NullPool, i64 2), align 2
   %conv.i.i.i.i = zext i8 %2 to i32
   %shl.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i, 8
@@ -87438,7 +87430,6 @@ sw.bb7.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i, label %if.end.i28.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i: ; preds = %sw.bb7.i
-  %j.i.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %4 = load i8, ptr @_hb_Null_OT_RangeRecord, align 1
   %conv.i.i1650.i.i = zext i8 %4 to i32
   %shl.i.i1751.i.i = shl nuw nsw i32 %conv.i.i1650.i.i, 8
@@ -87455,75 +87446,66 @@ if.end.i28.i.i:                                   ; preds = %sw.bb7.i
   %7 = load i8, ptr getelementptr inbounds (i8, ptr @_hb_NullPool, i64 5), align 1
   %conv4.i.i4.i.i = zext i8 %7 to i32
   %add.i.i5.i.i = or disjoint i32 %shl.i.i2.i.i, %conv4.i.i4.i.i
-  %j.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  store i32 %add.i.i5.i.i, ptr %j.i.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  %8 = load i8, ptr getelementptr inbounds (i8, ptr @_hb_NullPool, i64 4), align 4
-  %conv.i.i16.i.i = zext i8 %8 to i32
-  %shl.i.i17.i.i = shl nuw nsw i32 %conv.i.i16.i.i, 8
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @_hb_NullPool, i64 5), align 1
-  %conv4.i.i19.i.i = zext i8 %9 to i32
-  %add.i.i20.i.i = or disjoint i32 %shl.i.i17.i.i, %conv4.i.i19.i.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i: ; preds = %if.end.i28.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i
-  %j.i.i4 = phi ptr [ %j.i.i, %if.end.i28.i.i ], [ %j.i.i3, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i ]
-  %add.i.i2055.i.i = phi i32 [ %add.i.i20.i.i, %if.end.i28.i.i ], [ %add.i.i2054.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i ]
-  %retval.0.i27.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_hb_NullPool, i64 4), %if.end.i28.i.i ], [ @_hb_Null_OT_RangeRecord, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i ]
+  %add.i.i5.i.i.sink = phi i32 [ 0, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i ], [ %add.i.i5.i.i, %if.end.i28.i.i ]
+  %add.i.i2055.i.i = phi i32 [ %add.i.i2054.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i ], [ %add.i.i5.i.i, %if.end.i28.i.i ]
+  %retval.0.i27.i.i = phi ptr [ @_hb_Null_OT_RangeRecord, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.thread.i.i ], [ getelementptr inbounds (i8, ptr @_hb_NullPool, i64 4), %if.end.i28.i.i ]
+  store i32 %add.i.i5.i.i.sink, ptr %ref.tmp.sroa.18, align 8
   %last.i.i = getelementptr inbounds i8, ptr %retval.0.i27.i.i, i64 2
-  %10 = load i8, ptr %last.i.i, align 1
-  %conv.i.i31.i.i = zext i8 %10 to i32
+  %8 = load i8, ptr %last.i.i, align 1
+  %conv.i.i31.i.i = zext i8 %8 to i32
   %shl.i.i32.i.i = shl nuw nsw i32 %conv.i.i31.i.i, 8
   %arrayidx3.i.i33.i.i = getelementptr inbounds i8, ptr %retval.0.i27.i.i, i64 3
-  %11 = load i8, ptr %arrayidx3.i.i33.i.i, align 1
-  %conv4.i.i34.i.i = zext i8 %11 to i32
+  %9 = load i8, ptr %arrayidx3.i.i33.i.i, align 1
+  %conv4.i.i34.i.i = zext i8 %9 to i32
   %add.i.i35.i.i = or disjoint i32 %shl.i.i32.i.i, %conv4.i.i34.i.i
   %cmp.i.i = icmp ugt i32 %add.i.i2055.i.i, %add.i.i35.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN2OT6Layout6Common8Coverage6iter_tC2ERKS2_.exit
 
 if.then.i.i:                                      ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i
-  store i32 %add.i.i.i.i, ptr %i.i3.i, align 8
+  store i32 %add.i.i.i.i, ptr %ref.tmp.sroa.11, align 8
   br label %return.sink.split.i
 
-return.sink.split.i:                              ; preds = %if.then.i.i, %sw.bb.i
-  %j.i.sink.i = phi ptr [ %j.i.i4, %if.then.i.i ], [ %i.i.i, %sw.bb.i ]
+return.sink.split.i:                              ; preds = %entry, %if.then.i.i
+  %j.i.sink.i = phi ptr [ %ref.tmp.sroa.18, %if.then.i.i ], [ %ref.tmp.sroa.11, %entry ]
   store i32 0, ptr %j.i.sink.i, align 8
   br label %_ZN2OT6Layout6Common8Coverage6iter_tC2ERKS2_.exit
 
 _ZN2OT6Layout6Common8Coverage6iter_tC2ERKS2_.exit: ; preds = %entry, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i, %return.sink.split.i
-  %12 = load i32, ptr %this, align 8, !noalias !635
-  store i32 %12, ptr %ref.tmp, align 8, !alias.scope !635
-  switch i32 %12, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjE4_endEv.exit [
+  %ref.tmp.sroa.43.1 = phi ptr [ null, %entry ], [ @_hb_NullPool, %return.sink.split.i ], [ @_hb_NullPool, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit30.i.i ]
+  %10 = load i32, ptr %this, align 8, !noalias !635
+  switch i32 %10, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjE4_endEv.exit [
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb6.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %_ZN2OT6Layout6Common8Coverage6iter_tC2ERKS2_.exit
   %u.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %13 = load ptr, ptr %u.i.i, align 8, !noalias !635
-  %glyphArray.i.i.i = getelementptr inbounds i8, ptr %13, i64 2
-  %14 = load i8, ptr %glyphArray.i.i.i, align 1
-  %conv.i.i.i.i.i = zext i8 %14 to i32
+  %11 = load ptr, ptr %u.i.i, align 8, !noalias !635
+  %glyphArray.i.i.i = getelementptr inbounds i8, ptr %11, i64 2
+  %12 = load i8, ptr %glyphArray.i.i.i, align 1
+  %conv.i.i.i.i.i = zext i8 %12 to i32
   %shl.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i, 8
-  %arrayidx3.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 3
-  %15 = load i8, ptr %arrayidx3.i.i.i.i.i, align 1
-  %conv4.i.i.i.i.i = zext i8 %15 to i32
+  %arrayidx3.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 3
+  %13 = load i8, ptr %arrayidx3.i.i.i.i.i, align 1
+  %conv4.i.i.i.i.i = zext i8 %13 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i, %conv4.i.i.i.i.i
-  %u5.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr %13, ptr %u5.i.i, align 8, !alias.scope !635
   br label %sw.epilog.sink.split.i.i
 
 sw.bb6.i.i:                                       ; preds = %_ZN2OT6Layout6Common8Coverage6iter_tC2ERKS2_.exit
   %u8.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %16 = load ptr, ptr %u8.i.i, align 8, !noalias !636
-  %rangeRecord.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 2
-  %17 = load i8, ptr %rangeRecord.i.i.i.i, align 1, !noalias !639
-  %conv.i.i.i.i.i.i = zext i8 %17 to i32
+  %14 = load ptr, ptr %u8.i.i, align 8, !noalias !636
+  %rangeRecord.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 2
+  %15 = load i8, ptr %rangeRecord.i.i.i.i, align 1, !noalias !639
+  %conv.i.i.i.i.i.i = zext i8 %15 to i32
   %shl.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i.i, 8
-  %arrayidx3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 3
-  %18 = load i8, ptr %arrayidx3.i.i.i.i.i.i, align 1, !noalias !639
-  %conv4.i.i.i.i.i.i = zext i8 %18 to i32
+  %arrayidx3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 3
+  %16 = load i8, ptr %arrayidx3.i.i.i.i.i.i, align 1, !noalias !639
+  %conv4.i.i.i.i.i.i = zext i8 %16 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i, %conv4.i.i.i.i.i.i
   %tobool.not.i.i.i.i = icmp eq i32 %add.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE6iter_t7__end__Ev.exit.i.i, label %cond.end.i.i.i.i
@@ -87536,8 +87518,8 @@ cond.end.i.i.i.i:                                 ; preds = %sw.bb6.i.i
   %.pre3.i.i.i = shl nuw nsw i32 %.pre2.i.i.i, 8
   %.pre4.i.i.i = zext i8 %.pre1.i.i.i to i32
   %.pre.i.i = or disjoint i32 %.pre3.i.i.i, %.pre4.i.i.i
-  %19 = icmp eq i32 %.pre.i.i, 0
-  br i1 %19, label %_ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE6iter_t7__end__Ev.exit.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i.i.i
+  %17 = icmp eq i32 %.pre.i.i, 0
+  br i1 %17, label %_ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE6iter_t7__end__Ev.exit.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i.i.i
 
 _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i.i.i: ; preds = %cond.end.i.i.i.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !noalias !639, !srcloc !5
@@ -87547,51 +87529,61 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %.pre45.i.i.i.i = shl nuw nsw i32 %.pre44.i.i.i.i, 8
   %.pre46.i.i.i.i = zext i8 %.pre43.i.i.i.i to i32
   %.pre47.i.i.i.i = or disjoint i32 %.pre45.i.i.i.i, %.pre46.i.i.i.i
-  %20 = icmp eq i32 %.pre47.i.i.i.i, 0
-  br i1 %20, label %_ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE6iter_t7__end__Ev.exit.i.i, label %if.end.i28.i.i.i.i
+  %18 = icmp eq i32 %.pre47.i.i.i.i, 0
+  br i1 %18, label %_ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE6iter_t7__end__Ev.exit.i.i, label %if.end.i28.i.i.i.i
 
 if.end.i28.i.i.i.i:                               ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i.i.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !noalias !639, !srcloc !5
   br label %_ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE6iter_t7__end__Ev.exit.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE6iter_t7__end__Ev.exit.i.i: ; preds = %if.end.i28.i.i.i.i, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit15.i.i.i.i, %cond.end.i.i.i.i, %sw.bb6.i.i
-  %21 = load ptr, ptr %u8.i.i, align 8, !noalias !636
-  %rangeRecord.i.i.i = getelementptr inbounds i8, ptr %21, i64 2
-  %22 = load i8, ptr %rangeRecord.i.i.i, align 1, !noalias !639
-  %conv.i.i.i1.i.i = zext i8 %22 to i32
+  %19 = load ptr, ptr %u8.i.i, align 8, !noalias !636
+  %rangeRecord.i.i.i = getelementptr inbounds i8, ptr %19, i64 2
+  %20 = load i8, ptr %rangeRecord.i.i.i, align 1, !noalias !639
+  %conv.i.i.i1.i.i = zext i8 %20 to i32
   %shl.i.i.i2.i.i = shl nuw nsw i32 %conv.i.i.i1.i.i, 8
-  %arrayidx3.i.i.i3.i.i = getelementptr inbounds i8, ptr %21, i64 3
-  %23 = load i8, ptr %arrayidx3.i.i.i3.i.i, align 1, !noalias !639
-  %conv4.i.i.i4.i.i = zext i8 %23 to i32
+  %arrayidx3.i.i.i3.i.i = getelementptr inbounds i8, ptr %19, i64 3
+  %21 = load i8, ptr %arrayidx3.i.i.i3.i.i, align 1, !noalias !639
+  %conv4.i.i.i4.i.i = zext i8 %21 to i32
   %add.i.i.i5.i.i = or disjoint i32 %shl.i.i.i2.i.i, %conv4.i.i.i4.i.i
-  %u9.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr %16, ptr %u9.i.i, align 8, !alias.scope !635
-  %ref.tmp7.sroa.2.0.u9.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store i32 %add.i.i.i5.i.i, ptr %ref.tmp7.sroa.2.0.u9.sroa_idx.i.i, align 8, !alias.scope !635
-  %ref.tmp7.sroa.3.0.u9.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 20
-  store i32 0, ptr %ref.tmp7.sroa.3.0.u9.sroa_idx.i.i, align 4, !alias.scope !635
+  store i32 %add.i.i.i5.i.i, ptr %ref.tmp.sroa.11, align 8, !alias.scope !635
   br label %sw.epilog.sink.split.i.i
 
 sw.epilog.sink.split.i.i:                         ; preds = %_ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE6iter_t7__end__Ev.exit.i.i, %sw.bb.i.i
-  %.sink7.i.i = phi i64 [ 24, %_ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE6iter_t7__end__Ev.exit.i.i ], [ 16, %sw.bb.i.i ]
+  %ref.tmp.sroa.43.2 = phi ptr [ %14, %_ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE6iter_t7__end__Ev.exit.i.i ], [ %11, %sw.bb.i.i ]
+  %.sink7.i.i.sroa.phi = phi ptr [ %ref.tmp.sroa.18, %_ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE6iter_t7__end__Ev.exit.i.i ], [ %ref.tmp.sroa.11, %sw.bb.i.i ]
   %.sink.i.i = phi i32 [ 0, %_ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE6iter_t7__end__Ev.exit.i.i ], [ %add.i.i.i.i.i, %sw.bb.i.i ]
-  %ref.tmp7.sroa.4.0.u9.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 %.sink7.i.i
-  store i32 %.sink.i.i, ptr %ref.tmp7.sroa.4.0.u9.sroa_idx.i.i, align 8, !alias.scope !635
+  store i32 %.sink.i.i, ptr %.sink7.i.i.sroa.phi, align 8, !alias.scope !635
   br label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjE4_endEv.exit
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjE4_endEv.exit: ; preds = %_ZN2OT6Layout6Common8Coverage6iter_tC2ERKS2_.exit, %sw.epilog.sink.split.i.i
+  %ref.tmp.sroa.43.3 = phi ptr [ %ref.tmp.sroa.43.1, %_ZN2OT6Layout6Common8Coverage6iter_tC2ERKS2_.exit ], [ %ref.tmp.sroa.43.2, %sw.epilog.sink.split.i.i ]
   %end_.i.i = getelementptr inbounds i8, ptr %this, i64 36
-  %24 = load i32, ptr %end_.i.i, align 4
+  %22 = load i32, ptr %end_.i.i, align 4
   %step.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %25 = load i32, ptr %step.i.i, align 8
-  %retval.sroa.2.0.insert.ext.i.i = zext i32 %24 to i64
+  %23 = load i32, ptr %step.i.i, align 8
+  %retval.sroa.2.0.insert.ext.i.i = zext i32 %22 to i64
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i, %retval.sroa.2.0.insert.ext.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
+  store i32 %10, ptr %agg.result, align 8
+  %ref.tmp.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
+  store i32 0, ptr %ref.tmp.sroa.4.0.agg.result.sroa_idx, align 4
+  %ref.tmp.sroa.43.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %ref.tmp.sroa.43.3, ptr %ref.tmp.sroa.43.0.agg.result.sroa_idx, align 8
+  %ref.tmp.sroa.11.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %ref.tmp.sroa.11.0.ref.tmp.sroa.11.0.ref.tmp.sroa.11.0.ref.tmp.sroa.11.0.copyload = load i32, ptr %ref.tmp.sroa.11, align 8
+  store i32 %ref.tmp.sroa.11.0.ref.tmp.sroa.11.0.ref.tmp.sroa.11.0.ref.tmp.sroa.11.0.copyload, ptr %ref.tmp.sroa.11.0.agg.result.sroa_idx, align 8
+  %ref.tmp.sroa.16.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 20
+  store i32 0, ptr %ref.tmp.sroa.16.0.agg.result.sroa_idx, align 4
+  %ref.tmp.sroa.18.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %ref.tmp.sroa.18.0.ref.tmp.sroa.18.0.ref.tmp.sroa.18.0.ref.tmp.sroa.18.0.copyload = load i32, ptr %ref.tmp.sroa.18, align 8
+  store i32 %ref.tmp.sroa.18.0.ref.tmp.sroa.18.0.ref.tmp.sroa.18.0.ref.tmp.sroa.18.0.copyload, ptr %ref.tmp.sroa.18.0.agg.result.sroa_idx, align 8
+  %ref.tmp.sroa.21.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 28
+  store i32 0, ptr %ref.tmp.sroa.21.0.agg.result.sroa_idx, align 4
   %b3.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 %retval.sroa.0.0.insert.insert.i.i, ptr %b3.i, align 8
   %ref.tmp2.sroa.2.0.b3.i.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 40
-  store i32 %25, ptr %ref.tmp2.sroa.2.0.b3.i.sroa_idx, align 8
+  store i32 %23, ptr %ref.tmp2.sroa.2.0.b3.i.sroa_idx, align 8
   ret void
 }
 
@@ -95955,11 +95947,11 @@ _ZNK2OT14VariationStore9get_deltaEjPKijPf.exit:   ; preds = %entry, %_ZNK2OT7Arr
 define linkonce_odr dso_local void @_ZN2OT4cff219accelerator_templ_tIN3CFF25cff2_private_dict_opset_tENS2_31cff2_private_dict_values_base_tINS2_10dict_val_tEEEEC2EP9hb_face_t(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef %face) unnamed_addr #0 comdat align 2 {
 entry:
   %env = alloca %"struct.CFF::interp_env_t", align 8
-  %env.sroa.gep288 = getelementptr inbounds i8, ptr %env, i64 12
   %env93 = alloca %"struct.CFF::interp_env_t", align 8
-  %env93.sroa.gep290 = getelementptr inbounds i8, ptr %env93, i64 12
   %env2 = alloca %"struct.CFF::cff2_priv_dict_interp_env_t", align 8
-  %env2.sroa.gep292 = getelementptr inbounds i8, ptr %env2, i64 12
+  %.sroa.gep293 = getelementptr inbounds i8, ptr %env2, i64 12
+  %.sroa.gep290 = getelementptr inbounds i8, ptr %env93, i64 12
+  %.sroa.gep = getelementptr inbounds i8, ptr %env, i64 12
   store i32 0, ptr %this, align 8
   %start.i = getelementptr inbounds i8, ptr %this, i64 8
   %edit_count.i = getelementptr inbounds i8, ptr %this, i64 44
@@ -96040,8 +96032,8 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %_ZN21hb_sanitize
   %length.i.i18 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i32, ptr %length.i.i18, align 8
   %cmp.i.i = icmp ult i32 %7, 5
-  %cmp296 = icmp eq ptr %6, @_hb_NullPool
-  %cmp = select i1 %cmp.i.i, i1 true, i1 %cmp296
+  %cmp298 = icmp eq ptr %6, @_hb_NullPool
+  %cmp = select i1 %cmp.i.i, i1 true, i1 %cmp298
   br i1 %cmp, label %fail, label %if.end14
 
 if.end14:                                         ; preds = %_ZN21hb_sanitize_context_t16start_processingEv.exit
@@ -96084,7 +96076,7 @@ if.end22:                                         ; preds = %_ZNK10hb_array_tIKh
   store ptr %add.ptr.i.i.i, ptr %env, align 8
   %topDictStr.sroa.3.0.env.sroa_idx = getelementptr inbounds i8, ptr %env, i64 8
   store i64 %retval.sroa.2.8.insert.ext.i, ptr %topDictStr.sroa.3.0.env.sroa_idx, align 8
-  store i32 0, ptr %env.sroa.gep288, align 4
+  store i32 0, ptr %.sroa.gep, align 4
   store i32 0, ptr %topDict, align 8
   %argStack.i.i = getelementptr inbounds i8, ptr %env, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %values.i.i.i.i, i8 0, i64 32, i1 false)
@@ -96103,7 +96095,7 @@ if.end.i.i:                                       ; preds = %while.cond.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %14, i64 %idxprom.i.i.i
   %15 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv.i.i23 = zext i8 %15 to i32
-  store i32 %add.i.i22, ptr %env.sroa.gep288, align 4
+  store i32 %add.i.i22, ptr %.sroa.gep, align 4
   %cmp.i2.i = icmp eq i8 %15, 12
   br i1 %cmp.i2.i, label %if.then5.i.i, label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i
 
@@ -96118,13 +96110,13 @@ if.end9.i.i:                                      ; preds = %if.then5.i.i
   %16 = load i8, ptr %arrayidx.i11.i.i, align 1
   %conv12.i.i = zext i8 %16 to i32
   %add.i3.i = or disjoint i32 %conv12.i.i, 256
-  store i32 %add.i6.i.i, ptr %env.sroa.gep288, align 4
+  store i32 %add.i6.i.i, ptr %.sroa.gep, align 4
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i
 
 _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i: ; preds = %if.end9.i.i, %if.then5.i.i, %if.end.i.i
   %retval.0.i.i = phi i32 [ 65535, %if.then5.i.i ], [ %add.i3.i, %if.end9.i.i ], [ %conv.i.i23, %if.end.i.i ]
   call void @_ZN3CFF21cff2_top_dict_opset_t10process_opEjRNS_12interp_env_tINS_8number_tEEERNS_22cff2_top_dict_values_tE(i32 noundef %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(4128) %env, ptr noundef nonnull align 8 dereferenceable(40) %topDict)
-  %17 = load i32, ptr %env.sroa.gep288, align 4
+  %17 = load i32, ptr %.sroa.gep, align 4
   %18 = load i32, ptr %topDictStr.sroa.3.0.env.sroa_idx, align 8
   %cmp.i.i.i = icmp ugt i32 %17, %18
   %19 = load i8, ptr %argStack.i.i, align 8
@@ -96391,8 +96383,8 @@ _ZN3CFFL20StructAtOffsetOrNullINS_12CFF2FDSelectEJRKN2OT7IntTypeIjLj4EEEEEERKT_P
   %cmp55 = icmp eq ptr %57, @_hb_NullPool
   %58 = load ptr, ptr %globalSubrs, align 8
   %cmp58 = icmp eq ptr %58, @_hb_NullPool
-  %or.cond295 = select i1 %cmp55, i1 true, i1 %cmp58
-  br i1 %or.cond295, label %fail, label %lor.lhs.false59
+  %or.cond297 = select i1 %cmp55, i1 true, i1 %cmp58
+  br i1 %or.cond297, label %fail, label %lor.lhs.false59
 
 lor.lhs.false59:                                  ; preds = %_ZN3CFFL20StructAtOffsetOrNullINS_12CFF2FDSelectEJRKN2OT7IntTypeIjLj4EEEEEERKT_PKviR21hb_sanitize_context_tDpOT0_.exit
   %59 = load ptr, ptr %fdArray, align 8
@@ -96446,8 +96438,8 @@ if.end74:                                         ; preds = %if.end64
 
 for.cond.preheader:                               ; preds = %if.end74
   %69 = load i32, ptr %fdCount, align 8
-  %cmp85300.not = icmp eq i32 %69, 0
-  br i1 %cmp85300.not, label %return, label %for.body.lr.ph
+  %cmp85302.not = icmp eq i32 %69, 0
+  br i1 %cmp85302.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %count.i.i.i138 = getelementptr inbounds i8, ptr %env93, i64 20
@@ -96504,7 +96496,7 @@ if.end91:                                         ; preds = %_ZNK10hb_array_tIKh
   store i8 0, ptr %70, align 8
   store ptr %74, ptr %env93, align 8
   store i64 %75, ptr %fontDictStr.sroa.3.0.env93.sroa_idx, align 8
-  store i32 0, ptr %env93.sroa.gep290, align 4
+  store i32 0, ptr %.sroa.gep290, align 4
   %80 = load i32, ptr %length.i140, align 4
   %add.i = add i32 %80, 1
   %call.i141 = call noundef zeroext i1 @_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE6resizeEibb(ptr noundef nonnull align 8 dereferenceable(16) %fontDicts, i32 noundef %add.i, i1 noundef zeroext true, i1 noundef zeroext false)
@@ -96528,7 +96520,7 @@ if.end99:                                         ; preds = %_ZN11hb_vector_tIN3
   %values.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i32 0, ptr %arrayidx.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %values.i.i, i8 0, i64 28, i1 false)
-  %.pre6.i148 = load i32, ptr %env93.sroa.gep290, align 4
+  %.pre6.i148 = load i32, ptr %.sroa.gep290, align 4
   %.pre7.i150 = load i32, ptr %fontDictStr.sroa.3.0.env93.sroa_idx, align 8
   br label %while.cond.i151
 
@@ -96545,7 +96537,7 @@ if.end.i.i155:                                    ; preds = %while.cond.i151
   %arrayidx.i.i.i157 = getelementptr inbounds i8, ptr %85, i64 %idxprom.i.i.i156
   %86 = load i8, ptr %arrayidx.i.i.i157, align 1
   %conv.i.i158 = zext i8 %86 to i32
-  store i32 %add.i.i153, ptr %env93.sroa.gep290, align 4
+  store i32 %add.i.i153, ptr %.sroa.gep290, align 4
   %cmp.i2.i159 = icmp eq i8 %86, 12
   br i1 %cmp.i2.i159, label %if.then5.i.i167, label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i160
 
@@ -96560,13 +96552,13 @@ if.end9.i.i170:                                   ; preds = %if.then5.i.i167
   %87 = load i8, ptr %arrayidx.i11.i.i172, align 1
   %conv12.i.i173 = zext i8 %87 to i32
   %add.i3.i174 = or disjoint i32 %conv12.i.i173, 256
-  store i32 %add.i6.i.i168, ptr %env93.sroa.gep290, align 4
+  store i32 %add.i6.i.i168, ptr %.sroa.gep290, align 4
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i160
 
 _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i160: ; preds = %if.end9.i.i170, %if.then5.i.i167, %if.end.i.i155
   %retval.0.i.i161 = phi i32 [ 65535, %if.then5.i.i167 ], [ %add.i3.i174, %if.end9.i.i170 ], [ %conv.i.i158, %if.end.i.i155 ]
   call void @_ZN3CFF22cff2_font_dict_opset_t10process_opEjRNS_12interp_env_tINS_8number_tEEERNS_23cff2_font_dict_values_tE(i32 noundef %retval.0.i.i161, ptr noundef nonnull align 8 dereferenceable(4128) %env93, ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i)
-  %88 = load i32, ptr %env93.sroa.gep290, align 4
+  %88 = load i32, ptr %.sroa.gep290, align 4
   %89 = load i32, ptr %fontDictStr.sroa.3.0.env93.sroa_idx, align 8
   %cmp.i.i.i164 = icmp ugt i32 %88, %89
   %90 = load i8, ptr %argStack.i.i165, align 8
@@ -96621,7 +96613,7 @@ _ZN3CFFL20StructAtOffsetOrNullINS_14UnsizedByteStrEJRjEEERKT_PKviR21hb_sanitize_
   store i8 0, ptr %71, align 8
   store ptr %retval.0.i188, ptr %env2, align 8
   store i64 %retval.sroa.2.8.insert.ext.i190, ptr %privDictStr.sroa.3.0.env2.sroa_idx, align 8
-  store i32 0, ptr %env2.sroa.gep292, align 4
+  store i32 0, ptr %.sroa.gep293, align 4
   store i32 0, ptr %ivs.i, align 8
   store i8 0, ptr %seen_vsindex.i, align 4
   %99 = load i32, ptr %length.i192, align 4
@@ -96670,7 +96662,7 @@ _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE
   store ptr @_hb_NullPool, ptr %localSubrs.i.i, align 8
   %ivs.i.i = getelementptr inbounds i8, ptr %retval.0.i204, i64 40
   store i32 0, ptr %ivs.i.i, align 8
-  %.pre6.i213 = load i32, ptr %env2.sroa.gep292, align 4
+  %.pre6.i213 = load i32, ptr %.sroa.gep293, align 4
   %.pre7.i215 = load i32, ptr %privDictStr.sroa.3.0.env2.sroa_idx, align 8
   br label %while.cond.i216
 
@@ -96687,7 +96679,7 @@ if.end.i.i220:                                    ; preds = %while.cond.i216
   %arrayidx.i.i.i222 = getelementptr inbounds i8, ptr %107, i64 %idxprom.i.i.i221
   %108 = load i8, ptr %arrayidx.i.i.i222, align 1
   %conv.i.i223 = zext i8 %108 to i32
-  store i32 %add.i.i218, ptr %env2.sroa.gep292, align 4
+  store i32 %add.i.i218, ptr %.sroa.gep293, align 4
   %cmp.i2.i224 = icmp eq i8 %108, 12
   br i1 %cmp.i2.i224, label %if.then5.i.i232, label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i225
 
@@ -96702,13 +96694,13 @@ if.end9.i.i235:                                   ; preds = %if.then5.i.i232
   %109 = load i8, ptr %arrayidx.i11.i.i237, align 1
   %conv12.i.i238 = zext i8 %109 to i32
   %add.i3.i239 = or disjoint i32 %conv12.i.i238, 256
-  store i32 %add.i6.i.i233, ptr %env2.sroa.gep292, align 4
+  store i32 %add.i6.i.i233, ptr %.sroa.gep293, align 4
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i225
 
 _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i225: ; preds = %if.end9.i.i235, %if.then5.i.i232, %if.end.i.i220
   %retval.0.i.i226 = phi i32 [ 65535, %if.then5.i.i232 ], [ %add.i3.i239, %if.end9.i.i235 ], [ %conv.i.i223, %if.end.i.i220 ]
   call void @_ZN3CFF25cff2_private_dict_opset_t10process_opEjRNS_27cff2_priv_dict_interp_env_tERNS_31cff2_private_dict_values_base_tINS_10dict_val_tEEE(i32 noundef %retval.0.i.i226, ptr noundef nonnull align 8 dereferenceable(4133) %env2, ptr noundef nonnull align 8 dereferenceable(44) %retval.0.i204)
-  %110 = load i32, ptr %env2.sroa.gep292, align 4
+  %110 = load i32, ptr %.sroa.gep293, align 4
   %111 = load i32, ptr %privDictStr.sroa.3.0.env2.sroa_idx, align 8
   %cmp.i.i.i229 = icmp ugt i32 %110, %111
   %112 = load i8, ptr %argStack.i.i230, align 8
@@ -96757,11 +96749,11 @@ if.end4.i262:                                     ; preds = %if.end.i252
   %call5.i263 = call noundef zeroext i1 @_ZNK3CFF8CFFIndexIN2OT7IntTypeIjLj4EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %add.ptr.i254, ptr noundef nonnull %this)
   %spec.select.i264 = select i1 %call5.i263, ptr %add.ptr.i254, ptr @_hb_NullPool
   %.pre = load i32, ptr %length.i192, align 4
-  %.pre306 = zext i32 %.pre to i64
+  %.pre308 = zext i32 %.pre to i64
   br label %_ZN3CFFL20StructAtOffsetOrNullINS_5SubrsIN2OT7IntTypeIjLj4EEEEEJEEERKT_PKviR21hb_sanitize_context_tDpOT0_.exit266
 
 _ZN3CFFL20StructAtOffsetOrNullINS_5SubrsIN2OT7IntTypeIjLj4EEEEEJEEERKT_PKviR21hb_sanitize_context_tDpOT0_.exit266: ; preds = %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EEixEi.exit250, %if.end.i252, %if.end4.i262
-  %.pre-phi = phi i64 [ %116, %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EEixEi.exit250 ], [ %116, %if.end.i252 ], [ %.pre306, %if.end4.i262 ]
+  %.pre-phi = phi i64 [ %116, %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EEixEi.exit250 ], [ %116, %if.end.i252 ], [ %.pre308, %if.end4.i262 ]
   %retval.0.i265 = phi ptr [ @_hb_NullPool, %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EEixEi.exit250 ], [ @_hb_NullPool, %if.end.i252 ], [ %spec.select.i264, %if.end4.i262 ]
   %cmp.not.i268 = icmp ugt i64 %.pre-phi, %indvars.iv
   br i1 %cmp.not.i268, label %if.end.i271, label %if.then.i269

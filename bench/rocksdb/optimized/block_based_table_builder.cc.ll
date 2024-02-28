@@ -19126,6 +19126,7 @@ define linkonce_odr void @_ZN7rocksdb33TimestampTablePropertiesCollector6FinishE
 entry:
   %ref.tmp = alloca %"struct.std::pair.337", align 8
   %ref.tmp2 = alloca %"struct.std::pair.337", align 8
+  %ref.tmp2.sink9.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
   %timestamp_min_ = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IRA22_KcRS5_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISE_SF_EEEbE4typeELb1EEEOSE_OSF_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(22) @.str.22, ptr noundef nonnull align 8 dereferenceable(32) %timestamp_min_)
   %call.i3 = invoke { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE16_M_insert_uniqueIS8_EES6_ISt17_Rb_tree_iteratorIS8_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %properties, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp)
@@ -19152,6 +19153,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
+  %ref.tmp2.sink9.sroa.gep10 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   br label %eh.resume
 
 lpad3:                                            ; preds = %invoke.cont
@@ -19160,10 +19162,10 @@ lpad3:                                            ; preds = %invoke.cont
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad3, %lpad
+  %ref.tmp2.sink9.sroa.phi = phi ptr [ %ref.tmp2.sink9.sroa.gep, %lpad3 ], [ %ref.tmp2.sink9.sroa.gep10, %lpad ]
   %ref.tmp2.sink9 = phi ptr [ %ref.tmp2, %lpad3 ], [ %ref.tmp, %lpad ]
   %.pn = phi { ptr, i32 } [ %1, %lpad3 ], [ %0, %lpad ]
-  %second.i8 = getelementptr inbounds i8, ptr %ref.tmp2.sink9, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i8) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.sink9.sroa.phi) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.sink9) #24
   resume { ptr, i32 } %.pn
 }
@@ -19415,14 +19417,14 @@ arraydestroy.body19:                              ; preds = %arraydestroy.body19
 
 ehcleanup:                                        ; preds = %arraydestroy.body19, %lpad11
   %.pn = phi { ptr, i32 } [ %3, %lpad11 ], [ %1, %arraydestroy.body19 ]
-  %cleanup.isactive.0 = phi i1 [ false, %lpad11 ], [ true, %arraydestroy.body19 ]
+  %4 = phi i1 [ false, %lpad11 ], [ true, %arraydestroy.body19 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #24
   br label %ehcleanup25
 
 ehcleanup25:                                      ; preds = %lpad5, %ehcleanup
   %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.element, %ehcleanup ], [ %arrayinit.endOfInit.0, %lpad5 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad5 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %ehcleanup ], [ false, %lpad5 ]
+  %cleanup.isactive.1 = phi i1 [ %4, %ehcleanup ], [ false, %lpad5 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #24
   %arraydestroy.isempty = icmp eq ptr %ref.tmp, %arrayinit.endOfInit.1
   %or.cond = select i1 %cleanup.isactive.1, i1 true, i1 %arraydestroy.isempty

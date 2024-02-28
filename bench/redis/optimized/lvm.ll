@@ -258,11 +258,11 @@ declare hidden void @luaG_runerror(ptr noundef, ptr noundef, ...) local_unnamed_
 define hidden void @luaV_settable(ptr noundef %L, ptr noundef %t, ptr noundef %key, ptr nocapture noundef readonly %val) local_unnamed_addr #0 {
 entry:
   %temp = alloca %struct.lua_TValue, align 8
+  %t.addr.0109.lcssa110.sroa.gep = getelementptr inbounds i8, ptr %t, i64 8
+  %t.addr.0109.lcssa110.sroa.gep1 = getelementptr inbounds i8, ptr %temp, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp) #9
   %l_G = getelementptr inbounds i8, ptr %L, i64 32
-  %tt55 = getelementptr inbounds i8, ptr %temp, i64 8
-  %tt.peel = getelementptr inbounds i8, ptr %t, i64 8
-  %0 = load i32, ptr %tt.peel, align 8, !tbaa !4
+  %0 = load i32, ptr %t.addr.0109.lcssa110.sroa.gep, align 8, !tbaa !4
   %cmp1.peel = icmp eq i32 %0, 5
   br i1 %cmp1.peel, label %if.then.peel, label %if.else.peel
 
@@ -326,7 +326,7 @@ if.end44.peel:                                    ; preds = %cond.end12.peel, %i
 for.body.peel.next:                               ; preds = %if.end44.peel
   %11 = load i64, ptr %tm.3.peel, align 8
   store i64 %11, ptr %temp, align 8
-  store i32 %10, ptr %tt55, align 8, !tbaa !4
+  store i32 %10, ptr %t.addr.0109.lcssa110.sroa.gep1, align 8, !tbaa !4
   br label %for.body
 
 for.body:                                         ; preds = %for.inc, %for.body.peel.next
@@ -428,8 +428,8 @@ if.end44:                                         ; preds = %if.then42, %if.else
 
 if.then48:                                        ; preds = %if.end44, %if.end44.peel
   %tm.3.lcssa = phi ptr [ %tm.3.peel, %if.end44.peel ], [ %tm.3, %if.end44 ]
+  %t.addr.0109.lcssa110.sroa.phi = phi ptr [ %t.addr.0109.lcssa110.sroa.gep, %if.end44.peel ], [ %t.addr.0109.lcssa110.sroa.gep1, %if.end44 ]
   %t.addr.0109.lcssa110 = phi ptr [ %t, %if.end44.peel ], [ %temp, %if.end44 ]
-  %tt.le = getelementptr inbounds i8, ptr %t.addr.0109.lcssa110, i64 8
   %tt45.le = getelementptr inbounds i8, ptr %tm.3.lcssa, i64 8
   %top.i = getelementptr inbounds i8, ptr %L, i64 16
   %30 = load ptr, ptr %top.i, align 8, !tbaa !24
@@ -442,7 +442,7 @@ if.then48:                                        ; preds = %if.end44, %if.end44
   %add.ptr.i = getelementptr inbounds i8, ptr %33, i64 16
   %34 = load i64, ptr %t.addr.0109.lcssa110, align 8
   store i64 %34, ptr %add.ptr.i, align 8
-  %35 = load i32, ptr %tt.le, align 8, !tbaa !4
+  %35 = load i32, ptr %t.addr.0109.lcssa110.sroa.phi, align 8, !tbaa !4
   %tt9.i = getelementptr inbounds i8, ptr %33, i64 24
   store i32 %35, ptr %tt9.i, align 8, !tbaa !4
   %36 = load ptr, ptr %top.i, align 8, !tbaa !24
@@ -485,7 +485,7 @@ callTM.exit:                                      ; preds = %if.then.i, %if.then
 for.inc:                                          ; preds = %if.end44
   %45 = load i64, ptr %tm.3, align 8
   store i64 %45, ptr %temp, align 8
-  store i32 %29, ptr %tt55, align 8, !tbaa !4
+  store i32 %29, ptr %t.addr.0109.lcssa110.sroa.gep1, align 8, !tbaa !4
   %inc = add nuw nsw i32 %loop.0108, 1
   %exitcond.not = icmp eq i32 %inc, 100
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27

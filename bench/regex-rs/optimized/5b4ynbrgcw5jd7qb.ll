@@ -931,6 +931,8 @@ define i48 @_ZN12regex_syntax3hir8interval8Interval10difference17h74395625b6b89c
   %3 = alloca { i8, i8 }, align 1
   %4 = alloca { i8, i8 }, align 1
   %5 = alloca { { i8, [2 x i8] }, { i8, [2 x i8] } }, align 8
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %5, i64 2
+  %.sink.sroa.gep42 = getelementptr inbounds i8, ptr %5, i64 5
   %6 = tail call i8 @"_ZN92_$LT$regex_syntax..hir..ClassBytesRange$u20$as$u20$regex_syntax..hir..interval..Interval$GT$5lower17hb7dce1c2737755edE"(ptr align 1 %0)
   %7 = tail call i8 @"_ZN92_$LT$regex_syntax..hir..ClassBytesRange$u20$as$u20$regex_syntax..hir..interval..Interval$GT$5upper17hd25cbe73bc521ab9E"(ptr align 1 %0)
   %8 = tail call i8 @"_ZN92_$LT$regex_syntax..hir..ClassBytesRange$u20$as$u20$regex_syntax..hir..interval..Interval$GT$5lower17hb7dce1c2737755edE"(ptr align 1 %1)
@@ -1018,10 +1020,9 @@ define i48 @_ZN12regex_syntax3hir8interval8Interval10difference17h74395625b6b89c
 
 .sink.split:                                      ; preds = %50, %51
   %.sroa.221.0..sroa_idx.sink = phi ptr [ %.sroa.221.0..sroa_idx, %51 ], [ %.sroa.223.0..sroa_idx, %50 ]
-  %.sink = phi i64 [ 2, %51 ], [ 5, %50 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %51 ], [ %.sink.sroa.gep42, %50 ]
   store i8 %47, ptr %.sroa.221.0..sroa_idx.sink, align 1
-  %.sroa.329.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 %.sink
-  store i8 %48, ptr %.sroa.329.0..sroa_idx, align 1
+  store i8 %48, ptr %.sink.sroa.phi, align 1
   br label %41
 
 41:                                               ; preds = %.sink.split, %33

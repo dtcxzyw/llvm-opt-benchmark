@@ -358,9 +358,9 @@ declare void @_ZN19OpenColorIO_v2_4dev19FixedFunctionOpDataC1ENS0_5StyleERKSt6ve
 define hidden void @_ZNK19OpenColorIO_v2_4dev26FixedFunctionTransformImpl18createEditableCopyEv(ptr noalias sret(%"class.std::shared_ptr.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp9 = alloca %"class.std::shared_ptr", align 8
-  %ref.tmp9.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
+  %ref.tmp9.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %ref.tmp9.sink.sroa.gep76 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
   %m_params.i = getelementptr inbounds i8, ptr %this, i64 184
@@ -402,8 +402,8 @@ invoke.cont12:                                    ; preds = %if.else
           to label %if.end unwind label %lpad
 
 if.end:                                           ; preds = %invoke.cont12, %invoke.cont4
+  %ref.tmp9.sink.sroa.phi = phi ptr [ %ref.tmp9.sink.sroa.gep, %invoke.cont4 ], [ %ref.tmp9.sink.sroa.gep76, %invoke.cont12 ]
   %ref.tmp9.sink = phi ptr [ %ref.tmp, %invoke.cont4 ], [ %ref.tmp9, %invoke.cont12 ]
-  %ref.tmp9.sink.sroa.phi = phi ptr [ %ref.tmp.sroa.gep, %invoke.cont4 ], [ %ref.tmp9.sroa.gep, %invoke.cont12 ]
   %.sink75 = load ptr, ptr %ref.tmp9.sink, align 8
   %6 = load ptr, ptr %ref.tmp9.sink.sroa.phi, align 8
   store ptr %.sink75, ptr %agg.result, align 8
@@ -427,7 +427,7 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1200,7 +1200,7 @@ attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #2 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind memory(read) }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nosync nounwind memory(none) }
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

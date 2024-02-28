@@ -269,10 +269,8 @@ entry:
   %ref.tmp1589 = alloca %"struct.msdfgen::BitmapRef", align 8
   %ref.tmp1594 = alloca %"struct.msdfgen::BitmapRef.2", align 8
   %ref.tmp1598 = alloca %"struct.msdfgen::BitmapRef.2", align 8
-  %ref.tmp1598.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp1598, i64 8
   %ref.tmp1603 = alloca %"struct.msdfgen::BitmapRef.3", align 8
   %ref.tmp1607 = alloca %"struct.msdfgen::BitmapRef.2", align 8
-  %ref.tmp1607.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp1607, i64 8
   %ref.tmp1674 = alloca %"struct.msdfgen::BitmapConstRef", align 8
   %ref.tmp1693 = alloca %"struct.msdfgen::BitmapRef", align 8
   %ref.tmp1700 = alloca %"struct.msdfgen::BitmapConstRef", align 8
@@ -300,6 +298,8 @@ entry:
   %ref.tmp1908 = alloca %"struct.msdfgen::BitmapRef", align 8
   %ref.tmp1912 = alloca %"struct.msdfgen::BitmapConstRef.5", align 8
   %ref.tmp1918 = alloca %"struct.msdfgen::BitmapConstRef", align 8
+  %ref.tmp1598.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp1598, i64 8
+  %ref.tmp1598.sink.sroa.gep3576 = getelementptr inbounds i8, ptr %ref.tmp1607, i64 8
   %errorCorrection.i = getelementptr inbounds i8, ptr %generatorConfig, i64 8
   %0 = load double, ptr @_ZN7msdfgen21ErrorCorrectionConfig24defaultMinDeviationRatioE, align 8
   %1 = load double, ptr @_ZN7msdfgen21ErrorCorrectionConfig22defaultMinImproveRatioE, align 8
@@ -3027,8 +3027,8 @@ invoke.cont1608:                                  ; preds = %invoke.cont1604
   br label %invoke.cont1608.invoke
 
 invoke.cont1608.invoke:                           ; preds = %invoke.cont1599, %invoke.cont1608
+  %ref.tmp1598.sink.sroa.phi = phi ptr [ %ref.tmp1598.sink.sroa.gep, %invoke.cont1599 ], [ %ref.tmp1598.sink.sroa.gep3576, %invoke.cont1608 ]
   %ref.tmp1598.sink = phi ptr [ %ref.tmp1598, %invoke.cont1599 ], [ %ref.tmp1607, %invoke.cont1608 ]
-  %ref.tmp1598.sink.sroa.phi = phi ptr [ %ref.tmp1598.sroa.gep, %invoke.cont1599 ], [ %ref.tmp1607.sroa.gep, %invoke.cont1608 ]
   store i64 %msdf.sroa.17.0, ptr %ref.tmp1598.sink.sroa.phi, align 8
   invoke void @_ZN7msdfgen19msdfErrorCorrectionERKNS_9BitmapRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1598.sink, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range.1, ptr noundef nonnull align 8 dereferenceable(40) %postErrorCorrectionConfig)
           to label %if.end1613 unwind label %lpad1443

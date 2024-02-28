@@ -651,11 +651,11 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt15display_verbose
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3smt7context20display_literal_smt2ERSoN3sat7literalE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(11616) %this, ptr noundef nonnull returned align 8 dereferenceable(8) %out, i32 %l.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
-  %ref.tmp.sroa.gep14 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %ref.tmp8 = alloca %struct.mk_pp, align 8
-  %ref.tmp8.sroa.gep15 = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
-  %ref.tmp8.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
+  %ref.tmp8.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %ref.tmp8.sink.sroa.gep15 = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
+  %ref.tmp8.sink13.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
+  %ref.tmp8.sink13.sroa.gep14 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %0 = and i32 %l.coerce, 1
   %tobool.i.not = icmp eq i32 %0, 0
   br i1 %tobool.i.not, label %if.else, label %if.then
@@ -706,13 +706,13 @@ lpad12:                                           ; preds = %invoke.cont13, %if.
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont13, %invoke.cont
-  %ref.tmp8.sink.sroa.phi = phi ptr [ %ref.tmp.sroa.gep14, %invoke.cont ], [ %ref.tmp8.sroa.gep15, %invoke.cont13 ]
+  %ref.tmp8.sink.sroa.phi = phi ptr [ %ref.tmp8.sink.sroa.gep, %invoke.cont ], [ %ref.tmp8.sink.sroa.gep15, %invoke.cont13 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8.sink.sroa.phi) #18
   ret ptr %out
 
 eh.resume:                                        ; preds = %lpad12, %lpad
+  %ref.tmp8.sink13.sroa.phi = phi ptr [ %ref.tmp8.sink13.sroa.gep, %lpad12 ], [ %ref.tmp8.sink13.sroa.gep14, %lpad ]
   %.pn = phi { ptr, i32 } [ %8, %lpad12 ], [ %4, %lpad ]
-  %ref.tmp8.sink13.sroa.phi = phi ptr [ %ref.tmp8.sroa.gep, %lpad12 ], [ %ref.tmp.sroa.gep, %lpad ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8.sink13.sroa.phi) #18
   resume { ptr, i32 } %.pn
 }

@@ -16572,8 +16572,6 @@ declare void @postExecutionUnitOperations() local_unnamed_addr #2
 define dso_local void @slotToChannelUpdate(ptr noundef %channel, i32 noundef %add) local_unnamed_addr #3 {
 entry:
   %buf = alloca [64 x i8], align 16
-  %buf.sroa.gep17 = getelementptr inbounds i8, ptr %buf, i64 2
-  %buf.sroa.gep = getelementptr inbounds i8, ptr %buf, i64 1
   %arrayidx.i = getelementptr inbounds i8, ptr %channel, i64 -1
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %0 to i32
@@ -16587,7 +16585,7 @@ entry:
   ]
 
 sdslen.exit.thread:                               ; preds = %entry
-  %call120 = tail call i32 @keyHashSlot(ptr noundef nonnull %channel, i32 noundef 0) #32
+  %call117 = tail call i32 @keyHashSlot(ptr noundef nonnull %channel, i32 noundef 0) #32
   br label %if.end
 
 sw.bb.i:                                          ; preds = %entry
@@ -16628,23 +16626,21 @@ sdslen.exit:                                      ; preds = %sw.bb.i, %sw.bb3.i,
 
 if.then:                                          ; preds = %sdslen.exit
   %call5 = tail call noalias ptr @zmalloc(i64 noundef %add2) #36
-  %call5.sroa.gep16 = getelementptr inbounds i8, ptr %call5, i64 2
-  %call5.sroa.gep = getelementptr inbounds i8, ptr %call5, i64 1
   br label %if.end
 
 if.end:                                           ; preds = %sdslen.exit.thread, %if.then, %sdslen.exit
-  %add225 = phi i64 [ %add2, %if.then ], [ %add2, %sdslen.exit ], [ 2, %sdslen.exit.thread ]
-  %call124 = phi i32 [ %call1, %if.then ], [ %call1, %sdslen.exit ], [ %call120, %sdslen.exit.thread ]
-  %retval.0.i23 = phi i64 [ %retval.0.i, %if.then ], [ %retval.0.i, %sdslen.exit ], [ 0, %sdslen.exit.thread ]
+  %add222 = phi i64 [ %add2, %if.then ], [ %add2, %sdslen.exit ], [ 2, %sdslen.exit.thread ]
+  %call121 = phi i32 [ %call1, %if.then ], [ %call1, %sdslen.exit ], [ %call117, %sdslen.exit.thread ]
+  %retval.0.i20 = phi i64 [ %retval.0.i, %if.then ], [ %retval.0.i, %sdslen.exit ], [ 0, %sdslen.exit.thread ]
   %indexed.0 = phi ptr [ %call5, %if.then ], [ %buf, %sdslen.exit ], [ %buf, %sdslen.exit.thread ]
-  %indexed.0.sroa.phi = phi ptr [ %call5.sroa.gep, %if.then ], [ %buf.sroa.gep, %sdslen.exit ], [ %buf.sroa.gep, %sdslen.exit.thread ]
-  %indexed.0.sroa.phi15 = phi ptr [ %call5.sroa.gep16, %if.then ], [ %buf.sroa.gep17, %sdslen.exit ], [ %buf.sroa.gep17, %sdslen.exit.thread ]
-  %shr = lshr i32 %call124, 8
+  %shr = lshr i32 %call121, 8
   %conv6 = trunc i32 %shr to i8
   store i8 %conv6, ptr %indexed.0, align 1
-  %conv8 = trunc i32 %call124 to i8
-  store i8 %conv8, ptr %indexed.0.sroa.phi, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %indexed.0.sroa.phi15, ptr nonnull align 1 %channel, i64 %retval.0.i23, i1 false)
+  %conv8 = trunc i32 %call121 to i8
+  %arrayidx9 = getelementptr inbounds i8, ptr %indexed.0, i64 1
+  store i8 %conv8, ptr %arrayidx9, align 1
+  %add.ptr = getelementptr inbounds i8, ptr %indexed.0, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 1 %channel, i64 %retval.0.i20, i1 false)
   %tobool.not = icmp eq i32 %add, 0
   %5 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %slots_to_channels13 = getelementptr inbounds i8, ptr %5, i64 393264
@@ -16652,11 +16648,11 @@ if.end:                                           ; preds = %sdslen.exit.thread,
   br i1 %tobool.not, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  %call12 = call i32 @raxInsert(ptr noundef %6, ptr noundef nonnull %indexed.0, i64 noundef %add225, ptr noundef null, ptr noundef null) #32
+  %call12 = call i32 @raxInsert(ptr noundef %6, ptr noundef nonnull %indexed.0, i64 noundef %add222, ptr noundef null, ptr noundef null) #32
   br label %if.end16
 
 if.else:                                          ; preds = %if.end
-  %call15 = call i32 @raxRemove(ptr noundef %6, ptr noundef nonnull %indexed.0, i64 noundef %add225, ptr noundef null) #32
+  %call15 = call i32 @raxRemove(ptr noundef %6, ptr noundef nonnull %indexed.0, i64 noundef %add222, ptr noundef null) #32
   br label %if.end16
 
 if.end16:                                         ; preds = %if.else, %if.then10

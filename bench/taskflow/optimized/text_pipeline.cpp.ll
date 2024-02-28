@@ -311,7 +311,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.662" = type { ptr }
 %"struct.std::_Head_base.663" = type { ptr }
 %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::vector<unsigned long>>, std::allocator<std::pair<const unsigned long, std::vector<unsigned long>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node" = type { ptr, ptr }
-%"struct.std::array.632" = type { [2 x i32] }
 %"class.std::unordered_map" = type { %"class.std::_Hashtable" }
 %"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"struct.std::__detail::_AllocNode" = type { ptr }
@@ -4356,14 +4355,14 @@ arraydestroy.body40:                              ; preds = %arraydestroy.body40
 
 ehcleanup45:                                      ; preds = %arraydestroy.body40, %lpad31, %lpad.i78
   %.pn2 = phi { ptr, i32 } [ %305, %lpad31 ], [ %8, %lpad.i78 ], [ %eh.lpad-body516561, %arraydestroy.body40 ]
-  %cleanup.isactive.0 = phi i1 [ false, %lpad31 ], [ false, %lpad.i78 ], [ true, %arraydestroy.body40 ]
+  %306 = phi i1 [ false, %lpad31 ], [ false, %lpad.i78 ], [ true, %arraydestroy.body40 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #30
   br label %ehcleanup46
 
 ehcleanup46:                                      ; preds = %lpad27, %lpad.i70, %ehcleanup45
   %.pn2.pn = phi { ptr, i32 } [ %.pn2, %ehcleanup45 ], [ %304, %lpad27 ], [ %7, %lpad.i70 ]
   %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element29, %ehcleanup45 ], [ %arrayinit.element25, %lpad27 ], [ %arrayinit.element25, %lpad.i70 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %ehcleanup45 ], [ false, %lpad27 ], [ false, %lpad.i70 ]
+  %cleanup.isactive.1 = phi i1 [ %306, %ehcleanup45 ], [ false, %lpad27 ], [ false, %lpad.i70 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #30
   br label %ehcleanup47
 
@@ -4411,55 +4410,55 @@ arraydestroy.body53:                              ; preds = %ehcleanup51, %array
   br i1 %arraydestroy.done56, label %ehcleanup121, label %arraydestroy.body53
 
 lpad71:                                           ; preds = %if.then.i47.i.i.i417.invoke, %if.then.i.i.i.i.i.i404.invoke, %invoke.cont112, %.noexc474, %call.i.noexc472, %invoke.cont110, %invoke.cont108, %invoke.cont103, %cond.true.i.i.i.i.i.i390, %if.else.i.i.i439, %cond.true.i.i.i.i.i.i214, %if.else.i.i.i263, %cond.true.i.i.i.i.i.i, %if.else.i.i.i
-  %306 = landingpad { ptr, i32 }
+  %307 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup118
 
 lpad75:                                           ; preds = %call.i.noexc111, %invoke.cont72
-  %307 = landingpad { ptr, i32 }
+  %308 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup82
 
 lpad77:                                           ; preds = %invoke.cont76
-  %308 = landingpad { ptr, i32 }
+  %309 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73) #30
   br label %ehcleanup82
 
 ehcleanup82:                                      ; preds = %lpad75, %lpad.i110, %lpad77
-  %.pn10 = phi { ptr, i32 } [ %308, %lpad77 ], [ %307, %lpad75 ], [ %178, %lpad.i110 ]
+  %.pn10 = phi { ptr, i32 } [ %309, %lpad77 ], [ %308, %lpad75 ], [ %178, %lpad.i110 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp74) #30
   br label %ehcleanup118
 
 lpad87:                                           ; preds = %call.i.noexc283, %invoke.cont84
-  %309 = landingpad { ptr, i32 }
+  %310 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup94
 
 lpad89:                                           ; preds = %invoke.cont88
-  %310 = landingpad { ptr, i32 }
+  %311 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp85) #30
   br label %ehcleanup94
 
 ehcleanup94:                                      ; preds = %lpad87, %lpad.i282, %lpad89
-  %.pn12 = phi { ptr, i32 } [ %310, %lpad89 ], [ %309, %lpad87 ], [ %217, %lpad.i282 ]
+  %.pn12 = phi { ptr, i32 } [ %311, %lpad89 ], [ %310, %lpad87 ], [ %217, %lpad.i282 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp86) #30
   br label %ehcleanup118
 
 lpad100:                                          ; preds = %call.i.noexc459, %invoke.cont97
-  %311 = landingpad { ptr, i32 }
+  %312 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup107
 
 lpad102:                                          ; preds = %invoke.cont101
-  %312 = landingpad { ptr, i32 }
+  %313 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98) #30
   br label %ehcleanup107
 
 ehcleanup107:                                     ; preds = %lpad100, %lpad.i458, %lpad102
-  %.pn14 = phi { ptr, i32 } [ %312, %lpad102 ], [ %311, %lpad100 ], [ %257, %lpad.i458 ]
+  %.pn14 = phi { ptr, i32 } [ %313, %lpad102 ], [ %312, %lpad100 ], [ %257, %lpad.i458 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp99) #30
   br label %ehcleanup118
 
@@ -4479,7 +4478,7 @@ lpad115:                                          ; preds = %lpad115.loopexit.sp
   br label %ehcleanup118
 
 ehcleanup118:                                     ; preds = %ehcleanup.i.i.i, %lpad71, %ehcleanup.i.i.i344, %ehcleanup.i.i.i171, %lpad115, %ehcleanup107, %ehcleanup94, %ehcleanup82
-  %.pn16 = phi { ptr, i32 } [ %lpad.phi, %lpad115 ], [ %.pn14, %ehcleanup107 ], [ %.pn12, %ehcleanup94 ], [ %.pn10, %ehcleanup82 ], [ %.pn.i.i.i, %ehcleanup.i.i.i ], [ %.pn.i.i.i172, %ehcleanup.i.i.i171 ], [ %306, %lpad71 ], [ %.pn.i.i.i345, %ehcleanup.i.i.i344 ]
+  %.pn16 = phi { ptr, i32 } [ %lpad.phi, %lpad115 ], [ %.pn14, %ehcleanup107 ], [ %.pn12, %ehcleanup94 ], [ %.pn10, %ehcleanup82 ], [ %.pn.i.i.i, %ehcleanup.i.i.i ], [ %.pn.i.i.i172, %ehcleanup.i.i.i171 ], [ %307, %lpad71 ], [ %.pn.i.i.i345, %ehcleanup.i.i.i344 ]
   call fastcc void @"_ZN2tf8PipelineIJNS_4PipeIZ4mainE3$_1EENS1_IZ4mainE3$_2EENS1_IZ4mainE3$_0EEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(376) %pl) #30
   br label %ehcleanup119
 
@@ -25476,11 +25475,13 @@ entry:
   %ref.tmp2.i.i.i.i = alloca %"class.std::tuple.658", align 8
   %__node5.i.i29.i.i.i.i = alloca %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::vector<unsigned long>>, std::allocator<std::pair<const unsigned long, std::vector<unsigned long>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %__node5.i.i.i.i.i.i = alloca %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::vector<unsigned long>>, std::allocator<std::pair<const unsigned long, std::vector<unsigned long>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
-  %retval.i.i.i = alloca %"struct.std::array.632", align 4
+  %retval.sroa.0.i.i.i = alloca i32, align 4
+  %retval.sroa.4.i.i.i = alloca i32, align 4
   %call.val = load ptr, ptr %__functor, align 8
   %0 = getelementptr inbounds i8, ptr %__functor, i64 8
   %call.val1 = load i64, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %retval.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %retval.sroa.4.i.i.i)
   %_pipeflows.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 152
   %1 = load ptr, ptr %_pipeflows.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.tf::Pipeflow", ptr %1, i64 %call.val1
@@ -25858,11 +25859,11 @@ if.then14.i.i164.i.i.i:                           ; preds = %if.else.i.i161.i.i.
   %rem.i.i.i.i.i166.i.i.i = urem i64 %61, %60
   %arrayidx17.i.i167.i.i.i = getelementptr inbounds ptr, ptr %55, i64 %rem.i.i.i.i.i166.i.i.i
   store ptr %call5.i.i.i.i.i.i.i.i.i.i, ptr %arrayidx17.i.i167.i.i.i, align 8
-  %.pre65.i.i.i = load ptr, ptr %_token_dependencies.i.i.i.i, align 8
+  %.pre67.i.i.i = load ptr, ptr %_token_dependencies.i.i.i.i, align 8
   br label %if.end.i.i168.i.i.i
 
 if.end.i.i168.i.i.i:                              ; preds = %if.then14.i.i164.i.i.i, %if.else.i.i161.i.i.i
-  %62 = phi ptr [ %.pre65.i.i.i, %if.then14.i.i164.i.i.i ], [ %55, %if.else.i.i161.i.i.i ]
+  %62 = phi ptr [ %.pre67.i.i.i, %if.then14.i.i164.i.i.i ], [ %55, %if.else.i.i161.i.i.i ]
   %arrayidx20.i.i169.i.i.i = getelementptr inbounds ptr, ptr %62, i64 %__bkt.addr.0.i155.i.i.i
   store ptr %_M_before_begin.i.i177.i.i.i, ptr %arrayidx20.i.i169.i.i.i, align 8
   br label %_ZNSt10_HashtableImSt4pairIKmSt6vectorImSaImEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm.exit173.i.i.i
@@ -26135,11 +26136,11 @@ if.then14.i.i.i.i.i:                              ; preds = %if.else.i.i138.i.i.
   %rem.i.i.i.i.i.i.i.i = urem i64 %110, %109
   %arrayidx17.i.i.i.i.i = getelementptr inbounds ptr, ptr %104, i64 %rem.i.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i.i.i46.i.i.i.i, ptr %arrayidx17.i.i.i.i.i, align 8
-  %.pre66.i.i.i = load ptr, ptr %_token_dependencies.i.i.i.i, align 8
+  %.pre68.i.i.i = load ptr, ptr %_token_dependencies.i.i.i.i, align 8
   br label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then14.i.i.i.i.i, %if.else.i.i138.i.i.i
-  %111 = phi ptr [ %.pre66.i.i.i, %if.then14.i.i.i.i.i ], [ %104, %if.else.i.i138.i.i.i ]
+  %111 = phi ptr [ %.pre68.i.i.i, %if.then14.i.i.i.i.i ], [ %104, %if.else.i.i138.i.i.i ]
   %arrayidx20.i.i.i.i.i = getelementptr inbounds ptr, ptr %111, i64 %__bkt.addr.0.i.i.i.i
   store ptr %_M_before_begin.i.i177.i.i.i, ptr %arrayidx20.i.i.i.i.i, align 8
   br label %_ZNSt10_HashtableImSt4pairIKmSt6vectorImSaImEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm.exit.i.i.i
@@ -26317,8 +26318,8 @@ if.end39.i.i.i.i:                                 ; preds = %_ZNSt13unordered_se
   br i1 %cmp.i.not.i.i.i.i, label %"_ZN2tf8PipelineIJNS_4PipeIZ4mainE3$_1EENS1_IZ4mainE3$_2EENS1_IZ4mainE3$_0EEEE17_check_dependentsERNS_8PipeflowE.exit.i.i.i", label %for.body.i.i.i.i, !llvm.loop !317
 
 "_ZN2tf8PipelineIJNS_4PipeIZ4mainE3$_1EENS1_IZ4mainE3$_2EENS1_IZ4mainE3$_0EEEE17_check_dependentsERNS_8PipeflowE.exit.i.i.i": ; preds = %if.end39.i.i.i.i
-  %.pre67.i.i.i = load i64, ptr %_M_element_count.i.i.i.i.i.i, align 8
-  %tobool33.not.i.i.i = icmp eq i64 %.pre67.i.i.i, 0
+  %.pre69.i.i.i = load i64, ptr %_M_element_count.i.i.i.i.i.i, align 8
+  %tobool33.not.i.i.i = icmp eq i64 %.pre69.i.i.i, 0
   br i1 %tobool33.not.i.i.i, label %handle_token_dependency.i.i.i, label %if.then34.i.i.i
 
 if.then34.i.i.i:                                  ; preds = %"_ZN2tf8PipelineIJNS_4PipeIZ4mainE3$_1EENS1_IZ4mainE3$_2EENS1_IZ4mainE3$_0EEEE17_check_dependentsERNS_8PipeflowE.exit.i.i.i", %if.then30.i.i.i
@@ -26632,10 +26633,11 @@ land.lhs.true.i.i.i:                              ; preds = %if.end42.i.i.i
   br i1 %cmp60.i.i.i, label %if.then61.i.i.i, label %if.end64.i.i.i
 
 if.then61.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  store i32 1, ptr %retval.i.i.i, align 4
+  store i32 1, ptr %retval.sroa.0.i.i.i, align 4
   br label %if.end64.i.i.i
 
 if.end64.i.i.i:                                   ; preds = %if.then61.i.i.i, %land.lhs.true.i.i.i, %if.end42.i.i.i
+  %n.0.sroa.phi.i.i.i = phi ptr [ %retval.sroa.4.i.i.i, %if.then61.i.i.i ], [ %retval.sroa.0.i.i.i, %land.lhs.true.i.i.i ], [ %retval.sroa.0.i.i.i, %if.end42.i.i.i ]
   %n.0.i.i.i = phi i64 [ 1, %if.then61.i.i.i ], [ 0, %land.lhs.true.i.i.i ], [ 0, %if.end42.i.i.i ]
   %184 = load i64, ptr %pf.0.ph.i.i.i.ph, align 8
   %_lines.val.i.i.i = load ptr, ptr %_lines.i.i.i, align 8
@@ -26647,8 +26649,7 @@ if.end64.i.i.i:                                   ; preds = %if.then61.i.i.i, %l
 
 if.then72.i.i.i:                                  ; preds = %if.end64.i.i.i
   %inc73.i.i.i = add nuw nsw i64 %n.0.i.i.i, 1
-  %arrayidx.i.i130.i.i.i = getelementptr inbounds [2 x i32], ptr %retval.i.i.i, i64 0, i64 %n.0.i.i.i
-  store i32 0, ptr %arrayidx.i.i130.i.i.i, align 4
+  store i32 0, ptr %n.0.sroa.phi.i.i.i, align 4
   br label %if.end75.i.i.i
 
 if.end75.i.i.i:                                   ; preds = %if.then72.i.i.i, %if.end64.i.i.i
@@ -26692,17 +26693,18 @@ pipeline.i.i.i.backedge:                          ; preds = %_ZN2tf7Runtime8sche
   br label %pipeline.i.i.i
 
 sw.bb78.i.i.i:                                    ; preds = %if.end75.i.i.i
-  %194 = load i32, ptr %retval.i.i.i, align 4
-  %cmp80.i.i.i = icmp eq i32 %194, 1
+  %retval.sroa.0.i.i.i.0.retval.sroa.0.i.i.i.0.retval.sroa.0.i.i.i.0.retval.sroa.0.i.i.0.retval.sroa.0.i.i.0.retval.sroa.0.i.0.retval.sroa.0.i.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0..i.i.i = load i32, ptr %retval.sroa.0.i.i.i, align 4
+  %cmp80.i.i.i = icmp eq i32 %retval.sroa.0.i.i.i.0.retval.sroa.0.i.i.i.0.retval.sroa.0.i.i.i.0.retval.sroa.0.i.i.0.retval.sroa.0.i.i.0.retval.sroa.0.i.0.retval.sroa.0.i.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0..i.i.i, 1
   br i1 %cmp80.i.i.i, label %if.then81.i.i.i, label %pipeline.outer.i.i.i
 
 if.then81.i.i.i:                                  ; preds = %sw.bb78.i.i.i
-  %195 = load ptr, ptr %_pipeflows.i.i.i, align 8
-  %add.ptr.i132.i.i.i = getelementptr inbounds %"class.tf::Pipeflow", ptr %195, i64 %rem49.i.i.i
+  %194 = load ptr, ptr %_pipeflows.i.i.i, align 8
+  %add.ptr.i132.i.i.i = getelementptr inbounds %"class.tf::Pipeflow", ptr %194, i64 %rem49.i.i.i
   br label %pipeline.outer.i.i.i.outer
 
 "_ZSt10__invoke_rIvRZN2tf8PipelineIJNS0_4PipeIZ4mainE3$_1EENS2_IZ4mainE3$_2EENS2_IZ4mainE3$_0EEEE6_buildEvEUlRNS0_7RuntimeEE_JSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %if.end75.i.i.i, %handle_token_dependency.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %retval.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %retval.sroa.4.i.i.i)
   ret void
 }
 

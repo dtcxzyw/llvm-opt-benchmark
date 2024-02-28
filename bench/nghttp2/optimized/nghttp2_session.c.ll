@@ -1247,6 +1247,10 @@ declare void @nghttp2_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 define hidden i32 @nghttp2_session_reprioritize_stream(ptr noundef %session, ptr noundef %stream, ptr nocapture noundef readonly %pri_spec_in) local_unnamed_addr #1 {
 entry:
   %pri_spec_default = alloca %struct.nghttp2_priority_spec, align 4
+  %pri_spec.0.sroa.phi.sroa.gep68 = getelementptr inbounds i8, ptr %pri_spec_in, i64 4
+  %pri_spec.0.sroa.phi.sroa.gep69 = getelementptr inbounds i8, ptr %pri_spec_default, i64 4
+  %pri_spec.0.sroa.phi.sroa.gep = getelementptr inbounds i8, ptr %pri_spec_in, i64 8
+  %pri_spec.0.sroa.phi.sroa.gep64 = getelementptr inbounds i8, ptr %pri_spec_default, i64 8
   %server = getelementptr inbounds i8, ptr %session, i64 2876
   %0 = load i8, ptr %server, align 4
   %tobool.not = icmp eq i8 %0, 0
@@ -1307,8 +1311,8 @@ nghttp2_session_is_my_stream_id.exit.i:           ; preds = %land.lhs.true24
   %tobool.not.i.i = icmp ne i8 %7, 0
   %8 = and i32 %6, 1
   %9 = icmp eq i32 %8, 0
-  %tobool.not.i39 = xor i1 %9, %tobool.not.i.i
-  br i1 %tobool.not.i39, label %session_is_new_peer_stream_id.exit.i, label %session_detect_idle_stream.exit
+  %tobool.not.i62 = xor i1 %9, %tobool.not.i.i
+  br i1 %tobool.not.i62, label %session_is_new_peer_stream_id.exit.i, label %session_detect_idle_stream.exit
 
 session_is_new_peer_stream_id.exit.i:             ; preds = %nghttp2_session_is_my_stream_id.exit.i
   %last_recv_stream_id.i.i = getelementptr inbounds i8, ptr %session, i64 2752
@@ -1320,8 +1324,8 @@ session_is_new_peer_stream_id.exit.i:             ; preds = %nghttp2_session_is_
 session_detect_idle_stream.exit:                  ; preds = %nghttp2_session_is_my_stream_id.exit.i
   %last_sent_stream_id.i = getelementptr inbounds i8, ptr %session, i64 2748
   %11 = load i32, ptr %last_sent_stream_id.i, align 4
-  %cmp.i40.not = icmp slt i32 %11, %6
-  br i1 %cmp.i40.not, label %if.then28, label %if.then40
+  %cmp.i63.not = icmp slt i32 %11, %6
+  br i1 %cmp.i63.not, label %if.then28, label %if.then40
 
 if.then28:                                        ; preds = %session_is_new_peer_stream_id.exit.i, %session_detect_idle_stream.exit
   call void @nghttp2_priority_spec_default_init(ptr noundef nonnull %pri_spec_default) #17
@@ -1341,13 +1345,16 @@ if.then40:                                        ; preds = %session_is_new_peer
 
 if.end43:                                         ; preds = %if.then28, %if.then40, %lor.lhs.false37
   %dep_stream.0.ph = phi ptr [ %call30, %if.then28 ], [ %call.i, %if.then40 ], [ %call.i, %lor.lhs.false37 ]
-  %pri_spec.0.ph = phi ptr [ %pri_spec_in, %if.then28 ], [ %pri_spec_default, %if.then40 ], [ %pri_spec_in, %lor.lhs.false37 ]
-  %.pr = load i32, ptr %pri_spec.0.ph, align 4
+  %pri_spec.0.sroa.phi.sroa.phi.ph = phi ptr [ %pri_spec.0.sroa.phi.sroa.gep, %if.then28 ], [ %pri_spec.0.sroa.phi.sroa.gep64, %if.then40 ], [ %pri_spec.0.sroa.phi.sroa.gep, %lor.lhs.false37 ]
+  %pri_spec.0.sroa.phi.sroa.phi67.ph = phi ptr [ %pri_spec.0.sroa.phi.sroa.gep68, %if.then28 ], [ %pri_spec.0.sroa.phi.sroa.gep69, %if.then40 ], [ %pri_spec.0.sroa.phi.sroa.gep68, %lor.lhs.false37 ]
+  %pri_spec.0.sroa.phi.ph = phi ptr [ %pri_spec_in, %if.then28 ], [ %pri_spec_default, %if.then40 ], [ %pri_spec_in, %lor.lhs.false37 ]
+  %.pr = load i32, ptr %pri_spec.0.sroa.phi.ph, align 4
   %cmp45 = icmp eq i32 %.pr, 0
   br i1 %cmp45, label %if.end58.thread, label %if.else48
 
 if.end58.thread:                                  ; preds = %if.end43, %if.end16
-  %pri_spec.052 = phi ptr [ %pri_spec.0.ph, %if.end43 ], [ %pri_spec_in, %if.end16 ]
+  %pri_spec.0.sroa.phi.sroa.phi6787 = phi ptr [ %pri_spec.0.sroa.phi.sroa.phi67.ph, %if.end43 ], [ %pri_spec.0.sroa.phi.sroa.gep68, %if.end16 ]
+  %pri_spec.0.sroa.phi.sroa.phi85 = phi ptr [ %pri_spec.0.sroa.phi.sroa.phi.ph, %if.end43 ], [ %pri_spec.0.sroa.phi.sroa.gep, %if.end16 ]
   %root = getelementptr inbounds i8, ptr %session, i64 32
   br label %if.end62
 
@@ -1373,42 +1380,39 @@ if.else61:                                        ; preds = %if.end58
   unreachable
 
 if.end62:                                         ; preds = %if.end58.thread, %if.end58
-  %dep_stream.157 = phi ptr [ %root, %if.end58.thread ], [ %dep_stream.0.ph, %if.end58 ]
-  %pri_spec.05156 = phi ptr [ %pri_spec.052, %if.end58.thread ], [ %pri_spec.0.ph, %if.end58 ]
+  %dep_stream.194 = phi ptr [ %root, %if.end58.thread ], [ %dep_stream.0.ph, %if.end58 ]
+  %pri_spec.0.sroa.phi.sroa.phi8493 = phi ptr [ %pri_spec.0.sroa.phi.sroa.phi85, %if.end58.thread ], [ %pri_spec.0.sroa.phi.sroa.phi.ph, %if.end58 ]
+  %pri_spec.0.sroa.phi.sroa.phi678692 = phi ptr [ %pri_spec.0.sroa.phi.sroa.phi6787, %if.end58.thread ], [ %pri_spec.0.sroa.phi.sroa.phi67.ph, %if.end58 ]
   %dep_prev63 = getelementptr inbounds i8, ptr %stream, i64 96
   %14 = load ptr, ptr %dep_prev63, align 8
-  %cmp64 = icmp eq ptr %dep_stream.157, %14
+  %cmp64 = icmp eq ptr %dep_stream.194, %14
   br i1 %cmp64, label %land.lhs.true66, label %if.end69
 
 land.lhs.true66:                                  ; preds = %if.end62
-  %exclusive = getelementptr inbounds i8, ptr %pri_spec.05156, i64 8
-  %15 = load i8, ptr %exclusive, align 4
+  %15 = load i8, ptr %pri_spec.0.sroa.phi.sroa.phi8493, align 4
   %tobool67.not = icmp eq i8 %15, 0
   br i1 %tobool67.not, label %if.then68, label %if.end69
 
 if.then68:                                        ; preds = %land.lhs.true66
-  %weight = getelementptr inbounds i8, ptr %pri_spec.05156, i64 4
-  %16 = load i32, ptr %weight, align 4
+  %16 = load i32, ptr %pri_spec.0.sroa.phi.sroa.phi678692, align 4
   call void @nghttp2_stream_change_weight(ptr noundef nonnull %stream, i32 noundef %16) #17
   br label %return
 
 if.end69:                                         ; preds = %land.lhs.true66, %if.end62
   call void @nghttp2_stream_dep_remove_subtree(ptr noundef nonnull %stream) #17
-  %weight70 = getelementptr inbounds i8, ptr %pri_spec.05156, i64 4
-  %17 = load i32, ptr %weight70, align 4
+  %17 = load i32, ptr %pri_spec.0.sroa.phi.sroa.phi678692, align 4
   %weight71 = getelementptr inbounds i8, ptr %stream, i64 192
   store i32 %17, ptr %weight71, align 8
-  %exclusive72 = getelementptr inbounds i8, ptr %pri_spec.05156, i64 8
-  %18 = load i8, ptr %exclusive72, align 4
+  %18 = load i8, ptr %pri_spec.0.sroa.phi.sroa.phi8493, align 4
   %tobool73.not = icmp eq i8 %18, 0
   br i1 %tobool73.not, label %if.else76, label %if.then74
 
 if.then74:                                        ; preds = %if.end69
-  %call75 = call i32 @nghttp2_stream_dep_insert_subtree(ptr noundef nonnull %dep_stream.157, ptr noundef nonnull %stream) #17
+  %call75 = call i32 @nghttp2_stream_dep_insert_subtree(ptr noundef nonnull %dep_stream.194, ptr noundef nonnull %stream) #17
   br label %return
 
 if.else76:                                        ; preds = %if.end69
-  %call77 = call i32 @nghttp2_stream_dep_add_subtree(ptr noundef nonnull %dep_stream.157, ptr noundef nonnull %stream) #17
+  %call77 = call i32 @nghttp2_stream_dep_add_subtree(ptr noundef nonnull %dep_stream.194, ptr noundef nonnull %stream) #17
   br label %return
 
 return:                                           ; preds = %if.then74, %if.else76, %do.end, %if.then28, %if.end12, %if.then68

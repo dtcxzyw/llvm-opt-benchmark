@@ -16422,6 +16422,7 @@ define internal fastcc i64 @do_ppoll(i64 noundef %arg1, i64 noundef %arg2, i64 n
 entry:
   %_timeout_ts = alloca %struct.timespec, align 16
   %set = alloca ptr, align 8
+  %timeout_ts.0.sroa.gep = getelementptr inbounds i8, ptr %_timeout_ts, i64 8
   %conv = trunc i64 %arg2 to i32
   %tobool.not = icmp eq i32 %conv, 0
   br i1 %tobool.not, label %if.then25, label %if.then
@@ -16474,6 +16475,7 @@ target_to_host_timespec.exit.thread:              ; preds = %if.else
   br label %if.end40
 
 if.end40:                                         ; preds = %target_to_host_timespec.exit.thread, %if.then25
+  %timeout_ts.0.sroa.phi = phi ptr [ inttoptr (i64 8 to ptr), %if.then25 ], [ %timeout_ts.0.sroa.gep, %target_to_host_timespec.exit.thread ]
   %timeout_ts.0 = phi ptr [ null, %if.then25 ], [ %_timeout_ts, %target_to_host_timespec.exit.thread ]
   %tobool41.not = icmp eq i64 %arg4, 0
   br i1 %tobool41.not, label %if.end49, label %if.then42
@@ -16542,8 +16544,7 @@ host_to_target_timespec.exit.thread:              ; preds = %if.else67
   %13 = load i64, ptr %timeout_ts.0, align 16
   store i64 %13, ptr %call.i60, align 1
   %tv_nsec.i63 = getelementptr inbounds i8, ptr %call.i60, i64 8
-  %tv_nsec3.i = getelementptr inbounds i8, ptr %timeout_ts.0, i64 8
-  %14 = load i64, ptr %tv_nsec3.i, align 8
+  %14 = load i64, ptr %timeout_ts.0.sroa.phi, align 8
   store i64 %14, ptr %tv_nsec.i63, align 1
   br label %if.end84
 

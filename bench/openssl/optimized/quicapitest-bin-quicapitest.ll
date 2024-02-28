@@ -2881,7 +2881,8 @@ err:                                              ; preds = %if.else, %lor.lhs.f
 define internal noundef i32 @test_noisy_dgram(i32 noundef %idx) #1 {
 entry:
   %clientquic = alloca ptr, align 8
-  %stream = alloca [2 x ptr], align 16
+  %stream.sroa.0 = alloca ptr, align 16
+  %stream.sroa.3 = alloca ptr, align 8
   %qtserv = alloca ptr, align 8
   %sid = alloca i64, align 8
   %written = alloca i64, align 8
@@ -2892,7 +2893,8 @@ entry:
   %call = tail call ptr @OSSL_QUIC_client_method() #9
   %call1 = tail call ptr @SSL_CTX_new_ex(ptr noundef %0, ptr noundef null, ptr noundef %call) #9
   store ptr null, ptr %clientquic, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %stream, i8 0, i64 16, i1 false)
+  store ptr null, ptr %stream.sroa.0, align 16
+  store ptr null, ptr %stream.sroa.3, align 8
   store ptr null, ptr %qtserv, align 8
   store i64 0, ptr %sid, align 8
   store ptr null, ptr %fault, align 8
@@ -2943,7 +2945,7 @@ lor.lhs.false22:                                  ; preds = %if.end16
 
 for.body:                                         ; preds = %lor.lhs.false22, %for.inc97
   %cmp30 = phi i1 [ false, %for.inc97 ], [ true, %lor.lhs.false22 ]
-  %j.036 = phi i64 [ 1, %for.inc97 ], [ 0, %lor.lhs.false22 ]
+  %j.036.sroa.phi = phi ptr [ %stream.sroa.3, %for.inc97 ], [ %stream.sroa.0, %lor.lhs.false22 ]
   %8 = load ptr, ptr %qtserv, align 8
   %call32 = call i32 @ossl_quic_tserver_stream_new(ptr noundef %8, i32 noundef 0, ptr noundef nonnull %sid) #9
   %cmp33 = icmp ne i32 %call32, 0
@@ -2956,7 +2958,6 @@ if.end38:                                         ; preds = %for.body
   %9 = load ptr, ptr %qtserv, align 8
   %call39 = call i32 @ossl_quic_tserver_tick(ptr noundef %9) #9
   call void @qtest_add_time(i64 noundef 1) #9
-  %arrayidx = getelementptr inbounds [2 x ptr], ptr %stream, i64 0, i64 %j.036
   br label %for.body43
 
 for.cond40:                                       ; preds = %lor.lhs.false60
@@ -2987,7 +2988,7 @@ if.end53:                                         ; preds = %lor.lhs.false49
   call void @qtest_add_time(i64 noundef 1) #9
   %14 = load ptr, ptr %clientquic, align 8
   %15 = load ptr, ptr %qtserv, align 8
-  %arrayidx.promoted = load ptr, ptr %arrayidx, align 8
+  %arrayidx.promoted = load ptr, ptr %j.036.sroa.phi, align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end13.i, %if.end53
@@ -3024,13 +3025,13 @@ if.end13.i:                                       ; preds = %if.end7.i, %if.end.
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !21
 
 for.end.i:                                        ; preds = %if.end13.i
-  store ptr %call2.i33, ptr %arrayidx, align 8
+  store ptr %call2.i33, ptr %j.036.sroa.phi, align 8
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 1424, ptr noundef nonnull @.str.191) #9
   br label %unreliable_client_read.exit
 
 unreliable_client_read.exit.loopexit:             ; preds = %if.end7.i, %if.then4.i
   %retval.0.i.ph = phi i32 [ 1, %if.then4.i ], [ 0, %if.end7.i ]
-  store ptr %call2.i31, ptr %arrayidx, align 8
+  store ptr %call2.i31, ptr %j.036.sroa.phi, align 8
   br label %unreliable_client_read.exit
 
 unreliable_client_read.exit:                      ; preds = %unreliable_client_read.exit.loopexit, %for.end.i
@@ -3116,16 +3117,15 @@ err:                                              ; preds = %for.inc97, %for.bod
   %testresult.0 = phi i32 [ 0, %lor.lhs.false22 ], [ 0, %if.end16 ], [ 0, %if.end9 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %lor.lhs.false76 ], [ 0, %for.body69 ], [ 0, %lor.lhs.false88 ], [ 0, %unreliable_server_read.exit ], [ 0, %lor.lhs.false49 ], [ 0, %for.body43 ], [ 0, %lor.lhs.false60 ], [ 0, %unreliable_client_read.exit ], [ 1, %for.inc97 ], [ 0, %for.body ]
   %25 = load ptr, ptr %qtserv, align 8
   call void @ossl_quic_tserver_free(ptr noundef %25) #9
-  %26 = load ptr, ptr %stream, align 16
+  %stream.sroa.0.0.stream.sroa.0.0. = load ptr, ptr %stream.sroa.0, align 16
+  call void @SSL_free(ptr noundef %stream.sroa.0.0.stream.sroa.0.0.) #9
+  %stream.sroa.3.0.stream.sroa.3.8. = load ptr, ptr %stream.sroa.3, align 8
+  call void @SSL_free(ptr noundef %stream.sroa.3.0.stream.sroa.3.8.) #9
+  %26 = load ptr, ptr %clientquic, align 8
   call void @SSL_free(ptr noundef %26) #9
-  %arrayidx101 = getelementptr inbounds i8, ptr %stream, i64 8
-  %27 = load ptr, ptr %arrayidx101, align 8
-  call void @SSL_free(ptr noundef %27) #9
-  %28 = load ptr, ptr %clientquic, align 8
-  call void @SSL_free(ptr noundef %28) #9
   call void @SSL_CTX_free(ptr noundef %call1) #9
-  %29 = load ptr, ptr %fault, align 8
-  call void @qtest_fault_free(ptr noundef %29) #9
+  %27 = load ptr, ptr %fault, align 8
+  call void @qtest_fault_free(ptr noundef %27) #9
   ret i32 %testresult.0
 }
 

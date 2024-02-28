@@ -1873,6 +1873,9 @@ entry:
   %ref.tmp18 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp20 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp32 = alloca %"class.rocksdb::Status", align 8
+  %ref.tmp3.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %ref.tmp3.sink.sroa.gep15 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
+  %ref.tmp3.sink.sroa.gep16 = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %message) #24
   %call = invoke noundef zeroext i1 @_ZN7rocksdb23JemallocNodumpAllocator11IsSupportedEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %message)
           to label %invoke.cont unwind label %lpad
@@ -1930,11 +1933,11 @@ if.then17:                                        ; preds = %if.else14
   br label %if.then17.invoke
 
 if.then17.invoke:                                 ; preds = %if.then, %if.then8, %if.then17
+  %ref.tmp3.sink.sroa.phi = phi ptr [ %ref.tmp3.sink.sroa.gep, %if.then ], [ %ref.tmp3.sink.sroa.gep15, %if.then8 ], [ %ref.tmp3.sink.sroa.gep16, %if.then17 ]
   %ref.tmp3.sink = phi ptr [ %ref.tmp3, %if.then ], [ %ref.tmp11, %if.then8 ], [ %ref.tmp20, %if.then17 ]
   %6 = phi i8 [ 3, %if.then ], [ 4, %if.then8 ], [ 4, %if.then17 ]
   %7 = phi ptr [ %ref.tmp, %if.then ], [ %ref.tmp9, %if.then8 ], [ %ref.tmp18, %if.then17 ]
-  %size_.i2 = getelementptr inbounds i8, ptr %ref.tmp3.sink, i64 8
-  store i64 0, ptr %size_.i2, align 8
+  store i64 0, ptr %ref.tmp3.sink.sroa.phi, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext %6, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.sink, i8 noundef zeroext 0)
           to label %cleanup unwind label %lpad
 
@@ -4027,14 +4030,14 @@ arraydestroy.body44.i:                            ; preds = %arraydestroy.body44
 
 ehcleanup.i:                                      ; preds = %arraydestroy.body44.i, %lpad35.i, %lpad.i60.i
   %.pn.i = phi { ptr, i32 } [ %17, %lpad35.i ], [ %9, %lpad.i60.i ], [ %18, %arraydestroy.body44.i ]
-  %cleanup.isactive.0.i = phi i1 [ false, %lpad35.i ], [ false, %lpad.i60.i ], [ true, %arraydestroy.body44.i ]
+  %19 = phi i1 [ false, %lpad35.i ], [ false, %lpad.i60.i ], [ true, %arraydestroy.body44.i ]
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %ref.tmp32.i) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28.i) #24
   br label %ehcleanup50.i
 
 ehcleanup50.i:                                    ; preds = %ehcleanup.i, %lpad30.i, %lpad.i1
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %16, %lpad30.i ], [ %8, %lpad.i1 ]
-  %cleanup.isactive.1.i = phi i1 [ %cleanup.isactive.0.i, %ehcleanup.i ], [ false, %lpad30.i ], [ false, %lpad.i1 ]
+  %cleanup.isactive.1.i = phi i1 [ %19, %ehcleanup.i ], [ false, %lpad30.i ], [ false, %lpad.i1 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29.i) #24
   br label %ehcleanup51.i
 
@@ -4110,7 +4113,7 @@ __cxx_global_var_init.exit:                       ; preds = %arraydestroy.body.i
   call void @_ZN7rocksdb14OptionTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %ref.tmp3.i) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #24
-  %19 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb14OptionTypeInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev, ptr nonnull @_ZN7rocksdbL18jemalloc_type_infoB5cxx11E, ptr nonnull @__dso_handle) #24
+  %20 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb14OptionTypeInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev, ptr nonnull @_ZN7rocksdbL18jemalloc_type_infoB5cxx11E, ptr nonnull @__dso_handle) #24
   call void @llvm.lifetime.end.p0(i64 864, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)

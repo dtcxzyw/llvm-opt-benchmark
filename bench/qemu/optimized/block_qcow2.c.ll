@@ -9664,56 +9664,36 @@ define internal i32 @qcow2_add_task(ptr noundef %bs, ptr noundef %pool, ptr noun
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %local_task = alloca %struct.Qcow2AioTask, align 8
-  %local_task.sroa.gep43 = getelementptr inbounds i8, ptr %local_task, i64 80
-  %local_task.sroa.gep40 = getelementptr inbounds i8, ptr %local_task, i64 72
-  %local_task.sroa.gep37 = getelementptr inbounds i8, ptr %local_task, i64 64
-  %local_task.sroa.gep34 = getelementptr inbounds i8, ptr %local_task, i64 56
-  %local_task.sroa.gep31 = getelementptr inbounds i8, ptr %local_task, i64 48
-  %local_task.sroa.gep28 = getelementptr inbounds i8, ptr %local_task, i64 40
-  %local_task.sroa.gep25 = getelementptr inbounds i8, ptr %local_task, i64 32
-  %local_task.sroa.gep22 = getelementptr inbounds i8, ptr %local_task, i64 24
-  %local_task.sroa.gep19 = getelementptr inbounds i8, ptr %local_task, i64 16
-  %local_task.sroa.gep = getelementptr inbounds i8, ptr %local_task, i64 8
   %tobool.not = icmp eq ptr %pool, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(88) ptr @g_malloc_n(i64 noundef 1, i64 noundef 88) #25
-  %call.sroa.gep42 = getelementptr inbounds i8, ptr %call, i64 80
-  %call.sroa.gep39 = getelementptr inbounds i8, ptr %call, i64 72
-  %call.sroa.gep36 = getelementptr inbounds i8, ptr %call, i64 64
-  %call.sroa.gep33 = getelementptr inbounds i8, ptr %call, i64 56
-  %call.sroa.gep30 = getelementptr inbounds i8, ptr %call, i64 48
-  %call.sroa.gep27 = getelementptr inbounds i8, ptr %call, i64 40
-  %call.sroa.gep24 = getelementptr inbounds i8, ptr %call, i64 32
-  %call.sroa.gep21 = getelementptr inbounds i8, ptr %call, i64 24
-  %call.sroa.gep18 = getelementptr inbounds i8, ptr %call, i64 16
-  %call.sroa.gep = getelementptr inbounds i8, ptr %call, i64 8
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi ptr [ %call, %cond.true ], [ %local_task, %entry ]
-  %cond.sroa.phi = phi ptr [ %call.sroa.gep, %cond.true ], [ %local_task.sroa.gep, %entry ]
-  %cond.sroa.phi17 = phi ptr [ %call.sroa.gep18, %cond.true ], [ %local_task.sroa.gep19, %entry ]
-  %cond.sroa.phi20 = phi ptr [ %call.sroa.gep21, %cond.true ], [ %local_task.sroa.gep22, %entry ]
-  %cond.sroa.phi23 = phi ptr [ %call.sroa.gep24, %cond.true ], [ %local_task.sroa.gep25, %entry ]
-  %cond.sroa.phi26 = phi ptr [ %call.sroa.gep27, %cond.true ], [ %local_task.sroa.gep28, %entry ]
-  %cond.sroa.phi29 = phi ptr [ %call.sroa.gep30, %cond.true ], [ %local_task.sroa.gep31, %entry ]
-  %cond.sroa.phi32 = phi ptr [ %call.sroa.gep33, %cond.true ], [ %local_task.sroa.gep34, %entry ]
-  %cond.sroa.phi35 = phi ptr [ %call.sroa.gep36, %cond.true ], [ %local_task.sroa.gep37, %entry ]
-  %cond.sroa.phi38 = phi ptr [ %call.sroa.gep39, %cond.true ], [ %local_task.sroa.gep40, %entry ]
-  %cond.sroa.phi41 = phi ptr [ %call.sroa.gep42, %cond.true ], [ %local_task.sroa.gep43, %entry ]
   store ptr null, ptr %cond, align 8
-  store ptr %func, ptr %cond.sroa.phi, align 8
-  store i32 0, ptr %cond.sroa.phi17, align 8
-  store ptr %bs, ptr %cond.sroa.phi20, align 8
-  store i32 %subcluster_type, ptr %cond.sroa.phi23, align 8
-  store i64 %host_offset, ptr %cond.sroa.phi26, align 8
-  store i64 %offset, ptr %cond.sroa.phi29, align 8
-  store i64 %bytes, ptr %cond.sroa.phi32, align 8
-  store ptr %qiov, ptr %cond.sroa.phi35, align 8
-  store i64 %qiov_offset, ptr %cond.sroa.phi38, align 8
-  store ptr %l2meta, ptr %cond.sroa.phi41, align 8
+  %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %cond, i64 8
+  store ptr %func, ptr %.compoundliteral.sroa.2.0..sroa_idx, align 8
+  %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %cond, i64 16
+  store i32 0, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 8
+  %.compoundliteral.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %cond, i64 24
+  store ptr %bs, ptr %.compoundliteral.sroa.41.0..sroa_idx, align 8
+  %.compoundliteral.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %cond, i64 32
+  store i32 %subcluster_type, ptr %.compoundliteral.sroa.5.0..sroa_idx, align 8
+  %.compoundliteral.sroa.62.0..sroa_idx = getelementptr inbounds i8, ptr %cond, i64 40
+  store i64 %host_offset, ptr %.compoundliteral.sroa.62.0..sroa_idx, align 8
+  %.compoundliteral.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %cond, i64 48
+  store i64 %offset, ptr %.compoundliteral.sroa.7.0..sroa_idx, align 8
+  %.compoundliteral.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %cond, i64 56
+  store i64 %bytes, ptr %.compoundliteral.sroa.8.0..sroa_idx, align 8
+  %.compoundliteral.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %cond, i64 64
+  store ptr %qiov, ptr %.compoundliteral.sroa.9.0..sroa_idx, align 8
+  %.compoundliteral.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %cond, i64 72
+  store i64 %qiov_offset, ptr %.compoundliteral.sroa.10.0..sroa_idx, align 8
+  %.compoundliteral.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %cond, i64 80
+  store ptr %l2meta, ptr %.compoundliteral.sroa.11.0..sroa_idx, align 8
   %call12 = tail call ptr @qemu_coroutine_self() #22
   %cmp = icmp eq ptr %func, @qcow2_co_preadv_task_entry
   %cond13 = select i1 %cmp, ptr @.str.280, ptr @.str.281

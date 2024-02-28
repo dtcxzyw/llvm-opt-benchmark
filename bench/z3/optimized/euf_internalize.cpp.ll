@@ -309,14 +309,14 @@ entry:
   %agg.tmp44 = alloca %"class.sat::status", align 8
   %agg.tmp56 = alloca %"class.sat::status", align 8
   %ref.tmp104 = alloca %struct.mk_pp, align 8
-  %ref.tmp104.sroa.gep139 = getelementptr inbounds i8, ptr %ref.tmp104, i64 16
-  %ref.tmp104.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp104, i64 16
   %ref.tmp111 = alloca %struct.mk_pp, align 8
   %ref.tmp129 = alloca %struct.mk_pp, align 8
-  %ref.tmp129.sroa.gep140 = getelementptr inbounds i8, ptr %ref.tmp129, i64 16
-  %ref.tmp129.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp129, i64 16
   %ref.tmp138 = alloca %struct.mk_pp, align 8
   %agg.tmp173 = alloca %"class.euf::justification", align 8
+  %ref.tmp129.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp104, i64 16
+  %ref.tmp129.sink.sroa.gep139 = getelementptr inbounds i8, ptr %ref.tmp104, i64 16
+  %ref.tmp129.sink.sroa.gep140 = getelementptr inbounds i8, ptr %ref.tmp129, i64 16
+  %ref.tmp129.sink.sroa.gep141 = getelementptr inbounds i8, ptr %ref.tmp129, i64 16
   %shr.i = lshr i32 %lit.coerce, 1
   %m_solver.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_solver.i, align 8
@@ -755,8 +755,8 @@ return:                                           ; preds = %cond.end, %if.end16
   ret i32 %lit.sroa.0.0
 
 eh.resume:                                        ; preds = %lpad133, %lpad141, %lpad, %lpad114
+  %ref.tmp129.sink.sroa.phi = phi ptr [ %ref.tmp129.sink.sroa.gep, %lpad114 ], [ %ref.tmp129.sink.sroa.gep139, %lpad ], [ %ref.tmp129.sink.sroa.gep140, %lpad141 ], [ %ref.tmp129.sink.sroa.gep141, %lpad133 ]
   %.pn19.pn = phi { ptr, i32 } [ %48, %lpad114 ], [ %47, %lpad ], [ %58, %lpad141 ], [ %57, %lpad133 ]
-  %ref.tmp129.sink.sroa.phi = phi ptr [ %ref.tmp104.sroa.gep, %lpad114 ], [ %ref.tmp104.sroa.gep139, %lpad ], [ %ref.tmp129.sroa.gep, %lpad141 ], [ %ref.tmp129.sroa.gep140, %lpad133 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp129.sink.sroa.phi) #19
   resume { ptr, i32 } %.pn19.pn
 }

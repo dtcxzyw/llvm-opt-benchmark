@@ -117,7 +117,6 @@ entry:
   %ihmMW1 = alloca %"class.eastl::intrusive_hash_map", align 8
   %ihmMW2 = alloca %"class.eastl::intrusive_hash_map", align 8
   %node1 = alloca %"struct.(anonymous namespace)::SetWidget", align 8
-  %node1.sroa.gep = getelementptr inbounds i8, ptr %node1, i64 8
   %node2 = alloca %"struct.(anonymous namespace)::SetWidget", align 8
   %node3 = alloca %"struct.(anonymous namespace)::SetWidget", align 8
   %hs811 = alloca %"class.eastl::intrusive_hash_set", align 8
@@ -4192,45 +4191,46 @@ for.end.i2534:                                    ; preds = %_ZN5eastl28intrusiv
 _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit: ; preds = %for.body.i2523, %for.end.i2534
   %retval.0.i2537 = phi i1 [ %cmp.i11.i2535, %for.end.i2534 ], [ false, %for.body.i2523 ]
   %call800 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2537, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 710, ptr noundef nonnull @.str.49)
+  %mX.i2549 = getelementptr inbounds i8, ptr %node1, i64 8
   %mX.i2550 = getelementptr inbounds i8, ptr %node2, i64 8
   %mX.i2551 = getelementptr inbounds i8, ptr %node3, i64 8
-  store i32 1, ptr %node1.sroa.gep, align 8
+  store i32 1, ptr %mX.i2549, align 8
   store i32 2, ptr %mX.i2550, align 8
   store i32 3, ptr %mX.i2551, align 8
   store ptr null, ptr %node1, align 8, !noalias !213
-  br label %for.inc.i.i.i2573
+  br label %for.body.i.i.i2569
 
-for.body.i.i.i2569thread-pre-split:               ; preds = %for.inc.i.i.i2573
-  %.sroa.gep = getelementptr i8, ptr %508, i64 8
-  %call.val.i.i.i2571.pr = load i32, ptr %.sroa.gep, align 8, !noalias !218
-  %cmp.i.i.i.i.i2572 = icmp eq i32 %call.val.i.i.i2571.pr, 2
+for.body.i.i.i2569:                               ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit, %for.inc.i.i.i2573
+  %pNode.addr.02.i.i.i2570 = phi ptr [ %509, %for.inc.i.i.i2573 ], [ %node1, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit ]
+  %508 = getelementptr i8, ptr %pNode.addr.02.i.i.i2570, i64 8
+  %call.val.i.i.i2571 = load i32, ptr %508, align 8, !noalias !218
+  %cmp.i.i.i.i.i2572 = icmp eq i32 %call.val.i.i.i2571, 2
   br i1 %cmp.i.i.i.i.i2572, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit2582, label %for.inc.i.i.i2573
 
-for.inc.i.i.i2573:                                ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit, %for.body.i.i.i2569thread-pre-split
-  %pNode.addr.02.i.i.i25703459 = phi ptr [ %node1, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit ], [ %508, %for.body.i.i.i2569thread-pre-split ]
-  %508 = load ptr, ptr %pNode.addr.02.i.i.i25703459, align 8, !noalias !218
-  %tobool.not.i.i.i2574 = icmp eq ptr %508, null
-  br i1 %tobool.not.i.i.i2574, label %if.then.i.i2575, label %for.body.i.i.i2569thread-pre-split, !llvm.loop !223
+for.inc.i.i.i2573:                                ; preds = %for.body.i.i.i2569
+  %509 = load ptr, ptr %pNode.addr.02.i.i.i2570, align 8, !noalias !218
+  %tobool.not.i.i.i2574 = icmp eq ptr %509, null
+  br i1 %tobool.not.i.i.i2574, label %if.then.i.i2575, label %for.body.i.i.i2569, !llvm.loop !223
 
 if.then.i.i2575:                                  ; preds = %for.inc.i.i.i2573
   store ptr %node1, ptr %node2, align 8, !noalias !218
   br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit2582
 
-_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit2582: ; preds = %for.body.i.i.i2569thread-pre-split, %if.then.i.i2575
-  %hs.sroa.10.1 = phi i64 [ 2, %if.then.i.i2575 ], [ 1, %for.body.i.i.i2569thread-pre-split ]
-  %hs.sroa.0.1 = phi ptr [ %node2, %if.then.i.i2575 ], [ %node1, %for.body.i.i.i2569thread-pre-split ]
+_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit2582: ; preds = %for.body.i.i.i2569, %if.then.i.i2575
+  %hs.sroa.10.1 = phi i64 [ 2, %if.then.i.i2575 ], [ 1, %for.body.i.i.i2569 ]
+  %hs.sroa.0.1 = phi ptr [ %node2, %if.then.i.i2575 ], [ %node1, %for.body.i.i.i2569 ]
   br label %for.body.i.i.i2585
 
 for.body.i.i.i2585:                               ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit2582, %for.inc.i.i.i2589
-  %pNode.addr.02.i.i.i2586 = phi ptr [ %510, %for.inc.i.i.i2589 ], [ %hs.sroa.0.1, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit2582 ]
-  %509 = getelementptr i8, ptr %pNode.addr.02.i.i.i2586, i64 8
-  %call.val.i.i.i2587 = load i32, ptr %509, align 8, !noalias !224
+  %pNode.addr.02.i.i.i2586 = phi ptr [ %511, %for.inc.i.i.i2589 ], [ %hs.sroa.0.1, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit2582 ]
+  %510 = getelementptr i8, ptr %pNode.addr.02.i.i.i2586, i64 8
+  %call.val.i.i.i2587 = load i32, ptr %510, align 8, !noalias !224
   %cmp.i.i.i.i.i2588 = icmp eq i32 %call.val.i.i.i2587, 3
   br i1 %cmp.i.i.i.i.i2588, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit2598, label %for.inc.i.i.i2589
 
 for.inc.i.i.i2589:                                ; preds = %for.body.i.i.i2585
-  %510 = load ptr, ptr %pNode.addr.02.i.i.i2586, align 8, !noalias !224
-  %tobool.not.i.i.i2590 = icmp eq ptr %510, null
+  %511 = load ptr, ptr %pNode.addr.02.i.i.i2586, align 8, !noalias !224
+  %tobool.not.i.i.i2590 = icmp eq ptr %511, null
   br i1 %tobool.not.i.i.i2590, label %if.then.i.i2591, label %for.body.i.i.i2585, !llvm.loop !223
 
 if.then.i.i2591:                                  ; preds = %for.inc.i.i.i2589
@@ -4245,49 +4245,49 @@ _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equa
 
 land.rhs.i2602:                                   ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit2598, %while.body.i2619
   %hs.sroa.10.3 = phi i64 [ %hs.sroa.10.2, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit2598 ], [ %dec.i2620, %while.body.i2619 ]
-  %511 = phi ptr [ %hs.sroa.0.2, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit2598 ], [ %513, %while.body.i2619 ]
-  %512 = getelementptr i8, ptr %511, i64 8
-  %call2.val.i2604 = load i32, ptr %512, align 8
+  %512 = phi ptr [ %hs.sroa.0.2, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm1ELb1ELb1EE6insertERS2_.exit2598 ], [ %514, %while.body.i2619 ]
+  %513 = getelementptr i8, ptr %512, i64 8
+  %call2.val.i2604 = load i32, ptr %513, align 8
   %cmp.i.i.i2605 = icmp eq i32 %call2.val.i2604, 3
-  %513 = load ptr, ptr %511, align 8
+  %514 = load ptr, ptr %512, align 8
   br i1 %cmp.i.i.i2605, label %while.body.i2619, label %while.cond6.preheader.i2606
 
 while.cond6.preheader.i2606:                      ; preds = %land.rhs.i2602
-  %cmp.not19.i2607 = icmp eq ptr %513, null
+  %cmp.not19.i2607 = icmp eq ptr %514, null
   br i1 %cmp.not19.i2607, label %while.cond.i.i.i2709.preheader, label %while.body8.i2608
 
 while.body.i2619:                                 ; preds = %land.rhs.i2602
   %dec.i2620 = add i64 %hs.sroa.10.3, -1
-  %tobool.not.i2621 = icmp eq ptr %513, null
+  %tobool.not.i2621 = icmp eq ptr %514, null
   br i1 %tobool.not.i2621, label %while.cond.i.i.i2709.preheader, label %land.rhs.i2602, !llvm.loop !229
 
 while.body8.i2608:                                ; preds = %while.cond6.preheader.i2606, %if.end.i2613
   %hs.sroa.10.4 = phi i64 [ %hs.sroa.10.5, %if.end.i2613 ], [ %hs.sroa.10.3, %while.cond6.preheader.i2606 ]
-  %514 = phi i64 [ %518, %if.end.i2613 ], [ %hs.sroa.10.3, %while.cond6.preheader.i2606 ]
-  %515 = phi ptr [ %517, %if.end.i2613 ], [ %513, %while.cond6.preheader.i2606 ]
-  %pNodePrev.020.i2609 = phi ptr [ %pNodePrev.1.i2614, %if.end.i2613 ], [ %511, %while.cond6.preheader.i2606 ]
+  %515 = phi i64 [ %519, %if.end.i2613 ], [ %hs.sroa.10.3, %while.cond6.preheader.i2606 ]
+  %516 = phi ptr [ %518, %if.end.i2613 ], [ %514, %while.cond6.preheader.i2606 ]
+  %pNodePrev.020.i2609 = phi ptr [ %pNodePrev.1.i2614, %if.end.i2613 ], [ %512, %while.cond6.preheader.i2606 ]
   %k.val14.i2610 = load i32, ptr %mX.i2551, align 8
-  %516 = getelementptr i8, ptr %515, i64 8
-  %call10.val.i2611 = load i32, ptr %516, align 8
+  %517 = getelementptr i8, ptr %516, i64 8
+  %call10.val.i2611 = load i32, ptr %517, align 8
   %cmp.i.i15.i2612 = icmp eq i32 %k.val14.i2610, %call10.val.i2611
-  %517 = load ptr, ptr %515, align 8
+  %518 = load ptr, ptr %516, align 8
   br i1 %cmp.i.i15.i2612, label %if.then12.i2617, label %if.end.i2613
 
 if.then12.i2617:                                  ; preds = %while.body8.i2608
-  store ptr %517, ptr %pNodePrev.020.i2609, align 8
+  store ptr %518, ptr %pNodePrev.020.i2609, align 8
   %dec16.i2618 = add i64 %hs.sroa.10.4, -1
   br label %if.end.i2613
 
 if.end.i2613:                                     ; preds = %while.body8.i2608, %if.then12.i2617
   %hs.sroa.10.5 = phi i64 [ %dec16.i2618, %if.then12.i2617 ], [ %hs.sroa.10.4, %while.body8.i2608 ]
-  %518 = phi i64 [ %dec16.i2618, %if.then12.i2617 ], [ %514, %while.body8.i2608 ]
-  %pNodePrev.1.i2614 = phi ptr [ %pNodePrev.020.i2609, %if.then12.i2617 ], [ %515, %while.body8.i2608 ]
-  %cmp.not.i2615 = icmp eq ptr %517, null
+  %519 = phi i64 [ %dec16.i2618, %if.then12.i2617 ], [ %515, %while.body8.i2608 ]
+  %pNodePrev.1.i2614 = phi ptr [ %pNodePrev.020.i2609, %if.then12.i2617 ], [ %516, %while.body8.i2608 ]
+  %cmp.not.i2615 = icmp eq ptr %518, null
   br i1 %cmp.not.i2615, label %while.cond.i.i.i2709.preheader, label %while.body8.i2608, !llvm.loop !230
 
 while.cond.i.i.i2709.preheader:                   ; preds = %while.body.i2619, %if.end.i2613, %while.cond6.preheader.i2606
-  %519 = phi i64 [ %hs.sroa.10.3, %while.cond6.preheader.i2606 ], [ %518, %if.end.i2613 ], [ %dec.i2620, %while.body.i2619 ]
-  %sub.i2616 = sub i64 %hs.sroa.10.2, %519
+  %520 = phi i64 [ %hs.sroa.10.3, %while.cond6.preheader.i2606 ], [ %519, %if.end.i2613 ], [ %dec.i2620, %while.body.i2619 ]
+  %sub.i2616 = sub i64 %hs.sroa.10.2, %520
   %cmp809 = icmp eq i64 %sub.i2616, 1
   %call810 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp809, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 728, ptr noundef nonnull @.str.87)
   %mnElementCount.i.i2622 = getelementptr inbounds i8, ptr %hs811, i64 304
@@ -4315,8 +4315,8 @@ while.cond.i.i.i2709.preheader:                   ; preds = %while.body.i2619, %
 while.cond.i.i.i2709:                             ; preds = %while.cond.i.i.i2709, %while.cond.i.i.i2709.preheader
   %.pn.i.i.i2710 = phi ptr [ %storemerge.i.i.i2711, %while.cond.i.i.i2709 ], [ %hs811, %while.cond.i.i.i2709.preheader ]
   %storemerge.i.i.i2711 = getelementptr inbounds i8, ptr %.pn.i.i.i2710, i64 8
-  %520 = load ptr, ptr %storemerge.i.i.i2711, align 8
-  %magicptr = ptrtoint ptr %520 to i64
+  %521 = load ptr, ptr %storemerge.i.i.i2711, align 8
+  %magicptr = ptrtoint ptr %521 to i64
   switch i64 %magicptr, label %for.body.i2690 [
     i64 0, label %while.cond.i.i.i2709
     i64 -1, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit2713
@@ -4325,15 +4325,15 @@ while.cond.i.i.i2709:                             ; preds = %while.cond.i.i.i270
 for.body.i2690:                                   ; preds = %while.cond.i.i.i2709, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i2697
   %nElementCount.09.i2691 = phi i64 [ %inc.i2694, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i2697 ], [ 0, %while.cond.i.i.i2709 ]
   %temp.sroa.5.08.i2692 = phi ptr [ %temp.sroa.5.1.i2699, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i2697 ], [ %storemerge.i.i.i2711, %while.cond.i.i.i2709 ]
-  %temp.sroa.0.07.i2693 = phi ptr [ %temp.sroa.0.1.i2698, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i2697 ], [ %520, %while.cond.i.i.i2709 ]
+  %temp.sroa.0.07.i2693 = phi ptr [ %temp.sroa.0.1.i2698, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i2697 ], [ %521, %while.cond.i.i.i2709 ]
   %inc.i2694 = add i64 %nElementCount.09.i2691, 1
   %storemerge1.i.i.i2695 = load ptr, ptr %temp.sroa.0.07.i2693, align 8
   %cmp2.i.i.i2696 = icmp eq ptr %storemerge1.i.i.i2695, null
   br i1 %cmp2.i.i.i2696, label %while.body.i.i.i2705, label %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i2697
 
 while.body.i.i.i2705:                             ; preds = %for.body.i2690, %while.body.i.i.i2705
-  %521 = phi ptr [ %incdec.ptr.i.i.i2706, %while.body.i.i.i2705 ], [ %temp.sroa.5.08.i2692, %for.body.i2690 ]
-  %incdec.ptr.i.i.i2706 = getelementptr inbounds i8, ptr %521, i64 8
+  %522 = phi ptr [ %incdec.ptr.i.i.i2706, %while.body.i.i.i2705 ], [ %temp.sroa.5.08.i2692, %for.body.i2690 ]
+  %incdec.ptr.i.i.i2706 = getelementptr inbounds i8, ptr %522, i64 8
   %storemerge.i.i4.i2707 = load ptr, ptr %incdec.ptr.i.i.i2706, align 8
   %cmp.i.i5.i2708 = icmp eq ptr %storemerge.i.i4.i2707, null
   br i1 %cmp.i.i5.i2708, label %while.body.i.i.i2705, label %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i2697, !llvm.loop !8
@@ -4353,12 +4353,12 @@ _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equ
   %rem.i2715 = urem i64 %conv.i.i2714, 37
   %arrayidx.i2716 = getelementptr inbounds [38 x ptr], ptr %hs811, i64 0, i64 %rem.i2715
   %storemerge1.i.i.i.i2717 = load ptr, ptr %node1814, align 8
-  %522 = load ptr, ptr %arrayidx.i2716, align 8
-  %cmp.i.i2722 = icmp eq ptr %522, %node1814
+  %523 = load ptr, ptr %arrayidx.i2716, align 8
+  %cmp.i.i2722 = icmp eq ptr %523, %node1814
   br i1 %cmp.i.i2722, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit, label %while.cond.i.i2723
 
 while.cond.i.i2723:                               ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit2713, %while.cond.i.i2723
-  %pNodeCurrent.0.i.i2724 = phi ptr [ %pNodeNext.0.i.i2725, %while.cond.i.i2723 ], [ %522, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit2713 ]
+  %pNodeCurrent.0.i.i2724 = phi ptr [ %pNodeNext.0.i.i2725, %while.cond.i.i2723 ], [ %523, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit2713 ]
   %pNodeNext.0.i.i2725 = load ptr, ptr %pNodeCurrent.0.i.i2724, align 8
   %cmp6.not.i.i2726 = icmp eq ptr %pNodeNext.0.i.i2725, %node1814
   br i1 %cmp6.not.i.i2726, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit, label %while.cond.i.i2723, !llvm.loop !52
@@ -4366,20 +4366,20 @@ while.cond.i.i2723:                               ; preds = %_ZNK5eastl19intrusi
 _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit: ; preds = %while.cond.i.i2723, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit2713
   %pNodeCurrent.0.lcssa.sink.i.i2728 = phi ptr [ %arrayidx.i2716, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit2713 ], [ %pNodeCurrent.0.i.i2724, %while.cond.i.i2723 ]
   store ptr %storemerge1.i.i.i.i2717, ptr %pNodeCurrent.0.lcssa.sink.i.i2728, align 8
-  %523 = load i64, ptr %mnElementCount.i.i2622, align 8
-  %dec.i.i2730 = add i64 %523, -1
+  %524 = load i64, ptr %mnElementCount.i.i2622, align 8
+  %dec.i.i2730 = add i64 %524, -1
   store i64 %dec.i.i2730, ptr %mnElementCount.i.i2622, align 8
   %call.val.i2735 = load i32, ptr %mX.i2625, align 8
   %conv.i.i2736 = sext i32 %call.val.i2735 to i64
   %rem.i2737 = urem i64 %conv.i.i2736, 37
   %arrayidx.i2738 = getelementptr inbounds [38 x ptr], ptr %hs811, i64 0, i64 %rem.i2737
   %storemerge1.i.i.i.i2739 = load ptr, ptr %node2815, align 8
-  %524 = load ptr, ptr %arrayidx.i2738, align 8
-  %cmp.i.i2744 = icmp eq ptr %524, %node2815
+  %525 = load ptr, ptr %arrayidx.i2738, align 8
+  %cmp.i.i2744 = icmp eq ptr %525, %node2815
   br i1 %cmp.i.i2744, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2759, label %while.cond.i.i2745
 
 while.cond.i.i2745:                               ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit, %while.cond.i.i2745
-  %pNodeCurrent.0.i.i2746 = phi ptr [ %pNodeNext.0.i.i2747, %while.cond.i.i2745 ], [ %524, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit ]
+  %pNodeCurrent.0.i.i2746 = phi ptr [ %pNodeNext.0.i.i2747, %while.cond.i.i2745 ], [ %525, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit ]
   %pNodeNext.0.i.i2747 = load ptr, ptr %pNodeCurrent.0.i.i2746, align 8
   %cmp6.not.i.i2748 = icmp eq ptr %pNodeNext.0.i.i2747, %node2815
   br i1 %cmp6.not.i.i2748, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2759, label %while.cond.i.i2745, !llvm.loop !52
@@ -4387,20 +4387,20 @@ while.cond.i.i2745:                               ; preds = %_ZN5eastl19intrusiv
 _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2759: ; preds = %while.cond.i.i2745, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit
   %pNodeCurrent.0.lcssa.sink.i.i2750 = phi ptr [ %arrayidx.i2738, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit ], [ %pNodeCurrent.0.i.i2746, %while.cond.i.i2745 ]
   store ptr %storemerge1.i.i.i.i2739, ptr %pNodeCurrent.0.lcssa.sink.i.i2750, align 8
-  %525 = load i64, ptr %mnElementCount.i.i2622, align 8
-  %dec.i.i2752 = add i64 %525, -1
+  %526 = load i64, ptr %mnElementCount.i.i2622, align 8
+  %dec.i.i2752 = add i64 %526, -1
   store i64 %dec.i.i2752, ptr %mnElementCount.i.i2622, align 8
   %call.val.i2760 = load i32, ptr %mX.i2626, align 8
   %conv.i.i2761 = sext i32 %call.val.i2760 to i64
   %rem.i2762 = urem i64 %conv.i.i2761, 37
   %arrayidx.i2763 = getelementptr inbounds [38 x ptr], ptr %hs811, i64 0, i64 %rem.i2762
   %storemerge1.i.i.i.i2764 = load ptr, ptr %node3816, align 8
-  %526 = load ptr, ptr %arrayidx.i2763, align 8
-  %cmp.i.i2769 = icmp eq ptr %526, %node3816
+  %527 = load ptr, ptr %arrayidx.i2763, align 8
+  %cmp.i.i2769 = icmp eq ptr %527, %node3816
   br i1 %cmp.i.i2769, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2784, label %while.cond.i.i2770
 
 while.cond.i.i2770:                               ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2759, %while.cond.i.i2770
-  %pNodeCurrent.0.i.i2771 = phi ptr [ %pNodeNext.0.i.i2772, %while.cond.i.i2770 ], [ %526, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2759 ]
+  %pNodeCurrent.0.i.i2771 = phi ptr [ %pNodeNext.0.i.i2772, %while.cond.i.i2770 ], [ %527, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2759 ]
   %pNodeNext.0.i.i2772 = load ptr, ptr %pNodeCurrent.0.i.i2771, align 8
   %cmp6.not.i.i2773 = icmp eq ptr %pNodeNext.0.i.i2772, %node3816
   br i1 %cmp6.not.i.i2773, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2784, label %while.cond.i.i2770, !llvm.loop !52
@@ -4408,25 +4408,25 @@ while.cond.i.i2770:                               ; preds = %_ZN5eastl19intrusiv
 _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2784: ; preds = %while.cond.i.i2770, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2759
   %pNodeCurrent.0.lcssa.sink.i.i2775 = phi ptr [ %arrayidx.i2763, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2759 ], [ %pNodeCurrent.0.i.i2771, %while.cond.i.i2770 ]
   store ptr %storemerge1.i.i.i.i2764, ptr %pNodeCurrent.0.lcssa.sink.i.i2775, align 8
-  %527 = load i64, ptr %mnElementCount.i.i2622, align 8
-  %dec.i.i2777 = add i64 %527, -1
+  %528 = load i64, ptr %mnElementCount.i.i2622, align 8
+  %dec.i.i2777 = add i64 %528, -1
   store i64 %dec.i.i2777, ptr %mnElementCount.i.i2622, align 8
-  %528 = load ptr, ptr %hs811, align 8
-  %tobool.not.i.i2785 = icmp eq ptr %528, null
+  %529 = load ptr, ptr %hs811, align 8
+  %tobool.not.i.i2785 = icmp eq ptr %529, null
   br i1 %tobool.not.i.i2785, label %while.cond.i.i.i2810, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i2786
 
 while.cond.i.i.i2810:                             ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2784, %while.cond.i.i.i2810
   %.pn.i.i.i2811 = phi ptr [ %storemerge.i.i.i2812, %while.cond.i.i.i2810 ], [ %hs811, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2784 ]
   %storemerge.i.i.i2812 = getelementptr inbounds i8, ptr %.pn.i.i.i2811, i64 8
-  %529 = load ptr, ptr %storemerge.i.i.i2812, align 8
-  %cmp.i.i.i2813 = icmp eq ptr %529, null
+  %530 = load ptr, ptr %storemerge.i.i.i2812, align 8
+  %cmp.i.i.i2813 = icmp eq ptr %530, null
   br i1 %cmp.i.i.i2813, label %while.cond.i.i.i2810, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i2786, !llvm.loop !7
 
 _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i2786: ; preds = %while.cond.i.i.i2810, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2784
   %retval.sroa.4.0.i.i2787 = phi ptr [ %hs811, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2784 ], [ %storemerge.i.i.i2812, %while.cond.i.i.i2810 ]
-  %retval.sroa.0.0.i.i2788 = phi ptr [ %528, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2784 ], [ %529, %while.cond.i.i.i2810 ]
-  %530 = load ptr, ptr %arrayidx.i.i2623, align 8
-  %cmp.i.not6.i2790 = icmp eq ptr %retval.sroa.0.0.i.i2788, %530
+  %retval.sroa.0.0.i.i2788 = phi ptr [ %529, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6removeERS2_.exit2784 ], [ %530, %while.cond.i.i.i2810 ]
+  %531 = load ptr, ptr %arrayidx.i.i2623, align 8
+  %cmp.i.not6.i2790 = icmp eq ptr %retval.sroa.0.0.i.i2788, %531
   br i1 %cmp.i.not6.i2790, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit2814, label %for.body.i2791
 
 for.body.i2791:                                   ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i2786, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i2798
@@ -4439,8 +4439,8 @@ for.body.i2791:                                   ; preds = %_ZNK5eastl19intrusi
   br i1 %cmp2.i.i.i2797, label %while.body.i.i.i2806, label %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i2798
 
 while.body.i.i.i2806:                             ; preds = %for.body.i2791, %while.body.i.i.i2806
-  %531 = phi ptr [ %incdec.ptr.i.i.i2807, %while.body.i.i.i2806 ], [ %temp.sroa.5.08.i2793, %for.body.i2791 ]
-  %incdec.ptr.i.i.i2807 = getelementptr inbounds i8, ptr %531, i64 8
+  %532 = phi ptr [ %incdec.ptr.i.i.i2807, %while.body.i.i.i2806 ], [ %temp.sroa.5.08.i2793, %for.body.i2791 ]
+  %incdec.ptr.i.i.i2807 = getelementptr inbounds i8, ptr %532, i64 8
   %storemerge.i.i4.i2808 = load ptr, ptr %incdec.ptr.i.i.i2807, align 8
   %cmp.i.i5.i2809 = icmp eq ptr %storemerge.i.i4.i2808, null
   br i1 %cmp.i.i5.i2809, label %while.body.i.i.i2806, label %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i2798, !llvm.loop !8
@@ -4448,7 +4448,7 @@ while.body.i.i.i2806:                             ; preds = %for.body.i2791, %wh
 _ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i2798: ; preds = %while.body.i.i.i2806, %for.body.i2791
   %temp.sroa.0.1.i2799 = phi ptr [ %storemerge1.i.i.i2796, %for.body.i2791 ], [ %storemerge.i.i4.i2808, %while.body.i.i.i2806 ]
   %temp.sroa.5.1.i2800 = phi ptr [ %temp.sroa.5.08.i2793, %for.body.i2791 ], [ %incdec.ptr.i.i.i2807, %while.body.i.i.i2806 ]
-  %cmp.i.not.i2801 = icmp eq ptr %temp.sroa.0.1.i2799, %530
+  %cmp.i.not.i2801 = icmp eq ptr %temp.sroa.0.1.i2799, %531
   br i1 %cmp.i.not.i2801, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit2814, label %for.body.i2791, !llvm.loop !9
 
 _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit2814: ; preds = %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i2798, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i2786
@@ -4459,27 +4459,27 @@ _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equ
   %conv.i.i.i2816 = sext i32 %call.val.i.i2815 to i64
   %rem.i.i2817 = urem i64 %conv.i.i.i2816, 37
   %arrayidx.i.i2818 = getelementptr inbounds [38 x ptr], ptr %hs811, i64 0, i64 %rem.i.i2817
-  %532 = load ptr, ptr %arrayidx.i.i2818, align 8, !noalias !246
-  %tobool.not1.i.i.i2819 = icmp eq ptr %532, null
+  %533 = load ptr, ptr %arrayidx.i.i2818, align 8, !noalias !246
+  %tobool.not1.i.i.i2819 = icmp eq ptr %533, null
   br i1 %tobool.not1.i.i.i2819, label %if.then.i.i2826, label %for.body.i.i.i2820
 
 for.body.i.i.i2820:                               ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit2814, %for.inc.i.i.i2824
-  %pNode.addr.02.i.i.i2821 = phi ptr [ %534, %for.inc.i.i.i2824 ], [ %532, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit2814 ]
-  %533 = getelementptr i8, ptr %pNode.addr.02.i.i.i2821, i64 8
-  %call.val.i.i.i2822 = load i32, ptr %533, align 8, !noalias !246
+  %pNode.addr.02.i.i.i2821 = phi ptr [ %535, %for.inc.i.i.i2824 ], [ %533, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit2814 ]
+  %534 = getelementptr i8, ptr %pNode.addr.02.i.i.i2821, i64 8
+  %call.val.i.i.i2822 = load i32, ptr %534, align 8, !noalias !246
   %cmp.i.i.i.i.i2823 = icmp eq i32 %call.val.i.i.i2822, %call.val.i.i2815
   br i1 %cmp.i.i.i.i.i2823, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2833, label %for.inc.i.i.i2824
 
 for.inc.i.i.i2824:                                ; preds = %for.body.i.i.i2820
-  %534 = load ptr, ptr %pNode.addr.02.i.i.i2821, align 8, !noalias !246
-  %tobool.not.i.i.i2825 = icmp eq ptr %534, null
+  %535 = load ptr, ptr %pNode.addr.02.i.i.i2821, align 8, !noalias !246
+  %tobool.not.i.i.i2825 = icmp eq ptr %535, null
   br i1 %tobool.not.i.i.i2825, label %if.then.i.i2826, label %for.body.i.i.i2820, !llvm.loop !22
 
 if.then.i.i2826:                                  ; preds = %for.inc.i.i.i2824, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit2814
-  store ptr %532, ptr %node1814, align 8, !noalias !246
+  store ptr %533, ptr %node1814, align 8, !noalias !246
   store ptr %node1814, ptr %arrayidx.i.i2818, align 8, !noalias !246
-  %535 = load i64, ptr %mnElementCount.i.i2622, align 8, !noalias !246
-  %inc.i.i2828 = add i64 %535, 1
+  %536 = load i64, ptr %mnElementCount.i.i2622, align 8, !noalias !246
+  %inc.i.i2828 = add i64 %536, 1
   store i64 %inc.i.i2828, ptr %mnElementCount.i.i2622, align 8, !noalias !246
   br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2833
 
@@ -4488,27 +4488,27 @@ _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equa
   %conv.i.i.i2835 = sext i32 %call.val.i.i2834 to i64
   %rem.i.i2836 = urem i64 %conv.i.i.i2835, 37
   %arrayidx.i.i2837 = getelementptr inbounds [38 x ptr], ptr %hs811, i64 0, i64 %rem.i.i2836
-  %536 = load ptr, ptr %arrayidx.i.i2837, align 8, !noalias !251
-  %tobool.not1.i.i.i2838 = icmp eq ptr %536, null
+  %537 = load ptr, ptr %arrayidx.i.i2837, align 8, !noalias !251
+  %tobool.not1.i.i.i2838 = icmp eq ptr %537, null
   br i1 %tobool.not1.i.i.i2838, label %if.then.i.i2845, label %for.body.i.i.i2839
 
 for.body.i.i.i2839:                               ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2833, %for.inc.i.i.i2843
-  %pNode.addr.02.i.i.i2840 = phi ptr [ %538, %for.inc.i.i.i2843 ], [ %536, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2833 ]
-  %537 = getelementptr i8, ptr %pNode.addr.02.i.i.i2840, i64 8
-  %call.val.i.i.i2841 = load i32, ptr %537, align 8, !noalias !251
+  %pNode.addr.02.i.i.i2840 = phi ptr [ %539, %for.inc.i.i.i2843 ], [ %537, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2833 ]
+  %538 = getelementptr i8, ptr %pNode.addr.02.i.i.i2840, i64 8
+  %call.val.i.i.i2841 = load i32, ptr %538, align 8, !noalias !251
   %cmp.i.i.i.i.i2842 = icmp eq i32 %call.val.i.i.i2841, %call.val.i.i2834
   br i1 %cmp.i.i.i.i.i2842, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2852, label %for.inc.i.i.i2843
 
 for.inc.i.i.i2843:                                ; preds = %for.body.i.i.i2839
-  %538 = load ptr, ptr %pNode.addr.02.i.i.i2840, align 8, !noalias !251
-  %tobool.not.i.i.i2844 = icmp eq ptr %538, null
+  %539 = load ptr, ptr %pNode.addr.02.i.i.i2840, align 8, !noalias !251
+  %tobool.not.i.i.i2844 = icmp eq ptr %539, null
   br i1 %tobool.not.i.i.i2844, label %if.then.i.i2845, label %for.body.i.i.i2839, !llvm.loop !22
 
 if.then.i.i2845:                                  ; preds = %for.inc.i.i.i2843, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2833
-  store ptr %536, ptr %node2815, align 8, !noalias !251
+  store ptr %537, ptr %node2815, align 8, !noalias !251
   store ptr %node2815, ptr %arrayidx.i.i2837, align 8, !noalias !251
-  %539 = load i64, ptr %mnElementCount.i.i2622, align 8, !noalias !251
-  %inc.i.i2847 = add i64 %539, 1
+  %540 = load i64, ptr %mnElementCount.i.i2622, align 8, !noalias !251
+  %inc.i.i2847 = add i64 %540, 1
   store i64 %inc.i.i2847, ptr %mnElementCount.i.i2622, align 8, !noalias !251
   br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2852
 
@@ -4517,47 +4517,47 @@ _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equa
   %conv.i.i.i2854 = sext i32 %call.val.i.i2853 to i64
   %rem.i.i2855 = urem i64 %conv.i.i.i2854, 37
   %arrayidx.i.i2856 = getelementptr inbounds [38 x ptr], ptr %hs811, i64 0, i64 %rem.i.i2855
-  %540 = load ptr, ptr %arrayidx.i.i2856, align 8, !noalias !256
-  %tobool.not1.i.i.i2857 = icmp eq ptr %540, null
+  %541 = load ptr, ptr %arrayidx.i.i2856, align 8, !noalias !256
+  %tobool.not1.i.i.i2857 = icmp eq ptr %541, null
   br i1 %tobool.not1.i.i.i2857, label %if.then.i.i2864, label %for.body.i.i.i2858
 
 for.body.i.i.i2858:                               ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2852, %for.inc.i.i.i2862
-  %pNode.addr.02.i.i.i2859 = phi ptr [ %542, %for.inc.i.i.i2862 ], [ %540, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2852 ]
-  %541 = getelementptr i8, ptr %pNode.addr.02.i.i.i2859, i64 8
-  %call.val.i.i.i2860 = load i32, ptr %541, align 8, !noalias !256
+  %pNode.addr.02.i.i.i2859 = phi ptr [ %543, %for.inc.i.i.i2862 ], [ %541, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2852 ]
+  %542 = getelementptr i8, ptr %pNode.addr.02.i.i.i2859, i64 8
+  %call.val.i.i.i2860 = load i32, ptr %542, align 8, !noalias !256
   %cmp.i.i.i.i.i2861 = icmp eq i32 %call.val.i.i.i2860, %call.val.i.i2853
   br i1 %cmp.i.i.i.i.i2861, label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2871, label %for.inc.i.i.i2862
 
 for.inc.i.i.i2862:                                ; preds = %for.body.i.i.i2858
-  %542 = load ptr, ptr %pNode.addr.02.i.i.i2859, align 8, !noalias !256
-  %tobool.not.i.i.i2863 = icmp eq ptr %542, null
+  %543 = load ptr, ptr %pNode.addr.02.i.i.i2859, align 8, !noalias !256
+  %tobool.not.i.i.i2863 = icmp eq ptr %543, null
   br i1 %tobool.not.i.i.i2863, label %if.then.i.i2864, label %for.body.i.i.i2858, !llvm.loop !22
 
 if.then.i.i2864:                                  ; preds = %for.inc.i.i.i2862, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2852
-  store ptr %540, ptr %node3816, align 8, !noalias !256
+  store ptr %541, ptr %node3816, align 8, !noalias !256
   store ptr %node3816, ptr %arrayidx.i.i2856, align 8, !noalias !256
-  %543 = load i64, ptr %mnElementCount.i.i2622, align 8, !noalias !256
-  %inc.i.i2866 = add i64 %543, 1
+  %544 = load i64, ptr %mnElementCount.i.i2622, align 8, !noalias !256
+  %inc.i.i2866 = add i64 %544, 1
   store i64 %inc.i.i2866, ptr %mnElementCount.i.i2622, align 8, !noalias !256
   br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2871
 
 _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2871: ; preds = %for.body.i.i.i2858, %if.then.i.i2864
-  %544 = load ptr, ptr %hs811, align 8
-  %tobool.not.i.i2872 = icmp eq ptr %544, null
+  %545 = load ptr, ptr %hs811, align 8
+  %tobool.not.i.i2872 = icmp eq ptr %545, null
   br i1 %tobool.not.i.i2872, label %while.cond.i.i.i2897, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i2873
 
 while.cond.i.i.i2897:                             ; preds = %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2871, %while.cond.i.i.i2897
   %.pn.i.i.i2898 = phi ptr [ %storemerge.i.i.i2899, %while.cond.i.i.i2897 ], [ %hs811, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2871 ]
   %storemerge.i.i.i2899 = getelementptr inbounds i8, ptr %.pn.i.i.i2898, i64 8
-  %545 = load ptr, ptr %storemerge.i.i.i2899, align 8
-  %cmp.i.i.i2900 = icmp eq ptr %545, null
+  %546 = load ptr, ptr %storemerge.i.i.i2899, align 8
+  %cmp.i.i.i2900 = icmp eq ptr %546, null
   br i1 %cmp.i.i.i2900, label %while.cond.i.i.i2897, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i2873, !llvm.loop !7
 
 _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i2873: ; preds = %while.cond.i.i.i2897, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2871
   %retval.sroa.4.0.i.i2874 = phi ptr [ %hs811, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2871 ], [ %storemerge.i.i.i2899, %while.cond.i.i.i2897 ]
-  %retval.sroa.0.0.i.i2875 = phi ptr [ %544, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2871 ], [ %545, %while.cond.i.i.i2897 ]
-  %546 = load ptr, ptr %arrayidx.i.i2623, align 8
-  %cmp.i.not6.i2877 = icmp eq ptr %retval.sroa.0.0.i.i2875, %546
+  %retval.sroa.0.0.i.i2875 = phi ptr [ %545, %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE6insertERS2_.exit2871 ], [ %546, %while.cond.i.i.i2897 ]
+  %547 = load ptr, ptr %arrayidx.i.i2623, align 8
+  %cmp.i.not6.i2877 = icmp eq ptr %retval.sroa.0.0.i.i2875, %547
   br i1 %cmp.i.not6.i2877, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit2901, label %for.body.i2878
 
 for.body.i2878:                                   ; preds = %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i2873, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i2885
@@ -4570,8 +4570,8 @@ for.body.i2878:                                   ; preds = %_ZNK5eastl19intrusi
   br i1 %cmp2.i.i.i2884, label %while.body.i.i.i2893, label %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i2885
 
 while.body.i.i.i2893:                             ; preds = %for.body.i2878, %while.body.i.i.i2893
-  %547 = phi ptr [ %incdec.ptr.i.i.i2894, %while.body.i.i.i2893 ], [ %temp.sroa.5.08.i2880, %for.body.i2878 ]
-  %incdec.ptr.i.i.i2894 = getelementptr inbounds i8, ptr %547, i64 8
+  %548 = phi ptr [ %incdec.ptr.i.i.i2894, %while.body.i.i.i2893 ], [ %temp.sroa.5.08.i2880, %for.body.i2878 ]
+  %incdec.ptr.i.i.i2894 = getelementptr inbounds i8, ptr %548, i64 8
   %storemerge.i.i4.i2895 = load ptr, ptr %incdec.ptr.i.i.i2894, align 8
   %cmp.i.i5.i2896 = icmp eq ptr %storemerge.i.i4.i2895, null
   br i1 %cmp.i.i5.i2896, label %while.body.i.i.i2893, label %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i2885, !llvm.loop !8
@@ -4579,16 +4579,16 @@ while.body.i.i.i2893:                             ; preds = %for.body.i2878, %wh
 _ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i2885: ; preds = %while.body.i.i.i2893, %for.body.i2878
   %temp.sroa.0.1.i2886 = phi ptr [ %storemerge1.i.i.i2883, %for.body.i2878 ], [ %storemerge.i.i4.i2895, %while.body.i.i.i2893 ]
   %temp.sroa.5.1.i2887 = phi ptr [ %temp.sroa.5.08.i2880, %for.body.i2878 ], [ %incdec.ptr.i.i.i2894, %while.body.i.i.i2893 ]
-  %cmp.i.not.i2888 = icmp eq ptr %temp.sroa.0.1.i2886, %546
+  %cmp.i.not.i2888 = icmp eq ptr %temp.sroa.0.1.i2886, %547
   br i1 %cmp.i.not.i2888, label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit2901, label %for.body.i2878, !llvm.loop !9
 
 _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE8validateEv.exit2901: ; preds = %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i2885, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i2873
   %nElementCount.0.lcssa.i2890 = phi i64 [ 0, %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE5beginEv.exit.i2873 ], [ %inc.i2882, %_ZN5eastl28intrusive_hashtable_iteratorIN12_GLOBAL__N_19SetWidgetELb1EEppEv.exit.i2885 ]
-  %548 = load i64, ptr %mnElementCount.i.i2622, align 8
-  %cmp.not.i2892 = icmp eq i64 %nElementCount.0.lcssa.i2890, %548
+  %549 = load i64, ptr %mnElementCount.i.i2622, align 8
+  %cmp.not.i2892 = icmp eq i64 %nElementCount.0.lcssa.i2890, %549
   %call839 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.not.i2892, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 757, ptr noundef nonnull @.str.88)
-  %549 = load i32, ptr %nErrorCount, align 4
-  ret i32 %549
+  %550 = load i32, ptr %nErrorCount, align 4
+  ret i32 %550
 }
 
 declare noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

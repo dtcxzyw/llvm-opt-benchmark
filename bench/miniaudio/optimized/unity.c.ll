@@ -6214,12 +6214,18 @@ if.then2:                                         ; preds = %if.then2.i129
 
 if.end3:                                          ; preds = %if.then2, %if.then2.i129
   %pConfig.addr.0 = phi ptr [ %defaultConfig, %if.then2 ], [ %pConfig, %if.then2.i129 ]
+  %pConfig.addr.0.sroa.phi262 = getelementptr inbounds i8, ptr %pConfig.addr.0, i64 48
+  %pConfig.addr.0.sroa.phi259 = getelementptr inbounds i8, ptr %pConfig.addr.0, i64 40
+  %pConfig.addr.0.sroa.phi256 = getelementptr inbounds i8, ptr %pConfig.addr.0, i64 56
+  %pConfig.addr.0.sroa.phi253 = getelementptr inbounds i8, ptr %pConfig.addr.0, i64 128
+  %pConfig.addr.0.sroa.phi = getelementptr inbounds i8, ptr %pConfig.addr.0, i64 24
+  %pConfig.addr.0.sroa.phi248 = getelementptr inbounds i8, ptr %pConfig.addr.0, i64 16
+  %pConfig.addr.0.sroa.phi245 = getelementptr inbounds i8, ptr %pConfig.addr.0, i64 8
+  %pConfig.addr.0.sroa.phi243 = getelementptr inbounds i8, ptr %pConfig.addr.0, i64 32
   %allocationCallbacks = getelementptr inbounds i8, ptr %pContext, i64 288
-  %allocationCallbacks4 = getelementptr inbounds i8, ptr %pConfig.addr.0, i64 32
-  %0 = load ptr, ptr %allocationCallbacks4, align 8
+  %0 = load ptr, ptr %pConfig.addr.0.sroa.phi243, align 8
   %cmp3.i = icmp eq ptr %0, null
-  %onFree.i = getelementptr inbounds i8, ptr %pConfig.addr.0, i64 56
-  %1 = load ptr, ptr %onFree.i, align 8
+  %1 = load ptr, ptr %pConfig.addr.0.sroa.phi256, align 8
   %cmp4.i = icmp eq ptr %1, null
   br i1 %cmp3.i, label %land.lhs.true.i, label %if.else11.i
 
@@ -6227,14 +6233,12 @@ land.lhs.true.i:                                  ; preds = %if.end3
   br i1 %cmp4.i, label %land.lhs.true5.i, label %lor.lhs.false.i
 
 land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
-  %onMalloc.i = getelementptr inbounds i8, ptr %pConfig.addr.0, i64 40
-  %2 = load ptr, ptr %onMalloc.i, align 8
+  %2 = load ptr, ptr %pConfig.addr.0.sroa.phi259, align 8
   %cmp6.i = icmp eq ptr %2, null
   br i1 %cmp6.i, label %land.lhs.true7.i, label %return
 
 land.lhs.true7.i:                                 ; preds = %land.lhs.true5.i
-  %onRealloc.i = getelementptr inbounds i8, ptr %pConfig.addr.0, i64 48
-  %3 = load ptr, ptr %onRealloc.i, align 8
+  %3 = load ptr, ptr %pConfig.addr.0.sroa.phi262, align 8
   %cmp8.i = icmp eq ptr %3, null
   br i1 %cmp8.i, label %if.then9.i, label %return
 
@@ -6252,19 +6256,17 @@ if.else11.i:                                      ; preds = %if.end3
   br i1 %cmp4.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else11.i, %land.lhs.true.i
-  %onMalloc14.i = getelementptr inbounds i8, ptr %pConfig.addr.0, i64 40
-  %4 = load ptr, ptr %onMalloc14.i, align 8
+  %4 = load ptr, ptr %pConfig.addr.0.sroa.phi259, align 8
   %cmp15.i = icmp eq ptr %4, null
   br i1 %cmp15.i, label %land.lhs.true16.i, label %if.else20.i
 
 land.lhs.true16.i:                                ; preds = %lor.lhs.false.i
-  %onRealloc17.i = getelementptr inbounds i8, ptr %pConfig.addr.0, i64 48
-  %5 = load ptr, ptr %onRealloc17.i, align 8
+  %5 = load ptr, ptr %pConfig.addr.0.sroa.phi262, align 8
   %cmp18.i = icmp eq ptr %5, null
   br i1 %cmp18.i, label %return, label %if.else20.i
 
 if.else20.i:                                      ; preds = %land.lhs.true16.i, %lor.lhs.false.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks, ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %allocationCallbacks, ptr noundef nonnull align 8 dereferenceable(32) %pConfig.addr.0.sroa.phi243, i64 32, i1 false)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.else20.i, %if.then9.i
@@ -6336,23 +6338,20 @@ ma_allocation_callbacks_init_copy.exit.i:         ; preds = %if.else20.i.i, %lan
 ma_log_init.exit:                                 ; preds = %ma_allocation_callbacks_init_copy.exit.i
   %call3.i.i.i = tail call fastcc i32 @ma_result_from_errno(i32 noundef %call.i.i.i)
   %cmp14 = icmp eq i32 %call3.i.i.i, 0
-  %spec.select180 = select i1 %cmp14, ptr %log, ptr null
+  %spec.select240 = select i1 %cmp14, ptr %log, ptr null
   br label %if.end21
 
 if.end21:                                         ; preds = %ma_log_init.exit, %ma_allocation_callbacks_init_copy.exit.i, %if.end7
-  %log.sink = phi ptr [ %6, %if.end7 ], [ %log, %ma_allocation_callbacks_init_copy.exit.i ], [ %spec.select180, %ma_log_init.exit ]
+  %log.sink = phi ptr [ %6, %if.end7 ], [ %log, %ma_allocation_callbacks_init_copy.exit.i ], [ %spec.select240, %ma_log_init.exit ]
   %pLog17 = getelementptr inbounds i8, ptr %pContext, i64 112
   store ptr %log.sink, ptr %pLog17, align 8
-  %threadPriority = getelementptr inbounds i8, ptr %pConfig.addr.0, i64 8
-  %13 = load i32, ptr %threadPriority, align 8
+  %13 = load i32, ptr %pConfig.addr.0.sroa.phi245, align 8
   %threadPriority22 = getelementptr inbounds i8, ptr %pContext, i64 264
   store i32 %13, ptr %threadPriority22, align 8
-  %threadStackSize = getelementptr inbounds i8, ptr %pConfig.addr.0, i64 16
-  %14 = load i64, ptr %threadStackSize, align 8
+  %14 = load i64, ptr %pConfig.addr.0.sroa.phi248, align 8
   %threadStackSize23 = getelementptr inbounds i8, ptr %pContext, i64 272
   store i64 %14, ptr %threadStackSize23, align 8
-  %pUserData = getelementptr inbounds i8, ptr %pConfig.addr.0, i64 24
-  %15 = load ptr, ptr %pUserData, align 8
+  %15 = load ptr, ptr %pConfig.addr.0.sroa.phi, align 8
   %pUserData24 = getelementptr inbounds i8, ptr %pContext, i64 280
   store ptr %15, ptr %pUserData24, align 8
   br label %for.body
@@ -6369,67 +6368,66 @@ for.body:                                         ; preds = %if.end21, %for.body
 for.end:                                          ; preds = %for.body
   %cmp30 = icmp eq ptr %backends, null
   %spec.select = select i1 %cmp30, ptr %defaultBackends, ptr %backends
-  %spec.select74 = select i1 %cmp30, i32 15, i32 %backendCount
-  %cmp34169.not = icmp eq i32 %spec.select74, 0
-  br i1 %cmp34169.not, label %if.then2.i, label %for.body35.lr.ph
+  %spec.select93 = select i1 %cmp30, i32 15, i32 %backendCount
+  %cmp34201.not = icmp eq i32 %spec.select93, 0
+  br i1 %cmp34201.not, label %if.then2.i, label %for.body35.lr.ph
 
 for.body35.lr.ph:                                 ; preds = %for.end
-  %custom = getelementptr inbounds i8, ptr %pConfig.addr.0, i64 128
-  %pLog.i136165 = getelementptr inbounds i8, ptr %pContext, i64 112
-  %wide.trip.count = zext i32 %spec.select74 to i64
+  %pLog.i155197 = getelementptr inbounds i8, ptr %pContext, i64 112
+  %wide.trip.count = zext i32 %spec.select93 to i64
   br label %for.body35
 
 for.body35:                                       ; preds = %for.body35.lr.ph, %for.inc114
-  %indvars.iv173 = phi i64 [ 0, %for.body35.lr.ph ], [ %indvars.iv.next174, %for.inc114 ]
-  %arrayidx37 = getelementptr inbounds i32, ptr %spec.select, i64 %indvars.iv173
+  %indvars.iv205 = phi i64 [ 0, %for.body35.lr.ph ], [ %indvars.iv.next206, %for.inc114 ]
+  %arrayidx37 = getelementptr inbounds i32, ptr %spec.select, i64 %indvars.iv205
   %17 = load i32, ptr %arrayidx37, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(104) %pContext, i8 0, i64 104, i1 false)
-  switch i32 %17, label %ma_context_get_log.exit127 [
-    i32 7, label %if.end.i77.sink.split
+  switch i32 %17, label %ma_context_get_log.exit146 [
+    i32 7, label %if.end.i96.sink.split
     i32 8, label %sw.bb39
     i32 9, label %sw.bb42
-    i32 13, label %sw.epilog.thread152
+    i32 13, label %sw.epilog.thread184
     i32 14, label %sw.bb47
   ]
 
 sw.bb39:                                          ; preds = %for.body35
-  br label %if.end.i77.sink.split
+  br label %if.end.i96.sink.split
 
 sw.bb42:                                          ; preds = %for.body35
-  br label %if.end.i77.sink.split
+  br label %if.end.i96.sink.split
 
 sw.bb47:                                          ; preds = %for.body35
-  br label %if.end.i77.sink.split
+  br label %if.end.i96.sink.split
 
-sw.epilog.thread152:                              ; preds = %for.body35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %pContext, ptr noundef nonnull align 8 dereferenceable(104) %custom, i64 104, i1 false)
+sw.epilog.thread184:                              ; preds = %for.body35
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %pContext, ptr noundef nonnull align 8 dereferenceable(104) %pConfig.addr.0.sroa.phi253, i64 104, i1 false)
   %.pr = load ptr, ptr %pContext, align 8
-  %cmp52.not153 = icmp eq ptr %.pr, null
-  br i1 %cmp52.not153, label %ma_get_backend_name.exit144, label %if.end.i77
+  %cmp52.not185 = icmp eq ptr %.pr, null
+  br i1 %cmp52.not185, label %ma_get_backend_name.exit163, label %if.end.i96
 
-if.end.i77.sink.split:                            ; preds = %for.body35, %sw.bb39, %sw.bb42, %sw.bb47
+if.end.i96.sink.split:                            ; preds = %for.body35, %sw.bb39, %sw.bb42, %sw.bb47
   %ma_context_init__null.sink = phi ptr [ @ma_context_init__null, %sw.bb47 ], [ @ma_context_init__jack, %sw.bb42 ], [ @ma_context_init__alsa, %sw.bb39 ], [ @ma_context_init__pulse, %for.body35 ]
   store ptr %ma_context_init__null.sink, ptr %pContext, align 8
-  br label %if.end.i77
+  br label %if.end.i96
 
-if.end.i77:                                       ; preds = %if.end.i77.sink.split, %sw.epilog.thread152
-  %18 = load ptr, ptr %pLog.i136165, align 8
+if.end.i96:                                       ; preds = %if.end.i96.sink.split, %sw.epilog.thread184
+  %18 = load ptr, ptr %pLog.i155197, align 8
   %idxprom.i = zext nneg i32 %17 to i64
   %pName.i = getelementptr inbounds [15 x %struct.ma_backend_info], ptr @gBackendInfo, i64 0, i64 %idxprom.i, i32 1
   %19 = load ptr, ptr %pName.i, align 8
   %call56 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %18, i32 noundef 4, ptr noundef nonnull @.str.14, ptr noundef %19), !range !17
   %20 = load ptr, ptr %pContext, align 8
   %call60 = call i32 %20(ptr noundef nonnull %pContext, ptr noundef nonnull %pConfig.addr.0, ptr noundef nonnull %pContext) #65
-  switch i32 %call60, label %ma_get_backend_name.exit144 [
+  switch i32 %call60, label %ma_get_backend_name.exit163 [
     i32 0, label %if.then68
-    i32 -208, label %ma_context_get_log.exit127.thread
+    i32 -208, label %ma_context_get_log.exit146.thread
   ]
 
-ma_context_get_log.exit127.thread:                ; preds = %if.end.i77
-  %21 = load ptr, ptr %pLog.i136165, align 8
-  br label %if.end.i129
+ma_context_get_log.exit146.thread:                ; preds = %if.end.i96
+  %21 = load ptr, ptr %pLog.i155197, align 8
+  br label %if.end.i148
 
-if.then68:                                        ; preds = %if.end.i77
+if.then68:                                        ; preds = %if.end.i96
   %deviceEnumLock = getelementptr inbounds i8, ptr %pContext, i64 320
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %deviceEnumLock, i8 0, i64 40, i1 false)
   %call.i.i = call i32 @pthread_mutex_init(ptr noundef nonnull %deviceEnumLock, ptr noundef null) #65
@@ -6439,81 +6437,81 @@ if.then68:                                        ; preds = %if.end.i77
 ma_mutex_init.exit:                               ; preds = %if.then68
   %call3.i.i = call fastcc i32 @ma_result_from_errno(i32 noundef %call.i.i)
   %cmp70.not = icmp eq i32 %call3.i.i, 0
-  br i1 %cmp70.not, label %if.end74, label %ma_context_get_log.exit85
+  br i1 %cmp70.not, label %if.end74, label %ma_context_get_log.exit104
 
-ma_context_get_log.exit85:                        ; preds = %ma_mutex_init.exit
-  %22 = load ptr, ptr %pLog.i136165, align 8
+ma_context_get_log.exit104:                       ; preds = %ma_mutex_init.exit
+  %22 = load ptr, ptr %pLog.i155197, align 8
   %call73 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %22, i32 noundef 2, ptr noundef nonnull @.str.15), !range !17
   br label %if.end74
 
-if.end74:                                         ; preds = %if.then68, %ma_context_get_log.exit85, %ma_mutex_init.exit
+if.end74:                                         ; preds = %if.then68, %ma_context_get_log.exit104, %ma_mutex_init.exit
   %deviceInfoLock = getelementptr inbounds i8, ptr %pContext, i64 360
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %deviceInfoLock, i8 0, i64 40, i1 false)
-  %call.i.i87 = call i32 @pthread_mutex_init(ptr noundef nonnull %deviceInfoLock, ptr noundef null) #65
-  %cmp1.not.i.i88 = icmp eq i32 %call.i.i87, 0
-  br i1 %cmp1.not.i.i88, label %ma_context_get_log.exit122, label %ma_mutex_init.exit92
+  %call.i.i106 = call i32 @pthread_mutex_init(ptr noundef nonnull %deviceInfoLock, ptr noundef null) #65
+  %cmp1.not.i.i107 = icmp eq i32 %call.i.i106, 0
+  br i1 %cmp1.not.i.i107, label %ma_context_get_log.exit141, label %ma_mutex_init.exit111
 
-ma_mutex_init.exit92:                             ; preds = %if.end74
-  %call3.i.i90 = call fastcc i32 @ma_result_from_errno(i32 noundef %call.i.i87)
-  %cmp76.not = icmp eq i32 %call3.i.i90, 0
-  br i1 %cmp76.not, label %ma_context_get_log.exit122, label %ma_context_get_log.exit97
+ma_mutex_init.exit111:                            ; preds = %if.end74
+  %call3.i.i109 = call fastcc i32 @ma_result_from_errno(i32 noundef %call.i.i106)
+  %cmp76.not = icmp eq i32 %call3.i.i109, 0
+  br i1 %cmp76.not, label %ma_context_get_log.exit141, label %ma_context_get_log.exit116
 
-ma_context_get_log.exit97:                        ; preds = %ma_mutex_init.exit92
-  %23 = load ptr, ptr %pLog.i136165, align 8
+ma_context_get_log.exit116:                       ; preds = %ma_mutex_init.exit111
+  %23 = load ptr, ptr %pLog.i155197, align 8
   %call79 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %23, i32 noundef 2, ptr noundef nonnull @.str.16), !range !17
-  br label %ma_context_get_log.exit122
+  br label %ma_context_get_log.exit141
 
-ma_context_get_log.exit122:                       ; preds = %if.end74, %ma_context_get_log.exit97, %ma_mutex_init.exit92
-  %retval.0.i91164 = phi i32 [ %call3.i.i90, %ma_context_get_log.exit97 ], [ 0, %ma_mutex_init.exit92 ], [ 0, %if.end74 ]
-  %24 = load ptr, ptr %pLog.i136165, align 8
+ma_context_get_log.exit141:                       ; preds = %if.end74, %ma_context_get_log.exit116, %ma_mutex_init.exit111
+  %retval.0.i110196 = phi i32 [ %call3.i.i109, %ma_context_get_log.exit116 ], [ 0, %ma_mutex_init.exit111 ], [ 0, %if.end74 ]
+  %24 = load ptr, ptr %pLog.i155197, align 8
   %call82 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %24, i32 noundef 4, ptr noundef nonnull @.str.17), !range !17
-  %25 = load ptr, ptr %pLog.i136165, align 8
+  %25 = load ptr, ptr %pLog.i155197, align 8
   %call85 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %25, i32 noundef 4, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19), !range !17
-  %26 = load ptr, ptr %pLog.i136165, align 8
+  %26 = load ptr, ptr %pLog.i155197, align 8
   %call90 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %26, i32 noundef 4, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22), !range !17
-  %27 = load ptr, ptr %pLog.i136165, align 8
+  %27 = load ptr, ptr %pLog.i155197, align 8
   %call95 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %27, i32 noundef 4, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.23), !range !17
-  %28 = load ptr, ptr %pLog.i136165, align 8
+  %28 = load ptr, ptr %pLog.i155197, align 8
   %call100 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %28, i32 noundef 4, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.23), !range !17
   %backend101 = getelementptr inbounds i8, ptr %pContext, i64 104
   store i32 %17, ptr %backend101, align 8
   br label %return
 
-ma_context_get_log.exit127:                       ; preds = %for.body35
-  %29 = load ptr, ptr %pLog.i136165, align 8
-  %cmp1.i128 = icmp ugt i32 %17, 14
-  br i1 %cmp1.i128, label %ma_get_backend_name.exit133, label %if.end.i129
+ma_context_get_log.exit146:                       ; preds = %for.body35
+  %29 = load ptr, ptr %pLog.i155197, align 8
+  %cmp1.i147 = icmp ugt i32 %17, 14
+  br i1 %cmp1.i147, label %ma_get_backend_name.exit152, label %if.end.i148
 
-if.end.i129:                                      ; preds = %ma_context_get_log.exit127.thread, %ma_context_get_log.exit127
-  %30 = phi ptr [ %21, %ma_context_get_log.exit127.thread ], [ %29, %ma_context_get_log.exit127 ]
-  %idxprom.i130 = zext nneg i32 %17 to i64
-  %pName.i131 = getelementptr inbounds [15 x %struct.ma_backend_info], ptr @gBackendInfo, i64 0, i64 %idxprom.i130, i32 1
-  %31 = load ptr, ptr %pName.i131, align 8
-  br label %ma_get_backend_name.exit133
+if.end.i148:                                      ; preds = %ma_context_get_log.exit146.thread, %ma_context_get_log.exit146
+  %30 = phi ptr [ %21, %ma_context_get_log.exit146.thread ], [ %29, %ma_context_get_log.exit146 ]
+  %idxprom.i149 = zext nneg i32 %17 to i64
+  %pName.i150 = getelementptr inbounds [15 x %struct.ma_backend_info], ptr @gBackendInfo, i64 0, i64 %idxprom.i149, i32 1
+  %31 = load ptr, ptr %pName.i150, align 8
+  br label %ma_get_backend_name.exit152
 
-ma_get_backend_name.exit133:                      ; preds = %ma_context_get_log.exit127, %if.end.i129
-  %32 = phi ptr [ %30, %if.end.i129 ], [ %29, %ma_context_get_log.exit127 ]
-  %retval.0.i132 = phi ptr [ %31, %if.end.i129 ], [ @.str.9, %ma_context_get_log.exit127 ]
-  %call107 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %32, i32 noundef 4, ptr noundef nonnull @.str.26, ptr noundef %retval.0.i132), !range !17
+ma_get_backend_name.exit152:                      ; preds = %ma_context_get_log.exit146, %if.end.i148
+  %32 = phi ptr [ %30, %if.end.i148 ], [ %29, %ma_context_get_log.exit146 ]
+  %retval.0.i151 = phi ptr [ %31, %if.end.i148 ], [ @.str.9, %ma_context_get_log.exit146 ]
+  %call107 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %32, i32 noundef 4, ptr noundef nonnull @.str.26, ptr noundef %retval.0.i151), !range !17
   br label %for.inc114
 
-ma_get_backend_name.exit144:                      ; preds = %if.end.i77, %sw.epilog.thread152
-  %33 = phi ptr [ @.str.200, %sw.epilog.thread152 ], [ %19, %if.end.i77 ]
-  %34 = load ptr, ptr %pLog.i136165, align 8
+ma_get_backend_name.exit163:                      ; preds = %if.end.i96, %sw.epilog.thread184
+  %33 = phi ptr [ @.str.200, %sw.epilog.thread184 ], [ %19, %if.end.i96 ]
+  %34 = load ptr, ptr %pLog.i155197, align 8
   %call111 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %34, i32 noundef 4, ptr noundef nonnull @.str.27, ptr noundef %33), !range !17
   br label %for.inc114
 
-for.inc114:                                       ; preds = %ma_get_backend_name.exit144, %ma_get_backend_name.exit133
-  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
-  %exitcond176.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count
-  br i1 %exitcond176.not, label %if.then2.i, label %for.body35, !llvm.loop !36
+for.inc114:                                       ; preds = %ma_get_backend_name.exit163, %ma_get_backend_name.exit152
+  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
+  %exitcond208.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count
+  br i1 %exitcond208.not, label %if.then2.i, label %for.body35, !llvm.loop !36
 
 if.then2.i:                                       ; preds = %for.inc114, %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1016) %pContext, i8 0, i64 1016, i1 false)
   br label %return
 
-return:                                           ; preds = %land.lhs.true5.i, %land.lhs.true7.i, %if.else11.i, %land.lhs.true16.i, %entry, %if.then2.i, %ma_context_get_log.exit122
-  %retval.0 = phi i32 [ %retval.0.i91164, %ma_context_get_log.exit122 ], [ -203, %if.then2.i ], [ -2, %entry ], [ -2, %land.lhs.true16.i ], [ -2, %if.else11.i ], [ -2, %land.lhs.true7.i ], [ -2, %land.lhs.true5.i ]
+return:                                           ; preds = %land.lhs.true5.i, %land.lhs.true7.i, %if.else11.i, %land.lhs.true16.i, %entry, %if.then2.i, %ma_context_get_log.exit141
+  %retval.0 = phi i32 [ %retval.0.i110196, %ma_context_get_log.exit141 ], [ -203, %if.then2.i ], [ -2, %entry ], [ -2, %land.lhs.true16.i ], [ -2, %if.else11.i ], [ -2, %land.lhs.true7.i ], [ -2, %land.lhs.true5.i ]
   ret i32 %retval.0
 }
 
@@ -117289,6 +117287,8 @@ entry:
   %defaultDeviceNames = alloca [7 x ptr], align 16
   %deviceID = alloca %union.ma_device_id, align 8
   %hwid = alloca [256 x i8], align 16
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %hwid, i64 6
+  %.sink.sroa.gep152 = getelementptr inbounds i8, ptr %hwid, i64 4
   store ptr null, ptr %ppPCM, align 8
   store ptr null, ptr %pPCM, align 8
   %cmp = icmp ne i32 %deviceType, 1
@@ -117419,9 +117419,8 @@ for.body.i30:                                     ; preds = %if.then55, %for.bod
   br i1 %exitcond126, label %if.end64, label %for.body.i30
 
 if.end64:                                         ; preds = %for.body.i, %for.body.i30
-  %.sink = phi i64 [ 6, %for.body.i30 ], [ 4, %for.body.i ]
-  %arrayidx16.i38 = getelementptr inbounds i8, ptr %hwid, i64 %.sink
-  store i8 0, ptr %arrayidx16.i38, align 2
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %for.body.i30 ], [ %.sink.sroa.gep152, %for.body.i ]
+  store i8 0, ptr %.sink.sroa.phi, align 2
   br label %land.rhs.i41
 
 land.rhs.i41:                                     ; preds = %while.body.i, %if.end64
@@ -150435,12 +150434,13 @@ define internal fastcc void @ma_dr_mp3_L3_imdct36(ptr nocapture noundef %grbuf, 
 entry:
   %co = alloca [9 x float], align 16
   %si = alloca [9 x float], align 16
+  %i.1.sroa.gep155 = getelementptr inbounds i8, ptr %co, i64 16
+  %i.1.sroa.gep152 = getelementptr inbounds i8, ptr %si, i64 16
   %cmp137 = icmp sgt i32 %nbands, 0
   br i1 %cmp137, label %for.body.lr.ph, label %for.end176
 
 for.body.lr.ph:                                   ; preds = %entry
   %arrayidx1.i = getelementptr inbounds i8, ptr %co, i64 8
-  %arrayidx2.i = getelementptr inbounds i8, ptr %co, i64 16
   %arrayidx3.i = getelementptr inbounds i8, ptr %co, i64 24
   %arrayidx4.i = getelementptr inbounds i8, ptr %co, i64 32
   %arrayidx20.i = getelementptr inbounds i8, ptr %co, i64 4
@@ -150448,7 +150448,6 @@ for.body.lr.ph:                                   ; preds = %entry
   %arrayidx22.i = getelementptr inbounds i8, ptr %co, i64 20
   %arrayidx23.i = getelementptr inbounds i8, ptr %co, i64 28
   %arrayidx1.i84 = getelementptr inbounds i8, ptr %si, i64 8
-  %arrayidx2.i85 = getelementptr inbounds i8, ptr %si, i64 16
   %arrayidx3.i86 = getelementptr inbounds i8, ptr %si, i64 24
   %arrayidx4.i87 = getelementptr inbounds i8, ptr %si, i64 32
   %arrayidx20.i105 = getelementptr inbounds i8, ptr %si, i64 4
@@ -150511,7 +150510,7 @@ for.body6:                                        ; preds = %for.body, %for.body
 
 for.end:                                          ; preds = %for.body6
   %15 = load float, ptr %arrayidx1.i, align 8
-  %16 = load float, ptr %arrayidx2.i, align 16
+  %16 = load float, ptr %i.1.sroa.gep155, align 16
   %17 = load float, ptr %arrayidx3.i, align 8
   %18 = load float, ptr %arrayidx4.i, align 16
   %19 = tail call float @llvm.fmuladd.f32(float %17, float 5.000000e-01, float %fneg)
@@ -150580,7 +150579,7 @@ for.end:                                          ; preds = %for.body6
   store float %add54.i, ptr %arrayidx4.i, align 16
   %42 = load float, ptr %si, align 16
   %43 = load float, ptr %arrayidx1.i84, align 8
-  %44 = load float, ptr %arrayidx2.i85, align 16
+  %44 = load float, ptr %i.1.sroa.gep152, align 16
   %45 = load float, ptr %arrayidx3.i86, align 8
   %46 = load float, ptr %arrayidx4.i87, align 16
   %47 = tail call float @llvm.fmuladd.f32(float %45, float 5.000000e-01, float %42)
@@ -150596,7 +150595,7 @@ for.end:                                          ; preds = %for.body6
   %neg.i97 = fneg float %add10.i96
   %48 = tail call float @llvm.fmuladd.f32(float %neg.i97, float 5.000000e-01, float %sub.i88)
   %add12.i98 = fadd float %sub.i88, %add10.i96
-  store float %add12.i98, ptr %arrayidx2.i85, align 16
+  store float %add12.i98, ptr %i.1.sroa.gep152, align 16
   %sub14.i99 = fsub float %47, %mul6.i92
   %add15.i100 = fadd float %mul8.i94, %sub14.i99
   %sub16.i101 = fsub float %47, %mul.i90
@@ -150648,13 +150647,13 @@ for.end:                                          ; preds = %for.body6
 
 for.body71:                                       ; preds = %for.end, %for.body71
   %cmp70.old = phi i1 [ true, %for.end ], [ false, %for.body71 ]
+  %i.1.sroa.phi = phi ptr [ %si, %for.end ], [ %i.1.sroa.gep152, %for.body71 ]
+  %i.1.sroa.phi153 = phi ptr [ %co, %for.end ], [ %i.1.sroa.gep155, %for.body71 ]
   %i.1 = phi i64 [ 0, %for.end ], [ 4, %for.body71 ]
   %add.ptr = getelementptr inbounds float, ptr %overlap.addr.0139, i64 %i.1
   %53 = load <4 x float>, ptr %add.ptr, align 1
-  %add.ptr75 = getelementptr inbounds float, ptr %co, i64 %i.1
-  %54 = load <4 x float>, ptr %add.ptr75, align 16
-  %add.ptr79 = getelementptr inbounds float, ptr %si, i64 %i.1
-  %55 = load <4 x float>, ptr %add.ptr79, align 16
+  %54 = load <4 x float>, ptr %i.1.sroa.phi153, align 1
+  %55 = load <4 x float>, ptr %i.1.sroa.phi, align 1
   %add.ptr82 = getelementptr inbounds float, ptr @ma_dr_mp3_L3_imdct36.g_twid9, i64 %i.1
   %56 = load <4 x float>, ptr %add.ptr82, align 16
   %add.ptr85 = getelementptr inbounds float, ptr getelementptr inbounds ([18 x float], ptr @ma_dr_mp3_L3_imdct36.g_twid9, i64 0, i64 9), i64 %i.1

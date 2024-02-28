@@ -2598,37 +2598,37 @@ for.body110:                                      ; preds = %if.end102, %for.inc
           to label %invoke.cont118 unwind label %lpad20.loopexit
 
 invoke.cont118:                                   ; preds = %for.body110
-  br i1 %call119, label %dynamic_cast.notnull, label %for.inc146
+  br i1 %call119, label %dynamic_cast.end, label %for.inc146
 
-dynamic_cast.notnull:                             ; preds = %invoke.cont118
+dynamic_cast.end:                                 ; preds = %invoke.cont118
   %51 = call ptr @__dynamic_cast(ptr nonnull %49, ptr nonnull @_ZTIN6Assimp11BaseProcessE, ptr nonnull @_ZTIN6Assimp14FlipUVsProcessE, i64 0) #28
   %tobool121.not = icmp eq ptr %51, null
-  br i1 %tobool121.not, label %dynamic_cast.notnull123, label %for.inc146
+  br i1 %tobool121.not, label %dynamic_cast.end125, label %for.inc146
 
-dynamic_cast.notnull123:                          ; preds = %dynamic_cast.notnull
+dynamic_cast.end125:                              ; preds = %dynamic_cast.end
   %52 = call ptr @__dynamic_cast(ptr nonnull %49, ptr nonnull @_ZTIN6Assimp11BaseProcessE, ptr nonnull @_ZTIN6Assimp23FlipWindingOrderProcessE, i64 0) #28
   %tobool126.not = icmp eq ptr %52, null
-  br i1 %tobool126.not, label %dynamic_cast.notnull128, label %for.inc146
+  br i1 %tobool126.not, label %dynamic_cast.end130, label %for.inc146
 
-dynamic_cast.notnull128:                          ; preds = %dynamic_cast.notnull123
+dynamic_cast.end130:                              ; preds = %dynamic_cast.end125
   %53 = call ptr @__dynamic_cast(ptr nonnull %49, ptr nonnull @_ZTIN6Assimp11BaseProcessE, ptr nonnull @_ZTIN6Assimp21MakeLeftHandedProcessE, i64 0) #28
   %tobool131.not = icmp eq ptr %53, null
-  br i1 %tobool131.not, label %dynamic_cast.notnull133, label %for.inc146
+  br i1 %tobool131.not, label %dynamic_cast.end135, label %for.inc146
 
-dynamic_cast.notnull133:                          ; preds = %dynamic_cast.notnull128
+dynamic_cast.end135:                              ; preds = %dynamic_cast.end130
   %54 = call ptr @__dynamic_cast(ptr nonnull %49, ptr nonnull @_ZTIN6Assimp11BaseProcessE, ptr nonnull @_ZTIN6Assimp20PretransformVerticesE, i64 0) #28
   %tobool136.not = icmp ne ptr %54, null
   %brmerge.not = and i1 %exportPointCloud.0, %tobool136.not
   br i1 %brmerge.not, label %for.inc146, label %if.end140
 
-if.end140:                                        ; preds = %dynamic_cast.notnull133
+if.end140:                                        ; preds = %dynamic_cast.end135
   %vtable142 = load ptr, ptr %49, align 8
   %vfn143 = getelementptr inbounds i8, ptr %vtable142, i64 40
   %55 = load ptr, ptr %vfn143, align 8
   invoke void %55(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef %13)
           to label %for.inc146 unwind label %lpad20.loopexit
 
-for.inc146:                                       ; preds = %dynamic_cast.notnull133, %invoke.cont118, %dynamic_cast.notnull, %dynamic_cast.notnull123, %dynamic_cast.notnull128, %if.end140
+for.inc146:                                       ; preds = %dynamic_cast.end135, %invoke.cont118, %dynamic_cast.end, %dynamic_cast.end125, %dynamic_cast.end130, %if.end140
   %inc147 = add i32 %a103.0106, 1
   %conv105 = zext i32 %inc147 to i64
   %56 = load ptr, ptr %this, align 8
@@ -3225,7 +3225,7 @@ declare noundef zeroext i1 @_ZNK6Assimp21MakeLeftHandedProcess8IsActiveEj(ptr no
 
 declare void @_ZN6Assimp21MakeLeftHandedProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #7
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #11
 
 declare void @_ZN6Assimp19JoinVerticesProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #7
@@ -4232,15 +4232,14 @@ _ZNSt8functionIFPvS0_EEaSERKS2_.exit:             ; preds = %_ZNSt8functionIFPvS
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i7, %invoke.cont, %_ZNSt8functionIFPvS0_EEaSERKS2_.exit
-  %cmp.i36 = phi i1 [ true, %_ZNSt8functionIFPvS0_EEaSERKS2_.exit ], [ false, %invoke.cont ], [ false, %if.then.i.i.i7 ]
-  ret i1 %cmp.i36
+  %retval.0 = phi i1 [ true, %_ZNSt8functionIFPvS0_EEaSERKS2_.exit ], [ false, %invoke.cont ], [ false, %if.then.i.i.i7 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6Assimp16ExportProperties19GetPropertyCallbackEPKc(ptr noalias sret(%"class.std::function") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef %szName) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::function", align 8
-  %ref.tmp.sroa.gep14 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   %call.i = tail call noundef i32 @_Z13SuperFastHashPKcjj(ptr noundef %szName, i32 noundef 0, i32 noundef 0)
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -4272,18 +4271,15 @@ _ZNKSt3mapIjSt8functionIFPvS1_EESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit.i: 
   %cmp.i4.i.i.i = icmp ult i32 %call.i, %2
   %second.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 40
   %spec.select.i = select i1 %cmp.i4.i.i.i, ptr %ref.tmp, ptr %second.i
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %second.i.sroa.gep = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 56
-  %spec.select.i.sroa.sel = select i1 %cmp.i4.i.i.i, ptr %ref.tmp.sroa.gep, ptr %second.i.sroa.gep
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNKSt3mapIjSt8functionIFPvS1_EESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit.i, %_ZNKSt8_Rb_treeIjSt4pairIKjSt8functionIFPvS3_EEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %entry
   %retval.0.i = phi ptr [ %ref.tmp, %_ZNKSt8_Rb_treeIjSt4pairIKjSt8functionIFPvS3_EEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %ref.tmp, %entry ], [ %spec.select.i, %_ZNKSt3mapIjSt8functionIFPvS1_EESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit.i ]
-  %retval.0.i.sroa.phi = phi ptr [ %ref.tmp.sroa.gep14, %_ZNKSt8_Rb_treeIjSt4pairIKjSt8functionIFPvS3_EEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %ref.tmp.sroa.gep14, %entry ], [ %spec.select.i.sroa.sel, %_ZNKSt3mapIjSt8functionIFPvS1_EESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit.i ]
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
-  %3 = load ptr, ptr %retval.0.i.sroa.phi, align 8
+  %3 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFPvS0_EED2Ev.exit, label %if.then.i
 
@@ -4313,9 +4309,10 @@ invoke.cont2:                                     ; preds = %if.then.i
   %_M_invoker4.i = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   %8 = load ptr, ptr %_M_invoker4.i, align 8
   store ptr %8, ptr %_M_invoker.i, align 8
-  %9 = load ptr, ptr %retval.0.i.sroa.phi, align 8
+  %9 = load ptr, ptr %_M_manager.i.i.i, align 8
   store ptr %9, ptr %_M_manager.i.i, align 8
-  %.pre = load ptr, ptr %ref.tmp.sroa.gep14, align 8
+  %_M_manager.i.i1.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %.pre = load ptr, ptr %_M_manager.i.i1.phi.trans.insert, align 8
   %tobool.not.i.i2 = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i2, label %_ZNSt8functionIFPvS0_EED2Ev.exit, label %if.then.i.i3
 
@@ -4334,7 +4331,8 @@ _ZNSt8functionIFPvS0_EED2Ev.exit:                 ; preds = %invoke.cont, %invok
   ret void
 
 lpad.body:                                        ; preds = %lpad.i, %if.then.i.i
-  %12 = load ptr, ptr %ref.tmp.sroa.gep14, align 8
+  %_M_manager.i.i7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %12 = load ptr, ptr %_M_manager.i.i7, align 8
   %tobool.not.i.i8 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i8, label %_ZNSt8functionIFPvS0_EED2Ev.exit13, label %if.then.i.i9
 
@@ -4441,9 +4439,9 @@ if.end.i:                                         ; preds = %_ZNSt3mapIjiSt4less
   br label %_Z18SetGenericPropertyIiEbRSt3mapIjT_St4lessIjESaISt4pairIKjS1_EEEPKcRKS1_.exit
 
 _Z18SetGenericPropertyIiEbRSt3mapIjT_St4lessIjESaISt4pairIKjS1_EEEPKcRKS1_.exit: ; preds = %if.then.i, %if.end.i
-  %cmp.i8.i = phi i1 [ true, %if.end.i ], [ false, %if.then.i ]
+  %retval.0.i = phi i1 [ true, %if.end.i ], [ false, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp5.i)
-  ret i1 %cmp.i8.i
+  ret i1 %retval.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4495,9 +4493,9 @@ if.end.i:                                         ; preds = %_ZNSt3mapIjfSt4less
   br label %_Z18SetGenericPropertyIfEbRSt3mapIjT_St4lessIjESaISt4pairIKjS1_EEEPKcRKS1_.exit
 
 _Z18SetGenericPropertyIfEbRSt3mapIjT_St4lessIjESaISt4pairIKjS1_EEEPKcRKS1_.exit: ; preds = %if.then.i, %if.end.i
-  %cmp.i8.i = phi i1 [ true, %if.end.i ], [ false, %if.then.i ]
+  %retval.0.i = phi i1 [ true, %if.end.i ], [ false, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp5.i)
-  ret i1 %cmp.i8.i
+  ret i1 %retval.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4598,8 +4596,8 @@ if.end:                                           ; preds = %_ZNSt3mapIjNSt7__cx
   br label %return
 
 return:                                           ; preds = %if.end, %invoke.cont
-  %cmp.i11 = phi i1 [ true, %if.end ], [ false, %invoke.cont ]
-  ret i1 %cmp.i11
+  %retval.0 = phi i1 [ true, %if.end ], [ false, %invoke.cont ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4651,9 +4649,9 @@ if.end.i:                                         ; preds = %_ZNSt3mapIj12aiMatr
   br label %_Z18SetGenericPropertyI12aiMatrix4x4tIfEEbRSt3mapIjT_St4lessIjESaISt4pairIKjS3_EEEPKcRKS3_.exit
 
 _Z18SetGenericPropertyI12aiMatrix4x4tIfEEbRSt3mapIjT_St4lessIjESaISt4pairIKjS3_EEEPKcRKS3_.exit: ; preds = %if.then.i, %if.end.i
-  %cmp.i8.i = phi i1 [ true, %if.end.i ], [ false, %if.then.i ]
+  %retval.0.i = phi i1 [ true, %if.end.i ], [ false, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %ref.tmp5.i)
-  ret i1 %cmp.i8.i
+  ret i1 %retval.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11274,7 +11272,7 @@ attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind memory(read) }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #12 = { nofree nosync nounwind memory(none) }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -155440,9 +155440,6 @@ entry:
 define internal void @_ZN12_GLOBAL__N_120Splitter_ToPair_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca %"struct.std::pair", align 8
-  %p.sroa.gep322 = getelementptr inbounds i8, ptr %p, i64 32
-  %p.sroa.gep321 = getelementptr inbounds i8, ptr %p, i64 32
-  %p.sroa.gep = getelementptr inbounds i8, ptr %p, i64 32
   %ref.tmp = alloca %"class.absl::strings_internal::Splitter.56", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp2 = alloca %"class.testing::Message", align 8
@@ -155451,9 +155448,6 @@ entry:
   %ref.tmp18 = alloca %"class.testing::Message", align 8
   %ref.tmp21 = alloca %"class.testing::internal::AssertHelper", align 8
   %p33 = alloca %"struct.std::pair", align 8
-  %p33.sroa.gep324 = getelementptr inbounds i8, ptr %p33, i64 32
-  %p33.sroa.gep323 = getelementptr inbounds i8, ptr %p33, i64 32
-  %p33.sroa.gep = getelementptr inbounds i8, ptr %p33, i64 32
   %ref.tmp34 = alloca %"class.absl::strings_internal::Splitter.56", align 8
   %gtest_ar36 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp43 = alloca %"class.testing::Message", align 8
@@ -155462,9 +155456,6 @@ entry:
   %ref.tmp63 = alloca %"class.testing::Message", align 8
   %ref.tmp66 = alloca %"class.testing::internal::AssertHelper", align 8
   %p78 = alloca %"struct.std::pair", align 8
-  %p78.sroa.gep326 = getelementptr inbounds i8, ptr %p78, i64 32
-  %p78.sroa.gep325 = getelementptr inbounds i8, ptr %p78, i64 32
-  %p78.sroa.gep = getelementptr inbounds i8, ptr %p78, i64 32
   %ref.tmp79 = alloca %"class.absl::strings_internal::Splitter.56", align 8
   %gtest_ar81 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp88 = alloca %"class.testing::Message", align 8
@@ -155473,9 +155464,6 @@ entry:
   %ref.tmp108 = alloca %"class.testing::Message", align 8
   %ref.tmp111 = alloca %"class.testing::internal::AssertHelper", align 8
   %p123 = alloca %"struct.std::pair", align 8
-  %p123.sroa.gep328 = getelementptr inbounds i8, ptr %p123, i64 32
-  %p123.sroa.gep327 = getelementptr inbounds i8, ptr %p123, i64 32
-  %p123.sroa.gep = getelementptr inbounds i8, ptr %p123, i64 32
   %ref.tmp124 = alloca %"class.absl::strings_internal::Splitter.56", align 8
   %gtest_ar126 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp133 = alloca %"class.testing::Message", align 8
@@ -155484,9 +155472,6 @@ entry:
   %ref.tmp153 = alloca %"class.testing::Message", align 8
   %ref.tmp156 = alloca %"class.testing::internal::AssertHelper", align 8
   %p168 = alloca %"struct.std::pair", align 8
-  %p168.sroa.gep330 = getelementptr inbounds i8, ptr %p168, i64 32
-  %p168.sroa.gep329 = getelementptr inbounds i8, ptr %p168, i64 32
-  %p168.sroa.gep = getelementptr inbounds i8, ptr %p168, i64 32
   %ref.tmp169 = alloca %"class.absl::strings_internal::Splitter.56", align 8
   %gtest_ar171 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp178 = alloca %"class.testing::Message", align 8
@@ -155494,6 +155479,21 @@ entry:
   %gtest_ar192 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp198 = alloca %"class.testing::Message", align 8
   %ref.tmp201 = alloca %"class.testing::internal::AssertHelper", align 8
+  %p168.sink320.sroa.gep = getelementptr inbounds i8, ptr %p, i64 32
+  %p168.sink320.sroa.gep321 = getelementptr inbounds i8, ptr %p, i64 32
+  %p168.sink320.sroa.gep322 = getelementptr inbounds i8, ptr %p, i64 32
+  %p168.sink320.sroa.gep323 = getelementptr inbounds i8, ptr %p33, i64 32
+  %p168.sink320.sroa.gep324 = getelementptr inbounds i8, ptr %p33, i64 32
+  %p168.sink320.sroa.gep325 = getelementptr inbounds i8, ptr %p33, i64 32
+  %p168.sink320.sroa.gep326 = getelementptr inbounds i8, ptr %p78, i64 32
+  %p168.sink320.sroa.gep327 = getelementptr inbounds i8, ptr %p78, i64 32
+  %p168.sink320.sroa.gep328 = getelementptr inbounds i8, ptr %p78, i64 32
+  %p168.sink320.sroa.gep329 = getelementptr inbounds i8, ptr %p123, i64 32
+  %p168.sink320.sroa.gep330 = getelementptr inbounds i8, ptr %p123, i64 32
+  %p168.sink320.sroa.gep331 = getelementptr inbounds i8, ptr %p123, i64 32
+  %p168.sink320.sroa.gep332 = getelementptr inbounds i8, ptr %p168, i64 32
+  %p168.sink320.sroa.gep333 = getelementptr inbounds i8, ptr %p168, i64 32
+  %p168.sink320.sroa.gep334 = getelementptr inbounds i8, ptr %p168, i64 32
   store i64 0, ptr %ref.tmp, align 8, !alias.scope !2384
   %input_text.sroa.2.0.text_.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.73, ptr %input_text.sroa.2.0.text_.sroa_idx.i.i, align 8, !alias.scope !2384
@@ -156657,9 +156657,9 @@ ehcleanup211:                                     ; preds = %_ZN7testing7Message
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad173, %ehcleanup191, %ehcleanup211, %lpad128, %ehcleanup146, %ehcleanup166, %lpad83, %ehcleanup101, %ehcleanup121, %lpad38, %ehcleanup56, %ehcleanup76, %lpad, %ehcleanup12, %ehcleanup31
+  %p168.sink320.sroa.phi = phi ptr [ %p168.sink320.sroa.gep, %ehcleanup31 ], [ %p168.sink320.sroa.gep321, %ehcleanup12 ], [ %p168.sink320.sroa.gep322, %lpad ], [ %p168.sink320.sroa.gep323, %ehcleanup76 ], [ %p168.sink320.sroa.gep324, %ehcleanup56 ], [ %p168.sink320.sroa.gep325, %lpad38 ], [ %p168.sink320.sroa.gep326, %ehcleanup121 ], [ %p168.sink320.sroa.gep327, %ehcleanup101 ], [ %p168.sink320.sroa.gep328, %lpad83 ], [ %p168.sink320.sroa.gep329, %ehcleanup166 ], [ %p168.sink320.sroa.gep330, %ehcleanup146 ], [ %p168.sink320.sroa.gep331, %lpad128 ], [ %p168.sink320.sroa.gep332, %ehcleanup211 ], [ %p168.sink320.sroa.gep333, %ehcleanup191 ], [ %p168.sink320.sroa.gep334, %lpad173 ]
   %p168.sink320 = phi ptr [ %p, %ehcleanup31 ], [ %p, %ehcleanup12 ], [ %p, %lpad ], [ %p33, %ehcleanup76 ], [ %p33, %ehcleanup56 ], [ %p33, %lpad38 ], [ %p78, %ehcleanup121 ], [ %p78, %ehcleanup101 ], [ %p78, %lpad83 ], [ %p123, %ehcleanup166 ], [ %p123, %ehcleanup146 ], [ %p123, %lpad128 ], [ %p168, %ehcleanup211 ], [ %p168, %ehcleanup191 ], [ %p168, %lpad173 ]
   %.pn31.pn.pn.pn = phi { ptr, i32 } [ %.pn3.pn, %ehcleanup31 ], [ %.pn.pn, %ehcleanup12 ], [ %2, %lpad ], [ %.pn10.pn, %ehcleanup76 ], [ %.pn7.pn, %ehcleanup56 ], [ %25, %lpad38 ], [ %.pn17.pn, %ehcleanup121 ], [ %.pn14.pn, %ehcleanup101 ], [ %48, %lpad83 ], [ %.pn24.pn, %ehcleanup166 ], [ %.pn21.pn, %ehcleanup146 ], [ %71, %lpad128 ], [ %.pn31.pn, %ehcleanup211 ], [ %.pn28.pn, %ehcleanup191 ], [ %94, %lpad173 ]
-  %p168.sink320.sroa.phi = phi ptr [ %p.sroa.gep, %ehcleanup31 ], [ %p.sroa.gep321, %ehcleanup12 ], [ %p.sroa.gep322, %lpad ], [ %p33.sroa.gep, %ehcleanup76 ], [ %p33.sroa.gep323, %ehcleanup56 ], [ %p33.sroa.gep324, %lpad38 ], [ %p78.sroa.gep, %ehcleanup121 ], [ %p78.sroa.gep325, %ehcleanup101 ], [ %p78.sroa.gep326, %lpad83 ], [ %p123.sroa.gep, %ehcleanup166 ], [ %p123.sroa.gep327, %ehcleanup146 ], [ %p123.sroa.gep328, %lpad128 ], [ %p168.sroa.gep, %ehcleanup211 ], [ %p168.sroa.gep329, %ehcleanup191 ], [ %p168.sroa.gep330, %lpad173 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %p168.sink320.sroa.phi) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %p168.sink320) #23
   resume { ptr, i32 } %.pn31.pn.pn.pn

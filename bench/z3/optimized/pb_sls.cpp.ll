@@ -3366,6 +3366,10 @@ entry:
   %ref.tmp200 = alloca %class.mpz, align 8
   %ref.tmp223 = alloca %class.mpz, align 8
   %ref.tmp227 = alloca %class.mpz, align 8
+  %ref.tmp200.sink431.sroa.gep440 = getelementptr inbounds i8, ptr %ref.tmp200, i64 8
+  %ref.tmp200.sink431.sroa.gep441 = getelementptr inbounds i8, ptr %ref.tmp227, i64 8
+  %ref.tmp200.sink431.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp200, i64 4
+  %ref.tmp200.sink431.sroa.gep438 = getelementptr inbounds i8, ptr %ref.tmp227, i64 4
   %0 = load ptr, ptr %this, align 8
   store ptr null, ptr %tmp, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %tmp, i64 8
@@ -4567,11 +4571,11 @@ invoke.cont225:                                   ; preds = %invoke.cont220
   br label %invoke.cont225.invoke
 
 invoke.cont225.invoke:                            ; preds = %for.end198, %invoke.cont225
+  %ref.tmp200.sink431.sroa.phi = phi ptr [ %ref.tmp200.sink431.sroa.gep, %for.end198 ], [ %ref.tmp200.sink431.sroa.gep438, %invoke.cont225 ]
+  %ref.tmp200.sink431.sroa.phi439 = phi ptr [ %ref.tmp200.sink431.sroa.gep440, %for.end198 ], [ %ref.tmp200.sink431.sroa.gep441, %invoke.cont225 ]
   %ref.tmp200.sink431 = phi ptr [ %ref.tmp200, %for.end198 ], [ %ref.tmp227, %invoke.cont225 ]
-  %m_kind.i360 = getelementptr inbounds i8, ptr %ref.tmp200.sink431, i64 4
-  store i8 0, ptr %m_kind.i360, align 4
-  %m_ptr.i363 = getelementptr inbounds i8, ptr %ref.tmp200.sink431, i64 8
-  store ptr null, ptr %m_ptr.i363, align 8
+  store i8 0, ptr %ref.tmp200.sink431.sroa.phi, align 4
+  store ptr null, ptr %ref.tmp200.sink431.sroa.phi439, align 8
   %m_k202 = getelementptr inbounds i8, ptr %cls, i64 24
   %198 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN15_scoped_numeralI11mpz_managerILb0EEEaSERK3mpz(ptr noundef nonnull align 8 dereferenceable(24) %m_k202, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp200.sink431)
           to label %cleanup unwind label %lpad18.loopexit.split-lp.loopexit.split-lp

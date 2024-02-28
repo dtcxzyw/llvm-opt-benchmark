@@ -136,6 +136,12 @@ entry:
   %ref.tmp50 = alloca %"class.Imath_3_2::Box", align 4
   %ref.tmp77 = alloca %"struct.Imf_3_2::Channel", align 8
   %out = alloca %"class.Imf_3_2::DeepTiledOutputFile", align 8
+  %ref.tmp31.sink60.sroa.gep68 = getelementptr inbounds i8, ptr %ref.tmp31, i64 12
+  %ref.tmp31.sink60.sroa.gep69 = getelementptr inbounds i8, ptr %ref.tmp42, i64 12
+  %ref.tmp31.sink60.sroa.gep65 = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
+  %ref.tmp31.sink60.sroa.gep66 = getelementptr inbounds i8, ptr %ref.tmp42, i64 8
+  %ref.tmp31.sink60.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp31, i64 4
+  %ref.tmp31.sink60.sroa.gep63 = getelementptr inbounds i8, ptr %ref.tmp42, i64 4
   store <2 x float> zeroinitializer, ptr %ref.tmp, align 8
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %newHdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   %call = invoke ptr @_ZNK7Imf_3_26Header5beginEv(ptr noundef nonnull align 8 dereferenceable(49) %hdr)
@@ -234,16 +240,16 @@ invoke.cont45:                                    ; preds = %invoke.cont43
   br label %invoke.cont45.invoke
 
 invoke.cont45.invoke:                             ; preds = %invoke.cont38, %invoke.cont45
+  %ref.tmp31.sink60.sroa.phi = phi ptr [ %ref.tmp31.sink60.sroa.gep, %invoke.cont38 ], [ %ref.tmp31.sink60.sroa.gep63, %invoke.cont45 ]
+  %ref.tmp31.sink60.sroa.phi64 = phi ptr [ %ref.tmp31.sink60.sroa.gep65, %invoke.cont38 ], [ %ref.tmp31.sink60.sroa.gep66, %invoke.cont45 ]
+  %ref.tmp31.sink60.sroa.phi67 = phi ptr [ %ref.tmp31.sink60.sroa.gep68, %invoke.cont38 ], [ %ref.tmp31.sink60.sroa.gep69, %invoke.cont45 ]
   %ref.tmp31.sink60 = phi ptr [ %ref.tmp31, %invoke.cont38 ], [ %ref.tmp42, %invoke.cont45 ]
   %.sink = phi i32 [ %2, %invoke.cont38 ], [ 64, %invoke.cont45 ]
   %call37.sink = phi i32 [ %call37, %invoke.cont38 ], [ %call44, %invoke.cont45 ]
   %call39.sink = phi i32 [ %call39, %invoke.cont38 ], [ %call46, %invoke.cont45 ]
-  %ySize.i = getelementptr inbounds i8, ptr %ref.tmp31.sink60, i64 4
-  store i32 %.sink, ptr %ySize.i, align 4
-  %mode.i = getelementptr inbounds i8, ptr %ref.tmp31.sink60, i64 8
-  store i32 %call37.sink, ptr %mode.i, align 4
-  %roundingMode.i = getelementptr inbounds i8, ptr %ref.tmp31.sink60, i64 12
-  store i32 %call39.sink, ptr %roundingMode.i, align 4
+  store i32 %.sink, ptr %ref.tmp31.sink60.sroa.phi, align 4
+  store i32 %call37.sink, ptr %ref.tmp31.sink60.sroa.phi64, align 4
+  store i32 %call39.sink, ptr %ref.tmp31.sink60.sroa.phi67, align 4
   invoke void @_ZN7Imf_3_26Header18setTileDescriptionERKNS_15TileDescriptionE(ptr noundef nonnull align 8 dereferenceable(49) %newHdr, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp31.sink60)
           to label %if.end49 unwind label %lpad.loopexit.split-lp50.loopexit.split-lp
 

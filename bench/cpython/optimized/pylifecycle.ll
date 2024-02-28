@@ -3974,18 +3974,18 @@ entry:
   %tmp6.i = alloca %struct.PyStatus, align 8
   %status.i = alloca %struct.PyStatus, align 8
   %tmp.i = alloca %struct.PyStatus, align 8
-  %tmp.i.sroa.gep108 = getelementptr inbounds i8, ptr %tmp.i, i64 24
-  %tmp.i.sroa.gep104 = getelementptr inbounds i8, ptr %tmp.i, i64 8
-  %tmp.i.sroa.gep = getelementptr inbounds i8, ptr %tmp.i, i64 4
   %tmp8.i = alloca %struct.PyStatus, align 8
-  %tmp8.i.sroa.gep109 = getelementptr inbounds i8, ptr %tmp8.i, i64 24
-  %tmp8.i.sroa.gep105 = getelementptr inbounds i8, ptr %tmp8.i, i64 8
-  %tmp8.i.sroa.gep = getelementptr inbounds i8, ptr %tmp8.i, i64 4
   %tmp13.i = alloca %struct.PyStatus, align 8
-  %tmp13.i.sroa.gep110 = getelementptr inbounds i8, ptr %tmp13.i, i64 24
-  %tmp13.i.sroa.gep106 = getelementptr inbounds i8, ptr %tmp13.i, i64 8
-  %tmp13.i.sroa.gep = getelementptr inbounds i8, ptr %tmp13.i, i64 4
   %tmp5 = alloca %struct.PyStatus, align 8
+  %tmp.i.sink102.sroa.gep110 = getelementptr inbounds i8, ptr %tmp.i, i64 24
+  %tmp.i.sink102.sroa.gep111 = getelementptr inbounds i8, ptr %tmp8.i, i64 24
+  %tmp.i.sink102.sroa.gep112 = getelementptr inbounds i8, ptr %tmp13.i, i64 24
+  %tmp.i.sink102.sroa.gep106 = getelementptr inbounds i8, ptr %tmp.i, i64 8
+  %tmp.i.sink102.sroa.gep107 = getelementptr inbounds i8, ptr %tmp8.i, i64 8
+  %tmp.i.sink102.sroa.gep108 = getelementptr inbounds i8, ptr %tmp13.i, i64 8
+  %tmp.i.sink102.sroa.gep = getelementptr inbounds i8, ptr %tmp.i, i64 4
+  %tmp.i.sink102.sroa.gep103 = getelementptr inbounds i8, ptr %tmp8.i, i64 4
+  %tmp.i.sink102.sroa.gep104 = getelementptr inbounds i8, ptr %tmp13.i, i64 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp8.i)
@@ -4052,13 +4052,13 @@ pycore_init_runtime.exit.thread:                  ; preds = %if.then2.i, %entry
   br label %if.then
 
 pycore_init_runtime.exit:                         ; preds = %if.end12.i, %if.end7.i, %if.end3.i
+  %tmp.i.sink102.sroa.phi = phi ptr [ %tmp.i.sink102.sroa.gep, %if.end3.i ], [ %tmp.i.sink102.sroa.gep103, %if.end7.i ], [ %tmp.i.sink102.sroa.gep104, %if.end12.i ]
+  %tmp.i.sink102.sroa.phi105 = phi ptr [ %tmp.i.sink102.sroa.gep106, %if.end3.i ], [ %tmp.i.sink102.sroa.gep107, %if.end7.i ], [ %tmp.i.sink102.sroa.gep108, %if.end12.i ]
+  %tmp.i.sink102.sroa.phi109 = phi ptr [ %tmp.i.sink102.sroa.gep110, %if.end3.i ], [ %tmp.i.sink102.sroa.gep111, %if.end7.i ], [ %tmp.i.sink102.sroa.gep112, %if.end12.i ]
   %tmp.i.sink102 = phi ptr [ %tmp.i, %if.end3.i ], [ %tmp8.i, %if.end7.i ], [ %tmp13.i, %if.end12.i ]
-  %tmp.i.sink102.sroa.phi = phi ptr [ %tmp.i.sroa.gep, %if.end3.i ], [ %tmp8.i.sroa.gep, %if.end7.i ], [ %tmp13.i.sroa.gep, %if.end12.i ]
-  %tmp.i.sink102.sroa.phi103 = phi ptr [ %tmp.i.sroa.gep104, %if.end3.i ], [ %tmp8.i.sroa.gep105, %if.end7.i ], [ %tmp13.i.sroa.gep106, %if.end12.i ]
-  %tmp.i.sink102.sroa.phi107 = phi ptr [ %tmp.i.sroa.gep108, %if.end3.i ], [ %tmp8.i.sroa.gep109, %if.end7.i ], [ %tmp13.i.sroa.gep110, %if.end12.i ]
   %status.sroa.14.0.copyload16 = load i32, ptr %tmp.i.sink102.sroa.phi, align 4
-  %9 = load <2 x ptr>, ptr %tmp.i.sink102.sroa.phi103, align 8
-  %10 = load <2 x i32>, ptr %tmp.i.sink102.sroa.phi107, align 8
+  %9 = load <2 x ptr>, ptr %tmp.i.sink102.sroa.phi105, align 8
+  %10 = load <2 x i32>, ptr %tmp.i.sink102.sroa.phi109, align 8
   %status.sroa.0.0 = load i32, ptr %tmp.i.sink102, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)

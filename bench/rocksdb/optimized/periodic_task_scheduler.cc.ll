@@ -666,12 +666,12 @@ entry:
   %agg.tmp36 = alloca %"class.std::function", align 8
   %ref.tmp45 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp47 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp47.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp47, i64 8
   %ref.tmp52 = alloca %"struct.rocksdb::PeriodicTaskScheduler::TaskInfo", align 8
   %agg.tmp53 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp63 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp65 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp65.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp65, i64 8
+  %ref.tmp47.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp47, i64 8
+  %ref.tmp47.sink.sroa.gep68 = getelementptr inbounds i8, ptr %ref.tmp65, i64 8
   store i8 %task_type, ptr %task_type.addr, align 1
   tail call void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) @_ZN7rocksdbL11timer_mutexE)
   %cmp = icmp eq i64 %repeat_period_seconds, 0
@@ -980,9 +980,9 @@ if.then62.critedge:                               ; preds = %lor.rhs.i48
   br label %if.then62.critedge.invoke
 
 if.then62.critedge.invoke:                        ; preds = %if.then44, %if.then62.critedge
+  %ref.tmp47.sink.sroa.phi = phi ptr [ %ref.tmp47.sink.sroa.gep, %if.then44 ], [ %ref.tmp47.sink.sroa.gep68, %if.then62.critedge ]
   %ref.tmp47.sink = phi ptr [ %ref.tmp47, %if.then44 ], [ %ref.tmp65, %if.then62.critedge ]
   %34 = phi ptr [ %ref.tmp45, %if.then44 ], [ %ref.tmp63, %if.then62.critedge ]
-  %ref.tmp47.sink.sroa.phi = phi ptr [ %ref.tmp47.sroa.gep, %if.then44 ], [ %ref.tmp65.sroa.gep, %if.then62.critedge ]
   store i64 0, ptr %ref.tmp47.sink.sroa.phi, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 10, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp47.sink, i8 noundef zeroext 0)
           to label %cleanup unwind label %lpad37

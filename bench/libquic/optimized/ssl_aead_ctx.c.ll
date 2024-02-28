@@ -220,6 +220,8 @@ define hidden i32 @SSL_AEAD_CTX_open(ptr noundef %aead, ptr noundef %out, ptr no
 entry:
   %ad = alloca [13 x i8], align 8
   %nonce = alloca [16 x i8], align 16
+  %len.0.i.sroa.gep = getelementptr inbounds i8, ptr %ad, i64 9
+  %len.0.i.sroa.gep45 = getelementptr inbounds i8, ptr %ad, i64 11
   %cmp = icmp eq ptr %aead, null
   br i1 %cmp, label %if.then, label %if.end3
 
@@ -285,14 +287,14 @@ if.end8:                                          ; preds = %if.end7, %if.end3
 if.then.i:                                        ; preds = %if.end8
   %5 = lshr i16 %wire_version, 8
   %conv1.i = trunc i16 %5 to i8
-  %arrayidx3.i = getelementptr inbounds i8, ptr %ad, i64 9
-  store i8 %conv1.i, ptr %arrayidx3.i, align 1
+  store i8 %conv1.i, ptr %len.0.i.sroa.gep, align 1
   %conv4.i = trunc i16 %wire_version to i8
   %arrayidx6.i = getelementptr inbounds i8, ptr %ad, i64 10
   store i8 %conv4.i, ptr %arrayidx6.i, align 2
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end8
+  %len.0.i.sroa.phi = phi ptr [ %len.0.i.sroa.gep, %if.end8 ], [ %len.0.i.sroa.gep45, %if.then.i ]
   %len.0.i = phi i64 [ 9, %if.end8 ], [ 11, %if.then.i ]
   %6 = load i8, ptr %omit_length_in_ad, align 8
   %tobool7.not.i = icmp eq i8 %6, 0
@@ -301,12 +303,11 @@ if.end.i:                                         ; preds = %if.then.i, %if.end8
 if.then8.i:                                       ; preds = %if.end.i
   %shr9.i = lshr i64 %plaintext_len.0, 8
   %conv10.i = trunc i64 %shr9.i to i8
-  %arrayidx12.i = getelementptr inbounds i8, ptr %ad, i64 %len.0.i
-  store i8 %conv10.i, ptr %arrayidx12.i, align 1
+  store i8 %conv10.i, ptr %len.0.i.sroa.phi, align 1
   %conv13.i = trunc i64 %plaintext_len.0 to i8
   %inc14.i = add nuw nsw i64 %len.0.i, 2
-  %arrayidx15.i = getelementptr i8, ptr %arrayidx12.i, i64 1
-  store i8 %conv13.i, ptr %arrayidx15.i, align 2
+  %arrayidx15.i = getelementptr i8, ptr %len.0.i.sroa.phi, i64 1
+  store i8 %conv13.i, ptr %arrayidx15.i, align 1
   br label %ssl_aead_ctx_get_ad.exit
 
 ssl_aead_ctx_get_ad.exit:                         ; preds = %if.end.i, %if.then8.i
@@ -378,22 +379,22 @@ if.end45:                                         ; preds = %if.else40, %if.end3
 
 for.cond.preheader:                               ; preds = %if.end45
   %conv53 = zext i8 %11 to i64
-  %cmp5445.not = icmp eq i8 %11, 0
-  br i1 %cmp5445.not, label %if.end61, label %for.body.lr.ph
+  %cmp5446.not = icmp eq i8 %11, 0
+  br i1 %cmp5446.not, label %if.end61, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %fixed_nonce56 = getelementptr inbounds i8, ptr %aead, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.046 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %arrayidx = getelementptr inbounds [12 x i8], ptr %fixed_nonce56, i64 0, i64 %i.046
+  %i.047 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %arrayidx = getelementptr inbounds [12 x i8], ptr %fixed_nonce56, i64 0, i64 %i.047
   %15 = load i8, ptr %arrayidx, align 1
-  %arrayidx58 = getelementptr inbounds [16 x i8], ptr %nonce, i64 0, i64 %i.046
+  %arrayidx58 = getelementptr inbounds [16 x i8], ptr %nonce, i64 0, i64 %i.047
   %16 = load i8, ptr %arrayidx58, align 1
   %xor44 = xor i8 %16, %15
   store i8 %xor44, ptr %arrayidx58, align 1
-  %inc = add nuw nsw i64 %i.046, 1
+  %inc = add nuw nsw i64 %i.047, 1
   %exitcond.not = icmp eq i64 %inc, %conv53
   br i1 %exitcond.not, label %if.end61, label %for.body, !llvm.loop !7
 
@@ -417,6 +418,8 @@ define hidden noundef i32 @SSL_AEAD_CTX_seal(ptr noundef %aead, ptr noundef %out
 entry:
   %ad = alloca [13 x i8], align 8
   %nonce = alloca [16 x i8], align 16
+  %len.0.i.sroa.gep = getelementptr inbounds i8, ptr %ad, i64 9
+  %len.0.i.sroa.gep52 = getelementptr inbounds i8, ptr %ad, i64 11
   %cmp = icmp eq ptr %aead, null
   br i1 %cmp, label %if.then, label %if.end3
 
@@ -446,14 +449,14 @@ if.end3:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.end3
   %1 = lshr i16 %wire_version, 8
   %conv1.i = trunc i16 %1 to i8
-  %arrayidx3.i = getelementptr inbounds i8, ptr %ad, i64 9
-  store i8 %conv1.i, ptr %arrayidx3.i, align 1
+  store i8 %conv1.i, ptr %len.0.i.sroa.gep, align 1
   %conv4.i = trunc i16 %wire_version to i8
   %arrayidx6.i = getelementptr inbounds i8, ptr %ad, i64 10
   store i8 %conv4.i, ptr %arrayidx6.i, align 2
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end3
+  %len.0.i.sroa.phi = phi ptr [ %len.0.i.sroa.gep, %if.end3 ], [ %len.0.i.sroa.gep52, %if.then.i ]
   %len.0.i = phi i64 [ 9, %if.end3 ], [ 11, %if.then.i ]
   %omit_length_in_ad.i = getelementptr inbounds i8, ptr %aead, i64 40
   %2 = load i8, ptr %omit_length_in_ad.i, align 8
@@ -463,12 +466,11 @@ if.end.i:                                         ; preds = %if.then.i, %if.end3
 if.then8.i:                                       ; preds = %if.end.i
   %shr9.i = lshr i64 %in_len, 8
   %conv10.i = trunc i64 %shr9.i to i8
-  %arrayidx12.i = getelementptr inbounds i8, ptr %ad, i64 %len.0.i
-  store i8 %conv10.i, ptr %arrayidx12.i, align 1
+  store i8 %conv10.i, ptr %len.0.i.sroa.phi, align 1
   %conv13.i = trunc i64 %in_len to i8
   %inc14.i = add nuw nsw i64 %len.0.i, 2
-  %arrayidx15.i = getelementptr i8, ptr %arrayidx12.i, i64 1
-  store i8 %conv13.i, ptr %arrayidx15.i, align 2
+  %arrayidx15.i = getelementptr i8, ptr %len.0.i.sroa.phi, i64 1
+  store i8 %conv13.i, ptr %arrayidx15.i, align 1
   br label %ssl_aead_ctx_get_ad.exit
 
 ssl_aead_ctx_get_ad.exit:                         ; preds = %if.end.i, %if.then8.i
@@ -515,7 +517,7 @@ if.then16:                                        ; preds = %if.end14
 
 if.then16.if.end29_crit_edge:                     ; preds = %if.then16
   %.pre = load i8, ptr %variable_nonce_len27, align 1
-  %.pre54 = zext i8 %.pre to i64
+  %.pre55 = zext i8 %.pre to i64
   br label %if.end29
 
 if.else24:                                        ; preds = %if.end14
@@ -523,7 +525,7 @@ if.else24:                                        ; preds = %if.end14
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then16.if.end29_crit_edge, %if.else24
-  %conv31.pre-phi = phi i64 [ %.pre54, %if.then16.if.end29_crit_edge ], [ %conv28, %if.else24 ]
+  %conv31.pre-phi = phi i64 [ %.pre55, %if.then16.if.end29_crit_edge ], [ %conv28, %if.else24 ]
   %variable_nonce_len30 = getelementptr inbounds i8, ptr %aead, i64 37
   %add32 = add nsw i64 %nonce_len.0, %conv31.pre-phi
   %variable_nonce_included_in_record = getelementptr inbounds i8, ptr %aead, i64 38
@@ -575,22 +577,22 @@ for.cond.preheader:                               ; preds = %if.end67
   %fixed_nonce_len71 = getelementptr inbounds i8, ptr %aead, i64 36
   %13 = load i8, ptr %fixed_nonce_len71, align 4
   %conv72 = zext i8 %13 to i64
-  %cmp7352.not = icmp eq i8 %13, 0
-  br i1 %cmp7352.not, label %if.end80, label %for.body.lr.ph
+  %cmp7353.not = icmp eq i8 %13, 0
+  br i1 %cmp7353.not, label %if.end80, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %fixed_nonce75 = getelementptr inbounds i8, ptr %aead, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.053 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %arrayidx = getelementptr inbounds [12 x i8], ptr %fixed_nonce75, i64 0, i64 %i.053
+  %i.054 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %arrayidx = getelementptr inbounds [12 x i8], ptr %fixed_nonce75, i64 0, i64 %i.054
   %14 = load i8, ptr %arrayidx, align 1
-  %arrayidx77 = getelementptr inbounds [16 x i8], ptr %nonce, i64 0, i64 %i.053
+  %arrayidx77 = getelementptr inbounds [16 x i8], ptr %nonce, i64 0, i64 %i.054
   %15 = load i8, ptr %arrayidx77, align 1
   %xor51 = xor i8 %15, %14
   store i8 %xor51, ptr %arrayidx77, align 1
-  %inc = add nuw nsw i64 %i.053, 1
+  %inc = add nuw nsw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc, %conv72
   br i1 %exitcond.not, label %if.end80, label %for.body, !llvm.loop !9
 

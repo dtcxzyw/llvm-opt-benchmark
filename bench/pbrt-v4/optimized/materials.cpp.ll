@@ -8652,6 +8652,7 @@ entry:
   %ref.tmp87 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp88 = alloca %"class.std::allocator", align 1
   %materials = alloca [2 x %"class.pbrt::Material"], align 16
+  %indvars.iv.sroa.gep119 = getelementptr inbounds i8, ptr %materials, i64 8
   %coerce.val.ip = inttoptr i64 %alloc.coerce to ptr
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #19
   br i1 %call, label %if.then, label %lor.lhs.false
@@ -8887,6 +8888,7 @@ for.cond:                                         ; preds = %if.end108
 
 for.body:                                         ; preds = %arrayctor.loop.preheader, %for.cond
   %cmp95 = phi i1 [ true, %arrayctor.loop.preheader ], [ false, %for.cond ]
+  %indvars.iv.sroa.phi = phi ptr [ %materials, %arrayctor.loop.preheader ], [ %indvars.iv.sroa.gep119, %for.cond ]
   %indvars.iv = phi i64 [ 0, %arrayctor.loop.preheader ], [ 1, %for.cond ]
   %16 = load ptr, ptr %materialNames, align 8
   %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %16, i64 %indvars.iv
@@ -8909,9 +8911,8 @@ if.then104.cont:                                  ; preds = %if.then104.invoke
 
 if.end108:                                        ; preds = %invoke.cont97
   %second = getelementptr inbounds i8, ptr %call98, i64 64
-  %arrayidx = getelementptr inbounds [2 x %"class.pbrt::Material"], ptr %materials, i64 0, i64 %indvars.iv
   %19 = load i64, ptr %second, align 8
-  store i64 %19, ptr %arrayidx, align 8
+  store i64 %19, ptr %indvars.iv.sroa.phi, align 8
   %cmp.i96 = icmp eq i64 %19, 0
   br i1 %cmp.i96, label %if.then104.invoke, label %for.cond
 

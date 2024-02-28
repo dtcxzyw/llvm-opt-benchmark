@@ -142,6 +142,7 @@ define dso_local noundef i32 @fpconv_g_fmt(ptr nocapture noundef writeonly %str,
 entry:
   %buf = alloca [32 x i8], align 16
   %fmt = alloca [6 x i8], align 1
+  %i.0.i.sroa.gep7 = getelementptr inbounds i8, ptr %fmt, i64 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf) #11
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %fmt) #11
   store i8 37, ptr %fmt, align 1, !tbaa !4
@@ -152,23 +153,22 @@ entry:
   br i1 %tobool.not.i, label %set_number_format.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
+  %i.0.i.sroa.gep6 = getelementptr inbounds i8, ptr %fmt, i64 3
   %div.i = sdiv i32 %precision, 10
   %0 = trunc i32 %div.i to i8
   %conv.i = add i8 %0, 48
-  %arrayidx2.i = getelementptr inbounds i8, ptr %fmt, i64 2
-  store i8 %conv.i, ptr %arrayidx2.i, align 1, !tbaa !4
+  store i8 %conv.i, ptr %i.0.i.sroa.gep7, align 1, !tbaa !4
   br label %set_number_format.exit
 
 set_number_format.exit:                           ; preds = %if.then.i, %entry
-  %i.0.i = phi i64 [ 3, %if.then.i ], [ 2, %entry ]
+  %i.0.i.sroa.phi = phi ptr [ %i.0.i.sroa.gep6, %if.then.i ], [ %i.0.i.sroa.gep7, %entry ]
   %rem.i = srem i32 %precision, 10
   %1 = trunc i32 %rem.i to i8
   %conv4.i = add nsw i8 %1, 48
-  %arrayidx7.i = getelementptr inbounds i8, ptr %fmt, i64 %i.0.i
-  store i8 %conv4.i, ptr %arrayidx7.i, align 1, !tbaa !4
-  %arrayidx10.i = getelementptr i8, ptr %arrayidx7.i, i64 1
+  store i8 %conv4.i, ptr %i.0.i.sroa.phi, align 1, !tbaa !4
+  %arrayidx10.i = getelementptr i8, ptr %i.0.i.sroa.phi, i64 1
   store i8 103, ptr %arrayidx10.i, align 1, !tbaa !4
-  %arrayidx12.i = getelementptr i8, ptr %arrayidx7.i, i64 2
+  %arrayidx12.i = getelementptr i8, ptr %i.0.i.sroa.phi, i64 2
   store i8 0, ptr %arrayidx12.i, align 1, !tbaa !4
   %2 = load i8, ptr @locale_decimal_point, align 1, !tbaa !4
   %cmp = icmp eq i8 %2, 46

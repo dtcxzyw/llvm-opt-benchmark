@@ -8,10 +8,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.pbrt::SquareMatrix" = type { [2 x [2 x float]] }
 %"class.std::allocator" = type { i8 }
 %"class.pstd::optional" = type { %"union.std::aligned_storage<16, 4>::type", i8, [3 x i8] }
 %"union.std::aligned_storage<16, 4>::type" = type { [16 x i8] }
+%"class.pbrt::SquareMatrix" = type { [2 x [2 x float]] }
 %"class.pbrt::SquareMatrix.1" = type { [3 x [3 x float]] }
 %"class.pbrt::SquareMatrix.2" = type { [4 x [4 x float]] }
 %struct._Guard = type { ptr }
@@ -342,25 +342,27 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt12SquareMatrixILi2EEplERKS1_(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(16) %m) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %retval = alloca %"class.pbrt::SquareMatrix", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(16) %this, i64 16, i1 false)
+  %retval.sroa.0 = alloca [2 x float], align 8
+  %retval.sroa.3 = alloca [2 x float], align 8
+  %0 = load i64, ptr %this, align 4
+  store i64 %0, ptr %retval.sroa.0, align 8
+  %retval.sroa.3.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load i64, ptr %retval.sroa.3.0.this.sroa_idx, align 4
+  store i64 %1, ptr %retval.sroa.3, align 8
   %arrayidx7 = getelementptr inbounds [2 x [2 x float]], ptr %m, i64 0, i64 0, i64 0
-  %arrayidx12 = getelementptr inbounds [2 x [2 x float]], ptr %retval, i64 0, i64 0, i64 0
-  %0 = load <2 x float>, ptr %arrayidx7, align 4
-  %1 = load <2 x float>, ptr %arrayidx12, align 8
-  %2 = fadd <2 x float> %0, %1
-  store <2 x float> %2, ptr %arrayidx12, align 8
+  %2 = load <2 x float>, ptr %arrayidx7, align 4
+  %3 = load <2 x float>, ptr %retval.sroa.0, align 8
+  %4 = fadd <2 x float> %2, %3
+  store <2 x float> %4, ptr %retval.sroa.0, align 8
   %arrayidx7.c = getelementptr inbounds [2 x [2 x float]], ptr %m, i64 0, i64 1, i64 0
-  %arrayidx12.c = getelementptr inbounds [2 x [2 x float]], ptr %retval, i64 0, i64 1, i64 0
-  %3 = load <2 x float>, ptr %arrayidx7.c, align 4
-  %4 = load <2 x float>, ptr %arrayidx12.c, align 8
-  %5 = fadd <2 x float> %3, %4
-  store <2 x float> %5, ptr %arrayidx12.c, align 8
-  %.fca.0.load = load <2 x float>, ptr %retval, align 8
-  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
-  %.fca.1.load = load <2 x float>, ptr %.fca.1.gep, align 8
-  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.fca.1.load, 1
+  %5 = load <2 x float>, ptr %arrayidx7.c, align 4
+  %6 = load <2 x float>, ptr %retval.sroa.3, align 8
+  %7 = fadd <2 x float> %5, %6
+  store <2 x float> %7, ptr %retval.sroa.3, align 8
+  %retval.sroa.0.0.retval.sroa.0.0..fca.0.load = load <2 x float>, ptr %retval.sroa.0, align 8
+  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0.retval.sroa.0.0..fca.0.load, 0
+  %retval.sroa.3.0.retval.sroa.3.8..fca.1.load = load <2 x float>, ptr %retval.sroa.3, align 8
+  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.3.0.retval.sroa.3.8..fca.1.load, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
 }
 
@@ -691,23 +693,29 @@ entry:
   %indxr = alloca [2 x i32], align 4
   %ipiv = alloca [2 x i32], align 8
   %minv = alloca [2 x [2 x float]], align 16
+  %indvars.iv107.sroa.gep122 = getelementptr inbounds i8, ptr %indxc, i64 4
+  %indvars.iv107.sroa.gep119 = getelementptr inbounds i8, ptr %indxr, i64 4
+  %indvars.iv.sroa.gep118 = getelementptr inbounds i8, ptr %ipiv, i64 4
+  %indvars.iv92.sroa.gep117 = getelementptr inbounds i8, ptr %ipiv, i64 4
+  %indvars.iv104.sroa.gep = getelementptr inbounds i8, ptr %minv, i64 8
   store i64 0, ptr %ipiv, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %minv, ptr noundef nonnull align 4 dereferenceable(16) %m, i64 16, i1 false)
   br label %for.cond15.preheader
 
 for.cond15.preheader:                             ; preds = %entry, %for.inc144
   %cmp12 = phi i1 [ true, %entry ], [ false, %for.inc144 ]
-  %indvars.iv107 = phi i64 [ 0, %entry ], [ 1, %for.inc144 ]
+  %indvars.iv107.sroa.phi = phi ptr [ %indxr, %entry ], [ %indvars.iv107.sroa.gep119, %for.inc144 ]
+  %indvars.iv107.sroa.phi120 = phi ptr [ %indxc, %entry ], [ %indvars.iv107.sroa.gep122, %for.inc144 ]
   br label %for.body17
 
 for.body17:                                       ; preds = %for.cond15.preheader, %for.inc50
   %cmp16 = phi i1 [ true, %for.cond15.preheader ], [ false, %for.inc50 ]
+  %indvars.iv92.sroa.phi = phi ptr [ %ipiv, %for.cond15.preheader ], [ %indvars.iv92.sroa.gep117, %for.inc50 ]
   %indvars.iv92 = phi i64 [ 0, %for.cond15.preheader ], [ 1, %for.inc50 ]
   %big.079 = phi float [ 0.000000e+00, %for.cond15.preheader ], [ %big.3, %for.inc50 ]
   %icol.078 = phi i32 [ 0, %for.cond15.preheader ], [ %icol.3, %for.inc50 ]
   %irow.077 = phi i32 [ 0, %for.cond15.preheader ], [ %irow.3, %for.inc50 ]
-  %arrayidx19 = getelementptr inbounds [2 x i32], ptr %ipiv, i64 0, i64 %indvars.iv92
-  %0 = load i32, ptr %arrayidx19, align 4
+  %0 = load i32, ptr %indvars.iv92.sroa.phi, align 4
   %cmp20.not = icmp eq i32 %0, 1
   br i1 %cmp20.not, label %for.inc50, label %for.body23.preheader
 
@@ -717,12 +725,12 @@ for.body23.preheader:                             ; preds = %for.body17
 
 for.body23:                                       ; preds = %for.body23.preheader, %for.inc46
   %cmp22 = phi i1 [ true, %for.body23.preheader ], [ false, %for.inc46 ]
+  %indvars.iv.sroa.phi = phi ptr [ %ipiv, %for.body23.preheader ], [ %indvars.iv.sroa.gep118, %for.inc46 ]
   %indvars.iv = phi i64 [ 0, %for.body23.preheader ], [ 1, %for.inc46 ]
   %big.175 = phi float [ %big.079, %for.body23.preheader ], [ %big.2, %for.inc46 ]
   %icol.174 = phi i32 [ %icol.078, %for.body23.preheader ], [ %icol.2, %for.inc46 ]
   %irow.173 = phi i32 [ %irow.077, %for.body23.preheader ], [ %irow.2, %for.inc46 ]
-  %arrayidx25 = getelementptr inbounds [2 x i32], ptr %ipiv, i64 0, i64 %indvars.iv
-  %2 = load i32, ptr %arrayidx25, align 4
+  %2 = load i32, ptr %indvars.iv.sroa.phi, align 4
   %cmp26 = icmp eq i32 %2, 0
   br i1 %cmp26, label %if.then27, label %if.else
 
@@ -777,10 +785,8 @@ for.cond59.preheader:                             ; preds = %for.end52
   br label %if.end73
 
 if.end73:                                         ; preds = %for.cond59.preheader, %for.end52
-  %arrayidx75 = getelementptr inbounds [2 x i32], ptr %indxr, i64 0, i64 %indvars.iv107
-  store i32 %irow.3, ptr %arrayidx75, align 4
-  %arrayidx77 = getelementptr inbounds [2 x i32], ptr %indxc, i64 0, i64 %indvars.iv107
-  store i32 %icol.3, ptr %arrayidx77, align 4
+  store i32 %irow.3, ptr %indvars.iv107.sroa.phi, align 4
+  store i32 %icol.3, ptr %indvars.iv107.sroa.phi120, align 4
   %arrayidx81 = getelementptr inbounds [2 x [2 x float]], ptr %minv, i64 0, i64 %idxprom53, i64 %idxprom53
   %9 = load float, ptr %arrayidx81, align 4
   %cmp82 = fcmp oeq float %9, 0.000000e+00
@@ -804,6 +810,7 @@ if.end84:                                         ; preds = %if.end73
 
 for.body109:                                      ; preds = %if.end84, %for.inc141
   %cmp108 = phi i1 [ false, %for.inc141 ], [ true, %if.end84 ]
+  %indvars.iv104.sroa.phi = phi ptr [ %indvars.iv104.sroa.gep, %for.inc141 ], [ %minv, %if.end84 ]
   %indvars.iv104 = phi i64 [ 1, %for.inc141 ], [ 0, %if.end84 ]
   %cmp110.not = icmp eq i64 %indvars.iv104, %idxprom53
   br i1 %cmp110.not, label %for.inc141, label %if.then111
@@ -812,14 +819,13 @@ if.then111:                                       ; preds = %for.body109
   %arrayidx115 = getelementptr inbounds [2 x [2 x float]], ptr %minv, i64 0, i64 %indvars.iv104, i64 %idxprom53
   %14 = load float, ptr %arrayidx115, align 4
   store float 0.000000e+00, ptr %arrayidx115, align 4
-  %arrayidx131 = getelementptr inbounds [2 x [2 x float]], ptr %minv, i64 0, i64 %indvars.iv104, i64 0
   %15 = load <2 x float>, ptr %arrayidx127, align 8
   %16 = fneg <2 x float> %15
-  %17 = load <2 x float>, ptr %arrayidx131, align 8
+  %17 = load <2 x float>, ptr %indvars.iv104.sroa.phi, align 4
   %18 = insertelement <2 x float> poison, float %14, i64 0
   %19 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> zeroinitializer
   %20 = tail call <2 x float> @llvm.fma.v2f32(<2 x float> %16, <2 x float> %19, <2 x float> %17)
-  store <2 x float> %20, ptr %arrayidx131, align 8
+  store <2 x float> %20, ptr %indvars.iv104.sroa.phi, align 4
   br label %for.inc141
 
 for.inc141:                                       ; preds = %if.then111, %for.body109
@@ -877,20 +883,21 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 define weak_odr dso_local { <2 x float>, <2 x float> } @_ZN4pbrtmlILi2EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(16) %m1, ptr noundef nonnull align 4 dereferenceable(16) %m2) local_unnamed_addr #3 comdat {
 entry:
   %retval = alloca %"class.pbrt::SquareMatrix", align 16
+  %indvars.iv45.sroa.gep48 = getelementptr inbounds i8, ptr %retval, i64 8
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %retval, align 16
   br label %for.cond1.preheader
 
 for.cond1.preheader:                              ; preds = %entry, %for.inc28
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc28 ]
+  %indvars.iv45.sroa.phi = phi ptr [ %retval, %entry ], [ %indvars.iv45.sroa.gep48, %for.inc28 ]
   %indvars.iv45 = phi i64 [ 0, %entry ], [ 1, %for.inc28 ]
-  %arrayidx.i = getelementptr inbounds [2 x [2 x float]], ptr %retval, i64 0, i64 %indvars.iv45
   %arrayidx.i16 = getelementptr inbounds [2 x [2 x float]], ptr %m1, i64 0, i64 %indvars.iv45
   br label %for.body3
 
 for.body3:                                        ; preds = %for.cond1.preheader, %for.inc25
   %cmp2 = phi i1 [ true, %for.cond1.preheader ], [ false, %for.inc25 ]
   %indvars.iv42 = phi i64 [ 0, %for.cond1.preheader ], [ 1, %for.inc25 ]
-  %arrayidx.i14 = getelementptr inbounds float, ptr %arrayidx.i, i64 %indvars.iv42
+  %arrayidx.i14 = getelementptr inbounds float, ptr %indvars.iv45.sroa.phi, i64 %indvars.iv42
   %invariant.gep = getelementptr inbounds float, ptr %m2, i64 %indvars.iv42
   br label %for.body7
 

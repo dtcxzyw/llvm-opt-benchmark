@@ -11504,7 +11504,8 @@ while.end27:                                      ; preds = %while.body21, %whil
 ; Function Attrs: nounwind uwtable
 define void @stbir__decode_scanline(ptr nocapture noundef readonly %stbir_info, i32 noundef %n, ptr noundef %output_buffer) local_unnamed_addr #2 {
 entry:
-  %start_x = alloca [2 x i32], align 4
+  %start_x.sroa.0 = alloca i32, align 4
+  %start_x.sroa.2 = alloca i32, align 4
   %channels1 = getelementptr inbounds i8, ptr %stbir_info, i64 496
   %0 = load i32, ptr %channels1, align 8
   %effective_channels2 = getelementptr inbounds i8, ptr %stbir_info, i64 500
@@ -11617,13 +11618,13 @@ if.then59:                                        ; preds = %land.lhs.true
   %scale_info62 = getelementptr inbounds i8, ptr %stbir_info, i64 32
   %19 = load i32, ptr %scale_info62, align 8
   %sub67 = sub nsw i32 0, %17
-  store i32 %sub67, ptr %start_x, align 4
-  %arrayidx69 = getelementptr inbounds i8, ptr %start_x, i64 4
-  store i32 %19, ptr %arrayidx69, align 4
+  store i32 %sub67, ptr %start_x.sroa.0, align 4
+  store i32 %19, ptr %start_x.sroa.2, align 4
   br label %for.body
 
 for.body:                                         ; preds = %if.then59, %for.inc
   %cmp70 = phi i1 [ true, %if.then59 ], [ false, %for.inc ]
+  %indvars.iv.sroa.phi = phi ptr [ %start_x.sroa.0, %if.then59 ], [ %start_x.sroa.2, %for.inc ]
   %indvars.iv = phi i64 [ 0, %if.then59 ], [ 1, %for.inc ]
   %arrayidx75 = getelementptr inbounds [2 x i32], ptr %edge_sizes, i64 0, i64 %indvars.iv
   %20 = load i32, ptr %arrayidx75, align 4
@@ -11631,8 +11632,7 @@ for.body:                                         ; preds = %if.then59, %for.inc
   br i1 %tobool76.not, label %for.inc, label %if.then77
 
 if.then77:                                        ; preds = %for.body
-  %arrayidx79 = getelementptr inbounds [2 x i32], ptr %start_x, i64 0, i64 %indvars.iv
-  %21 = load i32, ptr %arrayidx79, align 4
+  %21 = load i32, ptr %indvars.iv.sroa.phi, align 4
   %mul80 = mul nsw i32 %21, %1
   %idx.ext81 = sext i32 %mul80 to i64
   %add.ptr82 = getelementptr inbounds float, ptr %add.ptr11, i64 %idx.ext81
@@ -24823,8 +24823,10 @@ stbir__resample_horizontal_gather.exit:           ; preds = %if.then.i, %if.else
 ; Function Attrs: nounwind uwtable
 define void @stbir__vertical_gather_loop(ptr nocapture noundef readonly %stbir_info, ptr nocapture noundef %split_info, i32 noundef %split_count) local_unnamed_addr #2 {
 entry:
-  %start_x.i51 = alloca [2 x i32], align 4
-  %start_x.i = alloca [2 x i32], align 4
+  %start_x.i51.sroa.0 = alloca i32, align 4
+  %start_x.i51.sroa.4 = alloca i32, align 4
+  %start_x.i.sroa.0 = alloca i32, align 4
+  %start_x.i.sroa.4 = alloca i32, align 4
   %vertical = getelementptr inbounds i8, ptr %stbir_info, i64 152
   %0 = load ptr, ptr %vertical, align 8
   %coefficients = getelementptr inbounds i8, ptr %stbir_info, i64 160
@@ -24846,8 +24848,8 @@ entry:
   %sub9 = add nsw i32 %7, -1
   %ring_buffer_last_scanline = getelementptr inbounds i8, ptr %split_info, i64 12
   store i32 %sub9, ptr %ring_buffer_last_scanline, align 4
-  %cmp147 = icmp slt i32 %2, %5
-  br i1 %cmp147, label %for.body.lr.ph, label %for.end
+  %cmp149 = icmp slt i32 %2, %5
+  br i1 %cmp149, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %mul = mul nsw i32 %6, %2
@@ -24875,8 +24877,6 @@ for.body.lr.ph:                                   ; preds = %entry
   %edge_sizes.i = getelementptr inbounds i8, ptr %stbir_info, i64 376
   %arrayidx57.i = getelementptr inbounds i8, ptr %stbir_info, i64 380
   %scale_info62.i = getelementptr inbounds i8, ptr %stbir_info, i64 32
-  %arrayidx69.i = getelementptr inbounds i8, ptr %start_x.i, i64 4
-  %arrayidx69.i124 = getelementptr inbounds i8, ptr %start_x.i51, i64 4
   %filter_enum.i.i = getelementptr inbounds i8, ptr %stbir_info, i64 68
   %scale.i.i = getelementptr inbounds i8, ptr %stbir_info, i64 40
   %horizontal_gather_channels.i.i = getelementptr inbounds i8, ptr %stbir_info, i64 440
@@ -24886,15 +24886,15 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %while.end
-  %y.0150 = phi i32 [ %2, %for.body.lr.ph ], [ %inc30, %while.end ]
-  %vertical_contributors.0149 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %incdec.ptr, %while.end ]
-  %vertical_coefficients.0148 = phi ptr [ %add.ptr6, %for.body.lr.ph ], [ %add.ptr29, %while.end ]
-  %8 = load i32, ptr %vertical_contributors.0149, align 4
-  %n1 = getelementptr inbounds i8, ptr %vertical_contributors.0149, i64 4
+  %y.0152 = phi i32 [ %2, %for.body.lr.ph ], [ %inc30, %while.end ]
+  %vertical_contributors.0151 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %incdec.ptr, %while.end ]
+  %vertical_coefficients.0150 = phi ptr [ %add.ptr6, %for.body.lr.ph ], [ %add.ptr29, %while.end ]
+  %8 = load i32, ptr %vertical_contributors.0151, align 4
+  %n1 = getelementptr inbounds i8, ptr %vertical_contributors.0151, i64 4
   %9 = load i32, ptr %n1, align 4
   %10 = load i32, ptr %ring_buffer_last_scanline, align 4
-  %cmp11146 = icmp sgt i32 %9, %10
-  br i1 %cmp11146, label %while.body, label %while.end
+  %cmp11148 = icmp sgt i32 %9, %10
+  br i1 %cmp11148, label %while.body, label %while.end
 
 while.body:                                       ; preds = %for.body, %if.end25
   %11 = phi i32 [ %82, %if.end25 ], [ %10, %for.body ]
@@ -24931,7 +24931,8 @@ if.then19:                                        ; preds = %if.end
   %mul.i.i = mul nsw i32 %20, %rem.i
   %idx.ext.i.i = sext i32 %mul.i.i to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %19, i64 %idx.ext.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %start_x.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %start_x.i.sroa.0)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %start_x.i.sroa.4)
   %21 = load i32, ptr %channels1.i, align 8
   %22 = load i32, ptr %effective_channels2.i, align 4
   %23 = load i32, ptr %input_type.i, align 8
@@ -25028,12 +25029,13 @@ land.lhs.true.i:                                  ; preds = %do.end.i
 if.then59.i:                                      ; preds = %land.lhs.true.i
   %40 = load i32, ptr %scale_info62.i, align 8
   %sub67.i = sub nsw i32 0, %38
-  store i32 %sub67.i, ptr %start_x.i, align 4
-  store i32 %40, ptr %arrayidx69.i, align 4
+  store i32 %sub67.i, ptr %start_x.i.sroa.0, align 4
+  store i32 %40, ptr %start_x.i.sroa.4, align 4
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then59.i
   %cmp70.i = phi i1 [ true, %if.then59.i ], [ false, %for.inc.i ]
+  %indvars.iv.i.sroa.phi = phi ptr [ %start_x.i.sroa.0, %if.then59.i ], [ %start_x.i.sroa.4, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %if.then59.i ], [ 1, %for.inc.i ]
   %arrayidx75.i = getelementptr inbounds [2 x i32], ptr %edge_sizes.i, i64 0, i64 %indvars.iv.i
   %41 = load i32, ptr %arrayidx75.i, align 4
@@ -25041,8 +25043,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
   br i1 %tobool76.not.i, label %for.inc.i, label %if.then77.i
 
 if.then77.i:                                      ; preds = %for.body.i
-  %arrayidx79.i = getelementptr inbounds [2 x i32], ptr %start_x.i, i64 0, i64 %indvars.iv.i
-  %42 = load i32, ptr %arrayidx79.i, align 4
+  %42 = load i32, ptr %indvars.iv.i.sroa.phi, align 4
   %mul80.i = mul nsw i32 %42, %22
   %idx.ext81.i = sext i32 %mul80.i to i64
   %add.ptr82.i = getelementptr inbounds float, ptr %add.ptr11.i, i64 %idx.ext81.i
@@ -25060,12 +25061,14 @@ for.inc.i:                                        ; preds = %if.then77.i, %for.b
   br i1 %cmp70.i, label %for.body.i, label %stbir__decode_scanline.exit, !llvm.loop !377
 
 stbir__decode_scanline.exit:                      ; preds = %for.inc.i, %do.end.i, %land.lhs.true.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %start_x.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %start_x.i.sroa.0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %start_x.i.sroa.4)
   br label %if.end25
 
 if.else:                                          ; preds = %if.end
   %43 = load ptr, ptr %split_info, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %start_x.i51)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %start_x.i51.sroa.0)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %start_x.i51.sroa.4)
   %44 = load i32, ptr %channels1.i, align 8
   %45 = load i32, ptr %effective_channels2.i, align 4
   %46 = load i32, ptr %input_type.i, align 8
@@ -25162,12 +25165,13 @@ land.lhs.true.i116:                               ; preds = %do.end.i114
 if.then59.i121:                                   ; preds = %land.lhs.true.i116
   %63 = load i32, ptr %scale_info62.i, align 8
   %sub67.i123 = sub nsw i32 0, %61
-  store i32 %sub67.i123, ptr %start_x.i51, align 4
-  store i32 %63, ptr %arrayidx69.i124, align 4
+  store i32 %sub67.i123, ptr %start_x.i51.sroa.0, align 4
+  store i32 %63, ptr %start_x.i51.sroa.4, align 4
   br label %for.body.i125
 
 for.body.i125:                                    ; preds = %for.inc.i142, %if.then59.i121
   %cmp70.i126 = phi i1 [ true, %if.then59.i121 ], [ false, %for.inc.i142 ]
+  %indvars.iv.i127.sroa.phi = phi ptr [ %start_x.i51.sroa.0, %if.then59.i121 ], [ %start_x.i51.sroa.4, %for.inc.i142 ]
   %indvars.iv.i127 = phi i64 [ 0, %if.then59.i121 ], [ 1, %for.inc.i142 ]
   %arrayidx75.i128 = getelementptr inbounds [2 x i32], ptr %edge_sizes.i, i64 0, i64 %indvars.iv.i127
   %64 = load i32, ptr %arrayidx75.i128, align 4
@@ -25175,8 +25179,7 @@ for.body.i125:                                    ; preds = %for.inc.i142, %if.t
   br i1 %tobool76.not.i129, label %for.inc.i142, label %if.then77.i130
 
 if.then77.i130:                                   ; preds = %for.body.i125
-  %arrayidx79.i131 = getelementptr inbounds [2 x i32], ptr %start_x.i51, i64 0, i64 %indvars.iv.i127
-  %65 = load i32, ptr %arrayidx79.i131, align 4
+  %65 = load i32, ptr %indvars.iv.i127.sroa.phi, align 4
   %mul80.i132 = mul nsw i32 %65, %45
   %idx.ext81.i133 = sext i32 %mul80.i132 to i64
   %add.ptr82.i134 = getelementptr inbounds float, ptr %add.ptr11.i73, i64 %idx.ext81.i133
@@ -25194,7 +25197,8 @@ for.inc.i142:                                     ; preds = %if.then77.i130, %fo
   br i1 %cmp70.i126, label %for.body.i125, label %stbir__decode_scanline.exit143, !llvm.loop !377
 
 stbir__decode_scanline.exit143:                   ; preds = %for.inc.i142, %do.end.i114, %land.lhs.true.i116
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %start_x.i51)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %start_x.i51.sroa.0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %start_x.i51.sroa.4)
   store i32 %sub14, ptr %ring_buffer_last_scanline, align 4
   %66 = load i32, ptr %ring_buffer_begin_index, align 8
   %67 = load i32, ptr %ring_buffer_first_scanline, align 8
@@ -25247,12 +25251,12 @@ if.end25:                                         ; preds = %if.else.i.i, %if.th
   br i1 %cmp11, label %while.body, label %while.end, !llvm.loop !816
 
 while.end:                                        ; preds = %if.end25, %for.body
-  tail call void @stbir__resample_vertical_gather(ptr noundef nonnull %stbir_info, ptr noundef nonnull %split_info, i32 noundef %y.0150, i32 noundef %8, i32 noundef %9, ptr noundef %vertical_coefficients.0148)
-  %incdec.ptr = getelementptr inbounds i8, ptr %vertical_contributors.0149, i64 8
+  tail call void @stbir__resample_vertical_gather(ptr noundef nonnull %stbir_info, ptr noundef nonnull %split_info, i32 noundef %y.0152, i32 noundef %8, i32 noundef %9, ptr noundef %vertical_coefficients.0150)
+  %incdec.ptr = getelementptr inbounds i8, ptr %vertical_contributors.0151, i64 8
   %83 = load i32, ptr %coefficient_width, align 4
   %idx.ext28 = sext i32 %83 to i64
-  %add.ptr29 = getelementptr inbounds float, ptr %vertical_coefficients.0148, i64 %idx.ext28
-  %inc30 = add i32 %y.0150, 1
+  %add.ptr29 = getelementptr inbounds float, ptr %vertical_coefficients.0150, i64 %idx.ext28
+  %inc30 = add i32 %y.0152, 1
   %exitcond.not = icmp eq i32 %inc30, %5
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !817
 

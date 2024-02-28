@@ -58,14 +58,14 @@ entry:
 define hidden { i32, i64 } @_ZN6hermes2vm15BigIntPrimitive10fromDoubleERNS0_7RuntimeEd(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, double noundef %value) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %ref.tmp3.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp3.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
   %ref.tmp6.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp6.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
   %ref.tmp9.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp9.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 8
   %ref.tmp3.i.i = alloca %"class.hermes::vm::TwineChar16", align 8
+  %ref.tmp9.sink28.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep6 = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep7 = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep8 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %call = tail call noundef i32 @_ZN6hermes6bigint20fromDoubleResultSizeEd(double noundef %value) #8
   %cmp.i.i = icmp ugt i32 %call, 1024
   br i1 %cmp.i.i, label %if.then, label %if.end.i
@@ -174,8 +174,8 @@ sw.epilog.i:                                      ; preds = %if.then6
   unreachable
 
 return.sink.split.i:                              ; preds = %sw.bb8.i, %sw.bb5.i, %sw.bb2.i, %sw.bb1.i
+  %ref.tmp9.sink28.i.sroa.phi = phi ptr [ %ref.tmp9.sink28.i.sroa.gep, %sw.bb8.i ], [ %ref.tmp9.sink28.i.sroa.gep6, %sw.bb5.i ], [ %ref.tmp9.sink28.i.sroa.gep7, %sw.bb2.i ], [ %ref.tmp9.sink28.i.sroa.gep8, %sw.bb1.i ]
   %ref.tmp9.sink28.i = phi ptr [ %ref.tmp9.i, %sw.bb8.i ], [ %ref.tmp6.i, %sw.bb5.i ], [ %ref.tmp3.i, %sw.bb2.i ], [ %ref.tmp.i, %sw.bb1.i ]
-  %ref.tmp9.sink28.i.sroa.phi = phi ptr [ %ref.tmp9.i.sroa.gep, %sw.bb8.i ], [ %ref.tmp6.i.sroa.gep, %sw.bb5.i ], [ %ref.tmp3.i.sroa.gep, %sw.bb2.i ], [ %ref.tmp.i.sroa.gep, %sw.bb1.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi, align 8
   %call10.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
@@ -257,10 +257,10 @@ if.end:                                           ; preds = %entry
   %numDigits.i = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %numDigits.i, align 4, !noalias !7
   %call3 = tail call noundef i32 @_ZN6hermes6bigint16asIntNResultSizeEmNS0_18ImmutableBigIntRefE(i64 noundef %n, ptr nonnull %add.ptr.i.i.i, i32 %1) #8
-  %ref.tmp.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %ref.tmp3.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
-  %ref.tmp6.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
-  %ref.tmp9.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep9.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep10.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep11.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %cmp.i.i.i = icmp ugt i32 %call3, 1024
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
@@ -374,8 +374,8 @@ sw.epilog.i.i:                                    ; preds = %if.then13.i
   unreachable
 
 return.sink.split.i.i:                            ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb1.i.i
+  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.sink28.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp9.sink28.i.sroa.gep9.i, %sw.bb5.i.i ], [ %ref.tmp9.sink28.i.sroa.gep10.i, %sw.bb2.i.i ], [ %ref.tmp9.sink28.i.sroa.gep11.i, %sw.bb1.i.i ]
   %ref.tmp9.sink28.i.i = phi ptr [ %ref.tmp9.i.i, %sw.bb8.i.i ], [ %ref.tmp6.i.i, %sw.bb5.i.i ], [ %ref.tmp3.i.i, %sw.bb2.i.i ], [ %ref.tmp.i.i, %sw.bb1.i.i ]
-  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp6.i.sroa.gep.i, %sw.bb5.i.i ], [ %ref.tmp3.i.sroa.gep.i, %sw.bb2.i.i ], [ %ref.tmp.i.sroa.gep.i, %sw.bb1.i.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi.i, align 8
   %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -412,15 +412,15 @@ entry:
   %ref.tmp9.i.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp3.i.i.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %ref.tmp3.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp3.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
   %ref.tmp6.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp6.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
   %ref.tmp9.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp9.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 8
   %value.addr.i = alloca i32, align 4
   %numDigits = alloca i32, align 4
+  %ref.tmp9.sink28.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep7 = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep8 = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep9 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %cmp = icmp eq i64 %n, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -500,8 +500,8 @@ sw.epilog.i:                                      ; preds = %if.then5
   unreachable
 
 return.sink.split.i:                              ; preds = %sw.bb8.i, %sw.bb5.i, %sw.bb2.i, %sw.bb1.i
+  %ref.tmp9.sink28.i.sroa.phi = phi ptr [ %ref.tmp9.sink28.i.sroa.gep, %sw.bb8.i ], [ %ref.tmp9.sink28.i.sroa.gep7, %sw.bb5.i ], [ %ref.tmp9.sink28.i.sroa.gep8, %sw.bb2.i ], [ %ref.tmp9.sink28.i.sroa.gep9, %sw.bb1.i ]
   %ref.tmp9.sink28.i = phi ptr [ %ref.tmp9.i, %sw.bb8.i ], [ %ref.tmp6.i, %sw.bb5.i ], [ %ref.tmp3.i, %sw.bb2.i ], [ %ref.tmp.i, %sw.bb1.i ]
-  %ref.tmp9.sink28.i.sroa.phi = phi ptr [ %ref.tmp9.i.sroa.gep, %sw.bb8.i ], [ %ref.tmp6.i.sroa.gep, %sw.bb5.i ], [ %ref.tmp3.i.sroa.gep, %sw.bb2.i ], [ %ref.tmp.i.sroa.gep, %sw.bb1.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi, align 8
   %call10.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
@@ -512,10 +512,10 @@ return.sink.split.i:                              ; preds = %sw.bb8.i, %sw.bb5.i
 
 if.end7:                                          ; preds = %if.end
   %4 = load i32, ptr %numDigits, align 4
-  %ref.tmp.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %ref.tmp3.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
-  %ref.tmp6.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
-  %ref.tmp9.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep9.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep10.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep11.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %cmp.i.i.i = icmp ugt i32 %4, 1024
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
@@ -629,8 +629,8 @@ sw.epilog.i.i:                                    ; preds = %if.then13.i
   unreachable
 
 return.sink.split.i.i:                            ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb1.i.i
+  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.sink28.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp9.sink28.i.sroa.gep9.i, %sw.bb5.i.i ], [ %ref.tmp9.sink28.i.sroa.gep10.i, %sw.bb2.i.i ], [ %ref.tmp9.sink28.i.sroa.gep11.i, %sw.bb1.i.i ]
   %ref.tmp9.sink28.i.i = phi ptr [ %ref.tmp9.i.i, %sw.bb8.i.i ], [ %ref.tmp6.i.i, %sw.bb5.i.i ], [ %ref.tmp3.i.i, %sw.bb2.i.i ], [ %ref.tmp.i.i, %sw.bb1.i.i ]
-  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp6.i.sroa.gep.i, %sw.bb5.i.i ], [ %ref.tmp3.i.sroa.gep.i, %sw.bb2.i.i ], [ %ref.tmp.i.sroa.gep.i, %sw.bb1.i.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi.i, align 8
   %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -684,10 +684,10 @@ if.end:                                           ; preds = %entry
   %numDigits.i = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %numDigits.i, align 4, !noalias !19
   %call9 = tail call noundef i32 @_ZN6hermes6bigint20unaryMinusResultSizeENS0_18ImmutableBigIntRefE(ptr nonnull %add.ptr.i.i.i, i32 %3) #8
-  %ref.tmp.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %ref.tmp3.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
-  %ref.tmp6.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
-  %ref.tmp9.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep9.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep10.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep11.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %cmp.i.i.i = icmp ugt i32 %call9, 1024
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
@@ -801,8 +801,8 @@ sw.epilog.i.i:                                    ; preds = %if.then12.i
   unreachable
 
 return.sink.split.i.i:                            ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb1.i.i
+  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.sink28.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp9.sink28.i.sroa.gep9.i, %sw.bb5.i.i ], [ %ref.tmp9.sink28.i.sroa.gep10.i, %sw.bb2.i.i ], [ %ref.tmp9.sink28.i.sroa.gep11.i, %sw.bb1.i.i ]
   %ref.tmp9.sink28.i.i = phi ptr [ %ref.tmp9.i.i, %sw.bb8.i.i ], [ %ref.tmp6.i.i, %sw.bb5.i.i ], [ %ref.tmp3.i.i, %sw.bb2.i.i ], [ %ref.tmp.i.i, %sw.bb1.i.i ]
-  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp6.i.sroa.gep.i, %sw.bb5.i.i ], [ %ref.tmp3.i.sroa.gep.i, %sw.bb2.i.i ], [ %ref.tmp.i.sroa.gep.i, %sw.bb1.i.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi.i, align 8
   %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -843,10 +843,10 @@ entry:
   %numDigits.i = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %numDigits.i, align 4, !noalias !25
   %call2 = tail call noundef i32 @_ZN6hermes6bigint18unaryNotResultSizeENS0_18ImmutableBigIntRefE(ptr nonnull %add.ptr.i.i.i, i32 %1) #8
-  %ref.tmp.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %ref.tmp3.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
-  %ref.tmp6.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
-  %ref.tmp9.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep9.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep10.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep11.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %cmp.i.i.i = icmp ugt i32 %call2, 1024
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
@@ -960,8 +960,8 @@ sw.epilog.i.i:                                    ; preds = %if.then12.i
   unreachable
 
 return.sink.split.i.i:                            ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb1.i.i
+  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.sink28.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp9.sink28.i.sroa.gep9.i, %sw.bb5.i.i ], [ %ref.tmp9.sink28.i.sroa.gep10.i, %sw.bb2.i.i ], [ %ref.tmp9.sink28.i.sroa.gep11.i, %sw.bb1.i.i ]
   %ref.tmp9.sink28.i.i = phi ptr [ %ref.tmp9.i.i, %sw.bb8.i.i ], [ %ref.tmp6.i.i, %sw.bb5.i.i ], [ %ref.tmp3.i.i, %sw.bb2.i.i ], [ %ref.tmp.i.i, %sw.bb1.i.i ]
-  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp6.i.sroa.gep.i, %sw.bb5.i.i ], [ %ref.tmp3.i.sroa.gep.i, %sw.bb2.i.i ], [ %ref.tmp.i.sroa.gep.i, %sw.bb1.i.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi.i, align 8
   %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -991,14 +991,14 @@ declare noundef i32 @_ZN6hermes6bigint8unaryNotENS0_16MutableBigIntRefENS0_18Imm
 define hidden { i32, i64 } @_ZN6hermes2vm15BigIntPrimitive8binaryOpERNS0_7RuntimeEPFNS_6bigint15OperationStatusENS4_16MutableBigIntRefENS4_18ImmutableBigIntRefES7_ENS0_6HandleIS1_EESB_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %op, ptr nocapture readonly %lhs.coerce, ptr nocapture readonly %rhs.coerce, i32 noundef %numDigitsResult) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %ref.tmp3.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp3.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
   %ref.tmp6.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp6.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
   %ref.tmp9.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp9.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 8
   %ref.tmp3.i.i = alloca %"class.hermes::vm::TwineChar16", align 8
+  %ref.tmp9.sink28.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep15 = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep16 = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep17 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %cmp.i.i = icmp ugt i32 %numDigitsResult, 1024
   br i1 %cmp.i.i, label %if.then, label %if.end.i
 
@@ -1118,8 +1118,8 @@ sw.epilog.i:                                      ; preds = %if.then15
   unreachable
 
 return.sink.split.i:                              ; preds = %sw.bb8.i, %sw.bb5.i, %sw.bb2.i, %sw.bb1.i
+  %ref.tmp9.sink28.i.sroa.phi = phi ptr [ %ref.tmp9.sink28.i.sroa.gep, %sw.bb8.i ], [ %ref.tmp9.sink28.i.sroa.gep15, %sw.bb5.i ], [ %ref.tmp9.sink28.i.sroa.gep16, %sw.bb2.i ], [ %ref.tmp9.sink28.i.sroa.gep17, %sw.bb1.i ]
   %ref.tmp9.sink28.i = phi ptr [ %ref.tmp9.i, %sw.bb8.i ], [ %ref.tmp6.i, %sw.bb5.i ], [ %ref.tmp3.i, %sw.bb2.i ], [ %ref.tmp.i, %sw.bb1.i ]
-  %ref.tmp9.sink28.i.sroa.phi = phi ptr [ %ref.tmp9.i.sroa.gep, %sw.bb8.i ], [ %ref.tmp6.i.sroa.gep, %sw.bb5.i ], [ %ref.tmp3.i.sroa.gep, %sw.bb2.i ], [ %ref.tmp.i.sroa.gep, %sw.bb1.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi, align 8
   %call10.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
@@ -1162,10 +1162,10 @@ entry:
   %numDigits.i6 = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %numDigits.i6, align 4, !noalias !40
   %call7 = tail call noundef i32 @_ZN6hermes6bigint13addResultSizeENS0_18ImmutableBigIntRefES1_(ptr nonnull %add.ptr.i.i.i, i32 %1, ptr nonnull %add.ptr.i.i.i5, i32 %3) #8
-  %ref.tmp.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %ref.tmp3.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
-  %ref.tmp6.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
-  %ref.tmp9.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep15.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep16.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep17.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %cmp.i.i.i = icmp ugt i32 %call7, 1024
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
@@ -1285,8 +1285,8 @@ sw.epilog.i.i:                                    ; preds = %if.then15.i
   unreachable
 
 return.sink.split.i.i:                            ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb1.i.i
+  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.sink28.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp9.sink28.i.sroa.gep15.i, %sw.bb5.i.i ], [ %ref.tmp9.sink28.i.sroa.gep16.i, %sw.bb2.i.i ], [ %ref.tmp9.sink28.i.sroa.gep17.i, %sw.bb1.i.i ]
   %ref.tmp9.sink28.i.i = phi ptr [ %ref.tmp9.i.i, %sw.bb8.i.i ], [ %ref.tmp6.i.i, %sw.bb5.i.i ], [ %ref.tmp3.i.i, %sw.bb2.i.i ], [ %ref.tmp.i.i, %sw.bb1.i.i ]
-  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp6.i.sroa.gep.i, %sw.bb5.i.i ], [ %ref.tmp3.i.sroa.gep.i, %sw.bb2.i.i ], [ %ref.tmp.i.sroa.gep.i, %sw.bb1.i.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi.i, align 8
   %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -1333,10 +1333,10 @@ entry:
   %numDigits.i6 = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %numDigits.i6, align 4, !noalias !52
   %call7 = tail call noundef i32 @_ZN6hermes6bigint18subtractResultSizeENS0_18ImmutableBigIntRefES1_(ptr nonnull %add.ptr.i.i.i, i32 %1, ptr nonnull %add.ptr.i.i.i5, i32 %3) #8
-  %ref.tmp.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %ref.tmp3.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
-  %ref.tmp6.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
-  %ref.tmp9.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep15.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep16.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep17.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %cmp.i.i.i = icmp ugt i32 %call7, 1024
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
@@ -1456,8 +1456,8 @@ sw.epilog.i.i:                                    ; preds = %if.then15.i
   unreachable
 
 return.sink.split.i.i:                            ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb1.i.i
+  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.sink28.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp9.sink28.i.sroa.gep15.i, %sw.bb5.i.i ], [ %ref.tmp9.sink28.i.sroa.gep16.i, %sw.bb2.i.i ], [ %ref.tmp9.sink28.i.sroa.gep17.i, %sw.bb1.i.i ]
   %ref.tmp9.sink28.i.i = phi ptr [ %ref.tmp9.i.i, %sw.bb8.i.i ], [ %ref.tmp6.i.i, %sw.bb5.i.i ], [ %ref.tmp3.i.i, %sw.bb2.i.i ], [ %ref.tmp.i.i, %sw.bb1.i.i ]
-  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp6.i.sroa.gep.i, %sw.bb5.i.i ], [ %ref.tmp3.i.sroa.gep.i, %sw.bb2.i.i ], [ %ref.tmp.i.sroa.gep.i, %sw.bb1.i.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi.i, align 8
   %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -1504,10 +1504,10 @@ entry:
   %numDigits.i6 = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %numDigits.i6, align 4, !noalias !64
   %call7 = tail call noundef i32 @_ZN6hermes6bigint18multiplyResultSizeENS0_18ImmutableBigIntRefES1_(ptr nonnull %add.ptr.i.i.i, i32 %1, ptr nonnull %add.ptr.i.i.i5, i32 %3) #8
-  %ref.tmp.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %ref.tmp3.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
-  %ref.tmp6.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
-  %ref.tmp9.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep15.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep16.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep17.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %cmp.i.i.i = icmp ugt i32 %call7, 1024
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
@@ -1627,8 +1627,8 @@ sw.epilog.i.i:                                    ; preds = %if.then15.i
   unreachable
 
 return.sink.split.i.i:                            ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb1.i.i
+  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.sink28.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp9.sink28.i.sroa.gep15.i, %sw.bb5.i.i ], [ %ref.tmp9.sink28.i.sroa.gep16.i, %sw.bb2.i.i ], [ %ref.tmp9.sink28.i.sroa.gep17.i, %sw.bb1.i.i ]
   %ref.tmp9.sink28.i.i = phi ptr [ %ref.tmp9.i.i, %sw.bb8.i.i ], [ %ref.tmp6.i.i, %sw.bb5.i.i ], [ %ref.tmp3.i.i, %sw.bb2.i.i ], [ %ref.tmp.i.i, %sw.bb1.i.i ]
-  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp6.i.sroa.gep.i, %sw.bb5.i.i ], [ %ref.tmp3.i.sroa.gep.i, %sw.bb2.i.i ], [ %ref.tmp.i.sroa.gep.i, %sw.bb1.i.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi.i, align 8
   %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -1675,10 +1675,10 @@ entry:
   %numDigits.i6 = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %numDigits.i6, align 4, !noalias !76
   %call7 = tail call noundef i32 @_ZN6hermes6bigint16divideResultSizeENS0_18ImmutableBigIntRefES1_(ptr nonnull %add.ptr.i.i.i, i32 %1, ptr nonnull %add.ptr.i.i.i5, i32 %3) #8
-  %ref.tmp.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %ref.tmp3.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
-  %ref.tmp6.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
-  %ref.tmp9.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep15.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep16.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep17.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %cmp.i.i.i = icmp ugt i32 %call7, 1024
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
@@ -1798,8 +1798,8 @@ sw.epilog.i.i:                                    ; preds = %if.then15.i
   unreachable
 
 return.sink.split.i.i:                            ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb1.i.i
+  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.sink28.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp9.sink28.i.sroa.gep15.i, %sw.bb5.i.i ], [ %ref.tmp9.sink28.i.sroa.gep16.i, %sw.bb2.i.i ], [ %ref.tmp9.sink28.i.sroa.gep17.i, %sw.bb1.i.i ]
   %ref.tmp9.sink28.i.i = phi ptr [ %ref.tmp9.i.i, %sw.bb8.i.i ], [ %ref.tmp6.i.i, %sw.bb5.i.i ], [ %ref.tmp3.i.i, %sw.bb2.i.i ], [ %ref.tmp.i.i, %sw.bb1.i.i ]
-  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp6.i.sroa.gep.i, %sw.bb5.i.i ], [ %ref.tmp3.i.sroa.gep.i, %sw.bb2.i.i ], [ %ref.tmp.i.sroa.gep.i, %sw.bb1.i.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi.i, align 8
   %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -1846,10 +1846,10 @@ entry:
   %numDigits.i6 = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %numDigits.i6, align 4, !noalias !88
   %call7 = tail call noundef i32 @_ZN6hermes6bigint19remainderResultSizeENS0_18ImmutableBigIntRefES1_(ptr nonnull %add.ptr.i.i.i, i32 %1, ptr nonnull %add.ptr.i.i.i5, i32 %3) #8
-  %ref.tmp.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %ref.tmp3.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
-  %ref.tmp6.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
-  %ref.tmp9.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep15.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep16.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep17.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %cmp.i.i.i = icmp ugt i32 %call7, 1024
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
@@ -1969,8 +1969,8 @@ sw.epilog.i.i:                                    ; preds = %if.then15.i
   unreachable
 
 return.sink.split.i.i:                            ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb1.i.i
+  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.sink28.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp9.sink28.i.sroa.gep15.i, %sw.bb5.i.i ], [ %ref.tmp9.sink28.i.sroa.gep16.i, %sw.bb2.i.i ], [ %ref.tmp9.sink28.i.sroa.gep17.i, %sw.bb1.i.i ]
   %ref.tmp9.sink28.i.i = phi ptr [ %ref.tmp9.i.i, %sw.bb8.i.i ], [ %ref.tmp6.i.i, %sw.bb5.i.i ], [ %ref.tmp3.i.i, %sw.bb2.i.i ], [ %ref.tmp.i.i, %sw.bb1.i.i ]
-  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp6.i.sroa.gep.i, %sw.bb5.i.i ], [ %ref.tmp3.i.sroa.gep.i, %sw.bb2.i.i ], [ %ref.tmp.i.sroa.gep.i, %sw.bb1.i.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi.i, align 8
   %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -2000,15 +2000,15 @@ declare noundef i32 @_ZN6hermes6bigint9remainderENS0_16MutableBigIntRefENS0_18Im
 define hidden { i32, i64 } @_ZN6hermes2vm15BigIntPrimitive12exponentiateERNS0_7RuntimeENS0_6HandleIS1_EES5_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %lhs.coerce, ptr nocapture readonly %rhs.coerce) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %ref.tmp3.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp3.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
   %ref.tmp6.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp6.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
   %ref.tmp9.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp9.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 8
   %tmpDstSize = alloca i32, align 4
   %tmpDst = alloca %"class.hermes::bigint::TmpStorage", align 8
+  %ref.tmp9.sink28.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep11 = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep12 = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep13 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 1024, ptr %tmpDstSize, align 4
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tmpDst, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %tmpDst, align 8
@@ -2095,8 +2095,8 @@ sw.epilog.i:                                      ; preds = %if.then
   unreachable
 
 return.sink.split.i:                              ; preds = %sw.bb8.i, %sw.bb5.i, %sw.bb2.i, %sw.bb1.i
+  %ref.tmp9.sink28.i.sroa.phi = phi ptr [ %ref.tmp9.sink28.i.sroa.gep, %sw.bb8.i ], [ %ref.tmp9.sink28.i.sroa.gep11, %sw.bb5.i ], [ %ref.tmp9.sink28.i.sroa.gep12, %sw.bb2.i ], [ %ref.tmp9.sink28.i.sroa.gep13, %sw.bb1.i ]
   %ref.tmp9.sink28.i = phi ptr [ %ref.tmp9.i, %sw.bb8.i ], [ %ref.tmp6.i, %sw.bb5.i ], [ %ref.tmp3.i, %sw.bb2.i ], [ %ref.tmp.i, %sw.bb1.i ]
-  %ref.tmp9.sink28.i.sroa.phi = phi ptr [ %ref.tmp9.i.sroa.gep, %sw.bb8.i ], [ %ref.tmp6.i.sroa.gep, %sw.bb5.i ], [ %ref.tmp3.i.sroa.gep, %sw.bb2.i ], [ %ref.tmp.i.sroa.gep, %sw.bb1.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi, align 8
   %call10.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
@@ -2137,14 +2137,14 @@ declare noundef i32 @_ZN6hermes6bigint12exponentiateENS0_16MutableBigIntRefENS0_
 define linkonce_odr hidden { i32, i64 } @_ZN6hermes2vm15BigIntPrimitive9fromBytesERNS0_7RuntimeEN4llvh8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %bytes.coerce0, i64 %bytes.coerce1) local_unnamed_addr #2 comdat align 2 {
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %ref.tmp3.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp3.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
   %ref.tmp6.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp6.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
   %ref.tmp9.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp9.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 8
   %ref.tmp3.i.i = alloca %"class.hermes::vm::TwineChar16", align 8
+  %ref.tmp9.sink28.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep6 = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep7 = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep8 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %conv = trunc i64 %bytes.coerce1 to i32
   %sub1.i.i = add i32 %conv, 7
   %div1.i = lshr i32 %sub1.i.i, 3
@@ -2260,8 +2260,8 @@ sw.epilog.i:                                      ; preds = %if.end
   unreachable
 
 _ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15OperationStatusE.exit: ; preds = %sw.bb1.i, %sw.bb2.i, %sw.bb5.i, %sw.bb8.i
+  %ref.tmp9.sink28.i.sroa.phi = phi ptr [ %ref.tmp9.sink28.i.sroa.gep, %sw.bb8.i ], [ %ref.tmp9.sink28.i.sroa.gep6, %sw.bb5.i ], [ %ref.tmp9.sink28.i.sroa.gep7, %sw.bb2.i ], [ %ref.tmp9.sink28.i.sroa.gep8, %sw.bb1.i ]
   %ref.tmp9.sink28.i = phi ptr [ %ref.tmp9.i, %sw.bb8.i ], [ %ref.tmp6.i, %sw.bb5.i ], [ %ref.tmp3.i, %sw.bb2.i ], [ %ref.tmp.i, %sw.bb1.i ]
-  %ref.tmp9.sink28.i.sroa.phi = phi ptr [ %ref.tmp9.i.sroa.gep, %sw.bb8.i ], [ %ref.tmp6.i.sroa.gep, %sw.bb5.i ], [ %ref.tmp3.i.sroa.gep, %sw.bb2.i ], [ %ref.tmp.i.sroa.gep, %sw.bb1.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi, align 8
   %call10.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
@@ -2304,10 +2304,10 @@ entry:
   %numDigits.i6 = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %numDigits.i6, align 4, !noalias !106
   %call7 = tail call noundef i32 @_ZN6hermes6bigint20bitwiseANDResultSizeENS0_18ImmutableBigIntRefES1_(ptr nonnull %add.ptr.i.i.i, i32 %1, ptr nonnull %add.ptr.i.i.i5, i32 %3) #8
-  %ref.tmp.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %ref.tmp3.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
-  %ref.tmp6.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
-  %ref.tmp9.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep15.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep16.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep17.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %cmp.i.i.i = icmp ugt i32 %call7, 1024
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
@@ -2427,8 +2427,8 @@ sw.epilog.i.i:                                    ; preds = %if.then15.i
   unreachable
 
 return.sink.split.i.i:                            ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb1.i.i
+  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.sink28.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp9.sink28.i.sroa.gep15.i, %sw.bb5.i.i ], [ %ref.tmp9.sink28.i.sroa.gep16.i, %sw.bb2.i.i ], [ %ref.tmp9.sink28.i.sroa.gep17.i, %sw.bb1.i.i ]
   %ref.tmp9.sink28.i.i = phi ptr [ %ref.tmp9.i.i, %sw.bb8.i.i ], [ %ref.tmp6.i.i, %sw.bb5.i.i ], [ %ref.tmp3.i.i, %sw.bb2.i.i ], [ %ref.tmp.i.i, %sw.bb1.i.i ]
-  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp6.i.sroa.gep.i, %sw.bb5.i.i ], [ %ref.tmp3.i.sroa.gep.i, %sw.bb2.i.i ], [ %ref.tmp.i.sroa.gep.i, %sw.bb1.i.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi.i, align 8
   %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -2475,10 +2475,10 @@ entry:
   %numDigits.i6 = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %numDigits.i6, align 4, !noalias !118
   %call7 = tail call noundef i32 @_ZN6hermes6bigint19bitwiseORResultSizeENS0_18ImmutableBigIntRefES1_(ptr nonnull %add.ptr.i.i.i, i32 %1, ptr nonnull %add.ptr.i.i.i5, i32 %3) #8
-  %ref.tmp.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %ref.tmp3.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
-  %ref.tmp6.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
-  %ref.tmp9.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep15.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep16.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep17.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %cmp.i.i.i = icmp ugt i32 %call7, 1024
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
@@ -2598,8 +2598,8 @@ sw.epilog.i.i:                                    ; preds = %if.then15.i
   unreachable
 
 return.sink.split.i.i:                            ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb1.i.i
+  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.sink28.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp9.sink28.i.sroa.gep15.i, %sw.bb5.i.i ], [ %ref.tmp9.sink28.i.sroa.gep16.i, %sw.bb2.i.i ], [ %ref.tmp9.sink28.i.sroa.gep17.i, %sw.bb1.i.i ]
   %ref.tmp9.sink28.i.i = phi ptr [ %ref.tmp9.i.i, %sw.bb8.i.i ], [ %ref.tmp6.i.i, %sw.bb5.i.i ], [ %ref.tmp3.i.i, %sw.bb2.i.i ], [ %ref.tmp.i.i, %sw.bb1.i.i ]
-  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp6.i.sroa.gep.i, %sw.bb5.i.i ], [ %ref.tmp3.i.sroa.gep.i, %sw.bb2.i.i ], [ %ref.tmp.i.sroa.gep.i, %sw.bb1.i.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi.i, align 8
   %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -2646,10 +2646,10 @@ entry:
   %numDigits.i6 = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %numDigits.i6, align 4, !noalias !130
   %call7 = tail call noundef i32 @_ZN6hermes6bigint20bitwiseXORResultSizeENS0_18ImmutableBigIntRefES1_(ptr nonnull %add.ptr.i.i.i, i32 %1, ptr nonnull %add.ptr.i.i.i5, i32 %3) #8
-  %ref.tmp.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %ref.tmp3.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
-  %ref.tmp6.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
-  %ref.tmp9.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep15.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep16.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep17.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %cmp.i.i.i = icmp ugt i32 %call7, 1024
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
@@ -2769,8 +2769,8 @@ sw.epilog.i.i:                                    ; preds = %if.then15.i
   unreachable
 
 return.sink.split.i.i:                            ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb1.i.i
+  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.sink28.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp9.sink28.i.sroa.gep15.i, %sw.bb5.i.i ], [ %ref.tmp9.sink28.i.sroa.gep16.i, %sw.bb2.i.i ], [ %ref.tmp9.sink28.i.sroa.gep17.i, %sw.bb1.i.i ]
   %ref.tmp9.sink28.i.i = phi ptr [ %ref.tmp9.i.i, %sw.bb8.i.i ], [ %ref.tmp6.i.i, %sw.bb5.i.i ], [ %ref.tmp3.i.i, %sw.bb2.i.i ], [ %ref.tmp.i.i, %sw.bb1.i.i ]
-  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp6.i.sroa.gep.i, %sw.bb5.i.i ], [ %ref.tmp3.i.sroa.gep.i, %sw.bb2.i.i ], [ %ref.tmp.i.sroa.gep.i, %sw.bb1.i.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi.i, align 8
   %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -2817,10 +2817,10 @@ entry:
   %numDigits.i6 = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %numDigits.i6, align 4, !noalias !142
   %call7 = tail call noundef i32 @_ZN6hermes6bigint19leftShiftResultSizeENS0_18ImmutableBigIntRefES1_(ptr nonnull %add.ptr.i.i.i, i32 %1, ptr nonnull %add.ptr.i.i.i5, i32 %3) #8
-  %ref.tmp.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %ref.tmp3.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
-  %ref.tmp6.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
-  %ref.tmp9.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep15.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep16.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep17.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %cmp.i.i.i = icmp ugt i32 %call7, 1024
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
@@ -2940,8 +2940,8 @@ sw.epilog.i.i:                                    ; preds = %if.then15.i
   unreachable
 
 return.sink.split.i.i:                            ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb1.i.i
+  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.sink28.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp9.sink28.i.sroa.gep15.i, %sw.bb5.i.i ], [ %ref.tmp9.sink28.i.sroa.gep16.i, %sw.bb2.i.i ], [ %ref.tmp9.sink28.i.sroa.gep17.i, %sw.bb1.i.i ]
   %ref.tmp9.sink28.i.i = phi ptr [ %ref.tmp9.i.i, %sw.bb8.i.i ], [ %ref.tmp6.i.i, %sw.bb5.i.i ], [ %ref.tmp3.i.i, %sw.bb2.i.i ], [ %ref.tmp.i.i, %sw.bb1.i.i ]
-  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp6.i.sroa.gep.i, %sw.bb5.i.i ], [ %ref.tmp3.i.sroa.gep.i, %sw.bb2.i.i ], [ %ref.tmp.i.sroa.gep.i, %sw.bb1.i.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi.i, align 8
   %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -2988,10 +2988,10 @@ entry:
   %numDigits.i6 = getelementptr inbounds i8, ptr %2, i64 4
   %3 = load i32, ptr %numDigits.i6, align 4, !noalias !154
   %call7 = tail call noundef i32 @_ZN6hermes6bigint26signedRightShiftResultSizeENS0_18ImmutableBigIntRefES1_(ptr nonnull %add.ptr.i.i.i, i32 %1, ptr nonnull %add.ptr.i.i.i5, i32 %3) #8
-  %ref.tmp.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %ref.tmp3.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
-  %ref.tmp6.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
-  %ref.tmp9.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep15.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep16.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep17.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %cmp.i.i.i = icmp ugt i32 %call7, 1024
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
@@ -3111,8 +3111,8 @@ sw.epilog.i.i:                                    ; preds = %if.then15.i
   unreachable
 
 return.sink.split.i.i:                            ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb1.i.i
+  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.sink28.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp9.sink28.i.sroa.gep15.i, %sw.bb5.i.i ], [ %ref.tmp9.sink28.i.sroa.gep16.i, %sw.bb2.i.i ], [ %ref.tmp9.sink28.i.sroa.gep17.i, %sw.bb1.i.i ]
   %ref.tmp9.sink28.i.i = phi ptr [ %ref.tmp9.i.i, %sw.bb8.i.i ], [ %ref.tmp6.i.i, %sw.bb5.i.i ], [ %ref.tmp3.i.i, %sw.bb2.i.i ], [ %ref.tmp.i.i, %sw.bb1.i.i ]
-  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp6.i.sroa.gep.i, %sw.bb5.i.i ], [ %ref.tmp3.i.sroa.gep.i, %sw.bb2.i.i ], [ %ref.tmp.i.sroa.gep.i, %sw.bb1.i.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi.i, align 8
   %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -3174,10 +3174,10 @@ entry:
   %numDigits.i = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %numDigits.i, align 4, !noalias !163
   %call2 = tail call noundef i32 @_ZN6hermes6bigint19addSignedResultSizeENS0_18ImmutableBigIntRefEl(ptr nonnull %add.ptr.i.i.i, i32 %1, i64 noundef 1) #8
-  %ref.tmp.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %ref.tmp3.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
-  %ref.tmp6.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
-  %ref.tmp9.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep9.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep10.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep11.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %cmp.i.i.i = icmp ugt i32 %call2, 1024
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
@@ -3291,8 +3291,8 @@ sw.epilog.i.i:                                    ; preds = %if.then12.i
   unreachable
 
 return.sink.split.i.i:                            ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb1.i.i
+  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.sink28.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp9.sink28.i.sroa.gep9.i, %sw.bb5.i.i ], [ %ref.tmp9.sink28.i.sroa.gep10.i, %sw.bb2.i.i ], [ %ref.tmp9.sink28.i.sroa.gep11.i, %sw.bb1.i.i ]
   %ref.tmp9.sink28.i.i = phi ptr [ %ref.tmp9.i.i, %sw.bb8.i.i ], [ %ref.tmp6.i.i, %sw.bb5.i.i ], [ %ref.tmp3.i.i, %sw.bb2.i.i ], [ %ref.tmp.i.i, %sw.bb1.i.i ]
-  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp6.i.sroa.gep.i, %sw.bb5.i.i ], [ %ref.tmp3.i.sroa.gep.i, %sw.bb2.i.i ], [ %ref.tmp.i.sroa.gep.i, %sw.bb1.i.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi.i, align 8
   %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -3331,10 +3331,10 @@ entry:
   %numDigits.i = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %numDigits.i, align 4, !noalias !169
   %call2 = tail call noundef i32 @_ZN6hermes6bigint24subtractSignedResultSizeENS0_18ImmutableBigIntRefEl(ptr nonnull %add.ptr.i.i.i, i32 %1, i64 noundef 1) #8
-  %ref.tmp.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %ref.tmp3.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
-  %ref.tmp6.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
-  %ref.tmp9.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep9.i = getelementptr inbounds i8, ptr %ref.tmp6.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep10.i = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep11.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %cmp.i.i.i = icmp ugt i32 %call2, 1024
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i.i
 
@@ -3448,8 +3448,8 @@ sw.epilog.i.i:                                    ; preds = %if.then12.i
   unreachable
 
 return.sink.split.i.i:                            ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb1.i.i
+  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.sink28.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp9.sink28.i.sroa.gep9.i, %sw.bb5.i.i ], [ %ref.tmp9.sink28.i.sroa.gep10.i, %sw.bb2.i.i ], [ %ref.tmp9.sink28.i.sroa.gep11.i, %sw.bb1.i.i ]
   %ref.tmp9.sink28.i.i = phi ptr [ %ref.tmp9.i.i, %sw.bb8.i.i ], [ %ref.tmp6.i.i, %sw.bb5.i.i ], [ %ref.tmp3.i.i, %sw.bb2.i.i ], [ %ref.tmp.i.i, %sw.bb1.i.i ]
-  %ref.tmp9.sink28.i.sroa.phi.i = phi ptr [ %ref.tmp9.i.sroa.gep.i, %sw.bb8.i.i ], [ %ref.tmp6.i.sroa.gep.i, %sw.bb5.i.i ], [ %ref.tmp3.i.sroa.gep.i, %sw.bb2.i.i ], [ %ref.tmp.i.sroa.gep.i, %sw.bb1.i.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi.i, align 8
   %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -3505,7 +3505,7 @@ _ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15Operation
   br label %if.end
 
 sw.bb1.i:                                         ; preds = %entry
-  %ref.tmp.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %rightKind_.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i32 1, ptr %rightKind_.i3.i.i, align 8
   %leftSize_.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
@@ -3516,7 +3516,7 @@ sw.bb1.i:                                         ; preds = %entry
   br label %_ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15OperationStatusE.exit
 
 sw.bb2.i:                                         ; preds = %entry
-  %ref.tmp3.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep2 = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
   %rightKind_.i3.i5.i = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 24
   store i32 1, ptr %rightKind_.i3.i5.i, align 8
   %leftSize_.i4.i6.i = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 32
@@ -3527,7 +3527,7 @@ sw.bb2.i:                                         ; preds = %entry
   br label %_ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15OperationStatusE.exit
 
 sw.bb5.i:                                         ; preds = %entry
-  %ref.tmp6.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep1 = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
   %rightKind_.i3.i13.i = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 24
   store i32 1, ptr %rightKind_.i3.i13.i, align 8
   %leftSize_.i4.i14.i = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 32
@@ -3538,7 +3538,7 @@ sw.bb5.i:                                         ; preds = %entry
   br label %_ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15OperationStatusE.exit
 
 sw.bb8.i:                                         ; preds = %entry
-  %ref.tmp9.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 8
+  %ref.tmp9.sink28.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 8
   %rightKind_.i3.i21.i = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 24
   store i32 1, ptr %rightKind_.i3.i21.i, align 8
   %leftSize_.i4.i22.i = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 32
@@ -3552,8 +3552,8 @@ sw.epilog.i:                                      ; preds = %entry
   unreachable
 
 _ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15OperationStatusE.exit: ; preds = %sw.bb1.i, %sw.bb2.i, %sw.bb5.i, %sw.bb8.i
+  %ref.tmp9.sink28.i.sroa.phi = phi ptr [ %ref.tmp9.sink28.i.sroa.gep, %sw.bb8.i ], [ %ref.tmp9.sink28.i.sroa.gep1, %sw.bb5.i ], [ %ref.tmp9.sink28.i.sroa.gep2, %sw.bb2.i ], [ %ref.tmp9.sink28.i.sroa.gep3, %sw.bb1.i ]
   %ref.tmp9.sink28.i = phi ptr [ %ref.tmp9.i, %sw.bb8.i ], [ %ref.tmp6.i, %sw.bb5.i ], [ %ref.tmp3.i, %sw.bb2.i ], [ %ref.tmp.i, %sw.bb1.i ]
-  %ref.tmp9.sink28.i.sroa.phi = phi ptr [ %ref.tmp9.i.sroa.gep, %sw.bb8.i ], [ %ref.tmp6.i.sroa.gep, %sw.bb5.i ], [ %ref.tmp3.i.sroa.gep, %sw.bb2.i ], [ %ref.tmp.i.sroa.gep, %sw.bb1.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi, align 8
   %call10.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)

@@ -57,9 +57,9 @@ declare void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjec
 define hidden { i32, i64 } @_ZN6hermes2vm22generatorPrototypeNextEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr nocapture readnone %0, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args) #0 {
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %ref.tmp13.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp13.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp13.i, i64 8
+  %ref.tmp13.sink13.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp13.i, i64 8
+  %ref.tmp13.sink13.i.sroa.gep20 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %1 = load ptr, ptr %args, align 8, !noalias !4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp13.i)
@@ -121,8 +121,8 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread
 
 _ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %if.then.i, %if.then12.i
+  %ref.tmp13.sink13.i.sroa.phi = phi ptr [ %ref.tmp13.sink13.i.sroa.gep, %if.then12.i ], [ %ref.tmp13.sink13.i.sroa.gep20, %if.then.i ]
   %ref.tmp13.sink13.i = phi ptr [ %ref.tmp13.i, %if.then12.i ], [ %ref.tmp.i, %if.then.i ]
-  %ref.tmp13.sink13.i.sroa.phi = phi ptr [ %ref.tmp13.i.sroa.gep, %if.then12.i ], [ %ref.tmp.i.sroa.gep, %if.then.i ]
   store i32 3, ptr %ref.tmp13.sink13.i.sroa.phi, align 8
   %call14.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp13.sink13.i) #3
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
@@ -272,9 +272,9 @@ return:                                           ; preds = %_ZN6hermes2vmL15gen
 define hidden { i32, i64 } @_ZN6hermes2vm31generatorPrototypeReturnOrThrowEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef readnone %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args) #0 {
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %ref.tmp13.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp13.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp13.i, i64 8
+  %ref.tmp13.sink13.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp13.i, i64 8
+  %ref.tmp13.sink13.i.sroa.gep21 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %0 = load ptr, ptr %args, align 8, !noalias !7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp13.i)
@@ -336,8 +336,8 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread
 
 _ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %if.then.i, %if.then12.i
+  %ref.tmp13.sink13.i.sroa.phi = phi ptr [ %ref.tmp13.sink13.i.sroa.gep, %if.then12.i ], [ %ref.tmp13.sink13.i.sroa.gep21, %if.then.i ]
   %ref.tmp13.sink13.i = phi ptr [ %ref.tmp13.i, %if.then12.i ], [ %ref.tmp.i, %if.then.i ]
-  %ref.tmp13.sink13.i.sroa.phi = phi ptr [ %ref.tmp13.i.sroa.gep, %if.then12.i ], [ %ref.tmp.i.sroa.gep, %if.then.i ]
   store i32 3, ptr %ref.tmp13.sink13.i.sroa.phi, align 8
   %call14.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp13.sink13.i) #3
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
