@@ -1806,10 +1806,8 @@ if.end55:                                         ; preds = %if.end50, %if.end21
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define internal fastcc void @BlockSplitterFinishBlockLiteral(ptr noundef %self, i32 noundef %is_final) unnamed_addr #6 {
 entry:
-  %combined_entropy.sroa.0 = alloca double, align 16
-  %combined_entropy.sroa.2 = alloca double, align 8
-  %diff.sroa.0 = alloca double, align 16
-  %diff.sroa.3 = alloca double, align 8
+  %combined_entropy = alloca [2 x double], align 16
+  %diff = alloca [2 x double], align 16
   %split_ = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load ptr, ptr %split_, align 8
   %last_entropy_ = getelementptr inbounds i8, ptr %self, i64 2176
@@ -2060,8 +2058,6 @@ ShannonEntropy.exit262:                           ; preds = %while.end.i242, %Fa
 
 for.body:                                         ; preds = %ShannonEntropy.exit262, %ShannonEntropy.exit296
   %cmp30 = phi i1 [ true, %ShannonEntropy.exit262 ], [ false, %ShannonEntropy.exit296 ]
-  %j.0205.sroa.phi = phi ptr [ %diff.sroa.0, %ShannonEntropy.exit262 ], [ %diff.sroa.3, %ShannonEntropy.exit296 ]
-  %j.0205.sroa.phi211 = phi ptr [ %combined_entropy.sroa.0, %ShannonEntropy.exit262 ], [ %combined_entropy.sroa.2, %ShannonEntropy.exit296 ]
   %j.0205 = phi i64 [ 0, %ShannonEntropy.exit262 ], [ 1, %ShannonEntropy.exit296 ]
   %arrayidx32 = getelementptr inbounds [2 x i64], ptr %last_histogram_ix_, i64 0, i64 %j.0205
   %31 = load i64, ptr %arrayidx32, align 8
@@ -2182,12 +2178,14 @@ ShannonEntropy.exit296:                           ; preds = %while.end.i276, %Fa
   %retval1.i267.2 = phi double [ %45, %FastLog2.exit320 ], [ %retval1.i267.0, %while.end.i276 ]
   %cmp.i196 = fcmp olt double %retval1.i267.2, %.pre209
   %retval1.i.0 = select i1 %cmp.i196, double %.pre209, double %retval1.i267.2
-  store double %retval1.i.0, ptr %j.0205.sroa.phi211, align 8
+  %arrayidx45 = getelementptr inbounds [2 x double], ptr %combined_entropy, i64 0, i64 %j.0205
+  store double %retval1.i.0, ptr %arrayidx45, align 8
   %sub = fsub double %retval1.i.0, %retval1.i200.0
   %arrayidx47 = getelementptr inbounds double, ptr %last_entropy_, i64 %j.0205
   %46 = load double, ptr %arrayidx47, align 8
   %sub48 = fsub double %sub, %46
-  store double %sub48, ptr %j.0205.sroa.phi, align 8
+  %arrayidx49 = getelementptr inbounds [2 x double], ptr %diff, i64 0, i64 %j.0205
+  store double %sub48, ptr %arrayidx49, align 8
   br i1 %cmp30, label %for.body, label %for.end, !llvm.loop !35
 
 for.end:                                          ; preds = %ShannonEntropy.exit296
@@ -2196,58 +2194,60 @@ for.end:                                          ; preds = %ShannonEntropy.exit
   br i1 %cmp52, label %land.lhs.true, label %for.end.if.else101_crit_edge
 
 for.end.if.else101_crit_edge:                     ; preds = %for.end
-  %diff.sroa.3.0.diff.sroa.3.8..pre = load double, ptr %diff.sroa.3, align 8
-  %diff.sroa.0.0.diff.sroa.0.0..pre206 = load double, ptr %diff.sroa.0, align 16
+  %arrayidx102.phi.trans.insert = getelementptr inbounds i8, ptr %diff, i64 8
+  %.pre = load double, ptr %arrayidx102.phi.trans.insert, align 8
+  %.pre206 = load double, ptr %diff, align 16
   br label %if.else101
 
 land.lhs.true:                                    ; preds = %for.end
-  %diff.sroa.0.0.diff.sroa.0.0. = load double, ptr %diff.sroa.0, align 16
+  %48 = load double, ptr %diff, align 16
   %split_threshold_ = getelementptr inbounds i8, ptr %self, i64 16
-  %48 = load double, ptr %split_threshold_, align 8
-  %cmp55 = fcmp ogt double %diff.sroa.0.0.diff.sroa.0.0., %48
-  %diff.sroa.3.0.diff.sroa.3.8. = load double, ptr %diff.sroa.3, align 8
-  %cmp60 = fcmp ogt double %diff.sroa.3.0.diff.sroa.3.8., %48
+  %49 = load double, ptr %split_threshold_, align 8
+  %cmp55 = fcmp ogt double %48, %49
+  %arrayidx58 = getelementptr inbounds i8, ptr %diff, i64 8
+  %50 = load double, ptr %arrayidx58, align 8
+  %cmp60 = fcmp ogt double %50, %49
   %or.cond = select i1 %cmp55, i1 %cmp60, i1 false
   br i1 %or.cond, label %if.then62, label %if.else101
 
 if.then62:                                        ; preds = %land.lhs.true
-  %49 = load i64, ptr %block_size_, align 8
-  %conv64 = trunc i64 %49 to i32
+  %51 = load i64, ptr %block_size_, align 8
+  %conv64 = trunc i64 %51 to i32
   %lengths65 = getelementptr inbounds i8, ptr %0, i64 24
-  %50 = load ptr, ptr %lengths65, align 8
-  %51 = load i64, ptr %num_blocks_, align 8
-  %arrayidx67 = getelementptr inbounds i32, ptr %50, i64 %51
+  %52 = load ptr, ptr %lengths65, align 8
+  %53 = load i64, ptr %num_blocks_, align 8
+  %arrayidx67 = getelementptr inbounds i32, ptr %52, i64 %53
   store i32 %conv64, ptr %arrayidx67, align 4
-  %52 = load i64, ptr %0, align 8
-  %conv69 = trunc i64 %52 to i8
+  %54 = load i64, ptr %0, align 8
+  %conv69 = trunc i64 %54 to i8
   %types70 = getelementptr inbounds i8, ptr %0, i64 16
-  %53 = load ptr, ptr %types70, align 8
-  %54 = load i64, ptr %num_blocks_, align 8
-  %arrayidx72 = getelementptr inbounds i8, ptr %53, i64 %54
+  %55 = load ptr, ptr %types70, align 8
+  %56 = load i64, ptr %num_blocks_, align 8
+  %arrayidx72 = getelementptr inbounds i8, ptr %55, i64 %56
   store i8 %conv69, ptr %arrayidx72, align 1
-  %55 = load i64, ptr %last_histogram_ix_, align 8
+  %57 = load i64, ptr %last_histogram_ix_, align 8
   %arrayidx76 = getelementptr inbounds i8, ptr %self, i64 2168
-  store i64 %55, ptr %arrayidx76, align 8
-  %56 = load i64, ptr %0, align 8
-  %conv79 = and i64 %56, 255
+  store i64 %57, ptr %arrayidx76, align 8
+  %58 = load i64, ptr %0, align 8
+  %conv79 = and i64 %58, 255
   store i64 %conv79, ptr %last_histogram_ix_, align 8
-  %57 = load double, ptr %last_entropy_, align 8
+  %59 = load double, ptr %last_entropy_, align 8
   %arrayidx83 = getelementptr inbounds i8, ptr %self, i64 2184
-  store double %57, ptr %arrayidx83, align 8
+  store double %59, ptr %arrayidx83, align 8
   store double %retval1.i200.0, ptr %last_entropy_, align 8
-  %58 = load i64, ptr %num_blocks_, align 8
-  %inc86 = add i64 %58, 1
+  %60 = load i64, ptr %num_blocks_, align 8
+  %inc86 = add i64 %60, 1
   store i64 %inc86, ptr %num_blocks_, align 8
-  %59 = load i64, ptr %0, align 8
-  %inc88 = add i64 %59, 1
+  %61 = load i64, ptr %0, align 8
+  %inc88 = add i64 %61, 1
   store i64 %inc88, ptr %0, align 8
-  %60 = load i64, ptr %curr_histogram_ix_24, align 8
-  %inc90 = add i64 %60, 1
+  %62 = load i64, ptr %curr_histogram_ix_24, align 8
+  %inc90 = add i64 %62, 1
   store i64 %inc90, ptr %curr_histogram_ix_24, align 8
   %histograms_size_92 = getelementptr inbounds i8, ptr %self, i64 48
-  %61 = load ptr, ptr %histograms_size_92, align 8
-  %62 = load i64, ptr %61, align 8
-  %cmp93 = icmp ult i64 %inc90, %62
+  %63 = load ptr, ptr %histograms_size_92, align 8
+  %64 = load i64, ptr %63, align 8
+  %cmp93 = icmp ult i64 %inc90, %64
   br i1 %cmp93, label %if.then95, label %if.end98
 
 if.then95:                                        ; preds = %if.then62
@@ -2261,100 +2261,101 @@ if.end98:                                         ; preds = %if.then95, %if.then
   store i64 0, ptr %block_size_, align 8
   %merge_last_count_ = getelementptr inbounds i8, ptr %self, i64 2192
   store i64 0, ptr %merge_last_count_, align 8
-  %63 = load i64, ptr %min_block_size_, align 8
+  %65 = load i64, ptr %min_block_size_, align 8
   %target_block_size_ = getelementptr inbounds i8, ptr %self, i64 2136
-  store i64 %63, ptr %target_block_size_, align 8
+  store i64 %65, ptr %target_block_size_, align 8
   br label %if.end181
 
 if.else101:                                       ; preds = %for.end.if.else101_crit_edge, %land.lhs.true
-  %64 = phi double [ %diff.sroa.0.0.diff.sroa.0.0..pre206, %for.end.if.else101_crit_edge ], [ %diff.sroa.0.0.diff.sroa.0.0., %land.lhs.true ]
-  %65 = phi double [ %diff.sroa.3.0.diff.sroa.3.8..pre, %for.end.if.else101_crit_edge ], [ %diff.sroa.3.0.diff.sroa.3.8., %land.lhs.true ]
-  %sub104 = fadd double %64, -2.000000e+01
-  %cmp105 = fcmp olt double %65, %sub104
-  %66 = load i64, ptr %block_size_, align 8
-  %conv109 = trunc i64 %66 to i32
+  %66 = phi double [ %.pre206, %for.end.if.else101_crit_edge ], [ %48, %land.lhs.true ]
+  %67 = phi double [ %.pre, %for.end.if.else101_crit_edge ], [ %50, %land.lhs.true ]
+  %sub104 = fadd double %66, -2.000000e+01
+  %cmp105 = fcmp olt double %67, %sub104
+  %68 = load i64, ptr %block_size_, align 8
+  %conv109 = trunc i64 %68 to i32
   %lengths110 = getelementptr inbounds i8, ptr %0, i64 24
-  %67 = load ptr, ptr %lengths110, align 8
-  %68 = load i64, ptr %num_blocks_, align 8
-  %arrayidx112 = getelementptr i32, ptr %67, i64 %68
+  %69 = load ptr, ptr %lengths110, align 8
+  %70 = load i64, ptr %num_blocks_, align 8
+  %arrayidx112 = getelementptr i32, ptr %69, i64 %70
   br i1 %cmp105, label %if.then107, label %if.else145
 
 if.then107:                                       ; preds = %if.else101
   store i32 %conv109, ptr %arrayidx112, align 4
   %types113 = getelementptr inbounds i8, ptr %0, i64 16
-  %69 = load ptr, ptr %types113, align 8
-  %70 = load i64, ptr %num_blocks_, align 8
-  %71 = getelementptr i8, ptr %69, i64 %70
-  %arrayidx116 = getelementptr i8, ptr %71, i64 -2
-  %72 = load i8, ptr %arrayidx116, align 1
-  store i8 %72, ptr %71, align 1
-  %73 = load i64, ptr %last_histogram_ix_, align 8
+  %71 = load ptr, ptr %types113, align 8
+  %72 = load i64, ptr %num_blocks_, align 8
+  %73 = getelementptr i8, ptr %71, i64 %72
+  %arrayidx116 = getelementptr i8, ptr %73, i64 -2
+  %74 = load i8, ptr %arrayidx116, align 1
+  store i8 %74, ptr %73, align 1
+  %75 = load i64, ptr %last_histogram_ix_, align 8
   %arrayidx123 = getelementptr inbounds i8, ptr %self, i64 2168
-  %74 = load i64, ptr %arrayidx123, align 8
-  store i64 %74, ptr %last_histogram_ix_, align 8
-  store i64 %73, ptr %arrayidx123, align 8
-  %arrayidx130 = getelementptr inbounds %struct.HistogramLiteral, ptr %1, i64 %74
+  %76 = load i64, ptr %arrayidx123, align 8
+  store i64 %76, ptr %last_histogram_ix_, align 8
+  store i64 %75, ptr %arrayidx123, align 8
+  %arrayidx130 = getelementptr inbounds %struct.HistogramLiteral, ptr %1, i64 %76
   %arrayidx132 = getelementptr inbounds i8, ptr %self, i64 1096
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx130, ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx132, i64 1040, i1 false)
-  %75 = load double, ptr %last_entropy_, align 8
+  %77 = load double, ptr %last_entropy_, align 8
   %arrayidx134 = getelementptr inbounds i8, ptr %self, i64 2184
-  store double %75, ptr %arrayidx134, align 8
-  %combined_entropy.sroa.2.0.combined_entropy.sroa.2.8. = load double, ptr %combined_entropy.sroa.2, align 8
-  store double %combined_entropy.sroa.2.0.combined_entropy.sroa.2.8., ptr %last_entropy_, align 8
-  %76 = load i64, ptr %num_blocks_, align 8
-  %inc138 = add i64 %76, 1
+  store double %77, ptr %arrayidx134, align 8
+  %arrayidx135 = getelementptr inbounds i8, ptr %combined_entropy, i64 8
+  %78 = load double, ptr %arrayidx135, align 8
+  store double %78, ptr %last_entropy_, align 8
+  %79 = load i64, ptr %num_blocks_, align 8
+  %inc138 = add i64 %79, 1
   store i64 %inc138, ptr %num_blocks_, align 8
   store i64 0, ptr %block_size_, align 8
-  %77 = load i64, ptr %curr_histogram_ix_24, align 8
-  %arrayidx141 = getelementptr inbounds %struct.HistogramLiteral, ptr %1, i64 %77
+  %80 = load i64, ptr %curr_histogram_ix_24, align 8
+  %arrayidx141 = getelementptr inbounds %struct.HistogramLiteral, ptr %1, i64 %80
   %bit_cost_.i189 = getelementptr inbounds i8, ptr %arrayidx141, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %arrayidx141, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i189, align 8
   %merge_last_count_142 = getelementptr inbounds i8, ptr %self, i64 2192
   store i64 0, ptr %merge_last_count_142, align 8
-  %78 = load i64, ptr %min_block_size_, align 8
+  %81 = load i64, ptr %min_block_size_, align 8
   %target_block_size_144 = getelementptr inbounds i8, ptr %self, i64 2136
-  store i64 %78, ptr %target_block_size_144, align 8
+  store i64 %81, ptr %target_block_size_144, align 8
   br label %if.end181
 
 if.else145:                                       ; preds = %if.else101
   %arrayidx151 = getelementptr i8, ptr %arrayidx112, i64 -4
-  %79 = load i32, ptr %arrayidx151, align 4
-  %add = add i32 %79, %conv109
+  %82 = load i32, ptr %arrayidx151, align 4
+  %add = add i32 %82, %conv109
   store i32 %add, ptr %arrayidx151, align 4
-  %80 = load i64, ptr %last_histogram_ix_, align 8
-  %arrayidx154 = getelementptr inbounds %struct.HistogramLiteral, ptr %1, i64 %80
+  %83 = load i64, ptr %last_histogram_ix_, align 8
+  %arrayidx154 = getelementptr inbounds %struct.HistogramLiteral, ptr %1, i64 %83
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx154, ptr noundef nonnull align 8 dereferenceable(1040) %combined_histo, i64 1040, i1 false)
-  %combined_entropy.sroa.0.0.combined_entropy.sroa.0.0. = load double, ptr %combined_entropy.sroa.0, align 16
-  store double %combined_entropy.sroa.0.0.combined_entropy.sroa.0.0., ptr %last_entropy_, align 8
-  %81 = load i64, ptr %0, align 8
-  %cmp160 = icmp eq i64 %81, 1
+  %84 = load double, ptr %combined_entropy, align 16
+  store double %84, ptr %last_entropy_, align 8
+  %85 = load i64, ptr %0, align 8
+  %cmp160 = icmp eq i64 %85, 1
   br i1 %cmp160, label %if.then162, label %if.end165
 
 if.then162:                                       ; preds = %if.else145
   %arrayidx164 = getelementptr inbounds i8, ptr %self, i64 2184
-  store double %combined_entropy.sroa.0.0.combined_entropy.sroa.0.0., ptr %arrayidx164, align 8
+  store double %84, ptr %arrayidx164, align 8
   br label %if.end165
 
 if.end165:                                        ; preds = %if.then162, %if.else145
   store i64 0, ptr %block_size_, align 8
-  %82 = load i64, ptr %curr_histogram_ix_24, align 8
-  %arrayidx168 = getelementptr inbounds %struct.HistogramLiteral, ptr %1, i64 %82
+  %86 = load i64, ptr %curr_histogram_ix_24, align 8
+  %arrayidx168 = getelementptr inbounds %struct.HistogramLiteral, ptr %1, i64 %86
   %bit_cost_.i = getelementptr inbounds i8, ptr %arrayidx168, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %arrayidx168, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i, align 8
   %merge_last_count_169 = getelementptr inbounds i8, ptr %self, i64 2192
-  %83 = load i64, ptr %merge_last_count_169, align 8
-  %inc170 = add i64 %83, 1
+  %87 = load i64, ptr %merge_last_count_169, align 8
+  %inc170 = add i64 %87, 1
   store i64 %inc170, ptr %merge_last_count_169, align 8
   %cmp171 = icmp ugt i64 %inc170, 1
   br i1 %cmp171, label %if.then173, label %if.end181
 
 if.then173:                                       ; preds = %if.end165
-  %84 = load i64, ptr %min_block_size_, align 8
+  %88 = load i64, ptr %min_block_size_, align 8
   %target_block_size_175 = getelementptr inbounds i8, ptr %self, i64 2136
-  %85 = load i64, ptr %target_block_size_175, align 8
-  %add176 = add i64 %85, %84
+  %89 = load i64, ptr %target_block_size_175, align 8
+  %add176 = add i64 %89, %88
   store i64 %add176, ptr %target_block_size_175, align 8
   br label %if.end181
 
@@ -2363,13 +2364,13 @@ if.end181:                                        ; preds = %if.else, %if.then10
   br i1 %tobool.not, label %if.end186, label %if.then182
 
 if.then182:                                       ; preds = %if.end181
-  %86 = load i64, ptr %0, align 8
+  %90 = load i64, ptr %0, align 8
   %histograms_size_184 = getelementptr inbounds i8, ptr %self, i64 48
-  %87 = load ptr, ptr %histograms_size_184, align 8
-  store i64 %86, ptr %87, align 8
-  %88 = load i64, ptr %num_blocks_, align 8
+  %91 = load ptr, ptr %histograms_size_184, align 8
+  store i64 %90, ptr %91, align 8
+  %92 = load i64, ptr %num_blocks_, align 8
   %num_blocks = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %88, ptr %num_blocks, align 8
+  store i64 %92, ptr %num_blocks, align 8
   br label %if.end186
 
 if.end186:                                        ; preds = %if.then182, %if.end181
@@ -2381,8 +2382,7 @@ define internal fastcc void @ContextBlockSplitterFinishBlock(ptr noundef %self, 
 entry:
   %entropy = alloca [13 x double], align 16
   %combined_entropy = alloca [26 x double], align 16
-  %diff.sroa.0 = alloca double, align 16
-  %diff.sroa.5 = alloca double, align 8
+  %diff = alloca [2 x double], align 16
   %split_ = getelementptr inbounds i8, ptr %self, i64 48
   %0 = load ptr, ptr %split_, align 8
   %num_contexts_ = getelementptr inbounds i8, ptr %self, i64 8
@@ -2575,13 +2575,11 @@ if.then31:                                        ; preds = %if.else
 cond.end.thread:                                  ; preds = %if.then31
   %mul35 = mul i64 %1, 2080
   %call36 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul35) #9
-  store double 0.000000e+00, ptr %diff.sroa.0, align 16
-  store double 0.000000e+00, ptr %diff.sroa.5, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %diff, i8 0, i64 16, i1 false)
   br label %for.body41.lr.ph
 
 cond.end:                                         ; preds = %if.then31
-  store double 0.000000e+00, ptr %diff.sroa.0, align 16
-  store double 0.000000e+00, ptr %diff.sroa.5, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %diff, i8 0, i64 16, i1 false)
   %cmp39267.not = icmp eq i64 %1, 0
   br i1 %cmp39267.not, label %for.end79, label %for.body41.lr.ph
 
@@ -2694,7 +2692,6 @@ ShannonEntropy.exit337:                           ; preds = %while.end.i317, %Fa
 
 for.body53:                                       ; preds = %ShannonEntropy.exit337, %ShannonEntropy.exit371
   %cmp51 = phi i1 [ true, %ShannonEntropy.exit337 ], [ false, %ShannonEntropy.exit371 ]
-  %j.0266.sroa.phi = phi ptr [ %diff.sroa.0, %ShannonEntropy.exit337 ], [ %diff.sroa.5, %ShannonEntropy.exit371 ]
   %j.0266 = phi i64 [ 0, %ShannonEntropy.exit337 ], [ 1, %ShannonEntropy.exit371 ]
   %mul54 = mul nuw nsw i64 %j.0266, %1
   %add55 = add i64 %mul54, %i37.0268
@@ -2821,9 +2818,10 @@ ShannonEntropy.exit371:                           ; preds = %while.end.i351, %Fa
   %arrayidx70 = getelementptr inbounds double, ptr %last_entropy_, i64 %add55
   %51 = load double, ptr %arrayidx70, align 8
   %sub71 = fsub double %sub, %51
-  %52 = load double, ptr %j.0266.sroa.phi, align 8
+  %arrayidx72 = getelementptr inbounds [2 x double], ptr %diff, i64 0, i64 %j.0266
+  %52 = load double, ptr %arrayidx72, align 8
   %add73 = fadd double %52, %sub71
-  store double %add73, ptr %j.0266.sroa.phi, align 8
+  store double %add73, ptr %arrayidx72, align 8
   br i1 %cmp51, label %for.body53, label %for.inc77, !llvm.loop !37
 
 for.inc77:                                        ; preds = %ShannonEntropy.exit371
@@ -2841,83 +2839,85 @@ for.end79:                                        ; preds = %for.inc77, %cond.en
   br i1 %cmp81, label %land.lhs.true, label %for.end79.if.else140_crit_edge
 
 for.end79.if.else140_crit_edge:                   ; preds = %for.end79
-  %diff.sroa.5.0.diff.sroa.5.8..pre = load double, ptr %diff.sroa.5, align 8
-  %diff.sroa.0.0.diff.sroa.0.0..pre288 = load double, ptr %diff.sroa.0, align 16
+  %arrayidx141.phi.trans.insert = getelementptr inbounds i8, ptr %diff, i64 8
+  %.pre = load double, ptr %arrayidx141.phi.trans.insert, align 8
+  %.pre288 = load double, ptr %diff, align 16
   br label %if.else140
 
 land.lhs.true:                                    ; preds = %for.end79
-  %diff.sroa.0.0.diff.sroa.0.0. = load double, ptr %diff.sroa.0, align 16
+  %55 = load double, ptr %diff, align 16
   %split_threshold_ = getelementptr inbounds i8, ptr %self, i64 32
-  %55 = load double, ptr %split_threshold_, align 8
-  %cmp84 = fcmp ogt double %diff.sroa.0.0.diff.sroa.0.0., %55
-  %diff.sroa.5.0.diff.sroa.5.8. = load double, ptr %diff.sroa.5, align 8
-  %cmp89 = fcmp ogt double %diff.sroa.5.0.diff.sroa.5.8., %55
+  %56 = load double, ptr %split_threshold_, align 8
+  %cmp84 = fcmp ogt double %55, %56
+  %arrayidx87 = getelementptr inbounds i8, ptr %diff, i64 8
+  %57 = load double, ptr %arrayidx87, align 8
+  %cmp89 = fcmp ogt double %57, %56
   %or.cond = select i1 %cmp84, i1 %cmp89, i1 false
   br i1 %or.cond, label %if.then91, label %if.else140
 
 if.then91:                                        ; preds = %land.lhs.true
-  %56 = load i64, ptr %block_size_, align 8
-  %conv93 = trunc i64 %56 to i32
+  %58 = load i64, ptr %block_size_, align 8
+  %conv93 = trunc i64 %58 to i32
   %lengths94 = getelementptr inbounds i8, ptr %0, i64 24
-  %57 = load ptr, ptr %lengths94, align 8
-  %58 = load i64, ptr %num_blocks_, align 8
-  %arrayidx96 = getelementptr inbounds i32, ptr %57, i64 %58
+  %59 = load ptr, ptr %lengths94, align 8
+  %60 = load i64, ptr %num_blocks_, align 8
+  %arrayidx96 = getelementptr inbounds i32, ptr %59, i64 %60
   store i32 %conv93, ptr %arrayidx96, align 4
-  %59 = load i64, ptr %0, align 8
-  %conv98 = trunc i64 %59 to i8
+  %61 = load i64, ptr %0, align 8
+  %conv98 = trunc i64 %61 to i8
   %types99 = getelementptr inbounds i8, ptr %0, i64 16
-  %60 = load ptr, ptr %types99, align 8
-  %61 = load i64, ptr %num_blocks_, align 8
-  %arrayidx101 = getelementptr inbounds i8, ptr %60, i64 %61
+  %62 = load ptr, ptr %types99, align 8
+  %63 = load i64, ptr %num_blocks_, align 8
+  %arrayidx101 = getelementptr inbounds i8, ptr %62, i64 %63
   store i8 %conv98, ptr %arrayidx101, align 1
   %last_histogram_ix_102 = getelementptr inbounds i8, ptr %self, i64 96
-  %62 = load i64, ptr %last_histogram_ix_102, align 8
+  %64 = load i64, ptr %last_histogram_ix_102, align 8
   %arrayidx105 = getelementptr inbounds i8, ptr %self, i64 104
-  store i64 %62, ptr %arrayidx105, align 8
-  %63 = load i64, ptr %0, align 8
-  %mul107 = mul i64 %63, %1
+  store i64 %64, ptr %arrayidx105, align 8
+  %65 = load i64, ptr %0, align 8
+  %mul107 = mul i64 %65, %1
   store i64 %mul107, ptr %last_histogram_ix_102, align 8
   br i1 %cmp39267.not297, label %for.end121, label %for.body113.lr.ph
 
 for.body113.lr.ph:                                ; preds = %if.then91
-  %64 = getelementptr double, ptr %last_entropy_, i64 %1
+  %66 = getelementptr double, ptr %last_entropy_, i64 %1
   br label %for.body113
 
 for.body113:                                      ; preds = %for.body113.lr.ph, %for.body113
   %i37.1274 = phi i64 [ 0, %for.body113.lr.ph ], [ %inc120, %for.body113 ]
   %arrayidx114 = getelementptr inbounds double, ptr %last_entropy_, i64 %i37.1274
-  %65 = load double, ptr %arrayidx114, align 8
-  %arrayidx116 = getelementptr double, ptr %64, i64 %i37.1274
-  store double %65, ptr %arrayidx116, align 8
+  %67 = load double, ptr %arrayidx114, align 8
+  %arrayidx116 = getelementptr double, ptr %66, i64 %i37.1274
+  store double %67, ptr %arrayidx116, align 8
   %arrayidx117 = getelementptr inbounds [13 x double], ptr %entropy, i64 0, i64 %i37.1274
-  %66 = load double, ptr %arrayidx117, align 8
-  store double %66, ptr %arrayidx114, align 8
+  %68 = load double, ptr %arrayidx117, align 8
+  store double %68, ptr %arrayidx114, align 8
   %inc120 = add nuw i64 %i37.1274, 1
   %exitcond284.not = icmp eq i64 %inc120, %1
   br i1 %exitcond284.not, label %for.end121, label %for.body113, !llvm.loop !39
 
 for.end121:                                       ; preds = %for.body113, %if.then91
-  %67 = load i64, ptr %num_blocks_, align 8
-  %inc123 = add i64 %67, 1
+  %69 = load i64, ptr %num_blocks_, align 8
+  %inc123 = add i64 %69, 1
   store i64 %inc123, ptr %num_blocks_, align 8
-  %68 = load i64, ptr %0, align 8
-  %inc125 = add i64 %68, 1
+  %70 = load i64, ptr %0, align 8
+  %inc125 = add i64 %70, 1
   store i64 %inc125, ptr %0, align 8
   %curr_histogram_ix_126 = getelementptr inbounds i8, ptr %self, i64 88
-  %69 = load i64, ptr %curr_histogram_ix_126, align 8
-  %add127 = add i64 %69, %1
+  %71 = load i64, ptr %curr_histogram_ix_126, align 8
+  %add127 = add i64 %71, %1
   store i64 %add127, ptr %curr_histogram_ix_126, align 8
   %histograms_size_129 = getelementptr inbounds i8, ptr %self, i64 64
-  %70 = load ptr, ptr %histograms_size_129, align 8
-  %71 = load i64, ptr %70, align 8
-  %cmp130 = icmp ult i64 %add127, %71
+  %72 = load ptr, ptr %histograms_size_129, align 8
+  %73 = load i64, ptr %72, align 8
+  %cmp130 = icmp ult i64 %add127, %73
   br i1 %cmp130, label %if.then132, label %if.end137
 
 if.then132:                                       ; preds = %for.end121
-  %72 = load ptr, ptr %histograms_, align 8
-  %arrayidx135 = getelementptr inbounds %struct.HistogramLiteral, ptr %72, i64 %add127
-  %73 = load i64, ptr %num_contexts_, align 8
-  %cmp.i275.not = icmp eq i64 %73, 0
+  %74 = load ptr, ptr %histograms_, align 8
+  %arrayidx135 = getelementptr inbounds %struct.HistogramLiteral, ptr %74, i64 %add127
+  %75 = load i64, ptr %num_contexts_, align 8
+  %cmp.i275.not = icmp eq i64 %75, 0
   br i1 %cmp.i275.not, label %if.end137, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then132, %for.body.i
@@ -2927,44 +2927,44 @@ for.body.i:                                       ; preds = %if.then132, %for.bo
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %add.ptr.i, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i259, align 8
   %inc.i = add nuw i64 %i.i.0276, 1
-  %exitcond285.not = icmp eq i64 %inc.i, %73
+  %exitcond285.not = icmp eq i64 %inc.i, %75
   br i1 %exitcond285.not, label %if.end137, label %for.body.i, !llvm.loop !12
 
 if.end137:                                        ; preds = %for.body.i, %if.then132, %for.end121
   store i64 0, ptr %block_size_, align 8
   %merge_last_count_ = getelementptr inbounds i8, ptr %self, i64 320
   store i64 0, ptr %merge_last_count_, align 8
-  %74 = load i64, ptr %min_block_size_, align 8
+  %76 = load i64, ptr %min_block_size_, align 8
   %target_block_size_ = getelementptr inbounds i8, ptr %self, i64 72
-  store i64 %74, ptr %target_block_size_, align 8
+  store i64 %76, ptr %target_block_size_, align 8
   br label %if.end239
 
 if.else140:                                       ; preds = %for.end79.if.else140_crit_edge, %land.lhs.true
-  %75 = phi double [ %diff.sroa.0.0.diff.sroa.0.0..pre288, %for.end79.if.else140_crit_edge ], [ %diff.sroa.0.0.diff.sroa.0.0., %land.lhs.true ]
-  %76 = phi double [ %diff.sroa.5.0.diff.sroa.5.8..pre, %for.end79.if.else140_crit_edge ], [ %diff.sroa.5.0.diff.sroa.5.8., %land.lhs.true ]
-  %sub143 = fadd double %75, -2.000000e+01
-  %cmp144 = fcmp olt double %76, %sub143
-  %77 = load i64, ptr %block_size_, align 8
-  %conv148 = trunc i64 %77 to i32
+  %77 = phi double [ %.pre288, %for.end79.if.else140_crit_edge ], [ %55, %land.lhs.true ]
+  %78 = phi double [ %.pre, %for.end79.if.else140_crit_edge ], [ %57, %land.lhs.true ]
+  %sub143 = fadd double %77, -2.000000e+01
+  %cmp144 = fcmp olt double %78, %sub143
+  %79 = load i64, ptr %block_size_, align 8
+  %conv148 = trunc i64 %79 to i32
   %lengths149 = getelementptr inbounds i8, ptr %0, i64 24
-  %78 = load ptr, ptr %lengths149, align 8
-  %79 = load i64, ptr %num_blocks_, align 8
-  %arrayidx151 = getelementptr i32, ptr %78, i64 %79
+  %80 = load ptr, ptr %lengths149, align 8
+  %81 = load i64, ptr %num_blocks_, align 8
+  %arrayidx151 = getelementptr i32, ptr %80, i64 %81
   br i1 %cmp144, label %if.then146, label %if.else195
 
 if.then146:                                       ; preds = %if.else140
   store i32 %conv148, ptr %arrayidx151, align 4
   %types152 = getelementptr inbounds i8, ptr %0, i64 16
-  %80 = load ptr, ptr %types152, align 8
-  %81 = load i64, ptr %num_blocks_, align 8
-  %82 = getelementptr i8, ptr %80, i64 %81
-  %arrayidx155 = getelementptr i8, ptr %82, i64 -2
-  %83 = load i8, ptr %arrayidx155, align 1
-  store i8 %83, ptr %82, align 1
+  %82 = load ptr, ptr %types152, align 8
+  %83 = load i64, ptr %num_blocks_, align 8
+  %84 = getelementptr i8, ptr %82, i64 %83
+  %arrayidx155 = getelementptr i8, ptr %84, i64 -2
+  %85 = load i8, ptr %arrayidx155, align 1
+  store i8 %85, ptr %84, align 1
   %last_histogram_ix_159 = getelementptr inbounds i8, ptr %self, i64 96
-  %84 = load <2 x i64>, ptr %last_histogram_ix_159, align 8
-  %85 = shufflevector <2 x i64> %84, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %85, ptr %last_histogram_ix_159, align 8
+  %86 = load <2 x i64>, ptr %last_histogram_ix_159, align 8
+  %87 = shufflevector <2 x i64> %86, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x i64> %87, ptr %last_histogram_ix_159, align 8
   br i1 %cmp39267.not297, label %for.end188, label %for.body170.lr.ph
 
 for.body170.lr.ph:                                ; preds = %if.then146
@@ -2973,22 +2973,22 @@ for.body170.lr.ph:                                ; preds = %if.then146
 
 for.body170:                                      ; preds = %for.body170.lr.ph, %for.body170
   %i37.2272 = phi i64 [ 0, %for.body170.lr.ph ], [ %inc187, %for.body170 ]
-  %86 = load i64, ptr %last_histogram_ix_159, align 8
-  %87 = getelementptr %struct.HistogramLiteral, ptr %2, i64 %86
-  %arrayidx174 = getelementptr %struct.HistogramLiteral, ptr %87, i64 %i37.2272
+  %88 = load i64, ptr %last_histogram_ix_159, align 8
+  %89 = getelementptr %struct.HistogramLiteral, ptr %2, i64 %88
+  %arrayidx174 = getelementptr %struct.HistogramLiteral, ptr %89, i64 %i37.2272
   %add175 = add i64 %i37.2272, %1
   %arrayidx176 = getelementptr inbounds %struct.HistogramLiteral, ptr %cond295, i64 %add175
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx174, ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx176, i64 1040, i1 false)
   %arrayidx177 = getelementptr inbounds double, ptr %last_entropy_, i64 %i37.2272
-  %88 = load double, ptr %arrayidx177, align 8
+  %90 = load double, ptr %arrayidx177, align 8
   %arrayidx179 = getelementptr inbounds double, ptr %last_entropy_, i64 %add175
-  store double %88, ptr %arrayidx179, align 8
+  store double %90, ptr %arrayidx179, align 8
   %arrayidx181 = getelementptr inbounds [26 x double], ptr %combined_entropy, i64 0, i64 %add175
-  %89 = load double, ptr %arrayidx181, align 8
-  store double %89, ptr %arrayidx177, align 8
-  %90 = load i64, ptr %curr_histogram_ix_183, align 8
-  %91 = getelementptr %struct.HistogramLiteral, ptr %2, i64 %90
-  %arrayidx185 = getelementptr %struct.HistogramLiteral, ptr %91, i64 %i37.2272
+  %91 = load double, ptr %arrayidx181, align 8
+  store double %91, ptr %arrayidx177, align 8
+  %92 = load i64, ptr %curr_histogram_ix_183, align 8
+  %93 = getelementptr %struct.HistogramLiteral, ptr %2, i64 %92
+  %arrayidx185 = getelementptr %struct.HistogramLiteral, ptr %93, i64 %i37.2272
   %bit_cost_.i265 = getelementptr inbounds i8, ptr %arrayidx185, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %arrayidx185, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i265, align 8
@@ -2997,54 +2997,54 @@ for.body170:                                      ; preds = %for.body170.lr.ph, 
   br i1 %exitcond283.not, label %for.end188, label %for.body170, !llvm.loop !40
 
 for.end188:                                       ; preds = %for.body170, %if.then146
-  %92 = load i64, ptr %num_blocks_, align 8
-  %inc190 = add i64 %92, 1
+  %94 = load i64, ptr %num_blocks_, align 8
+  %inc190 = add i64 %94, 1
   store i64 %inc190, ptr %num_blocks_, align 8
   store i64 0, ptr %block_size_, align 8
   %merge_last_count_192 = getelementptr inbounds i8, ptr %self, i64 320
   store i64 0, ptr %merge_last_count_192, align 8
-  %93 = load i64, ptr %min_block_size_, align 8
+  %95 = load i64, ptr %min_block_size_, align 8
   %target_block_size_194 = getelementptr inbounds i8, ptr %self, i64 72
-  store i64 %93, ptr %target_block_size_194, align 8
+  store i64 %95, ptr %target_block_size_194, align 8
   br label %if.end239
 
 if.else195:                                       ; preds = %if.else140
   %arrayidx201 = getelementptr i8, ptr %arrayidx151, i64 -4
-  %94 = load i32, ptr %arrayidx201, align 4
-  %add202 = add i32 %94, %conv148
+  %96 = load i32, ptr %arrayidx201, align 4
+  %add202 = add i32 %96, %conv148
   store i32 %add202, ptr %arrayidx201, align 4
   br i1 %cmp39267.not297, label %for.end227, label %for.body206.lr.ph
 
 for.body206.lr.ph:                                ; preds = %if.else195
   %last_histogram_ix_207 = getelementptr inbounds i8, ptr %self, i64 96
-  %95 = getelementptr double, ptr %last_entropy_, i64 %1
+  %97 = getelementptr double, ptr %last_entropy_, i64 %1
   %curr_histogram_ix_222 = getelementptr inbounds i8, ptr %self, i64 88
   br label %for.body206
 
 for.body206:                                      ; preds = %for.body206.lr.ph, %if.end221
   %i37.3270 = phi i64 [ 0, %for.body206.lr.ph ], [ %inc226, %if.end221 ]
-  %96 = load i64, ptr %last_histogram_ix_207, align 8
-  %97 = getelementptr %struct.HistogramLiteral, ptr %2, i64 %96
-  %arrayidx210 = getelementptr %struct.HistogramLiteral, ptr %97, i64 %i37.3270
+  %98 = load i64, ptr %last_histogram_ix_207, align 8
+  %99 = getelementptr %struct.HistogramLiteral, ptr %2, i64 %98
+  %arrayidx210 = getelementptr %struct.HistogramLiteral, ptr %99, i64 %i37.3270
   %arrayidx211 = getelementptr inbounds %struct.HistogramLiteral, ptr %cond295, i64 %i37.3270
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx210, ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx211, i64 1040, i1 false)
   %arrayidx212 = getelementptr inbounds [26 x double], ptr %combined_entropy, i64 0, i64 %i37.3270
-  %98 = load double, ptr %arrayidx212, align 8
+  %100 = load double, ptr %arrayidx212, align 8
   %arrayidx213 = getelementptr inbounds double, ptr %last_entropy_, i64 %i37.3270
-  store double %98, ptr %arrayidx213, align 8
-  %99 = load i64, ptr %0, align 8
-  %cmp215 = icmp eq i64 %99, 1
+  store double %100, ptr %arrayidx213, align 8
+  %101 = load i64, ptr %0, align 8
+  %cmp215 = icmp eq i64 %101, 1
   br i1 %cmp215, label %if.then217, label %if.end221
 
 if.then217:                                       ; preds = %for.body206
-  %arrayidx220 = getelementptr double, ptr %95, i64 %i37.3270
-  store double %98, ptr %arrayidx220, align 8
+  %arrayidx220 = getelementptr double, ptr %97, i64 %i37.3270
+  store double %100, ptr %arrayidx220, align 8
   br label %if.end221
 
 if.end221:                                        ; preds = %if.then217, %for.body206
-  %100 = load i64, ptr %curr_histogram_ix_222, align 8
-  %101 = getelementptr %struct.HistogramLiteral, ptr %2, i64 %100
-  %arrayidx224 = getelementptr %struct.HistogramLiteral, ptr %101, i64 %i37.3270
+  %102 = load i64, ptr %curr_histogram_ix_222, align 8
+  %103 = getelementptr %struct.HistogramLiteral, ptr %2, i64 %102
+  %arrayidx224 = getelementptr %struct.HistogramLiteral, ptr %103, i64 %i37.3270
   %bit_cost_.i262 = getelementptr inbounds i8, ptr %arrayidx224, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %arrayidx224, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i262, align 8
@@ -3055,17 +3055,17 @@ if.end221:                                        ; preds = %if.then217, %for.bo
 for.end227:                                       ; preds = %if.end221, %if.else195
   store i64 0, ptr %block_size_, align 8
   %merge_last_count_229 = getelementptr inbounds i8, ptr %self, i64 320
-  %102 = load i64, ptr %merge_last_count_229, align 8
-  %inc230 = add i64 %102, 1
+  %104 = load i64, ptr %merge_last_count_229, align 8
+  %inc230 = add i64 %104, 1
   store i64 %inc230, ptr %merge_last_count_229, align 8
   %cmp231 = icmp ugt i64 %inc230, 1
   br i1 %cmp231, label %if.then233, label %if.end239
 
 if.then233:                                       ; preds = %for.end227
-  %103 = load i64, ptr %min_block_size_, align 8
+  %105 = load i64, ptr %min_block_size_, align 8
   %target_block_size_235 = getelementptr inbounds i8, ptr %self, i64 72
-  %104 = load i64, ptr %target_block_size_235, align 8
-  %add236 = add i64 %104, %103
+  %106 = load i64, ptr %target_block_size_235, align 8
+  %add236 = add i64 %106, %105
   store i64 %add236, ptr %target_block_size_235, align 8
   br label %if.end239
 
@@ -3078,14 +3078,14 @@ if.end241:                                        ; preds = %if.else, %if.end239
   br i1 %tobool.not, label %if.end247, label %if.then242
 
 if.then242:                                       ; preds = %if.end241
-  %105 = load i64, ptr %0, align 8
-  %mul244 = mul i64 %105, %1
+  %107 = load i64, ptr %0, align 8
+  %mul244 = mul i64 %107, %1
   %histograms_size_245 = getelementptr inbounds i8, ptr %self, i64 64
-  %106 = load ptr, ptr %histograms_size_245, align 8
-  store i64 %mul244, ptr %106, align 8
-  %107 = load i64, ptr %num_blocks_, align 8
+  %108 = load ptr, ptr %histograms_size_245, align 8
+  store i64 %mul244, ptr %108, align 8
+  %109 = load i64, ptr %num_blocks_, align 8
   %num_blocks = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %107, ptr %num_blocks, align 8
+  store i64 %109, ptr %num_blocks, align 8
   br label %if.end247
 
 if.end247:                                        ; preds = %if.then242, %if.end241
@@ -3095,10 +3095,8 @@ if.end247:                                        ; preds = %if.then242, %if.end
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define internal fastcc void @BlockSplitterFinishBlockCommand(ptr noundef %self, i32 noundef %is_final) unnamed_addr #6 {
 entry:
-  %combined_entropy.sroa.0 = alloca double, align 16
-  %combined_entropy.sroa.2 = alloca double, align 8
-  %diff.sroa.0 = alloca double, align 16
-  %diff.sroa.3 = alloca double, align 8
+  %combined_entropy = alloca [2 x double], align 16
+  %diff = alloca [2 x double], align 16
   %split_ = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load ptr, ptr %split_, align 8
   %last_entropy_ = getelementptr inbounds i8, ptr %self, i64 5760
@@ -3349,8 +3347,6 @@ ShannonEntropy.exit258:                           ; preds = %while.end.i238, %Fa
 
 for.body:                                         ; preds = %ShannonEntropy.exit258, %ShannonEntropy.exit292
   %cmp30 = phi i1 [ true, %ShannonEntropy.exit258 ], [ false, %ShannonEntropy.exit292 ]
-  %j.0205.sroa.phi = phi ptr [ %diff.sroa.0, %ShannonEntropy.exit258 ], [ %diff.sroa.3, %ShannonEntropy.exit292 ]
-  %j.0205.sroa.phi211 = phi ptr [ %combined_entropy.sroa.0, %ShannonEntropy.exit258 ], [ %combined_entropy.sroa.2, %ShannonEntropy.exit292 ]
   %j.0205 = phi i64 [ 0, %ShannonEntropy.exit258 ], [ 1, %ShannonEntropy.exit292 ]
   %arrayidx32 = getelementptr inbounds [2 x i64], ptr %last_histogram_ix_, i64 0, i64 %j.0205
   %31 = load i64, ptr %arrayidx32, align 8
@@ -3471,12 +3467,14 @@ ShannonEntropy.exit292:                           ; preds = %while.end.i272, %Fa
   %retval1.i263.2 = phi double [ %45, %FastLog2.exit314 ], [ %retval1.i263.0, %while.end.i272 ]
   %cmp.i196 = fcmp olt double %retval1.i263.2, %.pre209
   %retval1.i.0 = select i1 %cmp.i196, double %.pre209, double %retval1.i263.2
-  store double %retval1.i.0, ptr %j.0205.sroa.phi211, align 8
+  %arrayidx45 = getelementptr inbounds [2 x double], ptr %combined_entropy, i64 0, i64 %j.0205
+  store double %retval1.i.0, ptr %arrayidx45, align 8
   %sub = fsub double %retval1.i.0, %retval1.i200.0
   %arrayidx47 = getelementptr inbounds double, ptr %last_entropy_, i64 %j.0205
   %46 = load double, ptr %arrayidx47, align 8
   %sub48 = fsub double %sub, %46
-  store double %sub48, ptr %j.0205.sroa.phi, align 8
+  %arrayidx49 = getelementptr inbounds [2 x double], ptr %diff, i64 0, i64 %j.0205
+  store double %sub48, ptr %arrayidx49, align 8
   br i1 %cmp30, label %for.body, label %for.end, !llvm.loop !43
 
 for.end:                                          ; preds = %ShannonEntropy.exit292
@@ -3485,58 +3483,60 @@ for.end:                                          ; preds = %ShannonEntropy.exit
   br i1 %cmp52, label %land.lhs.true, label %for.end.if.else101_crit_edge
 
 for.end.if.else101_crit_edge:                     ; preds = %for.end
-  %diff.sroa.3.0.diff.sroa.3.8..pre = load double, ptr %diff.sroa.3, align 8
-  %diff.sroa.0.0.diff.sroa.0.0..pre206 = load double, ptr %diff.sroa.0, align 16
+  %arrayidx102.phi.trans.insert = getelementptr inbounds i8, ptr %diff, i64 8
+  %.pre = load double, ptr %arrayidx102.phi.trans.insert, align 8
+  %.pre206 = load double, ptr %diff, align 16
   br label %if.else101
 
 land.lhs.true:                                    ; preds = %for.end
-  %diff.sroa.0.0.diff.sroa.0.0. = load double, ptr %diff.sroa.0, align 16
+  %48 = load double, ptr %diff, align 16
   %split_threshold_ = getelementptr inbounds i8, ptr %self, i64 16
-  %48 = load double, ptr %split_threshold_, align 8
-  %cmp55 = fcmp ogt double %diff.sroa.0.0.diff.sroa.0.0., %48
-  %diff.sroa.3.0.diff.sroa.3.8. = load double, ptr %diff.sroa.3, align 8
-  %cmp60 = fcmp ogt double %diff.sroa.3.0.diff.sroa.3.8., %48
+  %49 = load double, ptr %split_threshold_, align 8
+  %cmp55 = fcmp ogt double %48, %49
+  %arrayidx58 = getelementptr inbounds i8, ptr %diff, i64 8
+  %50 = load double, ptr %arrayidx58, align 8
+  %cmp60 = fcmp ogt double %50, %49
   %or.cond = select i1 %cmp55, i1 %cmp60, i1 false
   br i1 %or.cond, label %if.then62, label %if.else101
 
 if.then62:                                        ; preds = %land.lhs.true
-  %49 = load i64, ptr %block_size_, align 8
-  %conv64 = trunc i64 %49 to i32
+  %51 = load i64, ptr %block_size_, align 8
+  %conv64 = trunc i64 %51 to i32
   %lengths65 = getelementptr inbounds i8, ptr %0, i64 24
-  %50 = load ptr, ptr %lengths65, align 8
-  %51 = load i64, ptr %num_blocks_, align 8
-  %arrayidx67 = getelementptr inbounds i32, ptr %50, i64 %51
+  %52 = load ptr, ptr %lengths65, align 8
+  %53 = load i64, ptr %num_blocks_, align 8
+  %arrayidx67 = getelementptr inbounds i32, ptr %52, i64 %53
   store i32 %conv64, ptr %arrayidx67, align 4
-  %52 = load i64, ptr %0, align 8
-  %conv69 = trunc i64 %52 to i8
+  %54 = load i64, ptr %0, align 8
+  %conv69 = trunc i64 %54 to i8
   %types70 = getelementptr inbounds i8, ptr %0, i64 16
-  %53 = load ptr, ptr %types70, align 8
-  %54 = load i64, ptr %num_blocks_, align 8
-  %arrayidx72 = getelementptr inbounds i8, ptr %53, i64 %54
+  %55 = load ptr, ptr %types70, align 8
+  %56 = load i64, ptr %num_blocks_, align 8
+  %arrayidx72 = getelementptr inbounds i8, ptr %55, i64 %56
   store i8 %conv69, ptr %arrayidx72, align 1
-  %55 = load i64, ptr %last_histogram_ix_, align 8
+  %57 = load i64, ptr %last_histogram_ix_, align 8
   %arrayidx76 = getelementptr inbounds i8, ptr %self, i64 5752
-  store i64 %55, ptr %arrayidx76, align 8
-  %56 = load i64, ptr %0, align 8
-  %conv79 = and i64 %56, 255
+  store i64 %57, ptr %arrayidx76, align 8
+  %58 = load i64, ptr %0, align 8
+  %conv79 = and i64 %58, 255
   store i64 %conv79, ptr %last_histogram_ix_, align 8
-  %57 = load double, ptr %last_entropy_, align 8
+  %59 = load double, ptr %last_entropy_, align 8
   %arrayidx83 = getelementptr inbounds i8, ptr %self, i64 5768
-  store double %57, ptr %arrayidx83, align 8
+  store double %59, ptr %arrayidx83, align 8
   store double %retval1.i200.0, ptr %last_entropy_, align 8
-  %58 = load i64, ptr %num_blocks_, align 8
-  %inc86 = add i64 %58, 1
+  %60 = load i64, ptr %num_blocks_, align 8
+  %inc86 = add i64 %60, 1
   store i64 %inc86, ptr %num_blocks_, align 8
-  %59 = load i64, ptr %0, align 8
-  %inc88 = add i64 %59, 1
+  %61 = load i64, ptr %0, align 8
+  %inc88 = add i64 %61, 1
   store i64 %inc88, ptr %0, align 8
-  %60 = load i64, ptr %curr_histogram_ix_24, align 8
-  %inc90 = add i64 %60, 1
+  %62 = load i64, ptr %curr_histogram_ix_24, align 8
+  %inc90 = add i64 %62, 1
   store i64 %inc90, ptr %curr_histogram_ix_24, align 8
   %histograms_size_92 = getelementptr inbounds i8, ptr %self, i64 48
-  %61 = load ptr, ptr %histograms_size_92, align 8
-  %62 = load i64, ptr %61, align 8
-  %cmp93 = icmp ult i64 %inc90, %62
+  %63 = load ptr, ptr %histograms_size_92, align 8
+  %64 = load i64, ptr %63, align 8
+  %cmp93 = icmp ult i64 %inc90, %64
   br i1 %cmp93, label %if.then95, label %if.end98
 
 if.then95:                                        ; preds = %if.then62
@@ -3550,100 +3550,101 @@ if.end98:                                         ; preds = %if.then95, %if.then
   store i64 0, ptr %block_size_, align 8
   %merge_last_count_ = getelementptr inbounds i8, ptr %self, i64 5776
   store i64 0, ptr %merge_last_count_, align 8
-  %63 = load i64, ptr %min_block_size_, align 8
+  %65 = load i64, ptr %min_block_size_, align 8
   %target_block_size_ = getelementptr inbounds i8, ptr %self, i64 5720
-  store i64 %63, ptr %target_block_size_, align 8
+  store i64 %65, ptr %target_block_size_, align 8
   br label %if.end181
 
 if.else101:                                       ; preds = %for.end.if.else101_crit_edge, %land.lhs.true
-  %64 = phi double [ %diff.sroa.0.0.diff.sroa.0.0..pre206, %for.end.if.else101_crit_edge ], [ %diff.sroa.0.0.diff.sroa.0.0., %land.lhs.true ]
-  %65 = phi double [ %diff.sroa.3.0.diff.sroa.3.8..pre, %for.end.if.else101_crit_edge ], [ %diff.sroa.3.0.diff.sroa.3.8., %land.lhs.true ]
-  %sub104 = fadd double %64, -2.000000e+01
-  %cmp105 = fcmp olt double %65, %sub104
-  %66 = load i64, ptr %block_size_, align 8
-  %conv109 = trunc i64 %66 to i32
+  %66 = phi double [ %.pre206, %for.end.if.else101_crit_edge ], [ %48, %land.lhs.true ]
+  %67 = phi double [ %.pre, %for.end.if.else101_crit_edge ], [ %50, %land.lhs.true ]
+  %sub104 = fadd double %66, -2.000000e+01
+  %cmp105 = fcmp olt double %67, %sub104
+  %68 = load i64, ptr %block_size_, align 8
+  %conv109 = trunc i64 %68 to i32
   %lengths110 = getelementptr inbounds i8, ptr %0, i64 24
-  %67 = load ptr, ptr %lengths110, align 8
-  %68 = load i64, ptr %num_blocks_, align 8
-  %arrayidx112 = getelementptr i32, ptr %67, i64 %68
+  %69 = load ptr, ptr %lengths110, align 8
+  %70 = load i64, ptr %num_blocks_, align 8
+  %arrayidx112 = getelementptr i32, ptr %69, i64 %70
   br i1 %cmp105, label %if.then107, label %if.else145
 
 if.then107:                                       ; preds = %if.else101
   store i32 %conv109, ptr %arrayidx112, align 4
   %types113 = getelementptr inbounds i8, ptr %0, i64 16
-  %69 = load ptr, ptr %types113, align 8
-  %70 = load i64, ptr %num_blocks_, align 8
-  %71 = getelementptr i8, ptr %69, i64 %70
-  %arrayidx116 = getelementptr i8, ptr %71, i64 -2
-  %72 = load i8, ptr %arrayidx116, align 1
-  store i8 %72, ptr %71, align 1
-  %73 = load i64, ptr %last_histogram_ix_, align 8
+  %71 = load ptr, ptr %types113, align 8
+  %72 = load i64, ptr %num_blocks_, align 8
+  %73 = getelementptr i8, ptr %71, i64 %72
+  %arrayidx116 = getelementptr i8, ptr %73, i64 -2
+  %74 = load i8, ptr %arrayidx116, align 1
+  store i8 %74, ptr %73, align 1
+  %75 = load i64, ptr %last_histogram_ix_, align 8
   %arrayidx123 = getelementptr inbounds i8, ptr %self, i64 5752
-  %74 = load i64, ptr %arrayidx123, align 8
-  store i64 %74, ptr %last_histogram_ix_, align 8
-  store i64 %73, ptr %arrayidx123, align 8
-  %arrayidx130 = getelementptr inbounds %struct.HistogramCommand, ptr %1, i64 %74
+  %76 = load i64, ptr %arrayidx123, align 8
+  store i64 %76, ptr %last_histogram_ix_, align 8
+  store i64 %75, ptr %arrayidx123, align 8
+  %arrayidx130 = getelementptr inbounds %struct.HistogramCommand, ptr %1, i64 %76
   %arrayidx132 = getelementptr inbounds i8, ptr %self, i64 2888
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx130, ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx132, i64 2832, i1 false)
-  %75 = load double, ptr %last_entropy_, align 8
+  %77 = load double, ptr %last_entropy_, align 8
   %arrayidx134 = getelementptr inbounds i8, ptr %self, i64 5768
-  store double %75, ptr %arrayidx134, align 8
-  %combined_entropy.sroa.2.0.combined_entropy.sroa.2.8. = load double, ptr %combined_entropy.sroa.2, align 8
-  store double %combined_entropy.sroa.2.0.combined_entropy.sroa.2.8., ptr %last_entropy_, align 8
-  %76 = load i64, ptr %num_blocks_, align 8
-  %inc138 = add i64 %76, 1
+  store double %77, ptr %arrayidx134, align 8
+  %arrayidx135 = getelementptr inbounds i8, ptr %combined_entropy, i64 8
+  %78 = load double, ptr %arrayidx135, align 8
+  store double %78, ptr %last_entropy_, align 8
+  %79 = load i64, ptr %num_blocks_, align 8
+  %inc138 = add i64 %79, 1
   store i64 %inc138, ptr %num_blocks_, align 8
   store i64 0, ptr %block_size_, align 8
-  %77 = load i64, ptr %curr_histogram_ix_24, align 8
-  %arrayidx141 = getelementptr inbounds %struct.HistogramCommand, ptr %1, i64 %77
+  %80 = load i64, ptr %curr_histogram_ix_24, align 8
+  %arrayidx141 = getelementptr inbounds %struct.HistogramCommand, ptr %1, i64 %80
   %bit_cost_.i189 = getelementptr inbounds i8, ptr %arrayidx141, i64 2824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %arrayidx141, i8 0, i64 2824, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i189, align 8
   %merge_last_count_142 = getelementptr inbounds i8, ptr %self, i64 5776
   store i64 0, ptr %merge_last_count_142, align 8
-  %78 = load i64, ptr %min_block_size_, align 8
+  %81 = load i64, ptr %min_block_size_, align 8
   %target_block_size_144 = getelementptr inbounds i8, ptr %self, i64 5720
-  store i64 %78, ptr %target_block_size_144, align 8
+  store i64 %81, ptr %target_block_size_144, align 8
   br label %if.end181
 
 if.else145:                                       ; preds = %if.else101
   %arrayidx151 = getelementptr i8, ptr %arrayidx112, i64 -4
-  %79 = load i32, ptr %arrayidx151, align 4
-  %add = add i32 %79, %conv109
+  %82 = load i32, ptr %arrayidx151, align 4
+  %add = add i32 %82, %conv109
   store i32 %add, ptr %arrayidx151, align 4
-  %80 = load i64, ptr %last_histogram_ix_, align 8
-  %arrayidx154 = getelementptr inbounds %struct.HistogramCommand, ptr %1, i64 %80
+  %83 = load i64, ptr %last_histogram_ix_, align 8
+  %arrayidx154 = getelementptr inbounds %struct.HistogramCommand, ptr %1, i64 %83
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx154, ptr noundef nonnull align 8 dereferenceable(2832) %combined_histo, i64 2832, i1 false)
-  %combined_entropy.sroa.0.0.combined_entropy.sroa.0.0. = load double, ptr %combined_entropy.sroa.0, align 16
-  store double %combined_entropy.sroa.0.0.combined_entropy.sroa.0.0., ptr %last_entropy_, align 8
-  %81 = load i64, ptr %0, align 8
-  %cmp160 = icmp eq i64 %81, 1
+  %84 = load double, ptr %combined_entropy, align 16
+  store double %84, ptr %last_entropy_, align 8
+  %85 = load i64, ptr %0, align 8
+  %cmp160 = icmp eq i64 %85, 1
   br i1 %cmp160, label %if.then162, label %if.end165
 
 if.then162:                                       ; preds = %if.else145
   %arrayidx164 = getelementptr inbounds i8, ptr %self, i64 5768
-  store double %combined_entropy.sroa.0.0.combined_entropy.sroa.0.0., ptr %arrayidx164, align 8
+  store double %84, ptr %arrayidx164, align 8
   br label %if.end165
 
 if.end165:                                        ; preds = %if.then162, %if.else145
   store i64 0, ptr %block_size_, align 8
-  %82 = load i64, ptr %curr_histogram_ix_24, align 8
-  %arrayidx168 = getelementptr inbounds %struct.HistogramCommand, ptr %1, i64 %82
+  %86 = load i64, ptr %curr_histogram_ix_24, align 8
+  %arrayidx168 = getelementptr inbounds %struct.HistogramCommand, ptr %1, i64 %86
   %bit_cost_.i = getelementptr inbounds i8, ptr %arrayidx168, i64 2824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %arrayidx168, i8 0, i64 2824, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i, align 8
   %merge_last_count_169 = getelementptr inbounds i8, ptr %self, i64 5776
-  %83 = load i64, ptr %merge_last_count_169, align 8
-  %inc170 = add i64 %83, 1
+  %87 = load i64, ptr %merge_last_count_169, align 8
+  %inc170 = add i64 %87, 1
   store i64 %inc170, ptr %merge_last_count_169, align 8
   %cmp171 = icmp ugt i64 %inc170, 1
   br i1 %cmp171, label %if.then173, label %if.end181
 
 if.then173:                                       ; preds = %if.end165
-  %84 = load i64, ptr %min_block_size_, align 8
+  %88 = load i64, ptr %min_block_size_, align 8
   %target_block_size_175 = getelementptr inbounds i8, ptr %self, i64 5720
-  %85 = load i64, ptr %target_block_size_175, align 8
-  %add176 = add i64 %85, %84
+  %89 = load i64, ptr %target_block_size_175, align 8
+  %add176 = add i64 %89, %88
   store i64 %add176, ptr %target_block_size_175, align 8
   br label %if.end181
 
@@ -3652,13 +3653,13 @@ if.end181:                                        ; preds = %if.else, %if.then10
   br i1 %tobool.not, label %if.end186, label %if.then182
 
 if.then182:                                       ; preds = %if.end181
-  %86 = load i64, ptr %0, align 8
+  %90 = load i64, ptr %0, align 8
   %histograms_size_184 = getelementptr inbounds i8, ptr %self, i64 48
-  %87 = load ptr, ptr %histograms_size_184, align 8
-  store i64 %86, ptr %87, align 8
-  %88 = load i64, ptr %num_blocks_, align 8
+  %91 = load ptr, ptr %histograms_size_184, align 8
+  store i64 %90, ptr %91, align 8
+  %92 = load i64, ptr %num_blocks_, align 8
   %num_blocks = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %88, ptr %num_blocks, align 8
+  store i64 %92, ptr %num_blocks, align 8
   br label %if.end186
 
 if.end186:                                        ; preds = %if.then182, %if.end181
@@ -3668,10 +3669,8 @@ if.end186:                                        ; preds = %if.then182, %if.end
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define internal fastcc void @BlockSplitterFinishBlockDistance(ptr noundef %self, i32 noundef %is_final) unnamed_addr #6 {
 entry:
-  %combined_entropy.sroa.0 = alloca double, align 16
-  %combined_entropy.sroa.2 = alloca double, align 8
-  %diff.sroa.0 = alloca double, align 16
-  %diff.sroa.3 = alloca double, align 8
+  %combined_entropy = alloca [2 x double], align 16
+  %diff = alloca [2 x double], align 16
   %split_ = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load ptr, ptr %split_, align 8
   %last_entropy_ = getelementptr inbounds i8, ptr %self, i64 4480
@@ -3922,8 +3921,6 @@ ShannonEntropy.exit258:                           ; preds = %while.end.i238, %Fa
 
 for.body:                                         ; preds = %ShannonEntropy.exit258, %ShannonEntropy.exit292
   %cmp30 = phi i1 [ true, %ShannonEntropy.exit258 ], [ false, %ShannonEntropy.exit292 ]
-  %j.0205.sroa.phi = phi ptr [ %diff.sroa.0, %ShannonEntropy.exit258 ], [ %diff.sroa.3, %ShannonEntropy.exit292 ]
-  %j.0205.sroa.phi211 = phi ptr [ %combined_entropy.sroa.0, %ShannonEntropy.exit258 ], [ %combined_entropy.sroa.2, %ShannonEntropy.exit292 ]
   %j.0205 = phi i64 [ 0, %ShannonEntropy.exit258 ], [ 1, %ShannonEntropy.exit292 ]
   %arrayidx32 = getelementptr inbounds [2 x i64], ptr %last_histogram_ix_, i64 0, i64 %j.0205
   %31 = load i64, ptr %arrayidx32, align 8
@@ -4044,12 +4041,14 @@ ShannonEntropy.exit292:                           ; preds = %while.end.i272, %Fa
   %retval1.i263.2 = phi double [ %45, %FastLog2.exit314 ], [ %retval1.i263.0, %while.end.i272 ]
   %cmp.i196 = fcmp olt double %retval1.i263.2, %.pre209
   %retval1.i.0 = select i1 %cmp.i196, double %.pre209, double %retval1.i263.2
-  store double %retval1.i.0, ptr %j.0205.sroa.phi211, align 8
+  %arrayidx45 = getelementptr inbounds [2 x double], ptr %combined_entropy, i64 0, i64 %j.0205
+  store double %retval1.i.0, ptr %arrayidx45, align 8
   %sub = fsub double %retval1.i.0, %retval1.i200.0
   %arrayidx47 = getelementptr inbounds double, ptr %last_entropy_, i64 %j.0205
   %46 = load double, ptr %arrayidx47, align 8
   %sub48 = fsub double %sub, %46
-  store double %sub48, ptr %j.0205.sroa.phi, align 8
+  %arrayidx49 = getelementptr inbounds [2 x double], ptr %diff, i64 0, i64 %j.0205
+  store double %sub48, ptr %arrayidx49, align 8
   br i1 %cmp30, label %for.body, label %for.end, !llvm.loop !45
 
 for.end:                                          ; preds = %ShannonEntropy.exit292
@@ -4058,58 +4057,60 @@ for.end:                                          ; preds = %ShannonEntropy.exit
   br i1 %cmp52, label %land.lhs.true, label %for.end.if.else101_crit_edge
 
 for.end.if.else101_crit_edge:                     ; preds = %for.end
-  %diff.sroa.3.0.diff.sroa.3.8..pre = load double, ptr %diff.sroa.3, align 8
-  %diff.sroa.0.0.diff.sroa.0.0..pre206 = load double, ptr %diff.sroa.0, align 16
+  %arrayidx102.phi.trans.insert = getelementptr inbounds i8, ptr %diff, i64 8
+  %.pre = load double, ptr %arrayidx102.phi.trans.insert, align 8
+  %.pre206 = load double, ptr %diff, align 16
   br label %if.else101
 
 land.lhs.true:                                    ; preds = %for.end
-  %diff.sroa.0.0.diff.sroa.0.0. = load double, ptr %diff.sroa.0, align 16
+  %48 = load double, ptr %diff, align 16
   %split_threshold_ = getelementptr inbounds i8, ptr %self, i64 16
-  %48 = load double, ptr %split_threshold_, align 8
-  %cmp55 = fcmp ogt double %diff.sroa.0.0.diff.sroa.0.0., %48
-  %diff.sroa.3.0.diff.sroa.3.8. = load double, ptr %diff.sroa.3, align 8
-  %cmp60 = fcmp ogt double %diff.sroa.3.0.diff.sroa.3.8., %48
+  %49 = load double, ptr %split_threshold_, align 8
+  %cmp55 = fcmp ogt double %48, %49
+  %arrayidx58 = getelementptr inbounds i8, ptr %diff, i64 8
+  %50 = load double, ptr %arrayidx58, align 8
+  %cmp60 = fcmp ogt double %50, %49
   %or.cond = select i1 %cmp55, i1 %cmp60, i1 false
   br i1 %or.cond, label %if.then62, label %if.else101
 
 if.then62:                                        ; preds = %land.lhs.true
-  %49 = load i64, ptr %block_size_, align 8
-  %conv64 = trunc i64 %49 to i32
+  %51 = load i64, ptr %block_size_, align 8
+  %conv64 = trunc i64 %51 to i32
   %lengths65 = getelementptr inbounds i8, ptr %0, i64 24
-  %50 = load ptr, ptr %lengths65, align 8
-  %51 = load i64, ptr %num_blocks_, align 8
-  %arrayidx67 = getelementptr inbounds i32, ptr %50, i64 %51
+  %52 = load ptr, ptr %lengths65, align 8
+  %53 = load i64, ptr %num_blocks_, align 8
+  %arrayidx67 = getelementptr inbounds i32, ptr %52, i64 %53
   store i32 %conv64, ptr %arrayidx67, align 4
-  %52 = load i64, ptr %0, align 8
-  %conv69 = trunc i64 %52 to i8
+  %54 = load i64, ptr %0, align 8
+  %conv69 = trunc i64 %54 to i8
   %types70 = getelementptr inbounds i8, ptr %0, i64 16
-  %53 = load ptr, ptr %types70, align 8
-  %54 = load i64, ptr %num_blocks_, align 8
-  %arrayidx72 = getelementptr inbounds i8, ptr %53, i64 %54
+  %55 = load ptr, ptr %types70, align 8
+  %56 = load i64, ptr %num_blocks_, align 8
+  %arrayidx72 = getelementptr inbounds i8, ptr %55, i64 %56
   store i8 %conv69, ptr %arrayidx72, align 1
-  %55 = load i64, ptr %last_histogram_ix_, align 8
+  %57 = load i64, ptr %last_histogram_ix_, align 8
   %arrayidx76 = getelementptr inbounds i8, ptr %self, i64 4472
-  store i64 %55, ptr %arrayidx76, align 8
-  %56 = load i64, ptr %0, align 8
-  %conv79 = and i64 %56, 255
+  store i64 %57, ptr %arrayidx76, align 8
+  %58 = load i64, ptr %0, align 8
+  %conv79 = and i64 %58, 255
   store i64 %conv79, ptr %last_histogram_ix_, align 8
-  %57 = load double, ptr %last_entropy_, align 8
+  %59 = load double, ptr %last_entropy_, align 8
   %arrayidx83 = getelementptr inbounds i8, ptr %self, i64 4488
-  store double %57, ptr %arrayidx83, align 8
+  store double %59, ptr %arrayidx83, align 8
   store double %retval1.i200.0, ptr %last_entropy_, align 8
-  %58 = load i64, ptr %num_blocks_, align 8
-  %inc86 = add i64 %58, 1
+  %60 = load i64, ptr %num_blocks_, align 8
+  %inc86 = add i64 %60, 1
   store i64 %inc86, ptr %num_blocks_, align 8
-  %59 = load i64, ptr %0, align 8
-  %inc88 = add i64 %59, 1
+  %61 = load i64, ptr %0, align 8
+  %inc88 = add i64 %61, 1
   store i64 %inc88, ptr %0, align 8
-  %60 = load i64, ptr %curr_histogram_ix_24, align 8
-  %inc90 = add i64 %60, 1
+  %62 = load i64, ptr %curr_histogram_ix_24, align 8
+  %inc90 = add i64 %62, 1
   store i64 %inc90, ptr %curr_histogram_ix_24, align 8
   %histograms_size_92 = getelementptr inbounds i8, ptr %self, i64 48
-  %61 = load ptr, ptr %histograms_size_92, align 8
-  %62 = load i64, ptr %61, align 8
-  %cmp93 = icmp ult i64 %inc90, %62
+  %63 = load ptr, ptr %histograms_size_92, align 8
+  %64 = load i64, ptr %63, align 8
+  %cmp93 = icmp ult i64 %inc90, %64
   br i1 %cmp93, label %if.then95, label %if.end98
 
 if.then95:                                        ; preds = %if.then62
@@ -4123,100 +4124,101 @@ if.end98:                                         ; preds = %if.then95, %if.then
   store i64 0, ptr %block_size_, align 8
   %merge_last_count_ = getelementptr inbounds i8, ptr %self, i64 4496
   store i64 0, ptr %merge_last_count_, align 8
-  %63 = load i64, ptr %min_block_size_, align 8
+  %65 = load i64, ptr %min_block_size_, align 8
   %target_block_size_ = getelementptr inbounds i8, ptr %self, i64 4440
-  store i64 %63, ptr %target_block_size_, align 8
+  store i64 %65, ptr %target_block_size_, align 8
   br label %if.end181
 
 if.else101:                                       ; preds = %for.end.if.else101_crit_edge, %land.lhs.true
-  %64 = phi double [ %diff.sroa.0.0.diff.sroa.0.0..pre206, %for.end.if.else101_crit_edge ], [ %diff.sroa.0.0.diff.sroa.0.0., %land.lhs.true ]
-  %65 = phi double [ %diff.sroa.3.0.diff.sroa.3.8..pre, %for.end.if.else101_crit_edge ], [ %diff.sroa.3.0.diff.sroa.3.8., %land.lhs.true ]
-  %sub104 = fadd double %64, -2.000000e+01
-  %cmp105 = fcmp olt double %65, %sub104
-  %66 = load i64, ptr %block_size_, align 8
-  %conv109 = trunc i64 %66 to i32
+  %66 = phi double [ %.pre206, %for.end.if.else101_crit_edge ], [ %48, %land.lhs.true ]
+  %67 = phi double [ %.pre, %for.end.if.else101_crit_edge ], [ %50, %land.lhs.true ]
+  %sub104 = fadd double %66, -2.000000e+01
+  %cmp105 = fcmp olt double %67, %sub104
+  %68 = load i64, ptr %block_size_, align 8
+  %conv109 = trunc i64 %68 to i32
   %lengths110 = getelementptr inbounds i8, ptr %0, i64 24
-  %67 = load ptr, ptr %lengths110, align 8
-  %68 = load i64, ptr %num_blocks_, align 8
-  %arrayidx112 = getelementptr i32, ptr %67, i64 %68
+  %69 = load ptr, ptr %lengths110, align 8
+  %70 = load i64, ptr %num_blocks_, align 8
+  %arrayidx112 = getelementptr i32, ptr %69, i64 %70
   br i1 %cmp105, label %if.then107, label %if.else145
 
 if.then107:                                       ; preds = %if.else101
   store i32 %conv109, ptr %arrayidx112, align 4
   %types113 = getelementptr inbounds i8, ptr %0, i64 16
-  %69 = load ptr, ptr %types113, align 8
-  %70 = load i64, ptr %num_blocks_, align 8
-  %71 = getelementptr i8, ptr %69, i64 %70
-  %arrayidx116 = getelementptr i8, ptr %71, i64 -2
-  %72 = load i8, ptr %arrayidx116, align 1
-  store i8 %72, ptr %71, align 1
-  %73 = load i64, ptr %last_histogram_ix_, align 8
+  %71 = load ptr, ptr %types113, align 8
+  %72 = load i64, ptr %num_blocks_, align 8
+  %73 = getelementptr i8, ptr %71, i64 %72
+  %arrayidx116 = getelementptr i8, ptr %73, i64 -2
+  %74 = load i8, ptr %arrayidx116, align 1
+  store i8 %74, ptr %73, align 1
+  %75 = load i64, ptr %last_histogram_ix_, align 8
   %arrayidx123 = getelementptr inbounds i8, ptr %self, i64 4472
-  %74 = load i64, ptr %arrayidx123, align 8
-  store i64 %74, ptr %last_histogram_ix_, align 8
-  store i64 %73, ptr %arrayidx123, align 8
-  %arrayidx130 = getelementptr inbounds %struct.HistogramDistance, ptr %1, i64 %74
+  %76 = load i64, ptr %arrayidx123, align 8
+  store i64 %76, ptr %last_histogram_ix_, align 8
+  store i64 %75, ptr %arrayidx123, align 8
+  %arrayidx130 = getelementptr inbounds %struct.HistogramDistance, ptr %1, i64 %76
   %arrayidx132 = getelementptr inbounds i8, ptr %self, i64 2248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx130, ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx132, i64 2192, i1 false)
-  %75 = load double, ptr %last_entropy_, align 8
+  %77 = load double, ptr %last_entropy_, align 8
   %arrayidx134 = getelementptr inbounds i8, ptr %self, i64 4488
-  store double %75, ptr %arrayidx134, align 8
-  %combined_entropy.sroa.2.0.combined_entropy.sroa.2.8. = load double, ptr %combined_entropy.sroa.2, align 8
-  store double %combined_entropy.sroa.2.0.combined_entropy.sroa.2.8., ptr %last_entropy_, align 8
-  %76 = load i64, ptr %num_blocks_, align 8
-  %inc138 = add i64 %76, 1
+  store double %77, ptr %arrayidx134, align 8
+  %arrayidx135 = getelementptr inbounds i8, ptr %combined_entropy, i64 8
+  %78 = load double, ptr %arrayidx135, align 8
+  store double %78, ptr %last_entropy_, align 8
+  %79 = load i64, ptr %num_blocks_, align 8
+  %inc138 = add i64 %79, 1
   store i64 %inc138, ptr %num_blocks_, align 8
   store i64 0, ptr %block_size_, align 8
-  %77 = load i64, ptr %curr_histogram_ix_24, align 8
-  %arrayidx141 = getelementptr inbounds %struct.HistogramDistance, ptr %1, i64 %77
+  %80 = load i64, ptr %curr_histogram_ix_24, align 8
+  %arrayidx141 = getelementptr inbounds %struct.HistogramDistance, ptr %1, i64 %80
   %bit_cost_.i189 = getelementptr inbounds i8, ptr %arrayidx141, i64 2184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %arrayidx141, i8 0, i64 2184, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i189, align 8
   %merge_last_count_142 = getelementptr inbounds i8, ptr %self, i64 4496
   store i64 0, ptr %merge_last_count_142, align 8
-  %78 = load i64, ptr %min_block_size_, align 8
+  %81 = load i64, ptr %min_block_size_, align 8
   %target_block_size_144 = getelementptr inbounds i8, ptr %self, i64 4440
-  store i64 %78, ptr %target_block_size_144, align 8
+  store i64 %81, ptr %target_block_size_144, align 8
   br label %if.end181
 
 if.else145:                                       ; preds = %if.else101
   %arrayidx151 = getelementptr i8, ptr %arrayidx112, i64 -4
-  %79 = load i32, ptr %arrayidx151, align 4
-  %add = add i32 %79, %conv109
+  %82 = load i32, ptr %arrayidx151, align 4
+  %add = add i32 %82, %conv109
   store i32 %add, ptr %arrayidx151, align 4
-  %80 = load i64, ptr %last_histogram_ix_, align 8
-  %arrayidx154 = getelementptr inbounds %struct.HistogramDistance, ptr %1, i64 %80
+  %83 = load i64, ptr %last_histogram_ix_, align 8
+  %arrayidx154 = getelementptr inbounds %struct.HistogramDistance, ptr %1, i64 %83
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx154, ptr noundef nonnull align 8 dereferenceable(2192) %combined_histo, i64 2192, i1 false)
-  %combined_entropy.sroa.0.0.combined_entropy.sroa.0.0. = load double, ptr %combined_entropy.sroa.0, align 16
-  store double %combined_entropy.sroa.0.0.combined_entropy.sroa.0.0., ptr %last_entropy_, align 8
-  %81 = load i64, ptr %0, align 8
-  %cmp160 = icmp eq i64 %81, 1
+  %84 = load double, ptr %combined_entropy, align 16
+  store double %84, ptr %last_entropy_, align 8
+  %85 = load i64, ptr %0, align 8
+  %cmp160 = icmp eq i64 %85, 1
   br i1 %cmp160, label %if.then162, label %if.end165
 
 if.then162:                                       ; preds = %if.else145
   %arrayidx164 = getelementptr inbounds i8, ptr %self, i64 4488
-  store double %combined_entropy.sroa.0.0.combined_entropy.sroa.0.0., ptr %arrayidx164, align 8
+  store double %84, ptr %arrayidx164, align 8
   br label %if.end165
 
 if.end165:                                        ; preds = %if.then162, %if.else145
   store i64 0, ptr %block_size_, align 8
-  %82 = load i64, ptr %curr_histogram_ix_24, align 8
-  %arrayidx168 = getelementptr inbounds %struct.HistogramDistance, ptr %1, i64 %82
+  %86 = load i64, ptr %curr_histogram_ix_24, align 8
+  %arrayidx168 = getelementptr inbounds %struct.HistogramDistance, ptr %1, i64 %86
   %bit_cost_.i = getelementptr inbounds i8, ptr %arrayidx168, i64 2184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %arrayidx168, i8 0, i64 2184, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i, align 8
   %merge_last_count_169 = getelementptr inbounds i8, ptr %self, i64 4496
-  %83 = load i64, ptr %merge_last_count_169, align 8
-  %inc170 = add i64 %83, 1
+  %87 = load i64, ptr %merge_last_count_169, align 8
+  %inc170 = add i64 %87, 1
   store i64 %inc170, ptr %merge_last_count_169, align 8
   %cmp171 = icmp ugt i64 %inc170, 1
   br i1 %cmp171, label %if.then173, label %if.end181
 
 if.then173:                                       ; preds = %if.end165
-  %84 = load i64, ptr %min_block_size_, align 8
+  %88 = load i64, ptr %min_block_size_, align 8
   %target_block_size_175 = getelementptr inbounds i8, ptr %self, i64 4440
-  %85 = load i64, ptr %target_block_size_175, align 8
-  %add176 = add i64 %85, %84
+  %89 = load i64, ptr %target_block_size_175, align 8
+  %add176 = add i64 %89, %88
   store i64 %add176, ptr %target_block_size_175, align 8
   br label %if.end181
 
@@ -4225,13 +4227,13 @@ if.end181:                                        ; preds = %if.else, %if.then10
   br i1 %tobool.not, label %if.end186, label %if.then182
 
 if.then182:                                       ; preds = %if.end181
-  %86 = load i64, ptr %0, align 8
+  %90 = load i64, ptr %0, align 8
   %histograms_size_184 = getelementptr inbounds i8, ptr %self, i64 48
-  %87 = load ptr, ptr %histograms_size_184, align 8
-  store i64 %86, ptr %87, align 8
-  %88 = load i64, ptr %num_blocks_, align 8
+  %91 = load ptr, ptr %histograms_size_184, align 8
+  store i64 %90, ptr %91, align 8
+  %92 = load i64, ptr %num_blocks_, align 8
   %num_blocks = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %88, ptr %num_blocks, align 8
+  store i64 %92, ptr %num_blocks, align 8
   br label %if.end186
 
 if.end186:                                        ; preds = %if.then182, %if.end181

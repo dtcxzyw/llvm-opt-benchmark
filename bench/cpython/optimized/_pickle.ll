@@ -5226,8 +5226,6 @@ return:                                           ; preds = %_Pickler_Write.exit
 define internal fastcc noundef i32 @save_bytes(ptr nocapture noundef readonly %st, ptr noundef %self, ptr noundef %obj) unnamed_addr #0 {
 entry:
   %header.i = alloca [9 x i8], align 1
-  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %header.i, i64 4
-  %.sink.i.sroa.gep24 = getelementptr inbounds i8, ptr %header.i, i64 1
   %proto = getelementptr inbounds i8, ptr %self, i64 88
   %0 = load i32, ptr %proto, align 8
   %cmp = icmp slt i32 %0, 3
@@ -5313,7 +5311,8 @@ if.else.i:                                        ; preds = %if.end.i23
 if.then6.i:                                       ; preds = %if.else.i
   store i8 66, ptr %header.i, align 1
   %conv8.i = trunc i64 %obj.val20 to i8
-  store i8 %conv8.i, ptr %.sink.i.sroa.gep24, align 1
+  %arrayidx9.i = getelementptr inbounds i8, ptr %header.i, i64 1
+  store i8 %conv8.i, ptr %arrayidx9.i, align 1
   %shr.i = lshr i64 %obj.val20, 8
   %conv11.i = trunc i64 %shr.i to i8
   %arrayidx12.i = getelementptr inbounds i8, ptr %header.i, i64 2
@@ -5331,6 +5330,7 @@ if.else21.i:                                      ; preds = %if.else.i
 
 if.then24.i:                                      ; preds = %if.else21.i
   store i8 -114, ptr %header.i, align 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %header.i, i64 1
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.then24.i
@@ -5338,7 +5338,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
   %mul.i.i = shl nuw nsw i64 %i.08.i.i, 3
   %shr.i.i = lshr i64 %obj.val20, %mul.i.i
   %conv.i.i = trunc i64 %shr.i.i to i8
-  %arrayidx.i.i = getelementptr i8, ptr %.sink.i.sroa.gep24, i64 %i.08.i.i
+  %arrayidx.i.i = getelementptr i8, ptr %add.ptr.i, i64 %i.08.i.i
   store i8 %conv.i.i, ptr %arrayidx.i.i, align 1
   %inc.i.i = add nuw nsw i64 %i.08.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 8
@@ -5351,10 +5351,11 @@ if.else26.i:                                      ; preds = %if.else21.i
 
 if.end29.sink.split.i:                            ; preds = %if.then6.i, %if.then2.i
   %shr17.sink.i = phi i64 [ %shr17.i, %if.then6.i ], [ %obj.val20, %if.then2.i ]
-  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %if.then6.i ], [ %.sink.i.sroa.gep24, %if.then2.i ]
+  %.sink.i = phi i64 [ 4, %if.then6.i ], [ 1, %if.then2.i ]
   %len.0.ph.i = phi i64 [ 5, %if.then6.i ], [ 2, %if.then2.i ]
   %conv19.i = trunc i64 %shr17.sink.i to i8
-  store i8 %conv19.i, ptr %.sink.i.sroa.phi, align 1
+  %arrayidx20.i = getelementptr inbounds i8, ptr %header.i, i64 %.sink.i
+  store i8 %conv19.i, ptr %arrayidx20.i, align 1
   br label %if.end29.i
 
 if.end29.i:                                       ; preds = %for.body.i.i, %if.end29.sink.split.i
@@ -5383,8 +5384,6 @@ entry:
   %writer.i = alloca %struct._PyBytesWriter, align 8
   %header.i = alloca [9 x i8], align 1
   %size.i = alloca i64, align 8
-  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %header.i, i64 4
-  %.sink.i.sroa.gep119 = getelementptr inbounds i8, ptr %header.i, i64 1
   %bin = getelementptr inbounds i8, ptr %self, i64 92
   %0 = load i32, ptr %bin, align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -5438,7 +5437,8 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %i
 if.then13.i:                                      ; preds = %if.else.i
   store i8 88, ptr %header.i, align 1
   %conv16.i = trunc i64 %2 to i8
-  store i8 %conv16.i, ptr %.sink.i.sroa.gep119, align 1
+  %arrayidx17.i = getelementptr inbounds i8, ptr %header.i, i64 1
+  store i8 %conv16.i, ptr %arrayidx17.i, align 1
   %shr.i = lshr i64 %2, 8
   %conv19.i = trunc i64 %shr.i to i8
   %arrayidx20.i = getelementptr inbounds i8, ptr %header.i, i64 2
@@ -5458,6 +5458,7 @@ if.else29.i:                                      ; preds = %if.else.i
 
 if.then33.i:                                      ; preds = %if.else29.i
   store i8 -115, ptr %header.i, align 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %header.i, i64 1
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.then33.i
@@ -5465,7 +5466,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
   %mul.i.i = shl nuw nsw i64 %i.08.i.i, 3
   %shr.i.i = lshr i64 %2, %mul.i.i
   %conv.i.i = trunc i64 %shr.i.i to i8
-  %arrayidx.i.i = getelementptr i8, ptr %.sink.i.sroa.gep119, i64 %i.08.i.i
+  %arrayidx.i.i = getelementptr i8, ptr %add.ptr.i, i64 %i.08.i.i
   store i8 %conv.i.i, ptr %arrayidx.i.i, align 1
   %inc.i.i = add nuw nsw i64 %i.08.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 8
@@ -5487,14 +5488,15 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
   %dec.i.i.i = add i64 %6, -1
   store i64 %dec.i.i.i, ptr %encoded.0.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i, label %write_unicode_binary.exit.thread127, label %write_unicode_binary.exit.thread
+  br i1 %cmp.i.i.i, label %write_unicode_binary.exit.thread126, label %write_unicode_binary.exit.thread
 
 if.end38.sink.split.i:                            ; preds = %if.then13.i, %if.then9.i
   %shr25.sink.i = phi i64 [ %shr25.i, %if.then13.i ], [ %2, %if.then9.i ]
-  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %if.then13.i ], [ %.sink.i.sroa.gep119, %if.then9.i ]
+  %.sink.i = phi i64 [ 4, %if.then13.i ], [ 1, %if.then9.i ]
   %len.0.ph.i = phi i64 [ 5, %if.then13.i ], [ 2, %if.then9.i ]
   %conv27.i = trunc i64 %shr25.sink.i to i8
-  store i8 %conv27.i, ptr %.sink.i.sroa.phi, align 1
+  %arrayidx28.i = getelementptr inbounds i8, ptr %header.i, i64 %.sink.i
+  store i8 %conv27.i, ptr %arrayidx28.i, align 1
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %for.body.i.i, %if.end38.sink.split.i
@@ -5517,34 +5519,34 @@ if.end.i.i14.i:                                   ; preds = %if.then.i12.i
   %dec.i.i15.i = add i64 %8, -1
   store i64 %dec.i.i15.i, ptr %encoded.0.i, align 8
   %cmp.i.i16.i = icmp eq i64 %dec.i.i15.i, 0
-  br i1 %cmp.i.i16.i, label %write_unicode_binary.exit.thread127, label %write_unicode_binary.exit.thread
+  br i1 %cmp.i.i16.i, label %write_unicode_binary.exit.thread126, label %write_unicode_binary.exit.thread
 
 if.end44.i:                                       ; preds = %if.end38.i
-  br i1 %cmp.not.i11.i, label %write_unicode_binary.exit.thread123, label %if.then.i20.i
+  br i1 %cmp.not.i11.i, label %write_unicode_binary.exit.thread122, label %if.then.i20.i
 
 if.then.i20.i:                                    ; preds = %if.end44.i
   %10 = load i64, ptr %encoded.0.i, align 8
   %11 = and i64 %10, 2147483648
   %cmp.i2.not.i21.i = icmp eq i64 %11, 0
-  br i1 %cmp.i2.not.i21.i, label %if.end.i.i22.i, label %write_unicode_binary.exit.thread123
+  br i1 %cmp.i2.not.i21.i, label %if.end.i.i22.i, label %write_unicode_binary.exit.thread122
 
 if.end.i.i22.i:                                   ; preds = %if.then.i20.i
   %dec.i.i23.i = add i64 %10, -1
   store i64 %dec.i.i23.i, ptr %encoded.0.i, align 8
   %cmp.i.i24.i = icmp eq i64 %dec.i.i23.i, 0
-  br i1 %cmp.i.i24.i, label %write_unicode_binary.exit, label %write_unicode_binary.exit.thread123
+  br i1 %cmp.i.i24.i, label %write_unicode_binary.exit, label %write_unicode_binary.exit.thread122
 
 write_unicode_binary.exit.thread:                 ; preds = %if.then.i, %if.else35.i, %if.then.i.i, %if.end.i.i.i, %if.then43.i, %if.then.i12.i, %if.end.i.i14.i
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %header.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i)
   br label %return
 
-write_unicode_binary.exit.thread123:              ; preds = %if.end44.i, %if.then.i20.i, %if.end.i.i22.i
+write_unicode_binary.exit.thread122:              ; preds = %if.end44.i, %if.then.i20.i, %if.end.i.i22.i
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %header.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i)
   br label %if.end20
 
-write_unicode_binary.exit.thread127:              ; preds = %if.end.i.i.i, %if.end.i.i14.i
+write_unicode_binary.exit.thread126:              ; preds = %if.end.i.i.i, %if.end.i.i14.i
   call void @_Py_Dealloc(ptr noundef nonnull %encoded.0.i) #11
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %header.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i)
@@ -5920,7 +5922,7 @@ if.then21.i63:                                    ; preds = %if.end17.i49
 
 if.end29.i52:                                     ; preds = %if.then21.i63, %if.end17.i49
   %cmp30.i = icmp slt i64 %call2.val, 8
-  br i1 %cmp30.i, label %for.cond32.preheader.i, label %_Pickler_Write.exit77.thread136
+  br i1 %cmp30.i, label %for.cond32.preheader.i, label %_Pickler_Write.exit77.thread135
 
 for.cond32.preheader.i:                           ; preds = %if.end29.i52
   %cmp3338.i = icmp sgt i64 %call2.val, 0
@@ -5938,13 +5940,13 @@ for.body34.i57:                                   ; preds = %for.cond32.preheade
   %exitcond.not.i62 = icmp eq i64 %inc40.i61, %call2.val
   br i1 %exitcond.not.i62, label %_Pickler_Write.exit77, label %for.body34.i57, !llvm.loop !7
 
-_Pickler_Write.exit77.thread136:                  ; preds = %if.end29.i52
+_Pickler_Write.exit77.thread135:                  ; preds = %if.end29.i52
   %73 = load i64, ptr %output_len.i, align 8
   %add.ptr.i53 = getelementptr i8, ptr %ob_sval.i.i51, i64 %73
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i53, ptr nonnull align 1 %ob_sval.i, i64 %call2.val, i1 false)
   %74 = load i64, ptr %output_len.i, align 8
-  %add46.i55137 = add i64 %74, %call2.val
-  store i64 %add46.i55137, ptr %output_len.i, align 8
+  %add46.i55136 = add i64 %74, %call2.val
+  store i64 %add46.i55136, ptr %output_len.i, align 8
   br label %if.end15
 
 _Pickler_Write.exit77:                            ; preds = %for.body34.i57, %for.cond32.preheader.i
@@ -5970,7 +5972,7 @@ if.then1.i31:                                     ; preds = %if.end.i28
   call void @_Py_Dealloc(ptr noundef nonnull %call87.i) #11
   br label %return
 
-if.end15:                                         ; preds = %_Pickler_Write.exit77.thread136, %_Pickler_Write.exit77
+if.end15:                                         ; preds = %_Pickler_Write.exit77.thread135, %_Pickler_Write.exit77
   %78 = load i64, ptr %call87.i, align 8
   %79 = and i64 %78, 2147483648
   %cmp.i51.not = icmp eq i64 %79, 0
@@ -6026,19 +6028,19 @@ if.end8.i112:                                     ; preds = %if.then4.i107
   br i1 %cmp14.i117, label %return, label %if.end8.i112.if.end17.i90_crit_edge
 
 if.end8.i112.if.end17.i90_crit_edge:              ; preds = %if.end8.i112
-  %.pre141.pre = load i64, ptr %output_len.i, align 8
+  %.pre140.pre = load i64, ptr %output_len.i, align 8
   br label %if.end17.i90
 
 if.end17.i90:                                     ; preds = %if.end8.i112.if.end17.i90_crit_edge, %land.end.thread.i85
-  %.pre141 = phi i64 [ %.pre141.pre, %if.end8.i112.if.end17.i90_crit_edge ], [ %84, %land.end.thread.i85 ]
+  %.pre140 = phi i64 [ %.pre140.pre, %if.end8.i112.if.end17.i90_crit_edge ], [ %84, %land.end.thread.i85 ]
   %86 = load ptr, ptr %output_buffer18.i, align 8
   %ob_sval.i.i92 = getelementptr inbounds i8, ptr %86, i64 32
   br i1 %82, label %if.then21.i104, label %if.end29.i93
 
 if.then21.i104:                                   ; preds = %if.end17.i90
   %frame_start24.i105 = getelementptr inbounds i8, ptr %self, i64 104
-  store i64 %.pre141, ptr %frame_start24.i105, align 8
-  %87 = getelementptr i8, ptr %ob_sval.i.i92, i64 %.pre141
+  store i64 %.pre140, ptr %frame_start24.i105, align 8
+  %87 = getelementptr i8, ptr %ob_sval.i.i92, i64 %.pre140
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %87, i8 -2, i64 9, i1 false)
   %88 = load i64, ptr %output_len.i, align 8
   %add28.i106 = add i64 %88, 9
@@ -6046,7 +6048,7 @@ if.then21.i104:                                   ; preds = %if.end17.i90
   br label %if.end29.i93
 
 if.end29.i93:                                     ; preds = %if.then21.i104, %if.end17.i90
-  %89 = phi i64 [ %add28.i106, %if.then21.i104 ], [ %.pre141, %if.end17.i90 ]
+  %89 = phi i64 [ %add28.i106, %if.then21.i104 ], [ %.pre140, %if.end17.i90 ]
   %90 = getelementptr i8, ptr %ob_sval.i.i92, i64 %89
   store i8 10, ptr %90, align 1
   %91 = load i64, ptr %output_len.i, align 8
@@ -6054,12 +6056,12 @@ if.end29.i93:                                     ; preds = %if.then21.i104, %if
   store i64 %add46.i102, ptr %output_len.i, align 8
   br label %if.end20
 
-if.end20:                                         ; preds = %if.end29.i93, %write_unicode_binary.exit, %write_unicode_binary.exit.thread123
+if.end20:                                         ; preds = %if.end29.i93, %write_unicode_binary.exit, %write_unicode_binary.exit.thread122
   %call21 = call fastcc i32 @memo_put(ptr noundef %state, ptr noundef %self, ptr noundef %obj), !range !4
   br label %return
 
-return:                                           ; preds = %if.end8.i112, %if.then7.i110, %raw_unicode_escape.exit.thread, %write_unicode_binary.exit.thread127, %write_unicode_binary.exit.thread, %if.end20, %if.end.i28, %if.then1.i31, %if.then14, %if.end.i37, %if.then1.i40, %if.then8, %raw_unicode_escape.exit
-  %retval.0 = phi i32 [ -1, %raw_unicode_escape.exit ], [ -1, %if.then8 ], [ -1, %if.then1.i40 ], [ -1, %if.end.i37 ], [ -1, %if.then14 ], [ -1, %if.then1.i31 ], [ -1, %if.end.i28 ], [ %call21, %if.end20 ], [ -1, %write_unicode_binary.exit.thread ], [ -1, %write_unicode_binary.exit.thread127 ], [ -1, %raw_unicode_escape.exit.thread ], [ -1, %if.then7.i110 ], [ -1, %if.end8.i112 ]
+return:                                           ; preds = %if.end8.i112, %if.then7.i110, %raw_unicode_escape.exit.thread, %write_unicode_binary.exit.thread126, %write_unicode_binary.exit.thread, %if.end20, %if.end.i28, %if.then1.i31, %if.then14, %if.end.i37, %if.then1.i40, %if.then8, %raw_unicode_escape.exit
+  %retval.0 = phi i32 [ -1, %raw_unicode_escape.exit ], [ -1, %if.then8 ], [ -1, %if.then1.i40 ], [ -1, %if.end.i37 ], [ -1, %if.then14 ], [ -1, %if.then1.i31 ], [ -1, %if.end.i28 ], [ %call21, %if.end20 ], [ -1, %write_unicode_binary.exit.thread ], [ -1, %write_unicode_binary.exit.thread126 ], [ -1, %raw_unicode_escape.exit.thread ], [ -1, %if.then7.i110 ], [ -1, %if.end8.i112 ]
   ret i32 %retval.0
 }
 
@@ -11123,8 +11125,6 @@ declare ptr @PyUnicode_DecodeLatin1(ptr noundef, i64 noundef, ptr noundef) local
 define internal fastcc noundef i32 @_save_bytes_data(ptr nocapture noundef readonly %st, ptr noundef %self, ptr noundef %obj, ptr noundef %data, i64 noundef %size) unnamed_addr #0 {
 entry:
   %header = alloca [9 x i8], align 1
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %header, i64 4
-  %.sink.sroa.gep13 = getelementptr inbounds i8, ptr %header, i64 1
   %cmp = icmp slt i64 %size, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -11185,10 +11185,11 @@ if.else26:                                        ; preds = %if.else21
 
 if.end29.sink.split:                              ; preds = %if.then2, %if.then6
   %shr17.sink = phi i64 [ %shr17, %if.then6 ], [ %size, %if.then2 ]
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.then6 ], [ %.sink.sroa.gep13, %if.then2 ]
+  %.sink = phi i64 [ 4, %if.then6 ], [ 1, %if.then2 ]
   %len.0.ph = phi i64 [ 5, %if.then6 ], [ 2, %if.then2 ]
   %conv19 = trunc i64 %shr17.sink to i8
-  store i8 %conv19, ptr %.sink.sroa.phi, align 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %header, i64 %.sink
+  store i8 %conv19, ptr %arrayidx20, align 1
   br label %if.end29
 
 if.end29:                                         ; preds = %for.body.i, %if.end29.sink.split

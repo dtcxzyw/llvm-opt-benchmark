@@ -4115,11 +4115,6 @@ entry:
   %agg.tmp238 = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
   %ref.tmp252 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp253 = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
-  %indvars.iv.sroa.gep825 = getelementptr inbounds i8, ptr %coeffs, i64 8
-  %indvars.iv.sroa.gep822 = getelementptr inbounds i8, ptr %coeffs, i64 8
-  %indvars.iv.sroa.gep819 = getelementptr inbounds i8, ptr %coeffs, i64 8
-  %indvars.iv.sroa.gep816 = getelementptr inbounds i8, ptr %leafs, i64 8
-  %indvars.iv.sroa.gep = getelementptr inbounds i8, ptr %leafs, i64 8
   %call = tail call noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
   %arrayctor.end = getelementptr inbounds i8, ptr %coeffs, i64 16
   br label %arrayctor.loop
@@ -4243,11 +4238,6 @@ lpad.i.i60:                                       ; preds = %init.i.i58
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %cmp = phi i1 [ false, %for.inc ], [ true, %for.body.preheader ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.inc ], [ %leafs, %for.body.preheader ]
-  %indvars.iv.sroa.phi815 = phi ptr [ %indvars.iv.sroa.gep816, %for.inc ], [ %leafs, %for.body.preheader ]
-  %indvars.iv.sroa.phi818 = phi ptr [ %indvars.iv.sroa.gep819, %for.inc ], [ %coeffs, %for.body.preheader ]
-  %indvars.iv.sroa.phi821 = phi ptr [ %indvars.iv.sroa.gep822, %for.inc ], [ %coeffs, %for.body.preheader ]
-  %indvars.iv.sroa.phi824 = phi ptr [ %indvars.iv.sroa.gep825, %for.inc ], [ %coeffs, %for.body.preheader ]
   %indvars.iv = phi i64 [ 1, %for.inc ], [ 0, %for.body.preheader ]
   %11 = load ptr, ptr %children, align 8
   %add.ptr.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %11, i64 %indvars.iv
@@ -4408,7 +4398,8 @@ invoke.cont44:                                    ; preds = %if.then39
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %invoke.cont44
-  %35 = load ptr, ptr %indvars.iv.sroa.phi818, align 8
+  %arrayidx = getelementptr inbounds [2 x %"class.cvc5::internal::NodeTemplate"], ptr %coeffs, i64 0, i64 %indvars.iv
+  %35 = load ptr, ptr %arrayidx, align 8
   %36 = load ptr, ptr %ref.tmp40, align 8
   %cmp.not.i86 = icmp eq ptr %35, %36
   br i1 %cmp.not.i86, label %invoke.cont48, label %if.then.i87
@@ -4434,7 +4425,7 @@ if.then13.i.i:                                    ; preds = %if.then.i.i
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %if.then13.i.i, %if.then.i.i, %if.then.i87
   %38 = load ptr, ptr %ref.tmp40, align 8
-  store ptr %38, ptr %indvars.iv.sroa.phi818, align 8
+  store ptr %38, ptr %arrayidx, align 8
   %bf.load.i2.i = load i64, ptr %38, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i2.i, 40
   %39 = trunc i64 %bf.lshr.i.i to i32
@@ -4501,7 +4492,8 @@ invoke.cont52:                                    ; preds = %_ZN4cvc58internal12
   %spec.select.i.i = select i1 %cmp.i.i105, i64 2, i64 1
   %arrayidx.i.i109 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i81, i64 0, i64 %spec.select.i.i
   %44 = load ptr, ptr %arrayidx.i.i109, align 8, !noalias !72
-  %45 = load ptr, ptr %indvars.iv.sroa.phi, align 8
+  %arrayidx54 = getelementptr inbounds [2 x %"class.cvc5::internal::NodeTemplate"], ptr %leafs, i64 0, i64 %indvars.iv
+  %45 = load ptr, ptr %arrayidx54, align 8
   %cmp.not.i112 = icmp eq ptr %45, %44
   br i1 %cmp.not.i112, label %if.end76, label %if.then.i113
 
@@ -4525,7 +4517,7 @@ if.then13.i.i136:                                 ; preds = %if.then.i.i116
           to label %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i122 unwind label %lpad55
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i122: ; preds = %if.then13.i.i136, %if.then.i.i116, %if.then.i113
-  store ptr %44, ptr %indvars.iv.sroa.phi, align 8
+  store ptr %44, ptr %arrayidx54, align 8
   %bf.load.i2.i123 = load i64, ptr %44, align 8
   %bf.lshr.i.i124 = lshr i64 %bf.load.i2.i123, 40
   %47 = trunc i64 %bf.lshr.i.i124 to i32
@@ -4579,7 +4571,8 @@ if.else:                                          ; preds = %invoke.cont36
           to label %invoke.cont66 unwind label %lpad65
 
 invoke.cont66:                                    ; preds = %if.else
-  %52 = load ptr, ptr %indvars.iv.sroa.phi821, align 8
+  %arrayidx68 = getelementptr inbounds [2 x %"class.cvc5::internal::NodeTemplate"], ptr %coeffs, i64 0, i64 %indvars.iv
+  %52 = load ptr, ptr %arrayidx68, align 8
   %53 = load ptr, ptr %ref.tmp59, align 8
   %cmp.not.i139 = icmp eq ptr %52, %53
   br i1 %cmp.not.i139, label %invoke.cont70, label %if.then.i140
@@ -4605,7 +4598,7 @@ if.then13.i.i163:                                 ; preds = %if.then.i.i143
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i149: ; preds = %if.then13.i.i163, %if.then.i.i143, %if.then.i140
   %55 = load ptr, ptr %ref.tmp59, align 8
-  store ptr %55, ptr %indvars.iv.sroa.phi821, align 8
+  store ptr %55, ptr %arrayidx68, align 8
   %bf.load.i2.i150 = load i64, ptr %55, align 8
   %bf.lshr.i.i151 = lshr i64 %bf.load.i2.i150, 40
   %56 = trunc i64 %bf.lshr.i.i151 to i32
@@ -4673,7 +4666,8 @@ if.end76:                                         ; preds = %if.then13.i.i175, %
   br i1 %cmp26, label %if.then77, label %for.inc
 
 if.then77:                                        ; preds = %if.end76
-  %63 = load ptr, ptr %indvars.iv.sroa.phi824, align 8
+  %arrayidx79 = getelementptr inbounds [2 x %"class.cvc5::internal::NodeTemplate"], ptr %coeffs, i64 0, i64 %indvars.iv
+  %63 = load ptr, ptr %arrayidx79, align 8
   %64 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i178 = icmp eq i8 %64, 0
   br i1 %guard.uninitialized.i.i178, label %init.check.i.i180, label %invoke.cont80, !prof !4
@@ -4709,7 +4703,7 @@ invoke.cont80:                                    ; preds = %invoke.cont.i.i185,
   br i1 %cmp.i179, label %if.end97, label %if.then82
 
 if.then82:                                        ; preds = %invoke.cont80
-  %68 = load ptr, ptr %indvars.iv.sroa.phi824, align 8
+  %68 = load ptr, ptr %arrayidx79, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 95)
@@ -4743,7 +4737,7 @@ invoke.cont89:                                    ; preds = %invoke.cont3.i
   call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116) %nb.i) #14
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %71 = load ptr, ptr %indvars.iv.sroa.phi824, align 8
+  %71 = load ptr, ptr %arrayidx79, align 8
   %72 = load ptr, ptr %ref.tmp83, align 8
   %cmp.not.i191 = icmp eq ptr %71, %72
   br i1 %cmp.not.i191, label %invoke.cont93, label %if.then.i192
@@ -4769,7 +4763,7 @@ if.then13.i.i215:                                 ; preds = %if.then.i.i195
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i201: ; preds = %if.then13.i.i215, %if.then.i.i195, %if.then.i192
   %74 = load ptr, ptr %ref.tmp83, align 8
-  store ptr %74, ptr %indvars.iv.sroa.phi824, align 8
+  store ptr %74, ptr %arrayidx79, align 8
   %bf.load.i2.i202 = load i64, ptr %74, align 8
   %bf.lshr.i.i203 = lshr i64 %bf.load.i2.i202, 40
   %75 = trunc i64 %bf.lshr.i.i203 to i32
@@ -4834,7 +4828,8 @@ lpad92:                                           ; preds = %if.then13.i4.i208, 
   br label %ehcleanup288
 
 if.end97:                                         ; preds = %if.then13.i.i227, %if.then.i.i221, %invoke.cont93, %invoke.cont80
-  %82 = load ptr, ptr %indvars.iv.sroa.phi815, align 8
+  %arrayidx99 = getelementptr inbounds [2 x %"class.cvc5::internal::NodeTemplate"], ptr %leafs, i64 0, i64 %indvars.iv
+  %82 = load ptr, ptr %arrayidx99, align 8
   %83 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i230 = icmp eq i8 %83, 0
   br i1 %guard.uninitialized.i.i230, label %init.check.i.i232, label %invoke.cont100, !prof !4
@@ -4870,7 +4865,7 @@ invoke.cont100:                                   ; preds = %invoke.cont.i.i237,
   br i1 %cmp.i231, label %for.inc, label %if.then102
 
 if.then102:                                       ; preds = %invoke.cont100
-  %87 = load ptr, ptr %indvars.iv.sroa.phi815, align 8
+  %87 = load ptr, ptr %arrayidx99, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i243)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i244)
   invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i243, ptr noundef nonnull %call, i32 noundef 95)
@@ -4904,7 +4899,7 @@ invoke.cont109:                                   ; preds = %invoke.cont3.i249
   call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116) %nb.i243) #14
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %nb.i243)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i244)
-  %90 = load ptr, ptr %indvars.iv.sroa.phi815, align 8
+  %90 = load ptr, ptr %arrayidx99, align 8
   %91 = load ptr, ptr %ref.tmp103, align 8
   %cmp.not.i254 = icmp eq ptr %90, %91
   br i1 %cmp.not.i254, label %invoke.cont113, label %if.then.i255
@@ -4930,7 +4925,7 @@ if.then13.i.i278:                                 ; preds = %if.then.i.i258
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i264: ; preds = %if.then13.i.i278, %if.then.i.i258, %if.then.i255
   %93 = load ptr, ptr %ref.tmp103, align 8
-  store ptr %93, ptr %indvars.iv.sroa.phi815, align 8
+  store ptr %93, ptr %arrayidx99, align 8
   %bf.load.i2.i265 = load i64, ptr %93, align 8
   %bf.lshr.i.i266 = lshr i64 %bf.load.i2.i265, 40
   %94 = trunc i64 %bf.lshr.i.i266 to i32

@@ -843,11 +843,6 @@ entry:
   %ref.tmp41 = alloca %"class.testing::Action.30", align 8
   %ref.tmp50 = alloca %"class.testing::internal::MockSpec.33", align 8
   %ref.tmp58 = alloca %"class.testing::Cardinality", align 8
-  %ref.tmp17.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %ref.tmp17.sink.sroa.gep83 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %ref.tmp17.sink.sroa.gep84 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %ref.tmp17.sink.sroa.gep85 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %ref.tmp17.sink.sroa.gep86 = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
   tail call void @_ZN7testing8internal25UntypedFunctionMockerBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this)
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal14FunctionMockerIFvN4absl11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %gmock01_Send_164 = getelementptr inbounds i8, ptr %this, i64 72
@@ -1023,8 +1018,9 @@ lpad22:                                           ; preds = %invoke.cont23, %inv
   br label %ehcleanup64
 
 if.end:                                           ; preds = %invoke.cont23, %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %invoke.cont15
-  %ref.tmp17.sink.sroa.phi = phi ptr [ %ref.tmp17.sink.sroa.gep, %invoke.cont15 ], [ %ref.tmp17.sink.sroa.gep83, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ %ref.tmp17.sink.sroa.gep84, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ %ref.tmp17.sink.sroa.gep85, %if.end8.sink.split.i.i.i.i.i ], [ %ref.tmp17.sink.sroa.gep86, %invoke.cont23 ]
-  call void @_ZNSt11_Tuple_implILm0EJN7testing7MatcherIN4absl11LogSeverityEEENS1_IRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESD_EED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp17.sink.sroa.phi) #21
+  %ref.tmp17.sink = phi ptr [ %ref.tmp, %invoke.cont15 ], [ %ref.tmp, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ %ref.tmp, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ %ref.tmp, %if.end8.sink.split.i.i.i.i.i ], [ %ref.tmp17, %invoke.cont23 ]
+  %matchers_.i10 = getelementptr inbounds i8, ptr %ref.tmp17.sink, i64 8
+  call void @_ZNSt11_Tuple_implILm0EJN7testing7MatcherIN4absl11LogSeverityEEENS1_IRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESD_EED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %matchers_.i10) #21
   invoke void @_ZN7testing8internal18GetWithoutMatchersEv()
           to label %invoke.cont30 unwind label %lpad7
 

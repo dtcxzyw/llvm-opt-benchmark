@@ -2087,16 +2087,20 @@ entry:
   %rewrite_eq = alloca %class.ref_vector.31, align 8
   %rewrite_cond = alloca %class.obj_ref.51, align 8
   %ref.tmp729 = alloca %struct.mk_pp, align 8
+  %ref.tmp729.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp729, i64 16
   %ref.tmp744 = alloca %struct.mk_pp, align 8
   %is_forall = alloca i8, align 1
   %ref.tmp783 = alloca %struct.mk_pp, align 8
+  %ref.tmp783.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp783, i64 16
   %ref.tmp798 = alloca %struct.mk_pp, align 8
   %hypotheses = alloca %class.ref_vector.31, align 8
   %ors = alloca %class.ref_vector.31, align 8
   %ref.tmp1047 = alloca %struct.mk_pp, align 8
+  %ref.tmp1047.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp1047, i64 16
   %ref.tmp1062 = alloca %struct.mk_pp, align 8
   %ref.tmp1092 = alloca %struct.mk_pp, align 8
   %ref.tmp1103 = alloca %struct.mk_pp, align 8
+  %ref.tmp1103.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp1103, i64 16
   %ref.tmp1120 = alloca %struct.mk_pp, align 8
   %ref.tmp1131 = alloca %struct.mk_pp, align 8
   %ref.tmp1326 = alloca %class.symbol, align 8
@@ -2118,10 +2122,6 @@ entry:
   %ref.tmp1528 = alloca %struct.mk_pp, align 8
   %ref.tmp1538 = alloca %struct.mk_pp, align 8
   %ref.tmp1548 = alloca %struct.mk_pp, align 8
-  %ref.tmp729.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp729, i64 16
-  %ref.tmp729.sink.sroa.gep4342 = getelementptr inbounds i8, ptr %ref.tmp783, i64 16
-  %ref.tmp729.sink.sroa.gep4343 = getelementptr inbounds i8, ptr %ref.tmp1047, i64 16
-  %ref.tmp729.sink.sroa.gep4344 = getelementptr inbounds i8, ptr %ref.tmp1103, i64 16
   %m_decl.i.i = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load ptr, ptr %m_decl.i.i, align 8
   %m_info.i.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -7724,7 +7724,7 @@ invoke.cont1107:                                  ; preds = %invoke.cont1105
           to label %invoke.cont1109.invoke.sink.split unwind label %lpad1106
 
 invoke.cont1109.invoke.sink.split:                ; preds = %invoke.cont1107, %invoke.cont1051, %invoke.cont787, %invoke.cont733
-  %ref.tmp729.sink.sroa.phi = phi ptr [ %ref.tmp729.sink.sroa.gep, %invoke.cont733 ], [ %ref.tmp729.sink.sroa.gep4342, %invoke.cont787 ], [ %ref.tmp729.sink.sroa.gep4343, %invoke.cont1051 ], [ %ref.tmp729.sink.sroa.gep4344, %invoke.cont1107 ]
+  %ref.tmp729.sink.sroa.phi = phi ptr [ %ref.tmp729.sroa.gep, %invoke.cont733 ], [ %ref.tmp783.sroa.gep, %invoke.cont787 ], [ %ref.tmp1047.sroa.gep, %invoke.cont1051 ], [ %ref.tmp1103.sroa.gep, %invoke.cont1107 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp729.sink.sroa.phi) #22
   br label %invoke.cont1109.invoke
 

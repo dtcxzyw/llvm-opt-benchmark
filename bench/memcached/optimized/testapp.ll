@@ -1750,8 +1750,7 @@ if.end34:                                         ; preds = %if.end28
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_issue_101() #0 {
 entry:
-  %conns.sroa.0 = alloca ptr, align 16
-  %conns.sroa.3 = alloca ptr, align 8
+  %conns = alloca [2 x ptr], align 16
   %stat = alloca i32, align 4
   %call = tail call ptr @getenv(ptr noundef nonnull @.str.209) #18
   %cmp.not = icmp eq ptr %call, null
@@ -1767,10 +1766,11 @@ for.cond:                                         ; preds = %if.end11
 
 for.body:                                         ; preds = %if.end, %for.cond
   %cmp3 = phi i1 [ true, %if.end ], [ false, %for.cond ]
-  %indvars.iv.sroa.phi = phi ptr [ %conns.sroa.0, %if.end ], [ %conns.sroa.3, %for.cond ]
+  %indvars.iv = phi i64 [ 0, %if.end ], [ 1, %for.cond ]
+  %arrayidx = getelementptr inbounds [2 x ptr], ptr %conns, i64 0, i64 %indvars.iv
   %0 = load i16, ptr @port, align 2
   %call4 = tail call fastcc ptr @connect_server(i16 noundef zeroext %0, i1 noundef zeroext true)
-  store ptr %call4, ptr %indvars.iv.sroa.phi, align 8
+  store ptr %call4, ptr %arrayidx, align 8
   %tobool9.not = icmp eq ptr %call4, null
   br i1 %tobool9.not, label %if.else, label %if.end11
 
@@ -1789,8 +1789,9 @@ if.else16:                                        ; preds = %if.end11
 
 do.body.preheader:                                ; preds = %for.cond, %for.inc32
   %cmp19 = phi i1 [ false, %for.inc32 ], [ true, %for.cond ]
-  %indvars.iv28.sroa.phi = phi ptr [ %conns.sroa.3, %for.inc32 ], [ %conns.sroa.0, %for.cond ]
-  %2 = load ptr, ptr %indvars.iv28.sroa.phi, align 8
+  %indvars.iv28 = phi i64 [ 1, %for.inc32 ], [ 0, %for.cond ]
+  %arrayidx22 = getelementptr inbounds [2 x ptr], ptr %conns, i64 0, i64 %indvars.iv28
+  %2 = load ptr, ptr %arrayidx22, align 8
   %write = getelementptr inbounds i8, ptr %2, i64 16
   br label %do.body
 
@@ -1878,8 +1879,9 @@ cleanup:                                          ; preds = %if.then27, %if.end4
 
 for.body65:                                       ; preds = %cleanup, %for.inc82
   %cmp64 = phi i1 [ true, %cleanup ], [ false, %for.inc82 ]
-  %indvars.iv31.sroa.phi = phi ptr [ %conns.sroa.0, %cleanup ], [ %conns.sroa.3, %for.inc82 ]
-  %8 = load ptr, ptr %indvars.iv31.sroa.phi, align 8
+  %indvars.iv31 = phi i64 [ 0, %cleanup ], [ 1, %for.inc82 ]
+  %arrayidx68 = getelementptr inbounds [2 x ptr], ptr %conns, i64 0, i64 %indvars.iv31
+  %8 = load ptr, ptr %arrayidx68, align 8
   %cmp69 = icmp eq ptr %8, null
   br i1 %cmp69, label %for.inc82, label %if.end71
 
@@ -1894,7 +1896,7 @@ if.then74:                                        ; preds = %if.end71
 
 if.end77:                                         ; preds = %if.then74, %if.end71
   call void @free(ptr noundef nonnull %8) #18
-  store ptr null, ptr %indvars.iv31.sroa.phi, align 8
+  store ptr null, ptr %arrayidx68, align 8
   br label %for.inc82
 
 for.inc82:                                        ; preds = %for.body65, %if.end77

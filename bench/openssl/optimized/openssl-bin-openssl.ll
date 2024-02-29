@@ -318,6 +318,7 @@ declare ptr @opt_appname(ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @do_cmd(ptr noundef %prog, i32 noundef %argc, ptr noundef %argv) unnamed_addr #3 {
 entry:
   %f = alloca %struct.function_st, align 8
+  %f.sroa.gep20 = getelementptr inbounds i8, ptr %f, i64 32
   %cmp = icmp slt i32 %argc, 1
   br i1 %cmp, label %return, label %lor.lhs.false
 
@@ -331,6 +332,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %name = getelementptr inbounds i8, ptr %f, i64 8
   store ptr %0, ptr %name, align 8
   %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %prog, ptr noundef nonnull %f) #10
+  %call.i.sroa.gep = getelementptr inbounds i8, ptr %call.i, i64 32
   %cmp3 = icmp eq ptr %call.i, null
   br i1 %cmp3, label %if.then4, label %if.then18
 
@@ -356,8 +358,8 @@ if.then18.sink.split:                             ; preds = %if.else, %if.then4
 
 if.then18:                                        ; preds = %if.then18.sink.split, %if.end
   %fp.0.ph = phi ptr [ %call.i, %if.end ], [ %f, %if.then18.sink.split ]
-  %deprecated_alternative = getelementptr inbounds i8, ptr %fp.0.ph, i64 32
-  %3 = load ptr, ptr %deprecated_alternative, align 8
+  %fp.0.ph.sroa.phi = phi ptr [ %call.i.sroa.gep, %if.end ], [ %f.sroa.gep20, %if.then18.sink.split ]
+  %3 = load ptr, ptr %fp.0.ph.sroa.phi, align 8
   %cmp19.not = icmp eq ptr %3, null
   br i1 %cmp19.not, label %if.end21, label %if.then20
 
@@ -379,7 +381,7 @@ if.else.i:                                        ; preds = %if.then20
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
-  %7 = load ptr, ptr %deprecated_alternative, align 8
+  %7 = load ptr, ptr %fp.0.ph.sroa.phi, align 8
   %call4.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(8) @.str.36) #11
   %cmp5.not.i = icmp eq i32 %call4.i, 0
   br i1 %cmp5.not.i, label %warn_deprecated.exit, label %if.then6.i

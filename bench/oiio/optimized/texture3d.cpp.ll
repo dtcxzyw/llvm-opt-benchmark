@@ -1750,10 +1750,6 @@ entry:
   %id = alloca %"struct.OpenImageIO_v2_6_0::pvt::TileID", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp519 = alloca %"class.std::__cxx11::basic_string", align 8
-  %indvars.iv635.sroa.gep665 = getelementptr inbounds i8, ptr %stex, i64 4
-  %indvars.iv637.sroa.gep662 = getelementptr inbounds i8, ptr %ttex, i64 4
-  %indvars.iv639.sroa.gep661 = getelementptr inbounds i8, ptr %rtex, i64 4
-  %indvars.iv635.sroa.gep660 = getelementptr inbounds i8, ptr %valid_storage, i64 1
   %subimage = getelementptr inbounds i8, ptr %options, i64 4
   %0 = load i32, ptr %subimage, align 4
   %m_subimages.i.i = getelementptr inbounds i8, ptr %texturefile, i64 80
@@ -2223,27 +2219,26 @@ invoke.cont402:                                   ; preds = %if.end376
 
 for.cond459.preheader:                            ; preds = %for.cond456.preheader, %for.inc576
   %cmp457 = phi i1 [ true, %for.cond456.preheader ], [ false, %for.inc576 ]
-  %indvars.iv639.sroa.phi = phi ptr [ %rtex, %for.cond456.preheader ], [ %indvars.iv639.sroa.gep661, %for.inc576 ]
   %indvars.iv639 = phi i64 [ 0, %for.cond456.preheader ], [ 1, %for.inc576 ]
   %firstsample.0629 = phi i8 [ 1, %for.cond456.preheader ], [ %firstsample.3, %for.inc576 ]
   %arrayidx474 = getelementptr inbounds i8, ptr %add.ptr30, i64 %indvars.iv639
+  %arrayidx497 = getelementptr inbounds [2 x i32], ptr %rtex, i64 0, i64 %indvars.iv639
   br label %for.cond462.preheader
 
 for.cond462.preheader:                            ; preds = %for.cond459.preheader, %for.inc573
   %cmp460 = phi i1 [ true, %for.cond459.preheader ], [ false, %for.inc573 ]
-  %indvars.iv637.sroa.phi = phi ptr [ %ttex, %for.cond459.preheader ], [ %indvars.iv637.sroa.gep662, %for.inc573 ]
   %indvars.iv637 = phi i64 [ 0, %for.cond459.preheader ], [ 1, %for.inc573 ]
   %firstsample.1627 = phi i8 [ %firstsample.0629, %for.cond459.preheader ], [ %firstsample.3, %for.inc573 ]
   %arrayidx470 = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv637
+  %arrayidx491 = getelementptr inbounds [2 x i32], ptr %ttex, i64 0, i64 %indvars.iv637
   br label %for.body464
 
 for.body464:                                      ; preds = %for.cond462.preheader, %for.inc570
   %cmp463 = phi i1 [ true, %for.cond462.preheader ], [ false, %for.inc570 ]
-  %indvars.iv635.sroa.phi = phi ptr [ %valid_storage, %for.cond462.preheader ], [ %indvars.iv635.sroa.gep660, %for.inc570 ]
-  %indvars.iv635.sroa.phi663 = phi ptr [ %stex, %for.cond462.preheader ], [ %indvars.iv635.sroa.gep665, %for.inc570 ]
   %indvars.iv635 = phi i64 [ 0, %for.cond462.preheader ], [ 1, %for.inc570 ]
   %firstsample.2625 = phi i8 [ %firstsample.1627, %for.cond462.preheader ], [ %firstsample.3, %for.inc570 ]
-  %120 = load i8, ptr %indvars.iv635.sroa.phi, align 1
+  %arrayidx466 = getelementptr inbounds i8, ptr %valid_storage, i64 %indvars.iv635
+  %120 = load i8, ptr %arrayidx466, align 1
   %121 = and i8 %120, 1
   %tobool467.not = icmp eq i8 %121, 0
   br i1 %tobool467.not, label %for.inc570, label %land.lhs.true468
@@ -2261,17 +2256,18 @@ land.lhs.true472:                                 ; preds = %land.lhs.true468
   br i1 %tobool475.not, label %for.inc570, label %if.end483
 
 if.end483:                                        ; preds = %land.lhs.true472
-  %126 = load i32, ptr %indvars.iv635.sroa.phi663, align 4
+  %arrayidx485 = getelementptr inbounds [2 x i32], ptr %stex, i64 0, i64 %indvars.iv635
+  %126 = load i32, ptr %arrayidx485, align 4
   %127 = load i32, ptr %add.ptr.i1.i.i, align 8
   %sub487 = sub nsw i32 %126, %127
   %128 = load i32, ptr %tile_width, align 8
   %rem489 = srem i32 %sub487, %128
-  %129 = load i32, ptr %indvars.iv637.sroa.phi, align 4
+  %129 = load i32, ptr %arrayidx491, align 4
   %130 = load i32, ptr %y42, align 4
   %sub493 = sub nsw i32 %129, %130
   %131 = load i32, ptr %tile_height, align 4
   %rem495 = srem i32 %sub493, %131
-  %132 = load i32, ptr %indvars.iv639.sroa.phi, align 4
+  %132 = load i32, ptr %arrayidx497, align 4
   %133 = load i32, ptr %z53, align 8
   %sub499 = sub nsw i32 %132, %133
   %134 = load i32, ptr %tile_depth, align 8

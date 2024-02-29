@@ -2418,8 +2418,8 @@ return:                                           ; preds = %cleanup, %entry, %l
 define internal fastcc void @_ZL10createPathPKciS0_iS0_RN6icu_7510CharStringEP10UErrorCode(ptr noundef readonly %origResPath, i32 noundef %origResPathLen, ptr noundef %resPath, i32 noundef %resPathLen, ptr noundef %inKey, ptr noundef nonnull align 8 dereferenceable(60) %path, ptr noundef %status) unnamed_addr #1 {
 entry:
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
+  %agg.tmp.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %agg.tmp77 = alloca %"class.icu_75::StringPiece", align 8
-  %agg.tmp77.sink.sroa.gep81 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %len.i = getelementptr inbounds i8, ptr %path, i64 56
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %path, align 8
@@ -2530,13 +2530,13 @@ if.end75:                                         ; preds = %while.end68, %land.
   br label %if.end79
 
 if.else:                                          ; preds = %entry
-  %agg.tmp77.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp77, i64 8
+  %agg.tmp77.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp77, i64 8
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp77, ptr noundef %inKey)
   br label %if.end79
 
 if.end79:                                         ; preds = %if.else, %if.end75
-  %agg.tmp77.sink.sroa.phi = phi ptr [ %agg.tmp77.sink.sroa.gep, %if.else ], [ %agg.tmp77.sink.sroa.gep81, %if.end75 ]
   %agg.tmp77.sink = phi ptr [ %agg.tmp77, %if.else ], [ %agg.tmp, %if.end75 ]
+  %agg.tmp77.sink.sroa.phi = phi ptr [ %agg.tmp77.sroa.gep, %if.else ], [ %agg.tmp.sroa.gep, %if.end75 ]
   %.sink = load ptr, ptr %agg.tmp77.sink, align 8
   %8 = load i32, ptr %agg.tmp77.sink.sroa.phi, align 8
   %call3.i48 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %path, ptr noundef %.sink, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %status)

@@ -368,14 +368,14 @@ entry:
   %key.i.i = alloca %struct.strbuf, align 8
   %buf.i = alloca %struct.strbuf, align 8
   %fdin = alloca [2 x i32], align 4
+  %fdin.sroa.gep = getelementptr inbounds i8, ptr %fdin, i64 4
   %fdout = alloca [2 x i32], align 4
+  %fdout.sroa.gep = getelementptr inbounds i8, ptr %fdout, i64 4
   %fderr = alloca [2 x i32], align 4
   %notify_pipe = alloca [2 x i32], align 4
   %argv = alloca %struct.strvec, align 8
   %cerr = alloca %struct.child_err, align 4
   %as = alloca %struct.atfork_state, align 8
-  %fdin.sink.sroa.gep = getelementptr inbounds i8, ptr %fdin, i64 4
-  %fdin.sink.sroa.gep297 = getelementptr inbounds i8, ptr %fdout, i64 4
   %no_stdin = getelementptr inbounds i8, ptr %cmd, i64 104
   %bf.load = load i16, ptr %no_stdin, align 8
   %bf.clear = and i16 %bf.load, 1
@@ -494,11 +494,11 @@ if.else77:                                        ; preds = %if.end73
   br i1 %tobool79.not, label %fail_pipe, label %fail_pipe.sink.split
 
 fail_pipe.sink.split.sink.split:                  ; preds = %if.end73, %if.then31
-  %fdin.sink.sroa.phi = phi ptr [ %fdin.sink.sroa.gep, %if.then31 ], [ %fdin.sink.sroa.gep297, %if.end73 ]
   %fdin.sink = phi ptr [ %fdin, %if.then31 ], [ %fdout, %if.end73 ]
   %call89.pre-phi.ph.ph = phi ptr [ %call32, %if.then31 ], [ %call62, %if.end73 ]
   %failed_errno.0.ph.ph = phi i32 [ %7, %if.then31 ], [ %13, %if.end73 ]
   %str.0.ph.ph = phi ptr [ @.str.2, %if.then31 ], [ @.str.3, %if.end73 ]
+  %fdin.sink.sroa.phi = phi ptr [ %fdin.sroa.gep, %if.then31 ], [ %fdout.sroa.gep, %if.end73 ]
   %.sink288 = load i32, ptr %fdin.sink, align 4
   %call.i = call i32 @close(i32 noundef %.sink288) #21
   %18 = load i32, ptr %fdin.sink.sroa.phi, align 4

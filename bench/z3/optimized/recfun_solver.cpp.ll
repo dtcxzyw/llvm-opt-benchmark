@@ -5304,9 +5304,9 @@ _ZN6recfun6solver9push_propEPNS_16propagation_itemE.exit: ; preds = %lor.lhs.fal
 define hidden noundef zeroext i1 @_ZN6recfun6solver15should_researchERK7svectorIN3sat7literalEjE(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %core) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
+  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %ref.tmp50 = alloca %struct.mk_pp, align 8
-  %ref.tmp50.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp50, i64 16
-  %ref.tmp50.sink.sroa.gep85 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %ref.tmp50.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp50, i64 16
   %0 = load ptr, ptr %core, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %if.end73, label %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
@@ -5672,8 +5672,8 @@ if.end73:                                         ; preds = %entry, %_ZNK6vector
   ret i1 %tobool70
 
 eh.resume:                                        ; preds = %lpad52, %lpad
-  %ref.tmp50.sink.sroa.phi = phi ptr [ %ref.tmp50.sink.sroa.gep, %lpad52 ], [ %ref.tmp50.sink.sroa.gep85, %lpad ]
   %.pn = phi { ptr, i32 } [ %54, %lpad52 ], [ %52, %lpad ]
+  %ref.tmp50.sink.sroa.phi = phi ptr [ %ref.tmp50.sroa.gep, %lpad52 ], [ %ref.tmp.sroa.gep, %lpad ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50.sink.sroa.phi) #23
   resume { ptr, i32 } %.pn
 }

@@ -4202,7 +4202,6 @@ lpad2:                                            ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont3, %entry
   %data.addr.0 = phi ptr [ %clone, %invoke.cont3 ], [ %data, %entry ]
-  %data.addr.0.sroa.phi5 = getelementptr inbounds i8, ptr %data.addr.0, i64 8
   %3 = load i64, ptr %data.addr.0, align 8, !tbaa !39
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !7
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 80
@@ -4256,7 +4255,8 @@ _ZN5folly2io12_GLOBAL__N_119encodeVarintToIOBufEmPNS_5IOBufE.exit: ; preds = %wh
   br label %if.end16
 
 if.end16:                                         ; preds = %_ZN5folly2io12_GLOBAL__N_119encodeVarintToIOBufEmPNS_5IOBufE.exit, %invoke.cont10
-  %12 = load ptr, ptr %data.addr.0.sroa.phi5, align 8, !tbaa !38
+  %data_.i = getelementptr inbounds i8, ptr %data.addr.0, i64 8
+  %12 = load ptr, ptr %data_.i, align 8, !tbaa !38
   %13 = load ptr, ptr %agg.result, align 8, !tbaa !10
   %data_.i113 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %data_.i113, align 8, !tbaa !38
@@ -4479,7 +4479,6 @@ lpad:                                             ; preds = %if.then
 
 invoke.cont6:                                     ; preds = %invoke.cont, %entry
   %data.addr.0 = phi ptr [ %clone, %invoke.cont ], [ %data, %entry ]
-  %data.addr.0.sroa.phi17 = getelementptr inbounds i8, ptr %data.addr.0, i64 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %cursor) #29
   store ptr %data.addr.0, ptr %cursor, align 8, !tbaa !127
   %buffer_.i.i = getelementptr inbounds i8, ptr %cursor, i64 8
@@ -4491,7 +4490,8 @@ invoke.cont6:                                     ; preds = %invoke.cont, %entry
   store i64 -1, ptr %remainingLen_.i.i, align 8, !tbaa !130
   %crtPos_.i.i = getelementptr inbounds i8, ptr %cursor, i64 32
   %crtEnd_.i.i = getelementptr inbounds i8, ptr %cursor, i64 24
-  %3 = load ptr, ptr %data.addr.0.sroa.phi17, align 8, !tbaa !38
+  %data_.i.i.i = getelementptr inbounds i8, ptr %data.addr.0, i64 8
+  %3 = load ptr, ptr %data_.i.i.i, align 8, !tbaa !38
   store ptr %3, ptr %crtBegin_.i.i, align 8, !tbaa !131
   store ptr %3, ptr %crtPos_.i.i, align 8, !tbaa !132
   %4 = load i64, ptr %data.addr.0, align 8, !tbaa !39
@@ -9214,7 +9214,6 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont, %entry
   %data.addr.0 = phi ptr [ %clone, %invoke.cont ], [ %data, %entry ]
-  %data.addr.0.sroa.phi5 = getelementptr inbounds i8, ptr %data.addr.0, i64 8
   %2 = load i64, ptr %data.addr.0, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %prefs) #29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %prefs, i8 0, i64 56, i1 false)
@@ -9248,7 +9247,8 @@ invoke.cont12:                                    ; preds = %invoke.cont5
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %10 = load ptr, ptr %data.addr.0.sroa.phi5, align 8, !tbaa !38
+  %data_.i34 = getelementptr inbounds i8, ptr %data.addr.0, i64 8
+  %10 = load ptr, ptr %data_.i34, align 8, !tbaa !38
   %11 = load i64, ptr %data.addr.0, align 8, !tbaa !39
   %call17 = invoke i64 @LZ4F_compressFrame(ptr noundef %add.ptr.i, i64 noundef %sub.ptr.sub.i, ptr noundef %10, i64 noundef %11, ptr noundef nonnull %prefs)
           to label %invoke.cont16 unwind label %lpad11

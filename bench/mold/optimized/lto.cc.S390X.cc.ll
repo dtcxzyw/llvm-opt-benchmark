@@ -562,8 +562,7 @@ entry:
   %ref.tmp56 = alloca %"class.mold::Fatal", align 8
   %strtab = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp78 = alloca %"class.std::allocator", align 1
-  %ref.tmp87.sroa.2 = alloca i16, align 2
-  %ref.tmp87.sroa.9 = alloca i16, align 2
+  %ref.tmp87 = alloca %"struct.mold::elf::ElfSym", align 1
   %.b37 = load i1, ptr @_ZN4mold3elfL20is_gcc_linker_api_v1E, align 1
   br i1 %.b37, label %if.end, label %if.else4.i
 
@@ -805,8 +804,8 @@ _ZN4mold11save_stringINS_3elf7ContextINS1_5S390XEEEEESt17basic_string_viewIcSt11
   br i1 %cmp, label %if.end26, label %if.end26.thread
 
 if.end26.thread:                                  ; preds = %_ZN4mold11save_stringINS_3elf7ContextINS1_5S390XEEEEESt17basic_string_viewIcSt11char_traitsIcEERT_RKNSt7__cxx1112basic_stringIcS7_SaIcEEE.exit
-  %fd28112 = getelementptr inbounds i8, ptr %file, i64 8
-  store i32 %22, ptr %fd28112, align 8
+  %fd28108 = getelementptr inbounds i8, ptr %file, i64 8
+  store i32 %22, ptr %fd28108, align 8
   br label %if.end39
 
 if.end26:                                         ; preds = %_ZN4mold11save_stringINS_3elf7ContextINS1_5S390XEEEEESt17basic_string_viewIcSt11char_traitsIcEERT_RKNSt7__cxx1112basic_stringIcS7_SaIcEEE.exit
@@ -912,17 +911,17 @@ if.then64:                                        ; preds = %if.end62, %_ZN4mold
 if.end68:                                         ; preds = %if.then64, %_ZN4mold3elfL7is_llvmINS0_5S390XEEEbRNS0_7ContextIT_EE.exit
   %33 = load ptr, ptr @_ZN4mold3elfL14plugin_symbolsE, align 8
   %34 = load ptr, ptr getelementptr inbounds ({ { ptr, ptr, ptr } }, ptr @_ZN4mold3elfL14plugin_symbolsE, i64 0, i32 0, i32 1), align 8
-  %cmp.i50115 = icmp eq ptr %33, %34
-  br i1 %cmp.i50115, label %for.end, label %for.body
+  %cmp.i50111 = icmp eq ptr %33, %34
+  br i1 %cmp.i50111, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end68, %for.body
-  %strtab_size.0117 = phi i64 [ %add76, %for.body ], [ 1, %if.end68 ]
-  %__begin2.sroa.0.0116 = phi ptr [ %incdec.ptr.i, %for.body ], [ %33, %if.end68 ]
-  %35 = load ptr, ptr %__begin2.sroa.0.0116, align 8
+  %strtab_size.0113 = phi i64 [ %add76, %for.body ], [ 1, %if.end68 ]
+  %__begin2.sroa.0.0112 = phi ptr [ %incdec.ptr.i, %for.body ], [ %33, %if.end68 ]
+  %35 = load ptr, ptr %__begin2.sroa.0.0112, align 8
   %call75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #30
-  %add = add i64 %strtab_size.0117, 1
+  %add = add i64 %strtab_size.0113, 1
   %add76 = add i64 %add, %call75
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0116, i64 48
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0112, i64 48
   %cmp.i50 = icmp eq ptr %incdec.ptr.i, %34
   br i1 %cmp.i50, label %for.end, label %for.body
 
@@ -1002,7 +1001,7 @@ if.then.i63:                                      ; preds = %_ZNSt7__cxx1112basi
   %sub.i = sub nsw i64 %add80, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIN4mold3elf6ElfSymINS1_5S390XEEESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %lto_elf_syms, i64 noundef %sub.i)
   %.pre = load ptr, ptr getelementptr inbounds ({ { ptr, ptr, ptr } }, ptr @_ZN4mold3elfL14plugin_symbolsE, i64 0, i32 0, i32 1), align 8
-  %.pre125 = load ptr, ptr @_ZN4mold3elfL14plugin_symbolsE, align 8
+  %.pre121 = load ptr, ptr @_ZN4mold3elfL14plugin_symbolsE, align 8
   br label %_ZNSt6vectorIN4mold3elf6ElfSymINS1_5S390XEEESaIS4_EE6resizeEm.exit
 
 if.else.i60:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
@@ -1019,19 +1018,24 @@ if.then.i.i62:                                    ; preds = %if.then5.i
   br label %_ZNSt6vectorIN4mold3elf6ElfSymINS1_5S390XEEESaIS4_EE6resizeEm.exit
 
 _ZNSt6vectorIN4mold3elf6ElfSymINS1_5S390XEEESaIS4_EE6resizeEm.exit: ; preds = %if.then.i63, %if.else.i60, %if.then5.i, %if.then.i.i62
-  %43 = phi ptr [ %.pre125, %if.then.i63 ], [ %40, %if.else.i60 ], [ %40, %if.then5.i ], [ %40, %if.then.i.i62 ]
+  %43 = phi ptr [ %.pre121, %if.then.i63 ], [ %40, %if.else.i60 ], [ %40, %if.then5.i ], [ %40, %if.then.i.i62 ]
   %44 = phi ptr [ %.pre, %if.then.i63 ], [ %39, %if.else.i60 ], [ %39, %if.then5.i ], [ %39, %if.then.i.i62 ]
-  %cmp83122.not = icmp eq ptr %44, %43
-  br i1 %cmp83122.not, label %for.end102, label %for.body84
+  %cmp83118.not = icmp eq ptr %44, %43
+  br i1 %cmp83118.not, label %for.end102, label %for.body84.lr.ph
 
-for.body84:                                       ; preds = %_ZNSt6vectorIN4mold3elf6ElfSymINS1_5S390XEEESaIS4_EE6resizeEm.exit, %_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit
-  %45 = phi ptr [ %57, %_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit ], [ %43, %_ZNSt6vectorIN4mold3elf6ElfSymINS1_5S390XEEESaIS4_EE6resizeEm.exit ]
-  %strtab_offset.0124 = phi i64 [ %add100, %_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit ], [ 1, %_ZNSt6vectorIN4mold3elf6ElfSymINS1_5S390XEEESaIS4_EE6resizeEm.exit ]
-  %i.0123 = phi i64 [ %add89, %_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit ], [ 0, %_ZNSt6vectorIN4mold3elf6ElfSymINS1_5S390XEEESaIS4_EE6resizeEm.exit ]
-  %add.ptr.i68 = getelementptr inbounds %"struct.mold::PluginSymbol", ptr %45, i64 %i.0123
+for.body84.lr.ph:                                 ; preds = %_ZNSt6vectorIN4mold3elf6ElfSymINS1_5S390XEEESaIS4_EE6resizeEm.exit
+  %st_shndx2.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 6
+  %st_type.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 4
+  %st_size.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 16
+  br label %for.body84
+
+for.body84:                                       ; preds = %for.body84.lr.ph, %_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit
+  %45 = phi ptr [ %43, %for.body84.lr.ph ], [ %57, %_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit ]
+  %strtab_offset.0120 = phi i64 [ 1, %for.body84.lr.ph ], [ %add100, %_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit ]
+  %i.0119 = phi i64 [ 0, %for.body84.lr.ph ], [ %add89, %_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit ]
+  %add.ptr.i68 = getelementptr inbounds %"struct.mold::PluginSymbol", ptr %45, i64 %i.0119
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  store i16 0, ptr %ref.tmp87.sroa.2, align 2, !alias.scope !14
-  store i16 0, ptr %ref.tmp87.sroa.9, align 2, !alias.scope !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %ref.tmp87, i8 0, i64 16, i1 false), !alias.scope !14
   %def.i = getelementptr inbounds i8, ptr %add.ptr.i68, i64 16
   %46 = load i8, ptr %def.i, align 8, !noalias !14
   switch i8 %46, label %sw.epilog.i [
@@ -1042,7 +1046,7 @@ for.body84:                                       ; preds = %_ZNSt6vectorIN4mold
   ]
 
 sw.bb1.i:                                         ; preds = %for.body84
-  store i16 -3585, ptr %ref.tmp87.sroa.9, align 2, !alias.scope !14
+  store i16 -3585, ptr %st_shndx2.i, align 1, !alias.scope !14
   br label %sw.epilog.sink.split.i
 
 sw.bb7.i:                                         ; preds = %for.body84
@@ -1052,10 +1056,11 @@ sw.bb14.i:                                        ; preds = %for.body84
   br label %sw.epilog.sink.split.i
 
 sw.epilog.sink.split.i:                           ; preds = %sw.bb14.i, %sw.bb7.i, %sw.bb1.i, %for.body84
-  %.sink6.i.sroa.phi = phi ptr [ %ref.tmp87.sroa.9, %sw.bb14.i ], [ %ref.tmp87.sroa.2, %sw.bb7.i ], [ %ref.tmp87.sroa.2, %sw.bb1.i ], [ %ref.tmp87.sroa.9, %for.body84 ]
+  %.sink6.i = phi i64 [ 6, %sw.bb14.i ], [ 4, %sw.bb7.i ], [ 4, %sw.bb1.i ], [ 6, %for.body84 ]
   %.sink.i = phi i16 [ -3329, %sw.bb14.i ], [ 32, %sw.bb7.i ], [ 32, %sw.bb1.i ], [ -3585, %for.body84 ]
   %bf.load25.ph.i = phi i16 [ 0, %sw.bb14.i ], [ 32, %sw.bb7.i ], [ 32, %sw.bb1.i ], [ 0, %for.body84 ]
-  store i16 %.sink.i, ptr %.sink6.i.sroa.phi, align 2, !alias.scope !14
+  %st_shndx15.i = getelementptr inbounds i8, ptr %ref.tmp87, i64 %.sink6.i
+  store i16 %.sink.i, ptr %st_shndx15.i, align 1, !alias.scope !14
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.epilog.sink.split.i, %for.body84
@@ -1064,69 +1069,57 @@ sw.epilog.i:                                      ; preds = %sw.epilog.sink.spli
   %47 = load i8, ptr %symbol_type.i, align 1, !noalias !14
   switch i8 %47, label %sw.epilog28.i [
     i8 2, label %sw.bb23.i
-    i8 1, label %sw.bb19.i
+    i8 1, label %sw.epilog28.i.sink.split
   ]
 
-sw.bb19.i:                                        ; preds = %sw.epilog.i
-  %bf.set22.i = or disjoint i16 %bf.load25.i, 2
-  store i16 %bf.set22.i, ptr %ref.tmp87.sroa.2, align 2, !alias.scope !14
-  br label %sw.epilog28.i
-
 sw.bb23.i:                                        ; preds = %sw.epilog.i
-  %bf.set27.i = or disjoint i16 %bf.load25.i, 1
-  store i16 %bf.set27.i, ptr %ref.tmp87.sroa.2, align 2, !alias.scope !14
+  br label %sw.epilog28.i.sink.split
+
+sw.epilog28.i.sink.split:                         ; preds = %sw.epilog.i, %sw.bb23.i
+  %.sink = phi i16 [ 1, %sw.bb23.i ], [ 2, %sw.epilog.i ]
+  %bf.set22.i = or disjoint i16 %bf.load25.i, %.sink
+  store i16 %bf.set22.i, ptr %st_type.i, align 1, !alias.scope !14
   br label %sw.epilog28.i
 
-sw.epilog28.i:                                    ; preds = %sw.bb23.i, %sw.bb19.i, %sw.epilog.i
-  %bf.load41.i = phi i16 [ %bf.set27.i, %sw.bb23.i ], [ %bf.set22.i, %sw.bb19.i ], [ %bf.load25.i, %sw.epilog.i ]
+sw.epilog28.i:                                    ; preds = %sw.epilog28.i.sink.split, %sw.epilog.i
+  %bf.load41.i = phi i16 [ %bf.load25.i, %sw.epilog.i ], [ %bf.set22.i, %sw.epilog28.i.sink.split ]
   %visibility.i69 = getelementptr inbounds i8, ptr %add.ptr.i68, i64 20
   %48 = load i32, ptr %visibility.i69, align 4, !noalias !14
-  switch i32 %48, label %sw.epilog28.i._ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit_crit_edge [
+  switch i32 %48, label %_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit [
     i32 3, label %sw.bb39.i
     i32 1, label %sw.bb30.i
     i32 2, label %sw.bb34.i
   ]
 
-sw.epilog28.i._ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit_crit_edge: ; preds = %sw.epilog28.i
-  %ref.tmp87.sroa.2.0.ref.tmp87.sroa.2.0.ref.tmp87.sroa.2.0.ref.tmp87.sroa.2.0.copyload.pre = load i16, ptr %ref.tmp87.sroa.2, align 2
-  br label %_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit
-
 sw.bb30.i:                                        ; preds = %sw.epilog28.i
   %bf.set33.i = or i16 %bf.load41.i, 768
-  store i16 %bf.set33.i, ptr %ref.tmp87.sroa.2, align 2, !alias.scope !14
-  br label %_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit
+  br label %_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit.sink.split
 
 sw.bb34.i:                                        ; preds = %sw.epilog28.i
   %bf.clear37.i = and i16 %bf.load41.i, -769
   %bf.set38.i = or disjoint i16 %bf.clear37.i, 256
-  store i16 %bf.set38.i, ptr %ref.tmp87.sroa.2, align 2, !alias.scope !14
-  br label %_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit
+  br label %_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit.sink.split
 
 sw.bb39.i:                                        ; preds = %sw.epilog28.i
   %bf.clear42.i = and i16 %bf.load41.i, -769
   %bf.set43.i = or disjoint i16 %bf.clear42.i, 512
-  store i16 %bf.set43.i, ptr %ref.tmp87.sroa.2, align 2, !alias.scope !14
+  br label %_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit.sink.split
+
+_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit.sink.split: ; preds = %sw.bb39.i, %sw.bb34.i, %sw.bb30.i
+  %bf.set33.i.sink = phi i16 [ %bf.set33.i, %sw.bb30.i ], [ %bf.set38.i, %sw.bb34.i ], [ %bf.set43.i, %sw.bb39.i ]
+  store i16 %bf.set33.i.sink, ptr %st_type.i, align 1, !alias.scope !14
   br label %_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit
 
-_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit: ; preds = %sw.epilog28.i._ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit_crit_edge, %sw.bb30.i, %sw.bb34.i, %sw.bb39.i
-  %ref.tmp87.sroa.2.0.ref.tmp87.sroa.2.0.ref.tmp87.sroa.2.0.copyload = phi i16 [ %ref.tmp87.sroa.2.0.ref.tmp87.sroa.2.0.ref.tmp87.sroa.2.0.ref.tmp87.sroa.2.0.copyload.pre, %sw.epilog28.i._ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit_crit_edge ], [ %bf.set33.i, %sw.bb30.i ], [ %bf.set38.i, %sw.bb34.i ], [ %bf.set43.i, %sw.bb39.i ]
+_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit: ; preds = %_ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit.sink.split, %sw.epilog28.i
   %size.i = getelementptr inbounds i8, ptr %add.ptr.i68, i64 24
   %49 = load i64, ptr %size.i, align 8, !noalias !14
   %50 = call noundef i64 @llvm.bswap.i64(i64 %49)
-  %add89 = add nuw nsw i64 %i.0123, 1
+  store i64 %50, ptr %st_size.i, align 1, !alias.scope !14
+  %add89 = add nuw nsw i64 %i.0119, 1
   %51 = load ptr, ptr %lto_elf_syms, align 8
   %add.ptr.i70 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %51, i64 %add89
-  store i32 0, ptr %add.ptr.i70, align 1
-  %ref.tmp87.sroa.2.0.add.ptr.i70.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i70, i64 4
-  store i16 %ref.tmp87.sroa.2.0.ref.tmp87.sroa.2.0.ref.tmp87.sroa.2.0.copyload, ptr %ref.tmp87.sroa.2.0.add.ptr.i70.sroa_idx, align 1
-  %ref.tmp87.sroa.9.0.add.ptr.i70.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i70, i64 6
-  %ref.tmp87.sroa.9.0.ref.tmp87.sroa.9.0.ref.tmp87.sroa.9.0.ref.tmp87.sroa.9.0.copyload = load i16, ptr %ref.tmp87.sroa.9, align 2
-  store i16 %ref.tmp87.sroa.9.0.ref.tmp87.sroa.9.0.ref.tmp87.sroa.9.0.ref.tmp87.sroa.9.0.copyload, ptr %ref.tmp87.sroa.9.0.add.ptr.i70.sroa_idx, align 1
-  %ref.tmp87.sroa.12.0.add.ptr.i70.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i70, i64 8
-  store i64 0, ptr %ref.tmp87.sroa.12.0.add.ptr.i70.sroa_idx, align 1
-  %ref.tmp87.sroa.1295.0.add.ptr.i70.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i70, i64 16
-  store i64 %50, ptr %ref.tmp87.sroa.1295.0.add.ptr.i70.sroa_idx, align 1
-  %conv = trunc i64 %strtab_offset.0124 to i32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i70, ptr noundef nonnull align 1 dereferenceable(24) %ref.tmp87, i64 24, i1 false)
+  %conv = trunc i64 %strtab_offset.0120 to i32
   %52 = load ptr, ptr %lto_elf_syms, align 8
   %add.ptr.i71 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %52, i64 %add89
   %53 = call noundef i32 @llvm.bswap.i32(i32 %conv)
@@ -1134,9 +1127,9 @@ _ZN4mold3elfL10to_elf_symINS0_5S390XEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit:
   %54 = load ptr, ptr %add.ptr.i68, align 8
   %call96 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #30
   %55 = load ptr, ptr %strtab, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %55, i64 %strtab_offset.0124
+  %add.ptr = getelementptr inbounds i8, ptr %55, i64 %strtab_offset.0120
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %54, i64 %call96, i1 false)
-  %add99 = add i64 %strtab_offset.0124, 1
+  %add99 = add i64 %strtab_offset.0120, 1
   %add100 = add i64 %add99, %call96
   %56 = load ptr, ptr getelementptr inbounds ({ { ptr, ptr, ptr } }, ptr @_ZN4mold3elfL14plugin_symbolsE, i64 0, i32 0, i32 1), align 8
   %57 = load ptr, ptr @_ZN4mold3elfL14plugin_symbolsE, align 8
@@ -6459,7 +6452,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %ref.tmp8.sink4.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp5, i64 24
+  %ref.tmp5.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp5, i64 24
   store ptr @_ZSt4cout, ptr %ref.tmp5, align 8
   %ss.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i) #19
@@ -6473,7 +6466,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %tobool.not.i, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb7:                                           ; preds = %entry
-  %ref.tmp8.sink4.sroa.gep5 = getelementptr inbounds i8, ptr %ref.tmp8, i64 24
+  %ref.tmp8.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp8, i64 24
   call void @_ZN4mold4WarnINS_3elf7ContextINS1_5S390XEEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(4568) %0)
   %5 = load ptr, ptr %ref.tmp8, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
@@ -6486,8 +6479,8 @@ sw.bb10:                                          ; preds = %entry, %entry
   unreachable
 
 sw.epilog.sink.split.sink.split:                  ; preds = %sw.bb7, %sw.bb
-  %ref.tmp8.sink4.sroa.phi = phi ptr [ %ref.tmp8.sink4.sroa.gep, %sw.bb ], [ %ref.tmp8.sink4.sroa.gep5, %sw.bb7 ]
   %ref.tmp8.sink4 = phi ptr [ %ref.tmp5, %sw.bb ], [ %ref.tmp8, %sw.bb7 ]
+  %ref.tmp8.sink4.sroa.phi = phi ptr [ %ref.tmp5.sroa.gep, %sw.bb ], [ %ref.tmp8.sroa.gep, %sw.bb7 ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8.sink4.sroa.phi, ptr noundef nonnull %buf) #19
   br label %sw.epilog.sink.split
 

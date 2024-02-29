@@ -11485,15 +11485,15 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_6theory24Theo
   br i1 %cmp.i.i.i3474, label %if.else1024, label %lor.lhs.false.i.i3475
 
 lor.lhs.false.i.i3475:                            ; preds = %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_6theory24TheoryEngineModelBuilder8AssignerEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i3473
-  %__y.addr.1.i.i.i3468.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i.i.i.i3467, ptr %__y.addr.06.i.i.i3463, ptr %__x.addr.07.i.i.i3462
+  %__y.addr.1.i.i.i3468.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i.i.i.i3467, ptr %__y.addr.06.i.i.i3463, ptr %__x.addr.07.i.i.i3462
   br label %if.end1013
 
 if.end1013:                                       ; preds = %lor.lhs.false.i.i3475, %lor.lhs.false.i.i3447
-  %__y.addr.1.i.i.i3468.sroa.sel.v.sroa.sel.v.pn = phi ptr [ %__y.addr.1.i.i.i3468.sroa.sel.v.sroa.sel.v, %lor.lhs.false.i.i3475 ], [ %__y.addr.1.i.i.i3441.sroa.sel.v.sroa.sel.v, %lor.lhs.false.i.i3447 ]
   %bf.clear4.i.i.i.i.i3460.sink = phi i64 [ %bf.clear4.i.i.i.i.i3460, %lor.lhs.false.i.i3475 ], [ %bf.clear4.i.i.i.i.i3433, %lor.lhs.false.i.i3447 ]
   %__y.addr.1.i.i.i3468.lcssa.sink = phi ptr [ %__y.addr.1.i.i.i3468, %lor.lhs.false.i.i3475 ], [ %__y.addr.1.i.i.i3441, %lor.lhs.false.i.i3447 ]
-  %__y.addr.1.i.i.i3468.sroa.sel.v.sroa.sel.sink = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i3468.sroa.sel.v.sroa.sel.v.pn, i64 32
-  %639 = load ptr, ptr %__y.addr.1.i.i.i3468.sroa.sel.v.sroa.sel.sink, align 8
+  %__y.addr.1.i.i.i3468.sroa.sel.v.sroa.sel.v.sroa.sel.v.pn = phi ptr [ %__y.addr.1.i.i.i3468.sroa.sel.v.sroa.sel.v.sroa.sel.v, %lor.lhs.false.i.i3475 ], [ %__y.addr.1.i.i.i3441.sroa.sel.v.sroa.sel.v, %lor.lhs.false.i.i3447 ]
+  %__y.addr.1.i.i.i3468.sroa.sel.v.sroa.sel.v.pn.sroa.phi = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i3468.sroa.sel.v.sroa.sel.v.sroa.sel.v.pn, i64 32
+  %639 = load ptr, ptr %__y.addr.1.i.i.i3468.sroa.sel.v.sroa.sel.v.pn.sroa.phi, align 8
   %bf.load3.i.i.i.i3477 = load i64, ptr %639, align 8
   %bf.clear4.i.i.i.i3478 = and i64 %bf.load3.i.i.i.i3477, 1099511627775
   %cmp.i.i.i.i3479 = icmp ult i64 %bf.clear4.i.i.i.i.i3460.sink, %bf.clear4.i.i.i.i3478

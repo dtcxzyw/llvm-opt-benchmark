@@ -5021,7 +5021,6 @@ entry:
   %ref.tmp101 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp112 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp123 = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %indvars.iv488.sroa.gep510 = getelementptr inbounds i8, ptr %t, i64 8
   %.pre493 = load ptr, ptr %deq, align 8
   br i1 %isCached, label %if.then, label %if.end9
 
@@ -5431,7 +5430,6 @@ for.cond48.preheader:                             ; preds = %invoke.cont44
 
 for.body50:                                       ; preds = %for.cond48.preheader, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit
   %cmp49 = phi i1 [ true, %for.cond48.preheader ], [ false, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit ]
-  %indvars.iv488.sroa.phi = phi ptr [ %t, %for.cond48.preheader ], [ %indvars.iv488.sroa.gep510, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit ]
   %indvars.iv488 = phi i64 [ 0, %for.cond48.preheader ], [ 1, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children, i8 0, i64 24, i1 false)
   %38 = load ptr, ptr %deq, align 8, !noalias !55
@@ -5920,7 +5918,8 @@ lpad.i251:                                        ; preds = %lpad.loopexit.split
 invoke.cont102:                                   ; preds = %invoke.cont.i
   call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116) %nb.i) #18
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %nb.i)
-  %85 = load ptr, ptr %indvars.iv488.sroa.phi, align 8
+  %arrayidx = getelementptr inbounds [2 x %"class.cvc5::internal::NodeTemplate"], ptr %t, i64 0, i64 %indvars.iv488
+  %85 = load ptr, ptr %arrayidx, align 8
   %86 = load ptr, ptr %ref.tmp101, align 8
   %cmp.not.i254 = icmp eq ptr %85, %86
   br i1 %cmp.not.i254, label %invoke.cont104, label %if.then.i255
@@ -5946,7 +5945,7 @@ if.then13.i.i278:                                 ; preds = %if.then.i.i258
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i264: ; preds = %if.then13.i.i278, %if.then.i.i258, %if.then.i255
   %88 = load ptr, ptr %ref.tmp101, align 8
-  store ptr %88, ptr %indvars.iv488.sroa.phi, align 8
+  store ptr %88, ptr %arrayidx, align 8
   %bf.load.i2.i265 = load i64, ptr %88, align 8
   %bf.lshr.i.i266 = lshr i64 %bf.load.i2.i265, 40
   %89 = trunc i64 %bf.lshr.i.i266 to i32

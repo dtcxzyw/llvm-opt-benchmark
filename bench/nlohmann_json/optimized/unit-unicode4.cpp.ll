@@ -1707,19 +1707,19 @@ entry:
   %DOCTEST_CAPTURE_36 = alloca %"class.doctest::detail::ContextScope.11", align 8
   %_ = alloca %"class.nlohmann::json_abi_v3_11_3::basic_json", align 8
   %DOCTEST_RB = alloca %"struct.doctest::detail::ResultBuilder", align 8
+  %DOCTEST_RB.sroa.gep71 = getelementptr inbounds i8, ptr %DOCTEST_RB, i64 48
+  %DOCTEST_RB.sroa.gep68 = getelementptr inbounds i8, ptr %DOCTEST_RB, i64 72
+  %DOCTEST_RB.sroa.gep = getelementptr inbounds i8, ptr %DOCTEST_RB, i64 112
   %ref.tmp64 = alloca %"class.doctest::String", align 8
   %agg.tmp = alloca %"class.nlohmann::json_abi_v3_11_3::basic_json", align 8
   %agg.tmp70 = alloca %"class.std::function", align 8
   %DOCTEST_RB92 = alloca %"struct.doctest::detail::ResultBuilder", align 8
+  %DOCTEST_RB92.sroa.gep72 = getelementptr inbounds i8, ptr %DOCTEST_RB92, i64 48
+  %DOCTEST_RB92.sroa.gep69 = getelementptr inbounds i8, ptr %DOCTEST_RB92, i64 72
+  %DOCTEST_RB92.sroa.gep = getelementptr inbounds i8, ptr %DOCTEST_RB92, i64 112
   %ref.tmp93 = alloca %"class.doctest::String", align 8
   %agg.tmp98 = alloca %"class.nlohmann::json_abi_v3_11_3::basic_json", align 8
   %agg.tmp99 = alloca %"class.std::function", align 8
-  %DOCTEST_RB92.sink66.sroa.gep72 = getelementptr inbounds i8, ptr %DOCTEST_RB, i64 48
-  %DOCTEST_RB92.sink66.sroa.gep73 = getelementptr inbounds i8, ptr %DOCTEST_RB92, i64 48
-  %DOCTEST_RB92.sink66.sroa.gep69 = getelementptr inbounds i8, ptr %DOCTEST_RB, i64 72
-  %DOCTEST_RB92.sink66.sroa.gep70 = getelementptr inbounds i8, ptr %DOCTEST_RB92, i64 72
-  %DOCTEST_RB92.sink66.sroa.gep = getelementptr inbounds i8, ptr %DOCTEST_RB, i64 112
-  %DOCTEST_RB92.sink66.sroa.gep67 = getelementptr inbounds i8, ptr %DOCTEST_RB92, i64 112
   store i32 %byte1, ptr %byte1.addr, align 4
   store i32 %byte2, ptr %byte2.addr, align 4
   store i32 %byte3, ptr %byte3.addr, align 4
@@ -2279,12 +2279,12 @@ ehcleanup125:                                     ; preds = %lpad114, %lpad106, 
   br label %ehcleanup131
 
 if.end130.sink.split:                             ; preds = %if.end123, %if.end84
-  %DOCTEST_RB92.sink66.sroa.phi = phi ptr [ %DOCTEST_RB92.sink66.sroa.gep, %if.end84 ], [ %DOCTEST_RB92.sink66.sroa.gep67, %if.end123 ]
-  %DOCTEST_RB92.sink66.sroa.phi68 = phi ptr [ %DOCTEST_RB92.sink66.sroa.gep69, %if.end84 ], [ %DOCTEST_RB92.sink66.sroa.gep70, %if.end123 ]
-  %DOCTEST_RB92.sink66.sroa.phi71 = phi ptr [ %DOCTEST_RB92.sink66.sroa.gep72, %if.end84 ], [ %DOCTEST_RB92.sink66.sroa.gep73, %if.end123 ]
+  %DOCTEST_RB92.sink66.sroa.phi = phi ptr [ %DOCTEST_RB.sroa.gep, %if.end84 ], [ %DOCTEST_RB92.sroa.gep, %if.end123 ]
+  %DOCTEST_RB92.sink66.sroa.phi67 = phi ptr [ %DOCTEST_RB.sroa.gep68, %if.end84 ], [ %DOCTEST_RB92.sroa.gep69, %if.end123 ]
+  %DOCTEST_RB92.sink66.sroa.phi70 = phi ptr [ %DOCTEST_RB.sroa.gep71, %if.end84 ], [ %DOCTEST_RB92.sroa.gep72, %if.end123 ]
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %DOCTEST_RB92.sink66.sroa.phi) #22
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %DOCTEST_RB92.sink66.sroa.phi68) #22
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %DOCTEST_RB92.sink66.sroa.phi71) #22
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %DOCTEST_RB92.sink66.sroa.phi67) #22
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %DOCTEST_RB92.sink66.sroa.phi70) #22
   br label %if.end130
 
 if.end130:                                        ; preds = %if.end130.sink.split, %invoke.cont88
@@ -2398,6 +2398,7 @@ entry:
   %ref.tmp152 = alloca %"struct.doctest::detail::Expression_lhs.150", align 8
   %ref.tmp153 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
   %ref.tmp162 = alloca %"struct.doctest::detail::Result", align 8
+  %ref.tmp162.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp162, i64 8
   %ref.tmp163 = alloca %"struct.doctest::detail::Expression_lhs.150", align 8
   %ref.tmp164 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
   %DOCTEST_RB = alloca %"struct.doctest::detail::ResultBuilder", align 8
@@ -2407,6 +2408,7 @@ entry:
   %ref.tmp206 = alloca %"struct.doctest::detail::Expression_lhs.150", align 8
   %ref.tmp207 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
   %ref.tmp216 = alloca %"struct.doctest::detail::Result", align 8
+  %ref.tmp216.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp216, i64 8
   %ref.tmp217 = alloca %"struct.doctest::detail::Expression_lhs.151", align 8
   %ref.tmp218 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
   %ref.tmp230 = alloca %"struct.doctest::detail::Result", align 8
@@ -2441,8 +2443,6 @@ entry:
   %ref.tmp348 = alloca %"struct.doctest::detail::Expression_lhs.153", align 8
   %ref.tmp349 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
   %ref.tmp351 = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp216.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp162, i64 8
-  %ref.tmp216.sink.sroa.gep108 = getelementptr inbounds i8, ptr %ref.tmp216, i64 8
   store i32 %byte1, ptr %byte1.addr, align 4
   store i32 %byte2, ptr %byte2.addr, align 4
   store i32 %byte3, ptr %byte3.addr, align 4
@@ -3201,7 +3201,7 @@ lpad225:                                          ; preds = %invoke.cont224
   br label %ehcleanup365
 
 if.end229:                                        ; preds = %invoke.cont224, %invoke.cont168
-  %ref.tmp216.sink.sroa.phi = phi ptr [ %ref.tmp216.sink.sroa.gep, %invoke.cont168 ], [ %ref.tmp216.sink.sroa.gep108, %invoke.cont224 ]
+  %ref.tmp216.sink.sroa.phi = phi ptr [ %ref.tmp162.sroa.gep, %invoke.cont168 ], [ %ref.tmp216.sroa.gep, %invoke.cont224 ]
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp216.sink.sroa.phi) #22
   invoke void @_ZN7doctest6detail20ExpressionDecomposerC1ENS_10assertType4EnumE(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp232, i32 noundef 10)
           to label %invoke.cont233 unwind label %lpad63

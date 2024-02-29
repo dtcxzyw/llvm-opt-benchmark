@@ -237,9 +237,9 @@ entry:
 define void @_ZN3zmq13ws_listener_t8in_eventEv(ptr noundef nonnull align 8 dereferenceable(1632) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.zmq::endpoint_uri_pair_t", align 8
+  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %ref.tmp9 = alloca %"struct.zmq::endpoint_uri_pair_t", align 8
-  %ref.tmp9.sink9.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9, i64 32
-  %ref.tmp9.sink9.sroa.gep10 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %ref.tmp9.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9, i64 32
   %call = tail call noundef i32 @_ZN3zmq13ws_listener_t6acceptEv(ptr noundef nonnull align 8 dereferenceable(1632) %this)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -307,9 +307,9 @@ return:                                           ; preds = %if.end15, %invoke.c
   ret void
 
 eh.resume:                                        ; preds = %lpad11, %lpad
-  %ref.tmp9.sink9.sroa.phi = phi ptr [ %ref.tmp9.sink9.sroa.gep, %lpad11 ], [ %ref.tmp9.sink9.sroa.gep10, %lpad ]
   %ref.tmp9.sink9 = phi ptr [ %ref.tmp9, %lpad11 ], [ %ref.tmp, %lpad ]
   %.pn = phi { ptr, i32 } [ %4, %lpad11 ], [ %1, %lpad ]
+  %ref.tmp9.sink9.sroa.phi = phi ptr [ %ref.tmp9.sroa.gep, %lpad11 ], [ %ref.tmp.sroa.gep, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.sink9.sroa.phi) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.sink9) #14
   resume { ptr, i32 } %.pn

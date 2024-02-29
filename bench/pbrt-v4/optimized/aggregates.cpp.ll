@@ -8129,9 +8129,6 @@ entry:
   %bounds1 = alloca %"class.pbrt::Bounds3", align 4
   %agg.tmp250 = alloca %"class.pstd::span.94", align 8
   %agg.tmp263 = alloca %"class.pstd::span.94", align 8
-  %.sink386.sroa.gep = getelementptr inbounds i8, ptr %bounds0, i64 12
-  %.sink386.sroa.gep393 = getelementptr inbounds i8, ptr %bounds0, i64 16
-  %.sink386.sroa.gep394 = getelementptr inbounds i8, ptr %bounds0, i64 20
   store i32 %nodeNum, ptr %va, align 4
   %nextFreeNode = getelementptr inbounds i8, ptr %this, i64 76
   %0 = load i32, ptr %nextFreeNode, align 4
@@ -8942,8 +8939,9 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit:           ; preds = %for.end233
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit249
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit249:        ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread331, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit
-  %.sink386.sroa.phi = phi ptr [ %.sink386.sroa.gep, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread ], [ %.sink386.sroa.gep393, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread331 ], [ %.sink386.sroa.gep394, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit ]
-  store float %58, ptr %.sink386.sroa.phi, align 4
+  %.sink386 = phi i64 [ 12, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread ], [ 16, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread331 ], [ 20, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit ]
+  %pMax241330 = getelementptr inbounds i8, ptr %bounds0, i64 %.sink386
+  store float %58, ptr %pMax241330, align 4
   %add243 = add nsw i32 %nodeNum, 1
   %n.i.i = getelementptr inbounds i8, ptr %prims0, i64 8
   %59 = load i64, ptr %n.i.i, align 8

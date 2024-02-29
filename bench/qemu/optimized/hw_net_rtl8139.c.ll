@@ -1204,14 +1204,14 @@ if.end8.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end8.i.i.i.i
-  %TxConfig23.i.i.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2676
-  %64 = load i32, ptr %TxConfig23.i.i.i.i.i, align 4
-  %and24.i.i.i.i.i = and i32 %64, 393216
-  %cmp1125.i.i.i.i.i = icmp eq i32 %and24.i.i.i.i.i, 393216
+  %TxConfig22.i.i.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2676
+  %64 = load i32, ptr %TxConfig22.i.i.i.i.i, align 4
+  %and23.i.i.i.i.i = and i32 %64, 393216
+  %cmp1124.i.i.i.i.i = icmp eq i32 %and23.i.i.i.i.i, 393216
   %nic.i.i.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2720
   %65 = load ptr, ptr %nic.i.i.i.i.i, align 16
   %call21.i.i.i.i.i = call ptr @qemu_get_queue(ptr noundef %65) #12
-  br i1 %cmp1125.i.i.i.i.i, label %if.end19.i.i.i.i.i, label %if.else31.i.i.i.i.i
+  br i1 %cmp1124.i.i.i.i.i, label %if.end19.i.i.i.i.i, label %if.else31.i.i.i.i.i
 
 if.end19.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   %call22.i.i.i.i.i = call i64 @qemu_receive_packet(ptr noundef %call21.i.i.i.i.i, ptr noundef nonnull %txbuffer.i.i.i.i, i32 noundef %and14.i.i.i.i) #12
@@ -2460,7 +2460,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define internal fastcc void @rtl8139_transfer_frame(ptr nocapture noundef readonly %s, ptr noundef %buf, i32 noundef %size, ptr noundef %dot1q_buf) unnamed_addr #0 {
 entry:
   %vlan_iov = alloca [3 x %struct.iovec], align 16
-  %iov.0.sroa.gep = getelementptr inbounds i8, ptr %vlan_iov, i64 8
   %tobool.not = icmp eq i32 %size, 0
   br i1 %tobool.not, label %if.end36, label %if.end
 
@@ -2475,7 +2474,8 @@ if.end10:                                         ; preds = %if.end
   %sub = add nsw i32 %size, -12
   %conv = zext nneg i32 %sub to i64
   store ptr %buf, ptr %vlan_iov, align 16
-  store i64 12, ptr %iov.0.sroa.gep, align 8
+  %.compoundliteral.sroa.2.0.arraydecay8.sroa_idx = getelementptr inbounds i8, ptr %vlan_iov, i64 8
+  store i64 12, ptr %.compoundliteral.sroa.2.0.arraydecay8.sroa_idx, align 8
   %.compoundliteral.sroa.3.0.arraydecay8.sroa_idx = getelementptr inbounds i8, ptr %vlan_iov, i64 16
   store ptr %dot1q_buf, ptr %.compoundliteral.sroa.3.0.arraydecay8.sroa_idx, align 16
   %.compoundliteral.sroa.4.0.arraydecay8.sroa_idx = getelementptr inbounds i8, ptr %vlan_iov, i64 24
@@ -2491,11 +2491,11 @@ if.end10:                                         ; preds = %if.end
   br i1 %cmp11, label %if.then15, label %if.then27
 
 if.end10.thread:                                  ; preds = %if.end
-  %TxConfig23 = getelementptr inbounds i8, ptr %s, i64 2676
-  %1 = load i32, ptr %TxConfig23, align 4
-  %and24 = and i32 %1, 393216
-  %cmp1125 = icmp eq i32 %and24, 393216
-  br i1 %cmp1125, label %if.end19, label %if.else31
+  %TxConfig22 = getelementptr inbounds i8, ptr %s, i64 2676
+  %1 = load i32, ptr %TxConfig22, align 4
+  %and23 = and i32 %1, 393216
+  %cmp1124 = icmp eq i32 %and23, 393216
+  br i1 %cmp1124, label %if.end19, label %if.else31
 
 if.then15:                                        ; preds = %if.end10
   %call16 = call i64 @iov_size(ptr noundef nonnull %vlan_iov, i32 noundef 3) #12

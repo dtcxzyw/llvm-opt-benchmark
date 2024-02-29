@@ -20248,6 +20248,7 @@ define internal fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations27creat
 entry:
   %node.addr.i = alloca ptr, align 8
   %ref.tmp5 = alloca %"class.llvh::simple_ilist", align 8
+  %ref.tmp5.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   %0 = load ptr, ptr %this, align 8
   %state_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %state_.i.i.i.i, align 8
@@ -20448,8 +20449,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberE
   %parameters.val6 = load i32, ptr %35, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
   store ptr %ref.tmp5, ptr %ref.tmp5, align 8, !alias.scope !16
-  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
-  store ptr %ref.tmp5, ptr %Next2.i.i.i.i.i.i, align 8, !alias.scope !16
+  store ptr %ref.tmp5, ptr %ref.tmp5.sroa.gep, align 8, !alias.scope !16
   %conv.i.i = zext i32 %parameters.val6 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %parameters.val, i64 %conv.i.i
   %cmp.not1.i = icmp eq i32 %parameters.val6, 0
@@ -20458,12 +20458,12 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberE
 for.body.i:                                       ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_4NodeERPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit, %for.body.i
   %36 = phi ptr [ %37, %for.body.i ], [ %ref.tmp5, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_4NodeERPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit ]
   %__begin2.02.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %parameters.val, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_4NodeERPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit ]
+  %.sroa.phi = phi ptr [ %.sroa.gep, %for.body.i ], [ %ref.tmp5.sroa.gep, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_4NodeERPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit ]
   %37 = load ptr, ptr %__begin2.02.i, align 8, !noalias !16
-  %Next2.i.i.i.i.i4.i = getelementptr inbounds i8, ptr %37, i64 8
-  store ptr %ref.tmp5, ptr %Next2.i.i.i.i.i4.i, align 8
+  %.sroa.gep = getelementptr inbounds i8, ptr %37, i64 8
+  store ptr %ref.tmp5, ptr %.sroa.gep, align 8
   store ptr %36, ptr %37, align 8
-  %Next2.i7.i.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 8
-  store ptr %37, ptr %Next2.i7.i.i.i.i.i, align 8
+  store ptr %37, ptr %.sroa.phi, align 8
   store ptr %37, ptr %ref.tmp5, align 8, !alias.scope !16
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.02.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
@@ -20518,7 +20518,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i49: ; preds = %if.end.i.i.i.i47, 
   store ptr %_arguments.i.i, ptr %_arguments.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i50, i64 72
   store ptr %_arguments.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  %49 = load ptr, ptr %Next2.i.i.i.i.i.i, align 8
+  %49 = load ptr, ptr %ref.tmp5.sroa.gep, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %_arguments.i.i, %ref.tmp5
   %cmp1.i.i.i.i.i.i.i = icmp eq ptr %49, %ref.tmp5
   %or.cond.i.i.i.i.i.i.i = or i1 %cmp.i.i.i.i.i.i.i, %cmp1.i.i.i.i.i.i.i
@@ -22781,10 +22781,10 @@ _ZN6hermes25ES6ClassesTransformations13appendMethodsEPNS_6ESTree4NodeERKN12_GLOB
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stmtList.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp5.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp13.i)
+  %stmtList.sroa.gep.i = getelementptr inbounds i8, ptr %stmtList.i, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
   store ptr %stmtList.i, ptr %stmtList.i, align 8, !alias.scope !24
-  %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %stmtList.i, i64 8
-  store ptr %stmtList.i, ptr %Next2.i.i.i.i.i.i.i, align 8, !alias.scope !24
+  store ptr %stmtList.i, ptr %stmtList.sroa.gep.i, align 8, !alias.scope !24
   %conv.i.i.i162 = zext i32 %statements.val20 to i64
   %add.ptr.i.i.i163 = getelementptr inbounds ptr, ptr %statements.val, i64 %conv.i.i.i162
   %cmp.not1.i.i = icmp eq i32 %statements.val20, 0
@@ -22793,12 +22793,12 @@ _ZN6hermes25ES6ClassesTransformations13appendMethodsEPNS_6ESTree4NodeERKN12_GLOB
 for.body.i.i:                                     ; preds = %_ZN6hermes25ES6ClassesTransformations13appendMethodsEPNS_6ESTree4NodeERKN12_GLOBAL__N_120ResolvedClassMembersERNS4_10NodeVectorE.exit, %for.body.i.i
   %224 = phi ptr [ %225, %for.body.i.i ], [ %stmtList.i, %_ZN6hermes25ES6ClassesTransformations13appendMethodsEPNS_6ESTree4NodeERKN12_GLOBAL__N_120ResolvedClassMembersERNS4_10NodeVectorE.exit ]
   %__begin2.02.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %statements.val, %_ZN6hermes25ES6ClassesTransformations13appendMethodsEPNS_6ESTree4NodeERKN12_GLOBAL__N_120ResolvedClassMembersERNS4_10NodeVectorE.exit ]
+  %.sroa.phi.i = phi ptr [ %.sroa.gep.i, %for.body.i.i ], [ %stmtList.sroa.gep.i, %_ZN6hermes25ES6ClassesTransformations13appendMethodsEPNS_6ESTree4NodeERKN12_GLOBAL__N_120ResolvedClassMembersERNS4_10NodeVectorE.exit ]
   %225 = load ptr, ptr %__begin2.02.i.i, align 8, !noalias !24
-  %Next2.i.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %225, i64 8
-  store ptr %stmtList.i, ptr %Next2.i.i.i.i.i4.i.i, align 8
+  %.sroa.gep.i = getelementptr inbounds i8, ptr %225, i64 8
+  store ptr %stmtList.i, ptr %.sroa.gep.i, align 8
   store ptr %224, ptr %225, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %224, i64 8
-  store ptr %225, ptr %Next2.i7.i.i.i.i.i.i, align 8
+  store ptr %225, ptr %.sroa.phi.i, align 8
   store ptr %225, ptr %stmtList.i, align 8, !alias.scope !24
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.02.i.i, i64 8
   %cmp.not.i.i164 = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i163
@@ -22983,7 +22983,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i20.i: ; preds = %if.end.i.i.i.i18
   store ptr %_body.i.i.i, ptr %_body.i.i.i, align 8
   %Next2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i21.i, i64 64
   store ptr %_body.i.i.i, ptr %Next2.i.i.i.i.i.i.i.i, align 8
-  %261 = load ptr, ptr %Next2.i.i.i.i.i.i.i, align 8
+  %261 = load ptr, ptr %stmtList.sroa.gep.i, align 8
   %cmp.i.i.i.i.i.i.i.i208 = icmp eq ptr %_body.i.i.i, %stmtList.i
   %cmp1.i.i.i.i.i.i.i.i = icmp eq ptr %261, %stmtList.i
   %or.cond.i.i.i.i.i.i.i.i = or i1 %cmp.i.i.i.i.i.i.i.i208, %cmp1.i.i.i.i.i.i.i.i
@@ -24271,6 +24271,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree23Functio
 define internal fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations25makeHermesES6InternalCallEPNS_6ESTree4NodeEN4llvh9StringRefERKN12_GLOBAL__N_110NodeVectorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef readonly %srcNode, ptr %methodName.coerce0, i64 %methodName.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %parameters) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp6 = alloca %"class.llvh::simple_ilist", align 8
+  %ref.tmp6.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   %0 = load ptr, ptr %this, align 8
   %stringTable_.i.i = getelementptr inbounds i8, ptr %0, i64 72
   %call.i.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i, ptr nonnull @.str.17, i64 17)
@@ -24475,8 +24476,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberE
   %parameters.val6 = load i32, ptr %35, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   store ptr %ref.tmp6, ptr %ref.tmp6, align 8, !alias.scope !27
-  %Next2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
-  store ptr %ref.tmp6, ptr %Next2.i.i.i.i.i.i, align 8, !alias.scope !27
+  store ptr %ref.tmp6, ptr %ref.tmp6.sroa.gep, align 8, !alias.scope !27
   %conv.i.i = zext i32 %parameters.val6 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %parameters.val, i64 %conv.i.i
   %cmp.not1.i = icmp eq i32 %parameters.val6, 0
@@ -24485,12 +24485,12 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberE
 for.body.i:                                       ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_14IdentifierNodeES6_bEEEPT_PNS2_4NodeEDpOT0_.exit, %for.body.i
   %36 = phi ptr [ %37, %for.body.i ], [ %ref.tmp6, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_14IdentifierNodeES6_bEEEPT_PNS2_4NodeEDpOT0_.exit ]
   %__begin2.02.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %parameters.val, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_14IdentifierNodeES6_bEEEPT_PNS2_4NodeEDpOT0_.exit ]
+  %.sroa.phi = phi ptr [ %.sroa.gep, %for.body.i ], [ %ref.tmp6.sroa.gep, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_14IdentifierNodeES6_bEEEPT_PNS2_4NodeEDpOT0_.exit ]
   %37 = load ptr, ptr %__begin2.02.i, align 8, !noalias !27
-  %Next2.i.i.i.i.i4.i = getelementptr inbounds i8, ptr %37, i64 8
-  store ptr %ref.tmp6, ptr %Next2.i.i.i.i.i4.i, align 8
+  %.sroa.gep = getelementptr inbounds i8, ptr %37, i64 8
+  store ptr %ref.tmp6, ptr %.sroa.gep, align 8
   store ptr %36, ptr %37, align 8
-  %Next2.i7.i.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 8
-  store ptr %37, ptr %Next2.i7.i.i.i.i.i, align 8
+  store ptr %37, ptr %.sroa.phi, align 8
   store ptr %37, ptr %ref.tmp6, align 8, !alias.scope !27
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.02.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
@@ -24545,7 +24545,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i56: ; preds = %if.end.i.i.i.i54, 
   store ptr %_arguments.i.i, ptr %_arguments.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i57, i64 72
   store ptr %_arguments.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  %49 = load ptr, ptr %Next2.i.i.i.i.i.i, align 8
+  %49 = load ptr, ptr %ref.tmp6.sroa.gep, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %_arguments.i.i, %ref.tmp6
   %cmp1.i.i.i.i.i.i.i = icmp eq ptr %49, %ref.tmp6
   %or.cond.i.i.i.i.i.i.i = or i1 %cmp.i.i.i.i.i.i.i, %cmp1.i.i.i.i.i.i.i

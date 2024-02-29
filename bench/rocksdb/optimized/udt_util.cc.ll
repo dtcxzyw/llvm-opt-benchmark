@@ -1103,13 +1103,13 @@ entry:
   %status.i = alloca %"class.rocksdb::Status", align 8
   %ref.tmp35.i = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp37.i = alloca %"class.rocksdb::Slice", align 8
+  %ref.tmp37.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp37.i, i64 8
   %ref.tmp43.i = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp45.i = alloca %"class.rocksdb::Slice", align 8
+  %ref.tmp45.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp45.i, i64 8
   %status = alloca %"class.rocksdb::Status", align 8
   %recovery_handler = alloca %"class.rocksdb::TimestampRecoveryHandler", align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
-  %ref.tmp37.sink.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp37.i, i64 8
-  %ref.tmp37.sink.i.sroa.gep75 = getelementptr inbounds i8, ptr %ref.tmp45.i, i64 8
   %0 = getelementptr inbounds i8, ptr %running_ts_sz, i64 16
   %running_ts_sz.val = load ptr, ptr %0, align 8
   %cmp.i.not12.i = icmp eq ptr %running_ts_sz.val, null
@@ -1465,9 +1465,9 @@ if.then42.i:                                      ; preds = %if.then32.i
   br label %if.then42.invoke.i
 
 if.then42.invoke.i:                               ; preds = %if.then42.i, %if.then34.i
-  %ref.tmp37.sink.i.sroa.phi = phi ptr [ %ref.tmp37.sink.i.sroa.gep, %if.then34.i ], [ %ref.tmp37.sink.i.sroa.gep75, %if.then42.i ]
   %ref.tmp37.sink.i = phi ptr [ %ref.tmp37.i, %if.then34.i ], [ %ref.tmp45.i, %if.then42.i ]
   %56 = phi ptr [ %ref.tmp35.i, %if.then34.i ], [ %ref.tmp43.i, %if.then42.i ]
+  %ref.tmp37.sink.i.sroa.phi = phi ptr [ %ref.tmp37.i.sroa.gep, %if.then34.i ], [ %ref.tmp45.i.sroa.gep, %if.then42.i ]
   store i64 0, ptr %ref.tmp37.sink.i.sroa.phi, align 8, !noalias !16
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %status, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp37.sink.i, i8 noundef zeroext 0)
           to label %cleanup.i unwind label %lpad1.i

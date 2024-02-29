@@ -6995,8 +6995,8 @@ return:                                           ; preds = %if.then99, %if.else
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3CFF16subr_flattener_tIKN2OT4cff120accelerator_subset_tENS_20cff1_cs_interp_env_tE23cff1_cs_opset_flatten_tLj14EE7flattenER11hb_vector_tIS8_IhLb0EELb0EE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %flat_charstrings) local_unnamed_addr #0 comdat align 2 {
 entry:
   %env = alloca %"struct.CFF::cff1_cs_interp_env_t", align 8
+  %env.sroa.gep41 = getelementptr inbounds i8, ptr %env, i64 12
   %param = alloca %"struct.CFF::flatten_param_t", align 8
-  %.sroa.gep = getelementptr inbounds i8, ptr %env, i64 12
   %plan = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %plan, align 8
   %_num_output_glyphs.i = getelementptr inbounds i8, ptr %0, i64 88
@@ -7339,7 +7339,7 @@ if.end15:                                         ; preds = %_ZNK3CFF8FDSelect6g
   store i8 0, ptr %3, align 8
   store ptr %29, ptr %env, align 8
   store i64 %30, ptr %str.sroa.3.0.env.sroa_idx, align 8
-  store i32 0, ptr %.sroa.gep, align 4
+  store i32 0, ptr %env.sroa.gep41, align 4
   store i8 0, ptr %callStack.i.i, align 8
   store i32 0, ptr %count.i.i.i.i, align 4
   %49 = trunc i64 %30 to i32
@@ -7442,7 +7442,7 @@ if.end.i.i29:                                     ; preds = %for.cond.i
   %arrayidx.i.i.i31 = getelementptr inbounds i8, ptr %59, i64 %idxprom.i.i.i30
   %60 = load i8, ptr %arrayidx.i.i.i31, align 1
   %conv.i.i = zext i8 %60 to i32
-  store i32 %add.i.i.i, ptr %.sroa.gep, align 4
+  store i32 %add.i.i.i, ptr %env.sroa.gep41, align 4
   %cmp.i.i = icmp eq i8 %60, 12
   br i1 %cmp.i.i, label %if.then5.i.i, label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i
 
@@ -7457,7 +7457,7 @@ if.end9.i.i:                                      ; preds = %if.then5.i.i
   %61 = load i8, ptr %arrayidx.i11.i.i, align 1
   %conv12.i.i = zext i8 %61 to i32
   %add.i.i37 = or disjoint i32 %conv12.i.i, 256
-  store i32 %add.i6.i.i, ptr %.sroa.gep, align 4
+  store i32 %add.i6.i.i, ptr %env.sroa.gep41, align 4
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i
 
 _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i: ; preds = %if.end9.i.i, %if.then5.i.i, %if.end.i.i29, %for.cond.i
@@ -7469,7 +7469,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i: ; preds = %if.end9.i.i, 
   br i1 %tobool.i.not.i.i, label %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit.i, label %return
 
 _ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit.i: ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i
-  %64 = load i32, ptr %.sroa.gep, align 4
+  %64 = load i32, ptr %env.sroa.gep41, align 4
   %65 = load i32, ptr %str.sroa.3.0.env.sroa_idx, align 8
   %cmp.i.i.i.i = icmp ugt i32 %64, %65
   %66 = load i8, ptr %argStack.i.i.i, align 8
@@ -7503,10 +7503,10 @@ return:                                           ; preds = %_ZNK3CFF8FDSelect6g
 define linkonce_odr dso_local noundef zeroext i1 @_ZN3CFF16subr_subsetter_tI21cff1_subr_subsetter_tNS_5SubrsIN2OT7IntTypeItLj2EEEEEKNS3_4cff120accelerator_subset_tENS_20cff1_cs_interp_env_tE27cff1_cs_opset_subr_subset_tLj14EE6subsetEv(ptr noundef nonnull align 8 dereferenceable(272) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %env = alloca %"struct.CFF::cff1_cs_interp_env_t", align 8
+  %env.sroa.gep314 = getelementptr inbounds i8, ptr %env, i64 12
   %param = alloca %"struct.CFF::subr_subset_param_t", align 8
   %param114 = alloca %"struct.CFF::subr_subset_param_t", align 8
   %drop = alloca %"struct.CFF::subr_subsetter_t<cff1_subr_subsetter_t, CFF::Subrs<OT::IntType<unsigned short>>, const OT::cff1::accelerator_subset_t, CFF::cff1_cs_interp_env_t, cff1_cs_opset_subr_subset_t, 14>::drop_hints_param_t", align 4
-  %.sroa.gep = getelementptr inbounds i8, ptr %env, i64 12
   %0 = load ptr, ptr %this, align 8
   %cff_accelerator3 = getelementptr inbounds i8, ptr %0, i64 304
   %1 = load ptr, ptr %cff_accelerator3, align 8
@@ -8246,7 +8246,7 @@ if.end85:                                         ; preds = %if.end68
   store i8 0, ptr %64, align 8
   store ptr %67, ptr %env, align 8
   store i64 %68, ptr %str.sroa.3.0.env.sroa_idx, align 8
-  store i32 0, ptr %.sroa.gep, align 4
+  store i32 0, ptr %env.sroa.gep314, align 4
   store i8 0, ptr %callStack.i.i, align 8
   store i32 0, ptr %count.i.i.i.i, align 4
   br label %arrayctor.loop.i.i.i.i
@@ -8458,7 +8458,7 @@ _ZN11hb_vector_tI8hb_set_tLb0EEixEi.exit:         ; preds = %if.then.i194, %if.e
   store ptr %retval.0.i195, ptr %local_closure.i, align 8
   store i8 %frombool.i, ptr %drop_hints.i, align 8
   store i8 0, ptr %endchar_flag.i.i, align 8
-  %.pre7.i = load i32, ptr %.sroa.gep, align 4
+  %.pre7.i = load i32, ptr %env.sroa.gep314, align 4
   %.pre8.i = load i32, ptr %str.sroa.3.0.env.sroa_idx, align 8
   br label %for.cond.i
 
@@ -8476,7 +8476,7 @@ if.end.i.i200:                                    ; preds = %for.cond.i
   %arrayidx.i.i.i202 = getelementptr inbounds i8, ptr %115, i64 %idxprom.i.i.i201
   %116 = load i8, ptr %arrayidx.i.i.i202, align 1
   %conv.i.i203 = zext i8 %116 to i32
-  store i32 %add.i.i.i, ptr %.sroa.gep, align 4
+  store i32 %add.i.i.i, ptr %env.sroa.gep314, align 4
   %cmp.i.i204 = icmp eq i8 %116, 12
   br i1 %cmp.i.i204, label %if.then5.i.i, label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i
 
@@ -8491,7 +8491,7 @@ if.end9.i.i:                                      ; preds = %if.then5.i.i
   %117 = load i8, ptr %arrayidx.i11.i.i, align 1
   %conv12.i.i = zext i8 %117 to i32
   %add.i.i211 = or disjoint i32 %conv12.i.i, 256
-  store i32 %add.i6.i.i, ptr %.sroa.gep, align 4
+  store i32 %add.i6.i.i, ptr %env.sroa.gep314, align 4
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i
 
 _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i: ; preds = %if.end9.i.i, %if.then5.i.i, %if.end.i.i200, %for.cond.i
@@ -8503,7 +8503,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i: ; preds = %if.end9.i.i, 
   br i1 %tobool.i.not.i.i, label %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit.i, label %return
 
 _ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit.i: ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i
-  %120 = load i32, ptr %.sroa.gep, align 4
+  %120 = load i32, ptr %env.sroa.gep314, align 4
   %121 = load i32, ptr %str.sroa.3.0.env.sroa_idx, align 8
   %cmp.i.i.i.i209 = icmp ugt i32 %120, %121
   %122 = load i8, ptr %argStack.i.i.i, align 8
@@ -8625,7 +8625,7 @@ if.then5.i:                                       ; preds = %_ZN3CFF19subr_subse
   br label %for.inc.i
 
 if.else.i229:                                     ; preds = %_ZN3CFF19subr_subset_param_t26get_parsed_str_for_contextERNS_14call_context_tE.exit.i, %sw.bb5.i.i, %sw.bb2.i.i, %_ZN3CFF11cff_stack_tINS_14call_context_tELi10EEixEj.exit.i
-  store i32 %add.i.i.i230, ptr %.sroa.gep, align 4
+  store i32 %add.i.i.i230, ptr %env.sroa.gep314, align 4
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i229, %if.then5.i

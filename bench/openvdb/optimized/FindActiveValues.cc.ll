@@ -392,6 +392,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.openvdb::v11_0::util::NodeMask" = type { [512 x i64] }
 %"class.openvdb::v11_0::tree::NodeUnion" = type { %union.anon.444 }
 %union.anon.444 = type { ptr }
+%"class.openvdb::v11_0::math::CoordBBox::Iterator" = type { %"class.openvdb::v11_0::math::Coord", %"class.openvdb::v11_0::math::Coord", %"class.openvdb::v11_0::math::Coord" }
 %"class.openvdb::v11_0::util::NodeMask.457" = type { [64 x i64] }
 %"struct.openvdb::v11_0::tree::LeafNode<bool, 3>::ValueIter" = type { %"struct.openvdb::v11_0::tree::SparseIteratorBase" }
 %"struct.openvdb::v11_0::tree::SparseIteratorBase" = type { %"class.openvdb::v11_0::tree::IteratorBase" }
@@ -19649,9 +19650,7 @@ return:                                           ; preds = %cond.false7.i.i.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_05tools16FindActiveValuesINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEE11getBBoxMaskISA_EENT_12NodeMaskTypeERKNS0_4math9CoordBBoxEPKSF_(ptr noalias sret(%"class.openvdb::v11_0::util::NodeMask") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 4 dereferenceable(24) %bbox, ptr noundef %node) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %it.sroa.0 = alloca i32, align 4
-  %it.sroa.5 = alloca i32, align 4
-  %it.sroa.9 = alloca i32, align 4
+  %it = alloca %"class.openvdb::v11_0::math::CoordBBox::Iterator", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %agg.result, i8 0, i64 4096, i1 false)
   %mOrigin.i = getelementptr inbounds i8, ptr %node, i64 270336
   %0 = load i32, ptr %mOrigin.i, align 4
@@ -19671,20 +19670,20 @@ invoke.cont:
   %arrayidx.i.i.i7.i.i = getelementptr inbounds i8, ptr %bbox, i64 8
   %5 = load i32, ptr %arrayidx.i.i.i7.i.i, align 4
   %cmp7.i.i = icmp sge i32 %2, %5
-  %or.cond58 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
+  %or.cond57 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
   %mMax.i = getelementptr inbounds i8, ptr %bbox, i64 12
   %6 = load i32, ptr %mMax.i, align 4
   %cmp.i2.i = icmp sge i32 %6, %add.i.i.i.i
-  %or.cond59 = select i1 %or.cond58, i1 %cmp.i2.i, i1 false
+  %or.cond58 = select i1 %or.cond57, i1 %cmp.i2.i, i1 false
   %arrayidx.i.i.i.i4.i = getelementptr inbounds i8, ptr %bbox, i64 16
   %7 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i = icmp sge i32 %7, %add4.i.i.i.i
-  %or.cond60 = select i1 %or.cond59, i1 %cmp4.i6.i, i1 false
+  %or.cond59 = select i1 %or.cond58, i1 %cmp4.i6.i, i1 false
   %arrayidx.i.i.i6.i8.i = getelementptr inbounds i8, ptr %bbox, i64 20
   %8 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i = icmp sge i32 %8, %add7.i.i.i.i
-  %or.cond61 = select i1 %or.cond60, i1 %cmp7.i10.i, i1 false
-  br i1 %or.cond61, label %if.then, label %invoke.cont20
+  %or.cond60 = select i1 %or.cond59, i1 %cmp7.i10.i, i1 false
+  br i1 %or.cond60, label %if.then, label %invoke.cont20
 
 if.then:                                          ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %agg.result, i8 -1, i64 4096, i1 false)
@@ -19709,19 +19708,37 @@ invoke.cont20:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 31
   %and7.i12 = lshr i32 %14, 7
   %shr9.i18 = and i32 %and7.i12, 31
-  store i32 %shr.i, ptr %it.sroa.0, align 4
-  store i32 %shr5.i, ptr %it.sroa.5, align 4
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
-  %cmp.i.not63 = icmp ugt i32 %shr.i, %shr.i14
-  br i1 %cmp.i.not63, label %nrvo.skipdtor, label %for.body
+  store i32 %shr.i, ptr %it, align 4
+  %b.sroa.10.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 4
+  store i32 %shr5.i, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %b.sroa.17.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
+  store i32 %shr9.i, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %b.sroa.10.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 16
+  store i32 %shr5.i, ptr %b.sroa.10.0.mMin.i.i.sroa_idx, align 4
+  %b.sroa.17.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 20
+  store i32 %shr9.i, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  %mMax.i.i19 = getelementptr inbounds i8, ptr %it, i64 24
+  %b.sroa.24.sroa.9.0.insert.ext = zext nneg i32 %shr5.i16 to i64
+  %b.sroa.24.sroa.9.0.insert.shift = shl nuw nsw i64 %b.sroa.24.sroa.9.0.insert.ext, 32
+  %b.sroa.24.sroa.0.0.insert.ext = zext nneg i32 %shr.i14 to i64
+  %b.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %b.sroa.24.sroa.9.0.insert.shift, %b.sroa.24.sroa.0.0.insert.ext
+  store i64 %b.sroa.24.sroa.0.0.insert.insert, ptr %mMax.i.i19, align 4
+  %b.sroa.40.12.mMax.i.i19.sroa_idx = getelementptr inbounds i8, ptr %it, i64 32
+  store i32 %shr9.i18, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.not61 = icmp ugt i32 %shr.i, %shr.i14
+  br i1 %cmp.i.not61, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.body:                                         ; preds = %invoke.cont20, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
-  %it.sroa.0.0.it.sroa.0.0.64 = phi i32 [ %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont20 ]
-  %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8. = load i32, ptr %it.sroa.9, align 4
-  %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4. = load i32, ptr %it.sroa.5, align 4
-  %shl = shl i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., 5
-  %add = add nsw i32 %shl, %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8.
-  %shl28 = shl i32 %it.sroa.0.0.it.sroa.0.0.64, 10
+for.body.lr.ph:                                   ; preds = %invoke.cont20
+  %arrayidx.i.i.i4.i.i = getelementptr inbounds i8, ptr %it, i64 28
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
+  %15 = phi i32 [ %shr.i, %for.body.lr.ph ], [ %23, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ]
+  %16 = load i32, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %17 = load i32, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %shl = shl i32 %17, 5
+  %add = add nsw i32 %shl, %16
+  %shl28 = shl i32 %15, 10
   %add29 = add nsw i32 %add, %shl28
   %and.i24 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i24 to i64
@@ -19729,35 +19746,41 @@ for.body:                                         ; preds = %invoke.cont20, %_ZN
   %shr.i25 = lshr i32 %add29, 6
   %idxprom.i = zext nneg i32 %shr.i25 to i64
   %arrayidx.i = getelementptr inbounds [512 x i64], ptr %agg.result, i64 0, i64 %idxprom.i
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %shl.i, %15
+  %18 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %shl.i, %18
   store i64 %or.i, ptr %arrayidx.i, align 8
-  %cmp.i.i28 = icmp slt i32 %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %shr9.i18
+  %19 = load i32, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.i28 = icmp slt i32 %16, %19
   br i1 %cmp.i.i28, label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body
-  %cmp9.i.i = icmp slt i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %shr5.i16
+  %20 = load i32, ptr %arrayidx.i.i.i4.i.i, align 4
+  %cmp9.i.i = icmp slt i32 %17, %20
   br i1 %cmp9.i.i, label %if.end36.sink.split.sink.split.i.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
+  %21 = load i32, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  store i32 %21, ptr %b.sroa.17.0.it.sroa_idx, align 4
   br label %if.end36.sink.split.sink.split.i.i
 
 if.end36.sink.split.sink.split.i.i:               ; preds = %if.then23.i.i, %if.else.i.i
-  %.sink14.i.i.sroa.phi.sroa.speculated = phi i32 [ %shr5.i, %if.then23.i.i ], [ %shr9.i, %if.else.i.i ]
-  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %it.sroa.5, %if.then23.i.i ], [ %it.sroa.9, %if.else.i.i ]
-  %.sink.ph.i.i = phi i32 [ %it.sroa.0.0.it.sroa.0.0.64, %if.then23.i.i ], [ %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %if.else.i.i ]
-  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it.sroa.0, %if.then23.i.i ], [ %it.sroa.5, %if.else.i.i ]
-  store i32 %.sink14.i.i.sroa.phi.sroa.speculated, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
+  %.sink14.i.i = phi i64 [ 16, %if.then23.i.i ], [ 20, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %b.sroa.10.0.it.sroa_idx, %if.then23.i.i ], [ %b.sroa.17.0.it.sroa_idx, %if.else.i.i ]
+  %.sink.ph.i.i = phi i32 [ %15, %if.then23.i.i ], [ %17, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it, %if.then23.i.i ], [ %b.sroa.10.0.it.sroa_idx, %if.else.i.i ]
+  %arrayidx.i.i.i10.i.i = getelementptr inbounds i8, ptr %it, i64 %.sink14.i.i
+  %22 = load i32, ptr %arrayidx.i.i.i10.i.i, align 4
+  store i32 %22, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %for.body, %if.end36.sink.split.sink.split.i.i
-  %.sink.i.i = phi i32 [ %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
-  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %it.sroa.9, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi i32 [ %16, %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %b.sroa.17.0.it.sroa_idx, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
   %inc16.i.i = add nsw i32 %.sink.i.i, 1
   store i32 %inc16.i.i, ptr %arrayidx.i.i.i3.sink.i.i, align 4
-  %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0. = load i32, ptr %it.sroa.0, align 4
-  %cmp.i.not = icmp sgt i32 %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %shr.i14
+  %23 = load i32, ptr %it, align 4
+  %24 = load i32, ptr %mMax.i.i19, align 4
+  %cmp.i.not = icmp sgt i32 %23, %24
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, %invoke.cont20, %if.then
@@ -19913,9 +19936,7 @@ cleanup:                                          ; preds = %land.rhs.i, %land.e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_05tools16FindActiveValuesINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEE11getBBoxMaskIS9_EENT_12NodeMaskTypeERKNS0_4math9CoordBBoxEPKSF_(ptr noalias sret(%"class.openvdb::v11_0::util::NodeMask.457") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 4 dereferenceable(24) %bbox, ptr noundef %node) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %it.sroa.0 = alloca i32, align 4
-  %it.sroa.5 = alloca i32, align 4
-  %it.sroa.9 = alloca i32, align 4
+  %it = alloca %"class.openvdb::v11_0::math::CoordBBox::Iterator", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %agg.result, i8 0, i64 512, i1 false)
   %mOrigin.i = getelementptr inbounds i8, ptr %node, i64 33792
   %0 = load i32, ptr %mOrigin.i, align 4
@@ -19935,20 +19956,20 @@ invoke.cont:
   %arrayidx.i.i.i7.i.i = getelementptr inbounds i8, ptr %bbox, i64 8
   %5 = load i32, ptr %arrayidx.i.i.i7.i.i, align 4
   %cmp7.i.i = icmp sge i32 %2, %5
-  %or.cond58 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
+  %or.cond57 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
   %mMax.i = getelementptr inbounds i8, ptr %bbox, i64 12
   %6 = load i32, ptr %mMax.i, align 4
   %cmp.i2.i = icmp sge i32 %6, %add.i.i.i.i
-  %or.cond59 = select i1 %or.cond58, i1 %cmp.i2.i, i1 false
+  %or.cond58 = select i1 %or.cond57, i1 %cmp.i2.i, i1 false
   %arrayidx.i.i.i.i4.i = getelementptr inbounds i8, ptr %bbox, i64 16
   %7 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i = icmp sge i32 %7, %add4.i.i.i.i
-  %or.cond60 = select i1 %or.cond59, i1 %cmp4.i6.i, i1 false
+  %or.cond59 = select i1 %or.cond58, i1 %cmp4.i6.i, i1 false
   %arrayidx.i.i.i6.i8.i = getelementptr inbounds i8, ptr %bbox, i64 20
   %8 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i = icmp sge i32 %8, %add7.i.i.i.i
-  %or.cond61 = select i1 %or.cond60, i1 %cmp7.i10.i, i1 false
-  br i1 %or.cond61, label %if.then, label %invoke.cont12
+  %or.cond60 = select i1 %or.cond59, i1 %cmp7.i10.i, i1 false
+  br i1 %or.cond60, label %if.then, label %invoke.cont12
 
 if.then:                                          ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %agg.result, i8 -1, i64 512, i1 false)
@@ -19973,19 +19994,37 @@ invoke.cont12:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 15
   %and7.i12 = lshr i32 %14, 3
   %shr9.i18 = and i32 %and7.i12, 15
-  store i32 %shr.i, ptr %it.sroa.0, align 4
-  store i32 %shr5.i, ptr %it.sroa.5, align 4
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
-  %cmp.i.not63 = icmp ugt i32 %shr.i, %shr.i14
-  br i1 %cmp.i.not63, label %nrvo.skipdtor, label %for.body
+  store i32 %shr.i, ptr %it, align 4
+  %b.sroa.10.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 4
+  store i32 %shr5.i, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %b.sroa.17.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
+  store i32 %shr9.i, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %b.sroa.10.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 16
+  store i32 %shr5.i, ptr %b.sroa.10.0.mMin.i.i.sroa_idx, align 4
+  %b.sroa.17.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 20
+  store i32 %shr9.i, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  %mMax.i.i19 = getelementptr inbounds i8, ptr %it, i64 24
+  %b.sroa.24.sroa.9.0.insert.ext = zext nneg i32 %shr5.i16 to i64
+  %b.sroa.24.sroa.9.0.insert.shift = shl nuw nsw i64 %b.sroa.24.sroa.9.0.insert.ext, 32
+  %b.sroa.24.sroa.0.0.insert.ext = zext nneg i32 %shr.i14 to i64
+  %b.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %b.sroa.24.sroa.9.0.insert.shift, %b.sroa.24.sroa.0.0.insert.ext
+  store i64 %b.sroa.24.sroa.0.0.insert.insert, ptr %mMax.i.i19, align 4
+  %b.sroa.40.12.mMax.i.i19.sroa_idx = getelementptr inbounds i8, ptr %it, i64 32
+  store i32 %shr9.i18, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.not61 = icmp ugt i32 %shr.i, %shr.i14
+  br i1 %cmp.i.not61, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.body:                                         ; preds = %invoke.cont12, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
-  %it.sroa.0.0.it.sroa.0.0.64 = phi i32 [ %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont12 ]
-  %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8. = load i32, ptr %it.sroa.9, align 4
-  %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4. = load i32, ptr %it.sroa.5, align 4
-  %shl = shl i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., 4
-  %add = add nsw i32 %shl, %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8.
-  %shl18 = shl i32 %it.sroa.0.0.it.sroa.0.0.64, 8
+for.body.lr.ph:                                   ; preds = %invoke.cont12
+  %arrayidx.i.i.i4.i.i = getelementptr inbounds i8, ptr %it, i64 28
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
+  %15 = phi i32 [ %shr.i, %for.body.lr.ph ], [ %23, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ]
+  %16 = load i32, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %17 = load i32, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %shl = shl i32 %17, 4
+  %add = add nsw i32 %shl, %16
+  %shl18 = shl i32 %15, 8
   %add19 = add nsw i32 %add, %shl18
   %and.i24 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i24 to i64
@@ -19993,35 +20032,41 @@ for.body:                                         ; preds = %invoke.cont12, %_ZN
   %shr.i25 = lshr i32 %add19, 6
   %idxprom.i = zext nneg i32 %shr.i25 to i64
   %arrayidx.i = getelementptr inbounds [64 x i64], ptr %agg.result, i64 0, i64 %idxprom.i
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %shl.i, %15
+  %18 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %shl.i, %18
   store i64 %or.i, ptr %arrayidx.i, align 8
-  %cmp.i.i28 = icmp slt i32 %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %shr9.i18
+  %19 = load i32, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.i28 = icmp slt i32 %16, %19
   br i1 %cmp.i.i28, label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body
-  %cmp9.i.i = icmp slt i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %shr5.i16
+  %20 = load i32, ptr %arrayidx.i.i.i4.i.i, align 4
+  %cmp9.i.i = icmp slt i32 %17, %20
   br i1 %cmp9.i.i, label %if.end36.sink.split.sink.split.i.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
+  %21 = load i32, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  store i32 %21, ptr %b.sroa.17.0.it.sroa_idx, align 4
   br label %if.end36.sink.split.sink.split.i.i
 
 if.end36.sink.split.sink.split.i.i:               ; preds = %if.then23.i.i, %if.else.i.i
-  %.sink14.i.i.sroa.phi.sroa.speculated = phi i32 [ %shr5.i, %if.then23.i.i ], [ %shr9.i, %if.else.i.i ]
-  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %it.sroa.5, %if.then23.i.i ], [ %it.sroa.9, %if.else.i.i ]
-  %.sink.ph.i.i = phi i32 [ %it.sroa.0.0.it.sroa.0.0.64, %if.then23.i.i ], [ %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %if.else.i.i ]
-  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it.sroa.0, %if.then23.i.i ], [ %it.sroa.5, %if.else.i.i ]
-  store i32 %.sink14.i.i.sroa.phi.sroa.speculated, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
+  %.sink14.i.i = phi i64 [ 16, %if.then23.i.i ], [ 20, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %b.sroa.10.0.it.sroa_idx, %if.then23.i.i ], [ %b.sroa.17.0.it.sroa_idx, %if.else.i.i ]
+  %.sink.ph.i.i = phi i32 [ %15, %if.then23.i.i ], [ %17, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it, %if.then23.i.i ], [ %b.sroa.10.0.it.sroa_idx, %if.else.i.i ]
+  %arrayidx.i.i.i10.i.i = getelementptr inbounds i8, ptr %it, i64 %.sink14.i.i
+  %22 = load i32, ptr %arrayidx.i.i.i10.i.i, align 4
+  store i32 %22, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %for.body, %if.end36.sink.split.sink.split.i.i
-  %.sink.i.i = phi i32 [ %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
-  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %it.sroa.9, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi i32 [ %16, %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %b.sroa.17.0.it.sroa_idx, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
   %inc16.i.i = add nsw i32 %.sink.i.i, 1
   store i32 %inc16.i.i, ptr %arrayidx.i.i.i3.sink.i.i, align 4
-  %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0. = load i32, ptr %it.sroa.0, align 4
-  %cmp.i.not = icmp sgt i32 %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %shr.i14
+  %23 = load i32, ptr %it, align 4
+  %24 = load i32, ptr %mMax.i.i19, align 4
+  %cmp.i.not = icmp sgt i32 %23, %24
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, %invoke.cont12, %if.then
@@ -23167,9 +23212,7 @@ return:                                           ; preds = %cond.false7.i.i.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_05tools16FindActiveValuesINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEE11getBBoxMaskISA_EENT_12NodeMaskTypeERKNS0_4math9CoordBBoxEPKSF_(ptr noalias sret(%"class.openvdb::v11_0::util::NodeMask") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(24) %bbox, ptr noundef %node) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %it.sroa.0 = alloca i32, align 4
-  %it.sroa.5 = alloca i32, align 4
-  %it.sroa.9 = alloca i32, align 4
+  %it = alloca %"class.openvdb::v11_0::math::CoordBBox::Iterator", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %agg.result, i8 0, i64 4096, i1 false)
   %mOrigin.i = getelementptr inbounds i8, ptr %node, i64 270336
   %0 = load i32, ptr %mOrigin.i, align 4
@@ -23189,20 +23232,20 @@ invoke.cont:
   %arrayidx.i.i.i7.i.i = getelementptr inbounds i8, ptr %bbox, i64 8
   %5 = load i32, ptr %arrayidx.i.i.i7.i.i, align 4
   %cmp7.i.i = icmp sge i32 %2, %5
-  %or.cond58 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
+  %or.cond57 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
   %mMax.i = getelementptr inbounds i8, ptr %bbox, i64 12
   %6 = load i32, ptr %mMax.i, align 4
   %cmp.i2.i = icmp sge i32 %6, %add.i.i.i.i
-  %or.cond59 = select i1 %or.cond58, i1 %cmp.i2.i, i1 false
+  %or.cond58 = select i1 %or.cond57, i1 %cmp.i2.i, i1 false
   %arrayidx.i.i.i.i4.i = getelementptr inbounds i8, ptr %bbox, i64 16
   %7 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i = icmp sge i32 %7, %add4.i.i.i.i
-  %or.cond60 = select i1 %or.cond59, i1 %cmp4.i6.i, i1 false
+  %or.cond59 = select i1 %or.cond58, i1 %cmp4.i6.i, i1 false
   %arrayidx.i.i.i6.i8.i = getelementptr inbounds i8, ptr %bbox, i64 20
   %8 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i = icmp sge i32 %8, %add7.i.i.i.i
-  %or.cond61 = select i1 %or.cond60, i1 %cmp7.i10.i, i1 false
-  br i1 %or.cond61, label %if.then, label %invoke.cont11
+  %or.cond60 = select i1 %or.cond59, i1 %cmp7.i10.i, i1 false
+  br i1 %or.cond60, label %if.then, label %invoke.cont11
 
 if.then:                                          ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %agg.result, i8 -1, i64 4096, i1 false)
@@ -23227,19 +23270,37 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 31
   %and7.i12 = lshr i32 %14, 7
   %shr9.i18 = and i32 %and7.i12, 31
-  store i32 %shr.i, ptr %it.sroa.0, align 4
-  store i32 %shr5.i, ptr %it.sroa.5, align 4
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
-  %cmp.i.not63 = icmp ugt i32 %shr.i, %shr.i14
-  br i1 %cmp.i.not63, label %nrvo.skipdtor, label %for.body
+  store i32 %shr.i, ptr %it, align 4
+  %b.sroa.10.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 4
+  store i32 %shr5.i, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %b.sroa.17.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
+  store i32 %shr9.i, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %b.sroa.10.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 16
+  store i32 %shr5.i, ptr %b.sroa.10.0.mMin.i.i.sroa_idx, align 4
+  %b.sroa.17.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 20
+  store i32 %shr9.i, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  %mMax.i.i19 = getelementptr inbounds i8, ptr %it, i64 24
+  %b.sroa.24.sroa.9.0.insert.ext = zext nneg i32 %shr5.i16 to i64
+  %b.sroa.24.sroa.9.0.insert.shift = shl nuw nsw i64 %b.sroa.24.sroa.9.0.insert.ext, 32
+  %b.sroa.24.sroa.0.0.insert.ext = zext nneg i32 %shr.i14 to i64
+  %b.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %b.sroa.24.sroa.9.0.insert.shift, %b.sroa.24.sroa.0.0.insert.ext
+  store i64 %b.sroa.24.sroa.0.0.insert.insert, ptr %mMax.i.i19, align 4
+  %b.sroa.40.12.mMax.i.i19.sroa_idx = getelementptr inbounds i8, ptr %it, i64 32
+  store i32 %shr9.i18, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.not61 = icmp ugt i32 %shr.i, %shr.i14
+  br i1 %cmp.i.not61, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
-  %it.sroa.0.0.it.sroa.0.0.64 = phi i32 [ %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
-  %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8. = load i32, ptr %it.sroa.9, align 4
-  %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4. = load i32, ptr %it.sroa.5, align 4
-  %shl = shl i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., 5
-  %add = add nsw i32 %shl, %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8.
-  %shl17 = shl i32 %it.sroa.0.0.it.sroa.0.0.64, 10
+for.body.lr.ph:                                   ; preds = %invoke.cont11
+  %arrayidx.i.i.i4.i.i = getelementptr inbounds i8, ptr %it, i64 28
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
+  %15 = phi i32 [ %shr.i, %for.body.lr.ph ], [ %23, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ]
+  %16 = load i32, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %17 = load i32, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %shl = shl i32 %17, 5
+  %add = add nsw i32 %shl, %16
+  %shl17 = shl i32 %15, 10
   %add18 = add nsw i32 %add, %shl17
   %and.i24 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i24 to i64
@@ -23247,35 +23308,41 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %shr.i25 = lshr i32 %add18, 6
   %idxprom.i = zext nneg i32 %shr.i25 to i64
   %arrayidx.i = getelementptr inbounds [512 x i64], ptr %agg.result, i64 0, i64 %idxprom.i
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %shl.i, %15
+  %18 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %shl.i, %18
   store i64 %or.i, ptr %arrayidx.i, align 8
-  %cmp.i.i28 = icmp slt i32 %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %shr9.i18
+  %19 = load i32, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.i28 = icmp slt i32 %16, %19
   br i1 %cmp.i.i28, label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body
-  %cmp9.i.i = icmp slt i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %shr5.i16
+  %20 = load i32, ptr %arrayidx.i.i.i4.i.i, align 4
+  %cmp9.i.i = icmp slt i32 %17, %20
   br i1 %cmp9.i.i, label %if.end36.sink.split.sink.split.i.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
+  %21 = load i32, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  store i32 %21, ptr %b.sroa.17.0.it.sroa_idx, align 4
   br label %if.end36.sink.split.sink.split.i.i
 
 if.end36.sink.split.sink.split.i.i:               ; preds = %if.then23.i.i, %if.else.i.i
-  %.sink14.i.i.sroa.phi.sroa.speculated = phi i32 [ %shr5.i, %if.then23.i.i ], [ %shr9.i, %if.else.i.i ]
-  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %it.sroa.5, %if.then23.i.i ], [ %it.sroa.9, %if.else.i.i ]
-  %.sink.ph.i.i = phi i32 [ %it.sroa.0.0.it.sroa.0.0.64, %if.then23.i.i ], [ %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %if.else.i.i ]
-  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it.sroa.0, %if.then23.i.i ], [ %it.sroa.5, %if.else.i.i ]
-  store i32 %.sink14.i.i.sroa.phi.sroa.speculated, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
+  %.sink14.i.i = phi i64 [ 16, %if.then23.i.i ], [ 20, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %b.sroa.10.0.it.sroa_idx, %if.then23.i.i ], [ %b.sroa.17.0.it.sroa_idx, %if.else.i.i ]
+  %.sink.ph.i.i = phi i32 [ %15, %if.then23.i.i ], [ %17, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it, %if.then23.i.i ], [ %b.sroa.10.0.it.sroa_idx, %if.else.i.i ]
+  %arrayidx.i.i.i10.i.i = getelementptr inbounds i8, ptr %it, i64 %.sink14.i.i
+  %22 = load i32, ptr %arrayidx.i.i.i10.i.i, align 4
+  store i32 %22, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %for.body, %if.end36.sink.split.sink.split.i.i
-  %.sink.i.i = phi i32 [ %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
-  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %it.sroa.9, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi i32 [ %16, %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %b.sroa.17.0.it.sroa_idx, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
   %inc16.i.i = add nsw i32 %.sink.i.i, 1
   store i32 %inc16.i.i, ptr %arrayidx.i.i.i3.sink.i.i, align 4
-  %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0. = load i32, ptr %it.sroa.0, align 4
-  %cmp.i.not = icmp sgt i32 %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %shr.i14
+  %23 = load i32, ptr %it, align 4
+  %24 = load i32, ptr %mMax.i.i19, align 4
+  %cmp.i.not = icmp sgt i32 %23, %24
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, %invoke.cont11, %if.then
@@ -23431,9 +23498,7 @@ cleanup:                                          ; preds = %land.rhs.i, %land.e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_05tools16FindActiveValuesINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEE11getBBoxMaskIS9_EENT_12NodeMaskTypeERKNS0_4math9CoordBBoxEPKSF_(ptr noalias sret(%"class.openvdb::v11_0::util::NodeMask.457") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(24) %bbox, ptr noundef %node) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %it.sroa.0 = alloca i32, align 4
-  %it.sroa.5 = alloca i32, align 4
-  %it.sroa.9 = alloca i32, align 4
+  %it = alloca %"class.openvdb::v11_0::math::CoordBBox::Iterator", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %agg.result, i8 0, i64 512, i1 false)
   %mOrigin.i = getelementptr inbounds i8, ptr %node, i64 33792
   %0 = load i32, ptr %mOrigin.i, align 4
@@ -23453,20 +23518,20 @@ invoke.cont:
   %arrayidx.i.i.i7.i.i = getelementptr inbounds i8, ptr %bbox, i64 8
   %5 = load i32, ptr %arrayidx.i.i.i7.i.i, align 4
   %cmp7.i.i = icmp sge i32 %2, %5
-  %or.cond58 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
+  %or.cond57 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
   %mMax.i = getelementptr inbounds i8, ptr %bbox, i64 12
   %6 = load i32, ptr %mMax.i, align 4
   %cmp.i2.i = icmp sge i32 %6, %add.i.i.i.i
-  %or.cond59 = select i1 %or.cond58, i1 %cmp.i2.i, i1 false
+  %or.cond58 = select i1 %or.cond57, i1 %cmp.i2.i, i1 false
   %arrayidx.i.i.i.i4.i = getelementptr inbounds i8, ptr %bbox, i64 16
   %7 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i = icmp sge i32 %7, %add4.i.i.i.i
-  %or.cond60 = select i1 %or.cond59, i1 %cmp4.i6.i, i1 false
+  %or.cond59 = select i1 %or.cond58, i1 %cmp4.i6.i, i1 false
   %arrayidx.i.i.i6.i8.i = getelementptr inbounds i8, ptr %bbox, i64 20
   %8 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i = icmp sge i32 %8, %add7.i.i.i.i
-  %or.cond61 = select i1 %or.cond60, i1 %cmp7.i10.i, i1 false
-  br i1 %or.cond61, label %if.then, label %invoke.cont11
+  %or.cond60 = select i1 %or.cond59, i1 %cmp7.i10.i, i1 false
+  br i1 %or.cond60, label %if.then, label %invoke.cont11
 
 if.then:                                          ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %agg.result, i8 -1, i64 512, i1 false)
@@ -23491,19 +23556,37 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 15
   %and7.i12 = lshr i32 %14, 3
   %shr9.i18 = and i32 %and7.i12, 15
-  store i32 %shr.i, ptr %it.sroa.0, align 4
-  store i32 %shr5.i, ptr %it.sroa.5, align 4
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
-  %cmp.i.not63 = icmp ugt i32 %shr.i, %shr.i14
-  br i1 %cmp.i.not63, label %nrvo.skipdtor, label %for.body
+  store i32 %shr.i, ptr %it, align 4
+  %b.sroa.10.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 4
+  store i32 %shr5.i, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %b.sroa.17.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
+  store i32 %shr9.i, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %b.sroa.10.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 16
+  store i32 %shr5.i, ptr %b.sroa.10.0.mMin.i.i.sroa_idx, align 4
+  %b.sroa.17.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 20
+  store i32 %shr9.i, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  %mMax.i.i19 = getelementptr inbounds i8, ptr %it, i64 24
+  %b.sroa.24.sroa.9.0.insert.ext = zext nneg i32 %shr5.i16 to i64
+  %b.sroa.24.sroa.9.0.insert.shift = shl nuw nsw i64 %b.sroa.24.sroa.9.0.insert.ext, 32
+  %b.sroa.24.sroa.0.0.insert.ext = zext nneg i32 %shr.i14 to i64
+  %b.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %b.sroa.24.sroa.9.0.insert.shift, %b.sroa.24.sroa.0.0.insert.ext
+  store i64 %b.sroa.24.sroa.0.0.insert.insert, ptr %mMax.i.i19, align 4
+  %b.sroa.40.12.mMax.i.i19.sroa_idx = getelementptr inbounds i8, ptr %it, i64 32
+  store i32 %shr9.i18, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.not61 = icmp ugt i32 %shr.i, %shr.i14
+  br i1 %cmp.i.not61, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
-  %it.sroa.0.0.it.sroa.0.0.64 = phi i32 [ %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
-  %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8. = load i32, ptr %it.sroa.9, align 4
-  %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4. = load i32, ptr %it.sroa.5, align 4
-  %shl = shl i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., 4
-  %add = add nsw i32 %shl, %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8.
-  %shl17 = shl i32 %it.sroa.0.0.it.sroa.0.0.64, 8
+for.body.lr.ph:                                   ; preds = %invoke.cont11
+  %arrayidx.i.i.i4.i.i = getelementptr inbounds i8, ptr %it, i64 28
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
+  %15 = phi i32 [ %shr.i, %for.body.lr.ph ], [ %23, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ]
+  %16 = load i32, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %17 = load i32, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %shl = shl i32 %17, 4
+  %add = add nsw i32 %shl, %16
+  %shl17 = shl i32 %15, 8
   %add18 = add nsw i32 %add, %shl17
   %and.i24 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i24 to i64
@@ -23511,35 +23594,41 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %shr.i25 = lshr i32 %add18, 6
   %idxprom.i = zext nneg i32 %shr.i25 to i64
   %arrayidx.i = getelementptr inbounds [64 x i64], ptr %agg.result, i64 0, i64 %idxprom.i
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %shl.i, %15
+  %18 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %shl.i, %18
   store i64 %or.i, ptr %arrayidx.i, align 8
-  %cmp.i.i28 = icmp slt i32 %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %shr9.i18
+  %19 = load i32, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.i28 = icmp slt i32 %16, %19
   br i1 %cmp.i.i28, label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body
-  %cmp9.i.i = icmp slt i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %shr5.i16
+  %20 = load i32, ptr %arrayidx.i.i.i4.i.i, align 4
+  %cmp9.i.i = icmp slt i32 %17, %20
   br i1 %cmp9.i.i, label %if.end36.sink.split.sink.split.i.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
+  %21 = load i32, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  store i32 %21, ptr %b.sroa.17.0.it.sroa_idx, align 4
   br label %if.end36.sink.split.sink.split.i.i
 
 if.end36.sink.split.sink.split.i.i:               ; preds = %if.then23.i.i, %if.else.i.i
-  %.sink14.i.i.sroa.phi.sroa.speculated = phi i32 [ %shr5.i, %if.then23.i.i ], [ %shr9.i, %if.else.i.i ]
-  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %it.sroa.5, %if.then23.i.i ], [ %it.sroa.9, %if.else.i.i ]
-  %.sink.ph.i.i = phi i32 [ %it.sroa.0.0.it.sroa.0.0.64, %if.then23.i.i ], [ %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %if.else.i.i ]
-  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it.sroa.0, %if.then23.i.i ], [ %it.sroa.5, %if.else.i.i ]
-  store i32 %.sink14.i.i.sroa.phi.sroa.speculated, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
+  %.sink14.i.i = phi i64 [ 16, %if.then23.i.i ], [ 20, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %b.sroa.10.0.it.sroa_idx, %if.then23.i.i ], [ %b.sroa.17.0.it.sroa_idx, %if.else.i.i ]
+  %.sink.ph.i.i = phi i32 [ %15, %if.then23.i.i ], [ %17, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it, %if.then23.i.i ], [ %b.sroa.10.0.it.sroa_idx, %if.else.i.i ]
+  %arrayidx.i.i.i10.i.i = getelementptr inbounds i8, ptr %it, i64 %.sink14.i.i
+  %22 = load i32, ptr %arrayidx.i.i.i10.i.i, align 4
+  store i32 %22, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %for.body, %if.end36.sink.split.sink.split.i.i
-  %.sink.i.i = phi i32 [ %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
-  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %it.sroa.9, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi i32 [ %16, %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %b.sroa.17.0.it.sroa_idx, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
   %inc16.i.i = add nsw i32 %.sink.i.i, 1
   store i32 %inc16.i.i, ptr %arrayidx.i.i.i3.sink.i.i, align 4
-  %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0. = load i32, ptr %it.sroa.0, align 4
-  %cmp.i.not = icmp sgt i32 %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %shr.i14
+  %23 = load i32, ptr %it, align 4
+  %24 = load i32, ptr %mMax.i.i19, align 4
+  %cmp.i.not = icmp sgt i32 %23, %24
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, %invoke.cont11, %if.then
@@ -26197,9 +26286,7 @@ return:                                           ; preds = %cond.false7.i.i.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_05tools16FindActiveValuesINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEE11getBBoxMaskISA_EENT_12NodeMaskTypeERKNS0_4math9CoordBBoxEPKSF_(ptr noalias sret(%"class.openvdb::v11_0::util::NodeMask") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(24) %bbox, ptr noundef %node) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %it.sroa.0 = alloca i32, align 4
-  %it.sroa.5 = alloca i32, align 4
-  %it.sroa.9 = alloca i32, align 4
+  %it = alloca %"class.openvdb::v11_0::math::CoordBBox::Iterator", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %agg.result, i8 0, i64 4096, i1 false)
   %mOrigin.i = getelementptr inbounds i8, ptr %node, i64 270336
   %0 = load i32, ptr %mOrigin.i, align 4
@@ -26219,20 +26306,20 @@ invoke.cont:
   %arrayidx.i.i.i7.i.i = getelementptr inbounds i8, ptr %bbox, i64 8
   %5 = load i32, ptr %arrayidx.i.i.i7.i.i, align 4
   %cmp7.i.i = icmp sge i32 %2, %5
-  %or.cond58 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
+  %or.cond57 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
   %mMax.i = getelementptr inbounds i8, ptr %bbox, i64 12
   %6 = load i32, ptr %mMax.i, align 4
   %cmp.i2.i = icmp sge i32 %6, %add.i.i.i.i
-  %or.cond59 = select i1 %or.cond58, i1 %cmp.i2.i, i1 false
+  %or.cond58 = select i1 %or.cond57, i1 %cmp.i2.i, i1 false
   %arrayidx.i.i.i.i4.i = getelementptr inbounds i8, ptr %bbox, i64 16
   %7 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i = icmp sge i32 %7, %add4.i.i.i.i
-  %or.cond60 = select i1 %or.cond59, i1 %cmp4.i6.i, i1 false
+  %or.cond59 = select i1 %or.cond58, i1 %cmp4.i6.i, i1 false
   %arrayidx.i.i.i6.i8.i = getelementptr inbounds i8, ptr %bbox, i64 20
   %8 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i = icmp sge i32 %8, %add7.i.i.i.i
-  %or.cond61 = select i1 %or.cond60, i1 %cmp7.i10.i, i1 false
-  br i1 %or.cond61, label %if.then, label %invoke.cont11
+  %or.cond60 = select i1 %or.cond59, i1 %cmp7.i10.i, i1 false
+  br i1 %or.cond60, label %if.then, label %invoke.cont11
 
 if.then:                                          ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %agg.result, i8 -1, i64 4096, i1 false)
@@ -26257,19 +26344,37 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 31
   %and7.i12 = lshr i32 %14, 7
   %shr9.i18 = and i32 %and7.i12, 31
-  store i32 %shr.i, ptr %it.sroa.0, align 4
-  store i32 %shr5.i, ptr %it.sroa.5, align 4
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
-  %cmp.i.not63 = icmp ugt i32 %shr.i, %shr.i14
-  br i1 %cmp.i.not63, label %nrvo.skipdtor, label %for.body
+  store i32 %shr.i, ptr %it, align 4
+  %b.sroa.10.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 4
+  store i32 %shr5.i, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %b.sroa.17.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
+  store i32 %shr9.i, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %b.sroa.10.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 16
+  store i32 %shr5.i, ptr %b.sroa.10.0.mMin.i.i.sroa_idx, align 4
+  %b.sroa.17.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 20
+  store i32 %shr9.i, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  %mMax.i.i19 = getelementptr inbounds i8, ptr %it, i64 24
+  %b.sroa.24.sroa.9.0.insert.ext = zext nneg i32 %shr5.i16 to i64
+  %b.sroa.24.sroa.9.0.insert.shift = shl nuw nsw i64 %b.sroa.24.sroa.9.0.insert.ext, 32
+  %b.sroa.24.sroa.0.0.insert.ext = zext nneg i32 %shr.i14 to i64
+  %b.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %b.sroa.24.sroa.9.0.insert.shift, %b.sroa.24.sroa.0.0.insert.ext
+  store i64 %b.sroa.24.sroa.0.0.insert.insert, ptr %mMax.i.i19, align 4
+  %b.sroa.40.12.mMax.i.i19.sroa_idx = getelementptr inbounds i8, ptr %it, i64 32
+  store i32 %shr9.i18, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.not61 = icmp ugt i32 %shr.i, %shr.i14
+  br i1 %cmp.i.not61, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
-  %it.sroa.0.0.it.sroa.0.0.64 = phi i32 [ %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
-  %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8. = load i32, ptr %it.sroa.9, align 4
-  %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4. = load i32, ptr %it.sroa.5, align 4
-  %shl = shl i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., 5
-  %add = add nsw i32 %shl, %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8.
-  %shl17 = shl i32 %it.sroa.0.0.it.sroa.0.0.64, 10
+for.body.lr.ph:                                   ; preds = %invoke.cont11
+  %arrayidx.i.i.i4.i.i = getelementptr inbounds i8, ptr %it, i64 28
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
+  %15 = phi i32 [ %shr.i, %for.body.lr.ph ], [ %23, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ]
+  %16 = load i32, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %17 = load i32, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %shl = shl i32 %17, 5
+  %add = add nsw i32 %shl, %16
+  %shl17 = shl i32 %15, 10
   %add18 = add nsw i32 %add, %shl17
   %and.i24 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i24 to i64
@@ -26277,35 +26382,41 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %shr.i25 = lshr i32 %add18, 6
   %idxprom.i = zext nneg i32 %shr.i25 to i64
   %arrayidx.i = getelementptr inbounds [512 x i64], ptr %agg.result, i64 0, i64 %idxprom.i
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %shl.i, %15
+  %18 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %shl.i, %18
   store i64 %or.i, ptr %arrayidx.i, align 8
-  %cmp.i.i28 = icmp slt i32 %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %shr9.i18
+  %19 = load i32, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.i28 = icmp slt i32 %16, %19
   br i1 %cmp.i.i28, label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body
-  %cmp9.i.i = icmp slt i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %shr5.i16
+  %20 = load i32, ptr %arrayidx.i.i.i4.i.i, align 4
+  %cmp9.i.i = icmp slt i32 %17, %20
   br i1 %cmp9.i.i, label %if.end36.sink.split.sink.split.i.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
+  %21 = load i32, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  store i32 %21, ptr %b.sroa.17.0.it.sroa_idx, align 4
   br label %if.end36.sink.split.sink.split.i.i
 
 if.end36.sink.split.sink.split.i.i:               ; preds = %if.then23.i.i, %if.else.i.i
-  %.sink14.i.i.sroa.phi.sroa.speculated = phi i32 [ %shr5.i, %if.then23.i.i ], [ %shr9.i, %if.else.i.i ]
-  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %it.sroa.5, %if.then23.i.i ], [ %it.sroa.9, %if.else.i.i ]
-  %.sink.ph.i.i = phi i32 [ %it.sroa.0.0.it.sroa.0.0.64, %if.then23.i.i ], [ %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %if.else.i.i ]
-  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it.sroa.0, %if.then23.i.i ], [ %it.sroa.5, %if.else.i.i ]
-  store i32 %.sink14.i.i.sroa.phi.sroa.speculated, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
+  %.sink14.i.i = phi i64 [ 16, %if.then23.i.i ], [ 20, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %b.sroa.10.0.it.sroa_idx, %if.then23.i.i ], [ %b.sroa.17.0.it.sroa_idx, %if.else.i.i ]
+  %.sink.ph.i.i = phi i32 [ %15, %if.then23.i.i ], [ %17, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it, %if.then23.i.i ], [ %b.sroa.10.0.it.sroa_idx, %if.else.i.i ]
+  %arrayidx.i.i.i10.i.i = getelementptr inbounds i8, ptr %it, i64 %.sink14.i.i
+  %22 = load i32, ptr %arrayidx.i.i.i10.i.i, align 4
+  store i32 %22, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %for.body, %if.end36.sink.split.sink.split.i.i
-  %.sink.i.i = phi i32 [ %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
-  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %it.sroa.9, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi i32 [ %16, %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %b.sroa.17.0.it.sroa_idx, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
   %inc16.i.i = add nsw i32 %.sink.i.i, 1
   store i32 %inc16.i.i, ptr %arrayidx.i.i.i3.sink.i.i, align 4
-  %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0. = load i32, ptr %it.sroa.0, align 4
-  %cmp.i.not = icmp sgt i32 %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %shr.i14
+  %23 = load i32, ptr %it, align 4
+  %24 = load i32, ptr %mMax.i.i19, align 4
+  %cmp.i.not = icmp sgt i32 %23, %24
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, %invoke.cont11, %if.then
@@ -26461,9 +26572,7 @@ cleanup:                                          ; preds = %land.rhs.i, %land.e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_05tools16FindActiveValuesINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEE11getBBoxMaskIS9_EENT_12NodeMaskTypeERKNS0_4math9CoordBBoxEPKSF_(ptr noalias sret(%"class.openvdb::v11_0::util::NodeMask.457") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(24) %bbox, ptr noundef %node) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %it.sroa.0 = alloca i32, align 4
-  %it.sroa.5 = alloca i32, align 4
-  %it.sroa.9 = alloca i32, align 4
+  %it = alloca %"class.openvdb::v11_0::math::CoordBBox::Iterator", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %agg.result, i8 0, i64 512, i1 false)
   %mOrigin.i = getelementptr inbounds i8, ptr %node, i64 33792
   %0 = load i32, ptr %mOrigin.i, align 4
@@ -26483,20 +26592,20 @@ invoke.cont:
   %arrayidx.i.i.i7.i.i = getelementptr inbounds i8, ptr %bbox, i64 8
   %5 = load i32, ptr %arrayidx.i.i.i7.i.i, align 4
   %cmp7.i.i = icmp sge i32 %2, %5
-  %or.cond58 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
+  %or.cond57 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
   %mMax.i = getelementptr inbounds i8, ptr %bbox, i64 12
   %6 = load i32, ptr %mMax.i, align 4
   %cmp.i2.i = icmp sge i32 %6, %add.i.i.i.i
-  %or.cond59 = select i1 %or.cond58, i1 %cmp.i2.i, i1 false
+  %or.cond58 = select i1 %or.cond57, i1 %cmp.i2.i, i1 false
   %arrayidx.i.i.i.i4.i = getelementptr inbounds i8, ptr %bbox, i64 16
   %7 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i = icmp sge i32 %7, %add4.i.i.i.i
-  %or.cond60 = select i1 %or.cond59, i1 %cmp4.i6.i, i1 false
+  %or.cond59 = select i1 %or.cond58, i1 %cmp4.i6.i, i1 false
   %arrayidx.i.i.i6.i8.i = getelementptr inbounds i8, ptr %bbox, i64 20
   %8 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i = icmp sge i32 %8, %add7.i.i.i.i
-  %or.cond61 = select i1 %or.cond60, i1 %cmp7.i10.i, i1 false
-  br i1 %or.cond61, label %if.then, label %invoke.cont11
+  %or.cond60 = select i1 %or.cond59, i1 %cmp7.i10.i, i1 false
+  br i1 %or.cond60, label %if.then, label %invoke.cont11
 
 if.then:                                          ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %agg.result, i8 -1, i64 512, i1 false)
@@ -26521,19 +26630,37 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 15
   %and7.i12 = lshr i32 %14, 3
   %shr9.i18 = and i32 %and7.i12, 15
-  store i32 %shr.i, ptr %it.sroa.0, align 4
-  store i32 %shr5.i, ptr %it.sroa.5, align 4
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
-  %cmp.i.not63 = icmp ugt i32 %shr.i, %shr.i14
-  br i1 %cmp.i.not63, label %nrvo.skipdtor, label %for.body
+  store i32 %shr.i, ptr %it, align 4
+  %b.sroa.10.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 4
+  store i32 %shr5.i, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %b.sroa.17.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
+  store i32 %shr9.i, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %b.sroa.10.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 16
+  store i32 %shr5.i, ptr %b.sroa.10.0.mMin.i.i.sroa_idx, align 4
+  %b.sroa.17.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 20
+  store i32 %shr9.i, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  %mMax.i.i19 = getelementptr inbounds i8, ptr %it, i64 24
+  %b.sroa.24.sroa.9.0.insert.ext = zext nneg i32 %shr5.i16 to i64
+  %b.sroa.24.sroa.9.0.insert.shift = shl nuw nsw i64 %b.sroa.24.sroa.9.0.insert.ext, 32
+  %b.sroa.24.sroa.0.0.insert.ext = zext nneg i32 %shr.i14 to i64
+  %b.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %b.sroa.24.sroa.9.0.insert.shift, %b.sroa.24.sroa.0.0.insert.ext
+  store i64 %b.sroa.24.sroa.0.0.insert.insert, ptr %mMax.i.i19, align 4
+  %b.sroa.40.12.mMax.i.i19.sroa_idx = getelementptr inbounds i8, ptr %it, i64 32
+  store i32 %shr9.i18, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.not61 = icmp ugt i32 %shr.i, %shr.i14
+  br i1 %cmp.i.not61, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
-  %it.sroa.0.0.it.sroa.0.0.64 = phi i32 [ %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
-  %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8. = load i32, ptr %it.sroa.9, align 4
-  %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4. = load i32, ptr %it.sroa.5, align 4
-  %shl = shl i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., 4
-  %add = add nsw i32 %shl, %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8.
-  %shl17 = shl i32 %it.sroa.0.0.it.sroa.0.0.64, 8
+for.body.lr.ph:                                   ; preds = %invoke.cont11
+  %arrayidx.i.i.i4.i.i = getelementptr inbounds i8, ptr %it, i64 28
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
+  %15 = phi i32 [ %shr.i, %for.body.lr.ph ], [ %23, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ]
+  %16 = load i32, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %17 = load i32, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %shl = shl i32 %17, 4
+  %add = add nsw i32 %shl, %16
+  %shl17 = shl i32 %15, 8
   %add18 = add nsw i32 %add, %shl17
   %and.i24 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i24 to i64
@@ -26541,35 +26668,41 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %shr.i25 = lshr i32 %add18, 6
   %idxprom.i = zext nneg i32 %shr.i25 to i64
   %arrayidx.i = getelementptr inbounds [64 x i64], ptr %agg.result, i64 0, i64 %idxprom.i
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %shl.i, %15
+  %18 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %shl.i, %18
   store i64 %or.i, ptr %arrayidx.i, align 8
-  %cmp.i.i28 = icmp slt i32 %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %shr9.i18
+  %19 = load i32, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.i28 = icmp slt i32 %16, %19
   br i1 %cmp.i.i28, label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body
-  %cmp9.i.i = icmp slt i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %shr5.i16
+  %20 = load i32, ptr %arrayidx.i.i.i4.i.i, align 4
+  %cmp9.i.i = icmp slt i32 %17, %20
   br i1 %cmp9.i.i, label %if.end36.sink.split.sink.split.i.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
+  %21 = load i32, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  store i32 %21, ptr %b.sroa.17.0.it.sroa_idx, align 4
   br label %if.end36.sink.split.sink.split.i.i
 
 if.end36.sink.split.sink.split.i.i:               ; preds = %if.then23.i.i, %if.else.i.i
-  %.sink14.i.i.sroa.phi.sroa.speculated = phi i32 [ %shr5.i, %if.then23.i.i ], [ %shr9.i, %if.else.i.i ]
-  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %it.sroa.5, %if.then23.i.i ], [ %it.sroa.9, %if.else.i.i ]
-  %.sink.ph.i.i = phi i32 [ %it.sroa.0.0.it.sroa.0.0.64, %if.then23.i.i ], [ %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %if.else.i.i ]
-  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it.sroa.0, %if.then23.i.i ], [ %it.sroa.5, %if.else.i.i ]
-  store i32 %.sink14.i.i.sroa.phi.sroa.speculated, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
+  %.sink14.i.i = phi i64 [ 16, %if.then23.i.i ], [ 20, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %b.sroa.10.0.it.sroa_idx, %if.then23.i.i ], [ %b.sroa.17.0.it.sroa_idx, %if.else.i.i ]
+  %.sink.ph.i.i = phi i32 [ %15, %if.then23.i.i ], [ %17, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it, %if.then23.i.i ], [ %b.sroa.10.0.it.sroa_idx, %if.else.i.i ]
+  %arrayidx.i.i.i10.i.i = getelementptr inbounds i8, ptr %it, i64 %.sink14.i.i
+  %22 = load i32, ptr %arrayidx.i.i.i10.i.i, align 4
+  store i32 %22, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %for.body, %if.end36.sink.split.sink.split.i.i
-  %.sink.i.i = phi i32 [ %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
-  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %it.sroa.9, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi i32 [ %16, %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %b.sroa.17.0.it.sroa_idx, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
   %inc16.i.i = add nsw i32 %.sink.i.i, 1
   store i32 %inc16.i.i, ptr %arrayidx.i.i.i3.sink.i.i, align 4
-  %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0. = load i32, ptr %it.sroa.0, align 4
-  %cmp.i.not = icmp sgt i32 %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %shr.i14
+  %23 = load i32, ptr %it, align 4
+  %24 = load i32, ptr %mMax.i.i19, align 4
+  %cmp.i.not = icmp sgt i32 %23, %24
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, %invoke.cont11, %if.then
@@ -29395,9 +29528,7 @@ return:                                           ; preds = %cond.false7.i.i.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_05tools16FindActiveValuesINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE11getBBoxMaskISA_EENT_12NodeMaskTypeERKNS0_4math9CoordBBoxEPKSF_(ptr noalias sret(%"class.openvdb::v11_0::util::NodeMask") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(24) %bbox, ptr noundef %node) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %it.sroa.0 = alloca i32, align 4
-  %it.sroa.5 = alloca i32, align 4
-  %it.sroa.9 = alloca i32, align 4
+  %it = alloca %"class.openvdb::v11_0::math::CoordBBox::Iterator", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %agg.result, i8 0, i64 4096, i1 false)
   %mOrigin.i = getelementptr inbounds i8, ptr %node, i64 270336
   %0 = load i32, ptr %mOrigin.i, align 4
@@ -29417,20 +29548,20 @@ invoke.cont:
   %arrayidx.i.i.i7.i.i = getelementptr inbounds i8, ptr %bbox, i64 8
   %5 = load i32, ptr %arrayidx.i.i.i7.i.i, align 4
   %cmp7.i.i = icmp sge i32 %2, %5
-  %or.cond58 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
+  %or.cond57 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
   %mMax.i = getelementptr inbounds i8, ptr %bbox, i64 12
   %6 = load i32, ptr %mMax.i, align 4
   %cmp.i2.i = icmp sge i32 %6, %add.i.i.i.i
-  %or.cond59 = select i1 %or.cond58, i1 %cmp.i2.i, i1 false
+  %or.cond58 = select i1 %or.cond57, i1 %cmp.i2.i, i1 false
   %arrayidx.i.i.i.i4.i = getelementptr inbounds i8, ptr %bbox, i64 16
   %7 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i = icmp sge i32 %7, %add4.i.i.i.i
-  %or.cond60 = select i1 %or.cond59, i1 %cmp4.i6.i, i1 false
+  %or.cond59 = select i1 %or.cond58, i1 %cmp4.i6.i, i1 false
   %arrayidx.i.i.i6.i8.i = getelementptr inbounds i8, ptr %bbox, i64 20
   %8 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i = icmp sge i32 %8, %add7.i.i.i.i
-  %or.cond61 = select i1 %or.cond60, i1 %cmp7.i10.i, i1 false
-  br i1 %or.cond61, label %if.then, label %invoke.cont11
+  %or.cond60 = select i1 %or.cond59, i1 %cmp7.i10.i, i1 false
+  br i1 %or.cond60, label %if.then, label %invoke.cont11
 
 if.then:                                          ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %agg.result, i8 -1, i64 4096, i1 false)
@@ -29455,19 +29586,37 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 31
   %and7.i12 = lshr i32 %14, 7
   %shr9.i18 = and i32 %and7.i12, 31
-  store i32 %shr.i, ptr %it.sroa.0, align 4
-  store i32 %shr5.i, ptr %it.sroa.5, align 4
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
-  %cmp.i.not63 = icmp ugt i32 %shr.i, %shr.i14
-  br i1 %cmp.i.not63, label %nrvo.skipdtor, label %for.body
+  store i32 %shr.i, ptr %it, align 4
+  %b.sroa.10.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 4
+  store i32 %shr5.i, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %b.sroa.17.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
+  store i32 %shr9.i, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %b.sroa.10.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 16
+  store i32 %shr5.i, ptr %b.sroa.10.0.mMin.i.i.sroa_idx, align 4
+  %b.sroa.17.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 20
+  store i32 %shr9.i, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  %mMax.i.i19 = getelementptr inbounds i8, ptr %it, i64 24
+  %b.sroa.24.sroa.9.0.insert.ext = zext nneg i32 %shr5.i16 to i64
+  %b.sroa.24.sroa.9.0.insert.shift = shl nuw nsw i64 %b.sroa.24.sroa.9.0.insert.ext, 32
+  %b.sroa.24.sroa.0.0.insert.ext = zext nneg i32 %shr.i14 to i64
+  %b.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %b.sroa.24.sroa.9.0.insert.shift, %b.sroa.24.sroa.0.0.insert.ext
+  store i64 %b.sroa.24.sroa.0.0.insert.insert, ptr %mMax.i.i19, align 4
+  %b.sroa.40.12.mMax.i.i19.sroa_idx = getelementptr inbounds i8, ptr %it, i64 32
+  store i32 %shr9.i18, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.not61 = icmp ugt i32 %shr.i, %shr.i14
+  br i1 %cmp.i.not61, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
-  %it.sroa.0.0.it.sroa.0.0.64 = phi i32 [ %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
-  %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8. = load i32, ptr %it.sroa.9, align 4
-  %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4. = load i32, ptr %it.sroa.5, align 4
-  %shl = shl i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., 5
-  %add = add nsw i32 %shl, %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8.
-  %shl17 = shl i32 %it.sroa.0.0.it.sroa.0.0.64, 10
+for.body.lr.ph:                                   ; preds = %invoke.cont11
+  %arrayidx.i.i.i4.i.i = getelementptr inbounds i8, ptr %it, i64 28
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
+  %15 = phi i32 [ %shr.i, %for.body.lr.ph ], [ %23, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ]
+  %16 = load i32, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %17 = load i32, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %shl = shl i32 %17, 5
+  %add = add nsw i32 %shl, %16
+  %shl17 = shl i32 %15, 10
   %add18 = add nsw i32 %add, %shl17
   %and.i24 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i24 to i64
@@ -29475,35 +29624,41 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %shr.i25 = lshr i32 %add18, 6
   %idxprom.i = zext nneg i32 %shr.i25 to i64
   %arrayidx.i = getelementptr inbounds [512 x i64], ptr %agg.result, i64 0, i64 %idxprom.i
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %shl.i, %15
+  %18 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %shl.i, %18
   store i64 %or.i, ptr %arrayidx.i, align 8
-  %cmp.i.i28 = icmp slt i32 %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %shr9.i18
+  %19 = load i32, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.i28 = icmp slt i32 %16, %19
   br i1 %cmp.i.i28, label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body
-  %cmp9.i.i = icmp slt i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %shr5.i16
+  %20 = load i32, ptr %arrayidx.i.i.i4.i.i, align 4
+  %cmp9.i.i = icmp slt i32 %17, %20
   br i1 %cmp9.i.i, label %if.end36.sink.split.sink.split.i.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
+  %21 = load i32, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  store i32 %21, ptr %b.sroa.17.0.it.sroa_idx, align 4
   br label %if.end36.sink.split.sink.split.i.i
 
 if.end36.sink.split.sink.split.i.i:               ; preds = %if.then23.i.i, %if.else.i.i
-  %.sink14.i.i.sroa.phi.sroa.speculated = phi i32 [ %shr5.i, %if.then23.i.i ], [ %shr9.i, %if.else.i.i ]
-  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %it.sroa.5, %if.then23.i.i ], [ %it.sroa.9, %if.else.i.i ]
-  %.sink.ph.i.i = phi i32 [ %it.sroa.0.0.it.sroa.0.0.64, %if.then23.i.i ], [ %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %if.else.i.i ]
-  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it.sroa.0, %if.then23.i.i ], [ %it.sroa.5, %if.else.i.i ]
-  store i32 %.sink14.i.i.sroa.phi.sroa.speculated, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
+  %.sink14.i.i = phi i64 [ 16, %if.then23.i.i ], [ 20, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %b.sroa.10.0.it.sroa_idx, %if.then23.i.i ], [ %b.sroa.17.0.it.sroa_idx, %if.else.i.i ]
+  %.sink.ph.i.i = phi i32 [ %15, %if.then23.i.i ], [ %17, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it, %if.then23.i.i ], [ %b.sroa.10.0.it.sroa_idx, %if.else.i.i ]
+  %arrayidx.i.i.i10.i.i = getelementptr inbounds i8, ptr %it, i64 %.sink14.i.i
+  %22 = load i32, ptr %arrayidx.i.i.i10.i.i, align 4
+  store i32 %22, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %for.body, %if.end36.sink.split.sink.split.i.i
-  %.sink.i.i = phi i32 [ %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
-  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %it.sroa.9, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi i32 [ %16, %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %b.sroa.17.0.it.sroa_idx, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
   %inc16.i.i = add nsw i32 %.sink.i.i, 1
   store i32 %inc16.i.i, ptr %arrayidx.i.i.i3.sink.i.i, align 4
-  %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0. = load i32, ptr %it.sroa.0, align 4
-  %cmp.i.not = icmp sgt i32 %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %shr.i14
+  %23 = load i32, ptr %it, align 4
+  %24 = load i32, ptr %mMax.i.i19, align 4
+  %cmp.i.not = icmp sgt i32 %23, %24
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, %invoke.cont11, %if.then
@@ -29659,9 +29814,7 @@ cleanup:                                          ; preds = %land.rhs.i, %land.e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_05tools16FindActiveValuesINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE11getBBoxMaskIS9_EENT_12NodeMaskTypeERKNS0_4math9CoordBBoxEPKSF_(ptr noalias sret(%"class.openvdb::v11_0::util::NodeMask.457") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(24) %bbox, ptr noundef %node) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %it.sroa.0 = alloca i32, align 4
-  %it.sroa.5 = alloca i32, align 4
-  %it.sroa.9 = alloca i32, align 4
+  %it = alloca %"class.openvdb::v11_0::math::CoordBBox::Iterator", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %agg.result, i8 0, i64 512, i1 false)
   %mOrigin.i = getelementptr inbounds i8, ptr %node, i64 33792
   %0 = load i32, ptr %mOrigin.i, align 4
@@ -29681,20 +29834,20 @@ invoke.cont:
   %arrayidx.i.i.i7.i.i = getelementptr inbounds i8, ptr %bbox, i64 8
   %5 = load i32, ptr %arrayidx.i.i.i7.i.i, align 4
   %cmp7.i.i = icmp sge i32 %2, %5
-  %or.cond58 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
+  %or.cond57 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
   %mMax.i = getelementptr inbounds i8, ptr %bbox, i64 12
   %6 = load i32, ptr %mMax.i, align 4
   %cmp.i2.i = icmp sge i32 %6, %add.i.i.i.i
-  %or.cond59 = select i1 %or.cond58, i1 %cmp.i2.i, i1 false
+  %or.cond58 = select i1 %or.cond57, i1 %cmp.i2.i, i1 false
   %arrayidx.i.i.i.i4.i = getelementptr inbounds i8, ptr %bbox, i64 16
   %7 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i = icmp sge i32 %7, %add4.i.i.i.i
-  %or.cond60 = select i1 %or.cond59, i1 %cmp4.i6.i, i1 false
+  %or.cond59 = select i1 %or.cond58, i1 %cmp4.i6.i, i1 false
   %arrayidx.i.i.i6.i8.i = getelementptr inbounds i8, ptr %bbox, i64 20
   %8 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i = icmp sge i32 %8, %add7.i.i.i.i
-  %or.cond61 = select i1 %or.cond60, i1 %cmp7.i10.i, i1 false
-  br i1 %or.cond61, label %if.then, label %invoke.cont11
+  %or.cond60 = select i1 %or.cond59, i1 %cmp7.i10.i, i1 false
+  br i1 %or.cond60, label %if.then, label %invoke.cont11
 
 if.then:                                          ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %agg.result, i8 -1, i64 512, i1 false)
@@ -29719,19 +29872,37 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 15
   %and7.i12 = lshr i32 %14, 3
   %shr9.i18 = and i32 %and7.i12, 15
-  store i32 %shr.i, ptr %it.sroa.0, align 4
-  store i32 %shr5.i, ptr %it.sroa.5, align 4
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
-  %cmp.i.not63 = icmp ugt i32 %shr.i, %shr.i14
-  br i1 %cmp.i.not63, label %nrvo.skipdtor, label %for.body
+  store i32 %shr.i, ptr %it, align 4
+  %b.sroa.10.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 4
+  store i32 %shr5.i, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %b.sroa.17.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
+  store i32 %shr9.i, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %b.sroa.10.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 16
+  store i32 %shr5.i, ptr %b.sroa.10.0.mMin.i.i.sroa_idx, align 4
+  %b.sroa.17.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 20
+  store i32 %shr9.i, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  %mMax.i.i19 = getelementptr inbounds i8, ptr %it, i64 24
+  %b.sroa.24.sroa.9.0.insert.ext = zext nneg i32 %shr5.i16 to i64
+  %b.sroa.24.sroa.9.0.insert.shift = shl nuw nsw i64 %b.sroa.24.sroa.9.0.insert.ext, 32
+  %b.sroa.24.sroa.0.0.insert.ext = zext nneg i32 %shr.i14 to i64
+  %b.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %b.sroa.24.sroa.9.0.insert.shift, %b.sroa.24.sroa.0.0.insert.ext
+  store i64 %b.sroa.24.sroa.0.0.insert.insert, ptr %mMax.i.i19, align 4
+  %b.sroa.40.12.mMax.i.i19.sroa_idx = getelementptr inbounds i8, ptr %it, i64 32
+  store i32 %shr9.i18, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.not61 = icmp ugt i32 %shr.i, %shr.i14
+  br i1 %cmp.i.not61, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
-  %it.sroa.0.0.it.sroa.0.0.64 = phi i32 [ %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
-  %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8. = load i32, ptr %it.sroa.9, align 4
-  %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4. = load i32, ptr %it.sroa.5, align 4
-  %shl = shl i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., 4
-  %add = add nsw i32 %shl, %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8.
-  %shl17 = shl i32 %it.sroa.0.0.it.sroa.0.0.64, 8
+for.body.lr.ph:                                   ; preds = %invoke.cont11
+  %arrayidx.i.i.i4.i.i = getelementptr inbounds i8, ptr %it, i64 28
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
+  %15 = phi i32 [ %shr.i, %for.body.lr.ph ], [ %23, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ]
+  %16 = load i32, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %17 = load i32, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %shl = shl i32 %17, 4
+  %add = add nsw i32 %shl, %16
+  %shl17 = shl i32 %15, 8
   %add18 = add nsw i32 %add, %shl17
   %and.i24 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i24 to i64
@@ -29739,35 +29910,41 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %shr.i25 = lshr i32 %add18, 6
   %idxprom.i = zext nneg i32 %shr.i25 to i64
   %arrayidx.i = getelementptr inbounds [64 x i64], ptr %agg.result, i64 0, i64 %idxprom.i
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %shl.i, %15
+  %18 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %shl.i, %18
   store i64 %or.i, ptr %arrayidx.i, align 8
-  %cmp.i.i28 = icmp slt i32 %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %shr9.i18
+  %19 = load i32, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.i28 = icmp slt i32 %16, %19
   br i1 %cmp.i.i28, label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body
-  %cmp9.i.i = icmp slt i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %shr5.i16
+  %20 = load i32, ptr %arrayidx.i.i.i4.i.i, align 4
+  %cmp9.i.i = icmp slt i32 %17, %20
   br i1 %cmp9.i.i, label %if.end36.sink.split.sink.split.i.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
+  %21 = load i32, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  store i32 %21, ptr %b.sroa.17.0.it.sroa_idx, align 4
   br label %if.end36.sink.split.sink.split.i.i
 
 if.end36.sink.split.sink.split.i.i:               ; preds = %if.then23.i.i, %if.else.i.i
-  %.sink14.i.i.sroa.phi.sroa.speculated = phi i32 [ %shr5.i, %if.then23.i.i ], [ %shr9.i, %if.else.i.i ]
-  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %it.sroa.5, %if.then23.i.i ], [ %it.sroa.9, %if.else.i.i ]
-  %.sink.ph.i.i = phi i32 [ %it.sroa.0.0.it.sroa.0.0.64, %if.then23.i.i ], [ %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %if.else.i.i ]
-  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it.sroa.0, %if.then23.i.i ], [ %it.sroa.5, %if.else.i.i ]
-  store i32 %.sink14.i.i.sroa.phi.sroa.speculated, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
+  %.sink14.i.i = phi i64 [ 16, %if.then23.i.i ], [ 20, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %b.sroa.10.0.it.sroa_idx, %if.then23.i.i ], [ %b.sroa.17.0.it.sroa_idx, %if.else.i.i ]
+  %.sink.ph.i.i = phi i32 [ %15, %if.then23.i.i ], [ %17, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it, %if.then23.i.i ], [ %b.sroa.10.0.it.sroa_idx, %if.else.i.i ]
+  %arrayidx.i.i.i10.i.i = getelementptr inbounds i8, ptr %it, i64 %.sink14.i.i
+  %22 = load i32, ptr %arrayidx.i.i.i10.i.i, align 4
+  store i32 %22, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %for.body, %if.end36.sink.split.sink.split.i.i
-  %.sink.i.i = phi i32 [ %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
-  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %it.sroa.9, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi i32 [ %16, %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %b.sroa.17.0.it.sroa_idx, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
   %inc16.i.i = add nsw i32 %.sink.i.i, 1
   store i32 %inc16.i.i, ptr %arrayidx.i.i.i3.sink.i.i, align 4
-  %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0. = load i32, ptr %it.sroa.0, align 4
-  %cmp.i.not = icmp sgt i32 %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %shr.i14
+  %23 = load i32, ptr %it, align 4
+  %24 = load i32, ptr %mMax.i.i19, align 4
+  %cmp.i.not = icmp sgt i32 %23, %24
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, %invoke.cont11, %if.then
@@ -32592,9 +32769,7 @@ return:                                           ; preds = %cond.false7.i.i.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_05tools16FindActiveValuesINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE11getBBoxMaskISA_EENT_12NodeMaskTypeERKNS0_4math9CoordBBoxEPKSF_(ptr noalias sret(%"class.openvdb::v11_0::util::NodeMask") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(24) %bbox, ptr noundef %node) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %it.sroa.0 = alloca i32, align 4
-  %it.sroa.5 = alloca i32, align 4
-  %it.sroa.9 = alloca i32, align 4
+  %it = alloca %"class.openvdb::v11_0::math::CoordBBox::Iterator", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %agg.result, i8 0, i64 4096, i1 false)
   %mOrigin.i = getelementptr inbounds i8, ptr %node, i64 270336
   %0 = load i32, ptr %mOrigin.i, align 4
@@ -32614,20 +32789,20 @@ invoke.cont:
   %arrayidx.i.i.i7.i.i = getelementptr inbounds i8, ptr %bbox, i64 8
   %5 = load i32, ptr %arrayidx.i.i.i7.i.i, align 4
   %cmp7.i.i = icmp sge i32 %2, %5
-  %or.cond58 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
+  %or.cond57 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
   %mMax.i = getelementptr inbounds i8, ptr %bbox, i64 12
   %6 = load i32, ptr %mMax.i, align 4
   %cmp.i2.i = icmp sge i32 %6, %add.i.i.i.i
-  %or.cond59 = select i1 %or.cond58, i1 %cmp.i2.i, i1 false
+  %or.cond58 = select i1 %or.cond57, i1 %cmp.i2.i, i1 false
   %arrayidx.i.i.i.i4.i = getelementptr inbounds i8, ptr %bbox, i64 16
   %7 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i = icmp sge i32 %7, %add4.i.i.i.i
-  %or.cond60 = select i1 %or.cond59, i1 %cmp4.i6.i, i1 false
+  %or.cond59 = select i1 %or.cond58, i1 %cmp4.i6.i, i1 false
   %arrayidx.i.i.i6.i8.i = getelementptr inbounds i8, ptr %bbox, i64 20
   %8 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i = icmp sge i32 %8, %add7.i.i.i.i
-  %or.cond61 = select i1 %or.cond60, i1 %cmp7.i10.i, i1 false
-  br i1 %or.cond61, label %if.then, label %invoke.cont11
+  %or.cond60 = select i1 %or.cond59, i1 %cmp7.i10.i, i1 false
+  br i1 %or.cond60, label %if.then, label %invoke.cont11
 
 if.then:                                          ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %agg.result, i8 -1, i64 4096, i1 false)
@@ -32652,19 +32827,37 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 31
   %and7.i12 = lshr i32 %14, 7
   %shr9.i18 = and i32 %and7.i12, 31
-  store i32 %shr.i, ptr %it.sroa.0, align 4
-  store i32 %shr5.i, ptr %it.sroa.5, align 4
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
-  %cmp.i.not63 = icmp ugt i32 %shr.i, %shr.i14
-  br i1 %cmp.i.not63, label %nrvo.skipdtor, label %for.body
+  store i32 %shr.i, ptr %it, align 4
+  %b.sroa.10.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 4
+  store i32 %shr5.i, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %b.sroa.17.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
+  store i32 %shr9.i, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %b.sroa.10.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 16
+  store i32 %shr5.i, ptr %b.sroa.10.0.mMin.i.i.sroa_idx, align 4
+  %b.sroa.17.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 20
+  store i32 %shr9.i, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  %mMax.i.i19 = getelementptr inbounds i8, ptr %it, i64 24
+  %b.sroa.24.sroa.9.0.insert.ext = zext nneg i32 %shr5.i16 to i64
+  %b.sroa.24.sroa.9.0.insert.shift = shl nuw nsw i64 %b.sroa.24.sroa.9.0.insert.ext, 32
+  %b.sroa.24.sroa.0.0.insert.ext = zext nneg i32 %shr.i14 to i64
+  %b.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %b.sroa.24.sroa.9.0.insert.shift, %b.sroa.24.sroa.0.0.insert.ext
+  store i64 %b.sroa.24.sroa.0.0.insert.insert, ptr %mMax.i.i19, align 4
+  %b.sroa.40.12.mMax.i.i19.sroa_idx = getelementptr inbounds i8, ptr %it, i64 32
+  store i32 %shr9.i18, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.not61 = icmp ugt i32 %shr.i, %shr.i14
+  br i1 %cmp.i.not61, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
-  %it.sroa.0.0.it.sroa.0.0.64 = phi i32 [ %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
-  %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8. = load i32, ptr %it.sroa.9, align 4
-  %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4. = load i32, ptr %it.sroa.5, align 4
-  %shl = shl i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., 5
-  %add = add nsw i32 %shl, %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8.
-  %shl17 = shl i32 %it.sroa.0.0.it.sroa.0.0.64, 10
+for.body.lr.ph:                                   ; preds = %invoke.cont11
+  %arrayidx.i.i.i4.i.i = getelementptr inbounds i8, ptr %it, i64 28
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
+  %15 = phi i32 [ %shr.i, %for.body.lr.ph ], [ %23, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ]
+  %16 = load i32, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %17 = load i32, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %shl = shl i32 %17, 5
+  %add = add nsw i32 %shl, %16
+  %shl17 = shl i32 %15, 10
   %add18 = add nsw i32 %add, %shl17
   %and.i24 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i24 to i64
@@ -32672,35 +32865,41 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %shr.i25 = lshr i32 %add18, 6
   %idxprom.i = zext nneg i32 %shr.i25 to i64
   %arrayidx.i = getelementptr inbounds [512 x i64], ptr %agg.result, i64 0, i64 %idxprom.i
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %shl.i, %15
+  %18 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %shl.i, %18
   store i64 %or.i, ptr %arrayidx.i, align 8
-  %cmp.i.i28 = icmp slt i32 %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %shr9.i18
+  %19 = load i32, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.i28 = icmp slt i32 %16, %19
   br i1 %cmp.i.i28, label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body
-  %cmp9.i.i = icmp slt i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %shr5.i16
+  %20 = load i32, ptr %arrayidx.i.i.i4.i.i, align 4
+  %cmp9.i.i = icmp slt i32 %17, %20
   br i1 %cmp9.i.i, label %if.end36.sink.split.sink.split.i.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
+  %21 = load i32, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  store i32 %21, ptr %b.sroa.17.0.it.sroa_idx, align 4
   br label %if.end36.sink.split.sink.split.i.i
 
 if.end36.sink.split.sink.split.i.i:               ; preds = %if.then23.i.i, %if.else.i.i
-  %.sink14.i.i.sroa.phi.sroa.speculated = phi i32 [ %shr5.i, %if.then23.i.i ], [ %shr9.i, %if.else.i.i ]
-  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %it.sroa.5, %if.then23.i.i ], [ %it.sroa.9, %if.else.i.i ]
-  %.sink.ph.i.i = phi i32 [ %it.sroa.0.0.it.sroa.0.0.64, %if.then23.i.i ], [ %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %if.else.i.i ]
-  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it.sroa.0, %if.then23.i.i ], [ %it.sroa.5, %if.else.i.i ]
-  store i32 %.sink14.i.i.sroa.phi.sroa.speculated, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
+  %.sink14.i.i = phi i64 [ 16, %if.then23.i.i ], [ 20, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %b.sroa.10.0.it.sroa_idx, %if.then23.i.i ], [ %b.sroa.17.0.it.sroa_idx, %if.else.i.i ]
+  %.sink.ph.i.i = phi i32 [ %15, %if.then23.i.i ], [ %17, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it, %if.then23.i.i ], [ %b.sroa.10.0.it.sroa_idx, %if.else.i.i ]
+  %arrayidx.i.i.i10.i.i = getelementptr inbounds i8, ptr %it, i64 %.sink14.i.i
+  %22 = load i32, ptr %arrayidx.i.i.i10.i.i, align 4
+  store i32 %22, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %for.body, %if.end36.sink.split.sink.split.i.i
-  %.sink.i.i = phi i32 [ %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
-  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %it.sroa.9, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi i32 [ %16, %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %b.sroa.17.0.it.sroa_idx, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
   %inc16.i.i = add nsw i32 %.sink.i.i, 1
   store i32 %inc16.i.i, ptr %arrayidx.i.i.i3.sink.i.i, align 4
-  %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0. = load i32, ptr %it.sroa.0, align 4
-  %cmp.i.not = icmp sgt i32 %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %shr.i14
+  %23 = load i32, ptr %it, align 4
+  %24 = load i32, ptr %mMax.i.i19, align 4
+  %cmp.i.not = icmp sgt i32 %23, %24
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, %invoke.cont11, %if.then
@@ -32856,9 +33055,7 @@ cleanup:                                          ; preds = %land.rhs.i, %land.e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_05tools16FindActiveValuesINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE11getBBoxMaskIS9_EENT_12NodeMaskTypeERKNS0_4math9CoordBBoxEPKSF_(ptr noalias sret(%"class.openvdb::v11_0::util::NodeMask.457") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(24) %bbox, ptr noundef %node) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %it.sroa.0 = alloca i32, align 4
-  %it.sroa.5 = alloca i32, align 4
-  %it.sroa.9 = alloca i32, align 4
+  %it = alloca %"class.openvdb::v11_0::math::CoordBBox::Iterator", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %agg.result, i8 0, i64 512, i1 false)
   %mOrigin.i = getelementptr inbounds i8, ptr %node, i64 33792
   %0 = load i32, ptr %mOrigin.i, align 4
@@ -32878,20 +33075,20 @@ invoke.cont:
   %arrayidx.i.i.i7.i.i = getelementptr inbounds i8, ptr %bbox, i64 8
   %5 = load i32, ptr %arrayidx.i.i.i7.i.i, align 4
   %cmp7.i.i = icmp sge i32 %2, %5
-  %or.cond58 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
+  %or.cond57 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
   %mMax.i = getelementptr inbounds i8, ptr %bbox, i64 12
   %6 = load i32, ptr %mMax.i, align 4
   %cmp.i2.i = icmp sge i32 %6, %add.i.i.i.i
-  %or.cond59 = select i1 %or.cond58, i1 %cmp.i2.i, i1 false
+  %or.cond58 = select i1 %or.cond57, i1 %cmp.i2.i, i1 false
   %arrayidx.i.i.i.i4.i = getelementptr inbounds i8, ptr %bbox, i64 16
   %7 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i = icmp sge i32 %7, %add4.i.i.i.i
-  %or.cond60 = select i1 %or.cond59, i1 %cmp4.i6.i, i1 false
+  %or.cond59 = select i1 %or.cond58, i1 %cmp4.i6.i, i1 false
   %arrayidx.i.i.i6.i8.i = getelementptr inbounds i8, ptr %bbox, i64 20
   %8 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i = icmp sge i32 %8, %add7.i.i.i.i
-  %or.cond61 = select i1 %or.cond60, i1 %cmp7.i10.i, i1 false
-  br i1 %or.cond61, label %if.then, label %invoke.cont11
+  %or.cond60 = select i1 %or.cond59, i1 %cmp7.i10.i, i1 false
+  br i1 %or.cond60, label %if.then, label %invoke.cont11
 
 if.then:                                          ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %agg.result, i8 -1, i64 512, i1 false)
@@ -32916,19 +33113,37 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 15
   %and7.i12 = lshr i32 %14, 3
   %shr9.i18 = and i32 %and7.i12, 15
-  store i32 %shr.i, ptr %it.sroa.0, align 4
-  store i32 %shr5.i, ptr %it.sroa.5, align 4
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
-  %cmp.i.not63 = icmp ugt i32 %shr.i, %shr.i14
-  br i1 %cmp.i.not63, label %nrvo.skipdtor, label %for.body
+  store i32 %shr.i, ptr %it, align 4
+  %b.sroa.10.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 4
+  store i32 %shr5.i, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %b.sroa.17.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
+  store i32 %shr9.i, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %b.sroa.10.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 16
+  store i32 %shr5.i, ptr %b.sroa.10.0.mMin.i.i.sroa_idx, align 4
+  %b.sroa.17.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 20
+  store i32 %shr9.i, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  %mMax.i.i19 = getelementptr inbounds i8, ptr %it, i64 24
+  %b.sroa.24.sroa.9.0.insert.ext = zext nneg i32 %shr5.i16 to i64
+  %b.sroa.24.sroa.9.0.insert.shift = shl nuw nsw i64 %b.sroa.24.sroa.9.0.insert.ext, 32
+  %b.sroa.24.sroa.0.0.insert.ext = zext nneg i32 %shr.i14 to i64
+  %b.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %b.sroa.24.sroa.9.0.insert.shift, %b.sroa.24.sroa.0.0.insert.ext
+  store i64 %b.sroa.24.sroa.0.0.insert.insert, ptr %mMax.i.i19, align 4
+  %b.sroa.40.12.mMax.i.i19.sroa_idx = getelementptr inbounds i8, ptr %it, i64 32
+  store i32 %shr9.i18, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.not61 = icmp ugt i32 %shr.i, %shr.i14
+  br i1 %cmp.i.not61, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
-  %it.sroa.0.0.it.sroa.0.0.64 = phi i32 [ %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
-  %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8. = load i32, ptr %it.sroa.9, align 4
-  %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4. = load i32, ptr %it.sroa.5, align 4
-  %shl = shl i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., 4
-  %add = add nsw i32 %shl, %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8.
-  %shl17 = shl i32 %it.sroa.0.0.it.sroa.0.0.64, 8
+for.body.lr.ph:                                   ; preds = %invoke.cont11
+  %arrayidx.i.i.i4.i.i = getelementptr inbounds i8, ptr %it, i64 28
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
+  %15 = phi i32 [ %shr.i, %for.body.lr.ph ], [ %23, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ]
+  %16 = load i32, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %17 = load i32, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %shl = shl i32 %17, 4
+  %add = add nsw i32 %shl, %16
+  %shl17 = shl i32 %15, 8
   %add18 = add nsw i32 %add, %shl17
   %and.i24 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i24 to i64
@@ -32936,35 +33151,41 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %shr.i25 = lshr i32 %add18, 6
   %idxprom.i = zext nneg i32 %shr.i25 to i64
   %arrayidx.i = getelementptr inbounds [64 x i64], ptr %agg.result, i64 0, i64 %idxprom.i
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %shl.i, %15
+  %18 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %shl.i, %18
   store i64 %or.i, ptr %arrayidx.i, align 8
-  %cmp.i.i28 = icmp slt i32 %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %shr9.i18
+  %19 = load i32, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.i28 = icmp slt i32 %16, %19
   br i1 %cmp.i.i28, label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body
-  %cmp9.i.i = icmp slt i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %shr5.i16
+  %20 = load i32, ptr %arrayidx.i.i.i4.i.i, align 4
+  %cmp9.i.i = icmp slt i32 %17, %20
   br i1 %cmp9.i.i, label %if.end36.sink.split.sink.split.i.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
+  %21 = load i32, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  store i32 %21, ptr %b.sroa.17.0.it.sroa_idx, align 4
   br label %if.end36.sink.split.sink.split.i.i
 
 if.end36.sink.split.sink.split.i.i:               ; preds = %if.then23.i.i, %if.else.i.i
-  %.sink14.i.i.sroa.phi.sroa.speculated = phi i32 [ %shr5.i, %if.then23.i.i ], [ %shr9.i, %if.else.i.i ]
-  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %it.sroa.5, %if.then23.i.i ], [ %it.sroa.9, %if.else.i.i ]
-  %.sink.ph.i.i = phi i32 [ %it.sroa.0.0.it.sroa.0.0.64, %if.then23.i.i ], [ %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %if.else.i.i ]
-  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it.sroa.0, %if.then23.i.i ], [ %it.sroa.5, %if.else.i.i ]
-  store i32 %.sink14.i.i.sroa.phi.sroa.speculated, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
+  %.sink14.i.i = phi i64 [ 16, %if.then23.i.i ], [ 20, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %b.sroa.10.0.it.sroa_idx, %if.then23.i.i ], [ %b.sroa.17.0.it.sroa_idx, %if.else.i.i ]
+  %.sink.ph.i.i = phi i32 [ %15, %if.then23.i.i ], [ %17, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it, %if.then23.i.i ], [ %b.sroa.10.0.it.sroa_idx, %if.else.i.i ]
+  %arrayidx.i.i.i10.i.i = getelementptr inbounds i8, ptr %it, i64 %.sink14.i.i
+  %22 = load i32, ptr %arrayidx.i.i.i10.i.i, align 4
+  store i32 %22, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %for.body, %if.end36.sink.split.sink.split.i.i
-  %.sink.i.i = phi i32 [ %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
-  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %it.sroa.9, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi i32 [ %16, %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %b.sroa.17.0.it.sroa_idx, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
   %inc16.i.i = add nsw i32 %.sink.i.i, 1
   store i32 %inc16.i.i, ptr %arrayidx.i.i.i3.sink.i.i, align 4
-  %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0. = load i32, ptr %it.sroa.0, align 4
-  %cmp.i.not = icmp sgt i32 %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %shr.i14
+  %23 = load i32, ptr %it, align 4
+  %24 = load i32, ptr %mMax.i.i19, align 4
+  %cmp.i.not = icmp sgt i32 %23, %24
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, %invoke.cont11, %if.then
@@ -35899,9 +36120,7 @@ return:                                           ; preds = %cond.false7.i.i.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_05tools16FindActiveValuesINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEE11getBBoxMaskISD_EENT_12NodeMaskTypeERKNS8_9CoordBBoxEPKSI_(ptr noalias sret(%"class.openvdb::v11_0::util::NodeMask") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(24) %bbox, ptr noundef %node) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %it.sroa.0 = alloca i32, align 4
-  %it.sroa.5 = alloca i32, align 4
-  %it.sroa.9 = alloca i32, align 4
+  %it = alloca %"class.openvdb::v11_0::math::CoordBBox::Iterator", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %agg.result, i8 0, i64 4096, i1 false)
   %mOrigin.i = getelementptr inbounds i8, ptr %node, i64 532480
   %0 = load i32, ptr %mOrigin.i, align 4
@@ -35921,20 +36140,20 @@ invoke.cont:
   %arrayidx.i.i.i7.i.i = getelementptr inbounds i8, ptr %bbox, i64 8
   %5 = load i32, ptr %arrayidx.i.i.i7.i.i, align 4
   %cmp7.i.i = icmp sge i32 %2, %5
-  %or.cond58 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
+  %or.cond57 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
   %mMax.i = getelementptr inbounds i8, ptr %bbox, i64 12
   %6 = load i32, ptr %mMax.i, align 4
   %cmp.i2.i = icmp sge i32 %6, %add.i.i.i.i
-  %or.cond59 = select i1 %or.cond58, i1 %cmp.i2.i, i1 false
+  %or.cond58 = select i1 %or.cond57, i1 %cmp.i2.i, i1 false
   %arrayidx.i.i.i.i4.i = getelementptr inbounds i8, ptr %bbox, i64 16
   %7 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i = icmp sge i32 %7, %add4.i.i.i.i
-  %or.cond60 = select i1 %or.cond59, i1 %cmp4.i6.i, i1 false
+  %or.cond59 = select i1 %or.cond58, i1 %cmp4.i6.i, i1 false
   %arrayidx.i.i.i6.i8.i = getelementptr inbounds i8, ptr %bbox, i64 20
   %8 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i = icmp sge i32 %8, %add7.i.i.i.i
-  %or.cond61 = select i1 %or.cond60, i1 %cmp7.i10.i, i1 false
-  br i1 %or.cond61, label %if.then, label %invoke.cont11
+  %or.cond60 = select i1 %or.cond59, i1 %cmp7.i10.i, i1 false
+  br i1 %or.cond60, label %if.then, label %invoke.cont11
 
 if.then:                                          ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %agg.result, i8 -1, i64 4096, i1 false)
@@ -35959,19 +36178,37 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 31
   %and7.i12 = lshr i32 %14, 7
   %shr9.i18 = and i32 %and7.i12, 31
-  store i32 %shr.i, ptr %it.sroa.0, align 4
-  store i32 %shr5.i, ptr %it.sroa.5, align 4
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
-  %cmp.i.not63 = icmp ugt i32 %shr.i, %shr.i14
-  br i1 %cmp.i.not63, label %nrvo.skipdtor, label %for.body
+  store i32 %shr.i, ptr %it, align 4
+  %b.sroa.10.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 4
+  store i32 %shr5.i, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %b.sroa.17.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
+  store i32 %shr9.i, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %b.sroa.10.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 16
+  store i32 %shr5.i, ptr %b.sroa.10.0.mMin.i.i.sroa_idx, align 4
+  %b.sroa.17.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 20
+  store i32 %shr9.i, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  %mMax.i.i19 = getelementptr inbounds i8, ptr %it, i64 24
+  %b.sroa.24.sroa.9.0.insert.ext = zext nneg i32 %shr5.i16 to i64
+  %b.sroa.24.sroa.9.0.insert.shift = shl nuw nsw i64 %b.sroa.24.sroa.9.0.insert.ext, 32
+  %b.sroa.24.sroa.0.0.insert.ext = zext nneg i32 %shr.i14 to i64
+  %b.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %b.sroa.24.sroa.9.0.insert.shift, %b.sroa.24.sroa.0.0.insert.ext
+  store i64 %b.sroa.24.sroa.0.0.insert.insert, ptr %mMax.i.i19, align 4
+  %b.sroa.40.12.mMax.i.i19.sroa_idx = getelementptr inbounds i8, ptr %it, i64 32
+  store i32 %shr9.i18, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.not61 = icmp ugt i32 %shr.i, %shr.i14
+  br i1 %cmp.i.not61, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
-  %it.sroa.0.0.it.sroa.0.0.64 = phi i32 [ %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
-  %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8. = load i32, ptr %it.sroa.9, align 4
-  %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4. = load i32, ptr %it.sroa.5, align 4
-  %shl = shl i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., 5
-  %add = add nsw i32 %shl, %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8.
-  %shl17 = shl i32 %it.sroa.0.0.it.sroa.0.0.64, 10
+for.body.lr.ph:                                   ; preds = %invoke.cont11
+  %arrayidx.i.i.i4.i.i = getelementptr inbounds i8, ptr %it, i64 28
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
+  %15 = phi i32 [ %shr.i, %for.body.lr.ph ], [ %23, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ]
+  %16 = load i32, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %17 = load i32, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %shl = shl i32 %17, 5
+  %add = add nsw i32 %shl, %16
+  %shl17 = shl i32 %15, 10
   %add18 = add nsw i32 %add, %shl17
   %and.i24 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i24 to i64
@@ -35979,35 +36216,41 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %shr.i25 = lshr i32 %add18, 6
   %idxprom.i = zext nneg i32 %shr.i25 to i64
   %arrayidx.i = getelementptr inbounds [512 x i64], ptr %agg.result, i64 0, i64 %idxprom.i
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %shl.i, %15
+  %18 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %shl.i, %18
   store i64 %or.i, ptr %arrayidx.i, align 8
-  %cmp.i.i28 = icmp slt i32 %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %shr9.i18
+  %19 = load i32, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.i28 = icmp slt i32 %16, %19
   br i1 %cmp.i.i28, label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body
-  %cmp9.i.i = icmp slt i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %shr5.i16
+  %20 = load i32, ptr %arrayidx.i.i.i4.i.i, align 4
+  %cmp9.i.i = icmp slt i32 %17, %20
   br i1 %cmp9.i.i, label %if.end36.sink.split.sink.split.i.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
+  %21 = load i32, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  store i32 %21, ptr %b.sroa.17.0.it.sroa_idx, align 4
   br label %if.end36.sink.split.sink.split.i.i
 
 if.end36.sink.split.sink.split.i.i:               ; preds = %if.then23.i.i, %if.else.i.i
-  %.sink14.i.i.sroa.phi.sroa.speculated = phi i32 [ %shr5.i, %if.then23.i.i ], [ %shr9.i, %if.else.i.i ]
-  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %it.sroa.5, %if.then23.i.i ], [ %it.sroa.9, %if.else.i.i ]
-  %.sink.ph.i.i = phi i32 [ %it.sroa.0.0.it.sroa.0.0.64, %if.then23.i.i ], [ %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %if.else.i.i ]
-  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it.sroa.0, %if.then23.i.i ], [ %it.sroa.5, %if.else.i.i ]
-  store i32 %.sink14.i.i.sroa.phi.sroa.speculated, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
+  %.sink14.i.i = phi i64 [ 16, %if.then23.i.i ], [ 20, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %b.sroa.10.0.it.sroa_idx, %if.then23.i.i ], [ %b.sroa.17.0.it.sroa_idx, %if.else.i.i ]
+  %.sink.ph.i.i = phi i32 [ %15, %if.then23.i.i ], [ %17, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it, %if.then23.i.i ], [ %b.sroa.10.0.it.sroa_idx, %if.else.i.i ]
+  %arrayidx.i.i.i10.i.i = getelementptr inbounds i8, ptr %it, i64 %.sink14.i.i
+  %22 = load i32, ptr %arrayidx.i.i.i10.i.i, align 4
+  store i32 %22, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %for.body, %if.end36.sink.split.sink.split.i.i
-  %.sink.i.i = phi i32 [ %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
-  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %it.sroa.9, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi i32 [ %16, %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %b.sroa.17.0.it.sroa_idx, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
   %inc16.i.i = add nsw i32 %.sink.i.i, 1
   store i32 %inc16.i.i, ptr %arrayidx.i.i.i3.sink.i.i, align 4
-  %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0. = load i32, ptr %it.sroa.0, align 4
-  %cmp.i.not = icmp sgt i32 %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %shr.i14
+  %23 = load i32, ptr %it, align 4
+  %24 = load i32, ptr %mMax.i.i19, align 4
+  %cmp.i.not = icmp sgt i32 %23, %24
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, %invoke.cont11, %if.then
@@ -36163,9 +36406,7 @@ cleanup:                                          ; preds = %land.rhs.i, %land.e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_05tools16FindActiveValuesINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEE11getBBoxMaskISC_EENT_12NodeMaskTypeERKNS8_9CoordBBoxEPKSI_(ptr noalias sret(%"class.openvdb::v11_0::util::NodeMask.457") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(24) %bbox, ptr noundef %node) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %it.sroa.0 = alloca i32, align 4
-  %it.sroa.5 = alloca i32, align 4
-  %it.sroa.9 = alloca i32, align 4
+  %it = alloca %"class.openvdb::v11_0::math::CoordBBox::Iterator", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %agg.result, i8 0, i64 512, i1 false)
   %mOrigin.i = getelementptr inbounds i8, ptr %node, i64 66560
   %0 = load i32, ptr %mOrigin.i, align 4
@@ -36185,20 +36426,20 @@ invoke.cont:
   %arrayidx.i.i.i7.i.i = getelementptr inbounds i8, ptr %bbox, i64 8
   %5 = load i32, ptr %arrayidx.i.i.i7.i.i, align 4
   %cmp7.i.i = icmp sge i32 %2, %5
-  %or.cond58 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
+  %or.cond57 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
   %mMax.i = getelementptr inbounds i8, ptr %bbox, i64 12
   %6 = load i32, ptr %mMax.i, align 4
   %cmp.i2.i = icmp sge i32 %6, %add.i.i.i.i
-  %or.cond59 = select i1 %or.cond58, i1 %cmp.i2.i, i1 false
+  %or.cond58 = select i1 %or.cond57, i1 %cmp.i2.i, i1 false
   %arrayidx.i.i.i.i4.i = getelementptr inbounds i8, ptr %bbox, i64 16
   %7 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i = icmp sge i32 %7, %add4.i.i.i.i
-  %or.cond60 = select i1 %or.cond59, i1 %cmp4.i6.i, i1 false
+  %or.cond59 = select i1 %or.cond58, i1 %cmp4.i6.i, i1 false
   %arrayidx.i.i.i6.i8.i = getelementptr inbounds i8, ptr %bbox, i64 20
   %8 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i = icmp sge i32 %8, %add7.i.i.i.i
-  %or.cond61 = select i1 %or.cond60, i1 %cmp7.i10.i, i1 false
-  br i1 %or.cond61, label %if.then, label %invoke.cont11
+  %or.cond60 = select i1 %or.cond59, i1 %cmp7.i10.i, i1 false
+  br i1 %or.cond60, label %if.then, label %invoke.cont11
 
 if.then:                                          ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %agg.result, i8 -1, i64 512, i1 false)
@@ -36223,19 +36464,37 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 15
   %and7.i12 = lshr i32 %14, 3
   %shr9.i18 = and i32 %and7.i12, 15
-  store i32 %shr.i, ptr %it.sroa.0, align 4
-  store i32 %shr5.i, ptr %it.sroa.5, align 4
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
-  %cmp.i.not63 = icmp ugt i32 %shr.i, %shr.i14
-  br i1 %cmp.i.not63, label %nrvo.skipdtor, label %for.body
+  store i32 %shr.i, ptr %it, align 4
+  %b.sroa.10.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 4
+  store i32 %shr5.i, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %b.sroa.17.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
+  store i32 %shr9.i, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %b.sroa.10.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 16
+  store i32 %shr5.i, ptr %b.sroa.10.0.mMin.i.i.sroa_idx, align 4
+  %b.sroa.17.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 20
+  store i32 %shr9.i, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  %mMax.i.i19 = getelementptr inbounds i8, ptr %it, i64 24
+  %b.sroa.24.sroa.9.0.insert.ext = zext nneg i32 %shr5.i16 to i64
+  %b.sroa.24.sroa.9.0.insert.shift = shl nuw nsw i64 %b.sroa.24.sroa.9.0.insert.ext, 32
+  %b.sroa.24.sroa.0.0.insert.ext = zext nneg i32 %shr.i14 to i64
+  %b.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %b.sroa.24.sroa.9.0.insert.shift, %b.sroa.24.sroa.0.0.insert.ext
+  store i64 %b.sroa.24.sroa.0.0.insert.insert, ptr %mMax.i.i19, align 4
+  %b.sroa.40.12.mMax.i.i19.sroa_idx = getelementptr inbounds i8, ptr %it, i64 32
+  store i32 %shr9.i18, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.not61 = icmp ugt i32 %shr.i, %shr.i14
+  br i1 %cmp.i.not61, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
-  %it.sroa.0.0.it.sroa.0.0.64 = phi i32 [ %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
-  %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8. = load i32, ptr %it.sroa.9, align 4
-  %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4. = load i32, ptr %it.sroa.5, align 4
-  %shl = shl i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., 4
-  %add = add nsw i32 %shl, %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8.
-  %shl17 = shl i32 %it.sroa.0.0.it.sroa.0.0.64, 8
+for.body.lr.ph:                                   ; preds = %invoke.cont11
+  %arrayidx.i.i.i4.i.i = getelementptr inbounds i8, ptr %it, i64 28
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
+  %15 = phi i32 [ %shr.i, %for.body.lr.ph ], [ %23, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ]
+  %16 = load i32, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %17 = load i32, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %shl = shl i32 %17, 4
+  %add = add nsw i32 %shl, %16
+  %shl17 = shl i32 %15, 8
   %add18 = add nsw i32 %add, %shl17
   %and.i24 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i24 to i64
@@ -36243,35 +36502,41 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %shr.i25 = lshr i32 %add18, 6
   %idxprom.i = zext nneg i32 %shr.i25 to i64
   %arrayidx.i = getelementptr inbounds [64 x i64], ptr %agg.result, i64 0, i64 %idxprom.i
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %shl.i, %15
+  %18 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %shl.i, %18
   store i64 %or.i, ptr %arrayidx.i, align 8
-  %cmp.i.i28 = icmp slt i32 %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %shr9.i18
+  %19 = load i32, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.i28 = icmp slt i32 %16, %19
   br i1 %cmp.i.i28, label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body
-  %cmp9.i.i = icmp slt i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %shr5.i16
+  %20 = load i32, ptr %arrayidx.i.i.i4.i.i, align 4
+  %cmp9.i.i = icmp slt i32 %17, %20
   br i1 %cmp9.i.i, label %if.end36.sink.split.sink.split.i.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
+  %21 = load i32, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  store i32 %21, ptr %b.sroa.17.0.it.sroa_idx, align 4
   br label %if.end36.sink.split.sink.split.i.i
 
 if.end36.sink.split.sink.split.i.i:               ; preds = %if.then23.i.i, %if.else.i.i
-  %.sink14.i.i.sroa.phi.sroa.speculated = phi i32 [ %shr5.i, %if.then23.i.i ], [ %shr9.i, %if.else.i.i ]
-  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %it.sroa.5, %if.then23.i.i ], [ %it.sroa.9, %if.else.i.i ]
-  %.sink.ph.i.i = phi i32 [ %it.sroa.0.0.it.sroa.0.0.64, %if.then23.i.i ], [ %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %if.else.i.i ]
-  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it.sroa.0, %if.then23.i.i ], [ %it.sroa.5, %if.else.i.i ]
-  store i32 %.sink14.i.i.sroa.phi.sroa.speculated, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
+  %.sink14.i.i = phi i64 [ 16, %if.then23.i.i ], [ 20, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %b.sroa.10.0.it.sroa_idx, %if.then23.i.i ], [ %b.sroa.17.0.it.sroa_idx, %if.else.i.i ]
+  %.sink.ph.i.i = phi i32 [ %15, %if.then23.i.i ], [ %17, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it, %if.then23.i.i ], [ %b.sroa.10.0.it.sroa_idx, %if.else.i.i ]
+  %arrayidx.i.i.i10.i.i = getelementptr inbounds i8, ptr %it, i64 %.sink14.i.i
+  %22 = load i32, ptr %arrayidx.i.i.i10.i.i, align 4
+  store i32 %22, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %for.body, %if.end36.sink.split.sink.split.i.i
-  %.sink.i.i = phi i32 [ %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
-  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %it.sroa.9, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi i32 [ %16, %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %b.sroa.17.0.it.sroa_idx, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
   %inc16.i.i = add nsw i32 %.sink.i.i, 1
   store i32 %inc16.i.i, ptr %arrayidx.i.i.i3.sink.i.i, align 4
-  %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0. = load i32, ptr %it.sroa.0, align 4
-  %cmp.i.not = icmp sgt i32 %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %shr.i14
+  %23 = load i32, ptr %it, align 4
+  %24 = load i32, ptr %mMax.i.i19, align 4
+  %cmp.i.not = icmp sgt i32 %23, %24
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, %invoke.cont11, %if.then
@@ -39212,9 +39477,7 @@ return:                                           ; preds = %cond.false7.i.i.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_05tools16FindActiveValuesINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEE11getBBoxMaskISD_EENT_12NodeMaskTypeERKNS8_9CoordBBoxEPKSI_(ptr noalias sret(%"class.openvdb::v11_0::util::NodeMask") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(24) %bbox, ptr noundef %node) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %it.sroa.0 = alloca i32, align 4
-  %it.sroa.5 = alloca i32, align 4
-  %it.sroa.9 = alloca i32, align 4
+  %it = alloca %"class.openvdb::v11_0::math::CoordBBox::Iterator", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %agg.result, i8 0, i64 4096, i1 false)
   %mOrigin.i = getelementptr inbounds i8, ptr %node, i64 794624
   %0 = load i32, ptr %mOrigin.i, align 4
@@ -39234,20 +39497,20 @@ invoke.cont:
   %arrayidx.i.i.i7.i.i = getelementptr inbounds i8, ptr %bbox, i64 8
   %5 = load i32, ptr %arrayidx.i.i.i7.i.i, align 4
   %cmp7.i.i = icmp sge i32 %2, %5
-  %or.cond58 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
+  %or.cond57 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
   %mMax.i = getelementptr inbounds i8, ptr %bbox, i64 12
   %6 = load i32, ptr %mMax.i, align 4
   %cmp.i2.i = icmp sge i32 %6, %add.i.i.i.i
-  %or.cond59 = select i1 %or.cond58, i1 %cmp.i2.i, i1 false
+  %or.cond58 = select i1 %or.cond57, i1 %cmp.i2.i, i1 false
   %arrayidx.i.i.i.i4.i = getelementptr inbounds i8, ptr %bbox, i64 16
   %7 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i = icmp sge i32 %7, %add4.i.i.i.i
-  %or.cond60 = select i1 %or.cond59, i1 %cmp4.i6.i, i1 false
+  %or.cond59 = select i1 %or.cond58, i1 %cmp4.i6.i, i1 false
   %arrayidx.i.i.i6.i8.i = getelementptr inbounds i8, ptr %bbox, i64 20
   %8 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i = icmp sge i32 %8, %add7.i.i.i.i
-  %or.cond61 = select i1 %or.cond60, i1 %cmp7.i10.i, i1 false
-  br i1 %or.cond61, label %if.then, label %invoke.cont11
+  %or.cond60 = select i1 %or.cond59, i1 %cmp7.i10.i, i1 false
+  br i1 %or.cond60, label %if.then, label %invoke.cont11
 
 if.then:                                          ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %agg.result, i8 -1, i64 4096, i1 false)
@@ -39272,19 +39535,37 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 31
   %and7.i12 = lshr i32 %14, 7
   %shr9.i18 = and i32 %and7.i12, 31
-  store i32 %shr.i, ptr %it.sroa.0, align 4
-  store i32 %shr5.i, ptr %it.sroa.5, align 4
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
-  %cmp.i.not63 = icmp ugt i32 %shr.i, %shr.i14
-  br i1 %cmp.i.not63, label %nrvo.skipdtor, label %for.body
+  store i32 %shr.i, ptr %it, align 4
+  %b.sroa.10.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 4
+  store i32 %shr5.i, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %b.sroa.17.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
+  store i32 %shr9.i, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %b.sroa.10.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 16
+  store i32 %shr5.i, ptr %b.sroa.10.0.mMin.i.i.sroa_idx, align 4
+  %b.sroa.17.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 20
+  store i32 %shr9.i, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  %mMax.i.i19 = getelementptr inbounds i8, ptr %it, i64 24
+  %b.sroa.24.sroa.9.0.insert.ext = zext nneg i32 %shr5.i16 to i64
+  %b.sroa.24.sroa.9.0.insert.shift = shl nuw nsw i64 %b.sroa.24.sroa.9.0.insert.ext, 32
+  %b.sroa.24.sroa.0.0.insert.ext = zext nneg i32 %shr.i14 to i64
+  %b.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %b.sroa.24.sroa.9.0.insert.shift, %b.sroa.24.sroa.0.0.insert.ext
+  store i64 %b.sroa.24.sroa.0.0.insert.insert, ptr %mMax.i.i19, align 4
+  %b.sroa.40.12.mMax.i.i19.sroa_idx = getelementptr inbounds i8, ptr %it, i64 32
+  store i32 %shr9.i18, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.not61 = icmp ugt i32 %shr.i, %shr.i14
+  br i1 %cmp.i.not61, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
-  %it.sroa.0.0.it.sroa.0.0.64 = phi i32 [ %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
-  %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8. = load i32, ptr %it.sroa.9, align 4
-  %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4. = load i32, ptr %it.sroa.5, align 4
-  %shl = shl i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., 5
-  %add = add nsw i32 %shl, %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8.
-  %shl17 = shl i32 %it.sroa.0.0.it.sroa.0.0.64, 10
+for.body.lr.ph:                                   ; preds = %invoke.cont11
+  %arrayidx.i.i.i4.i.i = getelementptr inbounds i8, ptr %it, i64 28
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
+  %15 = phi i32 [ %shr.i, %for.body.lr.ph ], [ %23, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ]
+  %16 = load i32, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %17 = load i32, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %shl = shl i32 %17, 5
+  %add = add nsw i32 %shl, %16
+  %shl17 = shl i32 %15, 10
   %add18 = add nsw i32 %add, %shl17
   %and.i24 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i24 to i64
@@ -39292,35 +39573,41 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %shr.i25 = lshr i32 %add18, 6
   %idxprom.i = zext nneg i32 %shr.i25 to i64
   %arrayidx.i = getelementptr inbounds [512 x i64], ptr %agg.result, i64 0, i64 %idxprom.i
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %shl.i, %15
+  %18 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %shl.i, %18
   store i64 %or.i, ptr %arrayidx.i, align 8
-  %cmp.i.i28 = icmp slt i32 %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %shr9.i18
+  %19 = load i32, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.i28 = icmp slt i32 %16, %19
   br i1 %cmp.i.i28, label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body
-  %cmp9.i.i = icmp slt i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %shr5.i16
+  %20 = load i32, ptr %arrayidx.i.i.i4.i.i, align 4
+  %cmp9.i.i = icmp slt i32 %17, %20
   br i1 %cmp9.i.i, label %if.end36.sink.split.sink.split.i.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
+  %21 = load i32, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  store i32 %21, ptr %b.sroa.17.0.it.sroa_idx, align 4
   br label %if.end36.sink.split.sink.split.i.i
 
 if.end36.sink.split.sink.split.i.i:               ; preds = %if.then23.i.i, %if.else.i.i
-  %.sink14.i.i.sroa.phi.sroa.speculated = phi i32 [ %shr5.i, %if.then23.i.i ], [ %shr9.i, %if.else.i.i ]
-  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %it.sroa.5, %if.then23.i.i ], [ %it.sroa.9, %if.else.i.i ]
-  %.sink.ph.i.i = phi i32 [ %it.sroa.0.0.it.sroa.0.0.64, %if.then23.i.i ], [ %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %if.else.i.i ]
-  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it.sroa.0, %if.then23.i.i ], [ %it.sroa.5, %if.else.i.i ]
-  store i32 %.sink14.i.i.sroa.phi.sroa.speculated, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
+  %.sink14.i.i = phi i64 [ 16, %if.then23.i.i ], [ 20, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %b.sroa.10.0.it.sroa_idx, %if.then23.i.i ], [ %b.sroa.17.0.it.sroa_idx, %if.else.i.i ]
+  %.sink.ph.i.i = phi i32 [ %15, %if.then23.i.i ], [ %17, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it, %if.then23.i.i ], [ %b.sroa.10.0.it.sroa_idx, %if.else.i.i ]
+  %arrayidx.i.i.i10.i.i = getelementptr inbounds i8, ptr %it, i64 %.sink14.i.i
+  %22 = load i32, ptr %arrayidx.i.i.i10.i.i, align 4
+  store i32 %22, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %for.body, %if.end36.sink.split.sink.split.i.i
-  %.sink.i.i = phi i32 [ %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
-  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %it.sroa.9, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi i32 [ %16, %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %b.sroa.17.0.it.sroa_idx, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
   %inc16.i.i = add nsw i32 %.sink.i.i, 1
   store i32 %inc16.i.i, ptr %arrayidx.i.i.i3.sink.i.i, align 4
-  %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0. = load i32, ptr %it.sroa.0, align 4
-  %cmp.i.not = icmp sgt i32 %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %shr.i14
+  %23 = load i32, ptr %it, align 4
+  %24 = load i32, ptr %mMax.i.i19, align 4
+  %cmp.i.not = icmp sgt i32 %23, %24
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, %invoke.cont11, %if.then
@@ -39476,9 +39763,7 @@ cleanup:                                          ; preds = %land.rhs.i, %land.e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_05tools16FindActiveValuesINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEE11getBBoxMaskISC_EENT_12NodeMaskTypeERKNS8_9CoordBBoxEPKSI_(ptr noalias sret(%"class.openvdb::v11_0::util::NodeMask.457") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(24) %bbox, ptr noundef %node) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %it.sroa.0 = alloca i32, align 4
-  %it.sroa.5 = alloca i32, align 4
-  %it.sroa.9 = alloca i32, align 4
+  %it = alloca %"class.openvdb::v11_0::math::CoordBBox::Iterator", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %agg.result, i8 0, i64 512, i1 false)
   %mOrigin.i = getelementptr inbounds i8, ptr %node, i64 99328
   %0 = load i32, ptr %mOrigin.i, align 4
@@ -39498,20 +39783,20 @@ invoke.cont:
   %arrayidx.i.i.i7.i.i = getelementptr inbounds i8, ptr %bbox, i64 8
   %5 = load i32, ptr %arrayidx.i.i.i7.i.i, align 4
   %cmp7.i.i = icmp sge i32 %2, %5
-  %or.cond58 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
+  %or.cond57 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
   %mMax.i = getelementptr inbounds i8, ptr %bbox, i64 12
   %6 = load i32, ptr %mMax.i, align 4
   %cmp.i2.i = icmp sge i32 %6, %add.i.i.i.i
-  %or.cond59 = select i1 %or.cond58, i1 %cmp.i2.i, i1 false
+  %or.cond58 = select i1 %or.cond57, i1 %cmp.i2.i, i1 false
   %arrayidx.i.i.i.i4.i = getelementptr inbounds i8, ptr %bbox, i64 16
   %7 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i = icmp sge i32 %7, %add4.i.i.i.i
-  %or.cond60 = select i1 %or.cond59, i1 %cmp4.i6.i, i1 false
+  %or.cond59 = select i1 %or.cond58, i1 %cmp4.i6.i, i1 false
   %arrayidx.i.i.i6.i8.i = getelementptr inbounds i8, ptr %bbox, i64 20
   %8 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i = icmp sge i32 %8, %add7.i.i.i.i
-  %or.cond61 = select i1 %or.cond60, i1 %cmp7.i10.i, i1 false
-  br i1 %or.cond61, label %if.then, label %invoke.cont11
+  %or.cond60 = select i1 %or.cond59, i1 %cmp7.i10.i, i1 false
+  br i1 %or.cond60, label %if.then, label %invoke.cont11
 
 if.then:                                          ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %agg.result, i8 -1, i64 512, i1 false)
@@ -39536,19 +39821,37 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 15
   %and7.i12 = lshr i32 %14, 3
   %shr9.i18 = and i32 %and7.i12, 15
-  store i32 %shr.i, ptr %it.sroa.0, align 4
-  store i32 %shr5.i, ptr %it.sroa.5, align 4
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
-  %cmp.i.not63 = icmp ugt i32 %shr.i, %shr.i14
-  br i1 %cmp.i.not63, label %nrvo.skipdtor, label %for.body
+  store i32 %shr.i, ptr %it, align 4
+  %b.sroa.10.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 4
+  store i32 %shr5.i, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %b.sroa.17.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
+  store i32 %shr9.i, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %b.sroa.10.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 16
+  store i32 %shr5.i, ptr %b.sroa.10.0.mMin.i.i.sroa_idx, align 4
+  %b.sroa.17.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 20
+  store i32 %shr9.i, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  %mMax.i.i19 = getelementptr inbounds i8, ptr %it, i64 24
+  %b.sroa.24.sroa.9.0.insert.ext = zext nneg i32 %shr5.i16 to i64
+  %b.sroa.24.sroa.9.0.insert.shift = shl nuw nsw i64 %b.sroa.24.sroa.9.0.insert.ext, 32
+  %b.sroa.24.sroa.0.0.insert.ext = zext nneg i32 %shr.i14 to i64
+  %b.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %b.sroa.24.sroa.9.0.insert.shift, %b.sroa.24.sroa.0.0.insert.ext
+  store i64 %b.sroa.24.sroa.0.0.insert.insert, ptr %mMax.i.i19, align 4
+  %b.sroa.40.12.mMax.i.i19.sroa_idx = getelementptr inbounds i8, ptr %it, i64 32
+  store i32 %shr9.i18, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.not61 = icmp ugt i32 %shr.i, %shr.i14
+  br i1 %cmp.i.not61, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
-  %it.sroa.0.0.it.sroa.0.0.64 = phi i32 [ %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
-  %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8. = load i32, ptr %it.sroa.9, align 4
-  %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4. = load i32, ptr %it.sroa.5, align 4
-  %shl = shl i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., 4
-  %add = add nsw i32 %shl, %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8.
-  %shl17 = shl i32 %it.sroa.0.0.it.sroa.0.0.64, 8
+for.body.lr.ph:                                   ; preds = %invoke.cont11
+  %arrayidx.i.i.i4.i.i = getelementptr inbounds i8, ptr %it, i64 28
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
+  %15 = phi i32 [ %shr.i, %for.body.lr.ph ], [ %23, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ]
+  %16 = load i32, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %17 = load i32, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %shl = shl i32 %17, 4
+  %add = add nsw i32 %shl, %16
+  %shl17 = shl i32 %15, 8
   %add18 = add nsw i32 %add, %shl17
   %and.i24 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i24 to i64
@@ -39556,35 +39859,41 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %shr.i25 = lshr i32 %add18, 6
   %idxprom.i = zext nneg i32 %shr.i25 to i64
   %arrayidx.i = getelementptr inbounds [64 x i64], ptr %agg.result, i64 0, i64 %idxprom.i
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %shl.i, %15
+  %18 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %shl.i, %18
   store i64 %or.i, ptr %arrayidx.i, align 8
-  %cmp.i.i28 = icmp slt i32 %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %shr9.i18
+  %19 = load i32, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.i28 = icmp slt i32 %16, %19
   br i1 %cmp.i.i28, label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body
-  %cmp9.i.i = icmp slt i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %shr5.i16
+  %20 = load i32, ptr %arrayidx.i.i.i4.i.i, align 4
+  %cmp9.i.i = icmp slt i32 %17, %20
   br i1 %cmp9.i.i, label %if.end36.sink.split.sink.split.i.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
+  %21 = load i32, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  store i32 %21, ptr %b.sroa.17.0.it.sroa_idx, align 4
   br label %if.end36.sink.split.sink.split.i.i
 
 if.end36.sink.split.sink.split.i.i:               ; preds = %if.then23.i.i, %if.else.i.i
-  %.sink14.i.i.sroa.phi.sroa.speculated = phi i32 [ %shr5.i, %if.then23.i.i ], [ %shr9.i, %if.else.i.i ]
-  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %it.sroa.5, %if.then23.i.i ], [ %it.sroa.9, %if.else.i.i ]
-  %.sink.ph.i.i = phi i32 [ %it.sroa.0.0.it.sroa.0.0.64, %if.then23.i.i ], [ %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %if.else.i.i ]
-  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it.sroa.0, %if.then23.i.i ], [ %it.sroa.5, %if.else.i.i ]
-  store i32 %.sink14.i.i.sroa.phi.sroa.speculated, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
+  %.sink14.i.i = phi i64 [ 16, %if.then23.i.i ], [ 20, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %b.sroa.10.0.it.sroa_idx, %if.then23.i.i ], [ %b.sroa.17.0.it.sroa_idx, %if.else.i.i ]
+  %.sink.ph.i.i = phi i32 [ %15, %if.then23.i.i ], [ %17, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it, %if.then23.i.i ], [ %b.sroa.10.0.it.sroa_idx, %if.else.i.i ]
+  %arrayidx.i.i.i10.i.i = getelementptr inbounds i8, ptr %it, i64 %.sink14.i.i
+  %22 = load i32, ptr %arrayidx.i.i.i10.i.i, align 4
+  store i32 %22, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %for.body, %if.end36.sink.split.sink.split.i.i
-  %.sink.i.i = phi i32 [ %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
-  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %it.sroa.9, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi i32 [ %16, %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %b.sroa.17.0.it.sroa_idx, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
   %inc16.i.i = add nsw i32 %.sink.i.i, 1
   store i32 %inc16.i.i, ptr %arrayidx.i.i.i3.sink.i.i, align 4
-  %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0. = load i32, ptr %it.sroa.0, align 4
-  %cmp.i.not = icmp sgt i32 %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %shr.i14
+  %23 = load i32, ptr %it, align 4
+  %24 = load i32, ptr %mMax.i.i19, align 4
+  %cmp.i.not = icmp sgt i32 %23, %24
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, %invoke.cont11, %if.then
@@ -42258,9 +42567,7 @@ return:                                           ; preds = %cond.false7.i.i.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_05tools16FindActiveValuesINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEE11getBBoxMaskISD_EENT_12NodeMaskTypeERKNS8_9CoordBBoxEPKSI_(ptr noalias sret(%"class.openvdb::v11_0::util::NodeMask") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(24) %bbox, ptr noundef %node) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %it.sroa.0 = alloca i32, align 4
-  %it.sroa.5 = alloca i32, align 4
-  %it.sroa.9 = alloca i32, align 4
+  %it = alloca %"class.openvdb::v11_0::math::CoordBBox::Iterator", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %agg.result, i8 0, i64 4096, i1 false)
   %mOrigin.i = getelementptr inbounds i8, ptr %node, i64 532480
   %0 = load i32, ptr %mOrigin.i, align 4
@@ -42280,20 +42587,20 @@ invoke.cont:
   %arrayidx.i.i.i7.i.i = getelementptr inbounds i8, ptr %bbox, i64 8
   %5 = load i32, ptr %arrayidx.i.i.i7.i.i, align 4
   %cmp7.i.i = icmp sge i32 %2, %5
-  %or.cond58 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
+  %or.cond57 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
   %mMax.i = getelementptr inbounds i8, ptr %bbox, i64 12
   %6 = load i32, ptr %mMax.i, align 4
   %cmp.i2.i = icmp sge i32 %6, %add.i.i.i.i
-  %or.cond59 = select i1 %or.cond58, i1 %cmp.i2.i, i1 false
+  %or.cond58 = select i1 %or.cond57, i1 %cmp.i2.i, i1 false
   %arrayidx.i.i.i.i4.i = getelementptr inbounds i8, ptr %bbox, i64 16
   %7 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i = icmp sge i32 %7, %add4.i.i.i.i
-  %or.cond60 = select i1 %or.cond59, i1 %cmp4.i6.i, i1 false
+  %or.cond59 = select i1 %or.cond58, i1 %cmp4.i6.i, i1 false
   %arrayidx.i.i.i6.i8.i = getelementptr inbounds i8, ptr %bbox, i64 20
   %8 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i = icmp sge i32 %8, %add7.i.i.i.i
-  %or.cond61 = select i1 %or.cond60, i1 %cmp7.i10.i, i1 false
-  br i1 %or.cond61, label %if.then, label %invoke.cont11
+  %or.cond60 = select i1 %or.cond59, i1 %cmp7.i10.i, i1 false
+  br i1 %or.cond60, label %if.then, label %invoke.cont11
 
 if.then:                                          ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %agg.result, i8 -1, i64 4096, i1 false)
@@ -42318,19 +42625,37 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 31
   %and7.i12 = lshr i32 %14, 7
   %shr9.i18 = and i32 %and7.i12, 31
-  store i32 %shr.i, ptr %it.sroa.0, align 4
-  store i32 %shr5.i, ptr %it.sroa.5, align 4
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
-  %cmp.i.not63 = icmp ugt i32 %shr.i, %shr.i14
-  br i1 %cmp.i.not63, label %nrvo.skipdtor, label %for.body
+  store i32 %shr.i, ptr %it, align 4
+  %b.sroa.10.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 4
+  store i32 %shr5.i, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %b.sroa.17.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
+  store i32 %shr9.i, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %b.sroa.10.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 16
+  store i32 %shr5.i, ptr %b.sroa.10.0.mMin.i.i.sroa_idx, align 4
+  %b.sroa.17.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 20
+  store i32 %shr9.i, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  %mMax.i.i19 = getelementptr inbounds i8, ptr %it, i64 24
+  %b.sroa.24.sroa.9.0.insert.ext = zext nneg i32 %shr5.i16 to i64
+  %b.sroa.24.sroa.9.0.insert.shift = shl nuw nsw i64 %b.sroa.24.sroa.9.0.insert.ext, 32
+  %b.sroa.24.sroa.0.0.insert.ext = zext nneg i32 %shr.i14 to i64
+  %b.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %b.sroa.24.sroa.9.0.insert.shift, %b.sroa.24.sroa.0.0.insert.ext
+  store i64 %b.sroa.24.sroa.0.0.insert.insert, ptr %mMax.i.i19, align 4
+  %b.sroa.40.12.mMax.i.i19.sroa_idx = getelementptr inbounds i8, ptr %it, i64 32
+  store i32 %shr9.i18, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.not61 = icmp ugt i32 %shr.i, %shr.i14
+  br i1 %cmp.i.not61, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
-  %it.sroa.0.0.it.sroa.0.0.64 = phi i32 [ %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
-  %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8. = load i32, ptr %it.sroa.9, align 4
-  %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4. = load i32, ptr %it.sroa.5, align 4
-  %shl = shl i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., 5
-  %add = add nsw i32 %shl, %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8.
-  %shl17 = shl i32 %it.sroa.0.0.it.sroa.0.0.64, 10
+for.body.lr.ph:                                   ; preds = %invoke.cont11
+  %arrayidx.i.i.i4.i.i = getelementptr inbounds i8, ptr %it, i64 28
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
+  %15 = phi i32 [ %shr.i, %for.body.lr.ph ], [ %23, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ]
+  %16 = load i32, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %17 = load i32, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %shl = shl i32 %17, 5
+  %add = add nsw i32 %shl, %16
+  %shl17 = shl i32 %15, 10
   %add18 = add nsw i32 %add, %shl17
   %and.i24 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i24 to i64
@@ -42338,35 +42663,41 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %shr.i25 = lshr i32 %add18, 6
   %idxprom.i = zext nneg i32 %shr.i25 to i64
   %arrayidx.i = getelementptr inbounds [512 x i64], ptr %agg.result, i64 0, i64 %idxprom.i
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %shl.i, %15
+  %18 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %shl.i, %18
   store i64 %or.i, ptr %arrayidx.i, align 8
-  %cmp.i.i28 = icmp slt i32 %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %shr9.i18
+  %19 = load i32, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.i28 = icmp slt i32 %16, %19
   br i1 %cmp.i.i28, label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body
-  %cmp9.i.i = icmp slt i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %shr5.i16
+  %20 = load i32, ptr %arrayidx.i.i.i4.i.i, align 4
+  %cmp9.i.i = icmp slt i32 %17, %20
   br i1 %cmp9.i.i, label %if.end36.sink.split.sink.split.i.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
+  %21 = load i32, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  store i32 %21, ptr %b.sroa.17.0.it.sroa_idx, align 4
   br label %if.end36.sink.split.sink.split.i.i
 
 if.end36.sink.split.sink.split.i.i:               ; preds = %if.then23.i.i, %if.else.i.i
-  %.sink14.i.i.sroa.phi.sroa.speculated = phi i32 [ %shr5.i, %if.then23.i.i ], [ %shr9.i, %if.else.i.i ]
-  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %it.sroa.5, %if.then23.i.i ], [ %it.sroa.9, %if.else.i.i ]
-  %.sink.ph.i.i = phi i32 [ %it.sroa.0.0.it.sroa.0.0.64, %if.then23.i.i ], [ %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %if.else.i.i ]
-  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it.sroa.0, %if.then23.i.i ], [ %it.sroa.5, %if.else.i.i ]
-  store i32 %.sink14.i.i.sroa.phi.sroa.speculated, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
+  %.sink14.i.i = phi i64 [ 16, %if.then23.i.i ], [ 20, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %b.sroa.10.0.it.sroa_idx, %if.then23.i.i ], [ %b.sroa.17.0.it.sroa_idx, %if.else.i.i ]
+  %.sink.ph.i.i = phi i32 [ %15, %if.then23.i.i ], [ %17, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it, %if.then23.i.i ], [ %b.sroa.10.0.it.sroa_idx, %if.else.i.i ]
+  %arrayidx.i.i.i10.i.i = getelementptr inbounds i8, ptr %it, i64 %.sink14.i.i
+  %22 = load i32, ptr %arrayidx.i.i.i10.i.i, align 4
+  store i32 %22, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %for.body, %if.end36.sink.split.sink.split.i.i
-  %.sink.i.i = phi i32 [ %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
-  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %it.sroa.9, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi i32 [ %16, %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %b.sroa.17.0.it.sroa_idx, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
   %inc16.i.i = add nsw i32 %.sink.i.i, 1
   store i32 %inc16.i.i, ptr %arrayidx.i.i.i3.sink.i.i, align 4
-  %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0. = load i32, ptr %it.sroa.0, align 4
-  %cmp.i.not = icmp sgt i32 %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %shr.i14
+  %23 = load i32, ptr %it, align 4
+  %24 = load i32, ptr %mMax.i.i19, align 4
+  %cmp.i.not = icmp sgt i32 %23, %24
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, %invoke.cont11, %if.then
@@ -42522,9 +42853,7 @@ cleanup:                                          ; preds = %land.rhs.i, %land.e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_05tools16FindActiveValuesINS0_4tree4TreeINS3_8RootNodeINS3_12InternalNodeINS6_INS3_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEE11getBBoxMaskISC_EENT_12NodeMaskTypeERKNS8_9CoordBBoxEPKSI_(ptr noalias sret(%"class.openvdb::v11_0::util::NodeMask.457") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 4 dereferenceable(24) %bbox, ptr noundef %node) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %it.sroa.0 = alloca i32, align 4
-  %it.sroa.5 = alloca i32, align 4
-  %it.sroa.9 = alloca i32, align 4
+  %it = alloca %"class.openvdb::v11_0::math::CoordBBox::Iterator", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %agg.result, i8 0, i64 512, i1 false)
   %mOrigin.i = getelementptr inbounds i8, ptr %node, i64 66560
   %0 = load i32, ptr %mOrigin.i, align 4
@@ -42544,20 +42873,20 @@ invoke.cont:
   %arrayidx.i.i.i7.i.i = getelementptr inbounds i8, ptr %bbox, i64 8
   %5 = load i32, ptr %arrayidx.i.i.i7.i.i, align 4
   %cmp7.i.i = icmp sge i32 %2, %5
-  %or.cond58 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
+  %or.cond57 = select i1 %or.cond.not, i1 %cmp7.i.i, i1 false
   %mMax.i = getelementptr inbounds i8, ptr %bbox, i64 12
   %6 = load i32, ptr %mMax.i, align 4
   %cmp.i2.i = icmp sge i32 %6, %add.i.i.i.i
-  %or.cond59 = select i1 %or.cond58, i1 %cmp.i2.i, i1 false
+  %or.cond58 = select i1 %or.cond57, i1 %cmp.i2.i, i1 false
   %arrayidx.i.i.i.i4.i = getelementptr inbounds i8, ptr %bbox, i64 16
   %7 = load i32, ptr %arrayidx.i.i.i.i4.i, align 4
   %cmp4.i6.i = icmp sge i32 %7, %add4.i.i.i.i
-  %or.cond60 = select i1 %or.cond59, i1 %cmp4.i6.i, i1 false
+  %or.cond59 = select i1 %or.cond58, i1 %cmp4.i6.i, i1 false
   %arrayidx.i.i.i6.i8.i = getelementptr inbounds i8, ptr %bbox, i64 20
   %8 = load i32, ptr %arrayidx.i.i.i6.i8.i, align 4
   %cmp7.i10.i = icmp sge i32 %8, %add7.i.i.i.i
-  %or.cond61 = select i1 %or.cond60, i1 %cmp7.i10.i, i1 false
-  br i1 %or.cond61, label %if.then, label %invoke.cont11
+  %or.cond60 = select i1 %or.cond59, i1 %cmp7.i10.i, i1 false
+  br i1 %or.cond60, label %if.then, label %invoke.cont11
 
 if.then:                                          ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %agg.result, i8 -1, i64 512, i1 false)
@@ -42582,19 +42911,37 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %shr5.i16 = and i32 %and4.i10, 15
   %and7.i12 = lshr i32 %14, 3
   %shr9.i18 = and i32 %and7.i12, 15
-  store i32 %shr.i, ptr %it.sroa.0, align 4
-  store i32 %shr5.i, ptr %it.sroa.5, align 4
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
-  %cmp.i.not63 = icmp ugt i32 %shr.i, %shr.i14
-  br i1 %cmp.i.not63, label %nrvo.skipdtor, label %for.body
+  store i32 %shr.i, ptr %it, align 4
+  %b.sroa.10.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 4
+  store i32 %shr5.i, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %b.sroa.17.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
+  store i32 %shr9.i, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %b.sroa.10.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 16
+  store i32 %shr5.i, ptr %b.sroa.10.0.mMin.i.i.sroa_idx, align 4
+  %b.sroa.17.0.mMin.i.i.sroa_idx = getelementptr inbounds i8, ptr %it, i64 20
+  store i32 %shr9.i, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  %mMax.i.i19 = getelementptr inbounds i8, ptr %it, i64 24
+  %b.sroa.24.sroa.9.0.insert.ext = zext nneg i32 %shr5.i16 to i64
+  %b.sroa.24.sroa.9.0.insert.shift = shl nuw nsw i64 %b.sroa.24.sroa.9.0.insert.ext, 32
+  %b.sroa.24.sroa.0.0.insert.ext = zext nneg i32 %shr.i14 to i64
+  %b.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %b.sroa.24.sroa.9.0.insert.shift, %b.sroa.24.sroa.0.0.insert.ext
+  store i64 %b.sroa.24.sroa.0.0.insert.insert, ptr %mMax.i.i19, align 4
+  %b.sroa.40.12.mMax.i.i19.sroa_idx = getelementptr inbounds i8, ptr %it, i64 32
+  store i32 %shr9.i18, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.not61 = icmp ugt i32 %shr.i, %shr.i14
+  br i1 %cmp.i.not61, label %nrvo.skipdtor, label %for.body.lr.ph
 
-for.body:                                         ; preds = %invoke.cont11, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
-  %it.sroa.0.0.it.sroa.0.0.64 = phi i32 [ %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ], [ %shr.i, %invoke.cont11 ]
-  %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8. = load i32, ptr %it.sroa.9, align 4
-  %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4. = load i32, ptr %it.sroa.5, align 4
-  %shl = shl i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., 4
-  %add = add nsw i32 %shl, %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8.
-  %shl17 = shl i32 %it.sroa.0.0.it.sroa.0.0.64, 8
+for.body.lr.ph:                                   ; preds = %invoke.cont11
+  %arrayidx.i.i.i4.i.i = getelementptr inbounds i8, ptr %it, i64 28
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
+  %15 = phi i32 [ %shr.i, %for.body.lr.ph ], [ %23, %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit ]
+  %16 = load i32, ptr %b.sroa.17.0.it.sroa_idx, align 4
+  %17 = load i32, ptr %b.sroa.10.0.it.sroa_idx, align 4
+  %shl = shl i32 %17, 4
+  %add = add nsw i32 %shl, %16
+  %shl17 = shl i32 %15, 8
   %add18 = add nsw i32 %add, %shl17
   %and.i24 = and i32 %add, 63
   %sh_prom.i = zext nneg i32 %and.i24 to i64
@@ -42602,35 +42949,41 @@ for.body:                                         ; preds = %invoke.cont11, %_ZN
   %shr.i25 = lshr i32 %add18, 6
   %idxprom.i = zext nneg i32 %shr.i25 to i64
   %arrayidx.i = getelementptr inbounds [64 x i64], ptr %agg.result, i64 0, i64 %idxprom.i
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %shl.i, %15
+  %18 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %shl.i, %18
   store i64 %or.i, ptr %arrayidx.i, align 8
-  %cmp.i.i28 = icmp slt i32 %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %shr9.i18
+  %19 = load i32, ptr %b.sroa.40.12.mMax.i.i19.sroa_idx, align 4
+  %cmp.i.i28 = icmp slt i32 %16, %19
   br i1 %cmp.i.i28, label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body
-  %cmp9.i.i = icmp slt i32 %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %shr5.i16
+  %20 = load i32, ptr %arrayidx.i.i.i4.i.i, align 4
+  %cmp9.i.i = icmp slt i32 %17, %20
   br i1 %cmp9.i.i, label %if.end36.sink.split.sink.split.i.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.else.i.i
-  store i32 %shr9.i, ptr %it.sroa.9, align 4
+  %21 = load i32, ptr %b.sroa.17.0.mMin.i.i.sroa_idx, align 4
+  store i32 %21, ptr %b.sroa.17.0.it.sroa_idx, align 4
   br label %if.end36.sink.split.sink.split.i.i
 
 if.end36.sink.split.sink.split.i.i:               ; preds = %if.then23.i.i, %if.else.i.i
-  %.sink14.i.i.sroa.phi.sroa.speculated = phi i32 [ %shr5.i, %if.then23.i.i ], [ %shr9.i, %if.else.i.i ]
-  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %it.sroa.5, %if.then23.i.i ], [ %it.sroa.9, %if.else.i.i ]
-  %.sink.ph.i.i = phi i32 [ %it.sroa.0.0.it.sroa.0.0.64, %if.then23.i.i ], [ %it.sroa.5.0.it.sroa.5.0.it.sroa.5.0.it.sroa.5.4., %if.else.i.i ]
-  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it.sroa.0, %if.then23.i.i ], [ %it.sroa.5, %if.else.i.i ]
-  store i32 %.sink14.i.i.sroa.phi.sroa.speculated, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
+  %.sink14.i.i = phi i64 [ 16, %if.then23.i.i ], [ 20, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink13.i.i = phi ptr [ %b.sroa.10.0.it.sroa_idx, %if.then23.i.i ], [ %b.sroa.17.0.it.sroa_idx, %if.else.i.i ]
+  %.sink.ph.i.i = phi i32 [ %15, %if.then23.i.i ], [ %17, %if.else.i.i ]
+  %arrayidx.i.i.i3.sink.ph.i.i = phi ptr [ %it, %if.then23.i.i ], [ %b.sroa.10.0.it.sroa_idx, %if.else.i.i ]
+  %arrayidx.i.i.i10.i.i = getelementptr inbounds i8, ptr %it, i64 %.sink14.i.i
+  %22 = load i32, ptr %arrayidx.i.i.i10.i.i, align 4
+  store i32 %22, ptr %arrayidx.i.i.i3.sink13.i.i, align 4
   br label %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit
 
 _ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit: ; preds = %for.body, %if.end36.sink.split.sink.split.i.i
-  %.sink.i.i = phi i32 [ %it.sroa.9.0.it.sroa.9.0.it.sroa.9.0.it.sroa.9.8., %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
-  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %it.sroa.9, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %.sink.i.i = phi i32 [ %16, %for.body ], [ %.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
+  %arrayidx.i.i.i3.sink.i.i = phi ptr [ %b.sroa.17.0.it.sroa_idx, %for.body ], [ %arrayidx.i.i.i3.sink.ph.i.i, %if.end36.sink.split.sink.split.i.i ]
   %inc16.i.i = add nsw i32 %.sink.i.i, 1
   store i32 %inc16.i.i, ptr %arrayidx.i.i.i3.sink.i.i, align 4
-  %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0. = load i32, ptr %it.sroa.0, align 4
-  %cmp.i.not = icmp sgt i32 %it.sroa.0.0.it.sroa.0.0.it.sroa.0.0.it.sroa.0.0., %shr.i14
+  %23 = load i32, ptr %it, align 4
+  %24 = load i32, ptr %mMax.i.i19, align 4
+  %cmp.i.not = icmp sgt i32 %23, %24
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %_ZN7openvdb5v11_04math9CoordBBox8IteratorILb1EEppEv.exit, %invoke.cont11, %if.then

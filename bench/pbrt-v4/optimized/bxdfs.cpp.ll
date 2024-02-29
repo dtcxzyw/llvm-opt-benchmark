@@ -70,6 +70,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl.80" = type { %"struct.std::_Head_base.81" }
 %"struct.std::_Head_base.81" = type { ptr }
 %"class.std::tuple.82" = type { i8 }
+%"class.pstd::array.88" = type { [2 x float] }
 %"class.pstd::array.91" = type { [3 x float] }
 %"class.pbrt::Point2" = type { %"class.pbrt::Tuple2" }
 %"class.pbrt::Tuple2" = type { float, float }
@@ -18179,11 +18180,11 @@ return:                                           ; preds = %if.end10, %entry, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { <2 x float>, float } @_ZNK4pbrt17PiecewiseLinear2DILm2EE6InvertIJffEEENS_8PLSampleENS_6Point2IfEEDpT_(ptr noundef nonnull align 8 dereferenceable(168) %this, <2 x float> %sample.coerce, float noundef %params, float noundef %params1) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %param.sroa.0 = alloca float, align 4
-  %param.sroa.2 = alloca float, align 4
+  %param = alloca %"class.pstd::array.88", align 4
   %param_weight = alloca [4 x float], align 16
-  store float %params, ptr %param.sroa.0, align 4
-  store float %params1, ptr %param.sroa.2, align 4
+  store float %params, ptr %param, align 4
+  %ref.tmp.sroa.2.0.param.sroa_idx = getelementptr inbounds i8, ptr %param, i64 4
+  store float %params1, ptr %ref.tmp.sroa.2.0.param.sroa_idx, align 4
   %m_param_size = getelementptr inbounds i8, ptr %this, i64 24
   %ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %ptr.i.i.i, align 8
@@ -18193,7 +18194,6 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %slice_offset.0297 = phi i32 [ 0, %entry ], [ %slice_offset.1, %for.inc ]
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
-  %storemerge296.sroa.phi = phi ptr [ %param.sroa.0, %entry ], [ %param.sroa.2, %for.inc ]
   %storemerge296 = phi i64 [ 0, %entry ], [ 1, %for.inc ]
   %arrayidx = getelementptr inbounds [2 x i32], ptr %m_param_size, i64 0, i64 %storemerge296
   %1 = load i32, ptr %arrayidx, align 4
@@ -18212,7 +18212,8 @@ if.end:                                           ; preds = %for.body
   %cmp11.i = icmp ugt i32 %1, 2
   %ptr.i1.i.i = getelementptr inbounds %"class.pstd::vector", ptr %0, i64 %storemerge296, i32 1
   %2 = load ptr, ptr %ptr.i1.i.i, align 8
-  %3 = load float, ptr %storemerge296.sroa.phi, align 4
+  %arrayidx.i3.i.i = getelementptr inbounds [2 x float], ptr %param, i64 0, i64 %storemerge296
+  %3 = load float, ptr %arrayidx.i3.i.i, align 4
   br i1 %cmp11.i, label %while.body.i, label %_ZN4pbrt12FindIntervalIZNKS_17PiecewiseLinear2DILm2EE6InvertIJffEEENS_8PLSampleENS_6Point2IfEEDpT_EUljE_EEmmRKT_.exit
 
 while.body.i:                                     ; preds = %if.end, %while.body.i
@@ -19096,16 +19097,16 @@ return:                                           ; preds = %_ZN4pbrt15SampledSp
 define linkonce_odr dso_local { <2 x float>, float } @_ZNK4pbrt17PiecewiseLinear2DILm2EE6SampleIJffEEENS_8PLSampleENS_6Point2IfEEDpT_(ptr noundef nonnull align 8 dereferenceable(168) %this, <2 x float> %sample.coerce, float noundef %params, float noundef %params1) local_unnamed_addr #0 comdat align 2 {
 entry:
   %sample = alloca %"class.pbrt::Point2", align 8
-  %param.sroa.0 = alloca float, align 4
-  %param.sroa.2 = alloca float, align 4
+  %param = alloca %"class.pstd::array.88", align 4
   %param_weight = alloca [4 x float], align 16
   %offset = alloca i32, align 4
   %slice_size = alloca i32, align 4
   %fetch_conditional = alloca %class.anon.98, align 8
   %ref.tmp109 = alloca %class.anon.99, align 8
   store <2 x float> %sample.coerce, ptr %sample, align 8
-  store float %params, ptr %param.sroa.0, align 4
-  store float %params1, ptr %param.sroa.2, align 4
+  store float %params, ptr %param, align 4
+  %ref.tmp.sroa.2.0.param.sroa_idx = getelementptr inbounds i8, ptr %param, i64 4
+  store float %params1, ptr %ref.tmp.sroa.2.0.param.sroa_idx, align 4
   %0 = extractelement <2 x float> %sample.coerce, i64 0
   %cmp.i = fcmp olt float %0, 0x3E70000000000000
   %cmp1.i = fcmp ogt float %0, 0x3FEFFFFFE0000000
@@ -19126,7 +19127,6 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %slice_offset.0242 = phi i32 [ 0, %entry ], [ %slice_offset.1, %for.inc ]
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
-  %storemerge241.sroa.phi = phi ptr [ %param.sroa.0, %entry ], [ %param.sroa.2, %for.inc ]
   %storemerge241 = phi i64 [ 0, %entry ], [ 1, %for.inc ]
   %arrayidx = getelementptr inbounds [2 x i32], ptr %m_param_size, i64 0, i64 %storemerge241
   %3 = load i32, ptr %arrayidx, align 4
@@ -19145,7 +19145,8 @@ if.end:                                           ; preds = %for.body
   %cmp11.i = icmp ugt i32 %3, 2
   %ptr.i1.i.i = getelementptr inbounds %"class.pstd::vector", ptr %2, i64 %storemerge241, i32 1
   %4 = load ptr, ptr %ptr.i1.i.i, align 8
-  %5 = load float, ptr %storemerge241.sroa.phi, align 4
+  %arrayidx.i2.i.i = getelementptr inbounds [2 x float], ptr %param, i64 0, i64 %storemerge241
+  %5 = load float, ptr %arrayidx.i2.i.i, align 4
   br i1 %cmp11.i, label %while.body.i, label %_ZN4pbrt12FindIntervalIZNKS_17PiecewiseLinear2DILm2EE6SampleIJffEEENS_8PLSampleENS_6Point2IfEEDpT_EUljE_EEmmRKT_.exit
 
 while.body.i:                                     ; preds = %if.end, %while.body.i
@@ -19739,11 +19740,11 @@ return:                                           ; preds = %if.end13, %entry, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNK4pbrt17PiecewiseLinear2DILm2EE8EvaluateIJffEEEfNS_6Point2IfEEDpT_(ptr noundef nonnull align 8 dereferenceable(168) %this, <2 x float> %pos.coerce, float noundef %params, float noundef %params1) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %param.sroa.0 = alloca float, align 4
-  %param.sroa.2 = alloca float, align 4
+  %param = alloca %"class.pstd::array.88", align 4
   %param_weight = alloca [4 x float], align 16
-  store float %params, ptr %param.sroa.0, align 4
-  store float %params1, ptr %param.sroa.2, align 4
+  store float %params, ptr %param, align 4
+  %ref.tmp.sroa.2.0.param.sroa_idx = getelementptr inbounds i8, ptr %param, i64 4
+  store float %params1, ptr %ref.tmp.sroa.2.0.param.sroa_idx, align 4
   %m_param_size = getelementptr inbounds i8, ptr %this, i64 24
   %ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %ptr.i.i.i, align 8
@@ -19753,7 +19754,6 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %slice_offset.0131 = phi i32 [ 0, %entry ], [ %slice_offset.1, %for.inc ]
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
-  %storemerge130.sroa.phi = phi ptr [ %param.sroa.0, %entry ], [ %param.sroa.2, %for.inc ]
   %storemerge130 = phi i64 [ 0, %entry ], [ 1, %for.inc ]
   %arrayidx = getelementptr inbounds [2 x i32], ptr %m_param_size, i64 0, i64 %storemerge130
   %1 = load i32, ptr %arrayidx, align 4
@@ -19772,7 +19772,8 @@ if.end:                                           ; preds = %for.body
   %cmp11.i = icmp ugt i32 %1, 2
   %ptr.i1.i.i = getelementptr inbounds %"class.pstd::vector", ptr %0, i64 %storemerge130, i32 1
   %2 = load ptr, ptr %ptr.i1.i.i, align 8
-  %3 = load float, ptr %storemerge130.sroa.phi, align 4
+  %arrayidx.i3.i.i = getelementptr inbounds [2 x float], ptr %param, i64 0, i64 %storemerge130
+  %3 = load float, ptr %arrayidx.i3.i.i, align 4
   br i1 %cmp11.i, label %while.body.i, label %_ZN4pbrt12FindIntervalIZNKS_17PiecewiseLinear2DILm2EE8EvaluateIJffEEEfNS_6Point2IfEEDpT_EUljE_EEmmRKT_.exit
 
 while.body.i:                                     ; preds = %if.end, %while.body.i

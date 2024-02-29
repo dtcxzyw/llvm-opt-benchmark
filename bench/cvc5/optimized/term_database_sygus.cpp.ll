@@ -14000,8 +14000,6 @@ entry:
   %ntypes = alloca %"class.std::vector.458", align 8
   %agg.tmp74 = alloca %"class.cvc5::internal::TypeNode", align 8
   %ntn = alloca %"class.cvc5::internal::TypeNode", align 8
-  %indvars.iv639.sroa.gep741 = getelementptr inbounds i8, ptr %disj_types, i64 24
-  %indvars.iv626.sroa.gep740 = getelementptr inbounds i8, ptr %disj_types, i64 24
   %0 = load ptr, ptr %tn, align 8
   store ptr %0, ptr %agg.tmp, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -14419,7 +14417,6 @@ for.cond59.preheader:                             ; preds = %for.cond37
 
 for.body39:                                       ; preds = %if.then36, %for.cond37
   %cmp38.not = phi i1 [ true, %if.then36 ], [ false, %for.cond37 ]
-  %indvars.iv626.sroa.phi = phi ptr [ %disj_types, %if.then36 ], [ %indvars.iv626.sroa.gep740, %for.cond37 ]
   %indvars.iv626 = phi i64 [ 0, %if.then36 ], [ 1, %for.cond37 ]
   %44 = load ptr, ptr %conj_types, align 8
   %add.ptr.i = getelementptr inbounds %"class.cvc5::internal::TypeNode", ptr %44, i64 %indvars.iv626
@@ -14451,16 +14448,17 @@ if.then13.i.i142:                                 ; preds = %if.else.i.i140
           to label %invoke.cont44 unwind label %lpad43.loopexit.split-lp
 
 invoke.cont44:                                    ; preds = %if.else.i.i140, %if.then.i.i144, %if.then13.i.i142
-  %call47 = invoke noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers11TermDbSygus16canConstructKindENS0_8TypeNodeENS0_4kind6Kind_tERSt6vectorIS4_SaIS4_EEb(ptr noundef nonnull align 8 dereferenceable(1040) %this, ptr noundef nonnull %agg.tmp40, i32 noundef 21, ptr noundef nonnull align 8 dereferenceable(24) %indvars.iv626.sroa.phi, i1 zeroext poison)
+  %arrayidx = getelementptr inbounds [2 x %"class.std::vector.458"], ptr %disj_types, i64 0, i64 %indvars.iv626
+  %call47 = invoke noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers11TermDbSygus16canConstructKindENS0_8TypeNodeENS0_4kind6Kind_tERSt6vectorIS4_SaIS4_EEb(ptr noundef nonnull align 8 dereferenceable(1040) %this, ptr noundef nonnull %agg.tmp40, i32 noundef 21, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, i1 zeroext poison)
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %invoke.cont44
   br i1 %call47, label %lor.rhs, label %cleanup207.sink.split
 
 lor.rhs:                                          ; preds = %invoke.cont46
-  %_M_finish.i151 = getelementptr inbounds i8, ptr %indvars.iv626.sroa.phi, i64 8
+  %_M_finish.i151 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %47 = load ptr, ptr %_M_finish.i151, align 8
-  %48 = load ptr, ptr %indvars.iv626.sroa.phi, align 8
+  %48 = load ptr, ptr %arrayidx, align 8
   %sub.ptr.lhs.cast.i152 = ptrtoint ptr %47 to i64
   %sub.ptr.rhs.cast.i153 = ptrtoint ptr %48 to i64
   %sub.ptr.sub.i154 = sub i64 %sub.ptr.lhs.cast.i152, %sub.ptr.rhs.cast.i153
@@ -14539,11 +14537,11 @@ lpad45:                                           ; preds = %invoke.cont44
 
 for.body61:                                       ; preds = %for.cond59.preheader, %for.inc203
   %cmp60 = phi i1 [ true, %for.cond59.preheader ], [ false, %for.inc203 ]
-  %indvars.iv639.sroa.phi = phi ptr [ %disj_types, %for.cond59.preheader ], [ %indvars.iv639.sroa.gep741, %for.inc203 ]
-  %indvars.iv639 = phi i64 [ 1, %for.cond59.preheader ], [ 0, %for.inc203 ]
-  %_M_finish.i167 = getelementptr inbounds i8, ptr %indvars.iv639.sroa.phi, i64 8
+  %indvars.iv639 = phi i64 [ 0, %for.cond59.preheader ], [ 1, %for.inc203 ]
+  %arrayidx63 = getelementptr inbounds [2 x %"class.std::vector.458"], ptr %disj_types, i64 0, i64 %indvars.iv639
+  %_M_finish.i167 = getelementptr inbounds i8, ptr %arrayidx63, i64 8
   %58 = load ptr, ptr %_M_finish.i167, align 8
-  %59 = load ptr, ptr %indvars.iv639.sroa.phi, align 8
+  %59 = load ptr, ptr %arrayidx63, align 8
   %sub.ptr.lhs.cast.i168 = ptrtoint ptr %58 to i64
   %sub.ptr.rhs.cast.i169 = ptrtoint ptr %59 to i64
   %sub.ptr.sub.i170 = sub i64 %sub.ptr.lhs.cast.i168, %sub.ptr.rhs.cast.i169
@@ -14553,14 +14551,15 @@ for.body61:                                       ; preds = %for.cond59.preheade
 
 for.body68.lr.ph:                                 ; preds = %for.body61
   %sub.ptr.div.i171 = lshr exact i64 %sub.ptr.sub.i170, 3
-  %arrayidx89 = getelementptr inbounds [2 x %"class.std::vector.458"], ptr %disj_types, i64 0, i64 %indvars.iv639
+  %idxprom88 = xor i64 %indvars.iv639, 1
+  %arrayidx89 = getelementptr inbounds [2 x %"class.std::vector.458"], ptr %disj_types, i64 0, i64 %idxprom88
   %_M_finish.i234 = getelementptr inbounds i8, ptr %arrayidx89, i64 8
   %wide.trip.count637 = and i64 %sub.ptr.div.i171, 4294967295
   br label %for.body68
 
 for.body68:                                       ; preds = %for.body68.lr.ph, %_ZN4cvc58internal8TypeNodeD2Ev.exit506
   %indvars.iv634 = phi i64 [ 0, %for.body68.lr.ph ], [ %indvars.iv.next635, %_ZN4cvc58internal8TypeNodeD2Ev.exit506 ]
-  %61 = load ptr, ptr %indvars.iv639.sroa.phi, align 8
+  %61 = load ptr, ptr %arrayidx63, align 8
   %add.ptr.i172 = getelementptr inbounds %"class.cvc5::internal::TypeNode", ptr %61, i64 %indvars.iv634
   %62 = load ptr, ptr %add.ptr.i172, align 8
   store ptr %62, ptr %dtn, align 8
@@ -14764,7 +14763,7 @@ if.else.i.invoke.cont104_crit_edge:               ; preds = %if.else.i
 
 invoke.cont104:                                   ; preds = %if.else.i.invoke.cont104_crit_edge, %_ZNSt16allocator_traitsISaIN4cvc58internal8TypeNodeEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i
   %83 = phi ptr [ %.pre642, %if.else.i.invoke.cont104_crit_edge ], [ %incdec.ptr.i, %_ZNSt16allocator_traitsISaIN4cvc58internal8TypeNodeEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i ]
-  %84 = load ptr, ptr %indvars.iv639.sroa.phi, align 8
+  %84 = load ptr, ptr %arrayidx63, align 8
   %add.ptr.i245 = getelementptr inbounds %"class.cvc5::internal::TypeNode", ptr %84, i64 %indvars.iv634
   %85 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i248 = icmp eq ptr %83, %85

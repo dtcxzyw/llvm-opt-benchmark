@@ -136,7 +136,6 @@ entry:
   %eaBitset75 = alloca %"class.eastl::bitset.4", align 16
   %stdBitset1500 = alloca %"class.std::bitset.6", align 8
   %eaBitset1500 = alloca %"class.eastl::bitset.8", align 8
-  %__i.05.i.i.i.sroa.gep = getelementptr inbounds i8, ptr %stdBitset75, i64 8
   tail call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str)
   call void @_ZN2EA4StdC9StopwatchC1Eib(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i32 noundef 1, i1 noundef zeroext false)
   call void @_ZN2EA4StdC9StopwatchC1Eib(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i32 noundef 1, i1 noundef zeroext false)
@@ -155,6 +154,7 @@ entry:
   %tv_nsec.i.i.i.i61 = getelementptr inbounds i8, ptr %ts.i.i.i.i54, i64 8
   %tv_nsec.i.i.i.i83 = getelementptr inbounds i8, ptr %ts.i.i.i.i76, i64 8
   %tv_nsec.i.i.i.i106 = getelementptr inbounds i8, ptr %ts.i.i.i.i99, i64 8
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %stdBitset75, i64 8
   %tv_nsec.i.i.i.i128 = getelementptr inbounds i8, ptr %ts.i.i.i.i121, i64 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %eaBitset75, i64 8
   %tv_nsec.i.i.i.i151 = getelementptr inbounds i8, ptr %ts.i.i.i.i144, i64 8
@@ -439,7 +439,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i109:        ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i111:                                    ; preds = %for.body.i111, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i109
   %i.04.i112 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i109 ], [ %inc.i113, %for.body.i111 ]
   store i64 -1, ptr %stdBitset75, align 8
-  store i64 2047, ptr %__i.05.i.i.i.sroa.gep, align 8
+  store i64 2047, ptr %arrayidx.i.i.i.i, align 8
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset75)
   %inc.i113 = add nuw nsw i32 %i.04.i112, 1
   %exitcond.not.i114 = icmp eq i32 %inc.i113, 100000
@@ -826,9 +826,9 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i294:        ; preds = %_ZN2EA4StdC9Stopwat
 
 for.body.i297:                                    ; preds = %for.body.i297, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i294
   %i.04.i298 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i294 ], [ %inc.i300, %for.body.i297 ]
-  %62 = load i64, ptr %__i.05.i.i.i.sroa.gep, align 8
+  %62 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %or.i.i.i299 = or i64 %62, 512
-  store i64 %or.i.i.i299, ptr %__i.05.i.i.i.sroa.gep, align 8
+  store i64 %or.i.i.i299, ptr %arrayidx.i.i.i.i, align 8
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset75)
   %inc.i300 = add nuw nsw i32 %i.04.i298, 1
   %exitcond.not.i301 = icmp eq i32 %inc.i300, 100000
@@ -1601,10 +1601,10 @@ for.body.i668:                                    ; preds = %for.body.i668, %_ZN
   %142 = load i64, ptr %stdBitset75, align 8
   %not.i.i.i670 = xor i64 %142, -1
   store i64 %not.i.i.i670, ptr %stdBitset75, align 8
-  %143 = load i64, ptr %__i.05.i.i.i.sroa.gep, align 8
+  %143 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %not.i.c.i.i = and i64 %143, 2047
   %and.i.i.i.i671 = xor i64 %not.i.c.i.i, 2047
-  store i64 %and.i.i.i.i671, ptr %__i.05.i.i.i.sroa.gep, align 8
+  store i64 %and.i.i.i.i671, ptr %arrayidx.i.i.i.i, align 8
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %stdBitset75)
   %inc.i672 = add nuw nsw i32 %i.04.i669, 1
   %exitcond.not.i673 = icmp eq i32 %inc.i672, 100000
@@ -2480,9 +2480,10 @@ for.body.i.i.preheader.i1090:                     ; preds = %_ZNKSt6bitsetILm75E
 
 for.body.i.i.i1092:                               ; preds = %for.body.i.i.i1092, %for.body.i.i.preheader.i1090
   %cmp.i.i3.i = phi i1 [ false, %for.body.i.i.i1092 ], [ true, %for.body.i.i.preheader.i1090 ]
-  %__i.05.i.i.i.sroa.phi = phi ptr [ %__i.05.i.i.i.sroa.gep, %for.body.i.i.i1092 ], [ %stdBitset75, %for.body.i.i.preheader.i1090 ]
+  %__i.05.i.i.i = phi i64 [ 1, %for.body.i.i.i1092 ], [ 0, %for.body.i.i.preheader.i1090 ]
   %__result.04.i.i.i = phi i64 [ %add.i.i.i, %for.body.i.i.i1092 ], [ 0, %for.body.i.i.preheader.i1090 ]
-  %242 = load i64, ptr %__i.05.i.i.i.sroa.phi, align 8
+  %arrayidx.i.i.i1093 = getelementptr inbounds [2 x i64], ptr %stdBitset75, i64 0, i64 %__i.05.i.i.i
+  %242 = load i64, ptr %arrayidx.i.i.i1093, align 8
   %243 = call i64 @llvm.ctpop.i64(i64 %242), !range !48
   %add.i.i.i = add i64 %243, %__result.04.i.i.i
   br i1 %cmp.i.i3.i, label %for.body.i.i.i1092, label %_ZNKSt6bitsetILm75EE5countEv.exit.i, !llvm.loop !53
@@ -2946,12 +2947,12 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i1296:       ; preds = %_ZN2EA4StdC9Stopwat
 for.body.i1298:                                   ; preds = %for.body.i1298, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1296
   %i.03.i1299 = phi i32 [ 0, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i1296 ], [ %inc.i1302, %for.body.i1298 ]
   %295 = load i64, ptr %stdBitset75, align 8
-  %296 = load i64, ptr %__i.05.i.i.i.sroa.gep, align 8
+  %296 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %or.i.i.i1300 = call i64 @llvm.fshl.i64(i64 %296, i64 %295, i64 63)
   store i64 %or.i.i.i1300, ptr %stdBitset75, align 8
   %shr27.i.i.i = lshr i64 %296, 1
   %and.i.i.i.i1301 = and i64 %shr27.i.i.i, 2047
-  store i64 %and.i.i.i.i1301, ptr %__i.05.i.i.i.sroa.gep, align 8
+  store i64 %and.i.i.i.i1301, ptr %arrayidx.i.i.i.i, align 8
   call void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %temp.i1286)
   %inc.i1302 = add nuw nsw i32 %i.03.i1299, 1
   %exitcond.not.i1303 = icmp eq i32 %inc.i1302, 100000

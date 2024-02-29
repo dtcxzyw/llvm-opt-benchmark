@@ -365,10 +365,10 @@ entry:
   %agg.tmp1 = alloca %"class.std::vector", align 8
   %agg.tmp4 = alloca %"class.std::function", align 8
   %resolved_or = alloca %"class.absl::lts_20230802::StatusOr", align 8
+  %resolved_or.sroa.gep97 = getelementptr inbounds i8, ptr %resolved_or, i64 16
+  %resolved_or.sroa.gep94 = getelementptr inbounds i8, ptr %resolved_or, i64 8
   %error_list = alloca %"class.std::vector", align 8
   %parsed_addr = alloca %"class.std::__cxx11::basic_string", align 8
-  %.sroa.gep96 = getelementptr inbounds i8, ptr %resolved_or, i64 16
-  %.sroa.gep = getelementptr inbounds i8, ptr %resolved_or, i64 8
   %cmp = icmp eq ptr %addr, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -1112,8 +1112,8 @@ lpad50.i:                                         ; preds = %invoke.cont49.i
   br label %ehcleanup154.i
 
 invoke.cont54.i:                                  ; preds = %invoke.cont43.i
-  %100 = load ptr, ptr %.sroa.gep, align 8, !noalias !12
-  %101 = load ptr, ptr %.sroa.gep96, align 8, !noalias !12
+  %100 = load ptr, ptr %resolved_or.sroa.gep94, align 8, !noalias !12
+  %101 = load ptr, ptr %resolved_or.sroa.gep97, align 8, !noalias !12
   %cmp.i.not303.i = icmp eq ptr %100, %101
   br i1 %cmp.i.not303.i, label %for.end.thread.i, label %for.body.lr.ph.i
 
@@ -1795,8 +1795,8 @@ for.end.i.invoke.cont94.i_crit_edge:              ; preds = %for.end.i
   %196 = load ptr, ptr %error_list, align 8, !noalias !12
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %196 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %.pre = load ptr, ptr %.sroa.gep96, align 8, !noalias !12
-  %.pre137 = load ptr, ptr %.sroa.gep, align 8, !noalias !12
+  %.pre = load ptr, ptr %resolved_or.sroa.gep97, align 8, !noalias !12
+  %.pre137 = load ptr, ptr %resolved_or.sroa.gep94, align 8, !noalias !12
   br label %invoke.cont94.i
 
 if.then.i.i143.i:                                 ; preds = %for.end.i
@@ -2071,7 +2071,7 @@ _ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit72: ; preds = %invoke.
   br i1 %cmp.i.i.i.i73, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i74
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit72
-  %229 = load ptr, ptr %.sroa.gep, align 8
+  %229 = load ptr, ptr %resolved_or.sroa.gep94, align 8
   %tobool.not.i.i.i.i.i75 = icmp eq ptr %229, null
   br i1 %tobool.not.i.i.i.i.i75, label %return, label %return.sink.split
 

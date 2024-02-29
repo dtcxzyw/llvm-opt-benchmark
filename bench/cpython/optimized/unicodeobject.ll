@@ -63887,9 +63887,7 @@ entry:
   %first.i.i = alloca %struct.SubString, align 8
   %index.i.i = alloca i64, align 8
   %rest.i.i = alloca %struct.FieldNameIterator, align 8
-  %expanded_format_spec.i.sroa.0 = alloca ptr, align 8
-  %expanded_format_spec.i.sroa.4 = alloca i64, align 8
-  %expanded_format_spec.i.sroa.7 = alloca i64, align 8
+  %expanded_format_spec.i = alloca %struct.SubString, align 8
   %iter.i = alloca %struct.MarkupIterator, align 8
   %format_spec_needs_expanding.i = alloca i32, align 4
   %field_present.i = alloca i32, align 4
@@ -63898,8 +63896,6 @@ entry:
   %format_spec.i = alloca %struct.SubString, align 8
   %conversion.i = alloca i32, align 4
   %writer = alloca %struct._PyUnicodeWriter, align 8
-  %actual_format_spec.0.i.sroa.gep22 = getelementptr inbounds i8, ptr %format_spec.i, i64 16
-  %actual_format_spec.0.i.sroa.gep19 = getelementptr inbounds i8, ptr %format_spec.i, i64 8
   %cmp = icmp slt i32 %recursion_depth, 1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -63933,9 +63929,9 @@ if.end:                                           ; preds = %entry
   %end3.i.i12 = getelementptr inbounds i8, ptr %iter.i, i64 16
   %3 = load <2 x i64>, ptr %start.i, align 8
   store <2 x i64> %3, ptr %start2.i.i11, align 8
-  %call1.i57 = call fastcc i32 @MarkupIterator_next(ptr noundef nonnull %iter.i, ptr noundef nonnull %literal.i, ptr noundef nonnull %field_present.i, ptr noundef nonnull %field_name.i, ptr noundef nonnull %format_spec.i, ptr noundef nonnull %conversion.i, ptr noundef nonnull %format_spec_needs_expanding.i), !range !143
-  %cmp.i58 = icmp eq i32 %call1.i57, 2
-  br i1 %cmp.i58, label %while.body.i.lr.ph, label %do_markup.exit
+  %call1.i47 = call fastcc i32 @MarkupIterator_next(ptr noundef nonnull %iter.i, ptr noundef nonnull %literal.i, ptr noundef nonnull %field_present.i, ptr noundef nonnull %field_name.i, ptr noundef nonnull %format_spec.i, ptr noundef nonnull %conversion.i, ptr noundef nonnull %format_spec_needs_expanding.i), !range !143
+  %cmp.i48 = icmp eq i32 %call1.i47, 2
+  br i1 %cmp.i48, label %while.body.i.lr.ph, label %do_markup.exit
 
 while.body.i.lr.ph:                               ; preds = %if.end
   %end2.i = getelementptr inbounds i8, ptr %literal.i, i64 16
@@ -63949,6 +63945,8 @@ while.body.i.lr.ph:                               ; preds = %if.end
   %start.i.i.i.i = getelementptr inbounds i8, ptr %name.i.i, i64 8
   %end.i.i.i.i = getelementptr inbounds i8, ptr %name.i.i, i64 16
   %sub.i = add nsw i32 %recursion_depth, -1
+  %start2.i.i = getelementptr inbounds i8, ptr %expanded_format_spec.i, i64 8
+  %end3.i.i = getelementptr inbounds i8, ptr %expanded_format_spec.i, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %if.end33.i
@@ -63995,9 +63993,7 @@ if.then26.i:                                      ; preds = %if.then20.i
 if.end28.i:                                       ; preds = %if.then26.i, %if.then20.i
   %11 = load i32, ptr %format_spec_needs_expanding.i, align 4
   %12 = load i32, ptr %conversion.i, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %expanded_format_spec.i.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %expanded_format_spec.i.sroa.4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %expanded_format_spec.i.sroa.7)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %expanded_format_spec.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %is_attribute.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %name.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %first.i.i)
@@ -64314,15 +64310,13 @@ if.then8.i:                                       ; preds = %if.end7.i
 if.end12.i:                                       ; preds = %if.then8.i
   %49 = getelementptr i8, ptr %call9.i, i64 16
   %call9.val.i = load i64, ptr %49, align 8
-  store ptr %call9.i, ptr %expanded_format_spec.i.sroa.0, align 8
-  store i64 0, ptr %expanded_format_spec.i.sroa.4, align 8
-  store i64 %call9.val.i, ptr %expanded_format_spec.i.sroa.7, align 8
+  store ptr %call9.i, ptr %expanded_format_spec.i, align 8
+  store i64 0, ptr %start2.i.i, align 8
+  store i64 %call9.val.i, ptr %end3.i.i, align 8
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end12.i, %if.end7.i
-  %actual_format_spec.0.i.sroa.phi = phi ptr [ %expanded_format_spec.i.sroa.4, %if.end12.i ], [ %actual_format_spec.0.i.sroa.gep19, %if.end7.i ]
-  %actual_format_spec.0.i.sroa.phi14 = phi ptr [ %expanded_format_spec.i.sroa.7, %if.end12.i ], [ %actual_format_spec.0.i.sroa.gep22, %if.end7.i ]
-  %actual_format_spec.0.i = phi ptr [ %expanded_format_spec.i.sroa.0, %if.end12.i ], [ %format_spec.i, %if.end7.i ]
+  %actual_format_spec.0.i = phi ptr [ %expanded_format_spec.i, %if.end12.i ], [ %format_spec.i, %if.end7.i ]
   %tmp.1.i = phi ptr [ %call9.i, %if.end12.i ], [ null, %if.end7.i ]
   %50 = getelementptr i8, ptr %fieldobj.0.i, i64 8
   %fieldobj.val22.i.i = load ptr, ptr %50, align 8
@@ -64344,8 +64338,10 @@ if.end14.i.i:                                     ; preds = %if.else4.i.i
 if.then16.i.i:                                    ; preds = %if.end14.i.i, %if.else4.i.i, %if.else.i24.i, %if.end14.i
   %formatter.039.i.i = phi ptr [ @_PyComplex_FormatAdvancedWriter, %if.end14.i.i ], [ @_PyFloat_FormatAdvancedWriter, %if.else4.i.i ], [ @_PyLong_FormatAdvancedWriter, %if.else.i24.i ], [ @_PyUnicode_FormatAdvancedWriter, %if.end14.i ]
   %51 = load ptr, ptr %actual_format_spec.0.i, align 8
-  %52 = load i64, ptr %actual_format_spec.0.i.sroa.phi, align 8
-  %53 = load i64, ptr %actual_format_spec.0.i.sroa.phi14, align 8
+  %start.i32.i = getelementptr inbounds i8, ptr %actual_format_spec.0.i, i64 8
+  %52 = load i64, ptr %start.i32.i, align 8
+  %end.i33.i = getelementptr inbounds i8, ptr %actual_format_spec.0.i, i64 16
+  %53 = load i64, ptr %end.i33.i, align 8
   %call17.i.i = call i32 %formatter.039.i.i(ptr noundef nonnull %writer, ptr noundef nonnull %fieldobj.0.i, ptr noundef %51, i64 noundef %52, i64 noundef %53) #33, !callees !405
   %cmp.i34.i = icmp eq i32 %call17.i.i, 0
   %conv.i.i = zext i1 %cmp.i34.i to i32
@@ -64357,8 +64353,10 @@ if.else18.i.i:                                    ; preds = %if.end14.i.i
   br i1 %tobool20.not.i.i, label %if.end32.i.i, label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.else18.i.i
-  %55 = load i64, ptr %actual_format_spec.0.i.sroa.phi, align 8
-  %56 = load i64, ptr %actual_format_spec.0.i.sroa.phi14, align 8
+  %start23.i.i = getelementptr inbounds i8, ptr %actual_format_spec.0.i, i64 8
+  %55 = load i64, ptr %start23.i.i, align 8
+  %end24.i.i = getelementptr inbounds i8, ptr %actual_format_spec.0.i, i64 16
+  %56 = load i64, ptr %end24.i.i, align 8
   %call25.i.i = call ptr @PyUnicode_Substring(ptr noundef nonnull %54, i64 noundef %55, i64 noundef %56)
   %cmp29.i.i = icmp eq ptr %call25.i.i, null
   br i1 %cmp29.i.i, label %render_field.exit.i.thread, label %if.end32.i.i
@@ -64426,9 +64424,7 @@ output_markup.exit.thread:                        ; preds = %SubString_new_objec
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %first.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %index.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rest.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %expanded_format_spec.i.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %expanded_format_spec.i.sroa.4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %expanded_format_spec.i.sroa.7)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %expanded_format_spec.i)
   br label %do_markup.exit.thread
 
 if.then.i35.i:                                    ; preds = %if.then.i.i, %if.else.i23.i, %do_conversion.exit.i, %if.then8.i, %render_field.exit.i, %render_field.exit.i.thread
@@ -64471,9 +64467,7 @@ if.then1.i.i48.i:                                 ; preds = %if.end.i.i45.i
   br label %output_markup.exit
 
 output_markup.exit:                               ; preds = %Py_XDECREF.exit.i, %if.then.i42.i, %if.end.i.i45.i, %if.then1.i.i48.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %expanded_format_spec.i.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %expanded_format_spec.i.sroa.4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %expanded_format_spec.i.sroa.7)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %expanded_format_spec.i)
   br i1 %tobool30.not.i, label %do_markup.exit.thread, label %if.end33.i
 
 if.end33.i:                                       ; preds = %output_markup.exit, %if.end18.i
@@ -64492,7 +64486,7 @@ do_markup.exit.thread:                            ; preds = %if.end.i, %output_m
   br label %if.then2
 
 do_markup.exit:                                   ; preds = %if.end33.i, %if.end
-  %call1.i.lcssa = phi i32 [ %call1.i57, %if.end ], [ %call1.i, %if.end33.i ]
+  %call1.i.lcssa = phi i32 [ %call1.i47, %if.end ], [ %call1.i, %if.end33.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %format_spec_needs_expanding.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %field_present.i)

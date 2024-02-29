@@ -9367,6 +9367,10 @@ entry:
   %rhs.addr.i = alloca ptr, align 8
   %ref.tmp.i = alloca ptr, align 8
   %buffer = alloca %struct.mock_buffer, align 8
+  %buffer.sroa.gep266 = getelementptr inbounds i8, ptr %buffer, i64 32
+  %buffer.sroa.gep265 = getelementptr inbounds i8, ptr %buffer, i64 32
+  %buffer.sroa.gep264 = getelementptr inbounds i8, ptr %buffer, i64 32
+  %buffer.sroa.gep = getelementptr inbounds i8, ptr %buffer, i64 32
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca %"class.testing::Message", align 8
   %ref.tmp6 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -9382,6 +9386,10 @@ entry:
   %ref.tmp49 = alloca %"class.testing::internal::AssertHelper", align 8
   %dummy = alloca i32, align 4
   %buffer61 = alloca %struct.mock_buffer, align 8
+  %buffer61.sroa.gep269 = getelementptr inbounds i8, ptr %buffer61, i64 32
+  %buffer61.sroa.gep268 = getelementptr inbounds i8, ptr %buffer61, i64 32
+  %buffer61.sroa.gep267 = getelementptr inbounds i8, ptr %buffer61, i64 32
+  %buffer61.sroa.gep = getelementptr inbounds i8, ptr %buffer61, i64 32
   %gtest_ar62 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp63 = alloca ptr, align 8
   %ref.tmp64 = alloca ptr, align 8
@@ -9400,6 +9408,10 @@ entry:
   %dummy134 = alloca i32, align 4
   %capacity = alloca i64, align 8
   %buffer136 = alloca %struct.mock_buffer, align 8
+  %buffer136.sroa.gep272 = getelementptr inbounds i8, ptr %buffer136, i64 32
+  %buffer136.sroa.gep271 = getelementptr inbounds i8, ptr %buffer136, i64 32
+  %buffer136.sroa.gep270 = getelementptr inbounds i8, ptr %buffer136, i64 32
+  %buffer136.sroa.gep = getelementptr inbounds i8, ptr %buffer136, i64 32
   %gtest_ar137 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp138 = alloca ptr, align 8
   %ref.tmp139 = alloca ptr, align 8
@@ -9414,18 +9426,6 @@ entry:
   %ref.tmp186 = alloca i64, align 8
   %ref.tmp194 = alloca %"class.testing::Message", align 8
   %ref.tmp196 = alloca %"class.testing::internal::AssertHelper", align 8
-  %buffer136.sink.sroa.gep = getelementptr inbounds i8, ptr %buffer, i64 32
-  %buffer136.sink.sroa.gep264 = getelementptr inbounds i8, ptr %buffer, i64 32
-  %buffer136.sink.sroa.gep265 = getelementptr inbounds i8, ptr %buffer, i64 32
-  %buffer136.sink.sroa.gep266 = getelementptr inbounds i8, ptr %buffer, i64 32
-  %buffer136.sink.sroa.gep267 = getelementptr inbounds i8, ptr %buffer61, i64 32
-  %buffer136.sink.sroa.gep268 = getelementptr inbounds i8, ptr %buffer61, i64 32
-  %buffer136.sink.sroa.gep269 = getelementptr inbounds i8, ptr %buffer61, i64 32
-  %buffer136.sink.sroa.gep270 = getelementptr inbounds i8, ptr %buffer61, i64 32
-  %buffer136.sink.sroa.gep271 = getelementptr inbounds i8, ptr %buffer136, i64 32
-  %buffer136.sink.sroa.gep272 = getelementptr inbounds i8, ptr %buffer136, i64 32
-  %buffer136.sink.sroa.gep273 = getelementptr inbounds i8, ptr %buffer136, i64 32
-  %buffer136.sink.sroa.gep274 = getelementptr inbounds i8, ptr %buffer136, i64 32
   call void @_ZN11mock_bufferIiEC2EPim(ptr noundef nonnull align 8 dereferenceable(104) %buffer, ptr noundef null, i64 noundef 0)
   %ptr_.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %0 = load ptr, ptr %ptr_.i, align 8
@@ -10465,8 +10465,8 @@ ehcleanup206:                                     ; preds = %_ZN7testing7Message
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad140, %ehcleanup161, %ehcleanup184, %ehcleanup206, %lpad65, %ehcleanup86, %ehcleanup109, %ehcleanup132, %lpad, %ehcleanup13, %ehcleanup36, %ehcleanup59
-  %buffer136.sink.sroa.phi = phi ptr [ %buffer136.sink.sroa.gep, %ehcleanup59 ], [ %buffer136.sink.sroa.gep264, %ehcleanup36 ], [ %buffer136.sink.sroa.gep265, %ehcleanup13 ], [ %buffer136.sink.sroa.gep266, %lpad ], [ %buffer136.sink.sroa.gep267, %ehcleanup132 ], [ %buffer136.sink.sroa.gep268, %ehcleanup109 ], [ %buffer136.sink.sroa.gep269, %ehcleanup86 ], [ %buffer136.sink.sroa.gep270, %lpad65 ], [ %buffer136.sink.sroa.gep271, %ehcleanup206 ], [ %buffer136.sink.sroa.gep272, %ehcleanup184 ], [ %buffer136.sink.sroa.gep273, %ehcleanup161 ], [ %buffer136.sink.sroa.gep274, %lpad140 ]
   %.pn26.pn.pn.pn = phi { ptr, i32 } [ %.pn6.pn, %ehcleanup59 ], [ %.pn3.pn, %ehcleanup36 ], [ %.pn.pn, %ehcleanup13 ], [ %3, %lpad ], [ %.pn16.pn, %ehcleanup132 ], [ %.pn13.pn, %ehcleanup109 ], [ %.pn10.pn, %ehcleanup86 ], [ %40, %lpad65 ], [ %.pn26.pn, %ehcleanup206 ], [ %.pn23.pn, %ehcleanup184 ], [ %.pn20.pn, %ehcleanup161 ], [ %77, %lpad140 ]
+  %buffer136.sink.sroa.phi = phi ptr [ %buffer.sroa.gep, %ehcleanup59 ], [ %buffer.sroa.gep264, %ehcleanup36 ], [ %buffer.sroa.gep265, %ehcleanup13 ], [ %buffer.sroa.gep266, %lpad ], [ %buffer61.sroa.gep, %ehcleanup132 ], [ %buffer61.sroa.gep267, %ehcleanup109 ], [ %buffer61.sroa.gep268, %ehcleanup86 ], [ %buffer61.sroa.gep269, %lpad65 ], [ %buffer136.sroa.gep, %ehcleanup206 ], [ %buffer136.sroa.gep270, %ehcleanup184 ], [ %buffer136.sroa.gep271, %ehcleanup161 ], [ %buffer136.sroa.gep272, %lpad140 ]
   call void @_ZN7testing8internal14FunctionMockerIFmmEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %buffer136.sink.sroa.phi) #23
   resume { ptr, i32 } %.pn26.pn.pn.pn
 }

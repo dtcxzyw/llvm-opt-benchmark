@@ -161,7 +161,6 @@ lpad:                                             ; preds = %if.then.i, %invoke.
 
 if.end8:                                          ; preds = %invoke.cont6, %if.end4
   %in.addr.0 = phi ptr [ %clone, %invoke.cont6 ], [ %in, %if.end4 ]
-  %in.addr.0.sroa.phi = getelementptr inbounds i8, ptr %in.addr.0, i64 8
   %independent_ = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i8, ptr %independent_, align 4
   %5 = and i8 %4, 1
@@ -207,11 +206,11 @@ _ZNKSt14default_deleteIN5folly2io11StreamCodecEEclEPS2_.exit.i.i: ; preds = %_ZN
 _ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5folly2io11StreamCodecEEclEPS2_.exit.i.i, %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EEaSEOS5_.exit.i, %.noexc
   %.pre.i = load ptr, ptr %codec_.i, align 8
   %.pre = load i8, ptr %independent_, align 4
-  %.pre25 = and i8 %.pre, 1
+  %.pre22 = and i8 %.pre, 1
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit.i, %if.end8
-  %.pre-phi = phi i8 [ %.pre25, %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit.i ], [ %5, %if.end8 ]
+  %.pre-phi = phi i8 [ %.pre22, %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit.i ], [ %5, %if.end8 ]
   %13 = phi ptr [ %.pre.i, %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit.i ], [ %7, %if.end8 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %tobool14.not = icmp eq i8 %.pre-phi, 0
@@ -236,7 +235,8 @@ invoke.cont23:                                    ; preds = %if.end20
           to label %invoke.cont36 unwind label %lpad
 
 invoke.cont36:                                    ; preds = %invoke.cont23
-  %16 = load ptr, ptr %in.addr.0.sroa.phi, align 8
+  %data_.i = getelementptr inbounds i8, ptr %in.addr.0, i64 8
+  %16 = load ptr, ptr %data_.i, align 8
   %17 = load i64, ptr %in.addr.0, align 8
   store ptr %16, ptr %inrange, align 8
   %e_.i = getelementptr inbounds i8, ptr %inrange, i64 8

@@ -54,7 +54,6 @@ entry:
   %alen.i = alloca i64, align 8
   %blen.i = alloca i64, align 8
   %sa.i = alloca %union.anon, align 4
-  %.sink.i.sroa.gep18 = getelementptr inbounds i8, ptr %sa.i, i64 4
   %shr = ashr i32 %idx, 1
   %idxprom = sext i32 %shr to i64
   %arrayidx = getelementptr inbounds [3 x i32], ptr @families, i64 0, i64 %idxprom
@@ -67,11 +66,9 @@ entry:
   ]
 
 sw.bb1.i:                                         ; preds = %entry
-  %.sink.i.sroa.gep17 = getelementptr inbounds i8, ptr %sa.i, i64 8
   br label %sw.epilog.i
 
 sw.bb2.i:                                         ; preds = %entry
-  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %sa.i, i64 2
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %entry
@@ -79,16 +76,17 @@ sw.default.i:                                     ; preds = %entry
   br label %make_dummy_addr.exit
 
 sw.epilog.i:                                      ; preds = %sw.bb2.i, %sw.bb1.i, %entry
-  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %sw.bb2.i ], [ %.sink.i.sroa.gep17, %sw.bb1.i ], [ %.sink.i.sroa.gep18, %entry ]
+  %.sink.i = phi i64 [ 2, %sw.bb2.i ], [ 8, %sw.bb1.i ], [ 4, %entry ]
   %wherelen.0.i = phi i64 [ 107, %sw.bb2.i ], [ 16, %sw.bb1.i ], [ 4, %entry ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %.sink.i.sroa.phi, i8 97, i64 %wherelen.0.i, i1 false)
+  %sun_path.i = getelementptr inbounds i8, ptr %sa.i, i64 %.sink.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %sun_path.i, i8 97, i64 %wherelen.0.i, i1 false)
   %call.i = tail call ptr @BIO_ADDR_new() #5
   %call3.i = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 70, ptr noundef nonnull @.str.8, ptr noundef %call.i) #5
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %make_dummy_addr.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.epilog.i
-  %call4.i = call i32 @BIO_ADDR_rawmake(ptr noundef %call.i, i32 noundef %0, ptr noundef nonnull %.sink.i.sroa.phi, i64 noundef %wherelen.0.i, i16 noundef zeroext 1000) #5
+  %call4.i = call i32 @BIO_ADDR_rawmake(ptr noundef %call.i, i32 noundef %0, ptr noundef nonnull %sun_path.i, i64 noundef %wherelen.0.i, i16 noundef zeroext 1000) #5
   %cmp.i = icmp ne i32 %call4.i, 0
   %conv.i = zext i1 %cmp.i to i32
   %call5.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 73, ptr noundef nonnull @.str.9, i32 noundef %conv.i) #5

@@ -7344,12 +7344,12 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ret = alloca %"class.std::shared_ptr.83", align 8
   %ref.tmp16 = alloca %"class.std::shared_ptr.71", align 8
+  %ref.tmp16.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
   %_openvdb_throw_msg28 = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os29 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp53 = alloca %"class.std::shared_ptr.83", align 8
-  %ref.tmp53.sink109.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp53, i64 8
-  %ref.tmp53.sink109.sroa.gep110 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
+  %ref.tmp53.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp53, i64 8
   %mImpl.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %mImpl.i, align 8
   %mIsOpen.i = getelementptr inbounds i8, ptr %0, i64 72
@@ -7519,8 +7519,8 @@ if.end51:                                         ; preds = %invoke.cont19
           to label %if.end56 unwind label %lpad12
 
 if.end56:                                         ; preds = %if.end51, %_ZNSt10shared_ptrIKN7openvdb5v11_08GridBaseEEaSIS2_EENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS3_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS4_E4typeEOSD_.exit
-  %ref.tmp53.sink109.sroa.phi = phi ptr [ %ref.tmp53.sink109.sroa.gep110, %_ZNSt10shared_ptrIKN7openvdb5v11_08GridBaseEEaSIS2_EENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS3_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS4_E4typeEOSD_.exit ], [ %ref.tmp53.sink109.sroa.gep, %if.end51 ]
   %ref.tmp53.sink109 = phi ptr [ %ref.tmp16, %_ZNSt10shared_ptrIKN7openvdb5v11_08GridBaseEEaSIS2_EENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS3_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS4_E4typeEOSD_.exit ], [ %ref.tmp53, %if.end51 ]
+  %ref.tmp53.sink109.sroa.phi = phi ptr [ %ref.tmp16.sroa.gep, %_ZNSt10shared_ptrIKN7openvdb5v11_08GridBaseEEaSIS2_EENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS3_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS4_E4typeEOSD_.exit ], [ %ref.tmp53.sroa.gep, %if.end51 ]
   %17 = load ptr, ptr %ref.tmp53.sink109, align 8
   %18 = load ptr, ptr %ref.tmp53.sink109.sroa.phi, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp53.sink109, i8 0, i64 16, i1 false)
@@ -7655,10 +7655,10 @@ entry:
   %parent = alloca %"class.std::shared_ptr.71", align 8
   %indexBBox = alloca %"class.openvdb::v11_0::math::CoordBBox", align 4
   %ref.tmp129 = alloca %"class.std::shared_ptr.71", align 8
+  %ref.tmp129.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp129, i64 8
   %ref.tmp134 = alloca %"class.std::shared_ptr.71", align 8
+  %ref.tmp134.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp134, i64 8
   %agg.tmp = alloca %"class.std::shared_ptr.86", align 8
-  %ref.tmp134.sink351.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp134, i64 8
-  %ref.tmp134.sink351.sroa.gep352 = getelementptr inbounds i8, ptr %ref.tmp129, i64 8
   %mImpl.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %mImpl.i, align 8
   %mIsOpen.i = getelementptr inbounds i8, ptr %0, i64 72
@@ -8389,8 +8389,8 @@ lpad.i.i181:                                      ; preds = %invoke.cont1.i.i183
   br label %ehcleanup151
 
 if.end139:                                        ; preds = %invoke.cont1.i.i183, %invoke.cont1.i.i111
-  %ref.tmp134.sink351.sroa.phi = phi ptr [ %ref.tmp134.sink351.sroa.gep352, %invoke.cont1.i.i111 ], [ %ref.tmp134.sink351.sroa.gep, %invoke.cont1.i.i183 ]
   %ref.tmp134.sink351 = phi ptr [ %ref.tmp129, %invoke.cont1.i.i111 ], [ %ref.tmp134, %invoke.cont1.i.i183 ]
+  %ref.tmp134.sink351.sroa.phi = phi ptr [ %ref.tmp129.sroa.gep, %invoke.cont1.i.i111 ], [ %ref.tmp134.sroa.gep, %invoke.cont1.i.i183 ]
   %87 = load ptr, ptr %ref.tmp134.sink351, align 8
   %88 = load ptr, ptr %ref.tmp134.sink351.sroa.phi, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp134.sink351, i8 0, i64 16, i1 false)

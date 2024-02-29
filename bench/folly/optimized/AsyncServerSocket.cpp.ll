@@ -12086,28 +12086,24 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %.sink.sroa.gep11 = getelementptr inbounds i8, ptr %ref.tmp3, i64 23
   %0 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store ptr %0, ptr %ref.tmp3, align 8, !tbaa !57, !alias.scope !472
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %0, ptr noundef nonnull align 1 dereferenceable(7) @.str.36, i64 7, i1 false)
   br label %invoke.cont.sink.split
 
 sw.bb1.i:                                         ; preds = %entry
-  %.sink.sroa.gep10 = getelementptr inbounds i8, ptr %ref.tmp3, i64 24
   %1 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store ptr %1, ptr %ref.tmp3, align 8, !tbaa !57, !alias.scope !472
   store i64 3914830178632549953, ptr %1, align 8, !alias.scope !472
   br label %invoke.cont.sink.split
 
 sw.bb5.i:                                         ; preds = %entry
-  %.sink.sroa.gep9 = getelementptr inbounds i8, ptr %ref.tmp3, i64 25
   %2 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store ptr %2, ptr %ref.tmp3, align 8, !tbaa !57, !alias.scope !472
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %2, ptr noundef nonnull align 1 dereferenceable(9) @.str.38, i64 9, i1 false)
   br label %invoke.cont.sink.split
 
 sw.bb9.i:                                         ; preds = %entry
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp3, i64 23
   %3 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store ptr %3, ptr %ref.tmp3, align 8, !tbaa !57, !alias.scope !472
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %3, ptr noundef nonnull align 1 dereferenceable(7) @.str.39, i64 7, i1 false)
@@ -12119,10 +12115,11 @@ sw.default.i:                                     ; preds = %entry
 
 invoke.cont.sink.split:                           ; preds = %sw.bb9.i, %sw.bb5.i, %sw.bb1.i, %sw.bb.i
   %.sink8 = phi i64 [ 7, %sw.bb9.i ], [ 9, %sw.bb5.i ], [ 8, %sw.bb1.i ], [ 7, %sw.bb.i ]
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %sw.bb9.i ], [ %.sink.sroa.gep9, %sw.bb5.i ], [ %.sink.sroa.gep10, %sw.bb1.i ], [ %.sink.sroa.gep11, %sw.bb.i ]
+  %.sink = phi i64 [ 23, %sw.bb9.i ], [ 25, %sw.bb5.i ], [ 24, %sw.bb1.i ], [ 23, %sw.bb.i ]
   %_M_string_length.i.i.i.i45.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store i64 %.sink8, ptr %_M_string_length.i.i.i.i45.i, align 8, !tbaa !59, !alias.scope !472
-  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !61, !alias.scope !472
+  %arrayidx.i.i.i46.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 %.sink
+  store i8 0, ptr %arrayidx.i.i.i46.i, align 1, !tbaa !61, !alias.scope !472
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.cont.sink.split, %sw.default.i

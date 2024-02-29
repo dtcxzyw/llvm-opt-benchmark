@@ -321,7 +321,6 @@ entry:
   %sha = alloca %struct.wc_Sha256, align 16
   %hash = alloca [28 x i8], align 16
   %test_sha = alloca [2 x %struct.testVector], align 16
-  %indvars.iv.sroa.gep = getelementptr inbounds i8, ptr %test_sha, i64 32
   store ptr @.str.24, ptr %test_sha, align 16
   %a.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 8
   store ptr @.str.41, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
@@ -339,10 +338,10 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp10 = phi i1 [ false, %for.inc ], [ true, %entry ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.inc ], [ %test_sha, %entry ]
-  %indvars.iv.neg = phi i32 [ -11, %for.inc ], [ -10, %entry ]
-  %0 = load ptr, ptr %indvars.iv.sroa.phi, align 16
-  %inLen15 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 16
+  %indvars.iv = phi i64 [ 1, %for.inc ], [ 0, %entry ]
+  %arrayidx11 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv
+  %0 = load ptr, ptr %arrayidx11, align 16
+  %inLen15 = getelementptr inbounds i8, ptr %arrayidx11, i64 16
   %1 = load i64, ptr %inLen15, align 16
   %conv = trunc i64 %1 to i32
   %call16 = call i32 @wc_Sha224Update(ptr noundef nonnull %sha, ptr noundef %0, i32 noundef %conv) #5
@@ -355,11 +354,16 @@ if.end20:                                         ; preds = %for.body
   br i1 %cmp22.not, label %if.end25, label %return
 
 if.end25:                                         ; preds = %if.end20
-  %output29 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 8
+  %output29 = getelementptr inbounds i8, ptr %arrayidx11, i64 8
   %2 = load ptr, ptr %output29, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %hash, ptr noundef nonnull dereferenceable(28) %2, i64 28)
   %cmp31.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp31.not, label %for.inc, label %return
+  br i1 %cmp31.not, label %for.inc, label %if.then33
+
+if.then33:                                        ; preds = %if.end25
+  %3 = trunc i64 %indvars.iv to i32
+  %sub = sub nuw nsw i32 -10, %3
+  br label %return
 
 for.inc:                                          ; preds = %if.end25
   br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !9
@@ -368,8 +372,8 @@ for.end:                                          ; preds = %for.inc
   call void @wc_Sha224Free(ptr noundef nonnull %sha) #5
   br label %return
 
-return:                                           ; preds = %if.end20, %for.body, %if.end25, %entry, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ -4005, %entry ], [ %indvars.iv.neg, %if.end25 ], [ %call21, %if.end20 ], [ %call16, %for.body ]
+return:                                           ; preds = %if.end20, %for.body, %entry, %for.end, %if.then33
+  %retval.0 = phi i32 [ %sub, %if.then33 ], [ 0, %for.end ], [ -4005, %entry ], [ %call21, %if.end20 ], [ %call16, %for.body ]
   ret i32 %retval.0
 }
 
@@ -379,7 +383,6 @@ entry:
   %sha = alloca %struct.wc_Sha256, align 16
   %hash = alloca [32 x i8], align 16
   %test_sha = alloca [2 x %struct.testVector], align 16
-  %indvars.iv.sroa.gep = getelementptr inbounds i8, ptr %test_sha, i64 32
   store ptr @.str.24, ptr %test_sha, align 16
   %a.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 8
   store ptr @.str.43, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
@@ -397,10 +400,10 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp14 = phi i1 [ false, %for.inc ], [ true, %entry ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.inc ], [ %test_sha, %entry ]
-  %indvars.iv.neg = phi i32 [ -11, %for.inc ], [ -10, %entry ]
-  %0 = load ptr, ptr %indvars.iv.sroa.phi, align 16
-  %inLen19 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 16
+  %indvars.iv = phi i64 [ 1, %for.inc ], [ 0, %entry ]
+  %arrayidx15 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv
+  %0 = load ptr, ptr %arrayidx15, align 16
+  %inLen19 = getelementptr inbounds i8, ptr %arrayidx15, i64 16
   %1 = load i64, ptr %inLen19, align 16
   %conv = trunc i64 %1 to i32
   %call20 = call i32 @wc_Sha256Update(ptr noundef nonnull %sha, ptr noundef %0, i32 noundef %conv) #5
@@ -413,11 +416,16 @@ if.end24:                                         ; preds = %for.body
   br i1 %cmp26.not, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.end24
-  %output33 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 8
+  %output33 = getelementptr inbounds i8, ptr %arrayidx15, i64 8
   %2 = load ptr, ptr %output33, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %hash, ptr noundef nonnull dereferenceable(32) %2, i64 32)
   %cmp35.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp35.not, label %for.inc, label %return
+  br i1 %cmp35.not, label %for.inc, label %if.then37
+
+if.then37:                                        ; preds = %if.end29
+  %3 = trunc i64 %indvars.iv to i32
+  %sub = sub nuw nsw i32 -10, %3
+  br label %return
 
 for.inc:                                          ; preds = %if.end29
   br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !10
@@ -426,8 +434,8 @@ for.end:                                          ; preds = %for.inc
   call void @wc_Sha256Free(ptr noundef nonnull %sha) #5
   br label %return
 
-return:                                           ; preds = %if.end24, %for.body, %if.end29, %entry, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ %call13, %entry ], [ %indvars.iv.neg, %if.end29 ], [ %call25, %if.end24 ], [ %call20, %for.body ]
+return:                                           ; preds = %if.end24, %for.body, %entry, %for.end, %if.then37
+  %retval.0 = phi i32 [ %sub, %if.then37 ], [ 0, %for.end ], [ %call13, %entry ], [ %call25, %if.end24 ], [ %call20, %for.body ]
   ret i32 %retval.0
 }
 
@@ -437,7 +445,6 @@ entry:
   %sha = alloca %struct.wc_Sha512, align 8
   %hash = alloca [64 x i8], align 16
   %test_sha = alloca [2 x %struct.testVector], align 16
-  %indvars.iv.sroa.gep = getelementptr inbounds i8, ptr %test_sha, i64 32
   store ptr @.str.24, ptr %test_sha, align 16
   %a.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 8
   store ptr @.str.45, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
@@ -455,10 +462,10 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp14 = phi i1 [ false, %for.inc ], [ true, %entry ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.inc ], [ %test_sha, %entry ]
-  %indvars.iv.neg = phi i32 [ -11, %for.inc ], [ -10, %entry ]
-  %0 = load ptr, ptr %indvars.iv.sroa.phi, align 16
-  %inLen19 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 16
+  %indvars.iv = phi i64 [ 1, %for.inc ], [ 0, %entry ]
+  %arrayidx15 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv
+  %0 = load ptr, ptr %arrayidx15, align 16
+  %inLen19 = getelementptr inbounds i8, ptr %arrayidx15, i64 16
   %1 = load i64, ptr %inLen19, align 16
   %conv = trunc i64 %1 to i32
   %call20 = call i32 @wc_Sha512Update(ptr noundef nonnull %sha, ptr noundef %0, i32 noundef %conv) #5
@@ -471,11 +478,16 @@ if.end24:                                         ; preds = %for.body
   br i1 %cmp26.not, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.end24
-  %output33 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 8
+  %output33 = getelementptr inbounds i8, ptr %arrayidx15, i64 8
   %2 = load ptr, ptr %output33, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %hash, ptr noundef nonnull dereferenceable(64) %2, i64 64)
   %cmp35.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp35.not, label %for.inc, label %return
+  br i1 %cmp35.not, label %for.inc, label %if.then37
+
+if.then37:                                        ; preds = %if.end29
+  %3 = trunc i64 %indvars.iv to i32
+  %sub = sub nuw nsw i32 -10, %3
+  br label %return
 
 for.inc:                                          ; preds = %if.end29
   br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !11
@@ -484,8 +496,8 @@ for.end:                                          ; preds = %for.inc
   call void @wc_Sha512Free(ptr noundef nonnull %sha) #5
   br label %return
 
-return:                                           ; preds = %if.end24, %for.body, %if.end29, %entry, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ %call13, %entry ], [ %indvars.iv.neg, %if.end29 ], [ %call25, %if.end24 ], [ %call20, %for.body ]
+return:                                           ; preds = %if.end24, %for.body, %entry, %for.end, %if.then37
+  %retval.0 = phi i32 [ %sub, %if.then37 ], [ 0, %for.end ], [ %call13, %entry ], [ %call25, %if.end24 ], [ %call20, %for.body ]
   ret i32 %retval.0
 }
 
@@ -495,7 +507,6 @@ entry:
   %sha = alloca %struct.wc_Sha512, align 8
   %hash = alloca [48 x i8], align 16
   %test_sha = alloca [2 x %struct.testVector], align 16
-  %indvars.iv.sroa.gep = getelementptr inbounds i8, ptr %test_sha, i64 32
   store ptr @.str.24, ptr %test_sha, align 16
   %a.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %test_sha, i64 8
   store ptr @.str.48, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
@@ -513,10 +524,10 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp14 = phi i1 [ false, %for.inc ], [ true, %entry ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.inc ], [ %test_sha, %entry ]
-  %indvars.iv.neg = phi i32 [ -11, %for.inc ], [ -10, %entry ]
-  %0 = load ptr, ptr %indvars.iv.sroa.phi, align 16
-  %inLen19 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 16
+  %indvars.iv = phi i64 [ 1, %for.inc ], [ 0, %entry ]
+  %arrayidx15 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv
+  %0 = load ptr, ptr %arrayidx15, align 16
+  %inLen19 = getelementptr inbounds i8, ptr %arrayidx15, i64 16
   %1 = load i64, ptr %inLen19, align 16
   %conv = trunc i64 %1 to i32
   %call20 = call i32 @wc_Sha384Update(ptr noundef nonnull %sha, ptr noundef %0, i32 noundef %conv) #5
@@ -529,11 +540,16 @@ if.end24:                                         ; preds = %for.body
   br i1 %cmp26.not, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.end24
-  %output33 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 8
+  %output33 = getelementptr inbounds i8, ptr %arrayidx15, i64 8
   %2 = load ptr, ptr %output33, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %hash, ptr noundef nonnull dereferenceable(48) %2, i64 48)
   %cmp35.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp35.not, label %for.inc, label %return
+  br i1 %cmp35.not, label %for.inc, label %if.then37
+
+if.then37:                                        ; preds = %if.end29
+  %3 = trunc i64 %indvars.iv to i32
+  %sub = sub nuw nsw i32 -10, %3
+  br label %return
 
 for.inc:                                          ; preds = %if.end29
   br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !12
@@ -542,8 +558,8 @@ for.end:                                          ; preds = %for.inc
   call void @wc_Sha384Free(ptr noundef nonnull %sha) #5
   br label %return
 
-return:                                           ; preds = %if.end24, %for.body, %if.end29, %entry, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ %call13, %entry ], [ %indvars.iv.neg, %if.end29 ], [ %call25, %if.end24 ], [ %call20, %for.body ]
+return:                                           ; preds = %if.end24, %for.body, %entry, %for.end, %if.then37
+  %retval.0 = phi i32 [ %sub, %if.then37 ], [ 0, %for.end ], [ %call13, %entry ], [ %call25, %if.end24 ], [ %call20, %for.body ]
   ret i32 %retval.0
 }
 

@@ -780,8 +780,6 @@ entry:
   %agg.tmp12 = alloca %class.anon, align 8
   %agg.tmp13 = alloca %"class.grpc_core::ArenaPromise", align 16
   %agg.tmp14 = alloca %"struct.grpc_core::CallArgs", align 8
-  %.sink18.i.i.i.i.i.i.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
-  %.sink18.i.i.i.i.i.i.i.sroa.gep36 = getelementptr inbounds i8, ptr %ref.tmp8, i64 32
   call void @_ZN9grpc_core20FaultInjectionFilter21MakeInjectionDecisionERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEE(ptr nonnull sret(%"class.grpc_core::FaultInjectionFilter::InjectionDecision") align 8 %decision, ptr noundef nonnull align 16 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %call_args)
   %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core33grpc_fault_injection_filter_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %1 = and i8 %0, 1
@@ -1007,18 +1005,20 @@ invoke.cont16:                                    ; preds = %if.end.i
   %32 = load ptr, ptr %closure_3.i.i.i.i.i.i, align 8, !noalias !12
   store ptr null, ptr %closure_3.i.i.i.i.i.i, align 8, !noalias !12
   store ptr %32, ptr %closure_.i.i.i.i.i.i, align 8, !alias.scope !12
+  %next_factory.i.i.i = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.thread.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 _ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.thread.i.i.i.i: ; preds = %invoke.cont16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sink18.i.i.i.i.i.i.i.sroa.gep, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %next_factory.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12, i64 16, i1 false)
   br label %invoke.cont18
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont16
   %abort_request_3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp12, i64 16
   %33 = load i64, ptr %abort_request_3.i.i.i.i.i.i, align 8, !noalias !12
   store i64 54, ptr %abort_request_3.i.i.i.i.i.i, align 8, !noalias !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sink18.i.i.i.i.i.i.i.sroa.gep, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12, i64 16, i1 false)
-  store i64 %33, ptr %.sink18.i.i.i.i.i.i.i.sroa.gep36, align 16, !alias.scope !12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %next_factory.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12, i64 16, i1 false)
+  %abort_request_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp8, i64 32
+  store i64 %33, ptr %abort_request_.i.i.i.i.i.i.i, align 16, !alias.scope !12
   br label %invoke.cont18
 
 invoke.cont18:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.thread.i.i.i.i
@@ -1103,7 +1103,7 @@ sw.bb6.i.i.i.i.i.i.i:                             ; preds = %_ZN9grpc_core5Arena
 
 tail0.i.i.i.i.i.i.i:                              ; preds = %sw.bb.i.i.i.i.i.i.i, %_ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i
   %next_factory.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %next_factory.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %.sink18.i.i.i.i.i.i.i.sroa.gep, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %next_factory.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %next_factory.i.i.i, i64 16, i1 false)
   %_M_engaged.i.i.i.i.i.i.i.i.i7.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 40
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i7.i.i.i.i.i.i.i, align 8
   %45 = load i8, ptr %34, align 8
@@ -1112,14 +1112,14 @@ tail0.i.i.i.i.i.i.i:                              ; preds = %sw.bb.i.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i8.i.i.i.i.i.i.i, label %tail1.i.i.i.i.i.i.i, label %tail1.sink.split.i.i.i.i.i.i.i
 
 tail1.sink.split.i.i.i.i.i.i.i:                   ; preds = %tail0.i.i.i.i.i.i.i, %sw.bb5.i.i.i.i.i.i.i
-  %.sink18.i.i.i.i.i.i.i.sroa.phi = phi ptr [ %.sink18.i.i.i.i.i.i.i.sroa.gep, %sw.bb5.i.i.i.i.i.i.i ], [ %.sink18.i.i.i.i.i.i.i.sroa.gep36, %tail0.i.i.i.i.i.i.i ]
   %.sink18.i.i.i.i.i.i.i = phi i64 [ 16, %sw.bb5.i.i.i.i.i.i.i ], [ 32, %tail0.i.i.i.i.i.i.i ]
   %_M_engaged.i.i.i.i.i.i.i.i.i7.sink.i.i.i.i.i.i.i = phi ptr [ %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb5.i.i.i.i.i.i.i ], [ %_M_engaged.i.i.i.i.i.i.i.i.i7.i.i.i.i.i.i.i, %tail0.i.i.i.i.i.i.i ]
   %.sink16.ph.i.i.i.i.i.i.i = phi i64 [ 32, %sw.bb5.i.i.i.i.i.i.i ], [ 48, %tail0.i.i.i.i.i.i.i ]
   %abort_request_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 %.sink18.i.i.i.i.i.i.i
-  %47 = load i64, ptr %.sink18.i.i.i.i.i.i.i.sroa.phi, align 8
+  %abort_request_3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp8, i64 %.sink18.i.i.i.i.i.i.i
+  %47 = load i64, ptr %abort_request_3.i.i.i.i.i.i.i.i.i.i.i, align 16
   store i64 %47, ptr %abort_request_.i.i.i.i.i.i.i.i.i.i.i, align 8
-  store i64 54, ptr %.sink18.i.i.i.i.i.i.i.sroa.phi, align 8
+  store i64 54, ptr %abort_request_3.i.i.i.i.i.i.i.i.i.i.i, align 16
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i7.sink.i.i.i.i.i.i.i, align 8
   br label %tail1.i.i.i.i.i.i.i
 

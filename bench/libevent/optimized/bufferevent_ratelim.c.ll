@@ -118,18 +118,16 @@ entry:
 define dso_local ptr @ev_token_bucket_cfg_new(i64 noundef %read_rate, i64 noundef %read_burst, i64 noundef %write_rate, i64 noundef %write_burst, ptr noundef readonly %tick_len) local_unnamed_addr #2 {
 entry:
   %g = alloca %struct.timeval, align 8
-  %tick_len.addr.0.sroa.gep27 = getelementptr inbounds i8, ptr %tick_len, i64 8
   %tobool.not = icmp eq ptr %tick_len, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %tick_len.addr.0.sroa.gep28 = getelementptr inbounds i8, ptr %g, i64 8
   store i64 1, ptr %g, align 8
-  store i64 0, ptr %tick_len.addr.0.sroa.gep28, align 8
+  %tv_usec = getelementptr inbounds i8, ptr %g, i64 8
+  store i64 0, ptr %tv_usec, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %tick_len.addr.0.sroa.phi26 = phi ptr [ %tick_len.addr.0.sroa.gep27, %entry ], [ %tick_len.addr.0.sroa.gep28, %if.then ]
   %tick_len.addr.0 = phi ptr [ %tick_len, %entry ], [ %g, %if.then ]
   %cmp = icmp ugt i64 %read_rate, %read_burst
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -164,13 +162,14 @@ if.end19:                                         ; preds = %if.end16
   %tick_timeout = getelementptr inbounds i8, ptr %call, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tick_timeout, ptr noundef nonnull align 8 dereferenceable(16) %tick_len.addr.0, i64 16, i1 false)
   %5 = load i64, ptr %tick_len.addr.0, align 8
-  %6 = load i64, ptr %tick_len.addr.0.sroa.phi26, align 8
+  %tv_usec23 = getelementptr inbounds i8, ptr %tick_len.addr.0, i64 8
+  %6 = load i64, ptr %tv_usec23, align 8
   %7 = trunc i64 %6 to i32
   %div.lhs.trunc = and i32 %7, 1048568
-  %div29 = udiv i32 %div.lhs.trunc, 1000
+  %div25 = udiv i32 %div.lhs.trunc, 1000
   %8 = trunc i64 %5 to i32
   %9 = mul i32 %8, 1000
-  %conv = add i32 %div29, %9
+  %conv = add i32 %div25, %9
   %msec_per_tick = getelementptr inbounds i8, ptr %call, i64 48
   store i32 %conv, ptr %msec_per_tick, align 8
   br label %return

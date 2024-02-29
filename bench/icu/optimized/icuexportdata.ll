@@ -2992,7 +2992,6 @@ entry:
   %ref.tmp481.sroa.5 = alloca [3 x i8], align 1
   %ref.tmp548.sroa.5 = alloca [3 x i8], align 1
   %utrie = alloca %"class.icu_75::LocalUCPTriePointer", align 8
-  %indvars.iv.sroa.gep = getelementptr inbounds i8, ptr %utf32, i64 4
   %errorCode.i.i = getelementptr inbounds i8, ptr %status, i64 8
   store i32 0, ptr %errorCode.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 0, inrange i32 0, i64 2), ptr %status, align 8
@@ -4090,8 +4089,9 @@ for.body384.preheader:                            ; preds = %land.lhs.true377, %
 
 for.body384:                                      ; preds = %for.body384.preheader, %for.inc
   %cmp383 = phi i1 [ false, %for.inc ], [ true, %for.body384.preheader ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.inc ], [ %utf32, %for.body384.preheader ]
-  %97 = load i32, ptr %indvars.iv.sroa.phi, align 4
+  %indvars.iv = phi i64 [ 1, %for.inc ], [ 0, %for.body384.preheader ]
+  %arrayidx385 = getelementptr inbounds [20 x i32], ptr %utf32, i64 0, i64 %indvars.iv
+  %97 = load i32, ptr %arrayidx385, align 4
   %cmp386 = icmp eq i32 %97, 837
   br i1 %cmp386, label %land.lhs.true387, label %lor.lhs.false390
 

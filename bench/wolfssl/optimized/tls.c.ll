@@ -6114,8 +6114,6 @@ define i32 @TLSX_GetRequestSize(ptr noundef %ssl, i8 noundef zeroext %msgType, p
 entry:
   %length = alloca i16, align 2
   %semaphore = alloca [9 x i8], align 1
-  %.sink38.sroa.gep = getelementptr inbounds i8, ptr %semaphore, i64 1
-  %.sink38.sroa.gep39 = getelementptr inbounds i8, ptr %semaphore, i64 6
   store i16 0, ptr %length, align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %semaphore, i8 0, i64 9, i1 false)
   %tobool.not.i = icmp eq ptr %ssl, null
@@ -6186,9 +6184,10 @@ if.then60:                                        ; preds = %if.else
   br label %if.end76.sink.split
 
 if.end76.sink.split:                              ; preds = %if.end38, %if.then60
-  %.sink38.sroa.phi = phi ptr [ %.sink38.sroa.gep, %if.then60 ], [ %.sink38.sroa.gep39, %if.end38 ]
+  %.sink38 = phi i64 [ 1, %if.then60 ], [ 6, %if.end38 ]
   %.sink = phi i8 [ -33, %if.then60 ], [ 8, %if.end38 ]
-  store i8 %.sink, ptr %.sink38.sroa.phi, align 1
+  %arrayidx72 = getelementptr inbounds i8, ptr %semaphore, i64 %.sink38
+  store i8 %.sink, ptr %arrayidx72, align 1
   br label %if.end76
 
 if.end76:                                         ; preds = %if.end76.sink.split, %if.else, %if.end38
@@ -6581,8 +6580,6 @@ define noundef i32 @TLSX_WriteRequest(ptr noundef %ssl, ptr noundef %output, i8 
 entry:
   %offset = alloca i16, align 2
   %semaphore = alloca [9 x i8], align 1
-  %.sink48.sroa.gep = getelementptr inbounds i8, ptr %semaphore, i64 1
-  %.sink48.sroa.gep49 = getelementptr inbounds i8, ptr %semaphore, i64 6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %semaphore, i8 0, i64 9, i1 false)
   %tobool.not.i = icmp eq ptr %ssl, null
   br i1 %tobool.not.i, label %return, label %land.rhs.i
@@ -6659,9 +6656,10 @@ if.then63:                                        ; preds = %if.else
   br label %if.end79.sink.split
 
 if.end79.sink.split:                              ; preds = %if.end41, %if.then63
-  %.sink48.sroa.phi = phi ptr [ %.sink48.sroa.gep, %if.then63 ], [ %.sink48.sroa.gep49, %if.end41 ]
+  %.sink48 = phi i64 [ 1, %if.then63 ], [ 6, %if.end41 ]
   %.sink = phi i8 [ -33, %if.then63 ], [ 8, %if.end41 ]
-  store i8 %.sink, ptr %.sink48.sroa.phi, align 1
+  %arrayidx75 = getelementptr inbounds i8, ptr %semaphore, i64 %.sink48
+  store i8 %.sink, ptr %arrayidx75, align 1
   br label %if.end79
 
 if.end79:                                         ; preds = %if.end79.sink.split, %if.else, %if.end41

@@ -11581,13 +11581,13 @@ entry:
   %controlStreamID = alloca %"class.folly::Optional.40", align 8
   %ref.tmp92 = alloca %"class.google::LogMessage", align 8
   %ex = alloca %"class.proxygen::HTTPException", align 8
+  %ex.sroa.gep = getelementptr inbounds i8, ptr %ex, i64 8
   %ref.tmp120 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp152 = alloca %"class.google::LogMessage", align 8
   %ex180 = alloca %"class.proxygen::HTTPException", align 8
+  %ex180.sroa.gep = getelementptr inbounds i8, ptr %ex180, i64 8
   %ref.tmp181 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp211 = alloca %"class.std::unique_ptr.260", align 8
-  %ex.sink140.sroa.gep = getelementptr inbounds i8, ptr %ex, i64 8
-  %ex.sink140.sroa.gep141 = getelementptr inbounds i8, ptr %ex180, i64 8
   store i64 %streamID, ptr %streamID.addr, align 8
   %0 = load ptr, ptr @_ZZN8proxygen11HTTPSession17onHeadersCompleteEmSt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EEE8vlocal__, align 8
   %cmp = icmp eq ptr %0, null
@@ -12363,8 +12363,8 @@ lpad212:                                          ; preds = %if.end210
   br label %ehcleanup
 
 if.then.i124.sink.split:                          ; preds = %_ZN8proxygen13HTTPExceptionD2Ev.exit117, %_ZN8proxygen13HTTPExceptionD2Ev.exit
-  %ex.sink140.sroa.phi = phi ptr [ %ex.sink140.sroa.gep, %_ZN8proxygen13HTTPExceptionD2Ev.exit ], [ %ex.sink140.sroa.gep141, %_ZN8proxygen13HTTPExceptionD2Ev.exit117 ]
   %ex.sink140 = phi ptr [ %ex, %_ZN8proxygen13HTTPExceptionD2Ev.exit ], [ %ex180, %_ZN8proxygen13HTTPExceptionD2Ev.exit117 ]
+  %ex.sink140.sroa.phi = phi ptr [ %ex.sroa.gep, %_ZN8proxygen13HTTPExceptionD2Ev.exit ], [ %ex180.sroa.gep, %_ZN8proxygen13HTTPExceptionD2Ev.exit117 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ex.sink140.sroa.phi) #39
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ex.sink140) #39
   br label %if.then.i124

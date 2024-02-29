@@ -9259,10 +9259,10 @@ entry:
   %ref.tmp78 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp96 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp98 = alloca %"class.rocksdb::Slice", align 8
+  %ref.tmp98.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp98, i64 8
   %ref.tmp108 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp110 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp98.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp98, i64 8
-  %ref.tmp98.sink.sroa.gep63 = getelementptr inbounds i8, ptr %ref.tmp110, i64 8
+  %ref.tmp110.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp110, i64 8
   %block_cache = getelementptr inbounds i8, ptr %bbto, i64 56
   %0 = load ptr, ptr %block_cache, align 8
   %cmp.i.i = icmp ne ptr %0, null
@@ -9496,10 +9496,10 @@ if.then107:                                       ; preds = %if.else101
   br label %if.then107.invoke
 
 if.then107.invoke:                                ; preds = %if.then95, %if.then107
-  %ref.tmp98.sink.sroa.phi = phi ptr [ %ref.tmp98.sink.sroa.gep, %if.then95 ], [ %ref.tmp98.sink.sroa.gep63, %if.then107 ]
   %ref.tmp98.sink = phi ptr [ %ref.tmp98, %if.then95 ], [ %ref.tmp110, %if.then107 ]
   %38 = phi i8 [ 4, %if.then95 ], [ 2, %if.then107 ]
   %39 = phi ptr [ %ref.tmp96, %if.then95 ], [ %ref.tmp108, %if.then107 ]
+  %ref.tmp98.sink.sroa.phi = phi ptr [ %ref.tmp98.sroa.gep, %if.then95 ], [ %ref.tmp110.sroa.gep, %if.then107 ]
   store i64 0, ptr %ref.tmp98.sink.sroa.phi, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext %38, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp98.sink, i8 noundef zeroext 0)
           to label %cleanupthread-pre-split unwind label %lpad79

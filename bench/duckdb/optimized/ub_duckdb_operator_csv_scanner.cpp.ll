@@ -28958,8 +28958,6 @@ entry:
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9, i64 31
-  %.sink.sroa.gep30 = getelementptr inbounds i8, ptr %ref.tmp9, i64 29
   %option.sroa.2.0.extract.shift = lshr i16 %option.coerce, 8
   %option.sroa.2.0.extract.trunc = trunc i16 %option.sroa.2.0.extract.shift to i8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #25
@@ -29225,9 +29223,10 @@ if.end.i:                                         ; preds = %invoke.cont8
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %if.end.i, %if.then.i
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.end.i ], [ %.sink.sroa.gep30, %if.then.i ]
+  %.sink = phi i64 [ 31, %if.end.i ], [ 29, %if.then.i ]
   %.sink.i54 = phi i64 [ 15, %if.end.i ], [ 13, %if.then.i ]
-  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !3, !alias.scope !683
+  %arrayidx.i.i.i13.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 %.sink
+  store i8 0, ptr %arrayidx.i.i.i13.i, align 1, !tbaa !3, !alias.scope !683
   store ptr %37, ptr %ref.tmp9, align 8, !alias.scope !683
   %38 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   store i64 %.sink.i54, ptr %38, align 8, !alias.scope !683
@@ -29622,8 +29621,6 @@ entry:
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9, i64 31
-  %.sink.sroa.gep31 = getelementptr inbounds i8, ptr %ref.tmp9, i64 29
   store i16 %option.coerce, ptr %option, align 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1) #25
@@ -29906,9 +29903,10 @@ if.end.i:                                         ; preds = %invoke.cont8
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %if.end.i, %if.then.i
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.end.i ], [ %.sink.sroa.gep31, %if.then.i ]
+  %.sink = phi i64 [ 31, %if.end.i ], [ 29, %if.then.i ]
   %.sink.i53 = phi i64 [ 15, %if.end.i ], [ 13, %if.then.i ]
-  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !3, !alias.scope !701
+  %arrayidx.i.i.i13.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 %.sink
+  store i8 0, ptr %arrayidx.i.i.i13.i, align 1, !tbaa !3, !alias.scope !701
   store ptr %41, ptr %ref.tmp9, align 8, !alias.scope !701
   %42 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   store i64 %.sink.i53, ptr %42, align 8, !alias.scope !701
@@ -30310,10 +30308,6 @@ entry:
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9, i64 31
-  %.sink.sroa.gep31 = getelementptr inbounds i8, ptr %ref.tmp9, i64 29
-  %.sink21.i.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp4, i64 21
-  %.sink21.i.i.sroa.gep1 = getelementptr inbounds i8, ptr %ref.tmp4, i64 20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2) #25
@@ -30412,9 +30406,10 @@ if.end.i.i:                                       ; preds = %_ZStplIcSt11char_tr
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i.i, %if.then.i.i
-  %.sink21.i.i.sroa.phi = phi ptr [ %.sink21.i.i.sroa.gep, %if.end.i.i ], [ %.sink21.i.i.sroa.gep1, %if.then.i.i ]
+  %.sink21.i.i = phi i64 [ 21, %if.end.i.i ], [ 20, %if.then.i.i ]
   %.sink.i.i = phi i64 [ 5, %if.end.i.i ], [ 4, %if.then.i.i ]
-  store i8 0, ptr %.sink21.i.i.sroa.phi, align 1, !tbaa !3, !alias.scope !713
+  %arrayidx.i.i.i13.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 %.sink21.i.i
+  store i8 0, ptr %arrayidx.i.i.i13.i.i, align 1, !tbaa !3, !alias.scope !713
   store ptr %13, ptr %ref.tmp4, align 8, !alias.scope !713
   %14 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store i64 %.sink.i.i, ptr %14, align 8, !alias.scope !713
@@ -30590,9 +30585,10 @@ if.end.i:                                         ; preds = %invoke.cont8
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %if.end.i, %if.then.i
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.end.i ], [ %.sink.sroa.gep31, %if.then.i ]
+  %.sink = phi i64 [ 31, %if.end.i ], [ 29, %if.then.i ]
   %.sink.i54 = phi i64 [ 15, %if.end.i ], [ 13, %if.then.i ]
-  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !3, !alias.scope !724
+  %arrayidx.i.i.i13.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 %.sink
+  store i8 0, ptr %arrayidx.i.i.i13.i, align 1, !tbaa !3, !alias.scope !724
   store ptr %38, ptr %ref.tmp9, align 8, !alias.scope !724
   %39 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   store i64 %.sink.i54, ptr %39, align 8, !alias.scope !724
@@ -30986,8 +30982,6 @@ entry:
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9, i64 31
-  %.sink.sroa.gep46 = getelementptr inbounds i8, ptr %ref.tmp9, i64 29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2) #25
@@ -31365,9 +31359,10 @@ if.end.i:                                         ; preds = %invoke.cont8
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %if.end.i, %if.then.i
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.end.i ], [ %.sink.sroa.gep46, %if.then.i ]
+  %.sink = phi i64 [ 31, %if.end.i ], [ 29, %if.then.i ]
   %.sink.i59 = phi i64 [ 15, %if.end.i ], [ 13, %if.then.i ]
-  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !3, !alias.scope !752
+  %arrayidx.i.i.i13.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 %.sink
+  store i8 0, ptr %arrayidx.i.i.i13.i, align 1, !tbaa !3, !alias.scope !752
   store ptr %47, ptr %ref.tmp9, align 8, !alias.scope !752
   %48 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   store i64 %.sink.i59, ptr %48, align 8, !alias.scope !752
@@ -31768,8 +31763,6 @@ entry:
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9, i64 31
-  %.sink.sroa.gep31 = getelementptr inbounds i8, ptr %ref.tmp9, i64 29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2) #25
@@ -32091,9 +32084,10 @@ if.end.i:                                         ; preds = %invoke.cont8
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %if.end.i, %if.then.i
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.end.i ], [ %.sink.sroa.gep31, %if.then.i ]
+  %.sink = phi i64 [ 31, %if.end.i ], [ 29, %if.then.i ]
   %.sink.i57 = phi i64 [ 15, %if.end.i ], [ 13, %if.then.i ]
-  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !3, !alias.scope !777
+  %arrayidx.i.i.i13.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 %.sink
+  store i8 0, ptr %arrayidx.i.i.i13.i, align 1, !tbaa !3, !alias.scope !777
   store ptr %48, ptr %ref.tmp9, align 8, !alias.scope !777
   %49 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   store i64 %.sink.i57, ptr %49, align 8, !alias.scope !777

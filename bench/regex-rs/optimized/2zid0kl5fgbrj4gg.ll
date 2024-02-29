@@ -4674,28 +4674,22 @@ define internal fastcc void @_ZN12regex_syntax7unicode10ClassQuery16canonical_bi
   %9 = alloca { i8, [23 x i8] }, align 8
   %10 = alloca { i8, [23 x i8] }, align 8
   %11 = alloca { { { ptr, i64 }, i64 } }, align 8
-  %.sink5.sroa.gep = getelementptr inbounds i8, ptr %10, i64 1
-  %.sink5.sroa.gep8 = getelementptr inbounds i8, ptr %8, i64 1
-  %.sink5.sroa.gep9 = getelementptr inbounds i8, ptr %6, i64 1
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %8, i64 16
-  %.sink.sroa.gep6 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink.sroa.gep7 = getelementptr inbounds i8, ptr %10, i64 16
   call fastcc void @_ZN12regex_syntax7unicode23symbolic_name_normalize17had7541a0778cc3d2E(ptr noalias nonnull align 8 %11, ptr align 1 %1, i64 %2)
   %12 = invoke zeroext i1 @"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17he2583a2417cfa9efE"(ptr nonnull align 8 %11, ptr nonnull align 8 @anon.dfabfd4fd031c4885e5653ef41e0822b.2902)
           to label %15 unwind label %13
 
-13:                                               ; preds = %.invoke, %.noexc29, %.noexc, %26, %64, %61, %59, %52, %49, %37, %24, %21, %18, %16, %3
+13:                                               ; preds = %.invoke, %.noexc29, %.noexc, %26, %65, %62, %60, %53, %50, %37, %24, %21, %18, %16, %3
   %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc9eeb7ba63340780E"(ptr nonnull align 8 %11) #10
-          to label %78 unwind label %76
+          to label %80 unwind label %78
 
 15:                                               ; preds = %3
   br i1 %12, label %18, label %16
 
 16:                                               ; preds = %45, %23, %20, %15
   %17 = invoke { ptr, i64 } @"_ZN65_$LT$alloc..string..String$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1dd5b82f5ba9ed73E"(ptr nonnull align 8 %11)
-          to label %49 unwind label %13
+          to label %50 unwind label %13
 
 18:                                               ; preds = %15
   %19 = invoke zeroext i1 @"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17he2583a2417cfa9efE"(ptr nonnull align 8 %11, ptr nonnull align 8 @anon.dfabfd4fd031c4885e5653ef41e0822b.2904)
@@ -4762,88 +4756,90 @@ define internal fastcc void @_ZN12regex_syntax7unicode10ClassQuery16canonical_bi
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %16, label %.sink.split
 
-.sink.split:                                      ; preds = %45, %68, %56
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %56 ], [ %.sink.sroa.gep6, %68 ], [ %.sink.sroa.gep7, %45 ]
-  %.sink2 = phi i64 [ 1, %56 ], [ 2, %68 ], [ 0, %45 ]
-  %.sink1 = phi ptr [ %58, %56 ], [ %70, %68 ], [ %47, %45 ]
-  %48 = load i64, ptr %.sink.sroa.phi, align 8
+.sink.split:                                      ; preds = %45, %69, %57
+  %.sink = phi ptr [ %8, %57 ], [ %6, %69 ], [ %10, %45 ]
+  %.sink2 = phi i64 [ 1, %57 ], [ 2, %69 ], [ 0, %45 ]
+  %.sink1 = phi ptr [ %59, %57 ], [ %71, %69 ], [ %47, %45 ]
+  %48 = getelementptr inbounds i8, ptr %.sink, i64 16
+  %49 = load i64, ptr %48, align 8
   store i64 %.sink2, ptr %0, align 8
   %.sroa.215.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sink1, ptr %.sroa.215.0..sroa_idx, align 8
   %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %48, ptr %.sroa.316.0..sroa_idx, align 8
-  br label %75
+  store i64 %49, ptr %.sroa.316.0..sroa_idx, align 8
+  br label %77
 
-49:                                               ; preds = %16
-  %50 = extractvalue { ptr, i64 } %17, 0
-  %51 = extractvalue { ptr, i64 } %17, 1
-  invoke fastcc void @_ZN12regex_syntax7unicode16canonical_gencat17hdd7855a077d70733E(ptr noalias nonnull align 8 %7, ptr align 1 %50, i64 %51)
-          to label %52 unwind label %13
-
-52:                                               ; preds = %49
-  invoke void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h863af56f3be94743E"(ptr nonnull sret({ i8, [23 x i8] }) align 8 %8, ptr nonnull align 8 %7)
+50:                                               ; preds = %16
+  %51 = extractvalue { ptr, i64 } %17, 0
+  %52 = extractvalue { ptr, i64 } %17, 1
+  invoke fastcc void @_ZN12regex_syntax7unicode16canonical_gencat17hdd7855a077d70733E(ptr noalias nonnull align 8 %7, ptr align 1 %51, i64 %52)
           to label %53 unwind label %13
 
-53:                                               ; preds = %52
-  %54 = load i8, ptr %8, align 8, !range !18, !noundef !6
-  %55 = icmp eq i8 %54, 0
-  br i1 %55, label %56, label %.invoke
+53:                                               ; preds = %50
+  invoke void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h863af56f3be94743E"(ptr nonnull sret({ i8, [23 x i8] }) align 8 %8, ptr nonnull align 8 %7)
+          to label %54 unwind label %13
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %8, i64 8
-  %58 = load ptr, ptr %57, align 8, !align !19, !noundef !6
-  %.not27 = icmp eq ptr %58, null
-  br i1 %.not27, label %59, label %.sink.split
+54:                                               ; preds = %53
+  %55 = load i8, ptr %8, align 8, !range !18, !noundef !6
+  %56 = icmp eq i8 %55, 0
+  br i1 %56, label %57, label %.invoke
 
-59:                                               ; preds = %56
-  %60 = invoke { ptr, i64 } @"_ZN65_$LT$alloc..string..String$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1dd5b82f5ba9ed73E"(ptr nonnull align 8 %11)
-          to label %61 unwind label %13
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds i8, ptr %8, i64 8
+  %59 = load ptr, ptr %58, align 8, !align !19, !noundef !6
+  %.not27 = icmp eq ptr %59, null
+  br i1 %.not27, label %60, label %.sink.split
 
-61:                                               ; preds = %59
-  %62 = extractvalue { ptr, i64 } %60, 0
-  %63 = extractvalue { ptr, i64 } %60, 1
-  invoke fastcc void @_ZN12regex_syntax7unicode16canonical_script17h98ca074bbaff3752E(ptr noalias nonnull align 8 %5, ptr align 1 %62, i64 %63)
-          to label %64 unwind label %13
+60:                                               ; preds = %57
+  %61 = invoke { ptr, i64 } @"_ZN65_$LT$alloc..string..String$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1dd5b82f5ba9ed73E"(ptr nonnull align 8 %11)
+          to label %62 unwind label %13
 
-64:                                               ; preds = %61
-  invoke void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h863af56f3be94743E"(ptr nonnull sret({ i8, [23 x i8] }) align 8 %6, ptr nonnull align 8 %5)
+62:                                               ; preds = %60
+  %63 = extractvalue { ptr, i64 } %61, 0
+  %64 = extractvalue { ptr, i64 } %61, 1
+  invoke fastcc void @_ZN12regex_syntax7unicode16canonical_script17h98ca074bbaff3752E(ptr noalias nonnull align 8 %5, ptr align 1 %63, i64 %64)
           to label %65 unwind label %13
 
-65:                                               ; preds = %64
-  %66 = load i8, ptr %6, align 8, !range !18, !noundef !6
-  %67 = icmp eq i8 %66, 0
-  br i1 %67, label %68, label %.invoke
+65:                                               ; preds = %62
+  invoke void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h863af56f3be94743E"(ptr nonnull sret({ i8, [23 x i8] }) align 8 %6, ptr nonnull align 8 %5)
+          to label %66 unwind label %13
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %6, i64 8
-  %70 = load ptr, ptr %69, align 8, !align !19, !noundef !6
-  %.not28 = icmp eq ptr %70, null
-  br i1 %.not28, label %73, label %.sink.split
+66:                                               ; preds = %65
+  %67 = load i8, ptr %6, align 8, !range !18, !noundef !6
+  %68 = icmp eq i8 %67, 0
+  br i1 %68, label %69, label %.invoke
 
-.invoke:                                          ; preds = %65, %53, %42
-  %.sink5.sroa.phi = phi ptr [ %.sink5.sroa.gep, %42 ], [ %.sink5.sroa.gep8, %53 ], [ %.sink5.sroa.gep9, %65 ]
-  %71 = phi ptr [ @anon.dfabfd4fd031c4885e5653ef41e0822b.2909, %42 ], [ @anon.dfabfd4fd031c4885e5653ef41e0822b.2908, %53 ], [ @anon.dfabfd4fd031c4885e5653ef41e0822b.2907, %65 ]
-  %72 = load i8, ptr %.sink5.sroa.phi, align 1, !range !20, !noundef !6
-  invoke void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17he9195e39fc766086E"(ptr sret({ i64, [4 x i64] }) align 8 %0, i8 %72, ptr nonnull align 8 %71)
-          to label %75 unwind label %13
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds i8, ptr %6, i64 8
+  %71 = load ptr, ptr %70, align 8, !align !19, !noundef !6
+  %.not28 = icmp eq ptr %71, null
+  br i1 %.not28, label %75, label %.sink.split
 
-73:                                               ; preds = %68
-  %74 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 0, ptr %74, align 8
+.invoke:                                          ; preds = %66, %54, %42
+  %.sink5 = phi ptr [ %10, %42 ], [ %8, %54 ], [ %6, %66 ]
+  %72 = phi ptr [ @anon.dfabfd4fd031c4885e5653ef41e0822b.2909, %42 ], [ @anon.dfabfd4fd031c4885e5653ef41e0822b.2908, %54 ], [ @anon.dfabfd4fd031c4885e5653ef41e0822b.2907, %66 ]
+  %73 = getelementptr inbounds i8, ptr %.sink5, i64 1
+  %74 = load i8, ptr %73, align 1, !range !20, !noundef !6
+  invoke void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17he9195e39fc766086E"(ptr sret({ i64, [4 x i64] }) align 8 %0, i8 %74, ptr nonnull align 8 %72)
+          to label %77 unwind label %13
+
+75:                                               ; preds = %69
+  %76 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 0, ptr %76, align 8
   store i64 4, ptr %0, align 8
-  br label %75
+  br label %77
 
-75:                                               ; preds = %.invoke, %.sink.split, %73
+77:                                               ; preds = %.invoke, %.sink.split, %75
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc9eeb7ba63340780E"(ptr nonnull align 8 %11)
   ret void
 
-76:                                               ; preds = %13
-  %77 = landingpad { ptr, i32 }
+78:                                               ; preds = %13
+  %79 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #11
   unreachable
 
-78:                                               ; preds = %13
+80:                                               ; preds = %13
   resume { ptr, i32 } %14
 }
 
@@ -4865,12 +4861,16 @@ define hidden void @_ZN12regex_syntax7unicode5class17hf130ebbdb3287d1eE(ptr sret
   %16 = alloca { ptr, i64 }, align 8
   %17 = alloca { i8, [23 x i8] }, align 8
   %18 = alloca { i8, [23 x i8] }, align 8
+  %.sroa.gep59 = getelementptr inbounds i8, ptr %18, i64 1
   %19 = alloca { i8, [23 x i8] }, align 8
   %20 = alloca { i8, [23 x i8] }, align 8
+  %.sroa.gep60 = getelementptr inbounds i8, ptr %20, i64 1
   %21 = alloca { i8, [23 x i8] }, align 8
   %22 = alloca { i8, [23 x i8] }, align 8
+  %.sroa.gep61 = getelementptr inbounds i8, ptr %22, i64 1
   %23 = alloca { i8, [23 x i8] }, align 8
   %24 = alloca { i8, [23 x i8] }, align 8
+  %.sroa.gep = getelementptr inbounds i8, ptr %24, i64 1
   %25 = alloca { { { ptr, i64 }, i64 } }, align 8
   %26 = alloca { { { ptr, i64 }, i64 } }, align 8
   %27 = alloca { { { ptr, i64 }, i64 } }, align 8
@@ -4882,10 +4882,6 @@ define hidden void @_ZN12regex_syntax7unicode5class17hf130ebbdb3287d1eE(ptr sret
   %33 = alloca { { { { ptr, i64 }, i64 }, i8, [7 x i8] } }, align 8
   %34 = alloca { i64, [4 x i64] }, align 8
   %35 = alloca { i64, [4 x i64] }, align 8
-  %.sink43.i.sroa.gep = getelementptr inbounds i8, ptr %24, i64 1
-  %.sink43.i.sroa.gep59 = getelementptr inbounds i8, ptr %18, i64 1
-  %.sink43.i.sroa.gep60 = getelementptr inbounds i8, ptr %20, i64 1
-  %.sink43.i.sroa.gep61 = getelementptr inbounds i8, ptr %22, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
@@ -5172,8 +5168,8 @@ common.resume:                                    ; preds = %256, %55, %63
   br i1 %152, label %.sink.split.i, label %155
 
 .invoke.i:                                        ; preds = %146, %132, %109, %86
-  %.sink43.i.sroa.phi = phi ptr [ %.sink43.i.sroa.gep, %86 ], [ %.sink43.i.sroa.gep59, %109 ], [ %.sink43.i.sroa.gep60, %132 ], [ %.sink43.i.sroa.gep61, %146 ]
   %153 = phi ptr [ @anon.dfabfd4fd031c4885e5653ef41e0822b.2900, %86 ], [ @anon.dfabfd4fd031c4885e5653ef41e0822b.2897, %109 ], [ @anon.dfabfd4fd031c4885e5653ef41e0822b.2898, %132 ], [ @anon.dfabfd4fd031c4885e5653ef41e0822b.2899, %146 ]
+  %.sink43.i.sroa.phi = phi ptr [ %.sroa.gep, %86 ], [ %.sroa.gep59, %109 ], [ %.sroa.gep60, %132 ], [ %.sroa.gep61, %146 ]
   %154 = load i8, ptr %.sink43.i.sroa.phi, align 1, !range !20, !noalias !21, !noundef !6
   invoke void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17he9195e39fc766086E"(ptr nonnull sret({ i64, [4 x i64] }) align 8 %34, i8 %154, ptr nonnull align 8 %153)
           to label %98 unwind label %68

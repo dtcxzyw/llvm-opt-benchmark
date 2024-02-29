@@ -17127,15 +17127,15 @@ lpad:                                             ; preds = %if.then.i, %invoke.
 define hidden noundef zeroext i1 @_ZN3smt10theory_seq8lift_iteERK10ref_vectorI4expr11ast_managerES6_PN18dependency_managerIN25scoped_dependency_managerINS0_10assumptionEE6configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(4328) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ls, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rs, ptr noundef %deps) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.smt::theory_seq::depeq", align 8
+  %ref.tmp.sroa.gep108 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %ref.tmp.sroa.gep105 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %ref.tmp.sroa.gep102 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp31 = alloca %"class.smt::theory_seq::depeq", align 8
-  %ref.tmp.sink.sroa.gep109 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %ref.tmp.sink.sroa.gep110 = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
-  %ref.tmp.sink.sroa.gep106 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %ref.tmp.sink.sroa.gep107 = getelementptr inbounds i8, ptr %ref.tmp31, i64 24
-  %ref.tmp.sink.sroa.gep103 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %ref.tmp.sink.sroa.gep104 = getelementptr inbounds i8, ptr %ref.tmp31, i64 32
-  %ref.tmp.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %ref.tmp.sink.sroa.gep101 = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
+  %ref.tmp31.sroa.gep109 = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
+  %ref.tmp31.sroa.gep106 = getelementptr inbounds i8, ptr %ref.tmp31, i64 24
+  %ref.tmp31.sroa.gep103 = getelementptr inbounds i8, ptr %ref.tmp31, i64 32
+  %ref.tmp31.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
   %m_nodes.i = getelementptr inbounds i8, ptr %ls, i64 8
   %0 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -17425,28 +17425,28 @@ lpad32:                                           ; preds = %if.then.i.i70, %_ZN
 
 return.sink.split:                                ; preds = %invoke.cont, %invoke.cont33
   %add.ptr.i.i.sink = phi ptr [ %add.ptr.i.i, %invoke.cont ], [ %add.ptr.i.i58, %invoke.cont33 ]
-  %ref.tmp.sink.sroa.phi = phi ptr [ %ref.tmp.sink.sroa.gep, %invoke.cont ], [ %ref.tmp.sink.sroa.gep101, %invoke.cont33 ]
-  %ref.tmp.sink.sroa.phi102 = phi ptr [ %ref.tmp.sink.sroa.gep103, %invoke.cont ], [ %ref.tmp.sink.sroa.gep104, %invoke.cont33 ]
-  %ref.tmp.sink.sroa.phi105 = phi ptr [ %ref.tmp.sink.sroa.gep106, %invoke.cont ], [ %ref.tmp.sink.sroa.gep107, %invoke.cont33 ]
-  %ref.tmp.sink.sroa.phi108 = phi ptr [ %ref.tmp.sink.sroa.gep109, %invoke.cont ], [ %ref.tmp.sink.sroa.gep110, %invoke.cont33 ]
   %ref.tmp.sink = phi ptr [ %ref.tmp, %invoke.cont ], [ %ref.tmp31, %invoke.cont33 ]
   %m_elems.i.sink = phi ptr [ %m_elems.i, %invoke.cont ], [ %m_elems.i46, %invoke.cont33 ]
   %m_eqs30.sink90 = phi ptr [ %m_eqs, %invoke.cont ], [ %m_eqs30, %invoke.cont33 ]
+  %ref.tmp.sink.sroa.phi = phi ptr [ %ref.tmp.sroa.gep, %invoke.cont ], [ %ref.tmp31.sroa.gep, %invoke.cont33 ]
+  %ref.tmp.sink.sroa.phi101 = phi ptr [ %ref.tmp.sroa.gep102, %invoke.cont ], [ %ref.tmp31.sroa.gep103, %invoke.cont33 ]
+  %ref.tmp.sink.sroa.phi104 = phi ptr [ %ref.tmp.sroa.gep105, %invoke.cont ], [ %ref.tmp31.sroa.gep106, %invoke.cont33 ]
+  %ref.tmp.sink.sroa.phi107 = phi ptr [ %ref.tmp.sroa.gep108, %invoke.cont ], [ %ref.tmp31.sroa.gep109, %invoke.cont33 ]
   %m_nodes.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.sink, i64 8
   store ptr null, ptr %m_nodes.i.i.i.i.i.i, align 8
   %46 = load ptr, ptr %ref.tmp.sink.sroa.phi, align 8
   store ptr %46, ptr %m_nodes.i.i.i.i.i.i, align 8
   store ptr null, ptr %ref.tmp.sink.sroa.phi, align 8
   %rs.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.sink, i64 16
-  %47 = load i64, ptr %ref.tmp.sink.sroa.phi108, align 8
+  %47 = load i64, ptr %ref.tmp.sink.sroa.phi107, align 8
   store i64 %47, ptr %rs.i.i.i.i, align 8
   %m_nodes.i.i2.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.sink, i64 24
   store ptr null, ptr %m_nodes.i.i2.i.i.i.i, align 8
-  %48 = load ptr, ptr %ref.tmp.sink.sroa.phi105, align 8
+  %48 = load ptr, ptr %ref.tmp.sink.sroa.phi104, align 8
   store ptr %48, ptr %m_nodes.i.i2.i.i.i.i, align 8
-  store ptr null, ptr %ref.tmp.sink.sroa.phi105, align 8
+  store ptr null, ptr %ref.tmp.sink.sroa.phi104, align 8
   %m_id.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.sink, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_id.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sink.sroa.phi102, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_id.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sink.sroa.phi101, i64 16, i1 false)
   %49 = load ptr, ptr %m_elems.i.sink, align 8
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %49, i64 -4
   %50 = load i32, ptr %arrayidx10.i.i, align 4

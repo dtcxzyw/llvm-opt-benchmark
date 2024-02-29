@@ -1093,8 +1093,6 @@ cond.end:
   %agg.tmp1325 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp1331 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp1333 = alloca %"class.std::vector.9", align 8
-  %indvars.iv6179.sroa.gep = getelementptr inbounds i8, ptr %subs, i64 24
-  %indvars.iv6173.sroa.gep6303 = getelementptr inbounds i8, ptr %subs, i64 24
   %_M_finish.i = getelementptr inbounds i8, ptr %premises, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %premises, align 8
@@ -2614,7 +2612,6 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1223: ; preds = %invoke.cont209, %
 
 for.cond216.preheader:                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1223, %for.inc250
   %cmp213 = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1223 ], [ false, %for.inc250 ]
-  %indvars.iv6173.sroa.phi = phi ptr [ %subs, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1223 ], [ %indvars.iv6173.sroa.gep6303, %for.inc250 ]
   %indvars.iv6173 = phi i64 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1223 ], [ 1, %for.inc250 ]
   %substConclusionInReverseOrder.06123 = phi i8 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1223 ], [ %substConclusionInReverseOrder.1, %for.inc250 ]
   %equalArg.06122 = phi i32 [ -1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1223 ], [ %equalArg.1, %for.inc250 ]
@@ -2809,9 +2806,10 @@ if.then13.i.i.i1323:                              ; preds = %if.else.i.i.i1321
           to label %invoke.cont232 unwind label %lpad200.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont232:                                   ; preds = %if.else.i.i.i1321, %if.then.i.i.i1325, %if.then13.i.i.i1323
-  %_M_finish.i.i1333 = getelementptr inbounds i8, ptr %indvars.iv6173.sroa.phi, i64 8
+  %arrayidx230 = getelementptr inbounds [2 x %"class.std::vector.9"], ptr %subs, i64 0, i64 %indvars.iv6173
+  %_M_finish.i.i1333 = getelementptr inbounds i8, ptr %arrayidx230, i64 8
   %159 = load ptr, ptr %_M_finish.i.i1333, align 8
-  %_M_end_of_storage.i.i1334 = getelementptr inbounds i8, ptr %indvars.iv6173.sroa.phi, i64 16
+  %_M_end_of_storage.i.i1334 = getelementptr inbounds i8, ptr %arrayidx230, i64 16
   %160 = load ptr, ptr %_M_end_of_storage.i.i1334, align 8
   %cmp.not.i.i1335 = icmp eq ptr %159, %160
   br i1 %cmp.not.i.i1335, label %if.else.i.i1352, label %if.then.i.i1336
@@ -2851,7 +2849,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_J
   br label %invoke.cont234
 
 if.else.i.i1352:                                  ; preds = %invoke.cont232
-  invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %indvars.iv6173.sroa.phi, ptr %159, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp231)
+  invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx230, ptr %159, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp231)
           to label %invoke.cont234 unwind label %lpad233
 
 invoke.cont234:                                   ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i1343, %if.else.i.i1352
@@ -3477,10 +3475,10 @@ cond.true330:                                     ; preds = %for.end252
 
 for.cond382.preheader:                            ; preds = %cond.true330, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2166
   %cmp379 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2166 ], [ true, %cond.true330 ]
-  %indvars.iv6179.sroa.phi = phi ptr [ %indvars.iv6179.sroa.gep, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2166 ], [ %subs, %cond.true330 ]
   %indvars.iv6179 = phi i64 [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2166 ], [ 0, %cond.true330 ]
-  %_M_finish.i.i2049 = getelementptr inbounds i8, ptr %indvars.iv6179.sroa.phi, i64 8
-  %_M_end_of_storage.i.i2050 = getelementptr inbounds i8, ptr %indvars.iv6179.sroa.phi, i64 16
+  %arrayidx402 = getelementptr inbounds [2 x %"class.std::vector.9"], ptr %subs, i64 0, i64 %indvars.iv6179
+  %_M_finish.i.i2049 = getelementptr inbounds i8, ptr %arrayidx402, i64 8
+  %_M_end_of_storage.i.i2050 = getelementptr inbounds i8, ptr %arrayidx402, i64 16
   br label %for.cond385.preheader
 
 for.cond385.preheader:                            ; preds = %for.cond382.preheader, %for.inc415
@@ -3728,7 +3726,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_J
   br label %invoke.cont409
 
 if.else.i.i2068:                                  ; preds = %invoke.cont407
-  invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %indvars.iv6179.sroa.phi, ptr %252, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp403)
+  invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx402, ptr %252, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp403)
           to label %invoke.cont409 unwind label %lpad408
 
 invoke.cont409:                                   ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i2059, %if.else.i.i2068

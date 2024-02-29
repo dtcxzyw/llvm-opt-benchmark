@@ -93105,10 +93105,6 @@ define weak_odr hidden noundef zeroext i1 @_ZN3smt12theory_arithINS_6mi_extEE15i
 entry:
   %r = alloca %class.old_interval, align 8
   %ref.tmp = alloca %class.old_interval, align 8
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %r, i64 96
-  %.sink.sroa.gep39 = getelementptr inbounds i8, ptr %r, i64 96
-  %.sink.sroa.gep40 = getelementptr inbounds i8, ptr %r, i64 104
-  %.sink.sroa.gep41 = getelementptr inbounds i8, ptr %r, i64 104
   call void @_ZN12old_intervalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef nonnull align 8 dereferenceable(112) %I)
   %cmp33.not = icmp eq i32 %num_monomials, 0
   br i1 %cmp33.not, label %entry.invoke.cont8_crit_edge, label %for.body.lr.ph
@@ -93246,8 +93242,9 @@ land.lhs.true37:                                  ; preds = %invoke.cont35
   br i1 %tobool.i16.not, label %cleanup, label %if.then45
 
 if.then45:                                        ; preds = %invoke.cont30, %land.lhs.true37, %invoke.cont13, %land.lhs.true19
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %land.lhs.true19 ], [ %.sink.sroa.gep39, %invoke.cont13 ], [ %.sink.sroa.gep40, %land.lhs.true37 ], [ %.sink.sroa.gep41, %invoke.cont30 ]
-  %18 = load ptr, ptr %.sink.sroa.phi, align 8
+  %.sink = phi i64 [ 96, %land.lhs.true19 ], [ 96, %invoke.cont13 ], [ 104, %land.lhs.true37 ], [ 104, %invoke.cont30 ]
+  %m_lower_dep.i = getelementptr inbounds i8, ptr %r, i64 %.sink
+  %18 = load ptr, ptr %m_lower_dep.i, align 8
   %cmp.i.i17 = icmp eq ptr %18, null
   br i1 %cmp.i.i17, label %invoke.cont46, label %if.else.i.i
 
@@ -196904,10 +196901,6 @@ define weak_odr hidden noundef zeroext i1 @_ZN3smt12theory_arithINS_5i_extEE15is
 entry:
   %r = alloca %class.old_interval, align 8
   %ref.tmp = alloca %class.old_interval, align 8
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %r, i64 96
-  %.sink.sroa.gep39 = getelementptr inbounds i8, ptr %r, i64 96
-  %.sink.sroa.gep40 = getelementptr inbounds i8, ptr %r, i64 104
-  %.sink.sroa.gep41 = getelementptr inbounds i8, ptr %r, i64 104
   call void @_ZN12old_intervalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef nonnull align 8 dereferenceable(112) %I)
   %cmp33.not = icmp eq i32 %num_monomials, 0
   br i1 %cmp33.not, label %entry.invoke.cont8_crit_edge, label %for.body.lr.ph
@@ -197045,8 +197038,9 @@ land.lhs.true37:                                  ; preds = %invoke.cont35
   br i1 %tobool.i16.not, label %cleanup, label %if.then45
 
 if.then45:                                        ; preds = %invoke.cont30, %land.lhs.true37, %invoke.cont13, %land.lhs.true19
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %land.lhs.true19 ], [ %.sink.sroa.gep39, %invoke.cont13 ], [ %.sink.sroa.gep40, %land.lhs.true37 ], [ %.sink.sroa.gep41, %invoke.cont30 ]
-  %18 = load ptr, ptr %.sink.sroa.phi, align 8
+  %.sink = phi i64 [ 96, %land.lhs.true19 ], [ 96, %invoke.cont13 ], [ 104, %land.lhs.true37 ], [ 104, %invoke.cont30 ]
+  %m_lower_dep.i = getelementptr inbounds i8, ptr %r, i64 %.sink
+  %18 = load ptr, ptr %m_lower_dep.i, align 8
   %cmp.i.i17 = icmp eq ptr %18, null
   br i1 %cmp.i.i17, label %invoke.cont46, label %if.else.i.i
 
@@ -276140,40 +276134,6 @@ entry:
   %ref.tmp10 = alloca %class.inf_eps_rational, align 8
   %ref.tmp19 = alloca %class.inf_eps_rational, align 8
   %ref.tmp26 = alloca %class.inf_eps_rational, align 8
-  %ref.tmp10.sink.sroa.gep759 = getelementptr inbounds i8, ptr %ref.tmp10, i64 4
-  %ref.tmp10.sink.sroa.gep760 = getelementptr inbounds i8, ptr %ref.tmp19, i64 4
-  %ref.tmp10.sink.sroa.gep756 = getelementptr inbounds i8, ptr %ref.tmp10, i64 24
-  %ref.tmp10.sink.sroa.gep757 = getelementptr inbounds i8, ptr %ref.tmp19, i64 24
-  %ref.tmp10.sink.sroa.gep753 = getelementptr inbounds i8, ptr %ref.tmp10, i64 32
-  %ref.tmp10.sink.sroa.gep754 = getelementptr inbounds i8, ptr %ref.tmp19, i64 32
-  %ref.tmp10.sink.sroa.gep750 = getelementptr inbounds i8, ptr %ref.tmp10, i64 36
-  %ref.tmp10.sink.sroa.gep751 = getelementptr inbounds i8, ptr %ref.tmp19, i64 36
-  %ref.tmp10.sink.sroa.gep747 = getelementptr inbounds i8, ptr %ref.tmp10, i64 56
-  %ref.tmp10.sink.sroa.gep748 = getelementptr inbounds i8, ptr %ref.tmp19, i64 56
-  %ref.tmp10.sink.sroa.gep744 = getelementptr inbounds i8, ptr %ref.tmp10, i64 64
-  %ref.tmp10.sink.sroa.gep745 = getelementptr inbounds i8, ptr %ref.tmp19, i64 64
-  %ref.tmp10.sink.sroa.gep741 = getelementptr inbounds i8, ptr %ref.tmp10, i64 68
-  %ref.tmp10.sink.sroa.gep742 = getelementptr inbounds i8, ptr %ref.tmp19, i64 68
-  %ref.tmp10.sink.sroa.gep738 = getelementptr inbounds i8, ptr %ref.tmp10, i64 88
-  %ref.tmp10.sink.sroa.gep739 = getelementptr inbounds i8, ptr %ref.tmp19, i64 88
-  %ref.tmp10.sink.sroa.gep735 = getelementptr inbounds i8, ptr %ref.tmp10, i64 84
-  %ref.tmp10.sink.sroa.gep736 = getelementptr inbounds i8, ptr %ref.tmp19, i64 84
-  %ref.tmp10.sink.sroa.gep732 = getelementptr inbounds i8, ptr %ref.tmp10, i64 80
-  %ref.tmp10.sink.sroa.gep733 = getelementptr inbounds i8, ptr %ref.tmp19, i64 80
-  %ref.tmp10.sink.sroa.gep729 = getelementptr inbounds i8, ptr %ref.tmp10, i64 72
-  %ref.tmp10.sink.sroa.gep730 = getelementptr inbounds i8, ptr %ref.tmp19, i64 72
-  %ref.tmp10.sink.sroa.gep726 = getelementptr inbounds i8, ptr %ref.tmp10, i64 52
-  %ref.tmp10.sink.sroa.gep727 = getelementptr inbounds i8, ptr %ref.tmp19, i64 52
-  %ref.tmp10.sink.sroa.gep723 = getelementptr inbounds i8, ptr %ref.tmp10, i64 48
-  %ref.tmp10.sink.sroa.gep724 = getelementptr inbounds i8, ptr %ref.tmp19, i64 48
-  %ref.tmp10.sink.sroa.gep720 = getelementptr inbounds i8, ptr %ref.tmp10, i64 40
-  %ref.tmp10.sink.sroa.gep721 = getelementptr inbounds i8, ptr %ref.tmp19, i64 40
-  %ref.tmp10.sink.sroa.gep717 = getelementptr inbounds i8, ptr %ref.tmp10, i64 20
-  %ref.tmp10.sink.sroa.gep718 = getelementptr inbounds i8, ptr %ref.tmp19, i64 20
-  %ref.tmp10.sink.sroa.gep714 = getelementptr inbounds i8, ptr %ref.tmp10, i64 16
-  %ref.tmp10.sink.sroa.gep715 = getelementptr inbounds i8, ptr %ref.tmp19, i64 16
-  %ref.tmp10.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
-  %ref.tmp10.sink.sroa.gep712 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   store i32 0, ptr %ref.tmp2, align 8, !alias.scope !1295
   %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 4
   store i8 0, ptr %m_kind.i.i.i.i.i, align 4, !alias.scope !1295
@@ -276674,30 +276634,15 @@ _ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147: ; preds = %cond.true.i
   br label %if.end23.sink.split
 
 if.end23.sink.split:                              ; preds = %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147
-  %ref.tmp10.sink.sroa.phi = phi ptr [ %ref.tmp10.sink.sroa.gep, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit ], [ %ref.tmp10.sink.sroa.gep712, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147 ]
-  %ref.tmp10.sink.sroa.phi713 = phi ptr [ %ref.tmp10.sink.sroa.gep714, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit ], [ %ref.tmp10.sink.sroa.gep715, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147 ]
-  %ref.tmp10.sink.sroa.phi716 = phi ptr [ %ref.tmp10.sink.sroa.gep717, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit ], [ %ref.tmp10.sink.sroa.gep718, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147 ]
-  %ref.tmp10.sink.sroa.phi719 = phi ptr [ %ref.tmp10.sink.sroa.gep720, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit ], [ %ref.tmp10.sink.sroa.gep721, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147 ]
-  %ref.tmp10.sink.sroa.phi722 = phi ptr [ %ref.tmp10.sink.sroa.gep723, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit ], [ %ref.tmp10.sink.sroa.gep724, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147 ]
-  %ref.tmp10.sink.sroa.phi725 = phi ptr [ %ref.tmp10.sink.sroa.gep726, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit ], [ %ref.tmp10.sink.sroa.gep727, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147 ]
-  %ref.tmp10.sink.sroa.phi728 = phi ptr [ %ref.tmp10.sink.sroa.gep729, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit ], [ %ref.tmp10.sink.sroa.gep730, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147 ]
-  %ref.tmp10.sink.sroa.phi731 = phi ptr [ %ref.tmp10.sink.sroa.gep732, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit ], [ %ref.tmp10.sink.sroa.gep733, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147 ]
-  %ref.tmp10.sink.sroa.phi734 = phi ptr [ %ref.tmp10.sink.sroa.gep735, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit ], [ %ref.tmp10.sink.sroa.gep736, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147 ]
-  %ref.tmp10.sink.sroa.phi737 = phi ptr [ %ref.tmp10.sink.sroa.gep738, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit ], [ %ref.tmp10.sink.sroa.gep739, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147 ]
-  %ref.tmp10.sink.sroa.phi740 = phi ptr [ %ref.tmp10.sink.sroa.gep741, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit ], [ %ref.tmp10.sink.sroa.gep742, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147 ]
-  %ref.tmp10.sink.sroa.phi743 = phi ptr [ %ref.tmp10.sink.sroa.gep744, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit ], [ %ref.tmp10.sink.sroa.gep745, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147 ]
-  %ref.tmp10.sink.sroa.phi746 = phi ptr [ %ref.tmp10.sink.sroa.gep747, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit ], [ %ref.tmp10.sink.sroa.gep748, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147 ]
-  %ref.tmp10.sink.sroa.phi749 = phi ptr [ %ref.tmp10.sink.sroa.gep750, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit ], [ %ref.tmp10.sink.sroa.gep751, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147 ]
-  %ref.tmp10.sink.sroa.phi752 = phi ptr [ %ref.tmp10.sink.sroa.gep753, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit ], [ %ref.tmp10.sink.sroa.gep754, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147 ]
-  %ref.tmp10.sink.sroa.phi755 = phi ptr [ %ref.tmp10.sink.sroa.gep756, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit ], [ %ref.tmp10.sink.sroa.gep757, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147 ]
-  %ref.tmp10.sink.sroa.phi758 = phi ptr [ %ref.tmp10.sink.sroa.gep759, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit ], [ %ref.tmp10.sink.sroa.gep760, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147 ]
   %ref.tmp10.sink = phi ptr [ %ref.tmp10, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit ], [ %ref.tmp19, %_ZNK3smt12theory_arithINS_7inf_extEE9get_valueEi.exit147 ]
+  %m_ptr3.i.i.i.i.i85 = getelementptr inbounds i8, ptr %ref.tmp10.sink, i64 8
   %99 = load ptr, ptr %m_ptr.i.i.i.i.i35, align 8
-  %100 = load ptr, ptr %ref.tmp10.sink.sroa.phi, align 8
+  %100 = load ptr, ptr %m_ptr3.i.i.i.i.i85, align 8
   store ptr %100, ptr %m_ptr.i.i.i.i.i35, align 8
-  store ptr %99, ptr %ref.tmp10.sink.sroa.phi, align 8
+  store ptr %99, ptr %m_ptr3.i.i.i.i.i85, align 8
   %bf.load.i.i.i.i.i87 = load i8, ptr %m_owner.i.i.i.i.i37, align 4
-  %bf.load5.i.i.i.i.i90 = load i8, ptr %ref.tmp10.sink.sroa.phi758, align 4
+  %m_owner4.i.i.i.i.i89 = getelementptr inbounds i8, ptr %ref.tmp10.sink, i64 4
+  %bf.load5.i.i.i.i.i90 = load i8, ptr %m_owner4.i.i.i.i.i89, align 4
   %bf.clear11.i.i.i.i.i92 = and i8 %bf.load.i.i.i.i.i87, -4
   %bf.clear16.i.i.i.i.i95 = and i8 %bf.load5.i.i.i.i.i90, -4
   %101 = and i8 %bf.load5.i.i.i.i.i90, 3
@@ -276705,17 +276650,20 @@ if.end23.sink.split:                              ; preds = %_ZNK3smt12theory_ar
   store i8 %bf.set29.i.i.i.i.i101, ptr %m_owner.i.i.i.i.i37, align 4
   %102 = and i8 %bf.load.i.i.i.i.i87, 3
   %bf.set34.i.i.i.i.i104 = or disjoint i8 %bf.clear16.i.i.i.i.i95, %102
-  store i8 %bf.set34.i.i.i.i.i104, ptr %ref.tmp10.sink.sroa.phi758, align 4
+  store i8 %bf.set34.i.i.i.i.i104, ptr %m_owner4.i.i.i.i.i89, align 4
+  %m_den3.i.i.i106 = getelementptr inbounds i8, ptr %ref.tmp10.sink, i64 16
   %103 = load i32, ptr %m_den.i.i.i56, align 8
-  %104 = load i32, ptr %ref.tmp10.sink.sroa.phi713, align 8
+  %104 = load i32, ptr %m_den3.i.i.i106, align 8
   store i32 %104, ptr %m_den.i.i.i56, align 8
-  store i32 %103, ptr %ref.tmp10.sink.sroa.phi713, align 8
+  store i32 %103, ptr %m_den3.i.i.i106, align 8
+  %m_ptr3.i.i3.i.i.i108 = getelementptr inbounds i8, ptr %ref.tmp10.sink, i64 24
   %105 = load ptr, ptr %m_ptr.i.i2.i.i.i58, align 8
-  %106 = load ptr, ptr %ref.tmp10.sink.sroa.phi755, align 8
+  %106 = load ptr, ptr %m_ptr3.i.i3.i.i.i108, align 8
   store ptr %106, ptr %m_ptr.i.i2.i.i.i58, align 8
-  store ptr %105, ptr %ref.tmp10.sink.sroa.phi755, align 8
+  store ptr %105, ptr %m_ptr3.i.i3.i.i.i108, align 8
   %bf.load.i.i5.i.i.i110 = load i8, ptr %m_owner.i.i4.i.i.i60, align 4
-  %bf.load5.i.i8.i.i.i113 = load i8, ptr %ref.tmp10.sink.sroa.phi716, align 4
+  %m_owner4.i.i7.i.i.i112 = getelementptr inbounds i8, ptr %ref.tmp10.sink, i64 20
+  %bf.load5.i.i8.i.i.i113 = load i8, ptr %m_owner4.i.i7.i.i.i112, align 4
   %bf.clear11.i.i10.i.i.i115 = and i8 %bf.load.i.i5.i.i.i110, -4
   %bf.clear16.i.i13.i.i.i118 = and i8 %bf.load5.i.i8.i.i.i113, -4
   %107 = and i8 %bf.load5.i.i8.i.i.i113, 3
@@ -276723,17 +276671,20 @@ if.end23.sink.split:                              ; preds = %_ZNK3smt12theory_ar
   store i8 %bf.set29.i.i19.i.i.i124, ptr %m_owner.i.i4.i.i.i60, align 4
   %108 = and i8 %bf.load.i.i5.i.i.i110, 3
   %bf.set34.i.i22.i.i.i127 = or disjoint i8 %bf.clear16.i.i13.i.i.i118, %108
-  store i8 %bf.set34.i.i22.i.i.i127, ptr %ref.tmp10.sink.sroa.phi716, align 4
+  store i8 %bf.set34.i.i22.i.i.i127, ptr %m_owner4.i.i7.i.i.i112, align 4
+  %m_r3.i129 = getelementptr inbounds i8, ptr %ref.tmp10.sink, i64 32
   %109 = load i32, ptr %m_r.i79, align 8
-  %110 = load i32, ptr %ref.tmp10.sink.sroa.phi752, align 8
+  %110 = load i32, ptr %m_r3.i129, align 8
   store i32 %110, ptr %m_r.i79, align 8
-  store i32 %109, ptr %ref.tmp10.sink.sroa.phi752, align 8
+  store i32 %109, ptr %m_r3.i129, align 8
+  %m_ptr3.i.i.i.i.i394 = getelementptr inbounds i8, ptr %ref.tmp10.sink, i64 40
   %111 = load ptr, ptr %m_ptr.i.i.i.i.i303, align 8
-  %112 = load ptr, ptr %ref.tmp10.sink.sroa.phi719, align 8
+  %112 = load ptr, ptr %m_ptr3.i.i.i.i.i394, align 8
   store ptr %112, ptr %m_ptr.i.i.i.i.i303, align 8
-  store ptr %111, ptr %ref.tmp10.sink.sroa.phi719, align 8
+  store ptr %111, ptr %m_ptr3.i.i.i.i.i394, align 8
   %bf.load.i.i.i.i.i396 = load i8, ptr %m_owner.i.i.i.i.i305, align 4
-  %bf.load5.i.i.i.i.i399 = load i8, ptr %ref.tmp10.sink.sroa.phi749, align 4
+  %m_owner4.i.i.i.i.i398 = getelementptr inbounds i8, ptr %ref.tmp10.sink, i64 36
+  %bf.load5.i.i.i.i.i399 = load i8, ptr %m_owner4.i.i.i.i.i398, align 4
   %bf.clear11.i.i.i.i.i401 = and i8 %bf.load.i.i.i.i.i396, -4
   %bf.clear16.i.i.i.i.i404 = and i8 %bf.load5.i.i.i.i.i399, -4
   %113 = and i8 %bf.load5.i.i.i.i.i399, 3
@@ -276741,17 +276692,20 @@ if.end23.sink.split:                              ; preds = %_ZNK3smt12theory_ar
   store i8 %bf.set29.i.i.i.i.i410, ptr %m_owner.i.i.i.i.i305, align 4
   %114 = and i8 %bf.load.i.i.i.i.i396, 3
   %bf.set34.i.i.i.i.i413 = or disjoint i8 %bf.clear16.i.i.i.i.i404, %114
-  store i8 %bf.set34.i.i.i.i.i413, ptr %ref.tmp10.sink.sroa.phi749, align 4
+  store i8 %bf.set34.i.i.i.i.i413, ptr %m_owner4.i.i.i.i.i398, align 4
+  %m_den3.i.i.i415 = getelementptr inbounds i8, ptr %ref.tmp10.sink, i64 48
   %115 = load i32, ptr %m_den.i.i.i324, align 8
-  %116 = load i32, ptr %ref.tmp10.sink.sroa.phi722, align 8
+  %116 = load i32, ptr %m_den3.i.i.i415, align 8
   store i32 %116, ptr %m_den.i.i.i324, align 8
-  store i32 %115, ptr %ref.tmp10.sink.sroa.phi722, align 8
+  store i32 %115, ptr %m_den3.i.i.i415, align 8
+  %m_ptr3.i.i3.i.i.i417 = getelementptr inbounds i8, ptr %ref.tmp10.sink, i64 56
   %117 = load ptr, ptr %m_ptr.i.i2.i.i.i326, align 8
-  %118 = load ptr, ptr %ref.tmp10.sink.sroa.phi746, align 8
+  %118 = load ptr, ptr %m_ptr3.i.i3.i.i.i417, align 8
   store ptr %118, ptr %m_ptr.i.i2.i.i.i326, align 8
-  store ptr %117, ptr %ref.tmp10.sink.sroa.phi746, align 8
+  store ptr %117, ptr %m_ptr3.i.i3.i.i.i417, align 8
   %bf.load.i.i5.i.i.i419 = load i8, ptr %m_owner.i.i4.i.i.i328, align 4
-  %bf.load5.i.i8.i.i.i422 = load i8, ptr %ref.tmp10.sink.sroa.phi725, align 4
+  %m_owner4.i.i7.i.i.i421 = getelementptr inbounds i8, ptr %ref.tmp10.sink, i64 52
+  %bf.load5.i.i8.i.i.i422 = load i8, ptr %m_owner4.i.i7.i.i.i421, align 4
   %bf.clear11.i.i10.i.i.i424 = and i8 %bf.load.i.i5.i.i.i419, -4
   %bf.clear16.i.i13.i.i.i427 = and i8 %bf.load5.i.i8.i.i.i422, -4
   %119 = and i8 %bf.load5.i.i8.i.i.i422, 3
@@ -276759,17 +276713,20 @@ if.end23.sink.split:                              ; preds = %_ZNK3smt12theory_ar
   store i8 %bf.set29.i.i19.i.i.i433, ptr %m_owner.i.i4.i.i.i328, align 4
   %120 = and i8 %bf.load.i.i5.i.i.i419, 3
   %bf.set34.i.i22.i.i.i436 = or disjoint i8 %bf.clear16.i.i13.i.i.i427, %120
-  store i8 %bf.set34.i.i22.i.i.i436, ptr %ref.tmp10.sink.sroa.phi725, align 4
+  store i8 %bf.set34.i.i22.i.i.i436, ptr %m_owner4.i.i7.i.i.i421, align 4
+  %m_second3.i438 = getelementptr inbounds i8, ptr %ref.tmp10.sink, i64 64
   %121 = load i32, ptr %m_second.i347, align 8
-  %122 = load i32, ptr %ref.tmp10.sink.sroa.phi743, align 8
+  %122 = load i32, ptr %m_second3.i438, align 8
   store i32 %122, ptr %m_second.i347, align 8
-  store i32 %121, ptr %ref.tmp10.sink.sroa.phi743, align 8
+  store i32 %121, ptr %m_second3.i438, align 8
+  %m_ptr3.i.i.i.i3.i440 = getelementptr inbounds i8, ptr %ref.tmp10.sink, i64 72
   %123 = load ptr, ptr %m_ptr.i.i.i.i2.i349, align 8
-  %124 = load ptr, ptr %ref.tmp10.sink.sroa.phi728, align 8
+  %124 = load ptr, ptr %m_ptr3.i.i.i.i3.i440, align 8
   store ptr %124, ptr %m_ptr.i.i.i.i2.i349, align 8
-  store ptr %123, ptr %ref.tmp10.sink.sroa.phi728, align 8
+  store ptr %123, ptr %m_ptr3.i.i.i.i3.i440, align 8
   %bf.load.i.i.i.i5.i442 = load i8, ptr %m_owner.i.i.i.i4.i351, align 4
-  %bf.load5.i.i.i.i8.i445 = load i8, ptr %ref.tmp10.sink.sroa.phi740, align 4
+  %m_owner4.i.i.i.i7.i444 = getelementptr inbounds i8, ptr %ref.tmp10.sink, i64 68
+  %bf.load5.i.i.i.i8.i445 = load i8, ptr %m_owner4.i.i.i.i7.i444, align 4
   %bf.clear11.i.i.i.i10.i447 = and i8 %bf.load.i.i.i.i5.i442, -4
   %bf.clear16.i.i.i.i13.i450 = and i8 %bf.load5.i.i.i.i8.i445, -4
   %125 = and i8 %bf.load5.i.i.i.i8.i445, 3
@@ -276777,17 +276734,20 @@ if.end23.sink.split:                              ; preds = %_ZNK3smt12theory_ar
   store i8 %bf.set29.i.i.i.i19.i456, ptr %m_owner.i.i.i.i4.i351, align 4
   %126 = and i8 %bf.load.i.i.i.i5.i442, 3
   %bf.set34.i.i.i.i22.i459 = or disjoint i8 %bf.clear16.i.i.i.i13.i450, %126
-  store i8 %bf.set34.i.i.i.i22.i459, ptr %ref.tmp10.sink.sroa.phi740, align 4
+  store i8 %bf.set34.i.i.i.i22.i459, ptr %m_owner4.i.i.i.i7.i444, align 4
+  %m_den3.i.i24.i461 = getelementptr inbounds i8, ptr %ref.tmp10.sink, i64 80
   %127 = load i32, ptr %m_den.i.i23.i370, align 8
-  %128 = load i32, ptr %ref.tmp10.sink.sroa.phi731, align 8
+  %128 = load i32, ptr %m_den3.i.i24.i461, align 8
   store i32 %128, ptr %m_den.i.i23.i370, align 8
-  store i32 %127, ptr %ref.tmp10.sink.sroa.phi731, align 8
+  store i32 %127, ptr %m_den3.i.i24.i461, align 8
+  %m_ptr3.i.i3.i.i26.i463 = getelementptr inbounds i8, ptr %ref.tmp10.sink, i64 88
   %129 = load ptr, ptr %m_ptr.i.i2.i.i25.i372, align 8
-  %130 = load ptr, ptr %ref.tmp10.sink.sroa.phi737, align 8
+  %130 = load ptr, ptr %m_ptr3.i.i3.i.i26.i463, align 8
   store ptr %130, ptr %m_ptr.i.i2.i.i25.i372, align 8
-  store ptr %129, ptr %ref.tmp10.sink.sroa.phi737, align 8
+  store ptr %129, ptr %m_ptr3.i.i3.i.i26.i463, align 8
+  %m_owner4.i.i7.i.i30.i467 = getelementptr inbounds i8, ptr %ref.tmp10.sink, i64 84
   %bf.load.i.i5.i.i28.i555.sink665 = load i8, ptr %m_owner.i.i4.i.i27.i374, align 4
-  %bf.load5.i.i8.i.i31.i468 = load i8, ptr %ref.tmp10.sink.sroa.phi734, align 4
+  %bf.load5.i.i8.i.i31.i468 = load i8, ptr %m_owner4.i.i7.i.i30.i467, align 4
   %bf.clear11.i.i10.i.i33.i560 = and i8 %bf.load.i.i5.i.i28.i555.sink665, -4
   %bf.clear16.i.i13.i.i36.i563 = and i8 %bf.load5.i.i8.i.i31.i468, -4
   %131 = and i8 %bf.load5.i.i8.i.i31.i468, 3
@@ -276795,7 +276755,7 @@ if.end23.sink.split:                              ; preds = %_ZNK3smt12theory_ar
   store i8 %bf.set29.i.i19.i.i42.i569, ptr %m_owner.i.i4.i.i27.i374, align 4
   %132 = and i8 %bf.load.i.i5.i.i28.i555.sink665, 3
   %bf.set34.i.i22.i.i45.i572 = or disjoint i8 %bf.clear16.i.i13.i.i36.i563, %132
-  store i8 %bf.set34.i.i22.i.i45.i572, ptr %ref.tmp10.sink.sroa.phi734, align 4
+  store i8 %bf.set34.i.i22.i.i45.i572, ptr %m_owner4.i.i7.i.i30.i467, align 4
   call void @_ZN16inf_eps_rationalI12inf_rationalED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10.sink) #22
   br label %if.end23
 
@@ -276966,9 +276926,43 @@ define weak_odr hidden noundef zeroext i1 @_ZN3smt12theory_arithINS_7inf_extEE12
 entry:
   %max_inc = alloca %class.inf_eps_rational, align 8
   %ref.tmp = alloca %class.inf_eps_rational, align 8
+  %ref.tmp.sroa.gep1052 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %ref.tmp.sroa.gep1049 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %ref.tmp.sroa.gep1046 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %ref.tmp.sroa.gep1043 = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %ref.tmp.sroa.gep1040 = getelementptr inbounds i8, ptr %ref.tmp, i64 56
+  %ref.tmp.sroa.gep1037 = getelementptr inbounds i8, ptr %ref.tmp, i64 64
+  %ref.tmp.sroa.gep1034 = getelementptr inbounds i8, ptr %ref.tmp, i64 68
+  %ref.tmp.sroa.gep1031 = getelementptr inbounds i8, ptr %ref.tmp, i64 88
+  %ref.tmp.sroa.gep1028 = getelementptr inbounds i8, ptr %ref.tmp, i64 84
+  %ref.tmp.sroa.gep1025 = getelementptr inbounds i8, ptr %ref.tmp, i64 80
+  %ref.tmp.sroa.gep1022 = getelementptr inbounds i8, ptr %ref.tmp, i64 72
+  %ref.tmp.sroa.gep1019 = getelementptr inbounds i8, ptr %ref.tmp, i64 52
+  %ref.tmp.sroa.gep1016 = getelementptr inbounds i8, ptr %ref.tmp, i64 48
+  %ref.tmp.sroa.gep1013 = getelementptr inbounds i8, ptr %ref.tmp, i64 40
+  %ref.tmp.sroa.gep1010 = getelementptr inbounds i8, ptr %ref.tmp, i64 20
+  %ref.tmp.sroa.gep1007 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp13 = alloca %class.inf_eps_rational, align 8
   %ref.tmp14 = alloca %class.inf_eps_rational, align 8
   %ref.tmp31 = alloca %class.inf_eps_rational, align 8
+  %ref.tmp31.sroa.gep1053 = getelementptr inbounds i8, ptr %ref.tmp31, i64 4
+  %ref.tmp31.sroa.gep1050 = getelementptr inbounds i8, ptr %ref.tmp31, i64 24
+  %ref.tmp31.sroa.gep1047 = getelementptr inbounds i8, ptr %ref.tmp31, i64 32
+  %ref.tmp31.sroa.gep1044 = getelementptr inbounds i8, ptr %ref.tmp31, i64 36
+  %ref.tmp31.sroa.gep1041 = getelementptr inbounds i8, ptr %ref.tmp31, i64 56
+  %ref.tmp31.sroa.gep1038 = getelementptr inbounds i8, ptr %ref.tmp31, i64 64
+  %ref.tmp31.sroa.gep1035 = getelementptr inbounds i8, ptr %ref.tmp31, i64 68
+  %ref.tmp31.sroa.gep1032 = getelementptr inbounds i8, ptr %ref.tmp31, i64 88
+  %ref.tmp31.sroa.gep1029 = getelementptr inbounds i8, ptr %ref.tmp31, i64 84
+  %ref.tmp31.sroa.gep1026 = getelementptr inbounds i8, ptr %ref.tmp31, i64 80
+  %ref.tmp31.sroa.gep1023 = getelementptr inbounds i8, ptr %ref.tmp31, i64 72
+  %ref.tmp31.sroa.gep1020 = getelementptr inbounds i8, ptr %ref.tmp31, i64 52
+  %ref.tmp31.sroa.gep1017 = getelementptr inbounds i8, ptr %ref.tmp31, i64 48
+  %ref.tmp31.sroa.gep1014 = getelementptr inbounds i8, ptr %ref.tmp31, i64 40
+  %ref.tmp31.sroa.gep1011 = getelementptr inbounds i8, ptr %ref.tmp31, i64 20
+  %ref.tmp31.sroa.gep1008 = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
+  %ref.tmp31.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
   %ref.tmp32 = alloca %class.inf_eps_rational, align 8
   %ref.tmp33 = alloca %class.inf_eps_rational, align 8
   %den_aij = alloca %class.rational, align 8
@@ -276983,40 +276977,6 @@ entry:
   %ref.tmp100 = alloca %class.rational, align 8
   %ref.tmp119 = alloca %class.inf_rational, align 8
   %ref.tmp120 = alloca %class.rational, align 8
-  %ref.tmp.sink.sroa.gep1053 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
-  %ref.tmp.sink.sroa.gep1054 = getelementptr inbounds i8, ptr %ref.tmp31, i64 4
-  %ref.tmp.sink.sroa.gep1050 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %ref.tmp.sink.sroa.gep1051 = getelementptr inbounds i8, ptr %ref.tmp31, i64 24
-  %ref.tmp.sink.sroa.gep1047 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %ref.tmp.sink.sroa.gep1048 = getelementptr inbounds i8, ptr %ref.tmp31, i64 32
-  %ref.tmp.sink.sroa.gep1044 = getelementptr inbounds i8, ptr %ref.tmp, i64 36
-  %ref.tmp.sink.sroa.gep1045 = getelementptr inbounds i8, ptr %ref.tmp31, i64 36
-  %ref.tmp.sink.sroa.gep1041 = getelementptr inbounds i8, ptr %ref.tmp, i64 56
-  %ref.tmp.sink.sroa.gep1042 = getelementptr inbounds i8, ptr %ref.tmp31, i64 56
-  %ref.tmp.sink.sroa.gep1038 = getelementptr inbounds i8, ptr %ref.tmp, i64 64
-  %ref.tmp.sink.sroa.gep1039 = getelementptr inbounds i8, ptr %ref.tmp31, i64 64
-  %ref.tmp.sink.sroa.gep1035 = getelementptr inbounds i8, ptr %ref.tmp, i64 68
-  %ref.tmp.sink.sroa.gep1036 = getelementptr inbounds i8, ptr %ref.tmp31, i64 68
-  %ref.tmp.sink.sroa.gep1032 = getelementptr inbounds i8, ptr %ref.tmp, i64 88
-  %ref.tmp.sink.sroa.gep1033 = getelementptr inbounds i8, ptr %ref.tmp31, i64 88
-  %ref.tmp.sink.sroa.gep1029 = getelementptr inbounds i8, ptr %ref.tmp, i64 84
-  %ref.tmp.sink.sroa.gep1030 = getelementptr inbounds i8, ptr %ref.tmp31, i64 84
-  %ref.tmp.sink.sroa.gep1026 = getelementptr inbounds i8, ptr %ref.tmp, i64 80
-  %ref.tmp.sink.sroa.gep1027 = getelementptr inbounds i8, ptr %ref.tmp31, i64 80
-  %ref.tmp.sink.sroa.gep1023 = getelementptr inbounds i8, ptr %ref.tmp, i64 72
-  %ref.tmp.sink.sroa.gep1024 = getelementptr inbounds i8, ptr %ref.tmp31, i64 72
-  %ref.tmp.sink.sroa.gep1020 = getelementptr inbounds i8, ptr %ref.tmp, i64 52
-  %ref.tmp.sink.sroa.gep1021 = getelementptr inbounds i8, ptr %ref.tmp31, i64 52
-  %ref.tmp.sink.sroa.gep1017 = getelementptr inbounds i8, ptr %ref.tmp, i64 48
-  %ref.tmp.sink.sroa.gep1018 = getelementptr inbounds i8, ptr %ref.tmp31, i64 48
-  %ref.tmp.sink.sroa.gep1014 = getelementptr inbounds i8, ptr %ref.tmp, i64 40
-  %ref.tmp.sink.sroa.gep1015 = getelementptr inbounds i8, ptr %ref.tmp31, i64 40
-  %ref.tmp.sink.sroa.gep1011 = getelementptr inbounds i8, ptr %ref.tmp, i64 20
-  %ref.tmp.sink.sroa.gep1012 = getelementptr inbounds i8, ptr %ref.tmp31, i64 20
-  %ref.tmp.sink.sroa.gep1008 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %ref.tmp.sink.sroa.gep1009 = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
-  %ref.tmp.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %ref.tmp.sink.sroa.gep1006 = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
   %0 = load i32, ptr %max_gain, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %land.rhs.i.i.i, label %_ZNK3smt12theory_arithINS_7inf_extEE9safe_gainERK16inf_eps_rationalI12inf_rationalES7_.exit
@@ -277396,32 +277356,32 @@ ehcleanup45:                                      ; preds = %lpad39, %lpad.i80, 
   br label %ehcleanup149
 
 if.end47.sink.split:                              ; preds = %invoke.cont23, %invoke.cont42
-  %ref.tmp.sink.sroa.phi = phi ptr [ %ref.tmp.sink.sroa.gep, %invoke.cont23 ], [ %ref.tmp.sink.sroa.gep1006, %invoke.cont42 ]
-  %ref.tmp.sink.sroa.phi1007 = phi ptr [ %ref.tmp.sink.sroa.gep1008, %invoke.cont23 ], [ %ref.tmp.sink.sroa.gep1009, %invoke.cont42 ]
-  %ref.tmp.sink.sroa.phi1010 = phi ptr [ %ref.tmp.sink.sroa.gep1011, %invoke.cont23 ], [ %ref.tmp.sink.sroa.gep1012, %invoke.cont42 ]
-  %ref.tmp.sink.sroa.phi1013 = phi ptr [ %ref.tmp.sink.sroa.gep1014, %invoke.cont23 ], [ %ref.tmp.sink.sroa.gep1015, %invoke.cont42 ]
-  %ref.tmp.sink.sroa.phi1016 = phi ptr [ %ref.tmp.sink.sroa.gep1017, %invoke.cont23 ], [ %ref.tmp.sink.sroa.gep1018, %invoke.cont42 ]
-  %ref.tmp.sink.sroa.phi1019 = phi ptr [ %ref.tmp.sink.sroa.gep1020, %invoke.cont23 ], [ %ref.tmp.sink.sroa.gep1021, %invoke.cont42 ]
-  %ref.tmp.sink.sroa.phi1022 = phi ptr [ %ref.tmp.sink.sroa.gep1023, %invoke.cont23 ], [ %ref.tmp.sink.sroa.gep1024, %invoke.cont42 ]
-  %ref.tmp.sink.sroa.phi1025 = phi ptr [ %ref.tmp.sink.sroa.gep1026, %invoke.cont23 ], [ %ref.tmp.sink.sroa.gep1027, %invoke.cont42 ]
-  %ref.tmp.sink.sroa.phi1028 = phi ptr [ %ref.tmp.sink.sroa.gep1029, %invoke.cont23 ], [ %ref.tmp.sink.sroa.gep1030, %invoke.cont42 ]
-  %ref.tmp.sink.sroa.phi1031 = phi ptr [ %ref.tmp.sink.sroa.gep1032, %invoke.cont23 ], [ %ref.tmp.sink.sroa.gep1033, %invoke.cont42 ]
-  %ref.tmp.sink.sroa.phi1034 = phi ptr [ %ref.tmp.sink.sroa.gep1035, %invoke.cont23 ], [ %ref.tmp.sink.sroa.gep1036, %invoke.cont42 ]
-  %ref.tmp.sink.sroa.phi1037 = phi ptr [ %ref.tmp.sink.sroa.gep1038, %invoke.cont23 ], [ %ref.tmp.sink.sroa.gep1039, %invoke.cont42 ]
-  %ref.tmp.sink.sroa.phi1040 = phi ptr [ %ref.tmp.sink.sroa.gep1041, %invoke.cont23 ], [ %ref.tmp.sink.sroa.gep1042, %invoke.cont42 ]
-  %ref.tmp.sink.sroa.phi1043 = phi ptr [ %ref.tmp.sink.sroa.gep1044, %invoke.cont23 ], [ %ref.tmp.sink.sroa.gep1045, %invoke.cont42 ]
-  %ref.tmp.sink.sroa.phi1046 = phi ptr [ %ref.tmp.sink.sroa.gep1047, %invoke.cont23 ], [ %ref.tmp.sink.sroa.gep1048, %invoke.cont42 ]
-  %ref.tmp.sink.sroa.phi1049 = phi ptr [ %ref.tmp.sink.sroa.gep1050, %invoke.cont23 ], [ %ref.tmp.sink.sroa.gep1051, %invoke.cont42 ]
-  %ref.tmp.sink.sroa.phi1052 = phi ptr [ %ref.tmp.sink.sroa.gep1053, %invoke.cont23 ], [ %ref.tmp.sink.sroa.gep1054, %invoke.cont42 ]
   %ref.tmp.sink = phi ptr [ %ref.tmp, %invoke.cont23 ], [ %ref.tmp31, %invoke.cont42 ]
   %ref.tmp32.sink = phi ptr [ %ref.tmp13, %invoke.cont23 ], [ %ref.tmp32, %invoke.cont42 ]
   %ref.tmp33.sink = phi ptr [ %ref.tmp14, %invoke.cont23 ], [ %ref.tmp33, %invoke.cont42 ]
+  %ref.tmp.sink.sroa.phi = phi ptr [ %ref.tmp.sroa.gep, %invoke.cont23 ], [ %ref.tmp31.sroa.gep, %invoke.cont42 ]
+  %ref.tmp.sink.sroa.phi1006 = phi ptr [ %ref.tmp.sroa.gep1007, %invoke.cont23 ], [ %ref.tmp31.sroa.gep1008, %invoke.cont42 ]
+  %ref.tmp.sink.sroa.phi1009 = phi ptr [ %ref.tmp.sroa.gep1010, %invoke.cont23 ], [ %ref.tmp31.sroa.gep1011, %invoke.cont42 ]
+  %ref.tmp.sink.sroa.phi1012 = phi ptr [ %ref.tmp.sroa.gep1013, %invoke.cont23 ], [ %ref.tmp31.sroa.gep1014, %invoke.cont42 ]
+  %ref.tmp.sink.sroa.phi1015 = phi ptr [ %ref.tmp.sroa.gep1016, %invoke.cont23 ], [ %ref.tmp31.sroa.gep1017, %invoke.cont42 ]
+  %ref.tmp.sink.sroa.phi1018 = phi ptr [ %ref.tmp.sroa.gep1019, %invoke.cont23 ], [ %ref.tmp31.sroa.gep1020, %invoke.cont42 ]
+  %ref.tmp.sink.sroa.phi1021 = phi ptr [ %ref.tmp.sroa.gep1022, %invoke.cont23 ], [ %ref.tmp31.sroa.gep1023, %invoke.cont42 ]
+  %ref.tmp.sink.sroa.phi1024 = phi ptr [ %ref.tmp.sroa.gep1025, %invoke.cont23 ], [ %ref.tmp31.sroa.gep1026, %invoke.cont42 ]
+  %ref.tmp.sink.sroa.phi1027 = phi ptr [ %ref.tmp.sroa.gep1028, %invoke.cont23 ], [ %ref.tmp31.sroa.gep1029, %invoke.cont42 ]
+  %ref.tmp.sink.sroa.phi1030 = phi ptr [ %ref.tmp.sroa.gep1031, %invoke.cont23 ], [ %ref.tmp31.sroa.gep1032, %invoke.cont42 ]
+  %ref.tmp.sink.sroa.phi1033 = phi ptr [ %ref.tmp.sroa.gep1034, %invoke.cont23 ], [ %ref.tmp31.sroa.gep1035, %invoke.cont42 ]
+  %ref.tmp.sink.sroa.phi1036 = phi ptr [ %ref.tmp.sroa.gep1037, %invoke.cont23 ], [ %ref.tmp31.sroa.gep1038, %invoke.cont42 ]
+  %ref.tmp.sink.sroa.phi1039 = phi ptr [ %ref.tmp.sroa.gep1040, %invoke.cont23 ], [ %ref.tmp31.sroa.gep1041, %invoke.cont42 ]
+  %ref.tmp.sink.sroa.phi1042 = phi ptr [ %ref.tmp.sroa.gep1043, %invoke.cont23 ], [ %ref.tmp31.sroa.gep1044, %invoke.cont42 ]
+  %ref.tmp.sink.sroa.phi1045 = phi ptr [ %ref.tmp.sroa.gep1046, %invoke.cont23 ], [ %ref.tmp31.sroa.gep1047, %invoke.cont42 ]
+  %ref.tmp.sink.sroa.phi1048 = phi ptr [ %ref.tmp.sroa.gep1049, %invoke.cont23 ], [ %ref.tmp31.sroa.gep1050, %invoke.cont42 ]
+  %ref.tmp.sink.sroa.phi1051 = phi ptr [ %ref.tmp.sroa.gep1052, %invoke.cont23 ], [ %ref.tmp31.sroa.gep1053, %invoke.cont42 ]
   %50 = load ptr, ptr %m_ptr.i.i.i.i.i, align 8
   %51 = load ptr, ptr %ref.tmp.sink.sroa.phi, align 8
   store ptr %51, ptr %m_ptr.i.i.i.i.i, align 8
   store ptr %50, ptr %ref.tmp.sink.sroa.phi, align 8
   %bf.load.i.i.i.i.i57 = load i8, ptr %m_kind.i.i.i.i.i, align 4
-  %bf.load5.i.i.i.i.i = load i8, ptr %ref.tmp.sink.sroa.phi1052, align 4
+  %bf.load5.i.i.i.i.i = load i8, ptr %ref.tmp.sink.sroa.phi1051, align 4
   %bf.clear11.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i57, -4
   %bf.clear16.i.i.i.i.i = and i8 %bf.load5.i.i.i.i.i, -4
   %52 = and i8 %bf.load5.i.i.i.i.i, 3
@@ -277429,17 +277389,17 @@ if.end47.sink.split:                              ; preds = %invoke.cont23, %inv
   store i8 %bf.set29.i.i.i.i.i, ptr %m_kind.i.i.i.i.i, align 4
   %53 = and i8 %bf.load.i.i.i.i.i57, 3
   %bf.set34.i.i.i.i.i = or disjoint i8 %bf.clear16.i.i.i.i.i, %53
-  store i8 %bf.set34.i.i.i.i.i, ptr %ref.tmp.sink.sroa.phi1052, align 4
+  store i8 %bf.set34.i.i.i.i.i, ptr %ref.tmp.sink.sroa.phi1051, align 4
   %54 = load i32, ptr %m_den.i.i.i.i, align 8
-  %55 = load i32, ptr %ref.tmp.sink.sroa.phi1007, align 8
+  %55 = load i32, ptr %ref.tmp.sink.sroa.phi1006, align 8
   store i32 %55, ptr %m_den.i.i.i.i, align 8
-  store i32 %54, ptr %ref.tmp.sink.sroa.phi1007, align 8
+  store i32 %54, ptr %ref.tmp.sink.sroa.phi1006, align 8
   %56 = load ptr, ptr %m_ptr.i4.i.i.i.i, align 8
-  %57 = load ptr, ptr %ref.tmp.sink.sroa.phi1049, align 8
+  %57 = load ptr, ptr %ref.tmp.sink.sroa.phi1048, align 8
   store ptr %57, ptr %m_ptr.i4.i.i.i.i, align 8
-  store ptr %56, ptr %ref.tmp.sink.sroa.phi1049, align 8
+  store ptr %56, ptr %ref.tmp.sink.sroa.phi1048, align 8
   %bf.load.i.i5.i.i.i = load i8, ptr %m_kind.i1.i.i.i.i, align 4
-  %bf.load5.i.i8.i.i.i = load i8, ptr %ref.tmp.sink.sroa.phi1010, align 4
+  %bf.load5.i.i8.i.i.i = load i8, ptr %ref.tmp.sink.sroa.phi1009, align 4
   %bf.clear11.i.i10.i.i.i = and i8 %bf.load.i.i5.i.i.i, -4
   %bf.clear16.i.i13.i.i.i = and i8 %bf.load5.i.i8.i.i.i, -4
   %58 = and i8 %bf.load5.i.i8.i.i.i, 3
@@ -277447,19 +277407,19 @@ if.end47.sink.split:                              ; preds = %invoke.cont23, %inv
   store i8 %bf.set29.i.i19.i.i.i, ptr %m_kind.i1.i.i.i.i, align 4
   %59 = and i8 %bf.load.i.i5.i.i.i, 3
   %bf.set34.i.i22.i.i.i = or disjoint i8 %bf.clear16.i.i13.i.i.i, %59
-  store i8 %bf.set34.i.i22.i.i.i, ptr %ref.tmp.sink.sroa.phi1010, align 4
+  store i8 %bf.set34.i.i22.i.i.i, ptr %ref.tmp.sink.sroa.phi1009, align 4
   %60 = load i32, ptr %m_r.i.i, align 8
-  %61 = load i32, ptr %ref.tmp.sink.sroa.phi1046, align 8
+  %61 = load i32, ptr %ref.tmp.sink.sroa.phi1045, align 8
   store i32 %61, ptr %m_r.i.i, align 8
-  store i32 %60, ptr %ref.tmp.sink.sroa.phi1046, align 8
+  store i32 %60, ptr %ref.tmp.sink.sroa.phi1045, align 8
   %m_ptr.i.i.i.i.i521 = getelementptr inbounds i8, ptr %max_inc, i64 40
   %62 = load ptr, ptr %m_ptr.i.i.i.i.i521, align 8
-  %63 = load ptr, ptr %ref.tmp.sink.sroa.phi1013, align 8
+  %63 = load ptr, ptr %ref.tmp.sink.sroa.phi1012, align 8
   store ptr %63, ptr %m_ptr.i.i.i.i.i521, align 8
-  store ptr %62, ptr %ref.tmp.sink.sroa.phi1013, align 8
+  store ptr %62, ptr %ref.tmp.sink.sroa.phi1012, align 8
   %m_owner.i.i.i.i.i523 = getelementptr inbounds i8, ptr %max_inc, i64 36
   %bf.load.i.i.i.i.i524 = load i8, ptr %m_owner.i.i.i.i.i523, align 4
-  %bf.load5.i.i.i.i.i527 = load i8, ptr %ref.tmp.sink.sroa.phi1043, align 4
+  %bf.load5.i.i.i.i.i527 = load i8, ptr %ref.tmp.sink.sroa.phi1042, align 4
   %bf.clear11.i.i.i.i.i529 = and i8 %bf.load.i.i.i.i.i524, -4
   %bf.clear16.i.i.i.i.i532 = and i8 %bf.load5.i.i.i.i.i527, -4
   %64 = and i8 %bf.load5.i.i.i.i.i527, 3
@@ -277467,20 +277427,20 @@ if.end47.sink.split:                              ; preds = %invoke.cont23, %inv
   store i8 %bf.set29.i.i.i.i.i538, ptr %m_owner.i.i.i.i.i523, align 4
   %65 = and i8 %bf.load.i.i.i.i.i524, 3
   %bf.set34.i.i.i.i.i541 = or disjoint i8 %bf.clear16.i.i.i.i.i532, %65
-  store i8 %bf.set34.i.i.i.i.i541, ptr %ref.tmp.sink.sroa.phi1043, align 4
+  store i8 %bf.set34.i.i.i.i.i541, ptr %ref.tmp.sink.sroa.phi1042, align 4
   %m_den.i.i.i542 = getelementptr inbounds i8, ptr %max_inc, i64 48
   %66 = load i32, ptr %m_den.i.i.i542, align 8
-  %67 = load i32, ptr %ref.tmp.sink.sroa.phi1016, align 8
+  %67 = load i32, ptr %ref.tmp.sink.sroa.phi1015, align 8
   store i32 %67, ptr %m_den.i.i.i542, align 8
-  store i32 %66, ptr %ref.tmp.sink.sroa.phi1016, align 8
+  store i32 %66, ptr %ref.tmp.sink.sroa.phi1015, align 8
   %m_ptr.i.i2.i.i.i544 = getelementptr inbounds i8, ptr %max_inc, i64 56
   %68 = load ptr, ptr %m_ptr.i.i2.i.i.i544, align 8
-  %69 = load ptr, ptr %ref.tmp.sink.sroa.phi1040, align 8
+  %69 = load ptr, ptr %ref.tmp.sink.sroa.phi1039, align 8
   store ptr %69, ptr %m_ptr.i.i2.i.i.i544, align 8
-  store ptr %68, ptr %ref.tmp.sink.sroa.phi1040, align 8
+  store ptr %68, ptr %ref.tmp.sink.sroa.phi1039, align 8
   %m_owner.i.i4.i.i.i546 = getelementptr inbounds i8, ptr %max_inc, i64 52
   %bf.load.i.i5.i.i.i547 = load i8, ptr %m_owner.i.i4.i.i.i546, align 4
-  %bf.load5.i.i8.i.i.i550 = load i8, ptr %ref.tmp.sink.sroa.phi1019, align 4
+  %bf.load5.i.i8.i.i.i550 = load i8, ptr %ref.tmp.sink.sroa.phi1018, align 4
   %bf.clear11.i.i10.i.i.i552 = and i8 %bf.load.i.i5.i.i.i547, -4
   %bf.clear16.i.i13.i.i.i555 = and i8 %bf.load5.i.i8.i.i.i550, -4
   %70 = and i8 %bf.load5.i.i8.i.i.i550, 3
@@ -277488,20 +277448,20 @@ if.end47.sink.split:                              ; preds = %invoke.cont23, %inv
   store i8 %bf.set29.i.i19.i.i.i561, ptr %m_owner.i.i4.i.i.i546, align 4
   %71 = and i8 %bf.load.i.i5.i.i.i547, 3
   %bf.set34.i.i22.i.i.i564 = or disjoint i8 %bf.clear16.i.i13.i.i.i555, %71
-  store i8 %bf.set34.i.i22.i.i.i564, ptr %ref.tmp.sink.sroa.phi1019, align 4
+  store i8 %bf.set34.i.i22.i.i.i564, ptr %ref.tmp.sink.sroa.phi1018, align 4
   %m_second.i565 = getelementptr inbounds i8, ptr %max_inc, i64 64
   %72 = load i32, ptr %m_second.i565, align 8
-  %73 = load i32, ptr %ref.tmp.sink.sroa.phi1037, align 8
+  %73 = load i32, ptr %ref.tmp.sink.sroa.phi1036, align 8
   store i32 %73, ptr %m_second.i565, align 8
-  store i32 %72, ptr %ref.tmp.sink.sroa.phi1037, align 8
+  store i32 %72, ptr %ref.tmp.sink.sroa.phi1036, align 8
   %m_ptr.i.i.i.i2.i = getelementptr inbounds i8, ptr %max_inc, i64 72
   %74 = load ptr, ptr %m_ptr.i.i.i.i2.i, align 8
-  %75 = load ptr, ptr %ref.tmp.sink.sroa.phi1022, align 8
+  %75 = load ptr, ptr %ref.tmp.sink.sroa.phi1021, align 8
   store ptr %75, ptr %m_ptr.i.i.i.i2.i, align 8
-  store ptr %74, ptr %ref.tmp.sink.sroa.phi1022, align 8
+  store ptr %74, ptr %ref.tmp.sink.sroa.phi1021, align 8
   %m_owner.i.i.i.i4.i = getelementptr inbounds i8, ptr %max_inc, i64 68
   %bf.load.i.i.i.i5.i = load i8, ptr %m_owner.i.i.i.i4.i, align 4
-  %bf.load5.i.i.i.i8.i = load i8, ptr %ref.tmp.sink.sroa.phi1034, align 4
+  %bf.load5.i.i.i.i8.i = load i8, ptr %ref.tmp.sink.sroa.phi1033, align 4
   %bf.clear11.i.i.i.i10.i = and i8 %bf.load.i.i.i.i5.i, -4
   %bf.clear16.i.i.i.i13.i = and i8 %bf.load5.i.i.i.i8.i, -4
   %76 = and i8 %bf.load5.i.i.i.i8.i, 3
@@ -277509,20 +277469,20 @@ if.end47.sink.split:                              ; preds = %invoke.cont23, %inv
   store i8 %bf.set29.i.i.i.i19.i, ptr %m_owner.i.i.i.i4.i, align 4
   %77 = and i8 %bf.load.i.i.i.i5.i, 3
   %bf.set34.i.i.i.i22.i = or disjoint i8 %bf.clear16.i.i.i.i13.i, %77
-  store i8 %bf.set34.i.i.i.i22.i, ptr %ref.tmp.sink.sroa.phi1034, align 4
+  store i8 %bf.set34.i.i.i.i22.i, ptr %ref.tmp.sink.sroa.phi1033, align 4
   %m_den.i.i23.i = getelementptr inbounds i8, ptr %max_inc, i64 80
   %78 = load i32, ptr %m_den.i.i23.i, align 8
-  %79 = load i32, ptr %ref.tmp.sink.sroa.phi1025, align 8
+  %79 = load i32, ptr %ref.tmp.sink.sroa.phi1024, align 8
   store i32 %79, ptr %m_den.i.i23.i, align 8
-  store i32 %78, ptr %ref.tmp.sink.sroa.phi1025, align 8
+  store i32 %78, ptr %ref.tmp.sink.sroa.phi1024, align 8
   %m_ptr.i.i2.i.i25.i = getelementptr inbounds i8, ptr %max_inc, i64 88
   %80 = load ptr, ptr %m_ptr.i.i2.i.i25.i, align 8
-  %81 = load ptr, ptr %ref.tmp.sink.sroa.phi1031, align 8
+  %81 = load ptr, ptr %ref.tmp.sink.sroa.phi1030, align 8
   store ptr %81, ptr %m_ptr.i.i2.i.i25.i, align 8
-  store ptr %80, ptr %ref.tmp.sink.sroa.phi1031, align 8
+  store ptr %80, ptr %ref.tmp.sink.sroa.phi1030, align 8
   %m_owner.i.i4.i.i27.i = getelementptr inbounds i8, ptr %max_inc, i64 84
   %bf.load.i.i5.i.i28.i = load i8, ptr %m_owner.i.i4.i.i27.i, align 4
-  %bf.load5.i.i8.i.i31.i = load i8, ptr %ref.tmp.sink.sroa.phi1028, align 4
+  %bf.load5.i.i8.i.i31.i = load i8, ptr %ref.tmp.sink.sroa.phi1027, align 4
   %bf.clear11.i.i10.i.i33.i643 = and i8 %bf.load.i.i5.i.i28.i, -4
   %bf.clear16.i.i13.i.i36.i646 = and i8 %bf.load5.i.i8.i.i31.i, -4
   %82 = and i8 %bf.load5.i.i8.i.i31.i, 3
@@ -277530,7 +277490,7 @@ if.end47.sink.split:                              ; preds = %invoke.cont23, %inv
   store i8 %bf.set29.i.i19.i.i42.i652, ptr %m_owner.i.i4.i.i27.i, align 4
   %83 = and i8 %bf.load.i.i5.i.i28.i, 3
   %bf.set34.i.i22.i.i45.i655 = or disjoint i8 %bf.clear16.i.i13.i.i36.i646, %83
-  store i8 %bf.set34.i.i22.i.i45.i655, ptr %ref.tmp.sink.sroa.phi1028, align 4
+  store i8 %bf.set34.i.i22.i.i45.i655, ptr %ref.tmp.sink.sroa.phi1027, align 4
   call void @_ZN16inf_eps_rationalI12inf_rationalED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.sink) #22
   call void @_ZN16inf_eps_rationalI12inf_rationalED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp32.sink) #22
   call void @_ZN16inf_eps_rationalI12inf_rationalED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp33.sink) #22
@@ -297306,10 +297266,6 @@ define weak_odr hidden noundef zeroext i1 @_ZN3smt12theory_arithINS_7inf_extEE15
 entry:
   %r = alloca %class.old_interval, align 8
   %ref.tmp = alloca %class.old_interval, align 8
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %r, i64 96
-  %.sink.sroa.gep39 = getelementptr inbounds i8, ptr %r, i64 96
-  %.sink.sroa.gep40 = getelementptr inbounds i8, ptr %r, i64 104
-  %.sink.sroa.gep41 = getelementptr inbounds i8, ptr %r, i64 104
   call void @_ZN12old_intervalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef nonnull align 8 dereferenceable(112) %I)
   %cmp33.not = icmp eq i32 %num_monomials, 0
   br i1 %cmp33.not, label %entry.invoke.cont8_crit_edge, label %for.body.lr.ph
@@ -297447,8 +297403,9 @@ land.lhs.true37:                                  ; preds = %invoke.cont35
   br i1 %tobool.i16.not, label %cleanup, label %if.then45
 
 if.then45:                                        ; preds = %invoke.cont30, %land.lhs.true37, %invoke.cont13, %land.lhs.true19
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %land.lhs.true19 ], [ %.sink.sroa.gep39, %invoke.cont13 ], [ %.sink.sroa.gep40, %land.lhs.true37 ], [ %.sink.sroa.gep41, %invoke.cont30 ]
-  %18 = load ptr, ptr %.sink.sroa.phi, align 8
+  %.sink = phi i64 [ 96, %land.lhs.true19 ], [ 96, %invoke.cont13 ], [ 104, %land.lhs.true37 ], [ 104, %invoke.cont30 ]
+  %m_lower_dep.i = getelementptr inbounds i8, ptr %r, i64 %.sink
+  %18 = load ptr, ptr %m_lower_dep.i, align 8
   %cmp.i.i17 = icmp eq ptr %18, null
   br i1 %cmp.i.i17, label %invoke.cont46, label %if.else.i.i
 

@@ -26495,10 +26495,6 @@ entry:
   %agg.tmp42 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %ref.tmp47 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp53 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
-  %agg.tmp4.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp4, i64 4
-  %agg.tmp4.sink.sroa.gep39 = getelementptr inbounds i8, ptr %agg.tmp23, i64 4
-  %agg.tmp31.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp31, i64 4
-  %agg.tmp31.sink.sroa.gep38 = getelementptr inbounds i8, ptr %agg.tmp42, i64 4
   call void @_ZN18OpenImageIO_v2_6_08ImageBufC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %tmp)
   %call = invoke noundef i32 @_ZNK18OpenImageIO_v2_6_08ImageBuf11orientationEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
           to label %invoke.cont unwind label %lpad
@@ -26560,10 +26556,10 @@ if.then:                                          ; preds = %invoke.cont20
   br label %if.then.invoke
 
 if.then.invoke:                                   ; preds = %sw.bb3, %if.then
-  %agg.tmp4.sink.sroa.phi = phi ptr [ %agg.tmp4.sink.sroa.gep, %sw.bb3 ], [ %agg.tmp4.sink.sroa.gep39, %if.then ]
   %agg.tmp4.sink = phi ptr [ %agg.tmp4, %sw.bb3 ], [ %agg.tmp23, %if.then ]
   %1 = phi ptr [ %src, %sw.bb3 ], [ %tmp, %if.then ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.tmp4.sink.sroa.phi, i8 0, i64 28, i1 false)
+  %xend.i = getelementptr inbounds i8, ptr %agg.tmp4.sink, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %xend.i, i8 0, i64 28, i1 false)
   %2 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo4flopERNS_8ImageBufERKS1_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp4.sink, i32 noundef %nthreads)
           to label %sw.epilog unwind label %lpad
 
@@ -26600,10 +26596,10 @@ if.then41:                                        ; preds = %invoke.cont37
   br label %if.then41.invoke
 
 if.then41.invoke:                                 ; preds = %sw.bb30, %if.then41
-  %agg.tmp31.sink.sroa.phi = phi ptr [ %agg.tmp31.sink.sroa.gep, %sw.bb30 ], [ %agg.tmp31.sink.sroa.gep38, %if.then41 ]
   %agg.tmp31.sink = phi ptr [ %agg.tmp31, %sw.bb30 ], [ %agg.tmp42, %if.then41 ]
   %4 = phi ptr [ %src, %sw.bb30 ], [ %tmp, %if.then41 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.tmp31.sink.sroa.phi, i8 0, i64 28, i1 false)
+  %xend.i34 = getelementptr inbounds i8, ptr %agg.tmp31.sink, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %xend.i34, i8 0, i64 28, i1 false)
   %5 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo8rotate90ERNS_8ImageBufERKS1_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp31.sink, i32 noundef %nthreads)
           to label %sw.epilog unwind label %lpad
 

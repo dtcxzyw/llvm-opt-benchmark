@@ -29931,10 +29931,6 @@ invoke.cont:
   %gtest_ar194 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp208 = alloca %"class.testing::Message", align 8
   %ref.tmp211 = alloca %"class.testing::internal::AssertHelper", align 8
-  %set.sink.sroa.gep = getelementptr inbounds i8, ptr %set, i64 24
-  %set.sink.sroa.gep316 = getelementptr inbounds i8, ptr %set111, i64 24
-  %set.sink.sroa.gep317 = getelementptr inbounds i8, ptr %set146, i64 24
-  %set.sink.sroa.gep318 = getelementptr inbounds i8, ptr %set184, i64 24
   store i64 0, ptr %a, align 8
   store i64 1, ptr %b, align 8
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 0, i64 16), ptr %set, align 8
@@ -31560,11 +31556,11 @@ ehcleanup223:                                     ; preds = %if.end.i.i.i296, %e
   br i1 %cmp.i.i.i303, label %ehcleanup225, label %ehcleanup225.sink.split
 
 ehcleanup225.sink.split:                          ; preds = %ehcleanup223, %_ZN4absl13flat_hash_setINS_18container_internal12_GLOBAL__N_112PoisonInlineENS_13hash_internal4HashIS3_EESt8equal_toIS3_ESaIS3_EED2Ev.exit249, %ehcleanup145, %ehcleanup110
-  %set.sink.sroa.phi = phi ptr [ %set.sink.sroa.gep, %ehcleanup110 ], [ %set.sink.sroa.gep316, %ehcleanup145 ], [ %set.sink.sroa.gep317, %_ZN4absl13flat_hash_setINS_18container_internal12_GLOBAL__N_112PoisonInlineENS_13hash_internal4HashIS3_EESt8equal_toIS3_ESaIS3_EED2Ev.exit249 ], [ %set.sink.sroa.gep318, %ehcleanup223 ]
   %set.sink = phi ptr [ %set, %ehcleanup110 ], [ %set111, %ehcleanup145 ], [ %set146, %_ZN4absl13flat_hash_setINS_18container_internal12_GLOBAL__N_112PoisonInlineENS_13hash_internal4HashIS3_EESt8equal_toIS3_ESaIS3_EED2Ev.exit249 ], [ %set184, %ehcleanup223 ]
   %.pn36.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn.pn, %ehcleanup110 ], [ %.pn23.pn.pn.pn, %ehcleanup145 ], [ %.pn30.pn.pn, %_ZN4absl13flat_hash_setINS_18container_internal12_GLOBAL__N_112PoisonInlineENS_13hash_internal4HashIS3_EESt8equal_toIS3_ESaIS3_EED2Ev.exit249 ], [ %.pn36.pn.pn.pn, %ehcleanup223 ]
   %.sink = load ptr, ptr %set.sink, align 8
-  %189 = load i64, ptr %set.sink.sroa.phi, align 8
+  %size_.i.i.i.i.i.i138 = getelementptr inbounds i8, ptr %set.sink, i64 24
+  %189 = load i64, ptr %size_.i.i.i.i.i.i138, align 8
   %and.i.i.i.i.i.i139 = and i64 %189, 1
   %add.i.neg.i.i.i.i.i140 = sub nuw nsw i64 -8, %and.i.i.i.i.i.i139
   %add.ptr.i.i.i.i.i141 = getelementptr inbounds i8, ptr %.sink, i64 %add.i.neg.i.i.i.i.i140

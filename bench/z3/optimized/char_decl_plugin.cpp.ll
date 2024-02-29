@@ -252,7 +252,9 @@ define hidden noundef ptr @_ZN16char_decl_plugin12mk_func_declEijPK9parameterjPK
 entry:
   %msg = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %struct.mk_pp, align 8
+  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %ref.tmp23 = alloca %struct.mk_pp, align 8
+  %ref.tmp23.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp23, i64 16
   %ref.tmp31 = alloca %class.symbol, align 8
   %ref.tmp35 = alloca %struct.func_decl_info, align 8
   %ref.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -273,8 +275,6 @@ entry:
   %ref.tmp256 = alloca %class.symbol, align 8
   %ref.tmp260 = alloca %struct.func_decl_info, align 8
   %ref.tmp268 = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %ref.tmp.sink.sroa.gep236 = getelementptr inbounds i8, ptr %ref.tmp23, i64 16
   %m_manager = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_manager, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %msg)
@@ -440,7 +440,7 @@ lpad37:                                           ; preds = %if.else.i, %if.then
   br label %ehcleanup
 
 if.end41.sink.split:                              ; preds = %invoke.cont26, %invoke.cont11
-  %ref.tmp.sink.sroa.phi = phi ptr [ %ref.tmp.sink.sroa.gep, %invoke.cont11 ], [ %ref.tmp.sink.sroa.gep236, %invoke.cont26 ]
+  %ref.tmp.sink.sroa.phi = phi ptr [ %ref.tmp.sroa.gep, %invoke.cont11 ], [ %ref.tmp23.sroa.gep, %invoke.cont26 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sink.sroa.phi) #15
   br label %if.end41
 

@@ -1392,16 +1392,14 @@ entry:
   %operands.i5 = alloca %struct.stbtt__buf, align 8
   %operands.i = alloca %struct.stbtt__buf, align 8
   %fontdict = alloca %struct.stbtt__buf, align 8
-  %private_loc.sroa.0 = alloca i32, align 4
-  %private_loc.sroa.3 = alloca i32, align 4
+  %private_loc = alloca [2 x i32], align 8
   %pdict = alloca %struct.stbtt__buf, align 8
   %cff.sroa.13.8.extract.shift = lshr i64 %cff.coerce1, 32
   %cff.sroa.13.8.extract.trunc = trunc i64 %cff.sroa.13.8.extract.shift to i32
   store ptr %fontdict.coerce0, ptr %fontdict, align 8
   %0 = getelementptr inbounds i8, ptr %fontdict, i64 8
   store i64 %fontdict.coerce1, ptr %0, align 8
-  store i32 0, ptr %private_loc.sroa.0, align 4
-  store i32 0, ptr %private_loc.sroa.3, align 4
+  store i64 0, ptr %private_loc, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %operands.i)
   %call.i = call { ptr, i64 } @stbtt__dict_get(ptr noundef nonnull %fontdict, i32 noundef 18)
   %1 = extractvalue { ptr, i64 } %call.i, 0
@@ -1422,9 +1420,10 @@ stbtt__dict_get_ints.exit.thread:                 ; preds = %entry
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %cmp.i = phi i1 [ false, %for.body.i ], [ true, %entry ]
-  %indvars.iv.i.sroa.phi = phi ptr [ %private_loc.sroa.3, %for.body.i ], [ %private_loc.sroa.0, %entry ]
+  %indvars.iv.i = phi i64 [ 1, %for.body.i ], [ 0, %entry ]
   %call2.i = call i32 @stbtt__cff_int(ptr noundef nonnull %operands.i)
-  store i32 %call2.i, ptr %indvars.iv.i.sroa.phi, align 4
+  %arrayidx.i = getelementptr inbounds i32, ptr %private_loc, i64 %indvars.iv.i
+  store i32 %call2.i, ptr %arrayidx.i, align 4
   %7 = load i32, ptr %2, align 8
   %8 = load i32, ptr %size.i, align 4
   %cmp1.i = icmp slt i32 %7, %8
@@ -1432,30 +1431,31 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   br i1 %9, label %for.body.i, label %stbtt__dict_get_ints.exit, !llvm.loop !9
 
 stbtt__dict_get_ints.exit:                        ; preds = %for.body.i
-  %private_loc.sroa.3.0.private_loc.sroa.3.0.private_loc.sroa.3.4..pre = load i32, ptr %private_loc.sroa.3, align 4
-  %private_loc.sroa.0.0.private_loc.sroa.0.0.private_loc.sroa.0.0..pre = load i32, ptr %private_loc.sroa.0, align 4
+  %arrayidx.phi.trans.insert = getelementptr inbounds i8, ptr %private_loc, i64 4
+  %.pre = load i32, ptr %arrayidx.phi.trans.insert, align 4
+  %.pre30 = load i32, ptr %private_loc, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %operands.i)
-  %tobool = icmp ne i32 %private_loc.sroa.3.0.private_loc.sroa.3.0.private_loc.sroa.3.4..pre, 0
-  %tobool2 = icmp ne i32 %private_loc.sroa.0.0.private_loc.sroa.0.0.private_loc.sroa.0.0..pre, 0
+  %tobool = icmp ne i32 %.pre, 0
+  %tobool2 = icmp ne i32 %.pre30, 0
   %or.cond = select i1 %tobool, i1 %tobool2, i1 false
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %stbtt__dict_get_ints.exit
-  %10 = or i32 %private_loc.sroa.0.0.private_loc.sroa.0.0.private_loc.sroa.0.0..pre, %private_loc.sroa.3.0.private_loc.sroa.3.0.private_loc.sroa.3.4..pre
+  %10 = or i32 %.pre30, %.pre
   %or.cond.not.i = icmp sgt i32 %10, -1
   br i1 %or.cond.not.i, label %lor.lhs.false2.i, label %stbtt__buf_range.exit
 
 lor.lhs.false2.i:                                 ; preds = %if.end
-  %cmp3.i = icmp sgt i32 %private_loc.sroa.3.0.private_loc.sroa.3.0.private_loc.sroa.3.4..pre, %cff.sroa.13.8.extract.trunc
-  %sub.i = sub nsw i32 %cff.sroa.13.8.extract.trunc, %private_loc.sroa.3.0.private_loc.sroa.3.0.private_loc.sroa.3.4..pre
-  %cmp6.i = icmp slt i32 %sub.i, %private_loc.sroa.0.0.private_loc.sroa.0.0.private_loc.sroa.0.0..pre
+  %cmp3.i = icmp sgt i32 %.pre, %cff.sroa.13.8.extract.trunc
+  %sub.i = sub nsw i32 %cff.sroa.13.8.extract.trunc, %.pre
+  %cmp6.i = icmp slt i32 %sub.i, %.pre30
   %or.cond.i = select i1 %cmp3.i, i1 true, i1 %cmp6.i
   br i1 %or.cond.i, label %stbtt__buf_range.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false2.i
-  %idx.ext.i = zext nneg i32 %private_loc.sroa.3.0.private_loc.sroa.3.0.private_loc.sroa.3.4..pre to i64
+  %idx.ext.i = zext nneg i32 %.pre to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %cff.coerce0, i64 %idx.ext.i
-  %11 = zext i32 %private_loc.sroa.0.0.private_loc.sroa.0.0.private_loc.sroa.0.0..pre to i64
+  %11 = zext i32 %.pre30 to i64
   %12 = shl nuw i64 %11, 32
   br label %stbtt__buf_range.exit
 
@@ -1489,7 +1489,7 @@ stbtt__dict_get_ints.exit16:                      ; preds = %stbtt__buf_range.ex
   br i1 %tobool6.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %stbtt__dict_get_ints.exit16
-  %add = add i32 %call2.i12, %private_loc.sroa.3.0.private_loc.sroa.3.0.private_loc.sroa.3.4..pre
+  %add = add i32 %call2.i12, %.pre
   %cmp1.i18 = icmp slt i32 %add, 0
   %19 = tail call i32 @llvm.smin.i32(i32 %cff.sroa.13.8.extract.trunc, i32 %add)
   %.o.i = select i1 %cmp1.i18, i32 %cff.sroa.13.8.extract.trunc, i32 %19

@@ -1197,6 +1197,8 @@ define hidden void @_ZN6hermes6parser6detail12JSParserImpl13errorExpectedEN4llvh
 entry:
   %str = alloca %"class.llvh::SmallString.100", align 8
   %ss = alloca %"class.llvh::raw_svector_ostream", align 8
+  %ss.sroa.gep143 = getelementptr inbounds i8, ptr %ss, i64 24
+  %ss.sroa.gep = getelementptr inbounds i8, ptr %ss, i64 16
   %curCoords = alloca %"class.hermes::SourceErrorManager::SourceCoords", align 4
   %whatCoords = alloca %"class.hermes::SourceErrorManager::SourceCoords", align 4
   %ref.tmp = alloca %"class.llvh::Twine", align 8
@@ -1223,8 +1225,6 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub = add i64 %toks.coerce1, -1
-  %OutBufEnd.i5.i9 = getelementptr inbounds i8, ptr %ss, i64 16
-  %OutBufCur.i6.i10 = getelementptr inbounds i8, ptr %ss, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4llvh11raw_ostreamlsEPKc.exit68
@@ -1235,8 +1235,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 if.then:                                          ; preds = %for.body
   %cmp5 = icmp eq i64 %sub, %conv140
-  %0 = load ptr, ptr %OutBufEnd.i5.i9, align 8
-  %1 = load ptr, ptr %OutBufCur.i6.i10, align 8
+  %0 = load ptr, ptr %ss.sroa.gep, align 8
+  %1 = load ptr, ptr %ss.sroa.gep143, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i7.i, %sub.ptr.rhs.cast.i8.i
@@ -1252,9 +1252,9 @@ if.then.i.i:                                      ; preds = %if.then6
 
 if.then4.i.i:                                     ; preds = %if.then6
   store i32 544370464, ptr %1, align 1
-  %2 = load ptr, ptr %OutBufCur.i6.i10, align 8
+  %2 = load ptr, ptr %ss.sroa.gep143, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 4
-  store ptr %add.ptr.i.i, ptr %OutBufCur.i6.i10, align 8
+  store ptr %add.ptr.i.i, ptr %ss.sroa.gep143, align 8
   br label %if.end9
 
 if.else:                                          ; preds = %if.then
@@ -1267,14 +1267,14 @@ if.then.i.i20:                                    ; preds = %if.else
 
 if.then4.i.i17:                                   ; preds = %if.else
   store i16 8236, ptr %1, align 1
-  %3 = load ptr, ptr %OutBufCur.i6.i10, align 8
+  %3 = load ptr, ptr %ss.sroa.gep143, align 8
   %add.ptr.i.i18 = getelementptr inbounds i8, ptr %3, i64 2
-  store ptr %add.ptr.i.i18, ptr %OutBufCur.i6.i10, align 8
+  store ptr %add.ptr.i.i18, ptr %ss.sroa.gep143, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then4.i.i17, %if.then.i.i20, %if.then4.i.i, %if.then.i.i, %for.body
-  %4 = load ptr, ptr %OutBufEnd.i5.i9, align 8
-  %5 = load ptr, ptr %OutBufCur.i6.i10, align 8
+  %4 = load ptr, ptr %ss.sroa.gep, align 8
+  %5 = load ptr, ptr %ss.sroa.gep143, align 8
   %cmp.i.i29 = icmp eq ptr %4, %5
   br i1 %cmp.i.i29, label %if.then.i.i35, label %if.then4.i.i32
 
@@ -1284,9 +1284,9 @@ if.then.i.i35:                                    ; preds = %if.end9
 
 if.then4.i.i32:                                   ; preds = %if.end9
   store i8 39, ptr %5, align 1
-  %6 = load ptr, ptr %OutBufCur.i6.i10, align 8
+  %6 = load ptr, ptr %ss.sroa.gep143, align 8
   %add.ptr.i.i33 = getelementptr inbounds i8, ptr %6, i64 1
-  store ptr %add.ptr.i.i33, ptr %OutBufCur.i6.i10, align 8
+  store ptr %add.ptr.i.i33, ptr %ss.sroa.gep143, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit37
 
 _ZN4llvh11raw_ostreamlsEPKc.exit37:               ; preds = %if.then.i.i35, %if.then4.i.i32
@@ -1351,10 +1351,8 @@ _ZN4llvh11raw_ostreamlsEPKc.exit68:               ; preds = %if.then.i.i66, %if.
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit68, %entry
-  %OutBufEnd.i5.i71 = getelementptr inbounds i8, ptr %ss, i64 16
-  %14 = load ptr, ptr %OutBufEnd.i5.i71, align 8
-  %OutBufCur.i6.i72 = getelementptr inbounds i8, ptr %ss, i64 24
-  %15 = load ptr, ptr %OutBufCur.i6.i72, align 8
+  %14 = load ptr, ptr %ss.sroa.gep, align 8
+  %15 = load ptr, ptr %ss.sroa.gep143, align 8
   %sub.ptr.lhs.cast.i7.i73 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i8.i74 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i9.i75 = sub i64 %sub.ptr.lhs.cast.i7.i73, %sub.ptr.rhs.cast.i8.i74
@@ -1367,9 +1365,9 @@ if.then.i.i82:                                    ; preds = %for.end
 
 if.then4.i.i79:                                   ; preds = %for.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %15, ptr noundef nonnull align 1 dereferenceable(9) @.str.75, i64 9, i1 false)
-  %16 = load ptr, ptr %OutBufCur.i6.i72, align 8
+  %16 = load ptr, ptr %ss.sroa.gep143, align 8
   %add.ptr.i.i80 = getelementptr inbounds i8, ptr %16, i64 9
-  store ptr %add.ptr.i.i80, ptr %OutBufCur.i6.i72, align 8
+  store ptr %add.ptr.i.i80, ptr %ss.sroa.gep143, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit84
 
 _ZN4llvh11raw_ostreamlsEPKc.exit84:               ; preds = %if.then.i.i82, %if.then4.i.i79
@@ -1377,31 +1375,32 @@ _ZN4llvh11raw_ostreamlsEPKc.exit84:               ; preds = %if.then.i.i82, %if.
   br i1 %tobool.not, label %if.end20, label %if.then17
 
 if.then17:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit84
-  %17 = load ptr, ptr %OutBufEnd.i5.i71, align 8
-  %18 = load ptr, ptr %OutBufCur.i6.i72, align 8
+  %17 = load ptr, ptr %ss.sroa.gep, align 8
+  %18 = load ptr, ptr %ss.sroa.gep143, align 8
   %cmp.i.i92 = icmp eq ptr %17, %18
   br i1 %cmp.i.i92, label %if.then.i.i98, label %if.then4.i.i95
 
 if.then.i.i98:                                    ; preds = %if.then17
   %call3.i.i99 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %ss, ptr noundef nonnull @.str.76, i64 noundef 1) #16
-  %OutBufCur.i6.i105.phi.trans.insert = getelementptr inbounds i8, ptr %call3.i.i99, i64 24
-  %.pre = load ptr, ptr %OutBufCur.i6.i105.phi.trans.insert, align 8
+  %call3.i.i99.sroa.gep142 = getelementptr inbounds i8, ptr %call3.i.i99, i64 24
+  %call3.i.i99.sroa.gep = getelementptr inbounds i8, ptr %call3.i.i99, i64 16
+  %.pre = load ptr, ptr %call3.i.i99.sroa.gep142, align 8
   br label %cond.true.i.split.i102
 
 if.then4.i.i95:                                   ; preds = %if.then17
   store i8 32, ptr %18, align 1
-  %19 = load ptr, ptr %OutBufCur.i6.i72, align 8
+  %19 = load ptr, ptr %ss.sroa.gep143, align 8
   %add.ptr.i.i96 = getelementptr inbounds i8, ptr %19, i64 1
-  store ptr %add.ptr.i.i96, ptr %OutBufCur.i6.i72, align 8
+  store ptr %add.ptr.i.i96, ptr %ss.sroa.gep143, align 8
   br label %cond.true.i.split.i102
 
 cond.true.i.split.i102:                           ; preds = %if.then4.i.i95, %if.then.i.i98
   %20 = phi ptr [ %.pre, %if.then.i.i98 ], [ %add.ptr.i.i96, %if.then4.i.i95 ]
   %phi.call.i97 = phi ptr [ %call3.i.i99, %if.then.i.i98 ], [ %ss, %if.then4.i.i95 ]
+  %phi.call.i97.sroa.phi = phi ptr [ %call3.i.i99.sroa.gep, %if.then.i.i98 ], [ %ss.sroa.gep, %if.then4.i.i95 ]
+  %phi.call.i97.sroa.phi141 = phi ptr [ %call3.i.i99.sroa.gep142, %if.then.i.i98 ], [ %ss.sroa.gep143, %if.then4.i.i95 ]
   %call.i.i103 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %where) #17
-  %OutBufEnd.i5.i104 = getelementptr inbounds i8, ptr %phi.call.i97, i64 16
-  %21 = load ptr, ptr %OutBufEnd.i5.i104, align 8
-  %OutBufCur.i6.i105 = getelementptr inbounds i8, ptr %phi.call.i97, i64 24
+  %21 = load ptr, ptr %phi.call.i97.sroa.phi, align 8
   %sub.ptr.lhs.cast.i7.i106 = ptrtoint ptr %21 to i64
   %sub.ptr.rhs.cast.i8.i107 = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i9.i108 = sub i64 %sub.ptr.lhs.cast.i7.i106, %sub.ptr.rhs.cast.i8.i107
@@ -1418,9 +1417,9 @@ if.end.i.i110:                                    ; preds = %cond.true.i.split.i
 
 if.then4.i.i112:                                  ; preds = %if.end.i.i110
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr nonnull align 1 %where, i64 %call.i.i103, i1 false)
-  %22 = load ptr, ptr %OutBufCur.i6.i105, align 8
+  %22 = load ptr, ptr %phi.call.i97.sroa.phi141, align 8
   %add.ptr.i.i113 = getelementptr inbounds i8, ptr %22, i64 %call.i.i103
-  store ptr %add.ptr.i.i113, ptr %OutBufCur.i6.i105, align 8
+  store ptr %add.ptr.i.i113, ptr %phi.call.i97.sroa.phi141, align 8
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then4.i.i112, %if.end.i.i110, %if.then.i.i115, %_ZN4llvh11raw_ostreamlsEPKc.exit84
@@ -1447,10 +1446,10 @@ if.end31:                                         ; preds = %if.end20
   %call26 = call noundef zeroext i1 @_ZN6hermes18SourceErrorManager20findBufferLineAndLocEN4llvh5SMLocERNS0_12SourceCoordsE(ptr noundef nonnull align 8 dereferenceable(464) %24, ptr %retval.sroa.0.0.copyload.i, ptr noundef nonnull align 4 dereferenceable(12) %curCoords) #16
   %25 = load ptr, ptr %sm_, align 8
   %call30 = call noundef zeroext i1 @_ZN6hermes18SourceErrorManager20findBufferLineAndLocEN4llvh5SMLocERNS0_12SourceCoordsE(ptr noundef nonnull align 8 dereferenceable(464) %25, ptr nonnull %whatLoc.coerce, ptr noundef nonnull align 4 dereferenceable(12) %whatCoords) #16
-  %.pre141 = load i32, ptr %whatCoords, align 4
-  %.pre142 = load i32, ptr %curCoords, align 4
-  %cmp.i.i120 = icmp ne i32 %.pre141, 0
-  %cmp.i121 = icmp eq i32 %.pre141, %.pre142
+  %.pre144 = load i32, ptr %whatCoords, align 4
+  %.pre145 = load i32, ptr %curCoords, align 4
+  %cmp.i.i120 = icmp ne i32 %.pre144, 0
+  %cmp.i121 = icmp eq i32 %.pre144, %.pre145
   %or.cond.i = select i1 %cmp.i.i120, i1 %cmp.i121, i1 false
   br i1 %or.cond.i, label %_ZNK6hermes18SourceErrorManager12SourceCoords18isSameSourceLineAsERKS1_.exit, label %if.else45
 

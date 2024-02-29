@@ -93,12 +93,6 @@ entry:
   %len.i.i24 = alloca i32, align 4
   %len.i.i = alloca i32, align 4
   %data = alloca [16 x i8], align 16
-  %.sink88.sroa.gep = getelementptr inbounds i8, ptr %data, i64 5
-  %.sink88.sroa.gep94 = getelementptr inbounds i8, ptr %data, i64 1
-  %.sink87.sroa.gep = getelementptr inbounds i8, ptr %data, i64 6
-  %.sink87.sroa.gep93 = getelementptr inbounds i8, ptr %data, i64 2
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %data, i64 7
-  %.sink.sroa.gep92 = getelementptr inbounds i8, ptr %data, i64 3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i.i)
   %call.i.i = call ptr @fdt_getprop(ptr noundef %fdt, i32 noundef %parent, ptr noundef nonnull @.str, ptr noundef nonnull %len.i.i) #4
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
@@ -209,17 +203,20 @@ if.then13:                                        ; preds = %if.end4
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then13, %if.end10
-  %.sink88.sroa.phi = phi ptr [ %.sink88.sroa.gep, %if.then13 ], [ %.sink88.sroa.gep94, %if.end10 ]
-  %.sink87.sroa.phi = phi ptr [ %.sink87.sroa.gep, %if.then13 ], [ %.sink87.sroa.gep93, %if.end10 ]
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.then13 ], [ %.sink.sroa.gep92, %if.end10 ]
+  %.sink88 = phi i64 [ 5, %if.then13 ], [ 1, %if.end10 ]
+  %.sink87 = phi i64 [ 6, %if.then13 ], [ 2, %if.end10 ]
+  %.sink = phi i64 [ 7, %if.then13 ], [ 3, %if.end10 ]
   %shr16.i = lshr i64 %addr, 16
   %conv18.i = trunc i64 %shr16.i to i8
-  store i8 %conv18.i, ptr %.sink88.sroa.phi, align 1
+  %arrayidx19.i = getelementptr inbounds i8, ptr %data, i64 %.sink88
+  store i8 %conv18.i, ptr %arrayidx19.i, align 1
   %shr20.i = lshr i64 %addr, 8
   %conv22.i = trunc i64 %shr20.i to i8
-  store i8 %conv22.i, ptr %.sink87.sroa.phi, align 2
+  %arrayidx23.i = getelementptr inbounds i8, ptr %data, i64 %.sink87
+  store i8 %conv22.i, ptr %arrayidx23.i, align 2
   %conv25.i = trunc i64 %addr to i8
-  store i8 %conv25.i, ptr %.sink.sroa.phi, align 1
+  %arrayidx26.i = getelementptr inbounds i8, ptr %data, i64 %.sink
+  store i8 %conv25.i, ptr %arrayidx26.i, align 1
   %conv17 = zext nneg i32 %retval.0.i79 to i64
   %mul = shl nuw nsw i64 %conv17, 2
   %add.ptr = getelementptr i8, ptr %data, i64 %mul

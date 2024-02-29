@@ -294,6 +294,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.597" = type { ptr }
 %"struct.std::_Head_base.598" = type { ptr }
 %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::vector<unsigned long>>, std::allocator<std::pair<const unsigned long, std::vector<unsigned long>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node" = type { ptr, ptr }
+%"struct.std::array.572" = type { [2 x i32] }
 %"struct.std::__detail::_AllocNode" = type { ptr }
 %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, tf::DeferredPipeflow>, std::allocator<std::pair<const unsigned long, tf::DeferredPipeflow>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node" = type { ptr, ptr }
 
@@ -24741,13 +24742,11 @@ entry:
   %ref.tmp2.i.i.i.i = alloca %"class.std::tuple.593", align 8
   %__node5.i.i29.i.i.i.i = alloca %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::vector<unsigned long>>, std::allocator<std::pair<const unsigned long, std::vector<unsigned long>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %__node5.i.i.i.i.i.i = alloca %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::vector<unsigned long>>, std::allocator<std::pair<const unsigned long, std::vector<unsigned long>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
-  %retval.sroa.0.i.i.i = alloca i32, align 4
-  %retval.sroa.4.i.i.i = alloca i32, align 4
+  %retval.i.i.i = alloca %"struct.std::array.572", align 4
   %call.val = load ptr, ptr %__functor, align 8
   %0 = getelementptr inbounds i8, ptr %__functor, i64 8
   %call.val1 = load i64, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %retval.sroa.0.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %retval.sroa.4.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i)
   %_pipeflows.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 120
   %1 = load ptr, ptr %_pipeflows.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.tf::Pipeflow", ptr %1, i64 %call.val1
@@ -25125,11 +25124,11 @@ if.then14.i.i164.i.i.i:                           ; preds = %if.else.i.i161.i.i.
   %rem.i.i.i.i.i166.i.i.i = urem i64 %61, %60
   %arrayidx17.i.i167.i.i.i = getelementptr inbounds ptr, ptr %55, i64 %rem.i.i.i.i.i166.i.i.i
   store ptr %call5.i.i.i.i.i.i.i.i.i.i, ptr %arrayidx17.i.i167.i.i.i, align 8
-  %.pre67.i.i.i = load ptr, ptr %_token_dependencies.i.i.i.i, align 8
+  %.pre65.i.i.i = load ptr, ptr %_token_dependencies.i.i.i.i, align 8
   br label %if.end.i.i168.i.i.i
 
 if.end.i.i168.i.i.i:                              ; preds = %if.then14.i.i164.i.i.i, %if.else.i.i161.i.i.i
-  %62 = phi ptr [ %.pre67.i.i.i, %if.then14.i.i164.i.i.i ], [ %55, %if.else.i.i161.i.i.i ]
+  %62 = phi ptr [ %.pre65.i.i.i, %if.then14.i.i164.i.i.i ], [ %55, %if.else.i.i161.i.i.i ]
   %arrayidx20.i.i169.i.i.i = getelementptr inbounds ptr, ptr %62, i64 %__bkt.addr.0.i155.i.i.i
   store ptr %_M_before_begin.i.i177.i.i.i, ptr %arrayidx20.i.i169.i.i.i, align 8
   br label %_ZNSt10_HashtableImSt4pairIKmSt6vectorImSaImEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm.exit173.i.i.i
@@ -25402,11 +25401,11 @@ if.then14.i.i.i.i.i:                              ; preds = %if.else.i.i138.i.i.
   %rem.i.i.i.i.i.i.i.i = urem i64 %110, %109
   %arrayidx17.i.i.i.i.i = getelementptr inbounds ptr, ptr %104, i64 %rem.i.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i.i.i46.i.i.i.i, ptr %arrayidx17.i.i.i.i.i, align 8
-  %.pre68.i.i.i = load ptr, ptr %_token_dependencies.i.i.i.i, align 8
+  %.pre66.i.i.i = load ptr, ptr %_token_dependencies.i.i.i.i, align 8
   br label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then14.i.i.i.i.i, %if.else.i.i138.i.i.i
-  %111 = phi ptr [ %.pre68.i.i.i, %if.then14.i.i.i.i.i ], [ %104, %if.else.i.i138.i.i.i ]
+  %111 = phi ptr [ %.pre66.i.i.i, %if.then14.i.i.i.i.i ], [ %104, %if.else.i.i138.i.i.i ]
   %arrayidx20.i.i.i.i.i = getelementptr inbounds ptr, ptr %111, i64 %__bkt.addr.0.i.i.i.i
   store ptr %_M_before_begin.i.i177.i.i.i, ptr %arrayidx20.i.i.i.i.i, align 8
   br label %_ZNSt10_HashtableImSt4pairIKmSt6vectorImSaImEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm.exit.i.i.i
@@ -25584,8 +25583,8 @@ if.end39.i.i.i.i:                                 ; preds = %_ZNSt13unordered_se
   br i1 %cmp.i.not.i.i.i.i, label %"_ZN2tf8PipelineIJNS_4PipeIZ4mainE3$_0EENS1_IZ4mainE3$_1EENS1_IZ4mainE3$_2EEEE17_check_dependentsERNS_8PipeflowE.exit.i.i.i", label %for.body.i.i.i.i, !llvm.loop !317
 
 "_ZN2tf8PipelineIJNS_4PipeIZ4mainE3$_0EENS1_IZ4mainE3$_1EENS1_IZ4mainE3$_2EEEE17_check_dependentsERNS_8PipeflowE.exit.i.i.i": ; preds = %if.end39.i.i.i.i
-  %.pre69.i.i.i = load i64, ptr %_M_element_count.i.i.i.i.i.i, align 8
-  %tobool33.not.i.i.i = icmp eq i64 %.pre69.i.i.i, 0
+  %.pre67.i.i.i = load i64, ptr %_M_element_count.i.i.i.i.i.i, align 8
+  %tobool33.not.i.i.i = icmp eq i64 %.pre67.i.i.i, 0
   br i1 %tobool33.not.i.i.i, label %handle_token_dependency.i.i.i, label %if.then34.i.i.i
 
 if.then34.i.i.i:                                  ; preds = %"_ZN2tf8PipelineIJNS_4PipeIZ4mainE3$_0EENS1_IZ4mainE3$_1EENS1_IZ4mainE3$_2EEEE17_check_dependentsERNS_8PipeflowE.exit.i.i.i", %if.then30.i.i.i
@@ -25899,11 +25898,10 @@ land.lhs.true.i.i.i:                              ; preds = %if.end42.i.i.i
   br i1 %cmp60.i.i.i, label %if.then61.i.i.i, label %if.end64.i.i.i
 
 if.then61.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  store i32 1, ptr %retval.sroa.0.i.i.i, align 4
+  store i32 1, ptr %retval.i.i.i, align 4
   br label %if.end64.i.i.i
 
 if.end64.i.i.i:                                   ; preds = %if.then61.i.i.i, %land.lhs.true.i.i.i, %if.end42.i.i.i
-  %n.0.sroa.phi.i.i.i = phi ptr [ %retval.sroa.4.i.i.i, %if.then61.i.i.i ], [ %retval.sroa.0.i.i.i, %land.lhs.true.i.i.i ], [ %retval.sroa.0.i.i.i, %if.end42.i.i.i ]
   %n.0.i.i.i = phi i64 [ 1, %if.then61.i.i.i ], [ 0, %land.lhs.true.i.i.i ], [ 0, %if.end42.i.i.i ]
   %184 = load i64, ptr %pf.0.ph.i.i.i.ph, align 8
   %_lines.val.i.i.i = load ptr, ptr %_lines.i.i.i, align 8
@@ -25915,7 +25913,8 @@ if.end64.i.i.i:                                   ; preds = %if.then61.i.i.i, %l
 
 if.then72.i.i.i:                                  ; preds = %if.end64.i.i.i
   %inc73.i.i.i = add nuw nsw i64 %n.0.i.i.i, 1
-  store i32 0, ptr %n.0.sroa.phi.i.i.i, align 4
+  %arrayidx.i.i130.i.i.i = getelementptr inbounds [2 x i32], ptr %retval.i.i.i, i64 0, i64 %n.0.i.i.i
+  store i32 0, ptr %arrayidx.i.i130.i.i.i, align 4
   br label %if.end75.i.i.i
 
 if.end75.i.i.i:                                   ; preds = %if.then72.i.i.i, %if.end64.i.i.i
@@ -25959,18 +25958,17 @@ pipeline.i.i.i.backedge:                          ; preds = %_ZN2tf7Runtime8sche
   br label %pipeline.i.i.i
 
 sw.bb78.i.i.i:                                    ; preds = %if.end75.i.i.i
-  %retval.sroa.0.i.i.i.0.retval.sroa.0.i.i.i.0.retval.sroa.0.i.i.i.0.retval.sroa.0.i.i.0.retval.sroa.0.i.i.0.retval.sroa.0.i.0.retval.sroa.0.i.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0..i.i.i = load i32, ptr %retval.sroa.0.i.i.i, align 4
-  %cmp80.i.i.i = icmp eq i32 %retval.sroa.0.i.i.i.0.retval.sroa.0.i.i.i.0.retval.sroa.0.i.i.i.0.retval.sroa.0.i.i.0.retval.sroa.0.i.i.0.retval.sroa.0.i.0.retval.sroa.0.i.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0..i.i.i, 1
+  %194 = load i32, ptr %retval.i.i.i, align 4
+  %cmp80.i.i.i = icmp eq i32 %194, 1
   br i1 %cmp80.i.i.i, label %if.then81.i.i.i, label %pipeline.outer.i.i.i
 
 if.then81.i.i.i:                                  ; preds = %sw.bb78.i.i.i
-  %194 = load ptr, ptr %_pipeflows.i.i.i, align 8
-  %add.ptr.i132.i.i.i = getelementptr inbounds %"class.tf::Pipeflow", ptr %194, i64 %rem49.i.i.i
+  %195 = load ptr, ptr %_pipeflows.i.i.i, align 8
+  %add.ptr.i132.i.i.i = getelementptr inbounds %"class.tf::Pipeflow", ptr %195, i64 %rem49.i.i.i
   br label %pipeline.outer.i.i.i.outer
 
 "_ZSt10__invoke_rIvRZN2tf8PipelineIJNS0_4PipeIZ4mainE3$_0EENS2_IZ4mainE3$_1EENS2_IZ4mainE3$_2EEEE6_buildEvEUlRNS0_7RuntimeEE_JSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %if.end75.i.i.i, %handle_token_dependency.i.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %retval.sroa.0.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %retval.sroa.4.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i)
   ret void
 }
 

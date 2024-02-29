@@ -4240,6 +4240,7 @@ return:                                           ; preds = %if.then.i.i.i7, %in
 define void @_ZNK6Assimp16ExportProperties19GetPropertyCallbackEPKc(ptr noalias sret(%"class.std::function") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef %szName) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::function", align 8
+  %ref.tmp.sroa.gep14 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   %call.i = tail call noundef i32 @_Z13SuperFastHashPKcjj(ptr noundef %szName, i32 noundef 0, i32 noundef 0)
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -4271,15 +4272,18 @@ _ZNKSt3mapIjSt8functionIFPvS1_EESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit.i: 
   %cmp.i4.i.i.i = icmp ult i32 %call.i, %2
   %second.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 40
   %spec.select.i = select i1 %cmp.i4.i.i.i, ptr %ref.tmp, ptr %second.i
+  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %second.i.sroa.gep = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 56
+  %spec.select.i.sroa.sel = select i1 %cmp.i4.i.i.i, ptr %ref.tmp.sroa.gep, ptr %second.i.sroa.gep
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNKSt3mapIjSt8functionIFPvS1_EESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit.i, %_ZNKSt8_Rb_treeIjSt4pairIKjSt8functionIFPvS3_EEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %entry
   %retval.0.i = phi ptr [ %ref.tmp, %_ZNKSt8_Rb_treeIjSt4pairIKjSt8functionIFPvS3_EEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %ref.tmp, %entry ], [ %spec.select.i, %_ZNKSt3mapIjSt8functionIFPvS1_EESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit.i ]
+  %retval.0.i.sroa.phi = phi ptr [ %ref.tmp.sroa.gep14, %_ZNKSt8_Rb_treeIjSt4pairIKjSt8functionIFPvS3_EEESt10_Select1stIS6_ESt4lessIjESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %ref.tmp.sroa.gep14, %entry ], [ %spec.select.i.sroa.sel, %_ZNKSt3mapIjSt8functionIFPvS1_EESt4lessIjESaISt4pairIKjS3_EEE4findERS7_.exit.i ]
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
-  %3 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %3 = load ptr, ptr %retval.0.i.sroa.phi, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFPvS0_EED2Ev.exit, label %if.then.i
 
@@ -4309,10 +4313,9 @@ invoke.cont2:                                     ; preds = %if.then.i
   %_M_invoker4.i = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   %8 = load ptr, ptr %_M_invoker4.i, align 8
   store ptr %8, ptr %_M_invoker.i, align 8
-  %9 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %9 = load ptr, ptr %retval.0.i.sroa.phi, align 8
   store ptr %9, ptr %_M_manager.i.i, align 8
-  %_M_manager.i.i1.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %.pre = load ptr, ptr %_M_manager.i.i1.phi.trans.insert, align 8
+  %.pre = load ptr, ptr %ref.tmp.sroa.gep14, align 8
   %tobool.not.i.i2 = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i2, label %_ZNSt8functionIFPvS0_EED2Ev.exit, label %if.then.i.i3
 
@@ -4331,8 +4334,7 @@ _ZNSt8functionIFPvS0_EED2Ev.exit:                 ; preds = %invoke.cont, %invok
   ret void
 
 lpad.body:                                        ; preds = %lpad.i, %if.then.i.i
-  %_M_manager.i.i7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %12 = load ptr, ptr %_M_manager.i.i7, align 8
+  %12 = load ptr, ptr %ref.tmp.sroa.gep14, align 8
   %tobool.not.i.i8 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i8, label %_ZNSt8functionIFPvS0_EED2Ev.exit13, label %if.then.i.i9
 

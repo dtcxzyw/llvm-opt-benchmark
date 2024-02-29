@@ -583,8 +583,6 @@ entry:
   %reqbuf = alloca [2048 x i8], align 16
   %inbuf = alloca [2048 x i8], align 16
   %port = alloca ptr, align 8
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %reqbuf, i64 4
-  %.sink.sroa.gep195 = getelementptr inbounds i8, ptr %reqbuf, i64 5
   %0 = load ptr, ptr %pcbio, align 8
   store ptr null, ptr %preq, align 8
   %cmp.not = icmp eq ptr %ppath, null
@@ -730,13 +728,14 @@ lor.lhs.false64:                                  ; preds = %if.end58
   br i1 %cmp66, label %if.then71, label %if.else140
 
 if.then71:                                        ; preds = %lor.lhs.false64, %if.end58
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.end58 ], [ %.sink.sroa.gep195, %lor.lhs.false64 ]
-  %arrayidx72 = getelementptr inbounds i8, ptr %.sink.sroa.phi, i64 -1
+  %.sink = phi i64 [ 4, %if.end58 ], [ 5, %lor.lhs.false64 ]
+  %add.ptr = getelementptr inbounds i8, ptr %reqbuf, i64 %.sink
+  %arrayidx72 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
   store i8 0, ptr %arrayidx72, align 1
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.then71
-  %url.1 = phi ptr [ %.sink.sroa.phi, %if.then71 ], [ %incdec.ptr, %while.body ]
+  %url.1 = phi ptr [ %add.ptr, %if.then71 ], [ %incdec.ptr, %while.body ]
   %4 = load i8, ptr %url.1, align 1
   switch i8 %4, label %if.then79 [
     i8 32, label %while.body

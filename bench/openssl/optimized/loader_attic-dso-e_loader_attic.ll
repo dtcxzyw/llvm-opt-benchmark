@@ -278,7 +278,6 @@ entry:
   br i1 %cmp, label %cond.true, label %if.end30
 
 cond.true:                                        ; preds = %entry
-  %path_data_n.0.sroa.gep55 = getelementptr inbounds i8, ptr %path_data, i64 16
   %add.ptr = getelementptr inbounds i8, ptr %uri, i64 5
   %call3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(3) @.str.15, i64 noundef 2) #11
   %cmp4 = icmp eq i32 %call3, 0
@@ -320,23 +319,24 @@ ERR_ATTIC_error.exit:                             ; preds = %if.else, %if.then.i
   br label %return
 
 if.end21:                                         ; preds = %cond.true, %if.then19
-  %path_data_n.0.sroa.phi = phi ptr [ %path_data, %if.then19 ], [ %path_data_n.0.sroa.gep55, %cond.true ]
-  %path_data_n.0 = phi i64 [ 1, %if.then19 ], [ 2, %cond.true ]
+  %path_data_n.0 = phi i64 [ 0, %if.then19 ], [ 1, %cond.true ]
   %p.0 = phi ptr [ %add.ptr20, %if.then19 ], [ %add.ptr, %cond.true ]
-  %check_absolute23 = getelementptr inbounds i8, ptr %path_data_n.0.sroa.phi, i64 8
+  %arrayidx22 = getelementptr inbounds [2 x %struct.anon], ptr %path_data, i64 0, i64 %path_data_n.0
+  %check_absolute23 = getelementptr inbounds i8, ptr %arrayidx22, i64 8
   %bf.load24 = load i8, ptr %check_absolute23, align 8
   %bf.set26 = or i8 %bf.load24, 1
   store i8 %bf.set26, ptr %check_absolute23, align 8
-  store ptr %p.0, ptr %path_data_n.0.sroa.phi, align 16
+  %inc27 = add nuw nsw i64 %path_data_n.0, 1
+  store ptr %p.0, ptr %arrayidx22, align 16
   br label %if.end30
 
 if.end30:                                         ; preds = %entry, %if.end21
-  %path_data_n.1 = phi i64 [ %path_data_n.0, %if.end21 ], [ 1, %entry ]
+  %path_data_n.1 = phi i64 [ %inc27, %if.end21 ], [ 1, %entry ]
   br label %for.body
 
 for.body:                                         ; preds = %if.end30, %for.inc
-  %i.060 = phi i64 [ 0, %if.end30 ], [ %inc59, %for.inc ]
-  %arrayidx33 = getelementptr inbounds [2 x %struct.anon], ptr %path_data, i64 0, i64 %i.060
+  %i.059 = phi i64 [ 0, %if.end30 ], [ %inc59, %for.inc ]
+  %arrayidx33 = getelementptr inbounds [2 x %struct.anon], ptr %path_data, i64 0, i64 %i.059
   %check_absolute34 = getelementptr inbounds i8, ptr %arrayidx33, i64 8
   %bf.load35 = load i8, ptr %check_absolute34, align 8
   %bf.clear36 = and i8 %bf.load35, 1
@@ -383,7 +383,7 @@ if.then51:                                        ; preds = %if.end45
 
 for.inc:                                          ; preds = %if.end45, %if.then51
   %path.1 = phi ptr [ null, %if.then51 ], [ %.pre, %if.end45 ]
-  %inc59 = add nuw nsw i64 %i.060, 1
+  %inc59 = add nuw nsw i64 %i.059, 1
   %cmp31 = icmp eq ptr %path.1, null
   %cmp32 = icmp ult i64 %inc59, %path_data_n.1
   %8 = select i1 %cmp31, i1 %cmp32, i1 false
@@ -481,11 +481,11 @@ file_find_type.exit.thread:                       ; preds = %if.then9.i, %if.the
 
 file_find_type.exit:                              ; preds = %lor.lhs.false104
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %peekbuf.i)
-  %.pre61 = load ptr, ptr %_101, align 8
+  %.pre60 = load ptr, ptr %_101, align 8
   br label %if.then107
 
 if.then107:                                       ; preds = %file_find_type.exit, %if.else99
-  %13 = phi ptr [ %.pre61, %file_find_type.exit ], [ null, %if.else99 ]
+  %13 = phi ptr [ %.pre60, %file_find_type.exit ], [ null, %if.else99 ]
   tail call void @BIO_free_all(ptr noundef %13) #10
   br label %if.end.i53
 

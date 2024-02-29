@@ -485,8 +485,6 @@ define void @_ZN22serde_derive_internals9internals4attr9Container8from_ast17h94f
   %102 = alloca { ptr, { ptr, i64 }, { { ptr, [3 x i64] }, {} }, { ptr, [2 x i64] } }, align 8
   %103 = alloca ptr, align 8
   %104 = alloca ptr, align 8
-  %.sink111.i.sroa.gep = getelementptr inbounds i8, ptr %53, i64 32
-  %.sink111.i.sroa.gep378 = getelementptr inbounds i8, ptr %53, i64 8
   store ptr %1, ptr %104, align 8
   store ptr %2, ptr %103, align 8
   call void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$4none17h4870edc5a6a702cdE"(ptr nonnull sret({ ptr, { ptr, i64 }, { { ptr, [3 x i64] }, {} }, { ptr, [2 x i64] } }) align 8 %102, ptr align 8 %1, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.3, i64 6)
@@ -507,10 +505,10 @@ define void @_ZN22serde_derive_internals9internals4attr9Container8from_ast17h94f
   %.1 = phi i8 [ %.2, %109 ], [ %.3, %113 ]
   %.pn364 = phi { ptr, i32 } [ %110, %109 ], [ %.pn362, %113 ]
   %.not366 = icmp eq i8 %.1, 0
-  br i1 %.not366, label %563, label %562
+  br i1 %.not366, label %565, label %564
 
-109:                                              ; preds = %107, %515
-  %.2 = phi i8 [ 0, %515 ], [ 1, %107 ]
+109:                                              ; preds = %107, %517
+  %.2 = phi i8 [ 0, %517 ], [ 1, %107 ]
   %110 = landingpad { ptr, i32 }
           cleanup
   br label %108
@@ -527,10 +525,10 @@ define void @_ZN22serde_derive_internals9internals4attr9Container8from_ast17h94f
   %.3 = phi i8 [ %.4, %114 ], [ %.5, %118 ]
   %.pn362 = phi { ptr, i32 } [ %115, %114 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %118 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$serde_derive_internals..internals..attr..BoolAttr$GT$17h945552e1e2e9d558E"(ptr nonnull align 8 %100) #11
-          to label %108 unwind label %517
+          to label %108 unwind label %519
 
-114:                                              ; preds = %111, %492
-  %.4 = phi i8 [ 0, %492 ], [ 1, %111 ]
+114:                                              ; preds = %111, %494
+  %.4 = phi i8 [ 0, %494 ], [ 1, %111 ]
   %115 = landingpad { ptr, i32 }
           cleanup
   br label %113
@@ -542,11 +540,11 @@ define void @_ZN22serde_derive_internals9internals4attr9Container8from_ast17h94f
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$4none17h17762ef28c4c68bbE"(ptr nonnull sret({ { { ptr, [3 x i64] }, {} }, { ptr, i64 }, ptr, { [22 x i32], i32, [3 x i32] } }) align 8 %98, ptr nonnull align 8 %117, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.6, i64 7)
           to label %121 unwind label %119
 
-118:                                              ; preds = %561, %123, %119
-  %.5 = phi i8 [ %.6391, %561 ], [ %.6, %123 ], [ 1, %119 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn392, %561 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %123 ], [ %120, %119 ]
+118:                                              ; preds = %563, %123, %119
+  %.5 = phi i8 [ %.6389, %563 ], [ %.6, %123 ], [ 1, %119 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn390, %563 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %123 ], [ %120, %119 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$serde_derive_internals..internals..attr..BoolAttr$GT$17h945552e1e2e9d558E"(ptr nonnull align 8 %99) #11
-          to label %113 unwind label %517
+          to label %113 unwind label %519
 
 119:                                              ; preds = %116
   %120 = landingpad { ptr, i32 }
@@ -556,143 +554,143 @@ define void @_ZN22serde_derive_internals9internals4attr9Container8from_ast17h94f
 121:                                              ; preds = %116
   %122 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$4none17h1227a21fc2f8a57dE"(ptr nonnull sret({ ptr, { ptr, i64 }, { { ptr, [3 x i64] }, {} }, i8, [7 x i8] }) align 8 %97, ptr nonnull align 8 %122, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.7, i64 10)
-          to label %125 unwind label %.thread386
+          to label %125 unwind label %.thread384
 
-123:                                              ; preds = %560, %127
-  %.061 = phi i8 [ %.162399, %560 ], [ %.162, %127 ]
-  %.6 = phi i8 [ %.7400, %560 ], [ %.7, %127 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn401, %560 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %127 ]
+123:                                              ; preds = %562, %127
+  %.061 = phi i8 [ %.162397, %562 ], [ %.162, %127 ]
+  %.6 = phi i8 [ %.7398, %562 ], [ %.7, %127 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn399, %562 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %127 ]
   %.not360 = icmp eq i8 %.061, 0
-  br i1 %.not360, label %118, label %561
+  br i1 %.not360, label %118, label %563
 
-.thread386:                                       ; preds = %121
+.thread384:                                       ; preds = %121
   %124 = landingpad { ptr, i32 }
           cleanup
-  br label %561
+  br label %563
 
 125:                                              ; preds = %121
   %126 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$4none17h1227a21fc2f8a57dE"(ptr nonnull sret({ ptr, { ptr, i64 }, { { ptr, [3 x i64] }, {} }, i8, [7 x i8] }) align 8 %96, ptr nonnull align 8 %126, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.7, i64 10)
-          to label %129 unwind label %.thread393
+          to label %129 unwind label %.thread391
 
-127:                                              ; preds = %559, %131
-  %.081 = phi i8 [ %.182409, %559 ], [ %.182, %131 ]
-  %.162 = phi i8 [ %.263410, %559 ], [ %.263, %131 ]
-  %.7 = phi i8 [ %.8411, %559 ], [ %.8, %131 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn412, %559 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %131 ]
+127:                                              ; preds = %561, %131
+  %.081 = phi i8 [ %.182407, %561 ], [ %.182, %131 ]
+  %.162 = phi i8 [ %.263408, %561 ], [ %.263, %131 ]
+  %.7 = phi i8 [ %.8409, %561 ], [ %.8, %131 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn410, %561 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %131 ]
   %.not358 = icmp eq i8 %.081, 0
-  br i1 %.not358, label %123, label %560
+  br i1 %.not358, label %123, label %562
 
-.thread393:                                       ; preds = %125
+.thread391:                                       ; preds = %125
   %128 = landingpad { ptr, i32 }
           cleanup
-  br label %560
+  br label %562
 
 129:                                              ; preds = %125
   %130 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$4none17h1227a21fc2f8a57dE"(ptr nonnull sret({ ptr, { ptr, i64 }, { { ptr, [3 x i64] }, {} }, i8, [7 x i8] }) align 8 %95, ptr nonnull align 8 %130, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.8, i64 17)
-          to label %133 unwind label %.thread402
+          to label %133 unwind label %.thread400
 
-131:                                              ; preds = %558, %135
-  %.099 = phi i8 [ %.1100421, %558 ], [ %.1100, %135 ]
-  %.182 = phi i8 [ %.283422, %558 ], [ %.283, %135 ]
-  %.263 = phi i8 [ %.364423, %558 ], [ %.364, %135 ]
-  %.8 = phi i8 [ %.9424, %558 ], [ %.9, %135 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn425, %558 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %135 ]
+131:                                              ; preds = %560, %135
+  %.099 = phi i8 [ %.1100419, %560 ], [ %.1100, %135 ]
+  %.182 = phi i8 [ %.283420, %560 ], [ %.283, %135 ]
+  %.263 = phi i8 [ %.364421, %560 ], [ %.364, %135 ]
+  %.8 = phi i8 [ %.9422, %560 ], [ %.9, %135 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn423, %560 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %135 ]
   %.not356 = icmp eq i8 %.099, 0
-  br i1 %.not356, label %127, label %559
+  br i1 %.not356, label %127, label %561
 
-.thread402:                                       ; preds = %129
+.thread400:                                       ; preds = %129
   %132 = landingpad { ptr, i32 }
           cleanup
-  br label %559
+  br label %561
 
 133:                                              ; preds = %129
   %134 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$4none17h1227a21fc2f8a57dE"(ptr nonnull sret({ ptr, { ptr, i64 }, { { ptr, [3 x i64] }, {} }, i8, [7 x i8] }) align 8 %94, ptr nonnull align 8 %134, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.8, i64 17)
-          to label %137 unwind label %.thread413
+          to label %137 unwind label %.thread411
 
-135:                                              ; preds = %557, %139
-  %.0118 = phi i8 [ %.1119435, %557 ], [ %.1119, %139 ]
-  %.1100 = phi i8 [ %.2101436, %557 ], [ %.2101, %139 ]
-  %.283 = phi i8 [ %.384437, %557 ], [ %.384, %139 ]
-  %.364 = phi i8 [ %.465438, %557 ], [ %.465, %139 ]
-  %.9 = phi i8 [ %.10439, %557 ], [ %.10, %139 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn440, %557 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %139 ]
+135:                                              ; preds = %559, %139
+  %.0118 = phi i8 [ %.1119433, %559 ], [ %.1119, %139 ]
+  %.1100 = phi i8 [ %.2101434, %559 ], [ %.2101, %139 ]
+  %.283 = phi i8 [ %.384435, %559 ], [ %.384, %139 ]
+  %.364 = phi i8 [ %.465436, %559 ], [ %.465, %139 ]
+  %.9 = phi i8 [ %.10437, %559 ], [ %.10, %139 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn438, %559 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %139 ]
   %.not354 = icmp eq i8 %.0118, 0
-  br i1 %.not354, label %131, label %558
+  br i1 %.not354, label %131, label %560
 
-.thread413:                                       ; preds = %133
+.thread411:                                       ; preds = %133
   %136 = landingpad { ptr, i32 }
           cleanup
-  br label %558
+  br label %560
 
 137:                                              ; preds = %133
   %138 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$4none17hde2c20564c4d5547E"(ptr nonnull sret({ ptr, { ptr, i64 }, { { ptr, [3 x i64] }, {} }, { ptr, [2 x i64] } }) align 8 %93, ptr nonnull align 8 %138, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.9, i64 5)
-          to label %141 unwind label %.thread426
+          to label %141 unwind label %.thread424
 
-139:                                              ; preds = %556, %143
-  %.0136 = phi i8 [ %.1137451, %556 ], [ %.1137, %143 ]
-  %.1119 = phi i8 [ %.2120452, %556 ], [ %.2120, %143 ]
-  %.2101 = phi i8 [ %.3102453, %556 ], [ %.3102, %143 ]
-  %.384 = phi i8 [ %.485454, %556 ], [ %.485, %143 ]
-  %.465 = phi i8 [ %.566455, %556 ], [ %.566, %143 ]
-  %.10 = phi i8 [ %.11456, %556 ], [ %.11, %143 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn457, %556 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %143 ]
+139:                                              ; preds = %558, %143
+  %.0136 = phi i8 [ %.1137449, %558 ], [ %.1137, %143 ]
+  %.1119 = phi i8 [ %.2120450, %558 ], [ %.2120, %143 ]
+  %.2101 = phi i8 [ %.3102451, %558 ], [ %.3102, %143 ]
+  %.384 = phi i8 [ %.485452, %558 ], [ %.485, %143 ]
+  %.465 = phi i8 [ %.566453, %558 ], [ %.566, %143 ]
+  %.10 = phi i8 [ %.11454, %558 ], [ %.11, %143 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn455, %558 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %143 ]
   %.not352 = icmp eq i8 %.0136, 0
-  br i1 %.not352, label %135, label %557
+  br i1 %.not352, label %135, label %559
 
-.thread426:                                       ; preds = %137
+.thread424:                                       ; preds = %137
   %140 = landingpad { ptr, i32 }
           cleanup
-  br label %557
+  br label %559
 
 141:                                              ; preds = %137
   %142 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$4none17hde2c20564c4d5547E"(ptr nonnull sret({ ptr, { ptr, i64 }, { { ptr, [3 x i64] }, {} }, { ptr, [2 x i64] } }) align 8 %92, ptr nonnull align 8 %142, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.9, i64 5)
-          to label %145 unwind label %.thread441
+          to label %145 unwind label %.thread439
 
-143:                                              ; preds = %555, %147
-  %.0153 = phi i8 [ %.1154469, %555 ], [ %.1154, %147 ]
-  %.1137 = phi i8 [ %.2138470, %555 ], [ %.2138, %147 ]
-  %.2120 = phi i8 [ %.3121471, %555 ], [ %.3121, %147 ]
-  %.3102 = phi i8 [ %.4103472, %555 ], [ %.4103, %147 ]
-  %.485 = phi i8 [ %.586473, %555 ], [ %.586, %147 ]
-  %.566 = phi i8 [ %.667474, %555 ], [ %.667, %147 ]
-  %.11 = phi i8 [ %.12475, %555 ], [ %.12, %147 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn476, %555 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %147 ]
+143:                                              ; preds = %557, %147
+  %.0153 = phi i8 [ %.1154467, %557 ], [ %.1154, %147 ]
+  %.1137 = phi i8 [ %.2138468, %557 ], [ %.2138, %147 ]
+  %.2120 = phi i8 [ %.3121469, %557 ], [ %.3121, %147 ]
+  %.3102 = phi i8 [ %.4103470, %557 ], [ %.4103, %147 ]
+  %.485 = phi i8 [ %.586471, %557 ], [ %.586, %147 ]
+  %.566 = phi i8 [ %.667472, %557 ], [ %.667, %147 ]
+  %.11 = phi i8 [ %.12473, %557 ], [ %.12, %147 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn474, %557 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %147 ]
   %.not350 = icmp eq i8 %.0153, 0
-  br i1 %.not350, label %139, label %556
+  br i1 %.not350, label %139, label %558
 
-.thread441:                                       ; preds = %141
+.thread439:                                       ; preds = %141
   %144 = landingpad { ptr, i32 }
           cleanup
-  br label %556
+  br label %558
 
 145:                                              ; preds = %141
   %146 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %35)
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$4none17h01cf3b12c3651736E"(ptr nonnull sret({ ptr, { ptr, i64 }, { { ptr, [3 x i64] }, {} }, i8, [7 x i8] }) align 8 %35, ptr nonnull align 8 %146, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.10, i64 8)
-          to label %149 unwind label %.thread458
+          to label %149 unwind label %.thread456
 
-147:                                              ; preds = %159, %.thread478
-  %.0169 = phi i8 [ %.1170490, %.thread478 ], [ %.3172, %159 ]
-  %.1154 = phi i8 [ %.2155491, %.thread478 ], [ %.4157, %159 ]
-  %.2138 = phi i8 [ %.3139492, %.thread478 ], [ %.5141, %159 ]
-  %.3121 = phi i8 [ %.4122493, %.thread478 ], [ %.6124, %159 ]
-  %.4103 = phi i8 [ %.5104494, %.thread478 ], [ %.7106, %159 ]
-  %.586 = phi i8 [ %.687495, %.thread478 ], [ %.889, %159 ]
-  %.667 = phi i8 [ %.768496, %.thread478 ], [ %.970, %159 ]
-  %.12 = phi i8 [ %.13497, %.thread478 ], [ %.15, %159 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn498, %.thread478 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %159 ]
+147:                                              ; preds = %159, %.thread476
+  %.0169 = phi i8 [ %.1170488, %.thread476 ], [ %.3172, %159 ]
+  %.1154 = phi i8 [ %.2155489, %.thread476 ], [ %.4157, %159 ]
+  %.2138 = phi i8 [ %.3139490, %.thread476 ], [ %.5141, %159 ]
+  %.3121 = phi i8 [ %.4122491, %.thread476 ], [ %.6124, %159 ]
+  %.4103 = phi i8 [ %.5104492, %.thread476 ], [ %.7106, %159 ]
+  %.586 = phi i8 [ %.687493, %.thread476 ], [ %.889, %159 ]
+  %.667 = phi i8 [ %.768494, %.thread476 ], [ %.970, %159 ]
+  %.12 = phi i8 [ %.13495, %.thread476 ], [ %.15, %159 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn496, %.thread476 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %159 ]
   %.not348 = icmp eq i8 %.0169, 0
-  br i1 %.not348, label %143, label %555
+  br i1 %.not348, label %143, label %557
 
-.thread458:                                       ; preds = %145
+.thread456:                                       ; preds = %145
   %148 = landingpad { ptr, i32 }
           cleanup
-  br label %555
+  br label %557
 
 149:                                              ; preds = %145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %91, ptr noundef nonnull align 8 dereferenceable(64) %35, i64 64, i1 false)
@@ -704,7 +702,7 @@ define void @_ZN22serde_derive_internals9internals4attr9Container8from_ast17h94f
 151:                                              ; preds = %149
   %152 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread478
+  br label %.thread476
 
 153:                                              ; preds = %149
   %154 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
@@ -714,138 +712,138 @@ define void @_ZN22serde_derive_internals9internals4attr9Container8from_ast17h94f
 155:                                              ; preds = %153
   %156 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread500
+  br label %.thread498
 
 157:                                              ; preds = %153
   %158 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$4none17hb8c3972e40442522E"(ptr nonnull sret({ { i64, [28 x i64] }, ptr, { ptr, i64 }, { { ptr, [3 x i64] }, {} } }) align 8 %88, ptr nonnull align 8 %158, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.13, i64 4)
-          to label %161 unwind label %.thread521
+          to label %161 unwind label %.thread519
 
-159:                                              ; preds = %553, %163
-  %.0277 = phi i8 [ %.1278555, %553 ], [ %.1278, %163 ]
-  %.3172 = phi i8 [ %.4173556, %553 ], [ %.4173, %163 ]
-  %.4157 = phi i8 [ %.5158557, %553 ], [ %.5158, %163 ]
-  %.5141 = phi i8 [ %.6142558, %553 ], [ %.6142, %163 ]
-  %.6124 = phi i8 [ %.7125559, %553 ], [ %.7125, %163 ]
-  %.7106 = phi i8 [ %.8107560, %553 ], [ %.8107, %163 ]
-  %.889 = phi i8 [ %.990561, %553 ], [ %.990, %163 ]
-  %.970 = phi i8 [ %.1071562, %553 ], [ %.1071, %163 ]
-  %.15 = phi i8 [ %.16563, %553 ], [ %.16, %163 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn564, %553 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %163 ]
+159:                                              ; preds = %555, %163
+  %.0277 = phi i8 [ %.1278553, %555 ], [ %.1278, %163 ]
+  %.3172 = phi i8 [ %.4173554, %555 ], [ %.4173, %163 ]
+  %.4157 = phi i8 [ %.5158555, %555 ], [ %.5158, %163 ]
+  %.5141 = phi i8 [ %.6142556, %555 ], [ %.6142, %163 ]
+  %.6124 = phi i8 [ %.7125557, %555 ], [ %.7125, %163 ]
+  %.7106 = phi i8 [ %.8107558, %555 ], [ %.8107, %163 ]
+  %.889 = phi i8 [ %.990559, %555 ], [ %.990, %163 ]
+  %.970 = phi i8 [ %.1071560, %555 ], [ %.1071, %163 ]
+  %.15 = phi i8 [ %.16561, %555 ], [ %.16, %163 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn562, %555 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %163 ]
   %.not342 = icmp eq i8 %.0277, 0
-  br i1 %.not342, label %147, label %554
+  br i1 %.not342, label %147, label %556
 
-.thread521:                                       ; preds = %157
+.thread519:                                       ; preds = %157
   %160 = landingpad { ptr, i32 }
           cleanup
-  br label %554
+  br label %556
 
 161:                                              ; preds = %157
   %162 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$4none17hb8c3972e40442522E"(ptr nonnull sret({ { i64, [28 x i64] }, ptr, { ptr, i64 }, { { ptr, [3 x i64] }, {} } }) align 8 %87, ptr nonnull align 8 %162, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.14, i64 8)
-          to label %165 unwind label %.thread542
+          to label %165 unwind label %.thread540
 
-163:                                              ; preds = %552, %167
-  %.1278 = phi i8 [ %.2279579, %552 ], [ %.2279, %167 ]
-  %.0265 = phi i8 [ %.1266580, %552 ], [ %.1266, %167 ]
-  %.4173 = phi i8 [ %.5174581, %552 ], [ %.5174, %167 ]
-  %.5158 = phi i8 [ %.6159582, %552 ], [ %.6159, %167 ]
-  %.6142 = phi i8 [ %.7143583, %552 ], [ %.7143, %167 ]
-  %.7125 = phi i8 [ %.8126584, %552 ], [ %.8126, %167 ]
-  %.8107 = phi i8 [ %.9108585, %552 ], [ %.9108, %167 ]
-  %.990 = phi i8 [ %.1091586, %552 ], [ %.1091, %167 ]
-  %.1071 = phi i8 [ %.1172587, %552 ], [ %.1172, %167 ]
-  %.16 = phi i8 [ %.17588, %552 ], [ %.17, %167 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn589, %552 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %167 ]
+163:                                              ; preds = %554, %167
+  %.1278 = phi i8 [ %.2279577, %554 ], [ %.2279, %167 ]
+  %.0265 = phi i8 [ %.1266578, %554 ], [ %.1266, %167 ]
+  %.4173 = phi i8 [ %.5174579, %554 ], [ %.5174, %167 ]
+  %.5158 = phi i8 [ %.6159580, %554 ], [ %.6159, %167 ]
+  %.6142 = phi i8 [ %.7143581, %554 ], [ %.7143, %167 ]
+  %.7125 = phi i8 [ %.8126582, %554 ], [ %.8126, %167 ]
+  %.8107 = phi i8 [ %.9108583, %554 ], [ %.9108, %167 ]
+  %.990 = phi i8 [ %.1091584, %554 ], [ %.1091, %167 ]
+  %.1071 = phi i8 [ %.1172585, %554 ], [ %.1172, %167 ]
+  %.16 = phi i8 [ %.17586, %554 ], [ %.17, %167 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn587, %554 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %167 ]
   %.not340 = icmp eq i8 %.0265, 0
-  br i1 %.not340, label %159, label %553
+  br i1 %.not340, label %159, label %555
 
-.thread542:                                       ; preds = %161
+.thread540:                                       ; preds = %161
   %164 = landingpad { ptr, i32 }
           cleanup
-  br label %553
+  br label %555
 
 165:                                              ; preds = %161
   %166 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$4none17hb8c3972e40442522E"(ptr nonnull sret({ { i64, [28 x i64] }, ptr, { ptr, i64 }, { { ptr, [3 x i64] }, {} } }) align 8 %86, ptr nonnull align 8 %166, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.15, i64 4)
-          to label %169 unwind label %.thread565
+          to label %169 unwind label %.thread563
 
-167:                                              ; preds = %551, %171
-  %.2279 = phi i8 [ %.3280605, %551 ], [ %.3280, %171 ]
-  %.1266 = phi i8 [ %.2267606, %551 ], [ %.2267, %171 ]
-  %.0253 = phi i8 [ %.1254607, %551 ], [ %.1254, %171 ]
-  %.5174 = phi i8 [ %.6175608, %551 ], [ %.6175, %171 ]
-  %.6159 = phi i8 [ %.7160609, %551 ], [ %.7160, %171 ]
-  %.7143 = phi i8 [ %.8144610, %551 ], [ %.8144, %171 ]
-  %.8126 = phi i8 [ %.9127611, %551 ], [ %.9127, %171 ]
-  %.9108 = phi i8 [ %.10109612, %551 ], [ %.10109, %171 ]
-  %.1091 = phi i8 [ %.1192613, %551 ], [ %.1192, %171 ]
-  %.1172 = phi i8 [ %.1273614, %551 ], [ %.1273, %171 ]
-  %.17 = phi i8 [ %.18615, %551 ], [ %.18, %171 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn616, %551 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %171 ]
+167:                                              ; preds = %553, %171
+  %.2279 = phi i8 [ %.3280603, %553 ], [ %.3280, %171 ]
+  %.1266 = phi i8 [ %.2267604, %553 ], [ %.2267, %171 ]
+  %.0253 = phi i8 [ %.1254605, %553 ], [ %.1254, %171 ]
+  %.5174 = phi i8 [ %.6175606, %553 ], [ %.6175, %171 ]
+  %.6159 = phi i8 [ %.7160607, %553 ], [ %.7160, %171 ]
+  %.7143 = phi i8 [ %.8144608, %553 ], [ %.8144, %171 ]
+  %.8126 = phi i8 [ %.9127609, %553 ], [ %.9127, %171 ]
+  %.9108 = phi i8 [ %.10109610, %553 ], [ %.10109, %171 ]
+  %.1091 = phi i8 [ %.1192611, %553 ], [ %.1192, %171 ]
+  %.1172 = phi i8 [ %.1273612, %553 ], [ %.1273, %171 ]
+  %.17 = phi i8 [ %.18613, %553 ], [ %.18, %171 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn614, %553 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %171 ]
   %.not338 = icmp eq i8 %.0253, 0
-  br i1 %.not338, label %163, label %552
+  br i1 %.not338, label %163, label %554
 
-.thread565:                                       ; preds = %165
+.thread563:                                       ; preds = %165
   %168 = landingpad { ptr, i32 }
           cleanup
-  br label %552
+  br label %554
 
 169:                                              ; preds = %165
   %170 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$4none17h6efd87bbb0f0d146E"(ptr nonnull sret({ { { ptr, [3 x i64] }, {} }, { ptr, i64 }, ptr, { [8 x i32], i32, [3 x i32] } }) align 8 %85, ptr nonnull align 8 %170, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.16, i64 6)
-          to label %173 unwind label %.thread590
+          to label %173 unwind label %.thread588
 
-171:                                              ; preds = %550, %175
-  %.3280 = phi i8 [ %.4281633, %550 ], [ %.4281, %175 ]
-  %.2267 = phi i8 [ %.3268634, %550 ], [ %.3268, %175 ]
-  %.1254 = phi i8 [ %.2255635, %550 ], [ %.2255, %175 ]
-  %.0241 = phi i8 [ %.1242636, %550 ], [ %.1242, %175 ]
-  %.6175 = phi i8 [ %.7176637, %550 ], [ %.7176, %175 ]
-  %.7160 = phi i8 [ %.8161638, %550 ], [ %.8161, %175 ]
-  %.8144 = phi i8 [ %.9145639, %550 ], [ %.9145, %175 ]
-  %.9127 = phi i8 [ %.10128640, %550 ], [ %.10128, %175 ]
-  %.10109 = phi i8 [ %.11110641, %550 ], [ %.11110, %175 ]
-  %.1192 = phi i8 [ %.1293642, %550 ], [ %.1293, %175 ]
-  %.1273 = phi i8 [ %.1374643, %550 ], [ %.1374, %175 ]
-  %.18 = phi i8 [ %.19644, %550 ], [ %.19, %175 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn645, %550 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %175 ]
+171:                                              ; preds = %552, %175
+  %.3280 = phi i8 [ %.4281631, %552 ], [ %.4281, %175 ]
+  %.2267 = phi i8 [ %.3268632, %552 ], [ %.3268, %175 ]
+  %.1254 = phi i8 [ %.2255633, %552 ], [ %.2255, %175 ]
+  %.0241 = phi i8 [ %.1242634, %552 ], [ %.1242, %175 ]
+  %.6175 = phi i8 [ %.7176635, %552 ], [ %.7176, %175 ]
+  %.7160 = phi i8 [ %.8161636, %552 ], [ %.8161, %175 ]
+  %.8144 = phi i8 [ %.9145637, %552 ], [ %.9145, %175 ]
+  %.9127 = phi i8 [ %.10128638, %552 ], [ %.10128, %175 ]
+  %.10109 = phi i8 [ %.11110639, %552 ], [ %.11110, %175 ]
+  %.1192 = phi i8 [ %.1293640, %552 ], [ %.1293, %175 ]
+  %.1273 = phi i8 [ %.1374641, %552 ], [ %.1374, %175 ]
+  %.18 = phi i8 [ %.19642, %552 ], [ %.19, %175 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn643, %552 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %175 ]
   %.not336 = icmp eq i8 %.0241, 0
-  br i1 %.not336, label %167, label %551
+  br i1 %.not336, label %167, label %553
 
-.thread590:                                       ; preds = %169
+.thread588:                                       ; preds = %169
   %172 = landingpad { ptr, i32 }
           cleanup
-  br label %551
+  br label %553
 
 173:                                              ; preds = %169
   %174 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %34)
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$4none17h01cf3b12c3651736E"(ptr nonnull sret({ ptr, { ptr, i64 }, { { ptr, [3 x i64] }, {} }, i8, [7 x i8] }) align 8 %34, ptr nonnull align 8 %174, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.17, i64 16)
-          to label %177 unwind label %.thread617
+          to label %177 unwind label %.thread615
 
-175:                                              ; preds = %183, %.thread647
-  %.4281 = phi i8 [ %.5282664, %.thread647 ], [ %.6283, %183 ]
-  %.3268 = phi i8 [ %.4269665, %.thread647 ], [ %.5270, %183 ]
-  %.2255 = phi i8 [ %.3256666, %.thread647 ], [ %.4257, %183 ]
-  %.1242 = phi i8 [ %.2243667, %.thread647 ], [ %.3244, %183 ]
-  %.0229 = phi i8 [ %.1230668, %.thread647 ], [ %.2231, %183 ]
-  %.7176 = phi i8 [ %.8177669, %.thread647 ], [ %.9178, %183 ]
-  %.8161 = phi i8 [ %.9162670, %.thread647 ], [ %.10163, %183 ]
-  %.9145 = phi i8 [ %.10146671, %.thread647 ], [ %.11147, %183 ]
-  %.10128 = phi i8 [ %.11129672, %.thread647 ], [ %.12130, %183 ]
-  %.11110 = phi i8 [ %.12111673, %.thread647 ], [ %.13112, %183 ]
-  %.1293 = phi i8 [ %.1394674, %.thread647 ], [ %.1495, %183 ]
-  %.1374 = phi i8 [ %.1475675, %.thread647 ], [ %.1576, %183 ]
-  %.19 = phi i8 [ %.20676, %.thread647 ], [ %.21, %183 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn677, %.thread647 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %183 ]
+175:                                              ; preds = %183, %.thread645
+  %.4281 = phi i8 [ %.5282662, %.thread645 ], [ %.6283, %183 ]
+  %.3268 = phi i8 [ %.4269663, %.thread645 ], [ %.5270, %183 ]
+  %.2255 = phi i8 [ %.3256664, %.thread645 ], [ %.4257, %183 ]
+  %.1242 = phi i8 [ %.2243665, %.thread645 ], [ %.3244, %183 ]
+  %.0229 = phi i8 [ %.1230666, %.thread645 ], [ %.2231, %183 ]
+  %.7176 = phi i8 [ %.8177667, %.thread645 ], [ %.9178, %183 ]
+  %.8161 = phi i8 [ %.9162668, %.thread645 ], [ %.10163, %183 ]
+  %.9145 = phi i8 [ %.10146669, %.thread645 ], [ %.11147, %183 ]
+  %.10128 = phi i8 [ %.11129670, %.thread645 ], [ %.12130, %183 ]
+  %.11110 = phi i8 [ %.12111671, %.thread645 ], [ %.13112, %183 ]
+  %.1293 = phi i8 [ %.1394672, %.thread645 ], [ %.1495, %183 ]
+  %.1374 = phi i8 [ %.1475673, %.thread645 ], [ %.1576, %183 ]
+  %.19 = phi i8 [ %.20674, %.thread645 ], [ %.21, %183 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn675, %.thread645 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %183 ]
   %.not334 = icmp eq i8 %.0229, 0
-  br i1 %.not334, label %171, label %550
+  br i1 %.not334, label %171, label %552
 
-.thread617:                                       ; preds = %173
+.thread615:                                       ; preds = %173
   %176 = landingpad { ptr, i32 }
           cleanup
-  br label %550
+  br label %552
 
 177:                                              ; preds = %173
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %84, ptr noundef nonnull align 8 dereferenceable(64) %34, i64 64, i1 false)
@@ -858,98 +856,98 @@ define void @_ZN22serde_derive_internals9internals4attr9Container8from_ast17h94f
 179:                                              ; preds = %177
   %180 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread647
+  br label %.thread645
 
 181:                                              ; preds = %177
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %83, ptr noundef nonnull align 8 dereferenceable(64) %33, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %33)
   %182 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$4none17h6efd87bbb0f0d146E"(ptr nonnull sret({ { { ptr, [3 x i64] }, {} }, { ptr, i64 }, ptr, { [8 x i32], i32, [3 x i32] } }) align 8 %82, ptr nonnull align 8 %182, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.19, i64 5)
-          to label %185 unwind label %.thread678
+          to label %185 unwind label %.thread676
 
-183:                                              ; preds = %548, %187
-  %.6283 = phi i8 [ %.7284727, %548 ], [ %.7284, %187 ]
-  %.5270 = phi i8 [ %.6271728, %548 ], [ %.6271, %187 ]
-  %.4257 = phi i8 [ %.5258729, %548 ], [ %.5258, %187 ]
-  %.3244 = phi i8 [ %.4245730, %548 ], [ %.4245, %187 ]
-  %.2231 = phi i8 [ %.3232731, %548 ], [ %.3232, %187 ]
-  %.0206 = phi i8 [ %.1207732, %548 ], [ %.1207, %187 ]
-  %.9178 = phi i8 [ %.10179733, %548 ], [ %.10179, %187 ]
-  %.10163 = phi i8 [ %.11164734, %548 ], [ %.11164, %187 ]
-  %.11147 = phi i8 [ %.12148735, %548 ], [ %.12148, %187 ]
-  %.12130 = phi i8 [ %.13131736, %548 ], [ %.13131, %187 ]
-  %.13112 = phi i8 [ %.14113737, %548 ], [ %.14113, %187 ]
-  %.1495 = phi i8 [ %.1596738, %548 ], [ %.1596, %187 ]
-  %.1576 = phi i8 [ %.1677739, %548 ], [ %.1677, %187 ]
-  %.21 = phi i8 [ %.22740, %548 ], [ %.22, %187 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn741, %548 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %187 ]
+183:                                              ; preds = %550, %187
+  %.6283 = phi i8 [ %.7284725, %550 ], [ %.7284, %187 ]
+  %.5270 = phi i8 [ %.6271726, %550 ], [ %.6271, %187 ]
+  %.4257 = phi i8 [ %.5258727, %550 ], [ %.5258, %187 ]
+  %.3244 = phi i8 [ %.4245728, %550 ], [ %.4245, %187 ]
+  %.2231 = phi i8 [ %.3232729, %550 ], [ %.3232, %187 ]
+  %.0206 = phi i8 [ %.1207730, %550 ], [ %.1207, %187 ]
+  %.9178 = phi i8 [ %.10179731, %550 ], [ %.10179, %187 ]
+  %.10163 = phi i8 [ %.11164732, %550 ], [ %.11164, %187 ]
+  %.11147 = phi i8 [ %.12148733, %550 ], [ %.12148, %187 ]
+  %.12130 = phi i8 [ %.13131734, %550 ], [ %.13131, %187 ]
+  %.13112 = phi i8 [ %.14113735, %550 ], [ %.14113, %187 ]
+  %.1495 = phi i8 [ %.1596736, %550 ], [ %.1596, %187 ]
+  %.1576 = phi i8 [ %.1677737, %550 ], [ %.1677, %187 ]
+  %.21 = phi i8 [ %.22738, %550 ], [ %.22, %187 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn739, %550 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %187 ]
   %.not330 = icmp eq i8 %.0206, 0
-  br i1 %.not330, label %175, label %549
+  br i1 %.not330, label %175, label %551
 
-.thread678:                                       ; preds = %181
+.thread676:                                       ; preds = %181
   %184 = landingpad { ptr, i32 }
           cleanup
-  br label %549
+  br label %551
 
 185:                                              ; preds = %181
   %186 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$4none17h4870edc5a6a702cdE"(ptr nonnull sret({ ptr, { ptr, i64 }, { { ptr, [3 x i64] }, {} }, { ptr, [2 x i64] } }) align 8 %81, ptr nonnull align 8 %186, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.20, i64 9)
-          to label %189 unwind label %.thread709
+          to label %189 unwind label %.thread707
 
-187:                                              ; preds = %.thread742, %193
-  %.7284 = phi i8 [ %.8285760, %.thread742 ], [ %.9286, %193 ]
-  %.6271 = phi i8 [ %.7272761, %.thread742 ], [ %.8273, %193 ]
-  %.5258 = phi i8 [ %.6259762, %.thread742 ], [ %.7260, %193 ]
-  %.4245 = phi i8 [ %.5246763, %.thread742 ], [ %.6247, %193 ]
-  %.3232 = phi i8 [ %.4233764, %.thread742 ], [ %.5234, %193 ]
-  %.1207 = phi i8 [ %.2208765, %.thread742 ], [ %.3209, %193 ]
-  %.0194 = phi i8 [ %.1195766, %.thread742 ], [ %.2196, %193 ]
-  %.10179 = phi i8 [ %.11180767, %.thread742 ], [ %.12181, %193 ]
-  %.11164 = phi i8 [ %.12165768, %.thread742 ], [ %.13166, %193 ]
-  %.12148 = phi i8 [ %.13149769, %.thread742 ], [ %.14150, %193 ]
-  %.13131 = phi i8 [ %.14132770, %.thread742 ], [ %.15133, %193 ]
-  %.14113 = phi i8 [ %.15114771, %.thread742 ], [ %.16115, %193 ]
-  %.1596 = phi i8 [ %.1697772, %.thread742 ], [ %.1798, %193 ]
-  %.1677 = phi i8 [ %.1778773, %.thread742 ], [ %.1879, %193 ]
-  %.22 = phi i8 [ %.23774, %.thread742 ], [ 0, %193 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn775, %.thread742 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %193 ]
+187:                                              ; preds = %.thread740, %193
+  %.7284 = phi i8 [ %.8285758, %.thread740 ], [ %.9286, %193 ]
+  %.6271 = phi i8 [ %.7272759, %.thread740 ], [ %.8273, %193 ]
+  %.5258 = phi i8 [ %.6259760, %.thread740 ], [ %.7260, %193 ]
+  %.4245 = phi i8 [ %.5246761, %.thread740 ], [ %.6247, %193 ]
+  %.3232 = phi i8 [ %.4233762, %.thread740 ], [ %.5234, %193 ]
+  %.1207 = phi i8 [ %.2208763, %.thread740 ], [ %.3209, %193 ]
+  %.0194 = phi i8 [ %.1195764, %.thread740 ], [ %.2196, %193 ]
+  %.10179 = phi i8 [ %.11180765, %.thread740 ], [ %.12181, %193 ]
+  %.11164 = phi i8 [ %.12165766, %.thread740 ], [ %.13166, %193 ]
+  %.12148 = phi i8 [ %.13149767, %.thread740 ], [ %.14150, %193 ]
+  %.13131 = phi i8 [ %.14132768, %.thread740 ], [ %.15133, %193 ]
+  %.14113 = phi i8 [ %.15114769, %.thread740 ], [ %.16115, %193 ]
+  %.1596 = phi i8 [ %.1697770, %.thread740 ], [ %.1798, %193 ]
+  %.1677 = phi i8 [ %.1778771, %.thread740 ], [ %.1879, %193 ]
+  %.22 = phi i8 [ %.23772, %.thread740 ], [ 0, %193 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn773, %.thread740 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %193 ]
   %.not328 = icmp eq i8 %.0194, 0
-  br i1 %.not328, label %183, label %548
+  br i1 %.not328, label %183, label %550
 
-.thread709:                                       ; preds = %185
+.thread707:                                       ; preds = %185
   %188 = landingpad { ptr, i32 }
           cleanup
-  br label %548
+  br label %550
 
 189:                                              ; preds = %185
   %190 = load ptr, ptr %103, align 8, !nonnull !5, !align !7, !noundef !5
   %191 = getelementptr inbounds i8, ptr %190, i64 224
   %192 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h069ab2a1c4aaddadE"(ptr nonnull align 8 %191)
-          to label %194 unwind label %.thread742.loopexit.split-lp.loopexit.split-lp
+          to label %194 unwind label %.thread740.loopexit.split-lp.loopexit.split-lp
 
 193:                                              ; preds = %246
-  br i1 %.1185, label %.thread742, label %187
+  br i1 %.1185, label %.thread740, label %187
 
-.thread742.loopexit:                              ; preds = %523, %522, %519, %240, %.backedge
+.thread740.loopexit:                              ; preds = %525, %524, %521, %240, %.backedge
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %.thread742
+  br label %.thread740
 
-.thread742.loopexit.split-lp.loopexit.loopexit:   ; preds = %539, %535, %532, %524, %228, %.backedge785
-  %lpad.loopexit783 = landingpad { ptr, i32 }
+.thread740.loopexit.split-lp.loopexit.loopexit:   ; preds = %541, %537, %534, %526, %228, %.backedge783
+  %lpad.loopexit781 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread742
+  br label %.thread740
 
-.thread742.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %541
+.thread740.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %543
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread742
+  br label %.thread740
 
-.thread742.loopexit.split-lp.loopexit.split-lp:   ; preds = %189, %224, %237, %242
+.thread740.loopexit.split-lp.loopexit.split-lp:   ; preds = %189, %224, %237, %242
   %.24.ph.ph = phi i8 [ 0, %242 ], [ 1, %237 ], [ 1, %224 ], [ 1, %189 ]
-  %lpad.loopexit.split-lp781 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp779 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread742
+  br label %.thread740
 
 194:                                              ; preds = %189
   %195 = extractvalue { ptr, ptr } %192, 0
@@ -982,15 +980,15 @@ define void @_ZN22serde_derive_internals9internals4attr9Container8from_ast17h94f
   %220 = getelementptr inbounds i8, ptr %76, i64 184
   br label %.outer
 
-.outer:                                           ; preds = %544, %194
-  %.0.ph = phi i8 [ %547, %544 ], [ 0, %194 ]
-  br label %.backedge785
+.outer:                                           ; preds = %546, %194
+  %.0.ph = phi i8 [ %549, %546 ], [ 0, %194 ]
+  br label %.backedge783
 
-.backedge785:                                     ; preds = %.backedge785.backedge, %.outer
+.backedge783:                                     ; preds = %.backedge783.backedge, %.outer
   %221 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2890d188854a1f3cE"(ptr nonnull align 8 %80)
-          to label %222 unwind label %.thread742.loopexit.split-lp.loopexit.loopexit
+          to label %222 unwind label %.thread740.loopexit.split-lp.loopexit.loopexit
 
-222:                                              ; preds = %.backedge785
+222:                                              ; preds = %.backedge783
   %223 = icmp eq ptr %221, null
   br i1 %223, label %224, label %228
 
@@ -999,11 +997,11 @@ define void @_ZN22serde_derive_internals9internals4attr9Container8from_ast17h94f
   %225 = load ptr, ptr %103, align 8, !nonnull !5, !align !7, !noundef !5
   %226 = getelementptr inbounds i8, ptr %225, i64 224
   %227 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h069ab2a1c4aaddadE"(ptr nonnull align 8 %226)
-          to label %230 unwind label %.thread742.loopexit.split-lp.loopexit.split-lp
+          to label %230 unwind label %.thread740.loopexit.split-lp.loopexit.split-lp
 
 228:                                              ; preds = %222
   %229 = invoke align 8 ptr @_ZN3syn4attr9Attribute4path17h7a409f03b1a95176E(ptr nonnull align 8 %221)
-          to label %524 unwind label %.thread742.loopexit.split-lp.loopexit.loopexit
+          to label %526 unwind label %.thread740.loopexit.split-lp.loopexit.loopexit
 
 230:                                              ; preds = %224
   %231 = extractvalue { ptr, ptr } %227, 0
@@ -1015,7 +1013,7 @@ define void @_ZN22serde_derive_internals9internals4attr9Container8from_ast17h94f
 
 .backedge:                                        ; preds = %.backedge.backedge, %230
   %234 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2890d188854a1f3cE"(ptr nonnull align 8 %73)
-          to label %235 unwind label %.thread742.loopexit
+          to label %235 unwind label %.thread740.loopexit
 
 235:                                              ; preds = %.backedge
   %236 = icmp eq ptr %234, null
@@ -1025,18 +1023,18 @@ define void @_ZN22serde_derive_internals9internals4attr9Container8from_ast17h94f
   %238 = load ptr, ptr %103, align 8, !nonnull !5, !align !7, !noundef !5
   %239 = getelementptr inbounds i8, ptr %238, i64 192
   invoke fastcc void @_ZN22serde_derive_internals9internals4attr5unraw17hacf7efba83884fdeE(ptr noalias nonnull align 8 %69, ptr nonnull align 8 %239)
-          to label %242 unwind label %.thread742.loopexit.split-lp.loopexit.split-lp
+          to label %242 unwind label %.thread740.loopexit.split-lp.loopexit.split-lp
 
 240:                                              ; preds = %235
   %241 = invoke align 8 ptr @_ZN3syn4attr9Attribute4path17h7a409f03b1a95176E(ptr nonnull align 8 %234)
-          to label %519 unwind label %.thread742.loopexit
+          to label %521 unwind label %.thread740.loopexit
 
 242:                                              ; preds = %237
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %68, ptr noundef nonnull align 8 dereferenceable(80) %102, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %67, ptr noundef nonnull align 8 dereferenceable(80) %101, i64 80, i1 false)
   store ptr null, ptr %66, align 8
   invoke fastcc void @_ZN22serde_derive_internals9internals4attr4Name10from_attrs17hf7fb662c6e4f7d80E(ptr noalias nonnull align 8 %70, ptr nonnull align 8 %69, ptr nonnull align 8 %68, ptr nonnull align 8 %67, ptr nonnull align 8 %66)
-          to label %243 unwind label %.thread742.loopexit.split-lp.loopexit.split-lp
+          to label %243 unwind label %.thread740.loopexit.split-lp.loopexit.split-lp
 
 243:                                              ; preds = %242
   %244 = getelementptr inbounds i8, ptr %100, i64 56
@@ -1061,7 +1059,7 @@ define void @_ZN22serde_derive_internals9internals4attr9Container8from_ast17h94f
   %.1879 = phi i8 [ 0, %255 ], [ %.1980, %247 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %255 ], [ %248, %247 ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$serde_derive_internals..internals..attr..Name$GT$17h60892831afe71dc3E"(ptr nonnull align 8 %70) #11
-          to label %193 unwind label %517
+          to label %193 unwind label %519
 
 247:                                              ; preds = %_ZN22serde_derive_internals9internals4attr8BoolAttr3get17hdd8e0d6d21f93f5aE.exit, %243, %251, %_ZN22serde_derive_internals9internals4attr8BoolAttr3get17hdd8e0d6d21f93f5aE.exit373
   %.1980 = phi i8 [ 0, %251 ], [ 0, %_ZN22serde_derive_internals9internals4attr8BoolAttr3get17hdd8e0d6d21f93f5aE.exit373 ], [ 1, %243 ], [ 1, %_ZN22serde_derive_internals9internals4attr8BoolAttr3get17hdd8e0d6d21f93f5aE.exit ]
@@ -1106,7 +1104,7 @@ _ZN22serde_derive_internals9internals4attr8BoolAttr3get17hdd8e0d6d21f93f5aE.exit
   %.17116 = phi i8 [ 0, %274 ], [ %.18117, %256 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %274 ], [ %257, %256 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$serde_derive_internals..internals..attr..Default$GT$17h0c14138dc990bd7fE"(ptr nonnull align 8 %65) #11
-          to label %246 unwind label %517
+          to label %246 unwind label %519
 
 256:                                              ; preds = %272, %270, %268, %266, %264, %262, %260, %258, %253
   %.15168 = phi i8 [ 0, %272 ], [ 1, %270 ], [ 1, %268 ], [ 1, %266 ], [ 1, %264 ], [ 1, %262 ], [ 1, %260 ], [ 1, %258 ], [ 1, %253 ]
@@ -1169,7 +1167,7 @@ _ZN22serde_derive_internals9internals4attr8BoolAttr3get17hdd8e0d6d21f93f5aE.exit
   %.3187 = phi i1 [ %.4188, %.body ], [ true, %275 ]
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %.body ], [ %276, %275 ]
   invoke void @"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$syn..generics..WherePredicate$GT$$GT$$GT$17h305a450ae91f381cE"(ptr nonnull align 8 %57) #11
-          to label %255 unwind label %517
+          to label %255 unwind label %519
 
 275:                                              ; preds = %273
   %276 = landingpad { ptr, i32 }
@@ -1212,11 +1210,11 @@ _ZN22serde_derive_internals9internals4attr8BoolAttr3get17hdd8e0d6d21f93f5aE.exit
   %.0.i = phi i1 [ %282, %281 ], [ false, %285 ]
   %.pn60.i = phi { ptr, i32 } [ %283, %281 ], [ %.pn.i, %285 ]
   %.not62.i = icmp eq i8 %.034.i, 0
-  br i1 %.not62.i, label %403, label %404
+  br i1 %.not62.i, label %405, label %406
 
-281:                                              ; preds = %391, %277
-  %282 = phi i1 [ false, %391 ], [ true, %277 ]
-  %.1.i = phi i8 [ 0, %391 ], [ 1, %277 ]
+281:                                              ; preds = %393, %277
+  %282 = phi i1 [ false, %393 ], [ true, %277 ]
+  %.1.i = phi i8 [ 0, %393 ], [ 1, %277 ]
   %283 = landingpad { ptr, i32 }
           cleanup
   br label %280
@@ -1230,7 +1228,7 @@ _ZN22serde_derive_internals9internals4attr8BoolAttr3get17hdd8e0d6d21f93f5aE.exit
   %.2.i = phi i8 [ 0, %289 ], [ 1, %286 ]
   %.pn.i = phi { ptr, i32 } [ %290, %289 ], [ %287, %286 ]
   invoke void @"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$$LP$proc_macro2..TokenStream$C$$LP$$RP$$RP$$GT$$GT$17ha7821add371cd6b4E"(ptr nonnull align 8 %31) #11
-          to label %280 unwind label %339, !noalias !9
+          to label %280 unwind label %341, !noalias !9
 
 286:                                              ; preds = %284
   %287 = landingpad { ptr, i32 }
@@ -1246,7 +1244,7 @@ _ZN22serde_derive_internals9internals4attr8BoolAttr3get17hdd8e0d6d21f93f5aE.exit
   %290 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$$LP$proc_macro2..TokenStream$C$alloc..string..String$RP$$GT$$GT$17hf9e2596abdd70c3dE"(ptr nonnull align 8 %29) #11
-          to label %285 unwind label %339, !noalias !9
+          to label %285 unwind label %341, !noalias !9
 
 291:                                              ; preds = %288
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31, i64 40, i1 false), !noalias !9
@@ -1268,386 +1266,388 @@ _ZN22serde_derive_internals9internals4attr8BoolAttr3get17hdd8e0d6d21f93f5aE.exit
   br i1 %298, label %304, label %305
 
 303:                                              ; preds = %291
-  br i1 %298, label %341, label %342
+  br i1 %298, label %343, label %344
 
 304:                                              ; preds = %302
-  br i1 %301, label %307, label %306
+  br i1 %301, label %308, label %306
 
 305:                                              ; preds = %302
-  br i1 %301, label %313, label %316
+  br i1 %301, label %314, label %317
 
 306:                                              ; preds = %304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 32, i1 false), !noalias !9
   invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h1b24e64d0102d0b2E(ptr nonnull align 8 %278, ptr nonnull align 8 %20, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.29, i64 60)
-          to label %307 unwind label %311, !noalias !9
+          to label %308 unwind label %312, !noalias !9
 
-.sink.split.i:                                    ; preds = %.loopexit105.i, %316, %313
-  %.sink111.i.sroa.phi = phi ptr [ %.sink111.i.sroa.gep, %316 ], [ %.sink111.i.sroa.gep378, %.loopexit105.i ], [ %.sink111.i.sroa.gep378, %313 ]
-  %.sink110.i = phi ptr [ %299, %316 ], [ %25, %.loopexit105.i ], [ %25, %313 ]
-  %.sink.ph.i = phi i64 [ 2, %316 ], [ 1, %.loopexit105.i ], [ 1, %313 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sink111.i.sroa.phi, ptr noundef nonnull align 8 dereferenceable(24) %.sink110.i, i64 24, i1 false)
-  br label %307
+.sink.split.i:                                    ; preds = %.loopexit105.i, %317, %314
+  %.sink111.i = phi i64 [ 32, %317 ], [ 8, %.loopexit105.i ], [ 8, %314 ]
+  %.sink110.i = phi ptr [ %299, %317 ], [ %25, %.loopexit105.i ], [ %25, %314 ]
+  %.sink.ph.i = phi i64 [ 2, %317 ], [ 1, %.loopexit105.i ], [ 1, %314 ]
+  %307 = getelementptr inbounds i8, ptr %53, i64 %.sink111.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %307, ptr noundef nonnull align 8 dereferenceable(24) %.sink110.i, i64 24, i1 false)
+  br label %308
 
-307:                                              ; preds = %341, %.sink.split.i, %306, %304
-  %.sink.i = phi i64 [ 0, %306 ], [ 3, %341 ], [ 0, %304 ], [ %.sink.ph.i, %.sink.split.i ]
-  %.046.i = phi i1 [ false, %306 ], [ true, %341 ], [ true, %304 ], [ true, %.sink.split.i ]
-  %.045.i = phi i1 [ true, %306 ], [ true, %341 ], [ true, %304 ], [ %301, %.sink.split.i ]
-  %.043.i = phi i1 [ true, %306 ], [ true, %341 ], [ true, %304 ], [ false, %.sink.split.i ]
+308:                                              ; preds = %343, %.sink.split.i, %306, %304
+  %.sink.i = phi i64 [ 0, %306 ], [ 3, %343 ], [ 0, %304 ], [ %.sink.ph.i, %.sink.split.i ]
+  %.046.i = phi i1 [ false, %306 ], [ true, %343 ], [ true, %304 ], [ true, %.sink.split.i ]
+  %.045.i = phi i1 [ true, %306 ], [ true, %343 ], [ true, %304 ], [ %301, %.sink.split.i ]
+  %.043.i = phi i1 [ true, %306 ], [ true, %343 ], [ true, %304 ], [ false, %.sink.split.i ]
   store i64 %.sink.i, ptr %53, align 8, !alias.scope !9
-  %308 = load i64, ptr %32, align 8, !range !12, !noalias !9, !noundef !5
-  %.not53.i = icmp eq i64 %308, 0
-  br i1 %.not53.i, label %.thread70.i, label %361
+  %309 = load i64, ptr %32, align 8, !range !12, !noalias !9, !noundef !5
+  %.not53.i = icmp eq i64 %309, 0
+  br i1 %.not53.i, label %.thread70.i, label %363
 
-309:                                              ; preds = %395, %393, %.thread98.i, %356, %353, %349, %346, %320, %311
-  %.144.i = phi i1 [ true, %311 ], [ false, %320 ], [ true, %349 ], [ true, %346 ], [ true, %356 ], [ true, %353 ], [ true, %395 ], [ true, %393 ], [ true, %.thread98.i ]
-  %.142.i = phi i1 [ true, %311 ], [ true, %320 ], [ true, %349 ], [ true, %346 ], [ false, %356 ], [ false, %353 ], [ false, %395 ], [ false, %393 ], [ false, %.thread98.i ]
-  %.pn50.i = phi { ptr, i32 } [ %312, %311 ], [ %.pn48.i, %320 ], [ %350, %349 ], [ %347, %346 ], [ %357, %356 ], [ %354, %353 ], [ %lpad.thr_comm.i, %395 ], [ %lpad.thr_comm.i, %393 ], [ %lpad.thr_comm.split-lp.i, %.thread98.i ]
-  %310 = load ptr, ptr %296, align 8, !noalias !9, !noundef !5
-  %.not.i = icmp eq ptr %310, null
-  br i1 %.not.i, label %397, label %396
+310:                                              ; preds = %397, %395, %.thread98.i, %358, %355, %351, %348, %322, %312
+  %.144.i = phi i1 [ true, %312 ], [ false, %322 ], [ true, %351 ], [ true, %348 ], [ true, %358 ], [ true, %355 ], [ true, %397 ], [ true, %395 ], [ true, %.thread98.i ]
+  %.142.i = phi i1 [ true, %312 ], [ true, %322 ], [ true, %351 ], [ true, %348 ], [ false, %358 ], [ false, %355 ], [ false, %397 ], [ false, %395 ], [ false, %.thread98.i ]
+  %.pn50.i = phi { ptr, i32 } [ %313, %312 ], [ %.pn48.i, %322 ], [ %352, %351 ], [ %349, %348 ], [ %359, %358 ], [ %356, %355 ], [ %lpad.thr_comm.i, %397 ], [ %lpad.thr_comm.i, %395 ], [ %lpad.thr_comm.split-lp.i, %.thread98.i ]
+  %311 = load ptr, ptr %296, align 8, !noalias !9, !noundef !5
+  %.not.i = icmp eq ptr %311, null
+  br i1 %.not.i, label %399, label %398
 
-311:                                              ; preds = %306
-  %312 = landingpad { ptr, i32 }
+312:                                              ; preds = %306
+  %313 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %310
 
-313:                                              ; preds = %305
+314:                                              ; preds = %305
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %296, i64 24, i1 false), !noalias !9
-  %314 = load i64, ptr %279, align 8, !range !13, !noalias !9, !noundef !5
-  %315 = icmp eq i64 %314, 3
-  br i1 %315, label %317, label %.sink.split.i
+  %315 = load i64, ptr %279, align 8, !range !13, !noalias !9, !noundef !5
+  %316 = icmp eq i64 %315, 3
+  br i1 %316, label %319, label %.sink.split.i
 
-316:                                              ; preds = %305
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sink111.i.sroa.gep378, ptr noundef nonnull align 8 dereferenceable(24) %296, i64 24, i1 false)
+317:                                              ; preds = %305
+  %318 = getelementptr inbounds i8, ptr %53, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %318, ptr noundef nonnull align 8 dereferenceable(24) %296, i64 24, i1 false)
   br label %.sink.split.i
 
-317:                                              ; preds = %313
-  %318 = getelementptr inbounds i8, ptr %279, i64 8
-  %319 = invoke { ptr, ptr } @"_ZN106_$LT$$RF$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd81ef35955108f42E"(ptr nonnull align 8 %318)
-          to label %323 unwind label %321, !noalias !9
+319:                                              ; preds = %314
+  %320 = getelementptr inbounds i8, ptr %279, i64 8
+  %321 = invoke { ptr, ptr } @"_ZN106_$LT$$RF$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd81ef35955108f42E"(ptr nonnull align 8 %320)
+          to label %325 unwind label %323, !noalias !9
 
-320:                                              ; preds = %328, %321
-  %.pn48.i = phi { ptr, i32 } [ %322, %321 ], [ %lpad.phi.i, %328 ]
+322:                                              ; preds = %330, %323
+  %.pn48.i = phi { ptr, i32 } [ %324, %323 ], [ %lpad.phi.i, %330 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h658b292a0b3915d1E"(ptr nonnull align 8 %25) #11
-          to label %309 unwind label %339, !noalias !9
+          to label %310 unwind label %341, !noalias !9
 
-321:                                              ; preds = %.loopexit105.i, %317
-  %322 = landingpad { ptr, i32 }
+323:                                              ; preds = %.loopexit105.i, %319
+  %324 = landingpad { ptr, i32 }
           cleanup
-  br label %320
+  br label %322
 
-323:                                              ; preds = %317
-  %324 = extractvalue { ptr, ptr } %319, 0
-  %325 = extractvalue { ptr, ptr } %319, 1
-  store ptr %324, ptr %24, align 8, !noalias !9
-  %326 = getelementptr inbounds i8, ptr %24, i64 8
-  store ptr %325, ptr %326, align 8, !noalias !9
+325:                                              ; preds = %319
+  %326 = extractvalue { ptr, ptr } %321, 0
+  %327 = extractvalue { ptr, ptr } %321, 1
+  store ptr %326, ptr %24, align 8, !noalias !9
+  %328 = getelementptr inbounds i8, ptr %24, i64 8
+  store ptr %327, ptr %328, align 8, !noalias !9
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %.backedge.i.backedge, %323
-  %327 = invoke align 8 ptr @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd9aac40dbce270c6E"(ptr nonnull align 8 %24)
-          to label %329 unwind label %.loopexit.i, !noalias !9
+.backedge.i:                                      ; preds = %.backedge.i.backedge, %325
+  %329 = invoke align 8 ptr @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd9aac40dbce270c6E"(ptr nonnull align 8 %24)
+          to label %331 unwind label %.loopexit.i, !noalias !9
 
-.loopexit.i:                                      ; preds = %333, %.backedge.i
+.loopexit.i:                                      ; preds = %335, %.backedge.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  br label %328
+  br label %330
 
-.loopexit.split-lp.i:                             ; preds = %338
+.loopexit.split-lp.i:                             ; preds = %340
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  br label %328
+  br label %330
 
-328:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i
+330:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$syn..punctuated..Iter$LT$syn..data..Variant$GT$$GT$17h8624553d8ee22ee0E"(ptr nonnull align 8 %24) #11
-          to label %320 unwind label %339, !noalias !9
+          to label %322 unwind label %341, !noalias !9
 
-329:                                              ; preds = %.backedge.i
-  %330 = icmp eq ptr %327, null
-  br i1 %330, label %.loopexit105.i, label %331
+331:                                              ; preds = %.backedge.i
+  %332 = icmp eq ptr %329, null
+  br i1 %332, label %.loopexit105.i, label %333
 
-.loopexit105.i:                                   ; preds = %329, %338
+.loopexit105.i:                                   ; preds = %331, %340
   invoke void @"_ZN4core3ptr68drop_in_place$LT$syn..punctuated..Iter$LT$syn..data..Variant$GT$$GT$17h8624553d8ee22ee0E"(ptr nonnull align 8 %24)
-          to label %.sink.split.i unwind label %321, !noalias !9
-
-331:                                              ; preds = %329
-  %332 = load i64, ptr %327, align 8, !range !14, !noalias !9, !noundef !5
-  %switch.i = icmp eq i64 %332, 1
-  br i1 %switch.i, label %333, label %.backedge.i.backedge
+          to label %.sink.split.i unwind label %323, !noalias !9
 
 333:                                              ; preds = %331
-  %334 = getelementptr inbounds i8, ptr %327, i64 8
-  %335 = invoke i64 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3len17h078933dc995fb01cE"(ptr nonnull align 8 %334)
-          to label %336 unwind label %.loopexit.i, !noalias !9
+  %334 = load i64, ptr %329, align 8, !range !14, !noalias !9, !noundef !5
+  %switch.i = icmp eq i64 %334, 1
+  br i1 %switch.i, label %335, label %.backedge.i.backedge
 
-336:                                              ; preds = %333
-  %337 = icmp eq i64 %335, 1
-  br i1 %337, label %.backedge.i.backedge, label %338
+335:                                              ; preds = %333
+  %336 = getelementptr inbounds i8, ptr %329, i64 8
+  %337 = invoke i64 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3len17h078933dc995fb01cE"(ptr nonnull align 8 %336)
+          to label %338 unwind label %.loopexit.i, !noalias !9
 
-.backedge.i.backedge:                             ; preds = %336, %331
+338:                                              ; preds = %335
+  %339 = icmp eq i64 %337, 1
+  br i1 %339, label %.backedge.i.backedge, label %340
+
+.backedge.i.backedge:                             ; preds = %338, %333
   br label %.backedge.i
 
-338:                                              ; preds = %336
-  invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17heed43526b02b4c21E(ptr nonnull align 8 %278, ptr nonnull align 8 %327, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.27, i64 56)
+340:                                              ; preds = %338
+  invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17heed43526b02b4c21E(ptr nonnull align 8 %278, ptr nonnull align 8 %329, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.27, i64 56)
           to label %.loopexit105.i unwind label %.loopexit.split-lp.i, !noalias !9
 
-339:                                              ; preds = %405, %404, %402, %401, %400, %395, %394, %392, %385, %384, %381, %370, %369, %356, %349, %328, %320, %289, %285
-  %340 = landingpad { ptr, i32 }
+341:                                              ; preds = %407, %406, %404, %403, %402, %397, %396, %394, %387, %386, %383, %372, %371, %358, %351, %330, %322, %289, %285
+  %342 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #12, !noalias !9
   unreachable
 
-341:                                              ; preds = %303
-  br i1 %301, label %307, label %344
+343:                                              ; preds = %303
+  br i1 %301, label %308, label %346
 
-342:                                              ; preds = %303
-  %343 = getelementptr inbounds i8, ptr %32, i64 8
-  br i1 %301, label %351, label %352
-
-344:                                              ; preds = %341
+344:                                              ; preds = %303
   %345 = getelementptr inbounds i8, ptr %32, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %345, i64 32, i1 false), !noalias !9
+  br i1 %301, label %353, label %354
+
+346:                                              ; preds = %343
+  %347 = getelementptr inbounds i8, ptr %32, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %347, i64 32, i1 false), !noalias !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 32, i1 false), !noalias !9
   invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h1b24e64d0102d0b2E(ptr nonnull align 8 %278, ptr nonnull align 8 %19, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.30, i64 51)
-          to label %348 unwind label %349, !noalias !9
+          to label %350 unwind label %351, !noalias !9
 
-346:                                              ; preds = %348
-  %347 = landingpad { ptr, i32 }
+348:                                              ; preds = %350
+  %349 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %310
 
-348:                                              ; preds = %344
+350:                                              ; preds = %346
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false), !noalias !9
   invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h1b24e64d0102d0b2E(ptr nonnull align 8 %278, ptr nonnull align 8 %17, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.30, i64 51)
-          to label %.thread70.sink.split.i unwind label %346, !noalias !9
+          to label %.thread70.sink.split.i unwind label %348, !noalias !9
 
-349:                                              ; preds = %344
-  %350 = landingpad { ptr, i32 }
+351:                                              ; preds = %346
+  %352 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %18) #11
-          to label %309 unwind label %339, !noalias !9
+          to label %310 unwind label %341, !noalias !9
 
-351:                                              ; preds = %342
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %343, i64 32, i1 false), !noalias !9
+353:                                              ; preds = %344
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %345, i64 32, i1 false), !noalias !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 32, i1 false), !noalias !9
   invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h1b24e64d0102d0b2E(ptr nonnull align 8 %278, ptr nonnull align 8 %23, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.28, i64 50)
-          to label %355 unwind label %356, !noalias !9
+          to label %357 unwind label %358, !noalias !9
 
-352:                                              ; preds = %342
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %343, i64 32, i1 false), !noalias !9
+354:                                              ; preds = %344
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %345, i64 32, i1 false), !noalias !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 32, i1 false), !noalias !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 32, i1 false), !noalias !9
   invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h1b24e64d0102d0b2E(ptr nonnull align 8 %278, ptr nonnull align 8 %16, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.31, i64 64)
-          to label %358 unwind label %394, !noalias !9
+          to label %360 unwind label %396, !noalias !9
 
-353:                                              ; preds = %355
-  %354 = landingpad { ptr, i32 }
+355:                                              ; preds = %357
+  %356 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %310
 
-355:                                              ; preds = %351
+357:                                              ; preds = %353
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false), !noalias !9
   invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h1b24e64d0102d0b2E(ptr nonnull align 8 %278, ptr nonnull align 8 %21, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.28, i64 50)
-          to label %.thread70.sink.split.i unwind label %353, !noalias !9
+          to label %.thread70.sink.split.i unwind label %355, !noalias !9
 
-356:                                              ; preds = %351
-  %357 = landingpad { ptr, i32 }
+358:                                              ; preds = %353
+  %359 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %22) #11
-          to label %309 unwind label %339, !noalias !9
+          to label %310 unwind label %341, !noalias !9
 
-.thread98.i:                                      ; preds = %359
+.thread98.i:                                      ; preds = %361
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %310
 
-358:                                              ; preds = %352
+360:                                              ; preds = %354
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false), !noalias !9
   invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h1b24e64d0102d0b2E(ptr nonnull align 8 %278, ptr nonnull align 8 %13, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.31, i64 64)
-          to label %359 unwind label %394, !noalias !9
+          to label %361 unwind label %396, !noalias !9
 
-359:                                              ; preds = %358
+361:                                              ; preds = %360
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false), !noalias !9
   invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h1b24e64d0102d0b2E(ptr nonnull align 8 %278, ptr nonnull align 8 %12, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.31, i64 64)
           to label %.thread70.sink.split.i unwind label %.thread98.i, !noalias !9
 
-.thread70.sink.split.i:                           ; preds = %359, %355, %348
-  %.04679.ph.i = phi i1 [ false, %348 ], [ true, %355 ], [ false, %359 ]
+.thread70.sink.split.i:                           ; preds = %361, %357, %350
+  %.04679.ph.i = phi i1 [ false, %350 ], [ true, %357 ], [ false, %361 ]
   store i64 0, ptr %53, align 8, !alias.scope !9
   br label %.thread70.i
 
-.thread70.i:                                      ; preds = %361, %.thread70.sink.split.i, %307
-  %.04184.i = phi i1 [ true, %307 ], [ true, %361 ], [ %298, %.thread70.sink.split.i ]
-  %.04383.i = phi i1 [ %.043.i, %307 ], [ %.043.i, %361 ], [ true, %.thread70.sink.split.i ]
-  %.04581.i = phi i1 [ %.045.i, %307 ], [ %.045.i, %361 ], [ true, %.thread70.sink.split.i ]
-  %.04679.i = phi i1 [ %.046.i, %307 ], [ %.046.i, %361 ], [ %.04679.ph.i, %.thread70.sink.split.i ]
-  %360 = load ptr, ptr %296, align 8, !noalias !9, !noundef !5
-  %.not55.i = icmp eq ptr %360, null
-  br i1 %.not55.i, label %372, label %371
+.thread70.i:                                      ; preds = %363, %.thread70.sink.split.i, %308
+  %.04184.i = phi i1 [ true, %308 ], [ true, %363 ], [ %298, %.thread70.sink.split.i ]
+  %.04383.i = phi i1 [ %.043.i, %308 ], [ %.043.i, %363 ], [ true, %.thread70.sink.split.i ]
+  %.04581.i = phi i1 [ %.045.i, %308 ], [ %.045.i, %363 ], [ true, %.thread70.sink.split.i ]
+  %.04679.i = phi i1 [ %.046.i, %308 ], [ %.046.i, %363 ], [ %.04679.ph.i, %.thread70.sink.split.i ]
+  %362 = load ptr, ptr %296, align 8, !noalias !9, !noundef !5
+  %.not55.i = icmp eq ptr %362, null
+  br i1 %.not55.i, label %374, label %373
 
-361:                                              ; preds = %307
-  %362 = getelementptr inbounds i8, ptr %32, i64 8
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %362)
-          to label %.thread70.i unwind label %363, !noalias !9
+363:                                              ; preds = %308
+  %364 = getelementptr inbounds i8, ptr %32, i64 8
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %364)
+          to label %.thread70.i unwind label %365, !noalias !9
 
-363:                                              ; preds = %361
-  %364 = landingpad { ptr, i32 }
+365:                                              ; preds = %363
+  %366 = landingpad { ptr, i32 }
           cleanup
-  %365 = load ptr, ptr %296, align 8, !noalias !9, !noundef !5
-  %.not54.i = icmp eq ptr %365, null
-  br i1 %.not54.i, label %366, label %369
+  %367 = load ptr, ptr %296, align 8, !noalias !9, !noundef !5
+  %.not54.i = icmp eq ptr %367, null
+  br i1 %.not54.i, label %368, label %371
 
-366:                                              ; preds = %381, %379, %376, %370, %368, %363
-  %.04582.i = phi i1 [ %.04581.i, %379 ], [ %.04581.i, %381 ], [ %.04581.i, %376 ], [ %.045.i, %370 ], [ %.045.i, %368 ], [ %.045.i, %363 ]
-  %.04680.i = phi i1 [ %.04679.i, %379 ], [ %.04679.i, %381 ], [ %.04679.i, %376 ], [ %.046.i, %370 ], [ %.046.i, %368 ], [ %.046.i, %363 ]
-  %.pn56.i = phi { ptr, i32 } [ %380, %379 ], [ %377, %381 ], [ %377, %376 ], [ %364, %370 ], [ %364, %368 ], [ %364, %363 ]
-  %367 = load ptr, ptr %299, align 8, !noalias !9, !noundef !5
-  %.not58.i = icmp eq ptr %367, null
-  br i1 %.not58.i, label %.body, label %382
+368:                                              ; preds = %383, %381, %378, %372, %370, %365
+  %.04582.i = phi i1 [ %.04581.i, %381 ], [ %.04581.i, %383 ], [ %.04581.i, %378 ], [ %.045.i, %372 ], [ %.045.i, %370 ], [ %.045.i, %365 ]
+  %.04680.i = phi i1 [ %.04679.i, %381 ], [ %.04679.i, %383 ], [ %.04679.i, %378 ], [ %.046.i, %372 ], [ %.046.i, %370 ], [ %.046.i, %365 ]
+  %.pn56.i = phi { ptr, i32 } [ %382, %381 ], [ %379, %383 ], [ %379, %378 ], [ %366, %372 ], [ %366, %370 ], [ %366, %365 ]
+  %369 = load ptr, ptr %299, align 8, !noalias !9, !noundef !5
+  %.not58.i = icmp eq ptr %369, null
+  br i1 %.not58.i, label %.body, label %384
 
-368:                                              ; preds = %369
-  br i1 %.043.i, label %370, label %366
+370:                                              ; preds = %371
+  br i1 %.043.i, label %372, label %368
 
-369:                                              ; preds = %363
+371:                                              ; preds = %365
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %292) #11
-          to label %368 unwind label %339, !noalias !9
+          to label %370 unwind label %341, !noalias !9
 
-370:                                              ; preds = %368
+372:                                              ; preds = %370
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h658b292a0b3915d1E"(ptr nonnull align 8 %296) #11
-          to label %366 unwind label %339, !noalias !9
+          to label %368 unwind label %341, !noalias !9
 
-371:                                              ; preds = %.thread70.i
-  br i1 %.04184.i, label %375, label %374
+373:                                              ; preds = %.thread70.i
+  br i1 %.04184.i, label %377, label %376
 
-372:                                              ; preds = %378, %374, %.thread70.i
-  %373 = load ptr, ptr %299, align 8, !noalias !9, !noundef !5
-  %.not59.i = icmp eq ptr %373, null
-  br i1 %.not59.i, label %406, label %386
+374:                                              ; preds = %380, %376, %.thread70.i
+  %375 = load ptr, ptr %299, align 8, !noalias !9, !noundef !5
+  %.not59.i = icmp eq ptr %375, null
+  br i1 %.not59.i, label %408, label %388
 
-374:                                              ; preds = %375, %371
-  br i1 %.04383.i, label %378, label %372
+376:                                              ; preds = %377, %373
+  br i1 %.04383.i, label %380, label %374
 
-375:                                              ; preds = %371
+377:                                              ; preds = %373
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %292)
-          to label %374 unwind label %376, !noalias !9
+          to label %376 unwind label %378, !noalias !9
 
-376:                                              ; preds = %375
-  %377 = landingpad { ptr, i32 }
+378:                                              ; preds = %377
+  %379 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.04383.i, label %381, label %366
+  br i1 %.04383.i, label %383, label %368
 
-378:                                              ; preds = %374
+380:                                              ; preds = %376
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h658b292a0b3915d1E"(ptr nonnull align 8 %296)
-          to label %372 unwind label %379, !noalias !9
+          to label %374 unwind label %381, !noalias !9
 
-379:                                              ; preds = %378
-  %380 = landingpad { ptr, i32 }
+381:                                              ; preds = %380
+  %382 = landingpad { ptr, i32 }
           cleanup
-  br label %366
+  br label %368
 
-381:                                              ; preds = %376
+383:                                              ; preds = %378
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h658b292a0b3915d1E"(ptr nonnull align 8 %296) #11
-          to label %366 unwind label %339, !noalias !9
+          to label %368 unwind label %341, !noalias !9
 
-382:                                              ; preds = %366
-  br i1 %.04680.i, label %384, label %383
+384:                                              ; preds = %368
+  br i1 %.04680.i, label %386, label %385
 
-383:                                              ; preds = %384, %382
-  br i1 %.04582.i, label %385, label %.body
+385:                                              ; preds = %386, %384
+  br i1 %.04582.i, label %387, label %.body
 
-384:                                              ; preds = %382
+386:                                              ; preds = %384
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %293) #11
-          to label %383 unwind label %339, !noalias !9
+          to label %385 unwind label %341, !noalias !9
 
-385:                                              ; preds = %383
+387:                                              ; preds = %385
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h658b292a0b3915d1E"(ptr nonnull align 8 %299) #11
-          to label %.body unwind label %339, !noalias !9
+          to label %.body unwind label %341, !noalias !9
 
-386:                                              ; preds = %372
-  br i1 %.04679.i, label %388, label %387
+388:                                              ; preds = %374
+  br i1 %.04679.i, label %390, label %389
 
-387:                                              ; preds = %388, %386
-  br i1 %.04581.i, label %391, label %406
+389:                                              ; preds = %390, %388
+  br i1 %.04581.i, label %393, label %408
 
-388:                                              ; preds = %386
+390:                                              ; preds = %388
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %293)
-          to label %387 unwind label %389, !noalias !9
+          to label %389 unwind label %391, !noalias !9
 
-389:                                              ; preds = %388
-  %390 = landingpad { ptr, i32 }
+391:                                              ; preds = %390
+  %392 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.04581.i, label %392, label %.body
+  br i1 %.04581.i, label %394, label %.body
 
-391:                                              ; preds = %387
+393:                                              ; preds = %389
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h658b292a0b3915d1E"(ptr nonnull align 8 %299)
-          to label %406 unwind label %281, !noalias !9
+          to label %408 unwind label %281, !noalias !9
 
-392:                                              ; preds = %389
+394:                                              ; preds = %391
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h658b292a0b3915d1E"(ptr nonnull align 8 %299) #11
-          to label %.body unwind label %339, !noalias !9
+          to label %.body unwind label %341, !noalias !9
 
-393:                                              ; preds = %394
-  br i1 %.038.ph.i, label %395, label %309
+395:                                              ; preds = %396
+  br i1 %.038.ph.i, label %397, label %310
 
-394:                                              ; preds = %358, %352
-  %.038.ph.i = phi i1 [ true, %352 ], [ false, %358 ]
+396:                                              ; preds = %360, %354
+  %.038.ph.i = phi i1 [ true, %354 ], [ false, %360 ]
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %14) #11
-          to label %393 unwind label %339, !noalias !9
+          to label %395 unwind label %341, !noalias !9
 
-395:                                              ; preds = %393
+397:                                              ; preds = %395
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %15) #11
-          to label %309 unwind label %339, !noalias !9
+          to label %310 unwind label %341, !noalias !9
 
-396:                                              ; preds = %309
-  br i1 %.142.i, label %400, label %399
+398:                                              ; preds = %310
+  br i1 %.142.i, label %402, label %401
 
-397:                                              ; preds = %401, %399, %309
-  %398 = load ptr, ptr %299, align 8, !noalias !9, !noundef !5
-  %.not52.i = icmp eq ptr %398, null
-  br i1 %.not52.i, label %.body, label %402
+399:                                              ; preds = %403, %401, %310
+  %400 = load ptr, ptr %299, align 8, !noalias !9, !noundef !5
+  %.not52.i = icmp eq ptr %400, null
+  br i1 %.not52.i, label %.body, label %404
 
-399:                                              ; preds = %400, %396
-  br i1 %.144.i, label %401, label %397
+401:                                              ; preds = %402, %398
+  br i1 %.144.i, label %403, label %399
 
-400:                                              ; preds = %396
+402:                                              ; preds = %398
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %292) #11
-          to label %399 unwind label %339, !noalias !9
+          to label %401 unwind label %341, !noalias !9
 
-401:                                              ; preds = %399
+403:                                              ; preds = %401
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h658b292a0b3915d1E"(ptr nonnull align 8 %296) #11
-          to label %397 unwind label %339, !noalias !9
+          to label %399 unwind label %341, !noalias !9
 
-402:                                              ; preds = %397
+404:                                              ; preds = %399
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h658b292a0b3915d1E"(ptr nonnull align 8 %299) #11
-          to label %.body unwind label %339, !noalias !9
+          to label %.body unwind label %341, !noalias !9
 
-403:                                              ; preds = %404, %280
-  br i1 %.0.i, label %405, label %.body
+405:                                              ; preds = %406, %280
+  br i1 %.0.i, label %407, label %.body
 
-404:                                              ; preds = %280
+406:                                              ; preds = %280
   invoke void @"_ZN4core3ptr95drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$alloc..string..String$GT$$GT$17h5a130e53ed4baa4aE"(ptr nonnull align 8 %51) #11
-          to label %403 unwind label %339, !noalias !9
+          to label %405 unwind label %341, !noalias !9
 
-405:                                              ; preds = %403
+407:                                              ; preds = %405
   invoke void @"_ZN4core3ptr95drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$alloc..string..String$GT$$GT$17h5a130e53ed4baa4aE"(ptr nonnull align 8 %52) #11
-          to label %.body unwind label %339, !noalias !9
+          to label %.body unwind label %341, !noalias !9
 
-.body:                                            ; preds = %405, %403, %402, %397, %392, %389, %385, %383, %366, %407
-  %.11276 = phi i8 [ 0, %407 ], [ 1, %366 ], [ 1, %383 ], [ 1, %385 ], [ 1, %389 ], [ 1, %392 ], [ 1, %397 ], [ 1, %402 ], [ 1, %403 ], [ 1, %405 ]
-  %.10263 = phi i8 [ %.11264, %407 ], [ 1, %366 ], [ 1, %383 ], [ 1, %385 ], [ 1, %389 ], [ 1, %392 ], [ 1, %397 ], [ 1, %402 ], [ 1, %403 ], [ 1, %405 ]
-  %.9250 = phi i8 [ %.10251, %407 ], [ 1, %366 ], [ 1, %383 ], [ 1, %385 ], [ 1, %389 ], [ 1, %392 ], [ 1, %397 ], [ 1, %402 ], [ 1, %403 ], [ 1, %405 ]
-  %.8237 = phi i8 [ %.9238, %407 ], [ 1, %366 ], [ 1, %383 ], [ 1, %385 ], [ 1, %389 ], [ 1, %392 ], [ 1, %397 ], [ 1, %402 ], [ 1, %403 ], [ 1, %405 ]
-  %.6212 = phi i8 [ %.7213, %407 ], [ 1, %366 ], [ 1, %383 ], [ 1, %385 ], [ 1, %389 ], [ 1, %392 ], [ 1, %397 ], [ 1, %402 ], [ 1, %403 ], [ 1, %405 ]
-  %.5199 = phi i8 [ %.6200, %407 ], [ 1, %366 ], [ 1, %383 ], [ 1, %385 ], [ 1, %389 ], [ 1, %392 ], [ 1, %397 ], [ 1, %402 ], [ 1, %403 ], [ 1, %405 ]
-  %.4188 = phi i1 [ %.5189, %407 ], [ true, %366 ], [ true, %383 ], [ true, %385 ], [ true, %389 ], [ true, %392 ], [ true, %397 ], [ true, %402 ], [ true, %403 ], [ true, %405 ]
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %407 ], [ %.pn56.i, %366 ], [ %.pn56.i, %383 ], [ %.pn56.i, %385 ], [ %390, %389 ], [ %390, %392 ], [ %.pn50.i, %397 ], [ %.pn50.i, %402 ], [ %.pn60.i, %403 ], [ %.pn60.i, %405 ]
+.body:                                            ; preds = %407, %405, %404, %399, %394, %391, %387, %385, %368, %409
+  %.11276 = phi i8 [ 0, %409 ], [ 1, %368 ], [ 1, %385 ], [ 1, %387 ], [ 1, %391 ], [ 1, %394 ], [ 1, %399 ], [ 1, %404 ], [ 1, %405 ], [ 1, %407 ]
+  %.10263 = phi i8 [ %.11264, %409 ], [ 1, %368 ], [ 1, %385 ], [ 1, %387 ], [ 1, %391 ], [ 1, %394 ], [ 1, %399 ], [ 1, %404 ], [ 1, %405 ], [ 1, %407 ]
+  %.9250 = phi i8 [ %.10251, %409 ], [ 1, %368 ], [ 1, %385 ], [ 1, %387 ], [ 1, %391 ], [ 1, %394 ], [ 1, %399 ], [ 1, %404 ], [ 1, %405 ], [ 1, %407 ]
+  %.8237 = phi i8 [ %.9238, %409 ], [ 1, %368 ], [ 1, %385 ], [ 1, %387 ], [ 1, %391 ], [ 1, %394 ], [ 1, %399 ], [ 1, %404 ], [ 1, %405 ], [ 1, %407 ]
+  %.6212 = phi i8 [ %.7213, %409 ], [ 1, %368 ], [ 1, %385 ], [ 1, %387 ], [ 1, %391 ], [ 1, %394 ], [ 1, %399 ], [ 1, %404 ], [ 1, %405 ], [ 1, %407 ]
+  %.5199 = phi i8 [ %.6200, %409 ], [ 1, %368 ], [ 1, %385 ], [ 1, %387 ], [ 1, %391 ], [ 1, %394 ], [ 1, %399 ], [ 1, %404 ], [ 1, %405 ], [ 1, %407 ]
+  %.4188 = phi i1 [ %.5189, %409 ], [ true, %368 ], [ true, %385 ], [ true, %387 ], [ true, %391 ], [ true, %394 ], [ true, %399 ], [ true, %404 ], [ true, %405 ], [ true, %407 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %409 ], [ %.pn56.i, %368 ], [ %.pn56.i, %385 ], [ %.pn56.i, %387 ], [ %392, %391 ], [ %392, %394 ], [ %.pn50.i, %399 ], [ %.pn50.i, %404 ], [ %.pn60.i, %405 ], [ %.pn60.i, %407 ]
   invoke void @"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$syn..generics..WherePredicate$GT$$GT$$GT$17h305a450ae91f381cE"(ptr nonnull align 8 %55) #11
-          to label %274 unwind label %517
+          to label %274 unwind label %519
 
-406:                                              ; preds = %391, %387, %372
+408:                                              ; preds = %393, %389, %374
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -1671,84 +1671,84 @@ _ZN22serde_derive_internals9internals4attr8BoolAttr3get17hdd8e0d6d21f93f5aE.exit
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %32)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %49, ptr noundef nonnull align 8 dereferenceable(288) %88, i64 288, i1 false)
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$3get17h8ef01856e8f334f7E"(ptr nonnull sret({ i64, [28 x i64] }) align 8 %50, ptr nonnull align 8 %49)
-          to label %410 unwind label %408
+          to label %412 unwind label %410
 
-407:                                              ; preds = %411, %408
-  %.11264 = phi i8 [ 0, %411 ], [ 1, %408 ]
-  %.10251 = phi i8 [ %.11252, %411 ], [ 1, %408 ]
-  %.9238 = phi i8 [ %.10239, %411 ], [ 1, %408 ]
-  %.7213 = phi i8 [ %.8214, %411 ], [ 1, %408 ]
-  %.6200 = phi i8 [ %.7201, %411 ], [ 1, %408 ]
-  %.5189 = phi i1 [ %.6190, %411 ], [ true, %408 ]
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %411 ], [ %409, %408 ]
+409:                                              ; preds = %413, %410
+  %.11264 = phi i8 [ 0, %413 ], [ 1, %410 ]
+  %.10251 = phi i8 [ %.11252, %413 ], [ 1, %410 ]
+  %.9238 = phi i8 [ %.10239, %413 ], [ 1, %410 ]
+  %.7213 = phi i8 [ %.8214, %413 ], [ 1, %410 ]
+  %.6200 = phi i8 [ %.7201, %413 ], [ 1, %410 ]
+  %.5189 = phi i1 [ %.6190, %413 ], [ true, %410 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %413 ], [ %411, %410 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$serde_derive_internals..internals..attr..TagType$GT$17h4ef2ba2de5e1daebE"(ptr nonnull align 8 %53) #11
-          to label %.body unwind label %517
+          to label %.body unwind label %519
 
-408:                                              ; preds = %406
-  %409 = landingpad { ptr, i32 }
+410:                                              ; preds = %408
+  %411 = landingpad { ptr, i32 }
           cleanup
-  br label %407
+  br label %409
 
-410:                                              ; preds = %406
+412:                                              ; preds = %408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %47, ptr noundef nonnull align 8 dereferenceable(288) %87, i64 288, i1 false)
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$3get17h8ef01856e8f334f7E"(ptr nonnull sret({ i64, [28 x i64] }) align 8 %48, ptr nonnull align 8 %47)
-          to label %414 unwind label %412
+          to label %416 unwind label %414
 
-411:                                              ; preds = %415, %412
-  %.11252 = phi i8 [ 0, %415 ], [ 1, %412 ]
-  %.10239 = phi i8 [ %.11240, %415 ], [ 1, %412 ]
-  %.8214 = phi i8 [ %.9215, %415 ], [ 1, %412 ]
-  %.7201 = phi i8 [ %.8202, %415 ], [ 1, %412 ]
-  %.6190 = phi i1 [ %.7191, %415 ], [ true, %412 ]
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %415 ], [ %413, %412 ]
+413:                                              ; preds = %417, %414
+  %.11252 = phi i8 [ 0, %417 ], [ 1, %414 ]
+  %.10239 = phi i8 [ %.11240, %417 ], [ 1, %414 ]
+  %.8214 = phi i8 [ %.9215, %417 ], [ 1, %414 ]
+  %.7201 = phi i8 [ %.8202, %417 ], [ 1, %414 ]
+  %.6190 = phi i1 [ %.7191, %417 ], [ true, %414 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %417 ], [ %415, %414 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$core..option..Option$LT$syn..ty..Type$GT$$GT$17h8c7bddfe8cba71a1E"(ptr nonnull align 8 %50) #11
-          to label %407 unwind label %517
+          to label %409 unwind label %519
 
-412:                                              ; preds = %410
-  %413 = landingpad { ptr, i32 }
+414:                                              ; preds = %412
+  %415 = landingpad { ptr, i32 }
           cleanup
-  br label %411
+  br label %413
 
-414:                                              ; preds = %410
+416:                                              ; preds = %412
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %45, ptr noundef nonnull align 8 dereferenceable(288) %86, i64 288, i1 false)
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$3get17h8ef01856e8f334f7E"(ptr nonnull sret({ i64, [28 x i64] }) align 8 %46, ptr nonnull align 8 %45)
-          to label %418 unwind label %416
+          to label %420 unwind label %418
 
-415:                                              ; preds = %419, %416
-  %.11240 = phi i8 [ 0, %419 ], [ 1, %416 ]
-  %.9215 = phi i8 [ %.10216, %419 ], [ 1, %416 ]
-  %.8202 = phi i8 [ %.9203, %419 ], [ 1, %416 ]
-  %.7191 = phi i1 [ %.8192, %419 ], [ true, %416 ]
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %419 ], [ %417, %416 ]
+417:                                              ; preds = %421, %418
+  %.11240 = phi i8 [ 0, %421 ], [ 1, %418 ]
+  %.9215 = phi i8 [ %.10216, %421 ], [ 1, %418 ]
+  %.8202 = phi i8 [ %.9203, %421 ], [ 1, %418 ]
+  %.7191 = phi i1 [ %.8192, %421 ], [ true, %418 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %421 ], [ %419, %418 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$core..option..Option$LT$syn..ty..Type$GT$$GT$17h8c7bddfe8cba71a1E"(ptr nonnull align 8 %48) #11
-          to label %411 unwind label %517
+          to label %413 unwind label %519
 
-416:                                              ; preds = %414
-  %417 = landingpad { ptr, i32 }
+418:                                              ; preds = %416
+  %419 = landingpad { ptr, i32 }
           cleanup
-  br label %415
+  br label %417
 
-418:                                              ; preds = %414
+420:                                              ; preds = %416
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %43, ptr noundef nonnull align 8 dereferenceable(104) %85, i64 104, i1 false)
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$3get17h13513335350df06cE"(ptr nonnull sret({ [8 x i32], i32, [3 x i32] }) align 8 %44, ptr nonnull align 8 %43)
-          to label %422 unwind label %420
+          to label %424 unwind label %422
 
-419:                                              ; preds = %.body376, %420
-  %.10216 = phi i8 [ 0, %.body376 ], [ 1, %420 ]
-  %.9203 = phi i8 [ %.10204, %.body376 ], [ 1, %420 ]
-  %.8192 = phi i1 [ %.9193, %.body376 ], [ true, %420 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body376 ], [ %421, %420 ]
+421:                                              ; preds = %.body376, %422
+  %.10216 = phi i8 [ 0, %.body376 ], [ 1, %422 ]
+  %.9203 = phi i8 [ %.10204, %.body376 ], [ 1, %422 ]
+  %.8192 = phi i1 [ %.9193, %.body376 ], [ true, %422 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body376 ], [ %423, %422 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$core..option..Option$LT$syn..ty..Type$GT$$GT$17h8c7bddfe8cba71a1E"(ptr nonnull align 8 %46) #11
-          to label %415 unwind label %517
+          to label %417 unwind label %519
 
-420:                                              ; preds = %418
-  %421 = landingpad { ptr, i32 }
+422:                                              ; preds = %420
+  %423 = landingpad { ptr, i32 }
           cleanup
-  br label %419
+  br label %421
 
-422:                                              ; preds = %418
-  %423 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
-  %424 = load ptr, ptr %103, align 8, !nonnull !5, !align !7, !noundef !5
+424:                                              ; preds = %420
+  %425 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
+  %426 = load ptr, ptr %103, align 8, !nonnull !5, !align !7, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %84, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %42, ptr noundef nonnull align 8 dereferenceable(64) %83, i64 64, i1 false)
@@ -1760,179 +1760,179 @@ _ZN22serde_derive_internals9internals4attr8BoolAttr3get17hdd8e0d6d21f93f5aE.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %11)
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$15get_with_tokens17h2d3888331c2b92afE"(ptr nonnull sret({ i64, [4 x i64] }) align 8 %10, ptr nonnull align 8 %9)
-          to label %425 unwind label %483
+          to label %427 unwind label %485
 
-425:                                              ; preds = %422
+427:                                              ; preds = %424
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %42, i64 64, i1 false)
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$15get_with_tokens17h2d3888331c2b92afE"(ptr nonnull sret({ i64, [4 x i64] }) align 8 %8, ptr nonnull align 8 %7)
-          to label %428 unwind label %426
+          to label %430 unwind label %428
 
-426:                                              ; preds = %425
-  %427 = landingpad { ptr, i32 }
+428:                                              ; preds = %427
+  %429 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$$LP$proc_macro2..TokenStream$C$$LP$$RP$$RP$$GT$$GT$17ha7821add371cd6b4E"(ptr nonnull align 8 %10) #11
-          to label %.body376 unwind label %471
+          to label %.body376 unwind label %473
 
-428:                                              ; preds = %425
-  %429 = getelementptr inbounds i8, ptr %11, i64 40
-  store ptr %424, ptr %429, align 8
+430:                                              ; preds = %427
+  %431 = getelementptr inbounds i8, ptr %11, i64 40
+  store ptr %426, ptr %431, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
-  %430 = getelementptr inbounds i8, ptr %11, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %430, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
-  %431 = load i64, ptr %11, align 8, !range !12, !noundef !5
-  %432 = icmp eq i64 %431, 0
-  %433 = load i64, ptr %430, align 8, !range !12, !noundef !5
+  %432 = getelementptr inbounds i8, ptr %11, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %432, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
+  %433 = load i64, ptr %11, align 8, !range !12, !noundef !5
   %434 = icmp eq i64 %433, 0
-  br i1 %432, label %435, label %436
+  %435 = load i64, ptr %432, align 8, !range !12, !noundef !5
+  %436 = icmp eq i64 %435, 0
+  br i1 %434, label %437, label %438
 
-435:                                              ; preds = %428
-  br i1 %434, label %487, label %437
+437:                                              ; preds = %430
+  br i1 %436, label %489, label %439
 
-436:                                              ; preds = %428
-  br i1 %434, label %454, label %460
+438:                                              ; preds = %430
+  br i1 %436, label %456, label %462
 
-437:                                              ; preds = %435
-  %438 = load i64, ptr %424, align 8, !range !13, !noundef !5
-  %439 = add nsw i64 %438, -3
-  %440 = icmp ult i64 %439, 2
-  %441 = add nsw i64 %438, -2
-  %442 = select i1 %440, i64 %441, i64 0
-  switch i64 %442, label %444 [
+439:                                              ; preds = %437
+  %440 = load i64, ptr %426, align 8, !range !13, !noundef !5
+  %441 = add nsw i64 %440, -3
+  %442 = icmp ult i64 %441, 2
+  %443 = add nsw i64 %440, -2
+  %444 = select i1 %442, i64 %443, i64 0
+  switch i64 %444, label %446 [
     i64 0, label %.invoke.i
-    i64 1, label %443
+    i64 1, label %445
     i64 2, label %.invoke79.i
   ]
 
-443:                                              ; preds = %454, %.invoke79.i, %.invoke.i, %437
-  %.022.ph.i = phi i8 [ 1, %454 ], [ 2, %437 ], [ 0, %.invoke.i ], [ 0, %.invoke79.i ]
+445:                                              ; preds = %456, %.invoke79.i, %.invoke.i, %439
+  %.022.ph.i = phi i8 [ 1, %456 ], [ 2, %439 ], [ 0, %.invoke.i ], [ 0, %.invoke79.i ]
   %.pr.i = load i64, ptr %11, align 8
   %.not25.i = icmp eq i64 %.pr.i, 0
-  br i1 %.not25.i, label %.thread42.i, label %464
+  br i1 %.not25.i, label %.thread42.i, label %466
 
-444:                                              ; preds = %454, %437
+446:                                              ; preds = %456, %439
   unreachable
 
-.invoke.i:                                        ; preds = %454, %437
-  %445 = phi ptr [ @anon.63b977b9b85f570fdb62f3bf5741f617.33, %454 ], [ @anon.63b977b9b85f570fdb62f3bf5741f617.34, %437 ]
-  %446 = phi i64 [ 54, %454 ], [ 56, %437 ]
-  %447 = getelementptr inbounds i8, ptr %424, i64 64
-  invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h2889e24962f9daf6E(ptr nonnull align 8 %423, ptr nonnull align 4 %447, ptr nonnull align 1 %445, i64 %446)
-          to label %443 unwind label %451
+.invoke.i:                                        ; preds = %456, %439
+  %447 = phi ptr [ @anon.63b977b9b85f570fdb62f3bf5741f617.33, %456 ], [ @anon.63b977b9b85f570fdb62f3bf5741f617.34, %439 ]
+  %448 = phi i64 [ 54, %456 ], [ 56, %439 ]
+  %449 = getelementptr inbounds i8, ptr %426, i64 64
+  invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h2889e24962f9daf6E(ptr nonnull align 8 %425, ptr nonnull align 4 %449, ptr nonnull align 1 %447, i64 %448)
+          to label %445 unwind label %453
 
-.invoke79.i:                                      ; preds = %454, %437
-  %448 = phi ptr [ @anon.63b977b9b85f570fdb62f3bf5741f617.33, %454 ], [ @anon.63b977b9b85f570fdb62f3bf5741f617.34, %437 ]
-  %449 = phi i64 [ 54, %454 ], [ 56, %437 ]
-  %450 = getelementptr inbounds i8, ptr %424, i64 56
-  invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h3d1c5395cf841401E(ptr nonnull align 8 %423, ptr nonnull align 4 %450, ptr nonnull align 1 %448, i64 %449)
-          to label %443 unwind label %451
+.invoke79.i:                                      ; preds = %456, %439
+  %450 = phi ptr [ @anon.63b977b9b85f570fdb62f3bf5741f617.33, %456 ], [ @anon.63b977b9b85f570fdb62f3bf5741f617.34, %439 ]
+  %451 = phi i64 [ 54, %456 ], [ 56, %439 ]
+  %452 = getelementptr inbounds i8, ptr %426, i64 56
+  invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h3d1c5395cf841401E(ptr nonnull align 8 %425, ptr nonnull align 4 %452, ptr nonnull align 1 %450, i64 %451)
+          to label %445 unwind label %453
 
-451:                                              ; preds = %.invoke79.i, %.invoke.i
-  %452 = landingpad { ptr, i32 }
+453:                                              ; preds = %.invoke79.i, %.invoke.i
+  %454 = landingpad { ptr, i32 }
           cleanup
-  %453 = load i64, ptr %11, align 8, !range !12, !noundef !5
-  %.not.i374 = icmp eq i64 %453, 0
-  br i1 %.not.i374, label %477, label %479
+  %455 = load i64, ptr %11, align 8, !range !12, !noundef !5
+  %.not.i374 = icmp eq i64 %455, 0
+  br i1 %.not.i374, label %479, label %481
 
-454:                                              ; preds = %436
-  %455 = load i64, ptr %424, align 8, !range !13, !noundef !5
-  %456 = add nsw i64 %455, -3
-  %457 = icmp ult i64 %456, 2
-  %458 = add nsw i64 %455, -2
-  %459 = select i1 %457, i64 %458, i64 0
-  switch i64 %459, label %444 [
+456:                                              ; preds = %438
+  %457 = load i64, ptr %426, align 8, !range !13, !noundef !5
+  %458 = add nsw i64 %457, -3
+  %459 = icmp ult i64 %458, 2
+  %460 = add nsw i64 %457, -2
+  %461 = select i1 %459, i64 %460, i64 0
+  switch i64 %461, label %446 [
     i64 0, label %.invoke.i
-    i64 1, label %443
+    i64 1, label %445
     i64 2, label %.invoke79.i
   ]
 
-460:                                              ; preds = %436
-  %461 = getelementptr inbounds i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %461, i64 32, i1 false)
-  %462 = getelementptr inbounds i8, ptr %11, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %462, i64 32, i1 false)
-  invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h1b24e64d0102d0b2E(ptr nonnull align 8 %423, ptr nonnull align 8 %6, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.32, i64 78)
-          to label %463 unwind label %475
+462:                                              ; preds = %438
+  %463 = getelementptr inbounds i8, ptr %11, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %463, i64 32, i1 false)
+  %464 = getelementptr inbounds i8, ptr %11, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %464, i64 32, i1 false)
+  invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h1b24e64d0102d0b2E(ptr nonnull align 8 %425, ptr nonnull align 8 %6, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.32, i64 78)
+          to label %465 unwind label %477
 
-463:                                              ; preds = %460
+465:                                              ; preds = %462
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h1b24e64d0102d0b2E(ptr nonnull align 8 %423, ptr nonnull align 8 %4, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.32, i64 78)
-          to label %487 unwind label %485
+  invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt16error_spanned_by17h1b24e64d0102d0b2E(ptr nonnull align 8 %425, ptr nonnull align 8 %4, ptr nonnull align 1 @anon.63b977b9b85f570fdb62f3bf5741f617.32, i64 78)
+          to label %489 unwind label %487
 
-.thread42.i:                                      ; preds = %464, %443
-  %.pr75.i = load i64, ptr %430, align 8
+.thread42.i:                                      ; preds = %466, %445
+  %.pr75.i = load i64, ptr %432, align 8
   %.not27.i = icmp eq i64 %.pr75.i, 0
-  br i1 %.not27.i, label %487, label %473
+  br i1 %.not27.i, label %489, label %475
 
-464:                                              ; preds = %443
-  %465 = getelementptr inbounds i8, ptr %11, i64 8
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %465)
-          to label %.thread42.i unwind label %466
+466:                                              ; preds = %445
+  %467 = getelementptr inbounds i8, ptr %11, i64 8
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %467)
+          to label %.thread42.i unwind label %468
 
-466:                                              ; preds = %464
-  %467 = landingpad { ptr, i32 }
+468:                                              ; preds = %466
+  %469 = landingpad { ptr, i32 }
           cleanup
-  %468 = load i64, ptr %430, align 8, !range !12, !noundef !5
-  %.not26.i = icmp eq i64 %468, 0
-  br i1 %.not26.i, label %.body376, label %469
+  %470 = load i64, ptr %432, align 8, !range !12, !noundef !5
+  %.not26.i = icmp eq i64 %470, 0
+  br i1 %.not26.i, label %.body376, label %471
 
-469:                                              ; preds = %466
-  %470 = getelementptr inbounds i8, ptr %11, i64 56
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %470) #11
-          to label %.body376 unwind label %471
+471:                                              ; preds = %468
+  %472 = getelementptr inbounds i8, ptr %11, i64 56
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %472) #11
+          to label %.body376 unwind label %473
 
-471:                                              ; preds = %483, %481, %479, %475, %469, %426
-  %472 = landingpad { ptr, i32 }
+473:                                              ; preds = %485, %483, %481, %477, %471, %428
+  %474 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #12
   unreachable
 
-473:                                              ; preds = %.thread42.i
-  %474 = getelementptr inbounds i8, ptr %11, i64 56
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %474)
-          to label %487 unwind label %485
+475:                                              ; preds = %.thread42.i
+  %476 = getelementptr inbounds i8, ptr %11, i64 56
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %476)
+          to label %489 unwind label %487
 
-475:                                              ; preds = %460
-  %476 = landingpad { ptr, i32 }
+477:                                              ; preds = %462
+  %478 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %5) #11
-          to label %.body376 unwind label %471
+          to label %.body376 unwind label %473
 
-477:                                              ; preds = %479, %451
-  %478 = load i64, ptr %430, align 8, !range !12, !noundef !5
-  %.not24.i = icmp eq i64 %478, 0
-  br i1 %.not24.i, label %.body376, label %481
+479:                                              ; preds = %481, %453
+  %480 = load i64, ptr %432, align 8, !range !12, !noundef !5
+  %.not24.i = icmp eq i64 %480, 0
+  br i1 %.not24.i, label %.body376, label %483
 
-479:                                              ; preds = %451
-  %480 = getelementptr inbounds i8, ptr %11, i64 8
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %480) #11
-          to label %477 unwind label %471
-
-481:                                              ; preds = %477
-  %482 = getelementptr inbounds i8, ptr %11, i64 56
+481:                                              ; preds = %453
+  %482 = getelementptr inbounds i8, ptr %11, i64 8
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %482) #11
-          to label %.body376 unwind label %471
+          to label %479 unwind label %473
 
-483:                                              ; preds = %422
-  %484 = landingpad { ptr, i32 }
+483:                                              ; preds = %479
+  %484 = getelementptr inbounds i8, ptr %11, i64 56
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h276e535c5af470c5E"(ptr nonnull align 8 %484) #11
+          to label %.body376 unwind label %473
+
+485:                                              ; preds = %424
+  %486 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$$LP$$RP$$GT$$GT$17h175149e0b5975b45E"(ptr nonnull align 8 %42) #11
-          to label %.body376 unwind label %471
+          to label %.body376 unwind label %473
 
-.body376:                                         ; preds = %485, %483, %481, %477, %475, %469, %466, %426, %490
-  %.10204 = phi i8 [ 0, %490 ], [ %.11205, %485 ], [ 1, %483 ], [ 1, %481 ], [ 1, %477 ], [ 1, %475 ], [ 1, %469 ], [ 1, %466 ], [ 1, %426 ]
-  %.9193 = phi i1 [ false, %490 ], [ true, %485 ], [ true, %483 ], [ true, %481 ], [ true, %477 ], [ true, %475 ], [ true, %469 ], [ true, %466 ], [ true, %426 ]
-  %.pn = phi { ptr, i32 } [ %491, %490 ], [ %486, %485 ], [ %484, %483 ], [ %452, %481 ], [ %452, %477 ], [ %476, %475 ], [ %467, %469 ], [ %467, %466 ], [ %427, %426 ]
+.body376:                                         ; preds = %487, %485, %483, %479, %477, %471, %468, %428, %492
+  %.10204 = phi i8 [ 0, %492 ], [ %.11205, %487 ], [ 1, %485 ], [ 1, %483 ], [ 1, %479 ], [ 1, %477 ], [ 1, %471 ], [ 1, %468 ], [ 1, %428 ]
+  %.9193 = phi i1 [ false, %492 ], [ true, %487 ], [ true, %485 ], [ true, %483 ], [ true, %479 ], [ true, %477 ], [ true, %471 ], [ true, %468 ], [ true, %428 ]
+  %.pn = phi { ptr, i32 } [ %493, %492 ], [ %488, %487 ], [ %486, %485 ], [ %454, %483 ], [ %454, %479 ], [ %478, %477 ], [ %469, %471 ], [ %469, %468 ], [ %429, %428 ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$syn..path..Path$GT$$GT$17hc3e97617a54b75a2E"(ptr nonnull align 8 %44) #11
-          to label %419 unwind label %517
+          to label %421 unwind label %519
 
-485:                                              ; preds = %473, %463, %487
-  %.11205 = phi i8 [ 0, %487 ], [ 1, %463 ], [ 1, %473 ]
-  %486 = landingpad { ptr, i32 }
+487:                                              ; preds = %475, %465, %489
+  %.11205 = phi i8 [ 0, %489 ], [ 1, %465 ], [ 1, %475 ]
+  %488 = landingpad { ptr, i32 }
           cleanup
   br label %.body376
 
-487:                                              ; preds = %.thread42.i, %435, %463, %473
-  %.0224865.i = phi i8 [ %.022.ph.i, %.thread42.i ], [ 0, %435 ], [ 0, %463 ], [ %.022.ph.i, %473 ]
+489:                                              ; preds = %.thread42.i, %437, %465, %475
+  %.0224865.i = phi i8 [ %.022.ph.i, %.thread42.i ], [ 0, %437 ], [ 0, %465 ], [ %.022.ph.i, %475 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -1943,122 +1943,122 @@ _ZN22serde_derive_internals9internals4attr8BoolAttr3get17hdd8e0d6d21f93f5aE.exit
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %40, ptr noundef nonnull align 8 dereferenceable(104) %82, i64 104, i1 false)
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$3get17h13513335350df06cE"(ptr nonnull sret({ [8 x i32], i32, [3 x i32] }) align 8 %41, ptr nonnull align 8 %40)
-          to label %488 unwind label %485
+          to label %490 unwind label %487
 
-488:                                              ; preds = %487
-  %489 = load i8, ptr %74, align 1, !range !15, !noundef !5
+490:                                              ; preds = %489
+  %491 = load i8, ptr %74, align 1, !range !15, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %38, ptr noundef nonnull align 8 dereferenceable(80) %81, i64 80, i1 false)
   invoke void @"_ZN22serde_derive_internals9internals4attr13Attr$LT$T$GT$3get17hd7b7d5c505056ef9E"(ptr nonnull sret({ ptr, [2 x i64] }) align 8 %39, ptr nonnull align 8 %38)
-          to label %492 unwind label %490
+          to label %494 unwind label %492
 
-490:                                              ; preds = %488
-  %491 = landingpad { ptr, i32 }
+492:                                              ; preds = %490
+  %493 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$syn..path..Path$GT$$GT$17hc3e97617a54b75a2E"(ptr nonnull align 8 %41) #11
-          to label %.body376 unwind label %517
+          to label %.body376 unwind label %519
 
-492:                                              ; preds = %488
-  %493 = getelementptr inbounds i8, ptr %0, i64 952
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %493, ptr noundef nonnull align 8 dereferenceable(80) %70, i64 80, i1 false)
-  %494 = getelementptr inbounds i8, ptr %0, i64 1108
-  %495 = zext i1 %245 to i8
-  store i8 %495, ptr %494, align 4
-  %496 = getelementptr inbounds i8, ptr %0, i64 1109
-  %497 = zext i1 %250 to i8
-  store i8 %497, ptr %496, align 1
-  %498 = getelementptr inbounds i8, ptr %0, i64 848
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %498, ptr noundef nonnull align 8 dereferenceable(104) %65, i64 104, i1 false)
-  %499 = getelementptr inbounds i8, ptr %0, i64 1104
-  store i8 %259, ptr %499, align 8
-  %500 = getelementptr inbounds i8, ptr %0, i64 1105
-  store i8 %263, ptr %500, align 1
-  %501 = getelementptr inbounds i8, ptr %0, i64 1106
-  store i8 %267, ptr %501, align 2
-  %502 = getelementptr inbounds i8, ptr %0, i64 1107
-  store i8 %271, ptr %502, align 1
-  %503 = getelementptr inbounds i8, ptr %0, i64 1032
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %503, ptr noundef nonnull align 8 dereferenceable(24) %57, i64 24, i1 false)
-  %504 = getelementptr inbounds i8, ptr %0, i64 1056
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %504, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false)
+494:                                              ; preds = %490
+  %495 = getelementptr inbounds i8, ptr %0, i64 952
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %495, ptr noundef nonnull align 8 dereferenceable(80) %70, i64 80, i1 false)
+  %496 = getelementptr inbounds i8, ptr %0, i64 1108
+  %497 = zext i1 %245 to i8
+  store i8 %497, ptr %496, align 4
+  %498 = getelementptr inbounds i8, ptr %0, i64 1109
+  %499 = zext i1 %250 to i8
+  store i8 %499, ptr %498, align 1
+  %500 = getelementptr inbounds i8, ptr %0, i64 848
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %500, ptr noundef nonnull align 8 dereferenceable(104) %65, i64 104, i1 false)
+  %501 = getelementptr inbounds i8, ptr %0, i64 1104
+  store i8 %259, ptr %501, align 8
+  %502 = getelementptr inbounds i8, ptr %0, i64 1105
+  store i8 %263, ptr %502, align 1
+  %503 = getelementptr inbounds i8, ptr %0, i64 1106
+  store i8 %267, ptr %503, align 2
+  %504 = getelementptr inbounds i8, ptr %0, i64 1107
+  store i8 %271, ptr %504, align 1
+  %505 = getelementptr inbounds i8, ptr %0, i64 1032
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %505, ptr noundef nonnull align 8 dereferenceable(24) %57, i64 24, i1 false)
+  %506 = getelementptr inbounds i8, ptr %0, i64 1056
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %506, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %53, i64 56, i1 false)
-  %505 = getelementptr inbounds i8, ptr %0, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %505, ptr noundef nonnull align 8 dereferenceable(232) %50, i64 232, i1 false)
-  %506 = getelementptr inbounds i8, ptr %0, i64 288
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %506, ptr noundef nonnull align 8 dereferenceable(232) %48, i64 232, i1 false)
-  %507 = getelementptr inbounds i8, ptr %0, i64 520
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %507, ptr noundef nonnull align 8 dereferenceable(232) %46, i64 232, i1 false)
-  %508 = getelementptr inbounds i8, ptr %0, i64 752
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %508, ptr noundef nonnull align 8 dereferenceable(48) %44, i64 48, i1 false)
-  %509 = getelementptr inbounds i8, ptr %0, i64 1113
-  store i8 %.0224865.i, ptr %509, align 1
-  %510 = getelementptr inbounds i8, ptr %0, i64 1110
-  store i8 0, ptr %510, align 2
-  %511 = getelementptr inbounds i8, ptr %0, i64 800
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %511, ptr noundef nonnull align 8 dereferenceable(48) %41, i64 48, i1 false)
-  %512 = getelementptr inbounds i8, ptr %0, i64 1111
-  store i8 %489, ptr %512, align 1
-  %513 = getelementptr inbounds i8, ptr %0, i64 1080
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %513, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
-  %514 = getelementptr inbounds i8, ptr %0, i64 1112
-  store i8 %.0.ph, ptr %514, align 8
+  %507 = getelementptr inbounds i8, ptr %0, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %507, ptr noundef nonnull align 8 dereferenceable(232) %50, i64 232, i1 false)
+  %508 = getelementptr inbounds i8, ptr %0, i64 288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %508, ptr noundef nonnull align 8 dereferenceable(232) %48, i64 232, i1 false)
+  %509 = getelementptr inbounds i8, ptr %0, i64 520
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %509, ptr noundef nonnull align 8 dereferenceable(232) %46, i64 232, i1 false)
+  %510 = getelementptr inbounds i8, ptr %0, i64 752
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %510, ptr noundef nonnull align 8 dereferenceable(48) %44, i64 48, i1 false)
+  %511 = getelementptr inbounds i8, ptr %0, i64 1113
+  store i8 %.0224865.i, ptr %511, align 1
+  %512 = getelementptr inbounds i8, ptr %0, i64 1110
+  store i8 0, ptr %512, align 2
+  %513 = getelementptr inbounds i8, ptr %0, i64 800
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %513, ptr noundef nonnull align 8 dereferenceable(48) %41, i64 48, i1 false)
+  %514 = getelementptr inbounds i8, ptr %0, i64 1111
+  store i8 %491, ptr %514, align 1
+  %515 = getelementptr inbounds i8, ptr %0, i64 1080
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %515, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
+  %516 = getelementptr inbounds i8, ptr %0, i64 1112
+  store i8 %.0.ph, ptr %516, align 8
   invoke void @"_ZN4core3ptr70drop_in_place$LT$serde_derive_internals..internals..attr..BoolAttr$GT$17h945552e1e2e9d558E"(ptr nonnull align 8 %99)
-          to label %515 unwind label %114
+          to label %517 unwind label %114
 
-515:                                              ; preds = %492
+517:                                              ; preds = %494
   invoke void @"_ZN4core3ptr70drop_in_place$LT$serde_derive_internals..internals..attr..BoolAttr$GT$17h945552e1e2e9d558E"(ptr nonnull align 8 %100)
-          to label %516 unwind label %109
+          to label %518 unwind label %109
 
-516:                                              ; preds = %515
+518:                                              ; preds = %517
   ret void
 
-517:                                              ; preds = %.thread, %562, %561, %560, %559, %558, %557, %556, %555, %.thread478, %.thread500, %554, %553, %552, %551, %550, %.thread647, %549, %548, %.thread742, %490, %.body376, %419, %415, %411, %407, %.body, %274, %255, %246, %118, %113
-  %518 = landingpad { ptr, i32 }
+519:                                              ; preds = %.thread, %564, %563, %562, %561, %560, %559, %558, %557, %.thread476, %.thread498, %556, %555, %554, %553, %552, %.thread645, %551, %550, %.thread740, %492, %.body376, %421, %417, %413, %409, %.body, %274, %255, %246, %118, %113
+  %520 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #12
   unreachable
 
-519:                                              ; preds = %240
+521:                                              ; preds = %240
   store ptr %241, ptr %72, align 8
-  %520 = invoke zeroext i1 @"_ZN22serde_derive_internals9internals6symbol127_$LT$impl$u20$core..cmp..PartialEq$LT$serde_derive_internals..internals..symbol..Symbol$GT$$u20$for$u20$$RF$syn..path..Path$GT$2eq17hf33d83726075e688E"(ptr nonnull align 8 %72, ptr nonnull align 8 @anon.63b977b9b85f570fdb62f3bf5741f617.22)
-          to label %521 unwind label %.thread742.loopexit
+  %522 = invoke zeroext i1 @"_ZN22serde_derive_internals9internals6symbol127_$LT$impl$u20$core..cmp..PartialEq$LT$serde_derive_internals..internals..symbol..Symbol$GT$$u20$for$u20$$RF$syn..path..Path$GT$2eq17hf33d83726075e688E"(ptr nonnull align 8 %72, ptr nonnull align 8 @anon.63b977b9b85f570fdb62f3bf5741f617.22)
+          to label %523 unwind label %.thread740.loopexit
 
-521:                                              ; preds = %519
-  br i1 %520, label %522, label %.backedge.backedge
+523:                                              ; preds = %521
+  br i1 %522, label %524, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %521, %523
+.backedge.backedge:                               ; preds = %523, %525
   br label %.backedge
 
-522:                                              ; preds = %521
+524:                                              ; preds = %523
   invoke void @_ZN3syn4attr9Attribute15parse_args_with17h6afb605f1fc5d44aE(ptr nonnull sret({ ptr, [2 x i64] }) align 8 %71, ptr nonnull align 8 %234, ptr nonnull align 1 %74)
-          to label %523 unwind label %.thread742.loopexit
+          to label %525 unwind label %.thread740.loopexit
 
-523:                                              ; preds = %522
+525:                                              ; preds = %524
   invoke void @"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$syn..error..Error$GT$$GT$17h56093c01dad475bfE"(ptr nonnull align 8 %71)
-          to label %.backedge.backedge unwind label %.thread742.loopexit
+          to label %.backedge.backedge unwind label %.thread740.loopexit
 
-524:                                              ; preds = %228
+526:                                              ; preds = %228
   store ptr %229, ptr %79, align 8
-  %525 = invoke zeroext i1 @_ZN4core3cmp9PartialEq2ne17ha484458c466e50e9E(ptr nonnull align 8 %79, ptr nonnull align 8 @anon.63b977b9b85f570fdb62f3bf5741f617.24)
-          to label %526 unwind label %.thread742.loopexit.split-lp.loopexit.loopexit
-
-526:                                              ; preds = %524
-  %527 = load i64, ptr %221, align 8, !range !16, !noundef !5
-  br i1 %525, label %530, label %528
+  %527 = invoke zeroext i1 @_ZN4core3cmp9PartialEq2ne17ha484458c466e50e9E(ptr nonnull align 8 %79, ptr nonnull align 8 @anon.63b977b9b85f570fdb62f3bf5741f617.24)
+          to label %528 unwind label %.thread740.loopexit.split-lp.loopexit.loopexit
 
 528:                                              ; preds = %526
-  %529 = icmp eq i64 %527, 40
-  br i1 %529, label %532, label %535
+  %529 = load i64, ptr %221, align 8, !range !16, !noundef !5
+  br i1 %527, label %532, label %530
 
-530:                                              ; preds = %526
-  %531 = icmp eq i64 %527, 39
-  br i1 %531, label %541, label %544
+530:                                              ; preds = %528
+  %531 = icmp eq i64 %529, 40
+  br i1 %531, label %534, label %537
 
 532:                                              ; preds = %528
-  %533 = getelementptr inbounds i8, ptr %221, i64 8
-  %534 = invoke zeroext i1 @_ZN11proc_macro211TokenStream8is_empty17hfb0c2545705d4eabE(ptr nonnull align 8 %533)
-          to label %536 unwind label %.thread742.loopexit.split-lp.loopexit.loopexit
+  %533 = icmp eq i64 %529, 39
+  br i1 %533, label %543, label %546
 
-535:                                              ; preds = %536, %528
+534:                                              ; preds = %530
+  %535 = getelementptr inbounds i8, ptr %221, i64 8
+  %536 = invoke zeroext i1 @_ZN11proc_macro211TokenStream8is_empty17hfb0c2545705d4eabE(ptr nonnull align 8 %535)
+          to label %538 unwind label %.thread740.loopexit.split-lp.loopexit.loopexit
+
+537:                                              ; preds = %538, %530
   store ptr %104, ptr %76, align 8
   store ptr %102, ptr %198, align 8
   store ptr %101, ptr %199, align 8
@@ -2084,289 +2084,289 @@ _ZN22serde_derive_internals9internals4attr8BoolAttr3get17hdd8e0d6d21f93f5aE.exit
   store ptr %82, ptr %219, align 8
   store ptr %81, ptr %220, align 8
   invoke void @_ZN3syn4attr9Attribute17parse_nested_meta17h9e23262548c58007E(ptr nonnull sret({ ptr, [2 x i64] }) align 8 %77, ptr nonnull align 8 %221, ptr nonnull align 8 %76)
-          to label %537 unwind label %.thread742.loopexit.split-lp.loopexit.loopexit
+          to label %539 unwind label %.thread740.loopexit.split-lp.loopexit.loopexit
 
-536:                                              ; preds = %532
-  br i1 %534, label %.backedge785.backedge, label %535
-
-537:                                              ; preds = %535
-  %538 = load ptr, ptr %77, align 8, !noundef !5
-  %.not.not = icmp eq ptr %538, null
-  br i1 %.not.not, label %.backedge785.backedge, label %539
-
-.backedge785.backedge:                            ; preds = %537, %539, %536
-  br label %.backedge785
+538:                                              ; preds = %534
+  br i1 %536, label %.backedge783.backedge, label %537
 
 539:                                              ; preds = %537
+  %540 = load ptr, ptr %77, align 8, !noundef !5
+  %.not.not = icmp eq ptr %540, null
+  br i1 %.not.not, label %.backedge783.backedge, label %541
+
+.backedge783.backedge:                            ; preds = %539, %541, %538
+  br label %.backedge783
+
+541:                                              ; preds = %539
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull align 8 dereferenceable(24) %77, i64 24, i1 false)
-  %540 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
-  invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt9syn_error17h79180973467d2afaE(ptr nonnull align 8 %540, ptr nonnull align 8 %75)
-          to label %.backedge785.backedge unwind label %.thread742.loopexit.split-lp.loopexit.loopexit
+  %542 = load ptr, ptr %104, align 8, !nonnull !5, !align !7, !noundef !5
+  invoke void @_ZN22serde_derive_internals9internals4ctxt4Ctxt9syn_error17h79180973467d2afaE(ptr nonnull align 8 %542, ptr nonnull align 8 %75)
+          to label %.backedge783.backedge unwind label %.thread740.loopexit.split-lp.loopexit.loopexit
 
-541:                                              ; preds = %530
-  %542 = getelementptr inbounds i8, ptr %221, i64 8
-  store ptr %542, ptr %78, align 8
-  %543 = invoke zeroext i1 @"_ZN22serde_derive_internals9internals6symbol127_$LT$impl$u20$core..cmp..PartialEq$LT$serde_derive_internals..internals..symbol..Symbol$GT$$u20$for$u20$$RF$syn..path..Path$GT$2eq17hf33d83726075e688E"(ptr nonnull align 8 %78, ptr nonnull align 8 @anon.63b977b9b85f570fdb62f3bf5741f617.26)
-          to label %544 unwind label %.thread742.loopexit.split-lp.loopexit.loopexit.split-lp
+543:                                              ; preds = %532
+  %544 = getelementptr inbounds i8, ptr %221, i64 8
+  store ptr %544, ptr %78, align 8
+  %545 = invoke zeroext i1 @"_ZN22serde_derive_internals9internals6symbol127_$LT$impl$u20$core..cmp..PartialEq$LT$serde_derive_internals..internals..symbol..Symbol$GT$$u20$for$u20$$RF$syn..path..Path$GT$2eq17hf33d83726075e688E"(ptr nonnull align 8 %78, ptr nonnull align 8 @anon.63b977b9b85f570fdb62f3bf5741f617.26)
+          to label %546 unwind label %.thread740.loopexit.split-lp.loopexit.loopexit.split-lp
 
-544:                                              ; preds = %541, %530
-  %.035 = phi i1 [ false, %530 ], [ %543, %541 ]
-  %545 = icmp ne i8 %.0.ph, 0
-  %546 = or i1 %545, %.035
-  %547 = zext i1 %546 to i8
+546:                                              ; preds = %543, %532
+  %.035 = phi i1 [ false, %532 ], [ %545, %543 ]
+  %547 = icmp ne i8 %.0.ph, 0
+  %548 = or i1 %547, %.035
+  %549 = zext i1 %548 to i8
   br label %.outer
 
-.thread742:                                       ; preds = %.thread742.loopexit, %.thread742.loopexit.split-lp.loopexit.loopexit, %.thread742.loopexit.split-lp.loopexit.loopexit.split-lp, %.thread742.loopexit.split-lp.loopexit.split-lp, %193
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn775 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %193 ], [ %lpad.loopexit, %.thread742.loopexit ], [ %lpad.loopexit.split-lp781, %.thread742.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit783, %.thread742.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %.thread742.loopexit.split-lp.loopexit.loopexit.split-lp ]
-  %.23774 = phi i8 [ 0, %193 ], [ 1, %.thread742.loopexit ], [ %.24.ph.ph, %.thread742.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit.split-lp ]
-  %.1778773 = phi i8 [ %.1879, %193 ], [ 1, %.thread742.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit.split-lp ]
-  %.1697772 = phi i8 [ %.1798, %193 ], [ 1, %.thread742.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit.split-lp ]
-  %.15114771 = phi i8 [ %.16115, %193 ], [ 1, %.thread742.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit.split-lp ]
-  %.14132770 = phi i8 [ %.15133, %193 ], [ 1, %.thread742.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit.split-lp ]
-  %.13149769 = phi i8 [ %.14150, %193 ], [ 1, %.thread742.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit.split-lp ]
-  %.12165768 = phi i8 [ %.13166, %193 ], [ 1, %.thread742.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit.split-lp ]
-  %.11180767 = phi i8 [ %.12181, %193 ], [ 1, %.thread742.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit.split-lp ]
-  %.1195766 = phi i8 [ %.2196, %193 ], [ 1, %.thread742.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit.split-lp ]
-  %.2208765 = phi i8 [ %.3209, %193 ], [ 1, %.thread742.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit.split-lp ]
-  %.4233764 = phi i8 [ %.5234, %193 ], [ 1, %.thread742.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit.split-lp ]
-  %.5246763 = phi i8 [ %.6247, %193 ], [ 1, %.thread742.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit.split-lp ]
-  %.6259762 = phi i8 [ %.7260, %193 ], [ 1, %.thread742.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit.split-lp ]
-  %.7272761 = phi i8 [ %.8273, %193 ], [ 1, %.thread742.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit.split-lp ]
-  %.8285760 = phi i8 [ %.9286, %193 ], [ 1, %.thread742.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread742.loopexit.split-lp.loopexit.loopexit.split-lp ]
+.thread740:                                       ; preds = %.thread740.loopexit, %.thread740.loopexit.split-lp.loopexit.loopexit, %.thread740.loopexit.split-lp.loopexit.loopexit.split-lp, %.thread740.loopexit.split-lp.loopexit.split-lp, %193
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn773 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %193 ], [ %lpad.loopexit, %.thread740.loopexit ], [ %lpad.loopexit.split-lp779, %.thread740.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit781, %.thread740.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %.thread740.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.23772 = phi i8 [ 0, %193 ], [ 1, %.thread740.loopexit ], [ %.24.ph.ph, %.thread740.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.1778771 = phi i8 [ %.1879, %193 ], [ 1, %.thread740.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.1697770 = phi i8 [ %.1798, %193 ], [ 1, %.thread740.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.15114769 = phi i8 [ %.16115, %193 ], [ 1, %.thread740.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.14132768 = phi i8 [ %.15133, %193 ], [ 1, %.thread740.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.13149767 = phi i8 [ %.14150, %193 ], [ 1, %.thread740.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.12165766 = phi i8 [ %.13166, %193 ], [ 1, %.thread740.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.11180765 = phi i8 [ %.12181, %193 ], [ 1, %.thread740.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.1195764 = phi i8 [ %.2196, %193 ], [ 1, %.thread740.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.2208763 = phi i8 [ %.3209, %193 ], [ 1, %.thread740.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.4233762 = phi i8 [ %.5234, %193 ], [ 1, %.thread740.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.5246761 = phi i8 [ %.6247, %193 ], [ 1, %.thread740.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.6259760 = phi i8 [ %.7260, %193 ], [ 1, %.thread740.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.7272759 = phi i8 [ %.8273, %193 ], [ 1, %.thread740.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.8285758 = phi i8 [ %.9286, %193 ], [ 1, %.thread740.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.split-lp ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit ], [ 1, %.thread740.loopexit.split-lp.loopexit.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr95drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$alloc..string..String$GT$$GT$17h5a130e53ed4baa4aE"(ptr nonnull align 8 %81) #11
-          to label %187 unwind label %517
+          to label %187 unwind label %519
 
-548:                                              ; preds = %.thread709, %187
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn741 = phi { ptr, i32 } [ %188, %.thread709 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %187 ]
-  %.22740 = phi i8 [ 1, %.thread709 ], [ %.22, %187 ]
-  %.1677739 = phi i8 [ 1, %.thread709 ], [ %.1677, %187 ]
-  %.1596738 = phi i8 [ 1, %.thread709 ], [ %.1596, %187 ]
-  %.14113737 = phi i8 [ 1, %.thread709 ], [ %.14113, %187 ]
-  %.13131736 = phi i8 [ 1, %.thread709 ], [ %.13131, %187 ]
-  %.12148735 = phi i8 [ 1, %.thread709 ], [ %.12148, %187 ]
-  %.11164734 = phi i8 [ 1, %.thread709 ], [ %.11164, %187 ]
-  %.10179733 = phi i8 [ 1, %.thread709 ], [ %.10179, %187 ]
-  %.1207732 = phi i8 [ 1, %.thread709 ], [ %.1207, %187 ]
-  %.3232731 = phi i8 [ 1, %.thread709 ], [ %.3232, %187 ]
-  %.4245730 = phi i8 [ 1, %.thread709 ], [ %.4245, %187 ]
-  %.5258729 = phi i8 [ 1, %.thread709 ], [ %.5258, %187 ]
-  %.6271728 = phi i8 [ 1, %.thread709 ], [ %.6271, %187 ]
-  %.7284727 = phi i8 [ 1, %.thread709 ], [ %.7284, %187 ]
+550:                                              ; preds = %.thread707, %187
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn739 = phi { ptr, i32 } [ %188, %.thread707 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %187 ]
+  %.22738 = phi i8 [ 1, %.thread707 ], [ %.22, %187 ]
+  %.1677737 = phi i8 [ 1, %.thread707 ], [ %.1677, %187 ]
+  %.1596736 = phi i8 [ 1, %.thread707 ], [ %.1596, %187 ]
+  %.14113735 = phi i8 [ 1, %.thread707 ], [ %.14113, %187 ]
+  %.13131734 = phi i8 [ 1, %.thread707 ], [ %.13131, %187 ]
+  %.12148733 = phi i8 [ 1, %.thread707 ], [ %.12148, %187 ]
+  %.11164732 = phi i8 [ 1, %.thread707 ], [ %.11164, %187 ]
+  %.10179731 = phi i8 [ 1, %.thread707 ], [ %.10179, %187 ]
+  %.1207730 = phi i8 [ 1, %.thread707 ], [ %.1207, %187 ]
+  %.3232729 = phi i8 [ 1, %.thread707 ], [ %.3232, %187 ]
+  %.4245728 = phi i8 [ 1, %.thread707 ], [ %.4245, %187 ]
+  %.5258727 = phi i8 [ 1, %.thread707 ], [ %.5258, %187 ]
+  %.6271726 = phi i8 [ 1, %.thread707 ], [ %.6271, %187 ]
+  %.7284725 = phi i8 [ 1, %.thread707 ], [ %.7284, %187 ]
   invoke void @"_ZN4core3ptr89drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$syn..path..Path$GT$$GT$17h73086c26d7f7e973E"(ptr nonnull align 8 %82) #11
-          to label %183 unwind label %517
+          to label %183 unwind label %519
 
-549:                                              ; preds = %.thread678, %183
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn708 = phi { ptr, i32 } [ %184, %.thread678 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %183 ]
-  %.21707 = phi i8 [ 1, %.thread678 ], [ %.21, %183 ]
-  %.1576706 = phi i8 [ 1, %.thread678 ], [ %.1576, %183 ]
-  %.1495705 = phi i8 [ 1, %.thread678 ], [ %.1495, %183 ]
-  %.13112704 = phi i8 [ 1, %.thread678 ], [ %.13112, %183 ]
-  %.12130703 = phi i8 [ 1, %.thread678 ], [ %.12130, %183 ]
-  %.11147702 = phi i8 [ 1, %.thread678 ], [ %.11147, %183 ]
-  %.10163701 = phi i8 [ 1, %.thread678 ], [ %.10163, %183 ]
-  %.9178700 = phi i8 [ 1, %.thread678 ], [ %.9178, %183 ]
-  %.2231699 = phi i8 [ 1, %.thread678 ], [ %.2231, %183 ]
-  %.3244698 = phi i8 [ 1, %.thread678 ], [ %.3244, %183 ]
-  %.4257697 = phi i8 [ 1, %.thread678 ], [ %.4257, %183 ]
-  %.5270696 = phi i8 [ 1, %.thread678 ], [ %.5270, %183 ]
-  %.6283695 = phi i8 [ 1, %.thread678 ], [ %.6283, %183 ]
+551:                                              ; preds = %.thread676, %183
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn706 = phi { ptr, i32 } [ %184, %.thread676 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %183 ]
+  %.21705 = phi i8 [ 1, %.thread676 ], [ %.21, %183 ]
+  %.1576704 = phi i8 [ 1, %.thread676 ], [ %.1576, %183 ]
+  %.1495703 = phi i8 [ 1, %.thread676 ], [ %.1495, %183 ]
+  %.13112702 = phi i8 [ 1, %.thread676 ], [ %.13112, %183 ]
+  %.12130701 = phi i8 [ 1, %.thread676 ], [ %.12130, %183 ]
+  %.11147700 = phi i8 [ 1, %.thread676 ], [ %.11147, %183 ]
+  %.10163699 = phi i8 [ 1, %.thread676 ], [ %.10163, %183 ]
+  %.9178698 = phi i8 [ 1, %.thread676 ], [ %.9178, %183 ]
+  %.2231697 = phi i8 [ 1, %.thread676 ], [ %.2231, %183 ]
+  %.3244696 = phi i8 [ 1, %.thread676 ], [ %.3244, %183 ]
+  %.4257695 = phi i8 [ 1, %.thread676 ], [ %.4257, %183 ]
+  %.5270694 = phi i8 [ 1, %.thread676 ], [ %.5270, %183 ]
+  %.6283693 = phi i8 [ 1, %.thread676 ], [ %.6283, %183 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$serde_derive_internals..internals..attr..BoolAttr$GT$17h945552e1e2e9d558E"(ptr nonnull align 8 %83) #11
-          to label %.thread647 unwind label %517
+          to label %.thread645 unwind label %519
 
-.thread647:                                       ; preds = %179, %549
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn677 = phi { ptr, i32 } [ %180, %179 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn708, %549 ]
-  %.20676 = phi i8 [ 1, %179 ], [ %.21707, %549 ]
-  %.1475675 = phi i8 [ 1, %179 ], [ %.1576706, %549 ]
-  %.1394674 = phi i8 [ 1, %179 ], [ %.1495705, %549 ]
-  %.12111673 = phi i8 [ 1, %179 ], [ %.13112704, %549 ]
-  %.11129672 = phi i8 [ 1, %179 ], [ %.12130703, %549 ]
-  %.10146671 = phi i8 [ 1, %179 ], [ %.11147702, %549 ]
-  %.9162670 = phi i8 [ 1, %179 ], [ %.10163701, %549 ]
-  %.8177669 = phi i8 [ 1, %179 ], [ %.9178700, %549 ]
-  %.1230668 = phi i8 [ 1, %179 ], [ %.2231699, %549 ]
-  %.2243667 = phi i8 [ 1, %179 ], [ %.3244698, %549 ]
-  %.3256666 = phi i8 [ 1, %179 ], [ %.4257697, %549 ]
-  %.4269665 = phi i8 [ 1, %179 ], [ %.5270696, %549 ]
-  %.5282664 = phi i8 [ 1, %179 ], [ %.6283695, %549 ]
+.thread645:                                       ; preds = %179, %551
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn675 = phi { ptr, i32 } [ %180, %179 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn706, %551 ]
+  %.20674 = phi i8 [ 1, %179 ], [ %.21705, %551 ]
+  %.1475673 = phi i8 [ 1, %179 ], [ %.1576704, %551 ]
+  %.1394672 = phi i8 [ 1, %179 ], [ %.1495703, %551 ]
+  %.12111671 = phi i8 [ 1, %179 ], [ %.13112702, %551 ]
+  %.11129670 = phi i8 [ 1, %179 ], [ %.12130701, %551 ]
+  %.10146669 = phi i8 [ 1, %179 ], [ %.11147700, %551 ]
+  %.9162668 = phi i8 [ 1, %179 ], [ %.10163699, %551 ]
+  %.8177667 = phi i8 [ 1, %179 ], [ %.9178698, %551 ]
+  %.1230666 = phi i8 [ 1, %179 ], [ %.2231697, %551 ]
+  %.2243665 = phi i8 [ 1, %179 ], [ %.3244696, %551 ]
+  %.3256664 = phi i8 [ 1, %179 ], [ %.4257695, %551 ]
+  %.4269663 = phi i8 [ 1, %179 ], [ %.5270694, %551 ]
+  %.5282662 = phi i8 [ 1, %179 ], [ %.6283693, %551 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$serde_derive_internals..internals..attr..BoolAttr$GT$17h945552e1e2e9d558E"(ptr nonnull align 8 %84) #11
-          to label %175 unwind label %517
+          to label %175 unwind label %519
 
-550:                                              ; preds = %.thread617, %175
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn645 = phi { ptr, i32 } [ %176, %.thread617 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %175 ]
-  %.19644 = phi i8 [ 1, %.thread617 ], [ %.19, %175 ]
-  %.1374643 = phi i8 [ 1, %.thread617 ], [ %.1374, %175 ]
-  %.1293642 = phi i8 [ 1, %.thread617 ], [ %.1293, %175 ]
-  %.11110641 = phi i8 [ 1, %.thread617 ], [ %.11110, %175 ]
-  %.10128640 = phi i8 [ 1, %.thread617 ], [ %.10128, %175 ]
-  %.9145639 = phi i8 [ 1, %.thread617 ], [ %.9145, %175 ]
-  %.8161638 = phi i8 [ 1, %.thread617 ], [ %.8161, %175 ]
-  %.7176637 = phi i8 [ 1, %.thread617 ], [ %.7176, %175 ]
-  %.1242636 = phi i8 [ 1, %.thread617 ], [ %.1242, %175 ]
-  %.2255635 = phi i8 [ 1, %.thread617 ], [ %.2255, %175 ]
-  %.3268634 = phi i8 [ 1, %.thread617 ], [ %.3268, %175 ]
-  %.4281633 = phi i8 [ 1, %.thread617 ], [ %.4281, %175 ]
+552:                                              ; preds = %.thread615, %175
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn643 = phi { ptr, i32 } [ %176, %.thread615 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %175 ]
+  %.19642 = phi i8 [ 1, %.thread615 ], [ %.19, %175 ]
+  %.1374641 = phi i8 [ 1, %.thread615 ], [ %.1374, %175 ]
+  %.1293640 = phi i8 [ 1, %.thread615 ], [ %.1293, %175 ]
+  %.11110639 = phi i8 [ 1, %.thread615 ], [ %.11110, %175 ]
+  %.10128638 = phi i8 [ 1, %.thread615 ], [ %.10128, %175 ]
+  %.9145637 = phi i8 [ 1, %.thread615 ], [ %.9145, %175 ]
+  %.8161636 = phi i8 [ 1, %.thread615 ], [ %.8161, %175 ]
+  %.7176635 = phi i8 [ 1, %.thread615 ], [ %.7176, %175 ]
+  %.1242634 = phi i8 [ 1, %.thread615 ], [ %.1242, %175 ]
+  %.2255633 = phi i8 [ 1, %.thread615 ], [ %.2255, %175 ]
+  %.3268632 = phi i8 [ 1, %.thread615 ], [ %.3268, %175 ]
+  %.4281631 = phi i8 [ 1, %.thread615 ], [ %.4281, %175 ]
   invoke void @"_ZN4core3ptr89drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$syn..path..Path$GT$$GT$17h73086c26d7f7e973E"(ptr nonnull align 8 %85) #11
-          to label %171 unwind label %517
+          to label %171 unwind label %519
 
-551:                                              ; preds = %.thread590, %171
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn616 = phi { ptr, i32 } [ %172, %.thread590 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %171 ]
-  %.18615 = phi i8 [ 1, %.thread590 ], [ %.18, %171 ]
-  %.1273614 = phi i8 [ 1, %.thread590 ], [ %.1273, %171 ]
-  %.1192613 = phi i8 [ 1, %.thread590 ], [ %.1192, %171 ]
-  %.10109612 = phi i8 [ 1, %.thread590 ], [ %.10109, %171 ]
-  %.9127611 = phi i8 [ 1, %.thread590 ], [ %.9127, %171 ]
-  %.8144610 = phi i8 [ 1, %.thread590 ], [ %.8144, %171 ]
-  %.7160609 = phi i8 [ 1, %.thread590 ], [ %.7160, %171 ]
-  %.6175608 = phi i8 [ 1, %.thread590 ], [ %.6175, %171 ]
-  %.1254607 = phi i8 [ 1, %.thread590 ], [ %.1254, %171 ]
-  %.2267606 = phi i8 [ 1, %.thread590 ], [ %.2267, %171 ]
-  %.3280605 = phi i8 [ 1, %.thread590 ], [ %.3280, %171 ]
+553:                                              ; preds = %.thread588, %171
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn614 = phi { ptr, i32 } [ %172, %.thread588 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %171 ]
+  %.18613 = phi i8 [ 1, %.thread588 ], [ %.18, %171 ]
+  %.1273612 = phi i8 [ 1, %.thread588 ], [ %.1273, %171 ]
+  %.1192611 = phi i8 [ 1, %.thread588 ], [ %.1192, %171 ]
+  %.10109610 = phi i8 [ 1, %.thread588 ], [ %.10109, %171 ]
+  %.9127609 = phi i8 [ 1, %.thread588 ], [ %.9127, %171 ]
+  %.8144608 = phi i8 [ 1, %.thread588 ], [ %.8144, %171 ]
+  %.7160607 = phi i8 [ 1, %.thread588 ], [ %.7160, %171 ]
+  %.6175606 = phi i8 [ 1, %.thread588 ], [ %.6175, %171 ]
+  %.1254605 = phi i8 [ 1, %.thread588 ], [ %.1254, %171 ]
+  %.2267604 = phi i8 [ 1, %.thread588 ], [ %.2267, %171 ]
+  %.3280603 = phi i8 [ 1, %.thread588 ], [ %.3280, %171 ]
   invoke void @"_ZN4core3ptr87drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$syn..ty..Type$GT$$GT$17h81e1474c4b10a014E"(ptr nonnull align 8 %86) #11
-          to label %167 unwind label %517
+          to label %167 unwind label %519
 
-552:                                              ; preds = %.thread565, %167
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn589 = phi { ptr, i32 } [ %168, %.thread565 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %167 ]
-  %.17588 = phi i8 [ 1, %.thread565 ], [ %.17, %167 ]
-  %.1172587 = phi i8 [ 1, %.thread565 ], [ %.1172, %167 ]
-  %.1091586 = phi i8 [ 1, %.thread565 ], [ %.1091, %167 ]
-  %.9108585 = phi i8 [ 1, %.thread565 ], [ %.9108, %167 ]
-  %.8126584 = phi i8 [ 1, %.thread565 ], [ %.8126, %167 ]
-  %.7143583 = phi i8 [ 1, %.thread565 ], [ %.7143, %167 ]
-  %.6159582 = phi i8 [ 1, %.thread565 ], [ %.6159, %167 ]
-  %.5174581 = phi i8 [ 1, %.thread565 ], [ %.5174, %167 ]
-  %.1266580 = phi i8 [ 1, %.thread565 ], [ %.1266, %167 ]
-  %.2279579 = phi i8 [ 1, %.thread565 ], [ %.2279, %167 ]
+554:                                              ; preds = %.thread563, %167
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn587 = phi { ptr, i32 } [ %168, %.thread563 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %167 ]
+  %.17586 = phi i8 [ 1, %.thread563 ], [ %.17, %167 ]
+  %.1172585 = phi i8 [ 1, %.thread563 ], [ %.1172, %167 ]
+  %.1091584 = phi i8 [ 1, %.thread563 ], [ %.1091, %167 ]
+  %.9108583 = phi i8 [ 1, %.thread563 ], [ %.9108, %167 ]
+  %.8126582 = phi i8 [ 1, %.thread563 ], [ %.8126, %167 ]
+  %.7143581 = phi i8 [ 1, %.thread563 ], [ %.7143, %167 ]
+  %.6159580 = phi i8 [ 1, %.thread563 ], [ %.6159, %167 ]
+  %.5174579 = phi i8 [ 1, %.thread563 ], [ %.5174, %167 ]
+  %.1266578 = phi i8 [ 1, %.thread563 ], [ %.1266, %167 ]
+  %.2279577 = phi i8 [ 1, %.thread563 ], [ %.2279, %167 ]
   invoke void @"_ZN4core3ptr87drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$syn..ty..Type$GT$$GT$17h81e1474c4b10a014E"(ptr nonnull align 8 %87) #11
-          to label %163 unwind label %517
+          to label %163 unwind label %519
 
-553:                                              ; preds = %.thread542, %163
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn564 = phi { ptr, i32 } [ %164, %.thread542 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %163 ]
-  %.16563 = phi i8 [ 1, %.thread542 ], [ %.16, %163 ]
-  %.1071562 = phi i8 [ 1, %.thread542 ], [ %.1071, %163 ]
-  %.990561 = phi i8 [ 1, %.thread542 ], [ %.990, %163 ]
-  %.8107560 = phi i8 [ 1, %.thread542 ], [ %.8107, %163 ]
-  %.7125559 = phi i8 [ 1, %.thread542 ], [ %.7125, %163 ]
-  %.6142558 = phi i8 [ 1, %.thread542 ], [ %.6142, %163 ]
-  %.5158557 = phi i8 [ 1, %.thread542 ], [ %.5158, %163 ]
-  %.4173556 = phi i8 [ 1, %.thread542 ], [ %.4173, %163 ]
-  %.1278555 = phi i8 [ 1, %.thread542 ], [ %.1278, %163 ]
+555:                                              ; preds = %.thread540, %163
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn562 = phi { ptr, i32 } [ %164, %.thread540 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %163 ]
+  %.16561 = phi i8 [ 1, %.thread540 ], [ %.16, %163 ]
+  %.1071560 = phi i8 [ 1, %.thread540 ], [ %.1071, %163 ]
+  %.990559 = phi i8 [ 1, %.thread540 ], [ %.990, %163 ]
+  %.8107558 = phi i8 [ 1, %.thread540 ], [ %.8107, %163 ]
+  %.7125557 = phi i8 [ 1, %.thread540 ], [ %.7125, %163 ]
+  %.6142556 = phi i8 [ 1, %.thread540 ], [ %.6142, %163 ]
+  %.5158555 = phi i8 [ 1, %.thread540 ], [ %.5158, %163 ]
+  %.4173554 = phi i8 [ 1, %.thread540 ], [ %.4173, %163 ]
+  %.1278553 = phi i8 [ 1, %.thread540 ], [ %.1278, %163 ]
   invoke void @"_ZN4core3ptr87drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$syn..ty..Type$GT$$GT$17h81e1474c4b10a014E"(ptr nonnull align 8 %88) #11
-          to label %159 unwind label %517
+          to label %159 unwind label %519
 
-554:                                              ; preds = %.thread521, %159
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn541 = phi { ptr, i32 } [ %160, %.thread521 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %159 ]
-  %.15540 = phi i8 [ 1, %.thread521 ], [ %.15, %159 ]
-  %.970539 = phi i8 [ 1, %.thread521 ], [ %.970, %159 ]
-  %.889538 = phi i8 [ 1, %.thread521 ], [ %.889, %159 ]
-  %.7106537 = phi i8 [ 1, %.thread521 ], [ %.7106, %159 ]
-  %.6124536 = phi i8 [ 1, %.thread521 ], [ %.6124, %159 ]
-  %.5141535 = phi i8 [ 1, %.thread521 ], [ %.5141, %159 ]
-  %.4157534 = phi i8 [ 1, %.thread521 ], [ %.4157, %159 ]
-  %.3172533 = phi i8 [ 1, %.thread521 ], [ %.3172, %159 ]
+556:                                              ; preds = %.thread519, %159
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn539 = phi { ptr, i32 } [ %160, %.thread519 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %159 ]
+  %.15538 = phi i8 [ 1, %.thread519 ], [ %.15, %159 ]
+  %.970537 = phi i8 [ 1, %.thread519 ], [ %.970, %159 ]
+  %.889536 = phi i8 [ 1, %.thread519 ], [ %.889, %159 ]
+  %.7106535 = phi i8 [ 1, %.thread519 ], [ %.7106, %159 ]
+  %.6124534 = phi i8 [ 1, %.thread519 ], [ %.6124, %159 ]
+  %.5141533 = phi i8 [ 1, %.thread519 ], [ %.5141, %159 ]
+  %.4157532 = phi i8 [ 1, %.thread519 ], [ %.4157, %159 ]
+  %.3172531 = phi i8 [ 1, %.thread519 ], [ %.3172, %159 ]
   invoke void @"_ZN4core3ptr95drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$alloc..string..String$GT$$GT$17h5a130e53ed4baa4aE"(ptr nonnull align 8 %89) #11
-          to label %.thread500 unwind label %517
+          to label %.thread498 unwind label %519
 
-.thread500:                                       ; preds = %155, %554
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn520 = phi { ptr, i32 } [ %156, %155 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn541, %554 ]
-  %.14519 = phi i8 [ 1, %155 ], [ %.15540, %554 ]
-  %.869518 = phi i8 [ 1, %155 ], [ %.970539, %554 ]
-  %.788517 = phi i8 [ 1, %155 ], [ %.889538, %554 ]
-  %.6105516 = phi i8 [ 1, %155 ], [ %.7106537, %554 ]
-  %.5123515 = phi i8 [ 1, %155 ], [ %.6124536, %554 ]
-  %.4140514 = phi i8 [ 1, %155 ], [ %.5141535, %554 ]
-  %.3156513 = phi i8 [ 1, %155 ], [ %.4157534, %554 ]
-  %.2171512 = phi i8 [ 1, %155 ], [ %.3172533, %554 ]
+.thread498:                                       ; preds = %155, %556
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn518 = phi { ptr, i32 } [ %156, %155 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn539, %556 ]
+  %.14517 = phi i8 [ 1, %155 ], [ %.15538, %556 ]
+  %.869516 = phi i8 [ 1, %155 ], [ %.970537, %556 ]
+  %.788515 = phi i8 [ 1, %155 ], [ %.889536, %556 ]
+  %.6105514 = phi i8 [ 1, %155 ], [ %.7106535, %556 ]
+  %.5123513 = phi i8 [ 1, %155 ], [ %.6124534, %556 ]
+  %.4140512 = phi i8 [ 1, %155 ], [ %.5141533, %556 ]
+  %.3156511 = phi i8 [ 1, %155 ], [ %.4157532, %556 ]
+  %.2171510 = phi i8 [ 1, %155 ], [ %.3172531, %556 ]
   invoke void @"_ZN4core3ptr95drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$alloc..string..String$GT$$GT$17h5a130e53ed4baa4aE"(ptr nonnull align 8 %90) #11
-          to label %.thread478 unwind label %517
+          to label %.thread476 unwind label %519
 
-.thread478:                                       ; preds = %151, %.thread500
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn498 = phi { ptr, i32 } [ %152, %151 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn520, %.thread500 ]
-  %.13497 = phi i8 [ 1, %151 ], [ %.14519, %.thread500 ]
-  %.768496 = phi i8 [ 1, %151 ], [ %.869518, %.thread500 ]
-  %.687495 = phi i8 [ 1, %151 ], [ %.788517, %.thread500 ]
-  %.5104494 = phi i8 [ 1, %151 ], [ %.6105516, %.thread500 ]
-  %.4122493 = phi i8 [ 1, %151 ], [ %.5123515, %.thread500 ]
-  %.3139492 = phi i8 [ 1, %151 ], [ %.4140514, %.thread500 ]
-  %.2155491 = phi i8 [ 1, %151 ], [ %.3156513, %.thread500 ]
-  %.1170490 = phi i8 [ 1, %151 ], [ %.2171512, %.thread500 ]
+.thread476:                                       ; preds = %151, %.thread498
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn496 = phi { ptr, i32 } [ %152, %151 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn518, %.thread498 ]
+  %.13495 = phi i8 [ 1, %151 ], [ %.14517, %.thread498 ]
+  %.768494 = phi i8 [ 1, %151 ], [ %.869516, %.thread498 ]
+  %.687493 = phi i8 [ 1, %151 ], [ %.788515, %.thread498 ]
+  %.5104492 = phi i8 [ 1, %151 ], [ %.6105514, %.thread498 ]
+  %.4122491 = phi i8 [ 1, %151 ], [ %.5123513, %.thread498 ]
+  %.3139490 = phi i8 [ 1, %151 ], [ %.4140512, %.thread498 ]
+  %.2155489 = phi i8 [ 1, %151 ], [ %.3156511, %.thread498 ]
+  %.1170488 = phi i8 [ 1, %151 ], [ %.2171510, %.thread498 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$serde_derive_internals..internals..attr..BoolAttr$GT$17h945552e1e2e9d558E"(ptr nonnull align 8 %91) #11
-          to label %147 unwind label %517
+          to label %147 unwind label %519
 
-555:                                              ; preds = %.thread458, %147
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn476 = phi { ptr, i32 } [ %148, %.thread458 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %147 ]
-  %.12475 = phi i8 [ 1, %.thread458 ], [ %.12, %147 ]
-  %.667474 = phi i8 [ 1, %.thread458 ], [ %.667, %147 ]
-  %.586473 = phi i8 [ 1, %.thread458 ], [ %.586, %147 ]
-  %.4103472 = phi i8 [ 1, %.thread458 ], [ %.4103, %147 ]
-  %.3121471 = phi i8 [ 1, %.thread458 ], [ %.3121, %147 ]
-  %.2138470 = phi i8 [ 1, %.thread458 ], [ %.2138, %147 ]
-  %.1154469 = phi i8 [ 1, %.thread458 ], [ %.1154, %147 ]
+557:                                              ; preds = %.thread456, %147
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn474 = phi { ptr, i32 } [ %148, %.thread456 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %147 ]
+  %.12473 = phi i8 [ 1, %.thread456 ], [ %.12, %147 ]
+  %.667472 = phi i8 [ 1, %.thread456 ], [ %.667, %147 ]
+  %.586471 = phi i8 [ 1, %.thread456 ], [ %.586, %147 ]
+  %.4103470 = phi i8 [ 1, %.thread456 ], [ %.4103, %147 ]
+  %.3121469 = phi i8 [ 1, %.thread456 ], [ %.3121, %147 ]
+  %.2138468 = phi i8 [ 1, %.thread456 ], [ %.2138, %147 ]
+  %.1154467 = phi i8 [ 1, %.thread456 ], [ %.1154, %147 ]
   invoke void @"_ZN4core3ptr126drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$alloc..vec..Vec$LT$syn..generics..WherePredicate$GT$$GT$$GT$17h338dfcda69057d37E"(ptr nonnull align 8 %92) #11
-          to label %143 unwind label %517
+          to label %143 unwind label %519
 
-556:                                              ; preds = %.thread441, %143
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn457 = phi { ptr, i32 } [ %144, %.thread441 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %143 ]
-  %.11456 = phi i8 [ 1, %.thread441 ], [ %.11, %143 ]
-  %.566455 = phi i8 [ 1, %.thread441 ], [ %.566, %143 ]
-  %.485454 = phi i8 [ 1, %.thread441 ], [ %.485, %143 ]
-  %.3102453 = phi i8 [ 1, %.thread441 ], [ %.3102, %143 ]
-  %.2120452 = phi i8 [ 1, %.thread441 ], [ %.2120, %143 ]
-  %.1137451 = phi i8 [ 1, %.thread441 ], [ %.1137, %143 ]
+558:                                              ; preds = %.thread439, %143
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn455 = phi { ptr, i32 } [ %144, %.thread439 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %143 ]
+  %.11454 = phi i8 [ 1, %.thread439 ], [ %.11, %143 ]
+  %.566453 = phi i8 [ 1, %.thread439 ], [ %.566, %143 ]
+  %.485452 = phi i8 [ 1, %.thread439 ], [ %.485, %143 ]
+  %.3102451 = phi i8 [ 1, %.thread439 ], [ %.3102, %143 ]
+  %.2120450 = phi i8 [ 1, %.thread439 ], [ %.2120, %143 ]
+  %.1137449 = phi i8 [ 1, %.thread439 ], [ %.1137, %143 ]
   invoke void @"_ZN4core3ptr126drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$alloc..vec..Vec$LT$syn..generics..WherePredicate$GT$$GT$$GT$17h338dfcda69057d37E"(ptr nonnull align 8 %93) #11
-          to label %139 unwind label %517
+          to label %139 unwind label %519
 
-557:                                              ; preds = %.thread426, %139
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn440 = phi { ptr, i32 } [ %140, %.thread426 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %139 ]
-  %.10439 = phi i8 [ 1, %.thread426 ], [ %.10, %139 ]
-  %.465438 = phi i8 [ 1, %.thread426 ], [ %.465, %139 ]
-  %.384437 = phi i8 [ 1, %.thread426 ], [ %.384, %139 ]
-  %.2101436 = phi i8 [ 1, %.thread426 ], [ %.2101, %139 ]
-  %.1119435 = phi i8 [ 1, %.thread426 ], [ %.1119, %139 ]
+559:                                              ; preds = %.thread424, %139
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn438 = phi { ptr, i32 } [ %140, %.thread424 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %139 ]
+  %.10437 = phi i8 [ 1, %.thread424 ], [ %.10, %139 ]
+  %.465436 = phi i8 [ 1, %.thread424 ], [ %.465, %139 ]
+  %.384435 = phi i8 [ 1, %.thread424 ], [ %.384, %139 ]
+  %.2101434 = phi i8 [ 1, %.thread424 ], [ %.2101, %139 ]
+  %.1119433 = phi i8 [ 1, %.thread424 ], [ %.1119, %139 ]
   invoke void @"_ZN4core3ptr125drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$serde_derive_internals..internals..case..RenameRule$GT$$GT$17h6e5c001fbb2e3e9cE"(ptr nonnull align 8 %94) #11
-          to label %135 unwind label %517
+          to label %135 unwind label %519
 
-558:                                              ; preds = %.thread413, %135
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn425 = phi { ptr, i32 } [ %136, %.thread413 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %135 ]
-  %.9424 = phi i8 [ 1, %.thread413 ], [ %.9, %135 ]
-  %.364423 = phi i8 [ 1, %.thread413 ], [ %.364, %135 ]
-  %.283422 = phi i8 [ 1, %.thread413 ], [ %.283, %135 ]
-  %.1100421 = phi i8 [ 1, %.thread413 ], [ %.1100, %135 ]
+560:                                              ; preds = %.thread411, %135
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn423 = phi { ptr, i32 } [ %136, %.thread411 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %135 ]
+  %.9422 = phi i8 [ 1, %.thread411 ], [ %.9, %135 ]
+  %.364421 = phi i8 [ 1, %.thread411 ], [ %.364, %135 ]
+  %.283420 = phi i8 [ 1, %.thread411 ], [ %.283, %135 ]
+  %.1100419 = phi i8 [ 1, %.thread411 ], [ %.1100, %135 ]
   invoke void @"_ZN4core3ptr125drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$serde_derive_internals..internals..case..RenameRule$GT$$GT$17h6e5c001fbb2e3e9cE"(ptr nonnull align 8 %95) #11
-          to label %131 unwind label %517
+          to label %131 unwind label %519
 
-559:                                              ; preds = %.thread402, %131
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn412 = phi { ptr, i32 } [ %132, %.thread402 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %131 ]
-  %.8411 = phi i8 [ 1, %.thread402 ], [ %.8, %131 ]
-  %.263410 = phi i8 [ 1, %.thread402 ], [ %.263, %131 ]
-  %.182409 = phi i8 [ 1, %.thread402 ], [ %.182, %131 ]
+561:                                              ; preds = %.thread400, %131
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn410 = phi { ptr, i32 } [ %132, %.thread400 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %131 ]
+  %.8409 = phi i8 [ 1, %.thread400 ], [ %.8, %131 ]
+  %.263408 = phi i8 [ 1, %.thread400 ], [ %.263, %131 ]
+  %.182407 = phi i8 [ 1, %.thread400 ], [ %.182, %131 ]
   invoke void @"_ZN4core3ptr125drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$serde_derive_internals..internals..case..RenameRule$GT$$GT$17h6e5c001fbb2e3e9cE"(ptr nonnull align 8 %96) #11
-          to label %127 unwind label %517
+          to label %127 unwind label %519
 
-560:                                              ; preds = %.thread393, %127
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn401 = phi { ptr, i32 } [ %128, %.thread393 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %127 ]
-  %.7400 = phi i8 [ 1, %.thread393 ], [ %.7, %127 ]
-  %.162399 = phi i8 [ 1, %.thread393 ], [ %.162, %127 ]
+562:                                              ; preds = %.thread391, %127
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn399 = phi { ptr, i32 } [ %128, %.thread391 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %127 ]
+  %.7398 = phi i8 [ 1, %.thread391 ], [ %.7, %127 ]
+  %.162397 = phi i8 [ 1, %.thread391 ], [ %.162, %127 ]
   invoke void @"_ZN4core3ptr125drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$serde_derive_internals..internals..case..RenameRule$GT$$GT$17h6e5c001fbb2e3e9cE"(ptr nonnull align 8 %97) #11
-          to label %123 unwind label %517
+          to label %123 unwind label %519
 
-561:                                              ; preds = %.thread386, %123
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn392 = phi { ptr, i32 } [ %124, %.thread386 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %123 ]
-  %.6391 = phi i8 [ 1, %.thread386 ], [ %.6, %123 ]
+563:                                              ; preds = %.thread384, %123
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn390 = phi { ptr, i32 } [ %124, %.thread384 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %123 ]
+  %.6389 = phi i8 [ 1, %.thread384 ], [ %.6, %123 ]
   invoke void @"_ZN4core3ptr122drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$serde_derive_internals..internals..attr..Default$GT$$GT$17h0fbd2368802987dbE"(ptr nonnull align 8 %98) #11
-          to label %118 unwind label %517
+          to label %118 unwind label %519
 
-562:                                              ; preds = %108
+564:                                              ; preds = %108
   invoke void @"_ZN4core3ptr95drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$alloc..string..String$GT$$GT$17h5a130e53ed4baa4aE"(ptr nonnull align 8 %101) #11
-          to label %.thread unwind label %517
+          to label %.thread unwind label %519
 
-563:                                              ; preds = %108, %.thread
-  %.pn364.pn385 = phi { ptr, i32 } [ %.pn364.pn384, %.thread ], [ %.pn364, %108 ]
-  resume { ptr, i32 } %.pn364.pn385
+565:                                              ; preds = %108, %.thread
+  %.pn364.pn383 = phi { ptr, i32 } [ %.pn364.pn382, %.thread ], [ %.pn364, %108 ]
+  resume { ptr, i32 } %.pn364.pn383
 
-.thread:                                          ; preds = %105, %562
-  %.pn364.pn384 = phi { ptr, i32 } [ %106, %105 ], [ %.pn364, %562 ]
+.thread:                                          ; preds = %105, %564
+  %.pn364.pn382 = phi { ptr, i32 } [ %106, %105 ], [ %.pn364, %564 ]
   invoke void @"_ZN4core3ptr95drop_in_place$LT$serde_derive_internals..internals..attr..Attr$LT$alloc..string..String$GT$$GT$17h5a130e53ed4baa4aE"(ptr nonnull align 8 %102) #11
-          to label %563 unwind label %517
+          to label %565 unwind label %519
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

@@ -3353,7 +3353,6 @@ entry:
   %ref.tmp2838 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2869 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2870 = alloca %"class.std::__cxx11::basic_string", align 8
-  %indvars.iv.sroa.gep3100 = getelementptr inbounds i8, ptr %size_prefix, i64 32
   %generated = getelementptr inbounds i8, ptr %struct_def, i64 160
   %0 = load i8, ptr %generated, align 8
   %1 = and i8 %0, 1
@@ -11547,12 +11546,13 @@ invoke.cont2648:                                  ; preds = %.noexc2377
 
 for.body2658:                                     ; preds = %invoke.cont2648, %for.inc2719
   %cmp2657 = phi i1 [ true, %invoke.cont2648 ], [ false, %for.inc2719 ]
-  %indvars.iv.sroa.phi = phi ptr [ %size_prefix, %invoke.cont2648 ], [ %indvars.iv.sroa.gep3100, %for.inc2719 ]
+  %indvars.iv = phi i64 [ 0, %invoke.cont2648 ], [ 1, %for.inc2719 ]
   %call2661 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %code_ptr, ptr noundef nonnull @.str.403)
           to label %invoke.cont2660 unwind label %lpad2659
 
 invoke.cont2660:                                  ; preds = %for.body2658
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2663, ptr noundef nonnull @.str.404, ptr noundef nonnull align 8 dereferenceable(32) %indvars.iv.sroa.phi)
+  %arrayidx = getelementptr inbounds [2 x %"class.std::__cxx11::basic_string"], ptr %size_prefix, i64 0, i64 %indvars.iv
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2663, ptr noundef nonnull @.str.404, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx)
           to label %invoke.cont2664 unwind label %lpad2659
 
 invoke.cont2664:                                  ; preds = %invoke.cont2660
@@ -11586,7 +11586,7 @@ invoke.cont2679:                                  ; preds = %invoke.cont2677
           to label %invoke.cont2683 unwind label %lpad2659
 
 invoke.cont2683:                                  ; preds = %invoke.cont2679
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2686, ptr noundef nonnull @.str.407, ptr noundef nonnull align 8 dereferenceable(32) %indvars.iv.sroa.phi)
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2686, ptr noundef nonnull @.str.407, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx)
           to label %invoke.cont2689 unwind label %lpad2659
 
 invoke.cont2689:                                  ; preds = %invoke.cont2683

@@ -9407,15 +9407,15 @@ entry:
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp21 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp23 = alloca %"class.rocksdb::Slice", align 8
+  %ref.tmp23.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
   %ref.tmp31 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp33 = alloca %"class.rocksdb::Slice", align 8
+  %ref.tmp33.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp33, i64 8
   %key = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp37 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp44 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp47 = alloca %"class.rocksdb::Slice", align 8
   %value = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp23.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
-  %ref.tmp23.sink.sroa.gep37 = getelementptr inbounds i8, ptr %ref.tmp33, i64 8
   store i64 0, ptr %pos, align 8
   call void @_ZN7rocksdb4trimERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %opts, ptr noundef nonnull align 8 dereferenceable(32) %opts_str)
   %call35 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %opts) #22
@@ -9520,9 +9520,9 @@ if.then30:                                        ; preds = %invoke.cont26
   br label %if.then30.invoke
 
 if.then30.invoke:                                 ; preds = %if.then, %if.then30
-  %ref.tmp23.sink.sroa.phi = phi ptr [ %ref.tmp23.sink.sroa.gep, %if.then ], [ %ref.tmp23.sink.sroa.gep37, %if.then30 ]
   %ref.tmp23.sink = phi ptr [ %ref.tmp23, %if.then ], [ %ref.tmp33, %if.then30 ]
   %5 = phi ptr [ %ref.tmp21, %if.then ], [ %ref.tmp31, %if.then30 ]
+  %ref.tmp23.sink.sroa.phi = phi ptr [ %ref.tmp23.sroa.gep, %if.then ], [ %ref.tmp33.sroa.gep, %if.then30 ]
   store i64 0, ptr %ref.tmp23.sink.sroa.phi, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23.sink, i8 noundef zeroext 0)
           to label %cleanup72 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
@@ -14261,9 +14261,11 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp7 = alloca %"class.rocksdb::Slice", align 8
+  %ref.tmp7.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   %copy = alloca %"struct.rocksdb::ConfigOptions", align 8
   %ref.tmp37 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp39 = alloca %"class.rocksdb::Slice", align 8
+  %ref.tmp39.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
   %copy43 = alloca %"struct.rocksdb::ConfigOptions", align 8
   %ref.tmp57 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp58 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14271,6 +14273,7 @@ entry:
   %ref.tmp65 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp69 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp71 = alloca %"class.rocksdb::Slice", align 8
+  %ref.tmp71.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp71, i64 8
   %ref.tmp76 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp77 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp78 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14278,9 +14281,6 @@ entry:
   %ref.tmp84 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp86 = alloca %"class.std::allocator", align 1
   %ref.tmp93 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp7.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
-  %ref.tmp7.sink.sroa.gep99 = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
-  %ref.tmp7.sink.sroa.gep100 = getelementptr inbounds i8, ptr %ref.tmp71, i64 8
   %verification_.i.i = getelementptr inbounds i8, ptr %this, i64 172
   %0 = load i32, ptr %verification_.i.i, align 4
   %cmp.i.i = icmp eq i32 %0, 4
@@ -14923,10 +14923,10 @@ if.else68:                                        ; preds = %if.else53
   br label %if.else68.invoke
 
 if.else68.invoke:                                 ; preds = %if.then3, %if.then36, %if.else68
-  %ref.tmp7.sink.sroa.phi = phi ptr [ %ref.tmp7.sink.sroa.gep, %if.then3 ], [ %ref.tmp7.sink.sroa.gep99, %if.then36 ], [ %ref.tmp7.sink.sroa.gep100, %if.else68 ]
   %ref.tmp7.sink = phi ptr [ %ref.tmp7, %if.then3 ], [ %ref.tmp39, %if.then36 ], [ %ref.tmp71, %if.else68 ]
   %48 = phi i8 [ 1, %if.then3 ], [ 1, %if.then36 ], [ 4, %if.else68 ]
   %49 = phi ptr [ %ref.tmp4, %if.then3 ], [ %ref.tmp37, %if.then36 ], [ %ref.tmp69, %if.else68 ]
+  %ref.tmp7.sink.sroa.phi = phi ptr [ %ref.tmp7.sroa.gep, %if.then3 ], [ %ref.tmp39.sroa.gep, %if.then36 ], [ %ref.tmp71.sroa.gep, %if.else68 ]
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %opt_name) #22
   store i64 %call2.i, ptr %ref.tmp7.sink.sroa.phi, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext %48, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7.sink, i8 noundef zeroext 0)

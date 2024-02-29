@@ -23,10 +23,6 @@ entry:
   %keys.i.i6136 = alloca [2 x i64], align 16
   %keys.i1006.i = alloca [4 x i64], align 16
   %keys.i.i = alloca [4 x i64], align 16
-  %i.i.i506.176.i.sroa.gep12934 = getelementptr inbounds i8, ptr %keys.i.i505.i, i64 8
-  %i.i.i.1141.i.sroa.gep12932 = getelementptr inbounds i8, ptr %keys.i.i.i, i64 8
-  %i.i474.170.i.sroa.gep12930 = getelementptr inbounds i8, ptr %keys.i473.i, i64 8
-  %i.i.1114.i.sroa.gep12928 = getelementptr inbounds i8, ptr %keys.i.i6136, i64 8
   %compound = getelementptr inbounds i8, ptr %params, i64 88
   %0 = load i64, ptr %compound, align 8
   %cmp.not = icmp eq i64 %0, 0
@@ -18262,6 +18258,8 @@ while.body.lr.ph.i6160:                           ; preds = %sw.bb11
   %arrayidx29.i.i6165 = getelementptr inbounds i8, ptr %dist_cache, i64 8
   %arrayidx35.i.i6166 = getelementptr inbounds i8, ptr %dist_cache, i64 12
   %num_direct_distance_codes.i.i6167 = getelementptr inbounds i8, ptr %params, i64 60
+  %arrayidx40.i585.i.c = getelementptr inbounds i8, ptr %keys.i473.i, i64 8
+  %arrayidx40.i.i6227.c = getelementptr inbounds i8, ptr %keys.i.i6136, i64 8
   br label %while.body.i6168
 
 while.body.i6168:                                 ; preds = %if.end212.i6178, %while.body.lr.ph.i6160
@@ -18379,7 +18377,7 @@ if.end35.i492.i:                                  ; preds = %if.then27.i618.i, %
   store i64 %shr.i440.i, ptr %keys.i473.i, align 16, !noalias !70
   %add38.i583.i.c = add nuw nsw i64 %shr.i440.i, 8
   %and39.i584.i.c = and i64 %add38.i583.i.c, 65535
-  store i64 %and39.i584.i.c, ptr %i.i474.170.i.sroa.gep12930, align 8, !noalias !70
+  store i64 %and39.i584.i.c, ptr %arrayidx40.i585.i.c, align 8, !noalias !70
   %compare_char.i463.0.i = zext i8 %compare_char.i463.0.in.i to i32
   %and41.i496.i = lshr i64 %position.addr.0122.i, 3
   %shr.i497.i = and i64 %and41.i496.i, 1
@@ -18394,11 +18392,12 @@ for.body46.i503.i:                                ; preds = %for.inc88.i538.i, %
   %best_score.i467.172.i = phi i64 [ %best_score.i467.0.i, %if.end35.i492.i ], [ %best_score.i467.2.i, %for.inc88.i538.i ]
   %best_len.i468.171.i = phi i64 [ %best_len.i468.0.i, %if.end35.i492.i ], [ %best_len.i468.2.i, %for.inc88.i538.i ]
   %cmp44.i500.i = phi i1 [ true, %if.end35.i492.i ], [ false, %for.inc88.i538.i ]
-  %i.i474.170.i.sroa.phi = phi ptr [ %keys.i473.i, %if.end35.i492.i ], [ %i.i474.170.i.sroa.gep12930, %for.inc88.i538.i ]
+  %i.i474.170.i = phi i64 [ 0, %if.end35.i492.i ], [ 1, %for.inc88.i538.i ]
   %sr.sroa.0.169.i = phi i64 [ %best_len.i468.0.i, %if.end35.i492.i ], [ %sr.sroa.0.2.i6173, %for.inc88.i538.i ]
   %sr.sroa.12.168.i = phi i64 [ %sr.sroa.12.0.i, %if.end35.i492.i ], [ %sr.sroa.12.2.i, %for.inc88.i538.i ]
   %sr.sroa.20.167.i = phi i64 [ %best_score.i467.0.i, %if.end35.i492.i ], [ %sr.sroa.20.2.i, %for.inc88.i538.i ]
-  %1613 = load i64, ptr %i.i474.170.i.sroa.phi, align 8, !noalias !70
+  %arrayidx48.i504.i = getelementptr inbounds [2 x i64], ptr %keys.i473.i, i64 0, i64 %i.i474.170.i
+  %1613 = load i64, ptr %arrayidx48.i504.i, align 8, !noalias !70
   %arrayidx49.i505.i = getelementptr inbounds i32, ptr %1603, i64 %1613
   %1614 = load i32, ptr %arrayidx49.i505.i, align 4
   %conv50.i506.i = zext i32 %1614 to i64
@@ -18642,7 +18641,7 @@ if.end35.i.i6221:                                 ; preds = %if.then27.i.i6517, 
   store i64 %shr.i442.i, ptr %keys.i.i6136, align 16, !noalias !77
   %add38.i.i6225.c = add nuw nsw i64 %shr.i442.i, 8
   %and39.i.i6226.c = and i64 %add38.i.i6225.c, 65535
-  store i64 %and39.i.i6226.c, ptr %i.i.1114.i.sroa.gep12928, align 8, !noalias !77
+  store i64 %and39.i.i6226.c, ptr %arrayidx40.i.i6227.c, align 8, !noalias !77
   %compare_char.i.0.i6229 = zext i8 %compare_char.i.0.in.i6222 to i32
   %and41.i.i6230 = lshr i64 %add67.i6213, 3
   %shr.i411.i = and i64 %and41.i.i6230, 1
@@ -18657,11 +18656,12 @@ for.body46.i.i6232:                               ; preds = %for.inc88.i.i6242, 
   %best_score.i.1116.i = phi i64 [ %best_score.i.0.i, %if.end35.i.i6221 ], [ %best_score.i.2.i, %for.inc88.i.i6242 ]
   %best_len.i.1115.i = phi i64 [ %best_len.i.0.i, %if.end35.i.i6221 ], [ %best_len.i.2.i6244, %for.inc88.i.i6242 ]
   %cmp44.i.i = phi i1 [ true, %if.end35.i.i6221 ], [ false, %for.inc88.i.i6242 ]
-  %i.i.1114.i.sroa.phi = phi ptr [ %keys.i.i6136, %if.end35.i.i6221 ], [ %i.i.1114.i.sroa.gep12928, %for.inc88.i.i6242 ]
+  %i.i.1114.i = phi i64 [ 0, %if.end35.i.i6221 ], [ 1, %for.inc88.i.i6242 ]
   %sr2.sroa.0.1113.i = phi i64 [ %best_len.i.0.i, %if.end35.i.i6221 ], [ %sr2.sroa.0.2.i6243, %for.inc88.i.i6242 ]
   %sr2.sroa.5.1112.i = phi i64 [ %sr2.sroa.5.0.i, %if.end35.i.i6221 ], [ %sr2.sroa.5.2.i, %for.inc88.i.i6242 ]
   %sr2.sroa.9.1111.i = phi i64 [ %best_score.i.0.i, %if.end35.i.i6221 ], [ %sr2.sroa.9.2.i, %for.inc88.i.i6242 ]
-  %1636 = load i64, ptr %i.i.1114.i.sroa.phi, align 8, !noalias !77
+  %arrayidx48.i.i6233 = getelementptr inbounds [2 x i64], ptr %keys.i.i6136, i64 0, i64 %i.i.1114.i
+  %1636 = load i64, ptr %arrayidx48.i.i6233, align 8, !noalias !77
   %arrayidx49.i.i6234 = getelementptr inbounds i32, ptr %1624, i64 %1636
   %1637 = load i32, ptr %arrayidx49.i.i6234, align 4
   %conv50.i.i6235 = zext i32 %1637 to i64
@@ -30115,6 +30115,8 @@ while.body.lr.ph.i11306:                          ; preds = %sw.bb19
   %arrayidx29.i.i11311 = getelementptr inbounds i8, ptr %dist_cache, i64 8
   %arrayidx35.i.i11312 = getelementptr inbounds i8, ptr %dist_cache, i64 12
   %num_direct_distance_codes.i.i11313 = getelementptr inbounds i8, ptr %params, i64 60
+  %arrayidx40.i.i768.i.c = getelementptr inbounds i8, ptr %keys.i.i505.i, i64 8
+  %arrayidx40.i.i.i.c = getelementptr inbounds i8, ptr %keys.i.i.i, i64 8
   br label %while.body.i11314
 
 while.body.i11314:                                ; preds = %if.end212.i11333, %while.body.lr.ph.i11306
@@ -30233,7 +30235,7 @@ if.end35.i.i570.i:                                ; preds = %if.then27.i.i801.i,
   store i64 %shr.i607.i, ptr %keys.i.i505.i, align 16, !noalias !135
   %add38.i.i766.i.c = add nuw nsw i64 %shr.i607.i, 8
   %and39.i.i767.i.c = and i64 %add38.i.i766.i.c, 65535
-  store i64 %and39.i.i767.i.c, ptr %i.i.i506.176.i.sroa.gep12934, align 8, !noalias !135
+  store i64 %and39.i.i767.i.c, ptr %arrayidx40.i.i768.i.c, align 8, !noalias !135
   %compare_char.i.i495.0.i = zext i8 %compare_char.i.i495.0.in.i to i32
   %and41.i.i574.i = lshr i64 %position.addr.0170.i, 3
   %shr.i.i575.i = and i64 %and41.i.i574.i, 1
@@ -30247,11 +30249,12 @@ for.body46.i.i686.i:                              ; preds = %for.inc88.i.i721.i,
   %best_score.i.i499.178.i = phi i64 [ %best_score.i.i499.0.i, %if.end35.i.i570.i ], [ %best_score.i.i499.2.i, %for.inc88.i.i721.i ]
   %best_len.i.i500.177.i = phi i64 [ %best_len.i.i500.0.i, %if.end35.i.i570.i ], [ %best_len.i.i500.2.i, %for.inc88.i.i721.i ]
   %cmp44.i.i578.i = phi i1 [ true, %if.end35.i.i570.i ], [ false, %for.inc88.i.i721.i ]
-  %i.i.i506.176.i.sroa.phi = phi ptr [ %keys.i.i505.i, %if.end35.i.i570.i ], [ %i.i.i506.176.i.sroa.gep12934, %for.inc88.i.i721.i ]
+  %i.i.i506.176.i = phi i64 [ 0, %if.end35.i.i570.i ], [ 1, %for.inc88.i.i721.i ]
   %sr.sroa.0.175.i = phi i64 [ %best_len.i.i500.0.i, %if.end35.i.i570.i ], [ %sr.sroa.0.2.i11318, %for.inc88.i.i721.i ]
   %sr.sroa.14.174.i = phi i64 [ %sr.sroa.14.0.i, %if.end35.i.i570.i ], [ %sr.sroa.14.2.i, %for.inc88.i.i721.i ]
   %sr.sroa.23.173.i = phi i64 [ %best_score.i.i499.0.i, %if.end35.i.i570.i ], [ %sr.sroa.23.2.i, %for.inc88.i.i721.i ]
-  %2717 = load i64, ptr %i.i.i506.176.i.sroa.phi, align 8, !noalias !135
+  %arrayidx48.i.i687.i = getelementptr inbounds [2 x i64], ptr %keys.i.i505.i, i64 0, i64 %i.i.i506.176.i
+  %2717 = load i64, ptr %arrayidx48.i.i687.i, align 8, !noalias !135
   %arrayidx49.i.i688.i = getelementptr inbounds i32, ptr %2708, i64 %2717
   %2718 = load i32, ptr %arrayidx49.i.i688.i, align 4
   %conv50.i.i689.i = zext i32 %2718 to i64
@@ -30657,7 +30660,7 @@ if.end35.i.i.i:                                   ; preds = %if.then27.i.i.i, %i
   store i64 %shr.i612.i, ptr %keys.i.i.i, align 16, !noalias !146
   %add38.i.i.i.c = add nuw nsw i64 %shr.i612.i, 8
   %and39.i.i.i.c = and i64 %add38.i.i.i.c, 65535
-  store i64 %and39.i.i.i.c, ptr %i.i.i.1141.i.sroa.gep12932, align 8, !noalias !146
+  store i64 %and39.i.i.i.c, ptr %arrayidx40.i.i.i.c, align 8, !noalias !146
   %compare_char.i.i.0.i = zext i8 %compare_char.i.i.0.in.i to i32
   %and41.i.i.i = lshr i64 %add67.i11371, 3
   %shr.i.i.i11374 = and i64 %and41.i.i.i, 1
@@ -30671,11 +30674,12 @@ for.body46.i.i.i:                                 ; preds = %for.inc88.i.i.i, %i
   %best_score.i.i.1143.i = phi i64 [ %best_score.i.i.0.i, %if.end35.i.i.i ], [ %best_score.i.i.2.i, %for.inc88.i.i.i ]
   %best_len.i.i.1142.i = phi i64 [ %best_len.i.i.0.i, %if.end35.i.i.i ], [ %best_len.i.i.2.i, %for.inc88.i.i.i ]
   %cmp44.i.i.i = phi i1 [ true, %if.end35.i.i.i ], [ false, %for.inc88.i.i.i ]
-  %i.i.i.1141.i.sroa.phi = phi ptr [ %keys.i.i.i, %if.end35.i.i.i ], [ %i.i.i.1141.i.sroa.gep12932, %for.inc88.i.i.i ]
+  %i.i.i.1141.i = phi i64 [ 0, %if.end35.i.i.i ], [ 1, %for.inc88.i.i.i ]
   %sr2.sroa.0.1140.i = phi i64 [ %best_len.i.i.0.i, %if.end35.i.i.i ], [ %sr2.sroa.0.2.i11376, %for.inc88.i.i.i ]
   %sr2.sroa.7.1139.i = phi i64 [ %sr2.sroa.7.0.i, %if.end35.i.i.i ], [ %sr2.sroa.7.2.i, %for.inc88.i.i.i ]
   %sr2.sroa.12.1138.i = phi i64 [ %best_score.i.i.0.i, %if.end35.i.i.i ], [ %sr2.sroa.12.2.i, %for.inc88.i.i.i ]
-  %2752 = load i64, ptr %i.i.i.1141.i.sroa.phi, align 8, !noalias !146
+  %arrayidx48.i.i.i = getelementptr inbounds [2 x i64], ptr %keys.i.i.i, i64 0, i64 %i.i.i.1141.i
+  %2752 = load i64, ptr %arrayidx48.i.i.i, align 8, !noalias !146
   %arrayidx49.i.i.i = getelementptr inbounds i32, ptr %2741, i64 %2752
   %2753 = load i32, ptr %arrayidx49.i.i.i, align 4
   %conv50.i.i.i = zext i32 %2753 to i64

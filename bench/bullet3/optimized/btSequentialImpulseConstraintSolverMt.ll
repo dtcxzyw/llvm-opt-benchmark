@@ -861,7 +861,6 @@ entry:
   %relaxation = alloca float, align 4
   %axis = alloca [2 x %class.btVector3], align 16
   %dir = alloca %class.btVector3, align 4
-  %indvars.iv.sroa.gep322 = getelementptr inbounds i8, ptr %axis, i64 16
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %iContactConstraint to i64
@@ -1169,12 +1168,12 @@ if.end:                                           ; preds = %if.then37, %_Z13btP
 
 for.body:                                         ; preds = %if.end, %for.inc
   %cmp40 = phi i1 [ true, %if.end ], [ false, %for.inc ]
-  %indvars.iv.sroa.phi = phi ptr [ %axis, %if.end ], [ %indvars.iv.sroa.gep322, %for.inc ]
   %indvars.iv = phi i64 [ 0, %if.end ], [ 1, %for.inc ]
   %144 = load ptr, ptr %m_data.i203, align 8
   %145 = getelementptr %struct.btSolverConstraint, ptr %144, i64 %indvars.iv
   %146 = getelementptr %struct.btSolverConstraint, ptr %145, i64 %143
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dir, ptr noundef nonnull align 16 dereferenceable(16) %indvars.iv.sroa.phi, i64 16, i1 false)
+  %arrayidx44 = getelementptr inbounds [2 x %class.btVector3], ptr %axis, i64 0, i64 %indvars.iv
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dir, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx44, i64 16, i1 false)
   %147 = load float, ptr %dir, align 4
   %148 = load float, ptr %arrayidx5.i.i.i, align 4
   %mul8.i.i.i = fmul float %148, %148

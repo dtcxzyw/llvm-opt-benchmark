@@ -6427,7 +6427,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %ref.tmp8.sink4.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp5, i64 24
+  %ref.tmp5.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp5, i64 24
   store ptr @_ZSt4cout, ptr %ref.tmp5, align 8
   %ss.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i) #19
@@ -6441,7 +6441,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %tobool.not.i, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb7:                                           ; preds = %entry
-  %ref.tmp8.sink4.sroa.gep5 = getelementptr inbounds i8, ptr %ref.tmp8, i64 24
+  %ref.tmp8.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp8, i64 24
   call void @_ZN4mold4WarnINS_3elf7ContextINS1_4M68KEEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(4568) %0)
   %5 = load ptr, ptr %ref.tmp8, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
@@ -6454,8 +6454,8 @@ sw.bb10:                                          ; preds = %entry, %entry
   unreachable
 
 sw.epilog.sink.split.sink.split:                  ; preds = %sw.bb7, %sw.bb
-  %ref.tmp8.sink4.sroa.phi = phi ptr [ %ref.tmp8.sink4.sroa.gep, %sw.bb ], [ %ref.tmp8.sink4.sroa.gep5, %sw.bb7 ]
   %ref.tmp8.sink4 = phi ptr [ %ref.tmp5, %sw.bb ], [ %ref.tmp8, %sw.bb7 ]
+  %ref.tmp8.sink4.sroa.phi = phi ptr [ %ref.tmp5.sroa.gep, %sw.bb ], [ %ref.tmp8.sroa.gep, %sw.bb7 ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8.sink4.sroa.phi, ptr noundef nonnull %buf) #19
   br label %sw.epilog.sink.split
 

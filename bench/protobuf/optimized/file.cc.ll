@@ -3879,7 +3879,6 @@ define linkonce_odr hidden void @_ZN6google8protobuf2io7Printer5PrintIJA21_cA11_
 entry:
   %vars = alloca [3 x %"class.std::basic_string_view"], align 16
   %map = alloca %"class.absl::lts_20230802::flat_hash_map.702", align 8
-  %i.0.sroa.gep15 = getelementptr inbounds i8, ptr %vars, i64 32
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #22
   store i64 %call.i.i, ptr %vars, align 16
   %_M_str.i = getelementptr inbounds i8, ptr %vars, i64 8
@@ -3889,7 +3888,8 @@ entry:
   store i64 %call.i.i4, ptr %arrayinit.element, align 16
   %_M_str.i5 = getelementptr inbounds i8, ptr %vars, i64 24
   store ptr %args1, ptr %_M_str.i5, align 8
-  store i64 0, ptr %i.0.sroa.gep15, align 16
+  %arrayinit.element5 = getelementptr inbounds i8, ptr %vars, i64 32
+  store i64 0, ptr %arrayinit.element5, align 16
   %_M_str.i7 = getelementptr inbounds i8, ptr %vars, i64 40
   store ptr @.str.31, ptr %_M_str.i7, align 8
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %map, align 8
@@ -3923,17 +3923,17 @@ if.then.i.i.i.i.i.i:                              ; preds = %call.i.i.i.i.i.i.no
   br label %for.end
 
 lpad.loopexit:                                    ; preds = %for.body
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %for.end, %if.then.i
-  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit15, %lpad.loopexit ], [ %lpad.loopexit.split-lp16, %lpad.loopexit.split-lp ]
   %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %map, i64 16
   %5 = load i64, ptr %capacity_.i.i.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i64 %5, 0

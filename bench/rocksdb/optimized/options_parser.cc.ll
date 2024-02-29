@@ -3565,10 +3565,6 @@ entry:
   %ref.tmp88 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp99 = alloca %"class.rocksdb::Status", align 8
   %ref.tmp115 = alloca %"class.rocksdb::Status", align 8
-  %ref.tmp88.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp88, i64 8
-  %ref.tmp88.sink.sroa.gep310 = getelementptr inbounds i8, ptr %ref.tmp76, i64 8
-  %ref.tmp88.sink.sroa.gep311 = getelementptr inbounds i8, ptr %ref.tmp40, i64 8
-  %ref.tmp88.sink.sroa.gep312 = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
   call void @_ZN7rocksdb20RocksDBOptionsParserC1Ev(ptr noundef nonnull align 8 dereferenceable(844) %parser)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %config_options, ptr noundef nonnull align 8 dereferenceable(5) %config_options_in, i64 5, i1 false)
   %delimiter.i = getelementptr inbounds i8, ptr %config_options, i64 8
@@ -3809,11 +3805,11 @@ if.then26:                                        ; preds = %if.then22
   br label %if.then26.invoke
 
 if.then26.invoke:                                 ; preds = %if.then85, %if.then73, %if.then37, %if.then26
-  %ref.tmp88.sink.sroa.phi = phi ptr [ %ref.tmp88.sink.sroa.gep, %if.then85 ], [ %ref.tmp88.sink.sroa.gep310, %if.then73 ], [ %ref.tmp88.sink.sroa.gep311, %if.then37 ], [ %ref.tmp88.sink.sroa.gep312, %if.then26 ]
   %ref.tmp88.sink = phi ptr [ %ref.tmp88, %if.then85 ], [ %ref.tmp76, %if.then73 ], [ %ref.tmp40, %if.then37 ], [ %ref.tmp29, %if.then26 ]
   %.sink = phi i64 [ 96, %if.then85 ], [ 90, %if.then73 ], [ 97, %if.then37 ], [ 0, %if.then26 ]
   %41 = phi ptr [ %ref.tmp86, %if.then85 ], [ %ref.tmp74, %if.then73 ], [ %ref.tmp38, %if.then37 ], [ %ref.tmp27, %if.then26 ]
-  store i64 %.sink, ptr %ref.tmp88.sink.sroa.phi, align 8
+  %size_.i110 = getelementptr inbounds i8, ptr %ref.tmp88.sink, i64 8
+  store i64 %.sink, ptr %size_.i110, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp88.sink, i8 noundef zeroext 0)
           to label %cleanup unwind label %lpad3.loopexit.split-lp
 
@@ -7158,8 +7154,10 @@ define void @_ZN7rocksdb20RocksDBOptionsParser5ParseERKNS_13ConfigOptionsERKNSt7
 entry:
   %ref.tmp.i206 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp2.i = alloca %"class.rocksdb::Slice", align 8
+  %ref.tmp2.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   %ref.tmp5.i = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp6.i = alloca %"class.rocksdb::Slice", align 8
+  %ref.tmp6.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %config_options = alloca %"struct.rocksdb::ConfigOptions", align 8
   %seq_file = alloca %"class.std::unique_ptr.150", align 8
@@ -7180,8 +7178,6 @@ entry:
   %ref.tmp49 = alloca %"class.rocksdb::Status", align 8
   %ref.tmp57 = alloca %"struct.std::pair.158", align 8
   %ref.tmp73 = alloca %"class.rocksdb::Status", align 8
-  %ref.tmp6.i.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
-  %ref.tmp6.i.sink.sroa.gep259 = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   tail call void @_ZN7rocksdb20RocksDBOptionsParser5ResetEv(ptr noundef nonnull align 8 dereferenceable(844) %this)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %config_options, ptr noundef nonnull align 8 dereferenceable(5) %config_options_in, i64 5, i1 false)
   %delimiter.i = getelementptr inbounds i8, ptr %config_options, i64 8
@@ -7987,9 +7983,9 @@ if.then.i:                                        ; preds = %if.end79
   br label %if.then.i.invoke
 
 if.then.i.invoke:                                 ; preds = %if.then4.i, %if.then.i
-  %ref.tmp6.i.sink.sroa.phi = phi ptr [ %ref.tmp6.i.sink.sroa.gep, %if.then4.i ], [ %ref.tmp6.i.sink.sroa.gep259, %if.then.i ]
   %ref.tmp6.i.sink = phi ptr [ %ref.tmp6.i, %if.then4.i ], [ %ref.tmp2.i, %if.then.i ]
   %151 = phi ptr [ %ref.tmp5.i, %if.then4.i ], [ %ref.tmp.i206, %if.then.i ]
+  %ref.tmp6.i.sink.sroa.phi = phi ptr [ %ref.tmp6.i.sroa.gep, %if.then4.i ], [ %ref.tmp2.i.sroa.gep, %if.then.i ]
   store i64 0, ptr %ref.tmp6.i.sink.sroa.phi, align 8, !noalias !52
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6.i.sink, i8 noundef zeroext 0)
           to label %_ZN7rocksdb20RocksDBOptionsParser13ValidityCheckEv.exit unwind label %lpad8.loopexit.split-lp

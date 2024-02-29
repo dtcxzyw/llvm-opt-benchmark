@@ -726,6 +726,7 @@ declare void @Curl_cf_def_get_host(ptr noundef, ptr noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define internal void @cf_hc_adjust_pollset(ptr noundef %cf, ptr noundef %data, ptr noundef %ps) #0 {
 entry:
+  %ballers = alloca [2 x ptr], align 16
   %connected = getelementptr inbounds i8, ptr %cf, i64 36
   %bf.load = load i8, ptr %connected, align 4
   %bf.clear = and i8 %bf.load, 1
@@ -736,32 +737,37 @@ if.then:                                          ; preds = %entry
   %ctx1 = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx1, align 8
   %h3_baller = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %h3_baller, ptr %ballers, align 16
   %h21_baller = getelementptr inbounds i8, ptr %0, i64 88
+  %arrayidx2 = getelementptr inbounds i8, ptr %ballers, i64 8
+  store ptr %h21_baller, ptr %arrayidx2, align 8
   br label %for.body
 
 for.body:                                         ; preds = %if.then, %for.inc
   %cmp = phi i1 [ true, %if.then ], [ false, %for.inc ]
-  %i.013.sroa.phi.sroa.speculated = phi ptr [ %h3_baller, %if.then ], [ %h21_baller, %for.inc ]
-  %enabled.i = getelementptr inbounds i8, ptr %i.013.sroa.phi.sroa.speculated, i64 44
-  %1 = load i8, ptr %enabled.i, align 4
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %2, 0
+  %i.013 = phi i64 [ 0, %if.then ], [ 1, %for.inc ]
+  %arrayidx3 = getelementptr inbounds [2 x ptr], ptr %ballers, i64 0, i64 %i.013
+  %1 = load ptr, ptr %arrayidx3, align 8
+  %enabled.i = getelementptr inbounds i8, ptr %1, i64 44
+  %2 = load i8, ptr %enabled.i, align 4
+  %3 = and i8 %2, 1
+  %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %for.inc, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
-  %cf.i = getelementptr inbounds i8, ptr %i.013.sroa.phi.sroa.speculated, i64 8
-  %3 = load ptr, ptr %cf.i, align 8
-  %tobool1.not.i = icmp eq ptr %3, null
+  %cf.i = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = load ptr, ptr %cf.i, align 8
+  %tobool1.not.i = icmp eq ptr %4, null
   br i1 %tobool1.not.i, label %for.inc, label %cf_hc_baller_is_active.exit
 
 cf_hc_baller_is_active.exit:                      ; preds = %land.lhs.true.i
-  %result.i = getelementptr inbounds i8, ptr %i.013.sroa.phi.sroa.speculated, i64 16
-  %4 = load i32, ptr %result.i, align 8
-  %tobool2.not.i = icmp eq i32 %4, 0
+  %result.i = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = load i32, ptr %result.i, align 8
+  %tobool2.not.i = icmp eq i32 %5, 0
   br i1 %tobool2.not.i, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %cf_hc_baller_is_active.exit
-  tail call void @Curl_conn_cf_adjust_pollset(ptr noundef nonnull %3, ptr noundef %data, ptr noundef %ps) #4
+  tail call void @Curl_conn_cf_adjust_pollset(ptr noundef nonnull %4, ptr noundef %data, ptr noundef %ps) #4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true.i, %cf_hc_baller_is_active.exit, %if.end
@@ -774,23 +780,23 @@ do.body:                                          ; preds = %for.inc
 land.lhs.true:                                    ; preds = %do.body
   %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load7 = load i64, ptr %verbose, align 2
-  %5 = and i64 %bf.load7, 536870912
-  %tobool10 = icmp ne i64 %5, 0
+  %6 = and i64 %bf.load7, 536870912
+  %tobool10 = icmp ne i64 %6, 0
   %tobool12 = icmp ne ptr %cf, null
   %or.cond = and i1 %tobool12, %tobool10
   br i1 %or.cond, label %land.lhs.true13, label %if.end17
 
 land.lhs.true13:                                  ; preds = %land.lhs.true
-  %6 = load ptr, ptr %cf, align 8
-  %log_level = getelementptr inbounds i8, ptr %6, i64 12
-  %7 = load i32, ptr %log_level, align 4
-  %cmp14 = icmp sgt i32 %7, 0
+  %7 = load ptr, ptr %cf, align 8
+  %log_level = getelementptr inbounds i8, ptr %7, i64 12
+  %8 = load i32, ptr %log_level, align 4
+  %cmp14 = icmp sgt i32 %8, 0
   br i1 %cmp14, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %land.lhs.true13
   %num = getelementptr inbounds i8, ptr %ps, i64 20
-  %8 = load i32, ptr %num, align 4
-  tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %data, ptr noundef nonnull %cf, ptr noundef nonnull @.str.15, i32 noundef %8) #4
+  %9 = load i32, ptr %num, align 4
+  tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %data, ptr noundef nonnull %cf, ptr noundef nonnull @.str.15, i32 noundef %9) #4
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then15, %land.lhs.true13, %land.lhs.true, %do.body, %entry

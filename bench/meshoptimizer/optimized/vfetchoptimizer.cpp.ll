@@ -62,7 +62,6 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 define dso_local i64 @meshopt_optimizeVertexFetch(ptr noundef writeonly %destination, ptr nocapture noundef %indices, i64 noundef %index_count, ptr noundef readonly %vertices, i64 noundef %vertex_count, i64 noundef %vertex_size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
-  %.sroa.gep = getelementptr inbounds i8, ptr %allocator, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %allocator, i8 0, i64 200, i1 false)
   %cmp = icmp eq ptr %destination, %vertices
   br i1 %cmp, label %if.then, label %if.end
@@ -87,20 +86,21 @@ lpad:                                             ; preds = %if.end, %if.then
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %invoke.cont, %entry
-  %.sroa.phi = phi ptr [ %.sroa.gep, %invoke.cont ], [ %allocator, %entry ]
-  %inc.i24 = phi i64 [ 2, %invoke.cont ], [ 1, %entry ]
+  %2 = phi i64 [ 1, %invoke.cont ], [ 0, %entry ]
   %vertices.addr.0 = phi ptr [ %call.i22, %invoke.cont ], [ %vertices, %entry ]
-  %2 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
+  %3 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i = icmp ugt i64 %vertex_count, 4611686018427387903
   %mul.i = shl i64 %vertex_count, 2
   %cond.i = select i1 %cmp.i, i64 -1, i64 %mul.i
-  %call.i26 = invoke noundef ptr %2(i64 noundef %cond.i)
+  %call.i26 = invoke noundef ptr %3(i64 noundef %cond.i)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %if.end
   %count.i23 = getelementptr inbounds i8, ptr %allocator, i64 192
+  %inc.i24 = add nuw nsw i64 %2, 1
   store i64 %inc.i24, ptr %count.i23, align 8
-  store ptr %call.i26, ptr %.sroa.phi, align 8
+  %arrayidx.i25 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %2
+  store ptr %call.i26, ptr %arrayidx.i25, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %call.i26, i8 -1, i64 %mul.i, i1 false)
   %cmp529.not = icmp eq i64 %index_count, 0
   br i1 %cmp529.not, label %for.end, label %for.body
@@ -109,11 +109,11 @@ for.body:                                         ; preds = %invoke.cont2, %if.e
   %next_vertex.031 = phi i32 [ %next_vertex.1, %if.end13 ], [ 0, %invoke.cont2 ]
   %i.030 = phi i64 [ %inc15, %if.end13 ], [ 0, %invoke.cont2 ]
   %arrayidx = getelementptr inbounds i32, ptr %indices, i64 %i.030
-  %3 = load i32, ptr %arrayidx, align 4
-  %idxprom = zext i32 %3 to i64
+  %4 = load i32, ptr %arrayidx, align 4
+  %idxprom = zext i32 %4 to i64
   %arrayidx6 = getelementptr inbounds i32, ptr %call.i26, i64 %idxprom
-  %4 = load i32, ptr %arrayidx6, align 4
-  %cmp7 = icmp eq i32 %4, -1
+  %5 = load i32, ptr %arrayidx6, align 4
+  %cmp7 = icmp eq i32 %5, -1
   br i1 %cmp7, label %if.then8, label %if.end13
 
 if.then8:                                         ; preds = %for.body
@@ -128,19 +128,19 @@ if.then8:                                         ; preds = %for.body
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then8, %for.body
-  %5 = phi i32 [ %next_vertex.031, %if.then8 ], [ %4, %for.body ]
+  %6 = phi i32 [ %next_vertex.031, %if.then8 ], [ %5, %for.body ]
   %next_vertex.1 = phi i32 [ %inc, %if.then8 ], [ %next_vertex.031, %for.body ]
-  store i32 %5, ptr %arrayidx, align 4
+  store i32 %6, ptr %arrayidx, align 4
   %inc15 = add nuw i64 %i.030, 1
   %exitcond.not = icmp eq i64 %inc15, %index_count
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !7
 
 for.end.loopexit:                                 ; preds = %if.end13
-  %6 = zext i32 %next_vertex.1 to i64
+  %7 = zext i32 %next_vertex.1 to i64
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %invoke.cont2
-  %next_vertex.0.lcssa = phi i64 [ 0, %invoke.cont2 ], [ %6, %for.end.loopexit ]
+  %next_vertex.0.lcssa = phi i64 [ 0, %invoke.cont2 ], [ %7, %for.end.loopexit ]
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i, %for.end
@@ -149,18 +149,18 @@ for.cond.i:                                       ; preds = %for.body.i, %for.en
   br i1 %cmp.not.i, label %_ZN17meshopt_AllocatorD2Ev.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %7 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8
+  %8 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8
   %sub.i = add i64 %i.0.i, -1
   %arrayidx.i28 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %sub.i
-  %8 = load ptr, ptr %arrayidx.i28, align 8
-  invoke void %7(ptr noundef %8)
+  %9 = load ptr, ptr %arrayidx.i28, align 8
+  invoke void %8(ptr noundef %9)
           to label %for.cond.i unwind label %terminate.lpad.i, !llvm.loop !8
 
 terminate.lpad.i:                                 ; preds = %for.body.i
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #9
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #9
   unreachable
 
 _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %for.cond.i

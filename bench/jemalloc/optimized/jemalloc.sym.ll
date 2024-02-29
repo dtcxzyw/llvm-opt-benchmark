@@ -669,10 +669,8 @@ declare void @arena_decay(ptr noundef, ptr noundef, i1 noundef zeroext, i1 nound
 ; Function Attrs: nounwind uwtable
 define hidden ptr @arena_choose_hard(ptr noundef %tsd, i1 noundef zeroext %internal) local_unnamed_addr #2 {
 entry:
-  %choose7.sroa.0 = alloca i32, align 8
-  %choose7.sroa.4 = alloca i32, align 4
-  %is_new_arena.sroa.0 = alloca i8, align 2
-  %is_new_arena.sroa.3 = alloca i8, align 1
+  %choose7 = alloca [2 x i32], align 8
+  %is_new_arena = alloca [2 x i8], align 2
   %0 = load i32, ptr @opt_percpu_arena, align 4
   %cmp = icmp ugt i32 %0, 2
   br i1 %cmp, label %if.then, label %if.end
@@ -737,10 +735,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %for.body.preheader, label %if.else131
 
 for.body.preheader:                               ; preds = %if.end
-  store i32 0, ptr %choose7.sroa.0, align 8
-  store i32 0, ptr %choose7.sroa.4, align 4
-  store i8 0, ptr %is_new_arena.sroa.0, align 2
-  store i8 0, ptr %is_new_arena.sroa.3, align 1
+  store i64 0, ptr %choose7, align 8
+  store i16 0, ptr %is_new_arena, align 2
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @arenas_lock, i64 0, i32 0, i32 0, i32 2, i32 0, i32 0)) #19
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
@@ -796,11 +792,12 @@ for.body23.preheader:                             ; preds = %for.body16
 for.body23:                                       ; preds = %for.body23.preheader, %for.inc41
   %tobool = phi i1 [ false, %for.body23.preheader ], [ true, %for.inc41 ]
   %cmp22 = phi i1 [ true, %for.body23.preheader ], [ false, %for.inc41 ]
-  %indvars.iv.sroa.phi = phi ptr [ %choose7.sroa.0, %for.body23.preheader ], [ %choose7.sroa.4, %for.inc41 ]
+  %indvars.iv = phi i64 [ 0, %for.body23.preheader ], [ 1, %for.inc41 ]
   %18 = load atomic i64, ptr %arrayidx.i acquire, align 8
   %19 = inttoptr i64 %18 to ptr
   %call27 = tail call i32 @arena_nthreads_get(ptr noundef %19, i1 noundef zeroext %tobool) #19
-  %20 = load i32, ptr %indvars.iv.sroa.phi, align 4
+  %arrayidx30 = getelementptr inbounds [2 x i32], ptr %choose7, i64 0, i64 %indvars.iv
+  %20 = load i32, ptr %arrayidx30, align 4
   %idxprom.i66 = zext i32 %20 to i64
   %arrayidx.i67 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom.i66
   %21 = load atomic i64, ptr %arrayidx.i67 acquire, align 8
@@ -810,7 +807,7 @@ for.body23:                                       ; preds = %for.body23.preheade
   br i1 %cmp36, label %if.then37, label %for.inc41
 
 if.then37:                                        ; preds = %for.body23
-  store i32 %17, ptr %indvars.iv.sroa.phi, align 4
+  store i32 %17, ptr %arrayidx30, align 4
   br label %for.inc41
 
 for.inc41:                                        ; preds = %for.body23, %if.then37
@@ -838,11 +835,10 @@ for.inc48:                                        ; preds = %for.inc48.loopexit,
 for.body53:                                       ; preds = %for.cond51.preheader, %arena_bind.exit95
   %tobool58 = phi i1 [ false, %for.cond51.preheader ], [ true, %arena_bind.exit95 ]
   %cmp52 = phi i1 [ true, %for.cond51.preheader ], [ false, %arena_bind.exit95 ]
-  %indvars.iv133.sroa.phi = phi ptr [ %is_new_arena.sroa.0, %for.cond51.preheader ], [ %is_new_arena.sroa.3, %arena_bind.exit95 ]
-  %indvars.iv133.sroa.phi156 = phi ptr [ %choose7.sroa.0, %for.cond51.preheader ], [ %choose7.sroa.4, %arena_bind.exit95 ]
   %indvars.iv133 = phi i64 [ 0, %for.cond51.preheader ], [ 1, %arena_bind.exit95 ]
   %ret.0125 = phi ptr [ null, %for.cond51.preheader ], [ %ret.1, %arena_bind.exit95 ]
-  %27 = load i32, ptr %indvars.iv133.sroa.phi156, align 4
+  %arrayidx56 = getelementptr inbounds [2 x i32], ptr %choose7, i64 0, i64 %indvars.iv133
+  %27 = load i32, ptr %arrayidx56, align 4
   %idxprom.i69 = zext i32 %27 to i64
   %arrayidx.i70 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom.i69
   %28 = load atomic i64, ptr %arrayidx.i70 acquire, align 8
@@ -859,7 +855,7 @@ if.then64:                                        ; preds = %for.body53
   br i1 %cmp69, label %if.then71, label %if.end102
 
 if.then71:                                        ; preds = %if.then64
-  %31 = load i32, ptr %indvars.iv133.sroa.phi156, align 4
+  %31 = load i32, ptr %arrayidx56, align 4
   %idxprom.i72 = zext i32 %31 to i64
   %arrayidx.i73 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom.i72
   %32 = load atomic i64, ptr %arrayidx.i73 acquire, align 8
@@ -867,7 +863,7 @@ if.then71:                                        ; preds = %if.then64
   br label %if.end102
 
 if.else77:                                        ; preds = %for.body53
-  store i32 %first_null.0.lcssa, ptr %indvars.iv133.sroa.phi156, align 4
+  store i32 %first_null.0.lcssa, ptr %arrayidx56, align 4
   br i1 %cmp.i75, label %if.then86, label %if.end.i76
 
 if.end.i76:                                       ; preds = %if.else77
@@ -900,14 +896,15 @@ if.then86:                                        ; preds = %if.else77, %arena_i
   br label %return
 
 if.end88:                                         ; preds = %arena_init_locked.exit
-  store i8 1, ptr %indvars.iv133.sroa.phi, align 1
+  %arrayidx90 = getelementptr inbounds [2 x i8], ptr %is_new_arena, i64 0, i64 %indvars.iv133
+  store i8 1, ptr %arrayidx90, align 1
   %cmp98 = icmp eq i64 %indvars.iv133, %15
   %spec.select57 = select i1 %cmp98, ptr %retval.0.i, ptr %ret.0125
   br label %if.end102
 
 if.end102:                                        ; preds = %if.end88, %if.then64, %if.then71
   %ret.1 = phi ptr [ %33, %if.then71 ], [ %ret.0125, %if.then64 ], [ %spec.select57, %if.end88 ]
-  %38 = load i32, ptr %indvars.iv133.sroa.phi156, align 4
+  %38 = load i32, ptr %arrayidx56, align 4
   %idxprom.i.i79 = zext i32 %38 to i64
   %arrayidx.i.i80 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom.i.i79
   %39 = load atomic i64, ptr %arrayidx.i.i80 acquire, align 8
@@ -947,15 +944,16 @@ for.end112:                                       ; preds = %arena_bind.exit95, 
 
 for.body117:                                      ; preds = %for.end112, %for.inc128
   %cmp115 = phi i1 [ true, %for.end112 ], [ false, %for.inc128 ]
-  %indvars.iv136.sroa.phi = phi ptr [ %is_new_arena.sroa.0, %for.end112 ], [ %is_new_arena.sroa.3, %for.inc128 ]
-  %indvars.iv136.sroa.phi158 = phi ptr [ %choose7.sroa.0, %for.end112 ], [ %choose7.sroa.4, %for.inc128 ]
-  %43 = load i8, ptr %indvars.iv136.sroa.phi, align 1
+  %indvars.iv136 = phi i64 [ 0, %for.end112 ], [ 1, %for.inc128 ]
+  %arrayidx119 = getelementptr inbounds [2 x i8], ptr %is_new_arena, i64 0, i64 %indvars.iv136
+  %43 = load i8, ptr %arrayidx119, align 1
   %44 = and i8 %43, 1
   %tobool120.not = icmp eq i8 %44, 0
   br i1 %tobool120.not, label %for.inc128, label %do.end123
 
 do.end123:                                        ; preds = %for.body117
-  %45 = load i32, ptr %indvars.iv136.sroa.phi158, align 4
+  %arrayidx126 = getelementptr inbounds [2 x i32], ptr %choose7, i64 0, i64 %indvars.iv136
+  %45 = load i32, ptr %arrayidx126, align 4
   %cmp.i97 = icmp eq i32 %45, 0
   br i1 %cmp.i97, label %for.inc128, label %if.end.i98
 

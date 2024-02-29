@@ -1713,7 +1713,6 @@ entry:
   %agg.tmp.i = alloca %"class.grpc_core::promise_detail::Seq", align 8
   %agg.tmp2 = alloca %"class.grpc_core::promise_detail::TrySeq", align 8
   %agg.tmp3 = alloca %"class.grpc_core::promise_detail::Map", align 8
-  %.sink2.i.i.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp.i)
   %0 = load ptr, ptr %call_handler, align 8, !noalias !22
   %receiver.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -1808,86 +1807,88 @@ sw.bb5.i.i.i.i.i.i.i.i.i:                         ; preds = %invoke.cont6
   %13 = and i8 %12, 1
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %13, 0
   store i8 %13, ptr %agg.tmp2, align 8, !alias.scope !35
+  %14 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %sw.bb5.i.i.i.i.i.i.i.i.i
   %is_immediately_resolved_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 32
   %is_immediately_resolved_2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3, i64 32
-  %14 = load i8, ptr %is_immediately_resolved_2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
-  %15 = and i8 %14, 1
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %15, 0
-  store i8 %15, ptr %is_immediately_resolved_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !35
+  %15 = load i8, ptr %is_immediately_resolved_2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
+  %16 = and i8 %15, 1
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %16, 0
+  store i8 %16, ptr %is_immediately_resolved_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !35
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3, i64 24
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !35
-  %16 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
-  %17 = and i8 %16, 1
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %17, 0
+  %17 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
+  %18 = and i8 %17, 1
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %18, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core9ConstructINS_14promise_detail11PromiseLikeINS1_3MapINS_15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE10RunPromiseEZZZNS_12PipeReceiverIS9_E4NextEvENKUlSt8optionalIS9_EE_clESF_ENUlvE_clEvEUlSF_E_EEvEEJSK_EEEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %18 = load i8, ptr %next_factory.i.i.i.i.i32, align 8, !noalias !35
-  store i8 %18, ptr %.sink2.i.i.sroa.gep, align 8, !alias.scope !35
-  %19 = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
+  %19 = load i8, ptr %next_factory.i.i.i.i.i32, align 8, !noalias !35
+  store i8 %19, ptr %14, align 8, !alias.scope !35
+  %20 = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3, i64 16
-  %20 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
-  store i64 %20, ptr %19, align 8, !alias.scope !35
+  %21 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
+  store i64 %21, ptr %20, align 8, !alias.scope !35
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !35
   br label %_ZN9grpc_core9ConstructINS_14promise_detail11PromiseLikeINS1_3MapINS_15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE10RunPromiseEZZZNS_12PipeReceiverIS9_E4NextEvENKUlSt8optionalIS9_EE_clESF_ENUlvE_clEvEUlSF_E_EEvEEJSK_EEEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i
-  %21 = load ptr, ptr %next_factory.i.i.i.i.i32, align 8, !noalias !35
+  %22 = load ptr, ptr %next_factory.i.i.i.i.i32, align 8, !noalias !35
   store ptr null, ptr %next_factory.i.i.i.i.i32, align 8, !noalias !35
-  store ptr %21, ptr %.sink2.i.i.sroa.gep, align 8, !alias.scope !35
+  store ptr %22, ptr %14, align 8, !alias.scope !35
   %space.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
   %space3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3, i64 16
-  %22 = load i8, ptr %space3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
-  store i8 %22, ptr %space.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !35
-  %23 = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
+  %23 = load i8, ptr %space3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
+  store i8 %23, ptr %space.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !35
+  %24 = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3, i64 24
-  %24 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
-  store i64 %24, ptr %23, align 8, !alias.scope !35
+  %25 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
+  store i64 %25, ptr %24, align 8, !alias.scope !35
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
   br label %_ZN9grpc_core9ConstructINS_14promise_detail11PromiseLikeINS1_3MapINS_15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE10RunPromiseEZZZNS_12PipeReceiverIS9_E4NextEvENKUlSt8optionalIS9_EE_clESF_ENUlvE_clEvEUlSF_E_EEvEEJSK_EEEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZN9grpc_core9ConstructINS_14promise_detail11PromiseLikeINS1_3MapINS_15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE10RunPromiseEZZZNS_12PipeReceiverIS9_E4NextEvENKUlSt8optionalIS9_EE_clESF_ENUlvE_clEvEUlSF_E_EEvEEJSK_EEEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 40
   %fn_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3, i64 40
-  %25 = load ptr, ptr %fn_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
-  store ptr %25, ptr %fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !35
+  %26 = load ptr, ptr %fn_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
+  store ptr %26, ptr %fn_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !35
   store ptr null, ptr %fn_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
   br label %invoke.cont9
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %sw.bb5.i.i.i.i.i.i.i.i.i
-  %26 = load i8, ptr %next_factory.i.i.i.i.i32, align 8, !noalias !35
-  store i8 %26, ptr %.sink2.i.i.sroa.gep, align 8, !alias.scope !35
+  %27 = load i8, ptr %next_factory.i.i.i.i.i32, align 8, !noalias !35
+  store i8 %27, ptr %14, align 8, !alias.scope !35
   br label %invoke.cont9
 
 tail0.i.i.i.i.i.i.i.i.i:                          ; preds = %sw.bb.i.i.i.i.i.i.i.i.i, %invoke.cont6
-  %27 = load ptr, ptr %next_factory.i.i.i.i.i32, align 8, !noalias !35
-  store ptr %27, ptr %.sink2.i.i.sroa.gep, align 8, !alias.scope !35
+  %next_factory.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
+  %28 = load ptr, ptr %next_factory.i.i.i.i.i32, align 8, !noalias !35
+  store ptr %28, ptr %next_factory.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !35
   store ptr null, ptr %next_factory.i.i.i.i.i32, align 8, !noalias !35
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %tail0.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9grpc_core9ConstructINS_14promise_detail11PromiseLikeINS1_3MapINS_15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE10RunPromiseEZZZNS_12PipeReceiverIS9_E4NextEvENKUlSt8optionalIS9_EE_clESF_ENUlvE_clEvEUlSF_E_EEvEEJSK_EEEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sink2.i.i.sroa.gep34 = getelementptr inbounds i8, ptr %agg.tmp2, i64 72
   %next_factory.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 64
   store ptr %8, ptr %next_factory.i.i.i, align 8, !alias.scope !35
-  store ptr null, ptr %.sink2.i.i.sroa.gep34, align 8, !alias.scope !35
+  %29 = getelementptr inbounds i8, ptr %agg.tmp2, i64 72
+  store ptr null, ptr %29, align 8, !alias.scope !35
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %agg.tmp2.i)
   call fastcc void @_ZN9grpc_core14promise_detail6TrySeqINS0_3MapINS0_3SeqINS_11pipe_detail4NextISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEJZNS_12PipeReceiverISA_E4NextEvEUlSt8optionalISA_EE_EEEZNS_11CallHandler25PullClientInitialMetadataEvEUlNS_10NextResultISA_EEE_EEJZNS_12_GLOBAL__N_121InprocClientTransport9StartCallESI_EUlSA_E_NS_17ImmediateOkStatusEEEC2EOSR_(ptr noundef nonnull align 8 dereferenceable(88) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(88) %agg.tmp2) #22
   unreachable
 
 lpad5:                                            ; preds = %if.then.i.i
-  %28 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransportEED2Ev(ptr %8) #22
   call void @_ZN9grpc_core14promise_detail8SeqStateINS0_9SeqTraitsENS_11pipe_detail4NextISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEJZNS_12PipeReceiverIS9_E4NextEvEUlSt8optionalIS9_EE_EED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %agg.tmp3) #22
-  resume { ptr, i32 } %28
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: noreturn uwtable

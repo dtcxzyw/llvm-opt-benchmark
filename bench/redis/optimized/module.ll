@@ -23534,7 +23534,6 @@ declare i64 @dbScan(ptr noundef, i32 noundef, i64 noundef, i32 noundef, ptr noun
 define internal void @moduleScanCallback(ptr nocapture noundef readonly %privdata, ptr noundef %de) #0 {
 entry:
   %kp = alloca %struct.RedisModuleKey, align 8
-  %.sink3.i.i.sroa.gep = getelementptr inbounds i8, ptr %kp, i64 120
   %call = tail call ptr @dictGetKey(ptr noundef %de) #32
   %call1 = tail call ptr @dictGetVal(ptr noundef %de) #32
   %call2 = tail call ptr @sdsdup(ptr noundef %call) #32
@@ -23562,7 +23561,6 @@ entry:
   br i1 %tobool.not.i, label %moduleInitKey.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %.sink3.i.i.sroa.gep7 = getelementptr inbounds i8, ptr %kp, i64 72
   %bf.load.i.i = load i32, ptr %call1, align 8
   %bf.clear.i.i = and i32 %bf.load.i.i, 15
   switch i32 %bf.clear.i.i, label %moduleInitKey.exit [
@@ -23578,9 +23576,10 @@ sw.bb.i.i:                                        ; preds = %if.then.i
   br label %sw.epilog.sink.split.i.i
 
 sw.epilog.sink.split.i.i:                         ; preds = %sw.bb.i.i, %if.then.i
-  %.sink3.i.i.sroa.phi = phi ptr [ %.sink3.i.i.sroa.gep, %sw.bb.i.i ], [ %.sink3.i.i.sroa.gep7, %if.then.i ]
+  %.sink3.i.i = phi i64 [ 120, %sw.bb.i.i ], [ 72, %if.then.i ]
   %.sink.i.i = phi i32 [ 1, %sw.bb.i.i ], [ 0, %if.then.i ]
-  store i32 %.sink.i.i, ptr %.sink3.i.i.sroa.phi, align 8
+  %signalready.i.i = getelementptr inbounds i8, ptr %kp, i64 %.sink3.i.i
+  store i32 %.sink.i.i, ptr %signalready.i.i, align 8
   br label %moduleInitKey.exit
 
 moduleInitKey.exit:                               ; preds = %entry, %if.then.i, %sw.epilog.sink.split.i.i
@@ -24327,8 +24326,6 @@ entry:
   %mcv1 = alloca %struct.RedisModuleModuleChange, align 8
   %key = alloca %struct.RedisModuleKey, align 8
   %ki = alloca %struct.RedisModuleKeyInfo, align 8
-  %.sink3.i.i.sroa.gep = getelementptr inbounds i8, ptr %key, i64 120
-  %.sink3.i.i.sroa.gep51 = getelementptr inbounds i8, ptr %key, i64 72
   %0 = load ptr, ptr @RedisModule_EventListeners, align 8
   %len = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %len, align 8
@@ -24337,9 +24334,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @listRewind(ptr noundef nonnull %0, ptr noundef nonnull %li) #32
-  %call55 = call ptr @listNext(ptr noundef nonnull %li) #32
-  %tobool.not56 = icmp eq ptr %call55, null
-  br i1 %tobool.not56, label %while.end, label %while.body.lr.ph
+  %call54 = call ptr @listNext(ptr noundef nonnull %li) #32
+  %tobool.not55 = icmp eq ptr %call54, null
+  br i1 %tobool.not55, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
   %cmp3 = icmp eq i64 %eid, 4
@@ -24372,8 +24369,8 @@ while.body.lr.ph:                                 ; preds = %if.end
   br i1 %cmp3, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end100.us
-  %call57.us = phi ptr [ %call.us, %if.end100.us ], [ %call55, %while.body.lr.ph ]
-  %value.us = getelementptr inbounds i8, ptr %call57.us, i64 16
+  %call56.us = phi ptr [ %call.us, %if.end100.us ], [ %call54, %while.body.lr.ph ]
+  %value.us = getelementptr inbounds i8, ptr %call56.us, i64 16
   %5 = load ptr, ptr %value.us, align 8
   %event.us = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %event.us, align 8
@@ -24448,8 +24445,8 @@ if.end100.us:                                     ; preds = %if.end99.us, %while
   br i1 %tobool.not.us, label %while.end, label %while.body.us, !llvm.loop !69
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %call57 = phi ptr [ %call, %while.cond.backedge ], [ %call55, %while.body.lr.ph ]
-  %value = getelementptr inbounds i8, ptr %call57, i64 16
+  %call56 = phi ptr [ %call, %while.cond.backedge ], [ %call54, %while.body.lr.ph ]
+  %value = getelementptr inbounds i8, ptr %call56, i64 16
   %20 = load ptr, ptr %value, align 8
   %event = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load i64, ptr %event, align 8
@@ -24629,9 +24626,10 @@ sw.bb.i.i:                                        ; preds = %if.then.i
   br label %sw.epilog.sink.split.i.i
 
 sw.epilog.sink.split.i.i:                         ; preds = %sw.bb.i.i, %if.then.i
-  %.sink3.i.i.sroa.phi = phi ptr [ %.sink3.i.i.sroa.gep, %sw.bb.i.i ], [ %.sink3.i.i.sroa.gep51, %if.then.i ]
+  %.sink3.i.i = phi i64 [ 120, %sw.bb.i.i ], [ 72, %if.then.i ]
   %.sink.i.i = phi i32 [ 1, %sw.bb.i.i ], [ 0, %if.then.i ]
-  store i32 %.sink.i.i, ptr %.sink3.i.i.sroa.phi, align 8
+  %signalready.i.i = getelementptr inbounds i8, ptr %key, i64 %.sink3.i.i
+  store i32 %.sink.i.i, ptr %signalready.i.i, align 8
   br label %if.end90
 
 if.end90.fold.split:                              ; preds = %if.else17

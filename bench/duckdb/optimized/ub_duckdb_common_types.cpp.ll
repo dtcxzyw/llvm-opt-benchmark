@@ -21681,40 +21681,35 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %.sink.sroa.gep109 = getelementptr inbounds i8, ptr %ref.tmp5, i64 20
   store i32 1413565510, ptr %1, align 8, !alias.scope !609
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 sw.bb1.i:                                         ; preds = %entry
-  %.sink.sroa.gep108 = getelementptr inbounds i8, ptr %ref.tmp5, i64 20
   store i32 1414746950, ptr %1, align 8, !alias.scope !609
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 sw.bb5.i:                                         ; preds = %entry
-  %.sink.sroa.gep107 = getelementptr inbounds i8, ptr %ref.tmp5, i64 24
   store i64 4990918871747741011, ptr %1, align 8, !alias.scope !609
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 sw.bb9.i:                                         ; preds = %entry
-  %.sink.sroa.gep106 = getelementptr inbounds i8, ptr %ref.tmp5, i64 26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1, ptr noundef nonnull align 1 dereferenceable(10) @.str.173, i64 10, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 sw.bb13.i:                                        ; preds = %entry
-  %.sink.sroa.gep105 = getelementptr inbounds i8, ptr %ref.tmp5, i64 24
   store i64 6074864777800077123, ptr %1, align 8, !alias.scope !609
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 sw.default.i:                                     ; preds = %entry
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp5, i64 23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %1, ptr noundef nonnull align 1 dereferenceable(7) @.str.175, i64 7, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %sw.default.i, %sw.bb13.i, %sw.bb9.i, %sw.bb5.i, %sw.bb1.i, %sw.bb.i
   %.sink88 = phi i64 [ 7, %sw.default.i ], [ 8, %sw.bb13.i ], [ 10, %sw.bb9.i ], [ 8, %sw.bb5.i ], [ 4, %sw.bb1.i ], [ 4, %sw.bb.i ]
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %sw.default.i ], [ %.sink.sroa.gep105, %sw.bb13.i ], [ %.sink.sroa.gep106, %sw.bb9.i ], [ %.sink.sroa.gep107, %sw.bb5.i ], [ %.sink.sroa.gep108, %sw.bb1.i ], [ %.sink.sroa.gep109, %sw.bb.i ]
+  %.sink = phi i64 [ 23, %sw.default.i ], [ 24, %sw.bb13.i ], [ 26, %sw.bb9.i ], [ 24, %sw.bb5.i ], [ 20, %sw.bb1.i ], [ 20, %sw.bb.i ]
   store i64 %.sink88, ptr %_M_string_length.i.i.i.i75.i, align 8, !tbaa !86, !alias.scope !609
-  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !117, !alias.scope !609
+  %arrayidx.i.i.i76.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 %.sink
+  store i8 0, ptr %arrayidx.i.i.i76.i, align 1, !tbaa !117, !alias.scope !609
   %call2.i.i190 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull @.str.115, i64 noundef 1)
           to label %call2.i.i.noexc unwind label %lpad
 
@@ -103397,40 +103392,35 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %.sink.sroa.gep29 = getelementptr inbounds i8, ptr %ref.tmp3, i64 20
   store i32 1413565510, ptr %1, align 8, !alias.scope !1794
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 sw.bb1.i:                                         ; preds = %entry
-  %.sink.sroa.gep28 = getelementptr inbounds i8, ptr %ref.tmp3, i64 20
   store i32 1414746950, ptr %1, align 8, !alias.scope !1794
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 sw.bb5.i:                                         ; preds = %entry
-  %.sink.sroa.gep27 = getelementptr inbounds i8, ptr %ref.tmp3, i64 24
   store i64 4990918871747741011, ptr %1, align 8, !alias.scope !1794
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 sw.bb9.i:                                         ; preds = %entry
-  %.sink.sroa.gep26 = getelementptr inbounds i8, ptr %ref.tmp3, i64 26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1, ptr noundef nonnull align 1 dereferenceable(10) @.str.173, i64 10, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 sw.bb13.i:                                        ; preds = %entry
-  %.sink.sroa.gep25 = getelementptr inbounds i8, ptr %ref.tmp3, i64 24
   store i64 6074864777800077123, ptr %1, align 8, !alias.scope !1794
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 sw.default.i:                                     ; preds = %entry
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp3, i64 23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %1, ptr noundef nonnull align 1 dereferenceable(7) @.str.175, i64 7, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %sw.default.i, %sw.bb13.i, %sw.bb9.i, %sw.bb5.i, %sw.bb1.i, %sw.bb.i
   %.sink24 = phi i64 [ 7, %sw.default.i ], [ 8, %sw.bb13.i ], [ 10, %sw.bb9.i ], [ 8, %sw.bb5.i ], [ 4, %sw.bb1.i ], [ 4, %sw.bb.i ]
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %sw.default.i ], [ %.sink.sroa.gep25, %sw.bb13.i ], [ %.sink.sroa.gep26, %sw.bb9.i ], [ %.sink.sroa.gep27, %sw.bb5.i ], [ %.sink.sroa.gep28, %sw.bb1.i ], [ %.sink.sroa.gep29, %sw.bb.i ]
+  %.sink = phi i64 [ 23, %sw.default.i ], [ 24, %sw.bb13.i ], [ 26, %sw.bb9.i ], [ 24, %sw.bb5.i ], [ 20, %sw.bb1.i ], [ 20, %sw.bb.i ]
   store i64 %.sink24, ptr %_M_string_length.i.i.i.i75.i, align 8, !tbaa !86, !alias.scope !1794
-  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !117, !alias.scope !1794
+  %arrayidx.i.i.i76.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 %.sink
+  store i8 0, ptr %arrayidx.i.i.i76.i, align 1, !tbaa !117, !alias.scope !1794
   %call2.i.i52 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.115, i64 noundef 1)
           to label %call2.i.i.noexc unwind label %lpad
 

@@ -332,10 +332,9 @@ define dso_local void @_ZN3net22QuicCryptoClientConfig11SetDefaultsEv(ptr nocapt
 entry:
   %ref.tmp = alloca [2 x i32], align 8
   %ref.tmp3 = alloca [2 x i32], align 8
-  %.sink.i.sroa.phi.idx.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 4
-  %.sink.i44.sroa.phi.idx.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp3, i64 4
   store i32 892678723, ptr %ref.tmp, align 8
-  store i32 909455952, ptr %.sink.i.sroa.phi.idx.sroa.gep, align 4
+  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  store i32 909455952, ptr %arrayinit.element, align 4
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %1 = load ptr, ptr %this, align 8
@@ -394,18 +393,19 @@ _ZSt4copyIPKjPjET0_T_S4_S3_.exit31.i:             ; preds = %_ZSt7advanceIPKjmEv
   br label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZSt7advanceIPKjmEvRT_T0_.exit.i, %_ZSt4copyIPKjPjET0_T_S4_S3_.exit31.i
-  %incdec.ptr4.sink.i.i45.i.idx63 = phi i64 [ %sub.ptr.sub.i16.i, %_ZSt4copyIPKjPjET0_T_S4_S3_.exit31.i ], [ 0, %_ZSt7advanceIPKjmEvRT_T0_.exit.i ]
+  %incdec.ptr4.sink.i.i45.i.idx59 = phi i64 [ %sub.ptr.sub.i16.i, %_ZSt4copyIPKjPjET0_T_S4_S3_.exit31.i ], [ 0, %_ZSt7advanceIPKjmEvRT_T0_.exit.i ]
   %5 = phi ptr [ %.pre49.i, %_ZSt4copyIPKjPjET0_T_S4_S3_.exit31.i ], [ %3, %_ZSt7advanceIPKjmEvRT_T0_.exit.i ]
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i64 = sub nuw nsw i64 8, %sub.ptr.sub.i16.i
-  %incdec.ptr4.sink.i.i45.i.ptr = getelementptr inbounds i8, ptr %ref.tmp, i64 %incdec.ptr4.sink.i.i45.i.idx63
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr nonnull align 4 %incdec.ptr4.sink.i.i45.i.ptr, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i64, i1 false)
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i64
+  %sub.ptr.sub.i.i.i.i.i.i.i.i.i60 = sub nuw nsw i64 8, %sub.ptr.sub.i16.i
+  %incdec.ptr4.sink.i.i45.i.ptr = getelementptr inbounds i8, ptr %ref.tmp, i64 %incdec.ptr4.sink.i.i45.i.idx59
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr nonnull align 4 %incdec.ptr4.sink.i.i45.i.ptr, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i60, i1 false)
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i60
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit
 
 _ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit: ; preds = %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i, %if.then25.i, %invoke.cont.i.i, %if.then.i.i.i.i.i.i.i.i.i
   store i32 808600387, ptr %ref.tmp3, align 8
-  store i32 1196639553, ptr %.sink.i44.sroa.phi.idx.sroa.gep, align 4
+  %arrayinit.element5 = getelementptr inbounds i8, ptr %ref.tmp3, i64 4
+  store i32 1196639553, ptr %arrayinit.element5, align 4
   %aead = getelementptr inbounds i8, ptr %this, i64 24
   %_M_end_of_storage.i.i4 = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %_M_end_of_storage.i.i4, align 8
@@ -465,12 +465,12 @@ _ZSt4copyIPKjPjET0_T_S4_S3_.exit31.i35:           ; preds = %_ZSt7advanceIPKjmEv
   br label %if.then.i.i.i.i.i.i.i.i.i40
 
 if.then.i.i.i.i.i.i.i.i.i40:                      ; preds = %_ZSt7advanceIPKjmEvRT_T0_.exit.i26, %_ZSt4copyIPKjPjET0_T_S4_S3_.exit31.i35
-  %incdec.ptr4.sink.i.i45.i37.idx76 = phi i64 [ %sub.ptr.sub.i16.i12, %_ZSt4copyIPKjPjET0_T_S4_S3_.exit31.i35 ], [ 0, %_ZSt7advanceIPKjmEvRT_T0_.exit.i26 ]
+  %incdec.ptr4.sink.i.i45.i37.idx72 = phi i64 [ %sub.ptr.sub.i16.i12, %_ZSt4copyIPKjPjET0_T_S4_S3_.exit31.i35 ], [ 0, %_ZSt7advanceIPKjmEvRT_T0_.exit.i26 ]
   %11 = phi ptr [ %.pre49.i34, %_ZSt4copyIPKjPjET0_T_S4_S3_.exit31.i35 ], [ %9, %_ZSt7advanceIPKjmEvRT_T0_.exit.i26 ]
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i3877 = sub nuw nsw i64 8, %sub.ptr.sub.i16.i12
-  %incdec.ptr4.sink.i.i45.i37.ptr = getelementptr inbounds i8, ptr %ref.tmp3, i64 %incdec.ptr4.sink.i.i45.i37.idx76
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %11, ptr nonnull align 4 %incdec.ptr4.sink.i.i45.i37.ptr, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i3877, i1 false)
-  %add.ptr.i.i.i.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i3877
+  %sub.ptr.sub.i.i.i.i.i.i.i.i.i3873 = sub nuw nsw i64 8, %sub.ptr.sub.i16.i12
+  %incdec.ptr4.sink.i.i45.i37.ptr = getelementptr inbounds i8, ptr %ref.tmp3, i64 %incdec.ptr4.sink.i.i45.i37.idx72
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %11, ptr nonnull align 4 %incdec.ptr4.sink.i.i45.i37.ptr, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i3873, i1 false)
+  %add.ptr.i.i.i.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i3873
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i42, ptr %_M_finish.i.i10, align 8
   br label %_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit54
 

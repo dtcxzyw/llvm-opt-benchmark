@@ -2164,9 +2164,6 @@ define dso_local i64 @rdbSaveRawString(ptr noundef %rdb, ptr noundef %s, i64 nou
 entry:
   %value.i = alloca i64, align 8
   %buf = alloca [5 x i8], align 1
-  %.sink.i.i.sroa.gep = getelementptr inbounds i8, ptr %buf, i64 4
-  %.sink.i.i.sroa.gep54 = getelementptr inbounds i8, ptr %buf, i64 2
-  %.sink.i.i.sroa.gep55 = getelementptr inbounds i8, ptr %buf, i64 1
   %cmp = icmp ult i64 %len, 12
   br i1 %cmp, label %if.then, label %if.end10
 
@@ -2194,7 +2191,8 @@ if.else.i.i:                                      ; preds = %if.then.i
 if.then8.i.i:                                     ; preds = %if.else.i.i
   store i8 -63, ptr %buf, align 1
   %conv11.i.i = trunc i64 %0 to i8
-  store i8 %conv11.i.i, ptr %.sink.i.i.sroa.gep55, align 1
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %buf, i64 1
+  store i8 %conv11.i.i, ptr %arrayidx12.i.i, align 1
   %shr.i.i = lshr i64 %0, 8
   br label %if.then2
 
@@ -2206,10 +2204,12 @@ if.else16.i.i:                                    ; preds = %if.else.i.i
 if.then22.i.i:                                    ; preds = %if.else16.i.i
   store i8 -62, ptr %buf, align 1
   %conv25.i.i = trunc i64 %0 to i8
-  store i8 %conv25.i.i, ptr %.sink.i.i.sroa.gep55, align 1
+  %arrayidx26.i.i = getelementptr inbounds i8, ptr %buf, i64 1
+  store i8 %conv25.i.i, ptr %arrayidx26.i.i, align 1
   %shr27.i.i = lshr i64 %0, 8
   %conv29.i.i = trunc i64 %shr27.i.i to i8
-  store i8 %conv29.i.i, ptr %.sink.i.i.sroa.gep54, align 1
+  %arrayidx30.i.i = getelementptr inbounds i8, ptr %buf, i64 2
+  store i8 %conv29.i.i, ptr %arrayidx30.i.i, align 1
   %shr31.i.i = lshr i64 %0, 16
   %conv33.i.i = trunc i64 %shr31.i.i to i8
   %arrayidx34.i.i = getelementptr inbounds i8, ptr %buf, i64 3
@@ -2223,10 +2223,11 @@ if.end10.thread:                                  ; preds = %if.else16.i.i, %if.
 
 if.then2:                                         ; preds = %if.then22.i.i, %if.then8.i.i, %if.then.i.i
   %shr35.sink.i.i = phi i64 [ %shr35.i.i, %if.then22.i.i ], [ %shr.i.i, %if.then8.i.i ], [ %0, %if.then.i.i ]
-  %.sink.i.i.sroa.phi = phi ptr [ %.sink.i.i.sroa.gep, %if.then22.i.i ], [ %.sink.i.i.sroa.gep54, %if.then8.i.i ], [ %.sink.i.i.sroa.gep55, %if.then.i.i ]
+  %.sink.i.i = phi i64 [ 4, %if.then22.i.i ], [ 2, %if.then8.i.i ], [ 1, %if.then.i.i ]
   %retval.0.ph.i.i = phi i64 [ 5, %if.then22.i.i ], [ 3, %if.then8.i.i ], [ 2, %if.then.i.i ]
   %conv37.i.i = trunc i64 %shr35.sink.i.i to i8
-  store i8 %conv37.i.i, ptr %.sink.i.i.sroa.phi, align 1
+  %arrayidx38.i.i = getelementptr inbounds i8, ptr %buf, i64 %.sink.i.i
+  store i8 %conv37.i.i, ptr %arrayidx38.i.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
   %tobool.not.i19 = icmp eq ptr %rdb, null
   br i1 %tobool.not.i19, label %return, label %land.lhs.true.i
@@ -2298,9 +2299,9 @@ if.end3.i:                                        ; preds = %if.end.i
   %sub.i = add i64 %len, -4
   %call4.i = tail call i64 @lzf_compress(ptr noundef %s, i64 noundef %len, ptr noundef nonnull %call.i21, i64 noundef %sub.i) #21
   %cmp5.i = icmp eq i64 %call4.i, 0
-  br i1 %cmp5.i, label %rdbSaveLzfStringObject.exit.thread67, label %rdbSaveLzfStringObject.exit
+  br i1 %cmp5.i, label %rdbSaveLzfStringObject.exit.thread65, label %rdbSaveLzfStringObject.exit
 
-rdbSaveLzfStringObject.exit.thread67:             ; preds = %if.end3.i
+rdbSaveLzfStringObject.exit.thread65:             ; preds = %if.end3.i
   tail call void @zfree(ptr noundef nonnull %call.i21) #21
   br label %if.end23
 
@@ -2314,7 +2315,7 @@ if.end18:                                         ; preds = %rdbSaveLzfStringObj
   %cmp19 = icmp sgt i64 %call8.i, 0
   br i1 %cmp19, label %return, label %if.end23
 
-if.end23:                                         ; preds = %if.end.i, %rdbSaveLzfStringObject.exit.thread67, %if.end10.thread, %if.end18, %if.end10
+if.end23:                                         ; preds = %if.end.i, %rdbSaveLzfStringObject.exit.thread65, %if.end10.thread, %if.end18, %if.end10
   %call24 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %len), !range !9
   %conv25 = sext i32 %call24 to i64
   %cmp26 = icmp eq i32 %call24, -1
@@ -2395,9 +2396,6 @@ return:                                           ; preds = %if.end12.i.i, %if.t
 define dso_local i64 @rdbSaveLongLongAsStringObject(ptr noundef %rdb, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %buf = alloca [32 x i8], align 16
-  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %buf, i64 4
-  %.sink.i.sroa.gep43 = getelementptr inbounds i8, ptr %buf, i64 2
-  %.sink.i.sroa.gep44 = getelementptr inbounds i8, ptr %buf, i64 1
   %0 = add i64 %value, 128
   %or.cond.i = icmp ult i64 %0, 256
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
@@ -2414,7 +2412,8 @@ if.else.i:                                        ; preds = %entry
 if.then8.i:                                       ; preds = %if.else.i
   store i8 -63, ptr %buf, align 16
   %conv11.i = trunc i64 %value to i8
-  store i8 %conv11.i, ptr %.sink.i.sroa.gep44, align 1
+  %arrayidx12.i = getelementptr inbounds i8, ptr %buf, i64 1
+  store i8 %conv11.i, ptr %arrayidx12.i, align 1
   %shr.i = lshr i64 %value, 8
   br label %if.then
 
@@ -2426,10 +2425,12 @@ if.else16.i:                                      ; preds = %if.else.i
 if.then22.i:                                      ; preds = %if.else16.i
   store i8 -62, ptr %buf, align 16
   %conv25.i = trunc i64 %value to i8
-  store i8 %conv25.i, ptr %.sink.i.sroa.gep44, align 1
+  %arrayidx26.i = getelementptr inbounds i8, ptr %buf, i64 1
+  store i8 %conv25.i, ptr %arrayidx26.i, align 1
   %shr27.i = lshr i64 %value, 8
   %conv29.i = trunc i64 %shr27.i to i8
-  store i8 %conv29.i, ptr %.sink.i.sroa.gep43, align 2
+  %arrayidx30.i = getelementptr inbounds i8, ptr %buf, i64 2
+  store i8 %conv29.i, ptr %arrayidx30.i, align 2
   %shr31.i = lshr i64 %value, 16
   %conv33.i = trunc i64 %shr31.i to i8
   %arrayidx34.i = getelementptr inbounds i8, ptr %buf, i64 3
@@ -2439,10 +2440,11 @@ if.then22.i:                                      ; preds = %if.else16.i
 
 if.then:                                          ; preds = %if.then22.i, %if.then8.i, %if.then.i
   %shr35.sink.i = phi i64 [ %shr35.i, %if.then22.i ], [ %shr.i, %if.then8.i ], [ %value, %if.then.i ]
-  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %if.then22.i ], [ %.sink.i.sroa.gep43, %if.then8.i ], [ %.sink.i.sroa.gep44, %if.then.i ]
+  %.sink.i = phi i64 [ 4, %if.then22.i ], [ 2, %if.then8.i ], [ 1, %if.then.i ]
   %retval.0.ph.i = phi i64 [ 5, %if.then22.i ], [ 3, %if.then8.i ], [ 2, %if.then.i ]
   %conv37.i = trunc i64 %shr35.sink.i to i8
-  store i8 %conv37.i, ptr %.sink.i.sroa.phi, align 1
+  %arrayidx38.i = getelementptr inbounds i8, ptr %buf, i64 %.sink.i
+  store i8 %conv37.i, ptr %arrayidx38.i, align 1
   %tobool.not.i = icmp eq ptr %rdb, null
   br i1 %tobool.not.i, label %return, label %land.lhs.true.i
 
