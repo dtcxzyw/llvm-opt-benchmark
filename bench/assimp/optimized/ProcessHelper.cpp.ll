@@ -595,9 +595,9 @@ for.body.preheader.i.i:                           ; preds = %entry
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %min.sroa.9.0 = phi float [ 1.000000e+10, %for.body.preheader.i.i ], [ %3, %for.body.i.i ]
-  %min.sroa.0.0 = phi <2 x float> [ <float 1.000000e+10, float 1.000000e+10>, %for.body.preheader.i.i ], [ %12, %for.body.i.i ]
-  %max.sroa.9.0 = phi float [ -1.000000e+10, %for.body.preheader.i.i ], [ %13, %for.body.i.i ]
-  %max.sroa.0.0 = phi <2 x float> [ <float -1.000000e+10, float -1.000000e+10>, %for.body.preheader.i.i ], [ %14, %for.body.i.i ]
+  %min.sroa.0.0 = phi <2 x float> [ <float 1.000000e+10, float 1.000000e+10>, %for.body.preheader.i.i ], [ %6, %for.body.i.i ]
+  %max.sroa.9.0 = phi float [ -1.000000e+10, %for.body.preheader.i.i ], [ %9, %for.body.i.i ]
+  %max.sroa.0.0 = phi <2 x float> [ <float -1.000000e+10, float -1.000000e+10>, %for.body.preheader.i.i ], [ %8, %for.body.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %arrayidx.i.i = getelementptr inbounds %class.aiVector3t, ptr %0, i64 %indvars.iv.i.i
   %z.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
@@ -605,35 +605,28 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %cmp.i7.i.i.i = fcmp olt float %min.sroa.9.0, %2
   %3 = select i1 %cmp.i7.i.i.i, float %min.sroa.9.0, float %2
   %4 = load <2 x float>, ptr %arrayidx.i.i, align 4
-  %5 = shufflevector <2 x float> %4, <2 x float> poison, <4 x i32> <i32 1, i32 0, i32 1, i32 0>
-  %6 = shufflevector <2 x float> %min.sroa.0.0, <2 x float> %4, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  %7 = shufflevector <2 x float> %max.sroa.0.0, <2 x float> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
-  %8 = shufflevector <4 x float> %7, <4 x float> %6, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %9 = fcmp olt <4 x float> %6, %8
-  %10 = shufflevector <2 x float> %max.sroa.0.0, <2 x float> %min.sroa.0.0, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %11 = select <4 x i1> %9, <4 x float> %10, <4 x float> %5
-  %12 = shufflevector <4 x float> %11, <4 x float> poison, <2 x i32> <i32 3, i32 2>
+  %5 = fcmp olt <2 x float> %min.sroa.0.0, %4
+  %6 = select <2 x i1> %5, <2 x float> %min.sroa.0.0, <2 x float> %4
+  %7 = fcmp olt <2 x float> %4, %max.sroa.0.0
+  %8 = select <2 x i1> %7, <2 x float> %max.sroa.0.0, <2 x float> %4
   %cmp.i7.i15.i.i = fcmp olt float %2, %max.sroa.9.0
-  %13 = select i1 %cmp.i7.i15.i.i, float %max.sroa.9.0, float %2
-  %14 = shufflevector <4 x float> %11, <4 x float> poison, <2 x i32> <i32 1, i32 0>
+  %9 = select i1 %cmp.i7.i15.i.i, float %max.sroa.9.0, float %2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfES4_S4_.exit, label %for.body.i.i, !llvm.loop !13
 
 _ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfES4_S4_.exit: ; preds = %for.body.i.i, %entry
-  %15 = phi float [ 1.000000e+10, %entry ], [ %3, %for.body.i.i ]
-  %16 = phi float [ -1.000000e+10, %entry ], [ %13, %for.body.i.i ]
-  %17 = phi <4 x float> [ <float -1.000000e+10, float -1.000000e+10, float 1.000000e+10, float 1.000000e+10>, %entry ], [ %11, %for.body.i.i ]
-  %sub5.i.i = fsub float %16, %15
+  %10 = phi float [ 1.000000e+10, %entry ], [ %3, %for.body.i.i ]
+  %11 = phi float [ -1.000000e+10, %entry ], [ %9, %for.body.i.i ]
+  %12 = phi <2 x float> [ <float 1.000000e+10, float 1.000000e+10>, %entry ], [ %6, %for.body.i.i ]
+  %13 = phi <2 x float> [ <float -1.000000e+10, float -1.000000e+10>, %entry ], [ %8, %for.body.i.i ]
+  %14 = fsub <2 x float> %13, %12
+  %sub5.i.i = fsub float %11, %10
   %mul2.i.i = fmul float %sub5.i.i, 5.000000e-01
-  %18 = shufflevector <4 x float> %17, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %19 = shufflevector <4 x float> %17, <4 x float> poison, <2 x i32> <i32 2, i32 3>
-  %20 = fsub <2 x float> %18, %19
-  %21 = fmul <2 x float> %20, <float 5.000000e-01, float 5.000000e-01>
-  %22 = fadd <2 x float> %19, %21
-  %add5.i.i = fadd float %15, %mul2.i.i
-  %23 = shufflevector <2 x float> %22, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %23, ptr %out, align 4
+  %15 = fmul <2 x float> %14, <float 5.000000e-01, float 5.000000e-01>
+  %16 = fadd <2 x float> %12, %15
+  %add5.i.i = fadd float %10, %mul2.i.i
+  store <2 x float> %16, ptr %out, align 4
   %ref.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %out, i64 8
   store float %add5.i.i, ptr %ref.tmp.sroa.2.0..sroa_idx.i, align 4
   ret void
