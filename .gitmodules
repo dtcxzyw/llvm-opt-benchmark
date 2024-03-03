@@ -271,3 +271,6 @@
 [submodule "bench/php/php-src"]
 	path = bench/php/php-src
 	url = git@github.com:php/php-src.git
+[submodule "bench/quickjs/quickjs"]
+	path = bench/quickjs/quickjs
+	url = git@github.com:bellard/quickjs.git
