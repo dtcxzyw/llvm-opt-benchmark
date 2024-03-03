@@ -1356,32 +1356,28 @@ for.body1024:                                     ; preds = %if.then991, %for.bo
 for.end1119:                                      ; preds = %for.body1024
   %433 = bitcast <2 x i64> %xor.i2704 to <4 x i32>
   %add.i2321 = add <4 x i32> %396, %433
+  %434 = shufflevector <4 x i32> %add.i2321, <4 x i32> poison, <8 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %add.i2318 = add <4 x i32> %permil1103, %393
   %add.i2315 = add <4 x i32> %permil1109, %394
   %add.i2312 = add <4 x i32> %permil1115, %395
-  %add.ptr1147 = getelementptr inbounds i8, ptr %partialblock, i64 48
-  %add.ptr1149 = getelementptr inbounds i8, ptr %partialblock, i64 32
-  %add.ptr1151 = getelementptr inbounds i8, ptr %partialblock, i64 16
-  %434 = shufflevector <4 x i32> %add.i2312, <4 x i32> %add.i2321, <2 x i32> <i32 0, i32 5>
-  store <2 x i32> %434, ptr %add.ptr1151, align 16
-  %435 = shufflevector <4 x i32> %add.i2321, <4 x i32> %add.i2318, <2 x i32> <i32 0, i32 5>
-  store <2 x i32> %435, ptr %partialblock, align 16
-  %436 = shufflevector <4 x i32> %add.i2318, <4 x i32> %add.i2315, <2 x i32> <i32 0, i32 5>
-  store <2 x i32> %436, ptr %add.ptr1147, align 16
-  %437 = shufflevector <4 x i32> %add.i2315, <4 x i32> %add.i2312, <2 x i32> <i32 0, i32 5>
-  store <2 x i32> %437, ptr %add.ptr1149, align 16
-  %add.ptr1189 = getelementptr inbounds i8, ptr %partialblock, i64 40
-  %add.ptr1191 = getelementptr inbounds i8, ptr %partialblock, i64 24
-  %add.ptr1193 = getelementptr inbounds i8, ptr %partialblock, i64 8
-  %add.ptr1195 = getelementptr inbounds i8, ptr %partialblock, i64 56
-  %438 = shufflevector <4 x i32> %add.i2312, <4 x i32> %add.i2321, <2 x i32> <i32 2, i32 7>
-  store <2 x i32> %438, ptr %add.ptr1195, align 8
-  %439 = shufflevector <4 x i32> %add.i2321, <4 x i32> %add.i2318, <2 x i32> <i32 2, i32 7>
-  store <2 x i32> %439, ptr %add.ptr1189, align 8
-  %440 = shufflevector <4 x i32> %add.i2318, <4 x i32> %add.i2315, <2 x i32> <i32 2, i32 7>
-  store <2 x i32> %440, ptr %add.ptr1191, align 8
-  %441 = shufflevector <4 x i32> %add.i2315, <4 x i32> %add.i2312, <2 x i32> <i32 2, i32 7>
-  store <2 x i32> %441, ptr %add.ptr1193, align 8
+  %435 = shufflevector <4 x i32> %add.i2312, <4 x i32> poison, <8 x i32> <i32 0, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
+  %vecext.i3387 = extractelement <4 x i32> %add.i2321, i64 0
+  store i32 %vecext.i3387, ptr %partialblock, align 16
+  %add.ptr1169 = getelementptr inbounds i8, ptr %partialblock, i64 4
+  %add.ptr1171 = getelementptr inbounds i8, ptr %partialblock, i64 52
+  %add.ptr1173 = getelementptr inbounds i8, ptr %partialblock, i64 36
+  %436 = shufflevector <4 x i32> %add.i2315, <4 x i32> %add.i2312, <2 x i32> <i32 1, i32 6>
+  store <2 x i32> %436, ptr %add.ptr1171, align 4
+  %vecext.i3351 = extractelement <4 x i32> %add.i2321, i64 3
+  %add.ptr1211 = getelementptr inbounds i8, ptr %partialblock, i64 60
+  store i32 %vecext.i3351, ptr %add.ptr1211, align 4
+  %437 = shufflevector <4 x i32> %add.i2312, <4 x i32> %add.i2318, <4 x i32> <i32 1, i32 poison, i32 7, i32 4>
+  %438 = shufflevector <4 x i32> %437, <4 x i32> %add.i2321, <4 x i32> <i32 0, i32 6, i32 2, i32 3>
+  store <4 x i32> %438, ptr %add.ptr1173, align 4
+  %439 = shufflevector <4 x i32> %add.i2318, <4 x i32> %add.i2315, <8 x i32> <i32 1, i32 6, i32 poison, i32 poison, i32 poison, i32 2, i32 7, i32 4>
+  %440 = shufflevector <8 x i32> %439, <8 x i32> %435, <8 x i32> <i32 0, i32 1, i32 11, i32 8, i32 poison, i32 5, i32 6, i32 7>
+  %441 = shufflevector <8 x i32> %440, <8 x i32> %434, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 9, i32 5, i32 6, i32 7>
+  store <8 x i32> %441, ptr %add.ptr1169, align 4
   br label %for.body1223
 
 for.body1223:                                     ; preds = %for.end1119, %for.body1223

@@ -6484,10 +6484,6 @@ if.then:                                          ; preds = %entry
   %agg.tmp1.sroa.0.0.copyload.i = load <2 x float>, ptr %arrayidx.i.i, align 4, !noalias !21
   %agg.tmp1.sroa.2.0.call2.sroa_idx.i = getelementptr inbounds i8, ptr %cp.coerce0, i64 20
   %agg.tmp1.sroa.2.0.copyload.i = load float, ptr %agg.tmp1.sroa.2.0.call2.sroa_idx.i, align 4, !noalias !21
-  %cmp.i3.i.i.i = fcmp olt float %agg.tmp1.sroa.2.0.copyload.i, %agg.tmp.sroa.2.0.copyload.i
-  %.sroa.speculated.i.i.i = select i1 %cmp.i3.i.i.i, float %agg.tmp1.sroa.2.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i
-  %cmp.i3.i9.i.i = fcmp olt float %agg.tmp.sroa.2.0.copyload.i, %agg.tmp1.sroa.2.0.copyload.i
-  %.sroa.speculated.i10.i.i = select i1 %cmp.i3.i9.i.i, float %agg.tmp1.sroa.2.0.copyload.i, float %agg.tmp.sroa.2.0.copyload.i
   %arrayidx.i1.i = getelementptr inbounds i8, ptr %cp.coerce0, i64 24
   %agg.tmp4.sroa.0.0.copyload.i = load <2 x float>, ptr %arrayidx.i1.i, align 4, !noalias !21
   %agg.tmp4.sroa.2.0.call5.sroa_idx.i = getelementptr inbounds i8, ptr %cp.coerce0, i64 32
@@ -6496,27 +6492,37 @@ if.then:                                          ; preds = %entry
   %agg.tmp6.sroa.0.0.copyload.i = load <2 x float>, ptr %arrayidx.i2.i, align 4, !noalias !21
   %agg.tmp6.sroa.2.0.call7.sroa_idx.i = getelementptr inbounds i8, ptr %cp.coerce0, i64 44
   %agg.tmp6.sroa.2.0.copyload.i = load float, ptr %agg.tmp6.sroa.2.0.call7.sroa_idx.i, align 4, !noalias !21
-  %cmp.i3.i.i9.i = fcmp olt float %agg.tmp6.sroa.2.0.copyload.i, %agg.tmp4.sroa.2.0.copyload.i
-  %.sroa.speculated.i.i10.i = select i1 %cmp.i3.i.i9.i, float %agg.tmp6.sroa.2.0.copyload.i, float %agg.tmp4.sroa.2.0.copyload.i
-  %cmp.i3.i9.i17.i = fcmp olt float %agg.tmp4.sroa.2.0.copyload.i, %agg.tmp6.sroa.2.0.copyload.i
-  %.sroa.speculated.i10.i18.i = select i1 %cmp.i3.i9.i17.i, float %agg.tmp6.sroa.2.0.copyload.i, float %agg.tmp4.sroa.2.0.copyload.i
   %0 = fcmp olt <2 x float> %agg.tmp1.sroa.0.0.copyload.i, %agg.tmp.sroa.0.0.copyload.i
   %1 = select <2 x i1> %0, <2 x float> %agg.tmp1.sroa.0.0.copyload.i, <2 x float> %agg.tmp.sroa.0.0.copyload.i
   %2 = fcmp olt <2 x float> %agg.tmp6.sroa.0.0.copyload.i, %agg.tmp4.sroa.0.0.copyload.i
   %3 = select <2 x i1> %2, <2 x float> %agg.tmp6.sroa.0.0.copyload.i, <2 x float> %agg.tmp4.sroa.0.0.copyload.i
   %4 = fcmp olt <2 x float> %3, %1
   %5 = select <2 x i1> %4, <2 x float> %3, <2 x float> %1
-  %cmp.i3.i.i28.i = fcmp olt float %.sroa.speculated.i.i10.i, %.sroa.speculated.i.i.i
-  %.sroa.speculated.i.i29.i = select i1 %cmp.i3.i.i28.i, float %.sroa.speculated.i.i10.i, float %.sroa.speculated.i.i.i
   store <2 x float> %5, ptr %agg.result, align 4, !alias.scope !24
-  %6 = fcmp olt <2 x float> %agg.tmp.sroa.0.0.copyload.i, %agg.tmp1.sroa.0.0.copyload.i
-  %7 = select <2 x i1> %6, <2 x float> %agg.tmp1.sroa.0.0.copyload.i, <2 x float> %agg.tmp.sroa.0.0.copyload.i
-  %8 = fcmp olt <2 x float> %agg.tmp4.sroa.0.0.copyload.i, %agg.tmp6.sroa.0.0.copyload.i
-  %9 = select <2 x i1> %8, <2 x float> %agg.tmp6.sroa.0.0.copyload.i, <2 x float> %agg.tmp4.sroa.0.0.copyload.i
-  %10 = fcmp olt <2 x float> %7, %9
-  %11 = select <2 x i1> %10, <2 x float> %9, <2 x float> %7
-  %cmp.i3.i9.i35.i = fcmp olt float %.sroa.speculated.i10.i.i, %.sroa.speculated.i10.i18.i
-  %.sroa.speculated.i10.i36.i = select i1 %cmp.i3.i9.i35.i, float %.sroa.speculated.i10.i18.i, float %.sroa.speculated.i10.i.i
+  %6 = shufflevector <2 x float> %agg.tmp.sroa.0.0.copyload.i, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %7 = insertelement <4 x float> %6, float %agg.tmp6.sroa.2.0.copyload.i, i64 2
+  %8 = insertelement <4 x float> %7, float %agg.tmp.sroa.2.0.copyload.i, i64 3
+  %9 = shufflevector <2 x float> %agg.tmp1.sroa.0.0.copyload.i, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %10 = insertelement <4 x float> %9, float %agg.tmp4.sroa.2.0.copyload.i, i64 2
+  %11 = insertelement <4 x float> %10, float %agg.tmp1.sroa.2.0.copyload.i, i64 3
+  %12 = fcmp olt <4 x float> %8, %11
+  %13 = insertelement <4 x float> %9, float %agg.tmp6.sroa.2.0.copyload.i, i64 2
+  %14 = insertelement <4 x float> %13, float %agg.tmp1.sroa.2.0.copyload.i, i64 3
+  %15 = insertelement <4 x float> %6, float %agg.tmp4.sroa.2.0.copyload.i, i64 2
+  %16 = insertelement <4 x float> %15, float %agg.tmp.sroa.2.0.copyload.i, i64 3
+  %17 = select <4 x i1> %12, <4 x float> %14, <4 x float> %16
+  %18 = shufflevector <2 x float> %agg.tmp4.sroa.0.0.copyload.i, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %19 = shufflevector <4 x float> %18, <4 x float> %11, <4 x i32> <i32 0, i32 1, i32 7, i32 6>
+  %20 = shufflevector <2 x float> %agg.tmp6.sroa.0.0.copyload.i, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %21 = shufflevector <4 x float> %20, <4 x float> %8, <4 x i32> <i32 0, i32 1, i32 7, i32 6>
+  %22 = fcmp olt <4 x float> %19, %21
+  %23 = shufflevector <4 x float> %20, <4 x float> %14, <4 x i32> <i32 0, i32 1, i32 7, i32 6>
+  %24 = shufflevector <4 x float> %18, <4 x float> %16, <4 x i32> <i32 0, i32 1, i32 7, i32 6>
+  %25 = select <4 x i1> %22, <4 x float> %23, <4 x float> %24
+  %26 = fcmp olt <4 x float> %17, %25
+  %27 = shufflevector <4 x float> %25, <4 x float> %17, <4 x i32> <i32 0, i32 1, i32 6, i32 3>
+  %28 = shufflevector <4 x float> %17, <4 x float> %25, <4 x i32> <i32 0, i32 1, i32 6, i32 3>
+  %29 = select <4 x i1> %26, <4 x float> %27, <4 x float> %28
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -6529,10 +6535,6 @@ if.end:                                           ; preds = %entry
   %agg.tmp1.sroa.0.0.copyload.i8 = load <2 x float>, ptr %arrayidx.i.i7, align 4, !noalias !27
   %agg.tmp1.sroa.2.0.call2.sroa_idx.i9 = getelementptr inbounds i8, ptr %cpSeg, i64 20
   %agg.tmp1.sroa.2.0.copyload.i10 = load float, ptr %agg.tmp1.sroa.2.0.call2.sroa_idx.i9, align 4, !noalias !27
-  %cmp.i3.i.i.i17 = fcmp olt float %agg.tmp1.sroa.2.0.copyload.i10, %agg.tmp.sroa.2.0.copyload.i6
-  %.sroa.speculated.i.i.i18 = select i1 %cmp.i3.i.i.i17, float %agg.tmp1.sroa.2.0.copyload.i10, float %agg.tmp.sroa.2.0.copyload.i6
-  %cmp.i3.i9.i.i21 = fcmp olt float %agg.tmp.sroa.2.0.copyload.i6, %agg.tmp1.sroa.2.0.copyload.i10
-  %.sroa.speculated.i10.i.i22 = select i1 %cmp.i3.i9.i.i21, float %agg.tmp1.sroa.2.0.copyload.i10, float %agg.tmp.sroa.2.0.copyload.i6
   %arrayidx.i1.i23 = getelementptr inbounds i8, ptr %cpSeg, i64 24
   %agg.tmp4.sroa.0.0.copyload.i24 = load <2 x float>, ptr %arrayidx.i1.i23, align 8, !noalias !27
   %agg.tmp4.sroa.2.0.call5.sroa_idx.i25 = getelementptr inbounds i8, ptr %cpSeg, i64 32
@@ -6541,39 +6543,50 @@ if.end:                                           ; preds = %entry
   %agg.tmp6.sroa.0.0.copyload.i28 = load <2 x float>, ptr %arrayidx.i2.i27, align 4, !noalias !27
   %agg.tmp6.sroa.2.0.call7.sroa_idx.i29 = getelementptr inbounds i8, ptr %cpSeg, i64 44
   %agg.tmp6.sroa.2.0.copyload.i30 = load float, ptr %agg.tmp6.sroa.2.0.call7.sroa_idx.i29, align 4, !noalias !27
-  %cmp.i3.i.i9.i37 = fcmp olt float %agg.tmp6.sroa.2.0.copyload.i30, %agg.tmp4.sroa.2.0.copyload.i26
-  %.sroa.speculated.i.i10.i38 = select i1 %cmp.i3.i.i9.i37, float %agg.tmp6.sroa.2.0.copyload.i30, float %agg.tmp4.sroa.2.0.copyload.i26
-  %cmp.i3.i9.i17.i41 = fcmp olt float %agg.tmp4.sroa.2.0.copyload.i26, %agg.tmp6.sroa.2.0.copyload.i30
-  %.sroa.speculated.i10.i18.i42 = select i1 %cmp.i3.i9.i17.i41, float %agg.tmp6.sroa.2.0.copyload.i30, float %agg.tmp4.sroa.2.0.copyload.i26
-  %12 = fcmp olt <2 x float> %agg.tmp1.sroa.0.0.copyload.i8, %agg.tmp.sroa.0.0.copyload.i4
-  %13 = select <2 x i1> %12, <2 x float> %agg.tmp1.sroa.0.0.copyload.i8, <2 x float> %agg.tmp.sroa.0.0.copyload.i4
-  %14 = fcmp olt <2 x float> %agg.tmp6.sroa.0.0.copyload.i28, %agg.tmp4.sroa.0.0.copyload.i24
-  %15 = select <2 x i1> %14, <2 x float> %agg.tmp6.sroa.0.0.copyload.i28, <2 x float> %agg.tmp4.sroa.0.0.copyload.i24
-  %16 = fcmp olt <2 x float> %15, %13
-  %17 = select <2 x i1> %16, <2 x float> %15, <2 x float> %13
-  %cmp.i3.i.i28.i48 = fcmp olt float %.sroa.speculated.i.i10.i38, %.sroa.speculated.i.i.i18
-  %.sroa.speculated.i.i29.i49 = select i1 %cmp.i3.i.i28.i48, float %.sroa.speculated.i.i10.i38, float %.sroa.speculated.i.i.i18
-  store <2 x float> %17, ptr %agg.result, align 4, !alias.scope !30
-  %18 = fcmp olt <2 x float> %agg.tmp.sroa.0.0.copyload.i4, %agg.tmp1.sroa.0.0.copyload.i8
-  %19 = select <2 x i1> %18, <2 x float> %agg.tmp1.sroa.0.0.copyload.i8, <2 x float> %agg.tmp.sroa.0.0.copyload.i4
-  %20 = fcmp olt <2 x float> %agg.tmp4.sroa.0.0.copyload.i24, %agg.tmp6.sroa.0.0.copyload.i28
-  %21 = select <2 x i1> %20, <2 x float> %agg.tmp6.sroa.0.0.copyload.i28, <2 x float> %agg.tmp4.sroa.0.0.copyload.i24
-  %22 = fcmp olt <2 x float> %19, %21
-  %23 = select <2 x i1> %22, <2 x float> %21, <2 x float> %19
-  %cmp.i3.i9.i35.i54 = fcmp olt float %.sroa.speculated.i10.i.i22, %.sroa.speculated.i10.i18.i42
-  %.sroa.speculated.i10.i36.i55 = select i1 %cmp.i3.i9.i35.i54, float %.sroa.speculated.i10.i18.i42, float %.sroa.speculated.i10.i.i22
+  %30 = fcmp olt <2 x float> %agg.tmp1.sroa.0.0.copyload.i8, %agg.tmp.sroa.0.0.copyload.i4
+  %31 = select <2 x i1> %30, <2 x float> %agg.tmp1.sroa.0.0.copyload.i8, <2 x float> %agg.tmp.sroa.0.0.copyload.i4
+  %32 = fcmp olt <2 x float> %agg.tmp6.sroa.0.0.copyload.i28, %agg.tmp4.sroa.0.0.copyload.i24
+  %33 = select <2 x i1> %32, <2 x float> %agg.tmp6.sroa.0.0.copyload.i28, <2 x float> %agg.tmp4.sroa.0.0.copyload.i24
+  %34 = fcmp olt <2 x float> %33, %31
+  %35 = select <2 x i1> %34, <2 x float> %33, <2 x float> %31
+  store <2 x float> %35, ptr %agg.result, align 4, !alias.scope !30
+  %36 = shufflevector <2 x float> %agg.tmp.sroa.0.0.copyload.i4, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %37 = insertelement <4 x float> %36, float %agg.tmp6.sroa.2.0.copyload.i30, i64 2
+  %38 = insertelement <4 x float> %37, float %agg.tmp.sroa.2.0.copyload.i6, i64 3
+  %39 = shufflevector <2 x float> %agg.tmp1.sroa.0.0.copyload.i8, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %40 = insertelement <4 x float> %39, float %agg.tmp4.sroa.2.0.copyload.i26, i64 2
+  %41 = insertelement <4 x float> %40, float %agg.tmp1.sroa.2.0.copyload.i10, i64 3
+  %42 = fcmp olt <4 x float> %38, %41
+  %43 = insertelement <4 x float> %39, float %agg.tmp6.sroa.2.0.copyload.i30, i64 2
+  %44 = insertelement <4 x float> %43, float %agg.tmp1.sroa.2.0.copyload.i10, i64 3
+  %45 = insertelement <4 x float> %36, float %agg.tmp4.sroa.2.0.copyload.i26, i64 2
+  %46 = insertelement <4 x float> %45, float %agg.tmp.sroa.2.0.copyload.i6, i64 3
+  %47 = select <4 x i1> %42, <4 x float> %44, <4 x float> %46
+  %48 = shufflevector <2 x float> %agg.tmp4.sroa.0.0.copyload.i24, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %49 = shufflevector <4 x float> %48, <4 x float> %41, <4 x i32> <i32 0, i32 1, i32 7, i32 6>
+  %50 = shufflevector <2 x float> %agg.tmp6.sroa.0.0.copyload.i28, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %51 = shufflevector <4 x float> %50, <4 x float> %38, <4 x i32> <i32 0, i32 1, i32 7, i32 6>
+  %52 = fcmp olt <4 x float> %49, %51
+  %53 = shufflevector <4 x float> %50, <4 x float> %44, <4 x i32> <i32 0, i32 1, i32 7, i32 6>
+  %54 = shufflevector <4 x float> %48, <4 x float> %46, <4 x i32> <i32 0, i32 1, i32 7, i32 6>
+  %55 = select <4 x i1> %52, <4 x float> %53, <4 x float> %54
+  %56 = fcmp olt <4 x float> %47, %55
+  %57 = shufflevector <4 x float> %55, <4 x float> %47, <4 x i32> <i32 0, i32 1, i32 6, i32 3>
+  %58 = shufflevector <4 x float> %47, <4 x float> %55, <4 x i32> <i32 0, i32 1, i32 6, i32 3>
+  %59 = select <4 x i1> %56, <4 x float> %57, <4 x float> %58
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %.sroa.speculated.i.i29.i49.sink = phi float [ %.sroa.speculated.i.i29.i49, %if.end ], [ %.sroa.speculated.i.i29.i, %if.then ]
-  %.sroa.speculated.i10.i36.i55.sink = phi float [ %.sroa.speculated.i10.i36.i55, %if.end ], [ %.sroa.speculated.i10.i36.i, %if.then ]
-  %24 = phi <2 x float> [ %23, %if.end ], [ %11, %if.then ]
-  %25 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store float %.sroa.speculated.i.i29.i49.sink, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %agg.result, i64 12
-  store <2 x float> %24, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %agg.result, i64 20
-  store float %.sroa.speculated.i10.i36.i55.sink, ptr %27, align 4
+  %60 = phi <4 x float> [ %59, %if.end ], [ %29, %if.then ]
+  %61 = shufflevector <4 x float> %60, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %62 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %63 = extractelement <4 x float> %60, i64 2
+  store float %63, ptr %62, align 4
+  %64 = getelementptr inbounds i8, ptr %agg.result, i64 12
+  store <2 x float> %61, ptr %64, align 4
+  %65 = getelementptr inbounds i8, ptr %agg.result, i64 20
+  %66 = extractelement <4 x float> %60, i64 3
+  store float %66, ptr %65, align 4
   ret void
 }
 

@@ -153,7 +153,7 @@ entry:
   %agg.tmp.i = alloca %"class.pbrt::Spectrum", align 8
   %W = alloca %"class.pbrt::XYZ", align 8
   %agg.tmp12 = alloca %"class.pbrt::Spectrum", align 8
-  %rgb = alloca %"class.pbrt::SquareMatrix", align 4
+  %rgb = alloca %"class.pbrt::SquareMatrix", align 16
   %ref.tmp41 = alloca %"class.pbrt::SquareMatrix", align 4
   %ref.tmp46 = alloca %"class.pbrt::SquareMatrix", align 4
   %ref.tmp47 = alloca %"class.pbrt::SquareMatrix", align 4
@@ -250,32 +250,28 @@ if.end.i19:                                       ; preds = %invoke.cont26
 invoke.cont40:                                    ; preds = %invoke.cont26, %if.end.i19
   %retval.sroa.5.0.i27 = phi float [ %div7.i24, %if.end.i19 ], [ 0.000000e+00, %invoke.cont26 ]
   %retval.sroa.0.0.i28 = phi <2 x float> [ %retval.sroa.0.4.vec.insert17.i26, %if.end.i19 ], [ zeroinitializer, %invoke.cont26 ]
-  %R.sroa.0.0.vec.extract = extractelement <2 x float> %retval.sroa.0.0.i, i64 0
-  %G.sroa.0.0.vec.extract = extractelement <2 x float> %retval.sroa.0.0.i13, i64 0
-  store float %R.sroa.0.0.vec.extract, ptr %rgb, align 4
-  %arrayidx14.i.i.i = getelementptr inbounds i8, ptr %rgb, i64 4
-  store float %G.sroa.0.0.vec.extract, ptr %arrayidx14.i.i.i, align 4
-  %arrayidx12.i.i.i.i = getelementptr inbounds i8, ptr %rgb, i64 8
-  %6 = shufflevector <2 x float> %retval.sroa.0.0.i28, <2 x float> %retval.sroa.0.0.i, <2 x i32> <i32 0, i32 3>
-  store <2 x float> %6, ptr %arrayidx12.i.i.i.i, align 4
+  %6 = shufflevector <2 x float> %retval.sroa.0.0.i28, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
+  %7 = shufflevector <2 x float> %retval.sroa.0.0.i, <2 x float> %retval.sroa.0.0.i13, <4 x i32> <i32 0, i32 2, i32 poison, i32 1>
+  %8 = shufflevector <4 x float> %7, <4 x float> %6, <4 x i32> <i32 0, i32 1, i32 4, i32 3>
+  store <4 x float> %8, ptr %rgb, align 16
   %arrayidx8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %rgb, i64 16
-  %7 = shufflevector <2 x float> %retval.sroa.0.0.i13, <2 x float> %retval.sroa.0.0.i28, <2 x i32> <i32 1, i32 3>
-  store <2 x float> %7, ptr %arrayidx8.i.i.i.i.i.i, align 4
+  %9 = shufflevector <2 x float> %retval.sroa.0.0.i13, <2 x float> %retval.sroa.0.0.i28, <2 x i32> <i32 1, i32 3>
+  store <2 x float> %9, ptr %arrayidx8.i.i.i.i.i.i, align 16
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %rgb, i64 24
-  store float %retval.sroa.5.0.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 4
+  store float %retval.sroa.5.0.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8
   %arrayidx2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %rgb, i64 28
   store float %retval.sroa.5.0.i12, ptr %arrayidx2.i.i.i.i.i.i.i.i.i, align 4
   %arrayidx2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %rgb, i64 32
-  store float %retval.sroa.5.0.i27, ptr %arrayidx2.i.i.i.i.i.i.i.i.i.i, align 4
+  store float %retval.sroa.5.0.i27, ptr %arrayidx2.i.i.i.i.i.i.i.i.i.i, align 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %inv.i)
   invoke void @_ZN4pbrt7InverseILi3EEEN4pstd8optionalINS_12SquareMatrixIXT_EEEEERKS4_(ptr nonnull sret(%"class.pstd::optional") align 4 %inv.i, ptr noundef nonnull align 4 dereferenceable(36) %rgb)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont40
   %set.i.i = getelementptr inbounds i8, ptr %inv.i, i64 36
-  %8 = load i8, ptr %set.i.i, align 4, !noalias !5
-  %9 = and i8 %8, 1
-  %tobool.i.not.i = icmp eq i8 %9, 0
+  %10 = load i8, ptr %set.i.i, align 4, !noalias !5
+  %11 = and i8 %10, 1
+  %tobool.i.not.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i, label %land.rhs.i, label %invoke.cont42
 
 land.rhs.i:                                       ; preds = %.noexc
@@ -286,7 +282,7 @@ invoke.cont1.i:                                   ; preds = %land.rhs.i
   unreachable
 
 lpad.i:                                           ; preds = %land.rhs.i
-  %10 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
@@ -321,9 +317,9 @@ invoke.cont55:                                    ; preds = %invoke.cont54
 
 .noexc42:                                         ; preds = %invoke.cont55
   %set.i.i37 = getelementptr inbounds i8, ptr %inv.i36, i64 36
-  %11 = load i8, ptr %set.i.i37, align 4, !noalias !11
-  %12 = and i8 %11, 1
-  %tobool.i.not.i38 = icmp eq i8 %12, 0
+  %13 = load i8, ptr %set.i.i37, align 4, !noalias !11
+  %14 = and i8 %13, 1
+  %tobool.i.not.i38 = icmp eq i8 %14, 0
   br i1 %tobool.i.not.i38, label %land.rhs.i39, label %invoke.cont59
 
 land.rhs.i39:                                     ; preds = %.noexc42
@@ -334,7 +330,7 @@ invoke.cont1.i41:                                 ; preds = %land.rhs.i39
   unreachable
 
 lpad.i40:                                         ; preds = %land.rhs.i39
-  %13 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
@@ -345,12 +341,12 @@ invoke.cont59:                                    ; preds = %.noexc42
   ret void
 
 lpad:                                             ; preds = %invoke.cont55, %invoke.cont43, %invoke.cont42, %invoke.cont40, %invoke.cont54, %invoke.cont13, %invoke.cont, %entry
-  %14 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad, %lpad.i40, %lpad.i
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad.i ], [ %14, %lpad ], [ %13, %lpad.i40 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i ], [ %16, %lpad ], [ %15, %lpad.i40 ]
   call void @_ZN4pbrt22DenselySampledSpectrumD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %illuminant8) #17
   resume { ptr, i32 } %eh.lpad-body
 }

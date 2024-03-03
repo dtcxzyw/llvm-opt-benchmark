@@ -29369,13 +29369,13 @@ entry:
   br i1 %cmp44, label %return, label %if.end.preheader
 
 if.end.preheader:                                 ; preds = %entry
-  %0 = insertelement <2 x float> poison, float %y1, i64 0
-  %1 = insertelement <2 x float> %0, float %x1, i64 1
-  %2 = insertelement <2 x float> poison, float %y0, i64 0
-  %3 = insertelement <2 x float> %2, float %x0, i64 1
+  %0 = insertelement <2 x float> poison, float %x1, i64 0
+  %1 = insertelement <2 x float> %0, float %y1, i64 1
+  %2 = insertelement <2 x float> poison, float %x0, i64 0
+  %3 = insertelement <2 x float> %2, float %y0, i64 1
   %4 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %1, <2 x float> <float 2.000000e+00, float 2.000000e+00>, <2 x float> %3)
-  %5 = insertelement <2 x float> poison, float %y2, i64 0
-  %6 = insertelement <2 x float> %5, float %x2, i64 1
+  %5 = insertelement <2 x float> poison, float %x2, i64 0
+  %6 = insertelement <2 x float> %5, float %y2, i64 1
   br label %if.end
 
 if.end:                                           ; preds = %if.end.preheader, %if.then10
@@ -29388,11 +29388,11 @@ if.end:                                           ; preds = %if.end.preheader, %
   %10 = fmul <2 x float> %9, <float 2.500000e-01, float 2.500000e-01>
   %add5 = fadd float %y0.tr46, %y2
   %div6 = fmul float %add5, 5.000000e-01
-  %11 = extractelement <2 x float> %10, i64 0
+  %11 = extractelement <2 x float> %10, i64 1
   %sub7 = fsub float %div6, %11
   %add3 = fadd float %x0.tr45, %x2
   %div4 = fmul float %add3, 5.000000e-01
-  %12 = extractelement <2 x float> %10, i64 1
+  %12 = extractelement <2 x float> %10, i64 0
   %sub = fsub float %div4, %12
   %mul8 = fmul float %sub7, %sub7
   %13 = tail call float @llvm.fmuladd.f32(float %sub, float %sub, float %mul8)
@@ -29400,10 +29400,10 @@ if.end:                                           ; preds = %if.end.preheader, %
   br i1 %cmp9, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %if.end
-  %14 = extractelement <2 x float> %8, i64 1
+  %14 = extractelement <2 x float> %8, i64 0
   %add11 = fadd float %x0.tr45, %14
   %div12 = fmul float %add11, 5.000000e-01
-  %15 = extractelement <2 x float> %8, i64 0
+  %15 = extractelement <2 x float> %8, i64 1
   %add13 = fadd float %y0.tr46, %15
   %div14 = fmul float %add13, 5.000000e-01
   %add15 = add i32 %n.tr49, 1
