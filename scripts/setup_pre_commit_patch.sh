@@ -12,7 +12,7 @@ export GITHUB_PATCH_ID="<user_name>/llvm-project/commit/<commit_hash>"
 echo "LLVM_REVISION=$(git -C llvm/llvm-project rev-parse HEAD)" >> $GITHUB_ENV
 
 COMMIT_URL=https://github.com/${GITHUB_PATCH_ID}
-PATCH_URL=https://github.com/${GITHUB_PATCH_ID}.patch
+PATCH_URL=https://github.com/${GITHUB_PATCH_ID}.diff
 
 echo "Downloading patch $PATCH_URL..."
 wget $PATCH_URL -O patch.diff
