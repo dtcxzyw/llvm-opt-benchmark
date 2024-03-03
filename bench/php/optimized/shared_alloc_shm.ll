@@ -1,0 +1,195 @@
+; ModuleID = 'bench/php/original/shared_alloc_shm.ll'
+source_filename = "bench/php/original/shared_alloc_shm.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.zend_shared_memory_handlers = type { ptr, ptr, ptr }
+%struct.shmid_ds = type { %struct.ipc_perm, i64, i64, i64, i64, i32, i32, i64, i64, i64 }
+%struct.ipc_perm = type { i32, i32, i32, i32, i32, i32, i16, i16, i64, i64 }
+%struct.zend_shared_segment_shm = type { %struct._zend_shared_segment, i32 }
+%struct._zend_shared_segment = type { i64, i64, i64, ptr }
+
+@zend_alloc_shm_handlers = hidden local_unnamed_addr constant %struct.zend_shared_memory_handlers { ptr @create_segments, ptr @detach_segment, ptr @segment_type_size }, align 8
+@.str = private unnamed_addr constant [7 x i8] c"shmget\00", align 1
+@.str.1 = private unnamed_addr constant [7 x i8] c"calloc\00", align 1
+@.str.2 = private unnamed_addr constant [6 x i8] c"shmat\00", align 1
+
+; Function Attrs: nounwind uwtable
+define internal noundef i32 @create_segments(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) #0 {
+  %5 = alloca %struct.shmid_ds, align 8
+  %6 = shl i64 %0, 1
+  br label %7
+
+7:                                                ; preds = %7, %4
+  %.073 = phi i64 [ 33554432, %4 ], [ %11, %7 ]
+  %8 = icmp ule i64 %6, %.073
+  %9 = icmp ugt i64 %.073, 2097152
+  %10 = and i1 %8, %9
+  %11 = lshr i64 %.073, 1
+  br i1 %10, label %7, label %.preheader83
+
+.preheader83:                                     ; preds = %7
+  %12 = icmp ugt i64 %.073, 2097151
+  br i1 %12, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %.preheader83, %15
+  %.17486 = phi i64 [ %16, %15 ], [ %.073, %.preheader83 ]
+  %13 = tail call i64 @llvm.umin.i64(i64 %.17486, i64 %0)
+  %14 = tail call i32 @shmget(i32 noundef -1, i64 noundef %13, i32 noundef 1920) #5
+  %.not = icmp eq i32 %14, -1
+  br i1 %.not, label %15, label %18
+
+15:                                               ; preds = %.lr.ph
+  %16 = lshr i64 %.17486, 1
+  %17 = icmp ugt i64 %.17486, 4194303
+  br i1 %17, label %.lr.ph, label %._crit_edge
+
+._crit_edge:                                      ; preds = %15, %.preheader83
+  store ptr @.str, ptr %3, align 8
+  br label %.loopexit
+
+18:                                               ; preds = %.lr.ph
+  %19 = add i64 %0, -1
+  %20 = udiv i64 %19, %.17486
+  %21 = trunc i64 %20 to i32
+  %22 = add i32 %21, 1
+  store i32 %22, ptr %2, align 4
+  %23 = sext i32 %22 to i64
+  %24 = mul nsw i64 %23, 48
+  %25 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %24) #6
+  store ptr %25, ptr %1, align 8
+  %.not80 = icmp eq ptr %25, null
+  br i1 %.not80, label %26, label %27
+
+26:                                               ; preds = %18
+  store ptr @.str.1, ptr %3, align 8
+  br label %.loopexit
+
+27:                                               ; preds = %18
+  %28 = load i32, ptr %2, align 4
+  %29 = sext i32 %28 to i64
+  %30 = shl nsw i64 %29, 3
+  %31 = getelementptr inbounds i8, ptr %25, i64 %30
+  %32 = icmp sgt i32 %28, 0
+  br i1 %32, label %.lr.ph89, label %.loopexit
+
+.preheader:                                       ; preds = %.lr.ph89
+  %33 = icmp sgt i32 %38, 0
+  br i1 %33, label %.lr.ph92, label %.loopexit
+
+.lr.ph92:                                         ; preds = %.preheader
+  %34 = getelementptr inbounds i8, ptr %31, i64 32
+  br label %41
+
+.lr.ph89:                                         ; preds = %27, %.lr.ph89
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph89 ], [ 0, %27 ]
+  %35 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %31, i64 %indvars.iv
+  %36 = load ptr, ptr %1, align 8
+  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
+  store ptr %35, ptr %37, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %38 = load i32, ptr %2, align 4
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next, %39
+  br i1 %40, label %.lr.ph89, label %.preheader
+
+41:                                               ; preds = %.lr.ph92, %59
+  %indvars.iv99 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next100, %59 ]
+  %.07590 = phi i64 [ %0, %.lr.ph92 ], [ %63, %59 ]
+  %42 = call i64 @llvm.umin.i64(i64 %.07590, i64 %.17486)
+  %.not81 = icmp eq i64 %indvars.iv99, 0
+  br i1 %.not81, label %46, label %43
+
+43:                                               ; preds = %41
+  %44 = call i32 @shmget(i32 noundef 0, i64 noundef %42, i32 noundef 1920) #5
+  %45 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %31, i64 %indvars.iv99, i32 1
+  store i32 %44, ptr %45, align 8
+  br label %47
+
+46:                                               ; preds = %41
+  store i32 %14, ptr %34, align 8
+  br label %47
+
+47:                                               ; preds = %46, %43
+  %48 = phi i32 [ %14, %46 ], [ %44, %43 ]
+  %49 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %31, i64 %indvars.iv99
+  %50 = getelementptr inbounds i8, ptr %49, i64 32
+  %51 = icmp eq i32 %48, -1
+  br i1 %51, label %.loopexit, label %52
+
+52:                                               ; preds = %47
+  %53 = call ptr @shmat(i32 noundef %48, ptr noundef null, i32 noundef 0) #5
+  %54 = getelementptr inbounds i8, ptr %49, i64 24
+  store ptr %53, ptr %54, align 8
+  %55 = icmp eq ptr %53, inttoptr (i64 -1 to ptr)
+  br i1 %55, label %56, label %59
+
+56:                                               ; preds = %52
+  store ptr @.str.2, ptr %3, align 8
+  %57 = load i32, ptr %50, align 8
+  %58 = call i32 @shmctl(i32 noundef %57, i32 noundef 0, ptr noundef nonnull %5) #5
+  br label %.loopexit
+
+59:                                               ; preds = %52
+  %60 = load i32, ptr %50, align 8
+  %61 = call i32 @shmctl(i32 noundef %60, i32 noundef 0, ptr noundef nonnull %5) #5
+  %62 = getelementptr inbounds i8, ptr %49, i64 16
+  store i64 0, ptr %62, align 8
+  store i64 %42, ptr %49, align 8
+  %63 = sub i64 %.07590, %42
+  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
+  %64 = load i32, ptr %2, align 4
+  %65 = sext i32 %64 to i64
+  %66 = icmp slt i64 %indvars.iv.next100, %65
+  br i1 %66, label %41, label %.loopexit
+
+.loopexit:                                        ; preds = %47, %59, %27, %.preheader, %56, %26, %._crit_edge
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %56 ], [ 0, %26 ], [ 1, %.preheader ], [ 1, %27 ], [ 0, %47 ], [ 1, %59 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define internal noundef i32 @detach_segment(ptr nocapture noundef readonly %0) #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call i32 @shmdt(ptr noundef %3) #5
+  ret i32 0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define internal noundef i64 @segment_type_size() #1 {
+  ret i64 40
+}
+
+; Function Attrs: nounwind
+declare i32 @shmget(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind
+declare ptr @shmat(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind
+declare i32 @shmctl(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind
+declare i32 @shmdt(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #4
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind allocsize(0,1) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}

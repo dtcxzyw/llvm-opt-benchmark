@@ -268,3 +268,6 @@
 [submodule "bench/linux/linux"]
 	path = bench/linux/linux
 	url = git@github.com:torvalds/linux.git
+[submodule "bench/php/php-src"]
+	path = bench/php/php-src
+	url = git@github.com:php/php-src.git
