@@ -1,0 +1,4222 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+module asm ".section\09\22.initcall6.init\22, \22a\22\09\09"
+module asm "__initcall__kmod_yenta_socket__364_1453_yenta_cardbus_driver_init6:\09\09\09"
+module asm ".long\09yenta_cardbus_driver_init - .\09"
+module asm ".previous\09\09\09\09\09"
+
+%struct.kernel_param_ops = type { i32, ptr, ptr, ptr }
+%struct.kernel_param = type { ptr, ptr, ptr, i16, i8, i8, %union.anon }
+%union.anon = type { ptr }
+%struct.kparam_string = type { i32, ptr }
+%struct.pci_driver = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.device_driver, %struct.pci_dynids, i8 }
+%struct.device_driver = type { ptr, ptr, ptr, ptr, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.pci_dynids = type { %struct.spinlock, %struct.list_head }
+%struct.spinlock = type { %union.anon.0 }
+%union.anon.0 = type { %struct.raw_spinlock }
+%struct.raw_spinlock = type { %struct.qspinlock }
+%struct.qspinlock = type { %union.anon.1 }
+%union.anon.1 = type { %struct.atomic_t }
+%struct.atomic_t = type { i32 }
+%struct.list_head = type { ptr, ptr }
+%struct.pci_device_id = type { i32, i32, i32, i32, i32, i32, i64, i32 }
+%struct.dev_pm_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.pccard_operations = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.pccard_resource_ops = type opaque
+%struct.cardbus_type = type { ptr, ptr, ptr, ptr }
+%struct.device_attribute = type { %struct.attribute, ptr, ptr }
+%struct.attribute = type { ptr, i16 }
+%struct.socket_state_t = type { i32, i32, i8, i8, i8 }
+%struct.pci_bus_region = type { i64, i64 }
+%struct.resource = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr }
+%struct.pccard_io_map = type { i8, i8, i16, i64, i64 }
+%struct.pccard_mem_map = type { i8, i8, i16, i64, i32, ptr }
+
+@__param_str_disable_clkrun = internal constant [28 x i8] c"yenta_socket.disable_clkrun\00", align 16
+@param_ops_bool = external dso_local constant %struct.kernel_param_ops, align 8
+@disable_clkrun = internal global i8 0, align 1
+@__param_disable_clkrun = internal constant %struct.kernel_param { ptr @__param_str_disable_clkrun, ptr null, ptr @param_ops_bool, i16 292, i8 -1, i8 0, %union.anon { ptr @disable_clkrun } }, section "__param", align 8
+@__UNIQUE_ID_disable_clkruntype352 = internal constant [42 x i8] c"yenta_socket.parmtype=disable_clkrun:bool\00", section ".modinfo", align 1
+@__UNIQUE_ID_disable_clkrun353 = internal constant [122 x i8] c"yenta_socket.parm=disable_clkrun:If PC card doesn't function properly, please try this option (TI and Ricoh bridges only)\00", section ".modinfo", align 1
+@__param_str_isa_probe = internal constant [23 x i8] c"yenta_socket.isa_probe\00", align 16
+@isa_probe = internal global i8 1, align 1
+@__param_isa_probe = internal constant %struct.kernel_param { ptr @__param_str_isa_probe, ptr null, ptr @param_ops_bool, i16 292, i8 -1, i8 0, %union.anon { ptr @isa_probe } }, section "__param", align 8
+@__UNIQUE_ID_isa_probetype354 = internal constant [37 x i8] c"yenta_socket.parmtype=isa_probe:bool\00", section ".modinfo", align 1
+@__UNIQUE_ID_isa_probe355 = internal constant [100 x i8] c"yenta_socket.parm=isa_probe:If set ISA interrupts are probed (default). Set to N to disable probing\00", section ".modinfo", align 1
+@__param_str_pwr_irqs_off = internal constant [26 x i8] c"yenta_socket.pwr_irqs_off\00", align 16
+@pwr_irqs_off = internal global i8 0, align 1
+@__param_pwr_irqs_off = internal constant %struct.kernel_param { ptr @__param_str_pwr_irqs_off, ptr null, ptr @param_ops_bool, i16 420, i8 -1, i8 0, %union.anon { ptr @pwr_irqs_off } }, section "__param", align 8
+@__UNIQUE_ID_pwr_irqs_offtype356 = internal constant [40 x i8] c"yenta_socket.parmtype=pwr_irqs_off:bool\00", section ".modinfo", align 1
+@__UNIQUE_ID_pwr_irqs_off357 = internal constant [104 x i8] c"yenta_socket.parm=pwr_irqs_off:Force IRQs off during power-on of slot. Use only when seeing IRQ storms!\00", section ".modinfo", align 1
+@__param_str_o2_speedup = internal constant [24 x i8] c"yenta_socket.o2_speedup\00", align 16
+@param_ops_string = external dso_local constant %struct.kernel_param_ops, align 8
+@__param_string_o2_speedup = internal constant %struct.kparam_string { i32 8, ptr @o2_speedup }, align 8
+@__param_o2_speedup = internal constant %struct.kernel_param { ptr @__param_str_o2_speedup, ptr null, ptr @param_ops_string, i16 292, i8 -1, i8 0, %union.anon { ptr @__param_string_o2_speedup } }, section "__param", align 8
+@__UNIQUE_ID_o2_speeduptype358 = internal constant [40 x i8] c"yenta_socket.parmtype=o2_speedup:string\00", section ".modinfo", align 1
+@__UNIQUE_ID_o2_speedup359 = internal constant [142 x i8] c"yenta_socket.parm=o2_speedup:Use prefetch/burst for O2-bridges: 'on', 'off' or 'default' (uses recommended behaviour for the detected bridge)\00", section ".modinfo", align 1
+@__param_str_override_bios = internal constant [27 x i8] c"yenta_socket.override_bios\00", align 16
+@param_ops_uint = external dso_local constant %struct.kernel_param_ops, align 8
+@override_bios = internal global i32 0, align 4
+@__param_override_bios = internal constant %struct.kernel_param { ptr @__param_str_override_bios, ptr null, ptr @param_ops_uint, i16 0, i8 -1, i8 0, %union.anon { ptr @override_bios } }, section "__param", align 8
+@__UNIQUE_ID_override_biostype360 = internal constant [41 x i8] c"yenta_socket.parmtype=override_bios:uint\00", section ".modinfo", align 1
+@__UNIQUE_ID_override_bios361 = internal constant [70 x i8] c"yenta_socket.parm=override_bios:yenta ignore bios resource allocation\00", section ".modinfo", align 1
+@__UNIQUE_ID___addressable_yenta_cardbus_driver_init365 = internal global ptr @yenta_cardbus_driver_init, section ".discard.addressable", align 8
+@yenta_cardbus_driver = internal global %struct.pci_driver { ptr @.str.1, ptr @yenta_table, ptr @yenta_probe, ptr @yenta_close, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, %struct.device_driver { ptr null, ptr null, ptr null, ptr null, i8 0, i32 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @yenta_pm_ops, ptr null, ptr null }, %struct.pci_dynids zeroinitializer, i8 0 }, align 8
+@__exitcall_yenta_cardbus_driver_exit = internal global ptr @yenta_cardbus_driver_exit, section ".exitcall.exit", align 8
+@__UNIQUE_ID_file366 = internal constant [46 x i8] c"yenta_socket.file=drivers/pcmcia/yenta_socket\00", section ".modinfo", align 1
+@__UNIQUE_ID_license367 = internal constant [25 x i8] c"yenta_socket.license=GPL\00", section ".modinfo", align 1
+@o2_speedup = internal global [8 x i8] c"default\00", align 1
+@.str = private unnamed_addr constant [13 x i8] c"yenta_socket\00", align 1
+@.str.1 = private unnamed_addr constant [14 x i8] c"yenta_cardbus\00", align 1
+@yenta_table = internal constant [50 x %struct.pci_device_id] [%struct.pci_device_id { i32 4172, i32 44051, i32 -1, i32 -1, i32 395008, i32 -1, i64 0, i32 0 }, %struct.pci_device_id { i32 4172, i32 44058, i32 -1, i32 -1, i32 395008, i32 -1, i64 0, i32 0 }, %struct.pci_device_id { i32 4172, i32 44050, i32 -1, i32 -1, i32 395008, i32 -1, i64 1, i32 0 }, %struct.pci_device_id { i32 4172, i32 44053, i32 -1, i32 -1, i32 395008, i32 -1, i64 1, i32 0 }, %struct.pci_device_id { i32 4172, i32 44062, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44055, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44057, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44060, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44061, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44063, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44113, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44059, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44114, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44118, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44117, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44116, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44097, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 32785, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44098, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44100, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44102, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44054, i32 -1, i32 -1, i32 395008, i32 -1, i64 3, i32 0 }, %struct.pci_device_id { i32 4172, i32 44112, i32 -1, i32 -1, i32 395008, i32 -1, i64 3, i32 0 }, %struct.pci_device_id { i32 4172, i32 32817, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 32822, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 32825, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44174, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44173, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44105, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44103, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 4172, i32 44104, i32 -1, i32 -1, i32 395008, i32 -1, i64 2, i32 0 }, %struct.pci_device_id { i32 5412, i32 5137, i32 -1, i32 -1, i32 395008, i32 -1, i64 8, i32 0 }, %struct.pci_device_id { i32 5412, i32 5138, i32 -1, i32 -1, i32 395008, i32 -1, i64 8, i32 0 }, %struct.pci_device_id { i32 5412, i32 5153, i32 -1, i32 -1, i32 395008, i32 -1, i64 8, i32 0 }, %struct.pci_device_id { i32 5412, i32 5154, i32 -1, i32 -1, i32 395008, i32 -1, i64 8, i32 0 }, %struct.pci_device_id { i32 5412, i32 4625, i32 -1, i32 -1, i32 395008, i32 -1, i64 8, i32 0 }, %struct.pci_device_id { i32 5412, i32 4645, i32 -1, i32 -1, i32 395008, i32 -1, i64 8, i32 0 }, %struct.pci_device_id { i32 5412, i32 5136, i32 -1, i32 -1, i32 395008, i32 -1, i64 8, i32 0 }, %struct.pci_device_id { i32 5412, i32 5152, i32 -1, i32 -1, i32 395008, i32 -1, i64 8, i32 0 }, %struct.pci_device_id { i32 4480, i32 1125, i32 -1, i32 -1, i32 395008, i32 -1, i64 4, i32 0 }, %struct.pci_device_id { i32 4480, i32 1126, i32 -1, i32 -1, i32 395008, i32 -1, i64 4, i32 0 }, %struct.pci_device_id { i32 4480, i32 1141, i32 -1, i32 -1, i32 395008, i32 -1, i64 4, i32 0 }, %struct.pci_device_id { i32 4480, i32 1142, i32 -1, i32 -1, i32 395008, i32 -1, i64 4, i32 0 }, %struct.pci_device_id { i32 4480, i32 1144, i32 -1, i32 -1, i32 395008, i32 -1, i64 4, i32 0 }, %struct.pci_device_id { i32 4473, i32 1546, i32 -1, i32 -1, i32 395008, i32 -1, i64 5, i32 0 }, %struct.pci_device_id { i32 4473, i32 1551, i32 -1, i32 -1, i32 395008, i32 -1, i64 6, i32 0 }, %struct.pci_device_id { i32 4473, i32 1559, i32 -1, i32 -1, i32 395008, i32 -1, i64 6, i32 0 }, %struct.pci_device_id { i32 4631, i32 -1, i32 -1, i32 -1, i32 395008, i32 -1, i64 7, i32 0 }, %struct.pci_device_id { i32 -1, i32 -1, i32 -1, i32 -1, i32 395008, i32 -1, i64 -1, i32 0 }, %struct.pci_device_id zeroinitializer], align 16
+@yenta_pm_ops = internal constant %struct.dev_pm_ops { ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @yenta_dev_suspend_noirq, ptr @yenta_dev_resume_noirq, ptr @yenta_dev_suspend_noirq, ptr @yenta_dev_resume_noirq, ptr @yenta_dev_suspend_noirq, ptr @yenta_dev_resume_noirq, ptr null, ptr null, ptr null }, align 8
+@.str.2 = private unnamed_addr constant [46 x i8] c"no bus associated! (try 'pci=assign-busses')\0A\00", align 1
+@yenta_socket_operations = internal global %struct.pccard_operations { ptr @yenta_sock_init, ptr @yenta_sock_suspend, ptr @yenta_get_status, ptr @yenta_set_socket, ptr @yenta_set_io_map, ptr @yenta_set_mem_map }, align 8
+@pccard_nonstatic_ops = external dso_local global %struct.pccard_resource_ops, align 1
+@.str.3 = private unnamed_addr constant [22 x i8] c"No cardbus resource!\0A\00", align 1
+@.str.4 = private unnamed_addr constant [34 x i8] c"CardBus bridge found [%04x:%04x]\0A\00", align 1
+@cardbus_type = internal global [9 x %struct.cardbus_type] [%struct.cardbus_type { ptr @ti_override, ptr @ti_save_state, ptr @ti_restore_state, ptr @ti_init }, %struct.cardbus_type { ptr @ti113x_override, ptr @ti_save_state, ptr @ti_restore_state, ptr @ti_init }, %struct.cardbus_type { ptr @ti12xx_override, ptr @ti_save_state, ptr @ti_restore_state, ptr @ti_init }, %struct.cardbus_type { ptr @ti1250_override, ptr @ti_save_state, ptr @ti_restore_state, ptr @ti_init }, %struct.cardbus_type { ptr @ricoh_override, ptr @ricoh_save_state, ptr @ricoh_restore_state, ptr null }, %struct.cardbus_type { ptr @topic95_override, ptr null, ptr null, ptr null }, %struct.cardbus_type { ptr @topic97_override, ptr null, ptr null, ptr null }, %struct.cardbus_type { ptr @o2micro_override, ptr null, ptr @o2micro_restore_state, ptr null }, %struct.cardbus_type { ptr @ene_override, ptr @ti_save_state, ptr @ti_restore_state, ptr @ti_init }], align 16
+@.str.5 = private unnamed_addr constant [6 x i8] c"yenta\00", align 1
+@jiffies = external dso_local global i64, section ".data..cacheline_aligned", align 64
+@.str.6 = private unnamed_addr constant [55 x i8] c"no PCI IRQ, CardBus support disabled for this socket.\0A\00", align 1
+@.str.7 = private unnamed_addr constant [53 x i8] c"check your BIOS CardBus, BIOS IRQ or ACPI settings.\0A\00", align 1
+@.str.8 = private unnamed_addr constant [21 x i8] c"Socket status: %08x\0A\00", align 1
+@dev_attr_yenta_registers = internal global %struct.device_attribute { %struct.attribute { ptr @.str.43, i16 256 }, ptr @show_yenta_registers, ptr null }, align 8
+@kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
+@dead_socket = external dso_local global %struct.socket_state_t, align 4
+@.str.10 = private unnamed_addr constant [65 x i8] c"Preassigned resource %d busy or not available, reconfiguring...\0A\00", align 1
+@.str.11 = private unnamed_addr constant [57 x i8] c"no resource of type %x available, trying to continue...\0A\00", align 1
+@pci_mem_start = external dso_local local_unnamed_addr global i64, align 8
+@.str.12 = private unnamed_addr constant [44 x i8] c"Yenta TI113x: using isa irq %d for CardBus\0A\00", align 1
+@.str.13 = private unnamed_addr constant [26 x i8] c"Disabling CLKRUN feature\0A\00", align 1
+@.str.14 = private unnamed_addr constant [41 x i8] c"Enabling burst memory read transactions\0A\00", align 1
+@.str.15 = private unnamed_addr constant [41 x i8] c"Using %s to route CSC interrupts to PCI\0A\00", align 1
+@.str.16 = private unnamed_addr constant [7 x i8] c"CSCINT\00", align 1
+@.str.17 = private unnamed_addr constant [7 x i8] c"INTVAL\00", align 1
+@.str.18 = private unnamed_addr constant [34 x i8] c"Routing CardBus interrupts to %s\0A\00", align 1
+@.str.19 = private unnamed_addr constant [4 x i8] c"PCI\00", align 1
+@.str.20 = private unnamed_addr constant [4 x i8] c"ISA\00", align 1
+@.str.21 = private unnamed_addr constant [33 x i8] c"TI: mfunc 0x%08x, devctl 0x%02x\0A\00", align 1
+@.str.22 = private unnamed_addr constant [49 x i8] c"TI: probing PCI interrupt failed, trying to fix\0A\00", align 1
+@.str.23 = private unnamed_addr constant [30 x i8] c"TI: all-serial interrupts ok\0A\00", align 1
+@.str.24 = private unnamed_addr constant [45 x i8] c"TI: falling back to parallel PCI interrupts\0A\00", align 1
+@.str.25 = private unnamed_addr constant [32 x i8] c"TI: parallel PCI interrupts ok\0A\00", align 1
+@.str.26 = private unnamed_addr constant [51 x i8] c"Yenta TI: no PCI interrupts. Fish. Please report.\0A\00", align 1
+@.str.27 = private unnamed_addr constant [47 x i8] c"request_irq() in yenta_probe_cb_irq() failed!\0A\00", align 1
+@.str.28 = private unnamed_addr constant [36 x i8] c"TI: all-serial interrupts, tied ok\0A\00", align 1
+@.str.29 = private unnamed_addr constant [38 x i8] c"TI: parallel PCI interrupts, tied ok\0A\00", align 1
+@.str.30 = private unnamed_addr constant [45 x i8] c"TI: no PCI interrupts. Fish. Please report.\0A\00", align 1
+@.str.31 = private unnamed_addr constant [36 x i8] c"adjusting diagnostic: %02x -> %02x\0A\00", align 1
+@.str.32 = private unnamed_addr constant [41 x i8] c"Disabled ToPIC95 Cardbus write buffers.\0A\00", align 1
+@.str.33 = private unnamed_addr constant [3 x i8] c"on\00", align 1
+@.str.34 = private unnamed_addr constant [4 x i8] c"off\00", align 1
+@.str.35 = private unnamed_addr constant [8 x i8] c"default\00", align 1
+@.str.36 = private unnamed_addr constant [39 x i8] c"O2: Unknown parameter, using 'default'\00", align 1
+@.str.37 = private unnamed_addr constant [139 x i8] c"O2: enabling read prefetch/write burst. If you experience problems or performance issues, use the yenta_socket parameter 'o2_speedup=off'\0A\00", align 1
+@.str.38 = private unnamed_addr constant [139 x i8] c"O2: disabling read prefetch/write burst. If you experience problems or performance issues, use the yenta_socket parameter 'o2_speedup=on'\0A\00", align 1
+@ene_tune_tbl = internal global [3 x %struct.pci_device_id] [%struct.pci_device_id { i32 4183, i32 6145, i32 60608, i32 -1, i32 0, i32 0, i64 3586, i32 0 }, %struct.pci_device_id { i32 4183, i32 13328, i32 60608, i32 -1, i32 0, i32 0, i64 3586, i32 0 }, %struct.pci_device_id zeroinitializer], align 16
+@.str.39 = private unnamed_addr constant [47 x i8] c"EnE: changing testregister 0xC9, %02x -> %02x\0A\00", align 1
+@.str.40 = private unnamed_addr constant [33 x i8] c"ISA IRQ mask 0x%04x, PCI irq %d\0A\00", align 1
+@.str.41 = private unnamed_addr constant [59 x i8] c"Upper limit for fixing this bridge's parent bridge: #%02x\0A\00", align 1
+@.str.42 = private unnamed_addr constant [68 x i8] c"Raising subordinate bus# of parent bus (#%02x) from #%02x to #%02x\0A\00", align 1
+@.str.43 = private unnamed_addr constant [16 x i8] c"yenta_registers\00", align 1
+@.str.44 = private unnamed_addr constant [14 x i8] c"CB registers:\00", align 1
+@.str.45 = private unnamed_addr constant [7 x i8] c"\0A%02x:\00", align 1
+@.str.46 = private unnamed_addr constant [6 x i8] c" %08x\00", align 1
+@.str.47 = private unnamed_addr constant [18 x i8] c"\0A\0AExCA registers:\00", align 1
+@.str.49 = private unnamed_addr constant [6 x i8] c" %02x\00", align 1
+@.str.50 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
+@llvm.compiler.used = appending global [20 x ptr] [ptr @__UNIQUE_ID___addressable_yenta_cardbus_driver_init365, ptr @__UNIQUE_ID_disable_clkrun353, ptr @__UNIQUE_ID_disable_clkruntype352, ptr @__UNIQUE_ID_file366, ptr @__UNIQUE_ID_isa_probe355, ptr @__UNIQUE_ID_isa_probetype354, ptr @__UNIQUE_ID_license367, ptr @__UNIQUE_ID_o2_speedup359, ptr @__UNIQUE_ID_o2_speeduptype358, ptr @__UNIQUE_ID_override_bios361, ptr @__UNIQUE_ID_override_biostype360, ptr @__UNIQUE_ID_pwr_irqs_off357, ptr @__UNIQUE_ID_pwr_irqs_offtype356, ptr @__exitcall_yenta_cardbus_driver_exit, ptr @__param_disable_clkrun, ptr @__param_isa_probe, ptr @__param_o2_speedup, ptr @__param_override_bios, ptr @__param_pwr_irqs_off, ptr @yenta_cardbus_driver_exit], section "llvm.metadata"
+
+; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
+define internal i32 @yenta_cardbus_driver_init() #0 section ".init.text" align 16 {
+  %1 = tail call i32 @__pci_register_driver(ptr noundef nonnull @yenta_cardbus_driver, ptr noundef null, ptr noundef nonnull @.str) #10
+  ret i32 %1
+}
+
+; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
+define internal void @yenta_cardbus_driver_exit() #0 section ".exit.text" align 16 {
+  tail call void @pci_unregister_driver(ptr noundef nonnull @yenta_cardbus_driver) #10
+  ret void
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @pci_unregister_driver(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @__pci_register_driver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal i32 @yenta_probe(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %8
+
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %7, ptr noundef nonnull @.str.2) #11
+  br label %104
+
+8:                                                ; preds = %2
+  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
+  %10 = tail call noalias noundef align 8 dereferenceable_or_null(1424) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 1424) #12
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %104, label %12
+
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds i8, ptr %10, i64 64
+  %14 = getelementptr inbounds i8, ptr %10, i64 416
+  store ptr @yenta_socket_operations, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %10, i64 424
+  store ptr @pccard_nonstatic_ops, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 184
+  %17 = getelementptr inbounds i8, ptr %10, i64 688
+  store ptr %16, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %10, i64 1352
+  store ptr %10, ptr %18, align 8
+  store ptr null, ptr %13, align 8
+  %19 = getelementptr inbounds i8, ptr %10, i64 380
+  store i32 16385, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %10, i64 388
+  store i32 4096, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %10, i64 400
+  store ptr %0, ptr %21, align 8
+  store ptr %0, ptr %10, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 304
+  store ptr %10, ptr %22, align 8
+  %23 = tail call i32 @pci_enable_device(ptr noundef %0) #10
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %102
+
+25:                                               ; preds = %12
+  %26 = tail call i32 @pci_request_regions(ptr noundef %0, ptr noundef nonnull @.str) #10
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %100
+
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds i8, ptr %0, i64 920
+  %30 = load i64, ptr %29, align 8
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %28
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %16, ptr noundef nonnull @.str.3) #11
+  br label %98
+
+33:                                               ; preds = %28
+  %34 = tail call ptr @ioremap(i64 noundef %30, i64 noundef 4096) #10
+  %35 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr %34, ptr %35, align 8
+  %36 = icmp eq ptr %34, null
+  br i1 %36, label %98, label %37
+
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds i8, ptr %0, i64 64
+  %39 = load i16, ptr %38, align 8
+  %40 = zext i16 %39 to i32
+  %41 = getelementptr inbounds i8, ptr %0, i64 66
+  %42 = load i16, ptr %41, align 2
+  %43 = zext i16 %42 to i32
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.4, i32 noundef %40, i32 noundef %43) #11
+  tail call fastcc void @yenta_config_init(ptr noundef nonnull %10)
+  %44 = load ptr, ptr %35, align 8
+  %45 = getelementptr i8, ptr %44, i64 4
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %45) #10, !srcloc !5
+  %46 = load ptr, ptr %35, align 8
+  %47 = getelementptr i8, ptr %46, i64 4
+  %48 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %47) #10, !srcloc !6
+  tail call fastcc void @yenta_allocate_resources(ptr noundef nonnull %10)
+  %49 = getelementptr inbounds i8, ptr %0, i64 916
+  %50 = load i32, ptr %49, align 4
+  %51 = getelementptr inbounds i8, ptr %10, i64 8
+  store i32 %50, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %1, i64 24
+  %53 = load i64, ptr %52, align 8
+  %54 = icmp ult i64 %53, 9
+  br i1 %54, label %55, label %61
+
+55:                                               ; preds = %37
+  %56 = getelementptr [9 x %struct.cardbus_type], ptr @cardbus_type, i64 0, i64 %53
+  %57 = getelementptr inbounds i8, ptr %10, i64 1368
+  store ptr %56, ptr %57, align 8
+  %58 = load ptr, ptr %56, align 16
+  %59 = tail call i32 %58(ptr noundef nonnull %10) #10
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %95, label %61
+
+61:                                               ; preds = %55, %37
+  %62 = load i32, ptr %51, align 8
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %67, label %64
+
+64:                                               ; preds = %61
+  %65 = tail call i32 @request_threaded_irq(i32 noundef %62, ptr noundef nonnull @yenta_interrupt, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.5, ptr noundef nonnull %10) #10
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %72, label %67
+
+67:                                               ; preds = %64, %61
+  store i32 0, ptr %51, align 8
+  %68 = getelementptr inbounds i8, ptr %10, i64 24
+  tail call void @init_timer_key(ptr noundef %68, ptr noundef nonnull @yenta_interrupt_wrapper, i32 noundef 0, ptr noundef null, ptr noundef null) #10
+  %69 = load volatile i64, ptr @jiffies, align 64
+  %70 = add i64 %69, 1000
+  %71 = tail call i32 @mod_timer(ptr noundef %68, i64 noundef %70) #10
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.6) #11
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.7) #11
+  br label %75
+
+72:                                               ; preds = %64
+  %73 = load i32, ptr %19, align 4
+  %74 = or i32 %73, 32768
+  store i32 %74, ptr %19, align 4
+  br label %75
+
+75:                                               ; preds = %72, %67
+  tail call fastcc void @yenta_interrogate(ptr noundef nonnull %10)
+  tail call fastcc void @yenta_get_socket_capabilities(ptr noundef nonnull %10)
+  %76 = load ptr, ptr %35, align 8
+  %77 = getelementptr i8, ptr %76, i64 8
+  %78 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %77) #10, !srcloc !6
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.8, i32 noundef %78) #11
+  %79 = load ptr, ptr %3, align 8
+  tail call fastcc void @yenta_fixup_parent_bridge(ptr noundef %79)
+  %80 = tail call i32 @pcmcia_register_socket(ptr noundef %13) #10
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %82, label %86
+
+82:                                               ; preds = %75
+  %83 = tail call i32 @device_create_file(ptr noundef %16, ptr noundef nonnull @dev_attr_yenta_registers) #10
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %104, label %85
+
+85:                                               ; preds = %82
+  tail call void @pcmcia_unregister_socket(ptr noundef %13) #10
+  br label %86
+
+86:                                               ; preds = %85, %75
+  %87 = phi i32 [ %80, %75 ], [ %83, %85 ]
+  %88 = load i32, ptr %51, align 8
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %92, label %90
+
+90:                                               ; preds = %86
+  %91 = tail call ptr @free_irq(i32 noundef %88, ptr noundef nonnull %10) #10
+  br label %95
+
+92:                                               ; preds = %86
+  %93 = getelementptr inbounds i8, ptr %10, i64 24
+  %94 = tail call i32 @timer_shutdown_sync(ptr noundef %93) #10
+  br label %95
+
+95:                                               ; preds = %92, %90, %55
+  %96 = phi i32 [ %59, %55 ], [ %87, %90 ], [ %87, %92 ]
+  %97 = load ptr, ptr %35, align 8
+  tail call void @iounmap(ptr noundef %97) #10
+  tail call fastcc void @yenta_free_resources(ptr noundef nonnull %10)
+  br label %98
+
+98:                                               ; preds = %95, %33, %32
+  %99 = phi i32 [ %96, %95 ], [ -19, %32 ], [ -12, %33 ]
+  tail call void @pci_release_regions(ptr noundef %0) #10
+  br label %100
+
+100:                                              ; preds = %98, %25
+  %101 = phi i32 [ %26, %25 ], [ %99, %98 ]
+  tail call void @pci_disable_device(ptr noundef %0) #10
+  br label %102
+
+102:                                              ; preds = %100, %12
+  %103 = phi i32 [ %101, %100 ], [ -16, %12 ]
+  store ptr null, ptr %22, align 8
+  tail call void @kfree(ptr noundef nonnull %10) #10
+  br label %104
+
+104:                                              ; preds = %102, %82, %8, %6
+  %105 = phi i32 [ %103, %102 ], [ -19, %6 ], [ -12, %8 ], [ 0, %82 ]
+  ret i32 %105
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal void @yenta_close(ptr noundef %0) #2 align 16 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 304
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  tail call void @device_remove_file(ptr noundef %4, ptr noundef nonnull @dev_attr_yenta_registers) #10
+  %5 = getelementptr inbounds i8, ptr %3, i64 64
+  tail call void @pcmcia_unregister_socket(ptr noundef %5) #10
+  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr i8, ptr %7, i64 4
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %8) #10, !srcloc !5
+  %9 = load ptr, ptr %6, align 8
+  %10 = getelementptr i8, ptr %9, i64 4
+  %11 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10) #10, !srcloc !6
+  %12 = load ptr, ptr %6, align 8
+  %13 = getelementptr i8, ptr %12, i64 2053
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %13) #10, !srcloc !7
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr i8, ptr %14, i64 2053
+  %16 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %15) #10, !srcloc !8
+  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %22, label %20
+
+20:                                               ; preds = %1
+  %21 = tail call ptr @free_irq(i32 noundef %18, ptr noundef %3) #10
+  br label %25
+
+22:                                               ; preds = %1
+  %23 = getelementptr inbounds i8, ptr %3, i64 24
+  %24 = tail call i32 @timer_shutdown_sync(ptr noundef %23) #10
+  br label %25
+
+25:                                               ; preds = %22, %20
+  %26 = load ptr, ptr %6, align 8
+  tail call void @iounmap(ptr noundef %26) #10
+  tail call fastcc void @yenta_free_resources(ptr noundef %3)
+  tail call void @pci_release_regions(ptr noundef %0) #10
+  tail call void @pci_disable_device(ptr noundef %0) #10
+  store ptr null, ptr %2, align 8
+  tail call void @kfree(ptr noundef %3) #10
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+
+; Function Attrs: cold null_pointer_is_valid
+declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @pci_enable_device(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @pci_request_regions(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local ptr @ioremap(i64 noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: cold null_pointer_is_valid
+declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc void @yenta_config_init(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+  %2 = alloca i16, align 2
+  %3 = alloca %struct.pci_bus_region, align 8
+  %4 = load ptr, ptr %0, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !9
+  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %4, i64 920
+  call void @pcibios_resource_to_bus(ptr noundef %6, ptr noundef nonnull %3, ptr noundef %7) #10
+  %8 = load ptr, ptr %0, align 8
+  %9 = call i32 @pci_write_config_dword(ptr noundef %8, i32 noundef 68, i32 noundef 0) #10
+  %10 = load i64, ptr %3, align 8
+  %11 = trunc i64 %10 to i32
+  %12 = load ptr, ptr %0, align 8
+  %13 = call i32 @pci_write_config_dword(ptr noundef %12, i32 noundef 16, i32 noundef %11) #10
+  %14 = load ptr, ptr %0, align 8
+  %15 = call i32 @pci_write_config_word(ptr noundef %14, i32 noundef 4, i16 noundef zeroext 135) #10
+  %16 = load ptr, ptr %0, align 8
+  %17 = call i32 @pci_write_config_byte(ptr noundef %16, i32 noundef 12, i8 noundef zeroext 16) #10
+  %18 = load ptr, ptr %0, align 8
+  %19 = call i32 @pci_write_config_byte(ptr noundef %18, i32 noundef 13, i8 noundef zeroext -88) #10
+  %20 = getelementptr inbounds i8, ptr %4, i64 24
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 128
+  %23 = getelementptr inbounds i8, ptr %21, i64 136
+  %24 = load i64, ptr %23, align 8
+  %25 = trunc i64 %24 to i32
+  %26 = shl i32 %25, 16
+  %27 = load i64, ptr %22, align 8
+  %28 = trunc i64 %27 to i32
+  %29 = shl i32 %28, 8
+  %30 = getelementptr inbounds i8, ptr %21, i64 217
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i32
+  %33 = or i32 %26, %29
+  %34 = or disjoint i32 %33, %32
+  %35 = or i32 %34, -1342177280
+  %36 = load ptr, ptr %0, align 8
+  %37 = call i32 @pci_write_config_dword(ptr noundef %36, i32 noundef 24, i32 noundef %35) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #10
+  store i16 0, ptr %2, align 2, !annotation !9
+  %38 = load ptr, ptr %0, align 8
+  %39 = call i32 @pci_read_config_word(ptr noundef %38, i32 noundef 62, ptr noundef nonnull %2) #10
+  %40 = load i16, ptr %2, align 2
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #10
+  %41 = and i16 %40, -1869
+  %42 = or disjoint i16 %41, 1280
+  %43 = load ptr, ptr %0, align 8
+  %44 = call i32 @pci_write_config_word(ptr noundef %43, i32 noundef 62, i16 noundef zeroext %42) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc void @yenta_allocate_resources(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+  %2 = tail call fastcc i32 @yenta_allocate_res(ptr noundef %0, i32 noundef 7, i32 noundef 256, i32 noundef 44, i32 noundef 48), !range !10
+  %3 = tail call fastcc i32 @yenta_allocate_res(ptr noundef %0, i32 noundef 8, i32 noundef 256, i32 noundef 52, i32 noundef 56), !range !10
+  %4 = add nuw nsw i32 %3, %2
+  %5 = tail call fastcc i32 @yenta_allocate_res(ptr noundef %0, i32 noundef 9, i32 noundef 8704, i32 noundef 28, i32 noundef 32), !range !10
+  %6 = add nuw nsw i32 %4, %5
+  %7 = tail call fastcc i32 @yenta_allocate_res(ptr noundef %0, i32 noundef 10, i32 noundef 512, i32 noundef 36, i32 noundef 40), !range !10
+  %8 = sub nsw i32 0, %7
+  %9 = icmp eq i32 %6, %8
+  br i1 %9, label %14, label %10
+
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %0, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = load ptr, ptr %12, align 8
+  tail call void @pci_setup_cardbus(ptr noundef %13) #10
+  br label %14
+
+14:                                               ; preds = %10, %1
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @yenta_interrupt(i32 %0, ptr noundef %1) #2 align 16 {
+  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #10, !srcloc !6
+  %6 = load ptr, ptr %3, align 8
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %5, ptr elementtype(i32) %6) #10, !srcloc !5
+  %7 = load ptr, ptr %3, align 8
+  %8 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7) #10, !srcloc !6
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr i8, ptr %9, i64 2052
+  %11 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %10) #10, !srcloc !8
+  %12 = icmp ne i32 %5, 0
+  %13 = icmp ne i8 %11, 0
+  %14 = select i1 %12, i1 true, i1 %13
+  br i1 %14, label %15, label %35
+
+15:                                               ; preds = %2
+  %16 = zext i8 %11 to i32
+  %17 = and i32 %5, 6
+  %18 = icmp eq i32 %17, 0
+  %19 = shl nuw nsw i32 %16, 4
+  %20 = and i32 %19, 128
+  %21 = select i1 %18, i32 %20, i32 128
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr i8, ptr %22, i64 2051
+  %24 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %23) #10, !srcloc !8
+  %25 = and i8 %24, 32
+  %26 = icmp eq i8 %25, 0
+  %27 = shl nuw nsw i32 %16, 10
+  %28 = and i32 %27, 1024
+  %29 = and i32 %19, 112
+  %30 = select i1 %26, i32 %29, i32 %28
+  %31 = or disjoint i32 %21, %30
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %35, label %33
+
+33:                                               ; preds = %15
+  %34 = getelementptr inbounds i8, ptr %1, i64 64
+  tail call void @pcmcia_parse_events(ptr noundef %34, i32 noundef %31) #10
+  br label %35
+
+35:                                               ; preds = %33, %15, %2
+  %36 = phi i32 [ 0, %2 ], [ 1, %33 ], [ 1, %15 ]
+  ret i32 %36
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal void @yenta_interrupt_wrapper(ptr noundef %0) #2 align 16 {
+  %2 = getelementptr i8, ptr %0, i64 -8
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3) #10, !srcloc !6
+  %5 = load ptr, ptr %2, align 8
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %4, ptr elementtype(i32) %5) #10, !srcloc !5
+  %6 = load ptr, ptr %2, align 8
+  %7 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #10, !srcloc !6
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr i8, ptr %8, i64 2052
+  %10 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9) #10, !srcloc !8
+  %11 = icmp ne i32 %4, 0
+  %12 = icmp ne i8 %10, 0
+  %13 = select i1 %11, i1 true, i1 %12
+  br i1 %13, label %14, label %34
+
+14:                                               ; preds = %1
+  %15 = zext i8 %10 to i32
+  %16 = and i32 %4, 6
+  %17 = icmp eq i32 %16, 0
+  %18 = shl nuw nsw i32 %15, 4
+  %19 = and i32 %18, 128
+  %20 = select i1 %17, i32 %19, i32 128
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr i8, ptr %21, i64 2051
+  %23 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22) #10, !srcloc !8
+  %24 = and i8 %23, 32
+  %25 = icmp eq i8 %24, 0
+  %26 = shl nuw nsw i32 %15, 10
+  %27 = and i32 %26, 1024
+  %28 = and i32 %18, 112
+  %29 = select i1 %25, i32 %28, i32 %27
+  %30 = or disjoint i32 %29, %20
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %34, label %32
+
+32:                                               ; preds = %14
+  %33 = getelementptr i8, ptr %0, i64 40
+  tail call void @pcmcia_parse_events(ptr noundef %33, i32 noundef %30) #10
+  br label %34
+
+34:                                               ; preds = %32, %14, %1
+  %35 = load volatile i64, ptr @jiffies, align 64
+  %36 = add i64 %35, 1000
+  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %36, ptr %37, align 8
+  tail call void @add_timer(ptr noundef %0) #10
+  ret void
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc void @yenta_interrogate(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr i8, ptr %3, i64 8
+  %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #10, !srcloc !6
+  %6 = and i32 %5, 15360
+  %7 = icmp eq i32 %6, 0
+  %8 = and i32 %5, 646
+  %9 = icmp ne i32 %8, 0
+  %10 = or i1 %7, %9
+  %11 = and i32 %5, 48
+  %12 = icmp eq i32 %11, 48
+  %13 = or i1 %12, %10
+  br i1 %13, label %14, label %20
+
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr i8, ptr %15, i64 12
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 16384, ptr elementtype(i32) %16) #10, !srcloc !5
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr i8, ptr %17, i64 12
+  %19 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18) #10, !srcloc !6
+  br label %20
+
+20:                                               ; preds = %14, %1
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc void @yenta_get_socket_capabilities(ptr nocapture noundef %0) unnamed_addr #2 align 16 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = load i32, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 396
+  store i32 %3, ptr %4, align 4
+  %5 = load i8, ptr @isa_probe, align 1, !range !11, !noundef !12
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %9, label %7
+
+7:                                                ; preds = %1
+  %8 = tail call fastcc i32 @yenta_probe_irq(ptr noundef %0)
+  br label %9
+
+9:                                                ; preds = %7, %1
+  %10 = phi i32 [ %8, %7 ], [ 0, %1 ]
+  %11 = getelementptr inbounds i8, ptr %0, i64 384
+  store i32 %10, ptr %11, align 8
+  %12 = load ptr, ptr %0, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 184
+  %14 = load i32, ptr %2, align 8
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %13, ptr noundef nonnull @.str.40, i32 noundef %10, i32 noundef %14) #11
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc void @yenta_fixup_parent_bridge(ptr noundef %0) unnamed_addr #2 align 16 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 136
+  %5 = load i64, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = load i64, ptr %6, align 8
+  %8 = icmp ult i64 %5, %7
+  br i1 %8, label %9, label %60
+
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %60, label %13
+
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds i8, ptr %11, i64 136
+  %15 = load i64, ptr %14, align 8
+  %16 = trunc i64 %15 to i8
+  %17 = getelementptr inbounds i8, ptr %11, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, %17
+  br i1 %19, label %34, label %20
+
+20:                                               ; preds = %20, %13
+  %21 = phi ptr [ %32, %20 ], [ %18, %13 ]
+  %22 = phi i8 [ %31, %20 ], [ %16, %13 ]
+  %23 = getelementptr inbounds i8, ptr %21, i64 128
+  %24 = load i64, ptr %23, align 8
+  %25 = icmp ule i64 %24, %5
+  %26 = zext i8 %22 to i64
+  %27 = icmp ugt i64 %24, %26
+  %28 = select i1 %25, i1 true, i1 %27
+  %29 = trunc i64 %24 to i8
+  %30 = add i8 %29, -1
+  %31 = select i1 %28, i8 %22, i8 %30
+  %32 = load ptr, ptr %21, align 8
+  %33 = icmp eq ptr %32, %17
+  br i1 %33, label %34, label %20, !llvm.loop !13
+
+34:                                               ; preds = %20, %13
+  %35 = phi i8 [ %16, %13 ], [ %31, %20 ]
+  %36 = zext i8 %35 to i64
+  %37 = icmp ugt i64 %7, %36
+  br i1 %37, label %38, label %41
+
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds i8, ptr %0, i64 280
+  %40 = zext i8 %35 to i32
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %39, ptr noundef nonnull @.str.41, i32 noundef %40) #11
+  br label %41
+
+41:                                               ; preds = %38, %34
+  %42 = load i64, ptr %4, align 8
+  %43 = icmp ult i64 %42, %36
+  br i1 %43, label %44, label %60
+
+44:                                               ; preds = %41
+  %45 = load i64, ptr %6, align 8
+  %46 = trunc i64 %45 to i32
+  %47 = zext i8 %35 to i32
+  %48 = tail call i32 @llvm.smin.i32(i32 %46, i32 %47)
+  %49 = trunc i32 %48 to i8
+  %50 = getelementptr inbounds i8, ptr %3, i64 280
+  %51 = getelementptr inbounds i8, ptr %3, i64 216
+  %52 = load i8, ptr %51, align 8
+  %53 = zext i8 %52 to i32
+  %54 = trunc i64 %42 to i32
+  %55 = and i32 %48, 255
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %50, ptr noundef nonnull @.str.42, i32 noundef %53, i32 noundef %54, i32 noundef %55) #11
+  %56 = zext nneg i32 %55 to i64
+  store i64 %56, ptr %4, align 8
+  %57 = getelementptr inbounds i8, ptr %3, i64 56
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call i32 @pci_write_config_byte(ptr noundef %58, i32 noundef 26, i8 noundef zeroext %49) #10
+  br label %60
+
+60:                                               ; preds = %44, %41, %9, %1
+  ret void
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @pcmcia_register_socket(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @device_create_file(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @pcmcia_unregister_socket(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local ptr @free_irq(i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @timer_shutdown_sync(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @iounmap(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc void @yenta_free_resources(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+  %2 = load ptr, ptr %0, align 8
+  %3 = getelementptr i8, ptr %2, i64 1368
+  %4 = load i64, ptr %3, align 8
+  %5 = icmp eq i64 %4, 0
+  br i1 %5, label %12, label %6
+
+6:                                                ; preds = %1
+  %7 = getelementptr i8, ptr %2, i64 1376
+  %8 = load i64, ptr %7, align 8
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %12, label %10
+
+10:                                               ; preds = %6
+  %11 = tail call i32 @release_resource(ptr noundef %3) #10
+  br label %12
+
+12:                                               ; preds = %10, %6, %1
+  %13 = getelementptr i8, ptr %2, i64 1392
+  store i64 0, ptr %13, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  %14 = load ptr, ptr %0, align 8
+  %15 = getelementptr i8, ptr %14, i64 1432
+  %16 = load i64, ptr %15, align 8
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %24, label %18
+
+18:                                               ; preds = %12
+  %19 = getelementptr i8, ptr %14, i64 1440
+  %20 = load i64, ptr %19, align 8
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %24, label %22
+
+22:                                               ; preds = %18
+  %23 = tail call i32 @release_resource(ptr noundef %15) #10
+  br label %24
+
+24:                                               ; preds = %22, %18, %12
+  %25 = getelementptr i8, ptr %14, i64 1456
+  store i64 0, ptr %25, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  %26 = load ptr, ptr %0, align 8
+  %27 = getelementptr i8, ptr %26, i64 1496
+  %28 = load i64, ptr %27, align 8
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %36, label %30
+
+30:                                               ; preds = %24
+  %31 = getelementptr i8, ptr %26, i64 1504
+  %32 = load i64, ptr %31, align 8
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %36, label %34
+
+34:                                               ; preds = %30
+  %35 = tail call i32 @release_resource(ptr noundef %27) #10
+  br label %36
+
+36:                                               ; preds = %34, %30, %24
+  %37 = getelementptr i8, ptr %26, i64 1520
+  store i64 0, ptr %37, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  %38 = load ptr, ptr %0, align 8
+  %39 = getelementptr i8, ptr %38, i64 1560
+  %40 = load i64, ptr %39, align 8
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %48, label %42
+
+42:                                               ; preds = %36
+  %43 = getelementptr i8, ptr %38, i64 1568
+  %44 = load i64, ptr %43, align 8
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %48, label %46
+
+46:                                               ; preds = %42
+  %47 = tail call i32 @release_resource(ptr noundef %39) #10
+  br label %48
+
+48:                                               ; preds = %46, %42, %36
+  %49 = getelementptr i8, ptr %38, i64 1584
+  store i64 0, ptr %49, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
+  ret void
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @pci_release_regions(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @pci_disable_device(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+
+; Function Attrs: null_pointer_is_valid allocsize(2)
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @yenta_sock_init(ptr noundef %0) #2 align 16 {
+  %2 = alloca %struct.resource, align 8
+  %3 = alloca %struct.pccard_io_map, align 8
+  %4 = alloca %struct.pccard_mem_map, align 8
+  %5 = getelementptr i8, ptr %0, i64 -64
+  %6 = getelementptr i8, ptr %0, i64 -48
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr i8, ptr %7, i64 2078
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %8) #10, !srcloc !7
+  %9 = load ptr, ptr %6, align 8
+  %10 = getelementptr i8, ptr %9, i64 2078
+  %11 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %10) #10, !srcloc !8
+  %12 = load ptr, ptr %6, align 8
+  %13 = getelementptr i8, ptr %12, i64 2070
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %13) #10, !srcloc !7
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr i8, ptr %14, i64 2070
+  %16 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %15) #10, !srcloc !8
+  %17 = load ptr, ptr %6, align 8
+  %18 = getelementptr i8, ptr %17, i64 8
+  %19 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18) #10, !srcloc !6
+  %20 = and i32 %19, 15360
+  %21 = icmp eq i32 %20, 0
+  %22 = and i32 %19, 646
+  %23 = icmp ne i32 %22, 0
+  %24 = or i1 %21, %23
+  %25 = and i32 %19, 48
+  %26 = icmp eq i32 %25, 48
+  %27 = or i1 %26, %24
+  br i1 %27, label %28, label %34
+
+28:                                               ; preds = %1
+  %29 = load ptr, ptr %6, align 8
+  %30 = getelementptr i8, ptr %29, i64 12
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 16384, ptr elementtype(i32) %30) #10, !srcloc !5
+  %31 = load ptr, ptr %6, align 8
+  %32 = getelementptr i8, ptr %31, i64 12
+  %33 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %32) #10, !srcloc !6
+  br label %34
+
+34:                                               ; preds = %28, %1
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
+  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 4095, ptr %35, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
+  %36 = getelementptr inbounds i8, ptr %3, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  store i64 1, ptr %36, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
+  %37 = getelementptr inbounds i8, ptr %4, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  store ptr %2, ptr %37, align 8
+  %38 = call i32 @yenta_set_socket(ptr noundef %0, ptr noundef nonnull @dead_socket)
+  br label %39
+
+39:                                               ; preds = %39, %34
+  %40 = phi i32 [ 0, %34 ], [ %43, %39 ]
+  %41 = trunc i32 %40 to i8
+  store i8 %41, ptr %3, align 8
+  %42 = call i32 @yenta_set_io_map(ptr noundef %0, ptr noundef nonnull %3), !range !16
+  %43 = add nuw nsw i32 %40, 1
+  %44 = icmp eq i32 %40, 0
+  br i1 %44, label %39, label %45, !llvm.loop !17
+
+45:                                               ; preds = %45, %39
+  %46 = phi i32 [ %49, %45 ], [ 0, %39 ]
+  %47 = trunc i32 %46 to i8
+  store i8 %47, ptr %4, align 8
+  %48 = call i32 @yenta_set_mem_map(ptr noundef %0, ptr noundef nonnull %4), !range !16
+  %49 = add nuw nsw i32 %46, 1
+  %50 = icmp eq i32 %49, 5
+  br i1 %50, label %51, label %45, !llvm.loop !18
+
+51:                                               ; preds = %45
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #10
+  %52 = getelementptr i8, ptr %0, i64 1304
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %61, label %55
+
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds i8, ptr %53, i64 24
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %61, label %59
+
+59:                                               ; preds = %55
+  %60 = call i32 %57(ptr noundef %5) #10
+  br label %61
+
+61:                                               ; preds = %59, %55, %51
+  %62 = load ptr, ptr %6, align 8
+  %63 = getelementptr i8, ptr %62, i64 4
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 6, ptr elementtype(i32) %63) #10, !srcloc !5
+  %64 = load ptr, ptr %6, align 8
+  %65 = getelementptr i8, ptr %64, i64 4
+  %66 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %65) #10, !srcloc !6
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @yenta_sock_suspend(ptr nocapture noundef readonly %0) #2 align 16 {
+  %2 = getelementptr i8, ptr %0, i64 -48
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr i8, ptr %3, i64 4
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %4) #10, !srcloc !5
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr i8, ptr %5, i64 4
+  %7 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #10, !srcloc !6
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @yenta_get_status(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+  %3 = getelementptr i8, ptr %0, i64 -48
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr i8, ptr %4, i64 8
+  %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #10, !srcloc !6
+  %7 = shl i32 %6, 1
+  %8 = and i32 %7, 12288
+  %9 = and i32 %6, 15360
+  %10 = icmp eq i32 %9, 0
+  %11 = select i1 %10, i32 16384, i32 0
+  %12 = or disjoint i32 %11, %8
+  %13 = and i32 %6, 6
+  %14 = icmp eq i32 %13, 0
+  %15 = select i1 %14, i32 0, i32 16384
+  %16 = or i32 %12, %15
+  %17 = and i32 %6, 32
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %30, label %19
+
+19:                                               ; preds = %2
+  %20 = shl i32 %6, 10
+  %21 = and i32 %20, 1024
+  %22 = select i1 %14, i32 128, i32 0
+  %23 = and i32 %6, 8
+  %24 = icmp eq i32 %23, 0
+  %25 = select i1 %24, i32 0, i32 320
+  %26 = or disjoint i32 %21, %22
+  %27 = or disjoint i32 %26, %25
+  %28 = or disjoint i32 %27, %16
+  %29 = or disjoint i32 %28, 2048
+  br label %62
+
+30:                                               ; preds = %2
+  %31 = and i32 %6, 16
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %62, label %33
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %3, align 8
+  %35 = getelementptr i8, ptr %34, i64 2049
+  %36 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35) #10, !srcloc !8
+  %37 = zext i8 %36 to i32
+  %38 = and i32 %37, 12
+  %39 = icmp eq i32 %38, 12
+  %40 = select i1 %39, i32 128, i32 0
+  %41 = load ptr, ptr %3, align 8
+  %42 = getelementptr i8, ptr %41, i64 2051
+  %43 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %42) #10, !srcloc !8
+  %44 = and i8 %43, 32
+  %45 = icmp eq i8 %44, 0
+  %46 = select i1 %45, i32 4, i32 10
+  %47 = select i1 %45, i32 48, i32 1024
+  %48 = shl nuw nsw i32 %37, %46
+  %49 = and i32 %48, %47
+  %50 = or disjoint i32 %40, %49
+  %51 = or disjoint i32 %50, %16
+  %52 = xor i32 %51, %47
+  %53 = lshr i32 %37, 4
+  %54 = and i32 %53, 1
+  %55 = shl nuw nsw i32 %37, 1
+  %56 = and i32 %55, 64
+  %57 = shl nuw nsw i32 %37, 2
+  %58 = and i32 %57, 256
+  %59 = or disjoint i32 %56, %54
+  %60 = or disjoint i32 %59, %58
+  %61 = or disjoint i32 %60, %52
+  br label %62
+
+62:                                               ; preds = %33, %30, %19
+  %63 = phi i32 [ %29, %19 ], [ %61, %33 ], [ %16, %30 ]
+  store i32 %63, ptr %1, align 4
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @yenta_set_socket(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+  %3 = alloca i16, align 2
+  %4 = getelementptr i8, ptr %0, i64 -64
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = load i8, ptr %5, align 4
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %8, label %9
+
+8:                                                ; preds = %2
+  tail call fastcc void @yenta_set_power(ptr noundef %4, ptr noundef %1)
+  br label %9
+
+9:                                                ; preds = %8, %2
+  %10 = getelementptr inbounds i8, ptr %1, i64 10
+  %11 = load i8, ptr %10, align 2
+  %12 = zext i8 %11 to i32
+  %13 = getelementptr i8, ptr %0, i64 -52
+  store i32 %12, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #10
+  store i16 0, ptr %3, align 2, !annotation !9
+  %14 = load ptr, ptr %4, align 8
+  %15 = call i32 @pci_read_config_word(ptr noundef %14, i32 noundef 62, ptr noundef nonnull %3) #10
+  %16 = load i16, ptr %3, align 2
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #10
+  %17 = and i16 %16, -193
+  %18 = getelementptr i8, ptr %0, i64 -48
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr i8, ptr %19, i64 8
+  %21 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20) #10, !srcloc !6
+  %22 = and i32 %21, 32
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %57, label %24
+
+24:                                               ; preds = %9
+  %25 = load i32, ptr %1, align 4
+  %26 = trunc i32 %25 to i16
+  %27 = and i16 %26, 64
+  %28 = or disjoint i16 %27, %17
+  %29 = load ptr, ptr %18, align 8
+  %30 = getelementptr i8, ptr %29, i64 2051
+  %31 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %30) #10, !srcloc !8
+  %32 = and i8 %31, -16
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 916
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %49
+
+37:                                               ; preds = %24
+  %38 = getelementptr i8, ptr %0, i64 -56
+  %39 = load i32, ptr %38, align 8
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %43, label %41
+
+41:                                               ; preds = %37
+  %42 = trunc i32 %39 to i8
+  br label %45
+
+43:                                               ; preds = %37
+  %44 = load i8, ptr %10, align 2
+  br label %45
+
+45:                                               ; preds = %43, %41
+  %46 = phi i8 [ %42, %41 ], [ %44, %43 ]
+  %47 = or i8 %46, %32
+  %48 = or disjoint i16 %28, 128
+  br label %49
+
+49:                                               ; preds = %45, %24
+  %50 = phi i16 [ %28, %24 ], [ %48, %45 ]
+  %51 = phi i8 [ %32, %24 ], [ %47, %45 ]
+  %52 = load ptr, ptr %18, align 8
+  %53 = getelementptr i8, ptr %52, i64 2051
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %51, ptr elementtype(i8) %53) #10, !srcloc !7
+  %54 = load ptr, ptr %18, align 8
+  %55 = getelementptr i8, ptr %54, i64 2051
+  %56 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %55) #10, !srcloc !8
+  br label %149
+
+57:                                               ; preds = %9
+  %58 = load ptr, ptr %18, align 8
+  %59 = getelementptr i8, ptr %58, i64 2051
+  %60 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %59) #10, !srcloc !8
+  %61 = and i8 %60, -112
+  %62 = load i32, ptr %1, align 4
+  %63 = trunc i32 %62 to i8
+  %64 = and i8 %63, 96
+  %65 = or disjoint i8 %64, %61
+  %66 = xor i8 %65, 64
+  %67 = load i8, ptr %10, align 2
+  %68 = zext i8 %67 to i32
+  %69 = load ptr, ptr %4, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 916
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp eq i32 %71, %68
+  %73 = or disjoint i16 %17, 128
+  %74 = select i1 %72, i16 %17, i16 %73
+  %75 = select i1 %72, i8 0, i8 %67
+  %76 = or i8 %75, %66
+  %77 = load ptr, ptr %18, align 8
+  %78 = getelementptr i8, ptr %77, i64 2051
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %76, ptr elementtype(i8) %78) #10, !srcloc !7
+  %79 = load ptr, ptr %18, align 8
+  %80 = getelementptr i8, ptr %79, i64 2051
+  %81 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %80) #10, !srcloc !8
+  %82 = load ptr, ptr %18, align 8
+  %83 = getelementptr i8, ptr %82, i64 2050
+  %84 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %83) #10, !srcloc !8
+  %85 = and i8 %84, 27
+  %86 = load i32, ptr %1, align 4
+  %87 = and i32 %86, 16
+  %88 = icmp eq i32 %87, 0
+  %89 = select i1 %88, i8 64, i8 96
+  %90 = or disjoint i8 %89, %85
+  %91 = lshr i32 %86, 2
+  %92 = trunc i32 %91 to i8
+  %93 = and i8 %92, -128
+  %94 = or disjoint i8 %90, %93
+  %95 = load ptr, ptr %18, align 8
+  %96 = getelementptr i8, ptr %95, i64 2050
+  %97 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %96) #10, !srcloc !8
+  %98 = icmp eq i8 %97, %94
+  br i1 %98, label %105, label %99
+
+99:                                               ; preds = %57
+  %100 = load ptr, ptr %18, align 8
+  %101 = getelementptr i8, ptr %100, i64 2050
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %94, ptr elementtype(i8) %101) #10, !srcloc !7
+  %102 = load ptr, ptr %18, align 8
+  %103 = getelementptr i8, ptr %102, i64 2050
+  %104 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %103) #10, !srcloc !8
+  br label %105
+
+105:                                              ; preds = %99, %57
+  %106 = load ptr, ptr %18, align 8
+  %107 = getelementptr i8, ptr %106, i64 2053
+  %108 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %107) #10, !srcloc !8
+  %109 = and i8 %108, -16
+  %110 = or disjoint i8 %109, 8
+  %111 = load i32, ptr %1, align 4
+  %112 = and i32 %111, 32
+  %113 = icmp eq i32 %112, 0
+  %114 = getelementptr inbounds i8, ptr %1, i64 4
+  %115 = load i32, ptr %114, align 4
+  %116 = or disjoint i8 %109, 9
+  br i1 %113, label %121, label %117
+
+117:                                              ; preds = %105
+  %118 = and i32 %115, 1024
+  %119 = icmp eq i32 %118, 0
+  %120 = select i1 %119, i8 %110, i8 %116
+  br label %133
+
+121:                                              ; preds = %105
+  %122 = and i32 %115, 16
+  %123 = icmp eq i32 %122, 0
+  %124 = select i1 %123, i8 %110, i8 %116
+  %125 = trunc i32 %115 to i8
+  %126 = lshr i8 %125, 4
+  %127 = and i8 %126, 2
+  %128 = or disjoint i8 %124, %127
+  %129 = trunc i32 %115 to i8
+  %130 = lshr i8 %129, 4
+  %131 = and i8 %130, 4
+  %132 = or disjoint i8 %128, %131
+  br label %133
+
+133:                                              ; preds = %121, %117
+  %134 = phi i8 [ %120, %117 ], [ %132, %121 ]
+  %135 = load ptr, ptr %18, align 8
+  %136 = getelementptr i8, ptr %135, i64 2053
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %134, ptr elementtype(i8) %136) #10, !srcloc !7
+  %137 = load ptr, ptr %18, align 8
+  %138 = getelementptr i8, ptr %137, i64 2053
+  %139 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %138) #10, !srcloc !8
+  %140 = load ptr, ptr %18, align 8
+  %141 = getelementptr i8, ptr %140, i64 2052
+  %142 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %141) #10, !srcloc !8
+  %143 = getelementptr inbounds i8, ptr %0, i64 376
+  %144 = load ptr, ptr %143, align 8
+  %145 = icmp eq ptr %144, null
+  br i1 %145, label %149, label %146
+
+146:                                              ; preds = %133
+  %147 = load i32, ptr %1, align 4
+  %148 = and i32 %147, 32768
+  call void %144(ptr noundef %0, i32 noundef %148) #10
+  br label %149
+
+149:                                              ; preds = %146, %133, %49
+  %150 = phi i16 [ %50, %49 ], [ %74, %146 ], [ %74, %133 ]
+  %151 = load ptr, ptr %4, align 8
+  %152 = call i32 @pci_write_config_word(ptr noundef %151, i32 noundef 62, i16 noundef zeroext %150) #10
+  %153 = load ptr, ptr %18, align 8
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %153) #10, !srcloc !5
+  %154 = load ptr, ptr %18, align 8
+  %155 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %154) #10, !srcloc !6
+  %156 = load ptr, ptr %18, align 8
+  %157 = getelementptr i8, ptr %156, i64 4
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 6, ptr elementtype(i32) %157) #10, !srcloc !5
+  %158 = load ptr, ptr %18, align 8
+  %159 = getelementptr i8, ptr %158, i64 4
+  %160 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %159) #10, !srcloc !6
+  %161 = load i8, ptr %5, align 4
+  %162 = icmp eq i8 %161, 0
+  br i1 %162, label %164, label %163
+
+163:                                              ; preds = %149
+  call fastcc void @yenta_set_power(ptr noundef %4, ptr noundef %1)
+  br label %164
+
+164:                                              ; preds = %163, %149
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @yenta_set_io_map(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+  %3 = load i8, ptr %1, align 8
+  %4 = zext i8 %3 to i32
+  %5 = icmp ugt i8 %3, 1
+  br i1 %5, label %116, label %6
+
+6:                                                ; preds = %2
+  %7 = shl nuw nsw i32 64, %4
+  %8 = getelementptr i8, ptr %0, i64 -48
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr i8, ptr %9, i64 2054
+  %11 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %10) #10, !srcloc !8
+  %12 = zext i8 %11 to i32
+  %13 = and i32 %7, %12
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %24, label %15
+
+15:                                               ; preds = %6
+  %16 = trunc i32 %7 to i8
+  %17 = xor i8 %16, -1
+  %18 = and i8 %11, %17
+  %19 = load ptr, ptr %8, align 8
+  %20 = getelementptr i8, ptr %19, i64 2054
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %18, ptr elementtype(i8) %20) #10, !srcloc !7
+  %21 = load ptr, ptr %8, align 8
+  %22 = getelementptr i8, ptr %21, i64 2054
+  %23 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22) #10, !srcloc !8
+  br label %24
+
+24:                                               ; preds = %15, %6
+  %25 = phi i8 [ %18, %15 ], [ %11, %6 ]
+  %26 = shl nuw nsw i32 %4, 2
+  %27 = or disjoint i32 %26, 8
+  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = load i64, ptr %28, align 8
+  %30 = trunc i64 %29 to i8
+  %31 = load ptr, ptr %8, align 8
+  %32 = getelementptr i8, ptr %31, i64 2048
+  %33 = zext nneg i32 %27 to i64
+  %34 = getelementptr i8, ptr %32, i64 %33
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %30, ptr elementtype(i8) %34) #10, !srcloc !7
+  %35 = lshr i64 %29, 8
+  %36 = trunc i64 %35 to i8
+  %37 = load ptr, ptr %8, align 8
+  %38 = getelementptr i8, ptr %37, i64 2048
+  %39 = getelementptr i8, ptr %38, i64 %33
+  %40 = getelementptr i8, ptr %39, i64 1
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %36, ptr elementtype(i8) %40) #10, !srcloc !7
+  %41 = load ptr, ptr %8, align 8
+  %42 = getelementptr i8, ptr %41, i64 2048
+  %43 = getelementptr i8, ptr %42, i64 %33
+  %44 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %43) #10, !srcloc !8
+  %45 = load ptr, ptr %8, align 8
+  %46 = getelementptr i8, ptr %45, i64 2048
+  %47 = getelementptr i8, ptr %46, i64 %33
+  %48 = getelementptr i8, ptr %47, i64 1
+  %49 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %48) #10, !srcloc !8
+  %50 = or disjoint i32 %26, 10
+  %51 = getelementptr inbounds i8, ptr %1, i64 16
+  %52 = load i64, ptr %51, align 8
+  %53 = trunc i64 %52 to i8
+  %54 = load ptr, ptr %8, align 8
+  %55 = getelementptr i8, ptr %54, i64 2048
+  %56 = zext nneg i32 %50 to i64
+  %57 = getelementptr i8, ptr %55, i64 %56
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %53, ptr elementtype(i8) %57) #10, !srcloc !7
+  %58 = lshr i64 %52, 8
+  %59 = trunc i64 %58 to i8
+  %60 = load ptr, ptr %8, align 8
+  %61 = getelementptr i8, ptr %60, i64 2048
+  %62 = getelementptr i8, ptr %61, i64 %56
+  %63 = getelementptr i8, ptr %62, i64 1
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %59, ptr elementtype(i8) %63) #10, !srcloc !7
+  %64 = load ptr, ptr %8, align 8
+  %65 = getelementptr i8, ptr %64, i64 2048
+  %66 = getelementptr i8, ptr %65, i64 %56
+  %67 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %66) #10, !srcloc !8
+  %68 = load ptr, ptr %8, align 8
+  %69 = getelementptr i8, ptr %68, i64 2048
+  %70 = getelementptr i8, ptr %69, i64 %56
+  %71 = getelementptr i8, ptr %70, i64 1
+  %72 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %71) #10, !srcloc !8
+  %73 = load ptr, ptr %8, align 8
+  %74 = getelementptr i8, ptr %73, i64 2055
+  %75 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %74) #10, !srcloc !8
+  %76 = shl nuw nsw i32 15, %26
+  %77 = trunc i32 %76 to i8
+  %78 = xor i8 %77, -1
+  %79 = and i8 %75, %78
+  %80 = getelementptr inbounds i8, ptr %1, i64 1
+  %81 = load i8, ptr %80, align 1
+  %82 = and i8 %81, 8
+  %83 = icmp eq i8 %82, 0
+  %84 = shl nuw nsw i32 4, %26
+  %85 = trunc i32 %84 to i8
+  %86 = select i1 %83, i8 0, i8 %85
+  %87 = or i8 %86, %79
+  %88 = and i8 %81, 2
+  %89 = icmp eq i8 %88, 0
+  %90 = shl nuw nsw i32 1, %26
+  %91 = trunc i32 %90 to i8
+  %92 = select i1 %89, i8 0, i8 %91
+  %93 = or i8 %87, %92
+  %94 = and i8 %81, 4
+  %95 = icmp eq i8 %94, 0
+  %96 = shl nuw nsw i32 2, %26
+  %97 = trunc i32 %96 to i8
+  %98 = select i1 %95, i8 0, i8 %97
+  %99 = or i8 %93, %98
+  %100 = load ptr, ptr %8, align 8
+  %101 = getelementptr i8, ptr %100, i64 2055
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %99, ptr elementtype(i8) %101) #10, !srcloc !7
+  %102 = load ptr, ptr %8, align 8
+  %103 = getelementptr i8, ptr %102, i64 2055
+  %104 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %103) #10, !srcloc !8
+  %105 = load i8, ptr %80, align 1
+  %106 = and i8 %105, 1
+  %107 = icmp eq i8 %106, 0
+  br i1 %107, label %116, label %108
+
+108:                                              ; preds = %24
+  %109 = trunc i32 %7 to i8
+  %110 = or i8 %25, %109
+  %111 = load ptr, ptr %8, align 8
+  %112 = getelementptr i8, ptr %111, i64 2054
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %110, ptr elementtype(i8) %112) #10, !srcloc !7
+  %113 = load ptr, ptr %8, align 8
+  %114 = getelementptr i8, ptr %113, i64 2054
+  %115 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %114) #10, !srcloc !8
+  br label %116
+
+116:                                              ; preds = %108, %24, %2
+  %117 = phi i32 [ -22, %2 ], [ 0, %108 ], [ 0, %24 ]
+  ret i32 %117
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @yenta_set_mem_map(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+  %3 = alloca %struct.pci_bus_region, align 8
+  %4 = getelementptr i8, ptr %0, i64 -64
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !9
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = load ptr, ptr %8, align 8
+  call void @pcibios_resource_to_bus(ptr noundef %7, ptr noundef nonnull %3, ptr noundef %9) #10
+  %10 = load i8, ptr %1, align 8
+  %11 = zext i8 %10 to i32
+  %12 = load i64, ptr %3, align 8
+  %13 = trunc i64 %12 to i32
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = load i64, ptr %14, align 8
+  %16 = trunc i64 %15 to i32
+  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp ult i8 %10, 5
+  %20 = icmp ule i32 %13, %16
+  %21 = select i1 %19, i1 %20, i1 false
+  %22 = xor i32 %16, %13
+  %23 = icmp ult i32 %22, 16777216
+  %24 = select i1 %21, i1 %23, i1 false
+  %25 = icmp ult i32 %18, 67108864
+  %26 = select i1 %24, i1 %25, i1 false
+  br i1 %26, label %27, label %176
+
+27:                                               ; preds = %2
+  %28 = getelementptr inbounds i8, ptr %1, i64 2
+  %29 = load i16, ptr %28, align 2
+  %30 = icmp ugt i16 %29, 1000
+  br i1 %30, label %176, label %31
+
+31:                                               ; preds = %27
+  %32 = shl nuw nsw i32 1, %11
+  %33 = getelementptr i8, ptr %0, i64 -48
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr i8, ptr %34, i64 2054
+  %36 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35) #10, !srcloc !8
+  %37 = zext i8 %36 to i32
+  %38 = and i32 %32, %37
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %49, label %40
+
+40:                                               ; preds = %31
+  %41 = trunc i32 %32 to i8
+  %42 = xor i8 %41, -1
+  %43 = and i8 %36, %42
+  %44 = load ptr, ptr %33, align 8
+  %45 = getelementptr i8, ptr %44, i64 2054
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %43, ptr elementtype(i8) %45) #10, !srcloc !7
+  %46 = load ptr, ptr %33, align 8
+  %47 = getelementptr i8, ptr %46, i64 2054
+  %48 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %47) #10, !srcloc !8
+  br label %49
+
+49:                                               ; preds = %40, %31
+  %50 = phi i8 [ %43, %40 ], [ %36, %31 ]
+  %51 = or disjoint i32 %11, 64
+  %52 = lshr i64 %12, 24
+  %53 = trunc i64 %52 to i8
+  %54 = load ptr, ptr %33, align 8
+  %55 = getelementptr i8, ptr %54, i64 2048
+  %56 = zext nneg i32 %51 to i64
+  %57 = getelementptr i8, ptr %55, i64 %56
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %53, ptr elementtype(i8) %57) #10, !srcloc !7
+  %58 = load ptr, ptr %33, align 8
+  %59 = getelementptr i8, ptr %58, i64 2048
+  %60 = getelementptr i8, ptr %59, i64 %56
+  %61 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %60) #10, !srcloc !8
+  %62 = lshr i64 %12, 12
+  %63 = trunc i64 %62 to i16
+  %64 = and i16 %63, 3840
+  %65 = getelementptr inbounds i8, ptr %1, i64 1
+  %66 = load i8, ptr %65, align 1
+  %67 = and i8 %66, 2
+  %68 = zext nneg i8 %67 to i16
+  %69 = shl nuw i16 %68, 14
+  %70 = and i8 %66, 8
+  %71 = zext nneg i8 %70 to i16
+  %72 = shl nuw nsw i16 %71, 11
+  %73 = or disjoint i16 %69, %72
+  %74 = or disjoint i16 %73, %64
+  %75 = shl nuw nsw i32 %11, 3
+  %76 = add nuw nsw i32 %75, 16
+  %77 = trunc i64 %62 to i8
+  %78 = load ptr, ptr %33, align 8
+  %79 = getelementptr i8, ptr %78, i64 2048
+  %80 = zext nneg i32 %76 to i64
+  %81 = getelementptr i8, ptr %79, i64 %80
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %77, ptr elementtype(i8) %81) #10, !srcloc !7
+  %82 = lshr exact i16 %74, 8
+  %83 = trunc i16 %82 to i8
+  %84 = load ptr, ptr %33, align 8
+  %85 = getelementptr i8, ptr %84, i64 2048
+  %86 = getelementptr i8, ptr %85, i64 %80
+  %87 = getelementptr i8, ptr %86, i64 1
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %83, ptr elementtype(i8) %87) #10, !srcloc !7
+  %88 = load ptr, ptr %33, align 8
+  %89 = getelementptr i8, ptr %88, i64 2048
+  %90 = getelementptr i8, ptr %89, i64 %80
+  %91 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %90) #10, !srcloc !8
+  %92 = load ptr, ptr %33, align 8
+  %93 = getelementptr i8, ptr %92, i64 2048
+  %94 = getelementptr i8, ptr %93, i64 %80
+  %95 = getelementptr i8, ptr %94, i64 1
+  %96 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %95) #10, !srcloc !8
+  %97 = lshr i64 %15, 12
+  %98 = trunc i64 %97 to i16
+  %99 = and i16 %98, 4095
+  %100 = load i16, ptr %28, align 2
+  %101 = udiv i16 %100, 120
+  switch i16 %101, label %106 [
+    i16 0, label %108
+    i16 1, label %102
+    i16 2, label %104
+  ]
+
+102:                                              ; preds = %49
+  %103 = or disjoint i16 %99, 16384
+  br label %108
+
+104:                                              ; preds = %49
+  %105 = or disjoint i16 %99, -32768
+  br label %108
+
+106:                                              ; preds = %49
+  %107 = or disjoint i16 %99, -16384
+  br label %108
+
+108:                                              ; preds = %106, %104, %102, %49
+  %109 = phi i16 [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %99, %49 ]
+  %110 = add nuw nsw i32 %75, 18
+  %111 = trunc i16 %109 to i8
+  %112 = load ptr, ptr %33, align 8
+  %113 = getelementptr i8, ptr %112, i64 2048
+  %114 = zext nneg i32 %110 to i64
+  %115 = getelementptr i8, ptr %113, i64 %114
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %111, ptr elementtype(i8) %115) #10, !srcloc !7
+  %116 = lshr i16 %109, 8
+  %117 = trunc i16 %116 to i8
+  %118 = load ptr, ptr %33, align 8
+  %119 = getelementptr i8, ptr %118, i64 2048
+  %120 = getelementptr i8, ptr %119, i64 %114
+  %121 = getelementptr i8, ptr %120, i64 1
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %117, ptr elementtype(i8) %121) #10, !srcloc !7
+  %122 = load ptr, ptr %33, align 8
+  %123 = getelementptr i8, ptr %122, i64 2048
+  %124 = getelementptr i8, ptr %123, i64 %114
+  %125 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %124) #10, !srcloc !8
+  %126 = load ptr, ptr %33, align 8
+  %127 = getelementptr i8, ptr %126, i64 2048
+  %128 = getelementptr i8, ptr %127, i64 %114
+  %129 = getelementptr i8, ptr %128, i64 1
+  %130 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %129) #10, !srcloc !8
+  %131 = sub i32 %18, %13
+  %132 = lshr i32 %131, 12
+  %133 = trunc i32 %132 to i16
+  %134 = and i16 %133, 16128
+  %135 = load i8, ptr %65, align 1
+  %136 = and i8 %135, 16
+  %137 = zext nneg i8 %136 to i16
+  %138 = shl nuw i16 %137, 11
+  %139 = and i8 %135, 32
+  %140 = zext nneg i8 %139 to i16
+  %141 = shl nuw nsw i16 %140, 9
+  %142 = or disjoint i16 %138, %141
+  %143 = or disjoint i16 %142, %134
+  %144 = add nuw nsw i32 %75, 20
+  %145 = trunc i32 %132 to i8
+  %146 = load ptr, ptr %33, align 8
+  %147 = getelementptr i8, ptr %146, i64 2048
+  %148 = zext nneg i32 %144 to i64
+  %149 = getelementptr i8, ptr %147, i64 %148
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %145, ptr elementtype(i8) %149) #10, !srcloc !7
+  %150 = lshr exact i16 %143, 8
+  %151 = trunc i16 %150 to i8
+  %152 = load ptr, ptr %33, align 8
+  %153 = getelementptr i8, ptr %152, i64 2048
+  %154 = getelementptr i8, ptr %153, i64 %148
+  %155 = getelementptr i8, ptr %154, i64 1
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %151, ptr elementtype(i8) %155) #10, !srcloc !7
+  %156 = load ptr, ptr %33, align 8
+  %157 = getelementptr i8, ptr %156, i64 2048
+  %158 = getelementptr i8, ptr %157, i64 %148
+  %159 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %158) #10, !srcloc !8
+  %160 = load ptr, ptr %33, align 8
+  %161 = getelementptr i8, ptr %160, i64 2048
+  %162 = getelementptr i8, ptr %161, i64 %148
+  %163 = getelementptr i8, ptr %162, i64 1
+  %164 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %163) #10, !srcloc !8
+  %165 = load i8, ptr %65, align 1
+  %166 = and i8 %165, 1
+  %167 = icmp eq i8 %166, 0
+  br i1 %167, label %176, label %168
+
+168:                                              ; preds = %108
+  %169 = trunc i32 %32 to i8
+  %170 = or i8 %50, %169
+  %171 = load ptr, ptr %33, align 8
+  %172 = getelementptr i8, ptr %171, i64 2054
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %170, ptr elementtype(i8) %172) #10, !srcloc !7
+  %173 = load ptr, ptr %33, align 8
+  %174 = getelementptr i8, ptr %173, i64 2054
+  %175 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %174) #10, !srcloc !8
+  br label %176
+
+176:                                              ; preds = %168, %108, %27, %2
+  %177 = phi i32 [ -22, %27 ], [ -22, %2 ], [ 0, %168 ], [ 0, %108 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  ret i32 %177
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc void @yenta_set_power(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 16 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr i8, ptr %4, i64 8
+  %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #10, !srcloc !6
+  %7 = and i32 %6, 32
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %9, label %56
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds i8, ptr %0, i64 1376
+  %11 = load i32, ptr %10, align 8
+  %12 = and i32 %11, 1
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %56, label %14
+
+14:                                               ; preds = %9
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr i8, ptr %15, i64 2050
+  %17 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %16) #10, !srcloc !8
+  %18 = and i8 %17, -32
+  %19 = load i32, ptr %10, align 8
+  %20 = and i32 %19, 2
+  %21 = icmp eq i32 %20, 0
+  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = load i8, ptr %22, align 4
+  br i1 %21, label %37, label %24
+
+24:                                               ; preds = %14
+  switch i8 %23, label %29 [
+    i8 33, label %25
+    i8 50, label %27
+  ]
+
+25:                                               ; preds = %24
+  %26 = or disjoint i8 %18, 24
+  br label %29
+
+27:                                               ; preds = %24
+  %28 = or disjoint i8 %18, 16
+  br label %29
+
+29:                                               ; preds = %27, %25, %24
+  %30 = phi i8 [ %28, %27 ], [ %26, %25 ], [ 0, %24 ]
+  %31 = getelementptr inbounds i8, ptr %1, i64 9
+  %32 = load i8, ptr %31, align 1
+  switch i8 %32, label %47 [
+    i8 33, label %33
+    i8 50, label %33
+    i8 120, label %35
+  ]
+
+33:                                               ; preds = %29, %29
+  %34 = or i8 %30, 1
+  br label %47
+
+35:                                               ; preds = %29
+  %36 = or i8 %30, 2
+  br label %47
+
+37:                                               ; preds = %14
+  %38 = icmp eq i8 %23, 50
+  %39 = or disjoint i8 %18, 16
+  %40 = select i1 %38, i8 %39, i8 0
+  %41 = getelementptr inbounds i8, ptr %1, i64 9
+  %42 = load i8, ptr %41, align 1
+  switch i8 %42, label %47 [
+    i8 50, label %43
+    i8 120, label %45
+  ]
+
+43:                                               ; preds = %37
+  %44 = or disjoint i8 %40, 5
+  br label %47
+
+45:                                               ; preds = %37
+  %46 = or disjoint i8 %40, 10
+  br label %47
+
+47:                                               ; preds = %45, %43, %37, %35, %33, %29
+  %48 = phi i8 [ %30, %29 ], [ %36, %35 ], [ %34, %33 ], [ %40, %37 ], [ %46, %45 ], [ %44, %43 ]
+  %49 = icmp eq i8 %48, %17
+  br i1 %49, label %83, label %50
+
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %3, align 8
+  %52 = getelementptr i8, ptr %51, i64 2050
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %48, ptr elementtype(i8) %52) #10, !srcloc !7
+  %53 = load ptr, ptr %3, align 8
+  %54 = getelementptr i8, ptr %53, i64 2050
+  %55 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %54) #10, !srcloc !8
+  br label %83
+
+56:                                               ; preds = %9, %2
+  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = load i8, ptr %57, align 4
+  %59 = icmp eq i8 %58, 50
+  %60 = select i1 %59, i32 32, i32 0
+  %61 = icmp eq i8 %58, 33
+  %62 = select i1 %61, i32 48, i32 %60
+  %63 = getelementptr inbounds i8, ptr %1, i64 9
+  %64 = load i8, ptr %63, align 1
+  switch i8 %64, label %71 [
+    i8 33, label %65
+    i8 50, label %67
+    i8 120, label %69
+  ]
+
+65:                                               ; preds = %56
+  %66 = or disjoint i32 %62, 3
+  br label %71
+
+67:                                               ; preds = %56
+  %68 = or disjoint i32 %62, 2
+  br label %71
+
+69:                                               ; preds = %56
+  %70 = or disjoint i32 %62, 1
+  br label %71
+
+71:                                               ; preds = %69, %67, %65, %56
+  %72 = phi i32 [ %62, %56 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ]
+  %73 = load ptr, ptr %3, align 8
+  %74 = getelementptr i8, ptr %73, i64 16
+  %75 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %74) #10, !srcloc !6
+  %76 = icmp eq i32 %72, %75
+  br i1 %76, label %83, label %77
+
+77:                                               ; preds = %71
+  %78 = load ptr, ptr %3, align 8
+  %79 = getelementptr i8, ptr %78, i64 16
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %72, ptr elementtype(i32) %79) #10, !srcloc !5
+  %80 = load ptr, ptr %3, align 8
+  %81 = getelementptr i8, ptr %80, i64 16
+  %82 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %81) #10, !srcloc !6
+  br label %83
+
+83:                                               ; preds = %77, %71, %50, %47
+  ret void
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @pci_read_config_word(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @pci_write_config_word(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @pcibios_resource_to_bus(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @pci_write_config_dword(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @pci_write_config_byte(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc noundef i32 @yenta_allocate_res(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 align 16 {
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca %struct.pci_bus_region, align 8
+  %9 = load ptr, ptr %0, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !9
+  %10 = getelementptr inbounds i8, ptr %9, i64 920
+  %11 = zext nneg i32 %1 to i64
+  %12 = getelementptr [11 x %struct.resource], ptr %10, i64 0, i64 %11
+  %13 = getelementptr inbounds i8, ptr %12, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %86
+
+16:                                               ; preds = %5
+  %17 = and i32 %2, 256
+  %18 = icmp eq i32 %17, 0
+  %19 = select i1 %18, i32 -4096, i32 -4
+  %20 = getelementptr inbounds i8, ptr %9, i64 24
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 220
+  %23 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr %22, ptr %23, align 8
+  %24 = zext nneg i32 %2 to i64
+  %25 = getelementptr inbounds i8, ptr %12, i64 24
+  store i64 %24, ptr %25, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
+  store i32 0, ptr %7, align 4, !annotation !9
+  %26 = load ptr, ptr %0, align 8
+  %27 = call i32 @pci_read_config_dword(ptr noundef %26, i32 noundef %3, ptr noundef nonnull %7) #10
+  %28 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
+  %29 = and i32 %28, %19
+  %30 = zext i32 %29 to i64
+  store i64 %30, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  store i32 0, ptr %6, align 4, !annotation !9
+  %31 = load ptr, ptr %0, align 8
+  %32 = call i32 @pci_read_config_dword(ptr noundef %31, i32 noundef %4, ptr noundef nonnull %6) #10
+  %33 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  %34 = xor i32 %19, -1
+  %35 = or i32 %33, %34
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 %36, ptr %37, align 8
+  %38 = load i64, ptr %8, align 8
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %52, label %40
+
+40:                                               ; preds = %16
+  %41 = icmp uge i64 %38, %36
+  %42 = load i32, ptr @override_bios, align 4
+  %43 = icmp ne i32 %42, 0
+  %44 = select i1 %41, i1 true, i1 %43
+  br i1 %44, label %52, label %45
+
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds i8, ptr %9, i64 16
+  %47 = load ptr, ptr %46, align 8
+  call void @pcibios_bus_to_resource(ptr noundef %47, ptr noundef %12, ptr noundef nonnull %8) #10
+  %48 = call i32 @pci_claim_resource(ptr noundef %9, i32 noundef %1) #10
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %86, label %50
+
+50:                                               ; preds = %45
+  %51 = getelementptr inbounds i8, ptr %9, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %51, ptr noundef nonnull @.str.10, i32 noundef %1) #11
+  br label %52
+
+52:                                               ; preds = %50, %40, %16
+  br i1 %18, label %62, label %53
+
+53:                                               ; preds = %52
+  %54 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 512), !range !10
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %86
+
+56:                                               ; preds = %53
+  %57 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 256), !range !10
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %86
+
+59:                                               ; preds = %56
+  %60 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 32), !range !10
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %84, label %86
+
+62:                                               ; preds = %52
+  %63 = and i32 %2, 8192
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %75, label %65
+
+65:                                               ; preds = %62
+  %66 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 4194304), !range !10
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %68, label %86
+
+68:                                               ; preds = %65
+  %69 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 131072), !range !10
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %86
+
+71:                                               ; preds = %68
+  %72 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 16384), !range !10
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %86
+
+74:                                               ; preds = %71
+  store i64 512, ptr %25, align 8
+  br label %75
+
+75:                                               ; preds = %74, %62
+  %76 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 4194304), !range !10
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %86
+
+78:                                               ; preds = %75
+  %79 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 131072), !range !10
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %86
+
+81:                                               ; preds = %78
+  %82 = call fastcc i32 @yenta_search_res(ptr noundef %0, ptr noundef %12, i32 noundef 16384), !range !10
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %86
+
+84:                                               ; preds = %81, %59
+  %85 = getelementptr inbounds i8, ptr %9, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %85, ptr noundef nonnull @.str.11, i32 noundef %2) #11
+  store i64 0, ptr %25, align 8
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  br label %86
+
+86:                                               ; preds = %84, %81, %78, %75, %71, %68, %65, %59, %56, %53, %45, %5
+  %87 = phi i32 [ 0, %84 ], [ 0, %5 ], [ 0, %45 ], [ 1, %59 ], [ 1, %56 ], [ 1, %53 ], [ 1, %71 ], [ 1, %68 ], [ 1, %65 ], [ 1, %81 ], [ 1, %78 ], [ 1, %75 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  ret i32 %87
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @pci_setup_cardbus(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @pcibios_bus_to_resource(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @pci_claim_resource(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc noundef i32 @yenta_search_res(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+  %4 = load ptr, ptr %0, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call ptr @pci_bus_resource_n(ptr noundef %6, i32 noundef 0) #10
+  %8 = icmp ne ptr %7, null
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  br label %10
+
+10:                                               ; preds = %64, %3
+  %11 = phi i1 [ %8, %3 ], [ %70, %64 ]
+  %12 = phi ptr [ %7, %3 ], [ %69, %64 ]
+  %13 = phi i32 [ 0, %3 ], [ %65, %64 ]
+  br i1 %11, label %14, label %64
+
+14:                                               ; preds = %10
+  %15 = load i64, ptr %9, align 8
+  %16 = getelementptr inbounds i8, ptr %12, i64 24
+  %17 = load i64, ptr %16, align 8
+  %18 = xor i64 %17, %15
+  %19 = and i64 %18, 8960
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %21, label %64
+
+21:                                               ; preds = %14
+  %22 = and i64 %15, 256
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %24, label %49
+
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds i8, ptr %12, i64 8
+  %26 = load i64, ptr %25, align 8
+  %27 = load i64, ptr %12, align 8
+  %28 = sub i64 %26, %27
+  %29 = icmp ult i64 %28, 33554432
+  br i1 %29, label %30, label %44
+
+30:                                               ; preds = %24
+  %31 = add nuw nsw i64 %28, 1
+  %32 = lshr i64 %31, 3
+  %33 = trunc i64 %32 to i32
+  %34 = icmp ult i32 %33, 2
+  br i1 %34, label %41, label %35
+
+35:                                               ; preds = %35, %30
+  %36 = phi i32 [ %39, %35 ], [ 0, %30 ]
+  %37 = phi i32 [ %38, %35 ], [ %33, %30 ]
+  %38 = lshr i32 %37, 1
+  %39 = add nuw nsw i32 %36, 1
+  %40 = icmp ult i32 %37, 4
+  br i1 %40, label %41, label %35, !llvm.loop !19
+
+41:                                               ; preds = %35, %30
+  %42 = phi i32 [ 0, %30 ], [ %39, %35 ]
+  %43 = shl nuw i32 1, %42
+  br label %44
+
+44:                                               ; preds = %41, %24
+  %45 = phi i32 [ %43, %41 ], [ 4194304, %24 ]
+  %46 = tail call i32 @llvm.umax.i32(i32 %45, i32 %2)
+  %47 = load i64, ptr @pci_mem_start, align 8
+  %48 = and i64 %47, 4294967295
+  br label %49
+
+49:                                               ; preds = %44, %21
+  %50 = phi i32 [ %46, %44 ], [ 1024, %21 ]
+  %51 = phi i32 [ %46, %44 ], [ 512, %21 ]
+  %52 = phi i64 [ %48, %44 ], [ 16384, %21 ]
+  br label %53
+
+53:                                               ; preds = %53, %49
+  %54 = phi i32 [ %50, %49 ], [ %60, %53 ]
+  %55 = phi i32 [ %51, %49 ], [ %60, %53 ]
+  %56 = zext i32 %55 to i64
+  %57 = zext i32 %54 to i64
+  %58 = tail call i32 @allocate_resource(ptr noundef nonnull %12, ptr noundef %1, i64 noundef %56, i64 noundef %52, i64 noundef 4294967295, i64 noundef %57, ptr noundef null, ptr noundef null) #10
+  %59 = icmp eq i32 %58, 0
+  %60 = lshr i32 %55, 1
+  %61 = icmp ult i32 %60, %2
+  %62 = or i1 %59, %61
+  br i1 %62, label %63, label %53, !llvm.loop !20
+
+63:                                               ; preds = %53
+  br i1 %59, label %73, label %64
+
+64:                                               ; preds = %63, %14, %10
+  %65 = add i32 %13, 1
+  %66 = load ptr, ptr %0, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %68 = load ptr, ptr %67, align 8
+  %69 = tail call ptr @pci_bus_resource_n(ptr noundef %68, i32 noundef %65) #10
+  %70 = icmp ne ptr %69, null
+  %71 = icmp slt i32 %65, 4
+  %72 = or i1 %71, %70
+  br i1 %72, label %10, label %73, !llvm.loop !21
+
+73:                                               ; preds = %64, %63
+  %74 = phi i32 [ 1, %63 ], [ 0, %64 ]
+  ret i32 %74
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @pci_read_config_dword(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local ptr @pci_bus_resource_n(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @allocate_resource(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @ti_override(ptr nocapture noundef %0) #2 align 16 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr i8, ptr %3, i64 2051
+  %5 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4) #10, !srcloc !8
+  %6 = and i8 %5, -17
+  %7 = icmp eq i8 %6, %5
+  br i1 %7, label %14, label %8
+
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr i8, ptr %9, i64 2051
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %6, ptr elementtype(i8) %10) #10, !srcloc !7
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr i8, ptr %11, i64 2051
+  %13 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %12) #10, !srcloc !8
+  br label %14
+
+14:                                               ; preds = %8, %1
+  %15 = load ptr, ptr %0, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 60
+  %17 = load i16, ptr %16, align 4
+  %18 = icmp eq i16 %17, 4172
+  br i1 %18, label %19, label %26
+
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %15, i64 62
+  %21 = load i16, ptr %20, align 2
+  switch i16 %21, label %26 [
+    i16 -21481, label %23
+    i16 -21479, label %23
+    i16 -21476, label %23
+    i16 -21436, label %23
+    i16 -21482, label %22
+    i16 -21475, label %22
+    i16 -21473, label %22
+    i16 -21477, label %22
+  ]
+
+22:                                               ; preds = %19, %19, %19, %19
+  br label %23
+
+23:                                               ; preds = %22, %19, %19, %19, %19
+  %24 = phi ptr [ @ti1250_zoom_video, %22 ], [ @ti_zoom_video, %19 ], [ @ti_zoom_video, %19 ], [ @ti_zoom_video, %19 ], [ @ti_zoom_video, %19 ]
+  %25 = getelementptr inbounds i8, ptr %0, i64 440
+  store ptr %24, ptr %25, align 8
+  br label %26
+
+26:                                               ; preds = %23, %19, %14
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal void @ti_save_state(ptr nocapture noundef %0) #2 align 16 {
+  %2 = alloca i8, align 1
+  %3 = alloca i8, align 1
+  %4 = alloca i8, align 1
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
+  store i32 0, ptr %7, align 4, !annotation !9
+  %8 = load ptr, ptr %0, align 8
+  %9 = call i32 @pci_read_config_dword(ptr noundef %8, i32 noundef 128, ptr noundef nonnull %7) #10
+  %10 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
+  %11 = getelementptr inbounds i8, ptr %0, i64 1384
+  store i32 %10, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  store i32 0, ptr %6, align 4, !annotation !9
+  %12 = load ptr, ptr %0, align 8
+  %13 = call i32 @pci_read_config_dword(ptr noundef %12, i32 noundef 140, ptr noundef nonnull %6) #10
+  %14 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  %15 = getelementptr i8, ptr %0, i64 1400
+  store i32 %14, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #10
+  store i8 0, ptr %5, align 1, !annotation !9
+  %16 = load ptr, ptr %0, align 8
+  %17 = call i32 @pci_read_config_byte(ptr noundef %16, i32 noundef 145, ptr noundef nonnull %5) #10
+  %18 = load i8, ptr %5, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
+  %19 = zext i8 %18 to i32
+  %20 = getelementptr i8, ptr %0, i64 1388
+  store i32 %19, ptr %20, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #10
+  store i8 0, ptr %4, align 1, !annotation !9
+  %21 = load ptr, ptr %0, align 8
+  %22 = call i32 @pci_read_config_byte(ptr noundef %21, i32 noundef 146, ptr noundef nonnull %4) #10
+  %23 = load i8, ptr %4, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
+  %24 = zext i8 %23 to i32
+  %25 = getelementptr i8, ptr %0, i64 1392
+  store i32 %24, ptr %25, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  store i8 0, ptr %3, align 1, !annotation !9
+  %26 = load ptr, ptr %0, align 8
+  %27 = call i32 @pci_read_config_byte(ptr noundef %26, i32 noundef 147, ptr noundef nonnull %3) #10
+  %28 = load i8, ptr %3, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  %29 = zext i8 %28 to i32
+  %30 = getelementptr i8, ptr %0, i64 1396
+  store i32 %29, ptr %30, align 4
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 60
+  %33 = load i16, ptr %32, align 4
+  %34 = icmp eq i16 %33, 5412
+  br i1 %34, label %35, label %40
+
+35:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #10
+  store i8 0, ptr %2, align 1, !annotation !9
+  %36 = call i32 @pci_read_config_byte(ptr noundef %31, i32 noundef 201, ptr noundef nonnull %2) #10
+  %37 = load i8, ptr %2, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
+  %38 = zext i8 %37 to i32
+  %39 = getelementptr i8, ptr %0, i64 1404
+  store i32 %38, ptr %39, align 4
+  br label %40
+
+40:                                               ; preds = %35, %1
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal void @ti_restore_state(ptr nocapture noundef readonly %0) #2 align 16 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 1384
+  %3 = load i32, ptr %2, align 8
+  %4 = load ptr, ptr %0, align 8
+  %5 = tail call i32 @pci_write_config_dword(ptr noundef %4, i32 noundef 128, i32 noundef %3) #10
+  %6 = getelementptr i8, ptr %0, i64 1400
+  %7 = load i32, ptr %6, align 8
+  %8 = load ptr, ptr %0, align 8
+  %9 = tail call i32 @pci_write_config_dword(ptr noundef %8, i32 noundef 140, i32 noundef %7) #10
+  %10 = getelementptr i8, ptr %0, i64 1388
+  %11 = load i32, ptr %10, align 4
+  %12 = trunc i32 %11 to i8
+  %13 = load ptr, ptr %0, align 8
+  %14 = tail call i32 @pci_write_config_byte(ptr noundef %13, i32 noundef 145, i8 noundef zeroext %12) #10
+  %15 = getelementptr i8, ptr %0, i64 1392
+  %16 = load i32, ptr %15, align 8
+  %17 = trunc i32 %16 to i8
+  %18 = load ptr, ptr %0, align 8
+  %19 = tail call i32 @pci_write_config_byte(ptr noundef %18, i32 noundef 146, i8 noundef zeroext %17) #10
+  %20 = getelementptr i8, ptr %0, i64 1396
+  %21 = load i32, ptr %20, align 4
+  %22 = trunc i32 %21 to i8
+  %23 = load ptr, ptr %0, align 8
+  %24 = tail call i32 @pci_write_config_byte(ptr noundef %23, i32 noundef 147, i8 noundef zeroext %22) #10
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 60
+  %27 = load i16, ptr %26, align 4
+  %28 = icmp eq i16 %27, 5412
+  br i1 %28, label %29, label %34
+
+29:                                               ; preds = %1
+  %30 = getelementptr i8, ptr %0, i64 1404
+  %31 = load i32, ptr %30, align 4
+  %32 = trunc i32 %31 to i8
+  %33 = tail call i32 @pci_write_config_byte(ptr noundef %25, i32 noundef 201, i8 noundef zeroext %32) #10
+  br label %34
+
+34:                                               ; preds = %29, %1
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @ti_init(ptr nocapture noundef readonly %0) #2 align 16 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr i8, ptr %3, i64 2051
+  %5 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4) #10, !srcloc !8
+  %6 = and i8 %5, -17
+  %7 = load ptr, ptr %0, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 916
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp eq i32 %9, 0
+  %11 = select i1 %10, i8 0, i8 16
+  %12 = or disjoint i8 %11, %6
+  %13 = icmp eq i8 %12, %5
+  br i1 %13, label %20, label %14
+
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr i8, ptr %15, i64 2051
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %12, ptr elementtype(i8) %16) #10, !srcloc !7
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr i8, ptr %17, i64 2051
+  %19 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %18) #10, !srcloc !8
+  br label %20
+
+20:                                               ; preds = %14, %1
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @ti113x_override(ptr nocapture noundef %0) #2 align 16 {
+  %2 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #10
+  store i8 0, ptr %2, align 1, !annotation !9
+  %3 = load ptr, ptr %0, align 8
+  %4 = call i32 @pci_read_config_byte(ptr noundef %3, i32 noundef 145, ptr noundef nonnull %2) #10
+  %5 = load i8, ptr %2, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
+  %6 = load ptr, ptr %0, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 916
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %12, label %10
+
+10:                                               ; preds = %1
+  %11 = or i8 %5, 56
+  br label %46
+
+12:                                               ; preds = %1
+  %13 = and i8 %5, -57
+  %14 = load i8, ptr @isa_probe, align 1, !range !11, !noundef !12
+  %15 = icmp eq i8 %14, 0
+  br i1 %15, label %46, label %16
+
+16:                                               ; preds = %12
+  %17 = call fastcc i32 @yenta_probe_irq(ptr noundef %0)
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %46, label %19
+
+19:                                               ; preds = %19, %16
+  %20 = phi i32 [ %22, %19 ], [ %17, %16 ]
+  %21 = phi i32 [ %23, %19 ], [ -1, %16 ]
+  %22 = lshr i32 %20, 1
+  %23 = add nsw i32 %21, 1
+  %24 = icmp ult i32 %20, 2
+  br i1 %24, label %25, label %19, !llvm.loop !22
+
+25:                                               ; preds = %19
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %23, ptr %26, align 8
+  %27 = trunc i32 %23 to i8
+  %28 = shl i8 %27, 4
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr i8, ptr %30, i64 2053
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %28, ptr elementtype(i8) %31) #10, !srcloc !7
+  %32 = load ptr, ptr %29, align 8
+  %33 = getelementptr i8, ptr %32, i64 2053
+  %34 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %33) #10, !srcloc !8
+  %35 = load ptr, ptr %29, align 8
+  %36 = getelementptr i8, ptr %35, i64 2051
+  %37 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %36) #10, !srcloc !8
+  %38 = and i8 %37, -32
+  %39 = load ptr, ptr %29, align 8
+  %40 = getelementptr i8, ptr %39, i64 2051
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %38, ptr elementtype(i8) %40) #10, !srcloc !7
+  %41 = load ptr, ptr %29, align 8
+  %42 = getelementptr i8, ptr %41, i64 2051
+  %43 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %42) #10, !srcloc !8
+  %44 = load ptr, ptr %0, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %45, ptr noundef nonnull @.str.12, i32 noundef %23) #11
+  br label %46
+
+46:                                               ; preds = %25, %16, %12, %10
+  %47 = phi i8 [ %11, %10 ], [ %13, %12 ], [ %13, %16 ], [ %13, %25 ]
+  %48 = load ptr, ptr %0, align 8
+  %49 = call i32 @pci_write_config_byte(ptr noundef %48, i32 noundef 145, i8 noundef zeroext %47) #10
+  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr i8, ptr %51, i64 2051
+  %53 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %52) #10, !srcloc !8
+  %54 = and i8 %53, -17
+  %55 = icmp eq i8 %54, %53
+  br i1 %55, label %62, label %56
+
+56:                                               ; preds = %46
+  %57 = load ptr, ptr %50, align 8
+  %58 = getelementptr i8, ptr %57, i64 2051
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %54, ptr elementtype(i8) %58) #10, !srcloc !7
+  %59 = load ptr, ptr %50, align 8
+  %60 = getelementptr i8, ptr %59, i64 2051
+  %61 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %60) #10, !srcloc !8
+  br label %62
+
+62:                                               ; preds = %56, %46
+  %63 = load ptr, ptr %0, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 60
+  %65 = load i16, ptr %64, align 4
+  %66 = icmp eq i16 %65, 4172
+  br i1 %66, label %67, label %74
+
+67:                                               ; preds = %62
+  %68 = getelementptr inbounds i8, ptr %63, i64 62
+  %69 = load i16, ptr %68, align 2
+  switch i16 %69, label %74 [
+    i16 -21481, label %71
+    i16 -21479, label %71
+    i16 -21476, label %71
+    i16 -21436, label %71
+    i16 -21482, label %70
+    i16 -21475, label %70
+    i16 -21473, label %70
+    i16 -21477, label %70
+  ]
+
+70:                                               ; preds = %67, %67, %67, %67
+  br label %71
+
+71:                                               ; preds = %70, %67, %67, %67, %67
+  %72 = phi ptr [ @ti1250_zoom_video, %70 ], [ @ti_zoom_video, %67 ], [ @ti_zoom_video, %67 ], [ @ti_zoom_video, %67 ], [ @ti_zoom_video, %67 ]
+  %73 = getelementptr inbounds i8, ptr %0, i64 440
+  store ptr %72, ptr %73, align 8
+  br label %74
+
+74:                                               ; preds = %71, %67, %62
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
+  %2 = alloca i32, align 4
+  %3 = alloca i8, align 1
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  %9 = alloca i32, align 4
+  %10 = alloca i8, align 1
+  %11 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #10
+  store i32 0, ptr %11, align 4, !annotation !9
+  %12 = load ptr, ptr %0, align 8
+  %13 = call i32 @pci_read_config_dword(ptr noundef %12, i32 noundef 128, ptr noundef nonnull %11) #10
+  %14 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #10
+  %15 = load i8, ptr @disable_clkrun, align 1, !range !11, !noundef !12
+  %16 = icmp eq i8 %15, 0
+  br i1 %16, label %26, label %17
+
+17:                                               ; preds = %1
+  %18 = load ptr, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 56
+  %20 = load i32, ptr %19, align 8
+  %21 = and i32 %20, 7
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %26
+
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds i8, ptr %18, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.13) #11
+  %25 = or i32 %14, 2
+  br label %26
+
+26:                                               ; preds = %23, %17, %1
+  %27 = phi i32 [ %25, %23 ], [ %14, %17 ], [ %14, %1 ]
+  %28 = and i32 %27, 16384
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %34
+
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %32, ptr noundef nonnull @.str.14) #11
+  %33 = or disjoint i32 %27, 16384
+  br label %34
+
+34:                                               ; preds = %30, %26
+  %35 = phi i32 [ %27, %26 ], [ %33, %30 ]
+  %36 = icmp eq i32 %14, %35
+  br i1 %36, label %40, label %37
+
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %0, align 8
+  %39 = call i32 @pci_write_config_dword(ptr noundef %38, i32 noundef 128, i32 noundef %35) #10
+  br label %40
+
+40:                                               ; preds = %37, %34
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #10
+  store i8 0, ptr %10, align 1, !annotation !9
+  %41 = load ptr, ptr %0, align 8
+  %42 = call i32 @pci_read_config_byte(ptr noundef %41, i32 noundef 147, ptr noundef nonnull %10) #10
+  %43 = load i8, ptr %10, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #10
+  %44 = zext i8 %43 to i32
+  %45 = load ptr, ptr %0, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 184
+  %47 = and i32 %44, 32
+  %48 = icmp eq i32 %47, 0
+  %49 = select i1 %48, ptr @.str.17, ptr @.str.16
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %46, ptr noundef nonnull @.str.15, ptr noundef nonnull %49) #11
+  %50 = load ptr, ptr %0, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 184
+  %52 = and i32 %44, 64
+  %53 = icmp eq i32 %52, 0
+  %54 = select i1 %53, ptr @.str.20, ptr @.str.19
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %51, ptr noundef nonnull @.str.18, ptr noundef nonnull %54) #11
+  %55 = load ptr, ptr %0, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 56
+  %57 = load i32, ptr %56, align 8
+  %58 = and i32 %57, 7
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %156
+
+60:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
+  store i32 0, ptr %9, align 4, !annotation !9
+  %61 = call i32 @pci_read_config_dword(ptr noundef %55, i32 noundef 140, ptr noundef nonnull %9) #10
+  %62 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #10
+  store i8 0, ptr %8, align 1, !annotation !9
+  %63 = load ptr, ptr %0, align 8
+  %64 = call i32 @pci_read_config_byte(ptr noundef %63, i32 noundef 146, ptr noundef nonnull %8) #10
+  %65 = load i8, ptr %8, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #10
+  %66 = zext i8 %65 to i32
+  %67 = load ptr, ptr %0, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %68, ptr noundef nonnull @.str.21, i32 noundef %62, i32 noundef %66) #11
+  %69 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr i8, ptr %70, i64 2051
+  %72 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %71) #10, !srcloc !8
+  %73 = and i8 %72, -17
+  %74 = load ptr, ptr %0, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 916
+  %76 = load i32, ptr %75, align 4
+  %77 = icmp eq i32 %76, 0
+  %78 = select i1 %77, i8 0, i8 16
+  %79 = or disjoint i8 %78, %73
+  %80 = icmp eq i8 %79, %72
+  br i1 %80, label %87, label %81
+
+81:                                               ; preds = %60
+  %82 = load ptr, ptr %69, align 8
+  %83 = getelementptr i8, ptr %82, i64 2051
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %79, ptr elementtype(i8) %83) #10, !srcloc !7
+  %84 = load ptr, ptr %69, align 8
+  %85 = getelementptr i8, ptr %84, i64 2051
+  %86 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %85) #10, !srcloc !8
+  br label %87
+
+87:                                               ; preds = %81, %60
+  %88 = call fastcc i32 @yenta_probe_cb_irq(ptr noundef %0)
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %90, label %153
+
+90:                                               ; preds = %87
+  %91 = load ptr, ptr %0, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %92, ptr noundef nonnull @.str.22) #11
+  %93 = and i32 %66, 6
+  %94 = icmp eq i32 %93, 6
+  br i1 %94, label %95, label %120
+
+95:                                               ; preds = %90
+  %96 = load ptr, ptr %0, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 62
+  %98 = load i16, ptr %97, align 2
+  switch i16 %98, label %99 [
+    i16 -21482, label %113
+    i16 -21475, label %113
+    i16 -21473, label %113
+    i16 -21477, label %113
+    i16 -21422, label %113
+    i16 -32751, label %113
+    i16 -21438, label %113
+  ]
+
+99:                                               ; preds = %95
+  %100 = and i32 %62, -61441
+  %101 = or disjoint i32 %100, 4096
+  %102 = icmp eq i32 %101, %62
+  br i1 %102, label %113, label %103
+
+103:                                              ; preds = %99
+  %104 = call i32 @pci_write_config_dword(ptr noundef %96, i32 noundef 140, i32 noundef %101) #10
+  %105 = call fastcc i32 @yenta_probe_cb_irq(ptr noundef %0)
+  %106 = icmp eq i32 %105, 1
+  %107 = load ptr, ptr %0, align 8
+  br i1 %106, label %108, label %110
+
+108:                                              ; preds = %103
+  %109 = getelementptr inbounds i8, ptr %107, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %109, ptr noundef nonnull @.str.23) #11
+  br label %153
+
+110:                                              ; preds = %103
+  %111 = call i32 @pci_write_config_dword(ptr noundef %107, i32 noundef 140, i32 noundef %62) #10
+  %112 = icmp eq i32 %105, -1
+  br i1 %112, label %153, label %113
+
+113:                                              ; preds = %110, %99, %95, %95, %95, %95, %95, %95, %95
+  %114 = phi i32 [ %62, %110 ], [ %101, %99 ], [ %62, %95 ], [ %62, %95 ], [ %62, %95 ], [ %62, %95 ], [ %62, %95 ], [ %62, %95 ], [ %62, %95 ]
+  %115 = load ptr, ptr %0, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %116, ptr noundef nonnull @.str.24) #11
+  %117 = and i8 %65, -3
+  %118 = load ptr, ptr %0, align 8
+  %119 = call i32 @pci_write_config_byte(ptr noundef %118, i32 noundef 146, i8 noundef zeroext %117) #10
+  br label %120
+
+120:                                              ; preds = %113, %90
+  %121 = phi i32 [ %114, %113 ], [ %62, %90 ]
+  %122 = load ptr, ptr %0, align 8
+  %123 = getelementptr inbounds i8, ptr %122, i64 62
+  %124 = load i16, ptr %123, align 2
+  switch i16 %124, label %133 [
+    i16 -21482, label %125
+    i16 -21475, label %125
+    i16 -21473, label %125
+    i16 -21477, label %125
+  ]
+
+125:                                              ; preds = %120, %120, %120, %120
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #10
+  store i8 0, ptr %7, align 1, !annotation !9
+  %126 = call i32 @pci_read_config_byte(ptr noundef %122, i32 noundef 139, ptr noundef nonnull %7) #10
+  %127 = load i8, ptr %7, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #10
+  %128 = and i8 %127, 63
+  %129 = icmp ult i8 %127, 64
+  br i1 %129, label %139, label %130
+
+130:                                              ; preds = %125
+  %131 = load ptr, ptr %0, align 8
+  %132 = call i32 @pci_write_config_byte(ptr noundef %131, i32 noundef 139, i8 noundef zeroext %128) #10
+  br label %139
+
+133:                                              ; preds = %120
+  %134 = and i32 %121, -16
+  %135 = or disjoint i32 %134, 2
+  %136 = icmp eq i32 %135, %62
+  br i1 %136, label %139, label %137
+
+137:                                              ; preds = %133
+  %138 = call i32 @pci_write_config_dword(ptr noundef %122, i32 noundef 140, i32 noundef %135) #10
+  br label %139
+
+139:                                              ; preds = %137, %133, %130, %125
+  %140 = phi i8 [ 0, %137 ], [ 0, %133 ], [ %128, %130 ], [ %128, %125 ]
+  %141 = phi i8 [ 0, %137 ], [ 0, %133 ], [ %127, %130 ], [ %127, %125 ]
+  %142 = call fastcc i32 @yenta_probe_cb_irq(ptr noundef %0)
+  %143 = icmp eq i32 %142, 1
+  %144 = load ptr, ptr %0, align 8
+  br i1 %143, label %145, label %147
+
+145:                                              ; preds = %139
+  %146 = getelementptr inbounds i8, ptr %144, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %146, ptr noundef nonnull @.str.25) #11
+  br label %153
+
+147:                                              ; preds = %139
+  %148 = call i32 @pci_write_config_dword(ptr noundef %144, i32 noundef 140, i32 noundef %62) #10
+  %149 = icmp eq i8 %140, %141
+  br i1 %149, label %153, label %150
+
+150:                                              ; preds = %147
+  %151 = load ptr, ptr %0, align 8
+  %152 = call i32 @pci_write_config_byte(ptr noundef %151, i32 noundef 139, i8 noundef zeroext %141) #10
+  br label %153
+
+153:                                              ; preds = %150, %147, %145, %110, %108, %87
+  %154 = phi i32 [ %88, %87 ], [ 1, %108 ], [ -1, %110 ], [ 1, %145 ], [ %142, %150 ], [ %142, %147 ]
+  %155 = icmp slt i32 %154, 1
+  br i1 %155, label %265, label %270
+
+156:                                              ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  store i32 0, ptr %4, align 4, !annotation !9
+  %157 = call i32 @pci_read_config_dword(ptr noundef %55, i32 noundef 140, ptr noundef nonnull %4) #10
+  %158 = load i32, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  store i8 0, ptr %3, align 1, !annotation !9
+  %159 = load ptr, ptr %0, align 8
+  %160 = call i32 @pci_read_config_byte(ptr noundef %159, i32 noundef 146, ptr noundef nonnull %3) #10
+  %161 = load i8, ptr %3, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  %162 = zext i8 %161 to i32
+  %163 = load ptr, ptr %0, align 8
+  %164 = getelementptr inbounds i8, ptr %163, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %164, ptr noundef nonnull @.str.21, i32 noundef %158, i32 noundef %162) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
+  store i32 0, ptr %2, align 4, !annotation !9
+  %165 = load ptr, ptr %0, align 8
+  %166 = call i32 @pci_read_config_dword(ptr noundef %165, i32 noundef 128, ptr noundef nonnull %2) #10
+  %167 = load i32, ptr %2, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  %168 = and i32 %167, 536870912
+  %169 = icmp eq i32 %168, 0
+  br i1 %169, label %185, label %170
+
+170:                                              ; preds = %156
+  %171 = load ptr, ptr %0, align 8
+  %172 = getelementptr inbounds i8, ptr %171, i64 16
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds i8, ptr %171, i64 56
+  %175 = load i32, ptr %174, align 8
+  %176 = and i32 %175, -8
+  %177 = call ptr @pci_get_slot(ptr noundef %173, i32 noundef %176) #10
+  %178 = icmp eq ptr %177, null
+  br i1 %178, label %185, label %179
+
+179:                                              ; preds = %170
+  %180 = getelementptr inbounds i8, ptr %177, i64 916
+  %181 = load i32, ptr %180, align 4
+  %182 = load ptr, ptr %0, align 8
+  %183 = getelementptr inbounds i8, ptr %182, i64 916
+  store i32 %181, ptr %183, align 4
+  %184 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %181, ptr %184, align 8
+  call void @pci_dev_put(ptr noundef nonnull %177) #10
+  br label %185
+
+185:                                              ; preds = %179, %170, %156
+  %186 = getelementptr inbounds i8, ptr %0, i64 16
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr i8, ptr %187, i64 2051
+  %189 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %188) #10, !srcloc !8
+  %190 = and i8 %189, -17
+  %191 = load ptr, ptr %0, align 8
+  %192 = getelementptr inbounds i8, ptr %191, i64 916
+  %193 = load i32, ptr %192, align 4
+  %194 = icmp eq i32 %193, 0
+  %195 = select i1 %194, i8 0, i8 16
+  %196 = or disjoint i8 %195, %190
+  %197 = icmp eq i8 %196, %189
+  br i1 %197, label %204, label %198
+
+198:                                              ; preds = %185
+  %199 = load ptr, ptr %186, align 8
+  %200 = getelementptr i8, ptr %199, i64 2051
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %196, ptr elementtype(i8) %200) #10, !srcloc !7
+  %201 = load ptr, ptr %186, align 8
+  %202 = getelementptr i8, ptr %201, i64 2051
+  %203 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %202) #10, !srcloc !8
+  br label %204
+
+204:                                              ; preds = %198, %185
+  %205 = call fastcc i32 @yenta_probe_cb_irq(ptr noundef %0)
+  %206 = icmp eq i32 %205, 0
+  br i1 %206, label %207, label %262
+
+207:                                              ; preds = %204
+  %208 = load ptr, ptr %0, align 8
+  %209 = getelementptr inbounds i8, ptr %208, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %209, ptr noundef nonnull @.str.22) #11
+  %210 = and i32 %162, 6
+  %211 = icmp eq i32 %210, 6
+  br i1 %211, label %212, label %225
+
+212:                                              ; preds = %207
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  store i32 0, ptr %5, align 4, !annotation !9
+  %213 = call fastcc i32 @ti12xx_tie_interrupts(ptr noundef %0, ptr noundef nonnull %5), !range !10
+  %214 = icmp eq i32 %213, 0
+  br i1 %214, label %223, label %215
+
+215:                                              ; preds = %212
+  %216 = call fastcc i32 @yenta_probe_cb_irq(ptr noundef %0)
+  %217 = icmp eq i32 %216, 1
+  br i1 %217, label %218, label %221
+
+218:                                              ; preds = %215
+  %219 = load ptr, ptr %0, align 8
+  %220 = getelementptr inbounds i8, ptr %219, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %220, ptr noundef nonnull @.str.28) #11
+  br label %223
+
+221:                                              ; preds = %215
+  %222 = load i32, ptr %5, align 4
+  call fastcc void @ti12xx_untie_interrupts(ptr noundef %0, i32 noundef %222)
+  br label %223
+
+223:                                              ; preds = %221, %218, %212
+  %224 = phi i32 [ 1, %218 ], [ %216, %221 ], [ 0, %212 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
+  br label %262
+
+225:                                              ; preds = %207
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  store i32 0, ptr %6, align 4, !annotation !9
+  %226 = load ptr, ptr %0, align 8
+  %227 = getelementptr inbounds i8, ptr %226, i64 62
+  %228 = load i16, ptr %227, align 2
+  switch i16 %228, label %232 [
+    i16 -21482, label %235
+    i16 -21475, label %229
+    i16 -21473, label %229
+    i16 -21477, label %229
+  ]
+
+229:                                              ; preds = %225, %225, %225
+  %230 = and i32 %158, -16
+  %231 = or disjoint i32 %230, 1
+  br label %235
+
+232:                                              ; preds = %225
+  %233 = and i32 %158, -241
+  %234 = or disjoint i32 %233, 32
+  br label %235
+
+235:                                              ; preds = %232, %229, %225
+  %236 = phi i32 [ %234, %232 ], [ %231, %229 ], [ %158, %225 ]
+  %237 = icmp eq i32 %236, %158
+  br i1 %237, label %248, label %238
+
+238:                                              ; preds = %235
+  %239 = call i32 @pci_write_config_dword(ptr noundef %226, i32 noundef 140, i32 noundef %236) #10
+  %240 = call fastcc i32 @yenta_probe_cb_irq(ptr noundef %0)
+  %241 = icmp eq i32 %240, 1
+  %242 = load ptr, ptr %0, align 8
+  br i1 %241, label %243, label %245
+
+243:                                              ; preds = %238
+  %244 = getelementptr inbounds i8, ptr %242, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %244, ptr noundef nonnull @.str.25) #11
+  br label %260
+
+245:                                              ; preds = %238
+  %246 = call i32 @pci_write_config_dword(ptr noundef %242, i32 noundef 140, i32 noundef %158) #10
+  %247 = icmp eq i32 %240, -1
+  br i1 %247, label %260, label %248
+
+248:                                              ; preds = %245, %235
+  %249 = phi i32 [ %240, %245 ], [ 0, %235 ]
+  %250 = call fastcc i32 @ti12xx_tie_interrupts(ptr noundef %0, ptr noundef nonnull %6), !range !10
+  %251 = icmp eq i32 %250, 0
+  br i1 %251, label %260, label %252
+
+252:                                              ; preds = %248
+  %253 = call fastcc i32 @yenta_probe_cb_irq(ptr noundef %0)
+  %254 = icmp eq i32 %253, 1
+  br i1 %254, label %255, label %258
+
+255:                                              ; preds = %252
+  %256 = load ptr, ptr %0, align 8
+  %257 = getelementptr inbounds i8, ptr %256, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %257, ptr noundef nonnull @.str.29) #11
+  br label %260
+
+258:                                              ; preds = %252
+  %259 = load i32, ptr %6, align 4
+  call fastcc void @ti12xx_untie_interrupts(ptr noundef %0, i32 noundef %259)
+  br label %260
+
+260:                                              ; preds = %258, %255, %248, %245, %243
+  %261 = phi i32 [ 1, %243 ], [ 1, %255 ], [ -1, %245 ], [ %253, %258 ], [ %249, %248 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  br label %262
+
+262:                                              ; preds = %260, %223, %204
+  %263 = phi i32 [ %205, %204 ], [ %224, %223 ], [ %261, %260 ]
+  %264 = icmp slt i32 %263, 1
+  br i1 %264, label %265, label %270
+
+265:                                              ; preds = %262, %153
+  %266 = phi ptr [ @.str.26, %153 ], [ @.str.30, %262 ]
+  %267 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %267, align 8
+  %268 = load ptr, ptr %0, align 8
+  %269 = getelementptr inbounds i8, ptr %268, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %269, ptr noundef nonnull %266) #11
+  br label %270
+
+270:                                              ; preds = %265, %262, %153
+  %271 = getelementptr inbounds i8, ptr %0, i64 448
+  store ptr @ti12xx_power_hook, ptr %271, align 8
+  %272 = getelementptr inbounds i8, ptr %0, i64 16
+  %273 = load ptr, ptr %272, align 8
+  %274 = getelementptr i8, ptr %273, i64 2051
+  %275 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %274) #10, !srcloc !8
+  %276 = and i8 %275, -17
+  %277 = icmp eq i8 %276, %275
+  br i1 %277, label %284, label %278
+
+278:                                              ; preds = %270
+  %279 = load ptr, ptr %272, align 8
+  %280 = getelementptr i8, ptr %279, i64 2051
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %276, ptr elementtype(i8) %280) #10, !srcloc !7
+  %281 = load ptr, ptr %272, align 8
+  %282 = getelementptr i8, ptr %281, i64 2051
+  %283 = call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %282) #10, !srcloc !8
+  br label %284
+
+284:                                              ; preds = %278, %270
+  %285 = load ptr, ptr %0, align 8
+  %286 = getelementptr inbounds i8, ptr %285, i64 60
+  %287 = load i16, ptr %286, align 4
+  %288 = icmp eq i16 %287, 4172
+  br i1 %288, label %289, label %296
+
+289:                                              ; preds = %284
+  %290 = getelementptr inbounds i8, ptr %285, i64 62
+  %291 = load i16, ptr %290, align 2
+  switch i16 %291, label %296 [
+    i16 -21481, label %293
+    i16 -21479, label %293
+    i16 -21476, label %293
+    i16 -21436, label %293
+    i16 -21482, label %292
+    i16 -21475, label %292
+    i16 -21473, label %292
+    i16 -21477, label %292
+  ]
+
+292:                                              ; preds = %289, %289, %289, %289
+  br label %293
+
+293:                                              ; preds = %292, %289, %289, %289, %289
+  %294 = phi ptr [ @ti1250_zoom_video, %292 ], [ @ti_zoom_video, %289 ], [ @ti_zoom_video, %289 ], [ @ti_zoom_video, %289 ], [ @ti_zoom_video, %289 ]
+  %295 = getelementptr inbounds i8, ptr %0, i64 440
+  store ptr %294, ptr %295, align 8
+  br label %296
+
+296:                                              ; preds = %293, %289, %284
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @ti1250_override(ptr noundef %0) #2 align 16 {
+  %2 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #10
+  store i8 0, ptr %2, align 1, !annotation !9
+  %3 = load ptr, ptr %0, align 8
+  %4 = call i32 @pci_read_config_byte(ptr noundef %3, i32 noundef 147, ptr noundef nonnull %2) #10
+  %5 = load i8, ptr %2, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
+  %6 = and i8 %5, -97
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp eq i32 %8, 0
+  %10 = select i1 %9, i8 0, i8 96
+  %11 = or disjoint i8 %10, %6
+  %12 = icmp eq i8 %11, %5
+  br i1 %12, label %20, label %13
+
+13:                                               ; preds = %1
+  %14 = zext i8 %5 to i32
+  %15 = zext i8 %11 to i32
+  %16 = load ptr, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %17, ptr noundef nonnull @.str.31, i32 noundef %14, i32 noundef %15) #11
+  %18 = load ptr, ptr %0, align 8
+  %19 = call i32 @pci_write_config_byte(ptr noundef %18, i32 noundef 147, i8 noundef zeroext %11) #10
+  br label %20
+
+20:                                               ; preds = %13, %1
+  %21 = call i32 @ti12xx_override(ptr noundef %0)
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @ricoh_override(ptr nocapture noundef %0) #2 align 16 {
+  %2 = alloca i16, align 2
+  %3 = alloca i16, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #10
+  store i16 0, ptr %3, align 2, !annotation !9
+  %4 = load ptr, ptr %0, align 8
+  %5 = call i32 @pci_read_config_word(ptr noundef %4, i32 noundef 128, ptr noundef nonnull %3) #10
+  %6 = load i16, ptr %3, align 2
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #10
+  %7 = load ptr, ptr %0, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 62
+  %9 = load i16, ptr %8, align 2
+  %10 = icmp ugt i16 %9, 1140
+  %11 = zext i1 %10 to i16
+  %12 = or i16 %6, %11
+  %13 = select i1 %10, i16 768, i16 816
+  %14 = call i32 @pci_write_config_word(ptr noundef %7, i32 noundef 132, i16 noundef zeroext %13) #10
+  %15 = load ptr, ptr %0, align 8
+  %16 = call i32 @pci_write_config_word(ptr noundef %15, i32 noundef 128, i16 noundef zeroext %12) #10
+  %17 = load ptr, ptr %0, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 60
+  %19 = load i16, ptr %18, align 4
+  %20 = icmp eq i16 %19, 4480
+  br i1 %20, label %21, label %27
+
+21:                                               ; preds = %1
+  %22 = getelementptr inbounds i8, ptr %17, i64 62
+  %23 = load i16, ptr %22, align 2
+  %24 = icmp eq i16 %23, 1144
+  br i1 %24, label %25, label %27
+
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds i8, ptr %0, i64 440
+  store ptr @ricoh_zoom_video, ptr %26, align 8
+  br label %27
+
+27:                                               ; preds = %25, %21, %1
+  %28 = getelementptr inbounds i8, ptr %17, i64 62
+  %29 = load i16, ptr %28, align 2
+  switch i16 %29, label %48 [
+    i16 1142, label %30
+    i16 1144, label %30
+  ]
+
+30:                                               ; preds = %27, %27
+  %31 = getelementptr inbounds i8, ptr %17, i64 72
+  %32 = load i8, ptr %31, align 8
+  %33 = icmp sgt i8 %32, -1
+  br i1 %33, label %48, label %34
+
+34:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #10
+  store i16 0, ptr %2, align 2, !annotation !9
+  %35 = call i32 @pci_read_config_word(ptr noundef %17, i32 noundef 162, ptr noundef nonnull %2) #10
+  %36 = load i16, ptr %2, align 2
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #10
+  %37 = and i16 %36, 2
+  %38 = icmp ne i16 %37, 0
+  %39 = load i8, ptr @disable_clkrun, align 1, !range !11
+  %40 = icmp eq i8 %39, 0
+  %41 = select i1 %38, i1 true, i1 %40
+  br i1 %41, label %48, label %42
+
+42:                                               ; preds = %34
+  %43 = load ptr, ptr %0, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %44, ptr noundef nonnull @.str.13) #11
+  %45 = or disjoint i16 %36, 2
+  %46 = load ptr, ptr %0, align 8
+  %47 = call i32 @pci_write_config_word(ptr noundef %46, i32 noundef 162, i16 noundef zeroext %45) #10
+  br label %48
+
+48:                                               ; preds = %42, %34, %30, %27
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal void @ricoh_save_state(ptr nocapture noundef %0) #2 align 16 {
+  %2 = alloca i16, align 2
+  %3 = alloca i16, align 2
+  %4 = alloca i16, align 2
+  %5 = alloca i16, align 2
+  %6 = alloca i16, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #10
+  store i16 0, ptr %6, align 2, !annotation !9
+  %7 = load ptr, ptr %0, align 8
+  %8 = call i32 @pci_read_config_word(ptr noundef %7, i32 noundef 130, ptr noundef nonnull %6) #10
+  %9 = load i16, ptr %6, align 2
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #10
+  %10 = zext i16 %9 to i32
+  %11 = getelementptr inbounds i8, ptr %0, i64 1384
+  store i32 %10, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #10
+  store i16 0, ptr %5, align 2, !annotation !9
+  %12 = load ptr, ptr %0, align 8
+  %13 = call i32 @pci_read_config_word(ptr noundef %12, i32 noundef 132, ptr noundef nonnull %5) #10
+  %14 = load i16, ptr %5, align 2
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #10
+  %15 = zext i16 %14 to i32
+  %16 = getelementptr i8, ptr %0, i64 1388
+  store i32 %15, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #10
+  store i16 0, ptr %4, align 2, !annotation !9
+  %17 = load ptr, ptr %0, align 8
+  %18 = call i32 @pci_read_config_word(ptr noundef %17, i32 noundef 136, ptr noundef nonnull %4) #10
+  %19 = load i16, ptr %4, align 2
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #10
+  %20 = zext i16 %19 to i32
+  %21 = getelementptr i8, ptr %0, i64 1392
+  store i32 %20, ptr %21, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #10
+  store i16 0, ptr %3, align 2, !annotation !9
+  %22 = load ptr, ptr %0, align 8
+  %23 = call i32 @pci_read_config_word(ptr noundef %22, i32 noundef 138, ptr noundef nonnull %3) #10
+  %24 = load i16, ptr %3, align 2
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #10
+  %25 = zext i16 %24 to i32
+  %26 = getelementptr i8, ptr %0, i64 1396
+  store i32 %25, ptr %26, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #10
+  store i16 0, ptr %2, align 2, !annotation !9
+  %27 = load ptr, ptr %0, align 8
+  %28 = call i32 @pci_read_config_word(ptr noundef %27, i32 noundef 128, ptr noundef nonnull %2) #10
+  %29 = load i16, ptr %2, align 2
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #10
+  %30 = zext i16 %29 to i32
+  %31 = getelementptr i8, ptr %0, i64 1400
+  store i32 %30, ptr %31, align 8
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal void @ricoh_restore_state(ptr nocapture noundef readonly %0) #2 align 16 {
+  %2 = alloca i16, align 2
+  %3 = getelementptr inbounds i8, ptr %0, i64 1384
+  %4 = load i32, ptr %3, align 8
+  %5 = trunc i32 %4 to i16
+  %6 = load ptr, ptr %0, align 8
+  %7 = tail call i32 @pci_write_config_word(ptr noundef %6, i32 noundef 130, i16 noundef zeroext %5) #10
+  %8 = getelementptr i8, ptr %0, i64 1388
+  %9 = load i32, ptr %8, align 4
+  %10 = trunc i32 %9 to i16
+  %11 = load ptr, ptr %0, align 8
+  %12 = tail call i32 @pci_write_config_word(ptr noundef %11, i32 noundef 132, i16 noundef zeroext %10) #10
+  %13 = getelementptr i8, ptr %0, i64 1392
+  %14 = load i32, ptr %13, align 8
+  %15 = trunc i32 %14 to i16
+  %16 = load ptr, ptr %0, align 8
+  %17 = tail call i32 @pci_write_config_word(ptr noundef %16, i32 noundef 136, i16 noundef zeroext %15) #10
+  %18 = getelementptr i8, ptr %0, i64 1396
+  %19 = load i32, ptr %18, align 4
+  %20 = trunc i32 %19 to i16
+  %21 = load ptr, ptr %0, align 8
+  %22 = tail call i32 @pci_write_config_word(ptr noundef %21, i32 noundef 138, i16 noundef zeroext %20) #10
+  %23 = getelementptr i8, ptr %0, i64 1400
+  %24 = load i32, ptr %23, align 8
+  %25 = trunc i32 %24 to i16
+  %26 = load ptr, ptr %0, align 8
+  %27 = tail call i32 @pci_write_config_word(ptr noundef %26, i32 noundef 128, i16 noundef zeroext %25) #10
+  %28 = load ptr, ptr %0, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 62
+  %30 = load i16, ptr %29, align 2
+  switch i16 %30, label %47 [
+    i16 1142, label %31
+    i16 1144, label %31
+  ]
+
+31:                                               ; preds = %1, %1
+  %32 = getelementptr inbounds i8, ptr %28, i64 72
+  %33 = load i8, ptr %32, align 8
+  %34 = icmp sgt i8 %33, -1
+  br i1 %34, label %47, label %35
+
+35:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #10
+  store i16 0, ptr %2, align 2, !annotation !9
+  %36 = call i32 @pci_read_config_word(ptr noundef %28, i32 noundef 162, ptr noundef nonnull %2) #10
+  %37 = load i16, ptr %2, align 2
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #10
+  %38 = and i16 %37, 2
+  %39 = icmp ne i16 %38, 0
+  %40 = load i8, ptr @disable_clkrun, align 1, !range !11
+  %41 = icmp eq i8 %40, 0
+  %42 = select i1 %39, i1 true, i1 %41
+  br i1 %42, label %47, label %43
+
+43:                                               ; preds = %35
+  %44 = or disjoint i16 %37, 2
+  %45 = load ptr, ptr %0, align 8
+  %46 = call i32 @pci_write_config_word(ptr noundef %45, i32 noundef 162, i16 noundef zeroext %44) #10
+  br label %47
+
+47:                                               ; preds = %43, %35, %31, %1
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @topic95_override(ptr nocapture noundef %0) #2 align 16 {
+  %2 = alloca i16, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #10
+  store i16 0, ptr %2, align 2, !annotation !9
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr i8, ptr %4, i64 2110
+  %6 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %5) #10, !srcloc !8
+  %7 = or i8 %6, 1
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr i8, ptr %8, i64 2110
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %7, ptr elementtype(i8) %9) #10, !srcloc !7
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr i8, ptr %10, i64 2110
+  %12 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %11) #10, !srcloc !8
+  %13 = getelementptr inbounds i8, ptr %0, i64 1376
+  %14 = load i32, ptr %13, align 8
+  %15 = or i32 %14, 3
+  store i32 %15, ptr %13, align 8
+  %16 = load ptr, ptr %0, align 8
+  %17 = call i32 @pci_read_config_word(ptr noundef %16, i32 noundef 62, ptr noundef nonnull %2) #10
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %33
+
+19:                                               ; preds = %1
+  %20 = load ptr, ptr %0, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 72
+  %22 = load i8, ptr %21, align 8
+  %23 = icmp ult i8 %22, 8
+  br i1 %23, label %24, label %33
+
+24:                                               ; preds = %19
+  %25 = load i16, ptr %2, align 2
+  %26 = and i16 %25, 1024
+  %27 = icmp eq i16 %26, 0
+  br i1 %27, label %33, label %28
+
+28:                                               ; preds = %24
+  %29 = and i16 %25, -1025
+  store i16 %29, ptr %2, align 2
+  %30 = call i32 @pci_write_config_word(ptr noundef %20, i32 noundef 62, i16 noundef zeroext %29) #10
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %32, ptr noundef nonnull @.str.32) #11
+  br label %33
+
+33:                                               ; preds = %28, %24, %19, %1
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #10
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
+define internal noundef i32 @topic97_override(ptr nocapture noundef writeonly %0) #7 align 16 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 440
+  store ptr @topic97_zoom_video, ptr %2, align 8
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @o2micro_override(ptr nocapture noundef readonly %0) #2 align 16 {
+  %2 = alloca i8, align 1
+  %3 = alloca i8, align 1
+  %4 = load ptr, ptr %0, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 56
+  %6 = load i32, ptr %5, align 8
+  %7 = and i32 %6, 7
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %9, label %51
+
+9:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  store i8 0, ptr %3, align 1, !annotation !9
+  %10 = call i32 @pci_read_config_byte(ptr noundef %4, i32 noundef 148, ptr noundef nonnull %3) #10
+  %11 = load i8, ptr %3, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #10
+  store i8 0, ptr %2, align 1, !annotation !9
+  %12 = load ptr, ptr %0, align 8
+  %13 = call i32 @pci_read_config_byte(ptr noundef %12, i32 noundef 212, ptr noundef nonnull %2) #10
+  %14 = load i8, ptr %2, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
+  %15 = load ptr, ptr %0, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 62
+  %17 = load i16, ptr %16, align 2
+  switch i16 %17, label %18 [
+    i16 26409, label %19
+    i16 26426, label %19
+    i16 26738, label %19
+    i16 26674, label %19
+    i16 26678, label %19
+    i16 26931, label %19
+  ]
+
+18:                                               ; preds = %9
+  br label %19
+
+19:                                               ; preds = %18, %9, %9, %9, %9, %9, %9
+  %20 = phi i8 [ 1, %18 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ]
+  %21 = call i32 @strcasecmp(ptr noundef nonnull @o2_speedup, ptr noundef nonnull @.str.33)
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %31, label %23
+
+23:                                               ; preds = %19
+  %24 = call i32 @strcasecmp(ptr noundef nonnull @o2_speedup, ptr noundef nonnull @.str.34)
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %31, label %26
+
+26:                                               ; preds = %23
+  %27 = call i32 @strcasecmp(ptr noundef nonnull @o2_speedup, ptr noundef nonnull @.str.35)
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %31, label %29
+
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds i8, ptr %15, i64 184
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %30, ptr noundef nonnull @.str.36) #11
+  br label %31
+
+31:                                               ; preds = %29, %26, %23, %19
+  %32 = phi i8 [ %20, %29 ], [ %20, %26 ], [ 1, %19 ], [ 0, %23 ]
+  %33 = and i8 %32, 1
+  %34 = icmp eq i8 %33, 0
+  %35 = load ptr, ptr %0, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 184
+  br i1 %34, label %42, label %37
+
+37:                                               ; preds = %31
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %36, ptr noundef nonnull @.str.37) #11
+  %38 = or i8 %11, 10
+  %39 = load ptr, ptr %0, align 8
+  %40 = call i32 @pci_write_config_byte(ptr noundef %39, i32 noundef 148, i8 noundef zeroext %38) #10
+  %41 = or i8 %14, 10
+  br label %47
+
+42:                                               ; preds = %31
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %36, ptr noundef nonnull @.str.38) #11
+  %43 = and i8 %11, -11
+  %44 = load ptr, ptr %0, align 8
+  %45 = call i32 @pci_write_config_byte(ptr noundef %44, i32 noundef 148, i8 noundef zeroext %43) #10
+  %46 = and i8 %14, -11
+  br label %47
+
+47:                                               ; preds = %42, %37
+  %48 = phi i8 [ %41, %37 ], [ %46, %42 ]
+  %49 = load ptr, ptr %0, align 8
+  %50 = call i32 @pci_write_config_byte(ptr noundef %49, i32 noundef 212, i8 noundef zeroext %48) #10
+  br label %51
+
+51:                                               ; preds = %47, %1
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal void @o2micro_restore_state(ptr nocapture noundef readonly %0) #2 align 16 {
+  %2 = tail call i32 @o2micro_override(ptr noundef %0)
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @ene_override(ptr noundef %0) #2 align 16 {
+  %2 = alloca i8, align 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 456
+  store ptr @ene_tune_bridge, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #10
+  store i8 0, ptr %2, align 1, !annotation !9
+  %4 = load ptr, ptr %0, align 8
+  %5 = call i32 @pci_read_config_byte(ptr noundef %4, i32 noundef 147, ptr noundef nonnull %2) #10
+  %6 = load i8, ptr %2, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
+  %7 = and i8 %6, -97
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp eq i32 %9, 0
+  %11 = select i1 %10, i8 0, i8 96
+  %12 = or disjoint i8 %11, %7
+  %13 = icmp eq i8 %12, %6
+  br i1 %13, label %21, label %14
+
+14:                                               ; preds = %1
+  %15 = zext i8 %6 to i32
+  %16 = zext i8 %12 to i32
+  %17 = load ptr, ptr %0, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %18, ptr noundef nonnull @.str.31, i32 noundef %15, i32 noundef %16) #11
+  %19 = load ptr, ptr %0, align 8
+  %20 = call i32 @pci_write_config_byte(ptr noundef %19, i32 noundef 147, i8 noundef zeroext %12) #10
+  br label %21
+
+21:                                               ; preds = %14, %1
+  %22 = call i32 @ti12xx_override(ptr noundef %0)
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal void @ti_zoom_video(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+  %3 = alloca i8, align 1
+  %4 = getelementptr i8, ptr %0, i64 -64
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  store i8 0, ptr %3, align 1, !annotation !9
+  %5 = load ptr, ptr %4, align 8
+  %6 = call i32 @pci_read_config_byte(ptr noundef %5, i32 noundef 145, ptr noundef nonnull %3) #10
+  %7 = load i8, ptr %3, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  %8 = icmp eq i32 %1, 0
+  %9 = and i8 %7, -65
+  %10 = select i1 %8, i8 0, i8 64
+  %11 = or disjoint i8 %9, %10
+  %12 = load ptr, ptr %4, align 8
+  %13 = call i32 @pci_write_config_byte(ptr noundef %12, i32 noundef 145, i8 noundef zeroext %11) #10
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal void @ti1250_zoom_video(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+  %3 = alloca i8, align 1
+  %4 = alloca i8, align 1
+  %5 = getelementptr i8, ptr %0, i64 -64
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #10
+  store i8 0, ptr %4, align 1, !annotation !9
+  %6 = load ptr, ptr %5, align 8
+  %7 = call i32 @pci_read_config_byte(ptr noundef %6, i32 noundef 145, ptr noundef nonnull %4) #10
+  %8 = load i8, ptr %4, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
+  %9 = icmp eq i32 %1, 0
+  %10 = and i8 %8, -65
+  %11 = select i1 %9, i8 0, i8 64
+  %12 = or disjoint i8 %10, %11
+  %13 = load ptr, ptr %5, align 8
+  %14 = call i32 @pci_write_config_byte(ptr noundef %13, i32 noundef 145, i8 noundef zeroext %12) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  store i8 0, ptr %3, align 1, !annotation !9
+  %15 = load ptr, ptr %5, align 8
+  %16 = call i32 @pci_read_config_byte(ptr noundef %15, i32 noundef 132, ptr noundef nonnull %3) #10
+  %17 = load i8, ptr %3, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 56
+  %20 = load i32, ptr %19, align 8
+  %21 = and i32 %20, 7
+  %22 = icmp eq i32 %21, 1
+  %23 = zext i1 %22 to i32
+  %24 = and i8 %17, 63
+  %25 = or disjoint i8 %24, -128
+  %26 = select i1 %22, i8 64, i8 0
+  %27 = or disjoint i8 %26, %25
+  br i1 %9, label %32, label %28
+
+28:                                               ; preds = %2
+  %29 = shl nuw nsw i32 1, %23
+  %30 = trunc i32 %29 to i8
+  %31 = or i8 %27, %30
+  br label %38
+
+32:                                               ; preds = %2
+  %33 = xor i8 %27, 64
+  %34 = shl nuw nsw i32 1, %23
+  %35 = trunc i32 %34 to i8
+  %36 = xor i8 %35, -1
+  %37 = and i8 %33, %36
+  br label %38
+
+38:                                               ; preds = %32, %28
+  %39 = phi i8 [ %31, %28 ], [ %37, %32 ]
+  %40 = call i32 @pci_write_config_byte(ptr noundef %18, i32 noundef 132, i8 noundef zeroext %39) #10
+  ret void
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @pci_read_config_byte(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc i32 @yenta_probe_irq(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %3) #10, !srcloc !5
+  %4 = load ptr, ptr %2, align 8
+  %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #10, !srcloc !6
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr i8, ptr %6, i64 4
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %7) #10, !srcloc !5
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr i8, ptr %8, i64 4
+  %10 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9) #10, !srcloc !6
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr i8, ptr %11, i64 2053
+  %13 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %12) #10, !srcloc !8
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr i8, ptr %14, i64 2053
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %15) #10, !srcloc !7
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr i8, ptr %16, i64 2053
+  %18 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %17) #10, !srcloc !8
+  %19 = tail call i64 @probe_irq_on() #10
+  %20 = and i64 %19, 3832
+  br label %21
+
+21:                                               ; preds = %43, %1
+  %22 = phi i64 [ 1, %1 ], [ %44, %43 ]
+  %23 = shl nuw nsw i64 1, %22
+  %24 = and i64 %23, %20
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %43, label %26
+
+26:                                               ; preds = %21
+  %27 = trunc i64 %22 to i8
+  %28 = shl nuw i8 %27, 4
+  %29 = or disjoint i8 %28, 1
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr i8, ptr %30, i64 2053
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %29, ptr elementtype(i8) %31) #10, !srcloc !7
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr i8, ptr %32, i64 2053
+  %34 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %33) #10, !srcloc !8
+  %35 = load ptr, ptr %2, align 8
+  %36 = getelementptr i8, ptr %35, i64 12
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %36) #10, !srcloc !5
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr i8, ptr %37, i64 12
+  %39 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38) #10, !srcloc !6
+  tail call void @__const_udelay(i64 noundef 429500) #10
+  %40 = load ptr, ptr %2, align 8
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %40) #10, !srcloc !5
+  %41 = load ptr, ptr %2, align 8
+  %42 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %41) #10, !srcloc !6
+  br label %43
+
+43:                                               ; preds = %26, %21
+  %44 = add nuw nsw i64 %22, 1
+  %45 = icmp eq i64 %44, 16
+  br i1 %45, label %46, label %21, !llvm.loop !23
+
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %2, align 8
+  %48 = getelementptr i8, ptr %47, i64 4
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %48) #10, !srcloc !5
+  %49 = load ptr, ptr %2, align 8
+  %50 = getelementptr i8, ptr %49, i64 4
+  %51 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %50) #10, !srcloc !6
+  %52 = load ptr, ptr %2, align 8
+  %53 = getelementptr i8, ptr %52, i64 2053
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %13, ptr elementtype(i8) %53) #10, !srcloc !7
+  %54 = load ptr, ptr %2, align 8
+  %55 = getelementptr i8, ptr %54, i64 2053
+  %56 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %55) #10, !srcloc !8
+  %57 = tail call i32 @probe_irq_mask(i64 noundef %20) #10
+  %58 = and i32 %57, 65535
+  ret i32 %58
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i64 @probe_irq_on() local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @probe_irq_mask(i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @ti12xx_power_hook(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+  %3 = alloca i8, align 1
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  %7 = getelementptr i8, ptr %0, i64 -64
+  %8 = add i32 %1, -3
+  %9 = icmp ult i32 %8, -2
+  br i1 %9, label %78, label %10
+
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
+  store i8 0, ptr %6, align 1, !annotation !9
+  %11 = load ptr, ptr %7, align 8
+  %12 = call i32 @pci_read_config_byte(ptr noundef %11, i32 noundef 146, ptr noundef nonnull %6) #10
+  %13 = load i8, ptr %6, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  store i32 0, ptr %5, align 4, !annotation !9
+  %14 = load ptr, ptr %7, align 8
+  %15 = call i32 @pci_read_config_dword(ptr noundef %14, i32 noundef 128, ptr noundef nonnull %5) #10
+  %16 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  store i32 0, ptr %4, align 4, !annotation !9
+  %17 = load ptr, ptr %7, align 8
+  %18 = call i32 @pci_read_config_dword(ptr noundef %17, i32 noundef 140, ptr noundef nonnull %4) #10
+  %19 = load i32, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  %20 = and i8 %13, 6
+  %21 = icmp eq i8 %20, 6
+  br i1 %21, label %22, label %28
+
+22:                                               ; preds = %10
+  %23 = load i8, ptr @pwr_irqs_off, align 1, !range !11, !noundef !12
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %25, label %78
+
+25:                                               ; preds = %22
+  %26 = call fastcc i32 @ti12xx_2nd_slot_empty(ptr noundef %7), !range !10
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %78
+
+28:                                               ; preds = %25, %10
+  %29 = load ptr, ptr %7, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 56
+  %31 = load i32, ptr %30, align 8
+  %32 = and i32 %31, 7
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %43, label %34
+
+34:                                               ; preds = %28
+  %35 = and i32 %16, 536870912
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %62, label %37
+
+37:                                               ; preds = %34
+  %38 = load i8, ptr @pwr_irqs_off, align 1, !range !11, !noundef !12
+  %39 = icmp eq i8 %38, 0
+  br i1 %39, label %40, label %43
+
+40:                                               ; preds = %37
+  %41 = call fastcc i32 @ti12xx_2nd_slot_empty(ptr noundef %7), !range !10
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %62, label %43
+
+43:                                               ; preds = %40, %37, %28
+  %44 = load ptr, ptr %7, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 62
+  %46 = load i16, ptr %45, align 2
+  switch i16 %46, label %56 [
+    i16 -21482, label %47
+    i16 -21475, label %47
+    i16 -21473, label %47
+    i16 -21477, label %47
+  ]
+
+47:                                               ; preds = %43, %43, %43, %43
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  store i8 0, ptr %3, align 1, !annotation !9
+  %48 = call i32 @pci_read_config_byte(ptr noundef %44, i32 noundef 139, ptr noundef nonnull %3) #10
+  %49 = load i8, ptr %3, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  %50 = icmp eq i32 %1, 1
+  %51 = and i8 %49, 63
+  %52 = or disjoint i8 %51, 64
+  %53 = select i1 %50, i8 %52, i8 %51
+  %54 = load ptr, ptr %7, align 8
+  %55 = call i32 @pci_write_config_byte(ptr noundef %54, i32 noundef 139, i8 noundef zeroext %53) #10
+  br label %78
+
+56:                                               ; preds = %43
+  %57 = icmp eq i32 %1, 1
+  %58 = and i32 %19, -16
+  %59 = or i32 %19, 2
+  %60 = select i1 %57, i32 %58, i32 %59
+  %61 = call i32 @pci_write_config_dword(ptr noundef %44, i32 noundef 140, i32 noundef %60) #10
+  br label %78
+
+62:                                               ; preds = %40, %34
+  %63 = load ptr, ptr %7, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 62
+  %65 = load i16, ptr %64, align 2
+  switch i16 %65, label %72 [
+    i16 -21475, label %66
+    i16 -21473, label %66
+    i16 -21477, label %66
+  ]
+
+66:                                               ; preds = %62, %62, %62
+  %67 = icmp eq i32 %1, 1
+  %68 = and i32 %19, -16
+  %69 = or i32 %19, 1
+  %70 = select i1 %67, i32 %68, i32 %69
+  %71 = call i32 @pci_write_config_dword(ptr noundef %63, i32 noundef 140, i32 noundef %70) #10
+  br label %78
+
+72:                                               ; preds = %62
+  %73 = icmp eq i32 %1, 1
+  %74 = and i32 %19, -241
+  %75 = or i32 %19, 32
+  %76 = select i1 %73, i32 %74, i32 %75
+  %77 = call i32 @pci_write_config_dword(ptr noundef %63, i32 noundef 140, i32 noundef %76) #10
+  br label %78
+
+78:                                               ; preds = %72, %66, %56, %47, %25, %22, %2
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc i32 @yenta_probe_cb_irq(ptr noundef %0) unnamed_addr #2 align 16 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = load i32, ptr %2, align 8
+  %4 = icmp eq i32 %3, 0
+  br i1 %4, label %62, label %5
+
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 1380
+  store i32 0, ptr %6, align 4
+  %7 = tail call i32 @request_threaded_irq(i32 noundef %3, ptr noundef nonnull @yenta_probe_handler, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.5, ptr noundef %0) #10
+  %8 = icmp eq i32 %7, 0
+  %9 = load ptr, ptr %0, align 8
+  br i1 %8, label %12, label %10
+
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i8, ptr %9, i64 184
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %11, ptr noundef nonnull @.str.27) #11
+  br label %62
+
+12:                                               ; preds = %5
+  %13 = getelementptr inbounds i8, ptr %9, i64 916
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %21
+
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr i8, ptr %18, i64 2053
+  %20 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %19) #10, !srcloc !8
+  br label %21
+
+21:                                               ; preds = %16, %12
+  %22 = phi i8 [ 0, %12 ], [ %20, %16 ]
+  %23 = or i8 %22, 1
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr i8, ptr %25, i64 2053
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %23, ptr elementtype(i8) %26) #10, !srcloc !7
+  %27 = load ptr, ptr %24, align 8
+  %28 = getelementptr i8, ptr %27, i64 2053
+  %29 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %28) #10, !srcloc !8
+  %30 = load ptr, ptr %24, align 8
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %30) #10, !srcloc !5
+  %31 = load ptr, ptr %24, align 8
+  %32 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %31) #10, !srcloc !6
+  %33 = load ptr, ptr %24, align 8
+  %34 = getelementptr i8, ptr %33, i64 4
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %34) #10, !srcloc !5
+  %35 = load ptr, ptr %24, align 8
+  %36 = getelementptr i8, ptr %35, i64 4
+  %37 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %36) #10, !srcloc !6
+  %38 = load ptr, ptr %24, align 8
+  %39 = getelementptr i8, ptr %38, i64 12
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %39) #10, !srcloc !5
+  %40 = load ptr, ptr %24, align 8
+  %41 = getelementptr i8, ptr %40, i64 12
+  %42 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %41) #10, !srcloc !6
+  tail call void @msleep(i32 noundef 100) #10
+  %43 = load ptr, ptr %24, align 8
+  %44 = getelementptr i8, ptr %43, i64 4
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %44) #10, !srcloc !5
+  %45 = load ptr, ptr %24, align 8
+  %46 = getelementptr i8, ptr %45, i64 4
+  %47 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %46) #10, !srcloc !6
+  %48 = load ptr, ptr %24, align 8
+  %49 = getelementptr i8, ptr %48, i64 2053
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %22, ptr elementtype(i8) %49) #10, !srcloc !7
+  %50 = load ptr, ptr %24, align 8
+  %51 = getelementptr i8, ptr %50, i64 2053
+  %52 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %51) #10, !srcloc !8
+  %53 = load ptr, ptr %24, align 8
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %53) #10, !srcloc !5
+  %54 = load ptr, ptr %24, align 8
+  %55 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %54) #10, !srcloc !6
+  %56 = load ptr, ptr %24, align 8
+  %57 = getelementptr i8, ptr %56, i64 2052
+  %58 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %57) #10, !srcloc !8
+  %59 = load i32, ptr %2, align 8
+  %60 = tail call ptr @free_irq(i32 noundef %59, ptr noundef %0) #10
+  %61 = load i32, ptr %6, align 4
+  br label %62
+
+62:                                               ; preds = %21, %10, %1
+  %63 = phi i32 [ -1, %10 ], [ %61, %21 ], [ -1, %1 ]
+  ret i32 %63
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @yenta_probe_handler(i32 %0, ptr nocapture noundef %1) #2 align 16 {
+  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #10, !srcloc !6
+  %6 = load ptr, ptr %3, align 8
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %6) #10, !srcloc !5
+  %7 = load ptr, ptr %3, align 8
+  %8 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7) #10, !srcloc !6
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr i8, ptr %9, i64 2052
+  %11 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %10) #10, !srcloc !8
+  %12 = icmp ne i32 %5, 0
+  %13 = icmp ne i8 %11, 0
+  %14 = select i1 %12, i1 true, i1 %13
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds i8, ptr %1, i64 1380
+  store i32 1, ptr %16, align 4
+  br label %17
+
+17:                                               ; preds = %15, %2
+  %18 = phi i32 [ 1, %15 ], [ 0, %2 ]
+  ret i32 %18
+}
+
+; Function Attrs: cold null_pointer_is_valid
+declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @msleep(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc noundef i32 @ti12xx_tie_interrupts(ptr nocapture noundef %0, ptr noundef writeonly %1) unnamed_addr #2 align 16 {
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  store i32 0, ptr %3, align 4, !annotation !9
+  %4 = load ptr, ptr %0, align 8
+  %5 = call i32 @pci_read_config_dword(ptr noundef %4, i32 noundef 128, ptr noundef nonnull %3) #10
+  %6 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  %7 = and i32 %6, 536870912
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %9, label %33
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %0, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %10, i64 56
+  %14 = load i32, ptr %13, align 8
+  %15 = and i32 %14, -8
+  %16 = call ptr @pci_get_slot(ptr noundef %12, i32 noundef %15) #10
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %33, label %18
+
+18:                                               ; preds = %9
+  %19 = icmp eq ptr %1, null
+  br i1 %19, label %23, label %20
+
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = load i32, ptr %21, align 8
+  store i32 %22, ptr %1, align 4
+  br label %23
+
+23:                                               ; preds = %20, %18
+  %24 = getelementptr inbounds i8, ptr %16, i64 916
+  %25 = load i32, ptr %24, align 4
+  %26 = load ptr, ptr %0, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 916
+  store i32 %25, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %25, ptr %28, align 8
+  call void @pci_dev_put(ptr noundef nonnull %16) #10
+  br i1 %17, label %33, label %29
+
+29:                                               ; preds = %23
+  %30 = or disjoint i32 %6, 536870912
+  %31 = load ptr, ptr %0, align 8
+  %32 = call i32 @pci_write_config_dword(ptr noundef %31, i32 noundef 128, i32 noundef %30) #10
+  br label %33
+
+33:                                               ; preds = %29, %23, %9, %2
+  %34 = phi i32 [ 1, %29 ], [ 0, %2 ], [ 0, %23 ], [ 0, %9 ]
+  ret i32 %34
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc void @ti12xx_untie_interrupts(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  store i32 0, ptr %3, align 4, !annotation !9
+  %4 = load ptr, ptr %0, align 8
+  %5 = call i32 @pci_read_config_dword(ptr noundef %4, i32 noundef 128, ptr noundef nonnull %3) #10
+  %6 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  %7 = and i32 %6, -536870913
+  %8 = load ptr, ptr %0, align 8
+  %9 = call i32 @pci_write_config_dword(ptr noundef %8, i32 noundef 128, i32 noundef %7) #10
+  %10 = load ptr, ptr %0, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 916
+  store i32 %1, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %1, ptr %12, align 8
+  ret void
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local ptr @pci_get_slot(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @pci_dev_put(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc i32 @ti12xx_2nd_slot_empty(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  store i32 0, ptr %3, align 4, !annotation !9
+  %4 = load ptr, ptr %0, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 62
+  %6 = load i16, ptr %5, align 2
+  switch i16 %6, label %45 [
+    i16 -21481, label %12
+    i16 -21479, label %12
+    i16 -21476, label %12
+    i16 -21475, label %12
+    i16 -21473, label %12
+    i16 -21423, label %12
+    i16 -21477, label %12
+    i16 -21422, label %12
+    i16 -21419, label %12
+    i16 -21420, label %12
+    i16 -21434, label %12
+    i16 -32751, label %12
+    i16 -21438, label %12
+    i16 -32711, label %7
+    i16 -32714, label %7
+    i16 -21362, label %7
+    i16 -21363, label %7
+    i16 -32719, label %7
+    i16 -21431, label %7
+    i16 -21432, label %7
+  ]
+
+7:                                                ; preds = %1, %1, %1, %1, %1, %1, %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
+  store i32 0, ptr %2, align 4, !annotation !9
+  %8 = call i32 @pci_read_config_dword(ptr noundef %4, i32 noundef 128, ptr noundef nonnull %2) #10
+  %9 = load i32, ptr %2, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  %10 = and i32 %9, 268435456
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %45
+
+12:                                               ; preds = %7, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  %13 = load ptr, ptr %0, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 56
+  %15 = load i32, ptr %14, align 8
+  %16 = and i32 %15, -8
+  %17 = getelementptr inbounds i8, ptr %13, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %19 = and i32 %15, 7
+  %20 = icmp eq i32 %19, 0
+  %21 = zext i1 %20 to i32
+  %22 = or disjoint i32 %16, %21
+  %23 = call ptr @pci_get_slot(ptr noundef %18, i32 noundef %22) #10
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %45, label %25
+
+25:                                               ; preds = %12
+  %26 = load ptr, ptr %0, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 62
+  %28 = load i16, ptr %27, align 2
+  %29 = getelementptr inbounds i8, ptr %23, i64 62
+  %30 = load i16, ptr %29, align 2
+  %31 = icmp eq i16 %28, %30
+  br i1 %31, label %32, label %43
+
+32:                                               ; preds = %25
+  %33 = getelementptr inbounds i8, ptr %23, i64 304
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %43, label %36
+
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds i8, ptr %34, i64 64
+  %38 = call i32 @yenta_get_status(ptr noundef %37, ptr noundef nonnull %3)
+  %39 = load i32, ptr %3, align 4
+  %40 = lshr i32 %39, 7
+  %41 = and i32 %40, 1
+  %42 = xor i32 %41, 1
+  br label %43
+
+43:                                               ; preds = %36, %32, %25
+  %44 = phi i32 [ 1, %25 ], [ 1, %32 ], [ %42, %36 ]
+  call void @pci_dev_put(ptr noundef nonnull %23) #10
+  br label %45
+
+45:                                               ; preds = %43, %12, %7, %1
+  %46 = phi i32 [ %44, %43 ], [ 0, %7 ], [ 1, %1 ], [ 1, %12 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  ret i32 %46
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal void @ricoh_zoom_video(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+  %3 = alloca i8, align 1
+  %4 = getelementptr i8, ptr %0, i64 -64
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  store i8 0, ptr %3, align 1, !annotation !9
+  %5 = load ptr, ptr %4, align 8
+  %6 = call i32 @pci_read_config_byte(ptr noundef %5, i32 noundef 47, ptr noundef nonnull %3) #10
+  %7 = load i8, ptr %3, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  %8 = icmp eq i32 %1, 0
+  %9 = and i8 %7, -9
+  %10 = select i1 %8, i8 0, i8 8
+  %11 = or disjoint i8 %9, %10
+  %12 = load ptr, ptr %4, align 8
+  %13 = call i32 @pci_write_config_byte(ptr noundef %12, i32 noundef 47, i8 noundef zeroext %11) #10
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal void @topic97_zoom_video(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+  %3 = alloca i8, align 1
+  %4 = alloca i8, align 1
+  %5 = alloca i8, align 1
+  %6 = getelementptr i8, ptr %0, i64 -64
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #10
+  store i8 0, ptr %5, align 1, !annotation !9
+  %7 = load ptr, ptr %6, align 8
+  %8 = call i32 @pci_read_config_byte(ptr noundef %7, i32 noundef 156, ptr noundef nonnull %5) #10
+  %9 = load i8, ptr %5, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
+  %10 = icmp eq i32 %1, 0
+  %11 = load ptr, ptr %6, align 8
+  br i1 %10, label %19, label %12
+
+12:                                               ; preds = %2
+  %13 = or i8 %9, 1
+  %14 = call i32 @pci_write_config_byte(ptr noundef %11, i32 noundef 156, i8 noundef zeroext %13) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #10
+  store i8 0, ptr %4, align 1, !annotation !9
+  %15 = load ptr, ptr %6, align 8
+  %16 = call i32 @pci_read_config_byte(ptr noundef %15, i32 noundef 60, ptr noundef nonnull %4) #10
+  %17 = load i8, ptr %4, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
+  %18 = or i8 %17, 3
+  br label %26
+
+19:                                               ; preds = %2
+  %20 = and i8 %9, -2
+  %21 = call i32 @pci_write_config_byte(ptr noundef %11, i32 noundef 156, i8 noundef zeroext %20) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  store i8 0, ptr %3, align 1, !annotation !9
+  %22 = load ptr, ptr %6, align 8
+  %23 = call i32 @pci_read_config_byte(ptr noundef %22, i32 noundef 60, ptr noundef nonnull %3) #10
+  %24 = load i8, ptr %3, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  %25 = and i8 %24, -4
+  br label %26
+
+26:                                               ; preds = %19, %12
+  %27 = phi i8 [ %25, %19 ], [ %18, %12 ]
+  %28 = load ptr, ptr %6, align 8
+  %29 = call i32 @pci_write_config_byte(ptr noundef %28, i32 noundef 60, i8 noundef zeroext %27) #10
+  ret void
+}
+
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read)
+declare dso_local i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal void @ene_tune_bridge(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #2 align 16 {
+  %3 = alloca i8, align 1
+  %4 = getelementptr i8, ptr %0, i64 -64
+  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  br label %6
+
+6:                                                ; preds = %10, %2
+  %7 = phi ptr [ %5, %2 ], [ %8, %10 ]
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, %5
+  br i1 %9, label %13, label %10
+
+10:                                               ; preds = %6
+  %11 = tail call ptr @pci_match_id(ptr noundef nonnull @ene_tune_tbl, ptr noundef %8) #10
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %6, label %13, !llvm.loop !24
+
+13:                                               ; preds = %10, %6
+  %14 = phi ptr [ %11, %10 ], [ null, %6 ]
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  store i8 0, ptr %3, align 1, !annotation !9
+  %15 = load ptr, ptr %4, align 8
+  %16 = call i32 @pci_read_config_byte(ptr noundef %15, i32 noundef 201, ptr noundef nonnull %3) #10
+  %17 = load i8, ptr %3, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  %18 = icmp eq ptr %14, null
+  br i1 %18, label %29, label %19
+
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %14, i64 24
+  %21 = load i64, ptr %20, align 8
+  %22 = trunc i64 %21 to i32
+  %23 = lshr i32 %22, 8
+  %24 = zext i8 %17 to i32
+  %25 = xor i32 %23, -1
+  %26 = and i32 %25, %24
+  %27 = or i32 %26, %22
+  %28 = trunc i32 %27 to i8
+  br label %31
+
+29:                                               ; preds = %13
+  %30 = and i8 %17, -3
+  br label %31
+
+31:                                               ; preds = %29, %19
+  %32 = phi i8 [ %28, %19 ], [ %30, %29 ]
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 184
+  %35 = zext i8 %17 to i32
+  %36 = zext i8 %32 to i32
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %34, ptr noundef nonnull @.str.39, i32 noundef %35, i32 noundef %36) #11
+  %37 = load ptr, ptr %4, align 8
+  %38 = call i32 @pci_write_config_byte(ptr noundef %37, i32 noundef 201, i8 noundef zeroext %32) #10
+  ret void
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local ptr @pci_match_id(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @request_threaded_irq(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @pcmcia_parse_events(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @add_timer(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal i64 @show_yenta_registers(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = load ptr, ptr %4, align 8
+  %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.44) #10
+  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  br label %8
+
+8:                                                ; preds = %17, %3
+  %9 = phi i64 [ 0, %3 ], [ %24, %17 ]
+  %10 = phi i32 [ %6, %3 ], [ %23, %17 ]
+  %11 = and i64 %9, 12
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %13, label %17
+
+13:                                               ; preds = %8
+  %14 = trunc i64 %9 to i32
+  %15 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %10, ptr noundef nonnull @.str.45, i32 noundef %14) #10
+  %16 = add i32 %15, %10
+  br label %17
+
+17:                                               ; preds = %13, %8
+  %18 = phi i32 [ %10, %8 ], [ %16, %13 ]
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr i8, ptr %19, i64 %9
+  %21 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20) #10, !srcloc !6
+  %22 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %18, ptr noundef nonnull @.str.46, i32 noundef %21) #10
+  %23 = add i32 %22, %18
+  %24 = add nuw nsw i64 %9, 4
+  %25 = icmp ult i64 %9, 32
+  br i1 %25, label %8, label %26, !llvm.loop !25
+
+26:                                               ; preds = %17
+  %27 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %23, ptr noundef nonnull @.str.47) #10
+  %28 = add i32 %27, %23
+  %29 = getelementptr inbounds i8, ptr %5, i64 16
+  br label %30
+
+30:                                               ; preds = %46, %26
+  %31 = phi i64 [ 0, %26 ], [ %55, %46 ]
+  %32 = phi i32 [ %28, %26 ], [ %54, %46 ]
+  %33 = and i64 %31, 7
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %35, label %46
+
+35:                                               ; preds = %30
+  %36 = and i64 %31, 8
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %42, label %38
+
+38:                                               ; preds = %35
+  %39 = sext i32 %32 to i64
+  %40 = getelementptr i8, ptr %2, i64 %39
+  store i16 11552, ptr %40, align 1
+  %41 = add i32 %32, 2
+  br label %46
+
+42:                                               ; preds = %35
+  %43 = trunc i64 %31 to i32
+  %44 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %32, ptr noundef nonnull @.str.45, i32 noundef %43) #10
+  %45 = add i32 %44, %32
+  br label %46
+
+46:                                               ; preds = %42, %38, %30
+  %47 = phi i32 [ %32, %30 ], [ %41, %38 ], [ %45, %42 ]
+  %48 = load ptr, ptr %29, align 8
+  %49 = getelementptr i8, ptr %48, i64 2048
+  %50 = getelementptr i8, ptr %49, i64 %31
+  %51 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %50) #10, !srcloc !8
+  %52 = zext i8 %51 to i32
+  %53 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %47, ptr noundef nonnull @.str.49, i32 noundef %52) #10
+  %54 = add i32 %53, %47
+  %55 = add nuw nsw i64 %31, 1
+  %56 = icmp eq i64 %55, 69
+  br i1 %56, label %57, label %30, !llvm.loop !26
+
+57:                                               ; preds = %46
+  %58 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %54, ptr noundef nonnull @.str.50) #10
+  %59 = sext i32 %54 to i64
+  ret i64 %59
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @sysfs_emit_at(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @release_resource(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @device_remove_file(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @yenta_dev_suspend_noirq(ptr noundef %0) #2 align 16 {
+  %2 = getelementptr i8, ptr %0, i64 -184
+  %3 = getelementptr i8, ptr %0, i64 120
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %21, label %6
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %4, i64 1368
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %15, label %10
+
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %15, label %14
+
+14:                                               ; preds = %10
+  tail call void %12(ptr noundef nonnull %4) #10
+  br label %15
+
+15:                                               ; preds = %14, %10, %6
+  %16 = tail call i32 @pci_save_state(ptr noundef %2) #10
+  %17 = getelementptr inbounds i8, ptr %4, i64 1416
+  %18 = tail call i32 @pci_read_config_dword(ptr noundef %2, i32 noundef 64, ptr noundef %17) #10
+  %19 = getelementptr i8, ptr %4, i64 1420
+  %20 = tail call i32 @pci_read_config_dword(ptr noundef %2, i32 noundef 68, ptr noundef %19) #10
+  tail call void @pci_disable_device(ptr noundef %2) #10
+  br label %21
+
+21:                                               ; preds = %15, %1
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal i32 @yenta_dev_resume_noirq(ptr noundef %0) #2 align 16 {
+  %2 = getelementptr i8, ptr %0, i64 -184
+  %3 = getelementptr i8, ptr %0, i64 120
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %24, label %6
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %4, i64 1416
+  %8 = load i32, ptr %7, align 8
+  %9 = tail call i32 @pci_write_config_dword(ptr noundef %2, i32 noundef 64, i32 noundef %8) #10
+  %10 = getelementptr i8, ptr %4, i64 1420
+  %11 = load i32, ptr %10, align 4
+  %12 = tail call i32 @pci_write_config_dword(ptr noundef %2, i32 noundef 68, i32 noundef %11) #10
+  %13 = tail call i32 @pci_enable_device(ptr noundef %2) #10
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %24
+
+15:                                               ; preds = %6
+  tail call void @pci_set_master(ptr noundef %2) #10
+  %16 = getelementptr inbounds i8, ptr %4, i64 1368
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %24, label %19
+
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %24, label %23
+
+23:                                               ; preds = %19
+  tail call void %21(ptr noundef nonnull %4) #10
+  br label %24
+
+24:                                               ; preds = %23, %19, %15, %6, %1
+  %25 = phi i32 [ 0, %1 ], [ %13, %6 ], [ 0, %23 ], [ 0, %19 ], [ 0, %15 ]
+  ret i32 %25
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @pci_save_state(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @pci_set_master(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #9
+
+attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #2 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { cold nounwind }
+attributes #12 = { nounwind allocsize(2) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 2}
+!1 = !{i32 8, !"cf-protection-branch", i32 1}
+!2 = !{i32 4, !"function_return_thunk_extern", i32 1}
+!3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
+!4 = !{i32 4, !"SkipRaxSetup", i32 1}
+!5 = !{i64 2154296844}
+!6 = !{i64 2154294451}
+!7 = !{i64 2154296074}
+!8 = !{i64 2154293620}
+!9 = !{!"auto-init"}
+!10 = !{i32 0, i32 2}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !14, !15}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!"llvm.loop.unroll.disable"}
+!16 = !{i32 -22, i32 1}
+!17 = distinct !{!17, !14, !15}
+!18 = distinct !{!18, !14, !15}
+!19 = distinct !{!19, !14, !15}
+!20 = distinct !{!20, !14, !15}
+!21 = distinct !{!21, !14, !15}
+!22 = distinct !{!22, !14, !15}
+!23 = distinct !{!23, !14, !15}
+!24 = distinct !{!24, !14, !15}
+!25 = distinct !{!25, !14, !15}
+!26 = distinct !{!26, !14, !15}

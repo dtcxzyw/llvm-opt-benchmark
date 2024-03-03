@@ -1,0 +1,53 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct.acpi_rsconvert_info = type { i8, i8, i8, i8 }
+
+@acpi_rs_set_irq = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_dma = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_set_start_dpf = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_end_dpf = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_io = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_fixed_io = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_set_vendor = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_end_tag = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_memory24 = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_memory32 = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_fixed_memory32 = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_address16 = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_address32 = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_address64 = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_ext_address64 = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_ext_irq = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_generic_reg = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_gpio = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_fixed_dma = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_pin_function = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_pin_config = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_pin_group = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_pin_group_function = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_pin_group_config = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_clock_input = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_gbl_set_resource_dispatch = dso_local local_unnamed_addr global [26 x ptr] [ptr @acpi_rs_set_irq, ptr @acpi_rs_convert_dma, ptr @acpi_rs_set_start_dpf, ptr @acpi_rs_convert_end_dpf, ptr @acpi_rs_convert_io, ptr @acpi_rs_convert_fixed_io, ptr @acpi_rs_set_vendor, ptr @acpi_rs_convert_end_tag, ptr @acpi_rs_convert_memory24, ptr @acpi_rs_convert_memory32, ptr @acpi_rs_convert_fixed_memory32, ptr @acpi_rs_convert_address16, ptr @acpi_rs_convert_address32, ptr @acpi_rs_convert_address64, ptr @acpi_rs_convert_ext_address64, ptr @acpi_rs_convert_ext_irq, ptr @acpi_rs_convert_generic_reg, ptr @acpi_rs_convert_gpio, ptr @acpi_rs_convert_fixed_dma, ptr null, ptr @acpi_rs_convert_pin_function, ptr @acpi_rs_convert_pin_config, ptr @acpi_rs_convert_pin_group, ptr @acpi_rs_convert_pin_group_function, ptr @acpi_rs_convert_pin_group_config, ptr @acpi_rs_convert_clock_input], align 16
+@acpi_rs_get_irq = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_get_start_dpf = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_get_vendor_small = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_get_vendor_large = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_gbl_get_resource_dispatch = dso_local local_unnamed_addr global [36 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @acpi_rs_get_irq, ptr @acpi_rs_convert_dma, ptr @acpi_rs_get_start_dpf, ptr @acpi_rs_convert_end_dpf, ptr @acpi_rs_convert_io, ptr @acpi_rs_convert_fixed_io, ptr @acpi_rs_convert_fixed_dma, ptr null, ptr null, ptr null, ptr @acpi_rs_get_vendor_small, ptr @acpi_rs_convert_end_tag, ptr null, ptr @acpi_rs_convert_memory24, ptr @acpi_rs_convert_generic_reg, ptr null, ptr @acpi_rs_get_vendor_large, ptr @acpi_rs_convert_memory32, ptr @acpi_rs_convert_fixed_memory32, ptr @acpi_rs_convert_address32, ptr @acpi_rs_convert_address16, ptr @acpi_rs_convert_ext_irq, ptr @acpi_rs_convert_address64, ptr @acpi_rs_convert_ext_address64, ptr @acpi_rs_convert_gpio, ptr @acpi_rs_convert_pin_function, ptr null, ptr @acpi_rs_convert_pin_config, ptr @acpi_rs_convert_pin_group, ptr @acpi_rs_convert_pin_group_function, ptr @acpi_rs_convert_pin_group_config, ptr @acpi_rs_convert_clock_input], align 16
+@acpi_rs_convert_i2c_serial_bus = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_spi_serial_bus = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_uart_serial_bus = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_rs_convert_csi2_serial_bus = external dso_local global [0 x %struct.acpi_rsconvert_info], align 1
+@acpi_gbl_convert_resource_serial_bus_dispatch = dso_local local_unnamed_addr global [5 x ptr] [ptr null, ptr @acpi_rs_convert_i2c_serial_bus, ptr @acpi_rs_convert_spi_serial_bus, ptr @acpi_rs_convert_uart_serial_bus, ptr @acpi_rs_convert_csi2_serial_bus], align 16
+@acpi_gbl_aml_resource_sizes = dso_local local_unnamed_addr constant [26 x i8] c"\04\03\02\01\08\04\01\02\0C\14\0C\10\1A.8\09\0F\17\06\0C\12\14\0E\11\14\0C", align 16
+@acpi_gbl_resource_struct_sizes = dso_local local_unnamed_addr constant [36 x i8] c"\00\00\00\00\0F\0D\0B\10\0F\0B\0D\00\00\00\0A\10\00\11\14\00\0A\19\110&\1DDB4,%/(,/\1C", align 16
+@acpi_gbl_aml_resource_serial_bus_sizes = dso_local local_unnamed_addr constant [5 x i8] c"\00\12\15\16\0C", align 1
+@acpi_gbl_resource_struct_serial_bus_sizes = dso_local local_unnamed_addr constant [5 x i8] c"\00,03'", align 1
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 2}
+!1 = !{i32 8, !"cf-protection-branch", i32 1}
+!2 = !{i32 4, !"function_return_thunk_extern", i32 1}
+!3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
+!4 = !{i32 4, !"SkipRaxSetup", i32 1}

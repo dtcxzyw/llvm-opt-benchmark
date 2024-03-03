@@ -1,0 +1,476 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct.ptp_clock_info = type { ptr, [32 x i8], i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.cpuinfo_x86 = type { i8, i8, i8, i8, i32, [5 x i32], i8, i8, i8, i32, i32, %union.anon.28, [16 x i8], [64 x i8], %struct.cpuinfo_topology, i32, i32, i32, i32, i32, i32, i64, i64, i16, i16, i16, i16, i8, i32, i8, i8 }
+%union.anon.28 = type { i64, [88 x i8] }
+%struct.cpuinfo_topology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
+
+@e1000e_ptp_clock_info = internal unnamed_addr constant %struct.ptp_clock_info { ptr null, [32 x i8] zeroinitializer, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, ptr null, ptr @e1000e_phc_adjfine, ptr null, ptr null, ptr @e1000e_phc_adjtime, ptr null, ptr @e1000e_phc_gettimex, ptr null, ptr @e1000e_phc_settime, ptr null, ptr null, ptr null, ptr @e1000e_phc_enable, ptr null, ptr null }, align 8
+@.str = private unnamed_addr constant [4 x i8] c"%pm\00", align 1
+@boot_cpu_data = external dso_local global %struct.cpuinfo_x86, align 8
+@.str.1 = private unnamed_addr constant [27 x i8] c"ptp_clock_register failed\0A\00", align 1
+@.str.2 = private unnamed_addr constant [22 x i8] c"registered PHC clock\0A\00", align 1
+@.str.3 = private unnamed_addr constant [13 x i8] c"removed PHC\0A\00", align 1
+@system_wq = external dso_local local_unnamed_addr global ptr, align 8
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local void @e1000e_ptp_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 12256
+  store ptr null, ptr %2, align 32
+  %3 = getelementptr inbounds i8, ptr %0, i64 11916
+  %4 = load i32, ptr %3, align 4
+  %5 = and i32 %4, 16384
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %70, label %7
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds i8, ptr %0, i64 12264
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(184) %8, ptr noundef nonnull align 8 dereferenceable(184) @e1000e_ptp_clock_info, i64 184, i1 false)
+  %9 = getelementptr inbounds i8, ptr %0, i64 12272
+  %10 = getelementptr inbounds i8, ptr %0, i64 1448
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 780
+  %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %9, i64 noundef 32, ptr noundef nonnull @.str, ptr noundef %12) #8
+  %14 = getelementptr inbounds i8, ptr %0, i64 1684
+  %15 = load i32, ptr %14, align 4
+  switch i32 %15, label %42 [
+    i32 10, label %16
+    i32 11, label %18
+    i32 12, label %28
+    i32 13, label %30
+    i32 14, label %30
+    i32 15, label %30
+    i32 16, label %30
+    i32 17, label %30
+    i32 18, label %30
+    i32 19, label %30
+    i32 3, label %40
+    i32 4, label %40
+  ]
+
+16:                                               ; preds = %7
+  %17 = getelementptr inbounds i8, ptr %0, i64 12304
+  store i32 23999900, ptr %17, align 8
+  br label %42
+
+18:                                               ; preds = %7
+  %19 = getelementptr inbounds i8, ptr %0, i64 1472
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr i8, ptr %20, i64 46624
+  %22 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %21) #8, !srcloc !5
+  %23 = and i32 %22, 32
+  %24 = icmp eq i32 %23, 0
+  %25 = getelementptr inbounds i8, ptr %0, i64 12304
+  br i1 %24, label %27, label %26
+
+26:                                               ; preds = %18
+  store i32 23999900, ptr %25, align 8
+  br label %42
+
+27:                                               ; preds = %18
+  store i32 599999900, ptr %25, align 8
+  br label %42
+
+28:                                               ; preds = %7
+  %29 = getelementptr inbounds i8, ptr %0, i64 12304
+  store i32 999999999, ptr %29, align 8
+  br label %42
+
+30:                                               ; preds = %7, %7, %7, %7, %7, %7, %7
+  %31 = getelementptr inbounds i8, ptr %0, i64 1472
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr i8, ptr %32, i64 46624
+  %34 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #8, !srcloc !5
+  %35 = and i32 %34, 32
+  %36 = icmp eq i32 %35, 0
+  %37 = getelementptr inbounds i8, ptr %0, i64 12304
+  br i1 %36, label %39, label %38
+
+38:                                               ; preds = %30
+  store i32 999999999, ptr %37, align 8
+  br label %42
+
+39:                                               ; preds = %30
+  store i32 230769100, ptr %37, align 8
+  br label %42
+
+40:                                               ; preds = %7, %7
+  %41 = getelementptr inbounds i8, ptr %0, i64 12304
+  store i32 599999900, ptr %41, align 8
+  br label %42
+
+42:                                               ; preds = %40, %39, %38, %28, %27, %26, %16, %7
+  %43 = load i32, ptr %14, align 4
+  %44 = icmp ugt i32 %43, 11
+  br i1 %44, label %45, label %51
+
+45:                                               ; preds = %42
+  %46 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 0), align 8
+  %47 = and i64 %46, 4398046511104
+  %48 = icmp eq i64 %47, 0
+  br i1 %48, label %51, label %49
+
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds i8, ptr %0, i64 12384
+  store ptr @e1000e_phc_getcrosststamp, ptr %50, align 8
+  br label %51
+
+51:                                               ; preds = %49, %45, %42
+  %52 = getelementptr inbounds i8, ptr %0, i64 12048
+  store i64 68719476704, ptr %52, align 16
+  %53 = getelementptr inbounds i8, ptr %0, i64 12056
+  store volatile ptr %53, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 12064
+  store volatile ptr %53, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 12072
+  store ptr @e1000e_systim_overflow_work, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %0, i64 12080
+  tail call void @init_timer_key(ptr noundef %56, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #8
+  %57 = load ptr, ptr @system_wq, align 8
+  %58 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %57, ptr noundef %52, i64 noundef 14400000) #8
+  %59 = getelementptr inbounds i8, ptr %0, i64 1456
+  %60 = load ptr, ptr %59, align 16
+  %61 = getelementptr inbounds i8, ptr %60, i64 184
+  %62 = tail call ptr @ptp_clock_register(ptr noundef %8, ptr noundef %61) #8
+  store ptr %62, ptr %2, align 32
+  %63 = icmp ugt ptr %62, inttoptr (i64 -4096 to ptr)
+  br i1 %63, label %64, label %66
+
+64:                                               ; preds = %51
+  store ptr null, ptr %2, align 32
+  %65 = load ptr, ptr %10, align 8
+  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %65, ptr noundef nonnull @.str.1) #9
+  br label %70
+
+66:                                               ; preds = %51
+  %67 = icmp eq ptr %62, null
+  br i1 %67, label %70, label %68
+
+68:                                               ; preds = %66
+  %69 = load ptr, ptr %10, align 8
+  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %69, ptr noundef nonnull @.str.2) #9
+  br label %70
+
+70:                                               ; preds = %68, %66, %64, %1
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+
+; Function Attrs: nofree nounwind null_pointer_is_valid
+declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal i32 @e1000e_phc_getcrosststamp(ptr noundef %0, ptr noundef %1) #0 align 16 {
+  %3 = getelementptr i8, ptr %0, i64 -12264
+  %4 = tail call i32 @get_device_system_crosststamp(ptr noundef nonnull @e1000e_phc_get_syncdevicetime, ptr noundef %3, ptr noundef null, ptr noundef %1) #8
+  ret i32 %4
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal void @e1000e_systim_overflow_work(ptr noundef %0) #0 align 16 {
+  %2 = getelementptr i8, ptr %0, i64 168
+  %3 = tail call i64 @timecounter_read(ptr noundef %2) #8
+  %4 = tail call { i64, i64 } @ns_to_timespec64(i64 noundef %3) #8
+  %5 = load ptr, ptr @system_wq, align 8
+  %6 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %5, ptr noundef %0, i64 noundef 14400000) #8
+  ret void
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @delayed_work_timer_fn(ptr noundef) #4
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local ptr @ptp_clock_register(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: cold null_pointer_is_valid
+declare dso_local void @netdev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+
+; Function Attrs: cold null_pointer_is_valid
+declare dso_local void @netdev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local void @e1000e_ptp_remove(ptr noundef %0) local_unnamed_addr #0 align 16 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 11916
+  %3 = load i32, ptr %2, align 4
+  %4 = and i32 %3, 16384
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %16, label %6
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %0, i64 12048
+  %8 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef %7) #8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12256
+  %10 = load ptr, ptr %9, align 32
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %16, label %12
+
+12:                                               ; preds = %6
+  %13 = tail call i32 @ptp_clock_unregister(ptr noundef nonnull %10) #8
+  store ptr null, ptr %9, align 32
+  %14 = getelementptr inbounds i8, ptr %0, i64 1448
+  %15 = load ptr, ptr %14, align 8
+  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %15, ptr noundef nonnull @.str.3) #9
+  br label %16
+
+16:                                               ; preds = %12, %6, %1
+  ret void
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local zeroext i1 @cancel_delayed_work_sync(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @ptp_clock_unregister(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal i32 @e1000e_phc_adjfine(ptr noundef %0, i64 noundef %1) #0 align 16 {
+  %3 = alloca i32, align 4
+  %4 = getelementptr i8, ptr %0, i64 -12264
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  store i32 0, ptr %3, align 4, !annotation !6
+  %5 = call i32 @e1000e_get_base_timinca(ptr noundef %4, ptr noundef nonnull %3) #8
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %7, label %24
+
+7:                                                ; preds = %2
+  %8 = getelementptr i8, ptr %0, i64 -10800
+  %9 = getelementptr i8, ptr %0, i64 -80
+  %10 = call i64 @_raw_spin_lock_irqsave(ptr noundef %9) #8
+  %11 = load i32, ptr %3, align 4
+  %12 = and i32 %11, 16777215
+  %13 = zext nneg i32 %12 to i64
+  %14 = icmp slt i64 %1, 0
+  %15 = call i64 @llvm.abs.i64(i64 %1, i1 false)
+  %16 = call i64 asm "mulq $2; divq $3", "={ax},{ax},rm,rm,~{rdx},~{dirflag},~{fpsr},~{flags}"(i64 %13, i64 %15, i64 65536000000) #10, !srcloc !7
+  %17 = sub i64 0, %16
+  %18 = select i1 %14, i64 %17, i64 %16
+  %19 = and i32 %11, -16777216
+  %20 = trunc i64 %18 to i32
+  %21 = add i32 %12, %20
+  %22 = or i32 %21, %19
+  store i32 %22, ptr %3, align 4
+  call void @__ew32(ptr noundef %8, i64 noundef 46600, i32 noundef %22) #8
+  %23 = getelementptr i8, ptr %0, i64 232
+  store i64 %1, ptr %23, align 16
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %9, i64 noundef %10) #8
+  br label %24
+
+24:                                               ; preds = %7, %2
+  %25 = phi i32 [ 0, %7 ], [ %5, %2 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  ret i32 %25
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @e1000e_phc_adjtime(ptr noundef %0, i64 noundef %1) #0 align 16 {
+  %3 = getelementptr i8, ptr %0, i64 -80
+  %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #8
+  %5 = getelementptr i8, ptr %0, i64 -32
+  %6 = load i64, ptr %5, align 8
+  %7 = add i64 %6, %1
+  store i64 %7, ptr %5, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %3, i64 noundef %4) #8
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @e1000e_phc_gettimex(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #0 align 16 {
+  %4 = getelementptr i8, ptr %0, i64 -12264
+  %5 = getelementptr i8, ptr %0, i64 -80
+  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #8
+  %7 = tail call i64 @e1000e_read_systim(ptr noundef %4, ptr noundef %2) #8
+  %8 = getelementptr i8, ptr %0, i64 -48
+  %9 = tail call i64 @timecounter_cyc2time(ptr noundef %8, i64 noundef %7) #8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %5, i64 noundef %6) #8
+  %10 = tail call { i64, i64 } @ns_to_timespec64(i64 noundef %9) #8
+  %11 = extractvalue { i64, i64 } %10, 0
+  %12 = extractvalue { i64, i64 } %10, 1
+  store i64 %11, ptr %1, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 %12, ptr %13, align 8
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @e1000e_phc_settime(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+  %3 = load i64, ptr %1, align 8
+  %4 = icmp sgt i64 %3, 9223372035
+  br i1 %4, label %12, label %5
+
+5:                                                ; preds = %2
+  %6 = icmp slt i64 %3, -9223372035
+  br i1 %6, label %12, label %7
+
+7:                                                ; preds = %5
+  %8 = mul nsw i64 %3, 1000000000
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = load i64, ptr %9, align 8
+  %11 = add i64 %10, %8
+  br label %12
+
+12:                                               ; preds = %7, %5, %2
+  %13 = phi i64 [ %11, %7 ], [ 9223372036854775807, %2 ], [ -9223372036854775808, %5 ]
+  %14 = getelementptr i8, ptr %0, i64 -80
+  %15 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %14) #8
+  %16 = getelementptr i8, ptr %0, i64 -48
+  %17 = getelementptr i8, ptr %0, i64 -72
+  tail call void @timecounter_init(ptr noundef %16, ptr noundef %17, i64 noundef %13) #8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %14, i64 noundef %15) #8
+  ret i32 0
+}
+
+; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
+define internal noundef i32 @e1000e_phc_enable(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2) #6 align 16 {
+  ret i32 -95
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @e1000e_get_base_timinca(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #4 section ".spinlock.text"
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @__ew32(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #4 section ".spinlock.text"
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i64 @e1000e_read_systim(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i64 @timecounter_cyc2time(ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local { i64, i64 } @ns_to_timespec64(i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @timecounter_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @get_device_system_crosststamp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @e1000e_phc_get_syncdevicetime(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #0 align 16 {
+  %4 = getelementptr inbounds i8, ptr %2, i64 1464
+  %5 = getelementptr inbounds i8, ptr %2, i64 1472
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr i8, ptr %6, i64 46612
+  %8 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7) #8, !srcloc !5
+  %9 = or i32 %8, -2147422208
+  tail call void @__ew32(ptr noundef %4, i64 noundef 46612, i32 noundef %9) #8
+  br label %10
+
+10:                                               ; preds = %17, %3
+  %11 = phi i32 [ 0, %3 ], [ %18, %17 ]
+  tail call void @__const_udelay(i64 noundef 4295) #8
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr i8, ptr %12, i64 46612
+  %14 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13) #8, !srcloc !5
+  %15 = and i32 %14, 1073741824
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %10
+  %18 = add nuw nsw i32 %11, 1
+  %19 = icmp eq i32 %18, 3
+  br i1 %19, label %20, label %10, !llvm.loop !8
+
+20:                                               ; preds = %17, %10
+  %21 = phi i32 [ %11, %10 ], [ 3, %17 ]
+  %22 = icmp eq i32 %21, 3
+  br i1 %22, label %52, label %23
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr i8, ptr %24, i64 46668
+  %26 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %25) #8, !srcloc !5
+  %27 = zext i32 %26 to i64
+  %28 = shl nuw i64 %27, 32
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr i8, ptr %29, i64 46664
+  %31 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %30) #8, !srcloc !5
+  %32 = zext i32 %31 to i64
+  %33 = or disjoint i64 %28, %32
+  %34 = getelementptr inbounds i8, ptr %2, i64 12184
+  %35 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %34) #8
+  %36 = getelementptr inbounds i8, ptr %2, i64 12216
+  %37 = tail call i64 @timecounter_cyc2time(ptr noundef %36, i64 noundef %33) #8
+  store i64 %37, ptr %0, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %34, i64 noundef %35) #8
+  %38 = load ptr, ptr %5, align 8
+  %39 = getelementptr i8, ptr %38, i64 46660
+  %40 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %39) #8, !srcloc !5
+  %41 = zext i32 %40 to i64
+  %42 = shl nuw i64 %41, 32
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr i8, ptr %43, i64 46656
+  %45 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %44) #8, !srcloc !5
+  %46 = zext i32 %45 to i64
+  %47 = or disjoint i64 %42, %46
+  %48 = tail call { i64, ptr } @convert_art_to_tsc(i64 noundef %47) #8
+  %49 = extractvalue { i64, ptr } %48, 0
+  %50 = extractvalue { i64, ptr } %48, 1
+  store i64 %49, ptr %1, align 8
+  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %50, ptr %51, align 8
+  br label %52
+
+52:                                               ; preds = %23, %20
+  %53 = phi i32 [ 0, %23 ], [ -110, %20 ]
+  ret i32 %53
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local { i64, ptr } @convert_art_to_tsc(i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i64 @timecounter_read(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local zeroext i1 @queue_delayed_work_on(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.abs.i64(i64, i1 immarg) #7
+
+attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
+attributes #10 = { nounwind memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 2}
+!1 = !{i32 8, !"cf-protection-branch", i32 1}
+!2 = !{i32 4, !"function_return_thunk_extern", i32 1}
+!3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
+!4 = !{i32 4, !"SkipRaxSetup", i32 1}
+!5 = !{i64 2150063953}
+!6 = !{!"auto-init"}
+!7 = !{i64 703172}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}

@@ -265,3 +265,6 @@
 [submodule "bench/hyperscan/hyperscan"]
 	path = bench/hyperscan/hyperscan
 	url = git@github.com:intel/hyperscan.git
+[submodule "bench/linux/linux"]
+	path = bench/linux/linux
+	url = git@github.com:torvalds/linux.git

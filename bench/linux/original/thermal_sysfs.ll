@@ -1,0 +1,1338 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct.attribute_group = type { ptr, ptr, ptr, ptr, ptr }
+%struct.device_attribute = type { %struct.attribute, ptr, ptr }
+%struct.attribute = type { ptr, i16 }
+%struct.thermal_attr = type { %struct.device_attribute, [20 x i8] }
+%struct.thermal_trip = type { i32, i32, i32, i32, ptr }
+
+@thermal_zone_attribute_groups = internal unnamed_addr constant [2 x ptr] [ptr @thermal_zone_attribute_group, ptr @thermal_zone_mode_attribute_group], align 16
+@cooling_device_attr_groups = internal global [3 x ptr] [ptr @cooling_device_attr_group, ptr null, ptr null], align 16
+@.str = private unnamed_addr constant [4 x i8] c"%d\0A\00", align 1
+@kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
+@thermal_zone_attribute_group = internal constant %struct.attribute_group { ptr null, ptr null, ptr null, ptr @thermal_zone_dev_attrs, ptr null }, align 8
+@thermal_zone_mode_attribute_group = internal constant %struct.attribute_group { ptr null, ptr null, ptr null, ptr @thermal_zone_mode_attrs, ptr null }, align 8
+@thermal_zone_dev_attrs = internal global [13 x ptr] [ptr @dev_attr_type, ptr @dev_attr_temp, ptr @dev_attr_policy, ptr @dev_attr_available_policies, ptr @dev_attr_sustainable_power, ptr @dev_attr_k_po, ptr @dev_attr_k_pu, ptr @dev_attr_k_i, ptr @dev_attr_k_d, ptr @dev_attr_integral_cutoff, ptr @dev_attr_slope, ptr @dev_attr_offset, ptr null], align 16
+@dev_attr_type = internal global %struct.device_attribute { %struct.attribute { ptr @.str.2, i16 292 }, ptr @type_show, ptr null }, align 8
+@dev_attr_temp = internal global %struct.device_attribute { %struct.attribute { ptr @.str.4, i16 292 }, ptr @temp_show, ptr null }, align 8
+@dev_attr_policy = internal global %struct.device_attribute { %struct.attribute { ptr @.str.5, i16 420 }, ptr @policy_show, ptr @policy_store }, align 8
+@dev_attr_available_policies = internal global %struct.device_attribute { %struct.attribute { ptr @.str.7, i16 292 }, ptr @available_policies_show, ptr null }, align 8
+@dev_attr_sustainable_power = internal global %struct.device_attribute { %struct.attribute { ptr @.str.8, i16 420 }, ptr @sustainable_power_show, ptr @sustainable_power_store }, align 8
+@dev_attr_k_po = internal global %struct.device_attribute { %struct.attribute { ptr @.str.10, i16 420 }, ptr @k_po_show, ptr @k_po_store }, align 8
+@dev_attr_k_pu = internal global %struct.device_attribute { %struct.attribute { ptr @.str.11, i16 420 }, ptr @k_pu_show, ptr @k_pu_store }, align 8
+@dev_attr_k_i = internal global %struct.device_attribute { %struct.attribute { ptr @.str.12, i16 420 }, ptr @k_i_show, ptr @k_i_store }, align 8
+@dev_attr_k_d = internal global %struct.device_attribute { %struct.attribute { ptr @.str.13, i16 420 }, ptr @k_d_show, ptr @k_d_store }, align 8
+@dev_attr_integral_cutoff = internal global %struct.device_attribute { %struct.attribute { ptr @.str.14, i16 420 }, ptr @integral_cutoff_show, ptr @integral_cutoff_store }, align 8
+@dev_attr_slope = internal global %struct.device_attribute { %struct.attribute { ptr @.str.15, i16 420 }, ptr @slope_show, ptr @slope_store }, align 8
+@dev_attr_offset = internal global %struct.device_attribute { %struct.attribute { ptr @.str.16, i16 420 }, ptr @offset_show, ptr @offset_store }, align 8
+@.str.2 = private unnamed_addr constant [5 x i8] c"type\00", align 1
+@.str.3 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
+@.str.4 = private unnamed_addr constant [5 x i8] c"temp\00", align 1
+@.str.5 = private unnamed_addr constant [7 x i8] c"policy\00", align 1
+@.str.6 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str.7 = private unnamed_addr constant [19 x i8] c"available_policies\00", align 1
+@.str.8 = private unnamed_addr constant [18 x i8] c"sustainable_power\00", align 1
+@.str.9 = private unnamed_addr constant [4 x i8] c"%u\0A\00", align 1
+@.str.10 = private unnamed_addr constant [5 x i8] c"k_po\00", align 1
+@.str.11 = private unnamed_addr constant [5 x i8] c"k_pu\00", align 1
+@.str.12 = private unnamed_addr constant [4 x i8] c"k_i\00", align 1
+@.str.13 = private unnamed_addr constant [4 x i8] c"k_d\00", align 1
+@.str.14 = private unnamed_addr constant [16 x i8] c"integral_cutoff\00", align 1
+@.str.15 = private unnamed_addr constant [6 x i8] c"slope\00", align 1
+@.str.16 = private unnamed_addr constant [7 x i8] c"offset\00", align 1
+@thermal_zone_mode_attrs = internal global [2 x ptr] [ptr @dev_attr_mode, ptr null], align 16
+@dev_attr_mode = internal global %struct.device_attribute { %struct.attribute { ptr @.str.17, i16 420 }, ptr @mode_show, ptr @mode_store }, align 8
+@.str.17 = private unnamed_addr constant [5 x i8] c"mode\00", align 1
+@.str.18 = private unnamed_addr constant [8 x i8] c"enabled\00", align 1
+@.str.19 = private unnamed_addr constant [9 x i8] c"disabled\00", align 1
+@.str.20 = private unnamed_addr constant [19 x i8] c"trip_point_%d_type\00", align 1
+@.str.21 = private unnamed_addr constant [19 x i8] c"trip_point_%d_temp\00", align 1
+@.str.22 = private unnamed_addr constant [19 x i8] c"trip_point_%d_hyst\00", align 1
+@.str.23 = private unnamed_addr constant [10 x i8] c"critical\0A\00", align 1
+@.str.24 = private unnamed_addr constant [5 x i8] c"hot\0A\00", align 1
+@.str.25 = private unnamed_addr constant [9 x i8] c"passive\0A\00", align 1
+@.str.27 = private unnamed_addr constant [9 x i8] c"unknown\0A\00", align 1
+@cooling_device_attr_group = internal constant %struct.attribute_group { ptr null, ptr null, ptr null, ptr @cooling_device_attrs, ptr null }, align 8
+@cooling_device_attrs = internal global [4 x ptr] [ptr @dev_attr_cdev_type, ptr @dev_attr_max_state, ptr @dev_attr_cur_state, ptr null], align 16
+@dev_attr_cdev_type = internal global %struct.device_attribute { %struct.attribute { ptr @.str.2, i16 292 }, ptr @cdev_type_show, ptr null }, align 8
+@dev_attr_max_state = internal global %struct.device_attribute { %struct.attribute { ptr @.str.28, i16 292 }, ptr @max_state_show, ptr null }, align 8
+@dev_attr_cur_state = internal global %struct.device_attribute { %struct.attribute { ptr @.str.30, i16 420 }, ptr @cur_state_show, ptr @cur_state_store }, align 8
+@.str.28 = private unnamed_addr constant [10 x i8] c"max_state\00", align 1
+@.str.29 = private unnamed_addr constant [5 x i8] c"%ld\0A\00", align 1
+@.str.30 = private unnamed_addr constant [10 x i8] c"cur_state\00", align 1
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local noundef i32 @thermal_zone_create_device_groups(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
+  %4 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 32) #13
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %159, label %6
+
+6:                                                ; preds = %2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) @thermal_zone_attribute_groups, i64 16, i1 false)
+  %7 = getelementptr inbounds i8, ptr %0, i64 872
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %157, label %10
+
+10:                                               ; preds = %6
+  %11 = icmp slt i32 %8, 1
+  br i1 %11, label %150, label %12
+
+12:                                               ; preds = %10
+  %13 = zext nneg i32 %8 to i64
+  %14 = mul nuw nsw i64 %13, 56
+  %15 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %14, i32 noundef 3520) #14
+  %16 = getelementptr inbounds i8, ptr %0, i64 832
+  store ptr %15, ptr %16, align 8
+  %17 = icmp eq ptr %15, null
+  br i1 %17, label %150, label %18
+
+18:                                               ; preds = %12
+  %19 = load i32, ptr %7, align 8
+  %20 = sext i32 %19 to i64
+  %21 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %20, i64 56)
+  %22 = extractvalue { i64, i1 } %21, 1
+  br i1 %22, label %26, label %23, !prof !5
+
+23:                                               ; preds = %18
+  %24 = extractvalue { i64, i1 } %21, 0
+  %25 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %24, i32 noundef 3520) #14
+  br label %26
+
+26:                                               ; preds = %23, %18
+  %27 = phi ptr [ %25, %23 ], [ null, %18 ]
+  %28 = getelementptr inbounds i8, ptr %0, i64 824
+  store ptr %27, ptr %28, align 8
+  %29 = icmp eq ptr %27, null
+  br i1 %29, label %30, label %32
+
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %16, align 8
+  tail call void @kfree(ptr noundef %31) #15
+  br label %150
+
+32:                                               ; preds = %26
+  %33 = load i32, ptr %7, align 8
+  %34 = sext i32 %33 to i64
+  %35 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %34, i64 56)
+  %36 = extractvalue { i64, i1 } %35, 1
+  br i1 %36, label %40, label %37, !prof !5
+
+37:                                               ; preds = %32
+  %38 = extractvalue { i64, i1 } %35, 0
+  %39 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %38, i32 noundef 3520) #14
+  br label %40
+
+40:                                               ; preds = %37, %32
+  %41 = phi ptr [ %39, %37 ], [ null, %32 ]
+  %42 = getelementptr inbounds i8, ptr %0, i64 840
+  store ptr %41, ptr %42, align 8
+  %43 = icmp eq ptr %41, null
+  br i1 %43, label %44, label %47
+
+44:                                               ; preds = %40
+  %45 = load ptr, ptr %16, align 8
+  tail call void @kfree(ptr noundef %45) #15
+  %46 = load ptr, ptr %28, align 8
+  tail call void @kfree(ptr noundef %46) #15
+  br label %150
+
+47:                                               ; preds = %40
+  %48 = load i32, ptr %7, align 8
+  %49 = mul i32 %48, 3
+  %50 = add i32 %49, 1
+  %51 = icmp slt i32 %50, 0
+  br i1 %51, label %56, label %52, !prof !5
+
+52:                                               ; preds = %47
+  %53 = zext nneg i32 %50 to i64
+  %54 = shl nuw nsw i64 %53, 3
+  %55 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %54, i32 noundef 3520) #14
+  br label %56
+
+56:                                               ; preds = %52, %47
+  %57 = phi ptr [ %55, %52 ], [ null, %47 ]
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %64, label %59
+
+59:                                               ; preds = %56
+  %60 = load i32, ptr %7, align 8
+  %61 = icmp sgt i32 %60, 0
+  br i1 %61, label %62, label %144
+
+62:                                               ; preds = %59
+  %63 = getelementptr inbounds i8, ptr %0, i64 928
+  br label %68
+
+64:                                               ; preds = %56
+  %65 = load ptr, ptr %16, align 8
+  tail call void @kfree(ptr noundef %65) #15
+  %66 = load ptr, ptr %28, align 8
+  tail call void @kfree(ptr noundef %66) #15
+  %67 = load ptr, ptr %42, align 8
+  tail call void @kfree(ptr noundef %67) #15
+  br label %150
+
+68:                                               ; preds = %132, %62
+  %69 = phi i64 [ 0, %62 ], [ %140, %132 ]
+  %70 = load ptr, ptr %16, align 8
+  %71 = getelementptr %struct.thermal_attr, ptr %70, i64 %69, i32 1
+  %72 = trunc i64 %69 to i32
+  %73 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %71, i64 noundef 20, ptr noundef nonnull @.str.20, i32 noundef %72) #15
+  %74 = load ptr, ptr %16, align 8
+  %75 = getelementptr %struct.thermal_attr, ptr %74, i64 %69
+  %76 = getelementptr inbounds i8, ptr %75, i64 32
+  store ptr %76, ptr %75, align 8
+  %77 = load ptr, ptr %16, align 8
+  %78 = getelementptr %struct.thermal_attr, ptr %77, i64 %69, i32 0, i32 0, i32 1
+  store i16 292, ptr %78, align 8
+  %79 = load ptr, ptr %16, align 8
+  %80 = getelementptr %struct.thermal_attr, ptr %79, i64 %69, i32 0, i32 1
+  store ptr @trip_point_type_show, ptr %80, align 8
+  %81 = load ptr, ptr %16, align 8
+  %82 = getelementptr %struct.thermal_attr, ptr %81, i64 %69
+  %83 = getelementptr ptr, ptr %57, i64 %69
+  store ptr %82, ptr %83, align 8
+  %84 = load ptr, ptr %28, align 8
+  %85 = getelementptr %struct.thermal_attr, ptr %84, i64 %69, i32 1
+  %86 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %85, i64 noundef 20, ptr noundef nonnull @.str.21, i32 noundef %72) #15
+  %87 = load ptr, ptr %28, align 8
+  %88 = getelementptr %struct.thermal_attr, ptr %87, i64 %69
+  %89 = getelementptr inbounds i8, ptr %88, i64 32
+  store ptr %89, ptr %88, align 8
+  %90 = load ptr, ptr %28, align 8
+  %91 = getelementptr %struct.thermal_attr, ptr %90, i64 %69, i32 0, i32 0, i32 1
+  store i16 292, ptr %91, align 8
+  %92 = load ptr, ptr %28, align 8
+  %93 = getelementptr %struct.thermal_attr, ptr %92, i64 %69, i32 0, i32 1
+  store ptr @trip_point_temp_show, ptr %93, align 8
+  %94 = shl nuw i32 1, %72
+  %95 = and i32 %94, %1
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %104, label %97
+
+97:                                               ; preds = %68
+  %98 = load ptr, ptr %28, align 8
+  %99 = getelementptr %struct.thermal_attr, ptr %98, i64 %69, i32 0, i32 0, i32 1
+  %100 = load i16, ptr %99, align 8
+  %101 = or i16 %100, 128
+  store i16 %101, ptr %99, align 8
+  %102 = load ptr, ptr %28, align 8
+  %103 = getelementptr %struct.thermal_attr, ptr %102, i64 %69, i32 0, i32 2
+  store ptr @trip_point_temp_store, ptr %103, align 8
+  br label %104
+
+104:                                              ; preds = %97, %68
+  %105 = load ptr, ptr %28, align 8
+  %106 = getelementptr %struct.thermal_attr, ptr %105, i64 %69
+  %107 = load i32, ptr %7, align 8
+  %108 = add i32 %107, %72
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr ptr, ptr %57, i64 %109
+  store ptr %106, ptr %110, align 8
+  %111 = load ptr, ptr %42, align 8
+  %112 = getelementptr %struct.thermal_attr, ptr %111, i64 %69, i32 1
+  %113 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %112, i64 noundef 20, ptr noundef nonnull @.str.22, i32 noundef %72) #15
+  %114 = load ptr, ptr %42, align 8
+  %115 = getelementptr %struct.thermal_attr, ptr %114, i64 %69
+  %116 = getelementptr inbounds i8, ptr %115, i64 32
+  store ptr %116, ptr %115, align 8
+  %117 = load ptr, ptr %42, align 8
+  %118 = getelementptr %struct.thermal_attr, ptr %117, i64 %69, i32 0, i32 0, i32 1
+  store i16 292, ptr %118, align 8
+  %119 = load ptr, ptr %42, align 8
+  %120 = getelementptr %struct.thermal_attr, ptr %119, i64 %69, i32 0, i32 1
+  store ptr @trip_point_hyst_show, ptr %120, align 8
+  %121 = load ptr, ptr %63, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 48
+  %123 = load ptr, ptr %122, align 8
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %132, label %125
+
+125:                                              ; preds = %104
+  %126 = load ptr, ptr %42, align 8
+  %127 = getelementptr %struct.thermal_attr, ptr %126, i64 %69, i32 0, i32 0, i32 1
+  %128 = load i16, ptr %127, align 8
+  %129 = or i16 %128, 128
+  store i16 %129, ptr %127, align 8
+  %130 = load ptr, ptr %42, align 8
+  %131 = getelementptr %struct.thermal_attr, ptr %130, i64 %69, i32 0, i32 2
+  store ptr @trip_point_hyst_store, ptr %131, align 8
+  br label %132
+
+132:                                              ; preds = %125, %104
+  %133 = load ptr, ptr %42, align 8
+  %134 = getelementptr %struct.thermal_attr, ptr %133, i64 %69
+  %135 = load i32, ptr %7, align 8
+  %136 = shl i32 %135, 1
+  %137 = add i32 %136, %72
+  %138 = sext i32 %137 to i64
+  %139 = getelementptr ptr, ptr %57, i64 %138
+  store ptr %134, ptr %139, align 8
+  %140 = add nuw nsw i64 %69, 1
+  %141 = load i32, ptr %7, align 8
+  %142 = sext i32 %141 to i64
+  %143 = icmp slt i64 %140, %142
+  br i1 %143, label %68, label %144, !llvm.loop !6
+
+144:                                              ; preds = %132, %59
+  %145 = phi i32 [ %60, %59 ], [ %141, %132 ]
+  %146 = mul i32 %145, 3
+  %147 = sext i32 %146 to i64
+  %148 = getelementptr ptr, ptr %57, i64 %147
+  store ptr null, ptr %148, align 8
+  %149 = getelementptr inbounds i8, ptr %0, i64 808
+  store ptr %57, ptr %149, align 8
+  br label %150
+
+150:                                              ; preds = %144, %64, %44, %30, %12, %10
+  %151 = phi i1 [ true, %144 ], [ false, %64 ], [ false, %44 ], [ false, %30 ], [ false, %10 ], [ false, %12 ]
+  %152 = phi i32 [ 0, %144 ], [ -12, %64 ], [ -12, %44 ], [ -12, %30 ], [ -22, %10 ], [ -12, %12 ]
+  br i1 %151, label %154, label %153
+
+153:                                              ; preds = %150
+  tail call void @kfree(ptr noundef nonnull %4) #15
+  br label %159
+
+154:                                              ; preds = %150
+  %155 = getelementptr inbounds i8, ptr %0, i64 784
+  %156 = getelementptr i8, ptr %4, i64 16
+  store ptr %155, ptr %156, align 8
+  br label %157
+
+157:                                              ; preds = %154, %6
+  %158 = getelementptr inbounds i8, ptr %0, i64 704
+  store ptr %4, ptr %158, align 8
+  br label %159
+
+159:                                              ; preds = %157, %153, %2
+  %160 = phi i32 [ %152, %153 ], [ 0, %157 ], [ -12, %2 ]
+  ret i32 %160
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local void @thermal_zone_destroy_device_groups(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %19, label %3
+
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds i8, ptr %0, i64 872
+  %5 = load i32, ptr %4, align 8
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %16, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %0, i64 832
+  %9 = load ptr, ptr %8, align 8
+  tail call void @kfree(ptr noundef %9) #15
+  %10 = getelementptr inbounds i8, ptr %0, i64 824
+  %11 = load ptr, ptr %10, align 8
+  tail call void @kfree(ptr noundef %11) #15
+  %12 = getelementptr inbounds i8, ptr %0, i64 840
+  %13 = load ptr, ptr %12, align 8
+  tail call void @kfree(ptr noundef %13) #15
+  %14 = getelementptr inbounds i8, ptr %0, i64 808
+  %15 = load ptr, ptr %14, align 8
+  tail call void @kfree(ptr noundef %15) #15
+  br label %16
+
+16:                                               ; preds = %7, %3
+  %17 = getelementptr inbounds i8, ptr %0, i64 704
+  %18 = load ptr, ptr %17, align 8
+  tail call void @kfree(ptr noundef %18) #15
+  br label %19
+
+19:                                               ; preds = %16, %1
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
+define dso_local void @thermal_cooling_device_setup_sysfs(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 align 16 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 704
+  store ptr @cooling_device_attr_groups, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
+define dso_local void @thermal_cooling_device_destroy_sysfs(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 16 {
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
+define dso_local void @thermal_cooling_device_stats_reinit(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 16 {
+  ret void
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local noundef i64 @trip_point_show(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+  %4 = getelementptr i8, ptr %1, i64 -80
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr i8, ptr %1, i64 -64
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call i32 @thermal_zone_trip_id(ptr noundef %5, ptr noundef %7) #15
+  %9 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %8) #15
+  %10 = sext i32 %9 to i64
+  ret i64 %10
+}
+
+; Function Attrs: nofree nounwind null_pointer_is_valid
+declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @thermal_zone_trip_id(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
+define dso_local noundef i64 @weight_show(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 align 16 {
+  %4 = getelementptr i8, ptr %1, i64 64
+  %5 = load i32, ptr %4, align 8
+  %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %5) #15
+  %7 = sext i32 %6 to i64
+  ret i64 %7
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i64 @weight_store(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
+  %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  store i32 0, ptr %5, align 4, !annotation !9
+  %6 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #15
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %10, label %8
+
+8:                                                ; preds = %4
+  %9 = sext i32 %6 to i64
+  br label %19
+
+10:                                               ; preds = %4
+  %11 = getelementptr i8, ptr %1, i64 -136
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 992
+  call void @mutex_lock(ptr noundef %13) #15
+  %14 = load i32, ptr %5, align 4
+  %15 = getelementptr i8, ptr %1, i64 64
+  store i32 %14, ptr %15, align 8
+  %16 = load ptr, ptr %11, align 8
+  call void @thermal_governor_update_tz(ptr noundef %16, i32 noundef 11) #15
+  %17 = load ptr, ptr %11, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 992
+  call void @mutex_unlock(ptr noundef %18) #15
+  br label %19
+
+19:                                               ; preds = %10, %8
+  %20 = phi i64 [ %9, %8 ], [ %3, %10 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  ret i64 %20
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @kstrtoint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @thermal_governor_update_tz(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #7
+
+; Function Attrs: null_pointer_is_valid allocsize(0)
+declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #8
+
+; Function Attrs: null_pointer_is_valid allocsize(2)
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
+
+; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
+define internal noundef i64 @type_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+  %4 = getelementptr i8, ptr %0, i64 -20
+  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %4) #15
+  %6 = sext i32 %5 to i64
+  ret i64 %6
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal i64 @temp_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+  %4 = alloca i32, align 4
+  %5 = getelementptr i8, ptr %0, i64 -24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  store i32 0, ptr %4, align 4, !annotation !9
+  %6 = call i32 @thermal_zone_get_temp(ptr noundef %5, ptr noundef nonnull %4) #15
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %11
+
+8:                                                ; preds = %3
+  %9 = load i32, ptr %4, align 4
+  %10 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9) #15
+  br label %11
+
+11:                                               ; preds = %8, %3
+  %12 = phi i32 [ %10, %8 ], [ %6, %3 ]
+  %13 = sext i32 %12 to i64
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  ret i64 %13
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @thermal_zone_get_temp(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
+define internal noundef i64 @policy_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+  %4 = getelementptr i8, ptr %0, i64 920
+  %5 = load ptr, ptr %4, align 8
+  %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %5) #15
+  %7 = sext i32 %6 to i64
+  ret i64 %7
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal i64 @policy_store(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+  %5 = alloca [20 x i8], align 16
+  %6 = getelementptr i8, ptr %0, i64 -24
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, i8 0, i64 20, i1 false), !annotation !9
+  %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 20, ptr noundef nonnull @.str.6, ptr noundef %2) #15
+  %8 = call i32 @thermal_zone_device_set_policy(ptr noundef %6, ptr noundef nonnull %5) #15
+  %9 = icmp eq i32 %8, 0
+  %10 = trunc i64 %3 to i32
+  %11 = select i1 %9, i32 %10, i32 %8
+  %12 = sext i32 %11 to i64
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #15
+  ret i64 %12
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+
+; Function Attrs: nofree nounwind null_pointer_is_valid
+declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @thermal_zone_device_set_policy(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal i64 @available_policies_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+  %4 = tail call i32 @thermal_build_list_of_policies(ptr noundef %2) #15
+  %5 = sext i32 %4 to i64
+  ret i64 %5
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @thermal_build_list_of_policies(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
+define internal noundef i64 @sustainable_power_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+  %4 = getelementptr i8, ptr %0, i64 912
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = load i32, ptr %8, align 4
+  %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %9) #15
+  %11 = sext i32 %10 to i64
+  br label %12
+
+12:                                               ; preds = %7, %3
+  %13 = phi i64 [ %11, %7 ], [ -5, %3 ]
+  ret i64 %13
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i64 @sustainable_power_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+  %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  store i32 0, ptr %5, align 4, !annotation !9
+  %6 = getelementptr i8, ptr %0, i64 912
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %16, label %9
+
+9:                                                ; preds = %4
+  %10 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #15
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %16
+
+12:                                               ; preds = %9
+  %13 = load i32, ptr %5, align 4
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  store i32 %13, ptr %15, align 4
+  br label %16
+
+16:                                               ; preds = %12, %9, %4
+  %17 = phi i64 [ %3, %12 ], [ -5, %4 ], [ -22, %9 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  ret i64 %17
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
+define internal noundef i64 @k_po_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+  %4 = getelementptr i8, ptr %0, i64 912
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 28
+  %9 = load i32, ptr %8, align 4
+  %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9) #15
+  %11 = sext i32 %10 to i64
+  br label %12
+
+12:                                               ; preds = %7, %3
+  %13 = phi i64 [ %11, %7 ], [ -5, %3 ]
+  ret i64 %13
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i64 @k_po_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+  %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  store i32 0, ptr %5, align 4, !annotation !9
+  %6 = getelementptr i8, ptr %0, i64 912
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %16, label %9
+
+9:                                                ; preds = %4
+  %10 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #15
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %16
+
+12:                                               ; preds = %9
+  %13 = load i32, ptr %5, align 4
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 28
+  store i32 %13, ptr %15, align 4
+  br label %16
+
+16:                                               ; preds = %12, %9, %4
+  %17 = phi i64 [ %3, %12 ], [ -5, %4 ], [ -22, %9 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  ret i64 %17
+}
+
+; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
+define internal noundef i64 @k_pu_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+  %4 = getelementptr i8, ptr %0, i64 912
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = load i32, ptr %8, align 4
+  %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9) #15
+  %11 = sext i32 %10 to i64
+  br label %12
+
+12:                                               ; preds = %7, %3
+  %13 = phi i64 [ %11, %7 ], [ -5, %3 ]
+  ret i64 %13
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i64 @k_pu_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+  %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  store i32 0, ptr %5, align 4, !annotation !9
+  %6 = getelementptr i8, ptr %0, i64 912
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %16, label %9
+
+9:                                                ; preds = %4
+  %10 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #15
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %16
+
+12:                                               ; preds = %9
+  %13 = load i32, ptr %5, align 4
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  store i32 %13, ptr %15, align 4
+  br label %16
+
+16:                                               ; preds = %12, %9, %4
+  %17 = phi i64 [ %3, %12 ], [ -5, %4 ], [ -22, %9 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  ret i64 %17
+}
+
+; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
+define internal noundef i64 @k_i_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+  %4 = getelementptr i8, ptr %0, i64 912
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 36
+  %9 = load i32, ptr %8, align 4
+  %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9) #15
+  %11 = sext i32 %10 to i64
+  br label %12
+
+12:                                               ; preds = %7, %3
+  %13 = phi i64 [ %11, %7 ], [ -5, %3 ]
+  ret i64 %13
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i64 @k_i_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+  %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  store i32 0, ptr %5, align 4, !annotation !9
+  %6 = getelementptr i8, ptr %0, i64 912
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %16, label %9
+
+9:                                                ; preds = %4
+  %10 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #15
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %16
+
+12:                                               ; preds = %9
+  %13 = load i32, ptr %5, align 4
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 36
+  store i32 %13, ptr %15, align 4
+  br label %16
+
+16:                                               ; preds = %12, %9, %4
+  %17 = phi i64 [ %3, %12 ], [ -5, %4 ], [ -22, %9 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  ret i64 %17
+}
+
+; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
+define internal noundef i64 @k_d_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+  %4 = getelementptr i8, ptr %0, i64 912
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 40
+  %9 = load i32, ptr %8, align 4
+  %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9) #15
+  %11 = sext i32 %10 to i64
+  br label %12
+
+12:                                               ; preds = %7, %3
+  %13 = phi i64 [ %11, %7 ], [ -5, %3 ]
+  ret i64 %13
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i64 @k_d_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+  %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  store i32 0, ptr %5, align 4, !annotation !9
+  %6 = getelementptr i8, ptr %0, i64 912
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %16, label %9
+
+9:                                                ; preds = %4
+  %10 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #15
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %16
+
+12:                                               ; preds = %9
+  %13 = load i32, ptr %5, align 4
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  store i32 %13, ptr %15, align 4
+  br label %16
+
+16:                                               ; preds = %12, %9, %4
+  %17 = phi i64 [ %3, %12 ], [ -5, %4 ], [ -22, %9 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  ret i64 %17
+}
+
+; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
+define internal noundef i64 @integral_cutoff_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+  %4 = getelementptr i8, ptr %0, i64 912
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 44
+  %9 = load i32, ptr %8, align 4
+  %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9) #15
+  %11 = sext i32 %10 to i64
+  br label %12
+
+12:                                               ; preds = %7, %3
+  %13 = phi i64 [ %11, %7 ], [ -5, %3 ]
+  ret i64 %13
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i64 @integral_cutoff_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+  %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  store i32 0, ptr %5, align 4, !annotation !9
+  %6 = getelementptr i8, ptr %0, i64 912
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %16, label %9
+
+9:                                                ; preds = %4
+  %10 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #15
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %16
+
+12:                                               ; preds = %9
+  %13 = load i32, ptr %5, align 4
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 44
+  store i32 %13, ptr %15, align 4
+  br label %16
+
+16:                                               ; preds = %12, %9, %4
+  %17 = phi i64 [ %3, %12 ], [ -5, %4 ], [ -22, %9 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  ret i64 %17
+}
+
+; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
+define internal noundef i64 @slope_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+  %4 = getelementptr i8, ptr %0, i64 912
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 48
+  %9 = load i32, ptr %8, align 4
+  %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9) #15
+  %11 = sext i32 %10 to i64
+  br label %12
+
+12:                                               ; preds = %7, %3
+  %13 = phi i64 [ %11, %7 ], [ -5, %3 ]
+  ret i64 %13
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i64 @slope_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+  %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  store i32 0, ptr %5, align 4, !annotation !9
+  %6 = getelementptr i8, ptr %0, i64 912
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %16, label %9
+
+9:                                                ; preds = %4
+  %10 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #15
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %16
+
+12:                                               ; preds = %9
+  %13 = load i32, ptr %5, align 4
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  store i32 %13, ptr %15, align 4
+  br label %16
+
+16:                                               ; preds = %12, %9, %4
+  %17 = phi i64 [ %3, %12 ], [ -5, %4 ], [ -22, %9 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  ret i64 %17
+}
+
+; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
+define internal noundef i64 @offset_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+  %4 = getelementptr i8, ptr %0, i64 912
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %12, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 52
+  %9 = load i32, ptr %8, align 4
+  %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %9) #15
+  %11 = sext i32 %10 to i64
+  br label %12
+
+12:                                               ; preds = %7, %3
+  %13 = phi i64 [ %11, %7 ], [ -5, %3 ]
+  ret i64 %13
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i64 @offset_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+  %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  store i32 0, ptr %5, align 4, !annotation !9
+  %6 = getelementptr i8, ptr %0, i64 912
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %16, label %9
+
+9:                                                ; preds = %4
+  %10 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #15
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %16
+
+12:                                               ; preds = %9
+  %13 = load i32, ptr %5, align 4
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 52
+  store i32 %13, ptr %15, align 4
+  br label %16
+
+16:                                               ; preds = %12, %9, %4
+  %17 = phi i64 [ %3, %12 ], [ -5, %4 ], [ -22, %9 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  ret i64 %17
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i64 @mode_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+  %4 = getelementptr i8, ptr %0, i64 -24
+  %5 = getelementptr i8, ptr %0, i64 968
+  tail call void @mutex_lock(ptr noundef %5) #15
+  %6 = tail call i32 @thermal_zone_device_is_enabled(ptr noundef %4) #15
+  tail call void @mutex_unlock(ptr noundef %5) #15
+  %7 = icmp eq i32 %6, 0
+  %8 = select i1 %7, ptr @.str.19, ptr @.str.18
+  %9 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %8) #15
+  %10 = sext i32 %9 to i64
+  ret i64 %10
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal i64 @mode_store(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #0 align 16 {
+  %5 = getelementptr i8, ptr %0, i64 -24
+  %6 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull dereferenceable(8) @.str.18, i64 noundef 7) #15
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %10
+
+8:                                                ; preds = %4
+  %9 = tail call i32 @thermal_zone_device_enable(ptr noundef %5) #15
+  br label %15
+
+10:                                               ; preds = %4
+  %11 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull dereferenceable(9) @.str.19, i64 noundef 8) #15
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %15
+
+13:                                               ; preds = %10
+  %14 = tail call i32 @thermal_zone_device_disable(ptr noundef %5) #15
+  br label %15
+
+15:                                               ; preds = %13, %10, %8
+  %16 = phi i32 [ %14, %13 ], [ %9, %8 ], [ -22, %10 ]
+  %17 = icmp eq i32 %16, 0
+  %18 = sext i32 %16 to i64
+  %19 = select i1 %17, i64 %3, i64 %18
+  ret i64 %19
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @thermal_zone_device_is_enabled(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
+declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @thermal_zone_device_enable(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @thermal_zone_device_disable(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
+define internal noundef i64 @trip_point_type_show(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+  %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  store i32 0, ptr %4, align 4, !annotation !9
+  %5 = load ptr, ptr %1, align 8
+  %6 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %5, ptr noundef nonnull @.str.20, ptr noundef nonnull %4)
+  %7 = icmp eq i32 %6, 1
+  br i1 %7, label %8, label %20
+
+8:                                                ; preds = %3
+  %9 = getelementptr i8, ptr %0, i64 840
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %4, align 4
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr %struct.thermal_trip, ptr %10, i64 %12, i32 3
+  %14 = load i32, ptr %13, align 4
+  switch i32 %14, label %19 [
+    i32 3, label %15
+    i32 2, label %16
+    i32 1, label %17
+    i32 0, label %18
+  ]
+
+15:                                               ; preds = %8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(10) %2, ptr noundef nonnull align 1 dereferenceable(10) @.str.23, i64 10, i1 false)
+  br label %20
+
+16:                                               ; preds = %8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(5) %2, ptr noundef nonnull align 1 dereferenceable(5) @.str.24, i64 5, i1 false)
+  br label %20
+
+17:                                               ; preds = %8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(9) %2, ptr noundef nonnull align 1 dereferenceable(9) @.str.25, i64 9, i1 false)
+  br label %20
+
+18:                                               ; preds = %8
+  store i64 2926309016888161, ptr %2, align 1
+  br label %20
+
+19:                                               ; preds = %8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(9) %2, ptr noundef nonnull align 1 dereferenceable(9) @.str.27, i64 9, i1 false)
+  br label %20
+
+20:                                               ; preds = %19, %18, %17, %16, %15, %3
+  %21 = phi i64 [ 8, %19 ], [ 7, %18 ], [ 8, %17 ], [ 4, %16 ], [ 9, %15 ], [ -22, %3 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  ret i64 %21
+}
+
+; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
+define internal noundef i64 @trip_point_temp_show(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+  %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  store i32 0, ptr %4, align 4, !annotation !9
+  %5 = load ptr, ptr %1, align 8
+  %6 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %5, ptr noundef nonnull @.str.21, ptr noundef nonnull %4)
+  %7 = icmp eq i32 %6, 1
+  br i1 %7, label %8, label %17
+
+8:                                                ; preds = %3
+  %9 = getelementptr i8, ptr %0, i64 840
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %4, align 4
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr %struct.thermal_trip, ptr %10, i64 %12
+  %14 = load i32, ptr %13, align 8
+  %15 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %14) #15
+  %16 = sext i32 %15 to i64
+  br label %17
+
+17:                                               ; preds = %8, %3
+  %18 = phi i64 [ %16, %8 ], [ -22, %3 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  ret i64 %18
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal i64 @trip_point_temp_store(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = getelementptr i8, ptr %0, i64 -24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  store i32 0, ptr %5, align 4, !annotation !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
+  store i32 0, ptr %6, align 4, !annotation !9
+  %8 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %6) #15
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %40
+
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %1, align 8
+  %12 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %11, ptr noundef nonnull @.str.21, ptr noundef nonnull %5)
+  %13 = icmp eq i32 %12, 1
+  br i1 %13, label %14, label %40
+
+14:                                               ; preds = %10
+  %15 = getelementptr i8, ptr %0, i64 968
+  call void @mutex_lock(ptr noundef %15) #15
+  %16 = getelementptr i8, ptr %0, i64 840
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i32, ptr %5, align 4
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr %struct.thermal_trip, ptr %17, i64 %19
+  %21 = load i32, ptr %6, align 4
+  %22 = load i32, ptr %20, align 8
+  %23 = icmp eq i32 %21, %22
+  br i1 %23, label %35, label %24
+
+24:                                               ; preds = %14
+  %25 = getelementptr i8, ptr %0, i64 904
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %33, label %30
+
+30:                                               ; preds = %24
+  %31 = call i32 %28(ptr noundef %7, i32 noundef %18, i32 noundef %21) #15
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %35
+
+33:                                               ; preds = %30, %24
+  %34 = load i32, ptr %6, align 4
+  call void @thermal_zone_set_trip_temp(ptr noundef %7, ptr noundef %20, i32 noundef %34) #15
+  call void @__thermal_zone_device_update(ptr noundef %7, i32 noundef 3) #15
+  br label %35
+
+35:                                               ; preds = %33, %30, %14
+  %36 = phi i32 [ %31, %30 ], [ 0, %33 ], [ 0, %14 ]
+  call void @mutex_unlock(ptr noundef %15) #15
+  %37 = icmp eq i32 %36, 0
+  %38 = sext i32 %36 to i64
+  %39 = select i1 %37, i64 %3, i64 %38
+  br label %40
+
+40:                                               ; preds = %35, %10, %4
+  %41 = phi i64 [ %39, %35 ], [ -22, %4 ], [ -22, %10 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  ret i64 %41
+}
+
+; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
+define internal noundef i64 @trip_point_hyst_show(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+  %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  store i32 0, ptr %4, align 4, !annotation !9
+  %5 = load ptr, ptr %1, align 8
+  %6 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %5, ptr noundef nonnull @.str.22, ptr noundef nonnull %4)
+  %7 = icmp eq i32 %6, 1
+  br i1 %7, label %8, label %17
+
+8:                                                ; preds = %3
+  %9 = getelementptr i8, ptr %0, i64 840
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %4, align 4
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr %struct.thermal_trip, ptr %10, i64 %12, i32 1
+  %14 = load i32, ptr %13, align 4
+  %15 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %14) #15
+  %16 = sext i32 %15 to i64
+  br label %17
+
+17:                                               ; preds = %8, %3
+  %18 = phi i64 [ %16, %8 ], [ -22, %3 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  ret i64 %18
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal i64 @trip_point_hyst_store(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = getelementptr i8, ptr %0, i64 -24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  store i32 0, ptr %5, align 4, !annotation !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
+  store i32 0, ptr %6, align 4, !annotation !9
+  %8 = call i32 @kstrtoint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %6) #15
+  %9 = icmp ne i32 %8, 0
+  %10 = load i32, ptr %6, align 4
+  %11 = icmp slt i32 %10, 0
+  %12 = select i1 %9, i1 true, i1 %11
+  br i1 %12, label %44, label %13
+
+13:                                               ; preds = %4
+  %14 = load ptr, ptr %1, align 8
+  %15 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %14, ptr noundef nonnull @.str.22, ptr noundef nonnull %5)
+  %16 = icmp eq i32 %15, 1
+  br i1 %16, label %17, label %44
+
+17:                                               ; preds = %13
+  %18 = getelementptr i8, ptr %0, i64 968
+  call void @mutex_lock(ptr noundef %18) #15
+  %19 = getelementptr i8, ptr %0, i64 840
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %5, align 4
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr %struct.thermal_trip, ptr %20, i64 %22
+  %24 = load i32, ptr %6, align 4
+  %25 = getelementptr inbounds i8, ptr %23, i64 4
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp eq i32 %24, %26
+  br i1 %27, label %39, label %28
+
+28:                                               ; preds = %17
+  %29 = getelementptr i8, ptr %0, i64 904
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 48
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %37, label %34
+
+34:                                               ; preds = %28
+  %35 = call i32 %32(ptr noundef %7, i32 noundef %21, i32 noundef %24) #15
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %39
+
+37:                                               ; preds = %34, %28
+  %38 = load i32, ptr %6, align 4
+  store i32 %38, ptr %25, align 4
+  call void @thermal_zone_trip_updated(ptr noundef %7, ptr noundef %23) #15
+  br label %39
+
+39:                                               ; preds = %37, %34, %17
+  %40 = phi i32 [ %35, %34 ], [ 0, %37 ], [ 0, %17 ]
+  call void @mutex_unlock(ptr noundef %18) #15
+  %41 = icmp eq i32 %40, 0
+  %42 = sext i32 %40 to i64
+  %43 = select i1 %41, i64 %3, i64 %42
+  br label %44
+
+44:                                               ; preds = %39, %13, %4
+  %45 = phi i64 [ %43, %39 ], [ -22, %4 ], [ -22, %13 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  ret i64 %45
+}
+
+; Function Attrs: nofree nounwind null_pointer_is_valid
+declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @thermal_zone_set_trip_temp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @__thermal_zone_device_update(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @thermal_zone_trip_updated(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
+define internal noundef i64 @cdev_type_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+  %4 = getelementptr i8, ptr %0, i64 -16
+  %5 = load ptr, ptr %4, align 8
+  %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %5) #15
+  %7 = sext i32 %6 to i64
+  ret i64 %7
+}
+
+; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
+define internal noundef i64 @max_state_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+  %4 = getelementptr i8, ptr %0, i64 -8
+  %5 = load i64, ptr %4, align 8
+  %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.29, i64 noundef %5) #15
+  %7 = sext i32 %6 to i64
+  ret i64 %7
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal i64 @cur_state_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+  %4 = alloca i64, align 8
+  %5 = getelementptr i8, ptr %0, i64 -24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  store i64 0, ptr %4, align 8, !annotation !9
+  %6 = getelementptr i8, ptr %0, i64 752
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = call i32 %9(ptr noundef %5, ptr noundef nonnull %4) #15
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %15
+
+12:                                               ; preds = %3
+  %13 = load i64, ptr %4, align 8
+  %14 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.29, i64 noundef %13) #15
+  br label %15
+
+15:                                               ; preds = %12, %3
+  %16 = phi i32 [ %14, %12 ], [ %10, %3 ]
+  %17 = sext i32 %16 to i64
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  ret i64 %17
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal i64 @cur_state_store(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #0 align 16 {
+  %5 = alloca i64, align 8
+  %6 = getelementptr i8, ptr %0, i64 -24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  store i64 0, ptr %5, align 8, !annotation !9
+  %7 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %2, ptr noundef nonnull @.str.29, ptr noundef nonnull %5)
+  %8 = icmp eq i32 %7, 1
+  br i1 %8, label %9, label %27
+
+9:                                                ; preds = %4
+  %10 = load i64, ptr %5, align 8
+  %11 = icmp slt i64 %10, 0
+  br i1 %11, label %27, label %12
+
+12:                                               ; preds = %9
+  %13 = getelementptr i8, ptr %0, i64 -8
+  %14 = load i64, ptr %13, align 8
+  %15 = icmp ugt i64 %10, %14
+  br i1 %15, label %27, label %16
+
+16:                                               ; preds = %12
+  %17 = getelementptr i8, ptr %0, i64 768
+  call void @mutex_lock(ptr noundef %17) #15
+  %18 = getelementptr i8, ptr %0, i64 752
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i64, ptr %5, align 8
+  %23 = call i32 %21(ptr noundef %6, i64 noundef %22) #15
+  %24 = icmp eq i32 %23, 0
+  call void @mutex_unlock(ptr noundef %17) #15
+  %25 = sext i32 %23 to i64
+  %26 = select i1 %24, i64 %3, i64 %25
+  br label %27
+
+27:                                               ; preds = %16, %12, %9, %4
+  %28 = phi i64 [ %26, %16 ], [ -22, %4 ], [ -22, %9 ], [ -22, %12 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  ret i64 %28
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+
+attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { fn_ret_thunk_extern nofree nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #9 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind allocsize(2) }
+attributes #14 = { nounwind allocsize(0) }
+attributes #15 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 2}
+!1 = !{i32 8, !"cf-protection-branch", i32 1}
+!2 = !{i32 4, !"function_return_thunk_extern", i32 1}
+!3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
+!4 = !{i32 4, !"SkipRaxSetup", i32 1}
+!5 = !{!"branch_weights", i32 1, i32 2000}
+!6 = distinct !{!6, !7, !8}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.unroll.disable"}
+!9 = !{!"auto-init"}

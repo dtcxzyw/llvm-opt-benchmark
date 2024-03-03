@@ -1,0 +1,293 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+module asm ".section\09\22.initcall4.init\22, \22a\22\09\09"
+module asm "__initcall__kmod_cbc__303_182_crypto_cbc_module_init4:\09\09\09"
+module asm ".long\09crypto_cbc_module_init - .\09"
+module asm ".previous\09\09\09\09\09"
+
+%struct.crypto_template = type { %struct.list_head, %struct.hlist_head, ptr, ptr, [128 x i8] }
+%struct.list_head = type { ptr, ptr }
+%struct.hlist_head = type { ptr }
+
+@crypto_cbc_tmpl = internal global %struct.crypto_template { %struct.list_head zeroinitializer, %struct.hlist_head zeroinitializer, ptr null, ptr @crypto_cbc_create, [128 x i8] c"cbc\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }, align 8
+@__UNIQUE_ID___addressable_crypto_cbc_module_init304 = internal global ptr @crypto_cbc_module_init, section ".discard.addressable", align 8
+@__exitcall_crypto_cbc_module_exit = internal global ptr @crypto_cbc_module_exit, section ".exitcall.exit", align 8
+@__UNIQUE_ID_file305 = internal constant [20 x i8] c"cbc.file=crypto/cbc\00", section ".modinfo", align 1
+@__UNIQUE_ID_license306 = internal constant [16 x i8] c"cbc.license=GPL\00", section ".modinfo", align 1
+@__UNIQUE_ID_description307 = internal constant [51 x i8] c"cbc.description=CBC block cipher mode of operation\00", section ".modinfo", align 1
+@__UNIQUE_ID_alias_userspace308 = internal constant [14 x i8] c"cbc.alias=cbc\00", section ".modinfo", align 1
+@__UNIQUE_ID_alias_crypto309 = internal constant [21 x i8] c"cbc.alias=crypto-cbc\00", section ".modinfo", align 1
+@llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_crypto_cbc_module_init304, ptr @__UNIQUE_ID_alias_crypto309, ptr @__UNIQUE_ID_alias_userspace308, ptr @__UNIQUE_ID_description307, ptr @__UNIQUE_ID_file305, ptr @__UNIQUE_ID_license306, ptr @__exitcall_crypto_cbc_module_exit, ptr @crypto_cbc_module_exit], section "llvm.metadata"
+
+; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
+define internal void @crypto_cbc_module_exit() #0 section ".exit.text" align 16 {
+  tail call void @crypto_unregister_template(ptr noundef nonnull @crypto_cbc_tmpl) #7
+  ret void
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @crypto_unregister_template(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
+define internal i32 @crypto_cbc_module_init() #0 section ".init.text" align 16 {
+  %1 = tail call i32 @crypto_register_template(ptr noundef nonnull @crypto_cbc_tmpl) #7
+  ret i32 %1
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal i32 @crypto_cbc_create(ptr noundef %0, ptr noundef %1) #2 align 16 {
+  %3 = tail call ptr @lskcipher_alloc_instance_simple(ptr noundef %0, ptr noundef %1) #7
+  %4 = icmp ugt ptr %3, inttoptr (i64 -4096 to ptr)
+  br i1 %4, label %5, label %8
+
+5:                                                ; preds = %2
+  %6 = ptrtoint ptr %3 to i64
+  %7 = trunc i64 %6 to i32
+  br label %25
+
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds i8, ptr %3, i64 108
+  %10 = load i32, ptr %9, align 4
+  %11 = tail call i32 @llvm.ctpop.i32(i32 %10), !range !5
+  %12 = icmp eq i32 %11, 1
+  br i1 %12, label %13, label %22
+
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds i8, ptr %3, i64 64
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %22
+
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr @crypto_cbc_encrypt, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr @crypto_cbc_decrypt, ptr %19, align 8
+  %20 = tail call i32 @lskcipher_register_instance(ptr noundef %0, ptr noundef %3) #7
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %25, label %22
+
+22:                                               ; preds = %17, %13, %8
+  %23 = phi i32 [ -22, %13 ], [ %20, %17 ], [ -22, %8 ]
+  %24 = load ptr, ptr %3, align 8
+  tail call void %24(ptr noundef %3) #7
+  br label %25
+
+25:                                               ; preds = %22, %17, %5
+  %26 = phi i32 [ %7, %5 ], [ %23, %22 ], [ 0, %17 ]
+  ret i32 %26
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local ptr @lskcipher_alloc_instance_simple(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal i32 @crypto_cbc_encrypt(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) #2 align 16 {
+  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %1, %2
+  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 36
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp ugt i32 %13, %3
+  br i1 %9, label %15, label %27
+
+15:                                               ; preds = %6
+  br i1 %14, label %39, label %16
+
+16:                                               ; preds = %15
+  %17 = zext i32 %13 to i64
+  br label %18
+
+18:                                               ; preds = %18, %16
+  %19 = phi i32 [ %24, %18 ], [ %3, %16 ]
+  %20 = phi ptr [ %23, %18 ], [ %2, %16 ]
+  %21 = phi ptr [ %20, %18 ], [ %4, %16 ]
+  tail call void @__crypto_xor(ptr noundef %20, ptr noundef %20, ptr noundef %21, i32 noundef %13) #7
+  %22 = tail call i32 @crypto_lskcipher_encrypt(ptr noundef %8, ptr noundef %20, ptr noundef %20, i32 noundef %13, ptr noundef null) #7
+  %23 = getelementptr i8, ptr %20, i64 %17
+  %24 = sub i32 %19, %13
+  %25 = icmp ult i32 %24, %13
+  br i1 %25, label %26, label %18, !llvm.loop !6
+
+26:                                               ; preds = %18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %20, i64 %17, i1 false)
+  br label %39
+
+27:                                               ; preds = %6
+  br i1 %14, label %39, label %28
+
+28:                                               ; preds = %27
+  %29 = zext i32 %13 to i64
+  br label %30
+
+30:                                               ; preds = %30, %28
+  %31 = phi ptr [ %1, %28 ], [ %35, %30 ]
+  %32 = phi i32 [ %3, %28 ], [ %37, %30 ]
+  %33 = phi ptr [ %2, %28 ], [ %36, %30 ]
+  tail call void @__crypto_xor(ptr noundef %4, ptr noundef %4, ptr noundef %31, i32 noundef %13) #7
+  %34 = tail call i32 @crypto_lskcipher_encrypt(ptr noundef %8, ptr noundef %4, ptr noundef %33, i32 noundef %13, ptr noundef null) #7
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %33, i64 %29, i1 false)
+  %35 = getelementptr i8, ptr %31, i64 %29
+  %36 = getelementptr i8, ptr %33, i64 %29
+  %37 = sub i32 %32, %13
+  %38 = icmp ult i32 %37, %13
+  br i1 %38, label %39, label %30, !llvm.loop !9
+
+39:                                               ; preds = %30, %27, %26, %15
+  %40 = phi i32 [ %3, %15 ], [ %24, %26 ], [ %3, %27 ], [ %37, %30 ]
+  %41 = and i32 %5, 2
+  %42 = icmp eq i32 %41, 0
+  %43 = icmp eq i32 %40, 0
+  %44 = or i1 %42, %43
+  %45 = select i1 %44, i32 %40, i32 -22
+  ret i32 %45
+}
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal i32 @crypto_cbc_decrypt(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) #2 align 16 {
+  %7 = alloca [16 x i8], align 16
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp eq ptr %1, %2
+  %11 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 36
+  %14 = load i32, ptr %13, align 4
+  br i1 %10, label %15, label %41
+
+15:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  %16 = icmp ugt i32 %14, %3
+  br i1 %16, label %39, label %17
+
+17:                                               ; preds = %15
+  %18 = sub i32 0, %14
+  %19 = and i32 %18, %3
+  %20 = sub i32 %19, %14
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr i8, ptr %2, i64 %21
+  %23 = zext i32 %14 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %22, i64 %23, i1 false)
+  %24 = tail call i32 @crypto_lskcipher_decrypt(ptr noundef %9, ptr noundef %22, ptr noundef %22, i32 noundef %14, ptr noundef null) #7
+  %25 = sub i32 %3, %14
+  %26 = icmp ult i32 %25, %14
+  br i1 %26, label %36, label %27
+
+27:                                               ; preds = %17
+  %28 = sub nsw i64 0, %23
+  br label %29
+
+29:                                               ; preds = %29, %27
+  %30 = phi i32 [ %25, %27 ], [ %34, %29 ]
+  %31 = phi ptr [ %22, %27 ], [ %32, %29 ]
+  %32 = getelementptr i8, ptr %31, i64 %28
+  tail call void @__crypto_xor(ptr noundef %31, ptr noundef %31, ptr noundef %32, i32 noundef %14) #7
+  %33 = tail call i32 @crypto_lskcipher_decrypt(ptr noundef %9, ptr noundef %32, ptr noundef %32, i32 noundef %14, ptr noundef null) #7
+  %34 = sub i32 %30, %14
+  %35 = icmp ult i32 %34, %14
+  br i1 %35, label %36, label %29, !llvm.loop !10
+
+36:                                               ; preds = %29, %17
+  %37 = phi ptr [ %22, %17 ], [ %32, %29 ]
+  %38 = phi i32 [ %25, %17 ], [ %34, %29 ]
+  tail call void @__crypto_xor(ptr noundef %37, ptr noundef %37, ptr noundef %4, i32 noundef %14) #7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr nonnull align 16 %7, i64 %23, i1 false)
+  br label %39
+
+39:                                               ; preds = %36, %15
+  %40 = phi i32 [ %3, %15 ], [ %38, %36 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  br label %56
+
+41:                                               ; preds = %6
+  %42 = icmp ugt i32 %14, %3
+  br i1 %42, label %56, label %43
+
+43:                                               ; preds = %41
+  %44 = zext i32 %14 to i64
+  br label %45
+
+45:                                               ; preds = %45, %43
+  %46 = phi ptr [ %52, %45 ], [ %2, %43 ]
+  %47 = phi i32 [ %53, %45 ], [ %3, %43 ]
+  %48 = phi ptr [ %51, %45 ], [ %1, %43 ]
+  %49 = phi ptr [ %48, %45 ], [ %4, %43 ]
+  %50 = tail call i32 @crypto_lskcipher_decrypt(ptr noundef %9, ptr noundef %48, ptr noundef %46, i32 noundef %14, ptr noundef null) #7
+  tail call void @__crypto_xor(ptr noundef %46, ptr noundef %46, ptr noundef %49, i32 noundef %14) #7
+  %51 = getelementptr i8, ptr %48, i64 %44
+  %52 = getelementptr i8, ptr %46, i64 %44
+  %53 = sub i32 %47, %14
+  %54 = icmp ult i32 %53, %14
+  br i1 %54, label %55, label %45, !llvm.loop !11
+
+55:                                               ; preds = %45
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %48, i64 %44, i1 false)
+  br label %56
+
+56:                                               ; preds = %55, %41, %39
+  %57 = phi i32 [ %40, %39 ], [ %3, %41 ], [ %53, %55 ]
+  %58 = and i32 %5, 2
+  %59 = icmp eq i32 %58, 0
+  %60 = icmp eq i32 %57, 0
+  %61 = or i1 %59, %60
+  %62 = select i1 %61, i32 %57, i32 -22
+  ret i32 %62
+}
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @lskcipher_register_instance(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @crypto_lskcipher_encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local void @__crypto_xor(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @crypto_lskcipher_decrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare dso_local i32 @crypto_register_template(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #6
+
+attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #2 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 2}
+!1 = !{i32 8, !"cf-protection-branch", i32 1}
+!2 = !{i32 4, !"function_return_thunk_extern", i32 1}
+!3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
+!4 = !{i32 4, !"SkipRaxSetup", i32 1}
+!5 = !{i32 0, i32 33}
+!6 = distinct !{!6, !7, !8}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.unroll.disable"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7, !8}
