@@ -316,3 +316,6 @@
 [submodule "bench/clap-rs/clap"]
 	path = bench/clap-rs/clap
 	url = git@github.com:clap-rs/clap.git
+[submodule "bench/mio-rs/mio"]
+	path = bench/mio-rs/mio
+	url = git@github.com:tokio-rs/mio.git
