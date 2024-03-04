@@ -292,3 +292,6 @@
 [submodule "bench/postgres/postgres"]
 	path = bench/postgres/postgres
 	url = git@github.com:postgres/postgres.git
+[submodule "bench/recastnavigation/recastnavigation"]
+	path = bench/recastnavigation/recastnavigation
+	url = git@github.com:recastnavigation/recastnavigation.git
