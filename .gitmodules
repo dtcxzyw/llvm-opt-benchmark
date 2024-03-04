@@ -343,3 +343,6 @@
 [submodule "bench/ring-rs/ring"]
 	path = bench/ring-rs/ring
 	url = git@github.com:briansmith/ring.git
+[submodule "bench/influxdb-rs/influxdb"]
+	path = bench/influxdb-rs/influxdb
+	url = git@github.com:influxdata/influxdb.git
