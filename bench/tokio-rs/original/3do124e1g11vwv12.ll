@@ -1,0 +1,101 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+; Function Attrs: inlinehint nonlazybind uwtable
+define hidden i32 @_ZN4core4sync6atomic9AtomicU329fetch_add17hed68833cdc4416f7E(ptr align 4 %0, i32 %1, i8 %2) unnamed_addr #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i8, align 1
+  store i8 %2, ptr %9, align 1
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %0, ptr %4, align 8
+  %10 = load i8, ptr %9, align 1, !range !5, !noundef !6
+  %11 = zext i8 %10 to i64
+  switch i64 %11, label %12 [
+    i64 0, label %13
+    i64 1, label %15
+    i64 2, label %17
+    i64 3, label %19
+    i64 4, label %21
+  ]
+
+12:                                               ; preds = %3
+  unreachable
+
+13:                                               ; preds = %3
+  %14 = atomicrmw add ptr %0, i32 %1 monotonic, align 4
+  store i32 %14, ptr %8, align 4
+  br label %23
+
+15:                                               ; preds = %3
+  %16 = atomicrmw add ptr %0, i32 %1 release, align 4
+  store i32 %16, ptr %8, align 4
+  br label %23
+
+17:                                               ; preds = %3
+  %18 = atomicrmw add ptr %0, i32 %1 acquire, align 4
+  store i32 %18, ptr %8, align 4
+  br label %23
+
+19:                                               ; preds = %3
+  %20 = atomicrmw add ptr %0, i32 %1 acq_rel, align 4
+  store i32 %20, ptr %8, align 4
+  br label %23
+
+21:                                               ; preds = %3
+  %22 = atomicrmw add ptr %0, i32 %1 seq_cst, align 4
+  store i32 %22, ptr %8, align 4
+  br label %23
+
+23:                                               ; preds = %21, %19, %17, %15, %13
+  %24 = load i32, ptr %8, align 4, !noundef !6
+  ret i32 %24
+}
+
+; Function Attrs: nonlazybind uwtable
+define align 8 ptr @"_ZN60_$LT$$RF$mut$u20$T$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h8dfb0c283c6e0417E"(ptr align 8 %0) unnamed_addr #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %0, align 8, !nonnull !6, !align !7, !noundef !6
+  ret ptr %3
+}
+
+; Function Attrs: nonlazybind uwtable
+define zeroext i1 @_ZN12tokio_stream10stream_ext8throttle7is_zero17hdc05c489c89d49c6E(i64 %0, i32 %1) unnamed_addr #1 {
+  %3 = alloca { i64, i32 }, align 8
+  %4 = alloca { i64, i32 }, align 8
+  %5 = getelementptr inbounds { i64, i32 }, ptr %4, i32 0, i32 0
+  store i64 %0, ptr %5, align 8
+  %6 = getelementptr inbounds { i64, i32 }, ptr %4, i32 0, i32 1
+  store i32 %1, ptr %6, align 8
+  %7 = call { i64, i32 } @_ZN4core4time8Duration11from_millis17h22f272ce55cf75a2E(i64 0)
+  store { i64, i32 } %7, ptr %3, align 8
+  %8 = call zeroext i1 @"_ZN61_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1ef308e1730ef2cbE"(ptr align 8 %4, ptr align 8 %3)
+  ret i1 %8
+}
+
+; Function Attrs: inlinehint nonlazybind uwtable
+declare hidden { i64, i32 } @_ZN4core4time8Duration11from_millis17h22f272ce55cf75a2E(i64) unnamed_addr #0
+
+; Function Attrs: inlinehint nonlazybind uwtable
+declare hidden zeroext i1 @"_ZN61_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1ef308e1730ef2cbE"(ptr align 8, ptr align 8) unnamed_addr #0
+
+attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.ident = !{!4}
+
+!0 = !{i32 8, !"PIC Level", i32 2}
+!1 = !{i32 2, !"RtLibUseGOT", i32 1}
+!2 = !{i32 2, !"Dwarf Version", i32 4}
+!3 = !{i32 2, !"Debug Info Version", i32 3}
+!4 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
+!5 = !{i8 0, i8 5}
+!6 = !{}
+!7 = !{i64 8}
