@@ -298,3 +298,6 @@
 [submodule "bench/stockfish/Stockfish"]
 	path = bench/stockfish/Stockfish
 	url = git@github.com:official-stockfish/Stockfish.git
+[submodule "bench/hwloc/hwloc"]
+	path = bench/hwloc/hwloc
+	url = git@github.com:open-mpi/hwloc.git
