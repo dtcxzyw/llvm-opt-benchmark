@@ -325,3 +325,6 @@
 [submodule "bench/rayon-rs/rayon"]
 	path = bench/rayon-rs/rayon
 	url = git@github.com:rayon-rs/rayon.git
+[submodule "bench/unicode-normalization-rs/unicode-normalization"]
+	path = bench/unicode-normalization-rs/unicode-normalization
+	url = git@github.com:unicode-rs/unicode-normalization.git
