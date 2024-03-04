@@ -7,6 +7,6 @@ overflow-checks = false
 lto = false
 panic = 'unwind'
 incremental = true
-codegen-units = 1000000
+codegen-units = 16
 rpath = false
 inherits = "release"
