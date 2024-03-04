@@ -307,3 +307,6 @@
 [submodule "bench/nuttx/nuttx"]
 	path = bench/nuttx/nuttx
 	url = git@github.com:apache/nuttx.git
+[submodule "bench/rand-rs/rand"]
+	path = bench/rand-rs/rand
+	url = git@github.com:rust-random/rand.git
