@@ -1,6 +1,6 @@
 #!/bin/bash
 
 cd tokio
-RUSTFLAGS="-C embed-bitcode" cargo build --profile opt-bench --config ../../../scripts/profile.toml
+RUSTC_BOOTSTRAP=1 cargo build --profile opt-bench --config ../../../scripts/profile.toml
 cd ..
 find tokio/target/opt-bench/incremental -wholename "*incremental/tokio*/*/*.o" -exec ../../scripts/extract_bc.sh {} \;
