@@ -1673,7 +1673,8 @@ if.then11:                                        ; preds = %if.end7
   br i1 %cmp12, label %if.then13, label %if.then11.if.end57_crit_edge
 
 if.then11.if.end57_crit_edge:                     ; preds = %if.then11
-  %.not = icmp eq i32 %op, 2
+  %8 = and i32 %op, 1
+  %.not = icmp eq i32 %8, 0
   br i1 %.not, label %if.else62.split, label %if.then61.split
 
 if.then13:                                        ; preds = %if.then11
@@ -1683,13 +1684,13 @@ if.then13:                                        ; preds = %if.then11
 
 if.end17:                                         ; preds = %if.then13
   %call18 = tail call ptr @PyObject_RichCompare(ptr noundef nonnull %call14, ptr noundef nonnull %w, i32 noundef %op) #14
-  %8 = load i64, ptr %call14, align 8
-  %9 = and i64 %8, 2147483648
-  %cmp.i66.not = icmp eq i64 %9, 0
+  %9 = load i64, ptr %call14, align 8
+  %10 = and i64 %9, 2147483648
+  %cmp.i66.not = icmp eq i64 %10, 0
   br i1 %cmp.i66.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end17
-  %dec.i = add i64 %8, -1
+  %dec.i = add i64 %9, -1
   store i64 %dec.i, ptr %call14, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
@@ -1742,28 +1743,29 @@ if.else39:                                        ; preds = %PyObject_TypeCheck.
   br i1 %cmp41, label %if.then42, label %if.end44
 
 if.then42:                                        ; preds = %if.else39
-  %10 = load ptr, ptr %w.addr, align 8
+  %11 = load ptr, ptr %w.addr, align 8
   br label %return
 
 if.end44:                                         ; preds = %if.else39, %if.then37
-  %11 = load double, ptr %j34, align 8
+  %12 = load double, ptr %j34, align 8
   %imag50 = getelementptr inbounds i8, ptr %j34, i64 8
-  %12 = load double, ptr %imag50, align 8
+  %13 = load double, ptr %imag50, align 8
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then24, %if.end44
-  %.sink = phi double [ 0.000000e+00, %if.then24 ], [ %12, %if.end44 ]
-  %call26.pn = phi double [ %call26, %if.then24 ], [ %11, %if.end44 ]
+  %.sink = phi double [ 0.000000e+00, %if.then24 ], [ %13, %if.end44 ]
+  %call26.pn = phi double [ %call26, %if.then24 ], [ %12, %if.end44 ]
   %cmp27.sink = fcmp oeq double %i.sroa.0.1, %call26.pn
   %cmp29 = fcmp oeq double %i.sroa.7.0, %.sink
-  %13 = select i1 %cmp27.sink, i1 %cmp29, i1 false
-  %14 = icmp ne i32 %op, 2
-  %cmp59 = xor i1 %14, %13
+  %14 = select i1 %cmp27.sink, i1 %cmp29, i1 false
+  %15 = and i32 %op, 1
+  %16 = icmp ne i32 %15, 0
+  %cmp59 = xor i1 %16, %14
   br i1 %cmp59, label %if.then61.split, label %if.else62.split
 
 if.then61.split:                                  ; preds = %if.then11.if.end57_crit_edge, %if.end57
-  %15 = load i32, ptr @_Py_TrueStruct, align 8
-  %add.i.i = add i32 %15, 1
+  %17 = load i32, ptr @_Py_TrueStruct, align 8
+  %add.i.i = add i32 %17, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
@@ -1772,8 +1774,8 @@ if.end.i.i:                                       ; preds = %if.then61.split
   br label %return
 
 if.else62.split:                                  ; preds = %if.then11.if.end57_crit_edge, %if.end57
-  %16 = load i32, ptr @_Py_FalseStruct, align 8
-  %add.i.i35 = add i32 %16, 1
+  %18 = load i32, ptr @_Py_FalseStruct, align 8
+  %add.i.i35 = add i32 %18, 1
   %cmp.i.i36 = icmp eq i32 %add.i.i35, 0
   br i1 %cmp.i.i36, label %return, label %if.end.i.i37
 
@@ -1782,7 +1784,7 @@ if.end.i.i37:                                     ; preds = %if.else62.split
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %if.end.i.i37, %if.else62.split, %if.end.i.i, %if.then61.split, %if.end14.i, %if.end.i.i.i, %entry, %PyObject_TypeCheck.exit28, %if.end.i, %if.then1.i, %if.end17, %if.then13, %if.then42
-  %retval.0 = phi ptr [ %10, %if.then42 ], [ null, %if.then13 ], [ %call18, %if.end17 ], [ %call18, %if.then1.i ], [ %call18, %if.end.i ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit28 ], [ @_Py_NotImplementedStruct, %entry ], [ @_Py_NotImplementedStruct, %if.end14.i ], [ @_Py_NotImplementedStruct, %if.end.i.i.i ], [ @_Py_TrueStruct, %if.then61.split ], [ @_Py_TrueStruct, %if.end.i.i ], [ @_Py_FalseStruct, %if.else62.split ], [ @_Py_FalseStruct, %if.end.i.i37 ], [ null, %land.lhs.true.i ]
+  %retval.0 = phi ptr [ %11, %if.then42 ], [ null, %if.then13 ], [ %call18, %if.end17 ], [ %call18, %if.then1.i ], [ %call18, %if.end.i ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit28 ], [ @_Py_NotImplementedStruct, %entry ], [ @_Py_NotImplementedStruct, %if.end14.i ], [ @_Py_NotImplementedStruct, %if.end.i.i.i ], [ @_Py_TrueStruct, %if.then61.split ], [ @_Py_TrueStruct, %if.end.i.i ], [ @_Py_FalseStruct, %if.else62.split ], [ @_Py_FalseStruct, %if.end.i.i37 ], [ null, %land.lhs.true.i ]
   ret ptr %retval.0
 }
 

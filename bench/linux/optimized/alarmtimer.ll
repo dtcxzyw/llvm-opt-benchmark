@@ -1102,7 +1102,7 @@ define internal i32 @alarm_timer_nsleep(i32 noundef %0, i32 noundef %1, ptr noca
   %33 = mul i64 %29, 1000000000
   %34 = add i64 %33, %31
   %35 = select i1 %32, i64 9223372036854775807, i64 %34, !prof !13
-  %36 = icmp eq i32 %1, 1
+  %36 = icmp ne i32 %1, 0
   br i1 %36, label %42, label %37
 
 37:                                               ; preds = %19

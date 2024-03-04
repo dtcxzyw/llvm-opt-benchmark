@@ -98,8 +98,9 @@ define zeroext i1 @nxsched_remove_readytorun(ptr nocapture noundef %0, i1 nounde
 
 45:                                               ; preds = %36, %41
   %.1 = phi i8 [ %44, %41 ], [ %.035, %36 ]
-  %46 = icmp ne i8 %.1, 0
-  ret i1 %46
+  %46 = and i8 %.1, 1
+  %47 = icmp ne i8 %46, 0
+  ret i1 %47
 }
 
 declare zeroext i1 @nxsched_merge_pending() local_unnamed_addr #1

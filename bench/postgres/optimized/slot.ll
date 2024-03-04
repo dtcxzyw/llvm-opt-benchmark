@@ -2230,7 +2230,7 @@ define dso_local zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noundef %0, 
   %6 = alloca %struct.nameData, align 8
   %7 = load i32, ptr @max_replication_slots, align 4
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %117, label %9
+  br i1 %8, label %118, label %9
 
 9:                                                ; preds = %4
   %10 = load i32, ptr @wal_segment_size, align 4
@@ -2506,11 +2506,12 @@ InvalidatePossiblyObsoleteSlot.exit.thread47:     ; preds = %ReplicationSlotMark
   br label %115
 
 115:                                              ; preds = %114, %._crit_edge
-  %116 = icmp ne i8 %113, 0
-  br label %117
+  %116 = and i8 %.1.lcssa, 1
+  %117 = icmp ne i8 %116, 0
+  br label %118
 
-117:                                              ; preds = %4, %115
-  %.0 = phi i1 [ %116, %115 ], [ false, %4 ]
+118:                                              ; preds = %4, %115
+  %.0 = phi i1 [ %117, %115 ], [ false, %4 ]
   ret i1 %.0
 }
 

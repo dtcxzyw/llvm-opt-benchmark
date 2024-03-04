@@ -4388,8 +4388,9 @@ define dso_local noundef zeroext i1 @intel_dp_initial_fastset_check(ptr nocaptur
 
 83:                                               ; preds = %74, %65, %60
   %84 = phi i8 [ 0, %74 ], [ %61, %65 ], [ %61, %60 ]
-  %85 = icmp ne i8 %84, 0
-  ret i1 %85
+  %85 = and i8 %84, 1
+  %86 = icmp ne i8 %85, 0
+  ret i1 %86
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

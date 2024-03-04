@@ -6014,28 +6014,29 @@ if.end.thread:                                    ; preds = %lor.lhs.false
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %args, align 8
-  %cmp2 = icmp eq i64 %nargs, 1
-  br i1 %cmp2, label %if.then3, label %if.end5
+  %3 = and i64 %nargs, 1
+  %.not = icmp eq i64 %3, 0
+  br i1 %.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %call4 = tail call ptr @PyObject_GetIter(ptr noundef %2) #7
   br label %return
 
 if.end5:                                          ; preds = %if.end.thread, %if.end
-  %3 = phi ptr [ %1, %if.end.thread ], [ %2, %if.end ]
-  %call6 = tail call i32 @PyCallable_Check(ptr noundef %3) #7
+  %4 = phi ptr [ %1, %if.end.thread ], [ %2, %if.end ]
+  %call6 = tail call i32 @PyCallable_Check(ptr noundef %4) #7
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end5
-  %4 = load ptr, ptr @PyExc_TypeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.144) #7
+  %5 = load ptr, ptr @PyExc_TypeError, align 8
+  tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.144) #7
   br label %return
 
 if.end9:                                          ; preds = %if.end5
   %arrayidx10 = getelementptr i8, ptr %args, i64 8
-  %5 = load ptr, ptr %arrayidx10, align 8
-  %call11 = tail call ptr @PyCallIter_New(ptr noundef %3, ptr noundef %5) #7
+  %6 = load ptr, ptr %arrayidx10, align 8
+  %call11 = tail call ptr @PyCallIter_New(ptr noundef %4, ptr noundef %6) #7
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %if.end9, %if.then8, %if.then3

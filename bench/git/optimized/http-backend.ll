@@ -1426,8 +1426,8 @@ if.end37.us.us.i:                                 ; preds = %while.body28.us.us.
   br i1 %cmp.i.us.us.i, label %if.then.i.i, label %write_to_child.exit.us.us.i
 
 write_to_child.exit.us.us.i:                      ; preds = %if.end37.us.us.i
-  %cmp43.us.us.i = icmp eq i32 %call30.us.us.i, 1
-  br i1 %cmp43.us.us.i, label %inflate_request.exit, label %while.cond24thread-pre-split.us.us.i, !llvm.loop !13
+  %.not.us.us.i = icmp eq i32 %call30.us.us.i, 0
+  br i1 %.not.us.us.i, label %while.cond24thread-pre-split.us.us.i, label %inflate_request.exit, !llvm.loop !13
 
 while.cond24thread-pre-split.us.us.i:             ; preds = %write_to_child.exit.us.us.i
   %7 = load i64, ptr %total_out.i, align 8
@@ -1464,8 +1464,8 @@ if.end37.us.i:                                    ; preds = %while.body28.us.i
   br i1 %cmp.i.us.i, label %if.then.i.i, label %write_to_child.exit.us.i
 
 write_to_child.exit.us.i:                         ; preds = %if.end37.us.i
-  %cmp43.us.i = icmp eq i32 %call30.us.i, 1
-  br i1 %cmp43.us.i, label %inflate_request.exit, label %while.cond24thread-pre-split.us.i, !llvm.loop !13
+  %.not.us.i = icmp eq i32 %call30.us.i, 0
+  br i1 %.not.us.i, label %while.cond24thread-pre-split.us.i, label %inflate_request.exit, !llvm.loop !13
 
 while.cond24thread-pre-split.us.i:                ; preds = %write_to_child.exit.us.i
   %9 = load i64, ptr %total_out.i, align 8
@@ -1536,8 +1536,8 @@ if.then.i.i:                                      ; preds = %if.end37.i, %if.end
   unreachable
 
 write_to_child.exit.i:                            ; preds = %if.end37.i
-  %cmp43.i = icmp eq i32 %call30.i, 1
-  br i1 %cmp43.i, label %inflate_request.exit, label %while.cond24thread-pre-split.i, !llvm.loop !13
+  %.not.i = icmp eq i32 %call30.i, 0
+  br i1 %.not.i, label %while.cond24thread-pre-split.i, label %inflate_request.exit, !llvm.loop !13
 
 inflate_request.exit:                             ; preds = %write_to_child.exit.i, %write_to_child.exit.us.us.i, %write_to_child.exit.us.i
   %12 = phi ptr [ null, %write_to_child.exit.us.i ], [ null, %write_to_child.exit.us.us.i ], [ %.pre.i22, %write_to_child.exit.i ]

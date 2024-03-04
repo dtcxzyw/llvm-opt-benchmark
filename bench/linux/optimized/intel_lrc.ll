@@ -2244,12 +2244,13 @@ select.unfold:                                    ; preds = %64, %48, %60, %62
 
 81:                                               ; preds = %64, %75, %select.unfold
   %82 = phi i8 [ 0, %75 ], [ %49, %select.unfold ], [ %49, %64 ]
-  %83 = icmp ne i8 %82, 0
-  %84 = load i1, ptr @lrc_check_regs.__already_done, align 1
-  %85 = select i1 %83, i1 true, i1 %84
-  br i1 %85, label %87, label %86, !prof !14
+  %83 = and i8 %82, 1
+  %84 = icmp ne i8 %83, 0
+  %85 = load i1, ptr @lrc_check_regs.__already_done, align 1
+  %86 = select i1 %84, i1 true, i1 %85
+  br i1 %86, label %88, label %87, !prof !14
 
-86:                                               ; preds = %81
+87:                                               ; preds = %81
   store i1 true, ptr @lrc_check_regs.__already_done, align 1
   tail call void asm sideeffect "875: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 875b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 875) #11, !srcloc !32
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.3, ptr noundef %2) #11
@@ -2257,9 +2258,9 @@ select.unfold:                                    ; preds = %64, %48, %60, %62
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 1656, i32 2313, i64 12) #11, !srcloc !34
   tail call void asm sideeffect "877: nop\0A\09.pushsection .discard.instr_end\0A\09.long 877b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 877) #11, !srcloc !35
   tail call void asm sideeffect "878: nop\0A\09.pushsection .discard.instr_end\0A\09.long 878b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 878) #11, !srcloc !36
-  br label %87
+  br label %88
 
-87:                                               ; preds = %86, %81
+88:                                               ; preds = %87, %81
   ret void
 }
 

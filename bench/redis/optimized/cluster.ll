@@ -3766,18 +3766,18 @@ land.rhs:                                         ; preds = %lor.rhs184
   %cmd_flags190 = getelementptr inbounds i8, ptr %c, i64 436
   %33 = load i32, ptr %cmd_flags190, align 4
   %34 = and i32 %33, 1
-  %tobool193 = icmp ne i32 %34, 0
+  %35 = icmp ne i32 %34, 0
   br label %lor.end194
 
 lor.end194:                                       ; preds = %lor.rhs184, %land.rhs
-  %35 = phi i1 [ false, %lor.rhs184 ], [ %tobool193, %land.rhs ]
+  %36 = phi i1 [ false, %lor.rhs184 ], [ %35, %land.rhs ]
   %flags196 = getelementptr inbounds i8, ptr %c, i64 8
-  %36 = load i64, ptr %flags196, align 8
-  %and197 = and i64 %36, 131072
+  %37 = load i64, ptr %flags196, align 8
+  %and197 = and i64 %37, 131072
   %tobool198 = icmp ne i64 %and197, 0
   %or.cond6 = or i1 %spec.select92196, %tobool198
   %or.cond6.not = xor i1 %or.cond6, true
-  %or.cond7 = select i1 %or.cond6.not, i1 true, i1 %35
+  %or.cond7 = select i1 %or.cond6.not, i1 true, i1 %36
   br i1 %or.cond7, label %if.end211, label %land.lhs.true203
 
 land.lhs.true203:                                 ; preds = %lor.end194
@@ -3872,33 +3872,34 @@ if.else12:                                        ; preds = %entry
   br i1 %or.cond, label %if.then15, label %if.else21
 
 if.then15:                                        ; preds = %if.else12
-  %cmp14 = icmp eq i32 %error_code, 3
-  %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 61), align 8
-  %tobool.not.i = icmp eq ptr %1, null
+  %1 = and i32 %error_code, 1
+  %.not = icmp eq i32 %1, 0
+  %2 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 61), align 8
+  %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then15
-  %conn.i = getelementptr inbounds i8, ptr %1, i64 16
-  %2 = load ptr, ptr %conn.i, align 8
-  %tobool1.not.i = icmp eq ptr %2, null
+  %conn.i = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = load ptr, ptr %conn.i, align 8
+  %tobool1.not.i = icmp eq ptr %3, null
   br i1 %tobool1.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %.val.i = load ptr, ptr %2, align 8
+  %.val.i = load ptr, ptr %3, align 8
   %call.i.i = tail call ptr @connectionTypeTls() #16
   %cmp.i.i = icmp eq ptr %call.i.i, %.val.i
   %land.ext.i.i = zext i1 %cmp.i.i to i32
   br label %shouldReturnTlsInfo.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.then15
-  %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 402), align 8
+  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 402), align 8
   br label %shouldReturnTlsInfo.exit
 
 shouldReturnTlsInfo.exit:                         ; preds = %if.then.i, %if.else.i
-  %retval.0.i = phi i32 [ %land.ext.i.i, %if.then.i ], [ %3, %if.else.i ]
+  %retval.0.i = phi i32 [ %land.ext.i.i, %if.then.i ], [ %4, %if.else.i ]
   %call16 = tail call i32 @clusterNodeClientPort(ptr noundef %n, i32 noundef %retval.0.i) #16
   %call17 = tail call ptr @sdsempty() #16
-  %cond = select i1 %cmp14, ptr @.str.97, ptr @.str.98
+  %cond = select i1 %.not, ptr @.str.98, ptr @.str.97
   %call19 = tail call ptr @clusterNodePreferredEndpoint(ptr noundef %n) #16
   %call20 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call17, ptr noundef nonnull @.str.96, ptr noundef nonnull %cond, i32 noundef %hashslot, ptr noundef %call19, i32 noundef %call16) #16
   tail call void @addReplyErrorSds(ptr noundef %c, ptr noundef %call20) #16

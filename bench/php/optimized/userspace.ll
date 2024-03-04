@@ -2119,8 +2119,8 @@ define internal i32 @user_wrapper_unlink(ptr nocapture noundef readonly %0, ptr 
   br i1 %switch, label %37, label %46
 
 37:                                               ; preds = %33
-  %38 = icmp eq i8 %35, 3
-  %39 = zext i1 %38 to i32
+  %38 = and i8 %35, 1
+  %39 = zext nneg i8 %38 to i32
   br label %46
 
 40:                                               ; preds = %14
@@ -2227,8 +2227,8 @@ define internal i32 @user_wrapper_rename(ptr nocapture noundef readonly %0, ptr 
   br i1 %switch, label %49, label %58
 
 49:                                               ; preds = %45
-  %50 = icmp eq i8 %47, 3
-  %51 = zext i1 %50 to i32
+  %50 = and i8 %47, 1
+  %51 = zext nneg i8 %50 to i32
   br label %58
 
 52:                                               ; preds = %15
@@ -2327,8 +2327,8 @@ define internal i32 @user_wrapper_mkdir(ptr nocapture noundef readonly %0, ptr n
   br i1 %switch, label %44, label %53
 
 44:                                               ; preds = %40
-  %45 = icmp eq i8 %42, 3
-  %46 = zext i1 %45 to i32
+  %45 = and i8 %42, 1
+  %46 = zext nneg i8 %45 to i32
   br label %53
 
 47:                                               ; preds = %15
@@ -2423,8 +2423,8 @@ define internal i32 @user_wrapper_rmdir(ptr nocapture noundef readonly %0, ptr n
   br i1 %switch, label %40, label %49
 
 40:                                               ; preds = %36
-  %41 = icmp eq i8 %38, 3
-  %42 = zext i1 %41 to i32
+  %41 = and i8 %38, 1
+  %42 = zext nneg i8 %41 to i32
   br label %49
 
 43:                                               ; preds = %14
@@ -2579,8 +2579,8 @@ define internal i32 @user_wrapper_metadata(ptr nocapture noundef readonly %0, pt
   br i1 %switch, label %67, label %76
 
 67:                                               ; preds = %63
-  %68 = icmp eq i8 %65, 3
-  %69 = zext i1 %68 to i32
+  %68 = and i8 %65, 1
+  %69 = zext nneg i8 %68 to i32
   br label %76
 
 70:                                               ; preds = %41

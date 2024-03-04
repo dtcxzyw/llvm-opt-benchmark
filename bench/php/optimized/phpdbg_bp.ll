@@ -1662,7 +1662,7 @@ define void @phpdbg_resolve_op_array_breaks(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @phpdbg_resolve_opline_break(ptr noundef %0) local_unnamed_addr #1 {
+define i32 @phpdbg_resolve_opline_break(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1820,8 +1820,8 @@ define noundef i32 @phpdbg_resolve_opline_break(ptr noundef %0) local_unnamed_ad
 
 90:                                               ; preds = %78
   %91 = tail call i32 @phpdbg_resolve_op_array_break(ptr noundef nonnull %0, ptr noundef nonnull %79), !range !5
-  %92 = icmp eq i32 %91, -1
-  %.78 = select i1 %92, i32 2, i32 0
+  %92 = shl nsw i32 %91, 1
+  %.78 = and i32 %92, 2
   br label %.thread
 
 .thread:                                          ; preds = %47, %54, %90, %86, %88, %71, %73, %44, %10, %12, %19, %75

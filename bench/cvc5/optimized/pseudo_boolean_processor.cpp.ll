@@ -1149,8 +1149,8 @@ invoke.cont84:                                    ; preds = %invoke.cont82
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %this, i64 568
   %15 = load i8, ptr %_M_engaged.i.i, align 8
   %16 = and i8 %15, 1
-  %tobool.i.not.i = icmp eq i8 %16, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i339
+  %.not.i = icmp eq i8 %16, 0
+  br i1 %.not.i, label %if.else.i, label %if.then.i339
 
 if.then.i339:                                     ; preds = %invoke.cont84
   %cmp.i.i340 = icmp eq ptr %d_off, %ref.tmp81
@@ -1205,8 +1205,8 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont86
 _ZN4cvc58internal8RationalD2Ev.exit:              ; preds = %invoke.cont86
   %22 = load i8, ptr %_M_engaged.i.i, align 8
   %23 = and i8 %22, 1
-  %tobool.i.not.i346 = icmp eq i8 %23, 0
-  br i1 %tobool.i.not.i346, label %if.end.i401.invoke, label %invoke.cont91
+  %.not.i346 = icmp eq i8 %23, 0
+  br i1 %.not.i346, label %if.end.i401.invoke, label %invoke.cont91
 
 invoke.cont91:                                    ; preds = %_ZN4cvc58internal8RationalD2Ev.exit
   %_mp_den.i.i = getelementptr inbounds i8, ptr %this, i64 552
@@ -1379,8 +1379,8 @@ invoke.cont122:                                   ; preds = %if.else121
   %_M_engaged.i.i382 = getelementptr inbounds i8, ptr %this, i64 568
   %49 = load i8, ptr %_M_engaged.i.i382, align 8
   %50 = and i8 %49, 1
-  %tobool.i.not.i383 = icmp eq i8 %50, 0
-  br i1 %tobool.i.not.i383, label %if.else.i388, label %if.then.i384
+  %.not.i383 = icmp eq i8 %50, 0
+  br i1 %.not.i383, label %if.else.i388, label %if.then.i384
 
 if.then.i384:                                     ; preds = %invoke.cont122
   %cmp.i.i385 = icmp eq ptr %d_off124, %call.i379380
@@ -1428,8 +1428,8 @@ invoke.cont125.thread:                            ; preds = %.noexc396
 invoke.cont125:                                   ; preds = %if.end.i.i386.invoke.cont125_crit_edge, %if.then.i384
   %54 = phi i8 [ %.pre, %if.end.i.i386.invoke.cont125_crit_edge ], [ %49, %if.then.i384 ]
   %55 = and i8 %54, 1
-  %tobool.i.not.i399 = icmp eq i8 %55, 0
-  br i1 %tobool.i.not.i399, label %if.end.i401.invoke, label %invoke.cont130
+  %.not.i399 = icmp eq i8 %55, 0
+  br i1 %.not.i399, label %if.end.i401.invoke, label %invoke.cont130
 
 if.end.i401.invoke:                               ; preds = %_ZN4cvc58internal8RationalD2Ev.exit, %invoke.cont125
   invoke void @_ZSt27__throw_bad_optional_accessv() #24
@@ -1502,8 +1502,8 @@ terminate.lpad.i.i409:                            ; preds = %lpad.i408
 invoke.cont134:                                   ; preds = %.noexc411
   %64 = load i8, ptr %_M_engaged.i.i382, align 8
   %65 = and i8 %64, 1
-  %tobool.i.not.i414 = icmp eq i8 %65, 0
-  br i1 %tobool.i.not.i414, label %if.else.i419, label %if.then.i415
+  %.not.i414 = icmp eq i8 %65, 0
+  br i1 %.not.i414, label %if.else.i419, label %if.then.i415
 
 if.then.i415:                                     ; preds = %invoke.cont134
   %cmp.i.i416 = icmp eq ptr %d_off124, %ref.tmp127
@@ -2623,8 +2623,8 @@ entry:
   %_M_engaged.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %_M_engaged.i, align 8
   %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.else, label %if.then
+  %.not = icmp eq i8 %1, 0
+  br i1 %.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %cmp.i = icmp eq ptr %this, %__u
@@ -4068,8 +4068,9 @@ _ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt4pairIS4_S4_ESt
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt4pairIS4_S4_ESt4hashIS4_EE3setERKS6_.exit, %invoke.cont5
-  %tobool12 = icmp ne i8 %8, 0
-  ret i1 %tobool12
+  %17 = and i8 %3, 1
+  %18 = icmp ne i8 %17, 0
+  ret i1 %18
 
 eh.resume:                                        ; preds = %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %11, %lpad4 ], [ %10, %lpad ]
@@ -5644,8 +5645,8 @@ if.end:                                           ; preds = %_ZN4cvc58internal12
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %this, i64 568
   %6 = load i8, ptr %_M_engaged.i.i, align 8
   %7 = and i8 %6, 1
-  %tobool.i.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.i.not.i, label %if.end.i42, label %_ZNRSt8optionalIN4cvc58internal8RationalEE5valueEv.exit
+  %.not.i = icmp eq i8 %7, 0
+  br i1 %.not.i, label %if.end.i42, label %_ZNRSt8optionalIN4cvc58internal8RationalEE5valueEv.exit
 
 if.end.i42:                                       ; preds = %if.end
   tail call void @_ZSt27__throw_bad_optional_accessv() #24
@@ -10065,9 +10066,9 @@ entry:
   %d_singleton.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %d_singleton.i, align 8
   %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
+  %.not = icmp eq i8 %1, 0
   %2 = load ptr, ptr %this, align 8
-  br i1 %tobool.i.not, label %if.else, label %if.then
+  br i1 %.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
@@ -10190,10 +10191,10 @@ entry:
   %d_singleton.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %d_singleton.i, align 8
   %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
+  %.not = icmp eq i8 %1, 0
   %2 = load ptr, ptr %this, align 8
   %d_nchildren.i.i = getelementptr inbounds i8, ptr %2, i64 12
-  br i1 %tobool.i.not, label %if.else, label %if.then
+  br i1 %.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %bf.load.i.i.i = load i32, ptr %d_nchildren.i.i, align 4, !noalias !119

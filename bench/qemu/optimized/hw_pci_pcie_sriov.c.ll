@@ -250,27 +250,30 @@ if.end17:                                         ; preds = %if.end12
   %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext
   %conv20 = zext i8 %type to i32
   store i32 %conv20, ptr %add.ptr, align 1
-  %2 = and i32 %conv20, 5
-  %or.cond.not = icmp eq i32 %2, 4
-  %wmask26 = getelementptr inbounds i8, ptr %dev, i64 184
-  %3 = load ptr, ptr %wmask26, align 8
-  %add.ptr28 = getelementptr i8, ptr %3, i64 %idx.ext
-  br i1 %or.cond.not, label %if.then25, label %if.else31
+  %2 = and i8 %type, 1
+  %3 = icmp ne i8 %2, 0
+  %and23 = and i32 %conv20, 4
+  %tobool24.not = icmp eq i32 %and23, 0
+  %or.cond = or i1 %3, %tobool24.not
+  %wmask32 = getelementptr inbounds i8, ptr %dev, i64 184
+  %4 = load ptr, ptr %wmask32, align 8
+  %add.ptr34 = getelementptr i8, ptr %4, i64 %idx.ext
+  br i1 %or.cond, label %if.else31, label %if.then25
 
 if.then25:                                        ; preds = %if.end17
-  store i64 %not, ptr %add.ptr28, align 1
+  store i64 %not, ptr %add.ptr34, align 1
   %cmask = getelementptr inbounds i8, ptr %dev, i64 176
-  %4 = load ptr, ptr %cmask, align 16
-  %add.ptr30 = getelementptr i8, ptr %4, i64 %idx.ext
+  %5 = load ptr, ptr %cmask, align 16
+  %add.ptr30 = getelementptr i8, ptr %5, i64 %idx.ext
   store i64 -1, ptr %add.ptr30, align 1
   br label %if.end40
 
 if.else31:                                        ; preds = %if.end17
   %conv36 = trunc i64 %not to i32
-  store i32 %conv36, ptr %add.ptr28, align 1
+  store i32 %conv36, ptr %add.ptr34, align 1
   %cmask37 = getelementptr inbounds i8, ptr %dev, i64 176
-  %5 = load ptr, ptr %cmask37, align 16
-  %add.ptr39 = getelementptr i8, ptr %5, i64 %idx.ext
+  %6 = load ptr, ptr %cmask37, align 16
+  %add.ptr39 = getelementptr i8, ptr %6, i64 %idx.ext
   store i32 -1, ptr %add.ptr39, align 1
   br label %if.end40
 

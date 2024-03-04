@@ -1982,21 +1982,22 @@ define dso_local i32 @genphy_c45_config_aneg(ptr noundef %0) #0 align 16 {
 
 6:                                                ; preds = %1
   %7 = tail call i32 @genphy_c45_pma_setup_forced(ptr noundef %0)
-  br label %14
+  br label %15
 
 8:                                                ; preds = %1
   %9 = tail call i32 @genphy_c45_an_config_aneg(ptr noundef %0), !range !7
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %14, label %11
+  br i1 %10, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = icmp ne i32 %9, 0
-  %13 = tail call i32 @genphy_c45_check_and_restart_aneg(ptr noundef %0, i1 noundef zeroext %12)
-  br label %14
+  %12 = and i32 %9, 1
+  %13 = icmp ne i32 %12, 0
+  %14 = tail call i32 @genphy_c45_check_and_restart_aneg(ptr noundef %0, i1 noundef zeroext %13)
+  br label %15
 
-14:                                               ; preds = %11, %8, %6
-  %15 = phi i32 [ %7, %6 ], [ %13, %11 ], [ %9, %8 ]
-  ret i32 %15
+15:                                               ; preds = %11, %8, %6
+  %16 = phi i32 [ %7, %6 ], [ %14, %11 ], [ %9, %8 ]
+  ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)

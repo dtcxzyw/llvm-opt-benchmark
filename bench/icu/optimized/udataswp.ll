@@ -364,8 +364,8 @@ if.then51:                                        ; preds = %if.end10
   br label %return
 
 if.else58:                                        ; preds = %if.end10
-  %cmp60 = icmp eq i8 %outCharset, 1
-  %uprv_copyEbcdic_75.uprv_asciiFromEbcdic_75 = select i1 %cmp60, ptr @uprv_copyEbcdic_75, ptr @uprv_asciiFromEbcdic_75
+  %.not = icmp eq i8 %outCharset, 0
+  %uprv_copyEbcdic_75.uprv_asciiFromEbcdic_75 = select i1 %.not, ptr @uprv_asciiFromEbcdic_75, ptr @uprv_copyEbcdic_75
   %swapInvChars65 = getelementptr inbounds i8, ptr %call7, i64 72
   store ptr %uprv_copyEbcdic_75.uprv_asciiFromEbcdic_75, ptr %swapInvChars65, align 8
   br label %return
@@ -461,10 +461,10 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %or.cond1, label %if.then10, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %if.end
-  %and = and i32 %length, 1
-  %cmp7 = icmp ne i32 %and, 0
+  %1 = and i32 %length, 1
+  %2 = icmp ne i32 %1, 0
   %cmp9 = icmp eq ptr %outData, null
-  %or.cond2 = or i1 %cmp7, %cmp9
+  %or.cond2 = or i1 %2, %cmp9
   br i1 %or.cond2, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %lor.lhs.false6, %if.end
@@ -599,10 +599,10 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %or.cond1, label %if.then10, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %if.end
-  %and = and i32 %length, 1
-  %cmp7 = icmp ne i32 %and, 0
+  %1 = and i32 %length, 1
+  %2 = icmp ne i32 %1, 0
   %cmp9 = icmp eq ptr %outData, null
-  %or.cond2 = or i1 %cmp7, %cmp9
+  %or.cond2 = or i1 %2, %cmp9
   br i1 %or.cond2, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %lor.lhs.false6, %if.end
@@ -622,8 +622,8 @@ while.body:                                       ; preds = %while.body.preheade
   %q.015 = phi ptr [ %incdec.ptr15, %while.body ], [ %outData, %while.body.preheader ]
   %p.014 = phi ptr [ %incdec.ptr, %while.body ], [ %inData, %while.body.preheader ]
   %incdec.ptr = getelementptr inbounds i8, ptr %p.014, i64 2
-  %1 = load i16, ptr %p.014, align 2
-  %or = tail call i16 @llvm.bswap.i16(i16 %1)
+  %3 = load i16, ptr %p.014, align 2
+  %or = tail call i16 @llvm.bswap.i16(i16 %3)
   %incdec.ptr15 = getelementptr inbounds i8, ptr %q.015, i64 2
   store i16 %or, ptr %q.015, align 2
   %dec = add nsw i32 %count.016, -1

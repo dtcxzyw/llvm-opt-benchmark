@@ -1734,8 +1734,8 @@ thread-pre-split:                                 ; preds = %80
   ]
 
 103:                                              ; preds = %101, %101
-  %104 = icmp eq i8 %102, 3
-  %105 = zext i1 %104 to i32
+  %104 = and i8 %102, 1
+  %105 = zext nneg i8 %104 to i32
   %106 = call ptr @xmlXPathNewBoolean(i32 noundef %105) #9
   %107 = call i32 @valuePush(ptr noundef %2, ptr noundef %106) #9
   br label %133

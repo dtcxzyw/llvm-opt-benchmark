@@ -192,8 +192,8 @@ define internal void @ReadDataFromArchiveGzip(ptr noundef %0, ptr nocapture noun
   %53 = sub i32 4096, %52
   %54 = zext i32 %53 to i64
   call void @ahwrite(ptr noundef %8, i64 noundef 1, i64 noundef %54, ptr noundef %0) #10
-  %.not46 = icmp eq i32 %43, 1
-  br i1 %.not46, label %._crit_edge59, label %42, !llvm.loop !8
+  %.not63 = icmp eq i32 %43, 0
+  br i1 %.not63, label %42, label %._crit_edge59, !llvm.loop !8
 
 ._crit_edge59:                                    ; preds = %47, %._crit_edge
   %55 = call i32 @inflateEnd(ptr noundef nonnull %5) #10

@@ -353,21 +353,19 @@ entry:
   %tobool = icmp ne i32 %enc, 0
   %or.cond1 = or i1 %tobool, %or.cond
   %4 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and.i.i56 = lshr i32 %4, 9
-  %5 = trunc i32 %and.i.i56 to i8
-  %conv1.i.i57 = and i8 %5, 1
-  %tobool69 = icmp ne i8 %conv1.i.i57, 0
+  %5 = and i32 %4, 512
+  %6 = icmp ne i32 %5, 0
   br i1 %or.cond1, label %if.else45, label %if.then
 
 if.then:                                          ; preds = %entry
-  %or.cond2 = and i1 %cmp1, %tobool69
+  %or.cond2 = and i1 %cmp1, %6
   %block18 = getelementptr inbounds i8, ptr %0, i64 248
   br i1 %or.cond2, label %if.then13, label %if.else20
 
 if.then13:                                        ; preds = %if.then
   %key_len14 = getelementptr inbounds i8, ptr %ctx, i64 24
-  %6 = load i32, ptr %key_len14, align 8
-  %mul15 = shl i32 %6, 3
+  %7 = load i32, ptr %key_len14, align 8
+  %mul15 = shl i32 %7, 3
   %call17 = tail call i32 @AES_set_decrypt_key(ptr noundef %key, i32 noundef %mul15, ptr noundef %0) #10
   store ptr @AES_decrypt, ptr %block18, align 8
   %stream19 = getelementptr inbounds i8, ptr %0, i64 256
@@ -375,10 +373,10 @@ if.then13:                                        ; preds = %if.then
   br label %if.end106
 
 if.else20:                                        ; preds = %if.then
-  %tobool22.not = icmp eq i8 %conv1.i.i57, 0
+  %tobool22.not = icmp eq i32 %5, 0
   %key_len33 = getelementptr inbounds i8, ptr %ctx, i64 24
-  %7 = load i32, ptr %key_len33, align 8
-  %mul34 = shl i32 %7, 3
+  %8 = load i32, ptr %key_len33, align 8
+  %mul34 = shl i32 %8, 3
   %stream41 = getelementptr inbounds i8, ptr %0, i64 256
   br i1 %tobool22.not, label %if.else32, label %if.then23
 
@@ -398,14 +396,14 @@ if.else32:                                        ; preds = %if.else20
 
 if.else45:                                        ; preds = %entry
   %cmp71 = icmp eq i32 %and, 5
-  %or.cond3 = and i1 %cmp71, %tobool69
+  %or.cond3 = and i1 %cmp71, %6
   %block78 = getelementptr inbounds i8, ptr %0, i64 248
   br i1 %or.cond3, label %if.then73, label %if.else80
 
 if.then73:                                        ; preds = %if.else45
   %key_len74 = getelementptr inbounds i8, ptr %ctx, i64 24
-  %8 = load i32, ptr %key_len74, align 8
-  %mul75 = shl i32 %8, 3
+  %9 = load i32, ptr %key_len74, align 8
+  %mul75 = shl i32 %9, 3
   %call77 = tail call i32 @AES_set_encrypt_key(ptr noundef %key, i32 noundef %mul75, ptr noundef %0) #10
   store ptr @AES_encrypt, ptr %block78, align 8
   %stream79 = getelementptr inbounds i8, ptr %0, i64 256
@@ -413,10 +411,10 @@ if.then73:                                        ; preds = %if.else45
   br label %if.end106
 
 if.else80:                                        ; preds = %if.else45
-  %tobool82.not = icmp eq i8 %conv1.i.i57, 0
+  %tobool82.not = icmp eq i32 %5, 0
   %key_len94 = getelementptr inbounds i8, ptr %ctx, i64 24
-  %9 = load i32, ptr %key_len94, align 8
-  %mul95 = shl i32 %9, 3
+  %10 = load i32, ptr %key_len94, align 8
+  %mul95 = shl i32 %10, 3
   %stream102 = getelementptr inbounds i8, ptr %0, i64 256
   br i1 %tobool82.not, label %if.else93, label %if.then83
 

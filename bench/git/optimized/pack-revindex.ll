@@ -286,7 +286,7 @@ if.end74:                                         ; preds = %if.end, %if.then72
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @load_pack_revindex(ptr noundef %r, ptr noundef %p) local_unnamed_addr #0 {
+define dso_local i32 @load_pack_revindex(ptr noundef %r, ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %revindex = getelementptr inbounds i8, ptr %p, i64 192
   %0 = load ptr, ptr %revindex, align 8
@@ -313,12 +313,12 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %if.end
   %call5 = tail call fastcc i32 @create_pack_revindex_in_memory(ptr noundef nonnull %p), !range !7
-  %tobool6.not = icmp ne i32 %call5, 0
-  %. = sext i1 %tobool6.not to i32
+  %3 = and i32 %call5, 1
+  %sext = sub nsw i32 0, %3
   br label %return
 
 return:                                           ; preds = %if.else, %land.lhs.true, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true ], [ %., %if.else ]
+  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %land.lhs.true ], [ %sext, %if.else ]
   ret i32 %retval.0
 }
 
@@ -855,13 +855,14 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 load_pack_revindex.exit:                          ; preds = %if.end.i, %land.lhs.true.i
   %call5.i = tail call fastcc i32 @create_pack_revindex_in_memory(ptr noundef nonnull %p), !range !7
-  %tobool6.not.i.not = icmp eq i32 %call5.i, 0
-  br i1 %tobool6.not.i.not, label %if.end, label %return
+  %4 = and i32 %call5.i, 1
+  %cmp.not = icmp eq i32 %4, 0
+  br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true.i, %entry, %lor.lhs.false.i, %load_pack_revindex.exit
   %num_objects = getelementptr inbounds i8, ptr %p, i64 72
-  %4 = load i32, ptr %num_objects, align 8
-  %add = add i32 %4, 1
+  %5 = load i32, ptr %num_objects, align 8
+  %add = add i32 %5, 1
   br label %do.body
 
 do.body:                                          ; preds = %if.else, %if.end

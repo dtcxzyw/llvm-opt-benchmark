@@ -2270,7 +2270,7 @@ define internal noundef i32 @ilk_irq_handler(i32 %0, ptr noundef %1) #0 align 16
   %5 = getelementptr inbounds i8, ptr %1, i64 8945
   %6 = load i8, ptr %5, align 1, !range !29, !noundef !30
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %68, label %8, !prof !11
+  br i1 %7, label %67, label %8, !prof !11
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %1, i64 8928
@@ -2369,23 +2369,23 @@ define internal noundef i32 @ilk_irq_handler(i32 %0, ptr noundef %1) #0 align 16
   br label %61
 
 61:                                               ; preds = %59, %56
-  %62 = icmp eq i32 %57, 1
-  br i1 %62, label %63, label %67, !prof !18
+  %.not = icmp eq i32 %57, 0
+  br i1 %.not, label %66, label %62, !prof !11
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %1, i64 9936
-  %65 = load i64, ptr %64, align 8
-  %66 = add i64 %65, 1
-  store volatile i64 %66, ptr %64, align 8
+62:                                               ; preds = %61
+  %63 = getelementptr inbounds i8, ptr %1, i64 9936
+  %64 = load i64, ptr %63, align 8
+  %65 = add i64 %64, 1
+  store volatile i64 %65, ptr %63, align 8
+  br label %66
+
+66:                                               ; preds = %62, %61
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, i32 65537, ptr elementtype(i32) %9) #7, !srcloc !43
   br label %67
 
-67:                                               ; preds = %63, %61
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, i32 65537, ptr elementtype(i32) %9) #7, !srcloc !43
-  br label %68
-
-68:                                               ; preds = %67, %2
-  %69 = phi i32 [ %57, %67 ], [ 0, %2 ]
-  ret i32 %69
+67:                                               ; preds = %66, %2
+  %68 = phi i32 [ %57, %66 ], [ 0, %2 ]
+  ret i32 %68
 }
 
 ; Function Attrs: null_pointer_is_valid

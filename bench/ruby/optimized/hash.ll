@@ -2400,8 +2400,9 @@ rb_check_arity.exit:                              ; preds = %3
   br label %32
 
 19:                                               ; preds = %16
-  %20 = icmp eq i32 %0, 1
-  br i1 %20, label %21, label %29
+  %20 = and i32 %0, 1
+  %.not20 = icmp eq i32 %20, 0
+  br i1 %.not20, label %29, label %21
 
 21:                                               ; preds = %19
   %22 = call i64 @rb_protect(ptr noundef nonnull @rb_inspect, i64 noundef %7, ptr noundef null) #24
@@ -8528,8 +8529,9 @@ rb_check_arity.exit:                              ; preds = %3
   br label %32
 
 22:                                               ; preds = %18
-  %23 = icmp eq i32 %0, 1
-  br i1 %23, label %24, label %29
+  %23 = and i32 %0, 1
+  %.not = icmp eq i32 %23, 0
+  br i1 %.not, label %29, label %24
 
 24:                                               ; preds = %22
   %25 = load i64, ptr %4, align 8

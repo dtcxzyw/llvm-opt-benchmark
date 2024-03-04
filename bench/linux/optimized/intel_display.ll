@@ -7716,8 +7716,9 @@ define dso_local zeroext i1 @intel_pipe_config_compare(ptr noundef %0, ptr nound
 
 2305:                                             ; preds = %2302, %2295, %2242
   %2306 = phi i8 [ %2243, %2242 ], [ 0, %2302 ], [ %2296, %2295 ]
-  %2307 = icmp ne i8 %2306, 0
-  ret i1 %2307
+  %2307 = and i8 %2306, 1
+  %2308 = icmp ne i8 %2307, 0
+  ret i1 %2308
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -17803,11 +17803,11 @@ dec_strdup.exit56:                                ; preds = %if.then32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i50, ptr nonnull align 1 %fmt.0, i64 %10, i1 false)
   %arrayidx.i53 = getelementptr i8, ptr %call.i50, i64 %10
   store i8 0, ptr %arrayidx.i53, align 1
-  %.pre108 = load i64, ptr %size, align 8
+  %.pre109 = load i64, ptr %size, align 8
   br label %if.end38
 
 if.end38:                                         ; preds = %dec_strdup.exit56, %if.then29
-  %17 = phi i64 [ %.pre108, %dec_strdup.exit56 ], [ %10, %if.then29 ]
+  %17 = phi i64 [ %.pre109, %dec_strdup.exit56 ], [ %10, %if.then29 ]
   %fmt_copy.1 = phi ptr [ %call.i50, %dec_strdup.exit56 ], [ %fmt_copy.0, %if.then29 ]
   %fmt.1 = phi ptr [ %call.i50, %dec_strdup.exit56 ], [ %fmt.0, %if.then29 ]
   %add.ptr = getelementptr i8, ptr %fmt_copy.1, i64 %sub.ptr.sub
@@ -17943,8 +17943,8 @@ if.else78:                                        ; preds = %if.end53
   br i1 %cmp81, label %if.then92, label %lor.lhs.false83
 
 lor.lhs.false83:                                  ; preds = %if.else78
-  %cmp84 = icmp eq i64 %call80, 1
-  br i1 %cmp84, label %land.lhs.true86, label %if.end101
+  %.not = icmp eq i64 %call80, 0
+  br i1 %.not, label %if.end101, label %land.lhs.true86
 
 land.lhs.true86:                                  ; preds = %lor.lhs.false83
   %33 = load i8, ptr %32, align 1
@@ -17970,8 +17970,8 @@ if.end101:                                        ; preds = %if.end98, %land.lhs
   br i1 %cmp104, label %if.then116, label %lor.lhs.false106
 
 lor.lhs.false106:                                 ; preds = %if.end101
-  %cmp107 = icmp eq i64 %call103, 1
-  br i1 %cmp107, label %land.lhs.true109, label %if.end126
+  %.not104 = icmp eq i64 %call103, 0
+  br i1 %.not104, label %if.end126, label %land.lhs.true109
 
 land.lhs.true109:                                 ; preds = %lor.lhs.false106
   %35 = load i8, ptr %34, align 1

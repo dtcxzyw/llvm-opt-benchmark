@@ -1034,7 +1034,7 @@ for.body.i56:                                     ; preds = %if.then270, %for.bo
   %arrayidx.i = getelementptr inbounds %struct.string_list_item, ptr %64, i64 %indvars.iv.i
   %65 = load ptr, ptr %arrayidx.i, align 8
   %call.i57 = call i32 @unlink_or_warn(ptr noundef %65) #21
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %66 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @pack_garbage, i64 0, i32 1), align 8
   %cmp.i58 = icmp ugt i64 %66, %indvars.iv.next.i
   br i1 %cmp.i58, label %for.body.i56, label %clean_pack_garbage.exit, !llvm.loop !8
@@ -4675,8 +4675,9 @@ lor.lhs.false5.i:                                 ; preds = %systemd_timer_write
 
 lor.end.i:                                        ; preds = %lor.lhs.false5.i
   %call8.i = tail call fastcc i32 @systemd_timer_enable_unit(i32 noundef 1, i32 noundef 1, i32 noundef %retval.0.i.i), !range !22
-  %tobool9.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i, label %if.else.i, label %if.then.i
+  %3 = and i32 %call8.i, 1
+  %.not.i = icmp eq i32 %3, 0
+  br i1 %.not.i, label %if.else.i, label %if.then.i
 
 if.then.critedge.i:                               ; preds = %_.exit21.i.i, %_.exit16.i.i, %if.end.i6.i, %_.exit.i.i
   tail call void @free(ptr noundef %call.i4.i) #21

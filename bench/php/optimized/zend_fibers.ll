@@ -582,9 +582,9 @@ define hidden void @zim_Fiber_start(ptr noundef %0, ptr nocapture noundef writeo
   br label %17
 
 17:                                               ; preds = %2, %14
-  %.sink77 = phi ptr [ %16, %14 ], [ null, %2 ]
+  %.sink78 = phi ptr [ %16, %14 ], [ null, %2 ]
   %18 = getelementptr inbounds i8, ptr %5, i64 240
-  store ptr %.sink77, ptr %18, align 8
+  store ptr %.sink78, ptr %18, align 8
   %19 = load i32, ptr @zend_fiber_switch_blocking, align 4
   %.not75 = icmp eq i32 %19, 0
   br i1 %.not75, label %24, label %20
@@ -616,8 +616,9 @@ define hidden void @zim_Fiber_start(ptr noundef %0, ptr nocapture noundef writeo
   %33 = load ptr, ptr @zend_ce_fiber, align 8
   %34 = load i64, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 71), align 8
   %35 = tail call i32 @zend_fiber_init_context(ptr noundef nonnull %25, ptr noundef %33, ptr noundef nonnull @zend_fiber_execute, i64 noundef %34), !range !6
-  %36 = icmp eq i32 %35, -1
-  br i1 %36, label %37, label %40
+  %36 = and i32 %35, 1
+  %.not76 = icmp eq i32 %36, 0
+  br i1 %.not76, label %40, label %37
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8

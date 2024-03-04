@@ -484,8 +484,9 @@ define hidden void @pdo_sqlite_create_aggregate_internal(ptr noundef %0, ptr noc
 
 32:                                               ; preds = %28
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %7) #11
-  %33 = icmp eq i32 %12, 3
-  br i1 %33, label %.thread245, label %35
+  %33 = and i32 %12, 1
+  %.not246 = icmp eq i32 %33, 0
+  br i1 %.not246, label %35, label %.thread245
 
 .critedge205:                                     ; preds = %28
   %34 = load ptr, ptr %9, align 8

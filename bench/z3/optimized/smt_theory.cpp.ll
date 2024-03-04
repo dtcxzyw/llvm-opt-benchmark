@@ -299,8 +299,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %tobool3 = icmp ne i8 %1, 0
-  ret i1 %tobool3
+  %3 = and i8 %0, 1
+  %4 = icmp ne i8 %3, 0
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -1080,14 +1081,14 @@ _ZN3smt6theory12ensure_enodeEP4expr.exit29:       ; preds = %_ZNK3smt7context14e
   %28 = load ptr, ptr %ctx, align 8
   %shr.i.i = lshr i32 %call4, 1
   %29 = and i32 %call4, 1
-  %tobool.i.not.i = icmp eq i32 %29, 0
+  %.not.i30 = icmp eq i32 %29, 0
   %m_bdata.i.i.i = getelementptr inbounds i8, ptr %28, i64 9416
   %30 = load ptr, ptr %m_bdata.i.i.i, align 8
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i to i64
   %m_phase_available.i.i = getelementptr inbounds %"struct.smt::bool_var_data", ptr %30, i64 %idxprom.i.i.i.i, i32 1
   %bf.load.i.i = load i64, ptr %m_phase_available.i.i, align 8
   %bf.set.i.i = and i64 %bf.load.i.i, -201326593
-  %bf.clear3.i.i = select i1 %tobool.i.not.i, i64 201326592, i64 67108864
+  %bf.clear3.i.i = select i1 %.not.i30, i64 201326592, i64 67108864
   %bf.set4.i.i = or disjoint i64 %bf.set.i.i, %bf.clear3.i.i
   store i64 %bf.set4.i.i, ptr %m_phase_available.i.i, align 8
   ret i32 %call4
@@ -1762,8 +1763,8 @@ if.then2.i.i.i16:                                 ; preds = %if.then.i.i.i11
 
 if.else9:                                         ; preds = %if.else
   %13 = and i32 %l.coerce, 1
-  %tobool.i.not = icmp eq i32 %13, 0
-  br i1 %tobool.i.not, label %if.else17, label %if.then11
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %if.else17, label %if.then11
 
 if.then11:                                        ; preds = %if.else9
   %m12 = getelementptr inbounds i8, ptr %this, i64 104

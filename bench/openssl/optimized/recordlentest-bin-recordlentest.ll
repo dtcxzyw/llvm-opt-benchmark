@@ -156,8 +156,8 @@ if.end24:                                         ; preds = %if.end17
   br i1 %or.cond2, label %if.then31, label %if.end55
 
 if.then31:                                        ; preds = %if.end24
-  %cmp29 = icmp eq i32 %idx, 1
-  br i1 %cmp29, label %if.then34.split, label %if.then31.split
+  %.not = icmp eq i32 %idx, 0
+  br i1 %.not, label %if.then31.split, label %if.then34.split
 
 if.then31.split:                                  ; preds = %if.then31
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %header.i)

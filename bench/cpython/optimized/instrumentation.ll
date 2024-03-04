@@ -4914,7 +4914,7 @@ return:                                           ; preds = %PyMutex_Unlock.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyMonitoring_SetLocalEvents(ptr noundef %code, i32 noundef %tool_id, i32 noundef %events) local_unnamed_addr #1 {
+define hidden i32 @_PyMonitoring_SetLocalEvents(ptr noundef %code, i32 noundef %tool_id, i32 noundef %events) local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -5053,12 +5053,12 @@ if.then17:                                        ; preds = %set_local_events.ex
 if.end18:                                         ; preds = %if.then17, %set_local_events.exit
   tail call void @_Py_Executors_InvalidateDependency(ptr noundef nonnull %2, ptr noundef nonnull %code) #9
   %call19 = tail call i32 @_Py_Instrument(ptr noundef nonnull %code, ptr noundef nonnull %2), !range !5
-  %tobool20.not = icmp ne i32 %call19, 0
-  %. = sext i1 %tobool20.not to i32
+  %27 = and i32 %call19, 1
+  %sext = sub nsw i32 0, %27
   br label %return
 
 return:                                           ; preds = %allocate_instrumentation_data.exit, %check_tool.exit, %if.end18, %get_local_events.exit, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %check_tool.exit ], [ -1, %allocate_instrumentation_data.exit ], [ 0, %get_local_events.exit ], [ %., %if.end18 ]
+  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %check_tool.exit ], [ -1, %allocate_instrumentation_data.exit ], [ 0, %get_local_events.exit ], [ %sext, %if.end18 ]
   ret i32 %retval.0
 }
 
@@ -5884,7 +5884,7 @@ exit:                                             ; preds = %land.lhs.true12, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @monitoring_set_local_events(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
+define internal ptr @monitoring_set_local_events(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
 entry:
   %or.cond = icmp eq i64 %nargs, 3
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -6170,7 +6170,7 @@ declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @monitoring_set_local_events_impl(i32 noundef %tool_id, ptr noundef %code, i32 noundef %event_set) unnamed_addr #1 {
+define internal fastcc ptr @monitoring_set_local_events_impl(i32 noundef %tool_id, ptr noundef %code, i32 noundef %event_set) unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %code, i64 8
   %code.val = load ptr, ptr %0, align 8

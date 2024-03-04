@@ -50,8 +50,9 @@ define hidden void @zif_sha1(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br i1 %18, label %19, label %.thread232
 
 19:                                               ; preds = %17, %.critedge
-  %20 = icmp eq i32 %8, 1
-  br i1 %20, label %.thread225, label %21
+  %20 = and i32 %8, 1
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %21, label %.thread225
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %0, i64 104
@@ -455,8 +456,9 @@ thread-pre-split:                                 ; preds = %18
 
 27:                                               ; preds = %20, %22
   %28 = getelementptr inbounds i8, ptr %21, i64 24
-  %29 = icmp eq i32 %9, 1
-  br i1 %29, label %.thread271, label %30
+  %29 = and i32 %9, 1
+  %.not281 = icmp eq i32 %29, 0
+  br i1 %.not281, label %30, label %.thread271
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %0, i64 104

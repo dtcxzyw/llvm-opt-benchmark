@@ -618,12 +618,12 @@ list_head.exit.us.i:                              ; preds = %177, %.lr.ph62.spli
   %209 = call i64 %208(ptr noundef nonnull %205, ptr noundef %1, ptr noundef nonnull %3) #8
   store i64 %209, ptr %199, align 8
   %.pre.i34 = load i8, ptr %3, align 1
-  %.pre69.i = and i8 %.pre.i34, 1
   br label %210
 
 210:                                              ; preds = %206, %191
-  %.pre-phi.i = phi i8 [ %.pre69.i, %206 ], [ %201, %191 ]
-  %.not55.us.i = icmp eq i8 %.pre-phi.i, 0
+  %.pre-phi.i.pre-phi.in = phi i8 [ %.pre.i34, %206 ], [ %200, %191 ]
+  %.pre-phi.i.pre-phi = and i8 %.pre-phi.i.pre-phi.in, 1
+  %.not55.us.i = icmp eq i8 %.pre-phi.i.pre-phi, 0
   br i1 %.not55.us.i, label %213, label %.thread.i32
 
 .thread.i32:                                      ; preds = %210, %204

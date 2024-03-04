@@ -4285,8 +4285,8 @@ if.else:                                          ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.else
-  %cmp6 = icmp eq i32 %n, 1
-  br i1 %cmp6, label %if.then7, label %return
+  %.not = icmp eq i32 %n, 0
+  br i1 %.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %if.then5
   %0 = load i8, ptr %T, align 1

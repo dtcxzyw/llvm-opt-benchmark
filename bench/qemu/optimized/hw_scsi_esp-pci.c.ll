@@ -326,21 +326,22 @@ if.end12:                                         ; preds = %if.then10, %do.body
   %bus_master_as.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !5
   fence seq_cst
-  %cmp.i.i.i = icmp eq i32 %dir, 1
-  %call.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %conv15, i32 1, ptr noundef %buf, i64 noundef %conv25, i1 noundef zeroext %cmp.i.i.i) #5
-  %12 = load i32, ptr %arrayidx17, align 4
-  %sub = sub i32 %12, %spec.select
+  %12 = and i32 %dir, 1
+  %13 = icmp ne i32 %12, 0
+  %call.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %conv15, i32 1, ptr noundef %buf, i64 noundef %conv25, i1 noundef zeroext %13) #5
+  %14 = load i32, ptr %arrayidx17, align 4
+  %sub = sub i32 %14, %spec.select
   store i32 %sub, ptr %arrayidx17, align 4
   %arrayidx57 = getelementptr i8, ptr %pci, i64 2896
-  %13 = load i32, ptr %arrayidx57, align 16
-  %add = add i32 %13, %spec.select
+  %15 = load i32, ptr %arrayidx57, align 16
+  %add = add i32 %15, %spec.select
   store i32 %add, ptr %arrayidx57, align 16
-  %cmp60 = icmp eq i32 %12, %spec.select
+  %cmp60 = icmp eq i32 %14, %spec.select
   br i1 %cmp60, label %if.then62, label %if.end65
 
 if.then62:                                        ; preds = %if.end12
-  %14 = load i32, ptr %arrayidx4, align 4
-  %or = or i32 %14, 8
+  %16 = load i32, ptr %arrayidx4, align 4
+  %or = or i32 %16, 8
   store i32 %or, ptr %arrayidx4, align 4
   br label %if.end65
 

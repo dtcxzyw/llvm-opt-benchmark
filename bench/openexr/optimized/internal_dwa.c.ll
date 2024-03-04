@@ -126,10 +126,8 @@ if.else26.i.i:                                    ; preds = %if.end.i.i
   br i1 %cmp32.not.i.i, label %check_for_x86_simd.exit.i, label %if.end4.i
 
 check_for_x86_simd.exit.i:                        ; preds = %if.else26.i.i
-  %tobool1.i = icmp ne i32 %and13.lobit.i.i, 0
-  %5 = and i32 %asmresult3.i10.i.i, 536870912
-  %tobool2.i = icmp ne i32 %5, 0
-  %or.cond.i = and i1 %tobool2.i, %tobool1.i
+  %5 = and i32 %asmresult3.i10.i.i, 805306368
+  %or.cond.i = icmp eq i32 %5, 805306368
   br i1 %or.cond.i, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %check_for_x86_simd.exit.i

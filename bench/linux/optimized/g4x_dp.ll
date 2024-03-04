@@ -223,8 +223,9 @@ define dso_local zeroext i1 @g4x_dp_port_enabled(ptr noundef %0, i32 %1, i32 nou
 
 74:                                               ; preds = %71, %68, %.loopexit, %18
   %75 = phi i8 [ %10, %18 ], [ %64, %.loopexit ], [ %10, %68 ], [ %10, %71 ]
-  %76 = icmp ne i8 %75, 0
-  ret i1 %76
+  %76 = and i8 %75, 1
+  %77 = icmp ne i8 %76, 0
+  ret i1 %77
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

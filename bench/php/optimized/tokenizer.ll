@@ -658,8 +658,9 @@ define hidden void @zim_PhpToken_tokenize(ptr noundef %0, ptr nocapture noundef 
   br i1 %16, label %17, label %.thread119
 
 17:                                               ; preds = %15, %.critedge
-  %18 = icmp eq i32 %6, 1
-  br i1 %18, label %.thread129, label %19
+  %18 = and i32 %6, 1
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %19, label %.thread129
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %0, i64 96
@@ -2003,8 +2004,9 @@ define hidden void @zif_token_get_all(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %16, label %17, label %.thread113
 
 17:                                               ; preds = %15, %.critedge
-  %18 = icmp eq i32 %6, 1
-  br i1 %18, label %.thread123, label %19
+  %18 = and i32 %6, 1
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %19, label %.thread123
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %0, i64 96

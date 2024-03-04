@@ -3210,8 +3210,8 @@ if.then72:                                        ; preds = %invoke.cont69
   br label %if.end120.invoke
 
 if.end78:                                         ; preds = %invoke.cont69
-  %cmp80 = icmp eq i64 %34, 1
-  br i1 %cmp80, label %if.then81, label %for.cond.preheader
+  %.not = icmp eq i64 %34, 0
+  br i1 %.not, label %for.cond.preheader, label %if.then81
 
 for.cond.preheader:                               ; preds = %if.end78
   %sub = add i32 %31, -1
@@ -5445,8 +5445,8 @@ invoke.cont3:                                     ; preds = %entry
 land.lhs.true:                                    ; preds = %invoke.cont3
   %3 = load i8, ptr %pinned_.i, align 8
   %4 = and i8 %3, 1
-  %tobool.i.not = icmp eq i8 %4, 0
-  br i1 %tobool.i.not, label %nrvo.skipdtor, label %if.then
+  %.not = icmp eq i8 %4, 0
+  br i1 %.not, label %nrvo.skipdtor, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %5 = load ptr, ptr %pinnable_val, align 8
@@ -5530,8 +5530,8 @@ invoke.cont3:                                     ; preds = %entry
 land.lhs.true:                                    ; preds = %invoke.cont3
   %3 = load i8, ptr %pinned_.i, align 8
   %4 = and i8 %3, 1
-  %tobool.i.not = icmp eq i8 %4, 0
-  br i1 %tobool.i.not, label %nrvo.skipdtor, label %if.then
+  %.not = icmp eq i8 %4, 0
+  br i1 %.not, label %nrvo.skipdtor, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %5 = load ptr, ptr %pinnable_val, align 8
@@ -5921,15 +5921,15 @@ entry:
   %include_files.i = getelementptr inbounds i8, ptr %options, i64 1
   %files_size_error_margin.i = getelementptr inbounds i8, ptr %options, i64 8
   store double -1.000000e+00, ptr %files_size_error_margin.i, align 8
-  %and1.i = and i8 %include_flags, 1
-  store i8 %and1.i, ptr %options, align 8
+  %0 = and i8 %include_flags, 1
+  store i8 %0, ptr %options, align 8
   %and1.i2 = lshr i8 %include_flags, 1
   %and1.i2.lobit = and i8 %and1.i2, 1
   store i8 %and1.i2.lobit, ptr %include_files.i, align 1
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 552
-  %0 = load ptr, ptr %vfn, align 8
-  call void %0(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %options, ptr noundef %column_family, ptr noundef %ranges, i32 noundef %n, ptr noundef %sizes)
+  %1 = load ptr, ptr %vfn, align 8
+  call void %1(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %options, ptr noundef %column_family, ptr noundef %ranges, i32 noundef %n, ptr noundef %sizes)
   ret void
 }
 

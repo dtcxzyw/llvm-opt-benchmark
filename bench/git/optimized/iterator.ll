@@ -235,12 +235,12 @@ if.end:                                           ; preds = %entry
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #11
   %ordered = getelementptr inbounds i8, ptr %iter0, i64 8
   %bf.load = load i8, ptr %ordered, align 8
-  %bf.clear = and i8 %bf.load, 1
   store ptr @prefix_ref_iterator_vtable, ptr %call, align 8
+  %1 = and i8 %bf.load, 1
   %ordered3.i = getelementptr inbounds i8, ptr %call, i64 8
   %bf.load.i = load i8, ptr %ordered3.i, align 8
   %bf.clear.i = and i8 %bf.load.i, -2
-  %bf.set.i = or disjoint i8 %bf.clear.i, %bf.clear
+  %bf.set.i = or disjoint i8 %bf.clear.i, %1
   store i8 %bf.set.i, ptr %ordered3.i, align 8
   %refname.i = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %refname.i, i8 0, i64 20, i1 false)

@@ -1354,10 +1354,11 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
 
 299:                                              ; preds = %291
   %300 = tail call i32 @strcmp(ptr noundef %266, ptr noundef nonnull dereferenceable(8) @.str.107) #16
-  %301 = icmp eq i32 %300, 0
-  %302 = icmp eq i32 %270, 11
-  %or.cond = select i1 %301, i1 true, i1 %302
-  br i1 %or.cond, label %305, label %.thread36
+  %301 = icmp ne i32 %300, 0
+  %302 = and i32 %270, 1
+  %.not = icmp eq i32 %302, 0
+  %or.cond = select i1 %301, i1 %.not, i1 false
+  br i1 %or.cond, label %.thread36, label %305
 
 .thread34:                                        ; preds = %.thread
   %303 = tail call i32 @strcmp(ptr noundef %266, ptr noundef nonnull dereferenceable(8) @.str.107) #16

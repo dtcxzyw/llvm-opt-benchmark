@@ -2118,12 +2118,12 @@ entry:
   %0 = getelementptr inbounds i8, ptr %from_msg, i64 16
   %1 = load i8, ptr %0, align 8
   %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.not, label %if.end, label %if.then
+  %.not = icmp eq i8 %2, 0
+  br i1 %.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %3 = getelementptr inbounds i8, ptr %to_msg, i64 16
-  store i8 %2, ptr %3, align 8
+  store i8 1, ptr %3, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2179,8 +2179,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %0, align 8
   %2 = and i8 %1, 1
-  %tobool.i.not = icmp eq i8 %2, 0
-  br i1 %tobool.i.not, label %if.end, label %if.then
+  %.not = icmp eq i8 %2, 0
+  br i1 %.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %stream, align 8
@@ -2190,20 +2190,20 @@ if.then:                                          ; preds = %entry
 if.then.i6:                                       ; preds = %if.then
   %call.i7 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %stream, ptr noundef %target)
   %.pre = load i8, ptr %0, align 8
-  %.pre10 = and i8 %.pre, 1
+  %.pre9 = and i8 %.pre, 1
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %if.then, %if.then.i6
-  %.pre-phi = phi i8 [ 1, %if.then ], [ %.pre10, %if.then.i6 ]
+  %.pre-phi = phi i8 [ 1, %if.then ], [ %.pre9, %if.then.i6 ]
   %retval.0.i = phi ptr [ %target, %if.then ], [ %call.i7, %if.then.i6 ]
   %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 1
   store i8 8, ptr %retval.0.i, align 1
-  %incdec.ptr2.i.i9 = getelementptr inbounds i8, ptr %retval.0.i, i64 2
+  %incdec.ptr2.i.i8 = getelementptr inbounds i8, ptr %retval.0.i, i64 2
   store i8 %.pre-phi, ptr %incdec.ptr2.i.i, align 1
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, %entry
-  %target.addr.0 = phi ptr [ %incdec.ptr2.i.i9, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %target, %entry ]
+  %target.addr.0 = phi ptr [ %incdec.ptr2.i.i8, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %target, %entry ]
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %_internal_metadata_, align 8
   %and.i27 = and i64 %4, 1
@@ -2258,11 +2258,11 @@ _ZN6google8protobuf9BoolValue5ClearEv.exit:       ; preds = %if.end, %if.then.i.
   %2 = getelementptr inbounds i8, ptr %from, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 1
-  %tobool.i.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool.i.not.i.i, label %if.end.i.i, label %if.then.i.i2
+  %.not.i.i = icmp eq i8 %4, 0
+  br i1 %.not.i.i, label %if.end.i.i, label %if.then.i.i2
 
 if.then.i.i2:                                     ; preds = %_ZN6google8protobuf9BoolValue5ClearEv.exit
-  store i8 %4, ptr %0, align 8
+  store i8 1, ptr %0, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i2, %_ZN6google8protobuf9BoolValue5ClearEv.exit

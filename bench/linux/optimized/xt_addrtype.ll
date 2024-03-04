@@ -123,8 +123,9 @@ define internal zeroext i1 @addrtype_mt_v0(ptr nocapture noundef readonly %0, pt
 
 47:                                               ; preds = %36, %31
   %48 = phi i8 [ %46, %36 ], [ %32, %31 ]
-  %49 = icmp ne i8 %48, 0
-  ret i1 %49
+  %49 = and i8 %48, 1
+  %50 = icmp ne i8 %49, 0
+  ret i1 %50
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -339,8 +340,8 @@ define internal fastcc zeroext i1 @match_type6(ptr noundef %0, ptr noundef %1, p
   br i1 %20, label %83, label %21
 
 21:                                               ; preds = %15
-  %22 = and i32 %9, 1
-  %23 = icmp ne i32 %22, 0
+  %22 = and i16 %3, 1
+  %23 = icmp ne i16 %22, 0
   %24 = icmp ne i32 %8, 0
   %25 = select i1 %23, i1 %24, i1 false
   br i1 %25, label %83, label %26

@@ -436,8 +436,9 @@ if.end15:                                         ; preds = %if.end
   %cmp16 = icmp eq i32 %and3, 0
   %cmp18 = icmp eq i32 %and3, 4
   %or.cond3 = or i1 %cmp16, %cmp18
-  %tobool = icmp ne i32 %and, 0
-  %or.cond4 = and i1 %tobool, %or.cond3
+  %3 = and i8 %0, 1
+  %4 = icmp ne i8 %3, 0
+  %or.cond4 = and i1 %4, %or.cond3
   br i1 %or.cond4, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %if.end15
@@ -553,7 +554,7 @@ if.then88:                                        ; preds = %if.end85
   br i1 %tobool90.not, label %if.else96, label %if.then91
 
 if.then91:                                        ; preds = %if.then88
-  br i1 %tobool, label %if.then94, label %if.end107
+  br i1 %4, label %if.then94, label %if.end107
 
 if.then94:                                        ; preds = %if.then91
   tail call void @ERR_new() #3
@@ -562,10 +563,10 @@ if.then94:                                        ; preds = %if.then91
   br label %err
 
 if.else96:                                        ; preds = %if.then88
-  %3 = load ptr, ptr %group, align 8
-  %field_div = getelementptr inbounds i8, ptr %3, i64 264
-  %4 = load ptr, ptr %field_div, align 8
-  %call97 = tail call i32 %4(ptr noundef nonnull %group, ptr noundef nonnull %call52, ptr noundef %call51, ptr noundef %call50, ptr noundef nonnull %ctx.addr.0) #3
+  %5 = load ptr, ptr %group, align 8
+  %field_div = getelementptr inbounds i8, ptr %5, i64 264
+  %6 = load ptr, ptr %field_div, align 8
+  %call97 = tail call i32 %6(ptr noundef nonnull %group, ptr noundef nonnull %call52, ptr noundef %call51, ptr noundef %call50, ptr noundef nonnull %ctx.addr.0) #3
   %tobool98.not = icmp eq i32 %call97, 0
   br i1 %tobool98.not, label %err, label %if.end100
 

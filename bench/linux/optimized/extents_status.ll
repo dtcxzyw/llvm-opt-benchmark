@@ -4648,7 +4648,7 @@ define internal fastcc void @count_rsvd(ptr nocapture readonly %.40.val.872.val,
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 3458764513820540928
   %8 = icmp eq i64 %7, 2305843009213693952
-  br i1 %8, label %9, label %99
+  br i1 %8, label %9, label %98
 
 9:                                                ; preds = %4
   %10 = icmp slt i64 %1, 1
@@ -4671,7 +4671,7 @@ define internal fastcc void @count_rsvd(ptr nocapture readonly %.40.val.872.val,
   %18 = load i32, ptr %3, align 8
   %19 = add i32 %18, %17
   store i32 %19, ptr %3, align 8
-  br label %99
+  br label %98
 
 20:                                               ; preds = %12
   %21 = getelementptr inbounds i8, ptr %2, i64 24
@@ -4730,7 +4730,7 @@ define internal fastcc void @count_rsvd(ptr nocapture readonly %.40.val.872.val,
   br label %55
 
 55:                                               ; preds = %52, %45, %40
-  %56 = phi i8 [ 0, %52 ], [ 1, %45 ], [ 0, %40 ]
+  %56 = phi i1 [ false, %52 ], [ true, %45 ], [ false, %40 ]
   %57 = load i32, ptr %13, align 16
   %58 = add i32 %57, -1
   %59 = and i32 %58, %23
@@ -4752,7 +4752,7 @@ define internal fastcc void @count_rsvd(ptr nocapture readonly %.40.val.872.val,
   br label %71
 
 71:                                               ; preds = %64, %55
-  %72 = phi i8 [ 0, %64 ], [ %56, %55 ]
+  %72 = phi i1 [ false, %64 ], [ %56, %55 ]
   %73 = phi i32 [ %67, %64 ], [ %57, %55 ]
   %74 = phi i32 [ %70, %64 ], [ %23, %55 ]
   %75 = add i32 %74, -1
@@ -4776,21 +4776,20 @@ define internal fastcc void @count_rsvd(ptr nocapture readonly %.40.val.872.val,
 
 89:                                               ; preds = %78, %71
   %90 = phi i32 [ %88, %78 ], [ %74, %71 ]
-  %91 = icmp ne i8 %72, 0
-  %92 = icmp ugt i32 %90, %34
-  %93 = select i1 %91, i1 true, i1 %92
-  br i1 %93, label %99, label %94
+  %91 = icmp ugt i32 %90, %34
+  %92 = select i1 %72, i1 true, i1 %91
+  br i1 %92, label %98, label %93
 
-94:                                               ; preds = %89
+93:                                               ; preds = %89
   store i8 1, ptr %42, align 8
-  %95 = getelementptr inbounds i8, ptr %.40.val.872.val, i64 84
-  %96 = load i32, ptr %95, align 4
-  %97 = lshr i32 %90, %96
-  %98 = getelementptr inbounds i8, ptr %3, i64 28
-  store i32 %97, ptr %98, align 4
-  br label %99
+  %94 = getelementptr inbounds i8, ptr %.40.val.872.val, i64 84
+  %95 = load i32, ptr %94, align 4
+  %96 = lshr i32 %90, %95
+  %97 = getelementptr inbounds i8, ptr %3, i64 28
+  store i32 %96, ptr %97, align 4
+  br label %98
 
-99:                                               ; preds = %94, %89, %16, %4
+98:                                               ; preds = %93, %89, %16, %4
   ret void
 }
 

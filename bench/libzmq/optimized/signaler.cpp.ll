@@ -341,8 +341,8 @@ if.then12:                                        ; preds = %if.then7
   br label %do.end28
 
 do.body21:                                        ; preds = %do.end
-  %cmp22.not = icmp eq i64 %4, 1
-  br i1 %cmp22.not, label %do.end28, label %if.then24
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %if.then24, label %do.end28
 
 if.then24:                                        ; preds = %do.body21
   %9 = load ptr, ptr @stderr, align 8
@@ -423,8 +423,8 @@ if.then27:                                        ; preds = %if.then22
   br label %return
 
 do.body36:                                        ; preds = %do.end20
-  %cmp37.not = icmp eq i64 %7, 1
-  br i1 %cmp37.not, label %return, label %if.then39
+  %.not = icmp eq i64 %7, 0
+  br i1 %.not, label %if.then39, label %return
 
 if.then39:                                        ; preds = %do.body36
   %12 = load ptr, ptr @stderr, align 8

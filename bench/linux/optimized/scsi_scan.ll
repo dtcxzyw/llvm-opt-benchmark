@@ -986,8 +986,9 @@ define internal fastcc noundef i32 @scsi_probe_and_add_lun(ptr noundef %0, i64 n
   br i1 %205, label %213, label %206
 
 206:                                              ; preds = %201
-  %207 = icmp eq i8 %203, 1
-  br i1 %207, label %208, label %215
+  %207 = and i8 %202, 1
+  %.not = icmp eq i8 %207, 0
+  br i1 %.not, label %215, label %208
 
 208:                                              ; preds = %206
   %209 = getelementptr i8, ptr %51, i64 3
@@ -1002,7 +1003,7 @@ define internal fastcc noundef i32 @scsi_probe_and_add_lun(ptr noundef %0, i64 n
   br label %215
 
 215:                                              ; preds = %213, %208, %206
-  %216 = phi i8 [ %214, %213 ], [ 1, %208 ], [ 0, %206 ]
+  %216 = phi i8 [ %214, %213 ], [ %203, %208 ], [ %203, %206 ]
   %217 = getelementptr inbounds i8, ptr %49, i64 312
   %218 = load ptr, ptr %217, align 8
   %219 = getelementptr inbounds i8, ptr %218, i64 800

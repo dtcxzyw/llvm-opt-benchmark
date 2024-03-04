@@ -79,8 +79,8 @@ define dso_local i32 @asn1_ber_decoder(ptr nocapture noundef readonly %0, ptr no
   br i1 %45, label %46, label %51
 
 46:                                               ; preds = %41
-  %47 = and i32 %32, 1
-  %48 = icmp ne i32 %47, 0
+  %47 = and i8 %31, 1
+  %48 = icmp ne i8 %47, 0
   %49 = icmp eq i64 %26, %20
   %50 = select i1 %48, i1 %49, i1 false
   br i1 %50, label %51, label %53

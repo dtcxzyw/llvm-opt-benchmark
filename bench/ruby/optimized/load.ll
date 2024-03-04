@@ -2845,8 +2845,9 @@ define internal i64 @rb_mod_autoload_p(i32 noundef %0, ptr nocapture noundef rea
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
-  %7 = icmp eq i32 %0, 1
-  br i1 %7, label %14, label %8
+  %7 = and i32 %0, 1
+  %.not8 = icmp eq i32 %7, 0
+  br i1 %.not8, label %8, label %14
 
 8:                                                ; preds = %rb_check_arity.exit
   %9 = getelementptr i8, ptr %1, i64 8
@@ -2922,8 +2923,9 @@ define internal i64 @rb_f_autoload_p(i32 noundef %0, ptr nocapture noundef reado
   unreachable
 
 rb_check_arity.exit.i:                            ; preds = %7
-  %10 = icmp eq i32 %0, 1
-  br i1 %10, label %17, label %11
+  %10 = and i32 %0, 1
+  %.not8.i = icmp eq i32 %10, 0
+  br i1 %.not8.i, label %11, label %17
 
 11:                                               ; preds = %rb_check_arity.exit.i
   %12 = getelementptr i8, ptr %1, i64 8

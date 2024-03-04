@@ -91,7 +91,7 @@ define void @zif_dl(ptr noundef %0, ptr nocapture noundef writeonly %1) local_un
   %.06791 = phi i32 [ 0, %.thread82 ], [ 4, %12 ]
   %.06890 = phi ptr [ null, %.thread82 ], [ %7, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.093, i32 noundef %.06692, ptr noundef null, i32 noundef %.06791, ptr noundef %.06890) #4
-  br label %32
+  br label %34
 
 15:                                               ; preds = %._crit_edge, %.thread
   %16 = phi ptr [ %.pre, %._crit_edge ], [ %11, %.thread ]
@@ -105,7 +105,7 @@ define void @zif_dl(ptr noundef %0, ptr nocapture noundef writeonly %1) local_un
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str) #4
   %21 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %21, align 8
-  br label %32
+  br label %34
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds i8, ptr %16, i64 16
@@ -117,21 +117,22 @@ define void @zif_dl(ptr noundef %0, ptr nocapture noundef writeonly %1) local_un
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef 4096) #4
   %27 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %27, align 8
-  br label %32
+  br label %34
 
 28:                                               ; preds = %22
   %29 = call i32 @php_load_extension(ptr noundef nonnull %17, i32 noundef 2, i32 noundef 0), !range !4
-  %.not = icmp eq i32 %29, -1
-  %spec.select.i = select i1 %.not, i32 2, i32 3
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %spec.select.i, ptr %30, align 8
-  br i1 %.not, label %32, label %31
+  %30 = and i32 %29, 1
+  %spec.select.i = xor i32 %30, 3
+  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %spec.select.i, ptr %31, align 8
+  %32 = icmp eq i32 %30, 0
+  br i1 %32, label %33, label %34
 
-31:                                               ; preds = %28
+33:                                               ; preds = %28
   store i8 1, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 26), align 1
-  br label %32
+  br label %34
 
-32:                                               ; preds = %31, %28, %26, %20, %14
+34:                                               ; preds = %33, %28, %26, %20, %14
   ret void
 }
 
@@ -144,8 +145,8 @@ declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local
 ; Function Attrs: nounwind uwtable
 define void @php_dl(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @php_load_extension(ptr noundef %0, i32 noundef %1, i32 noundef %3), !range !4
-  %6 = icmp eq i32 %5, -1
-  %spec.select = select i1 %6, i32 2, i32 3
+  %6 = and i32 %5, 1
+  %spec.select = xor i32 %6, 3
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %spec.select, ptr %7, align 8
   ret void

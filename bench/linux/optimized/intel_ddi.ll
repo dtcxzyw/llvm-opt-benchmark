@@ -8301,8 +8301,9 @@ define internal zeroext i1 @intel_ddi_initial_fastset_check(ptr noundef %0, ptr 
 
 31:                                               ; preds = %28, %22
   %32 = phi i8 [ %23, %22 ], [ %30, %28 ]
-  %33 = icmp ne i8 %32, 0
-  ret i1 %33
+  %33 = and i8 %32, 1
+  %34 = icmp ne i8 %33, 0
+  ret i1 %34
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -4053,7 +4053,7 @@ define internal fastcc zeroext i1 @check_for_unclaimed_mmio(ptr nocapture nounde
   %4 = getelementptr inbounds i8, ptr %3, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %78
+  br i1 %6, label %7, label %79
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 40
@@ -4168,12 +4168,13 @@ define internal fastcc zeroext i1 @check_for_unclaimed_mmio(ptr nocapture nounde
 
 75:                                               ; preds = %72, %51
   %76 = phi i8 [ %74, %72 ], [ %53, %51 ]
-  %77 = icmp ne i8 %76, 0
-  br label %78
+  %77 = and i8 %76, 1
+  %78 = icmp ne i8 %77, 0
+  br label %79
 
-78:                                               ; preds = %75, %1
-  %79 = phi i1 [ %77, %75 ], [ false, %1 ]
-  ret i1 %79
+79:                                               ; preds = %75, %1
+  %80 = phi i1 [ %78, %75 ], [ false, %1 ]
+  ret i1 %80
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -720,8 +720,9 @@ define hidden void @zif_intval(ptr noundef %0, ptr nocapture noundef writeonly %
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = icmp eq i32 %5, 1
-  br i1 %9, label %.thread176.thread, label %12
+  %9 = and i32 %5, 1
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %12, label %.thread176.thread
 
 .thread176.thread:                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 88

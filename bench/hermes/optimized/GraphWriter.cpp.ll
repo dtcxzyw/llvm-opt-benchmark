@@ -1804,28 +1804,26 @@ entry:
   %Valid.i = getelementptr inbounds i8, ptr %V, i64 9
   %0 = load i8, ptr %Valid.i, align 1
   %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %return, label %if.end
+  %.not = icmp eq i8 %1, 0
+  br i1 %.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
+  %Value.i = getelementptr inbounds i8, ptr %V, i64 8
   %Valid.i2 = getelementptr inbounds i8, ptr %this, i64 9
   %2 = load i8, ptr %Valid.i2, align 1
   %3 = and i8 %2, 1
-  %tobool.not.i = icmp eq i8 %3, 0
-  br i1 %tobool.not.i, label %return, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %if.end
-  %Value.i = getelementptr inbounds i8, ptr %V, i64 8
+  %4 = icmp ne i8 %3, 0
   %Value.i3 = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load i8, ptr %Value.i3, align 8
-  %5 = load i8, ptr %Value.i, align 8
-  %6 = xor i8 %5, %4
-  %7 = and i8 %6, 1
-  %cmp.i = icmp ne i8 %7, 0
+  %5 = load i8, ptr %Value.i3, align 8
+  %6 = load i8, ptr %Value.i, align 8
+  %7 = xor i8 %6, %5
+  %8 = and i8 %7, 1
+  %9 = icmp ne i8 %8, 0
+  %10 = select i1 %4, i1 %9, i1 false
   br label %return
 
-return:                                           ; preds = %land.rhs.i, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ %cmp.i, %land.rhs.i ]
+return:                                           ; preds = %entry, %if.end
+  %retval.0 = phi i1 [ %10, %if.end ], [ false, %entry ]
   ret i1 %retval.0
 }
 

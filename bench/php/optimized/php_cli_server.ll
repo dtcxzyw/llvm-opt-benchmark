@@ -6614,8 +6614,9 @@ php_cli_server_client_populate_request_info.exit.i.i: ; preds = %155, %137
 
 189:                                              ; preds = %186
   %190 = call fastcc i32 @php_cli_server_send_error_page(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 500), !range !4
-  %191 = icmp eq i32 %190, -1
-  br i1 %191, label %192, label %383
+  %191 = and i32 %190, 1
+  %.not61.i = icmp eq i32 %191, 0
+  br i1 %.not61.i, label %383, label %192
 
 192:                                              ; preds = %189, %186
   %193 = load i32, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 2, i32 1), align 8
@@ -7026,8 +7027,9 @@ php_cli_server_begin_send_static.exit.i:          ; preds = %216, %212, %209, %.
   %372 = call fastcc i32 @php_cli_server_send_error_page(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.sink.i), !range !4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %373 = icmp eq i32 %372, -1
-  br i1 %373, label %374, label %382
+  %373 = and i32 %372, 1
+  %.not62.i = icmp eq i32 %373, 0
+  br i1 %.not62.i, label %382, label %374
 
 374:                                              ; preds = %php_cli_server_begin_send_static.exit.i, %php_cli_server_begin_send_static.exit.thread59.i
   %375 = getelementptr inbounds i8, ptr %1, i64 32

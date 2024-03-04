@@ -1022,30 +1022,30 @@ if.then18:                                        ; preds = %if.end15
   br i1 %tobool14, label %if.end.i, label %err
 
 if.end.i:                                         ; preds = %if.end15.thread, %if.then18
-  %and19 = and i32 %selection, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %priv.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pub.i)
   store ptr null, ptr %priv.i, align 8
   store ptr null, ptr %pub.i, align 8
   call void @DSA_get0_key(ptr noundef nonnull %keydata, ptr noundef nonnull %pub.i, ptr noundef nonnull %priv.i) #6
-  %tobool.i = icmp ne i32 %and19, 0
-  %0 = load ptr, ptr %priv.i, align 8
-  %cmp1.i = icmp ne ptr %0, null
-  %or.cond.i = select i1 %tobool.i, i1 %cmp1.i, i1 false
+  %0 = and i32 %selection, 1
+  %1 = icmp ne i32 %0, 0
+  %2 = load ptr, ptr %priv.i, align 8
+  %cmp1.i = icmp ne ptr %2, null
+  %or.cond.i = select i1 %1, i1 %cmp1.i, i1 false
   br i1 %or.cond.i, label %land.lhs.true2.i, label %if.end5.i
 
 land.lhs.true2.i:                                 ; preds = %if.end.i
-  %call.i = call i32 @ossl_param_build_set_bn(ptr noundef nonnull %call4, ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull %0) #6
+  %call.i = call i32 @ossl_param_build_set_bn(ptr noundef nonnull %call4, ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull %2) #6
   %tobool3.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool3.not.i, label %dsa_key_todata.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %land.lhs.true2.i, %if.end.i
-  %1 = load ptr, ptr %pub.i, align 8
-  %cmp6.not.i = icmp eq ptr %1, null
+  %3 = load ptr, ptr %pub.i, align 8
+  %cmp6.not.i = icmp eq ptr %3, null
   br i1 %cmp6.not.i, label %if.end11.i, label %land.lhs.true7.i
 
 land.lhs.true7.i:                                 ; preds = %if.end5.i
-  %call8.i = call i32 @ossl_param_build_set_bn(ptr noundef nonnull %call4, ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull %1) #6
+  %call8.i = call i32 @ossl_param_build_set_bn(ptr noundef nonnull %call4, ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #6
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i, label %dsa_key_todata.exit, label %if.end11.i
 

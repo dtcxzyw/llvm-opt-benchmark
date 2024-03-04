@@ -810,16 +810,17 @@ define dso_local i32 @trace_print_lat_fmt(ptr noundef %0, ptr nocapture noundef 
   %6 = and i32 %5, 64
   %7 = and i32 %5, 8
   %8 = and i32 %5, 16
-  %9 = and i32 %5, 1
-  %10 = icmp ne i32 %9, 0
-  %11 = icmp slt i8 %4, 0
-  %12 = and i1 %11, %10
+  %9 = and i8 %4, 1
+  %.not = icmp eq i8 %9, 0
+  %10 = icmp slt i8 %4, 0
+  %11 = and i8 %4, -127
+  %12 = icmp eq i8 %11, -127
   %13 = select i1 %12, i32 68, i32 100
   %14 = and i32 %5, 2
   %15 = icmp eq i32 %14, 0
   %16 = select i1 %15, i32 46, i32 88
-  %17 = select i1 %11, i32 98, i32 %16
-  %18 = select i1 %10, i32 %13, i32 %17
+  %17 = select i1 %10, i32 98, i32 %16
+  %18 = select i1 %.not, i32 %17, i32 %13
   %19 = and i8 %4, 36
   switch i8 %19, label %22 [
     i8 36, label %23
@@ -1631,9 +1632,10 @@ define dso_local i32 @print_event_fields(ptr noundef %0, ptr noundef %1) local_u
   %88 = load i32, ptr %83, align 4
   %89 = and i32 %88, 65535
   %90 = ashr i32 %88, 16
-  %91 = icmp eq i32 %85, 3
+  %91 = and i32 %85, 1
+  %.not = icmp eq i32 %91, 0
   %92 = add i32 %73, 4
-  %93 = select i1 %91, i32 %92, i32 0
+  %93 = select i1 %.not, i32 0, i32 %92
   %94 = add i32 %89, %93
   %95 = add i32 %94, %90
   %96 = icmp sgt i32 %95, %77

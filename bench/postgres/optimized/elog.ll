@@ -871,11 +871,11 @@ define dso_local void @EmitErrorReport() local_unnamed_addr #2 {
 26:                                               ; preds = %16
   tail call void %24(ptr noundef %9) #28
   %.pre = load i8, ptr %20, align 4
-  %.pre38 = and i8 %.pre, 1
   br label %27
 
 27:                                               ; preds = %26, %16
-  %.pre-phi = phi i8 [ %.pre38, %26 ], [ %22, %16 ]
+  %.pre-phi.in = phi i8 [ %.pre, %26 ], [ %21, %16 ]
+  %.pre-phi = and i8 %.pre-phi.in, 1
   %.not = icmp eq i8 %.pre-phi, 0
   br i1 %.not, label %618, label %28
 

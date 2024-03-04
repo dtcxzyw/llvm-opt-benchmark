@@ -4961,14 +4961,14 @@ define internal fastcc i32 @e1000_k1_gig_workaround_hv(ptr noundef %0, i1 nounde
   %6 = getelementptr inbounds i8, ptr %0, i64 220
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 9
-  br i1 %8, label %9, label %62
+  br i1 %8, label %9, label %63
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 816
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef %0) #9
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %62
+  br i1 %13, label %14, label %63
 
 14:                                               ; preds = %9
   br i1 %1, label %15, label %49
@@ -4984,7 +4984,7 @@ define internal fastcc i32 @e1000_k1_gig_workaround_hv(ptr noundef %0, i1 nounde
   %21 = load ptr, ptr %20, align 8
   %22 = call i32 %21(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %3) #9
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %58
+  br i1 %23, label %24, label %59
 
 24:                                               ; preds = %19
   %25 = load i16, ptr %3, align 2
@@ -5006,7 +5006,7 @@ define internal fastcc i32 @e1000_k1_gig_workaround_hv(ptr noundef %0, i1 nounde
   %35 = load ptr, ptr %34, align 8
   %36 = call i32 %35(ptr noundef %0, i32 noundef 26, ptr noundef nonnull %3) #9
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %58
+  br i1 %37, label %38, label %59
 
 38:                                               ; preds = %33
   %39 = load i16, ptr %3, align 2
@@ -5022,32 +5022,33 @@ define internal fastcc i32 @e1000_k1_gig_workaround_hv(ptr noundef %0, i1 nounde
   %46 = load ptr, ptr %45, align 8
   %47 = call i32 %46(ptr noundef %0, i32 noundef 24659, i16 noundef zeroext 256) #9
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %54, label %58
+  br i1 %48, label %54, label %59
 
 49:                                               ; preds = %14
   %50 = getelementptr inbounds i8, ptr %0, i64 960
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i32 %51(ptr noundef %0, i32 noundef 24659, i16 noundef zeroext 16640) #9
   %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %58
+  br i1 %53, label %54, label %59
 
 54:                                               ; preds = %49, %43
   %55 = phi i8 [ %44, %43 ], [ %5, %49 ]
-  %56 = icmp ne i8 %55, 0
-  %57 = call i32 @e1000_configure_k1_ich8lan(ptr noundef %0, i1 noundef zeroext %56)
-  br label %58
+  %56 = and i8 %55, 1
+  %57 = icmp ne i8 %56, 0
+  %58 = call i32 @e1000_configure_k1_ich8lan(ptr noundef %0, i1 noundef zeroext %57)
+  br label %59
 
-58:                                               ; preds = %54, %49, %43, %33, %19
-  %59 = phi i32 [ %22, %19 ], [ %36, %33 ], [ %47, %43 ], [ %57, %54 ], [ %52, %49 ]
-  %60 = getelementptr inbounds i8, ptr %0, i64 920
-  %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef %0) #9
-  br label %62
+59:                                               ; preds = %54, %49, %43, %33, %19
+  %60 = phi i32 [ %22, %19 ], [ %36, %33 ], [ %47, %43 ], [ %58, %54 ], [ %52, %49 ]
+  %61 = getelementptr inbounds i8, ptr %0, i64 920
+  %62 = load ptr, ptr %61, align 8
+  call void %62(ptr noundef %0) #9
+  br label %63
 
-62:                                               ; preds = %58, %9, %2
-  %63 = phi i32 [ %59, %58 ], [ 0, %2 ], [ %12, %9 ]
+63:                                               ; preds = %59, %9, %2
+  %64 = phi i32 [ %60, %59 ], [ 0, %2 ], [ %12, %9 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #9
-  ret i32 %63
+  ret i32 %64
 }
 
 ; Function Attrs: null_pointer_is_valid

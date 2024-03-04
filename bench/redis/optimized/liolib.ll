@@ -767,9 +767,10 @@ for.inc:                                          ; preds = %read_chars.exit97, 
   %inc = add nsw i32 %n.0109, 1
   %dec = add nsw i32 %dec110, -1
   %tobool = icmp ne i32 %dec110, 0
-  %tobool3 = icmp ne i32 %success.3, 0
-  %8 = select i1 %tobool, i1 %tobool3, i1 false
-  br i1 %8, label %for.body, label %if.end26, !llvm.loop !19
+  %8 = and i32 %success.3, 1
+  %9 = icmp ne i32 %8, 0
+  %10 = select i1 %tobool, i1 %9, i1 false
+  br i1 %10, label %for.body, label %if.end26, !llvm.loop !19
 
 if.end26:                                         ; preds = %for.inc, %if.then
   %success.4 = phi i32 [ %call1, %if.then ], [ %success.3, %for.inc ]
@@ -780,11 +781,11 @@ if.end26:                                         ; preds = %for.inc, %if.then
 
 if.then29:                                        ; preds = %if.end26
   %call.i98 = tail call ptr @__errno_location() #10
-  %9 = load i32, ptr %call.i98, align 4, !tbaa !8
+  %11 = load i32, ptr %call.i98, align 4, !tbaa !8
   call void @lua_pushnil(ptr noundef %L) #9
-  %call6.i100 = call ptr @strerror(i32 noundef %9) #9
+  %call6.i100 = call ptr @strerror(i32 noundef %11) #9
   %call7.i = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.19, ptr noundef %call6.i100) #9
-  %conv.i101 = sext i32 %9 to i64
+  %conv.i101 = sext i32 %11 to i64
   call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i101) #9
   br label %cleanup36
 

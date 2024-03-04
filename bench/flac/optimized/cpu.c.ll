@@ -66,8 +66,6 @@ cpuinfo_x86.exit.i:                               ; preds = %if.then.i.i, %entry
   %and30.lobit.i = and i32 %and30.i, 1
   %sse42.i = getelementptr inbounds i8, ptr %info, i64 40
   store i32 %and30.lobit.i, ptr %sse42.i, align 4
-  %and34.i = and i32 %flags_ecx.0.i, 134217728
-  %tobool35.i = icmp ne i32 %and34.i, 0
   %and37.i = lshr i32 %flags_ecx.0.i, 28
   %and37.lobit.i = and i32 %and37.i, 1
   %avx.i = getelementptr inbounds i8, ptr %info, i64 44
@@ -94,13 +92,13 @@ cpuinfo_x86.exit39.i:                             ; preds = %if.then.i33.i, %cpu
   %and49.lobit.i = and i32 %and49.i, 1
   %bmi2.i = getelementptr inbounds i8, ptr %info, i64 56
   store i32 %and49.lobit.i, ptr %bmi2.i, align 4
-  %tobool55.i = icmp ne i32 %and37.lobit.i, 0
-  %or.cond1.i = select i1 %tobool55.i, i1 %tobool35.i, i1 false
+  %4 = and i32 %flags_ecx.0.i, 402653184
+  %or.cond1.i = icmp eq i32 %4, 402653184
   br i1 %or.cond1.i, label %land.lhs.true58.i, label %if.then68.i
 
 land.lhs.true58.i:                                ; preds = %cpuinfo_x86.exit39.i
-  %4 = tail call { i32, i32 } asm sideeffect ".byte 0x0f, 0x01, 0xd0", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #2, !srcloc !6
-  %asmresult.i40.i = extractvalue { i32, i32 } %4, 0
+  %5 = tail call { i32, i32 } asm sideeffect ".byte 0x0f, 0x01, 0xd0", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #2, !srcloc !6
+  %asmresult.i40.i = extractvalue { i32, i32 } %5, 0
   %and60.i = and i32 %asmresult.i40.i, 6
   %cmp61.not.i = icmp eq i32 %and60.i, 6
   br i1 %cmp61.not.i, label %x86_cpu_info.exit, label %if.then68.i

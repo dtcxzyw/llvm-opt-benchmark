@@ -1173,25 +1173,25 @@ lor.end:                                          ; preds = %lor.rhs, %acpi_pm1_
   tail call void @qemu_set_irq(ptr noundef %irq, i32 noundef %lor.ext) #21
   %10 = load i16, ptr %en, align 2
   %11 = and i16 %10, 1
-  %tobool = icmp ne i16 %11, 0
-  %12 = and i16 %2, 1
-  %tobool18.not = icmp eq i16 %12, 0
-  %13 = and i1 %tobool18.not, %tobool
-  br i1 %13, label %if.then.i9, label %if.else.i
+  %12 = icmp ne i16 %11, 0
+  %13 = and i16 %2, 1
+  %tobool18.not = icmp eq i16 %13, 0
+  %14 = and i1 %tobool18.not, %12
+  br i1 %14, label %if.then.i9, label %if.else.i
 
 if.then.i9:                                       ; preds = %lor.end
-  %14 = load i64, ptr %overflow_time.i, align 16
-  %conv.i.i11 = zext i64 %14 to i128
+  %15 = load i64, ptr %overflow_time.i, align 16
+  %conv.i.i11 = zext i64 %15 to i128
   %mul.i.i12 = mul nuw nsw i128 %conv.i.i11, 1000000000
   %div.i.i13 = udiv i128 %mul.i.i12, 3579545
   %conv3.i.i14 = trunc i128 %div.i.i13 to i64
-  %15 = load ptr, ptr %regs, align 16
-  tail call void @timer_mod(ptr noundef %15, i64 noundef %conv3.i.i14) #21
+  %16 = load ptr, ptr %regs, align 16
+  tail call void @timer_mod(ptr noundef %16, i64 noundef %conv3.i.i14) #21
   br label %acpi_pm_tmr_update.exit
 
 if.else.i:                                        ; preds = %lor.end
-  %16 = load ptr, ptr %regs, align 16
-  tail call void @timer_del(ptr noundef %16) #21
+  %17 = load ptr, ptr %regs, align 16
+  tail call void @timer_del(ptr noundef %17) #21
   br label %acpi_pm_tmr_update.exit
 
 acpi_pm_tmr_update.exit:                          ; preds = %if.then.i9, %if.else.i
@@ -1304,16 +1304,15 @@ sw.bb1:                                           ; preds = %entry
   %conv2 = trunc i64 %val to i16
   %en.i = getelementptr inbounds i8, ptr %opaque, i64 610
   store i16 %conv2, ptr %en.i, align 2
-  %7 = trunc i64 %val to i32
-  %and.i = and i32 %7, 1024
-  %tobool.i = icmp ne i32 %and.i, 0
+  %7 = and i16 %conv2, 1024
+  %tobool.i = icmp ne i16 %7, 0
   tail call void @qemu_system_wakeup_enable(i32 noundef 1, i1 noundef zeroext %tobool.i) #21
-  %and2.i = and i32 %7, 1
-  %tobool3.i = icmp ne i32 %and2.i, 0
-  tail call void @qemu_system_wakeup_enable(i32 noundef 2, i1 noundef zeroext %tobool3.i) #21
+  %8 = and i64 %val, 1
+  %9 = icmp ne i64 %8, 0
+  tail call void @qemu_system_wakeup_enable(i32 noundef 2, i1 noundef zeroext %9) #21
   %update_sci5 = getelementptr inbounds i8, ptr %opaque, i64 616
-  %8 = load ptr, ptr %update_sci5, align 8
-  tail call void %8(ptr noundef %opaque) #21
+  %10 = load ptr, ptr %update_sci5, align 8
+  tail call void %10(ptr noundef %opaque) #21
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb1, %acpi_pm1_evt_write_sts.exit, %entry

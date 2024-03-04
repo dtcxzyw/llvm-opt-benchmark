@@ -461,7 +461,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fsync_parent_path(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local i32 @fsync_parent_path(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 1024) #12
   call void @get_parent_directory(ptr noundef nonnull %2) #12
@@ -475,9 +475,9 @@ define dso_local noundef i32 @fsync_parent_path(ptr noundef %0) local_unnamed_ad
 
 6:                                                ; preds = %5, %1
   %7 = call i32 @fsync_fname(ptr noundef nonnull %2, i1 noundef zeroext true), !range !9
-  %.not = icmp ne i32 %7, 0
-  %. = sext i1 %.not to i32
-  ret i32 %.
+  %8 = and i32 %7, 1
+  %sext = sub nsw i32 0, %8
+  ret i32 %sext
 }
 
 ; Function Attrs: nofree
@@ -486,11 +486,11 @@ declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #
 declare void @get_parent_directory(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @durable_rename(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @durable_rename(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = tail call i32 @fsync_fname(ptr noundef %0, i1 noundef zeroext false), !range !9
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %28
+  br i1 %.not, label %5, label %29
 
 5:                                                ; preds = %2
   %6 = tail call i32 (ptr, i32, ...) @open(ptr noundef %1, i32 noundef 2, i32 noundef 0) #12
@@ -505,7 +505,7 @@ define dso_local noundef i32 @durable_rename(ptr noundef %0, ptr noundef %1) loc
 
 11:                                               ; preds = %8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %1) #12
-  br label %28
+  br label %29
 
 12:                                               ; preds = %5
   %13 = tail call i32 @fsync(i32 noundef %6) #12
@@ -529,12 +529,12 @@ define dso_local noundef i32 @durable_rename(ptr noundef %0, ptr noundef %1) loc
 
 20:                                               ; preds = %18
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.11, ptr noundef %0, ptr noundef %1) #12
-  br label %28
+  br label %29
 
 21:                                               ; preds = %18
   %22 = tail call i32 @fsync_fname(ptr noundef %1, i1 noundef zeroext false), !range !9
   %.not18 = icmp eq i32 %22, 0
-  br i1 %.not18, label %23, label %28
+  br i1 %.not18, label %23, label %29
 
 23:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3)
@@ -550,13 +550,13 @@ define dso_local noundef i32 @durable_rename(ptr noundef %0, ptr noundef %1) loc
 
 fsync_parent_path.exit:                           ; preds = %23, %26
   %27 = call i32 @fsync_fname(ptr noundef nonnull %3, i1 noundef zeroext true), !range !9
-  %.not.i.not = icmp ne i32 %27, 0
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
-  %. = sext i1 %.not.i.not to i32
-  br label %28
+  %28 = and i32 %27, 1
+  %sext = sub nsw i32 0, %28
+  br label %29
 
-28:                                               ; preds = %fsync_parent_path.exit, %21, %2, %20, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %20 ], [ -1, %2 ], [ -1, %21 ], [ %., %fsync_parent_path.exit ]
+29:                                               ; preds = %fsync_parent_path.exit, %21, %2, %20, %11
+  %.0 = phi i32 [ -1, %11 ], [ -1, %20 ], [ -1, %2 ], [ -1, %21 ], [ %sext, %fsync_parent_path.exit ]
   ret i32 %.0
 }
 

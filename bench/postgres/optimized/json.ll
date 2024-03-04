@@ -1383,7 +1383,7 @@ define internal fastcc i64 @json_object_agg_transfn_worker(ptr noundef %0, i1 no
   br i1 %.not61, label %.thread, label %74
 
 74:                                               ; preds = %70
-  br i1 %2, label %75, label %129
+  br i1 %2, label %75, label %130
 
 75:                                               ; preds = %74
   %76 = getelementptr inbounds i8, ptr %.052, i64 32
@@ -1461,7 +1461,7 @@ json_unique_builder_get_throwawaybuf.exit:        ; preds = %82, %78, %.thread, 
   unreachable
 
 113:                                              ; preds = %97
-  br i1 %89, label %129, label %114
+  br i1 %89, label %130, label %114
 
 114:                                              ; preds = %113, %json_unique_builder_get_throwawaybuf.exit
   %115 = load ptr, ptr %.052, align 8
@@ -1479,16 +1479,17 @@ json_unique_builder_get_throwawaybuf.exit:        ; preds = %82, %78, %.thread, 
 
 122:                                              ; preds = %114, %119
   %.054 = phi i64 [ %121, %119 ], [ 0, %114 ]
-  %123 = icmp ne i8 %118, 0
-  %124 = load ptr, ptr %.052, align 8
-  %125 = getelementptr inbounds i8, ptr %.052, i64 16
-  %126 = load i32, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %.052, i64 20
-  %128 = load i32, ptr %127, align 4
-  call fastcc void @datum_to_json_internal(i64 noundef %.054, i1 noundef zeroext %123, ptr noundef %124, i32 noundef %126, i32 noundef %128, i1 noundef zeroext false)
-  br label %129
+  %123 = and i8 %117, 1
+  %124 = icmp ne i8 %123, 0
+  %125 = load ptr, ptr %.052, align 8
+  %126 = getelementptr inbounds i8, ptr %.052, i64 16
+  %127 = load i32, ptr %126, align 8
+  %128 = getelementptr inbounds i8, ptr %.052, i64 20
+  %129 = load i32, ptr %128, align 4
+  call fastcc void @datum_to_json_internal(i64 noundef %.054, i1 noundef zeroext %124, ptr noundef %125, i32 noundef %127, i32 noundef %129, i1 noundef zeroext false)
+  br label %130
 
-129:                                              ; preds = %113, %74, %122
+130:                                              ; preds = %113, %74, %122
   %.0 = ptrtoint ptr %.052 to i64
   ret i64 %.0
 }

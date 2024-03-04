@@ -130,8 +130,9 @@ define hidden void @zif_assert(ptr noundef %0, ptr nocapture noundef writeonly %
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %0, i64 80
-  %17 = icmp eq i32 %12, 1
-  br i1 %17, label %.thread, label %18
+  %17 = and i32 %12, 1
+  %.not220 = icmp eq i32 %17, 0
+  br i1 %.not220, label %18, label %.thread
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %0, i64 96
@@ -143,11 +144,11 @@ define hidden void @zif_assert(ptr noundef %0, ptr nocapture noundef writeonly %
 
 24:                                               ; preds = %18
   %.not187 = icmp eq ptr %20, null
-  %.pre220 = load ptr, ptr %19, align 8
+  %.pre221 = load ptr, ptr %19, align 8
   br i1 %.not187, label %.critedge, label %25
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %.pre220, i64 16
+  %26 = getelementptr inbounds i8, ptr %.pre221, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %20
   br i1 %28, label %.critedge, label %29
@@ -161,7 +162,7 @@ define hidden void @zif_assert(ptr noundef %0, ptr nocapture noundef writeonly %
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %25, %24
-  %31 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %.pre220, %25 ], [ %.pre220, %24 ]
+  %31 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %.pre221, %25 ], [ %.pre221, %24 ]
   store ptr null, ptr %3, align 8
   br label %.thread
 

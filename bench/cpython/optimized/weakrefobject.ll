@@ -1378,20 +1378,21 @@ Py_XDECREF.exit65.sink.split:                     ; preds = %if.end.i.i61, %if.e
 
 Py_XDECREF.exit65:                                ; preds = %Py_XDECREF.exit65.sink.split, %if.end.i.i, %if.then.i, %_PyWeakref_GET_REF.exit55.thread, %if.then.i58, %if.end.i.i61
   %cmp23 = icmp eq ptr %self, %other
-  %cmp24 = icmp eq i32 %op, 3
-  %spec.select = xor i1 %cmp23, %cmp24
+  %11 = and i32 %op, 1
+  %12 = icmp ne i32 %11, 0
+  %spec.select = xor i1 %cmp23, %12
   %spec.select24 = select i1 %spec.select, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
   br label %return
 
 if.end31:                                         ; preds = %_PyWeakref_GET_REF.exit55
   %call33 = tail call ptr @PyObject_RichCompare(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %other.val28, i32 noundef %op) #7
-  %11 = load i64, ptr %retval.0.i, align 8
-  %12 = and i64 %11, 2147483648
-  %cmp.i44.not = icmp eq i64 %12, 0
+  %13 = load i64, ptr %retval.0.i, align 8
+  %14 = and i64 %13, 2147483648
+  %cmp.i44.not = icmp eq i64 %14, 0
   br i1 %cmp.i44.not, label %if.end.i37, label %Py_DECREF.exit42
 
 if.end.i37:                                       ; preds = %if.end31
-  %dec.i38 = add i64 %11, -1
+  %dec.i38 = add i64 %13, -1
   store i64 %dec.i38, ptr %retval.0.i, align 8
   %cmp.i39 = icmp eq i64 %dec.i38, 0
   br i1 %cmp.i39, label %if.then1.i40, label %Py_DECREF.exit42
@@ -1401,13 +1402,13 @@ if.then1.i40:                                     ; preds = %if.end.i37
   br label %Py_DECREF.exit42
 
 Py_DECREF.exit42:                                 ; preds = %if.end31, %if.then1.i40, %if.end.i37
-  %13 = load i64, ptr %other.val28, align 8
-  %14 = and i64 %13, 2147483648
-  %cmp.i47.not = icmp eq i64 %14, 0
+  %15 = load i64, ptr %other.val28, align 8
+  %16 = and i64 %15, 2147483648
+  %cmp.i47.not = icmp eq i64 %16, 0
   br i1 %cmp.i47.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %Py_DECREF.exit42
-  %dec.i = add i64 %13, -1
+  %dec.i = add i64 %15, -1
   store i64 %dec.i, ptr %other.val28, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return

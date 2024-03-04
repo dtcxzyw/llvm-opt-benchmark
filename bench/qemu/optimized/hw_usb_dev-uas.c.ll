@@ -1024,8 +1024,9 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %tobool.not.i, label %if.then103, label %for.body.i, !llvm.loop !10
 
 if.end97:                                         ; preds = %if.end80
-  %cmp91 = icmp eq i8 %1, 3
-  %cond96.in.v = select i1 %cmp91, i64 6064, i64 6072
+  %85 = and i8 %1, 1
+  %.not = icmp eq i8 %85, 0
+  %cond96.in.v = select i1 %.not, i64 6072, i64 6064
   %cond96.in = getelementptr inbounds i8, ptr %call.i, i64 %cond96.in.v
   %cond96 = load ptr, ptr %cond96.in, align 8
   %cmp98 = icmp eq ptr %cond96, null
@@ -1035,8 +1036,8 @@ if.then103:                                       ; preds = %for.inc.i, %if.then
   %data3 = getelementptr inbounds i8, ptr %call.i, i64 6080
   %idxprom105 = zext nneg i32 %83 to i64
   %arrayidx106 = getelementptr [17 x ptr], ptr %data3, i64 0, i64 %idxprom105
-  %85 = load ptr, ptr %arrayidx106, align 8
-  %cmp107 = icmp eq ptr %85, null
+  %86 = load ptr, ptr %arrayidx106, align 8
+  %cmp107 = icmp eq ptr %86, null
   br i1 %cmp107, label %if.end111, label %if.else110
 
 if.else110:                                       ; preds = %if.then103
@@ -1058,24 +1059,24 @@ if.else117:                                       ; preds = %if.end97
 if.end119:                                        ; preds = %for.body.i, %if.end97
   %req.0116 = phi ptr [ %cond96, %if.end97 ], [ %req.06.i, %for.body.i ]
   %req120 = getelementptr inbounds i8, ptr %req.0116, i64 32
-  %86 = load ptr, ptr %req120, align 8
-  %call121 = tail call ptr @scsi_req_ref(ptr noundef %86) #9
+  %87 = load ptr, ptr %req120, align 8
+  %call121 = tail call ptr @scsi_req_ref(ptr noundef %87) #9
   %data = getelementptr inbounds i8, ptr %req.0116, i64 40
   store ptr %p, ptr %data, align 8
   tail call fastcc void @usb_uas_copy_data(ptr noundef nonnull %req.0116)
   %actual_length = getelementptr inbounds i8, ptr %p, i64 88
-  %87 = load i32, ptr %actual_length, align 8
-  %conv122 = sext i32 %87 to i64
+  %88 = load i32, ptr %actual_length, align 8
+  %conv122 = sext i32 %88 to i64
   %size124 = getelementptr inbounds i8, ptr %p, i64 64
-  %88 = load i64, ptr %size124, align 8
-  %cmp125 = icmp eq i64 %88, %conv122
+  %89 = load i64, ptr %size124, align 8
+  %cmp125 = icmp eq i64 %89, %conv122
   br i1 %cmp125, label %if.then129, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end119
   %complete = getelementptr inbounds i8, ptr %req.0116, i64 50
-  %89 = load i8, ptr %complete, align 2
-  %90 = and i8 %89, 1
-  %tobool127.not = icmp eq i8 %90, 0
+  %90 = load i8, ptr %complete, align 2
+  %91 = and i8 %90, 1
+  %tobool127.not = icmp eq i8 %91, 0
   br i1 %tobool127.not, label %if.else131, label %if.then129
 
 if.then129:                                       ; preds = %lor.lhs.false, %if.end119
@@ -1090,8 +1091,8 @@ if.else131:                                       ; preds = %lor.lhs.false
   br label %if.end133
 
 if.end133:                                        ; preds = %if.else131, %if.then129
-  %91 = load ptr, ptr %req120, align 8
-  tail call void @scsi_req_unref(ptr noundef %91) #9
+  %92 = load ptr, ptr %req120, align 8
+  tail call void @scsi_req_unref(ptr noundef %92) #9
   tail call fastcc void @usb_uas_start_next_transfer(ptr noundef %call.i)
   br label %return
 
@@ -1103,8 +1104,8 @@ sw.default135:                                    ; preds = %entry
   br label %return
 
 err_stream:                                       ; preds = %sw.bb75, %sw.bb10
-  %92 = phi i32 [ %83, %sw.bb75 ], [ %74, %sw.bb10 ]
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.47, ptr noundef nonnull @__func__.usb_uas_handle_data, i32 noundef %92) #9
+  %93 = phi i32 [ %83, %sw.bb75 ], [ %74, %sw.bb10 ]
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.47, ptr noundef nonnull @__func__.usb_uas_handle_data, i32 noundef %93) #9
   %status142 = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -3, ptr %status142, align 4
   br label %return

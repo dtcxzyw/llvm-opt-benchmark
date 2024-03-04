@@ -2400,13 +2400,13 @@ if.end.i:                                         ; preds = %_ZNK4node9inspector
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %result) #27
   %.pre = load i8, ptr %result, align 1
+  %2 = and i8 %.pre, 1
+  %3 = icmp ne i8 %2, 0
   br label %_ZNK4node9inspector8protocol15DictionaryValue10getBooleanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb.exit
 
 _ZNK4node9inspector8protocol15DictionaryValue10getBooleanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb.exit: ; preds = %entry, %_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, %if.end.i
-  %2 = phi i8 [ %frombool, %entry ], [ %frombool, %_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ %.pre, %if.end.i ]
-  %3 = and i8 %2, 1
-  %tobool3 = icmp ne i8 %3, 0
-  ret i1 %tobool3
+  %4 = phi i1 [ %defaultValue, %entry ], [ %defaultValue, %_ZNK4node9inspector8protocol15DictionaryValue3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i ], [ %3, %if.end.i ]
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

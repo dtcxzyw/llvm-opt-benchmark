@@ -523,31 +523,32 @@ if.end55:                                         ; preds = %if.end47
 
 if.end62:                                         ; preds = %if.end55
   %call63 = tail call i32 @MOZ_Z_gzrewind(ptr noundef nonnull %file), !range !7
-  %cmp64 = icmp eq i32 %call63, -1
-  br i1 %cmp64, label %return, label %if.end68
+  %13 = and i32 %call63, 1
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %if.end68, label %return
 
 if.end68:                                         ; preds = %if.end62
   %.pre = load i32, ptr %mode, align 8
-  %13 = icmp eq i32 %.pre, 7247
-  br i1 %13, label %if.then72, label %if.end91
+  %14 = icmp eq i32 %.pre, 7247
+  br i1 %14, label %if.then72, label %if.end91
 
 if.then72:                                        ; preds = %if.end47, %if.end68
   %offset.addr.156 = phi i64 [ %add58, %if.end68 ], [ %offset.addr.0, %if.end47 ]
-  %14 = load i32, ptr %file, align 8
-  %conv75 = zext i32 %14 to i64
+  %15 = load i32, ptr %file, align 8
+  %conv75 = zext i32 %15 to i64
   %cmp76 = icmp ult i64 %offset.addr.156, %conv75
   %conv78 = trunc i64 %offset.addr.156 to i32
-  %cond = select i1 %cmp76, i32 %conv78, i32 %14
-  %sub83 = sub i32 %14, %cond
+  %cond = select i1 %cmp76, i32 %conv78, i32 %15
+  %sub83 = sub i32 %15, %cond
   store i32 %sub83, ptr %file, align 8
   %next = getelementptr inbounds i8, ptr %file, i64 8
-  %15 = load ptr, ptr %next, align 8
+  %16 = load ptr, ptr %next, align 8
   %idx.ext = zext i32 %cond to i64
-  %add.ptr = getelementptr inbounds i8, ptr %15, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %16, i64 %idx.ext
   store ptr %add.ptr, ptr %next, align 8
   %pos87 = getelementptr inbounds i8, ptr %file, i64 16
-  %16 = load i64, ptr %pos87, align 8
-  %add88 = add nsw i64 %16, %idx.ext
+  %17 = load i64, ptr %pos87, align 8
+  %add88 = add nsw i64 %17, %idx.ext
   store i64 %add88, ptr %pos87, align 8
   %sub90 = sub nsw i64 %offset.addr.156, %idx.ext
   br label %if.end91
@@ -565,8 +566,8 @@ if.then93:                                        ; preds = %if.end91
 
 if.end96:                                         ; preds = %if.then93, %if.end91
   %pos98 = getelementptr inbounds i8, ptr %file, i64 16
-  %17 = load i64, ptr %pos98, align 8
-  %add99 = add nsw i64 %17, %offset.addr.2
+  %18 = load i64, ptr %pos98, align 8
+  %add99 = add nsw i64 %18, %offset.addr.2
   br label %return
 
 return:                                           ; preds = %if.end47.thread, %if.end62, %if.end55, %if.then32, %if.end11, %if.end5, %if.end, %entry, %if.end96, %MOZ_Z_gz_error.exit

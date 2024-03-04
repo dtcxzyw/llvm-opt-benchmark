@@ -2563,14 +2563,15 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end3, %if.then1.i, %if.end.i
-  %cmp5 = icmp eq i32 %call4, -1
-  br i1 %cmp5, label %return, label %if.else
+  %6 = and i32 %call4, 1
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %if.else, label %return
 
 if.else:                                          ; preds = %Py_DECREF.exit
-  %6 = load ptr, ptr %start, align 8
-  %7 = load ptr, ptr %stop, align 8
-  %8 = load ptr, ptr %step, align 8
-  %call7 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.10, ptr noundef %6, ptr noundef %7, ptr noundef %8) #6
+  %7 = load ptr, ptr %start, align 8
+  %8 = load ptr, ptr %stop, align 8
+  %9 = load ptr, ptr %step, align 8
+  %call7 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.10, ptr noundef %7, ptr noundef %8, ptr noundef %9) #6
   br label %return
 
 return:                                           ; preds = %Py_DECREF.exit, %if.end.i11, %if.then1.i14, %if.then2, %entry, %if.else

@@ -59,8 +59,9 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   br i1 %16, label %17, label %.thread131
 
 17:                                               ; preds = %15, %.critedge
-  %18 = icmp eq i32 %6, 1
-  br i1 %18, label %.thread141thread-pre-split, label %19
+  %18 = and i32 %6, 1
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %19, label %.thread141thread-pre-split
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %0, i64 96

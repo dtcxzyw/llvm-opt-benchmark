@@ -310,8 +310,9 @@ err.i24.i:                                        ; preds = %err.sink.split.i.i,
   %finish.i.i = getelementptr inbounds i8, ptr %md.0.i, i64 24
   %18 = load ptr, ptr %finish.i.i, align 8
   %tobool42.i.i = icmp ne ptr %18, null
-  %tobool43.i.i = icmp ne i32 %init_called.1.i.i, 0
-  %or.cond.i25.i = and i1 %tobool43.i.i, %tobool42.i.i
+  %19 = and i32 %init_called.1.i.i, 1
+  %20 = icmp ne i32 %19, 0
+  %or.cond.i25.i = and i1 %tobool42.i.i, %20
   br i1 %or.cond.i25.i, label %if.then44.i.i, label %if.then48.i.i
 
 if.then44.i.i:                                    ; preds = %err.i24.i
@@ -319,10 +320,10 @@ if.then44.i.i:                                    ; preds = %err.i24.i
   br label %if.then48.i.i
 
 if.then48.i.i:                                    ; preds = %if.then44.i.i, %err.i24.i, %if.end.i21.i
-  %19 = load ptr, ptr %name3.i.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str.1, i32 noundef 466) #6
-  %20 = load ptr, ptr %value5.i.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %20, ptr noundef nonnull @.str.1, i32 noundef 467) #6
+  %21 = load ptr, ptr %name3.i.i, align 8
+  tail call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str.1, i32 noundef 466) #6
+  %22 = load ptr, ptr %value5.i.i, align 8
+  tail call void @CRYPTO_free(ptr noundef %22, ptr noundef nonnull @.str.1, i32 noundef 467) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i19.i, ptr noundef nonnull @.str.1, i32 noundef 468) #6
   br label %module_init.exit.i
 

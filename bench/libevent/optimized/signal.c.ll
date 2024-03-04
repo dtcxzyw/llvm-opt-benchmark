@@ -655,13 +655,14 @@ if.then16:                                        ; preds = %do.body14
 
 do.end18:                                         ; preds = %do.body14, %if.then16
   %call19 = tail call i32 @evsig_set_handler_(ptr noundef nonnull %base, i32 noundef %evsignal, ptr noundef nonnull @evsig_handler), !range !9
-  %cmp20 = icmp eq i32 %call19, -1
-  br i1 %cmp20, label %do.body31, label %if.end22
+  %11 = and i32 %call19, 1
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %if.end22, label %do.body31
 
 if.end22:                                         ; preds = %do.end18
   %ev_signal_added = getelementptr inbounds i8, ptr %base, i64 168
-  %11 = load i32, ptr %ev_signal_added, align 8
-  %tobool23.not = icmp eq i32 %11, 0
+  %12 = load i32, ptr %ev_signal_added, align 8
+  %tobool23.not = icmp eq i32 %12, 0
   br i1 %tobool23.not, label %if.then24, label %return
 
 if.then24:                                        ; preds = %if.end22
@@ -674,30 +675,30 @@ if.end28:                                         ; preds = %if.then24
   br label %return
 
 do.body31:                                        ; preds = %do.end18, %if.then24
-  %12 = load ptr, ptr @evsig_base_lock, align 8
-  %tobool32.not = icmp eq ptr %12, null
+  %13 = load ptr, ptr @evsig_base_lock, align 8
+  %tobool32.not = icmp eq ptr %13, null
   br i1 %tobool32.not, label %do.end36, label %if.then33
 
 if.then33:                                        ; preds = %do.body31
-  %13 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
-  %call34 = tail call i32 %13(i32 noundef 0, ptr noundef nonnull %12) #7
+  %14 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
+  %call34 = tail call i32 %14(i32 noundef 0, ptr noundef nonnull %13) #7
   %.pr = load ptr, ptr @evsig_base_lock, align 8
   br label %do.end36
 
 do.end36:                                         ; preds = %do.body31, %if.then33
-  %14 = phi ptr [ null, %do.body31 ], [ %.pr, %if.then33 ]
-  %15 = load i32, ptr @evsig_base_n_signals_added, align 4
-  %dec = add nsw i32 %15, -1
+  %15 = phi ptr [ null, %do.body31 ], [ %.pr, %if.then33 ]
+  %16 = load i32, ptr @evsig_base_n_signals_added, align 4
+  %dec = add nsw i32 %16, -1
   store i32 %dec, ptr @evsig_base_n_signals_added, align 4
-  %16 = load i32, ptr %ev_n_signals_added, align 4
-  %dec38 = add nsw i32 %16, -1
+  %17 = load i32, ptr %ev_n_signals_added, align 4
+  %dec38 = add nsw i32 %17, -1
   store i32 %dec38, ptr %ev_n_signals_added, align 4
-  %tobool40.not = icmp eq ptr %14, null
+  %tobool40.not = icmp eq ptr %15, null
   br i1 %tobool40.not, label %return, label %if.then41
 
 if.then41:                                        ; preds = %do.end36
-  %17 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call42 = tail call i32 %17(i32 noundef 0, ptr noundef nonnull %14) #7
+  %18 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %call42 = tail call i32 %18(i32 noundef 0, ptr noundef nonnull %15) #7
   br label %return
 
 return:                                           ; preds = %if.then41, %do.end36, %if.end22, %if.end28

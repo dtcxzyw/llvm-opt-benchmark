@@ -72,7 +72,7 @@ do.end6:                                          ; preds = %do.end.thread, %do.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evutil_secure_rng_init() local_unnamed_addr #0 {
+define dso_local i32 @evutil_secure_rng_init() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @arc4rand_lock, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -95,9 +95,9 @@ if.then5:                                         ; preds = %do.end
   br label %do.end8
 
 do.end8:                                          ; preds = %do.end, %if.then5
-  %tobool2.not = icmp ne i32 %call1, 0
-  %cond = sext i1 %tobool2.not to i32
-  ret i32 %cond
+  %4 = and i32 %call1, 1
+  %sext = sub nsw i32 0, %4
+  ret i32 %sext
 }
 
 ; Function Attrs: nounwind uwtable

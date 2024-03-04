@@ -4121,27 +4121,28 @@ define dso_local i32 @drm_dp_pcon_hdmi_link_mode(ptr noundef %0, ptr noundef wri
   %4 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 12342, ptr noundef nonnull %3, i64 noundef 1), !range !12
   %5 = trunc i64 %4 to i32
   %6 = icmp slt i32 %5, 0
-  br i1 %6, label %17, label %7
+  br i1 %6, label %18, label %7
 
 7:                                                ; preds = %2
   %8 = load i8, ptr %3, align 1
   %9 = and i8 %8, 1
   %10 = zext nneg i8 %9 to i32
   %11 = icmp ne ptr %1, null
-  %12 = icmp ne i8 %9, 0
-  %13 = select i1 %11, i1 %12, i1 false
-  br i1 %13, label %14, label %17
+  %12 = and i8 %8, 1
+  %13 = icmp ne i8 %12, 0
+  %14 = select i1 %11, i1 %13, i1 false
+  br i1 %14, label %15, label %18
 
-14:                                               ; preds = %7
-  %15 = lshr i8 %8, 1
-  %16 = and i8 %15, 63
-  store i8 %16, ptr %1, align 1
-  br label %17
+15:                                               ; preds = %7
+  %16 = lshr i8 %8, 1
+  %17 = and i8 %16, 63
+  store i8 %17, ptr %1, align 1
+  br label %18
 
-17:                                               ; preds = %14, %7, %2
-  %18 = phi i32 [ %5, %2 ], [ %10, %14 ], [ %10, %7 ]
+18:                                               ; preds = %15, %7, %2
+  %19 = phi i32 [ %5, %2 ], [ %10, %15 ], [ %10, %7 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #17
-  ret i32 %18
+  ret i32 %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

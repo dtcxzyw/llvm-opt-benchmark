@@ -71,22 +71,23 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7f00e3269acd8cdbE"(ptr 
   %4 = load i8, ptr %3, align 8, !range !6, !noundef !4
   %.not = icmp eq i8 %4, 2
   %5 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  br i1 %.not, label %12, label %6
+  br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %2
-  %7 = icmp ne i8 %4, 0
-  %8 = tail call { ptr, i8 } @_ZN4core3ops8function6FnOnce9call_once17h86bca9eca4dd1406E(ptr nonnull %5, i1 zeroext %7)
-  %9 = extractvalue { ptr, i8 } %8, 0
-  %10 = extractvalue { ptr, i8 } %8, 1
-  %11 = and i8 %10, 1
-  br label %12
+  %7 = and i8 %4, 1
+  %8 = icmp ne i8 %7, 0
+  %9 = tail call { ptr, i8 } @_ZN4core3ops8function6FnOnce9call_once17h86bca9eca4dd1406E(ptr nonnull %5, i1 zeroext %8)
+  %10 = extractvalue { ptr, i8 } %9, 0
+  %11 = extractvalue { ptr, i8 } %9, 1
+  %12 = and i8 %11, 1
+  br label %13
 
-12:                                               ; preds = %2, %6
-  %.sink1 = phi ptr [ %9, %6 ], [ %5, %2 ]
-  %.sink = phi i8 [ %11, %6 ], [ 2, %2 ]
+13:                                               ; preds = %2, %6
+  %.sink1 = phi ptr [ %10, %6 ], [ %5, %2 ]
+  %.sink = phi i8 [ %12, %6 ], [ 2, %2 ]
   store ptr %.sink1, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %.sink, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 %.sink, ptr %14, align 8
   ret void
 }
 

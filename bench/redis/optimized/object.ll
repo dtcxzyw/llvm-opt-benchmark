@@ -1249,8 +1249,9 @@ if.then:                                          ; preds = %entry
   br label %if.end10
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp eq i32 %0, 2147483647
-  br i1 %cmp3, label %if.end10, label %if.then8
+  %1 = and i32 %0, 1
+  %.not = icmp eq i32 %1, 0
+  br i1 %.not, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.else
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 387, ptr noundef nonnull @.str.8) #17
@@ -2559,8 +2560,9 @@ if.then.i:                                        ; preds = %if.then
   br label %return
 
 if.else.i:                                        ; preds = %if.then
-  %cmp3.i = icmp eq i32 %0, 2147483647
-  br i1 %cmp3.i, label %return, label %if.then8.i
+  %1 = and i32 %0, 1
+  %.not.i = icmp eq i32 %1, 0
+  br i1 %.not.i, label %if.then8.i, label %return
 
 if.then8.i:                                       ; preds = %if.else.i
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 387, ptr noundef nonnull @.str.8) #17
@@ -2576,9 +2578,9 @@ if.end:                                           ; preds = %entry
 
 if.then12:                                        ; preds = %if.end
   %ptr = getelementptr inbounds i8, ptr %o, i64 8
-  %1 = load ptr, ptr %ptr, align 8
-  %2 = ptrtoint ptr %1 to i64
-  %call = call i32 @ll2string(ptr noundef nonnull %buf, i64 noundef 32, i64 noundef %2) #17
+  %2 = load ptr, ptr %ptr, align 8
+  %3 = ptrtoint ptr %2 to i64
+  %call = call i32 @ll2string(ptr noundef nonnull %buf, i64 noundef 32, i64 noundef %3) #17
   %call15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #19
   %cmp.i7 = icmp ult i64 %call15, 45
   br i1 %cmp.i7, label %if.then.i9, label %if.else.i8
@@ -2599,8 +2601,8 @@ if.then.i9:                                       ; preds = %if.then12
   store i8 %conv.i.i, ptr %alloc.i.i, align 1
   %flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 18
   store i8 1, ptr %flags.i.i, align 1
-  %3 = load ptr, ptr @SDS_NOINIT, align 8
-  %cmp.i.i = icmp eq ptr %3, %buf
+  %4 = load ptr, ptr @SDS_NOINIT, align 8
+  %cmp.i.i = icmp eq ptr %4, %buf
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i9

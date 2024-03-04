@@ -1907,8 +1907,9 @@ thread-pre-split.thread:                          ; preds = %26, %1, %thread-pre
   %138 = tail call zeroext i16 @eth_type_trans(ptr noundef %106, ptr noundef %137) #13
   %139 = getelementptr inbounds i8, ptr %106, i64 176
   store i16 %138, ptr %139, align 8
-  %140 = icmp eq i32 %128, 3
-  br i1 %140, label %141, label %161
+  %140 = and i32 %128, 1
+  %.not = icmp eq i32 %140, 0
+  br i1 %.not, label %161, label %141
 
 141:                                              ; preds = %129
   %142 = getelementptr inbounds i8, ptr %0, i64 264

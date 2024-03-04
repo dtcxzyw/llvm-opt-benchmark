@@ -299,8 +299,8 @@ define internal fastcc noundef i32 @__down_common(ptr noundef %0, i64 noundef %1
   br i1 %45, label %.thread.us, label %.loopexit, !llvm.loop !21
 
 .split:                                           ; preds = %25
-  %46 = and i32 %35, 1
-  %.not = icmp eq i32 %46, 0
+  %46 = and i64 %1, 1
+  %.not = icmp eq i64 %46, 0
   br i1 %.not, label %.split.split, label %.split.split.us
 
 .split.split.us:                                  ; preds = %.split, %56

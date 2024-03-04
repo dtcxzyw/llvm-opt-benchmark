@@ -728,8 +728,8 @@ for.end:                                          ; preds = %for.body, %if.then6
   br label %return
 
 if.else11:                                        ; preds = %if.else
-  %cmp12 = icmp eq i32 %call, 1
-  br i1 %cmp12, label %if.then13, label %return
+  %.not = icmp eq i32 %call, 0
+  br i1 %.not, label %return, label %if.then13
 
 if.then13:                                        ; preds = %if.else11
   %useSubChar1 = getelementptr inbounds i8, ptr %cnv, i64 95
@@ -1228,8 +1228,8 @@ for.end:                                          ; preds = %for.body, %if.then3
   br label %if.end54
 
 if.else42:                                        ; preds = %if.else29
-  %cmp43 = icmp eq i32 %call, 1
-  br i1 %cmp43, label %if.then44, label %if.end45
+  %.not = icmp eq i32 %call, 0
+  br i1 %.not, label %if.end45, label %if.then44
 
 if.then44:                                        ; preds = %if.else42
   %useSubChar1 = getelementptr inbounds i8, ptr %cnv, i64 95

@@ -2365,8 +2365,9 @@ define internal fastcc void @zend_enum_from_base(ptr noundef %0, ptr nocapture n
   %67 = load i64, ptr %5, align 8
   %68 = load ptr, ptr %4, align 8
   %69 = call i32 @zend_enum_get_case_by_value(ptr noundef nonnull %6, ptr noundef nonnull %10, i64 noundef %67, ptr noundef %68, i1 noundef zeroext %2), !range !6
-  %70 = icmp eq i32 %69, -1
-  br i1 %70, label %94, label %71
+  %70 = and i32 %69, 1
+  %.not346 = icmp eq i32 %70, 0
+  br i1 %.not346, label %71, label %94
 
 71:                                               ; preds = %.thread269
   %72 = load ptr, ptr %6, align 8

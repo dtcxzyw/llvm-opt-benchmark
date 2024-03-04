@@ -2764,8 +2764,9 @@ if.end8.sink.split.i.i.i.i543:                    ; preds = %_ZN9__gnu_cxx27__ex
 
 if.end96:                                         ; preds = %if.end8.sink.split.i.i.i.i543, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i540, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i530, %if.end94, %sw.epilog
   %foundContextVars.6 = phi i8 [ %foundContextVars.2, %sw.epilog ], [ %foundContextVars.5, %if.end94 ], [ %foundContextVars.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i530 ], [ %foundContextVars.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i540 ], [ %foundContextVars.5, %if.end8.sink.split.i.i.i.i543 ]
-  %tobool97 = icmp ne i8 %foundContextVars.6, 0
-  ret i1 %tobool97
+  %210 = and i8 %foundContextVars.6, 1
+  %211 = icmp ne i8 %210, 0
+  ret i1 %211
 
 eh.resume:                                        ; preds = %ehcleanup93, %ehcleanup51, %ehcleanup
   %.pn25.pn = phi { ptr, i32 } [ %.pn25, %ehcleanup93 ], [ %.pn, %ehcleanup51 ], [ %.pn23, %ehcleanup ]

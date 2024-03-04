@@ -2139,28 +2139,30 @@ entry:
   %group = alloca %"class.google::protobuf::json_internal::UntypedMessage", align 8
   %ref.tmp206 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %current_group.sroa.0.0.extract.trunc = trunc i64 %current_group.coerce to i32
+  %0 = and i64 %current_group.coerce, 4294967296
+  %current_group.sroa.3.0.extract.trunc.not = icmp eq i64 %0, 0
   %buffer_end_.i = getelementptr inbounds i8, ptr %stream, i64 8
   %last_tag_.i = getelementptr inbounds i8, ptr %stream, i64 32
-  %0 = getelementptr inbounds i8, ptr %group_desc, i64 8
+  %1 = getelementptr inbounds i8, ptr %group_desc, i64 8
   %fields_.i = getelementptr inbounds i8, ptr %group, i64 8
   %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %group, i64 16
   %capacity_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %group, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %entry
-  %1 = load ptr, ptr %stream, align 8
-  %2 = load ptr, ptr %buffer_end_.i, align 8
-  %cmp.i = icmp ult ptr %1, %2
+  %2 = load ptr, ptr %stream, align 8
+  %3 = load ptr, ptr %buffer_end_.i, align 8
+  %cmp.i = icmp ult ptr %2, %3
   br i1 %cmp.i, label %if.then.i, label %if.end5.i
 
 if.then.i:                                        ; preds = %while.body
-  %3 = load i8, ptr %1, align 1
-  %conv.i = zext i8 %3 to i32
-  %cmp3.i = icmp sgt i8 %3, -1
+  %4 = load i8, ptr %2, align 1
+  %conv.i = zext i8 %4 to i32
+  %cmp3.i = icmp sgt i8 %4, -1
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.then.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 1
   store ptr %add.ptr.i, ptr %stream, align 8
   br label %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit
 
@@ -2186,9 +2188,7 @@ if.end:                                           ; preds = %_ZN6google8protobuf
   br i1 %cmp4, label %if.then5, label %if.end17
 
 if.then5:                                         ; preds = %if.end
-  %4 = and i64 %current_group.coerce, 4294967296
-  %tobool.i.i.not = icmp eq i64 %4, 0
-  br i1 %tobool.i.i.not, label %if.then7, label %if.end9
+  br i1 %current_group.sroa.3.0.extract.trunc.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.then5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -2294,8 +2294,8 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %s
   %call.i6164 = call { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64FallbackEv(ptr noundef nonnull align 8 dereferenceable(80) %stream)
   %18 = extractvalue { i64, i8 } %call.i6164, 1
   %19 = and i8 %18, 1
-  %tobool.i.not = icmp eq i8 %19, 0
-  br i1 %tobool.i.not, label %if.then25, label %_ZNSt6vectorIiSaIiEED2Ev.exit, !llvm.loop !77
+  %.not = icmp eq i8 %19, 0
+  br i1 %.not, label %if.then25, label %_ZNSt6vectorIiSaIiEED2Ev.exit, !llvm.loop !77
 
 if.then25:                                        ; preds = %if.end.i
   call void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 14, ptr nonnull @.str.4)
@@ -2580,7 +2580,7 @@ if.then.i.i196:                                   ; preds = %_ZN4absl12lts_20230
   unreachable
 
 do.body164:                                       ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit195
-  %56 = load ptr, ptr %0, align 8
+  %56 = load ptr, ptr %1, align 8
   store ptr %56, ptr %group, align 8
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %fields_.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
@@ -2932,8 +2932,8 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit: ; preds = %sw.bb
   %22 = extractvalue { i64, i8 } %call.i43, 1
   store i64 %21, ptr %x82, align 8
   %23 = and i8 %22, 1
-  %tobool.i.not = icmp eq i8 %23, 0
-  br i1 %tobool.i.not, label %if.then84, label %if.end86
+  %.not = icmp eq i8 %23, 0
+  br i1 %.not, label %if.then84, label %if.end86
 
 if.then84:                                        ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit
   tail call void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 14, ptr nonnull @.str.4)

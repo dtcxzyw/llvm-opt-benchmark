@@ -4879,10 +4879,10 @@ if.then14:                                        ; preds = %if.then11
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then14, %if.then11
-  %tobool19 = icmp ne i32 %ret.0, 0
+  %0 = icmp ne i32 %ret.0, 0
   %tobool21 = icmp ne i32 %call12, 0
-  %0 = select i1 %tobool19, i1 %tobool21, i1 false
-  %land.ext23 = zext i1 %0 to i32
+  %1 = select i1 %0, i1 %tobool21, i1 false
+  %land.ext23 = zext i1 %1 to i32
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end18, %if.end9
@@ -4902,10 +4902,11 @@ if.then29:                                        ; preds = %if.then26
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then29, %if.then26
-  %tobool34 = icmp ne i32 %ret.1, 0
+  %2 = and i32 %ret.1, 1
+  %3 = icmp ne i32 %2, 0
   %tobool36 = icmp ne i32 %call27, 0
-  %1 = select i1 %tobool34, i1 %tobool36, i1 false
-  %land.ext38 = zext i1 %1 to i32
+  %4 = select i1 %3, i1 %tobool36, i1 false
+  %land.ext38 = zext i1 %4 to i32
   br label %return
 
 return:                                           ; preds = %if.end24, %if.end33, %entry
@@ -4954,9 +4955,9 @@ if.end7:                                          ; preds = %if.end
   %tobool9.not = icmp eq i32 %call1.i, 0
   %lnot.ext = zext i1 %tobool9.not to i32
   %call10 = tail call fastcc i32 @adapt_keyid_ext(ptr noundef %cert, ptr noundef %ext_ctx, ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.161, i32 noundef %lnot.ext), !range !8
-  %tobool11 = icmp ne i32 %call10, 0
+  %0 = icmp ne i32 %call10, 0
   %cmp = icmp ne ptr %call, null
-  %or.cond = select i1 %tobool11, i1 %cmp, i1 false
+  %or.cond = select i1 %0, i1 %cmp, i1 false
   br i1 %or.cond, label %land.lhs.true, label %end
 
 if.end14:                                         ; preds = %entry

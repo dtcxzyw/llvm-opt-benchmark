@@ -122,18 +122,18 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 8
   %2 = and i8 %1, 1
-  %tobool.not = icmp ne i8 %2, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %3 = icmp ne i8 %2, 0
+  br i1 %3, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %mZSstream = getelementptr inbounds i8, ptr %0, i64 8
   %call = tail call i32 @inflateEnd(ptr noundef nonnull %mZSstream)
-  %3 = load ptr, ptr %this, align 8
-  store i8 0, ptr %3, align 8
+  %4 = load ptr, ptr %this, align 8
+  store i8 0, ptr %4, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end
-  ret i1 %tobool.not
+  ret i1 %3
 }
 
 ; Function Attrs: noreturn nounwind uwtable
@@ -192,11 +192,11 @@ if.end23:                                         ; preds = %if.else19, %if.then
   %9 = load ptr, ptr %this, align 8
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 1
-  %tobool28 = icmp ne i8 %11, 0
+  %12 = icmp ne i8 %11, 0
   br label %return
 
 return:                                           ; preds = %entry, %if.end23
-  %retval.0 = phi i1 [ %tobool28, %if.end23 ], [ false, %entry ]
+  %retval.0 = phi i1 [ %12, %if.end23 ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -317,7 +317,7 @@ lpad41:                                           ; preds = %if.then39
   br label %eh.resume
 
 if.end43:                                         ; preds = %do.body
-  %cmp36.not = icmp eq i32 %call35, 1
+  %.not = icmp eq i32 %call35, 0
   %16 = load ptr, ptr %this, align 8
   %avail_out46 = getelementptr inbounds i8, ptr %16, i64 40
   %17 = load i32, ptr %avail_out46, align 8
@@ -328,7 +328,7 @@ if.end43:                                         ; preds = %do.body
   %18 = load ptr, ptr %uncompressed, align 8
   %add.ptr49 = getelementptr inbounds i8, ptr %18, i64 %total.0
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr49, ptr nonnull align 16 %block, i64 %sub, i1 false)
-  br i1 %cmp36.not, label %return, label %do.body, !llvm.loop !4
+  br i1 %.not, label %do.body, label %return, !llvm.loop !4
 
 return:                                           ; preds = %if.end43, %if.end22, %entry
   %retval.0 = phi i64 [ 0, %entry ], [ %conv26, %if.end22 ], [ %add, %if.end43 ]
@@ -590,8 +590,8 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 8
   %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
-  ret i1 %tobool
+  %3 = icmp ne i8 %2, 0
+  ret i1 %3
 }
 
 declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #5

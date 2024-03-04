@@ -7769,8 +7769,8 @@ general_ivar_set.exit:                            ; preds = %general_ivar_set.ex
   br label %rb_vm_lock_leave.exit
 
 rb_vm_lock_leave.exit:                            ; preds = %general_ivar_set.exit, %72
-  %73 = icmp ne i64 %.sroa.4.1.i, 0
-  %74 = zext i1 %73 to i32
+  %73 = trunc i64 %.sroa.4.1.i to i32
+  %74 = and i32 %73, 1
   ret i32 %74
 }
 

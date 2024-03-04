@@ -822,11 +822,12 @@ define dso_local i64 @array_agg_transfn(ptr noundef %0) local_unnamed_addr #0 {
 
 33:                                               ; preds = %26, %30
   %34 = phi i64 [ %32, %30 ], [ 0, %26 ]
-  %35 = icmp ne i8 %29, 0
-  %36 = load ptr, ptr %2, align 8
-  %37 = call ptr @accumArrayResult(ptr noundef %.0, i64 noundef %34, i1 noundef zeroext %35, i32 noundef %4, ptr noundef %36) #9
-  %38 = ptrtoint ptr %37 to i64
-  ret i64 %38
+  %35 = and i8 %28, 1
+  %36 = icmp ne i8 %35, 0
+  %37 = load ptr, ptr %2, align 8
+  %38 = call ptr @accumArrayResult(ptr noundef %.0, i64 noundef %34, i1 noundef zeroext %36, i32 noundef %4, ptr noundef %37) #9
+  %39 = ptrtoint ptr %38 to i64
+  ret i64 %39
 }
 
 declare i32 @get_fn_expr_argtype(ptr noundef, i32 noundef) local_unnamed_addr #2

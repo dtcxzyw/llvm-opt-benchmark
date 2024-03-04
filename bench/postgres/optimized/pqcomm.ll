@@ -1734,8 +1734,9 @@ pq_getbytes.exit:                                 ; preds = %10
   store ptr %37, ptr @error_context_stack, align 8
   %58 = zext nneg i32 %34 to i64
   %59 = call fastcc i32 @pq_discardbytes(i64 noundef %58), !range !7
-  %60 = icmp eq i32 %59, -1
-  br i1 %60, label %61, label %66
+  %60 = and i32 %59, 1
+  %.not23 = icmp eq i32 %60, 0
+  br i1 %.not23, label %66, label %61
 
 61:                                               ; preds = %57
   %62 = call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #19

@@ -62,6 +62,8 @@ _ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.i.i.i: ; preds = %if.
 
 _ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.end_crit_edge.i.i.i: ; preds = %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.i.i.i
   %.pre7.i.i.i = load i8, ptr %result.i.i.i, align 1
+  %3 = and i8 %.pre7.i.i.i, 1
+  %4 = icmp ne i8 %3, 0
   br label %_ZN4absl12lts_202308029BernoulliIRNS0_9BitGenRefEEEbOT_d.exit
 
 _ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.then_crit_edge.i.i.i: ; preds = %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.i.i.i
@@ -69,23 +71,22 @@ _ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.then_crit_edge.i.i
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.then_crit_edge.i.i.i, %if.then3
-  %3 = phi double [ %.pre.i.i.i, %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.then_crit_edge.i.i.i ], [ %div, %if.then3 ]
+  %5 = phi double [ %.pre.i.i.i, %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.then_crit_edge.i.i.i ], [ %div, %if.then3 ]
   %generate_impl_fn_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bitsrc, i64 16
-  %4 = load ptr, ptr %generate_impl_fn_.i.i.i.i.i.i.i.i, align 8
+  %6 = load ptr, ptr %generate_impl_fn_.i.i.i.i.i.i.i.i, align 8
   br label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i
-  %p.addr.0.i.i.i.i.i = phi double [ %3, %if.then.i.i.i ], [ %mul6.i.i.i.i.i, %if.end.i.i.i.i.i ]
+  %p.addr.0.i.i.i.i.i = phi double [ %5, %if.then.i.i.i ], [ %mul6.i.i.i.i.i, %if.end.i.i.i.i.i ]
   %mul.i.i.i.i.i = fmul double %p.addr.0.i.i.i.i.i, 0x41F0000000000000
   %conv.i.i.i.i.i = fptosi double %mul.i.i.i.i.i to i64
-  %call.i.i.i.i.i.i.i.i = call noundef i64 %4(i64 noundef %.pre)
+  %call.i.i.i.i.i.i.i.i = call noundef i64 %6(i64 noundef %.pre)
   %conv1.i.i.i.i.i = and i64 %call.i.i.i.i.i.i.i.i, 4294967295
   %cmp.not.i.i.i.i.i = icmp eq i64 %conv1.i.i.i.i.i, %conv.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
   %cmp4.i.i.i.i.i = icmp ult i64 %conv1.i.i.i.i.i, %conv.i.i.i.i.i
-  %5 = zext i1 %cmp4.i.i.i.i.i to i8
   br label %_ZN4absl12lts_202308029BernoulliIRNS0_9BitGenRefEEEbOT_d.exit
 
 if.end.i.i.i.i.i:                                 ; preds = %while.body.i.i.i.i.i
@@ -97,15 +98,13 @@ if.end.i.i.i.i.i:                                 ; preds = %while.body.i.i.i.i.
   br i1 %cmp7.i.i.i.i.i, label %_ZN4absl12lts_202308029BernoulliIRNS0_9BitGenRefEEEbOT_d.exit, label %while.body.i.i.i.i.i, !llvm.loop !4
 
 _ZN4absl12lts_202308029BernoulliIRNS0_9BitGenRefEEEbOT_d.exit: ; preds = %if.end.i.i.i.i.i, %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.end_crit_edge.i.i.i, %if.then.i.i.i.i.i
-  %6 = phi i8 [ %.pre7.i.i.i, %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.end_crit_edge.i.i.i ], [ %5, %if.then.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i ]
-  %7 = and i8 %6, 1
-  %tobool.i.i.i = icmp ne i8 %7, 0
+  %7 = phi i1 [ %4, %_ZN4absl12lts_202308029BitGenRef10InvokeMockEPKvPvS4_.exit.if.end_crit_edge.i.i.i ], [ %cmp4.i.i.i.i.i, %if.then.i.i.i.i.i ], [ false, %if.end.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg_tuple.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i.i.i)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %_ZN4absl12lts_202308029BernoulliIRNS0_9BitGenRefEEEbOT_d.exit
-  %retval.0 = phi i1 [ %tobool.i.i.i, %_ZN4absl12lts_202308029BernoulliIRNS0_9BitGenRefEEEbOT_d.exit ], [ false, %entry ], [ true, %if.end ]
+  %retval.0 = phi i1 [ %7, %_ZN4absl12lts_202308029BernoulliIRNS0_9BitGenRefEEEbOT_d.exit ], [ false, %entry ], [ true, %if.end ]
   ret i1 %retval.0
 }
 

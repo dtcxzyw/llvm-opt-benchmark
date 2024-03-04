@@ -1368,7 +1368,7 @@ define dso_local ptr @freq_reg_info(ptr noundef %0, i32 noundef %1) #2 align 16 
 
 .split.split:                                     ; preds = %.split, %.split.splitthread-pre-split
   %24 = phi i32 [ %.pr, %.split.splitthread-pre-split ], [ 1, %.split ]
-  %25 = phi i32 [ %66, %.split.splitthread-pre-split ], [ 20000, %.split ]
+  %25 = phi i32 [ %67, %.split.splitthread-pre-split ], [ 20000, %.split ]
   %26 = phi i32 [ %23, %.split.splitthread-pre-split ], [ 8, %.split ]
   %27 = icmp eq i32 %24, 0
   br i1 %27, label %.thread, label %.preheader
@@ -1415,30 +1415,31 @@ define dso_local ptr @freq_reg_info(ptr noundef %0, i32 noundef %1) #2 align 16 
   %55 = and i8 %.fr5, 1
   %56 = icmp ne i8 %55, 0
   %57 = select i1 %56, i1 %54, i1 false
-  br i1 %57, label %60, label %28
+  br i1 %57, label %61, label %28
 
 58:                                               ; preds = %28
-  %59 = icmp eq i8 %55, 0
-  br i1 %59, label %.thread, label %.thread4
+  %59 = and i8 %.fr5, 1
+  %60 = icmp eq i8 %59, 0
+  br i1 %60, label %.thread, label %.thread4
 
 .thread:                                          ; preds = %.split.split, %58
   br label %.thread4
 
-60:                                               ; preds = %52
-  %61 = icmp ugt ptr %35, inttoptr (i64 -4096 to ptr)
-  br i1 %61, label %.thread4, label %.split10.us
+61:                                               ; preds = %52
+  %62 = icmp ugt ptr %35, inttoptr (i64 -4096 to ptr)
+  br i1 %62, label %.thread4, label %.split10.us
 
-.thread4:                                         ; preds = %58, %.thread, %60
-  %62 = phi ptr [ %35, %60 ], [ inttoptr (i64 -22 to ptr), %58 ], [ inttoptr (i64 -34 to ptr), %.thread ]
-  %63 = sext i32 %26 to i64
-  %64 = getelementptr [9 x i32], ptr @__freq_reg_info.bws, i64 0, i64 %63
-  %65 = load i32, ptr %64, align 4
-  %66 = mul i32 %65, 1000
-  %67 = icmp ult i32 %66, %4
-  br i1 %67, label %.split10.us, label %.split.splitthread-pre-split, !llvm.loop !34
+.thread4:                                         ; preds = %58, %.thread, %61
+  %63 = phi ptr [ %35, %61 ], [ inttoptr (i64 -22 to ptr), %58 ], [ inttoptr (i64 -34 to ptr), %.thread ]
+  %64 = sext i32 %26 to i64
+  %65 = getelementptr [9 x i32], ptr @__freq_reg_info.bws, i64 0, i64 %64
+  %66 = load i32, ptr %65, align 4
+  %67 = mul i32 %66, 1000
+  %68 = icmp ult i32 %67, %4
+  br i1 %68, label %.split10.us, label %.split.splitthread-pre-split, !llvm.loop !34
 
-.split10.us:                                      ; preds = %.thread4, %60, %.split, %13
-  %.us-phi = phi ptr [ inttoptr (i64 -22 to ptr), %13 ], [ inttoptr (i64 -34 to ptr), %.split ], [ %62, %.thread4 ], [ %35, %60 ]
+.split10.us:                                      ; preds = %.thread4, %61, %.split, %13
+  %.us-phi = phi ptr [ inttoptr (i64 -22 to ptr), %13 ], [ inttoptr (i64 -34 to ptr), %.split ], [ %63, %.thread4 ], [ %35, %61 ]
   ret ptr %.us-phi
 }
 

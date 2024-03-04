@@ -1388,11 +1388,12 @@ _ZNSt8functionIFbPN8facebook5velox6memory10MemoryPoolEEED2Ev.exit10: ; preds = %
   resume { ptr, i32 } %8
 
 if.end7:                                          ; preds = %_ZNSt8functionIFbPN8facebook5velox6memory10MemoryPoolEEED2Ev.exit
-  %tobool8 = icmp ne i8 %6, 0
+  %12 = and i8 %5, 1
+  %13 = icmp ne i8 %12, 0
   br label %return
 
 return:                                           ; preds = %entry, %if.end7
-  %retval.0 = phi i1 [ %tobool8, %if.end7 ], [ false, %entry ]
+  %retval.0 = phi i1 [ %13, %if.end7 ], [ false, %entry ]
   ret i1 %retval.0
 }
 
@@ -7781,8 +7782,8 @@ cleanup.cont:                                     ; preds = %if.end8.sink.split.
   %inUpdate_ = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load atomic i8, ptr %inUpdate_ acquire, align 8
   %16 = and i8 %15, 1
-  %tobool.i.i.not12 = icmp eq i8 %16, 0
-  br i1 %tobool.i.i.not12, label %while.end, label %while.body.lr.ph
+  %.not12 = icmp eq i8 %16, 0
+  br i1 %.not12, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %cleanup.cont
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %__ts.i.i, i64 8
@@ -7833,8 +7834,8 @@ _ZN5folly6detail7Sleeper4waitEv.exit:             ; preds = %if.then.i, %_ZNSt11
   %sleeper.sroa.2.1 = phi i32 [ %inc.i, %if.then.i ], [ %sleeper.sroa.2.013, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.i ]
   %20 = load atomic i8, ptr %inUpdate_ acquire, align 8
   %21 = and i8 %20, 1
-  %tobool.i.i.not = icmp eq i8 %21, 0
-  br i1 %tobool.i.i.not, label %while.end, label %while.body, !llvm.loop !127
+  %.not = icmp eq i8 %21, 0
+  br i1 %.not, label %while.end, label %while.body, !llvm.loop !127
 
 while.end:                                        ; preds = %_ZN5folly6detail7Sleeper4waitEv.exit, %cleanup.cont, %cleanup
   ret void
@@ -10445,8 +10446,8 @@ _ZN5folly5BatonILb1ESt6atomicE4postEv.exit:       ; preds = %entry, %monotonic_f
   %10 = load ptr, ptr %9, align 8
   %11 = load atomic i8, ptr %10 seq_cst, align 1
   %12 = and i8 %11, 1
-  %tobool.i.i.not = icmp eq i8 %12, 0
-  br i1 %tobool.i.i.not, label %if.end, label %if.then
+  %.not = icmp eq i8 %12, 0
+  br i1 %.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN5folly5BatonILb1ESt6atomicE4postEv.exit
   %13 = getelementptr inbounds i8, ptr %this, i64 32
@@ -10510,8 +10511,8 @@ _ZN5folly5BatonILb1ESt6atomicE4postEv.exit.i:     ; preds = %if.end6.i.i, %monot
   %9 = load ptr, ptr %8, align 8
   %10 = load atomic i8, ptr %9 seq_cst, align 1
   %11 = and i8 %10, 1
-  %tobool.i.i.not.i = icmp eq i8 %11, 0
-  br i1 %tobool.i.i.not.i, label %invoke.cont, label %if.then.i
+  %.not.i = icmp eq i8 %11, 0
+  br i1 %.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5folly5BatonILb1ESt6atomicE4postEv.exit.i
   %12 = getelementptr inbounds i8, ptr %this, i64 48
@@ -12784,8 +12785,8 @@ entry:
   %logging_enabled_.i = getelementptr inbounds i8, ptr %opt, i64 8
   %0 = load i8, ptr %logging_enabled_.i, align 8
   %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %invoke.cont8
+  %.not = icmp eq i8 %1, 0
+  br i1 %.not, label %if.end, label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %entry
   %call3 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #32

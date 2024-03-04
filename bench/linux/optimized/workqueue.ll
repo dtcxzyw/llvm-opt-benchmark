@@ -3448,9 +3448,10 @@ define internal fastcc noundef zeroext i1 @__cancel_work_timer(ptr noundef %0, i
   br label %65
 
 65:                                               ; preds = %63, %60
-  %66 = icmp ne i32 %11, 0
+  %66 = and i32 %11, 1
+  %67 = icmp ne i32 %66, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
-  ret i1 %66
+  ret i1 %67
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3513,7 +3514,7 @@ define dso_local noundef zeroext i1 @cancel_work(ptr noundef %0) #1 align 16 {
 
 6:                                                ; preds = %3
   %7 = icmp slt i32 %4, 0
-  br i1 %7, label %36, label %8, !prof !13
+  br i1 %7, label %37, label %8, !prof !13
 
 8:                                                ; preds = %6
   %9 = load volatile i64, ptr %0, align 8
@@ -3563,13 +3564,14 @@ define dso_local noundef zeroext i1 @cancel_work(ptr noundef %0) #1 align 16 {
   br label %34
 
 34:                                               ; preds = %33, %27
-  %35 = icmp ne i32 %4, 0
-  br label %36
+  %35 = and i32 %4, 1
+  %36 = icmp ne i32 %35, 0
+  br label %37
 
-36:                                               ; preds = %34, %6
-  %37 = phi i1 [ %35, %34 ], [ false, %6 ]
+37:                                               ; preds = %34, %6
+  %38 = phi i1 [ %36, %34 ], [ false, %6 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #25
-  ret i1 %37
+  ret i1 %38
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3586,7 +3588,7 @@ define dso_local noundef zeroext i1 @cancel_delayed_work(ptr noundef %0) #1 alig
 
 6:                                                ; preds = %3
   %7 = icmp slt i32 %4, 0
-  br i1 %7, label %36, label %8, !prof !13
+  br i1 %7, label %37, label %8, !prof !13
 
 8:                                                ; preds = %6
   %9 = load volatile i64, ptr %0, align 8
@@ -3636,13 +3638,14 @@ define dso_local noundef zeroext i1 @cancel_delayed_work(ptr noundef %0) #1 alig
   br label %34
 
 34:                                               ; preds = %33, %27
-  %35 = icmp ne i32 %4, 0
-  br label %36
+  %35 = and i32 %4, 1
+  %36 = icmp ne i32 %35, 0
+  br label %37
 
-36:                                               ; preds = %34, %6
-  %37 = phi i1 [ %35, %34 ], [ false, %6 ]
+37:                                               ; preds = %34, %6
+  %38 = phi i1 [ %36, %34 ], [ false, %6 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #25
-  ret i1 %37
+  ret i1 %38
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

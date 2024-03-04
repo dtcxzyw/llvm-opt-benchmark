@@ -8307,12 +8307,13 @@ _ZN6duckdb10HugeintAdd8AddValueERNS_9hugeint_tEmi.exit36.4: ; preds = %if.then.i
 for.body.5:                                       ; preds = %_ZN6duckdb10HugeintAdd8AddValueERNS_9hugeint_tEmi.exit36.4
   %add.i30.5 = add i64 %add.i30.4, %conv8
   %.not.5 = icmp uge i64 %add.i30.5, %conv8
-  %exitcond.not.5 = icmp ne i64 %count, 6
-  %8 = xor i64 %conv8, -1
-  %.not.6 = icmp ule i64 %add.i30.5, %8
-  %or.cond.not = and i1 %exitcond.not.5, %.not.6
-  %9 = or i1 %.not.5, %or.cond.not
-  br i1 %9, label %13, label %for.cond.if.end17.loopexit_crit_edge
+  %8 = and i64 %count, 1
+  %9 = icmp ne i64 %8, 0
+  %10 = xor i64 %conv8, -1
+  %.not.6 = icmp ule i64 %add.i30.5, %10
+  %or.cond.not = and i1 %9, %.not.6
+  %11 = or i1 %.not.5, %or.cond.not
+  br i1 %11, label %15, label %for.cond.if.end17.loopexit_crit_edge
 
 if.else11:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %addition) #17
@@ -8322,11 +8323,11 @@ if.else11:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp13) #17
   call void @_ZN6duckdb9hugeint_tC1El(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13, i64 noundef %count)
   %call14 = call { i64, i64 } @_ZNK6duckdb9hugeint_tmlERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13)
-  %10 = extractvalue { i64, i64 } %call14, 0
-  store i64 %10, ptr %addition, align 8
-  %11 = getelementptr inbounds i8, ptr %addition, i64 8
-  %12 = extractvalue { i64, i64 } %call14, 1
-  store i64 %12, ptr %11, align 8
+  %12 = extractvalue { i64, i64 } %call14, 0
+  store i64 %12, ptr %addition, align 8
+  %13 = getelementptr inbounds i8, ptr %addition, i64 8
+  %14 = extractvalue { i64, i64 } %call14, 1
+  store i64 %14, ptr %13, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp13) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #17
   %value15 = getelementptr inbounds i8, ptr %state, i64 8
@@ -8334,17 +8335,17 @@ if.else11:                                        ; preds = %if.else
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %addition) #17
   br label %if.end17
 
-13:                                               ; preds = %for.body.5
+15:                                               ; preds = %for.body.5
   %add4.i35.5 = sext i1 %.not.5 to i64
   %add4.i35.6 = sext i1 %or.cond.not to i64
-  %14 = add nsw i64 %add4.i35.6, %add4.i35.5
-  %simplifycfg.merge = add i64 %14, %7
+  %16 = add nsw i64 %add4.i35.6, %add4.i35.5
+  %simplifycfg.merge = add i64 %16, %7
   store i64 %simplifycfg.merge, ptr %upper.i34, align 8, !tbaa !171
   br label %for.cond.if.end17.loopexit_crit_edge
 
-for.cond.if.end17.loopexit_crit_edge:             ; preds = %13, %for.body.5, %_ZN6duckdb10HugeintAdd8AddValueERNS_9hugeint_tEmi.exit36.4, %_ZN6duckdb10HugeintAdd8AddValueERNS_9hugeint_tEmi.exit36.3, %_ZN6duckdb10HugeintAdd8AddValueERNS_9hugeint_tEmi.exit36.2, %_ZN6duckdb10HugeintAdd8AddValueERNS_9hugeint_tEmi.exit36.1, %_ZN6duckdb10HugeintAdd8AddValueERNS_9hugeint_tEmi.exit36
-  %15 = add i64 %value7.promoted, %2
-  store i64 %15, ptr %value7, align 8, !tbaa !170
+for.cond.if.end17.loopexit_crit_edge:             ; preds = %15, %for.body.5, %_ZN6duckdb10HugeintAdd8AddValueERNS_9hugeint_tEmi.exit36.4, %_ZN6duckdb10HugeintAdd8AddValueERNS_9hugeint_tEmi.exit36.3, %_ZN6duckdb10HugeintAdd8AddValueERNS_9hugeint_tEmi.exit36.2, %_ZN6duckdb10HugeintAdd8AddValueERNS_9hugeint_tEmi.exit36.1, %_ZN6duckdb10HugeintAdd8AddValueERNS_9hugeint_tEmi.exit36
+  %17 = add i64 %value7.promoted, %2
+  store i64 %17, ptr %value7, align 8, !tbaa !170
   br label %if.end17
 
 if.end17:                                         ; preds = %for.cond.if.end17.loopexit_crit_edge, %if.else11, %for.cond.preheader, %if.then.i, %if.then

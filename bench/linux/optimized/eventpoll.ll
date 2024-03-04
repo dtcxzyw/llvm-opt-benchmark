@@ -2899,13 +2899,13 @@ define internal fastcc noundef i32 @ep_loop_check_proc(ptr noundef %0, i32 nound
   br i1 %33, label %.thread3, label %.split.us, !llvm.loop !45
 
 .split:                                           ; preds = %8, %.thread
-  %34 = phi ptr [ %60, %.thread ], [ %6, %8 ]
+  %34 = phi ptr [ %61, %.thread ], [ %6, %8 ]
   %35 = getelementptr inbounds i8, ptr %34, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 176
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, @eventpoll_fops
-  br i1 %39, label %40, label %52, !prof !24
+  br i1 %39, label %40, label %53, !prof !24
 
 40:                                               ; preds = %.split
   %41 = getelementptr inbounds i8, ptr %36, i64 200
@@ -2923,32 +2923,33 @@ define internal fastcc noundef i32 @ep_loop_check_proc(ptr noundef %0, i32 nound
 
 50:                                               ; preds = %47
   %51 = tail call fastcc i32 @ep_loop_check_proc(ptr noundef %42, i32 noundef %10), !range !20
-  %.not = icmp eq i32 %51, 0
+  %52 = and i32 %51, 1
+  %.not = icmp eq i32 %52, 0
   br i1 %.not, label %.thread, label %.thread3
 
-52:                                               ; preds = %.split
-  %53 = getelementptr inbounds i8, ptr %36, i64 208
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %.thread
+53:                                               ; preds = %.split
+  %54 = getelementptr inbounds i8, ptr %36, i64 208
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %59, label %.thread
 
-58:                                               ; preds = %52
-  %59 = load ptr, ptr @tfile_check_list, align 8
-  store ptr %59, ptr %55, align 8
-  store ptr %54, ptr @tfile_check_list, align 8
+59:                                               ; preds = %53
+  %60 = load ptr, ptr @tfile_check_list, align 8
+  store ptr %60, ptr %56, align 8
+  store ptr %55, ptr @tfile_check_list, align 8
   br label %.thread
 
-.thread:                                          ; preds = %40, %58, %52, %50
-  %60 = tail call ptr @rb_next(ptr noundef nonnull %34) #11
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %.thread3, label %.split, !llvm.loop !45
+.thread:                                          ; preds = %40, %59, %53, %50
+  %61 = tail call ptr @rb_next(ptr noundef nonnull %34) #11
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %.thread3, label %.split, !llvm.loop !45
 
 .thread3:                                         ; preds = %50, %.thread, %47, %.thread.us, %25, %2
-  %62 = phi i32 [ 0, %2 ], [ -1, %25 ], [ 0, %.thread.us ], [ -1, %47 ], [ -1, %50 ], [ 0, %.thread ]
+  %63 = phi i32 [ 0, %2 ], [ -1, %25 ], [ 0, %.thread.us ], [ -1, %47 ], [ -1, %50 ], [ 0, %.thread ]
   tail call void @mutex_unlock(ptr noundef %0) #11
-  ret i32 %62
+  ret i32 %63
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

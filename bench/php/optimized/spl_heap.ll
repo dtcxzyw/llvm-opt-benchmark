@@ -385,8 +385,9 @@ define hidden void @zim_SplHeap_extract(ptr noundef %0, ptr noundef %1) #0 {
 
 16:                                               ; preds = %.critedge
   %17 = tail call fastcc i32 @spl_ptr_heap_delete_top(ptr noundef nonnull %9, ptr noundef %1, ptr noundef nonnull %3), !range !4
-  %18 = icmp eq i32 %17, -1
-  br i1 %18, label %19, label %24
+  %18 = and i32 %17, 1
+  %.not7 = icmp eq i32 %18, 0
+  br i1 %.not7, label %24, label %19
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr @spl_ce_RuntimeException, align 8
@@ -802,8 +803,9 @@ define hidden void @zim_SplPriorityQueue_extract(ptr noundef %0, ptr noundef %1)
 
 21:                                               ; preds = %.critedge
   %22 = call fastcc i32 @spl_ptr_heap_delete_top(ptr noundef nonnull %12, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !4
-  %23 = icmp eq i32 %22, -1
-  br i1 %23, label %24, label %29
+  %23 = and i32 %22, 1
+  %.not8 = icmp eq i32 %23, 0
+  br i1 %.not8, label %29, label %24
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr @spl_ce_RuntimeException, align 8

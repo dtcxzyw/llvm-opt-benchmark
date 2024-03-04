@@ -1100,9 +1100,9 @@ _Z7deallocIN11horn_tactic3impEEvPT_.exit:         ; preds = %entry, %if.end.i
   %m_is_simplify = getelementptr inbounds i8, ptr %this, i64 12
   %3 = load i8, ptr %m_is_simplify, align 4
   %4 = and i8 %3, 1
-  %tobool = icmp ne i8 %4, 0
+  %5 = icmp ne i8 %4, 0
   %m_params = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN11horn_tactic3impC2EbR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(4432) %call, i1 noundef zeroext %tobool, ptr noundef nonnull align 8 dereferenceable(976) %1, ptr noundef nonnull align 8 dereferenceable(8) %m_params)
+  tail call void @_ZN11horn_tactic3impC2EbR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(4432) %call, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(976) %1, ptr noundef nonnull align 8 dereferenceable(8) %m_params)
   store ptr %call, ptr %m_imp, align 8
   ret void
 }
@@ -1150,16 +1150,17 @@ entry:
           to label %invoke.cont6.i unwind label %lpad5.i
 
 invoke.cont6.i:                                   ; preds = %entry
-  %tobool = icmp ne i8 %1, 0
-  invoke void @_ZN11horn_tactic3impC2EbR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(4432) %call.i, i1 noundef zeroext %tobool, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %m_params)
+  %2 = and i8 %0, 1
+  %3 = icmp ne i8 %2, 0
+  invoke void @_ZN11horn_tactic3impC2EbR11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(4432) %call.i, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %m_params)
           to label %_ZN11horn_tacticC2EbR11ast_managerRK10params_ref.exit unwind label %lpad5.i
 
 lpad5.i:                                          ; preds = %invoke.cont6.i, %entry
-  %2 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN10statisticsD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_stats.i) #14
   tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_params.i) #14
-  resume { ptr, i32 } %2
+  resume { ptr, i32 } %4
 
 _ZN11horn_tacticC2EbR11ast_managerRK10params_ref.exit: ; preds = %invoke.cont6.i
   %m_imp.i = getelementptr inbounds i8, ptr %call, i64 40

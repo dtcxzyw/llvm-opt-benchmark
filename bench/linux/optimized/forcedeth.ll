@@ -15623,7 +15623,7 @@ define internal void @nv_self_test(ptr noundef %0, ptr nocapture noundef %1, ptr
   %28 = phi i32 [ 10000, %21 ], [ %31, %30 ]
   tail call void @__const_udelay(i64 noundef 42950) #16
   %29 = icmp ult i32 %28, 10
-  br i1 %29, label %.loopexit22, label %30
+  br i1 %29, label %.loopexit23, label %30
 
 30:                                               ; preds = %27
   %31 = add nsw i32 %28, -10
@@ -15636,14 +15636,14 @@ define internal void @nv_self_test(ptr noundef %0, ptr nocapture noundef %1, ptr
   %36 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15) #16, !srcloc !10
   %37 = and i32 %36, 1
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %.loopexit22
+  br i1 %38, label %39, label %.loopexit23
 
 39:                                               ; preds = %35
   %40 = getelementptr i8, ptr %14, i64 404
   %41 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %40) #16, !srcloc !10
-  br label %.loopexit22
+  br label %.loopexit23
 
-.loopexit22:                                      ; preds = %27, %39, %35
+.loopexit23:                                      ; preds = %27, %39, %35
   %42 = load i32, ptr %12, align 4
   %43 = load ptr, ptr %5, align 8
   %44 = getelementptr i8, ptr %43, i64 384
@@ -15654,12 +15654,12 @@ define internal void @nv_self_test(ptr noundef %0, ptr nocapture noundef %1, ptr
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %50, label %49
 
-49:                                               ; preds = %.loopexit22
+49:                                               ; preds = %.loopexit23
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 32768, ptr elementtype(i32) %45) #16, !srcloc !11
   tail call void @__const_udelay(i64 noundef 214750) #16
   br label %50
 
-50:                                               ; preds = %49, %.loopexit22
+50:                                               ; preds = %49, %.loopexit23
   %51 = shl i32 %42, 5
   %52 = or disjoint i32 %51, 1
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %52, ptr elementtype(i32) %45) #16, !srcloc !11
@@ -15908,7 +15908,7 @@ nv_stop_tx.exit:                                  ; preds = %.loopexit.i8, %164
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %185, ptr elementtype(i32) %184) #16, !srcloc !11
   %194 = add nuw nsw i64 %180, 1
   %195 = icmp eq i64 %194, 6
-  br i1 %195, label %.loopexit21, label %179, !llvm.loop !101
+  br i1 %195, label %.loopexit22, label %179, !llvm.loop !101
 
 196:                                              ; preds = %179
   %197 = load i32, ptr %77, align 4
@@ -15916,16 +15916,16 @@ nv_stop_tx.exit:                                  ; preds = %.loopexit.i8, %164
   store i32 %198, ptr %77, align 4
   %199 = getelementptr i8, ptr %2, i64 8
   store i64 1, ptr %199, align 8
-  br label %.loopexit21
+  br label %.loopexit22
 
-.loopexit21:                                      ; preds = %193, %196
+.loopexit22:                                      ; preds = %193, %196
   %200 = load ptr, ptr %5, align 8
   %201 = load volatile i64, ptr %82, align 8
   %202 = and i64 %201, 1
   %203 = icmp eq i64 %202, 0
   br i1 %203, label %243, label %204
 
-204:                                              ; preds = %.loopexit21
+204:                                              ; preds = %.loopexit22
   %205 = getelementptr i8, ptr %0, i64 3452
   %206 = load i32, ptr %205, align 4
   %207 = and i32 %206, 128
@@ -15987,8 +15987,8 @@ nv_free_irq.exit:                                 ; preds = %226, %237
   %242 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %241) #16, !srcloc !10
   br label %243
 
-243:                                              ; preds = %nv_free_irq.exit, %.loopexit21
-  %244 = phi i32 [ %242, %nv_free_irq.exit ], [ 0, %.loopexit21 ]
+243:                                              ; preds = %nv_free_irq.exit, %.loopexit22
+  %244 = phi i32 [ %242, %nv_free_irq.exit ], [ 0, %.loopexit22 ]
   %245 = getelementptr i8, ptr %0, i64 3036
   store i32 0, ptr %245, align 4
   %246 = getelementptr i8, ptr %0, i64 3452
@@ -16469,8 +16469,9 @@ nv_disable_irq.exit:                              ; preds = %341, %343, %347
 559:                                              ; preds = %538
   %560 = getelementptr inbounds i8, ptr %558, i64 4
   %561 = load i32, ptr %560, align 4
-  %562 = icmp eq i32 %554, 1
-  %563 = select i1 %562, i32 65535, i32 16383
+  %562 = and i32 %554, 1
+  %.not21 = icmp eq i32 %562, 0
+  %563 = select i1 %.not21, i32 16383, i32 65535
   %564 = and i32 %561, %563
   br label %569
 

@@ -5024,7 +5024,7 @@ while.body.i:                                     ; preds = %if.then13.i
 
 if.then13.i:                                      ; preds = %while.body.preheader.i, %while.body.i
   %indvars.iv.i93 = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ %40, %while.body.preheader.i ]
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i93, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i93, 1
   %51 = trunc i64 %indvars.iv.next.i to i32
   %cmp.i = icmp ugt i32 %39, %51
   br i1 %cmp.i, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !33
@@ -5743,8 +5743,9 @@ for.inc164:                                       ; preds = %if.then157, %if.end
 for.end166:                                       ; preds = %for.inc164
   store i8 0, ptr %out.1, align 1
   %cmp167 = icmp ugt ptr %out.1, %dir.0
-  %tobool170 = icmp ne i32 %prev_space.2, 0
-  %or.cond = and i1 %cmp167, %tobool170
+  %16 = and i32 %prev_space.2, 1
+  %17 = icmp ne i32 %16, 0
+  %or.cond = and i1 %cmp167, %17
   br i1 %or.cond, label %if.then171, label %if.end174
 
 if.then171:                                       ; preds = %for.end166
@@ -7821,7 +7822,7 @@ while.cond.i.preheader:                           ; preds = %for.body.i
 
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %land.rhs.i
   %indvars.iv = phi i64 [ %idxprom.i, %while.cond.i.preheader ], [ %indvars.iv.next, %land.rhs.i ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = trunc i64 %indvars.iv.next to i32
   %cmp13.i = icmp ugt i32 %10, %17
   br i1 %cmp13.i, label %land.rhs.i, label %while.end.i
@@ -9542,7 +9543,7 @@ while.body.lr.ph:                                 ; preds = %if.end
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end27
   %indvars.iv = phi i64 [ %5, %while.body.lr.ph ], [ %indvars.iv.next, %if.end27 ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx, align 8
   %name = getelementptr inbounds i8, ptr %6, i64 108

@@ -1440,10 +1440,11 @@ copy_from_sockptr.exit:                           ; preds = %523
   br label %584
 
 584:                                              ; preds = %583, %579
-  %585 = icmp eq i32 %2, 27
+  %585 = and i32 %2, 1
+  %.not = icmp eq i32 %585, 0
   %586 = getelementptr inbounds i8, ptr %13, i64 16
   %587 = load i32, ptr %586, align 4
-  br i1 %585, label %588, label %590
+  br i1 %.not, label %590, label %588
 
 588:                                              ; preds = %584
   %589 = call i32 @ipv6_sock_ac_join(ptr noundef %0, i32 noundef %587, ptr noundef nonnull %13) #13

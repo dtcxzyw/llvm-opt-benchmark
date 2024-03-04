@@ -1224,17 +1224,18 @@ if.else16:                                        ; preds = %if.then13
   unreachable
 
 if.end17:                                         ; preds = %if.then13
-  %cmp18 = icmp eq i64 %i.043, 3
-  %cmp20 = icmp eq i8 %3, 61
-  br i1 %cmp18, label %if.then19, label %if.end34
+  %5 = and i64 %i.043, 1
+  %.not = icmp eq i64 %5, 0
+  %cmp36 = icmp eq i8 %3, 61
+  br i1 %.not, label %if.end34, label %if.then19
 
 if.then19:                                        ; preds = %if.end17
-  br i1 %cmp20, label %land.lhs.true, label %if.else31
+  br i1 %cmp36, label %land.lhs.true, label %if.else31
 
 land.lhs.true:                                    ; preds = %if.then19
   %add.ptr22 = getelementptr inbounds i8, ptr %p.141, i64 1
-  %5 = load i8, ptr %add.ptr22, align 1
-  %cmp24 = icmp eq i8 %5, 61
+  %6 = load i8, ptr %add.ptr22, align 1
+  %cmp24 = icmp eq i8 %6, 61
   %add.ptr27 = getelementptr inbounds i8, ptr %p.141, i64 2
   %cmp28 = icmp eq ptr %add.ptr27, %add.ptr
   %or.cond = select i1 %cmp24, i1 %cmp28, i1 false
@@ -1247,7 +1248,7 @@ if.else31:                                        ; preds = %land.lhs.true, %if.
 if.end34:                                         ; preds = %if.end17
   %add.ptr39 = getelementptr inbounds i8, ptr %p.141, i64 1
   %cmp40 = icmp eq ptr %add.ptr39, %add.ptr
-  %or.cond36 = select i1 %cmp20, i1 %cmp40, i1 false
+  %or.cond36 = select i1 %cmp36, i1 %cmp40, i1 false
   br i1 %or.cond36, label %if.end44, label %if.else43
 
 if.else43:                                        ; preds = %if.end34
@@ -1262,9 +1263,9 @@ if.end44:                                         ; preds = %if.end34
   br label %fin.sink.split
 
 if.end52:                                         ; preds = %for.body11
-  %6 = trunc i64 %i.043 to i32
-  %7 = mul nsw i32 %6, -6
-  %sh_prom = add nsw i32 %7, 24
+  %7 = trunc i64 %i.043 to i32
+  %8 = mul nsw i32 %7, -6
+  %sh_prom = add nsw i32 %8, 24
   %shl = shl i32 %4, %sh_prom
   %add = add i32 %shl, %n.042
   %inc = add nuw nsw i64 %i.043, 1
@@ -1299,9 +1300,9 @@ fin.sink.split:                                   ; preds = %land.lhs.true, %if.
 
 fin:                                              ; preds = %for.end, %fin.sink.split
   %o.1 = phi ptr [ %incdec.ptr51, %fin.sink.split ], [ %incdec.ptr63, %for.end ]
-  %8 = load ptr, ptr %dest, align 8
+  %9 = load ptr, ptr %dest, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %o.1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %9 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %len66 = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 %sub.ptr.sub, ptr %len66, align 8

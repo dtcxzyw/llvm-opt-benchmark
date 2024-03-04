@@ -465,8 +465,8 @@ define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %
   %130 = load i8, ptr %129, align 8
   %131 = and i8 %130, 1
   %132 = load i8, ptr %109, align 8
-  %133 = and i8 %132, 1
   %.not28.i = icmp eq i8 %131, 0
+  %133 = and i8 %132, 1
   %134 = icmp ne i8 %133, 0
   %or.cond.i = and i1 %.not28.i, %134
   br i1 %or.cond.i, label %.outer, label %135

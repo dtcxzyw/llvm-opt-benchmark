@@ -1034,8 +1034,9 @@ if.else:                                          ; preds = %_ZNSt4pairIKN4cvc58
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %invoke.cont5
-  %tobool12 = icmp ne i8 %8, 0
-  ret i1 %tobool12
+  %13 = and i8 %3, 1
+  %14 = icmp ne i8 %13, 0
+  ret i1 %14
 
 eh.resume:                                        ; preds = %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %11, %lpad4 ], [ %10, %lpad ]

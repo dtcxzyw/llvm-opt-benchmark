@@ -544,8 +544,9 @@ if.end13:                                         ; preds = %if.end
   %cmp14 = icmp eq i32 %and1, 0
   %cmp16 = icmp eq i32 %and1, 4
   %or.cond3 = or i1 %cmp14, %cmp16
-  %tobool = icmp ne i32 %and, 0
-  %or.cond4 = and i1 %tobool, %or.cond3
+  %3 = and i8 %0, 1
+  %4 = icmp ne i8 %3, 0
+  %or.cond4 = and i1 %4, %or.cond3
   br i1 %or.cond4, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %if.end13
@@ -573,8 +574,8 @@ if.end27:                                         ; preds = %if.then23
 
 if.end28:                                         ; preds = %if.end20
   %field = getelementptr inbounds i8, ptr %group, i64 64
-  %3 = load ptr, ptr %field, align 8
-  %call29 = tail call i32 @BN_num_bits(ptr noundef %3) #3
+  %5 = load ptr, ptr %field, align 8
+  %call29 = tail call i32 @BN_num_bits(ptr noundef %5) #3
   %add = add nsw i32 %call29, 7
   %div = sdiv i32 %add, 8
   %conv30 = sext i32 %div to i64
@@ -598,8 +599,8 @@ if.end38:                                         ; preds = %if.end28
 
 if.then41:                                        ; preds = %if.end38
   %libctx = getelementptr inbounds i8, ptr %group, i64 168
-  %4 = load ptr, ptr %libctx, align 8
-  %call42 = tail call ptr @BN_CTX_new_ex(ptr noundef %4) #3
+  %6 = load ptr, ptr %libctx, align 8
+  %call42 = tail call ptr @BN_CTX_new_ex(ptr noundef %6) #3
   %cmp43 = icmp eq ptr %call42, null
   br i1 %cmp43, label %return, label %if.end47
 
@@ -619,8 +620,8 @@ if.end53:                                         ; preds = %if.end47
   br i1 %tobool56.not, label %err, label %if.end58
 
 if.end58:                                         ; preds = %if.end53
-  %5 = load ptr, ptr %field, align 8
-  %call60 = tail call i32 @BN_ucmp(ptr noundef %call48, ptr noundef %5) #3
+  %7 = load ptr, ptr %field, align 8
+  %call60 = tail call i32 @BN_ucmp(ptr noundef %call48, ptr noundef %7) #3
   %cmp61 = icmp sgt i32 %call60, -1
   br i1 %cmp61, label %if.then63, label %if.end64
 
@@ -645,8 +646,8 @@ if.else:                                          ; preds = %if.end64
   br i1 %tobool76.not, label %err, label %if.end78
 
 if.end78:                                         ; preds = %if.else
-  %6 = load ptr, ptr %field, align 8
-  %call80 = tail call i32 @BN_ucmp(ptr noundef nonnull %call49, ptr noundef %6) #3
+  %8 = load ptr, ptr %field, align 8
+  %call80 = tail call i32 @BN_ucmp(ptr noundef nonnull %call49, ptr noundef %8) #3
   %cmp81 = icmp sgt i32 %call80, -1
   br i1 %cmp81, label %if.then83, label %if.end84
 

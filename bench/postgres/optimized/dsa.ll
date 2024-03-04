@@ -489,22 +489,21 @@ define dso_local i64 @dsa_allocate_extended(ptr noundef %0, i64 noundef %1, i32 
   %6 = icmp eq i32 %5, 0
   %7 = icmp sgt i64 %1, -1
   %or.cond = or i1 %7, %6
-  br i1 %or.cond, label %8, label %11
-
-8:                                                ; preds = %3
-  %9 = icmp ne i32 %5, 0
+  %8 = and i32 %2, 1
+  %9 = icmp ne i32 %8, 0
   %10 = icmp ult i64 %1, 1073741824
   %or.cond3 = or i1 %10, %9
-  br i1 %or.cond3, label %14, label %11
+  %or.cond88 = and i1 %or.cond, %or.cond3
+  br i1 %or.cond88, label %14, label %11
 
-11:                                               ; preds = %8, %3
+11:                                               ; preds = %3
   %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %12)
   %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i64 noundef %1) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 698, ptr noundef nonnull @__func__.dsa_allocate_extended) #10
   unreachable
 
-14:                                               ; preds = %8
+14:                                               ; preds = %3
   %15 = icmp ugt i64 %1, 8192
   br i1 %15, label %16, label %99
 
@@ -663,10 +662,10 @@ init_span.exit:                                   ; preds = %55, %73
   br label %.loopexit
 
 .preheader:                                       ; preds = %99, %.preheader
-  %.07188 = phi i16 [ %.1, %.preheader ], [ 37, %99 ]
-  %.07287 = phi i16 [ %.173, %.preheader ], [ 25, %99 ]
-  %107 = zext i16 %.07188 to i32
-  %108 = zext i16 %.07287 to i32
+  %.07190 = phi i16 [ %.1, %.preheader ], [ 37, %99 ]
+  %.07289 = phi i16 [ %.173, %.preheader ], [ 25, %99 ]
+  %107 = zext i16 %.07190 to i32
+  %108 = zext i16 %.07289 to i32
   %109 = add nuw nsw i32 %107, %108
   %110 = lshr i32 %109, 1
   %111 = zext nneg i32 %110 to i64
@@ -676,8 +675,8 @@ init_span.exit:                                   ; preds = %55, %73
   %115 = icmp ult i64 %114, %1
   %116 = trunc i32 %110 to i16
   %117 = add nuw i16 %116, 1
-  %.173 = select i1 %115, i16 %117, i16 %.07287
-  %.1 = select i1 %115, i16 %.07188, i16 %116
+  %.173 = select i1 %115, i16 %117, i16 %.07289
+  %.1 = select i1 %115, i16 %.07190, i16 %116
   %118 = icmp ult i16 %.173, %.1
   br i1 %118, label %.preheader, label %.loopexit, !llvm.loop !12
 

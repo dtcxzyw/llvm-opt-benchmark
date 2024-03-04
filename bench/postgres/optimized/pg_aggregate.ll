@@ -332,7 +332,6 @@ switch.early.test:                                ; preds = %77
 
 ._crit_edge395:                                   ; preds = %184
   %.pre = load i8, ptr %177, align 1
-  %.pre396 = and i8 %.pre, 1
   br label %191
 
 187:                                              ; preds = %184, %182
@@ -344,7 +343,8 @@ switch.early.test:                                ; preds = %77
   unreachable
 
 191:                                              ; preds = %._crit_edge395, %170
-  %.pre-phi = phi i8 [ %.pre396, %._crit_edge395 ], [ %179, %170 ]
+  %.pre-phi.in = phi i8 [ %.pre, %._crit_edge395 ], [ %178, %170 ]
+  %.pre-phi = and i8 %.pre-phi.in, 1
   call void @ReleaseSysCache(ptr noundef nonnull %166) #8
   br label %192
 

@@ -1860,12 +1860,13 @@ if.end27.thread.i:                                ; preds = %if.else24.i, %if.en
   br label %if.end44.i63
 
 if.end27.i:                                       ; preds = %if.else.i
-  %cmp30.i = icmp eq i8 %spec.store.select.i, 61
-  br i1 %cmp30.i, label %land.lhs.true.i64, label %if.end44.i63
+  %49 = and i8 %spec.store.select.i, 1
+  %.not.i = icmp eq i8 %49, 0
+  br i1 %.not.i, label %if.end44.i63, label %land.lhs.true.i64
 
 land.lhs.true.i64:                                ; preds = %if.end27.i
-  %49 = load i8, ptr %call5.i, align 1
-  switch i8 %49, label %if.end44.i63 [
+  %50 = load i8, ptr %call5.i, align 1
+  switch i8 %50, label %if.end44.i63 [
     i8 45, label %if.then43.i65
     i8 43, label %if.then43.i65
     i8 32, label %if.then43.i65
@@ -1899,10 +1900,10 @@ for.cond48.preheader.us.i:                        ; preds = %for.cond48.preheade
 for.body51.us.i:                                  ; preds = %for.body51.us.i, %for.cond48.preheader.us.i
   %j.063.us.i = phi i64 [ 0, %for.cond48.preheader.us.i ], [ %inc.us.i, %for.body51.us.i ]
   %arrayidx.us.i = getelementptr [5 x i8], ptr %fill.i, i64 0, i64 %j.063.us.i
-  %50 = load i8, ptr %arrayidx.us.i, align 1
+  %51 = load i8, ptr %arrayidx.us.i, align 1
   %add54.us.i = add i64 %j.063.us.i, %mul53.us.i
   %arrayidx55.us.i = getelementptr i8, ptr %cp.0.i, i64 %add54.us.i
-  store i8 %50, ptr %arrayidx55.us.i, align 1
+  store i8 %51, ptr %arrayidx55.us.i, align 1
   %inc.us.i = add nuw i64 %j.063.us.i, 1
   %exitcond.not.i = icmp eq i64 %inc.us.i, %call.i55
   br i1 %exitcond.not.i, label %for.cond48.for.inc56_crit_edge.us.i, label %for.body51.us.i, !llvm.loop !19
@@ -1923,15 +1924,15 @@ for.end58.i:                                      ; preds = %for.cond48.for.inc5
 for.cond66.preheader.us.i:                        ; preds = %for.end58.i, %for.cond66.for.inc78_crit_edge.us.i
   %i.169.us.i = phi i64 [ %inc79.us.i, %for.cond66.for.inc78_crit_edge.us.i ], [ 0, %for.end58.i ]
   %mul72.us.i = mul i64 %i.169.us.i, %call.i55
-  %51 = getelementptr i8, ptr %add.ptr61.i, i64 %mul72.us.i
+  %52 = getelementptr i8, ptr %add.ptr61.i, i64 %mul72.us.i
   br label %for.body69.us.i
 
 for.body69.us.i:                                  ; preds = %for.body69.us.i, %for.cond66.preheader.us.i
   %j.167.us.i = phi i64 [ 0, %for.cond66.preheader.us.i ], [ %inc76.us.i, %for.body69.us.i ]
   %arrayidx71.us.i = getelementptr [5 x i8], ptr %fill.i, i64 0, i64 %j.167.us.i
-  %52 = load i8, ptr %arrayidx71.us.i, align 1
-  %arrayidx74.us.i = getelementptr i8, ptr %51, i64 %j.167.us.i
-  store i8 %52, ptr %arrayidx74.us.i, align 1
+  %53 = load i8, ptr %arrayidx71.us.i, align 1
+  %arrayidx74.us.i = getelementptr i8, ptr %52, i64 %j.167.us.i
+  store i8 %53, ptr %arrayidx74.us.i, align 1
   %inc76.us.i = add nuw i64 %j.167.us.i, 1
   %exitcond73.not.i = icmp eq i64 %inc76.us.i, %call.i55
   br i1 %exitcond73.not.i, label %for.cond66.for.inc78_crit_edge.us.i, label %for.body69.us.i, !llvm.loop !21
@@ -1951,17 +1952,17 @@ _mpd_add_pad.exit.thread:                         ; preds = %for.end80.i, %if.th
   br label %if.end144
 
 _mpd_add_pad.exit:                                ; preds = %if.then.i54
-  %53 = load i32, ptr %status, align 4
-  %or.i60 = or i32 %53, 512
+  %54 = load i32, ptr %status, align 4
+  %or.i60 = or i32 %54, 512
   store i32 %or.i60, ptr %status, align 4
-  %54 = load ptr, ptr @mpd_free, align 8
-  call void %54(ptr noundef %call5.i) #18
+  %55 = load ptr, ptr @mpd_free, align 8
+  call void %55(ptr noundef %call5.i) #18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i)
   br label %error
 
 if.end144:                                        ; preds = %_mpd_add_pad.exit.thread, %if.end136
   call void @mpd_del(ptr noundef nonnull %tmp) #18
-  %55 = load ptr, ptr %data109, align 8
+  %56 = load ptr, ptr %data109, align 8
   br label %return
 
 error:                                            ; preds = %_mpd_add_pad.exit, %_mpd_apply_lconv.exit.thread79, %if.then128, %if.then115, %if.then104, %if.then62
@@ -1969,7 +1970,7 @@ error:                                            ; preds = %_mpd_add_pad.exit, 
   br label %return
 
 return:                                           ; preds = %sw.bb46, %error, %if.end144, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %error ], [ %55, %if.end144 ], [ null, %sw.bb46 ]
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %error ], [ %56, %if.end144 ], [ null, %sw.bb46 ]
   ret ptr %retval.0
 }
 

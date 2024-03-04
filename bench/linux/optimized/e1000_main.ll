@@ -845,8 +845,9 @@ define dso_local void @e1000_reset(ptr noundef %0) local_unnamed_addr #4 align 1
   %12 = load i32, ptr %11, align 8
   %13 = icmp ugt i32 %12, 8192
   %14 = select i1 %13, i32 22, i32 30
-  %15 = icmp eq i32 %4, 13
-  br i1 %15, label %16, label %55
+  %15 = and i32 %4, 1
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %55, label %16
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %0, i64 636

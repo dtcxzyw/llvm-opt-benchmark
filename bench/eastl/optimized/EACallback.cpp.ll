@@ -962,15 +962,15 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit:             ; preds = %if.then2.i.i, %_ZN2
   store i64 %.sink.i.i, ptr %mStopwatch, align 8
   %6 = load i8, ptr %mbAsync, align 2
   %7 = and i8 %6, 1
-  %tobool7.not = icmp ne i8 %7, 0
-  %brmerge.not = and i1 %tobool7.not, %bAsyncStart
+  %8 = icmp ne i8 %7, 0
+  %brmerge.not = and i1 %8, %bAsyncStart
   br i1 %brmerge.not, label %if.then.i, label %if.end12
 
 if.then.i:                                        ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit
   %mbThreadStarted.i = getelementptr inbounds i8, ptr %this, i64 240
-  %8 = cmpxchg ptr %mbThreadStarted.i, i32 0, i32 1 seq_cst seq_cst, align 4
-  %9 = extractvalue { i32, i1 } %8, 1
-  br i1 %9, label %if.then2.i, label %_ZN2EA4StdC15CallbackManager11StartThreadEv.exit
+  %9 = cmpxchg ptr %mbThreadStarted.i, i32 0, i32 1 seq_cst seq_cst, align 4
+  %10 = extractvalue { i32, i1 } %9, 1
+  br i1 %10, label %if.then2.i, label %_ZN2EA4StdC15CallbackManager11StartThreadEv.exit
 
 if.then2.i:                                       ; preds = %if.then.i
   %mpName.i = getelementptr inbounds i8, ptr %this, i64 272
@@ -979,19 +979,19 @@ if.then2.i:                                       ; preds = %if.then.i
   %call4.i = call noundef ptr @_ZN2EA6Thread6Thread36GetGlobalRunnableFunctionUserWrapperEv()
   %call5.i = call noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 dereferenceable(8) %mThread.i, ptr noundef nonnull @_ZN2EA4StdC15CallbackManager9RunStaticEPv, ptr noundef nonnull %this, ptr noundef nonnull %mThreadParam, ptr noundef %call4.i)
   %cmp.i = icmp ne i64 %call5.i, 0
-  %10 = zext i1 %cmp.i to i8
+  %11 = zext i1 %cmp.i to i8
   br label %_ZN2EA4StdC15CallbackManager11StartThreadEv.exit
 
 _ZN2EA4StdC15CallbackManager11StartThreadEv.exit: ; preds = %if.then.i, %if.then2.i
-  %retval.0.i = phi i8 [ %10, %if.then2.i ], [ 1, %if.then.i ]
+  %retval.0.i = phi i8 [ %11, %if.then2.i ], [ 1, %if.then.i ]
   store volatile i8 %retval.0.i, ptr %mbRunning, align 1
   br label %if.end12
 
 if.end12:                                         ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit, %_ZN2EA4StdC15CallbackManager11StartThreadEv.exit, %entry
-  %11 = load volatile i8, ptr %mbRunning, align 1
-  %12 = and i8 %11, 1
-  %tobool14 = icmp ne i8 %12, 0
-  ret i1 %tobool14
+  %12 = load volatile i8, ptr %mbRunning, align 1
+  %13 = and i8 %12, 1
+  %14 = icmp ne i8 %13, 0
+  ret i1 %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1651,8 +1651,9 @@ if.then69:                                        ; preds = %lor.lhs.false, %if.
 if.end72:                                         ; preds = %if.end42, %if.end51, %if.then69, %lor.lhs.false, %entry
   %bReturnValue.1 = phi i8 [ %bReturnValue.0, %if.then69 ], [ %bReturnValue.0, %lor.lhs.false ], [ 1, %if.end51 ], [ 0, %entry ], [ 1, %if.end42 ]
   %call74 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mMutex)
-  %tobool75 = icmp ne i8 %bReturnValue.1, 0
-  ret i1 %tobool75
+  %33 = and i8 %bReturnValue.1, 1
+  %34 = icmp ne i8 %33, 0
+  ret i1 %34
 }
 
 ; Function Attrs: mustprogress uwtable

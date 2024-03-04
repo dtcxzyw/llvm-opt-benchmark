@@ -12653,9 +12653,9 @@ if.then22:                                        ; preds = %_ZNKSt7__cxx1112bas
   br label %cleanup128
 
 if.end29:                                         ; preds = %if.then16
-  %cmp32 = icmp eq i64 %4, 1
+  %.not = icmp eq i64 %4, 0
   %.pre = load ptr, ptr %__begin1.sroa.0.0422570, align 8, !tbaa !33
-  br i1 %cmp32, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm.exit188, label %if.end50
+  br i1 %.not, label %if.end50, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm.exit188
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm.exit188: ; preds = %if.end29
   %7 = load i8, ptr %.pre, align 1, !tbaa !30

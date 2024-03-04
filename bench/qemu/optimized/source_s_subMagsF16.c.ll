@@ -188,14 +188,15 @@ if.else168:                                       ; preds = %if.end146
   br i1 %or.cond, label %if.then174, label %if.end177
 
 if.then174:                                       ; preds = %if.else168
-  %shr175 = lshr i64 %shl158, 20
+  %shr175 = lshr exact i64 %shl158, 20
   br label %pack
 
 if.end177:                                        ; preds = %if.else168, %if.then166
   %sigZ.0 = phi i64 [ %or167, %if.then166 ], [ %shr163, %if.else168 ]
-  %tobool178 = icmp ne i8 %signZ.1, 0
+  %14 = and i8 %signZ.1, 1
+  %15 = icmp ne i8 %14, 0
   %conv179 = sext i8 %sub161 to i64
-  %call180 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %tobool178, i64 noundef %conv179, i64 noundef %sigZ.0) #3
+  %call180 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %15, i64 noundef %conv179, i64 noundef %sigZ.0) #3
   br label %return
 
 propagateNaN:                                     ; preds = %if.then120, %if.then74, %if.then15
@@ -204,16 +205,16 @@ propagateNaN:                                     ; preds = %if.then120, %if.the
 
 subEpsilon:                                       ; preds = %if.then128, %if.then89
   %uiZ.0 = phi i64 [ %add99, %if.then89 ], [ %uiA, %if.then128 ]
-  %14 = load i8, ptr @softfloat_roundingMode, align 1
-  switch i8 %14, label %lor.lhs.false [
+  %16 = load i8, ptr @softfloat_roundingMode, align 1
+  switch i8 %16, label %lor.lhs.false [
     i8 0, label %if.end209
     i8 1, label %if.then198
   ]
 
 lor.lhs.false:                                    ; preds = %subEpsilon
-  %conv182 = sext i8 %14 to i32
-  %15 = and i64 %uiZ.0, 32768
-  %tobool193.not = icmp eq i64 %15, 0
+  %conv182 = sext i8 %16 to i32
+  %17 = and i64 %uiZ.0, 32768
+  %tobool193.not = icmp eq i64 %17, 0
   %cond195 = select i1 %tobool193.not, i32 2, i32 3
   %cmp196 = icmp eq i32 %cond195, %conv182
   br i1 %cmp196, label %if.then198, label %if.else200
@@ -223,7 +224,7 @@ if.then198:                                       ; preds = %subEpsilon, %lor.lh
   br label %if.end209
 
 if.else200:                                       ; preds = %lor.lhs.false
-  %cmp202 = icmp eq i8 %14, 6
+  %cmp202 = icmp eq i8 %16, 6
   br i1 %cmp202, label %if.then204, label %if.end209
 
 if.then204:                                       ; preds = %if.else200
@@ -233,9 +234,9 @@ if.then204:                                       ; preds = %if.else200
 
 if.end209:                                        ; preds = %subEpsilon, %if.then198, %if.then204, %if.else200
   %uiZ.1 = phi i64 [ %dec199, %if.then198 ], [ %or206, %if.then204 ], [ %uiZ.0, %if.else200 ], [ %uiZ.0, %subEpsilon ]
-  %16 = load i8, ptr @softfloat_exceptionFlags, align 1
-  %17 = or i8 %16, 1
-  store i8 %17, ptr @softfloat_exceptionFlags, align 1
+  %18 = load i8, ptr @softfloat_exceptionFlags, align 1
+  %19 = or i8 %18, 1
+  store i8 %19, ptr @softfloat_exceptionFlags, align 1
   br label %uiZ223
 
 pack:                                             ; preds = %if.then174, %if.end29

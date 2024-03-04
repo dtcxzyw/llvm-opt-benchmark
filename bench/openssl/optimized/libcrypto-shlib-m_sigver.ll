@@ -174,12 +174,13 @@ if.then68:                                        ; preds = %if.end63
   br label %err
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %switch = phi i1 [ true, %for.cond.preheader ], [ false, %for.inc ]
+  %cmp71 = phi i1 [ true, %for.cond.preheader ], [ false, %for.inc ]
+  %.not = phi i1 [ false, %for.cond.preheader ], [ true, %for.inc ]
   %signature.2186 = phi ptr [ %signature.1, %for.cond.preheader ], [ %signature.3163, %for.inc ]
   call void @EVP_SIGNATURE_free(ptr noundef %signature.2186) #5
   %11 = load ptr, ptr %tmp_keymgmt, align 8
   call void @EVP_KEYMGMT_free(ptr noundef %11) #5
-  br i1 %switch, label %sw.bb, label %sw.bb83
+  br i1 %.not, label %sw.bb83, label %sw.bb
 
 sw.bb:                                            ; preds = %for.body
   %12 = load ptr, ptr %libctx75, align 8
@@ -229,7 +230,7 @@ for.inc:                                          ; preds = %sw.bb, %if.end107, 
   %signature.3163 = phi ptr [ %signature.3.ph, %if.then110 ], [ %signature.3.ph, %if.end107 ], [ null, %sw.bb ]
   %provkey.2 = phi ptr [ %provkey.1168, %if.then110 ], [ %call106, %if.end107 ], [ null, %sw.bb ]
   %cmp73 = icmp eq ptr %provkey.2, null
-  %21 = select i1 %switch, i1 %cmp73, i1 false
+  %21 = select i1 %cmp71, i1 %cmp73, i1 false
   br i1 %21, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc

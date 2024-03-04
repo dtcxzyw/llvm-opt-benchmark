@@ -494,21 +494,22 @@ if.end14:                                         ; preds = %if.then13, %lor.lhs
   %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 248
   %10 = load ptr, ptr %vfn17, align 8
   %call18 = call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(128) %9)
-  %spec.select3 = select i1 %call18, i8 %order_matters.1, i8 1
+  %spec.select2 = select i1 %call18, i8 %order_matters.1, i8 1
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end14, %_ZN6duckdb10unique_ptrINS_15GlobalSinkStateESt14default_deleteIS1_ELb1EE5resetEPS1_.exit
-  %order_matters.2 = phi i8 [ %spec.select, %_ZN6duckdb10unique_ptrINS_15GlobalSinkStateESt14default_deleteIS1_ELb1EE5resetEPS1_.exit ], [ %spec.select3, %if.end14 ]
-  %tobool22 = icmp ne i8 %order_matters.2, 0
-  %call23 = call noundef ptr @_ZN6duckdb12MetaPipeline19CreateUnionPipelineERNS_8PipelineEb(ptr noundef nonnull align 8 dereferenceable(272) %meta_pipeline, ptr noundef nonnull align 8 dereferenceable(224) %current, i1 noundef zeroext %tobool22)
+  %order_matters.2 = phi i8 [ %spec.select, %_ZN6duckdb10unique_ptrINS_15GlobalSinkStateESt14default_deleteIS1_ELb1EE5resetEPS1_.exit ], [ %spec.select2, %if.end14 ]
+  %11 = and i8 %order_matters.2, 1
+  %12 = icmp ne i8 %11, 0
+  %call23 = call noundef ptr @_ZN6duckdb12MetaPipeline19CreateUnionPipelineERNS_8PipelineEb(ptr noundef nonnull align 8 dereferenceable(272) %meta_pipeline, ptr noundef nonnull align 8 dereferenceable(224) %current, i1 noundef zeroext %12)
   %children = getelementptr inbounds i8, ptr %this, i64 16
   %call24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_16PhysicalOperatorESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %children, i64 noundef 0)
   %call25 = call noundef ptr @_ZNK6duckdb10unique_ptrINS_16PhysicalOperatorESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %call24)
   %vtable26 = load ptr, ptr %call25, align 8, !tbaa !39
   %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 280
-  %11 = load ptr, ptr %vfn27, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(128) %call25, ptr noundef nonnull align 8 dereferenceable(224) %current, ptr noundef nonnull align 8 dereferenceable(272) %meta_pipeline)
-  br i1 %tobool22, label %if.then29, label %if.end30
+  %13 = load ptr, ptr %vfn27, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(128) %call25, ptr noundef nonnull align 8 dereferenceable(224) %current, ptr noundef nonnull align 8 dereferenceable(272) %meta_pipeline)
+  br i1 %12, label %if.then29, label %if.end30
 
 if.then29:                                        ; preds = %if.end21
   call void @_ZN6duckdb12MetaPipeline19AddDependenciesFromEPNS_8PipelineES2_b(ptr noundef nonnull align 8 dereferenceable(272) %meta_pipeline, ptr noundef %call23, ptr noundef %call23, i1 noundef zeroext false)
@@ -519,8 +520,8 @@ if.end30:                                         ; preds = %if.then29, %if.end2
   %call33 = call noundef ptr @_ZNK6duckdb10unique_ptrINS_16PhysicalOperatorESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %call32)
   %vtable34 = load ptr, ptr %call33, align 8, !tbaa !39
   %vfn35 = getelementptr inbounds i8, ptr %vtable34, i64 280
-  %12 = load ptr, ptr %vfn35, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(128) %call33, ptr noundef nonnull align 8 dereferenceable(224) %call23, ptr noundef nonnull align 8 dereferenceable(272) %meta_pipeline)
+  %14 = load ptr, ptr %vfn35, align 8
+  call void %14(ptr noundef nonnull align 8 dereferenceable(128) %call33, ptr noundef nonnull align 8 dereferenceable(224) %call23, ptr noundef nonnull align 8 dereferenceable(272) %meta_pipeline)
   call void @_ZN6duckdb12MetaPipeline20AssignNextBatchIndexEPNS_8PipelineE(ptr noundef nonnull align 8 dereferenceable(272) %meta_pipeline, ptr noundef %call23)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sink) #18
   ret void

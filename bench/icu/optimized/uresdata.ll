@@ -376,15 +376,16 @@ if.end66.thread:                                  ; preds = %if.end50
   br i1 %tobool.not74, label %lor.lhs.false68.thread, label %if.then73
 
 lor.lhs.false68:                                  ; preds = %if.end66
-  %tobool70 = icmp ne i8 %conv61, 0
+  %23 = and i8 %18, 4
+  %24 = icmp ne i8 %23, 0
   %cmp72 = icmp ult i32 %and, 8
-  %or.cond2 = and i1 %cmp72, %tobool70
+  %or.cond2 = and i1 %cmp72, %24
   br i1 %or.cond2, label %if.then73, label %if.end74
 
 lor.lhs.false68.thread:                           ; preds = %if.end66.thread
   %usesPoolBundle6977 = getelementptr inbounds i8, ptr %pResData, i64 58
-  %23 = load i8, ptr %usesPoolBundle6977, align 2
-  %tobool7078.not = icmp eq i8 %23, 0
+  %25 = load i8, ptr %usesPoolBundle6977, align 2
+  %tobool7078.not = icmp eq i8 %25, 0
   br i1 %tobool7078.not, label %if.end86, label %if.then73
 
 land.lhs.true71:                                  ; preds = %if.end66
@@ -393,12 +394,12 @@ land.lhs.true71:                                  ; preds = %if.end66
 
 if.then73:                                        ; preds = %if.end66.thread, %lor.lhs.false68.thread, %lor.lhs.false68, %land.lhs.true71
   store i32 3, ptr %errorCode, align 4
-  %24 = load ptr, ptr %pResData, align 8
-  %cmp.not.i70 = icmp eq ptr %24, null
+  %26 = load ptr, ptr %pResData, align 8
+  %cmp.not.i70 = icmp eq ptr %26, null
   br i1 %cmp.not.i70, label %if.end92, label %if.then.i71
 
 if.then.i71:                                      ; preds = %if.then73
-  tail call void @udata_close_75(ptr noundef nonnull %24)
+  tail call void @udata_close_75(ptr noundef nonnull %26)
   store ptr null, ptr %pResData, align 8
   br label %if.end92
 
@@ -408,13 +409,13 @@ if.end74:                                         ; preds = %lor.lhs.false68
 
 land.lhs.true76:                                  ; preds = %land.lhs.true71, %if.end74
   %arrayidx77 = getelementptr inbounds i8, ptr %inBytes, i64 28
-  %25 = load i32, ptr %arrayidx77, align 4
-  %26 = load i32, ptr %arrayidx36, align 4
-  %cmp79 = icmp sgt i32 %25, %26
+  %27 = load i32, ptr %arrayidx77, align 4
+  %28 = load i32, ptr %arrayidx36, align 4
+  %cmp79 = icmp sgt i32 %27, %28
   br i1 %cmp79, label %if.then80, label %if.end86
 
 if.then80:                                        ; preds = %land.lhs.true76
-  %idx.ext = sext i32 %26 to i64
+  %idx.ext = sext i32 %28 to i64
   %add.ptr83 = getelementptr inbounds i32, ptr %inBytes, i64 %idx.ext
   store ptr %add.ptr83, ptr %p16BitUnits, align 8
   br label %if.end86

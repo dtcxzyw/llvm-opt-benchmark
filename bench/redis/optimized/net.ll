@@ -1133,8 +1133,9 @@ if.then42:                                        ; preds = %if.end38
   %call43 = tail call ptr @__errno_location() #11
   %16 = load i32, ptr %call43, align 4
   %cmp44 = icmp ne i32 %16, 115
-  %tobool45 = icmp ne i32 %and, 0
-  %or.cond = select i1 %cmp44, i1 true, i1 %tobool45
+  %17 = and i32 %0, 1
+  %18 = icmp ne i32 %17, 0
+  %or.cond = select i1 %cmp44, i1 true, i1 %18
   br i1 %or.cond, label %if.else47, label %if.end59
 
 if.else47:                                        ; preds = %if.then42
@@ -1152,8 +1153,8 @@ land.lhs.true55:                                  ; preds = %if.end53
   br i1 %cmp57.not, label %if.end59, label %return
 
 if.end59:                                         ; preds = %if.then42, %land.lhs.true55, %if.end53
-  %17 = load i32, ptr %flags, align 8
-  %or = or i32 %17, 2
+  %19 = load i32, ptr %flags, align 8
+  %or = or i32 %19, 2
   store i32 %or, ptr %flags, align 8
   br label %return
 

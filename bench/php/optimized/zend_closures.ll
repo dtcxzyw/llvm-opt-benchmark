@@ -825,8 +825,9 @@ define hidden void @zim_Closure_bindTo(ptr noundef %0, ptr noundef %1) #0 {
 
 .critedge.thread:                                 ; preds = %12, %.critedge.thread.fold.split
   %.1112121 = phi ptr [ %13, %12 ], [ null, %.critedge.thread.fold.split ]
-  %16 = icmp eq i32 %9, 1
-  br i1 %16, label %.thread146, label %17
+  %16 = and i32 %9, 1
+  %.not172 = icmp eq i32 %16, 0
+  br i1 %.not172, label %17, label %.thread146
 
 17:                                               ; preds = %.critedge.thread
   %18 = getelementptr inbounds i8, ptr %0, i64 96

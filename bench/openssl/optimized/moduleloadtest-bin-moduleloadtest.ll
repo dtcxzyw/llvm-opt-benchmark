@@ -24,16 +24,17 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %arrayidx2 = getelementptr inbounds i8, ptr %argv, i64 8
   %3 = load ptr, ptr %arrayidx2, align 8
-  %cmp3 = icmp eq i32 %argc, 3
-  br i1 %cmp3, label %cond.true, label %cond.end
+  %4 = and i32 %argc, 1
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end
   %arrayidx4 = getelementptr inbounds i8, ptr %argv, i64 16
-  %4 = load ptr, ptr %arrayidx4, align 8
+  %5 = load ptr, ptr %arrayidx4, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.true
-  %cond = phi ptr [ %4, %cond.true ], [ null, %if.end ]
+  %cond = phi ptr [ %5, %cond.true ], [ null, %if.end ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sd.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sym.i)
   store ptr null, ptr %sd.i, align 8
@@ -46,22 +47,22 @@ if.end.i:                                         ; preds = %cond.end
   br i1 %cmp.i, label %lor.end.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.end.i
-  %5 = load ptr, ptr %sd.i, align 8
-  %call1.i = call i32 @sd_sym(ptr noundef %5, ptr noundef nonnull %cond, ptr noundef nonnull %sym.i) #5
+  %6 = load ptr, ptr %sd.i, align 8
+  %call1.i = call i32 @sd_sym(ptr noundef %6, ptr noundef nonnull %cond, ptr noundef nonnull %sym.i) #5
   %tobool2.i = icmp eq i32 %call1.i, 0
-  %6 = zext i1 %tobool2.i to i32
+  %7 = zext i1 %tobool2.i to i32
   br label %lor.end.i
 
 lor.end.i:                                        ; preds = %lor.rhs.i, %if.end.i
-  %lor.ext.i = phi i32 [ 0, %if.end.i ], [ %6, %lor.rhs.i ]
-  %7 = load ptr, ptr %sd.i, align 8
-  %call3.i = call i32 @sd_close(ptr noundef %7) #5
+  %lor.ext.i = phi i32 [ 0, %if.end.i ], [ %7, %lor.rhs.i ]
+  %8 = load ptr, ptr %sd.i, align 8
+  %call3.i = call i32 @sd_close(ptr noundef %8) #5
   %tobool4.not.i = icmp eq i32 %call3.i, 0
-  %8 = select i1 %tobool4.not.i, i32 1, i32 %lor.ext.i
+  %9 = select i1 %tobool4.not.i, i32 1, i32 %lor.ext.i
   br label %test_load.exit
 
 test_load.exit:                                   ; preds = %cond.end, %lor.end.i
-  %retval.0.i = phi i32 [ %8, %lor.end.i ], [ 1, %cond.end ]
+  %retval.0.i = phi i32 [ %9, %lor.end.i ], [ 1, %cond.end ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sd.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sym.i)
   br label %return

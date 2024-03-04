@@ -26,24 +26,26 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_Z15imguiBeginFrameiihi(i32 noundef %0, i32 noundef %1, i8 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = and i8 %2, 1
-  %6 = icmp ne i8 %5, 0
+  %6 = and i8 %2, 1
+  %7 = icmp ne i8 %6, 0
   store i32 %0, ptr getelementptr inbounds (%struct.GuiState, ptr @_ZL7g_state, i64 0, i32 3), align 4
   store i32 %1, ptr getelementptr inbounds (%struct.GuiState, ptr @_ZL7g_state, i64 0, i32 4), align 4
-  %7 = load i8, ptr @_ZL7g_state, align 4
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  %9 = and i1 %6, %.not.i
-  %10 = zext i1 %9 to i8
-  store i8 %10, ptr getelementptr inbounds (%struct.GuiState, ptr @_ZL7g_state, i64 0, i32 1), align 1
-  %11 = icmp ne i8 %8, 0
-  %12 = xor i1 %6, true
-  %13 = and i1 %11, %12
-  %14 = zext i1 %13 to i8
-  store i8 %14, ptr getelementptr inbounds (%struct.GuiState, ptr @_ZL7g_state, i64 0, i32 2), align 2
+  %8 = load i8, ptr @_ZL7g_state, align 4
+  %9 = and i8 %8, 1
+  %.not.i = icmp eq i8 %9, 0
+  %10 = and i1 %7, %.not.i
+  %11 = zext i1 %10 to i8
+  store i8 %11, ptr getelementptr inbounds (%struct.GuiState, ptr @_ZL7g_state, i64 0, i32 1), align 1
+  %12 = and i8 %8, 1
+  %13 = icmp ne i8 %12, 0
+  %14 = xor i1 %7, true
+  %15 = and i1 %13, %14
+  %16 = zext i1 %15 to i8
+  store i8 %16, ptr getelementptr inbounds (%struct.GuiState, ptr @_ZL7g_state, i64 0, i32 2), align 2
   store i8 %5, ptr @_ZL7g_state, align 4
   store i32 %3, ptr getelementptr inbounds (%struct.GuiState, ptr @_ZL7g_state, i64 0, i32 5), align 4
-  %15 = load i32, ptr getelementptr inbounds (%struct.GuiState, ptr @_ZL7g_state, i64 0, i32 8), align 4
-  store i32 %15, ptr getelementptr inbounds (%struct.GuiState, ptr @_ZL7g_state, i64 0, i32 7), align 4
+  %17 = load i32, ptr getelementptr inbounds (%struct.GuiState, ptr @_ZL7g_state, i64 0, i32 8), align 4
+  store i32 %17, ptr getelementptr inbounds (%struct.GuiState, ptr @_ZL7g_state, i64 0, i32 7), align 4
   store i32 0, ptr getelementptr inbounds (%struct.GuiState, ptr @_ZL7g_state, i64 0, i32 15), align 4
   store i32 0, ptr getelementptr inbounds (%struct.GuiState, ptr @_ZL7g_state, i64 0, i32 16), align 4
   store i32 0, ptr getelementptr inbounds (%struct.GuiState, ptr @_ZL7g_state, i64 0, i32 17), align 4

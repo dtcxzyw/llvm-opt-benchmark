@@ -10233,8 +10233,9 @@ thread-pre-split:                                 ; preds = %10
 
 .thread:                                          ; preds = %21, %.critedge, %23
   %.0325366 = phi ptr [ null, %23 ], [ null, %21 ], [ %20, %.critedge ]
-  %25 = icmp eq i32 %13, 1
-  br i1 %25, label %.thread391thread-pre-split, label %26
+  %25 = and i32 %13, 1
+  %.not = icmp eq i32 %25, 0
+  br i1 %.not, label %26, label %.thread391thread-pre-split
 
 26:                                               ; preds = %.thread
   %27 = getelementptr inbounds i8, ptr %0, i64 96
@@ -30012,8 +30013,8 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   %129 = load ptr, ptr %27, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 28
   %131 = load i32, ptr %130, align 4
-  %.not161 = icmp eq i32 %131, 0
-  br i1 %.not161, label %.loopexit, label %.lr.ph
+  %.not162 = icmp eq i32 %131, 0
+  br i1 %.not162, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %125
   %132 = getelementptr inbounds i8, ptr %14, i64 16
@@ -30023,8 +30024,8 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
 134:                                              ; preds = %.lr.ph, %160
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %160 ]
   %135 = phi ptr [ %129, %.lr.ph ], [ %161, %160 ]
-  %.0130159 = phi ptr [ null, %.lr.ph ], [ %.2, %160 ]
-  %.0132158 = phi i32 [ 0, %.lr.ph ], [ %.1133, %160 ]
+  %.0130160 = phi ptr [ null, %.lr.ph ], [ %.2, %160 ]
+  %.0132159 = phi i32 [ 0, %.lr.ph ], [ %.1133, %160 ]
   %136 = load ptr, ptr %132, align 8
   %137 = trunc i64 %indvars.iv to i32
   %138 = call i32 @zend_get_attribute_value(ptr noundef nonnull %5, ptr noundef nonnull %135, i32 noundef %137, ptr noundef %136) #13
@@ -30032,7 +30033,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   br i1 %139, label %140, label %143
 
 140:                                              ; preds = %134
-  call fastcc void @attribute_ctor_cleanup(ptr noundef nonnull %3, ptr noundef %128, i32 noundef %.0132158, ptr noundef %.0130159)
+  call fastcc void @attribute_ctor_cleanup(ptr noundef nonnull %3, ptr noundef %128, i32 noundef %.0132159, ptr noundef %.0130160)
   %141 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %142 = icmp ne ptr %141, null
   call void @llvm.assume(i1 %142)
@@ -30047,20 +30048,20 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   br i1 %.not152, label %154, label %148
 
 148:                                              ; preds = %143
-  %.not153 = icmp eq ptr %.0130159, null
+  %.not153 = icmp eq ptr %.0130160, null
   br i1 %.not153, label %149, label %151
 
 149:                                              ; preds = %148
   %150 = call ptr @_zend_new_array_0() #13
   %.pre = load ptr, ptr %27, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
-  %.phi.trans.insert165 = getelementptr inbounds [1 x %struct.zend_attribute_arg], ptr %.phi.trans.insert, i64 0, i64 %indvars.iv
-  %.pre166 = load ptr, ptr %.phi.trans.insert165, align 8
+  %.phi.trans.insert166 = getelementptr inbounds [1 x %struct.zend_attribute_arg], ptr %.phi.trans.insert, i64 0, i64 %indvars.iv
+  %.pre167 = load ptr, ptr %.phi.trans.insert166, align 8
   br label %151
 
 151:                                              ; preds = %149, %148
-  %152 = phi ptr [ %147, %148 ], [ %.pre166, %149 ]
-  %.1 = phi ptr [ %.0130159, %148 ], [ %150, %149 ]
+  %152 = phi ptr [ %147, %148 ], [ %.pre167, %149 ]
+  %.1 = phi ptr [ %.0130160, %148 ], [ %150, %149 ]
   %153 = call ptr @zend_hash_add_new(ptr noundef %.1, ptr noundef %152, ptr noundef nonnull %5) #13
   br label %160
 
@@ -30071,12 +30072,12 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   store ptr %156, ptr %155, align 8
   %158 = getelementptr inbounds i8, ptr %155, i64 8
   store i32 %157, ptr %158, align 8
-  %159 = add i32 %.0132158, 1
+  %159 = add i32 %.0132159, 1
   br label %160
 
 160:                                              ; preds = %151, %154
-  %.1133 = phi i32 [ %.0132158, %151 ], [ %159, %154 ]
-  %.2 = phi ptr [ %.1, %151 ], [ %.0130159, %154 ]
+  %.1133 = phi i32 [ %.0132159, %151 ], [ %159, %154 ]
+  %.2 = phi ptr [ %.1, %151 ], [ %.0130160, %154 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %161 = load ptr, ptr %27, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 28
@@ -30100,8 +30101,9 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   %171 = getelementptr inbounds i8, ptr %14, i64 24
   %172 = load ptr, ptr %171, align 8
   %173 = call fastcc i32 @call_attribute_constructor(ptr noundef nonnull %166, ptr noundef nonnull %30, ptr noundef %170, ptr noundef %.0, i32 noundef %.2134, ptr noundef %.3, ptr noundef %172), !range !6
-  %174 = icmp eq i32 %173, -1
-  br i1 %174, label %175, label %187
+  %174 = and i32 %173, 1
+  %.not155 = icmp eq i32 %174, 0
+  br i1 %.not155, label %187, label %175
 
 175:                                              ; preds = %169
   call fastcc void @attribute_ctor_cleanup(ptr noundef nonnull %3, ptr noundef %.0, i32 noundef %.2134, ptr noundef %.3)

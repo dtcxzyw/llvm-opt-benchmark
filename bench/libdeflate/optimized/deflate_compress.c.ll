@@ -43,8 +43,8 @@ if.else:                                          ; preds = %if.end4
   br i1 %cmp7, label %if.end16, label %if.else10
 
 if.else10:                                        ; preds = %if.else
-  %cmp11 = icmp eq i32 %compression_level, 1
-  %spec.select = select i1 %cmp11, i64 202720, i64 6080
+  %.not = icmp eq i32 %compression_level, 0
+  %spec.select = select i1 %.not, i64 6080, i64 202720
   br label %if.end16
 
 if.end16:                                         ; preds = %if.else10, %if.else, %if.end4

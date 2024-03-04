@@ -1675,14 +1675,15 @@ entry:
   %call10 = tail call { i8, i64 } @_ZN4node11StringBytes4SizeEPN2v87IsolateENS1_5LocalINS1_5ValueEEENS_8encodingE(ptr noundef %0, ptr %key.coerce, i32 noundef %enc) #25
   %1 = extractvalue { i8, i64 } %call10, 0
   %2 = and i8 %1, 1
-  %tobool.i39 = icmp ne i8 %2, 0
-  %3 = extractvalue { i8, i64 } %call10, 1
-  %cmp16 = icmp ne i64 %3, 0
-  %4 = select i1 %tobool.i39, i1 %cmp16, i1 false
-  br i1 %4, label %if.then, label %nrvo.skipdtor
+  %3 = icmp ne i8 %2, 0
+  %4 = extractvalue { i8, i64 } %call10, 1
+  %spec.select = select i1 %3, i64 %4, i64 0
+  %cmp = icmp ne i64 %spec.select, 0
+  %5 = select i1 %3, i1 %cmp, i1 false
+  br i1 %5, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %entry
-  %call1.i.i = tail call ptr @CRYPTO_malloc(i64 noundef %3, ptr noundef nonnull @.str.103, i32 noundef 205) #25
+  %call1.i.i = tail call ptr @CRYPTO_malloc(i64 noundef %spec.select, ptr noundef nonnull @.str.103, i32 noundef 205) #25
   %cmp.i.i = icmp eq ptr %call1.i.i, null
   br i1 %cmp.i.i, label %do.body5.i.i, label %do.body.i
 
@@ -1692,9 +1693,9 @@ do.body5.i.i:                                     ; preds = %if.then
   unreachable
 
 do.body.i:                                        ; preds = %if.then
-  %5 = load ptr, ptr %isolate_.i, align 8
-  %call22 = tail call noundef i64 @_ZN4node11StringBytes5WriteEPN2v87IsolateEPcmNS1_5LocalINS1_5ValueEEENS_8encodingE(ptr noundef %5, ptr noundef nonnull %call1.i.i, i64 noundef %3, ptr %key.coerce, i32 noundef %enc) #25
-  %cmp.not.i = icmp ult i64 %3, %call22
+  %6 = load ptr, ptr %isolate_.i, align 8
+  %call22 = tail call noundef i64 @_ZN4node11StringBytes5WriteEPN2v87IsolateEPcmNS1_5LocalINS1_5ValueEEENS_8encodingE(ptr noundef %6, ptr noundef nonnull %call1.i.i, i64 noundef %spec.select, ptr %key.coerce, i32 noundef %enc) #25
+  %cmp.not.i = icmp ult i64 %spec.select, %call22
   br i1 %cmp.not.i, label %do.body6.i, label %do.end7.i
 
 do.body6.i:                                       ; preds = %do.body.i
@@ -1707,7 +1708,7 @@ do.end7.i:                                        ; preds = %do.body.i
   br i1 %cmp9.i, label %if.then10.i, label %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit
 
 if.then10.i:                                      ; preds = %do.end7.i
-  tail call void @CRYPTO_clear_free(ptr noundef nonnull %call1.i.i, i64 noundef %3, ptr noundef nonnull @.str.103, i32 noundef 242) #25, !noalias !20
+  tail call void @CRYPTO_clear_free(ptr noundef nonnull %call1.i.i, i64 noundef %spec.select, ptr noundef nonnull @.str.103, i32 noundef 242) #25, !noalias !20
   br label %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit
 
 _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit: ; preds = %do.end7.i, %if.then10.i

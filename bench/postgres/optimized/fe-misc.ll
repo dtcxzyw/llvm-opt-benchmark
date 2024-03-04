@@ -50,13 +50,13 @@ define noundef i32 @pqGetc(ptr nocapture noundef writeonly %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pqPutc(i8 noundef signext %0, ptr noundef %1) local_unnamed_addr #2 {
+define i32 @pqPutc(i8 noundef signext %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca i8, align 1
   store i8 %0, ptr %3, align 1
   %4 = call fastcc i32 @pqPutMsgBytes(ptr noundef nonnull %3, i64 noundef 1, ptr noundef %1), !range !4
-  %.not = icmp ne i32 %4, 0
-  %. = sext i1 %.not to i32
-  ret i32 %.
+  %5 = and i32 %4, 1
+  %sext = sub nsw i32 0, %5
+  ret i32 %sext
 }
 
 ; Function Attrs: nounwind uwtable
@@ -248,13 +248,13 @@ pqGets_internal.exit:                             ; preds = %13, %2, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pqPuts(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define i32 @pqPuts(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
   %4 = add i64 %3, 1
   %5 = tail call fastcc i32 @pqPutMsgBytes(ptr noundef %0, i64 noundef %4, ptr noundef %1), !range !4
-  %.not = icmp ne i32 %5, 0
-  %. = sext i1 %.not to i32
-  ret i32 %.
+  %6 = and i32 %5, 1
+  %sext = sub nsw i32 0, %6
+  ret i32 %sext
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -314,11 +314,11 @@ define noundef i32 @pqSkipnchar(i64 noundef %0, ptr nocapture noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pqPutnchar(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define i32 @pqPutnchar(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = tail call fastcc i32 @pqPutMsgBytes(ptr noundef %0, i64 noundef %1, ptr noundef %2), !range !4
-  %.not = icmp ne i32 %4, 0
-  %. = sext i1 %.not to i32
-  ret i32 %.
+  %5 = and i32 %4, 1
+  %sext = sub nsw i32 0, %5
+  ret i32 %sext
 }
 
 ; Function Attrs: nounwind uwtable

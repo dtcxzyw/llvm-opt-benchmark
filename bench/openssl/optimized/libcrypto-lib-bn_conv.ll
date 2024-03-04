@@ -73,23 +73,24 @@ for.body16:                                       ; preds = %for.cond13.preheade
   %shr = lshr i64 %5, %indvars.iv
   %6 = trunc i64 %shr to i32
   %conv17 = and i32 %6, 255
-  %tobool18 = icmp ne i32 %z.117, 0
+  %7 = and i32 %z.117, 1
+  %8 = icmp ne i32 %7, 0
   %cmp19 = icmp ne i32 %conv17, 0
-  %or.cond = select i1 %tobool18, i1 true, i1 %cmp19
+  %or.cond = select i1 %8, i1 true, i1 %cmp19
   br i1 %or.cond, label %if.then21, label %for.inc
 
 if.then21:                                        ; preds = %for.body16
   %shr22 = lshr i32 %conv17, 4
   %idxprom23 = zext nneg i32 %shr22 to i64
   %arrayidx24 = getelementptr inbounds [17 x i8], ptr @Hex, i64 0, i64 %idxprom23
-  %7 = load i8, ptr %arrayidx24, align 1
+  %9 = load i8, ptr %arrayidx24, align 1
   %incdec.ptr25 = getelementptr inbounds i8, ptr %p.218, i64 1
-  store i8 %7, ptr %p.218, align 1
+  store i8 %9, ptr %p.218, align 1
   %and26 = and i64 %shr, 15
   %arrayidx28 = getelementptr inbounds [17 x i8], ptr @Hex, i64 0, i64 %and26
-  %8 = load i8, ptr %arrayidx28, align 1
+  %10 = load i8, ptr %arrayidx28, align 1
   %incdec.ptr29 = getelementptr inbounds i8, ptr %p.218, i64 2
-  store i8 %8, ptr %incdec.ptr25, align 1
+  store i8 %10, ptr %incdec.ptr25, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then21, %for.body16

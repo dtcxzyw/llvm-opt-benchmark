@@ -1089,9 +1089,7 @@ sw.bb:                                            ; preds = %if.end19
   %raw_bits = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %raw_bits, align 8
   %19 = load i32, ptr %data.i, align 8
-  %cmp31 = icmp eq i32 %.pr, 1
-  %conv = zext i1 %cmp31 to i32
-  %call32 = tail call fastcc i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %14, i32 noundef %residual_samples, i32 noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef %conv), !range !10
+  %call32 = tail call fastcc i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %14, i32 noundef %residual_samples, i32 noundef %15, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef %.pr), !range !10
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %return, label %sw.epilog
 
@@ -1380,9 +1378,7 @@ sw.bb:                                            ; preds = %if.end43
   %raw_bits = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %raw_bits, align 8
   %28 = load i32, ptr %data.i, align 8
-  %cmp55 = icmp eq i32 %.pr, 1
-  %conv = zext i1 %cmp55 to i32
-  %call56 = tail call fastcc i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %23, i32 noundef %residual_samples, i32 noundef %24, ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %conv), !range !10
+  %call56 = tail call fastcc i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %23, i32 noundef %residual_samples, i32 noundef %24, ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %.pr), !range !10
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %return, label %sw.epilog
 

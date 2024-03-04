@@ -798,10 +798,11 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp10, label %if.then12, label %return
 
 if.then12:                                        ; preds = %if.then9
-  %cmp.i = icmp eq i32 %fd, 1
-  %cond.i = select i1 %cmp.i, ptr @color_stdout_is_tty, ptr @check_auto_color.color_stderr_is_tty
-  %3 = load i32, ptr %cond.i, align 4
-  %cmp1.i = icmp slt i32 %3, 0
+  %3 = and i32 %fd, 1
+  %.not = icmp eq i32 %3, 0
+  %cond.i = select i1 %.not, ptr @check_auto_color.color_stderr_is_tty, ptr @color_stdout_is_tty
+  %4 = load i32, ptr %cond.i, align 4
+  %cmp1.i = icmp slt i32 %4, 0
   br i1 %cmp1.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then12
@@ -810,18 +811,18 @@ if.then.i:                                        ; preds = %if.then12
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then12
-  %4 = phi i32 [ %call.i, %if.then.i ], [ %3, %if.then12 ]
-  %tobool.not.i = icmp eq i32 %4, 0
+  %5 = phi i32 [ %call.i, %if.then.i ], [ %4, %if.then12 ]
+  %tobool.not.i = icmp eq i32 %5, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.then7.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  br i1 %cmp.i, label %land.lhs.true.i, label %if.end12.i
+  br i1 %.not, label %if.end12.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   %call3.i = tail call i32 @pager_in_use() #15
   %tobool4.i = icmp ne i32 %call3.i, 0
-  %5 = load i32, ptr @pager_use_color, align 4
-  %tobool6.i = icmp ne i32 %5, 0
+  %6 = load i32, ptr @pager_use_color, align 4
+  %tobool6.i = icmp ne i32 %6, 0
   %or.cond.i = select i1 %tobool4.i, i1 %tobool6.i, i1 false
   br i1 %or.cond.i, label %if.then7.i, label %if.end12.i
 

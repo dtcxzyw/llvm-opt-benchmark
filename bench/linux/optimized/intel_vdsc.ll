@@ -117,8 +117,8 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef %0) local_unnamed_add
   %35 = getelementptr inbounds i8, ptr %0, i64 4768
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
-  %38 = and i32 %37, 1
-  %39 = icmp ne i32 %38, 0
+  %38 = and i16 %36, 1
+  %39 = icmp ne i16 %38, 0
   %40 = icmp ugt i16 %36, 4094
   %41 = or i1 %40, %39
   %42 = mul nuw nsw i32 %34, %37

@@ -269,19 +269,13 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   %105 = icmp eq i64 %104, 2
   %106 = getelementptr inbounds i8, ptr %1, i64 24
   %.val45.i.i = load i64, ptr %106, align 8, !alias.scope !36, !noalias !37
-  %trunc.not.i.i.i = icmp ne i64 %104, 0
-  %spec.select.i.i.i = zext i1 %trunc.not.i.i.i to i64
   %.sroa.5.0.i.i = select i1 %105, i64 undef, i64 %.val45.i.i
-  %.sroa.0.0.i.i = select i1 %105, i64 2, i64 %spec.select.i.i.i
   %107 = getelementptr inbounds i8, ptr %1, i64 32
   %108 = load i64, ptr %107, align 8, !range !50, !alias.scope !36, !noalias !37, !noundef !9
   %109 = icmp eq i64 %108, 2
   %110 = getelementptr inbounds i8, ptr %1, i64 40
   %.val43.i.i = load i64, ptr %110, align 8, !alias.scope !36, !noalias !37
-  %trunc.not.i46.i.i = icmp ne i64 %108, 0
-  %spec.select.i47.i.i = zext i1 %trunc.not.i46.i.i to i64
   %.sroa.55.0.i.i = select i1 %109, i64 undef, i64 %.val43.i.i
-  %.sroa.04.0.i.i = select i1 %109, i64 2, i64 %spec.select.i47.i.i
   %111 = load i64, ptr %1, align 8, !range !51, !alias.scope !36, !noalias !37, !noundef !9
   %112 = getelementptr inbounds i8, ptr %1, i64 8
   %113 = load i64, ptr %112, align 8, !alias.scope !36, !noalias !37
@@ -291,29 +285,23 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   %117 = icmp eq i64 %116, 2
   %118 = getelementptr inbounds i8, ptr %1, i64 56
   %.val41.i.i = load i64, ptr %118, align 8, !alias.scope !36, !noalias !37
-  %trunc.not.i48.i.i = icmp ne i64 %116, 0
-  %spec.select.i49.i.i = zext i1 %trunc.not.i48.i.i to i64
   %.sroa.511.0.i.i = select i1 %117, i64 undef, i64 %.val41.i.i
-  %.sroa.010.0.i.i = select i1 %117, i64 2, i64 %spec.select.i49.i.i
   %119 = getelementptr inbounds i8, ptr %1, i64 64
   %120 = load i64, ptr %119, align 8, !range !50, !alias.scope !36, !noalias !37, !noundef !9
   %121 = icmp eq i64 %120, 2
   %122 = getelementptr inbounds i8, ptr %1, i64 72
   %.val39.i.i = load i64, ptr %122, align 8, !alias.scope !36, !noalias !37
-  %trunc.not.i50.i.i = icmp ne i64 %120, 0
-  %spec.select.i51.i.i = zext i1 %trunc.not.i50.i.i to i64
   %.sroa.513.0.i.i = select i1 %121, i64 undef, i64 %.val39.i.i
-  %.sroa.012.0.i.i = select i1 %121, i64 2, i64 %spec.select.i51.i.i
-  %trunc.not.not.i.i = icmp eq i64 %111, 0
-  %.sroa.57.0.i.i = select i1 %trunc.not.not.i.i, i64 undef, i64 %113
+  %.not.not.i.i = icmp eq i64 %111, 0
+  %.sroa.57.0.i.i = select i1 %.not.not.i.i, i64 undef, i64 %113
   %123 = getelementptr inbounds i8, ptr %1, i64 113
   %124 = load i8, ptr %123, align 1, !range !35, !alias.scope !36, !noalias !37, !noundef !9
   %125 = getelementptr inbounds i8, ptr %1, i64 104
   %126 = load i8, ptr %125, align 8, !range !52, !alias.scope !36, !noalias !37, !noundef !9
-  %trunc37.not.i.i = icmp eq i8 %126, 0
+  %.not.i.i = icmp eq i8 %126, 0
   %127 = getelementptr inbounds i8, ptr %1, i64 105
   %128 = load i8, ptr %127, align 1, !alias.scope !36, !noalias !37
-  %.sroa.518.0.i.i = select i1 %trunc37.not.i.i, i8 undef, i8 %128
+  %.sroa.518.0.i.i = select i1 %.not.i.i, i8 undef, i8 %128
   %129 = getelementptr inbounds i8, ptr %23, i64 106
   store i8 %84, ptr %129, align 2, !alias.scope !30, !noalias !53
   %130 = getelementptr inbounds i8, ptr %23, i64 107
@@ -329,11 +317,11 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   %133 = getelementptr inbounds i8, ptr %23, i64 114
   store i8 %102, ptr %133, align 2, !alias.scope !30, !noalias !53
   %134 = getelementptr inbounds i8, ptr %23, i64 16
-  store i64 %.sroa.0.0.i.i, ptr %134, align 8, !alias.scope !30, !noalias !53
+  store i64 %104, ptr %134, align 8, !alias.scope !30, !noalias !53
   %135 = getelementptr inbounds i8, ptr %23, i64 24
   store i64 %.sroa.5.0.i.i, ptr %135, align 8, !alias.scope !30, !noalias !53
   %136 = getelementptr inbounds i8, ptr %23, i64 32
-  store i64 %.sroa.04.0.i.i, ptr %136, align 8, !alias.scope !30, !noalias !53
+  store i64 %108, ptr %136, align 8, !alias.scope !30, !noalias !53
   %137 = getelementptr inbounds i8, ptr %23, i64 40
   store i64 %.sroa.55.0.i.i, ptr %137, align 8, !alias.scope !30, !noalias !53
   store i64 %111, ptr %23, align 8, !alias.scope !30, !noalias !53
@@ -341,11 +329,11 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   store i64 %.sroa.57.0.i.i, ptr %138, align 8, !alias.scope !30, !noalias !53
   %139 = getelementptr inbounds i8, ptr %23, i64 109
   %140 = getelementptr inbounds i8, ptr %23, i64 48
-  store i64 %.sroa.010.0.i.i, ptr %140, align 8, !alias.scope !30, !noalias !53
+  store i64 %116, ptr %140, align 8, !alias.scope !30, !noalias !53
   %141 = getelementptr inbounds i8, ptr %23, i64 56
   store i64 %.sroa.511.0.i.i, ptr %141, align 8, !alias.scope !30, !noalias !53
   %142 = getelementptr inbounds i8, ptr %23, i64 64
-  store i64 %.sroa.012.0.i.i, ptr %142, align 8, !alias.scope !30, !noalias !53
+  store i64 %120, ptr %142, align 8, !alias.scope !30, !noalias !53
   %143 = getelementptr inbounds i8, ptr %23, i64 72
   store i64 %.sroa.513.0.i.i, ptr %143, align 8, !alias.scope !30, !noalias !53
   %144 = load <4 x i8>, ptr %114, align 1, !alias.scope !36, !noalias !37

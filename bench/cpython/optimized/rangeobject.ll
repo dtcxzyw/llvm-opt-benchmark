@@ -1232,10 +1232,11 @@ range_equals.exit:                                ; preds = %if.end.i, %if.end4.
 
 if.end3:                                          ; preds = %sw.bb, %range_equals.exit
   %retval.0.i8 = phi i32 [ %retval.0.i, %range_equals.exit ], [ 1, %sw.bb ]
-  %cmp4 = icmp eq i32 %op, 3
+  %9 = and i32 %op, 1
+  %.not = icmp eq i32 %9, 0
   %tobool6.not = icmp eq i32 %retval.0.i8, 0
   %lnot.ext = zext i1 %tobool6.not to i32
-  %result.0 = select i1 %cmp4, i32 %lnot.ext, i32 %retval.0.i8
+  %result.0 = select i1 %.not, i32 %retval.0.i8, i32 %lnot.ext
   %tobool8.not = icmp eq i32 %result.0, 0
   %spec.select = select i1 %tobool8.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   br label %return

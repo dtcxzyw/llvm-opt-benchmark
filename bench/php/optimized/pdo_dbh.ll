@@ -1447,8 +1447,9 @@ define hidden void @zim_PDO_prepare(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %18, %.critedge186
-  %21 = icmp eq i32 %9, 1
-  br i1 %21, label %27, label %22
+  %21 = and i32 %9, 1
+  %.not220 = icmp eq i32 %21, 0
+  br i1 %.not220, label %22, label %27
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %0, i64 96
@@ -3893,8 +3894,9 @@ define hidden void @zim_PDO_quote(ptr noundef %0, ptr nocapture noundef writeonl
   br i1 %19, label %20, label %.thread142
 
 20:                                               ; preds = %18, %.critedge
-  %21 = icmp eq i32 %9, 1
-  br i1 %21, label %.thread152, label %22
+  %21 = and i32 %9, 1
+  %.not = icmp eq i32 %21, 0
+  br i1 %.not, label %22, label %.thread152
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %0, i64 96

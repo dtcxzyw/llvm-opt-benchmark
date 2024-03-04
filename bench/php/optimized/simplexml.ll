@@ -6603,8 +6603,8 @@ php_sxe_get_first_node_non_destructive.exit375.thread: ; preds = %82, %84
 
 php_sxe_get_first_node_non_destructive.exit375:   ; preds = %67, %89
   %.0.i373 = phi ptr [ %90, %89 ], [ %.0265, %67 ]
-  %.not = icmp eq ptr %.0.i373, null
-  br i1 %.not, label %103, label %91
+  %.not454 = icmp eq ptr %.0.i373, null
+  br i1 %.not454, label %103, label %91
 
 91:                                               ; preds = %php_sxe_get_first_node_non_destructive.exit375
   %92 = getelementptr inbounds i8, ptr %.0.i373, i64 88
@@ -6695,8 +6695,9 @@ php_sxe_get_first_node_non_destructive.exit375:   ; preds = %67, %89
 
 133:                                              ; preds = %127
   %134 = call fastcc i32 @sxe_object_cast_ex(ptr noundef nonnull %128, ptr noundef nonnull %9, i32 noundef 6), !range !5
-  %135 = icmp eq i32 %134, -1
-  br i1 %135, label %136, label %137
+  %135 = and i32 %134, 1
+  %.not = icmp eq i32 %135, 0
+  br i1 %.not, label %137, label %136
 
 136:                                              ; preds = %133
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.92) #14

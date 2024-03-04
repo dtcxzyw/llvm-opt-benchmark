@@ -3946,8 +3946,8 @@ if.then445:                                       ; preds = %lor.lhs.false437, %
   br label %sw.epilog957
 
 if.else453:                                       ; preds = %lor.lhs.false437, %lor.lhs.false437
-  %cmp454 = icmp eq i32 %call434, 1
-  br i1 %cmp454, label %if.then456, label %sw.epilog957
+  %.not = icmp eq i32 %call434, 0
+  br i1 %.not, label %sw.epilog957, label %if.then456
 
 if.then456:                                       ; preds = %if.else453
   call fastcc void @rec_mm_equal(ptr noundef nonnull %J, ptr noundef nonnull %ix, i32 noundef %and136)

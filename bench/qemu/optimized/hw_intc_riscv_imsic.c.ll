@@ -355,8 +355,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %cmp = icmp ne i32 %conv, 3
-  %tobool13 = icmp ne i32 %conv3, 0
-  %or.cond = or i1 %cmp, %tobool13
+  %7 = and i32 %0, 262144
+  %8 = icmp ne i32 %7, 0
+  %or.cond = or i1 %8, %cmp
   br i1 %or.cond, label %do.body, label %if.end32
 
 if.else15:                                        ; preds = %entry
@@ -373,8 +374,8 @@ if.then20:                                        ; preds = %if.then18
 
 land.lhs.true22:                                  ; preds = %if.then20
   %num_pages = getelementptr inbounds i8, ptr %arg, i64 1144
-  %7 = load i32, ptr %num_pages, align 8
-  %cmp23 = icmp ult i32 %conv8, %7
+  %9 = load i32, ptr %num_pages, align 8
+  %cmp23 = icmp ult i32 %conv8, %9
   br i1 %cmp23, label %if.end32, label %do.body
 
 if.end32:                                         ; preds = %if.then18, %land.lhs.true22, %if.then
@@ -537,8 +538,8 @@ sw.bb39:                                          ; preds = %if.end32, %if.end32
   br label %return
 
 do.body:                                          ; preds = %if.then, %land.lhs.true22, %if.then20, %if.else15, %if.end32
-  %8 = load i32, ptr @qemu_loglevel, align 4
-  %and.i = and i32 %8, 2048
+  %10 = load i32, ptr @qemu_loglevel, align 4
+  %and.i = and i32 %10, 2048
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.then46
 

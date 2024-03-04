@@ -419,8 +419,8 @@ define noundef i32 @hwloc_topology_set_components(ptr nocapture noundef %0, i64 
   br label %27
 
 12:                                               ; preds = %9
-  %.not10 = icmp eq i64 %1, 1
-  br i1 %.not10, label %15, label %13
+  %.not12 = icmp eq i64 %1, 0
+  br i1 %.not12, label %13, label %15
 
 13:                                               ; preds = %12
   %14 = tail call ptr @__errno_location() #27

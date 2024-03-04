@@ -1943,8 +1943,8 @@ define dso_local noundef zeroext i1 @ieee80211_parse_tx_radiotap(ptr noundef %0,
   %134 = select i1 %131, i1 true, i1 %133
   %135 = select i1 %134, i16 8, i16 136
   %136 = and i8 %122, 3
-  %137 = and i32 %123, 1
-  %138 = icmp ne i32 %137, 0
+  %137 = and i8 %120, 1
+  %138 = icmp ne i8 %137, 0
   %139 = icmp eq i8 %136, 1
   %140 = select i1 %138, i1 %139, i1 false
   %141 = or disjoint i16 %135, 32

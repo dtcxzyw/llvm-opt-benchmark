@@ -1053,26 +1053,27 @@ if.end25:                                         ; preds = %if.end13
 
 if.then30:                                        ; preds = %if.end25
   %14 = load ptr, ptr @PyExc_IndentationError, align 8
-  %cmp32 = icmp eq i32 %5, 5
-  %cond = select i1 %cmp32, ptr @.str.17, ptr @.str.18
+  %15 = and i32 %5, 1
+  %.not = icmp eq i32 %15, 0
+  %cond = select i1 %.not, ptr @.str.18, ptr @.str.17
   %call33 = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %14, i32 noundef 0, ptr noundef nonnull %cond)
   br label %return
 
 if.end34:                                         ; preds = %land.lhs.true15, %if.end25
-  %15 = load ptr, ptr @PyExc_SyntaxError, align 8
+  %16 = load ptr, ptr @PyExc_SyntaxError, align 8
   %lineno = getelementptr inbounds i8, ptr %last_token, i64 20
-  %16 = load i32, ptr %lineno, align 4
-  %conv = sext i32 %16 to i64
+  %17 = load i32, ptr %lineno, align 4
+  %conv = sext i32 %17 to i64
   %col_offset = getelementptr inbounds i8, ptr %last_token, i64 24
-  %17 = load i32, ptr %col_offset, align 8
-  %conv35 = sext i32 %17 to i64
+  %18 = load i32, ptr %col_offset, align 8
+  %conv35 = sext i32 %18 to i64
   %end_lineno = getelementptr inbounds i8, ptr %last_token, i64 28
-  %18 = load i32, ptr %end_lineno, align 4
-  %conv36 = sext i32 %18 to i64
+  %19 = load i32, ptr %end_lineno, align 4
+  %conv36 = sext i32 %19 to i64
   %end_col_offset = getelementptr inbounds i8, ptr %last_token, i64 32
-  %19 = load i32, ptr %end_col_offset, align 8
-  %conv37 = sext i32 %19 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %15, i64 noundef %conv, i64 noundef %conv35, i64 noundef %conv36, i64 noundef %conv37, ptr noundef nonnull @.str.19)
+  %20 = load i32, ptr %end_col_offset, align 8
+  %conv37 = sext i32 %20 to i64
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %16, i64 noundef %conv, i64 noundef %conv35, i64 noundef %conv36, i64 noundef %conv37, ptr noundef nonnull @.str.19)
   tail call fastcc void @_PyPegen_tokenize_full_source_to_check_for_errors(ptr noundef nonnull %p)
   br label %return
 

@@ -2146,7 +2146,7 @@ invoke.cont19:                                    ; preds = %invoke.cont15
 cleanup:                                          ; preds = %if.end3.i.i.i.i.i18, %lor.lhs.false.i.i.i.i.i21, %for.cond.i.i.i35, %call2.i.i.i.i8.noexc, %invoke.cont15, %invoke.cont19, %if.then8
   %44 = phi ptr [ %.pre, %if.then8 ], [ %41, %invoke.cont19 ], [ %41, %invoke.cont15 ], [ %.pre69, %call2.i.i.i.i8.noexc ], [ %28, %for.cond.i.i.i35 ], [ %.pre69, %lor.lhs.false.i.i.i.i.i21 ], [ %.pre69, %if.end3.i.i.i.i.i18 ]
   %retval.0 = phi ptr [ %25, %if.then8 ], [ %43, %invoke.cont19 ], [ undef, %invoke.cont15 ], [ undef, %call2.i.i.i.i8.noexc ], [ undef, %for.cond.i.i.i35 ], [ undef, %lor.lhs.false.i.i.i.i.i21 ], [ undef, %if.end3.i.i.i.i.i18 ]
-  %cleanup.dest.slot.0 = phi i1 [ false, %if.then8 ], [ false, %invoke.cont19 ], [ true, %invoke.cont15 ], [ true, %call2.i.i.i.i8.noexc ], [ true, %for.cond.i.i.i35 ], [ true, %lor.lhs.false.i.i.i.i.i21 ], [ true, %if.end3.i.i.i.i.i18 ]
+  %switch = phi i1 [ false, %if.then8 ], [ false, %invoke.cont19 ], [ true, %invoke.cont15 ], [ true, %call2.i.i.i.i8.noexc ], [ true, %for.cond.i.i.i35 ], [ true, %lor.lhs.false.i.i.i.i.i21 ], [ true, %if.end3.i.i.i.i.i18 ]
   %bf.load.i.i = load i64, ptr %44, align 8
   %45 = and i64 %bf.load.i.i, 1152920405095219200
   %cmp.not.i.i = icmp eq i64 %45, 1152920405095219200
@@ -2173,7 +2173,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %cleanup, %if.then.i.i, %if.then13.i.i
-  br i1 %cleanup.dest.slot.0, label %if.end23, label %return
+  br i1 %switch, label %if.end23, label %return
 
 if.end23:                                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.end
   %d_defaultGen24 = getelementptr inbounds i8, ptr %this, i64 336
@@ -3138,8 +3138,9 @@ _ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEPNS2_14ProofGener
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEPNS2_14ProofGeneratorESt4hashIS4_EE3setERKS6_.exit, %invoke.cont5
-  %tobool12 = icmp ne i8 %8, 0
-  ret i1 %tobool12
+  %18 = and i8 %3, 1
+  %19 = icmp ne i8 %18, 0
+  ret i1 %19
 
 eh.resume:                                        ; preds = %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %11, %lpad4 ], [ %10, %lpad ]
@@ -4391,8 +4392,8 @@ _ZN4cvc57context15CDInsertHashMapIPNS_8internal9ProofNodeEbSt4hashIS4_EE6insertE
   br label %return
 
 return:                                           ; preds = %for.cond.i.i.i.i.i.i.i, %for.body.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZN4cvc57context15CDInsertHashMapIPNS_8internal9ProofNodeEbSt4hashIS4_EE6insertERKS4_RKb.exit
-  %cmp.i.i.i7 = phi i1 [ true, %_ZN4cvc57context15CDInsertHashMapIPNS_8internal9ProofNodeEbSt4hashIS4_EE6insertERKS4_RKb.exit ], [ false, %if.end.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i.i ], [ false, %for.cond.i.i.i.i.i.i.i ]
-  ret i1 %cmp.i.i.i7
+  %retval.0 = phi i1 [ true, %_ZN4cvc57context15CDInsertHashMapIPNS_8internal9ProofNodeEbSt4hashIS4_EE6insertERKS4_RKb.exit ], [ false, %if.end.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i.i ], [ false, %for.cond.i.i.i.i.i.i.i ]
+  ret i1 %retval.0
 }
 
 declare void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0

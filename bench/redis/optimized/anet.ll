@@ -1173,8 +1173,8 @@ if.then75:                                        ; preds = %if.then72
   br label %if.end84.sink.split
 
 if.else77:                                        ; preds = %if.then72
-  %cmp78 = icmp eq i64 %ip_len, 1
-  br i1 %cmp78, label %if.end84.sink.split, label %if.end84
+  %.not = icmp eq i64 %ip_len, 0
+  br i1 %.not, label %if.end84, label %if.end84.sink.split
 
 if.end84.sink.split:                              ; preds = %if.else77, %if.then75
   %arrayidx76.sink = phi ptr [ %arrayidx76, %if.then75 ], [ %ip, %if.else77 ]

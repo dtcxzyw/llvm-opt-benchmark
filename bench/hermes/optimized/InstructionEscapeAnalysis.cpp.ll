@@ -464,20 +464,23 @@ land.rhs:                                         ; preds = %lor.rhs
   %second47 = getelementptr inbounds i8, ptr %cond.sink.i.i.ph.pn.i64, i64 4
   %agg.tmp45.sroa.0.0.copyload = load i64, ptr %second47, align 4
   %offset.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp45.sroa.0.0.copyload to i32
+  br i1 %cmp30, label %if.then.i76, label %if.end.i74
+
+if.then.i76:                                      ; preds = %land.rhs
   %offset.sroa.3.0.extract.shift.i = lshr i64 %agg.tmp45.sroa.0.0.copyload, 32
   %offset.sroa.3.0.extract.trunc.i = trunc i64 %offset.sroa.3.0.extract.shift.i to i8
-  br i1 %cmp30, label %if.then49, label %if.end.i74
+  br label %if.then49
 
 if.end.i74:                                       ; preds = %land.rhs
-  %36 = and i8 %offset.sroa.3.0.extract.trunc.i, 1
-  %tobool.i4.not.i = icmp eq i8 %36, 0
+  %36 = and i64 %agg.tmp45.sroa.0.0.copyload, 4294967296
+  %.not5.i = icmp eq i64 %36, 0
   %cmp.i.i75 = icmp eq i32 %escapeOffset.sroa.0.0, %offset.sroa.0.0.extract.trunc.i
-  %or.cond130 = select i1 %tobool.i4.not.i, i1 true, i1 %cmp.i.i75
+  %or.cond130 = select i1 %.not5.i, i1 true, i1 %cmp.i.i75
   br i1 %or.cond130, label %if.then49, label %for.inc58
 
-if.then49:                                        ; preds = %land.rhs, %if.end.i74, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit
-  %escapeOffset.sroa.0.2 = phi i32 [ %escapeOffset.sroa.0.0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit ], [ %offset.sroa.0.0.extract.trunc.i, %land.rhs ], [ %escapeOffset.sroa.0.0, %if.end.i74 ]
-  %escapeOffset.sroa.6.2 = phi i8 [ %escapeOffset.sroa.6.0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit ], [ %offset.sroa.3.0.extract.trunc.i, %land.rhs ], [ %escapeOffset.sroa.6.0, %if.end.i74 ]
+if.then49:                                        ; preds = %if.end.i74, %if.then.i76, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit
+  %escapeOffset.sroa.0.2 = phi i32 [ %escapeOffset.sroa.0.0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit ], [ %escapeOffset.sroa.0.0, %if.end.i74 ], [ %offset.sroa.0.0.extract.trunc.i, %if.then.i76 ]
+  %escapeOffset.sroa.6.2 = phi i8 [ %escapeOffset.sroa.6.0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit ], [ %escapeOffset.sroa.6.0, %if.end.i74 ], [ %offset.sroa.3.0.extract.trunc.i, %if.then.i76 ]
   %37 = load ptr, ptr %auxPrefixes_, align 8, !noalias !13
   %38 = load i32, ptr %NumBuckets.i.i.i.i.i77, align 8, !noalias !13
   %cmp.i.i.i78 = icmp eq i32 %38, 0
@@ -613,23 +616,23 @@ declare noundef i32 @_ZNK6hermes5Value11getNumUsersEv(ptr noundef nonnull align 
 define hidden noundef zeroext i1 @_ZN6hermes25InstructionEscapeAnalysis15tryMergeOffsetsERNS_8OptValueIjEES2_(ptr nocapture noundef nonnull align 4 dereferenceable(5) %acc, i64 %offset.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %offset.sroa.0.0.extract.trunc = trunc i64 %offset.coerce to i32
-  %offset.sroa.3.0.extract.shift = lshr i64 %offset.coerce, 32
-  %offset.sroa.3.0.extract.trunc = trunc i64 %offset.sroa.3.0.extract.shift to i8
   %hasValue_.i = getelementptr inbounds i8, ptr %acc, i64 4
   %0 = load i8, ptr %hasValue_.i, align 4
   %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.then, label %if.end
+  %.not = icmp eq i8 %1, 0
+  br i1 %.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
+  %offset.sroa.3.0.extract.shift = lshr i64 %offset.coerce, 32
+  %offset.sroa.3.0.extract.trunc = trunc i64 %offset.sroa.3.0.extract.shift to i8
   store i32 %offset.sroa.0.0.extract.trunc, ptr %acc, align 4
   store i8 %offset.sroa.3.0.extract.trunc, ptr %hasValue_.i, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = and i8 %offset.sroa.3.0.extract.trunc, 1
-  %tobool.i4.not = icmp eq i8 %2, 0
-  br i1 %tobool.i4.not, label %return, label %_ZN6hermeseqIjjEEbRKNS_8OptValueIT_EERKNS1_IT0_EE.exit
+  %2 = and i64 %offset.coerce, 4294967296
+  %.not5 = icmp eq i64 %2, 0
+  br i1 %.not5, label %return, label %_ZN6hermeseqIjjEEbRKNS_8OptValueIT_EERKNS1_IT0_EE.exit
 
 _ZN6hermeseqIjjEEbRKNS_8OptValueIT_EERKNS1_IT0_EE.exit: ; preds = %if.end
   %3 = load i32, ptr %acc, align 4

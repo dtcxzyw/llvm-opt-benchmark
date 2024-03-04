@@ -35,20 +35,20 @@ define dso_local zeroext i1 @__virt_addr_valid(i64 noundef %0) #0 align 16 {
   %5 = load i64, ptr @phys_base, align 8
   %6 = add i64 %5, %2
   %7 = icmp ugt i64 %2, 1073741823
-  br i1 %7, label %80, label %17
+  br i1 %7, label %81, label %17
 
 8:                                                ; preds = %1
   %9 = load i64, ptr @page_offset_base, align 8
   %10 = sub i64 %0, %9
   %11 = icmp ugt i64 %10, %2
-  br i1 %11, label %80, label %12
+  br i1 %11, label %81, label %12
 
 12:                                               ; preds = %8
   %13 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 7), align 1
   %14 = zext nneg i8 %13 to i64
   %15 = lshr i64 %10, %14
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %80
+  br i1 %16, label %17, label %81
 
 17:                                               ; preds = %12, %4
   %18 = phi i64 [ %6, %4 ], [ %10, %12 ]
@@ -158,12 +158,13 @@ define dso_local zeroext i1 @__virt_addr_valid(i64 noundef %0) #0 align 16 {
 
 77:                                               ; preds = %74, %66, %48, %22
   %78 = phi i32 [ 0, %22 ], [ 0, %48 ], [ %67, %66 ], [ %76, %74 ]
-  %79 = icmp ne i32 %78, 0
-  br label %80
+  %79 = and i32 %78, 1
+  %80 = icmp ne i32 %79, 0
+  br label %81
 
-80:                                               ; preds = %77, %12, %8, %4
-  %81 = phi i1 [ %79, %77 ], [ false, %4 ], [ false, %12 ], [ false, %8 ]
-  ret i1 %81
+81:                                               ; preds = %77, %12, %8, %4
+  %82 = phi i1 [ %80, %77 ], [ false, %4 ], [ false, %12 ], [ false, %8 ]
+  ret i1 %82
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)

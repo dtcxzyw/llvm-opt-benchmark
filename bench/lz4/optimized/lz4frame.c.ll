@@ -2404,8 +2404,8 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp2 = icmp eq i32 %0, 1
-  br i1 %cmp2, label %if.then3, label %if.else5
+  %.not = icmp eq i32 %0, 0
+  br i1 %.not, label %if.else5, label %if.then3
 
 if.then3:                                         ; preds = %if.else
   store i64 0, ptr %srcSizePtr, align 8

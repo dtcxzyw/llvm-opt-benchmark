@@ -1234,9 +1234,10 @@ define dso_local void @intel_backlight_init_funcs(ptr noundef %0) local_unnamed_
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %24
-  %27 = icmp eq i32 %20, 3
+  %27 = and i32 %20, 1
+  %.not = icmp eq i32 %27, 0
   %28 = getelementptr inbounds i8, ptr %0, i64 112
-  br i1 %27, label %29, label %30
+  br i1 %.not, label %30, label %29
 
 29:                                               ; preds = %26
   store ptr @lpt_pwm_funcs, ptr %28, align 8

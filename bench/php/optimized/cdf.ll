@@ -2189,7 +2189,7 @@ define internal fastcc ptr @cdf_grow_info(ptr nocapture noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cdf_unpack_summary_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #6 {
+define hidden i32 @cdf_unpack_summary_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #6 {
   %6 = alloca i64, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr i8, ptr %0, i64 24
@@ -2238,12 +2238,12 @@ cdf_check_stream_offset.exit37:                   ; preds = %cdf_check_stream_of
   %27 = load i32, ptr %26, align 4
   store i64 0, ptr %6, align 8
   %28 = call i32 @cdf_read_property_info(ptr noundef nonnull %0, ptr poison, i32 noundef %27, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6), !range !4
-  %29 = icmp eq i32 %28, -1
-  %. = sext i1 %29 to i32
+  %29 = and i32 %28, 1
+  %sext = sub nsw i32 0, %29
   br label %30
 
 30:                                               ; preds = %cdf_check_stream_offset.exit37.thread, %cdf_check_stream_offset.exit.thread, %cdf_check_stream_offset.exit37
-  %.0 = phi i32 [ %., %cdf_check_stream_offset.exit37 ], [ -1, %cdf_check_stream_offset.exit.thread ], [ -1, %cdf_check_stream_offset.exit37.thread ]
+  %.0 = phi i32 [ %sext, %cdf_check_stream_offset.exit37 ], [ -1, %cdf_check_stream_offset.exit.thread ], [ -1, %cdf_check_stream_offset.exit37.thread ]
   ret i32 %.0
 }
 

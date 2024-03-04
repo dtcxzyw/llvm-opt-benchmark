@@ -85,10 +85,11 @@ for.body11:                                       ; preds = %for.cond9.preheader
   %arrayidx = getelementptr inbounds i64, ptr %3, i64 %indvars.iv.next23
   %4 = load i64, ptr %arrayidx, align 8
   %shr = lshr i64 %4, %indvars.iv
-  %tobool12 = icmp ne i32 %z.115, 0
+  %5 = and i32 %z.115, 1
+  %6 = icmp ne i32 %5, 0
   %conv11 = and i64 %shr, 15
   %cmp13 = icmp ne i64 %conv11, 0
-  %or.cond = select i1 %tobool12, i1 true, i1 %cmp13
+  %or.cond = select i1 %6, i1 true, i1 %cmp13
   br i1 %or.cond, label %if.then15, label %for.inc
 
 if.then15:                                        ; preds = %for.body11

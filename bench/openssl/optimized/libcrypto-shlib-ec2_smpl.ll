@@ -1291,14 +1291,14 @@ if.then7:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.end
   %cmp10 = icmp eq ptr %scalar, null
-  %cmp12 = icmp eq i64 %num, 1
-  %or.cond1 = and i1 %cmp10, %cmp12
+  %2 = icmp ne i64 %num, 0
+  %or.cond1 = and i1 %cmp10, %2
   br i1 %or.cond1, label %if.then13, label %if.end16
 
 if.then13:                                        ; preds = %if.end9
-  %2 = load ptr, ptr %scalars, align 8
-  %3 = load ptr, ptr %points, align 8
-  %call15 = tail call i32 @ossl_ec_scalar_mul_ladder(ptr noundef nonnull %group, ptr noundef %r, ptr noundef %2, ptr noundef %3, ptr noundef %ctx) #4
+  %3 = load ptr, ptr %scalars, align 8
+  %4 = load ptr, ptr %points, align 8
+  %call15 = tail call i32 @ossl_ec_scalar_mul_ladder(ptr noundef nonnull %group, ptr noundef %r, ptr noundef %3, ptr noundef %4, ptr noundef %ctx) #4
   br label %return
 
 if.end16:                                         ; preds = %if.end9
@@ -1318,9 +1318,9 @@ if.end20:                                         ; preds = %if.end16
   br i1 %tobool22.not, label %err, label %lor.lhs.false23
 
 lor.lhs.false23:                                  ; preds = %if.end20
-  %4 = load ptr, ptr %scalars, align 8
-  %5 = load ptr, ptr %points, align 8
-  %call26 = tail call i32 @ossl_ec_scalar_mul_ladder(ptr noundef nonnull %group, ptr noundef %r, ptr noundef %4, ptr noundef %5, ptr noundef %ctx) #4
+  %5 = load ptr, ptr %scalars, align 8
+  %6 = load ptr, ptr %points, align 8
+  %call26 = tail call i32 @ossl_ec_scalar_mul_ladder(ptr noundef nonnull %group, ptr noundef %r, ptr noundef %5, ptr noundef %6, ptr noundef %ctx) #4
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %err, label %lor.lhs.false28
 

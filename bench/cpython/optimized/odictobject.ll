@@ -3855,8 +3855,9 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end16, %if.then1.i, %if.end.i
-  %cmp18 = icmp eq i32 %call17, -1
-  br i1 %cmp18, label %return, label %if.end21
+  %9 = and i32 %call17, 1
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %if.end21, label %return
 
 if.end21:                                         ; preds = %Py_DECREF.exit, %land.lhs.true, %if.end8
   br label %return

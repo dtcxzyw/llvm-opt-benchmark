@@ -93,8 +93,9 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 
 if.end:                                           ; preds = %lor.lhs.false
   %incdec.ptr = getelementptr inbounds i8, ptr %from, i64 1
-  %cmp7 = icmp eq i8 %0, 107
-  br i1 %cmp7, label %if.then9, label %if.else
+  %2 = and i8 %0, 1
+  %.not = icmp eq i8 %2, 0
+  br i1 %.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %if.end
   %sub = add i32 %num, -3
@@ -102,17 +103,17 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp1017, label %for.body.preheader, label %if.then26
 
 for.body.preheader:                               ; preds = %if.then9
-  %2 = zext nneg i32 %num to i64
-  %3 = getelementptr i8, ptr %from, i64 %2
-  %scevgep = getelementptr i8, ptr %3, i64 -2
+  %3 = zext nneg i32 %num to i64
+  %4 = getelementptr i8, ptr %from, i64 %3
+  %scevgep = getelementptr i8, ptr %4, i64 -2
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %p.019 = phi ptr [ %incdec.ptr12, %for.inc ], [ %incdec.ptr, %for.body.preheader ]
   %i.018 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %incdec.ptr12 = getelementptr inbounds i8, ptr %p.019, i64 1
-  %4 = load i8, ptr %p.019, align 1
-  switch i8 %4, label %if.then21 [
+  %5 = load i8, ptr %p.019, align 1
+  switch i8 %5, label %if.then21 [
     i8 -70, label %for.end
     i8 -69, label %for.inc
   ]
@@ -148,8 +149,8 @@ if.end29:                                         ; preds = %for.inc, %for.end, 
   %p.2 = phi ptr [ %incdec.ptr12, %for.end ], [ %incdec.ptr, %if.else ], [ %scevgep, %for.inc ]
   %idxprom = sext i32 %j.0 to i64
   %arrayidx = getelementptr inbounds i8, ptr %p.2, i64 %idxprom
-  %5 = load i8, ptr %arrayidx, align 1
-  %cmp31.not = icmp eq i8 %5, -52
+  %6 = load i8, ptr %arrayidx, align 1
+  %cmp31.not = icmp eq i8 %6, -52
   br i1 %cmp31.not, label %if.end34, label %if.then33
 
 if.then33:                                        ; preds = %if.end29

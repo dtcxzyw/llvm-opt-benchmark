@@ -1387,16 +1387,17 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   br i1 %58, label %59, label %.thread14
 
 59:                                               ; preds = %51
-  %60 = icmp eq i32 %53, 3
-  br i1 %60, label %.thread14, label %61
+  %60 = and i32 %53, 1
+  %.not = icmp eq i32 %60, 0
+  br i1 %.not, label %61, label %.thread14
 
 61:                                               ; preds = %59
   %62 = load i64, ptr %10, align 8
   %63 = icmp ne i64 %62, 1
   %64 = load i64, ptr %11, align 8
   %65 = icmp ne i64 %64, 1
-  %.not17 = select i1 %63, i1 true, i1 %65
-  %66 = and i1 %12, %.not17
+  %.not18 = select i1 %63, i1 true, i1 %65
+  %66 = and i1 %12, %.not18
   br i1 %66, label %67, label %156
 
 67:                                               ; preds = %61
@@ -1527,8 +1528,9 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   br i1 %147, label %148, label %.thread14
 
 148:                                              ; preds = %140
-  %149 = icmp eq i32 %142, 3
-  br i1 %149, label %.thread14, label %150
+  %149 = and i32 %142, 1
+  %.not19 = icmp eq i32 %149, 0
+  br i1 %.not19, label %150, label %.thread14
 
 150:                                              ; preds = %148
   %151 = load i64, ptr %10, align 8
@@ -1540,7 +1542,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
 
 .thread15:                                        ; preds = %150
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
-  br label %.loopexit18
+  br label %.loopexit20
 
 .thread14:                                        ; preds = %112, %140, %148, %51, %59, %150
   %.ph13 = phi i32 [ -2, %148 ], [ -22, %140 ], [ -2, %112 ], [ -2, %59 ], [ -22, %51 ], [ -2, %150 ]
@@ -1549,7 +1551,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
 
 156:                                              ; preds = %61
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
-  br i1 %.not17, label %.loopexit18, label %157
+  br i1 %.not18, label %.loopexit20, label %157
 
 157:                                              ; preds = %.thread14, %156
   %158 = phi i32 [ %.ph13, %.thread14 ], [ -2, %156 ]
@@ -1612,7 +1614,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
 
 197:                                              ; preds = %194
   %198 = icmp eq i32 %158, -2
-  br i1 %198, label %199, label %.loopexit18
+  br i1 %198, label %199, label %.loopexit20
 
 199:                                              ; preds = %197
   %200 = add i64 %195, 1
@@ -1623,7 +1625,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   store i64 %202, ptr %1, align 8
   br label %18, !llvm.loop !52
 
-.loopexit18:                                      ; preds = %197, %156, %.thread15
+.loopexit20:                                      ; preds = %197, %156, %.thread15
   %203 = phi i1 [ true, %.thread15 ], [ true, %156 ], [ false, %197 ]
   ret i1 %203
 }

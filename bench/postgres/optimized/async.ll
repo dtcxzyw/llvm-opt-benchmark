@@ -2643,7 +2643,7 @@ IsListeningOn.exit.thread.i:                      ; preds = %80, %IsListeningOn.
   br i1 %58, label %.loopexit.i, label %48, !llvm.loop !23
 
 .loopexit.i:                                      ; preds = %IsListeningOn.exit.thread.i, %48, %68
-  %.not35 = phi i1 [ false, %68 ], [ true, %48 ], [ true, %IsListeningOn.exit.thread.i ]
+  %.0.i = phi i8 [ 1, %68 ], [ 0, %48 ], [ 0, %IsListeningOn.exit.thread.i ]
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.24 = load volatile i64, ptr %.sroa.0, align 8
   %91 = icmp eq i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.24, %.sroa.0.0.copyload
   br i1 %91, label %92, label %asyncQueueProcessPageEntries.exit
@@ -2651,21 +2651,18 @@ IsListeningOn.exit.thread.i:                      ; preds = %80, %IsListeningOn.
 92:                                               ; preds = %.loopexit.i
   %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.31 = load volatile i32, ptr %.sroa.9, align 8
   %93 = icmp eq i32 %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.31, %.sroa.4.0.copyload
-  br i1 %93, label %asyncQueueProcessPageEntries.exit.thread, label %asyncQueueProcessPageEntries.exit
+  %spec.select.i = select i1 %93, i8 1, i8 %.0.i
+  br label %asyncQueueProcessPageEntries.exit
 
-asyncQueueProcessPageEntries.exit.thread:         ; preds = %92
+asyncQueueProcessPageEntries.exit:                ; preds = %.loopexit.i, %92
+  %.1.i = phi i8 [ %.0.i, %.loopexit.i ], [ %spec.select.i, %92 ]
+  %.not34 = icmp eq i8 %.1.i, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.3.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5.i)
-  br label %.loopexit
+  br i1 %.not34, label %23, label %.loopexit, !llvm.loop !24
 
-asyncQueueProcessPageEntries.exit:                ; preds = %92, %.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.3.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5.i)
-  br i1 %.not35, label %23, label %.loopexit, !llvm.loop !24
-
-.loopexit:                                        ; preds = %asyncQueueProcessPageEntries.exit, %asyncQueueProcessPageEntries.exit.thread, %16
+.loopexit:                                        ; preds = %asyncQueueProcessPageEntries.exit, %16
   store ptr %19, ptr @PG_exception_stack, align 8
   store ptr %20, ptr @error_context_stack, align 8
   %94 = load ptr, ptr @MainLWLockArray, align 8

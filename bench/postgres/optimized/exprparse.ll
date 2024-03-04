@@ -1334,8 +1334,9 @@ elist_length.exit:                                ; preds = %.lr.ph.i, %3, %4
   unreachable
 
 26:                                               ; preds = %22
-  %27 = icmp eq i32 %.0.lcssa.i, 1
-  br i1 %27, label %28, label %69
+  %27 = and i32 %.0.lcssa.i, 1
+  %.not46 = icmp eq i32 %27, 0
+  br i1 %.not46, label %69, label %28
 
 28:                                               ; preds = %26
   %29 = tail call noundef ptr @pg_malloc(i64 noundef 24) #9

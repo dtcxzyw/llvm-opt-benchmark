@@ -332,9 +332,10 @@ roundPack:                                        ; preds = %if.then160, %if.end
   %signZ.1 = phi i8 [ %frombool43, %if.then160 ], [ %frombool43, %if.end157 ], [ %signZ.0, %if.then216 ], [ %signZ.0, %if.else229 ], [ %frombool43, %if.then105 ]
   %expZ.2 = phi i8 [ %dec161, %if.then160 ], [ %expZ.0, %if.end157 ], [ %sub208, %if.then216 ], [ %sub208, %if.else229 ], [ %sub107, %if.then105 ]
   %sigZ.1 = phi i64 [ %shl162, %if.then160 ], [ %sigZ.0, %if.end157 ], [ %or228, %if.then216 ], [ %shl232, %if.else229 ], [ %or114, %if.then105 ]
-  %tobool235 = icmp ne i8 %signZ.1, 0
+  %28 = and i8 %signZ.1, 1
+  %29 = icmp ne i8 %28, 0
   %conv236 = sext i8 %expZ.2 to i64
-  %call237 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %tobool235, i64 noundef %conv236, i64 noundef %sigZ.1) #2
+  %call237 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %29, i64 noundef %conv236, i64 noundef %sigZ.1) #2
   br label %return
 
 propagateNaN_ABC:                                 ; preds = %if.then58, %if.then, %lor.lhs.false
@@ -359,8 +360,8 @@ if.end252:                                        ; preds = %if.then240
   br i1 %tobool253.not, label %if.end255, label %propagateNaN_ZC
 
 if.end255:                                        ; preds = %if.end252
-  %28 = xor i1 %tobool42, %tobool25
-  br i1 %28, label %if.end264, label %uiZ287
+  %30 = xor i1 %tobool42, %tobool25
+  br i1 %30, label %if.end264, label %uiZ287
 
 if.end264:                                        ; preds = %if.end255, %infProdArg
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #2
@@ -375,13 +376,13 @@ zeroProd:                                         ; preds = %if.then80, %if.then
   %conv266 = and i64 %6, 31
   %or267 = or i64 %conv266, %and32
   %tobool268.not = icmp eq i64 %or267, 0
-  %29 = xor i1 %tobool42, %tobool25
-  %or.cond100 = and i1 %tobool268.not, %29
+  %31 = xor i1 %tobool42, %tobool25
+  %or.cond100 = and i1 %tobool268.not, %31
   br i1 %or.cond100, label %completeCancellation, label %uiZ287
 
 completeCancellation:                             ; preds = %zeroProd, %if.then181
-  %30 = load i8, ptr @softfloat_roundingMode, align 1
-  %cmp278 = icmp eq i8 %30, 2
+  %32 = load i8, ptr @softfloat_roundingMode, align 1
+  %cmp278 = icmp eq i8 %32, 2
   %conv285 = select i1 %cmp278, i64 32768, i64 0
   br label %uiZ287
 

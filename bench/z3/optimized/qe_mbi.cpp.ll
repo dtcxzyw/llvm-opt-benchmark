@@ -2296,19 +2296,19 @@ if.end18:                                         ; preds = %if.end18.preheader,
   br i1 %or.cond.not, label %if.end18, label %for.end.loopexit
 
 for.end.loopexit:                                 ; preds = %if.end18
-  %.pre33 = load ptr, ptr %m_is_shared, align 8
+  %.pre32 = load ptr, ptr %m_is_shared, align 8
   br label %for.end
 
-for.end:                                          ; preds = %for.body.i.i.i, %for.body20.i.i.i, %for.inc36.i.i.i, %for.cond18.preheader.i.i.i, %for.end.loopexit, %_ZN2qe10mbi_plugin9is_sharedEP9func_decl.exit
-  %27 = phi ptr [ %13, %_ZN2qe10mbi_plugin9is_sharedEP9func_decl.exit ], [ %.pre33, %for.end.loopexit ], [ %13, %for.cond18.preheader.i.i.i ], [ %13, %for.inc36.i.i.i ], [ %13, %for.body20.i.i.i ], [ %13, %for.body.i.i.i ]
-  %.lcssa = phi i1 [ true, %_ZN2qe10mbi_plugin9is_sharedEP9func_decl.exit ], [ %call19, %for.end.loopexit ], [ false, %for.cond18.preheader.i.i.i ], [ false, %for.inc36.i.i.i ], [ false, %for.body20.i.i.i ], [ false, %for.body.i.i.i ]
-  %cond23 = select i1 %.lcssa, i32 1, i32 -1
+for.end:                                          ; preds = %for.body.i.i.i, %for.inc36.i.i.i, %for.body20.i.i.i, %_ZN2qe10mbi_plugin9is_sharedEP9func_decl.exit, %for.cond18.preheader.i.i.i, %for.end.loopexit
+  %.pre-phi = phi i1 [ %call19, %for.end.loopexit ], [ true, %_ZN2qe10mbi_plugin9is_sharedEP9func_decl.exit ], [ false, %for.cond18.preheader.i.i.i ], [ false, %for.body20.i.i.i ], [ false, %for.inc36.i.i.i ], [ false, %for.body.i.i.i ]
+  %27 = phi ptr [ %.pre32, %for.end.loopexit ], [ %13, %_ZN2qe10mbi_plugin9is_sharedEP9func_decl.exit ], [ %13, %for.cond18.preheader.i.i.i ], [ %13, %for.body20.i.i.i ], [ %13, %for.inc36.i.i.i ], [ %13, %for.body.i.i.i ]
+  %cond23 = select i1 %.pre-phi, i32 1, i32 -1
   %arrayidx.i20 = getelementptr inbounds i32, ptr %27, i64 %idxprom.i
   store i32 %cond23, ptr %arrayidx.i20, align 4
   br label %return
 
 return:                                           ; preds = %cond.end, %for.end, %if.then8
-  %retval.0 = phi i1 [ %cmp9, %if.then8 ], [ %.lcssa, %for.end ], [ false, %cond.end ]
+  %retval.0 = phi i1 [ %cmp9, %if.then8 ], [ %.pre-phi, %for.end ], [ false, %cond.end ]
   ret i1 %retval.0
 }
 

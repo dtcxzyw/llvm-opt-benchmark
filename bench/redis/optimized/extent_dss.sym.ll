@@ -130,7 +130,6 @@ release.i.i:                                      ; preds = %while.body
 
 if.end13:                                         ; preds = %release.i.i
   %9 = load i8, ptr @opt_retain, align 1
-  %10 = and i8 %9, 1
   %add = add i64 %8, 4095
   %and = and i64 %add, -4096
   %add15 = add i64 %sub, %and
@@ -140,21 +139,22 @@ if.end13:                                         ; preds = %release.i.i
 
 if.then20:                                        ; preds = %if.end13
   %sub18 = sub i64 %and17, %and
-  %11 = inttoptr i64 %and to ptr
+  %10 = inttoptr i64 %and to ptr
   %arena.val = load i32, ptr %6, align 8
   %call23 = tail call i64 @extent_sn_next(ptr noundef nonnull %pac) #6
-  %12 = load i64, ptr %call, align 8
-  %and.i.i = and i64 %12, -17592454479872
-  store ptr %11, ptr %e_addr.i.i, align 8
-  %13 = load i64, ptr %7, align 8
-  %and.i12.i = and i64 %13, 4095
+  %11 = load i64, ptr %call, align 8
+  %and.i.i = and i64 %11, -17592454479872
+  store ptr %10, ptr %e_addr.i.i, align 8
+  %12 = load i64, ptr %7, align 8
+  %and.i12.i = and i64 %12, 4095
   %or.i13.i = or i64 %and.i12.i, %sub18
   store i64 %or.i13.i, ptr %7, align 8
-  %14 = and i32 %arena.val, -268431361
-  %conv.i.masked.i = zext i32 %14 to i64
+  %13 = and i32 %arena.val, -268431361
+  %conv.i.masked.i = zext i32 %13 to i64
   store i64 %call23, ptr %e_sn.i.i, align 8
-  %cmp.i52.not = icmp eq i8 %10, 0
-  %and.i14.i = select i1 %cmp.i52.not, i64 246423552, i64 17592432467968
+  %14 = and i8 %9, 1
+  %.not = icmp eq i8 %14, 0
+  %and.i14.i = select i1 %.not, i64 246423552, i64 17592432467968
   %and.i22.i = or disjoint i64 %and.i14.i, %conv.i.masked.i
   %or.i27.i = or i64 %and.i22.i, %and.i.i
   store i64 %or.i27.i, ptr %call, align 8
@@ -208,8 +208,8 @@ if.end54:                                         ; preds = %if.then51, %if.end4
   %tobool55.not = icmp eq i8 %20, 0
   %21 = and i8 %18, 1
   %tobool57.not = icmp eq i8 %21, 0
-  %or.cond81 = select i1 %tobool55.not, i1 true, i1 %tobool57.not
-  br i1 %or.cond81, label %return, label %if.then59
+  %or.cond82 = select i1 %tobool55.not, i1 true, i1 %tobool57.not
+  br i1 %or.cond82, label %return, label %if.then59
 
 if.then59:                                        ; preds = %if.end54
   %22 = getelementptr inbounds i8, ptr %edata, i64 24
@@ -226,8 +226,9 @@ if.then59:                                        ; preds = %if.end54
   %shl.i.i = select i1 %tobool63.not, i64 0, i64 4096
   %e_sn.i.i59 = getelementptr inbounds i8, ptr %edata, i64 32
   store i64 235, ptr %e_sn.i.i59, align 8
-  %cmp.i61.not = icmp eq i8 %10, 0
-  %or.i23.i62 = select i1 %cmp.i61.not, i64 8192, i64 17592186052608
+  %25 = and i8 %9, 1
+  %.not68 = icmp eq i8 %25, 0
+  %or.i23.i62 = select i1 %.not68, i64 8192, i64 17592186052608
   %and.i14.i58 = or disjoint i64 %or.i23.i62, %shl.i.i
   %and.i22.i60 = or disjoint i64 %and.i14.i58, %conv.i.masked.i57
   store i64 %and.i22.i60, ptr %edata, align 8

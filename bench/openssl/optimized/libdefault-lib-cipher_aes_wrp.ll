@@ -96,7 +96,6 @@ if.then4:                                         ; preds = %if.end2
 if.end5:                                          ; preds = %if.end2
   %pad1.i = getelementptr inbounds i8, ptr %vctx, i64 108
   %bf.load.i = load i8, ptr %pad1.i, align 4
-  %bf.clear.i = and i8 %bf.load.i, 1
   %cmp.i = icmp eq ptr %in, null
   br i1 %cmp.i, label %return, label %if.end4.i
 
@@ -121,8 +120,9 @@ if.then10.i:                                      ; preds = %land.lhs.true.i
 if.end11.i:                                       ; preds = %if.end4.i
   %.pre.i = and i64 %inl, 7
   %1 = icmp eq i64 %.pre.i, 0
-  %tobool12.not.i = icmp ne i8 %bf.clear.i, 0
-  %or.cond21.i = or i1 %1, %tobool12.not.i
+  %2 = and i8 %bf.load.i, 1
+  %3 = icmp ne i8 %2, 0
+  %or.cond21.i = or i1 %1, %3
   br i1 %or.cond21.i, label %if.end17.thread.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end11.i
@@ -142,20 +142,20 @@ if.end17.thread.i:                                ; preds = %if.end11.i
 if.then26.i:                                      ; preds = %if.end17.thread.i
   %add.i = add i64 %inl, 7
   %div20.i = and i64 %add.i, 4294967288
-  %inlen.addr.0.i = select i1 %tobool12.not.i, i64 %div20.i, i64 %inl
+  %inlen.addr.0.i = select i1 %3, i64 %div20.i, i64 %inl
   br label %aes_wrap_cipher_internal.exit
 
 if.end32.i:                                       ; preds = %if.end17.thread.i, %if.end17.i
   %wrapfn.i = getelementptr inbounds i8, ptr %vctx, i64 440
-  %2 = load ptr, ptr %wrapfn.i, align 8
+  %4 = load ptr, ptr %wrapfn.i, align 8
   %ks.i = getelementptr inbounds i8, ptr %vctx, i64 192
-  %3 = and i8 %bf.load.i, 4
-  %tobool37.not.i = icmp eq i8 %3, 0
+  %5 = and i8 %bf.load.i, 4
+  %tobool37.not.i = icmp eq i8 %5, 0
   %iv.i = getelementptr inbounds i8, ptr %vctx, i64 32
   %cond.i = select i1 %tobool37.not.i, ptr null, ptr %iv.i
   %block.i = getelementptr inbounds i8, ptr %vctx, i64 48
-  %4 = load ptr, ptr %block.i, align 8
-  %call.i = tail call i64 %2(ptr noundef nonnull %ks.i, ptr noundef %cond.i, ptr noundef nonnull %out, ptr noundef nonnull %in, i64 noundef %inl, ptr noundef %4) #3
+  %6 = load ptr, ptr %block.i, align 8
+  %call.i = tail call i64 %4(ptr noundef nonnull %ks.i, ptr noundef %cond.i, ptr noundef nonnull %out, ptr noundef nonnull %in, i64 noundef %inl, ptr noundef %6) #3
   %tobool38.not.i = icmp eq i64 %call.i, 0
   br i1 %tobool38.not.i, label %if.then39.i, label %if.end40.i
 
@@ -182,8 +182,8 @@ if.end44.i:                                       ; preds = %if.end40.i
 aes_wrap_cipher_internal.exit:                    ; preds = %if.end17.i, %if.then26.i
   %inlen.addr.0.i.sink = phi i64 [ %inlen.addr.0.i, %if.then26.i ], [ %inl, %if.end17.i ]
   %.sink11 = phi i32 [ 8, %if.then26.i ], [ -8, %if.end17.i ]
-  %5 = trunc i64 %inlen.addr.0.i.sink to i32
-  %conv.i = add i32 %.sink11, %5
+  %7 = trunc i64 %inlen.addr.0.i.sink to i32
+  %conv.i = add i32 %.sink11, %7
   %cmp7 = icmp eq i32 %conv.i, 0
   br i1 %cmp7, label %return, label %if.end10
 

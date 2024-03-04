@@ -7813,8 +7813,9 @@ rb_check_arity.exit:                              ; preds = %4
   %10 = load i64, ptr %1, align 8
   store i64 %10, ptr %6, align 8
   %11 = call i64 @rb_check_id(ptr noundef nonnull %6) #20
-  %12 = icmp eq i32 %0, 1
-  br i1 %12, label %13, label %16
+  %12 = and i32 %0, 1
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %rb_check_arity.exit
   %14 = load i64, ptr @rb_cProc, align 8
@@ -7895,14 +7896,14 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %31, %37
 .critedge:                                        ; preds = %44
   %54 = call i64 @rb_class_inherited_p(i64 noundef %2, i64 noundef %43) #26
   %55 = and i64 %54, -5
-  %.not71 = icmp eq i64 %55, 0
-  br i1 %.not71, label %RB_FL_TEST.exit.thread, label %64
+  %.not72 = icmp eq i64 %55, 0
+  br i1 %.not72, label %RB_FL_TEST.exit.thread, label %64
 
 .critedge.thread:                                 ; preds = %49
   %56 = call i64 @rb_class_inherited_p(i64 noundef %2, i64 noundef %43) #26
   %57 = and i64 %56, -5
-  %.not = icmp eq i64 %57, 0
-  br i1 %.not, label %58, label %64
+  %.not71 = icmp eq i64 %57, 0
+  br i1 %.not71, label %58, label %64
 
 58:                                               ; preds = %.critedge.thread
   %59 = icmp eq i64 %52, 27

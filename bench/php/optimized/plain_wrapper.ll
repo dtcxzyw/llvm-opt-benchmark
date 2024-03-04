@@ -1285,8 +1285,9 @@ define ptr @_php_stream_fopen(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %9 = and i32 %3, 2048
   store ptr null, ptr %8, align 8
   %10 = call i32 @php_stream_parse_fopen_modes(ptr noundef %1, ptr noundef nonnull %6), !range !4
-  %11 = icmp eq i32 %10, -1
-  br i1 %11, label %12, label %13
+  %11 = and i32 %10, 1
+  %.not163 = icmp eq i32 %11, 0
+  br i1 %.not163, label %13, label %12
 
 12:                                               ; preds = %4
   tail call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef nonnull @php_plain_files_wrapper, i32 noundef %3, ptr noundef nonnull @.str.4, ptr noundef %1) #18
@@ -1429,11 +1430,11 @@ _php_stream_fopen_from_fd_int.exit:               ; preds = %45, %47
   br label %73
 
 73:                                               ; preds = %72, %70
-  %.pre163.pre164 = load ptr, ptr %7, align 8
+  %.pre164.pre165 = load ptr, ptr %7, align 8
   br i1 %.not154, label %119, label %74
 
 74:                                               ; preds = %73
-  %75 = getelementptr inbounds i8, ptr %.pre163.pre164, i64 8
+  %75 = getelementptr inbounds i8, ptr %.pre164.pre165, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 12
   %78 = load i32, ptr %77, align 4
@@ -1512,17 +1513,17 @@ do_fstat.exit.thread:                             ; preds = %74, %do_fstat.exit
   %117 = phi i32 [ %95, %do_fstat.exit.thread ], [ %94, %do_fstat.exit ]
   %118 = or i32 %117, 16
   store i32 %118, ptr %77, align 4
-  %.pre163.pre = load ptr, ptr %7, align 8
+  %.pre164.pre = load ptr, ptr %7, align 8
   br label %119
 
 119:                                              ; preds = %116, %73
-  %.pre163 = phi ptr [ %.pre163.pre, %116 ], [ %.pre163.pre164, %73 ]
+  %.pre164 = phi ptr [ %.pre164.pre, %116 ], [ %.pre164.pre165, %73 ]
   %120 = and i32 %3, 32768
   %.not160 = icmp eq i32 %120, 0
   br i1 %.not160, label %132, label %121
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %.pre163, i64 8
+  %122 = getelementptr inbounds i8, ptr %.pre164, i64 8
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 12
   %125 = load i32, ptr %124, align 4
@@ -1544,7 +1545,7 @@ do_fstat.exit.thread:                             ; preds = %74, %do_fstat.exit
   br label %132
 
 132:                                              ; preds = %119, %121, %129, %131, %17, %113, %36, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %113 ], [ %38, %36 ], [ null, %17 ], [ null, %131 ], [ null, %129 ], [ %.pre163, %121 ], [ %.pre163, %119 ]
+  %.0 = phi ptr [ null, %12 ], [ null, %113 ], [ %38, %36 ], [ null, %17 ], [ null, %131 ], [ null, %129 ], [ %.pre164, %121 ], [ %.pre164, %119 ]
   ret ptr %.0
 }
 

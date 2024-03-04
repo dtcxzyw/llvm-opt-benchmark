@@ -695,12 +695,12 @@ define void @smart_str_append_scalar(ptr nocapture noundef %0, ptr nocapture nou
   %26 = add i64 %25, 24
   %27 = tail call ptr @_erealloc2(ptr noundef nonnull %8, i64 noundef %23, i64 noundef %26) #11
   store ptr %27, ptr %0, align 8
-  %.phi.trans.insert217 = getelementptr inbounds i8, ptr %27, i64 16
-  %.pre218 = load i64, ptr %.phi.trans.insert217, align 8
+  %.phi.trans.insert218 = getelementptr inbounds i8, ptr %27, i64 16
+  %.pre219 = load i64, ptr %.phi.trans.insert218, align 8
   br label %smart_str_erealloc.exit
 
 smart_str_erealloc.exit:                          ; preds = %21, %15, %9
-  %28 = phi i64 [ %11, %9 ], [ 0, %15 ], [ %.pre218, %21 ]
+  %28 = phi i64 [ %11, %9 ], [ 0, %15 ], [ %.pre219, %21 ]
   %29 = phi ptr [ %8, %9 ], [ %17, %15 ], [ %27, %21 ]
   %.1159 = phi i64 [ %12, %9 ], [ 4, %15 ], [ %12, %21 ]
   %30 = getelementptr inbounds i8, ptr %29, i64 24
@@ -712,9 +712,10 @@ smart_str_erealloc.exit:                          ; preds = %21, %15, %9
   br label %211
 
 34:                                               ; preds = %3, %3
-  %35 = icmp eq i8 %6, 3
-  %36 = select i1 %35, ptr @.str.4, ptr @.str.5
-  %37 = select i1 %35, i64 4, i64 5
+  %35 = and i8 %6, 1
+  %.not215 = icmp eq i8 %35, 0
+  %36 = select i1 %.not215, ptr @.str.5, ptr @.str.4
+  %37 = select i1 %.not215, i64 5, i64 4
   %38 = load ptr, ptr %0, align 8
   %.not179 = icmp eq ptr %38, null
   br i1 %.not179, label %45, label %39
@@ -751,12 +752,12 @@ smart_str_erealloc.exit:                          ; preds = %21, %15, %9
   %56 = add i64 %55, 24
   %57 = tail call ptr @_erealloc2(ptr noundef nonnull %38, i64 noundef %53, i64 noundef %56) #11
   store ptr %57, ptr %0, align 8
-  %.phi.trans.insert215 = getelementptr inbounds i8, ptr %57, i64 16
-  %.pre216 = load i64, ptr %.phi.trans.insert215, align 8
+  %.phi.trans.insert216 = getelementptr inbounds i8, ptr %57, i64 16
+  %.pre217 = load i64, ptr %.phi.trans.insert216, align 8
   br label %smart_str_erealloc.exit185
 
 smart_str_erealloc.exit185:                       ; preds = %51, %45, %39
-  %58 = phi i64 [ %41, %39 ], [ 0, %45 ], [ %.pre216, %51 ]
+  %58 = phi i64 [ %41, %39 ], [ 0, %45 ], [ %.pre217, %51 ]
   %59 = phi ptr [ %38, %39 ], [ %47, %45 ], [ %57, %51 ]
   %.1157 = phi i64 [ %42, %39 ], [ %37, %45 ], [ %42, %51 ]
   %60 = getelementptr inbounds i8, ptr %59, i64 24

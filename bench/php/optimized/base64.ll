@@ -2479,8 +2479,9 @@ define hidden void @zif_base64_decode(ptr noundef %0, ptr nocapture noundef writ
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %18, i64 24
-  %22 = icmp eq i32 %6, 1
-  br i1 %22, label %.thread151, label %23
+  %22 = and i32 %6, 1
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %23, label %.thread151
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds i8, ptr %0, i64 104

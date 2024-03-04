@@ -101,9 +101,9 @@ if.end34:                                         ; preds = %if.end30
   br i1 %or.cond1, label %if.then38, label %if.else
 
 if.then38:                                        ; preds = %if.end34
-  %cmp37 = icmp eq i32 %2, 1
+  %.not = icmp eq i32 %2, 0
   %3 = load i8, ptr @comment_line_char, align 1
-  %conv40 = select i1 %cmp37, i8 %3, i8 0
+  %conv40 = select i1 %.not, i8 0, i8 %3
   call void @strbuf_stripspace(ptr noundef nonnull %buf, i8 noundef signext %conv40) #7
   br label %if.end41
 

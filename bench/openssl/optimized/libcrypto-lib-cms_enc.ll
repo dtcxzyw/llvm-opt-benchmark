@@ -187,7 +187,7 @@ if.else110:                                       ; preds = %if.then106
 if.end112:                                        ; preds = %lor.lhs.false89, %if.then106, %if.else110, %if.end103
   %key10480 = phi ptr [ %key104, %if.end103 ], [ %key104, %if.else110 ], [ %key104, %if.then106 ], [ %key90, %lor.lhs.false89 ]
   %tkey.1 = phi ptr [ %call93, %if.end103 ], [ null, %if.else110 ], [ null, %if.then106 ], [ null, %lor.lhs.false89 ]
-  %tobool178.not = phi i1 [ true, %if.end103 ], [ true, %if.else110 ], [ false, %if.then106 ], [ true, %lor.lhs.false89 ]
+  %keep_key.0 = phi i1 [ false, %if.end103 ], [ false, %if.else110 ], [ true, %if.then106 ], [ false, %lor.lhs.false89 ]
   %keylen113 = getelementptr inbounds i8, ptr %ec, i64 40
   %17 = load i64, ptr %keylen113, align 8
   %cmp114.not = icmp eq i64 %17, %conv87
@@ -300,7 +300,7 @@ err.thread:                                       ; preds = %err.thread.sink.spl
 
 err:                                              ; preds = %if.end140, %if.then173, %if.end169
   call void @EVP_CIPHER_free(ptr noundef %call21) #3
-  br i1 %tobool178.not, label %if.end185, label %if.end185.thread
+  br i1 %keep_key.0, label %if.end185.thread, label %if.end185
 
 if.end185.thread:                                 ; preds = %err
   call void @CRYPTO_clear_free(ptr noundef %tkey.2, i64 noundef %conv87, ptr noundef nonnull @.str, i32 noundef 198) #3

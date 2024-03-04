@@ -288,23 +288,24 @@ define zeroext i1 @_ZN20migrations_internals29valid_sql_migration_directory17h1c
   %6 = load i8, ptr %5, align 8, !range !11, !noalias !8, !noundef !4
   %.not.i = icmp eq i8 %6, 2
   %.sroa.01.0.i = load ptr, ptr %3, align 8, !noalias !8, !nonnull !4, !noundef !4
-  br i1 %.not.i, label %9, label %7
+  br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ne i8 %6, 0
-  call void @_ZN4core4iter8adapters11try_process17h3ce9858814b74222E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, ptr nonnull %.sroa.01.0.i, i1 zeroext %8)
+  %8 = and i8 %6, 1
+  %9 = icmp ne i8 %8, 0
+  call void @_ZN4core4iter8adapters11try_process17h3ce9858814b74222E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, ptr nonnull %.sroa.01.0.i, i1 zeroext %9)
   br label %_ZN20migrations_internals10file_names17h5988b79bfbe20f10E.exit
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %.sroa.01.0.i, ptr %10, align 8, !alias.scope !8
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %.sroa.01.0.i, ptr %11, align 8, !alias.scope !8
   store i64 -9223372036854775808, ptr %4, align 8, !alias.scope !8
   br label %_ZN20migrations_internals10file_names17h5988b79bfbe20f10E.exit
 
-_ZN20migrations_internals10file_names17h5988b79bfbe20f10E.exit: ; preds = %7, %9
+_ZN20migrations_internals10file_names17h5988b79bfbe20f10E.exit: ; preds = %7, %10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %11 = call zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17hf95d0f3c71a17af4E"(ptr nonnull align 8 %4, i1 zeroext false)
-  ret i1 %11
+  %12 = call zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17hf95d0f3c71a17af4E"(ptr nonnull align 8 %4, i1 zeroext false)
+  ret i1 %12
 }
 
 ; Function Attrs: nonlazybind uwtable

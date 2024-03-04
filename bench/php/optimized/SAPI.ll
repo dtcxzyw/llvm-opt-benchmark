@@ -1948,20 +1948,21 @@ declare void @zend_llist_apply_with_argument(ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define noundef i32 @sapi_register_post_entries(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %.not5 = icmp eq ptr %2, null
-  br i1 %.not5, label %._crit_edge, label %.lr.ph
+  %.not6 = icmp eq ptr %2, null
+  br i1 %.not6, label %._crit_edge, label %.lr.ph
 
 3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds i8, ptr %.06, i64 32
+  %4 = getelementptr inbounds i8, ptr %.07, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %3
-  %.06 = phi ptr [ %4, %3 ], [ %0, %1 ]
-  %6 = tail call i32 @sapi_register_post_entry(ptr noundef nonnull %.06), !range !5
-  %7 = icmp eq i32 %6, -1
-  br i1 %7, label %._crit_edge, label %3
+  %.07 = phi ptr [ %4, %3 ], [ %0, %1 ]
+  %6 = tail call i32 @sapi_register_post_entry(ptr noundef nonnull %.07), !range !5
+  %7 = and i32 %6, 1
+  %.not5 = icmp eq i32 %7, 0
+  br i1 %.not5, label %3, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3, %1
   %.04 = phi i32 [ 0, %1 ], [ 0, %3 ], [ -1, %.lr.ph ]

@@ -8209,19 +8209,20 @@ define internal noundef i32 @virtnet_set_per_queue_coalesce(ptr noundef %0, i32 
   br i1 %115, label %.thread9, label %.thread7
 
 .thread9:                                         ; preds = %112, %97
-  %116 = icmp ne i32 %24, 0
-  %117 = select i1 %23, i1 true, i1 %116
-  br i1 %117, label %.thread7, label %118
+  %116 = and i32 %17, 1
+  %117 = icmp ne i32 %116, 0
+  %118 = select i1 %23, i1 true, i1 %117
+  br i1 %118, label %.thread7, label %119
 
-118:                                              ; preds = %.thread9
-  %119 = load ptr, ptr %18, align 8
-  %120 = getelementptr %struct.send_queue, ptr %119, i64 %20, i32 5, i32 2
-  store i32 %15, ptr %120, align 8
+119:                                              ; preds = %.thread9
+  %120 = load ptr, ptr %18, align 8
+  %121 = getelementptr %struct.send_queue, ptr %120, i64 %20, i32 5, i32 2
+  store i32 %15, ptr %121, align 8
   br label %.thread7
 
-.thread7:                                         ; preds = %.thread, %62, %46, %52, %112, %110, %102, %106, %118, %.thread9, %11, %3
-  %121 = phi i32 [ -22, %3 ], [ -16, %11 ], [ 0, %118 ], [ 0, %.thread9 ], [ -22, %112 ], [ -22, %110 ], [ -95, %102 ], [ -95, %106 ], [ -22, %52 ], [ -22, %46 ], [ -22, %.thread ], [ -22, %62 ]
-  ret i32 %121
+.thread7:                                         ; preds = %.thread, %62, %46, %52, %112, %110, %102, %106, %119, %.thread9, %11, %3
+  %122 = phi i32 [ -22, %3 ], [ -16, %11 ], [ 0, %119 ], [ 0, %.thread9 ], [ -22, %112 ], [ -22, %110 ], [ -95, %102 ], [ -95, %106 ], [ -22, %52 ], [ -22, %46 ], [ -22, %.thread ], [ -22, %62 ]
+  ret i32 %122
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)

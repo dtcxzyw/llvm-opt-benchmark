@@ -615,11 +615,12 @@ define dso_local void @exc_general_protection(ptr noundef %0, i64 noundef %1) lo
   br i1 %29, label %35, label %30
 
 30:                                               ; preds = %27
-  %31 = icmp eq i32 %28, 1
-  %32 = select i1 %31, ptr @.str.25, ptr @.str.26
+  %31 = and i32 %28, 1
+  %.not = icmp eq i32 %31, 0
+  %32 = select i1 %.not, ptr @.str.26, ptr @.str.25
   %33 = load i64, ptr %4, align 8
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 92, ptr noundef nonnull @.str.24, ptr noundef nonnull %32, i64 noundef %33) #18
-  br i1 %31, label %36, label %35
+  br i1 %.not, label %35, label %36
 
 35:                                               ; preds = %.thread, %30, %27
   br label %36

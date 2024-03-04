@@ -2558,8 +2558,9 @@ define dso_local noundef zeroext i1 @gistproperty(i32 noundef %0, i32 noundef %1
   %21 = call zeroext i1 @SearchSysCacheExists(i32 noundef 5, i64 noundef %18, i64 noundef %20, i64 noundef %20, i64 noundef %.0) #10
   %22 = zext i1 %21 to i8
   store i8 %22, ptr %4, align 1
-  %23 = icmp ne i32 %2, 7
-  %brmerge = select i1 %23, i1 true, i1 %21
+  %23 = and i32 %2, 1
+  %.not18 = icmp eq i32 %23, 0
+  %brmerge = select i1 %.not18, i1 true, i1 %21
   br i1 %brmerge, label %.sink.split, label %24
 
 24:                                               ; preds = %16

@@ -7199,9 +7199,9 @@ for.inc:                                          ; preds = %lor.lhs.false256
   br i1 %exitcond.not, label %if.end272, label %for.body, !llvm.loop !11
 
 if.then269:                                       ; preds = %lor.lhs.false183, %lor.lhs.false177, %lor.lhs.false171, %lor.lhs.false167, %lor.lhs.false161, %lor.lhs.false154, %lor.lhs.false150, %lor.lhs.false144, %lor.lhs.false138, %lor.lhs.false132, %land.lhs.true, %lor.lhs.false120, %for.body, %lor.lhs.false206, %lor.lhs.false200, %lor.lhs.false194, %if.end188, %lor.lhs.false231, %lor.lhs.false224, %if.end213, %lor.lhs.false256, %if.end236
-  %1 = and i64 %indvars.iv, 4294967295
-  %cmp270 = icmp eq i64 %1, 1
-  %cond = select i1 %cmp270, ptr @.str.285, ptr @.str.286
+  %1 = and i64 %indvars.iv, 1
+  %.not = icmp eq i64 %1, 0
+  %cond = select i1 %.not, ptr @.str.286, ptr @.str.285
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 147, ptr noundef nonnull %cond) #5
   br label %if.end272
 

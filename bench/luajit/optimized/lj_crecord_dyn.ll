@@ -7144,8 +7144,9 @@ if.then:                                          ; preds = %argv2cdata.exit
   unreachable
 
 if.end:                                           ; preds = %argv2cdata.exit
-  %cmp = icmp eq i16 %3, 11
-  %conv6 = select i1 %cmp, i16 17685, i16 17686
+  %5 = and i16 %3, 1
+  %.not = icmp eq i16 %5, 0
+  %conv6 = select i1 %.not, i16 17686, i16 17685
   store i16 %conv6, ptr %ot1.i12.i, align 4
   store i16 %conv.i, ptr %fold.i11.i, align 8
   store i16 23, ptr %op2.i15.i, align 2

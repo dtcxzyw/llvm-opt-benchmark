@@ -14339,7 +14339,7 @@ define internal fastcc i32 @mb_mark_used(ptr nocapture noundef readonly %0, ptr 
   br i1 %90, label %98, label %91
 
 91:                                               ; preds = %.thread, %71
-  %92 = phi i32 [ 1, %71 ], [ %89, %.thread ]
+  %92 = phi i32 [ %85, %71 ], [ %89, %.thread ]
   %93 = phi i32 [ 1, %71 ], [ -1, %.thread ]
   %94 = load ptr, ptr %35, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 24

@@ -1414,9 +1414,10 @@ if.then8:                                         ; preds = %if.else
   br label %return
 
 if.else12:                                        ; preds = %if.else
-  %bf.cast.i = icmp ne i32 %6, 0
+  %8 = and i32 %bf.load.i, 1
+  %9 = icmp ne i32 %8, 0
   tail call void @llvm.assume(i1 %tobool.not.i)
-  tail call void @llvm.assume(i1 %bf.cast.i)
+  tail call void @llvm.assume(i1 %9)
   %bf.lshr.i17 = lshr i32 %bf.load.i, 2
   %conv.i18 = zext nneg i32 %bf.lshr.i17 to i64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16

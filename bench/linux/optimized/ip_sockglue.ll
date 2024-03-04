@@ -2383,8 +2383,9 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
   br label %458
 
 458:                                              ; preds = %456, %452, %448, %444
-  %459 = icmp eq i32 %2, 35
-  br i1 %459, label %460, label %462
+  %459 = and i32 %2, 1
+  %.not = icmp eq i32 %459, 0
+  br i1 %.not, label %462, label %460
 
 460:                                              ; preds = %458
   %461 = call i32 @ip_mc_join_group(ptr noundef %0, ptr noundef nonnull %11) #14

@@ -2273,8 +2273,9 @@ define internal i32 @packet_setsockopt(ptr nocapture noundef readonly %0, i32 no
   br i1 %42, label %48, label %43
 
 43:                                               ; preds = %37
-  %44 = icmp eq i32 %2, 1
-  br i1 %44, label %45, label %47
+  %44 = and i32 %2, 1
+  %.not = icmp eq i32 %44, 0
+  br i1 %.not, label %47, label %45
 
 45:                                               ; preds = %43
   %46 = call fastcc i32 @packet_mc_add(ptr noundef %22, ptr noundef nonnull %7)

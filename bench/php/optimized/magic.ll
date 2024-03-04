@@ -232,24 +232,25 @@ unreadable_info.exit:                             ; preds = %43, %40, %34, %28, 
   %.071 = phi i1 [ true, %16 ], [ false, %52 ], [ false, %58 ], [ false, %14 ], [ %63, %60 ], [ false, %28 ], [ false, %34 ], [ false, %40 ], [ false, %43 ]
   %.1 = phi i32 [ 0, %16 ], [ %.0, %52 ], [ %.0, %58 ], [ 0, %14 ], [ %.0, %60 ], [ 1, %28 ], [ 1, %34 ], [ 1, %40 ], [ 1, %43 ]
   call void @_efree(ptr noundef nonnull %12) #11
-  %64 = icmp ne i32 %.1, 0
-  %65 = icmp ne ptr %.174, null
-  %or.cond3 = and i1 %65, %64
-  br i1 %or.cond3, label %66, label %68
+  %64 = and i32 %.1, 1
+  %65 = icmp ne i32 %64, 0
+  %66 = icmp ne ptr %.174, null
+  %or.cond3 = and i1 %66, %65
+  br i1 %or.cond3, label %67, label %69
 
-66:                                               ; preds = %unreadable_info.exit
-  %67 = call i32 @_php_stream_free(ptr noundef nonnull %.174, i32 noundef 3) #11
-  br label %68
+67:                                               ; preds = %unreadable_info.exit
+  %68 = call i32 @_php_stream_free(ptr noundef nonnull %.174, i32 noundef 3) #11
+  br label %69
 
-68:                                               ; preds = %unreadable_info.exit, %66
-  br i1 %.071, label %69, label %.thread
+69:                                               ; preds = %unreadable_info.exit, %67
+  br i1 %.071, label %70, label %.thread
 
-69:                                               ; preds = %68
-  %70 = call ptr @file_getbuffer(ptr noundef nonnull %0) #11
+70:                                               ; preds = %69
+  %71 = call ptr @file_getbuffer(ptr noundef nonnull %0) #11
   br label %.thread
 
-.thread:                                          ; preds = %3, %69, %68, %8
-  %.070 = phi ptr [ null, %8 ], [ %70, %69 ], [ null, %68 ], [ null, %3 ]
+.thread:                                          ; preds = %3, %70, %69, %8
+  %.070 = phi ptr [ null, %8 ], [ %71, %70 ], [ null, %69 ], [ null, %3 ]
   ret ptr %.070
 }
 

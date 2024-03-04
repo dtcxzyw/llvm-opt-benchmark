@@ -684,7 +684,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 %10(ptr noundef %.0.val, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %12) #5
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %359, label %15
+  br i1 %14, label %356, label %15
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %4, i64 4
@@ -1205,30 +1205,27 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 343:                                              ; preds = %342, %337, %331
   %344 = phi i8 [ %332, %331 ], [ %332, %337 ], [ 1, %342 ]
-  %345 = icmp ne i8 %291, 0
-  %346 = icmp ne i8 %344, 0
-  %347 = and i1 %345, %346
-  %348 = zext i1 %347 to i8
-  store i8 %348, ptr %1, align 1
-  %349 = or i8 %344, %291
-  %350 = icmp eq i8 %349, 0
-  br i1 %350, label %359, label %351
+  %345 = and i8 %291, %344
+  store i8 %345, ptr %1, align 1
+  %346 = or i8 %344, %291
+  %347 = icmp eq i8 %346, 0
+  br i1 %347, label %356, label %348
 
-351:                                              ; preds = %343
-  %352 = load ptr, ptr %7, align 8
-  %353 = getelementptr inbounds i8, ptr %352, i64 136
-  %354 = load ptr, ptr %353, align 8
-  %355 = load ptr, ptr %11, align 8
-  %356 = call i32 %354(ptr noundef %.0.val, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %355) #5
-  %357 = icmp slt i32 %356, 0
-  %358 = select i1 %357, i32 %356, i32 1
-  br label %359
+348:                                              ; preds = %343
+  %349 = load ptr, ptr %7, align 8
+  %350 = getelementptr inbounds i8, ptr %349, i64 136
+  %351 = load ptr, ptr %350, align 8
+  %352 = load ptr, ptr %11, align 8
+  %353 = call i32 %351(ptr noundef %.0.val, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %352) #5
+  %354 = icmp slt i32 %353, 0
+  %355 = select i1 %354, i32 %353, i32 1
+  br label %356
 
-359:                                              ; preds = %351, %343, %2
-  %360 = phi i32 [ %358, %351 ], [ %13, %2 ], [ 0, %343 ]
+356:                                              ; preds = %348, %343, %2
+  %357 = phi i32 [ %355, %348 ], [ %13, %2 ], [ 0, %343 ]
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %4) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
-  ret i32 %360
+  ret i32 %357
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

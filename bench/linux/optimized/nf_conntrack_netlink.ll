@@ -5809,14 +5809,16 @@ define internal fastcc noundef i32 @ctnetlink_dump_extinfo(ptr noundef %0, ptr n
   %106 = getelementptr inbounds i8, ptr %1, i64 4
   tail call void @_raw_spin_lock_bh(ptr noundef %106) #16
   %107 = tail call fastcc i32 @dump_ct_seq_adj(ptr noundef %0, ptr noundef nonnull %98, i32 noundef 15), !range !36
-  %108 = icmp eq i32 %107, -1
-  br i1 %108, label %114, label %109
+  %108 = and i32 %107, 1
+  %.not = icmp eq i32 %108, 0
+  br i1 %.not, label %109, label %114
 
 109:                                              ; preds = %105
   %110 = getelementptr i8, ptr %98, i64 12
   %111 = tail call fastcc i32 @dump_ct_seq_adj(ptr noundef %0, ptr noundef %110, i32 noundef 16), !range !36
-  %112 = icmp eq i32 %111, -1
-  br i1 %112, label %114, label %113
+  %112 = and i32 %111, 1
+  %.not18 = icmp eq i32 %112, 0
+  br i1 %.not18, label %113, label %114
 
 113:                                              ; preds = %109
   tail call void @_raw_spin_unlock_bh(ptr noundef %106) #16

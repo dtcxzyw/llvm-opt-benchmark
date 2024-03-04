@@ -387,8 +387,9 @@ define ptr @_php_stream_open_wrapper_as_file(ptr noundef %0, ptr noundef %1, i32
 
 9:                                                ; preds = %4
   %10 = call i32 @_php_stream_cast(ptr noundef nonnull %7, i32 noundef -1073741824, ptr noundef nonnull %5, i32 noundef 8), !range !4
-  %11 = icmp eq i32 %10, -1
-  br i1 %11, label %12, label %26
+  %11 = and i32 %10, 1
+  %.not23 = icmp eq i32 %11, 0
+  br i1 %.not23, label %26, label %12
 
 12:                                               ; preds = %9
   %13 = call i32 @_php_stream_free(ptr noundef nonnull %7, i32 noundef 3) #7

@@ -9156,19 +9156,18 @@ define internal fastcc zeroext i1 @ata_id_has_tpm(ptr nocapture noundef readonly
 17:                                               ; preds = %15
   %18 = getelementptr i8, ptr %0, i64 96
   %19 = load i16, ptr %18, align 2
-  %20 = zext i16 %19 to i32
-  %21 = and i32 %20, 49152
-  %22 = icmp eq i32 %21, 16384
-  br i1 %22, label %23, label %.thread
+  %20 = and i16 %19, -16384
+  %21 = icmp eq i16 %20, 16384
+  br i1 %21, label %22, label %.thread
 
-23:                                               ; preds = %17
-  %24 = and i32 %20, 1
-  %25 = icmp ne i32 %24, 0
+22:                                               ; preds = %17
+  %23 = and i16 %19, 1
+  %24 = icmp ne i16 %23, 0
   br label %.thread
 
-.thread:                                          ; preds = %12, %23, %17, %15, %1
-  %26 = phi i1 [ %25, %23 ], [ false, %15 ], [ false, %17 ], [ false, %1 ], [ false, %12 ]
-  ret i1 %26
+.thread:                                          ; preds = %12, %22, %17, %15, %1
+  %25 = phi i1 [ %24, %22 ], [ false, %15 ], [ false, %17 ], [ false, %1 ], [ false, %12 ]
+  ret i1 %25
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)

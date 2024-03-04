@@ -246,11 +246,12 @@ _ZN6icu_758numparse4impl12ParsedNumberaSERKS2_.exit: ; preds = %call5.i.noexc
 
 cleanup:                                          ; preds = %invoke.cont6, %_ZN6icu_758numparse4impl12ParsedNumberaSERKS2_.exit
   %retval.0.in = phi i8 [ %maybeMore.1, %_ZN6icu_758numparse4impl12ParsedNumberaSERKS2_.exit ], [ %maybeMore.0, %invoke.cont6 ]
-  %retval.0 = icmp ne i8 %retval.0.in, 0
+  %13 = and i8 %retval.0.in, 1
+  %14 = icmp ne i8 %13, 0
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %suffix.i) #11
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %prefix.i) #11
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %backup) #11
-  ret i1 %retval.0
+  ret i1 %14
 }
 
 declare noundef i32 @_ZNK6icu_7513StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #1

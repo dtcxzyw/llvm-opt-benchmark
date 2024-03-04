@@ -260,7 +260,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 for.body.i:                                       ; preds = %strbuf_addch.exit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %strbuf_addch.exit ]
   tail call void @strbuf_add(ptr noundef nonnull %jw, ptr noundef nonnull @.str.24, i64 noundef 2) #8
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = load i64, ptr %len.i, align 8
   %cmp.i = icmp ugt i64 %18, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !5
@@ -670,7 +670,7 @@ if.then.i:                                        ; preds = %strbuf_addch.exit.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %strbuf_addch.exit.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %12 = load i64, ptr %len.i, align 8
   %cmp.i = icmp ugt i64 %12, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %increase_indent.exit, !llvm.loop !8
@@ -704,13 +704,12 @@ for.body.lr.ph.i17:                               ; preds = %strbuf_setlen.exit.
 for.body.i19:                                     ; preds = %for.inc.i30, %for.body.lr.ph.i17
   %15 = phi i64 [ %14, %for.body.lr.ph.i17 ], [ %24, %for.inc.i30 ]
   %indvars.iv.i20 = phi i64 [ 0, %for.body.lr.ph.i17 ], [ %indvars.iv.next.i31, %for.inc.i30 ]
-  %eat_it.010.i = phi i32 [ 0, %for.body.lr.ph.i17 ], [ %eat_it.1.i, %for.inc.i30 ]
+  %eat_it.010.i = phi i1 [ false, %for.body.lr.ph.i17 ], [ %or.cond7.i, %for.inc.i30 ]
   %16 = load ptr, ptr %buf.i18, align 8
   %arrayidx.i21 = getelementptr inbounds i8, ptr %16, i64 %indvars.iv.i20
   %17 = load i8, ptr %arrayidx.i21, align 1
-  %tobool.i = icmp ne i32 %eat_it.010.i, 0
   %cmp4.i = icmp eq i8 %17, 32
-  %or.cond.i = select i1 %tobool.i, i1 %cmp4.i, i1 false
+  %or.cond.i = select i1 %eat_it.010.i, i1 %cmp4.i, i1 false
   %cmp7.i = icmp eq i8 %17, 10
   %or.cond7.i = select i1 %or.cond.i, i1 true, i1 %cmp7.i
   br i1 %or.cond7.i, label %for.inc.i30, label %if.end10.i
@@ -748,8 +747,7 @@ strbuf_addch.exit.i26:                            ; preds = %if.then.i.i33, %str
 
 for.inc.i30:                                      ; preds = %strbuf_addch.exit.i26, %for.body.i19
   %24 = phi i64 [ %15, %for.body.i19 ], [ %.pre.i, %strbuf_addch.exit.i26 ]
-  %eat_it.1.i = phi i32 [ 1, %for.body.i19 ], [ 0, %strbuf_addch.exit.i26 ]
-  %indvars.iv.next.i31 = add nuw i64 %indvars.iv.i20, 1
+  %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i20, 1
   %cmp.i32 = icmp ugt i64 %24, %indvars.iv.next.i31
   br i1 %cmp.i32, label %for.body.i19, label %kill_indent.exit, !llvm.loop !9
 
@@ -1119,7 +1117,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 for.body.i:                                       ; preds = %strbuf_addch.exit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %strbuf_addch.exit ]
   tail call void @strbuf_add(ptr noundef nonnull %jw, ptr noundef nonnull @.str.24, i64 noundef 2) #8
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = load i64, ptr %len.i, align 8
   %cmp.i = icmp ugt i64 %18, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !5
@@ -1518,7 +1516,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 for.body.i:                                       ; preds = %strbuf_addch.exit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %strbuf_addch.exit ]
   tail call void @strbuf_add(ptr noundef nonnull %jw, ptr noundef nonnull @.str.24, i64 noundef 2) #8
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %13 = load i64, ptr %len1, align 8
   %cmp.i18 = icmp ugt i64 %13, %indvars.iv.next.i
   br i1 %cmp.i18, label %for.body.i, label %if.end13, !llvm.loop !5

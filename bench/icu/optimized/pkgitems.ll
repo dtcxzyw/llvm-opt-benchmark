@@ -420,8 +420,8 @@ if.end61.i:                                       ; preds = %invoke.cont57.i
   br i1 %cmp65.i, label %if.then75.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end61.i
-  %cmp69.i = icmp eq i8 %56, 1
-  br i1 %cmp69.i, label %land.lhs.true70.i, label %cleanup.i
+  %.not.i = icmp eq i8 %56, 0
+  br i1 %.not.i, label %cleanup.i, label %land.lhs.true70.i
 
 land.lhs.true70.i:                                ; preds = %lor.lhs.false.i
   %arrayidx72.i = getelementptr inbounds i8, ptr %nrb.sroa.5.0, i64 13

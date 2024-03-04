@@ -10669,29 +10669,30 @@ define internal void @nfs4_close_prepare(ptr noundef %0, ptr noundef %1) #0 alig
   br label %42
 
 42:                                               ; preds = %41, %40, %37
-  %43 = phi i1 [ false, %37 ], [ true, %41 ], [ false, %40 ]
   %.pr = phi i32 [ 2, %37 ], [ 3, %41 ], [ 2, %40 ]
-  %44 = phi i32 [ %39, %37 ], [ 0, %41 ], [ 0, %40 ]
-  %45 = getelementptr inbounds i8, ptr %4, i64 128
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %52
+  %43 = phi i32 [ %39, %37 ], [ 0, %41 ], [ 0, %40 ]
+  %44 = getelementptr inbounds i8, ptr %4, i64 128
+  %45 = load i32, ptr %44, align 8
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %51
 
-48:                                               ; preds = %42
-  %49 = lshr exact i64 %27, 4
-  %50 = trunc i64 %49 to i32
-  %51 = or i32 %44, %50
+47:                                               ; preds = %42
+  %48 = lshr exact i64 %27, 4
+  %49 = trunc i64 %48 to i32
+  %50 = or i32 %43, %49
   br label %thread-pre-split.thread
 
-52:                                               ; preds = %42
+51:                                               ; preds = %42
   br i1 %28, label %thread-pre-split.thread, label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %52
+thread-pre-split:                                 ; preds = %51
   store i32 %.pr, ptr %29, align 8
-  br i1 %43, label %60, label %thread-pre-split.thread
+  %52 = and i32 %.pr, 1
+  %.not = icmp eq i32 %52, 0
+  br i1 %.not, label %thread-pre-split.thread, label %60
 
-thread-pre-split.thread:                          ; preds = %52, %48, %thread-pre-split
-  %53 = phi i32 [ %44, %thread-pre-split ], [ %51, %48 ], [ %44, %52 ]
+thread-pre-split.thread:                          ; preds = %51, %47, %thread-pre-split
+  %53 = phi i32 [ %43, %thread-pre-split ], [ %50, %47 ], [ %43, %51 ]
   %54 = lshr exact i64 %22, 5
   %55 = trunc i64 %54 to i32
   %56 = or i32 %53, %55
@@ -10706,7 +10707,7 @@ thread-pre-split.thread:                          ; preds = %52, %48, %thread-pr
   br label %60
 
 60:                                               ; preds = %59, %57, %thread-pre-split.thread, %thread-pre-split
-  %61 = phi i32 [ %56, %thread-pre-split.thread ], [ %44, %thread-pre-split ], [ 0, %59 ], [ 0, %57 ]
+  %61 = phi i32 [ %56, %thread-pre-split.thread ], [ %43, %thread-pre-split ], [ 0, %59 ], [ 0, %57 ]
   %62 = getelementptr inbounds i8, ptr %1, i64 40
   %63 = getelementptr inbounds i8, ptr %4, i64 76
   %64 = getelementptr inbounds i8, ptr %4, i64 108

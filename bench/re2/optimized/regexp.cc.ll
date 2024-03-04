@@ -3305,27 +3305,28 @@ if.end26:                                         ; preds = %while.cond, %while.
   %14 = load i16, ptr %parse_flags_.i, align 2
   %15 = and i16 %14, 32
   %cmp29 = icmp ne i16 %15, 0
-  %cmp32 = icmp eq i8 %5, 3
-  br i1 %cmp32, label %cond.end35.thread, label %cond.false41
+  %16 = and i8 %5, 1
+  %.not = icmp eq i8 %16, 0
+  br i1 %.not, label %cond.false41, label %cond.end35.thread
 
 cond.end35.thread:                                ; preds = %if.end26
-  %16 = getelementptr inbounds i8, ptr %re.0, i64 24
+  %17 = getelementptr inbounds i8, ptr %re.0, i64 24
   br label %cond.end42
 
 cond.false41:                                     ; preds = %if.end26
   %runes_ = getelementptr inbounds i8, ptr %re.0, i64 32
-  %17 = load ptr, ptr %runes_, align 8
-  %18 = getelementptr inbounds i8, ptr %re.0, i64 24
-  %19 = load i32, ptr %18, align 8
+  %18 = load ptr, ptr %runes_, align 8
+  %19 = getelementptr inbounds i8, ptr %re.0, i64 24
+  %20 = load i32, ptr %19, align 8
   br label %cond.end42
 
 cond.end42:                                       ; preds = %cond.end35.thread, %cond.false41
-  %cond3626 = phi ptr [ %17, %cond.false41 ], [ %16, %cond.end35.thread ]
-  %cond43 = phi i32 [ %19, %cond.false41 ], [ 1, %cond.end35.thread ]
+  %cond3626 = phi ptr [ %18, %cond.false41 ], [ %17, %cond.end35.thread ]
+  %cond43 = phi i32 [ %20, %cond.false41 ], [ 1, %cond.end35.thread ]
   tail call void @_ZN3re219ConvertRunesToBytesEbPiiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i1 noundef zeroext %cmp29, ptr noundef %cond3626, i32 noundef %cond43, ptr noundef nonnull %prefix)
-  %20 = load i16, ptr %parse_flags_.i, align 2
-  %21 = trunc i16 %20 to i8
-  %frombool47 = and i8 %21, 1
+  %21 = load i16, ptr %parse_flags_.i, align 2
+  %22 = trunc i16 %21 to i8
+  %frombool47 = and i8 %22, 1
   store i8 %frombool47, ptr %foldcase, align 1
   br label %return
 
@@ -4653,7 +4654,7 @@ for.body:                                         ; preds = %entry, %for.body
   %it.sroa.0.011 = phi ptr [ %call.i6, %for.body ], [ %1, %entry ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %it.sroa.0.011, i64 32
   %2 = load ptr, ptr %ranges_.i, align 8
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds %"struct.re2::RuneRange", ptr %2, i64 %indvars.iv
   %3 = load i64, ptr %_M_storage.i.i, align 4
   store i64 %3, ptr %arrayidx, align 4

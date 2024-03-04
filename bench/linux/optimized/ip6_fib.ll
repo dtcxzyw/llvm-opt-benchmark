@@ -886,9 +886,9 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %12 = lshr i16 %11, 10
   %13 = and i16 %12, 1
   %14 = zext nneg i16 %13 to i32
-  %15 = and i16 %11, 256
-  %16 = lshr exact i16 %15, 8
-  %17 = or disjoint i16 %13, %15
+  %15 = lshr i16 %11, 8
+  %16 = and i16 %15, 1
+  %17 = and i16 %11, 1280
   %.not = icmp eq i16 %17, 0
   br i1 %.not, label %18, label %.thread
 

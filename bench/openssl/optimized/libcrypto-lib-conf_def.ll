@@ -201,7 +201,7 @@ if.end15:                                         ; preds = %if.end15.lr.ph, %fo
   %in.addr.0502 = phi ptr [ %in.addr.0.ph360514, %if.end15.lr.ph ], [ %.us-phi485710, %for.cond.backedge ]
   %bufnum.0501 = phi i32 [ 0, %if.end15.lr.ph ], [ %bufnum.0.be, %for.cond.backedge ]
   %eline.0499 = phi i64 [ %eline.0.ph358512, %if.end15.lr.ph ], [ %eline.1, %for.cond.backedge ]
-  %first_call.0498 = phi i32 [ %first_call.0.ph357511, %if.end15.lr.ph ], [ 0, %for.cond.backedge ]
+  %first_call.0498 = phi i1 [ %first_call.0.ph357511, %if.end15.lr.ph ], [ false, %for.cond.backedge ]
   %tobool47497 = phi i1 [ false, %if.end15.lr.ph ], [ %tobool113.not716, %for.cond.backedge ]
   %1 = load ptr, ptr %data16, align 8
   %idxprom = sext i32 %bufnum.0501 to i64
@@ -224,9 +224,8 @@ if.end23.us:                                      ; preds = %land.lhs.true.us, %
   store i8 0, ptr %arrayidx24, align 1
   %call25.us = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx) #14
   %conv26.us = trunc i64 %call25.us to i32
-  %tobool27.not.us = icmp ne i32 %first_call.0498, 0
   %cmp29.us = icmp sgt i32 %conv26.us, 2
-  %or.cond185.us = select i1 %tobool27.not.us, i1 %cmp29.us, i1 false
+  %or.cond185.us = select i1 %first_call.0498, i1 %cmp29.us, i1 false
   br i1 %or.cond185.us, label %land.lhs.true31.us, label %if.end43.us
 
 land.lhs.true31.us:                               ; preds = %if.end23.us
@@ -248,7 +247,7 @@ if.end43.us:                                      ; preds = %if.then35.us, %land
   br label %while.cond.preheader
 
 read_retry:                                       ; preds = %if.end15, %read_retry.backedge
-  %first_call.1 = phi i32 [ 0, %read_retry.backedge ], [ %first_call.0498, %if.end15 ]
+  %first_call.1 = phi i1 [ false, %read_retry.backedge ], [ %first_call.0498, %if.end15 ]
   %in.addr.1 = phi ptr [ %in.addr.1.be, %read_retry.backedge ], [ %in.addr.0502, %if.end15 ]
   %cmp17.not = icmp eq ptr %in.addr.1, null
   br i1 %cmp17.not, label %if.end23, label %land.lhs.true
@@ -262,9 +261,8 @@ if.end23:                                         ; preds = %land.lhs.true, %rea
   store i8 0, ptr %arrayidx24, align 1
   %call25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx) #14
   %conv26 = trunc i64 %call25 to i32
-  %tobool27.not = icmp ne i32 %first_call.1, 0
   %cmp29 = icmp sgt i32 %conv26, 2
-  %or.cond185 = select i1 %tobool27.not, i1 %cmp29, i1 false
+  %or.cond185 = select i1 %first_call.1, i1 %cmp29, i1 false
   br i1 %or.cond185, label %land.lhs.true31, label %if.end43
 
 land.lhs.true31:                                  ; preds = %if.end23
@@ -791,7 +789,7 @@ if.end152:                                        ; preds = %if.then150, %if.end
   br i1 %cmp153, label %if.then155, label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %for.cond.preheader, %if.end152
-  %first_call.0.ph = phi i32 [ 1, %for.cond.preheader ], [ 0, %if.end152 ]
+  %first_call.0.ph = phi i1 [ true, %for.cond.preheader ], [ false, %if.end152 ]
   %eline.0.ph = phi i64 [ 0, %for.cond.preheader ], [ %eline.1, %if.end152 ]
   %sv.0.ph = phi ptr [ %call9, %for.cond.preheader ], [ %sv.1, %if.end152 ]
   %biosk.0.ph = phi ptr [ null, %for.cond.preheader ], [ %biosk.0.ph359513, %if.end152 ]
@@ -1174,7 +1172,7 @@ if.end15.lr.ph:                                   ; preds = %for.cond.outer, %if
   %in.addr.0.ph360514 = phi ptr [ %in.addr.2, %if.end328 ], [ %in.addr.0.ph, %for.cond.outer ]
   %biosk.0.ph359513 = phi ptr [ %biosk.2, %if.end328 ], [ %biosk.0.ph, %for.cond.outer ]
   %eline.0.ph358512 = phi i64 [ %eline.1, %if.end328 ], [ %eline.0.ph, %for.cond.outer ]
-  %first_call.0.ph357511 = phi i32 [ 0, %if.end328 ], [ %first_call.0.ph, %for.cond.outer ]
+  %first_call.0.ph357511 = phi i1 [ false, %if.end328 ], [ %first_call.0.ph, %for.cond.outer ]
   br label %if.end15
 
 if.else329:                                       ; preds = %if.else239
@@ -1368,8 +1366,8 @@ if.end.i:                                         ; preds = %entry
   %idxprom.i = zext nneg i8 %c to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %1 = load i16, ptr %arrayidx.i, align 2
-  %and2.i = and i16 %1, 1
-  %cond.i = zext nneg i16 %and2.i to i32
+  %2 = and i16 %1, 1
+  %cond.i = zext nneg i16 %2 to i32
   br label %is_keytype.exit
 
 is_keytype.exit:                                  ; preds = %entry, %if.end.i
@@ -1702,7 +1700,7 @@ if.end23:                                         ; preds = %if.then17, %land.rh
   %13 = phi i8 [ %10, %is_keytype.exit142 ], [ %5, %is_keytype.exit132 ], [ %5, %land.rhs ], [ %10, %if.then17 ]
   %from.addr.2 = phi ptr [ %incdec.ptr18, %is_keytype.exit142 ], [ %from.addr.1, %is_keytype.exit132 ], [ %from.addr.1, %land.rhs ], [ %incdec.ptr18, %if.then17 ]
   %14 = load ptr, ptr %data, align 8
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds i8, ptr %14, i64 %indvars.iv
   store i8 %13, ptr %arrayidx, align 1
   br label %while.cond, !llvm.loop !12
@@ -1757,7 +1755,7 @@ if.end51:                                         ; preds = %if.then43, %while.b
   %26 = phi i8 [ %21, %while.body39 ], [ %0, %if.then43 ]
   %from.addr.5 = phi ptr [ %from.addr.4, %while.body39 ], [ %add.ptr, %if.then43 ]
   %27 = load ptr, ptr %data, align 8
-  %indvars.iv.next308 = add i64 %indvars.iv307, 1
+  %indvars.iv.next308 = add nsw i64 %indvars.iv307, 1
   %arrayidx56 = getelementptr inbounds i8, ptr %27, i64 %indvars.iv307
   store i8 %26, ptr %arrayidx56, align 1
   br label %while.cond36, !llvm.loop !13
@@ -2015,7 +2013,7 @@ while.body209:                                    ; preds = %while.body209.prehe
   %p.0291 = phi ptr [ %call186, %while.body209.preheader ], [ %incdec.ptr210, %while.body209 ]
   %incdec.ptr210 = getelementptr inbounds i8, ptr %p.0291, i64 1
   %59 = load ptr, ptr %data, align 8
-  %indvars.iv.next311 = add i64 %indvars.iv310, 1
+  %indvars.iv.next311 = add nsw i64 %indvars.iv310, 1
   %arrayidx214 = getelementptr inbounds i8, ptr %59, i64 %indvars.iv310
   store i8 %58, ptr %arrayidx214, align 1
   %60 = load i8, ptr %incdec.ptr210, align 1

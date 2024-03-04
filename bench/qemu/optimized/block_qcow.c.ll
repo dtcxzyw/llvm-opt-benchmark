@@ -1426,14 +1426,14 @@ if.then30:                                        ; preds = %if.end22
   br label %fail
 
 if.end32:                                         ; preds = %if.end22
-  %cmp26.not = icmp eq i32 %call25, 1
+  %.not = icmp eq i32 %call25, 0
   %7 = load ptr, ptr %next_out, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %call17 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv34 = trunc i64 %sub.ptr.sub to i32
   %call35 = call i32 @deflateEnd(ptr noundef nonnull %strm) #15
-  br i1 %cmp26.not, label %lor.lhs.false38, label %if.then42
+  br i1 %.not, label %if.then42, label %lor.lhs.false38
 
 lor.lhs.false38:                                  ; preds = %if.end32
   %8 = load i32, ptr %cluster_size, align 4

@@ -939,8 +939,8 @@ if.end10:                                         ; preds = %if.end7
   br label %return
 
 err:                                              ; preds = %if.then
-  %cmp11 = icmp eq i64 %dstlen, 1
-  br i1 %cmp11, label %if.then12, label %return
+  %.not = icmp eq i64 %dstlen, 0
+  br i1 %.not, label %return, label %if.then12
 
 if.then12:                                        ; preds = %err
   store i8 0, ptr %dst, align 1
@@ -1750,8 +1750,8 @@ if.end10.i:                                       ; preds = %if.end7.i
   br label %if.end34
 
 err.i:                                            ; preds = %if.then.i
-  %cmp11.i = icmp eq i64 %len, 1
-  br i1 %cmp11.i, label %if.then12.i, label %if.end34
+  %.not.i = icmp eq i64 %len, 0
+  br i1 %.not.i, label %if.end34, label %if.then12.i
 
 if.then12.i:                                      ; preds = %err.i
   store i8 0, ptr %buf, align 1
@@ -2802,8 +2802,9 @@ if.end26:                                         ; preds = %if.end20
 
 if.then31:                                        ; preds = %if.end26
   %call33 = call i32 @dirRemove(ptr noundef nonnull %full_path), !range !33
-  %cmp34 = icmp eq i32 %call33, -1
-  br i1 %cmp34, label %if.then36, label %while.cond.backedge
+  %1 = and i32 %call33, 1
+  %.not = icmp eq i32 %1, 0
+  br i1 %.not, label %while.cond.backedge, label %if.then36
 
 if.then36:                                        ; preds = %if.then31
   %call37 = call i32 @closedir(ptr noundef nonnull %call)

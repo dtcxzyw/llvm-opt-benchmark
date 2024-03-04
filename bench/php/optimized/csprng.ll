@@ -196,13 +196,14 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 define noundef i32 @php_random_int(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = icmp eq i64 %0, %1
-  br i1 %6, label %.loopexit21.sink.split, label %7
+  br i1 %6, label %.loopexit23.sink.split, label %7
 
 7:                                                ; preds = %4
   %8 = sub i64 %1, %0
   %9 = call i32 @php_random_bytes(ptr noundef nonnull %5, i64 noundef 8, i1 noundef zeroext %3), !range !4
-  %10 = icmp eq i32 %9, -1
-  br i1 %10, label %.loopexit21, label %11
+  %10 = and i32 %9, 1
+  %.not21 = icmp eq i32 %10, 0
+  br i1 %.not21, label %11, label %.loopexit23
 
 11:                                               ; preds = %7
   %12 = icmp eq i64 %8, -1
@@ -210,7 +211,7 @@ define noundef i32 @php_random_int(i64 noundef %0, i64 noundef %1, ptr nocapture
 
 13:                                               ; preds = %11
   %14 = load i64, ptr %5, align 8
-  br label %.loopexit21.sink.split
+  br label %.loopexit23.sink.split
 
 15:                                               ; preds = %11
   %16 = add nuw i64 %8, 1
@@ -234,22 +235,23 @@ define noundef i32 @php_random_int(i64 noundef %0, i64 noundef %1, ptr nocapture
 
 24:                                               ; preds = %21
   %25 = call i32 @php_random_bytes(ptr noundef nonnull %5, i64 noundef 8, i1 noundef zeroext %3), !range !4
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %.loopexit21, label %21
+  %26 = and i32 %25, 1
+  %.not22 = icmp eq i32 %26, 0
+  br i1 %.not22, label %21, label %.loopexit23
 
 .loopexit:                                        ; preds = %21, %..loopexit_crit_edge
   %27 = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %22, %21 ]
   %28 = urem i64 %27, %16
   %29 = add i64 %28, %0
-  br label %.loopexit21.sink.split
+  br label %.loopexit23.sink.split
 
-.loopexit21.sink.split:                           ; preds = %4, %13, %.loopexit
+.loopexit23.sink.split:                           ; preds = %4, %13, %.loopexit
   %.sink = phi i64 [ %29, %.loopexit ], [ %14, %13 ], [ %0, %4 ]
   store i64 %.sink, ptr %2, align 8
-  br label %.loopexit21
+  br label %.loopexit23
 
-.loopexit21:                                      ; preds = %24, %.loopexit21.sink.split, %7
-  %.0 = phi i32 [ -1, %7 ], [ 0, %.loopexit21.sink.split ], [ -1, %24 ]
+.loopexit23:                                      ; preds = %24, %.loopexit23.sink.split, %7
+  %.0 = phi i32 [ -1, %7 ], [ 0, %.loopexit23.sink.split ], [ -1, %24 ]
   ret i32 %.0
 }
 

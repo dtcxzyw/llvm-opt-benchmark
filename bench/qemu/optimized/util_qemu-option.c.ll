@@ -677,7 +677,7 @@ if.then5:                                         ; preds = %for.cond.i
   %desc1.i = getelementptr inbounds i8, ptr %opts.val, i64 40
   %2 = load ptr, ptr %desc1.i, align 8
   %cmp.not6.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not6.i.i, label %if.end10, label %for.body.i.preheader.i
+  br i1 %cmp.not6.i.i, label %return, label %for.body.i.preheader.i
 
 for.body.i.preheader.i:                           ; preds = %if.then5
   %call.i4.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %name) #18
@@ -691,7 +691,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.preheade
   %arrayidx.i.i = getelementptr %struct.QemuOptDesc, ptr %desc1.i, i64 %idxprom.i.i
   %3 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i.i, label %if.end10, label %for.body.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i, label %return, label %for.body.i.i, !llvm.loop !9
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %name) #18
@@ -703,17 +703,13 @@ find_default_by_name.exit:                        ; preds = %for.body.i.i, %for.
   %def_value_str.i = getelementptr inbounds i8, ptr %arrayidx8.i.lcssa.i, i64 24
   %4 = load ptr, ptr %def_value_str.i, align 8
   %tobool7.not = icmp eq ptr %4, null
-  br i1 %tobool7.not, label %if.end10, label %if.then8
+  br i1 %tobool7.not, label %return, label %if.then8
 
 if.then8:                                         ; preds = %find_default_by_name.exit
   %call9 = call zeroext i1 @qapi_bool_parse(ptr noundef %name, ptr noundef nonnull %4, ptr noundef nonnull %ret, ptr noundef nonnull @error_abort) #19
   %.pre = load i8, ptr %ret, align 1
-  br label %if.end10
-
-if.end10:                                         ; preds = %for.cond.i.i, %if.then5, %if.then8, %find_default_by_name.exit
-  %5 = phi i8 [ %frombool, %if.then5 ], [ %.pre, %if.then8 ], [ %frombool, %find_default_by_name.exit ], [ %frombool, %for.cond.i.i ]
-  %6 = and i8 %5, 1
-  %tobool11 = icmp ne i8 %6, 0
+  %5 = and i8 %.pre, 1
+  %6 = icmp ne i8 %5, 0
   br label %return
 
 if.end12:                                         ; preds = %for.body.i
@@ -784,11 +780,11 @@ for.inc.i:                                        ; preds = %qemu_opt_del.exit.i
   br i1 %tobool.not.i13, label %if.end22, label %land.rhs.i, !llvm.loop !10
 
 if.end22:                                         ; preds = %for.inc.i, %if.then21, %if.end17
-  %tobool23 = icmp ne i8 %10, 0
+  %19 = icmp ne i8 %10, 0
   br label %return
 
-return:                                           ; preds = %entry, %if.end22, %if.end10
-  %retval.0 = phi i1 [ %tobool11, %if.end10 ], [ %tobool23, %if.end22 ], [ %defval, %entry ]
+return:                                           ; preds = %for.cond.i.i, %find_default_by_name.exit, %if.then8, %if.then5, %entry, %if.end22
+  %retval.0 = phi i1 [ %19, %if.end22 ], [ %defval, %entry ], [ %defval, %if.then5 ], [ %6, %if.then8 ], [ %defval, %find_default_by_name.exit ], [ %defval, %for.cond.i.i ]
   ret i1 %retval.0
 }
 

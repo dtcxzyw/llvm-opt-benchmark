@@ -9924,7 +9924,6 @@ write_metadata_block_data_streaminfo_cb_.exit.i:  ; preds = %for.body.i47.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %add.ptr.i46.i.i, ptr noundef nonnull align 8 dereferenceable(16) %md5sum.i.i, i64 16, i1 false)
   %call.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i.i, i64 noundef 1, i64 noundef 34, ptr noundef %file) #28
   %cmp.not.i.i = icmp eq i64 %call.i.i, 34
-  %..i.i = zext i1 %cmp.not.i.i to i32
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %buffer.i.i)
   br label %write_metadata_block_data_cb_.exit
 
@@ -9953,11 +9952,10 @@ for.end.i.i:                                      ; preds = %for.cond.i.i, %sw.b
   %conv.i28.i = zext nneg i32 %rem.i.i to i64
   %call4.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i26.i, i64 noundef 1, i64 noundef %conv.i28.i, ptr noundef %file) #28
   %cmp6.not.i.i = icmp eq i64 %call4.i.i, %conv.i28.i
-  %..i29.i = zext i1 %cmp6.not.i.i to i32
   br label %write_metadata_block_data_padding_cb_.exit.i
 
 write_metadata_block_data_padding_cb_.exit.i:     ; preds = %for.body.i.i, %for.end.i.i
-  %retval.0.i.i = phi i32 [ %..i29.i, %for.end.i.i ], [ 0, %for.body.i.i ]
+  %retval.0.i.i = phi i1 [ %cmp6.not.i.i, %for.end.i.i ], [ false, %for.body.i.i ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buffer.i26.i)
   br label %write_metadata_block_data_cb_.exit
 
@@ -9979,7 +9977,6 @@ if.end.i.i:                                       ; preds = %sw.bb4.i
   %conv3.i.i = zext i32 %sub.i34.i to i64
   %call4.i35.i = tail call i64 @fwrite(ptr noundef %12, i64 noundef 1, i64 noundef %conv3.i.i, ptr noundef %file) #28
   %cmp6.not.i36.i = icmp eq i64 %call4.i35.i, %conv3.i.i
-  %..i37.i = zext i1 %cmp6.not.i36.i to i32
   br label %write_metadata_block_data_cb_.exit
 
 sw.bb8.i:                                         ; preds = %entry
@@ -10062,7 +10059,7 @@ pack_uint32_.exit.i50.i:                          ; preds = %for.body.i20.i.i
   br i1 %cmp11.not.i.i, label %for.cond.i53.i, label %write_metadata_block_data_seektable_cb_.exit.i
 
 write_metadata_block_data_seektable_cb_.exit.i:   ; preds = %pack_uint32_.exit.i50.i, %for.cond.i53.i, %sw.bb8.i
-  %retval.0.i52.i = phi i32 [ 1, %sw.bb8.i ], [ 1, %for.cond.i53.i ], [ 0, %pack_uint32_.exit.i50.i ]
+  %retval.0.i52.i = phi i1 [ true, %sw.bb8.i ], [ %cmp11.not.i.i, %for.cond.i53.i ], [ %cmp11.not.i.i, %pack_uint32_.exit.i50.i ]
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %buffer.i38.i)
   br label %write_metadata_block_data_cb_.exit
 
@@ -10224,7 +10221,7 @@ if.end39.i.i:                                     ; preds = %pack_uint32_little_
   br i1 %cmp55.not.i.i, label %for.cond.i69.i, label %write_metadata_block_data_vorbis_comment_cb_.exit.i
 
 write_metadata_block_data_vorbis_comment_cb_.exit.i: ; preds = %if.end39.i.i, %pack_uint32_little_endian_.exit53.loopexit.i.i, %for.cond.i69.i, %if.end39.us.i.i, %for.cond.us.i.i, %for.body.us.i.i, %for.cond.preheader.i.i, %pack_uint32_little_endian_.exit42.i.i, %if.end.i65.i, %pack_uint32_little_endian_.exit.i.i
-  %retval.0.i64.i = phi i32 [ 0, %pack_uint32_little_endian_.exit.i.i ], [ 0, %if.end.i65.i ], [ 0, %pack_uint32_little_endian_.exit42.i.i ], [ 1, %for.cond.preheader.i.i ], [ 0, %for.body.us.i.i ], [ 0, %if.end39.us.i.i ], [ 1, %for.cond.us.i.i ], [ 0, %pack_uint32_little_endian_.exit53.loopexit.i.i ], [ 0, %if.end39.i.i ], [ 1, %for.cond.i69.i ]
+  %retval.0.i64.i = phi i1 [ false, %pack_uint32_little_endian_.exit.i.i ], [ false, %if.end.i65.i ], [ false, %pack_uint32_little_endian_.exit42.i.i ], [ true, %for.cond.preheader.i.i ], [ false, %for.body.us.i.i ], [ false, %if.end39.us.i.i ], [ true, %for.cond.us.i.i ], [ false, %pack_uint32_little_endian_.exit53.loopexit.i.i ], [ false, %if.end39.i.i ], [ true, %for.cond.i69.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i54.i)
   br label %write_metadata_block_data_cb_.exit
 
@@ -10548,7 +10545,7 @@ for.inc144.i.i:                                   ; preds = %for.cond102.i.i, %f
   br i1 %cmp39.i.i, label %for.body.i91.i, label %write_metadata_block_data_cuesheet_cb_.exit.i, !llvm.loop !30
 
 write_metadata_block_data_cuesheet_cb_.exit.i:    ; preds = %for.inc144.i.i, %pack_uint32_.exit140.i.i, %if.end70.i.i, %if.end61.i.i, %pack_uint32_.exit126.i.i, %pack_uint64_.exit112.i.i, %if.end132.i.i, %pack_uint32_.exit168.i.i, %pack_uint64_.exit154.i.i, %for.cond.preheader.i89.i, %pack_uint32_.exit.i88.i, %if.end19.i.i, %pack_uint64_.exit.i87.i, %sw.bb14.i
-  %retval.0.i75.i = phi i32 [ 0, %sw.bb14.i ], [ 0, %pack_uint64_.exit.i87.i ], [ 0, %if.end19.i.i ], [ 0, %pack_uint32_.exit.i88.i ], [ 1, %for.cond.preheader.i89.i ], [ 0, %pack_uint64_.exit154.i.i ], [ 0, %pack_uint32_.exit168.i.i ], [ 0, %if.end132.i.i ], [ 0, %pack_uint64_.exit112.i.i ], [ 0, %pack_uint32_.exit126.i.i ], [ 0, %if.end61.i.i ], [ 0, %if.end70.i.i ], [ 0, %pack_uint32_.exit140.i.i ], [ 1, %for.inc144.i.i ]
+  %retval.0.i75.i = phi i1 [ false, %sw.bb14.i ], [ false, %pack_uint64_.exit.i87.i ], [ false, %if.end19.i.i ], [ false, %pack_uint32_.exit.i88.i ], [ true, %for.cond.preheader.i89.i ], [ false, %pack_uint64_.exit154.i.i ], [ false, %pack_uint32_.exit168.i.i ], [ false, %if.end132.i.i ], [ false, %pack_uint64_.exit112.i.i ], [ false, %pack_uint32_.exit126.i.i ], [ false, %if.end61.i.i ], [ false, %if.end70.i.i ], [ false, %pack_uint32_.exit140.i.i ], [ true, %for.inc144.i.i ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buffer.i71.i)
   br label %write_metadata_block_data_cb_.exit
 
@@ -10858,11 +10855,10 @@ if.end89.i.i:                                     ; preds = %pack_uint32_.exit16
   %98 = load i32, ptr %data_length.i.i, align 8
   %conv94.i.i = zext i32 %98 to i64
   %cmp95.not.i.i = icmp eq i64 %call92.i.i, %conv94.i.i
-  %..i118.i = zext i1 %cmp95.not.i.i to i32
   br label %write_metadata_block_data_picture_cb_.exit.i
 
 write_metadata_block_data_picture_cb_.exit.i:     ; preds = %if.end89.i.i, %pack_uint32_.exit166.i.i, %pack_uint32_.exit152.i.i, %pack_uint32_.exit138.i.i, %pack_uint32_.exit124.i.i, %pack_uint32_.exit110.i.i, %if.end33.i.i, %pack_uint32_.exit96.i.i, %if.end15.i.i, %pack_uint32_.exit82.i.i, %pack_uint32_.exit.i109.i
-  %retval.0.i112.i = phi i32 [ 0, %pack_uint32_.exit.i109.i ], [ 0, %pack_uint32_.exit82.i.i ], [ 0, %if.end15.i.i ], [ 0, %pack_uint32_.exit96.i.i ], [ 0, %if.end33.i.i ], [ 0, %pack_uint32_.exit110.i.i ], [ 0, %pack_uint32_.exit124.i.i ], [ 0, %pack_uint32_.exit138.i.i ], [ 0, %pack_uint32_.exit152.i.i ], [ 0, %pack_uint32_.exit166.i.i ], [ %..i118.i, %if.end89.i.i ]
+  %retval.0.i112.i = phi i1 [ false, %pack_uint32_.exit.i109.i ], [ false, %pack_uint32_.exit82.i.i ], [ false, %if.end15.i.i ], [ false, %pack_uint32_.exit96.i.i ], [ false, %if.end33.i.i ], [ false, %pack_uint32_.exit110.i.i ], [ false, %pack_uint32_.exit124.i.i ], [ false, %pack_uint32_.exit138.i.i ], [ false, %pack_uint32_.exit152.i.i ], [ false, %pack_uint32_.exit166.i.i ], [ %cmp95.not.i.i, %if.end89.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i95.i)
   br label %write_metadata_block_data_cb_.exit
 
@@ -10874,14 +10870,12 @@ sw.default.i:                                     ; preds = %entry
   %conv.i120.i = zext i32 %99 to i64
   %call.i121.i = tail call i64 @fwrite(ptr noundef %data20.val.i, i64 noundef 1, i64 noundef %conv.i120.i, ptr noundef %file) #28
   %cmp.not.i122.i = icmp eq i64 %call.i121.i, %conv.i120.i
-  %..i123.i = zext i1 %cmp.not.i122.i to i32
   br label %write_metadata_block_data_cb_.exit
 
 write_metadata_block_data_cb_.exit:               ; preds = %write_metadata_block_data_streaminfo_cb_.exit.i, %write_metadata_block_data_padding_cb_.exit.i, %sw.bb4.i, %if.end.i.i, %write_metadata_block_data_seektable_cb_.exit.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i, %write_metadata_block_data_cuesheet_cb_.exit.i, %write_metadata_block_data_picture_cb_.exit.i, %sw.default.i
-  %retval.0.i = phi i32 [ %..i123.i, %sw.default.i ], [ %retval.0.i112.i, %write_metadata_block_data_picture_cb_.exit.i ], [ %retval.0.i75.i, %write_metadata_block_data_cuesheet_cb_.exit.i ], [ %retval.0.i64.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i ], [ %retval.0.i52.i, %write_metadata_block_data_seektable_cb_.exit.i ], [ %retval.0.i.i, %write_metadata_block_data_padding_cb_.exit.i ], [ %..i.i, %write_metadata_block_data_streaminfo_cb_.exit.i ], [ 0, %sw.bb4.i ], [ %..i37.i, %if.end.i.i ]
-  %tobool.not = icmp ne i32 %retval.0.i, 0
-  %. = select i1 %tobool.not, i32 0, i32 8
-  %.2 = zext i1 %tobool.not to i32
+  %retval.0.i = phi i1 [ %cmp.not.i122.i, %sw.default.i ], [ %retval.0.i112.i, %write_metadata_block_data_picture_cb_.exit.i ], [ %retval.0.i75.i, %write_metadata_block_data_cuesheet_cb_.exit.i ], [ %retval.0.i64.i, %write_metadata_block_data_vorbis_comment_cb_.exit.i ], [ %retval.0.i52.i, %write_metadata_block_data_seektable_cb_.exit.i ], [ %retval.0.i.i, %write_metadata_block_data_padding_cb_.exit.i ], [ %cmp.not.i.i, %write_metadata_block_data_streaminfo_cb_.exit.i ], [ false, %sw.bb4.i ], [ %cmp6.not.i36.i, %if.end.i.i ]
+  %. = select i1 %retval.0.i, i32 0, i32 8
+  %.2 = zext i1 %retval.0.i to i32
   store i32 %., ptr %status, align 4
   ret i32 %.2
 }

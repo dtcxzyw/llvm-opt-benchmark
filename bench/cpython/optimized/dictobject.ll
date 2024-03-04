@@ -13534,9 +13534,10 @@ if.then24:                                        ; preds = %sw.bb
 
 if.end26:                                         ; preds = %if.then24, %sw.bb
   %ok.0 = phi i32 [ %call25, %if.then24 ], [ 0, %sw.bb ]
-  %cmp27 = icmp eq i32 %op, 3
+  %1 = and i32 %op, 1
+  %2 = icmp ne i32 %1, 0
   %cmp29 = icmp sgt i32 %ok.0, -1
-  %or.cond = select i1 %cmp27, i1 %cmp29, i1 false
+  %or.cond = select i1 %2, i1 %cmp29, i1 false
   br i1 %or.cond, label %if.then30, label %sw.epilog
 
 if.then30:                                        ; preds = %if.end26
@@ -13585,24 +13586,24 @@ if.end55:                                         ; preds = %if.then30, %sw.epil
   %ok.150 = phi i32 [ %ok.1, %sw.epilog ], [ %lnot.ext, %if.then30 ]
   %ok.150.fr = freeze i32 %ok.150
   %tobool56.not = icmp eq i32 %ok.150.fr, 0
-  br i1 %tobool56.not, label %if.end55.thread, label %1
+  br i1 %tobool56.not, label %if.end55.thread, label %3
 
 if.end55.thread:                                  ; preds = %if.end22, %sw.bb48, %sw.bb43, %sw.bb38, %sw.bb33, %if.end55
-  br label %1
+  br label %3
 
-1:                                                ; preds = %if.end55, %if.end55.thread
-  %2 = phi ptr [ @_Py_FalseStruct, %if.end55.thread ], [ @_Py_TrueStruct, %if.end55 ]
-  %3 = load i32, ptr %2, align 8
-  %add.i.i = add i32 %3, 1
+3:                                                ; preds = %if.end55, %if.end55.thread
+  %4 = phi ptr [ @_Py_FalseStruct, %if.end55.thread ], [ @_Py_TrueStruct, %if.end55 ]
+  %5 = load i32, ptr %4, align 8
+  %add.i.i = add i32 %5, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %1
-  store i32 %add.i.i, ptr %2, align 8
+if.end.i.i:                                       ; preds = %3
+  store i32 %add.i.i, ptr %4, align 8
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %1, %sw.epilog, %if.end18, %if.end, %PyObject_TypeCheck.exit43
-  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit43 ], [ null, %if.end ], [ null, %if.end18 ], [ null, %sw.epilog ], [ %2, %1 ], [ %2, %if.end.i.i ]
+return:                                           ; preds = %if.end.i.i, %3, %sw.epilog, %if.end18, %if.end, %PyObject_TypeCheck.exit43
+  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit43 ], [ null, %if.end ], [ null, %if.end18 ], [ null, %sw.epilog ], [ %4, %3 ], [ %4, %if.end.i.i ]
   ret ptr %retval.0
 }
 
@@ -17389,8 +17390,9 @@ _PyDictView_New.exit:                             ; preds = %if.then.i, %if.then
 define internal ptr @dict_update(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %call = tail call fastcc i32 @dict_update_common(ptr noundef %self, ptr noundef %args, ptr noundef %kwds, ptr noundef nonnull @.str.57), !range !21
-  %cmp.not = icmp eq i32 %call, -1
-  %._Py_NoneStruct = select i1 %cmp.not, ptr null, ptr @_Py_NoneStruct
+  %0 = and i32 %call, 1
+  %.not = icmp eq i32 %0, 0
+  %._Py_NoneStruct = select i1 %.not, ptr @_Py_NoneStruct, ptr null
   ret ptr %._Py_NoneStruct
 }
 

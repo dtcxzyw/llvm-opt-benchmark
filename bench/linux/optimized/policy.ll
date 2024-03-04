@@ -507,8 +507,9 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
 
 52:                                               ; preds = %51, %38
   %53 = phi i32 [ 0, %38 ], [ 13, %51 ]
-  %54 = icmp eq i8 %39, 9
-  %55 = select i1 %54, i32 14, i32 %53
+  %54 = and i8 %39, 1
+  %.not = icmp eq i8 %54, 0
+  %55 = select i1 %.not, i32 %53, i32 14
   %56 = icmp eq ptr %0, null
   br i1 %56, label %154, label %57
 

@@ -5762,8 +5762,9 @@ define hidden void @zend_optimize_dfa(ptr noundef %0, ptr noundef %1) local_unna
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 @zend_dfa_analyze_op_array(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %3), !range !4
-  %7 = icmp eq i32 %6, -1
-  br i1 %7, label %8, label %22
+  %7 = and i32 %6, 1
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %22, label %8
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %1, align 8
@@ -5772,20 +5773,20 @@ define hidden void @zend_optimize_dfa(ptr noundef %0, ptr noundef %1) local_unna
   %12 = icmp ugt ptr %5, %11
   %13 = icmp ule ptr %5, %9
   %14 = or i1 %13, %12
-  br i1 %14, label %.lr.ph47, label %._crit_edge48
+  br i1 %14, label %.lr.ph, label %._crit_edge
 
-.lr.ph47:                                         ; preds = %8, %.lr.ph47
-  %.045 = phi ptr [ %16, %.lr.ph47 ], [ %9, %8 ]
-  %15 = getelementptr inbounds i8, ptr %.045, i64 16
+.lr.ph:                                           ; preds = %8, %.lr.ph
+  %.044 = phi ptr [ %16, %.lr.ph ], [ %9, %8 ]
+  %15 = getelementptr inbounds i8, ptr %.044, i64 16
   %16 = load ptr, ptr %15, align 8
-  call void @_efree(ptr noundef nonnull %.045) #10
+  call void @_efree(ptr noundef nonnull %.044) #10
   store ptr %16, ptr %1, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = icmp ugt ptr %5, %18
   %20 = icmp ule ptr %5, %16
   %21 = or i1 %20, %19
-  br i1 %21, label %.lr.ph47, label %._crit_edge48
+  br i1 %21, label %.lr.ph, label %._crit_edge
 
 22:                                               ; preds = %2
   call void @zend_dfa_optimize_op_array(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef null)
@@ -5795,23 +5796,23 @@ define hidden void @zend_optimize_dfa(ptr noundef %0, ptr noundef %1) local_unna
   %26 = icmp ugt ptr %5, %25
   %27 = icmp ule ptr %5, %23
   %28 = or i1 %27, %26
-  br i1 %28, label %.lr.ph, label %._crit_edge48
+  br i1 %28, label %.lr.ph47, label %._crit_edge
 
-.lr.ph:                                           ; preds = %22, %.lr.ph
-  %.04044 = phi ptr [ %30, %.lr.ph ], [ %23, %22 ]
-  %29 = getelementptr inbounds i8, ptr %.04044, i64 16
+.lr.ph47:                                         ; preds = %22, %.lr.ph47
+  %.04045 = phi ptr [ %30, %.lr.ph47 ], [ %23, %22 ]
+  %29 = getelementptr inbounds i8, ptr %.04045, i64 16
   %30 = load ptr, ptr %29, align 8
-  call void @_efree(ptr noundef nonnull %.04044) #10
+  call void @_efree(ptr noundef nonnull %.04045) #10
   store ptr %30, ptr %1, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp ugt ptr %5, %32
   %34 = icmp ule ptr %5, %30
   %35 = or i1 %34, %33
-  br i1 %35, label %.lr.ph, label %._crit_edge48
+  br i1 %35, label %.lr.ph47, label %._crit_edge
 
-._crit_edge48:                                    ; preds = %.lr.ph, %.lr.ph47, %22, %8
-  %.040.lcssa.sink = phi ptr [ %9, %8 ], [ %23, %22 ], [ %16, %.lr.ph47 ], [ %30, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph47, %22, %8
+  %.040.lcssa.sink = phi ptr [ %9, %8 ], [ %23, %22 ], [ %30, %.lr.ph47 ], [ %16, %.lr.ph ]
   store ptr %5, ptr %.040.lcssa.sink, align 8
   ret void
 }

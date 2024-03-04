@@ -1563,21 +1563,21 @@ entry:
   %mul.i33.sink.i = mul nuw nsw i128 %mul.i33.sink.in.i, 1000000000
   %coerce2.sroa.0.0.insert.ext.i45.i = zext i32 %.sink.i to i128
   %coerce.sroa.0.0.insert.insert.i47.i = add nuw nsw i128 %mul.i33.sink.i, %coerce2.sroa.0.0.insert.ext.i45.i
+  %cmp = icmp slt i64 %r, 1
   %sub.sink = tail call i64 @llvm.abs.i64(i64 %r, i1 true)
+  %negative.1 = xor i1 %or.cond, %cmp
   %coerce2.sroa.0.0.insert.ext.i.i16 = zext nneg i64 %sub.sink to i128
   %mul.i.i18 = mul i128 %coerce.sroa.0.0.insert.insert.i47.i, %coerce2.sroa.0.0.insert.ext.i.i16
-  %3 = icmp sgt i64 %r, 0
-  %tobool3.not = xor i1 %or.cond, %3
   %mul.i.i18.frozen = freeze i128 %mul.i.i18
   %div.i.i = udiv i128 %mul.i.i18.frozen, 1000000000
   %coerce3.sroa.0.0.extract.trunc.i.i26 = trunc i128 %div.i.i to i64
-  %4 = mul i128 %div.i.i, 1000000000
-  %rem.i.i.decomposed = sub i128 %mul.i.i18.frozen, %4
+  %3 = mul i128 %div.i.i, 1000000000
+  %rem.i.i.decomposed = sub i128 %mul.i.i18.frozen, %3
   %conv.i = trunc i128 %rem.i.i.decomposed to i32
   %sub.i27 = sub nsw i64 0, %coerce3.sroa.0.0.extract.trunc.i.i26
   %sub9.i = sub nsw i32 0, %conv.i
-  %nanos.0.i = select i1 %tobool3.not, i32 %conv.i, i32 %sub9.i
-  %seconds.0.i = select i1 %tobool3.not, i64 %coerce3.sroa.0.0.extract.trunc.i.i26, i64 %sub.i27
+  %nanos.0.i = select i1 %negative.1, i32 %sub9.i, i32 %conv.i
+  %seconds.0.i = select i1 %negative.1, i64 %sub.i27, i64 %coerce3.sroa.0.0.extract.trunc.i.i26
   store i64 %seconds.0.i, ptr %0, align 8
   store i32 %nanos.0.i, ptr %nanos_.i.i.i, align 8
   ret ptr %d
@@ -1727,21 +1727,21 @@ entry:
   %mul.i33.sink.i = mul nuw nsw i128 %mul.i33.sink.in.i, 1000000000
   %coerce2.sroa.0.0.insert.ext.i45.i = zext i32 %.sink.i to i128
   %coerce.sroa.0.0.insert.insert.i47.i = add nuw nsw i128 %mul.i33.sink.i, %coerce2.sroa.0.0.insert.ext.i45.i
+  %cmp = icmp slt i64 %r, 1
   %sub.sink = tail call i64 @llvm.abs.i64(i64 %r, i1 true)
+  %negative.1 = xor i1 %or.cond, %cmp
   %coerce2.sroa.0.0.insert.ext.i.i16 = zext nneg i64 %sub.sink to i128
   %div.i.i18 = udiv i128 %coerce.sroa.0.0.insert.insert.i47.i, %coerce2.sroa.0.0.insert.ext.i.i16
-  %3 = icmp sgt i64 %r, 0
-  %tobool3.not = xor i1 %or.cond, %3
   %div.i.i18.frozen = freeze i128 %div.i.i18
   %div.i.i26 = udiv i128 %div.i.i18.frozen, 1000000000
   %coerce3.sroa.0.0.extract.trunc.i.i27 = trunc i128 %div.i.i26 to i64
-  %4 = mul i128 %div.i.i26, 1000000000
-  %rem.i.i.decomposed = sub i128 %div.i.i18.frozen, %4
+  %3 = mul i128 %div.i.i26, 1000000000
+  %rem.i.i.decomposed = sub i128 %div.i.i18.frozen, %3
   %conv.i = trunc i128 %rem.i.i.decomposed to i32
   %sub.i28 = sub nsw i64 0, %coerce3.sroa.0.0.extract.trunc.i.i27
   %sub9.i = sub nsw i32 0, %conv.i
-  %nanos.0.i = select i1 %tobool3.not, i32 %conv.i, i32 %sub9.i
-  %seconds.0.i = select i1 %tobool3.not, i64 %coerce3.sroa.0.0.extract.trunc.i.i27, i64 %sub.i28
+  %nanos.0.i = select i1 %negative.1, i32 %sub9.i, i32 %conv.i
+  %seconds.0.i = select i1 %negative.1, i64 %sub.i28, i64 %coerce3.sroa.0.0.extract.trunc.i.i27
   store i64 %seconds.0.i, ptr %0, align 8
   store i32 %nanos.0.i, ptr %nanos_.i.i.i, align 8
   ret ptr %d

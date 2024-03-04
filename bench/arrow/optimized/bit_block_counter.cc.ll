@@ -135,10 +135,12 @@ define void @_ZN5arrow8internal29OptionalBinaryBitBlockCounterC2EPKhlS3_ll(ptr n
 entry:
   %cmp = icmp ne ptr %left_bitmap, null
   %cmp2 = icmp ne ptr %right_bitmap, null
-  %switch.selectcmp.i = xor i1 %cmp, %cmp2
-  %switch.select.i = zext i1 %switch.selectcmp.i to i32
-  %0 = or i1 %cmp, %cmp2
-  %switch.select2.i = select i1 %0, i32 %switch.select.i, i32 2
+  %conv.i = zext i1 %cmp to i32
+  %conv3.i = zext i1 %cmp2 to i32
+  %add.i = add nuw nsw i32 %conv3.i, %conv.i
+  %0 = and i32 %add.i, 1
+  %switch.selectcmp1.i = icmp eq i32 %add.i, 0
+  %switch.select2.i = select i1 %switch.selectcmp1.i, i32 2, i32 %0
   store i32 %switch.select2.i, ptr %this, align 8
   %position_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %position_, align 8
@@ -217,10 +219,12 @@ cond.end9:                                        ; preds = %cond.end, %cond.tru
   %cond10 = phi ptr [ %cond.i7, %cond.true5 ], [ null, %cond.end ]
   %cmp.i8 = icmp ne ptr %cond, null
   %cmp2.i = icmp ne ptr %cond10, null
-  %switch.selectcmp.i.i = xor i1 %cmp.i8, %cmp2.i
-  %switch.select.i.i = zext i1 %switch.selectcmp.i.i to i32
-  %8 = or i1 %cmp.i8, %cmp2.i
-  %switch.select2.i.i = select i1 %8, i32 %switch.select.i.i, i32 2
+  %conv.i.i = zext i1 %cmp.i8 to i32
+  %conv3.i.i = zext i1 %cmp2.i to i32
+  %add.i.i = add nuw nsw i32 %conv3.i.i, %conv.i.i
+  %8 = and i32 %add.i.i, 1
+  %switch.selectcmp1.i.i = icmp eq i32 %add.i.i, 0
+  %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i32 2, i32 %8
   store i32 %switch.select2.i.i, ptr %this, align 8
   %position_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %position_.i, align 8

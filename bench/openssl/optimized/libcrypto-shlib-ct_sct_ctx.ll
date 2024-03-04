@@ -214,16 +214,14 @@ ct_x509_get_ext.exit26:                           ; preds = %ct_x509_get_ext.exi
   %cmp2 = icmp slt i32 %call.i, -1
   %cmp3 = icmp slt i32 %call.i20, -1
   %or.cond = or i1 %cmp2, %cmp3
-  br i1 %or.cond, label %return, label %if.end5
-
-if.end5:                                          ; preds = %ct_x509_get_ext.exit26
-  %or.cond1 = select i1 %land.ext.i, i1 true, i1 %land.ext.i22
+  %0 = select i1 %or.cond, i1 true, i1 %land.ext.i
+  %or.cond28 = select i1 %0, i1 true, i1 %land.ext.i22
   %cmp11 = icmp eq i32 %call.i20, -1
   %or.cond2 = and i1 %cmp1.i, %cmp11
-  %or.cond27 = or i1 %or.cond2, %or.cond1
-  br i1 %or.cond27, label %return, label %if.end13
+  %or.cond29 = or i1 %or.cond2, %or.cond28
+  br i1 %or.cond29, label %return, label %if.end13
 
-if.end13:                                         ; preds = %if.end5
+if.end13:                                         ; preds = %ct_x509_get_ext.exit26
   %cmp14 = icmp eq i32 %call.i, -1
   %or.cond3 = and i1 %cmp14, %cmp1.i21
   br i1 %or.cond3, label %return, label %if.end18
@@ -258,8 +256,8 @@ lor.lhs.false35:                                  ; preds = %if.end32
 if.end40:                                         ; preds = %lor.lhs.false35, %if.end23
   br label %return
 
-return:                                           ; preds = %if.end32, %lor.lhs.false35, %if.then25, %if.end18, %if.end13, %if.end5, %ct_x509_get_ext.exit26, %entry, %if.end40
-  %retval.0 = phi i32 [ 1, %if.end40 ], [ 1, %entry ], [ 0, %ct_x509_get_ext.exit26 ], [ 0, %if.end5 ], [ 0, %if.end13 ], [ 0, %if.end18 ], [ 0, %if.then25 ], [ 0, %lor.lhs.false35 ], [ 0, %if.end32 ]
+return:                                           ; preds = %if.end32, %lor.lhs.false35, %if.then25, %if.end18, %if.end13, %ct_x509_get_ext.exit26, %entry, %if.end40
+  %retval.0 = phi i32 [ 1, %if.end40 ], [ 1, %entry ], [ 0, %ct_x509_get_ext.exit26 ], [ 0, %if.end13 ], [ 0, %if.end18 ], [ 0, %if.then25 ], [ 0, %lor.lhs.false35 ], [ 0, %if.end32 ]
   ret i32 %retval.0
 }
 

@@ -631,11 +631,12 @@ invoke.cont218:                                   ; preds = %invoke.cont204
   br label %if.end222
 
 if.end222:                                        ; preds = %invoke.cont218, %invoke.cont204
-  %tobool224 = icmp ne i8 %270, 0
+  %280 = and i8 %269, 1
+  %281 = icmp ne i8 %280, 0
   br label %return
 
 return:                                           ; preds = %for.end167, %if.end222
-  %retval.0 = phi i1 [ %tobool224, %if.end222 ], [ false, %for.end167 ]
+  %retval.0 = phi i1 [ %281, %if.end222 ], [ false, %for.end167 ]
   ret i1 %retval.0
 }
 

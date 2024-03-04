@@ -27,9 +27,8 @@ if.then2:                                         ; preds = %entry
   unreachable
 
 if.end3:                                          ; preds = %entry
-  %cmp4 = icmp eq i32 %call, -1
-  %conv = zext i1 %cmp4 to i32
-  ret i32 %conv
+  %1 = and i32 %call, 1
+  ret i32 %1
 }
 
 ; Function Attrs: nounwind

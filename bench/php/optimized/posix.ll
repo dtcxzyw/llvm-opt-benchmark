@@ -2106,8 +2106,9 @@ thread-pre-split:                                 ; preds = %15
 
 24:                                               ; preds = %17, %19
   %25 = getelementptr inbounds i8, ptr %18, i64 24
-  %26 = icmp eq i32 %6, 1
-  br i1 %26, label %.thread171, label %27
+  %26 = and i32 %6, 1
+  %.not172 = icmp eq i32 %26, 0
+  br i1 %.not172, label %27, label %.thread171
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %0, i64 96
@@ -2237,8 +2238,9 @@ thread-pre-split:                                 ; preds = %15
 
 24:                                               ; preds = %17, %19
   %25 = getelementptr inbounds i8, ptr %18, i64 24
-  %26 = icmp eq i32 %6, 1
-  br i1 %26, label %.thread170, label %27
+  %26 = and i32 %6, 1
+  %.not171 = icmp eq i32 %26, 0
+  br i1 %.not171, label %27, label %.thread170
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %0, i64 96

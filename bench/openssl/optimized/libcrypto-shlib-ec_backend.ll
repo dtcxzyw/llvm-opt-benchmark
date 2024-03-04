@@ -492,8 +492,8 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end5
-  %cmp9 = icmp eq i32 %mode, 1
-  br i1 %cmp9, label %if.then10, label %if.then12
+  %.not = icmp eq i32 %mode, 0
+  br i1 %.not, label %if.then12, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
   tail call void @EC_KEY_set_flags(ptr noundef %ec, i32 noundef 4096) #4
@@ -740,8 +740,8 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %tobool.not.i, label %if.end8.i, label %if.end8
 
 if.end8.i:                                        ; preds = %if.end5.i
-  %cmp9.i = icmp eq i32 %0, 1
-  br i1 %cmp9.i, label %if.then10.i, label %if.then12.i
+  %.not.i = icmp eq i32 %0, 0
+  br i1 %.not.i, label %if.then12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end8.i
   call void @EC_KEY_set_flags(ptr noundef nonnull %ec, i32 noundef 4096) #4

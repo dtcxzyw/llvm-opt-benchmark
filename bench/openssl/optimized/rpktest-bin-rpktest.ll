@@ -1067,8 +1067,8 @@ sw.epilog483:                                     ; preds = %if.end365, %sw.bb27
   br i1 %tobool486.not, label %end, label %if.end488
 
 if.end488:                                        ; preds = %sw.epilog483
-  %cmp489 = icmp eq i32 %expected.2, 1
-  br i1 %cmp489, label %if.then491, label %if.end533
+  %.not = icmp eq i32 %expected.2, 0
+  br i1 %.not, label %if.end533, label %if.then491
 
 if.then491:                                       ; preds = %if.end488
   %or.cond10 = and i1 %tobool56, %tobool76
@@ -1194,7 +1194,7 @@ if.end582:                                        ; preds = %if.end577
   br i1 %tobool585.not, label %end, label %if.end608
 
 if.else588:                                       ; preds = %if.then563
-  br i1 %cmp489, label %land.lhs.true591, label %if.end596
+  br i1 %.not, label %if.end596, label %land.lhs.true591
 
 land.lhs.true591:                                 ; preds = %if.else588
   %92 = load ptr, ptr %serverssl, align 8

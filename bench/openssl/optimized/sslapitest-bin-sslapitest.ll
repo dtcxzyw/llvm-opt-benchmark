@@ -5929,25 +5929,26 @@ if.end142:                                        ; preds = %if.else
   br i1 %tobool146.not, label %end, label %lor.lhs.false147
 
 lor.lhs.false147:                                 ; preds = %if.end142
-  %cmp148 = icmp eq i32 %readearlyres.1.ph, 1
-  br i1 %cmp148, label %land.lhs.true, label %lor.lhs.false153
+  %25 = and i32 %readearlyres.1.ph, 1
+  %.not = icmp eq i32 %25, 0
+  br i1 %.not, label %lor.lhs.false153, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false147
-  %25 = load i64, ptr %readbytes, align 8
-  %call151 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 4316, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.424, ptr noundef nonnull %buf, i64 noundef %25, ptr noundef nonnull @.str.421, i64 noundef 5) #23
+  %26 = load i64, ptr %readbytes, align 8
+  %call151 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 4316, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.424, ptr noundef nonnull %buf, i64 noundef %26, ptr noundef nonnull @.str.421, i64 noundef 5) #23
   %tobool152.not = icmp eq i32 %call151, 0
   br i1 %tobool152.not, label %end, label %lor.lhs.false153
 
 lor.lhs.false153:                                 ; preds = %land.lhs.true, %lor.lhs.false147
-  %26 = load ptr, ptr %serverssl, align 8
-  %call154 = call i32 @SSL_get_early_data_status(ptr noundef %26) #23
+  %27 = load ptr, ptr %serverssl, align 8
+  %call154 = call i32 @SSL_get_early_data_status(ptr noundef %27) #23
   %call155 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 4317, ptr noundef nonnull @.str.355, ptr noundef nonnull @.str.523, i32 noundef %call154, i32 noundef %edstatus.1.ph) #23
   %tobool156.not = icmp eq i32 %call155, 0
   br i1 %tobool156.not, label %end, label %lor.lhs.false157
 
 lor.lhs.false157:                                 ; preds = %lor.lhs.false153
-  %27 = load ptr, ptr %clientssl, align 8
-  %call158 = call i32 @SSL_connect(ptr noundef %27) #23
+  %28 = load ptr, ptr %clientssl, align 8
+  %call158 = call i32 @SSL_connect(ptr noundef %28) #23
   %call159 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 4318, ptr noundef nonnull @.str.461, ptr noundef nonnull @.str.524, i32 noundef %call158, i32 noundef %connectres.0.ph) #23
   %tobool160.not = icmp eq i32 %call159, 0
   br i1 %tobool160.not, label %end, label %if.end163
@@ -5957,22 +5958,22 @@ if.end163:                                        ; preds = %lor.lhs.false157, %
 
 end:                                              ; preds = %if.end142, %land.lhs.true, %lor.lhs.false153, %lor.lhs.false157, %if.else, %if.then119, %lor.lhs.false125, %lor.lhs.false129, %sw.bb87, %lor.lhs.false91, %lor.lhs.false100, %lor.lhs.false108, %sw.bb70, %lor.lhs.false78, %sw.bb49, %lor.lhs.false55, %lor.lhs.false61, %sw.bb37, %lor.lhs.false41, %sw.bb29, %sw.bb14, %lor.lhs.false20, %sw.bb, %lor.lhs.false, %entry, %if.end163, %sw.default
   %testresult.0 = phi i32 [ 0, %sw.default ], [ 1, %if.end163 ], [ 0, %lor.lhs.false129 ], [ 0, %lor.lhs.false125 ], [ 0, %if.then119 ], [ 0, %lor.lhs.false157 ], [ 0, %lor.lhs.false153 ], [ 0, %land.lhs.true ], [ 0, %if.end142 ], [ 0, %if.else ], [ 0, %lor.lhs.false108 ], [ 0, %lor.lhs.false100 ], [ 0, %lor.lhs.false91 ], [ 0, %sw.bb87 ], [ 0, %lor.lhs.false78 ], [ 0, %sw.bb70 ], [ 0, %lor.lhs.false61 ], [ 0, %lor.lhs.false55 ], [ 0, %sw.bb49 ], [ 0, %lor.lhs.false41 ], [ 0, %sw.bb37 ], [ 0, %sw.bb29 ], [ 0, %lor.lhs.false20 ], [ 0, %sw.bb14 ], [ 0, %lor.lhs.false ], [ 0, %sw.bb ], [ 0, %entry ]
-  %28 = load ptr, ptr %sess, align 8
-  call void @SSL_SESSION_free(ptr noundef %28) #23
-  %29 = load ptr, ptr @clientpsk, align 8
+  %29 = load ptr, ptr %sess, align 8
   call void @SSL_SESSION_free(ptr noundef %29) #23
-  %30 = load ptr, ptr @serverpsk, align 8
+  %30 = load ptr, ptr @clientpsk, align 8
   call void @SSL_SESSION_free(ptr noundef %30) #23
+  %31 = load ptr, ptr @serverpsk, align 8
+  call void @SSL_SESSION_free(ptr noundef %31) #23
   store ptr null, ptr @serverpsk, align 8
   store ptr null, ptr @clientpsk, align 8
-  %31 = load ptr, ptr %serverssl, align 8
-  call void @SSL_free(ptr noundef %31) #23
-  %32 = load ptr, ptr %clientssl, align 8
+  %32 = load ptr, ptr %serverssl, align 8
   call void @SSL_free(ptr noundef %32) #23
-  %33 = load ptr, ptr %sctx, align 8
-  call void @SSL_CTX_free(ptr noundef %33) #23
-  %34 = load ptr, ptr %cctx, align 8
+  %33 = load ptr, ptr %clientssl, align 8
+  call void @SSL_free(ptr noundef %33) #23
+  %34 = load ptr, ptr %sctx, align 8
   call void @SSL_CTX_free(ptr noundef %34) #23
+  %35 = load ptr, ptr %cctx, align 8
+  call void @SSL_CTX_free(ptr noundef %35) #23
   ret i32 %testresult.0
 }
 

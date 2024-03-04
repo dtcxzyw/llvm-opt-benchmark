@@ -4188,9 +4188,10 @@ transformJsonConstructorOutput.exit:              ; preds = %2, %.split.i
   %.024 = phi i32 [ 114, %51 ], [ 114, %52 ], [ 3802, %48 ], [ 3802, %49 ]
   %.2 = phi i32 [ %.31, %51 ], [ %.32, %52 ], [ %., %48 ], [ %.30, %49 ]
   %55 = load ptr, ptr %13, align 8
-  %56 = icmp ne i8 %46, 0
-  %57 = tail call fastcc ptr @transformJsonAggConstructor(ptr noundef %0, ptr noundef %55, ptr noundef nonnull %17, ptr noundef %12, i32 noundef %.2, i32 noundef %.024, i32 noundef 3, i1 noundef zeroext %56, i1 noundef zeroext %54)
-  ret ptr %57
+  %56 = and i8 %45, 1
+  %57 = icmp ne i8 %56, 0
+  %58 = tail call fastcc ptr @transformJsonAggConstructor(ptr noundef %0, ptr noundef %55, ptr noundef nonnull %17, ptr noundef %12, i32 noundef %.2, i32 noundef %.024, i32 noundef 3, i1 noundef zeroext %57, i1 noundef zeroext %54)
+  ret ptr %58
 }
 
 ; Function Attrs: nounwind uwtable

@@ -100,7 +100,7 @@ for.cond12.i.preheader:                           ; preds = %if.then7.i, %land.l
   br label %for.cond12.i
 
 for.cond12.i:                                     ; preds = %for.cond12.i.preheader, %if.end65.i
-  %isFollowingCharEscaped.1.i = phi i8 [ %isFollowingCharEscaped.2.i, %if.end65.i ], [ 0, %for.cond12.i.preheader ]
+  %isFollowingCharEscaped.1.i = phi i1 [ %isFollowingCharEscaped.2.i, %if.end65.i ], [ false, %for.cond12.i.preheader ]
   %isNLUnescaped.1.i = phi i8 [ %isNLUnescaped.3.i, %if.end65.i ], [ %isNLUnescaped.0.i, %for.cond12.i.preheader ]
   %prevC.1.i = phi i32 [ %c.1124.i, %if.end65.i ], [ %prevC.0.i, %for.cond12.i.preheader ]
   %call.i = call i32 @ucbuf_getc(ptr noundef %buf, ptr noundef nonnull %status) #5
@@ -114,13 +114,12 @@ if.end15.i:                                       ; preds = %for.cond12.i
 
 if.end18.i:                                       ; preds = %if.end15.i
   %cmp19.i = icmp ne i32 %call.i, 34
-  %tobool21.i = icmp ne i8 %isFollowingCharEscaped.1.i, 0
-  %or.cond.i = or i1 %tobool21.i, %cmp19.i
+  %or.cond.i = or i1 %isFollowingCharEscaped.1.i, %cmp19.i
   br i1 %or.cond.i, label %if.end23.i, label %if.end188.i
 
 if.end23.i:                                       ; preds = %if.end18.i
   %cmp24.i = icmp ne i32 %call.i, 92
-  %or.cond1.i = or i1 %tobool21.i, %cmp24.i
+  %or.cond1.i = or i1 %isFollowingCharEscaped.1.i, %cmp24.i
   br i1 %or.cond1.i, label %if.end37.i, label %unescape.exit.i
 
 unescape.exit.i:                                  ; preds = %if.end23.i
@@ -135,7 +134,7 @@ unescape.exit.i:                                  ; preds = %if.end23.i
 if.end37.i:                                       ; preds = %unescape.exit.i, %if.end23.i
   %c.1.i = phi i32 [ %call.i, %if.end23.i ], [ %call.i.i, %unescape.exit.i ]
   %cmp38.i = icmp ne i32 %c.1.i, 92
-  %or.cond3.i = or i1 %tobool21.i, %cmp38.i
+  %or.cond3.i = or i1 %isFollowingCharEscaped.1.i, %cmp38.i
   br i1 %or.cond3.i, label %do.body.i, label %if.end65.i
 
 do.body.i:                                        ; preds = %if.end37.i
@@ -184,7 +183,7 @@ if.then62.i:                                      ; preds = %if.then55.i
 
 if.end65.i:                                       ; preds = %if.then62.i, %if.then55.i, %do.end.i, %if.end37.i
   %c.1124.i = phi i32 [ %c.1123132.i, %do.end.i ], [ 92, %if.end37.i ], [ %c.1123132.i, %if.then62.i ], [ %c.1123132.i, %if.then55.i ]
-  %isFollowingCharEscaped.2.i = phi i8 [ 0, %do.end.i ], [ 1, %if.end37.i ], [ 0, %if.then62.i ], [ 0, %if.then55.i ]
+  %isFollowingCharEscaped.2.i = phi i1 [ false, %do.end.i ], [ true, %if.end37.i ], [ false, %if.then62.i ], [ false, %if.then55.i ]
   %isNLUnescaped.3.i = phi i8 [ %isNLUnescaped.2125129.i, %do.end.i ], [ %isNLUnescaped.1.i, %if.end37.i ], [ 0, %if.then62.i ], [ 0, %if.then55.i ]
   %12 = load i32, ptr %status, align 4
   %cmp66.i = icmp sgt i32 %12, 0

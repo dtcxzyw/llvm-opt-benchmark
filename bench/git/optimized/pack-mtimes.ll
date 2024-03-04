@@ -181,18 +181,19 @@ _.exit57.i:                                       ; preds = %if.end3.i54.i, %if.
   br label %if.then62.i
 
 if.end44.i:                                       ; preds = %if.end34.i
-  %cmp36.i = icmp eq i32 %10, 1
+  %15 = and i32 %10, 1
+  %.not.i = icmp eq i32 %15, 0
   %conv.i12 = zext i32 %1 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i12, 2
   %add.i.i = add nuw nsw i64 %mul.i.i, 12
-  %mul.i = select i1 %cmp36.i, i64 40, i64 64
+  %mul.i = select i1 %.not.i, i64 64, i64 40
   %add.i61.i = add nuw nsw i64 %add.i.i, %mul.i
   %cmp52.not.i = icmp eq i64 %3, %add.i61.i
   br i1 %cmp52.not.i, label %if.else.i, label %if.then54.i
 
 if.then54.i:                                      ; preds = %if.end44.i
-  %15 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i64.i = icmp eq i32 %15, 0
+  %16 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i64.i = icmp eq i32 %16, 0
   br i1 %tobool1.not.i64.i, label %_.exit68.i, label %if.end3.i65.i
 
 if.end3.i65.i:                                    ; preds = %if.then54.i

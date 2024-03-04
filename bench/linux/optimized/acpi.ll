@@ -189,8 +189,9 @@ define dso_local ptr @pci_acpi_scan_root(ptr noundef %0) local_unnamed_addr #3 a
   br label %.thread
 
 19:                                               ; preds = %13
-  %20 = icmp eq i32 %14, -1
-  br i1 %20, label %27, label %.thread
+  %20 = and i32 %14, 1
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %.thread, label %27
 
 .thread:                                          ; preds = %1, %17, %19
   %21 = phi i32 [ 0, %19 ], [ %11, %1 ], [ %14, %17 ]

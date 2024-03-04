@@ -447,28 +447,28 @@ slot_getattr.exit:                                ; preds = %22, %slot_getsomeat
   %32 = sext i32 %31 to i64
   %33 = getelementptr i8, ptr %30, i64 %32
   %34 = load i8, ptr %33, align 1
-  %35 = and i8 %34, 1
-  %36 = load ptr, ptr %18, align 8
-  %37 = getelementptr i64, ptr %36, i64 %32
-  %38 = load i64, ptr %37, align 8
-  %39 = load i16, ptr %19, align 2
-  %40 = icmp slt i16 %39, %26
-  br i1 %40, label %slot_getsomeattrs.exit.i26, label %slot_getattr.exit27
+  %35 = load ptr, ptr %18, align 8
+  %36 = getelementptr i64, ptr %35, i64 %32
+  %37 = load i64, ptr %36, align 8
+  %38 = load i16, ptr %19, align 2
+  %39 = icmp slt i16 %38, %26
+  br i1 %39, label %slot_getsomeattrs.exit.i26, label %slot_getattr.exit27
 
 slot_getsomeattrs.exit.i26:                       ; preds = %slot_getattr.exit
   tail call void @slot_getsomeattrs_int(ptr noundef nonnull %11, i32 noundef %27) #2
   br label %slot_getattr.exit27
 
 slot_getattr.exit27:                              ; preds = %slot_getattr.exit, %slot_getsomeattrs.exit.i26
-  %41 = load ptr, ptr %20, align 8
-  %42 = getelementptr i8, ptr %41, i64 %32
-  %43 = load i8, ptr %42, align 1
-  %44 = and i8 %43, 1
-  %45 = load ptr, ptr %21, align 8
-  %46 = getelementptr i64, ptr %45, i64 %32
-  %47 = load i64, ptr %46, align 8
-  %.not44 = icmp eq i8 %35, 0
-  %.not45 = icmp eq i8 %44, 0
+  %40 = load ptr, ptr %20, align 8
+  %41 = getelementptr i8, ptr %40, i64 %32
+  %42 = load i8, ptr %41, align 1
+  %43 = load ptr, ptr %21, align 8
+  %44 = getelementptr i64, ptr %43, i64 %32
+  %45 = load i64, ptr %44, align 8
+  %46 = and i8 %34, 1
+  %.not44 = icmp eq i8 %46, 0
+  %47 = and i8 %42, 1
+  %.not45 = icmp eq i8 %47, 0
   br i1 %.not44, label %53, label %48
 
 48:                                               ; preds = %slot_getattr.exit27
@@ -494,7 +494,7 @@ slot_getattr.exit27:                              ; preds = %slot_getattr.exit, 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds i8, ptr %24, i64 24
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call i32 %60(i64 noundef %38, i64 noundef %47, ptr noundef %24) #2
+  %61 = tail call i32 %60(i64 noundef %37, i64 noundef %45, ptr noundef %24) #2
   %62 = getelementptr inbounds i8, ptr %24, i64 12
   %63 = load i8, ptr %62, align 4
   %64 = and i8 %63, 1

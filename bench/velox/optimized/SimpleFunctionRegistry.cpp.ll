@@ -3182,14 +3182,15 @@ entry:
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %__lhs, i64 32
   %0 = load i8, ptr %_M_engaged.i.i, align 8
   %1 = and i8 %0, 1
-  %tobool.i.i = icmp ne i8 %1, 0
+  %2 = and i8 %0, 1
+  %3 = icmp ne i8 %2, 0
   %_M_engaged.i.i4 = getelementptr inbounds i8, ptr %__rhs, i64 32
-  %2 = load i8, ptr %_M_engaged.i.i4, align 8
-  %3 = and i8 %2, 1
-  %4 = and i8 %1, %2
-  %.not = icmp eq i8 %4, 0
-  %5 = icmp eq i8 %3, 0
-  %not. = xor i1 %tobool.i.i, %5
+  %4 = load i8, ptr %_M_engaged.i.i4, align 8
+  %5 = and i8 %4, 1
+  %6 = and i8 %1, %4
+  %.not = icmp eq i8 %6, 0
+  %7 = icmp eq i8 %5, 0
+  %not. = xor i1 %3, %7
   br i1 %.not, label %land.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
@@ -3207,12 +3208,12 @@ land.rhs.i:                                       ; preds = %lor.rhs
 
 if.end.i.i:                                       ; preds = %land.rhs.i
   %bcmp.i = tail call i32 @bcmp(ptr %call2.i, ptr %call3.i, i64 %call4.i)
-  %6 = icmp eq i32 %bcmp.i, 0
+  %8 = icmp eq i32 %bcmp.i, 0
   br label %land.end
 
 land.end:                                         ; preds = %entry, %if.end.i.i, %land.rhs.i, %lor.rhs
-  %7 = phi i1 [ %not., %entry ], [ false, %lor.rhs ], [ %6, %if.end.i.i ], [ true, %land.rhs.i ]
-  ret i1 %7
+  %9 = phi i1 [ %not., %entry ], [ false, %lor.rhs ], [ %8, %if.end.i.i ], [ true, %land.rhs.i ]
+  ret i1 %9
 }
 
 ; Function Attrs: mustprogress uwtable

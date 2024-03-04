@@ -421,9 +421,8 @@ entry:
 define noundef i32 @ossl_ed448_sign(ptr noundef %ctx, ptr noundef %out_sig, ptr noundef %message, i64 noundef %message_len, ptr noundef %public_key, ptr noundef %private_key, ptr noundef %context, i64 noundef %context_len, i8 noundef zeroext %phflag, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_c448_ed448_sign(ptr noundef %ctx, ptr noundef %out_sig, ptr noundef %private_key, ptr noundef %public_key, ptr noundef %message, i64 noundef %message_len, i8 noundef zeroext %phflag, ptr noundef %context, i64 noundef %context_len, ptr noundef %propq), !range !6
-  %cmp = icmp eq i32 %call, -1
-  %conv = zext i1 %cmp to i32
-  ret i32 %conv
+  %0 = and i32 %call, 1
+  ret i32 %0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -440,9 +439,8 @@ entry:
 define noundef i32 @ossl_ed448_public_from_private(ptr noundef %ctx, ptr noundef %out_public_key, ptr noundef %private_key, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_c448_ed448_derive_public_key(ptr noundef %ctx, ptr noundef %out_public_key, ptr noundef %private_key, ptr noundef %propq), !range !6
-  %cmp = icmp eq i32 %call, -1
-  %conv = zext i1 %cmp to i32
-  ret i32 %conv
+  %0 = and i32 %call, 1
+  ret i32 %0
 }
 
 declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

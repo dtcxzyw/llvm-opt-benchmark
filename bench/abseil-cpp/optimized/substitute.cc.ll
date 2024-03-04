@@ -247,12 +247,12 @@ define dso_local void @_ZN4absl19substitute_internal3ArgC2ENS_3DecE(ptr noundef 
 entry:
   %dec.sroa.4.8.extract.shift = lshr i64 %dec.coerce1, 8
   %dec.sroa.4.8.extract.trunc = trunc i64 %dec.sroa.4.8.extract.shift to i8
+  %0 = and i64 %dec.coerce1, 65536
+  %dec.sroa.6.8.extract.trunc = icmp ne i64 %0, 0
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 48
   %idx.ext = and i64 %dec.coerce1, 255
   %idx.neg = sub nsw i64 0, %idx.ext
   %add.ptr = getelementptr inbounds i8, ptr %arrayidx, i64 %idx.neg
-  %0 = and i64 %dec.coerce1, 65536
-  %tobool = icmp ne i64 %0, 0
   %cmp19 = icmp ugt i64 %dec.coerce0, 9
   br i1 %cmp19, label %while.body, label %while.end
 
@@ -275,7 +275,7 @@ while.end:                                        ; preds = %while.body, %entry
   %add7 = or disjoint i8 %conv5, 48
   %incdec.ptr9 = getelementptr inbounds i8, ptr %writer.0.lcssa, i64 -1
   store i8 %add7, ptr %incdec.ptr9, align 1
-  br i1 %tobool, label %if.then, label %if.end
+  br i1 %dec.sroa.6.8.extract.trunc, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
   %incdec.ptr11 = getelementptr inbounds i8, ptr %writer.0.lcssa, i64 -2
@@ -292,7 +292,7 @@ if.end:                                           ; preds = %if.then, %while.end
 
 _ZSt6fill_nIPclcET_S1_T0_RKT1_.exit:              ; preds = %if.end
   %cmp16 = icmp eq i8 %dec.sroa.4.8.extract.trunc, 48
-  %or.cond = select i1 %tobool, i1 %cmp16, i1 false
+  %or.cond = select i1 %dec.sroa.6.8.extract.trunc, i1 %cmp16, i1 false
   %spec.select.idx = zext i1 %or.cond to i64
   %spec.select = getelementptr inbounds i8, ptr %writer.1, i64 %spec.select.idx
   %idx.neg20 = sub nsw i64 0, %sub.ptr.sub

@@ -8083,8 +8083,8 @@ ehcleanup238:                                     ; preds = %lpad234, %lpad232
   br label %ehcleanup302
 
 if.else240:                                       ; preds = %invoke.cont222
-  %cmp241 = icmp eq i32 %call223, 1
-  br i1 %cmp241, label %if.then242, label %if.else249
+  %.not = icmp eq i32 %call223, 0
+  br i1 %.not, label %if.else249, label %if.then242
 
 if.then242:                                       ; preds = %if.else240
   invoke void @_ZNK4cvc58internal11NodeBuilderixEi(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp243, ptr noundef nonnull align 8 dereferenceable(116) %nb_consts, i32 noundef 0)

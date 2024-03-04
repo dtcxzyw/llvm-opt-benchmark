@@ -4432,22 +4432,23 @@ define internal fastcc noundef zeroext i1 @_ZL27is_volatile_ok_on_one_levelPK4Ty
   br i1 %.not, label %.loopexit, label %10
 
 10:                                               ; preds = %6
-  %11 = icmp eq i32 %4, 3
-  br i1 %11, label %.loopexit, label %.preheader
+  %11 = and i32 %4, 1
+  %.not16 = icmp eq i32 %11, 0
+  br i1 %.not16, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %10
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   %13 = getelementptr inbounds i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
-  %.not21 = icmp eq ptr %14, %15
-  br i1 %.not21, label %.loopexit, label %.lr.ph
+  %.not22 = icmp eq ptr %14, %15
+  br i1 %.not22, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %23
   %16 = phi ptr [ %24, %23 ], [ %15, %.preheader ]
   %17 = phi ptr [ %25, %23 ], [ %14, %.preheader ]
-  %.01216 = phi i64 [ %26, %23 ], [ 0, %.preheader ]
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %.01216
+  %.01217 = phi i64 [ %26, %23 ], [ 0, %.preheader ]
+  %18 = getelementptr inbounds ptr, ptr %16, i64 %.01217
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %23 [
@@ -4461,13 +4462,13 @@ define internal fastcc noundef zeroext i1 @_ZL27is_volatile_ok_on_one_levelPK4Ty
 
 ._crit_edge:                                      ; preds = %21
   %.pre = load ptr, ptr %13, align 8
-  %.pre22 = load ptr, ptr %12, align 8
+  %.pre23 = load ptr, ptr %12, align 8
   br label %23
 
 23:                                               ; preds = %._crit_edge, %.lr.ph
-  %24 = phi ptr [ %.pre22, %._crit_edge ], [ %16, %.lr.ph ]
+  %24 = phi ptr [ %.pre23, %._crit_edge ], [ %16, %.lr.ph ]
   %25 = phi ptr [ %.pre, %._crit_edge ], [ %17, %.lr.ph ]
-  %26 = add nuw i64 %.01216, 1
+  %26 = add nuw i64 %.01217, 1
   %27 = ptrtoint ptr %25 to i64
   %28 = ptrtoint ptr %24 to i64
   %29 = sub i64 %27, %28

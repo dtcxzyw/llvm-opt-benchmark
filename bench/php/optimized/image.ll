@@ -292,8 +292,9 @@ define hidden void @zif_image_type_to_extension(ptr noundef %0, ptr nocapture no
   br i1 %16, label %17, label %.thread182
 
 17:                                               ; preds = %15, %.critedge
-  %18 = icmp eq i32 %6, 1
-  br i1 %18, label %.thread192, label %19
+  %18 = and i32 %6, 1
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %19, label %.thread192
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %0, i64 104
@@ -781,9 +782,10 @@ define internal fastcc void @php_getimagesize_from_any(ptr noundef %0, ptr nound
   br label %614
 
 33:                                               ; preds = %30, %.critedge
-  %34 = icmp eq i32 %21, 1
+  %34 = and i32 %21, 1
+  %.not = icmp eq i32 %34, 0
   %35 = getelementptr inbounds i8, ptr %0, i64 96
-  %spec.select = select i1 %34, ptr null, ptr %35
+  %spec.select = select i1 %.not, ptr %35, ptr null
   %36 = icmp eq i32 %2, 1
   br i1 %36, label %37, label %46
 

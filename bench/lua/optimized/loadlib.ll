@@ -265,8 +265,9 @@ entry:
 if.else:                                          ; preds = %entry
   tail call void @lua_pushnil(ptr noundef %L) #6
   tail call void @lua_rotate(ptr noundef %L, i32 noundef -2, i32 noundef 1) #6
-  %cmp6 = icmp eq i32 %call2, 1
-  %cond = select i1 %cmp6, ptr @.str.17, ptr @.str.18
+  %0 = and i32 %call2, 1
+  %.not = icmp eq i32 %0, 0
+  %cond = select i1 %.not, ptr @.str.18, ptr @.str.17
   %call8 = tail call ptr @lua_pushstring(ptr noundef %L, ptr noundef nonnull %cond) #6
   br label %return
 
@@ -751,7 +752,7 @@ if.else25.i:                                      ; preds = %if.else.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else25.i, %if.then24.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %for.cond.i
 
 findloader.exit:                                  ; preds = %if.end16.i

@@ -2813,9 +2813,9 @@ push_to_sink.exit145.thread:                      ; preds = %132, %135, %push_to
   br i1 %171, label %195, label %172
 
 172:                                              ; preds = %160, %153
-  %.pre-phi = phi i8 [ %168, %160 ], [ %156, %153 ]
   %.1112 = phi i32 [ %161, %160 ], [ %.0111, %153 ]
   %.0106 = phi i64 [ %170, %160 ], [ %158, %153 ]
+  %.pre-phi = and i8 %.1109, 1
   %.not126 = icmp eq i8 %.pre-phi, 0
   %173 = and i64 %.0106, 8191
   %.not127 = icmp eq i64 %173, 0

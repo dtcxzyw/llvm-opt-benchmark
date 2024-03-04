@@ -12872,8 +12872,8 @@ if.else:                                          ; preds = %do.end
   br i1 %cmp14, label %if.then16, label %if.end22
 
 if.then16:                                        ; preds = %if.else
-  %cmp17 = icmp eq i32 %call, 1
-  %. = select i1 %cmp17, i32 -5, i32 0
+  %.not = icmp eq i32 %call, 0
+  %. = select i1 %.not, i32 0, i32 -5
   br label %return
 
 if.end22:                                         ; preds = %if.else

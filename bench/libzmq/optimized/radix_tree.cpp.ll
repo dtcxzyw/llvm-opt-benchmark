@@ -1282,8 +1282,8 @@ if.end14:                                         ; preds = %if.end11
   br i1 %cmp17, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.end14
-  %cmp20 = icmp eq i32 %u32.0.copyload.i16, 1
-  br i1 %cmp20, label %if.then21, label %if.end38
+  %.not = icmp eq i32 %u32.0.copyload.i16, 0
+  br i1 %.not, label %if.end38, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
   %call22 = call ptr @_ZN6node_t7node_atEm(ptr noundef nonnull align 8 dereferenceable(8) %current_node, i64 noundef 0)

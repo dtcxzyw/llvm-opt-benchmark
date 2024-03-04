@@ -623,8 +623,8 @@ slot_attisnull.exit.i62.i:                        ; preds = %slot_getsomeattrs.e
   %335 = getelementptr i8, ptr %332, i64 %334
   %336 = load i8, ptr %335, align 1
   %337 = and i8 %336, 1
-  %.not7.not.i.i = icmp eq i8 %337, 0
-  br i1 %.not7.not.i.i, label %slotAllNulls.exit.i, label %326
+  %.not12.i.i = icmp eq i8 %337, 0
+  br i1 %.not12.i.i, label %slotAllNulls.exit.i, label %326
 
 .loopexit.i:                                      ; preds = %326, %323
   %338 = load ptr, ptr %253, align 8
@@ -934,13 +934,13 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   %504 = getelementptr inbounds i8, ptr %.0227.i50, i64 32
   %505 = load ptr, ptr %504, align 8
   %506 = load i8, ptr %505, align 1
-  %507 = and i8 %506, 1
-  %508 = getelementptr inbounds i8, ptr %.0227.i50, i64 24
-  %509 = load ptr, ptr %508, align 8
-  %510 = load i64, ptr %509, align 8
-  %511 = icmp ne i8 %507, 0
+  %507 = getelementptr inbounds i8, ptr %.0227.i50, i64 24
+  %508 = load ptr, ptr %507, align 8
+  %509 = load i64, ptr %508, align 8
+  %510 = and i8 %506, 1
+  %511 = icmp ne i8 %510, 0
   %512 = load i32, ptr %441, align 8
-  %513 = call ptr @accumArrayResultAny(ptr noundef %.1131223.i53, i64 noundef %510, i1 noundef zeroext %511, i32 noundef %512, ptr noundef %383) #7
+  %513 = call ptr @accumArrayResultAny(ptr noundef %.1131223.i53, i64 noundef %509, i1 noundef zeroext %511, i32 noundef %512, ptr noundef %383) #7
   br label %.thread167.i
 
 514:                                              ; preds = %499
@@ -1673,13 +1673,13 @@ slot_getattr.exit.us:                             ; preds = %slot_getsomeattrs.e
   %75 = getelementptr inbounds i8, ptr %.0143.us150161, i64 32
   %76 = load ptr, ptr %75, align 8
   %77 = load i8, ptr %76, align 1
-  %78 = and i8 %77, 1
-  %79 = getelementptr inbounds i8, ptr %.0143.us150161, i64 24
-  %80 = load ptr, ptr %79, align 8
-  %81 = load i64, ptr %80, align 8
-  %82 = icmp ne i8 %78, 0
+  %78 = getelementptr inbounds i8, ptr %.0143.us150161, i64 24
+  %79 = load ptr, ptr %78, align 8
+  %80 = load i64, ptr %79, align 8
+  %81 = and i8 %77, 1
+  %82 = icmp ne i8 %81, 0
   %83 = load i32, ptr %53, align 8
-  %84 = tail call ptr @accumArrayResultAny(ptr noundef %.1100141.us152162, i64 noundef %81, i1 noundef zeroext %82, i32 noundef %83, ptr noundef %41) #7
+  %84 = tail call ptr @accumArrayResultAny(ptr noundef %.1100141.us152162, i64 noundef %80, i1 noundef zeroext %82, i32 noundef %83, ptr noundef %41) #7
   %85 = load ptr, ptr %42, align 8
   %.not.i118.us = icmp eq ptr %85, null
   br i1 %.not.i118.us, label %ExecProcNode.exit119.us, label %86

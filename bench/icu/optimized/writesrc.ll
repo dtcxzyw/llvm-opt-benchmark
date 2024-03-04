@@ -1144,8 +1144,8 @@ sw.default:                                       ; preds = %cond.end10
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb16, %sw.bb
-  %cmp.i = icmp eq i32 %syntax, 1
-  %cond.i = select i1 %cmp.i, ptr @.str.14, ptr @.str.10
+  %.not = icmp eq i32 %syntax, 0
+  %cond.i = select i1 %.not, ptr @.str.10, ptr @.str.14
   %1 = load ptr, ptr %pTrie, align 8
   %indexLength.i = getelementptr inbounds i8, ptr %pTrie, i64 16
   %2 = load i32, ptr %indexLength.i, align 8

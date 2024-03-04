@@ -4144,20 +4144,20 @@ entry:
   %arrayidx.i = getelementptr i64, ptr %5, i64 %div2.i
   %6 = load i64, ptr %arrayidx.i, align 8
   %and.i = and i64 %div, 63
+  %7 = shl nuw i64 1, %and.i
+  %8 = and i64 %6, %7
+  %9 = icmp ne i64 %8, 0
   %add = add i64 %0, -1
   %sub = add i64 %add, %1
   %div4 = udiv i64 %sub, %2
   %div2.i23 = lshr i64 %div4, 6
   %arrayidx.i24 = getelementptr i64, ptr %5, i64 %div2.i23
-  %7 = load i64, ptr %arrayidx.i24, align 8
+  %10 = load i64, ptr %arrayidx.i24, align 8
   %and.i25 = and i64 %div4, 63
-  %8 = shl nuw i64 1, %and.i
-  %9 = and i64 %6, %8
-  %10 = icmp ne i64 %9, 0
   %11 = shl nuw i64 1, %and.i25
-  %12 = and i64 %11, %7
+  %12 = and i64 %11, %10
   %13 = icmp ne i64 %12, 0
-  %tobool11.not = and i1 %10, %13
+  %tobool11.not = and i1 %9, %13
   br i1 %tobool11.not, label %if.end, label %if.end.thread
 
 if.end:                                           ; preds = %entry

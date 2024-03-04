@@ -8582,7 +8582,7 @@ define internal fastcc zeroext i1 @get_create_object_cmd(i32 noundef %0, i32 nou
 
 echo_hidden_command.exit:                         ; preds = %18
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %4) #18
-  br label %82
+  br label %83
 
 21:                                               ; preds = %._crit_edge, %3
   %22 = phi ptr [ %.pre, %._crit_edge ], [ %7, %3 ]
@@ -8717,11 +8717,12 @@ echo_hidden_command.exit:                         ; preds = %18
   %.4 = phi i8 [ %.3, %78 ], [ %.3, %73 ], [ %.3, %70 ], [ 0, %79 ]
   tail call void @PQclear(ptr noundef %24) #18
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %4) #18
-  %81 = icmp ne i8 %.4, 0
-  br label %82
+  %81 = and i8 %.4, 1
+  %82 = icmp ne i8 %81, 0
+  br label %83
 
-82:                                               ; preds = %80, %echo_hidden_command.exit
-  %.0 = phi i1 [ %81, %80 ], [ false, %echo_hidden_command.exit ]
+83:                                               ; preds = %80, %echo_hidden_command.exit
+  %.0 = phi i1 [ %82, %80 ], [ false, %echo_hidden_command.exit ]
   ret i1 %.0
 }
 

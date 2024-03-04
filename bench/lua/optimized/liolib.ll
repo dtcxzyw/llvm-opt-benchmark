@@ -1021,9 +1021,10 @@ for.inc:                                          ; preds = %cond.true, %cond.fa
   %inc = add nsw i32 %n.056, 1
   %dec = add nsw i32 %dec57, -1
   %tobool = icmp ne i32 %dec57, 0
-  %tobool3 = icmp ne i32 %success.1, 0
-  %33 = select i1 %tobool, i1 %tobool3, i1 false
-  br i1 %33, label %for.body, label %if.end25, !llvm.loop !11
+  %33 = and i32 %success.1, 1
+  %34 = icmp ne i32 %33, 0
+  %35 = select i1 %tobool, i1 %34, i1 false
+  br i1 %35, label %for.body, label %if.end25, !llvm.loop !11
 
 if.end25:                                         ; preds = %for.inc, %if.then
   %n.1 = phi i32 [ %add, %if.then ], [ %inc, %for.inc ]
@@ -1324,9 +1325,9 @@ cond.false:                                       ; preds = %if.then
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi i32 [ %call5, %cond.true ], [ %call7, %cond.false ]
-  %tobool8 = icmp ne i32 %status.020, 0
+  %1 = icmp ne i32 %status.020, 0
   %cmp9 = icmp sgt i32 %cond, 0
-  %1 = and i1 %tobool8, %cmp9
+  %2 = and i1 %1, %cmp9
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
@@ -1335,14 +1336,14 @@ if.else:                                          ; preds = %for.body
   br i1 %tobool11.not, label %for.inc, label %land.rhs12
 
 land.rhs12:                                       ; preds = %if.else
-  %2 = load i64, ptr %l, align 8
-  %call13 = call i64 @fwrite(ptr noundef %call10, i64 noundef 1, i64 noundef %2, ptr noundef %f)
   %3 = load i64, ptr %l, align 8
-  %cmp14 = icmp eq i64 %call13, %3
+  %call13 = call i64 @fwrite(ptr noundef %call10, i64 noundef 1, i64 noundef %3, ptr noundef %f)
+  %4 = load i64, ptr %l, align 8
+  %cmp14 = icmp eq i64 %call13, %4
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else, %land.rhs12, %cond.end
-  %status.1.in = phi i1 [ %1, %cond.end ], [ false, %if.else ], [ %cmp14, %land.rhs12 ]
+  %status.1.in = phi i1 [ %2, %cond.end ], [ false, %if.else ], [ %cmp14, %land.rhs12 ]
   %status.1 = zext i1 %status.1.in to i32
   %inc = add nsw i32 %arg.addr.021, 1
   %dec = add nsw i32 %dec23, -1

@@ -130,35 +130,35 @@ release.i.i:                                      ; preds = %while.body
 
 if.end13:                                         ; preds = %release.i.i
   %9 = load i8, ptr @opt_retain, align 1
-  %10 = and i8 %9, 1
   %add = add i64 %8, 4095
   %and = and i64 %add, -4096
   %sub = sub i64 %and, %8
   %add.ptr = getelementptr inbounds i8, ptr %call.i.i57, i64 %sub
-  %11 = ptrtoint ptr %add.ptr to i64
-  %add16 = add i64 %sub15, %11
+  %10 = ptrtoint ptr %add.ptr to i64
+  %add16 = add i64 %sub15, %10
   %and18 = and i64 %add16, %add17
-  %sub19 = sub i64 %and18, %11
+  %sub19 = sub i64 %and18, %10
   %add.ptr20 = getelementptr inbounds i8, ptr %add.ptr, i64 %sub19
-  %12 = ptrtoint ptr %add.ptr20 to i64
-  %cmp22.not = icmp eq i64 %and18, %11
+  %11 = ptrtoint ptr %add.ptr20 to i64
+  %cmp22.not = icmp eq i64 %and18, %10
   br i1 %cmp22.not, label %if.end28, label %if.then23
 
 if.then23:                                        ; preds = %if.end13
   %arena.val = load i32, ptr %6, align 32
   %call26 = tail call i64 @extent_sn_next(ptr noundef nonnull %pac) #6
-  %13 = load i64, ptr %call, align 8
-  %and.i.i = and i64 %13, -17592454479872
+  %12 = load i64, ptr %call, align 8
+  %and.i.i = and i64 %12, -17592454479872
   store ptr %add.ptr, ptr %e_addr.i.i, align 8
-  %14 = load i64, ptr %7, align 8
-  %and.i12.i = and i64 %14, 4095
+  %13 = load i64, ptr %7, align 8
+  %and.i12.i = and i64 %13, 4095
   %or.i13.i = or i64 %and.i12.i, %sub19
   store i64 %or.i13.i, ptr %7, align 8
-  %15 = and i32 %arena.val, -268431361
-  %conv.i.masked.i = zext i32 %15 to i64
+  %14 = and i32 %arena.val, -268431361
+  %conv.i.masked.i = zext i32 %14 to i64
   store i64 %call26, ptr %e_sn.i.i, align 8
-  %cmp.i58.not = icmp eq i8 %10, 0
-  %and.i14.i = select i1 %cmp.i58.not, i64 243277824, i64 17592429322240
+  %15 = and i8 %9, 1
+  %.not = icmp eq i8 %15, 0
+  %and.i14.i = select i1 %.not, i64 243277824, i64 17592429322240
   %and.i22.i = or disjoint i64 %and.i14.i, %conv.i.masked.i
   %or.i27.i = or i64 %and.i22.i, %and.i.i
   store i64 %or.i27.i, ptr %call, align 8
@@ -175,7 +175,7 @@ lor.lhs.false:                                    ; preds = %if.end28
 
 if.end35:                                         ; preds = %lor.lhs.false
   %sub36 = sub i64 %size, %8
-  %add37 = add i64 %sub36, %12
+  %add37 = add i64 %sub36, %11
   %call.i = tail call ptr @sbrk(i64 noundef %add37) #6
   %cmp41 = icmp eq ptr %call.i, %call.i.i57
   br i1 %cmp41, label %release.i, label %if.end73
@@ -214,8 +214,8 @@ if.end57:                                         ; preds = %if.then54, %if.end5
   %tobool58.not = icmp eq i8 %21, 0
   %22 = and i8 %19, 1
   %tobool60.not = icmp eq i8 %22, 0
-  %or.cond86 = select i1 %tobool58.not, i1 true, i1 %tobool60.not
-  br i1 %or.cond86, label %return, label %if.then62
+  %or.cond87 = select i1 %tobool58.not, i1 true, i1 %tobool60.not
+  br i1 %or.cond87, label %return, label %if.then62
 
 if.then62:                                        ; preds = %if.end57
   %23 = getelementptr inbounds i8, ptr %edata, i64 24
@@ -232,8 +232,9 @@ if.then62:                                        ; preds = %if.end57
   %shl.i.i = select i1 %tobool66.not, i64 0, i64 4096
   %e_sn.i.i65 = getelementptr inbounds i8, ptr %edata, i64 32
   store i64 232, ptr %e_sn.i.i65, align 8
-  %cmp.i67.not = icmp eq i8 %10, 0
-  %or.i23.i68 = select i1 %cmp.i67.not, i64 8192, i64 17592186052608
+  %26 = and i8 %9, 1
+  %.not73 = icmp eq i8 %26, 0
+  %or.i23.i68 = select i1 %.not73, i64 8192, i64 17592186052608
   %and.i14.i64 = or disjoint i64 %or.i23.i68, %shl.i.i
   %and.i22.i66 = or disjoint i64 %and.i14.i64, %conv.i.masked.i63
   store i64 %and.i22.i66, ptr %edata, align 8

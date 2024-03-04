@@ -3686,17 +3686,17 @@ define internal fastcc void @setup_pebs_fixed_sample_data(ptr noundef %0, ptr no
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 404
   %14 = load i32, ptr %13, align 4
-  %15 = and i32 %14, 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 504
-  %17 = load i64, ptr %16, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 504
+  %16 = load i64, ptr %15, align 8
   store i64 256, ptr %3, align 64
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 0, ptr %19, align 16
-  %20 = load i64, ptr %16, align 8
-  store i64 %20, ptr %18, align 8
-  %21 = icmp ne i32 %15, 0
+  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %16, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 0, ptr %18, align 16
+  %19 = load i64, ptr %15, align 8
+  store i64 %19, ptr %17, align 8
+  %20 = and i32 %14, 1
+  %21 = icmp ne i32 %20, 0
   %22 = xor i1 %21, true
   %23 = and i64 %12, 16793600
   %24 = icmp eq i64 %23, 0
@@ -3740,9 +3740,9 @@ define internal fastcc void @setup_pebs_fixed_sample_data(ptr noundef %0, ptr no
   %47 = shl i64 %46, 32
   %48 = add i64 %47, 4294967296
   %49 = ashr exact i64 %48, 29
-  %50 = load i64, ptr %19, align 16
+  %50 = load i64, ptr %18, align 16
   %51 = add i64 %49, %50
-  store i64 %51, ptr %19, align 16
+  store i64 %51, ptr %18, align 16
   %52 = load i64, ptr %3, align 64
   %53 = or i64 %52, 32
   store i64 %53, ptr %3, align 64
@@ -4111,9 +4111,9 @@ define internal fastcc void @setup_pebs_fixed_sample_data(ptr noundef %0, ptr no
   store ptr null, ptr %296, align 32
   %297 = shl i64 %294, 32
   %298 = ashr exact i64 %297, 32
-  %299 = load i64, ptr %19, align 16
+  %299 = load i64, ptr %18, align 16
   %300 = add i64 %298, %299
-  store i64 %300, ptr %19, align 16
+  store i64 %300, ptr %18, align 16
   %301 = load i64, ptr %3, align 64
   %302 = or i64 %301, 2048
   store i64 %302, ptr %3, align 64

@@ -4547,15 +4547,16 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 512
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %45, label %33
+  br i1 %32, label %44, label %33
 
 33:                                               ; preds = %25
   %34 = getelementptr inbounds i8, ptr %28, i64 588
   br label %37
 
 35:                                               ; preds = %37
-  %36 = icmp eq i64 %43, 3
-  br i1 %36, label %.loopexit, label %37, !llvm.loop !8
+  %36 = and i64 %38, 1
+  %.not.not = icmp eq i64 %36, 0
+  br i1 %.not.not, label %.loopexit, label %37, !llvm.loop !8
 
 37:                                               ; preds = %35, %33
   %38 = phi i64 [ 1, %33 ], [ 2, %35 ]
@@ -4563,24 +4564,24 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   %40 = and i64 %39, 4294967295
   %41 = getelementptr [2 x i32], ptr %34, i64 0, i64 %40
   %42 = load i32, ptr %41, align 4
-  %43 = add nuw nsw i64 %38, 1
-  %44 = icmp eq i32 %42, 0
-  br i1 %44, label %35, label %50, !llvm.loop !8
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %35, label %49, !llvm.loop !8
 
-45:                                               ; preds = %25
-  %46 = getelementptr inbounds i8, ptr %28, i64 100
-  %47 = load i32, ptr %46, align 4
-  %48 = and i32 %47, 1
-  %49 = or disjoint i32 %48, 2
+44:                                               ; preds = %25
+  %45 = getelementptr inbounds i8, ptr %28, i64 100
+  %46 = load i32, ptr %45, align 4
+  %47 = and i32 %46, 1
+  %48 = or disjoint i32 %47, 2
   br label %.loopexit
 
-50:                                               ; preds = %37
-  %51 = trunc i64 %43 to i32
+49:                                               ; preds = %37
+  %50 = trunc i64 %38 to i32
+  %51 = add nuw nsw i32 %50, 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %35, %50, %45
-  %52 = phi i32 [ %49, %45 ], [ %51, %50 ], [ 3, %35 ]
-  %53 = phi i32 [ 1, %45 ], [ %42, %50 ], [ -1, %35 ]
+.loopexit:                                        ; preds = %35, %49, %44
+  %52 = phi i32 [ %48, %44 ], [ %51, %49 ], [ 3, %35 ]
+  %53 = phi i32 [ 1, %44 ], [ %42, %49 ], [ -1, %35 ]
   %54 = getelementptr inbounds i8, ptr %7, i64 64
   %55 = load i32, ptr %54, align 64
   br label %65

@@ -3667,9 +3667,10 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then
   %1 = load i8, ptr %newp, align 1
   %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
+  %3 = and i8 %1, 1
+  %4 = icmp ne i8 %3, 0
   %tobool.i.not.i = icmp eq i8 %0, 0
-  %brmerge.demorgan.i = and i1 %tobool.i.not.i, %tobool
+  %brmerge.demorgan.i = and i1 %tobool.i.not.i, %4
   br i1 %brmerge.demorgan.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
@@ -3677,7 +3678,7 @@ if.then.i:                                        ; preds = %if.end
   br label %tcache_enabled_set.exit
 
 if.else.i:                                        ; preds = %if.end
-  %brmerge10.i = or i1 %tobool.i.not.i, %tobool
+  %brmerge10.i = or i1 %tobool.i.not.i, %4
   br i1 %brmerge10.i, label %tcache_enabled_set.exit, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -3696,8 +3697,8 @@ do.body:                                          ; preds = %entry, %tcache_enab
   br i1 %or.cond, label %if.then6, label %label_return
 
 if.then6:                                         ; preds = %do.body
-  %3 = load i64, ptr %oldlenp, align 8
-  switch i64 %3, label %cond.end [
+  %5 = load i64, ptr %oldlenp, align 8
+  switch i64 %5, label %cond.end [
     i64 1, label %if.end10
     i64 0, label %cond.false
   ]

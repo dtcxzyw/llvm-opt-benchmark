@@ -1112,8 +1112,9 @@ hb_reset_elem.exit37.i:                           ; preds = %if.end.i.i
   %cmp10.i36.i = icmp eq i64 %and9.i35.i, 0
   %21 = select i1 %cmp8.not.i33.i, i1 %cmp10.i36.i, i1 false
   store i64 %and9.i35.i, ptr %arrayidx25.i, align 8
-  %22 = icmp ne i8 %changed.2.i, 0
-  %changed.3.i = select i1 %21, i1 true, i1 %22
+  %22 = and i8 %changed.2.i, 1
+  %23 = icmp ne i8 %22, 0
+  %changed.3.i = select i1 %21, i1 true, i1 %23
   %cmp30.i = icmp ne i32 %level.tr.i, 0
   %brmerge.not.i = select i1 %cmp30.i, i1 %changed.3.i, i1 false
   br i1 %brmerge.not.i, label %if.then34.i, label %hb_reset_between.exit
@@ -1131,12 +1132,12 @@ hb_reset_between.exit:                            ; preds = %hb_reset_elem.exit3
 
 land.lhs.true:                                    ; preds = %hb_reset_between.exit
   %meta = getelementptr inbounds i8, ptr %hb, i64 32
-  %23 = load ptr, ptr %meta, align 8
-  %tobool.not = icmp eq ptr %23, null
+  %24 = load ptr, ptr %meta, align 8
+  %tobool.not = icmp eq ptr %24, null
   br i1 %tobool.not, label %if.end31, label %if.then29
 
 if.then29:                                        ; preds = %land.lhs.true
-  tail call void @hbitmap_set(ptr noundef nonnull %23, i64 noundef %start, i64 noundef %count)
+  tail call void @hbitmap_set(ptr noundef nonnull %24, i64 noundef %start, i64 noundef %count)
   br label %if.end31
 
 if.end31:                                         ; preds = %entry, %if.then29, %land.lhs.true, %hb_reset_between.exit
