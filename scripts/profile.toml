@@ -1,6 +1,10 @@
+[unstable]
+profile-rustflags = true
+
 [profile.opt-bench]
-opt-level = 0
-debug = true
+opt-level = 3
+debug = false
+rustflags = ["-C", "no-prepopulate-passes", "-Z", "mir-opt-level=3", "-C", "embed-bitcode"]
 strip = "none"
 debug-assertions = false
 overflow-checks = false
