@@ -310,3 +310,6 @@
 [submodule "bench/rand-rs/rand"]
 	path = bench/rand-rs/rand
 	url = git@github.com:rust-random/rand.git
+[submodule "bench/log-rs/log"]
+	path = bench/log-rs/log
+	url = git@github.com:rust-lang/log.git
