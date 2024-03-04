@@ -31542,7 +31542,6 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   %is_crash = getelementptr inbounds i8, ptr %e, i64 24
   %8 = load i8, ptr %is_crash, align 8
   %9 = and i8 %8, 1
-  %tobool6.not = icmp eq i8 %9, 0
   %10 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val = load ptr, ptr %10, align 8
   %11 = load i8, ptr @_ZN7doctest6detail11g_no_colorsE, align 1
@@ -31572,7 +31571,8 @@ call14.i.i.noexc70:                               ; preds = %if.end.i.i66
           to label %call2.i.noexc unwind label %lpad.loopexit.split-lp
 
 call2.i.noexc:                                    ; preds = %land.lhs.true.i.i67, %invoke.cont5, %call14.i.i.noexc70
-  %retval.0.i.i8 = select i1 %tobool6.not, ptr @.str.52, ptr @.str.53
+  %tobool2.not.i.i.i.not = icmp eq i8 %9, 0
+  %retval.0.i.i8 = select i1 %tobool2.not.i.i.i.not, ptr @.str.52, ptr @.str.53
   %call5.i10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this.val, ptr noundef nonnull %retval.0.i.i8)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 

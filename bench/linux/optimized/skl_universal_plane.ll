@@ -371,7 +371,7 @@ declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr
 define dso_local ptr @skl_universal_plane_create(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   %4 = tail call ptr @intel_plane_alloc() #11
   %5 = icmp ugt ptr %4, inttoptr (i64 -4096 to ptr)
-  br i1 %5, label %280, label %6
+  br i1 %5, label %279, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %4, i64 1328
@@ -784,54 +784,53 @@ define dso_local ptr @skl_universal_plane_create(ptr noundef %0, i32 noundef %1,
   %251 = tail call i32 (ptr, ptr, i32, ptr, ptr, i32, ptr, i32, ptr, ...) @drm_universal_plane_init(ptr noundef %0, ptr noundef %4, i32 noundef 0, ptr noundef nonnull %139, ptr noundef nonnull %138, i32 noundef %137, ptr noundef %248, i32 noundef %141, ptr noundef nonnull @.str.4, i32 noundef %249, i32 noundef %250) #11
   tail call void @kfree(ptr noundef %248) #11
   %252 = icmp eq i32 %251, 0
-  br i1 %252, label %253, label %277
+  br i1 %252, label %253, label %276
 
 253:                                              ; preds = %.thread19
   %254 = load i16, ptr %35, align 8
   %255 = icmp ugt i16 %254, 12
-  %256 = select i1 %255, i32 5, i32 15
-  %257 = icmp ugt i16 %254, 10
-  %258 = or disjoint i32 %256, 16
-  %259 = select i1 %257, i32 %258, i32 %256
-  %260 = tail call i32 @drm_plane_create_rotation_property(ptr noundef %4, i32 noundef 1, i32 noundef %259) #11
-  %261 = load i16, ptr %35, align 8
-  %262 = icmp ugt i16 %261, 9
-  %263 = select i1 %262, i32 7, i32 3
-  %264 = tail call i32 @drm_plane_create_color_properties(ptr noundef %4, i32 noundef %263, i32 noundef 3, i32 noundef 1, i32 noundef 0) #11
-  %265 = tail call i32 @drm_plane_create_alpha_property(ptr noundef %4) #11
-  %266 = tail call i32 @drm_plane_create_blend_mode_property(ptr noundef %4, i32 noundef 7) #11
-  %267 = tail call i32 @drm_plane_create_zpos_immutable_property(ptr noundef %4, i32 noundef %2) #11
-  %268 = load i16, ptr %35, align 8
-  %269 = icmp ugt i16 %268, 11
-  br i1 %269, label %270, label %271
+  %256 = icmp ugt i16 %254, 10
+  %257 = select i1 %255, i32 21, i32 31
+  %258 = select i1 %256, i32 %257, i32 15
+  %259 = tail call i32 @drm_plane_create_rotation_property(ptr noundef %4, i32 noundef 1, i32 noundef %258) #11
+  %260 = load i16, ptr %35, align 8
+  %261 = icmp ugt i16 %260, 9
+  %262 = select i1 %261, i32 7, i32 3
+  %263 = tail call i32 @drm_plane_create_color_properties(ptr noundef %4, i32 noundef %262, i32 noundef 3, i32 noundef 1, i32 noundef 0) #11
+  %264 = tail call i32 @drm_plane_create_alpha_property(ptr noundef %4) #11
+  %265 = tail call i32 @drm_plane_create_blend_mode_property(ptr noundef %4, i32 noundef 7) #11
+  %266 = tail call i32 @drm_plane_create_zpos_immutable_property(ptr noundef %4, i32 noundef %2) #11
+  %267 = load i16, ptr %35, align 8
+  %268 = icmp ugt i16 %267, 11
+  br i1 %268, label %269, label %270
 
-270:                                              ; preds = %253
+269:                                              ; preds = %253
   tail call void @drm_plane_enable_fb_damage_clips(ptr noundef %4) #11
   %.pr = load i16, ptr %35, align 8
-  br label %271
+  br label %270
 
-271:                                              ; preds = %270, %253
-  %272 = phi i16 [ %.pr, %270 ], [ %268, %253 ]
-  %273 = icmp ugt i16 %272, 10
-  br i1 %273, label %274, label %276
+270:                                              ; preds = %269, %253
+  %271 = phi i16 [ %.pr, %269 ], [ %267, %253 ]
+  %272 = icmp ugt i16 %271, 10
+  br i1 %272, label %273, label %275
 
-274:                                              ; preds = %271
-  %275 = tail call i32 @drm_plane_create_scaling_filter_property(ptr noundef %4, i32 noundef 3) #11
-  br label %276
+273:                                              ; preds = %270
+  %274 = tail call i32 @drm_plane_create_scaling_filter_property(ptr noundef %4, i32 noundef 3) #11
+  br label %275
 
-276:                                              ; preds = %274, %271
+275:                                              ; preds = %273, %270
   tail call void @intel_plane_helper_add(ptr noundef %4) #11
-  br label %280
+  br label %279
 
-277:                                              ; preds = %.thread19
+276:                                              ; preds = %.thread19
   tail call void @intel_plane_free(ptr noundef %4) #11
-  %278 = sext i32 %251 to i64
-  %279 = inttoptr i64 %278 to ptr
-  br label %280
+  %277 = sext i32 %251 to i64
+  %278 = inttoptr i64 %277 to ptr
+  br label %279
 
-280:                                              ; preds = %277, %276, %3
-  %281 = phi ptr [ %279, %277 ], [ %4, %276 ], [ %4, %3 ]
-  ret ptr %281
+279:                                              ; preds = %276, %275, %3
+  %280 = phi ptr [ %278, %276 ], [ %4, %275 ], [ %4, %3 ]
+  ret ptr %280
 }
 
 ; Function Attrs: null_pointer_is_valid

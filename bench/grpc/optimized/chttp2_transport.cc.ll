@@ -10572,12 +10572,10 @@ do.end:                                           ; preds = %do.body
 if.then103:                                       ; preds = %do.end
   %deadline = getelementptr inbounds i8, ptr %1, i64 1800
   %95 = load i16, ptr %92, align 2
-  %cmp.i.i.i.i.i110 = icmp slt i16 %95, 0
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %92, i64 56
   %96 = load i64, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %retval.sroa.0.0.i = select i1 %cmp.i.i.i.i.i110, i64 %96, i64 undef
   %tobool.i.not.i = icmp sgt i16 %95, -1
-  %retval.sroa.0.0.i111 = select i1 %tobool.i.not.i, i64 9223372036854775807, i64 %retval.sroa.0.0.i
+  %retval.sroa.0.0.i111 = select i1 %tobool.i.not.i, i64 9223372036854775807, i64 %96
   %agg.tmp.sroa.0.0.copyload.i112 = load i64, ptr %deadline, align 8
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %retval.sroa.0.0.i111, i64 %agg.tmp.sroa.0.0.copyload.i112)
   store i64 %.sroa.speculated, ptr %deadline, align 8
@@ -10589,9 +10587,9 @@ if.end118:                                        ; preds = %if.then103, %do.end
   %98 = getelementptr i8, ptr %92, i64 20
   %.val88 = load i32, ptr %98, align 4
   %and2.i.i.i.i.i.i = and i16 %.val, 64
-  %cmp.i.i.not.i.i.not.i.i = icmp ne i16 %and2.i.i.i.i.i.i, 0
+  %tobool.i.not.i.i = icmp ne i16 %and2.i.i.i.i.i.i, 0
   %cmp1.i = icmp ne i32 %.val88, 0
-  %cmp.i113 = select i1 %cmp.i.i.not.i.i.not.i.i, i1 %cmp1.i, i1 false
+  %cmp.i113 = select i1 %tobool.i.not.i.i, i1 %cmp1.i, i1 false
   br i1 %cmp.i113, label %if.then121, label %if.end122
 
 if.then121:                                       ; preds = %if.end118
@@ -11139,9 +11137,9 @@ do.end318:                                        ; preds = %do.body312
   %193 = getelementptr i8, ptr %190, i64 20
   %.val90 = load i32, ptr %193, align 4
   %and2.i.i.i.i.i.i165 = and i16 %.val89, 64
-  %cmp.i.i.not.i.i.not.i.i166 = icmp ne i16 %and2.i.i.i.i.i.i165, 0
+  %tobool.i.not.i.i166 = icmp ne i16 %and2.i.i.i.i.i.i165, 0
   %cmp1.i167 = icmp ne i32 %.val90, 0
-  %cmp.i168 = select i1 %cmp.i.i.not.i.i.not.i.i166, i1 %cmp1.i167, i1 false
+  %cmp.i168 = select i1 %tobool.i.not.i.i166, i1 %cmp1.i167, i1 false
   br i1 %cmp.i168, label %if.then332, label %if.end334
 
 if.then332:                                       ; preds = %do.end318

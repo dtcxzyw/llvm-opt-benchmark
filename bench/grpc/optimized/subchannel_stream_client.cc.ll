@@ -2827,10 +2827,10 @@ entry:
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %arg, i64 2954
   %0 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
   %and2.i.i.i.i.i = and i16 %0, 64
-  %cmp.i.i.not.i.i.not.i = icmp eq i16 %and2.i.i.i.i.i, 0
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arg, i64 2972
   %1 = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %retval.0.i = select i1 %cmp.i.i.not.i.i.not.i, i32 2, i32 %1
+  %tobool.i.not.i = icmp eq i16 %and2.i.i.i.i.i, 0
+  %retval.0.i = select i1 %tobool.i.not.i, i32 2, i32 %1
   store i32 %retval.0.i, ptr %status, align 4
   %2 = load i64, ptr %error, align 8
   %cmp.i = icmp eq i64 %2, 0

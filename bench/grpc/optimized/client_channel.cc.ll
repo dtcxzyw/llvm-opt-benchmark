@@ -21152,10 +21152,10 @@ invoke.cont37:                                    ; preds = %if.then14
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 2
   %33 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
   %and2.i.i.i.i.i = and i16 %33, 64
-  %cmp.i.i.not.i.i.not.i = icmp eq i16 %and2.i.i.i.i.i, 0
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 20
   %34 = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %retval.0.i = select i1 %cmp.i.i.not.i.i.not.i, i32 2, i32 %34
+  %tobool.i.not.i = icmp eq i16 %and2.i.i.i.i.i, 0
+  %retval.0.i = select i1 %tobool.i.not.i, i32 2, i32 %34
   %cmp44.not = icmp eq i32 %retval.0.i, 0
   br i1 %cmp44.not, label %if.end63, label %invoke.cont48
 
@@ -47179,10 +47179,10 @@ invoke.cont.i.i.i.i:                              ; preds = %lor.lhs.false.i.i.i
   %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %86, i64 2
   %88 = load i16, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 2, !noalias !1222
   %and2.i.i.i.i.i.i.i.i.i = and i16 %88, 64
-  %cmp.i.i.not.i.i.not.i.i.i.i.i = icmp eq i16 %and2.i.i.i.i.i.i.i.i.i, 0
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %86, i64 20
   %89 = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !1222
-  %retval.0.i.i.i.i.i = select i1 %cmp.i.i.not.i.i.not.i.i.i.i.i, i32 2, i32 %89
+  %tobool.i.not.i.i.i.i.i = icmp eq i16 %and2.i.i.i.i.i.i.i.i.i, 0
+  %retval.0.i.i.i.i.i = select i1 %tobool.i.not.i.i.i.i.i, i32 2, i32 %89
   %cmp9.not.i.i.i.i = icmp eq i32 %retval.0.i.i.i.i.i, 0
   br i1 %cmp9.not.i.i.i.i, label %if.end25.thread.i.i.i.i, label %invoke.cont13.i.i.i.i
 

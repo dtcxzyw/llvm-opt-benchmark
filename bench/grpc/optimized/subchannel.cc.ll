@@ -1868,10 +1868,10 @@ invoke.cont.thread:                               ; preds = %_ZN4absl12lts_20230
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 2
   %10 = load i16, ptr %arrayidx.i.i.i.i.i.i, align 2
   %and2.i.i.i.i.i.i = and i16 %10, 64
-  %cmp.i.i.not.i.i.not.i.i = icmp eq i16 %and2.i.i.i.i.i.i, 0
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 20
   %11 = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %retval.0.i.i = select i1 %cmp.i.i.not.i.i.not.i.i, i32 2, i32 %11
+  %tobool.i.not.i.i = icmp eq i16 %and2.i.i.i.i.i.i, 0
+  %retval.0.i.i = select i1 %tobool.i.not.i.i, i32 2, i32 %11
   store i32 %retval.0.i.i, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
   br label %_ZN4absl12lts_202308026StatusD2Ev.exit
@@ -7895,8 +7895,8 @@ do.end.i.i.i.i.i.i.i:                             ; preds = %sw.bb14.i.i.i.i
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 20
   %21 = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !128
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp ne i16 %and2.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  %cmp8.not12.i.i.i.i.i.i.i = icmp eq i32 %21, 0
-  %cmp8.not.i.i.i.i.i.i.i = select i1 %tobool.i.not.i.i.i.i.i.i.i.i, i1 %cmp8.not12.i.i.i.i.i.i.i, i1 false
+  %cmp8.not1.i.i.i.i.i.i.i = icmp eq i32 %21, 0
+  %cmp8.not.i.i.i.i.i.i.i = select i1 %tobool.i.not.i.i.i.i.i.i.i.i, i1 %cmp8.not1.i.i.i.i.i.i.i, i1 false
   %call_counter_.i3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.val.i.i.i.i.i.i, i64 120
   br i1 %cmp8.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then9.i.i.i.i.i.i.i
 

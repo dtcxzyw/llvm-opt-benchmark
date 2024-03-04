@@ -9898,12 +9898,12 @@ _ZN5tokio7runtime4time5Inner4lock17hc6aef85257c604f9E.exit77: ; preds = %.noexc7
 
 73:                                               ; preds = %27
   %74 = load i64, ptr %3, align 8, !range !78, !noalias !1198, !noundef !4
-  %trunc.not.not.i = icmp eq i64 %74, 0
   %75 = getelementptr inbounds i8, ptr %3, i64 24
   %76 = load i64, ptr %75, align 8, !noalias !1198
   %77 = tail call i64 @llvm.umax.i64(i64 %76, i64 1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1198
-  %.055 = select i1 %trunc.not.not.i, i64 0, i64 %77
+  %switch.not.not = icmp eq i64 %74, 0
+  %.055 = select i1 %switch.not.not, i64 0, i64 %77
   %78 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %.055, ptr %78, align 8
   %79 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h5ccce900420b99d6E.llvm.700930863383756518(ptr noundef nonnull %0, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)

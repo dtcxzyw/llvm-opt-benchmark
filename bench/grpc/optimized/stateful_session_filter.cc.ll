@@ -8911,12 +8911,12 @@ if.then.i:                                        ; preds = %entry
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.cast.i, i64 2
   %11 = load i16, ptr %arrayidx.i.i.i.i.i.i.i, align 2, !noalias !442
   %and2.i.i.i.i.i.i.i = and i16 %11, 16384
-  %cmp.i.i.not.i.i.not.i.i.i = icmp eq i16 %and2.i.i.i.i.i.i.i, 0
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.cast.i, i64 11
   %12 = load i8, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !442
   %13 = and i8 %12, 1
+  %tobool.i.not.i.i.i = icmp eq i16 %and2.i.i.i.i.i.i.i, 0
   %retval.0.i.not2.i.i = icmp eq i8 %13, 0
-  %retval.0.i.not.i.i = select i1 %cmp.i.i.not.i.i.not.i.i.i, i1 true, i1 %retval.0.i.not2.i.i
+  %retval.0.i.not.i.i = select i1 %tobool.i.not.i.i.i, i1 true, i1 %retval.0.i.not2.i.i
   br i1 %retval.0.i.not.i.i, label %if.then.i1, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
