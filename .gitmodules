@@ -334,3 +334,6 @@
 [submodule "bench/hyper-rs/hyper"]
 	path = bench/hyper-rs/hyper
 	url = git@github.com:hyperium/hyper.git
+[submodule "bench/html5ever-rs/html5ever"]
+	path = bench/html5ever-rs/html5ever
+	url = git@github.com:servo/html5ever.git
