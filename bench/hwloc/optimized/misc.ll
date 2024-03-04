@@ -40,72 +40,91 @@ define hidden void @hwloc_add_uname_info(ptr noundef %0, ptr noundef %1) local_u
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %hwloc_get_info_by_name.exit, label %8
 
+hwloc_get_info_by_name.exit.thread:               ; preds = %8, %2
+  %.0.sroa.gep2556 = getelementptr inbounds i8, ptr %3, i64 130
+  %.0.sroa.gep3158 = getelementptr inbounds i8, ptr %3, i64 195
+  %.0.sroa.gep3760 = getelementptr inbounds i8, ptr %3, i64 65
+  %.0.sroa.gep4362 = getelementptr inbounds i8, ptr %3, i64 260
+  br label %15
+
 hwloc_get_info_by_name.exit:                      ; preds = %9
   %13 = getelementptr inbounds i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %hwloc_get_info_by_name.exit.thread, label %42
+  %.0.sroa.gep25 = getelementptr inbounds i8, ptr %3, i64 130
+  %.0.sroa.gep31 = getelementptr inbounds i8, ptr %3, i64 195
+  %.0.sroa.gep37 = getelementptr inbounds i8, ptr %3, i64 65
+  %.0.sroa.gep43 = getelementptr inbounds i8, ptr %3, i64 260
+  br i1 %.not, label %15, label %39
 
-hwloc_get_info_by_name.exit.thread:               ; preds = %8, %2, %hwloc_get_info_by_name.exit
-  %.not20 = icmp eq ptr %1, null
-  br i1 %.not20, label %15, label %18
+15:                                               ; preds = %hwloc_get_info_by_name.exit.thread, %hwloc_get_info_by_name.exit
+  %.0.sroa.gep4370 = phi ptr [ %.0.sroa.gep4362, %hwloc_get_info_by_name.exit.thread ], [ %.0.sroa.gep43, %hwloc_get_info_by_name.exit ]
+  %.0.sroa.gep3768 = phi ptr [ %.0.sroa.gep3760, %hwloc_get_info_by_name.exit.thread ], [ %.0.sroa.gep37, %hwloc_get_info_by_name.exit ]
+  %.0.sroa.gep3166 = phi ptr [ %.0.sroa.gep3158, %hwloc_get_info_by_name.exit.thread ], [ %.0.sroa.gep31, %hwloc_get_info_by_name.exit ]
+  %.0.sroa.gep2564 = phi ptr [ %.0.sroa.gep2556, %hwloc_get_info_by_name.exit.thread ], [ %.0.sroa.gep25, %hwloc_get_info_by_name.exit ]
+  %.0.sroa.gep2463 = getelementptr inbounds i8, ptr %1, i64 130
+  %.0.sroa.gep3065 = getelementptr inbounds i8, ptr %1, i64 195
+  %.0.sroa.gep3667 = getelementptr inbounds i8, ptr %1, i64 65
+  %.0.sroa.gep4269 = getelementptr inbounds i8, ptr %1, i64 260
+  %.not47 = icmp eq ptr %1, null
+  br i1 %.not47, label %16, label %19
 
-15:                                               ; preds = %hwloc_get_info_by_name.exit.thread
-  %16 = call i32 @uname(ptr noundef nonnull %3) #7
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %42, label %18
+16:                                               ; preds = %15
+  %17 = call i32 @uname(ptr noundef nonnull %3) #7
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %39, label %19
 
-18:                                               ; preds = %hwloc_get_info_by_name.exit.thread, %15
-  %.0 = phi ptr [ %3, %15 ], [ %1, %hwloc_get_info_by_name.exit.thread ]
-  %19 = load i8, ptr %.0, align 1
-  %.not21 = icmp eq i8 %19, 0
-  br i1 %.not21, label %22, label %20
+19:                                               ; preds = %15, %16
+  %.0.sroa.phi20 = phi ptr [ %3, %16 ], [ %1, %15 ]
+  %.0.sroa.phi26 = phi ptr [ %.0.sroa.gep2564, %16 ], [ %.0.sroa.gep2463, %15 ]
+  %.0.sroa.phi32 = phi ptr [ %.0.sroa.gep3166, %16 ], [ %.0.sroa.gep3065, %15 ]
+  %.0.sroa.phi38 = phi ptr [ %.0.sroa.gep3768, %16 ], [ %.0.sroa.gep3667, %15 ]
+  %.0.sroa.phi44 = phi ptr [ %.0.sroa.gep4370, %16 ], [ %.0.sroa.gep4269, %15 ]
+  %20 = load i8, ptr %.0.sroa.phi20, align 1
+  %.not48 = icmp eq i8 %20, 0
+  br i1 %.not48, label %23, label %21
 
-20:                                               ; preds = %18
-  %21 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull %.0) #7
-  br label %22
+21:                                               ; preds = %19
+  %22 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull %.0.sroa.phi20) #7
+  br label %23
 
-22:                                               ; preds = %20, %18
-  %23 = getelementptr inbounds i8, ptr %.0, i64 130
-  %24 = load i8, ptr %23, align 1
-  %.not22 = icmp eq i8 %24, 0
-  br i1 %.not22, label %27, label %25
+23:                                               ; preds = %21, %19
+  %24 = load i8, ptr %.0.sroa.phi26, align 1
+  %.not49 = icmp eq i8 %24, 0
+  br i1 %.not49, label %27, label %25
 
-25:                                               ; preds = %22
-  %26 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef nonnull %23) #7
+25:                                               ; preds = %23
+  %26 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef nonnull %.0.sroa.phi26) #7
   br label %27
 
-27:                                               ; preds = %25, %22
-  %28 = getelementptr inbounds i8, ptr %.0, i64 195
-  %29 = load i8, ptr %28, align 1
-  %.not23 = icmp eq i8 %29, 0
-  br i1 %.not23, label %32, label %30
+27:                                               ; preds = %25, %23
+  %28 = load i8, ptr %.0.sroa.phi32, align 1
+  %.not50 = icmp eq i8 %28, 0
+  br i1 %.not50, label %31, label %29
 
-30:                                               ; preds = %27
-  %31 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, ptr noundef nonnull %28) #7
-  br label %32
+29:                                               ; preds = %27
+  %30 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, ptr noundef nonnull %.0.sroa.phi32) #7
+  br label %31
 
-32:                                               ; preds = %30, %27
-  %33 = getelementptr inbounds i8, ptr %.0, i64 65
-  %34 = load i8, ptr %33, align 1
-  %.not24 = icmp eq i8 %34, 0
-  br i1 %.not24, label %37, label %35
+31:                                               ; preds = %29, %27
+  %32 = load i8, ptr %.0.sroa.phi38, align 1
+  %.not51 = icmp eq i8 %32, 0
+  br i1 %.not51, label %35, label %33
 
-35:                                               ; preds = %32
-  %36 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.3, ptr noundef nonnull %33) #7
-  br label %37
+33:                                               ; preds = %31
+  %34 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.3, ptr noundef nonnull %.0.sroa.phi38) #7
+  br label %35
 
-37:                                               ; preds = %35, %32
-  %38 = getelementptr inbounds i8, ptr %.0, i64 260
-  %39 = load i8, ptr %38, align 1
-  %.not25 = icmp eq i8 %39, 0
-  br i1 %.not25, label %42, label %40
+35:                                               ; preds = %33, %31
+  %36 = load i8, ptr %.0.sroa.phi44, align 1
+  %.not52 = icmp eq i8 %36, 0
+  br i1 %.not52, label %39, label %37
 
-40:                                               ; preds = %37
-  %41 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.4, ptr noundef nonnull %38) #7
-  br label %42
+37:                                               ; preds = %35
+  %38 = call i32 @hwloc__add_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.4, ptr noundef nonnull %.0.sroa.phi44) #7
+  br label %39
 
-42:                                               ; preds = %15, %hwloc_get_info_by_name.exit, %40, %37
+39:                                               ; preds = %16, %hwloc_get_info_by_name.exit, %37, %35
   ret void
 }
 

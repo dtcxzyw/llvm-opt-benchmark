@@ -1043,6 +1043,8 @@ entry:
   %errnop = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.30, ptr noundef nonnull %ip_num) #12
   %tobool.not = icmp eq i32 %call, 0
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %addr, i64 8
+  %.sink.sroa.gep9 = getelementptr inbounds i8, ptr %addr, i64 4
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -1075,11 +1077,10 @@ sw.default:                                       ; preds = %if.end8
   br label %finally
 
 sw.epilog:                                        ; preds = %if.end8, %sw.bb9
-  %.sink = phi i64 [ 8, %sw.bb9 ], [ 4, %if.end8 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %sw.bb9 ], [ %.sink.sroa.gep9, %if.end8 ]
   %al.0 = phi i32 [ 16, %sw.bb9 ], [ 4, %if.end8 ]
-  %sin6_addr = getelementptr inbounds i8, ptr %addr, i64 %.sink
   %call10 = call ptr @PyEval_SaveThread() #12
-  %call12 = call i32 @gethostbyaddr_r(ptr noundef nonnull %sin6_addr, i32 noundef %al.0, i32 noundef %conv, ptr noundef nonnull %hp_allocated, ptr noundef nonnull %buf, i64 noundef 16383, ptr noundef nonnull %h, ptr noundef nonnull %errnop) #12
+  %call12 = call i32 @gethostbyaddr_r(ptr noundef nonnull %.sink.sroa.phi, i32 noundef %al.0, i32 noundef %conv, ptr noundef nonnull %hp_allocated, ptr noundef nonnull %buf, i64 noundef 16383, ptr noundef nonnull %h, ptr noundef nonnull %errnop) #12
   call void @PyEval_RestoreThread(ptr noundef %call10) #12
   %4 = load ptr, ptr %h, align 8
   %call13 = call fastcc ptr @gethost_common(ptr noundef %self.val, ptr noundef %4, ptr noundef nonnull %addr, i32 noundef %conv)

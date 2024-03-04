@@ -19,14 +19,14 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
   %14 = extractvalue { i64, i1 } %13, 1
   %15 = extractvalue { i64, i1 } %13, 0
   %16 = select i1 %14, i64 -1, i64 %15
-  %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #9
+  %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #8
   store ptr %17, ptr %4, align 8
   %18 = mul nsw i32 %2, 3
   %19 = sext i32 %18 to i64
   %20 = icmp slt i32 %2, 0
   %21 = shl nsw i64 %19, 2
   %22 = select i1 %20, i64 -1, i64 %21
-  %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #9
+  %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #8
   %24 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %23, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %4, i64 24
@@ -36,7 +36,7 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
   %28 = extractvalue { i64, i1 } %27, 1
   %29 = extractvalue { i64, i1 } %27, 0
   %30 = select i1 %28, i64 -1, i64 %29
-  %31 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #9
+  %31 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #8
   %32 = icmp sgt i32 %2, 0
   br i1 %32, label %.lr.ph.preheader, label %._crit_edge
 
@@ -103,7 +103,7 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
   store i32 0, ptr %6, align 4
   store i32 0, ptr %7, align 4
   call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef nonnull %31, i32 noundef 0, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull %17, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull %23, ptr noundef %1)
-  call void @_ZdaPv(ptr noundef nonnull %31) #10
+  call void @_ZdaPv(ptr noundef nonnull %31) #9
   %70 = load i32, ptr %7, align 4
   %71 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %70, ptr %71, align 8
@@ -482,124 +482,126 @@ _Z16checkOverlapRectPKfS0_S0_S0_.exit:            ; preds = %31
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_Z29rcGetChunksOverlappingSegmentPK15rcChunkyTriMeshPfS2_Pii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #5 {
-  %6 = alloca [2 x float], align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8
-  %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp sgt i32 %7, 0
+  br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %64
-  %.pre34 = phi i32 [ %.pre35, %64 ], [ %8, %5 ]
-  %10 = phi i32 [ %65, %64 ], [ %8, %5 ]
-  %.033 = phi i32 [ %.1, %64 ], [ 0, %5 ]
-  %.02332 = phi i32 [ %.12430, %64 ], [ 0, %5 ]
-  %11 = load ptr, ptr %0, align 8
-  %12 = sext i32 %.033 to i64
-  %13 = getelementptr inbounds %struct.rcChunkyTriMeshNode, ptr %11, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %15 = load <2 x float>, ptr %2, align 4
-  %16 = load <2 x float>, ptr %1, align 4
-  %17 = fsub <2 x float> %15, %16
-  store <2 x float> %17, ptr %6, align 8
-  br label %18
+.lr.ph:                                           ; preds = %5
+  %9 = getelementptr i8, ptr %2, i64 4
+  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  br label %11
 
-18:                                               ; preds = %49, %.lr.ph
-  %.not.i = phi i1 [ true, %.lr.ph ], [ false, %49 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ 1, %49 ]
-  %.0413.i = phi float [ 0.000000e+00, %.lr.ph ], [ %.2.i, %49 ]
-  %.0431.i = phi float [ 1.000000e+00, %.lr.ph ], [ %.245.i, %49 ]
-  %19 = getelementptr inbounds [2 x float], ptr %6, i64 0, i64 %indvars.iv.i
-  %20 = load float, ptr %19, align 4
-  %21 = tail call float @llvm.fabs.f32(float %20)
-  %22 = fcmp olt float %21, 0x3EB0C6F7A0000000
-  br i1 %22, label %23, label %33
+11:                                               ; preds = %.lr.ph, %65
+  %.pre36 = phi i32 [ %7, %.lr.ph ], [ %.pre37, %65 ]
+  %12 = phi i32 [ %7, %.lr.ph ], [ %66, %65 ]
+  %.035 = phi i32 [ 0, %.lr.ph ], [ %.1, %65 ]
+  %.02334 = phi i32 [ 0, %.lr.ph ], [ %.12432, %65 ]
+  %13 = load ptr, ptr %0, align 8
+  %14 = sext i32 %.035 to i64
+  %15 = getelementptr inbounds %struct.rcChunkyTriMeshNode, ptr %13, i64 %14
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %.val = load float, ptr %2, align 4
+  %.val27 = load float, ptr %9, align 4
+  %17 = load float, ptr %1, align 4
+  %18 = fsub float %.val, %17
+  %19 = load float, ptr %10, align 4
+  %20 = fsub float %.val27, %19
+  br label %21
 
-23:                                               ; preds = %18
-  %24 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
-  %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds float, ptr %13, i64 %indvars.iv.i
-  %27 = load float, ptr %26, align 4
-  %28 = fcmp olt float %25, %27
-  br i1 %28, label %57, label %29
+21:                                               ; preds = %50, %11
+  %.not.i = phi i1 [ true, %11 ], [ false, %50 ]
+  %indvars.iv.i.sroa.phi.sroa.speculated = phi float [ %18, %11 ], [ %20, %50 ]
+  %indvars.iv.i = phi i64 [ 0, %11 ], [ 1, %50 ]
+  %.0413.i = phi float [ 0.000000e+00, %11 ], [ %.2.i, %50 ]
+  %.0431.i = phi float [ 1.000000e+00, %11 ], [ %.245.i, %50 ]
+  %22 = tail call float @llvm.fabs.f32(float %indvars.iv.i.sroa.phi.sroa.speculated)
+  %23 = fcmp olt float %22, 0x3EB0C6F7A0000000
+  br i1 %23, label %24, label %34
 
-29:                                               ; preds = %23
-  %30 = getelementptr inbounds float, ptr %14, i64 %indvars.iv.i
-  %31 = load float, ptr %30, align 4
-  %32 = fcmp ogt float %25, %31
-  br i1 %32, label %57, label %49
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
+  %26 = load float, ptr %25, align 4
+  %27 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i
+  %28 = load float, ptr %27, align 4
+  %29 = fcmp olt float %26, %28
+  br i1 %29, label %58, label %30
 
-33:                                               ; preds = %18
-  %34 = fdiv float 1.000000e+00, %20
-  %35 = getelementptr inbounds float, ptr %13, i64 %indvars.iv.i
-  %36 = load float, ptr %35, align 4
-  %37 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
-  %38 = load float, ptr %37, align 4
-  %39 = fsub float %36, %38
-  %40 = fmul float %34, %39
-  %41 = getelementptr inbounds float, ptr %14, i64 %indvars.iv.i
-  %42 = load float, ptr %41, align 4
-  %43 = fsub float %42, %38
-  %44 = fmul float %34, %43
-  %45 = fcmp ogt float %40, %44
-  %.040.i = select i1 %45, float %44, float %40
-  %.039.i = select i1 %45, float %40, float %44
-  %46 = fcmp ogt float %.040.i, %.0413.i
-  %.1.i = select i1 %46, float %.040.i, float %.0413.i
-  %47 = fcmp olt float %.039.i, %.0431.i
-  %.144.i = select i1 %47, float %.039.i, float %.0431.i
-  %48 = fcmp ogt float %.1.i, %.144.i
-  br i1 %48, label %57, label %49
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds float, ptr %16, i64 %indvars.iv.i
+  %32 = load float, ptr %31, align 4
+  %33 = fcmp ogt float %26, %32
+  br i1 %33, label %58, label %50
 
-49:                                               ; preds = %33, %29
-  %.245.i = phi float [ %.0431.i, %29 ], [ %.144.i, %33 ]
-  %.2.i = phi float [ %.0413.i, %29 ], [ %.1.i, %33 ]
-  br i1 %.not.i, label %18, label %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit, !llvm.loop !12
+34:                                               ; preds = %21
+  %35 = fdiv float 1.000000e+00, %indvars.iv.i.sroa.phi.sroa.speculated
+  %36 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i
+  %37 = load float, ptr %36, align 4
+  %38 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
+  %39 = load float, ptr %38, align 4
+  %40 = fsub float %37, %39
+  %41 = fmul float %35, %40
+  %42 = getelementptr inbounds float, ptr %16, i64 %indvars.iv.i
+  %43 = load float, ptr %42, align 4
+  %44 = fsub float %43, %39
+  %45 = fmul float %35, %44
+  %46 = fcmp ogt float %41, %45
+  %.040.i = select i1 %46, float %45, float %41
+  %.039.i = select i1 %46, float %41, float %45
+  %47 = fcmp ogt float %.040.i, %.0413.i
+  %.1.i = select i1 %47, float %.040.i, float %.0413.i
+  %48 = fcmp olt float %.039.i, %.0431.i
+  %.144.i = select i1 %48, float %.039.i, float %.0431.i
+  %49 = fcmp ogt float %.1.i, %.144.i
+  br i1 %49, label %58, label %50
 
-_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit:        ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %50 = getelementptr inbounds i8, ptr %13, i64 16
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp sgt i32 %51, -1
-  %53 = icmp slt i32 %.02332, %4
-  %or.cond = select i1 %52, i1 %53, i1 false
-  br i1 %or.cond, label %.thread, label %.thread41
+50:                                               ; preds = %34, %30
+  %.245.i = phi float [ %.0431.i, %30 ], [ %.144.i, %34 ]
+  %.2.i = phi float [ %.0413.i, %30 ], [ %.1.i, %34 ]
+  br i1 %.not.i, label %21, label %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit, !llvm.loop !12
+
+_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit:        ; preds = %50
+  %51 = getelementptr inbounds i8, ptr %15, i64 16
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp sgt i32 %52, -1
+  %54 = icmp slt i32 %.02334, %4
+  %or.cond = select i1 %53, i1 %54, i1 false
+  br i1 %or.cond, label %.thread, label %.thread43
 
 .thread:                                          ; preds = %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit
-  %54 = sext i32 %.02332 to i64
-  %55 = getelementptr inbounds i32, ptr %3, i64 %54
-  store i32 %.033, ptr %55, align 4
-  %56 = add nsw i32 %.02332, 1
-  %.pre.pre = load i32, ptr %7, align 8
-  br label %.thread41
+  %55 = sext i32 %.02334 to i64
+  %56 = getelementptr inbounds i32, ptr %3, i64 %55
+  store i32 %.035, ptr %56, align 4
+  %57 = add nsw i32 %.02334, 1
+  %.pre.pre = load i32, ptr %6, align 8
+  br label %.thread43
 
-57:                                               ; preds = %33, %23, %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %58 = getelementptr inbounds i8, ptr %13, i64 16
-  %59 = load i32, ptr %58, align 4
-  %60 = icmp sgt i32 %59, -1
-  br i1 %60, label %.thread41, label %62
+58:                                               ; preds = %34, %24, %30
+  %59 = getelementptr inbounds i8, ptr %15, i64 16
+  %60 = load i32, ptr %59, align 4
+  %61 = icmp sgt i32 %60, -1
+  br i1 %61, label %.thread43, label %63
 
-.thread41:                                        ; preds = %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit, %.thread, %57
-  %.pre = phi i32 [ %.pre.pre, %.thread ], [ %.pre34, %57 ], [ %.pre34, %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit ]
-  %.12431 = phi i32 [ %56, %.thread ], [ %.02332, %57 ], [ %.02332, %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit ]
-  %61 = add nsw i32 %.033, 1
-  br label %64
+.thread43:                                        ; preds = %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit, %.thread, %58
+  %.pre = phi i32 [ %.pre.pre, %.thread ], [ %.pre36, %58 ], [ %.pre36, %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit ]
+  %.12433 = phi i32 [ %57, %.thread ], [ %.02334, %58 ], [ %.02334, %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit ]
+  %62 = add nsw i32 %.035, 1
+  br label %65
 
-62:                                               ; preds = %57
-  %63 = sub i32 %.033, %59
-  br label %64
+63:                                               ; preds = %58
+  %64 = sub i32 %.035, %60
+  br label %65
 
-64:                                               ; preds = %62, %.thread41
-  %.pre35 = phi i32 [ %.pre, %.thread41 ], [ %.pre34, %62 ]
-  %65 = phi i32 [ %.pre, %.thread41 ], [ %10, %62 ]
-  %.12430 = phi i32 [ %.12431, %.thread41 ], [ %.02332, %62 ]
-  %.1 = phi i32 [ %61, %.thread41 ], [ %63, %62 ]
-  %66 = icmp slt i32 %.1, %65
-  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+65:                                               ; preds = %63, %.thread43
+  %.pre37 = phi i32 [ %.pre, %.thread43 ], [ %.pre36, %63 ]
+  %66 = phi i32 [ %.pre, %.thread43 ], [ %12, %63 ]
+  %.12432 = phi i32 [ %.12433, %.thread43 ], [ %.02334, %63 ]
+  %.1 = phi i32 [ %62, %.thread43 ], [ %64, %63 ]
+  %67 = icmp slt i32 %.1, %66
+  br i1 %67, label %11, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %64, %5
-  %.023.lcssa = phi i32 [ 0, %5 ], [ %.12430, %64 ]
+._crit_edge:                                      ; preds = %65, %5
+  %.023.lcssa = phi i32 [ 0, %5 ], [ %.12432, %65 ]
   ret i32 %.023.lcssa
 }
 
@@ -633,12 +635,6 @@ define internal noundef i32 @_ZL12compareItemYPKvS0_(ptr nocapture noundef reado
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
-
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -647,9 +643,8 @@ attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { builtin allocsize(0) }
-attributes #10 = { builtin nounwind }
+attributes #8 = { builtin allocsize(0) }
+attributes #9 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

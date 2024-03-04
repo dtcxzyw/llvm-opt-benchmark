@@ -1022,33 +1022,33 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %ref.tmp.sroa.gep14 = getelementptr inbounds i8, ptr %ref.tmp, i64 20
-  %ref.tmp.sroa.gep17 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %ref.tmp6.sink11.sroa.gep18 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %ref.tmp6.sink11.sroa.gep15 = getelementptr inbounds i8, ptr %ref.tmp, i64 20
+  %ref.tmp6.sink11.sroa.gep12 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str, ptr %Fmt.i.i.i, align 8, !alias.scope !8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJiiiEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %ref.tmp6.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
-  %ref.tmp6.sroa.gep13 = getelementptr inbounds i8, ptr %ref.tmp6, i64 20
-  %ref.tmp6.sroa.gep16 = getelementptr inbounds i8, ptr %ref.tmp6, i64 24
+  %ref.tmp6.sink11.sroa.gep17 = getelementptr inbounds i8, ptr %ref.tmp6, i64 24
+  %ref.tmp6.sink11.sroa.gep14 = getelementptr inbounds i8, ptr %ref.tmp6, i64 20
+  %ref.tmp6.sink11.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
   %Fmt.i.i.i3 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   store ptr @.str.1, ptr %Fmt.i.i.i3, align 8, !alias.scope !11
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJiiiEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp6, align 8, !alias.scope !11
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
+  %ref.tmp6.sink11.sroa.phi = phi ptr [ %ref.tmp6.sink11.sroa.gep, %if.else ], [ %ref.tmp6.sink11.sroa.gep12, %if.then ]
+  %ref.tmp6.sink11.sroa.phi13 = phi ptr [ %ref.tmp6.sink11.sroa.gep14, %if.else ], [ %ref.tmp6.sink11.sroa.gep15, %if.then ]
+  %ref.tmp6.sink11.sroa.phi16 = phi ptr [ %ref.tmp6.sink11.sroa.gep17, %if.else ], [ %ref.tmp6.sink11.sroa.gep18, %if.then ]
   %ref.tmp6.sink11 = phi ptr [ %ref.tmp6, %if.else ], [ %ref.tmp, %if.then ]
-  %ref.tmp6.sink11.sroa.phi = phi ptr [ %ref.tmp6.sroa.gep, %if.else ], [ %ref.tmp.sroa.gep, %if.then ]
-  %ref.tmp6.sink11.sroa.phi12 = phi ptr [ %ref.tmp6.sroa.gep13, %if.else ], [ %ref.tmp.sroa.gep14, %if.then ]
-  %ref.tmp6.sink11.sroa.phi15 = phi ptr [ %ref.tmp6.sroa.gep16, %if.else ], [ %ref.tmp.sroa.gep17, %if.then ]
   %conv3 = fptosi double %call2 to i32
   %add = add i32 %call1, 1
   store i32 %conv3, ptr %ref.tmp6.sink11.sroa.phi, align 8
-  store i32 %add, ptr %ref.tmp6.sink11.sroa.phi12, align 4
-  store i32 %conv, ptr %ref.tmp6.sink11.sroa.phi15, align 8
+  store i32 %add, ptr %ref.tmp6.sink11.sroa.phi13, align 4
+  store i32 %conv, ptr %ref.tmp6.sink11.sroa.phi16, align 8
   %call7 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6.sink11) #17
   call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %os) #17
   ret void

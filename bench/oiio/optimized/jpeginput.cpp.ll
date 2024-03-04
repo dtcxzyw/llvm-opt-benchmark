@@ -1216,10 +1216,8 @@ entry:
   %agg.tmp110 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp117 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp118 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
-  %agg.tmp118.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp118, i64 8
   %agg.tmp126 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp127 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
-  %agg.tmp127.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp127, i64 8
   %subsampling = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp136 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp137 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -1241,13 +1239,10 @@ entry:
   %agg.tmp262 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
   %agg.tmp269 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp270 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
-  %agg.tmp270.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp270, i64 8
   %agg.tmp274 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp275 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
-  %agg.tmp275.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp275, i64 8
   %agg.tmp279 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp280 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
-  %agg.tmp280.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp280, i64 8
   %m_filename = getelementptr inbounds i8, ptr %this, i64 184
   %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_filename, ptr noundef nonnull align 8 dereferenceable(32) %name)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #25
@@ -1256,6 +1251,11 @@ entry:
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #25
   store i64 %call2.i, ptr %m_len.i, align 8
   %call2 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_010ImageInput19ioproxy_use_or_openENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %agg.tmp)
+  %agg.tmp280.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp280, i64 8
+  %agg.tmp280.sink.sroa.gep132 = getelementptr inbounds i8, ptr %agg.tmp275, i64 8
+  %agg.tmp280.sink.sroa.gep133 = getelementptr inbounds i8, ptr %agg.tmp270, i64 8
+  %agg.tmp127.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp127, i64 8
+  %agg.tmp127.sink.sroa.gep134 = getelementptr inbounds i8, ptr %agg.tmp118, i64 8
   br i1 %call2, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1589,10 +1589,10 @@ if.then115:                                       ; preds = %invoke.cont111
   br label %if.then115.invoke
 
 if.then115.invoke:                                ; preds = %if.then124, %if.then115
+  %agg.tmp127.sink.sroa.phi = phi ptr [ %agg.tmp127.sink.sroa.gep, %if.then124 ], [ %agg.tmp127.sink.sroa.gep134, %if.then115 ]
   %agg.tmp127.sink = phi ptr [ %agg.tmp127, %if.then124 ], [ %agg.tmp118, %if.then115 ]
   %.sink = phi i64 [ 6, %if.then124 ], [ 4, %if.then115 ]
   %24 = phi ptr [ %agg.tmp126, %if.then124 ], [ %agg.tmp117, %if.then115 ]
-  %agg.tmp127.sink.sroa.phi = phi ptr [ %agg.tmp127.sroa.gep, %if.then124 ], [ %agg.tmp118.sroa.gep, %if.then115 ]
   store i64 %.sink, ptr %agg.tmp127.sink.sroa.phi, align 8
   invoke void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEES4_(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %24, ptr noundef nonnull %agg.tmp127.sink)
           to label %if.end130 unwind label %lpad5.loopexit.split-lp
@@ -1878,10 +1878,10 @@ sw.bb:                                            ; preds = %if.then265
   br label %sw.bb.invoke
 
 sw.bb.invoke:                                     ; preds = %sw.bb277, %sw.bb272, %sw.bb
+  %agg.tmp280.sink.sroa.phi = phi ptr [ %agg.tmp280.sink.sroa.gep, %sw.bb277 ], [ %agg.tmp280.sink.sroa.gep132, %sw.bb272 ], [ %agg.tmp280.sink.sroa.gep133, %sw.bb ]
   %agg.tmp280.sink = phi ptr [ %agg.tmp280, %sw.bb277 ], [ %agg.tmp275, %sw.bb272 ], [ %agg.tmp270, %sw.bb ]
   %.sink131 = phi i64 [ 2, %sw.bb277 ], [ 2, %sw.bb272 ], [ 4, %sw.bb ]
   %39 = phi ptr [ %agg.tmp279, %sw.bb277 ], [ %agg.tmp274, %sw.bb272 ], [ %agg.tmp269, %sw.bb ]
-  %agg.tmp280.sink.sroa.phi = phi ptr [ %agg.tmp280.sroa.gep, %sw.bb277 ], [ %agg.tmp275.sroa.gep, %sw.bb272 ], [ %agg.tmp270.sroa.gep, %sw.bb ]
   store i64 %.sink131, ptr %agg.tmp280.sink.sroa.phi, align 8
   invoke void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEES4_(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %39, ptr noundef nonnull %agg.tmp280.sink)
           to label %if.end283 unwind label %lpad138.loopexit.split-lp

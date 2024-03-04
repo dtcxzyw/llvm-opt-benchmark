@@ -7041,6 +7041,7 @@ if.then:                                          ; preds = %entry
   %alg.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %alg.i, align 8
   %cmp.i = icmp eq ptr %2, null
+  %params_n.1.sroa.gep226.i = getelementptr inbounds i8, ptr %params.i, i64 40
   %3 = load ptr, ptr %0, align 8
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -7102,6 +7103,7 @@ if.end38.sink.split.i:                            ; preds = %if.else23.i, %if.el
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.end38.sink.split.i, %if.end.i
+  %params_n.1.sroa.phi.i = phi ptr [ %params.i, %if.end.i ], [ %params_n.1.sroa.gep226.i, %if.end38.sink.split.i ]
   %params_n.1.i = phi i64 [ 0, %if.end.i ], [ 1, %if.end38.sink.split.i ]
   %custom.i = getelementptr inbounds i8, ptr %0, i64 96
   %10 = load ptr, ptr %custom.i, align 8
@@ -7110,11 +7112,10 @@ if.end38.i:                                       ; preds = %if.end38.sink.split
 
 if.then40.i:                                      ; preds = %if.end38.i
   %inc41.i = add nuw nsw i64 %params_n.1.i, 1
-  %arrayidx42.i = getelementptr inbounds [21 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 %params_n.1.i
   %custom_len.i = getelementptr inbounds i8, ptr %0, i64 104
   %11 = load i64, ptr %custom_len.i, align 8
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp43.i, ptr noundef nonnull @.str.322, ptr noundef nonnull %10, i64 noundef %11) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx42.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp43.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %params_n.1.sroa.phi.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp43.i, i64 40, i1 false)
   br label %if.end45.i
 
 if.end45.i:                                       ; preds = %if.then40.i, %if.end38.i
@@ -7629,10 +7630,10 @@ while.end.sink.split.i:                           ; preds = %if.then33.i, %if.el
   br label %mac_test_run_mac.exit
 
 mac_test_run_mac.exit:                            ; preds = %while.body.i, %err311.i, %while.end.sink.split.i
-  %ctx.0232.i = phi ptr [ %ctx.0.i, %err311.i ], [ null, %while.end.sink.split.i ], [ %ctx.0.i, %while.body.i ]
-  %got.2231.i = phi ptr [ %got.2.i, %err311.i ], [ null, %while.end.sink.split.i ], [ %got.2.i, %while.body.i ]
-  call void @EVP_MAC_CTX_free(ptr noundef %ctx.0232.i) #11
-  call void @CRYPTO_free(ptr noundef %got.2231.i, ptr noundef nonnull @.str.27, i32 noundef 1761) #11
+  %ctx.0234.i = phi ptr [ %ctx.0.i, %err311.i ], [ null, %while.end.sink.split.i ], [ %ctx.0.i, %while.body.i ]
+  %got.2233.i = phi ptr [ %got.2.i, %err311.i ], [ null, %while.end.sink.split.i ], [ %got.2.i, %while.body.i ]
+  call void @EVP_MAC_CTX_free(ptr noundef %ctx.0234.i) #11
+  call void @CRYPTO_free(ptr noundef %got.2233.i, ptr noundef nonnull @.str.27, i32 noundef 1761) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %got_len.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %block_size.i)

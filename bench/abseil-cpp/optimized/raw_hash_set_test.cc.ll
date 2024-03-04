@@ -100607,9 +100607,7 @@ entry:
 define internal void @_ZN4absl18container_internal12_GLOBAL__N_144Table_ReplacingDeletedSlotDoesNotRehash_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
-  %t.sroa.gep = getelementptr inbounds i8, ptr %t, i64 24
   %t7 = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
-  %t7.sroa.gep = getelementptr inbounds i8, ptr %t7, i64 24
   %c10 = alloca i64, align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp21 = alloca i64, align 8
@@ -100641,6 +100639,8 @@ entry:
   %cmp.i.i14.i.i.i.i.i.i = icmp eq <16 x i8> %.pre, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
   %2 = bitcast <16 x i1> %cmp.i.i14.i.i.i.i.i.i to i16
   %cmp.i15.not.i.i.i.i.i.i = icmp eq i16 %2, 0
+  %t7.sink.sroa.gep = getelementptr inbounds i8, ptr %t, i64 24
+  %t7.sink.sroa.gep299 = getelementptr inbounds i8, ptr %t7, i64 24
   br label %while.body.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %for.end.i.i.i.i.i.i, %entry
@@ -101280,9 +101280,9 @@ ehcleanup73:                                      ; preds = %lpad8.loopexit, %lp
   br i1 %cmp.i.i.i243, label %eh.resume, label %eh.resume.sink.split
 
 eh.resume.sink.split:                             ; preds = %ehcleanup73, %lpad
+  %t7.sink.sroa.phi = phi ptr [ %t7.sink.sroa.gep, %lpad ], [ %t7.sink.sroa.gep299, %ehcleanup73 ]
   %t7.sink = phi ptr [ %t, %lpad ], [ %t7, %ehcleanup73 ]
   %.pn9.ph = phi { ptr, i32 } [ %lpad.phi265, %lpad ], [ %.pn7, %ehcleanup73 ]
-  %t7.sink.sroa.phi = phi ptr [ %t.sroa.gep, %lpad ], [ %t7.sroa.gep, %ehcleanup73 ]
   %.sink = load ptr, ptr %t7.sink, align 8
   %72 = load i64, ptr %t7.sink.sroa.phi, align 8
   %and.i.i.i.i.i.i246 = and i64 %72, 1

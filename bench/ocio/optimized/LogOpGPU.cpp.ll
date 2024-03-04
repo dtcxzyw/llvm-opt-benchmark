@@ -87,20 +87,6 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN19OpenColorIO_v2_4dev22GetLogGPUShaderProgramERSt10shared_ptrINS_16GpuShaderCreatorEERS0_IKNS_9LogOpDataEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %logData) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %st.i155 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText", align 8
-  %st.i155.sroa.gep296 = getelementptr inbounds i8, ptr %st.i155, i64 8
-  %st.i155.sroa.gep295 = getelementptr inbounds i8, ptr %st.i155, i64 8
-  %st.i155.sroa.gep294 = getelementptr inbounds i8, ptr %st.i155, i64 8
-  %st.i155.sroa.gep293 = getelementptr inbounds i8, ptr %st.i155, i64 8
-  %st.i155.sroa.gep292 = getelementptr inbounds i8, ptr %st.i155, i64 8
-  %st.i155.sroa.gep291 = getelementptr inbounds i8, ptr %st.i155, i64 8
-  %st.i155.sroa.gep290 = getelementptr inbounds i8, ptr %st.i155, i64 8
-  %st.i155.sroa.gep267 = getelementptr inbounds i8, ptr %st.i155, i64 384
-  %st.i155.sroa.gep266 = getelementptr inbounds i8, ptr %st.i155, i64 384
-  %st.i155.sroa.gep265 = getelementptr inbounds i8, ptr %st.i155, i64 384
-  %st.i155.sroa.gep264 = getelementptr inbounds i8, ptr %st.i155, i64 384
-  %st.i155.sroa.gep263 = getelementptr inbounds i8, ptr %st.i155, i64 384
-  %st.i155.sroa.gep262 = getelementptr inbounds i8, ptr %st.i155, i64 384
-  %st.i155.sroa.gep = getelementptr inbounds i8, ptr %st.i155, i64 384
   %ref.tmp.i156 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp34.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp39.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
@@ -126,20 +112,6 @@ entry:
   %ref.tmp150.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp157.i168 = alloca %"class.std::__cxx11::basic_string", align 8
   %st.i118 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText", align 8
-  %st.i118.sroa.gep289 = getelementptr inbounds i8, ptr %st.i118, i64 8
-  %st.i118.sroa.gep288 = getelementptr inbounds i8, ptr %st.i118, i64 8
-  %st.i118.sroa.gep287 = getelementptr inbounds i8, ptr %st.i118, i64 8
-  %st.i118.sroa.gep286 = getelementptr inbounds i8, ptr %st.i118, i64 8
-  %st.i118.sroa.gep285 = getelementptr inbounds i8, ptr %st.i118, i64 8
-  %st.i118.sroa.gep284 = getelementptr inbounds i8, ptr %st.i118, i64 8
-  %st.i118.sroa.gep283 = getelementptr inbounds i8, ptr %st.i118, i64 8
-  %st.i118.sroa.gep261 = getelementptr inbounds i8, ptr %st.i118, i64 384
-  %st.i118.sroa.gep260 = getelementptr inbounds i8, ptr %st.i118, i64 384
-  %st.i118.sroa.gep259 = getelementptr inbounds i8, ptr %st.i118, i64 384
-  %st.i118.sroa.gep258 = getelementptr inbounds i8, ptr %st.i118, i64 384
-  %st.i118.sroa.gep257 = getelementptr inbounds i8, ptr %st.i118, i64 384
-  %st.i118.sroa.gep256 = getelementptr inbounds i8, ptr %st.i118, i64 384
-  %st.i118.sroa.gep = getelementptr inbounds i8, ptr %st.i118, i64 384
   %ref.tmp.i119 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp15.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp20.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
@@ -164,20 +136,6 @@ entry:
   %ref.tmp130.i125 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp137.i126 = alloca %"class.std::__cxx11::basic_string", align 8
   %st.i25 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText", align 8
-  %st.i25.sroa.gep282 = getelementptr inbounds i8, ptr %st.i25, i64 8
-  %st.i25.sroa.gep281 = getelementptr inbounds i8, ptr %st.i25, i64 8
-  %st.i25.sroa.gep280 = getelementptr inbounds i8, ptr %st.i25, i64 8
-  %st.i25.sroa.gep279 = getelementptr inbounds i8, ptr %st.i25, i64 8
-  %st.i25.sroa.gep278 = getelementptr inbounds i8, ptr %st.i25, i64 8
-  %st.i25.sroa.gep277 = getelementptr inbounds i8, ptr %st.i25, i64 8
-  %st.i25.sroa.gep276 = getelementptr inbounds i8, ptr %st.i25, i64 8
-  %st.i25.sroa.gep255 = getelementptr inbounds i8, ptr %st.i25, i64 384
-  %st.i25.sroa.gep254 = getelementptr inbounds i8, ptr %st.i25, i64 384
-  %st.i25.sroa.gep253 = getelementptr inbounds i8, ptr %st.i25, i64 384
-  %st.i25.sroa.gep252 = getelementptr inbounds i8, ptr %st.i25, i64 384
-  %st.i25.sroa.gep251 = getelementptr inbounds i8, ptr %st.i25, i64 384
-  %st.i25.sroa.gep250 = getelementptr inbounds i8, ptr %st.i25, i64 384
-  %st.i25.sroa.gep = getelementptr inbounds i8, ptr %st.i25, i64 384
   %ref.tmp.i26 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp43.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp48.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
@@ -225,20 +183,6 @@ entry:
   %ref.tmp255.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp262.i = alloca %"class.std::__cxx11::basic_string", align 8
   %st.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText", align 8
-  %st.i.sroa.gep275 = getelementptr inbounds i8, ptr %st.i, i64 8
-  %st.i.sroa.gep274 = getelementptr inbounds i8, ptr %st.i, i64 8
-  %st.i.sroa.gep273 = getelementptr inbounds i8, ptr %st.i, i64 8
-  %st.i.sroa.gep272 = getelementptr inbounds i8, ptr %st.i, i64 8
-  %st.i.sroa.gep271 = getelementptr inbounds i8, ptr %st.i, i64 8
-  %st.i.sroa.gep270 = getelementptr inbounds i8, ptr %st.i, i64 8
-  %st.i.sroa.gep269 = getelementptr inbounds i8, ptr %st.i, i64 8
-  %st.i.sroa.gep249 = getelementptr inbounds i8, ptr %st.i, i64 384
-  %st.i.sroa.gep248 = getelementptr inbounds i8, ptr %st.i, i64 384
-  %st.i.sroa.gep247 = getelementptr inbounds i8, ptr %st.i, i64 384
-  %st.i.sroa.gep246 = getelementptr inbounds i8, ptr %st.i, i64 384
-  %st.i.sroa.gep245 = getelementptr inbounds i8, ptr %st.i, i64 384
-  %st.i.sroa.gep244 = getelementptr inbounds i8, ptr %st.i, i64 384
-  %st.i.sroa.gep = getelementptr inbounds i8, ptr %st.i, i64 384
   %ref.tmp.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp35.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp40.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
@@ -288,6 +232,62 @@ entry:
   %m_direction.i = getelementptr inbounds i8, ptr %0, i64 248
   %1 = load i32, ptr %m_direction.i, align 8
   %call3 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData6isLog2Ev(ptr noundef nonnull align 8 dereferenceable(252) %0)
+  %st.i155.sink243.sroa.gep = getelementptr inbounds i8, ptr %st.i, i64 384
+  %st.i155.sink243.sroa.gep244 = getelementptr inbounds i8, ptr %st.i, i64 384
+  %st.i155.sink243.sroa.gep245 = getelementptr inbounds i8, ptr %st.i, i64 384
+  %st.i155.sink243.sroa.gep246 = getelementptr inbounds i8, ptr %st.i, i64 384
+  %st.i155.sink243.sroa.gep247 = getelementptr inbounds i8, ptr %st.i, i64 384
+  %st.i155.sink243.sroa.gep248 = getelementptr inbounds i8, ptr %st.i, i64 384
+  %st.i155.sink243.sroa.gep249 = getelementptr inbounds i8, ptr %st.i, i64 384
+  %st.i155.sink243.sroa.gep250 = getelementptr inbounds i8, ptr %st.i25, i64 384
+  %st.i155.sink243.sroa.gep251 = getelementptr inbounds i8, ptr %st.i25, i64 384
+  %st.i155.sink243.sroa.gep252 = getelementptr inbounds i8, ptr %st.i25, i64 384
+  %st.i155.sink243.sroa.gep253 = getelementptr inbounds i8, ptr %st.i25, i64 384
+  %st.i155.sink243.sroa.gep254 = getelementptr inbounds i8, ptr %st.i25, i64 384
+  %st.i155.sink243.sroa.gep255 = getelementptr inbounds i8, ptr %st.i25, i64 384
+  %st.i155.sink243.sroa.gep256 = getelementptr inbounds i8, ptr %st.i25, i64 384
+  %st.i155.sink243.sroa.gep257 = getelementptr inbounds i8, ptr %st.i118, i64 384
+  %st.i155.sink243.sroa.gep258 = getelementptr inbounds i8, ptr %st.i118, i64 384
+  %st.i155.sink243.sroa.gep259 = getelementptr inbounds i8, ptr %st.i118, i64 384
+  %st.i155.sink243.sroa.gep260 = getelementptr inbounds i8, ptr %st.i118, i64 384
+  %st.i155.sink243.sroa.gep261 = getelementptr inbounds i8, ptr %st.i118, i64 384
+  %st.i155.sink243.sroa.gep262 = getelementptr inbounds i8, ptr %st.i118, i64 384
+  %st.i155.sink243.sroa.gep263 = getelementptr inbounds i8, ptr %st.i118, i64 384
+  %st.i155.sink243.sroa.gep264 = getelementptr inbounds i8, ptr %st.i155, i64 384
+  %st.i155.sink243.sroa.gep265 = getelementptr inbounds i8, ptr %st.i155, i64 384
+  %st.i155.sink243.sroa.gep266 = getelementptr inbounds i8, ptr %st.i155, i64 384
+  %st.i155.sink243.sroa.gep267 = getelementptr inbounds i8, ptr %st.i155, i64 384
+  %st.i155.sink243.sroa.gep268 = getelementptr inbounds i8, ptr %st.i155, i64 384
+  %st.i155.sink243.sroa.gep269 = getelementptr inbounds i8, ptr %st.i155, i64 384
+  %st.i155.sink243.sroa.gep270 = getelementptr inbounds i8, ptr %st.i155, i64 384
+  %st.i155.sink243.sroa.gep272 = getelementptr inbounds i8, ptr %st.i, i64 8
+  %st.i155.sink243.sroa.gep273 = getelementptr inbounds i8, ptr %st.i, i64 8
+  %st.i155.sink243.sroa.gep274 = getelementptr inbounds i8, ptr %st.i, i64 8
+  %st.i155.sink243.sroa.gep275 = getelementptr inbounds i8, ptr %st.i, i64 8
+  %st.i155.sink243.sroa.gep276 = getelementptr inbounds i8, ptr %st.i, i64 8
+  %st.i155.sink243.sroa.gep277 = getelementptr inbounds i8, ptr %st.i, i64 8
+  %st.i155.sink243.sroa.gep278 = getelementptr inbounds i8, ptr %st.i, i64 8
+  %st.i155.sink243.sroa.gep279 = getelementptr inbounds i8, ptr %st.i25, i64 8
+  %st.i155.sink243.sroa.gep280 = getelementptr inbounds i8, ptr %st.i25, i64 8
+  %st.i155.sink243.sroa.gep281 = getelementptr inbounds i8, ptr %st.i25, i64 8
+  %st.i155.sink243.sroa.gep282 = getelementptr inbounds i8, ptr %st.i25, i64 8
+  %st.i155.sink243.sroa.gep283 = getelementptr inbounds i8, ptr %st.i25, i64 8
+  %st.i155.sink243.sroa.gep284 = getelementptr inbounds i8, ptr %st.i25, i64 8
+  %st.i155.sink243.sroa.gep285 = getelementptr inbounds i8, ptr %st.i25, i64 8
+  %st.i155.sink243.sroa.gep286 = getelementptr inbounds i8, ptr %st.i118, i64 8
+  %st.i155.sink243.sroa.gep287 = getelementptr inbounds i8, ptr %st.i118, i64 8
+  %st.i155.sink243.sroa.gep288 = getelementptr inbounds i8, ptr %st.i118, i64 8
+  %st.i155.sink243.sroa.gep289 = getelementptr inbounds i8, ptr %st.i118, i64 8
+  %st.i155.sink243.sroa.gep290 = getelementptr inbounds i8, ptr %st.i118, i64 8
+  %st.i155.sink243.sroa.gep291 = getelementptr inbounds i8, ptr %st.i118, i64 8
+  %st.i155.sink243.sroa.gep292 = getelementptr inbounds i8, ptr %st.i118, i64 8
+  %st.i155.sink243.sroa.gep293 = getelementptr inbounds i8, ptr %st.i155, i64 8
+  %st.i155.sink243.sroa.gep294 = getelementptr inbounds i8, ptr %st.i155, i64 8
+  %st.i155.sink243.sroa.gep295 = getelementptr inbounds i8, ptr %st.i155, i64 8
+  %st.i155.sink243.sroa.gep296 = getelementptr inbounds i8, ptr %st.i155, i64 8
+  %st.i155.sink243.sroa.gep297 = getelementptr inbounds i8, ptr %st.i155, i64 8
+  %st.i155.sink243.sroa.gep298 = getelementptr inbounds i8, ptr %st.i155, i64 8
+  %st.i155.sink243.sroa.gep299 = getelementptr inbounds i8, ptr %st.i155, i64 8
   br i1 %call3, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1112,11 +1112,11 @@ ehcleanup255.i:                                   ; preds = %ehcleanup254.i, %eh
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i179, %lpad31.i, %lpad36.i, %lpad41.i, %lpad46.i188, %lpad53.i, %ehcleanup164.i, %lpad.i132, %lpad12.i, %lpad17.i, %lpad22.i, %lpad27.i, %lpad34.i, %ehcleanup144.i, %lpad.i56, %lpad40.i, %lpad45.i, %lpad50.i, %lpad55.i, %lpad62.i, %ehcleanup269.i, %lpad.i, %lpad32.i, %lpad37.i, %lpad42.i, %lpad47.i, %lpad54.i, %ehcleanup255.i
+  %st.i155.sink243.sroa.phi = phi ptr [ %st.i155.sink243.sroa.gep, %ehcleanup255.i ], [ %st.i155.sink243.sroa.gep244, %lpad54.i ], [ %st.i155.sink243.sroa.gep245, %lpad47.i ], [ %st.i155.sink243.sroa.gep246, %lpad42.i ], [ %st.i155.sink243.sroa.gep247, %lpad37.i ], [ %st.i155.sink243.sroa.gep248, %lpad32.i ], [ %st.i155.sink243.sroa.gep249, %lpad.i ], [ %st.i155.sink243.sroa.gep250, %ehcleanup269.i ], [ %st.i155.sink243.sroa.gep251, %lpad62.i ], [ %st.i155.sink243.sroa.gep252, %lpad55.i ], [ %st.i155.sink243.sroa.gep253, %lpad50.i ], [ %st.i155.sink243.sroa.gep254, %lpad45.i ], [ %st.i155.sink243.sroa.gep255, %lpad40.i ], [ %st.i155.sink243.sroa.gep256, %lpad.i56 ], [ %st.i155.sink243.sroa.gep257, %ehcleanup144.i ], [ %st.i155.sink243.sroa.gep258, %lpad34.i ], [ %st.i155.sink243.sroa.gep259, %lpad27.i ], [ %st.i155.sink243.sroa.gep260, %lpad22.i ], [ %st.i155.sink243.sroa.gep261, %lpad17.i ], [ %st.i155.sink243.sroa.gep262, %lpad12.i ], [ %st.i155.sink243.sroa.gep263, %lpad.i132 ], [ %st.i155.sink243.sroa.gep264, %ehcleanup164.i ], [ %st.i155.sink243.sroa.gep265, %lpad53.i ], [ %st.i155.sink243.sroa.gep266, %lpad46.i188 ], [ %st.i155.sink243.sroa.gep267, %lpad41.i ], [ %st.i155.sink243.sroa.gep268, %lpad36.i ], [ %st.i155.sink243.sroa.gep269, %lpad31.i ], [ %st.i155.sink243.sroa.gep270, %lpad.i179 ]
+  %st.i155.sink243.sroa.phi271 = phi ptr [ %st.i155.sink243.sroa.gep272, %ehcleanup255.i ], [ %st.i155.sink243.sroa.gep273, %lpad54.i ], [ %st.i155.sink243.sroa.gep274, %lpad47.i ], [ %st.i155.sink243.sroa.gep275, %lpad42.i ], [ %st.i155.sink243.sroa.gep276, %lpad37.i ], [ %st.i155.sink243.sroa.gep277, %lpad32.i ], [ %st.i155.sink243.sroa.gep278, %lpad.i ], [ %st.i155.sink243.sroa.gep279, %ehcleanup269.i ], [ %st.i155.sink243.sroa.gep280, %lpad62.i ], [ %st.i155.sink243.sroa.gep281, %lpad55.i ], [ %st.i155.sink243.sroa.gep282, %lpad50.i ], [ %st.i155.sink243.sroa.gep283, %lpad45.i ], [ %st.i155.sink243.sroa.gep284, %lpad40.i ], [ %st.i155.sink243.sroa.gep285, %lpad.i56 ], [ %st.i155.sink243.sroa.gep286, %ehcleanup144.i ], [ %st.i155.sink243.sroa.gep287, %lpad34.i ], [ %st.i155.sink243.sroa.gep288, %lpad27.i ], [ %st.i155.sink243.sroa.gep289, %lpad22.i ], [ %st.i155.sink243.sroa.gep290, %lpad17.i ], [ %st.i155.sink243.sroa.gep291, %lpad12.i ], [ %st.i155.sink243.sroa.gep292, %lpad.i132 ], [ %st.i155.sink243.sroa.gep293, %ehcleanup164.i ], [ %st.i155.sink243.sroa.gep294, %lpad53.i ], [ %st.i155.sink243.sroa.gep295, %lpad46.i188 ], [ %st.i155.sink243.sroa.gep296, %lpad41.i ], [ %st.i155.sink243.sroa.gep297, %lpad36.i ], [ %st.i155.sink243.sroa.gep298, %lpad31.i ], [ %st.i155.sink243.sroa.gep299, %lpad.i179 ]
   %common.resume.op = phi { ptr, i32 } [ %.pn69.pn.i, %ehcleanup255.i ], [ %43, %lpad54.i ], [ %42, %lpad47.i ], [ %41, %lpad42.i ], [ %40, %lpad37.i ], [ %39, %lpad32.i ], [ %38, %lpad.i ], [ %.pn69.pn.i65, %ehcleanup269.i ], [ %110, %lpad62.i ], [ %109, %lpad55.i ], [ %108, %lpad50.i ], [ %107, %lpad45.i ], [ %106, %lpad40.i ], [ %105, %lpad.i56 ], [ %.pn28.pn.i, %ehcleanup144.i ], [ %181, %lpad34.i ], [ %180, %lpad27.i ], [ %179, %lpad22.i ], [ %178, %lpad17.i ], [ %177, %lpad12.i ], [ %176, %lpad.i132 ], [ %.pn28.pn.i195, %ehcleanup164.i ], [ %229, %lpad53.i ], [ %228, %lpad46.i188 ], [ %227, %lpad41.i ], [ %226, %lpad36.i ], [ %225, %lpad31.i ], [ %224, %lpad.i179 ]
-  %st.i155.sink243.sroa.phi = phi ptr [ %st.i.sroa.gep, %ehcleanup255.i ], [ %st.i.sroa.gep244, %lpad54.i ], [ %st.i.sroa.gep245, %lpad47.i ], [ %st.i.sroa.gep246, %lpad42.i ], [ %st.i.sroa.gep247, %lpad37.i ], [ %st.i.sroa.gep248, %lpad32.i ], [ %st.i.sroa.gep249, %lpad.i ], [ %st.i25.sroa.gep, %ehcleanup269.i ], [ %st.i25.sroa.gep250, %lpad62.i ], [ %st.i25.sroa.gep251, %lpad55.i ], [ %st.i25.sroa.gep252, %lpad50.i ], [ %st.i25.sroa.gep253, %lpad45.i ], [ %st.i25.sroa.gep254, %lpad40.i ], [ %st.i25.sroa.gep255, %lpad.i56 ], [ %st.i118.sroa.gep, %ehcleanup144.i ], [ %st.i118.sroa.gep256, %lpad34.i ], [ %st.i118.sroa.gep257, %lpad27.i ], [ %st.i118.sroa.gep258, %lpad22.i ], [ %st.i118.sroa.gep259, %lpad17.i ], [ %st.i118.sroa.gep260, %lpad12.i ], [ %st.i118.sroa.gep261, %lpad.i132 ], [ %st.i155.sroa.gep, %ehcleanup164.i ], [ %st.i155.sroa.gep262, %lpad53.i ], [ %st.i155.sroa.gep263, %lpad46.i188 ], [ %st.i155.sroa.gep264, %lpad41.i ], [ %st.i155.sroa.gep265, %lpad36.i ], [ %st.i155.sroa.gep266, %lpad31.i ], [ %st.i155.sroa.gep267, %lpad.i179 ]
-  %st.i155.sink243.sroa.phi268 = phi ptr [ %st.i.sroa.gep269, %ehcleanup255.i ], [ %st.i.sroa.gep270, %lpad54.i ], [ %st.i.sroa.gep271, %lpad47.i ], [ %st.i.sroa.gep272, %lpad42.i ], [ %st.i.sroa.gep273, %lpad37.i ], [ %st.i.sroa.gep274, %lpad32.i ], [ %st.i.sroa.gep275, %lpad.i ], [ %st.i25.sroa.gep276, %ehcleanup269.i ], [ %st.i25.sroa.gep277, %lpad62.i ], [ %st.i25.sroa.gep278, %lpad55.i ], [ %st.i25.sroa.gep279, %lpad50.i ], [ %st.i25.sroa.gep280, %lpad45.i ], [ %st.i25.sroa.gep281, %lpad40.i ], [ %st.i25.sroa.gep282, %lpad.i56 ], [ %st.i118.sroa.gep283, %ehcleanup144.i ], [ %st.i118.sroa.gep284, %lpad34.i ], [ %st.i118.sroa.gep285, %lpad27.i ], [ %st.i118.sroa.gep286, %lpad22.i ], [ %st.i118.sroa.gep287, %lpad17.i ], [ %st.i118.sroa.gep288, %lpad12.i ], [ %st.i118.sroa.gep289, %lpad.i132 ], [ %st.i155.sroa.gep290, %ehcleanup164.i ], [ %st.i155.sroa.gep291, %lpad53.i ], [ %st.i155.sroa.gep292, %lpad46.i188 ], [ %st.i155.sroa.gep293, %lpad41.i ], [ %st.i155.sroa.gep294, %lpad36.i ], [ %st.i155.sroa.gep295, %lpad31.i ], [ %st.i155.sroa.gep296, %lpad.i179 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %st.i155.sink243.sroa.phi) #7
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %st.i155.sink243.sroa.phi268) #7
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %st.i155.sink243.sroa.phi271) #7
   resume { ptr, i32 } %common.resume.op
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddCameraLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.exit: ; preds = %invoke.cont249.i

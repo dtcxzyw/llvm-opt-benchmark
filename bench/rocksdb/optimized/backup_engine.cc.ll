@@ -41616,6 +41616,8 @@ entry:
   %agg.tmp = alloca %"class.std::shared_ptr.136", align 16
   store ptr null, ptr %backup_meta_reader, align 8
   %meta_filename_ = getelementptr inbounds i8, ptr %this, i64 56
+  %ref.tmp523.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp523, i64 8
+  %ref.tmp523.sink.sroa.gep1087 = getelementptr inbounds i8, ptr %ref.tmp533, i64 8
   invoke void @_ZN7rocksdb10EnvOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -43579,10 +43581,10 @@ if.then530:                                       ; preds = %if.end526
   br label %if.then530.invoke
 
 if.then530.invoke:                                ; preds = %if.then520, %if.then530
+  %ref.tmp523.sink.sroa.phi = phi ptr [ %ref.tmp523.sink.sroa.gep, %if.then520 ], [ %ref.tmp523.sink.sroa.gep1087, %if.then530 ]
   %ref.tmp523.sink = phi ptr [ %ref.tmp523, %if.then520 ], [ %ref.tmp533, %if.then530 ]
   %115 = phi ptr [ %ref.tmp521, %if.then520 ], [ %ref.tmp531, %if.then530 ]
-  %size_.i634 = getelementptr inbounds i8, ptr %ref.tmp523.sink, i64 8
-  store i64 0, ptr %size_.i634, align 8
+  store i64 0, ptr %ref.tmp523.sink.sroa.phi, align 8
   invoke void @_ZN7rocksdb8IOStatus10CorruptionERKNS_5SliceES3_(ptr nonnull sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp523.sink)
           to label %cleanup646 unwind label %lpad188.loopexit.split-lp.loopexit.split-lp
 

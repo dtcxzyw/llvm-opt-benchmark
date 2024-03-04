@@ -2790,6 +2790,7 @@ if.then42.i:                                      ; preds = %if.end39.i
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %comment_line_string.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.wt_longstatus_print_other.buf, i64 24, i1 false)
   %137 = load ptr, ptr %branch.i, align 8
+  %i.0.sroa.gep.i.i = getelementptr inbounds i8, ptr %comment_line_string.i.i, i64 2
   %scevgep.i.i45 = getelementptr i8, ptr %137, i64 11
   br label %do.body.i.i.i46
 
@@ -2868,33 +2869,32 @@ if.then20.i.i60:                                  ; preds = %if.end18.i.i
   br label %if.end24.i.i
 
 if.end24.i.i:                                     ; preds = %if.then20.i.i60, %if.end18.i.i
-  %i.0.i.i = phi i64 [ 2, %if.then20.i.i60 ], [ 0, %if.end18.i.i ]
-  %arrayidx26.i.i = getelementptr inbounds [3 x i8], ptr %comment_line_string.i.i, i64 0, i64 %i.0.i.i
-  store i8 0, ptr %arrayidx26.i.i, align 1
+  %i.0.sroa.phi.i.i = phi ptr [ %i.0.sroa.gep.i.i, %if.then20.i.i60 ], [ %comment_line_string.i.i, %if.end18.i.i ]
+  store i8 0, ptr %i.0.sroa.phi.i.i, align 1
   %buf.i.i61 = getelementptr inbounds i8, ptr %sb.i.i, i64 16
   %146 = load ptr, ptr %buf.i.i61, align 8
-  %call2725.i.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %146, i32 noundef 10) #20
-  %cmp28.not26.i.i = icmp eq ptr %call2725.i.i, null
-  br i1 %cmp28.not26.i.i, label %for.end.i.i, label %for.body.lr.ph.i.i
+  %call2726.i.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %146, i32 noundef 10) #20
+  %cmp28.not27.i.i = icmp eq ptr %call2726.i.i, null
+  br i1 %cmp28.not27.i.i, label %for.end.i.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end24.i.i
   %fp.i.i62 = getelementptr inbounds i8, ptr %s, i64 1072
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
-  %call2728.i.i = phi ptr [ %call2725.i.i, %for.body.lr.ph.i.i ], [ %call27.i.i, %for.body.i.i ]
-  %cp.027.i.i = phi ptr [ %146, %for.body.lr.ph.i.i ], [ %add.ptr.i.i, %for.body.i.i ]
+  %call2729.i.i = phi ptr [ %call2726.i.i, %for.body.lr.ph.i.i ], [ %call27.i.i, %for.body.i.i ]
+  %cp.028.i.i = phi ptr [ %146, %for.body.lr.ph.i.i ], [ %add.ptr.i.i, %for.body.i.i ]
   %147 = load ptr, ptr %fp.i.i62, align 8
   %148 = load i32, ptr %use_color.i.i, align 8
   %call.i17.i.i = call i32 @want_color_fd(i32 noundef 1, i32 noundef %148) #19
   %tobool.not.i18.i.i = icmp eq i32 %call.i17.i.i, 0
   %c.0.i.i.i = select i1 %tobool.not.i18.i.i, ptr @.str.29, ptr %color_palette.i.i
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call2728.i.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %cp.027.i.i to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call2729.i.i to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %cp.028.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv31.i.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %call32.i.i = call i32 (ptr, ptr, ptr, ...) @color_fprintf_ln(ptr noundef %147, ptr noundef nonnull %c.0.i.i.i, ptr noundef nonnull @.str.121, ptr noundef nonnull %comment_line_string.i.i, i32 noundef %conv31.i.i, ptr noundef %cp.027.i.i) #19
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call2728.i.i, i64 1
+  %call32.i.i = call i32 (ptr, ptr, ptr, ...) @color_fprintf_ln(ptr noundef %147, ptr noundef nonnull %c.0.i.i.i, ptr noundef nonnull @.str.121, ptr noundef nonnull %comment_line_string.i.i, i32 noundef %conv31.i.i, ptr noundef %cp.028.i.i) #19
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call2729.i.i, i64 1
   %call27.i.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i, i32 noundef 10) #20
   %cmp28.not.i.i63 = icmp eq ptr %call27.i.i, null
   br i1 %cmp28.not.i.i63, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !20

@@ -1972,41 +1972,34 @@ entry:
   %punycode = alloca %"class.icu_75::UnicodeString", align 8
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
+  %labelString.0.sroa.gep = getelementptr inbounds i8, ptr %fromPunycode, i64 8
+  %labelString.0.sroa.gep229 = getelementptr inbounds i8, ptr %dest, i64 8
+  %labelString.0.sroa.gep235 = getelementptr inbounds i8, ptr %fromPunycode, i64 12
+  %labelString.0.sroa.gep236 = getelementptr inbounds i8, ptr %dest, i64 12
+  %labelString.0.sroa.gep249 = getelementptr inbounds i8, ptr %fromPunycode, i64 10
+  %labelString.0.sroa.gep250 = getelementptr inbounds i8, ptr %dest, i64 10
+  %labelString.0.sroa.gep256 = getelementptr inbounds i8, ptr %fromPunycode, i64 24
+  %labelString.0.sroa.gep257 = getelementptr inbounds i8, ptr %dest, i64 24
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fromPunycode, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %fromPunycode, i64 8
-  store i16 2, ptr %fUnion2.i, align 8
-  %fUnion.i = getelementptr inbounds i8, ptr %dest, i64 8
-  %1 = load i16, ptr %fUnion.i, align 8
+  store i16 2, ptr %labelString.0.sroa.gep, align 8
+  %1 = load i16, ptr %labelString.0.sroa.gep229, align 8
   %conv1.i = zext i16 %1 to i32
   %and.i = and i32 %conv1.i, 17
   %tobool.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i, label %if.else.i, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
-
-if.else.i:                                        ; preds = %if.end
   %and5.i = and i32 %conv1.i, 2
   %tobool6.not.i = icmp eq i32 %and5.i, 0
-  br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  %fBuffer.i = getelementptr inbounds i8, ptr %dest, i64 10
-  br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
-
-if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds i8, ptr %dest, i64 24
-  %2 = load ptr, ptr %fArray.i, align 8
-  br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
-
-_ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.end, %if.then7.i, %if.else9.i
-  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %2, %if.else9.i ], [ null, %if.end ]
+  %2 = load ptr, ptr %labelString.0.sroa.gep257, align 8
+  %spec.select330 = select i1 %tobool6.not.i, ptr %2, ptr %labelString.0.sroa.gep250
+  %retval.0.i = select i1 %tobool.not.i, ptr %spec.select330, ptr null
   %idx.ext = sext i32 %labelStart to i64
   %add.ptr = getelementptr inbounds i16, ptr %retval.0.i, i64 %idx.ext
   %cmp = icmp slt i32 %labelLength, 4
   br i1 %cmp, label %if.end81, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit
+land.lhs.true:                                    ; preds = %if.end
   %3 = load i16, ptr %add.ptr, align 2
   %cmp3 = icmp eq i16 %3, 120
   br i1 %cmp3, label %land.lhs.true4, label %land.lhs.true90
@@ -2073,7 +2066,7 @@ if.end31:                                         ; preds = %invoke.cont27
   store i32 0, ptr %punycodeErrorCode, align 4
   %add.ptr32 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %sub33 = add nsw i32 %labelLength, -4
-  %12 = load i16, ptr %fUnion2.i, align 8
+  %12 = load i16, ptr %labelString.0.sroa.gep, align 8
   %13 = and i16 %12, 2
   %tobool.not.i160 = icmp eq i16 %13, 0
   %fCapacity.i = getelementptr inbounds i8, ptr %fromPunycode, i64 16
@@ -2105,7 +2098,7 @@ if.then44:                                        ; preds = %invoke.cont41
 
 if.end45:                                         ; preds = %invoke.cont41
   store i32 0, ptr %punycodeErrorCode, align 4
-  %16 = load i16, ptr %fUnion2.i, align 8
+  %16 = load i16, ptr %labelString.0.sroa.gep, align 8
   %17 = and i16 %16, 2
   %tobool.not.i162 = icmp eq i16 %17, 0
   %18 = load i32, ptr %fCapacity.i, align 8
@@ -2156,41 +2149,31 @@ if.then71:                                        ; preds = %if.end69
   br label %if.then301.invoke
 
 if.end76:                                         ; preds = %if.end69
-  %25 = load i16, ptr %fUnion2.i, align 8
+  %25 = load i16, ptr %labelString.0.sroa.gep, align 8
   %conv1.i170 = zext i16 %25 to i32
   %and.i171 = and i32 %conv1.i170, 17
   %tobool.not.i172 = icmp eq i32 %and.i171, 0
-  br i1 %tobool.not.i172, label %if.else.i174, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit181
-
-if.else.i174:                                     ; preds = %if.end76
   %and5.i175 = and i32 %conv1.i170, 2
   %tobool6.not.i176 = icmp eq i32 %and5.i175, 0
-  br i1 %tobool6.not.i176, label %if.else9.i179, label %if.then7.i177
-
-if.then7.i177:                                    ; preds = %if.else.i174
-  %fBuffer.i178 = getelementptr inbounds i8, ptr %fromPunycode, i64 10
-  br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit181
-
-if.else9.i179:                                    ; preds = %if.else.i174
-  %fArray.i180 = getelementptr inbounds i8, ptr %fromPunycode, i64 24
-  %26 = load ptr, ptr %fArray.i180, align 8
-  br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit181
-
-_ZNK6icu_7513UnicodeString9getBufferEv.exit181:   ; preds = %if.end76, %if.then7.i177, %if.else9.i179
-  %retval.0.i173 = phi ptr [ %fBuffer.i178, %if.then7.i177 ], [ %26, %if.else9.i179 ], [ null, %if.end76 ]
+  %26 = load ptr, ptr %labelString.0.sroa.gep256, align 8
+  %spec.select331 = select i1 %tobool6.not.i176, ptr %26, ptr %labelString.0.sroa.gep249
+  %retval.0.i173 = select i1 %tobool.not.i172, ptr %spec.select331, ptr null
   %cmp.i.i = icmp slt i16 %25, 0
   %27 = ashr i16 %25, 5
   %shr.i.i = sext i16 %27 to i32
-  %fLength.i = getelementptr inbounds i8, ptr %fromPunycode, i64 12
-  %28 = load i32, ptr %fLength.i, align 4
+  %28 = load i32, ptr %labelString.0.sroa.gep235, align 4
   %cond.i182 = select i1 %cmp.i.i, i32 %28, i32 %shr.i.i
   br label %if.end81
 
-if.end81:                                         ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit181, %_ZNK6icu_7513UnicodeString9getBufferEv.exit
-  %label.0 = phi ptr [ %retval.0.i173, %_ZNK6icu_7513UnicodeString9getBufferEv.exit181 ], [ %add.ptr, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
-  %labelString.0 = phi ptr [ %fromPunycode, %_ZNK6icu_7513UnicodeString9getBufferEv.exit181 ], [ %dest, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
-  %labelLength.addr.0 = phi i32 [ %cond.i182, %_ZNK6icu_7513UnicodeString9getBufferEv.exit181 ], [ %labelLength, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
-  %labelStart.addr.0 = phi i32 [ 0, %_ZNK6icu_7513UnicodeString9getBufferEv.exit181 ], [ %labelStart, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
+if.end81:                                         ; preds = %if.end76, %if.end
+  %label.0 = phi ptr [ %retval.0.i173, %if.end76 ], [ %add.ptr, %if.end ]
+  %labelString.0.sroa.phi = phi ptr [ %labelString.0.sroa.gep, %if.end76 ], [ %labelString.0.sroa.gep229, %if.end ]
+  %labelString.0.sroa.phi234 = phi ptr [ %labelString.0.sroa.gep235, %if.end76 ], [ %labelString.0.sroa.gep236, %if.end ]
+  %labelString.0.sroa.phi248 = phi ptr [ %labelString.0.sroa.gep249, %if.end76 ], [ %labelString.0.sroa.gep250, %if.end ]
+  %labelString.0.sroa.phi255 = phi ptr [ %labelString.0.sroa.gep256, %if.end76 ], [ %labelString.0.sroa.gep257, %if.end ]
+  %labelString.0 = phi ptr [ %fromPunycode, %if.end76 ], [ %dest, %if.end ]
+  %labelLength.addr.0 = phi i32 [ %cond.i182, %if.end76 ], [ %labelLength, %if.end ]
+  %labelStart.addr.0 = phi i32 [ 0, %if.end76 ], [ %labelStart, %if.end ]
   %cmp82 = icmp eq i32 %labelLength.addr.0, 0
   br i1 %cmp82, label %if.then83, label %if.end88
 
@@ -2202,23 +2185,21 @@ if.then83:                                        ; preds = %if.end81
   %30 = load i32, ptr %errorCode, align 4
   %cmp.i.i183 = icmp sgt i32 %30, 0
   %cmp.not.i = icmp eq ptr %labelString.0, %dest
-  %or.cond256 = or i1 %cmp.not.i, %cmp.i.i183
-  br i1 %or.cond256, label %cleanup310, label %if.then1.i
+  %or.cond332 = or i1 %cmp.not.i, %cmp.i.i183
+  br i1 %or.cond332, label %cleanup310, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then83
-  %fUnion.i.i.i.i = getelementptr inbounds i8, ptr %labelString.0, i64 8
-  %31 = load i16, ptr %fUnion.i.i.i.i, align 8
+  %31 = load i16, ptr %labelString.0.sroa.phi, align 8
   %cmp.i.i.i.i = icmp slt i16 %31, 0
   %32 = ashr i16 %31, 5
   %shr.i.i.i.i = sext i16 %32 to i32
-  %fLength.i.i.i = getelementptr inbounds i8, ptr %labelString.0, i64 12
-  %33 = load i32, ptr %fLength.i.i.i, align 4
+  %33 = load i32, ptr %labelString.0.sroa.phi234, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %33, i32 %shr.i.i.i.i
   %call2.i.i186 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %dest, i32 noundef %labelStart, i32 noundef %labelLength, ptr noundef nonnull align 8 dereferenceable(64) %labelString.0, i32 noundef 0, i32 noundef %cond.i.i.i)
           to label %call2.i.i.noexc unwind label %lpad
 
 call2.i.i.noexc:                                  ; preds = %if.then1.i
-  %34 = load i16, ptr %fUnion.i, align 8
+  %34 = load i16, ptr %labelString.0.sroa.gep229, align 8
   %conv2.i5.i = and i16 %34, 1
   %tobool4.not.i = icmp eq i16 %conv2.i5.i, 0
   br i1 %tobool4.not.i, label %cleanup310, label %if.then5.i
@@ -2232,18 +2213,22 @@ if.end88:                                         ; preds = %if.end81
   br i1 %cmp89, label %land.lhs.true90, label %if.end101
 
 land.lhs.true90:                                  ; preds = %land.lhs.true12, %land.lhs.true8, %land.lhs.true4, %land.lhs.true, %if.end88
-  %label.0235255 = phi ptr [ %label.0, %if.end88 ], [ %add.ptr, %land.lhs.true ], [ %add.ptr, %land.lhs.true4 ], [ %add.ptr, %land.lhs.true8 ], [ %add.ptr, %land.lhs.true12 ]
-  %tobool300.not236253 = phi i1 [ %cmp, %if.end88 ], [ true, %land.lhs.true ], [ true, %land.lhs.true4 ], [ true, %land.lhs.true8 ], [ true, %land.lhs.true12 ]
-  %labelString.0237251 = phi ptr [ %labelString.0, %if.end88 ], [ %dest, %land.lhs.true ], [ %dest, %land.lhs.true4 ], [ %dest, %land.lhs.true8 ], [ %dest, %land.lhs.true12 ]
-  %labelLength.addr.0238249 = phi i32 [ %labelLength.addr.0, %if.end88 ], [ %labelLength, %land.lhs.true ], [ %labelLength, %land.lhs.true4 ], [ %labelLength, %land.lhs.true8 ], [ %labelLength, %land.lhs.true12 ]
-  %labelStart.addr.0239247 = phi i32 [ %labelStart.addr.0, %if.end88 ], [ %labelStart, %land.lhs.true ], [ %labelStart, %land.lhs.true4 ], [ %labelStart, %land.lhs.true8 ], [ %labelStart, %land.lhs.true12 ]
-  %arrayidx91 = getelementptr inbounds i8, ptr %label.0235255, i64 4
+  %label.0289329 = phi ptr [ %label.0, %if.end88 ], [ %add.ptr, %land.lhs.true ], [ %add.ptr, %land.lhs.true4 ], [ %add.ptr, %land.lhs.true8 ], [ %add.ptr, %land.lhs.true12 ]
+  %tobool300.not290327 = phi i1 [ %cmp, %if.end88 ], [ true, %land.lhs.true ], [ true, %land.lhs.true4 ], [ true, %land.lhs.true8 ], [ true, %land.lhs.true12 ]
+  %labelString.0.sroa.phi241291325 = phi ptr [ %labelString.0.sroa.phi, %if.end88 ], [ %labelString.0.sroa.gep229, %land.lhs.true ], [ %labelString.0.sroa.gep229, %land.lhs.true4 ], [ %labelString.0.sroa.gep229, %land.lhs.true8 ], [ %labelString.0.sroa.gep229, %land.lhs.true12 ]
+  %labelString.0.sroa.phi248292323 = phi ptr [ %labelString.0.sroa.phi248, %if.end88 ], [ %labelString.0.sroa.gep250, %land.lhs.true ], [ %labelString.0.sroa.gep250, %land.lhs.true4 ], [ %labelString.0.sroa.gep250, %land.lhs.true8 ], [ %labelString.0.sroa.gep250, %land.lhs.true12 ]
+  %labelString.0.sroa.phi255293321 = phi ptr [ %labelString.0.sroa.phi255, %if.end88 ], [ %labelString.0.sroa.gep257, %land.lhs.true ], [ %labelString.0.sroa.gep257, %land.lhs.true4 ], [ %labelString.0.sroa.gep257, %land.lhs.true8 ], [ %labelString.0.sroa.gep257, %land.lhs.true12 ]
+  %labelString.0.sroa.phi269295317 = phi ptr [ %labelString.0.sroa.phi234, %if.end88 ], [ %labelString.0.sroa.gep236, %land.lhs.true ], [ %labelString.0.sroa.gep236, %land.lhs.true4 ], [ %labelString.0.sroa.gep236, %land.lhs.true8 ], [ %labelString.0.sroa.gep236, %land.lhs.true12 ]
+  %labelString.0296315 = phi ptr [ %labelString.0, %if.end88 ], [ %dest, %land.lhs.true ], [ %dest, %land.lhs.true4 ], [ %dest, %land.lhs.true8 ], [ %dest, %land.lhs.true12 ]
+  %labelLength.addr.0297313 = phi i32 [ %labelLength.addr.0, %if.end88 ], [ %labelLength, %land.lhs.true ], [ %labelLength, %land.lhs.true4 ], [ %labelLength, %land.lhs.true8 ], [ %labelLength, %land.lhs.true12 ]
+  %labelStart.addr.0298311 = phi i32 [ %labelStart.addr.0, %if.end88 ], [ %labelStart, %land.lhs.true ], [ %labelStart, %land.lhs.true4 ], [ %labelStart, %land.lhs.true8 ], [ %labelStart, %land.lhs.true12 ]
+  %arrayidx91 = getelementptr inbounds i8, ptr %label.0289329, i64 4
   %35 = load i16, ptr %arrayidx91, align 2
   %cmp93 = icmp eq i16 %35, 45
   br i1 %cmp93, label %land.lhs.true94, label %if.end101
 
 land.lhs.true94:                                  ; preds = %land.lhs.true90
-  %arrayidx95 = getelementptr inbounds i8, ptr %label.0235255, i64 6
+  %arrayidx95 = getelementptr inbounds i8, ptr %label.0289329, i64 6
   %36 = load i16, ptr %arrayidx95, align 2
   %cmp97 = icmp eq i16 %36, 45
   br i1 %cmp97, label %if.then98, label %if.end101
@@ -2256,12 +2241,16 @@ if.then98:                                        ; preds = %land.lhs.true94
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then98, %land.lhs.true94, %land.lhs.true90, %if.end88
-  %label.0235254 = phi ptr [ %label.0235255, %if.then98 ], [ %label.0235255, %land.lhs.true94 ], [ %label.0235255, %land.lhs.true90 ], [ %label.0, %if.end88 ]
-  %tobool300.not236252 = phi i1 [ %tobool300.not236253, %if.then98 ], [ %tobool300.not236253, %land.lhs.true94 ], [ %tobool300.not236253, %land.lhs.true90 ], [ %cmp, %if.end88 ]
-  %labelString.0237250 = phi ptr [ %labelString.0237251, %if.then98 ], [ %labelString.0237251, %land.lhs.true94 ], [ %labelString.0237251, %land.lhs.true90 ], [ %labelString.0, %if.end88 ]
-  %labelLength.addr.0238248 = phi i32 [ %labelLength.addr.0238249, %if.then98 ], [ %labelLength.addr.0238249, %land.lhs.true94 ], [ %labelLength.addr.0238249, %land.lhs.true90 ], [ %labelLength.addr.0, %if.end88 ]
-  %labelStart.addr.0239246 = phi i32 [ %labelStart.addr.0239247, %if.then98 ], [ %labelStart.addr.0239247, %land.lhs.true94 ], [ %labelStart.addr.0239247, %land.lhs.true90 ], [ %labelStart.addr.0, %if.end88 ]
-  %38 = load i16, ptr %label.0235254, align 2
+  %label.0289328 = phi ptr [ %label.0289329, %if.then98 ], [ %label.0289329, %land.lhs.true94 ], [ %label.0289329, %land.lhs.true90 ], [ %label.0, %if.end88 ]
+  %tobool300.not290326 = phi i1 [ %tobool300.not290327, %if.then98 ], [ %tobool300.not290327, %land.lhs.true94 ], [ %tobool300.not290327, %land.lhs.true90 ], [ %cmp, %if.end88 ]
+  %labelString.0.sroa.phi241291324 = phi ptr [ %labelString.0.sroa.phi241291325, %if.then98 ], [ %labelString.0.sroa.phi241291325, %land.lhs.true94 ], [ %labelString.0.sroa.phi241291325, %land.lhs.true90 ], [ %labelString.0.sroa.phi, %if.end88 ]
+  %labelString.0.sroa.phi248292322 = phi ptr [ %labelString.0.sroa.phi248292323, %if.then98 ], [ %labelString.0.sroa.phi248292323, %land.lhs.true94 ], [ %labelString.0.sroa.phi248292323, %land.lhs.true90 ], [ %labelString.0.sroa.phi248, %if.end88 ]
+  %labelString.0.sroa.phi255293320 = phi ptr [ %labelString.0.sroa.phi255293321, %if.then98 ], [ %labelString.0.sroa.phi255293321, %land.lhs.true94 ], [ %labelString.0.sroa.phi255293321, %land.lhs.true90 ], [ %labelString.0.sroa.phi255, %if.end88 ]
+  %labelString.0.sroa.phi269295316 = phi ptr [ %labelString.0.sroa.phi269295317, %if.then98 ], [ %labelString.0.sroa.phi269295317, %land.lhs.true94 ], [ %labelString.0.sroa.phi269295317, %land.lhs.true90 ], [ %labelString.0.sroa.phi234, %if.end88 ]
+  %labelString.0296314 = phi ptr [ %labelString.0296315, %if.then98 ], [ %labelString.0296315, %land.lhs.true94 ], [ %labelString.0296315, %land.lhs.true90 ], [ %labelString.0, %if.end88 ]
+  %labelLength.addr.0297312 = phi i32 [ %labelLength.addr.0297313, %if.then98 ], [ %labelLength.addr.0297313, %land.lhs.true94 ], [ %labelLength.addr.0297313, %land.lhs.true90 ], [ %labelLength.addr.0, %if.end88 ]
+  %labelStart.addr.0298310 = phi i32 [ %labelStart.addr.0298311, %if.then98 ], [ %labelStart.addr.0298311, %land.lhs.true94 ], [ %labelStart.addr.0298311, %land.lhs.true90 ], [ %labelStart.addr.0, %if.end88 ]
+  %38 = load i16, ptr %label.0289328, align 2
   %cmp104 = icmp eq i16 %38, 45
   br i1 %cmp104, label %if.then105, label %if.end108
 
@@ -2273,9 +2262,9 @@ if.then105:                                       ; preds = %if.end101
   br label %if.end108
 
 if.end108:                                        ; preds = %if.then105, %if.end101
-  %sub109 = add nsw i32 %labelLength.addr.0238248, -1
+  %sub109 = add nsw i32 %labelLength.addr.0297312, -1
   %idxprom110 = sext i32 %sub109 to i64
-  %arrayidx111 = getelementptr inbounds i16, ptr %label.0235254, i64 %idxprom110
+  %arrayidx111 = getelementptr inbounds i16, ptr %label.0289328, i64 %idxprom110
   %40 = load i16, ptr %arrayidx111, align 2
   %cmp113 = icmp eq i16 %40, 45
   br i1 %cmp113, label %if.then114, label %if.end117
@@ -2288,8 +2277,8 @@ if.then114:                                       ; preds = %if.end108
   br label %if.end117
 
 if.end117:                                        ; preds = %if.then114, %if.end108
-  %idx.ext118 = sext i32 %labelLength.addr.0238248 to i64
-  %add.ptr119 = getelementptr inbounds i16, ptr %label.0235254, i64 %idx.ext118
+  %idx.ext118 = sext i32 %labelLength.addr.0297312 to i64
+  %add.ptr119 = getelementptr inbounds i16, ptr %label.0289328, i64 %idx.ext118
   %options = getelementptr inbounds i8, ptr %this, i64 16
   %42 = load i32, ptr %options, align 8
   %.fr = freeze i32 %42
@@ -2299,7 +2288,7 @@ if.end117:                                        ; preds = %if.then114, %if.end
   br i1 %cmp120.not, label %do.body.us, label %do.body
 
 do.body.us:                                       ; preds = %if.end117, %if.end153.us
-  %s.0.us = phi ptr [ %incdec.ptr.us, %if.end153.us ], [ %label.0235254, %if.end117 ]
+  %s.0.us = phi ptr [ %incdec.ptr.us, %if.end153.us ], [ %label.0289328, %if.end117 ]
   %oredChars.0.us = phi i16 [ %oredChars.1.us, %if.end153.us ], [ 0, %if.end117 ]
   %43 = load i16, ptr %s.0.us, align 2
   %cmp123.us = icmp ult i16 %43, 128
@@ -2334,7 +2323,7 @@ if.end153.us:                                     ; preds = %if.then124.us, %if.
   br i1 %cmp154.us, label %do.body.us, label %do.end, !llvm.loop !12
 
 do.body:                                          ; preds = %if.end117, %if.end153
-  %s.0 = phi ptr [ %incdec.ptr, %if.end153 ], [ %label.0235254, %if.end117 ]
+  %s.0 = phi ptr [ %incdec.ptr, %if.end153 ], [ %label.0289328, %if.end117 ]
   %oredChars.0 = phi i16 [ %oredChars.1, %if.end153 ], [ 0, %if.end117 ]
   %46 = load i16, ptr %s.0, align 2
   %cmp123 = icmp ult i16 %46, 128
@@ -2384,7 +2373,7 @@ if.end153:                                        ; preds = %if.else142, %if.the
 
 do.end:                                           ; preds = %if.end153, %if.end153.us
   %.us-phi = phi i16 [ %oredChars.1.us, %if.end153.us ], [ %oredChars.1, %if.end153 ]
-  %51 = load i16, ptr %label.0235254, align 2
+  %51 = load i16, ptr %label.0289328, align 2
   %conv159 = zext i16 %51 to i32
   %and160 = and i32 %conv159, 64512
   %cmp161 = icmp eq i32 %and160, 55296
@@ -2392,7 +2381,7 @@ do.end:                                           ; preds = %if.end153, %if.end1
 
 if.then162:                                       ; preds = %do.end
   %shl = shl nuw nsw i32 %conv159, 10
-  %arrayidx165 = getelementptr inbounds i8, ptr %label.0235254, i64 2
+  %arrayidx165 = getelementptr inbounds i8, ptr %label.0289328, i64 2
   %52 = load i16, ptr %arrayidx165, align 2
   %conv166 = zext i16 %52 to i32
   %add = add nsw i32 %shl, -56613888
@@ -2418,13 +2407,12 @@ if.then177:                                       ; preds = %invoke.cont171
   store i32 %or179, ptr %labelErrors150, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i)
   store i16 -3, ptr %srcChar.addr.i, align 2
-  %call.i187 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %labelString.0237250, i32 noundef %labelStart.addr.0239246, i32 noundef %cpLength.0, ptr noundef nonnull %srcChar.addr.i, i32 noundef 0, i32 noundef 1)
+  %call.i187 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %labelString.0296314, i32 noundef %labelStart.addr.0298310, i32 noundef %cpLength.0, ptr noundef nonnull %srcChar.addr.i, i32 noundef 0, i32 noundef 1)
           to label %invoke.cont180 unwind label %lpad
 
 invoke.cont180:                                   ; preds = %if.then177
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i)
-  %fUnion.i188 = getelementptr inbounds i8, ptr %labelString.0237250, i64 8
-  %54 = load i16, ptr %fUnion.i188, align 8
+  %54 = load i16, ptr %labelString.0.sroa.phi241291324, align 8
   %conv1.i189 = zext i16 %54 to i32
   %and.i190 = and i32 %conv1.i189, 17
   %tobool.not.i191 = icmp eq i32 %and.i190, 0
@@ -2433,31 +2421,26 @@ invoke.cont180:                                   ; preds = %if.then177
 if.else.i193:                                     ; preds = %invoke.cont180
   %and5.i194 = and i32 %conv1.i189, 2
   %tobool6.not.i195 = icmp eq i32 %and5.i194, 0
-  br i1 %tobool6.not.i195, label %if.else9.i198, label %if.then7.i196
-
-if.then7.i196:                                    ; preds = %if.else.i193
-  %fBuffer.i197 = getelementptr inbounds i8, ptr %labelString.0237250, i64 10
-  br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit200
+  br i1 %tobool6.not.i195, label %if.else9.i198, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit200
 
 if.else9.i198:                                    ; preds = %if.else.i193
-  %fArray.i199 = getelementptr inbounds i8, ptr %labelString.0237250, i64 24
-  %55 = load ptr, ptr %fArray.i199, align 8
+  %55 = load ptr, ptr %labelString.0.sroa.phi255293320, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit200
 
-_ZNK6icu_7513UnicodeString9getBufferEv.exit200:   ; preds = %invoke.cont180, %if.then7.i196, %if.else9.i198
-  %retval.0.i192 = phi ptr [ %fBuffer.i197, %if.then7.i196 ], [ %55, %if.else9.i198 ], [ null, %invoke.cont180 ]
-  %idx.ext184 = sext i32 %labelStart.addr.0239246 to i64
+_ZNK6icu_7513UnicodeString9getBufferEv.exit200:   ; preds = %if.else.i193, %invoke.cont180, %if.else9.i198
+  %retval.0.i192 = phi ptr [ %55, %if.else9.i198 ], [ null, %invoke.cont180 ], [ %labelString.0.sroa.phi248292322, %if.else.i193 ]
+  %idx.ext184 = sext i32 %labelStart.addr.0298310 to i64
   %add.ptr185 = getelementptr inbounds i16, ptr %retval.0.i192, i64 %idx.ext184
-  %reass.sub = sub i32 %labelLength.addr.0238248, %cpLength.0
+  %reass.sub = sub i32 %labelLength.addr.0297312, %cpLength.0
   %add187 = add i32 %reass.sub, 1
-  %cmp188 = icmp eq ptr %labelString.0237250, %dest
+  %cmp188 = icmp eq ptr %labelString.0296314, %dest
   %spec.select = select i1 %cmp188, i32 %add187, i32 %labelLength
   br label %if.end191
 
 if.end191:                                        ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit200, %invoke.cont171
-  %label.1 = phi ptr [ %label.0235254, %invoke.cont171 ], [ %add.ptr185, %_ZNK6icu_7513UnicodeString9getBufferEv.exit200 ]
+  %label.1 = phi ptr [ %label.0289328, %invoke.cont171 ], [ %add.ptr185, %_ZNK6icu_7513UnicodeString9getBufferEv.exit200 ]
   %destLabelLength.0 = phi i32 [ %labelLength, %invoke.cont171 ], [ %spec.select, %_ZNK6icu_7513UnicodeString9getBufferEv.exit200 ]
-  %labelLength.addr.1 = phi i32 [ %labelLength.addr.0238248, %invoke.cont171 ], [ %add187, %_ZNK6icu_7513UnicodeString9getBufferEv.exit200 ]
+  %labelLength.addr.1 = phi i32 [ %labelLength.addr.0297312, %invoke.cont171 ], [ %add187, %_ZNK6icu_7513UnicodeString9getBufferEv.exit200 ]
   %56 = load i32, ptr %labelErrors150, align 4
   %and193 = and i32 %56, 1984
   %cmp194 = icmp eq i32 %and193, 0
@@ -2527,7 +2510,7 @@ if.end229:                                        ; preds = %if.then227, %if.end
   br i1 %tobool230.not, label %if.end307, label %if.then231
 
 if.then231:                                       ; preds = %if.end229
-  br i1 %tobool300.not236252, label %if.else239, label %if.then233
+  br i1 %tobool300.not290326, label %if.else239, label %if.then233
 
 if.then233:                                       ; preds = %if.then231
   %cmp234 = icmp sgt i32 %destLabelLength.0, 63
@@ -2648,7 +2631,7 @@ if.then292:                                       ; preds = %if.else290
   br label %if.end307
 
 if.else299:                                       ; preds = %if.end191
-  br i1 %tobool300.not236252, label %if.end307, label %if.then301
+  br i1 %tobool300.not290326, label %if.end307, label %if.then301
 
 if.then301:                                       ; preds = %if.else299
   %or303 = or i32 %56, 1024
@@ -2666,23 +2649,21 @@ if.end307:                                        ; preds = %if.else299, %if.end
   br i1 %cmp.i.i212, label %if.end.i214, label %cleanup310
 
 if.end.i214:                                      ; preds = %if.end307
-  %cmp.not.i215 = icmp eq ptr %labelString.0237250, %dest
+  %cmp.not.i215 = icmp eq ptr %labelString.0296314, %dest
   br i1 %cmp.not.i215, label %cleanup310, label %if.then1.i216
 
 if.then1.i216:                                    ; preds = %if.end.i214
-  %fUnion.i.i.i.i217 = getelementptr inbounds i8, ptr %labelString.0237250, i64 8
-  %81 = load i16, ptr %fUnion.i.i.i.i217, align 8
+  %81 = load i16, ptr %labelString.0.sroa.phi241291324, align 8
   %cmp.i.i.i.i218 = icmp slt i16 %81, 0
   %82 = ashr i16 %81, 5
   %shr.i.i.i.i219 = sext i16 %82 to i32
-  %fLength.i.i.i220 = getelementptr inbounds i8, ptr %labelString.0237250, i64 12
-  %83 = load i32, ptr %fLength.i.i.i220, align 4
+  %83 = load i32, ptr %labelString.0.sroa.phi269295316, align 4
   %cond.i.i.i221 = select i1 %cmp.i.i.i.i218, i32 %83, i32 %shr.i.i.i.i219
-  %call2.i.i227 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %dest, i32 noundef %labelStart, i32 noundef %destLabelLength.0, ptr noundef nonnull align 8 dereferenceable(64) %labelString.0237250, i32 noundef 0, i32 noundef %cond.i.i.i221)
+  %call2.i.i227 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %dest, i32 noundef %labelStart, i32 noundef %destLabelLength.0, ptr noundef nonnull align 8 dereferenceable(64) %labelString.0296314, i32 noundef 0, i32 noundef %cond.i.i.i221)
           to label %call2.i.i.noexc226 unwind label %lpad
 
 call2.i.i.noexc226:                               ; preds = %if.then1.i216
-  %84 = load i16, ptr %fUnion.i, align 8
+  %84 = load i16, ptr %labelString.0.sroa.gep229, align 8
   %conv2.i5.i223 = and i16 %84, 1
   %tobool4.not.i224 = icmp eq i16 %conv2.i5.i223, 0
   br i1 %tobool4.not.i224, label %cleanup310, label %if.then5.i225

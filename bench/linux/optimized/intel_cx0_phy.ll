@@ -4556,177 +4556,182 @@ declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @intel_cx0_powerdown_change_sequence(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #1 align 16 {
-  %4 = alloca [2 x i32], align 4
-  %5 = alloca [2 x i32], align 4
-  %6 = alloca [2 x i32], align 4
-  %7 = alloca [2 x i32], align 4
-  %8 = alloca [2 x i32], align 4
-  %9 = tail call i32 @intel_port_to_phy(ptr noundef %0, i32 noundef %1) #7
-  %10 = shl i32 %1, 8
-  %11 = shl i32 %1, 9
-  %12 = add i32 %11, 1502208
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %13 = getelementptr inbounds i8, ptr %8, i64 4
-  br label %14
+  %.sroa.024 = alloca i32, align 4
+  %.sroa.425 = alloca i32, align 4
+  %.sroa.020 = alloca i32, align 4
+  %.sroa.421 = alloca i32, align 4
+  %.sroa.016 = alloca i32, align 4
+  %.sroa.417 = alloca i32, align 4
+  %.sroa.012 = alloca i32, align 4
+  %.sroa.413 = alloca i32, align 4
+  %.sroa.0 = alloca i32, align 4
+  %.sroa.4 = alloca i32, align 4
+  %4 = tail call i32 @intel_port_to_phy(ptr noundef %0, i32 noundef %1) #7
+  %5 = shl i32 %1, 8
+  %6 = shl i32 %1, 9
+  %7 = add i32 %6, 1502208
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4)
+  br label %8
 
-14:                                               ; preds = %14, %3
-  %15 = phi i1 [ true, %3 ], [ false, %14 ]
-  %16 = phi i64 [ 0, %3 ], [ 1, %14 ]
-  %17 = phi i32 [ 0, %3 ], [ %20, %14 ]
-  store i32 15728640, ptr %8, align 4
-  store i32 983040, ptr %13, align 4
-  %18 = getelementptr [2 x i32], ptr %8, i64 0, i64 %16
-  %19 = load i32, ptr %18, align 4
-  %20 = or i32 %19, %17
-  br i1 %15, label %14, label %21, !llvm.loop !142
+8:                                                ; preds = %8, %3
+  %9 = phi i1 [ true, %3 ], [ false, %8 ]
+  %.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.4, %8 ]
+  %10 = phi i32 [ 0, %3 ], [ %12, %8 ]
+  store i32 15728640, ptr %.sroa.0, align 4
+  store i32 983040, ptr %.sroa.4, align 4
+  %11 = load i32, ptr %.sroa.phi, align 4
+  %12 = or i32 %11, %10
+  br i1 %9, label %8, label %13, !llvm.loop !142
 
-21:                                               ; preds = %14
-  %22 = add i32 %10, 409604
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %23 = zext nneg i8 %2 to i32
-  %24 = shl nuw nsw i32 %23, 20
-  %25 = and i32 %24, 15728640
-  %26 = getelementptr inbounds i8, ptr %7, i64 4
-  %27 = shl nuw nsw i32 %23, 16
-  %28 = and i32 %27, 983040
-  br label %29
+13:                                               ; preds = %8
+  %14 = add i32 %5, 409604
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.012)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.413)
+  %15 = zext nneg i8 %2 to i32
+  %16 = shl nuw nsw i32 %15, 20
+  %17 = and i32 %16, 15728640
+  %18 = shl nuw nsw i32 %15, 16
+  %19 = and i32 %18, 983040
+  br label %20
 
-29:                                               ; preds = %29, %21
-  %30 = phi i1 [ true, %21 ], [ false, %29 ]
-  %31 = phi i64 [ 0, %21 ], [ 1, %29 ]
-  %32 = phi i32 [ 0, %21 ], [ %35, %29 ]
-  store i32 %25, ptr %7, align 4
-  store i32 %28, ptr %26, align 4
-  %33 = getelementptr [2 x i32], ptr %7, i64 0, i64 %31
-  %34 = load i32, ptr %33, align 4
-  %35 = or i32 %34, %32
-  br i1 %30, label %29, label %36, !llvm.loop !142
+20:                                               ; preds = %20, %13
+  %21 = phi i1 [ true, %13 ], [ false, %20 ]
+  %.sroa.phi10 = phi ptr [ %.sroa.012, %13 ], [ %.sroa.413, %20 ]
+  %22 = phi i32 [ 0, %13 ], [ %24, %20 ]
+  store i32 %17, ptr %.sroa.012, align 4
+  store i32 %19, ptr %.sroa.413, align 4
+  %23 = load i32, ptr %.sroa.phi10, align 4
+  %24 = or i32 %23, %22
+  br i1 %21, label %20, label %25, !llvm.loop !142
 
-36:                                               ; preds = %29
-  %37 = icmp slt i32 %1, 3
-  %38 = select i1 %37, i32 %22, i32 %12
-  %39 = add nuw nsw i32 %38, 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %40 = getelementptr inbounds i8, ptr %0, i64 7368
-  %41 = getelementptr inbounds i8, ptr %0, i64 7512
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 %42(ptr noundef %40, i32 %39, i1 noundef zeroext true) #7
-  %44 = xor i32 %20, -1
-  %45 = and i32 %43, %44
-  %46 = or i32 %45, %35
-  %47 = getelementptr inbounds i8, ptr %0, i64 7544
-  %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef %40, i32 %39, i32 noundef %46, i1 noundef zeroext true) #7
-  %49 = add i32 %10, 409664
-  %50 = add i32 %11, 1502272
-  %51 = select i1 %37, i32 %49, i32 %50
-  %52 = icmp eq ptr %0, null
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
-  %54 = add i32 %9, 65
-  br label %55
+25:                                               ; preds = %20
+  %26 = icmp slt i32 %1, 3
+  %27 = select i1 %26, i32 %14, i32 %7
+  %28 = add nuw nsw i32 %27, 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.012)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.413)
+  %29 = getelementptr inbounds i8, ptr %0, i64 7368
+  %30 = getelementptr inbounds i8, ptr %0, i64 7512
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call i32 %31(ptr noundef %29, i32 %28, i1 noundef zeroext true) #7
+  %33 = xor i32 %12, -1
+  %34 = and i32 %32, %33
+  %35 = or i32 %34, %24
+  %36 = getelementptr inbounds i8, ptr %0, i64 7544
+  %37 = load ptr, ptr %36, align 8
+  tail call void %37(ptr noundef %29, i32 %28, i32 noundef %35, i1 noundef zeroext true) #7
+  %38 = add i32 %5, 409664
+  %39 = add i32 %6, 1502272
+  %40 = select i1 %26, i32 %38, i32 %39
+  %41 = icmp eq ptr %0, null
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = add i32 %4, 65
+  br label %44
 
-55:                                               ; preds = %67, %36
-  %56 = phi i1 [ true, %36 ], [ false, %67 ]
-  %57 = phi i32 [ 0, %36 ], [ 1, %67 ]
-  %58 = shl nuw nsw i32 %57, 2
-  %59 = or disjoint i32 %58, %51
-  %60 = tail call i32 @__intel_wait_for_register(ptr noundef %40, i32 %59, i32 noundef -2147483648, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef null) #7
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %67, label %62
+44:                                               ; preds = %56, %25
+  %45 = phi i1 [ true, %25 ], [ false, %56 ]
+  %46 = phi i32 [ 0, %25 ], [ 1, %56 ]
+  %47 = shl nuw nsw i32 %46, 2
+  %48 = or disjoint i32 %47, %40
+  %49 = tail call i32 @__intel_wait_for_register(ptr noundef %29, i32 %48, i32 noundef -2147483648, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef null) #7
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %56, label %51
 
-62:                                               ; preds = %55
-  br i1 %52, label %65, label %63
+51:                                               ; preds = %44
+  br i1 %41, label %54, label %52
 
-63:                                               ; preds = %62
-  %64 = load ptr, ptr %53, align 8
-  br label %65
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %42, align 8
+  br label %54
 
-65:                                               ; preds = %63, %62
-  %66 = phi ptr [ %64, %63 ], [ null, %62 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %66, i32 noundef 2, ptr noundef nonnull @.str.45, i32 noundef %54) #7
-  tail call fastcc void @intel_cx0_bus_reset(ptr noundef %0, i32 noundef %1, i32 noundef %57)
-  br label %67
+54:                                               ; preds = %52, %51
+  %55 = phi ptr [ %53, %52 ], [ null, %51 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %55, i32 noundef 2, ptr noundef nonnull @.str.45, i32 noundef %43) #7
+  tail call fastcc void @intel_cx0_bus_reset(ptr noundef %0, i32 noundef %1, i32 noundef %46)
+  br label %56
 
-67:                                               ; preds = %65, %55
-  br i1 %56, label %55, label %68, !llvm.loop !143
+56:                                               ; preds = %54, %44
+  br i1 %45, label %44, label %57, !llvm.loop !143
 
-68:                                               ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %69 = getelementptr inbounds i8, ptr %6, i64 4
-  br label %70
+57:                                               ; preds = %56
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.016)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.417)
+  br label %58
 
-70:                                               ; preds = %70, %68
-  %71 = phi i1 [ true, %68 ], [ false, %70 ]
-  %72 = phi i64 [ 0, %68 ], [ 1, %70 ]
-  %73 = phi i32 [ 0, %68 ], [ %76, %70 ]
-  store i32 33554432, ptr %6, align 4
-  store i32 16777216, ptr %69, align 4
-  %74 = getelementptr [2 x i32], ptr %6, i64 0, i64 %72
-  %75 = load i32, ptr %74, align 4
-  %76 = or i32 %75, %73
-  br i1 %71, label %70, label %77, !llvm.loop !144
+58:                                               ; preds = %58, %57
+  %59 = phi i1 [ true, %57 ], [ false, %58 ]
+  %.sroa.phi14 = phi ptr [ %.sroa.016, %57 ], [ %.sroa.417, %58 ]
+  %60 = phi i32 [ 0, %57 ], [ %62, %58 ]
+  store i32 33554432, ptr %.sroa.016, align 4
+  store i32 16777216, ptr %.sroa.417, align 4
+  %61 = load i32, ptr %.sroa.phi14, align 4
+  %62 = or i32 %61, %60
+  br i1 %59, label %58, label %63, !llvm.loop !144
 
-77:                                               ; preds = %70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %78 = getelementptr inbounds i8, ptr %5, i64 4
-  br label %79
+63:                                               ; preds = %58
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.016)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.417)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.020)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.421)
+  br label %64
 
-79:                                               ; preds = %79, %77
-  %80 = phi i1 [ true, %77 ], [ false, %79 ]
-  %81 = phi i64 [ 0, %77 ], [ 1, %79 ]
-  %82 = phi i32 [ 0, %77 ], [ %85, %79 ]
-  store i32 33554432, ptr %5, align 4
-  store i32 16777216, ptr %78, align 4
-  %83 = getelementptr [2 x i32], ptr %5, i64 0, i64 %81
-  %84 = load i32, ptr %83, align 4
-  %85 = or i32 %84, %82
-  br i1 %80, label %79, label %86, !llvm.loop !144
+64:                                               ; preds = %64, %63
+  %65 = phi i1 [ true, %63 ], [ false, %64 ]
+  %.sroa.phi18 = phi ptr [ %.sroa.020, %63 ], [ %.sroa.421, %64 ]
+  %66 = phi i32 [ 0, %63 ], [ %68, %64 ]
+  store i32 33554432, ptr %.sroa.020, align 4
+  store i32 16777216, ptr %.sroa.421, align 4
+  %67 = load i32, ptr %.sroa.phi18, align 4
+  %68 = or i32 %67, %66
+  br i1 %65, label %64, label %69, !llvm.loop !144
 
-86:                                               ; preds = %79
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %87 = load ptr, ptr %41, align 8
-  %88 = tail call i32 %87(ptr noundef %40, i32 %39, i1 noundef zeroext true) #7
-  %89 = xor i32 %76, -1
-  %90 = and i32 %88, %89
-  %91 = or i32 %90, %85
-  %92 = load ptr, ptr %47, align 8
-  tail call void %92(ptr noundef %40, i32 %39, i32 noundef %91, i1 noundef zeroext true) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %93 = getelementptr inbounds i8, ptr %4, i64 4
-  br label %94
+69:                                               ; preds = %64
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.020)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.421)
+  %70 = load ptr, ptr %30, align 8
+  %71 = tail call i32 %70(ptr noundef %29, i32 %28, i1 noundef zeroext true) #7
+  %72 = xor i32 %62, -1
+  %73 = and i32 %71, %72
+  %74 = or i32 %73, %68
+  %75 = load ptr, ptr %36, align 8
+  tail call void %75(ptr noundef %29, i32 %28, i32 noundef %74, i1 noundef zeroext true) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.024)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.425)
+  br label %76
 
-94:                                               ; preds = %94, %86
-  %95 = phi i1 [ true, %86 ], [ false, %94 ]
-  %96 = phi i64 [ 0, %86 ], [ 1, %94 ]
-  %97 = phi i32 [ 0, %86 ], [ %100, %94 ]
-  store i32 33554432, ptr %4, align 4
-  store i32 16777216, ptr %93, align 4
-  %98 = getelementptr [2 x i32], ptr %4, i64 0, i64 %96
-  %99 = load i32, ptr %98, align 4
-  %100 = or i32 %99, %97
-  br i1 %95, label %94, label %101, !llvm.loop !144
+76:                                               ; preds = %76, %69
+  %77 = phi i1 [ true, %69 ], [ false, %76 ]
+  %.sroa.phi22 = phi ptr [ %.sroa.024, %69 ], [ %.sroa.425, %76 ]
+  %78 = phi i32 [ 0, %69 ], [ %80, %76 ]
+  store i32 33554432, ptr %.sroa.024, align 4
+  store i32 16777216, ptr %.sroa.425, align 4
+  %79 = load i32, ptr %.sroa.phi22, align 4
+  %80 = or i32 %79, %78
+  br i1 %77, label %76, label %81, !llvm.loop !144
 
-101:                                              ; preds = %94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %102 = tail call i32 @__intel_wait_for_register(ptr noundef %40, i32 %39, i32 noundef %100, i32 noundef 0, i32 noundef 100, i32 noundef 0, ptr noundef null) #7
-  %103 = icmp eq i32 %102, 0
-  br i1 %103, label %109, label %104
+81:                                               ; preds = %76
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.024)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.425)
+  %82 = tail call i32 @__intel_wait_for_register(ptr noundef %29, i32 %28, i32 noundef %80, i32 noundef 0, i32 noundef 100, i32 noundef 0, ptr noundef null) #7
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %89, label %84
 
-104:                                              ; preds = %101
-  br i1 %52, label %107, label %105
+84:                                               ; preds = %81
+  br i1 %41, label %87, label %85
 
-105:                                              ; preds = %104
-  %106 = load ptr, ptr %53, align 8
-  br label %107
+85:                                               ; preds = %84
+  %86 = load ptr, ptr %42, align 8
+  br label %87
 
-107:                                              ; preds = %105, %104
-  %108 = phi ptr [ %106, %105 ], [ null, %104 ]
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %108, ptr noundef nonnull @.str.42, i32 noundef %54, i32 noundef 5) #9
-  br label %109
+87:                                               ; preds = %85, %84
+  %88 = phi ptr [ %86, %85 ], [ null, %84 ]
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %88, ptr noundef nonnull @.str.42, i32 noundef %43, i32 noundef 5) #9
+  br label %89
 
-109:                                              ; preds = %107, %101
+89:                                               ; preds = %87, %81
   ret void
 }
 

@@ -14080,10 +14080,10 @@ if.end.i:                                         ; preds = %if.else5.i
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end.i, %if.then.i
+  %table_view.sink.i = phi ptr [ %table_view.i, %if.end.i ], [ %4, %if.then.i ]
   %table_chars.0.i = phi ptr [ %9, %if.end.i ], [ %ob_sval.i.i, %if.then.i ]
-  %table_view.i.pn = phi ptr [ %table_view.i, %if.end.i ], [ %4, %if.then.i ]
-  %table_view.i.pn.sroa.phi41 = getelementptr i8, ptr %table_view.i.pn, i64 16
-  %10 = load i64, ptr %table_view.i.pn.sroa.phi41, align 8
+  %len.i = getelementptr i8, ptr %table_view.sink.i, i64 16
+  %10 = load i64, ptr %len.i, align 8
   %cmp11.not.i = icmp eq i64 %10, 256
   br i1 %cmp11.not.i, label %if.end13.i, label %if.then12.i
 

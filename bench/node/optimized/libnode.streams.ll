@@ -1325,9 +1325,7 @@ define linkonce_odr dso_local void @_ZN4node4quic6Stream4Impl7DestroyERKN2v820Fu
 entry:
   %unused = alloca i8, align 1
   %agg.tmp28 = alloca %"class.node::quic::QuicError", align 8
-  %agg.tmp28.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp28, i64 8
   %agg.tmp42 = alloca %"class.node::quic::QuicError", align 8
-  %agg.tmp42.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp42, i64 8
   %0 = load ptr, ptr %args, align 8
   %1 = load i64, ptr %0, align 8
   %sub.i.i.i.i = add i64 %1, -1
@@ -1341,6 +1339,8 @@ entry:
   %sub.i.i = add nsw i32 %conv.i11.i.i, -1057
   %cmp1.i.i = icmp ult i32 %sub.i.i, 1002
   %6 = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
+  %agg.tmp42.sink15.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp42, i64 8
+  %agg.tmp42.sink15.sroa.gep16 = getelementptr inbounds i8, ptr %agg.tmp28, i64 8
   br i1 %6, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -1406,8 +1406,8 @@ if.else:                                          ; preds = %do.end
   br label %if.end44.sink.split
 
 if.end44.sink.split:                              ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %if.else
+  %agg.tmp42.sink15.sroa.phi = phi ptr [ %agg.tmp42.sink15.sroa.gep, %if.else ], [ %agg.tmp42.sink15.sroa.gep16, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ]
   %agg.tmp42.sink15 = phi ptr [ %agg.tmp42, %if.else ], [ %agg.tmp28, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ]
-  %agg.tmp42.sink15.sroa.phi = phi ptr [ %agg.tmp42.sroa.gep, %if.else ], [ %agg.tmp28.sroa.gep, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ]
   call void @_ZN4node4quic6Stream7DestroyENS0_9QuicErrorE(ptr noundef nonnull align 8 dereferenceable(256) %retval.i11.0.i, ptr noundef nonnull %agg.tmp42.sink15)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp42.sink15.sroa.phi) #26
   br label %if.end44

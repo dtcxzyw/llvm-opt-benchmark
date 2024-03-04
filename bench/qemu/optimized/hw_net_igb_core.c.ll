@@ -664,6 +664,8 @@ entry:
   %1 = load i16, ptr @_TRACE_E1000E_RX_RECEIVE_IOV_DSTATE, align 2
   %tobool4.i.i = icmp ne i16 %1, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
+  %iov.addr.0.sroa.gep = getelementptr inbounds i8, ptr %min_iov, i64 8
+  %iov.addr.0.sroa.gep266 = getelementptr inbounds i8, ptr %iov, i64 8
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_e1000e_rx_receive_iov.exit
 
 land.lhs.true5.i.i:                               ; preds = %entry
@@ -741,8 +743,7 @@ if.then.i62:                                      ; preds = %if.else.i
 
 e1000x_inc_reg_if_not_full.exit:                  ; preds = %if.else.i, %if.then.i62
   store ptr %buf, ptr %min_iov, align 8
-  %iov_len = getelementptr inbounds i8, ptr %min_iov, i64 8
-  store i64 60, ptr %iov_len, align 8
+  store i64 60, ptr %iov.addr.0.sroa.gep, align 8
   br label %if.end15
 
 if.else13:                                        ; preds = %if.end6
@@ -750,8 +751,7 @@ if.else13:                                        ; preds = %if.end6
   br i1 %tobool.i63.not, label %if.else.i64, label %land.lhs.true1.i67
 
 land.lhs.true1.i67:                               ; preds = %if.else13
-  %iov_len.i68 = getelementptr inbounds i8, ptr %iov, i64 8
-  %9 = load i64, ptr %iov_len.i68, align 8
+  %9 = load i64, ptr %iov.addr.0.sroa.gep266, align 8
   %cmp.not.i69 = icmp ult i64 %9, %iov_ofs.0
   %sub.i70 = sub i64 %9, %iov_ofs.0
   %cmp5.not.i71 = icmp ult i64 %sub.i70, 22
@@ -771,6 +771,7 @@ if.else.i64:                                      ; preds = %land.lhs.true1.i67,
 if.end15:                                         ; preds = %if.else.i64, %if.then.i73, %e1000x_inc_reg_if_not_full.exit
   %iovcnt.addr.0 = phi i32 [ 1, %e1000x_inc_reg_if_not_full.exit ], [ %iovcnt, %if.then.i73 ], [ %iovcnt, %if.else.i64 ]
   %size.0 = phi i64 [ 60, %e1000x_inc_reg_if_not_full.exit ], [ %sub, %if.then.i73 ], [ %sub, %if.else.i64 ]
+  %iov.addr.0.sroa.phi = phi ptr [ %iov.addr.0.sroa.gep, %e1000x_inc_reg_if_not_full.exit ], [ %iov.addr.0.sroa.gep266, %if.then.i73 ], [ %iov.addr.0.sroa.gep266, %if.else.i64 ]
   %iov.addr.0 = phi ptr [ %min_iov, %e1000x_inc_reg_if_not_full.exit ], [ %iov, %if.then.i73 ], [ %iov, %if.else.i64 ]
   %iov_ofs.1 = phi i64 [ 0, %e1000x_inc_reg_if_not_full.exit ], [ %iov_ofs.0, %if.then.i73 ], [ %iov_ofs.0, %if.else.i64 ]
   %rx_pkt16 = getelementptr inbounds i8, ptr %core, i64 134096
@@ -785,8 +786,8 @@ if.end15:                                         ; preds = %if.else.i64, %if.th
   %14 = load i8, ptr %arrayidx12.i.i, align 1
   %15 = call i8 @llvm.vector.reduce.and.v4i8(<4 x i8> %13)
   %op.rdx = and i8 %15, %14
-  %op.rdx321 = and i8 %op.rdx, %12
-  %cmp.i.not.i = icmp eq i8 %op.rdx321, -1
+  %op.rdx322 = and i8 %op.rdx, %12
+  %cmp.i.not.i = icmp eq i8 %op.rdx322, -1
   %16 = and i8 %12, 1
   %tobool4.not.i = icmp eq i8 %16, 0
   %..i = select i1 %tobool4.not.i, i32 -1430533120, i32 -1430533118
@@ -910,17 +911,17 @@ trace_e1000x_rx_oversized.exit.i:                 ; preds = %if.else.i.i.i, %if.
   br label %igb_receive_assign.exit.thread
 
 if.end48.i:                                       ; preds = %igb_rx_is_oversized.exit.i, %cond.true.i.i, %if.end30.i
-  %arrayidx54.i283 = getelementptr i8, ptr %core, i64 23728
-  %39 = load i32, ptr %arrayidx54.i283, align 4
+  %arrayidx54.i284 = getelementptr i8, ptr %core, i64 23728
+  %39 = load i32, ptr %arrayidx54.i284, align 4
   %40 = and i32 %39, 67108864
-  %tobool57.not.i284 = icmp ne i32 %40, 0
+  %tobool57.not.i285 = icmp ne i32 %40, 0
   %41 = trunc i32 %39 to i16
-  %cmp68.i285 = icmp eq i16 %22, %41
-  %or.cond286 = and i1 %tobool57.not.i284, %cmp68.i285
-  br i1 %or.cond286, label %if.then70.i, label %for.inc.i
+  %cmp68.i286 = icmp eq i16 %22, %41
+  %or.cond287 = and i1 %tobool57.not.i285, %cmp68.i286
+  br i1 %or.cond287, label %if.then70.i, label %for.inc.i
 
 for.body.i:                                       ; preds = %for.inc.i
-  %42 = add nuw nsw i64 %indvars.iv.i287, 5933
+  %42 = add nuw nsw i64 %indvars.iv.i288, 5933
   %arrayidx54.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 %42
   %43 = load i32, ptr %arrayidx54.i, align 4
   %44 = and i32 %43, 67108864
@@ -936,8 +937,8 @@ if.then70.i.loopexit:                             ; preds = %for.body.i
 
 if.then70.i:                                      ; preds = %if.then70.i.loopexit, %if.end48.i
   %etqf.0.lcssa = phi i16 [ 0, %if.end48.i ], [ %46, %if.then70.i.loopexit ]
-  %.lcssa280 = phi i32 [ %39, %if.end48.i ], [ %43, %if.then70.i.loopexit ]
-  %47 = and i32 %.lcssa280, 1073741824
+  %.lcssa281 = phi i32 [ %39, %if.end48.i ], [ %43, %if.then70.i.loopexit ]
+  %47 = and i32 %.lcssa281, 1073741824
   %tobool78.not.i = icmp eq i32 %47, 0
   br i1 %tobool78.not.i, label %for.end.i, label %land.lhs.true79.i
 
@@ -954,8 +955,7 @@ land.lhs.true89.i:                                ; preds = %land.lhs.true79.i
   br i1 %tobool.i.not.i, label %iov_to_buf.exit.i, label %land.lhs.true1.i.i
 
 land.lhs.true1.i.i:                               ; preds = %land.lhs.true89.i
-  %iov_len.i.i = getelementptr inbounds i8, ptr %iov.addr.0, i64 8
-  %50 = load i64, ptr %iov_len.i.i, align 8
+  %50 = load i64, ptr %iov.addr.0.sroa.phi, align 8
   %cmp.not.i.i = icmp ult i64 %50, %add91.i
   %sub.i.i = sub i64 %50, %add91.i
   %cmp5.not.i.i = icmp ult i64 %sub.i.i, 40
@@ -1013,8 +1013,8 @@ if.then108.i:                                     ; preds = %land.lhs.true100.i
   br label %for.end.i
 
 for.inc.i:                                        ; preds = %if.end48.i, %for.body.i
-  %indvars.iv.i287 = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.end48.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i287, 1
+  %indvars.iv.i288 = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.end48.i ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i288, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
 
@@ -1401,9 +1401,9 @@ if.then456.i:                                     ; preds = %if.end454.i
   %119 = load i32, ptr %queue.i, align 4
   %and459.i = and i32 %119, 1
   %tobool460.not.i = icmp eq i32 %and459.i, 0
-  br i1 %tobool460.not.i, label %igb_receive_assign.exit.thread305, label %for.body465.i
+  br i1 %tobool460.not.i, label %igb_receive_assign.exit.thread306, label %for.body465.i
 
-igb_receive_assign.exit.thread305:                ; preds = %if.then456.i
+igb_receive_assign.exit.thread306:                ; preds = %if.then456.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ra.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ptp2.i)
   br label %for.cond.preheader
@@ -1559,9 +1559,9 @@ igb_receive_assign.exit:                          ; preds = %for.inc492.i, %if.t
   %tobool21.not = icmp eq i16 %retval.0.i80, 0
   br i1 %tobool21.not, label %if.then22, label %for.cond.preheader
 
-for.cond.preheader:                               ; preds = %igb_receive_assign.exit.thread305, %igb_receive_assign.exit
-  %retval.0.i80308 = phi i16 [ %and452.i, %igb_receive_assign.exit.thread305 ], [ %retval.0.i80, %igb_receive_assign.exit ]
-  %conv26 = zext i16 %retval.0.i80308 to i64
+for.cond.preheader:                               ; preds = %igb_receive_assign.exit.thread306, %igb_receive_assign.exit
+  %retval.0.i80309 = phi i16 [ %and452.i, %igb_receive_assign.exit.thread306 ], [ %retval.0.i80, %igb_receive_assign.exit ]
+  %conv26 = zext i16 %retval.0.i80309 to i64
   %arrayidx3.i = getelementptr i8, ptr %core, i64 23280
   %arrayidx49 = getelementptr i8, ptr %core, i64 56
   %tv_usec.i.i133 = getelementptr inbounds i8, ptr %_now.i.i121, i64 8
@@ -1569,12 +1569,12 @@ for.cond.preheader:                               ; preds = %igb_receive_assign.
   %is_first.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 65
   %total_size.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 8
   %rx_desc_len3.i = getelementptr inbounds i8, ptr %core, i64 133184
+  %.sink.i.sroa.gep.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 96
   %rx_desc_packet_buf_size.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 40
   %rx_desc_header_buf_size.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 44
   %iov.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 48
   %owner.i = getelementptr inbounds i8, ptr %core, i64 135040
   %arrayidx.i50.i = getelementptr i8, ptr %core, i64 20488
-  %hdr_len31.i.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 96
   %ps_desc_data46.i.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 88
   %hbo.i.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 89
   %do_ps.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 64
@@ -1636,8 +1636,8 @@ trace_e1000e_rx_flt_dropped.exit:                 ; preds = %if.then22, %land.lh
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %ecauses.0290 = phi i32 [ 0, %for.cond.preheader ], [ %ecauses.1, %for.inc ]
-  %causes.0289 = phi i32 [ 0, %for.cond.preheader ], [ %causes.2, %for.inc ]
+  %ecauses.0291 = phi i32 [ 0, %for.cond.preheader ], [ %ecauses.1, %for.inc ]
+  %causes.0290 = phi i32 [ 0, %for.cond.preheader ], [ %causes.2, %for.inc ]
   %shl = shl nuw nsw i64 1, %indvars.iv
   %and = and i64 %shl, %conv26
   %tobool27.not = icmp eq i64 %and, 0
@@ -1718,7 +1718,7 @@ if.end46:                                         ; preds = %if.else37, %igb_rx_
   br i1 %call63, label %if.end66, label %if.then64
 
 if.then64:                                        ; preds = %if.end46
-  %or = or i32 %causes.0289, 64
+  %or = or i32 %causes.0290, 64
   %idx = getelementptr inbounds i8, ptr %arrayidx.i108, i64 20
   %163 = load i32, ptr %idx, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i121)
@@ -1878,7 +1878,7 @@ if.then15.i.i:                                    ; preds = %if.else.i.i176
   br label %if.end24.i.i
 
 if.else20.i.i:                                    ; preds = %if.else.i.i176
-  store i64 %conv.i.i153, ptr %hdr_len31.i.i, align 8
+  store i64 %conv.i.i153, ptr %.sink.i.sroa.gep.i, align 8
   br label %header_not_handled.i.i
 
 if.end24.i.i:                                     ; preds = %if.then15.i.i, %if.then9.i.i
@@ -1895,7 +1895,7 @@ land.lhs.true27.i.i:                              ; preds = %if.end24.i.i
   br i1 %tobool28.not.i.i, label %if.else42.i.i, label %if.then29.i.i
 
 if.then29.i.i:                                    ; preds = %land.lhs.true27.i.i
-  store i64 %conv.i.i153, ptr %hdr_len31.i.i, align 8
+  store i64 %conv.i.i153, ptr %.sink.i.sroa.gep.i, align 8
   br label %header_not_handled.i.i
 
 land.lhs.true34.i.i:                              ; preds = %if.end24.i.i
@@ -1916,7 +1916,7 @@ if.end45.i.i:                                     ; preds = %if.else42.i.i, %if.
   %call43.sink.i.i = phi i64 [ %call43.i.i, %if.else42.i.i ], [ %call40.i.i, %if.then39.i.i ]
   store i64 %call43.sink.i.i, ptr %143, align 8
   store i8 1, ptr %ps_desc_data46.i.i, align 8
-  store i64 %call43.sink.i.i, ptr %hdr_len31.i.i, align 8
+  store i64 %call43.sink.i.i, ptr %.sink.i.sroa.gep.i, align 8
   %cmp51.i.i = icmp ugt i64 %call43.sink.i.i, %conv.i.i153
   br i1 %cmp51.i.i, label %if.then53.i.i, label %igb_do_ps.exit.i
 
@@ -1928,10 +1928,9 @@ header_not_handled.i.i:                           ; preds = %if.then53.i.i, %if.
   br i1 %cmp.i39.i.i, label %igb_do_ps.exit.i, label %return.sink.split.i.i
 
 return.sink.split.i.i:                            ; preds = %header_not_handled.i.i, %if.then6.i.i
-  %.sink.i.i = phi i64 [ 96, %if.then6.i.i ], [ 16, %header_not_handled.i.i ]
+  %.sink.i.sroa.phi.i = phi ptr [ %.sink.i.sroa.gep.i, %if.then6.i.i ], [ %143, %header_not_handled.i.i ]
   %conv.sink.i.i = phi i64 [ %call1.i.i, %if.then6.i.i ], [ %conv.i.i153, %header_not_handled.i.i ]
-  %ps_hdr_len58.i.i = getelementptr inbounds i8, ptr %pdma_st.i, i64 %.sink.i.i
-  store i64 %conv.sink.i.i, ptr %ps_hdr_len58.i.i, align 8
+  store i64 %conv.sink.i.i, ptr %.sink.i.sroa.phi.i, align 8
   br label %igb_do_ps.exit.i
 
 igb_do_ps.exit.i:                                 ; preds = %return.sink.split.i.i, %header_not_handled.i.i, %if.end45.i.i, %if.end.i150
@@ -1954,11 +1953,11 @@ igb_do_ps.exit.i:                                 ; preds = %return.sink.split.i
   %194 = load i32, ptr %dt.i.i, align 8
   %idxprom2.i.i = sext i32 %194 to i64
   %arrayidx3.i.i157 = getelementptr [32768 x i32], ptr %core, i64 0, i64 %idxprom2.i.i
-  %.pre301 = load i32, ptr %arrayidx.i53.i, align 4
+  %.pre302 = load i32, ptr %arrayidx.i53.i, align 4
   br label %do.body.i
 
 do.body.i:                                        ; preds = %igb_pci_dma_write_rx_desc.exit.i, %igb_do_ps.exit.i
-  %195 = phi i32 [ %spec.store.select, %igb_pci_dma_write_rx_desc.exit.i ], [ %.pre301, %igb_do_ps.exit.i ]
+  %195 = phi i32 [ %spec.store.select, %igb_pci_dma_write_rx_desc.exit.i ], [ %.pre302, %igb_do_ps.exit.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %bastate.i, i8 0, i64 6, i1 false)
   %196 = load i32, ptr %arrayidx3.i.i157, align 4
   %cmp.i.i158 = icmp eq i32 %195, %196
@@ -2208,12 +2207,12 @@ land.lhs.true.i22.i.i:                            ; preds = %igb_truncate_to_des
 
 land.lhs.true.i22.i.if.then.i25.i_crit_edge.i:    ; preds = %land.lhs.true.i22.i.i
   %.pre.i = load i64, ptr %143, align 8
-  %.pre163.i = zext i32 %245 to i64
-  %.pre164.i = add i64 %.pre.i, %.pre163.i
+  %.pre164.i = zext i32 %245 to i64
+  %.pre165.i = add i64 %.pre.i, %.pre164.i
   br label %if.then.i25.i.i
 
 if.then.i25.i.i:                                  ; preds = %land.lhs.true.i22.i.if.then.i25.i_crit_edge.i, %land.lhs.true.i22.thread.i.i
-  %add.i29.i.pre-phi.i = phi i64 [ %.pre164.i, %land.lhs.true.i22.i.if.then.i25.i_crit_edge.i ], [ %add.i.i77.i, %land.lhs.true.i22.thread.i.i ]
+  %add.i29.i.pre-phi.i = phi i64 [ %.pre165.i, %land.lhs.true.i22.i.if.then.i25.i_crit_edge.i ], [ %add.i.i77.i, %land.lhs.true.i22.thread.i.i ]
   %sub114471.i.i = phi i64 [ %sub11.i.i, %land.lhs.true.i22.i.if.then.i25.i_crit_edge.i ], [ %sub1131.i.i, %land.lhs.true.i22.thread.i.i ]
   %249 = phi i8 [ %.pre.i.i, %land.lhs.true.i22.i.if.then.i25.i_crit_edge.i ], [ %235, %land.lhs.true.i22.thread.i.i ]
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %sub114471.i.i, i64 %add.i29.i.pre-phi.i)
@@ -2323,9 +2322,9 @@ while.body.lr.ph.i.i.i:                           ; preds = %if.end15.i.i
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.lr.ph.i.i.i
-  %.pre.i233303 = phi i8 [ 1, %while.body.lr.ph.i.i.i ], [ %.pre.i233302, %if.end.i.i.i ]
+  %.pre.i233304 = phi i8 [ 1, %while.body.lr.ph.i.i.i ], [ %.pre.i233303, %if.end.i.i.i ]
   %268 = phi ptr [ %.pre.i46.i.i, %while.body.lr.ph.i.i.i ], [ %296, %if.end.i.i.i ]
-  %.pre.i134.i = phi i8 [ 1, %while.body.lr.ph.i.i.i ], [ %.pre.i134159.i, %if.end.i.i.i ]
+  %.pre.i134.i = phi i8 [ 1, %while.body.lr.ph.i.i.i ], [ %.pre.i134160.i, %if.end.i.i.i ]
   %copy_size.4.i.i = phi i64 [ %copy_size.3.i.i, %while.body.lr.ph.i.i.i ], [ %sub3.i51.i.i, %if.end.i.i.i ]
   %269 = phi i64 [ %.pre2.i47.i.i, %while.body.lr.ph.i.i.i ], [ %297, %if.end.i.i.i ]
   %iov_len.i48.i.i = getelementptr inbounds i8, ptr %268, i64 8
@@ -2439,15 +2438,15 @@ if.end60.i.i:                                     ; preds = %if.then57.i.i, %tra
   br i1 %cmp.not.i146.i, label %igb_write_payload_frag_to_rx_buffers.exit.loopexit.i, label %while.body.i.i, !llvm.loop !20
 
 igb_write_payload_frag_to_rx_buffers.exit.loopexit.i: ; preds = %if.end60.i.i
-  %.pre160.i = load i64, ptr %iov_ofs.i.i.i, align 8
-  %.pre161.i = load ptr, ptr %iov.i, align 8
+  %.pre161.i = load i64, ptr %iov_ofs.i.i.i, align 8
+  %.pre162.i = load ptr, ptr %iov.i, align 8
   br label %igb_write_payload_frag_to_rx_buffers.exit.i
 
 igb_write_payload_frag_to_rx_buffers.exit.i:      ; preds = %igb_write_payload_frag_to_rx_buffers.exit.loopexit.i, %while.body.i.i.i
-  %.pre.i233302 = phi i8 [ %292, %igb_write_payload_frag_to_rx_buffers.exit.loopexit.i ], [ %.pre.i233303, %while.body.i.i.i ]
-  %293 = phi ptr [ %.pre161.i, %igb_write_payload_frag_to_rx_buffers.exit.loopexit.i ], [ %268, %while.body.i.i.i ]
-  %294 = phi i64 [ %.pre160.i, %igb_write_payload_frag_to_rx_buffers.exit.loopexit.i ], [ %269, %while.body.i.i.i ]
-  %.pre.i134159.i = phi i8 [ %292, %igb_write_payload_frag_to_rx_buffers.exit.loopexit.i ], [ %.pre.i134.i, %while.body.i.i.i ]
+  %.pre.i233303 = phi i8 [ %292, %igb_write_payload_frag_to_rx_buffers.exit.loopexit.i ], [ %.pre.i233304, %while.body.i.i.i ]
+  %293 = phi ptr [ %.pre162.i, %igb_write_payload_frag_to_rx_buffers.exit.loopexit.i ], [ %268, %while.body.i.i.i ]
+  %294 = phi i64 [ %.pre161.i, %igb_write_payload_frag_to_rx_buffers.exit.loopexit.i ], [ %269, %while.body.i.i.i ]
+  %.pre.i134160.i = phi i8 [ %292, %igb_write_payload_frag_to_rx_buffers.exit.loopexit.i ], [ %.pre.i134.i, %while.body.i.i.i ]
   %sub3.i51.i.i = sub i64 %copy_size.4.i.i, %cond.i50.i.i
   %add.i52.i.i = add i64 %294, %cond.i50.i.i
   store i64 %add.i52.i.i, ptr %iov_ofs.i.i.i, align 8
@@ -2469,7 +2468,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i55.i.i, %i
   br i1 %tobool.not.i53.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !21
 
 while.end.i.i.i:                                  ; preds = %if.end.i.i.i, %if.end15.i.i
-  %.pre.i233 = phi i8 [ 1, %if.end15.i.i ], [ %.pre.i233302, %if.end.i.i.i ]
+  %.pre.i233 = phi i8 [ 1, %if.end15.i.i ], [ %.pre.i233303, %if.end.i.i.i ]
   %298 = load i64, ptr %desc_offset6.i.i, align 8
   %299 = load i64, ptr %desc_size13.i.i, align 8
   %add11.i.i.i = add i64 %299, %298
@@ -2611,7 +2610,7 @@ if.then2.i.i:                                     ; preds = %igb_write_to_rx_buf
   %add.i.i109.i = select i1 %tobool.not.i.i.i, i16 %330, i16 0
   %pkt_len.0.i.i.i = add i16 %add.i.i109.i, %329
   call fastcc void @igb_write_adv_rx_descr(ptr noundef nonnull %core, ptr noundef nonnull %desc.i, ptr noundef %spec.select.i, ptr noundef nonnull %rss_info, i16 noundef zeroext %etqf.1, i1 noundef zeroext %tobool70, i16 noundef zeroext %pkt_len.0.i.i.i)
-  %331 = load i64, ptr %hdr_len31.i.i, align 8
+  %331 = load i64, ptr %.sink.i.sroa.gep.i, align 8
   %332 = shl i64 %331, 5
   %conv12.i.i106.i = and i64 %332, 32736
   %333 = load i8, ptr %ps_desc_data46.i.i, align 8
@@ -2631,11 +2630,11 @@ if.then2.i.i:                                     ; preds = %igb_write_to_rx_buf
 if.else3.i.i:                                     ; preds = %igb_write_to_rx_buffers.exit.i
   %339 = load i16, ptr %arrayidx.i.i105.i, align 4
   call fastcc void @igb_write_adv_rx_descr(ptr noundef nonnull %core, ptr noundef nonnull %desc.i, ptr noundef %spec.select.i, ptr noundef nonnull %rss_info, i16 noundef zeroext %etqf.1, i1 noundef zeroext %tobool70, i16 noundef zeroext %339)
-  %.pre162.i = load i32, ptr %hdr_addr.i.i.i, align 8
+  %.pre163.i = load i32, ptr %hdr_addr.i.i.i, align 8
   br label %igb_write_rx_descr.exit.i
 
 igb_write_rx_descr.exit.i:                        ; preds = %if.else3.i.i, %if.then2.i.i
-  %340 = phi i32 [ %or25.i.i.i, %if.then2.i.i ], [ %.pre162.i, %if.else3.i.i ]
+  %340 = phi i32 [ %or25.i.i.i, %if.then2.i.i ], [ %.pre163.i, %if.else3.i.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status12.i.i)
   store i32 %340, ptr %status12.i.i, align 4
   %and15.i.i = and i32 %340, -2
@@ -2719,7 +2718,7 @@ igb_write_packet_to_guest.exit:                   ; preds = %do.body.i, %igb_rin
   %mul2.i = and i32 %355, 496
   %cmp.i185 = icmp eq i32 %call.i179, %mul2.i
   %spec.select.v = select i1 %cmp.i185, i32 144, i32 128
-  %spec.select = or i32 %spec.select.v, %causes.0289
+  %spec.select = or i32 %spec.select.v, %causes.0290
   %conv.i186 = trunc i32 %.val.i to i8
   %cmp.i.i187 = icmp ult i8 %conv.i186, 8
   %mul.i.i188 = shl i8 %conv.i186, 2
@@ -2739,7 +2738,7 @@ igb_write_packet_to_guest.exit:                   ; preds = %do.body.i, %igb_rin
   %and3.i = and i32 %shr.i196, 31
   %shl.i198 = shl nuw i32 1, %and3.i
   %conv4.i199 = select i1 %tobool.not.i197, i32 0, i32 %shl.i198
-  %or79 = or i32 %conv4.i199, %ecauses.0290
+  %or79 = or i32 %conv4.i199, %ecauses.0291
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i200)
   %357 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i201 = icmp ne i32 %357, 0
@@ -2777,8 +2776,8 @@ trace_e1000e_rx_written_to_guest.exit:            ; preds = %igb_write_packet_to
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %lor.lhs.false, %trace_e1000e_rx_written_to_guest.exit, %trace_e1000e_rx_not_written_to_guest.exit
-  %causes.2 = phi i32 [ %spec.select, %trace_e1000e_rx_written_to_guest.exit ], [ %or, %trace_e1000e_rx_not_written_to_guest.exit ], [ %causes.0289, %lor.lhs.false ], [ %causes.0289, %for.body ]
-  %ecauses.1 = phi i32 [ %or79, %trace_e1000e_rx_written_to_guest.exit ], [ %ecauses.0290, %trace_e1000e_rx_not_written_to_guest.exit ], [ %ecauses.0290, %lor.lhs.false ], [ %ecauses.0290, %for.body ]
+  %causes.2 = phi i32 [ %spec.select, %trace_e1000e_rx_written_to_guest.exit ], [ %or, %trace_e1000e_rx_not_written_to_guest.exit ], [ %causes.0290, %lor.lhs.false ], [ %causes.0290, %for.body ]
+  %ecauses.1 = phi i32 [ %or79, %trace_e1000e_rx_written_to_guest.exit ], [ %ecauses.0291, %trace_e1000e_rx_not_written_to_guest.exit ], [ %ecauses.0291, %lor.lhs.false ], [ %ecauses.0291, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23

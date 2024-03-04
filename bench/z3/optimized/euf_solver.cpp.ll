@@ -3669,13 +3669,13 @@ declare void @_ZN7specrel6solverC1ERN3euf6solverEi(ptr noundef nonnull align 8 d
 define hidden void @_ZN3euf6solver18unhandled_functionEP9func_decl(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef %f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp13 = alloca %struct.mk_pp, align 8
-  %ref.tmp13.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp13, i64 16
   %ref.tmp21 = alloca %struct.mk_pp, align 8
-  %ref.tmp21.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp21, i64 16
   %m_unhandled_functions = getelementptr inbounds i8, ptr %this, i64 2272
   %m_nodes.i.i = getelementptr inbounds i8, ptr %this, i64 2280
   %0 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
+  %ref.tmp21.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp21, i64 16
+  %ref.tmp21.sink.sroa.gep29 = getelementptr inbounds i8, ptr %ref.tmp13, i64 16
   br i1 %cmp.i.i.i, label %if.end, label %_ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
 
 _ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i: ; preds = %entry
@@ -3847,8 +3847,8 @@ if.end29:                                         ; preds = %for.body.preheader.
   ret void
 
 eh.resume:                                        ; preds = %lpad23, %lpad15
+  %ref.tmp21.sink.sroa.phi = phi ptr [ %ref.tmp21.sink.sroa.gep, %lpad23 ], [ %ref.tmp21.sink.sroa.gep29, %lpad15 ]
   %.pn = phi { ptr, i32 } [ %26, %lpad23 ], [ %24, %lpad15 ]
-  %ref.tmp21.sink.sroa.phi = phi ptr [ %ref.tmp21.sroa.gep, %lpad23 ], [ %ref.tmp13.sroa.gep, %lpad15 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp21.sink.sroa.phi) #22
   resume { ptr, i32 } %.pn
 }
@@ -9127,11 +9127,11 @@ terminate.lpad:                                   ; preds = %entry
 define linkonce_odr hidden void @_ZN3euf6solver17disable_relevancyEP4expr(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef %e) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %ref.tmp11 = alloca %struct.mk_pp, align 8
-  %ref.tmp11.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
   %call = tail call noundef i32 @_Z19get_verbosity_levelv()
   %call2 = tail call noundef zeroext i1 @_Z11is_threadedv()
+  %ref.tmp11.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
+  %ref.tmp11.sink.sroa.gep6 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   br i1 %call2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %entry
@@ -9188,8 +9188,8 @@ if.end18:                                         ; preds = %invoke.cont7, %invo
   ret void
 
 eh.resume:                                        ; preds = %lpad13, %lpad
+  %ref.tmp11.sink.sroa.phi = phi ptr [ %ref.tmp11.sink.sroa.gep, %lpad13 ], [ %ref.tmp11.sink.sroa.gep6, %lpad ]
   %.pn = phi { ptr, i32 } [ %3, %lpad13 ], [ %1, %lpad ]
-  %ref.tmp11.sink.sroa.phi = phi ptr [ %ref.tmp11.sroa.gep, %lpad13 ], [ %ref.tmp.sroa.gep, %lpad ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11.sink.sroa.phi) #22
   resume { ptr, i32 } %.pn
 }

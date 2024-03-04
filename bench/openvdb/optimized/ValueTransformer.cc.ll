@@ -13163,6 +13163,7 @@ entry:
   %6 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not9.i.i.i.i = icmp eq ptr %6, null
+  %indvars.iv.i.i.i.sroa.gep82 = getelementptr inbounds i8, ptr %modifiedVal, i64 4
   br i1 %cmp.not9.i.i.i.i, label %if.then, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %if.end.i.i.i.i
@@ -13395,11 +13396,11 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.then21
   %cmp.i.i.i49 = phi i1 [ true, %if.then21 ], [ false, %for.cond.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi = phi ptr [ %modifiedVal, %if.then21 ], [ %indvars.iv.i.i.i.sroa.gep82, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then21 ], [ 1, %for.cond.i.i.i ]
   %arrayidx.i.i.i.i.i50 = getelementptr inbounds [3 x float], ptr %op, i64 0, i64 %indvars.iv.i.i.i
   %22 = load float, ptr %arrayidx.i.i.i.i.i50, align 4
-  %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x float], ptr %modifiedVal, i64 0, i64 %indvars.iv.i.i.i
-  %23 = load float, ptr %arrayidx.i.i11.i.i.i, align 4
+  %23 = load float, ptr %indvars.iv.i.i.i.sroa.phi, align 4
   %cmp.i.i.i.i51 = fcmp oeq float %22, %23
   br i1 %cmp.i.i.i.i51, label %for.cond.i.i.i, label %if.then.i.i.i
 
@@ -13427,8 +13428,7 @@ _ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IfEEEclERS6_.exit: ; preds
 land.lhs.true.i.i:                                ; preds = %_ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IfEEEclERS6_.exit
   %arrayidx.i.i.i.i53 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 60
   %28 = load float, ptr %arrayidx.i.i.i.i53, align 4
-  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %modifiedVal, i64 4
-  %29 = load float, ptr %arrayidx.i.i5.i.i, align 4
+  %29 = load float, ptr %indvars.iv.i.i.i.sroa.gep82, align 4
   %cmp.i6.i.i = fcmp oeq float %28, %29
   br i1 %cmp.i6.i.i, label %if.end, label %invoke.cont32
 
@@ -13531,6 +13531,7 @@ entry:
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %and2.i.i = and i64 %shl.i.i, %5
   %cmp.i.i.not = icmp eq i64 %and2.i.i, 0
+  %indvars.iv.i.i.i.sroa.gep35 = getelementptr inbounds i8, ptr %modifiedVal, i64 4
   br i1 %cmp.i.i.not, label %if.then, label %entry.if.then25_crit_edge
 
 entry.if.then25_crit_edge:                        ; preds = %entry
@@ -13545,11 +13546,11 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %arrayidx.i.i15, align 8
   %and2.i.i19 = and i64 %6, %shl.i.i
   %cmp.i.i20.not = icmp eq i64 %and2.i.i19, 0
-  %.pre42 = zext nneg i32 %add8.i to i64
+  %.pre43 = zext nneg i32 %add8.i to i64
   br i1 %cmp.i.i20.not, label %if.then14, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %.pre42
+  %arrayidx = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %.pre43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %modifiedVal, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx, i64 12, i1 false)
   br label %for.body.i.i.i
 
@@ -13558,11 +13559,11 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.then8
   %cmp.i.i.i = phi i1 [ true, %if.then8 ], [ false, %for.cond.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi = phi ptr [ %modifiedVal, %if.then8 ], [ %indvars.iv.i.i.i.sroa.gep35, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then8 ], [ 1, %for.cond.i.i.i ]
   %arrayidx.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %op, i64 0, i64 %indvars.iv.i.i.i
   %7 = load float, ptr %arrayidx.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x float], ptr %modifiedVal, i64 0, i64 %indvars.iv.i.i.i
-  %8 = load float, ptr %arrayidx.i.i11.i.i.i, align 4
+  %8 = load float, ptr %indvars.iv.i.i.i.sroa.phi, align 4
   %cmp.i.i.i.i = fcmp oeq float %7, %8
   br i1 %cmp.i.i.i.i, label %for.cond.i.i.i, label %if.then.i.i.i
 
@@ -13590,8 +13591,7 @@ _ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IfEEEclERS6_.exit: ; preds
 land.lhs.true.i.i:                                ; preds = %_ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IfEEEclERS6_.exit
   %arrayidx.i.i.i.i22 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %13 = load float, ptr %arrayidx.i.i.i.i22, align 4
-  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %modifiedVal, i64 4
-  %14 = load float, ptr %arrayidx.i.i5.i.i, align 4
+  %14 = load float, ptr %indvars.iv.i.i.i.sroa.gep35, align 4
   %cmp.i6.i.i = fcmp oeq float %13, %14
   br i1 %cmp.i6.i.i, label %if.end, label %if.then14
 
@@ -13616,7 +13616,7 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont.i, label %arrayctor.loop.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
-  %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %.pre42
+  %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %.pre43
   %arrayctor.end.i = getelementptr inbounds i8, ptr %call15, i64 65536
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 66560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %arrayctor.end.i, i8 0, i64 1024, i1 false)
@@ -14681,6 +14681,7 @@ entry:
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %and2.i.i = and i64 %shl.i.i, %5
   %cmp.i.i.not = icmp eq i64 %and2.i.i, 0
+  %indvars.iv.i.i.i.sroa.gep41 = getelementptr inbounds i8, ptr %modifiedVal, i64 4
   br i1 %cmp.i.i.not, label %if.then, label %entry.if.then25_crit_edge
 
 entry.if.then25_crit_edge:                        ; preds = %entry
@@ -14708,11 +14709,11 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.then8
   %cmp.i.i.i = phi i1 [ true, %if.then8 ], [ false, %for.cond.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi = phi ptr [ %modifiedVal, %if.then8 ], [ %indvars.iv.i.i.i.sroa.gep41, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then8 ], [ 1, %for.cond.i.i.i ]
   %arrayidx.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %op, i64 0, i64 %indvars.iv.i.i.i
   %7 = load float, ptr %arrayidx.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x float], ptr %modifiedVal, i64 0, i64 %indvars.iv.i.i.i
-  %8 = load float, ptr %arrayidx.i.i11.i.i.i, align 4
+  %8 = load float, ptr %indvars.iv.i.i.i.sroa.phi, align 4
   %cmp.i.i.i.i = fcmp oeq float %7, %8
   br i1 %cmp.i.i.i.i, label %for.cond.i.i.i, label %if.then.i.i.i
 
@@ -14740,8 +14741,7 @@ _ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IfEEEclERS6_.exit: ; preds
 land.lhs.true.i.i:                                ; preds = %_ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IfEEEclERS6_.exit
   %arrayidx.i.i.i.i22 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %13 = load float, ptr %arrayidx.i.i.i.i22, align 4
-  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %modifiedVal, i64 4
-  %14 = load float, ptr %arrayidx.i.i5.i.i, align 4
+  %14 = load float, ptr %indvars.iv.i.i.i.sroa.gep41, align 4
   %cmp.i6.i.i = fcmp oeq float %13, %14
   br i1 %cmp.i6.i.i, label %if.end, label %if.then14
 
@@ -14835,9 +14835,9 @@ invoke.cont21:                                    ; preds = %for.body.i.i.i24
   %and2.i.i36 = and i64 %22, %not.i.i
   store i64 %and2.i.i36, ptr %arrayidx.i.i15, align 8
   store ptr %call15, ptr %arrayidx18, align 8
-  %.pre48 = load i32, ptr %xyz, align 4
-  %.pre49 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %.pre50 = load i32, ptr %arrayidx.i.i.i3.i, align 4
+  %.pre49 = load i32, ptr %xyz, align 4
+  %.pre50 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %.pre51 = load i32, ptr %arrayidx.i.i.i3.i, align 4
   br label %if.then25
 
 lpad:                                             ; preds = %if.then14
@@ -14847,9 +14847,9 @@ lpad:                                             ; preds = %if.then14
   resume { ptr, i32 } %23
 
 if.then25:                                        ; preds = %entry.if.then25_crit_edge, %invoke.cont21
-  %24 = phi i32 [ %4, %entry.if.then25_crit_edge ], [ %.pre50, %invoke.cont21 ]
-  %25 = phi i32 [ %2, %entry.if.then25_crit_edge ], [ %.pre49, %invoke.cont21 ]
-  %26 = phi i32 [ %0, %entry.if.then25_crit_edge ], [ %.pre48, %invoke.cont21 ]
+  %24 = phi i32 [ %4, %entry.if.then25_crit_edge ], [ %.pre51, %invoke.cont21 ]
+  %25 = phi i32 [ %2, %entry.if.then25_crit_edge ], [ %.pre50, %invoke.cont21 ]
+  %26 = phi i32 [ %0, %entry.if.then25_crit_edge ], [ %.pre49, %invoke.cont21 ]
   %27 = phi ptr [ %.pre, %entry.if.then25_crit_edge ], [ %call15, %invoke.cont21 ]
   %and.i.i37 = shl i32 %26, 6
   %shl.i.i38 = and i32 %and.i.i37, 448
@@ -16132,6 +16132,7 @@ entry:
   %6 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not9.i.i.i.i = icmp eq ptr %6, null
+  %indvars.iv.i.i.i.sroa.gep81 = getelementptr inbounds i8, ptr %modifiedVal, i64 8
   br i1 %cmp.not9.i.i.i.i, label %if.then, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %if.end.i.i.i.i
@@ -16361,11 +16362,11 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.then21
   %cmp.i.i.i48 = phi i1 [ true, %if.then21 ], [ false, %for.cond.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi = phi ptr [ %modifiedVal, %if.then21 ], [ %indvars.iv.i.i.i.sroa.gep81, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then21 ], [ 1, %for.cond.i.i.i ]
   %arrayidx.i.i.i.i.i49 = getelementptr inbounds [3 x double], ptr %op, i64 0, i64 %indvars.iv.i.i.i
   %22 = load double, ptr %arrayidx.i.i.i.i.i49, align 8
-  %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x double], ptr %modifiedVal, i64 0, i64 %indvars.iv.i.i.i
-  %23 = load double, ptr %arrayidx.i.i11.i.i.i, align 8
+  %23 = load double, ptr %indvars.iv.i.i.i.sroa.phi, align 8
   %cmp.i.i.i.i50 = fcmp oeq double %22, %23
   br i1 %cmp.i.i.i.i50, label %for.cond.i.i.i, label %if.then.i.i.i
 
@@ -16393,8 +16394,7 @@ _ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IdEEEclERS6_.exit: ; preds
 land.lhs.true.i.i:                                ; preds = %_ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IdEEEclERS6_.exit
   %arrayidx.i.i.i.i52 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 64
   %28 = load double, ptr %arrayidx.i.i.i.i52, align 8
-  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %modifiedVal, i64 8
-  %29 = load double, ptr %arrayidx.i.i5.i.i, align 8
+  %29 = load double, ptr %indvars.iv.i.i.i.sroa.gep81, align 8
   %cmp.i6.i.i = fcmp oeq double %28, %29
   br i1 %cmp.i6.i.i, label %if.end, label %invoke.cont32
 
@@ -16497,6 +16497,7 @@ entry:
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %and2.i.i = and i64 %shl.i.i, %5
   %cmp.i.i.not = icmp eq i64 %and2.i.i, 0
+  %indvars.iv.i.i.i.sroa.gep35 = getelementptr inbounds i8, ptr %modifiedVal, i64 8
   br i1 %cmp.i.i.not, label %if.then, label %entry.if.then25_crit_edge
 
 entry.if.then25_crit_edge:                        ; preds = %entry
@@ -16511,11 +16512,11 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %arrayidx.i.i15, align 8
   %and2.i.i19 = and i64 %6, %shl.i.i
   %cmp.i.i20.not = icmp eq i64 %and2.i.i19, 0
-  %.pre42 = zext nneg i32 %add8.i to i64
+  %.pre43 = zext nneg i32 %add8.i to i64
   br i1 %cmp.i.i20.not, label %if.then14, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %.pre42
+  %arrayidx = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %.pre43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %modifiedVal, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, i64 24, i1 false)
   br label %for.body.i.i.i
 
@@ -16524,11 +16525,11 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.then8
   %cmp.i.i.i = phi i1 [ true, %if.then8 ], [ false, %for.cond.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi = phi ptr [ %modifiedVal, %if.then8 ], [ %indvars.iv.i.i.i.sroa.gep35, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then8 ], [ 1, %for.cond.i.i.i ]
   %arrayidx.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %op, i64 0, i64 %indvars.iv.i.i.i
   %7 = load double, ptr %arrayidx.i.i.i.i.i, align 8
-  %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x double], ptr %modifiedVal, i64 0, i64 %indvars.iv.i.i.i
-  %8 = load double, ptr %arrayidx.i.i11.i.i.i, align 8
+  %8 = load double, ptr %indvars.iv.i.i.i.sroa.phi, align 8
   %cmp.i.i.i.i = fcmp oeq double %7, %8
   br i1 %cmp.i.i.i.i, label %for.cond.i.i.i, label %if.then.i.i.i
 
@@ -16556,8 +16557,7 @@ _ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IdEEEclERS6_.exit: ; preds
 land.lhs.true.i.i:                                ; preds = %_ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IdEEEclERS6_.exit
   %arrayidx.i.i.i.i22 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %13 = load double, ptr %arrayidx.i.i.i.i22, align 8
-  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %modifiedVal, i64 8
-  %14 = load double, ptr %arrayidx.i.i5.i.i, align 8
+  %14 = load double, ptr %indvars.iv.i.i.i.sroa.gep35, align 8
   %cmp.i6.i.i = fcmp oeq double %13, %14
   br i1 %cmp.i6.i.i, label %if.end, label %if.then14
 
@@ -16582,7 +16582,7 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont.i, label %arrayctor.loop.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
-  %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %.pre42
+  %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %.pre43
   %arrayctor.end.i = getelementptr inbounds i8, ptr %call15, i64 98304
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 99328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %arrayctor.end.i, i8 0, i64 1024, i1 false)
@@ -17647,6 +17647,7 @@ entry:
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %and2.i.i = and i64 %shl.i.i, %5
   %cmp.i.i.not = icmp eq i64 %and2.i.i, 0
+  %indvars.iv.i.i.i.sroa.gep41 = getelementptr inbounds i8, ptr %modifiedVal, i64 8
   br i1 %cmp.i.i.not, label %if.then, label %entry.if.then25_crit_edge
 
 entry.if.then25_crit_edge:                        ; preds = %entry
@@ -17674,11 +17675,11 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.then8
   %cmp.i.i.i = phi i1 [ true, %if.then8 ], [ false, %for.cond.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi = phi ptr [ %modifiedVal, %if.then8 ], [ %indvars.iv.i.i.i.sroa.gep41, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then8 ], [ 1, %for.cond.i.i.i ]
   %arrayidx.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %op, i64 0, i64 %indvars.iv.i.i.i
   %7 = load double, ptr %arrayidx.i.i.i.i.i, align 8
-  %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x double], ptr %modifiedVal, i64 0, i64 %indvars.iv.i.i.i
-  %8 = load double, ptr %arrayidx.i.i11.i.i.i, align 8
+  %8 = load double, ptr %indvars.iv.i.i.i.sroa.phi, align 8
   %cmp.i.i.i.i = fcmp oeq double %7, %8
   br i1 %cmp.i.i.i.i, label %for.cond.i.i.i, label %if.then.i.i.i
 
@@ -17706,8 +17707,7 @@ _ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IdEEEclERS6_.exit: ; preds
 land.lhs.true.i.i:                                ; preds = %_ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IdEEEclERS6_.exit
   %arrayidx.i.i.i.i22 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %13 = load double, ptr %arrayidx.i.i.i.i22, align 8
-  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %modifiedVal, i64 8
-  %14 = load double, ptr %arrayidx.i.i5.i.i, align 8
+  %14 = load double, ptr %indvars.iv.i.i.i.sroa.gep41, align 8
   %cmp.i6.i.i = fcmp oeq double %13, %14
   br i1 %cmp.i6.i.i, label %if.end, label %if.then14
 
@@ -17801,9 +17801,9 @@ invoke.cont21:                                    ; preds = %for.body.i.i.i24
   %and2.i.i36 = and i64 %22, %not.i.i
   store i64 %and2.i.i36, ptr %arrayidx.i.i15, align 8
   store ptr %call15, ptr %arrayidx18, align 8
-  %.pre48 = load i32, ptr %xyz, align 4
-  %.pre49 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %.pre50 = load i32, ptr %arrayidx.i.i.i3.i, align 4
+  %.pre49 = load i32, ptr %xyz, align 4
+  %.pre50 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %.pre51 = load i32, ptr %arrayidx.i.i.i3.i, align 4
   br label %if.then25
 
 lpad:                                             ; preds = %if.then14
@@ -17813,9 +17813,9 @@ lpad:                                             ; preds = %if.then14
   resume { ptr, i32 } %23
 
 if.then25:                                        ; preds = %entry.if.then25_crit_edge, %invoke.cont21
-  %24 = phi i32 [ %4, %entry.if.then25_crit_edge ], [ %.pre50, %invoke.cont21 ]
-  %25 = phi i32 [ %2, %entry.if.then25_crit_edge ], [ %.pre49, %invoke.cont21 ]
-  %26 = phi i32 [ %0, %entry.if.then25_crit_edge ], [ %.pre48, %invoke.cont21 ]
+  %24 = phi i32 [ %4, %entry.if.then25_crit_edge ], [ %.pre51, %invoke.cont21 ]
+  %25 = phi i32 [ %2, %entry.if.then25_crit_edge ], [ %.pre50, %invoke.cont21 ]
+  %26 = phi i32 [ %0, %entry.if.then25_crit_edge ], [ %.pre49, %invoke.cont21 ]
   %27 = phi ptr [ %.pre, %entry.if.then25_crit_edge ], [ %call15, %invoke.cont21 ]
   %and.i.i37 = shl i32 %26, 6
   %shl.i.i38 = and i32 %and.i.i37, 448
@@ -19102,6 +19102,7 @@ entry:
   %6 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not9.i.i.i.i = icmp eq ptr %6, null
+  %indvars.iv.i.i.i.sroa.gep82 = getelementptr inbounds i8, ptr %modifiedVal, i64 4
   br i1 %cmp.not9.i.i.i.i, label %if.then, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %if.end.i.i.i.i
@@ -19334,11 +19335,11 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.then21
   %cmp.i.i.i49 = phi i1 [ true, %if.then21 ], [ false, %for.cond.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi = phi ptr [ %modifiedVal, %if.then21 ], [ %indvars.iv.i.i.i.sroa.gep82, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then21 ], [ 1, %for.cond.i.i.i ]
   %arrayidx.i.i.i.i.i50 = getelementptr inbounds [3 x i32], ptr %op, i64 0, i64 %indvars.iv.i.i.i
   %22 = load i32, ptr %arrayidx.i.i.i.i.i50, align 4
-  %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x i32], ptr %modifiedVal, i64 0, i64 %indvars.iv.i.i.i
-  %23 = load i32, ptr %arrayidx.i.i11.i.i.i, align 4
+  %23 = load i32, ptr %indvars.iv.i.i.i.sroa.phi, align 4
   %cmp.i.i.i.i51 = icmp eq i32 %22, %23
   br i1 %cmp.i.i.i.i51, label %for.cond.i.i.i, label %if.then.i.i.i
 
@@ -19366,8 +19367,7 @@ _ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IiEEEclERS6_.exit: ; preds
 land.lhs.true.i.i:                                ; preds = %_ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IiEEEclERS6_.exit
   %arrayidx.i.i.i.i53 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 60
   %28 = load i32, ptr %arrayidx.i.i.i.i53, align 4
-  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %modifiedVal, i64 4
-  %29 = load i32, ptr %arrayidx.i.i5.i.i, align 4
+  %29 = load i32, ptr %indvars.iv.i.i.i.sroa.gep82, align 4
   %cmp.i6.i.i = icmp eq i32 %28, %29
   br i1 %cmp.i6.i.i, label %if.end, label %invoke.cont32
 
@@ -19470,6 +19470,7 @@ entry:
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %and2.i.i = and i64 %shl.i.i, %5
   %cmp.i.i.not = icmp eq i64 %and2.i.i, 0
+  %indvars.iv.i.i.i.sroa.gep35 = getelementptr inbounds i8, ptr %modifiedVal, i64 4
   br i1 %cmp.i.i.not, label %if.then, label %entry.if.then25_crit_edge
 
 entry.if.then25_crit_edge:                        ; preds = %entry
@@ -19484,11 +19485,11 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %arrayidx.i.i15, align 8
   %and2.i.i19 = and i64 %6, %shl.i.i
   %cmp.i.i20.not = icmp eq i64 %and2.i.i19, 0
-  %.pre42 = zext nneg i32 %add8.i to i64
+  %.pre43 = zext nneg i32 %add8.i to i64
   br i1 %cmp.i.i20.not, label %if.then14, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %.pre42
+  %arrayidx = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %.pre43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %modifiedVal, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx, i64 12, i1 false)
   br label %for.body.i.i.i
 
@@ -19497,11 +19498,11 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.then8
   %cmp.i.i.i = phi i1 [ true, %if.then8 ], [ false, %for.cond.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi = phi ptr [ %modifiedVal, %if.then8 ], [ %indvars.iv.i.i.i.sroa.gep35, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then8 ], [ 1, %for.cond.i.i.i ]
   %arrayidx.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %op, i64 0, i64 %indvars.iv.i.i.i
   %7 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x i32], ptr %modifiedVal, i64 0, i64 %indvars.iv.i.i.i
-  %8 = load i32, ptr %arrayidx.i.i11.i.i.i, align 4
+  %8 = load i32, ptr %indvars.iv.i.i.i.sroa.phi, align 4
   %cmp.i.i.i.i = icmp eq i32 %7, %8
   br i1 %cmp.i.i.i.i, label %for.cond.i.i.i, label %if.then.i.i.i
 
@@ -19529,8 +19530,7 @@ _ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IiEEEclERS6_.exit: ; preds
 land.lhs.true.i.i:                                ; preds = %_ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IiEEEclERS6_.exit
   %arrayidx.i.i.i.i22 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %13 = load i32, ptr %arrayidx.i.i.i.i22, align 4
-  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %modifiedVal, i64 4
-  %14 = load i32, ptr %arrayidx.i.i5.i.i, align 4
+  %14 = load i32, ptr %indvars.iv.i.i.i.sroa.gep35, align 4
   %cmp.i6.i.i = icmp eq i32 %13, %14
   br i1 %cmp.i6.i.i, label %if.end, label %if.then14
 
@@ -19555,7 +19555,7 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont.i, label %arrayctor.loop.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
-  %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %.pre42
+  %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %.pre43
   %arrayctor.end.i = getelementptr inbounds i8, ptr %call15, i64 65536
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 66560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %arrayctor.end.i, i8 0, i64 1024, i1 false)
@@ -20620,6 +20620,7 @@ entry:
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %and2.i.i = and i64 %shl.i.i, %5
   %cmp.i.i.not = icmp eq i64 %and2.i.i, 0
+  %indvars.iv.i.i.i.sroa.gep41 = getelementptr inbounds i8, ptr %modifiedVal, i64 4
   br i1 %cmp.i.i.not, label %if.then, label %entry.if.then25_crit_edge
 
 entry.if.then25_crit_edge:                        ; preds = %entry
@@ -20647,11 +20648,11 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.then8
   %cmp.i.i.i = phi i1 [ true, %if.then8 ], [ false, %for.cond.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi = phi ptr [ %modifiedVal, %if.then8 ], [ %indvars.iv.i.i.i.sroa.gep41, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then8 ], [ 1, %for.cond.i.i.i ]
   %arrayidx.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %op, i64 0, i64 %indvars.iv.i.i.i
   %7 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
-  %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x i32], ptr %modifiedVal, i64 0, i64 %indvars.iv.i.i.i
-  %8 = load i32, ptr %arrayidx.i.i11.i.i.i, align 4
+  %8 = load i32, ptr %indvars.iv.i.i.i.sroa.phi, align 4
   %cmp.i.i.i.i = icmp eq i32 %7, %8
   br i1 %cmp.i.i.i.i, label %for.cond.i.i.i, label %if.then.i.i.i
 
@@ -20679,8 +20680,7 @@ _ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IiEEEclERS6_.exit: ; preds
 land.lhs.true.i.i:                                ; preds = %_ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IiEEEclERS6_.exit
   %arrayidx.i.i.i.i22 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %13 = load i32, ptr %arrayidx.i.i.i.i22, align 4
-  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %modifiedVal, i64 4
-  %14 = load i32, ptr %arrayidx.i.i5.i.i, align 4
+  %14 = load i32, ptr %indvars.iv.i.i.i.sroa.gep41, align 4
   %cmp.i6.i.i = icmp eq i32 %13, %14
   br i1 %cmp.i6.i.i, label %if.end, label %if.then14
 
@@ -20774,9 +20774,9 @@ invoke.cont21:                                    ; preds = %for.body.i.i.i24
   %and2.i.i36 = and i64 %22, %not.i.i
   store i64 %and2.i.i36, ptr %arrayidx.i.i15, align 8
   store ptr %call15, ptr %arrayidx18, align 8
-  %.pre48 = load i32, ptr %xyz, align 4
-  %.pre49 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %.pre50 = load i32, ptr %arrayidx.i.i.i3.i, align 4
+  %.pre49 = load i32, ptr %xyz, align 4
+  %.pre50 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %.pre51 = load i32, ptr %arrayidx.i.i.i3.i, align 4
   br label %if.then25
 
 lpad:                                             ; preds = %if.then14
@@ -20786,9 +20786,9 @@ lpad:                                             ; preds = %if.then14
   resume { ptr, i32 } %23
 
 if.then25:                                        ; preds = %entry.if.then25_crit_edge, %invoke.cont21
-  %24 = phi i32 [ %4, %entry.if.then25_crit_edge ], [ %.pre50, %invoke.cont21 ]
-  %25 = phi i32 [ %2, %entry.if.then25_crit_edge ], [ %.pre49, %invoke.cont21 ]
-  %26 = phi i32 [ %0, %entry.if.then25_crit_edge ], [ %.pre48, %invoke.cont21 ]
+  %24 = phi i32 [ %4, %entry.if.then25_crit_edge ], [ %.pre51, %invoke.cont21 ]
+  %25 = phi i32 [ %2, %entry.if.then25_crit_edge ], [ %.pre50, %invoke.cont21 ]
+  %26 = phi i32 [ %0, %entry.if.then25_crit_edge ], [ %.pre49, %invoke.cont21 ]
   %27 = phi ptr [ %.pre, %entry.if.then25_crit_edge ], [ %call15, %invoke.cont21 ]
   %and.i.i37 = shl i32 %26, 6
   %shl.i.i38 = and i32 %and.i.i37, 448
@@ -24839,6 +24839,7 @@ entry:
   %6 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not9.i.i.i.i = icmp eq ptr %6, null
+  %indvars.iv.i.i.i.sroa.gep82 = getelementptr inbounds i8, ptr %modifiedVal, i64 4
   br i1 %cmp.not9.i.i.i.i, label %if.then, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %if.end.i.i.i.i
@@ -25071,9 +25072,9 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.then21
   %cmp.i.i.i49 = phi i1 [ true, %if.then21 ], [ false, %for.cond.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi = phi ptr [ %modifiedVal, %if.then21 ], [ %indvars.iv.i.i.i.sroa.gep82, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then21 ], [ 1, %for.cond.i.i.i ]
-  %arrayidx.i.i.i.i.i50 = getelementptr inbounds [3 x float], ptr %modifiedVal, i64 0, i64 %indvars.iv.i.i.i
-  %22 = load float, ptr %arrayidx.i.i.i.i.i50, align 4
+  %22 = load float, ptr %indvars.iv.i.i.i.sroa.phi, align 4
   %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x float], ptr %op, i64 0, i64 %indvars.iv.i.i.i
   %23 = load float, ptr %arrayidx.i.i11.i.i.i, align 4
   %cmp.i.i.i.i51 = fcmp oeq float %22, %23
@@ -25103,8 +25104,7 @@ _ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IfEEEclERS6_.exit: ; preds
 land.lhs.true.i.i:                                ; preds = %_ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IfEEEclERS6_.exit
   %arrayidx.i.i.i.i53 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 60
   %28 = load float, ptr %arrayidx.i.i.i.i53, align 4
-  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %modifiedVal, i64 4
-  %29 = load float, ptr %arrayidx.i.i5.i.i, align 4
+  %29 = load float, ptr %indvars.iv.i.i.i.sroa.gep82, align 4
   %cmp.i6.i.i = fcmp oeq float %28, %29
   br i1 %cmp.i6.i.i, label %if.end, label %invoke.cont31
 
@@ -25207,6 +25207,7 @@ entry:
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %and2.i.i = and i64 %shl.i.i, %5
   %cmp.i.i.not = icmp eq i64 %and2.i.i, 0
+  %indvars.iv.i.i.i.sroa.gep35 = getelementptr inbounds i8, ptr %modifiedVal, i64 4
   br i1 %cmp.i.i.not, label %if.then, label %entry.if.then24_crit_edge
 
 entry.if.then24_crit_edge:                        ; preds = %entry
@@ -25221,11 +25222,11 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %arrayidx.i.i15, align 8
   %and2.i.i19 = and i64 %6, %shl.i.i
   %cmp.i.i20.not = icmp eq i64 %and2.i.i19, 0
-  %.pre42 = zext nneg i32 %add8.i to i64
+  %.pre43 = zext nneg i32 %add8.i to i64
   br i1 %cmp.i.i20.not, label %if.then14, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %.pre42
+  %arrayidx = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %.pre43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %modifiedVal, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx, i64 12, i1 false)
   br label %for.body.i.i.i
 
@@ -25234,9 +25235,9 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.then8
   %cmp.i.i.i = phi i1 [ true, %if.then8 ], [ false, %for.cond.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi = phi ptr [ %modifiedVal, %if.then8 ], [ %indvars.iv.i.i.i.sroa.gep35, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then8 ], [ 1, %for.cond.i.i.i ]
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %modifiedVal, i64 0, i64 %indvars.iv.i.i.i
-  %7 = load float, ptr %arrayidx.i.i.i.i.i, align 4
+  %7 = load float, ptr %indvars.iv.i.i.i.sroa.phi, align 4
   %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x float], ptr %op, i64 0, i64 %indvars.iv.i.i.i
   %8 = load float, ptr %arrayidx.i.i11.i.i.i, align 4
   %cmp.i.i.i.i = fcmp oeq float %7, %8
@@ -25266,8 +25267,7 @@ _ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IfEEEclERS6_.exit: ; preds
 land.lhs.true.i.i:                                ; preds = %_ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IfEEEclERS6_.exit
   %arrayidx.i.i.i.i22 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %13 = load float, ptr %arrayidx.i.i.i.i22, align 4
-  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %modifiedVal, i64 4
-  %14 = load float, ptr %arrayidx.i.i5.i.i, align 4
+  %14 = load float, ptr %indvars.iv.i.i.i.sroa.gep35, align 4
   %cmp.i6.i.i = fcmp oeq float %13, %14
   br i1 %cmp.i6.i.i, label %if.end, label %if.then14
 
@@ -25292,7 +25292,7 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont.i, label %arrayctor.loop.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
-  %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %.pre42
+  %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %.pre43
   %arrayctor.end.i = getelementptr inbounds i8, ptr %call15, i64 65536
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 66560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %arrayctor.end.i, i8 0, i64 1024, i1 false)
@@ -25369,6 +25369,7 @@ entry:
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %and2.i.i = and i64 %shl.i.i, %5
   %cmp.i.i.not = icmp eq i64 %and2.i.i, 0
+  %indvars.iv.i.i.i.sroa.gep41 = getelementptr inbounds i8, ptr %modifiedVal, i64 4
   br i1 %cmp.i.i.not, label %if.then, label %entry.if.then24_crit_edge
 
 entry.if.then24_crit_edge:                        ; preds = %entry
@@ -25396,9 +25397,9 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.then8
   %cmp.i.i.i = phi i1 [ true, %if.then8 ], [ false, %for.cond.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi = phi ptr [ %modifiedVal, %if.then8 ], [ %indvars.iv.i.i.i.sroa.gep41, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then8 ], [ 1, %for.cond.i.i.i ]
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [3 x float], ptr %modifiedVal, i64 0, i64 %indvars.iv.i.i.i
-  %7 = load float, ptr %arrayidx.i.i.i.i.i, align 4
+  %7 = load float, ptr %indvars.iv.i.i.i.sroa.phi, align 4
   %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x float], ptr %op, i64 0, i64 %indvars.iv.i.i.i
   %8 = load float, ptr %arrayidx.i.i11.i.i.i, align 4
   %cmp.i.i.i.i = fcmp oeq float %7, %8
@@ -25428,8 +25429,7 @@ _ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IfEEEclERS6_.exit: ; preds
 land.lhs.true.i.i:                                ; preds = %_ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IfEEEclERS6_.exit
   %arrayidx.i.i.i.i22 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %13 = load float, ptr %arrayidx.i.i.i.i22, align 4
-  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %modifiedVal, i64 4
-  %14 = load float, ptr %arrayidx.i.i5.i.i, align 4
+  %14 = load float, ptr %indvars.iv.i.i.i.sroa.gep41, align 4
   %cmp.i6.i.i = fcmp oeq float %13, %14
   br i1 %cmp.i6.i.i, label %if.end, label %if.then14
 
@@ -25523,9 +25523,9 @@ invoke.cont:                                      ; preds = %for.body.i.i.i24
   %and2.i.i36 = and i64 %22, %not.i.i
   store i64 %and2.i.i36, ptr %arrayidx.i.i15, align 8
   store ptr %call15, ptr %arrayidx18, align 8
-  %.pre48 = load i32, ptr %xyz, align 4
-  %.pre49 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %.pre50 = load i32, ptr %arrayidx.i.i.i3.i, align 4
+  %.pre49 = load i32, ptr %xyz, align 4
+  %.pre50 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %.pre51 = load i32, ptr %arrayidx.i.i.i3.i, align 4
   br label %if.then24
 
 lpad:                                             ; preds = %if.then14
@@ -25535,9 +25535,9 @@ lpad:                                             ; preds = %if.then14
   resume { ptr, i32 } %23
 
 if.then24:                                        ; preds = %entry.if.then24_crit_edge, %invoke.cont
-  %24 = phi i32 [ %4, %entry.if.then24_crit_edge ], [ %.pre50, %invoke.cont ]
-  %25 = phi i32 [ %2, %entry.if.then24_crit_edge ], [ %.pre49, %invoke.cont ]
-  %26 = phi i32 [ %0, %entry.if.then24_crit_edge ], [ %.pre48, %invoke.cont ]
+  %24 = phi i32 [ %4, %entry.if.then24_crit_edge ], [ %.pre51, %invoke.cont ]
+  %25 = phi i32 [ %2, %entry.if.then24_crit_edge ], [ %.pre50, %invoke.cont ]
+  %26 = phi i32 [ %0, %entry.if.then24_crit_edge ], [ %.pre49, %invoke.cont ]
   %27 = phi ptr [ %.pre, %entry.if.then24_crit_edge ], [ %call15, %invoke.cont ]
   %and.i.i37 = shl i32 %26, 6
   %shl.i.i38 = and i32 %and.i.i37, 448
@@ -25682,6 +25682,7 @@ entry:
   %6 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not9.i.i.i.i = icmp eq ptr %6, null
+  %indvars.iv.i.i.i.sroa.gep81 = getelementptr inbounds i8, ptr %modifiedVal, i64 8
   br i1 %cmp.not9.i.i.i.i, label %if.then, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %if.end.i.i.i.i
@@ -25911,9 +25912,9 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.then21
   %cmp.i.i.i48 = phi i1 [ true, %if.then21 ], [ false, %for.cond.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi = phi ptr [ %modifiedVal, %if.then21 ], [ %indvars.iv.i.i.i.sroa.gep81, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then21 ], [ 1, %for.cond.i.i.i ]
-  %arrayidx.i.i.i.i.i49 = getelementptr inbounds [3 x double], ptr %modifiedVal, i64 0, i64 %indvars.iv.i.i.i
-  %22 = load double, ptr %arrayidx.i.i.i.i.i49, align 8
+  %22 = load double, ptr %indvars.iv.i.i.i.sroa.phi, align 8
   %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x double], ptr %op, i64 0, i64 %indvars.iv.i.i.i
   %23 = load double, ptr %arrayidx.i.i11.i.i.i, align 8
   %cmp.i.i.i.i50 = fcmp oeq double %22, %23
@@ -25943,8 +25944,7 @@ _ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IdEEEclERS6_.exit: ; preds
 land.lhs.true.i.i:                                ; preds = %_ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IdEEEclERS6_.exit
   %arrayidx.i.i.i.i52 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 64
   %28 = load double, ptr %arrayidx.i.i.i.i52, align 8
-  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %modifiedVal, i64 8
-  %29 = load double, ptr %arrayidx.i.i5.i.i, align 8
+  %29 = load double, ptr %indvars.iv.i.i.i.sroa.gep81, align 8
   %cmp.i6.i.i = fcmp oeq double %28, %29
   br i1 %cmp.i6.i.i, label %if.end, label %invoke.cont31
 
@@ -26047,6 +26047,7 @@ entry:
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %and2.i.i = and i64 %shl.i.i, %5
   %cmp.i.i.not = icmp eq i64 %and2.i.i, 0
+  %indvars.iv.i.i.i.sroa.gep35 = getelementptr inbounds i8, ptr %modifiedVal, i64 8
   br i1 %cmp.i.i.not, label %if.then, label %entry.if.then24_crit_edge
 
 entry.if.then24_crit_edge:                        ; preds = %entry
@@ -26061,11 +26062,11 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %arrayidx.i.i15, align 8
   %and2.i.i19 = and i64 %6, %shl.i.i
   %cmp.i.i20.not = icmp eq i64 %and2.i.i19, 0
-  %.pre42 = zext nneg i32 %add8.i to i64
+  %.pre43 = zext nneg i32 %add8.i to i64
   br i1 %cmp.i.i20.not, label %if.then14, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %.pre42
+  %arrayidx = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %.pre43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %modifiedVal, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, i64 24, i1 false)
   br label %for.body.i.i.i
 
@@ -26074,9 +26075,9 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.then8
   %cmp.i.i.i = phi i1 [ true, %if.then8 ], [ false, %for.cond.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi = phi ptr [ %modifiedVal, %if.then8 ], [ %indvars.iv.i.i.i.sroa.gep35, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then8 ], [ 1, %for.cond.i.i.i ]
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %modifiedVal, i64 0, i64 %indvars.iv.i.i.i
-  %7 = load double, ptr %arrayidx.i.i.i.i.i, align 8
+  %7 = load double, ptr %indvars.iv.i.i.i.sroa.phi, align 8
   %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x double], ptr %op, i64 0, i64 %indvars.iv.i.i.i
   %8 = load double, ptr %arrayidx.i.i11.i.i.i, align 8
   %cmp.i.i.i.i = fcmp oeq double %7, %8
@@ -26106,8 +26107,7 @@ _ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IdEEEclERS6_.exit: ; preds
 land.lhs.true.i.i:                                ; preds = %_ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IdEEEclERS6_.exit
   %arrayidx.i.i.i.i22 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %13 = load double, ptr %arrayidx.i.i.i.i22, align 8
-  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %modifiedVal, i64 8
-  %14 = load double, ptr %arrayidx.i.i5.i.i, align 8
+  %14 = load double, ptr %indvars.iv.i.i.i.sroa.gep35, align 8
   %cmp.i6.i.i = fcmp oeq double %13, %14
   br i1 %cmp.i6.i.i, label %if.end, label %if.then14
 
@@ -26132,7 +26132,7 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont.i, label %arrayctor.loop.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
-  %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %.pre42
+  %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %.pre43
   %arrayctor.end.i = getelementptr inbounds i8, ptr %call15, i64 98304
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 99328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %arrayctor.end.i, i8 0, i64 1024, i1 false)
@@ -26209,6 +26209,7 @@ entry:
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %and2.i.i = and i64 %shl.i.i, %5
   %cmp.i.i.not = icmp eq i64 %and2.i.i, 0
+  %indvars.iv.i.i.i.sroa.gep41 = getelementptr inbounds i8, ptr %modifiedVal, i64 8
   br i1 %cmp.i.i.not, label %if.then, label %entry.if.then24_crit_edge
 
 entry.if.then24_crit_edge:                        ; preds = %entry
@@ -26236,9 +26237,9 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.then8
   %cmp.i.i.i = phi i1 [ true, %if.then8 ], [ false, %for.cond.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi = phi ptr [ %modifiedVal, %if.then8 ], [ %indvars.iv.i.i.i.sroa.gep41, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then8 ], [ 1, %for.cond.i.i.i ]
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [3 x double], ptr %modifiedVal, i64 0, i64 %indvars.iv.i.i.i
-  %7 = load double, ptr %arrayidx.i.i.i.i.i, align 8
+  %7 = load double, ptr %indvars.iv.i.i.i.sroa.phi, align 8
   %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x double], ptr %op, i64 0, i64 %indvars.iv.i.i.i
   %8 = load double, ptr %arrayidx.i.i11.i.i.i, align 8
   %cmp.i.i.i.i = fcmp oeq double %7, %8
@@ -26268,8 +26269,7 @@ _ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IdEEEclERS6_.exit: ; preds
 land.lhs.true.i.i:                                ; preds = %_ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IdEEEclERS6_.exit
   %arrayidx.i.i.i.i22 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %13 = load double, ptr %arrayidx.i.i.i.i22, align 8
-  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %modifiedVal, i64 8
-  %14 = load double, ptr %arrayidx.i.i5.i.i, align 8
+  %14 = load double, ptr %indvars.iv.i.i.i.sroa.gep41, align 8
   %cmp.i6.i.i = fcmp oeq double %13, %14
   br i1 %cmp.i6.i.i, label %if.end, label %if.then14
 
@@ -26363,9 +26363,9 @@ invoke.cont:                                      ; preds = %for.body.i.i.i24
   %and2.i.i36 = and i64 %22, %not.i.i
   store i64 %and2.i.i36, ptr %arrayidx.i.i15, align 8
   store ptr %call15, ptr %arrayidx18, align 8
-  %.pre48 = load i32, ptr %xyz, align 4
-  %.pre49 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %.pre50 = load i32, ptr %arrayidx.i.i.i3.i, align 4
+  %.pre49 = load i32, ptr %xyz, align 4
+  %.pre50 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %.pre51 = load i32, ptr %arrayidx.i.i.i3.i, align 4
   br label %if.then24
 
 lpad:                                             ; preds = %if.then14
@@ -26375,9 +26375,9 @@ lpad:                                             ; preds = %if.then14
   resume { ptr, i32 } %23
 
 if.then24:                                        ; preds = %entry.if.then24_crit_edge, %invoke.cont
-  %24 = phi i32 [ %4, %entry.if.then24_crit_edge ], [ %.pre50, %invoke.cont ]
-  %25 = phi i32 [ %2, %entry.if.then24_crit_edge ], [ %.pre49, %invoke.cont ]
-  %26 = phi i32 [ %0, %entry.if.then24_crit_edge ], [ %.pre48, %invoke.cont ]
+  %24 = phi i32 [ %4, %entry.if.then24_crit_edge ], [ %.pre51, %invoke.cont ]
+  %25 = phi i32 [ %2, %entry.if.then24_crit_edge ], [ %.pre50, %invoke.cont ]
+  %26 = phi i32 [ %0, %entry.if.then24_crit_edge ], [ %.pre49, %invoke.cont ]
   %27 = phi ptr [ %.pre, %entry.if.then24_crit_edge ], [ %call15, %invoke.cont ]
   %and.i.i37 = shl i32 %26, 6
   %shl.i.i38 = and i32 %and.i.i37, 448
@@ -26520,6 +26520,7 @@ entry:
   %6 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not9.i.i.i.i = icmp eq ptr %6, null
+  %indvars.iv.i.i.i.sroa.gep82 = getelementptr inbounds i8, ptr %modifiedVal, i64 4
   br i1 %cmp.not9.i.i.i.i, label %if.then, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %if.end.i.i.i.i
@@ -26752,9 +26753,9 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.then21
   %cmp.i.i.i49 = phi i1 [ true, %if.then21 ], [ false, %for.cond.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi = phi ptr [ %modifiedVal, %if.then21 ], [ %indvars.iv.i.i.i.sroa.gep82, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then21 ], [ 1, %for.cond.i.i.i ]
-  %arrayidx.i.i.i.i.i50 = getelementptr inbounds [3 x i32], ptr %modifiedVal, i64 0, i64 %indvars.iv.i.i.i
-  %22 = load i32, ptr %arrayidx.i.i.i.i.i50, align 4
+  %22 = load i32, ptr %indvars.iv.i.i.i.sroa.phi, align 4
   %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x i32], ptr %op, i64 0, i64 %indvars.iv.i.i.i
   %23 = load i32, ptr %arrayidx.i.i11.i.i.i, align 4
   %cmp.i.i.i.i51 = icmp eq i32 %22, %23
@@ -26784,8 +26785,7 @@ _ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IiEEEclERS6_.exit: ; preds
 land.lhs.true.i.i:                                ; preds = %_ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IiEEEclERS6_.exit
   %arrayidx.i.i.i.i53 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 60
   %28 = load i32, ptr %arrayidx.i.i.i.i53, align 4
-  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %modifiedVal, i64 4
-  %29 = load i32, ptr %arrayidx.i.i5.i.i, align 4
+  %29 = load i32, ptr %indvars.iv.i.i.i.sroa.gep82, align 4
   %cmp.i6.i.i = icmp eq i32 %28, %29
   br i1 %cmp.i6.i.i, label %if.end, label %invoke.cont31
 
@@ -26888,6 +26888,7 @@ entry:
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %and2.i.i = and i64 %shl.i.i, %5
   %cmp.i.i.not = icmp eq i64 %and2.i.i, 0
+  %indvars.iv.i.i.i.sroa.gep35 = getelementptr inbounds i8, ptr %modifiedVal, i64 4
   br i1 %cmp.i.i.not, label %if.then, label %entry.if.then24_crit_edge
 
 entry.if.then24_crit_edge:                        ; preds = %entry
@@ -26902,11 +26903,11 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %arrayidx.i.i15, align 8
   %and2.i.i19 = and i64 %6, %shl.i.i
   %cmp.i.i20.not = icmp eq i64 %and2.i.i19, 0
-  %.pre42 = zext nneg i32 %add8.i to i64
+  %.pre43 = zext nneg i32 %add8.i to i64
   br i1 %cmp.i.i20.not, label %if.then14, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %.pre42
+  %arrayidx = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %.pre43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %modifiedVal, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx, i64 12, i1 false)
   br label %for.body.i.i.i
 
@@ -26915,9 +26916,9 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.then8
   %cmp.i.i.i = phi i1 [ true, %if.then8 ], [ false, %for.cond.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi = phi ptr [ %modifiedVal, %if.then8 ], [ %indvars.iv.i.i.i.sroa.gep35, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then8 ], [ 1, %for.cond.i.i.i ]
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %modifiedVal, i64 0, i64 %indvars.iv.i.i.i
-  %7 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
+  %7 = load i32, ptr %indvars.iv.i.i.i.sroa.phi, align 4
   %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x i32], ptr %op, i64 0, i64 %indvars.iv.i.i.i
   %8 = load i32, ptr %arrayidx.i.i11.i.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %7, %8
@@ -26947,8 +26948,7 @@ _ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IiEEEclERS6_.exit: ; preds
 land.lhs.true.i.i:                                ; preds = %_ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IiEEEclERS6_.exit
   %arrayidx.i.i.i.i22 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %13 = load i32, ptr %arrayidx.i.i.i.i22, align 4
-  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %modifiedVal, i64 4
-  %14 = load i32, ptr %arrayidx.i.i5.i.i, align 4
+  %14 = load i32, ptr %indvars.iv.i.i.i.sroa.gep35, align 4
   %cmp.i6.i.i = icmp eq i32 %13, %14
   br i1 %cmp.i6.i.i, label %if.end, label %if.then14
 
@@ -26973,7 +26973,7 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont.i, label %arrayctor.loop.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
-  %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %.pre42
+  %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %.pre43
   %arrayctor.end.i = getelementptr inbounds i8, ptr %call15, i64 65536
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 66560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %arrayctor.end.i, i8 0, i64 1024, i1 false)
@@ -27050,6 +27050,7 @@ entry:
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %and2.i.i = and i64 %shl.i.i, %5
   %cmp.i.i.not = icmp eq i64 %and2.i.i, 0
+  %indvars.iv.i.i.i.sroa.gep41 = getelementptr inbounds i8, ptr %modifiedVal, i64 4
   br i1 %cmp.i.i.not, label %if.then, label %entry.if.then24_crit_edge
 
 entry.if.then24_crit_edge:                        ; preds = %entry
@@ -27077,9 +27078,9 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.then8
   %cmp.i.i.i = phi i1 [ true, %if.then8 ], [ false, %for.cond.i.i.i ]
+  %indvars.iv.i.i.i.sroa.phi = phi ptr [ %modifiedVal, %if.then8 ], [ %indvars.iv.i.i.i.sroa.gep41, %for.cond.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then8 ], [ 1, %for.cond.i.i.i ]
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [3 x i32], ptr %modifiedVal, i64 0, i64 %indvars.iv.i.i.i
-  %7 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
+  %7 = load i32, ptr %indvars.iv.i.i.i.sroa.phi, align 4
   %arrayidx.i.i11.i.i.i = getelementptr inbounds [3 x i32], ptr %op, i64 0, i64 %indvars.iv.i.i.i
   %8 = load i32, ptr %arrayidx.i.i11.i.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %7, %8
@@ -27109,8 +27110,7 @@ _ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IiEEEclERS6_.exit: ; preds
 land.lhs.true.i.i:                                ; preds = %_ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IiEEEclERS6_.exit
   %arrayidx.i.i.i.i22 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %13 = load i32, ptr %arrayidx.i.i.i.i22, align 4
-  %arrayidx.i.i5.i.i = getelementptr inbounds i8, ptr %modifiedVal, i64 4
-  %14 = load i32, ptr %arrayidx.i.i5.i.i, align 4
+  %14 = load i32, ptr %indvars.iv.i.i.i.sroa.gep41, align 4
   %cmp.i6.i.i = icmp eq i32 %13, %14
   br i1 %cmp.i6.i.i, label %if.end, label %if.then14
 
@@ -27204,9 +27204,9 @@ invoke.cont:                                      ; preds = %for.body.i.i.i24
   %and2.i.i36 = and i64 %22, %not.i.i
   store i64 %and2.i.i36, ptr %arrayidx.i.i15, align 8
   store ptr %call15, ptr %arrayidx18, align 8
-  %.pre48 = load i32, ptr %xyz, align 4
-  %.pre49 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %.pre50 = load i32, ptr %arrayidx.i.i.i3.i, align 4
+  %.pre49 = load i32, ptr %xyz, align 4
+  %.pre50 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %.pre51 = load i32, ptr %arrayidx.i.i.i3.i, align 4
   br label %if.then24
 
 lpad:                                             ; preds = %if.then14
@@ -27216,9 +27216,9 @@ lpad:                                             ; preds = %if.then14
   resume { ptr, i32 } %23
 
 if.then24:                                        ; preds = %entry.if.then24_crit_edge, %invoke.cont
-  %24 = phi i32 [ %4, %entry.if.then24_crit_edge ], [ %.pre50, %invoke.cont ]
-  %25 = phi i32 [ %2, %entry.if.then24_crit_edge ], [ %.pre49, %invoke.cont ]
-  %26 = phi i32 [ %0, %entry.if.then24_crit_edge ], [ %.pre48, %invoke.cont ]
+  %24 = phi i32 [ %4, %entry.if.then24_crit_edge ], [ %.pre51, %invoke.cont ]
+  %25 = phi i32 [ %2, %entry.if.then24_crit_edge ], [ %.pre50, %invoke.cont ]
+  %26 = phi i32 [ %0, %entry.if.then24_crit_edge ], [ %.pre49, %invoke.cont ]
   %27 = phi ptr [ %.pre, %entry.if.then24_crit_edge ], [ %call15, %invoke.cont ]
   %and.i.i37 = shl i32 %26, 6
   %shl.i.i38 = and i32 %and.i.i37, 448

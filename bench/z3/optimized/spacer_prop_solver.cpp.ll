@@ -1366,9 +1366,7 @@ declare void @_ZN6spacer10iuc_solver7push_bgEP4expr(ptr noundef nonnull align 8 
 define hidden void @_ZN6spacer11prop_solver11assert_exprEP4expr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(156) %this, ptr noundef %form) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %ref.tmp15 = alloca %struct.mk_pp, align 8
-  %ref.tmp15.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
   %m_contexts = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_contexts, align 8
   tail call void @_ZN6solver11assert_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %form)
@@ -1377,6 +1375,8 @@ entry:
   tail call void @_ZN6solver11assert_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %form)
   %call5 = tail call noundef i32 @_Z19get_verbosity_levelv()
   %cmp = icmp ugt i32 %call5, 20
+  %ref.tmp15.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
+  %ref.tmp15.sink.sroa.gep8 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   br i1 %cmp, label %if.then, label %if.end22
 
 if.then:                                          ; preds = %entry
@@ -1433,8 +1433,8 @@ if.end22:                                         ; preds = %invoke.cont11, %inv
   ret void
 
 eh.resume:                                        ; preds = %lpad17, %lpad
+  %ref.tmp15.sink.sroa.phi = phi ptr [ %ref.tmp15.sink.sroa.gep, %lpad17 ], [ %ref.tmp15.sink.sroa.gep8, %lpad ]
   %.pn = phi { ptr, i32 } [ %5, %lpad17 ], [ %3, %lpad ]
-  %ref.tmp15.sink.sroa.phi = phi ptr [ %ref.tmp15.sroa.gep, %lpad17 ], [ %ref.tmp.sroa.gep, %lpad ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15.sink.sroa.phi) #16
   resume { ptr, i32 } %.pn
 }

@@ -3635,21 +3635,21 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread4park5Inner4park17h
   %7 = alloca ptr, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep47 = getelementptr inbounds i8, ptr %9, i64 24
-  %.sroa.gep44 = getelementptr inbounds i8, ptr %9, i64 16
-  %.sroa.gep41 = getelementptr inbounds i8, ptr %9, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %9, i64 8
   %10 = alloca i64, align 8
   %11 = alloca [1 x { ptr, ptr }], align 8
   %12 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep48 = getelementptr inbounds i8, ptr %12, i64 24
-  %.sroa.gep45 = getelementptr inbounds i8, ptr %12, i64 16
-  %.sroa.gep42 = getelementptr inbounds i8, ptr %12, i64 32
-  %.sroa.gep39 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = alloca i64, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = cmpxchg ptr %14, i64 3, i64 0 seq_cst seq_cst, align 8
   %16 = extractvalue { i64, i1 } %15, 1
+  %.sink38.sroa.gep = getelementptr inbounds i8, ptr %9, i64 8
+  %.sink38.sroa.gep39 = getelementptr inbounds i8, ptr %12, i64 8
+  %.sink38.sroa.gep41 = getelementptr inbounds i8, ptr %9, i64 32
+  %.sink38.sroa.gep42 = getelementptr inbounds i8, ptr %12, i64 32
+  %.sink38.sroa.gep44 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sink38.sroa.gep45 = getelementptr inbounds i8, ptr %12, i64 16
+  %.sink38.sroa.gep47 = getelementptr inbounds i8, ptr %9, i64 24
+  %.sink38.sroa.gep48 = getelementptr inbounds i8, ptr %12, i64 24
   br i1 %16, label %"_ZN4core3ptr91drop_in_place$LT$tokio..util..try_lock..LockGuard$LT$tokio..runtime..driver..Driver$GT$$GT$17h52e47e2267de0a8bE.exit14", label %17
 
 17:                                               ; preds = %2
@@ -3712,13 +3712,13 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread4park5Inner4park17h
   br label %.invoke
 
 .invoke:                                          ; preds = %32, %36
+  %.sink38.sroa.phi = phi ptr [ %.sink38.sroa.gep, %32 ], [ %.sink38.sroa.gep39, %36 ]
+  %.sink38.sroa.phi40 = phi ptr [ %.sink38.sroa.gep41, %32 ], [ %.sink38.sroa.gep42, %36 ]
+  %.sink38.sroa.phi43 = phi ptr [ %.sink38.sroa.gep44, %32 ], [ %.sink38.sroa.gep45, %36 ]
+  %.sink38.sroa.phi46 = phi ptr [ %.sink38.sroa.gep47, %32 ], [ %.sink38.sroa.gep48, %36 ]
   %.sink38 = phi ptr [ %9, %32 ], [ %12, %36 ]
   %.sink = phi ptr [ %8, %32 ], [ %11, %36 ]
   %38 = phi ptr [ @anon.ba4985a049956e0df762c1765696dc31.72, %32 ], [ @anon.ba4985a049956e0df762c1765696dc31.73, %36 ]
-  %.sink38.sroa.phi = phi ptr [ %.sroa.gep, %32 ], [ %.sroa.gep39, %36 ]
-  %.sink38.sroa.phi40 = phi ptr [ %.sroa.gep41, %32 ], [ %.sroa.gep42, %36 ]
-  %.sink38.sroa.phi43 = phi ptr [ %.sroa.gep44, %32 ], [ %.sroa.gep45, %36 ]
-  %.sink38.sroa.phi46 = phi ptr [ %.sroa.gep47, %32 ], [ %.sroa.gep48, %36 ]
   store i64 1, ptr %.sink38.sroa.phi, align 8, !noalias !528
   store ptr null, ptr %.sink38.sroa.phi40, align 8, !noalias !528
   store ptr %.sink, ptr %.sink38.sroa.phi43, align 8, !noalias !528

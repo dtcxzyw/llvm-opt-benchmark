@@ -113,7 +113,7 @@ from_utf8_mac_finish.exit34:                      ; preds = %.lr.ph.i.i30, %22
   %47 = add nsw i64 %.0.lcssa.i.i33, 4
   %48 = getelementptr i8, ptr %39, i64 3
   store i8 %46, ptr %48, align 1
-  br label %156
+  br label %154
 
 from_utf8_mac_finish.exit:                        ; preds = %.lr.ph.i.i, %5
   %.0 = phi i64 [ 0, %5 ], [ %18, %.lr.ph.i.i ]
@@ -156,6 +156,8 @@ buf_push.exit:                                    ; preds = %52, %from_utf8_mac_
   %67 = sub i32 %66, %65
   %68 = srem i32 %67, 16
   %69 = icmp slt i32 %68, 3
+  %.019.sroa.gep.i = getelementptr inbounds i8, ptr %6, i64 3
+  %.019.sroa.gep23.i = getelementptr inbounds i8, ptr %6, i64 2
   br i1 %69, label %buf_apply.exit, label %70
 
 70:                                               ; preds = %buf_push.exit
@@ -241,71 +243,69 @@ get_info.exit.thread.i.preheader:                 ; preds = %95, %79, %get_info.
   %121 = getelementptr inbounds i8, ptr %6, i64 1
   store i8 %120, ptr %121, align 1
   %122 = icmp eq i64 %115, 5
-  br i1 %122, label %123, label %127
+  br i1 %122, label %123, label %126
 
 123:                                              ; preds = %116
   %124 = lshr i64 %.2.i.i, 24
   %125 = trunc i64 %124 to i8
-  %126 = getelementptr inbounds i8, ptr %6, i64 2
-  store i8 %125, ptr %126, align 1
+  store i8 %125, ptr %.019.sroa.gep23.i, align 1
+  br label %126
+
+126:                                              ; preds = %123, %116
+  %.019.sroa.phi.i = phi ptr [ %.019.sroa.gep.i, %123 ], [ %.019.sroa.gep23.i, %116 ]
+  store i32 0, ptr %64, align 4
   br label %127
 
-127:                                              ; preds = %123, %116
-  %.019.i = phi i64 [ 3, %123 ], [ 2, %116 ]
-  store i32 0, ptr %64, align 4
-  %128 = getelementptr inbounds i8, ptr %6, i64 %.019.i
-  br label %129
+127:                                              ; preds = %127, %126
+  %128 = phi i32 [ 0, %126 ], [ %135, %127 ]
+  %.07.i.i = phi ptr [ %6, %126 ], [ %129, %127 ]
+  %129 = getelementptr inbounds i8, ptr %.07.i.i, i64 1
+  %130 = load i8, ptr %.07.i.i, align 1
+  %131 = add nsw i32 %128, 1
+  store i32 %131, ptr %63, align 4
+  %132 = sext i32 %128 to i64
+  %133 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %132
+  store i8 %130, ptr %133, align 1
+  %134 = load i32, ptr %63, align 4
+  %135 = srem i32 %134, 16
+  store i32 %135, ptr %63, align 4
+  %136 = icmp ult ptr %129, %.019.sroa.phi.i
+  br i1 %136, label %127, label %buf_apply.exit, !llvm.loop !8
 
-129:                                              ; preds = %129, %127
-  %130 = phi i32 [ 0, %127 ], [ %137, %129 ]
-  %.07.i.i = phi ptr [ %6, %127 ], [ %131, %129 ]
-  %131 = getelementptr inbounds i8, ptr %.07.i.i, i64 1
-  %132 = load i8, ptr %.07.i.i, align 1
-  %133 = add nsw i32 %130, 1
-  store i32 %133, ptr %63, align 4
-  %134 = sext i32 %130 to i64
-  %135 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %134
-  store i8 %132, ptr %135, align 1
-  %136 = load i32, ptr %63, align 4
-  %137 = srem i32 %136, 16
-  store i32 %137, ptr %63, align 4
-  %138 = icmp ult ptr %131, %128
-  br i1 %138, label %129, label %buf_apply.exit, !llvm.loop !8
+get_info.exit.thread.i:                           ; preds = %get_info.exit.thread.i.preheader, %139
+  %137 = phi i32 [ %147, %139 ], [ %65, %get_info.exit.thread.i.preheader ]
+  %.0.i22.i = phi i64 [ %145, %139 ], [ 0, %get_info.exit.thread.i.preheader ]
+  %138 = load i32, ptr %63, align 4
+  %.not.i.i35 = icmp eq i32 %137, %138
+  br i1 %.not.i.i35, label %buf_apply.exit, label %139
 
-get_info.exit.thread.i:                           ; preds = %get_info.exit.thread.i.preheader, %141
-  %139 = phi i32 [ %149, %141 ], [ %65, %get_info.exit.thread.i.preheader ]
-  %.0.i22.i = phi i64 [ %147, %141 ], [ 0, %get_info.exit.thread.i.preheader ]
-  %140 = load i32, ptr %63, align 4
-  %.not.i.i35 = icmp eq i32 %139, %140
-  br i1 %.not.i.i35, label %buf_apply.exit, label %141
+139:                                              ; preds = %get_info.exit.thread.i
+  %140 = add nsw i32 %137, 1
+  store i32 %140, ptr %64, align 4
+  %141 = sext i32 %137 to i64
+  %142 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %141
+  %143 = load i8, ptr %142, align 1
+  %144 = srem i32 %140, 16
+  store i32 %144, ptr %64, align 4
+  %145 = add i64 %.0.i22.i, 1
+  %146 = getelementptr inbounds i8, ptr %3, i64 %.0.i22.i
+  store i8 %143, ptr %146, align 1
+  %147 = load i32, ptr %64, align 4
+  %148 = sext i32 %147 to i64
+  %149 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %148
+  %150 = load i8, ptr %149, align 1
+  %151 = and i8 %150, -64
+  %152 = icmp eq i8 %151, -128
+  br i1 %152, label %get_info.exit.thread.i, label %buf_apply.exit, !llvm.loop !10
 
-141:                                              ; preds = %get_info.exit.thread.i
-  %142 = add nsw i32 %139, 1
-  store i32 %142, ptr %64, align 4
-  %143 = sext i32 %139 to i64
-  %144 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %143
-  %145 = load i8, ptr %144, align 1
-  %146 = srem i32 %142, 16
-  store i32 %146, ptr %64, align 4
-  %147 = add i64 %.0.i22.i, 1
-  %148 = getelementptr inbounds i8, ptr %3, i64 %.0.i22.i
-  store i8 %145, ptr %148, align 1
-  %149 = load i32, ptr %64, align 4
-  %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %150
-  %152 = load i8, ptr %151, align 1
-  %153 = and i8 %152, -64
-  %154 = icmp eq i8 %153, -128
-  br i1 %154, label %get_info.exit.thread.i, label %buf_apply.exit, !llvm.loop !10
-
-buf_apply.exit:                                   ; preds = %129, %get_info.exit.thread.i, %141, %buf_push.exit, %72
-  %.0.i = phi i64 [ 0, %72 ], [ 0, %buf_push.exit ], [ %147, %141 ], [ %.0.i22.i, %get_info.exit.thread.i ], [ 0, %129 ]
+buf_apply.exit:                                   ; preds = %127, %get_info.exit.thread.i, %139, %buf_push.exit, %72
+  %.0.i = phi i64 [ 0, %72 ], [ 0, %buf_push.exit ], [ %145, %139 ], [ %.0.i22.i, %get_info.exit.thread.i ], [ 0, %127 ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6)
-  %155 = add i64 %.0.i, %.037
-  br label %156
+  %153 = add i64 %.0.i, %.037
+  br label %154
 
-156:                                              ; preds = %buf_apply.exit, %from_utf8_mac_finish.exit34
-  %.028 = phi i64 [ %155, %buf_apply.exit ], [ %47, %from_utf8_mac_finish.exit34 ]
+154:                                              ; preds = %buf_apply.exit, %from_utf8_mac_finish.exit34
+  %.028 = phi i64 [ %153, %buf_apply.exit ], [ %47, %from_utf8_mac_finish.exit34 ]
   ret i64 %.028
 }
 

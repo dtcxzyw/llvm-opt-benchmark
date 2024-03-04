@@ -16746,17 +16746,21 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load ptr, ptr %value, align 8
   %magicptr.i = ptrtoint ptr %1 to i64
+  %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
+  %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
   switch i64 %magicptr.i, label %if.end9.i [
     i64 0, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
     i64 1, label %if.then7.i
   ]
 
 if.then7.i:                                       ; preds = %entry
+  %value.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %value), !noalias !220
   %ref.tmp.sroa.0.0.copyload = load ptr, ptr %ref.tmp.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 if.end9.i:                                        ; preds = %entry
+  %value.sink.sroa.gep12 = getelementptr inbounds i8, ptr %value, i64 8
   %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
@@ -16766,10 +16770,9 @@ if.then.i.i.i:                                    ; preds = %if.end9.i
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 _ZNK9grpc_core5Slice7AsOwnedEv.exit:              ; preds = %if.end9.i, %if.then.i.i.i, %entry, %if.then7.i
-  %value.sink = phi ptr [ %ref.tmp.i, %if.then7.i ], [ %value, %entry ], [ %value, %if.then.i.i.i ], [ %value, %if.end9.i ]
+  %value.sink.sroa.phi = phi ptr [ %value.sink.sroa.gep, %if.then7.i ], [ %value.sink.sroa.gep10, %entry ], [ %value.sink.sroa.gep11, %if.then.i.i.i ], [ %value.sink.sroa.gep12, %if.end9.i ]
   %ref.tmp.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.copyload, %if.then7.i ], [ %1, %entry ], [ %ref.tmp.sroa.0.0.copyload5.pre, %if.then.i.i.i ], [ %1, %if.end9.i ]
-  %ref.tmp.sroa.8.0.value.sroa_idx = getelementptr inbounds i8, ptr %value.sink, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.0.value.sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.sroa.phi, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i)
   %u.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 424
@@ -16840,17 +16843,21 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load ptr, ptr %value, align 8
   %magicptr.i = ptrtoint ptr %1 to i64
+  %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
+  %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
   switch i64 %magicptr.i, label %if.end9.i [
     i64 0, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
     i64 1, label %if.then7.i
   ]
 
 if.then7.i:                                       ; preds = %entry
+  %value.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %value), !noalias !229
   %ref.tmp.sroa.0.0.copyload = load ptr, ptr %ref.tmp.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 if.end9.i:                                        ; preds = %entry
+  %value.sink.sroa.gep12 = getelementptr inbounds i8, ptr %value, i64 8
   %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
@@ -16860,10 +16867,9 @@ if.then.i.i.i:                                    ; preds = %if.end9.i
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 _ZNK9grpc_core5Slice7AsOwnedEv.exit:              ; preds = %if.end9.i, %if.then.i.i.i, %entry, %if.then7.i
-  %value.sink = phi ptr [ %ref.tmp.i, %if.then7.i ], [ %value, %entry ], [ %value, %if.then.i.i.i ], [ %value, %if.end9.i ]
+  %value.sink.sroa.phi = phi ptr [ %value.sink.sroa.gep, %if.then7.i ], [ %value.sink.sroa.gep10, %entry ], [ %value.sink.sroa.gep11, %if.then.i.i.i ], [ %value.sink.sroa.gep12, %if.end9.i ]
   %ref.tmp.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.copyload, %if.then7.i ], [ %1, %entry ], [ %ref.tmp.sroa.0.0.copyload5.pre, %if.then.i.i.i ], [ %1, %if.end9.i ]
-  %ref.tmp.sroa.8.0.value.sroa_idx = getelementptr inbounds i8, ptr %value.sink, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.0.value.sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.sroa.phi, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i)
   %u.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 392
@@ -16932,17 +16938,21 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load ptr, ptr %value, align 8
   %magicptr.i = ptrtoint ptr %1 to i64
+  %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
+  %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
   switch i64 %magicptr.i, label %if.end9.i [
     i64 0, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
     i64 1, label %if.then7.i
   ]
 
 if.then7.i:                                       ; preds = %entry
+  %value.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %value), !noalias !238
   %ref.tmp.sroa.0.0.copyload = load ptr, ptr %ref.tmp.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 if.end9.i:                                        ; preds = %entry
+  %value.sink.sroa.gep12 = getelementptr inbounds i8, ptr %value, i64 8
   %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
@@ -16952,10 +16962,9 @@ if.then.i.i.i:                                    ; preds = %if.end9.i
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 _ZNK9grpc_core5Slice7AsOwnedEv.exit:              ; preds = %if.end9.i, %if.then.i.i.i, %entry, %if.then7.i
-  %value.sink = phi ptr [ %ref.tmp.i, %if.then7.i ], [ %value, %entry ], [ %value, %if.then.i.i.i ], [ %value, %if.end9.i ]
+  %value.sink.sroa.phi = phi ptr [ %value.sink.sroa.gep, %if.then7.i ], [ %value.sink.sroa.gep10, %entry ], [ %value.sink.sroa.gep11, %if.then.i.i.i ], [ %value.sink.sroa.gep12, %if.end9.i ]
   %ref.tmp.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.copyload, %if.then7.i ], [ %1, %entry ], [ %ref.tmp.sroa.0.0.copyload5.pre, %if.then.i.i.i ], [ %1, %if.end9.i ]
-  %ref.tmp.sroa.8.0.value.sroa_idx = getelementptr inbounds i8, ptr %value.sink, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.0.value.sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.sroa.phi, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i)
   %u.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 360
@@ -17024,17 +17033,21 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load ptr, ptr %value, align 8
   %magicptr.i = ptrtoint ptr %1 to i64
+  %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
+  %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
   switch i64 %magicptr.i, label %if.end9.i [
     i64 0, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
     i64 1, label %if.then7.i
   ]
 
 if.then7.i:                                       ; preds = %entry
+  %value.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %value), !noalias !247
   %ref.tmp.sroa.0.0.copyload = load ptr, ptr %ref.tmp.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 if.end9.i:                                        ; preds = %entry
+  %value.sink.sroa.gep12 = getelementptr inbounds i8, ptr %value, i64 8
   %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
@@ -17044,10 +17057,9 @@ if.then.i.i.i:                                    ; preds = %if.end9.i
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 _ZNK9grpc_core5Slice7AsOwnedEv.exit:              ; preds = %if.end9.i, %if.then.i.i.i, %entry, %if.then7.i
-  %value.sink = phi ptr [ %ref.tmp.i, %if.then7.i ], [ %value, %entry ], [ %value, %if.then.i.i.i ], [ %value, %if.end9.i ]
+  %value.sink.sroa.phi = phi ptr [ %value.sink.sroa.gep, %if.then7.i ], [ %value.sink.sroa.gep10, %entry ], [ %value.sink.sroa.gep11, %if.then.i.i.i ], [ %value.sink.sroa.gep12, %if.end9.i ]
   %ref.tmp.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.copyload, %if.then7.i ], [ %1, %entry ], [ %ref.tmp.sroa.0.0.copyload5.pre, %if.then.i.i.i ], [ %1, %if.end9.i ]
-  %ref.tmp.sroa.8.0.value.sroa_idx = getelementptr inbounds i8, ptr %value.sink, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.0.value.sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.sroa.phi, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i)
   %u.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 328
@@ -17116,17 +17128,21 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load ptr, ptr %value, align 8
   %magicptr.i = ptrtoint ptr %1 to i64
+  %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
+  %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
   switch i64 %magicptr.i, label %if.end9.i [
     i64 0, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
     i64 1, label %if.then7.i
   ]
 
 if.then7.i:                                       ; preds = %entry
+  %value.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %value), !noalias !256
   %ref.tmp.sroa.0.0.copyload = load ptr, ptr %ref.tmp.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 if.end9.i:                                        ; preds = %entry
+  %value.sink.sroa.gep12 = getelementptr inbounds i8, ptr %value, i64 8
   %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
@@ -17136,10 +17152,9 @@ if.then.i.i.i:                                    ; preds = %if.end9.i
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 _ZNK9grpc_core5Slice7AsOwnedEv.exit:              ; preds = %if.end9.i, %if.then.i.i.i, %entry, %if.then7.i
-  %value.sink = phi ptr [ %ref.tmp.i, %if.then7.i ], [ %value, %entry ], [ %value, %if.then.i.i.i ], [ %value, %if.end9.i ]
+  %value.sink.sroa.phi = phi ptr [ %value.sink.sroa.gep, %if.then7.i ], [ %value.sink.sroa.gep10, %entry ], [ %value.sink.sroa.gep11, %if.then.i.i.i ], [ %value.sink.sroa.gep12, %if.end9.i ]
   %ref.tmp.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.copyload, %if.then7.i ], [ %1, %entry ], [ %ref.tmp.sroa.0.0.copyload5.pre, %if.then.i.i.i ], [ %1, %if.end9.i ]
-  %ref.tmp.sroa.8.0.value.sroa_idx = getelementptr inbounds i8, ptr %value.sink, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.0.value.sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.sroa.phi, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i)
   %u.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 296
@@ -17208,17 +17223,21 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load ptr, ptr %value, align 8
   %magicptr.i = ptrtoint ptr %1 to i64
+  %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
+  %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
   switch i64 %magicptr.i, label %if.end9.i [
     i64 0, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
     i64 1, label %if.then7.i
   ]
 
 if.then7.i:                                       ; preds = %entry
+  %value.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %value), !noalias !265
   %ref.tmp.sroa.0.0.copyload = load ptr, ptr %ref.tmp.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 if.end9.i:                                        ; preds = %entry
+  %value.sink.sroa.gep12 = getelementptr inbounds i8, ptr %value, i64 8
   %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
@@ -17228,10 +17247,9 @@ if.then.i.i.i:                                    ; preds = %if.end9.i
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 _ZNK9grpc_core5Slice7AsOwnedEv.exit:              ; preds = %if.end9.i, %if.then.i.i.i, %entry, %if.then7.i
-  %value.sink = phi ptr [ %ref.tmp.i, %if.then7.i ], [ %value, %entry ], [ %value, %if.then.i.i.i ], [ %value, %if.end9.i ]
+  %value.sink.sroa.phi = phi ptr [ %value.sink.sroa.gep, %if.then7.i ], [ %value.sink.sroa.gep10, %entry ], [ %value.sink.sroa.gep11, %if.then.i.i.i ], [ %value.sink.sroa.gep12, %if.end9.i ]
   %ref.tmp.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.copyload, %if.then7.i ], [ %1, %entry ], [ %ref.tmp.sroa.0.0.copyload5.pre, %if.then.i.i.i ], [ %1, %if.end9.i ]
-  %ref.tmp.sroa.8.0.value.sroa_idx = getelementptr inbounds i8, ptr %value.sink, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.0.value.sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.sroa.phi, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i)
   %u.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 264
@@ -17300,17 +17318,21 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load ptr, ptr %value, align 8
   %magicptr.i = ptrtoint ptr %1 to i64
+  %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
+  %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
   switch i64 %magicptr.i, label %if.end9.i [
     i64 0, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
     i64 1, label %if.then7.i
   ]
 
 if.then7.i:                                       ; preds = %entry
+  %value.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %value), !noalias !274
   %ref.tmp.sroa.0.0.copyload = load ptr, ptr %ref.tmp.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 if.end9.i:                                        ; preds = %entry
+  %value.sink.sroa.gep12 = getelementptr inbounds i8, ptr %value, i64 8
   %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
@@ -17320,10 +17342,9 @@ if.then.i.i.i:                                    ; preds = %if.end9.i
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 _ZNK9grpc_core5Slice7AsOwnedEv.exit:              ; preds = %if.end9.i, %if.then.i.i.i, %entry, %if.then7.i
-  %value.sink = phi ptr [ %ref.tmp.i, %if.then7.i ], [ %value, %entry ], [ %value, %if.then.i.i.i ], [ %value, %if.end9.i ]
+  %value.sink.sroa.phi = phi ptr [ %value.sink.sroa.gep, %if.then7.i ], [ %value.sink.sroa.gep10, %entry ], [ %value.sink.sroa.gep11, %if.then.i.i.i ], [ %value.sink.sroa.gep12, %if.end9.i ]
   %ref.tmp.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.copyload, %if.then7.i ], [ %1, %entry ], [ %ref.tmp.sroa.0.0.copyload5.pre, %if.then.i.i.i ], [ %1, %if.end9.i ]
-  %ref.tmp.sroa.8.0.value.sroa_idx = getelementptr inbounds i8, ptr %value.sink, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.0.value.sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.sroa.phi, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i)
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 232
@@ -17392,17 +17413,21 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load ptr, ptr %value, align 8
   %magicptr.i = ptrtoint ptr %1 to i64
+  %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
+  %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
   switch i64 %magicptr.i, label %if.end9.i [
     i64 0, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
     i64 1, label %if.then7.i
   ]
 
 if.then7.i:                                       ; preds = %entry
+  %value.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %value), !noalias !283
   %ref.tmp.sroa.0.0.copyload = load ptr, ptr %ref.tmp.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 if.end9.i:                                        ; preds = %entry
+  %value.sink.sroa.gep12 = getelementptr inbounds i8, ptr %value, i64 8
   %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
@@ -17412,10 +17437,9 @@ if.then.i.i.i:                                    ; preds = %if.end9.i
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 _ZNK9grpc_core5Slice7AsOwnedEv.exit:              ; preds = %if.end9.i, %if.then.i.i.i, %entry, %if.then7.i
-  %value.sink = phi ptr [ %ref.tmp.i, %if.then7.i ], [ %value, %entry ], [ %value, %if.then.i.i.i ], [ %value, %if.end9.i ]
+  %value.sink.sroa.phi = phi ptr [ %value.sink.sroa.gep, %if.then7.i ], [ %value.sink.sroa.gep10, %entry ], [ %value.sink.sroa.gep11, %if.then.i.i.i ], [ %value.sink.sroa.gep12, %if.end9.i ]
   %ref.tmp.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.copyload, %if.then7.i ], [ %1, %entry ], [ %ref.tmp.sroa.0.0.copyload5.pre, %if.then.i.i.i ], [ %1, %if.end9.i ]
-  %ref.tmp.sroa.8.0.value.sroa_idx = getelementptr inbounds i8, ptr %value.sink, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.0.value.sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.sroa.phi, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i)
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 200
@@ -17484,17 +17508,21 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load ptr, ptr %value, align 8
   %magicptr.i = ptrtoint ptr %1 to i64
+  %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
+  %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
   switch i64 %magicptr.i, label %if.end9.i [
     i64 0, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
     i64 1, label %if.then7.i
   ]
 
 if.then7.i:                                       ; preds = %entry
+  %value.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %value), !noalias !292
   %ref.tmp.sroa.0.0.copyload = load ptr, ptr %ref.tmp.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 if.end9.i:                                        ; preds = %entry
+  %value.sink.sroa.gep12 = getelementptr inbounds i8, ptr %value, i64 8
   %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
@@ -17504,10 +17532,9 @@ if.then.i.i.i:                                    ; preds = %if.end9.i
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 _ZNK9grpc_core5Slice7AsOwnedEv.exit:              ; preds = %if.end9.i, %if.then.i.i.i, %entry, %if.then7.i
-  %value.sink = phi ptr [ %ref.tmp.i, %if.then7.i ], [ %value, %entry ], [ %value, %if.then.i.i.i ], [ %value, %if.end9.i ]
+  %value.sink.sroa.phi = phi ptr [ %value.sink.sroa.gep, %if.then7.i ], [ %value.sink.sroa.gep10, %entry ], [ %value.sink.sroa.gep11, %if.then.i.i.i ], [ %value.sink.sroa.gep12, %if.end9.i ]
   %ref.tmp.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.copyload, %if.then7.i ], [ %1, %entry ], [ %ref.tmp.sroa.0.0.copyload5.pre, %if.then.i.i.i ], [ %1, %if.end9.i ]
-  %ref.tmp.sroa.8.0.value.sroa_idx = getelementptr inbounds i8, ptr %value.sink, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.0.value.sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.sroa.phi, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i)
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 168
@@ -17576,17 +17603,21 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load ptr, ptr %value, align 8
   %magicptr.i = ptrtoint ptr %1 to i64
+  %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
+  %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
   switch i64 %magicptr.i, label %if.end9.i [
     i64 0, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
     i64 1, label %if.then7.i
   ]
 
 if.then7.i:                                       ; preds = %entry
+  %value.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %value), !noalias !301
   %ref.tmp.sroa.0.0.copyload = load ptr, ptr %ref.tmp.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 if.end9.i:                                        ; preds = %entry
+  %value.sink.sroa.gep12 = getelementptr inbounds i8, ptr %value, i64 8
   %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
@@ -17596,10 +17627,9 @@ if.then.i.i.i:                                    ; preds = %if.end9.i
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 _ZNK9grpc_core5Slice7AsOwnedEv.exit:              ; preds = %if.end9.i, %if.then.i.i.i, %entry, %if.then7.i
-  %value.sink = phi ptr [ %ref.tmp.i, %if.then7.i ], [ %value, %entry ], [ %value, %if.then.i.i.i ], [ %value, %if.end9.i ]
+  %value.sink.sroa.phi = phi ptr [ %value.sink.sroa.gep, %if.then7.i ], [ %value.sink.sroa.gep10, %entry ], [ %value.sink.sroa.gep11, %if.then.i.i.i ], [ %value.sink.sroa.gep12, %if.end9.i ]
   %ref.tmp.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.copyload, %if.then7.i ], [ %1, %entry ], [ %ref.tmp.sroa.0.0.copyload5.pre, %if.then.i.i.i ], [ %1, %if.end9.i ]
-  %ref.tmp.sroa.8.0.value.sroa_idx = getelementptr inbounds i8, ptr %value.sink, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.0.value.sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.sroa.phi, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i)
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 136
@@ -17668,17 +17698,21 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load ptr, ptr %value, align 8
   %magicptr.i = ptrtoint ptr %1 to i64
+  %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
+  %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
   switch i64 %magicptr.i, label %if.end9.i [
     i64 0, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
     i64 1, label %if.then7.i
   ]
 
 if.then7.i:                                       ; preds = %entry
+  %value.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %value), !noalias !310
   %ref.tmp.sroa.0.0.copyload = load ptr, ptr %ref.tmp.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 if.end9.i:                                        ; preds = %entry
+  %value.sink.sroa.gep12 = getelementptr inbounds i8, ptr %value, i64 8
   %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
@@ -17688,10 +17722,9 @@ if.then.i.i.i:                                    ; preds = %if.end9.i
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 _ZNK9grpc_core5Slice7AsOwnedEv.exit:              ; preds = %if.end9.i, %if.then.i.i.i, %entry, %if.then7.i
-  %value.sink = phi ptr [ %ref.tmp.i, %if.then7.i ], [ %value, %entry ], [ %value, %if.then.i.i.i ], [ %value, %if.end9.i ]
+  %value.sink.sroa.phi = phi ptr [ %value.sink.sroa.gep, %if.then7.i ], [ %value.sink.sroa.gep10, %entry ], [ %value.sink.sroa.gep11, %if.then.i.i.i ], [ %value.sink.sroa.gep12, %if.end9.i ]
   %ref.tmp.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.copyload, %if.then7.i ], [ %1, %entry ], [ %ref.tmp.sroa.0.0.copyload5.pre, %if.then.i.i.i ], [ %1, %if.end9.i ]
-  %ref.tmp.sroa.8.0.value.sroa_idx = getelementptr inbounds i8, ptr %value.sink, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.0.value.sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.sroa.phi, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i)
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 104
@@ -17760,17 +17793,21 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load ptr, ptr %value, align 8
   %magicptr.i = ptrtoint ptr %1 to i64
+  %value.sink.sroa.gep10 = getelementptr inbounds i8, ptr %value, i64 8
+  %value.sink.sroa.gep11 = getelementptr inbounds i8, ptr %value, i64 8
   switch i64 %magicptr.i, label %if.end9.i [
     i64 0, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
     i64 1, label %if.then7.i
   ]
 
 if.then7.i:                                       ; preds = %entry
+  %value.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   call void @grpc_slice_copy(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %value), !noalias !319
   %ref.tmp.sroa.0.0.copyload = load ptr, ptr %ref.tmp.i, align 8
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 if.end9.i:                                        ; preds = %entry
+  %value.sink.sroa.gep12 = getelementptr inbounds i8, ptr %value, i64 8
   %cmp.i.i.i = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
@@ -17780,10 +17817,9 @@ if.then.i.i.i:                                    ; preds = %if.end9.i
   br label %_ZNK9grpc_core5Slice7AsOwnedEv.exit
 
 _ZNK9grpc_core5Slice7AsOwnedEv.exit:              ; preds = %if.end9.i, %if.then.i.i.i, %entry, %if.then7.i
-  %value.sink = phi ptr [ %ref.tmp.i, %if.then7.i ], [ %value, %entry ], [ %value, %if.then.i.i.i ], [ %value, %if.end9.i ]
+  %value.sink.sroa.phi = phi ptr [ %value.sink.sroa.gep, %if.then7.i ], [ %value.sink.sroa.gep10, %entry ], [ %value.sink.sroa.gep11, %if.then.i.i.i ], [ %value.sink.sroa.gep12, %if.end9.i ]
   %ref.tmp.sroa.0.0 = phi ptr [ %ref.tmp.sroa.0.0.copyload, %if.then7.i ], [ %1, %entry ], [ %ref.tmp.sroa.0.0.copyload5.pre, %if.then.i.i.i ], [ %1, %if.end9.i ]
-  %ref.tmp.sroa.8.0.value.sroa_idx = getelementptr inbounds i8, ptr %value.sink, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8.0.value.sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.8, ptr noundef nonnull align 8 dereferenceable(24) %value.sink.sroa.phi, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %replacement.sroa.4.i.i.i)
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 72

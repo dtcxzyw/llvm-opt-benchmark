@@ -2580,6 +2580,8 @@ define internal i32 @azx_get_time_info(ptr noundef %0, ptr noundef %1, ptr nocap
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 16777216
   %14 = icmp eq i32 %13, 0
+  %.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.gep1 = getelementptr inbounds i8, ptr %6, i64 16
   br i1 %14, label %71, label %15
 
 15:                                               ; preds = %5
@@ -2668,7 +2670,7 @@ define internal i32 @azx_get_time_info(ptr noundef %0, ptr noundef %1, ptr nocap
   store i8 %69, ptr %4, align 4
   %70 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 42, ptr %70, align 4
-  br label %106
+  br label %104
 
 71:                                               ; preds = %15, %5
   %72 = and i32 %12, 134217728
@@ -2686,18 +2688,18 @@ define internal i32 @azx_get_time_info(ptr noundef %0, ptr noundef %1, ptr nocap
   %80 = and i8 %79, -31
   %81 = or disjoint i8 %80, 2
   store i8 %81, ptr %4, align 4
-  br label %106
+  br label %104
 
 82:                                               ; preds = %74
   %83 = call i32 @get_device_system_crosststamp(ptr noundef nonnull @azx_get_sync_time, ptr noundef %0, ptr noundef null, ptr noundef nonnull %6) #14
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %106
+  br i1 %84, label %85, label %104
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds i8, ptr %8, i64 748
   %87 = load i32, ptr %86, align 4
   switch i32 %87, label %88 [
-    i32 1, label %106
+    i32 1, label %104
     i32 2, label %89
   ]
 
@@ -2705,34 +2707,33 @@ define internal i32 @azx_get_time_info(ptr noundef %0, ptr noundef %1, ptr nocap
   br label %89
 
 89:                                               ; preds = %88, %85
-  %90 = phi i64 [ 8, %88 ], [ 16, %85 ]
-  %91 = getelementptr inbounds i8, ptr %6, i64 %90
-  %92 = load i64, ptr %91, align 8
-  %93 = call { i64, i64 } @ns_to_timespec64(i64 noundef %92) #14
-  %94 = extractvalue { i64, i64 } %93, 0
-  %95 = extractvalue { i64, i64 } %93, 1
-  store i64 %94, ptr %1, align 8
-  %96 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 %95, ptr %96, align 8
-  %97 = load i64, ptr %6, align 8
-  %98 = call { i64, i64 } @ns_to_timespec64(i64 noundef %97) #14
-  %99 = extractvalue { i64, i64 } %98, 0
-  %100 = extractvalue { i64, i64 } %98, 1
-  store i64 %99, ptr %2, align 8
-  %101 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %100, ptr %101, align 8
-  %102 = load i8, ptr %4, align 4
-  %103 = and i8 %102, -63
-  %104 = or disjoint i8 %103, 42
-  store i8 %104, ptr %4, align 4
-  %105 = getelementptr inbounds i8, ptr %4, i64 4
-  store i32 42, ptr %105, align 4
-  br label %106
+  %.sroa.phi = phi ptr [ %.sroa.gep, %88 ], [ %.sroa.gep1, %85 ]
+  %90 = load i64, ptr %.sroa.phi, align 8
+  %91 = call { i64, i64 } @ns_to_timespec64(i64 noundef %90) #14
+  %92 = extractvalue { i64, i64 } %91, 0
+  %93 = extractvalue { i64, i64 } %91, 1
+  store i64 %92, ptr %1, align 8
+  %94 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 %93, ptr %94, align 8
+  %95 = load i64, ptr %6, align 8
+  %96 = call { i64, i64 } @ns_to_timespec64(i64 noundef %95) #14
+  %97 = extractvalue { i64, i64 } %96, 0
+  %98 = extractvalue { i64, i64 } %96, 1
+  store i64 %97, ptr %2, align 8
+  %99 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %98, ptr %99, align 8
+  %100 = load i8, ptr %4, align 4
+  %101 = and i8 %100, -63
+  %102 = or disjoint i8 %101, 42
+  store i8 %102, ptr %4, align 4
+  %103 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 42, ptr %103, align 4
+  br label %104
 
-106:                                              ; preds = %89, %85, %82, %78, %61
-  %107 = phi i32 [ %83, %82 ], [ -22, %85 ], [ 0, %89 ], [ 0, %78 ], [ 0, %61 ]
+104:                                              ; preds = %89, %85, %82, %78, %61
+  %105 = phi i32 [ %83, %82 ], [ -22, %85 ], [ 0, %89 ], [ 0, %78 ], [ 0, %61 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14
-  ret i32 %107
+  ret i32 %105
 }
 
 ; Function Attrs: null_pointer_is_valid

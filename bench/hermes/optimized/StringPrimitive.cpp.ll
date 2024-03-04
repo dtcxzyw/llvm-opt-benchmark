@@ -3046,14 +3046,14 @@ entry:
   %sourceStart.i = alloca ptr, align 8
   %targetStart.i = alloca ptr, align 8
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %ref.tmp12.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp12.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp12.i, i64 8
   %ref.tmp16.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp16.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 8
   %out = alloca %"class.std::__cxx11::basic_string.170", align 8
   %add.ptr = getelementptr inbounds i8, ptr %str.coerce0, i64 %str.coerce1
   %call2 = tail call noundef zeroext i1 @_ZN6hermes10isAllASCIIEPKhS1_(ptr noundef %str.coerce0, ptr noundef %add.ptr) #15
+  %ref.tmp.i.sink14.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %ref.tmp.i.sink14.sroa.gep15 = getelementptr inbounds i8, ptr %ref.tmp12.i, i64 8
+  %ref.tmp.i.sink14.sroa.gep16 = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 8
   br i1 %call2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -3242,8 +3242,8 @@ _ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1
   br label %if.end8
 
 _ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit: ; preds = %if.end.i, %if.end11.i, %sw.bb15.i
+  %ref.tmp.i.sink14.sroa.phi = phi ptr [ %ref.tmp.i.sink14.sroa.gep, %if.end.i ], [ %ref.tmp.i.sink14.sroa.gep15, %if.end11.i ], [ %ref.tmp.i.sink14.sroa.gep16, %sw.bb15.i ]
   %ref.tmp.i.sink14 = phi ptr [ %ref.tmp.i, %if.end.i ], [ %ref.tmp12.i, %if.end11.i ], [ %ref.tmp16.i, %sw.bb15.i ]
-  %ref.tmp.i.sink14.sroa.phi = phi ptr [ %ref.tmp.i.sroa.gep, %if.end.i ], [ %ref.tmp12.i.sroa.gep, %if.end11.i ], [ %ref.tmp16.i.sroa.gep, %sw.bb15.i ]
   store i32 3, ptr %ref.tmp.i.sink14.sroa.phi, align 8
   %call7.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.sink14) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sourceStart.i)

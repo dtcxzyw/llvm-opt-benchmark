@@ -19615,7 +19615,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %ref.tmp.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @_ZN5arrow7compute13KernelContext14AllocateBitmapEl(ptr nonnull sret(%"class.arrow::Result.257") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ctx, i64 noundef %length)
   store ptr null, ptr %agg.result, align 8
   %0 = load ptr, ptr %ref.tmp, align 8
@@ -19634,7 +19634,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   unreachable
 
 if.else:                                          ; preds = %entry
-  %ref.tmp1.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
+  %ref.tmp.sink.sroa.gep16 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   %conv = zext nneg i32 %bit_width to i64
   %mul = mul nsw i64 %conv, %length
   %shr.i = ashr i64 %mul, 3
@@ -19660,8 +19660,8 @@ terminate.lpad.i6:                                ; preds = %if.then.i.i5
   unreachable
 
 return.sink.split:                                ; preds = %if.else, %if.then
+  %ref.tmp.sink.sroa.phi = phi ptr [ %ref.tmp.sink.sroa.gep, %if.then ], [ %ref.tmp.sink.sroa.gep16, %if.else ]
   %ref.tmp.sink = phi ptr [ %ref.tmp, %if.then ], [ %ref.tmp1, %if.else ]
-  %ref.tmp.sink.sroa.phi = phi ptr [ %ref.tmp.sroa.gep, %if.then ], [ %ref.tmp1.sroa.gep, %if.else ]
   %storage_.i4.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %6 = load <2 x ptr>, ptr %ref.tmp.sink.sroa.phi, align 8, !noalias !369
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sink.sroa.phi, i8 0, i64 16, i1 false)

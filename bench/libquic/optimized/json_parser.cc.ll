@@ -3100,6 +3100,8 @@ entry:
   %end_pos_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %end_pos_.i, align 8
   %cmp.i.not = icmp ugt ptr %add.ptr.i, %1
+  %offset.0.sroa.gep = getelementptr inbounds i8, ptr %code_unit8, i64 1
+  %offset.0.sroa.gep54 = getelementptr inbounds i8, ptr %code_unit8, i64 2
   br i1 %cmp.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -3187,8 +3189,8 @@ lor.rhs.i:                                        ; preds = %if.end30
   %or.cond1.i = icmp ult i32 %13, 1049104
   %and.i = and i32 %sub, 65534
   %cmp6.i = icmp ne i32 %and.i, 65534
-  %or.cond62 = and i1 %or.cond1.i, %cmp6.i
-  br i1 %or.cond62, label %if.else42, label %return
+  %or.cond64 = and i1 %or.cond1.i, %cmp6.i
+  br i1 %or.cond64, label %if.else42, label %return
 
 if.end33:                                         ; preds = %if.end30
   %cmp34 = icmp ult i32 %sub, 128
@@ -3230,23 +3232,21 @@ if.else50:                                        ; preds = %if.else42
   %17 = trunc i32 %shr56 to i8
   %18 = and i8 %17, 63
   %conv59 = or disjoint i8 %18, -128
-  %arrayidx61 = getelementptr inbounds i8, ptr %code_unit8, i64 1
-  store i8 %conv59, ptr %arrayidx61, align 1
+  store i8 %conv59, ptr %offset.0.sroa.gep, align 1
   br label %if.end62
 
 if.end62:                                         ; preds = %if.else50, %if.then44
-  %offset.0 = phi i64 [ 1, %if.then44 ], [ 2, %if.else50 ]
+  %offset.0.sroa.phi = phi ptr [ %offset.0.sroa.gep, %if.then44 ], [ %offset.0.sroa.gep54, %if.else50 ]
+  %offset.0 = phi i64 [ 2, %if.then44 ], [ 3, %if.else50 ]
   %shr63 = lshr i32 %sub, 6
   %19 = trunc i32 %shr63 to i8
   %20 = and i8 %19, 63
   %conv66 = or disjoint i8 %20, -128
-  %inc67 = add nuw nsw i64 %offset.0, 1
-  %arrayidx68 = getelementptr inbounds [8 x i8], ptr %code_unit8, i64 0, i64 %offset.0
-  store i8 %conv66, ptr %arrayidx68, align 1
+  store i8 %conv66, ptr %offset.0.sroa.phi, align 1
   br label %if.end69
 
 if.end69:                                         ; preds = %if.end62, %if.then38
-  %offset.1 = phi i64 [ 1, %if.then38 ], [ %inc67, %if.end62 ]
+  %offset.1 = phi i64 [ 1, %if.then38 ], [ %offset.0, %if.end62 ]
   %21 = trunc i32 %10 to i8
   %22 = and i8 %21, 63
   %conv72 = or disjoint i8 %22, -128
@@ -3266,8 +3266,8 @@ lor.rhs.i48:                                      ; preds = %if.else76
   %or.cond1.i49 = icmp ult i32 %24, 1049104
   %and.i51 = and i32 %4, 65534
   %cmp6.i52 = icmp ne i32 %and.i51, 65534
-  %or.cond63 = and i1 %or.cond1.i49, %cmp6.i52
-  br i1 %or.cond63, label %if.else93, label %return
+  %or.cond65 = and i1 %or.cond1.i49, %cmp6.i52
+  br i1 %or.cond65, label %if.else93, label %return
 
 if.end79:                                         ; preds = %if.else76
   %cmp80 = icmp ult i32 %4, 128
@@ -3309,23 +3309,21 @@ if.else101:                                       ; preds = %if.else93
   %28 = trunc i32 %shr107 to i8
   %29 = and i8 %28, 63
   %conv110 = or disjoint i8 %29, -128
-  %arrayidx112 = getelementptr inbounds i8, ptr %code_unit8, i64 1
-  store i8 %conv110, ptr %arrayidx112, align 1
+  store i8 %conv110, ptr %offset.0.sroa.gep, align 1
   br label %if.end113
 
 if.end113:                                        ; preds = %if.else101, %if.then95
-  %offset.2 = phi i64 [ 1, %if.then95 ], [ 2, %if.else101 ]
+  %offset.2.sroa.phi = phi ptr [ %offset.0.sroa.gep, %if.then95 ], [ %offset.0.sroa.gep54, %if.else101 ]
+  %offset.2 = phi i64 [ 2, %if.then95 ], [ 3, %if.else101 ]
   %shr114 = lshr i32 %4, 6
   %30 = trunc i32 %shr114 to i8
   %31 = and i8 %30, 63
   %conv117 = or disjoint i8 %31, -128
-  %inc118 = add nuw nsw i64 %offset.2, 1
-  %arrayidx119 = getelementptr inbounds [8 x i8], ptr %code_unit8, i64 0, i64 %offset.2
-  store i8 %conv117, ptr %arrayidx119, align 1
+  store i8 %conv117, ptr %offset.2.sroa.phi, align 1
   br label %if.end120
 
 if.end120:                                        ; preds = %if.end113, %if.then87
-  %offset.3 = phi i64 [ 1, %if.then87 ], [ %inc118, %if.end113 ]
+  %offset.3 = phi i64 [ 1, %if.then87 ], [ %offset.2, %if.end113 ]
   %32 = trunc i32 %4 to i8
   %33 = and i8 %32, 63
   %conv123 = or disjoint i8 %33, -128

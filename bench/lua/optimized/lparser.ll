@@ -99,8 +99,6 @@ define hidden ptr @luaY_parser(ptr noundef %L, ptr noundef %z, ptr noundef %buff
 entry:
   %bl.i = alloca %struct.BlockCnt, align 8
   %lexstate = alloca %struct.LexState, align 8
-  %lexstate.sroa.gep30 = getelementptr inbounds i8, ptr %lexstate, i64 88
-  %lexstate.sroa.gep = getelementptr inbounds i8, ptr %lexstate, i64 88
   %funcstate = alloca %struct.FuncState, align 8
   %call = tail call ptr @luaF_newLclosure(ptr noundef %L, i32 noundef 1) #11
   %top = getelementptr inbounds i8, ptr %L, i64 16
@@ -229,29 +227,29 @@ cond.true.i.i:                                    ; preds = %land.lhs.true.i.i
   call void @luaC_barrier_(ptr noundef %21, ptr noundef nonnull %call8, ptr noundef nonnull %16) #11
   %.pre = load i8, ptr %nactvar.i.i, align 2
   %.pre25 = load ptr, ptr %ls3.i.i, align 8
-  %.pre25.sroa.gep = getelementptr inbounds i8, ptr %.pre25, i64 88
   %.pre26 = load ptr, ptr %bl7.i.i, align 8
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %land.lhs.true.i.i, %cond.end34
   %22 = phi ptr [ %.pre26, %cond.true.i.i ], [ null, %land.lhs.true.i.i ], [ null, %cond.end34 ]
-  %23 = phi i8 [ %.pre, %cond.true.i.i ], [ 0, %land.lhs.true.i.i ], [ 0, %cond.end34 ]
-  %.sroa.phi = phi ptr [ %.pre25.sroa.gep, %cond.true.i.i ], [ %lexstate.sroa.gep, %land.lhs.true.i.i ], [ %lexstate.sroa.gep30, %cond.end34 ]
+  %23 = phi ptr [ %.pre25, %cond.true.i.i ], [ %lexstate, %land.lhs.true.i.i ], [ %lexstate, %cond.end34 ]
+  %24 = phi i8 [ %.pre, %cond.true.i.i ], [ 0, %land.lhs.true.i.i ], [ 0, %cond.end34 ]
   %maxstacksize.i.i = getelementptr inbounds i8, ptr %call8, i64 12
   store i8 2, ptr %maxstacksize.i.i, align 4
   %isloop1.i.i.i = getelementptr inbounds i8, ptr %bl.i, i64 18
   store i8 0, ptr %isloop1.i.i.i, align 2
   %nactvar2.i.i.i = getelementptr inbounds i8, ptr %bl.i, i64 16
-  store i8 %23, ptr %nactvar2.i.i.i, align 8
-  %24 = load ptr, ptr %.sroa.phi, align 8
-  %n.i.i.i = getelementptr inbounds i8, ptr %24, i64 40
-  %25 = load i32, ptr %n.i.i.i, align 8
+  store i8 %24, ptr %nactvar2.i.i.i, align 8
+  %dyd.i.i.i = getelementptr inbounds i8, ptr %23, i64 88
+  %25 = load ptr, ptr %dyd.i.i.i, align 8
+  %n.i.i.i = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = load i32, ptr %n.i.i.i, align 8
   %firstlabel.i.i.i = getelementptr inbounds i8, ptr %bl.i, i64 8
-  store i32 %25, ptr %firstlabel.i.i.i, align 8
-  %n5.i.i.i = getelementptr inbounds i8, ptr %24, i64 24
-  %26 = load i32, ptr %n5.i.i.i, align 8
+  store i32 %26, ptr %firstlabel.i.i.i, align 8
+  %n5.i.i.i = getelementptr inbounds i8, ptr %25, i64 24
+  %27 = load i32, ptr %n5.i.i.i, align 8
   %firstgoto.i.i.i = getelementptr inbounds i8, ptr %bl.i, i64 12
-  store i32 %26, ptr %firstgoto.i.i.i, align 4
+  store i32 %27, ptr %firstgoto.i.i.i, align 4
   %upval.i.i.i = getelementptr inbounds i8, ptr %bl.i, i64 17
   store i8 0, ptr %upval.i.i.i, align 1
   %cmp.not.i.i.i = icmp eq ptr %22, null
@@ -259,26 +257,26 @@ cond.end.i.i:                                     ; preds = %cond.true.i.i, %lan
 
 land.rhs.i.i.i:                                   ; preds = %cond.end.i.i
   %insidetbc.i.i.i = getelementptr inbounds i8, ptr %22, i64 19
-  %27 = load i8, ptr %insidetbc.i.i.i, align 1
-  %tobool.i.i.i = icmp ne i8 %27, 0
-  %28 = zext i1 %tobool.i.i.i to i8
+  %28 = load i8, ptr %insidetbc.i.i.i, align 1
+  %tobool.i.i.i = icmp ne i8 %28, 0
+  %29 = zext i1 %tobool.i.i.i to i8
   br label %open_func.exit.i
 
 open_func.exit.i:                                 ; preds = %land.rhs.i.i.i, %cond.end.i.i
-  %conv8.i.i.i = phi i8 [ 0, %cond.end.i.i ], [ %28, %land.rhs.i.i.i ]
+  %conv8.i.i.i = phi i8 [ 0, %cond.end.i.i ], [ %29, %land.rhs.i.i.i ]
   %insidetbc9.i.i.i = getelementptr inbounds i8, ptr %bl.i, i64 19
   store i8 %conv8.i.i.i, ptr %insidetbc9.i.i.i, align 1
   store ptr %22, ptr %bl.i, align 8
   store ptr %bl.i, ptr %bl7.i.i, align 8
-  %29 = load ptr, ptr %funcstate, align 8
-  %is_vararg.i.i = getelementptr inbounds i8, ptr %29, i64 11
+  %30 = load ptr, ptr %funcstate, align 8
+  %is_vararg.i.i = getelementptr inbounds i8, ptr %30, i64 11
   store i8 1, ptr %is_vararg.i.i, align 1
   %call.i.i = call i32 @luaK_codeABCk(ptr noundef nonnull %funcstate, i32 noundef 81, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
-  %30 = load ptr, ptr %funcstate, align 8
-  %sizeupvalues.i.i = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = load ptr, ptr %funcstate, align 8
+  %sizeupvalues.i.i = getelementptr inbounds i8, ptr %31, i64 16
   %nups.i.i = getelementptr inbounds i8, ptr %funcstate, i64 67
-  %31 = load i8, ptr %nups.i.i, align 1
-  %cmp.i.i.i = icmp eq i8 %31, -1
+  %32 = load i8, ptr %nups.i.i, align 1
+  %cmp.i.i.i = icmp eq i8 %32, -1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %checklimit.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %open_func.exit.i
@@ -286,32 +284,32 @@ if.then.i.i.i:                                    ; preds = %open_func.exit.i
   unreachable
 
 checklimit.exit.i.i:                              ; preds = %open_func.exit.i
-  %conv.i.i = zext i8 %31 to i32
-  %32 = load i32, ptr %sizeupvalues.i.i, align 8
-  %33 = load ptr, ptr %ls3.i.i, align 8
-  %L.i16.i = getelementptr inbounds i8, ptr %33, i64 56
-  %34 = load ptr, ptr %L.i16.i, align 8
-  %upvalues.i.i = getelementptr inbounds i8, ptr %30, i64 80
-  %35 = load ptr, ptr %upvalues.i.i, align 8
-  %call.i17.i = call ptr @luaM_growaux_(ptr noundef %34, ptr noundef %35, i32 noundef %conv.i.i, ptr noundef nonnull %sizeupvalues.i.i, i32 noundef 16, i32 noundef 255, ptr noundef nonnull @.str) #11
+  %conv.i.i = zext i8 %32 to i32
+  %33 = load i32, ptr %sizeupvalues.i.i, align 8
+  %34 = load ptr, ptr %ls3.i.i, align 8
+  %L.i16.i = getelementptr inbounds i8, ptr %34, i64 56
+  %35 = load ptr, ptr %L.i16.i, align 8
+  %upvalues.i.i = getelementptr inbounds i8, ptr %31, i64 80
+  %36 = load ptr, ptr %upvalues.i.i, align 8
+  %call.i17.i = call ptr @luaM_growaux_(ptr noundef %35, ptr noundef %36, i32 noundef %conv.i.i, ptr noundef nonnull %sizeupvalues.i.i, i32 noundef 16, i32 noundef 255, ptr noundef nonnull @.str) #11
   store ptr %call.i17.i, ptr %upvalues.i.i, align 8
-  %36 = load i32, ptr %sizeupvalues.i.i, align 8
-  %cmp13.i.i = icmp slt i32 %32, %36
+  %37 = load i32, ptr %sizeupvalues.i.i, align 8
+  %cmp13.i.i = icmp slt i32 %33, %37
   br i1 %cmp13.i.i, label %while.body.preheader.i.i, label %allocupvalue.exit.i
 
 while.body.preheader.i.i:                         ; preds = %checklimit.exit.i.i
-  %37 = sext i32 %32 to i64
+  %38 = sext i32 %33 to i64
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %37, %while.body.preheader.i.i ], [ %indvars.iv.next.i.i, %while.body.i.i ]
-  %38 = load ptr, ptr %upvalues.i.i, align 8
+  %indvars.iv.i.i = phi i64 [ %38, %while.body.preheader.i.i ], [ %indvars.iv.next.i.i, %while.body.i.i ]
+  %39 = load ptr, ptr %upvalues.i.i, align 8
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %arrayidx.i.i = getelementptr inbounds %struct.Upvaldesc, ptr %38, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds %struct.Upvaldesc, ptr %39, i64 %indvars.iv.i.i
   store ptr null, ptr %arrayidx.i.i, align 8
-  %39 = load i32, ptr %sizeupvalues.i.i, align 8
-  %40 = sext i32 %39 to i64
-  %cmp.i.i = icmp slt i64 %indvars.iv.next.i.i, %40
+  %40 = load i32, ptr %sizeupvalues.i.i, align 8
+  %41 = sext i32 %40 to i64
+  %cmp.i.i = icmp slt i64 %indvars.iv.next.i.i, %41
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.loopexit.i.i, !llvm.loop !7
 
 while.end.loopexit.i.i:                           ; preds = %while.body.i.i
@@ -319,12 +317,12 @@ while.end.loopexit.i.i:                           ; preds = %while.body.i.i
   br label %allocupvalue.exit.i
 
 allocupvalue.exit.i:                              ; preds = %while.end.loopexit.i.i, %checklimit.exit.i.i
-  %41 = phi ptr [ %.pre.i.i, %while.end.loopexit.i.i ], [ %call.i17.i, %checklimit.exit.i.i ]
-  %42 = load i8, ptr %nups.i.i, align 1
-  %inc11.i.i = add i8 %42, 1
+  %42 = phi ptr [ %.pre.i.i, %while.end.loopexit.i.i ], [ %call.i17.i, %checklimit.exit.i.i ]
+  %43 = load i8, ptr %nups.i.i, align 1
+  %inc11.i.i = add i8 %43, 1
   store i8 %inc11.i.i, ptr %nups.i.i, align 1
-  %idxprom12.i.i = zext i8 %42 to i64
-  %arrayidx13.i.i = getelementptr inbounds %struct.Upvaldesc, ptr %41, i64 %idxprom12.i.i
+  %idxprom12.i.i = zext i8 %43 to i64
+  %arrayidx13.i.i = getelementptr inbounds %struct.Upvaldesc, ptr %42, i64 %idxprom12.i.i
   %instack.i = getelementptr inbounds i8, ptr %arrayidx13.i.i, i64 8
   store i8 1, ptr %instack.i, align 8
   %idx.i = getelementptr inbounds i8, ptr %arrayidx13.i.i, i64 9
@@ -332,35 +330,35 @@ allocupvalue.exit.i:                              ; preds = %while.end.loopexit.
   %kind.i = getelementptr inbounds i8, ptr %arrayidx13.i.i, i64 10
   store i8 0, ptr %kind.i, align 2
   %envn.i = getelementptr inbounds i8, ptr %lexstate, i64 104
-  %43 = load ptr, ptr %envn.i, align 8
-  store ptr %43, ptr %arrayidx13.i.i, align 8
-  %44 = load ptr, ptr %funcstate, align 8
-  %marked.i = getelementptr inbounds i8, ptr %44, i64 9
-  %45 = load i8, ptr %marked.i, align 1
-  %46 = and i8 %45, 32
-  %tobool.not.i = icmp eq i8 %46, 0
+  %44 = load ptr, ptr %envn.i, align 8
+  store ptr %44, ptr %arrayidx13.i.i, align 8
+  %45 = load ptr, ptr %funcstate, align 8
+  %marked.i = getelementptr inbounds i8, ptr %45, i64 9
+  %46 = load i8, ptr %marked.i, align 1
+  %47 = and i8 %46, 32
+  %tobool.not.i = icmp eq i8 %47, 0
   br i1 %tobool.not.i, label %cond.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %allocupvalue.exit.i
-  %marked2.i = getelementptr inbounds i8, ptr %43, i64 9
-  %47 = load i8, ptr %marked2.i, align 1
-  %48 = and i8 %47, 24
-  %tobool5.not.i = icmp eq i8 %48, 0
+  %marked2.i = getelementptr inbounds i8, ptr %44, i64 9
+  %48 = load i8, ptr %marked2.i, align 1
+  %49 = and i8 %48, 24
+  %tobool5.not.i = icmp eq i8 %49, 0
   br i1 %tobool5.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   %L.i = getelementptr inbounds i8, ptr %lexstate, i64 56
-  %49 = load ptr, ptr %L.i, align 8
-  call void @luaC_barrier_(ptr noundef %49, ptr noundef nonnull %44, ptr noundef nonnull %43) #11
+  %50 = load ptr, ptr %L.i, align 8
+  call void @luaC_barrier_(ptr noundef %50, ptr noundef nonnull %45, ptr noundef nonnull %44) #11
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %land.lhs.true.i, %allocupvalue.exit.i
   call void @luaX_next(ptr noundef nonnull %lexstate) #11
-  %50 = getelementptr inbounds i8, ptr %lexstate, i64 16
+  %51 = getelementptr inbounds i8, ptr %lexstate, i64 16
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %if.end.i.i, %cond.end.i
-  %ls.val.i.i = load i32, ptr %50, align 8
+  %ls.val.i.i = load i32, ptr %51, align 8
   switch i32 %ls.val.i.i, label %if.end.i.i [
     i32 259, label %statlist.exit.i
     i32 260, label %statlist.exit.i
@@ -372,7 +370,7 @@ while.cond.i.i:                                   ; preds = %if.end.i.i, %cond.e
 
 if.then.i.i:                                      ; preds = %while.cond.i.i
   call fastcc void @statement(ptr noundef nonnull %lexstate)
-  %.pr.i = load i32, ptr %50, align 8
+  %.pr.i = load i32, ptr %51, align 8
   br label %statlist.exit.i
 
 if.end.i.i:                                       ; preds = %while.cond.i.i
@@ -380,8 +378,8 @@ if.end.i.i:                                       ; preds = %while.cond.i.i
   br label %while.cond.i.i, !llvm.loop !8
 
 statlist.exit.i:                                  ; preds = %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %if.then.i.i
-  %51 = phi i32 [ %.pr.i, %if.then.i.i ], [ %ls.val.i.i, %while.cond.i.i ], [ %ls.val.i.i, %while.cond.i.i ], [ %ls.val.i.i, %while.cond.i.i ], [ %ls.val.i.i, %while.cond.i.i ], [ %ls.val.i.i, %while.cond.i.i ]
-  %cmp.not.i.i = icmp eq i32 %51, 288
+  %52 = phi i32 [ %.pr.i, %if.then.i.i ], [ %ls.val.i.i, %while.cond.i.i ], [ %ls.val.i.i, %while.cond.i.i ], [ %ls.val.i.i, %while.cond.i.i ], [ %ls.val.i.i, %while.cond.i.i ], [ %ls.val.i.i, %while.cond.i.i ]
+  %cmp.not.i.i = icmp eq i32 %52, 288
   br i1 %cmp.not.i.i, label %mainfunc.exit, label %if.then.i18.i
 
 if.then.i18.i:                                    ; preds = %statlist.exit.i
@@ -391,8 +389,8 @@ if.then.i18.i:                                    ; preds = %statlist.exit.i
 mainfunc.exit:                                    ; preds = %statlist.exit.i
   call fastcc void @close_func(ptr noundef nonnull %lexstate)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %bl.i)
-  %52 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %52, i64 -16
+  %53 = load ptr, ptr %top, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %53, i64 -16
   store ptr %incdec.ptr, ptr %top, align 8
   ret ptr %call
 }

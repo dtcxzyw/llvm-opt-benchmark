@@ -3631,20 +3631,38 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.thread90, label %17
+  %.4..4..4.gep.sroa_idx = getelementptr inbounds i8, ptr %12, i64 4
+  %.8..8..8.gep88.sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
+  %.4..4..4.gep.sroa_idx197 = getelementptr inbounds i8, ptr %11, i64 4
+  %.8..8..8.gep89.sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
+  %.4..4..4.gep.sroa_idx199 = getelementptr inbounds i8, ptr %10, i64 4
+  %.8..8..8.gep92.sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.4..4..4.gep.sroa_idx201 = getelementptr inbounds i8, ptr %9, i64 4
+  %.8..8..8.gep95.sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.4..4..4.gep.sroa_idx203 = getelementptr inbounds i8, ptr %8, i64 4
+  %.8..8..8.gep98.sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.4..4..4.gep.sroa_idx205 = getelementptr inbounds i8, ptr %7, i64 4
+  %.8..8..8.gep101.sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.4..4..4.gep.sroa_idx207 = getelementptr inbounds i8, ptr %6, i64 4
+  %.8..8..8.gep104.sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.4..4..4.gep.sroa_idx209 = getelementptr inbounds i8, ptr %5, i64 4
+  %.8..8..8.gep107.sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.4..4..4.gep.sroa_idx211 = getelementptr inbounds i8, ptr %4, i64 4
+  %.8..8..8.gep110.sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  br i1 %16, label %.thread115, label %17
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds i8, ptr %0, i64 432
   %19 = getelementptr inbounds i8, ptr %2, i64 8
-  %.4..4..4..sroa_idx6.i80 = getelementptr inbounds i8, ptr %4, i64 4
-  %.4..4..4..sroa_idx6.i71 = getelementptr inbounds i8, ptr %5, i64 4
-  %.4..4..4..sroa_idx6.i62 = getelementptr inbounds i8, ptr %6, i64 4
-  %.4..4..4..sroa_idx6.i53 = getelementptr inbounds i8, ptr %7, i64 4
-  %.4..4..4..sroa_idx6.i44 = getelementptr inbounds i8, ptr %8, i64 4
-  %.4..4..4..sroa_idx6.i35 = getelementptr inbounds i8, ptr %9, i64 4
-  %.4..4..4..sroa_idx6.i17 = getelementptr inbounds i8, ptr %11, i64 4
-  %.4..4..4..sroa_idx6.i26 = getelementptr inbounds i8, ptr %10, i64 4
-  %.4..4..4..sroa_idx6.i = getelementptr inbounds i8, ptr %12, i64 4
+  %.4..4..4.gep.sroa_idx212 = getelementptr inbounds i8, ptr %4, i64 4
+  %.4..4..4.gep.sroa_idx210 = getelementptr inbounds i8, ptr %5, i64 4
+  %.4..4..4.gep.sroa_idx208 = getelementptr inbounds i8, ptr %6, i64 4
+  %.4..4..4.gep.sroa_idx206 = getelementptr inbounds i8, ptr %7, i64 4
+  %.4..4..4.gep.sroa_idx204 = getelementptr inbounds i8, ptr %8, i64 4
+  %.4..4..4.gep.sroa_idx202 = getelementptr inbounds i8, ptr %9, i64 4
+  %.4..4..4.gep.sroa_idx198 = getelementptr inbounds i8, ptr %11, i64 4
+  %.4..4..4.gep.sroa_idx200 = getelementptr inbounds i8, ptr %10, i64 4
+  %.4..4..4.gep.sroa_idx196 = getelementptr inbounds i8, ptr %12, i64 4
   br label %20
 
 20:                                               ; preds = %.loopexit, %17
@@ -3652,7 +3670,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %22 = getelementptr [9 x ptr], ptr %18, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %.loopexit143, label %.preheader
+  br i1 %24, label %.loopexit168, label %.preheader
 
 .preheader:                                       ; preds = %20, %.preheader
   %25 = phi ptr [ %29, %.preheader ], [ %23, %20 ]
@@ -3661,15 +3679,15 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %28 = getelementptr inbounds i8, ptr %25, i64 192
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.loopexit143, label %.preheader, !llvm.loop !46
+  br i1 %30, label %.loopexit168, label %.preheader, !llvm.loop !46
 
-.loopexit143:                                     ; preds = %.preheader, %20
+.loopexit168:                                     ; preds = %.preheader, %20
   %31 = phi i32 [ 0, %20 ], [ %27, %.preheader ]
   %32 = load i64, ptr %19, align 8
   %33 = icmp ugt i64 %32, 3
-  br i1 %33, label %34, label %.thread90
+  br i1 %33, label %34, label %.thread115
 
-34:                                               ; preds = %.loopexit143
+34:                                               ; preds = %.loopexit168
   %35 = load ptr, ptr %2, align 8
   store i32 %31, ptr %35, align 1
   %36 = load ptr, ptr %2, align 8
@@ -3708,12 +3726,12 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef align 4 dereferenceable(16) %50, i64 16, i1 false)
   %51 = load i64, ptr %19, align 8
   %52 = icmp ugt i64 %51, 31
-  br i1 %52, label %418, label %.thread90
+  br i1 %52, label %418, label %.thread115
 
 53:                                               ; preds = %44
   %54 = load i64, ptr %19, align 8
   %55 = icmp ugt i64 %54, 3
-  br i1 %55, label %56, label %.thread90
+  br i1 %55, label %56, label %.thread115
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds i8, ptr %45, i64 184
@@ -3727,7 +3745,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %63 = add i64 %62, -4
   store i64 %63, ptr %19, align 8
   %64 = icmp ugt i64 %63, 11
-  br i1 %64, label %65, label %.thread90
+  br i1 %64, label %65, label %.thread115
 
 65:                                               ; preds = %56
   %66 = getelementptr inbounds i8, ptr %45, i64 40
@@ -3776,19 +3794,18 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %89 = phi i32 [ %.pre7.i, %..thread_crit_edge.i ], [ %80, %65 ]
   %90 = phi i32 [ %.pre.i, %..thread_crit_edge.i ], [ %81, %65 ]
   store i32 2, ptr %12, align 4
-  store i32 %90, ptr %.4..4..4..sroa_idx6.i, align 4
+  store i32 %90, ptr %.4..4..4.gep.sroa_idx196, align 4
   br label %91
 
 91:                                               ; preds = %.thread.i, %88
-  %.sink.i = phi i64 [ 4, %88 ], [ 8, %.thread.i ]
+  %.sink.i.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx, %88 ], [ %.8..8..8.gep88.sroa_idx, %.thread.i ]
   %.pre.sink.i = phi i32 [ %.pre.i, %88 ], [ %89, %.thread.i ]
   %92 = phi i64 [ 8, %88 ], [ 12, %.thread.i ]
   %93 = phi i1 [ false, %88 ], [ true, %.thread.i ]
-  %.4..4..4..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 %.sink.i
-  store i32 %.pre.sink.i, ptr %.4..4..4..sroa_idx.i, align 4
+  store i32 %.pre.sink.i, ptr %.sink.i.sroa.phi, align 4
   %94 = load i64, ptr %19, align 8
   %95 = icmp ugt i64 %92, %94
-  br i1 %95, label %.thread91, label %96
+  br i1 %95, label %.thread116, label %96
 
 96:                                               ; preds = %91
   %97 = load ptr, ptr %2, align 8
@@ -3802,7 +3819,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %102 = getelementptr inbounds i8, ptr %45, i64 64
   %103 = tail call i32 @ebitmap_write(ptr noundef %102, ptr noundef %2) #22
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %.thread91
+  br i1 %104, label %105, label %.thread116
 
 105:                                              ; preds = %96
   br i1 %93, label %106, label %110
@@ -3811,12 +3828,12 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %107 = getelementptr i8, ptr %45, i64 88
   %108 = tail call i32 @ebitmap_write(ptr noundef %107, ptr noundef %2) #22
   %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %.thread91
+  br i1 %109, label %110, label %.thread116
 
-.thread91:                                        ; preds = %96, %106, %91
+.thread116:                                       ; preds = %96, %106, %91
   %.ph = phi i32 [ -22, %91 ], [ %108, %106 ], [ %103, %96 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
-  br label %.thread90
+  br label %.thread115
 
 110:                                              ; preds = %105, %106
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
@@ -3827,7 +3844,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %113 = tail call i64 @strlen(ptr noundef %112) #22
   %114 = load i64, ptr %19, align 8
   %115 = icmp ugt i64 %114, 3
-  br i1 %115, label %116, label %.thread90
+  br i1 %115, label %116, label %.thread115
 
 116:                                              ; preds = %111
   %117 = trunc i64 %113 to i32
@@ -3840,7 +3857,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %122 = add i64 %121, -4
   store i64 %122, ptr %19, align 8
   %123 = icmp ugt i64 %113, %122
-  br i1 %123, label %.thread90, label %124
+  br i1 %123, label %.thread115, label %124
 
 124:                                              ; preds = %116
   %125 = load ptr, ptr %45, align 8
@@ -3852,7 +3869,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %129 = sub i64 %128, %113
   store i64 %129, ptr %19, align 8
   %130 = icmp ugt i64 %129, 11
-  br i1 %130, label %131, label %.thread90
+  br i1 %130, label %131, label %.thread115
 
 131:                                              ; preds = %124
   %132 = getelementptr inbounds i8, ptr %45, i64 40
@@ -3901,19 +3918,18 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %155 = phi i32 [ %.pre7.i23, %..thread_crit_edge.i22 ], [ %146, %131 ]
   %156 = phi i32 [ %.pre.i21, %..thread_crit_edge.i22 ], [ %147, %131 ]
   store i32 2, ptr %11, align 4
-  store i32 %156, ptr %.4..4..4..sroa_idx6.i17, align 4
+  store i32 %156, ptr %.4..4..4.gep.sroa_idx198, align 4
   br label %157
 
 157:                                              ; preds = %.thread.i16, %154
-  %.sink.i18 = phi i64 [ 4, %154 ], [ 8, %.thread.i16 ]
+  %.sink.i18.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx197, %154 ], [ %.8..8..8.gep89.sroa_idx, %.thread.i16 ]
   %.pre.sink.i19 = phi i32 [ %.pre.i21, %154 ], [ %155, %.thread.i16 ]
   %158 = phi i64 [ 8, %154 ], [ 12, %.thread.i16 ]
   %159 = phi i1 [ false, %154 ], [ true, %.thread.i16 ]
-  %.4..4..4..sroa_idx.i20 = getelementptr inbounds i8, ptr %11, i64 %.sink.i18
-  store i32 %.pre.sink.i19, ptr %.4..4..4..sroa_idx.i20, align 4
+  store i32 %.pre.sink.i19, ptr %.sink.i18.sroa.phi, align 4
   %160 = load i64, ptr %19, align 8
   %161 = icmp ugt i64 %158, %160
-  br i1 %161, label %.thread98, label %162
+  br i1 %161, label %.thread123, label %162
 
 162:                                              ; preds = %157
   %163 = load ptr, ptr %2, align 8
@@ -3927,7 +3943,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %168 = getelementptr inbounds i8, ptr %45, i64 64
   %169 = tail call i32 @ebitmap_write(ptr noundef %168, ptr noundef %2) #22
   %170 = icmp eq i32 %169, 0
-  br i1 %170, label %171, label %.thread98
+  br i1 %170, label %171, label %.thread123
 
 171:                                              ; preds = %162
   br i1 %159, label %172, label %176
@@ -3936,18 +3952,18 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %173 = getelementptr i8, ptr %45, i64 88
   %174 = tail call i32 @ebitmap_write(ptr noundef %173, ptr noundef %2) #22
   %175 = icmp eq i32 %174, 0
-  br i1 %175, label %176, label %.thread98
+  br i1 %175, label %176, label %.thread123
 
-.thread98:                                        ; preds = %162, %172, %157
-  %.ph97 = phi i32 [ -22, %157 ], [ %174, %172 ], [ %169, %162 ]
+.thread123:                                       ; preds = %162, %172, %157
+  %.ph122 = phi i32 [ -22, %157 ], [ %174, %172 ], [ %169, %162 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
-  br label %.thread90
+  br label %.thread115
 
 176:                                              ; preds = %172, %171
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
   %177 = load i64, ptr %19, align 8
   %178 = icmp ugt i64 %177, 11
-  br i1 %178, label %179, label %.thread90
+  br i1 %178, label %179, label %.thread115
 
 179:                                              ; preds = %176
   %180 = getelementptr i8, ptr %45, i64 112
@@ -3997,19 +4013,18 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %204 = phi i32 [ %.pre7.i32, %..thread_crit_edge.i31 ], [ %195, %179 ]
   %205 = phi i32 [ %.pre.i30, %..thread_crit_edge.i31 ], [ %196, %179 ]
   store i32 2, ptr %10, align 4
-  store i32 %205, ptr %.4..4..4..sroa_idx6.i26, align 4
+  store i32 %205, ptr %.4..4..4.gep.sroa_idx200, align 4
   br label %206
 
 206:                                              ; preds = %.thread.i25, %203
-  %.sink.i27 = phi i64 [ 4, %203 ], [ 8, %.thread.i25 ]
+  %.sink.i27.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx199, %203 ], [ %.8..8..8.gep92.sroa_idx, %.thread.i25 ]
   %.pre.sink.i28 = phi i32 [ %.pre.i30, %203 ], [ %204, %.thread.i25 ]
   %207 = phi i64 [ 8, %203 ], [ 12, %.thread.i25 ]
   %208 = phi i1 [ false, %203 ], [ true, %.thread.i25 ]
-  %.4..4..4..sroa_idx.i29 = getelementptr inbounds i8, ptr %10, i64 %.sink.i27
-  store i32 %.pre.sink.i28, ptr %.4..4..4..sroa_idx.i29, align 4
+  store i32 %.pre.sink.i28, ptr %.sink.i27.sroa.phi, align 4
   %209 = load i64, ptr %19, align 8
   %210 = icmp ugt i64 %207, %209
-  br i1 %210, label %.thread103, label %211
+  br i1 %210, label %.thread128, label %211
 
 211:                                              ; preds = %206
   %212 = load ptr, ptr %2, align 8
@@ -4023,7 +4038,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %217 = getelementptr i8, ptr %45, i64 136
   %218 = tail call i32 @ebitmap_write(ptr noundef %217, ptr noundef %2) #22
   %219 = icmp eq i32 %218, 0
-  br i1 %219, label %220, label %.thread103
+  br i1 %219, label %220, label %.thread128
 
 220:                                              ; preds = %211
   br i1 %208, label %221, label %225
@@ -4032,12 +4047,12 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %222 = getelementptr i8, ptr %45, i64 160
   %223 = tail call i32 @ebitmap_write(ptr noundef %222, ptr noundef %2) #22
   %224 = icmp eq i32 %223, 0
-  br i1 %224, label %225, label %.thread103
+  br i1 %224, label %225, label %.thread128
 
-.thread103:                                       ; preds = %211, %221, %206
-  %.ph102 = phi i32 [ -22, %206 ], [ %223, %221 ], [ %218, %211 ]
+.thread128:                                       ; preds = %211, %221, %206
+  %.ph127 = phi i32 [ -22, %206 ], [ %223, %221 ], [ %218, %211 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
-  br label %.thread90
+  br label %.thread115
 
 225:                                              ; preds = %220, %221
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
@@ -4046,7 +4061,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
 226:                                              ; preds = %44
   %227 = load i64, ptr %19, align 8
   %228 = icmp ugt i64 %227, 11
-  br i1 %228, label %229, label %.thread90
+  br i1 %228, label %229, label %.thread115
 
 229:                                              ; preds = %226
   %230 = getelementptr inbounds i8, ptr %45, i64 4
@@ -4070,7 +4085,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %244 = add i64 %243, -12
   store i64 %244, ptr %19, align 8
   %245 = icmp ugt i64 %244, 11
-  br i1 %245, label %246, label %.thread90
+  br i1 %245, label %246, label %.thread115
 
 246:                                              ; preds = %229
   %247 = getelementptr inbounds i8, ptr %45, i64 40
@@ -4119,19 +4134,18 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %270 = phi i32 [ %.pre7.i41, %..thread_crit_edge.i40 ], [ %261, %246 ]
   %271 = phi i32 [ %.pre.i39, %..thread_crit_edge.i40 ], [ %262, %246 ]
   store i32 2, ptr %9, align 4
-  store i32 %271, ptr %.4..4..4..sroa_idx6.i35, align 4
+  store i32 %271, ptr %.4..4..4.gep.sroa_idx202, align 4
   br label %272
 
 272:                                              ; preds = %.thread.i34, %269
-  %.sink.i36 = phi i64 [ 4, %269 ], [ 8, %.thread.i34 ]
+  %.sink.i36.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx201, %269 ], [ %.8..8..8.gep95.sroa_idx, %.thread.i34 ]
   %.pre.sink.i37 = phi i32 [ %.pre.i39, %269 ], [ %270, %.thread.i34 ]
   %273 = phi i64 [ 8, %269 ], [ 12, %.thread.i34 ]
   %274 = phi i1 [ false, %269 ], [ true, %.thread.i34 ]
-  %.4..4..4..sroa_idx.i38 = getelementptr inbounds i8, ptr %9, i64 %.sink.i36
-  store i32 %.pre.sink.i37, ptr %.4..4..4..sroa_idx.i38, align 4
+  store i32 %.pre.sink.i37, ptr %.sink.i36.sroa.phi, align 4
   %275 = load i64, ptr %19, align 8
   %276 = icmp ugt i64 %273, %275
-  br i1 %276, label %.thread109, label %277
+  br i1 %276, label %.thread134, label %277
 
 277:                                              ; preds = %272
   %278 = load ptr, ptr %2, align 8
@@ -4145,7 +4159,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %283 = getelementptr inbounds i8, ptr %45, i64 64
   %284 = tail call i32 @ebitmap_write(ptr noundef %283, ptr noundef %2) #22
   %285 = icmp eq i32 %284, 0
-  br i1 %285, label %286, label %.thread109
+  br i1 %285, label %286, label %.thread134
 
 286:                                              ; preds = %277
   br i1 %274, label %287, label %291
@@ -4154,12 +4168,12 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %288 = getelementptr i8, ptr %45, i64 88
   %289 = tail call i32 @ebitmap_write(ptr noundef %288, ptr noundef %2) #22
   %290 = icmp eq i32 %289, 0
-  br i1 %290, label %291, label %.thread109
+  br i1 %290, label %291, label %.thread134
 
-.thread109:                                       ; preds = %277, %287, %272
-  %.ph108 = phi i32 [ -22, %272 ], [ %289, %287 ], [ %284, %277 ]
+.thread134:                                       ; preds = %277, %287, %272
+  %.ph133 = phi i32 [ -22, %272 ], [ %289, %287 ], [ %284, %277 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
-  br label %.thread90
+  br label %.thread115
 
 291:                                              ; preds = %286, %287
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
@@ -4168,7 +4182,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
 292:                                              ; preds = %44
   %293 = load i64, ptr %19, align 8
   %294 = icmp ugt i64 %293, 7
-  br i1 %294, label %295, label %.thread90
+  br i1 %294, label %295, label %.thread115
 
 295:                                              ; preds = %292
   %296 = load i64, ptr %45, align 8
@@ -4181,7 +4195,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %301 = add i64 %300, -8
   store i64 %301, ptr %19, align 8
   %302 = icmp ugt i64 %301, 11
-  br i1 %302, label %303, label %.thread90
+  br i1 %302, label %303, label %.thread115
 
 303:                                              ; preds = %295
   %304 = getelementptr inbounds i8, ptr %45, i64 40
@@ -4230,19 +4244,18 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %327 = phi i32 [ %.pre7.i50, %..thread_crit_edge.i49 ], [ %318, %303 ]
   %328 = phi i32 [ %.pre.i48, %..thread_crit_edge.i49 ], [ %319, %303 ]
   store i32 2, ptr %8, align 4
-  store i32 %328, ptr %.4..4..4..sroa_idx6.i44, align 4
+  store i32 %328, ptr %.4..4..4.gep.sroa_idx204, align 4
   br label %329
 
 329:                                              ; preds = %.thread.i43, %326
-  %.sink.i45 = phi i64 [ 4, %326 ], [ 8, %.thread.i43 ]
+  %.sink.i45.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx203, %326 ], [ %.8..8..8.gep98.sroa_idx, %.thread.i43 ]
   %.pre.sink.i46 = phi i32 [ %.pre.i48, %326 ], [ %327, %.thread.i43 ]
   %330 = phi i64 [ 8, %326 ], [ 12, %.thread.i43 ]
   %331 = phi i1 [ false, %326 ], [ true, %.thread.i43 ]
-  %.4..4..4..sroa_idx.i47 = getelementptr inbounds i8, ptr %8, i64 %.sink.i45
-  store i32 %.pre.sink.i46, ptr %.4..4..4..sroa_idx.i47, align 4
+  store i32 %.pre.sink.i46, ptr %.sink.i45.sroa.phi, align 4
   %332 = load i64, ptr %19, align 8
   %333 = icmp ugt i64 %330, %332
-  br i1 %333, label %.thread115, label %334
+  br i1 %333, label %.thread140, label %334
 
 334:                                              ; preds = %329
   %335 = load ptr, ptr %2, align 8
@@ -4256,7 +4269,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %340 = getelementptr inbounds i8, ptr %45, i64 64
   %341 = tail call i32 @ebitmap_write(ptr noundef %340, ptr noundef %2) #22
   %342 = icmp eq i32 %341, 0
-  br i1 %342, label %343, label %.thread115
+  br i1 %342, label %343, label %.thread140
 
 343:                                              ; preds = %334
   br i1 %331, label %344, label %348
@@ -4265,12 +4278,12 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %345 = getelementptr i8, ptr %45, i64 88
   %346 = tail call i32 @ebitmap_write(ptr noundef %345, ptr noundef %2) #22
   %347 = icmp eq i32 %346, 0
-  br i1 %347, label %348, label %.thread115
+  br i1 %347, label %348, label %.thread140
 
-.thread115:                                       ; preds = %334, %344, %329
-  %.ph114 = phi i32 [ -22, %329 ], [ %346, %344 ], [ %341, %334 ]
+.thread140:                                       ; preds = %334, %344, %329
+  %.ph139 = phi i32 [ -22, %329 ], [ %346, %344 ], [ %341, %334 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
-  br label %.thread90
+  br label %.thread115
 
 348:                                              ; preds = %343, %344
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
@@ -4281,7 +4294,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %351 = tail call i64 @strlen(ptr noundef %350) #22
   %352 = load i64, ptr %19, align 8
   %353 = icmp ugt i64 %352, 7
-  br i1 %353, label %354, label %.thread90
+  br i1 %353, label %354, label %.thread115
 
 354:                                              ; preds = %349
   %355 = trunc i64 %351 to i32
@@ -4298,7 +4311,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %363 = add i64 %362, -8
   store i64 %363, ptr %19, align 8
   %364 = icmp ugt i64 %351, %363
-  br i1 %364, label %.thread90, label %365
+  br i1 %364, label %.thread115, label %365
 
 365:                                              ; preds = %354
   %366 = load ptr, ptr %45, align 8
@@ -4310,7 +4323,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %370 = sub i64 %369, %351
   store i64 %370, ptr %19, align 8
   %371 = icmp ugt i64 %370, 11
-  br i1 %371, label %372, label %.thread90
+  br i1 %371, label %372, label %.thread115
 
 372:                                              ; preds = %365
   %373 = getelementptr inbounds i8, ptr %45, i64 40
@@ -4359,19 +4372,18 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %396 = phi i32 [ %.pre7.i59, %..thread_crit_edge.i58 ], [ %387, %372 ]
   %397 = phi i32 [ %.pre.i57, %..thread_crit_edge.i58 ], [ %388, %372 ]
   store i32 2, ptr %7, align 4
-  store i32 %397, ptr %.4..4..4..sroa_idx6.i53, align 4
+  store i32 %397, ptr %.4..4..4.gep.sroa_idx206, align 4
   br label %398
 
 398:                                              ; preds = %.thread.i52, %395
-  %.sink.i54 = phi i64 [ 4, %395 ], [ 8, %.thread.i52 ]
+  %.sink.i54.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx205, %395 ], [ %.8..8..8.gep101.sroa_idx, %.thread.i52 ]
   %.pre.sink.i55 = phi i32 [ %.pre.i57, %395 ], [ %396, %.thread.i52 ]
   %399 = phi i64 [ 8, %395 ], [ 12, %.thread.i52 ]
   %400 = phi i1 [ false, %395 ], [ true, %.thread.i52 ]
-  %.4..4..4..sroa_idx.i56 = getelementptr inbounds i8, ptr %7, i64 %.sink.i54
-  store i32 %.pre.sink.i55, ptr %.4..4..4..sroa_idx.i56, align 4
+  store i32 %.pre.sink.i55, ptr %.sink.i54.sroa.phi, align 4
   %401 = load i64, ptr %19, align 8
   %402 = icmp ugt i64 %399, %401
-  br i1 %402, label %.thread122, label %403
+  br i1 %402, label %.thread147, label %403
 
 403:                                              ; preds = %398
   %404 = load ptr, ptr %2, align 8
@@ -4385,7 +4397,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %409 = getelementptr inbounds i8, ptr %45, i64 64
   %410 = tail call i32 @ebitmap_write(ptr noundef %409, ptr noundef %2) #22
   %411 = icmp eq i32 %410, 0
-  br i1 %411, label %412, label %.thread122
+  br i1 %411, label %412, label %.thread147
 
 412:                                              ; preds = %403
   br i1 %400, label %413, label %417
@@ -4394,12 +4406,12 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %414 = getelementptr i8, ptr %45, i64 88
   %415 = tail call i32 @ebitmap_write(ptr noundef %414, ptr noundef %2) #22
   %416 = icmp eq i32 %415, 0
-  br i1 %416, label %417, label %.thread122
+  br i1 %416, label %417, label %.thread147
 
-.thread122:                                       ; preds = %403, %413, %398
-  %.ph121 = phi i32 [ -22, %398 ], [ %415, %413 ], [ %410, %403 ]
+.thread147:                                       ; preds = %403, %413, %398
+  %.ph146 = phi i32 [ -22, %398 ], [ %415, %413 ], [ %410, %403 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
-  br label %.thread90
+  br label %.thread115
 
 417:                                              ; preds = %412, %413
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
@@ -4419,7 +4431,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %425 = add i64 %424, -32
   store i64 %425, ptr %19, align 8
   %426 = icmp ugt i64 %425, 11
-  br i1 %426, label %427, label %.thread90
+  br i1 %426, label %427, label %.thread115
 
 427:                                              ; preds = %418
   %428 = getelementptr inbounds i8, ptr %45, i64 40
@@ -4468,19 +4480,18 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %451 = phi i32 [ %.pre7.i68, %..thread_crit_edge.i67 ], [ %442, %427 ]
   %452 = phi i32 [ %.pre.i66, %..thread_crit_edge.i67 ], [ %443, %427 ]
   store i32 2, ptr %6, align 4
-  store i32 %452, ptr %.4..4..4..sroa_idx6.i62, align 4
+  store i32 %452, ptr %.4..4..4.gep.sroa_idx208, align 4
   br label %453
 
 453:                                              ; preds = %.thread.i61, %450
-  %.sink.i63 = phi i64 [ 4, %450 ], [ 8, %.thread.i61 ]
+  %.sink.i63.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx207, %450 ], [ %.8..8..8.gep104.sroa_idx, %.thread.i61 ]
   %.pre.sink.i64 = phi i32 [ %.pre.i66, %450 ], [ %451, %.thread.i61 ]
   %454 = phi i64 [ 8, %450 ], [ 12, %.thread.i61 ]
   %455 = phi i1 [ false, %450 ], [ true, %.thread.i61 ]
-  %.4..4..4..sroa_idx.i65 = getelementptr inbounds i8, ptr %6, i64 %.sink.i63
-  store i32 %.pre.sink.i64, ptr %.4..4..4..sroa_idx.i65, align 4
+  store i32 %.pre.sink.i64, ptr %.sink.i63.sroa.phi, align 4
   %456 = load i64, ptr %19, align 8
   %457 = icmp ugt i64 %454, %456
-  br i1 %457, label %.thread128, label %458
+  br i1 %457, label %.thread153, label %458
 
 458:                                              ; preds = %453
   %459 = load ptr, ptr %2, align 8
@@ -4494,7 +4505,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %464 = getelementptr inbounds i8, ptr %45, i64 64
   %465 = tail call i32 @ebitmap_write(ptr noundef %464, ptr noundef %2) #22
   %466 = icmp eq i32 %465, 0
-  br i1 %466, label %467, label %.thread128
+  br i1 %466, label %467, label %.thread153
 
 467:                                              ; preds = %458
   br i1 %455, label %468, label %472
@@ -4503,12 +4514,12 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %469 = getelementptr i8, ptr %45, i64 88
   %470 = tail call i32 @ebitmap_write(ptr noundef %469, ptr noundef %2) #22
   %471 = icmp eq i32 %470, 0
-  br i1 %471, label %472, label %.thread128
+  br i1 %471, label %472, label %.thread153
 
-.thread128:                                       ; preds = %458, %468, %453
-  %.ph127 = phi i32 [ -22, %453 ], [ %470, %468 ], [ %465, %458 ]
+.thread153:                                       ; preds = %458, %468, %453
+  %.ph152 = phi i32 [ -22, %453 ], [ %470, %468 ], [ %465, %458 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
-  br label %.thread90
+  br label %.thread115
 
 472:                                              ; preds = %467, %468
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
@@ -4517,7 +4528,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
 473:                                              ; preds = %44
   %474 = load i64, ptr %19, align 8
   %475 = icmp ugt i64 %474, 7
-  br i1 %475, label %476, label %.thread90
+  br i1 %475, label %476, label %.thread115
 
 476:                                              ; preds = %473
   %477 = load i64, ptr %45, align 8
@@ -4531,7 +4542,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %483 = add i64 %482, -8
   store i64 %483, ptr %19, align 8
   %484 = icmp ugt i64 %483, 7
-  br i1 %484, label %485, label %.thread90
+  br i1 %484, label %485, label %.thread115
 
 485:                                              ; preds = %476
   %486 = getelementptr inbounds i8, ptr %45, i64 10
@@ -4550,7 +4561,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %496 = add i64 %495, -8
   store i64 %496, ptr %19, align 8
   %497 = icmp ugt i64 %496, 11
-  br i1 %497, label %498, label %.thread90
+  br i1 %497, label %498, label %.thread115
 
 498:                                              ; preds = %485
   %499 = getelementptr inbounds i8, ptr %45, i64 40
@@ -4599,19 +4610,18 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %522 = phi i32 [ %.pre7.i77, %..thread_crit_edge.i76 ], [ %513, %498 ]
   %523 = phi i32 [ %.pre.i75, %..thread_crit_edge.i76 ], [ %514, %498 ]
   store i32 2, ptr %5, align 4
-  store i32 %523, ptr %.4..4..4..sroa_idx6.i71, align 4
+  store i32 %523, ptr %.4..4..4.gep.sroa_idx210, align 4
   br label %524
 
 524:                                              ; preds = %.thread.i70, %521
-  %.sink.i72 = phi i64 [ 4, %521 ], [ 8, %.thread.i70 ]
+  %.sink.i72.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx209, %521 ], [ %.8..8..8.gep107.sroa_idx, %.thread.i70 ]
   %.pre.sink.i73 = phi i32 [ %.pre.i75, %521 ], [ %522, %.thread.i70 ]
   %525 = phi i64 [ 8, %521 ], [ 12, %.thread.i70 ]
   %526 = phi i1 [ false, %521 ], [ true, %.thread.i70 ]
-  %.4..4..4..sroa_idx.i74 = getelementptr inbounds i8, ptr %5, i64 %.sink.i72
-  store i32 %.pre.sink.i73, ptr %.4..4..4..sroa_idx.i74, align 4
+  store i32 %.pre.sink.i73, ptr %.sink.i72.sroa.phi, align 4
   %527 = load i64, ptr %19, align 8
   %528 = icmp ugt i64 %525, %527
-  br i1 %528, label %.thread135, label %529
+  br i1 %528, label %.thread160, label %529
 
 529:                                              ; preds = %524
   %530 = load ptr, ptr %2, align 8
@@ -4625,7 +4635,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %535 = getelementptr inbounds i8, ptr %45, i64 64
   %536 = tail call i32 @ebitmap_write(ptr noundef %535, ptr noundef %2) #22
   %537 = icmp eq i32 %536, 0
-  br i1 %537, label %538, label %.thread135
+  br i1 %537, label %538, label %.thread160
 
 538:                                              ; preds = %529
   br i1 %526, label %539, label %543
@@ -4634,12 +4644,12 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %540 = getelementptr i8, ptr %45, i64 88
   %541 = tail call i32 @ebitmap_write(ptr noundef %540, ptr noundef %2) #22
   %542 = icmp eq i32 %541, 0
-  br i1 %542, label %543, label %.thread135
+  br i1 %542, label %543, label %.thread160
 
-.thread135:                                       ; preds = %529, %539, %524
-  %.ph134 = phi i32 [ -22, %524 ], [ %541, %539 ], [ %536, %529 ]
+.thread160:                                       ; preds = %529, %539, %524
+  %.ph159 = phi i32 [ -22, %524 ], [ %541, %539 ], [ %536, %529 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  br label %.thread90
+  br label %.thread115
 
 543:                                              ; preds = %538, %539
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
@@ -4650,7 +4660,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %546 = tail call i64 @strlen(ptr noundef %545) #22
   %547 = load i64, ptr %19, align 8
   %548 = icmp ugt i64 %547, 7
-  br i1 %548, label %549, label %.thread90
+  br i1 %548, label %549, label %.thread115
 
 549:                                              ; preds = %544
   %550 = getelementptr inbounds i8, ptr %45, i64 8
@@ -4668,7 +4678,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %559 = add i64 %558, -8
   store i64 %559, ptr %19, align 8
   %560 = icmp ugt i64 %546, %559
-  br i1 %560, label %.thread90, label %561
+  br i1 %560, label %.thread115, label %561
 
 561:                                              ; preds = %549
   %562 = load ptr, ptr %45, align 8
@@ -4680,7 +4690,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %566 = sub i64 %565, %546
   store i64 %566, ptr %19, align 8
   %567 = icmp ugt i64 %566, 11
-  br i1 %567, label %568, label %.thread90
+  br i1 %567, label %568, label %.thread115
 
 568:                                              ; preds = %561
   %569 = getelementptr inbounds i8, ptr %45, i64 40
@@ -4729,19 +4739,18 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %592 = phi i32 [ %.pre7.i86, %..thread_crit_edge.i85 ], [ %583, %568 ]
   %593 = phi i32 [ %.pre.i84, %..thread_crit_edge.i85 ], [ %584, %568 ]
   store i32 2, ptr %4, align 4
-  store i32 %593, ptr %.4..4..4..sroa_idx6.i80, align 4
+  store i32 %593, ptr %.4..4..4.gep.sroa_idx212, align 4
   br label %594
 
 594:                                              ; preds = %.thread.i79, %591
-  %.sink.i81 = phi i64 [ 4, %591 ], [ 8, %.thread.i79 ]
+  %.sink.i81.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx211, %591 ], [ %.8..8..8.gep110.sroa_idx, %.thread.i79 ]
   %.pre.sink.i82 = phi i32 [ %.pre.i84, %591 ], [ %592, %.thread.i79 ]
   %595 = phi i64 [ 8, %591 ], [ 12, %.thread.i79 ]
   %596 = phi i1 [ false, %591 ], [ true, %.thread.i79 ]
-  %.4..4..4..sroa_idx.i83 = getelementptr inbounds i8, ptr %4, i64 %.sink.i81
-  store i32 %.pre.sink.i82, ptr %.4..4..4..sroa_idx.i83, align 4
+  store i32 %.pre.sink.i82, ptr %.sink.i81.sroa.phi, align 4
   %597 = load i64, ptr %19, align 8
   %598 = icmp ugt i64 %595, %597
-  br i1 %598, label %.thread142, label %599
+  br i1 %598, label %.thread167, label %599
 
 599:                                              ; preds = %594
   %600 = load ptr, ptr %2, align 8
@@ -4755,7 +4764,7 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %605 = getelementptr inbounds i8, ptr %45, i64 64
   %606 = tail call i32 @ebitmap_write(ptr noundef %605, ptr noundef %2) #22
   %607 = icmp eq i32 %606, 0
-  br i1 %607, label %608, label %.thread142
+  br i1 %607, label %608, label %.thread167
 
 608:                                              ; preds = %599
   br i1 %596, label %609, label %613
@@ -4764,12 +4773,12 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %610 = getelementptr i8, ptr %45, i64 88
   %611 = tail call i32 @ebitmap_write(ptr noundef %610, ptr noundef %2) #22
   %612 = icmp eq i32 %611, 0
-  br i1 %612, label %613, label %.thread142
+  br i1 %612, label %613, label %.thread167
 
-.thread142:                                       ; preds = %599, %609, %594
-  %.ph141 = phi i32 [ -22, %594 ], [ %611, %609 ], [ %606, %599 ]
+.thread167:                                       ; preds = %599, %609, %594
+  %.ph166 = phi i32 [ -22, %594 ], [ %611, %609 ], [ %606, %599 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  br label %.thread90
+  br label %.thread115
 
 613:                                              ; preds = %608, %609
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
@@ -4786,10 +4795,10 @@ define internal fastcc i32 @ocontext_write(ptr nocapture noundef readonly %0, pt
   %619 = load i32, ptr %14, align 4
   %620 = zext i32 %619 to i64
   %621 = icmp ult i64 %618, %620
-  br i1 %621, label %20, label %.thread90, !llvm.loop !48
+  br i1 %621, label %20, label %.thread115, !llvm.loop !48
 
-.thread90:                                        ; preds = %.loopexit143, %.loopexit, %561, %549, %485, %418, %365, %354, %295, %229, %176, %124, %116, %56, %544, %476, %473, %46, %349, %292, %226, %111, %53, %.thread142, %.thread135, %.thread128, %.thread122, %.thread115, %.thread109, %.thread103, %.thread98, %.thread91, %3
-  %622 = phi i32 [ 0, %3 ], [ %.ph, %.thread91 ], [ %.ph97, %.thread98 ], [ %.ph102, %.thread103 ], [ %.ph108, %.thread109 ], [ %.ph114, %.thread115 ], [ %.ph121, %.thread122 ], [ %.ph127, %.thread128 ], [ %.ph134, %.thread135 ], [ %.ph141, %.thread142 ], [ -22, %53 ], [ -22, %111 ], [ -22, %226 ], [ -22, %292 ], [ -22, %349 ], [ -22, %46 ], [ -22, %473 ], [ -22, %476 ], [ -22, %544 ], [ -22, %56 ], [ -22, %116 ], [ -22, %124 ], [ -22, %176 ], [ -22, %229 ], [ -22, %295 ], [ -22, %354 ], [ -22, %365 ], [ -22, %418 ], [ -22, %485 ], [ -22, %549 ], [ -22, %561 ], [ -22, %.loopexit143 ], [ 0, %.loopexit ]
+.thread115:                                       ; preds = %.loopexit168, %.loopexit, %561, %549, %485, %418, %365, %354, %295, %229, %176, %124, %116, %56, %544, %476, %473, %46, %349, %292, %226, %111, %53, %.thread167, %.thread160, %.thread153, %.thread147, %.thread140, %.thread134, %.thread128, %.thread123, %.thread116, %3
+  %622 = phi i32 [ 0, %3 ], [ %.ph, %.thread116 ], [ %.ph122, %.thread123 ], [ %.ph127, %.thread128 ], [ %.ph133, %.thread134 ], [ %.ph139, %.thread140 ], [ %.ph146, %.thread147 ], [ %.ph152, %.thread153 ], [ %.ph159, %.thread160 ], [ %.ph166, %.thread167 ], [ -22, %53 ], [ -22, %111 ], [ -22, %226 ], [ -22, %292 ], [ -22, %349 ], [ -22, %46 ], [ -22, %473 ], [ -22, %476 ], [ -22, %544 ], [ -22, %56 ], [ -22, %116 ], [ -22, %124 ], [ -22, %176 ], [ -22, %229 ], [ -22, %295 ], [ -22, %354 ], [ -22, %365 ], [ -22, %418 ], [ -22, %485 ], [ -22, %549 ], [ -22, %561 ], [ -22, %.loopexit168 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   ret i32 %622
 }
@@ -4800,25 +4809,27 @@ define internal fastcc i32 @genfs_write(ptr nocapture noundef readonly %0, ptr n
   %4 = getelementptr inbounds i8, ptr %0, i64 504
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %.loopexit27, label %.preheader26
+  %.4..4..4.gep.sroa_idx = getelementptr inbounds i8, ptr %3, i64 4
+  %.8..8..8.gep9.sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  br i1 %6, label %.loopexit28, label %.preheader27
 
-.preheader26:                                     ; preds = %2, %.preheader26
-  %7 = phi ptr [ %11, %.preheader26 ], [ %5, %2 ]
-  %8 = phi i32 [ %9, %.preheader26 ], [ 0, %2 ]
+.preheader27:                                     ; preds = %2, %.preheader27
+  %7 = phi ptr [ %11, %.preheader27 ], [ %5, %2 ]
+  %8 = phi i32 [ %9, %.preheader27 ], [ 0, %2 ]
   %9 = add i32 %8, 1
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit27, label %.preheader26, !llvm.loop !49
+  br i1 %12, label %.loopexit28, label %.preheader27, !llvm.loop !49
 
-.loopexit27:                                      ; preds = %.preheader26, %2
-  %13 = phi i32 [ 0, %2 ], [ %9, %.preheader26 ]
+.loopexit28:                                      ; preds = %.preheader27, %2
+  %13 = phi i32 [ 0, %2 ], [ %9, %.preheader27 ]
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = icmp ugt i64 %15, 3
-  br i1 %16, label %17, label %.thread10
+  br i1 %16, label %17, label %.thread11
 
-17:                                               ; preds = %.loopexit27
+17:                                               ; preds = %.loopexit28
   %18 = load ptr, ptr %1, align 8
   store i32 %13, ptr %18, align 1
   %19 = load ptr, ptr %1, align 8
@@ -4829,241 +4840,240 @@ define internal fastcc i32 @genfs_write(ptr nocapture noundef readonly %0, ptr n
   store i64 %22, ptr %14, align 8
   %23 = load ptr, ptr %4, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %.thread10, label %.preheader23
+  br i1 %24, label %.thread11, label %.preheader24
 
-.preheader23:                                     ; preds = %17
+.preheader24:                                     ; preds = %17
   %25 = icmp ugt i64 %22, 3
-  br i1 %25, label %.lr.ph32, label %.thread10
+  br i1 %25, label %.lr.ph33.preheader, label %.thread11
 
-.lr.ph32:                                         ; preds = %.preheader23
+.lr.ph33.preheader:                               ; preds = %.preheader24
   %26 = load ptr, ptr %23, align 8
   %27 = tail call i64 @strlen(ptr noundef %26) #22
-  %.4..4..4..sroa_idx6.i = getelementptr inbounds i8, ptr %3, i64 4
-  br label %31
+  %.4..4..4.gep.sroa_idx53 = getelementptr inbounds i8, ptr %3, i64 4
+  br label %.lr.ph33
 
 thread-pre-split:                                 ; preds = %.loopexit
   %.pr = load i64, ptr %14, align 8
-  %28 = load ptr, ptr %145, align 8
+  %28 = load ptr, ptr %144, align 8
   %29 = tail call i64 @strlen(ptr noundef %28) #22
   %30 = icmp ugt i64 %.pr, 3
-  br i1 %30, label %31, label %.thread10
+  br i1 %30, label %.lr.ph33, label %.thread11
 
-31:                                               ; preds = %.lr.ph32, %thread-pre-split
-  %32 = phi i64 [ %27, %.lr.ph32 ], [ %29, %thread-pre-split ]
-  %33 = phi ptr [ %23, %.lr.ph32 ], [ %145, %thread-pre-split ]
-  %34 = trunc i64 %32 to i32
+.lr.ph33:                                         ; preds = %.lr.ph33.preheader, %thread-pre-split
+  %31 = phi i64 [ %29, %thread-pre-split ], [ %27, %.lr.ph33.preheader ]
+  %32 = phi ptr [ %144, %thread-pre-split ], [ %23, %.lr.ph33.preheader ]
+  %33 = trunc i64 %31 to i32
+  %34 = load ptr, ptr %1, align 8
+  store i32 %33, ptr %34, align 1
   %35 = load ptr, ptr %1, align 8
-  store i32 %34, ptr %35, align 1
-  %36 = load ptr, ptr %1, align 8
-  %37 = getelementptr i8, ptr %36, i64 4
-  store ptr %37, ptr %1, align 8
-  %38 = load i64, ptr %14, align 8
-  %39 = add i64 %38, -4
-  store i64 %39, ptr %14, align 8
-  %40 = icmp ugt i64 %32, %39
-  br i1 %40, label %.thread10, label %41
+  %36 = getelementptr i8, ptr %35, i64 4
+  store ptr %36, ptr %1, align 8
+  %37 = load i64, ptr %14, align 8
+  %38 = add i64 %37, -4
+  store i64 %38, ptr %14, align 8
+  %39 = icmp ugt i64 %31, %38
+  br i1 %39, label %.thread11, label %40
 
-41:                                               ; preds = %31
-  %42 = load ptr, ptr %33, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr align 1 %42, i64 %32, i1 false)
-  %43 = load ptr, ptr %1, align 8
-  %44 = getelementptr i8, ptr %43, i64 %32
-  store ptr %44, ptr %1, align 8
-  %45 = load i64, ptr %14, align 8
-  %46 = sub i64 %45, %32
-  store i64 %46, ptr %14, align 8
-  %47 = getelementptr inbounds i8, ptr %33, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %thread-pre-split11, label %.preheader22
+40:                                               ; preds = %.lr.ph33
+  %41 = load ptr, ptr %32, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 1 %41, i64 %31, i1 false)
+  %42 = load ptr, ptr %1, align 8
+  %43 = getelementptr i8, ptr %42, i64 %31
+  store ptr %43, ptr %1, align 8
+  %44 = load i64, ptr %14, align 8
+  %45 = sub i64 %44, %31
+  store i64 %45, ptr %14, align 8
+  %46 = getelementptr inbounds i8, ptr %32, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %thread-pre-split12, label %.preheader23
 
-.preheader22:                                     ; preds = %41, %.preheader22
-  %50 = phi ptr [ %54, %.preheader22 ], [ %48, %41 ]
-  %51 = phi i32 [ %52, %.preheader22 ], [ 0, %41 ]
-  %52 = add i32 %51, 1
-  %53 = getelementptr inbounds i8, ptr %50, i64 192
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %thread-pre-split11, label %.preheader22, !llvm.loop !50
+.preheader23:                                     ; preds = %40, %.preheader23
+  %49 = phi ptr [ %53, %.preheader23 ], [ %47, %40 ]
+  %50 = phi i32 [ %51, %.preheader23 ], [ 0, %40 ]
+  %51 = add i32 %50, 1
+  %52 = getelementptr inbounds i8, ptr %49, i64 192
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %thread-pre-split12, label %.preheader23, !llvm.loop !50
 
-thread-pre-split11:                               ; preds = %.preheader22, %41
-  %56 = phi i32 [ 0, %41 ], [ %52, %.preheader22 ]
-  %57 = icmp ugt i64 %46, 3
-  br i1 %57, label %58, label %.thread10
+thread-pre-split12:                               ; preds = %.preheader23, %40
+  %55 = phi i32 [ 0, %40 ], [ %51, %.preheader23 ]
+  %56 = icmp ugt i64 %45, 3
+  br i1 %56, label %57, label %.thread11
 
-58:                                               ; preds = %thread-pre-split11
-  store i32 %56, ptr %44, align 1
-  %59 = load ptr, ptr %1, align 8
-  %60 = getelementptr i8, ptr %59, i64 4
-  store ptr %60, ptr %1, align 8
-  %61 = load i64, ptr %14, align 8
-  %62 = add i64 %61, -4
-  store i64 %62, ptr %14, align 8
-  %63 = load ptr, ptr %47, align 8
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %.loopexit, label %.preheader
+57:                                               ; preds = %thread-pre-split12
+  store i32 %55, ptr %43, align 1
+  %58 = load ptr, ptr %1, align 8
+  %59 = getelementptr i8, ptr %58, i64 4
+  store ptr %59, ptr %1, align 8
+  %60 = load i64, ptr %14, align 8
+  %61 = add i64 %60, -4
+  store i64 %61, ptr %14, align 8
+  %62 = load ptr, ptr %46, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %58
-  %65 = icmp ugt i64 %62, 3
-  br i1 %65, label %.lr.ph.preheader, label %.thread10
+.preheader:                                       ; preds = %57
+  %64 = icmp ugt i64 %61, 3
+  br i1 %64, label %.lr.ph.preheader, label %.thread11
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %66 = load ptr, ptr %63, align 8
-  %67 = tail call i64 @strlen(ptr noundef %66) #22
+  %65 = load ptr, ptr %62, align 8
+  %66 = tail call i64 @strlen(ptr noundef %65) #22
   br label %.lr.ph
 
-68:                                               ; preds = %140, %139
+67:                                               ; preds = %139, %138
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  %69 = getelementptr inbounds i8, ptr %76, i64 192
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %.loopexit, label %thread-pre-split14, !llvm.loop !51
+  %68 = getelementptr inbounds i8, ptr %75, i64 192
+  %69 = load ptr, ptr %68, align 8
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %.loopexit, label %thread-pre-split15, !llvm.loop !51
 
-thread-pre-split14:                               ; preds = %68
-  %.pr15 = load i64, ptr %14, align 8
-  %72 = load ptr, ptr %70, align 8
-  %73 = tail call i64 @strlen(ptr noundef %72) #22
-  %74 = icmp ugt i64 %.pr15, 3
-  br i1 %74, label %.lr.ph, label %.thread10
+thread-pre-split15:                               ; preds = %67
+  %.pr16 = load i64, ptr %14, align 8
+  %71 = load ptr, ptr %69, align 8
+  %72 = tail call i64 @strlen(ptr noundef %71) #22
+  %73 = icmp ugt i64 %.pr16, 3
+  br i1 %73, label %.lr.ph, label %.thread11
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %thread-pre-split14
-  %75 = phi i64 [ %73, %thread-pre-split14 ], [ %67, %.lr.ph.preheader ]
-  %76 = phi ptr [ %70, %thread-pre-split14 ], [ %63, %.lr.ph.preheader ]
-  %77 = trunc i64 %75 to i32
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %thread-pre-split15
+  %74 = phi i64 [ %72, %thread-pre-split15 ], [ %66, %.lr.ph.preheader ]
+  %75 = phi ptr [ %69, %thread-pre-split15 ], [ %62, %.lr.ph.preheader ]
+  %76 = trunc i64 %74 to i32
+  %77 = load ptr, ptr %1, align 8
+  store i32 %76, ptr %77, align 1
   %78 = load ptr, ptr %1, align 8
-  store i32 %77, ptr %78, align 1
-  %79 = load ptr, ptr %1, align 8
-  %80 = getelementptr i8, ptr %79, i64 4
-  store ptr %80, ptr %1, align 8
-  %81 = load i64, ptr %14, align 8
-  %82 = add i64 %81, -4
-  store i64 %82, ptr %14, align 8
-  %83 = icmp ugt i64 %75, %82
-  br i1 %83, label %.thread10, label %84
+  %79 = getelementptr i8, ptr %78, i64 4
+  store ptr %79, ptr %1, align 8
+  %80 = load i64, ptr %14, align 8
+  %81 = add i64 %80, -4
+  store i64 %81, ptr %14, align 8
+  %82 = icmp ugt i64 %74, %81
+  br i1 %82, label %.thread11, label %83
 
-84:                                               ; preds = %.lr.ph
-  %85 = load ptr, ptr %76, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 1 %85, i64 %75, i1 false)
-  %86 = load ptr, ptr %1, align 8
-  %87 = getelementptr i8, ptr %86, i64 %75
-  store ptr %87, ptr %1, align 8
-  %88 = load i64, ptr %14, align 8
-  %89 = sub i64 %88, %75
-  store i64 %89, ptr %14, align 8
-  %90 = icmp ugt i64 %89, 3
-  br i1 %90, label %91, label %.thread10
+83:                                               ; preds = %.lr.ph
+  %84 = load ptr, ptr %75, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %79, ptr align 1 %84, i64 %74, i1 false)
+  %85 = load ptr, ptr %1, align 8
+  %86 = getelementptr i8, ptr %85, i64 %74
+  store ptr %86, ptr %1, align 8
+  %87 = load i64, ptr %14, align 8
+  %88 = sub i64 %87, %74
+  store i64 %88, ptr %14, align 8
+  %89 = icmp ugt i64 %88, 3
+  br i1 %89, label %90, label %.thread11
 
-91:                                               ; preds = %84
-  %92 = getelementptr inbounds i8, ptr %76, i64 32
-  %93 = load i32, ptr %92, align 8
-  store i32 %93, ptr %87, align 1
-  %94 = load ptr, ptr %1, align 8
-  %95 = getelementptr i8, ptr %94, i64 4
-  store ptr %95, ptr %1, align 8
-  %96 = load i64, ptr %14, align 8
-  %97 = add i64 %96, -4
-  store i64 %97, ptr %14, align 8
-  %98 = icmp ugt i64 %97, 11
-  br i1 %98, label %99, label %.thread10
+90:                                               ; preds = %83
+  %91 = getelementptr inbounds i8, ptr %75, i64 32
+  %92 = load i32, ptr %91, align 8
+  store i32 %92, ptr %86, align 1
+  %93 = load ptr, ptr %1, align 8
+  %94 = getelementptr i8, ptr %93, i64 4
+  store ptr %94, ptr %1, align 8
+  %95 = load i64, ptr %14, align 8
+  %96 = add i64 %95, -4
+  store i64 %96, ptr %14, align 8
+  %97 = icmp ugt i64 %96, 11
+  br i1 %97, label %98, label %.thread11
 
-99:                                               ; preds = %91
-  %100 = getelementptr inbounds i8, ptr %76, i64 40
-  %101 = getelementptr inbounds i8, ptr %76, i64 48
-  %102 = load i32, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %76, i64 44
-  %104 = load i32, ptr %103, align 4
-  %105 = load i32, ptr %100, align 8
-  store i32 %105, ptr %95, align 1
-  %106 = getelementptr i8, ptr %94, i64 8
-  store i32 %104, ptr %106, align 1
-  %107 = getelementptr i8, ptr %94, i64 12
-  store i32 %102, ptr %107, align 1
-  %108 = load ptr, ptr %1, align 8
-  %109 = getelementptr i8, ptr %108, i64 12
-  store ptr %109, ptr %1, align 8
-  %110 = load i64, ptr %14, align 8
-  %111 = add i64 %110, -12
-  store i64 %111, ptr %14, align 8
-  %112 = getelementptr inbounds i8, ptr %76, i64 56
+98:                                               ; preds = %90
+  %99 = getelementptr inbounds i8, ptr %75, i64 40
+  %100 = getelementptr inbounds i8, ptr %75, i64 48
+  %101 = load i32, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %75, i64 44
+  %103 = load i32, ptr %102, align 4
+  %104 = load i32, ptr %99, align 8
+  store i32 %104, ptr %94, align 1
+  %105 = getelementptr i8, ptr %93, i64 8
+  store i32 %103, ptr %105, align 1
+  %106 = getelementptr i8, ptr %93, i64 12
+  store i32 %101, ptr %106, align 1
+  %107 = load ptr, ptr %1, align 8
+  %108 = getelementptr i8, ptr %107, i64 12
+  store ptr %108, ptr %1, align 8
+  %109 = load i64, ptr %14, align 8
+  %110 = add i64 %109, -12
+  store i64 %110, ptr %14, align 8
+  %111 = getelementptr inbounds i8, ptr %75, i64 56
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
-  %113 = getelementptr i8, ptr %76, i64 80
-  %114 = load i32, ptr %113, align 8
-  %115 = load i32, ptr %112, align 8
-  %116 = icmp eq i32 %114, %115
-  br i1 %116, label %117, label %.thread.i
+  %112 = getelementptr i8, ptr %75, i64 80
+  %113 = load i32, ptr %112, align 8
+  %114 = load i32, ptr %111, align 8
+  %115 = icmp eq i32 %113, %114
+  br i1 %115, label %116, label %.thread.i
 
-117:                                              ; preds = %99
-  %118 = getelementptr i8, ptr %76, i64 88
-  %119 = getelementptr inbounds i8, ptr %76, i64 64
-  %120 = tail call i32 @ebitmap_cmp(ptr noundef %118, ptr noundef %119) #22
-  %121 = icmp eq i32 %120, 0
-  %.pre.i = load i32, ptr %112, align 8
-  br i1 %121, label %..thread_crit_edge.i, label %122
+116:                                              ; preds = %98
+  %117 = getelementptr i8, ptr %75, i64 88
+  %118 = getelementptr inbounds i8, ptr %75, i64 64
+  %119 = tail call i32 @ebitmap_cmp(ptr noundef %117, ptr noundef %118) #22
+  %120 = icmp eq i32 %119, 0
+  %.pre.i = load i32, ptr %111, align 8
+  br i1 %120, label %..thread_crit_edge.i, label %121
 
-..thread_crit_edge.i:                             ; preds = %117
-  %.pre7.i = load i32, ptr %113, align 8
+..thread_crit_edge.i:                             ; preds = %116
+  %.pre7.i = load i32, ptr %112, align 8
   br label %.thread.i
 
-122:                                              ; preds = %117
+121:                                              ; preds = %116
   store i32 1, ptr %3, align 4
-  br label %125
+  br label %124
 
-.thread.i:                                        ; preds = %..thread_crit_edge.i, %99
-  %123 = phi i32 [ %.pre7.i, %..thread_crit_edge.i ], [ %114, %99 ]
-  %124 = phi i32 [ %.pre.i, %..thread_crit_edge.i ], [ %115, %99 ]
+.thread.i:                                        ; preds = %..thread_crit_edge.i, %98
+  %122 = phi i32 [ %.pre7.i, %..thread_crit_edge.i ], [ %113, %98 ]
+  %123 = phi i32 [ %.pre.i, %..thread_crit_edge.i ], [ %114, %98 ]
   store i32 2, ptr %3, align 4
-  store i32 %124, ptr %.4..4..4..sroa_idx6.i, align 4
-  br label %125
+  store i32 %123, ptr %.4..4..4.gep.sroa_idx53, align 4
+  br label %124
 
-125:                                              ; preds = %.thread.i, %122
-  %.sink.i = phi i64 [ 4, %122 ], [ 8, %.thread.i ]
-  %.pre.sink.i = phi i32 [ %.pre.i, %122 ], [ %123, %.thread.i ]
-  %126 = phi i64 [ 8, %122 ], [ 12, %.thread.i ]
-  %127 = phi i1 [ false, %122 ], [ true, %.thread.i ]
-  %.4..4..4..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 %.sink.i
-  store i32 %.pre.sink.i, ptr %.4..4..4..sroa_idx.i, align 4
-  %128 = load i64, ptr %14, align 8
-  %129 = icmp ugt i64 %126, %128
-  br i1 %129, label %.thread21, label %130
+124:                                              ; preds = %.thread.i, %121
+  %.sink.i.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx, %121 ], [ %.8..8..8.gep9.sroa_idx, %.thread.i ]
+  %.pre.sink.i = phi i32 [ %.pre.i, %121 ], [ %122, %.thread.i ]
+  %125 = phi i64 [ 8, %121 ], [ 12, %.thread.i ]
+  %126 = phi i1 [ false, %121 ], [ true, %.thread.i ]
+  store i32 %.pre.sink.i, ptr %.sink.i.sroa.phi, align 4
+  %127 = load i64, ptr %14, align 8
+  %128 = icmp ugt i64 %125, %127
+  br i1 %128, label %.thread22, label %129
 
-130:                                              ; preds = %125
+129:                                              ; preds = %124
+  %130 = load ptr, ptr %1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %130, ptr noundef nonnull align 4 dereferenceable(1) %3, i64 %125, i1 false)
   %131 = load ptr, ptr %1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %131, ptr noundef nonnull align 4 dereferenceable(1) %3, i64 %126, i1 false)
-  %132 = load ptr, ptr %1, align 8
-  %133 = getelementptr i8, ptr %132, i64 %126
-  store ptr %133, ptr %1, align 8
-  %134 = load i64, ptr %14, align 8
-  %135 = sub i64 %134, %126
-  store i64 %135, ptr %14, align 8
-  %136 = getelementptr inbounds i8, ptr %76, i64 64
-  %137 = tail call i32 @ebitmap_write(ptr noundef %136, ptr noundef %1) #22
-  %138 = icmp eq i32 %137, 0
-  br i1 %138, label %139, label %.thread21
+  %132 = getelementptr i8, ptr %131, i64 %125
+  store ptr %132, ptr %1, align 8
+  %133 = load i64, ptr %14, align 8
+  %134 = sub i64 %133, %125
+  store i64 %134, ptr %14, align 8
+  %135 = getelementptr inbounds i8, ptr %75, i64 64
+  %136 = tail call i32 @ebitmap_write(ptr noundef %135, ptr noundef %1) #22
+  %137 = icmp eq i32 %136, 0
+  br i1 %137, label %138, label %.thread22
 
-139:                                              ; preds = %130
-  br i1 %127, label %140, label %68
+138:                                              ; preds = %129
+  br i1 %126, label %139, label %67
 
-140:                                              ; preds = %139
-  %141 = getelementptr i8, ptr %76, i64 88
-  %142 = tail call i32 @ebitmap_write(ptr noundef %141, ptr noundef %1) #22
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %68, label %.thread21
+139:                                              ; preds = %138
+  %140 = getelementptr i8, ptr %75, i64 88
+  %141 = tail call i32 @ebitmap_write(ptr noundef %140, ptr noundef %1) #22
+  %142 = icmp eq i32 %141, 0
+  br i1 %142, label %67, label %.thread22
 
-.thread21:                                        ; preds = %130, %140, %125
-  %.ph = phi i32 [ -22, %125 ], [ %142, %140 ], [ %137, %130 ]
+.thread22:                                        ; preds = %129, %139, %124
+  %.ph = phi i32 [ -22, %124 ], [ %141, %139 ], [ %136, %129 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  br label %.thread10
+  br label %.thread11
 
-.loopexit:                                        ; preds = %68, %58
-  %144 = getelementptr inbounds i8, ptr %33, i64 16
-  %145 = load ptr, ptr %144, align 8
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %.thread10, label %thread-pre-split, !llvm.loop !52
+.loopexit:                                        ; preds = %67, %57
+  %143 = getelementptr inbounds i8, ptr %32, i64 16
+  %144 = load ptr, ptr %143, align 8
+  %145 = icmp eq ptr %144, null
+  br i1 %145, label %.thread11, label %thread-pre-split, !llvm.loop !52
 
-.thread10:                                        ; preds = %.loopexit, %thread-pre-split, %thread-pre-split11, %31, %.preheader, %thread-pre-split14, %84, %.lr.ph, %91, %.preheader23, %.thread21, %.loopexit27, %17
-  %147 = phi i32 [ 0, %17 ], [ -22, %.loopexit27 ], [ %.ph, %.thread21 ], [ -22, %.preheader23 ], [ -22, %91 ], [ -22, %.lr.ph ], [ -22, %84 ], [ -22, %thread-pre-split14 ], [ -22, %.preheader ], [ 0, %.loopexit ], [ -22, %thread-pre-split ], [ -22, %thread-pre-split11 ], [ -22, %31 ]
-  ret i32 %147
+.thread11:                                        ; preds = %.loopexit, %thread-pre-split, %thread-pre-split12, %.lr.ph33, %.preheader, %thread-pre-split15, %83, %.lr.ph, %90, %.preheader24, %.thread22, %.loopexit28, %17
+  %146 = phi i32 [ 0, %17 ], [ -22, %.loopexit28 ], [ %.ph, %.thread22 ], [ -22, %.preheader24 ], [ -22, %90 ], [ -22, %.lr.ph ], [ -22, %83 ], [ -22, %thread-pre-split15 ], [ -22, %.preheader ], [ 0, %.loopexit ], [ -22, %thread-pre-split ], [ -22, %thread-pre-split12 ], [ -22, %.lr.ph33 ]
+  ret i32 %146
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -7817,6 +7827,8 @@ define internal i32 @user_write(ptr nocapture noundef readonly %0, ptr noundef %
   %12 = getelementptr inbounds i8, ptr %6, i64 576
   %13 = load i32, ptr %12, align 8
   %14 = icmp ugt i32 %13, 23
+  %.4..4..4.gep.sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
+  %.8..8..8.gep4.sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %3
@@ -7888,17 +7900,16 @@ define internal i32 @user_write(ptr nocapture noundef readonly %0, ptr noundef %
   %50 = phi i32 [ %.pre7.i, %..thread_crit_edge.i ], [ %41, %38 ]
   %51 = phi i32 [ %.pre.i, %..thread_crit_edge.i ], [ %42, %38 ]
   store i32 2, ptr %4, align 4
-  %.4..4..4..sroa_idx6.i = getelementptr inbounds i8, ptr %4, i64 4
-  store i32 %51, ptr %.4..4..4..sroa_idx6.i, align 4
+  %.4..4..4.gep.sroa_idx7 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %51, ptr %.4..4..4.gep.sroa_idx7, align 4
   br label %52
 
 52:                                               ; preds = %.thread.i, %49
-  %.sink.i = phi i64 [ 4, %49 ], [ 8, %.thread.i ]
+  %.sink.i.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx, %49 ], [ %.8..8..8.gep4.sroa_idx, %.thread.i ]
   %.pre.sink.i = phi i32 [ %.pre.i, %49 ], [ %50, %.thread.i ]
   %53 = phi i64 [ 8, %49 ], [ 12, %.thread.i ]
   %54 = phi i1 [ false, %49 ], [ true, %.thread.i ]
-  %.4..4..4..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 %.sink.i
-  store i32 %.pre.sink.i, ptr %.4..4..4..sroa_idx.i, align 4
+  store i32 %.pre.sink.i, ptr %.sink.i.sroa.phi, align 4
   %55 = load i64, ptr %20, align 8
   %56 = icmp ugt i64 %53, %55
   br i1 %56, label %mls_write_range_helper.exit.thread, label %57
@@ -8558,6 +8569,8 @@ define internal i32 @range_write_helper(ptr nocapture noundef readonly %0, ptr n
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %8, 7
+  %.4..4..4.gep.sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
+  %.8..8..8.gep1.sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   br i1 %9, label %10, label %66
 
 10:                                               ; preds = %3
@@ -8582,9 +8595,9 @@ define internal i32 @range_write_helper(ptr nocapture noundef readonly %0, ptr n
 
 24:                                               ; preds = %10
   %25 = icmp ugt i64 %20, 3
-  br i1 %25, label %.thread1, label %66
+  br i1 %25, label %.thread2, label %66
 
-.thread1:                                         ; preds = %24
+.thread2:                                         ; preds = %24
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   %27 = load i32, ptr %26, align 4
   store i32 %27, ptr %18, align 1
@@ -8596,7 +8609,7 @@ define internal i32 @range_write_helper(ptr nocapture noundef readonly %0, ptr n
   store i64 %31, ptr %7, align 8
   br label %32
 
-32:                                               ; preds = %.thread1, %10
+32:                                               ; preds = %.thread2, %10
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   %33 = getelementptr i8, ptr %1, i64 24
@@ -8625,17 +8638,16 @@ define internal i32 @range_write_helper(ptr nocapture noundef readonly %0, ptr n
   %43 = phi i32 [ %.pre7.i, %..thread_crit_edge.i ], [ %34, %32 ]
   %44 = phi i32 [ %.pre.i, %..thread_crit_edge.i ], [ %35, %32 ]
   store i32 2, ptr %4, align 4
-  %.4..4..4..sroa_idx6.i = getelementptr inbounds i8, ptr %4, i64 4
-  store i32 %44, ptr %.4..4..4..sroa_idx6.i, align 4
+  %.4..4..4.gep.sroa_idx4 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %44, ptr %.4..4..4.gep.sroa_idx4, align 4
   br label %45
 
 45:                                               ; preds = %.thread.i, %42
-  %.sink.i = phi i64 [ 4, %42 ], [ 8, %.thread.i ]
+  %.sink.i.sroa.phi = phi ptr [ %.4..4..4.gep.sroa_idx, %42 ], [ %.8..8..8.gep1.sroa_idx, %.thread.i ]
   %.pre.sink.i = phi i32 [ %.pre.i, %42 ], [ %43, %.thread.i ]
   %46 = phi i64 [ 8, %42 ], [ 12, %.thread.i ]
   %47 = phi i1 [ false, %42 ], [ true, %.thread.i ]
-  %.4..4..4..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 %.sink.i
-  store i32 %.pre.sink.i, ptr %.4..4..4..sroa_idx.i, align 4
+  store i32 %.pre.sink.i, ptr %.sink.i.sroa.phi, align 4
   %48 = load i64, ptr %7, align 8
   %49 = icmp ugt i64 %46, %48
   br i1 %49, label %mls_write_range_helper.exit, label %50

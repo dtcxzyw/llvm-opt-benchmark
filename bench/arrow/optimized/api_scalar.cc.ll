@@ -95662,15 +95662,15 @@ define linkonce_odr void @_ZN5arrow7compute8internal18ToStructScalarImplINS0_16L
 entry:
   %__a.i.i = alloca %"class.std::allocator.185", align 1
   %ref.tmp.i = alloca %"class.std::shared_ptr.66", align 8
-  %ref.tmp.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %ref.tmp2.i = alloca %"class.std::shared_ptr.69", align 8
-  %ref.tmp2.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   %result = alloca %"class.arrow::Result.226", align 8
   %ref.tmp15 = alloca %"class.std::basic_string_view", align 8
   %ref.tmp19 = alloca %"class.std::shared_ptr.66", align 8
   %status_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %status_, align 8
   %cmp.i = icmp eq ptr %1, null
+  %ref.tmp.sink.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %ref.tmp.sink.i.sroa.gep45 = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   br i1 %cmp.i, label %if.end, label %cleanup.cont
 
 if.end:                                           ; preds = %entry
@@ -95704,8 +95704,8 @@ lpad:                                             ; preds = %if.end14
   br label %ehcleanup
 
 if.end14:                                         ; preds = %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.i, %cleanup.action.i
+  %ref.tmp.sink.i.sroa.phi = phi ptr [ %ref.tmp.sink.i.sroa.gep, %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.i ], [ %ref.tmp.sink.i.sroa.gep45, %cleanup.action.i ]
   %ref.tmp.sink.i = phi ptr [ %ref.tmp.i, %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.i ], [ %ref.tmp2.i, %cleanup.action.i ]
-  %ref.tmp.sink.i.sroa.phi = phi ptr [ %ref.tmp.i.sroa.gep, %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.i ], [ %ref.tmp2.i.sroa.gep, %cleanup.action.i ]
   %.pre.sink.i = load ptr, ptr %ref.tmp.sink.i, align 8, !noalias !1226
   %.pre1.i = load ptr, ptr %ref.tmp.sink.i.sroa.phi, align 8, !noalias !1226
   store ptr null, ptr %result, align 8, !alias.scope !1226
@@ -95854,15 +95854,15 @@ define linkonce_odr void @_ZN5arrow7compute8internal18ToStructScalarImplINS0_16L
 entry:
   %__a.i.i = alloca %"class.std::allocator.185", align 1
   %ref.tmp.i = alloca %"class.std::shared_ptr.66", align 8
-  %ref.tmp.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %ref.tmp2.i = alloca %"class.std::shared_ptr.69", align 8
-  %ref.tmp2.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   %result = alloca %"class.arrow::Result.226", align 8
   %ref.tmp15 = alloca %"class.std::basic_string_view", align 8
   %ref.tmp19 = alloca %"class.std::shared_ptr.66", align 8
   %status_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %status_, align 8
   %cmp.i = icmp eq ptr %1, null
+  %ref.tmp.sink.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %ref.tmp.sink.i.sroa.gep44 = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   br i1 %cmp.i, label %if.end, label %cleanup.cont
 
 if.end:                                           ; preds = %entry
@@ -95898,8 +95898,8 @@ lpad:                                             ; preds = %if.end14
   br label %ehcleanup
 
 if.end14:                                         ; preds = %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.i, %cleanup.action.i
+  %ref.tmp.sink.i.sroa.phi = phi ptr [ %ref.tmp.sink.i.sroa.gep, %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.i ], [ %ref.tmp.sink.i.sroa.gep44, %cleanup.action.i ]
   %ref.tmp.sink.i = phi ptr [ %ref.tmp.i, %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.i ], [ %ref.tmp2.i, %cleanup.action.i ]
-  %ref.tmp.sink.i.sroa.phi = phi ptr [ %ref.tmp.i.sroa.gep, %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.i ], [ %ref.tmp2.i.sroa.gep, %cleanup.action.i ]
   %.pre.sink.i = load ptr, ptr %ref.tmp.sink.i, align 8, !noalias !1232
   %_M_refcount.i.i.i.i.i3.i = getelementptr inbounds i8, ptr %result, i64 16
   %storage_.i.i2.i = getelementptr inbounds i8, ptr %result, i64 8

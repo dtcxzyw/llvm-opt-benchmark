@@ -6276,6 +6276,7 @@ define dso_local i32 @ata_exec_internal(ptr noundef %0, ptr nocapture noundef %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false), !annotation !43
   %10 = icmp eq i32 %3, 3
+  %.sroa.gep = getelementptr inbounds i8, ptr %9, i64 12
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %7
@@ -6294,6 +6295,7 @@ define dso_local i32 @ata_exec_internal(ptr noundef %0, ptr nocapture noundef %1
 
 15:                                               ; preds = %14, %7
   %16 = phi i32 [ 1, %14 ], [ 0, %7 ]
+  %.sroa.phi = phi ptr [ %.sroa.gep, %14 ], [ inttoptr (i64 12 to ptr), %7 ]
   %17 = phi ptr [ %9, %14 ], [ null, %7 ]
   %18 = load ptr, ptr %0, align 64
   %19 = load ptr, ptr %18, align 64
@@ -6317,7 +6319,7 @@ define dso_local i32 @ata_exec_internal(ptr noundef %0, ptr nocapture noundef %1
 31:                                               ; preds = %15
   %32 = load ptr, ptr %24, align 16
   call void @_raw_spin_unlock_irqrestore(ptr noundef %32, i64 noundef %26) #30
-  br label %184
+  br label %183
 
 33:                                               ; preds = %15
   %34 = getelementptr i8, ptr %19, i64 7984
@@ -6416,187 +6418,186 @@ define dso_local i32 @ata_exec_internal(ptr noundef %0, ptr nocapture noundef %1
   %89 = or i64 %88, 16
   store i64 %89, ptr %41, align 8
   store i32 %3, ptr %39, align 8
-  br i1 %10, label %94, label %.preheader.split
+  br i1 %10, label %93, label %.preheader.split
 
 .preheader.split:                                 ; preds = %.thread, %87
-  %90 = getelementptr inbounds i8, ptr %17, i64 12
-  %91 = load i32, ptr %90, align 4
-  %92 = call ptr @sg_next(ptr noundef %17) #30
+  %90 = load i32, ptr %.sroa.phi, align 4
+  %91 = call ptr @sg_next(ptr noundef %17) #30
   store ptr %17, ptr %40, align 8
   store i32 %16, ptr %45, align 8
-  %93 = getelementptr i8, ptr %19, i64 8152
-  store ptr %17, ptr %93, align 8
-  store i32 %91, ptr %44, align 8
-  br label %94
+  %92 = getelementptr i8, ptr %19, i64 8152
+  store ptr %17, ptr %92, align 8
+  store i32 %90, ptr %44, align 8
+  br label %93
 
-94:                                               ; preds = %.preheader.split, %87
-  %95 = getelementptr i8, ptr %19, i64 8208
-  store ptr %8, ptr %95, align 8
-  %96 = getelementptr i8, ptr %19, i64 8200
-  store ptr @ata_qc_complete_internal, ptr %96, align 8
+93:                                               ; preds = %.preheader.split, %87
+  %94 = getelementptr i8, ptr %19, i64 8208
+  store ptr %8, ptr %94, align 8
+  %95 = getelementptr i8, ptr %19, i64 8200
+  store ptr @ata_qc_complete_internal, ptr %95, align 8
   call void @ata_qc_issue(ptr noundef %34)
-  %97 = load ptr, ptr %24, align 16
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %97, i64 noundef %26) #30
-  %98 = icmp eq i32 %6, 0
-  br i1 %98, label %99, label %106
+  %96 = load ptr, ptr %24, align 16
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %96, i64 noundef %26) #30
+  %97 = icmp eq i32 %6, 0
+  br i1 %97, label %98, label %105
 
-99:                                               ; preds = %94
-  %100 = load i32, ptr @ata_probe_timeout, align 4
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %104, label %102
+98:                                               ; preds = %93
+  %99 = load i32, ptr @ata_probe_timeout, align 4
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %103, label %101
 
-102:                                              ; preds = %99
-  %103 = mul i32 %100, 1000
-  br label %106
+101:                                              ; preds = %98
+  %102 = mul i32 %99, 1000
+  br label %105
 
-104:                                              ; preds = %99
-  %105 = call i32 @ata_internal_cmd_timeout(ptr noundef %0, i8 noundef zeroext %21) #30
-  br label %106
+103:                                              ; preds = %98
+  %104 = call i32 @ata_internal_cmd_timeout(ptr noundef %0, i8 noundef zeroext %21) #30
+  br label %105
 
-106:                                              ; preds = %104, %102, %94
-  %107 = phi i1 [ false, %94 ], [ false, %102 ], [ true, %104 ]
-  %108 = phi i32 [ %6, %94 ], [ %103, %102 ], [ %105, %104 ]
+105:                                              ; preds = %103, %101, %93
+  %106 = phi i1 [ false, %93 ], [ false, %101 ], [ true, %103 ]
+  %107 = phi i32 [ %6, %93 ], [ %102, %101 ], [ %104, %103 ]
   call void @ata_eh_release(ptr noundef %19) #30
-  %109 = call i64 @__msecs_to_jiffies(i32 noundef %108) #30
-  %110 = call i64 @wait_for_completion_timeout(ptr noundef nonnull %8, i64 noundef %109) #30
+  %108 = call i64 @__msecs_to_jiffies(i32 noundef %107) #30
+  %109 = call i64 @wait_for_completion_timeout(ptr noundef nonnull %8, i64 noundef %108) #30
   call void @ata_eh_acquire(ptr noundef %19) #30
   call void @ata_sff_flush_pio_task(ptr noundef %19) #30
-  %111 = and i64 %110, 4294967295
-  %112 = icmp eq i64 %111, 0
-  br i1 %112, label %113, label %136
+  %110 = and i64 %109, 4294967295
+  %111 = icmp eq i64 %110, 0
+  br i1 %111, label %112, label %135
 
-113:                                              ; preds = %106
-  %114 = load ptr, ptr %24, align 16
-  %115 = call i64 @_raw_spin_lock_irqsave(ptr noundef %114) #30
-  %116 = load i64, ptr %41, align 8
-  %117 = and i64 %116, 1
-  %118 = icmp eq i64 %117, 0
-  br i1 %118, label %134, label %119
+112:                                              ; preds = %105
+  %113 = load ptr, ptr %24, align 16
+  %114 = call i64 @_raw_spin_lock_irqsave(ptr noundef %113) #30
+  %115 = load i64, ptr %41, align 8
+  %116 = and i64 %115, 1
+  %117 = icmp eq i64 %116, 0
+  br i1 %117, label %133, label %118
 
-119:                                              ; preds = %113
-  %120 = getelementptr i8, ptr %19, i64 8164
-  %121 = load i32, ptr %120, align 4
-  %122 = or i32 %121, 4
-  store i32 %122, ptr %120, align 4
-  %123 = call i32 @ata_port_freeze(ptr noundef %19) #30
-  %124 = load ptr, ptr %0, align 64
-  %125 = load ptr, ptr %124, align 64
-  %126 = getelementptr inbounds i8, ptr %125, i64 36
-  %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %124, i64 8
-  %129 = load i32, ptr %128, align 8
-  %130 = load i32, ptr %53, align 8
-  %131 = add i32 %130, %129
-  %132 = zext i8 %21 to i32
-  %133 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.274, i32 noundef %127, i32 noundef %131, i32 noundef %108, i32 noundef %132) #32
-  br label %134
+118:                                              ; preds = %112
+  %119 = getelementptr i8, ptr %19, i64 8164
+  %120 = load i32, ptr %119, align 4
+  %121 = or i32 %120, 4
+  store i32 %121, ptr %119, align 4
+  %122 = call i32 @ata_port_freeze(ptr noundef %19) #30
+  %123 = load ptr, ptr %0, align 64
+  %124 = load ptr, ptr %123, align 64
+  %125 = getelementptr inbounds i8, ptr %124, i64 36
+  %126 = load i32, ptr %125, align 4
+  %127 = getelementptr inbounds i8, ptr %123, i64 8
+  %128 = load i32, ptr %127, align 8
+  %129 = load i32, ptr %53, align 8
+  %130 = add i32 %129, %128
+  %131 = zext i8 %21 to i32
+  %132 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.274, i32 noundef %126, i32 noundef %130, i32 noundef %107, i32 noundef %131) #32
+  br label %133
 
-134:                                              ; preds = %119, %113
-  %135 = load ptr, ptr %24, align 16
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %135, i64 noundef %115) #30
-  br label %136
+133:                                              ; preds = %118, %112
+  %134 = load ptr, ptr %24, align 16
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %134, i64 noundef %114) #30
+  br label %135
 
-136:                                              ; preds = %134, %106
-  %137 = getelementptr inbounds i8, ptr %19, i64 8
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 200
-  %140 = load ptr, ptr %139, align 8
-  %141 = icmp eq ptr %140, null
-  br i1 %141, label %143, label %142
+135:                                              ; preds = %133, %105
+  %136 = getelementptr inbounds i8, ptr %19, i64 8
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds i8, ptr %137, i64 200
+  %139 = load ptr, ptr %138, align 8
+  %140 = icmp eq ptr %139, null
+  br i1 %140, label %142, label %141
 
-142:                                              ; preds = %136
-  call void %140(ptr noundef %34) #30
-  br label %143
+141:                                              ; preds = %135
+  call void %139(ptr noundef %34) #30
+  br label %142
 
-143:                                              ; preds = %142, %136
-  %144 = load i64, ptr %41, align 8
-  %145 = and i64 %144, 65536
-  %146 = icmp eq i64 %145, 0
-  br i1 %146, label %162, label %147
+142:                                              ; preds = %141, %135
+  %143 = load i64, ptr %41, align 8
+  %144 = and i64 %143, 65536
+  %145 = icmp eq i64 %144, 0
+  br i1 %145, label %161, label %146
 
-147:                                              ; preds = %143
-  %148 = load i8, ptr %58, align 1
-  %149 = and i8 %148, 33
-  %150 = icmp eq i8 %149, 0
+146:                                              ; preds = %142
+  %147 = load i8, ptr %58, align 1
+  %148 = and i8 %147, 33
+  %149 = icmp eq i8 %148, 0
   %.phi.trans.insert = getelementptr i8, ptr %19, i64 8164
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  br i1 %150, label %153, label %.thread5
+  br i1 %149, label %152, label %.thread5
 
-.thread5:                                         ; preds = %147
-  %151 = or i32 %.pre, 1
-  store i32 %151, ptr %.phi.trans.insert, align 4
-  %152 = getelementptr i8, ptr %19, i64 8164
-  br label %156
+.thread5:                                         ; preds = %146
+  %150 = or i32 %.pre, 1
+  store i32 %150, ptr %.phi.trans.insert, align 4
+  %151 = getelementptr i8, ptr %19, i64 8164
+  br label %155
 
-153:                                              ; preds = %147
-  %154 = getelementptr i8, ptr %19, i64 8164
-  %155 = icmp eq i32 %.pre, 0
-  br i1 %155, label %.thread6, label %156
+152:                                              ; preds = %146
+  %153 = getelementptr i8, ptr %19, i64 8164
+  %154 = icmp eq i32 %.pre, 0
+  br i1 %154, label %.thread6, label %155
 
-.thread6:                                         ; preds = %153
-  store i32 256, ptr %154, align 4
-  br label %169
+.thread6:                                         ; preds = %152
+  store i32 256, ptr %153, align 4
+  br label %168
 
-156:                                              ; preds = %.thread5, %153
-  %157 = phi ptr [ %154, %153 ], [ %152, %.thread5 ]
-  %158 = phi i32 [ %.pre, %153 ], [ %151, %.thread5 ]
-  %159 = and i32 %158, -257
-  %160 = icmp eq i32 %159, 0
-  br i1 %160, label %169, label %161
+155:                                              ; preds = %.thread5, %152
+  %156 = phi ptr [ %153, %152 ], [ %151, %.thread5 ]
+  %157 = phi i32 [ %.pre, %152 ], [ %150, %.thread5 ]
+  %158 = and i32 %157, -257
+  %159 = icmp eq i32 %158, 0
+  br i1 %159, label %168, label %160
 
-161:                                              ; preds = %156
-  store i32 %159, ptr %157, align 4
-  br label %169
+160:                                              ; preds = %155
+  store i32 %158, ptr %156, align 4
+  br label %168
 
-162:                                              ; preds = %143
-  %163 = getelementptr i8, ptr %19, i64 8037
-  %164 = load i8, ptr %163, align 1
-  %165 = icmp eq i8 %164, 11
-  br i1 %165, label %166, label %169
+161:                                              ; preds = %142
+  %162 = getelementptr i8, ptr %19, i64 8037
+  %163 = load i8, ptr %162, align 1
+  %164 = icmp eq i8 %163, 11
+  br i1 %164, label %165, label %168
 
-166:                                              ; preds = %162
-  %167 = load i8, ptr %58, align 1
-  %168 = or i8 %167, 2
-  store i8 %168, ptr %58, align 1
-  br label %169
+165:                                              ; preds = %161
+  %166 = load i8, ptr %58, align 1
+  %167 = or i8 %166, 2
+  store i8 %167, ptr %58, align 1
+  br label %168
 
-169:                                              ; preds = %.thread6, %166, %162, %161, %156
-  %170 = load ptr, ptr %24, align 16
-  %171 = call i64 @_raw_spin_lock_irqsave(ptr noundef %170) #30
-  %172 = getelementptr i8, ptr %19, i64 8168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %1, ptr noundef align 8 dereferenceable(32) %172, i64 32, i1 false)
-  %173 = getelementptr i8, ptr %19, i64 8164
-  %174 = load i32, ptr %173, align 4
+168:                                              ; preds = %.thread6, %165, %161, %160, %155
+  %169 = load ptr, ptr %24, align 16
+  %170 = call i64 @_raw_spin_lock_irqsave(ptr noundef %169) #30
+  %171 = getelementptr i8, ptr %19, i64 8168
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %1, ptr noundef align 8 dereferenceable(32) %171, i64 32, i1 false)
+  %172 = getelementptr i8, ptr %19, i64 8164
+  %173 = load i32, ptr %172, align 4
   store i64 0, ptr %41, align 8
-  %175 = load i32, ptr %35, align 8
-  %176 = icmp ult i32 %175, 33
-  br i1 %176, label %177, label %178
+  %174 = load i32, ptr %35, align 8
+  %175 = icmp ult i32 %174, 33
+  br i1 %175, label %176, label %177
 
-177:                                              ; preds = %169
+176:                                              ; preds = %168
   store i32 -84148995, ptr %35, align 8
-  br label %178
+  br label %177
 
-178:                                              ; preds = %177, %169
+177:                                              ; preds = %176, %168
   store i32 %61, ptr %60, align 8
   store i32 %63, ptr %62, align 4
   store i64 %65, ptr %64, align 32
   store i32 %67, ptr %66, align 8
-  %179 = load ptr, ptr %24, align 16
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %179, i64 noundef %171) #30
-  %180 = and i32 %174, 4
-  %181 = icmp ne i32 %180, 0
-  %182 = and i1 %107, %181
-  br i1 %182, label %183, label %184
+  %178 = load ptr, ptr %24, align 16
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %178, i64 noundef %170) #30
+  %179 = and i32 %173, 4
+  %180 = icmp ne i32 %179, 0
+  %181 = and i1 %106, %180
+  br i1 %181, label %182, label %183
 
-183:                                              ; preds = %178
+182:                                              ; preds = %177
   call void @ata_internal_cmd_timed_out(ptr noundef %0, i8 noundef zeroext %21) #30
-  br label %184
+  br label %183
 
-184:                                              ; preds = %183, %178, %31
-  %185 = phi i32 [ 64, %31 ], [ %174, %183 ], [ %174, %178 ]
+183:                                              ; preds = %182, %177, %31
+  %184 = phi i32 [ 64, %31 ], [ %173, %182 ], [ %173, %177 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #30
-  ret i32 %185
+  ret i32 %184
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

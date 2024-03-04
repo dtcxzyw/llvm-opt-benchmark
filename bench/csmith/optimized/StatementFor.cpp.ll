@@ -1565,10 +1565,8 @@ define dso_local noundef ptr @_ZN12StatementFor22make_random_array_loopERK9CGCon
   %3 = alloca %"class.std::vector.3", align 8
   %4 = alloca %"class.std::vector.3", align 8
   %5 = alloca %"class.std::vector.3", align 8
-  %.sroa.gep124 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = alloca %"class.std::vector.3", align 8
   %7 = alloca %"class.std::vector.3", align 8
-  %.sroa.gep = getelementptr inbounds i8, ptr %7, i64 8
   %8 = alloca %class.RWDirective, align 8
   %9 = alloca %class.CGContext, align 8
   %10 = tail call noundef i32 @_ZN9CGOptions21max_array_num_in_loopEv()
@@ -1577,6 +1575,8 @@ define dso_local noundef ptr @_ZN12StatementFor22make_random_array_loopERK9CGCon
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %12 = zext i32 %11 to i64
   %.not119 = icmp eq i32 %11, 0
+  %.sink123.sroa.gep = getelementptr inbounds i8, ptr %7, i64 8
+  %.sink123.sroa.gep124 = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %.not119, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %26
@@ -1941,8 +1941,8 @@ _ZNSt6vectorIPK8VariableSaIS2_EEaSERKS4_.exit95:  ; preds = %139, %_ZNSt12_Vecto
   br label %_ZNSt6vectorIPK8VariableSaIS2_EEaSERKS4_.exit51.sink.split
 
 _ZNSt6vectorIPK8VariableSaIS2_EEaSERKS4_.exit51.sink.split: ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EEaSERKS4_.exit95, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPK8VariableSt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i32
+  %.sink123.sroa.phi = phi ptr [ %.sink123.sroa.gep, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPK8VariableSt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i32 ], [ %.sink123.sroa.gep124, %_ZNSt6vectorIPK8VariableSaIS2_EEaSERKS4_.exit95 ]
   %.sink = phi ptr [ %123, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPK8VariableSt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i32 ], [ %156, %_ZNSt6vectorIPK8VariableSaIS2_EEaSERKS4_.exit95 ]
-  %.sink123.sroa.phi = phi ptr [ %.sroa.gep, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPK8VariableSt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i32 ], [ %.sroa.gep124, %_ZNSt6vectorIPK8VariableSaIS2_EEaSERKS4_.exit95 ]
   store ptr %.sink, ptr %.sink123.sroa.phi, align 8
   br label %_ZNSt6vectorIPK8VariableSaIS2_EEaSERKS4_.exit51
 

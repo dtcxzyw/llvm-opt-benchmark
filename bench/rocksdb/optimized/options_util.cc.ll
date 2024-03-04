@@ -1887,6 +1887,8 @@ entry:
   %vtable = load ptr, ptr %env, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
   %0 = load ptr, ptr %vfn, align 8
+  %ref.tmp32.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp32, i64 8
+  %ref.tmp32.sink.sroa.gep39 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   invoke void %0(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %env, ptr noundef nonnull align 8 dereferenceable(32) %dbpath, ptr noundef nonnull %file_names)
           to label %_ZN7rocksdb6StatusD2Ev.exit unwind label %lpad.loopexit.split-lp
 
@@ -1922,11 +1924,11 @@ if.then:                                          ; preds = %_ZN7rocksdb6StatusD
   br label %if.then.invoke
 
 if.then.invoke:                                   ; preds = %if.then29, %if.then
+  %ref.tmp32.sink.sroa.phi = phi ptr [ %ref.tmp32.sink.sroa.gep, %if.then29 ], [ %ref.tmp32.sink.sroa.gep39, %if.then ]
   %ref.tmp32.sink = phi ptr [ %ref.tmp32, %if.then29 ], [ %ref.tmp5, %if.then ]
   %8 = phi ptr [ %ref.tmp30, %if.then29 ], [ %ref.tmp3, %if.then ]
-  %size_.i19 = getelementptr inbounds i8, ptr %ref.tmp32.sink, i64 8
   %call2.i20 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %dbpath) #15
-  store i64 %call2.i20, ptr %size_.i19, align 8
+  store i64 %call2.i20, ptr %ref.tmp32.sink.sroa.phi, align 8
   invoke void @_ZN7rocksdb6StatusC1ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 1, i8 noundef zeroext 9, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp32.sink, i8 noundef zeroext 0)
           to label %cleanup unwind label %lpad.loopexit.split-lp
 

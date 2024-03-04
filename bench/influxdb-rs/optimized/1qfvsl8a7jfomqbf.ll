@@ -5485,14 +5485,6 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17h7e5b055f3d43f39bE.llvm
 
 133:                                              ; preds = %128
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !724
-  %.sroa.gep10.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
-  %.sroa.gep7.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  %.sroa.gep4.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
-  %.sroa.gep1.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.gep9.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
-  %.sroa.gep6.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
-  %.sroa.gep3.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
-  %.sroa.gep.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @_ZN12arrow_buffer6buffer7mutable13MutableBuffer15from_len_zeroed17h21d76cce3df86c63E(ptr noalias nocapture noundef nonnull sret({ { i64, i64 }, ptr, i64 }) align 8 dereferenceable(32) %7, i64 noundef 4)
           to label %.noexc26.i unwind label %117, !noalias !711
 
@@ -5520,6 +5512,14 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17h7e5b055f3d43f39bE.llvm
   %141 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !738
   %142 = call noundef align 8 dereferenceable_or_null(56) ptr @__rust_alloc(i64 noundef 56, i64 noundef 8) #31, !noalias !741
   %143 = icmp eq ptr %142, null
+  %.sink8.i.sroa.gep.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink8.i.sroa.gep1.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sink8.i.sroa.gep3.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.sink8.i.sroa.gep4.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.sink8.i.sroa.gep6.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.sink8.i.sroa.gep7.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %.sink8.i.sroa.gep9.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
+  %.sink8.i.sroa.gep10.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
   br i1 %143, label %144, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer11into_buffer17hb20936623a6c6fedE.exit.i.i.i
 
 144:                                              ; preds = %.noexc26.i
@@ -5588,12 +5588,12 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer11into_buffer17hb20936623a6c6fedE
   br label %.invoke.i.i.i.i
 
 .invoke.i.i.i.i:                                  ; preds = %163, %162
+  %.sink8.i.sroa.phi.i.i.i = phi ptr [ %.sink8.i.sroa.gep.i.i.i, %162 ], [ %.sink8.i.sroa.gep1.i.i.i, %163 ]
+  %.sink8.i.sroa.phi2.i.i.i = phi ptr [ %.sink8.i.sroa.gep3.i.i.i, %162 ], [ %.sink8.i.sroa.gep4.i.i.i, %163 ]
+  %.sink8.i.sroa.phi5.i.i.i = phi ptr [ %.sink8.i.sroa.gep6.i.i.i, %162 ], [ %.sink8.i.sroa.gep7.i.i.i, %163 ]
+  %.sink8.i.sroa.phi8.i.i.i = phi ptr [ %.sink8.i.sroa.gep9.i.i.i, %162 ], [ %.sink8.i.sroa.gep10.i.i.i, %163 ]
   %.sink8.i.i.i.i = phi ptr [ %4, %162 ], [ %3, %163 ]
   %164 = phi ptr [ @anon.083b790a21940f882304165a113eaaef.8.llvm.171605402441639591, %162 ], [ @anon.083b790a21940f882304165a113eaaef.11.llvm.171605402441639591, %163 ]
-  %.sink8.i.sroa.phi.i.i.i = phi ptr [ %.sroa.gep.i.i.i, %162 ], [ %.sroa.gep1.i.i.i, %163 ]
-  %.sink8.i.sroa.phi2.i.i.i = phi ptr [ %.sroa.gep3.i.i.i, %162 ], [ %.sroa.gep4.i.i.i, %163 ]
-  %.sink8.i.sroa.phi5.i.i.i = phi ptr [ %.sroa.gep6.i.i.i, %162 ], [ %.sroa.gep7.i.i.i, %163 ]
-  %.sink8.i.sroa.phi8.i.i.i = phi ptr [ %.sroa.gep9.i.i.i, %162 ], [ %.sroa.gep10.i.i.i, %163 ]
   store i64 1, ptr %.sink8.i.sroa.phi.i.i.i, align 8, !noalias !756
   store ptr null, ptr %.sink8.i.sroa.phi2.i.i.i, align 8, !noalias !756
   store ptr @anon.083b790a21940f882304165a113eaaef.7.llvm.171605402441639591, ptr %.sink8.i.sroa.phi5.i.i.i, align 8, !noalias !756
@@ -6034,9 +6034,6 @@ define hidden void @"_ZN137_$LT$arrow_array..array..dictionary_array..Dictionary
   %19 = alloca ptr, align 8
   %20 = alloca ptr, align 8
   %21 = alloca { ptr, [5 x i64] }, align 8
-  %.sroa.gep47 = getelementptr inbounds i8, ptr %21, i64 24
-  %.sroa.gep44 = getelementptr inbounds i8, ptr %21, i64 16
-  %.sroa.gep41 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = alloca i64, align 8
   %23 = alloca { ptr, [5 x i64] }, align 8
   %24 = alloca i64, align 8
@@ -6046,6 +6043,9 @@ define hidden void @"_ZN137_$LT$arrow_array..array..dictionary_array..Dictionary
   %27 = load i64, ptr %26, align 8, !noundef !4
   store i64 %27, ptr %24, align 8
   %28 = icmp eq i64 %27, 1
+  %.sink40.sroa.gep41 = getelementptr inbounds i8, ptr %21, i64 8
+  %.sink40.sroa.gep44 = getelementptr inbounds i8, ptr %21, i64 16
+  %.sink40.sroa.gep47 = getelementptr inbounds i8, ptr %21, i64 24
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %2
@@ -6055,9 +6055,9 @@ define hidden void @"_ZN137_$LT$arrow_array..array..dictionary_array..Dictionary
           to label %34 unwind label %32
 
 31:                                               ; preds = %2
-  %.sroa.gep = getelementptr inbounds i8, ptr %23, i64 8
-  %.sroa.gep43 = getelementptr inbounds i8, ptr %23, i64 16
-  %.sroa.gep46 = getelementptr inbounds i8, ptr %23, i64 24
+  %.sink40.sroa.gep46 = getelementptr inbounds i8, ptr %23, i64 24
+  %.sink40.sroa.gep43 = getelementptr inbounds i8, ptr %23, i64 16
+  %.sink40.sroa.gep = getelementptr inbounds i8, ptr %23, i64 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23)
   store ptr @anon.3a573e31fa13f546b6d503667aff8f01.94, ptr %23, align 8
   br label %.invoke
@@ -6088,12 +6088,12 @@ define hidden void @"_ZN137_$LT$arrow_array..array..dictionary_array..Dictionary
   br label %.invoke
 
 .invoke:                                          ; preds = %31, %40
+  %.sink40.sroa.phi = phi ptr [ %.sink40.sroa.gep, %31 ], [ %.sink40.sroa.gep41, %40 ]
+  %.sink40.sroa.phi42 = phi ptr [ %.sink40.sroa.gep43, %31 ], [ %.sink40.sroa.gep44, %40 ]
+  %.sink40.sroa.phi45 = phi ptr [ %.sink40.sroa.gep46, %31 ], [ %.sink40.sroa.gep47, %40 ]
   %.sink40 = phi ptr [ %23, %31 ], [ %21, %40 ]
   %41 = phi ptr [ %24, %31 ], [ %22, %40 ]
   %42 = phi ptr [ @anon.3a573e31fa13f546b6d503667aff8f01.95, %31 ], [ @anon.3a573e31fa13f546b6d503667aff8f01.92, %40 ]
-  %.sink40.sroa.phi = phi ptr [ %.sroa.gep, %31 ], [ %.sroa.gep41, %40 ]
-  %.sink40.sroa.phi42 = phi ptr [ %.sroa.gep43, %31 ], [ %.sroa.gep44, %40 ]
-  %.sink40.sroa.phi45 = phi ptr [ %.sroa.gep46, %31 ], [ %.sroa.gep47, %40 ]
   store i64 1, ptr %.sink40.sroa.phi, align 8
   store ptr @anon.3a573e31fa13f546b6d503667aff8f01.11, ptr %.sink40.sroa.phi42, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink40.sroa.phi45, i8 0, i64 16, i1 false)

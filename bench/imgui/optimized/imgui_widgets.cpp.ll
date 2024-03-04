@@ -3793,9 +3793,7 @@ return:                                           ; preds = %entry, %if.end
 define void @_ZN5ImGui7NewLineEv() local_unnamed_addr #5 {
 entry:
   %ref.tmp = alloca %struct.ImVec2, align 4
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %ref.tmp6 = alloca %struct.ImVec2, align 4
-  %ref.tmp6.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6, i64 4
   %0 = load ptr, ptr @GImGui, align 8
   %CurrentWindow.i = getelementptr inbounds i8, ptr %0, i64 16392
   %1 = load ptr, ptr %CurrentWindow.i, align 8
@@ -3806,6 +3804,8 @@ entry:
   %3 = load i8, ptr %SkipItems, align 1
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
+  %ref.tmp6.sink7.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6, i64 4
+  %ref.tmp6.sink7.sroa.gep8 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -3830,9 +3830,9 @@ if.else:                                          ; preds = %if.end
   br label %if.end7
 
 if.end7:                                          ; preds = %if.else, %if.then5
+  %ref.tmp6.sink7.sroa.phi = phi ptr [ %ref.tmp6.sink7.sroa.gep, %if.else ], [ %ref.tmp6.sink7.sroa.gep8, %if.then5 ]
   %ref.tmp6.sink7 = phi ptr [ %ref.tmp6, %if.else ], [ %ref.tmp, %if.then5 ]
   %.sink = phi float [ %7, %if.else ], [ 0.000000e+00, %if.then5 ]
-  %ref.tmp6.sink7.sroa.phi = phi ptr [ %ref.tmp6.sroa.gep, %if.else ], [ %ref.tmp.sroa.gep, %if.then5 ]
   store float %.sink, ptr %ref.tmp6.sink7.sroa.phi, align 4
   call void @_ZN5ImGui8ItemSizeERK6ImVec2f(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp6.sink7, float noundef -1.000000e+00)
   store i32 %5, ptr %LayoutType, align 4

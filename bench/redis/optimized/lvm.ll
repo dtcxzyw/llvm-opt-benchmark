@@ -428,8 +428,8 @@ if.end44:                                         ; preds = %if.then42, %if.else
 
 if.then48:                                        ; preds = %if.end44, %if.end44.peel
   %tm.3.lcssa = phi ptr [ %tm.3.peel, %if.end44.peel ], [ %tm.3, %if.end44 ]
+  %t.addr.0109.lcssa110.sroa.phi = phi ptr [ %tt.peel, %if.end44.peel ], [ %tt55, %if.end44 ]
   %t.addr.0109.lcssa110 = phi ptr [ %t, %if.end44.peel ], [ %temp, %if.end44 ]
-  %tt.le = getelementptr inbounds i8, ptr %t.addr.0109.lcssa110, i64 8
   %tt45.le = getelementptr inbounds i8, ptr %tm.3.lcssa, i64 8
   %top.i = getelementptr inbounds i8, ptr %L, i64 16
   %30 = load ptr, ptr %top.i, align 8, !tbaa !24
@@ -442,7 +442,7 @@ if.then48:                                        ; preds = %if.end44, %if.end44
   %add.ptr.i = getelementptr inbounds i8, ptr %33, i64 16
   %34 = load i64, ptr %t.addr.0109.lcssa110, align 8
   store i64 %34, ptr %add.ptr.i, align 8
-  %35 = load i32, ptr %tt.le, align 8, !tbaa !4
+  %35 = load i32, ptr %t.addr.0109.lcssa110.sroa.phi, align 8, !tbaa !4
   %tt9.i = getelementptr inbounds i8, ptr %33, i64 24
   store i32 %35, ptr %tt9.i, align 8, !tbaa !4
   %36 = load ptr, ptr %top.i, align 8, !tbaa !24

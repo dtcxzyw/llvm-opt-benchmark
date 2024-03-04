@@ -535,20 +535,8 @@ define void @_ZN4ring4test8TestCase22consume_optional_bytes17h2ea43aed47f4091eE(
   %21 = alloca { { { i64, ptr }, i64 } }, align 8
   %22 = alloca { i64, [3 x i64] }, align 8
   %23 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep243 = getelementptr inbounds i8, ptr %23, i64 24
-  %.sroa.gep239 = getelementptr inbounds i8, ptr %23, i64 16
-  %.sroa.gep235 = getelementptr inbounds i8, ptr %23, i64 32
-  %.sroa.gep231 = getelementptr inbounds i8, ptr %23, i64 8
   %24 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep241 = getelementptr inbounds i8, ptr %24, i64 24
-  %.sroa.gep237 = getelementptr inbounds i8, ptr %24, i64 16
-  %.sroa.gep233 = getelementptr inbounds i8, ptr %24, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %24, i64 8
   %25 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep242 = getelementptr inbounds i8, ptr %25, i64 24
-  %.sroa.gep238 = getelementptr inbounds i8, ptr %25, i64 16
-  %.sroa.gep234 = getelementptr inbounds i8, ptr %25, i64 32
-  %.sroa.gep230 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %.sroa.6 = alloca [15 x i8], align 1
   %27 = alloca { i64, [2 x i64] }, align 8
@@ -569,6 +557,18 @@ define void @_ZN4ring4test8TestCase22consume_optional_bytes17h2ea43aed47f4091eE(
   %.val13.i = load i64, ptr %33, align 8, !alias.scope !125, !noalias !131, !noundef !8
   %34 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 } }, i8, [7 x i8] }, ptr %.val.i, i64 %.val13.i
   %35 = icmp eq i64 %.val13.i, 0
+  %.sink207.sroa.gep = getelementptr inbounds i8, ptr %24, i64 8
+  %.sink207.sroa.gep230 = getelementptr inbounds i8, ptr %25, i64 8
+  %.sink207.sroa.gep231 = getelementptr inbounds i8, ptr %23, i64 8
+  %.sink207.sroa.gep233 = getelementptr inbounds i8, ptr %24, i64 32
+  %.sink207.sroa.gep234 = getelementptr inbounds i8, ptr %25, i64 32
+  %.sink207.sroa.gep235 = getelementptr inbounds i8, ptr %23, i64 32
+  %.sink207.sroa.gep237 = getelementptr inbounds i8, ptr %24, i64 16
+  %.sink207.sroa.gep238 = getelementptr inbounds i8, ptr %25, i64 16
+  %.sink207.sroa.gep239 = getelementptr inbounds i8, ptr %23, i64 16
+  %.sink207.sroa.gep241 = getelementptr inbounds i8, ptr %24, i64 24
+  %.sink207.sroa.gep242 = getelementptr inbounds i8, ptr %25, i64 24
+  %.sink207.sroa.gep243 = getelementptr inbounds i8, ptr %23, i64 24
   br i1 %35, label %_ZN4ring4test8TestCase23consume_optional_string17h52d559269975975aE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit.backedge.i"
@@ -816,12 +816,12 @@ _ZN4ring4test8TestCase23consume_optional_string17h52d559269975975aE.exit: ; pred
   br label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread.invoke"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread.invoke": ; preds = %198, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit64.thread", %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread"
+  %.sink207.sroa.phi = phi ptr [ %.sink207.sroa.gep, %198 ], [ %.sink207.sroa.gep230, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit64.thread" ], [ %.sink207.sroa.gep231, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
+  %.sink207.sroa.phi232 = phi ptr [ %.sink207.sroa.gep233, %198 ], [ %.sink207.sroa.gep234, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit64.thread" ], [ %.sink207.sroa.gep235, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
+  %.sink207.sroa.phi236 = phi ptr [ %.sink207.sroa.gep237, %198 ], [ %.sink207.sroa.gep238, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit64.thread" ], [ %.sink207.sroa.gep239, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
+  %.sink207.sroa.phi240 = phi ptr [ %.sink207.sroa.gep241, %198 ], [ %.sink207.sroa.gep242, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit64.thread" ], [ %.sink207.sroa.gep243, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
   %.sink207 = phi ptr [ %24, %198 ], [ %25, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit64.thread" ], [ %23, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
   %115 = phi ptr [ @anon.fe9d10851d3bca97daef2caa4a44cbf4.66, %198 ], [ @anon.fe9d10851d3bca97daef2caa4a44cbf4.63, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit64.thread" ], [ @anon.fe9d10851d3bca97daef2caa4a44cbf4.57, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
-  %.sink207.sroa.phi = phi ptr [ %.sroa.gep, %198 ], [ %.sroa.gep230, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit64.thread" ], [ %.sroa.gep231, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
-  %.sink207.sroa.phi232 = phi ptr [ %.sroa.gep233, %198 ], [ %.sroa.gep234, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit64.thread" ], [ %.sroa.gep235, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
-  %.sink207.sroa.phi236 = phi ptr [ %.sroa.gep237, %198 ], [ %.sroa.gep238, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit64.thread" ], [ %.sroa.gep239, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
-  %.sink207.sroa.phi240 = phi ptr [ %.sroa.gep241, %198 ], [ %.sroa.gep242, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit64.thread" ], [ %.sroa.gep243, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25640755b1bc4053E.exit.thread" ]
   store i64 1, ptr %.sink207.sroa.phi, align 8
   store ptr null, ptr %.sink207.sroa.phi232, align 8
   store ptr @anon.fe9d10851d3bca97daef2caa4a44cbf4.2, ptr %.sink207.sroa.phi236, align 8

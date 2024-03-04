@@ -251,7 +251,7 @@ php_intpow10.exit:                                ; preds = %9, %12
   unreachable
 
 php_round_helper.exit:                            ; preds = %32, %34, %42, %45, %53, %56, %63, %65, %72, %74, %80, %91, %94, %96, %99, %110, %113, %115, %118
-  %.0.i41 = phi double [ %112, %110 ], [ %120, %118 ], [ %93, %91 ], [ %101, %99 ], [ %82, %80 ], [ %73, %72 ], [ %64, %63 ], [ %55, %53 ], [ %44, %42 ], [ %.038, %34 ], [ %.038, %45 ], [ %.038, %56 ], [ %.038, %65 ], [ %.038, %32 ], [ %.038, %74 ], [ %.038, %94 ], [ %.038, %96 ], [ %.038, %113 ], [ %.038, %115 ]
+  %.0.i40 = phi double [ %112, %110 ], [ %120, %118 ], [ %93, %91 ], [ %101, %99 ], [ %82, %80 ], [ %73, %72 ], [ %64, %63 ], [ %55, %53 ], [ %44, %42 ], [ %.038, %34 ], [ %.038, %45 ], [ %.038, %56 ], [ %.038, %65 ], [ %.038, %32 ], [ %.038, %74 ], [ %.038, %94 ], [ %.038, %96 ], [ %.038, %113 ], [ %.038, %115 ]
   %122 = icmp ult i32 %7, 23
   br i1 %122, label %123, label %129
 
@@ -260,28 +260,26 @@ php_round_helper.exit:                            ; preds = %32, %34, %42, %45, 
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %123
-  %126 = fdiv double %.0.i41, %.0.i
+  %126 = fdiv double %.0.i40, %.0.i
   br label %136
 
 127:                                              ; preds = %123
-  %128 = fmul double %.0.i, %.0.i41
+  %128 = fmul double %.0.i, %.0.i40
   br label %136
 
 129:                                              ; preds = %php_round_helper.exit
   %130 = sub nsw i32 0, %6
-  %131 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %4, i64 noundef 39, ptr noundef nonnull @.str, double noundef %.0.i41, i32 noundef %130) #15
+  %131 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %4, i64 noundef 39, ptr noundef nonnull @.str, double noundef %.0.i40, i32 noundef %130) #15
   %132 = getelementptr inbounds i8, ptr %4, i64 39
   store i8 0, ptr %132, align 1
   %133 = call double @zend_strtod(ptr noundef nonnull %4, ptr noundef null) #15
   %134 = call double @llvm.fabs.f64(double %133)
-  %or.cond40 = fcmp ueq double %134, 0x7FF0000000000000
-  br i1 %or.cond40, label %135, label %136
-
-135:                                              ; preds = %129
+  %135 = fcmp ueq double %134, 0x7FF0000000000000
+  %. = select i1 %135, double %0, double %133
   br label %136
 
-136:                                              ; preds = %127, %125, %135, %129, %28, %3
-  %.0 = phi double [ %0, %3 ], [ %0, %28 ], [ %126, %125 ], [ %128, %127 ], [ %0, %135 ], [ %133, %129 ]
+136:                                              ; preds = %127, %125, %129, %28, %3
+  %.0 = phi double [ %0, %3 ], [ %0, %28 ], [ %126, %125 ], [ %128, %127 ], [ %., %129 ]
   ret double %.0
 }
 

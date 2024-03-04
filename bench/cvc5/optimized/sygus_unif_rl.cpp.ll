@@ -13046,6 +13046,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   %1 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %1, 0
+  %indvars.iv.sroa.gep = getelementptr inbounds i8, ptr %ceApp, i64 8
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %invoke.cont, !prof !36
 
 init.check.i.i:                                   ; preds = %entry
@@ -14709,7 +14710,7 @@ if.else.i1777.preheader:                          ; preds = %if.then13.i4.i1600,
 
 if.else.i1777:                                    ; preds = %if.else.i1777.preheader, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit2217
   %cmp455 = phi i1 [ false, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit2217 ], [ true, %if.else.i1777.preheader ]
-  %indvars.iv = phi i64 [ 1, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit2217 ], [ 0, %if.else.i1777.preheader ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit2217 ], [ %ceApp, %if.else.i1777.preheader ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cechildren, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %cechildren, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %ce)
           to label %invoke.cont454 unwind label %lpad453
@@ -15042,8 +15043,7 @@ terminate.lpad.i2055:                             ; preds = %if.then13.i.i2054
   unreachable
 
 cond.true556:                                     ; preds = %if.then13.i.i2054, %if.then.i.i2047, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2044
-  %arrayidx = getelementptr inbounds [2 x %"class.cvc5::internal::NodeTemplate"], ptr %ceApp, i64 0, i64 %indvars.iv
-  %215 = load ptr, ptr %arrayidx, align 8
+  %215 = load ptr, ptr %indvars.iv.sroa.phi, align 8
   %216 = load ptr, ptr %cea, align 8
   %cmp.not.i2136 = icmp eq ptr %215, %216
   br i1 %cmp.not.i2136, label %invoke.cont570, label %if.then.i2137
@@ -15069,7 +15069,7 @@ if.then13.i.i2161:                                ; preds = %if.then.i.i2140
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i2146: ; preds = %if.then13.i.i2161, %if.then.i.i2140, %if.then.i2137
   %218 = load ptr, ptr %cea, align 8
-  store ptr %218, ptr %arrayidx, align 8
+  store ptr %218, ptr %indvars.iv.sroa.phi, align 8
   %bf.load.i2.i2147 = load i64, ptr %218, align 8
   %bf.lshr.i.i2148 = lshr i64 %bf.load.i2.i2147, 40
   %219 = trunc i64 %bf.lshr.i.i2148 to i32

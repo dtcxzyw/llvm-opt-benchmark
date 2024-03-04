@@ -4839,13 +4839,7 @@ entry:
   %ref.tmp140 = alloca %class.btVector3, align 4
   %ref.tmp153 = alloca %class.btVector3, align 4
   %ref.tmp168 = alloca %class.btTransform, align 4
-  %ref.tmp168.sroa.gep1026 = getelementptr inbounds i8, ptr %ref.tmp168, i64 48
-  %ref.tmp168.sroa.gep1023 = getelementptr inbounds i8, ptr %ref.tmp168, i64 32
-  %ref.tmp168.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp168, i64 16
   %ref.tmp173 = alloca %class.btTransform, align 4
-  %ref.tmp173.sroa.gep1025 = getelementptr inbounds i8, ptr %ref.tmp173, i64 48
-  %ref.tmp173.sroa.gep1022 = getelementptr inbounds i8, ptr %ref.tmp173, i64 32
-  %ref.tmp173.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp173, i64 16
   %pivot179 = alloca %class.btVector3, align 4
   %normal181 = alloca %class.btVector3, align 8
   %axis1 = alloca %class.btVector3, align 8
@@ -4902,6 +4896,12 @@ entry:
   %m_dbgDrawSize.i = getelementptr inbounds i8, ptr %constraint, i64 60
   %4 = load float, ptr %m_dbgDrawSize.i, align 4
   %cmp15 = fcmp ugt float %4, 0.000000e+00
+  %ref.tmp173.sink1020.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp173, i64 16
+  %ref.tmp173.sink1020.sroa.gep1021 = getelementptr inbounds i8, ptr %ref.tmp168, i64 16
+  %ref.tmp173.sink1020.sroa.gep1023 = getelementptr inbounds i8, ptr %ref.tmp173, i64 32
+  %ref.tmp173.sink1020.sroa.gep1024 = getelementptr inbounds i8, ptr %ref.tmp168, i64 32
+  %ref.tmp173.sink1020.sroa.gep1026 = getelementptr inbounds i8, ptr %ref.tmp173, i64 48
+  %ref.tmp173.sink1020.sroa.gep1027 = getelementptr inbounds i8, ptr %ref.tmp168, i64 48
   br i1 %cmp15, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -5957,14 +5957,14 @@ if.else:                                          ; preds = %for.end
   br label %if.end178
 
 if.end178:                                        ; preds = %if.else, %if.then167
+  %ref.tmp173.sink1020.sroa.phi = phi ptr [ %ref.tmp173.sink1020.sroa.gep, %if.else ], [ %ref.tmp173.sink1020.sroa.gep1021, %if.then167 ]
+  %ref.tmp173.sink1020.sroa.phi1022 = phi ptr [ %ref.tmp173.sink1020.sroa.gep1023, %if.else ], [ %ref.tmp173.sink1020.sroa.gep1024, %if.then167 ]
+  %ref.tmp173.sink1020.sroa.phi1025 = phi ptr [ %ref.tmp173.sink1020.sroa.gep1026, %if.else ], [ %ref.tmp173.sink1020.sroa.gep1027, %if.then167 ]
   %ref.tmp173.sink1020 = phi ptr [ %ref.tmp173, %if.else ], [ %ref.tmp168, %if.then167 ]
-  %ref.tmp173.sink1020.sroa.phi = phi ptr [ %ref.tmp173.sroa.gep, %if.else ], [ %ref.tmp168.sroa.gep, %if.then167 ]
-  %ref.tmp173.sink1020.sroa.phi1021 = phi ptr [ %ref.tmp173.sroa.gep1022, %if.else ], [ %ref.tmp168.sroa.gep1023, %if.then167 ]
-  %ref.tmp173.sink1020.sroa.phi1024 = phi ptr [ %ref.tmp173.sroa.gep1025, %if.else ], [ %ref.tmp168.sroa.gep1026, %if.then167 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr94, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp173.sink1020, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i.i.i378, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp173.sink1020.sroa.phi, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx12.i.i.i382, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp173.sink1020.sroa.phi1021, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i4.i386, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp173.sink1020.sroa.phi1024, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx12.i.i.i382, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp173.sink1020.sroa.phi1022, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i4.i386, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp173.sink1020.sroa.phi1025, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %pivot179, ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i4.i386, i64 16, i1 false)
   %570 = load <4 x float>, ptr %tr94, align 16
   %retval.sroa.0.0.vec.insert.i589 = shufflevector <4 x float> %570, <4 x float> poison, <2 x i32> <i32 0, i32 poison>

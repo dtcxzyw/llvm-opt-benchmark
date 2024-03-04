@@ -716,6 +716,8 @@ entry:
   store i64 0, ptr %size_.i, align 8
   store ptr null, ptr %buf, align 8
   store ptr null, ptr %aligned_buf, align 8
+  %ref.tmp21.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
+  %ref.tmp21.sink.sroa.gep33 = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
   invoke void @_ZN7rocksdb14BlobFileReader12ReadFromFileEPKNS_22RandomAccessFileReaderERKNS_11ReadOptionsEmmPNS_10StatisticsEPNS_5SliceEPSt10unique_ptrIA_cSt14default_deleteISC_EESG_(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef %file_reader, ptr noundef nonnull align 8 dereferenceable(154) %read_options, i64 noundef 0, i64 noundef 30, ptr noundef %statistics, ptr noundef nonnull %header_slice, ptr noundef nonnull %buf, ptr noundef nonnull %aligned_buf)
           to label %cleanup unwind label %lpad
 
@@ -807,10 +809,10 @@ if.then26:                                        ; preds = %if.end24
   br label %if.then26.invoke
 
 if.then26.invoke:                                 ; preds = %if.then19, %if.then26
+  %ref.tmp21.sink.sroa.phi = phi ptr [ %ref.tmp21.sink.sroa.gep, %if.then19 ], [ %ref.tmp21.sink.sroa.gep33, %if.then26 ]
   %ref.tmp21.sink = phi ptr [ %ref.tmp21, %if.then19 ], [ %ref.tmp29, %if.then26 ]
   %11 = phi ptr [ %ref.tmp, %if.then19 ], [ %ref.tmp27, %if.then26 ]
-  %size_.i19 = getelementptr inbounds i8, ptr %ref.tmp21.sink, i64 8
-  store i64 0, ptr %size_.i19, align 8
+  store i64 0, ptr %ref.tmp21.sink.sroa.phi, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp21.sink, i8 noundef zeroext 0)
           to label %cleanup34 unwind label %lpad
 
@@ -2187,13 +2189,13 @@ entry:
   %record = alloca %"struct.rocksdb::BlobLogRecord", align 8
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp13 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp13.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   %ref.tmp20 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp22 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp22.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
   %ref.tmp35 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp37 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp37.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp37, i64 8
+  %ref.tmp13.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
+  %ref.tmp13.sink.sroa.gep49 = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
+  %ref.tmp13.sink.sroa.gep50 = getelementptr inbounds i8, ptr %ref.tmp37, i64 8
   br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %0, label %_ZTWN7rocksdb12perf_contextE.exit
 
 0:                                                ; preds = %entry
@@ -2341,9 +2343,9 @@ if.then34:                                        ; preds = %invoke.cont32
   br label %if.then34.invoke
 
 if.then34.invoke:                                 ; preds = %if.then11, %if.then19, %if.then34
+  %ref.tmp13.sink.sroa.phi = phi ptr [ %ref.tmp13.sink.sroa.gep, %if.then11 ], [ %ref.tmp13.sink.sroa.gep49, %if.then19 ], [ %ref.tmp13.sink.sroa.gep50, %if.then34 ]
   %ref.tmp13.sink = phi ptr [ %ref.tmp13, %if.then11 ], [ %ref.tmp22, %if.then19 ], [ %ref.tmp37, %if.then34 ]
   %19 = phi ptr [ %ref.tmp, %if.then11 ], [ %ref.tmp20, %if.then19 ], [ %ref.tmp35, %if.then34 ]
-  %ref.tmp13.sink.sroa.phi = phi ptr [ %ref.tmp13.sroa.gep, %if.then11 ], [ %ref.tmp22.sroa.gep, %if.then19 ], [ %ref.tmp37.sroa.gep, %if.then34 ]
   store i64 0, ptr %ref.tmp13.sink.sroa.phi, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13.sink, i8 noundef zeroext 0)
           to label %cleanup62 unwind label %lpad2

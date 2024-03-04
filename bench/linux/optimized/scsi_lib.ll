@@ -3069,6 +3069,7 @@ define dso_local void @scsi_evt_thread(ptr noundef %0) local_unnamed_addr #0 ali
   br label %12
 
 10:                                               ; preds = %sdev_evt_send_simple.exit
+  %.sroa.gep1 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = getelementptr i8, ptr %0, i64 56
   br label %32
 
@@ -3200,14 +3201,13 @@ sdev_evt_send_simple.exit:                        ; preds = %23, %22, %12
   br label %60
 
 60:                                               ; preds = %59, %58, %57, %56, %55, %54, %52, %51, %.preheader
-  %61 = phi i64 [ 0, %.preheader ], [ 1, %59 ], [ 1, %58 ], [ 1, %57 ], [ 1, %56 ], [ 1, %55 ], [ 1, %54 ], [ 1, %52 ], [ 1, %51 ]
-  %62 = getelementptr [3 x ptr], ptr %2, i64 0, i64 %61
-  store ptr null, ptr %62, align 8
-  %63 = call i32 @kobject_uevent_env(ptr noundef %11, i32 noundef 2, ptr noundef nonnull %2) #16
+  %.sroa.phi = phi ptr [ %2, %.preheader ], [ %.sroa.gep1, %59 ], [ %.sroa.gep1, %58 ], [ %.sroa.gep1, %57 ], [ %.sroa.gep1, %56 ], [ %.sroa.gep1, %55 ], [ %.sroa.gep1, %54 ], [ %.sroa.gep1, %52 ], [ %.sroa.gep1, %51 ]
+  store ptr null, ptr %.sroa.phi, align 8
+  %61 = call i32 @kobject_uevent_env(ptr noundef %11, i32 noundef 2, ptr noundef nonnull %2) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #16
   call void @kfree(ptr noundef %46) #16
-  %64 = icmp eq ptr %45, %3
-  br i1 %64, label %.loopexit, label %.preheader, !llvm.loop !64
+  %62 = icmp eq ptr %45, %3
+  br i1 %62, label %.loopexit, label %.preheader, !llvm.loop !64
 
 split:                                            ; preds = %41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16

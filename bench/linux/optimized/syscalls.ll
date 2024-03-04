@@ -1082,7 +1082,8 @@ define internal fastcc i64 @__se_sys_futex_requeue(i64 noundef %0, i64 noundef %
   %12 = icmp ne i64 %11, 0
   %13 = icmp eq i64 %0, 0
   %14 = or i1 %13, %12
-  br i1 %14, label %65, label %15
+  %.sroa.gep3 = getelementptr inbounds i8, ptr %6, i64 152
+  br i1 %14, label %64, label %15
 
 15:                                               ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(304) %6, i8 0, i64 304, i1 false), !annotation !11
@@ -1095,11 +1096,12 @@ define internal fastcc i64 @__se_sys_futex_requeue(i64 noundef %0, i64 noundef %
 
 19:                                               ; preds = %42, %15
   %20 = phi i1 [ false, %15 ], [ true, %42 ]
+  %.sroa.phi = phi ptr [ %6, %15 ], [ %.sroa.gep3, %42 ]
   %21 = phi i64 [ 0, %15 ], [ 1, %42 ]
   %22 = getelementptr %struct.futex_waitv, ptr %8, i64 %21
   %23 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %22, i64 noundef 24) #10
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %.thread7
+  br i1 %24, label %25, label %.thread8
 
 25:                                               ; preds = %19
   %26 = load i32, ptr %16, align 8
@@ -1108,7 +1110,7 @@ define internal fastcc i64 @__se_sys_futex_requeue(i64 noundef %0, i64 noundef %
   %29 = load i32, ptr %17, align 4
   %30 = icmp ne i32 %29, 0
   %31 = select i1 %28, i1 true, i1 %30
-  br i1 %31, label %.thread7, label %32
+  br i1 %31, label %.thread8, label %32
 
 32:                                               ; preds = %25
   %33 = and i32 %26, 3
@@ -1117,58 +1119,57 @@ define internal fastcc i64 @__se_sys_futex_requeue(i64 noundef %0, i64 noundef %
   %36 = xor i32 %35, 16
   %37 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !7
   %38 = icmp eq i32 %33, 2
-  br i1 %38, label %39, label %.thread7
+  br i1 %38, label %39, label %.thread8
 
 39:                                               ; preds = %32
   %40 = load i64, ptr %5, align 8
   %41 = icmp ult i64 %40, 4294967296
-  br i1 %41, label %42, label %.thread7
+  br i1 %41, label %42, label %.thread8
 
-.thread7:                                         ; preds = %39, %32, %25, %19
+.thread8:                                         ; preds = %39, %32, %25, %19
   %.ph = phi i64 [ -22, %39 ], [ -22, %32 ], [ -22, %25 ], [ -14, %19 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  br label %65
+  br label %64
 
 42:                                               ; preds = %39
-  %43 = getelementptr %struct.futex_vector, ptr %6, i64 %21
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
-  store i32 %36, ptr %44, align 8
-  store i64 %40, ptr %43, align 8
-  %45 = load i64, ptr %18, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 8
-  store i64 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %43, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(128) %47, ptr noundef nonnull align 8 dereferenceable(128) @futex_q_init, i64 128, i1 false)
-  %48 = getelementptr inbounds i8, ptr %43, i64 80
-  store ptr @futex_wake_mark, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %43, i64 88
-  store ptr null, ptr %49, align 8
-  br i1 %20, label %50, label %19
+  %43 = getelementptr inbounds i8, ptr %.sroa.phi, i64 16
+  store i32 %36, ptr %43, align 8
+  store i64 %40, ptr %.sroa.phi, align 8
+  %44 = load i64, ptr %18, align 8
+  %45 = getelementptr inbounds i8, ptr %.sroa.phi, i64 8
+  store i64 %44, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %.sroa.phi, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(128) %46, ptr noundef nonnull align 8 dereferenceable(128) @futex_q_init, i64 128, i1 false)
+  %47 = getelementptr inbounds i8, ptr %.sroa.phi, i64 80
+  store ptr @futex_wake_mark, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %.sroa.phi, i64 88
+  store ptr null, ptr %48, align 8
+  br i1 %20, label %49, label %19
 
-50:                                               ; preds = %42
+49:                                               ; preds = %42
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  %51 = load i64, ptr %6, align 16
-  %52 = trunc i64 %51 to i32
-  store i32 %52, ptr %7, align 4
-  %53 = getelementptr inbounds i8, ptr %6, i64 8
-  %54 = load i64, ptr %53, align 8
-  %55 = inttoptr i64 %54 to ptr
-  %56 = getelementptr inbounds i8, ptr %6, i64 16
-  %57 = load i32, ptr %56, align 16
-  %58 = getelementptr inbounds i8, ptr %6, i64 160
-  %59 = load i64, ptr %58, align 16
-  %60 = inttoptr i64 %59 to ptr
-  %61 = getelementptr inbounds i8, ptr %6, i64 168
-  %62 = load i32, ptr %61, align 8
-  %63 = call i32 @futex_requeue(ptr noundef %55, i32 noundef %57, ptr noundef %60, i32 noundef %62, i32 noundef %9, i32 noundef %10, ptr noundef nonnull %7, i32 noundef 0) #10
-  %64 = sext i32 %63 to i64
-  br label %65
+  %50 = load i64, ptr %6, align 16
+  %51 = trunc i64 %50 to i32
+  store i32 %51, ptr %7, align 4
+  %52 = getelementptr inbounds i8, ptr %6, i64 8
+  %53 = load i64, ptr %52, align 8
+  %54 = inttoptr i64 %53 to ptr
+  %55 = getelementptr inbounds i8, ptr %6, i64 16
+  %56 = load i32, ptr %55, align 16
+  %57 = getelementptr inbounds i8, ptr %6, i64 160
+  %58 = load i64, ptr %57, align 16
+  %59 = inttoptr i64 %58 to ptr
+  %60 = getelementptr inbounds i8, ptr %6, i64 168
+  %61 = load i32, ptr %60, align 8
+  %62 = call i32 @futex_requeue(ptr noundef %54, i32 noundef %56, ptr noundef %59, i32 noundef %61, i32 noundef %9, i32 noundef %10, ptr noundef nonnull %7, i32 noundef 0) #10
+  %63 = sext i32 %62 to i64
+  br label %64
 
-65:                                               ; preds = %50, %.thread7, %4
-  %66 = phi i64 [ %.ph, %.thread7 ], [ %64, %50 ], [ -22, %4 ]
+64:                                               ; preds = %49, %.thread8, %4
+  %65 = phi i64 [ %.ph, %.thread8 ], [ %63, %49 ], [ -22, %4 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %6) #10
-  ret i64 %66
+  ret i64 %65
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -5439,16 +5439,16 @@ _ZN4pbrt5ErrorIJiiEEEvPKNS_7FileLocEPKcDpOT_.exit: ; preds = %_ZN4pbrt12StringPr
   %17 = load ptr, ptr %vi, align 8
   %sub.ptr.rhs.cast.i72 = ptrtoint ptr %17 to i64
   %_M_finish.i.i.promoted = load ptr, ptr %_M_finish.i.i, align 8
-  %sub.ptr.lhs.cast.i71453 = ptrtoint ptr %_M_finish.i.i.promoted to i64
-  %sub.ptr.sub.i73454 = sub i64 %sub.ptr.lhs.cast.i71453, %sub.ptr.rhs.cast.i72
-  %sub.ptr.div.i74455 = ashr exact i64 %sub.ptr.sub.i73454, 2
-  %rem40456 = urem i64 %sub.ptr.div.i74455, 3
-  %cmp41.not457 = icmp eq i64 %rem40456, 0
-  br i1 %cmp41.not457, label %if.end43, label %while.body
+  %sub.ptr.lhs.cast.i71454 = ptrtoint ptr %_M_finish.i.i.promoted to i64
+  %sub.ptr.sub.i73455 = sub i64 %sub.ptr.lhs.cast.i71454, %sub.ptr.rhs.cast.i72
+  %sub.ptr.div.i74456 = ashr exact i64 %sub.ptr.sub.i73455, 2
+  %rem40457 = urem i64 %sub.ptr.div.i74456, 3
+  %cmp41.not458 = icmp eq i64 %rem40457, 0
+  br i1 %cmp41.not458, label %if.end43, label %while.body
 
 while.body:                                       ; preds = %_ZN4pbrt5ErrorIJiiEEEvPKNS_7FileLocEPKcDpOT_.exit, %while.body
-  %incdec.ptr.i452458 = phi ptr [ %incdec.ptr.i, %while.body ], [ %_M_finish.i.i.promoted, %_ZN4pbrt5ErrorIJiiEEEvPKNS_7FileLocEPKcDpOT_.exit ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr.i452458, i64 -4
+  %incdec.ptr.i453459 = phi ptr [ %incdec.ptr.i, %while.body ], [ %_M_finish.i.i.promoted, %_ZN4pbrt5ErrorIJiiEEEvPKNS_7FileLocEPKcDpOT_.exit ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr.i453459, i64 -4
   %sub.ptr.lhs.cast.i71 = ptrtoint ptr %incdec.ptr.i to i64
   %sub.ptr.sub.i73 = sub i64 %sub.ptr.lhs.cast.i71, %sub.ptr.rhs.cast.i72
   %sub.ptr.div.i74 = ashr exact i64 %sub.ptr.sub.i73, 2
@@ -5666,8 +5666,8 @@ lpad92:                                           ; preds = %if.then91
 if.end97:                                         ; preds = %_ZSt4copyIPKN4pbrt7Normal3IfEEPS2_ET0_T_S7_S6_.exit.i, %invoke.cont.i.i355, %land.lhs.true87, %invoke.cont83
   %45 = load ptr, ptr %_M_finish.i.i, align 8
   %46 = load ptr, ptr %vi, align 8
-  %cmp99459.not = icmp eq ptr %45, %46
-  br i1 %cmp99459.not, label %for.end, label %for.body.lr.ph
+  %cmp99460.not = icmp eq ptr %45, %46
+  br i1 %cmp99460.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end97
   %sub.ptr.lhs.cast.i137 = ptrtoint ptr %45 to i64
@@ -5684,15 +5684,15 @@ for.body.lr.ph:                                   ; preds = %if.end97
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.0460 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %add.ptr.i141 = getelementptr inbounds i32, ptr %46, i64 %i.0460
+  %i.0461 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %add.ptr.i141 = getelementptr inbounds i32, ptr %46, i64 %i.0461
   %49 = load i32, ptr %add.ptr.i141, align 4
   %conv101 = sext i32 %49 to i64
   %cmp103.not = icmp ugt i64 %sub.ptr.div.i146, %conv101
   br i1 %cmp103.not, label %for.inc, label %if.then104
 
 if.then104:                                       ; preds = %for.body
-  %add.ptr.i141.le = getelementptr inbounds i32, ptr %46, i64 %i.0460
+  %add.ptr.i141.le = getelementptr inbounds i32, ptr %46, i64 %i.0461
   %conv108 = trunc i64 %sub.ptr.div.i146 to i32
   store i32 %conv108, ptr %ref.tmp106, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i153)
@@ -5726,7 +5726,7 @@ _ZN4pbrt5ErrorIJRiiEEEvPKNS_7FileLocEPKcDpOT_.exit: ; preds = %_ZN4pbrt12StringP
   br label %cleanup
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nuw i64 %i.0460, 1
+  %inc = add nuw i64 %i.0461, 1
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
@@ -10116,15 +10116,15 @@ _ZN4pbrt5ErrorIJiiEEEvPKNS_7FileLocEPKcDpOT_.exit: ; preds = %_ZN4pbrt12StringPr
   %18 = load ptr, ptr %vertexIndices, align 8
   %sub.ptr.rhs.cast.i80 = ptrtoint ptr %18 to i64
   %_M_finish.i.i.promoted = load ptr, ptr %_M_finish.i.i, align 8
-  %sub.ptr.lhs.cast.i79417 = ptrtoint ptr %_M_finish.i.i.promoted to i64
-  %sub.ptr.sub.i81418 = sub i64 %sub.ptr.lhs.cast.i79417, %sub.ptr.rhs.cast.i80
-  %19 = and i64 %sub.ptr.sub.i81418, 12
-  %cmp42.not419 = icmp eq i64 %19, 0
-  br i1 %cmp42.not419, label %if.end44, label %while.body
+  %sub.ptr.lhs.cast.i79418 = ptrtoint ptr %_M_finish.i.i.promoted to i64
+  %sub.ptr.sub.i81419 = sub i64 %sub.ptr.lhs.cast.i79418, %sub.ptr.rhs.cast.i80
+  %19 = and i64 %sub.ptr.sub.i81419, 12
+  %cmp42.not420 = icmp eq i64 %19, 0
+  br i1 %cmp42.not420, label %if.end44, label %while.body
 
 while.body:                                       ; preds = %_ZN4pbrt5ErrorIJiiEEEvPKNS_7FileLocEPKcDpOT_.exit, %while.body
-  %incdec.ptr.i416420 = phi ptr [ %incdec.ptr.i, %while.body ], [ %_M_finish.i.i.promoted, %_ZN4pbrt5ErrorIJiiEEEvPKNS_7FileLocEPKcDpOT_.exit ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr.i416420, i64 -4
+  %incdec.ptr.i417421 = phi ptr [ %incdec.ptr.i, %while.body ], [ %_M_finish.i.i.promoted, %_ZN4pbrt5ErrorIJiiEEEvPKNS_7FileLocEPKcDpOT_.exit ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr.i417421, i64 -4
   %sub.ptr.lhs.cast.i79 = ptrtoint ptr %incdec.ptr.i to i64
   %sub.ptr.sub.i81 = sub i64 %sub.ptr.lhs.cast.i79, %sub.ptr.rhs.cast.i80
   %20 = and i64 %sub.ptr.sub.i81, 12
@@ -10262,8 +10262,8 @@ lpad73:                                           ; preds = %if.then72
 if.end78:                                         ; preds = %_ZSt4copyIPKN4pbrt7Normal3IfEEPS2_ET0_T_S7_S6_.exit.i, %invoke.cont.i.i317, %land.lhs.true68, %invoke.cont64
   %38 = load ptr, ptr %_M_finish.i.i, align 8
   %39 = load ptr, ptr %vertexIndices, align 8
-  %cmp80421.not = icmp eq ptr %38, %39
-  br i1 %cmp80421.not, label %for.end, label %for.body.lr.ph
+  %cmp80422.not = icmp eq ptr %38, %39
+  br i1 %cmp80422.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end78
   %sub.ptr.lhs.cast.i123 = ptrtoint ptr %38 to i64
@@ -10280,15 +10280,15 @@ for.body.lr.ph:                                   ; preds = %if.end78
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.0422 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %add.ptr.i127 = getelementptr inbounds i32, ptr %39, i64 %i.0422
+  %i.0423 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %add.ptr.i127 = getelementptr inbounds i32, ptr %39, i64 %i.0423
   %42 = load i32, ptr %add.ptr.i127, align 4
   %conv82 = sext i32 %42 to i64
   %cmp84.not = icmp ugt i64 %sub.ptr.div.i132, %conv82
   br i1 %cmp84.not, label %for.inc, label %if.then85
 
 if.then85:                                        ; preds = %for.body
-  %add.ptr.i127.le = getelementptr inbounds i32, ptr %39, i64 %i.0422
+  %add.ptr.i127.le = getelementptr inbounds i32, ptr %39, i64 %i.0423
   %conv89 = trunc i64 %sub.ptr.div.i132 to i32
   store i32 %conv89, ptr %ref.tmp87, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i139)
@@ -10322,7 +10322,7 @@ _ZN4pbrt5ErrorIJRiiEEEvPKNS_7FileLocEPKcDpOT_.exit: ; preds = %_ZN4pbrt12StringP
   br label %cleanup
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nuw i64 %i.0422, 1
+  %inc = add nuw i64 %i.0423, 1
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !59
 
@@ -15072,7 +15072,7 @@ entry:
   %add.i.i92 = fadd float %16, %17
   %18 = tail call noundef float @llvm.fabs.f32(float %add.i.i)
   %cmp = fcmp olt float %18, 0x3F50624DE0000000
-  br i1 %cmp, label %if.then, label %if.end
+  br i1 %cmp, label %if.then, label %if.end3.i
 
 if.then:                                          ; preds = %entry
   %mul = fmul float %sub.i, %add
@@ -15109,20 +15109,7 @@ if.else:                                          ; preds = %if.then
   %29 = fdiv <2 x float> %26, %28
   br label %return
 
-if.end:                                           ; preds = %entry
-  %cmp.i = fcmp oeq float %add.i.i, 0.000000e+00
-  br i1 %cmp.i, label %if.then.i, label %if.end3.i
-
-if.then.i:                                        ; preds = %if.end
-  %cmp1.i = fcmp oeq float %add, 0.000000e+00
-  br i1 %cmp1.i, label %return, label %if.end.i
-
-if.end.i:                                         ; preds = %if.then.i
-  %fneg.i = fneg float %add.i.i92
-  %div.i = fdiv float %fneg.i, %add
-  br label %if.end78
-
-if.end3.i:                                        ; preds = %if.end
+if.end3.i:                                        ; preds = %entry
   %mul.i = fmul float %add.i.i, 4.000000e+00
   %mul.i.i94 = fmul float %add.i.i92, %mul.i
   %fneg.i.i95 = fneg float %mul.i.i94
@@ -15141,14 +15128,7 @@ if.end6.i:                                        ; preds = %if.end3.i
   %div10.i = fdiv float %mul9.i, %add.i.i
   %div11.i = fdiv float %add.i.i92, %mul9.i
   %cmp12.i = fcmp ogt float %div10.i, %div11.i
-  br i1 %cmp12.i, label %if.then13.i, label %if.end78
-
-if.then13.i:                                      ; preds = %if.end6.i
-  br label %if.end78
-
-if.end78:                                         ; preds = %if.end.i, %if.then13.i, %if.end6.i
-  %v0.0.ph = phi float [ %div10.i, %if.end6.i ], [ %div11.i, %if.then13.i ], [ %div.i, %if.end.i ]
-  %v1.0.ph = phi float [ %div11.i, %if.end6.i ], [ %div10.i, %if.then13.i ], [ %div.i, %if.end.i ]
+  %v0.0.ph = select i1 %cmp12.i, float %div11.i, float %div10.i
   %mul81 = fmul float %sub.i51, %v0.0.ph
   %sub82 = fsub float %sub.i75, %mul81
   %mul85 = fmul float %add.i, %v0.0.ph
@@ -15163,7 +15143,8 @@ if.end78:                                         ; preds = %if.end.i, %if.then1
   %or.cond2 = or i1 %cmp93, %or.cond1
   br i1 %or.cond2, label %if.then94, label %if.end104
 
-if.then94:                                        ; preds = %if.end78
+if.then94:                                        ; preds = %if.end6.i
+  %v1.0.ph = select i1 %cmp12.i, float %div10.i, float %div11.i
   %mul97 = fmul float %sub.i51, %v1.0.ph
   %sub98 = fsub float %sub.i75, %mul97
   %mul101 = fmul float %add.i, %v1.0.ph
@@ -15173,13 +15154,13 @@ if.then94:                                        ; preds = %if.end78
   %retval.sroa.0.4.vec.insert128 = insertelement <2 x float> %retval.sroa.0.0.vec.insert120, float %v1.0.ph, i64 1
   br label %return
 
-if.end104:                                        ; preds = %if.end78
+if.end104:                                        ; preds = %if.end6.i
   %retval.sroa.0.0.vec.insert122 = insertelement <2 x float> poison, float %div87, i64 0
   %retval.sroa.0.4.vec.insert130 = insertelement <2 x float> %retval.sroa.0.0.vec.insert122, float %v0.0.ph, i64 1
   br label %return
 
-return:                                           ; preds = %if.then.i, %if.end3.i, %if.end104, %if.then94, %if.else, %if.then52
-  %retval.sroa.0.0 = phi <2 x float> [ %24, %if.then52 ], [ %29, %if.else ], [ %retval.sroa.0.4.vec.insert128, %if.then94 ], [ %retval.sroa.0.4.vec.insert130, %if.end104 ], [ zeroinitializer, %if.end3.i ], [ zeroinitializer, %if.then.i ]
+return:                                           ; preds = %if.end3.i, %if.end104, %if.then94, %if.else, %if.then52
+  %retval.sroa.0.0 = phi <2 x float> [ %24, %if.then52 ], [ %29, %if.else ], [ %retval.sroa.0.4.vec.insert128, %if.then94 ], [ %retval.sroa.0.4.vec.insert130, %if.end104 ], [ zeroinitializer, %if.end3.i ]
   ret <2 x float> %retval.sroa.0.0
 }
 

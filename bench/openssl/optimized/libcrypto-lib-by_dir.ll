@@ -164,9 +164,11 @@ entry:
   %htmp = alloca %struct.lookup_dir_hashes_st, align 8
   %st = alloca %struct.stat, align 8
   %cmp = icmp eq ptr %name, null
+  %.sink.sroa.gep129 = getelementptr inbounds i8, ptr %data, i64 24
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %data, i64 72
   store i32 %type, ptr %stmp, align 8
   %cmp2 = icmp eq i32 %type, 1
   br i1 %cmp2, label %if.end10, label %if.else
@@ -182,10 +184,9 @@ if.else8:                                         ; preds = %if.else
   br label %finish
 
 if.end10:                                         ; preds = %if.else, %if.end
-  %.sink = phi i64 [ 72, %if.end ], [ 24, %if.else ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.end ], [ %.sink.sroa.gep129, %if.else ]
   %postfix.0 = phi ptr [ @.str.2, %if.end ], [ @.str.3, %if.else ]
-  %issuer = getelementptr inbounds i8, ptr %data, i64 %.sink
-  store ptr %name, ptr %issuer, align 8
+  store ptr %name, ptr %.sink.sroa.phi, align 8
   %data7 = getelementptr inbounds i8, ptr %stmp, i64 8
   store ptr %data, ptr %data7, align 8
   %call = call ptr @BUF_MEM_new() #6

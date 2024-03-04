@@ -68,6 +68,8 @@ entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call zeroext i1 @qemu_in_main_thread() #10
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %bochs, i64 88
+  %.sink.sroa.gep56 = getelementptr inbounds i8, ptr %bochs, i64 84
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -127,9 +129,8 @@ if.else34:                                        ; preds = %lor.lhs.false21
   br label %if.end40
 
 if.end40:                                         ; preds = %lor.lhs.false21, %if.else34
-  %.sink = phi i64 [ 88, %if.else34 ], [ 84, %lor.lhs.false21 ]
-  %disk36 = getelementptr inbounds i8, ptr %bochs, i64 %.sink
-  %3 = load i64, ptr %disk36, align 1
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.else34 ], [ %.sink.sroa.gep56, %lor.lhs.false21 ]
+  %3 = load i64, ptr %.sink.sroa.phi, align 1
   %div3851 = lshr i64 %3, 9
   %total_sectors39 = getelementptr inbounds i8, ptr %bs, i64 16888
   store i64 %div3851, ptr %total_sectors39, align 8

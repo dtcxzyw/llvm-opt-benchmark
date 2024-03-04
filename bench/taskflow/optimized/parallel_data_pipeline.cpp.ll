@@ -276,7 +276,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cow_string" = type { %union.anon.255 }
 %union.anon.255 = type { ptr }
 %"class.std::error_code" = type { i32, ptr }
-%"struct.std::array.543" = type { [2 x i32] }
 %"struct.tf::CachelineAligned.473" = type { %"class.std::variant.474", [88 x i8] }
 %"class.std::variant.474" = type { %"struct.std::__detail::__variant::_Variant_base.base.492", [7 x i8] }
 %"struct.std::__detail::__variant::_Variant_base.base.492" = type { %"struct.std::__detail::__variant::_Move_assign_base.base.491" }
@@ -23384,11 +23383,13 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvRN2tf7RuntimeEEZNS0_12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS5_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS5_ISD_vZ4mainE3$_2EEEE6_buildEvEUlS2_E_E9_M_invokeERKSt9_Any_dataS2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %__args) #6 align 2 {
 entry:
-  %retval.i.i.i = alloca %"struct.std::array.543", align 4
+  %retval.sroa.0.i.i.i = alloca i32, align 4
+  %retval.sroa.4.i.i.i = alloca i32, align 4
   %call.val = load ptr, ptr %__functor, align 8
   %0 = getelementptr inbounds i8, ptr %__functor, i64 8
   %call.val1 = load i64, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %retval.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %retval.sroa.4.i.i.i)
   %_pipeflows.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 120
   %1 = load ptr, ptr %_pipeflows.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.tf::Pipeflow", ptr %1, i64 %call.val1
@@ -23472,10 +23473,11 @@ land.lhs.true.i.i.i:                              ; preds = %if.end12.i.i.i
   br i1 %cmp30.i.i.i, label %if.then31.i.i.i, label %if.end34.i.i.i
 
 if.then31.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  store i32 1, ptr %retval.i.i.i, align 4
+  store i32 1, ptr %retval.sroa.0.i.i.i, align 4
   br label %if.end34.i.i.i
 
 if.end34.i.i.i:                                   ; preds = %if.then31.i.i.i, %land.lhs.true.i.i.i, %if.end12.i.i.i
+  %n.0.sroa.phi.i.i.i = phi ptr [ %retval.sroa.4.i.i.i, %if.then31.i.i.i ], [ %retval.sroa.0.i.i.i, %land.lhs.true.i.i.i ], [ %retval.sroa.0.i.i.i, %if.end12.i.i.i ]
   %n.0.i.i.i = phi i64 [ 1, %if.then31.i.i.i ], [ 0, %land.lhs.true.i.i.i ], [ 0, %if.end12.i.i.i ]
   %15 = load i64, ptr %pf.0.ph.i.i.i.ph, align 8
   %_lines.val.i.i.i = load ptr, ptr %_lines.i.i.i, align 8
@@ -23487,8 +23489,7 @@ if.end34.i.i.i:                                   ; preds = %if.then31.i.i.i, %l
 
 if.then42.i.i.i:                                  ; preds = %if.end34.i.i.i
   %inc43.i.i.i = add nuw nsw i64 %n.0.i.i.i, 1
-  %arrayidx.i.i43.i.i.i = getelementptr inbounds [2 x i32], ptr %retval.i.i.i, i64 0, i64 %n.0.i.i.i
-  store i32 0, ptr %arrayidx.i.i43.i.i.i, align 4
+  store i32 0, ptr %n.0.sroa.phi.i.i.i, align 4
   br label %if.end45.i.i.i
 
 if.end45.i.i.i:                                   ; preds = %if.then42.i.i.i, %if.end34.i.i.i
@@ -23529,17 +23530,18 @@ _ZN2tf7Runtime8scheduleENS_4TaskE.exit.i.i.i:     ; preds = %cond.false.i.i.i.i,
   br label %pipeline.i.i.i
 
 sw.bb48.i.i.i:                                    ; preds = %if.end45.i.i.i
-  %25 = load i32, ptr %retval.i.i.i, align 4
-  %cmp50.i.i.i = icmp eq i32 %25, 1
+  %retval.sroa.0.i.i.i.0.retval.sroa.0.i.i.i.0.retval.sroa.0.i.i.i.0.retval.sroa.0.i.i.0.retval.sroa.0.i.i.0.retval.sroa.0.i.0.retval.sroa.0.i.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0..i.i.i = load i32, ptr %retval.sroa.0.i.i.i, align 4
+  %cmp50.i.i.i = icmp eq i32 %retval.sroa.0.i.i.i.0.retval.sroa.0.i.i.i.0.retval.sroa.0.i.i.i.0.retval.sroa.0.i.i.0.retval.sroa.0.i.i.0.retval.sroa.0.i.0.retval.sroa.0.i.0.retval.sroa.0.0.retval.sroa.0.0.retval.sroa.0.0..i.i.i, 1
   br i1 %cmp50.i.i.i, label %if.then51.i.i.i, label %pipeline.outer.i.i.i
 
 if.then51.i.i.i:                                  ; preds = %sw.bb48.i.i.i
-  %26 = load ptr, ptr %_pipeflows.i.i.i, align 8
-  %add.ptr.i45.i.i.i = getelementptr inbounds %"class.tf::Pipeflow", ptr %26, i64 %rem19.i.i.i
+  %25 = load ptr, ptr %_pipeflows.i.i.i, align 8
+  %add.ptr.i45.i.i.i = getelementptr inbounds %"class.tf::Pipeflow", ptr %25, i64 %rem19.i.i.i
   br label %pipeline.outer.i.i.i.outer
 
 "_ZSt10__invoke_rIvRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE6_buildEvEUlRNS0_7RuntimeEE_JSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit": ; preds = %if.then.i.i.i, %if.end45.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %retval.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %retval.sroa.4.i.i.i)
   ret void
 }
 

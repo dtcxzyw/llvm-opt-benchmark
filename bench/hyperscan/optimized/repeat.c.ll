@@ -2951,7 +2951,8 @@ return:                                           ; preds = %if.then18, %if.end,
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @repeatPack(ptr noundef writeonly %dest, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, i64 noundef %offset) local_unnamed_addr #5 {
 entry:
-  %v.i = alloca [2 x i64], align 16
+  %v.i.sroa.0 = alloca i64, align 16
+  %v.i.sroa.4 = alloca i64, align 8
   %0 = load i8, ptr %info, align 4
   switch i8 %0, label %sw.epilog [
     i8 0, label %sw.bb
@@ -3419,7 +3420,8 @@ if.else.i98:                                      ; preds = %storePackedRelative
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %v.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i.sroa.0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i.sroa.4)
   %26 = load i64, ptr %ctrl, align 8
   %tobool.not.i125 = icmp eq i64 %26, 0
   br i1 %tobool.not.i125, label %if.end.i128, label %if.then.i126
@@ -3438,22 +3440,21 @@ if.end.i128:                                      ; preds = %if.then.i126, %sw.b
   %28 = load i32, ptr %horizon.i130, align 4
   %conv4.i = zext i32 %28 to i64
   %sub3.conv4.i = tail call i64 @llvm.umin.i64(i64 %sub3.i129, i64 %conv4.i)
-  store i64 %sub3.conv4.i, ptr %v.i, align 16
+  store i64 %sub3.conv4.i, ptr %v.i.sroa.0, align 16
   %bitmap.i = getelementptr inbounds i8, ptr %ctrl, i64 8
   %29 = load i64, ptr %bitmap.i, align 8
-  %arrayidx8.i = getelementptr inbounds i8, ptr %v.i, i64 8
-  store i64 %29, ptr %arrayidx8.i, align 8
+  store i64 %29, ptr %v.i.sroa.4, align 8
   %packedFieldSizes.i = getelementptr inbounds i8, ptr %info, i64 28
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end12.i.i, %if.end.i128
   %cmp.i.i = phi i1 [ true, %if.end.i128 ], [ false, %if.end12.i.i ]
+  %indvars.iv.i.sroa.phi = phi ptr [ %v.i.sroa.0, %if.end.i128 ], [ %v.i.sroa.4, %if.end12.i.i ]
   %indvars.iv.i = phi i64 [ 0, %if.end.i128 ], [ 1, %if.end12.i.i ]
   %out.addr.i.053.i = phi ptr [ %dest, %if.end.i128 ], [ %out.addr.i.1.i, %if.end12.i.i ]
   %write.i.052.i = phi i64 [ 0, %if.end.i128 ], [ %write.i.1.i, %if.end12.i.i ]
   %idx.i.051.i = phi i32 [ 0, %if.end.i128 ], [ %idx.i.1.i, %if.end12.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %v.i, i64 %indvars.iv.i
-  %30 = load i64, ptr %arrayidx.i.i, align 8
+  %30 = load i64, ptr %indvars.iv.i.sroa.phi, align 8
   %sh_prom.i.i = zext nneg i32 %idx.i.051.i to i64
   %shl.i.i = shl i64 %30, %sh_prom.i.i
   %or.i.i = or i64 %shl.i.i, %write.i.052.i
@@ -3473,7 +3474,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br i1 %cmp7.i.i, label %if.end12.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %33 = load i64, ptr %arrayidx.i.i, align 8
+  %33 = load i64, ptr %indvars.iv.i.sroa.phi, align 8
   %sh_prom11.i.i = zext nneg i32 %sub6.i.i to i64
   %shr.i.i155 = lshr i64 %33, %sh_prom11.i.i
   br label %if.end12.i.i
@@ -3558,7 +3559,8 @@ sw.bb25.i.i.i131:                                 ; preds = %for.end.i.i
   br label %repeatPackTrailer.exit
 
 repeatPackTrailer.exit:                           ; preds = %for.end.i.i, %sw.bb.i.i.i152, %sw.bb1.i.i.i148, %sw.bb6.i.i.i145, %sw.bb11.i.i.i142, %sw.bb16.i.i.i140, %sw.bb18.i.i.i135, %sw.bb23.i.i.i133, %sw.bb25.i.i.i131
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %v.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i.sroa.0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i.sroa.4)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.else.i98, %if.then.i103, %sw.bb25.i.i, %sw.bb23.i.i, %sw.bb18.i.i, %sw.bb16.i.i, %sw.bb11.i.i, %sw.bb6.i.i, %sw.bb1.i.i, %sw.bb.i.i, %do.end.i, %sw.bb25.i.i.i28, %sw.bb23.i.i.i30, %sw.bb18.i.i.i32, %sw.bb16.i.i.i37, %sw.bb11.i.i.i39, %sw.bb6.i.i.i42, %sw.bb1.i.i.i45, %sw.bb.i.i.i49, %if.end.i, %sw.bb1, %if.else.i, %if.then.i, %repeatPackTrailer.exit, %repeatPackRange.exit, %entry
@@ -3568,7 +3570,8 @@ sw.epilog:                                        ; preds = %if.else.i98, %if.th
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @repeatUnpack(ptr noundef readonly %src, ptr nocapture noundef readonly %info, i64 noundef %offset, ptr nocapture noundef writeonly %ctrl) local_unnamed_addr #6 {
 entry:
-  %v.i = alloca [2 x i64], align 16
+  %v.i.sroa.0 = alloca i64, align 16
+  %v.i.sroa.4 = alloca i64, align 8
   %0 = load i8, ptr %info, align 4
   switch i8 %0, label %sw.epilog [
     i8 0, label %sw.bb
@@ -4080,12 +4083,14 @@ repeatUnpackSparseOptimalP.exit:                  ; preds = %if.then.i120, %if.e
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %v.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i.sroa.0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i.sroa.4)
   %packedFieldSizes.i = getelementptr inbounds i8, ptr %info, i64 28
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %while.end.i.i, %sw.bb5
   %cmp.i.i = phi i1 [ true, %sw.bb5 ], [ false, %while.end.i.i ]
+  %indvars.iv.i.sroa.phi = phi ptr [ %v.i.sroa.0, %sw.bb5 ], [ %v.i.sroa.4, %while.end.i.i ]
   %indvars.iv.i = phi i64 [ 0, %sw.bb5 ], [ 1, %while.end.i.i ]
   %in.addr.i.036.i = phi ptr [ %src, %sw.bb5 ], [ %in.addr.i.1.ph.i, %while.end.i.i ]
   %used.i.035.i = phi i32 [ 0, %sw.bb5 ], [ %used.i.1.i, %while.end.i.i ]
@@ -4147,23 +4152,22 @@ if.end16.i.i:                                     ; preds = %if.then.i.i, %if.el
   br label %while.cond.i.outer.i, !llvm.loop !22
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
-  %arrayidx18.i.i = getelementptr inbounds i64, ptr %v.i, i64 %indvars.iv.i
-  store i64 %v_out.i.0.i, ptr %arrayidx18.i.i, align 8
+  store i64 %v_out.i.0.i, ptr %indvars.iv.i.sroa.phi, align 8
   br i1 %cmp.i.i, label %for.body.i.i, label %repeatUnpackTrailer.exit, !llvm.loop !23
 
 repeatUnpackTrailer.exit:                         ; preds = %while.end.i.i
-  %88 = load i64, ptr %v.i, align 16
-  %sub.i159 = sub i64 %offset, %88
+  %v.i.sroa.0.0.v.i.sroa.0.0.v.i.sroa.0.0.v.i.sroa.0.0. = load i64, ptr %v.i.sroa.0, align 16
+  %sub.i159 = sub i64 %offset, %v.i.sroa.0.0.v.i.sroa.0.0.v.i.sroa.0.0.v.i.sroa.0.0.
   %repeatMin.i = getelementptr inbounds i8, ptr %info, i64 4
-  %89 = load i32, ptr %repeatMin.i, align 4
-  %conv.i160 = zext i32 %89 to i64
+  %88 = load i32, ptr %repeatMin.i, align 4
+  %conv.i160 = zext i32 %88 to i64
   %add.i = add i64 %sub.i159, %conv.i160
   store i64 %add.i, ptr %ctrl, align 8
-  %arrayidx3.i = getelementptr inbounds i8, ptr %v.i, i64 8
-  %90 = load i64, ptr %arrayidx3.i, align 8
+  %v.i.sroa.4.0.v.i.sroa.4.0.v.i.sroa.4.0.v.i.sroa.4.8. = load i64, ptr %v.i.sroa.4, align 8
   %bitmap.i161 = getelementptr inbounds i8, ptr %ctrl, i64 8
-  store i64 %90, ptr %bitmap.i161, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %v.i)
+  store i64 %v.i.sroa.4.0.v.i.sroa.4.0.v.i.sroa.4.0.v.i.sroa.4.8., ptr %bitmap.i161, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i.sroa.0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i.sroa.4)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %repeatUnpackTrailer.exit, %repeatUnpackSparseOptimalP.exit, %repeatUnpackBitmap.exit, %repeatUnpackRange.exit, %repeatUnpackOffset.exit, %repeatUnpackRing.exit, %entry

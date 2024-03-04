@@ -163,19 +163,21 @@ entry:
   %tmp = alloca [9 x i8], align 1
   %c = alloca i32, align 4
   %bytes = alloca [4 x i8], align 1
-  %cmp51.not = icmp eq i64 %chars, 0
-  br i1 %cmp51.not, label %for.end, label %for.body
+  %i27.0.sroa.gep = getelementptr inbounds i8, ptr %bytes, i64 1
+  %i27.0.sroa.gep38 = getelementptr inbounds i8, ptr %bytes, i64 2
+  %cmp52.not = icmp eq i64 %chars, 0
+  br i1 %cmp52.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %i.052 = phi i64 [ %inc1, %for.body ], [ 0, %entry ]
+  %i.053 = phi i64 [ %inc1, %for.body ], [ 0, %entry ]
   %0 = load i64, ptr %pos, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %pos, align 8
   %call = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %linestr, i64 noundef %inc) #13
   %1 = load i8, ptr %call, align 1
-  %arrayidx = getelementptr inbounds [9 x i8], ptr %tmp, i64 0, i64 %i.052
+  %arrayidx = getelementptr inbounds [9 x i8], ptr %tmp, i64 0, i64 %i.053
   store i8 %1, ptr %arrayidx, align 1
-  %inc1 = add nuw i64 %i.052, 1
+  %inc1 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc1, %chars
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
@@ -238,23 +240,21 @@ if.else46:                                        ; preds = %if.else38
   %8 = trunc i32 %shr52 to i8
   %9 = and i8 %8, 63
   %conv55 = or disjoint i8 %9, -128
-  %arrayidx57 = getelementptr inbounds i8, ptr %bytes, i64 1
-  store i8 %conv55, ptr %arrayidx57, align 1
+  store i8 %conv55, ptr %i27.0.sroa.gep, align 1
   br label %if.end58
 
 if.end58:                                         ; preds = %if.else46, %if.then40
-  %i27.0 = phi i64 [ 1, %if.then40 ], [ 2, %if.else46 ]
+  %i27.0.sroa.phi = phi ptr [ %i27.0.sroa.gep, %if.then40 ], [ %i27.0.sroa.gep38, %if.else46 ]
+  %i27.0 = phi i64 [ 2, %if.then40 ], [ 3, %if.else46 ]
   %shr59 = lshr i32 %2, 6
   %10 = trunc i32 %shr59 to i8
   %11 = and i8 %10, 63
   %conv62 = or disjoint i8 %11, -128
-  %inc63 = add nuw nsw i64 %i27.0, 1
-  %arrayidx64 = getelementptr inbounds i8, ptr %bytes, i64 %i27.0
-  store i8 %conv62, ptr %arrayidx64, align 1
+  store i8 %conv62, ptr %i27.0.sroa.phi, align 1
   br label %if.end65
 
 if.end65:                                         ; preds = %if.end58, %if.then34
-  %i27.1 = phi i64 [ 1, %if.then34 ], [ %inc63, %if.end58 ]
+  %i27.1 = phi i64 [ 1, %if.then34 ], [ %i27.0, %if.end58 ]
   %12 = trunc i32 %2 to i8
   %13 = and i8 %12, 63
   %conv68 = or disjoint i8 %13, -128
@@ -268,21 +268,21 @@ do.end:                                           ; preds = %if.then29, %if.end6
   br label %for.body74
 
 for.body74:                                       ; preds = %do.end, %for.body74
-  %t.053 = phi i64 [ 0, %do.end ], [ %inc77, %for.body74 ]
-  %arrayidx75 = getelementptr inbounds i8, ptr %bytes, i64 %t.053
+  %t.054 = phi i64 [ 0, %do.end ], [ %inc77, %for.body74 ]
+  %arrayidx75 = getelementptr inbounds i8, ptr %bytes, i64 %t.054
   %14 = load i8, ptr %arrayidx75, align 1
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %tmp2.i)
   %conv.i = zext i8 %14 to i32
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp2.i, i64 noundef 5, ptr noundef nonnull @.str.4, i32 noundef %conv.i) #13
   %call2.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %outstr, ptr noundef nonnull %tmp2.i)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %tmp2.i)
-  %inc77 = add nuw nsw i64 %t.053, 1
-  %exitcond54.not = icmp eq i64 %inc77, %i27.2
-  br i1 %exitcond54.not, label %return, label %for.body74, !llvm.loop !7
+  %inc77 = add nuw nsw i64 %t.054, 1
+  %exitcond55.not = icmp eq i64 %inc77, %i27.2
+  br i1 %exitcond55.not, label %return, label %for.body74, !llvm.loop !7
 
 return:                                           ; preds = %for.body74, %if.then
-  %cond2239 = phi i1 [ true, %if.then ], [ false, %for.body74 ]
-  ret i1 %cond2239
+  %cond2240 = phi i1 [ true, %if.then ], [ false, %for.body74 ]
+  ret i1 %cond2240
 }
 
 ; Function Attrs: nounwind

@@ -1595,6 +1595,7 @@ entry:
   %conv = zext i1 %cmp to i32
   %call1 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 396, ptr noundef nonnull @.str.56, i32 noundef %conv) #3
   %tobool.not = icmp eq i32 %call1, 0
+  %indvars.iv.sroa.gep = getelementptr inbounds i8, ptr %written, i64 8
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -1723,7 +1724,7 @@ for.cond:                                         ; preds = %lor.lhs.false134
 
 for.body:                                         ; preds = %if.end, %for.cond
   %cmp91 = phi i1 [ false, %for.cond ], [ true, %if.end ]
-  %indvars.iv = phi i64 [ 1, %for.cond ], [ 0, %if.end ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.cond ], [ %written, %if.end ]
   br i1 %cmp91, label %if.then93, label %if.else
 
 if.then93:                                        ; preds = %for.body
@@ -1775,8 +1776,7 @@ lor.lhs.false128:                                 ; preds = %lor.lhs.false122
   br i1 %tobool133.not, label %if.then141, label %lor.lhs.false134
 
 lor.lhs.false134:                                 ; preds = %lor.lhs.false128
-  %arrayidx135 = getelementptr inbounds [2 x i64], ptr %written, i64 0, i64 %indvars.iv
-  %call136 = call i32 @WPACKET_get_total_written(ptr noundef nonnull %pkt, ptr noundef nonnull %arrayidx135) #3
+  %call136 = call i32 @WPACKET_get_total_written(ptr noundef nonnull %pkt, ptr noundef nonnull %indvars.iv.sroa.phi) #3
   %cmp137 = icmp ne i32 %call136, 0
   %conv138 = zext i1 %cmp137 to i32
   %call139 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.71, i32 noundef %conv138) #3

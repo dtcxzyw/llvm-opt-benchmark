@@ -1125,69 +1125,76 @@ define dso_local noundef i32 @io_wq_cpu_affinity(ptr noundef readonly %0, ptr no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @io_wq_max_workers(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = alloca [2 x i32], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !5
-  %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 1880
-  br label %7
+  %.sroa.0 = alloca i32, align 8
+  %.sroa.6 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.6)
+  %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !5
+  %4 = inttoptr i64 %3 to ptr
+  %5 = getelementptr inbounds i8, ptr %4, i64 1880
+  br label %6
 
-7:                                                ; preds = %20, %2
-  %8 = phi i1 [ true, %2 ], [ false, %20 ]
-  %9 = phi i64 [ 0, %2 ], [ 1, %20 ]
-  %10 = getelementptr i32, ptr %1, i64 %9
-  %11 = load i32, ptr %10, align 4
-  %12 = sext i32 %11 to i64
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr i8, ptr %13, i64 768
-  %15 = load volatile i64, ptr %14, align 8
-  %16 = icmp ult i64 %15, %12
-  br i1 %16, label %17, label %20
+6:                                                ; preds = %19, %2
+  %7 = phi i1 [ true, %2 ], [ false, %19 ]
+  %8 = phi i64 [ 0, %2 ], [ 1, %19 ]
+  %9 = getelementptr i32, ptr %1, i64 %8
+  %10 = load i32, ptr %9, align 4
+  %11 = sext i32 %10 to i64
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr i8, ptr %12, i64 768
+  %14 = load volatile i64, ptr %13, align 8
+  %15 = icmp ult i64 %14, %11
+  br i1 %15, label %16, label %19
 
-17:                                               ; preds = %7
-  %18 = load volatile i64, ptr %14, align 8
-  %19 = trunc i64 %18 to i32
-  store i32 %19, ptr %10, align 4
-  br label %20
+16:                                               ; preds = %6
+  %17 = load volatile i64, ptr %13, align 8
+  %18 = trunc i64 %17 to i32
+  store i32 %18, ptr %9, align 4
+  br label %19
 
-20:                                               ; preds = %17, %7
-  br i1 %8, label %7, label %21, !llvm.loop !42
+19:                                               ; preds = %16, %6
+  br i1 %7, label %6, label %20, !llvm.loop !42
 
-21:                                               ; preds = %20
-  store i64 0, ptr %3, align 8
+20:                                               ; preds = %19
+  store i32 0, ptr %.sroa.0, align 8
+  store i32 0, ptr %.sroa.6, align 4
   tail call void @__rcu_read_lock() #17
-  %22 = getelementptr inbounds i8, ptr %0, i64 192
-  tail call void @_raw_spin_lock(ptr noundef %22) #17
-  %23 = getelementptr inbounds i8, ptr %0, i64 96
-  br label %24
+  %21 = getelementptr inbounds i8, ptr %0, i64 192
+  tail call void @_raw_spin_lock(ptr noundef %21) #17
+  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  br label %23
 
-24:                                               ; preds = %36, %21
-  %25 = phi i1 [ true, %21 ], [ false, %36 ]
-  %26 = phi i64 [ 0, %21 ], [ 1, %36 ]
-  %27 = getelementptr [2 x %struct.io_wq_acct], ptr %23, i64 0, i64 %26, i32 1
-  %28 = load i32, ptr %27, align 4
-  %29 = getelementptr [2 x i32], ptr %3, i64 0, i64 %26
-  %30 = load i32, ptr %29, align 4
-  %31 = tail call i32 @llvm.smax.i32(i32 %28, i32 %30)
-  store i32 %31, ptr %29, align 4
-  %32 = getelementptr i32, ptr %1, i64 %26
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %36, label %35
+23:                                               ; preds = %34, %20
+  %24 = phi i1 [ true, %20 ], [ false, %34 ]
+  %.sroa.phi = phi ptr [ %.sroa.0, %20 ], [ %.sroa.6, %34 ]
+  %25 = phi i64 [ 0, %20 ], [ 1, %34 ]
+  %26 = getelementptr [2 x %struct.io_wq_acct], ptr %22, i64 0, i64 %25, i32 1
+  %27 = load i32, ptr %26, align 4
+  %28 = load i32, ptr %.sroa.phi, align 4
+  %29 = tail call i32 @llvm.smax.i32(i32 %27, i32 %28)
+  store i32 %29, ptr %.sroa.phi, align 4
+  %30 = getelementptr i32, ptr %1, i64 %25
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %34, label %33
 
-35:                                               ; preds = %24
-  store i32 %33, ptr %27, align 4
-  br label %36
+33:                                               ; preds = %23
+  store i32 %31, ptr %26, align 4
+  br label %34
 
-36:                                               ; preds = %35, %24
-  br i1 %25, label %24, label %37, !llvm.loop !43
+34:                                               ; preds = %33, %23
+  br i1 %24, label %23, label %35, !llvm.loop !43
 
-37:                                               ; preds = %36
-  tail call void @_raw_spin_unlock(ptr noundef %22) #17
+35:                                               ; preds = %34
+  tail call void @_raw_spin_unlock(ptr noundef %21) #17
   tail call void @__rcu_read_unlock() #17
-  %38 = load i64, ptr %3, align 8
-  store i64 %38, ptr %1, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  %.sroa.0.0..sroa.0.0..sroa.0.0. = load i32, ptr %.sroa.0, align 8
+  %.sroa.6.0..sroa.6.0..sroa.6.4. = load i32, ptr %.sroa.6, align 4
+  store i32 %.sroa.0.0..sroa.0.0..sroa.0.0., ptr %1, align 4
+  %.sroa_idx2 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 %.sroa.6.0..sroa.6.0..sroa.6.4., ptr %.sroa_idx2, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.6)
   ret i32 0
 }
 

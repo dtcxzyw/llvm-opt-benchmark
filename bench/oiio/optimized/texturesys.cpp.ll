@@ -8170,6 +8170,14 @@ entry:
   %drdt = alloca %"class.OpenImageIO_v2_6_0::simd::vfloat4", align 16
   store <4 x float> zeroinitializer, ptr %result, align 16
   %tobool.not = icmp eq ptr %dresultds, null
+  %indvars.iv.sroa.gep = getelementptr inbounds i8, ptr %levelweight, i64 4
+  %indvars.iv135.sroa.gep = getelementptr inbounds i8, ptr %levelweight, i64 4
+  %indvars.iv133.sroa.gep = getelementptr inbounds i8, ptr %levelweight, i64 4
+  %indvars.iv137.sroa.gep = getelementptr inbounds i8, ptr %levelweight, i64 4
+  %indvars.iv.sroa.gep154 = getelementptr inbounds i8, ptr %miplevel, i64 4
+  %indvars.iv135.sroa.gep157 = getelementptr inbounds i8, ptr %miplevel, i64 4
+  %indvars.iv133.sroa.gep160 = getelementptr inbounds i8, ptr %miplevel, i64 4
+  %indvars.iv137.sroa.gep163 = getelementptr inbounds i8, ptr %miplevel, i64 4
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -8294,25 +8302,24 @@ _ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us: ; preds =
 
 for.body.us.us:                                   ; preds = %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us, %for.inc.us.us
   %cmp22.us.us = phi i1 [ false, %for.inc.us.us ], [ true, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
-  %indvars.iv137 = phi i64 [ 1, %for.inc.us.us ], [ 0, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
+  %indvars.iv137.sroa.phi = phi ptr [ %indvars.iv137.sroa.gep, %for.inc.us.us ], [ %levelweight, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
+  %indvars.iv137.sroa.phi162 = phi ptr [ %indvars.iv137.sroa.gep163, %for.inc.us.us ], [ %miplevel, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
   %ok.078.us.us = phi i8 [ %ok.1.us.us, %for.inc.us.us ], [ 1, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
   %npointson.076.us.us = phi i32 [ %npointson.1.us.us, %for.inc.us.us ], [ 0, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
   %r_sum.sroa.0.075.us.us = phi <4 x float> [ %r_sum.sroa.0.1.us.us, %for.inc.us.us ], [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
-  %arrayidx24.us.us = getelementptr inbounds [2 x float], ptr %levelweight, i64 0, i64 %indvars.iv137
-  %50 = load float, ptr %arrayidx24.us.us, align 4
+  %50 = load float, ptr %indvars.iv137.sroa.phi, align 4
   %tobool25.us.us = fcmp une float %50, 0.000000e+00
   br i1 %tobool25.us.us, label %if.end27.us.us, label %for.inc.us.us
 
 if.end27.us.us:                                   ; preds = %for.body.us.us
-  %arrayidx31.us.us = getelementptr inbounds [2 x i32], ptr %miplevel, i64 0, i64 %indvars.iv137
-  %51 = load i32, ptr %arrayidx31.us.us, align 4
+  %51 = load i32, ptr %indvars.iv137.sroa.phi162, align 4
   %call43.us.us = call noundef zeroext i1 %memptr.nonvirtualfn(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef 1, ptr noundef nonnull %sval, ptr noundef nonnull %tval, i32 noundef %51, ptr noundef nonnull align 8 dereferenceable(360) %texturefile, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %options, i32 noundef %nchannels_result, i32 noundef %actualchannels, ptr noundef nonnull %weight, ptr noundef nonnull %r, ptr noundef %drds., ptr noundef %cond42)
   %52 = and i8 %ok.078.us.us, 1
   %tobool4743.us.us = icmp ne i8 %52, 0
   %tobool47.us.us = select i1 %call43.us.us, i1 %tobool4743.us.us, i1 false
   %frombool48.us.us = zext i1 %tobool47.us.us to i8
   %inc.us.us = add nsw i32 %npointson.076.us.us, 1
-  %53 = load float, ptr %arrayidx24.us.us, align 4
+  %53 = load float, ptr %indvars.iv137.sroa.phi, align 4
   %vecinit.i.i.us.us = insertelement <4 x float> poison, float %53, i64 0
   %vecinit3.i.i.us.us = shufflevector <4 x float> %vecinit.i.i.us.us, <4 x float> poison, <4 x i32> zeroinitializer
   %54 = load <4 x float>, ptr %r, align 16
@@ -8328,12 +8335,12 @@ for.inc.us.us:                                    ; preds = %if.end27.us.us, %fo
 
 for.body.us:                                      ; preds = %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us, %for.inc.us
   %cmp22.us = phi i1 [ false, %for.inc.us ], [ true, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
-  %indvars.iv135 = phi i64 [ 1, %for.inc.us ], [ 0, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
+  %indvars.iv135.sroa.phi = phi ptr [ %indvars.iv135.sroa.gep, %for.inc.us ], [ %levelweight, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
+  %indvars.iv135.sroa.phi156 = phi ptr [ %indvars.iv135.sroa.gep157, %for.inc.us ], [ %miplevel, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
   %ok.078.us = phi i8 [ %ok.1.us, %for.inc.us ], [ 1, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
   %npointson.076.us = phi i32 [ %npointson.1.us, %for.inc.us ], [ 0, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
   %r_sum.sroa.0.075.us = phi <4 x float> [ %r_sum.sroa.0.1.us, %for.inc.us ], [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
-  %arrayidx24.us = getelementptr inbounds [2 x float], ptr %levelweight, i64 0, i64 %indvars.iv135
-  %55 = load float, ptr %arrayidx24.us, align 4
+  %55 = load float, ptr %indvars.iv135.sroa.phi, align 4
   %tobool25.us = fcmp une float %55, 0.000000e+00
   br i1 %tobool25.us, label %if.end27.us, label %for.inc.us
 
@@ -8342,15 +8349,14 @@ if.end27.us:                                      ; preds = %for.body.us
   %56 = getelementptr i8, ptr %vtable.us, i64 %.unpack.fr
   %57 = getelementptr i8, ptr %56, i64 -1
   %memptr.virtualfn.us = load ptr, ptr %57, align 8, !nosanitize !99
-  %arrayidx31.us = getelementptr inbounds [2 x i32], ptr %miplevel, i64 0, i64 %indvars.iv135
-  %58 = load i32, ptr %arrayidx31.us, align 4
+  %58 = load i32, ptr %indvars.iv135.sroa.phi156, align 4
   %call43.us = call noundef zeroext i1 %memptr.virtualfn.us(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef 1, ptr noundef nonnull %sval, ptr noundef nonnull %tval, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(360) %texturefile, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %options, i32 noundef %nchannels_result, i32 noundef %actualchannels, ptr noundef nonnull %weight, ptr noundef nonnull %r, ptr noundef %drds., ptr noundef %cond42)
   %59 = and i8 %ok.078.us, 1
   %tobool4743.us = icmp ne i8 %59, 0
   %tobool47.us = select i1 %call43.us, i1 %tobool4743.us, i1 false
   %frombool48.us = zext i1 %tobool47.us to i8
   %inc.us = add nsw i32 %npointson.076.us, 1
-  %60 = load float, ptr %arrayidx24.us, align 4
+  %60 = load float, ptr %indvars.iv135.sroa.phi, align 4
   %vecinit.i.i.us = insertelement <4 x float> poison, float %60, i64 0
   %vecinit3.i.i.us = shufflevector <4 x float> %vecinit.i.i.us, <4 x float> poison, <4 x i32> zeroinitializer
   %61 = load <4 x float>, ptr %r, align 16
@@ -8369,27 +8375,26 @@ _ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split: ; preds = %_
 
 for.body.us83:                                    ; preds = %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split, %for.inc.us106
   %cmp22.us113 = phi i1 [ false, %for.inc.us106 ], [ true, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
-  %indvars.iv133 = phi i64 [ 1, %for.inc.us106 ], [ 0, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
+  %indvars.iv133.sroa.phi = phi ptr [ %indvars.iv133.sroa.gep, %for.inc.us106 ], [ %levelweight, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
+  %indvars.iv133.sroa.phi159 = phi ptr [ %indvars.iv133.sroa.gep160, %for.inc.us106 ], [ %miplevel, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
   %ok.078.us84 = phi i8 [ %ok.1.us111, %for.inc.us106 ], [ 1, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
   %npointson.076.us86 = phi i32 [ %npointson.1.us110, %for.inc.us106 ], [ 0, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
   %r_sum.sroa.0.075.us87 = phi <4 x float> [ %r_sum.sroa.0.1.us109, %for.inc.us106 ], [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
   %drds_sum.sroa.0.174.us88 = phi <4 x float> [ %drds_sum.sroa.0.2.us108, %for.inc.us106 ], [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
   %drdt_sum.sroa.0.173.us89 = phi <4 x float> [ %drdt_sum.sroa.0.2.us107, %for.inc.us106 ], [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
-  %arrayidx24.us91 = getelementptr inbounds [2 x float], ptr %levelweight, i64 0, i64 %indvars.iv133
-  %62 = load float, ptr %arrayidx24.us91, align 4
+  %62 = load float, ptr %indvars.iv133.sroa.phi, align 4
   %tobool25.us92 = fcmp une float %62, 0.000000e+00
   br i1 %tobool25.us92, label %if.end27.us93, label %for.inc.us106
 
 if.end27.us93:                                    ; preds = %for.body.us83
-  %arrayidx31.us96 = getelementptr inbounds [2 x i32], ptr %miplevel, i64 0, i64 %indvars.iv133
-  %63 = load i32, ptr %arrayidx31.us96, align 4
+  %63 = load i32, ptr %indvars.iv133.sroa.phi159, align 4
   %call43.us97 = call noundef zeroext i1 %memptr.nonvirtualfn(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef 1, ptr noundef nonnull %sval, ptr noundef nonnull %tval, i32 noundef %63, ptr noundef nonnull align 8 dereferenceable(360) %texturefile, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %options, i32 noundef %nchannels_result, i32 noundef %actualchannels, ptr noundef nonnull %weight, ptr noundef nonnull %r, ptr noundef %drds., ptr noundef %cond42)
   %64 = and i8 %ok.078.us84, 1
   %tobool4743.us98 = icmp ne i8 %64, 0
   %tobool47.us99 = select i1 %call43.us97, i1 %tobool4743.us98, i1 false
   %frombool48.us100 = zext i1 %tobool47.us99 to i8
   %inc.us101 = add nsw i32 %npointson.076.us86, 1
-  %65 = load float, ptr %arrayidx24.us91, align 4
+  %65 = load float, ptr %indvars.iv133.sroa.phi, align 4
   %vecinit.i.i.us102 = insertelement <4 x float> poison, float %65, i64 0
   %vecinit3.i.i.us103 = shufflevector <4 x float> %vecinit.i.i.us102, <4 x float> poison, <4 x i32> zeroinitializer
   %66 = load <4 x float>, ptr %r, align 16
@@ -8413,14 +8418,14 @@ for.inc.us106:                                    ; preds = %if.end27.us93, %for
 
 for.body:                                         ; preds = %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split, %for.inc
   %cmp22 = phi i1 [ false, %for.inc ], [ true, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
-  %indvars.iv = phi i64 [ 1, %for.inc ], [ 0, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.inc ], [ %levelweight, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
+  %indvars.iv.sroa.phi153 = phi ptr [ %indvars.iv.sroa.gep154, %for.inc ], [ %miplevel, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
   %ok.078 = phi i8 [ %ok.1, %for.inc ], [ 1, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
   %npointson.076 = phi i32 [ %npointson.1, %for.inc ], [ 0, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
   %r_sum.sroa.0.075 = phi <4 x float> [ %r_sum.sroa.0.1, %for.inc ], [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
   %drds_sum.sroa.0.174 = phi <4 x float> [ %drds_sum.sroa.0.2, %for.inc ], [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
   %drdt_sum.sroa.0.173 = phi <4 x float> [ %drdt_sum.sroa.0.2, %for.inc ], [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
-  %arrayidx24 = getelementptr inbounds [2 x float], ptr %levelweight, i64 0, i64 %indvars.iv
-  %69 = load float, ptr %arrayidx24, align 4
+  %69 = load float, ptr %indvars.iv.sroa.phi, align 4
   %tobool25 = fcmp une float %69, 0.000000e+00
   br i1 %tobool25, label %if.end27, label %for.inc
 
@@ -8429,15 +8434,14 @@ if.end27:                                         ; preds = %for.body
   %70 = getelementptr i8, ptr %vtable, i64 %.unpack.fr
   %71 = getelementptr i8, ptr %70, i64 -1
   %memptr.virtualfn = load ptr, ptr %71, align 8, !nosanitize !99
-  %arrayidx31 = getelementptr inbounds [2 x i32], ptr %miplevel, i64 0, i64 %indvars.iv
-  %72 = load i32, ptr %arrayidx31, align 4
+  %72 = load i32, ptr %indvars.iv.sroa.phi153, align 4
   %call43 = call noundef zeroext i1 %memptr.virtualfn(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef 1, ptr noundef nonnull %sval, ptr noundef nonnull %tval, i32 noundef %72, ptr noundef nonnull align 8 dereferenceable(360) %texturefile, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %options, i32 noundef %nchannels_result, i32 noundef %actualchannels, ptr noundef nonnull %weight, ptr noundef nonnull %r, ptr noundef %drds., ptr noundef %cond42)
   %73 = and i8 %ok.078, 1
   %tobool4743 = icmp ne i8 %73, 0
   %tobool47 = select i1 %call43, i1 %tobool4743, i1 false
   %frombool48 = zext i1 %tobool47 to i8
   %inc = add nsw i32 %npointson.076, 1
-  %74 = load float, ptr %arrayidx24, align 4
+  %74 = load float, ptr %indvars.iv.sroa.phi, align 4
   %vecinit.i.i = insertelement <4 x float> poison, float %74, i64 0
   %vecinit3.i.i = shufflevector <4 x float> %vecinit.i.i, <4 x float> poison, <4 x i32> zeroinitializer
   %75 = load <4 x float>, ptr %r, align 16
@@ -9367,6 +9371,10 @@ entry:
   %arrayidx7 = getelementptr inbounds [7 x ptr], ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl14wrap_functionsE, i64 0, i64 %idxprom6
   %7 = load ptr, ptr %arrayidx7, align 8
   %cmp = icmp eq ptr %5, %7
+  %indvars.iv512.sroa.gep549 = getelementptr inbounds i8, ptr %tile_edge, i64 4
+  %indvars.iv512.sroa.gep552 = getelementptr inbounds i8, ptr %tile_st357, i64 4
+  %indvars.iv515.sroa.gep553 = getelementptr inbounds i8, ptr %texel_simd, i64 32
+  %indvars.iv512.sroa.gep556 = getelementptr inbounds i8, ptr %stvalid, i64 4
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
@@ -10118,6 +10126,7 @@ invoke.cont360:                                   ; preds = %for.body.i
 
 for.body364:                                      ; preds = %invoke.cont360, %for.inc506
   %cmp363 = phi i1 [ true, %invoke.cont360 ], [ false, %for.inc506 ]
+  %indvars.iv515.sroa.phi = phi ptr [ %texel_simd, %invoke.cont360 ], [ %indvars.iv515.sroa.gep553, %for.inc506 ]
   %indvars.iv515 = phi i64 [ 0, %invoke.cont360 ], [ 1, %for.inc506 ]
   %188 = or disjoint i64 %indvars.iv515, 2
   %arrayidx.i1193 = getelementptr inbounds [4 x i32], ptr %stvalid, i64 0, i64 %188
@@ -10126,8 +10135,7 @@ for.body364:                                      ; preds = %invoke.cont360, %fo
   br i1 %tobool368.not, label %if.then369, label %if.end378
 
 if.then369:                                       ; preds = %for.body364
-  %arrayidx371 = getelementptr inbounds [2 x [2 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv515
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %arrayidx371, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %indvars.iv515.sroa.phi, i8 0, i64 32, i1 false)
   br label %for.inc506
 
 if.end378:                                        ; preds = %for.body364
@@ -10139,9 +10147,11 @@ if.end378:                                        ; preds = %for.body364
 
 for.body384:                                      ; preds = %if.end378, %for.inc
   %cmp399 = phi i1 [ true, %if.end378 ], [ false, %for.inc ]
+  %indvars.iv512.sroa.phi = phi ptr [ %tile_edge, %if.end378 ], [ %indvars.iv512.sroa.gep549, %for.inc ]
+  %indvars.iv512.sroa.phi550 = phi ptr [ %tile_st357, %if.end378 ], [ %indvars.iv512.sroa.gep552, %for.inc ]
+  %indvars.iv512.sroa.phi554 = phi ptr [ %stvalid, %if.end378 ], [ %indvars.iv512.sroa.gep556, %for.inc ]
   %indvars.iv512 = phi i64 [ 0, %if.end378 ], [ 1, %for.inc ]
-  %arrayidx.i1188 = getelementptr inbounds [4 x i32], ptr %stvalid, i64 0, i64 %indvars.iv512
-  %191 = load i32, ptr %arrayidx.i1188, align 4
+  %191 = load i32, ptr %indvars.iv512.sroa.phi554, align 4
   %tobool388.not = icmp eq i32 %191, 0
   br i1 %tobool388.not, label %if.then389, label %if.end395
 
@@ -10151,8 +10161,7 @@ if.then389:                                       ; preds = %for.body384
   br label %for.inc
 
 if.end395:                                        ; preds = %for.body384
-  %arrayidx.i966 = getelementptr inbounds [4 x i32], ptr %tile_st357, i64 0, i64 %indvars.iv512
-  %192 = load i32, ptr %arrayidx.i966, align 4
+  %192 = load i32, ptr %indvars.iv512.sroa.phi550, align 4
   %cmp400 = icmp eq i32 %192, 0
   %or.cond = select i1 %cmp399, i1 true, i1 %cmp400
   %brmerge248 = select i1 %or.cond, i1 true, i1 %cmp355
@@ -10163,8 +10172,7 @@ if.end395.if.end431_crit_edge:                    ; preds = %if.end395
   br label %if.end431
 
 if.then403:                                       ; preds = %if.end395
-  %arrayidx.i961 = getelementptr inbounds [4 x i32], ptr %tile_edge, i64 0, i64 %indvars.iv512
-  %193 = load i32, ptr %arrayidx.i961, align 4
+  %193 = load i32, ptr %indvars.iv512.sroa.phi, align 4
   %194 = load i32, ptr %arrayidx.i956, align 4
   store i32 %193, ptr %id, align 8
   store i32 %194, ptr %m_y.i, align 4

@@ -4936,6 +4936,8 @@ entry:
   %m_app1 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_app1, align 8
   call void @_ZN11mk_ismt2_ppC2EP3astR11ast_managerjjPKc(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(976) %0, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %ref.tmp7.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
+  %ref.tmp7.sink.sroa.gep7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -4973,10 +4975,9 @@ lpad8:                                            ; preds = %invoke.cont9, %invo
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad8, %lpad
-  %ref.tmp7.sink = phi ptr [ %ref.tmp7, %lpad8 ], [ %ref.tmp, %lpad ]
+  %ref.tmp7.sink.sroa.phi = phi ptr [ %ref.tmp7.sink.sroa.gep, %lpad8 ], [ %ref.tmp7.sink.sroa.gep7, %lpad ]
   %.pn = phi { ptr, i32 } [ %4, %lpad8 ], [ %3, %lpad ]
-  %m_empty.i.i6 = getelementptr inbounds i8, ptr %ref.tmp7.sink, i64 16
-  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_empty.i.i6) #16
+  call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7.sink.sroa.phi) #16
   resume { ptr, i32 } %.pn
 }
 

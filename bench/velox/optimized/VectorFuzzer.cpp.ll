@@ -2618,10 +2618,7 @@ lpad:                                             ; preds = %_ZN8facebook5velox1
 define void @_ZN8facebook5velox12VectorFuzzer4fuzzERKSt10shared_ptrIKNS0_4TypeEEi(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(5112) %this, ptr noundef nonnull align 8 dereferenceable(16) %type, i32 noundef %size) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp12 = alloca %"class.std::shared_ptr", align 8
-  %ref.tmp12.sroa.gep520 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
-  %ref.tmp12.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   %ref.tmp26 = alloca %"class.std::shared_ptr", align 16
   %ref.tmp35 = alloca %"class.std::shared_ptr", align 16
   %agg.tmp = alloca %"class.std::shared_ptr", align 16
@@ -2632,6 +2629,9 @@ entry:
   %0 = load i8, ptr %allowLazyVector, align 2
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
+  %ref.tmp12.sink519.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %ref.tmp12.sink519.sroa.gep520 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
+  %ref.tmp12.sink519.sroa.gep521 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   br i1 %tobool.not, label %land.lhs.true, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
@@ -2749,8 +2749,8 @@ cond.false:                                       ; preds = %invoke.cont14
           to label %if.end19 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end19:                                         ; preds = %cond.false, %cond.true, %if.then9
+  %ref.tmp12.sink519.sroa.phi = phi ptr [ %ref.tmp12.sink519.sroa.gep, %if.then9 ], [ %ref.tmp12.sink519.sroa.gep520, %cond.true ], [ %ref.tmp12.sink519.sroa.gep521, %cond.false ]
   %ref.tmp12.sink519 = phi ptr [ %ref.tmp, %if.then9 ], [ %ref.tmp12, %cond.true ], [ %ref.tmp12, %cond.false ]
-  %ref.tmp12.sink519.sroa.phi = phi ptr [ %ref.tmp.sroa.gep, %if.then9 ], [ %ref.tmp12.sroa.gep, %cond.true ], [ %ref.tmp12.sroa.gep520, %cond.false ]
   %.sink518 = load ptr, ptr %ref.tmp12.sink519, align 8
   %5 = load ptr, ptr %ref.tmp12.sink519.sroa.phi, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12.sink519, i8 0, i64 16, i1 false)

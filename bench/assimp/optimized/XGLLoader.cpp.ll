@@ -7243,6 +7243,7 @@ entry:
   %val = alloca %"class.std::__cxx11::basic_string", align 8
   %v = alloca [2 x float], align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %val) #25
+  %v.4.gep44.sroa_idx = getelementptr inbounds i8, ptr %v, i64 4
   %call = invoke noundef zeroext i1 @_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getValueAsStringERS2_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef nonnull align 8 dereferenceable(32) %val)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
@@ -7254,7 +7255,7 @@ invoke.cont:                                      ; preds = %entry
 while.cond.i.i.preheader:                         ; preds = %invoke.cont, %if.end14
   %cmp10.not = phi i1 [ false, %invoke.cont ], [ true, %if.end14 ]
   %cmp = phi i1 [ true, %invoke.cont ], [ false, %if.end14 ]
-  %indvars.iv = phi i64 [ 0, %invoke.cont ], [ 1, %if.end14 ]
+  %indvars.iv.sroa.phi = phi ptr [ %v, %invoke.cont ], [ %v.4.gep44.sroa_idx, %if.end14 ]
   %s.037 = phi ptr [ %call2, %invoke.cont ], [ %incdec.ptr, %if.end14 ]
   br label %while.cond.i.i
 
@@ -7319,8 +7320,7 @@ if.end:                                           ; preds = %while.cond.i.i
 invoke.cont6:                                     ; preds = %if.end
   %1 = load float, ptr %ret.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ret.i)
-  %arrayidx = getelementptr inbounds [2 x float], ptr %v, i64 0, i64 %indvars.iv
-  store float %1, ptr %arrayidx, align 4
+  store float %1, ptr %indvars.iv.sroa.phi, align 4
   br label %while.cond.i.i8
 
 while.cond.i.i8:                                  ; preds = %while.body.i.i10, %invoke.cont6
@@ -7366,11 +7366,11 @@ if.end14:                                         ; preds = %invoke.cont8
   br i1 %cmp, label %while.cond.i.i.preheader, label %for.end, !llvm.loop !111
 
 for.end:                                          ; preds = %if.end14
-  %3 = load <2 x float>, ptr %v, align 8
+  %v.0. = load <2 x float>, ptr %v, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE8LogErrorIJRA37_KcEEEvDpOT_.exit23, %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE8LogErrorIJRA37_KcEEEvDpOT_.exit, %for.end
-  %retval.sroa.0.0 = phi <2 x float> [ zeroinitializer, %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE8LogErrorIJRA37_KcEEEvDpOT_.exit23 ], [ zeroinitializer, %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE8LogErrorIJRA37_KcEEEvDpOT_.exit ], [ %3, %for.end ]
+  %retval.sroa.0.0 = phi <2 x float> [ zeroinitializer, %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE8LogErrorIJRA37_KcEEEvDpOT_.exit23 ], [ zeroinitializer, %_ZN6Assimp12LogFunctionsINS_11XGLImporterEE8LogErrorIJRA37_KcEEEvDpOT_.exit ], [ %v.0., %for.end ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %val) #25
   ret <2 x float> %retval.sroa.0.0
 }

@@ -542,19 +542,19 @@ _ZN4core3cmp10PartialOrd2lt17h1435e5e658e0b07dE.exit: ; preds = %9, %"_ZN82_$LT$
 define hidden void @_ZN4core5slice4sort10merge_sort17h79343fe3696549afE(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readnone align 1 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } } }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep358 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.gep355 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.gep352 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.gep349 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep357 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sroa.gep354 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.gep351 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
   %7 = alloca { { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } } }, align 8
   %8 = alloca { ptr, i64, i64, {}, {} }, align 8
   %9 = alloca { ptr, i64 }, align 8
   %10 = icmp ult i64 %1, 21
+  %.sink266.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink266.sroa.gep349 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink266.sroa.gep351 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink266.sroa.gep352 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sink266.sroa.gep354 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink266.sroa.gep355 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink266.sroa.gep357 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sink266.sroa.gep358 = getelementptr inbounds i8, ptr %5, i64 24
   br i1 %10, label %25, label %11
 
 11:                                               ; preds = %3
@@ -1035,12 +1035,12 @@ _ZN4core5slice4sort20provide_sorted_batch17hfc511b2652135f95E.exit: ; preds = %_
   br label %.invoke259
 
 .invoke259:                                       ; preds = %161, %169
+  %.sink266.sroa.phi = phi ptr [ %.sink266.sroa.gep, %161 ], [ %.sink266.sroa.gep349, %169 ]
+  %.sink266.sroa.phi350 = phi ptr [ %.sink266.sroa.gep351, %161 ], [ %.sink266.sroa.gep352, %169 ]
+  %.sink266.sroa.phi353 = phi ptr [ %.sink266.sroa.gep354, %161 ], [ %.sink266.sroa.gep355, %169 ]
+  %.sink266.sroa.phi356 = phi ptr [ %.sink266.sroa.gep357, %161 ], [ %.sink266.sroa.gep358, %169 ]
   %.sink266 = phi ptr [ %6, %161 ], [ %5, %169 ]
   %170 = phi ptr [ @anon.0d115dc60f596d307066d150daf4bb0b.16, %161 ], [ @anon.0d115dc60f596d307066d150daf4bb0b.17, %169 ]
-  %.sink266.sroa.phi = phi ptr [ %.sroa.gep, %161 ], [ %.sroa.gep349, %169 ]
-  %.sink266.sroa.phi350 = phi ptr [ %.sroa.gep351, %161 ], [ %.sroa.gep352, %169 ]
-  %.sink266.sroa.phi353 = phi ptr [ %.sroa.gep354, %161 ], [ %.sroa.gep355, %169 ]
-  %.sink266.sroa.phi356 = phi ptr [ %.sroa.gep357, %161 ], [ %.sroa.gep358, %169 ]
   store i64 1, ptr %.sink266.sroa.phi, align 8, !noalias !16
   store ptr null, ptr %.sink266.sroa.phi350, align 8, !noalias !16
   store ptr @anon.0d115dc60f596d307066d150daf4bb0b.2, ptr %.sink266.sroa.phi353, align 8, !noalias !16

@@ -43879,106 +43879,130 @@ define hidden void @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tr
 
 ; Function Attrs: nonlazybind uwtable
 define hidden i16 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217h05cb842841cda370E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %5 = alloca { [2 x i8] }, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
-  %6 = load <2 x i8>, ptr %0, align 1
-  store <2 x i8> %6, ptr %5, align 2
+  %.sroa.0.sroa.0 = alloca i8, align 2
+  %.sroa.0.sroa.5 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.0.sroa.0)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.0.sroa.5)
+  %5 = load i16, ptr %0, align 1
+  %.sroa.0.sroa.0.0.extract.trunc = trunc i16 %5 to i8
+  store i8 %.sroa.0.sroa.0.0.extract.trunc, ptr %.sroa.0.sroa.0, align 2
+  %.sroa.0.sroa.5.0.extract.shift = lshr i16 %5, 8
+  %.sroa.0.sroa.5.0.extract.trunc = trunc i16 %.sroa.0.sroa.5.0.extract.shift to i8
+  store i8 %.sroa.0.sroa.5.0.extract.trunc, ptr %.sroa.0.sroa.5, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5240)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5243)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5245)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5247)
-  %7 = load i32, ptr %2, align 4, !alias.scope !5245, !noalias !5249, !noundef !4
-  %8 = load i32, ptr %3, align 4, !alias.scope !5247, !noalias !5250
-  br label %9
+  %6 = load i32, ptr %2, align 4, !alias.scope !5245, !noalias !5249, !noundef !4
+  %7 = load i32, ptr %3, align 4, !alias.scope !5247, !noalias !5250
+  br label %8
 
-9:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i", %4
-  %10 = phi i1 [ true, %4 ], [ false, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i" ]
+8:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i", %4
+  %9 = phi i1 [ true, %4 ], [ false, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i" ]
+  %.sroa.8.023.i.sroa.phi = phi ptr [ %.sroa.0.sroa.0, %4 ], [ %.sroa.0.sroa.5, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i" ]
   %.sroa.8.023.i = phi i64 [ 0, %4 ], [ 1, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i" ]
-  %11 = getelementptr inbounds i8, ptr %5, i64 %.sroa.8.023.i
-  %12 = getelementptr inbounds i8, ptr %1, i64 %.sroa.8.023.i
-  %13 = load i8, ptr %12, align 1, !alias.scope !5243, !noalias !5251, !noundef !4
-  %14 = load i8, ptr %11, align 1, !alias.scope !5240, !noalias !5252, !noundef !4
-  %15 = zext i8 %14 to i32
-  %16 = zext i8 %13 to i32
-  %17 = sub nsw i32 %15, %16
-  %.010.i.i = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
-  %18 = icmp sgt i32 %.010.i.i, %7
-  br i1 %18, label %19, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i"
+  %10 = getelementptr inbounds i8, ptr %1, i64 %.sroa.8.023.i
+  %11 = load i8, ptr %10, align 1, !alias.scope !5243, !noalias !5251, !noundef !4
+  %12 = load i8, ptr %.sroa.8.023.i.sroa.phi, align 1, !alias.scope !5240, !noalias !5252, !noundef !4
+  %13 = zext i8 %12 to i32
+  %14 = zext i8 %11 to i32
+  %15 = sub nsw i32 %13, %14
+  %.010.i.i = tail call i32 @llvm.abs.i32(i32 %15, i1 true)
+  %16 = icmp sgt i32 %.010.i.i, %6
+  br i1 %16, label %17, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i"
 
-19:                                               ; preds = %9
-  %20 = add nsw i32 %17, %15
-  %21 = icmp slt i32 %20, 0
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %20, i32 %8)
-  %.0.in.sroa.speculated.i.i.i = select i1 %21, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i
+17:                                               ; preds = %8
+  %18 = add nsw i32 %15, %13
+  %19 = icmp slt i32 %18, 0
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %18, i32 %7)
+  %.0.in.sroa.speculated.i.i.i = select i1 %19, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i
   %or.cond.i.i.i.i = icmp ugt i32 %.0.in.sroa.speculated.i.i.i, 255
-  %22 = trunc i32 %.0.in.sroa.speculated.i.i.i to i8
-  br i1 %or.cond.i.i.i.i, label %23, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i"
+  %20 = trunc i32 %.0.in.sroa.speculated.i.i.i to i8
+  br i1 %or.cond.i.i.i.i, label %21, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i"
 
-23:                                               ; preds = %19
+21:                                               ; preds = %17
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.42) #18, !noalias !5253
   unreachable
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i": ; preds = %19, %9
-  %.0.i.i = phi i8 [ %14, %9 ], [ %22, %19 ]
-  store i8 %.0.i.i, ptr %11, align 1, !alias.scope !5240, !noalias !5252
-  br i1 %10, label %9, label %"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h3920945b39b38965E.llvm.1609853135345852838.exit"
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i": ; preds = %17, %8
+  %.0.i.i = phi i8 [ %12, %8 ], [ %20, %17 ]
+  store i8 %.0.i.i, ptr %.sroa.8.023.i.sroa.phi, align 1, !alias.scope !5240, !noalias !5252
+  br i1 %9, label %8, label %"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h3920945b39b38965E.llvm.1609853135345852838.exit"
 
 "_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h3920945b39b38965E.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc2b6b3ccba964400E.exit.i"
-  %.sroa.0.0.copyload = load i16, ptr %5, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
-  ret i16 %.sroa.0.0.copyload
+  %.sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.0..sroa.0.0.copyload = load i8, ptr %.sroa.0.sroa.0, align 2
+  %.sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.0..sroa.0.0.copyload = load i8, ptr %.sroa.0.sroa.5, align 1
+  %.sroa.0.sroa.5.0.insert.ext = zext i8 %.sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.0..sroa.0.0.copyload to i16
+  %.sroa.0.sroa.5.0.insert.shift = shl nuw i16 %.sroa.0.sroa.5.0.insert.ext, 8
+  %.sroa.0.sroa.0.0.insert.ext = zext i8 %.sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.0..sroa.0.0.copyload to i16
+  %.sroa.0.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.sroa.5.0.insert.shift, %.sroa.0.sroa.0.0.insert.ext
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.0.sroa.0)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.0.sroa.5)
+  ret i16 %.sroa.0.sroa.0.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$4map217h22fe8967b0a184b9E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %5 = alloca { [2 x i16] }, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %6 = load <2 x i16>, ptr %0, align 2
-  store <2 x i16> %6, ptr %5, align 4
+  %.sroa.0.sroa.0 = alloca i16, align 4
+  %.sroa.0.sroa.5 = alloca i16, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %.sroa.0.sroa.0)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %.sroa.0.sroa.5)
+  %5 = load i32, ptr %0, align 2
+  %.sroa.0.sroa.0.0.extract.trunc = trunc i32 %5 to i16
+  store i16 %.sroa.0.sroa.0.0.extract.trunc, ptr %.sroa.0.sroa.0, align 4
+  %.sroa.0.sroa.5.0.extract.shift = lshr i32 %5, 16
+  %.sroa.0.sroa.5.0.extract.trunc = trunc i32 %.sroa.0.sroa.5.0.extract.shift to i16
+  store i16 %.sroa.0.sroa.5.0.extract.trunc, ptr %.sroa.0.sroa.5, align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5254)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5257)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5259)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5261)
-  %7 = load i32, ptr %2, align 4, !alias.scope !5259, !noalias !5263, !noundef !4
-  %8 = load i32, ptr %3, align 4, !alias.scope !5261, !noalias !5264
-  br label %9
+  %6 = load i32, ptr %2, align 4, !alias.scope !5259, !noalias !5263, !noundef !4
+  %7 = load i32, ptr %3, align 4, !alias.scope !5261, !noalias !5264
+  br label %8
 
-9:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i", %4
-  %10 = phi i1 [ true, %4 ], [ false, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i" ]
+8:                                                ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i", %4
+  %9 = phi i1 [ true, %4 ], [ false, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i" ]
+  %.sroa.8.023.i.sroa.phi = phi ptr [ %.sroa.0.sroa.0, %4 ], [ %.sroa.0.sroa.5, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i" ]
   %.sroa.8.023.i = phi i64 [ 0, %4 ], [ 1, %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i" ]
-  %11 = getelementptr inbounds i16, ptr %5, i64 %.sroa.8.023.i
-  %12 = getelementptr inbounds i16, ptr %1, i64 %.sroa.8.023.i
-  %13 = load i16, ptr %12, align 2, !alias.scope !5257, !noalias !5265, !noundef !4
-  %14 = load i16, ptr %11, align 2, !alias.scope !5254, !noalias !5266, !noundef !4
-  %15 = zext i16 %14 to i32
-  %16 = zext i16 %13 to i32
-  %17 = sub nsw i32 %15, %16
-  %.010.i.i = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
-  %18 = icmp sgt i32 %.010.i.i, %7
-  br i1 %18, label %19, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i"
+  %10 = getelementptr inbounds i16, ptr %1, i64 %.sroa.8.023.i
+  %11 = load i16, ptr %10, align 2, !alias.scope !5257, !noalias !5265, !noundef !4
+  %12 = load i16, ptr %.sroa.8.023.i.sroa.phi, align 2, !alias.scope !5254, !noalias !5266, !noundef !4
+  %13 = zext i16 %12 to i32
+  %14 = zext i16 %11 to i32
+  %15 = sub nsw i32 %13, %14
+  %.010.i.i = tail call i32 @llvm.abs.i32(i32 %15, i1 true)
+  %16 = icmp sgt i32 %.010.i.i, %6
+  br i1 %16, label %17, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i"
 
-19:                                               ; preds = %9
-  %20 = add nsw i32 %17, %15
-  %21 = icmp slt i32 %20, 0
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %20, i32 %8)
-  %.0.in.sroa.speculated.i.i.i = select i1 %21, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i
+17:                                               ; preds = %8
+  %18 = add nsw i32 %15, %13
+  %19 = icmp slt i32 %18, 0
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %18, i32 %7)
+  %.0.in.sroa.speculated.i.i.i = select i1 %19, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i
   %or.cond.i.i.i.i = icmp ult i32 %.0.in.sroa.speculated.i.i.i, 65536
-  %22 = trunc i32 %.0.in.sroa.speculated.i.i.i to i16
-  br i1 %or.cond.i.i.i.i, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i", label %23
+  %20 = trunc i32 %.0.in.sroa.speculated.i.i.i to i16
+  br i1 %or.cond.i.i.i.i, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i", label %21
 
-23:                                               ; preds = %19
+21:                                               ; preds = %17
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.21.llvm.1609853135345852838, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.42) #18, !noalias !5267
   unreachable
 
-"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i": ; preds = %19, %9
-  %.0.i.i = phi i16 [ %14, %9 ], [ %22, %19 ]
-  store i16 %.0.i.i, ptr %11, align 2, !alias.scope !5254, !noalias !5266
-  br i1 %10, label %9, label %"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hcd43187c74cd68fcE.llvm.1609853135345852838.exit"
+"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i": ; preds = %17, %8
+  %.0.i.i = phi i16 [ %12, %8 ], [ %20, %17 ]
+  store i16 %.0.i.i, ptr %.sroa.8.023.i.sroa.phi, align 2, !alias.scope !5254, !noalias !5266
+  br i1 %9, label %8, label %"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hcd43187c74cd68fcE.llvm.1609853135345852838.exit"
 
 "_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217hcd43187c74cd68fcE.llvm.1609853135345852838.exit": ; preds = %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h452c7eedf1baeef4E.exit.i"
-  %.sroa.0.0.copyload = load i32, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  ret i32 %.sroa.0.0.copyload
+  %.sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.0..sroa.0.0.copyload = load i16, ptr %.sroa.0.sroa.0, align 4
+  %.sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.0..sroa.0.0.copyload = load i16, ptr %.sroa.0.sroa.5, align 2
+  %.sroa.0.sroa.5.0.insert.ext = zext i16 %.sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.sroa.5.0..sroa.0.0..sroa.0.0.copyload to i32
+  %.sroa.0.sroa.5.0.insert.shift = shl nuw i32 %.sroa.0.sroa.5.0.insert.ext, 16
+  %.sroa.0.sroa.0.0.insert.ext = zext i16 %.sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.0..sroa.0.0.copyload to i32
+  %.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.sroa.5.0.insert.shift, %.sroa.0.sroa.0.0.insert.ext
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %.sroa.0.sroa.0)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %.sroa.0.sroa.5)
+  ret i32 %.sroa.0.sroa.0.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable

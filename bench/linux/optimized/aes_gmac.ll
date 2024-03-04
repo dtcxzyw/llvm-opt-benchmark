@@ -29,14 +29,20 @@ define dso_local i32 @ieee80211_aes_gmac(ptr noundef %0, ptr nocapture noundef r
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %10, 80
   %12 = icmp ult i64 %4, 16
-  br i1 %12, label %209, label %13
+  %.sroa.gep = getelementptr inbounds i8, ptr %7, i64 128
+  %.sroa.gep1 = getelementptr inbounds i8, ptr %7, i64 96
+  %.sroa.gep3 = getelementptr inbounds i8, ptr %7, i64 136
+  %.sroa.gep4 = getelementptr inbounds i8, ptr %7, i64 104
+  %.sroa.gep6 = getelementptr inbounds i8, ptr %7, i64 140
+  %.sroa.gep7 = getelementptr inbounds i8, ptr %7, i64 108
+  br i1 %12, label %200, label %13
 
 13:                                               ; preds = %6
   %14 = add i32 %10, 116
   %15 = sext i32 %14 to i64
   %16 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %15, i32 noundef 2336) #7
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %209, label %18
+  br i1 %17, label %200, label %18
 
 18:                                               ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %7, i8 0, i64 160, i1 false), !annotation !5
@@ -50,7 +56,7 @@ define dso_local i32 @ieee80211_aes_gmac(ptr noundef %0, ptr nocapture noundef r
   %25 = ptrtoint ptr %21 to i64
   %26 = add i64 %25, 2147483648
   %27 = icmp ugt ptr %21, inttoptr (i64 -2147483649 to ptr)
-  br i1 %24, label %28, label %110
+  br i1 %24, label %28, label %107
 
 28:                                               ; preds = %18
   call void @sg_init_table(ptr noundef nonnull %7, i32 noundef 5) #6
@@ -145,185 +151,179 @@ define dso_local i32 @ieee80211_aes_gmac(ptr noundef %0, ptr nocapture noundef r
   store i32 %87, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %7, i64 76
   store i32 %84, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %7, i64 96
-  %94 = load i64, ptr %93, align 16
-  %95 = and i64 %94, 3
-  %96 = or disjoint i64 %95, %57
-  store i64 %96, ptr %93, align 16
-  %97 = getelementptr inbounds i8, ptr %7, i64 104
-  store i32 %64, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %7, i64 108
-  store i32 16, ptr %98, align 4
-  %99 = ptrtoint ptr %5 to i64
-  %100 = add i64 %99, 2147483648
-  %101 = icmp ugt ptr %5, inttoptr (i64 -2147483649 to ptr)
-  %102 = select i1 %101, i64 %31, i64 %33
-  %103 = add i64 %100, %102
-  %104 = lshr i64 %103, 12
-  %105 = getelementptr %struct.page, ptr %30, i64 %104
-  %106 = ptrtoint ptr %105 to i64
-  %107 = and i64 %106, 3
-  %108 = icmp eq i64 %107, 0
-  br i1 %108, label %185, label %109, !prof !6
+  %93 = load i64, ptr %.sroa.gep1, align 16
+  %94 = and i64 %93, 3
+  %95 = or disjoint i64 %94, %57
+  store i64 %95, ptr %.sroa.gep1, align 16
+  store i32 %64, ptr %.sroa.gep4, align 8
+  store i32 16, ptr %.sroa.gep7, align 4
+  %96 = ptrtoint ptr %5 to i64
+  %97 = add i64 %96, 2147483648
+  %98 = icmp ugt ptr %5, inttoptr (i64 -2147483649 to ptr)
+  %99 = select i1 %98, i64 %31, i64 %33
+  %100 = add i64 %97, %99
+  %101 = lshr i64 %100, 12
+  %102 = getelementptr %struct.page, ptr %30, i64 %101
+  %103 = ptrtoint ptr %102 to i64
+  %104 = and i64 %103, 3
+  %105 = icmp eq i64 %104, 0
+  br i1 %105, label %182, label %106, !prof !6
 
-109:                                              ; preds = %82
+106:                                              ; preds = %82
   call void asm sideeffect "378: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 378b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 378) #6, !srcloc !7
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 115, i32 0, i64 12) #6, !srcloc !8
   unreachable
 
-110:                                              ; preds = %18
+107:                                              ; preds = %18
   call void @sg_init_table(ptr noundef nonnull %7, i32 noundef 4) #6
-  %111 = load i64, ptr @vmemmap_base, align 8
-  %112 = inttoptr i64 %111 to ptr
-  %113 = load i64, ptr @phys_base, align 8
-  %114 = load i64, ptr @page_offset_base, align 8
-  %115 = sub i64 -2147483648, %114
-  %116 = select i1 %27, i64 %113, i64 %115
-  %117 = add i64 %116, %26
-  %118 = lshr i64 %117, 12
-  %119 = getelementptr %struct.page, ptr %112, i64 %118
-  %120 = ptrtoint ptr %119 to i64
-  %121 = and i64 %120, 3
-  %122 = icmp eq i64 %121, 0
-  br i1 %122, label %124, label %123, !prof !6
+  %108 = load i64, ptr @vmemmap_base, align 8
+  %109 = inttoptr i64 %108 to ptr
+  %110 = load i64, ptr @phys_base, align 8
+  %111 = load i64, ptr @page_offset_base, align 8
+  %112 = sub i64 -2147483648, %111
+  %113 = select i1 %27, i64 %110, i64 %112
+  %114 = add i64 %113, %26
+  %115 = lshr i64 %114, 12
+  %116 = getelementptr %struct.page, ptr %109, i64 %115
+  %117 = ptrtoint ptr %116 to i64
+  %118 = and i64 %117, 3
+  %119 = icmp eq i64 %118, 0
+  br i1 %119, label %121, label %120, !prof !6
 
-123:                                              ; preds = %110
+120:                                              ; preds = %107
   call void asm sideeffect "378: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 378b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 378) #6, !srcloc !7
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 115, i32 0, i64 12) #6, !srcloc !8
   unreachable
 
-124:                                              ; preds = %110
-  %125 = trunc i64 %25 to i32
-  %126 = and i32 %125, 4095
-  %127 = load i64, ptr %7, align 16
-  %128 = and i64 %127, 3
-  %129 = or disjoint i64 %128, %120
-  store i64 %129, ptr %7, align 16
-  %130 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 %126, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %7, i64 12
-  store i32 20, ptr %131, align 4
-  %132 = ptrtoint ptr %3 to i64
-  %133 = add i64 %132, 2147483648
-  %134 = icmp ugt ptr %3, inttoptr (i64 -2147483649 to ptr)
-  %135 = select i1 %134, i64 %113, i64 %115
-  %136 = add i64 %133, %135
-  %137 = lshr i64 %136, 12
-  %138 = getelementptr %struct.page, ptr %112, i64 %137
-  %139 = ptrtoint ptr %138 to i64
-  %140 = and i64 %139, 3
-  %141 = icmp eq i64 %140, 0
-  br i1 %141, label %143, label %142, !prof !6
+121:                                              ; preds = %107
+  %122 = trunc i64 %25 to i32
+  %123 = and i32 %122, 4095
+  %124 = load i64, ptr %7, align 16
+  %125 = and i64 %124, 3
+  %126 = or disjoint i64 %125, %117
+  store i64 %126, ptr %7, align 16
+  %127 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 %123, ptr %127, align 8
+  %128 = getelementptr inbounds i8, ptr %7, i64 12
+  store i32 20, ptr %128, align 4
+  %129 = ptrtoint ptr %3 to i64
+  %130 = add i64 %129, 2147483648
+  %131 = icmp ugt ptr %3, inttoptr (i64 -2147483649 to ptr)
+  %132 = select i1 %131, i64 %110, i64 %112
+  %133 = add i64 %130, %132
+  %134 = lshr i64 %133, 12
+  %135 = getelementptr %struct.page, ptr %109, i64 %134
+  %136 = ptrtoint ptr %135 to i64
+  %137 = and i64 %136, 3
+  %138 = icmp eq i64 %137, 0
+  br i1 %138, label %140, label %139, !prof !6
 
-142:                                              ; preds = %124
+139:                                              ; preds = %121
   call void asm sideeffect "378: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 378b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 378) #6, !srcloc !7
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 115, i32 0, i64 12) #6, !srcloc !8
   unreachable
 
-143:                                              ; preds = %124
-  %144 = trunc i64 %4 to i32
-  %145 = add i32 %144, -16
-  %146 = getelementptr inbounds i8, ptr %7, i64 32
-  %147 = trunc i64 %132 to i32
-  %148 = and i32 %147, 4095
-  %149 = load i64, ptr %146, align 16
-  %150 = and i64 %149, 3
-  %151 = or disjoint i64 %150, %139
-  store i64 %151, ptr %146, align 16
-  %152 = getelementptr inbounds i8, ptr %7, i64 40
-  store i32 %148, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %7, i64 44
-  store i32 %145, ptr %153, align 4
-  %154 = ptrtoint ptr %20 to i64
-  %155 = add i64 %154, 2147483648
-  %156 = icmp ugt ptr %20, inttoptr (i64 -2147483649 to ptr)
-  %157 = select i1 %156, i64 %113, i64 %115
-  %158 = add i64 %155, %157
-  %159 = lshr i64 %158, 12
-  %160 = getelementptr %struct.page, ptr %112, i64 %159
-  %161 = ptrtoint ptr %160 to i64
-  %162 = and i64 %161, 3
-  %163 = icmp eq i64 %162, 0
-  br i1 %163, label %165, label %164, !prof !6
+140:                                              ; preds = %121
+  %141 = trunc i64 %4 to i32
+  %142 = add i32 %141, -16
+  %143 = getelementptr inbounds i8, ptr %7, i64 32
+  %144 = trunc i64 %129 to i32
+  %145 = and i32 %144, 4095
+  %146 = load i64, ptr %143, align 16
+  %147 = and i64 %146, 3
+  %148 = or disjoint i64 %147, %136
+  store i64 %148, ptr %143, align 16
+  %149 = getelementptr inbounds i8, ptr %7, i64 40
+  store i32 %145, ptr %149, align 8
+  %150 = getelementptr inbounds i8, ptr %7, i64 44
+  store i32 %142, ptr %150, align 4
+  %151 = ptrtoint ptr %20 to i64
+  %152 = add i64 %151, 2147483648
+  %153 = icmp ugt ptr %20, inttoptr (i64 -2147483649 to ptr)
+  %154 = select i1 %153, i64 %110, i64 %112
+  %155 = add i64 %152, %154
+  %156 = lshr i64 %155, 12
+  %157 = getelementptr %struct.page, ptr %109, i64 %156
+  %158 = ptrtoint ptr %157 to i64
+  %159 = and i64 %158, 3
+  %160 = icmp eq i64 %159, 0
+  br i1 %160, label %162, label %161, !prof !6
 
-164:                                              ; preds = %143
+161:                                              ; preds = %140
   call void asm sideeffect "378: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 378b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 378) #6, !srcloc !7
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 115, i32 0, i64 12) #6, !srcloc !8
   unreachable
 
-165:                                              ; preds = %143
-  %166 = getelementptr inbounds i8, ptr %7, i64 64
-  %167 = trunc i64 %154 to i32
-  %168 = and i32 %167, 4095
-  %169 = load i64, ptr %166, align 16
-  %170 = and i64 %169, 3
-  %171 = or disjoint i64 %170, %161
-  store i64 %171, ptr %166, align 16
-  %172 = getelementptr inbounds i8, ptr %7, i64 72
-  store i32 %168, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %7, i64 76
-  store i32 16, ptr %173, align 4
-  %174 = ptrtoint ptr %5 to i64
-  %175 = add i64 %174, 2147483648
-  %176 = icmp ugt ptr %5, inttoptr (i64 -2147483649 to ptr)
-  %177 = select i1 %176, i64 %113, i64 %115
-  %178 = add i64 %175, %177
-  %179 = lshr i64 %178, 12
-  %180 = getelementptr %struct.page, ptr %112, i64 %179
-  %181 = ptrtoint ptr %180 to i64
-  %182 = and i64 %181, 3
-  %183 = icmp eq i64 %182, 0
-  br i1 %183, label %185, label %184, !prof !6
+162:                                              ; preds = %140
+  %163 = getelementptr inbounds i8, ptr %7, i64 64
+  %164 = trunc i64 %151 to i32
+  %165 = and i32 %164, 4095
+  %166 = load i64, ptr %163, align 16
+  %167 = and i64 %166, 3
+  %168 = or disjoint i64 %167, %158
+  store i64 %168, ptr %163, align 16
+  %169 = getelementptr inbounds i8, ptr %7, i64 72
+  store i32 %165, ptr %169, align 8
+  %170 = getelementptr inbounds i8, ptr %7, i64 76
+  store i32 16, ptr %170, align 4
+  %171 = ptrtoint ptr %5 to i64
+  %172 = add i64 %171, 2147483648
+  %173 = icmp ugt ptr %5, inttoptr (i64 -2147483649 to ptr)
+  %174 = select i1 %173, i64 %110, i64 %112
+  %175 = add i64 %172, %174
+  %176 = lshr i64 %175, 12
+  %177 = getelementptr %struct.page, ptr %109, i64 %176
+  %178 = ptrtoint ptr %177 to i64
+  %179 = and i64 %178, 3
+  %180 = icmp eq i64 %179, 0
+  br i1 %180, label %182, label %181, !prof !6
 
-184:                                              ; preds = %165
+181:                                              ; preds = %162
   call void asm sideeffect "378: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 378b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 378) #6, !srcloc !7
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 115, i32 0, i64 12) #6, !srcloc !8
   unreachable
 
-185:                                              ; preds = %165, %82
-  %.pre-phi = phi i32 [ %144, %165 ], [ %83, %82 ]
-  %186 = phi i64 [ 96, %165 ], [ 128, %82 ]
-  %187 = phi i64 [ %174, %165 ], [ %99, %82 ]
-  %188 = phi i64 [ %181, %165 ], [ %106, %82 ]
-  %189 = phi i64 [ 104, %165 ], [ 136, %82 ]
-  %190 = phi i64 [ 108, %165 ], [ 140, %82 ]
-  %191 = getelementptr inbounds i8, ptr %7, i64 %186
-  %192 = trunc i64 %187 to i32
-  %193 = and i32 %192, 4095
-  %194 = load i64, ptr %191, align 16
-  %195 = and i64 %194, 3
-  %196 = or disjoint i64 %195, %188
-  store i64 %196, ptr %191, align 16
-  %197 = getelementptr inbounds i8, ptr %7, i64 %189
-  store i32 %193, ptr %197, align 8
-  %198 = getelementptr inbounds i8, ptr %7, i64 %190
-  store i32 16, ptr %198, align 4
+182:                                              ; preds = %162, %82
+  %.pre-phi = phi i32 [ %141, %162 ], [ %83, %82 ]
+  %.sroa.phi = phi ptr [ %.sroa.gep1, %162 ], [ %.sroa.gep, %82 ]
+  %183 = phi i64 [ %171, %162 ], [ %96, %82 ]
+  %184 = phi i64 [ %178, %162 ], [ %103, %82 ]
+  %.sroa.phi2 = phi ptr [ %.sroa.gep4, %162 ], [ %.sroa.gep3, %82 ]
+  %.sroa.phi5 = phi ptr [ %.sroa.gep7, %162 ], [ %.sroa.gep6, %82 ]
+  %185 = trunc i64 %183 to i32
+  %186 = and i32 %185, 4095
+  %187 = load i64, ptr %.sroa.phi, align 16
+  %188 = and i64 %187, 3
+  %189 = or disjoint i64 %188, %184
+  store i64 %189, ptr %.sroa.phi, align 16
+  store i32 %186, ptr %.sroa.phi2, align 8
+  store i32 16, ptr %.sroa.phi5, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %8, ptr noundef align 1 dereferenceable(12) %2, i64 12, i1 false)
-  %199 = getelementptr inbounds i8, ptr %8, i64 12
-  store i32 16777216, ptr %199, align 4
-  %200 = getelementptr inbounds i8, ptr %0, i64 8
-  %201 = getelementptr inbounds i8, ptr %16, i64 32
-  store ptr %200, ptr %201, align 8
-  %202 = getelementptr inbounds i8, ptr %16, i64 64
-  store ptr %7, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %16, i64 72
-  store ptr %7, ptr %203, align 8
-  %204 = getelementptr inbounds i8, ptr %16, i64 52
-  store i32 0, ptr %204, align 4
-  %205 = getelementptr inbounds i8, ptr %16, i64 56
-  store ptr %8, ptr %205, align 8
-  %206 = add i32 %.pre-phi, 20
-  %207 = getelementptr inbounds i8, ptr %16, i64 48
-  store i32 %206, ptr %207, align 8
-  %208 = call i32 @crypto_aead_encrypt(ptr noundef nonnull %16) #6
+  %190 = getelementptr inbounds i8, ptr %8, i64 12
+  store i32 16777216, ptr %190, align 4
+  %191 = getelementptr inbounds i8, ptr %0, i64 8
+  %192 = getelementptr inbounds i8, ptr %16, i64 32
+  store ptr %191, ptr %192, align 8
+  %193 = getelementptr inbounds i8, ptr %16, i64 64
+  store ptr %7, ptr %193, align 8
+  %194 = getelementptr inbounds i8, ptr %16, i64 72
+  store ptr %7, ptr %194, align 8
+  %195 = getelementptr inbounds i8, ptr %16, i64 52
+  store i32 0, ptr %195, align 4
+  %196 = getelementptr inbounds i8, ptr %16, i64 56
+  store ptr %8, ptr %196, align 8
+  %197 = add i32 %.pre-phi, 20
+  %198 = getelementptr inbounds i8, ptr %16, i64 48
+  store i32 %197, ptr %198, align 8
+  %199 = call i32 @crypto_aead_encrypt(ptr noundef nonnull %16) #6
   call void @kfree_sensitive(ptr noundef nonnull %16) #6
-  br label %209
+  br label %200
 
-209:                                              ; preds = %185, %13, %6
-  %210 = phi i32 [ %208, %185 ], [ -22, %6 ], [ -12, %13 ]
+200:                                              ; preds = %182, %13, %6
+  %201 = phi i32 [ %199, %182 ], [ -22, %6 ], [ -12, %13 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7) #6
-  ret i32 %210
+  ret i32 %201
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

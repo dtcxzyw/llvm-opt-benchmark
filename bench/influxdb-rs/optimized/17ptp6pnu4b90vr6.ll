@@ -613,18 +613,18 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN12arrow_buffer6buffer6scalar21ScalarBuffer$LT$T$GT$3new17h1bd8b7d0bb31cf54E"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, i64 }, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep17 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.gep14 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.gep11 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.gep8 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep16 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sroa.gep13 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.gep10 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
   %7 = alloca { ptr, ptr, i64 }, align 8
   %8 = shl i64 %2, 3
   %9 = icmp ugt i64 %2, 2305843009213693951
+  %.sink8.i.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink8.i.sroa.gep8 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink8.i.sroa.gep10 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink8.i.sroa.gep11 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sink8.i.sroa.gep13 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink8.i.sroa.gep14 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink8.i.sroa.gep16 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sink8.i.sroa.gep17 = getelementptr inbounds i8, ptr %5, i64 24
   br i1 %9, label %.invoke, label %10
 
 10:                                               ; preds = %4
@@ -713,12 +713,12 @@ define hidden void @"_ZN12arrow_buffer6buffer6scalar21ScalarBuffer$LT$T$GT$3new1
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %42, %41
+  %.sink8.i.sroa.phi = phi ptr [ %.sink8.i.sroa.gep, %41 ], [ %.sink8.i.sroa.gep8, %42 ]
+  %.sink8.i.sroa.phi9 = phi ptr [ %.sink8.i.sroa.gep10, %41 ], [ %.sink8.i.sroa.gep11, %42 ]
+  %.sink8.i.sroa.phi12 = phi ptr [ %.sink8.i.sroa.gep13, %41 ], [ %.sink8.i.sroa.gep14, %42 ]
+  %.sink8.i.sroa.phi15 = phi ptr [ %.sink8.i.sroa.gep16, %41 ], [ %.sink8.i.sroa.gep17, %42 ]
   %.sink8.i = phi ptr [ %6, %41 ], [ %5, %42 ]
   %43 = phi ptr [ @anon.083b790a21940f882304165a113eaaef.8.llvm.171605402441639591, %41 ], [ @anon.083b790a21940f882304165a113eaaef.11.llvm.171605402441639591, %42 ]
-  %.sink8.i.sroa.phi = phi ptr [ %.sroa.gep, %41 ], [ %.sroa.gep8, %42 ]
-  %.sink8.i.sroa.phi9 = phi ptr [ %.sroa.gep10, %41 ], [ %.sroa.gep11, %42 ]
-  %.sink8.i.sroa.phi12 = phi ptr [ %.sroa.gep13, %41 ], [ %.sroa.gep14, %42 ]
-  %.sink8.i.sroa.phi15 = phi ptr [ %.sroa.gep16, %41 ], [ %.sroa.gep17, %42 ]
   store i64 1, ptr %.sink8.i.sroa.phi, align 8, !noalias !129
   store ptr null, ptr %.sink8.i.sroa.phi9, align 8, !noalias !129
   store ptr @anon.083b790a21940f882304165a113eaaef.7.llvm.171605402441639591, ptr %.sink8.i.sroa.phi12, align 8, !noalias !129
@@ -767,18 +767,18 @@ define hidden void @"_ZN12arrow_buffer6buffer6scalar21ScalarBuffer$LT$T$GT$3new1
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN12arrow_buffer6buffer6scalar21ScalarBuffer$LT$T$GT$3new17h20558ca4508eb359E"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, i64 }, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep17 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.gep14 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.gep11 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.gep8 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep16 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sroa.gep13 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.gep10 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
   %7 = alloca { ptr, ptr, i64 }, align 8
   %8 = shl i64 %2, 3
   %9 = icmp ugt i64 %2, 2305843009213693951
+  %.sink8.i.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink8.i.sroa.gep8 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink8.i.sroa.gep10 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink8.i.sroa.gep11 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sink8.i.sroa.gep13 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink8.i.sroa.gep14 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink8.i.sroa.gep16 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sink8.i.sroa.gep17 = getelementptr inbounds i8, ptr %5, i64 24
   br i1 %9, label %.invoke, label %10
 
 10:                                               ; preds = %4
@@ -867,12 +867,12 @@ define hidden void @"_ZN12arrow_buffer6buffer6scalar21ScalarBuffer$LT$T$GT$3new1
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %42, %41
+  %.sink8.i.sroa.phi = phi ptr [ %.sink8.i.sroa.gep, %41 ], [ %.sink8.i.sroa.gep8, %42 ]
+  %.sink8.i.sroa.phi9 = phi ptr [ %.sink8.i.sroa.gep10, %41 ], [ %.sink8.i.sroa.gep11, %42 ]
+  %.sink8.i.sroa.phi12 = phi ptr [ %.sink8.i.sroa.gep13, %41 ], [ %.sink8.i.sroa.gep14, %42 ]
+  %.sink8.i.sroa.phi15 = phi ptr [ %.sink8.i.sroa.gep16, %41 ], [ %.sink8.i.sroa.gep17, %42 ]
   %.sink8.i = phi ptr [ %6, %41 ], [ %5, %42 ]
   %43 = phi ptr [ @anon.083b790a21940f882304165a113eaaef.8.llvm.171605402441639591, %41 ], [ @anon.083b790a21940f882304165a113eaaef.11.llvm.171605402441639591, %42 ]
-  %.sink8.i.sroa.phi = phi ptr [ %.sroa.gep, %41 ], [ %.sroa.gep8, %42 ]
-  %.sink8.i.sroa.phi9 = phi ptr [ %.sroa.gep10, %41 ], [ %.sroa.gep11, %42 ]
-  %.sink8.i.sroa.phi12 = phi ptr [ %.sroa.gep13, %41 ], [ %.sroa.gep14, %42 ]
-  %.sink8.i.sroa.phi15 = phi ptr [ %.sroa.gep16, %41 ], [ %.sroa.gep17, %42 ]
   store i64 1, ptr %.sink8.i.sroa.phi, align 8, !noalias !162
   store ptr null, ptr %.sink8.i.sroa.phi9, align 8, !noalias !162
   store ptr @anon.083b790a21940f882304165a113eaaef.7.llvm.171605402441639591, ptr %.sink8.i.sroa.phi12, align 8, !noalias !162
@@ -921,18 +921,18 @@ define hidden void @"_ZN12arrow_buffer6buffer6scalar21ScalarBuffer$LT$T$GT$3new1
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN12arrow_buffer6buffer6scalar21ScalarBuffer$LT$T$GT$3new17h3b6d8863bf2a483cE"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, i64 }, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep17 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.gep14 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.gep11 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.gep8 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep16 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sroa.gep13 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.gep10 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
   %7 = alloca { ptr, ptr, i64 }, align 8
   %8 = shl i64 %2, 3
   %9 = icmp ugt i64 %2, 2305843009213693951
+  %.sink8.i.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink8.i.sroa.gep8 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink8.i.sroa.gep10 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink8.i.sroa.gep11 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sink8.i.sroa.gep13 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink8.i.sroa.gep14 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink8.i.sroa.gep16 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sink8.i.sroa.gep17 = getelementptr inbounds i8, ptr %5, i64 24
   br i1 %9, label %.invoke, label %10
 
 10:                                               ; preds = %4
@@ -1021,12 +1021,12 @@ define hidden void @"_ZN12arrow_buffer6buffer6scalar21ScalarBuffer$LT$T$GT$3new1
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %42, %41
+  %.sink8.i.sroa.phi = phi ptr [ %.sink8.i.sroa.gep, %41 ], [ %.sink8.i.sroa.gep8, %42 ]
+  %.sink8.i.sroa.phi9 = phi ptr [ %.sink8.i.sroa.gep10, %41 ], [ %.sink8.i.sroa.gep11, %42 ]
+  %.sink8.i.sroa.phi12 = phi ptr [ %.sink8.i.sroa.gep13, %41 ], [ %.sink8.i.sroa.gep14, %42 ]
+  %.sink8.i.sroa.phi15 = phi ptr [ %.sink8.i.sroa.gep16, %41 ], [ %.sink8.i.sroa.gep17, %42 ]
   %.sink8.i = phi ptr [ %6, %41 ], [ %5, %42 ]
   %43 = phi ptr [ @anon.083b790a21940f882304165a113eaaef.8.llvm.171605402441639591, %41 ], [ @anon.083b790a21940f882304165a113eaaef.11.llvm.171605402441639591, %42 ]
-  %.sink8.i.sroa.phi = phi ptr [ %.sroa.gep, %41 ], [ %.sroa.gep8, %42 ]
-  %.sink8.i.sroa.phi9 = phi ptr [ %.sroa.gep10, %41 ], [ %.sroa.gep11, %42 ]
-  %.sink8.i.sroa.phi12 = phi ptr [ %.sroa.gep13, %41 ], [ %.sroa.gep14, %42 ]
-  %.sink8.i.sroa.phi15 = phi ptr [ %.sroa.gep16, %41 ], [ %.sroa.gep17, %42 ]
   store i64 1, ptr %.sink8.i.sroa.phi, align 8, !noalias !195
   store ptr null, ptr %.sink8.i.sroa.phi9, align 8, !noalias !195
   store ptr @anon.083b790a21940f882304165a113eaaef.7.llvm.171605402441639591, ptr %.sink8.i.sroa.phi12, align 8, !noalias !195
@@ -1075,18 +1075,18 @@ define hidden void @"_ZN12arrow_buffer6buffer6scalar21ScalarBuffer$LT$T$GT$3new1
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN12arrow_buffer6buffer6scalar21ScalarBuffer$LT$T$GT$3new17h84407ed1427eae66E"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, i64 }, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep17 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.gep14 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.gep11 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.gep8 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep16 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sroa.gep13 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.gep10 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
   %7 = alloca { ptr, ptr, i64 }, align 8
   %8 = shl i64 %2, 2
   %9 = icmp ugt i64 %2, 4611686018427387903
+  %.sink8.i.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink8.i.sroa.gep8 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink8.i.sroa.gep10 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink8.i.sroa.gep11 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sink8.i.sroa.gep13 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink8.i.sroa.gep14 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink8.i.sroa.gep16 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sink8.i.sroa.gep17 = getelementptr inbounds i8, ptr %5, i64 24
   br i1 %9, label %.invoke, label %10
 
 10:                                               ; preds = %4
@@ -1175,12 +1175,12 @@ define hidden void @"_ZN12arrow_buffer6buffer6scalar21ScalarBuffer$LT$T$GT$3new1
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %42, %41
+  %.sink8.i.sroa.phi = phi ptr [ %.sink8.i.sroa.gep, %41 ], [ %.sink8.i.sroa.gep8, %42 ]
+  %.sink8.i.sroa.phi9 = phi ptr [ %.sink8.i.sroa.gep10, %41 ], [ %.sink8.i.sroa.gep11, %42 ]
+  %.sink8.i.sroa.phi12 = phi ptr [ %.sink8.i.sroa.gep13, %41 ], [ %.sink8.i.sroa.gep14, %42 ]
+  %.sink8.i.sroa.phi15 = phi ptr [ %.sink8.i.sroa.gep16, %41 ], [ %.sink8.i.sroa.gep17, %42 ]
   %.sink8.i = phi ptr [ %6, %41 ], [ %5, %42 ]
   %43 = phi ptr [ @anon.083b790a21940f882304165a113eaaef.8.llvm.171605402441639591, %41 ], [ @anon.083b790a21940f882304165a113eaaef.11.llvm.171605402441639591, %42 ]
-  %.sink8.i.sroa.phi = phi ptr [ %.sroa.gep, %41 ], [ %.sroa.gep8, %42 ]
-  %.sink8.i.sroa.phi9 = phi ptr [ %.sroa.gep10, %41 ], [ %.sroa.gep11, %42 ]
-  %.sink8.i.sroa.phi12 = phi ptr [ %.sroa.gep13, %41 ], [ %.sroa.gep14, %42 ]
-  %.sink8.i.sroa.phi15 = phi ptr [ %.sroa.gep16, %41 ], [ %.sroa.gep17, %42 ]
   store i64 1, ptr %.sink8.i.sroa.phi, align 8, !noalias !228
   store ptr null, ptr %.sink8.i.sroa.phi9, align 8, !noalias !228
   store ptr @anon.083b790a21940f882304165a113eaaef.7.llvm.171605402441639591, ptr %.sink8.i.sroa.phi12, align 8, !noalias !228
@@ -1384,15 +1384,7 @@ define hidden void @_ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$GT$$u20$as$u20$core..convert..From$LT$arrow_buffer..buffer..immutable..Buffer$GT$$GT$4from17h2a3ab6f0b75c47d9E.llvm.171605402441639591"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, i64 }, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep18 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sroa.gep15 = getelementptr inbounds i8, ptr %3, i64 16
-  %.sroa.gep12 = getelementptr inbounds i8, ptr %3, i64 32
-  %.sroa.gep9 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 24
-  %.sroa.gep14 = getelementptr inbounds i8, ptr %4, i64 16
-  %.sroa.gep11 = getelementptr inbounds i8, ptr %4, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !noundef !4
   %7 = ptrtoint ptr %6 to i64
@@ -1406,6 +1398,14 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8, !range !128, !noundef !4
   %trunc.not = icmp eq i64 %15, 0
+  %.sink8.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink8.sroa.gep9 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sink8.sroa.gep11 = getelementptr inbounds i8, ptr %4, i64 32
+  %.sink8.sroa.gep12 = getelementptr inbounds i8, ptr %3, i64 32
+  %.sink8.sroa.gep14 = getelementptr inbounds i8, ptr %4, i64 16
+  %.sink8.sroa.gep15 = getelementptr inbounds i8, ptr %3, i64 16
+  %.sink8.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 24
+  %.sink8.sroa.gep18 = getelementptr inbounds i8, ptr %3, i64 24
   br i1 %trunc.not, label %21, label %22
 
 16:                                               ; preds = %.invoke
@@ -1441,12 +1441,12 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
   br label %.invoke
 
 .invoke:                                          ; preds = %23, %25
+  %.sink8.sroa.phi = phi ptr [ %.sink8.sroa.gep, %23 ], [ %.sink8.sroa.gep9, %25 ]
+  %.sink8.sroa.phi10 = phi ptr [ %.sink8.sroa.gep11, %23 ], [ %.sink8.sroa.gep12, %25 ]
+  %.sink8.sroa.phi13 = phi ptr [ %.sink8.sroa.gep14, %23 ], [ %.sink8.sroa.gep15, %25 ]
+  %.sink8.sroa.phi16 = phi ptr [ %.sink8.sroa.gep17, %23 ], [ %.sink8.sroa.gep18, %25 ]
   %.sink8 = phi ptr [ %4, %23 ], [ %3, %25 ]
   %26 = phi ptr [ @anon.083b790a21940f882304165a113eaaef.8.llvm.171605402441639591, %23 ], [ @anon.083b790a21940f882304165a113eaaef.11.llvm.171605402441639591, %25 ]
-  %.sink8.sroa.phi = phi ptr [ %.sroa.gep, %23 ], [ %.sroa.gep9, %25 ]
-  %.sink8.sroa.phi10 = phi ptr [ %.sroa.gep11, %23 ], [ %.sroa.gep12, %25 ]
-  %.sink8.sroa.phi13 = phi ptr [ %.sroa.gep14, %23 ], [ %.sroa.gep15, %25 ]
-  %.sink8.sroa.phi16 = phi ptr [ %.sroa.gep17, %23 ], [ %.sroa.gep18, %25 ]
   store i64 1, ptr %.sink8.sroa.phi, align 8
   store ptr null, ptr %.sink8.sroa.phi10, align 8
   store ptr @anon.083b790a21940f882304165a113eaaef.7.llvm.171605402441639591, ptr %.sink8.sroa.phi13, align 8
@@ -1470,15 +1470,7 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$GT$$u20$as$u20$core..convert..From$LT$arrow_buffer..buffer..immutable..Buffer$GT$$GT$4from17h675d2994d957a0c4E.llvm.171605402441639591"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, i64 }, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep18 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sroa.gep15 = getelementptr inbounds i8, ptr %3, i64 16
-  %.sroa.gep12 = getelementptr inbounds i8, ptr %3, i64 32
-  %.sroa.gep9 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 24
-  %.sroa.gep14 = getelementptr inbounds i8, ptr %4, i64 16
-  %.sroa.gep11 = getelementptr inbounds i8, ptr %4, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !noundef !4
   %7 = ptrtoint ptr %6 to i64
@@ -1492,6 +1484,14 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8, !range !128, !noundef !4
   %trunc.not = icmp eq i64 %15, 0
+  %.sink8.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink8.sroa.gep9 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sink8.sroa.gep11 = getelementptr inbounds i8, ptr %4, i64 32
+  %.sink8.sroa.gep12 = getelementptr inbounds i8, ptr %3, i64 32
+  %.sink8.sroa.gep14 = getelementptr inbounds i8, ptr %4, i64 16
+  %.sink8.sroa.gep15 = getelementptr inbounds i8, ptr %3, i64 16
+  %.sink8.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 24
+  %.sink8.sroa.gep18 = getelementptr inbounds i8, ptr %3, i64 24
   br i1 %trunc.not, label %21, label %22
 
 16:                                               ; preds = %.invoke
@@ -1527,12 +1527,12 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
   br label %.invoke
 
 .invoke:                                          ; preds = %23, %25
+  %.sink8.sroa.phi = phi ptr [ %.sink8.sroa.gep, %23 ], [ %.sink8.sroa.gep9, %25 ]
+  %.sink8.sroa.phi10 = phi ptr [ %.sink8.sroa.gep11, %23 ], [ %.sink8.sroa.gep12, %25 ]
+  %.sink8.sroa.phi13 = phi ptr [ %.sink8.sroa.gep14, %23 ], [ %.sink8.sroa.gep15, %25 ]
+  %.sink8.sroa.phi16 = phi ptr [ %.sink8.sroa.gep17, %23 ], [ %.sink8.sroa.gep18, %25 ]
   %.sink8 = phi ptr [ %4, %23 ], [ %3, %25 ]
   %26 = phi ptr [ @anon.083b790a21940f882304165a113eaaef.8.llvm.171605402441639591, %23 ], [ @anon.083b790a21940f882304165a113eaaef.11.llvm.171605402441639591, %25 ]
-  %.sink8.sroa.phi = phi ptr [ %.sroa.gep, %23 ], [ %.sroa.gep9, %25 ]
-  %.sink8.sroa.phi10 = phi ptr [ %.sroa.gep11, %23 ], [ %.sroa.gep12, %25 ]
-  %.sink8.sroa.phi13 = phi ptr [ %.sroa.gep14, %23 ], [ %.sroa.gep15, %25 ]
-  %.sink8.sroa.phi16 = phi ptr [ %.sroa.gep17, %23 ], [ %.sroa.gep18, %25 ]
   store i64 1, ptr %.sink8.sroa.phi, align 8
   store ptr null, ptr %.sink8.sroa.phi10, align 8
   store ptr @anon.083b790a21940f882304165a113eaaef.7.llvm.171605402441639591, ptr %.sink8.sroa.phi13, align 8
@@ -1556,15 +1556,7 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$GT$$u20$as$u20$core..convert..From$LT$arrow_buffer..buffer..immutable..Buffer$GT$$GT$4from17hcc36d06d7f7a4818E.llvm.171605402441639591"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, i64 }, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep18 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sroa.gep15 = getelementptr inbounds i8, ptr %3, i64 16
-  %.sroa.gep12 = getelementptr inbounds i8, ptr %3, i64 32
-  %.sroa.gep9 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 24
-  %.sroa.gep14 = getelementptr inbounds i8, ptr %4, i64 16
-  %.sroa.gep11 = getelementptr inbounds i8, ptr %4, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !noundef !4
   %7 = ptrtoint ptr %6 to i64
@@ -1578,6 +1570,14 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8, !range !128, !noundef !4
   %trunc.not = icmp eq i64 %15, 0
+  %.sink8.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink8.sroa.gep9 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sink8.sroa.gep11 = getelementptr inbounds i8, ptr %4, i64 32
+  %.sink8.sroa.gep12 = getelementptr inbounds i8, ptr %3, i64 32
+  %.sink8.sroa.gep14 = getelementptr inbounds i8, ptr %4, i64 16
+  %.sink8.sroa.gep15 = getelementptr inbounds i8, ptr %3, i64 16
+  %.sink8.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 24
+  %.sink8.sroa.gep18 = getelementptr inbounds i8, ptr %3, i64 24
   br i1 %trunc.not, label %21, label %22
 
 16:                                               ; preds = %.invoke
@@ -1613,12 +1613,12 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
   br label %.invoke
 
 .invoke:                                          ; preds = %23, %25
+  %.sink8.sroa.phi = phi ptr [ %.sink8.sroa.gep, %23 ], [ %.sink8.sroa.gep9, %25 ]
+  %.sink8.sroa.phi10 = phi ptr [ %.sink8.sroa.gep11, %23 ], [ %.sink8.sroa.gep12, %25 ]
+  %.sink8.sroa.phi13 = phi ptr [ %.sink8.sroa.gep14, %23 ], [ %.sink8.sroa.gep15, %25 ]
+  %.sink8.sroa.phi16 = phi ptr [ %.sink8.sroa.gep17, %23 ], [ %.sink8.sroa.gep18, %25 ]
   %.sink8 = phi ptr [ %4, %23 ], [ %3, %25 ]
   %26 = phi ptr [ @anon.083b790a21940f882304165a113eaaef.8.llvm.171605402441639591, %23 ], [ @anon.083b790a21940f882304165a113eaaef.11.llvm.171605402441639591, %25 ]
-  %.sink8.sroa.phi = phi ptr [ %.sroa.gep, %23 ], [ %.sroa.gep9, %25 ]
-  %.sink8.sroa.phi10 = phi ptr [ %.sroa.gep11, %23 ], [ %.sroa.gep12, %25 ]
-  %.sink8.sroa.phi13 = phi ptr [ %.sroa.gep14, %23 ], [ %.sroa.gep15, %25 ]
-  %.sink8.sroa.phi16 = phi ptr [ %.sroa.gep17, %23 ], [ %.sroa.gep18, %25 ]
   store i64 1, ptr %.sink8.sroa.phi, align 8
   store ptr null, ptr %.sink8.sroa.phi10, align 8
   store ptr @anon.083b790a21940f882304165a113eaaef.7.llvm.171605402441639591, ptr %.sink8.sroa.phi13, align 8
@@ -1642,15 +1642,7 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$GT$$u20$as$u20$core..convert..From$LT$arrow_buffer..buffer..immutable..Buffer$GT$$GT$4from17he16801711c07e901E"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, i64 }, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep18 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sroa.gep15 = getelementptr inbounds i8, ptr %3, i64 16
-  %.sroa.gep12 = getelementptr inbounds i8, ptr %3, i64 32
-  %.sroa.gep9 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 24
-  %.sroa.gep14 = getelementptr inbounds i8, ptr %4, i64 16
-  %.sroa.gep11 = getelementptr inbounds i8, ptr %4, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !noundef !4
   %7 = ptrtoint ptr %6 to i64
@@ -1664,6 +1656,14 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8, !range !128, !noundef !4
   %trunc.not = icmp eq i64 %15, 0
+  %.sink8.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink8.sroa.gep9 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sink8.sroa.gep11 = getelementptr inbounds i8, ptr %4, i64 32
+  %.sink8.sroa.gep12 = getelementptr inbounds i8, ptr %3, i64 32
+  %.sink8.sroa.gep14 = getelementptr inbounds i8, ptr %4, i64 16
+  %.sink8.sroa.gep15 = getelementptr inbounds i8, ptr %3, i64 16
+  %.sink8.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 24
+  %.sink8.sroa.gep18 = getelementptr inbounds i8, ptr %3, i64 24
   br i1 %trunc.not, label %21, label %22
 
 16:                                               ; preds = %.invoke
@@ -1699,12 +1699,12 @@ define hidden void @"_ZN138_$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$T$
   br label %.invoke
 
 .invoke:                                          ; preds = %23, %25
+  %.sink8.sroa.phi = phi ptr [ %.sink8.sroa.gep, %23 ], [ %.sink8.sroa.gep9, %25 ]
+  %.sink8.sroa.phi10 = phi ptr [ %.sink8.sroa.gep11, %23 ], [ %.sink8.sroa.gep12, %25 ]
+  %.sink8.sroa.phi13 = phi ptr [ %.sink8.sroa.gep14, %23 ], [ %.sink8.sroa.gep15, %25 ]
+  %.sink8.sroa.phi16 = phi ptr [ %.sink8.sroa.gep17, %23 ], [ %.sink8.sroa.gep18, %25 ]
   %.sink8 = phi ptr [ %4, %23 ], [ %3, %25 ]
   %26 = phi ptr [ @anon.083b790a21940f882304165a113eaaef.8.llvm.171605402441639591, %23 ], [ @anon.083b790a21940f882304165a113eaaef.11.llvm.171605402441639591, %25 ]
-  %.sink8.sroa.phi = phi ptr [ %.sroa.gep, %23 ], [ %.sroa.gep9, %25 ]
-  %.sink8.sroa.phi10 = phi ptr [ %.sroa.gep11, %23 ], [ %.sroa.gep12, %25 ]
-  %.sink8.sroa.phi13 = phi ptr [ %.sroa.gep14, %23 ], [ %.sroa.gep15, %25 ]
-  %.sink8.sroa.phi16 = phi ptr [ %.sroa.gep17, %23 ], [ %.sroa.gep18, %25 ]
   store i64 1, ptr %.sink8.sroa.phi, align 8
   store ptr null, ptr %.sink8.sroa.phi10, align 8
   store ptr @anon.083b790a21940f882304165a113eaaef.7.llvm.171605402441639591, ptr %.sink8.sroa.phi13, align 8

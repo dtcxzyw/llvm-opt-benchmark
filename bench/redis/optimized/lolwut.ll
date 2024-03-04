@@ -81,6 +81,8 @@ entry:
   %argc = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp = icmp sgt i32 %0, 2
+  %v.0.sroa.gep = getelementptr inbounds i8, ptr %verstr, i64 1
+  %v.0.sroa.gep24 = getelementptr inbounds i8, ptr %verstr, i64 2
   br i1 %cmp, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %entry
@@ -114,6 +116,8 @@ if.end:                                           ; preds = %if.then
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end, %land.lhs.true, %entry
+  %v.0.sroa.phi = phi ptr [ getelementptr inbounds ([12 x i8], ptr @.str.1, i64 0, i64 1), %land.lhs.true ], [ %v.0.sroa.gep, %if.end ], [ getelementptr inbounds ([12 x i8], ptr @.str.1, i64 0, i64 1), %entry ]
+  %v.0.sroa.phi23 = phi ptr [ getelementptr inbounds ([12 x i8], ptr @.str.1, i64 0, i64 2), %land.lhs.true ], [ %v.0.sroa.gep24, %if.end ], [ getelementptr inbounds ([12 x i8], ptr @.str.1, i64 0, i64 2), %entry ]
   %v.0 = phi ptr [ @.str.1, %land.lhs.true ], [ %verstr, %if.end ], [ @.str.1, %entry ]
   %8 = load i8, ptr %v.0, align 1
   switch i8 %8, label %if.else70 [
@@ -123,26 +127,22 @@ if.end10:                                         ; preds = %if.end, %land.lhs.t
   ]
 
 land.lhs.true15:                                  ; preds = %if.end10
-  %arrayidx16 = getelementptr inbounds i8, ptr %v.0, i64 1
-  %9 = load i8, ptr %arrayidx16, align 1
+  %9 = load i8, ptr %v.0.sroa.phi, align 1
   %cmp18 = icmp eq i8 %9, 46
   br i1 %cmp18, label %land.lhs.true20, label %if.else70
 
 land.lhs.true20:                                  ; preds = %land.lhs.true15
-  %arrayidx21 = getelementptr inbounds i8, ptr %v.0, i64 2
-  %10 = load i8, ptr %arrayidx21, align 1
+  %10 = load i8, ptr %v.0.sroa.phi23, align 1
   %cmp23.not = icmp eq i8 %10, 57
-  br i1 %cmp23.not, label %land.lhs.true64, label %if.then39
+  br i1 %cmp23.not, label %if.then69, label %if.then39
 
 land.lhs.true29:                                  ; preds = %if.end10
-  %arrayidx30 = getelementptr inbounds i8, ptr %v.0, i64 1
-  %11 = load i8, ptr %arrayidx30, align 1
+  %11 = load i8, ptr %v.0.sroa.phi, align 1
   %cmp32 = icmp eq i8 %11, 46
   br i1 %cmp32, label %land.lhs.true34, label %if.else70
 
 land.lhs.true34:                                  ; preds = %land.lhs.true29
-  %arrayidx35 = getelementptr inbounds i8, ptr %v.0, i64 2
-  %12 = load i8, ptr %arrayidx35, align 1
+  %12 = load i8, ptr %v.0.sroa.phi23, align 1
   %cmp37 = icmp eq i8 %12, 57
   br i1 %cmp37, label %if.then39, label %if.else70
 
@@ -151,28 +151,20 @@ if.then39:                                        ; preds = %land.lhs.true34, %l
   br label %if.end72
 
 land.lhs.true44:                                  ; preds = %if.end10
-  %arrayidx45 = getelementptr inbounds i8, ptr %v.0, i64 1
-  %13 = load i8, ptr %arrayidx45, align 1
+  %13 = load i8, ptr %v.0.sroa.phi, align 1
   %cmp47 = icmp eq i8 %13, 46
   br i1 %cmp47, label %land.lhs.true49, label %if.else70
 
 land.lhs.true49:                                  ; preds = %land.lhs.true44
-  %arrayidx50 = getelementptr inbounds i8, ptr %v.0, i64 2
-  %14 = load i8, ptr %arrayidx50, align 1
+  %14 = load i8, ptr %v.0.sroa.phi23, align 1
   %cmp52.not = icmp eq i8 %14, 57
   br i1 %cmp52.not, label %if.else70, label %if.then69
 
-land.lhs.true64:                                  ; preds = %land.lhs.true20
-  %arrayidx65 = getelementptr inbounds i8, ptr %v.0, i64 2
-  %15 = load i8, ptr %arrayidx65, align 1
-  %cmp67 = icmp eq i8 %15, 57
-  br i1 %cmp67, label %if.then69, label %if.else70
-
-if.then69:                                        ; preds = %land.lhs.true64, %land.lhs.true49
+if.then69:                                        ; preds = %land.lhs.true20, %land.lhs.true49
   call void @lolwut6Command(ptr noundef nonnull %c) #13
   br label %if.end72
 
-if.else70:                                        ; preds = %land.lhs.true15, %if.end10, %land.lhs.true29, %land.lhs.true34, %land.lhs.true44, %land.lhs.true49, %land.lhs.true64
+if.else70:                                        ; preds = %if.end10, %land.lhs.true29, %land.lhs.true34, %land.lhs.true44, %land.lhs.true49, %land.lhs.true15
   call void @lolwutUnstableCommand(ptr noundef nonnull %c)
   br label %if.end72
 
@@ -182,11 +174,11 @@ if.end72:                                         ; preds = %if.then69, %if.else
 
 if.then76:                                        ; preds = %if.end72
   %argv77 = getelementptr inbounds i8, ptr %c, i64 96
-  %16 = load ptr, ptr %argv77, align 8
-  %add.ptr78 = getelementptr inbounds i8, ptr %16, i64 -16
+  %15 = load ptr, ptr %argv77, align 8
+  %add.ptr78 = getelementptr inbounds i8, ptr %15, i64 -16
   store ptr %add.ptr78, ptr %argv77, align 8
-  %17 = load i32, ptr %argc, align 8
-  %add = add nsw i32 %17, 2
+  %16 = load i32, ptr %argc, align 8
+  %add = add nsw i32 %16, 2
   store i32 %add, ptr %argc, align 8
   br label %if.end80
 

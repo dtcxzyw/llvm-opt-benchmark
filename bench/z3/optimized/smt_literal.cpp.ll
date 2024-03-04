@@ -97,10 +97,10 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt12display_smt2ERSoN3sat7literalER11ast_managerPKP4expr(ptr noundef nonnull returned align 8 dereferenceable(8) %out, i32 %lit.coerce, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nocapture noundef readonly %bool_var2expr_map) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %ref.tmp18 = alloca %struct.mk_pp, align 8
-  %ref.tmp18.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp18, i64 16
   %cmp.i = icmp eq i32 %lit.coerce, 0
+  %ref.tmp18.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp18, i64 16
+  %ref.tmp18.sink.sroa.gep21 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   br i1 %cmp.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -179,8 +179,8 @@ if.end27:                                         ; preds = %if.then3, %invoke.c
   ret ptr %out
 
 eh.resume:                                        ; preds = %lpad22, %lpad
+  %ref.tmp18.sink.sroa.phi = phi ptr [ %ref.tmp18.sink.sroa.gep, %lpad22 ], [ %ref.tmp18.sink.sroa.gep21, %lpad ]
   %.pn = phi { ptr, i32 } [ %6, %lpad22 ], [ %4, %lpad ]
-  %ref.tmp18.sink.sroa.phi = phi ptr [ %ref.tmp18.sroa.gep, %lpad22 ], [ %ref.tmp.sroa.gep, %lpad ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp18.sink.sroa.phi) #6
   resume { ptr, i32 } %.pn
 }

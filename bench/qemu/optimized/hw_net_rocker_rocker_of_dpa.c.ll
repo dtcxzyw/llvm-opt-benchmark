@@ -870,6 +870,8 @@ entry:
   %iov_len.i = getelementptr inbounds i8, ptr %iov, i64 8
   %0 = load i64, ptr %iov_len.i, align 8
   %cmp.i = icmp ult i64 %0, 14
+  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %fc, i64 88
+  %.sink.i.sroa.gep5 = getelementptr inbounds i8, ptr %fc, i64 96
   br i1 %cmp.i, label %of_dpa_flow_pkt_parse.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -898,12 +900,11 @@ if.end15.i:                                       ; preds = %if.then8.i
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end15.i, %if.end.i
-  %3 = phi ptr [ %h_proto18.i, %if.end15.i ], [ %h_proto.i, %if.end.i ]
-  %4 = phi ptr [ %add.ptr.i, %if.end15.i ], [ null, %if.end.i ]
-  %5 = phi i16 [ %.pre.i, %if.end15.i ], [ %2, %if.end.i ]
-  %6 = phi i64 [ 16, %if.end15.i ], [ 12, %if.end.i ]
+  %3 = phi ptr [ %add.ptr.i, %if.end15.i ], [ null, %if.end.i ]
+  %4 = phi i16 [ %.pre.i, %if.end15.i ], [ %2, %if.end.i ]
+  %5 = phi i64 [ 16, %if.end15.i ], [ 12, %if.end.i ]
   %sofar.0.i = phi i64 [ 18, %if.end15.i ], [ 14, %if.end.i ]
-  %call22.i = tail call zeroext i16 @ntohs(i16 noundef zeroext %5) #20
+  %call22.i = tail call zeroext i16 @ntohs(i16 noundef zeroext %4) #20
   switch i16 %call22.i, label %sw.epilog.i [
     i16 2048, label %sw.bb.i
     i16 -31011, label %sw.bb33.i
@@ -920,33 +921,28 @@ sw.bb33.i:                                        ; preds = %if.end20.i
   br i1 %cmp36.i, label %of_dpa_flow_pkt_parse.exit, label %sw.epilog.sink.split.i
 
 sw.epilog.sink.split.i:                           ; preds = %sw.bb33.i, %sw.bb.i
-  %.sink.i = phi i64 [ 88, %sw.bb.i ], [ 96, %sw.bb33.i ]
-  %7 = getelementptr i8, ptr %1, i64 %6
-  %add.ptr42.i = getelementptr i8, ptr %7, i64 2
-  %ipv6hdr.i = getelementptr inbounds i8, ptr %fc, i64 %.sink.i
-  store ptr %add.ptr42.i, ptr %ipv6hdr.i, align 8
-  %vlanhdr.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %fc, i64 80
-  %.pre = load ptr, ptr %vlanhdr.i.i.phi.trans.insert, align 8
-  %.pre7 = load ptr, ptr %h_proto3.i, align 8
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %sw.bb.i ], [ %.sink.i.sroa.gep5, %sw.bb33.i ]
+  %6 = getelementptr i8, ptr %1, i64 %5
+  %add.ptr42.i = getelementptr i8, ptr %6, i64 2
+  store ptr %add.ptr42.i, ptr %.sink.i.sroa.phi, align 8
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.epilog.sink.split.i, %if.end20.i
-  %8 = phi ptr [ %.pre7, %sw.epilog.sink.split.i ], [ %3, %if.end20.i ]
-  %9 = phi ptr [ %.pre, %sw.epilog.sink.split.i ], [ %4, %if.end20.i ]
+  %7 = getelementptr i8, ptr %1, i64 %5
   store ptr %1, ptr %call, align 8
   %iov_len.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 14, ptr %iov_len.i.i, align 8
   %arrayidx5.i.i = getelementptr i8, ptr %call, i64 16
-  store ptr %9, ptr %arrayidx5.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %9, null
+  store ptr %3, ptr %arrayidx5.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %3, null
   %cond.i.i = select i1 %tobool.not.i.i, i64 0, i64 4
   %iov_len10.i.i = getelementptr i8, ptr %call, i64 24
   store i64 %cond.i.i, ptr %iov_len10.i.i, align 8
-  %add.ptr44.i = getelementptr i8, ptr %8, i64 2
+  %add.ptr44.i = getelementptr i8, ptr %7, i64 2
   %arrayidx.i = getelementptr i8, ptr %call, i64 32
   store ptr %add.ptr44.i, ptr %arrayidx.i, align 8
-  %10 = add nuw nsw i64 %cond.i.i, 14
-  %sub54.i = sub i64 %0, %10
+  %8 = add nuw nsw i64 %cond.i.i, 14
+  %sub54.i = sub i64 %0, %8
   %iov_len57.i = getelementptr i8, ptr %call, i64 40
   store i64 %sub54.i, ptr %iov_len57.i, align 8
   %cmp5840.i = icmp sgt i32 %iovcnt, 1
@@ -958,8 +954,8 @@ for.body.preheader.i:                             ; preds = %sw.epilog.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %11 = shl i64 %indvars.iv.i, 32
-  %sext.i = add nuw i64 %11, 8589934592
+  %9 = shl i64 %indvars.iv.i, 32
+  %sext.i = add nuw i64 %9, 8589934592
   %idxprom.i = ashr exact i64 %sext.i, 32
   %arrayidx62.i = getelementptr %struct.iovec, ptr %call, i64 %idxprom.i
   %arrayidx64.i = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv.i

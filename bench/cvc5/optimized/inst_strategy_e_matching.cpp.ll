@@ -3573,6 +3573,7 @@ entry:
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %cmp.not5.i.i.i = icmp eq ptr %0, null
+  %i405.03660.sroa.gep3668 = getelementptr inbounds i8, ptr %vcs, i64 24
   br i1 %cmp.not5.i.i.i, label %if.end.thread, label %while.body.lr.ph.i.i.i
 
 if.end.thread:                                    ; preds = %entry
@@ -6133,15 +6134,15 @@ ehcleanup402:                                     ; preds = %ehcleanup401, %lpad
 
 for.body408:                                      ; preds = %for.cond406.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1907
   %cmp407 = phi i1 [ true, %for.cond406.preheader ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1907 ]
+  %i405.03660.sroa.phi = phi ptr [ %vcs, %for.cond406.preheader ], [ %i405.03660.sroa.gep3668, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1907 ]
   %i405.03660 = phi i64 [ 0, %for.cond406.preheader ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1907 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call15, i32 noundef 356)
           to label %.noexc1832 unwind label %lpad366.loopexit
 
 .noexc1832:                                       ; preds = %for.body408
-  %arrayidx410 = getelementptr inbounds [2 x %"class.std::vector.396"], ptr %vcs, i64 0, i64 %i405.03660
-  %255 = load ptr, ptr %arrayidx410, align 8, !noalias !52
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %arrayidx410, i64 8
+  %255 = load ptr, ptr %i405.03660.sroa.phi, align 8, !noalias !52
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %i405.03660.sroa.phi, i64 8
   %256 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !52
   %cmp.i.not3.i.i.i = icmp eq ptr %256, %255

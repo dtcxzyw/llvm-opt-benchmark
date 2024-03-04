@@ -4363,23 +4363,23 @@ define noundef zeroext i1 @_ZN7rocksdb18FilePrefetchBuffer25TryReadFromCacheUntr
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr.4", align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
-  %ref.tmp.sroa.gep143 = getelementptr inbounds i8, ptr %ref.tmp, i64 2
-  %ref.tmp.sroa.gep140 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
-  %ref.tmp.sroa.gep137 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %ref.tmp.sroa.gep134 = getelementptr inbounds i8, ptr %ref.tmp, i64 5
-  %ref.tmp.sroa.gep131 = getelementptr inbounds i8, ptr %ref.tmp, i64 3
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %ref.tmp55 = alloca %"class.rocksdb::Status", align 8
-  %ref.tmp55.sroa.gep144 = getelementptr inbounds i8, ptr %ref.tmp55, i64 2
-  %ref.tmp55.sroa.gep141 = getelementptr inbounds i8, ptr %ref.tmp55, i64 4
-  %ref.tmp55.sroa.gep138 = getelementptr inbounds i8, ptr %ref.tmp55, i64 8
-  %ref.tmp55.sroa.gep135 = getelementptr inbounds i8, ptr %ref.tmp55, i64 5
-  %ref.tmp55.sroa.gep132 = getelementptr inbounds i8, ptr %ref.tmp55, i64 3
-  %ref.tmp55.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp55, i64 1
   %track_min_offset_ = getelementptr inbounds i8, ptr %this, i64 65
   %0 = load i8, ptr %track_min_offset_, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
+  %ref.tmp.sink129.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 1
+  %ref.tmp.sink129.sroa.gep130 = getelementptr inbounds i8, ptr %ref.tmp55, i64 1
+  %ref.tmp.sink129.sroa.gep132 = getelementptr inbounds i8, ptr %ref.tmp, i64 3
+  %ref.tmp.sink129.sroa.gep133 = getelementptr inbounds i8, ptr %ref.tmp55, i64 3
+  %ref.tmp.sink129.sroa.gep135 = getelementptr inbounds i8, ptr %ref.tmp, i64 5
+  %ref.tmp.sink129.sroa.gep136 = getelementptr inbounds i8, ptr %ref.tmp55, i64 5
+  %ref.tmp.sink129.sroa.gep138 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %ref.tmp.sink129.sroa.gep139 = getelementptr inbounds i8, ptr %ref.tmp55, i64 8
+  %ref.tmp.sink129.sroa.gep141 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %ref.tmp.sink129.sroa.gep142 = getelementptr inbounds i8, ptr %ref.tmp55, i64 4
+  %ref.tmp.sink129.sroa.gep144 = getelementptr inbounds i8, ptr %ref.tmp, i64 2
+  %ref.tmp.sink129.sroa.gep145 = getelementptr inbounds i8, ptr %ref.tmp55, i64 2
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
@@ -4479,22 +4479,22 @@ if.end54:                                         ; preds = %if.then48, %if.end4
   br label %invoke.cont61
 
 invoke.cont61:                                    ; preds = %if.then23, %if.end54
+  %ref.tmp.sink129.sroa.phi = phi ptr [ %ref.tmp.sink129.sroa.gep, %if.then23 ], [ %ref.tmp.sink129.sroa.gep130, %if.end54 ]
+  %ref.tmp.sink129.sroa.phi131 = phi ptr [ %ref.tmp.sink129.sroa.gep132, %if.then23 ], [ %ref.tmp.sink129.sroa.gep133, %if.end54 ]
+  %ref.tmp.sink129.sroa.phi134 = phi ptr [ %ref.tmp.sink129.sroa.gep135, %if.then23 ], [ %ref.tmp.sink129.sroa.gep136, %if.end54 ]
+  %ref.tmp.sink129.sroa.phi137 = phi ptr [ %ref.tmp.sink129.sroa.gep138, %if.then23 ], [ %ref.tmp.sink129.sroa.gep139, %if.end54 ]
+  %ref.tmp.sink129.sroa.phi140 = phi ptr [ %ref.tmp.sink129.sroa.gep141, %if.then23 ], [ %ref.tmp.sink129.sroa.gep142, %if.end54 ]
+  %ref.tmp.sink129.sroa.phi143 = phi ptr [ %ref.tmp.sink129.sroa.gep144, %if.then23 ], [ %ref.tmp.sink129.sroa.gep145, %if.end54 ]
   %s.sroa.0.0 = phi i8 [ %10, %if.then23 ], [ %16, %if.end54 ]
-  %ref.tmp.sink129.sroa.phi = phi ptr [ %ref.tmp.sroa.gep, %if.then23 ], [ %ref.tmp55.sroa.gep, %if.end54 ]
-  %ref.tmp.sink129.sroa.phi130 = phi ptr [ %ref.tmp.sroa.gep131, %if.then23 ], [ %ref.tmp55.sroa.gep132, %if.end54 ]
-  %ref.tmp.sink129.sroa.phi133 = phi ptr [ %ref.tmp.sroa.gep134, %if.then23 ], [ %ref.tmp55.sroa.gep135, %if.end54 ]
-  %ref.tmp.sink129.sroa.phi136 = phi ptr [ %ref.tmp.sroa.gep137, %if.then23 ], [ %ref.tmp55.sroa.gep138, %if.end54 ]
-  %ref.tmp.sink129.sroa.phi139 = phi ptr [ %ref.tmp.sroa.gep140, %if.then23 ], [ %ref.tmp55.sroa.gep141, %if.end54 ]
-  %ref.tmp.sink129.sroa.phi142 = phi ptr [ %ref.tmp.sroa.gep143, %if.then23 ], [ %ref.tmp55.sroa.gep144, %if.end54 ]
   %17 = load i8, ptr %ref.tmp.sink129.sroa.phi, align 1
-  %18 = load i8, ptr %ref.tmp.sink129.sroa.phi142, align 2
-  %19 = load i8, ptr %ref.tmp.sink129.sroa.phi130, align 1
-  %20 = load i8, ptr %ref.tmp.sink129.sroa.phi139, align 4
+  %18 = load i8, ptr %ref.tmp.sink129.sroa.phi143, align 2
+  %19 = load i8, ptr %ref.tmp.sink129.sroa.phi131, align 1
+  %20 = load i8, ptr %ref.tmp.sink129.sroa.phi140, align 4
   store <4 x i8> zeroinitializer, ptr %ref.tmp.sink129.sroa.phi, align 1
-  %21 = load i8, ptr %ref.tmp.sink129.sroa.phi133, align 1
-  store i8 0, ptr %ref.tmp.sink129.sroa.phi133, align 1
-  %22 = load ptr, ptr %ref.tmp.sink129.sroa.phi136, align 8
-  store ptr null, ptr %ref.tmp.sink129.sroa.phi136, align 8
+  %21 = load i8, ptr %ref.tmp.sink129.sroa.phi134, align 1
+  store i8 0, ptr %ref.tmp.sink129.sroa.phi134, align 1
+  %22 = load ptr, ptr %ref.tmp.sink129.sroa.phi137, align 8
+  store ptr null, ptr %ref.tmp.sink129.sroa.phi137, align 8
   %cmp.i36 = icmp eq i8 %s.sroa.0.0, 0
   br i1 %cmp.i36, label %cleanup.thread112, label %if.then63
 

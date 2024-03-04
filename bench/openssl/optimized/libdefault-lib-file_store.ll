@@ -56,6 +56,7 @@ entry:
   br i1 %cmp, label %cond.true, label %if.end32
 
 cond.true:                                        ; preds = %entry
+  %path_data_n.0.sroa.gep35 = getelementptr inbounds i8, ptr %path_data, i64 16
   %add.ptr = getelementptr inbounds i8, ptr %uri, i64 5
   %call4 = tail call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %add.ptr, ptr noundef nonnull @.str.1, i64 noundef 2) #8
   %cmp5 = icmp eq i32 %call4, 0
@@ -86,24 +87,23 @@ if.else:                                          ; preds = %lor.lhs.false
   br label %return
 
 if.end23:                                         ; preds = %cond.true, %if.then20
-  %path_data_n.0 = phi i64 [ 0, %if.then20 ], [ 1, %cond.true ]
+  %path_data_n.0.sroa.phi = phi ptr [ %path_data, %if.then20 ], [ %path_data_n.0.sroa.gep35, %cond.true ]
+  %path_data_n.0 = phi i64 [ 1, %if.then20 ], [ 2, %cond.true ]
   %p.0 = phi ptr [ %add.ptr21, %if.then20 ], [ %add.ptr, %cond.true ]
-  %arrayidx24 = getelementptr inbounds [2 x %struct.anon], ptr %path_data, i64 0, i64 %path_data_n.0
-  %check_absolute25 = getelementptr inbounds i8, ptr %arrayidx24, i64 8
+  %check_absolute25 = getelementptr inbounds i8, ptr %path_data_n.0.sroa.phi, i64 8
   %bf.load26 = load i8, ptr %check_absolute25, align 8
   %bf.set28 = or i8 %bf.load26, 1
   store i8 %bf.set28, ptr %check_absolute25, align 8
-  %inc29 = add nuw nsw i64 %path_data_n.0, 1
-  store ptr %p.0, ptr %arrayidx24, align 16
+  store ptr %p.0, ptr %path_data_n.0.sroa.phi, align 16
   br label %if.end32
 
 if.end32:                                         ; preds = %entry, %if.end23
-  %path_data_n.1 = phi i64 [ %inc29, %if.end23 ], [ 1, %entry ]
+  %path_data_n.1 = phi i64 [ %path_data_n.0, %if.end23 ], [ 1, %entry ]
   br label %for.body
 
 for.body:                                         ; preds = %if.end32, %for.inc
-  %i.037 = phi i64 [ 0, %if.end32 ], [ %inc62, %for.inc ]
-  %arrayidx35 = getelementptr inbounds [2 x %struct.anon], ptr %path_data, i64 0, i64 %i.037
+  %i.038 = phi i64 [ 0, %if.end32 ], [ %inc62, %for.inc ]
+  %arrayidx35 = getelementptr inbounds [2 x %struct.anon], ptr %path_data, i64 0, i64 %i.038
   %check_absolute36 = getelementptr inbounds i8, ptr %arrayidx35, i64 8
   %bf.load37 = load i8, ptr %check_absolute36, align 8
   %bf.clear38 = and i8 %bf.load37, 1
@@ -138,7 +138,7 @@ if.then54:                                        ; preds = %if.end48
 
 for.inc:                                          ; preds = %if.end48, %if.then54
   %path.1 = phi ptr [ null, %if.then54 ], [ %.pre, %if.end48 ]
-  %inc62 = add nuw nsw i64 %i.037, 1
+  %inc62 = add nuw nsw i64 %i.038, 1
   %cmp33 = icmp eq ptr %path.1, null
   %cmp34 = icmp ult i64 %inc62, %path_data_n.1
   %4 = select i1 %cmp33, i1 %cmp34, i1 false

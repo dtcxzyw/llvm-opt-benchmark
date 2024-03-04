@@ -2289,6 +2289,8 @@ entry:
   %ddata = alloca [3 x i64], align 16
   %chunkoff = alloca i64, align 8
   %0 = load i8, ptr %pctxt, align 8
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %data, i64 8
+  %.sink.sroa.gep129 = getelementptr inbounds i8, ptr %data, i64 4
   switch i8 %0, label %if.end [
     i8 3, label %if.end9
     i8 1, label %if.then6
@@ -2464,10 +2466,9 @@ if.else117:                                       ; preds = %if.end107
   br i1 %cmp42, label %if.end126, label %if.end126.sink.split
 
 if.end126.sink.split:                             ; preds = %if.else117, %if.then109
-  %.sink = phi i64 [ 8, %if.then109 ], [ 4, %if.else117 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.then109 ], [ %.sink.sroa.gep129, %if.else117 ]
   %wrcnt.0.ph = phi i64 [ 12, %if.then109 ], [ 8, %if.else117 ]
-  %arrayidx123 = getelementptr inbounds i8, ptr %data, i64 %.sink
-  store i32 %conv40, ptr %arrayidx123, align 4
+  store i32 %conv40, ptr %.sink.sroa.phi, align 4
   br label %if.end126
 
 if.end126:                                        ; preds = %if.end126.sink.split, %if.else117, %if.then109

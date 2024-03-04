@@ -8,34 +8,32 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden ptr @_ZN5alloc5alloc15exchange_malloc17h63def7643e1bc98fE(i64 %0, i64 %1) unnamed_addr #0 {
   %3 = icmp eq i64 %0, 0
-  br i1 %3, label %4, label %9
+  br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
   %5 = add i64 %1, -1
   %6 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %6)
   %7 = inttoptr i64 %1 to ptr
-  %8 = icmp ne i64 %1, 0
-  tail call void @llvm.assume(i1 %8)
   br label %_ZN5alloc5alloc6Global10alloc_impl17h2d1a3b5ff8ae0798E.exit
 
-9:                                                ; preds = %2
-  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %11 = add i64 %1, -1
-  %12 = icmp sgt i64 %11, -1
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call ptr @__rust_alloc(i64 %0, i64 %1) #6
+8:                                                ; preds = %2
+  %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %10 = add i64 %1, -1
+  %11 = icmp sgt i64 %10, -1
+  tail call void @llvm.assume(i1 %11)
+  %12 = tail call ptr @__rust_alloc(i64 %0, i64 %1) #6
   br label %_ZN5alloc5alloc6Global10alloc_impl17h2d1a3b5ff8ae0798E.exit
 
-_ZN5alloc5alloc6Global10alloc_impl17h2d1a3b5ff8ae0798E.exit: ; preds = %4, %9
-  %.sroa.05.0.i = phi ptr [ %7, %4 ], [ %13, %9 ]
+_ZN5alloc5alloc6Global10alloc_impl17h2d1a3b5ff8ae0798E.exit: ; preds = %4, %8
+  %.sroa.05.0.i = phi ptr [ %7, %4 ], [ %12, %8 ]
   %.not = icmp eq ptr %.sroa.05.0.i, null
-  br i1 %.not, label %15, label %14
+  br i1 %.not, label %14, label %13
 
-14:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h2d1a3b5ff8ae0798E.exit
+13:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h2d1a3b5ff8ae0798E.exit
   ret ptr %.sroa.05.0.i
 
-15:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h2d1a3b5ff8ae0798E.exit
+14:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h2d1a3b5ff8ae0798E.exit
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 %1, i64 %0) #7
   unreachable
 }

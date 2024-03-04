@@ -1106,15 +1106,7 @@ entry:
   %agg.tmp1511 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
   %agg.tmp1521 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
   %agg.tmp1563 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp1563.sroa.gep1207 = getelementptr inbounds i8, ptr %agg.tmp1563, i64 4
-  %agg.tmp1563.sroa.gep1204 = getelementptr inbounds i8, ptr %agg.tmp1563, i64 3
-  %agg.tmp1563.sroa.gep1201 = getelementptr inbounds i8, ptr %agg.tmp1563, i64 2
-  %agg.tmp1563.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp1563, i64 1
   %agg.tmp1571 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp1571.sroa.gep1208 = getelementptr inbounds i8, ptr %agg.tmp1571, i64 4
-  %agg.tmp1571.sroa.gep1205 = getelementptr inbounds i8, ptr %agg.tmp1571, i64 3
-  %agg.tmp1571.sroa.gep1202 = getelementptr inbounds i8, ptr %agg.tmp1571, i64 2
-  %agg.tmp1571.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp1571, i64 1
   %agg.tmp1680 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %agg.tmp1686 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %agg.tmp1692 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
@@ -1143,6 +1135,14 @@ entry:
   store i8 0, ptr %m_printdtr.i.i, align 1
   %m_starttime.i.i = getelementptr inbounds i8, ptr %logtime, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_starttime.i.i, i8 0, i64 24, i1 false)
+  %agg.tmp1563.sink1197.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp1563, i64 1
+  %agg.tmp1563.sink1197.sroa.gep1200 = getelementptr inbounds i8, ptr %agg.tmp1571, i64 1
+  %agg.tmp1563.sink1197.sroa.gep1202 = getelementptr inbounds i8, ptr %agg.tmp1563, i64 2
+  %agg.tmp1563.sink1197.sroa.gep1203 = getelementptr inbounds i8, ptr %agg.tmp1571, i64 2
+  %agg.tmp1563.sink1197.sroa.gep1205 = getelementptr inbounds i8, ptr %agg.tmp1563, i64 3
+  %agg.tmp1563.sink1197.sroa.gep1206 = getelementptr inbounds i8, ptr %agg.tmp1571, i64 3
+  %agg.tmp1563.sink1197.sroa.gep1208 = getelementptr inbounds i8, ptr %agg.tmp1563, i64 4
+  %agg.tmp1563.sink1197.sroa.gep1209 = getelementptr inbounds i8, ptr %agg.tmp1571, i64 4
   br i1 %tobool.not.i, label %_ZN18OpenImageIO_v2_6_05TimerC2Eb.exit.i, label %_ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i
 
 _ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i:   ; preds = %entry
@@ -3273,23 +3273,23 @@ invoke.cont1572:                                  ; preds = %if.else1570
   br label %invoke.cont1572.invoke
 
 invoke.cont1572.invoke:                           ; preds = %invoke.cont1564, %invoke.cont1572
+  %agg.tmp1563.sink1197.sroa.phi = phi ptr [ %agg.tmp1563.sink1197.sroa.gep, %invoke.cont1564 ], [ %agg.tmp1563.sink1197.sroa.gep1200, %invoke.cont1572 ]
+  %agg.tmp1563.sink1197.sroa.phi1201 = phi ptr [ %agg.tmp1563.sink1197.sroa.gep1202, %invoke.cont1564 ], [ %agg.tmp1563.sink1197.sroa.gep1203, %invoke.cont1572 ]
+  %agg.tmp1563.sink1197.sroa.phi1204 = phi ptr [ %agg.tmp1563.sink1197.sroa.gep1205, %invoke.cont1564 ], [ %agg.tmp1563.sink1197.sroa.gep1206, %invoke.cont1572 ]
+  %agg.tmp1563.sink1197.sroa.phi1207 = phi ptr [ %agg.tmp1563.sink1197.sroa.gep1208, %invoke.cont1564 ], [ %agg.tmp1563.sink1197.sroa.gep1209, %invoke.cont1572 ]
   %agg.tmp1563.sink1197 = phi ptr [ %agg.tmp1563, %invoke.cont1564 ], [ %agg.tmp1571, %invoke.cont1572 ]
   %call1565.sink1196 = phi ptr [ %call1565, %invoke.cont1564 ], [ %call1573, %invoke.cont1572 ]
   %98 = phi ptr [ %7, %invoke.cont1564 ], [ %8, %invoke.cont1572 ]
-  %agg.tmp1563.sink1197.sroa.phi = phi ptr [ %agg.tmp1563.sroa.gep, %invoke.cont1564 ], [ %agg.tmp1571.sroa.gep, %invoke.cont1572 ]
-  %agg.tmp1563.sink1197.sroa.phi1200 = phi ptr [ %agg.tmp1563.sroa.gep1201, %invoke.cont1564 ], [ %agg.tmp1571.sroa.gep1202, %invoke.cont1572 ]
-  %agg.tmp1563.sink1197.sroa.phi1203 = phi ptr [ %agg.tmp1563.sroa.gep1204, %invoke.cont1564 ], [ %agg.tmp1571.sroa.gep1205, %invoke.cont1572 ]
-  %agg.tmp1563.sink1197.sroa.phi1206 = phi ptr [ %agg.tmp1563.sroa.gep1207, %invoke.cont1564 ], [ %agg.tmp1571.sroa.gep1208, %invoke.cont1572 ]
   %aggregate3.i = getelementptr inbounds i8, ptr %call1565.sink1196, i64 65
   %99 = load i8, ptr %aggregate3.i, align 1
   store i8 %99, ptr %agg.tmp1563.sink1197.sroa.phi, align 1
   %vecsemantics4.i = getelementptr inbounds i8, ptr %call1565.sink1196, i64 66
   %100 = load i8, ptr %vecsemantics4.i, align 2
-  store i8 %100, ptr %agg.tmp1563.sink1197.sroa.phi1200, align 2
-  store i8 0, ptr %agg.tmp1563.sink1197.sroa.phi1203, align 1
+  store i8 %100, ptr %agg.tmp1563.sink1197.sroa.phi1201, align 2
+  store i8 0, ptr %agg.tmp1563.sink1197.sroa.phi1204, align 1
   %arraylen5.i = getelementptr inbounds i8, ptr %call1565.sink1196, i64 68
   %101 = load i32, ptr %arraylen5.i, align 4
-  store i32 %101, ptr %agg.tmp1563.sink1197.sroa.phi1206, align 4
+  store i32 %101, ptr %agg.tmp1563.sink1197.sroa.phi1207, align 4
   %102 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo4copyERNS_8ImageBufERKS1_NS_8TypeDescENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull %agg.tmp1563.sink1197, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad
 
@@ -3365,7 +3365,7 @@ for.body.preheader:                               ; preds = %for.body.lr.ph
   br label %for.body
 
 cond.false1626.us.preheader:                      ; preds = %for.body.lr.ph
-  %invariant.gep1209 = getelementptr i8, ptr %108, i64 -4
+  %invariant.gep1210 = getelementptr i8, ptr %108, i64 -4
   br label %cond.false1626.us
 
 cond.false1626.us:                                ; preds = %cond.false1626.us.preheader, %cond.end1639.us
@@ -3374,8 +3374,8 @@ cond.false1626.us:                                ; preds = %cond.false1626.us.p
   br i1 %tobool1627.not.us, label %cond.end1639.us, label %cond.true1628.us
 
 cond.true1628.us:                                 ; preds = %cond.false1626.us
-  %gep1210 = getelementptr float, ptr %invariant.gep1209, i64 %indvars.iv1178
-  %110 = load float, ptr %gep1210, align 4
+  %gep1211 = getelementptr float, ptr %invariant.gep1210, i64 %indvars.iv1178
+  %110 = load float, ptr %gep1211, align 4
   br label %cond.end1639.us
 
 cond.end1639.us:                                  ; preds = %cond.false1626.us, %cond.true1628.us
@@ -10922,15 +10922,7 @@ entry:
   %agg.tmp1511 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
   %agg.tmp1521 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
   %agg.tmp1563 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp1563.sroa.gep1229 = getelementptr inbounds i8, ptr %agg.tmp1563, i64 4
-  %agg.tmp1563.sroa.gep1226 = getelementptr inbounds i8, ptr %agg.tmp1563, i64 3
-  %agg.tmp1563.sroa.gep1223 = getelementptr inbounds i8, ptr %agg.tmp1563, i64 2
-  %agg.tmp1563.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp1563, i64 1
   %agg.tmp1571 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
-  %agg.tmp1571.sroa.gep1230 = getelementptr inbounds i8, ptr %agg.tmp1571, i64 4
-  %agg.tmp1571.sroa.gep1227 = getelementptr inbounds i8, ptr %agg.tmp1571, i64 3
-  %agg.tmp1571.sroa.gep1224 = getelementptr inbounds i8, ptr %agg.tmp1571, i64 2
-  %agg.tmp1571.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp1571, i64 1
   %Atmp1801 = alloca %"class.OpenImageIO_v2_6_0::ImageBuf", align 8
   %agg.tmp1803 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
   %Atmp1845 = alloca %"class.OpenImageIO_v2_6_0::ImageBuf", align 8
@@ -10951,6 +10943,14 @@ entry:
   store i8 0, ptr %m_printdtr.i.i, align 1
   %m_starttime.i.i = getelementptr inbounds i8, ptr %logtime, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_starttime.i.i, i8 0, i64 24, i1 false)
+  %agg.tmp1563.sink1219.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp1563, i64 1
+  %agg.tmp1563.sink1219.sroa.gep1222 = getelementptr inbounds i8, ptr %agg.tmp1571, i64 1
+  %agg.tmp1563.sink1219.sroa.gep1224 = getelementptr inbounds i8, ptr %agg.tmp1563, i64 2
+  %agg.tmp1563.sink1219.sroa.gep1225 = getelementptr inbounds i8, ptr %agg.tmp1571, i64 2
+  %agg.tmp1563.sink1219.sroa.gep1227 = getelementptr inbounds i8, ptr %agg.tmp1563, i64 3
+  %agg.tmp1563.sink1219.sroa.gep1228 = getelementptr inbounds i8, ptr %agg.tmp1571, i64 3
+  %agg.tmp1563.sink1219.sroa.gep1230 = getelementptr inbounds i8, ptr %agg.tmp1563, i64 4
+  %agg.tmp1563.sink1219.sroa.gep1231 = getelementptr inbounds i8, ptr %agg.tmp1571, i64 4
   br i1 %tobool.not.i, label %_ZN18OpenImageIO_v2_6_05TimerC2Eb.exit.i, label %_ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i
 
 _ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i:   ; preds = %entry
@@ -13081,23 +13081,23 @@ invoke.cont1572:                                  ; preds = %if.else1570
   br label %invoke.cont1572.invoke
 
 invoke.cont1572.invoke:                           ; preds = %invoke.cont1564, %invoke.cont1572
+  %agg.tmp1563.sink1219.sroa.phi = phi ptr [ %agg.tmp1563.sink1219.sroa.gep, %invoke.cont1564 ], [ %agg.tmp1563.sink1219.sroa.gep1222, %invoke.cont1572 ]
+  %agg.tmp1563.sink1219.sroa.phi1223 = phi ptr [ %agg.tmp1563.sink1219.sroa.gep1224, %invoke.cont1564 ], [ %agg.tmp1563.sink1219.sroa.gep1225, %invoke.cont1572 ]
+  %agg.tmp1563.sink1219.sroa.phi1226 = phi ptr [ %agg.tmp1563.sink1219.sroa.gep1227, %invoke.cont1564 ], [ %agg.tmp1563.sink1219.sroa.gep1228, %invoke.cont1572 ]
+  %agg.tmp1563.sink1219.sroa.phi1229 = phi ptr [ %agg.tmp1563.sink1219.sroa.gep1230, %invoke.cont1564 ], [ %agg.tmp1563.sink1219.sroa.gep1231, %invoke.cont1572 ]
   %agg.tmp1563.sink1219 = phi ptr [ %agg.tmp1563, %invoke.cont1564 ], [ %agg.tmp1571, %invoke.cont1572 ]
   %call1565.sink1218 = phi ptr [ %call1565, %invoke.cont1564 ], [ %call1573, %invoke.cont1572 ]
   %98 = phi ptr [ %7, %invoke.cont1564 ], [ %8, %invoke.cont1572 ]
-  %agg.tmp1563.sink1219.sroa.phi = phi ptr [ %agg.tmp1563.sroa.gep, %invoke.cont1564 ], [ %agg.tmp1571.sroa.gep, %invoke.cont1572 ]
-  %agg.tmp1563.sink1219.sroa.phi1222 = phi ptr [ %agg.tmp1563.sroa.gep1223, %invoke.cont1564 ], [ %agg.tmp1571.sroa.gep1224, %invoke.cont1572 ]
-  %agg.tmp1563.sink1219.sroa.phi1225 = phi ptr [ %agg.tmp1563.sroa.gep1226, %invoke.cont1564 ], [ %agg.tmp1571.sroa.gep1227, %invoke.cont1572 ]
-  %agg.tmp1563.sink1219.sroa.phi1228 = phi ptr [ %agg.tmp1563.sroa.gep1229, %invoke.cont1564 ], [ %agg.tmp1571.sroa.gep1230, %invoke.cont1572 ]
   %aggregate3.i = getelementptr inbounds i8, ptr %call1565.sink1218, i64 65
   %99 = load i8, ptr %aggregate3.i, align 1
   store i8 %99, ptr %agg.tmp1563.sink1219.sroa.phi, align 1
   %vecsemantics4.i = getelementptr inbounds i8, ptr %call1565.sink1218, i64 66
   %100 = load i8, ptr %vecsemantics4.i, align 2
-  store i8 %100, ptr %agg.tmp1563.sink1219.sroa.phi1222, align 2
-  store i8 0, ptr %agg.tmp1563.sink1219.sroa.phi1225, align 1
+  store i8 %100, ptr %agg.tmp1563.sink1219.sroa.phi1223, align 2
+  store i8 0, ptr %agg.tmp1563.sink1219.sroa.phi1226, align 1
   %arraylen5.i = getelementptr inbounds i8, ptr %call1565.sink1218, i64 68
   %101 = load i32, ptr %arraylen5.i, align 4
-  store i32 %101, ptr %agg.tmp1563.sink1219.sroa.phi1228, align 4
+  store i32 %101, ptr %agg.tmp1563.sink1219.sroa.phi1229, align 4
   %102 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo4copyERNS_8ImageBufERKS1_NS_8TypeDescENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull %agg.tmp1563.sink1219, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
           to label %cleanup unwind label %lpad
 
@@ -13173,7 +13173,7 @@ for.body.preheader:                               ; preds = %for.body.lr.ph
   br label %for.body
 
 cond.false1626.us.preheader:                      ; preds = %for.body.lr.ph
-  %invariant.gep1231 = getelementptr i8, ptr %108, i64 -4
+  %invariant.gep1232 = getelementptr i8, ptr %108, i64 -4
   br label %cond.false1626.us
 
 cond.false1626.us:                                ; preds = %cond.false1626.us.preheader, %cond.end1639.us
@@ -13182,8 +13182,8 @@ cond.false1626.us:                                ; preds = %cond.false1626.us.p
   br i1 %tobool1627.not.us, label %cond.end1639.us, label %cond.true1628.us
 
 cond.true1628.us:                                 ; preds = %cond.false1626.us
-  %gep1232 = getelementptr float, ptr %invariant.gep1231, i64 %indvars.iv1193
-  %110 = load float, ptr %gep1232, align 4
+  %gep1233 = getelementptr float, ptr %invariant.gep1232, i64 %indvars.iv1193
+  %110 = load float, ptr %gep1233, align 4
   br label %cond.end1639.us
 
 cond.end1639.us:                                  ; preds = %cond.false1626.us, %cond.true1628.us

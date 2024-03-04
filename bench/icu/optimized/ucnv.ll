@@ -117,6 +117,7 @@ define ptr @ucnv_openCCSID_75(i32 noundef %codepage, i32 noundef %platform, ptr 
 entry:
   %myName = alloca [60 x i8], align 16
   %cmp = icmp eq ptr %err, null
+  %retval.0.i.sroa.gep = getelementptr inbounds i8, ptr %myName, i64 4
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -137,9 +138,8 @@ sw.epilog.i:                                      ; preds = %if.end
   br label %_ZL23ucnv_copyPlatformStringPc18UConverterPlatform.exit
 
 _ZL23ucnv_copyPlatformStringPc18UConverterPlatform.exit: ; preds = %sw.bb.i, %sw.epilog.i
-  %retval.0.i = phi i64 [ 4, %sw.bb.i ], [ 0, %sw.epilog.i ]
-  %add.ptr = getelementptr inbounds i8, ptr %myName, i64 %retval.0.i
-  %call3 = call i32 @T_CString_integerToString_75(ptr noundef nonnull %add.ptr, i32 noundef %codepage, i32 noundef 10)
+  %retval.0.i.sroa.phi = phi ptr [ %retval.0.i.sroa.gep, %sw.bb.i ], [ %myName, %sw.epilog.i ]
+  %call3 = call i32 @T_CString_integerToString_75(ptr noundef nonnull %retval.0.i.sroa.phi, i32 noundef %codepage, i32 noundef 10)
   %call5 = call ptr @ucnv_createConverter_75(ptr noundef null, ptr noundef nonnull %myName, ptr noundef nonnull %err)
   br label %return
 
@@ -3271,6 +3271,8 @@ if.end55:                                         ; preds = %lor.lhs.false49, %i
   %pivotLimit.addr.0 = phi ptr [ %add.ptr, %if.end40 ], [ %pivotLimit, %lor.lhs.false49 ]
   %pivotSource.addr.0 = phi ptr [ %myPivotSource, %if.end40 ], [ %pivotSource, %lor.lhs.false49 ]
   %pivotStart.addr.0 = phi ptr [ %pivotBuffer, %if.end40 ], [ %pivotStart, %lor.lhs.false49 ]
+  %pivotStart.addr.0.sroa.phi178 = getelementptr inbounds i8, ptr %pivotStart.addr.0, i64 2
+  %pivotStart.addr.0.sroa.phi176 = getelementptr inbounds i8, ptr %pivotStart.addr.0, i64 64
   br i1 %cmp16.not, label %if.end59, label %if.then57
 
 if.then57:                                        ; preds = %if.end55
@@ -3378,8 +3380,7 @@ if.end112:                                        ; preds = %land.lhs.true102, %
   %sub.ptr.sub117 = sub i64 %sub.ptr.lhs.cast115, %sub.ptr.rhs.cast116
   %cmp118 = icmp sgt i64 %sub.ptr.sub117, 64
   %or.cond150 = select i1 %cmp113.not, i1 %cmp118, i1 false
-  %add.ptr120 = getelementptr inbounds i8, ptr %pivotStart.addr.0, i64 64
-  %pivotLimit.addr.1 = select i1 %or.cond150, ptr %add.ptr120, ptr %pivotLimit.addr.0
+  %pivotLimit.addr.1 = select i1 %or.cond150, ptr %pivotStart.addr.0.sroa.phi176, ptr %pivotLimit.addr.0
   %converter = getelementptr inbounds i8, ptr %fromUArgs, i64 8
   store ptr %targetCnv, ptr %converter, align 8
   %flush122 = getelementptr inbounds i8, ptr %fromUArgs, i64 2
@@ -3413,7 +3414,6 @@ if.end112:                                        ; preds = %land.lhs.true102, %
   %toULength = getelementptr inbounds i8, ptr %sourceCnv, i64 64
   %tobool171 = icmp eq i8 %flush, 0
   %preFromUFirstCP = getelementptr inbounds i8, ptr %targetCnv, i64 208
-  %add.ptr199 = getelementptr inbounds i8, ptr %pivotStart.addr.0, i64 2
   %target220 = getelementptr inbounds i8, ptr %toUArgs, i64 32
   %tobool234.not = icmp ne i8 %flush, 0
   br label %for.cond
@@ -3525,8 +3525,8 @@ if.then193:                                       ; preds = %if.else190
   br i1 %cmp196, label %if.end219, label %if.else198
 
 if.else198:                                       ; preds = %if.then193
-  store ptr %add.ptr199, ptr %pivotTarget.addr.0, align 8
-  store ptr %add.ptr199, ptr %pivotSource.addr.0, align 8
+  store ptr %pivotStart.addr.0.sroa.phi178, ptr %pivotTarget.addr.0, align 8
+  store ptr %pivotStart.addr.0.sroa.phi178, ptr %pivotSource.addr.0, align 8
   br label %for.cond.backedge
 
 if.else201:                                       ; preds = %if.else190
@@ -3539,9 +3539,9 @@ if.else204:                                       ; preds = %if.else201
 land.lhs.true206:                                 ; preds = %if.else204
   %39 = load i8, ptr %toULength, align 8
   %cmp209 = icmp sgt i8 %39, 0
-  br i1 %cmp209, label %if.end219.sink.split, label %for.end.thread166
+  br i1 %cmp209, label %if.end219.sink.split, label %for.end.thread170
 
-for.end.thread166:                                ; preds = %land.lhs.true206
+for.end.thread170:                                ; preds = %land.lhs.true206
   call fastcc void @_ZL6_resetP10UConverter21UConverterResetChoicea(ptr noundef nonnull %sourceCnv, i32 noundef 1, i8 noundef signext 0)
   call fastcc void @_ZL6_resetP10UConverter21UConverterResetChoicea(ptr noundef nonnull %targetCnv, i32 noundef 2, i8 noundef signext 0)
   %40 = load ptr, ptr %source128, align 8
@@ -3618,8 +3618,8 @@ for.end:                                          ; preds = %if.else224, %if.end
   store ptr %50, ptr %target, align 8
   br i1 %tobool171, label %if.end263, label %land.lhs.true252
 
-land.lhs.true252:                                 ; preds = %for.end.thread166, %for.end
-  %51 = phi ptr [ %41, %for.end.thread166 ], [ %50, %for.end ]
+land.lhs.true252:                                 ; preds = %for.end.thread170, %for.end
+  %51 = phi ptr [ %41, %for.end.thread170 ], [ %50, %for.end ]
   %52 = load i32, ptr %pErrorCode, align 4
   %cmp.i160 = icmp sgt i32 %52, 0
   br i1 %cmp.i160, label %if.end263, label %if.then255

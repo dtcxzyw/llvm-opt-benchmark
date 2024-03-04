@@ -2059,7 +2059,7 @@ define dso_local noundef i32 @drm_connector_helper_tv_get_modes(ptr noundef %0) 
   %32 = getelementptr inbounds i8, ptr %0, i64 64
   %33 = call i32 @drm_object_property_get_default_value(ptr noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %2) #6
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %70
+  br i1 %34, label %35, label %68
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %0, i64 1644
@@ -2094,54 +2094,54 @@ define dso_local noundef i32 @drm_connector_helper_tv_get_modes(ptr noundef %0) 
   br i1 %brmerge.not, label %.thread4, label %52
 
 52:                                               ; preds = %50, %43
-  %.pre21 = phi i32 [ %49, %43 ], [ -1, %50 ]
-  %53 = phi i32 [ %48, %43 ], [ %.mux, %50 ]
-  br label %54
+  %.sroa.0.0 = phi i32 [ %48, %43 ], [ %.mux, %50 ]
+  %.sroa.7.0 = phi i32 [ %49, %43 ], [ -1, %50 ]
+  br label %53
 
-54:                                               ; preds = %66, %52
-  %55 = phi i32 [ %.pre21, %66 ], [ %53, %52 ]
-  %56 = phi i1 [ false, %66 ], [ true, %52 ]
-  %57 = phi i32 [ 1, %66 ], [ 0, %52 ]
-  switch i32 %55, label %.thread4 [
-    i32 0, label %58
-    i32 3, label %60
+53:                                               ; preds = %64, %52
+  %54 = phi i1 [ false, %64 ], [ true, %52 ]
+  %.sroa.phi.sroa.speculated = phi i32 [ %.sroa.7.0, %64 ], [ %.sroa.0.0, %52 ]
+  %55 = phi i32 [ 1, %64 ], [ 0, %52 ]
+  switch i32 %.sroa.phi.sroa.speculated, label %.thread4 [
+    i32 0, label %56
+    i32 3, label %58
   ]
 
-58:                                               ; preds = %54
-  %59 = call ptr @drm_analog_tv_mode(ptr noundef %3, i32 noundef 0, i64 noundef 13500000, i32 noundef 720, i32 noundef 480, i1 noundef zeroext true) #6
-  br label %62
+56:                                               ; preds = %53
+  %57 = call ptr @drm_analog_tv_mode(ptr noundef %3, i32 noundef 0, i64 noundef 13500000, i32 noundef 720, i32 noundef 480, i1 noundef zeroext true) #6
+  br label %60
 
-60:                                               ; preds = %54
-  %61 = call ptr @drm_analog_tv_mode(ptr noundef %3, i32 noundef 3, i64 noundef 13500000, i32 noundef 720, i32 noundef 576, i1 noundef zeroext true) #6
-  br label %62
+58:                                               ; preds = %53
+  %59 = call ptr @drm_analog_tv_mode(ptr noundef %3, i32 noundef 3, i64 noundef 13500000, i32 noundef 720, i32 noundef 576, i1 noundef zeroext true) #6
+  br label %60
 
-62:                                               ; preds = %60, %58
-  %63 = phi ptr [ %59, %58 ], [ %61, %60 ]
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %.thread4, label %65
+60:                                               ; preds = %58, %56
+  %61 = phi ptr [ %57, %56 ], [ %59, %58 ]
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %.thread4, label %63
 
-65:                                               ; preds = %62
-  br i1 %56, label %66, label %.thread7
+63:                                               ; preds = %60
+  br i1 %54, label %64, label %.thread7
 
-.thread7:                                         ; preds = %65
-  call void @drm_mode_probed_add(ptr noundef %0, ptr noundef nonnull %63) #6
+.thread7:                                         ; preds = %63
+  call void @drm_mode_probed_add(ptr noundef %0, ptr noundef nonnull %61) #6
   br label %.thread4
 
-66:                                               ; preds = %65
-  %67 = getelementptr inbounds i8, ptr %63, i64 62
-  %68 = load i8, ptr %67, align 2
-  %69 = or i8 %68, 8
-  store i8 %69, ptr %67, align 2
-  call void @drm_mode_probed_add(ptr noundef %0, ptr noundef nonnull %63) #6
-  br label %54, !llvm.loop !54
+64:                                               ; preds = %63
+  %65 = getelementptr inbounds i8, ptr %61, i64 62
+  %66 = load i8, ptr %65, align 2
+  %67 = or i8 %66, 8
+  store i8 %67, ptr %65, align 2
+  call void @drm_mode_probed_add(ptr noundef %0, ptr noundef nonnull %61) #6
+  br label %53, !llvm.loop !54
 
-70:                                               ; preds = %31
+68:                                               ; preds = %31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   br label %.thread4
 
-.thread4:                                         ; preds = %62, %54, %50, %7, %.thread7, %70, %1
-  %71 = phi i32 [ 0, %1 ], [ 0, %70 ], [ 2, %.thread7 ], [ 0, %7 ], [ 0, %50 ], [ %57, %54 ], [ %57, %62 ]
-  ret i32 %71
+.thread4:                                         ; preds = %60, %53, %50, %7, %.thread7, %68, %1
+  %69 = phi i32 [ 0, %1 ], [ 0, %68 ], [ 2, %.thread7 ], [ 0, %7 ], [ 0, %50 ], [ %55, %53 ], [ %55, %60 ]
+  ret i32 %69
 }
 
 ; Function Attrs: null_pointer_is_valid

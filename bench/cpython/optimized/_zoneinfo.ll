@@ -5282,7 +5282,8 @@ entry:
   %end = alloca ptr, align 8
   %dst_offset = alloca i64, align 8
   %p = alloca ptr, align 8
-  %transitions = alloca [2 x ptr], align 16
+  %transitions.sroa.0 = alloca ptr, align 16
+  %transitions.sroa.2 = alloca ptr, align 8
   store ptr null, ptr %start, align 8
   store ptr null, ptr %end, align 8
   store i64 1048576, ptr %dst_offset, align 8
@@ -5508,14 +5509,13 @@ if.then33:                                        ; preds = %if.else
 
 if.end36:                                         ; preds = %if.else.if.end36_crit_edge, %if.then30
   %p.promoted = phi ptr [ %p.promoted.pre, %if.else.if.end36_crit_edge ], [ %ptr.2.i34, %if.then30 ]
-  store ptr %start, ptr %transitions, align 16
-  %arrayinit.element = getelementptr inbounds i8, ptr %transitions, i64 8
-  store ptr %end, ptr %arrayinit.element, align 8
+  store ptr %start, ptr %transitions.sroa.0, align 16
+  store ptr %end, ptr %transitions.sroa.2, align 8
   br label %for.body
 
 for.body:                                         ; preds = %if.end36, %for.inc
   %cmp37 = phi i1 [ true, %if.end36 ], [ false, %for.inc ]
-  %i.0121 = phi i64 [ 0, %if.end36 ], [ 1, %for.inc ]
+  %i.0121.sroa.phi = phi ptr [ %transitions.sroa.0, %if.end36 ], [ %transitions.sroa.2, %for.inc ]
   %27 = phi ptr [ %p.promoted, %if.end36 ], [ %58, %for.inc ]
   %28 = load i8, ptr %27, align 1
   %cmp40.not = icmp eq i8 %28, 44
@@ -5529,8 +5529,7 @@ if.then42:                                        ; preds = %for.body
 if.end44:                                         ; preds = %for.body
   %incdec.ptr = getelementptr i8, ptr %27, i64 1
   store ptr %incdec.ptr, ptr %p, align 8
-  %arrayidx = getelementptr [2 x ptr], ptr %transitions, i64 0, i64 %i.0121
-  %30 = load ptr, ptr %arrayidx, align 8
+  %30 = load ptr, ptr %i.0121.sroa.phi, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %hour.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %minute.i)

@@ -24828,7 +24828,6 @@ define internal fastcc i32 @rb_num2int_inline(i64 noundef %0) unnamed_addr #2 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @eval_string_with_cref(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #2 {
   %6 = alloca %struct.rb_block, align 8
-  %.sroa.gep26 = getelementptr inbounds i8, ptr %6, i64 24
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 16
@@ -24867,104 +24866,105 @@ rb_vm_get_ruby_level_next_cfp.exit:               ; preds = %.lr.ph.i
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %20, ptr %21, align 8
-  store i32 0, ptr %.sroa.gep26, align 8
-  %22 = call fastcc ptr @eval_make_iseq(i64 noundef %1, i64 noundef %3, i32 noundef %4, ptr noundef nonnull %6)
-  %.not21 = icmp eq ptr %22, null
-  br i1 %.not21, label %23, label %26
+  %22 = getelementptr inbounds i8, ptr %6, i64 24
+  store i32 0, ptr %22, align 8
+  %23 = call fastcc ptr @eval_make_iseq(i64 noundef %1, i64 noundef %3, i32 noundef %4, ptr noundef nonnull %6)
+  %.not21 = icmp eq ptr %23, null
+  br i1 %.not21, label %24, label %27
 
-23:                                               ; preds = %rb_vm_get_ruby_level_next_cfp.exit
-  %24 = getelementptr inbounds i8, ptr %8, i64 120
-  %25 = load i64, ptr %24, align 8
-  tail call void @rb_exc_raise(i64 noundef %25) #33
+24:                                               ; preds = %rb_vm_get_ruby_level_next_cfp.exit
+  %25 = getelementptr inbounds i8, ptr %8, i64 120
+  %26 = load i64, ptr %25, align 8
+  tail call void @rb_exc_raise(i64 noundef %26) #33
   unreachable
 
-26:                                               ; preds = %rb_vm_get_ruby_level_next_cfp.exit
-  %27 = icmp eq ptr %2, null
-  %28 = icmp ne ptr %20, null
-  %or.cond = select i1 %27, i1 %28, i1 false
+27:                                               ; preds = %rb_vm_get_ruby_level_next_cfp.exit
+  %28 = icmp eq ptr %2, null
+  %29 = icmp ne ptr %20, null
+  %or.cond = select i1 %28, i1 %29, i1 false
   br i1 %or.cond, label %vm_block_ep.exit, label %vm_block_ep.exit.i
 
-vm_block_ep.exit:                                 ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %6, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call fastcc ptr @vm_env_cref(ptr noundef %30)
-  %.not.i = icmp eq ptr %31, null
-  br i1 %.not.i, label %32, label %vm_get_cref.exit
+vm_block_ep.exit:                                 ; preds = %27
+  %30 = getelementptr inbounds i8, ptr %6, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call fastcc ptr @vm_env_cref(ptr noundef %31)
+  %.not.i = icmp eq ptr %32, null
+  br i1 %.not.i, label %33, label %vm_get_cref.exit
 
-32:                                               ; preds = %vm_block_ep.exit
+33:                                               ; preds = %vm_block_ep.exit
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.127) #46
   unreachable
 
 vm_get_cref.exit:                                 ; preds = %vm_block_ep.exit
-  %33 = tail call fastcc ptr @vm_cref_dup(ptr noundef nonnull %31)
+  %34 = tail call fastcc ptr @vm_cref_dup(ptr noundef nonnull %32)
   br label %vm_block_ep.exit.i
 
-vm_block_ep.exit.i:                               ; preds = %vm_get_cref.exit, %26
-  %.0 = phi ptr [ %33, %vm_get_cref.exit ], [ %2, %26 ]
-  %34 = load i64, ptr %6, align 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %22, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %38, i64 232
-  %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %38, i64 256
-  %47 = load i32, ptr %46, align 8
-  %48 = getelementptr i8, ptr %41, i64 -56
-  %49 = add i32 %47, %45
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr i64, ptr %43, i64 %50
-  %52 = getelementptr i8, ptr %51, i64 56
-  %.not.i.i = icmp ugt ptr %48, %52
-  br i1 %.not.i.i, label %.preheader.i.i, label %54
+vm_block_ep.exit.i:                               ; preds = %vm_get_cref.exit, %27
+  %.0 = phi ptr [ %34, %vm_get_cref.exit ], [ %2, %27 ]
+  %35 = load i64, ptr %6, align 8
+  %36 = getelementptr inbounds i8, ptr %6, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %23, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %9, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %39, i64 232
+  %46 = load i32, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %39, i64 256
+  %48 = load i32, ptr %47, align 8
+  %49 = getelementptr i8, ptr %42, i64 -56
+  %50 = add i32 %48, %46
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr i64, ptr %44, i64 %51
+  %53 = getelementptr i8, ptr %52, i64 56
+  %.not.i.i = icmp ugt ptr %49, %53
+  br i1 %.not.i.i, label %.preheader.i.i, label %55
 
 .preheader.i.i:                                   ; preds = %vm_block_ep.exit.i
-  %53 = icmp sgt i32 %45, 0
-  br i1 %53, label %.lr.ph.i.i, label %vm_set_eval_stack.exit
+  %54 = icmp sgt i32 %46, 0
+  br i1 %54, label %.lr.ph.i.i, label %vm_set_eval_stack.exit
 
-54:                                               ; preds = %vm_block_ep.exit.i
+55:                                               ; preds = %vm_block_ep.exit.i
   tail call fastcc void @vm_stackoverflow() #47
   unreachable
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  %.026.i.i = phi ptr [ %55, %.lr.ph.i.i ], [ %43, %.preheader.i.i ]
-  %.02325.i.i = phi i32 [ %56, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
-  %55 = getelementptr i8, ptr %.026.i.i, i64 8
+  %.026.i.i = phi ptr [ %56, %.lr.ph.i.i ], [ %44, %.preheader.i.i ]
+  %.02325.i.i = phi i32 [ %57, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
+  %56 = getelementptr i8, ptr %.026.i.i, i64 8
   store i64 4, ptr %.026.i.i, align 8
-  %56 = add nuw nsw i32 %.02325.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %56, %45
+  %57 = add nuw nsw i32 %.02325.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %57, %46
   br i1 %exitcond.not.i.i, label %vm_set_eval_stack.exit, label %.lr.ph.i.i, !llvm.loop !66
 
 vm_set_eval_stack.exit:                           ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %.0.lcssa.i.i = phi ptr [ %43, %.preheader.i.i ], [ %55, %.lr.ph.i.i ]
-  %57 = ptrtoint ptr %36 to i64
-  %58 = or i64 %57, 1
-  %59 = ptrtoint ptr %.0 to i64
-  %60 = getelementptr i8, ptr %.0.lcssa.i.i, i64 8
-  store i64 %59, ptr %.0.lcssa.i.i, align 8
-  %61 = getelementptr i8, ptr %.0.lcssa.i.i, i64 16
-  store i64 %58, ptr %60, align 8
-  %62 = getelementptr i8, ptr %.0.lcssa.i.i, i64 24
-  store i64 2004287521, ptr %61, align 8
-  store ptr %40, ptr %48, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %41, i64 -48
-  store ptr %62, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr i8, ptr %41, i64 -40
-  store ptr %22, ptr %.sroa.3.0..sroa_idx.i.i, align 8
-  %.sroa.4.0..sroa_idx.i.i = getelementptr i8, ptr %41, i64 -32
-  store i64 %34, ptr %.sroa.4.0..sroa_idx.i.i, align 8
-  %.sroa.5.0..sroa_idx.i.i = getelementptr i8, ptr %41, i64 -24
-  store ptr %61, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %.sroa.6.0..sroa_idx.i.i = getelementptr i8, ptr %41, i64 -16
+  %.0.lcssa.i.i = phi ptr [ %44, %.preheader.i.i ], [ %56, %.lr.ph.i.i ]
+  %58 = ptrtoint ptr %37 to i64
+  %59 = or i64 %58, 1
+  %60 = ptrtoint ptr %.0 to i64
+  %61 = getelementptr i8, ptr %.0.lcssa.i.i, i64 8
+  store i64 %60, ptr %.0.lcssa.i.i, align 8
+  %62 = getelementptr i8, ptr %.0.lcssa.i.i, i64 16
+  store i64 %59, ptr %61, align 8
+  %63 = getelementptr i8, ptr %.0.lcssa.i.i, i64 24
+  store i64 2004287521, ptr %62, align 8
+  store ptr %41, ptr %49, align 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %42, i64 -48
+  store ptr %63, ptr %.sroa.2.0..sroa_idx.i.i, align 8
+  %.sroa.3.0..sroa_idx.i.i = getelementptr i8, ptr %42, i64 -40
+  store ptr %23, ptr %.sroa.3.0..sroa_idx.i.i, align 8
+  %.sroa.4.0..sroa_idx.i.i = getelementptr i8, ptr %42, i64 -32
+  store i64 %35, ptr %.sroa.4.0..sroa_idx.i.i, align 8
+  %.sroa.5.0..sroa_idx.i.i = getelementptr i8, ptr %42, i64 -24
+  store ptr %62, ptr %.sroa.5.0..sroa_idx.i.i, align 8
+  %.sroa.6.0..sroa_idx.i.i = getelementptr i8, ptr %42, i64 -16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i.i, i8 0, i64 16, i1 false)
-  store ptr %48, ptr %9, align 8
-  %63 = tail call i64 @rb_vm_exec(ptr noundef nonnull %8)
-  ret i64 %63
+  store ptr %49, ptr %9, align 8
+  %64 = tail call i64 @rb_vm_exec(ptr noundef nonnull %8)
+  ret i64 %64
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

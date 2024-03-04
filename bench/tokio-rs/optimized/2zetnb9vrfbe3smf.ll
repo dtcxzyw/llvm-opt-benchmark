@@ -2971,20 +2971,12 @@ define hidden noundef i64 @_ZN5tokio4loom3std3sys8num_cpus17h124ef60a292f75ebE()
   %1 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %2 = alloca [3 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep35 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sroa.gep32 = getelementptr inbounds i8, ptr %3, i64 16
-  %.sroa.gep29 = getelementptr inbounds i8, ptr %3, i64 32
-  %.sroa.gep26 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = alloca i8, align 1
   %5 = alloca [2 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = alloca { { { { i64, ptr }, i64 } } }, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep34 = getelementptr inbounds i8, ptr %9, i64 24
-  %.sroa.gep31 = getelementptr inbounds i8, ptr %9, i64 16
-  %.sroa.gep28 = getelementptr inbounds i8, ptr %9, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %9, i64 8
   %10 = alloca { i8, [15 x i8] }, align 8
   %11 = alloca { { { i64, ptr }, i64 } }, align 8
   %12 = alloca { i64, [3 x i64] }, align 8
@@ -2992,6 +2984,14 @@ define hidden noundef i64 @_ZN5tokio4loom3std3sys8num_cpus17h124ef60a292f75ebE()
   call void @_ZN3std3env4_var17heb1759b01e9820adE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 1 @anon.3f5780a7fef518180bd2fb61a12abd81.28, i64 noundef 20)
   %13 = load i64, ptr %12, align 8, !range !50, !noundef !19
   %trunc.not = icmp eq i64 %13, 0
+  %.sink25.sroa.gep = getelementptr inbounds i8, ptr %9, i64 8
+  %.sink25.sroa.gep26 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sink25.sroa.gep28 = getelementptr inbounds i8, ptr %9, i64 32
+  %.sink25.sroa.gep29 = getelementptr inbounds i8, ptr %3, i64 32
+  %.sink25.sroa.gep31 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sink25.sroa.gep32 = getelementptr inbounds i8, ptr %3, i64 16
+  %.sink25.sroa.gep34 = getelementptr inbounds i8, ptr %9, i64 24
+  %.sink25.sroa.gep35 = getelementptr inbounds i8, ptr %3, i64 24
   br i1 %trunc.not, label %14, label %20
 
 14:                                               ; preds = %0
@@ -3052,15 +3052,15 @@ define hidden noundef i64 @_ZN5tokio4loom3std3sys8num_cpus17h124ef60a292f75ebE()
   br label %.invoke
 
 .invoke:                                          ; preds = %49, %31
+  %.sink25.sroa.phi = phi ptr [ %.sink25.sroa.gep, %49 ], [ %.sink25.sroa.gep26, %31 ]
+  %.sink25.sroa.phi27 = phi ptr [ %.sink25.sroa.gep28, %49 ], [ %.sink25.sroa.gep29, %31 ]
+  %.sink25.sroa.phi30 = phi ptr [ %.sink25.sroa.gep31, %49 ], [ %.sink25.sroa.gep32, %31 ]
+  %.sink25.sroa.phi33 = phi ptr [ %.sink25.sroa.gep34, %49 ], [ %.sink25.sroa.gep35, %31 ]
   %.sink25 = phi ptr [ %9, %49 ], [ %3, %31 ]
   %.sink23 = phi i64 [ 2, %49 ], [ 3, %31 ]
   %.sink18 = phi ptr [ %8, %49 ], [ %2, %31 ]
   %.sink = phi i64 [ 1, %49 ], [ 3, %31 ]
   %39 = phi ptr [ @anon.3f5780a7fef518180bd2fb61a12abd81.34, %49 ], [ @anon.3f5780a7fef518180bd2fb61a12abd81.41, %31 ]
-  %.sink25.sroa.phi = phi ptr [ %.sroa.gep, %49 ], [ %.sroa.gep26, %31 ]
-  %.sink25.sroa.phi27 = phi ptr [ %.sroa.gep28, %49 ], [ %.sroa.gep29, %31 ]
-  %.sink25.sroa.phi30 = phi ptr [ %.sroa.gep31, %49 ], [ %.sroa.gep32, %31 ]
-  %.sink25.sroa.phi33 = phi ptr [ %.sroa.gep34, %49 ], [ %.sroa.gep35, %31 ]
   store i64 %.sink23, ptr %.sink25.sroa.phi, align 8, !noalias !19
   store ptr null, ptr %.sink25.sroa.phi27, align 8, !noalias !19
   store ptr %.sink18, ptr %.sink25.sroa.phi30, align 8, !noalias !19

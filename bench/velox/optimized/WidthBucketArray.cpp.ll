@@ -1253,9 +1253,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8faceb
 define void @_ZN8facebook5velox9functions20makeWidthBucketArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS0_4exec17VectorFunctionArgESaISC_EERKNS0_4core11QueryConfigE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.29") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %name, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %inputArgs, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.56", align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %ref.tmp53 = alloca %"class.std::vector.56", align 8
-  %ref.tmp53.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp53, i64 16
   %ref.tmp71 = alloca %"class.google::LogMessage", align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %inputArgs, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
@@ -1264,6 +1262,8 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.not = icmp eq i64 %sub.ptr.sub.i, 64
+  %ref.tmp.sink134.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %ref.tmp.sink134.sroa.gep135 = getelementptr inbounds i8, ptr %ref.tmp53, i64 16
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1459,8 +1459,8 @@ if.else:                                          ; preds = %if.end41
           to label %if.end60 unwind label %lpad46.thread
 
 if.end60:                                         ; preds = %if.else, %if.then45
+  %ref.tmp.sink134.sroa.phi = phi ptr [ %ref.tmp.sink134.sroa.gep, %if.then45 ], [ %ref.tmp.sink134.sroa.gep135, %if.else ]
   %ref.tmp.sink134 = phi ptr [ %ref.tmp, %if.then45 ], [ %ref.tmp53, %if.else ]
-  %ref.tmp.sink134.sroa.phi = phi ptr [ %ref.tmp.sroa.gep, %if.then45 ], [ %ref.tmp53.sroa.gep, %if.else ]
   %27 = load <2 x ptr>, ptr %ref.tmp.sink134, align 8
   %28 = load ptr, ptr %ref.tmp.sink134.sroa.phi, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sink134, i8 0, i64 24, i1 false)

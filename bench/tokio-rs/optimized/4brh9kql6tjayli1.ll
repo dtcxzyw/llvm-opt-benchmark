@@ -2065,40 +2065,38 @@ _ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.3285439092171202888.
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.3285439092171202888(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #6 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %6, label %11
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
   %7 = add i64 %1, -1
   %8 = icmp sgt i64 %7, -1
   tail call void @llvm.assume(i1 %8)
   %9 = inttoptr i64 %1 to ptr
-  %10 = icmp ne i64 %1, 0
-  tail call void @llvm.assume(i1 %10)
-  br label %12
+  br label %11
 
-11:                                               ; preds = %4
-  br i1 %3, label %20, label %15
+10:                                               ; preds = %4
+  br i1 %3, label %19, label %14
 
-12:                                               ; preds = %15, %20, %6
-  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %23, %20 ], [ %19, %15 ]
-  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
-  %14 = insertvalue { ptr, i64 } %13, i64 %2, 1
-  ret { ptr, i64 } %14
+11:                                               ; preds = %14, %19, %6
+  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %22, %19 ], [ %18, %14 ]
+  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
+  %13 = insertvalue { ptr, i64 } %12, i64 %2, 1
+  ret { ptr, i64 } %13
 
-15:                                               ; preds = %11
-  %16 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %17 = add i64 %1, -1
-  %18 = icmp sgt i64 %17, -1
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #27
-  br label %12
+14:                                               ; preds = %10
+  %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %16 = add i64 %1, -1
+  %17 = icmp sgt i64 %16, -1
+  tail call void @llvm.assume(i1 %17)
+  %18 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #27
+  br label %11
 
-20:                                               ; preds = %11
-  %21 = add i64 %1, -1
-  %22 = icmp sgt i64 %21, -1
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #27
-  br label %12
+19:                                               ; preds = %10
+  %20 = add i64 %1, -1
+  %21 = icmp sgt i64 %20, -1
+  tail call void @llvm.assume(i1 %21)
+  %22 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #27
+  br label %11
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
@@ -11708,70 +11706,63 @@ define hidden { i64, i64 } @"_ZN5tokio7runtime4task5state5State11unset_waker28_$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN5tokio7runtime4task5state5State19fetch_update_action17h1f514e65b07b5195E(ptr noundef nonnull align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %2 = alloca { i8, [7 x i8], { i64, i64 } }, align 8
-  %3 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.5542961546488995764(ptr noundef nonnull %0, i8 noundef 2)
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
-  br label %6
+  %.sroa.613 = alloca i64, align 8
+  %.sroa.10 = alloca i64, align 8
+  %2 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.5542961546488995764(ptr noundef nonnull %0, i8 noundef 2)
+  br label %3
 
-6:                                                ; preds = %21, %1
-  %.07 = phi i64 [ %3, %1 ], [ %.sroa.07.0.i, %21 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+3:                                                ; preds = %14, %1
+  %.07 = phi i64 [ %2, %1 ], [ %.sroa.07.0.i, %14 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.613)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1447)
-  %7 = and i64 %.07, 6
-  %or.cond.not.i = icmp eq i64 %7, 0
-  br i1 %or.cond.not.i, label %8, label %10
+  %4 = and i64 %.07, 6
+  %or.cond.not.i = icmp eq i64 %4, 0
+  br i1 %or.cond.not.i, label %5, label %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit"
 
-8:                                                ; preds = %6
-  %9 = and i64 %.07, 1
-  %.not.i = icmp eq i64 %9, 0
-  br i1 %.not.i, label %11, label %15
+5:                                                ; preds = %3
+  %6 = and i64 %.07, 1
+  %.not.i = icmp eq i64 %6, 0
+  br i1 %.not.i, label %7, label %11
 
-10:                                               ; preds = %6
-  store i8 0, ptr %2, align 8, !alias.scope !1447
-  br label %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit"
+7:                                                ; preds = %5
+  %8 = icmp sgt i64 %.07, -1
+  br i1 %8, label %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i, label %9
 
-11:                                               ; preds = %8
-  %12 = icmp sgt i64 %.07, -1
-  br i1 %12, label %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i, label %13
-
-13:                                               ; preds = %11
+9:                                                ; preds = %7
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.153.llvm.5542961546488995764, i64 noundef 47, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.154.llvm.5542961546488995764) #34, !noalias !1450
   unreachable
 
-_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i: ; preds = %11
-  %14 = add nuw i64 %.07, 68
-  store i8 1, ptr %2, align 8, !alias.scope !1447
-  store i64 1, ptr %4, align 8, !alias.scope !1447
+_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i: ; preds = %7
+  %10 = add nuw i64 %.07, 68
+  store i64 1, ptr %.sroa.613, align 8, !alias.scope !1447
   br label %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit"
 
-15:                                               ; preds = %8
-  %16 = or disjoint i64 %.07, 4
-  store i8 0, ptr %2, align 8, !alias.scope !1447
-  store i64 1, ptr %4, align 8, !alias.scope !1447
+11:                                               ; preds = %5
+  %12 = or disjoint i64 %.07, 4
+  store i64 1, ptr %.sroa.613, align 8, !alias.scope !1447
   br label %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit"
 
-"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit": ; preds = %10, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i, %15
-  %.sink13.i = phi i64 [ 16, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i ], [ 16, %15 ], [ 8, %10 ]
-  %.sink.i = phi i64 [ %14, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i ], [ %16, %15 ], [ 0, %10 ]
-  %17 = getelementptr inbounds i8, ptr %2, i64 %.sink13.i
-  store i64 %.sink.i, ptr %17, align 8, !alias.scope !1447
-  %18 = load i8, ptr %2, align 8, !range !547, !noundef !4
-  %19 = load i64, ptr %4, align 8, !range !78, !noundef !4
-  %20 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %trunc.not = icmp eq i64 %19, 0
-  br i1 %trunc.not, label %23, label %21
+"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit": ; preds = %3, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i, %11
+  %13 = phi i1 [ true, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i ], [ false, %11 ], [ false, %3 ]
+  %.sink13.i.sroa.phi = phi ptr [ %.sroa.10, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i ], [ %.sroa.10, %11 ], [ %.sroa.613, %3 ]
+  %.sink.i = phi i64 [ %10, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i ], [ %12, %11 ], [ 0, %3 ]
+  store i64 %.sink.i, ptr %.sink13.i.sroa.phi, align 8, !alias.scope !1447
+  %.sroa.613.0..sroa.613.0..sroa.613.0..sroa.613.8. = load i64, ptr %.sroa.613, align 8, !range !78, !noundef !4
+  %.sroa.10.0..sroa.10.0..sroa.10.0..sroa.10.16. = load i64, ptr %.sroa.10, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.613)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.10)
+  %trunc.not = icmp eq i64 %.sroa.613.0..sroa.613.0..sroa.613.0..sroa.613.8., 0
+  br i1 %trunc.not, label %16, label %14
 
-21:                                               ; preds = %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit"
-  %22 = cmpxchg ptr %0, i64 %.07, i64 %20 acq_rel acquire, align 8
-  %.sroa.18.0.in.i = extractvalue { i64, i1 } %22, 1
-  %.sroa.07.0.i = extractvalue { i64, i1 } %22, 0
-  br i1 %.sroa.18.0.in.i, label %23, label %6
+14:                                               ; preds = %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit"
+  %15 = cmpxchg ptr %0, i64 %.07, i64 %.sroa.10.0..sroa.10.0..sroa.10.0..sroa.10.16. acq_rel acquire, align 8
+  %.sroa.18.0.in.i = extractvalue { i64, i1 } %15, 1
+  %.sroa.07.0.i = extractvalue { i64, i1 } %15, 0
+  br i1 %.sroa.18.0.in.i, label %16, label %3
 
-23:                                               ; preds = %21, %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit"
-  %24 = icmp ne i8 %18, 0
-  ret i1 %24
+16:                                               ; preds = %14, %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit"
+  ret i1 %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11848,171 +11839,158 @@ _ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit2.i: ; pre
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17h80e5d9228223bc1cE(ptr noundef nonnull align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %2 = alloca { i8, [7 x i8], { i64, i64 } }, align 8
-  %3 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.5542961546488995764(ptr noundef nonnull %0, i8 noundef 2)
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
-  br label %6
+  %.sroa.513 = alloca i64, align 8
+  %.sroa.8 = alloca i64, align 8
+  %2 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.5542961546488995764(ptr noundef nonnull %0, i8 noundef 2)
+  br label %3
 
-6:                                                ; preds = %28, %1
-  %.07 = phi i64 [ %3, %1 ], [ %.sroa.07.0.i, %28 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+3:                                                ; preds = %20, %1
+  %.07 = phi i64 [ %2, %1 ], [ %.sroa.07.0.i, %20 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.513)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1465)
-  %7 = and i64 %.07, 1
-  %.not.i = icmp eq i64 %7, 0
-  br i1 %.not.i, label %8, label %9
+  %4 = and i64 %.07, 1
+  %.not.i = icmp eq i64 %4, 0
+  br i1 %.not.i, label %5, label %6
 
-8:                                                ; preds = %6
+5:                                                ; preds = %3
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.437abf4fc75871fa06817f7f17e4beb4.122.llvm.3285439092171202888, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.437abf4fc75871fa06817f7f17e4beb4.123.llvm.3285439092171202888) #34, !noalias !1465
   unreachable
 
-9:                                                ; preds = %6
-  %10 = and i64 %.07, 32
-  %.not9.i = icmp eq i64 %10, 0
-  br i1 %.not9.i, label %11, label %14
+6:                                                ; preds = %3
+  %7 = and i64 %.07, 32
+  %.not9.i = icmp eq i64 %7, 0
+  br i1 %.not9.i, label %8, label %"_ZN5tokio7runtime4task5state5State18transition_to_idle28_$u7b$$u7b$closure$u7d$$u7d$17hc5081b28f2da3803E.llvm.3285439092171202888.exit"
 
-11:                                               ; preds = %9
-  %12 = and i64 %.07, -34
-  %13 = and i64 %.07, 4
-  %.not10.i = icmp eq i64 %13, 0
-  br i1 %.not10.i, label %15, label %19
+8:                                                ; preds = %6
+  %9 = and i64 %.07, -34
+  %10 = and i64 %.07, 4
+  %.not10.i = icmp eq i64 %10, 0
+  br i1 %.not10.i, label %11, label %15
 
-14:                                               ; preds = %9
-  store i8 3, ptr %2, align 8, !alias.scope !1465
-  br label %"_ZN5tokio7runtime4task5state5State18transition_to_idle28_$u7b$$u7b$closure$u7d$$u7d$17hc5081b28f2da3803E.llvm.3285439092171202888.exit"
+11:                                               ; preds = %8
+  %.not.i.i = icmp ult i64 %9, 64
+  br i1 %.not.i.i, label %12, label %_ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit.i
 
-15:                                               ; preds = %11
-  %.not.i.i = icmp ult i64 %12, 64
-  br i1 %.not.i.i, label %16, label %_ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit.i
-
-16:                                               ; preds = %15
+12:                                               ; preds = %11
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.155.llvm.5542961546488995764, i64 noundef 38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.156.llvm.5542961546488995764) #34, !noalias !1468
   unreachable
 
-_ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit.i: ; preds = %15
-  %17 = add i64 %12, -64
-  %18 = icmp ult i64 %17, 64
-  %..i = select i1 %18, i8 2, i8 0
-  br label %23
+_ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit.i: ; preds = %11
+  %13 = add i64 %9, -64
+  %14 = icmp ult i64 %13, 64
+  %..i = select i1 %14, i8 2, i8 0
+  br label %19
 
-19:                                               ; preds = %11
-  %20 = icmp sgt i64 %12, -1
-  br i1 %20, label %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i, label %21
+15:                                               ; preds = %8
+  %16 = icmp sgt i64 %9, -1
+  br i1 %16, label %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i, label %17
 
-21:                                               ; preds = %19
+17:                                               ; preds = %15
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.153.llvm.5542961546488995764, i64 noundef 47, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.154.llvm.5542961546488995764) #34, !noalias !1471
   unreachable
 
-_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i: ; preds = %19
-  %22 = add nuw i64 %12, 64
-  br label %23
+_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i: ; preds = %15
+  %18 = add nuw i64 %9, 64
+  br label %19
 
-23:                                               ; preds = %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i, %_ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit.i
-  %.08.i = phi i64 [ %22, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i ], [ %17, %_ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit.i ]
+19:                                               ; preds = %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i, %_ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit.i
+  %.08.i = phi i64 [ %18, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i ], [ %13, %_ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit.i ]
   %.0.i = phi i8 [ 1, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i ], [ %..i, %_ZN5tokio7runtime4task5state8Snapshot7ref_dec17h4fb2d2c304c6236aE.exit.i ]
-  store i8 %.0.i, ptr %2, align 8, !alias.scope !1465
-  store i64 1, ptr %4, align 8, !alias.scope !1465
+  store i64 1, ptr %.sroa.513, align 8, !alias.scope !1465
   br label %"_ZN5tokio7runtime4task5state5State18transition_to_idle28_$u7b$$u7b$closure$u7d$$u7d$17hc5081b28f2da3803E.llvm.3285439092171202888.exit"
 
-"_ZN5tokio7runtime4task5state5State18transition_to_idle28_$u7b$$u7b$closure$u7d$$u7d$17hc5081b28f2da3803E.llvm.3285439092171202888.exit": ; preds = %14, %23
-  %.sink11.i = phi i64 [ 16, %23 ], [ 8, %14 ]
-  %.08.sink.i = phi i64 [ %.08.i, %23 ], [ 0, %14 ]
-  %24 = getelementptr inbounds i8, ptr %2, i64 %.sink11.i
-  store i64 %.08.sink.i, ptr %24, align 8, !alias.scope !1465
-  %25 = load i8, ptr %2, align 8, !range !8, !noundef !4
-  %26 = load i64, ptr %4, align 8, !range !78, !noundef !4
-  %27 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %trunc.not = icmp eq i64 %26, 0
-  br i1 %trunc.not, label %30, label %28
+"_ZN5tokio7runtime4task5state5State18transition_to_idle28_$u7b$$u7b$closure$u7d$$u7d$17hc5081b28f2da3803E.llvm.3285439092171202888.exit": ; preds = %6, %19
+  %.sroa.0.0 = phi i8 [ %.0.i, %19 ], [ 3, %6 ]
+  %.sink11.i.sroa.phi = phi ptr [ %.sroa.8, %19 ], [ %.sroa.513, %6 ]
+  %.08.sink.i = phi i64 [ %.08.i, %19 ], [ 0, %6 ]
+  store i64 %.08.sink.i, ptr %.sink11.i.sroa.phi, align 8, !alias.scope !1465
+  %.sroa.513.0..sroa.513.0..sroa.513.0..sroa.513.8. = load i64, ptr %.sroa.513, align 8, !range !78, !noundef !4
+  %.sroa.8.0..sroa.8.0..sroa.8.0..sroa.8.16. = load i64, ptr %.sroa.8, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.513)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.8)
+  %trunc.not = icmp eq i64 %.sroa.513.0..sroa.513.0..sroa.513.0..sroa.513.8., 0
+  br i1 %trunc.not, label %22, label %20
 
-28:                                               ; preds = %"_ZN5tokio7runtime4task5state5State18transition_to_idle28_$u7b$$u7b$closure$u7d$$u7d$17hc5081b28f2da3803E.llvm.3285439092171202888.exit"
-  %29 = cmpxchg ptr %0, i64 %.07, i64 %27 acq_rel acquire, align 8
-  %.sroa.18.0.in.i = extractvalue { i64, i1 } %29, 1
-  %.sroa.07.0.i = extractvalue { i64, i1 } %29, 0
-  br i1 %.sroa.18.0.in.i, label %30, label %6
+20:                                               ; preds = %"_ZN5tokio7runtime4task5state5State18transition_to_idle28_$u7b$$u7b$closure$u7d$$u7d$17hc5081b28f2da3803E.llvm.3285439092171202888.exit"
+  %21 = cmpxchg ptr %0, i64 %.07, i64 %.sroa.8.0..sroa.8.0..sroa.8.0..sroa.8.16. acq_rel acquire, align 8
+  %.sroa.18.0.in.i = extractvalue { i64, i1 } %21, 1
+  %.sroa.07.0.i = extractvalue { i64, i1 } %21, 0
+  br i1 %.sroa.18.0.in.i, label %22, label %3
 
-30:                                               ; preds = %28, %"_ZN5tokio7runtime4task5state5State18transition_to_idle28_$u7b$$u7b$closure$u7d$$u7d$17hc5081b28f2da3803E.llvm.3285439092171202888.exit"
-  ret i8 %25
+22:                                               ; preds = %20, %"_ZN5tokio7runtime4task5state5State18transition_to_idle28_$u7b$$u7b$closure$u7d$$u7d$17hc5081b28f2da3803E.llvm.3285439092171202888.exit"
+  ret i8 %.sroa.0.0
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN5tokio7runtime4task5state5State19fetch_update_action17h9b110b9583a30d34E(ptr noundef nonnull align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %2 = alloca { i8, [7 x i8], { i64, i64 } }, align 8
-  %3 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.5542961546488995764(ptr noundef nonnull %0, i8 noundef 2)
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
-  br label %6
+  %.sroa.714 = alloca i64, align 8
+  %.sroa.12 = alloca i64, align 8
+  %2 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.5542961546488995764(ptr noundef nonnull %0, i8 noundef 2)
+  br label %3
 
-6:                                                ; preds = %25, %1
-  %.07 = phi i64 [ %3, %1 ], [ %.sroa.07.0.i, %25 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+3:                                                ; preds = %18, %1
+  %.07 = phi i64 [ %2, %1 ], [ %.sroa.07.0.i, %18 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.714)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.12)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1474)
-  %7 = and i64 %.07, 34
-  %or.cond.not.i = icmp eq i64 %7, 0
-  br i1 %or.cond.not.i, label %8, label %10
+  %4 = and i64 %.07, 34
+  %or.cond.not.i = icmp eq i64 %4, 0
+  br i1 %or.cond.not.i, label %5, label %"_ZN5tokio7runtime4task5state5State33transition_to_notified_and_cancel28_$u7b$$u7b$closure$u7d$$u7d$17h41e97e7ac1d33b7aE.llvm.3285439092171202888.exit"
 
-8:                                                ; preds = %6
-  %9 = and i64 %.07, 1
-  %.not.i = icmp eq i64 %9, 0
-  br i1 %.not.i, label %11, label %13
+5:                                                ; preds = %3
+  %6 = and i64 %.07, 1
+  %.not.i = icmp eq i64 %6, 0
+  br i1 %.not.i, label %7, label %9
 
-10:                                               ; preds = %6
-  store i8 0, ptr %2, align 8, !alias.scope !1474
+7:                                                ; preds = %5
+  %8 = and i64 %.07, 4
+  %.not18.i = icmp eq i64 %8, 0
+  br i1 %.not18.i, label %11, label %15
+
+9:                                                ; preds = %5
+  %10 = or i64 %.07, 36
+  store i64 1, ptr %.sroa.714, align 8, !alias.scope !1474
   br label %"_ZN5tokio7runtime4task5state5State33transition_to_notified_and_cancel28_$u7b$$u7b$closure$u7d$$u7d$17h41e97e7ac1d33b7aE.llvm.3285439092171202888.exit"
 
-11:                                               ; preds = %8
-  %12 = and i64 %.07, 4
-  %.not18.i = icmp eq i64 %12, 0
-  br i1 %.not18.i, label %15, label %19
+11:                                               ; preds = %7
+  %12 = icmp sgt i64 %.07, -1
+  br i1 %12, label %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i, label %13
 
-13:                                               ; preds = %8
-  %14 = or i64 %.07, 36
-  store i8 0, ptr %2, align 8, !alias.scope !1474
-  store i64 1, ptr %4, align 8, !alias.scope !1474
-  br label %"_ZN5tokio7runtime4task5state5State33transition_to_notified_and_cancel28_$u7b$$u7b$closure$u7d$$u7d$17h41e97e7ac1d33b7aE.llvm.3285439092171202888.exit"
-
-15:                                               ; preds = %11
-  %16 = icmp sgt i64 %.07, -1
-  br i1 %16, label %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i, label %17
-
-17:                                               ; preds = %15
+13:                                               ; preds = %11
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.153.llvm.5542961546488995764, i64 noundef 47, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.154.llvm.5542961546488995764) #34, !noalias !1477
   unreachable
 
-_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i: ; preds = %15
-  %18 = add nuw i64 %.07, 100
-  store i8 1, ptr %2, align 8, !alias.scope !1474
-  store i64 1, ptr %4, align 8, !alias.scope !1474
+_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i: ; preds = %11
+  %14 = add nuw i64 %.07, 100
+  store i64 1, ptr %.sroa.714, align 8, !alias.scope !1474
   br label %"_ZN5tokio7runtime4task5state5State33transition_to_notified_and_cancel28_$u7b$$u7b$closure$u7d$$u7d$17h41e97e7ac1d33b7aE.llvm.3285439092171202888.exit"
 
-19:                                               ; preds = %11
-  %20 = or disjoint i64 %.07, 32
-  store i8 0, ptr %2, align 8, !alias.scope !1474
-  store i64 1, ptr %4, align 8, !alias.scope !1474
+15:                                               ; preds = %7
+  %16 = or disjoint i64 %.07, 32
+  store i64 1, ptr %.sroa.714, align 8, !alias.scope !1474
   br label %"_ZN5tokio7runtime4task5state5State33transition_to_notified_and_cancel28_$u7b$$u7b$closure$u7d$$u7d$17h41e97e7ac1d33b7aE.llvm.3285439092171202888.exit"
 
-"_ZN5tokio7runtime4task5state5State33transition_to_notified_and_cancel28_$u7b$$u7b$closure$u7d$$u7d$17h41e97e7ac1d33b7aE.llvm.3285439092171202888.exit": ; preds = %10, %13, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i, %19
-  %.sink20.i = phi i64 [ 16, %13 ], [ 16, %19 ], [ 16, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i ], [ 8, %10 ]
-  %.sink.i = phi i64 [ %14, %13 ], [ %20, %19 ], [ %18, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i ], [ 0, %10 ]
-  %21 = getelementptr inbounds i8, ptr %2, i64 %.sink20.i
-  store i64 %.sink.i, ptr %21, align 8, !alias.scope !1474
-  %22 = load i8, ptr %2, align 8, !range !547, !noundef !4
-  %23 = load i64, ptr %4, align 8, !range !78, !noundef !4
-  %24 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %trunc.not = icmp eq i64 %23, 0
-  br i1 %trunc.not, label %27, label %25
+"_ZN5tokio7runtime4task5state5State33transition_to_notified_and_cancel28_$u7b$$u7b$closure$u7d$$u7d$17h41e97e7ac1d33b7aE.llvm.3285439092171202888.exit": ; preds = %3, %9, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i, %15
+  %17 = phi i1 [ true, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i ], [ false, %15 ], [ false, %9 ], [ false, %3 ]
+  %.sink20.i.sroa.phi = phi ptr [ %.sroa.12, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i ], [ %.sroa.12, %15 ], [ %.sroa.12, %9 ], [ %.sroa.714, %3 ]
+  %.sink.i = phi i64 [ %14, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i ], [ %16, %15 ], [ %10, %9 ], [ 0, %3 ]
+  store i64 %.sink.i, ptr %.sink20.i.sroa.phi, align 8, !alias.scope !1474
+  %.sroa.714.0..sroa.714.0..sroa.714.0..sroa.714.8. = load i64, ptr %.sroa.714, align 8, !range !78, !noundef !4
+  %.sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.16. = load i64, ptr %.sroa.12, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.714)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.12)
+  %trunc.not = icmp eq i64 %.sroa.714.0..sroa.714.0..sroa.714.0..sroa.714.8., 0
+  br i1 %trunc.not, label %20, label %18
 
-25:                                               ; preds = %"_ZN5tokio7runtime4task5state5State33transition_to_notified_and_cancel28_$u7b$$u7b$closure$u7d$$u7d$17h41e97e7ac1d33b7aE.llvm.3285439092171202888.exit"
-  %26 = cmpxchg ptr %0, i64 %.07, i64 %24 acq_rel acquire, align 8
-  %.sroa.18.0.in.i = extractvalue { i64, i1 } %26, 1
-  %.sroa.07.0.i = extractvalue { i64, i1 } %26, 0
-  br i1 %.sroa.18.0.in.i, label %27, label %6
+18:                                               ; preds = %"_ZN5tokio7runtime4task5state5State33transition_to_notified_and_cancel28_$u7b$$u7b$closure$u7d$$u7d$17h41e97e7ac1d33b7aE.llvm.3285439092171202888.exit"
+  %19 = cmpxchg ptr %0, i64 %.07, i64 %.sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.16. acq_rel acquire, align 8
+  %.sroa.18.0.in.i = extractvalue { i64, i1 } %19, 1
+  %.sroa.07.0.i = extractvalue { i64, i1 } %19, 0
+  br i1 %.sroa.18.0.in.i, label %20, label %3
 
-27:                                               ; preds = %25, %"_ZN5tokio7runtime4task5state5State33transition_to_notified_and_cancel28_$u7b$$u7b$closure$u7d$$u7d$17h41e97e7ac1d33b7aE.llvm.3285439092171202888.exit"
-  %28 = icmp ne i8 %22, 0
-  ret i1 %28
+20:                                               ; preds = %18, %"_ZN5tokio7runtime4task5state5State33transition_to_notified_and_cancel28_$u7b$$u7b$closure$u7d$$u7d$17h41e97e7ac1d33b7aE.llvm.3285439092171202888.exit"
+  ret i1 %17
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -12310,82 +12288,75 @@ _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i: ; preds
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5tokio7runtime4task5waker11wake_by_ref17h65f8e9727d39ddbaE.llvm.3285439092171202888(ptr noundef %0) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %2 = alloca { i8, [7 x i8], { i64, i64 } }, align 8
-  %3 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.5542961546488995764(ptr noundef nonnull %0, i8 noundef 2), !noalias !1493
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
-  br label %7
+  %.sroa.613.i.i.i = alloca i64, align 8
+  %.sroa.10.i.i.i = alloca i64, align 8
+  %2 = icmp ne ptr %0, null
+  tail call void @llvm.assume(i1 %2)
+  %3 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.5542961546488995764(ptr noundef nonnull %0, i8 noundef 2), !noalias !1493
+  br label %4
 
-7:                                                ; preds = %22, %1
-  %.07.i.i.i = phi i64 [ %4, %1 ], [ %.sroa.07.0.i.i.i.i, %22 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1493
+4:                                                ; preds = %14, %1
+  %.07.i.i.i = phi i64 [ %3, %1 ], [ %.sroa.07.0.i.i.i.i, %14 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.613.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.10.i.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1496)
-  %8 = and i64 %.07.i.i.i, 6
-  %or.cond.not.i.i.i.i = icmp eq i64 %8, 0
-  br i1 %or.cond.not.i.i.i.i, label %9, label %11
+  %5 = and i64 %.07.i.i.i, 6
+  %or.cond.not.i.i.i.i = icmp eq i64 %5, 0
+  br i1 %or.cond.not.i.i.i.i, label %6, label %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.i.i.i"
 
-9:                                                ; preds = %7
-  %10 = and i64 %.07.i.i.i, 1
-  %.not.i.i.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i.i.i, label %12, label %16
+6:                                                ; preds = %4
+  %7 = and i64 %.07.i.i.i, 1
+  %.not.i.i.i.i = icmp eq i64 %7, 0
+  br i1 %.not.i.i.i.i, label %8, label %12
 
-11:                                               ; preds = %7
-  store i8 0, ptr %2, align 8, !alias.scope !1496, !noalias !1493
-  br label %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.i.i.i"
+8:                                                ; preds = %6
+  %9 = icmp sgt i64 %.07.i.i.i, -1
+  br i1 %9, label %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i.i.i, label %10
 
-12:                                               ; preds = %9
-  %13 = icmp sgt i64 %.07.i.i.i, -1
-  br i1 %13, label %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i.i.i, label %14
-
-14:                                               ; preds = %12
+10:                                               ; preds = %8
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.153.llvm.5542961546488995764, i64 noundef 47, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.154.llvm.5542961546488995764) #34, !noalias !1499
   unreachable
 
-_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i.i.i: ; preds = %12
-  %15 = add nuw i64 %.07.i.i.i, 68
-  store i8 1, ptr %2, align 8, !alias.scope !1496, !noalias !1493
-  store i64 1, ptr %5, align 8, !alias.scope !1496, !noalias !1493
+_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i.i.i: ; preds = %8
+  %11 = add nuw i64 %.07.i.i.i, 68
+  store i64 1, ptr %.sroa.613.i.i.i, align 8, !alias.scope !1496, !noalias !1493
   br label %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.i.i.i"
 
-16:                                               ; preds = %9
-  %17 = or disjoint i64 %.07.i.i.i, 4
-  store i8 0, ptr %2, align 8, !alias.scope !1496, !noalias !1493
-  store i64 1, ptr %5, align 8, !alias.scope !1496, !noalias !1493
+12:                                               ; preds = %6
+  %13 = or disjoint i64 %.07.i.i.i, 4
+  store i64 1, ptr %.sroa.613.i.i.i, align 8, !alias.scope !1496, !noalias !1493
   br label %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.i.i.i"
 
-"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.i.i.i": ; preds = %16, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i.i.i, %11
-  %.sink13.i.i.i.i = phi i64 [ 16, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i.i.i ], [ 16, %16 ], [ 8, %11 ]
-  %.sink.i.i.i.i = phi i64 [ %15, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i.i.i ], [ %17, %16 ], [ 0, %11 ]
-  %18 = getelementptr inbounds i8, ptr %2, i64 %.sink13.i.i.i.i
-  store i64 %.sink.i.i.i.i, ptr %18, align 8, !alias.scope !1496, !noalias !1493
-  %19 = load i8, ptr %2, align 8, !range !547, !noalias !1493, !noundef !4
-  %20 = load i64, ptr %5, align 8, !range !78, !noalias !1493, !noundef !4
-  %21 = load i64, ptr %6, align 8, !noalias !1493
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !1493
-  %trunc.not.i.i.i = icmp eq i64 %20, 0
-  br i1 %trunc.not.i.i.i, label %_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref17h7a5561472da28532E.exit.i, label %22
+"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.i.i.i": ; preds = %12, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i.i.i, %4
+  %switch.i = phi i1 [ false, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i.i.i ], [ true, %12 ], [ true, %4 ]
+  %.sink13.i.sroa.phi.i.i.i = phi ptr [ %.sroa.10.i.i.i, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i.i.i ], [ %.sroa.10.i.i.i, %12 ], [ %.sroa.613.i.i.i, %4 ]
+  %.sink.i.i.i.i = phi i64 [ %11, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i.i.i ], [ %13, %12 ], [ 0, %4 ]
+  store i64 %.sink.i.i.i.i, ptr %.sink13.i.sroa.phi.i.i.i, align 8, !alias.scope !1496, !noalias !1493
+  %.sroa.613.i.i.i.0..sroa.613.i.i.i.0..sroa.613.i.i.i.0..sroa.613.i.i.0..sroa.613.i.i.0..sroa.613.i.0..sroa.613.i.0..sroa.613.0..sroa.613.0..sroa.613.8..i.i.i = load i64, ptr %.sroa.613.i.i.i, align 8, !range !78, !noalias !1493, !noundef !4
+  %.sroa.10.i.i.i.0..sroa.10.i.i.i.0..sroa.10.i.i.i.0..sroa.10.i.i.0..sroa.10.i.i.0..sroa.10.i.0..sroa.10.i.0..sroa.10.0..sroa.10.0..sroa.10.16..i.i.i = load i64, ptr %.sroa.10.i.i.i, align 8, !noalias !1493
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.613.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.10.i.i.i)
+  %trunc.not.i.i.i = icmp eq i64 %.sroa.613.i.i.i.0..sroa.613.i.i.i.0..sroa.613.i.i.i.0..sroa.613.i.i.0..sroa.613.i.i.0..sroa.613.i.0..sroa.613.i.0..sroa.613.0..sroa.613.0..sroa.613.8..i.i.i, 0
+  br i1 %trunc.not.i.i.i, label %_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref17h7a5561472da28532E.exit.i, label %14
 
-22:                                               ; preds = %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.i.i.i"
-  %23 = cmpxchg ptr %0, i64 %.07.i.i.i, i64 %21 acq_rel acquire, align 8, !noalias !1493
-  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %23, 1
-  %.sroa.07.0.i.i.i.i = extractvalue { i64, i1 } %23, 0
-  br i1 %.sroa.18.0.in.i.i.i.i, label %_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref17h7a5561472da28532E.exit.i, label %7
+14:                                               ; preds = %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.i.i.i"
+  %15 = cmpxchg ptr %0, i64 %.07.i.i.i, i64 %.sroa.10.i.i.i.0..sroa.10.i.i.i.0..sroa.10.i.i.i.0..sroa.10.i.i.0..sroa.10.i.i.0..sroa.10.i.0..sroa.10.i.0..sroa.10.0..sroa.10.0..sroa.10.16..i.i.i acq_rel acquire, align 8, !noalias !1493
+  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %15, 1
+  %.sroa.07.0.i.i.i.i = extractvalue { i64, i1 } %15, 0
+  br i1 %.sroa.18.0.in.i.i.i.i, label %_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref17h7a5561472da28532E.exit.i, label %4
 
-_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref17h7a5561472da28532E.exit.i: ; preds = %22, %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.i.i.i"
-  %.not.i = icmp eq i8 %19, 0
-  br i1 %.not.i, label %"_ZN5tokio7runtime4task7harness52_$LT$impl$u20$tokio..runtime..task..raw..RawTask$GT$11wake_by_ref17h666bd611dc526a20E.exit", label %24
+_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref17h7a5561472da28532E.exit.i: ; preds = %14, %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.i.i.i"
+  br i1 %switch.i, label %"_ZN5tokio7runtime4task7harness52_$LT$impl$u20$tokio..runtime..task..raw..RawTask$GT$11wake_by_ref17h666bd611dc526a20E.exit", label %16
 
-24:                                               ; preds = %_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref17h7a5561472da28532E.exit.i
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
-  %26 = load ptr, ptr %25, align 8, !noalias !1493, !nonnull !4, !align !7, !noundef !4
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !noalias !1493, !nonnull !4, !noundef !4
-  tail call void %28(ptr noundef nonnull %0), !noalias !1493
+16:                                               ; preds = %_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref17h7a5561472da28532E.exit.i
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = load ptr, ptr %17, align 8, !noalias !1493, !nonnull !4, !align !7, !noundef !4
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8, !noalias !1493, !nonnull !4, !noundef !4
+  tail call void %20(ptr noundef nonnull %0), !noalias !1493
   br label %"_ZN5tokio7runtime4task7harness52_$LT$impl$u20$tokio..runtime..task..raw..RawTask$GT$11wake_by_ref17h666bd611dc526a20E.exit"
 
-"_ZN5tokio7runtime4task7harness52_$LT$impl$u20$tokio..runtime..task..raw..RawTask$GT$11wake_by_ref17h666bd611dc526a20E.exit": ; preds = %_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref17h7a5561472da28532E.exit.i, %24
+"_ZN5tokio7runtime4task7harness52_$LT$impl$u20$tokio..runtime..task..raw..RawTask$GT$11wake_by_ref17h666bd611dc526a20E.exit": ; preds = %_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref17h7a5561472da28532E.exit.i, %16
   ret void
 }
 

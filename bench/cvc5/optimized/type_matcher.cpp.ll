@@ -142,6 +142,8 @@ entry:
   %ref.tmp = alloca %"class.std::vector", align 8
   %ref.tmp4 = alloca %"class.std::vector", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %argTypes, i8 0, i64 24, i1 false)
+  %ref.tmp4.sink212.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
+  %ref.tmp4.sink212.sroa.gep213 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %call = invoke noundef zeroext i1 @_ZNK4cvc58internal8TypeNode14isInstantiatedEv(ptr noundef nonnull align 8 dereferenceable(8) %dt)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
@@ -196,12 +198,12 @@ invoke.cont.i42:                                  ; preds = %invoke.cont5
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont.i42, %invoke.cont.i
+  %ref.tmp4.sink212.sroa.phi = phi ptr [ %ref.tmp4.sink212.sroa.gep, %invoke.cont.i42 ], [ %ref.tmp4.sink212.sroa.gep213, %invoke.cont.i ]
   %ref.tmp4.sink212 = phi ptr [ %ref.tmp4, %invoke.cont.i42 ], [ %ref.tmp, %invoke.cont.i ]
   %_M_end_of_storage.i.i.i.i2.sink = phi ptr [ %_M_end_of_storage.i.i.i.i2, %invoke.cont.i42 ], [ %_M_end_of_storage.i.i.i.i, %invoke.cont.i ]
   %.pr.i194 = phi ptr [ %2, %invoke.cont.i42 ], [ %0, %invoke.cont.i ]
   %4 = phi ptr [ %3, %invoke.cont.i42 ], [ %1, %invoke.cont.i ]
-  %_M_end_of_storage.i4.i.i.i4 = getelementptr inbounds i8, ptr %ref.tmp4.sink212, i64 16
-  %5 = load ptr, ptr %_M_end_of_storage.i4.i.i.i4, align 8
+  %5 = load ptr, ptr %ref.tmp4.sink212.sroa.phi, align 8
   store ptr %5, ptr %_M_end_of_storage.i.i.i.i2.sink, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.sink212, i8 0, i64 24, i1 false)
   invoke void @_ZN4cvc58internal11TypeMatcher8addTypesERKSt6vectorINS0_8TypeNodeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(24) %argTypes)

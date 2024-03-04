@@ -2282,7 +2282,13 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %ed25519_fromdata_params, ptr noundef nonnull align 16 dereferenceable(120) @__const.test_fromdata_ecx.ed25519_fromdata_params, i64 120, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %ed448_fromdata_params, ptr noundef nonnull align 16 dereferenceable(120) @__const.test_fromdata_ecx.ed448_fromdata_params, i64 120, i1 false)
   %and = and i32 %tst, 3
-  switch i32 %and, label %default.unreachable45 [
+  %fromdata_params.0.sroa.gep45 = getelementptr inbounds i8, ptr %x25519_fromdata_params, i64 80
+  %fromdata_params.0.sroa.gep50 = getelementptr inbounds i8, ptr %x25519_fromdata_params, i64 40
+  %fromdata_params.0.sroa.gep55 = getelementptr inbounds i8, ptr %x25519_fromdata_params, i64 16
+  %fromdata_params.0.sroa.gep60 = getelementptr inbounds i8, ptr %x25519_fromdata_params, i64 24
+  %fromdata_params.0.sroa.gep70 = getelementptr inbounds i8, ptr %x25519_fromdata_params, i64 56
+  %fromdata_params.0.sroa.gep75 = getelementptr inbounds i8, ptr %x25519_fromdata_params, i64 64
+  switch i32 %and, label %default.unreachable78 [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb1
     i32 2, label %sw.bb3
@@ -2290,19 +2296,43 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
+  %fromdata_params.0.sroa.gep74 = getelementptr inbounds i8, ptr %x448_fromdata_params, i64 64
+  %fromdata_params.0.sroa.gep69 = getelementptr inbounds i8, ptr %x448_fromdata_params, i64 56
+  %fromdata_params.0.sroa.gep59 = getelementptr inbounds i8, ptr %x448_fromdata_params, i64 24
+  %fromdata_params.0.sroa.gep54 = getelementptr inbounds i8, ptr %x448_fromdata_params, i64 16
+  %fromdata_params.0.sroa.gep49 = getelementptr inbounds i8, ptr %x448_fromdata_params, i64 40
+  %fromdata_params.0.sroa.gep44 = getelementptr inbounds i8, ptr %x448_fromdata_params, i64 80
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
+  %fromdata_params.0.sroa.gep73 = getelementptr inbounds i8, ptr %ed25519_fromdata_params, i64 64
+  %fromdata_params.0.sroa.gep68 = getelementptr inbounds i8, ptr %ed25519_fromdata_params, i64 56
+  %fromdata_params.0.sroa.gep58 = getelementptr inbounds i8, ptr %ed25519_fromdata_params, i64 24
+  %fromdata_params.0.sroa.gep53 = getelementptr inbounds i8, ptr %ed25519_fromdata_params, i64 16
+  %fromdata_params.0.sroa.gep48 = getelementptr inbounds i8, ptr %ed25519_fromdata_params, i64 40
+  %fromdata_params.0.sroa.gep43 = getelementptr inbounds i8, ptr %ed25519_fromdata_params, i64 80
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
+  %fromdata_params.0.sroa.gep72 = getelementptr inbounds i8, ptr %ed448_fromdata_params, i64 64
+  %fromdata_params.0.sroa.gep67 = getelementptr inbounds i8, ptr %ed448_fromdata_params, i64 56
+  %fromdata_params.0.sroa.gep57 = getelementptr inbounds i8, ptr %ed448_fromdata_params, i64 24
+  %fromdata_params.0.sroa.gep52 = getelementptr inbounds i8, ptr %ed448_fromdata_params, i64 16
+  %fromdata_params.0.sroa.gep47 = getelementptr inbounds i8, ptr %ed448_fromdata_params, i64 40
+  %fromdata_params.0.sroa.gep = getelementptr inbounds i8, ptr %ed448_fromdata_params, i64 80
   br label %sw.epilog
 
-default.unreachable45:                            ; preds = %entry
+default.unreachable78:                            ; preds = %entry
   unreachable
 
 sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw.bb3, %sw.bb1
   %alg.0 = phi ptr [ @.str.213, %sw.bb5 ], [ @.str.212, %sw.bb3 ], [ @.str.211, %sw.bb1 ], [ @.str.210, %entry ]
+  %fromdata_params.0.sroa.phi = phi ptr [ %fromdata_params.0.sroa.gep, %sw.bb5 ], [ %fromdata_params.0.sroa.gep43, %sw.bb3 ], [ %fromdata_params.0.sroa.gep44, %sw.bb1 ], [ %fromdata_params.0.sroa.gep45, %entry ]
+  %fromdata_params.0.sroa.phi46 = phi ptr [ %fromdata_params.0.sroa.gep47, %sw.bb5 ], [ %fromdata_params.0.sroa.gep48, %sw.bb3 ], [ %fromdata_params.0.sroa.gep49, %sw.bb1 ], [ %fromdata_params.0.sroa.gep50, %entry ]
+  %fromdata_params.0.sroa.phi51 = phi ptr [ %fromdata_params.0.sroa.gep52, %sw.bb5 ], [ %fromdata_params.0.sroa.gep53, %sw.bb3 ], [ %fromdata_params.0.sroa.gep54, %sw.bb1 ], [ %fromdata_params.0.sroa.gep55, %entry ]
+  %fromdata_params.0.sroa.phi56 = phi ptr [ %fromdata_params.0.sroa.gep57, %sw.bb5 ], [ %fromdata_params.0.sroa.gep58, %sw.bb3 ], [ %fromdata_params.0.sroa.gep59, %sw.bb1 ], [ %fromdata_params.0.sroa.gep60, %entry ]
+  %fromdata_params.0.sroa.phi66 = phi ptr [ %fromdata_params.0.sroa.gep67, %sw.bb5 ], [ %fromdata_params.0.sroa.gep68, %sw.bb3 ], [ %fromdata_params.0.sroa.gep69, %sw.bb1 ], [ %fromdata_params.0.sroa.gep70, %entry ]
+  %fromdata_params.0.sroa.phi71 = phi ptr [ %fromdata_params.0.sroa.gep72, %sw.bb5 ], [ %fromdata_params.0.sroa.gep73, %sw.bb3 ], [ %fromdata_params.0.sroa.gep74, %sw.bb1 ], [ %fromdata_params.0.sroa.gep75, %entry ]
   %fromdata_params.0 = phi ptr [ %ed448_fromdata_params, %sw.bb5 ], [ %ed25519_fromdata_params, %sw.bb3 ], [ %x448_fromdata_params, %sw.bb1 ], [ %x25519_fromdata_params, %entry ]
   %bits.0 = phi i32 [ 456, %sw.bb5 ], [ 256, %sw.bb3 ], [ 448, %sw.bb1 ], [ 253, %entry ]
   %security_bits.0 = phi i32 [ 224, %sw.bb5 ], [ 128, %sw.bb3 ], [ 224, %sw.bb1 ], [ 128, %entry ]
@@ -2314,11 +2344,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw
 
 if.end:                                           ; preds = %sw.epilog
   %cmp = icmp sgt i32 %tst, 7
-  br i1 %cmp, label %if.then8, label %if.else
-
-if.then8:                                         ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds i8, ptr %fromdata_params.0, i64 40
-  br label %if.end16
+  br i1 %cmp, label %if.end16, label %if.else
 
 if.else:                                          ; preds = %if.end
   %cmp9 = icmp sgt i32 %tst, 3
@@ -2327,12 +2353,11 @@ if.else:                                          ; preds = %if.end
 if.then10:                                        ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 16 dereferenceable(40) %fromdata_params.0, i64 40, i1 false)
   %arrayidx12 = getelementptr inbounds i8, ptr %params, i64 40
-  %arrayidx13 = getelementptr inbounds i8, ptr %fromdata_params.0, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx12, ptr noundef nonnull align 16 dereferenceable(40) %arrayidx13, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx12, ptr noundef nonnull align 16 dereferenceable(40) %fromdata_params.0.sroa.phi, i64 40, i1 false)
   br label %if.end16
 
-if.end16:                                         ; preds = %if.else, %if.then10, %if.then8
-  %fromdata_params.1 = phi ptr [ %incdec.ptr, %if.then8 ], [ %params, %if.then10 ], [ %fromdata_params.0, %if.else ]
+if.end16:                                         ; preds = %if.end, %if.else, %if.then10
+  %fromdata_params.1 = phi ptr [ %params, %if.then10 ], [ %fromdata_params.0, %if.else ], [ %fromdata_params.0.sroa.phi46, %if.end ]
   %call17 = tail call i32 @EVP_PKEY_fromdata_init(ptr noundef %call) #6
   %call18 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 1089, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.21, i32 noundef %call17, i32 noundef 1) #6
   %tobool19.not = icmp eq i32 %call18, 0
@@ -2342,16 +2367,11 @@ lor.lhs.false:                                    ; preds = %if.end16
   %call20 = call i32 @EVP_PKEY_fromdata(ptr noundef %call, ptr noundef nonnull %pk, i32 noundef 135, ptr noundef nonnull %fromdata_params.1) #6
   %call21 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 1091, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.21, i32 noundef %call20, i32 noundef 1) #6
   %tobool22.not = icmp eq i32 %call21, 0
-  %.pre44 = load ptr, ptr %pk, align 8
+  %.pre77 = load ptr, ptr %pk, align 8
   br i1 %tobool22.not, label %err, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %lor.lhs.false
   %cmp49 = icmp slt i32 %tst, 8
-  %data = getelementptr inbounds i8, ptr %fromdata_params.0, i64 16
-  %data_size = getelementptr inbounds i8, ptr %fromdata_params.0, i64 24
-  %arrayidx71 = getelementptr inbounds i8, ptr %fromdata_params.0, i64 40
-  %data82 = getelementptr inbounds i8, ptr %fromdata_params.0, i64 56
-  %data_size84 = getelementptr inbounds i8, ptr %fromdata_params.0, i64 64
   br label %while.body
 
 while.cond:                                       ; preds = %land.rhs133
@@ -2359,7 +2379,7 @@ while.cond:                                       ; preds = %land.rhs133
   br i1 %cmp25, label %while.body, label %err.loopexit, !llvm.loop !13
 
 while.body:                                       ; preds = %while.cond.preheader, %while.cond
-  %0 = phi ptr [ %.pre44, %while.cond.preheader ], [ null, %while.cond ]
+  %0 = phi ptr [ %.pre77, %while.cond.preheader ], [ null, %while.cond ]
   %call26 = call i32 @EVP_PKEY_get_bits(ptr noundef %0) #6
   %call27 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 1096, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.215, i32 noundef %call26, i32 noundef %bits.0) #6
   %tobool28.not = icmp eq i32 %call27, 0
@@ -2416,15 +2436,15 @@ if.end56:                                         ; preds = %if.then51
 
 lor.lhs.false64:                                  ; preds = %if.end56
   %7 = load i64, ptr %len, align 8
-  %8 = load ptr, ptr %data, align 16
-  %9 = load i64, ptr %data_size, align 8
+  %8 = load ptr, ptr %fromdata_params.0.sroa.phi51, align 8
+  %9 = load i64, ptr %fromdata_params.0.sroa.phi56, align 8
   %call68 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 1112, ptr noundef nonnull @.str.221, ptr noundef nonnull @.str.222, ptr noundef nonnull %out_priv, i64 noundef %7, ptr noundef %8, i64 noundef %9) #6
   %tobool69.not = icmp eq i32 %call68, 0
   br i1 %tobool69.not, label %err.loopexit, label %lor.lhs.false70
 
 lor.lhs.false70:                                  ; preds = %lor.lhs.false64
   %10 = load ptr, ptr %pk, align 8
-  %11 = load ptr, ptr %arrayidx71, align 8
+  %11 = load ptr, ptr %fromdata_params.0.sroa.phi46, align 8
   %call74 = call i32 @EVP_PKEY_get_octet_string_param(ptr noundef %10, ptr noundef %11, ptr noundef nonnull %out_pub, i64 noundef 57, ptr noundef nonnull %len) #6
   %cmp75 = icmp ne i32 %call74, 0
   %conv76 = zext i1 %cmp75 to i32
@@ -2434,8 +2454,8 @@ lor.lhs.false70:                                  ; preds = %lor.lhs.false64
 
 lor.lhs.false79:                                  ; preds = %lor.lhs.false70
   %12 = load i64, ptr %len, align 8
-  %13 = load ptr, ptr %data82, align 8
-  %14 = load i64, ptr %data_size84, align 16
+  %13 = load ptr, ptr %fromdata_params.0.sroa.phi66, align 8
+  %14 = load i64, ptr %fromdata_params.0.sroa.phi71, align 8
   %call85 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 1118, ptr noundef nonnull @.str.224, ptr noundef nonnull @.str.225, ptr noundef nonnull %out_pub, i64 noundef %12, ptr noundef %13, i64 noundef %14) #6
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %err.loopexit, label %if.end103
@@ -2555,11 +2575,11 @@ err.loopexit:                                     ; preds = %lor.lhs.false37, %l
   %ret.2.ph = phi i32 [ 0, %land.rhs133 ], [ 1, %lor.lhs.false126 ], [ 0, %if.end124 ], [ 0, %lor.lhs.false107 ], [ 0, %if.end103 ], [ 0, %lor.lhs.false79 ], [ 0, %lor.lhs.false70 ], [ 0, %lor.lhs.false64 ], [ 0, %if.end56 ], [ 0, %if.then51 ], [ 0, %lor.lhs.false97 ], [ 0, %lor.lhs.false93 ], [ 0, %if.else89 ], [ 0, %if.end43 ], [ 0, %lor.lhs.false37 ], [ 0, %lor.lhs.false33 ], [ 0, %lor.lhs.false29 ], [ 0, %while.body ], [ 1, %while.cond ]
   %ctx2.1.ph = phi ptr [ null, %land.rhs133 ], [ null, %lor.lhs.false126 ], [ null, %if.end124 ], [ null, %lor.lhs.false107 ], [ null, %if.end103 ], [ %call44, %lor.lhs.false79 ], [ %call44, %lor.lhs.false70 ], [ %call44, %lor.lhs.false64 ], [ %call44, %if.end56 ], [ %call44, %if.then51 ], [ %call44, %lor.lhs.false97 ], [ %call44, %lor.lhs.false93 ], [ %call44, %if.else89 ], [ %call44, %if.end43 ], [ null, %lor.lhs.false37 ], [ null, %lor.lhs.false33 ], [ null, %lor.lhs.false29 ], [ null, %while.body ], [ null, %while.cond ]
   %copy_pk.1.ph = phi ptr [ null, %land.rhs133 ], [ null, %lor.lhs.false126 ], [ null, %if.end124 ], [ %call104, %lor.lhs.false107 ], [ %call104, %if.end103 ], [ null, %lor.lhs.false79 ], [ null, %lor.lhs.false70 ], [ null, %lor.lhs.false64 ], [ null, %if.end56 ], [ null, %if.then51 ], [ null, %lor.lhs.false97 ], [ null, %lor.lhs.false93 ], [ null, %if.else89 ], [ null, %if.end43 ], [ null, %lor.lhs.false37 ], [ null, %lor.lhs.false33 ], [ null, %lor.lhs.false29 ], [ null, %while.body ], [ null, %while.cond ]
-  %.pre43 = load ptr, ptr %pk, align 8
+  %.pre76 = load ptr, ptr %pk, align 8
   br label %err
 
 err:                                              ; preds = %err.loopexit, %if.end16, %lor.lhs.false, %sw.epilog
-  %24 = phi ptr [ %.pre44, %lor.lhs.false ], [ null, %if.end16 ], [ null, %sw.epilog ], [ %.pre43, %err.loopexit ]
+  %24 = phi ptr [ %.pre77, %lor.lhs.false ], [ null, %if.end16 ], [ null, %sw.epilog ], [ %.pre76, %err.loopexit ]
   %ret.2 = phi i32 [ 0, %lor.lhs.false ], [ 0, %if.end16 ], [ 0, %sw.epilog ], [ %ret.2.ph, %err.loopexit ]
   %ctx2.1 = phi ptr [ null, %lor.lhs.false ], [ null, %if.end16 ], [ null, %sw.epilog ], [ %ctx2.1.ph, %err.loopexit ]
   %copy_pk.1 = phi ptr [ null, %lor.lhs.false ], [ null, %if.end16 ], [ null, %sw.epilog ], [ %copy_pk.1.ph, %err.loopexit ]

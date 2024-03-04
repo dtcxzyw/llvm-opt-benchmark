@@ -7832,9 +7832,10 @@ define internal i32 @row_dim_exists(ptr nocapture noundef readonly %0, ptr nound
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
-  switch i8 %6, label %83 [
+  %.0.i.sroa.gep = getelementptr inbounds i8, ptr %4, i64 9
+  switch i8 %6, label %82 [
     i8 4, label %7
-    i8 6, label %75
+    i8 6, label %74
   ]
 
 7:                                                ; preds = %3
@@ -7957,69 +7958,68 @@ define internal i32 @row_dim_exists(ptr nocapture noundef readonly %0, ptr nound
 .loopexit:                                        ; preds = %27, %.loopexit.loopexit, %59, %46, %30, %35, %32, %45, %42, %41, %57, %50
   %.068.shrunk = phi i1 [ %58, %57 ], [ true, %45 ], [ false, %42 ], [ false, %41 ], [ true, %35 ], [ false, %32 ], [ %.not82, %30 ], [ %.not79, %46 ], [ true, %50 ], [ %.not78, %59 ], [ false, %.loopexit.loopexit ], [ true, %27 ]
   %.068 = zext i1 %.068.shrunk to i32
-  %66 = getelementptr inbounds i8, ptr %4, i64 9
-  %67 = load i8, ptr %66, align 1
-  %.not83 = icmp eq i8 %67, 0
-  br i1 %.not83, label %row_read_column_number.exit.thread, label %68
+  %66 = load i8, ptr %.0.i.sroa.gep, align 1
+  %.not83 = icmp eq i8 %66, 0
+  br i1 %.not83, label %row_read_column_number.exit.thread, label %67
 
-68:                                               ; preds = %.loopexit
-  %69 = load ptr, ptr %4, align 8
-  %70 = load i32, ptr %69, align 4
-  %71 = icmp ne i32 %70, 0
-  call void @llvm.assume(i1 %71)
-  %72 = add i32 %70, -1
-  store i32 %72, ptr %69, align 4
-  %.not84 = icmp eq i32 %72, 0
-  br i1 %.not84, label %73, label %row_read_column_number.exit.thread
+67:                                               ; preds = %.loopexit
+  %68 = load ptr, ptr %4, align 8
+  %69 = load i32, ptr %68, align 4
+  %70 = icmp ne i32 %69, 0
+  call void @llvm.assume(i1 %70)
+  %71 = add i32 %69, -1
+  store i32 %71, ptr %68, align 4
+  %.not84 = icmp eq i32 %71, 0
+  br i1 %.not84, label %72, label %row_read_column_number.exit.thread
 
-73:                                               ; preds = %68
-  %74 = load ptr, ptr %4, align 8
-  call void @rc_dtor_func(ptr noundef %74) #16
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %4, align 8
+  call void @rc_dtor_func(ptr noundef %73) #16
   br label %row_read_column_number.exit.thread
 
-75:                                               ; preds = %3
-  %76 = load ptr, ptr %1, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 4
-  %78 = load i32, ptr %77, align 4
-  %79 = and i32 %78, 64
-  %.not = icmp eq i32 %79, 0
-  br i1 %.not, label %80, label %.thread
+74:                                               ; preds = %3
+  %75 = load ptr, ptr %1, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 4
+  %77 = load i32, ptr %76, align 4
+  %78 = and i32 %77, 64
+  %.not = icmp eq i32 %78, 0
+  br i1 %.not, label %79, label %.thread
 
-80:                                               ; preds = %75
-  %81 = load i32, ptr %76, align 4
-  %82 = add i32 %81, 1
-  store i32 %82, ptr %76, align 4
+79:                                               ; preds = %74
+  %80 = load i32, ptr %75, align 4
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %75, align 4
   br label %.thread
 
-83:                                               ; preds = %3
-  %84 = tail call ptr @zval_try_get_string_func(ptr noundef nonnull %1) #16
-  %.not74 = icmp eq ptr %84, null
+82:                                               ; preds = %3
+  %83 = tail call ptr @zval_try_get_string_func(ptr noundef nonnull %1) #16
+  %.not74 = icmp eq ptr %83, null
   br i1 %.not74, label %row_read_column_number.exit.thread, label %.thread
 
-.thread:                                          ; preds = %80, %75, %83
-  %.091 = phi ptr [ %84, %83 ], [ %76, %75 ], [ %76, %80 ]
-  %85 = tail call i32 @row_prop_exists(ptr noundef %0, ptr noundef nonnull %.091, i32 noundef %2, ptr poison), !range !5
-  %86 = getelementptr inbounds i8, ptr %.091, i64 4
-  %87 = load i32, ptr %86, align 4
-  %88 = and i32 %87, 64
-  %.not75 = icmp eq i32 %88, 0
-  br i1 %.not75, label %89, label %row_read_column_number.exit.thread
+.thread:                                          ; preds = %79, %74, %82
+  %.092 = phi ptr [ %83, %82 ], [ %75, %74 ], [ %75, %79 ]
+  %84 = tail call i32 @row_prop_exists(ptr noundef %0, ptr noundef nonnull %.092, i32 noundef %2, ptr poison), !range !5
+  %85 = getelementptr inbounds i8, ptr %.092, i64 4
+  %86 = load i32, ptr %85, align 4
+  %87 = and i32 %86, 64
+  %.not75 = icmp eq i32 %87, 0
+  br i1 %.not75, label %88, label %row_read_column_number.exit.thread
 
-89:                                               ; preds = %.thread
-  %90 = load i32, ptr %.091, align 4
-  %91 = icmp ne i32 %90, 0
-  tail call void @llvm.assume(i1 %91)
-  %92 = add i32 %90, -1
-  store i32 %92, ptr %.091, align 4
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %94, label %row_read_column_number.exit.thread
+88:                                               ; preds = %.thread
+  %89 = load i32, ptr %.092, align 4
+  %90 = icmp ne i32 %89, 0
+  tail call void @llvm.assume(i1 %90)
+  %91 = add i32 %89, -1
+  store i32 %91, ptr %.092, align 4
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %row_read_column_number.exit.thread
 
-94:                                               ; preds = %89
-  tail call void @_efree(ptr noundef nonnull %.091) #16
+93:                                               ; preds = %88
+  tail call void @_efree(ptr noundef nonnull %.092) #16
   br label %row_read_column_number.exit.thread
 
-row_read_column_number.exit.thread:               ; preds = %19, %20, %.thread, %94, %89, %83, %.loopexit, %68, %73, %12, %13
-  %.069 = phi i32 [ 0, %12 ], [ %18, %13 ], [ %.068, %73 ], [ %.068, %68 ], [ %.068, %.loopexit ], [ 0, %83 ], [ %85, %89 ], [ %85, %94 ], [ %85, %.thread ], [ 0, %20 ], [ 0, %19 ]
+row_read_column_number.exit.thread:               ; preds = %19, %20, %.thread, %93, %88, %82, %.loopexit, %67, %72, %12, %13
+  %.069 = phi i32 [ 0, %12 ], [ %18, %13 ], [ %.068, %72 ], [ %.068, %67 ], [ %.068, %.loopexit ], [ 0, %82 ], [ %84, %88 ], [ %84, %93 ], [ %84, %.thread ], [ 0, %20 ], [ 0, %19 ]
   ret i32 %.069
 }
 

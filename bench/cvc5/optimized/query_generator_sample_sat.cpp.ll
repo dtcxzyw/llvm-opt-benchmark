@@ -2814,7 +2814,8 @@ entry:
   %ref.tmp10.i = alloca %"class.std::tuple.653", align 1
   %tn = alloca %"class.cvc5::internal::TypeNode", align 8
   %eqIndex = alloca [2 x %"class.std::vector.357"], align 16
-  %pushEq = alloca [2 x i8], align 2
+  %pushEq.sroa.0 = alloca i8, align 2
+  %pushEq.sroa.4 = alloca i8, align 1
   %currExact = alloca %"class.std::vector.66", align 8
   %pushIndex = alloca [2 x %"class.std::vector.66"], align 16
   %preVisit = alloca %"class.std::vector.66", align 8
@@ -2836,6 +2837,11 @@ entry:
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 200
   %cmp.not5.i.i.i.i = icmp eq ptr %0, null
+  %indvars.iv.sroa.gep2241 = getelementptr inbounds i8, ptr %pushIndex, i64 40
+  %indvars.iv1995.sroa.gep = getelementptr inbounds i8, ptr %pushIndex, i64 40
+  %indvars.iv1992.sroa.gep2251 = getelementptr inbounds i8, ptr %eqIndex, i64 24
+  %indvars.iv1995.sroa.gep2253 = getelementptr inbounds i8, ptr %eqIndex, i64 32
+  %indvars.iv1995.sroa.gep2254 = getelementptr inbounds i8, ptr %eqIndex, i64 8
   br i1 %cmp.not5.i.i.i.i, label %if.then.i, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %entry
@@ -2894,7 +2900,8 @@ invoke.cont:                                      ; preds = %lor.rhs.i, %if.then
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
-  store i16 0, ptr %pushEq, align 2
+  store i8 0, ptr %pushEq.sroa.0, align 2
+  store i8 0, ptr %pushEq.sroa.4, align 1
   store ptr null, ptr %currExact, align 8
   %_M_offset.i.i.i.i.i.i = getelementptr inbounds i8, ptr %currExact, i64 8
   store i32 0, ptr %_M_offset.i.i.i.i.i.i, align 8
@@ -3095,11 +3102,11 @@ invoke.cont36:                                    ; preds = %do.cond, %_ZNSt6vec
 
 invoke.cont41:                                    ; preds = %invoke.cont36, %invoke.cont41
   %cmp = phi i1 [ true, %invoke.cont36 ], [ false, %invoke.cont41 ]
-  %indvars.iv = phi i64 [ 0, %invoke.cont36 ], [ 1, %invoke.cont41 ]
-  %arrayidx40 = getelementptr inbounds [2 x %"class.std::vector.66"], ptr %pushIndex, i64 0, i64 %indvars.iv
-  %_M_finish.i.i194 = getelementptr inbounds i8, ptr %arrayidx40, i64 16
+  %indvars.iv.sroa.phi = phi ptr [ %pushIndex, %invoke.cont36 ], [ %indvars.iv.sroa.gep2241, %invoke.cont41 ]
+  %indvars.iv.sroa.phi2243 = phi ptr [ %pushEq.sroa.0, %invoke.cont36 ], [ %pushEq.sroa.4, %invoke.cont41 ]
+  %_M_finish.i.i194 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 16
   %retval.sroa.0.0.copyload.i.i195 = load ptr, ptr %_M_finish.i.i194, align 8
-  %retval.sroa.2.0._M_finish.sroa_idx.i.i196 = getelementptr inbounds i8, ptr %arrayidx40, i64 24
+  %retval.sroa.2.0._M_finish.sroa_idx.i.i196 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 24
   %retval.sroa.2.0.copyload.i.i197 = load i32, ptr %retval.sroa.2.0._M_finish.sroa_idx.i.i196, align 8
   %conv.i.i.i.i.i198 = zext i32 %retval.sroa.2.0.copyload.i.i197 to i64
   %add.i.i.i.i.i199 = add nsw i64 %conv.i.i.i.i.i198, -1
@@ -3114,9 +3121,8 @@ invoke.cont41:                                    ; preds = %invoke.cont36, %inv
   %22 = load i64, ptr %storemerge.i.i.i.i.i204, align 8
   %and.i210 = and i64 %shl.i.i206, %22
   %tobool.i211 = icmp ne i64 %and.i210, 0
-  %arrayidx45 = getelementptr inbounds [2 x i8], ptr %pushEq, i64 0, i64 %indvars.iv
   %frombool46 = zext i1 %tobool.i211 to i8
-  store i8 %frombool46, ptr %arrayidx45, align 1
+  store i8 %frombool46, ptr %indvars.iv.sroa.phi2243, align 1
   br i1 %cmp, label %invoke.cont41, label %invoke.cont48, !llvm.loop !29
 
 lpad:                                             ; preds = %if.then.i
@@ -3189,23 +3195,22 @@ for.body57.preheader:                             ; preds = %invoke.cont52, %if.
 
 for.body57:                                       ; preds = %for.body57.preheader, %for.inc67
   %cmp56 = phi i1 [ false, %for.inc67 ], [ true, %for.body57.preheader ]
-  %indvars.iv1995 = phi i64 [ 1, %for.inc67 ], [ 0, %for.body57.preheader ]
-  %arrayidx59 = getelementptr inbounds [2 x i8], ptr %pushEq, i64 0, i64 %indvars.iv1995
-  %26 = load i8, ptr %arrayidx59, align 1
+  %indvars.iv1995.sroa.phi = phi ptr [ %indvars.iv1995.sroa.gep, %for.inc67 ], [ %pushIndex, %for.body57.preheader ]
+  %indvars.iv1995.sroa.phi2246 = phi ptr [ %pushEq.sroa.4, %for.inc67 ], [ %pushEq.sroa.0, %for.body57.preheader ]
+  %indvars.iv1995.sroa.phi2252 = phi ptr [ %indvars.iv1995.sroa.gep2253, %for.inc67 ], [ %indvars.iv1995.sroa.gep2254, %for.body57.preheader ]
+  %26 = load i8, ptr %indvars.iv1995.sroa.phi2246, align 1
   %27 = and i8 %26, 1
   %tobool60.not = icmp eq i8 %27, 0
   br i1 %tobool60.not, label %if.end, label %if.then61
 
 if.then61:                                        ; preds = %for.body57
-  %_M_finish.i245 = getelementptr inbounds [2 x %"class.std::vector.357"], ptr %eqIndex, i64 0, i64 %indvars.iv1995, i32 0, i32 0, i32 0, i32 1
-  %28 = load ptr, ptr %_M_finish.i245, align 8
+  %28 = load ptr, ptr %indvars.iv1995.sroa.phi2252, align 8
   %incdec.ptr.i246 = getelementptr inbounds i8, ptr %28, i64 -4
-  store ptr %incdec.ptr.i246, ptr %_M_finish.i245, align 8
+  store ptr %incdec.ptr.i246, ptr %indvars.iv1995.sroa.phi2252, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then61, %for.body57
-  %arrayidx65 = getelementptr inbounds [2 x %"class.std::vector.66"], ptr %pushIndex, i64 0, i64 %indvars.iv1995
-  %_M_offset.i.i.i247 = getelementptr inbounds i8, ptr %arrayidx65, i64 24
+  %_M_offset.i.i.i247 = getelementptr inbounds i8, ptr %indvars.iv1995.sroa.phi, i64 24
   %29 = load i32, ptr %_M_offset.i.i.i247, align 8
   %dec.i.i.i248 = add i32 %29, -1
   store i32 %dec.i.i.i248, ptr %_M_offset.i.i.i247, align 8
@@ -3213,7 +3218,7 @@ if.end:                                           ; preds = %if.then61, %for.bod
   br i1 %cmp.i.i.i249, label %if.then.i.i.i250, label %for.inc67
 
 if.then.i.i.i250:                                 ; preds = %if.end
-  %_M_finish.i251 = getelementptr inbounds i8, ptr %arrayidx65, i64 16
+  %_M_finish.i251 = getelementptr inbounds i8, ptr %indvars.iv1995.sroa.phi, i64 16
   store i32 63, ptr %_M_offset.i.i.i247, align 8
   %30 = load ptr, ptr %_M_finish.i251, align 8
   %incdec.ptr.i.i.i252 = getelementptr inbounds i8, ptr %30, i64 -8
@@ -3247,18 +3252,17 @@ invoke.cont72:                                    ; preds = %invoke.cont48
 
 for.body78:                                       ; preds = %invoke.cont72, %for.inc89
   %cmp77 = phi i1 [ true, %invoke.cont72 ], [ false, %for.inc89 ]
-  %indvars.iv1992 = phi i64 [ 0, %invoke.cont72 ], [ 1, %for.inc89 ]
-  %arrayidx80 = getelementptr inbounds [2 x i8], ptr %pushEq, i64 0, i64 %indvars.iv1992
-  %34 = load i8, ptr %arrayidx80, align 1
+  %indvars.iv1992.sroa.phi = phi ptr [ %pushEq.sroa.0, %invoke.cont72 ], [ %pushEq.sroa.4, %for.inc89 ]
+  %indvars.iv1992.sroa.phi2250 = phi ptr [ %eqIndex, %invoke.cont72 ], [ %indvars.iv1992.sroa.gep2251, %for.inc89 ]
+  %34 = load i8, ptr %indvars.iv1992.sroa.phi, align 1
   %35 = and i8 %34, 1
   %tobool81.not = icmp eq i8 %35, 0
   br i1 %tobool81.not, label %for.inc89, label %if.then82
 
 if.then82:                                        ; preds = %for.body78
-  %arrayidx84 = getelementptr inbounds [2 x %"class.std::vector.357"], ptr %eqIndex, i64 0, i64 %indvars.iv1992
-  %_M_finish.i.i269 = getelementptr inbounds i8, ptr %arrayidx84, i64 8
+  %_M_finish.i.i269 = getelementptr inbounds i8, ptr %indvars.iv1992.sroa.phi2250, i64 8
   %36 = load ptr, ptr %_M_finish.i.i269, align 8
-  %_M_end_of_storage.i.i270 = getelementptr inbounds i8, ptr %arrayidx84, i64 16
+  %_M_end_of_storage.i.i270 = getelementptr inbounds i8, ptr %indvars.iv1992.sroa.phi2250, i64 16
   %37 = load ptr, ptr %_M_end_of_storage.i.i270, align 8
   %cmp.not.i.i271 = icmp eq ptr %36, %37
   br i1 %cmp.not.i.i271, label %if.else.i.i274, label %if.then.i.i272
@@ -3271,7 +3275,7 @@ if.then.i.i272:                                   ; preds = %if.then82
   br label %for.inc89
 
 if.else.i.i274:                                   ; preds = %if.then82
-  %39 = load ptr, ptr %arrayidx84, align 8
+  %39 = load ptr, ptr %indvars.iv1992.sroa.phi2250, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i275 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i276 = ptrtoint ptr %39 to i64
   %sub.ptr.sub.i.i.i.i.i277 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i275, %sub.ptr.rhs.cast.i.i.i.i.i276
@@ -3322,7 +3326,7 @@ if.then.i18.i.i.i296:                             ; preds = %_ZNSt6vectorIjSaIjE
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i297
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i297: ; preds = %if.then.i18.i.i.i296, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i292
-  store ptr %cond.i10.i.i.i289, ptr %arrayidx84, align 8
+  store ptr %cond.i10.i.i.i289, ptr %indvars.iv1992.sroa.phi2250, align 8
   store ptr %incdec.ptr.i.i.i294, ptr %_M_finish.i.i269, align 8
   %add.ptr19.i.i.i298 = getelementptr inbounds i32, ptr %cond.i10.i.i.i289, i64 %cond.i.i.i.i284
   store ptr %add.ptr19.i.i.i298, ptr %_M_end_of_storage.i.i270, align 8

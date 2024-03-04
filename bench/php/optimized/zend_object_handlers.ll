@@ -2041,8 +2041,10 @@ define ptr @zend_std_write_property(ptr noundef %0, ptr noundef %1, ptr noundef 
   %10 = getelementptr inbounds i8, ptr %9, i64 288
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  %.not345 = icmp eq ptr %3, null
-  br i1 %.not345, label %21, label %12
+  %.not349 = icmp eq ptr %3, null
+  %.0311.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
+  %.0311.sroa.gep324 = getelementptr i8, ptr %2, i64 8
+  br i1 %.not349, label %21, label %12
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %3, align 8
@@ -2078,18 +2080,18 @@ define ptr @zend_std_write_property(ptr noundef %0, ptr noundef %1, ptr noundef 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds i8, ptr %1, i64 16
   %35 = load i64, ptr %34, align 8
-  %.not359 = icmp eq i64 %35, 0
-  br i1 %.not359, label %38, label %36
+  %.not363 = icmp eq i64 %35, 0
+  br i1 %.not363, label %38, label %36
 
 36:                                               ; preds = %33
-  br i1 %.not, label %37, label %.thread.thread440
+  br i1 %.not, label %37, label %.thread.thread449
 
 37:                                               ; preds = %36
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.16) #15
-  br label %.thread.thread440
+  br label %.thread.thread449
 
 38:                                               ; preds = %78, %29, %33
-  br i1 %.not345, label %.thread.thread, label %39
+  br i1 %.not349, label %.thread.thread, label %39
 
 39:                                               ; preds = %38
   store ptr %9, ptr %3, align 8
@@ -2104,13 +2106,13 @@ define ptr @zend_std_write_property(ptr noundef %0, ptr noundef %1, ptr noundef 
   %44 = getelementptr inbounds i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 14
-  %.not346 = icmp eq i32 %46, 0
-  br i1 %.not346, label %is_protected_compatible_scope.exit.thread419, label %47
+  %.not350 = icmp eq i32 %46, 0
+  br i1 %.not350, label %is_protected_compatible_scope.exit.thread428, label %47
 
 47:                                               ; preds = %42
   %48 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 18), align 8
-  %.not347 = icmp eq ptr %48, null
-  br i1 %.not347, label %49, label %51
+  %.not351 = icmp eq ptr %48, null
+  br i1 %.not351, label %49, label %51
 
 49:                                               ; preds = %47
   %50 = tail call ptr @zend_get_executed_scope() #15
@@ -2120,13 +2122,13 @@ define ptr @zend_std_write_property(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.0310 = phi ptr [ %50, %49 ], [ %48, %47 ]
   %52 = getelementptr inbounds i8, ptr %43, i64 32
   %53 = load ptr, ptr %52, align 8
-  %.not348 = icmp eq ptr %53, %.0310
-  br i1 %.not348, label %is_protected_compatible_scope.exit.thread419, label %54
+  %.not352 = icmp eq ptr %53, %.0310
+  br i1 %.not352, label %is_protected_compatible_scope.exit.thread428, label %54
 
 54:                                               ; preds = %51
   %55 = and i32 %45, 8
-  %.not349 = icmp eq i32 %55, 0
-  br i1 %.not349, label %76, label %56
+  %.not353 = icmp eq i32 %55, 0
+  br i1 %.not353, label %76, label %56
 
 56:                                               ; preds = %54
   %57 = icmp ne ptr %.0310, %9
@@ -2167,74 +2169,74 @@ define ptr @zend_std_write_property(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 zend_get_parent_private_property.exit:            ; preds = %69
   %73 = and i32 %67, 16
-  %.not351 = icmp ne i32 %73, 0
+  %.not355 = icmp ne i32 %73, 0
   %74 = and i32 %45, 16
-  %.not352 = icmp eq i32 %74, 0
-  %or.cond = and i1 %.not352, %.not351
-  br i1 %or.cond, label %zend_get_parent_private_property.exit.thread, label %is_protected_compatible_scope.exit.thread419
+  %.not356 = icmp eq i32 %74, 0
+  %or.cond = and i1 %.not356, %.not355
+  br i1 %or.cond, label %zend_get_parent_private_property.exit.thread, label %is_protected_compatible_scope.exit.thread428
 
 zend_get_parent_private_property.exit.thread:     ; preds = %.preheader.i, %69, %64, %61, %56, %zend_get_parent_private_property.exit
   %75 = and i32 %45, 1
-  %.not353 = icmp eq i32 %75, 0
-  br i1 %.not353, label %76, label %is_protected_compatible_scope.exit.thread419
+  %.not357 = icmp eq i32 %75, 0
+  br i1 %.not357, label %76, label %is_protected_compatible_scope.exit.thread428
 
 76:                                               ; preds = %zend_get_parent_private_property.exit.thread, %54
   %77 = and i32 %45, 4
-  %.not354 = icmp eq i32 %77, 0
-  br i1 %.not354, label %81, label %78
+  %.not358 = icmp eq i32 %77, 0
+  br i1 %.not358, label %81, label %78
 
 78:                                               ; preds = %76
   %79 = load ptr, ptr %52, align 8
-  %.not356 = icmp eq ptr %79, %9
-  br i1 %.not356, label %is_protected_compatible_scope.exit.thread, label %38
+  %.not360 = icmp eq ptr %79, %9
+  br i1 %.not360, label %is_protected_compatible_scope.exit.thread, label %38
 
 is_protected_compatible_scope.exit.thread:        ; preds = %81, %is_protected_compatible_scope.exit, %78
-  br i1 %.not, label %80, label %.thread.thread440
+  br i1 %.not, label %80, label %.thread.thread449
 
 80:                                               ; preds = %is_protected_compatible_scope.exit.thread
   %.val = load i32, ptr %44, align 4
   tail call fastcc void @zend_bad_property_access(i32 %.val, ptr noundef %9, ptr noundef %1)
-  br label %.thread.thread440
+  br label %.thread.thread449
 
 81:                                               ; preds = %76
   %82 = and i32 %45, 2
   %83 = icmp ne i32 %82, 0
   tail call void @llvm.assume(i1 %83)
   %84 = load ptr, ptr %52, align 8
-  %.not.i406 = icmp eq ptr %.0310, null
-  br i1 %.not.i406, label %is_protected_compatible_scope.exit.thread, label %.preheader.i407
+  %.not.i410 = icmp eq ptr %.0310, null
+  br i1 %.not.i410, label %is_protected_compatible_scope.exit.thread, label %.preheader.i411
 
-.preheader.i407:                                  ; preds = %81, %85
-  %.pn.i408 = phi ptr [ %.017.i, %85 ], [ %84, %81 ]
-  %.017.in.i = getelementptr inbounds i8, ptr %.pn.i408, i64 16
+.preheader.i411:                                  ; preds = %81, %85
+  %.pn.i412 = phi ptr [ %.017.i, %85 ], [ %84, %81 ]
+  %.017.in.i = getelementptr inbounds i8, ptr %.pn.i412, i64 16
   %.017.i = load ptr, ptr %.017.in.i, align 8
   %.not21.not.i = icmp eq ptr %.017.i, null
-  br i1 %.not21.not.i, label %.critedge.i409, label %85
+  br i1 %.not21.not.i, label %.critedge.i413, label %85
 
-85:                                               ; preds = %.preheader.i407
+85:                                               ; preds = %.preheader.i411
   %86 = icmp eq ptr %.017.i, %.0310
-  br i1 %86, label %is_protected_compatible_scope.exit.thread419, label %.preheader.i407
+  br i1 %86, label %is_protected_compatible_scope.exit.thread428, label %.preheader.i411
 
-.critedge.i409:                                   ; preds = %.preheader.i407, %.critedge.i409
-  %.pn23.i = phi ptr [ %.019.i, %.critedge.i409 ], [ %.0310, %.preheader.i407 ]
+.critedge.i413:                                   ; preds = %.preheader.i411, %.critedge.i413
+  %.pn23.i = phi ptr [ %.019.i, %.critedge.i413 ], [ %.0310, %.preheader.i411 ]
   %.019.in.i = getelementptr inbounds i8, ptr %.pn23.i, i64 16
   %.019.i = load ptr, ptr %.019.in.i, align 8
   %.not22.i = icmp ne ptr %.019.i, null
   %87 = icmp ne ptr %.019.i, %84
   %or.cond.not.i = and i1 %87, %.not22.i
-  br i1 %or.cond.not.i, label %.critedge.i409, label %is_protected_compatible_scope.exit
+  br i1 %or.cond.not.i, label %.critedge.i413, label %is_protected_compatible_scope.exit
 
-is_protected_compatible_scope.exit:               ; preds = %.critedge.i409
-  br i1 %.not22.i, label %is_protected_compatible_scope.exit.thread419, label %is_protected_compatible_scope.exit.thread
+is_protected_compatible_scope.exit:               ; preds = %.critedge.i413
+  br i1 %.not22.i, label %is_protected_compatible_scope.exit.thread428, label %is_protected_compatible_scope.exit.thread
 
-is_protected_compatible_scope.exit.thread419:     ; preds = %85, %zend_get_parent_private_property.exit, %42, %is_protected_compatible_scope.exit, %51, %zend_get_parent_private_property.exit.thread
+is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_parent_private_property.exit, %42, %is_protected_compatible_scope.exit, %51, %zend_get_parent_private_property.exit.thread
   %.0309 = phi i32 [ %45, %zend_get_parent_private_property.exit.thread ], [ %45, %is_protected_compatible_scope.exit ], [ %45, %51 ], [ %45, %42 ], [ %67, %zend_get_parent_private_property.exit ], [ %45, %85 ]
   %.0307 = phi ptr [ %43, %zend_get_parent_private_property.exit.thread ], [ %43, %is_protected_compatible_scope.exit ], [ %43, %51 ], [ %43, %42 ], [ %65, %zend_get_parent_private_property.exit ], [ %43, %85 ]
   %88 = and i32 %.0309, 16
-  %.not357 = icmp eq i32 %88, 0
-  br i1 %.not357, label %95, label %89
+  %.not361 = icmp eq i32 %88, 0
+  br i1 %.not361, label %95, label %89
 
-89:                                               ; preds = %is_protected_compatible_scope.exit.thread419
+89:                                               ; preds = %is_protected_compatible_scope.exit.thread428
   br i1 %.not, label %90, label %.thread.thread
 
 90:                                               ; preds = %89
@@ -2245,15 +2247,15 @@ is_protected_compatible_scope.exit.thread419:     ; preds = %85, %zend_get_paren
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 8, ptr noundef nonnull @.str.1, ptr noundef nonnull %93, ptr noundef nonnull %94) #15
   br label %.thread.thread
 
-95:                                               ; preds = %is_protected_compatible_scope.exit.thread419
+95:                                               ; preds = %is_protected_compatible_scope.exit.thread428
   %96 = load i32, ptr %.0307, align 8
   %97 = zext i32 %96 to i64
   %98 = getelementptr inbounds i8, ptr %.0307, i64 48
   %99 = load i32, ptr %98, align 8
   %100 = and i32 %99, 33554431
-  %.not358 = icmp eq i32 %100, 0
-  %..0307 = select i1 %.not358, ptr null, ptr %.0307
-  br i1 %.not345, label %105, label %101
+  %.not362 = icmp eq i32 %100, 0
+  %..0307 = select i1 %.not362, ptr null, ptr %.0307
+  br i1 %.not349, label %105, label %101
 
 101:                                              ; preds = %95
   store ptr %9, ptr %3, align 8
@@ -2265,7 +2267,7 @@ is_protected_compatible_scope.exit.thread419:     ; preds = %85, %zend_get_paren
   br label %105
 
 105:                                              ; preds = %95, %101, %15
-  %.1325 = phi ptr [ %17, %15 ], [ %..0307, %101 ], [ %..0307, %95 ]
+  %.1329 = phi ptr [ %17, %15 ], [ %..0307, %101 ], [ %..0307, %95 ]
   %.0306 = phi i64 [ %20, %15 ], [ %97, %101 ], [ %97, %95 ]
   %106 = icmp sgt i64 %.0306, 0
   br i1 %106, label %107, label %.thread
@@ -2274,732 +2276,727 @@ is_protected_compatible_scope.exit.thread419:     ; preds = %85, %zend_get_paren
   %108 = getelementptr inbounds i8, ptr %0, i64 %.0306
   %109 = getelementptr inbounds i8, ptr %108, i64 8
   %110 = load i8, ptr %109, align 8
-  %.not365 = icmp eq i8 %110, 0
-  br i1 %.not365, label %264, label %111
+  %.not369 = icmp eq i8 %110, 0
+  br i1 %.not369, label %261, label %111
 
 111:                                              ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %2, i64 8
-  %113 = getelementptr inbounds i8, ptr %2, i64 9
-  %114 = load i8, ptr %113, align 1
-  %.not380 = icmp eq i8 %114, 0
-  br i1 %.not380, label %119, label %115
+  %112 = getelementptr inbounds i8, ptr %2, i64 9
+  %113 = load i8, ptr %112, align 1
+  %.not384 = icmp eq i8 %113, 0
+  br i1 %.not384, label %118, label %114
 
-115:                                              ; preds = %111
-  %116 = load ptr, ptr %2, align 8
-  %117 = load i32, ptr %116, align 4
-  %118 = add i32 %117, 1
-  store i32 %118, ptr %116, align 4
-  br label %119
+114:                                              ; preds = %111
+  %115 = load ptr, ptr %2, align 8
+  %116 = load i32, ptr %115, align 4
+  %117 = add i32 %116, 1
+  store i32 %117, ptr %115, align 4
+  br label %118
 
-119:                                              ; preds = %111, %115
-  %.not381 = icmp eq ptr %.1325, null
-  br i1 %.not381, label %169, label %120
+118:                                              ; preds = %111, %114
+  %.not385 = icmp eq ptr %.1329, null
+  br i1 %.not385, label %167, label %119
 
-120:                                              ; preds = %119
-  %121 = getelementptr inbounds i8, ptr %.1325, i64 4
-  %122 = load i32, ptr %121, align 4
-  %123 = and i32 %122, 128
-  %.not382 = icmp eq i32 %123, 0
-  br i1 %.not382, label %.critedge, label %124
+119:                                              ; preds = %118
+  %120 = getelementptr inbounds i8, ptr %.1329, i64 4
+  %121 = load i32, ptr %120, align 4
+  %122 = and i32 %121, 128
+  %.not386 = icmp eq i32 %122, 0
+  br i1 %.not386, label %.critedge, label %123
 
-124:                                              ; preds = %120
-  %125 = getelementptr inbounds i8, ptr %108, i64 12
-  %126 = load i32, ptr %125, align 4
-  %127 = and i32 %126, 2
-  %.not383 = icmp eq i32 %127, 0
-  br i1 %.not383, label %128, label %.critedge
+123:                                              ; preds = %119
+  %124 = getelementptr inbounds i8, ptr %108, i64 12
+  %125 = load i32, ptr %124, align 4
+  %126 = and i32 %125, 2
+  %.not387 = icmp eq i32 %126, 0
+  br i1 %.not387, label %127, label %.critedge
 
-128:                                              ; preds = %124
-  %129 = load i8, ptr %113, align 1
-  %.not400 = icmp eq i8 %129, 0
-  br i1 %.not400, label %135, label %130
+127:                                              ; preds = %123
+  %128 = load i8, ptr %112, align 1
+  %.not404 = icmp eq i8 %128, 0
+  br i1 %.not404, label %134, label %129
 
-130:                                              ; preds = %128
-  %131 = load ptr, ptr %2, align 8
-  %132 = load i32, ptr %131, align 4
-  %133 = icmp ne i32 %132, 0
-  tail call void @llvm.assume(i1 %133)
-  %134 = add i32 %132, -1
-  store i32 %134, ptr %131, align 4
-  br label %135
+129:                                              ; preds = %127
+  %130 = load ptr, ptr %2, align 8
+  %131 = load i32, ptr %130, align 4
+  %132 = icmp ne i32 %131, 0
+  tail call void @llvm.assume(i1 %132)
+  %133 = add i32 %131, -1
+  store i32 %133, ptr %130, align 4
+  br label %134
 
-135:                                              ; preds = %128, %130
-  tail call void @zend_readonly_property_modification_error(ptr noundef nonnull %.1325) #15
+134:                                              ; preds = %127, %129
+  tail call void @zend_readonly_property_modification_error(ptr noundef nonnull %.1329) #15
   br label %zend_deprecated_dynamic_property.exit.thread
 
-.critedge:                                        ; preds = %120, %124
-  %136 = load ptr, ptr %2, align 8
-  %137 = load i32, ptr %112, align 8
-  store ptr %136, ptr %6, align 8
-  %138 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %137, ptr %138, align 8
-  %139 = load i32, ptr %0, align 4
-  %140 = add i32 %139, 1
-  store i32 %140, ptr %0, align 4
-  %141 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
-  %.not384 = icmp eq ptr %141, null
-  br i1 %.not384, label %149, label %142
+.critedge:                                        ; preds = %119, %123
+  %135 = load ptr, ptr %2, align 8
+  %136 = load i32, ptr %.0311.sroa.gep324, align 8
+  store ptr %135, ptr %6, align 8
+  store i32 %136, ptr %.0311.sroa.gep, align 8
+  %137 = load i32, ptr %0, align 4
+  %138 = add i32 %137, 1
+  store i32 %138, ptr %0, align 4
+  %139 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
+  %.not388 = icmp eq ptr %139, null
+  br i1 %.not388, label %147, label %140
 
-142:                                              ; preds = %.critedge
-  %143 = getelementptr inbounds i8, ptr %141, i64 24
-  %144 = load ptr, ptr %143, align 8
-  %.not385 = icmp eq ptr %144, null
-  br i1 %.not385, label %149, label %145
+140:                                              ; preds = %.critedge
+  %141 = getelementptr inbounds i8, ptr %139, i64 24
+  %142 = load ptr, ptr %141, align 8
+  %.not389 = icmp eq ptr %142, null
+  br i1 %.not389, label %147, label %143
 
-145:                                              ; preds = %142
-  %146 = getelementptr inbounds i8, ptr %144, i64 4
-  %147 = load i32, ptr %146, align 4
-  %148 = icmp slt i32 %147, 0
-  br label %149
+143:                                              ; preds = %140
+  %144 = getelementptr inbounds i8, ptr %142, i64 4
+  %145 = load i32, ptr %144, align 4
+  %146 = icmp slt i32 %145, 0
+  br label %147
 
-149:                                              ; preds = %145, %142, %.critedge
-  %150 = phi i1 [ false, %142 ], [ false, %.critedge ], [ %148, %145 ]
-  %151 = call zeroext i1 @zend_verify_property_type(ptr noundef nonnull %.1325, ptr noundef nonnull %6, i1 noundef zeroext %150) #15
-  %152 = load i32, ptr %0, align 4
-  %153 = icmp ne i32 %152, 0
-  call void @llvm.assume(i1 %153)
-  %154 = add i32 %152, -1
-  store i32 %154, ptr %0, align 4
-  %155 = icmp eq i32 %154, 0
-  br i1 %155, label %156, label %157
+147:                                              ; preds = %143, %140, %.critedge
+  %148 = phi i1 [ false, %140 ], [ false, %.critedge ], [ %146, %143 ]
+  %149 = call zeroext i1 @zend_verify_property_type(ptr noundef nonnull %.1329, ptr noundef nonnull %6, i1 noundef zeroext %148) #15
+  %150 = load i32, ptr %0, align 4
+  %151 = icmp ne i32 %150, 0
+  call void @llvm.assume(i1 %151)
+  %152 = add i32 %150, -1
+  store i32 %152, ptr %0, align 4
+  %153 = icmp eq i32 %152, 0
+  br i1 %153, label %154, label %155
 
-156:                                              ; preds = %149
-  call void @zend_object_released_while_assigning_to_property_error(ptr noundef nonnull %.1325) #15
+154:                                              ; preds = %147
+  call void @zend_object_released_while_assigning_to_property_error(ptr noundef nonnull %.1329) #15
   call void @zend_objects_store_del(ptr noundef nonnull %0) #15
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #15
   br label %zend_deprecated_dynamic_property.exit.thread
 
-157:                                              ; preds = %149
-  br i1 %151, label %165, label %158
+155:                                              ; preds = %147
+  br i1 %149, label %163, label %156
 
-158:                                              ; preds = %157
-  %159 = load i8, ptr %113, align 1
-  %.not399 = icmp eq i8 %159, 0
-  br i1 %.not399, label %zend_deprecated_dynamic_property.exit.thread, label %160
+156:                                              ; preds = %155
+  %157 = load i8, ptr %112, align 1
+  %.not403 = icmp eq i8 %157, 0
+  br i1 %.not403, label %zend_deprecated_dynamic_property.exit.thread, label %158
 
-160:                                              ; preds = %158
-  %161 = load ptr, ptr %2, align 8
-  %162 = load i32, ptr %161, align 4
-  %163 = icmp ne i32 %162, 0
-  call void @llvm.assume(i1 %163)
-  %164 = add i32 %162, -1
-  store i32 %164, ptr %161, align 4
+158:                                              ; preds = %156
+  %159 = load ptr, ptr %2, align 8
+  %160 = load i32, ptr %159, align 4
+  %161 = icmp ne i32 %160, 0
+  call void @llvm.assume(i1 %161)
+  %162 = add i32 %160, -1
+  store i32 %162, ptr %159, align 4
   br label %zend_deprecated_dynamic_property.exit.thread
 
-165:                                              ; preds = %157
-  %166 = getelementptr inbounds i8, ptr %108, i64 12
-  %167 = load i32, ptr %166, align 4
-  %168 = and i32 %167, -3
-  store i32 %168, ptr %166, align 4
-  br label %169
+163:                                              ; preds = %155
+  %164 = getelementptr inbounds i8, ptr %108, i64 12
+  %165 = load i32, ptr %164, align 4
+  %166 = and i32 %165, -3
+  store i32 %166, ptr %164, align 4
+  br label %167
 
-169:                                              ; preds = %289, %286, %119, %165, %417
-  %.0312 = phi ptr [ %108, %165 ], [ %108, %119 ], [ %343, %417 ], [ %285, %289 ], [ %285, %286 ]
-  %.0311 = phi ptr [ %6, %165 ], [ %2, %119 ], [ %6, %417 ], [ %2, %289 ], [ %2, %286 ]
+167:                                              ; preds = %286, %283, %118, %163, %411
+  %.0312 = phi ptr [ %108, %163 ], [ %108, %118 ], [ %339, %411 ], [ %282, %286 ], [ %282, %283 ]
+  %.0311.sroa.phi = phi ptr [ %.0311.sroa.gep, %163 ], [ %.0311.sroa.gep324, %118 ], [ %.0311.sroa.gep, %411 ], [ %.0311.sroa.gep324, %286 ], [ %.0311.sroa.gep324, %283 ]
+  %.0311 = phi ptr [ %6, %163 ], [ %2, %118 ], [ %6, %411 ], [ %2, %286 ], [ %2, %283 ]
   store ptr null, ptr %7, align 8
-  %170 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
-  %.not386 = icmp eq ptr %170, null
-  br i1 %.not386, label %178, label %171
+  %168 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
+  %.not390 = icmp eq ptr %168, null
+  br i1 %.not390, label %176, label %169
 
-171:                                              ; preds = %169
-  %172 = getelementptr inbounds i8, ptr %170, i64 24
-  %173 = load ptr, ptr %172, align 8
-  %.not387 = icmp eq ptr %173, null
-  br i1 %.not387, label %178, label %174
+169:                                              ; preds = %167
+  %170 = getelementptr inbounds i8, ptr %168, i64 24
+  %171 = load ptr, ptr %170, align 8
+  %.not391 = icmp eq ptr %171, null
+  br i1 %.not391, label %176, label %172
 
-174:                                              ; preds = %171
-  %175 = getelementptr inbounds i8, ptr %173, i64 4
-  %176 = load i32, ptr %175, align 4
-  %177 = icmp slt i32 %176, 0
-  br label %178
+172:                                              ; preds = %169
+  %173 = getelementptr inbounds i8, ptr %171, i64 4
+  %174 = load i32, ptr %173, align 4
+  %175 = icmp slt i32 %174, 0
+  br label %176
 
-178:                                              ; preds = %174, %171, %169
-  %179 = phi i1 [ false, %171 ], [ false, %169 ], [ %177, %174 ]
-  %180 = getelementptr inbounds i8, ptr %.0312, i64 9
-  %181 = load i8, ptr %180, align 1
-  %.not388 = icmp eq i8 %181, 0
-  br i1 %.not388, label %198, label %182
+176:                                              ; preds = %172, %169, %167
+  %177 = phi i1 [ false, %169 ], [ false, %167 ], [ %175, %172 ]
+  %178 = getelementptr inbounds i8, ptr %.0312, i64 9
+  %179 = load i8, ptr %178, align 1
+  %.not392 = icmp eq i8 %179, 0
+  br i1 %.not392, label %196, label %180
 
-182:                                              ; preds = %178
-  %183 = getelementptr inbounds i8, ptr %.0312, i64 8
-  %184 = load i8, ptr %183, align 8
-  %185 = icmp eq i8 %184, 10
-  br i1 %185, label %186, label %196
+180:                                              ; preds = %176
+  %181 = getelementptr inbounds i8, ptr %.0312, i64 8
+  %182 = load i8, ptr %181, align 8
+  %183 = icmp eq i8 %182, 10
+  br i1 %183, label %184, label %194
 
-186:                                              ; preds = %182
-  %187 = load ptr, ptr %.0312, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 24
-  %189 = load ptr, ptr %188, align 8
-  %.not389 = icmp eq ptr %189, null
-  br i1 %.not389, label %192, label %190
+184:                                              ; preds = %180
+  %185 = load ptr, ptr %.0312, align 8
+  %186 = getelementptr inbounds i8, ptr %185, i64 24
+  %187 = load ptr, ptr %186, align 8
+  %.not393 = icmp eq ptr %187, null
+  br i1 %.not393, label %190, label %188
 
-190:                                              ; preds = %186
-  %191 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %.0312, ptr noundef nonnull %.0311, i8 noundef zeroext 2, i1 noundef zeroext %179, ptr noundef nonnull %7) #15
-  br label %203
+188:                                              ; preds = %184
+  %189 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %.0312, ptr noundef nonnull %.0311, i8 noundef zeroext 2, i1 noundef zeroext %177, ptr noundef nonnull %7) #15
+  br label %200
 
-192:                                              ; preds = %186
-  %193 = getelementptr inbounds i8, ptr %187, i64 8
-  %194 = getelementptr inbounds i8, ptr %187, i64 17
-  %195 = load i8, ptr %194, align 1
-  %.not390 = icmp eq i8 %195, 0
-  br i1 %.not390, label %198, label %196
+190:                                              ; preds = %184
+  %191 = getelementptr inbounds i8, ptr %185, i64 8
+  %192 = getelementptr inbounds i8, ptr %185, i64 17
+  %193 = load i8, ptr %192, align 1
+  %.not394 = icmp eq i8 %193, 0
+  br i1 %.not394, label %196, label %194
 
-196:                                              ; preds = %192, %182
-  %.0305 = phi ptr [ %193, %192 ], [ %.0312, %182 ]
-  %197 = load ptr, ptr %.0305, align 8
-  store ptr %197, ptr %7, align 8
-  br label %198
+194:                                              ; preds = %190, %180
+  %.0305 = phi ptr [ %191, %190 ], [ %.0312, %180 ]
+  %195 = load ptr, ptr %.0305, align 8
+  store ptr %195, ptr %7, align 8
+  br label %196
 
-198:                                              ; preds = %178, %196, %192
-  %.1 = phi ptr [ %193, %192 ], [ %.0305, %196 ], [ %.0312, %178 ]
-  %199 = load ptr, ptr %.0311, align 8
-  %200 = getelementptr inbounds i8, ptr %.0311, i64 8
-  %201 = load i32, ptr %200, align 8
-  store ptr %199, ptr %.1, align 8
-  %202 = getelementptr inbounds i8, ptr %.1, i64 8
-  store i32 %201, ptr %202, align 8
-  br label %203
+196:                                              ; preds = %176, %194, %190
+  %.1 = phi ptr [ %191, %190 ], [ %.0305, %194 ], [ %.0312, %176 ]
+  %197 = load ptr, ptr %.0311, align 8
+  %198 = load i32, ptr %.0311.sroa.phi, align 8
+  store ptr %197, ptr %.1, align 8
+  %199 = getelementptr inbounds i8, ptr %.1, i64 8
+  store i32 %198, ptr %199, align 8
+  br label %200
 
-203:                                              ; preds = %198, %190
-  %.0304 = phi ptr [ %191, %190 ], [ %.1, %198 ]
-  %204 = load ptr, ptr %7, align 8
-  %.not391 = icmp eq ptr %204, null
-  br i1 %.not391, label %zend_deprecated_dynamic_property.exit.thread, label %205
+200:                                              ; preds = %196, %188
+  %.0304 = phi ptr [ %189, %188 ], [ %.1, %196 ]
+  %201 = load ptr, ptr %7, align 8
+  %.not395 = icmp eq ptr %201, null
+  br i1 %.not395, label %zend_deprecated_dynamic_property.exit.thread, label %202
 
-205:                                              ; preds = %203
-  %206 = load i32, ptr %204, align 4
-  %207 = icmp ne i32 %206, 0
-  call void @llvm.assume(i1 %207)
-  %208 = add i32 %206, -1
-  store i32 %208, ptr %204, align 4
-  %209 = icmp eq i32 %208, 0
-  br i1 %209, label %210, label %256
+202:                                              ; preds = %200
+  %203 = load i32, ptr %201, align 4
+  %204 = icmp ne i32 %203, 0
+  call void @llvm.assume(i1 %204)
+  %205 = add i32 %203, -1
+  store i32 %205, ptr %201, align 4
+  %206 = icmp eq i32 %205, 0
+  br i1 %206, label %207, label %253
 
-210:                                              ; preds = %205
-  %211 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
-  %.not392 = icmp eq ptr %211, null
-  br i1 %.not392, label %254, label %212
+207:                                              ; preds = %202
+  %208 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
+  %.not396 = icmp eq ptr %208, null
+  br i1 %.not396, label %251, label %209
 
-212:                                              ; preds = %210
-  %213 = getelementptr inbounds i8, ptr %211, i64 24
-  %214 = load ptr, ptr %213, align 8
-  %.not393 = icmp eq ptr %214, null
-  br i1 %.not393, label %254, label %215
+209:                                              ; preds = %207
+  %210 = getelementptr inbounds i8, ptr %208, i64 24
+  %211 = load ptr, ptr %210, align 8
+  %.not397 = icmp eq ptr %211, null
+  br i1 %.not397, label %251, label %212
 
-215:                                              ; preds = %212
-  %216 = load i8, ptr %214, align 8
-  %.not394 = icmp eq i8 %216, 1
-  br i1 %.not394, label %254, label %217
+212:                                              ; preds = %209
+  %213 = load i8, ptr %211, align 8
+  %.not398 = icmp eq i8 %213, 1
+  br i1 %.not398, label %251, label %214
 
-217:                                              ; preds = %215
-  %218 = load ptr, ptr %211, align 8
-  %.not395 = icmp eq ptr %218, null
-  br i1 %.not395, label %254, label %219
+214:                                              ; preds = %212
+  %215 = load ptr, ptr %208, align 8
+  %.not399 = icmp eq ptr %215, null
+  br i1 %.not399, label %251, label %216
 
-219:                                              ; preds = %217
-  %220 = getelementptr inbounds i8, ptr %218, i64 28
-  %221 = load i8, ptr %220, align 4
-  %222 = icmp eq i8 %221, 24
-  br i1 %222, label %223, label %254
+216:                                              ; preds = %214
+  %217 = getelementptr inbounds i8, ptr %215, i64 28
+  %218 = load i8, ptr %217, align 4
+  %219 = icmp eq i8 %218, 24
+  br i1 %219, label %220, label %251
 
-223:                                              ; preds = %219
-  %224 = getelementptr inbounds i8, ptr %218, i64 31
-  %225 = load i8, ptr %224, align 1
-  %.not396 = icmp eq i8 %225, 0
-  br i1 %.not396, label %254, label %226
+220:                                              ; preds = %216
+  %221 = getelementptr inbounds i8, ptr %215, i64 31
+  %222 = load i8, ptr %221, align 1
+  %.not400 = icmp eq i8 %222, 0
+  br i1 %.not400, label %251, label %223
 
-226:                                              ; preds = %223
-  %227 = getelementptr inbounds i8, ptr %.0304, i64 8
-  %228 = load i32, ptr %227, align 8
-  %229 = and i32 %228, 65280
-  %.not397 = icmp eq i32 %229, 0
-  br i1 %.not397, label %244, label %230
+223:                                              ; preds = %220
+  %224 = getelementptr inbounds i8, ptr %.0304, i64 8
+  %225 = load i32, ptr %224, align 8
+  %226 = and i32 %225, 65280
+  %.not401 = icmp eq i32 %226, 0
+  br i1 %.not401, label %241, label %227
 
-230:                                              ; preds = %226
-  %231 = and i32 %228, 255
-  %232 = icmp eq i32 %231, 10
-  br i1 %232, label %233, label %.sink.split
+227:                                              ; preds = %223
+  %228 = and i32 %225, 255
+  %229 = icmp eq i32 %228, 10
+  br i1 %229, label %230, label %.sink.split
 
-233:                                              ; preds = %230
-  %234 = load ptr, ptr %.0304, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 8
-  %236 = getelementptr inbounds i8, ptr %234, i64 16
-  %237 = load i32, ptr %236, align 8
-  %238 = and i32 %237, 65280
-  %.not398 = icmp eq i32 %238, 0
-  br i1 %.not398, label %244, label %.sink.split
+230:                                              ; preds = %227
+  %231 = load ptr, ptr %.0304, align 8
+  %232 = getelementptr inbounds i8, ptr %231, i64 8
+  %233 = getelementptr inbounds i8, ptr %231, i64 16
+  %234 = load i32, ptr %233, align 8
+  %235 = and i32 %234, 65280
+  %.not402 = icmp eq i32 %235, 0
+  br i1 %.not402, label %241, label %.sink.split
 
-.sink.split:                                      ; preds = %230, %233
-  %.sink = phi i32 [ %237, %233 ], [ %228, %230 ]
-  %.0304.sink = phi ptr [ %235, %233 ], [ %.0304, %230 ]
-  %239 = and i32 %.sink, 65280
-  %240 = icmp ne i32 %239, 0
-  call void @llvm.assume(i1 %240)
-  %241 = load ptr, ptr %.0304.sink, align 8
-  %242 = load i32, ptr %241, align 4
-  %243 = add i32 %242, 1
-  store i32 %243, ptr %241, align 4
-  br label %244
+.sink.split:                                      ; preds = %227, %230
+  %.sink = phi i32 [ %234, %230 ], [ %225, %227 ]
+  %.0304.sink = phi ptr [ %232, %230 ], [ %.0304, %227 ]
+  %236 = and i32 %.sink, 65280
+  %237 = icmp ne i32 %236, 0
+  call void @llvm.assume(i1 %237)
+  %238 = load ptr, ptr %.0304.sink, align 8
+  %239 = load i32, ptr %238, align 4
+  %240 = add i32 %239, 1
+  store i32 %240, ptr %238, align 4
+  br label %241
 
-244:                                              ; preds = %.sink.split, %226, %233
-  %.0314 = phi ptr [ %235, %233 ], [ %.0304, %226 ], [ %.0304.sink, %.sink.split ]
-  %245 = load ptr, ptr %211, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 16
-  %247 = load i32, ptr %246, align 8
-  %248 = sext i32 %247 to i64
-  %249 = getelementptr inbounds i8, ptr %211, i64 %248
-  %250 = load ptr, ptr %.0314, align 8
-  %251 = getelementptr inbounds i8, ptr %.0314, i64 8
-  %252 = load i32, ptr %251, align 8
-  store ptr %250, ptr %249, align 8
-  %253 = getelementptr inbounds i8, ptr %249, i64 8
-  store i32 %252, ptr %253, align 8
-  br label %254
+241:                                              ; preds = %.sink.split, %223, %230
+  %.0314 = phi ptr [ %232, %230 ], [ %.0304, %223 ], [ %.0304.sink, %.sink.split ]
+  %242 = load ptr, ptr %208, align 8
+  %243 = getelementptr inbounds i8, ptr %242, i64 16
+  %244 = load i32, ptr %243, align 8
+  %245 = sext i32 %244 to i64
+  %246 = getelementptr inbounds i8, ptr %208, i64 %245
+  %247 = load ptr, ptr %.0314, align 8
+  %248 = getelementptr inbounds i8, ptr %.0314, i64 8
+  %249 = load i32, ptr %248, align 8
+  store ptr %247, ptr %246, align 8
+  %250 = getelementptr inbounds i8, ptr %246, i64 8
+  store i32 %249, ptr %250, align 8
+  br label %251
 
-254:                                              ; preds = %244, %223, %219, %217, %215, %212, %210
-  %.1313 = phi ptr [ null, %244 ], [ %.0304, %223 ], [ %.0304, %219 ], [ %.0304, %217 ], [ %.0304, %215 ], [ %.0304, %212 ], [ %.0304, %210 ]
-  %255 = load ptr, ptr %7, align 8
-  call void @rc_dtor_func(ptr noundef %255) #15
+251:                                              ; preds = %241, %220, %216, %214, %212, %209, %207
+  %.1313 = phi ptr [ null, %241 ], [ %.0304, %220 ], [ %.0304, %216 ], [ %.0304, %214 ], [ %.0304, %212 ], [ %.0304, %209 ], [ %.0304, %207 ]
+  %252 = load ptr, ptr %7, align 8
+  call void @rc_dtor_func(ptr noundef %252) #15
   br label %zend_deprecated_dynamic_property.exit.thread
 
-256:                                              ; preds = %205
-  %257 = load ptr, ptr %7, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 4
-  %259 = load i32, ptr %258, align 4
-  %260 = icmp ne i32 %259, 26
-  call void @llvm.assume(i1 %260)
-  %261 = and i32 %259, -1008
-  %262 = icmp eq i32 %261, 0
-  br i1 %262, label %263, label %zend_deprecated_dynamic_property.exit.thread
+253:                                              ; preds = %202
+  %254 = load ptr, ptr %7, align 8
+  %255 = getelementptr inbounds i8, ptr %254, i64 4
+  %256 = load i32, ptr %255, align 4
+  %257 = icmp ne i32 %256, 26
+  call void @llvm.assume(i1 %257)
+  %258 = and i32 %256, -1008
+  %259 = icmp eq i32 %258, 0
+  br i1 %259, label %260, label %zend_deprecated_dynamic_property.exit.thread
 
-263:                                              ; preds = %256
-  call void @gc_possible_root(ptr noundef nonnull %257) #15
+260:                                              ; preds = %253
+  call void @gc_possible_root(ptr noundef nonnull %254) #15
   br label %zend_deprecated_dynamic_property.exit.thread
 
-264:                                              ; preds = %107
-  %265 = getelementptr inbounds i8, ptr %108, i64 12
-  %266 = load i32, ptr %265, align 4
-  %267 = and i32 %266, 1
-  %.not366 = icmp eq i32 %267, 0
-  br i1 %.not366, label %.thread448, label %.thread429
+261:                                              ; preds = %107
+  %262 = getelementptr inbounds i8, ptr %108, i64 12
+  %263 = load i32, ptr %262, align 4
+  %264 = and i32 %263, 1
+  %.not370 = icmp eq i32 %264, 0
+  br i1 %.not370, label %.thread457, label %.thread438
 
 .thread:                                          ; preds = %105
-  %268 = icmp slt i64 %.0306, 0
-  br i1 %268, label %.thread.thread, label %.thread.thread440
+  %265 = icmp slt i64 %.0306, 0
+  br i1 %265, label %.thread.thread, label %.thread.thread449
 
 .thread.thread:                                   ; preds = %39, %38, %90, %89, %.thread
-  %.1325425438 = phi ptr [ %.1325, %.thread ], [ null, %89 ], [ null, %90 ], [ null, %38 ], [ null, %39 ]
-  %.0306427437 = phi i64 [ %.0306, %.thread ], [ -1, %89 ], [ -1, %90 ], [ -1, %38 ], [ -1, %39 ]
-  %269 = getelementptr inbounds i8, ptr %0, i64 32
-  %270 = load ptr, ptr %269, align 8
-  %.not361 = icmp eq ptr %270, null
-  br i1 %.not361, label %294, label %271
+  %.1329434447 = phi ptr [ %.1329, %.thread ], [ null, %89 ], [ null, %90 ], [ null, %38 ], [ null, %39 ]
+  %.0306436446 = phi i64 [ %.0306, %.thread ], [ -1, %89 ], [ -1, %90 ], [ -1, %38 ], [ -1, %39 ]
+  %266 = getelementptr inbounds i8, ptr %0, i64 32
+  %267 = load ptr, ptr %266, align 8
+  %.not365 = icmp eq ptr %267, null
+  br i1 %.not365, label %291, label %268
 
-271:                                              ; preds = %.thread.thread
-  %272 = load i32, ptr %270, align 4
-  %273 = icmp ugt i32 %272, 1
-  br i1 %273, label %274, label %283
+268:                                              ; preds = %.thread.thread
+  %269 = load i32, ptr %267, align 4
+  %270 = icmp ugt i32 %269, 1
+  br i1 %270, label %271, label %280
 
-274:                                              ; preds = %271
-  %275 = getelementptr inbounds i8, ptr %270, i64 4
-  %276 = load i32, ptr %275, align 4
-  %277 = and i32 %276, 64
-  %.not362 = icmp eq i32 %277, 0
-  br i1 %.not362, label %278, label %280
+271:                                              ; preds = %268
+  %272 = getelementptr inbounds i8, ptr %267, i64 4
+  %273 = load i32, ptr %272, align 4
+  %274 = and i32 %273, 64
+  %.not366 = icmp eq i32 %274, 0
+  br i1 %.not366, label %275, label %277
 
-278:                                              ; preds = %274
-  %279 = add i32 %272, -1
-  store i32 %279, ptr %270, align 4
-  %.pre = load ptr, ptr %269, align 8
+275:                                              ; preds = %271
+  %276 = add i32 %269, -1
+  store i32 %276, ptr %267, align 4
+  %.pre = load ptr, ptr %266, align 8
+  br label %277
+
+277:                                              ; preds = %275, %271
+  %278 = phi ptr [ %.pre, %275 ], [ %267, %271 ]
+  %279 = tail call ptr @zend_array_dup(ptr noundef %278) #15
+  store ptr %279, ptr %266, align 8
   br label %280
 
-280:                                              ; preds = %278, %274
-  %281 = phi ptr [ %.pre, %278 ], [ %270, %274 ]
-  %282 = tail call ptr @zend_array_dup(ptr noundef %281) #15
-  store ptr %282, ptr %269, align 8
-  br label %283
+280:                                              ; preds = %277, %268
+  %281 = phi ptr [ %279, %277 ], [ %267, %268 ]
+  %282 = tail call ptr @zend_hash_find(ptr noundef %281, ptr noundef %1) #15
+  %.not367 = icmp eq ptr %282, null
+  br i1 %.not367, label %291, label %283
 
-283:                                              ; preds = %280, %271
-  %284 = phi ptr [ %282, %280 ], [ %270, %271 ]
-  %285 = tail call ptr @zend_hash_find(ptr noundef %284, ptr noundef %1) #15
-  %.not363 = icmp eq ptr %285, null
-  br i1 %.not363, label %294, label %286
+283:                                              ; preds = %280
+  %284 = getelementptr inbounds i8, ptr %2, i64 9
+  %285 = load i8, ptr %284, align 1
+  %.not368 = icmp eq i8 %285, 0
+  br i1 %.not368, label %167, label %286
 
 286:                                              ; preds = %283
-  %287 = getelementptr inbounds i8, ptr %2, i64 9
-  %288 = load i8, ptr %287, align 1
-  %.not364 = icmp eq i8 %288, 0
-  br i1 %.not364, label %169, label %289
+  %287 = load ptr, ptr %2, align 8
+  %288 = load i32, ptr %287, align 4
+  %289 = add i32 %288, 1
+  store i32 %289, ptr %287, align 4
+  br label %167
 
-289:                                              ; preds = %286
-  %290 = load ptr, ptr %2, align 8
-  %291 = load i32, ptr %290, align 4
-  %292 = add i32 %291, 1
-  store i32 %292, ptr %290, align 4
-  br label %169
+.thread.thread449:                                ; preds = %37, %36, %80, %is_protected_compatible_scope.exit.thread, %.thread
+  %.1329434453 = phi ptr [ %.1329, %.thread ], [ null, %is_protected_compatible_scope.exit.thread ], [ null, %80 ], [ null, %36 ], [ null, %37 ]
+  %290 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %.not364 = icmp eq ptr %290, null
+  br i1 %.not364, label %291, label %zend_deprecated_dynamic_property.exit.thread
 
-.thread.thread440:                                ; preds = %37, %36, %80, %is_protected_compatible_scope.exit.thread, %.thread
-  %.1325425444 = phi ptr [ %.1325, %.thread ], [ null, %is_protected_compatible_scope.exit.thread ], [ null, %80 ], [ null, %36 ], [ null, %37 ]
-  %293 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %.not360 = icmp eq ptr %293, null
-  br i1 %.not360, label %294, label %zend_deprecated_dynamic_property.exit.thread
+291:                                              ; preds = %280, %.thread.thread, %.thread.thread449
+  %.0306435 = phi i64 [ %.0306436446, %280 ], [ %.0306436446, %.thread.thread ], [ 0, %.thread.thread449 ]
+  %.1329433 = phi ptr [ %.1329434447, %280 ], [ %.1329434447, %.thread.thread ], [ %.1329434453, %.thread.thread449 ]
+  %292 = load ptr, ptr %8, align 8
+  %293 = getelementptr inbounds i8, ptr %292, i64 288
+  %294 = load ptr, ptr %293, align 8
+  %.not371 = icmp eq ptr %294, null
+  br i1 %.not371, label %336, label %298
 
-294:                                              ; preds = %283, %.thread.thread, %.thread.thread440
-  %.0306426 = phi i64 [ %.0306427437, %283 ], [ %.0306427437, %.thread.thread ], [ 0, %.thread.thread440 ]
-  %.1325424 = phi ptr [ %.1325425438, %283 ], [ %.1325425438, %.thread.thread ], [ %.1325425444, %.thread.thread440 ]
+.thread457:                                       ; preds = %261
   %295 = load ptr, ptr %8, align 8
   %296 = getelementptr inbounds i8, ptr %295, i64 288
   %297 = load ptr, ptr %296, align 8
-  %.not367 = icmp eq ptr %297, null
-  br i1 %.not367, label %340, label %301
+  %.not371460 = icmp eq ptr %297, null
+  br i1 %.not371460, label %.thread438, label %298
 
-.thread448:                                       ; preds = %264
-  %298 = load ptr, ptr %8, align 8
-  %299 = getelementptr inbounds i8, ptr %298, i64 288
-  %300 = load ptr, ptr %299, align 8
-  %.not367451 = icmp eq ptr %300, null
-  br i1 %.not367451, label %.thread429, label %301
+298:                                              ; preds = %.thread457, %291
+  %.1329433464 = phi ptr [ %.1329, %.thread457 ], [ %.1329433, %291 ]
+  %.0306435461 = phi i64 [ %.0306, %.thread457 ], [ %.0306435, %291 ]
+  %299 = phi i1 [ true, %.thread457 ], [ false, %291 ]
+  %300 = tail call ptr @zend_get_property_guard(ptr noundef nonnull %0, ptr noundef %1)
+  %301 = load i32, ptr %300, align 4
+  %302 = and i32 %301, 2
+  %.not372 = icmp eq i32 %302, 0
+  br i1 %.not372, label %303, label %331
 
-301:                                              ; preds = %.thread448, %294
-  %.1325424455 = phi ptr [ %.1325, %.thread448 ], [ %.1325424, %294 ]
-  %.0306426452 = phi i64 [ %.0306, %.thread448 ], [ %.0306426, %294 ]
-  %302 = phi i1 [ true, %.thread448 ], [ false, %294 ]
-  %303 = tail call ptr @zend_get_property_guard(ptr noundef nonnull %0, ptr noundef %1)
-  %304 = load i32, ptr %303, align 4
-  %305 = and i32 %304, 2
-  %.not368 = icmp eq i32 %305, 0
-  br i1 %.not368, label %306, label %335
-
-306:                                              ; preds = %301
-  %307 = load i32, ptr %0, align 4
-  %308 = add i32 %307, 1
-  store i32 %308, ptr %0, align 4
-  %309 = load i32, ptr %303, align 4
-  %310 = or i32 %309, 2
-  store i32 %310, ptr %303, align 4
-  %.val403 = load ptr, ptr %2, align 8
-  %311 = getelementptr i8, ptr %2, i64 8
-  %.val404 = load i32, ptr %311, align 8
+303:                                              ; preds = %298
+  %304 = load i32, ptr %0, align 4
+  %305 = add i32 %304, 1
+  store i32 %305, ptr %0, align 4
+  %306 = load i32, ptr %300, align 4
+  %307 = or i32 %306, 2
+  store i32 %307, ptr %300, align 4
+  %.val407 = load ptr, ptr %2, align 8
+  %.val408 = load i32, ptr %.0311.sroa.gep324, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %1, ptr %5, align 16
-  %312 = getelementptr inbounds i8, ptr %1, i64 4
-  %313 = load i32, ptr %312, align 4
-  %314 = and i32 %313, 64
-  %.not.i410 = icmp eq i32 %314, 0
-  %315 = select i1 %.not.i410, i32 262, i32 6
-  %316 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %315, ptr %316, align 8
-  %317 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %.val403, ptr %317, align 16
-  %318 = getelementptr inbounds i8, ptr %5, i64 24
-  store i32 %.val404, ptr %318, align 8
-  %319 = load ptr, ptr %8, align 8
-  %320 = getelementptr inbounds i8, ptr %319, i64 288
-  %321 = load ptr, ptr %320, align 8
-  call void @zend_call_known_function(ptr noundef %321, ptr noundef nonnull %0, ptr noundef %319, ptr noundef null, i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #15
+  %308 = getelementptr inbounds i8, ptr %1, i64 4
+  %309 = load i32, ptr %308, align 4
+  %310 = and i32 %309, 64
+  %.not.i414 = icmp eq i32 %310, 0
+  %311 = select i1 %.not.i414, i32 262, i32 6
+  %312 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %311, ptr %312, align 8
+  %313 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %.val407, ptr %313, align 16
+  %314 = getelementptr inbounds i8, ptr %5, i64 24
+  store i32 %.val408, ptr %314, align 8
+  %315 = load ptr, ptr %8, align 8
+  %316 = getelementptr inbounds i8, ptr %315, i64 288
+  %317 = load ptr, ptr %316, align 8
+  call void @zend_call_known_function(ptr noundef %317, ptr noundef nonnull %0, ptr noundef %315, ptr noundef null, i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %322 = load i32, ptr %303, align 4
-  %323 = and i32 %322, -3
-  store i32 %323, ptr %303, align 4
-  %324 = load i32, ptr %0, align 4
-  %325 = icmp ne i32 %324, 0
-  call void @llvm.assume(i1 %325)
-  %326 = add i32 %324, -1
-  store i32 %326, ptr %0, align 4
-  %327 = icmp eq i32 %326, 0
-  br i1 %327, label %328, label %329
+  %318 = load i32, ptr %300, align 4
+  %319 = and i32 %318, -3
+  store i32 %319, ptr %300, align 4
+  %320 = load i32, ptr %0, align 4
+  %321 = icmp ne i32 %320, 0
+  call void @llvm.assume(i1 %321)
+  %322 = add i32 %320, -1
+  store i32 %322, ptr %0, align 4
+  %323 = icmp eq i32 %322, 0
+  br i1 %323, label %324, label %325
 
-328:                                              ; preds = %306
+324:                                              ; preds = %303
   call void @zend_objects_store_del(ptr noundef nonnull %0) #15
   br label %zend_deprecated_dynamic_property.exit.thread
 
-329:                                              ; preds = %306
-  %330 = getelementptr inbounds i8, ptr %0, i64 4
-  %331 = load i32, ptr %330, align 4
-  %332 = and i32 %331, -1008
-  %333 = icmp eq i32 %332, 0
-  br i1 %333, label %334, label %zend_deprecated_dynamic_property.exit.thread
+325:                                              ; preds = %303
+  %326 = getelementptr inbounds i8, ptr %0, i64 4
+  %327 = load i32, ptr %326, align 4
+  %328 = and i32 %327, -1008
+  %329 = icmp eq i32 %328, 0
+  br i1 %329, label %330, label %zend_deprecated_dynamic_property.exit.thread
 
-334:                                              ; preds = %329
+330:                                              ; preds = %325
   call void @gc_possible_root(ptr noundef nonnull %0) #15
   br label %zend_deprecated_dynamic_property.exit.thread
 
-335:                                              ; preds = %301
-  %.not369 = icmp eq i64 %.0306426452, 0
-  br i1 %.not369, label %336, label %342
+331:                                              ; preds = %298
+  %.not373 = icmp eq i64 %.0306435461, 0
+  br i1 %.not373, label %332, label %338
 
-336:                                              ; preds = %335
-  %337 = load ptr, ptr %8, align 8
-  tail call fastcc void @zend_wrong_offset(ptr noundef %337, ptr noundef %1)
-  %338 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %339 = icmp ne ptr %338, null
-  tail call void @llvm.assume(i1 %339)
+332:                                              ; preds = %331
+  %333 = load ptr, ptr %8, align 8
+  tail call fastcc void @zend_wrong_offset(ptr noundef %333, ptr noundef %1)
+  %334 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %335 = icmp ne ptr %334, null
+  tail call void @llvm.assume(i1 %335)
   br label %zend_deprecated_dynamic_property.exit.thread
 
-340:                                              ; preds = %294
-  %341 = icmp ne i64 %.0306426, 0
-  tail call void @llvm.assume(i1 %341)
-  br label %423
+336:                                              ; preds = %291
+  %337 = icmp ne i64 %.0306435, 0
+  tail call void @llvm.assume(i1 %337)
+  br label %417
 
-342:                                              ; preds = %335
-  br i1 %302, label %.thread429, label %._crit_edge
+338:                                              ; preds = %331
+  br i1 %299, label %.thread438, label %._crit_edge
 
-._crit_edge:                                      ; preds = %342
-  %.pre446 = load ptr, ptr %8, align 8
-  br label %423
+._crit_edge:                                      ; preds = %338
+  %.pre455 = load ptr, ptr %8, align 8
+  br label %417
 
-.thread429:                                       ; preds = %.thread448, %264, %342
-  %.1325423433 = phi ptr [ %.1325424455, %342 ], [ %.1325, %264 ], [ %.1325, %.thread448 ]
-  %.0306428432 = phi i64 [ %.0306426452, %342 ], [ %.0306, %264 ], [ %.0306, %.thread448 ]
-  %343 = getelementptr inbounds i8, ptr %0, i64 %.0306428432
-  %344 = getelementptr inbounds i8, ptr %2, i64 8
-  %345 = getelementptr inbounds i8, ptr %2, i64 9
-  %346 = load i8, ptr %345, align 1
-  %.not374 = icmp eq i8 %346, 0
-  br i1 %.not374, label %351, label %347
+.thread438:                                       ; preds = %.thread457, %261, %338
+  %.1329432442 = phi ptr [ %.1329433464, %338 ], [ %.1329, %261 ], [ %.1329, %.thread457 ]
+  %.0306437441 = phi i64 [ %.0306435461, %338 ], [ %.0306, %261 ], [ %.0306, %.thread457 ]
+  %339 = getelementptr inbounds i8, ptr %0, i64 %.0306437441
+  %340 = getelementptr inbounds i8, ptr %2, i64 9
+  %341 = load i8, ptr %340, align 1
+  %.not378 = icmp eq i8 %341, 0
+  br i1 %.not378, label %346, label %342
 
-347:                                              ; preds = %.thread429
-  %348 = load ptr, ptr %2, align 8
+342:                                              ; preds = %.thread438
+  %343 = load ptr, ptr %2, align 8
+  %344 = load i32, ptr %343, align 4
+  %345 = add i32 %344, 1
+  store i32 %345, ptr %343, align 4
+  br label %346
+
+346:                                              ; preds = %.thread438, %342
+  %.not379 = icmp eq ptr %.1329432442, null
+  br i1 %.not379, label %413, label %347
+
+347:                                              ; preds = %346
+  %348 = getelementptr inbounds i8, ptr %.1329432442, i64 4
   %349 = load i32, ptr %348, align 4
-  %350 = add i32 %349, 1
-  store i32 %350, ptr %348, align 4
-  br label %351
+  %350 = and i32 %349, 128
+  %.not380 = icmp eq i32 %350, 0
+  br i1 %.not380, label %.critedge406, label %351
 
-351:                                              ; preds = %.thread429, %347
-  %.not375 = icmp eq ptr %.1325423433, null
-  br i1 %.not375, label %419, label %352
+351:                                              ; preds = %347
+  %352 = load ptr, ptr %8, align 8
+  %353 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 18), align 8
+  %.not.i415 = icmp eq ptr %353, null
+  br i1 %.not.i415, label %354, label %356
 
-352:                                              ; preds = %351
-  %353 = getelementptr inbounds i8, ptr %.1325423433, i64 4
-  %354 = load i32, ptr %353, align 4
-  %355 = and i32 %354, 128
-  %.not376 = icmp eq i32 %355, 0
-  br i1 %.not376, label %.critedge402, label %356
+354:                                              ; preds = %351
+  %355 = tail call ptr @zend_get_executed_scope() #15
+  br label %356
 
-356:                                              ; preds = %352
-  %357 = load ptr, ptr %8, align 8
-  %358 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 18), align 8
-  %.not.i411 = icmp eq ptr %358, null
-  br i1 %.not.i411, label %359, label %361
+356:                                              ; preds = %354, %351
+  %.028.i = phi ptr [ %355, %354 ], [ %353, %351 ]
+  %357 = getelementptr inbounds i8, ptr %.1329432442, i64 32
+  %358 = load ptr, ptr %357, align 8
+  %359 = icmp eq ptr %358, %.028.i
+  br i1 %359, label %.critedge406, label %360
 
-359:                                              ; preds = %356
-  %360 = tail call ptr @zend_get_executed_scope() #15
-  br label %361
-
-361:                                              ; preds = %359, %356
-  %.028.i = phi ptr [ %360, %359 ], [ %358, %356 ]
-  %362 = getelementptr inbounds i8, ptr %.1325423433, i64 32
-  %363 = load ptr, ptr %362, align 8
-  %364 = icmp eq ptr %363, %.028.i
-  br i1 %364, label %.critedge402, label %365
-
-365:                                              ; preds = %361
+360:                                              ; preds = %356
   %.not34.i = icmp eq ptr %.028.i, null
-  br i1 %.not34.i, label %383, label %.preheader.i412
+  br i1 %.not34.i, label %378, label %.preheader.i416
 
-.preheader.i412:                                  ; preds = %365, %366
-  %.pn.i413 = phi ptr [ %.029.i, %366 ], [ %357, %365 ]
-  %.029.in.i = getelementptr inbounds i8, ptr %.pn.i413, i64 16
+.preheader.i416:                                  ; preds = %360, %361
+  %.pn.i417 = phi ptr [ %.029.i, %361 ], [ %352, %360 ]
+  %.029.in.i = getelementptr inbounds i8, ptr %.pn.i417, i64 16
   %.029.i = load ptr, ptr %.029.in.i, align 8
   %.not35.not.i = icmp eq ptr %.029.i, null
-  br i1 %.not35.not.i, label %.critedge.i414, label %366
+  br i1 %.not35.not.i, label %.critedge.i418, label %361
 
-366:                                              ; preds = %.preheader.i412
-  %367 = icmp eq ptr %.029.i, %.028.i
-  br i1 %367, label %368, label %.preheader.i412
+361:                                              ; preds = %.preheader.i416
+  %362 = icmp eq ptr %.029.i, %.028.i
+  br i1 %362, label %363, label %.preheader.i416
 
-368:                                              ; preds = %366
-  %369 = getelementptr inbounds i8, ptr %.028.i, i64 120
-  %370 = tail call ptr @zend_hash_find(ptr noundef nonnull %369, ptr noundef %1) #15
-  %.not36.i = icmp eq ptr %370, null
-  br i1 %.not36.i, label %.critedge.i414, label %371
+363:                                              ; preds = %361
+  %364 = getelementptr inbounds i8, ptr %.028.i, i64 120
+  %365 = tail call ptr @zend_hash_find(ptr noundef nonnull %364, ptr noundef %1) #15
+  %.not36.i = icmp eq ptr %365, null
+  br i1 %.not36.i, label %.critedge.i418, label %366
 
-371:                                              ; preds = %368
-  %372 = load ptr, ptr %370, align 8, !nonnull !4, !noundef !4
-  %373 = getelementptr inbounds i8, ptr %372, i64 4
-  %374 = load i32, ptr %373, align 4
-  %375 = and i32 %374, 128
-  %376 = icmp ne i32 %375, 0
-  tail call void @llvm.assume(i1 %376)
-  %377 = getelementptr inbounds i8, ptr %372, i64 32
-  %378 = load ptr, ptr %377, align 8
-  %379 = icmp eq ptr %378, %.028.i
-  br i1 %379, label %.critedge402, label %.critedge.i414
+366:                                              ; preds = %363
+  %367 = load ptr, ptr %365, align 8, !nonnull !4, !noundef !4
+  %368 = getelementptr inbounds i8, ptr %367, i64 4
+  %369 = load i32, ptr %368, align 4
+  %370 = and i32 %369, 128
+  %371 = icmp ne i32 %370, 0
+  tail call void @llvm.assume(i1 %371)
+  %372 = getelementptr inbounds i8, ptr %367, i64 32
+  %373 = load ptr, ptr %372, align 8
+  %374 = icmp eq ptr %373, %.028.i
+  br i1 %374, label %.critedge406, label %.critedge.i418
 
-.critedge.i414:                                   ; preds = %.preheader.i412, %371, %368
-  %380 = getelementptr inbounds i8, ptr %.028.i, i64 8
-  %381 = load ptr, ptr %380, align 8
-  %382 = getelementptr inbounds i8, ptr %381, i64 24
-  %.pn42.pre.i = load ptr, ptr %362, align 8
-  br label %383
+.critedge.i418:                                   ; preds = %.preheader.i416, %366, %363
+  %375 = getelementptr inbounds i8, ptr %.028.i, i64 8
+  %376 = load ptr, ptr %375, align 8
+  %377 = getelementptr inbounds i8, ptr %376, i64 24
+  %.pn42.pre.i = load ptr, ptr %357, align 8
+  br label %378
 
-383:                                              ; preds = %.critedge.i414, %365
-  %.pn42.i = phi ptr [ %.pn42.pre.i, %.critedge.i414 ], [ %363, %365 ]
-  %384 = phi ptr [ @.str.19, %.critedge.i414 ], [ @.str.20, %365 ]
-  %385 = phi ptr [ %382, %.critedge.i414 ], [ @.str.21, %365 ]
+378:                                              ; preds = %.critedge.i418, %360
+  %.pn42.i = phi ptr [ %.pn42.pre.i, %.critedge.i418 ], [ %358, %360 ]
+  %379 = phi ptr [ @.str.19, %.critedge.i418 ], [ @.str.20, %360 ]
+  %380 = phi ptr [ %377, %.critedge.i418 ], [ @.str.21, %360 ]
   %.val41.in.i = getelementptr i8, ptr %.pn42.i, i64 8
   %.val41.i = load ptr, ptr %.val41.in.i, align 8
-  %386 = getelementptr inbounds i8, ptr %1, i64 24
-  %387 = getelementptr inbounds i8, ptr %.val41.i, i64 24
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.5, ptr noundef nonnull %387, ptr noundef nonnull %386, ptr noundef nonnull %384, ptr noundef nonnull %385) #15
-  %388 = load i8, ptr %345, align 1
-  %.not379 = icmp eq i8 %388, 0
-  br i1 %.not379, label %zend_deprecated_dynamic_property.exit.thread, label %389
+  %381 = getelementptr inbounds i8, ptr %1, i64 24
+  %382 = getelementptr inbounds i8, ptr %.val41.i, i64 24
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.5, ptr noundef nonnull %382, ptr noundef nonnull %381, ptr noundef nonnull %379, ptr noundef nonnull %380) #15
+  %383 = load i8, ptr %340, align 1
+  %.not383 = icmp eq i8 %383, 0
+  br i1 %.not383, label %zend_deprecated_dynamic_property.exit.thread, label %384
 
-389:                                              ; preds = %383
-  %390 = load ptr, ptr %2, align 8
-  %391 = load i32, ptr %390, align 4
-  %392 = icmp ne i32 %391, 0
-  tail call void @llvm.assume(i1 %392)
-  %393 = add i32 %391, -1
-  store i32 %393, ptr %390, align 4
+384:                                              ; preds = %378
+  %385 = load ptr, ptr %2, align 8
+  %386 = load i32, ptr %385, align 4
+  %387 = icmp ne i32 %386, 0
+  tail call void @llvm.assume(i1 %387)
+  %388 = add i32 %386, -1
+  store i32 %388, ptr %385, align 4
   br label %zend_deprecated_dynamic_property.exit.thread
 
-.critedge402:                                     ; preds = %371, %361, %352
-  %394 = load ptr, ptr %2, align 8
-  %395 = load i32, ptr %344, align 8
-  store ptr %394, ptr %6, align 8
-  %396 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %395, ptr %396, align 8
-  %397 = load i32, ptr %0, align 4
-  %398 = add i32 %397, 1
-  store i32 %398, ptr %0, align 4
-  %399 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
-  %.not377 = icmp eq ptr %399, null
-  br i1 %.not377, label %407, label %400
+.critedge406:                                     ; preds = %366, %356, %347
+  %389 = load ptr, ptr %2, align 8
+  %390 = load i32, ptr %.0311.sroa.gep324, align 8
+  store ptr %389, ptr %6, align 8
+  store i32 %390, ptr %.0311.sroa.gep, align 8
+  %391 = load i32, ptr %0, align 4
+  %392 = add i32 %391, 1
+  store i32 %392, ptr %0, align 4
+  %393 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
+  %.not381 = icmp eq ptr %393, null
+  br i1 %.not381, label %401, label %394
 
-400:                                              ; preds = %.critedge402
-  %401 = getelementptr inbounds i8, ptr %399, i64 24
-  %402 = load ptr, ptr %401, align 8
-  %.not378 = icmp eq ptr %402, null
-  br i1 %.not378, label %407, label %403
+394:                                              ; preds = %.critedge406
+  %395 = getelementptr inbounds i8, ptr %393, i64 24
+  %396 = load ptr, ptr %395, align 8
+  %.not382 = icmp eq ptr %396, null
+  br i1 %.not382, label %401, label %397
 
-403:                                              ; preds = %400
-  %404 = getelementptr inbounds i8, ptr %402, i64 4
-  %405 = load i32, ptr %404, align 4
-  %406 = icmp slt i32 %405, 0
-  br label %407
+397:                                              ; preds = %394
+  %398 = getelementptr inbounds i8, ptr %396, i64 4
+  %399 = load i32, ptr %398, align 4
+  %400 = icmp slt i32 %399, 0
+  br label %401
 
-407:                                              ; preds = %403, %400, %.critedge402
-  %408 = phi i1 [ false, %400 ], [ false, %.critedge402 ], [ %406, %403 ]
-  %409 = call zeroext i1 @zend_verify_property_type(ptr noundef nonnull %.1325423433, ptr noundef nonnull %6, i1 noundef zeroext %408) #15
-  %410 = load i32, ptr %0, align 4
-  %411 = icmp ne i32 %410, 0
-  call void @llvm.assume(i1 %411)
-  %412 = add i32 %410, -1
-  store i32 %412, ptr %0, align 4
-  %413 = icmp eq i32 %412, 0
-  br i1 %413, label %414, label %415
+401:                                              ; preds = %397, %394, %.critedge406
+  %402 = phi i1 [ false, %394 ], [ false, %.critedge406 ], [ %400, %397 ]
+  %403 = call zeroext i1 @zend_verify_property_type(ptr noundef nonnull %.1329432442, ptr noundef nonnull %6, i1 noundef zeroext %402) #15
+  %404 = load i32, ptr %0, align 4
+  %405 = icmp ne i32 %404, 0
+  call void @llvm.assume(i1 %405)
+  %406 = add i32 %404, -1
+  store i32 %406, ptr %0, align 4
+  %407 = icmp eq i32 %406, 0
+  br i1 %407, label %408, label %409
 
-414:                                              ; preds = %407
-  call void @zend_object_released_while_assigning_to_property_error(ptr noundef nonnull %.1325423433) #15
+408:                                              ; preds = %401
+  call void @zend_object_released_while_assigning_to_property_error(ptr noundef nonnull %.1329432442) #15
   call void @zend_objects_store_del(ptr noundef nonnull %0) #15
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #15
   br label %zend_deprecated_dynamic_property.exit.thread
 
-415:                                              ; preds = %407
-  br i1 %409, label %417, label %416
+409:                                              ; preds = %401
+  br i1 %403, label %411, label %410
 
-416:                                              ; preds = %415
+410:                                              ; preds = %409
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #15
   br label %zend_deprecated_dynamic_property.exit.thread
 
-417:                                              ; preds = %415
-  %418 = getelementptr inbounds i8, ptr %343, i64 12
-  store i32 0, ptr %418, align 4
-  br label %169
+411:                                              ; preds = %409
+  %412 = getelementptr inbounds i8, ptr %339, i64 12
+  store i32 0, ptr %412, align 4
+  br label %167
 
-419:                                              ; preds = %351
-  %420 = load ptr, ptr %2, align 8
-  %421 = load i32, ptr %344, align 8
-  store ptr %420, ptr %343, align 8
-  %422 = getelementptr inbounds i8, ptr %343, i64 8
-  store i32 %421, ptr %422, align 8
+413:                                              ; preds = %346
+  %414 = load ptr, ptr %2, align 8
+  %415 = load i32, ptr %.0311.sroa.gep324, align 8
+  store ptr %414, ptr %339, align 8
+  %416 = getelementptr inbounds i8, ptr %339, i64 8
+  store i32 %415, ptr %416, align 8
   br label %zend_deprecated_dynamic_property.exit.thread
 
-423:                                              ; preds = %340, %._crit_edge
-  %424 = phi ptr [ %.pre446, %._crit_edge ], [ %295, %340 ]
-  %425 = getelementptr inbounds i8, ptr %424, i64 28
-  %426 = load i32, ptr %425, align 4
-  %427 = and i32 %426, 8192
-  %.not370 = icmp eq i32 %427, 0
-  br i1 %.not370, label %432, label %428
+417:                                              ; preds = %336, %._crit_edge
+  %418 = phi ptr [ %.pre455, %._crit_edge ], [ %292, %336 ]
+  %419 = getelementptr inbounds i8, ptr %418, i64 28
+  %420 = load i32, ptr %419, align 4
+  %421 = and i32 %420, 8192
+  %.not374 = icmp eq i32 %421, 0
+  br i1 %.not374, label %426, label %422
 
-428:                                              ; preds = %423
-  %429 = getelementptr i8, ptr %424, i64 8
-  %.val405 = load ptr, ptr %429, align 8
-  %430 = getelementptr inbounds i8, ptr %.val405, i64 24
-  %431 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull %430, ptr noundef nonnull %431) #15
+422:                                              ; preds = %417
+  %423 = getelementptr i8, ptr %418, i64 8
+  %.val409 = load ptr, ptr %423, align 8
+  %424 = getelementptr inbounds i8, ptr %.val409, i64 24
+  %425 = getelementptr inbounds i8, ptr %1, i64 24
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull %424, ptr noundef nonnull %425) #15
   br label %zend_deprecated_dynamic_property.exit.thread
 
-432:                                              ; preds = %423
-  %433 = and i32 %426, 32768
-  %.not371 = icmp eq i32 %433, 0
-  br i1 %.not371, label %434, label %zend_deprecated_dynamic_property.exit
+426:                                              ; preds = %417
+  %427 = and i32 %420, 32768
+  %.not375 = icmp eq i32 %427, 0
+  br i1 %.not375, label %428, label %zend_deprecated_dynamic_property.exit
 
-434:                                              ; preds = %432
+428:                                              ; preds = %426
+  %429 = load i32, ptr %0, align 4
+  %430 = add i32 %429, 1
+  store i32 %430, ptr %0, align 4
+  %431 = getelementptr inbounds i8, ptr %418, i64 8
+  %432 = load ptr, ptr %431, align 8
+  %433 = getelementptr inbounds i8, ptr %432, i64 24
+  %434 = getelementptr inbounds i8, ptr %1, i64 24
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.23, ptr noundef nonnull %433, ptr noundef nonnull %434) #15
   %435 = load i32, ptr %0, align 4
-  %436 = add i32 %435, 1
-  store i32 %436, ptr %0, align 4
-  %437 = getelementptr inbounds i8, ptr %424, i64 8
-  %438 = load ptr, ptr %437, align 8
-  %439 = getelementptr inbounds i8, ptr %438, i64 24
-  %440 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.23, ptr noundef nonnull %439, ptr noundef nonnull %440) #15
-  %441 = load i32, ptr %0, align 4
-  %442 = icmp ne i32 %441, 0
-  tail call void @llvm.assume(i1 %442)
-  %443 = add i32 %441, -1
-  store i32 %443, ptr %0, align 4
-  %.not445 = icmp eq i32 %443, 0
-  br i1 %.not445, label %444, label %zend_deprecated_dynamic_property.exit
+  %436 = icmp ne i32 %435, 0
+  tail call void @llvm.assume(i1 %436)
+  %437 = add i32 %435, -1
+  store i32 %437, ptr %0, align 4
+  %.not454 = icmp eq i32 %437, 0
+  br i1 %.not454, label %438, label %zend_deprecated_dynamic_property.exit
 
-444:                                              ; preds = %434
-  %445 = load ptr, ptr %8, align 8
+438:                                              ; preds = %428
+  %439 = load ptr, ptr %8, align 8
   tail call void @zend_objects_store_del(ptr noundef nonnull %0) #15
-  %446 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %.not.i415 = icmp eq ptr %446, null
-  br i1 %.not.i415, label %447, label %zend_deprecated_dynamic_property.exit.thread
+  %440 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %.not.i419 = icmp eq ptr %440, null
+  br i1 %.not.i419, label %441, label %zend_deprecated_dynamic_property.exit.thread
 
-447:                                              ; preds = %444
-  %448 = getelementptr inbounds i8, ptr %445, i64 8
-  %449 = load ptr, ptr %448, align 8
-  %450 = getelementptr inbounds i8, ptr %449, i64 24
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull %450, ptr noundef nonnull %440) #15
+441:                                              ; preds = %438
+  %442 = getelementptr inbounds i8, ptr %439, i64 8
+  %443 = load ptr, ptr %442, align 8
+  %444 = getelementptr inbounds i8, ptr %443, i64 24
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull %444, ptr noundef nonnull %434) #15
   br label %zend_deprecated_dynamic_property.exit.thread
 
-zend_deprecated_dynamic_property.exit:            ; preds = %434, %432
-  %451 = getelementptr inbounds i8, ptr %2, i64 9
-  %452 = load i8, ptr %451, align 1
-  %.not372 = icmp eq i8 %452, 0
-  br i1 %.not372, label %457, label %453
+zend_deprecated_dynamic_property.exit:            ; preds = %428, %426
+  %445 = getelementptr inbounds i8, ptr %2, i64 9
+  %446 = load i8, ptr %445, align 1
+  %.not376 = icmp eq i8 %446, 0
+  br i1 %.not376, label %451, label %447
 
-453:                                              ; preds = %zend_deprecated_dynamic_property.exit
-  %454 = load ptr, ptr %2, align 8
-  %455 = load i32, ptr %454, align 4
-  %456 = add i32 %455, 1
-  store i32 %456, ptr %454, align 4
-  br label %457
+447:                                              ; preds = %zend_deprecated_dynamic_property.exit
+  %448 = load ptr, ptr %2, align 8
+  %449 = load i32, ptr %448, align 4
+  %450 = add i32 %449, 1
+  store i32 %450, ptr %448, align 4
+  br label %451
 
-457:                                              ; preds = %zend_deprecated_dynamic_property.exit, %453
-  %458 = getelementptr inbounds i8, ptr %0, i64 32
-  %459 = load ptr, ptr %458, align 8
-  %.not373 = icmp eq ptr %459, null
-  br i1 %.not373, label %460, label %461
+451:                                              ; preds = %zend_deprecated_dynamic_property.exit, %447
+  %452 = getelementptr inbounds i8, ptr %0, i64 32
+  %453 = load ptr, ptr %452, align 8
+  %.not377 = icmp eq ptr %453, null
+  br i1 %.not377, label %454, label %455
 
-460:                                              ; preds = %457
+454:                                              ; preds = %451
   tail call void @rebuild_object_properties(ptr noundef nonnull %0)
-  %.pre447 = load ptr, ptr %458, align 8
-  br label %461
+  %.pre456 = load ptr, ptr %452, align 8
+  br label %455
 
-461:                                              ; preds = %460, %457
-  %462 = phi ptr [ %.pre447, %460 ], [ %459, %457 ]
-  %463 = tail call ptr @zend_hash_add_new(ptr noundef %462, ptr noundef %1, ptr noundef nonnull %2) #15
+455:                                              ; preds = %454, %451
+  %456 = phi ptr [ %.pre456, %454 ], [ %453, %451 ]
+  %457 = tail call ptr @zend_hash_add_new(ptr noundef %456, ptr noundef %1, ptr noundef nonnull %2) #15
   br label %zend_deprecated_dynamic_property.exit.thread
 
-zend_deprecated_dynamic_property.exit.thread:     ; preds = %447, %444, %389, %383, %328, %334, %329, %.thread.thread440, %160, %158, %461, %419, %203, %256, %263, %254, %428, %416, %414, %336, %156, %135
-  %.2 = phi ptr [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %135 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %156 ], [ %.1313, %254 ], [ %.0304, %263 ], [ %.0304, %256 ], [ %.0304, %203 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %414 ], [ %343, %416 ], [ %343, %419 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %428 ], [ %463, %461 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %336 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %158 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %160 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %.thread.thread440 ], [ %2, %329 ], [ %2, %334 ], [ %2, %328 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %383 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %389 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %444 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %447 ]
+zend_deprecated_dynamic_property.exit.thread:     ; preds = %441, %438, %384, %378, %324, %330, %325, %.thread.thread449, %158, %156, %455, %413, %200, %253, %260, %251, %422, %410, %408, %332, %154, %134
+  %.2 = phi ptr [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %134 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %154 ], [ %.1313, %251 ], [ %.0304, %260 ], [ %.0304, %253 ], [ %.0304, %200 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %408 ], [ %339, %410 ], [ %339, %413 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %422 ], [ %457, %455 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %332 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %156 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %158 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %.thread.thread449 ], [ %2, %325 ], [ %2, %330 ], [ %2, %324 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %378 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %384 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %438 ], [ getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 1), %441 ]
   ret ptr %.2
 }
 

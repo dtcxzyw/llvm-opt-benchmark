@@ -123,13 +123,15 @@ define internal noundef zeroext i1 @unserialize(ptr nocapture noundef writeonly 
   %4 = getelementptr inbounds i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 2
+  %indvars.iv.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
   br i1 %.not, label %.preheader, label %.loopexit
 
 6:                                                ; preds = %16
-  br i1 %7, label %.preheader, label %19
+  br i1 %7, label %.preheader, label %18
 
 .preheader:                                       ; preds = %2, %6
   %7 = phi i1 [ false, %6 ], [ true, %2 ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %6 ], [ %3, %2 ]
   %indvars.iv = phi i64 [ 1, %6 ], [ 0, %2 ]
   %8 = call ptr @zend_hash_index_find(ptr noundef %1, i64 noundef %indvars.iv) #7
   %.not16 = icmp eq ptr %8, null
@@ -149,23 +151,22 @@ define internal noundef zeroext i1 @unserialize(ptr nocapture noundef writeonly 
   br i1 %.not18, label %16, label %.loopexit
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds [2 x i64], ptr %3, i64 0, i64 %indvars.iv
-  %18 = call zeroext i1 @php_random_hex2bin_le(ptr noundef nonnull %13, ptr noundef nonnull %17) #7
-  br i1 %18, label %6, label %.loopexit
+  %17 = call zeroext i1 @php_random_hex2bin_le(ptr noundef nonnull %13, ptr noundef nonnull %indvars.iv.sroa.phi) #7
+  br i1 %17, label %6, label %.loopexit
 
-19:                                               ; preds = %6
-  %20 = load i64, ptr %3, align 16
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
-  %22 = load i64, ptr %21, align 8
-  %.sroa.2.0.insert.ext = zext i64 %20 to i128
+18:                                               ; preds = %6
+  %19 = load i64, ptr %3, align 16
+  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = load i64, ptr %20, align 8
+  %.sroa.2.0.insert.ext = zext i64 %19 to i128
   %.sroa.2.0.insert.shift = shl nuw i128 %.sroa.2.0.insert.ext, 64
-  %.sroa.0.0.insert.ext = zext i64 %22 to i128
+  %.sroa.0.0.insert.ext = zext i64 %21 to i128
   %.sroa.0.0.insert.insert = or disjoint i128 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   store i128 %.sroa.0.0.insert.insert, ptr %0, align 16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %16, %.preheader, %9, %12, %2, %19
-  %.0 = phi i1 [ true, %19 ], [ false, %2 ], [ false, %12 ], [ false, %9 ], [ false, %.preheader ], [ false, %16 ]
+.loopexit:                                        ; preds = %16, %.preheader, %9, %12, %2, %18
+  %.0 = phi i1 [ true, %18 ], [ false, %2 ], [ false, %12 ], [ false, %9 ], [ false, %.preheader ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -274,185 +275,184 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i128, align 16
-  %6 = alloca [2 x i64], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 -8
+  %.sroa.0 = alloca i64, align 16
+  %.sroa.2 = alloca i64, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = load ptr, ptr %6, align 8
+  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 -8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
   store ptr null, ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
-  %10 = load i32, ptr %9, align 4
-  %11 = icmp ugt i32 %10, 1
-  br i1 %11, label %.thread151, label %12
+  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp ugt i32 %9, 1
+  br i1 %10, label %.thread151, label %11
 
 .thread151:                                       ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #7
   br label %.thread176
 
-12:                                               ; preds = %2
-  %13 = icmp eq i32 %10, 0
-  br i1 %13, label %.thread166, label %14
+11:                                               ; preds = %2
+  %12 = icmp eq i32 %9, 0
+  br i1 %12, label %.thread166, label %13
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 80
-  %16 = getelementptr inbounds i8, ptr %0, i64 88
-  %17 = load i8, ptr %16, align 8
-  switch i8 %17, label %20 [
-    i8 6, label %18
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  %16 = load i8, ptr %15, align 8
+  switch i8 %16, label %19 [
+    i8 6, label %17
     i8 4, label %.thread163.thread
     i8 1, label %.thread166
   ]
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %15, align 8
-  store ptr %19, ptr %3, align 8
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %14, align 8
+  store ptr %18, ptr %3, align 8
   br label %.thread163
 
-20:                                               ; preds = %14
-  %21 = call zeroext i1 @zend_parse_arg_str_or_long_slow(ptr noundef nonnull %15, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1) #7
-  %.fr = freeze i1 %21
+19:                                               ; preds = %13
+  %20 = call zeroext i1 @zend_parse_arg_str_or_long_slow(ptr noundef nonnull %14, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1) #7
+  %.fr = freeze i1 %20
   br i1 %.fr, label %.thread163thread-pre-split, label %.thread176
 
-.thread176:                                       ; preds = %20, %.thread151
-  %.073161 = phi i32 [ 0, %.thread151 ], [ 1, %20 ]
-  %.074160 = phi ptr [ null, %.thread151 ], [ %15, %20 ]
-  %.075159 = phi i32 [ 0, %.thread151 ], [ 29, %20 ]
-  %.076158 = phi i32 [ 1, %.thread151 ], [ 9, %20 ]
+.thread176:                                       ; preds = %19, %.thread151
+  %.073161 = phi i32 [ 0, %.thread151 ], [ 1, %19 ]
+  %.074160 = phi ptr [ null, %.thread151 ], [ %14, %19 ]
+  %.075159 = phi i32 [ 0, %.thread151 ], [ 29, %19 ]
+  %.076158 = phi i32 [ 1, %.thread151 ], [ 9, %19 ]
   call void @zend_wrong_parameter_error(i32 noundef %.076158, i32 noundef %.073161, ptr noundef null, i32 noundef %.075159, ptr noundef %.074160) #7
-  br label %67
+  br label %61
 
-.thread166:                                       ; preds = %14, %12
-  %22 = call i32 @php_random_bytes(ptr noundef nonnull %5, i64 noundef 16, i1 noundef zeroext true) #7
-  %23 = icmp eq i32 %22, -1
-  br i1 %23, label %24, label %29
+.thread166:                                       ; preds = %13, %11
+  %21 = call i32 @php_random_bytes(ptr noundef nonnull %5, i64 noundef 16, i1 noundef zeroext true) #7
+  %22 = icmp eq i32 %21, -1
+  br i1 %22, label %23, label %28
 
-24:                                               ; preds = %.thread166
-  %25 = load ptr, ptr @random_ce_Random_RandomException, align 8
-  %26 = call ptr @zend_throw_exception(ptr noundef %25, ptr noundef nonnull @.str, i64 noundef 0) #7
-  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %28 = icmp ne ptr %27, null
-  call void @llvm.assume(i1 %28)
-  br label %67
+23:                                               ; preds = %.thread166
+  %24 = load ptr, ptr @random_ce_Random_RandomException, align 8
+  %25 = call ptr @zend_throw_exception(ptr noundef %24, ptr noundef nonnull @.str, i64 noundef 0) #7
+  %26 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %27 = icmp ne ptr %26, null
+  call void @llvm.assume(i1 %27)
+  br label %61
 
-29:                                               ; preds = %.thread166
-  %30 = load i128, ptr %5, align 16
-  %.sroa.216.0.extract.shift = lshr i128 %30, 64
+28:                                               ; preds = %.thread166
+  %29 = load i128, ptr %5, align 16
+  %.sroa.216.0.extract.shift = lshr i128 %29, 64
   %.sroa.216.0.extract.trunc = trunc i128 %.sroa.216.0.extract.shift to i64
-  %.sroa.0.0.insert.ext.i13.i = and i128 %30, 18446744073709551615
+  %.sroa.0.0.insert.ext.i13.i = and i128 %29, 18446744073709551615
   %.sroa.02.0.insert.insert.i.i = add nuw nsw i128 %.sroa.0.0.insert.ext.i13.i, 117397592171526113268558934119004209487
-  %31 = lshr i128 %.sroa.02.0.insert.insert.i.i, 64
-  %.tr.i.i = trunc i128 %31 to i64
+  %30 = lshr i128 %.sroa.02.0.insert.insert.i.i, 64
+  %.tr.i.i = trunc i128 %30 to i64
   %.narrow.i.i = add i64 %.tr.i.i, %.sroa.216.0.extract.trunc
   %.sroa.2.0.insert.ext.i = zext i64 %.narrow.i.i to i128
   %.sroa.2.0.insert.shift.i = shl nuw i128 %.sroa.2.0.insert.ext.i, 64
   %.sroa.0.0.insert.ext.i = and i128 %.sroa.02.0.insert.insert.i.i, 18446744073709551615
   %.sroa.0.0.insert.insert.i = or disjoint i128 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %32 = mul i128 %.sroa.0.0.insert.insert.i, 47026247687942121848144207491837523525
-  %.sroa.02.0.insert.insert.i21.i15.i = add i128 %32, 1442695040888963407
-  %33 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i, 64
-  %.tr.i.i16.i = trunc i128 %33 to i64
+  %31 = mul i128 %.sroa.0.0.insert.insert.i, 47026247687942121848144207491837523525
+  %.sroa.02.0.insert.insert.i21.i15.i = add i128 %31, 1442695040888963407
+  %32 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i, 64
+  %.tr.i.i16.i = trunc i128 %32 to i64
   %.narrow.i.i17.i = add i64 %.tr.i.i16.i, 6364136223846793005
   %.sroa.2.0.insert.ext.i18.i = zext i64 %.narrow.i.i17.i to i128
   %.sroa.2.0.insert.shift.i19.i = shl nuw i128 %.sroa.2.0.insert.ext.i18.i, 64
   %.sroa.0.0.insert.ext.i20.i = and i128 %.sroa.02.0.insert.insert.i21.i15.i, 18446744073709551615
   %.sroa.0.0.insert.insert.i21.i = or disjoint i128 %.sroa.2.0.insert.shift.i19.i, %.sroa.0.0.insert.ext.i20.i
   store i128 %.sroa.0.0.insert.insert.i21.i, ptr %.sroa.1.0.copyload, align 16
-  br label %67
+  br label %61
 
-.thread163thread-pre-split:                       ; preds = %20
+.thread163thread-pre-split:                       ; preds = %19
   %.pr = load ptr, ptr %3, align 8
   br label %.thread163
 
-.thread163:                                       ; preds = %.thread163thread-pre-split, %18
-  %34 = phi ptr [ %.pr, %.thread163thread-pre-split ], [ %19, %18 ]
-  %.not84 = icmp eq ptr %34, null
-  br i1 %.not84, label %.thread163.thread, label %35
+.thread163:                                       ; preds = %.thread163thread-pre-split, %17
+  %33 = phi ptr [ %.pr, %.thread163thread-pre-split ], [ %18, %17 ]
+  %.not84 = icmp eq ptr %33, null
+  br i1 %.not84, label %.thread163.thread, label %34
 
-35:                                               ; preds = %.thread163
-  %36 = getelementptr inbounds i8, ptr %34, i64 16
-  %37 = load i64, ptr %36, align 8
-  %38 = icmp eq i64 %37, 16
-  br i1 %38, label %.preheader, label %61
+34:                                               ; preds = %.thread163
+  %35 = getelementptr inbounds i8, ptr %33, i64 16
+  %36 = load i64, ptr %35, align 8
+  %37 = icmp eq i64 %36, 16
+  br i1 %37, label %.preheader, label %55
 
-.preheader:                                       ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %34, i64 24
-  br label %40
+.preheader:                                       ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %33, i64 24
+  br label %39
 
-40:                                               ; preds = %.preheader, %53
-  %41 = phi i1 [ true, %.preheader ], [ false, %53 ]
-  %indvars.iv188 = phi i64 [ 0, %.preheader ], [ 1, %53 ]
-  %42 = getelementptr inbounds [2 x i64], ptr %6, i64 0, i64 %indvars.iv188
-  %43 = shl nuw nsw i64 %indvars.iv188, 3
-  br label %44
+39:                                               ; preds = %.preheader, %50
+  %40 = phi i1 [ true, %.preheader ], [ false, %50 ]
+  %indvars.iv188.sroa.phi = phi ptr [ %.sroa.0, %.preheader ], [ %.sroa.2, %50 ]
+  %indvars.iv188 = phi i64 [ 0, %.preheader ], [ 8, %50 ]
+  br label %41
 
-44:                                               ; preds = %40, %44
-  %indvars.iv = phi i64 [ 0, %40 ], [ %indvars.iv.next, %44 ]
-  %45 = phi i64 [ 0, %40 ], [ %52, %44 ]
-  %46 = add nuw nsw i64 %indvars.iv, %43
-  %47 = getelementptr inbounds [1 x i8], ptr %39, i64 0, i64 %46
-  %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i64
-  %50 = shl nuw nsw i64 %indvars.iv, 3
-  %51 = shl nuw i64 %49, %50
-  %52 = add i64 %51, %45
+41:                                               ; preds = %39, %41
+  %indvars.iv = phi i64 [ 0, %39 ], [ %indvars.iv.next, %41 ]
+  %42 = phi i64 [ 0, %39 ], [ %49, %41 ]
+  %43 = add nuw nsw i64 %indvars.iv, %indvars.iv188
+  %44 = getelementptr inbounds [1 x i8], ptr %38, i64 0, i64 %43
+  %45 = load i8, ptr %44, align 1
+  %46 = zext i8 %45 to i64
+  %47 = shl nuw nsw i64 %indvars.iv, 3
+  %48 = shl nuw i64 %46, %47
+  %49 = add i64 %48, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %53, label %44
+  br i1 %exitcond.not, label %50, label %41
 
-53:                                               ; preds = %44
-  store i64 %52, ptr %42, align 8
-  br i1 %41, label %40, label %54
+50:                                               ; preds = %41
+  store i64 %49, ptr %indvars.iv188.sroa.phi, align 8
+  br i1 %40, label %39, label %51
 
-54:                                               ; preds = %53
-  %55 = load i64, ptr %6, align 16
-  %56 = getelementptr inbounds i8, ptr %6, i64 8
-  %57 = load i64, ptr %56, align 8
-  %.sroa.0.0.insert.ext.i13.i87 = zext i64 %57 to i128
+51:                                               ; preds = %50
+  %.sroa.0.0..sroa.0.0. = load i64, ptr %.sroa.0, align 16
+  %.sroa.2.0..sroa.2.8. = load i64, ptr %.sroa.2, align 8
+  %.sroa.0.0.insert.ext.i13.i87 = zext i64 %.sroa.2.0..sroa.2.8. to i128
   %.sroa.02.0.insert.insert.i.i88 = add nuw nsw i128 %.sroa.0.0.insert.ext.i13.i87, 117397592171526113268558934119004209487
-  %58 = lshr i128 %.sroa.02.0.insert.insert.i.i88, 64
-  %.tr.i.i89 = trunc i128 %58 to i64
-  %.narrow.i.i90 = add i64 %55, %.tr.i.i89
+  %52 = lshr i128 %.sroa.02.0.insert.insert.i.i88, 64
+  %.tr.i.i89 = trunc i128 %52 to i64
+  %.narrow.i.i90 = add i64 %.sroa.0.0..sroa.0.0., %.tr.i.i89
   %.sroa.2.0.insert.ext.i91 = zext i64 %.narrow.i.i90 to i128
   %.sroa.2.0.insert.shift.i92 = shl nuw i128 %.sroa.2.0.insert.ext.i91, 64
   %.sroa.0.0.insert.ext.i93 = and i128 %.sroa.02.0.insert.insert.i.i88, 18446744073709551615
   %.sroa.0.0.insert.insert.i94 = or disjoint i128 %.sroa.2.0.insert.shift.i92, %.sroa.0.0.insert.ext.i93
-  %59 = mul i128 %.sroa.0.0.insert.insert.i94, 47026247687942121848144207491837523525
-  %.sroa.02.0.insert.insert.i21.i15.i95 = add i128 %59, 1442695040888963407
-  %60 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i95, 64
-  %.tr.i.i16.i96 = trunc i128 %60 to i64
+  %53 = mul i128 %.sroa.0.0.insert.insert.i94, 47026247687942121848144207491837523525
+  %.sroa.02.0.insert.insert.i21.i15.i95 = add i128 %53, 1442695040888963407
+  %54 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i95, 64
+  %.tr.i.i16.i96 = trunc i128 %54 to i64
   %.narrow.i.i17.i97 = add i64 %.tr.i.i16.i96, 6364136223846793005
   %.sroa.2.0.insert.ext.i18.i98 = zext i64 %.narrow.i.i17.i97 to i128
   %.sroa.2.0.insert.shift.i19.i99 = shl nuw i128 %.sroa.2.0.insert.ext.i18.i98, 64
   %.sroa.0.0.insert.ext.i20.i100 = and i128 %.sroa.02.0.insert.insert.i21.i15.i95, 18446744073709551615
   %.sroa.0.0.insert.insert.i21.i101 = or disjoint i128 %.sroa.2.0.insert.shift.i19.i99, %.sroa.0.0.insert.ext.i20.i100
   store i128 %.sroa.0.0.insert.insert.i21.i101, ptr %.sroa.1.0.copyload, align 16
-  br label %67
+  br label %61
 
-61:                                               ; preds = %35
+55:                                               ; preds = %34
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.1) #7
-  %62 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %63 = icmp ne ptr %62, null
-  call void @llvm.assume(i1 %63)
-  br label %67
+  %56 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %57 = icmp ne ptr %56, null
+  call void @llvm.assume(i1 %57)
+  br label %61
 
-.thread163.thread:                                ; preds = %.thread163, %14
-  %.in = phi ptr [ %15, %14 ], [ %4, %.thread163 ]
-  %64 = load i64, ptr %.in, align 8
-  %.sroa.0.0.insert.ext.i13.i104 = zext i64 %64 to i128
-  %65 = mul i128 %.sroa.0.0.insert.ext.i13.i104, 47026247687942121848144207491837523525
-  %.sroa.02.0.insert.insert.i21.i15.i112 = add i128 %65, -21102577299880832445404573290446240358
-  %66 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i112, 64
-  %.tr.i.i16.i113 = trunc i128 %66 to i64
+.thread163.thread:                                ; preds = %.thread163, %13
+  %.in = phi ptr [ %14, %13 ], [ %4, %.thread163 ]
+  %58 = load i64, ptr %.in, align 8
+  %.sroa.0.0.insert.ext.i13.i104 = zext i64 %58 to i128
+  %59 = mul i128 %.sroa.0.0.insert.ext.i13.i104, 47026247687942121848144207491837523525
+  %.sroa.02.0.insert.insert.i21.i15.i112 = add i128 %59, -21102577299880832445404573290446240358
+  %60 = lshr i128 %.sroa.02.0.insert.insert.i21.i15.i112, 64
+  %.tr.i.i16.i113 = trunc i128 %60 to i64
   %.narrow.i.i17.i114 = add i64 %.tr.i.i16.i113, 6364136223846793005
   %.sroa.2.0.insert.ext.i18.i115 = zext i64 %.narrow.i.i17.i114 to i128
   %.sroa.2.0.insert.shift.i19.i116 = shl nuw i128 %.sroa.2.0.insert.ext.i18.i115, 64
   %.sroa.0.0.insert.ext.i20.i117 = and i128 %.sroa.02.0.insert.insert.i21.i15.i112, 18446744073709551615
   %.sroa.0.0.insert.insert.i21.i118 = or disjoint i128 %.sroa.2.0.insert.shift.i19.i116, %.sroa.0.0.insert.ext.i20.i117
   store i128 %.sroa.0.0.insert.insert.i21.i118, ptr %.sroa.1.0.copyload, align 16
-  br label %67
+  br label %61
 
-67:                                               ; preds = %54, %.thread163.thread, %61, %29, %24, %.thread176
+61:                                               ; preds = %51, %.thread163.thread, %55, %28, %23, %.thread176
   ret void
 }
 

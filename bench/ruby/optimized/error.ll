@@ -4337,6 +4337,8 @@ define internal noundef i64 @key_err_initialize(i32 noundef %0, ptr noundef %1, 
   %8 = call i64 @rb_call_super(i32 noundef %7, ptr noundef %1) #27
   %9 = load i64, ptr %4, align 8
   %10 = icmp eq i64 %9, 4
+  %indvars.iv.sroa.gep11 = getelementptr inbounds i8, ptr %6, i64 8
+  %indvars.iv.sroa.gep14 = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %3
@@ -4348,24 +4350,23 @@ define internal noundef i64 @key_err_initialize(i32 noundef %0, ptr noundef %1, 
   %15 = call i32 @rb_get_kwargs(i64 noundef %9, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %6) #27
   br label %16
 
-16:                                               ; preds = %11, %25
-  %17 = phi i1 [ true, %11 ], [ false, %25 ]
-  %indvars.iv = phi i64 [ 0, %11 ], [ 1, %25 ]
-  %18 = getelementptr [2 x i64], ptr %6, i64 0, i64 %indvars.iv
-  %19 = load i64, ptr %18, align 8
-  %20 = icmp eq i64 %19, 36
-  br i1 %20, label %25, label %21
+16:                                               ; preds = %11, %23
+  %17 = phi i1 [ true, %11 ], [ false, %23 ]
+  %indvars.iv.sroa.phi = phi ptr [ %6, %11 ], [ %indvars.iv.sroa.gep11, %23 ]
+  %indvars.iv.sroa.phi12 = phi ptr [ %5, %11 ], [ %indvars.iv.sroa.gep14, %23 ]
+  %18 = load i64, ptr %indvars.iv.sroa.phi, align 8
+  %19 = icmp eq i64 %18, 36
+  br i1 %19, label %23, label %20
 
-21:                                               ; preds = %16
-  %22 = getelementptr [2 x i64], ptr %5, i64 0, i64 %indvars.iv
-  %23 = load i64, ptr %22, align 8
-  %24 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %23, i64 noundef %19) #27
-  br label %25
+20:                                               ; preds = %16
+  %21 = load i64, ptr %indvars.iv.sroa.phi12, align 8
+  %22 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %21, i64 noundef %18) #27
+  br label %23
 
-25:                                               ; preds = %16, %21
+23:                                               ; preds = %16, %20
   br i1 %17, label %16, label %.loopexit, !llvm.loop !24
 
-.loopexit:                                        ; preds = %25, %3
+.loopexit:                                        ; preds = %23, %3
   ret i64 %2
 }
 
@@ -5045,6 +5046,8 @@ define internal noundef i64 @no_matching_pattern_key_err_initialize(i32 noundef 
   %8 = call i64 @rb_call_super(i32 noundef %7, ptr noundef %1) #27
   %9 = load i64, ptr %4, align 8
   %10 = icmp eq i64 %9, 4
+  %indvars.iv.sroa.gep11 = getelementptr inbounds i8, ptr %6, i64 8
+  %indvars.iv.sroa.gep14 = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %3
@@ -5056,24 +5059,23 @@ define internal noundef i64 @no_matching_pattern_key_err_initialize(i32 noundef 
   %15 = call i32 @rb_get_kwargs(i64 noundef %9, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %6) #27
   br label %16
 
-16:                                               ; preds = %11, %25
-  %17 = phi i1 [ true, %11 ], [ false, %25 ]
-  %indvars.iv = phi i64 [ 0, %11 ], [ 1, %25 ]
-  %18 = getelementptr [2 x i64], ptr %6, i64 0, i64 %indvars.iv
-  %19 = load i64, ptr %18, align 8
-  %20 = icmp eq i64 %19, 36
-  br i1 %20, label %25, label %21
+16:                                               ; preds = %11, %23
+  %17 = phi i1 [ true, %11 ], [ false, %23 ]
+  %indvars.iv.sroa.phi = phi ptr [ %6, %11 ], [ %indvars.iv.sroa.gep11, %23 ]
+  %indvars.iv.sroa.phi12 = phi ptr [ %5, %11 ], [ %indvars.iv.sroa.gep14, %23 ]
+  %18 = load i64, ptr %indvars.iv.sroa.phi, align 8
+  %19 = icmp eq i64 %18, 36
+  br i1 %19, label %23, label %20
 
-21:                                               ; preds = %16
-  %22 = getelementptr [2 x i64], ptr %5, i64 0, i64 %indvars.iv
-  %23 = load i64, ptr %22, align 8
-  %24 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %23, i64 noundef %19) #27
-  br label %25
+20:                                               ; preds = %16
+  %21 = load i64, ptr %indvars.iv.sroa.phi12, align 8
+  %22 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %21, i64 noundef %18) #27
+  br label %23
 
-25:                                               ; preds = %16, %21
+23:                                               ; preds = %16, %20
   br i1 %17, label %16, label %.loopexit, !llvm.loop !28
 
-.loopexit:                                        ; preds = %25, %3
+.loopexit:                                        ; preds = %23, %3
   ret i64 %2
 }
 

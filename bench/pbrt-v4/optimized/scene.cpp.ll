@@ -3674,6 +3674,8 @@ entry:
   store ptr %2, ptr %ptr.i, align 8
   %3 = extractelement <2 x i64> %1, i64 1
   %cmp.i = icmp ult i64 %3, 9
+  %indvars.iv.i26.sroa.gep58 = getelementptr inbounds i8, ptr %ref.tmp, i64 128
+  %indvars.iv.i12.sroa.gep59 = getelementptr inbounds i8, ptr %worldFromCamera, i64 128
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %entry
@@ -3748,12 +3750,12 @@ lpad2.loopexit:                                   ; preds = %arrayctor.loop.i.i1
   br label %ehcleanup38
 
 lpad2.loopexit.split-lp.loopexit:                 ; preds = %.noexc, %arrayctor.loop.i.i
-  %lpad.loopexit58 = landingpad { ptr, i32 }
+  %lpad.loopexit63 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup38
 
 lpad2.loopexit.split-lp.loopexit.split-lp:        ; preds = %invoke.cont22, %invoke.cont19, %if.then
-  %lpad.loopexit.split-lp59 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp64 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup38
 
@@ -3789,8 +3791,7 @@ for.cond.preheader.i9:                            ; preds = %.noexc14
   %mInv.i.i4.i.c = getelementptr inbounds i8, ptr %this, i64 992
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull align 32 dereferenceable(64) %mInv.i.i4.i.c, i64 64, i1 false), !noalias !23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i, ptr noundef nonnull align 32 dereferenceable(64) %arrayidx.i13.c, i64 64, i1 false), !noalias !23
-  %arrayidx3.i.c = getelementptr inbounds i8, ptr %worldFromCamera, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %arrayidx3.i.c, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %indvars.iv.i12.sroa.gep59, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i15)
   br label %arrayctor.loop.i.i16
@@ -3819,10 +3820,9 @@ for.cond.preheader.i22:                           ; preds = %.noexc31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i15, i64 128, i1 false)
   %cameraFromWorld.sroa.0.192.mInv.i.i4.i28.c.sroa_idx = getelementptr inbounds i8, ptr %cameraFromWorld.sroa.0, i64 192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i15, ptr noundef nonnull align 8 dereferenceable(64) %cameraFromWorld.sroa.0.192.mInv.i.i4.i28.c.sroa_idx, i64 64, i1 false), !noalias !26
-  %cameraFromWorld.sroa.0.128.arrayidx.i27.c.sroa_idx = getelementptr inbounds i8, ptr %cameraFromWorld.sroa.0, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i23, ptr noundef nonnull align 8 dereferenceable(64) %cameraFromWorld.sroa.0.128.arrayidx.i27.c.sroa_idx, i64 64, i1 false), !noalias !26
-  %arrayidx3.i29.c = getelementptr inbounds i8, ptr %ref.tmp, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %arrayidx3.i29.c, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i15, i64 128, i1 false)
+  %cameraFromWorld.sroa.0.128.gep62.sroa_idx = getelementptr inbounds i8, ptr %cameraFromWorld.sroa.0, i64 128
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i.i23, ptr noundef nonnull align 8 dereferenceable(64) %cameraFromWorld.sroa.0.128.gep62.sroa_idx, i64 64, i1 false), !noalias !26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %indvars.iv.i26.sroa.gep58, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i15, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp.i15)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #27
   %call.i34 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9)
@@ -3855,7 +3855,7 @@ invoke.cont19:                                    ; preds = %invoke.cont12
   %17 = load float, ptr %transformStartTime, align 4
   %transformEndTime = getelementptr inbounds i8, ptr %this, i64 1064
   %18 = load float, ptr %transformEndTime, align 8
-  invoke void @_ZN4pbrt17AnimatedTransformC1ERKNS_9TransformEfS3_f(ptr noundef nonnull align 4 dereferenceable(696) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(128) %worldFromCamera, float noundef %17, ptr noundef nonnull align 4 dereferenceable(128) %arrayidx3.i.c, float noundef %18)
+  invoke void @_ZN4pbrt17AnimatedTransformC1ERKNS_9TransformEfS3_f(ptr noundef nonnull align 4 dereferenceable(696) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(128) %worldFromCamera, float noundef %17, ptr noundef nonnull align 4 dereferenceable(128) %indvars.iv.i12.sroa.gep59, float noundef %18)
           to label %invoke.cont22 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont22:                                    ; preds = %invoke.cont19
@@ -4037,7 +4037,7 @@ ehcleanup37:                                      ; preds = %lpad33, %lpad31
   br label %ehcleanup38
 
 ehcleanup38:                                      ; preds = %lpad2.loopexit, %lpad2.loopexit.split-lp.loopexit.split-lp, %lpad2.loopexit.split-lp.loopexit, %ehcleanup37, %ehcleanup
-  %.pn4 = phi { ptr, i32 } [ %.pn2, %ehcleanup37 ], [ %.pn, %ehcleanup ], [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit58, %lpad2.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp59, %lpad2.loopexit.split-lp.loopexit.split-lp ]
+  %.pn4 = phi { ptr, i32 } [ %.pn2, %ehcleanup37 ], [ %.pn, %ehcleanup ], [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit63, %lpad2.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp64, %lpad2.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN4pbrt19ParameterDictionaryD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %dict) #27
   br label %eh.resume
 

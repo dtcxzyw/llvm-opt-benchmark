@@ -2589,6 +2589,8 @@ entry:
   %4 = load ptr, ptr %vhost_ops, align 8
   %5 = load i32, ptr %4, align 8
   %cmp = icmp eq i32 %5, 2
+  %.sink30.sroa.gep = getelementptr inbounds i8, ptr %msg, i64 52
+  %.sink30.sroa.gep32 = getelementptr inbounds i8, ptr %msg, i64 132
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -2665,13 +2667,12 @@ if.then48:                                        ; preds = %if.then43
 
 if.end56.sink.split:                              ; preds = %if.then43, %if.then8
   %.sink31 = phi i32 [ %7, %if.then8 ], [ %10, %if.then43 ]
-  %.sink30 = phi i64 [ 52, %if.then8 ], [ 132, %if.then43 ]
+  %.sink30.sroa.phi = phi ptr [ %.sink30.sroa.gep, %if.then8 ], [ %.sink30.sroa.gep32, %if.then43 ]
   %.sink = phi i64 [ 24, %if.then8 ], [ 48, %if.then43 ]
   %conv45 = zext nneg i32 %.sink31 to i64
-  %auth_key = getelementptr inbounds i8, ptr %msg, i64 %.sink30
   %auth_key52 = getelementptr inbounds i8, ptr %session_info, i64 %.sink
   %11 = load ptr, ptr %auth_key52, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %auth_key, ptr align 1 %11, i64 %conv45, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sink30.sroa.phi, ptr align 1 %11, i64 %conv45, i1 false)
   br label %if.end56
 
 if.end56:                                         ; preds = %if.end56.sink.split, %if.end40, %if.then4

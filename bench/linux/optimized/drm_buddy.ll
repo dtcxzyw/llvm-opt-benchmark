@@ -973,7 +973,8 @@ define dso_local noundef i32 @drm_buddy_alloc_blocks(ptr nocapture noundef %0, i
   %20 = call i64 @llvm.ctpop.i64(i64 %4), !range !5
   %21 = icmp ugt i64 %20, 1
   %22 = select i1 %19, i1 true, i1 %21
-  br i1 %22, label %427, label %23
+  %.sroa.gep1 = getelementptr inbounds i8, ptr %11, i64 8
+  br i1 %22, label %425, label %23
 
 23:                                               ; preds = %7
   %24 = or i64 %2, %1
@@ -981,20 +982,20 @@ define dso_local noundef i32 @drm_buddy_alloc_blocks(ptr nocapture noundef %0, i
   %26 = add i64 %14, -1
   %27 = and i64 %26, %25
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %427
+  br i1 %28, label %29, label %425
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds i8, ptr %0, i64 32
   %31 = load i64, ptr %30, align 8
   %32 = icmp ult i64 %31, %2
-  br i1 %32, label %427, label %33
+  br i1 %32, label %425, label %33
 
 33:                                               ; preds = %29
   %34 = icmp ule i64 %31, %1
   %35 = sub i64 %31, %1
   %36 = icmp ult i64 %35, %3
   %37 = or i1 %34, %36
-  br i1 %37, label %427, label %38
+  br i1 %37, label %425, label %38
 
 38:                                               ; preds = %33
   %39 = add i64 %3, %1
@@ -1036,7 +1037,7 @@ define dso_local noundef i32 @drm_buddy_alloc_blocks(ptr nocapture noundef %0, i
 __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
   %60 = call fastcc noundef i32 @__alloc_range(ptr noundef %0, ptr noundef nonnull %8, i64 noundef %1, i64 noundef %3, ptr noundef %5, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
-  br label %427
+  br label %425
 
 61:                                               ; preds = %38
   %62 = and i64 %6, 4
@@ -1550,11 +1551,11 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
 
 360:                                              ; preds = %.split72.us
   %361 = call fastcc i32 @__alloc_contig_try_harder(ptr noundef %0, i64 noundef %3, i64 noundef %4, ptr noundef %5)
-  br label %427
+  br label %425
 
 362:                                              ; preds = %.split72.us
   call void @drm_buddy_free_list(ptr noundef %0, ptr noundef nonnull %10)
-  br label %427
+  br label %425
 
 .split69:                                         ; preds = %.thread39
   %363 = load i64, ptr %354, align 8
@@ -1590,90 +1591,89 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
 
 .split79.us:                                      ; preds = %.split69, %.split69.us.us.split, %.split69.us.us.split.us.us
   %382 = icmp eq i64 %80, %3
-  br i1 %382, label %419, label %383
+  br i1 %382, label %417, label %383
 
 383:                                              ; preds = %.split79.us
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #8
   store ptr %11, ptr %11, align 8
-  %384 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %11, ptr %384, align 8
-  %385 = load volatile ptr, ptr %10, align 8
-  %386 = icmp eq ptr %385, %10
-  %387 = load ptr, ptr %12, align 8
-  %388 = icmp ne ptr %385, %387
-  %389 = select i1 %386, i1 true, i1 %388
-  br i1 %389, label %390, label %404
+  store ptr %11, ptr %.sroa.gep1, align 8
+  %384 = load volatile ptr, ptr %10, align 8
+  %385 = icmp eq ptr %384, %10
+  %386 = load ptr, ptr %12, align 8
+  %387 = icmp ne ptr %384, %386
+  %388 = select i1 %385, i1 true, i1 %387
+  br i1 %388, label %389, label %403
 
-390:                                              ; preds = %383
-  %391 = getelementptr i8, ptr %387, i64 -40
-  %392 = getelementptr inbounds i8, ptr %387, i64 8
-  %393 = load ptr, ptr %392, align 8
-  %394 = load ptr, ptr %387, align 8
-  %395 = getelementptr inbounds i8, ptr %394, i64 8
-  store ptr %393, ptr %395, align 8
-  store volatile ptr %394, ptr %393, align 8
-  %396 = load ptr, ptr %11, align 8
-  %397 = getelementptr inbounds i8, ptr %396, i64 8
-  store ptr %387, ptr %397, align 8
-  store ptr %396, ptr %387, align 8
-  store ptr %11, ptr %392, align 8
-  store volatile ptr %387, ptr %11, align 8
-  %398 = load i64, ptr %13, align 8
-  %399 = load i64, ptr %391, align 8
-  %400 = and i64 %399, 63
-  %401 = shl i64 %398, %400
-  %402 = sub i64 %3, %80
-  %403 = add i64 %402, %401
-  br label %404
+389:                                              ; preds = %383
+  %390 = getelementptr i8, ptr %386, i64 -40
+  %391 = getelementptr inbounds i8, ptr %386, i64 8
+  %392 = load ptr, ptr %391, align 8
+  %393 = load ptr, ptr %386, align 8
+  %394 = getelementptr inbounds i8, ptr %393, i64 8
+  store ptr %392, ptr %394, align 8
+  store volatile ptr %393, ptr %392, align 8
+  %395 = load ptr, ptr %11, align 8
+  %396 = getelementptr inbounds i8, ptr %395, i64 8
+  store ptr %386, ptr %396, align 8
+  store ptr %395, ptr %386, align 8
+  store ptr %11, ptr %391, align 8
+  store volatile ptr %386, ptr %11, align 8
+  %397 = load i64, ptr %13, align 8
+  %398 = load i64, ptr %390, align 8
+  %399 = and i64 %398, 63
+  %400 = shl i64 %397, %399
+  %401 = sub i64 %3, %80
+  %402 = add i64 %401, %400
+  br label %403
 
-404:                                              ; preds = %390, %383
-  %405 = phi ptr [ %10, %383 ], [ %11, %390 ]
-  %406 = phi i64 [ %3, %383 ], [ %403, %390 ]
-  %407 = call i32 @drm_buddy_block_trim(ptr noundef %0, i64 noundef %406, ptr noundef nonnull %405)
-  %408 = load volatile ptr, ptr %11, align 8
-  %409 = icmp eq ptr %408, %11
-  br i1 %409, label %418, label %410
+403:                                              ; preds = %389, %383
+  %.sroa.phi = phi ptr [ %12, %383 ], [ %.sroa.gep1, %389 ]
+  %404 = phi ptr [ %10, %383 ], [ %11, %389 ]
+  %405 = phi i64 [ %3, %383 ], [ %402, %389 ]
+  %406 = call i32 @drm_buddy_block_trim(ptr noundef %0, i64 noundef %405, ptr noundef nonnull %404)
+  %407 = load volatile ptr, ptr %11, align 8
+  %408 = icmp eq ptr %407, %11
+  br i1 %408, label %416, label %409
 
-410:                                              ; preds = %404
-  %411 = load volatile ptr, ptr %405, align 8
-  %412 = icmp eq ptr %411, %405
-  br i1 %412, label %418, label %413
+409:                                              ; preds = %403
+  %410 = load volatile ptr, ptr %404, align 8
+  %411 = icmp eq ptr %410, %404
+  br i1 %411, label %416, label %412
 
-413:                                              ; preds = %410
-  %414 = load ptr, ptr %12, align 8
-  %415 = getelementptr inbounds i8, ptr %405, i64 8
-  %416 = load ptr, ptr %415, align 8
-  %417 = getelementptr inbounds i8, ptr %411, i64 8
-  store ptr %414, ptr %417, align 8
-  store ptr %411, ptr %414, align 8
-  store ptr %10, ptr %416, align 8
-  store ptr %416, ptr %12, align 8
-  br label %418
+412:                                              ; preds = %409
+  %413 = load ptr, ptr %12, align 8
+  %414 = load ptr, ptr %.sroa.phi, align 8
+  %415 = getelementptr inbounds i8, ptr %410, i64 8
+  store ptr %413, ptr %415, align 8
+  store ptr %410, ptr %413, align 8
+  store ptr %10, ptr %414, align 8
+  store ptr %414, ptr %12, align 8
+  br label %416
 
-418:                                              ; preds = %413, %410, %404
+416:                                              ; preds = %412, %409, %403
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
-  br label %419
+  br label %417
 
-419:                                              ; preds = %418, %.split79.us
-  %420 = load volatile ptr, ptr %10, align 8
-  %421 = icmp eq ptr %420, %10
-  br i1 %421, label %427, label %422
+417:                                              ; preds = %416, %.split79.us
+  %418 = load volatile ptr, ptr %10, align 8
+  %419 = icmp eq ptr %418, %10
+  br i1 %419, label %425, label %420
 
-422:                                              ; preds = %419
-  %423 = getelementptr inbounds i8, ptr %5, i64 8
-  %424 = load ptr, ptr %423, align 8
-  %425 = load ptr, ptr %12, align 8
-  %426 = getelementptr inbounds i8, ptr %420, i64 8
-  store ptr %424, ptr %426, align 8
-  store ptr %420, ptr %424, align 8
-  store ptr %5, ptr %425, align 8
-  store ptr %425, ptr %423, align 8
-  br label %427
+420:                                              ; preds = %417
+  %421 = getelementptr inbounds i8, ptr %5, i64 8
+  %422 = load ptr, ptr %421, align 8
+  %423 = load ptr, ptr %12, align 8
+  %424 = getelementptr inbounds i8, ptr %418, i64 8
+  store ptr %422, ptr %424, align 8
+  store ptr %418, ptr %422, align 8
+  store ptr %5, ptr %423, align 8
+  store ptr %423, ptr %421, align 8
+  br label %425
 
-427:                                              ; preds = %422, %419, %362, %360, %__drm_buddy_alloc_range.exit, %33, %29, %23, %7
-  %428 = phi i32 [ %60, %__drm_buddy_alloc_range.exit ], [ -28, %362 ], [ %361, %360 ], [ -22, %7 ], [ -22, %23 ], [ -22, %29 ], [ -22, %33 ], [ 0, %419 ], [ 0, %422 ]
+425:                                              ; preds = %420, %417, %362, %360, %__drm_buddy_alloc_range.exit, %33, %29, %23, %7
+  %426 = phi i32 [ %60, %__drm_buddy_alloc_range.exit ], [ -28, %362 ], [ %361, %360 ], [ -22, %7 ], [ -22, %23 ], [ -22, %29 ], [ -22, %33 ], [ 0, %417 ], [ 0, %420 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #8
-  ret i32 %428
+  ret i32 %426
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

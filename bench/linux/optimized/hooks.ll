@@ -2207,6 +2207,8 @@ define internal i32 @selinux_capable(ptr nocapture noundef readonly %0, ptr noun
   %17 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %2, ptr %17, align 8
   %18 = ashr i32 %2, 5
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink.sroa.gep5 = getelementptr inbounds i8, ptr %6, i64 4
   switch i32 %18, label %23 [
     i32 0, label %19
     i32 1, label %21
@@ -2249,30 +2251,29 @@ define internal i32 @selinux_capable(ptr nocapture noundef readonly %0, ptr noun
   br i1 %38, label %39, label %.thread
 
 39:                                               ; preds = %37, %34
-  %.sink = phi i64 [ 8, %34 ], [ 4, %37 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %34 ], [ %.sink.sroa.gep5, %37 ]
   %.sink3 = phi i32 [ %36, %34 ], [ %16, %37 ]
   %40 = phi i32 [ %36, %34 ], [ 0, %37 ]
-  %41 = getelementptr inbounds i8, ptr %6, i64 %.sink
-  %42 = load i32, ptr %41, align 4
-  %43 = and i32 %42, %.sink3
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %.thread2, label %.thread, !prof !18
+  %41 = load i32, ptr %.sink.sroa.phi, align 4
+  %42 = and i32 %41, %.sink3
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %.thread2, label %.thread, !prof !18
 
 .thread:                                          ; preds = %37, %39
-  %45 = phi i32 [ %43, %39 ], [ %16, %37 ]
-  %46 = phi i32 [ %40, %39 ], [ %16, %37 ]
-  %47 = call i32 @slow_avc_audit(i32 noundef %14, i32 noundef %14, i16 noundef zeroext %26, i32 noundef %16, i32 noundef %45, i32 noundef %46, i32 noundef %27, ptr noundef nonnull %5) #24
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %.thread2, label %49
+  %44 = phi i32 [ %42, %39 ], [ %16, %37 ]
+  %45 = phi i32 [ %40, %39 ], [ %16, %37 ]
+  %46 = call i32 @slow_avc_audit(i32 noundef %14, i32 noundef %14, i16 noundef zeroext %26, i32 noundef %16, i32 noundef %44, i32 noundef %45, i32 noundef %27, ptr noundef nonnull %5) #24
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %.thread2, label %48
 
 .thread2:                                         ; preds = %39, %.thread, %25
-  br label %49
+  br label %48
 
-49:                                               ; preds = %.thread2, %.thread
-  %50 = phi i32 [ %27, %.thread2 ], [ %47, %.thread ]
+48:                                               ; preds = %.thread2, %.thread
+  %49 = phi i32 [ %27, %.thread2 ], [ %46, %.thread ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
-  ret i32 %50
+  ret i32 %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -7381,7 +7382,8 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds i8, ptr %10, i64 1784
   %12 = load ptr, ptr %11, align 8
-  switch i32 %1, label %163 [
+  %.sink13.sroa.gep14 = getelementptr inbounds i8, ptr %5, i64 4
+  switch i32 %1, label %162 [
     i32 21531, label %13
     i32 1, label %13
     i32 2, label %13
@@ -7393,8 +7395,8 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
     i32 21586, label %107
     i32 19271, label %129
     i32 19273, label %129
-    i32 21585, label %156
-    i32 21584, label %156
+    i32 21585, label %155
+    i32 21584, label %155
   ]
 
 13:                                               ; preds = %3, %3, %3, %3, %3
@@ -7457,7 +7459,7 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
 58:                                               ; preds = %39, %34, %31
   %59 = phi i32 [ %32, %31 ], [ %57, %39 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #24
-  br label %167
+  br label %166
 
 60:                                               ; preds = %3, %3
   %61 = getelementptr inbounds i8, ptr %0, i64 192
@@ -7519,7 +7521,7 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
 105:                                              ; preds = %86, %81, %78
   %106 = phi i32 [ %79, %78 ], [ %104, %86 ], [ 0, %81 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #24
-  br label %167
+  br label %166
 
 107:                                              ; preds = %3, %3
   %108 = getelementptr inbounds i8, ptr %0, i64 192
@@ -7554,9 +7556,10 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
 127:                                              ; preds = %126, %123
   %128 = phi i32 [ %124, %123 ], [ 0, %126 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
-  br label %167
+  br label %166
 
 129:                                              ; preds = %3, %3
+  %.sink13.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #24
@@ -7582,53 +7585,52 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   br i1 %143, label %144, label %.thread
 
 144:                                              ; preds = %142, %129
-  %.sink13 = phi i64 [ 8, %129 ], [ 4, %142 ]
+  %.sink13.sroa.phi = phi ptr [ %.sink13.sroa.gep, %129 ], [ %.sink13.sroa.gep14, %142 ]
   %145 = phi i32 [ 67108864, %129 ], [ 0, %142 ]
-  %146 = getelementptr inbounds i8, ptr %5, i64 %.sink13
-  %147 = load i32, ptr %146, align 4
-  %148 = and i32 %147, 67108864
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %.thread11, label %.thread, !prof !18
+  %146 = load i32, ptr %.sink13.sroa.phi, align 4
+  %147 = and i32 %146, 67108864
+  %148 = icmp eq i32 %147, 0
+  br i1 %148, label %.thread11, label %.thread, !prof !18
 
 .thread:                                          ; preds = %142, %144
-  %150 = phi i32 [ %148, %144 ], [ 67108864, %142 ]
-  %151 = phi i32 [ %145, %144 ], [ 67108864, %142 ]
-  %152 = call i32 @slow_avc_audit(i32 noundef %136, i32 noundef %136, i16 noundef zeroext 5, i32 noundef 67108864, i32 noundef %150, i32 noundef %151, i32 noundef %138, ptr noundef nonnull %4) #24
-  %.fr = freeze i32 %152
-  %153 = icmp eq i32 %.fr, 0
-  br i1 %153, label %.thread11, label %154
+  %149 = phi i32 [ %147, %144 ], [ 67108864, %142 ]
+  %150 = phi i32 [ %145, %144 ], [ 67108864, %142 ]
+  %151 = call i32 @slow_avc_audit(i32 noundef %136, i32 noundef %136, i16 noundef zeroext 5, i32 noundef 67108864, i32 noundef %149, i32 noundef %150, i32 noundef %138, ptr noundef nonnull %4) #24
+  %.fr = freeze i32 %151
+  %152 = icmp eq i32 %.fr, 0
+  br i1 %152, label %.thread11, label %153
 
 .thread11:                                        ; preds = %144, %.thread
-  br label %154
+  br label %153
 
-154:                                              ; preds = %.thread, %.thread11
-  %155 = phi i32 [ %138, %.thread11 ], [ %.fr, %.thread ]
+153:                                              ; preds = %.thread, %.thread11
+  %154 = phi i32 [ %138, %.thread11 ], [ %.fr, %.thread ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
-  br label %167
+  br label %166
 
-156:                                              ; preds = %3, %3
-  %157 = load volatile i8, ptr getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 2, i64 7), align 1, !range !7, !noundef !8
-  %158 = icmp eq i8 %157, 0
-  br i1 %158, label %159, label %167
+155:                                              ; preds = %3, %3
+  %156 = load volatile i8, ptr getelementptr inbounds (%struct.selinux_state, ptr @selinux_state, i64 0, i32 2, i64 7), align 1, !range !7, !noundef !8
+  %157 = icmp eq i8 %156, 0
+  br i1 %157, label %158, label %166
 
-159:                                              ; preds = %156
-  %160 = trunc i32 %1 to i16
-  %161 = getelementptr i8, ptr %12, i64 128
-  %.val = load ptr, ptr %161, align 8
-  %162 = tail call fastcc i32 @ioctl_has_perm(ptr %.val, ptr noundef %0, i16 noundef zeroext %160)
-  br label %167
+158:                                              ; preds = %155
+  %159 = trunc i32 %1 to i16
+  %160 = getelementptr i8, ptr %12, i64 128
+  %.val = load ptr, ptr %160, align 8
+  %161 = tail call fastcc i32 @ioctl_has_perm(ptr %.val, ptr noundef %0, i16 noundef zeroext %159)
+  br label %166
 
-163:                                              ; preds = %3
-  %164 = trunc i32 %1 to i16
-  %165 = getelementptr i8, ptr %12, i64 128
-  %.val10 = load ptr, ptr %165, align 8
-  %166 = tail call fastcc i32 @ioctl_has_perm(ptr %.val10, ptr noundef %0, i16 noundef zeroext %164)
-  br label %167
+162:                                              ; preds = %3
+  %163 = trunc i32 %1 to i16
+  %164 = getelementptr i8, ptr %12, i64 128
+  %.val10 = load ptr, ptr %164, align 8
+  %165 = tail call fastcc i32 @ioctl_has_perm(ptr %.val10, ptr noundef %0, i16 noundef zeroext %163)
+  br label %166
 
-167:                                              ; preds = %163, %159, %156, %154, %127, %105, %58
-  %168 = phi i32 [ %166, %163 ], [ 0, %156 ], [ %162, %159 ], [ %155, %154 ], [ %128, %127 ], [ %106, %105 ], [ %59, %58 ]
-  ret i32 %168
+166:                                              ; preds = %162, %158, %155, %153, %127, %105, %58
+  %167 = phi i32 [ %165, %162 ], [ 0, %155 ], [ %161, %158 ], [ %154, %153 ], [ %128, %127 ], [ %106, %105 ], [ %59, %58 ]
+  ret i32 %167
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -13598,9 +13600,11 @@ define internal fastcc zeroext i1 @has_cap_mac_admin() unnamed_addr #1 align 16 
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @cap_capable(ptr noundef %6, ptr noundef nonnull @init_user_ns, i32 noundef 33, i32 noundef 0) #24
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %38
+  %.sink1.sroa.gep1 = getelementptr inbounds i8, ptr %2, i64 4
+  br i1 %8, label %9, label %37
 
 9:                                                ; preds = %0
+  %.sink1.sroa.gep = getelementptr inbounds i8, ptr %2, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #24
@@ -13626,34 +13630,33 @@ define internal fastcc zeroext i1 @has_cap_mac_admin() unnamed_addr #1 align 16 
   br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %22, %9
-  %.sink1 = phi i64 [ 8, %9 ], [ 4, %22 ]
+  %.sink1.sroa.phi = phi ptr [ %.sink1.sroa.gep, %9 ], [ %.sink1.sroa.gep1, %22 ]
   %25 = phi i32 [ 2, %9 ], [ 0, %22 ]
-  %26 = getelementptr inbounds i8, ptr %2, i64 %.sink1
-  %27 = load i32, ptr %26, align 4
-  %28 = and i32 %27, 2
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %34, label %.thread, !prof !18
+  %26 = load i32, ptr %.sink1.sroa.phi, align 4
+  %27 = and i32 %26, 2
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %33, label %.thread, !prof !18
 
 .thread:                                          ; preds = %22, %24
-  %30 = phi i32 [ %28, %24 ], [ 2, %22 ]
-  %31 = phi i32 [ %25, %24 ], [ 2, %22 ]
-  %32 = call i32 @slow_avc_audit(i32 noundef %16, i32 noundef %16, i16 noundef zeroext 54, i32 noundef 2, i32 noundef %30, i32 noundef %31, i32 noundef %18, ptr noundef nonnull %1) #24
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %36
+  %29 = phi i32 [ %27, %24 ], [ 2, %22 ]
+  %30 = phi i32 [ %25, %24 ], [ 2, %22 ]
+  %31 = call i32 @slow_avc_audit(i32 noundef %16, i32 noundef %16, i16 noundef zeroext 54, i32 noundef 2, i32 noundef %29, i32 noundef %30, i32 noundef %18, ptr noundef nonnull %1) #24
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %35
 
-34:                                               ; preds = %.thread, %24
-  %35 = icmp eq i32 %18, 0
-  br label %36
+33:                                               ; preds = %.thread, %24
+  %34 = icmp eq i32 %18, 0
+  br label %35
 
-36:                                               ; preds = %34, %.thread
-  %37 = phi i1 [ %35, %34 ], [ false, %.thread ]
+35:                                               ; preds = %33, %.thread
+  %36 = phi i1 [ %34, %33 ], [ false, %.thread ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #24
-  br label %38
+  br label %37
 
-38:                                               ; preds = %36, %0
-  %39 = phi i1 [ false, %0 ], [ %37, %36 ]
-  ret i1 %39
+37:                                               ; preds = %35, %0
+  %38 = phi i1 [ false, %0 ], [ %36, %35 ]
+  ret i1 %38
 }
 
 ; Function Attrs: null_pointer_is_valid

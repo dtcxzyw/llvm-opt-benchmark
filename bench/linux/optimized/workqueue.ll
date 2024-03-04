@@ -8148,9 +8148,10 @@ define dso_local void @workqueue_init_early() local_unnamed_addr #12 section ".i
 .preheader.preheader:                             ; preds = %41, %.loopexit, %47
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %119
-  %102 = phi i1 [ false, %119 ], [ true, %.preheader.preheader ]
-  %103 = phi i64 [ 1, %119 ], [ 0, %.preheader.preheader ]
+.preheader:                                       ; preds = %.preheader.preheader, %118
+  %102 = phi i1 [ false, %118 ], [ true, %.preheader.preheader ]
+  %.sroa.phi = phi ptr [ %2, %118 ], [ %1, %.preheader.preheader ]
+  %103 = phi i64 [ 1, %118 ], [ 0, %.preheader.preheader ]
   %104 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
   %105 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %104, i32 noundef 3520, i64 noundef 40) #30
   %106 = icmp eq ptr %105, null
@@ -8167,35 +8168,35 @@ define dso_local void @workqueue_init_early() local_unnamed_addr #12 section ".i
   store i64 %110, ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %105, i64 28
   store i32 0, ptr %111, align 4
-  %112 = getelementptr [2 x i32], ptr %1, i64 0, i64 %103
-  %113 = load i32, ptr %112, align 4
-  store i32 %113, ptr %105, align 8
-  %114 = getelementptr [2 x ptr], ptr @unbound_std_wq_attrs, i64 0, i64 %103
-  store ptr %105, ptr %114, align 8
-  %115 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %116 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %115, i32 noundef 3520, i64 noundef 40) #30
-  %117 = icmp eq ptr %116, null
-  br i1 %117, label %118, label %119
+  %112 = load i32, ptr %.sroa.phi, align 4
+  store i32 %112, ptr %105, align 8
+  %113 = getelementptr [2 x ptr], ptr @unbound_std_wq_attrs, i64 0, i64 %103
+  store ptr %105, ptr %113, align 8
+  %114 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
+  %115 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %114, i32 noundef 3520, i64 noundef 40) #30
+  %116 = icmp eq ptr %115, null
+  br i1 %116, label %117, label %118
 
-118:                                              ; preds = %108
+117:                                              ; preds = %108
   tail call void asm sideeffect "753: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 753b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 753) #25, !srcloc !278
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 6675, i32 0, i64 12) #25, !srcloc !279
   unreachable
 
-119:                                              ; preds = %108
-  %120 = getelementptr inbounds i8, ptr %116, i64 8
-  %121 = load i64, ptr @__cpu_possible_mask, align 8
-  store i64 %121, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %116, i64 28
-  store i32 0, ptr %122, align 4
-  store i32 %113, ptr %116, align 8
-  %123 = getelementptr inbounds i8, ptr %116, i64 32
+118:                                              ; preds = %108
+  %119 = getelementptr inbounds i8, ptr %115, i64 8
+  %120 = load i64, ptr @__cpu_possible_mask, align 8
+  store i64 %120, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %115, i64 28
+  store i32 0, ptr %121, align 4
+  %122 = load i32, ptr %.sroa.phi, align 4
+  store i32 %122, ptr %115, align 8
+  %123 = getelementptr inbounds i8, ptr %115, i64 32
   store i8 1, ptr %123, align 8
   %124 = getelementptr [2 x ptr], ptr @ordered_wq_attrs, i64 0, i64 %103
-  store ptr %116, ptr %124, align 8
+  store ptr %115, ptr %124, align 8
   br i1 %102, label %.preheader, label %125, !llvm.loop !280
 
-125:                                              ; preds = %119
+125:                                              ; preds = %118
   %126 = tail call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.18, i32 noundef 0, i32 noundef 0)
   store ptr %126, ptr @system_wq, align 8
   %127 = tail call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.19, i32 noundef 16, i32 noundef 0)

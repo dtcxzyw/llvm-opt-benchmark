@@ -9,6 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.PgStat_SLRUStats = type { i64, i64, i64, i64, i64, i64, i64, i64 }
 %struct.nameData = type { [64 x i8] }
 %struct.PgStat_StatReplSlotEntry = type { i64, i64, i64, i64, i64, i64, i64, i64, i64 }
+%struct.PgStat_StatSubEntry = type { i64, i64, i64 }
 
 @.str = private unnamed_addr constant [7 x i8] c"VACUUM\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"ANALYZE\00", align 1
@@ -2907,6 +2908,34 @@ define dso_local noundef i64 @pg_stat_get_io(ptr noundef %0) local_unnamed_addr 
   %12 = getelementptr inbounds i8, ptr %2, i64 88
   %13 = getelementptr inbounds i8, ptr %5, i64 40
   %14 = getelementptr inbounds i8, ptr %5, i64 48
+  %.0.i53.sroa.gep = getelementptr inbounds i8, ptr %3, i64 7
+  %.0.i53.sroa.gep84 = getelementptr inbounds i8, ptr %3, i64 5
+  %.0.i53.sroa.gep85 = getelementptr inbounds i8, ptr %3, i64 3
+  %.0.i53.sroa.gep86 = getelementptr inbounds i8, ptr %3, i64 9
+  %.0.i53.sroa.gep87 = getelementptr inbounds i8, ptr %3, i64 15
+  %.0.i53.sroa.gep88 = getelementptr inbounds i8, ptr %3, i64 12
+  %.0.i53.sroa.gep89 = getelementptr inbounds i8, ptr %3, i64 14
+  %.0.i53.sroa.gep90 = getelementptr inbounds i8, ptr %3, i64 13
+  %.0.i51.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
+  %.0.i51.sroa.gep100 = getelementptr inbounds i8, ptr %3, i64 6
+  %.0.i51.sroa.gep101 = getelementptr inbounds i8, ptr %3, i64 4
+  %.0.i51.sroa.gep102 = getelementptr inbounds i8, ptr %3, i64 10
+  %.0.i51.sroa.gep103 = getelementptr inbounds i8, ptr %3, i64 16
+  %.0.i51.sroa.gep104 = getelementptr i8, ptr %3, i64 4294967295
+  %.0.i53.sroa.gep108 = getelementptr inbounds i8, ptr %2, i64 56
+  %.0.i53.sroa.gep109 = getelementptr inbounds i8, ptr %2, i64 40
+  %.0.i53.sroa.gep110 = getelementptr inbounds i8, ptr %2, i64 24
+  %.0.i53.sroa.gep111 = getelementptr inbounds i8, ptr %2, i64 72
+  %.0.i53.sroa.gep112 = getelementptr inbounds i8, ptr %2, i64 120
+  %.0.i53.sroa.gep113 = getelementptr inbounds i8, ptr %2, i64 96
+  %.0.i53.sroa.gep114 = getelementptr inbounds i8, ptr %2, i64 112
+  %.0.i53.sroa.gep115 = getelementptr inbounds i8, ptr %2, i64 104
+  %.0.i51.sroa.gep117 = getelementptr inbounds i8, ptr %2, i64 64
+  %.0.i51.sroa.gep118 = getelementptr inbounds i8, ptr %2, i64 48
+  %.0.i51.sroa.gep119 = getelementptr inbounds i8, ptr %2, i64 32
+  %.0.i51.sroa.gep120 = getelementptr inbounds i8, ptr %2, i64 80
+  %.0.i51.sroa.gep121 = getelementptr inbounds i8, ptr %2, i64 128
+  %.0.i51.sroa.gep122 = getelementptr i8, ptr %2, i64 34359738360
   br label %15
 
 15:                                               ; preds = %1, %.loopexit
@@ -2923,21 +2952,21 @@ define dso_local noundef i64 @pg_stat_get_io(ptr noundef %0) local_unnamed_addr 
   %22 = getelementptr inbounds i8, ptr %20, i64 512
   br label %23
 
-23:                                               ; preds = %.preheader, %71
-  %24 = phi i1 [ true, %.preheader ], [ false, %71 ]
-  %indvars.iv77 = phi i64 [ 0, %.preheader ], [ 1, %71 ]
+23:                                               ; preds = %.preheader, %66
+  %24 = phi i1 [ true, %.preheader ], [ false, %66 ]
+  %indvars.iv77 = phi i64 [ 0, %.preheader ], [ 1, %66 ]
   %25 = trunc i64 %indvars.iv77 to i32
   %26 = call ptr @pgstat_get_io_object_name(i32 noundef %25) #10
   br label %27
 
-27:                                               ; preds = %23, %70
-  %indvars.iv73 = phi i64 [ 0, %23 ], [ %indvars.iv.next74, %70 ]
+27:                                               ; preds = %23, %65
+  %indvars.iv73 = phi i64 [ 0, %23 ], [ %indvars.iv.next74, %65 ]
   %28 = trunc i64 %indvars.iv73 to i32
   %29 = call ptr @pgstat_get_io_context_name(i32 noundef %28) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %2, i8 0, i64 144, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %3, i8 0, i64 18, i1 false)
   %30 = call zeroext i1 @pgstat_tracks_io_object(i32 noundef %16, i32 noundef %25, i32 noundef %28) #10
-  br i1 %30, label %31, label %70
+  br i1 %30, label %31, label %65
 
 31:                                               ; preds = %27
   store i64 %19, ptr %2, align 16
@@ -2951,8 +2980,8 @@ define dso_local noundef i64 @pg_stat_get_io(ptr noundef %0) local_unnamed_addr 
   store i64 8192, ptr %12, align 8
   br label %36
 
-36:                                               ; preds = %31, %66
-  %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %66 ]
+36:                                               ; preds = %31, %61
+  %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %61 ]
   %37 = trunc i64 %indvars.iv to i32
   switch i32 %37, label %40 [
     i32 0, label %pgstat_get_io_op_index.exit.thread
@@ -2994,73 +3023,70 @@ pgstat_get_io_op_index.exit.i:                    ; preds = %36
   br label %pgstat_get_io_time_index.exit
 
 pgstat_get_io_time_index.exit:                    ; preds = %39, %38, %36, %pgstat_get_io_op_index.exit.thread, %43, %pgstat_get_io_op_index.exit, %44, %pgstat_get_io_op_index.exit.i
-  %.0.i53 = phi i64 [ 7, %44 ], [ 5, %pgstat_get_io_op_index.exit ], [ 3, %43 ], [ 9, %pgstat_get_io_op_index.exit.i ], [ 15, %36 ], [ 12, %38 ], [ 14, %39 ], [ 13, %pgstat_get_io_op_index.exit.thread ]
+  %.0.i53.sroa.phi = phi ptr [ %.0.i53.sroa.gep, %44 ], [ %.0.i53.sroa.gep84, %pgstat_get_io_op_index.exit ], [ %.0.i53.sroa.gep85, %43 ], [ %.0.i53.sroa.gep86, %pgstat_get_io_op_index.exit.i ], [ %.0.i53.sroa.gep87, %36 ], [ %.0.i53.sroa.gep88, %38 ], [ %.0.i53.sroa.gep89, %39 ], [ %.0.i53.sroa.gep90, %pgstat_get_io_op_index.exit.thread ]
+  %.0.i53.sroa.phi107 = phi ptr [ %.0.i53.sroa.gep108, %44 ], [ %.0.i53.sroa.gep109, %pgstat_get_io_op_index.exit ], [ %.0.i53.sroa.gep110, %43 ], [ %.0.i53.sroa.gep111, %pgstat_get_io_op_index.exit.i ], [ %.0.i53.sroa.gep112, %36 ], [ %.0.i53.sroa.gep113, %38 ], [ %.0.i53.sroa.gep114, %39 ], [ %.0.i53.sroa.gep115, %pgstat_get_io_op_index.exit.thread ]
   %45 = phi i1 [ false, %44 ], [ false, %pgstat_get_io_op_index.exit ], [ false, %43 ], [ false, %pgstat_get_io_op_index.exit.i ], [ false, %36 ], [ true, %38 ], [ true, %39 ], [ true, %pgstat_get_io_op_index.exit.thread ]
-  %.0.i51 = phi i64 [ 8, %44 ], [ 6, %pgstat_get_io_op_index.exit ], [ 4, %43 ], [ 10, %pgstat_get_io_op_index.exit.i ], [ 16, %36 ], [ 4294967295, %38 ], [ 4294967295, %39 ], [ 4294967295, %pgstat_get_io_op_index.exit.thread ]
+  %.0.i51.sroa.phi = phi ptr [ %.0.i51.sroa.gep, %44 ], [ %.0.i51.sroa.gep100, %pgstat_get_io_op_index.exit ], [ %.0.i51.sroa.gep101, %43 ], [ %.0.i51.sroa.gep102, %pgstat_get_io_op_index.exit.i ], [ %.0.i51.sroa.gep103, %36 ], [ %.0.i51.sroa.gep104, %38 ], [ %.0.i51.sroa.gep104, %39 ], [ %.0.i51.sroa.gep104, %pgstat_get_io_op_index.exit.thread ]
+  %.0.i51.sroa.phi116 = phi ptr [ %.0.i51.sroa.gep117, %44 ], [ %.0.i51.sroa.gep118, %pgstat_get_io_op_index.exit ], [ %.0.i51.sroa.gep119, %43 ], [ %.0.i51.sroa.gep120, %pgstat_get_io_op_index.exit.i ], [ %.0.i51.sroa.gep121, %36 ], [ %.0.i51.sroa.gep122, %38 ], [ %.0.i51.sroa.gep122, %39 ], [ %.0.i51.sroa.gep122, %pgstat_get_io_op_index.exit.thread ]
   %46 = call zeroext i1 @pgstat_tracks_io_op(i32 noundef %16, i32 noundef %25, i32 noundef %28, i32 noundef %37) #10
-  br i1 %46, label %47, label %51
+  br i1 %46, label %47, label %50
 
 47:                                               ; preds = %pgstat_get_io_time_index.exit
   %48 = getelementptr [2 x [4 x [8 x i64]]], ptr %20, i64 0, i64 %indvars.iv77, i64 %indvars.iv73, i64 %indvars.iv
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr [18 x i64], ptr %2, i64 0, i64 %.0.i53
-  store i64 %49, ptr %50, align 8
-  br label %53
+  store i64 %49, ptr %.0.i53.sroa.phi107, align 8
+  br label %51
 
-51:                                               ; preds = %pgstat_get_io_time_index.exit
-  %52 = getelementptr [18 x i8], ptr %3, i64 0, i64 %.0.i53
-  store i8 1, ptr %52, align 1
-  br label %53
+50:                                               ; preds = %pgstat_get_io_time_index.exit
+  store i8 1, ptr %.0.i53.sroa.phi, align 1
+  br label %51
 
-53:                                               ; preds = %51, %47
-  br i1 %45, label %66, label %54
+51:                                               ; preds = %50, %47
+  br i1 %45, label %61, label %52
 
-54:                                               ; preds = %53
-  %55 = getelementptr [18 x i8], ptr %3, i64 0, i64 %.0.i53
-  %56 = load i8, ptr %55, align 1
-  %57 = and i8 %56, 1
-  %.not = icmp eq i8 %57, 0
-  br i1 %.not, label %58, label %64
+52:                                               ; preds = %51
+  %53 = load i8, ptr %.0.i53.sroa.phi, align 1
+  %54 = and i8 %53, 1
+  %.not = icmp eq i8 %54, 0
+  br i1 %.not, label %55, label %60
 
-58:                                               ; preds = %54
-  %59 = getelementptr [2 x [4 x [8 x i64]]], ptr %22, i64 0, i64 %indvars.iv77, i64 %indvars.iv73, i64 %indvars.iv
-  %60 = load i64, ptr %59, align 8
-  %61 = sitofp i64 %60 to double
-  %62 = fmul double %61, 1.000000e-03
-  %63 = getelementptr [18 x i64], ptr %2, i64 0, i64 %.0.i51
-  store double %62, ptr %63, align 8
-  br label %66
+55:                                               ; preds = %52
+  %56 = getelementptr [2 x [4 x [8 x i64]]], ptr %22, i64 0, i64 %indvars.iv77, i64 %indvars.iv73, i64 %indvars.iv
+  %57 = load i64, ptr %56, align 8
+  %58 = sitofp i64 %57 to double
+  %59 = fmul double %58, 1.000000e-03
+  store double %59, ptr %.0.i51.sroa.phi116, align 8
+  br label %61
 
-64:                                               ; preds = %54
-  %65 = getelementptr [18 x i8], ptr %3, i64 0, i64 %.0.i51
-  store i8 1, ptr %65, align 1
-  br label %66
+60:                                               ; preds = %52
+  store i8 1, ptr %.0.i51.sroa.phi, align 1
+  br label %61
 
-66:                                               ; preds = %58, %64, %53
+61:                                               ; preds = %55, %60, %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %67, label %36, !llvm.loop !10
+  br i1 %exitcond.not, label %62, label %36, !llvm.loop !10
 
-67:                                               ; preds = %66
-  %68 = load ptr, ptr %13, align 8
-  %69 = load ptr, ptr %14, align 8
-  call void @tuplestore_putvalues(ptr noundef %68, ptr noundef %69, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
-  br label %70
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %13, align 8
+  %64 = load ptr, ptr %14, align 8
+  call void @tuplestore_putvalues(ptr noundef %63, ptr noundef %64, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
+  br label %65
 
-70:                                               ; preds = %27, %67
+65:                                               ; preds = %27, %62
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, 4
-  br i1 %exitcond76.not, label %71, label %27, !llvm.loop !11
+  br i1 %exitcond76.not, label %66, label %27, !llvm.loop !11
 
-71:                                               ; preds = %70
+66:                                               ; preds = %65
   br i1 %24, label %23, label %.loopexit, !llvm.loop !12
 
-.loopexit:                                        ; preds = %71, %15
+.loopexit:                                        ; preds = %66, %15
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next81, 16
-  br i1 %exitcond83.not, label %72, label %15, !llvm.loop !13
+  br i1 %exitcond83.not, label %67, label %15, !llvm.loop !13
 
-72:                                               ; preds = %.loopexit
+67:                                               ; preds = %.loopexit
   ret i64 0
 }
 
@@ -3874,88 +3900,70 @@ define dso_local i64 @pg_stat_get_replication_slot(ptr nocapture noundef readonl
   %13 = tail call ptr @text_to_cstring(ptr noundef %9) #10
   call void @namestrcpy(ptr noundef nonnull %2, ptr noundef %13) #10
   %14 = call ptr @pgstat_fetch_replslot(ptr noundef nonnull byval(%struct.nameData) align 8 %2) #10
-  %.sroa.gep48 = getelementptr inbounds i8, ptr %14, i64 64
-  %.sroa.gep45 = getelementptr inbounds i8, ptr %14, i64 56
-  %.sroa.gep42 = getelementptr inbounds i8, ptr %14, i64 48
-  %.sroa.gep39 = getelementptr inbounds i8, ptr %14, i64 40
-  %.sroa.gep36 = getelementptr inbounds i8, ptr %14, i64 32
-  %.sroa.gep33 = getelementptr inbounds i8, ptr %14, i64 24
-  %.sroa.gep30 = getelementptr inbounds i8, ptr %14, i64 16
-  %.sroa.gep27 = getelementptr inbounds i8, ptr %14, i64 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %15, label %16
 
 15:                                               ; preds = %1
-  %.sroa.gep28 = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.gep31 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.gep34 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.gep37 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.gep40 = getelementptr inbounds i8, ptr %5, i64 40
-  %.sroa.gep43 = getelementptr inbounds i8, ptr %5, i64 48
-  %.sroa.gep46 = getelementptr inbounds i8, ptr %5, i64 56
-  %.sroa.gep49 = getelementptr inbounds i8, ptr %5, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   br label %16
 
 16:                                               ; preds = %15, %1
-  %.0.sroa.phi = phi ptr [ %14, %1 ], [ %5, %15 ]
-  %.0.sroa.phi26 = phi ptr [ %.sroa.gep27, %1 ], [ %.sroa.gep28, %15 ]
-  %.0.sroa.phi29 = phi ptr [ %.sroa.gep30, %1 ], [ %.sroa.gep31, %15 ]
-  %.0.sroa.phi32 = phi ptr [ %.sroa.gep33, %1 ], [ %.sroa.gep34, %15 ]
-  %.0.sroa.phi35 = phi ptr [ %.sroa.gep36, %1 ], [ %.sroa.gep37, %15 ]
-  %.0.sroa.phi38 = phi ptr [ %.sroa.gep39, %1 ], [ %.sroa.gep40, %15 ]
-  %.0.sroa.phi41 = phi ptr [ %.sroa.gep42, %1 ], [ %.sroa.gep43, %15 ]
-  %.0.sroa.phi44 = phi ptr [ %.sroa.gep45, %1 ], [ %.sroa.gep46, %15 ]
-  %.0.sroa.phi47 = phi ptr [ %.sroa.gep48, %1 ], [ %.sroa.gep49, %15 ]
+  %.0 = phi ptr [ %14, %1 ], [ %5, %15 ]
   %17 = call ptr @cstring_to_text(ptr noundef nonnull %2) #10
   %18 = ptrtoint ptr %17 to i64
   store i64 %18, ptr %3, align 16
-  %19 = load i64, ptr %.0.sroa.phi, align 8
+  %19 = load i64, ptr %.0, align 8
   %20 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %19, ptr %20, align 8
-  %21 = load i64, ptr %.0.sroa.phi26, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 %21, ptr %22, align 16
-  %23 = load i64, ptr %.0.sroa.phi29, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 %23, ptr %24, align 8
-  %25 = load i64, ptr %.0.sroa.phi32, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 32
-  store i64 %25, ptr %26, align 16
-  %27 = load i64, ptr %.0.sroa.phi35, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 40
-  store i64 %27, ptr %28, align 8
-  %29 = load i64, ptr %.0.sroa.phi38, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 48
-  store i64 %29, ptr %30, align 16
-  %31 = load i64, ptr %.0.sroa.phi41, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 56
+  %21 = getelementptr inbounds i8, ptr %.0, i64 8
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 %22, ptr %23, align 16
+  %24 = getelementptr inbounds i8, ptr %.0, i64 16
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 %25, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %.0, i64 24
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %3, i64 32
+  store i64 %28, ptr %29, align 16
+  %30 = getelementptr inbounds i8, ptr %.0, i64 32
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %3, i64 40
   store i64 %31, ptr %32, align 8
-  %33 = load i64, ptr %.0.sroa.phi44, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 64
-  store i64 %33, ptr %34, align 16
-  %35 = load i64, ptr %.0.sroa.phi47, align 8
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %37, label %39
+  %33 = getelementptr inbounds i8, ptr %.0, i64 40
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %3, i64 48
+  store i64 %34, ptr %35, align 16
+  %36 = getelementptr inbounds i8, ptr %.0, i64 48
+  %37 = load i64, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %3, i64 56
+  store i64 %37, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %.0, i64 56
+  %40 = load i64, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %3, i64 64
+  store i64 %40, ptr %41, align 16
+  %42 = getelementptr inbounds i8, ptr %.0, i64 64
+  %43 = load i64, ptr %42, align 8
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %45, label %47
 
-37:                                               ; preds = %16
-  %38 = getelementptr inbounds i8, ptr %4, i64 9
-  store i8 1, ptr %38, align 1
-  br label %43
+45:                                               ; preds = %16
+  %46 = getelementptr inbounds i8, ptr %4, i64 9
+  store i8 1, ptr %46, align 1
+  br label %49
 
-39:                                               ; preds = %16
-  %40 = getelementptr inbounds i8, ptr %.0.sroa.phi, i64 64
-  %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %3, i64 72
-  store i64 %41, ptr %42, align 8
-  br label %43
+47:                                               ; preds = %16
+  %48 = getelementptr inbounds i8, ptr %3, i64 72
+  store i64 %43, ptr %48, align 8
+  br label %49
 
-43:                                               ; preds = %39, %37
-  %44 = call ptr @heap_form_tuple(ptr noundef %11, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
-  %45 = getelementptr i8, ptr %44, i64 16
-  %.val = load ptr, ptr %45, align 8
-  %46 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #10
-  ret i64 %46
+49:                                               ; preds = %47, %45
+  %50 = call ptr @heap_form_tuple(ptr noundef %11, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
+  %51 = getelementptr i8, ptr %50, i64 16
+  %.val = load ptr, ptr %51, align 8
+  %52 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #10
+  ret i64 %52
 }
 
 declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
@@ -3968,55 +3976,63 @@ declare ptr @pgstat_fetch_replslot(ptr noundef byval(%struct.nameData) align 8) 
 define dso_local i64 @pg_stat_get_subscription_stats(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [4 x i64], align 16
   %3 = alloca [4 x i8], align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = load i64, ptr %4, align 8
-  %6 = trunc i64 %5 to i32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
+  %4 = alloca %struct.PgStat_StatSubEntry, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = load i64, ptr %5, align 8
+  %7 = trunc i64 %6 to i32
+  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 16, i1 false)
   store i32 0, ptr %3, align 4
-  %7 = tail call ptr @pgstat_fetch_stat_subscription(i32 noundef %6) #10
-  %8 = tail call ptr @CreateTemplateTupleDesc(i32 noundef 4) #10
-  tail call void @TupleDescInitEntry(ptr noundef %8, i16 noundef signext 1, ptr noundef nonnull @.str.54, i32 noundef 26, i32 noundef -1, i32 noundef 0) #10
-  tail call void @TupleDescInitEntry(ptr noundef %8, i16 noundef signext 2, ptr noundef nonnull @.str.55, i32 noundef 20, i32 noundef -1, i32 noundef 0) #10
-  tail call void @TupleDescInitEntry(ptr noundef %8, i16 noundef signext 3, ptr noundef nonnull @.str.56, i32 noundef 20, i32 noundef -1, i32 noundef 0) #10
-  tail call void @TupleDescInitEntry(ptr noundef %8, i16 noundef signext 4, ptr noundef nonnull @.str.27, i32 noundef 1184, i32 noundef -1, i32 noundef 0) #10
-  %9 = tail call ptr @BlessTupleDesc(ptr noundef %8) #10
-  %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.thread, label %12
+  %9 = tail call ptr @pgstat_fetch_stat_subscription(i32 noundef %7) #10
+  %10 = tail call ptr @CreateTemplateTupleDesc(i32 noundef 4) #10
+  tail call void @TupleDescInitEntry(ptr noundef %10, i16 noundef signext 1, ptr noundef nonnull @.str.54, i32 noundef 26, i32 noundef -1, i32 noundef 0) #10
+  tail call void @TupleDescInitEntry(ptr noundef %10, i16 noundef signext 2, ptr noundef nonnull @.str.55, i32 noundef 20, i32 noundef -1, i32 noundef 0) #10
+  tail call void @TupleDescInitEntry(ptr noundef %10, i16 noundef signext 3, ptr noundef nonnull @.str.56, i32 noundef 20, i32 noundef -1, i32 noundef 0) #10
+  tail call void @TupleDescInitEntry(ptr noundef %10, i16 noundef signext 4, ptr noundef nonnull @.str.27, i32 noundef 1184, i32 noundef -1, i32 noundef 0) #10
+  %11 = tail call ptr @BlessTupleDesc(ptr noundef %10) #10
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %12, label %._crit_edge
 
-.thread:                                          ; preds = %1
-  %10 = and i64 %5, 4294967295
-  store i64 %10, ptr %2, align 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  br label %17
+._crit_edge:                                      ; preds = %1
+  %.pre = load i64, ptr %9, align 8
+  br label %13
 
 12:                                               ; preds = %1
-  %.sroa.gep18 = getelementptr inbounds i8, ptr %7, i64 16
-  %.pre22 = load i64, ptr %.sroa.gep18, align 8
-  %13 = and i64 %5, 4294967295
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
-  %15 = load <2 x i64>, ptr %7, align 8
-  store i64 %13, ptr %2, align 16
-  store <2 x i64> %15, ptr %14, align 8
-  %16 = icmp eq i64 %.pre22, 0
-  br i1 %16, label %17, label %19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  br label %13
 
-17:                                               ; preds = %.thread, %12
-  %18 = getelementptr inbounds i8, ptr %3, i64 3
-  store i8 1, ptr %18, align 1
-  br label %21
+13:                                               ; preds = %._crit_edge, %12
+  %14 = phi i64 [ %.pre, %._crit_edge ], [ 0, %12 ]
+  %.0 = phi ptr [ %9, %._crit_edge ], [ %4, %12 ]
+  %15 = and i64 %6, 4294967295
+  store i64 %15, ptr %2, align 16
+  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %14, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %.0, i64 8
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  store i64 %18, ptr %19, align 16
+  %20 = getelementptr inbounds i8, ptr %.0, i64 16
+  %21 = load i64, ptr %20, align 8
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %23, label %25
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %2, i64 24
-  store i64 %.pre22, ptr %20, align 8
-  br label %21
+23:                                               ; preds = %13
+  %24 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 1, ptr %24, align 1
+  br label %27
 
-21:                                               ; preds = %19, %17
-  %22 = call ptr @heap_form_tuple(ptr noundef %8, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
-  %23 = getelementptr i8, ptr %22, i64 16
-  %.val = load ptr, ptr %23, align 8
-  %24 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #10
-  ret i64 %24
+25:                                               ; preds = %13
+  %26 = getelementptr inbounds i8, ptr %2, i64 24
+  store i64 %21, ptr %26, align 8
+  br label %27
+
+27:                                               ; preds = %25, %23
+  %28 = call ptr @heap_form_tuple(ptr noundef %10, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
+  %29 = getelementptr i8, ptr %28, i64 16
+  %.val = load ptr, ptr %29, align 8
+  %30 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #10
+  ret i64 %30
 }
 
 declare ptr @pgstat_fetch_stat_subscription(i32 noundef) local_unnamed_addr #1

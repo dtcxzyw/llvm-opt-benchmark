@@ -87,8 +87,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.pbrt::Point2.85" = type { %"class.pbrt::Tuple2.86" }
 %"class.pbrt::Tuple2.86" = type { i32, i32 }
 %"class.pbrt::Half" = type { i16 }
-%"struct.pbrt::WrapMode2D" = type { %"class.pstd::array.123" }
-%"class.pstd::array.123" = type { [2 x i32] }
 %class.anon.135 = type { ptr }
 %"struct.pbrt::TexCoord2D" = type { %"class.pbrt::Point2", float, float, float, float }
 %"struct.pbrt::LightBVHNode" = type { %"class.pbrt::CompactLightBounds", %struct.anon.156, [4 x i8] }
@@ -6880,11 +6878,16 @@ declare float @llvm.floor.f32(float) #3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE(ptr noundef %pp, i64 %resolution.coerce, i64 %wrapMode.coerce) local_unnamed_addr #1 comdat {
 entry:
-  %wrapMode = alloca %"struct.pbrt::WrapMode2D", align 8
+  %wrapMode.sroa.0 = alloca i32, align 8
+  %wrapMode.sroa.2 = alloca i32, align 4
   %resolution.sroa.0.0.extract.trunc = trunc i64 %resolution.coerce to i32
   %resolution.sroa.9.0.extract.shift = lshr i64 %resolution.coerce, 32
   %resolution.sroa.9.0.extract.trunc = trunc i64 %resolution.sroa.9.0.extract.shift to i32
-  store i64 %wrapMode.coerce, ptr %wrapMode, align 8
+  %wrapMode.sroa.0.0.extract.trunc = trunc i64 %wrapMode.coerce to i32
+  store i32 %wrapMode.sroa.0.0.extract.trunc, ptr %wrapMode.sroa.0, align 8
+  %wrapMode.sroa.2.0.extract.shift = lshr i64 %wrapMode.coerce, 32
+  %wrapMode.sroa.2.0.extract.trunc = trunc i64 %wrapMode.sroa.2.0.extract.shift to i32
+  store i32 %wrapMode.sroa.2.0.extract.trunc, ptr %wrapMode.sroa.2, align 4
   %0 = and i64 %wrapMode.coerce, 4294967295
   %cmp = icmp eq i64 %0, 3
   br i1 %cmp, label %if.then, label %for.body
@@ -6984,7 +6987,7 @@ if.then67:                                        ; preds = %if.end64
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp.i = phi i1 [ false, %for.inc ], [ true, %entry ]
-  %indvars.iv = phi i64 [ 1, %for.inc ], [ 0, %entry ]
+  %indvars.iv.sroa.phi = phi ptr [ %wrapMode.sroa.2, %for.inc ], [ %wrapMode.sroa.0, %entry ]
   %cond-lvalue.idx.i = select i1 %cmp.i, i64 0, i64 4
   %cond-lvalue.i54 = getelementptr inbounds i8, ptr %pp, i64 %cond-lvalue.idx.i
   %12 = load i32, ptr %cond-lvalue.i54, align 4
@@ -6995,8 +6998,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %or.cond, label %for.inc, label %if.end78
 
 if.end78:                                         ; preds = %for.body
-  %arrayidx.i61 = getelementptr inbounds [2 x i32], ptr %wrapMode, i64 0, i64 %indvars.iv
-  %13 = load i32, ptr %arrayidx.i61, align 4
+  %13 = load i32, ptr %indvars.iv.sroa.phi, align 4
   switch i32 %13, label %sw.default [
     i32 2, label %sw.bb
     i32 1, label %sw.bb85

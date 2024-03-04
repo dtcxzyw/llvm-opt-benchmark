@@ -4023,13 +4023,10 @@ entry:
   %db = alloca ptr, align 8
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp1 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp1.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   %ref.tmp10 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp12 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp12.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   %ref.tmp24 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp26 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp26.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
   %column_families_copy = alloca %"class.std::vector.477", align 8
   %compaction_enabled_cf_indices = alloca %"class.std::vector.124", align 8
   %db_options_2pc = alloca %"struct.rocksdb::DBOptions", align 8
@@ -4039,6 +4036,9 @@ entry:
   store ptr null, ptr %db, align 8
   %write_policy = getelementptr inbounds i8, ptr %txn_db_options, i64 56
   %0 = load i32, ptr %write_policy, align 8
+  %ref.tmp1.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
+  %ref.tmp1.sink.sroa.gep94 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
+  %ref.tmp1.sink.sroa.gep95 = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
   switch i32 %0, label %if.end29 [
     i32 0, label %land.lhs.true
     i32 2, label %land.lhs.true6
@@ -4095,9 +4095,9 @@ if.then23:                                        ; preds = %land.lhs.true21
   br label %if.then23.invoke
 
 if.then23.invoke:                                 ; preds = %if.then, %if.then9, %if.then23
+  %ref.tmp1.sink.sroa.phi = phi ptr [ %ref.tmp1.sink.sroa.gep, %if.then ], [ %ref.tmp1.sink.sroa.gep94, %if.then9 ], [ %ref.tmp1.sink.sroa.gep95, %if.then23 ]
   %ref.tmp1.sink = phi ptr [ %ref.tmp1, %if.then ], [ %ref.tmp12, %if.then9 ], [ %ref.tmp26, %if.then23 ]
   %9 = phi ptr [ %ref.tmp, %if.then ], [ %ref.tmp10, %if.then9 ], [ %ref.tmp24, %if.then23 ]
-  %ref.tmp1.sink.sroa.phi = phi ptr [ %ref.tmp1.sroa.gep, %if.then ], [ %ref.tmp12.sroa.gep, %if.then9 ], [ %ref.tmp26.sroa.gep, %if.then23 ]
   store i64 0, ptr %ref.tmp1.sink.sroa.phi, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 3, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1.sink, i8 noundef zeroext 0)
   br label %_ZN7rocksdb6StatusD2Ev.exit65

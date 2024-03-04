@@ -805,6 +805,8 @@ entry:
   %arrayidx = getelementptr inbounds i8, ptr %doit, i64 25
   %kem.promoted = load i32, ptr %kem, align 4
   %ffdh.promoted = load i32, ptr %ffdh, align 4
+  %indvars.iv2735.sroa.gep3630 = getelementptr inbounds i8, ptr %eddsa_doit, i64 1
+  %indvars.iv2724.sroa.gep3631 = getelementptr inbounds i8, ptr %dsa_doit, i64 1
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
@@ -6503,9 +6505,9 @@ for.end3985:                                      ; preds = %for.inc3983
 
 for.body3989:                                     ; preds = %for.end3985, %for.inc4031
   %cmp3987 = phi i1 [ true, %for.end3985 ], [ false, %for.inc4031 ]
+  %indvars.iv2724.sroa.phi = phi ptr [ %dsa_doit, %for.end3985 ], [ %indvars.iv2724.sroa.gep3631, %for.inc4031 ]
   %indvars.iv2724 = phi i64 [ 0, %for.end3985 ], [ 1, %for.inc4031 ]
-  %arrayidx3991 = getelementptr inbounds [2 x i8], ptr %dsa_doit, i64 0, i64 %indvars.iv2724
-  %818 = load i8, ptr %arrayidx3991, align 1
+  %818 = load i8, ptr %indvars.iv2724.sroa.phi, align 1
   %tobool3992.not = icmp eq i8 %818, 0
   br i1 %tobool3992.not, label %for.inc4031, label %if.end3994
 
@@ -6667,9 +6669,9 @@ for.end4134:                                      ; preds = %for.inc4132
 
 for.body4139:                                     ; preds = %for.end4134, %for.inc4189
   %cmp4137 = phi i1 [ true, %for.end4134 ], [ false, %for.inc4189 ]
+  %indvars.iv2735.sroa.phi = phi ptr [ %eddsa_doit, %for.end4134 ], [ %indvars.iv2735.sroa.gep3630, %for.inc4189 ]
   %indvars.iv2735 = phi i64 [ 0, %for.end4134 ], [ 1, %for.inc4189 ]
-  %arrayidx4141 = getelementptr inbounds [2 x i8], ptr %eddsa_doit, i64 0, i64 %indvars.iv2735
-  %845 = load i8, ptr %arrayidx4141, align 1
+  %845 = load i8, ptr %indvars.iv2735.sroa.phi, align 1
   %tobool4142.not = icmp eq i8 %845, 0
   br i1 %tobool4142.not, label %for.inc4189, label %if.end4144
 

@@ -1731,7 +1731,9 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr no
   %10 = alloca %struct.JsonbValue, align 8
   tail call void @check_stack_depth() #8
   %11 = load i32, ptr %2, align 8
-  switch i32 %11, label %65 [
+  %.0.sroa.gep53 = getelementptr inbounds i8, ptr %8, i64 16
+  %.0.sroa.gep54 = getelementptr inbounds i8, ptr %9, i64 16
+  switch i32 %11, label %62 [
     i32 4, label %12
     i32 5, label %12
     i32 6, label %29
@@ -1754,7 +1756,7 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr no
   %19 = icmp eq i32 %17, 5
   %20 = select i1 %15, ptr %13, ptr %14
   %spec.select = select i1 %19, ptr null, ptr %20
-  br label %65
+  br label %62
 
 21:                                               ; preds = %12
   %22 = icmp eq i32 %17, 4
@@ -1768,24 +1770,24 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr no
   store ptr %13, ptr %27, align 8
   %28 = getelementptr i8, ptr %25, i64 24
   store ptr %14, ptr %28, align 8
-  br label %65
+  br label %62
 
 29:                                               ; preds = %4
   call void @jspGetArg(ptr noundef nonnull %2, ptr noundef nonnull %6) #8
   %30 = xor i1 %3, true
   %31 = call fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr noundef nonnull %6, i1 noundef zeroext %30)
-  br label %65
+  br label %62
 
 32:                                               ; preds = %4
-  br i1 %3, label %65, label %33
+  br i1 %3, label %62, label %33
 
 33:                                               ; preds = %32
   call void @jspGetArg(ptr noundef nonnull %2, ptr noundef nonnull %7) #8
   %34 = call fastcc ptr @extract_jsp_path_expr(ptr noundef %0, ptr %1, ptr noundef nonnull %7, ptr noundef null)
-  br label %65
+  br label %62
 
 35:                                               ; preds = %4
-  br i1 %3, label %65, label %36
+  br i1 %3, label %62, label %36
 
 36:                                               ; preds = %35
   call void @jspGetLeftArg(ptr noundef nonnull %2, ptr noundef nonnull %8) #8
@@ -1797,63 +1799,60 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr no
 39:                                               ; preds = %36
   %40 = load i32, ptr %9, align 8
   %41 = icmp ult i32 %40, 4
-  br i1 %41, label %42, label %65
+  br i1 %41, label %42, label %62
 
 42:                                               ; preds = %39, %36
   %43 = phi i32 [ %40, %39 ], [ %37, %36 ]
   %.046 = phi ptr [ %8, %39 ], [ %9, %36 ]
-  %.0.sroa.phi = phi ptr [ %9, %39 ], [ %8, %36 ]
+  %.0.sroa.phi61 = phi ptr [ %.0.sroa.gep54, %39 ], [ %.0.sroa.gep53, %36 ]
   switch i32 %43, label %.unreachabledefault [
     i32 0, label %44
     i32 3, label %45
-    i32 2, label %52
-    i32 1, label %56
+    i32 2, label %51
+    i32 1, label %54
   ]
 
 44:                                               ; preds = %42
   store i32 0, ptr %10, align 8
-  br label %63
+  br label %60
 
 45:                                               ; preds = %42
   store i32 3, ptr %10, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.sroa.phi, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = load i8, ptr %47, align 1
-  %49 = icmp ne i8 %48, 0
-  %50 = getelementptr inbounds i8, ptr %10, i64 8
-  %51 = zext i1 %49 to i8
-  store i8 %51, ptr %50, align 8
-  br label %63
+  %46 = load ptr, ptr %.0.sroa.phi61, align 8
+  %47 = load i8, ptr %46, align 1
+  %48 = icmp ne i8 %47, 0
+  %49 = getelementptr inbounds i8, ptr %10, i64 8
+  %50 = zext i1 %48 to i8
+  store i8 %50, ptr %49, align 8
+  br label %60
 
-52:                                               ; preds = %42
+51:                                               ; preds = %42
   store i32 2, ptr %10, align 8
-  %53 = getelementptr inbounds i8, ptr %.0.sroa.phi, i64 16
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %54, ptr %55, align 8
-  br label %63
+  %52 = load ptr, ptr %.0.sroa.phi61, align 8
+  %53 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %52, ptr %53, align 8
+  br label %60
 
-56:                                               ; preds = %42
+54:                                               ; preds = %42
   store i32 1, ptr %10, align 8
-  %57 = getelementptr inbounds i8, ptr %.0.sroa.phi, i64 16
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %10, i64 8
-  %60 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %58, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %.0.sroa.phi, i64 24
-  %62 = load i32, ptr %61, align 8
-  store i32 %62, ptr %59, align 8
-  br label %63
+  %55 = load ptr, ptr %.0.sroa.phi61, align 8
+  %56 = getelementptr inbounds i8, ptr %10, i64 8
+  %57 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr %55, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %.0.sroa.phi61, i64 8
+  %59 = load i32, ptr %58, align 8
+  store i32 %59, ptr %56, align 8
+  br label %60
 
 .unreachabledefault:                              ; preds = %42
   unreachable
 
-63:                                               ; preds = %56, %52, %45, %44
-  %64 = call fastcc ptr @extract_jsp_path_expr(ptr noundef %0, ptr %1, ptr noundef nonnull %.046, ptr noundef nonnull %10)
-  br label %65
+60:                                               ; preds = %54, %51, %45, %44
+  %61 = call fastcc ptr @extract_jsp_path_expr(ptr noundef %0, ptr %1, ptr noundef nonnull %.046, ptr noundef nonnull %10)
+  br label %62
 
-65:                                               ; preds = %18, %4, %39, %35, %32, %63, %33, %29, %21
-  %.047 = phi ptr [ %64, %63 ], [ %34, %33 ], [ %31, %29 ], [ %25, %21 ], [ null, %32 ], [ null, %35 ], [ null, %39 ], [ null, %4 ], [ %spec.select, %18 ]
+62:                                               ; preds = %18, %4, %39, %35, %32, %60, %33, %29, %21
+  %.047 = phi ptr [ %61, %60 ], [ %34, %33 ], [ %31, %29 ], [ %25, %21 ], [ null, %32 ], [ null, %35 ], [ null, %39 ], [ null, %4 ], [ %spec.select, %18 ]
   ret ptr %.047
 }
 

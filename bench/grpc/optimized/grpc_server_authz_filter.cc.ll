@@ -697,11 +697,7 @@ entry:
   %ref.tmp36 = alloca %"class.std::allocator.1", align 1
   %engines = alloca %"struct.grpc_authorization_policy_provider::AuthorizationEngines", align 8
   %decision = alloca %"struct.grpc_core::AuthorizationEngine::Decision", align 8
-  %decision.sroa.gep81 = getelementptr inbounds i8, ptr %decision, i64 8
-  %decision.sroa.gep = getelementptr inbounds i8, ptr %decision, i64 8
   %decision75 = alloca %"struct.grpc_core::AuthorizationEngine::Decision", align 8
-  %decision75.sroa.gep82 = getelementptr inbounds i8, ptr %decision75, i64 8
-  %decision75.sroa.gep = getelementptr inbounds i8, ptr %decision75, i64 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %initial_metadata, i64 8
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %per_channel_evaluate_args_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -711,6 +707,10 @@ entry:
   %1 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core16grpc_authz_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %2 = and i8 %1, 1
   %tobool.i.i.i.not = icmp eq i8 %2, 0
+  %decision75.sink.sroa.gep = getelementptr inbounds i8, ptr %decision, i64 8
+  %decision75.sink.sroa.gep81 = getelementptr inbounds i8, ptr %decision, i64 8
+  %decision75.sink.sroa.gep82 = getelementptr inbounds i8, ptr %decision75, i64 8
+  %decision75.sink.sroa.gep83 = getelementptr inbounds i8, ptr %decision75, i64 8
   br i1 %tobool.i.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1141,8 +1141,8 @@ if.then101:                                       ; preds = %if.end98
           to label %cleanup104 unwind label %lpad51
 
 cleanup104.sink.split:                            ; preds = %if.then88, %if.then84, %if.then65, %if.then61
+  %decision75.sink.sroa.phi = phi ptr [ %decision75.sink.sroa.gep, %if.then61 ], [ %decision75.sink.sroa.gep81, %if.then65 ], [ %decision75.sink.sroa.gep82, %if.then84 ], [ %decision75.sink.sroa.gep83, %if.then88 ]
   %retval.3.ph = phi i1 [ false, %if.then61 ], [ false, %if.then65 ], [ true, %if.then84 ], [ true, %if.then88 ]
-  %decision75.sink.sroa.phi = phi ptr [ %decision.sroa.gep, %if.then61 ], [ %decision.sroa.gep81, %if.then65 ], [ %decision75.sroa.gep, %if.then84 ], [ %decision75.sroa.gep82, %if.then88 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %decision75.sink.sroa.phi) #19
   br label %cleanup104
 

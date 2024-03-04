@@ -1026,7 +1026,6 @@ define internal ptr @method_vectorcall(ptr nocapture noundef readonly %method, p
 entry:
   %self = alloca ptr, align 8
   %newargs_stack = alloca [5 x ptr], align 16
-  %newargs_stack.sroa.gep = getelementptr inbounds i8, ptr %newargs_stack, i64 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %method, i64 24
@@ -1123,7 +1122,6 @@ if.end:                                           ; preds = %cond.end
 if.else15:                                        ; preds = %if.end
   %mul = add i64 %.pre, 8
   %call17 = tail call ptr @PyMem_Malloc(i64 noundef %mul) #5
-  %call17.sroa.gep = getelementptr i8, ptr %call17, i64 8
   %cmp18 = icmp eq ptr %call17, null
   br i1 %cmp18, label %if.then19, label %if.end22
 
@@ -1133,9 +1131,9 @@ if.then19:                                        ; preds = %if.else15
 
 if.end22:                                         ; preds = %if.end, %if.else15
   %newargs12.0 = phi ptr [ %call17, %if.else15 ], [ %newargs_stack, %if.end ]
-  %newargs12.0.sroa.phi = phi ptr [ %call17.sroa.gep, %if.else15 ], [ %newargs_stack.sroa.gep, %if.end ]
   store ptr %method.val, ptr %newargs12.0, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %newargs12.0.sroa.phi, ptr align 8 %args, i64 %.pre, i1 false)
+  %add.ptr24 = getelementptr i8, ptr %newargs12.0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr24, ptr align 8 %args, i64 %.pre, i1 false)
   %add26 = add nuw i64 %and.i, 1
   %14 = getelementptr i8, ptr %method.val26, i64 8
   %callable.val.i.i42 = load ptr, ptr %14, align 8

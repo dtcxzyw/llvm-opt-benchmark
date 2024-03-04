@@ -680,84 +680,85 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 define dso_local i64 @pg_pwritev_with_retry(i32 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [32 x %struct.iovec], align 16
   %6 = icmp sgt i32 %2, 32
-  br i1 %6, label %8, label %.preheader
+  %.018.sroa.gep23 = getelementptr inbounds i8, ptr %5, i64 8
+  br i1 %6, label %7, label %.preheader.preheader
 
-.preheader:                                       ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
-  br label %10
+.preheader.preheader:                             ; preds = %4
+  %.018.sroa.gep = getelementptr inbounds i8, ptr %1, i64 8
+  br label %.preheader
 
-8:                                                ; preds = %4
-  %9 = tail call ptr @__errno_location() #13
-  store i32 22, ptr %9, align 4
+7:                                                ; preds = %4
+  %8 = tail call ptr @__errno_location() #13
+  store i32 22, ptr %8, align 4
   br label %compute_remaining_iovec.exit.thread
 
-10:                                               ; preds = %.preheader, %compute_remaining_iovec.exit
-  %.018 = phi ptr [ %5, %compute_remaining_iovec.exit ], [ %1, %.preheader ]
-  %.017 = phi i32 [ %.018.i, %compute_remaining_iovec.exit ], [ %2, %.preheader ]
-  %.016 = phi i64 [ %22, %compute_remaining_iovec.exit ], [ %3, %.preheader ]
-  %.015 = phi i64 [ %21, %compute_remaining_iovec.exit ], [ 0, %.preheader ]
-  %11 = icmp eq i32 %.017, 1
-  br i1 %11, label %12, label %17
+.preheader:                                       ; preds = %.preheader.preheader, %compute_remaining_iovec.exit
+  %.018.sroa.phi = phi ptr [ %.018.sroa.gep23, %compute_remaining_iovec.exit ], [ %.018.sroa.gep, %.preheader.preheader ]
+  %.018 = phi ptr [ %5, %compute_remaining_iovec.exit ], [ %1, %.preheader.preheader ]
+  %.017 = phi i32 [ %.018.i, %compute_remaining_iovec.exit ], [ %2, %.preheader.preheader ]
+  %.016 = phi i64 [ %19, %compute_remaining_iovec.exit ], [ %3, %.preheader.preheader ]
+  %.015 = phi i64 [ %18, %compute_remaining_iovec.exit ], [ 0, %.preheader.preheader ]
+  %9 = icmp eq i32 %.017, 1
+  br i1 %9, label %10, label %14
 
-12:                                               ; preds = %10
-  %13 = load ptr, ptr %.018, align 8
-  %14 = getelementptr inbounds i8, ptr %.018, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = call i64 @pwrite(i32 noundef %0, ptr noundef %13, i64 noundef %15, i64 noundef %.016) #12
+10:                                               ; preds = %.preheader
+  %11 = load ptr, ptr %.018, align 8
+  %12 = load i64, ptr %.018.sroa.phi, align 8
+  %13 = call i64 @pwrite(i32 noundef %0, ptr noundef %11, i64 noundef %12, i64 noundef %.016) #12
   br label %pg_pwritev.exit
 
-17:                                               ; preds = %10
-  %18 = call i64 @pwritev(i32 noundef %0, ptr noundef %.018, i32 noundef %.017, i64 noundef %.016) #12
+14:                                               ; preds = %.preheader
+  %15 = call i64 @pwritev(i32 noundef %0, ptr noundef %.018, i32 noundef %.017, i64 noundef %.016) #12
   br label %pg_pwritev.exit
 
-pg_pwritev.exit:                                  ; preds = %12, %17
-  %.0.i = phi i64 [ %16, %12 ], [ %18, %17 ]
-  %19 = icmp slt i64 %.0.i, 0
-  br i1 %19, label %compute_remaining_iovec.exit.thread, label %20
+pg_pwritev.exit:                                  ; preds = %10, %14
+  %.0.i = phi i64 [ %13, %10 ], [ %15, %14 ]
+  %16 = icmp slt i64 %.0.i, 0
+  br i1 %16, label %compute_remaining_iovec.exit.thread, label %17
 
-20:                                               ; preds = %pg_pwritev.exit
-  %21 = add i64 %.0.i, %.015
-  %22 = add i64 %.0.i, %.016
-  br label %23
+17:                                               ; preds = %pg_pwritev.exit
+  %18 = add i64 %.0.i, %.015
+  %19 = add i64 %.0.i, %.016
+  br label %20
 
-23:                                               ; preds = %26, %20
-  %.019.i = phi ptr [ %.018, %20 ], [ %28, %26 ]
-  %.018.i = phi i32 [ %.017, %20 ], [ %29, %26 ]
-  %.0.i22 = phi i64 [ %.0.i, %20 ], [ %27, %26 ]
-  %24 = getelementptr inbounds i8, ptr %.019.i, i64 8
-  %25 = load i64, ptr %24, align 8
-  %.not.i = icmp ugt i64 %25, %.0.i22
-  br i1 %.not.i, label %31, label %26
+20:                                               ; preds = %23, %17
+  %.019.i = phi ptr [ %.018, %17 ], [ %25, %23 ]
+  %.018.i = phi i32 [ %.017, %17 ], [ %26, %23 ]
+  %.0.i22 = phi i64 [ %.0.i, %17 ], [ %24, %23 ]
+  %21 = getelementptr inbounds i8, ptr %.019.i, i64 8
+  %22 = load i64, ptr %21, align 8
+  %.not.i = icmp ugt i64 %22, %.0.i22
+  br i1 %.not.i, label %28, label %23
 
-26:                                               ; preds = %23
-  %27 = sub i64 %.0.i22, %25
-  %28 = getelementptr i8, ptr %.019.i, i64 16
-  %29 = add i32 %.018.i, -1
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %compute_remaining_iovec.exit.thread, label %23, !llvm.loop !10
+23:                                               ; preds = %20
+  %24 = sub i64 %.0.i22, %22
+  %25 = getelementptr i8, ptr %.019.i, i64 16
+  %26 = add i32 %.018.i, -1
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %compute_remaining_iovec.exit.thread, label %20, !llvm.loop !10
 
-31:                                               ; preds = %23
+28:                                               ; preds = %20
   %.not24.i = icmp eq ptr %.019.i, %5
-  br i1 %.not24.i, label %compute_remaining_iovec.exit, label %32
+  br i1 %.not24.i, label %compute_remaining_iovec.exit, label %29
 
-32:                                               ; preds = %31
-  %33 = sext i32 %.018.i to i64
-  %34 = shl nsw i64 %33, 4
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 8 %.019.i, i64 %34, i1 false)
+29:                                               ; preds = %28
+  %30 = sext i32 %.018.i to i64
+  %31 = shl nsw i64 %30, 4
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 8 %.019.i, i64 %31, i1 false)
   br label %compute_remaining_iovec.exit
 
-compute_remaining_iovec.exit:                     ; preds = %31, %32
-  %35 = load ptr, ptr %5, align 16
-  %36 = getelementptr i8, ptr %35, i64 %.0.i22
-  store ptr %36, ptr %5, align 16
-  %37 = load i64, ptr %7, align 8
-  %38 = sub i64 %37, %.0.i22
-  store i64 %38, ptr %7, align 8
-  %39 = icmp sgt i32 %.018.i, 0
-  br i1 %39, label %10, label %compute_remaining_iovec.exit.thread, !llvm.loop !11
+compute_remaining_iovec.exit:                     ; preds = %28, %29
+  %32 = load ptr, ptr %5, align 16
+  %33 = getelementptr i8, ptr %32, i64 %.0.i22
+  store ptr %33, ptr %5, align 16
+  %34 = load i64, ptr %.018.sroa.gep23, align 8
+  %35 = sub i64 %34, %.0.i22
+  store i64 %35, ptr %.018.sroa.gep23, align 8
+  %36 = icmp sgt i32 %.018.i, 0
+  br i1 %36, label %.preheader, label %compute_remaining_iovec.exit.thread, !llvm.loop !11
 
-compute_remaining_iovec.exit.thread:              ; preds = %compute_remaining_iovec.exit, %pg_pwritev.exit, %26, %8
-  %.0 = phi i64 [ -1, %8 ], [ %21, %26 ], [ %21, %compute_remaining_iovec.exit ], [ -1, %pg_pwritev.exit ]
+compute_remaining_iovec.exit.thread:              ; preds = %compute_remaining_iovec.exit, %pg_pwritev.exit, %23, %7
+  %.0 = phi i64 [ -1, %7 ], [ %18, %23 ], [ %18, %compute_remaining_iovec.exit ], [ -1, %pg_pwritev.exit ]
   ret i64 %.0
 }
 
@@ -769,117 +770,118 @@ define dso_local i64 @pg_pwrite_zeros(i32 noundef %0, i64 noundef %1, i64 nounde
   br i1 %.not38, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %.018.sroa.gep23.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.018.sroa.gep.i = getelementptr inbounds i8, ptr %5, i64 8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %46
-  %.02541 = phi i64 [ 0, %.preheader.lr.ph ], [ %48, %46 ]
-  %.02640 = phi i64 [ %1, %.preheader.lr.ph ], [ %10, %46 ]
-  %.02739 = phi i64 [ %2, %.preheader.lr.ph ], [ %47, %46 ]
-  br label %7
+.preheader:                                       ; preds = %.preheader.lr.ph, %43
+  %.02541 = phi i64 [ 0, %.preheader.lr.ph ], [ %45, %43 ]
+  %.02640 = phi i64 [ %1, %.preheader.lr.ph ], [ %9, %43 ]
+  %.02739 = phi i64 [ %2, %.preheader.lr.ph ], [ %44, %43 ]
+  br label %6
 
-7:                                                ; preds = %.preheader, %7
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %.136 = phi i64 [ %.02640, %.preheader ], [ %10, %7 ]
-  %8 = getelementptr [32 x %struct.iovec], ptr %5, i64 0, i64 %indvars.iv
-  store ptr @pg_pwrite_zeros.zbuffer, ptr %8, align 16
+6:                                                ; preds = %.preheader, %6
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %6 ]
+  %.136 = phi i64 [ %.02640, %.preheader ], [ %9, %6 ]
+  %7 = getelementptr [32 x %struct.iovec], ptr %5, i64 0, i64 %indvars.iv
+  store ptr @pg_pwrite_zeros.zbuffer, ptr %7, align 16
   %.1. = call i64 @llvm.umin.i64(i64 %.136, i64 8192)
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %.1., ptr %9, align 8
-  %10 = sub i64 %.136, %.1.
+  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 %.1., ptr %8, align 8
+  %9 = sub i64 %.136, %.1.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = icmp ult i64 %indvars.iv, 31
-  %12 = icmp ne i64 %10, 0
-  %13 = select i1 %11, i1 %12, i1 false
-  br i1 %13, label %7, label %.preheader.i, !llvm.loop !12
+  %10 = icmp ult i64 %indvars.iv, 31
+  %11 = icmp ne i64 %9, 0
+  %12 = select i1 %10, i1 %11, i1 false
+  br i1 %12, label %6, label %.preheader.preheader.i, !llvm.loop !12
 
-.preheader.i:                                     ; preds = %7
-  %14 = trunc i64 %indvars.iv.next to i32
+.preheader.preheader.i:                           ; preds = %6
+  %13 = trunc i64 %indvars.iv.next to i32
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
-  br label %15
+  br label %.preheader.i
 
-15:                                               ; preds = %compute_remaining_iovec.exit.i, %.preheader.i
-  %.018.i = phi ptr [ %4, %compute_remaining_iovec.exit.i ], [ %5, %.preheader.i ]
-  %.017.i = phi i32 [ %.018.i.i, %compute_remaining_iovec.exit.i ], [ %14, %.preheader.i ]
-  %.016.i = phi i64 [ %27, %compute_remaining_iovec.exit.i ], [ %.02739, %.preheader.i ]
-  %.015.i = phi i64 [ %26, %compute_remaining_iovec.exit.i ], [ 0, %.preheader.i ]
-  %16 = icmp eq i32 %.017.i, 1
-  br i1 %16, label %17, label %22
+.preheader.i:                                     ; preds = %compute_remaining_iovec.exit.i, %.preheader.preheader.i
+  %.018.sroa.phi.i = phi ptr [ %.018.sroa.gep23.i, %compute_remaining_iovec.exit.i ], [ %.018.sroa.gep.i, %.preheader.preheader.i ]
+  %.018.i = phi ptr [ %4, %compute_remaining_iovec.exit.i ], [ %5, %.preheader.preheader.i ]
+  %.017.i = phi i32 [ %.018.i.i, %compute_remaining_iovec.exit.i ], [ %13, %.preheader.preheader.i ]
+  %.016.i = phi i64 [ %24, %compute_remaining_iovec.exit.i ], [ %.02739, %.preheader.preheader.i ]
+  %.015.i = phi i64 [ %23, %compute_remaining_iovec.exit.i ], [ 0, %.preheader.preheader.i ]
+  %14 = icmp eq i32 %.017.i, 1
+  br i1 %14, label %15, label %19
 
-17:                                               ; preds = %15
-  %18 = load ptr, ptr %.018.i, align 16
-  %19 = getelementptr inbounds i8, ptr %.018.i, i64 8
-  %20 = load i64, ptr %19, align 8
-  %21 = call i64 @pwrite(i32 noundef %0, ptr noundef %18, i64 noundef %20, i64 noundef %.016.i) #12
+15:                                               ; preds = %.preheader.i
+  %16 = load ptr, ptr %.018.i, align 16
+  %17 = load i64, ptr %.018.sroa.phi.i, align 8
+  %18 = call i64 @pwrite(i32 noundef %0, ptr noundef %16, i64 noundef %17, i64 noundef %.016.i) #12
   br label %pg_pwritev.exit.i
 
-22:                                               ; preds = %15
-  %23 = call i64 @pwritev(i32 noundef %0, ptr noundef nonnull %.018.i, i32 noundef %.017.i, i64 noundef %.016.i) #12
+19:                                               ; preds = %.preheader.i
+  %20 = call i64 @pwritev(i32 noundef %0, ptr noundef nonnull %.018.i, i32 noundef %.017.i, i64 noundef %.016.i) #12
   br label %pg_pwritev.exit.i
 
-pg_pwritev.exit.i:                                ; preds = %22, %17
-  %.0.i.i = phi i64 [ %21, %17 ], [ %23, %22 ]
-  %24 = icmp slt i64 %.0.i.i, 0
-  br i1 %24, label %pg_pwritev_with_retry.exit.thread, label %25
+pg_pwritev.exit.i:                                ; preds = %19, %15
+  %.0.i.i = phi i64 [ %18, %15 ], [ %20, %19 ]
+  %21 = icmp slt i64 %.0.i.i, 0
+  br i1 %21, label %pg_pwritev_with_retry.exit.thread, label %22
 
 pg_pwritev_with_retry.exit.thread:                ; preds = %pg_pwritev.exit.i
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
   br label %.loopexit
 
-25:                                               ; preds = %pg_pwritev.exit.i
-  %26 = add i64 %.0.i.i, %.015.i
-  %27 = add i64 %.0.i.i, %.016.i
-  br label %28
+22:                                               ; preds = %pg_pwritev.exit.i
+  %23 = add i64 %.0.i.i, %.015.i
+  %24 = add i64 %.0.i.i, %.016.i
+  br label %25
 
-28:                                               ; preds = %31, %25
-  %.019.i.i = phi ptr [ %.018.i, %25 ], [ %33, %31 ]
-  %.018.i.i = phi i32 [ %.017.i, %25 ], [ %34, %31 ]
-  %.0.i22.i = phi i64 [ %.0.i.i, %25 ], [ %32, %31 ]
-  %29 = getelementptr inbounds i8, ptr %.019.i.i, i64 8
-  %30 = load i64, ptr %29, align 8
-  %.not.i.i = icmp ugt i64 %30, %.0.i22.i
-  br i1 %.not.i.i, label %36, label %31
+25:                                               ; preds = %28, %22
+  %.019.i.i = phi ptr [ %.018.i, %22 ], [ %30, %28 ]
+  %.018.i.i = phi i32 [ %.017.i, %22 ], [ %31, %28 ]
+  %.0.i22.i = phi i64 [ %.0.i.i, %22 ], [ %29, %28 ]
+  %26 = getelementptr inbounds i8, ptr %.019.i.i, i64 8
+  %27 = load i64, ptr %26, align 8
+  %.not.i.i = icmp ugt i64 %27, %.0.i22.i
+  br i1 %.not.i.i, label %33, label %28
 
-31:                                               ; preds = %28
-  %32 = sub i64 %.0.i22.i, %30
-  %33 = getelementptr i8, ptr %.019.i.i, i64 16
-  %34 = add i32 %.018.i.i, -1
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %pg_pwritev_with_retry.exit, label %28, !llvm.loop !10
+28:                                               ; preds = %25
+  %29 = sub i64 %.0.i22.i, %27
+  %30 = getelementptr i8, ptr %.019.i.i, i64 16
+  %31 = add i32 %.018.i.i, -1
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %pg_pwritev_with_retry.exit, label %25, !llvm.loop !10
 
-36:                                               ; preds = %28
+33:                                               ; preds = %25
   %.not24.i.i = icmp eq ptr %.019.i.i, %4
-  br i1 %.not24.i.i, label %compute_remaining_iovec.exit.i, label %37
+  br i1 %.not24.i.i, label %compute_remaining_iovec.exit.i, label %34
 
-37:                                               ; preds = %36
-  %38 = sext i32 %.018.i.i to i64
-  %39 = shl nsw i64 %38, 4
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 8 %.019.i.i, i64 %39, i1 false)
+34:                                               ; preds = %33
+  %35 = sext i32 %.018.i.i to i64
+  %36 = shl nsw i64 %35, 4
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 8 %.019.i.i, i64 %36, i1 false)
   br label %compute_remaining_iovec.exit.i
 
-compute_remaining_iovec.exit.i:                   ; preds = %37, %36
-  %40 = load ptr, ptr %4, align 16
-  %41 = getelementptr i8, ptr %40, i64 %.0.i22.i
-  store ptr %41, ptr %4, align 16
-  %42 = load i64, ptr %6, align 8
-  %43 = sub i64 %42, %.0.i22.i
-  store i64 %43, ptr %6, align 8
-  %44 = icmp sgt i32 %.018.i.i, 0
-  br i1 %44, label %15, label %pg_pwritev_with_retry.exit, !llvm.loop !11
+compute_remaining_iovec.exit.i:                   ; preds = %34, %33
+  %37 = load ptr, ptr %4, align 16
+  %38 = getelementptr i8, ptr %37, i64 %.0.i22.i
+  store ptr %38, ptr %4, align 16
+  %39 = load i64, ptr %.018.sroa.gep23.i, align 8
+  %40 = sub i64 %39, %.0.i22.i
+  store i64 %40, ptr %.018.sroa.gep23.i, align 8
+  %41 = icmp sgt i32 %.018.i.i, 0
+  br i1 %41, label %.preheader.i, label %pg_pwritev_with_retry.exit, !llvm.loop !11
 
-pg_pwritev_with_retry.exit:                       ; preds = %compute_remaining_iovec.exit.i, %31
+pg_pwritev_with_retry.exit:                       ; preds = %compute_remaining_iovec.exit.i, %28
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
-  %45 = icmp slt i64 %26, 0
-  br i1 %45, label %.loopexit, label %46
+  %42 = icmp slt i64 %23, 0
+  br i1 %42, label %.loopexit, label %43
 
-46:                                               ; preds = %pg_pwritev_with_retry.exit
-  %47 = add i64 %26, %.02739
-  %48 = add i64 %26, %.02541
-  %.not = icmp eq i64 %10, 0
+43:                                               ; preds = %pg_pwritev_with_retry.exit
+  %44 = add i64 %23, %.02739
+  %45 = add i64 %23, %.02541
+  %.not = icmp eq i64 %9, 0
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !13
 
-.loopexit:                                        ; preds = %pg_pwritev_with_retry.exit, %46, %3, %pg_pwritev_with_retry.exit.thread
-  %.023 = phi i64 [ -1, %pg_pwritev_with_retry.exit.thread ], [ 0, %3 ], [ %26, %pg_pwritev_with_retry.exit ], [ %48, %46 ]
+.loopexit:                                        ; preds = %pg_pwritev_with_retry.exit, %43, %3, %pg_pwritev_with_retry.exit.thread
+  %.023 = phi i64 [ -1, %pg_pwritev_with_retry.exit.thread ], [ 0, %3 ], [ %23, %pg_pwritev_with_retry.exit ], [ %45, %43 ]
   ret i64 %.023
 }
 

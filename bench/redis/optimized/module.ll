@@ -23558,9 +23558,11 @@ entry:
   %mode4.i = getelementptr inbounds i8, ptr %kp, i64 40
   store i32 1, ptr %mode4.i, align 8
   %tobool.not.i = icmp eq ptr %call1, null
+  %.sink3.i.i.sroa.gep = getelementptr inbounds i8, ptr %kp, i64 120
   br i1 %tobool.not.i, label %moduleInitKey.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
+  %.sink3.i.i.sroa.gep7 = getelementptr inbounds i8, ptr %kp, i64 72
   %bf.load.i.i = load i32, ptr %call1, align 8
   %bf.clear.i.i = and i32 %bf.load.i.i, 15
   switch i32 %bf.clear.i.i, label %moduleInitKey.exit [
@@ -23576,10 +23578,9 @@ sw.bb.i.i:                                        ; preds = %if.then.i
   br label %sw.epilog.sink.split.i.i
 
 sw.epilog.sink.split.i.i:                         ; preds = %sw.bb.i.i, %if.then.i
-  %.sink3.i.i = phi i64 [ 120, %sw.bb.i.i ], [ 72, %if.then.i ]
+  %.sink3.i.i.sroa.phi = phi ptr [ %.sink3.i.i.sroa.gep, %sw.bb.i.i ], [ %.sink3.i.i.sroa.gep7, %if.then.i ]
   %.sink.i.i = phi i32 [ 1, %sw.bb.i.i ], [ 0, %if.then.i ]
-  %signalready.i.i = getelementptr inbounds i8, ptr %kp, i64 %.sink3.i.i
-  store i32 %.sink.i.i, ptr %signalready.i.i, align 8
+  store i32 %.sink.i.i, ptr %.sink3.i.i.sroa.phi, align 8
   br label %moduleInitKey.exit
 
 moduleInitKey.exit:                               ; preds = %entry, %if.then.i, %sw.epilog.sink.split.i.i
@@ -24330,13 +24331,15 @@ entry:
   %len = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %len, align 8
   %cmp = icmp eq i64 %1, 0
+  %.sink3.i.i.sroa.gep = getelementptr inbounds i8, ptr %key, i64 120
+  %.sink3.i.i.sroa.gep51 = getelementptr inbounds i8, ptr %key, i64 72
   br i1 %cmp, label %while.end, label %if.end
 
 if.end:                                           ; preds = %entry
   call void @listRewind(ptr noundef nonnull %0, ptr noundef nonnull %li) #32
-  %call54 = call ptr @listNext(ptr noundef nonnull %li) #32
-  %tobool.not55 = icmp eq ptr %call54, null
-  br i1 %tobool.not55, label %while.end, label %while.body.lr.ph
+  %call55 = call ptr @listNext(ptr noundef nonnull %li) #32
+  %tobool.not56 = icmp eq ptr %call55, null
+  br i1 %tobool.not56, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
   %cmp3 = icmp eq i64 %eid, 4
@@ -24369,8 +24372,8 @@ while.body.lr.ph:                                 ; preds = %if.end
   br i1 %cmp3, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end100.us
-  %call56.us = phi ptr [ %call.us, %if.end100.us ], [ %call54, %while.body.lr.ph ]
-  %value.us = getelementptr inbounds i8, ptr %call56.us, i64 16
+  %call57.us = phi ptr [ %call.us, %if.end100.us ], [ %call55, %while.body.lr.ph ]
+  %value.us = getelementptr inbounds i8, ptr %call57.us, i64 16
   %5 = load ptr, ptr %value.us, align 8
   %event.us = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %event.us, align 8
@@ -24445,8 +24448,8 @@ if.end100.us:                                     ; preds = %if.end99.us, %while
   br i1 %tobool.not.us, label %while.end, label %while.body.us, !llvm.loop !69
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %call56 = phi ptr [ %call, %while.cond.backedge ], [ %call54, %while.body.lr.ph ]
-  %value = getelementptr inbounds i8, ptr %call56, i64 16
+  %call57 = phi ptr [ %call, %while.cond.backedge ], [ %call55, %while.body.lr.ph ]
+  %value = getelementptr inbounds i8, ptr %call57, i64 16
   %20 = load ptr, ptr %value, align 8
   %event = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load i64, ptr %event, align 8
@@ -24626,10 +24629,9 @@ sw.bb.i.i:                                        ; preds = %if.then.i
   br label %sw.epilog.sink.split.i.i
 
 sw.epilog.sink.split.i.i:                         ; preds = %sw.bb.i.i, %if.then.i
-  %.sink3.i.i = phi i64 [ 120, %sw.bb.i.i ], [ 72, %if.then.i ]
+  %.sink3.i.i.sroa.phi = phi ptr [ %.sink3.i.i.sroa.gep, %sw.bb.i.i ], [ %.sink3.i.i.sroa.gep51, %if.then.i ]
   %.sink.i.i = phi i32 [ 1, %sw.bb.i.i ], [ 0, %if.then.i ]
-  %signalready.i.i = getelementptr inbounds i8, ptr %key, i64 %.sink3.i.i
-  store i32 %.sink.i.i, ptr %signalready.i.i, align 8
+  store i32 %.sink.i.i, ptr %.sink3.i.i.sroa.phi, align 8
   br label %if.end90
 
 if.end90.fold.split:                              ; preds = %if.else17

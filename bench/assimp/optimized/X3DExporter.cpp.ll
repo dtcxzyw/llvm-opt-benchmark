@@ -521,10 +521,10 @@ invoke.cont10.lr.ph:                              ; preds = %if.end
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %invoke.cont10.lr.ph, %invoke.cont10
+  %rit.sroa.0.061 = phi ptr [ %matr, %invoke.cont10.lr.ph ], [ %7, %invoke.cont10 ]
   %6 = phi <16 x float> [ <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 1.000000e+00>, %invoke.cont10.lr.ph ], [ %56, %invoke.cont10 ]
-  %matr.pn = phi ptr [ %matr, %invoke.cont10.lr.ph ], [ %7, %invoke.cont10 ]
-  %rit.sroa.0.061.sroa.phi = getelementptr inbounds i8, ptr %matr.pn, i64 8
-  %7 = load ptr, ptr %rit.sroa.0.061.sroa.phi, align 8
+  %_M_prev.i.i = getelementptr inbounds i8, ptr %rit.sroa.0.061, i64 8
+  %7 = load ptr, ptr %_M_prev.i.i, align 8
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %b1.i = getelementptr inbounds i8, ptr %7, i64 32
   %c1.i = getelementptr inbounds i8, ptr %7, i64 48

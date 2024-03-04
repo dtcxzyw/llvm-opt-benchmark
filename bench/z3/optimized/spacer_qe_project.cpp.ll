@@ -9949,13 +9949,9 @@ entry:
   %z = alloca %class.rational, align 8
   %is_int = alloca i8, align 1
   %ref.tmp105 = alloca %struct.mk_pp, align 8
-  %ref.tmp105.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp105, i64 16
   %ref.tmp119 = alloca %struct.mk_pp, align 8
-  %ref.tmp119.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp119, i64 16
   %ref.tmp169 = alloca %struct.mk_pp, align 8
-  %ref.tmp169.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp169, i64 16
   %ref.tmp183 = alloca %struct.mk_pp, align 8
-  %ref.tmp183.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp183, i64 16
   %ref.tmp204 = alloca %class.rational, align 8
   %ref.tmp245 = alloca %struct.mk_pp, align 8
   %ref.tmp260 = alloca %struct.mk_pp, align 8
@@ -9974,6 +9970,10 @@ entry:
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
   %cmp.i.i.i = icmp eq i32 %bf.clear.i.i.i.i, 0
+  %ref.tmp183.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp119, i64 16
+  %ref.tmp183.sink.sroa.gep296 = getelementptr inbounds i8, ptr %ref.tmp183, i64 16
+  %ref.tmp105.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp105, i64 16
+  %ref.tmp105.sink.sroa.gep297 = getelementptr inbounds i8, ptr %ref.tmp169, i64 16
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %invoke.cont
 
 land.rhs.i.i.i:                                   ; preds = %entry
@@ -10527,7 +10527,7 @@ invoke.cont173:                                   ; preds = %invoke.cont171
           to label %invoke.cont175.invoke unwind label %lpad172
 
 invoke.cont175.invoke:                            ; preds = %invoke.cont173, %invoke.cont109
-  %ref.tmp105.sink.sroa.phi = phi ptr [ %ref.tmp105.sroa.gep, %invoke.cont109 ], [ %ref.tmp169.sroa.gep, %invoke.cont173 ]
+  %ref.tmp105.sink.sroa.phi = phi ptr [ %ref.tmp105.sink.sroa.gep, %invoke.cont109 ], [ %ref.tmp105.sink.sroa.gep297, %invoke.cont173 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp105.sink.sroa.phi) #18
   invoke void @_Z14verbose_unlockv()
           to label %cleanup unwind label %lpad74
@@ -10614,7 +10614,7 @@ if.end225:                                        ; preds = %if.end219, %invoke.
           to label %cleanup unwind label %lpad74
 
 cleanup.sink.split:                               ; preds = %invoke.cont187, %invoke.cont123
-  %ref.tmp183.sink.sroa.phi = phi ptr [ %ref.tmp119.sroa.gep, %invoke.cont123 ], [ %ref.tmp183.sroa.gep, %invoke.cont187 ]
+  %ref.tmp183.sink.sroa.phi = phi ptr [ %ref.tmp183.sink.sroa.gep, %invoke.cont123 ], [ %ref.tmp183.sink.sroa.gep296, %invoke.cont187 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp183.sink.sroa.phi) #18
   br label %cleanup
 

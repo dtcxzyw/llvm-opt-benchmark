@@ -3966,11 +3966,13 @@ define dso_local noundef i32 @md_bitmap_resize(ptr noundef %0, i64 noundef %1, i
   %8 = icmp eq ptr %7, null
   %9 = icmp ne i32 %3, 0
   %10 = or i1 %9, %8
+  %.sroa.gep = getelementptr inbounds i8, ptr %5, i64 48
+  %.sroa.gep1 = getelementptr inbounds i8, ptr %5, i64 40
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %4
   %12 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20) #21
-  br label %497
+  br label %494
 
 13:                                               ; preds = %4
   %14 = icmp eq i32 %2, 0
@@ -4029,7 +4031,7 @@ define dso_local noundef i32 @md_bitmap_resize(ptr noundef %0, i64 noundef %1, i
   %57 = add i32 %46, 10
   %58 = icmp ult i32 %57, 31
   %59 = and i1 %58, %56
-  br i1 %59, label %45, label %.loopexit59, !llvm.loop !65
+  br i1 %59, label %45, label %.loopexit61, !llvm.loop !65
 
 60:                                               ; preds = %13
   %61 = sext i32 %2 to i64
@@ -4037,18 +4039,18 @@ define dso_local noundef i32 @md_bitmap_resize(ptr noundef %0, i64 noundef %1, i
   %63 = trunc i64 %62 to i32
   %64 = add i32 %63, -9
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 48
-  %.pre74 = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre77 = shl nuw i32 1, %64
-  %.pre78 = sext i32 %.pre77 to i64
-  %.pre80 = add i64 %1, -1
-  %.pre82 = add i64 %.pre80, %.pre78
-  %.pre84 = udiv i64 %.pre82, %.pre78
-  br label %.loopexit59
+  %.pre76 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre79 = shl nuw i32 1, %64
+  %.pre80 = sext i32 %.pre79 to i64
+  %.pre82 = add i64 %1, -1
+  %.pre84 = add i64 %.pre82, %.pre80
+  %.pre86 = udiv i64 %.pre84, %.pre80
+  br label %.loopexit61
 
-.loopexit59:                                      ; preds = %45, %60
-  %.pre-phi85 = phi i64 [ %.pre84, %60 ], [ %51, %45 ]
-  %.pre-phi79 = phi i64 [ %.pre78, %60 ], [ %49, %45 ]
-  %65 = phi ptr [ %.pre74, %60 ], [ %34, %45 ]
+.loopexit61:                                      ; preds = %45, %60
+  %.pre-phi87 = phi i64 [ %.pre86, %60 ], [ %51, %45 ]
+  %.pre-phi81 = phi i64 [ %.pre80, %60 ], [ %49, %45 ]
+  %65 = phi ptr [ %.pre76, %60 ], [ %34, %45 ]
   %66 = phi i32 [ %64, %60 ], [ %47, %45 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %67 = getelementptr inbounds i8, ptr %0, i64 48
@@ -4057,13 +4059,13 @@ define dso_local noundef i32 @md_bitmap_resize(ptr noundef %0, i64 noundef %1, i
   %70 = icmp eq i64 %69, 0
   br i1 %70, label %71, label %75
 
-71:                                               ; preds = %.loopexit59
+71:                                               ; preds = %.loopexit61
   %72 = getelementptr inbounds i8, ptr %65, i64 872
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %.thread28, label %75
+  br i1 %74, label %.thread29, label %75
 
-75:                                               ; preds = %71, %.loopexit59
+75:                                               ; preds = %71, %.loopexit61
   %76 = getelementptr inbounds i8, ptr %65, i64 968
   %77 = load i32, ptr %76, align 8
   %78 = icmp eq i32 %77, 0
@@ -4085,7 +4087,7 @@ define dso_local noundef i32 @md_bitmap_resize(ptr noundef %0, i64 noundef %1, i
 
 .thread:                                          ; preds = %75, %86, %82
   %89 = phi i32 [ %88, %86 ], [ 0, %82 ], [ 0, %75 ]
-  %90 = add i64 %.pre-phi85, 7
+  %90 = add i64 %.pre-phi87, 7
   %91 = lshr i64 %90, 3
   %92 = add nuw nsw i64 %91, 256
   %93 = select i1 %78, i64 %92, i64 %91
@@ -4098,667 +4100,664 @@ define dso_local noundef i32 @md_bitmap_resize(ptr noundef %0, i64 noundef %1, i
   %100 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %99, ptr %100, align 8
   %101 = icmp eq ptr %99, null
-  br i1 %101, label %.thread27, label %102
+  br i1 %101, label %.thread28, label %102
 
 102:                                              ; preds = %.thread
-  br i1 %78, label %103, label %.thread86
+  br i1 %78, label %103, label %.thread88
 
 103:                                              ; preds = %102
   %104 = getelementptr inbounds i8, ptr %5, i64 8
   %105 = tail call ptr @alloc_pages(i32 noundef 3520, i32 noundef 0) #19
   store ptr %105, ptr %104, align 8
   %106 = icmp eq ptr %105, null
-  br i1 %106, label %.thread27, label %107
+  br i1 %106, label %.thread28, label %107
 
 107:                                              ; preds = %103
   store ptr %105, ptr %99, align 8
   %108 = sext i32 %97 to i64
   %109 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 %108, ptr %109, align 8
-  br label %.thread86
+  br label %.thread88
 
-.thread86:                                        ; preds = %102, %107
+.thread88:                                        ; preds = %102, %107
   %110 = phi ptr [ %105, %107 ], [ null, %102 ]
   %111 = phi i32 [ 1, %107 ], [ 0, %102 ]
   %112 = zext nneg i32 %111 to i64
   %113 = icmp ugt i64 %95, %112
-  br i1 %113, label %.preheader57, label %.loopexit58
+  br i1 %113, label %.preheader59, label %.loopexit60
 
-114:                                              ; preds = %.preheader57
+114:                                              ; preds = %.preheader59
   %115 = add i32 %119, 1
   %116 = sext i32 %115 to i64
   %117 = icmp ugt i64 %95, %116
-  br i1 %117, label %.preheader57, label %.loopexit58, !llvm.loop !67
+  br i1 %117, label %.preheader59, label %.loopexit60, !llvm.loop !67
 
-.preheader57:                                     ; preds = %.thread86, %114
-  %118 = phi i64 [ %116, %114 ], [ %112, %.thread86 ]
-  %119 = phi i32 [ %115, %114 ], [ %111, %.thread86 ]
+.preheader59:                                     ; preds = %.thread88, %114
+  %118 = phi i64 [ %116, %114 ], [ %112, %.thread88 ]
+  %119 = phi i32 [ %115, %114 ], [ %111, %.thread88 ]
   %120 = tail call ptr @alloc_pages(i32 noundef 3520, i32 noundef 0) #19
   %121 = getelementptr ptr, ptr %99, i64 %118
   store ptr %120, ptr %121, align 8
   %122 = icmp eq ptr %120, null
-  br i1 %122, label %134, label %114
+  br i1 %122, label %132, label %114
 
-.loopexit58:                                      ; preds = %114, %.thread86
-  %123 = phi i64 [ %112, %.thread86 ], [ %116, %114 ]
-  %124 = getelementptr inbounds i8, ptr %5, i64 40
-  store i64 %123, ptr %124, align 8
-  %125 = shl nuw nsw i64 %95, 2
-  %126 = add nuw nsw i64 %125, 7
-  %127 = lshr i64 %126, 3
-  %128 = add nuw nsw i64 %127, 7
-  %129 = and i64 %128, 9007199254740984
-  %130 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %129, i32 noundef 3520) #23
-  %131 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %130, ptr %131, align 8
-  %132 = icmp eq ptr %130, null
-  br i1 %132, label %.thread27, label %.thread29
+.loopexit60:                                      ; preds = %114, %.thread88
+  %123 = phi i64 [ %112, %.thread88 ], [ %116, %114 ]
+  store i64 %123, ptr %.sroa.gep1, align 8
+  %124 = shl nuw nsw i64 %95, 2
+  %125 = add nuw nsw i64 %124, 7
+  %126 = lshr i64 %125, 3
+  %127 = add nuw nsw i64 %126, 7
+  %128 = and i64 %127, 9007199254740984
+  %129 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %128, i32 noundef 3520) #23
+  %130 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %129, ptr %130, align 8
+  %131 = icmp eq ptr %129, null
+  br i1 %131, label %.thread28, label %.thread30
 
-.thread29:                                        ; preds = %.loopexit58
-  %133 = getelementptr inbounds i8, ptr %5, i64 48
-  store i64 %93, ptr %133, align 8
+.thread30:                                        ; preds = %.loopexit60
+  store i64 %93, ptr %.sroa.gep, align 8
+  br label %.thread29
+
+132:                                              ; preds = %.preheader59
+  store i64 %118, ptr %.sroa.gep1, align 8
   br label %.thread28
 
-134:                                              ; preds = %.preheader57
-  %135 = getelementptr inbounds i8, ptr %5, i64 40
-  store i64 %118, ptr %135, align 8
-  br label %.thread27
-
-.thread27:                                        ; preds = %.loopexit58, %103, %.thread, %134
+.thread28:                                        ; preds = %.loopexit60, %103, %.thread, %132
   call fastcc void @md_bitmap_file_unmap(ptr noundef nonnull %5)
-  br label %497
+  br label %494
 
-.thread28:                                        ; preds = %71, %.thread29
-  %136 = phi ptr [ null, %71 ], [ %110, %.thread29 ]
-  %137 = add i64 %.pre-phi85, 2047
-  %138 = lshr i64 %137, 11
-  %139 = shl nuw nsw i64 %138, 4
-  %140 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %139, i32 noundef 3520) #23
-  %141 = icmp eq ptr %140, null
-  br i1 %141, label %142, label %143
+.thread29:                                        ; preds = %71, %.thread30
+  %133 = phi ptr [ null, %71 ], [ %110, %.thread30 ]
+  %134 = add i64 %.pre-phi87, 2047
+  %135 = lshr i64 %134, 11
+  %136 = shl nuw nsw i64 %135, 4
+  %137 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %136, i32 noundef 3520) #23
+  %138 = icmp eq ptr %137, null
+  br i1 %138, label %139, label %140
 
-142:                                              ; preds = %.thread28
+139:                                              ; preds = %.thread29
   call fastcc void @md_bitmap_file_unmap(ptr noundef nonnull %5)
-  br label %497
+  br label %494
 
-143:                                              ; preds = %.thread28
-  br i1 %9, label %150, label %144
+140:                                              ; preds = %.thread29
+  br i1 %9, label %147, label %141
 
-144:                                              ; preds = %143
-  %145 = load ptr, ptr %67, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 8
-  %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 168
-  %149 = load ptr, ptr %148, align 8
-  tail call void %149(ptr noundef %145, i32 noundef 1) #19
-  br label %150
+141:                                              ; preds = %140
+  %142 = load ptr, ptr %67, align 8
+  %143 = getelementptr inbounds i8, ptr %142, i64 8
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds i8, ptr %144, i64 168
+  %146 = load ptr, ptr %145, align 8
+  tail call void %146(ptr noundef %142, i32 noundef 1) #19
+  br label %147
 
-150:                                              ; preds = %144, %143
-  %151 = load ptr, ptr %6, align 8
-  store ptr %151, ptr %5, align 8
+147:                                              ; preds = %141, %140
+  %148 = load ptr, ptr %6, align 8
+  store ptr %148, ptr %5, align 8
   store ptr null, ptr %6, align 8
-  %152 = icmp eq ptr %136, null
-  br i1 %152, label %170, label %153
+  %149 = icmp eq ptr %133, null
+  br i1 %149, label %167, label %150
 
-153:                                              ; preds = %150
-  %154 = getelementptr inbounds i8, ptr %0, i64 80
-  %155 = load ptr, ptr %154, align 8
-  %156 = icmp eq ptr %155, null
-  br i1 %156, label %170, label %157
+150:                                              ; preds = %147
+  %151 = getelementptr inbounds i8, ptr %0, i64 80
+  %152 = load ptr, ptr %151, align 8
+  %153 = icmp eq ptr %152, null
+  br i1 %153, label %167, label %154
 
-157:                                              ; preds = %153
-  %158 = load i64, ptr @vmemmap_base, align 8
-  %159 = ptrtoint ptr %136 to i64
-  %160 = sub i64 %159, %158
-  %161 = shl i64 %160, 6
-  %162 = load i64, ptr @page_offset_base, align 8
-  %163 = add i64 %161, %162
-  %164 = inttoptr i64 %163 to ptr
-  %165 = ptrtoint ptr %155 to i64
-  %166 = sub i64 %165, %158
-  %167 = shl i64 %166, 6
-  %168 = add i64 %167, %162
-  %169 = inttoptr i64 %168 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(256) %164, ptr noundef align 1 dereferenceable(256) %169, i64 256, i1 false)
-  br label %170
+154:                                              ; preds = %150
+  %155 = load i64, ptr @vmemmap_base, align 8
+  %156 = ptrtoint ptr %133 to i64
+  %157 = sub i64 %156, %155
+  %158 = shl i64 %157, 6
+  %159 = load i64, ptr @page_offset_base, align 8
+  %160 = add i64 %158, %159
+  %161 = inttoptr i64 %160 to ptr
+  %162 = ptrtoint ptr %152 to i64
+  %163 = sub i64 %162, %155
+  %164 = shl i64 %163, 6
+  %165 = add i64 %164, %159
+  %166 = inttoptr i64 %165 to ptr
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(256) %161, ptr noundef align 1 dereferenceable(256) %166, i64 256, i1 false)
+  br label %167
 
-170:                                              ; preds = %157, %153, %150
+167:                                              ; preds = %154, %150, %147
   tail call void @_raw_spin_lock_irq(ptr noundef %0) #19
   tail call fastcc void @md_bitmap_file_unmap(ptr noundef %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
-  %171 = getelementptr inbounds i8, ptr %0, i64 8
-  %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds i8, ptr %0, i64 16
+  %168 = getelementptr inbounds i8, ptr %0, i64 8
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds i8, ptr %0, i64 16
+  %171 = load i64, ptr %170, align 8
+  %172 = getelementptr inbounds i8, ptr %0, i64 24
+  %173 = getelementptr inbounds i8, ptr %0, i64 32
   %174 = load i64, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %0, i64 24
-  %176 = getelementptr inbounds i8, ptr %0, i64 32
-  %177 = load i64, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %0, i64 40
-  %179 = load i64, ptr %178, align 8
-  store ptr %140, ptr %171, align 8
-  store i64 %138, ptr %173, align 8
-  store i64 %138, ptr %175, align 8
-  %180 = sext i32 %66 to i64
-  store i64 %180, ptr %176, align 8
-  store i64 %.pre-phi85, ptr %178, align 8
-  %181 = add i32 %66, 9
-  %182 = zext nneg i32 %181 to i64
-  %183 = shl nuw i64 1, %182
-  %184 = load ptr, ptr %67, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 944
-  store i64 %183, ptr %185, align 8
-  %186 = shl i64 %179, %177
-  %187 = zext i32 %66 to i64
-  %188 = shl i64 %.pre-phi85, %187
-  %189 = tail call i64 @llvm.umin.i64(i64 %186, i64 %188)
-  %190 = load ptr, ptr %67, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 1928
-  %192 = load ptr, ptr %191, align 8
-  %193 = icmp eq ptr %192, null
-  br i1 %193, label %.thread30, label %194
+  %175 = getelementptr inbounds i8, ptr %0, i64 40
+  %176 = load i64, ptr %175, align 8
+  store ptr %137, ptr %168, align 8
+  store i64 %135, ptr %170, align 8
+  store i64 %135, ptr %172, align 8
+  %177 = sext i32 %66 to i64
+  store i64 %177, ptr %173, align 8
+  store i64 %.pre-phi87, ptr %175, align 8
+  %178 = add i32 %66, 9
+  %179 = zext nneg i32 %178 to i64
+  %180 = shl nuw i64 1, %179
+  %181 = load ptr, ptr %67, align 8
+  %182 = getelementptr inbounds i8, ptr %181, i64 944
+  store i64 %180, ptr %182, align 8
+  %183 = shl i64 %176, %174
+  %184 = zext i32 %66 to i64
+  %185 = shl i64 %.pre-phi87, %184
+  %186 = tail call i64 @llvm.umin.i64(i64 %183, i64 %185)
+  %187 = load ptr, ptr %67, align 8
+  %188 = getelementptr inbounds i8, ptr %187, i64 1928
+  %189 = load ptr, ptr %188, align 8
+  %190 = icmp eq ptr %189, null
+  br i1 %190, label %.thread32, label %191
 
-194:                                              ; preds = %170
-  %195 = getelementptr inbounds i8, ptr %190, i64 972
-  %196 = load i32, ptr %195, align 4
-  %197 = icmp sgt i32 %196, 1
-  %198 = icmp ugt i64 %137, 2047
-  %199 = and i1 %198, %197
-  br i1 %199, label %.preheader56, label %.thread30
+191:                                              ; preds = %167
+  %192 = getelementptr inbounds i8, ptr %187, i64 972
+  %193 = load i32, ptr %192, align 4
+  %194 = icmp sgt i32 %193, 1
+  %195 = icmp ugt i64 %134, 2047
+  %196 = and i1 %195, %194
+  br i1 %196, label %.preheader58, label %.thread32
 
-.preheader56:                                     ; preds = %194, %215
-  %200 = phi i64 [ %223, %215 ], [ 0, %194 ]
-  %201 = tail call fastcc i32 @md_bitmap_checkpage(ptr noundef %0, i64 noundef %200, i32 noundef 1)
-  %202 = icmp eq i32 %201, 0
-  br i1 %202, label %215, label %203
+.preheader58:                                     ; preds = %191, %212
+  %197 = phi i64 [ %220, %212 ], [ 0, %191 ]
+  %198 = tail call fastcc i32 @md_bitmap_checkpage(ptr noundef %0, i64 noundef %197, i32 noundef 1)
+  %199 = icmp eq i32 %198, 0
+  br i1 %199, label %212, label %200
 
-203:                                              ; preds = %.preheader56
-  %204 = icmp eq i64 %200, 0
-  br i1 %204, label %.loopexit55, label %.preheader54
+200:                                              ; preds = %.preheader58
+  %201 = icmp eq i64 %197, 0
+  br i1 %201, label %.loopexit57, label %.preheader56
 
-.preheader54:                                     ; preds = %203, %.preheader54
-  %205 = phi i64 [ %208, %.preheader54 ], [ 0, %203 ]
-  %206 = getelementptr %struct.bitmap_page, ptr %140, i64 %205
-  %207 = load ptr, ptr %206, align 8
-  tail call void @kfree(ptr noundef %207) #19
-  %208 = add nuw nsw i64 %205, 1
-  %209 = icmp eq i64 %208, %200
-  br i1 %209, label %.loopexit55, label %.preheader54, !llvm.loop !68
+.preheader56:                                     ; preds = %200, %.preheader56
+  %202 = phi i64 [ %205, %.preheader56 ], [ 0, %200 ]
+  %203 = getelementptr %struct.bitmap_page, ptr %137, i64 %202
+  %204 = load ptr, ptr %203, align 8
+  tail call void @kfree(ptr noundef %204) #19
+  %205 = add nuw nsw i64 %202, 1
+  %206 = icmp eq i64 %205, %197
+  br i1 %206, label %.loopexit57, label %.preheader56, !llvm.loop !68
 
-.loopexit55:                                      ; preds = %.preheader54, %203
-  tail call void @kfree(ptr noundef nonnull %140) #19
-  store ptr %172, ptr %171, align 8
+.loopexit57:                                      ; preds = %.preheader56, %200
+  tail call void @kfree(ptr noundef nonnull %137) #19
+  store ptr %169, ptr %168, align 8
+  store i64 %171, ptr %170, align 8
+  store i64 %171, ptr %172, align 8
   store i64 %174, ptr %173, align 8
-  store i64 %174, ptr %175, align 8
-  store i64 %177, ptr %176, align 8
-  store i64 %179, ptr %178, align 8
-  %210 = add i64 %177, 9
-  %211 = shl nuw i64 1, %210
-  %212 = load ptr, ptr %67, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 944
-  store i64 %211, ptr %213, align 8
-  %214 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21) #21
-  br label %.thread30
+  store i64 %176, ptr %175, align 8
+  %207 = add i64 %174, 9
+  %208 = shl nuw i64 1, %207
+  %209 = load ptr, ptr %67, align 8
+  %210 = getelementptr inbounds i8, ptr %209, i64 944
+  store i64 %208, ptr %210, align 8
+  %211 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21) #21
+  br label %.thread32
 
-215:                                              ; preds = %.preheader56
-  %216 = load ptr, ptr %171, align 8
-  %217 = getelementptr %struct.bitmap_page, ptr %216, i64 %200, i32 1
-  %218 = load i32, ptr %217, align 8
-  %219 = and i32 %218, -4
-  %220 = add i32 %219, 4
-  %221 = and i32 %218, 3
-  %222 = or disjoint i32 %220, %221
-  store i32 %222, ptr %217, align 8
-  %223 = add nuw nsw i64 %200, 1
-  %224 = icmp ult i64 %223, %138
-  br i1 %224, label %.preheader56, label %.thread30, !llvm.loop !69
+212:                                              ; preds = %.preheader58
+  %213 = load ptr, ptr %168, align 8
+  %214 = getelementptr %struct.bitmap_page, ptr %213, i64 %197, i32 1
+  %215 = load i32, ptr %214, align 8
+  %216 = and i32 %215, -4
+  %217 = add i32 %216, 4
+  %218 = and i32 %215, 3
+  %219 = or disjoint i32 %217, %218
+  store i32 %219, ptr %214, align 8
+  %220 = add nuw nsw i64 %197, 1
+  %221 = icmp ult i64 %220, %135
+  br i1 %221, label %.preheader58, label %.thread32, !llvm.loop !69
 
-.thread30:                                        ; preds = %215, %170, %.loopexit55, %194
-  %225 = phi i64 [ %189, %194 ], [ %186, %.loopexit55 ], [ %189, %170 ], [ %189, %215 ]
-  %226 = icmp eq i64 %225, 0
-  br i1 %226, label %.loopexit53, label %227
+.thread32:                                        ; preds = %212, %167, %.loopexit57, %191
+  %222 = phi i64 [ %186, %191 ], [ %183, %.loopexit57 ], [ %186, %167 ], [ %186, %212 ]
+  %223 = icmp eq i64 %222, 0
+  br i1 %223, label %.loopexit55, label %224
 
-227:                                              ; preds = %.thread30
-  %228 = add i64 %177, 11
-  %229 = shl nsw i64 -1, %187
-  %230 = shl nuw i64 1, %228
-  %231 = add i64 %230, -1
-  %232 = shl nuw i64 1, %177
-  %233 = add i64 %232, -1
-  br label %234
+224:                                              ; preds = %.thread32
+  %225 = add i64 %174, 11
+  %226 = shl nsw i64 -1, %184
+  %227 = shl nuw i64 1, %225
+  %228 = add i64 %227, -1
+  %229 = shl nuw i64 1, %174
+  %230 = add i64 %229, -1
+  br label %231
 
-234:                                              ; preds = %.thread37, %227
-  %235 = phi i64 [ 0, %227 ], [ %368, %.thread37 ]
-  %236 = phi i64 [ 0, %227 ], [ %367, %.thread37 ]
-  %237 = phi i64 [ 0, %227 ], [ %366, %.thread37 ]
-  %238 = lshr i64 %235, %177
-  %239 = lshr i64 %238, 11
-  %240 = shl i64 %238, 1
-  %241 = and i64 %240, 4094
-  %242 = icmp ult i64 %239, %174
-  br i1 %242, label %243, label %.thread37
+231:                                              ; preds = %.thread39, %224
+  %232 = phi i64 [ 0, %224 ], [ %365, %.thread39 ]
+  %233 = phi i64 [ 0, %224 ], [ %364, %.thread39 ]
+  %234 = phi i64 [ 0, %224 ], [ %363, %.thread39 ]
+  %235 = lshr i64 %232, %174
+  %236 = lshr i64 %235, 11
+  %237 = shl i64 %235, 1
+  %238 = and i64 %237, 4094
+  %239 = icmp ult i64 %236, %171
+  br i1 %239, label %240, label %.thread39
 
-243:                                              ; preds = %234
-  %244 = getelementptr %struct.bitmap_page, ptr %172, i64 %239
-  %245 = getelementptr inbounds i8, ptr %244, i64 8
-  %246 = load i32, ptr %245, align 8
-  %247 = and i32 %246, 1
-  %248 = icmp eq i32 %247, 0
-  br i1 %248, label %249, label %259
+240:                                              ; preds = %231
+  %241 = getelementptr %struct.bitmap_page, ptr %169, i64 %236
+  %242 = getelementptr inbounds i8, ptr %241, i64 8
+  %243 = load i32, ptr %242, align 8
+  %244 = and i32 %243, 1
+  %245 = icmp eq i32 %244, 0
+  br i1 %245, label %246, label %256
 
-249:                                              ; preds = %243
-  %250 = load ptr, ptr %244, align 8
-  %251 = icmp eq ptr %250, null
-  br i1 %251, label %252, label %255
+246:                                              ; preds = %240
+  %247 = load ptr, ptr %241, align 8
+  %248 = icmp eq ptr %247, null
+  br i1 %248, label %249, label %252
 
-252:                                              ; preds = %249
-  %253 = and i64 %235, %231
-  %254 = sub i64 %230, %253
-  br label %.thread37
-
-255:                                              ; preds = %249
-  %256 = and i64 %235, %233
-  %257 = sub i64 %232, %256
-  %258 = getelementptr i8, ptr %250, i64 %241
-  br label %265
-
-259:                                              ; preds = %243
-  %260 = and i64 %235, %231
-  %261 = sub i64 %230, %260
-  %262 = icmp ugt i64 %241, 2047
-  %263 = zext i1 %262 to i64
-  %264 = getelementptr i16, ptr %244, i64 %263
-  br label %265
-
-265:                                              ; preds = %255, %259
-  %266 = phi i64 [ %257, %255 ], [ %261, %259 ]
-  %267 = phi ptr [ %258, %255 ], [ %264, %259 ]
-  %268 = icmp eq ptr %267, null
-  br i1 %268, label %.thread37, label %269
-
-269:                                              ; preds = %265
-  %270 = load i16, ptr %267, align 2
-  %271 = icmp slt i16 %270, 0
-  br i1 %271, label %272, label %.thread37
-
-272:                                              ; preds = %269
-  %273 = load i64, ptr %176, align 8
-  %274 = lshr i64 %235, %273
-  %275 = lshr i64 %274, 11
-  %276 = shl i64 %274, 1
-  %277 = and i64 %276, 4094
-  %278 = load i64, ptr %173, align 8
-  %279 = icmp ult i64 %275, %278
-  br i1 %279, label %280, label %.thread42
-
-280:                                              ; preds = %272
-  %281 = tail call fastcc i32 @md_bitmap_checkpage(ptr noundef %0, i64 noundef %275, i32 noundef 0)
-  %282 = load ptr, ptr %171, align 8
-  %283 = getelementptr %struct.bitmap_page, ptr %282, i64 %275
-  %284 = getelementptr inbounds i8, ptr %283, i64 8
-  %285 = load i32, ptr %284, align 8
-  %286 = and i32 %285, 1
-  %287 = icmp eq i32 %286, 0
-  br i1 %287, label %288, label %291
-
-288:                                              ; preds = %280
-  %289 = load ptr, ptr %283, align 8
-  %290 = icmp eq ptr %289, null
-  br i1 %290, label %291, label %.thread38
-
-291:                                              ; preds = %280, %288
-  %292 = load i64, ptr %176, align 8
-  %293 = add i64 %292, 11
-  %294 = shl nuw i64 1, %293
-  %295 = add i64 %294, -1
-  %296 = and i64 %295, %235
-  %297 = sub i64 %294, %296
-  %298 = icmp slt i32 %281, 0
-  br i1 %298, label %.thread42, label %305
-
-.thread38:                                        ; preds = %288
-  %299 = load i64, ptr %176, align 8
-  %300 = shl nuw i64 1, %299
-  %301 = add i64 %300, -1
-  %302 = and i64 %301, %235
-  %303 = sub i64 %300, %302
-  %304 = icmp slt i32 %281, 0
-  br i1 %304, label %.thread42, label %.thread39
-
-305:                                              ; preds = %291
-  br i1 %287, label %..thread39_crit_edge, label %306
-
-..thread39_crit_edge:                             ; preds = %305
-  %.pre75 = load ptr, ptr %283, align 8
+249:                                              ; preds = %246
+  %250 = and i64 %232, %228
+  %251 = sub i64 %227, %250
   br label %.thread39
 
-306:                                              ; preds = %305
-  %307 = icmp ugt i64 %277, 2047
-  %308 = zext i1 %307 to i64
-  %309 = getelementptr i16, ptr %283, i64 %308
-  br label %313
+252:                                              ; preds = %246
+  %253 = and i64 %232, %230
+  %254 = sub i64 %229, %253
+  %255 = getelementptr i8, ptr %247, i64 %238
+  br label %262
 
-.thread39:                                        ; preds = %..thread39_crit_edge, %.thread38
-  %310 = phi ptr [ %.pre75, %..thread39_crit_edge ], [ %289, %.thread38 ]
-  %311 = phi i64 [ %297, %..thread39_crit_edge ], [ %303, %.thread38 ]
-  %312 = getelementptr i8, ptr %310, i64 %277
-  br label %313
+256:                                              ; preds = %240
+  %257 = and i64 %232, %228
+  %258 = sub i64 %227, %257
+  %259 = icmp ugt i64 %238, 2047
+  %260 = zext i1 %259 to i64
+  %261 = getelementptr i16, ptr %241, i64 %260
+  br label %262
 
-313:                                              ; preds = %.thread39, %306
-  %314 = phi i64 [ %311, %.thread39 ], [ %297, %306 ]
-  %315 = phi ptr [ %312, %.thread39 ], [ %309, %306 ]
-  %316 = icmp eq ptr %315, null
-  br i1 %316, label %.thread42, label %317
+262:                                              ; preds = %252, %256
+  %263 = phi i64 [ %254, %252 ], [ %258, %256 ]
+  %264 = phi ptr [ %255, %252 ], [ %261, %256 ]
+  %265 = icmp eq ptr %264, null
+  br i1 %265, label %.thread39, label %266
 
-317:                                              ; preds = %313
-  %318 = load i16, ptr %315, align 2
-  %319 = icmp eq i16 %318, 0
-  br i1 %319, label %320, label %361
+266:                                              ; preds = %262
+  %267 = load i16, ptr %264, align 2
+  %268 = icmp slt i16 %267, 0
+  br i1 %268, label %269, label %.thread39
 
-320:                                              ; preds = %317
-  %321 = add i64 %314, %235
-  %322 = and i64 %235, %229
-  %323 = icmp ult i64 %322, %321
-  br i1 %323, label %.preheader51, label %.loopexit52
+269:                                              ; preds = %266
+  %270 = load i64, ptr %173, align 8
+  %271 = lshr i64 %232, %270
+  %272 = lshr i64 %271, 11
+  %273 = shl i64 %271, 1
+  %274 = and i64 %273, 4094
+  %275 = load i64, ptr %170, align 8
+  %276 = icmp ult i64 %272, %275
+  br i1 %276, label %277, label %.thread44
 
-.preheader51:                                     ; preds = %320, %.preheader51
-  %324 = phi i64 [ %325, %.preheader51 ], [ %322, %320 ]
-  tail call fastcc void @md_bitmap_file_set_bit(ptr noundef %0, i64 noundef %235)
-  %325 = add i64 %324, %.pre-phi79
-  %326 = icmp ult i64 %325, %321
-  br i1 %326, label %.preheader51, label %.loopexit52, !llvm.loop !70
+277:                                              ; preds = %269
+  %278 = tail call fastcc i32 @md_bitmap_checkpage(ptr noundef %0, i64 noundef %272, i32 noundef 0)
+  %279 = load ptr, ptr %168, align 8
+  %280 = getelementptr %struct.bitmap_page, ptr %279, i64 %272
+  %281 = getelementptr inbounds i8, ptr %280, i64 8
+  %282 = load i32, ptr %281, align 8
+  %283 = and i32 %282, 1
+  %284 = icmp eq i32 %283, 0
+  br i1 %284, label %285, label %288
 
-.loopexit52:                                      ; preds = %.preheader51, %320
-  store i16 2, ptr %315, align 2
-  %327 = load i64, ptr %176, align 8
-  %328 = lshr i64 %235, %327
-  %329 = lshr i64 %328, 11
-  %330 = load ptr, ptr %171, align 8
-  %331 = getelementptr %struct.bitmap_page, ptr %330, i64 %329, i32 1
-  %332 = load i32, ptr %331, align 8
-  %333 = add i32 %332, 4
-  store i32 %333, ptr %331, align 8
-  %334 = load ptr, ptr %171, align 8
-  %335 = getelementptr %struct.bitmap_page, ptr %334, i64 %329
-  %336 = getelementptr inbounds i8, ptr %335, i64 8
-  %337 = load i32, ptr %336, align 8
-  %338 = icmp ult i32 %337, 4
-  br i1 %338, label %339, label %350
+285:                                              ; preds = %277
+  %286 = load ptr, ptr %280, align 8
+  %287 = icmp eq ptr %286, null
+  br i1 %287, label %288, label %.thread40
 
-339:                                              ; preds = %.loopexit52
-  %340 = and i32 %337, 1
-  %341 = icmp eq i32 %340, 0
-  br i1 %341, label %346, label %342
+288:                                              ; preds = %277, %285
+  %289 = load i64, ptr %173, align 8
+  %290 = add i64 %289, 11
+  %291 = shl nuw i64 1, %290
+  %292 = add i64 %291, -1
+  %293 = and i64 %292, %232
+  %294 = sub i64 %291, %293
+  %295 = icmp slt i32 %278, 0
+  br i1 %295, label %.thread44, label %302
 
-342:                                              ; preds = %339
-  %343 = and i32 %337, 2
-  store i32 %343, ptr %336, align 8
-  %344 = load ptr, ptr %171, align 8
-  %345 = getelementptr %struct.bitmap_page, ptr %344, i64 %329
-  store ptr null, ptr %345, align 8
-  br label %350
+.thread40:                                        ; preds = %285
+  %296 = load i64, ptr %173, align 8
+  %297 = shl nuw i64 1, %296
+  %298 = add i64 %297, -1
+  %299 = and i64 %298, %232
+  %300 = sub i64 %297, %299
+  %301 = icmp slt i32 %278, 0
+  br i1 %301, label %.thread44, label %.thread41
 
-346:                                              ; preds = %339
-  %347 = load ptr, ptr %335, align 8
-  store ptr null, ptr %335, align 8
-  %348 = load i64, ptr %175, align 8
-  %349 = add i64 %348, 1
-  store i64 %349, ptr %175, align 8
-  tail call void @kfree(ptr noundef %347) #19
-  br label %350
+302:                                              ; preds = %288
+  br i1 %284, label %..thread41_crit_edge, label %303
 
-350:                                              ; preds = %346, %342, %.loopexit52
-  %351 = load i64, ptr %176, align 8
-  %352 = lshr i64 %235, %351
-  %353 = lshr i64 %352, 11
-  %354 = load ptr, ptr %171, align 8
-  %355 = getelementptr %struct.bitmap_page, ptr %354, i64 %353, i32 1
-  %356 = load i32, ptr %355, align 8
-  %357 = and i32 %356, 2
-  %358 = icmp eq i32 %357, 0
-  br i1 %358, label %359, label %361
+..thread41_crit_edge:                             ; preds = %302
+  %.pre77 = load ptr, ptr %280, align 8
+  br label %.thread41
 
-359:                                              ; preds = %350
-  %360 = or disjoint i32 %356, 2
-  store i32 %360, ptr %355, align 8
-  br label %361
+303:                                              ; preds = %302
+  %304 = icmp ugt i64 %274, 2047
+  %305 = zext i1 %304 to i64
+  %306 = getelementptr i16, ptr %280, i64 %305
+  br label %310
 
-361:                                              ; preds = %359, %350, %317
-  %362 = load i16, ptr %315, align 2
-  %363 = or i16 %362, -32768
-  store i16 %363, ptr %315, align 2
-  br label %.thread42
+.thread41:                                        ; preds = %..thread41_crit_edge, %.thread40
+  %307 = phi ptr [ %.pre77, %..thread41_crit_edge ], [ %286, %.thread40 ]
+  %308 = phi i64 [ %294, %..thread41_crit_edge ], [ %300, %.thread40 ]
+  %309 = getelementptr i8, ptr %307, i64 %274
+  br label %310
 
-.thread42:                                        ; preds = %.thread38, %272, %291, %361, %313
-  %364 = phi i64 [ %314, %361 ], [ %314, %313 ], [ %303, %.thread38 ], [ %236, %272 ], [ %297, %291 ]
-  %365 = tail call i64 @llvm.umin.i64(i64 %364, i64 %266)
-  br label %.thread37
+310:                                              ; preds = %.thread41, %303
+  %311 = phi i64 [ %308, %.thread41 ], [ %294, %303 ]
+  %312 = phi ptr [ %309, %.thread41 ], [ %306, %303 ]
+  %313 = icmp eq ptr %312, null
+  br i1 %313, label %.thread44, label %314
 
-.thread37:                                        ; preds = %252, %234, %.thread42, %269, %265
-  %366 = phi i64 [ %266, %265 ], [ %266, %269 ], [ %365, %.thread42 ], [ %254, %252 ], [ %237, %234 ]
-  %367 = phi i64 [ %236, %265 ], [ %236, %269 ], [ %364, %.thread42 ], [ %236, %252 ], [ %236, %234 ]
-  %368 = add i64 %366, %235
-  %369 = icmp ult i64 %368, %225
-  br i1 %369, label %234, label %.loopexit53, !llvm.loop !71
+314:                                              ; preds = %310
+  %315 = load i16, ptr %312, align 2
+  %316 = icmp eq i16 %315, 0
+  br i1 %316, label %317, label %358
 
-.loopexit53:                                      ; preds = %.thread37, %.thread30
-  %370 = phi i64 [ 0, %.thread30 ], [ %367, %.thread37 ]
-  %371 = phi i64 [ 0, %.thread30 ], [ %368, %.thread37 ]
-  %372 = load ptr, ptr %171, align 8
-  %373 = icmp eq ptr %372, %172
-  br i1 %373, label %387, label %374
+317:                                              ; preds = %314
+  %318 = add i64 %311, %232
+  %319 = and i64 %232, %226
+  %320 = icmp ult i64 %319, %318
+  br i1 %320, label %.preheader53, label %.loopexit54
 
-374:                                              ; preds = %.loopexit53
-  %375 = icmp eq i64 %174, 0
-  br i1 %375, label %.loopexit50, label %.preheader49
+.preheader53:                                     ; preds = %317, %.preheader53
+  %321 = phi i64 [ %322, %.preheader53 ], [ %319, %317 ]
+  tail call fastcc void @md_bitmap_file_set_bit(ptr noundef %0, i64 noundef %232)
+  %322 = add i64 %321, %.pre-phi81
+  %323 = icmp ult i64 %322, %318
+  br i1 %323, label %.preheader53, label %.loopexit54, !llvm.loop !70
 
-.preheader49:                                     ; preds = %374, %384
-  %376 = phi i64 [ %385, %384 ], [ 0, %374 ]
-  %377 = getelementptr %struct.bitmap_page, ptr %172, i64 %376
-  %378 = getelementptr inbounds i8, ptr %377, i64 8
-  %379 = load i32, ptr %378, align 8
-  %380 = and i32 %379, 1
-  %381 = icmp eq i32 %380, 0
-  br i1 %381, label %382, label %384
+.loopexit54:                                      ; preds = %.preheader53, %317
+  store i16 2, ptr %312, align 2
+  %324 = load i64, ptr %173, align 8
+  %325 = lshr i64 %232, %324
+  %326 = lshr i64 %325, 11
+  %327 = load ptr, ptr %168, align 8
+  %328 = getelementptr %struct.bitmap_page, ptr %327, i64 %326, i32 1
+  %329 = load i32, ptr %328, align 8
+  %330 = add i32 %329, 4
+  store i32 %330, ptr %328, align 8
+  %331 = load ptr, ptr %168, align 8
+  %332 = getelementptr %struct.bitmap_page, ptr %331, i64 %326
+  %333 = getelementptr inbounds i8, ptr %332, i64 8
+  %334 = load i32, ptr %333, align 8
+  %335 = icmp ult i32 %334, 4
+  br i1 %335, label %336, label %347
 
-382:                                              ; preds = %.preheader49
-  %383 = load ptr, ptr %377, align 8
-  tail call void @kfree(ptr noundef %383) #19
-  br label %384
+336:                                              ; preds = %.loopexit54
+  %337 = and i32 %334, 1
+  %338 = icmp eq i32 %337, 0
+  br i1 %338, label %343, label %339
 
-384:                                              ; preds = %382, %.preheader49
-  %385 = add nuw i64 %376, 1
-  %386 = icmp eq i64 %385, %174
-  br i1 %386, label %.loopexit50, label %.preheader49, !llvm.loop !72
+339:                                              ; preds = %336
+  %340 = and i32 %334, 2
+  store i32 %340, ptr %333, align 8
+  %341 = load ptr, ptr %168, align 8
+  %342 = getelementptr %struct.bitmap_page, ptr %341, i64 %326
+  store ptr null, ptr %342, align 8
+  br label %347
 
-.loopexit50:                                      ; preds = %384, %374
-  tail call void @kfree(ptr noundef %172) #19
-  br label %387
+343:                                              ; preds = %336
+  %344 = load ptr, ptr %332, align 8
+  store ptr null, ptr %332, align 8
+  %345 = load i64, ptr %172, align 8
+  %346 = add i64 %345, 1
+  store i64 %346, ptr %172, align 8
+  tail call void @kfree(ptr noundef %344) #19
+  br label %347
 
-387:                                              ; preds = %.loopexit50, %.loopexit53
-  br i1 %9, label %496, label %388
+347:                                              ; preds = %343, %339, %.loopexit54
+  %348 = load i64, ptr %173, align 8
+  %349 = lshr i64 %232, %348
+  %350 = lshr i64 %349, 11
+  %351 = load ptr, ptr %168, align 8
+  %352 = getelementptr %struct.bitmap_page, ptr %351, i64 %350, i32 1
+  %353 = load i32, ptr %352, align 8
+  %354 = and i32 %353, 2
+  %355 = icmp eq i32 %354, 0
+  br i1 %355, label %356, label %358
 
-388:                                              ; preds = %387
-  %389 = icmp ult i64 %371, %188
-  br i1 %389, label %.preheader, label %.loopexit48
+356:                                              ; preds = %347
+  %357 = or disjoint i32 %353, 2
+  store i32 %357, ptr %352, align 8
+  br label %358
 
-.loopexit48:                                      ; preds = %.thread47, %388
-  %390 = getelementptr inbounds i8, ptr %0, i64 112
-  %391 = load i64, ptr %390, align 8
-  %392 = icmp eq i64 %391, 0
-  br i1 %392, label %.loopexit, label %393
-
-393:                                              ; preds = %.loopexit48
-  %394 = getelementptr inbounds i8, ptr %0, i64 104
-  br label %482
-
-.preheader:                                       ; preds = %388, %.thread47
-  %395 = phi i64 [ %480, %.thread47 ], [ %371, %388 ]
-  %396 = phi i64 [ %479, %.thread47 ], [ %370, %388 ]
-  %397 = load i64, ptr %176, align 8
-  %398 = lshr i64 %395, %397
-  %399 = lshr i64 %398, 11
-  %400 = shl i64 %398, 1
-  %401 = and i64 %400, 4094
-  %402 = load i64, ptr %173, align 8
-  %403 = icmp ult i64 %399, %402
-  br i1 %403, label %404, label %.thread47
-
-404:                                              ; preds = %.preheader
-  %405 = tail call fastcc i32 @md_bitmap_checkpage(ptr noundef %0, i64 noundef %399, i32 noundef 0)
-  %406 = load ptr, ptr %171, align 8
-  %407 = getelementptr %struct.bitmap_page, ptr %406, i64 %399
-  %408 = getelementptr inbounds i8, ptr %407, i64 8
-  %409 = load i32, ptr %408, align 8
-  %410 = and i32 %409, 1
-  %411 = icmp eq i32 %410, 0
-  br i1 %411, label %412, label %415
-
-412:                                              ; preds = %404
-  %413 = load ptr, ptr %407, align 8
-  %414 = icmp eq ptr %413, null
-  br i1 %414, label %415, label %.thread43
-
-415:                                              ; preds = %404, %412
-  %416 = load i64, ptr %176, align 8
-  %417 = add i64 %416, 11
-  %418 = shl nuw i64 1, %417
-  %419 = add i64 %418, -1
-  %420 = and i64 %419, %395
-  %421 = sub i64 %418, %420
-  %422 = icmp slt i32 %405, 0
-  br i1 %422, label %.thread47, label %429
-
-.thread43:                                        ; preds = %412
-  %423 = load i64, ptr %176, align 8
-  %424 = shl nuw i64 1, %423
-  %425 = add i64 %424, -1
-  %426 = and i64 %425, %395
-  %427 = sub i64 %424, %426
-  %428 = icmp slt i32 %405, 0
-  br i1 %428, label %.thread47, label %.thread44
-
-429:                                              ; preds = %415
-  br i1 %411, label %..thread44_crit_edge, label %430
-
-..thread44_crit_edge:                             ; preds = %429
-  %.pre76 = load ptr, ptr %407, align 8
+358:                                              ; preds = %356, %347, %314
+  %359 = load i16, ptr %312, align 2
+  %360 = or i16 %359, -32768
+  store i16 %360, ptr %312, align 2
   br label %.thread44
 
-430:                                              ; preds = %429
-  %431 = icmp ugt i64 %401, 2047
-  %432 = zext i1 %431 to i64
-  %433 = getelementptr i16, ptr %407, i64 %432
-  br label %437
+.thread44:                                        ; preds = %.thread40, %269, %288, %358, %310
+  %361 = phi i64 [ %311, %358 ], [ %311, %310 ], [ %300, %.thread40 ], [ %233, %269 ], [ %294, %288 ]
+  %362 = tail call i64 @llvm.umin.i64(i64 %361, i64 %263)
+  br label %.thread39
 
-.thread44:                                        ; preds = %..thread44_crit_edge, %.thread43
-  %434 = phi ptr [ %.pre76, %..thread44_crit_edge ], [ %413, %.thread43 ]
-  %435 = phi i64 [ %421, %..thread44_crit_edge ], [ %427, %.thread43 ]
-  %436 = getelementptr i8, ptr %434, i64 %401
-  br label %437
+.thread39:                                        ; preds = %249, %231, %.thread44, %266, %262
+  %363 = phi i64 [ %263, %262 ], [ %263, %266 ], [ %362, %.thread44 ], [ %251, %249 ], [ %234, %231 ]
+  %364 = phi i64 [ %233, %262 ], [ %233, %266 ], [ %361, %.thread44 ], [ %233, %249 ], [ %233, %231 ]
+  %365 = add i64 %363, %232
+  %366 = icmp ult i64 %365, %222
+  br i1 %366, label %231, label %.loopexit55, !llvm.loop !71
 
-437:                                              ; preds = %.thread44, %430
-  %438 = phi i64 [ %435, %.thread44 ], [ %421, %430 ]
-  %439 = phi ptr [ %436, %.thread44 ], [ %433, %430 ]
-  %440 = icmp eq ptr %439, null
-  br i1 %440, label %.thread47, label %441
+.loopexit55:                                      ; preds = %.thread39, %.thread32
+  %367 = phi i64 [ 0, %.thread32 ], [ %364, %.thread39 ]
+  %368 = phi i64 [ 0, %.thread32 ], [ %365, %.thread39 ]
+  %369 = load ptr, ptr %168, align 8
+  %370 = icmp eq ptr %369, %169
+  br i1 %370, label %384, label %371
 
-441:                                              ; preds = %437
-  %442 = load i16, ptr %439, align 2
-  %443 = icmp eq i16 %442, 0
-  br i1 %443, label %444, label %.thread47
+371:                                              ; preds = %.loopexit55
+  %372 = icmp eq i64 %171, 0
+  br i1 %372, label %.loopexit52, label %.preheader51
 
-444:                                              ; preds = %441
-  store i16 -32766, ptr %439, align 2
-  %445 = load i64, ptr %176, align 8
-  %446 = lshr i64 %395, %445
-  %447 = lshr i64 %446, 11
-  %448 = load ptr, ptr %171, align 8
-  %449 = getelementptr %struct.bitmap_page, ptr %448, i64 %447, i32 1
-  %450 = load i32, ptr %449, align 8
-  %451 = add i32 %450, 4
-  store i32 %451, ptr %449, align 8
-  %452 = load ptr, ptr %171, align 8
-  %453 = getelementptr %struct.bitmap_page, ptr %452, i64 %447
-  %454 = getelementptr inbounds i8, ptr %453, i64 8
-  %455 = load i32, ptr %454, align 8
-  %456 = icmp ult i32 %455, 4
-  br i1 %456, label %457, label %468
+.preheader51:                                     ; preds = %371, %381
+  %373 = phi i64 [ %382, %381 ], [ 0, %371 ]
+  %374 = getelementptr %struct.bitmap_page, ptr %169, i64 %373
+  %375 = getelementptr inbounds i8, ptr %374, i64 8
+  %376 = load i32, ptr %375, align 8
+  %377 = and i32 %376, 1
+  %378 = icmp eq i32 %377, 0
+  br i1 %378, label %379, label %381
 
-457:                                              ; preds = %444
-  %458 = and i32 %455, 1
-  %459 = icmp eq i32 %458, 0
-  br i1 %459, label %464, label %460
+379:                                              ; preds = %.preheader51
+  %380 = load ptr, ptr %374, align 8
+  tail call void @kfree(ptr noundef %380) #19
+  br label %381
 
-460:                                              ; preds = %457
-  %461 = and i32 %455, 2
-  store i32 %461, ptr %454, align 8
-  %462 = load ptr, ptr %171, align 8
-  %463 = getelementptr %struct.bitmap_page, ptr %462, i64 %447
-  store ptr null, ptr %463, align 8
-  br label %468
+381:                                              ; preds = %379, %.preheader51
+  %382 = add nuw i64 %373, 1
+  %383 = icmp eq i64 %382, %171
+  br i1 %383, label %.loopexit52, label %.preheader51, !llvm.loop !72
 
-464:                                              ; preds = %457
-  %465 = load ptr, ptr %453, align 8
-  store ptr null, ptr %453, align 8
-  %466 = load i64, ptr %175, align 8
-  %467 = add i64 %466, 1
-  store i64 %467, ptr %175, align 8
-  tail call void @kfree(ptr noundef %465) #19
-  br label %468
+.loopexit52:                                      ; preds = %381, %371
+  tail call void @kfree(ptr noundef %169) #19
+  br label %384
 
-468:                                              ; preds = %464, %460, %444
-  %469 = load i64, ptr %176, align 8
-  %470 = lshr i64 %395, %469
-  %471 = lshr i64 %470, 11
-  %472 = load ptr, ptr %171, align 8
-  %473 = getelementptr %struct.bitmap_page, ptr %472, i64 %471, i32 1
-  %474 = load i32, ptr %473, align 8
-  %475 = and i32 %474, 2
-  %476 = icmp eq i32 %475, 0
-  br i1 %476, label %477, label %.thread47
+384:                                              ; preds = %.loopexit52, %.loopexit55
+  br i1 %9, label %493, label %385
 
-477:                                              ; preds = %468
-  %478 = or disjoint i32 %474, 2
-  store i32 %478, ptr %473, align 8
-  br label %.thread47
+385:                                              ; preds = %384
+  %386 = icmp ult i64 %368, %185
+  br i1 %386, label %.preheader, label %.loopexit50
 
-.thread47:                                        ; preds = %.thread43, %.preheader, %415, %477, %468, %441, %437
-  %479 = phi i64 [ %438, %477 ], [ %438, %468 ], [ %438, %441 ], [ %438, %437 ], [ %427, %.thread43 ], [ %396, %.preheader ], [ %421, %415 ]
-  %480 = add i64 %479, %395
-  %481 = icmp ult i64 %480, %188
-  br i1 %481, label %.preheader, label %.loopexit48, !llvm.loop !73
+.loopexit50:                                      ; preds = %.thread49, %385
+  %387 = getelementptr inbounds i8, ptr %0, i64 112
+  %388 = load i64, ptr %387, align 8
+  %389 = icmp eq i64 %388, 0
+  br i1 %389, label %.loopexit, label %390
 
-482:                                              ; preds = %482, %393
-  %483 = phi i32 [ 0, %393 ], [ %487, %482 ]
-  %484 = load ptr, ptr %394, align 8
-  %485 = shl i32 %483, 2
-  %486 = zext i32 %485 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %484, i64 %486) #19, !srcloc !31
-  %487 = add i32 %483, 1
-  %488 = sext i32 %487 to i64
-  %489 = load i64, ptr %390, align 8
-  %490 = icmp ugt i64 %489, %488
-  br i1 %490, label %482, label %.loopexit, !llvm.loop !74
+390:                                              ; preds = %.loopexit50
+  %391 = getelementptr inbounds i8, ptr %0, i64 104
+  br label %479
 
-.loopexit:                                        ; preds = %482, %.loopexit48
+.preheader:                                       ; preds = %385, %.thread49
+  %392 = phi i64 [ %477, %.thread49 ], [ %368, %385 ]
+  %393 = phi i64 [ %476, %.thread49 ], [ %367, %385 ]
+  %394 = load i64, ptr %173, align 8
+  %395 = lshr i64 %392, %394
+  %396 = lshr i64 %395, 11
+  %397 = shl i64 %395, 1
+  %398 = and i64 %397, 4094
+  %399 = load i64, ptr %170, align 8
+  %400 = icmp ult i64 %396, %399
+  br i1 %400, label %401, label %.thread49
+
+401:                                              ; preds = %.preheader
+  %402 = tail call fastcc i32 @md_bitmap_checkpage(ptr noundef %0, i64 noundef %396, i32 noundef 0)
+  %403 = load ptr, ptr %168, align 8
+  %404 = getelementptr %struct.bitmap_page, ptr %403, i64 %396
+  %405 = getelementptr inbounds i8, ptr %404, i64 8
+  %406 = load i32, ptr %405, align 8
+  %407 = and i32 %406, 1
+  %408 = icmp eq i32 %407, 0
+  br i1 %408, label %409, label %412
+
+409:                                              ; preds = %401
+  %410 = load ptr, ptr %404, align 8
+  %411 = icmp eq ptr %410, null
+  br i1 %411, label %412, label %.thread45
+
+412:                                              ; preds = %401, %409
+  %413 = load i64, ptr %173, align 8
+  %414 = add i64 %413, 11
+  %415 = shl nuw i64 1, %414
+  %416 = add i64 %415, -1
+  %417 = and i64 %416, %392
+  %418 = sub i64 %415, %417
+  %419 = icmp slt i32 %402, 0
+  br i1 %419, label %.thread49, label %426
+
+.thread45:                                        ; preds = %409
+  %420 = load i64, ptr %173, align 8
+  %421 = shl nuw i64 1, %420
+  %422 = add i64 %421, -1
+  %423 = and i64 %422, %392
+  %424 = sub i64 %421, %423
+  %425 = icmp slt i32 %402, 0
+  br i1 %425, label %.thread49, label %.thread46
+
+426:                                              ; preds = %412
+  br i1 %408, label %..thread46_crit_edge, label %427
+
+..thread46_crit_edge:                             ; preds = %426
+  %.pre78 = load ptr, ptr %404, align 8
+  br label %.thread46
+
+427:                                              ; preds = %426
+  %428 = icmp ugt i64 %398, 2047
+  %429 = zext i1 %428 to i64
+  %430 = getelementptr i16, ptr %404, i64 %429
+  br label %434
+
+.thread46:                                        ; preds = %..thread46_crit_edge, %.thread45
+  %431 = phi ptr [ %.pre78, %..thread46_crit_edge ], [ %410, %.thread45 ]
+  %432 = phi i64 [ %418, %..thread46_crit_edge ], [ %424, %.thread45 ]
+  %433 = getelementptr i8, ptr %431, i64 %398
+  br label %434
+
+434:                                              ; preds = %.thread46, %427
+  %435 = phi i64 [ %432, %.thread46 ], [ %418, %427 ]
+  %436 = phi ptr [ %433, %.thread46 ], [ %430, %427 ]
+  %437 = icmp eq ptr %436, null
+  br i1 %437, label %.thread49, label %438
+
+438:                                              ; preds = %434
+  %439 = load i16, ptr %436, align 2
+  %440 = icmp eq i16 %439, 0
+  br i1 %440, label %441, label %.thread49
+
+441:                                              ; preds = %438
+  store i16 -32766, ptr %436, align 2
+  %442 = load i64, ptr %173, align 8
+  %443 = lshr i64 %392, %442
+  %444 = lshr i64 %443, 11
+  %445 = load ptr, ptr %168, align 8
+  %446 = getelementptr %struct.bitmap_page, ptr %445, i64 %444, i32 1
+  %447 = load i32, ptr %446, align 8
+  %448 = add i32 %447, 4
+  store i32 %448, ptr %446, align 8
+  %449 = load ptr, ptr %168, align 8
+  %450 = getelementptr %struct.bitmap_page, ptr %449, i64 %444
+  %451 = getelementptr inbounds i8, ptr %450, i64 8
+  %452 = load i32, ptr %451, align 8
+  %453 = icmp ult i32 %452, 4
+  br i1 %453, label %454, label %465
+
+454:                                              ; preds = %441
+  %455 = and i32 %452, 1
+  %456 = icmp eq i32 %455, 0
+  br i1 %456, label %461, label %457
+
+457:                                              ; preds = %454
+  %458 = and i32 %452, 2
+  store i32 %458, ptr %451, align 8
+  %459 = load ptr, ptr %168, align 8
+  %460 = getelementptr %struct.bitmap_page, ptr %459, i64 %444
+  store ptr null, ptr %460, align 8
+  br label %465
+
+461:                                              ; preds = %454
+  %462 = load ptr, ptr %450, align 8
+  store ptr null, ptr %450, align 8
+  %463 = load i64, ptr %172, align 8
+  %464 = add i64 %463, 1
+  store i64 %464, ptr %172, align 8
+  tail call void @kfree(ptr noundef %462) #19
+  br label %465
+
+465:                                              ; preds = %461, %457, %441
+  %466 = load i64, ptr %173, align 8
+  %467 = lshr i64 %392, %466
+  %468 = lshr i64 %467, 11
+  %469 = load ptr, ptr %168, align 8
+  %470 = getelementptr %struct.bitmap_page, ptr %469, i64 %468, i32 1
+  %471 = load i32, ptr %470, align 8
+  %472 = and i32 %471, 2
+  %473 = icmp eq i32 %472, 0
+  br i1 %473, label %474, label %.thread49
+
+474:                                              ; preds = %465
+  %475 = or disjoint i32 %471, 2
+  store i32 %475, ptr %470, align 8
+  br label %.thread49
+
+.thread49:                                        ; preds = %.thread45, %.preheader, %412, %474, %465, %438, %434
+  %476 = phi i64 [ %435, %474 ], [ %435, %465 ], [ %435, %438 ], [ %435, %434 ], [ %424, %.thread45 ], [ %393, %.preheader ], [ %418, %412 ]
+  %477 = add i64 %476, %392
+  %478 = icmp ult i64 %477, %185
+  br i1 %478, label %.preheader, label %.loopexit50, !llvm.loop !73
+
+479:                                              ; preds = %479, %390
+  %480 = phi i32 [ 0, %390 ], [ %484, %479 ]
+  %481 = load ptr, ptr %391, align 8
+  %482 = shl i32 %480, 2
+  %483 = zext i32 %482 to i64
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %481, i64 %483) #19, !srcloc !31
+  %484 = add i32 %480, 1
+  %485 = sext i32 %484 to i64
+  %486 = load i64, ptr %387, align 8
+  %487 = icmp ugt i64 %486, %485
+  br i1 %487, label %479, label %.loopexit, !llvm.loop !74
+
+.loopexit:                                        ; preds = %479, %.loopexit50
   tail call void @_raw_spin_unlock_irq(ptr noundef %0) #19
   tail call void @md_bitmap_unplug(ptr noundef %0)
-  %491 = load ptr, ptr %67, align 8
-  %492 = getelementptr inbounds i8, ptr %491, i64 8
-  %493 = load ptr, ptr %492, align 8
-  %494 = getelementptr inbounds i8, ptr %493, i64 168
-  %495 = load ptr, ptr %494, align 8
-  tail call void %495(ptr noundef %491, i32 noundef 0) #19
-  br label %497
+  %488 = load ptr, ptr %67, align 8
+  %489 = getelementptr inbounds i8, ptr %488, i64 8
+  %490 = load ptr, ptr %489, align 8
+  %491 = getelementptr inbounds i8, ptr %490, i64 168
+  %492 = load ptr, ptr %491, align 8
+  tail call void %492(ptr noundef %488, i32 noundef 0) #19
+  br label %494
 
-496:                                              ; preds = %387
+493:                                              ; preds = %384
   tail call void @_raw_spin_unlock_irq(ptr noundef %0) #19
-  br label %497
+  br label %494
 
-497:                                              ; preds = %496, %.loopexit, %142, %.thread27, %11
-  %498 = phi i32 [ -22, %11 ], [ -12, %.thread27 ], [ -12, %142 ], [ 0, %496 ], [ 0, %.loopexit ]
+494:                                              ; preds = %493, %.loopexit, %139, %.thread28, %11
+  %495 = phi i32 [ -22, %11 ], [ -12, %.thread28 ], [ -12, %139 ], [ 0, %493 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #19
-  ret i32 %498
+  ret i32 %495
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

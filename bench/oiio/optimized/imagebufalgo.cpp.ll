@@ -1166,33 +1166,12 @@ entry:
   %ref.tmp72 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %ref.tmp75 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %full_roi = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
-  %full_roi.sroa.gep826 = getelementptr inbounds i8, ptr %full_roi, i64 28
-  %full_roi.sroa.gep823 = getelementptr inbounds i8, ptr %full_roi, i64 24
-  %full_roi.sroa.gep820 = getelementptr inbounds i8, ptr %full_roi, i64 20
-  %full_roi.sroa.gep817 = getelementptr inbounds i8, ptr %full_roi, i64 16
-  %full_roi.sroa.gep814 = getelementptr inbounds i8, ptr %full_roi, i64 12
-  %full_roi.sroa.gep811 = getelementptr inbounds i8, ptr %full_roi, i64 8
-  %full_roi.sroa.gep809 = getelementptr inbounds i8, ptr %full_roi, i64 4
   %ref.tmp116 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %ref.tmp117 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %ref.tmp121 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %ref.tmp123 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
-  %ref.tmp123.sroa.gep808 = getelementptr inbounds i8, ptr %ref.tmp123, i64 28
-  %ref.tmp123.sroa.gep805 = getelementptr inbounds i8, ptr %ref.tmp123, i64 24
-  %ref.tmp123.sroa.gep802 = getelementptr inbounds i8, ptr %ref.tmp123, i64 20
-  %ref.tmp123.sroa.gep799 = getelementptr inbounds i8, ptr %ref.tmp123, i64 16
-  %ref.tmp123.sroa.gep796 = getelementptr inbounds i8, ptr %ref.tmp123, i64 12
-  %ref.tmp123.sroa.gep793 = getelementptr inbounds i8, ptr %ref.tmp123, i64 8
-  %ref.tmp123.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp123, i64 4
   %ref.tmp128 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %ref.tmp130 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
-  %ref.tmp130.sroa.gep827 = getelementptr inbounds i8, ptr %ref.tmp130, i64 28
-  %ref.tmp130.sroa.gep824 = getelementptr inbounds i8, ptr %ref.tmp130, i64 24
-  %ref.tmp130.sroa.gep821 = getelementptr inbounds i8, ptr %ref.tmp130, i64 20
-  %ref.tmp130.sroa.gep818 = getelementptr inbounds i8, ptr %ref.tmp130, i64 16
-  %ref.tmp130.sroa.gep815 = getelementptr inbounds i8, ptr %ref.tmp130, i64 12
-  %ref.tmp130.sroa.gep812 = getelementptr inbounds i8, ptr %ref.tmp130, i64 8
-  %ref.tmp130.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp130, i64 4
   %ref.tmp142 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
   %spec = alloca %"class.OpenImageIO_v2_6_0::ImageSpec", align 8
   %agg.tmp = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
@@ -1213,6 +1192,55 @@ entry:
   %r434.sroa.0 = alloca { i32, i32, i32, i32, i32, i32 }, align 8
   %agg.tmp440 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %tobool = icmp ne ptr %A, null
+  %cond-lvalue.i320.sroa.gep = getelementptr inbounds i8, ptr %full_roi, i64 4
+  %cond-lvalue.i320.sroa.gep791 = getelementptr inbounds i8, ptr %ref.tmp123, i64 4
+  %cond-lvalue.i320.sroa.gep793 = getelementptr inbounds i8, ptr %full_roi, i64 8
+  %cond-lvalue.i320.sroa.gep794 = getelementptr inbounds i8, ptr %ref.tmp123, i64 8
+  %cond-lvalue.i320.sroa.gep796 = getelementptr inbounds i8, ptr %full_roi, i64 12
+  %cond-lvalue.i320.sroa.gep797 = getelementptr inbounds i8, ptr %ref.tmp123, i64 12
+  %cond-lvalue.i320.sroa.gep799 = getelementptr inbounds i8, ptr %full_roi, i64 16
+  %cond-lvalue.i320.sroa.gep800 = getelementptr inbounds i8, ptr %ref.tmp123, i64 16
+  %cond-lvalue.i320.sroa.gep802 = getelementptr inbounds i8, ptr %full_roi, i64 20
+  %cond-lvalue.i320.sroa.gep803 = getelementptr inbounds i8, ptr %ref.tmp123, i64 20
+  %cond-lvalue.i320.sroa.gep805 = getelementptr inbounds i8, ptr %full_roi, i64 24
+  %cond-lvalue.i320.sroa.gep806 = getelementptr inbounds i8, ptr %ref.tmp123, i64 24
+  %cond-lvalue.i320.sroa.gep808 = getelementptr inbounds i8, ptr %full_roi, i64 28
+  %cond-lvalue.i320.sroa.gep809 = getelementptr inbounds i8, ptr %ref.tmp123, i64 28
+  %cond-lvalue.i376.sroa.gep810 = getelementptr inbounds i8, ptr %ref.tmp130, i64 4
+  %cond-lvalue.i376.sroa.gep813 = getelementptr inbounds i8, ptr %ref.tmp130, i64 8
+  %cond-lvalue.i376.sroa.gep816 = getelementptr inbounds i8, ptr %ref.tmp130, i64 12
+  %cond-lvalue.i376.sroa.gep819 = getelementptr inbounds i8, ptr %ref.tmp130, i64 16
+  %cond-lvalue.i376.sroa.gep822 = getelementptr inbounds i8, ptr %ref.tmp130, i64 20
+  %cond-lvalue.i376.sroa.gep825 = getelementptr inbounds i8, ptr %ref.tmp130, i64 24
+  %cond-lvalue.i376.sroa.gep828 = getelementptr inbounds i8, ptr %ref.tmp130, i64 28
+  %cond-lvalue.i348.sroa.gep = getelementptr inbounds i8, ptr %roi, i64 4
+  %cond-lvalue.i348.sroa.gep1040 = getelementptr inbounds i8, ptr %ref.tmp128, i64 4
+  %cond-lvalue.i348.sroa.gep1042 = getelementptr inbounds i8, ptr %roi, i64 8
+  %cond-lvalue.i348.sroa.gep1043 = getelementptr inbounds i8, ptr %ref.tmp128, i64 8
+  %cond-lvalue.i348.sroa.gep1045 = getelementptr inbounds i8, ptr %roi, i64 12
+  %cond-lvalue.i348.sroa.gep1046 = getelementptr inbounds i8, ptr %ref.tmp128, i64 12
+  %cond-lvalue.i348.sroa.gep1048 = getelementptr inbounds i8, ptr %roi, i64 16
+  %cond-lvalue.i348.sroa.gep1049 = getelementptr inbounds i8, ptr %ref.tmp128, i64 16
+  %cond-lvalue.i348.sroa.gep1051 = getelementptr inbounds i8, ptr %roi, i64 20
+  %cond-lvalue.i348.sroa.gep1052 = getelementptr inbounds i8, ptr %ref.tmp128, i64 20
+  %cond-lvalue.i348.sroa.gep1054 = getelementptr inbounds i8, ptr %roi, i64 24
+  %cond-lvalue.i348.sroa.gep1055 = getelementptr inbounds i8, ptr %ref.tmp128, i64 24
+  %cond-lvalue.i348.sroa.gep1057 = getelementptr inbounds i8, ptr %roi, i64 28
+  %cond-lvalue.i348.sroa.gep1058 = getelementptr inbounds i8, ptr %ref.tmp128, i64 28
+  %cond-lvalue.i293.sroa.gep1059 = getelementptr inbounds i8, ptr %ref.tmp121, i64 4
+  %cond-lvalue.i293.sroa.gep1062 = getelementptr inbounds i8, ptr %ref.tmp121, i64 8
+  %cond-lvalue.i293.sroa.gep1065 = getelementptr inbounds i8, ptr %ref.tmp121, i64 12
+  %cond-lvalue.i293.sroa.gep1068 = getelementptr inbounds i8, ptr %ref.tmp121, i64 16
+  %cond-lvalue.i293.sroa.gep1071 = getelementptr inbounds i8, ptr %ref.tmp121, i64 20
+  %cond-lvalue.i293.sroa.gep1074 = getelementptr inbounds i8, ptr %ref.tmp121, i64 24
+  %cond-lvalue.i293.sroa.gep1077 = getelementptr inbounds i8, ptr %ref.tmp121, i64 28
+  %cond-lvalue.i.sroa.gep1078 = getelementptr inbounds i8, ptr %ref.tmp72, i64 4
+  %cond-lvalue.i.sroa.gep1081 = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
+  %cond-lvalue.i.sroa.gep1084 = getelementptr inbounds i8, ptr %ref.tmp72, i64 12
+  %cond-lvalue.i.sroa.gep1087 = getelementptr inbounds i8, ptr %ref.tmp72, i64 16
+  %cond-lvalue.i.sroa.gep1090 = getelementptr inbounds i8, ptr %ref.tmp72, i64 20
+  %cond-lvalue.i.sroa.gep1093 = getelementptr inbounds i8, ptr %ref.tmp72, i64 24
+  %cond-lvalue.i.sroa.gep1096 = getelementptr inbounds i8, ptr %ref.tmp72, i64 28
   br i1 %tobool, label %land.lhs.true, label %lor.lhs.false
 
 land.lhs.true:                                    ; preds = %entry
@@ -1253,16 +1281,16 @@ if.then17:                                        ; preds = %if.then15
   %call18 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %dst)
   %nchannels = getelementptr inbounds i8, ptr %call18, i64 60
   %0 = load i32, ptr %nchannels, align 4
-  %.sroa.speculated888 = tail call i32 @llvm.smin.i32(i32 %0, i32 10000)
+  %.sroa.speculated889 = tail call i32 @llvm.smin.i32(i32 %0, i32 10000)
   %call20 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %dst)
   %nchannels21 = getelementptr inbounds i8, ptr %call20, i64 60
   %1 = load i32, ptr %nchannels21, align 4
-  %.sroa.speculated854 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
+  %.sroa.speculated855 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then17, %if.then15
-  %maxchans.0 = phi i32 [ %.sroa.speculated854, %if.then17 ], [ 1, %if.then15 ]
-  %minchans.0 = phi i32 [ %.sroa.speculated888, %if.then17 ], [ 10000, %if.then15 ]
+  %maxchans.0 = phi i32 [ %.sroa.speculated855, %if.then17 ], [ 1, %if.then15 ]
+  %minchans.0 = phi i32 [ %.sroa.speculated889, %if.then17 ], [ 10000, %if.then15 ]
   br i1 %tobool, label %land.lhs.true25, label %if.end34
 
 land.lhs.true25:                                  ; preds = %if.end23
@@ -1273,16 +1301,16 @@ if.then27:                                        ; preds = %land.lhs.true25
   %call28 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %A)
   %nchannels29 = getelementptr inbounds i8, ptr %call28, i64 60
   %2 = load i32, ptr %nchannels29, align 4
-  %.sroa.speculated885 = tail call i32 @llvm.smin.i32(i32 %2, i32 %minchans.0)
+  %.sroa.speculated886 = tail call i32 @llvm.smin.i32(i32 %2, i32 %minchans.0)
   %call31 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %A)
   %nchannels32 = getelementptr inbounds i8, ptr %call31, i64 60
   %3 = load i32, ptr %nchannels32, align 4
-  %.sroa.speculated851 = tail call i32 @llvm.smax.i32(i32 %maxchans.0, i32 %3)
+  %.sroa.speculated852 = tail call i32 @llvm.smax.i32(i32 %maxchans.0, i32 %3)
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then27, %land.lhs.true25, %if.end23
-  %maxchans.1 = phi i32 [ %.sroa.speculated851, %if.then27 ], [ %maxchans.0, %land.lhs.true25 ], [ %maxchans.0, %if.end23 ]
-  %minchans.1 = phi i32 [ %.sroa.speculated885, %if.then27 ], [ %minchans.0, %land.lhs.true25 ], [ %minchans.0, %if.end23 ]
+  %maxchans.1 = phi i32 [ %.sroa.speculated852, %if.then27 ], [ %maxchans.0, %land.lhs.true25 ], [ %maxchans.0, %if.end23 ]
+  %minchans.1 = phi i32 [ %.sroa.speculated886, %if.then27 ], [ %minchans.0, %land.lhs.true25 ], [ %minchans.0, %if.end23 ]
   br i1 %tobool1, label %land.lhs.true36, label %if.end45
 
 land.lhs.true36:                                  ; preds = %if.end34
@@ -1293,16 +1321,16 @@ if.then38:                                        ; preds = %land.lhs.true36
   %call39 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %B)
   %nchannels40 = getelementptr inbounds i8, ptr %call39, i64 60
   %4 = load i32, ptr %nchannels40, align 4
-  %.sroa.speculated882 = tail call i32 @llvm.smin.i32(i32 %4, i32 %minchans.1)
+  %.sroa.speculated883 = tail call i32 @llvm.smin.i32(i32 %4, i32 %minchans.1)
   %call42 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %B)
   %nchannels43 = getelementptr inbounds i8, ptr %call42, i64 60
   %5 = load i32, ptr %nchannels43, align 4
-  %.sroa.speculated848 = tail call i32 @llvm.smax.i32(i32 %maxchans.1, i32 %5)
+  %.sroa.speculated849 = tail call i32 @llvm.smax.i32(i32 %maxchans.1, i32 %5)
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then38, %land.lhs.true36, %if.end34
-  %maxchans.2 = phi i32 [ %.sroa.speculated848, %if.then38 ], [ %maxchans.1, %land.lhs.true36 ], [ %maxchans.1, %if.end34 ]
-  %minchans.2 = phi i32 [ %.sroa.speculated882, %if.then38 ], [ %minchans.1, %land.lhs.true36 ], [ %minchans.1, %if.end34 ]
+  %maxchans.2 = phi i32 [ %.sroa.speculated849, %if.then38 ], [ %maxchans.1, %land.lhs.true36 ], [ %maxchans.1, %if.end34 ]
+  %minchans.2 = phi i32 [ %.sroa.speculated883, %if.then38 ], [ %minchans.1, %land.lhs.true36 ], [ %minchans.1, %if.end34 ]
   br i1 %tobool5.not, label %if.end56, label %land.lhs.true47
 
 land.lhs.true47:                                  ; preds = %if.end45
@@ -1313,16 +1341,16 @@ if.then49:                                        ; preds = %land.lhs.true47
   %call50 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %C)
   %nchannels51 = getelementptr inbounds i8, ptr %call50, i64 60
   %6 = load i32, ptr %nchannels51, align 4
-  %.sroa.speculated879 = tail call i32 @llvm.smin.i32(i32 %6, i32 %minchans.2)
+  %.sroa.speculated880 = tail call i32 @llvm.smin.i32(i32 %6, i32 %minchans.2)
   %call53 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %C)
   %nchannels54 = getelementptr inbounds i8, ptr %call53, i64 60
   %7 = load i32, ptr %nchannels54, align 4
-  %.sroa.speculated845 = tail call i32 @llvm.smax.i32(i32 %maxchans.2, i32 %7)
+  %.sroa.speculated846 = tail call i32 @llvm.smax.i32(i32 %maxchans.2, i32 %7)
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then49, %land.lhs.true47, %if.end45
-  %maxchans.3 = phi i32 [ %.sroa.speculated845, %if.then49 ], [ %maxchans.2, %land.lhs.true47 ], [ %maxchans.2, %if.end45 ]
-  %minchans.3 = phi i32 [ %.sroa.speculated879, %if.then49 ], [ %minchans.2, %land.lhs.true47 ], [ %minchans.2, %if.end45 ]
+  %maxchans.3 = phi i32 [ %.sroa.speculated846, %if.then49 ], [ %maxchans.2, %land.lhs.true47 ], [ %maxchans.2, %if.end45 ]
+  %minchans.3 = phi i32 [ %.sroa.speculated880, %if.then49 ], [ %minchans.2, %land.lhs.true47 ], [ %minchans.2, %if.end45 ]
   %cmp = icmp eq i32 %minchans.3, 10000
   br i1 %cmp, label %land.lhs.true57, label %if.end67
 
@@ -1332,10 +1360,8 @@ land.lhs.true57:                                  ; preds = %if.end56
   br i1 %cmp.i256.not, label %if.end67, label %if.then59
 
 if.then59:                                        ; preds = %land.lhs.true57
-  %chend.i = getelementptr inbounds i8, ptr %roi, i64 28
-  %9 = load i32, ptr %chend.i, align 4
-  %chbegin.i = getelementptr inbounds i8, ptr %roi, i64 24
-  %10 = load i32, ptr %chbegin.i, align 4
+  %9 = load i32, ptr %cond-lvalue.i348.sroa.gep1057, align 4
+  %10 = load i32, ptr %cond-lvalue.i348.sroa.gep1054, align 4
   %sub.i = sub nsw i32 %9, %10
   br label %if.end67
 
@@ -1345,10 +1371,8 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp.i257.not, label %if.end67, label %if.then63
 
 if.then63:                                        ; preds = %if.else
-  %chend.i258 = getelementptr inbounds i8, ptr %roi, i64 28
-  %12 = load i32, ptr %chend.i258, align 4
-  %chbegin.i259 = getelementptr inbounds i8, ptr %roi, i64 24
-  %13 = load i32, ptr %chbegin.i259, align 4
+  %12 = load i32, ptr %cond-lvalue.i348.sroa.gep1057, align 4
+  %13 = load i32, ptr %cond-lvalue.i348.sroa.gep1054, align 4
   %sub.i260 = sub nsw i32 %12, %13
   br label %if.end67
 
@@ -1377,86 +1401,65 @@ land.lhs.true.i:                                  ; preds = %if.then71
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   %17 = call i32 @llvm.smax.i32(i32 %15, i32 %16)
-  %xend.i = getelementptr inbounds i8, ptr %roi, i64 4
-  %xend4.i = getelementptr inbounds i8, ptr %ref.tmp72, i64 4
-  %18 = load i32, ptr %xend4.i, align 4, !noalias !4
-  %19 = load i32, ptr %xend.i, align 4, !noalias !4
+  %18 = load i32, ptr %cond-lvalue.i.sroa.gep1078, align 4, !noalias !4
+  %19 = load i32, ptr %cond-lvalue.i348.sroa.gep, align 4, !noalias !4
   %20 = call i32 @llvm.smin.i32(i32 %18, i32 %19)
-  %ybegin.i = getelementptr inbounds i8, ptr %roi, i64 8
-  %ybegin6.i = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
-  %21 = load i32, ptr %ybegin.i, align 4, !noalias !4
-  %22 = load i32, ptr %ybegin6.i, align 4, !noalias !4
+  %21 = load i32, ptr %cond-lvalue.i348.sroa.gep1042, align 4, !noalias !4
+  %22 = load i32, ptr %cond-lvalue.i.sroa.gep1081, align 4, !noalias !4
   %23 = call i32 @llvm.smax.i32(i32 %21, i32 %22)
-  %yend.i = getelementptr inbounds i8, ptr %roi, i64 12
-  %yend8.i = getelementptr inbounds i8, ptr %ref.tmp72, i64 12
-  %24 = load i32, ptr %yend8.i, align 4, !noalias !4
-  %25 = load i32, ptr %yend.i, align 4, !noalias !4
+  %24 = load i32, ptr %cond-lvalue.i.sroa.gep1084, align 4, !noalias !4
+  %25 = load i32, ptr %cond-lvalue.i348.sroa.gep1045, align 4, !noalias !4
   %26 = call i32 @llvm.smin.i32(i32 %24, i32 %25)
-  %zbegin.i = getelementptr inbounds i8, ptr %roi, i64 16
-  %zbegin10.i = getelementptr inbounds i8, ptr %ref.tmp72, i64 16
-  %27 = load i32, ptr %zbegin.i, align 4, !noalias !4
-  %28 = load i32, ptr %zbegin10.i, align 4, !noalias !4
+  %27 = load i32, ptr %cond-lvalue.i348.sroa.gep1048, align 4, !noalias !4
+  %28 = load i32, ptr %cond-lvalue.i.sroa.gep1087, align 4, !noalias !4
   %29 = call i32 @llvm.smax.i32(i32 %27, i32 %28)
-  %zend.i = getelementptr inbounds i8, ptr %roi, i64 20
-  %zend12.i = getelementptr inbounds i8, ptr %ref.tmp72, i64 20
-  %30 = load i32, ptr %zend12.i, align 4, !noalias !4
-  %31 = load i32, ptr %zend.i, align 4, !noalias !4
+  %30 = load i32, ptr %cond-lvalue.i.sroa.gep1090, align 4, !noalias !4
+  %31 = load i32, ptr %cond-lvalue.i348.sroa.gep1051, align 4, !noalias !4
   %32 = call i32 @llvm.smin.i32(i32 %30, i32 %31)
-  %chbegin.i262 = getelementptr inbounds i8, ptr %roi, i64 24
-  %chbegin14.i = getelementptr inbounds i8, ptr %ref.tmp72, i64 24
-  %33 = load i32, ptr %chbegin.i262, align 4, !noalias !4
-  %34 = load i32, ptr %chbegin14.i, align 4, !noalias !4
+  %33 = load i32, ptr %cond-lvalue.i348.sroa.gep1054, align 4, !noalias !4
+  %34 = load i32, ptr %cond-lvalue.i.sroa.gep1093, align 4, !noalias !4
   %35 = call i32 @llvm.smax.i32(i32 %33, i32 %34)
-  %chend.i263 = getelementptr inbounds i8, ptr %roi, i64 28
-  %chend16.i = getelementptr inbounds i8, ptr %ref.tmp72, i64 28
-  %36 = load i32, ptr %chend16.i, align 4, !noalias !4
-  %37 = load i32, ptr %chend.i263, align 4, !noalias !4
+  %36 = load i32, ptr %cond-lvalue.i.sroa.gep1096, align 4, !noalias !4
+  %37 = load i32, ptr %cond-lvalue.i348.sroa.gep1057, align 4, !noalias !4
   %38 = call i32 @llvm.smin.i32(i32 %36, i32 %37)
   br label %_ZN18OpenImageIO_v2_6_016roi_intersectionERKNS_3ROIES2_.exit
 
 cond.false.i:                                     ; preds = %land.lhs.true.i, %if.then71
+  %cond-lvalue.i.sroa.phi = phi ptr [ %cond-lvalue.i348.sroa.gep, %land.lhs.true.i ], [ %cond-lvalue.i.sroa.gep1078, %if.then71 ]
+  %cond-lvalue.i.sroa.phi1079 = phi ptr [ %cond-lvalue.i348.sroa.gep1042, %land.lhs.true.i ], [ %cond-lvalue.i.sroa.gep1081, %if.then71 ]
+  %cond-lvalue.i.sroa.phi1082 = phi ptr [ %cond-lvalue.i348.sroa.gep1045, %land.lhs.true.i ], [ %cond-lvalue.i.sroa.gep1084, %if.then71 ]
+  %cond-lvalue.i.sroa.phi1085 = phi ptr [ %cond-lvalue.i348.sroa.gep1048, %land.lhs.true.i ], [ %cond-lvalue.i.sroa.gep1087, %if.then71 ]
+  %cond-lvalue.i.sroa.phi1088 = phi ptr [ %cond-lvalue.i348.sroa.gep1051, %land.lhs.true.i ], [ %cond-lvalue.i.sroa.gep1090, %if.then71 ]
+  %cond-lvalue.i.sroa.phi1091 = phi ptr [ %cond-lvalue.i348.sroa.gep1054, %land.lhs.true.i ], [ %cond-lvalue.i.sroa.gep1093, %if.then71 ]
+  %cond-lvalue.i.sroa.phi1094 = phi ptr [ %cond-lvalue.i348.sroa.gep1057, %land.lhs.true.i ], [ %cond-lvalue.i.sroa.gep1096, %if.then71 ]
   %cond-lvalue.i = phi ptr [ %roi, %land.lhs.true.i ], [ %ref.tmp72, %if.then71 ]
-  %ref.tmp.sroa.0.0.copyload828 = load i32, ptr %cond-lvalue.i, align 4
-  %ref.tmp.sroa.3.0.cond-lvalue.i.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i, i64 4
-  %ref.tmp.sroa.3.0.copyload829 = load i32, ptr %ref.tmp.sroa.3.0.cond-lvalue.i.sroa_idx, align 4
-  %ref.tmp.sroa.4.0.cond-lvalue.i.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i, i64 8
-  %ref.tmp.sroa.4.0.copyload830 = load i32, ptr %ref.tmp.sroa.4.0.cond-lvalue.i.sroa_idx, align 4
-  %ref.tmp.sroa.5.0.cond-lvalue.i.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i, i64 12
-  %ref.tmp.sroa.5.0.copyload831 = load i32, ptr %ref.tmp.sroa.5.0.cond-lvalue.i.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.cond-lvalue.i.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i, i64 16
-  %ref.tmp.sroa.6.0.copyload832 = load i32, ptr %ref.tmp.sroa.6.0.cond-lvalue.i.sroa_idx, align 4
-  %ref.tmp.sroa.7.0.cond-lvalue.i.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i, i64 20
-  %ref.tmp.sroa.7.0.copyload833 = load i32, ptr %ref.tmp.sroa.7.0.cond-lvalue.i.sroa_idx, align 4
-  %ref.tmp.sroa.8.0.cond-lvalue.i.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i, i64 24
-  %ref.tmp.sroa.8.0.copyload834 = load i32, ptr %ref.tmp.sroa.8.0.cond-lvalue.i.sroa_idx, align 4
-  %ref.tmp.sroa.9.0.cond-lvalue.i.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i, i64 28
-  %ref.tmp.sroa.9.0.copyload835 = load i32, ptr %ref.tmp.sroa.9.0.cond-lvalue.i.sroa_idx, align 4
+  %ref.tmp.sroa.0.0.copyload829 = load i32, ptr %cond-lvalue.i, align 4
+  %ref.tmp.sroa.3.0.copyload830 = load i32, ptr %cond-lvalue.i.sroa.phi, align 4
+  %ref.tmp.sroa.4.0.copyload831 = load i32, ptr %cond-lvalue.i.sroa.phi1079, align 4
+  %ref.tmp.sroa.5.0.copyload832 = load i32, ptr %cond-lvalue.i.sroa.phi1082, align 4
+  %ref.tmp.sroa.6.0.copyload833 = load i32, ptr %cond-lvalue.i.sroa.phi1085, align 4
+  %ref.tmp.sroa.7.0.copyload834 = load i32, ptr %cond-lvalue.i.sroa.phi1088, align 4
+  %ref.tmp.sroa.8.0.copyload835 = load i32, ptr %cond-lvalue.i.sroa.phi1091, align 4
+  %ref.tmp.sroa.9.0.copyload836 = load i32, ptr %cond-lvalue.i.sroa.phi1094, align 4
   br label %_ZN18OpenImageIO_v2_6_016roi_intersectionERKNS_3ROIES2_.exit
 
 _ZN18OpenImageIO_v2_6_016roi_intersectionERKNS_3ROIES2_.exit: ; preds = %cond.true.i, %cond.false.i
-  %ref.tmp.sroa.0.0 = phi i32 [ %ref.tmp.sroa.0.0.copyload828, %cond.false.i ], [ %17, %cond.true.i ]
-  %ref.tmp.sroa.3.0 = phi i32 [ %ref.tmp.sroa.3.0.copyload829, %cond.false.i ], [ %20, %cond.true.i ]
-  %ref.tmp.sroa.4.0 = phi i32 [ %ref.tmp.sroa.4.0.copyload830, %cond.false.i ], [ %23, %cond.true.i ]
-  %ref.tmp.sroa.5.0 = phi i32 [ %ref.tmp.sroa.5.0.copyload831, %cond.false.i ], [ %26, %cond.true.i ]
-  %ref.tmp.sroa.6.0 = phi i32 [ %ref.tmp.sroa.6.0.copyload832, %cond.false.i ], [ %29, %cond.true.i ]
-  %ref.tmp.sroa.7.0 = phi i32 [ %ref.tmp.sroa.7.0.copyload833, %cond.false.i ], [ %32, %cond.true.i ]
-  %ref.tmp.sroa.8.0 = phi i32 [ %ref.tmp.sroa.8.0.copyload834, %cond.false.i ], [ %35, %cond.true.i ]
-  %ref.tmp.sroa.9.0 = phi i32 [ %ref.tmp.sroa.9.0.copyload835, %cond.false.i ], [ %38, %cond.true.i ]
+  %ref.tmp.sroa.0.0 = phi i32 [ %ref.tmp.sroa.0.0.copyload829, %cond.false.i ], [ %17, %cond.true.i ]
+  %ref.tmp.sroa.3.0 = phi i32 [ %ref.tmp.sroa.3.0.copyload830, %cond.false.i ], [ %20, %cond.true.i ]
+  %ref.tmp.sroa.4.0 = phi i32 [ %ref.tmp.sroa.4.0.copyload831, %cond.false.i ], [ %23, %cond.true.i ]
+  %ref.tmp.sroa.5.0 = phi i32 [ %ref.tmp.sroa.5.0.copyload832, %cond.false.i ], [ %26, %cond.true.i ]
+  %ref.tmp.sroa.6.0 = phi i32 [ %ref.tmp.sroa.6.0.copyload833, %cond.false.i ], [ %29, %cond.true.i ]
+  %ref.tmp.sroa.7.0 = phi i32 [ %ref.tmp.sroa.7.0.copyload834, %cond.false.i ], [ %32, %cond.true.i ]
+  %ref.tmp.sroa.8.0 = phi i32 [ %ref.tmp.sroa.8.0.copyload835, %cond.false.i ], [ %35, %cond.true.i ]
+  %ref.tmp.sroa.9.0 = phi i32 [ %ref.tmp.sroa.9.0.copyload836, %cond.false.i ], [ %38, %cond.true.i ]
   store i32 %ref.tmp.sroa.0.0, ptr %roi, align 4
-  %ref.tmp.sroa.3.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 4
-  store i32 %ref.tmp.sroa.3.0, ptr %ref.tmp.sroa.3.0.roi.sroa_idx, align 4
-  %ref.tmp.sroa.4.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 8
-  store i32 %ref.tmp.sroa.4.0, ptr %ref.tmp.sroa.4.0.roi.sroa_idx, align 4
-  %ref.tmp.sroa.5.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 12
-  store i32 %ref.tmp.sroa.5.0, ptr %ref.tmp.sroa.5.0.roi.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 16
-  store i32 %ref.tmp.sroa.6.0, ptr %ref.tmp.sroa.6.0.roi.sroa_idx, align 4
-  %ref.tmp.sroa.7.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 20
-  store i32 %ref.tmp.sroa.7.0, ptr %ref.tmp.sroa.7.0.roi.sroa_idx, align 4
-  %ref.tmp.sroa.8.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 24
-  store i32 %ref.tmp.sroa.8.0, ptr %ref.tmp.sroa.8.0.roi.sroa_idx, align 4
-  %ref.tmp.sroa.9.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 28
-  store i32 %ref.tmp.sroa.9.0, ptr %ref.tmp.sroa.9.0.roi.sroa_idx, align 4
+  store i32 %ref.tmp.sroa.3.0, ptr %cond-lvalue.i348.sroa.gep, align 4
+  store i32 %ref.tmp.sroa.4.0, ptr %cond-lvalue.i348.sroa.gep1042, align 4
+  store i32 %ref.tmp.sroa.5.0, ptr %cond-lvalue.i348.sroa.gep1045, align 4
+  store i32 %ref.tmp.sroa.6.0, ptr %cond-lvalue.i348.sroa.gep1048, align 4
+  store i32 %ref.tmp.sroa.7.0, ptr %cond-lvalue.i348.sroa.gep1051, align 4
+  store i32 %ref.tmp.sroa.8.0, ptr %cond-lvalue.i348.sroa.gep1054, align 4
+  store i32 %ref.tmp.sroa.9.0, ptr %cond-lvalue.i348.sroa.gep1057, align 4
   br label %if.end77
 
 if.else74:                                        ; preds = %if.then69
@@ -1529,7 +1532,7 @@ if.then112:                                       ; preds = %land.lhs.true110
 
 if.end113:                                        ; preds = %if.else108
   store i32 -2147483648, ptr %full_roi, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %full_roi.sroa.gep809, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %cond-lvalue.i320.sroa.gep, i8 0, i64 28, i1 false)
   %cmp.i266.not = icmp eq i32 %14, -2147483648
   br i1 %cmp.i266.not, label %if.then115, label %if.then134
 
@@ -1553,60 +1556,46 @@ land.lhs.true.i268:                               ; preds = %if.then119
 
 cond.true.i270:                                   ; preds = %land.lhs.true.i268
   %41 = call i32 @llvm.smin.i32(i32 %40, i32 %39)
-  %xend.i271 = getelementptr inbounds i8, ptr %roi, i64 4
-  %xend4.i272 = getelementptr inbounds i8, ptr %ref.tmp121, i64 4
-  %42 = load i32, ptr %xend.i271, align 4, !noalias !7
-  %43 = load i32, ptr %xend4.i272, align 4, !noalias !7
+  %42 = load i32, ptr %cond-lvalue.i348.sroa.gep, align 4, !noalias !7
+  %43 = load i32, ptr %cond-lvalue.i293.sroa.gep1059, align 4, !noalias !7
   %44 = call i32 @llvm.smax.i32(i32 %42, i32 %43)
-  %ybegin.i273 = getelementptr inbounds i8, ptr %roi, i64 8
-  %ybegin6.i274 = getelementptr inbounds i8, ptr %ref.tmp121, i64 8
-  %45 = load i32, ptr %ybegin6.i274, align 4, !noalias !7
-  %46 = load i32, ptr %ybegin.i273, align 4, !noalias !7
+  %45 = load i32, ptr %cond-lvalue.i293.sroa.gep1062, align 4, !noalias !7
+  %46 = load i32, ptr %cond-lvalue.i348.sroa.gep1042, align 4, !noalias !7
   %47 = call i32 @llvm.smin.i32(i32 %45, i32 %46)
-  %yend.i275 = getelementptr inbounds i8, ptr %roi, i64 12
-  %yend8.i276 = getelementptr inbounds i8, ptr %ref.tmp121, i64 12
-  %48 = load i32, ptr %yend.i275, align 4, !noalias !7
-  %49 = load i32, ptr %yend8.i276, align 4, !noalias !7
+  %48 = load i32, ptr %cond-lvalue.i348.sroa.gep1045, align 4, !noalias !7
+  %49 = load i32, ptr %cond-lvalue.i293.sroa.gep1065, align 4, !noalias !7
   %50 = call i32 @llvm.smax.i32(i32 %48, i32 %49)
-  %zbegin.i277 = getelementptr inbounds i8, ptr %roi, i64 16
-  %zbegin10.i278 = getelementptr inbounds i8, ptr %ref.tmp121, i64 16
-  %51 = load i32, ptr %zbegin10.i278, align 4, !noalias !7
-  %52 = load i32, ptr %zbegin.i277, align 4, !noalias !7
+  %51 = load i32, ptr %cond-lvalue.i293.sroa.gep1068, align 4, !noalias !7
+  %52 = load i32, ptr %cond-lvalue.i348.sroa.gep1048, align 4, !noalias !7
   %53 = call i32 @llvm.smin.i32(i32 %51, i32 %52)
-  %zend.i279 = getelementptr inbounds i8, ptr %roi, i64 20
-  %zend12.i280 = getelementptr inbounds i8, ptr %ref.tmp121, i64 20
-  %54 = load i32, ptr %zend.i279, align 4, !noalias !7
-  %55 = load i32, ptr %zend12.i280, align 4, !noalias !7
+  %54 = load i32, ptr %cond-lvalue.i348.sroa.gep1051, align 4, !noalias !7
+  %55 = load i32, ptr %cond-lvalue.i293.sroa.gep1071, align 4, !noalias !7
   %56 = call i32 @llvm.smax.i32(i32 %54, i32 %55)
-  %chbegin.i281 = getelementptr inbounds i8, ptr %roi, i64 24
-  %chbegin14.i282 = getelementptr inbounds i8, ptr %ref.tmp121, i64 24
-  %57 = load i32, ptr %chbegin14.i282, align 4, !noalias !7
-  %58 = load i32, ptr %chbegin.i281, align 4, !noalias !7
+  %57 = load i32, ptr %cond-lvalue.i293.sroa.gep1074, align 4, !noalias !7
+  %58 = load i32, ptr %cond-lvalue.i348.sroa.gep1054, align 4, !noalias !7
   %59 = call i32 @llvm.smin.i32(i32 %57, i32 %58)
-  %chend.i283 = getelementptr inbounds i8, ptr %roi, i64 28
-  %chend16.i284 = getelementptr inbounds i8, ptr %ref.tmp121, i64 28
-  %60 = load i32, ptr %chend.i283, align 4, !noalias !7
-  %61 = load i32, ptr %chend16.i284, align 4, !noalias !7
+  %60 = load i32, ptr %cond-lvalue.i348.sroa.gep1057, align 4, !noalias !7
+  %61 = load i32, ptr %cond-lvalue.i293.sroa.gep1077, align 4, !noalias !7
   %62 = call i32 @llvm.smax.i32(i32 %60, i32 %61)
   br label %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit
 
 cond.false.i292:                                  ; preds = %land.lhs.true.i268, %if.then119
+  %cond-lvalue.i293.sroa.phi = phi ptr [ %cond-lvalue.i348.sroa.gep, %land.lhs.true.i268 ], [ %cond-lvalue.i293.sroa.gep1059, %if.then119 ]
+  %cond-lvalue.i293.sroa.phi1060 = phi ptr [ %cond-lvalue.i348.sroa.gep1042, %land.lhs.true.i268 ], [ %cond-lvalue.i293.sroa.gep1062, %if.then119 ]
+  %cond-lvalue.i293.sroa.phi1063 = phi ptr [ %cond-lvalue.i348.sroa.gep1045, %land.lhs.true.i268 ], [ %cond-lvalue.i293.sroa.gep1065, %if.then119 ]
+  %cond-lvalue.i293.sroa.phi1066 = phi ptr [ %cond-lvalue.i348.sroa.gep1048, %land.lhs.true.i268 ], [ %cond-lvalue.i293.sroa.gep1068, %if.then119 ]
+  %cond-lvalue.i293.sroa.phi1069 = phi ptr [ %cond-lvalue.i348.sroa.gep1051, %land.lhs.true.i268 ], [ %cond-lvalue.i293.sroa.gep1071, %if.then119 ]
+  %cond-lvalue.i293.sroa.phi1072 = phi ptr [ %cond-lvalue.i348.sroa.gep1054, %land.lhs.true.i268 ], [ %cond-lvalue.i293.sroa.gep1074, %if.then119 ]
+  %cond-lvalue.i293.sroa.phi1075 = phi ptr [ %cond-lvalue.i348.sroa.gep1057, %land.lhs.true.i268 ], [ %cond-lvalue.i293.sroa.gep1077, %if.then119 ]
   %cond-lvalue.i293 = phi ptr [ %roi, %land.lhs.true.i268 ], [ %ref.tmp121, %if.then119 ]
   %ref.tmp120.sroa.0.0.copyload783 = load i32, ptr %cond-lvalue.i293, align 4
-  %ref.tmp120.sroa.3.0.cond-lvalue.i293.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i293, i64 4
-  %ref.tmp120.sroa.3.0.copyload784 = load i32, ptr %ref.tmp120.sroa.3.0.cond-lvalue.i293.sroa_idx, align 4
-  %ref.tmp120.sroa.4.0.cond-lvalue.i293.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i293, i64 8
-  %ref.tmp120.sroa.4.0.copyload785 = load i32, ptr %ref.tmp120.sroa.4.0.cond-lvalue.i293.sroa_idx, align 4
-  %ref.tmp120.sroa.5.0.cond-lvalue.i293.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i293, i64 12
-  %ref.tmp120.sroa.5.0.copyload786 = load i32, ptr %ref.tmp120.sroa.5.0.cond-lvalue.i293.sroa_idx, align 4
-  %ref.tmp120.sroa.6.0.cond-lvalue.i293.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i293, i64 16
-  %ref.tmp120.sroa.6.0.copyload787 = load i32, ptr %ref.tmp120.sroa.6.0.cond-lvalue.i293.sroa_idx, align 4
-  %ref.tmp120.sroa.7.0.cond-lvalue.i293.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i293, i64 20
-  %ref.tmp120.sroa.7.0.copyload788 = load i32, ptr %ref.tmp120.sroa.7.0.cond-lvalue.i293.sroa_idx, align 4
-  %ref.tmp120.sroa.8.0.cond-lvalue.i293.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i293, i64 24
-  %ref.tmp120.sroa.8.0.copyload789 = load i32, ptr %ref.tmp120.sroa.8.0.cond-lvalue.i293.sroa_idx, align 4
-  %ref.tmp120.sroa.9.0.cond-lvalue.i293.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i293, i64 28
-  %ref.tmp120.sroa.9.0.copyload790 = load i32, ptr %ref.tmp120.sroa.9.0.cond-lvalue.i293.sroa_idx, align 4
+  %ref.tmp120.sroa.3.0.copyload784 = load i32, ptr %cond-lvalue.i293.sroa.phi, align 4
+  %ref.tmp120.sroa.4.0.copyload785 = load i32, ptr %cond-lvalue.i293.sroa.phi1060, align 4
+  %ref.tmp120.sroa.5.0.copyload786 = load i32, ptr %cond-lvalue.i293.sroa.phi1063, align 4
+  %ref.tmp120.sroa.6.0.copyload787 = load i32, ptr %cond-lvalue.i293.sroa.phi1066, align 4
+  %ref.tmp120.sroa.7.0.copyload788 = load i32, ptr %cond-lvalue.i293.sroa.phi1069, align 4
+  %ref.tmp120.sroa.8.0.copyload789 = load i32, ptr %cond-lvalue.i293.sroa.phi1072, align 4
+  %ref.tmp120.sroa.9.0.copyload790 = load i32, ptr %cond-lvalue.i293.sroa.phi1075, align 4
   br label %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit
 
 _ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit: ; preds = %cond.true.i270, %cond.false.i292
@@ -1619,20 +1608,13 @@ _ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit: ; preds = %cond.true.i270,
   %ref.tmp120.sroa.8.0 = phi i32 [ %ref.tmp120.sroa.8.0.copyload789, %cond.false.i292 ], [ %59, %cond.true.i270 ]
   %ref.tmp120.sroa.9.0 = phi i32 [ %ref.tmp120.sroa.9.0.copyload790, %cond.false.i292 ], [ %62, %cond.true.i270 ]
   store i32 %ref.tmp120.sroa.0.0, ptr %roi, align 4
-  %ref.tmp120.sroa.3.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 4
-  store i32 %ref.tmp120.sroa.3.0, ptr %ref.tmp120.sroa.3.0.roi.sroa_idx, align 4
-  %ref.tmp120.sroa.4.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 8
-  store i32 %ref.tmp120.sroa.4.0, ptr %ref.tmp120.sroa.4.0.roi.sroa_idx, align 4
-  %ref.tmp120.sroa.5.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 12
-  store i32 %ref.tmp120.sroa.5.0, ptr %ref.tmp120.sroa.5.0.roi.sroa_idx, align 4
-  %ref.tmp120.sroa.6.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 16
-  store i32 %ref.tmp120.sroa.6.0, ptr %ref.tmp120.sroa.6.0.roi.sroa_idx, align 4
-  %ref.tmp120.sroa.7.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 20
-  store i32 %ref.tmp120.sroa.7.0, ptr %ref.tmp120.sroa.7.0.roi.sroa_idx, align 4
-  %ref.tmp120.sroa.8.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 24
-  store i32 %ref.tmp120.sroa.8.0, ptr %ref.tmp120.sroa.8.0.roi.sroa_idx, align 4
-  %ref.tmp120.sroa.9.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 28
-  store i32 %ref.tmp120.sroa.9.0, ptr %ref.tmp120.sroa.9.0.roi.sroa_idx, align 4
+  store i32 %ref.tmp120.sroa.3.0, ptr %cond-lvalue.i348.sroa.gep, align 4
+  store i32 %ref.tmp120.sroa.4.0, ptr %cond-lvalue.i348.sroa.gep1042, align 4
+  store i32 %ref.tmp120.sroa.5.0, ptr %cond-lvalue.i348.sroa.gep1045, align 4
+  store i32 %ref.tmp120.sroa.6.0, ptr %cond-lvalue.i348.sroa.gep1048, align 4
+  store i32 %ref.tmp120.sroa.7.0, ptr %cond-lvalue.i348.sroa.gep1051, align 4
+  store i32 %ref.tmp120.sroa.8.0, ptr %cond-lvalue.i348.sroa.gep1054, align 4
+  store i32 %ref.tmp120.sroa.9.0, ptr %cond-lvalue.i348.sroa.gep1057, align 4
   call void @_ZNK18OpenImageIO_v2_6_08ImageBuf8roi_fullEv(ptr nonnull sret(%"struct.OpenImageIO_v2_6_0::ROI") align 4 %ref.tmp123, ptr noundef nonnull align 8 dereferenceable(16) %B)
   %63 = load i32, ptr %full_roi, align 4, !noalias !10
   %cmp.i.not.i294 = icmp eq i32 %63, -2147483648
@@ -1645,46 +1627,46 @@ land.lhs.true.i295:                               ; preds = %_ZN18OpenImageIO_v2
 
 cond.true.i297:                                   ; preds = %land.lhs.true.i295
   %65 = call i32 @llvm.smin.i32(i32 %64, i32 %63)
-  %66 = load i32, ptr %full_roi.sroa.gep809, align 4, !noalias !10
-  %67 = load i32, ptr %ref.tmp123.sroa.gep, align 4, !noalias !10
+  %66 = load i32, ptr %cond-lvalue.i320.sroa.gep, align 4, !noalias !10
+  %67 = load i32, ptr %cond-lvalue.i320.sroa.gep791, align 4, !noalias !10
   %68 = call i32 @llvm.smax.i32(i32 %66, i32 %67)
-  %69 = load i32, ptr %ref.tmp123.sroa.gep793, align 4, !noalias !10
-  %70 = load i32, ptr %full_roi.sroa.gep811, align 4, !noalias !10
+  %69 = load i32, ptr %cond-lvalue.i320.sroa.gep794, align 4, !noalias !10
+  %70 = load i32, ptr %cond-lvalue.i320.sroa.gep793, align 4, !noalias !10
   %71 = call i32 @llvm.smin.i32(i32 %69, i32 %70)
-  %72 = load i32, ptr %full_roi.sroa.gep814, align 4, !noalias !10
-  %73 = load i32, ptr %ref.tmp123.sroa.gep796, align 4, !noalias !10
+  %72 = load i32, ptr %cond-lvalue.i320.sroa.gep796, align 4, !noalias !10
+  %73 = load i32, ptr %cond-lvalue.i320.sroa.gep797, align 4, !noalias !10
   %74 = call i32 @llvm.smax.i32(i32 %72, i32 %73)
-  %75 = load i32, ptr %ref.tmp123.sroa.gep799, align 4, !noalias !10
-  %76 = load i32, ptr %full_roi.sroa.gep817, align 4, !noalias !10
+  %75 = load i32, ptr %cond-lvalue.i320.sroa.gep800, align 4, !noalias !10
+  %76 = load i32, ptr %cond-lvalue.i320.sroa.gep799, align 4, !noalias !10
   %77 = call i32 @llvm.smin.i32(i32 %75, i32 %76)
-  %78 = load i32, ptr %full_roi.sroa.gep820, align 4, !noalias !10
-  %79 = load i32, ptr %ref.tmp123.sroa.gep802, align 4, !noalias !10
+  %78 = load i32, ptr %cond-lvalue.i320.sroa.gep802, align 4, !noalias !10
+  %79 = load i32, ptr %cond-lvalue.i320.sroa.gep803, align 4, !noalias !10
   %80 = call i32 @llvm.smax.i32(i32 %78, i32 %79)
-  %81 = load i32, ptr %ref.tmp123.sroa.gep805, align 4, !noalias !10
-  %82 = load i32, ptr %full_roi.sroa.gep823, align 4, !noalias !10
+  %81 = load i32, ptr %cond-lvalue.i320.sroa.gep806, align 4, !noalias !10
+  %82 = load i32, ptr %cond-lvalue.i320.sroa.gep805, align 4, !noalias !10
   %83 = call i32 @llvm.smin.i32(i32 %81, i32 %82)
-  %84 = load i32, ptr %full_roi.sroa.gep826, align 4, !noalias !10
-  %85 = load i32, ptr %ref.tmp123.sroa.gep808, align 4, !noalias !10
+  %84 = load i32, ptr %cond-lvalue.i320.sroa.gep808, align 4, !noalias !10
+  %85 = load i32, ptr %cond-lvalue.i320.sroa.gep809, align 4, !noalias !10
   %86 = call i32 @llvm.smax.i32(i32 %84, i32 %85)
   br label %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit321
 
 cond.false.i319:                                  ; preds = %land.lhs.true.i295, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit
+  %cond-lvalue.i320.sroa.phi = phi ptr [ %cond-lvalue.i320.sroa.gep, %land.lhs.true.i295 ], [ %cond-lvalue.i320.sroa.gep791, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit ]
+  %cond-lvalue.i320.sroa.phi792 = phi ptr [ %cond-lvalue.i320.sroa.gep793, %land.lhs.true.i295 ], [ %cond-lvalue.i320.sroa.gep794, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit ]
+  %cond-lvalue.i320.sroa.phi795 = phi ptr [ %cond-lvalue.i320.sroa.gep796, %land.lhs.true.i295 ], [ %cond-lvalue.i320.sroa.gep797, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit ]
+  %cond-lvalue.i320.sroa.phi798 = phi ptr [ %cond-lvalue.i320.sroa.gep799, %land.lhs.true.i295 ], [ %cond-lvalue.i320.sroa.gep800, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit ]
+  %cond-lvalue.i320.sroa.phi801 = phi ptr [ %cond-lvalue.i320.sroa.gep802, %land.lhs.true.i295 ], [ %cond-lvalue.i320.sroa.gep803, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit ]
+  %cond-lvalue.i320.sroa.phi804 = phi ptr [ %cond-lvalue.i320.sroa.gep805, %land.lhs.true.i295 ], [ %cond-lvalue.i320.sroa.gep806, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit ]
+  %cond-lvalue.i320.sroa.phi807 = phi ptr [ %cond-lvalue.i320.sroa.gep808, %land.lhs.true.i295 ], [ %cond-lvalue.i320.sroa.gep809, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit ]
   %cond-lvalue.i320 = phi ptr [ %full_roi, %land.lhs.true.i295 ], [ %ref.tmp123, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit ]
-  %cond-lvalue.i320.sroa.phi = phi ptr [ %full_roi.sroa.gep809, %land.lhs.true.i295 ], [ %ref.tmp123.sroa.gep, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit ]
-  %cond-lvalue.i320.sroa.phi791 = phi ptr [ %full_roi.sroa.gep811, %land.lhs.true.i295 ], [ %ref.tmp123.sroa.gep793, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit ]
-  %cond-lvalue.i320.sroa.phi794 = phi ptr [ %full_roi.sroa.gep814, %land.lhs.true.i295 ], [ %ref.tmp123.sroa.gep796, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit ]
-  %cond-lvalue.i320.sroa.phi797 = phi ptr [ %full_roi.sroa.gep817, %land.lhs.true.i295 ], [ %ref.tmp123.sroa.gep799, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit ]
-  %cond-lvalue.i320.sroa.phi800 = phi ptr [ %full_roi.sroa.gep820, %land.lhs.true.i295 ], [ %ref.tmp123.sroa.gep802, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit ]
-  %cond-lvalue.i320.sroa.phi803 = phi ptr [ %full_roi.sroa.gep823, %land.lhs.true.i295 ], [ %ref.tmp123.sroa.gep805, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit ]
-  %cond-lvalue.i320.sroa.phi806 = phi ptr [ %full_roi.sroa.gep826, %land.lhs.true.i295 ], [ %ref.tmp123.sroa.gep808, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit ]
   %ref.tmp122.sroa.0.0.copyload775 = load i32, ptr %cond-lvalue.i320, align 4
   %ref.tmp122.sroa.3.0.copyload776 = load i32, ptr %cond-lvalue.i320.sroa.phi, align 4
-  %ref.tmp122.sroa.4.0.copyload777 = load i32, ptr %cond-lvalue.i320.sroa.phi791, align 4
-  %ref.tmp122.sroa.5.0.copyload778 = load i32, ptr %cond-lvalue.i320.sroa.phi794, align 4
-  %ref.tmp122.sroa.6.0.copyload779 = load i32, ptr %cond-lvalue.i320.sroa.phi797, align 4
-  %ref.tmp122.sroa.7.0.copyload780 = load i32, ptr %cond-lvalue.i320.sroa.phi800, align 4
-  %ref.tmp122.sroa.8.0.copyload781 = load i32, ptr %cond-lvalue.i320.sroa.phi803, align 4
-  %ref.tmp122.sroa.9.0.copyload782 = load i32, ptr %cond-lvalue.i320.sroa.phi806, align 4
+  %ref.tmp122.sroa.4.0.copyload777 = load i32, ptr %cond-lvalue.i320.sroa.phi792, align 4
+  %ref.tmp122.sroa.5.0.copyload778 = load i32, ptr %cond-lvalue.i320.sroa.phi795, align 4
+  %ref.tmp122.sroa.6.0.copyload779 = load i32, ptr %cond-lvalue.i320.sroa.phi798, align 4
+  %ref.tmp122.sroa.7.0.copyload780 = load i32, ptr %cond-lvalue.i320.sroa.phi801, align 4
+  %ref.tmp122.sroa.8.0.copyload781 = load i32, ptr %cond-lvalue.i320.sroa.phi804, align 4
+  %ref.tmp122.sroa.9.0.copyload782 = load i32, ptr %cond-lvalue.i320.sroa.phi807, align 4
   br label %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit321
 
 _ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit321: ; preds = %cond.true.i297, %cond.false.i319
@@ -1697,13 +1679,13 @@ _ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit321: ; preds = %cond.true.i2
   %ref.tmp122.sroa.3.0 = phi i32 [ %ref.tmp122.sroa.3.0.copyload776, %cond.false.i319 ], [ %68, %cond.true.i297 ]
   %ref.tmp122.sroa.0.0 = phi i32 [ %ref.tmp122.sroa.0.0.copyload775, %cond.false.i319 ], [ %65, %cond.true.i297 ]
   store i32 %ref.tmp122.sroa.0.0, ptr %full_roi, align 4
-  store i32 %ref.tmp122.sroa.3.0, ptr %full_roi.sroa.gep809, align 4
-  store i32 %ref.tmp122.sroa.4.0, ptr %full_roi.sroa.gep811, align 4
-  store i32 %ref.tmp122.sroa.5.0, ptr %full_roi.sroa.gep814, align 4
-  store i32 %ref.tmp122.sroa.6.0, ptr %full_roi.sroa.gep817, align 4
-  store i32 %ref.tmp122.sroa.7.0, ptr %full_roi.sroa.gep820, align 4
-  store i32 %ref.tmp122.sroa.8.0, ptr %full_roi.sroa.gep823, align 4
-  store i32 %ref.tmp122.sroa.9.0, ptr %full_roi.sroa.gep826, align 4
+  store i32 %ref.tmp122.sroa.3.0, ptr %cond-lvalue.i320.sroa.gep, align 4
+  store i32 %ref.tmp122.sroa.4.0, ptr %cond-lvalue.i320.sroa.gep793, align 4
+  store i32 %ref.tmp122.sroa.5.0, ptr %cond-lvalue.i320.sroa.gep796, align 4
+  store i32 %ref.tmp122.sroa.6.0, ptr %cond-lvalue.i320.sroa.gep799, align 4
+  store i32 %ref.tmp122.sroa.7.0, ptr %cond-lvalue.i320.sroa.gep802, align 4
+  store i32 %ref.tmp122.sroa.8.0, ptr %cond-lvalue.i320.sroa.gep805, align 4
+  store i32 %ref.tmp122.sroa.9.0, ptr %cond-lvalue.i320.sroa.gep808, align 4
   br label %if.end124
 
 if.end124:                                        ; preds = %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit321, %if.then115
@@ -1722,60 +1704,46 @@ land.lhs.true.i323:                               ; preds = %if.then126
 
 cond.true.i325:                                   ; preds = %land.lhs.true.i323
   %89 = call i32 @llvm.smin.i32(i32 %88, i32 %87)
-  %xend.i326 = getelementptr inbounds i8, ptr %roi, i64 4
-  %xend4.i327 = getelementptr inbounds i8, ptr %ref.tmp128, i64 4
-  %90 = load i32, ptr %xend.i326, align 4, !noalias !13
-  %91 = load i32, ptr %xend4.i327, align 4, !noalias !13
+  %90 = load i32, ptr %cond-lvalue.i348.sroa.gep, align 4, !noalias !13
+  %91 = load i32, ptr %cond-lvalue.i348.sroa.gep1040, align 4, !noalias !13
   %92 = call i32 @llvm.smax.i32(i32 %90, i32 %91)
-  %ybegin.i328 = getelementptr inbounds i8, ptr %roi, i64 8
-  %ybegin6.i329 = getelementptr inbounds i8, ptr %ref.tmp128, i64 8
-  %93 = load i32, ptr %ybegin6.i329, align 4, !noalias !13
-  %94 = load i32, ptr %ybegin.i328, align 4, !noalias !13
+  %93 = load i32, ptr %cond-lvalue.i348.sroa.gep1043, align 4, !noalias !13
+  %94 = load i32, ptr %cond-lvalue.i348.sroa.gep1042, align 4, !noalias !13
   %95 = call i32 @llvm.smin.i32(i32 %93, i32 %94)
-  %yend.i330 = getelementptr inbounds i8, ptr %roi, i64 12
-  %yend8.i331 = getelementptr inbounds i8, ptr %ref.tmp128, i64 12
-  %96 = load i32, ptr %yend.i330, align 4, !noalias !13
-  %97 = load i32, ptr %yend8.i331, align 4, !noalias !13
+  %96 = load i32, ptr %cond-lvalue.i348.sroa.gep1045, align 4, !noalias !13
+  %97 = load i32, ptr %cond-lvalue.i348.sroa.gep1046, align 4, !noalias !13
   %98 = call i32 @llvm.smax.i32(i32 %96, i32 %97)
-  %zbegin.i332 = getelementptr inbounds i8, ptr %roi, i64 16
-  %zbegin10.i333 = getelementptr inbounds i8, ptr %ref.tmp128, i64 16
-  %99 = load i32, ptr %zbegin10.i333, align 4, !noalias !13
-  %100 = load i32, ptr %zbegin.i332, align 4, !noalias !13
+  %99 = load i32, ptr %cond-lvalue.i348.sroa.gep1049, align 4, !noalias !13
+  %100 = load i32, ptr %cond-lvalue.i348.sroa.gep1048, align 4, !noalias !13
   %101 = call i32 @llvm.smin.i32(i32 %99, i32 %100)
-  %zend.i334 = getelementptr inbounds i8, ptr %roi, i64 20
-  %zend12.i335 = getelementptr inbounds i8, ptr %ref.tmp128, i64 20
-  %102 = load i32, ptr %zend.i334, align 4, !noalias !13
-  %103 = load i32, ptr %zend12.i335, align 4, !noalias !13
+  %102 = load i32, ptr %cond-lvalue.i348.sroa.gep1051, align 4, !noalias !13
+  %103 = load i32, ptr %cond-lvalue.i348.sroa.gep1052, align 4, !noalias !13
   %104 = call i32 @llvm.smax.i32(i32 %102, i32 %103)
-  %chbegin.i336 = getelementptr inbounds i8, ptr %roi, i64 24
-  %chbegin14.i337 = getelementptr inbounds i8, ptr %ref.tmp128, i64 24
-  %105 = load i32, ptr %chbegin14.i337, align 4, !noalias !13
-  %106 = load i32, ptr %chbegin.i336, align 4, !noalias !13
+  %105 = load i32, ptr %cond-lvalue.i348.sroa.gep1055, align 4, !noalias !13
+  %106 = load i32, ptr %cond-lvalue.i348.sroa.gep1054, align 4, !noalias !13
   %107 = call i32 @llvm.smin.i32(i32 %105, i32 %106)
-  %chend.i338 = getelementptr inbounds i8, ptr %roi, i64 28
-  %chend16.i339 = getelementptr inbounds i8, ptr %ref.tmp128, i64 28
-  %108 = load i32, ptr %chend.i338, align 4, !noalias !13
-  %109 = load i32, ptr %chend16.i339, align 4, !noalias !13
+  %108 = load i32, ptr %cond-lvalue.i348.sroa.gep1057, align 4, !noalias !13
+  %109 = load i32, ptr %cond-lvalue.i348.sroa.gep1058, align 4, !noalias !13
   %110 = call i32 @llvm.smax.i32(i32 %108, i32 %109)
   br label %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349
 
 cond.false.i347:                                  ; preds = %land.lhs.true.i323, %if.then126
+  %cond-lvalue.i348.sroa.phi = phi ptr [ %cond-lvalue.i348.sroa.gep, %land.lhs.true.i323 ], [ %cond-lvalue.i348.sroa.gep1040, %if.then126 ]
+  %cond-lvalue.i348.sroa.phi1041 = phi ptr [ %cond-lvalue.i348.sroa.gep1042, %land.lhs.true.i323 ], [ %cond-lvalue.i348.sroa.gep1043, %if.then126 ]
+  %cond-lvalue.i348.sroa.phi1044 = phi ptr [ %cond-lvalue.i348.sroa.gep1045, %land.lhs.true.i323 ], [ %cond-lvalue.i348.sroa.gep1046, %if.then126 ]
+  %cond-lvalue.i348.sroa.phi1047 = phi ptr [ %cond-lvalue.i348.sroa.gep1048, %land.lhs.true.i323 ], [ %cond-lvalue.i348.sroa.gep1049, %if.then126 ]
+  %cond-lvalue.i348.sroa.phi1050 = phi ptr [ %cond-lvalue.i348.sroa.gep1051, %land.lhs.true.i323 ], [ %cond-lvalue.i348.sroa.gep1052, %if.then126 ]
+  %cond-lvalue.i348.sroa.phi1053 = phi ptr [ %cond-lvalue.i348.sroa.gep1054, %land.lhs.true.i323 ], [ %cond-lvalue.i348.sroa.gep1055, %if.then126 ]
+  %cond-lvalue.i348.sroa.phi1056 = phi ptr [ %cond-lvalue.i348.sroa.gep1057, %land.lhs.true.i323 ], [ %cond-lvalue.i348.sroa.gep1058, %if.then126 ]
   %cond-lvalue.i348 = phi ptr [ %roi, %land.lhs.true.i323 ], [ %ref.tmp128, %if.then126 ]
   %ref.tmp127.sroa.0.0.copyload767 = load i32, ptr %cond-lvalue.i348, align 4
-  %ref.tmp127.sroa.3.0.cond-lvalue.i348.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i348, i64 4
-  %ref.tmp127.sroa.3.0.copyload768 = load i32, ptr %ref.tmp127.sroa.3.0.cond-lvalue.i348.sroa_idx, align 4
-  %ref.tmp127.sroa.4.0.cond-lvalue.i348.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i348, i64 8
-  %ref.tmp127.sroa.4.0.copyload769 = load i32, ptr %ref.tmp127.sroa.4.0.cond-lvalue.i348.sroa_idx, align 4
-  %ref.tmp127.sroa.5.0.cond-lvalue.i348.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i348, i64 12
-  %ref.tmp127.sroa.5.0.copyload770 = load i32, ptr %ref.tmp127.sroa.5.0.cond-lvalue.i348.sroa_idx, align 4
-  %ref.tmp127.sroa.6.0.cond-lvalue.i348.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i348, i64 16
-  %ref.tmp127.sroa.6.0.copyload771 = load i32, ptr %ref.tmp127.sroa.6.0.cond-lvalue.i348.sroa_idx, align 4
-  %ref.tmp127.sroa.7.0.cond-lvalue.i348.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i348, i64 20
-  %ref.tmp127.sroa.7.0.copyload772 = load i32, ptr %ref.tmp127.sroa.7.0.cond-lvalue.i348.sroa_idx, align 4
-  %ref.tmp127.sroa.8.0.cond-lvalue.i348.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i348, i64 24
-  %ref.tmp127.sroa.8.0.copyload773 = load i32, ptr %ref.tmp127.sroa.8.0.cond-lvalue.i348.sroa_idx, align 4
-  %ref.tmp127.sroa.9.0.cond-lvalue.i348.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue.i348, i64 28
-  %ref.tmp127.sroa.9.0.copyload774 = load i32, ptr %ref.tmp127.sroa.9.0.cond-lvalue.i348.sroa_idx, align 4
+  %ref.tmp127.sroa.3.0.copyload768 = load i32, ptr %cond-lvalue.i348.sroa.phi, align 4
+  %ref.tmp127.sroa.4.0.copyload769 = load i32, ptr %cond-lvalue.i348.sroa.phi1041, align 4
+  %ref.tmp127.sroa.5.0.copyload770 = load i32, ptr %cond-lvalue.i348.sroa.phi1044, align 4
+  %ref.tmp127.sroa.6.0.copyload771 = load i32, ptr %cond-lvalue.i348.sroa.phi1047, align 4
+  %ref.tmp127.sroa.7.0.copyload772 = load i32, ptr %cond-lvalue.i348.sroa.phi1050, align 4
+  %ref.tmp127.sroa.8.0.copyload773 = load i32, ptr %cond-lvalue.i348.sroa.phi1053, align 4
+  %ref.tmp127.sroa.9.0.copyload774 = load i32, ptr %cond-lvalue.i348.sroa.phi1056, align 4
   br label %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349
 
 _ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349: ; preds = %cond.true.i325, %cond.false.i347
@@ -1788,20 +1756,13 @@ _ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349: ; preds = %cond.true.i3
   %ref.tmp127.sroa.3.0 = phi i32 [ %ref.tmp127.sroa.3.0.copyload768, %cond.false.i347 ], [ %92, %cond.true.i325 ]
   %ref.tmp127.sroa.0.0 = phi i32 [ %ref.tmp127.sroa.0.0.copyload767, %cond.false.i347 ], [ %89, %cond.true.i325 ]
   store i32 %ref.tmp127.sroa.0.0, ptr %roi, align 4
-  %ref.tmp127.sroa.3.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 4
-  store i32 %ref.tmp127.sroa.3.0, ptr %ref.tmp127.sroa.3.0.roi.sroa_idx, align 4
-  %ref.tmp127.sroa.4.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 8
-  store i32 %ref.tmp127.sroa.4.0, ptr %ref.tmp127.sroa.4.0.roi.sroa_idx, align 4
-  %ref.tmp127.sroa.5.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 12
-  store i32 %ref.tmp127.sroa.5.0, ptr %ref.tmp127.sroa.5.0.roi.sroa_idx, align 4
-  %ref.tmp127.sroa.6.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 16
-  store i32 %ref.tmp127.sroa.6.0, ptr %ref.tmp127.sroa.6.0.roi.sroa_idx, align 4
-  %ref.tmp127.sroa.7.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 20
-  store i32 %ref.tmp127.sroa.7.0, ptr %ref.tmp127.sroa.7.0.roi.sroa_idx, align 4
-  %ref.tmp127.sroa.8.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 24
-  store i32 %ref.tmp127.sroa.8.0, ptr %ref.tmp127.sroa.8.0.roi.sroa_idx, align 4
-  %ref.tmp127.sroa.9.0.roi.sroa_idx = getelementptr inbounds i8, ptr %roi, i64 28
-  store i32 %ref.tmp127.sroa.9.0, ptr %ref.tmp127.sroa.9.0.roi.sroa_idx, align 4
+  store i32 %ref.tmp127.sroa.3.0, ptr %cond-lvalue.i348.sroa.gep, align 4
+  store i32 %ref.tmp127.sroa.4.0, ptr %cond-lvalue.i348.sroa.gep1042, align 4
+  store i32 %ref.tmp127.sroa.5.0, ptr %cond-lvalue.i348.sroa.gep1045, align 4
+  store i32 %ref.tmp127.sroa.6.0, ptr %cond-lvalue.i348.sroa.gep1048, align 4
+  store i32 %ref.tmp127.sroa.7.0, ptr %cond-lvalue.i348.sroa.gep1051, align 4
+  store i32 %ref.tmp127.sroa.8.0, ptr %cond-lvalue.i348.sroa.gep1054, align 4
+  store i32 %ref.tmp127.sroa.9.0, ptr %cond-lvalue.i348.sroa.gep1057, align 4
   call void @_ZNK18OpenImageIO_v2_6_08ImageBuf8roi_fullEv(ptr nonnull sret(%"struct.OpenImageIO_v2_6_0::ROI") align 4 %ref.tmp130, ptr noundef nonnull align 8 dereferenceable(16) %C)
   %111 = load i32, ptr %full_roi, align 4, !noalias !16
   %cmp.i.not.i350 = icmp eq i32 %111, -2147483648
@@ -1814,46 +1775,46 @@ land.lhs.true.i351:                               ; preds = %_ZN18OpenImageIO_v2
 
 cond.true.i353:                                   ; preds = %land.lhs.true.i351
   %113 = call i32 @llvm.smin.i32(i32 %112, i32 %111)
-  %114 = load i32, ptr %full_roi.sroa.gep809, align 4, !noalias !16
-  %115 = load i32, ptr %ref.tmp130.sroa.gep, align 4, !noalias !16
+  %114 = load i32, ptr %cond-lvalue.i320.sroa.gep, align 4, !noalias !16
+  %115 = load i32, ptr %cond-lvalue.i376.sroa.gep810, align 4, !noalias !16
   %116 = call i32 @llvm.smax.i32(i32 %114, i32 %115)
-  %117 = load i32, ptr %ref.tmp130.sroa.gep812, align 4, !noalias !16
-  %118 = load i32, ptr %full_roi.sroa.gep811, align 4, !noalias !16
+  %117 = load i32, ptr %cond-lvalue.i376.sroa.gep813, align 4, !noalias !16
+  %118 = load i32, ptr %cond-lvalue.i320.sroa.gep793, align 4, !noalias !16
   %119 = call i32 @llvm.smin.i32(i32 %117, i32 %118)
-  %120 = load i32, ptr %full_roi.sroa.gep814, align 4, !noalias !16
-  %121 = load i32, ptr %ref.tmp130.sroa.gep815, align 4, !noalias !16
+  %120 = load i32, ptr %cond-lvalue.i320.sroa.gep796, align 4, !noalias !16
+  %121 = load i32, ptr %cond-lvalue.i376.sroa.gep816, align 4, !noalias !16
   %122 = call i32 @llvm.smax.i32(i32 %120, i32 %121)
-  %123 = load i32, ptr %ref.tmp130.sroa.gep818, align 4, !noalias !16
-  %124 = load i32, ptr %full_roi.sroa.gep817, align 4, !noalias !16
+  %123 = load i32, ptr %cond-lvalue.i376.sroa.gep819, align 4, !noalias !16
+  %124 = load i32, ptr %cond-lvalue.i320.sroa.gep799, align 4, !noalias !16
   %125 = call i32 @llvm.smin.i32(i32 %123, i32 %124)
-  %126 = load i32, ptr %full_roi.sroa.gep820, align 4, !noalias !16
-  %127 = load i32, ptr %ref.tmp130.sroa.gep821, align 4, !noalias !16
+  %126 = load i32, ptr %cond-lvalue.i320.sroa.gep802, align 4, !noalias !16
+  %127 = load i32, ptr %cond-lvalue.i376.sroa.gep822, align 4, !noalias !16
   %128 = call i32 @llvm.smax.i32(i32 %126, i32 %127)
-  %129 = load i32, ptr %ref.tmp130.sroa.gep824, align 4, !noalias !16
-  %130 = load i32, ptr %full_roi.sroa.gep823, align 4, !noalias !16
+  %129 = load i32, ptr %cond-lvalue.i376.sroa.gep825, align 4, !noalias !16
+  %130 = load i32, ptr %cond-lvalue.i320.sroa.gep805, align 4, !noalias !16
   %131 = call i32 @llvm.smin.i32(i32 %129, i32 %130)
-  %132 = load i32, ptr %full_roi.sroa.gep826, align 4, !noalias !16
-  %133 = load i32, ptr %ref.tmp130.sroa.gep827, align 4, !noalias !16
+  %132 = load i32, ptr %cond-lvalue.i320.sroa.gep808, align 4, !noalias !16
+  %133 = load i32, ptr %cond-lvalue.i376.sroa.gep828, align 4, !noalias !16
   %134 = call i32 @llvm.smax.i32(i32 %132, i32 %133)
   br label %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit377
 
 cond.false.i375:                                  ; preds = %land.lhs.true.i351, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349
+  %cond-lvalue.i376.sroa.phi = phi ptr [ %cond-lvalue.i320.sroa.gep, %land.lhs.true.i351 ], [ %cond-lvalue.i376.sroa.gep810, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349 ]
+  %cond-lvalue.i376.sroa.phi811 = phi ptr [ %cond-lvalue.i320.sroa.gep793, %land.lhs.true.i351 ], [ %cond-lvalue.i376.sroa.gep813, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349 ]
+  %cond-lvalue.i376.sroa.phi814 = phi ptr [ %cond-lvalue.i320.sroa.gep796, %land.lhs.true.i351 ], [ %cond-lvalue.i376.sroa.gep816, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349 ]
+  %cond-lvalue.i376.sroa.phi817 = phi ptr [ %cond-lvalue.i320.sroa.gep799, %land.lhs.true.i351 ], [ %cond-lvalue.i376.sroa.gep819, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349 ]
+  %cond-lvalue.i376.sroa.phi820 = phi ptr [ %cond-lvalue.i320.sroa.gep802, %land.lhs.true.i351 ], [ %cond-lvalue.i376.sroa.gep822, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349 ]
+  %cond-lvalue.i376.sroa.phi823 = phi ptr [ %cond-lvalue.i320.sroa.gep805, %land.lhs.true.i351 ], [ %cond-lvalue.i376.sroa.gep825, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349 ]
+  %cond-lvalue.i376.sroa.phi826 = phi ptr [ %cond-lvalue.i320.sroa.gep808, %land.lhs.true.i351 ], [ %cond-lvalue.i376.sroa.gep828, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349 ]
   %cond-lvalue.i376 = phi ptr [ %full_roi, %land.lhs.true.i351 ], [ %ref.tmp130, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349 ]
-  %cond-lvalue.i376.sroa.phi = phi ptr [ %full_roi.sroa.gep809, %land.lhs.true.i351 ], [ %ref.tmp130.sroa.gep, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349 ]
-  %cond-lvalue.i376.sroa.phi810 = phi ptr [ %full_roi.sroa.gep811, %land.lhs.true.i351 ], [ %ref.tmp130.sroa.gep812, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349 ]
-  %cond-lvalue.i376.sroa.phi813 = phi ptr [ %full_roi.sroa.gep814, %land.lhs.true.i351 ], [ %ref.tmp130.sroa.gep815, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349 ]
-  %cond-lvalue.i376.sroa.phi816 = phi ptr [ %full_roi.sroa.gep817, %land.lhs.true.i351 ], [ %ref.tmp130.sroa.gep818, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349 ]
-  %cond-lvalue.i376.sroa.phi819 = phi ptr [ %full_roi.sroa.gep820, %land.lhs.true.i351 ], [ %ref.tmp130.sroa.gep821, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349 ]
-  %cond-lvalue.i376.sroa.phi822 = phi ptr [ %full_roi.sroa.gep823, %land.lhs.true.i351 ], [ %ref.tmp130.sroa.gep824, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349 ]
-  %cond-lvalue.i376.sroa.phi825 = phi ptr [ %full_roi.sroa.gep826, %land.lhs.true.i351 ], [ %ref.tmp130.sroa.gep827, %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit349 ]
   %ref.tmp129.sroa.0.0.copyload759 = load i32, ptr %cond-lvalue.i376, align 4
   %ref.tmp129.sroa.3.0.copyload760 = load i32, ptr %cond-lvalue.i376.sroa.phi, align 4
-  %ref.tmp129.sroa.4.0.copyload761 = load i32, ptr %cond-lvalue.i376.sroa.phi810, align 4
-  %ref.tmp129.sroa.5.0.copyload762 = load i32, ptr %cond-lvalue.i376.sroa.phi813, align 4
-  %ref.tmp129.sroa.6.0.copyload763 = load i32, ptr %cond-lvalue.i376.sroa.phi816, align 4
-  %ref.tmp129.sroa.7.0.copyload764 = load i32, ptr %cond-lvalue.i376.sroa.phi819, align 4
-  %ref.tmp129.sroa.8.0.copyload765 = load i32, ptr %cond-lvalue.i376.sroa.phi822, align 4
-  %ref.tmp129.sroa.9.0.copyload766 = load i32, ptr %cond-lvalue.i376.sroa.phi825, align 4
+  %ref.tmp129.sroa.4.0.copyload761 = load i32, ptr %cond-lvalue.i376.sroa.phi811, align 4
+  %ref.tmp129.sroa.5.0.copyload762 = load i32, ptr %cond-lvalue.i376.sroa.phi814, align 4
+  %ref.tmp129.sroa.6.0.copyload763 = load i32, ptr %cond-lvalue.i376.sroa.phi817, align 4
+  %ref.tmp129.sroa.7.0.copyload764 = load i32, ptr %cond-lvalue.i376.sroa.phi820, align 4
+  %ref.tmp129.sroa.8.0.copyload765 = load i32, ptr %cond-lvalue.i376.sroa.phi823, align 4
+  %ref.tmp129.sroa.9.0.copyload766 = load i32, ptr %cond-lvalue.i376.sroa.phi826, align 4
   br label %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit377
 
 _ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit377: ; preds = %cond.true.i353, %cond.false.i375
@@ -1866,21 +1827,20 @@ _ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit377: ; preds = %cond.true.i3
   %ref.tmp129.sroa.3.0 = phi i32 [ %ref.tmp129.sroa.3.0.copyload760, %cond.false.i375 ], [ %116, %cond.true.i353 ]
   %ref.tmp129.sroa.0.0 = phi i32 [ %ref.tmp129.sroa.0.0.copyload759, %cond.false.i375 ], [ %113, %cond.true.i353 ]
   store i32 %ref.tmp129.sroa.0.0, ptr %full_roi, align 4
-  store i32 %ref.tmp129.sroa.3.0, ptr %full_roi.sroa.gep809, align 4
-  store i32 %ref.tmp129.sroa.4.0, ptr %full_roi.sroa.gep811, align 4
-  store i32 %ref.tmp129.sroa.5.0, ptr %full_roi.sroa.gep814, align 4
-  store i32 %ref.tmp129.sroa.6.0, ptr %full_roi.sroa.gep817, align 4
-  store i32 %ref.tmp129.sroa.7.0, ptr %full_roi.sroa.gep820, align 4
-  store i32 %ref.tmp129.sroa.8.0, ptr %full_roi.sroa.gep823, align 4
-  store i32 %ref.tmp129.sroa.9.0, ptr %full_roi.sroa.gep826, align 4
+  store i32 %ref.tmp129.sroa.3.0, ptr %cond-lvalue.i320.sroa.gep, align 4
+  store i32 %ref.tmp129.sroa.4.0, ptr %cond-lvalue.i320.sroa.gep793, align 4
+  store i32 %ref.tmp129.sroa.5.0, ptr %cond-lvalue.i320.sroa.gep796, align 4
+  store i32 %ref.tmp129.sroa.6.0, ptr %cond-lvalue.i320.sroa.gep799, align 4
+  store i32 %ref.tmp129.sroa.7.0, ptr %cond-lvalue.i320.sroa.gep802, align 4
+  store i32 %ref.tmp129.sroa.8.0, ptr %cond-lvalue.i320.sroa.gep805, align 4
+  store i32 %ref.tmp129.sroa.9.0, ptr %cond-lvalue.i320.sroa.gep808, align 4
   br label %if.end146
 
 if.then134:                                       ; preds = %if.end113
-  %chend = getelementptr inbounds i8, ptr %roi, i64 28
   %call136 = tail call noundef i32 @_ZNK18OpenImageIO_v2_6_08ImageBuf9nchannelsEv(ptr noundef nonnull align 8 dereferenceable(16) %A)
-  %135 = load i32, ptr %chend, align 4
+  %135 = load i32, ptr %cond-lvalue.i348.sroa.gep1057, align 4
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %call136, i32 %135)
-  store i32 %.sroa.speculated, ptr %chend, align 4
+  store i32 %.sroa.speculated, ptr %cond-lvalue.i348.sroa.gep1057, align 4
   %and139 = and i32 %prepflags, 8
   %tobool140.not = icmp eq i32 %and139, 0
   br i1 %tobool140.not, label %if.then141, label %if.end146
@@ -1928,12 +1888,12 @@ call5.i.noexc:                                    ; preds = %call.i.noexc
           to label %if.end283 unwind label %lpad.loopexit.split-lp
 
 lpad.loopexit:                                    ; preds = %land.lhs.true167, %if.then174, %land.lhs.true184, %land.lhs.true194, %land.lhs.true204, %if.then211, %land.lhs.true223, %land.lhs.true233, %land.lhs.true243, %if.then250, %land.lhs.true262, %land.lhs.true272, %_ZNK18OpenImageIO_v2_6_09ImageSpec12channel_nameEi.exit424, %_ZNK18OpenImageIO_v2_6_09ImageSpec12channel_nameEi.exit478, %_ZNK18OpenImageIO_v2_6_09ImageSpec12channel_nameEi.exit535
-  %lpad.loopexit1028 = landingpad { ptr, i32 }
+  %lpad.loopexit1029 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp:                           ; preds = %invoke.cont329, %if.else152, %land.lhs.true285, %invoke.cont286, %land.lhs.true299, %invoke.cont300, %lor.lhs.false307, %invoke.cont308, %if.end328, %land.lhs.true340, %if.then343, %invoke.cont345, %land.lhs.true351, %if.then354, %invoke.cont356, %land.lhs.true362, %if.then365, %invoke.cont367, %if.then380, %invoke.cont383, %if.end400, %if.end411, %if.then421, %if.end428, %if.then433, %invoke.cont437, %if.then150, %call.i.noexc, %call5.i.noexc, %invoke.cont153, %call.i.noexc391, %call5.i.noexc393, %if.then320, %call.i.noexc587, %call5.i.noexc589
-  %lpad.loopexit.split-lp1029 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp1030 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -1974,8 +1934,8 @@ invoke.cont155:                                   ; preds = %call5.i.noexc393
   %z_channel = getelementptr inbounds i8, ptr %spec, i64 124
   store i32 -1, ptr %z_channel, align 4
   %137 = load i32, ptr %136, align 4
-  %cmp1651030 = icmp sgt i32 %137, 0
-  br i1 %cmp1651030, label %land.lhs.true167, label %if.end283
+  %cmp1651031 = icmp sgt i32 %137, 0
+  br i1 %cmp1651031, label %land.lhs.true167, label %if.end283
 
 land.lhs.true167:                                 ; preds = %invoke.cont155, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %invoke.cont155 ]
@@ -2014,8 +1974,8 @@ land.lhs.true.i409:                               ; preds = %if.then174
   %sub.ptr.lhs.cast.i.i412 = ptrtoint ptr %141 to i64
   %sub.ptr.rhs.cast.i.i413 = ptrtoint ptr %142 to i64
   %sub.ptr.sub.i.i414 = sub i64 %sub.ptr.lhs.cast.i.i412, %sub.ptr.rhs.cast.i.i413
-  %sext1040 = shl i64 %sub.ptr.sub.i.i414, 27
-  %143 = ashr i64 %sext1040, 32
+  %sext1098 = shl i64 %sub.ptr.sub.i.i414, 27
+  %143 = ashr i64 %sext1098, 32
   %cmp2.i417 = icmp slt i64 %indvars.iv, %143
   br i1 %cmp2.i417, label %cond.true.i418, label %_ZNK18OpenImageIO_v2_6_09ImageSpec12channel_nameEi.exit424
 
@@ -2085,8 +2045,8 @@ land.lhs.true.i429:                               ; preds = %land.lhs.true204
   %sub.ptr.lhs.cast.i.i432 = ptrtoint ptr %152 to i64
   %sub.ptr.rhs.cast.i.i433 = ptrtoint ptr %153 to i64
   %sub.ptr.sub.i.i434 = sub i64 %sub.ptr.lhs.cast.i.i432, %sub.ptr.rhs.cast.i.i433
-  %sext1041 = shl i64 %sub.ptr.sub.i.i434, 27
-  %154 = ashr i64 %sext1041, 32
+  %sext1099 = shl i64 %sub.ptr.sub.i.i434, 27
+  %154 = ashr i64 %sext1099, 32
   %cmp2.i437 = icmp slt i64 %indvars.iv, %154
   br i1 %cmp2.i437, label %_ZNK18OpenImageIO_v2_6_09ImageSpec12channel_nameEi.exit444, label %if.else241
 
@@ -2109,8 +2069,8 @@ land.lhs.true.i463:                               ; preds = %if.then211
   %sub.ptr.lhs.cast.i.i466 = ptrtoint ptr %155 to i64
   %sub.ptr.rhs.cast.i.i467 = ptrtoint ptr %156 to i64
   %sub.ptr.sub.i.i468 = sub i64 %sub.ptr.lhs.cast.i.i466, %sub.ptr.rhs.cast.i.i467
-  %sext1042 = shl i64 %sub.ptr.sub.i.i468, 27
-  %157 = ashr i64 %sext1042, 32
+  %sext1100 = shl i64 %sub.ptr.sub.i.i468, 27
+  %157 = ashr i64 %sext1100, 32
   %cmp2.i471 = icmp slt i64 %indvars.iv, %157
   br i1 %cmp2.i471, label %cond.true.i472, label %_ZNK18OpenImageIO_v2_6_09ImageSpec12channel_nameEi.exit478
 
@@ -2180,8 +2140,8 @@ land.lhs.true.i486:                               ; preds = %land.lhs.true243
   %sub.ptr.lhs.cast.i.i489 = ptrtoint ptr %166 to i64
   %sub.ptr.rhs.cast.i.i490 = ptrtoint ptr %167 to i64
   %sub.ptr.sub.i.i491 = sub i64 %sub.ptr.lhs.cast.i.i489, %sub.ptr.rhs.cast.i.i490
-  %sext1043 = shl i64 %sub.ptr.sub.i.i491, 27
-  %168 = ashr i64 %sext1043, 32
+  %sext1101 = shl i64 %sub.ptr.sub.i.i491, 27
+  %168 = ashr i64 %sext1101, 32
   %cmp2.i494 = icmp slt i64 %indvars.iv, %168
   br i1 %cmp2.i494, label %_ZNK18OpenImageIO_v2_6_09ImageSpec12channel_nameEi.exit501, label %for.inc
 
@@ -2204,8 +2164,8 @@ land.lhs.true.i520:                               ; preds = %if.then250
   %sub.ptr.lhs.cast.i.i523 = ptrtoint ptr %169 to i64
   %sub.ptr.rhs.cast.i.i524 = ptrtoint ptr %170 to i64
   %sub.ptr.sub.i.i525 = sub i64 %sub.ptr.lhs.cast.i.i523, %sub.ptr.rhs.cast.i.i524
-  %sext1044 = shl i64 %sub.ptr.sub.i.i525, 27
-  %171 = ashr i64 %sext1044, 32
+  %sext1102 = shl i64 %sub.ptr.sub.i.i525, 27
+  %171 = ashr i64 %sext1102, 32
   %cmp2.i528 = icmp slt i64 %indvars.iv, %171
   br i1 %cmp2.i528, label %cond.true.i529, label %_ZNK18OpenImageIO_v2_6_09ImageSpec12channel_nameEi.exit535
 
@@ -2459,8 +2419,7 @@ if.else323:                                       ; preds = %if.else318
   %arraylen4.i596 = getelementptr inbounds i8, ptr %agg.tmp324, i64 4
   store i32 0, ptr %arraylen4.i596, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec10set_formatENS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %agg.tmp324) #23
-  %chend325 = getelementptr inbounds i8, ptr %roi, i64 28
-  %207 = load i32, ptr %chend325, align 4
+  %207 = load i32, ptr %cond-lvalue.i348.sroa.gep1057, align 4
   %nchannels326 = getelementptr inbounds i8, ptr %spec, i64 60
   store i32 %207, ptr %nchannels326, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec21default_channel_namesEv(ptr noundef nonnull align 8 dereferenceable(160) %spec) #23
@@ -2661,22 +2620,20 @@ if.end400:                                        ; preds = %invoke.cont.i.i, %i
 invoke.cont403:                                   ; preds = %if.end400
   %and404 = and i32 %prepflags, 1024
   %tobool405.not = icmp eq i32 %and404, 0
-  %chend412.phi.trans.insert = getelementptr inbounds i8, ptr %roi, i64 28
-  %.pre = load i32, ptr %chend412.phi.trans.insert, align 4
+  %.pre = load i32, ptr %cond-lvalue.i348.sroa.gep1057, align 4
   br i1 %tobool405.not, label %if.end411, label %if.then406
 
 if.then406:                                       ; preds = %invoke.cont403
-  %.sroa.speculated876 = call i32 @llvm.smin.i32(i32 %minchans.4, i32 %.pre)
-  store i32 %.sroa.speculated876, ptr %chend412.phi.trans.insert, align 4
+  %.sroa.speculated877 = call i32 @llvm.smin.i32(i32 %minchans.4, i32 %.pre)
+  store i32 %.sroa.speculated877, ptr %cond-lvalue.i348.sroa.gep1057, align 4
   br label %if.end411
 
-if.end411:                                        ; preds = %invoke.cont403, %if.then406
-  %215 = phi i32 [ %.sroa.speculated876, %if.then406 ], [ %.pre, %invoke.cont403 ]
-  %chend412 = getelementptr inbounds i8, ptr %roi, i64 28
+if.end411:                                        ; preds = %if.then406, %invoke.cont403
+  %215 = phi i32 [ %.sroa.speculated877, %if.then406 ], [ %.pre, %invoke.cont403 ]
   %nchannels413 = getelementptr inbounds i8, ptr %spec, i64 60
   %216 = load i32, ptr %nchannels413, align 4
   %217 = call i32 @llvm.smin.i32(i32 %216, i32 %215)
-  store i32 %217, ptr %chend412, align 4
+  store i32 %217, ptr %cond-lvalue.i348.sroa.gep1057, align 4
   %call418 = invoke noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_08ImageBuf4deepEv(ptr noundef nonnull align 8 dereferenceable(16) %dst)
           to label %invoke.cont417 unwind label %lpad.loopexit.split-lp
 
@@ -2684,8 +2641,7 @@ invoke.cont417:                                   ; preds = %if.end411
   br i1 %call418, label %if.end444, label %if.then419
 
 if.then419:                                       ; preds = %invoke.cont417
-  %chbegin = getelementptr inbounds i8, ptr %roi, i64 24
-  %218 = load i32, ptr %chbegin, align 4
+  %218 = load i32, ptr %cond-lvalue.i348.sroa.gep1054, align 4
   %cmp420 = icmp sgt i32 %218, 0
   br i1 %cmp420, label %if.then421, label %if.end428
 
@@ -2699,7 +2655,7 @@ if.then421:                                       ; preds = %if.then419
           to label %if.end428 unwind label %lpad.loopexit.split-lp
 
 if.end428:                                        ; preds = %if.then421, %if.then419
-  %219 = load i32, ptr %chend412, align 4
+  %219 = load i32, ptr %cond-lvalue.i348.sroa.gep1057, align 4
   %call431 = invoke noundef i32 @_ZNK18OpenImageIO_v2_6_08ImageBuf9nchannelsEv(ptr noundef nonnull align 8 dereferenceable(16) %dst)
           to label %invoke.cont430 unwind label %lpad.loopexit.split-lp
 
@@ -2709,7 +2665,7 @@ invoke.cont430:                                   ; preds = %if.end428
 
 if.then433:                                       ; preds = %invoke.cont430
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %r434.sroa.0, ptr noundef nonnull align 4 dereferenceable(24) %roi, i64 24, i1 false)
-  %220 = load i32, ptr %chend412, align 4
+  %220 = load i32, ptr %cond-lvalue.i348.sroa.gep1057, align 4
   %call438 = invoke noundef i32 @_ZNK18OpenImageIO_v2_6_08ImageBuf9nchannelsEv(ptr noundef nonnull align 8 dereferenceable(16) %dst)
           to label %invoke.cont437 unwind label %lpad.loopexit.split-lp
 
@@ -2789,27 +2745,25 @@ if.then.i.i.i3.i:                                 ; preds = %_ZNSt6vectorINSt7__
   br label %if.end445
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i, %lpad393
-  %.pn = phi { ptr, i32 } [ %214, %lpad393 ], [ %213, %lpad.i ], [ %lpad.loopexit1028, %lpad.loopexit ], [ %lpad.loopexit.split-lp1029, %lpad.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %214, %lpad393 ], [ %213, %lpad.i ], [ %lpad.loopexit1029, %lpad.loopexit ], [ %lpad.loopexit.split-lp1030, %lpad.loopexit.split-lp ]
   call void @_ZN18OpenImageIO_v2_6_09ImageSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %spec) #23
   resume { ptr, i32 } %.pn
 
 if.end445:                                        ; preds = %if.then.i.i.i3.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, %if.end77, %if.then101, %land.lhs.true99, %if.end97
   %and446 = and i32 %prepflags, 1024
   %tobool447.not = icmp eq i32 %and446, 0
-  %chend453.phi.trans.insert = getelementptr inbounds i8, ptr %roi, i64 28
-  %.pre1039 = load i32, ptr %chend453.phi.trans.insert, align 4
+  %.pre1097 = load i32, ptr %cond-lvalue.i348.sroa.gep1057, align 4
   br i1 %tobool447.not, label %if.end452, label %if.then448
 
 if.then448:                                       ; preds = %if.end445
-  %.sroa.speculated873 = call i32 @llvm.smin.i32(i32 %minchans.4, i32 %.pre1039)
-  store i32 %.sroa.speculated873, ptr %chend453.phi.trans.insert, align 4
+  %.sroa.speculated874 = call i32 @llvm.smin.i32(i32 %minchans.4, i32 %.pre1097)
+  store i32 %.sroa.speculated874, ptr %cond-lvalue.i348.sroa.gep1057, align 4
   br label %if.end452
 
-if.end452:                                        ; preds = %if.end445, %if.then448
-  %228 = phi i32 [ %.sroa.speculated873, %if.then448 ], [ %.pre1039, %if.end445 ]
-  %chend453 = getelementptr inbounds i8, ptr %roi, i64 28
-  %.sroa.speculated842 = call i32 @llvm.smin.i32(i32 %maxchans.4, i32 %228)
-  store i32 %.sroa.speculated842, ptr %chend453, align 4
+if.end452:                                        ; preds = %if.then448, %if.end445
+  %228 = phi i32 [ %.sroa.speculated874, %if.then448 ], [ %.pre1097, %if.end445 ]
+  %.sroa.speculated843 = call i32 @llvm.smin.i32(i32 %maxchans.4, i32 %228)
+  store i32 %.sroa.speculated843, ptr %cond-lvalue.i348.sroa.gep1057, align 4
   %and456 = and i32 %prepflags, 1
   %tobool457.not = icmp eq i32 %and456, 0
   br i1 %tobool457.not, label %if.end482, label %if.then458
@@ -2952,15 +2906,15 @@ if.then540:                                       ; preds = %if.end537
   %call542 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %dst)
   %nchannels543 = getelementptr inbounds i8, ptr %call542, i64 60
   %242 = load i32, ptr %nchannels543, align 4
-  %cmp5461032 = icmp sgt i32 %242, 0
-  br i1 %cmp5461032, label %for.body547.preheader, label %if.end574
+  %cmp5461033 = icmp sgt i32 %242, 0
+  br i1 %cmp5461033, label %for.body547.preheader, label %if.end574
 
 for.body547.preheader:                            ; preds = %if.then540
   %wide.trip.count = zext nneg i32 %242 to i64
   br label %for.body547
 
 for.body547:                                      ; preds = %for.body547.preheader, %for.inc571
-  %indvars.iv1036 = phi i64 [ 0, %for.body547.preheader ], [ %indvars.iv.next1037, %for.inc571 ]
+  %indvars.iv1037 = phi i64 [ 0, %for.body547.preheader ], [ %indvars.iv.next1038, %for.inc571 ]
   %call548 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %dst)
   %channelnames.i643 = getelementptr inbounds i8, ptr %call548, i64 96
   %_M_finish.i.i644 = getelementptr inbounds i8, ptr %call548, i64 104
@@ -2969,13 +2923,13 @@ for.body547:                                      ; preds = %for.body547.prehead
   %sub.ptr.lhs.cast.i.i645 = ptrtoint ptr %243 to i64
   %sub.ptr.rhs.cast.i.i646 = ptrtoint ptr %244 to i64
   %sub.ptr.sub.i.i647 = sub i64 %sub.ptr.lhs.cast.i.i645, %sub.ptr.rhs.cast.i.i646
-  %sext1045 = shl i64 %sub.ptr.sub.i.i647, 27
-  %245 = ashr i64 %sext1045, 32
-  %cmp2.i650 = icmp slt i64 %indvars.iv1036, %245
+  %sext1103 = shl i64 %sub.ptr.sub.i.i647, 27
+  %245 = ashr i64 %sext1103, 32
+  %cmp2.i650 = icmp slt i64 %indvars.iv1037, %245
   br i1 %cmp2.i650, label %cond.true.i651, label %_ZNK18OpenImageIO_v2_6_09ImageSpec12channel_nameEi.exit657
 
 cond.true.i651:                                   ; preds = %for.body547
-  %add.ptr.i.i653 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %244, i64 %indvars.iv1036
+  %add.ptr.i.i653 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %244, i64 %indvars.iv1037
   %call.i.i654 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i653) #23, !noalias !44
   %call2.i.i656 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i653) #23, !noalias !44
   br label %_ZNK18OpenImageIO_v2_6_09ImageSpec12channel_nameEi.exit657
@@ -2994,13 +2948,13 @@ land.lhs.true550:                                 ; preds = %_ZNK18OpenImageIO_v
   %sub.ptr.lhs.cast.i.i664 = ptrtoint ptr %246 to i64
   %sub.ptr.rhs.cast.i.i665 = ptrtoint ptr %247 to i64
   %sub.ptr.sub.i.i666 = sub i64 %sub.ptr.lhs.cast.i.i664, %sub.ptr.rhs.cast.i.i665
-  %sext1046 = shl i64 %sub.ptr.sub.i.i666, 27
-  %248 = ashr i64 %sext1046, 32
-  %cmp2.i669 = icmp slt i64 %indvars.iv1036, %248
+  %sext1104 = shl i64 %sub.ptr.sub.i.i666, 27
+  %248 = ashr i64 %sext1104, 32
+  %cmp2.i669 = icmp slt i64 %indvars.iv1037, %248
   br i1 %cmp2.i669, label %cond.true.i670, label %_ZNK18OpenImageIO_v2_6_09ImageSpec12channel_nameEi.exit676
 
 cond.true.i670:                                   ; preds = %land.lhs.true550
-  %add.ptr.i.i672 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %247, i64 %indvars.iv1036
+  %add.ptr.i.i672 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %247, i64 %indvars.iv1037
   %call.i.i673 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i672) #23, !noalias !47
   %call2.i.i675 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i672) #23, !noalias !47
   br label %_ZNK18OpenImageIO_v2_6_09ImageSpec12channel_nameEi.exit676
@@ -3032,13 +2986,13 @@ land.lhs.true557:                                 ; preds = %lor.lhs.false555
   %sub.ptr.lhs.cast.i.i696 = ptrtoint ptr %249 to i64
   %sub.ptr.rhs.cast.i.i697 = ptrtoint ptr %250 to i64
   %sub.ptr.sub.i.i698 = sub i64 %sub.ptr.lhs.cast.i.i696, %sub.ptr.rhs.cast.i.i697
-  %sext1047 = shl i64 %sub.ptr.sub.i.i698, 27
-  %251 = ashr i64 %sext1047, 32
-  %cmp2.i701 = icmp slt i64 %indvars.iv1036, %251
+  %sext1105 = shl i64 %sub.ptr.sub.i.i698, 27
+  %251 = ashr i64 %sext1105, 32
+  %cmp2.i701 = icmp slt i64 %indvars.iv1037, %251
   br i1 %cmp2.i701, label %cond.true.i702, label %_ZNK18OpenImageIO_v2_6_09ImageSpec12channel_nameEi.exit708
 
 cond.true.i702:                                   ; preds = %land.lhs.true557
-  %add.ptr.i.i704 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %250, i64 %indvars.iv1036
+  %add.ptr.i.i704 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %250, i64 %indvars.iv1037
   %call.i.i705 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i704) #23, !noalias !50
   %call2.i.i707 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i704) #23, !noalias !50
   br label %_ZNK18OpenImageIO_v2_6_09ImageSpec12channel_nameEi.exit708
@@ -3070,13 +3024,13 @@ land.lhs.true564:                                 ; preds = %lor.lhs.false562
   %sub.ptr.lhs.cast.i.i728 = ptrtoint ptr %252 to i64
   %sub.ptr.rhs.cast.i.i729 = ptrtoint ptr %253 to i64
   %sub.ptr.sub.i.i730 = sub i64 %sub.ptr.lhs.cast.i.i728, %sub.ptr.rhs.cast.i.i729
-  %sext1048 = shl i64 %sub.ptr.sub.i.i730, 27
-  %254 = ashr i64 %sext1048, 32
-  %cmp2.i733 = icmp slt i64 %indvars.iv1036, %254
+  %sext1106 = shl i64 %sub.ptr.sub.i.i730, 27
+  %254 = ashr i64 %sext1106, 32
+  %cmp2.i733 = icmp slt i64 %indvars.iv1037, %254
   br i1 %cmp2.i733, label %cond.true.i734, label %_ZNK18OpenImageIO_v2_6_09ImageSpec12channel_nameEi.exit740
 
 cond.true.i734:                                   ; preds = %land.lhs.true564
-  %add.ptr.i.i736 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %253, i64 %indvars.iv1036
+  %add.ptr.i.i736 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %253, i64 %indvars.iv1037
   %call.i.i737 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i736) #23, !noalias !53
   %call2.i.i739 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i736) #23, !noalias !53
   br label %_ZNK18OpenImageIO_v2_6_09ImageSpec12channel_nameEi.exit740
@@ -3101,8 +3055,8 @@ if.then569:                                       ; preds = %_ZNSt11char_traitsI
   br label %return
 
 for.inc571:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i749, %cond.true.i747, %lor.lhs.false562
-  %indvars.iv.next1037 = add nuw nsw i64 %indvars.iv1036, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next1037, %wide.trip.count
+  %indvars.iv.next1038 = add nuw nsw i64 %indvars.iv1037, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next1038, %wide.trip.count
   br i1 %exitcond.not, label %if.end574, label %for.body547, !llvm.loop !56
 
 if.end574:                                        ; preds = %for.inc571, %if.then540, %if.end509, %if.end537
@@ -13354,19 +13308,7 @@ entry:
   %t.i.i.i.i = alloca %struct.timespec, align 8
   %logtime = alloca %"class.OpenImageIO_v2_6_0::pvt::LoggedTimer", align 8
   %ref.tmp4 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
-  %ref.tmp4.sroa.gep99 = getelementptr inbounds i8, ptr %ref.tmp4, i64 24
-  %ref.tmp4.sroa.gep96 = getelementptr inbounds i8, ptr %ref.tmp4, i64 20
-  %ref.tmp4.sroa.gep93 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
-  %ref.tmp4.sroa.gep90 = getelementptr inbounds i8, ptr %ref.tmp4, i64 12
-  %ref.tmp4.sroa.gep87 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
-  %ref.tmp4.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp4, i64 4
   %ref.tmp8 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
-  %ref.tmp8.sroa.gep100 = getelementptr inbounds i8, ptr %ref.tmp8, i64 24
-  %ref.tmp8.sroa.gep97 = getelementptr inbounds i8, ptr %ref.tmp8, i64 20
-  %ref.tmp8.sroa.gep94 = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
-  %ref.tmp8.sroa.gep91 = getelementptr inbounds i8, ptr %ref.tmp8, i64 12
-  %ref.tmp8.sroa.gep88 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
-  %ref.tmp8.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp8, i64 4
   %spec = alloca %"class.OpenImageIO_v2_6_0::ImageSpec", align 8
   %agg.tmp19 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
   %specT = alloca %"class.OpenImageIO_v2_6_0::ImageSpec", align 8
@@ -13386,6 +13328,18 @@ entry:
   store i8 0, ptr %m_printdtr.i.i, align 1
   %m_starttime.i.i = getelementptr inbounds i8, ptr %logtime, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_starttime.i.i, i8 0, i64 24, i1 false)
+  %cond-lvalue.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp4, i64 4
+  %cond-lvalue.i.sroa.gep86 = getelementptr inbounds i8, ptr %ref.tmp8, i64 4
+  %cond-lvalue.i.sroa.gep88 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
+  %cond-lvalue.i.sroa.gep89 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
+  %cond-lvalue.i.sroa.gep91 = getelementptr inbounds i8, ptr %ref.tmp4, i64 12
+  %cond-lvalue.i.sroa.gep92 = getelementptr inbounds i8, ptr %ref.tmp8, i64 12
+  %cond-lvalue.i.sroa.gep94 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
+  %cond-lvalue.i.sroa.gep95 = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
+  %cond-lvalue.i.sroa.gep97 = getelementptr inbounds i8, ptr %ref.tmp4, i64 20
+  %cond-lvalue.i.sroa.gep98 = getelementptr inbounds i8, ptr %ref.tmp8, i64 20
+  %cond-lvalue.i.sroa.gep100 = getelementptr inbounds i8, ptr %ref.tmp4, i64 24
+  %cond-lvalue.i.sroa.gep101 = getelementptr inbounds i8, ptr %ref.tmp8, i64 24
   br i1 %tobool.not.i, label %_ZN18OpenImageIO_v2_6_05TimerC2Eb.exit.i, label %_ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i
 
 _ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i:   ; preds = %entry
@@ -13482,41 +13436,41 @@ land.lhs.true.i:                                  ; preds = %invoke.cont11
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   %10 = call i32 @llvm.smin.i32(i32 %9, i32 %8)
-  %11 = load i32, ptr %ref.tmp4.sroa.gep, align 4, !noalias !102
-  %12 = load i32, ptr %ref.tmp8.sroa.gep, align 4, !noalias !102
+  %11 = load i32, ptr %cond-lvalue.i.sroa.gep, align 4, !noalias !102
+  %12 = load i32, ptr %cond-lvalue.i.sroa.gep86, align 4, !noalias !102
   %13 = call i32 @llvm.smax.i32(i32 %11, i32 %12)
-  %14 = load i32, ptr %ref.tmp8.sroa.gep88, align 4, !noalias !102
-  %15 = load i32, ptr %ref.tmp4.sroa.gep87, align 4, !noalias !102
+  %14 = load i32, ptr %cond-lvalue.i.sroa.gep89, align 4, !noalias !102
+  %15 = load i32, ptr %cond-lvalue.i.sroa.gep88, align 4, !noalias !102
   %16 = call i32 @llvm.smin.i32(i32 %14, i32 %15)
-  %17 = load i32, ptr %ref.tmp4.sroa.gep90, align 4, !noalias !102
-  %18 = load i32, ptr %ref.tmp8.sroa.gep91, align 4, !noalias !102
+  %17 = load i32, ptr %cond-lvalue.i.sroa.gep91, align 4, !noalias !102
+  %18 = load i32, ptr %cond-lvalue.i.sroa.gep92, align 4, !noalias !102
   %19 = call i32 @llvm.smax.i32(i32 %17, i32 %18)
-  %20 = load i32, ptr %ref.tmp8.sroa.gep94, align 4, !noalias !102
-  %21 = load i32, ptr %ref.tmp4.sroa.gep93, align 4, !noalias !102
+  %20 = load i32, ptr %cond-lvalue.i.sroa.gep95, align 4, !noalias !102
+  %21 = load i32, ptr %cond-lvalue.i.sroa.gep94, align 4, !noalias !102
   %22 = call i32 @llvm.smin.i32(i32 %20, i32 %21)
-  %23 = load i32, ptr %ref.tmp4.sroa.gep96, align 4, !noalias !102
-  %24 = load i32, ptr %ref.tmp8.sroa.gep97, align 4, !noalias !102
+  %23 = load i32, ptr %cond-lvalue.i.sroa.gep97, align 4, !noalias !102
+  %24 = load i32, ptr %cond-lvalue.i.sroa.gep98, align 4, !noalias !102
   %25 = call i32 @llvm.smax.i32(i32 %23, i32 %24)
-  %26 = load i32, ptr %ref.tmp8.sroa.gep100, align 4, !noalias !102
-  %27 = load i32, ptr %ref.tmp4.sroa.gep99, align 4, !noalias !102
+  %26 = load i32, ptr %cond-lvalue.i.sroa.gep101, align 4, !noalias !102
+  %27 = load i32, ptr %cond-lvalue.i.sroa.gep100, align 4, !noalias !102
   %28 = call i32 @llvm.smin.i32(i32 %26, i32 %27)
   br label %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit
 
 cond.false.i:                                     ; preds = %land.lhs.true.i, %invoke.cont11
+  %cond-lvalue.i.sroa.phi = phi ptr [ %cond-lvalue.i.sroa.gep, %land.lhs.true.i ], [ %cond-lvalue.i.sroa.gep86, %invoke.cont11 ]
+  %cond-lvalue.i.sroa.phi87 = phi ptr [ %cond-lvalue.i.sroa.gep88, %land.lhs.true.i ], [ %cond-lvalue.i.sroa.gep89, %invoke.cont11 ]
+  %cond-lvalue.i.sroa.phi90 = phi ptr [ %cond-lvalue.i.sroa.gep91, %land.lhs.true.i ], [ %cond-lvalue.i.sroa.gep92, %invoke.cont11 ]
+  %cond-lvalue.i.sroa.phi93 = phi ptr [ %cond-lvalue.i.sroa.gep94, %land.lhs.true.i ], [ %cond-lvalue.i.sroa.gep95, %invoke.cont11 ]
+  %cond-lvalue.i.sroa.phi96 = phi ptr [ %cond-lvalue.i.sroa.gep97, %land.lhs.true.i ], [ %cond-lvalue.i.sroa.gep98, %invoke.cont11 ]
+  %cond-lvalue.i.sroa.phi99 = phi ptr [ %cond-lvalue.i.sroa.gep100, %land.lhs.true.i ], [ %cond-lvalue.i.sroa.gep101, %invoke.cont11 ]
   %cond-lvalue.i = phi ptr [ %ref.tmp4, %land.lhs.true.i ], [ %ref.tmp8, %invoke.cont11 ]
-  %cond-lvalue.i.sroa.phi = phi ptr [ %ref.tmp4.sroa.gep, %land.lhs.true.i ], [ %ref.tmp8.sroa.gep, %invoke.cont11 ]
-  %cond-lvalue.i.sroa.phi86 = phi ptr [ %ref.tmp4.sroa.gep87, %land.lhs.true.i ], [ %ref.tmp8.sroa.gep88, %invoke.cont11 ]
-  %cond-lvalue.i.sroa.phi89 = phi ptr [ %ref.tmp4.sroa.gep90, %land.lhs.true.i ], [ %ref.tmp8.sroa.gep91, %invoke.cont11 ]
-  %cond-lvalue.i.sroa.phi92 = phi ptr [ %ref.tmp4.sroa.gep93, %land.lhs.true.i ], [ %ref.tmp8.sroa.gep94, %invoke.cont11 ]
-  %cond-lvalue.i.sroa.phi95 = phi ptr [ %ref.tmp4.sroa.gep96, %land.lhs.true.i ], [ %ref.tmp8.sroa.gep97, %invoke.cont11 ]
-  %cond-lvalue.i.sroa.phi98 = phi ptr [ %ref.tmp4.sroa.gep99, %land.lhs.true.i ], [ %ref.tmp8.sroa.gep100, %invoke.cont11 ]
   %ref.tmp.sroa.0.0.copyload78 = load i32, ptr %cond-lvalue.i, align 4
   %ref.tmp.sroa.3.0.copyload79 = load i32, ptr %cond-lvalue.i.sroa.phi, align 4
-  %ref.tmp.sroa.4.0.copyload80 = load i32, ptr %cond-lvalue.i.sroa.phi86, align 4
-  %ref.tmp.sroa.5.0.copyload81 = load i32, ptr %cond-lvalue.i.sroa.phi89, align 4
-  %ref.tmp.sroa.6.0.copyload82 = load i32, ptr %cond-lvalue.i.sroa.phi92, align 4
-  %ref.tmp.sroa.7.0.copyload83 = load i32, ptr %cond-lvalue.i.sroa.phi95, align 4
-  %ref.tmp.sroa.8.0.copyload84 = load i32, ptr %cond-lvalue.i.sroa.phi98, align 4
+  %ref.tmp.sroa.4.0.copyload80 = load i32, ptr %cond-lvalue.i.sroa.phi87, align 4
+  %ref.tmp.sroa.5.0.copyload81 = load i32, ptr %cond-lvalue.i.sroa.phi90, align 4
+  %ref.tmp.sroa.6.0.copyload82 = load i32, ptr %cond-lvalue.i.sroa.phi93, align 4
+  %ref.tmp.sroa.7.0.copyload83 = load i32, ptr %cond-lvalue.i.sroa.phi96, align 4
+  %ref.tmp.sroa.8.0.copyload84 = load i32, ptr %cond-lvalue.i.sroa.phi99, align 4
   br label %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit
 
 _ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit: ; preds = %cond.true.i, %cond.false.i
@@ -13638,11 +13592,11 @@ if.else.i:                                        ; preds = %_ZNSt6vectorINSt7__
           to label %if.else.i.invoke.cont22_crit_edge unwind label %lpad21
 
 if.else.i.invoke.cont22_crit_edge:                ; preds = %if.else.i
-  %.pre104 = load ptr, ptr %_M_finish.i.i25, align 8
+  %.pre105 = load ptr, ptr %_M_finish.i.i25, align 8
   br label %invoke.cont22
 
 invoke.cont22:                                    ; preds = %if.else.i.invoke.cont22_crit_edge, %.noexc
-  %40 = phi ptr [ %.pre104, %if.else.i.invoke.cont22_crit_edge ], [ %incdec.ptr.i, %.noexc ]
+  %40 = phi ptr [ %.pre105, %if.else.i.invoke.cont22_crit_edge ], [ %incdec.ptr.i, %.noexc ]
   %41 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i32 = icmp eq ptr %40, %41
   br i1 %cmp.not.i32, label %if.else.i36, label %if.then.i33
@@ -14175,17 +14129,7 @@ entry:
   %t.i.i.i.i = alloca %struct.timespec, align 8
   %logtime = alloca %"class.OpenImageIO_v2_6_0::pvt::LoggedTimer", align 8
   %ref.tmp13 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
-  %ref.tmp13.sroa.gep83 = getelementptr inbounds i8, ptr %ref.tmp13, i64 20
-  %ref.tmp13.sroa.gep80 = getelementptr inbounds i8, ptr %ref.tmp13, i64 16
-  %ref.tmp13.sroa.gep77 = getelementptr inbounds i8, ptr %ref.tmp13, i64 12
-  %ref.tmp13.sroa.gep74 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
-  %ref.tmp13.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp13, i64 4
   %ref.tmp17 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 4
-  %ref.tmp17.sroa.gep84 = getelementptr inbounds i8, ptr %ref.tmp17, i64 20
-  %ref.tmp17.sroa.gep81 = getelementptr inbounds i8, ptr %ref.tmp17, i64 16
-  %ref.tmp17.sroa.gep78 = getelementptr inbounds i8, ptr %ref.tmp17, i64 12
-  %ref.tmp17.sroa.gep75 = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
-  %ref.tmp17.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp17, i64 4
   %spec = alloca %"class.OpenImageIO_v2_6_0::ImageSpec", align 8
   %agg.tmp28 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
   %B = alloca %"class.OpenImageIO_v2_6_0::ImageBuf", align 8
@@ -14202,6 +14146,16 @@ entry:
   store i8 0, ptr %m_printdtr.i.i, align 1
   %m_starttime.i.i = getelementptr inbounds i8, ptr %logtime, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_starttime.i.i, i8 0, i64 24, i1 false)
+  %cond-lvalue.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp13, i64 4
+  %cond-lvalue.i.sroa.gep73 = getelementptr inbounds i8, ptr %ref.tmp17, i64 4
+  %cond-lvalue.i.sroa.gep75 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
+  %cond-lvalue.i.sroa.gep76 = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
+  %cond-lvalue.i.sroa.gep78 = getelementptr inbounds i8, ptr %ref.tmp13, i64 12
+  %cond-lvalue.i.sroa.gep79 = getelementptr inbounds i8, ptr %ref.tmp17, i64 12
+  %cond-lvalue.i.sroa.gep81 = getelementptr inbounds i8, ptr %ref.tmp13, i64 16
+  %cond-lvalue.i.sroa.gep82 = getelementptr inbounds i8, ptr %ref.tmp17, i64 16
+  %cond-lvalue.i.sroa.gep84 = getelementptr inbounds i8, ptr %ref.tmp13, i64 20
+  %cond-lvalue.i.sroa.gep85 = getelementptr inbounds i8, ptr %ref.tmp17, i64 20
   br i1 %tobool.not.i, label %_ZN18OpenImageIO_v2_6_05TimerC2Eb.exit.i, label %_ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i
 
 _ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i:   ; preds = %entry
@@ -14320,36 +14274,36 @@ land.lhs.true.i:                                  ; preds = %invoke.cont20
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
   %14 = call i32 @llvm.smin.i32(i32 %13, i32 %12)
-  %15 = load i32, ptr %ref.tmp13.sroa.gep, align 4, !noalias !111
-  %16 = load i32, ptr %ref.tmp17.sroa.gep, align 4, !noalias !111
+  %15 = load i32, ptr %cond-lvalue.i.sroa.gep, align 4, !noalias !111
+  %16 = load i32, ptr %cond-lvalue.i.sroa.gep73, align 4, !noalias !111
   %17 = call i32 @llvm.smax.i32(i32 %15, i32 %16)
-  %18 = load i32, ptr %ref.tmp17.sroa.gep75, align 4, !noalias !111
-  %19 = load i32, ptr %ref.tmp13.sroa.gep74, align 4, !noalias !111
+  %18 = load i32, ptr %cond-lvalue.i.sroa.gep76, align 4, !noalias !111
+  %19 = load i32, ptr %cond-lvalue.i.sroa.gep75, align 4, !noalias !111
   %20 = call i32 @llvm.smin.i32(i32 %18, i32 %19)
-  %21 = load i32, ptr %ref.tmp13.sroa.gep77, align 4, !noalias !111
-  %22 = load i32, ptr %ref.tmp17.sroa.gep78, align 4, !noalias !111
+  %21 = load i32, ptr %cond-lvalue.i.sroa.gep78, align 4, !noalias !111
+  %22 = load i32, ptr %cond-lvalue.i.sroa.gep79, align 4, !noalias !111
   %23 = call i32 @llvm.smax.i32(i32 %21, i32 %22)
-  %24 = load i32, ptr %ref.tmp17.sroa.gep81, align 4, !noalias !111
-  %25 = load i32, ptr %ref.tmp13.sroa.gep80, align 4, !noalias !111
+  %24 = load i32, ptr %cond-lvalue.i.sroa.gep82, align 4, !noalias !111
+  %25 = load i32, ptr %cond-lvalue.i.sroa.gep81, align 4, !noalias !111
   %26 = call i32 @llvm.smin.i32(i32 %24, i32 %25)
-  %27 = load i32, ptr %ref.tmp13.sroa.gep83, align 4, !noalias !111
-  %28 = load i32, ptr %ref.tmp17.sroa.gep84, align 4, !noalias !111
+  %27 = load i32, ptr %cond-lvalue.i.sroa.gep84, align 4, !noalias !111
+  %28 = load i32, ptr %cond-lvalue.i.sroa.gep85, align 4, !noalias !111
   %29 = call i32 @llvm.smax.i32(i32 %27, i32 %28)
   br label %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit
 
 cond.false.i:                                     ; preds = %land.lhs.true.i, %invoke.cont20
+  %cond-lvalue.i.sroa.phi = phi ptr [ %cond-lvalue.i.sroa.gep, %land.lhs.true.i ], [ %cond-lvalue.i.sroa.gep73, %invoke.cont20 ]
+  %cond-lvalue.i.sroa.phi74 = phi ptr [ %cond-lvalue.i.sroa.gep75, %land.lhs.true.i ], [ %cond-lvalue.i.sroa.gep76, %invoke.cont20 ]
+  %cond-lvalue.i.sroa.phi77 = phi ptr [ %cond-lvalue.i.sroa.gep78, %land.lhs.true.i ], [ %cond-lvalue.i.sroa.gep79, %invoke.cont20 ]
+  %cond-lvalue.i.sroa.phi80 = phi ptr [ %cond-lvalue.i.sroa.gep81, %land.lhs.true.i ], [ %cond-lvalue.i.sroa.gep82, %invoke.cont20 ]
+  %cond-lvalue.i.sroa.phi83 = phi ptr [ %cond-lvalue.i.sroa.gep84, %land.lhs.true.i ], [ %cond-lvalue.i.sroa.gep85, %invoke.cont20 ]
   %cond-lvalue.i = phi ptr [ %ref.tmp13, %land.lhs.true.i ], [ %ref.tmp17, %invoke.cont20 ]
-  %cond-lvalue.i.sroa.phi = phi ptr [ %ref.tmp13.sroa.gep, %land.lhs.true.i ], [ %ref.tmp17.sroa.gep, %invoke.cont20 ]
-  %cond-lvalue.i.sroa.phi73 = phi ptr [ %ref.tmp13.sroa.gep74, %land.lhs.true.i ], [ %ref.tmp17.sroa.gep75, %invoke.cont20 ]
-  %cond-lvalue.i.sroa.phi76 = phi ptr [ %ref.tmp13.sroa.gep77, %land.lhs.true.i ], [ %ref.tmp17.sroa.gep78, %invoke.cont20 ]
-  %cond-lvalue.i.sroa.phi79 = phi ptr [ %ref.tmp13.sroa.gep80, %land.lhs.true.i ], [ %ref.tmp17.sroa.gep81, %invoke.cont20 ]
-  %cond-lvalue.i.sroa.phi82 = phi ptr [ %ref.tmp13.sroa.gep83, %land.lhs.true.i ], [ %ref.tmp17.sroa.gep84, %invoke.cont20 ]
   %ref.tmp.sroa.0.0.copyload64 = load i32, ptr %cond-lvalue.i, align 4
   %ref.tmp.sroa.3.0.copyload65 = load i32, ptr %cond-lvalue.i.sroa.phi, align 4
-  %ref.tmp.sroa.4.0.copyload66 = load i32, ptr %cond-lvalue.i.sroa.phi73, align 4
-  %ref.tmp.sroa.5.0.copyload67 = load i32, ptr %cond-lvalue.i.sroa.phi76, align 4
-  %ref.tmp.sroa.6.0.copyload68 = load i32, ptr %cond-lvalue.i.sroa.phi79, align 4
-  %ref.tmp.sroa.7.0.copyload69 = load i32, ptr %cond-lvalue.i.sroa.phi82, align 4
+  %ref.tmp.sroa.4.0.copyload66 = load i32, ptr %cond-lvalue.i.sroa.phi74, align 4
+  %ref.tmp.sroa.5.0.copyload67 = load i32, ptr %cond-lvalue.i.sroa.phi77, align 4
+  %ref.tmp.sroa.6.0.copyload68 = load i32, ptr %cond-lvalue.i.sroa.phi80, align 4
+  %ref.tmp.sroa.7.0.copyload69 = load i32, ptr %cond-lvalue.i.sroa.phi83, align 4
   br label %_ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit
 
 _ZN18OpenImageIO_v2_6_09roi_unionERKNS_3ROIES2_.exit: ; preds = %cond.true.i, %cond.false.i

@@ -2939,6 +2939,8 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %c, i8 0, i64 104, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %p, i8 0, i64 56, i1 false)
   %mul = mul nsw i32 %w, 3
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %header, i64 8
+  %.sink.sroa.gep45 = getelementptr inbounds i8, ptr %header, i64 6
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -3015,14 +3017,13 @@ for.end41:                                        ; preds = %for.body32
 
 if.end:                                           ; preds = %for.end41, %for.end21
   %.sink44 = phi i8 [ %5, %for.end41 ], [ %8, %for.end21 ]
-  %.sink = phi i64 [ 8, %for.end41 ], [ 6, %for.end21 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %for.end41 ], [ %.sink.sroa.gep45, %for.end21 ]
   %11 = phi i32 [ 0, %for.end41 ], [ 1, %for.end21 ]
   %12 = phi i32 [ %conv43, %for.end41 ], [ %conv23, %for.end21 ]
   %conv46 = zext i8 %.sink44 to i32
   %num_vary_y47 = getelementptr inbounds i8, ptr %c, i64 36
   store i32 %conv46, ptr %num_vary_y47, align 4
-  %arrayidx48 = getelementptr inbounds i8, ptr %header, i64 %.sink
-  %13 = load i8, ptr %arrayidx48, align 1
+  %13 = load i8, ptr %.sink.sroa.phi, align 1
   %conv49 = zext i8 %13 to i32
   %short_side_len50 = getelementptr inbounds i8, ptr %c, i64 4
   store i32 %conv49, ptr %short_side_len50, align 4

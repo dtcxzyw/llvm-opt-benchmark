@@ -391,7 +391,6 @@ entry:
   %ref.tmp134.i.i = alloca %"class.llvh::Twine", align 8
   %ref.tmp135.i.i = alloca i64, align 8
   %utf16Chars = alloca %"class.llvh::SmallVector.0", align 8
-  %utf16Chars.sroa.gep148 = getelementptr inbounds i8, ptr %utf16Chars, i64 16
   %OS = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %OS, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -399,6 +398,7 @@ entry:
   %OutBufEnd.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %1, %2
+  %.sink33.i.sroa.gep = getelementptr inbounds i8, ptr %utf16Chars, i64 16
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -608,7 +608,7 @@ if.then.i20:                                      ; preds = %if.end.i.i, %if.end
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp133.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp134.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp135.i.i)
-  store ptr %utf16Chars.sroa.gep148, ptr %utf16Chars, align 8
+  store ptr %.sink33.i.sroa.gep, ptr %utf16Chars, align 8
   store i32 2, ptr %Capacity2.i.i.i.i.i, align 4
   %conv.i = trunc i32 %retval.0.i.i.ph to i16
   br label %for.body.preheader
@@ -619,14 +619,14 @@ _ZNSt20back_insert_iteratorIN4llvh11SmallVectorIDsLj2EEEEaSEODs.exit19.i: ; pred
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp133.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp134.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp135.i.i)
-  store ptr %utf16Chars.sroa.gep148, ptr %utf16Chars, align 8
+  store ptr %.sink33.i.sroa.gep, ptr %utf16Chars, align 8
   store i32 2, ptr %Capacity2.i.i.i.i.i, align 4
   %sub.i = add nuw nsw i32 %or121.i.i, 983040
   %shr.i = lshr i32 %sub.i, 10
   %15 = trunc i32 %shr.i to i16
   %16 = and i16 %15, 1023
   %conv4.i = or disjoint i16 %16, -10240
-  store i16 %conv4.i, ptr %utf16Chars.sroa.gep148, align 8
+  store i16 %conv4.i, ptr %.sink33.i.sroa.gep, align 8
   %17 = trunc i32 %or123.i.i to i16
   %18 = and i16 %17, 1023
   %conv11.i = or disjoint i16 %18, -9216
@@ -637,16 +637,16 @@ for.body.preheader:                               ; preds = %if.then.i20, %_ZNSt
   %.sink31.i = phi i32 [ 0, %if.then.i20 ], [ 1, %_ZNSt20back_insert_iteratorIN4llvh11SmallVectorIDsLj2EEEEaSEODs.exit19.i ]
   %conv11.sink.i = phi i16 [ %conv.i, %if.then.i20 ], [ %conv11.i, %_ZNSt20back_insert_iteratorIN4llvh11SmallVectorIDsLj2EEEEaSEODs.exit19.i ]
   %conv.i3.i.i26.i = zext nneg i32 %.sink31.i to i64
-  %add.ptr.i.i.i27.i = getelementptr inbounds i16, ptr %utf16Chars.sroa.gep148, i64 %conv.i3.i.i26.i
+  %add.ptr.i.i.i27.i = getelementptr inbounds i16, ptr %.sink33.i.sroa.gep, i64 %conv.i3.i.i26.i
   store i16 %conv11.sink.i, ptr %add.ptr.i.i.i27.i, align 2
   %add.i.i28.i = add nuw nsw i32 %.sink31.i, 1
   store i32 %add.i.i28.i, ptr %Size.i.i.i.i.i, align 8
   %conv.i21 = zext nneg i32 %add.i.i28.i to i64
-  %add.ptr.i = getelementptr inbounds i16, ptr %utf16Chars.sroa.gep148, i64 %conv.i21
+  %add.ptr.i = getelementptr inbounds i16, ptr %.sink33.i.sroa.gep, i64 %conv.i21
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN4llvh11raw_ostreamlsEPKc.exit
-  %__begin3.0157 = phi ptr [ %incdec.ptr, %_ZN4llvh11raw_ostreamlsEPKc.exit ], [ %utf16Chars.sroa.gep148, %for.body.preheader ]
+  %__begin3.0157 = phi ptr [ %incdec.ptr, %_ZN4llvh11raw_ostreamlsEPKc.exit ], [ %.sink33.i.sroa.gep, %for.body.preheader ]
   %19 = load ptr, ptr %OS, align 8
   %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load ptr, ptr %OutBufEnd.i5.i, align 8
@@ -680,7 +680,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i24, %if.
 
 for.end:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %.pre = load ptr, ptr %utf16Chars, align 8
-  %cmp.i.i.i = icmp eq ptr %.pre, %utf16Chars.sroa.gep148
+  %cmp.i.i.i = icmp eq ptr %.pre, %.sink33.i.sroa.gep
   br i1 %cmp.i.i.i, label %while.cond.backedge, label %if.then.i.i25
 
 if.then.i.i25:                                    ; preds = %for.end

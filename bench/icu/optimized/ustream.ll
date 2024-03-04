@@ -126,6 +126,7 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset
   %call = tail call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
+  %continueReading.1.sroa.gep = getelementptr inbounds i8, ptr %ch, i64 1
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -169,13 +170,12 @@ if.then15:                                        ; preds = %if.then13
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then13, %if.then15, %while.body
-  %continueReading.1 = phi i64 [ 1, %while.body ], [ 0, %if.then15 ], [ 0, %if.then13 ]
-  %add.ptr23 = getelementptr inbounds i8, ptr %ch, i64 %continueReading.1
+  %continueReading.1.sroa.phi = phi ptr [ %continueReading.1.sroa.gep, %while.body ], [ %ch, %if.then15 ], [ %ch, %if.then13 ]
   store ptr %uBuffer, ptr %us, align 8
   store ptr %ch, ptr %s, align 8
   store i32 0, ptr %errorCode, align 4
   %conv26 = zext i1 %call12 to i8
-  call void @ucnv_toUnicode_75(ptr noundef %call1, ptr noundef nonnull %us, ptr noundef nonnull %add.ptr5, ptr noundef nonnull %s, ptr noundef nonnull %add.ptr23, ptr noundef null, i8 noundef signext %conv26, ptr noundef nonnull %errorCode)
+  call void @ucnv_toUnicode_75(ptr noundef %call1, ptr noundef nonnull %us, ptr noundef nonnull %add.ptr5, ptr noundef nonnull %s, ptr noundef nonnull %continueReading.1.sroa.phi, ptr noundef null, i8 noundef signext %conv26, ptr noundef nonnull %errorCode)
   %1 = load i32, ptr %errorCode, align 4
   %cmp.i25 = icmp slt i32 %1, 1
   br i1 %cmp.i25, label %if.end34, label %if.then29

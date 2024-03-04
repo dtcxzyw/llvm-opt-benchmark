@@ -8,34 +8,32 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden ptr @_ZN5alloc5alloc15exchange_malloc17h2cac52ecb4bea02bE(i64 %0, i64 %1) unnamed_addr #0 {
   %3 = icmp eq i64 %0, 0
-  br i1 %3, label %4, label %9
+  br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
   %5 = add i64 %1, -1
   %6 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %6)
   %7 = inttoptr i64 %1 to ptr
-  %8 = icmp ne i64 %1, 0
-  tail call void @llvm.assume(i1 %8)
   br label %_ZN5alloc5alloc6Global10alloc_impl17h0052548fd779bd60E.exit
 
-9:                                                ; preds = %2
-  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %11 = add i64 %1, -1
-  %12 = icmp sgt i64 %11, -1
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call ptr @__rust_alloc(i64 %0, i64 %1) #7
+8:                                                ; preds = %2
+  %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %10 = add i64 %1, -1
+  %11 = icmp sgt i64 %10, -1
+  tail call void @llvm.assume(i1 %11)
+  %12 = tail call ptr @__rust_alloc(i64 %0, i64 %1) #7
   br label %_ZN5alloc5alloc6Global10alloc_impl17h0052548fd779bd60E.exit
 
-_ZN5alloc5alloc6Global10alloc_impl17h0052548fd779bd60E.exit: ; preds = %4, %9
-  %.sroa.05.0.i = phi ptr [ %7, %4 ], [ %13, %9 ]
+_ZN5alloc5alloc6Global10alloc_impl17h0052548fd779bd60E.exit: ; preds = %4, %8
+  %.sroa.05.0.i = phi ptr [ %7, %4 ], [ %12, %8 ]
   %.not = icmp eq ptr %.sroa.05.0.i, null
-  br i1 %.not, label %15, label %14
+  br i1 %.not, label %14, label %13
 
-14:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h0052548fd779bd60E.exit
+13:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h0052548fd779bd60E.exit
   ret ptr %.sroa.05.0.i
 
-15:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h0052548fd779bd60E.exit
+14:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h0052548fd779bd60E.exit
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 %1, i64 %0) #8
   unreachable
 }
@@ -62,52 +60,48 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
   %5 = add i64 %1, -1
   %6 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %6)
-  br i1 %4, label %7, label %10
+  br i1 %4, label %7, label %9
 
 7:                                                ; preds = %3
   %8 = inttoptr i64 %1 to ptr
-  %9 = icmp ne i64 %1, 0
-  tail call void @llvm.assume(i1 %9)
   br label %_ZN5alloc5alloc6Global10alloc_impl17h0052548fd779bd60E.exit
 
-10:                                               ; preds = %3
-  %11 = tail call ptr @__rust_alloc_zeroed(i64 %2, i64 %1) #7
+9:                                                ; preds = %3
+  %10 = tail call ptr @__rust_alloc_zeroed(i64 %2, i64 %1) #7
   br label %_ZN5alloc5alloc6Global10alloc_impl17h0052548fd779bd60E.exit
 
-_ZN5alloc5alloc6Global10alloc_impl17h0052548fd779bd60E.exit: ; preds = %7, %10
-  %.sroa.05.0.i = phi ptr [ %8, %7 ], [ %11, %10 ]
-  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0.i, 0
-  %13 = insertvalue { ptr, i64 } %12, i64 %2, 1
-  ret { ptr, i64 } %13
+_ZN5alloc5alloc6Global10alloc_impl17h0052548fd779bd60E.exit: ; preds = %7, %9
+  %.sroa.05.0.i = phi ptr [ %8, %7 ], [ %10, %9 ]
+  %11 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0.i, 0
+  %12 = insertvalue { ptr, i64 } %11, i64 %2, 1
+  ret { ptr, i64 } %12
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h7f38c6d8e167918cE"(ptr nocapture readnone align 1 %0, i64 %1, i64 %2) unnamed_addr #1 {
   %4 = icmp eq i64 %2, 0
-  br i1 %4, label %5, label %10
+  br i1 %4, label %5, label %9
 
 5:                                                ; preds = %3
   %6 = add i64 %1, -1
   %7 = icmp sgt i64 %6, -1
   tail call void @llvm.assume(i1 %7)
   %8 = inttoptr i64 %1 to ptr
-  %9 = icmp ne i64 %1, 0
-  tail call void @llvm.assume(i1 %9)
   br label %_ZN5alloc5alloc6Global10alloc_impl17h0052548fd779bd60E.exit
 
-10:                                               ; preds = %3
-  %11 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %12 = add i64 %1, -1
-  %13 = icmp sgt i64 %12, -1
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call ptr @__rust_alloc(i64 %2, i64 %1) #7
+9:                                                ; preds = %3
+  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %11 = add i64 %1, -1
+  %12 = icmp sgt i64 %11, -1
+  tail call void @llvm.assume(i1 %12)
+  %13 = tail call ptr @__rust_alloc(i64 %2, i64 %1) #7
   br label %_ZN5alloc5alloc6Global10alloc_impl17h0052548fd779bd60E.exit
 
-_ZN5alloc5alloc6Global10alloc_impl17h0052548fd779bd60E.exit: ; preds = %5, %10
-  %.sroa.05.0.i = phi ptr [ %8, %5 ], [ %14, %10 ]
-  %15 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0.i, 0
-  %16 = insertvalue { ptr, i64 } %15, i64 %2, 1
-  ret { ptr, i64 } %16
+_ZN5alloc5alloc6Global10alloc_impl17h0052548fd779bd60E.exit: ; preds = %5, %9
+  %.sroa.05.0.i = phi ptr [ %8, %5 ], [ %13, %9 ]
+  %14 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0.i, 0
+  %15 = insertvalue { ptr, i64 } %14, i64 %2, 1
+  ret { ptr, i64 } %15
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable

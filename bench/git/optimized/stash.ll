@@ -845,7 +845,6 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @show_stash(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) #0 {
 entry:
-  %oid.i = alloca [2 x ptr], align 16
   %tree_desc.i = alloca [2 x %struct.tree_desc], align 16
   %unpack_tree_opt.i = alloca %struct.unpack_trees_options, align 8
   %info = alloca %struct.stash_info, align 8
@@ -907,8 +906,9 @@ entry:
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %options, ptr noundef nonnull @git_stash_show_usage, i32 noundef 13) #14
   %2 = load ptr, ptr %argv, align 8
   %call26 = call ptr @strvec_push(ptr noundef nonnull %revision_args, ptr noundef %2) #14
-  %cmp15 = icmp sgt i32 %call, 1
-  br i1 %cmp15, label %for.body.preheader, label %for.end
+  %indvars.iv.i.sroa.gep12 = getelementptr inbounds i8, ptr %tree_desc.i, i64 72
+  %cmp19 = icmp sgt i32 %call, 1
+  br i1 %cmp19, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
   %wide.trip.count = zext nneg i32 %call to i64
@@ -929,12 +929,12 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end.loopexit:                                 ; preds = %for.body
   %nr.phi.trans.insert = getelementptr inbounds i8, ptr %stash_args, i64 8
   %.pre = load i64, ptr %nr.phi.trans.insert, align 8
-  %.pre18 = load ptr, ptr %stash_args, align 8
+  %.pre22 = load ptr, ptr %stash_args, align 8
   %5 = trunc i64 %.pre to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %6 = phi ptr [ %.pre18, %for.end.loopexit ], [ @empty_strvec, %entry ]
+  %6 = phi ptr [ %.pre22, %for.end.loopexit ], [ @empty_strvec, %entry ]
   %conv37 = phi i32 [ %5, %for.end.loopexit ], [ 0, %entry ]
   %call38 = call fastcc i32 @get_stash_info(ptr noundef nonnull %info, i32 noundef %conv37, ptr noundef %6), !range !6
   %tobool39.not = icmp eq i32 %call38, 0
@@ -960,8 +960,8 @@ if.end48.thread:                                  ; preds = %if.then45
   %output_format = getelementptr inbounds i8, ptr %rev, i64 1756
   store i32 2, ptr %output_format, align 4
   %10 = load i32, ptr @show_patch, align 4
-  %tobool49.not19 = icmp eq i32 %10, 0
-  br i1 %tobool49.not19, label %if.end58, label %if.end53.thread
+  %tobool49.not23 = icmp eq i32 %10, 0
+  br i1 %tobool49.not23, label %if.end58, label %if.end53.thread
 
 if.end53.thread:                                  ; preds = %if.end48.thread, %if.end48
   %output_format52 = getelementptr inbounds i8, ptr %rev, i64 1756
@@ -1023,22 +1023,17 @@ sw.bb84:                                          ; preds = %if.end74
   br i1 %tobool86.not, label %if.else89, label %if.then87
 
 if.then87:                                        ; preds = %sw.bb84
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %oid.i)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %tree_desc.i)
   call void @llvm.lifetime.start.p0(i64 1120, ptr nonnull %unpack_tree_opt.i)
-  store ptr %info, ptr %oid.i, align 16
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %oid.i, i64 8
   %u_tree.i = getelementptr inbounds i8, ptr %info, i64 252
-  store ptr %u_tree.i, ptr %arrayinit.element.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %unpack_tree_opt.i, i8 0, i64 1120, i1 false)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %if.then87
   %cmp.i = phi i1 [ true, %if.then87 ], [ false, %if.end.i ]
-  %indvars.iv.i = phi i64 [ 0, %if.then87 ], [ 1, %if.end.i ]
-  %arrayidx.i = getelementptr inbounds [2 x ptr], ptr %oid.i, i64 0, i64 %indvars.iv.i
-  %17 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = call ptr @parse_tree_indirect(ptr noundef %17) #14
+  %indvars.iv.i.sroa.phi = phi ptr [ %tree_desc.i, %if.then87 ], [ %indvars.iv.i.sroa.gep12, %if.end.i ]
+  %indvars.iv.i.sroa.phi13.sroa.speculated = phi ptr [ %info, %if.then87 ], [ %u_tree.i, %if.end.i ]
+  %call.i = call ptr @parse_tree_indirect(ptr noundef nonnull %indvars.iv.i.sroa.phi13.sroa.speculated) #14
   %call.i.i = call i32 @parse_tree_gently(ptr noundef %call.i, i32 noundef 0) #14
   %cmp7.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp7.i, label %if.then.i, label %if.end.i
@@ -1049,12 +1044,11 @@ if.then.i:                                        ; preds = %for.body.i
   unreachable
 
 if.end.i:                                         ; preds = %for.body.i
-  %arrayidx11.i = getelementptr inbounds [2 x %struct.tree_desc], ptr %tree_desc.i, i64 0, i64 %indvars.iv.i
   %buffer.i = getelementptr inbounds i8, ptr %call.i, i64 40
-  %18 = load ptr, ptr %buffer.i, align 8
+  %17 = load ptr, ptr %buffer.i, align 8
   %size.i = getelementptr inbounds i8, ptr %call.i, i64 48
-  %19 = load i64, ptr %size.i, align 8
-  call void @init_tree_desc(ptr noundef nonnull %arrayidx11.i, ptr noundef %18, i64 noundef %19) #14
+  %18 = load i64, ptr %size.i, align 8
+  call void @init_tree_desc(ptr noundef nonnull %indvars.iv.i.sroa.phi, ptr noundef %17, i64 noundef %18) #14
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %if.end.i
@@ -1079,7 +1073,6 @@ if.then17.i:                                      ; preds = %for.end.i
 diff_include_untracked.exit:                      ; preds = %for.end.i
   %b_commit.i = getelementptr inbounds i8, ptr %info, i64 36
   %call20.i = call i32 @do_diff_cache(ptr noundef nonnull %b_commit.i, ptr noundef nonnull %diffopt67) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %oid.i)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %tree_desc.i)
   call void @llvm.lifetime.end.p0(i64 1120, ptr nonnull %unpack_tree_opt.i)
   br label %sw.epilog

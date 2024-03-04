@@ -262,6 +262,8 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
   %13 = zext i16 %12 to i64
   %14 = getelementptr %struct.elf64_shdr, ptr %1, i64 %13
   %15 = icmp ugt ptr %14, %1
+  %.sink42.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink42.sroa.gep61 = getelementptr inbounds i8, ptr %4, i64 24
   br i1 %15, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %3, %.preheader
@@ -413,7 +415,7 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
 
 122:                                              ; preds = %108
   %.not24 = icmp eq ptr %59, null
-  br i1 %.not24, label %136, label %123
+  br i1 %.not24, label %135, label %123
 
 123:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
@@ -437,71 +439,70 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
 .thread13:                                        ; preds = %123, %.thread12
   %.sink = phi ptr [ %127, %123 ], [ %112, %.thread12 ]
   %.sink43 = phi ptr [ %126, %123 ], [ %132, %.thread12 ]
-  %.sink42 = phi i64 [ 8, %123 ], [ 24, %.thread12 ]
+  %.sink42.sroa.phi = phi ptr [ %.sink42.sroa.gep, %123 ], [ %.sink42.sroa.gep61, %.thread12 ]
   %133 = load i64, ptr %.sink, align 8
   %134 = getelementptr i8, ptr %.sink43, i64 %133
-  %135 = getelementptr inbounds i8, ptr %4, i64 %.sink42
-  store ptr %134, ptr %135, align 8
+  store ptr %134, ptr %.sink42.sroa.phi, align 8
   call void @callthunks_patch_module_calls(ptr noundef nonnull %4, ptr noundef %2) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #10
-  br label %136
+  br label %135
 
-136:                                              ; preds = %.thread13, %122
-  %137 = icmp eq ptr %58, null
-  br i1 %137, label %145, label %138
+135:                                              ; preds = %.thread13, %122
+  %136 = icmp eq ptr %58, null
+  br i1 %136, label %144, label %137
 
-138:                                              ; preds = %136
-  %139 = getelementptr inbounds i8, ptr %58, i64 16
-  %140 = load i64, ptr %139, align 8
-  %141 = inttoptr i64 %140 to ptr
-  %142 = getelementptr inbounds i8, ptr %58, i64 32
-  %143 = load i64, ptr %142, align 8
-  %144 = getelementptr i8, ptr %141, i64 %143
-  call void @apply_seal_endbr(ptr noundef %141, ptr noundef %144) #10
-  br label %145
+137:                                              ; preds = %135
+  %138 = getelementptr inbounds i8, ptr %58, i64 16
+  %139 = load i64, ptr %138, align 8
+  %140 = inttoptr i64 %139 to ptr
+  %141 = getelementptr inbounds i8, ptr %58, i64 32
+  %142 = load i64, ptr %141, align 8
+  %143 = getelementptr i8, ptr %140, i64 %142
+  call void @apply_seal_endbr(ptr noundef %140, ptr noundef %143) #10
+  br label %144
 
-145:                                              ; preds = %138, %136
-  %146 = icmp eq ptr %65, null
-  br i1 %146, label %161, label %147
+144:                                              ; preds = %137, %135
+  %145 = icmp eq ptr %65, null
+  br i1 %145, label %160, label %146
 
-147:                                              ; preds = %145
-  %148 = getelementptr inbounds i8, ptr %65, i64 16
-  %149 = load i64, ptr %148, align 8
-  %150 = inttoptr i64 %149 to ptr
-  %151 = getelementptr inbounds i8, ptr %2, i64 320
-  %152 = load ptr, ptr %151, align 64
-  %153 = getelementptr inbounds i8, ptr %2, i64 328
-  %154 = load i32, ptr %153, align 8
-  %155 = zext i32 %154 to i64
-  %156 = getelementptr i8, ptr %152, i64 %155
-  %157 = getelementptr inbounds i8, ptr %2, i64 24
-  %158 = getelementptr inbounds i8, ptr %65, i64 32
-  %159 = load i64, ptr %158, align 8
-  %160 = getelementptr i8, ptr %150, i64 %159
-  call void @alternatives_smp_module_add(ptr noundef %2, ptr noundef %157, ptr noundef %150, ptr noundef %160, ptr noundef %152, ptr noundef %156) #10
-  br label %161
+146:                                              ; preds = %144
+  %147 = getelementptr inbounds i8, ptr %65, i64 16
+  %148 = load i64, ptr %147, align 8
+  %149 = inttoptr i64 %148 to ptr
+  %150 = getelementptr inbounds i8, ptr %2, i64 320
+  %151 = load ptr, ptr %150, align 64
+  %152 = getelementptr inbounds i8, ptr %2, i64 328
+  %153 = load i32, ptr %152, align 8
+  %154 = zext i32 %153 to i64
+  %155 = getelementptr i8, ptr %151, i64 %154
+  %156 = getelementptr inbounds i8, ptr %2, i64 24
+  %157 = getelementptr inbounds i8, ptr %65, i64 32
+  %158 = load i64, ptr %157, align 8
+  %159 = getelementptr i8, ptr %149, i64 %158
+  call void @alternatives_smp_module_add(ptr noundef %2, ptr noundef %156, ptr noundef %149, ptr noundef %159, ptr noundef %151, ptr noundef %155) #10
+  br label %160
 
-161:                                              ; preds = %147, %145
-  %162 = icmp ne ptr %64, null
-  %163 = icmp ne ptr %63, null
-  %164 = select i1 %162, i1 %163, i1 false
-  br i1 %164, label %165, label %176
+160:                                              ; preds = %146, %144
+  %161 = icmp ne ptr %64, null
+  %162 = icmp ne ptr %63, null
+  %163 = select i1 %161, i1 %162, i1 false
+  br i1 %163, label %164, label %175
 
-165:                                              ; preds = %161
-  %166 = getelementptr inbounds i8, ptr %63, i64 16
-  %167 = load i64, ptr %166, align 8
-  %168 = inttoptr i64 %167 to ptr
-  %169 = getelementptr inbounds i8, ptr %63, i64 32
-  %170 = load i64, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %64, i64 16
-  %172 = load i64, ptr %171, align 8
-  %173 = inttoptr i64 %172 to ptr
-  %174 = getelementptr inbounds i8, ptr %64, i64 32
-  %175 = load i64, ptr %174, align 8
-  call void @unwind_module_init(ptr noundef %2, ptr noundef %168, i64 noundef %170, ptr noundef %173, i64 noundef %175) #10
-  br label %176
+164:                                              ; preds = %160
+  %165 = getelementptr inbounds i8, ptr %63, i64 16
+  %166 = load i64, ptr %165, align 8
+  %167 = inttoptr i64 %166 to ptr
+  %168 = getelementptr inbounds i8, ptr %63, i64 32
+  %169 = load i64, ptr %168, align 8
+  %170 = getelementptr inbounds i8, ptr %64, i64 16
+  %171 = load i64, ptr %170, align 8
+  %172 = inttoptr i64 %171 to ptr
+  %173 = getelementptr inbounds i8, ptr %64, i64 32
+  %174 = load i64, ptr %173, align 8
+  call void @unwind_module_init(ptr noundef %2, ptr noundef %167, i64 noundef %169, ptr noundef %172, i64 noundef %174) #10
+  br label %175
 
-176:                                              ; preds = %165, %161
+175:                                              ; preds = %164, %160
   ret i32 0
 }
 

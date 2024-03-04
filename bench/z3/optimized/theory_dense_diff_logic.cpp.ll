@@ -3925,13 +3925,13 @@ declare void @_ZN3smt7context11internalizeEP4exprb(ptr noundef nonnull align 8 d
 define weak_odr hidden void @_ZN3smt23theory_dense_diff_logicINS_6mi_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr noundef %n) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca %struct.mk_pp, align 8
-  %ref.tmp8.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
   %ref.tmp16 = alloca %struct.mk_pp, align 8
-  %ref.tmp16.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp16, i64 16
   %m_non_diff_logic_exprs = getelementptr inbounds i8, ptr %this, i64 344
   %0 = load i8, ptr %m_non_diff_logic_exprs, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
+  %ref.tmp16.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp16, i64 16
+  %ref.tmp16.sink.sroa.gep7 = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
   br i1 %tobool.not, label %if.then, label %if.end25
 
 if.then:                                          ; preds = %entry
@@ -4035,8 +4035,8 @@ if.end25:                                         ; preds = %if.end23, %entry
   ret void
 
 eh.resume:                                        ; preds = %lpad18, %lpad9
+  %ref.tmp16.sink.sroa.phi = phi ptr [ %ref.tmp16.sink.sroa.gep, %lpad18 ], [ %ref.tmp16.sink.sroa.gep7, %lpad9 ]
   %.pn = phi { ptr, i32 } [ %13, %lpad18 ], [ %11, %lpad9 ]
-  %ref.tmp16.sink.sroa.phi = phi ptr [ %ref.tmp16.sroa.gep, %lpad18 ], [ %ref.tmp8.sroa.gep, %lpad9 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp16.sink.sroa.phi) #18
   resume { ptr, i32 } %.pn
 }
@@ -23469,13 +23469,13 @@ if.end34:                                         ; preds = %if.then.i.i.i.i44, 
 define weak_odr hidden void @_ZN3smt23theory_dense_diff_logicINS_5i_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(424) %this, ptr noundef %n) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca %struct.mk_pp, align 8
-  %ref.tmp8.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
   %ref.tmp16 = alloca %struct.mk_pp, align 8
-  %ref.tmp16.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp16, i64 16
   %m_non_diff_logic_exprs = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load i8, ptr %m_non_diff_logic_exprs, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
+  %ref.tmp16.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp16, i64 16
+  %ref.tmp16.sink.sroa.gep7 = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
   br i1 %tobool.not, label %if.then, label %if.end25
 
 if.then:                                          ; preds = %entry
@@ -23579,8 +23579,8 @@ if.end25:                                         ; preds = %if.end23, %entry
   ret void
 
 eh.resume:                                        ; preds = %lpad18, %lpad9
+  %ref.tmp16.sink.sroa.phi = phi ptr [ %ref.tmp16.sink.sroa.gep, %lpad18 ], [ %ref.tmp16.sink.sroa.gep7, %lpad9 ]
   %.pn = phi { ptr, i32 } [ %13, %lpad18 ], [ %11, %lpad9 ]
-  %ref.tmp16.sink.sroa.phi = phi ptr [ %ref.tmp16.sroa.gep, %lpad18 ], [ %ref.tmp8.sroa.gep, %lpad9 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp16.sink.sroa.phi) #18
   resume { ptr, i32 } %.pn
 }
@@ -37255,13 +37255,13 @@ if.end28:                                         ; preds = %lor.rhs.i, %_ZN6vec
 define weak_odr hidden void @_ZN3smt23theory_dense_diff_logicINS_7smi_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(376) %this, ptr noundef %n) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca %struct.mk_pp, align 8
-  %ref.tmp8.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
   %ref.tmp16 = alloca %struct.mk_pp, align 8
-  %ref.tmp16.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp16, i64 16
   %m_non_diff_logic_exprs = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load i8, ptr %m_non_diff_logic_exprs, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
+  %ref.tmp16.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp16, i64 16
+  %ref.tmp16.sink.sroa.gep7 = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
   br i1 %tobool.not, label %if.then, label %if.end25
 
 if.then:                                          ; preds = %entry
@@ -37365,8 +37365,8 @@ if.end25:                                         ; preds = %if.end23, %entry
   ret void
 
 eh.resume:                                        ; preds = %lpad18, %lpad9
+  %ref.tmp16.sink.sroa.phi = phi ptr [ %ref.tmp16.sink.sroa.gep, %lpad18 ], [ %ref.tmp16.sink.sroa.gep7, %lpad9 ]
   %.pn = phi { ptr, i32 } [ %13, %lpad18 ], [ %11, %lpad9 ]
-  %ref.tmp16.sink.sroa.phi = phi ptr [ %ref.tmp16.sroa.gep, %lpad18 ], [ %ref.tmp8.sroa.gep, %lpad9 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp16.sink.sroa.phi) #18
   resume { ptr, i32 } %.pn
 }
@@ -48713,13 +48713,13 @@ if.end29:                                         ; preds = %_ZN6vectorI9paramet
 define weak_odr hidden void @_ZN3smt23theory_dense_diff_logicINS_6si_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef %n) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca %struct.mk_pp, align 8
-  %ref.tmp8.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
   %ref.tmp16 = alloca %struct.mk_pp, align 8
-  %ref.tmp16.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp16, i64 16
   %m_non_diff_logic_exprs = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load i8, ptr %m_non_diff_logic_exprs, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
+  %ref.tmp16.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp16, i64 16
+  %ref.tmp16.sink.sroa.gep7 = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
   br i1 %tobool.not, label %if.then, label %if.end25
 
 if.then:                                          ; preds = %entry
@@ -48823,8 +48823,8 @@ if.end25:                                         ; preds = %if.end23, %entry
   ret void
 
 eh.resume:                                        ; preds = %lpad18, %lpad9
+  %ref.tmp16.sink.sroa.phi = phi ptr [ %ref.tmp16.sink.sroa.gep, %lpad18 ], [ %ref.tmp16.sink.sroa.gep7, %lpad9 ]
   %.pn = phi { ptr, i32 } [ %13, %lpad18 ], [ %11, %lpad9 ]
-  %ref.tmp16.sink.sroa.phi = phi ptr [ %ref.tmp16.sroa.gep, %lpad18 ], [ %ref.tmp8.sroa.gep, %lpad9 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp16.sink.sroa.phi) #18
   resume { ptr, i32 } %.pn
 }

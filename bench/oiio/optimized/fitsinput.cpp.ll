@@ -1073,6 +1073,26 @@ entry:
   %keys = getelementptr inbounds i8, ptr %this, i64 280
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 296
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
+  %agg.tmp6.sink24.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp6, i64 1
+  %agg.tmp6.sink24.sroa.gep25 = getelementptr inbounds i8, ptr %agg.tmp17, i64 1
+  %agg.tmp6.sink24.sroa.gep26 = getelementptr inbounds i8, ptr %agg.tmp29, i64 1
+  %agg.tmp6.sink24.sroa.gep27 = getelementptr inbounds i8, ptr %agg.tmp23, i64 1
+  %agg.tmp6.sink24.sroa.gep28 = getelementptr inbounds i8, ptr %agg.tmp11, i64 1
+  %agg.tmp6.sink24.sroa.gep30 = getelementptr inbounds i8, ptr %agg.tmp6, i64 2
+  %agg.tmp6.sink24.sroa.gep31 = getelementptr inbounds i8, ptr %agg.tmp17, i64 2
+  %agg.tmp6.sink24.sroa.gep32 = getelementptr inbounds i8, ptr %agg.tmp29, i64 2
+  %agg.tmp6.sink24.sroa.gep33 = getelementptr inbounds i8, ptr %agg.tmp23, i64 2
+  %agg.tmp6.sink24.sroa.gep34 = getelementptr inbounds i8, ptr %agg.tmp11, i64 2
+  %agg.tmp6.sink24.sroa.gep36 = getelementptr inbounds i8, ptr %agg.tmp6, i64 3
+  %agg.tmp6.sink24.sroa.gep37 = getelementptr inbounds i8, ptr %agg.tmp17, i64 3
+  %agg.tmp6.sink24.sroa.gep38 = getelementptr inbounds i8, ptr %agg.tmp29, i64 3
+  %agg.tmp6.sink24.sroa.gep39 = getelementptr inbounds i8, ptr %agg.tmp23, i64 3
+  %agg.tmp6.sink24.sroa.gep40 = getelementptr inbounds i8, ptr %agg.tmp11, i64 3
+  %agg.tmp6.sink24.sroa.gep42 = getelementptr inbounds i8, ptr %agg.tmp6, i64 4
+  %agg.tmp6.sink24.sroa.gep43 = getelementptr inbounds i8, ptr %agg.tmp17, i64 4
+  %agg.tmp6.sink24.sroa.gep44 = getelementptr inbounds i8, ptr %agg.tmp29, i64 4
+  %agg.tmp6.sink24.sroa.gep45 = getelementptr inbounds i8, ptr %agg.tmp23, i64 4
+  %agg.tmp6.sink24.sroa.gep46 = getelementptr inbounds i8, ptr %agg.tmp11, i64 4
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %keys, ptr noundef %0)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE5clearEv.exit unwind label %terminate.lpad.i.i
 
@@ -1203,15 +1223,15 @@ if.then27:                                        ; preds = %if.end
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then9, %if.then21, %if.then27, %if.then15, %if.then4
+  %agg.tmp6.sink24.sroa.phi = phi ptr [ %agg.tmp6.sink24.sroa.gep, %if.then4 ], [ %agg.tmp6.sink24.sroa.gep25, %if.then15 ], [ %agg.tmp6.sink24.sroa.gep26, %if.then27 ], [ %agg.tmp6.sink24.sroa.gep27, %if.then21 ], [ %agg.tmp6.sink24.sroa.gep28, %if.then9 ]
+  %agg.tmp6.sink24.sroa.phi29 = phi ptr [ %agg.tmp6.sink24.sroa.gep30, %if.then4 ], [ %agg.tmp6.sink24.sroa.gep31, %if.then15 ], [ %agg.tmp6.sink24.sroa.gep32, %if.then27 ], [ %agg.tmp6.sink24.sroa.gep33, %if.then21 ], [ %agg.tmp6.sink24.sroa.gep34, %if.then9 ]
+  %agg.tmp6.sink24.sroa.phi35 = phi ptr [ %agg.tmp6.sink24.sroa.gep36, %if.then4 ], [ %agg.tmp6.sink24.sroa.gep37, %if.then15 ], [ %agg.tmp6.sink24.sroa.gep38, %if.then27 ], [ %agg.tmp6.sink24.sroa.gep39, %if.then21 ], [ %agg.tmp6.sink24.sroa.gep40, %if.then9 ]
+  %agg.tmp6.sink24.sroa.phi41 = phi ptr [ %agg.tmp6.sink24.sroa.gep42, %if.then4 ], [ %agg.tmp6.sink24.sroa.gep43, %if.then15 ], [ %agg.tmp6.sink24.sroa.gep44, %if.then27 ], [ %agg.tmp6.sink24.sroa.gep45, %if.then21 ], [ %agg.tmp6.sink24.sroa.gep46, %if.then9 ]
   %agg.tmp6.sink24 = phi ptr [ %agg.tmp6, %if.then4 ], [ %agg.tmp17, %if.then15 ], [ %agg.tmp29, %if.then27 ], [ %agg.tmp23, %if.then21 ], [ %agg.tmp11, %if.then9 ]
-  %aggregate.i1 = getelementptr inbounds i8, ptr %agg.tmp6.sink24, i64 1
-  store i8 1, ptr %aggregate.i1, align 1
-  %vecsemantics.i2 = getelementptr inbounds i8, ptr %agg.tmp6.sink24, i64 2
-  store i8 0, ptr %vecsemantics.i2, align 2
-  %reserved.i3 = getelementptr inbounds i8, ptr %agg.tmp6.sink24, i64 3
-  store i8 0, ptr %reserved.i3, align 1
-  %arraylen4.i4 = getelementptr inbounds i8, ptr %agg.tmp6.sink24, i64 4
-  store i32 0, ptr %arraylen4.i4, align 4
+  store i8 1, ptr %agg.tmp6.sink24.sroa.phi, align 1
+  store i8 0, ptr %agg.tmp6.sink24.sroa.phi29, align 2
+  store i8 0, ptr %agg.tmp6.sink24.sroa.phi35, align 1
+  store i32 0, ptr %agg.tmp6.sink24.sroa.phi41, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec10set_formatENS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp6.sink24) #22
   br label %return
 

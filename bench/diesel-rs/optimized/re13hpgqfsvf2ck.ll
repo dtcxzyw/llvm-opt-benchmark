@@ -3107,10 +3107,8 @@ define hidden void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as
   br i1 %or.cond, label %35, label %_ZN6diesel10connection19transaction_manager24TransactionManagerStatus43set_requires_rollback_maybe_up_to_top_level17h679da8766f9e3fabE.exit
 
 _ZN6diesel10connection19transaction_manager24TransactionManagerStatus43set_requires_rollback_maybe_up_to_top_level17h679da8766f9e3fabE.exit: ; preds = %35, %19, %16
-  %.sroa.5.0.i.idx.sroa.sel.idx = phi i64 [ 0, %35 ], [ 0, %19 ], [ 8, %16 ]
+  %spec.select.i = phi ptr [ %8, %35 ], [ %8, %19 ], [ null, %16 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !429
-  %.sroa.5.0.i.idx.sroa.sel = getelementptr inbounds i8, ptr %8, i64 %.sroa.5.0.i.idx.sroa.sel.idx
-  %spec.select.i = select i1 %.not.i, ptr null, ptr %.sroa.5.0.i.idx.sroa.sel
   %26 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %6, ptr %26, align 8, !noalias !429
   %27 = getelementptr inbounds i8, ptr %4, i64 24

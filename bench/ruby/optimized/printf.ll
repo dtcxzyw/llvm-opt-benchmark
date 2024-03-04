@@ -89,6 +89,8 @@ define internal i64 @printf_test_call(i32 noundef %0, ptr noundef %1, i64 %2) #0
   %11 = icmp ne i64 %10, 0
   %12 = icmp eq i64 %9, 0
   %13 = or i1 %12, %11
+  %.028.idx.sroa.gep = getelementptr inbounds i8, ptr %7, i64 2
+  %.028.idx.sroa.gep107 = getelementptr inbounds i8, ptr %7, i64 1
   br i1 %13, label %.thread30.i, label %14
 
 14:                                               ; preds = %3
@@ -166,7 +168,6 @@ rb_num2int_inline.exit:                           ; preds = %31, %33
 41:                                               ; preds = %36, %rb_num2int_inline.exit
   %.030 = phi ptr [ %37, %36 ], [ null, %rb_num2int_inline.exit ]
   %.029 = phi i32 [ 0, %36 ], [ %35, %rb_num2int_inline.exit ]
-  %.ptr87 = getelementptr inbounds i8, ptr %7, i64 1
   store i8 37, ptr %7, align 16
   %42 = load i64, ptr %4, align 8
   %43 = icmp eq i64 %42, 4
@@ -210,12 +211,12 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %Check_Ty
   br i1 %.not79, label %59, label %58
 
 58:                                               ; preds = %rbimpl_intern_const.exit
-  store i8 32, ptr %.ptr87, align 1
+  store i8 32, ptr %.028.idx.sroa.gep107, align 1
   br label %59
 
 59:                                               ; preds = %58, %rbimpl_intern_const.exit
+  %.028.idx.sroa.phi = phi ptr [ %.028.idx.sroa.gep, %58 ], [ %.028.idx.sroa.gep107, %rbimpl_intern_const.exit ]
   %.028.idx = phi i64 [ 2, %58 ], [ 1, %rbimpl_intern_const.exit ]
-  %.028.ptr = getelementptr inbounds i8, ptr %7, i64 %.028.idx
   %60 = load i64, ptr %4, align 8
   %.pr.i35 = load i64, ptr @printf_test_call.rbimpl_id.14, align 8
   %.not4.i36 = icmp eq i64 %.pr.i35, 0
@@ -237,7 +238,7 @@ rbimpl_intern_const.exit40:                       ; preds = %.lr.ph.i38, %59
 
 65:                                               ; preds = %rbimpl_intern_const.exit40
   %.028.add = add nuw nsw i64 %.028.idx, 1
-  store i8 35, ptr %.028.ptr, align 1
+  store i8 35, ptr %.028.idx.sroa.phi, align 1
   br label %66
 
 66:                                               ; preds = %65, %rbimpl_intern_const.exit40
@@ -431,7 +432,7 @@ rbimpl_intern_const.exit72:                       ; preds = %.lr.ph.i70, %uint_t
   br label %uint_to_str.exit78
 
 uint_to_str.exit78:                               ; preds = %127, %115, %rbimpl_intern_const.exit72, %113, %41
-  %.6 = phi ptr [ %.ptr87, %41 ], [ %.5.ptr, %rbimpl_intern_const.exit72 ], [ %.ptr, %113 ], [ %131, %127 ], [ %.ptr, %115 ]
+  %.6 = phi ptr [ %.028.idx.sroa.gep107, %41 ], [ %.5.ptr, %rbimpl_intern_const.exit72 ], [ %.ptr, %113 ], [ %131, %127 ], [ %.ptr, %115 ]
   %132 = getelementptr inbounds i8, ptr %.6, i64 1
   store i8 %27, ptr %.6, align 1
   store i8 0, ptr %132, align 1

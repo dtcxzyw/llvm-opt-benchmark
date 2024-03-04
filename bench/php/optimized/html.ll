@@ -7348,21 +7348,25 @@ define internal fastcc void @write_s3row_data(ptr nocapture noundef readonly %0,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, i8 0, i64 9, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %6, i8 0, i64 33, i1 false)
   store i8 38, ptr %6, align 16
+  %.0.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 1
+  %.0.i.sroa.gep48 = getelementptr inbounds i8, ptr %5, i64 2
+  %.0.i.sroa.gep49 = getelementptr inbounds i8, ptr %5, i64 3
+  %.0.i.sroa.gep50 = getelementptr inbounds i8, ptr %5, i64 4
   switch i32 %2, label %write_octet_sequence.exit [
     i32 0, label %8
-    i32 1, label %54
-    i32 2, label %54
-    i32 3, label %54
-    i32 8, label %54
-    i32 4, label %54
-    i32 5, label %54
-    i32 6, label %54
-    i32 7, label %54
-    i32 9, label %56
-    i32 11, label %56
-    i32 12, label %56
-    i32 10, label %56
-    i32 13, label %58
+    i32 1, label %49
+    i32 2, label %49
+    i32 3, label %49
+    i32 8, label %49
+    i32 4, label %49
+    i32 5, label %49
+    i32 6, label %49
+    i32 7, label %49
+    i32 9, label %51
+    i32 11, label %51
+    i32 12, label %51
+    i32 10, label %51
+    i32 13, label %53
   ]
 
 8:                                                ; preds = %4
@@ -7376,7 +7380,7 @@ define internal fastcc void @write_s3row_data(ptr nocapture noundef readonly %0,
 
 12:                                               ; preds = %8
   %13 = icmp ult i32 %1, 2048
-  br i1 %13, label %14, label %22
+  br i1 %13, label %14, label %21
 
 14:                                               ; preds = %12
   %15 = lshr i32 %1, 6
@@ -7386,176 +7390,171 @@ define internal fastcc void @write_s3row_data(ptr nocapture noundef readonly %0,
   %18 = trunc i32 %1 to i8
   %19 = and i8 %18, 63
   %20 = or disjoint i8 %19, -128
-  %21 = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %20, ptr %21, align 1
+  store i8 %20, ptr %.0.i.sroa.gep, align 1
   br label %write_octet_sequence.exit
 
-22:                                               ; preds = %12
-  %23 = icmp ult i32 %1, 65536
-  %24 = getelementptr inbounds i8, ptr %5, i64 1
-  br i1 %23, label %25, label %37
+21:                                               ; preds = %12
+  %22 = icmp ult i32 %1, 65536
+  br i1 %22, label %23, label %34
 
-25:                                               ; preds = %22
-  %26 = lshr i32 %1, 12
-  %27 = trunc i32 %26 to i8
-  %28 = or disjoint i8 %27, -32
-  store i8 %28, ptr %5, align 1
-  %29 = lshr i32 %1, 6
-  %30 = trunc i32 %29 to i8
-  %31 = and i8 %30, 63
-  %32 = or disjoint i8 %31, -128
-  store i8 %32, ptr %24, align 1
-  %33 = trunc i32 %1 to i8
-  %34 = and i8 %33, 63
-  %35 = or disjoint i8 %34, -128
-  %36 = getelementptr inbounds i8, ptr %5, i64 2
-  store i8 %35, ptr %36, align 1
+23:                                               ; preds = %21
+  %24 = lshr i32 %1, 12
+  %25 = trunc i32 %24 to i8
+  %26 = or disjoint i8 %25, -32
+  store i8 %26, ptr %5, align 1
+  %27 = lshr i32 %1, 6
+  %28 = trunc i32 %27 to i8
+  %29 = and i8 %28, 63
+  %30 = or disjoint i8 %29, -128
+  store i8 %30, ptr %.0.i.sroa.gep, align 1
+  %31 = trunc i32 %1 to i8
+  %32 = and i8 %31, 63
+  %33 = or disjoint i8 %32, -128
+  store i8 %33, ptr %.0.i.sroa.gep48, align 1
   br label %write_octet_sequence.exit
 
-37:                                               ; preds = %22
-  %38 = lshr i32 %1, 18
+34:                                               ; preds = %21
+  %35 = lshr i32 %1, 18
+  %36 = trunc i32 %35 to i8
+  %37 = or i8 %36, -16
+  store i8 %37, ptr %5, align 1
+  %38 = lshr i32 %1, 12
   %39 = trunc i32 %38 to i8
-  %40 = or i8 %39, -16
-  store i8 %40, ptr %5, align 1
-  %41 = lshr i32 %1, 12
-  %42 = trunc i32 %41 to i8
-  %43 = and i8 %42, 63
-  %44 = or disjoint i8 %43, -128
-  store i8 %44, ptr %24, align 1
-  %45 = lshr i32 %1, 6
-  %46 = trunc i32 %45 to i8
+  %40 = and i8 %39, 63
+  %41 = or disjoint i8 %40, -128
+  store i8 %41, ptr %.0.i.sroa.gep, align 1
+  %42 = lshr i32 %1, 6
+  %43 = trunc i32 %42 to i8
+  %44 = and i8 %43, 63
+  %45 = or disjoint i8 %44, -128
+  store i8 %45, ptr %.0.i.sroa.gep48, align 1
+  %46 = trunc i32 %1 to i8
   %47 = and i8 %46, 63
   %48 = or disjoint i8 %47, -128
-  %49 = getelementptr inbounds i8, ptr %5, i64 2
-  store i8 %48, ptr %49, align 1
+  store i8 %48, ptr %.0.i.sroa.gep49, align 1
+  br label %write_octet_sequence.exit
+
+49:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4
   %50 = trunc i32 %1 to i8
-  %51 = and i8 %50, 63
-  %52 = or disjoint i8 %51, -128
-  %53 = getelementptr inbounds i8, ptr %5, i64 3
-  store i8 %52, ptr %53, align 1
+  store i8 %50, ptr %5, align 1
   br label %write_octet_sequence.exit
 
-54:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4
-  %55 = trunc i32 %1 to i8
-  store i8 %55, ptr %5, align 1
+51:                                               ; preds = %4, %4, %4, %4
+  %52 = trunc i32 %1 to i8
+  store i8 %52, ptr %5, align 1
   br label %write_octet_sequence.exit
 
-56:                                               ; preds = %4, %4, %4, %4
-  %57 = trunc i32 %1 to i8
-  store i8 %57, ptr %5, align 1
+53:                                               ; preds = %4
+  %54 = trunc i32 %1 to i8
+  store i8 %54, ptr %5, align 1
   br label %write_octet_sequence.exit
 
-58:                                               ; preds = %4
-  %59 = trunc i32 %1 to i8
-  store i8 %59, ptr %5, align 1
-  br label %write_octet_sequence.exit
+write_octet_sequence.exit:                        ; preds = %4, %10, %14, %23, %34, %49, %51, %53
+  %.0.i.sroa.phi = phi ptr [ %.0.i.sroa.gep, %53 ], [ %.0.i.sroa.gep, %51 ], [ %.0.i.sroa.gep, %49 ], [ %5, %4 ], [ %.0.i.sroa.gep, %10 ], [ %.0.i.sroa.gep48, %14 ], [ %.0.i.sroa.gep49, %23 ], [ %.0.i.sroa.gep50, %34 ]
+  %.0.i = phi i64 [ 1, %53 ], [ 1, %51 ], [ 1, %49 ], [ 0, %4 ], [ 1, %10 ], [ 2, %14 ], [ 3, %23 ], [ 4, %34 ]
+  %55 = load i8, ptr %0, align 8
+  %.not = icmp eq i8 %55, 0
+  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.not, label %57, label %66
 
-write_octet_sequence.exit:                        ; preds = %4, %10, %14, %25, %37, %54, %56, %58
-  %.0.i = phi i64 [ 1, %58 ], [ 1, %56 ], [ 1, %54 ], [ 0, %4 ], [ 1, %10 ], [ 2, %14 ], [ 3, %25 ], [ 4, %37 ]
-  %60 = load i8, ptr %0, align 8
-  %.not = icmp eq i8 %60, 0
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not, label %62, label %71
-
-62:                                               ; preds = %write_octet_sequence.exit
-  %63 = getelementptr inbounds i8, ptr %0, i64 16
-  %64 = load i16, ptr %63, align 8
-  %65 = zext i16 %64 to i64
-  %66 = getelementptr inbounds i8, ptr %6, i64 1
-  %67 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr align 1 %67, i64 %65, i1 false)
-  %68 = add nuw nsw i64 %65, 1
-  %69 = getelementptr inbounds [33 x i8], ptr %6, i64 0, i64 %68
-  store i8 59, ptr %69, align 1
-  %70 = add nuw nsw i64 %65, 2
-  call void @add_assoc_stringl_ex(ptr noundef %3, ptr noundef nonnull %5, i64 noundef %.0.i, ptr noundef nonnull %6, i64 noundef %70) #20
+57:                                               ; preds = %write_octet_sequence.exit
+  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %59 = load i16, ptr %58, align 8
+  %60 = zext i16 %59 to i64
+  %61 = getelementptr inbounds i8, ptr %6, i64 1
+  %62 = load ptr, ptr %56, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr align 1 %62, i64 %60, i1 false)
+  %63 = add nuw nsw i64 %60, 1
+  %64 = getelementptr inbounds [33 x i8], ptr %6, i64 0, i64 %63
+  store i8 59, ptr %64, align 1
+  %65 = add nuw nsw i64 %60, 2
+  call void @add_assoc_stringl_ex(ptr noundef %3, ptr noundef nonnull %5, i64 noundef %.0.i, ptr noundef nonnull %6, i64 noundef %65) #20
   br label %.loopexit
 
-71:                                               ; preds = %write_octet_sequence.exit
-  %72 = load ptr, ptr %61, align 8
-  %73 = load ptr, ptr %72, align 8
-  %.not42 = icmp eq ptr %73, null
-  br i1 %.not42, label %82, label %74
+66:                                               ; preds = %write_octet_sequence.exit
+  %67 = load ptr, ptr %56, align 8
+  %68 = load ptr, ptr %67, align 8
+  %.not42 = icmp eq ptr %68, null
+  br i1 %.not42, label %77, label %69
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %72, i64 12
-  %76 = load i16, ptr %75, align 4
-  %77 = zext i16 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr nonnull align 1 %73, i64 %77, i1 false)
-  %79 = add nuw nsw i64 %77, 1
-  %80 = getelementptr inbounds [33 x i8], ptr %6, i64 0, i64 %79
-  store i8 59, ptr %80, align 1
-  %81 = add nuw nsw i64 %77, 2
-  call void @add_assoc_stringl_ex(ptr noundef %3, ptr noundef nonnull %5, i64 noundef %.0.i, ptr noundef nonnull %6, i64 noundef %81) #20
-  br label %82
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds i8, ptr %67, i64 12
+  %71 = load i16, ptr %70, align 4
+  %72 = zext i16 %71 to i64
+  %73 = getelementptr inbounds i8, ptr %6, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 1 %68, i64 %72, i1 false)
+  %74 = add nuw nsw i64 %72, 1
+  %75 = getelementptr inbounds [33 x i8], ptr %6, i64 0, i64 %74
+  store i8 59, ptr %75, align 1
+  %76 = add nuw nsw i64 %72, 2
+  call void @add_assoc_stringl_ex(ptr noundef %3, ptr noundef nonnull %5, i64 noundef %.0.i, ptr noundef nonnull %6, i64 noundef %76) #20
+  br label %77
 
-82:                                               ; preds = %74, %71
-  %83 = getelementptr inbounds i8, ptr %72, i64 8
-  %84 = load i32, ptr %83, align 8
-  %.not4344 = icmp eq i32 %84, 0
-  br i1 %.not4344, label %.loopexit, label %.lr.ph
+77:                                               ; preds = %69, %66
+  %78 = getelementptr inbounds i8, ptr %67, i64 8
+  %79 = load i32, ptr %78, align 8
+  %.not4351 = icmp eq i32 %79, 0
+  br i1 %.not4351, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %82
-  %85 = icmp ult i32 %2, 2
-  %86 = getelementptr inbounds [9 x i8], ptr %5, i64 0, i64 %.0.i
-  %87 = getelementptr inbounds i8, ptr %6, i64 1
-  br i1 %85, label %.lr.ph.split.us, label %.lr.ph.split
+.lr.ph:                                           ; preds = %77
+  %80 = icmp ult i32 %2, 2
+  %81 = getelementptr inbounds i8, ptr %6, i64 1
+  br i1 %80, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.045.us = phi i32 [ %101, %.lr.ph.split.us ], [ 1, %.lr.ph ]
-  %88 = zext i32 %.045.us to i64
-  %89 = getelementptr inbounds %union.entity_multicodepoint_row, ptr %72, i64 %88
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
-  %91 = load i32, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %89, i64 12
-  %93 = load i16, ptr %92, align 4
-  %94 = zext i16 %93 to i64
-  %95 = call fastcc i64 @write_octet_sequence(ptr noundef nonnull %86, i32 noundef %2, i32 noundef %91), !range !7
-  %96 = load ptr, ptr %89, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr align 1 %96, i64 %94, i1 false)
-  %97 = add nuw nsw i64 %94, 1
-  %98 = getelementptr inbounds [33 x i8], ptr %6, i64 0, i64 %97
-  store i8 59, ptr %98, align 1
-  %99 = add nuw nsw i64 %95, %.0.i
-  %100 = add nuw nsw i64 %94, 2
-  call void @add_assoc_stringl_ex(ptr noundef %3, ptr noundef nonnull %5, i64 noundef %99, ptr noundef nonnull %6, i64 noundef %100) #20
-  %101 = add i32 %.045.us, 1
-  %.not43.us = icmp ugt i32 %101, %84
+  %.052.us = phi i32 [ %95, %.lr.ph.split.us ], [ 1, %.lr.ph ]
+  %82 = zext i32 %.052.us to i64
+  %83 = getelementptr inbounds %union.entity_multicodepoint_row, ptr %67, i64 %82
+  %84 = getelementptr inbounds i8, ptr %83, i64 8
+  %85 = load i32, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %83, i64 12
+  %87 = load i16, ptr %86, align 4
+  %88 = zext i16 %87 to i64
+  %89 = call fastcc i64 @write_octet_sequence(ptr noundef nonnull %.0.i.sroa.phi, i32 noundef %2, i32 noundef %85), !range !7
+  %90 = load ptr, ptr %83, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %81, ptr align 1 %90, i64 %88, i1 false)
+  %91 = add nuw nsw i64 %88, 1
+  %92 = getelementptr inbounds [33 x i8], ptr %6, i64 0, i64 %91
+  store i8 59, ptr %92, align 1
+  %93 = add nuw nsw i64 %89, %.0.i
+  %94 = add nuw nsw i64 %88, 2
+  call void @add_assoc_stringl_ex(ptr noundef %3, ptr noundef nonnull %5, i64 noundef %93, ptr noundef nonnull %6, i64 noundef %94) #20
+  %95 = add i32 %.052.us, 1
+  %.not43.us = icmp ugt i32 %95, %79
   br i1 %.not43.us, label %.loopexit, label %.lr.ph.split.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %119
-  %.045 = phi i32 [ %120, %119 ], [ 1, %.lr.ph ]
-  %102 = zext i32 %.045 to i64
-  %103 = getelementptr inbounds %union.entity_multicodepoint_row, ptr %72, i64 %102
-  %104 = getelementptr inbounds i8, ptr %103, i64 8
-  %105 = load i32, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %103, i64 12
-  %107 = load i16, ptr %106, align 4
-  %108 = call fastcc i32 @map_from_unicode(i32 noundef %105, i32 noundef %2, ptr noundef nonnull %7), !range !5
-  %109 = icmp eq i32 %108, -1
-  br i1 %109, label %119, label %110
+.lr.ph.split:                                     ; preds = %.lr.ph, %113
+  %.052 = phi i32 [ %114, %113 ], [ 1, %.lr.ph ]
+  %96 = zext i32 %.052 to i64
+  %97 = getelementptr inbounds %union.entity_multicodepoint_row, ptr %67, i64 %96
+  %98 = getelementptr inbounds i8, ptr %97, i64 8
+  %99 = load i32, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %97, i64 12
+  %101 = load i16, ptr %100, align 4
+  %102 = call fastcc i32 @map_from_unicode(i32 noundef %99, i32 noundef %2, ptr noundef nonnull %7), !range !5
+  %103 = icmp eq i32 %102, -1
+  br i1 %103, label %113, label %104
 
-110:                                              ; preds = %.lr.ph.split
-  %111 = zext i16 %107 to i64
-  %112 = load i32, ptr %7, align 4
-  %113 = call fastcc i64 @write_octet_sequence(ptr noundef nonnull %86, i32 noundef %2, i32 noundef %112), !range !7
-  %114 = load ptr, ptr %103, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr align 1 %114, i64 %111, i1 false)
-  %115 = add nuw nsw i64 %111, 1
-  %116 = getelementptr inbounds [33 x i8], ptr %6, i64 0, i64 %115
-  store i8 59, ptr %116, align 1
-  %117 = add nuw nsw i64 %113, %.0.i
-  %118 = add nuw nsw i64 %111, 2
-  call void @add_assoc_stringl_ex(ptr noundef %3, ptr noundef nonnull %5, i64 noundef %117, ptr noundef nonnull %6, i64 noundef %118) #20
-  br label %119
+104:                                              ; preds = %.lr.ph.split
+  %105 = zext i16 %101 to i64
+  %106 = load i32, ptr %7, align 4
+  %107 = call fastcc i64 @write_octet_sequence(ptr noundef nonnull %.0.i.sroa.phi, i32 noundef %2, i32 noundef %106), !range !7
+  %108 = load ptr, ptr %97, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %81, ptr align 1 %108, i64 %105, i1 false)
+  %109 = add nuw nsw i64 %105, 1
+  %110 = getelementptr inbounds [33 x i8], ptr %6, i64 0, i64 %109
+  store i8 59, ptr %110, align 1
+  %111 = add nuw nsw i64 %107, %.0.i
+  %112 = add nuw nsw i64 %105, 2
+  call void @add_assoc_stringl_ex(ptr noundef %3, ptr noundef nonnull %5, i64 noundef %111, ptr noundef nonnull %6, i64 noundef %112) #20
+  br label %113
 
-119:                                              ; preds = %.lr.ph.split, %110
-  %120 = add i32 %.045, 1
-  %.not43 = icmp ugt i32 %120, %84
+113:                                              ; preds = %.lr.ph.split, %104
+  %114 = add i32 %.052, 1
+  %.not43 = icmp ugt i32 %114, %79
   br i1 %.not43, label %.loopexit, label %.lr.ph.split
 
-.loopexit:                                        ; preds = %119, %.lr.ph.split.us, %82, %62
+.loopexit:                                        ; preds = %113, %.lr.ph.split.us, %77, %57
   ret void
 }
 

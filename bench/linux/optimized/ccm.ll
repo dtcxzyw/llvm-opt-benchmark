@@ -1147,6 +1147,12 @@ define internal fastcc i32 @crypto_ccm_auth(ptr noundef %0, ptr noundef %1, i32 
   store i8 %34, ptr %18, align 1
   %35 = load i32, ptr %22, align 8
   %36 = icmp eq i32 %35, 0
+  %.sroa.gep = getelementptr inbounds i8, ptr %5, i64 64
+  %.sroa.gep1 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.gep3 = getelementptr inbounds i8, ptr %5, i64 72
+  %.sroa.gep4 = getelementptr inbounds i8, ptr %5, i64 40
+  %.sroa.gep6 = getelementptr inbounds i8, ptr %5, i64 76
+  %.sroa.gep7 = getelementptr inbounds i8, ptr %5, i64 44
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %3
@@ -1173,7 +1179,7 @@ define internal fastcc i32 @crypto_ccm_auth(ptr noundef %0, ptr noundef %1, i32 
 
 50:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
-  br label %189
+  br label %177
 
 ._crit_edge:                                      ; preds = %39, %46
   %51 = phi i32 [ %41, %46 ], [ 4, %39 ]
@@ -1220,7 +1226,7 @@ define internal fastcc i32 @crypto_ccm_auth(ptr noundef %0, ptr noundef %1, i32 
   %80 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 16, ptr %80, align 4
   %81 = icmp eq i32 %23, 0
-  br i1 %81, label %117, label %82
+  br i1 %81, label %114, label %82
 
 82:                                               ; preds = %73
   %83 = icmp ult i32 %23, 65280
@@ -1264,135 +1270,126 @@ define internal fastcc i32 @crypto_ccm_auth(ptr noundef %0, ptr noundef %1, i32 
   unreachable
 
 108:                                              ; preds = %90
-  %109 = getelementptr inbounds i8, ptr %5, i64 32
-  %110 = trunc i64 %94 to i32
-  %111 = and i32 %110, 4095
-  %112 = load i64, ptr %109, align 16
-  %113 = and i64 %112, 3
-  %114 = or disjoint i64 %113, %104
-  store i64 %114, ptr %109, align 16
-  %115 = getelementptr inbounds i8, ptr %5, i64 40
-  store i32 %111, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %5, i64 44
-  store i32 %91, ptr %116, align 4
-  br label %117
+  %109 = trunc i64 %94 to i32
+  %110 = and i32 %109, 4095
+  %111 = load i64, ptr %.sroa.gep1, align 16
+  %112 = and i64 %111, 3
+  %113 = or disjoint i64 %112, %104
+  store i64 %113, ptr %.sroa.gep1, align 16
+  store i32 %110, ptr %.sroa.gep4, align 8
+  store i32 %91, ptr %.sroa.gep7, align 4
+  br label %114
 
-117:                                              ; preds = %108, %73
-  %118 = phi i64 [ 64, %108 ], [ 32, %73 ]
-  %119 = phi i64 [ 72, %108 ], [ 40, %73 ]
-  %120 = phi i64 [ 76, %108 ], [ 44, %73 ]
-  %121 = phi i32 [ %91, %108 ], [ 0, %73 ]
-  %122 = getelementptr inbounds i8, ptr %0, i64 64
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %5, i64 %118
-  %125 = getelementptr inbounds i8, ptr %5, i64 %119
-  store i32 0, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %5, i64 %120
-  store i32 0, ptr %126, align 4
-  %127 = ptrtoint ptr %123 to i64
-  %128 = and i64 %127, -4
-  %129 = or disjoint i64 %128, 1
-  store i64 %129, ptr %124, align 16
-  %130 = load ptr, ptr %20, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 16
-  %132 = getelementptr inbounds i8, ptr %18, i64 280
-  store ptr %131, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %18, i64 48
-  %134 = load i32, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %18, i64 264
-  %136 = getelementptr inbounds i8, ptr %18, i64 288
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %135, i8 0, i64 16, i1 false)
-  store i32 %134, ptr %136, align 8
-  %137 = add i32 %121, %23
-  %138 = add i32 %137, 16
-  %139 = getelementptr inbounds i8, ptr %18, i64 304
-  store ptr %5, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %18, i64 296
-  store i32 %138, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %18, i64 312
-  store ptr null, ptr %141, align 8
-  %142 = call i32 @crypto_ahash_init(ptr noundef %21) #12
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %144, label %189
+114:                                              ; preds = %108, %73
+  %.sroa.phi = phi ptr [ %.sroa.gep, %108 ], [ %.sroa.gep1, %73 ]
+  %.sroa.phi2 = phi ptr [ %.sroa.gep3, %108 ], [ %.sroa.gep4, %73 ]
+  %.sroa.phi5 = phi ptr [ %.sroa.gep6, %108 ], [ %.sroa.gep7, %73 ]
+  %115 = phi i32 [ %91, %108 ], [ 0, %73 ]
+  %116 = getelementptr inbounds i8, ptr %0, i64 64
+  %117 = load ptr, ptr %116, align 8
+  store i32 0, ptr %.sroa.phi2, align 8
+  store i32 0, ptr %.sroa.phi5, align 4
+  %118 = ptrtoint ptr %117 to i64
+  %119 = and i64 %118, -4
+  %120 = or disjoint i64 %119, 1
+  store i64 %120, ptr %.sroa.phi, align 16
+  %121 = load ptr, ptr %20, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 16
+  %123 = getelementptr inbounds i8, ptr %18, i64 280
+  store ptr %122, ptr %123, align 8
+  %124 = getelementptr inbounds i8, ptr %18, i64 48
+  %125 = load i32, ptr %124, align 8
+  %126 = getelementptr inbounds i8, ptr %18, i64 264
+  %127 = getelementptr inbounds i8, ptr %18, i64 288
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %126, i8 0, i64 16, i1 false)
+  store i32 %125, ptr %127, align 8
+  %128 = add i32 %115, %23
+  %129 = add i32 %128, 16
+  %130 = getelementptr inbounds i8, ptr %18, i64 304
+  store ptr %5, ptr %130, align 8
+  %131 = getelementptr inbounds i8, ptr %18, i64 296
+  store i32 %129, ptr %131, align 8
+  %132 = getelementptr inbounds i8, ptr %18, i64 312
+  store ptr null, ptr %132, align 8
+  %133 = call i32 @crypto_ahash_init(ptr noundef %21) #12
+  %134 = icmp eq i32 %133, 0
+  br i1 %134, label %135, label %177
 
-144:                                              ; preds = %117
-  %145 = call i32 @crypto_ahash_update(ptr noundef %21) #12
-  %146 = icmp eq i32 %145, 0
-  br i1 %146, label %147, label %189
+135:                                              ; preds = %114
+  %136 = call i32 @crypto_ahash_update(ptr noundef %21) #12
+  %137 = icmp eq i32 %136, 0
+  br i1 %137, label %138, label %177
 
-147:                                              ; preds = %144
-  %148 = and i32 %137, 15
-  %149 = sub nuw nsw i32 16, %148
-  %150 = icmp eq i32 %148, 0
-  br i1 %150, label %185, label %151
+138:                                              ; preds = %135
+  %139 = and i32 %128, 15
+  %140 = sub nuw nsw i32 16, %139
+  %141 = icmp eq i32 %139, 0
+  br i1 %141, label %173, label %142
 
-151:                                              ; preds = %147
-  %152 = zext nneg i32 %149 to i64
-  call void @llvm.memset.p0.i64(ptr noundef align 1 %24, i8 0, i64 %152, i1 false)
+142:                                              ; preds = %138
+  %143 = zext nneg i32 %140 to i64
+  call void @llvm.memset.p0.i64(ptr noundef align 1 %24, i8 0, i64 %143, i1 false)
   call void @sg_init_table(ptr noundef nonnull %5, i32 noundef 2) #12
-  %153 = load i64, ptr @vmemmap_base, align 8
-  %154 = inttoptr i64 %153 to ptr
-  %155 = ptrtoint ptr %24 to i64
-  %156 = add i64 %155, 2147483648
-  %157 = icmp ugt ptr %24, inttoptr (i64 -2147483649 to ptr)
-  %158 = load i64, ptr @phys_base, align 8
-  %159 = load i64, ptr @page_offset_base, align 8
-  %160 = sub i64 -2147483648, %159
-  %161 = select i1 %157, i64 %158, i64 %160
-  %162 = add i64 %156, %161
-  %163 = lshr i64 %162, 12
-  %164 = getelementptr %struct.page, ptr %154, i64 %163
-  %165 = ptrtoint ptr %164 to i64
-  %166 = and i64 %165, 3
-  %167 = icmp eq i64 %166, 0
-  br i1 %167, label %169, label %168, !prof !10
+  %144 = load i64, ptr @vmemmap_base, align 8
+  %145 = inttoptr i64 %144 to ptr
+  %146 = ptrtoint ptr %24 to i64
+  %147 = add i64 %146, 2147483648
+  %148 = icmp ugt ptr %24, inttoptr (i64 -2147483649 to ptr)
+  %149 = load i64, ptr @phys_base, align 8
+  %150 = load i64, ptr @page_offset_base, align 8
+  %151 = sub i64 -2147483648, %150
+  %152 = select i1 %148, i64 %149, i64 %151
+  %153 = add i64 %147, %152
+  %154 = lshr i64 %153, 12
+  %155 = getelementptr %struct.page, ptr %145, i64 %154
+  %156 = ptrtoint ptr %155 to i64
+  %157 = and i64 %156, 3
+  %158 = icmp eq i64 %157, 0
+  br i1 %158, label %160, label %159, !prof !10
 
-168:                                              ; preds = %151
+159:                                              ; preds = %142
   call void asm sideeffect "354: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 354b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 354) #12, !srcloc !11
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 115, i32 0, i64 12) #12, !srcloc !12
   unreachable
 
-169:                                              ; preds = %151
-  %170 = trunc i64 %155 to i32
-  %171 = and i32 %170, 4095
-  %172 = load i64, ptr %5, align 16
-  %173 = and i64 %172, 3
-  %174 = or disjoint i64 %173, %165
-  store i64 %174, ptr %5, align 16
-  store i32 %171, ptr %79, align 8
-  store i32 %149, ptr %80, align 4
-  %175 = icmp eq ptr %1, null
-  br i1 %175, label %183, label %176
+160:                                              ; preds = %142
+  %161 = trunc i64 %146 to i32
+  %162 = and i32 %161, 4095
+  %163 = load i64, ptr %5, align 16
+  %164 = and i64 %163, 3
+  %165 = or disjoint i64 %164, %156
+  store i64 %165, ptr %5, align 16
+  store i32 %162, ptr %79, align 8
+  store i32 %140, ptr %80, align 4
+  %166 = icmp eq ptr %1, null
+  br i1 %166, label %171, label %167
 
-176:                                              ; preds = %169
-  %177 = getelementptr inbounds i8, ptr %5, i64 32
-  %178 = getelementptr inbounds i8, ptr %5, i64 40
-  store i32 0, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %5, i64 44
-  store i32 0, ptr %179, align 4
-  %180 = ptrtoint ptr %1 to i64
-  %181 = and i64 %180, -4
-  %182 = or disjoint i64 %181, 1
-  store i64 %182, ptr %177, align 16
-  br label %183
+167:                                              ; preds = %160
+  store i32 0, ptr %.sroa.gep4, align 8
+  store i32 0, ptr %.sroa.gep7, align 4
+  %168 = ptrtoint ptr %1 to i64
+  %169 = and i64 %168, -4
+  %170 = or disjoint i64 %169, 1
+  store i64 %170, ptr %.sroa.gep1, align 16
+  br label %171
 
-183:                                              ; preds = %176, %169
-  %184 = add i32 %149, %2
-  br label %185
+171:                                              ; preds = %167, %160
+  %172 = add i32 %140, %2
+  br label %173
 
-185:                                              ; preds = %183, %147
-  %186 = phi i32 [ %184, %183 ], [ %2, %147 ]
-  %187 = phi ptr [ %5, %183 ], [ %1, %147 ]
-  store ptr %187, ptr %139, align 8
-  store i32 %186, ptr %140, align 8
-  store ptr %18, ptr %141, align 8
-  %188 = call i32 @crypto_ahash_finup(ptr noundef %21) #12
-  br label %189
+173:                                              ; preds = %171, %138
+  %174 = phi i32 [ %172, %171 ], [ %2, %138 ]
+  %175 = phi ptr [ %5, %171 ], [ %1, %138 ]
+  store ptr %175, ptr %130, align 8
+  store i32 %174, ptr %131, align 8
+  store ptr %18, ptr %132, align 8
+  %176 = call i32 @crypto_ahash_finup(ptr noundef %21) #12
+  br label %177
 
-189:                                              ; preds = %50, %185, %144, %117
-  %190 = phi i32 [ -75, %50 ], [ %142, %117 ], [ %145, %144 ], [ %188, %185 ]
+177:                                              ; preds = %50, %173, %135, %114
+  %178 = phi i32 [ -75, %50 ], [ %133, %114 ], [ %136, %135 ], [ %176, %173 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #12
-  ret i32 %190
+  ret i32 %178
 }
 
 ; Function Attrs: null_pointer_is_valid

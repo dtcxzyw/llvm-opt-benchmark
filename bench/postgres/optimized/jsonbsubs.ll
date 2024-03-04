@@ -30,6 +30,7 @@ define internal void @jsonb_subscript_transform(ptr nocapture noundef writeonly 
   %6 = alloca i32, align 4
   %7 = alloca [2 x i32], align 8
   %.not = icmp eq ptr %1, null
+  %indvars.iv.sroa.gep121 = getelementptr inbounds i8, ptr %7, i64 4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
@@ -55,8 +56,8 @@ define internal void @jsonb_subscript_transform(ptr nocapture noundef writeonly 
   br i1 %.not52, label %23, label %26
 
 .lr.ph111:                                        ; preds = %.lr.ph.split.preheader, %.lr.ph.split
-  %.sroa.4.075110 = phi i32 [ %85, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
-  %.04276109 = phi ptr [ %84, %.lr.ph.split ], [ null, %.lr.ph.split.preheader ]
+  %.sroa.4.075110 = phi i32 [ %84, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
+  %.04276109 = phi ptr [ %83, %.lr.ph.split ], [ null, %.lr.ph.split.preheader ]
   %17 = load ptr, ptr %9, align 8
   %18 = sext i32 %.sroa.4.075110 to i64
   %19 = getelementptr %union.ListCell, ptr %17, i64 %18
@@ -64,7 +65,7 @@ define internal void @jsonb_subscript_transform(ptr nocapture noundef writeonly 
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not49 = icmp eq ptr %22, null
-  br i1 %.not49, label %76, label %33
+  br i1 %.not49, label %75, label %33
 
 23:                                               ; preds = %.split.us
   %24 = getelementptr inbounds i8, ptr %14, i64 8
@@ -89,112 +90,111 @@ define internal void @jsonb_subscript_transform(ptr nocapture noundef writeonly 
   %36 = call i32 @exprType(ptr noundef %35) #6
   store i32 %36, ptr %6, align 4
   %.not50 = icmp eq i32 %36, 705
-  br i1 %.not50, label %66, label %37
+  br i1 %.not50, label %65, label %37
 
 37:                                               ; preds = %33
   store i64 107374182423, ptr %7, align 8
   br label %38
 
-38:                                               ; preds = %37, %54
-  %39 = phi i1 [ true, %37 ], [ false, %54 ]
-  %indvars.iv = phi i64 [ 0, %37 ], [ 1, %54 ]
-  %.04172 = phi i32 [ 705, %37 ], [ %.1, %54 ]
-  %40 = getelementptr [2 x i32], ptr %7, i64 0, i64 %indvars.iv
-  %41 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef nonnull %6, ptr noundef %40, i32 noundef 0) #6
-  br i1 %41, label %42, label %54
+38:                                               ; preds = %37, %53
+  %39 = phi i1 [ true, %37 ], [ false, %53 ]
+  %indvars.iv.sroa.phi = phi ptr [ %7, %37 ], [ %indvars.iv.sroa.gep121, %53 ]
+  %.04172 = phi i32 [ 705, %37 ], [ %.1, %53 ]
+  %40 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef nonnull %6, ptr noundef nonnull %indvars.iv.sroa.phi, i32 noundef 0) #6
+  br i1 %40, label %41, label %53
 
-42:                                               ; preds = %38
+41:                                               ; preds = %38
   %.not51 = icmp eq i32 %.04172, 705
-  br i1 %.not51, label %52, label %43
+  br i1 %.not51, label %51, label %42
 
-43:                                               ; preds = %42
-  %44 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  call void @llvm.assume(i1 %44)
-  %45 = call i32 @errcode(i32 noundef 67141764) #6
-  %46 = load i32, ptr %6, align 4
-  %47 = call ptr @format_type_be(i32 noundef %46) #6
-  %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %47) #6
-  %49 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #6
-  %50 = call i32 @exprLocation(ptr noundef %35) #6
-  %51 = call i32 @parser_errposition(ptr noundef %2, i32 noundef %50) #6
+42:                                               ; preds = %41
+  %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  call void @llvm.assume(i1 %43)
+  %44 = call i32 @errcode(i32 noundef 67141764) #6
+  %45 = load i32, ptr %6, align 4
+  %46 = call ptr @format_type_be(i32 noundef %45) #6
+  %47 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %46) #6
+  %48 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #6
+  %49 = call i32 @exprLocation(ptr noundef %35) #6
+  %50 = call i32 @parser_errposition(ptr noundef %2, i32 noundef %49) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 105, ptr noundef nonnull @__func__.jsonb_subscript_transform) #6
   unreachable
 
-52:                                               ; preds = %42
-  %53 = load i32, ptr %40, align 4
-  br label %54
+51:                                               ; preds = %41
+  %52 = load i32, ptr %indvars.iv.sroa.phi, align 4
+  br label %53
 
-54:                                               ; preds = %38, %52
-  %.1 = phi i32 [ %53, %52 ], [ %.04172, %38 ]
-  br i1 %39, label %38, label %55, !llvm.loop !5
+53:                                               ; preds = %38, %51
+  %.1 = phi i32 [ %52, %51 ], [ %.04172, %38 ]
+  br i1 %39, label %38, label %54, !llvm.loop !5
 
-55:                                               ; preds = %54
-  %56 = icmp eq i32 %.1, 705
-  br i1 %56, label %57, label %._crit_edge87
+54:                                               ; preds = %53
+  %55 = icmp eq i32 %.1, 705
+  br i1 %55, label %56, label %._crit_edge87
 
-._crit_edge87:                                    ; preds = %55
+._crit_edge87:                                    ; preds = %54
   %.pre = load i32, ptr %6, align 4
-  br label %66
+  br label %65
 
-57:                                               ; preds = %55
-  %58 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  call void @llvm.assume(i1 %58)
-  %59 = call i32 @errcode(i32 noundef 67141764) #6
-  %60 = load i32, ptr %6, align 4
-  %61 = call ptr @format_type_be(i32 noundef %60) #6
-  %62 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %61) #6
-  %63 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.4) #6
-  %64 = call i32 @exprLocation(ptr noundef %35) #6
-  %65 = call i32 @parser_errposition(ptr noundef %2, i32 noundef %64) #6
+56:                                               ; preds = %54
+  %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  call void @llvm.assume(i1 %57)
+  %58 = call i32 @errcode(i32 noundef 67141764) #6
+  %59 = load i32, ptr %6, align 4
+  %60 = call ptr @format_type_be(i32 noundef %59) #6
+  %61 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %60) #6
+  %62 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.4) #6
+  %63 = call i32 @exprLocation(ptr noundef %35) #6
+  %64 = call i32 @parser_errposition(ptr noundef %2, i32 noundef %63) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef nonnull @__func__.jsonb_subscript_transform) #6
   unreachable
 
-66:                                               ; preds = %._crit_edge87, %33
-  %67 = phi i32 [ %.pre, %._crit_edge87 ], [ 705, %33 ]
+65:                                               ; preds = %._crit_edge87, %33
+  %66 = phi i32 [ %.pre, %._crit_edge87 ], [ 705, %33 ]
   %.2 = phi i32 [ %.1, %._crit_edge87 ], [ 25, %33 ]
-  %68 = call ptr @coerce_type(ptr noundef %2, ptr noundef %35, i32 noundef %67, i32 noundef %.2, i32 noundef -1, i32 noundef 0, i32 noundef 2, i32 noundef -1) #6
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %70, label %.lr.ph.split
+  %67 = call ptr @coerce_type(ptr noundef %2, ptr noundef %35, i32 noundef %66, i32 noundef %.2, i32 noundef -1, i32 noundef 0, i32 noundef 2, i32 noundef -1) #6
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %69, label %.lr.ph.split
 
-70:                                               ; preds = %66
-  %71 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  call void @llvm.assume(i1 %71)
-  %72 = call i32 @errcode(i32 noundef 67141764) #6
-  %73 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #6
-  %74 = call i32 @exprLocation(ptr noundef null) #6
-  %75 = call i32 @parser_errposition(ptr noundef %2, i32 noundef %74) #6
+69:                                               ; preds = %65
+  %70 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  call void @llvm.assume(i1 %70)
+  %71 = call i32 @errcode(i32 noundef 67141764) #6
+  %72 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #6
+  %73 = call i32 @exprLocation(ptr noundef null) #6
+  %74 = call i32 @parser_errposition(ptr noundef %2, i32 noundef %73) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 140, ptr noundef nonnull @__func__.jsonb_subscript_transform) #6
   unreachable
 
-76:                                               ; preds = %.lr.ph111
-  %77 = getelementptr inbounds i8, ptr %20, i64 16
-  %78 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  call void @llvm.assume(i1 %78)
-  %79 = call i32 @errcode(i32 noundef 67141764) #6
-  %80 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
-  %81 = load ptr, ptr %77, align 8
-  %82 = call i32 @exprLocation(ptr noundef %81) #6
-  %83 = call i32 @parser_errposition(ptr noundef %2, i32 noundef %82) #6
+75:                                               ; preds = %.lr.ph111
+  %76 = getelementptr inbounds i8, ptr %20, i64 16
+  %77 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  call void @llvm.assume(i1 %77)
+  %78 = call i32 @errcode(i32 noundef 67141764) #6
+  %79 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  %80 = load ptr, ptr %76, align 8
+  %81 = call i32 @exprLocation(ptr noundef %80) #6
+  %82 = call i32 @parser_errposition(ptr noundef %2, i32 noundef %81) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 152, ptr noundef nonnull @__func__.jsonb_subscript_transform) #6
   unreachable
 
-.lr.ph.split:                                     ; preds = %66
-  %84 = call ptr @lappend(ptr noundef %.04276109, ptr noundef nonnull %68) #6
-  %85 = add nuw i32 %.sroa.4.075110, 1
-  %86 = load i32, ptr %8, align 4
-  %87 = icmp slt i32 %85, %86
-  br i1 %87, label %.lr.ph111, label %._crit_edge
+.lr.ph.split:                                     ; preds = %65
+  %83 = call ptr @lappend(ptr noundef %.04276109, ptr noundef nonnull %67) #6
+  %84 = add nuw i32 %.sroa.4.075110, 1
+  %85 = load i32, ptr %8, align 4
+  %86 = icmp slt i32 %84, %85
+  br i1 %86, label %.lr.ph111, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.preheader, %.lr.ph.split.us, %5
-  %.042.lcssa = phi ptr [ null, %5 ], [ null, %.lr.ph.split.us ], [ null, %.lr.ph.split.preheader ], [ %84, %.lr.ph.split ]
-  %88 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.042.lcssa, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr null, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 3802, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 -1, ptr %91, align 8
+  %.042.lcssa = phi ptr [ null, %5 ], [ null, %.lr.ph.split.us ], [ null, %.lr.ph.split.preheader ], [ %83, %.lr.ph.split ]
+  %87 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %.042.lcssa, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr null, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 3802, ptr %89, align 4
+  %90 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 -1, ptr %90, align 8
   ret void
 }
 

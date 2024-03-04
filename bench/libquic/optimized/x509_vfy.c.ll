@@ -1371,6 +1371,8 @@ entry:
   %type = getelementptr inbounds i8, ptr %ctm, i64 4
   %2 = load i32, ptr %type, align 4
   %cmp = icmp eq i32 %2, 23
+  %.sink108.sroa.gep = getelementptr inbounds i8, ptr %buff1, i64 12
+  %.sink108.sroa.gep109 = getelementptr inbounds i8, ptr %buff1, i64 10
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1392,9 +1394,9 @@ if.end11:                                         ; preds = %if.else
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end11, %if.end
+  %.sink108.sroa.phi = phi ptr [ %.sink108.sroa.gep, %if.end11 ], [ %.sink108.sroa.gep109, %if.end ]
   %.sink108 = phi i64 [ 12, %if.end11 ], [ 10, %if.end ]
   %.sink = phi i32 [ -12, %if.end11 ], [ -10, %if.end ]
-  %add.ptr12 = getelementptr inbounds i8, ptr %buff1, i64 %.sink108
   %add.ptr13 = getelementptr inbounds i8, ptr %1, i64 %.sink108
   %sub14 = add nsw i32 %0, %.sink
   %5 = load i8, ptr %add.ptr13, align 1
@@ -1405,8 +1407,8 @@ if.end15:                                         ; preds = %if.end11, %if.end
   ]
 
 if.then26:                                        ; preds = %if.end15, %if.end15, %if.end15
-  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr12, i64 1
-  store i8 48, ptr %add.ptr12, align 2
+  %incdec.ptr = getelementptr inbounds i8, ptr %.sink108.sroa.phi, i64 1
+  store i8 48, ptr %.sink108.sroa.phi, align 2
   store i8 48, ptr %incdec.ptr, align 1
   br label %if.end58.thread
 
@@ -1416,8 +1418,8 @@ if.else28:                                        ; preds = %if.end15
 
 if.end32:                                         ; preds = %if.else28
   %incdec.ptr33 = getelementptr inbounds i8, ptr %add.ptr13, i64 1
-  %incdec.ptr34 = getelementptr inbounds i8, ptr %add.ptr12, i64 1
-  store i8 %5, ptr %add.ptr12, align 2
+  %incdec.ptr34 = getelementptr inbounds i8, ptr %.sink108.sroa.phi, i64 1
+  store i8 %5, ptr %.sink108.sroa.phi, align 2
   %6 = load i8, ptr %incdec.ptr33, align 1
   store i8 %6, ptr %incdec.ptr34, align 1
   %sub37 = add nsw i32 %sub14, -2
@@ -1425,8 +1427,8 @@ if.end32:                                         ; preds = %if.else28
   br i1 %tobool.not, label %if.end58.thread87, label %land.lhs.true
 
 if.end58.thread87:                                ; preds = %if.end32
-  %p.190 = getelementptr inbounds i8, ptr %add.ptr12, i64 2
-  %incdec.ptr5991 = getelementptr inbounds i8, ptr %add.ptr12, i64 3
+  %p.190 = getelementptr inbounds i8, ptr %.sink108.sroa.phi, i64 2
+  %incdec.ptr5991 = getelementptr inbounds i8, ptr %.sink108.sroa.phi, i64 3
   store i8 90, ptr %p.190, align 2
   store i8 0, ptr %incdec.ptr5991, align 1
   br label %return
@@ -1443,8 +1445,8 @@ if.then41:                                        ; preds = %land.lhs.true
   br i1 %tobool4594.not, label %if.end58.thread101, label %for.body.preheader
 
 if.end58.thread101:                               ; preds = %if.then41
-  %p.1104 = getelementptr inbounds i8, ptr %add.ptr12, i64 2
-  %incdec.ptr59105 = getelementptr inbounds i8, ptr %add.ptr12, i64 3
+  %p.1104 = getelementptr inbounds i8, ptr %.sink108.sroa.phi, i64 2
+  %incdec.ptr59105 = getelementptr inbounds i8, ptr %.sink108.sroa.phi, i64 3
   store i8 90, ptr %p.1104, align 2
   store i8 0, ptr %incdec.ptr59105, align 1
   br label %return
@@ -1474,8 +1476,8 @@ for.inc:                                          ; preds = %for.body
 if.end58.thread:                                  ; preds = %if.then26, %land.lhs.true
   %remaining.2.ph = phi i32 [ %sub37, %land.lhs.true ], [ %sub14, %if.then26 ]
   %str.2.ph = phi ptr [ %incdec.ptr35, %land.lhs.true ], [ %add.ptr13, %if.then26 ]
-  %p.182 = getelementptr inbounds i8, ptr %add.ptr12, i64 2
-  %incdec.ptr5983 = getelementptr inbounds i8, ptr %add.ptr12, i64 3
+  %p.182 = getelementptr inbounds i8, ptr %.sink108.sroa.phi, i64 2
+  %incdec.ptr5983 = getelementptr inbounds i8, ptr %.sink108.sroa.phi, i64 3
   store i8 90, ptr %p.182, align 2
   store i8 0, ptr %incdec.ptr5983, align 1
   br label %if.end63
@@ -1483,8 +1485,8 @@ if.end58.thread:                                  ; preds = %if.then26, %land.lh
 if.end58:                                         ; preds = %for.inc, %for.body
   %remaining.1.lcssa = phi i32 [ %dec56, %for.inc ], [ %remaining.196, %for.body ]
   %str.1.lcssa = phi ptr [ %incdec.ptr55, %for.inc ], [ %str.197, %for.body ]
-  %p.1 = getelementptr inbounds i8, ptr %add.ptr12, i64 2
-  %incdec.ptr59 = getelementptr inbounds i8, ptr %add.ptr12, i64 3
+  %p.1 = getelementptr inbounds i8, ptr %.sink108.sroa.phi, i64 2
+  %incdec.ptr59 = getelementptr inbounds i8, ptr %.sink108.sroa.phi, i64 3
   store i8 90, ptr %p.1, align 2
   store i8 0, ptr %incdec.ptr59, align 1
   %tobool61.not = icmp eq i32 %remaining.1.lcssa, 0

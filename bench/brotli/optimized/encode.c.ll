@@ -6855,6 +6855,10 @@ entry:
   %cmp = icmp slt i32 %quality, 5
   %cmp1 = icmp ult i64 %length, 64
   %or.cond = or i1 %cmp1, %cmp
+  %population.addr.i98.1.idx.i.sroa.gep = getelementptr inbounds i8, ptr %two_prefix_histo.i, i64 4
+  %population.addr.i98.1.idx.i.sroa.gep53 = getelementptr inbounds i8, ptr %two_prefix_histo.i, i64 12
+  %population.addr.i132.1.idx.i.sroa.gep = getelementptr inbounds i8, ptr %monogram_histo.i, i64 12
+  %population.addr.i132.1.idx.i.sroa.gep54 = getelementptr inbounds i8, ptr %monogram_histo.i, i64 4
   br i1 %or.cond, label %if.end32, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -6863,7 +6867,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i, label %if.else.if.else3_crit_edge, label %if.else.i
 
 if.else.if.else3_crit_edge:                       ; preds = %if.else
-  %.pre74 = add i64 %start_pos, 64
+  %.pre76 = add i64 %start_pos, 64
   br label %if.else3
 
 if.else.i:                                        ; preds = %if.else
@@ -7130,20 +7134,20 @@ ShouldUseComplexStaticContextMap.exit:            ; preds = %lor.lhs.false.i
   br label %if.end32
 
 if.else3:                                         ; preds = %if.else.if.else3_crit_edge, %lor.lhs.false.i, %for.end49.i
-  %add464.pre-phi = phi i64 [ %.pre74, %if.else.if.else3_crit_edge ], [ %add181.i, %lor.lhs.false.i ], [ %add181.i, %for.end49.i ]
+  %add466.pre-phi = phi i64 [ %.pre76, %if.else.if.else3_crit_edge ], [ %add181.i, %lor.lhs.false.i ], [ %add181.i, %for.end49.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arena, i8 0, i64 36, i1 false)
-  %cmp5.not65 = icmp ugt i64 %add464.pre-phi, %.pre
-  br i1 %cmp5.not65, label %for.end30, label %for.body
+  %cmp5.not67 = icmp ugt i64 %add466.pre-phi, %.pre
+  br i1 %cmp5.not67, label %for.end30, label %for.body
 
 for.body:                                         ; preds = %if.else3, %for.inc28
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc28 ], [ %add464.pre-phi, %if.else3 ]
-  %start_pos.addr.066 = phi i64 [ %add29, %for.inc28 ], [ %start_pos, %if.else3 ]
-  %pos.060 = add i64 %start_pos.addr.066, 1
-  %cmp1061 = icmp ult i64 %pos.060, %indvars.iv
-  br i1 %cmp1061, label %for.body12.preheader, label %for.inc28
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc28 ], [ %add466.pre-phi, %if.else3 ]
+  %start_pos.addr.068 = phi i64 [ %add29, %for.inc28 ], [ %start_pos, %if.else3 ]
+  %pos.062 = add i64 %start_pos.addr.068, 1
+  %cmp1063 = icmp ult i64 %pos.062, %indvars.iv
+  br i1 %cmp1063, label %for.body12.preheader, label %for.inc28
 
 for.body12.preheader:                             ; preds = %for.body
-  %and = and i64 %start_pos.addr.066, %mask
+  %and = and i64 %start_pos.addr.068, %mask
   %arrayidx = getelementptr inbounds i8, ptr %input, i64 %and
   %27 = load i8, ptr %arrayidx, align 1
   %28 = lshr i8 %27, 6
@@ -7154,9 +7158,9 @@ for.body12.preheader:                             ; preds = %for.body
 
 for.body12:                                       ; preds = %for.body12.preheader, %for.body12
   %prev.0.in = phi i32 [ %31, %for.body12 ], [ %prev.0.in.pre, %for.body12.preheader ]
-  %pos.063 = phi i64 [ %pos.0, %for.body12 ], [ %pos.060, %for.body12.preheader ]
+  %pos.065 = phi i64 [ %pos.0, %for.body12 ], [ %pos.062, %for.body12.preheader ]
   %prev.0 = mul nsw i32 %prev.0.in, 3
-  %and13 = and i64 %pos.063, %mask
+  %and13 = and i64 %pos.065, %mask
   %arrayidx14 = getelementptr inbounds i8, ptr %input, i64 %and13
   %29 = load i8, ptr %arrayidx14, align 1
   %30 = lshr i8 %29, 6
@@ -7169,12 +7173,12 @@ for.body12:                                       ; preds = %for.body12.preheade
   %32 = load i32, ptr %arrayidx21, align 4
   %inc = add i32 %32, 1
   store i32 %inc, ptr %arrayidx21, align 4
-  %pos.0 = add nuw i64 %pos.063, 1
+  %pos.0 = add nuw i64 %pos.065, 1
   %exitcond.not = icmp eq i64 %pos.0, %indvars.iv
   br i1 %exitcond.not, label %for.inc28, label %for.body12, !llvm.loop !139
 
 for.inc28:                                        ; preds = %for.body12, %for.body
-  %add29 = add i64 %start_pos.addr.066, 4096
+  %add29 = add i64 %start_pos.addr.068, 4096
   %indvars.iv.next = add i64 %indvars.iv, 4096
   %cmp5.not = icmp ugt i64 %indvars.iv.next, %.pre
   br i1 %cmp5.not, label %for.end30, label %for.body, !llvm.loop !140
@@ -7184,6 +7188,7 @@ for.end30:                                        ; preds = %for.inc28, %if.else
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %two_prefix_histo.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %monogram_histo.i, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %two_prefix_histo.i, i8 0, i64 24, i1 false)
+  %population.addr.i98.1.idx.sroa.gep127.i = getelementptr inbounds i8, ptr %two_prefix_histo.i, i64 8
   br label %for.body.i23
 
 for.body.i23:                                     ; preds = %for.body.i23, %for.end30
@@ -7206,10 +7211,14 @@ for.body.i23:                                     ; preds = %for.body.i23, %for.
   store i32 %add5.i, ptr %arrayidx4.i, align 4
   %inc.i = add nuw nsw i64 %i.0120.i, 1
   %exitcond.not.i26 = icmp eq i64 %inc.i, 9
-  br i1 %exitcond.not.i26, label %odd_number_of_elements_left.i157.i, label %for.body.i23, !llvm.loop !141
+  br i1 %exitcond.not.i26, label %odd_number_of_elements_left.i157.i.preheader, label %for.body.i23, !llvm.loop !141
+
+odd_number_of_elements_left.i157.i.preheader:     ; preds = %for.body.i23
+  %population.addr.i132.1.idx.sroa.gep.i = getelementptr inbounds i8, ptr %monogram_histo.i, i64 8
+  br label %odd_number_of_elements_left.i157.i
 
 while.body.i150.i:                                ; preds = %FastLog2.exit.i27
-  %36 = load i32, ptr %incdec.ptr3.i158.ptr.i, align 4
+  %36 = load i32, ptr %population.addr.i132.1.idx.i.sroa.phi, align 4
   %conv.i152.i = zext i32 %36 to i64
   %add.i153.i = add i64 %add5.i160.i, %conv.i152.i
   %conv2.i154.i = uitofp i32 %36 to double
@@ -7231,15 +7240,13 @@ FastLog2.exit179.i:                               ; preds = %if.end.i174.i, %if.
   %38 = tail call double @llvm.fmuladd.f64(double %neg.i156.i, double %retval.i171.0.i, double %41)
   br label %odd_number_of_elements_left.i157.i
 
-odd_number_of_elements_left.i157.i:               ; preds = %for.body.i23, %FastLog2.exit179.i
-  %retval1.i136.1.i = phi double [ %38, %FastLog2.exit179.i ], [ 0.000000e+00, %for.body.i23 ]
-  %sum.i135.1.i = phi i64 [ %add.i153.i, %FastLog2.exit179.i ], [ 0, %for.body.i23 ]
-  %cmp.i144.i = phi i1 [ false, %FastLog2.exit179.i ], [ true, %for.body.i23 ]
-  %population.addr.i132.1.idx.i = phi i64 [ 8, %FastLog2.exit179.i ], [ 0, %for.body.i23 ]
-  %population.addr.i132.1.ptr.i = getelementptr inbounds i8, ptr %monogram_histo.i, i64 %population.addr.i132.1.idx.i
-  %population.addr.i132.1.add.i = or disjoint i64 %population.addr.i132.1.idx.i, 4
-  %incdec.ptr3.i158.ptr.i = getelementptr inbounds i8, ptr %monogram_histo.i, i64 %population.addr.i132.1.add.i
-  %39 = load i32, ptr %population.addr.i132.1.ptr.i, align 4
+odd_number_of_elements_left.i157.i:               ; preds = %odd_number_of_elements_left.i157.i.preheader, %FastLog2.exit179.i
+  %retval1.i136.1.i = phi double [ %38, %FastLog2.exit179.i ], [ 0.000000e+00, %odd_number_of_elements_left.i157.i.preheader ]
+  %sum.i135.1.i = phi i64 [ %add.i153.i, %FastLog2.exit179.i ], [ 0, %odd_number_of_elements_left.i157.i.preheader ]
+  %cmp.i144.i = phi i1 [ false, %FastLog2.exit179.i ], [ true, %odd_number_of_elements_left.i157.i.preheader ]
+  %population.addr.i132.1.idx.sroa.phi.i = phi ptr [ %population.addr.i132.1.idx.sroa.gep.i, %FastLog2.exit179.i ], [ %monogram_histo.i, %odd_number_of_elements_left.i157.i.preheader ]
+  %population.addr.i132.1.idx.i.sroa.phi = phi ptr [ %population.addr.i132.1.idx.i.sroa.gep, %FastLog2.exit179.i ], [ %population.addr.i132.1.idx.i.sroa.gep54, %odd_number_of_elements_left.i157.i.preheader ]
+  %39 = load i32, ptr %population.addr.i132.1.idx.sroa.phi.i, align 4
   %conv4.i159.i = zext i32 %39 to i64
   %add5.i160.i = add i64 %sum.i135.1.i, %conv4.i159.i
   %conv6.i161.i = uitofp i32 %39 to double
@@ -7289,7 +7296,7 @@ ShannonEntropy.exit165.i:                         ; preds = %FastLog2.exit188.i,
   br label %odd_number_of_elements_left.i123.i
 
 while.body.i116.i:                                ; preds = %FastLog2.exit197.i
-  %44 = load i32, ptr %incdec.ptr3.i124.ptr.i, align 4
+  %44 = load i32, ptr %population.addr.i98.1.idx.i.sroa.phi, align 4
   %conv.i118.i = zext i32 %44 to i64
   %add.i119.i = add i64 %add5.i126.i, %conv.i118.i
   %conv2.i120.i = uitofp i32 %44 to double
@@ -7313,13 +7320,11 @@ FastLog2.exit206.i:                               ; preds = %if.end.i201.i, %if.
 
 odd_number_of_elements_left.i123.i:               ; preds = %FastLog2.exit206.i, %ShannonEntropy.exit165.i
   %cmp.i110.i = phi i1 [ true, %ShannonEntropy.exit165.i ], [ false, %FastLog2.exit206.i ]
-  %population.addr.i98.1.idx.i = phi i64 [ 0, %ShannonEntropy.exit165.i ], [ 8, %FastLog2.exit206.i ]
+  %population.addr.i98.1.idx.sroa.phi.i = phi ptr [ %two_prefix_histo.i, %ShannonEntropy.exit165.i ], [ %population.addr.i98.1.idx.sroa.gep127.i, %FastLog2.exit206.i ]
+  %population.addr.i98.1.idx.i.sroa.phi = phi ptr [ %population.addr.i98.1.idx.i.sroa.gep, %ShannonEntropy.exit165.i ], [ %population.addr.i98.1.idx.i.sroa.gep53, %FastLog2.exit206.i ]
   %sum.i101.1.i = phi i64 [ 0, %ShannonEntropy.exit165.i ], [ %add.i119.i, %FastLog2.exit206.i ]
   %retval1.i102.1.i = phi double [ 0.000000e+00, %ShannonEntropy.exit165.i ], [ %46, %FastLog2.exit206.i ]
-  %population.addr.i98.1.ptr.i = getelementptr inbounds i8, ptr %two_prefix_histo.i, i64 %population.addr.i98.1.idx.i
-  %population.addr.i98.1.add.i = or disjoint i64 %population.addr.i98.1.idx.i, 4
-  %incdec.ptr3.i124.ptr.i = getelementptr inbounds i8, ptr %two_prefix_histo.i, i64 %population.addr.i98.1.add.i
-  %47 = load i32, ptr %population.addr.i98.1.ptr.i, align 8
+  %47 = load i32, ptr %population.addr.i98.1.idx.sroa.phi.i, align 4
   %conv4.i125.i = zext i32 %47 to i64
   %add5.i126.i = add i64 %sum.i101.1.i, %conv4.i125.i
   %conv6.i127.i = uitofp i32 %47 to double
@@ -7541,11 +7546,9 @@ ShannonEntropy.exit.i40:                          ; preds = %FastLog2.exit268.i,
 for.end23.i:                                      ; preds = %ShannonEntropy.exit.i40
   %add11.i = fadd double %retval1.i102.2.i, %retval1.i68.2.i
   %68 = load i32, ptr %monogram_histo.i, align 4
-  %arrayidx25.i = getelementptr inbounds i8, ptr %monogram_histo.i, i64 4
-  %69 = load i32, ptr %arrayidx25.i, align 4
+  %69 = load i32, ptr %population.addr.i132.1.idx.i.sroa.gep54, align 4
   %add26.i = add i32 %69, %68
-  %arrayidx27.i = getelementptr inbounds i8, ptr %monogram_histo.i, i64 8
-  %70 = load i32, ptr %arrayidx27.i, align 4
+  %70 = load i32, ptr %population.addr.i132.1.idx.sroa.gep.i, align 4
   %add28.i42 = add i32 %add26.i, %70
   %conv29.i = uitofp i32 %add28.i42 to double
   %div.i43 = fdiv double 1.000000e+00, %conv29.i

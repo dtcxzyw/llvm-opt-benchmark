@@ -5811,9 +5811,9 @@ if.then118:                                       ; preds = %if.then114
 if.end121:                                        ; preds = %if.then114, %cond.end106
   %allocrhs.0 = phi ptr [ null, %cond.end106 ], [ %call116, %if.then114 ]
   %newrhs.0 = phi ptr [ %bufr, %cond.end106 ], [ %call116, %if.then114 ]
-  %newrhs.0.sroa.phi = getelementptr inbounds i8, ptr %newrhs.0, i64 4
   %call122 = call ptr @uprv_decNumberCopy_75(ptr noundef nonnull %newrhs.0, ptr noundef nonnull %rhs)
-  store i32 %sub87, ptr %newrhs.0.sroa.phi, align 4
+  %exponent123 = getelementptr inbounds i8, ptr %newrhs.0, i64 4
+  store i32 %sub87, ptr %exponent123, align 4
   %.pre = load i32, ptr %newrhs.0, align 4
   br label %if.end124
 
@@ -5889,7 +5889,6 @@ if.then190:                                       ; preds = %if.then186
 if.end193:                                        ; preds = %if.then186, %cond.end177
   %allocbuft.0 = phi ptr [ null, %cond.end177 ], [ %call188, %if.then186 ]
   %t.0 = phi ptr [ %buft, %cond.end177 ], [ %call188, %if.then186 ]
-  %t.0.sroa.phi223 = getelementptr inbounds i8, ptr %t.0, i64 4
   %call194 = call ptr @uprv_decNumberCopy_75(ptr noundef nonnull %t.0, ptr noundef nonnull %x.0)
   %bits.i165 = getelementptr inbounds i8, ptr %a.0, i64 8
   store i8 0, ptr %bits.i165, align 4
@@ -5915,6 +5914,7 @@ if.end193:                                        ; preds = %if.then186, %cond.e
   store i32 %add135, ptr %tset, align 4
   %emin208 = getelementptr inbounds i8, ptr %tset, i64 8
   store i32 -999999999, ptr %emin208, align 4
+  %exponent216 = getelementptr inbounds i8, ptr %t.0, i64 4
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end225, %if.end193
@@ -5925,7 +5925,7 @@ for.cond:                                         ; preds = %if.end225, %if.end1
   %36 = load i32, ptr %exponent.i166, align 4
   %add214 = add nsw i32 %36, %35
   %37 = load i32, ptr %t.0, align 4
-  %38 = load i32, ptr %t.0.sroa.phi223, align 4
+  %38 = load i32, ptr %exponent216, align 4
   %add217 = add i32 %37, %add135
   %add218 = add i32 %add217, %38
   %cmp220.not.not = icmp sle i32 %add214, %add218

@@ -1244,6 +1244,8 @@ if.then:                                          ; preds = %entry
   %call11.i.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv.i.i, i64 noundef 4) #15
   %sub.i.i = add i32 %call1.i.i, -1
   %cmp4.i.i = icmp sgt i32 %sub.i.i, -1
+  %indvars.iv5.i.sroa.gep120.i = getelementptr inbounds i8, ptr %qdt_tmp38.i.i, i64 4
+  %indvars.iv.i31.sroa.gep121.i = getelementptr inbounds i8, ptr %qdt_tmp.i19.i, i64 4
   br i1 %cmp4.i.i, label %for.body.lr.ph.i.i, label %for.end.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.then
@@ -1978,7 +1980,6 @@ create_fdt_sockets.exit.i:                        ; preds = %for.inc90.i.i, %for
   %arrayinit.element.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i, i64 4
   %arrayinit.element14.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i, i64 8
   %arrayinit.element15.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i, i64 12
-  %arrayinit.element41.i.i = getelementptr inbounds i8, ptr %qdt_tmp38.i.i, i64 4
   br label %for.body.i9.i
 
 for.body.i9.i:                                    ; preds = %if.end.i.i, %create_fdt_sockets.exit.i
@@ -2028,7 +2029,7 @@ do.body37.i.i:                                    ; preds = %for.end.i14.i
   %137 = trunc i64 %136 to i32
   %138 = call noundef i32 @llvm.bswap.i32(i32 %137)
   store i32 %138, ptr %qdt_tmp38.i.i, align 4
-  store i32 67108864, ptr %arrayinit.element41.i.i, align 4
+  store i32 67108864, ptr %indvars.iv5.i.sroa.gep120.i, align 4
   %139 = load ptr, ptr %fdt.i7.i, align 8
   %call58.i.i = call i32 @qemu_fdt_setprop(ptr noundef %139, ptr noundef %call2.i10.i, ptr noundef nonnull @.str.147, ptr noundef nonnull %qdt_tmp38.i.i, i32 noundef 8) #13
   br label %if.end.i.i
@@ -2062,9 +2063,8 @@ create_fdt_virtio.exit.i:                         ; preds = %if.end.i.i
   %call12.i.i = call i32 @qemu_fdt_setprop_string(ptr noundef %145, ptr noundef %call1.i21.i, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.150) #13
   %146 = load ptr, ptr %fdt.i22.i, align 8
   %call14.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %146, ptr noundef %call1.i21.i, ptr noundef nonnull @.str.151, i32 noundef 0) #13
-  %arrayinit.element.i28.i = getelementptr inbounds i8, ptr %qdt_tmp.i19.i, i64 4
   store i32 0, ptr %qdt_tmp.i19.i, align 4
-  store i32 -16777216, ptr %arrayinit.element.i28.i, align 4
+  store i32 -16777216, ptr %indvars.iv.i31.sroa.gep121.i, align 4
   %147 = load ptr, ptr %fdt.i22.i, align 8
   %call23.i.i = call i32 @qemu_fdt_setprop(ptr noundef %147, ptr noundef %call1.i21.i, ptr noundef nonnull @.str.152, ptr noundef nonnull %qdt_tmp.i19.i, i32 noundef 8) #13
   %148 = load ptr, ptr %fdt.i22.i, align 8

@@ -2268,14 +2268,14 @@ define dso_local noundef ptr @create_memoize_path(ptr nocapture noundef readnone
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @create_unique_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.Path, align 8
-  %.sroa.gep140 = getelementptr inbounds i8, ptr %5, i64 56
-  %.sroa.gep = getelementptr inbounds i8, ptr %5, i64 48
   %6 = alloca %struct.Path, align 8
-  %.sroa.gep141 = getelementptr inbounds i8, ptr %6, i64 56
-  %.sroa.gep138 = getelementptr inbounds i8, ptr %6, i64 48
   %7 = getelementptr inbounds i8, ptr %1, i64 80
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
+  %.sink137.sroa.gep = getelementptr inbounds i8, ptr %5, i64 48
+  %.sink137.sroa.gep138 = getelementptr inbounds i8, ptr %6, i64 48
+  %.sink137.sroa.gep140 = getelementptr inbounds i8, ptr %5, i64 56
+  %.sink137.sroa.gep141 = getelementptr inbounds i8, ptr %6, i64 56
   br i1 %.not, label %9, label %227
 
 9:                                                ; preds = %4
@@ -2629,8 +2629,8 @@ list_length.exit:                                 ; preds = %translate_sub_tlist
   br label %222
 
 222:                                              ; preds = %221, %220
-  %.sink137.sroa.phi = phi ptr [ %.sroa.gep, %221 ], [ %.sroa.gep138, %220 ]
-  %.sink137.sroa.phi139 = phi ptr [ %.sroa.gep140, %221 ], [ %.sroa.gep141, %220 ]
+  %.sink137.sroa.phi = phi ptr [ %.sink137.sroa.gep, %221 ], [ %.sink137.sroa.gep138, %220 ]
+  %.sink137.sroa.phi139 = phi ptr [ %.sink137.sroa.gep140, %221 ], [ %.sink137.sroa.gep141, %220 ]
   %223 = load double, ptr %.sink137.sroa.phi, align 8
   %224 = getelementptr inbounds i8, ptr %20, i64 48
   store double %223, ptr %224, align 8
@@ -2727,15 +2727,15 @@ define dso_local noundef ptr @create_gather_merge_path(ptr noundef %0, ptr nound
   br label %43
 
 43:                                               ; preds = %23, %34
-  %.sink44 = phi ptr [ %8, %34 ], [ %2, %23 ]
-  %44 = getelementptr inbounds i8, ptr %.sink44, i64 48
-  %45 = load double, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.sink44, i64 56
-  %47 = load double, ptr %46, align 8
-  %.0 = fadd double %47, 0.000000e+00
-  %.041 = fadd double %45, 0.000000e+00
-  %48 = load ptr, ptr %13, align 8
-  call void @cost_gather_merge(ptr noundef nonnull %9, ptr noundef %0, ptr noundef %1, ptr noundef %48, double noundef %.041, double noundef %.0, ptr noundef %6) #10
+  %.pn = phi ptr [ %8, %34 ], [ %2, %23 ]
+  %.sink44.sroa.phi46 = getelementptr inbounds i8, ptr %.pn, i64 56
+  %.sink44.sroa.phi = getelementptr inbounds i8, ptr %.pn, i64 48
+  %44 = load double, ptr %.sink44.sroa.phi, align 8
+  %45 = load double, ptr %.sink44.sroa.phi46, align 8
+  %.0 = fadd double %45, 0.000000e+00
+  %.041 = fadd double %44, 0.000000e+00
+  %46 = load ptr, ptr %13, align 8
+  call void @cost_gather_merge(ptr noundef nonnull %9, ptr noundef %0, ptr noundef %1, ptr noundef %46, double noundef %.041, double noundef %.0, ptr noundef %6) #10
   ret ptr %9
 }
 

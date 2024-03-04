@@ -1873,6 +1873,7 @@ cond.end26:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.not = icmp eq i64 %sub.ptr.sub.i, 8
+  %indvars.iv.sroa.gep1856 = getelementptr inbounds i8, ptr %prePost, i64 8
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %cond.end26
@@ -3689,9 +3690,8 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %invoke.cont526, %if
 
 for.body:                                         ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1724
   %cmp537 = phi i1 [ true, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1724 ]
-  %indvars.iv = phi i64 [ 0, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1724 ]
-  %arrayidx530 = getelementptr inbounds [2 x %"class.cvc5::internal::NodeTemplate"], ptr %prePost, i64 0, i64 %indvars.iv
-  %188 = load ptr, ptr %arrayidx530, align 8
+  %indvars.iv.sroa.phi = phi ptr [ %prePost, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ %indvars.iv.sroa.gep1856, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1724 ]
+  %188 = load ptr, ptr %indvars.iv.sroa.phi, align 8
   store ptr %188, ptr %node, align 8
   %bf.load.i.i1197 = load i64, ptr %188, align 8
   %bf.lshr.i.i1198 = lshr i64 %bf.load.i.i1197, 40

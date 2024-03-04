@@ -7947,19 +7947,7 @@ define void @_ZN7rocksdb7Version28GetAggregatedTablePropertiesERKNS_11ReadOption
 entry:
   %props = alloca %"class.std::unordered_map.397", align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
-  %ref.tmp.sroa.gep69 = getelementptr inbounds i8, ptr %ref.tmp, i64 2
-  %ref.tmp.sroa.gep66 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
-  %ref.tmp.sroa.gep63 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %ref.tmp.sroa.gep60 = getelementptr inbounds i8, ptr %ref.tmp, i64 5
-  %ref.tmp.sroa.gep57 = getelementptr inbounds i8, ptr %ref.tmp, i64 3
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %ref.tmp4 = alloca %"class.rocksdb::Status", align 8
-  %ref.tmp4.sroa.gep70 = getelementptr inbounds i8, ptr %ref.tmp4, i64 2
-  %ref.tmp4.sroa.gep67 = getelementptr inbounds i8, ptr %ref.tmp4, i64 4
-  %ref.tmp4.sroa.gep64 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
-  %ref.tmp4.sroa.gep61 = getelementptr inbounds i8, ptr %ref.tmp4, i64 5
-  %ref.tmp4.sroa.gep58 = getelementptr inbounds i8, ptr %ref.tmp4, i64 3
-  %ref.tmp4.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp4, i64 1
   %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %props, i64 48
   store ptr %_M_single_bucket.i.i, ptr %props, align 8
   %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %props, i64 8
@@ -7971,6 +7959,18 @@ entry:
   %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %props, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
   %cmp = icmp slt i32 %level, 0
+  %ref.tmp.sink55.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 1
+  %ref.tmp.sink55.sroa.gep56 = getelementptr inbounds i8, ptr %ref.tmp4, i64 1
+  %ref.tmp.sink55.sroa.gep58 = getelementptr inbounds i8, ptr %ref.tmp, i64 3
+  %ref.tmp.sink55.sroa.gep59 = getelementptr inbounds i8, ptr %ref.tmp4, i64 3
+  %ref.tmp.sink55.sroa.gep61 = getelementptr inbounds i8, ptr %ref.tmp, i64 5
+  %ref.tmp.sink55.sroa.gep62 = getelementptr inbounds i8, ptr %ref.tmp4, i64 5
+  %ref.tmp.sink55.sroa.gep64 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %ref.tmp.sink55.sroa.gep65 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
+  %ref.tmp.sink55.sroa.gep67 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %ref.tmp.sink55.sroa.gep68 = getelementptr inbounds i8, ptr %ref.tmp4, i64 4
+  %ref.tmp.sink55.sroa.gep70 = getelementptr inbounds i8, ptr %ref.tmp, i64 2
+  %ref.tmp.sink55.sroa.gep71 = getelementptr inbounds i8, ptr %ref.tmp4, i64 2
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -8017,22 +8017,22 @@ _ZN7rocksdb6StatusD2Ev.exit29:                    ; preds = %if.else
   br label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %_ZN7rocksdb6StatusD2Ev.exit29
+  %ref.tmp.sink55.sroa.phi = phi ptr [ %ref.tmp.sink55.sroa.gep, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink55.sroa.gep56, %_ZN7rocksdb6StatusD2Ev.exit29 ]
+  %ref.tmp.sink55.sroa.phi57 = phi ptr [ %ref.tmp.sink55.sroa.gep58, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink55.sroa.gep59, %_ZN7rocksdb6StatusD2Ev.exit29 ]
+  %ref.tmp.sink55.sroa.phi60 = phi ptr [ %ref.tmp.sink55.sroa.gep61, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink55.sroa.gep62, %_ZN7rocksdb6StatusD2Ev.exit29 ]
+  %ref.tmp.sink55.sroa.phi63 = phi ptr [ %ref.tmp.sink55.sroa.gep64, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink55.sroa.gep65, %_ZN7rocksdb6StatusD2Ev.exit29 ]
+  %ref.tmp.sink55.sroa.phi66 = phi ptr [ %ref.tmp.sink55.sroa.gep67, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink55.sroa.gep68, %_ZN7rocksdb6StatusD2Ev.exit29 ]
+  %ref.tmp.sink55.sroa.phi69 = phi ptr [ %ref.tmp.sink55.sroa.gep70, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink55.sroa.gep71, %_ZN7rocksdb6StatusD2Ev.exit29 ]
   %s.sroa.0.0 = phi i8 [ %0, %_ZN7rocksdb6StatusD2Ev.exit ], [ %1, %_ZN7rocksdb6StatusD2Ev.exit29 ]
-  %ref.tmp.sink55.sroa.phi = phi ptr [ %ref.tmp.sroa.gep, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp4.sroa.gep, %_ZN7rocksdb6StatusD2Ev.exit29 ]
-  %ref.tmp.sink55.sroa.phi56 = phi ptr [ %ref.tmp.sroa.gep57, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp4.sroa.gep58, %_ZN7rocksdb6StatusD2Ev.exit29 ]
-  %ref.tmp.sink55.sroa.phi59 = phi ptr [ %ref.tmp.sroa.gep60, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp4.sroa.gep61, %_ZN7rocksdb6StatusD2Ev.exit29 ]
-  %ref.tmp.sink55.sroa.phi62 = phi ptr [ %ref.tmp.sroa.gep63, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp4.sroa.gep64, %_ZN7rocksdb6StatusD2Ev.exit29 ]
-  %ref.tmp.sink55.sroa.phi65 = phi ptr [ %ref.tmp.sroa.gep66, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp4.sroa.gep67, %_ZN7rocksdb6StatusD2Ev.exit29 ]
-  %ref.tmp.sink55.sroa.phi68 = phi ptr [ %ref.tmp.sroa.gep69, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp4.sroa.gep70, %_ZN7rocksdb6StatusD2Ev.exit29 ]
   %2 = load i8, ptr %ref.tmp.sink55.sroa.phi, align 1
-  %3 = load i8, ptr %ref.tmp.sink55.sroa.phi68, align 2
-  %4 = load i8, ptr %ref.tmp.sink55.sroa.phi56, align 1
-  %5 = load i8, ptr %ref.tmp.sink55.sroa.phi65, align 4
+  %3 = load i8, ptr %ref.tmp.sink55.sroa.phi69, align 2
+  %4 = load i8, ptr %ref.tmp.sink55.sroa.phi57, align 1
+  %5 = load i8, ptr %ref.tmp.sink55.sroa.phi66, align 4
   store <4 x i8> zeroinitializer, ptr %ref.tmp.sink55.sroa.phi, align 1
-  %6 = load i8, ptr %ref.tmp.sink55.sroa.phi59, align 1
-  store i8 0, ptr %ref.tmp.sink55.sroa.phi59, align 1
-  %7 = load ptr, ptr %ref.tmp.sink55.sroa.phi62, align 8
-  store ptr null, ptr %ref.tmp.sink55.sroa.phi62, align 8
+  %6 = load i8, ptr %ref.tmp.sink55.sroa.phi60, align 1
+  store i8 0, ptr %ref.tmp.sink55.sroa.phi60, align 1
+  %7 = load ptr, ptr %ref.tmp.sink55.sroa.phi63, align 8
+  store ptr null, ptr %ref.tmp.sink55.sroa.phi63, align 8
   %cmp.i = icmp eq i8 %s.sroa.0.0, 0
   br i1 %cmp.i, label %if.end10, label %if.then9
 
@@ -39836,6 +39836,8 @@ entry:
   %ref.tmp22 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp24 = alloca %"class.rocksdb::Slice", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fname) #35
+  %ref.tmp11.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
+  %ref.tmp11.sink.sroa.gep35 = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
   invoke void @_ZN7rocksdb15CurrentFileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %dbname)
           to label %invoke.cont unwind label %lpad
 
@@ -39945,10 +39947,10 @@ if.then21:                                        ; preds = %invoke.cont17
   br label %if.then21.invoke
 
 if.then21.invoke:                                 ; preds = %if.then8, %if.then21
+  %ref.tmp11.sink.sroa.phi = phi ptr [ %ref.tmp11.sink.sroa.gep, %if.then8 ], [ %ref.tmp11.sink.sroa.gep35, %if.then21 ]
   %ref.tmp11.sink = phi ptr [ %ref.tmp11, %if.then8 ], [ %ref.tmp24, %if.then21 ]
   %14 = phi ptr [ %ref.tmp9, %if.then8 ], [ %ref.tmp22, %if.then21 ]
-  %size_.i23 = getelementptr inbounds i8, ptr %ref.tmp11.sink, i64 8
-  store i64 0, ptr %size_.i23, align 8
+  store i64 0, ptr %ref.tmp11.sink.sroa.phi, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11.sink, i8 noundef zeroext 0)
           to label %cleanup unwind label %lpad4
 

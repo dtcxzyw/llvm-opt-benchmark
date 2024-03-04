@@ -17920,29 +17920,29 @@ entry:
   %ref.tmp122 = alloca %class.svector.11, align 8
   %agg.tmp133 = alloca %"class.sat::status", align 8
   %agg.tmp156 = alloca %"class.sat::status", align 8
-  %agg.tmp156.sroa.gep277 = getelementptr inbounds i8, ptr %agg.tmp156, i64 8
-  %agg.tmp156.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp156, i64 4
   %lit = alloca %"class.sat::literal", align 4
   %agg.tmp176 = alloca %"class.sat::status", align 8
-  %agg.tmp176.sroa.gep274 = getelementptr inbounds i8, ptr %agg.tmp176, i64 8
-  %agg.tmp176.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp176, i64 4
   %lit185 = alloca %"class.sat::literal", align 4
   %agg.tmp191 = alloca %"class.sat::status", align 8
-  %agg.tmp191.sroa.gep275 = getelementptr inbounds i8, ptr %agg.tmp191, i64 8
-  %agg.tmp191.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp191, i64 4
   %agg.tmp215 = alloca %"class.sat::status", align 8
-  %agg.tmp215.sroa.gep278 = getelementptr inbounds i8, ptr %agg.tmp215, i64 8
-  %agg.tmp215.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp215, i64 4
   %lit224 = alloca %"class.sat::literal", align 4
   %agg.tmp235 = alloca %"class.sat::status", align 8
-  %agg.tmp235.sroa.gep273 = getelementptr inbounds i8, ptr %agg.tmp235, i64 8
-  %agg.tmp235.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp235, i64 4
   %m_weights = getelementptr inbounds i8, ptr %this, i64 976
   %m_solver.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_solver.i, align 8
   %m_justification.i = getelementptr inbounds i8, ptr %0, i64 3448
   %1 = load ptr, ptr %m_justification.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
+  %agg.tmp235.sink265.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp235, i64 4
+  %agg.tmp235.sink265.sroa.gep272 = getelementptr inbounds i8, ptr %agg.tmp176, i64 4
+  %agg.tmp235.sink265.sroa.gep273 = getelementptr inbounds i8, ptr %agg.tmp191, i64 4
+  %agg.tmp235.sink265.sroa.gep275 = getelementptr inbounds i8, ptr %agg.tmp235, i64 8
+  %agg.tmp235.sink265.sroa.gep276 = getelementptr inbounds i8, ptr %agg.tmp176, i64 8
+  %agg.tmp235.sink265.sroa.gep277 = getelementptr inbounds i8, ptr %agg.tmp191, i64 8
+  %agg.tmp156.sink267.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp156, i64 4
+  %agg.tmp156.sink267.sroa.gep278 = getelementptr inbounds i8, ptr %agg.tmp215, i64 4
+  %agg.tmp156.sink267.sroa.gep280 = getelementptr inbounds i8, ptr %agg.tmp156, i64 8
+  %agg.tmp156.sink267.sroa.gep281 = getelementptr inbounds i8, ptr %agg.tmp215, i64 8
   br i1 %cmp.i.i, label %_ZNK3sat6solver8num_varsEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
@@ -18414,14 +18414,14 @@ invoke.cont196:                                   ; preds = %if.else163
   br label %invoke.cont196.invoke.invoke
 
 invoke.cont196.invoke.invoke:                     ; preds = %invoke.cont196, %invoke.cont181, %invoke.cont240
+  %agg.tmp235.sink265.sroa.phi = phi ptr [ %agg.tmp235.sink265.sroa.gep, %invoke.cont240 ], [ %agg.tmp235.sink265.sroa.gep272, %invoke.cont181 ], [ %agg.tmp235.sink265.sroa.gep273, %invoke.cont196 ]
+  %agg.tmp235.sink265.sroa.phi274 = phi ptr [ %agg.tmp235.sink265.sroa.gep275, %invoke.cont240 ], [ %agg.tmp235.sink265.sroa.gep276, %invoke.cont181 ], [ %agg.tmp235.sink265.sroa.gep277, %invoke.cont196 ]
   %agg.tmp235.sink265 = phi ptr [ %agg.tmp235, %invoke.cont240 ], [ %agg.tmp176, %invoke.cont181 ], [ %agg.tmp191, %invoke.cont196 ]
   %.sink264 = phi i32 [ %91, %invoke.cont240 ], [ %72, %invoke.cont181 ], [ %76, %invoke.cont196 ]
   %77 = phi ptr [ %88, %invoke.cont240 ], [ %69, %invoke.cont181 ], [ %73, %invoke.cont196 ]
   %78 = phi ptr [ %lit224, %invoke.cont240 ], [ %lit, %invoke.cont181 ], [ %lit185, %invoke.cont196 ]
-  %agg.tmp235.sink265.sroa.phi = phi ptr [ %agg.tmp235.sroa.gep, %invoke.cont240 ], [ %agg.tmp176.sroa.gep, %invoke.cont181 ], [ %agg.tmp191.sroa.gep, %invoke.cont196 ]
-  %agg.tmp235.sink265.sroa.phi272 = phi ptr [ %agg.tmp235.sroa.gep273, %invoke.cont240 ], [ %agg.tmp176.sroa.gep274, %invoke.cont181 ], [ %agg.tmp191.sroa.gep275, %invoke.cont196 ]
   store i32 %.sink264, ptr %agg.tmp235.sink265.sroa.phi, align 4
-  store ptr null, ptr %agg.tmp235.sink265.sroa.phi272, align 8
+  store ptr null, ptr %agg.tmp235.sink265.sroa.phi274, align 8
   %79 = invoke noundef ptr @_ZN3sat6solver9mk_clauseEjPNS_7literalENS_6statusE(ptr noundef nonnull align 8 dereferenceable(4408) %77, i32 noundef 1, ptr noundef nonnull %78, ptr noundef nonnull %agg.tmp235.sink265)
           to label %if.end243.invoke unwind label %lpad15.loopexit.split-lp.loopexit.split-lp
 
@@ -18453,13 +18453,13 @@ invoke.cont220:                                   ; preds = %if.then205
   br label %invoke.cont220.invoke
 
 invoke.cont220.invoke:                            ; preds = %invoke.cont159, %invoke.cont220
+  %agg.tmp156.sink267.sroa.phi = phi ptr [ %agg.tmp156.sink267.sroa.gep, %invoke.cont159 ], [ %agg.tmp156.sink267.sroa.gep278, %invoke.cont220 ]
+  %agg.tmp156.sink267.sroa.phi279 = phi ptr [ %agg.tmp156.sink267.sroa.gep280, %invoke.cont159 ], [ %agg.tmp156.sink267.sroa.gep281, %invoke.cont220 ]
   %agg.tmp156.sink267 = phi ptr [ %agg.tmp156, %invoke.cont159 ], [ %agg.tmp215, %invoke.cont220 ]
   %.sink266 = phi i32 [ %68, %invoke.cont159 ], [ %85, %invoke.cont220 ]
   %86 = phi ptr [ %67, %invoke.cont159 ], [ %82, %invoke.cont220 ]
-  %agg.tmp156.sink267.sroa.phi = phi ptr [ %agg.tmp156.sroa.gep, %invoke.cont159 ], [ %agg.tmp215.sroa.gep, %invoke.cont220 ]
-  %agg.tmp156.sink267.sroa.phi276 = phi ptr [ %agg.tmp156.sroa.gep277, %invoke.cont159 ], [ %agg.tmp215.sroa.gep278, %invoke.cont220 ]
   store i32 %.sink266, ptr %agg.tmp156.sink267.sroa.phi, align 4
-  store ptr null, ptr %agg.tmp156.sink267.sroa.phi276, align 8
+  store ptr null, ptr %agg.tmp156.sink267.sroa.phi279, align 8
   %87 = invoke noundef ptr @_ZN3sat6solver9mk_clauseEjPNS_7literalENS_6statusE(ptr noundef nonnull align 8 dereferenceable(4408) %86, i32 noundef 0, ptr noundef null, ptr noundef nonnull %agg.tmp156.sink267)
           to label %if.end243.invoke unwind label %lpad15.loopexit.split-lp.loopexit.split-lp
 

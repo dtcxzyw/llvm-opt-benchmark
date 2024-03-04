@@ -313,93 +313,91 @@ define internal i64 @php_sockop_read(ptr nocapture noundef %0, ptr noundef %1, i
 .thread64.thread:                                 ; preds = %21
   %25 = getelementptr inbounds i8, ptr %6, i64 24
   store i8 0, ptr %25, align 8
-  %..i.sroa.gep78 = getelementptr inbounds i8, ptr %6, i64 16
-  %26 = getelementptr inbounds i8, ptr %4, i64 4
-  %27 = getelementptr inbounds i8, ptr %4, i64 6
-  br label %php_pollfd_for.exit.i.preheader
+  br label %php_pollfd_for.exit.preheader.i
 
 .thread64:                                        ; preds = %17
   %.not56 = icmp eq i64 %19, -1
   %spec.select = select i1 %.not56, i32 0, i32 64
-  %28 = getelementptr inbounds i8, ptr %6, i64 24
-  store i8 0, ptr %28, align 8
-  %..i = select i1 %.not56, ptr null, ptr %18
-  %..i.sroa.gep = getelementptr inbounds i8, ptr %..i, i64 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 4
-  %30 = getelementptr inbounds i8, ptr %4, i64 6
-  br i1 %.not56, label %php_pollfd_for.exit.us.i, label %php_pollfd_for.exit.i.preheader
+  %26 = getelementptr inbounds i8, ptr %6, i64 24
+  store i8 0, ptr %26, align 8
+  br i1 %.not56, label %php_pollfd_for.exit.us.preheader.i, label %php_pollfd_for.exit.preheader.i
 
-php_pollfd_for.exit.i.preheader:                  ; preds = %.thread64.thread, %.thread64
-  %31 = phi ptr [ %27, %.thread64.thread ], [ %30, %.thread64 ]
-  %32 = phi ptr [ %26, %.thread64.thread ], [ %29, %.thread64 ]
-  %..i.sroa.gep82 = phi ptr [ %..i.sroa.gep78, %.thread64.thread ], [ %..i.sroa.gep, %.thread64 ]
-  %33 = phi ptr [ %25, %.thread64.thread ], [ %28, %.thread64 ]
+php_pollfd_for.exit.preheader.i:                  ; preds = %.thread64.thread, %.thread64
+  %27 = phi ptr [ %25, %.thread64.thread ], [ %26, %.thread64 ]
+  %28 = getelementptr inbounds i8, ptr %4, i64 4
+  %29 = getelementptr inbounds i8, ptr %4, i64 6
+  %30 = getelementptr inbounds i8, ptr %6, i64 16
   br label %php_pollfd_for.exit.i
 
-php_pollfd_for.exit.us.i:                         ; preds = %.thread64, %42
-  %34 = load i32, ptr %6, align 8
+php_pollfd_for.exit.us.preheader.i:               ; preds = %.thread64
+  %31 = getelementptr inbounds i8, ptr %4, i64 4
+  %32 = getelementptr inbounds i8, ptr %4, i64 6
+  br label %php_pollfd_for.exit.us.i
+
+php_pollfd_for.exit.us.i:                         ; preds = %41, %php_pollfd_for.exit.us.preheader.i
+  %33 = load i32, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store i32 %34, ptr %4, align 4
-  store i16 25, ptr %29, align 4
-  store i16 0, ptr %30, align 2
-  %35 = call i32 @poll(ptr noundef nonnull %4, i64 noundef 1, i32 noundef -1) #14
-  %36 = icmp sgt i32 %35, 0
-  %37 = load i16, ptr %30, align 2
-  %38 = sext i16 %37 to i32
-  %.0.i.us.i = select i1 %36, i32 %38, i32 %35
+  store i32 %33, ptr %4, align 4
+  store i16 25, ptr %31, align 4
+  store i16 0, ptr %32, align 2
+  %34 = call i32 @poll(ptr noundef nonnull %4, i64 noundef 1, i32 noundef -1) #14
+  %35 = icmp sgt i32 %34, 0
+  %36 = load i16, ptr %32, align 2
+  %37 = sext i16 %36 to i32
+  %.0.i.us.i = select i1 %35, i32 %37, i32 %34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %39 = icmp eq i32 %.0.i.us.i, 0
-  br i1 %39, label %php_sock_stream_wait_for_data.exit.thread, label %40
+  %38 = icmp eq i32 %.0.i.us.i, 0
+  br i1 %38, label %php_sock_stream_wait_for_data.exit.thread, label %39
 
-40:                                               ; preds = %php_pollfd_for.exit.us.i
-  %41 = icmp sgt i32 %.0.i.us.i, -1
-  br i1 %41, label %php_sock_stream_wait_for_data.exit, label %42
+39:                                               ; preds = %php_pollfd_for.exit.us.i
+  %40 = icmp sgt i32 %.0.i.us.i, -1
+  br i1 %40, label %php_sock_stream_wait_for_data.exit, label %41
 
-42:                                               ; preds = %40
-  %43 = tail call ptr @__errno_location() #15
-  %44 = load i32, ptr %43, align 4
-  %.not.us.i = icmp eq i32 %44, 4
+41:                                               ; preds = %39
+  %42 = tail call ptr @__errno_location() #15
+  %43 = load i32, ptr %42, align 4
+  %.not.us.i = icmp eq i32 %43, 4
   br i1 %.not.us.i, label %php_pollfd_for.exit.us.i, label %php_sock_stream_wait_for_data.exit
 
-php_pollfd_for.exit.i:                            ; preds = %php_pollfd_for.exit.i.preheader, %60
-  %45 = load i32, ptr %6, align 8
+php_pollfd_for.exit.i:                            ; preds = %59, %php_pollfd_for.exit.preheader.i
+  %44 = load i32, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store i32 %45, ptr %4, align 4
-  store i16 25, ptr %32, align 4
-  store i16 0, ptr %31, align 2
-  %46 = load i64, ptr %18, align 8
-  %47 = mul nsw i64 %46, 1000
-  %48 = load i64, ptr %..i.sroa.gep82, align 8
-  %49 = sdiv i64 %48, 1000
-  %50 = add nsw i64 %49, %47
-  %51 = trunc i64 %50 to i32
-  %52 = call i32 @poll(ptr noundef nonnull %4, i64 noundef 1, i32 noundef %51) #14
-  %53 = icmp sgt i32 %52, 0
-  %54 = load i16, ptr %31, align 2
-  %55 = sext i16 %54 to i32
-  %.0.i.i = select i1 %53, i32 %55, i32 %52
+  store i32 %44, ptr %4, align 4
+  store i16 25, ptr %28, align 4
+  store i16 0, ptr %29, align 2
+  %45 = load i64, ptr %18, align 8
+  %46 = mul nsw i64 %45, 1000
+  %47 = load i64, ptr %30, align 8
+  %48 = sdiv i64 %47, 1000
+  %49 = add nsw i64 %48, %46
+  %50 = trunc i64 %49 to i32
+  %51 = call i32 @poll(ptr noundef nonnull %4, i64 noundef 1, i32 noundef %50) #14
+  %52 = icmp sgt i32 %51, 0
+  %53 = load i16, ptr %29, align 2
+  %54 = sext i16 %53 to i32
+  %.0.i.i = select i1 %52, i32 %54, i32 %51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %56 = icmp eq i32 %.0.i.i, 0
-  br i1 %56, label %php_sock_stream_wait_for_data.exit.thread, label %58
+  %55 = icmp eq i32 %.0.i.i, 0
+  br i1 %55, label %php_sock_stream_wait_for_data.exit.thread, label %57
 
 php_sock_stream_wait_for_data.exit.thread:        ; preds = %php_pollfd_for.exit.us.i, %php_pollfd_for.exit.i
-  %57 = phi ptr [ %33, %php_pollfd_for.exit.i ], [ %28, %php_pollfd_for.exit.us.i ]
-  store i8 1, ptr %57, align 8
+  %56 = phi ptr [ %27, %php_pollfd_for.exit.i ], [ %26, %php_pollfd_for.exit.us.i ]
+  store i8 1, ptr %56, align 8
   br label %.critedge
 
-58:                                               ; preds = %php_pollfd_for.exit.i
-  %59 = icmp sgt i32 %.0.i.i, -1
-  br i1 %59, label %php_sock_stream_wait_for_data.exit, label %60
+57:                                               ; preds = %php_pollfd_for.exit.i
+  %58 = icmp sgt i32 %.0.i.i, -1
+  br i1 %58, label %php_sock_stream_wait_for_data.exit, label %59
 
-60:                                               ; preds = %58
-  %61 = tail call ptr @__errno_location() #15
-  %62 = load i32, ptr %61, align 4
-  %.not.i = icmp eq i32 %62, 4
+59:                                               ; preds = %57
+  %60 = tail call ptr @__errno_location() #15
+  %61 = load i32, ptr %60, align 4
+  %.not.i = icmp eq i32 %61, 4
   br i1 %.not.i, label %php_pollfd_for.exit.i, label %php_sock_stream_wait_for_data.exit
 
-php_sock_stream_wait_for_data.exit:               ; preds = %40, %42, %58, %60
-  %.ph = phi ptr [ %33, %60 ], [ %33, %58 ], [ %28, %42 ], [ %28, %40 ]
-  %spec.select79.ph = phi i32 [ 64, %60 ], [ 64, %58 ], [ %spec.select, %42 ], [ %spec.select, %40 ]
+php_sock_stream_wait_for_data.exit:               ; preds = %39, %41, %57, %59
+  %.ph = phi ptr [ %27, %59 ], [ %27, %57 ], [ %26, %41 ], [ %26, %39 ]
+  %spec.select77.ph = phi i32 [ 64, %59 ], [ 64, %57 ], [ %spec.select, %41 ], [ %spec.select, %39 ]
   %.pr = load i8, ptr %.ph, align 8
   %.not57 = icmp eq i8 %.pr, 0
   br i1 %.not57, label %php_sock_stream_wait_for_data.exit..thread65_crit_edge, label %.critedge
@@ -409,86 +407,86 @@ php_sock_stream_wait_for_data.exit..thread65_crit_edge: ; preds = %php_sock_stre
   br label %.thread65
 
 .thread65:                                        ; preds = %php_sock_stream_wait_for_data.exit..thread65_crit_edge, %13, %21, %10
-  %63 = phi i32 [ %.pre, %php_sock_stream_wait_for_data.exit..thread65_crit_edge ], [ %8, %10 ], [ %8, %21 ], [ %8, %13 ]
-  %.1 = phi i32 [ %spec.select79.ph, %php_sock_stream_wait_for_data.exit..thread65_crit_edge ], [ 0, %10 ], [ 64, %21 ], [ 64, %13 ]
-  %64 = call i64 @recv(i32 noundef %63, ptr noundef %1, i64 noundef %2, i32 noundef %.1) #14
-  %65 = icmp slt i64 %64, 0
-  br i1 %65, label %66, label %74
+  %62 = phi i32 [ %.pre, %php_sock_stream_wait_for_data.exit..thread65_crit_edge ], [ %8, %10 ], [ %8, %21 ], [ %8, %13 ]
+  %.1 = phi i32 [ %spec.select77.ph, %php_sock_stream_wait_for_data.exit..thread65_crit_edge ], [ 0, %10 ], [ 64, %21 ], [ 64, %13 ]
+  %63 = call i64 @recv(i32 noundef %62, ptr noundef %1, i64 noundef %2, i32 noundef %.1) #14
+  %64 = icmp slt i64 %63, 0
+  br i1 %64, label %65, label %73
 
-66:                                               ; preds = %.thread65
-  %67 = tail call ptr @__errno_location() #15
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 11
-  br i1 %69, label %.critedge, label %70
+65:                                               ; preds = %.thread65
+  %66 = tail call ptr @__errno_location() #15
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 11
+  br i1 %68, label %.critedge, label %69
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %0, i64 96
-  %72 = load i16, ptr %71, align 8
-  %73 = or i16 %72, 8
-  store i16 %73, ptr %71, align 8
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds i8, ptr %0, i64 96
+  %71 = load i16, ptr %70, align 8
+  %72 = or i16 %71, 8
+  store i16 %72, ptr %70, align 8
   br label %.critedge
 
-74:                                               ; preds = %.thread65
-  %75 = icmp eq i64 %64, 0
-  br i1 %75, label %76, label %80
+73:                                               ; preds = %.thread65
+  %74 = icmp eq i64 %63, 0
+  br i1 %74, label %75, label %79
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %0, i64 96
-  %78 = load i16, ptr %77, align 8
-  %79 = or i16 %78, 8
-  store i16 %79, ptr %77, align 8
+75:                                               ; preds = %73
+  %76 = getelementptr inbounds i8, ptr %0, i64 96
+  %77 = load i16, ptr %76, align 8
+  %78 = or i16 %77, 8
+  store i16 %78, ptr %76, align 8
   br label %.critedge
 
-80:                                               ; preds = %74
-  %81 = getelementptr inbounds i8, ptr %0, i64 144
-  %82 = load ptr, ptr %81, align 8
-  %.not58 = icmp eq ptr %82, null
-  br i1 %.not58, label %.critedge, label %83
+79:                                               ; preds = %73
+  %80 = getelementptr inbounds i8, ptr %0, i64 144
+  %81 = load ptr, ptr %80, align 8
+  %.not58 = icmp eq ptr %81, null
+  br i1 %.not58, label %.critedge, label %82
 
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %82, i64 24
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %.critedge, label %87
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds i8, ptr %81, i64 24
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %.critedge, label %86
 
-87:                                               ; preds = %83
-  %88 = load ptr, ptr %85, align 8
-  %.not60 = icmp eq ptr %88, null
-  br i1 %.not60, label %.critedge, label %89
+86:                                               ; preds = %82
+  %87 = load ptr, ptr %84, align 8
+  %.not60 = icmp eq ptr %87, null
+  br i1 %.not60, label %.critedge, label %88
 
-89:                                               ; preds = %87
-  %90 = getelementptr inbounds i8, ptr %88, i64 32
-  %91 = load i32, ptr %90, align 8
-  %92 = and i32 %91, 1
-  %.not61 = icmp eq i32 %92, 0
-  br i1 %.not61, label %.critedge, label %93
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds i8, ptr %87, i64 32
+  %90 = load i32, ptr %89, align 8
+  %91 = and i32 %90, 1
+  %.not61 = icmp eq i32 %91, 0
+  br i1 %.not61, label %.critedge, label %92
 
-93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %88, i64 40
-  %95 = load i64, ptr %94, align 8
-  %96 = add i64 %95, %64
-  store i64 %96, ptr %94, align 8
-  %97 = load ptr, ptr %81, align 8, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds i8, ptr %97, i64 24
-  %99 = load ptr, ptr %98, align 8
-  %.not62 = icmp eq ptr %99, null
-  br i1 %.not62, label %.critedge, label %100
+92:                                               ; preds = %88
+  %93 = getelementptr inbounds i8, ptr %87, i64 40
+  %94 = load i64, ptr %93, align 8
+  %95 = add i64 %94, %63
+  store i64 %95, ptr %93, align 8
+  %96 = load ptr, ptr %80, align 8, !nonnull !5, !noundef !5
+  %97 = getelementptr inbounds i8, ptr %96, i64 24
+  %98 = load ptr, ptr %97, align 8
+  %.not62 = icmp eq ptr %98, null
+  br i1 %.not62, label %.critedge, label %99
 
-100:                                              ; preds = %93
-  %101 = load ptr, ptr %99, align 8
-  %.not63 = icmp eq ptr %101, null
-  br i1 %.not63, label %.critedge, label %102
+99:                                               ; preds = %92
+  %100 = load ptr, ptr %98, align 8
+  %.not63 = icmp eq ptr %100, null
+  br i1 %.not63, label %.critedge, label %101
 
-102:                                              ; preds = %100
-  %103 = getelementptr inbounds i8, ptr %101, i64 40
-  %104 = load i64, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %101, i64 48
-  %106 = load i64, ptr %105, align 8
-  call void @php_stream_notification_notify(ptr noundef nonnull %99, i32 noundef 7, i32 noundef 0, ptr noundef null, i32 noundef 0, i64 noundef %104, i64 noundef %106, ptr noundef null) #14
+101:                                              ; preds = %99
+  %102 = getelementptr inbounds i8, ptr %100, i64 40
+  %103 = load i64, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %100, i64 48
+  %105 = load i64, ptr %104, align 8
+  call void @php_stream_notification_notify(ptr noundef nonnull %98, i32 noundef 7, i32 noundef 0, ptr noundef null, i32 noundef 0, i64 noundef %103, i64 noundef %105, ptr noundef null) #14
   br label %.critedge
 
-.critedge:                                        ; preds = %php_sock_stream_wait_for_data.exit, %php_sock_stream_wait_for_data.exit.thread, %66, %76, %70, %83, %87, %89, %93, %100, %102, %80, %3, %7
-  %.0 = phi i64 [ -1, %7 ], [ -1, %3 ], [ %64, %80 ], [ %64, %102 ], [ %64, %100 ], [ %64, %93 ], [ %64, %89 ], [ %64, %87 ], [ %64, %83 ], [ 0, %66 ], [ 0, %76 ], [ %64, %70 ], [ -1, %php_sock_stream_wait_for_data.exit.thread ], [ -1, %php_sock_stream_wait_for_data.exit ]
+.critedge:                                        ; preds = %php_sock_stream_wait_for_data.exit, %php_sock_stream_wait_for_data.exit.thread, %65, %75, %69, %82, %86, %88, %92, %99, %101, %79, %3, %7
+  %.0 = phi i64 [ -1, %7 ], [ -1, %3 ], [ %63, %79 ], [ %63, %101 ], [ %63, %99 ], [ %63, %92 ], [ %63, %88 ], [ %63, %86 ], [ %63, %82 ], [ 0, %65 ], [ 0, %75 ], [ %63, %69 ], [ -1, %php_sock_stream_wait_for_data.exit.thread ], [ -1, %php_sock_stream_wait_for_data.exit ]
   ret i64 %.0
 }
 

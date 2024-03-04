@@ -2023,7 +2023,6 @@ entry:
 define i32 @wc_RsaPSS_CheckPadding_ex2(ptr noundef readonly %in, i32 noundef %inSz, ptr noundef readonly %sig, i32 noundef %sigSz, i32 noundef %hashType, i32 noundef %saltLen, i32 noundef %bits, ptr nocapture readnone %heap) local_unnamed_addr #0 {
 entry:
   %sigCheckBuf = alloca [136 x i8], align 16
-  %sigCheckBuf.sroa.gep = getelementptr inbounds i8, ptr %sigCheckBuf, i64 8
   %cmp = icmp eq ptr %in, null
   %cmp1 = icmp eq ptr %sig, null
   %or.cond = or i1 %cmp, %cmp1
@@ -2064,17 +2063,16 @@ land.lhs.true24:                                  ; preds = %0
 if.then29:                                        ; preds = %land.lhs.true24
   %conv = zext i32 %add26 to i64
   %call33 = tail call ptr @wolfSSL_Malloc(i64 noundef %conv) #11
-  %call33.sroa.gep = getelementptr inbounds i8, ptr %call33, i64 8
   %cmp34 = icmp eq ptr %call33, null
   br i1 %cmp34, label %if.end71, label %if.end49
 
 if.end49:                                         ; preds = %if.then29, %land.lhs.true24
   %sigCheck.0.ph = phi ptr [ %call33, %if.then29 ], [ %sigCheckBuf, %land.lhs.true24 ]
-  %sigCheck.0.ph.sroa.phi = phi ptr [ %call33.sroa.gep, %if.then29 ], [ %sigCheckBuf.sroa.gep, %land.lhs.true24 ]
   store i64 0, ptr %sigCheck.0.ph, align 1
+  %add.ptr = getelementptr inbounds i8, ptr %sigCheck.0.ph, i64 8
   %conv42 = zext i32 %inSz to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %sigCheck.0.ph.sroa.phi, ptr nonnull align 1 %in, i64 %conv42, i1 false)
-  %add.ptr44 = getelementptr inbounds i8, ptr %sigCheck.0.ph.sroa.phi, i64 %conv42
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 1 %in, i64 %conv42, i1 false)
+  %add.ptr44 = getelementptr inbounds i8, ptr %add.ptr, i64 %conv42
   %conv45 = sext i32 %saltLen.addr.0 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr44, ptr nonnull align 1 %sig, i64 %conv45, i1 false)
   %call48 = call i32 @wc_Hash(i32 noundef %hashType, ptr noundef nonnull %sigCheck.0.ph, i32 noundef %add26, ptr noundef nonnull %sigCheck.0.ph, i32 noundef %inSz) #11

@@ -5071,9 +5071,7 @@ declare { i32, i64 } @_ZN6hermes2vm8toLengthERNS0_7RuntimeENS0_6HandleINS0_11Her
 define internal fastcc ptr @_ZN6hermes2vm12_GLOBAL__N_116typedArrayCreateERNS0_7RuntimeENS0_6HandleINS0_8CallableEEEm(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %constructor.coerce, i64 noundef %length) unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp36 = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp36.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp36, i64 8
   %conv.i = uitofp i64 %length to double
   %topGCScope_.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8
   %0 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
@@ -5082,6 +5080,8 @@ entry:
   %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 200
   %2 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ult ptr %1, %2
+  %ref.tmp36.sink27.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp36, i64 8
+  %ref.tmp36.sink27.sroa.gep28 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
@@ -5167,8 +5167,8 @@ if.then35:                                        ; preds = %_ZN6hermes2vm15Hand
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then22, %if.then35
+  %ref.tmp36.sink27.sroa.phi = phi ptr [ %ref.tmp36.sink27.sroa.gep, %if.then35 ], [ %ref.tmp36.sink27.sroa.gep28, %if.then22 ]
   %ref.tmp36.sink27 = phi ptr [ %ref.tmp36, %if.then35 ], [ %ref.tmp, %if.then22 ]
-  %ref.tmp36.sink27.sroa.phi = phi ptr [ %ref.tmp36.sroa.gep, %if.then35 ], [ %ref.tmp.sroa.gep, %if.then22 ]
   store i32 3, ptr %ref.tmp36.sink27.sroa.phi, align 8
   %call37 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp36.sink27) #10
   br label %return

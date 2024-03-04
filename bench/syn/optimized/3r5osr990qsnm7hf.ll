@@ -8792,7 +8792,7 @@ default.unreachable:                              ; preds = %58
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN3syn8generics8printing81_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..generics..Turbofish$GT$9to_tokens17h2d44ef26445a8bfcE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = alloca { [2 x i32] }, align 8
+  %4 = alloca { [2 x i32] }, align 4
   %5 = load ptr, ptr %0, align 8, !nonnull !5, !align !36, !noundef !5
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !1223, !noundef !5
@@ -8806,10 +8806,9 @@ define void @"_ZN3syn8generics8printing81_$LT$impl$u20$quote..to_tokens..ToToken
 "_ZN62_$LT$syn..token..PathSep$u20$as$u20$core..default..Default$GT$7default17he8012bd26d2c5882E.exit.critedge": ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %11 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  %.sroa.4.0.insert.ext = zext i32 %11 to i64
-  %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.4.0.insert.ext
-  store i64 %.sroa.0.0.insert.insert, ptr %4, align 8
+  store i32 %11, ptr %4, align 4
+  %.sroa_idx4 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %11, ptr %.sroa_idx4, align 4
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.170.llvm.15435319159651575738, i64 noundef 2, ptr noalias noundef nonnull readonly align 4 %4, i64 noundef 2, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)

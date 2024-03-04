@@ -3618,18 +3618,18 @@ for.end:                                          ; preds = %_ZNK6vectorIN18expr
 define hidden void @_ZNK18expr_pattern_match7displayERSoRKNS_5instrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %pc) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %ref.tmp18 = alloca %struct.mk_pp, align 8
-  %ref.tmp18.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp18, i64 16
   %ref.tmp40 = alloca %struct.mk_pp, align 8
-  %ref.tmp40.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp40, i64 16
   %ref.tmp77 = alloca %struct.mk_pp, align 8
-  %ref.tmp77.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp77, i64 16
   %ref.tmp98 = alloca %struct.mk_pp, align 8
-  %ref.tmp98.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp98, i64 16
   %ref.tmp118 = alloca %struct.mk_pp, align 8
-  %ref.tmp118.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp118, i64 16
   %0 = load i32, ptr %pc, align 8
+  %ref.tmp118.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp118, i64 16
+  %ref.tmp118.sink.sroa.gep70 = getelementptr inbounds i8, ptr %ref.tmp98, i64 16
+  %ref.tmp118.sink.sroa.gep71 = getelementptr inbounds i8, ptr %ref.tmp77, i64 16
+  %ref.tmp118.sink.sroa.gep72 = getelementptr inbounds i8, ptr %ref.tmp40, i64 16
+  %ref.tmp118.sink.sroa.gep73 = getelementptr inbounds i8, ptr %ref.tmp18, i64 16
+  %ref.tmp118.sink.sroa.gep74 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   switch i32 %0, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb2
@@ -3891,8 +3891,8 @@ sw.epilog:                                        ; preds = %entry, %invoke.cont
   ret void
 
 eh.resume:                                        ; preds = %lpad121, %lpad101, %lpad80, %lpad43, %lpad21, %lpad
+  %ref.tmp118.sink.sroa.phi = phi ptr [ %ref.tmp118.sink.sroa.gep, %lpad121 ], [ %ref.tmp118.sink.sroa.gep70, %lpad101 ], [ %ref.tmp118.sink.sroa.gep71, %lpad80 ], [ %ref.tmp118.sink.sroa.gep72, %lpad43 ], [ %ref.tmp118.sink.sroa.gep73, %lpad21 ], [ %ref.tmp118.sink.sroa.gep74, %lpad ]
   %.pn = phi { ptr, i32 } [ %36, %lpad121 ], [ %32, %lpad101 ], [ %27, %lpad80 ], [ %18, %lpad43 ], [ %12, %lpad21 ], [ %6, %lpad ]
-  %ref.tmp118.sink.sroa.phi = phi ptr [ %ref.tmp118.sroa.gep, %lpad121 ], [ %ref.tmp98.sroa.gep, %lpad101 ], [ %ref.tmp77.sroa.gep, %lpad80 ], [ %ref.tmp40.sroa.gep, %lpad43 ], [ %ref.tmp18.sroa.gep, %lpad21 ], [ %ref.tmp.sroa.gep, %lpad ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp118.sink.sroa.phi) #18
   resume { ptr, i32 } %.pn
 }

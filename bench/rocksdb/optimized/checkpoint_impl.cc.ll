@@ -807,6 +807,8 @@ entry:
   %vtable3 = load ptr, ptr %2, align 8
   %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 752
   %3 = load ptr, ptr %vfn4, align 8
+  %ref.tmp12.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
+  %ref.tmp12.sink.sroa.gep229 = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
   %call = invoke noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont unwind label %lpad
 
@@ -900,10 +902,10 @@ if.then24:                                        ; preds = %invoke.cont22
   br label %if.then24.invoke
 
 if.then24.invoke:                                 ; preds = %if.then, %if.then24
+  %ref.tmp12.sink.sroa.phi = phi ptr [ %ref.tmp12.sink.sroa.gep, %if.then ], [ %ref.tmp12.sink.sroa.gep229, %if.then24 ]
   %ref.tmp12.sink = phi ptr [ %ref.tmp12, %if.then ], [ %ref.tmp27, %if.then24 ]
   %16 = phi ptr [ %ref.tmp, %if.then ], [ %ref.tmp25, %if.then24 ]
-  %size_.i18 = getelementptr inbounds i8, ptr %ref.tmp12.sink, i64 8
-  store i64 0, ptr %size_.i18, align 8
+  store i64 0, ptr %ref.tmp12.sink.sroa.phi, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12.sink, i8 noundef zeroext 0)
           to label %cleanup unwind label %lpad8
 
@@ -3470,6 +3472,8 @@ entry:
   %vtable3 = load ptr, ptr %1, align 8
   %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 784
   %2 = load ptr, ptr %vfn4, align 8
+  %ref.tmp18.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
+  %ref.tmp18.sink.sroa.gep359 = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
   invoke void %2(ptr nonnull sret(%"struct.rocksdb::DBOptions") align 8 %db_options, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %invoke.cont unwind label %lpad
 
@@ -3570,10 +3574,10 @@ if.then26:                                        ; preds = %if.end24
   br label %if.then26.invoke
 
 if.then26.invoke:                                 ; preds = %if.then, %if.then26
+  %ref.tmp18.sink.sroa.phi = phi ptr [ %ref.tmp18.sink.sroa.gep, %if.then ], [ %ref.tmp18.sink.sroa.gep359, %if.then26 ]
   %ref.tmp18.sink = phi ptr [ %ref.tmp18, %if.then ], [ %ref.tmp29, %if.then26 ]
   %18 = phi ptr [ %ref.tmp, %if.then ], [ %ref.tmp27, %if.then26 ]
-  %size_.i46 = getelementptr inbounds i8, ptr %ref.tmp18.sink, i64 8
-  store i64 0, ptr %size_.i46, align 8
+  store i64 0, ptr %ref.tmp18.sink.sroa.phi, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18.sink, i8 noundef zeroext 0)
           to label %cleanup unwind label %lpad14
 

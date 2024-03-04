@@ -9311,6 +9311,7 @@ entry:
   %ref.tmp166 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp167 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
+  %indvars.iv.sroa.gep130 = getelementptr inbounds i8, ptr %size_prefix, i64 32
   %call.i64 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %size_prefix)
           to label %call.i.noexc unwind label %lpad
 
@@ -9483,9 +9484,8 @@ if.end:                                           ; preds = %invoke.cont8, %invo
 
 for.body:                                         ; preds = %if.end, %for.inc
   %cmp61 = phi i1 [ true, %if.end ], [ false, %for.inc ]
-  %indvars.iv = phi i64 [ 0, %if.end ], [ 1, %for.inc ]
-  %arrayidx = getelementptr inbounds [2 x %"class.std::__cxx11::basic_string"], ptr %size_prefix, i64 0, i64 %indvars.iv
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp35, ptr noundef nonnull @.str.195, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx)
+  %indvars.iv.sroa.phi = phi ptr [ %size_prefix, %if.end ], [ %indvars.iv.sroa.gep130, %for.inc ]
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp35, ptr noundef nonnull @.str.195, ptr noundef nonnull align 8 dereferenceable(32) %indvars.iv.sroa.phi)
           to label %invoke.cont36 unwind label %lpad15.loopexit
 
 invoke.cont36:                                    ; preds = %for.body
@@ -9620,7 +9620,7 @@ invoke.cont86:                                    ; preds = %if.end85
           to label %invoke.cont88 unwind label %lpad15.loopexit
 
 invoke.cont88:                                    ; preds = %invoke.cont86
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp92, ptr noundef nonnull @.str.204, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx)
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp92, ptr noundef nonnull @.str.204, ptr noundef nonnull align 8 dereferenceable(32) %indvars.iv.sroa.phi)
           to label %invoke.cont95 unwind label %lpad15.loopexit
 
 invoke.cont95:                                    ; preds = %invoke.cont88
@@ -9659,7 +9659,7 @@ invoke.cont112:                                   ; preds = %invoke.cont110
 invoke.cont114:                                   ; preds = %invoke.cont112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp108) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp109) #19
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp119, ptr noundef nonnull @.str.208, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx)
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp119, ptr noundef nonnull @.str.208, ptr noundef nonnull align 8 dereferenceable(32) %indvars.iv.sroa.phi)
           to label %invoke.cont122 unwind label %lpad15.loopexit
 
 invoke.cont122:                                   ; preds = %invoke.cont114
@@ -9730,7 +9730,7 @@ ehcleanup129:                                     ; preds = %lpad125, %lpad123
   br label %ehcleanup187
 
 if.else130:                                       ; preds = %invoke.cont101
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp132, ptr noundef nonnull @.str.208, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx)
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp132, ptr noundef nonnull @.str.208, ptr noundef nonnull align 8 dereferenceable(32) %indvars.iv.sroa.phi)
           to label %invoke.cont135 unwind label %lpad15.loopexit
 
 invoke.cont135:                                   ; preds = %if.else130
@@ -9770,7 +9770,7 @@ invoke.cont144:                                   ; preds = %if.end143
   br i1 %13, label %if.then147, label %for.inc
 
 if.then147:                                       ; preds = %invoke.cont144
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp150, ptr noundef nonnull @.str.211, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx)
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp150, ptr noundef nonnull @.str.211, ptr noundef nonnull align 8 dereferenceable(32) %indvars.iv.sroa.phi)
           to label %invoke.cont153 unwind label %lpad15.loopexit
 
 invoke.cont153:                                   ; preds = %if.then147
@@ -9791,7 +9791,7 @@ invoke.cont159:                                   ; preds = %invoke.cont157
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp148) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp149) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp150) #19
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp167, ptr noundef nonnull @.str.213, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx)
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp167, ptr noundef nonnull @.str.213, ptr noundef nonnull align 8 dereferenceable(32) %indvars.iv.sroa.phi)
           to label %invoke.cont170 unwind label %lpad15.loopexit
 
 invoke.cont170:                                   ; preds = %invoke.cont159

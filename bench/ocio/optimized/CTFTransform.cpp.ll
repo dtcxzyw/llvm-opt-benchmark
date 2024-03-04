@@ -20255,9 +20255,7 @@ define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121GradingRGBCurveWr
 entry:
   %styleStr = alloca ptr, align 8
   %ref.tmp = alloca %"struct.std::pair", align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %ref.tmp10 = alloca %"struct.std::pair", align 8
-  %ref.tmp10.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp10, i64 32
   tail call void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriter13getAttributesERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %attributes)
   %m_curves = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_curves, align 8
@@ -20272,6 +20270,8 @@ entry:
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %attributes, i64 16
   %3 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, %3
+  %ref.tmp10.sink17.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp10, i64 32
+  %ref.tmp10.sink17.sroa.gep18 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -20340,9 +20340,9 @@ if.end:                                           ; preds = %invoke.cont12, %inv
   ret void
 
 eh.resume:                                        ; preds = %lpad11, %lpad
+  %ref.tmp10.sink17.sroa.phi = phi ptr [ %ref.tmp10.sink17.sroa.gep, %lpad11 ], [ %ref.tmp10.sink17.sroa.gep18, %lpad ]
   %ref.tmp10.sink17 = phi ptr [ %ref.tmp10, %lpad11 ], [ %ref.tmp, %lpad ]
   %.pn = phi { ptr, i32 } [ %12, %lpad11 ], [ %11, %lpad ]
-  %ref.tmp10.sink17.sroa.phi = phi ptr [ %ref.tmp10.sroa.gep, %lpad11 ], [ %ref.tmp.sroa.gep, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.sink17.sroa.phi) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.sink17) #25
   resume { ptr, i32 } %.pn
@@ -23619,13 +23619,9 @@ define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_111Lut1DWriter13getA
 entry:
   %interpolationName = alloca ptr, align 8
   %ref.tmp = alloca %"struct.std::pair", align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %ref.tmp9 = alloca %"struct.std::pair", align 8
-  %ref.tmp9.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9, i64 32
   %ref.tmp17 = alloca %"struct.std::pair", align 8
-  %ref.tmp17.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp17, i64 32
   %ref.tmp25 = alloca %"struct.std::pair", align 8
-  %ref.tmp25.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp25, i64 32
   tail call void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_18OpWriter13getAttributesERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %attributes)
   %m_lut = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_lut, align 8
@@ -23634,6 +23630,10 @@ entry:
   %call3 = tail call noundef ptr @_ZN19OpenColorIO_v2_4dev22GetInterpolation1DNameENS_13InterpolationE(i32 noundef %1)
   store ptr %call3, ptr %interpolationName, align 8
   %tobool.not = icmp eq ptr %call3, null
+  %ref.tmp25.sink46.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp25, i64 32
+  %ref.tmp25.sink46.sroa.gep47 = getelementptr inbounds i8, ptr %ref.tmp17, i64 32
+  %ref.tmp25.sink46.sroa.gep48 = getelementptr inbounds i8, ptr %ref.tmp9, i64 32
+  %ref.tmp25.sink46.sroa.gep49 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
@@ -23807,9 +23807,9 @@ if.end28:                                         ; preds = %invoke.cont27, %if.
   ret void
 
 eh.resume:                                        ; preds = %lpad26, %lpad18, %lpad10, %lpad
+  %ref.tmp25.sink46.sroa.phi = phi ptr [ %ref.tmp25.sink46.sroa.gep, %lpad26 ], [ %ref.tmp25.sink46.sroa.gep47, %lpad18 ], [ %ref.tmp25.sink46.sroa.gep48, %lpad10 ], [ %ref.tmp25.sink46.sroa.gep49, %lpad ]
   %ref.tmp25.sink46 = phi ptr [ %ref.tmp25, %lpad26 ], [ %ref.tmp17, %lpad18 ], [ %ref.tmp9, %lpad10 ], [ %ref.tmp, %lpad ]
   %.pn = phi { ptr, i32 } [ %24, %lpad26 ], [ %18, %lpad18 ], [ %12, %lpad10 ], [ %6, %lpad ]
-  %ref.tmp25.sink46.sroa.phi = phi ptr [ %ref.tmp25.sroa.gep, %lpad26 ], [ %ref.tmp17.sroa.gep, %lpad18 ], [ %ref.tmp9.sroa.gep, %lpad10 ], [ %ref.tmp.sroa.gep, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25.sink46.sroa.phi) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25.sink46) #25
   resume { ptr, i32 } %.pn

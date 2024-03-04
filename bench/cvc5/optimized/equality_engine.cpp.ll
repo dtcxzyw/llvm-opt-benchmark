@@ -16072,6 +16072,8 @@ entry:
   %4 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %4, %shl.i.i.i
   %tobool.i.i.i.i.not = icmp eq i64 %and.i.i.i.i, 0
+  %indvars.iv.sroa.gep729 = getelementptr inbounds i8, ptr %eq, i64 8
+  %indvars.iv.sroa.gep732 = getelementptr inbounds i8, ptr %eq, i64 8
   br i1 %tobool.i.i.i.i.not, label %lor.lhs.false, label %land.lhs.true
 
 lor.lhs.false:                                    ; preds = %entry
@@ -16160,7 +16162,8 @@ for.cond.preheader:                               ; preds = %arrayctor.cont
 
 for.body:                                         ; preds = %for.cond.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit444
   %cmp53 = phi i1 [ true, %for.cond.preheader ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit444 ]
-  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit444 ]
+  %indvars.iv.sroa.phi = phi ptr [ %eq, %for.cond.preheader ], [ %indvars.iv.sroa.gep729, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit444 ]
+  %indvars.iv.sroa.phi730 = phi ptr [ %eq, %for.cond.preheader ], [ %indvars.iv.sroa.gep732, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit444 ]
   %cond = select i1 %cmp53, i32 %id1, i32 %id2
   %conv58 = zext i32 %cond to i64
   %10 = load ptr, ptr %d_nodes, align 8
@@ -16205,8 +16208,7 @@ invoke.cont64:                                    ; preds = %if.then13.i.i, %if.
   br i1 %tobool.i.i.i.i334.not, label %if.then66, label %if.end69
 
 if.then66:                                        ; preds = %invoke.cont64
-  %arrayidx = getelementptr inbounds [2 x %"class.cvc5::internal::NodeTemplate"], ptr %eq, i64 0, i64 %indvars.iv
-  %15 = load ptr, ptr %arrayidx, align 8
+  %15 = load ptr, ptr %indvars.iv.sroa.phi, align 8
   %cmp.not.i335 = icmp eq ptr %15, %11
   br i1 %cmp.not.i335, label %cleanup, label %if.then.i336
 
@@ -16230,7 +16232,7 @@ if.then13.i.i350:                                 ; preds = %if.then.i.i338
           to label %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i unwind label %lpad63
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %if.then13.i.i350, %if.then.i.i338, %if.then.i336
-  store ptr %11, ptr %arrayidx, align 8
+  store ptr %11, ptr %indvars.iv.sroa.phi, align 8
   %bf.load.i2.i = load i64, ptr %11, align 8
   %bf.lshr.i.i344 = lshr i64 %bf.load.i2.i, 40
   %17 = trunc i64 %bf.lshr.i.i344 to i32
@@ -16575,8 +16577,7 @@ lpad.i:                                           ; preds = %lpad.loopexit.split
 invoke.cont98:                                    ; preds = %invoke.cont.i
   call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116) %nb.i) #29
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %nb.i)
-  %arrayidx100 = getelementptr inbounds [2 x %"class.cvc5::internal::NodeTemplate"], ptr %eq, i64 0, i64 %indvars.iv
-  %52 = load ptr, ptr %arrayidx100, align 8
+  %52 = load ptr, ptr %indvars.iv.sroa.phi730, align 8
   %53 = load ptr, ptr %ref.tmp97, align 8
   %cmp.not.i389 = icmp eq ptr %52, %53
   br i1 %cmp.not.i389, label %invoke.cont102, label %if.then.i390
@@ -16602,7 +16603,7 @@ if.then13.i.i414:                                 ; preds = %if.then.i.i393
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i399: ; preds = %if.then13.i.i414, %if.then.i.i393, %if.then.i390
   %55 = load ptr, ptr %ref.tmp97, align 8
-  store ptr %55, ptr %arrayidx100, align 8
+  store ptr %55, ptr %indvars.iv.sroa.phi730, align 8
   %bf.load.i2.i400 = load i64, ptr %55, align 8
   %bf.lshr.i.i401 = lshr i64 %bf.load.i2.i400, 40
   %56 = trunc i64 %bf.lshr.i.i401 to i32

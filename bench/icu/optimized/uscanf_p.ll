@@ -1943,12 +1943,12 @@ if.else:                                          ; preds = %if.then23
   br label %if.end34
 
 if.end34:                                         ; preds = %if.else, %if.then26
+  %13 = phi ptr [ %c, %if.then26 ], [ %.pre, %if.else ]
   %limit.0 = phi ptr [ %add.ptr29, %if.then26 ], [ %add.ptr33, %if.else ]
-  %c.pn = phi ptr [ %c, %if.then26 ], [ %.pre, %if.else ]
-  %.sroa.phi = getelementptr inbounds i8, ptr %c.pn, i64 2
-  call void @ucnv_fromUnicode_75(ptr noundef %call1, ptr noundef nonnull %alias, ptr noundef %limit.0, ptr noundef nonnull %source, ptr noundef nonnull %.sroa.phi, ptr noundef null, i8 noundef signext 1, ptr noundef nonnull %status)
-  %13 = load i32, ptr %status, align 4
-  %cmp.i27 = icmp slt i32 %13, 1
+  %add.ptr35 = getelementptr inbounds i8, ptr %13, i64 2
+  call void @ucnv_fromUnicode_75(ptr noundef %call1, ptr noundef nonnull %alias, ptr noundef %limit.0, ptr noundef nonnull %source, ptr noundef nonnull %add.ptr35, ptr noundef null, i8 noundef signext 1, ptr noundef nonnull %status)
+  %14 = load i32, ptr %status, align 4
+  %cmp.i27 = icmp slt i32 %14, 1
   br i1 %cmp.i27, label %if.end40, label %if.then38
 
 if.then38:                                        ; preds = %if.end34
@@ -1958,39 +1958,39 @@ if.then38:                                        ; preds = %if.end34
 if.end40:                                         ; preds = %if.end34, %while.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars = trunc i64 %indvars.iv.next to i32
-  %14 = load i32, ptr %info, align 4
-  %cmp = icmp eq i32 %14, -1
-  %cmp7 = icmp sgt i32 %14, %indvars
+  %15 = load i32, ptr %info, align 4
+  %cmp = icmp eq i32 %15, -1
+  %cmp7 = icmp sgt i32 %15, %indvars
   %or.cond26 = select i1 %cmp, i1 true, i1 %cmp7
   br i1 %or.cond26, label %land.lhs.true, label %while.end, !llvm.loop !13
 
 while.end.loopexit.split.loop.exit51:             ; preds = %land.lhs.true
-  %15 = trunc i64 %indvars.iv to i32
-  br label %while.end
-
-while.end.loopexit.split.loop.exit54:             ; preds = %lor.rhs
   %16 = trunc i64 %indvars.iv to i32
   br label %while.end
 
-while.end.loopexit.split.loop.exit57:             ; preds = %land.rhs17
+while.end.loopexit.split.loop.exit54:             ; preds = %lor.rhs
   %17 = trunc i64 %indvars.iv to i32
   br label %while.end
 
+while.end.loopexit.split.loop.exit57:             ; preds = %land.rhs17
+  %18 = trunc i64 %indvars.iv to i32
+  br label %while.end
+
 while.end:                                        ; preds = %if.end40, %while.end.loopexit.split.loop.exit51, %while.end.loopexit.split.loop.exit54, %while.end.loopexit.split.loop.exit57, %while.cond.preheader
-  %count.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %15, %while.end.loopexit.split.loop.exit51 ], [ %16, %while.end.loopexit.split.loop.exit54 ], [ %17, %while.end.loopexit.split.loop.exit57 ], [ %indvars, %if.end40 ]
+  %count.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %16, %while.end.loopexit.split.loop.exit51 ], [ %17, %while.end.loopexit.split.loop.exit54 ], [ %18, %while.end.loopexit.split.loop.exit57 ], [ %indvars, %if.end40 ]
   %isNotEOF.1 = phi i8 [ 0, %while.cond.preheader ], [ %call8, %while.end.loopexit.split.loop.exit51 ], [ 1, %while.end.loopexit.split.loop.exit54 ], [ 1, %while.end.loopexit.split.loop.exit57 ], [ 1, %if.end40 ]
   %fSkipArg41 = getelementptr inbounds i8, ptr %info, i64 8
-  %18 = load i8, ptr %fSkipArg41, align 4
-  %tobool42.not = icmp eq i8 %18, 0
+  %19 = load i8, ptr %fSkipArg41, align 4
+  %tobool42.not = icmp eq i8 %19, 0
   br i1 %tobool42.not, label %if.then43, label %if.end59
 
 if.then43:                                        ; preds = %while.end
-  %19 = load i32, ptr %info, align 4
-  %cmp45 = icmp eq i32 %19, -1
+  %20 = load i32, ptr %info, align 4
+  %cmp45 = icmp eq i32 %20, -1
   br i1 %cmp45, label %land.lhs.true49, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %if.then43
-  %cmp48 = icmp slt i32 %count.0.lcssa, %19
+  %cmp48 = icmp slt i32 %count.0.lcssa, %20
   %tobool50 = icmp ne i8 %isNotEOF.1, 0
   %or.cond = and i1 %tobool50, %cmp48
   br i1 %or.cond, label %if.then51, label %if.end54
@@ -2000,25 +2000,25 @@ land.lhs.true49:                                  ; preds = %if.then43
   br i1 %tobool50.old.not, label %if.end54, label %if.then51
 
 if.then51:                                        ; preds = %lor.lhs.false46, %land.lhs.true49
-  %20 = load i16, ptr %c, align 2
-  %conv52 = zext i16 %20 to i32
+  %21 = load i16, ptr %c, align 2
+  %conv52 = zext i16 %21 to i32
   %call53 = call i32 @u_fungetc_75(i32 noundef %conv52, ptr noundef %input)
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then51, %land.lhs.true49, %lor.lhs.false46
-  %21 = load i8, ptr %fIsString, align 1
-  %tobool56.not = icmp eq i8 %21, 0
+  %22 = load i8, ptr %fIsString, align 1
+  %tobool56.not = icmp eq i8 %22, 0
   br i1 %tobool56.not, label %if.end59, label %if.then57
 
 if.then57:                                        ; preds = %if.end54
-  %22 = load ptr, ptr %alias, align 8
-  store i8 0, ptr %22, align 1
+  %23 = load ptr, ptr %alias, align 8
+  store i8 0, ptr %23, align 1
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end54, %if.then57, %while.end
   call void @u_releaseDefaultConverter_75(ptr noundef %call1)
-  %23 = load i8, ptr %fSkipArg41, align 4
-  %tobool61.not = icmp eq i8 %23, 0
+  %24 = load i8, ptr %fSkipArg41, align 4
+  %tobool61.not = icmp eq i8 %24, 0
   %conv63 = zext i1 %tobool61.not to i32
   store i32 %conv63, ptr %argConverted, align 4
   %add = add nuw nsw i32 %count.0.lcssa, %skipped.0

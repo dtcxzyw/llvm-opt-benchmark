@@ -3133,40 +3133,38 @@ _ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.6960974148744716740.
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.6960974148744716740(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #10 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %6, label %11
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
   %7 = add i64 %1, -1
   %8 = icmp sgt i64 %7, -1
   tail call void @llvm.assume(i1 %8)
   %9 = inttoptr i64 %1 to ptr
-  %10 = icmp ne i64 %1, 0
-  tail call void @llvm.assume(i1 %10)
-  br label %12
+  br label %11
 
-11:                                               ; preds = %4
-  br i1 %3, label %20, label %15
+10:                                               ; preds = %4
+  br i1 %3, label %19, label %14
 
-12:                                               ; preds = %15, %20, %6
-  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %23, %20 ], [ %19, %15 ]
-  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
-  %14 = insertvalue { ptr, i64 } %13, i64 %2, 1
-  ret { ptr, i64 } %14
+11:                                               ; preds = %14, %19, %6
+  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %22, %19 ], [ %18, %14 ]
+  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
+  %13 = insertvalue { ptr, i64 } %12, i64 %2, 1
+  ret { ptr, i64 } %13
 
-15:                                               ; preds = %11
-  %16 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %17 = add i64 %1, -1
-  %18 = icmp sgt i64 %17, -1
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #31
-  br label %12
+14:                                               ; preds = %10
+  %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %16 = add i64 %1, -1
+  %17 = icmp sgt i64 %16, -1
+  tail call void @llvm.assume(i1 %17)
+  %18 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #31
+  br label %11
 
-20:                                               ; preds = %11
-  %21 = add i64 %1, -1
-  %22 = icmp sgt i64 %21, -1
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #31
-  br label %12
+19:                                               ; preds = %10
+  %20 = add i64 %1, -1
+  %21 = icmp sgt i64 %20, -1
+  tail call void @llvm.assume(i1 %21)
+  %22 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #31
+  br label %11
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
@@ -3376,30 +3374,28 @@ define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hbab35f6282c065eaE.llvm.6960974148744716740"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #10 {
   %4 = icmp eq i64 %2, 0
-  br i1 %4, label %5, label %10
+  br i1 %4, label %5, label %9
 
 5:                                                ; preds = %3
   %6 = add i64 %1, -1
   %7 = icmp sgt i64 %6, -1
   tail call void @llvm.assume(i1 %7)
   %8 = inttoptr i64 %1 to ptr
-  %9 = icmp ne i64 %1, 0
-  tail call void @llvm.assume(i1 %9)
   br label %_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.6960974148744716740.exit
 
-10:                                               ; preds = %3
-  %11 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %12 = add i64 %1, -1
-  %13 = icmp sgt i64 %12, -1
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #31
+9:                                                ; preds = %3
+  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %11 = add i64 %1, -1
+  %12 = icmp sgt i64 %11, -1
+  tail call void @llvm.assume(i1 %12)
+  %13 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #31
   br label %_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.6960974148744716740.exit
 
-_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.6960974148744716740.exit: ; preds = %5, %10
-  %.sroa.05.0.i = phi ptr [ %8, %5 ], [ %14, %10 ]
-  %15 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0.i, 0
-  %16 = insertvalue { ptr, i64 } %15, i64 %2, 1
-  ret { ptr, i64 } %16
+_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.6960974148744716740.exit: ; preds = %5, %9
+  %.sroa.05.0.i = phi ptr [ %8, %5 ], [ %13, %9 ]
+  %14 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0.i, 0
+  %15 = insertvalue { ptr, i64 } %14, i64 %2, 1
+  ret { ptr, i64 } %15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -3570,27 +3566,25 @@ define hidden { ptr, i64 } @"_ZN74_$LT$core..num..dec2flt..ParseFloatError$u20$a
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden noundef ptr @_ZN9hashbrown3raw5alloc5inner8do_alloc17h75dec4d235bf20d7E(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #13 {
   %4 = icmp eq i64 %2, 0
-  br i1 %4, label %5, label %10
+  br i1 %4, label %5, label %9
 
 5:                                                ; preds = %3
   %6 = add i64 %1, -1
   %7 = icmp sgt i64 %6, -1
   tail call void @llvm.assume(i1 %7)
   %8 = inttoptr i64 %1 to ptr
-  %9 = icmp ne i64 %1, 0
-  tail call void @llvm.assume(i1 %9)
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hbab35f6282c065eaE.llvm.6960974148744716740.exit"
 
-10:                                               ; preds = %3
-  %11 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %12 = add i64 %1, -1
-  %13 = icmp sgt i64 %12, -1
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #31
+9:                                                ; preds = %3
+  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %11 = add i64 %1, -1
+  %12 = icmp sgt i64 %11, -1
+  tail call void @llvm.assume(i1 %12)
+  %13 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #31
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hbab35f6282c065eaE.llvm.6960974148744716740.exit"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hbab35f6282c065eaE.llvm.6960974148744716740.exit": ; preds = %5, %10
-  %.sroa.05.0.i.i = phi ptr [ %8, %5 ], [ %14, %10 ]
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hbab35f6282c065eaE.llvm.6960974148744716740.exit": ; preds = %5, %9
+  %.sroa.05.0.i.i = phi ptr [ %8, %5 ], [ %13, %9 ]
   ret ptr %.sroa.05.0.i.i
 }
 
@@ -4954,18 +4948,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h0317d3b220d87
   %8 = alloca { i32, i32 }, align 4
   %9 = alloca [2 x { ptr, ptr }], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep393 = getelementptr inbounds i8, ptr %10, i64 24
-  %.sroa.gep390 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.gep387 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
   %11 = alloca { i32, i32 }, align 4
   %12 = alloca { i32, i32 }, align 4
   %13 = alloca [2 x { ptr, ptr }], align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep394 = getelementptr inbounds i8, ptr %14, i64 24
-  %.sroa.gep391 = getelementptr inbounds i8, ptr %14, i64 16
-  %.sroa.gep388 = getelementptr inbounds i8, ptr %14, i64 32
-  %.sroa.gep385 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { { i64, ptr }, i64 }, align 8
@@ -4979,6 +4965,14 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h0317d3b220d87
   %23 = tail call { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17h05b37ccdc1837d34E.llvm.1814251078191383949"(i32 noundef %2, i32 noundef %22), !noalias !394
   %.fca.0.extract.i = extractvalue { i64, i64 } %23, 0
   %switch.i = icmp eq i64 %.fca.0.extract.i, 0
+  %.sink329.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
+  %.sink329.sroa.gep385 = getelementptr inbounds i8, ptr %14, i64 8
+  %.sink329.sroa.gep387 = getelementptr inbounds i8, ptr %10, i64 32
+  %.sink329.sroa.gep388 = getelementptr inbounds i8, ptr %14, i64 32
+  %.sink329.sroa.gep390 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sink329.sroa.gep391 = getelementptr inbounds i8, ptr %14, i64 16
+  %.sink329.sroa.gep393 = getelementptr inbounds i8, ptr %10, i64 24
+  %.sink329.sroa.gep394 = getelementptr inbounds i8, ptr %14, i64 24
   br i1 %switch.i, label %24, label %32
 
 24:                                               ; preds = %4
@@ -5195,13 +5189,13 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h0317d3b220d87
   br label %.invoke319
 
 .invoke319:                                       ; preds = %158, %106
+  %.sink329.sroa.phi = phi ptr [ %.sink329.sroa.gep, %158 ], [ %.sink329.sroa.gep385, %106 ]
+  %.sink329.sroa.phi386 = phi ptr [ %.sink329.sroa.gep387, %158 ], [ %.sink329.sroa.gep388, %106 ]
+  %.sink329.sroa.phi389 = phi ptr [ %.sink329.sroa.gep390, %158 ], [ %.sink329.sroa.gep391, %106 ]
+  %.sink329.sroa.phi392 = phi ptr [ %.sink329.sroa.gep393, %158 ], [ %.sink329.sroa.gep394, %106 ]
   %.sink329 = phi ptr [ %10, %158 ], [ %14, %106 ]
   %.sink = phi ptr [ %9, %158 ], [ %13, %106 ]
   %113 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.58, %158 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.59, %106 ]
-  %.sink329.sroa.phi = phi ptr [ %.sroa.gep, %158 ], [ %.sroa.gep385, %106 ]
-  %.sink329.sroa.phi386 = phi ptr [ %.sroa.gep387, %158 ], [ %.sroa.gep388, %106 ]
-  %.sink329.sroa.phi389 = phi ptr [ %.sroa.gep390, %158 ], [ %.sroa.gep391, %106 ]
-  %.sink329.sroa.phi392 = phi ptr [ %.sroa.gep393, %158 ], [ %.sroa.gep394, %106 ]
   store i64 2, ptr %.sink329.sroa.phi, align 8, !noalias !14
   store ptr null, ptr %.sink329.sroa.phi386, align 8, !noalias !14
   store ptr %.sink, ptr %.sink329.sroa.phi389, align 8, !noalias !14
@@ -5434,18 +5428,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h15129f9eef9b8
   %8 = alloca { i32, i32 }, align 4
   %9 = alloca [2 x { ptr, ptr }], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep385 = getelementptr inbounds i8, ptr %10, i64 24
-  %.sroa.gep382 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.gep379 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
   %11 = alloca { i32, i32 }, align 4
   %12 = alloca { i32, i32 }, align 4
   %13 = alloca [2 x { ptr, ptr }], align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep386 = getelementptr inbounds i8, ptr %14, i64 24
-  %.sroa.gep383 = getelementptr inbounds i8, ptr %14, i64 16
-  %.sroa.gep380 = getelementptr inbounds i8, ptr %14, i64 32
-  %.sroa.gep377 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { { i64, ptr }, i64 }, align 8
@@ -5459,6 +5445,14 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h15129f9eef9b8
   %23 = tail call { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17h1e060a8d46891164E.llvm.1814251078191383949"(i32 noundef %2, i32 noundef %22), !noalias !463
   %.fca.0.extract.i = extractvalue { i64, i64 } %23, 0
   %switch.i = icmp eq i64 %.fca.0.extract.i, 0
+  %.sink309.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
+  %.sink309.sroa.gep377 = getelementptr inbounds i8, ptr %14, i64 8
+  %.sink309.sroa.gep379 = getelementptr inbounds i8, ptr %10, i64 32
+  %.sink309.sroa.gep380 = getelementptr inbounds i8, ptr %14, i64 32
+  %.sink309.sroa.gep382 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sink309.sroa.gep383 = getelementptr inbounds i8, ptr %14, i64 16
+  %.sink309.sroa.gep385 = getelementptr inbounds i8, ptr %10, i64 24
+  %.sink309.sroa.gep386 = getelementptr inbounds i8, ptr %14, i64 24
   br i1 %switch.i, label %24, label %32
 
 24:                                               ; preds = %4
@@ -5677,13 +5671,13 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h15129f9eef9b8
   br label %.invoke
 
 .invoke:                                          ; preds = %137, %107
+  %.sink309.sroa.phi = phi ptr [ %.sink309.sroa.gep, %137 ], [ %.sink309.sroa.gep377, %107 ]
+  %.sink309.sroa.phi378 = phi ptr [ %.sink309.sroa.gep379, %137 ], [ %.sink309.sroa.gep380, %107 ]
+  %.sink309.sroa.phi381 = phi ptr [ %.sink309.sroa.gep382, %137 ], [ %.sink309.sroa.gep383, %107 ]
+  %.sink309.sroa.phi384 = phi ptr [ %.sink309.sroa.gep385, %137 ], [ %.sink309.sroa.gep386, %107 ]
   %.sink309 = phi ptr [ %10, %137 ], [ %14, %107 ]
   %.sink = phi ptr [ %9, %137 ], [ %13, %107 ]
   %114 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.58, %137 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.59, %107 ]
-  %.sink309.sroa.phi = phi ptr [ %.sroa.gep, %137 ], [ %.sroa.gep377, %107 ]
-  %.sink309.sroa.phi378 = phi ptr [ %.sroa.gep379, %137 ], [ %.sroa.gep380, %107 ]
-  %.sink309.sroa.phi381 = phi ptr [ %.sroa.gep382, %137 ], [ %.sroa.gep383, %107 ]
-  %.sink309.sroa.phi384 = phi ptr [ %.sroa.gep385, %137 ], [ %.sroa.gep386, %107 ]
   store i64 2, ptr %.sink309.sroa.phi, align 8, !noalias !14
   store ptr null, ptr %.sink309.sroa.phi378, align 8, !noalias !14
   store ptr %.sink, ptr %.sink309.sroa.phi381, align 8, !noalias !14
@@ -5878,18 +5872,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h1e3e5fe145459
   %8 = alloca { i32, i32 }, align 4
   %9 = alloca [2 x { ptr, ptr }], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep440 = getelementptr inbounds i8, ptr %10, i64 24
-  %.sroa.gep437 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.gep434 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
   %11 = alloca { i32, i32 }, align 4
   %12 = alloca { i32, i32 }, align 4
   %13 = alloca [2 x { ptr, ptr }], align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep441 = getelementptr inbounds i8, ptr %14, i64 24
-  %.sroa.gep438 = getelementptr inbounds i8, ptr %14, i64 16
-  %.sroa.gep435 = getelementptr inbounds i8, ptr %14, i64 32
-  %.sroa.gep432 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { { i64, ptr }, i64 }, align 8
@@ -5903,6 +5889,14 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h1e3e5fe145459
   %23 = tail call { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17hdae259f51c32bc3bE.llvm.1814251078191383949"(i32 noundef %2, i32 noundef %22), !noalias !532
   %.fca.0.extract.i = extractvalue { i64, i64 } %23, 0
   %switch.i = icmp eq i64 %.fca.0.extract.i, 0
+  %.sink360.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
+  %.sink360.sroa.gep432 = getelementptr inbounds i8, ptr %14, i64 8
+  %.sink360.sroa.gep434 = getelementptr inbounds i8, ptr %10, i64 32
+  %.sink360.sroa.gep435 = getelementptr inbounds i8, ptr %14, i64 32
+  %.sink360.sroa.gep437 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sink360.sroa.gep438 = getelementptr inbounds i8, ptr %14, i64 16
+  %.sink360.sroa.gep440 = getelementptr inbounds i8, ptr %10, i64 24
+  %.sink360.sroa.gep441 = getelementptr inbounds i8, ptr %14, i64 24
   br i1 %switch.i, label %24, label %32
 
 24:                                               ; preds = %4
@@ -6124,13 +6118,13 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h1e3e5fe145459
   br label %.invoke348
 
 .invoke348:                                       ; preds = %167, %106
+  %.sink360.sroa.phi = phi ptr [ %.sink360.sroa.gep, %167 ], [ %.sink360.sroa.gep432, %106 ]
+  %.sink360.sroa.phi433 = phi ptr [ %.sink360.sroa.gep434, %167 ], [ %.sink360.sroa.gep435, %106 ]
+  %.sink360.sroa.phi436 = phi ptr [ %.sink360.sroa.gep437, %167 ], [ %.sink360.sroa.gep438, %106 ]
+  %.sink360.sroa.phi439 = phi ptr [ %.sink360.sroa.gep440, %167 ], [ %.sink360.sroa.gep441, %106 ]
   %.sink360 = phi ptr [ %10, %167 ], [ %14, %106 ]
   %.sink = phi ptr [ %9, %167 ], [ %13, %106 ]
   %113 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.58, %167 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.59, %106 ]
-  %.sink360.sroa.phi = phi ptr [ %.sroa.gep, %167 ], [ %.sroa.gep432, %106 ]
-  %.sink360.sroa.phi433 = phi ptr [ %.sroa.gep434, %167 ], [ %.sroa.gep435, %106 ]
-  %.sink360.sroa.phi436 = phi ptr [ %.sroa.gep437, %167 ], [ %.sroa.gep438, %106 ]
-  %.sink360.sroa.phi439 = phi ptr [ %.sroa.gep440, %167 ], [ %.sroa.gep441, %106 ]
   store i64 2, ptr %.sink360.sroa.phi, align 8, !noalias !14
   store ptr null, ptr %.sink360.sroa.phi433, align 8, !noalias !14
   store ptr %.sink, ptr %.sink360.sroa.phi436, align 8, !noalias !14
@@ -6376,18 +6370,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h31f7764591547
   %8 = alloca { i32, i32 }, align 4
   %9 = alloca [2 x { ptr, ptr }], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep428 = getelementptr inbounds i8, ptr %10, i64 24
-  %.sroa.gep425 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.gep422 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
   %11 = alloca { i32, i32 }, align 4
   %12 = alloca { i32, i32 }, align 4
   %13 = alloca [2 x { ptr, ptr }], align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep429 = getelementptr inbounds i8, ptr %14, i64 24
-  %.sroa.gep426 = getelementptr inbounds i8, ptr %14, i64 16
-  %.sroa.gep423 = getelementptr inbounds i8, ptr %14, i64 32
-  %.sroa.gep420 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { { i64, ptr }, i64 }, align 8
@@ -6401,6 +6387,14 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h31f7764591547
   %23 = tail call { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17h231d5d236b471c19E.llvm.1814251078191383949"(i32 noundef %2, i32 noundef %22), !noalias !604
   %.fca.0.extract.i = extractvalue { i64, i64 } %23, 0
   %switch.i = icmp eq i64 %.fca.0.extract.i, 0
+  %.sink354.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
+  %.sink354.sroa.gep420 = getelementptr inbounds i8, ptr %14, i64 8
+  %.sink354.sroa.gep422 = getelementptr inbounds i8, ptr %10, i64 32
+  %.sink354.sroa.gep423 = getelementptr inbounds i8, ptr %14, i64 32
+  %.sink354.sroa.gep425 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sink354.sroa.gep426 = getelementptr inbounds i8, ptr %14, i64 16
+  %.sink354.sroa.gep428 = getelementptr inbounds i8, ptr %10, i64 24
+  %.sink354.sroa.gep429 = getelementptr inbounds i8, ptr %14, i64 24
   br i1 %switch.i, label %24, label %32
 
 24:                                               ; preds = %4
@@ -6622,13 +6616,13 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h31f7764591547
   br label %.invoke342
 
 .invoke342:                                       ; preds = %167, %106
+  %.sink354.sroa.phi = phi ptr [ %.sink354.sroa.gep, %167 ], [ %.sink354.sroa.gep420, %106 ]
+  %.sink354.sroa.phi421 = phi ptr [ %.sink354.sroa.gep422, %167 ], [ %.sink354.sroa.gep423, %106 ]
+  %.sink354.sroa.phi424 = phi ptr [ %.sink354.sroa.gep425, %167 ], [ %.sink354.sroa.gep426, %106 ]
+  %.sink354.sroa.phi427 = phi ptr [ %.sink354.sroa.gep428, %167 ], [ %.sink354.sroa.gep429, %106 ]
   %.sink354 = phi ptr [ %10, %167 ], [ %14, %106 ]
   %.sink = phi ptr [ %9, %167 ], [ %13, %106 ]
   %113 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.58, %167 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.59, %106 ]
-  %.sink354.sroa.phi = phi ptr [ %.sroa.gep, %167 ], [ %.sroa.gep420, %106 ]
-  %.sink354.sroa.phi421 = phi ptr [ %.sroa.gep422, %167 ], [ %.sroa.gep423, %106 ]
-  %.sink354.sroa.phi424 = phi ptr [ %.sroa.gep425, %167 ], [ %.sroa.gep426, %106 ]
-  %.sink354.sroa.phi427 = phi ptr [ %.sroa.gep428, %167 ], [ %.sroa.gep429, %106 ]
   store i64 2, ptr %.sink354.sroa.phi, align 8, !noalias !14
   store ptr null, ptr %.sink354.sroa.phi421, align 8, !noalias !14
   store ptr %.sink, ptr %.sink354.sroa.phi424, align 8, !noalias !14
@@ -6877,18 +6871,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h41d01de9455b1
   %8 = alloca { i32, i32 }, align 4
   %9 = alloca [2 x { ptr, ptr }], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep428 = getelementptr inbounds i8, ptr %10, i64 24
-  %.sroa.gep425 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.gep422 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
   %11 = alloca { i32, i32 }, align 4
   %12 = alloca { i32, i32 }, align 4
   %13 = alloca [2 x { ptr, ptr }], align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep429 = getelementptr inbounds i8, ptr %14, i64 24
-  %.sroa.gep426 = getelementptr inbounds i8, ptr %14, i64 16
-  %.sroa.gep423 = getelementptr inbounds i8, ptr %14, i64 32
-  %.sroa.gep420 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { { i64, ptr }, i64 }, align 8
@@ -6902,6 +6888,14 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h41d01de9455b1
   %23 = tail call { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17hb7c7308438dfc0c9E.llvm.1814251078191383949"(i32 noundef %2, i32 noundef %22), !noalias !676
   %.fca.0.extract.i = extractvalue { i64, i64 } %23, 0
   %switch.i = icmp eq i64 %.fca.0.extract.i, 0
+  %.sink354.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
+  %.sink354.sroa.gep420 = getelementptr inbounds i8, ptr %14, i64 8
+  %.sink354.sroa.gep422 = getelementptr inbounds i8, ptr %10, i64 32
+  %.sink354.sroa.gep423 = getelementptr inbounds i8, ptr %14, i64 32
+  %.sink354.sroa.gep425 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sink354.sroa.gep426 = getelementptr inbounds i8, ptr %14, i64 16
+  %.sink354.sroa.gep428 = getelementptr inbounds i8, ptr %10, i64 24
+  %.sink354.sroa.gep429 = getelementptr inbounds i8, ptr %14, i64 24
   br i1 %switch.i, label %24, label %32
 
 24:                                               ; preds = %4
@@ -7123,13 +7117,13 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h41d01de9455b1
   br label %.invoke342
 
 .invoke342:                                       ; preds = %164, %106
+  %.sink354.sroa.phi = phi ptr [ %.sink354.sroa.gep, %164 ], [ %.sink354.sroa.gep420, %106 ]
+  %.sink354.sroa.phi421 = phi ptr [ %.sink354.sroa.gep422, %164 ], [ %.sink354.sroa.gep423, %106 ]
+  %.sink354.sroa.phi424 = phi ptr [ %.sink354.sroa.gep425, %164 ], [ %.sink354.sroa.gep426, %106 ]
+  %.sink354.sroa.phi427 = phi ptr [ %.sink354.sroa.gep428, %164 ], [ %.sink354.sroa.gep429, %106 ]
   %.sink354 = phi ptr [ %10, %164 ], [ %14, %106 ]
   %.sink = phi ptr [ %9, %164 ], [ %13, %106 ]
   %113 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.58, %164 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.59, %106 ]
-  %.sink354.sroa.phi = phi ptr [ %.sroa.gep, %164 ], [ %.sroa.gep420, %106 ]
-  %.sink354.sroa.phi421 = phi ptr [ %.sroa.gep422, %164 ], [ %.sroa.gep423, %106 ]
-  %.sink354.sroa.phi424 = phi ptr [ %.sroa.gep425, %164 ], [ %.sroa.gep426, %106 ]
-  %.sink354.sroa.phi427 = phi ptr [ %.sroa.gep428, %164 ], [ %.sroa.gep429, %106 ]
   store i64 2, ptr %.sink354.sroa.phi, align 8, !noalias !14
   store ptr null, ptr %.sink354.sroa.phi421, align 8, !noalias !14
   store ptr %.sink, ptr %.sink354.sroa.phi424, align 8, !noalias !14
@@ -7371,18 +7365,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h66d8c9163afae
   %8 = alloca { i32, i32 }, align 4
   %9 = alloca [2 x { ptr, ptr }], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep398 = getelementptr inbounds i8, ptr %10, i64 24
-  %.sroa.gep395 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.gep392 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
   %11 = alloca { i32, i32 }, align 4
   %12 = alloca { i32, i32 }, align 4
   %13 = alloca [2 x { ptr, ptr }], align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep399 = getelementptr inbounds i8, ptr %14, i64 24
-  %.sroa.gep396 = getelementptr inbounds i8, ptr %14, i64 16
-  %.sroa.gep393 = getelementptr inbounds i8, ptr %14, i64 32
-  %.sroa.gep390 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { { i64, ptr }, i64 }, align 8
@@ -7396,6 +7382,14 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h66d8c9163afae
   %23 = tail call { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17ha0a7ab413e2c331dE.llvm.1814251078191383949"(i32 noundef %2, i32 noundef %22), !noalias !748
   %.fca.0.extract.i = extractvalue { i64, i64 } %23, 0
   %switch.i = icmp eq i64 %.fca.0.extract.i, 0
+  %.sink336.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
+  %.sink336.sroa.gep390 = getelementptr inbounds i8, ptr %14, i64 8
+  %.sink336.sroa.gep392 = getelementptr inbounds i8, ptr %10, i64 32
+  %.sink336.sroa.gep393 = getelementptr inbounds i8, ptr %14, i64 32
+  %.sink336.sroa.gep395 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sink336.sroa.gep396 = getelementptr inbounds i8, ptr %14, i64 16
+  %.sink336.sroa.gep398 = getelementptr inbounds i8, ptr %10, i64 24
+  %.sink336.sroa.gep399 = getelementptr inbounds i8, ptr %14, i64 24
   br i1 %switch.i, label %24, label %32
 
 24:                                               ; preds = %4
@@ -7617,13 +7611,13 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h66d8c9163afae
   br label %.invoke326
 
 .invoke326:                                       ; preds = %158, %106
+  %.sink336.sroa.phi = phi ptr [ %.sink336.sroa.gep, %158 ], [ %.sink336.sroa.gep390, %106 ]
+  %.sink336.sroa.phi391 = phi ptr [ %.sink336.sroa.gep392, %158 ], [ %.sink336.sroa.gep393, %106 ]
+  %.sink336.sroa.phi394 = phi ptr [ %.sink336.sroa.gep395, %158 ], [ %.sink336.sroa.gep396, %106 ]
+  %.sink336.sroa.phi397 = phi ptr [ %.sink336.sroa.gep398, %158 ], [ %.sink336.sroa.gep399, %106 ]
   %.sink336 = phi ptr [ %10, %158 ], [ %14, %106 ]
   %.sink = phi ptr [ %9, %158 ], [ %13, %106 ]
   %113 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.58, %158 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.59, %106 ]
-  %.sink336.sroa.phi = phi ptr [ %.sroa.gep, %158 ], [ %.sroa.gep390, %106 ]
-  %.sink336.sroa.phi391 = phi ptr [ %.sroa.gep392, %158 ], [ %.sroa.gep393, %106 ]
-  %.sink336.sroa.phi394 = phi ptr [ %.sroa.gep395, %158 ], [ %.sroa.gep396, %106 ]
-  %.sink336.sroa.phi397 = phi ptr [ %.sroa.gep398, %158 ], [ %.sroa.gep399, %106 ]
   store i64 2, ptr %.sink336.sroa.phi, align 8, !noalias !14
   store ptr null, ptr %.sink336.sroa.phi391, align 8, !noalias !14
   store ptr %.sink, ptr %.sink336.sroa.phi394, align 8, !noalias !14
@@ -7853,18 +7847,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h7032cb7be23e1
   %8 = alloca { i32, i32 }, align 4
   %9 = alloca [2 x { ptr, ptr }], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep420 = getelementptr inbounds i8, ptr %10, i64 24
-  %.sroa.gep417 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.gep414 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
   %11 = alloca { i32, i32 }, align 4
   %12 = alloca { i32, i32 }, align 4
   %13 = alloca [2 x { ptr, ptr }], align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep421 = getelementptr inbounds i8, ptr %14, i64 24
-  %.sroa.gep418 = getelementptr inbounds i8, ptr %14, i64 16
-  %.sroa.gep415 = getelementptr inbounds i8, ptr %14, i64 32
-  %.sroa.gep412 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { { i64, ptr }, i64 }, align 8
@@ -7878,6 +7864,14 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h7032cb7be23e1
   %23 = tail call { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17h9dadc40e4495763fE.llvm.1814251078191383949"(i32 noundef %2, i32 noundef %22), !noalias !818
   %.fca.0.extract.i = extractvalue { i64, i64 } %23, 0
   %switch.i = icmp eq i64 %.fca.0.extract.i, 0
+  %.sink346.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
+  %.sink346.sroa.gep412 = getelementptr inbounds i8, ptr %14, i64 8
+  %.sink346.sroa.gep414 = getelementptr inbounds i8, ptr %10, i64 32
+  %.sink346.sroa.gep415 = getelementptr inbounds i8, ptr %14, i64 32
+  %.sink346.sroa.gep417 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sink346.sroa.gep418 = getelementptr inbounds i8, ptr %14, i64 16
+  %.sink346.sroa.gep420 = getelementptr inbounds i8, ptr %10, i64 24
+  %.sink346.sroa.gep421 = getelementptr inbounds i8, ptr %14, i64 24
   br i1 %switch.i, label %24, label %32
 
 24:                                               ; preds = %4
@@ -8094,13 +8088,13 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h7032cb7be23e1
   br label %.invoke334
 
 .invoke334:                                       ; preds = %164, %106
+  %.sink346.sroa.phi = phi ptr [ %.sink346.sroa.gep, %164 ], [ %.sink346.sroa.gep412, %106 ]
+  %.sink346.sroa.phi413 = phi ptr [ %.sink346.sroa.gep414, %164 ], [ %.sink346.sroa.gep415, %106 ]
+  %.sink346.sroa.phi416 = phi ptr [ %.sink346.sroa.gep417, %164 ], [ %.sink346.sroa.gep418, %106 ]
+  %.sink346.sroa.phi419 = phi ptr [ %.sink346.sroa.gep420, %164 ], [ %.sink346.sroa.gep421, %106 ]
   %.sink346 = phi ptr [ %10, %164 ], [ %14, %106 ]
   %.sink = phi ptr [ %9, %164 ], [ %13, %106 ]
   %113 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.58, %164 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.59, %106 ]
-  %.sink346.sroa.phi = phi ptr [ %.sroa.gep, %164 ], [ %.sroa.gep412, %106 ]
-  %.sink346.sroa.phi413 = phi ptr [ %.sroa.gep414, %164 ], [ %.sroa.gep415, %106 ]
-  %.sink346.sroa.phi416 = phi ptr [ %.sroa.gep417, %164 ], [ %.sroa.gep418, %106 ]
-  %.sink346.sroa.phi419 = phi ptr [ %.sroa.gep420, %164 ], [ %.sroa.gep421, %106 ]
   store i64 2, ptr %.sink346.sroa.phi, align 8, !noalias !14
   store ptr null, ptr %.sink346.sroa.phi413, align 8, !noalias !14
   store ptr %.sink, ptr %.sink346.sroa.phi416, align 8, !noalias !14
@@ -8343,18 +8337,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17haa59e50452639
   %8 = alloca { i32, i32 }, align 4
   %9 = alloca [2 x { ptr, ptr }], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep432 = getelementptr inbounds i8, ptr %10, i64 24
-  %.sroa.gep429 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.gep426 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
   %11 = alloca { i32, i32 }, align 4
   %12 = alloca { i32, i32 }, align 4
   %13 = alloca [2 x { ptr, ptr }], align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep433 = getelementptr inbounds i8, ptr %14, i64 24
-  %.sroa.gep430 = getelementptr inbounds i8, ptr %14, i64 16
-  %.sroa.gep427 = getelementptr inbounds i8, ptr %14, i64 32
-  %.sroa.gep424 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { { i64, ptr }, i64 }, align 8
@@ -8368,6 +8354,14 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17haa59e50452639
   %23 = tail call { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17h5715e7b720e2dc85E.llvm.1814251078191383949"(i32 noundef %2, i32 noundef %22), !noalias !887
   %.fca.0.extract.i = extractvalue { i64, i64 } %23, 0
   %switch.i = icmp eq i64 %.fca.0.extract.i, 0
+  %.sink352.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
+  %.sink352.sroa.gep424 = getelementptr inbounds i8, ptr %14, i64 8
+  %.sink352.sroa.gep426 = getelementptr inbounds i8, ptr %10, i64 32
+  %.sink352.sroa.gep427 = getelementptr inbounds i8, ptr %14, i64 32
+  %.sink352.sroa.gep429 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sink352.sroa.gep430 = getelementptr inbounds i8, ptr %14, i64 16
+  %.sink352.sroa.gep432 = getelementptr inbounds i8, ptr %10, i64 24
+  %.sink352.sroa.gep433 = getelementptr inbounds i8, ptr %14, i64 24
   br i1 %switch.i, label %24, label %32
 
 24:                                               ; preds = %4
@@ -8584,13 +8578,13 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17haa59e50452639
   br label %.invoke340
 
 .invoke340:                                       ; preds = %167, %106
+  %.sink352.sroa.phi = phi ptr [ %.sink352.sroa.gep, %167 ], [ %.sink352.sroa.gep424, %106 ]
+  %.sink352.sroa.phi425 = phi ptr [ %.sink352.sroa.gep426, %167 ], [ %.sink352.sroa.gep427, %106 ]
+  %.sink352.sroa.phi428 = phi ptr [ %.sink352.sroa.gep429, %167 ], [ %.sink352.sroa.gep430, %106 ]
+  %.sink352.sroa.phi431 = phi ptr [ %.sink352.sroa.gep432, %167 ], [ %.sink352.sroa.gep433, %106 ]
   %.sink352 = phi ptr [ %10, %167 ], [ %14, %106 ]
   %.sink = phi ptr [ %9, %167 ], [ %13, %106 ]
   %113 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.58, %167 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.59, %106 ]
-  %.sink352.sroa.phi = phi ptr [ %.sroa.gep, %167 ], [ %.sroa.gep424, %106 ]
-  %.sink352.sroa.phi425 = phi ptr [ %.sroa.gep426, %167 ], [ %.sroa.gep427, %106 ]
-  %.sink352.sroa.phi428 = phi ptr [ %.sroa.gep429, %167 ], [ %.sroa.gep430, %106 ]
-  %.sink352.sroa.phi431 = phi ptr [ %.sroa.gep432, %167 ], [ %.sroa.gep433, %106 ]
   store i64 2, ptr %.sink352.sroa.phi, align 8, !noalias !14
   store ptr null, ptr %.sink352.sroa.phi425, align 8, !noalias !14
   store ptr %.sink, ptr %.sink352.sroa.phi428, align 8, !noalias !14
@@ -8837,18 +8831,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hb62c94970eb0b
   %8 = alloca { i32, i32 }, align 4
   %9 = alloca [2 x { ptr, ptr }], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep420 = getelementptr inbounds i8, ptr %10, i64 24
-  %.sroa.gep417 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.gep414 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
   %11 = alloca { i32, i32 }, align 4
   %12 = alloca { i32, i32 }, align 4
   %13 = alloca [2 x { ptr, ptr }], align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep421 = getelementptr inbounds i8, ptr %14, i64 24
-  %.sroa.gep418 = getelementptr inbounds i8, ptr %14, i64 16
-  %.sroa.gep415 = getelementptr inbounds i8, ptr %14, i64 32
-  %.sroa.gep412 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { { i64, ptr }, i64 }, align 8
@@ -8862,6 +8848,14 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hb62c94970eb0b
   %23 = tail call { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17h5046f04a83c18c02E.llvm.1814251078191383949"(i32 noundef %2, i32 noundef %22), !noalias !956
   %.fca.0.extract.i = extractvalue { i64, i64 } %23, 0
   %switch.i = icmp eq i64 %.fca.0.extract.i, 0
+  %.sink346.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
+  %.sink346.sroa.gep412 = getelementptr inbounds i8, ptr %14, i64 8
+  %.sink346.sroa.gep414 = getelementptr inbounds i8, ptr %10, i64 32
+  %.sink346.sroa.gep415 = getelementptr inbounds i8, ptr %14, i64 32
+  %.sink346.sroa.gep417 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sink346.sroa.gep418 = getelementptr inbounds i8, ptr %14, i64 16
+  %.sink346.sroa.gep420 = getelementptr inbounds i8, ptr %10, i64 24
+  %.sink346.sroa.gep421 = getelementptr inbounds i8, ptr %14, i64 24
   br i1 %switch.i, label %24, label %32
 
 24:                                               ; preds = %4
@@ -9078,13 +9072,13 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hb62c94970eb0b
   br label %.invoke334
 
 .invoke334:                                       ; preds = %168, %106
+  %.sink346.sroa.phi = phi ptr [ %.sink346.sroa.gep, %168 ], [ %.sink346.sroa.gep412, %106 ]
+  %.sink346.sroa.phi413 = phi ptr [ %.sink346.sroa.gep414, %168 ], [ %.sink346.sroa.gep415, %106 ]
+  %.sink346.sroa.phi416 = phi ptr [ %.sink346.sroa.gep417, %168 ], [ %.sink346.sroa.gep418, %106 ]
+  %.sink346.sroa.phi419 = phi ptr [ %.sink346.sroa.gep420, %168 ], [ %.sink346.sroa.gep421, %106 ]
   %.sink346 = phi ptr [ %10, %168 ], [ %14, %106 ]
   %.sink = phi ptr [ %9, %168 ], [ %13, %106 ]
   %113 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.58, %168 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.59, %106 ]
-  %.sink346.sroa.phi = phi ptr [ %.sroa.gep, %168 ], [ %.sroa.gep412, %106 ]
-  %.sink346.sroa.phi413 = phi ptr [ %.sroa.gep414, %168 ], [ %.sroa.gep415, %106 ]
-  %.sink346.sroa.phi416 = phi ptr [ %.sroa.gep417, %168 ], [ %.sroa.gep418, %106 ]
-  %.sink346.sroa.phi419 = phi ptr [ %.sroa.gep420, %168 ], [ %.sroa.gep421, %106 ]
   store i64 2, ptr %.sink346.sroa.phi, align 8, !noalias !14
   store ptr null, ptr %.sink346.sroa.phi413, align 8, !noalias !14
   store ptr %.sink, ptr %.sink346.sroa.phi416, align 8, !noalias !14
@@ -9334,18 +9328,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hf5dbeee462c9a
   %8 = alloca { i32, i32 }, align 4
   %9 = alloca [2 x { ptr, ptr }], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep379 = getelementptr inbounds i8, ptr %10, i64 24
-  %.sroa.gep376 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.gep373 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
   %11 = alloca { i32, i32 }, align 4
   %12 = alloca { i32, i32 }, align 4
   %13 = alloca [2 x { ptr, ptr }], align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep380 = getelementptr inbounds i8, ptr %14, i64 24
-  %.sroa.gep377 = getelementptr inbounds i8, ptr %14, i64 16
-  %.sroa.gep374 = getelementptr inbounds i8, ptr %14, i64 32
-  %.sroa.gep371 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { { i64, ptr }, i64 }, align 8
@@ -9359,6 +9345,14 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hf5dbeee462c9a
   %23 = tail call { i64, i64 } @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16image_buffer_len17h411f9370e69a129bE.llvm.1814251078191383949"(i32 noundef %2, i32 noundef %22), !noalias !1025
   %.fca.0.extract.i = extractvalue { i64, i64 } %23, 0
   %switch.i = icmp eq i64 %.fca.0.extract.i, 0
+  %.sink309.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
+  %.sink309.sroa.gep371 = getelementptr inbounds i8, ptr %14, i64 8
+  %.sink309.sroa.gep373 = getelementptr inbounds i8, ptr %10, i64 32
+  %.sink309.sroa.gep374 = getelementptr inbounds i8, ptr %14, i64 32
+  %.sink309.sroa.gep376 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sink309.sroa.gep377 = getelementptr inbounds i8, ptr %14, i64 16
+  %.sink309.sroa.gep379 = getelementptr inbounds i8, ptr %10, i64 24
+  %.sink309.sroa.gep380 = getelementptr inbounds i8, ptr %14, i64 24
   br i1 %switch.i, label %24, label %32
 
 24:                                               ; preds = %4
@@ -9575,13 +9569,13 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hf5dbeee462c9a
   br label %.invoke
 
 .invoke:                                          ; preds = %133, %106
+  %.sink309.sroa.phi = phi ptr [ %.sink309.sroa.gep, %133 ], [ %.sink309.sroa.gep371, %106 ]
+  %.sink309.sroa.phi372 = phi ptr [ %.sink309.sroa.gep373, %133 ], [ %.sink309.sroa.gep374, %106 ]
+  %.sink309.sroa.phi375 = phi ptr [ %.sink309.sroa.gep376, %133 ], [ %.sink309.sroa.gep377, %106 ]
+  %.sink309.sroa.phi378 = phi ptr [ %.sink309.sroa.gep379, %133 ], [ %.sink309.sroa.gep380, %106 ]
   %.sink309 = phi ptr [ %10, %133 ], [ %14, %106 ]
   %.sink = phi ptr [ %9, %133 ], [ %13, %106 ]
   %113 = phi ptr [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.58, %133 ], [ @anon.b96271f4cf8a6d021d67e6f234d08bd0.59, %106 ]
-  %.sink309.sroa.phi = phi ptr [ %.sroa.gep, %133 ], [ %.sroa.gep371, %106 ]
-  %.sink309.sroa.phi372 = phi ptr [ %.sroa.gep373, %133 ], [ %.sroa.gep374, %106 ]
-  %.sink309.sroa.phi375 = phi ptr [ %.sroa.gep376, %133 ], [ %.sroa.gep377, %106 ]
-  %.sink309.sroa.phi378 = phi ptr [ %.sroa.gep379, %133 ], [ %.sroa.gep380, %106 ]
   store i64 2, ptr %.sink309.sroa.phi, align 8, !noalias !14
   store ptr null, ptr %.sink309.sroa.phi372, align 8, !noalias !14
   store ptr %.sink, ptr %.sink309.sroa.phi375, align 8, !noalias !14

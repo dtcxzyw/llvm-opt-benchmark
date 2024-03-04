@@ -2814,6 +2814,8 @@ entry:
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !8
   %call2.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(16) %0), !noalias !8
   %request_.i = getelementptr inbounds i8, ptr %setting, i64 8
+  %agg.tmp.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %agg.tmp.sink.sroa.gep100 = getelementptr inbounds i8, ptr %agg.tmp30, i64 8
   invoke void @_ZNK6google8protobuf20ConformanceTestSuite25ConformanceRequestSetting11GetTestNameB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(136) %setting)
           to label %invoke.cont3 unwind label %lpad
 
@@ -2900,10 +2902,10 @@ sw.bb29:                                          ; preds = %cleanup.done, %clea
   br label %sw.bb29.invoke
 
 sw.bb29.invoke:                                   ; preds = %sw.bb, %sw.bb29
+  %agg.tmp.sink.sroa.phi = phi ptr [ %agg.tmp.sink.sroa.gep, %sw.bb ], [ %agg.tmp.sink.sroa.gep100, %sw.bb29 ]
   %agg.tmp.sink = phi ptr [ %agg.tmp, %sw.bb ], [ %agg.tmp30, %sw.bb29 ]
   %.str.27.sink = phi ptr [ @.str.27, %sw.bb ], [ @.str.28, %sw.bb29 ]
-  %_M_str.i = getelementptr inbounds i8, ptr %agg.tmp.sink, i64 8
-  store ptr %.str.27.sink, ptr %_M_str.i, align 8
+  store ptr %.str.27.sink, ptr %agg.tmp.sink.sroa.phi, align 8
   invoke void @_ZN6google8protobuf20ConformanceTestSuite13ReportFailureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_16ConformanceLevelERKN11conformance18ConformanceRequestERKNSB_19ConformanceResponseESt17basic_string_viewIcS5_E(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %request_.i, ptr noundef nonnull align 8 dereferenceable(32) %response, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp.sink)
           to label %_ZNSt10unique_ptrIN6google8protobuf7MessageESt14default_deleteIS2_EED2Ev.exit unwind label %lpad9
 

@@ -9076,16 +9076,8 @@ define void @_ZN5tokio4sync15batch_semaphore9Semaphore7acquire17hb389fd10418cc85
 define hidden void @_ZN5tokio4sync15batch_semaphore9Semaphore18add_permits_locked17h60cb3c7979ecd553E(ptr noundef nonnull align 8 %0, i64 noundef %1, ptr noundef nonnull align 8 %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca [2 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep117 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.gep114 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.gep111 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
   %6 = alloca [1 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep118 = getelementptr inbounds i8, ptr %7, i64 24
-  %.sroa.gep115 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sroa.gep112 = getelementptr inbounds i8, ptr %7, i64 32
-  %.sroa.gep109 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = alloca ptr, align 8
   %9 = alloca { [32 x { ptr, ptr }], i64 }, align 8
   %10 = alloca i64, align 8
@@ -9094,6 +9086,14 @@ define hidden void @_ZN5tokio4sync15batch_semaphore9Semaphore18add_permits_locke
   %11 = getelementptr inbounds i8, ptr %9, i64 512
   store i64 0, ptr %11, align 8, !alias.scope !1629
   %.not76 = icmp eq i64 %1, 0
+  %.sink100.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink100.sroa.gep109 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sink100.sroa.gep111 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sink100.sroa.gep112 = getelementptr inbounds i8, ptr %7, i64 32
+  %.sink100.sroa.gep114 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink100.sroa.gep115 = getelementptr inbounds i8, ptr %7, i64 16
+  %.sink100.sroa.gep117 = getelementptr inbounds i8, ptr %5, i64 24
+  %.sink100.sroa.gep118 = getelementptr inbounds i8, ptr %7, i64 24
   br i1 %.not76, label %._crit_edge, label %.lr.ph79
 
 .lr.ph79:                                         ; preds = %3
@@ -9259,15 +9259,15 @@ thread-pre-split:                                 ; preds = %.lr.ph, %99, %"_ZN7
   br label %.invoke
 
 .invoke:                                          ; preds = %70, %60
+  %.sink100.sroa.phi = phi ptr [ %.sink100.sroa.gep, %70 ], [ %.sink100.sroa.gep109, %60 ]
+  %.sink100.sroa.phi110 = phi ptr [ %.sink100.sroa.gep111, %70 ], [ %.sink100.sroa.gep112, %60 ]
+  %.sink100.sroa.phi113 = phi ptr [ %.sink100.sroa.gep114, %70 ], [ %.sink100.sroa.gep115, %60 ]
+  %.sink100.sroa.phi116 = phi ptr [ %.sink100.sroa.gep117, %70 ], [ %.sink100.sroa.gep118, %60 ]
   %.sink100 = phi ptr [ %5, %70 ], [ %7, %60 ]
   %.sink98 = phi i64 [ 3, %70 ], [ 2, %60 ]
   %.sink93 = phi ptr [ %4, %70 ], [ %6, %60 ]
   %.sink = phi i64 [ 2, %70 ], [ 1, %60 ]
   %62 = phi ptr [ @anon.a3654876b431c0fa1f523517c2a30401.115, %70 ], [ @anon.a3654876b431c0fa1f523517c2a30401.111, %60 ]
-  %.sink100.sroa.phi = phi ptr [ %.sroa.gep, %70 ], [ %.sroa.gep109, %60 ]
-  %.sink100.sroa.phi110 = phi ptr [ %.sroa.gep111, %70 ], [ %.sroa.gep112, %60 ]
-  %.sink100.sroa.phi113 = phi ptr [ %.sroa.gep114, %70 ], [ %.sroa.gep115, %60 ]
-  %.sink100.sroa.phi116 = phi ptr [ %.sroa.gep117, %70 ], [ %.sroa.gep118, %60 ]
   store i64 %.sink98, ptr %.sink100.sroa.phi, align 8, !noalias !4
   store ptr null, ptr %.sink100.sroa.phi110, align 8, !noalias !4
   store ptr %.sink93, ptr %.sink100.sroa.phi113, align 8, !noalias !4

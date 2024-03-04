@@ -14041,15 +14041,7 @@ define hidden void @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$15read_ima
   %14 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep113 = getelementptr inbounds i8, ptr %16, i64 24
-  %.sroa.gep110 = getelementptr inbounds i8, ptr %16, i64 16
-  %.sroa.gep107 = getelementptr inbounds i8, ptr %16, i64 32
-  %.sroa.gep104 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep112 = getelementptr inbounds i8, ptr %17, i64 24
-  %.sroa.gep109 = getelementptr inbounds i8, ptr %17, i64 16
-  %.sroa.gep106 = getelementptr inbounds i8, ptr %17, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %17, i64 8
   %18 = alloca { ptr, [5 x i64] }, align 8
   %19 = alloca i64, align 8
   %20 = alloca i64, align 8
@@ -14063,6 +14055,14 @@ define hidden void @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$15read_ima
   %.sroa.4 = alloca [39 x i8], align 1
   %27 = getelementptr inbounds i8, ptr %1, i64 112
   %28 = load i8, ptr %27, align 8, !range !188, !noundef !4
+  %.sink61.i.sroa.gep = getelementptr inbounds i8, ptr %17, i64 8
+  %.sink61.i.sroa.gep104 = getelementptr inbounds i8, ptr %16, i64 8
+  %.sink61.i.sroa.gep106 = getelementptr inbounds i8, ptr %17, i64 32
+  %.sink61.i.sroa.gep107 = getelementptr inbounds i8, ptr %16, i64 32
+  %.sink61.i.sroa.gep109 = getelementptr inbounds i8, ptr %17, i64 16
+  %.sink61.i.sroa.gep110 = getelementptr inbounds i8, ptr %16, i64 16
+  %.sink61.i.sroa.gep112 = getelementptr inbounds i8, ptr %17, i64 24
+  %.sink61.i.sroa.gep113 = getelementptr inbounds i8, ptr %16, i64 24
   switch i8 %28, label %default.unreachable128 [
     i8 0, label %29
     i8 1, label %120
@@ -14245,12 +14245,12 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h5d3e97ea8bb3de04E.exit.i: ; pr
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %91, %89
+  %.sink61.i.sroa.phi = phi ptr [ %.sink61.i.sroa.gep, %89 ], [ %.sink61.i.sroa.gep104, %91 ]
+  %.sink61.i.sroa.phi105 = phi ptr [ %.sink61.i.sroa.gep106, %89 ], [ %.sink61.i.sroa.gep107, %91 ]
+  %.sink61.i.sroa.phi108 = phi ptr [ %.sink61.i.sroa.gep109, %89 ], [ %.sink61.i.sroa.gep110, %91 ]
+  %.sink61.i.sroa.phi111 = phi ptr [ %.sink61.i.sroa.gep112, %89 ], [ %.sink61.i.sroa.gep113, %91 ]
   %.sink61.i = phi ptr [ %17, %89 ], [ %16, %91 ]
   %92 = phi ptr [ @anon.df12dd7d62f56185f0383eceae1d36f2.173, %89 ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.174, %91 ]
-  %.sink61.i.sroa.phi = phi ptr [ %.sroa.gep, %89 ], [ %.sroa.gep104, %91 ]
-  %.sink61.i.sroa.phi105 = phi ptr [ %.sroa.gep106, %89 ], [ %.sroa.gep107, %91 ]
-  %.sink61.i.sroa.phi108 = phi ptr [ %.sroa.gep109, %89 ], [ %.sroa.gep110, %91 ]
-  %.sink61.i.sroa.phi111 = phi ptr [ %.sroa.gep112, %89 ], [ %.sroa.gep113, %91 ]
   store i64 1, ptr %.sink61.i.sroa.phi, align 8, !noalias !2161
   store ptr null, ptr %.sink61.i.sroa.phi105, align 8, !noalias !2161
   store ptr @anon.df12dd7d62f56185f0383eceae1d36f2.39.llvm.3890463254259644073, ptr %.sink61.i.sroa.phi108, align 8, !noalias !2161
@@ -14720,15 +14720,7 @@ define hidden void @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$15read_ima
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %18 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep114 = getelementptr inbounds i8, ptr %18, i64 24
-  %.sroa.gep111 = getelementptr inbounds i8, ptr %18, i64 16
-  %.sroa.gep108 = getelementptr inbounds i8, ptr %18, i64 32
-  %.sroa.gep105 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep113 = getelementptr inbounds i8, ptr %19, i64 24
-  %.sroa.gep110 = getelementptr inbounds i8, ptr %19, i64 16
-  %.sroa.gep107 = getelementptr inbounds i8, ptr %19, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %19, i64 8
   %20 = alloca { ptr, [5 x i64] }, align 8
   %21 = alloca i64, align 8
   %22 = alloca i64, align 8
@@ -14744,6 +14736,14 @@ define hidden void @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$15read_ima
   %.sroa.4 = alloca [39 x i8], align 1
   %31 = getelementptr inbounds i8, ptr %1, i64 136
   %32 = load i8, ptr %31, align 8, !range !188, !noundef !4
+  %.sink55.i.sroa.gep = getelementptr inbounds i8, ptr %19, i64 8
+  %.sink55.i.sroa.gep105 = getelementptr inbounds i8, ptr %18, i64 8
+  %.sink55.i.sroa.gep107 = getelementptr inbounds i8, ptr %19, i64 32
+  %.sink55.i.sroa.gep108 = getelementptr inbounds i8, ptr %18, i64 32
+  %.sink55.i.sroa.gep110 = getelementptr inbounds i8, ptr %19, i64 16
+  %.sink55.i.sroa.gep111 = getelementptr inbounds i8, ptr %18, i64 16
+  %.sink55.i.sroa.gep113 = getelementptr inbounds i8, ptr %19, i64 24
+  %.sink55.i.sroa.gep114 = getelementptr inbounds i8, ptr %18, i64 24
   switch i8 %32, label %default.unreachable129 [
     i8 0, label %33
     i8 1, label %133
@@ -14945,12 +14945,12 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17hda526fce825a2de6E.exit.i: ; pr
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %103, %101
+  %.sink55.i.sroa.phi = phi ptr [ %.sink55.i.sroa.gep, %101 ], [ %.sink55.i.sroa.gep105, %103 ]
+  %.sink55.i.sroa.phi106 = phi ptr [ %.sink55.i.sroa.gep107, %101 ], [ %.sink55.i.sroa.gep108, %103 ]
+  %.sink55.i.sroa.phi109 = phi ptr [ %.sink55.i.sroa.gep110, %101 ], [ %.sink55.i.sroa.gep111, %103 ]
+  %.sink55.i.sroa.phi112 = phi ptr [ %.sink55.i.sroa.gep113, %101 ], [ %.sink55.i.sroa.gep114, %103 ]
   %.sink55.i = phi ptr [ %19, %101 ], [ %18, %103 ]
   %104 = phi ptr [ @anon.df12dd7d62f56185f0383eceae1d36f2.173, %101 ], [ @anon.df12dd7d62f56185f0383eceae1d36f2.174, %103 ]
-  %.sink55.i.sroa.phi = phi ptr [ %.sroa.gep, %101 ], [ %.sroa.gep105, %103 ]
-  %.sink55.i.sroa.phi106 = phi ptr [ %.sroa.gep107, %101 ], [ %.sroa.gep108, %103 ]
-  %.sink55.i.sroa.phi109 = phi ptr [ %.sroa.gep110, %101 ], [ %.sroa.gep111, %103 ]
-  %.sink55.i.sroa.phi112 = phi ptr [ %.sroa.gep113, %101 ], [ %.sroa.gep114, %103 ]
   store i64 1, ptr %.sink55.i.sroa.phi, align 8, !noalias !2269
   store ptr null, ptr %.sink55.i.sroa.phi106, align 8, !noalias !2269
   store ptr @anon.df12dd7d62f56185f0383eceae1d36f2.39.llvm.3890463254259644073, ptr %.sink55.i.sroa.phi109, align 8, !noalias !2269

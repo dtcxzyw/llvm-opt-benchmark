@@ -240,22 +240,20 @@ entry:
   %bufsize = alloca i32, align 4
   %seed = alloca [6 x i8], align 4
   %cmp.not = icmp eq ptr %out, null
+  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %seed, i64 3
+  %.sink.i.sroa.gep17 = getelementptr inbounds i8, ptr %seed, i64 4
+  %.sink.i.sroa.gep19 = getelementptr inbounds i8, ptr %seed, i64 2
+  %.sink.i.sroa.gep20 = getelementptr inbounds i8, ptr %seed, i64 1
   br i1 %cmp.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call = call i32 @WPACKET_init_static_len(ptr noundef nonnull %pkt, ptr noundef nonnull %out, i64 noundef %outlen, i64 noundef 0) #6
   %tobool5.not = icmp eq i32 %call, 0
-  br i1 %tobool5.not, label %return, label %while.body.preheader
+  br i1 %tobool5.not, label %return, label %while.body
 
-while.body.preheader:                             ; preds = %if.end
-  %arrayidx46.i = getelementptr inbounds i8, ptr %seed, i64 1
-  %arrayidx51.i = getelementptr inbounds i8, ptr %seed, i64 2
-  %arrayidx56.i = getelementptr inbounds i8, ptr %seed, i64 3
-  br label %while.body
-
-while.body:                                       ; preds = %while.body.preheader, %if.end44
-  %result.0 = phi i32 [ %spec.select15, %if.end44 ], [ 1, %while.body.preheader ]
-  %inptr.0 = phi ptr [ %add.ptr49, %if.end44 ], [ %in, %while.body.preheader ]
+while.body:                                       ; preds = %if.end, %if.end44
+  %result.0 = phi i32 [ %spec.select15, %if.end44 ], [ 1, %if.end ]
+  %inptr.0 = phi ptr [ %add.ptr49, %if.end44 ], [ %in, %if.end ]
   %call8 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %inptr.0, i32 noundef 46) #7
   %cmp9.not = icmp eq ptr %call8, null
   br i1 %cmp9.not, label %cond.false, label %cond.true
@@ -292,8 +290,8 @@ if.else:                                          ; preds = %cond.end
 
 for.cond.preheader:                               ; preds = %if.else
   %0 = load i32, ptr %bufsize, align 4
-  %cmp2523.not = icmp eq i32 %0, 0
-  br i1 %cmp2523.not, label %if.end40, label %for.body.preheader
+  %cmp2526.not = icmp eq i32 %0, 0
+  br i1 %cmp2526.not, label %if.end40, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.cond.preheader
   %wide.trip.count = zext i32 %0 to i64
@@ -301,7 +299,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.preheader, %if.end34
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end34 ]
-  %result.125 = phi i32 [ %result.0, %for.body.preheader ], [ %spec.select14, %if.end34 ]
+  %result.128 = phi i32 [ %result.0, %for.body.preheader ], [ %spec.select14, %if.end34 ]
   %arrayidx = getelementptr inbounds [512 x i32], ptr %buf, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 4
   %cmp.i = icmp ult i32 %1, 128
@@ -324,7 +322,7 @@ if.then4.i:                                       ; preds = %if.else.i
   %3 = trunc i32 %1 to i8
   %4 = and i8 %3, 63
   %conv10.i = or disjoint i8 %4, -128
-  store i8 %conv10.i, ptr %arrayidx46.i, align 1
+  store i8 %conv10.i, ptr %.sink.i.sroa.gep20, align 1
   br label %if.end34
 
 if.else13.i:                                      ; preds = %if.else.i
@@ -340,11 +338,11 @@ if.then16.i:                                      ; preds = %if.else13.i
   %6 = trunc i32 %shr22.i to i8
   %7 = and i8 %6, 63
   %conv25.i = or disjoint i8 %7, -128
-  store i8 %conv25.i, ptr %arrayidx46.i, align 1
+  store i8 %conv25.i, ptr %.sink.i.sroa.gep20, align 1
   %8 = trunc i32 %1 to i8
   %9 = and i8 %8, 63
   %conv30.i = or disjoint i8 %9, -128
-  store i8 %conv30.i, ptr %arrayidx51.i, align 2
+  store i8 %conv30.i, ptr %.sink.i.sroa.gep19, align 2
   br label %if.end34
 
 if.else33.i:                                      ; preds = %if.else13.i
@@ -360,16 +358,16 @@ if.then36.i:                                      ; preds = %if.else33.i
   %11 = trunc i32 %shr42.i to i8
   %12 = and i8 %11, 63
   %conv45.i = or disjoint i8 %12, -128
-  store i8 %conv45.i, ptr %arrayidx46.i, align 1
+  store i8 %conv45.i, ptr %.sink.i.sroa.gep20, align 1
   %shr47.i = lshr i32 %1, 6
   %13 = trunc i32 %shr47.i to i8
   %14 = and i8 %13, 63
   %conv50.i = or disjoint i8 %14, -128
-  store i8 %conv50.i, ptr %arrayidx51.i, align 2
+  store i8 %conv50.i, ptr %.sink.i.sroa.gep19, align 2
   %15 = trunc i32 %1 to i8
   %16 = and i8 %15, 63
   %conv55.i = or disjoint i8 %16, -128
-  store i8 %conv55.i, ptr %arrayidx56.i, align 1
+  store i8 %conv55.i, ptr %.sink.i.sroa.gep, align 1
   br label %if.end34
 
 codepoint2utf8.exit:                              ; preds = %if.else33.i
@@ -377,12 +375,12 @@ codepoint2utf8.exit:                              ; preds = %if.else33.i
   br label %end
 
 if.end34:                                         ; preds = %if.then36.i, %if.then16.i, %if.then4.i, %if.then.i
-  %.sink.i.ph = phi i64 [ 1, %if.then.i ], [ 2, %if.then4.i ], [ 3, %if.then16.i ], [ 4, %if.then36.i ]
-  %arrayidx62.i19 = getelementptr inbounds i8, ptr %seed, i64 %.sink.i.ph
-  store i8 0, ptr %arrayidx62.i19, align 1
-  %call36 = call i32 @WPACKET_memcpy(ptr noundef nonnull %pkt, ptr noundef nonnull %seed, i64 noundef %.sink.i.ph) #6
+  %.sink.i.sroa.phi.ph = phi ptr [ %.sink.i.sroa.gep20, %if.then.i ], [ %.sink.i.sroa.gep19, %if.then4.i ], [ %.sink.i.sroa.gep, %if.then16.i ], [ %.sink.i.sroa.gep17, %if.then36.i ]
+  %retval.0.i.ph = phi i64 [ 1, %if.then.i ], [ 2, %if.then4.i ], [ 3, %if.then16.i ], [ 4, %if.then36.i ]
+  store i8 0, ptr %.sink.i.sroa.phi.ph, align 1
+  %call36 = call i32 @WPACKET_memcpy(ptr noundef nonnull %pkt, ptr noundef nonnull %seed, i64 noundef %retval.0.i.ph) #6
   %tobool37.not = icmp eq i32 %call36, 0
-  %spec.select14 = select i1 %tobool37.not, i32 0, i32 %result.125
+  %spec.select14 = select i1 %tobool37.not, i32 0, i32 %result.128
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end40, label %for.body, !llvm.loop !10

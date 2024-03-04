@@ -5506,13 +5506,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN11FactPointTo19find_union_pointeesERKSt6vectorIPK4FactSaIS3_EEPK10ExpressionRS0_IPK8VariableSaISD_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector", align 8
-  %.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
   %5 = alloca %"class.std::vector", align 8
-  %.sroa.gep56 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %8, %6
+  %.sink55.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink55.sroa.gep56 = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %.not.i.i, label %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit, label %9
 
 9:                                                ; preds = %3
@@ -5563,8 +5563,8 @@ _ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit28:   ; preds = %_ZNSt6vectorIPK8Var
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit28
+  %.sink55.sroa.phi = phi ptr [ %.sink55.sroa.gep, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit ], [ %.sink55.sroa.gep56, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit28 ]
   %.sink55 = phi ptr [ %4, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit ], [ %5, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit28 ]
-  %.sink55.sroa.phi = phi ptr [ %.sroa.gep, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit ], [ %.sroa.gep56, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit28 ]
   %.sroa.0.1 = load ptr, ptr %.sink55, align 8
   %30 = load ptr, ptr %.sink55.sroa.phi, align 8
   %.not44 = icmp eq ptr %30, %.sroa.0.1

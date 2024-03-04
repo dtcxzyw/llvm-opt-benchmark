@@ -7602,12 +7602,12 @@ if.end:                                           ; preds = %lor.lhs.false, %if.
 define hidden noundef zeroext i1 @_ZN3smt13theory_recfun15should_researchER10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(212) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %unsat_core) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %ref.tmp46 = alloca %struct.mk_pp, align 8
-  %ref.tmp46.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp46, i64 16
   %m_nodes.i = getelementptr inbounds i8, ptr %unsat_core, i64 8
   %0 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
+  %ref.tmp46.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp46, i64 16
+  %ref.tmp46.sink.sroa.gep160 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   br i1 %cmp.i.i.i, label %if.end84, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: ; preds = %entry
@@ -8065,8 +8065,8 @@ if.end84:                                         ; preds = %for.body80, %if.end
   ret i1 %tobool126
 
 eh.resume:                                        ; preds = %lpad48, %lpad
+  %ref.tmp46.sink.sroa.phi = phi ptr [ %ref.tmp46.sink.sroa.gep, %lpad48 ], [ %ref.tmp46.sink.sroa.gep160, %lpad ]
   %.pn = phi { ptr, i32 } [ %61, %lpad48 ], [ %59, %lpad ]
-  %ref.tmp46.sink.sroa.phi = phi ptr [ %ref.tmp46.sroa.gep, %lpad48 ], [ %ref.tmp.sroa.gep, %lpad ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp46.sink.sroa.phi) #21
   resume { ptr, i32 } %.pn
 }

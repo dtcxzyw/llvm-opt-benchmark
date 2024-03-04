@@ -606,119 +606,122 @@ define dso_local i32 @mls_context_isvalid(ptr noundef %0, ptr noundef %1) local_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
-  %7 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
-  %8 = load i32, ptr %0, align 8
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %15
+  %7 = load i32, ptr %0, align 8
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %9, label %14
 
-10:                                               ; preds = %6
-  %11 = icmp ne i8 %1, 0
-  %12 = icmp eq i32 %5, 0
-  %13 = and i1 %11, %12
-  %14 = select i1 %13, i32 -22, i32 0
+9:                                                ; preds = %6
+  %10 = icmp ne i8 %1, 0
+  %11 = icmp eq i32 %5, 0
+  %12 = and i1 %10, %11
+  %13 = select i1 %12, i32 -22, i32 0
   br label %.loopexit
 
-15:                                               ; preds = %6
-  %16 = icmp eq i8 %1, 0
-  br i1 %16, label %17, label %39
+14:                                               ; preds = %6
+  %15 = icmp eq i8 %1, 0
+  br i1 %15, label %16, label %38
 
-17:                                               ; preds = %15
-  %18 = icmp eq i32 %5, 0
-  br i1 %18, label %.loopexit, label %19
+16:                                               ; preds = %14
+  %17 = icmp eq i32 %5, 0
+  br i1 %17, label %.loopexit, label %18
 
-19:                                               ; preds = %17
-  %20 = tail call ptr @sidtab_search_entry(ptr noundef %4, i32 noundef %5) #10
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %.loopexit, label %22
+18:                                               ; preds = %16
+  %19 = tail call ptr @sidtab_search_entry(ptr noundef %4, i32 noundef %5) #10
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %.loopexit, label %21
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
-  %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 24
-  %27 = getelementptr inbounds i8, ptr %20, i64 32
-  %28 = tail call i32 @ebitmap_cpy(ptr noundef %26, ptr noundef %27) #10
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %.loopexit
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds i8, ptr %19, i64 24
+  %23 = load i32, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  store i32 %23, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %3, i64 24
+  %26 = getelementptr inbounds i8, ptr %19, i64 32
+  %27 = tail call i32 @ebitmap_cpy(ptr noundef %25, ptr noundef %26) #10
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %.loopexit
 
-30:                                               ; preds = %22
-  %31 = getelementptr i8, ptr %20, i64 48
-  %32 = load i32, ptr %31, align 8
-  %33 = getelementptr i8, ptr %3, i64 40
-  store i32 %32, ptr %33, align 8
-  %34 = getelementptr i8, ptr %3, i64 48
-  %35 = getelementptr i8, ptr %20, i64 56
-  %36 = tail call i32 @ebitmap_cpy(ptr noundef %34, ptr noundef %35) #10
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.loopexit, label %38
+29:                                               ; preds = %21
+  %30 = getelementptr i8, ptr %19, i64 48
+  %31 = load i32, ptr %30, align 8
+  %32 = getelementptr i8, ptr %3, i64 40
+  store i32 %31, ptr %32, align 8
+  %33 = getelementptr i8, ptr %3, i64 48
+  %34 = getelementptr i8, ptr %19, i64 56
+  %35 = tail call i32 @ebitmap_cpy(ptr noundef %33, ptr noundef %34) #10
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %.loopexit, label %37
 
-38:                                               ; preds = %30
-  tail call void @ebitmap_destroy(ptr noundef %26) #10
+37:                                               ; preds = %29
+  tail call void @ebitmap_destroy(ptr noundef %25) #10
   br label %.loopexit
 
-39:                                               ; preds = %15
-  store ptr %2, ptr %7, align 16
-  %40 = tail call ptr @strchr(ptr noundef %2, i32 noundef 45) #10
-  %41 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %40, ptr %41, align 8
-  %42 = icmp eq ptr %40, null
-  br i1 %42, label %46, label %43
+38:                                               ; preds = %14
+  %39 = tail call ptr @strchr(ptr noundef %2, i32 noundef 45) #10
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %43, label %41
 
-43:                                               ; preds = %39
-  store i8 0, ptr %40, align 1
-  %44 = getelementptr i8, ptr %40, i64 1
-  store ptr %44, ptr %41, align 8
-  %45 = icmp eq ptr %44, null
-  br label %46
+41:                                               ; preds = %38
+  store i8 0, ptr %39, align 1
+  %42 = getelementptr i8, ptr %39, i64 1
+  br label %43
 
-46:                                               ; preds = %43, %39
-  %47 = phi i1 [ %45, %43 ], [ true, %39 ]
-  %48 = getelementptr i8, ptr %0, i64 152
-  %49 = getelementptr inbounds i8, ptr %3, i64 16
-  %50 = getelementptr i8, ptr %0, i64 176
-  br label %51
+43:                                               ; preds = %41, %38
+  %.sroa.5.0 = phi ptr [ null, %38 ], [ %42, %41 ]
+  %44 = getelementptr i8, ptr %0, i64 152
+  %45 = getelementptr inbounds i8, ptr %3, i64 16
+  %46 = getelementptr i8, ptr %0, i64 176
+  br label %47
 
-51:                                               ; preds = %.loopexit22, %46
-  %52 = phi i1 [ true, %46 ], [ false, %.loopexit22 ]
-  %53 = phi i64 [ 0, %46 ], [ 1, %.loopexit22 ]
-  %54 = getelementptr [2 x ptr], ptr %7, i64 0, i64 %53
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %116, label %57
+47:                                               ; preds = %.loopexit22, %43
+  %48 = phi i1 [ true, %43 ], [ false, %.loopexit22 ]
+  %.sroa.phi.sroa.speculated = phi ptr [ %2, %43 ], [ %.sroa.5.0, %.loopexit22 ]
+  %49 = phi i64 [ 0, %43 ], [ 1, %.loopexit22 ]
+  %50 = icmp eq ptr %.sroa.phi.sroa.speculated, null
+  br i1 %50, label %110, label %51
 
-57:                                               ; preds = %51
-  %58 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %55, i32 noundef 58) #10
+51:                                               ; preds = %47
+  %52 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.sroa.phi.sroa.speculated, i32 noundef 58) #10
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %56, label %54
+
+54:                                               ; preds = %51
+  %55 = getelementptr i8, ptr %52, i64 1
+  store i8 0, ptr %52, align 1
+  br label %56
+
+56:                                               ; preds = %54, %51
+  %57 = phi ptr [ %55, %54 ], [ null, %51 ]
+  %58 = tail call ptr @symtab_search(ptr noundef %44, ptr noundef nonnull %.sroa.phi.sroa.speculated) #10
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %62, label %60
+  br i1 %59, label %.loopexit, label %60
 
-60:                                               ; preds = %57
-  %61 = getelementptr i8, ptr %58, i64 1
-  store i8 0, ptr %58, align 1
-  br label %62
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %58, align 8
+  %62 = load i32, ptr %61, align 8
+  %63 = getelementptr [2 x %struct.mls_level], ptr %45, i64 0, i64 %49
+  store i32 %62, ptr %63, align 8
+  %64 = icmp eq ptr %57, null
+  br i1 %64, label %.loopexit22, label %65
 
-62:                                               ; preds = %60, %57
-  %63 = phi ptr [ %61, %60 ], [ null, %57 ]
-  %64 = tail call ptr @symtab_search(ptr noundef %48, ptr noundef nonnull %55) #10
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %.loopexit, label %66
+65:                                               ; preds = %60
+  %66 = getelementptr inbounds i8, ptr %63, i64 8
+  br label %67
 
-66:                                               ; preds = %62
-  %67 = load ptr, ptr %64, align 8
-  %68 = load i32, ptr %67, align 8
-  %69 = getelementptr [2 x %struct.mls_level], ptr %49, i64 0, i64 %53
-  store i32 %68, ptr %69, align 8
-  %70 = icmp eq ptr %63, null
-  br i1 %70, label %.loopexit22, label %71
+67:                                               ; preds = %.loopexit20, %65
+  %68 = phi ptr [ %57, %65 ], [ %74, %.loopexit20 ]
+  %69 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %68, i32 noundef 44) #10
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %73, label %71
 
-71:                                               ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %69, i64 8
+71:                                               ; preds = %67
+  %72 = getelementptr i8, ptr %69, i64 1
+  store i8 0, ptr %69, align 1
   br label %73
 
-73:                                               ; preds = %.loopexit20, %71
-  %74 = phi ptr [ %63, %71 ], [ %80, %.loopexit20 ]
-  %75 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %74, i32 noundef 44) #10
+73:                                               ; preds = %71, %67
+  %74 = phi ptr [ %72, %71 ], [ null, %67 ]
+  %75 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %68, i32 noundef 46) #10
   %76 = icmp eq ptr %75, null
   br i1 %76, label %79, label %77
 
@@ -729,88 +732,77 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
 
 79:                                               ; preds = %77, %73
   %80 = phi ptr [ %78, %77 ], [ null, %73 ]
-  %81 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %74, i32 noundef 46) #10
+  %81 = tail call ptr @symtab_search(ptr noundef %46, ptr noundef nonnull %68) #10
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %85, label %83
+  br i1 %82, label %.loopexit, label %83
 
 83:                                               ; preds = %79
-  %84 = getelementptr i8, ptr %81, i64 1
-  store i8 0, ptr %81, align 1
-  br label %85
+  %84 = load i32, ptr %81, align 4
+  %85 = add i32 %84, -1
+  %86 = zext i32 %85 to i64
+  %87 = tail call i32 @ebitmap_set_bit(ptr noundef %66, i64 noundef %86, i32 noundef 1) #10
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %.loopexit
 
-85:                                               ; preds = %83, %79
-  %86 = phi ptr [ %84, %83 ], [ null, %79 ]
-  %87 = tail call ptr @symtab_search(ptr noundef %50, ptr noundef nonnull %74) #10
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %.loopexit, label %89
+89:                                               ; preds = %83
+  %90 = icmp eq ptr %80, null
+  br i1 %90, label %.loopexit20, label %92
 
-89:                                               ; preds = %85
-  %90 = load i32, ptr %87, align 4
-  %91 = add i32 %90, -1
-  %92 = zext i32 %91 to i64
-  %93 = tail call i32 @ebitmap_set_bit(ptr noundef %72, i64 noundef %92, i32 noundef 1) #10
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %.loopexit
+.loopexit20:                                      ; preds = %101, %89
+  %91 = icmp eq ptr %74, null
+  br i1 %91, label %.loopexit22, label %67, !llvm.loop !14
 
-95:                                               ; preds = %89
-  %96 = icmp eq ptr %86, null
-  br i1 %96, label %.loopexit20, label %98
+92:                                               ; preds = %89
+  %93 = tail call ptr @symtab_search(ptr noundef %46, ptr noundef nonnull %80) #10
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %.loopexit, label %95
 
-.loopexit20:                                      ; preds = %107, %95
-  %97 = icmp eq ptr %80, null
-  br i1 %97, label %.loopexit22, label %73, !llvm.loop !14
+95:                                               ; preds = %92
+  %96 = load i32, ptr %81, align 4
+  %97 = load i32, ptr %93, align 4
+  %98 = icmp ult i32 %96, %97
+  br i1 %98, label %99, label %.loopexit
 
-98:                                               ; preds = %95
-  %99 = tail call ptr @symtab_search(ptr noundef %50, ptr noundef nonnull %86) #10
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %.loopexit, label %101
+99:                                               ; preds = %95
+  %100 = zext i32 %96 to i64
+  br label %106
 
-101:                                              ; preds = %98
-  %102 = load i32, ptr %87, align 4
-  %103 = load i32, ptr %99, align 4
-  %104 = icmp ult i32 %102, %103
-  br i1 %104, label %105, label %.loopexit
+101:                                              ; preds = %106
+  %102 = add nuw nsw i64 %107, 1
+  %103 = load i32, ptr %93, align 4
+  %104 = zext i32 %103 to i64
+  %105 = icmp ult i64 %102, %104
+  br i1 %105, label %106, label %.loopexit20, !llvm.loop !15
 
-105:                                              ; preds = %101
-  %106 = zext i32 %102 to i64
-  br label %112
+106:                                              ; preds = %101, %99
+  %107 = phi i64 [ %100, %99 ], [ %102, %101 ]
+  %108 = tail call i32 @ebitmap_set_bit(ptr noundef %66, i64 noundef %107, i32 noundef 1) #10
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %101, label %.loopexit
 
-107:                                              ; preds = %112
-  %108 = add nuw nsw i64 %113, 1
-  %109 = load i32, ptr %99, align 4
-  %110 = zext i32 %109 to i64
-  %111 = icmp ult i64 %108, %110
-  br i1 %111, label %112, label %.loopexit20, !llvm.loop !15
+.loopexit22:                                      ; preds = %.loopexit20, %60
+  br i1 %48, label %47, label %110, !llvm.loop !16
 
-112:                                              ; preds = %107, %105
-  %113 = phi i64 [ %106, %105 ], [ %108, %107 ]
-  %114 = tail call i32 @ebitmap_set_bit(ptr noundef %72, i64 noundef %113, i32 noundef 1) #10
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %107, label %.loopexit
+110:                                              ; preds = %.loopexit22, %47
+  %111 = icmp eq ptr %.sroa.5.0, null
+  br i1 %111, label %112, label %119
 
-.loopexit22:                                      ; preds = %.loopexit20, %66
-  br i1 %52, label %51, label %116, !llvm.loop !16
+112:                                              ; preds = %110
+  %113 = load i32, ptr %45, align 8
+  %114 = getelementptr i8, ptr %3, i64 40
+  store i32 %113, ptr %114, align 8
+  %115 = getelementptr i8, ptr %3, i64 48
+  %116 = getelementptr inbounds i8, ptr %3, i64 24
+  %117 = tail call i32 @ebitmap_cpy(ptr noundef %115, ptr noundef %116) #10
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %119, label %.loopexit
 
-116:                                              ; preds = %.loopexit22, %51
-  br i1 %47, label %117, label %124
-
-117:                                              ; preds = %116
-  %118 = load i32, ptr %49, align 8
-  %119 = getelementptr i8, ptr %3, i64 40
-  store i32 %118, ptr %119, align 8
-  %120 = getelementptr i8, ptr %3, i64 48
-  %121 = getelementptr inbounds i8, ptr %3, i64 24
-  %122 = tail call i32 @ebitmap_cpy(ptr noundef %120, ptr noundef %121) #10
-  %123 = icmp eq i32 %122, 0
-  br i1 %123, label %124, label %.loopexit
-
-124:                                              ; preds = %117, %116
+119:                                              ; preds = %112, %110
   br label %.loopexit
 
-.loopexit:                                        ; preds = %62, %101, %98, %89, %85, %112, %124, %117, %38, %30, %22, %19, %17, %10
-  %125 = phi i32 [ 0, %124 ], [ %14, %10 ], [ -22, %17 ], [ -22, %19 ], [ %122, %117 ], [ %28, %22 ], [ %36, %38 ], [ 0, %30 ], [ %114, %112 ], [ -22, %101 ], [ -22, %98 ], [ %93, %89 ], [ -22, %85 ], [ -22, %62 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
-  ret i32 %125
+.loopexit:                                        ; preds = %56, %95, %92, %83, %79, %106, %119, %112, %37, %29, %21, %18, %16, %9
+  %120 = phi i32 [ 0, %119 ], [ %13, %9 ], [ -22, %16 ], [ -22, %18 ], [ %117, %112 ], [ %27, %21 ], [ %35, %37 ], [ 0, %29 ], [ %108, %106 ], [ -22, %95 ], [ -22, %92 ], [ %87, %83 ], [ -22, %79 ], [ -22, %56 ]
+  ret i32 %120
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

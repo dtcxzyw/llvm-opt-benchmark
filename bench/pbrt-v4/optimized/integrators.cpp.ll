@@ -360,8 +360,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.pbrt::SpectralFilm::Pixel" = type { [3 x double], double, [3 x %"class.pbrt::AtomicDouble"], ptr, ptr, ptr }
 %"class.pbrt::RGBIlluminantSpectrum" = type { float, %"class.pbrt::RGBSigmoidPolynomial", ptr }
 %"class.pbrt::RGBSigmoidPolynomial" = type { float, float, float }
-%"struct.pbrt::WrapMode2D" = type { %"class.pstd::array.406" }
-%"class.pstd::array.406" = type { [2 x i32] }
 %"class.pbrt::PiecewiseConstant1D" = type <{ %"class.pstd::vector.65", %"class.pstd::vector.65", float, float, float, [4 x i8] }>
 %"class.pbrt::UniversalTextureEvaluator" = type { i8 }
 %"class.pbrt::FloatTexture" = type { %"class.pbrt::TaggedPointer.405" }
@@ -45787,6 +45785,8 @@ invoke.cont3:
   %.cast.i = ptrtoint ptr %call.i to i64
   store i64 %.cast.i, ptr %allocator3.i, align 8
   %cmp.i.i.i.i = icmp eq i32 %mul.i, 0
+  %indvars.iv377.sroa.gep395 = getelementptr inbounds i8, ptr %owenHash, i64 24
+  %indvars.iv369.sroa.gep396 = getelementptr inbounds i8, ptr %digitPermutations, i64 24
   br i1 %cmp.i.i.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIdEEPT_m.exit.thread.i, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIdEEPT_m.exit.i
 
 _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIdEEPT_m.exit.thread.i: ; preds = %invoke.cont3
@@ -46156,12 +46156,11 @@ for.cond134.preheader:                            ; preds = %invoke.cont118
 for.body136:                                      ; preds = %for.cond134.preheader, %for.inc157
   %cmp144 = phi i32 [ 2, %for.cond134.preheader ], [ 3, %for.inc157 ]
   %cmp135 = phi i1 [ true, %for.cond134.preheader ], [ false, %for.inc157 ]
-  %indvars.iv369 = phi i64 [ 0, %for.cond134.preheader ], [ 1, %for.inc157 ]
+  %indvars.iv369.sroa.phi = phi ptr [ %digitPermutations, %for.cond134.preheader ], [ %indvars.iv369.sroa.gep396, %for.inc157 ]
   %rng129.sroa.0.0339 = phi i64 [ -8846114313915602277, %for.cond134.preheader ], [ %rng129.sroa.0.1.lcssa, %for.inc157 ]
-  %arrayidx = getelementptr inbounds [2 x %"class.std::vector.340"], ptr %digitPermutations, i64 0, i64 %indvars.iv369
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %indvars.iv369.sroa.phi, i64 8
   %63 = load ptr, ptr %_M_finish.i.i, align 8
-  %64 = load ptr, ptr %arrayidx, align 8
+  %64 = load ptr, ptr %indvars.iv369.sroa.phi, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %63 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %64 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -46171,7 +46170,7 @@ for.body136:                                      ; preds = %for.cond134.prehead
 
 if.then.i113:                                     ; preds = %for.body136
   %sub.i114 = sub nsw i64 %conv137, %sub.ptr.div.i.i
-  invoke void @_ZNSt6vectorIN4pbrt16DigitPermutationESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, i64 noundef %sub.i114)
+  invoke void @_ZNSt6vectorIN4pbrt16DigitPermutationESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %indvars.iv369.sroa.phi, i64 noundef %sub.i114)
           to label %_ZNSt6vectorIN4pbrt16DigitPermutationESaIS1_EE6resizeEm.exit unwind label %lpad130.loopexit.split-lp.loopexit.split-lp
 
 if.else.i:                                        ; preds = %for.body136
@@ -46207,7 +46206,7 @@ for.body142:                                      ; preds = %_ZNSt6vectorIN4pbrt
 invoke.cont149:                                   ; preds = %for.body142
   %mul.i116 = mul i64 %rng129.sroa.0.1337, 6364136223846793005
   %add.i = add i64 %mul.i116, -2720673578348880933
-  %67 = load ptr, ptr %arrayidx, align 8
+  %67 = load ptr, ptr %indvars.iv369.sroa.phi, align 8
   %add.ptr.i120 = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %67, i64 %indvars.iv364
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i120, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp143, i64 16, i1 false)
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
@@ -46271,12 +46270,11 @@ if.then163:                                       ; preds = %lor.lhs.false, %if.
 
 for.body167:                                      ; preds = %if.then163, %for.inc185
   %cmp166 = phi i1 [ true, %if.then163 ], [ false, %for.inc185 ]
-  %indvars.iv377 = phi i64 [ 0, %if.then163 ], [ 1, %for.inc185 ]
+  %indvars.iv377.sroa.phi = phi ptr [ %owenHash, %if.then163 ], [ %indvars.iv377.sroa.gep395, %for.inc185 ]
   %rng129.sroa.0.3345 = phi i64 [ %rng129.sroa.0.2382, %if.then163 ], [ %rng129.sroa.0.4.lcssa, %for.inc185 ]
-  %arrayidx169 = getelementptr inbounds [2 x %"class.std::vector.345"], ptr %owenHash, i64 0, i64 %indvars.iv377
-  %_M_finish.i.i121 = getelementptr inbounds i8, ptr %arrayidx169, i64 8
+  %_M_finish.i.i121 = getelementptr inbounds i8, ptr %indvars.iv377.sroa.phi, i64 8
   %73 = load ptr, ptr %_M_finish.i.i121, align 8
-  %74 = load ptr, ptr %arrayidx169, align 8
+  %74 = load ptr, ptr %indvars.iv377.sroa.phi, align 8
   %sub.ptr.lhs.cast.i.i122 = ptrtoint ptr %73 to i64
   %sub.ptr.rhs.cast.i.i123 = ptrtoint ptr %74 to i64
   %sub.ptr.sub.i.i124 = sub i64 %sub.ptr.lhs.cast.i.i122, %sub.ptr.rhs.cast.i.i123
@@ -46286,7 +46284,7 @@ for.body167:                                      ; preds = %if.then163, %for.in
 
 if.then.i133:                                     ; preds = %for.body167
   %sub.i134 = sub nsw i64 %conv170, %sub.ptr.div.i.i125
-  invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx169, i64 noundef %sub.i134)
+  invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %indvars.iv377.sroa.phi, i64 noundef %sub.i134)
           to label %_ZNSt6vectorImSaImEE6resizeEm.exit unwind label %lpad130.loopexit
 
 if.else.i127:                                     ; preds = %for.body167
@@ -46330,7 +46328,7 @@ for.body175:                                      ; preds = %_ZNSt6vectorImSaImE
   %conv3.i = zext i32 %or.i8.i to i64
   %shl.i = shl nuw i64 %conv.i144, 32
   %or.i145 = or disjoint i64 %shl.i, %conv3.i
-  %79 = load ptr, ptr %arrayidx169, align 8
+  %79 = load ptr, ptr %indvars.iv377.sroa.phi, align 8
   %add.ptr.i146 = getelementptr inbounds i64, ptr %79, i64 %indvars.iv372
   store i64 %or.i145, ptr %add.ptr.i146, align 8
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
@@ -54203,11 +54201,16 @@ return:                                           ; preds = %entry, %sw.bb22, %_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE(ptr noundef %pp, i64 %resolution.coerce, i64 %wrapMode.coerce) local_unnamed_addr #1 comdat {
 entry:
-  %wrapMode = alloca %"struct.pbrt::WrapMode2D", align 8
+  %wrapMode.sroa.0 = alloca i32, align 8
+  %wrapMode.sroa.2 = alloca i32, align 4
   %resolution.sroa.0.0.extract.trunc = trunc i64 %resolution.coerce to i32
   %resolution.sroa.9.0.extract.shift = lshr i64 %resolution.coerce, 32
   %resolution.sroa.9.0.extract.trunc = trunc i64 %resolution.sroa.9.0.extract.shift to i32
-  store i64 %wrapMode.coerce, ptr %wrapMode, align 8
+  %wrapMode.sroa.0.0.extract.trunc = trunc i64 %wrapMode.coerce to i32
+  store i32 %wrapMode.sroa.0.0.extract.trunc, ptr %wrapMode.sroa.0, align 8
+  %wrapMode.sroa.2.0.extract.shift = lshr i64 %wrapMode.coerce, 32
+  %wrapMode.sroa.2.0.extract.trunc = trunc i64 %wrapMode.sroa.2.0.extract.shift to i32
+  store i32 %wrapMode.sroa.2.0.extract.trunc, ptr %wrapMode.sroa.2, align 4
   %0 = and i64 %wrapMode.coerce, 4294967295
   %cmp = icmp eq i64 %0, 3
   br i1 %cmp, label %if.then, label %for.body
@@ -54307,7 +54310,7 @@ if.then67:                                        ; preds = %if.end64
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp.i = phi i1 [ false, %for.inc ], [ true, %entry ]
-  %indvars.iv = phi i64 [ 1, %for.inc ], [ 0, %entry ]
+  %indvars.iv.sroa.phi = phi ptr [ %wrapMode.sroa.2, %for.inc ], [ %wrapMode.sroa.0, %entry ]
   %cond-lvalue.idx.i = select i1 %cmp.i, i64 0, i64 4
   %cond-lvalue.i54 = getelementptr inbounds i8, ptr %pp, i64 %cond-lvalue.idx.i
   %12 = load i32, ptr %cond-lvalue.i54, align 4
@@ -54318,8 +54321,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %or.cond, label %for.inc, label %if.end78
 
 if.end78:                                         ; preds = %for.body
-  %arrayidx.i61 = getelementptr inbounds [2 x i32], ptr %wrapMode, i64 0, i64 %indvars.iv
-  %13 = load i32, ptr %arrayidx.i61, align 4
+  %13 = load i32, ptr %indvars.iv.sroa.phi, align 4
   switch i32 %13, label %sw.default [
     i32 2, label %sw.bb
     i32 1, label %sw.bb85

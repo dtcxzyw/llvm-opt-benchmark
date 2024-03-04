@@ -539,21 +539,21 @@ define internal { ptr, i64 } @"_ZN223_$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core.
 define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17h59c2d6544c682f02E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep131 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.gep128 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.gep125 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep132 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sroa.gep129 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.gep126 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.gep123 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = alloca ptr, align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %10 = alloca { i64, [1 x i64] }, align 8
   %11 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %2
   %12 = icmp eq i64 %2, 0
+  %.sink93.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink93.sroa.gep123 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink93.sroa.gep125 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sink93.sroa.gep126 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink93.sroa.gep128 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink93.sroa.gep129 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink93.sroa.gep131 = getelementptr inbounds i8, ptr %5, i64 24
+  %.sink93.sroa.gep132 = getelementptr inbounds i8, ptr %6, i64 24
   br i1 %12, label %.loopexit, label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc85ba585de1c934eE.exit.thread.i": ; preds = %20, %.lr.ph.i
@@ -836,12 +836,12 @@ default.unreachable:                              ; preds = %68
   br label %.invoke
 
 .invoke:                                          ; preds = %104, %98
+  %.sink93.sroa.phi = phi ptr [ %.sink93.sroa.gep, %104 ], [ %.sink93.sroa.gep123, %98 ]
+  %.sink93.sroa.phi124 = phi ptr [ %.sink93.sroa.gep125, %104 ], [ %.sink93.sroa.gep126, %98 ]
+  %.sink93.sroa.phi127 = phi ptr [ %.sink93.sroa.gep128, %104 ], [ %.sink93.sroa.gep129, %98 ]
+  %.sink93.sroa.phi130 = phi ptr [ %.sink93.sroa.gep131, %104 ], [ %.sink93.sroa.gep132, %98 ]
   %.sink93 = phi ptr [ %5, %104 ], [ %6, %98 ]
   %99 = phi ptr [ @anon.8a15c8b2664a73ecad88cbf6a449d693.18, %104 ], [ @anon.8a15c8b2664a73ecad88cbf6a449d693.13, %98 ]
-  %.sink93.sroa.phi = phi ptr [ %.sroa.gep, %104 ], [ %.sroa.gep123, %98 ]
-  %.sink93.sroa.phi124 = phi ptr [ %.sroa.gep125, %104 ], [ %.sroa.gep126, %98 ]
-  %.sink93.sroa.phi127 = phi ptr [ %.sroa.gep128, %104 ], [ %.sroa.gep129, %98 ]
-  %.sink93.sroa.phi130 = phi ptr [ %.sroa.gep131, %104 ], [ %.sroa.gep132, %98 ]
   store i64 1, ptr %.sink93.sroa.phi, align 8, !noalias !175
   store ptr null, ptr %.sink93.sroa.phi124, align 8, !noalias !175
   store ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.8.llvm.567936041081457991, ptr %.sink93.sroa.phi127, align 8, !noalias !175
@@ -913,21 +913,21 @@ _ZN3std2io7IoSlice14advance_slices17h140462c502129a66E.exit20.thread: ; preds = 
 define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17h90a464045570358eE(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep131 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.gep128 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.gep125 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep132 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sroa.gep129 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.gep126 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.gep123 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = alloca ptr, align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %10 = alloca { i64, [1 x i64] }, align 8
   %11 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %2
   %12 = icmp eq i64 %2, 0
+  %.sink93.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink93.sroa.gep123 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink93.sroa.gep125 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sink93.sroa.gep126 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink93.sroa.gep128 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink93.sroa.gep129 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink93.sroa.gep131 = getelementptr inbounds i8, ptr %5, i64 24
+  %.sink93.sroa.gep132 = getelementptr inbounds i8, ptr %6, i64 24
   br i1 %12, label %.loopexit, label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc85ba585de1c934eE.exit.thread.i": ; preds = %20, %.lr.ph.i
@@ -1210,12 +1210,12 @@ default.unreachable:                              ; preds = %68
   br label %.invoke
 
 .invoke:                                          ; preds = %104, %98
+  %.sink93.sroa.phi = phi ptr [ %.sink93.sroa.gep, %104 ], [ %.sink93.sroa.gep123, %98 ]
+  %.sink93.sroa.phi124 = phi ptr [ %.sink93.sroa.gep125, %104 ], [ %.sink93.sroa.gep126, %98 ]
+  %.sink93.sroa.phi127 = phi ptr [ %.sink93.sroa.gep128, %104 ], [ %.sink93.sroa.gep129, %98 ]
+  %.sink93.sroa.phi130 = phi ptr [ %.sink93.sroa.gep131, %104 ], [ %.sink93.sroa.gep132, %98 ]
   %.sink93 = phi ptr [ %5, %104 ], [ %6, %98 ]
   %99 = phi ptr [ @anon.8a15c8b2664a73ecad88cbf6a449d693.18, %104 ], [ @anon.8a15c8b2664a73ecad88cbf6a449d693.13, %98 ]
-  %.sink93.sroa.phi = phi ptr [ %.sroa.gep, %104 ], [ %.sroa.gep123, %98 ]
-  %.sink93.sroa.phi124 = phi ptr [ %.sroa.gep125, %104 ], [ %.sroa.gep126, %98 ]
-  %.sink93.sroa.phi127 = phi ptr [ %.sroa.gep128, %104 ], [ %.sroa.gep129, %98 ]
-  %.sink93.sroa.phi130 = phi ptr [ %.sroa.gep131, %104 ], [ %.sroa.gep132, %98 ]
   store i64 1, ptr %.sink93.sroa.phi, align 8, !noalias !220
   store ptr null, ptr %.sink93.sroa.phi124, align 8, !noalias !220
   store ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.8.llvm.567936041081457991, ptr %.sink93.sroa.phi127, align 8, !noalias !220
@@ -3609,40 +3609,38 @@ _ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.567936041081457991.e
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.567936041081457991(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #17 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %6, label %11
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
   %7 = add i64 %1, -1
   %8 = icmp sgt i64 %7, -1
   tail call void @llvm.assume(i1 %8)
   %9 = inttoptr i64 %1 to ptr
-  %10 = icmp ne i64 %1, 0
-  tail call void @llvm.assume(i1 %10)
-  br label %12
+  br label %11
 
-11:                                               ; preds = %4
-  br i1 %3, label %20, label %15
+10:                                               ; preds = %4
+  br i1 %3, label %19, label %14
 
-12:                                               ; preds = %15, %20, %6
-  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %23, %20 ], [ %19, %15 ]
-  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
-  %14 = insertvalue { ptr, i64 } %13, i64 %2, 1
-  ret { ptr, i64 } %14
+11:                                               ; preds = %14, %19, %6
+  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %22, %19 ], [ %18, %14 ]
+  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
+  %13 = insertvalue { ptr, i64 } %12, i64 %2, 1
+  ret { ptr, i64 } %13
 
-15:                                               ; preds = %11
-  %16 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %17 = add i64 %1, -1
-  %18 = icmp sgt i64 %17, -1
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #41
-  br label %12
+14:                                               ; preds = %10
+  %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %16 = add i64 %1, -1
+  %17 = icmp sgt i64 %16, -1
+  tail call void @llvm.assume(i1 %17)
+  %18 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #41
+  br label %11
 
-20:                                               ; preds = %11
-  %21 = add i64 %1, -1
-  %22 = icmp sgt i64 %21, -1
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #41
-  br label %12
+19:                                               ; preds = %10
+  %20 = add i64 %1, -1
+  %21 = icmp sgt i64 %20, -1
+  tail call void @llvm.assume(i1 %21)
+  %22 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #41
+  br label %11
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable

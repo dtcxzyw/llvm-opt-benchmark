@@ -23997,14 +23997,14 @@ entry:
   %ref.tmp87 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp107 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp109 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp109.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp109, i64 8
   %blob_value = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp162 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp165 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp174 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp176 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp176.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp176, i64 8
   %tobool.not = icmp eq i64 %size, 0
+  %ref.tmp109.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp109, i64 8
+  %ref.tmp109.sink.sroa.gep274 = getelementptr inbounds i8, ptr %ref.tmp176, i64 8
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -24853,9 +24853,9 @@ if.end173:                                        ; preds = %invoke.cont170, %if
   br label %if.end173.invoke
 
 if.end173.invoke:                                 ; preds = %invoke.cont106, %if.end173
+  %ref.tmp109.sink.sroa.phi = phi ptr [ %ref.tmp109.sink.sroa.gep, %invoke.cont106 ], [ %ref.tmp109.sink.sroa.gep274, %if.end173 ]
   %ref.tmp109.sink = phi ptr [ %ref.tmp109, %invoke.cont106 ], [ %ref.tmp176, %if.end173 ]
   %119 = phi ptr [ %ref.tmp107, %invoke.cont106 ], [ %ref.tmp174, %if.end173 ]
-  %ref.tmp109.sink.sroa.phi = phi ptr [ %ref.tmp109.sroa.gep, %invoke.cont106 ], [ %ref.tmp176.sroa.gep, %if.end173 ]
   store i64 0, ptr %ref.tmp109.sink.sroa.phi, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp109.sink, i8 noundef zeroext 0)
           to label %cleanup182 unwind label %lpad48

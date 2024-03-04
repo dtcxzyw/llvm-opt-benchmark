@@ -1934,6 +1934,10 @@ entry:
   %ref.tmp13 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load i8, ptr %original, align 1, !tbaa !133, !range !135, !noundef !136
   %tobool.i.not = icmp eq i8 %0, 0
+  %.sink21.i.i73.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp13, i64 21
+  %.sink21.i.i73.sroa.gep1 = getelementptr inbounds i8, ptr %ref.tmp13, i64 20
+  %.sink21.i.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp8, i64 21
+  %.sink21.i.i.sroa.gep2 = getelementptr inbounds i8, ptr %ref.tmp8, i64 20
   br i1 %tobool.i.not, label %_ZN6duckdb9CSVOptionIbE3SetEbb.exit, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -2006,10 +2010,9 @@ if.end.i.i:                                       ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNK6duckdb9CSVOptionIbE11FormatValueB5cxx11Ev.exit
 
 _ZNK6duckdb9CSVOptionIbE11FormatValueB5cxx11Ev.exit: ; preds = %if.end.i.i, %if.then.i.i51
-  %.sink21.i.i = phi i64 [ 21, %if.end.i.i ], [ 20, %if.then.i.i51 ]
+  %.sink21.i.i.sroa.phi = phi ptr [ %.sink21.i.i.sroa.gep, %if.end.i.i ], [ %.sink21.i.i.sroa.gep2, %if.then.i.i51 ]
   %.sink.i.i = phi i64 [ 5, %if.end.i.i ], [ 4, %if.then.i.i51 ]
-  %arrayidx.i.i.i13.i.i = getelementptr inbounds i8, ptr %ref.tmp8, i64 %.sink21.i.i
-  store i8 0, ptr %arrayidx.i.i.i13.i.i, align 1, !tbaa !108, !alias.scope !145
+  store i8 0, ptr %.sink21.i.i.sroa.phi, align 1, !tbaa !108, !alias.scope !145
   store ptr %10, ptr %ref.tmp8, align 8, !alias.scope !145
   %11 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
   store i64 %.sink.i.i, ptr %11, align 8, !alias.scope !145
@@ -2116,10 +2119,9 @@ if.end.i.i76:                                     ; preds = %invoke.cont12
   br label %invoke.cont15
 
 invoke.cont15:                                    ; preds = %if.end.i.i76, %if.then.i.i72
-  %.sink21.i.i73 = phi i64 [ 21, %if.end.i.i76 ], [ 20, %if.then.i.i72 ]
+  %.sink21.i.i73.sroa.phi = phi ptr [ %.sink21.i.i73.sroa.gep, %if.end.i.i76 ], [ %.sink21.i.i73.sroa.gep1, %if.then.i.i72 ]
   %.sink.i.i74 = phi i64 [ 5, %if.end.i.i76 ], [ 4, %if.then.i.i72 ]
-  %arrayidx.i.i.i13.i.i75 = getelementptr inbounds i8, ptr %ref.tmp13, i64 %.sink21.i.i73
-  store i8 0, ptr %arrayidx.i.i.i13.i.i75, align 1, !tbaa !108, !alias.scope !158
+  store i8 0, ptr %.sink21.i.i73.sroa.phi, align 1, !tbaa !108, !alias.scope !158
   store ptr %27, ptr %ref.tmp13, align 8, !alias.scope !158
   %28 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   store i64 %.sink.i.i74, ptr %28, align 8, !alias.scope !158

@@ -1997,17 +1997,17 @@ define hidden void @_ZN3old15model_evaluator15process_formulaEP3appR10ptr_vector
 entry:
   %ref.tmp = alloca ptr, align 8
   %ref.tmp121 = alloca %struct.mk_pp, align 8
-  %ref.tmp121.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp121, i64 16
   %ref.tmp129 = alloca %struct.mk_pp, align 8
-  %ref.tmp129.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp129, i64 16
   %ref.tmp149 = alloca %struct.mk_pp, align 8
-  %ref.tmp149.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp149, i64 16
   %ref.tmp159 = alloca %struct.mk_pp, align 8
-  %ref.tmp159.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp159, i64 16
   %0 = load i32, ptr %e, align 4
   %m_marks.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load i32, ptr %m_marks.i.i.i, align 8
   %cmp.i.i.i = icmp ult i32 %0, %1
+  %ref.tmp159.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp159, i64 16
+  %ref.tmp159.sink.sroa.gep351 = getelementptr inbounds i8, ptr %ref.tmp149, i64 16
+  %ref.tmp159.sink.sroa.gep352 = getelementptr inbounds i8, ptr %ref.tmp129, i64 16
+  %ref.tmp159.sink.sroa.gep353 = getelementptr inbounds i8, ptr %ref.tmp121, i64 16
   br i1 %cmp.i.i.i, label %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit.i, label %_ZN3old15model_evaluator7is_trueEP4expr.exit
 
 _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit.i: ; preds = %entry
@@ -2834,8 +2834,8 @@ if.end171:                                        ; preds = %_ZN6vectorIP4exprLb
   ret void
 
 eh.resume:                                        ; preds = %lpad161, %lpad151, %lpad131, %lpad
+  %ref.tmp159.sink.sroa.phi = phi ptr [ %ref.tmp159.sink.sroa.gep, %lpad161 ], [ %ref.tmp159.sink.sroa.gep351, %lpad151 ], [ %ref.tmp159.sink.sroa.gep352, %lpad131 ], [ %ref.tmp159.sink.sroa.gep353, %lpad ]
   %.pn = phi { ptr, i32 } [ %124, %lpad161 ], [ %122, %lpad151 ], [ %112, %lpad131 ], [ %110, %lpad ]
-  %ref.tmp159.sink.sroa.phi = phi ptr [ %ref.tmp159.sroa.gep, %lpad161 ], [ %ref.tmp149.sroa.gep, %lpad151 ], [ %ref.tmp129.sroa.gep, %lpad131 ], [ %ref.tmp121.sroa.gep, %lpad ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp159.sink.sroa.phi) #17
   resume { ptr, i32 } %.pn
 }

@@ -677,7 +677,6 @@ $_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE = comdat any
 @_ZTIN12_GLOBAL__N_133GaussianDistributionInterfaceTestIfEE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN12_GLOBAL__N_133GaussianDistributionInterfaceTestIfEE, ptr @_ZTIN7testing4TestE }, align 8
 @_ZTIN12_GLOBAL__N_152GaussianDistributionInterfaceTest_SerializeTest_TestIfEE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN12_GLOBAL__N_152GaussianDistributionInterfaceTest_SerializeTest_TestIfEE, ptr @_ZTIN12_GLOBAL__N_133GaussianDistributionInterfaceTestIfEE }, align 8
 @.str.127 = private unnamed_addr constant [14 x i8] c"before.mean()\00", align 1
-@.str.128 = private unnamed_addr constant [13 x i8] c"param.mean()\00", align 1
 @.str.129 = private unnamed_addr constant [16 x i8] c"before.stddev()\00", align 1
 @.str.130 = private unnamed_addr constant [15 x i8] c"param.stddev()\00", align 1
 @.str.131 = private unnamed_addr constant [10 x i8] c"via_param\00", align 1
@@ -14005,8 +14004,6 @@ entry:
   %ref.tmp29 = alloca [4 x i32], align 16
   %before = alloca %"class.absl::gaussian_distribution.126", align 4
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp56 = alloca float, align 4
-  %ref.tmp58 = alloca float, align 4
   %ref.tmp62 = alloca %"class.testing::Message", align 8
   %ref.tmp63 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar72 = alloca %"class.testing::AssertionResult", align 8
@@ -14184,7 +14181,6 @@ for.body39:                                       ; preds = %for.body, %for.inc4
 for.cond46.preheader:                             ; preds = %for.body39
   %fneg = fneg float %7
   %cond = select i1 %tobool.not, float %7, float %fneg
-  %cmp.i.i = fcmp ord float %cond, 0.000000e+00
   br label %for.body48
 
 for.body48:                                       ; preds = %for.cond46.preheader, %cleanup
@@ -14197,25 +14193,13 @@ for.body48:                                       ; preds = %for.cond46.preheade
   %cond55 = select i1 %tobool50.not, float %10, float %fneg52
   store float %cond, ptr %param_.i, align 4
   store float %cond55, ptr %stddev_.i.i, align 4
-  store float %cond, ptr %ref.tmp56, align 4
-  store float %cond, ptr %ref.tmp58, align 4
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %for.body48
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
-  br label %_ZN7testing8internal8EqHelper7CompareIffTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
-
-if.end.i.i:                                       ; preds = %for.body48
-  call void @_ZN7testing8internal18CmpHelperEQFailureIffEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.128, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp56, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp58)
-  br label %_ZN7testing8internal8EqHelper7CompareIffTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
-
-_ZN7testing8internal8EqHelper7CompareIffTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %if.then.i.i, %if.end.i.i
   %11 = load i8, ptr %gtest_ar, align 8
   %12 = and i8 %11, 1
   %tobool.i.not = icmp eq i8 %12, 0
   br i1 %tobool.i.not, label %if.else, label %if.end70
 
-if.else:                                          ; preds = %_ZN7testing8internal8EqHelper7CompareIffTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
+if.else:                                          ; preds = %for.body48
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp62)
           to label %invoke.cont unwind label %lpad
 
@@ -14287,7 +14271,7 @@ _ZN7testing7MessageD2Ev.exit69:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp62, align 8
   br label %ehcleanup71
 
-if.end70:                                         ; preds = %_ZN7testing8internal8EqHelper7CompareIffTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit, %_ZN7testing7MessageD2Ev.exit
+if.end70:                                         ; preds = %for.body48, %_ZN7testing7MessageD2Ev.exit
   %21 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i70 = icmp eq ptr %21, null
   br i1 %cmp.not.i.i70, label %_ZN7testing15AssertionResultD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
@@ -18572,8 +18556,6 @@ entry:
   %ref.tmp29 = alloca [4 x i32], align 16
   %before = alloca %"class.absl::gaussian_distribution", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp56 = alloca double, align 8
-  %ref.tmp58 = alloca double, align 8
   %ref.tmp62 = alloca %"class.testing::Message", align 8
   %ref.tmp63 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar72 = alloca %"class.testing::AssertionResult", align 8
@@ -18755,7 +18737,6 @@ for.body39:                                       ; preds = %for.body, %for.inc4
 for.cond46.preheader:                             ; preds = %for.body39
   %fneg = fneg double %7
   %cond = select i1 %tobool.not, double %7, double %fneg
-  %cmp.i.i = fcmp ord double %cond, 0.000000e+00
   br label %for.body48
 
 for.body48:                                       ; preds = %for.cond46.preheader, %cleanup
@@ -18768,25 +18749,13 @@ for.body48:                                       ; preds = %for.cond46.preheade
   %cond55 = select i1 %tobool50.not, double %10, double %fneg52
   store double %cond, ptr %param_.i, align 8
   store double %cond55, ptr %stddev_.i.i, align 8
-  store double %cond, ptr %ref.tmp56, align 8
-  store double %cond, ptr %ref.tmp58, align 8
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %for.body48
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
-  br label %_ZN7testing8internal8EqHelper7CompareIddTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
-
-if.end.i.i:                                       ; preds = %for.body48
-  call void @_ZN7testing8internal18CmpHelperEQFailureIddEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.128, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp56, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp58)
-  br label %_ZN7testing8internal8EqHelper7CompareIddTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
-
-_ZN7testing8internal8EqHelper7CompareIddTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %if.then.i.i, %if.end.i.i
   %11 = load i8, ptr %gtest_ar, align 8
   %12 = and i8 %11, 1
   %tobool.i.not = icmp eq i8 %12, 0
   br i1 %tobool.i.not, label %if.else, label %if.end70
 
-if.else:                                          ; preds = %_ZN7testing8internal8EqHelper7CompareIddTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
+if.else:                                          ; preds = %for.body48
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp62)
           to label %invoke.cont unwind label %lpad
 
@@ -18858,7 +18827,7 @@ _ZN7testing7MessageD2Ev.exit66:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp62, align 8
   br label %ehcleanup71
 
-if.end70:                                         ; preds = %_ZN7testing8internal8EqHelper7CompareIddTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit, %_ZN7testing7MessageD2Ev.exit
+if.end70:                                         ; preds = %for.body48, %_ZN7testing7MessageD2Ev.exit
   %21 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i67 = icmp eq ptr %21, null
   br i1 %cmp.not.i.i67, label %_ZN7testing15AssertionResultD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
@@ -22327,8 +22296,6 @@ entry:
   %ref.tmp29 = alloca [4 x i32], align 16
   %before = alloca %"class.absl::gaussian_distribution.186", align 16
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp56 = alloca x86_fp80, align 16
-  %ref.tmp58 = alloca x86_fp80, align 16
   %ref.tmp62 = alloca %"class.testing::Message", align 8
   %ref.tmp63 = alloca %"class.testing::internal::AssertHelper", align 8
   %gtest_ar72 = alloca %"class.testing::AssertionResult", align 8
@@ -22525,7 +22492,6 @@ for.body39:                                       ; preds = %for.body, %for.inc3
 for.cond46.preheader:                             ; preds = %for.body39
   %fneg = fneg x86_fp80 %7
   %cond = select i1 %tobool.not, x86_fp80 %7, x86_fp80 %fneg
-  %cmp.i.i = fcmp ord x86_fp80 %cond, 0xK00000000000000000000
   br label %for.body48
 
 for.body48:                                       ; preds = %for.cond46.preheader, %cleanup
@@ -22538,25 +22504,13 @@ for.body48:                                       ; preds = %for.cond46.preheade
   %cond55 = select i1 %tobool50.not, x86_fp80 %10, x86_fp80 %fneg52
   store x86_fp80 %cond, ptr %param_.i, align 16
   store x86_fp80 %cond55, ptr %stddev_.i.i, align 16
-  store x86_fp80 %cond, ptr %ref.tmp56, align 16
-  store x86_fp80 %cond, ptr %ref.tmp58, align 16
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %for.body48
   call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
-  br label %_ZN7testing8internal8EqHelper7CompareIeeTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
-
-if.end.i.i:                                       ; preds = %for.body48
-  call void @_ZN7testing8internal18CmpHelperEQFailureIeeEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.128, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp56, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp58)
-  br label %_ZN7testing8internal8EqHelper7CompareIeeTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
-
-_ZN7testing8internal8EqHelper7CompareIeeTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %if.then.i.i, %if.end.i.i
   %11 = load i8, ptr %gtest_ar, align 8
   %12 = and i8 %11, 1
   %tobool.i.not = icmp eq i8 %12, 0
   br i1 %tobool.i.not, label %if.else, label %if.end70
 
-if.else:                                          ; preds = %_ZN7testing8internal8EqHelper7CompareIeeTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit
+if.else:                                          ; preds = %for.body48
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp62)
           to label %invoke.cont unwind label %lpad
 
@@ -22628,7 +22582,7 @@ _ZN7testing7MessageD2Ev.exit65:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp62, align 8
   br label %ehcleanup71
 
-if.end70:                                         ; preds = %_ZN7testing8internal8EqHelper7CompareIeeTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit, %_ZN7testing7MessageD2Ev.exit
+if.end70:                                         ; preds = %for.body48, %_ZN7testing7MessageD2Ev.exit
   %21 = load ptr, ptr %message_.i.i, align 8
   %cmp.not.i.i66 = icmp eq ptr %21, null
   br i1 %cmp.not.i.i66, label %_ZN7testing15AssertionResultD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i

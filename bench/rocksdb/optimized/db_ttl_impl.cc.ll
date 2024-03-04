@@ -1479,19 +1479,19 @@ entry:
   %user_merge_out = alloca %"struct.rocksdb::MergeOperator::MergeOperationOutput", align 16
   %existing_value_without_ts = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp = alloca %"struct.rocksdb::MergeOperator::MergeOperationInput", align 8
-  %ref.tmp.sroa.gep73 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %ref.tmp.sroa.gep70 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp39 = alloca %"struct.rocksdb::MergeOperator::MergeOperationInput", align 8
-  %ref.tmp39.sroa.gep72 = getelementptr inbounds i8, ptr %ref.tmp39, i64 24
-  %ref.tmp39.sroa.gep69 = getelementptr inbounds i8, ptr %ref.tmp39, i64 16
-  %ref.tmp39.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
   %curtime = alloca i64, align 8
   %ref.tmp71 = alloca %"class.rocksdb::Status", align 8
   %ts_string = alloca [4 x i8], align 4
   %existing_value = getelementptr inbounds i8, ptr %merge_in, i64 8
   %0 = load ptr, ptr %existing_value, align 8
   %tobool.not = icmp eq ptr %0, null
+  %ref.tmp39.sink61.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
+  %ref.tmp39.sink61.sroa.gep68 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %ref.tmp39.sink61.sroa.gep70 = getelementptr inbounds i8, ptr %ref.tmp39, i64 16
+  %ref.tmp39.sink61.sroa.gep71 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %ref.tmp39.sink61.sroa.gep73 = getelementptr inbounds i8, ptr %ref.tmp39, i64 24
+  %ref.tmp39.sink61.sroa.gep74 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
@@ -1670,16 +1670,16 @@ if.then24:                                        ; preds = %for.end
   br label %if.then24.invoke
 
 if.then24.invoke:                                 ; preds = %if.else, %if.then24
+  %ref.tmp39.sink61.sroa.phi = phi ptr [ %ref.tmp39.sink61.sroa.gep, %if.else ], [ %ref.tmp39.sink61.sroa.gep68, %if.then24 ]
+  %ref.tmp39.sink61.sroa.phi69 = phi ptr [ %ref.tmp39.sink61.sroa.gep70, %if.else ], [ %ref.tmp39.sink61.sroa.gep71, %if.then24 ]
+  %ref.tmp39.sink61.sroa.phi72 = phi ptr [ %ref.tmp39.sink61.sroa.gep73, %if.else ], [ %ref.tmp39.sink61.sroa.gep74, %if.then24 ]
   %ref.tmp39.sink61 = phi ptr [ %ref.tmp39, %if.else ], [ %ref.tmp, %if.then24 ]
   %.sink60 = phi ptr [ null, %if.else ], [ %existing_value_without_ts, %if.then24 ]
   %.sink58 = phi ptr [ %29, %if.else ], [ %24, %if.then24 ]
   %.sink = phi ptr [ %27, %if.else ], [ %22, %if.then24 ]
-  %ref.tmp39.sink61.sroa.phi = phi ptr [ %ref.tmp39.sroa.gep, %if.else ], [ %ref.tmp.sroa.gep, %if.then24 ]
-  %ref.tmp39.sink61.sroa.phi68 = phi ptr [ %ref.tmp39.sroa.gep69, %if.else ], [ %ref.tmp.sroa.gep70, %if.then24 ]
-  %ref.tmp39.sink61.sroa.phi71 = phi ptr [ %ref.tmp39.sroa.gep72, %if.else ], [ %ref.tmp.sroa.gep73, %if.then24 ]
   store ptr %.sink60, ptr %ref.tmp39.sink61.sroa.phi, align 8
-  store ptr %operands_without_ts, ptr %ref.tmp39.sink61.sroa.phi68, align 8
-  store ptr %.sink58, ptr %ref.tmp39.sink61.sroa.phi71, align 8
+  store ptr %operands_without_ts, ptr %ref.tmp39.sink61.sroa.phi69, align 8
+  store ptr %.sink58, ptr %ref.tmp39.sink61.sroa.phi72, align 8
   %vtable43 = load ptr, ptr %.sink, align 8
   %vfn44 = getelementptr inbounds i8, ptr %vtable43, i64 160
   %25 = load ptr, ptr %vfn44, align 8
@@ -7086,10 +7086,8 @@ invoke.cont:
   %ref.tmp1.i32 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp.i = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp1.i = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp1.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 8
   %ref.tmp8.i = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp9.i = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp9.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 8
   %st = alloca %"class.rocksdb::Status", align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   %db_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -7100,6 +7098,8 @@ invoke.cont:
   call void %1(ptr nonnull sret(%"class.rocksdb::Status") align 8 %st, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(154) %options, ptr noundef %column_family, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef %value)
   %2 = load i8, ptr %st, align 8
   %cmp.i = icmp eq i8 %2, 0
+  %ref.tmp1.i.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 8
+  %ref.tmp1.i.sink.sroa.gep47 = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 8
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
@@ -7191,9 +7191,9 @@ if.then7.i:                                       ; preds = %if.end.i
   br label %if.then7.i.invoke
 
 if.then7.i.invoke:                                ; preds = %if.then.i, %if.then7.i
+  %ref.tmp1.i.sink.sroa.phi = phi ptr [ %ref.tmp1.i.sink.sroa.gep, %if.then.i ], [ %ref.tmp1.i.sink.sroa.gep47, %if.then7.i ]
   %ref.tmp1.i.sink = phi ptr [ %ref.tmp1.i, %if.then.i ], [ %ref.tmp9.i, %if.then7.i ]
   %15 = phi ptr [ %ref.tmp.i, %if.then.i ], [ %ref.tmp8.i, %if.then7.i ]
-  %ref.tmp1.i.sink.sroa.phi = phi ptr [ %ref.tmp1.i.sroa.gep, %if.then.i ], [ %ref.tmp9.i.sroa.gep, %if.then7.i ]
   store i64 0, ptr %ref.tmp1.i.sink.sroa.phi, align 8, !noalias !38
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1.i.sink, i8 noundef zeroext 0)
           to label %invoke.cont2 unwind label %lpad

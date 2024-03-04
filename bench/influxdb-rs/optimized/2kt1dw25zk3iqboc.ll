@@ -2859,20 +2859,12 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   %120 = alloca { ptr, [2 x i64] }, align 8
   %121 = alloca [1 x { ptr, ptr }], align 8
   %122 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep473 = getelementptr inbounds i8, ptr %122, i64 24
-  %.sroa.gep470 = getelementptr inbounds i8, ptr %122, i64 16
-  %.sroa.gep467 = getelementptr inbounds i8, ptr %122, i64 32
-  %.sroa.gep464 = getelementptr inbounds i8, ptr %122, i64 8
   %123 = alloca ptr, align 8
   %124 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %125 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %126 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %127 = alloca [1 x { ptr, ptr }], align 8
   %128 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep472 = getelementptr inbounds i8, ptr %128, i64 24
-  %.sroa.gep469 = getelementptr inbounds i8, ptr %128, i64 16
-  %.sroa.gep466 = getelementptr inbounds i8, ptr %128, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %128, i64 8
   %129 = alloca ptr, align 8
   %130 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %131 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -2988,6 +2980,14 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   %210 = getelementptr inbounds i8, ptr %2, i64 8
   %211 = load i64, ptr %210, align 8, !alias.scope !715, !noalias !713, !noundef !4
   %212 = icmp eq i64 %209, %211
+  %.sink494.i.sroa.gep = getelementptr inbounds i8, ptr %128, i64 8
+  %.sink494.i.sroa.gep464 = getelementptr inbounds i8, ptr %122, i64 8
+  %.sink494.i.sroa.gep466 = getelementptr inbounds i8, ptr %128, i64 32
+  %.sink494.i.sroa.gep467 = getelementptr inbounds i8, ptr %122, i64 32
+  %.sink494.i.sroa.gep469 = getelementptr inbounds i8, ptr %128, i64 16
+  %.sink494.i.sroa.gep470 = getelementptr inbounds i8, ptr %122, i64 16
+  %.sink494.i.sroa.gep472 = getelementptr inbounds i8, ptr %128, i64 24
+  %.sink494.i.sroa.gep473 = getelementptr inbounds i8, ptr %122, i64 24
   br i1 %212, label %213, label %214
 
 213:                                              ; preds = %3
@@ -3694,12 +3694,12 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %463, %422
+  %.sink494.i.sroa.phi = phi ptr [ %.sink494.i.sroa.gep, %422 ], [ %.sink494.i.sroa.gep464, %463 ]
+  %.sink494.i.sroa.phi465 = phi ptr [ %.sink494.i.sroa.gep466, %422 ], [ %.sink494.i.sroa.gep467, %463 ]
+  %.sink494.i.sroa.phi468 = phi ptr [ %.sink494.i.sroa.gep469, %422 ], [ %.sink494.i.sroa.gep470, %463 ]
+  %.sink494.i.sroa.phi471 = phi ptr [ %.sink494.i.sroa.gep472, %422 ], [ %.sink494.i.sroa.gep473, %463 ]
   %.sink494.i = phi ptr [ %128, %422 ], [ %122, %463 ]
   %.sink.i = phi ptr [ %127, %422 ], [ %121, %463 ]
-  %.sink494.i.sroa.phi = phi ptr [ %.sroa.gep, %422 ], [ %.sroa.gep464, %463 ]
-  %.sink494.i.sroa.phi465 = phi ptr [ %.sroa.gep466, %422 ], [ %.sroa.gep467, %463 ]
-  %.sink494.i.sroa.phi468 = phi ptr [ %.sroa.gep469, %422 ], [ %.sroa.gep470, %463 ]
-  %.sink494.i.sroa.phi471 = phi ptr [ %.sroa.gep472, %422 ], [ %.sroa.gep473, %463 ]
   store i64 2, ptr %.sink494.i.sroa.phi, align 8, !noalias !761
   store ptr null, ptr %.sink494.i.sroa.phi465, align 8, !noalias !761
   store ptr %.sink.i, ptr %.sink494.i.sroa.phi468, align 8, !noalias !761
@@ -7319,17 +7319,9 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..TimeUnit$u20$as$u20$par
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep59 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.gep54 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.gep49 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.gep44 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = alloca ptr, align 8
   %7 = alloca [1 x { ptr, ptr }], align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep58 = getelementptr inbounds i8, ptr %8, i64 24
-  %.sroa.gep53 = getelementptr inbounds i8, ptr %8, i64 16
-  %.sroa.gep48 = getelementptr inbounds i8, ptr %8, i64 32
-  %.sroa.gep43 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = alloca ptr, align 8
   %10 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -7342,10 +7334,6 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..TimeUnit$u20$as$u20$par
   %18 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %19 = alloca [1 x { ptr, ptr }], align 8
   %20 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep57 = getelementptr inbounds i8, ptr %20, i64 24
-  %.sroa.gep52 = getelementptr inbounds i8, ptr %20, i64 16
-  %.sroa.gep47 = getelementptr inbounds i8, ptr %20, i64 32
-  %.sroa.gep42 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = alloca ptr, align 8
   %22 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %23 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -7359,10 +7347,6 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..TimeUnit$u20$as$u20$par
   %31 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %32 = alloca [1 x { ptr, ptr }], align 8
   %33 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep56 = getelementptr inbounds i8, ptr %33, i64 24
-  %.sroa.gep51 = getelementptr inbounds i8, ptr %33, i64 16
-  %.sroa.gep46 = getelementptr inbounds i8, ptr %33, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %33, i64 8
   %34 = alloca ptr, align 8
   %35 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %36 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -7413,6 +7397,22 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..TimeUnit$u20$as$u20$par
   %63 = getelementptr inbounds i8, ptr %1, i64 8
   %64 = load i64, ptr %63, align 8, !alias.scope !1455, !noalias !1453, !noundef !4
   %65 = icmp eq i64 %62, %64
+  %.sink41.sroa.gep = getelementptr inbounds i8, ptr %33, i64 8
+  %.sink41.sroa.gep42 = getelementptr inbounds i8, ptr %20, i64 8
+  %.sink41.sroa.gep43 = getelementptr inbounds i8, ptr %8, i64 8
+  %.sink41.sroa.gep44 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink41.sroa.gep46 = getelementptr inbounds i8, ptr %33, i64 32
+  %.sink41.sroa.gep47 = getelementptr inbounds i8, ptr %20, i64 32
+  %.sink41.sroa.gep48 = getelementptr inbounds i8, ptr %8, i64 32
+  %.sink41.sroa.gep49 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sink41.sroa.gep51 = getelementptr inbounds i8, ptr %33, i64 16
+  %.sink41.sroa.gep52 = getelementptr inbounds i8, ptr %20, i64 16
+  %.sink41.sroa.gep53 = getelementptr inbounds i8, ptr %8, i64 16
+  %.sink41.sroa.gep54 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink41.sroa.gep56 = getelementptr inbounds i8, ptr %33, i64 24
+  %.sink41.sroa.gep57 = getelementptr inbounds i8, ptr %20, i64 24
+  %.sink41.sroa.gep58 = getelementptr inbounds i8, ptr %8, i64 24
+  %.sink41.sroa.gep59 = getelementptr inbounds i8, ptr %5, i64 24
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %2
@@ -8379,12 +8379,12 @@ default.unreachable:                              ; preds = %69
   br label %.invoke
 
 .invoke:                                          ; preds = %166, %268, %360, %370
+  %.sink41.sroa.phi = phi ptr [ %.sink41.sroa.gep, %166 ], [ %.sink41.sroa.gep42, %268 ], [ %.sink41.sroa.gep43, %360 ], [ %.sink41.sroa.gep44, %370 ]
+  %.sink41.sroa.phi45 = phi ptr [ %.sink41.sroa.gep46, %166 ], [ %.sink41.sroa.gep47, %268 ], [ %.sink41.sroa.gep48, %360 ], [ %.sink41.sroa.gep49, %370 ]
+  %.sink41.sroa.phi50 = phi ptr [ %.sink41.sroa.gep51, %166 ], [ %.sink41.sroa.gep52, %268 ], [ %.sink41.sroa.gep53, %360 ], [ %.sink41.sroa.gep54, %370 ]
+  %.sink41.sroa.phi55 = phi ptr [ %.sink41.sroa.gep56, %166 ], [ %.sink41.sroa.gep57, %268 ], [ %.sink41.sroa.gep58, %360 ], [ %.sink41.sroa.gep59, %370 ]
   %.sink41 = phi ptr [ %33, %166 ], [ %20, %268 ], [ %8, %360 ], [ %5, %370 ]
   %.sink = phi ptr [ %32, %166 ], [ %19, %268 ], [ %7, %360 ], [ %4, %370 ]
-  %.sink41.sroa.phi = phi ptr [ %.sroa.gep, %166 ], [ %.sroa.gep42, %268 ], [ %.sroa.gep43, %360 ], [ %.sroa.gep44, %370 ]
-  %.sink41.sroa.phi45 = phi ptr [ %.sroa.gep46, %166 ], [ %.sroa.gep47, %268 ], [ %.sroa.gep48, %360 ], [ %.sroa.gep49, %370 ]
-  %.sink41.sroa.phi50 = phi ptr [ %.sroa.gep51, %166 ], [ %.sroa.gep52, %268 ], [ %.sroa.gep53, %360 ], [ %.sroa.gep54, %370 ]
-  %.sink41.sroa.phi55 = phi ptr [ %.sroa.gep56, %166 ], [ %.sroa.gep57, %268 ], [ %.sroa.gep58, %360 ], [ %.sroa.gep59, %370 ]
   store i64 2, ptr %.sink41.sroa.phi, align 8, !noalias !4
   store ptr null, ptr %.sink41.sroa.phi45, align 8, !noalias !4
   store ptr %.sink, ptr %.sink41.sroa.phi50, align 8, !noalias !4
@@ -8649,10 +8649,6 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   %11 = alloca { ptr, [2 x i64] }, align 8
   %12 = alloca [1 x { ptr, ptr }], align 8
   %13 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep474 = getelementptr inbounds i8, ptr %13, i64 24
-  %.sroa.gep471 = getelementptr inbounds i8, ptr %13, i64 16
-  %.sroa.gep468 = getelementptr inbounds i8, ptr %13, i64 32
-  %.sroa.gep465 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = alloca ptr, align 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -8660,10 +8656,6 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   %18 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %19 = alloca [1 x { ptr, ptr }], align 8
   %20 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep473 = getelementptr inbounds i8, ptr %20, i64 24
-  %.sroa.gep470 = getelementptr inbounds i8, ptr %20, i64 16
-  %.sroa.gep467 = getelementptr inbounds i8, ptr %20, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %20, i64 8
   %21 = alloca ptr, align 8
   %22 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %23 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -8742,6 +8734,14 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   %65 = getelementptr inbounds i8, ptr %2, i64 8
   %66 = load i64, ptr %65, align 8, !alias.scope !1901, !noalias !1899, !noundef !4
   %67 = icmp eq i64 %64, %66
+  %.sink464.sroa.gep = getelementptr inbounds i8, ptr %20, i64 8
+  %.sink464.sroa.gep465 = getelementptr inbounds i8, ptr %13, i64 8
+  %.sink464.sroa.gep467 = getelementptr inbounds i8, ptr %20, i64 32
+  %.sink464.sroa.gep468 = getelementptr inbounds i8, ptr %13, i64 32
+  %.sink464.sroa.gep470 = getelementptr inbounds i8, ptr %20, i64 16
+  %.sink464.sroa.gep471 = getelementptr inbounds i8, ptr %13, i64 16
+  %.sink464.sroa.gep473 = getelementptr inbounds i8, ptr %20, i64 24
+  %.sink464.sroa.gep474 = getelementptr inbounds i8, ptr %13, i64 24
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %3
@@ -9091,12 +9091,12 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   br label %.invoke
 
 .invoke:                                          ; preds = %123, %178
+  %.sink464.sroa.phi = phi ptr [ %.sink464.sroa.gep, %123 ], [ %.sink464.sroa.gep465, %178 ]
+  %.sink464.sroa.phi466 = phi ptr [ %.sink464.sroa.gep467, %123 ], [ %.sink464.sroa.gep468, %178 ]
+  %.sink464.sroa.phi469 = phi ptr [ %.sink464.sroa.gep470, %123 ], [ %.sink464.sroa.gep471, %178 ]
+  %.sink464.sroa.phi472 = phi ptr [ %.sink464.sroa.gep473, %123 ], [ %.sink464.sroa.gep474, %178 ]
   %.sink464 = phi ptr [ %20, %123 ], [ %13, %178 ]
   %.sink = phi ptr [ %19, %123 ], [ %12, %178 ]
-  %.sink464.sroa.phi = phi ptr [ %.sroa.gep, %123 ], [ %.sroa.gep465, %178 ]
-  %.sink464.sroa.phi466 = phi ptr [ %.sroa.gep467, %123 ], [ %.sroa.gep468, %178 ]
-  %.sink464.sroa.phi469 = phi ptr [ %.sroa.gep470, %123 ], [ %.sroa.gep471, %178 ]
-  %.sink464.sroa.phi472 = phi ptr [ %.sroa.gep473, %123 ], [ %.sroa.gep474, %178 ]
   store i64 2, ptr %.sink464.sroa.phi, align 8, !noalias !4
   store ptr null, ptr %.sink464.sroa.phi466, align 8, !noalias !4
   store ptr %.sink, ptr %.sink464.sroa.phi469, align 8, !noalias !4
@@ -9824,10 +9824,6 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   %11 = alloca { ptr, [2 x i64] }, align 8
   %12 = alloca [1 x { ptr, ptr }], align 8
   %13 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep474 = getelementptr inbounds i8, ptr %13, i64 24
-  %.sroa.gep471 = getelementptr inbounds i8, ptr %13, i64 16
-  %.sroa.gep468 = getelementptr inbounds i8, ptr %13, i64 32
-  %.sroa.gep465 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = alloca ptr, align 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -9835,10 +9831,6 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   %18 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %19 = alloca [1 x { ptr, ptr }], align 8
   %20 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep473 = getelementptr inbounds i8, ptr %20, i64 24
-  %.sroa.gep470 = getelementptr inbounds i8, ptr %20, i64 16
-  %.sroa.gep467 = getelementptr inbounds i8, ptr %20, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %20, i64 8
   %21 = alloca ptr, align 8
   %22 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %23 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -9917,6 +9909,14 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   %65 = getelementptr inbounds i8, ptr %2, i64 8
   %66 = load i64, ptr %65, align 8, !alias.scope !2100, !noalias !2098, !noundef !4
   %67 = icmp eq i64 %64, %66
+  %.sink464.sroa.gep = getelementptr inbounds i8, ptr %20, i64 8
+  %.sink464.sroa.gep465 = getelementptr inbounds i8, ptr %13, i64 8
+  %.sink464.sroa.gep467 = getelementptr inbounds i8, ptr %20, i64 32
+  %.sink464.sroa.gep468 = getelementptr inbounds i8, ptr %13, i64 32
+  %.sink464.sroa.gep470 = getelementptr inbounds i8, ptr %20, i64 16
+  %.sink464.sroa.gep471 = getelementptr inbounds i8, ptr %13, i64 16
+  %.sink464.sroa.gep473 = getelementptr inbounds i8, ptr %20, i64 24
+  %.sink464.sroa.gep474 = getelementptr inbounds i8, ptr %13, i64 24
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %3
@@ -10266,12 +10266,12 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   br label %.invoke
 
 .invoke:                                          ; preds = %123, %178
+  %.sink464.sroa.phi = phi ptr [ %.sink464.sroa.gep, %123 ], [ %.sink464.sroa.gep465, %178 ]
+  %.sink464.sroa.phi466 = phi ptr [ %.sink464.sroa.gep467, %123 ], [ %.sink464.sroa.gep468, %178 ]
+  %.sink464.sroa.phi469 = phi ptr [ %.sink464.sroa.gep470, %123 ], [ %.sink464.sroa.gep471, %178 ]
+  %.sink464.sroa.phi472 = phi ptr [ %.sink464.sroa.gep473, %123 ], [ %.sink464.sroa.gep474, %178 ]
   %.sink464 = phi ptr [ %20, %123 ], [ %13, %178 ]
   %.sink = phi ptr [ %19, %123 ], [ %12, %178 ]
-  %.sink464.sroa.phi = phi ptr [ %.sroa.gep, %123 ], [ %.sroa.gep465, %178 ]
-  %.sink464.sroa.phi466 = phi ptr [ %.sroa.gep467, %123 ], [ %.sroa.gep468, %178 ]
-  %.sink464.sroa.phi469 = phi ptr [ %.sroa.gep470, %123 ], [ %.sroa.gep471, %178 ]
-  %.sink464.sroa.phi472 = phi ptr [ %.sroa.gep473, %123 ], [ %.sroa.gep474, %178 ]
   store i64 2, ptr %.sink464.sroa.phi, align 8, !noalias !4
   store ptr null, ptr %.sink464.sroa.phi466, align 8, !noalias !4
   store ptr %.sink, ptr %.sink464.sroa.phi469, align 8, !noalias !4
@@ -12038,17 +12038,9 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep31 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sroa.gep28 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.gep25 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.gep22 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = alloca ptr, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep30 = getelementptr inbounds i8, ptr %9, i64 24
-  %.sroa.gep27 = getelementptr inbounds i8, ptr %9, i64 16
-  %.sroa.gep24 = getelementptr inbounds i8, ptr %9, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %9, i64 8
   %10 = alloca ptr, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -12087,6 +12079,14 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$
   %33 = getelementptr inbounds i8, ptr %1, i64 8
   %34 = load i64, ptr %33, align 8, !alias.scope !2456, !noalias !2454, !noundef !4
   %35 = icmp eq i64 %32, %34
+  %.sink21.sroa.gep = getelementptr inbounds i8, ptr %9, i64 8
+  %.sink21.sroa.gep22 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink21.sroa.gep24 = getelementptr inbounds i8, ptr %9, i64 32
+  %.sink21.sroa.gep25 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink21.sroa.gep27 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sink21.sroa.gep28 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink21.sroa.gep30 = getelementptr inbounds i8, ptr %9, i64 24
+  %.sink21.sroa.gep31 = getelementptr inbounds i8, ptr %6, i64 24
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %2
@@ -12434,12 +12434,12 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$
   br label %.invoke
 
 .invoke:                                          ; preds = %133, %143
+  %.sink21.sroa.phi = phi ptr [ %.sink21.sroa.gep, %133 ], [ %.sink21.sroa.gep22, %143 ]
+  %.sink21.sroa.phi23 = phi ptr [ %.sink21.sroa.gep24, %133 ], [ %.sink21.sroa.gep25, %143 ]
+  %.sink21.sroa.phi26 = phi ptr [ %.sink21.sroa.gep27, %133 ], [ %.sink21.sroa.gep28, %143 ]
+  %.sink21.sroa.phi29 = phi ptr [ %.sink21.sroa.gep30, %133 ], [ %.sink21.sroa.gep31, %143 ]
   %.sink21 = phi ptr [ %9, %133 ], [ %6, %143 ]
   %.sink = phi ptr [ %8, %133 ], [ %5, %143 ]
-  %.sink21.sroa.phi = phi ptr [ %.sroa.gep, %133 ], [ %.sroa.gep22, %143 ]
-  %.sink21.sroa.phi23 = phi ptr [ %.sroa.gep24, %133 ], [ %.sroa.gep25, %143 ]
-  %.sink21.sroa.phi26 = phi ptr [ %.sroa.gep27, %133 ], [ %.sroa.gep28, %143 ]
-  %.sink21.sroa.phi29 = phi ptr [ %.sroa.gep30, %133 ], [ %.sroa.gep31, %143 ]
   store i64 2, ptr %.sink21.sroa.phi, align 8, !noalias !4
   store ptr null, ptr %.sink21.sroa.phi23, align 8, !noalias !4
   store ptr %.sink, ptr %.sink21.sroa.phi26, align 8, !noalias !4
@@ -14808,10 +14808,6 @@ default.unreachable697:                           ; preds = %96
 define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..thrift..TSerializable$GT$21write_to_out_protocol17h395e8b36cf331027E"(ptr noalias nocapture noundef sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep361 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.gep358 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.gep355 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
   %6 = alloca ptr, align 8
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -14826,10 +14822,6 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
   %17 = alloca { ptr, [2 x i64] }, align 8
   %18 = alloca [1 x { ptr, ptr }], align 8
   %19 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep362 = getelementptr inbounds i8, ptr %19, i64 24
-  %.sroa.gep359 = getelementptr inbounds i8, ptr %19, i64 16
-  %.sroa.gep356 = getelementptr inbounds i8, ptr %19, i64 32
-  %.sroa.gep353 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = alloca ptr, align 8
   %21 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %22 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -14878,6 +14870,14 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
   %53 = getelementptr inbounds i8, ptr %2, i64 8
   %54 = load i64, ptr %53, align 8, !alias.scope !2933, !noalias !2931, !noundef !4
   %55 = icmp eq i64 %52, %54
+  %.sink224.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink224.sroa.gep353 = getelementptr inbounds i8, ptr %19, i64 8
+  %.sink224.sroa.gep355 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sink224.sroa.gep356 = getelementptr inbounds i8, ptr %19, i64 32
+  %.sink224.sroa.gep358 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink224.sroa.gep359 = getelementptr inbounds i8, ptr %19, i64 16
+  %.sink224.sroa.gep361 = getelementptr inbounds i8, ptr %5, i64 24
+  %.sink224.sroa.gep362 = getelementptr inbounds i8, ptr %19, i64 24
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %3
@@ -15264,12 +15264,12 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
   br label %.invoke
 
 .invoke:                                          ; preds = %209, %175
+  %.sink224.sroa.phi = phi ptr [ %.sink224.sroa.gep, %209 ], [ %.sink224.sroa.gep353, %175 ]
+  %.sink224.sroa.phi354 = phi ptr [ %.sink224.sroa.gep355, %209 ], [ %.sink224.sroa.gep356, %175 ]
+  %.sink224.sroa.phi357 = phi ptr [ %.sink224.sroa.gep358, %209 ], [ %.sink224.sroa.gep359, %175 ]
+  %.sink224.sroa.phi360 = phi ptr [ %.sink224.sroa.gep361, %209 ], [ %.sink224.sroa.gep362, %175 ]
   %.sink224 = phi ptr [ %5, %209 ], [ %19, %175 ]
   %.sink = phi ptr [ %4, %209 ], [ %18, %175 ]
-  %.sink224.sroa.phi = phi ptr [ %.sroa.gep, %209 ], [ %.sroa.gep353, %175 ]
-  %.sink224.sroa.phi354 = phi ptr [ %.sroa.gep355, %209 ], [ %.sroa.gep356, %175 ]
-  %.sink224.sroa.phi357 = phi ptr [ %.sroa.gep358, %209 ], [ %.sroa.gep359, %175 ]
-  %.sink224.sroa.phi360 = phi ptr [ %.sroa.gep361, %209 ], [ %.sroa.gep362, %175 ]
   store i64 2, ptr %.sink224.sroa.phi, align 8, !noalias !2989
   store ptr null, ptr %.sink224.sroa.phi354, align 8, !noalias !2989
   store ptr %.sink, ptr %.sink224.sroa.phi357, align 8, !noalias !2989
@@ -15734,10 +15734,6 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   %23 = alloca { ptr, [2 x i64] }, align 8
   %24 = alloca [1 x { ptr, ptr }], align 8
   %25 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep598 = getelementptr inbounds i8, ptr %25, i64 24
-  %.sroa.gep595 = getelementptr inbounds i8, ptr %25, i64 16
-  %.sroa.gep592 = getelementptr inbounds i8, ptr %25, i64 32
-  %.sroa.gep589 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = alloca ptr, align 8
   %27 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %28 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -15745,10 +15741,6 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   %30 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %31 = alloca [1 x { ptr, ptr }], align 8
   %32 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep597 = getelementptr inbounds i8, ptr %32, i64 24
-  %.sroa.gep594 = getelementptr inbounds i8, ptr %32, i64 16
-  %.sroa.gep591 = getelementptr inbounds i8, ptr %32, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %32, i64 8
   %33 = alloca ptr, align 8
   %34 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %35 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -15893,6 +15885,14 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   %135 = getelementptr inbounds i8, ptr %2, i64 8
   %136 = load i64, ptr %135, align 8, !alias.scope !3185, !noalias !3183, !noundef !4
   %137 = icmp eq i64 %134, %136
+  %.sink558.i.sroa.gep = getelementptr inbounds i8, ptr %32, i64 8
+  %.sink558.i.sroa.gep589 = getelementptr inbounds i8, ptr %25, i64 8
+  %.sink558.i.sroa.gep591 = getelementptr inbounds i8, ptr %32, i64 32
+  %.sink558.i.sroa.gep592 = getelementptr inbounds i8, ptr %25, i64 32
+  %.sink558.i.sroa.gep594 = getelementptr inbounds i8, ptr %32, i64 16
+  %.sink558.i.sroa.gep595 = getelementptr inbounds i8, ptr %25, i64 16
+  %.sink558.i.sroa.gep597 = getelementptr inbounds i8, ptr %32, i64 24
+  %.sink558.i.sroa.gep598 = getelementptr inbounds i8, ptr %25, i64 24
   br i1 %137, label %138, label %139
 
 138:                                              ; preds = %3
@@ -16667,12 +16667,12 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %382, %337
+  %.sink558.i.sroa.phi = phi ptr [ %.sink558.i.sroa.gep, %337 ], [ %.sink558.i.sroa.gep589, %382 ]
+  %.sink558.i.sroa.phi590 = phi ptr [ %.sink558.i.sroa.gep591, %337 ], [ %.sink558.i.sroa.gep592, %382 ]
+  %.sink558.i.sroa.phi593 = phi ptr [ %.sink558.i.sroa.gep594, %337 ], [ %.sink558.i.sroa.gep595, %382 ]
+  %.sink558.i.sroa.phi596 = phi ptr [ %.sink558.i.sroa.gep597, %337 ], [ %.sink558.i.sroa.gep598, %382 ]
   %.sink558.i = phi ptr [ %32, %337 ], [ %25, %382 ]
   %.sink.i = phi ptr [ %31, %337 ], [ %24, %382 ]
-  %.sink558.i.sroa.phi = phi ptr [ %.sroa.gep, %337 ], [ %.sroa.gep589, %382 ]
-  %.sink558.i.sroa.phi590 = phi ptr [ %.sroa.gep591, %337 ], [ %.sroa.gep592, %382 ]
-  %.sink558.i.sroa.phi593 = phi ptr [ %.sroa.gep594, %337 ], [ %.sroa.gep595, %382 ]
-  %.sink558.i.sroa.phi596 = phi ptr [ %.sroa.gep597, %337 ], [ %.sroa.gep598, %382 ]
   store i64 2, ptr %.sink558.i.sroa.phi, align 8, !noalias !3285
   store ptr null, ptr %.sink558.i.sroa.phi590, align 8, !noalias !3285
   store ptr %.sink.i, ptr %.sink558.i.sroa.phi593, align 8, !noalias !3285
@@ -21345,17 +21345,9 @@ define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep31 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sroa.gep28 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.gep25 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.gep22 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = alloca ptr, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep30 = getelementptr inbounds i8, ptr %9, i64 24
-  %.sroa.gep27 = getelementptr inbounds i8, ptr %9, i64 16
-  %.sroa.gep24 = getelementptr inbounds i8, ptr %9, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %9, i64 8
   %10 = alloca ptr, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -21394,6 +21386,14 @@ define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$
   %33 = getelementptr inbounds i8, ptr %1, i64 8
   %34 = load i64, ptr %33, align 8, !alias.scope !4022, !noalias !4020, !noundef !4
   %35 = icmp eq i64 %32, %34
+  %.sink21.sroa.gep = getelementptr inbounds i8, ptr %9, i64 8
+  %.sink21.sroa.gep22 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink21.sroa.gep24 = getelementptr inbounds i8, ptr %9, i64 32
+  %.sink21.sroa.gep25 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink21.sroa.gep27 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sink21.sroa.gep28 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink21.sroa.gep30 = getelementptr inbounds i8, ptr %9, i64 24
+  %.sink21.sroa.gep31 = getelementptr inbounds i8, ptr %6, i64 24
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %2
@@ -21741,12 +21741,12 @@ define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$
   br label %.invoke
 
 .invoke:                                          ; preds = %133, %143
+  %.sink21.sroa.phi = phi ptr [ %.sink21.sroa.gep, %133 ], [ %.sink21.sroa.gep22, %143 ]
+  %.sink21.sroa.phi23 = phi ptr [ %.sink21.sroa.gep24, %133 ], [ %.sink21.sroa.gep25, %143 ]
+  %.sink21.sroa.phi26 = phi ptr [ %.sink21.sroa.gep27, %133 ], [ %.sink21.sroa.gep28, %143 ]
+  %.sink21.sroa.phi29 = phi ptr [ %.sink21.sroa.gep30, %133 ], [ %.sink21.sroa.gep31, %143 ]
   %.sink21 = phi ptr [ %9, %133 ], [ %6, %143 ]
   %.sink = phi ptr [ %8, %133 ], [ %5, %143 ]
-  %.sink21.sroa.phi = phi ptr [ %.sroa.gep, %133 ], [ %.sroa.gep22, %143 ]
-  %.sink21.sroa.phi23 = phi ptr [ %.sroa.gep24, %133 ], [ %.sroa.gep25, %143 ]
-  %.sink21.sroa.phi26 = phi ptr [ %.sroa.gep27, %133 ], [ %.sroa.gep28, %143 ]
-  %.sink21.sroa.phi29 = phi ptr [ %.sroa.gep30, %133 ], [ %.sroa.gep31, %143 ]
   store i64 2, ptr %.sink21.sroa.phi, align 8, !noalias !4
   store ptr null, ptr %.sink21.sroa.phi23, align 8, !noalias !4
   store ptr %.sink, ptr %.sink21.sroa.phi26, align 8, !noalias !4
@@ -21855,17 +21855,9 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca [1 x { ptr, ptr }], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep228 = getelementptr inbounds i8, ptr %10, i64 24
-  %.sroa.gep225 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.gep222 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sroa.gep219 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = alloca ptr, align 8
   %12 = alloca [1 x { ptr, ptr }], align 8
   %13 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep227 = getelementptr inbounds i8, ptr %13, i64 24
-  %.sroa.gep224 = getelementptr inbounds i8, ptr %13, i64 16
-  %.sroa.gep221 = getelementptr inbounds i8, ptr %13, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %13, i64 8
   %14 = alloca ptr, align 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -21939,6 +21931,14 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
   %62 = getelementptr inbounds i8, ptr %2, i64 8
   %63 = load i64, ptr %62, align 8, !alias.scope !4189, !noalias !4187, !noundef !4
   %64 = icmp eq i64 %61, %63
+  %.sink21.i.sroa.gep = getelementptr inbounds i8, ptr %13, i64 8
+  %.sink21.i.sroa.gep219 = getelementptr inbounds i8, ptr %10, i64 8
+  %.sink21.i.sroa.gep221 = getelementptr inbounds i8, ptr %13, i64 32
+  %.sink21.i.sroa.gep222 = getelementptr inbounds i8, ptr %10, i64 32
+  %.sink21.i.sroa.gep224 = getelementptr inbounds i8, ptr %13, i64 16
+  %.sink21.i.sroa.gep225 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sink21.i.sroa.gep227 = getelementptr inbounds i8, ptr %13, i64 24
+  %.sink21.i.sroa.gep228 = getelementptr inbounds i8, ptr %10, i64 24
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %3
@@ -22579,12 +22579,12 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %266, %256
+  %.sink21.i.sroa.phi = phi ptr [ %.sink21.i.sroa.gep, %256 ], [ %.sink21.i.sroa.gep219, %266 ]
+  %.sink21.i.sroa.phi220 = phi ptr [ %.sink21.i.sroa.gep221, %256 ], [ %.sink21.i.sroa.gep222, %266 ]
+  %.sink21.i.sroa.phi223 = phi ptr [ %.sink21.i.sroa.gep224, %256 ], [ %.sink21.i.sroa.gep225, %266 ]
+  %.sink21.i.sroa.phi226 = phi ptr [ %.sink21.i.sroa.gep227, %256 ], [ %.sink21.i.sroa.gep228, %266 ]
   %.sink21.i = phi ptr [ %13, %256 ], [ %10, %266 ]
   %.sink.i = phi ptr [ %12, %256 ], [ %9, %266 ]
-  %.sink21.i.sroa.phi = phi ptr [ %.sroa.gep, %256 ], [ %.sroa.gep219, %266 ]
-  %.sink21.i.sroa.phi220 = phi ptr [ %.sroa.gep221, %256 ], [ %.sroa.gep222, %266 ]
-  %.sink21.i.sroa.phi223 = phi ptr [ %.sroa.gep224, %256 ], [ %.sroa.gep225, %266 ]
-  %.sink21.i.sroa.phi226 = phi ptr [ %.sroa.gep227, %256 ], [ %.sroa.gep228, %266 ]
   store i64 2, ptr %.sink21.i.sroa.phi, align 8, !noalias !4287
   store ptr null, ptr %.sink21.i.sroa.phi220, align 8, !noalias !4287
   store ptr %.sink.i, ptr %.sink21.i.sroa.phi223, align 8, !noalias !4287
@@ -24036,35 +24036,19 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep287 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sroa.gep283 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.gep279 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.gep275 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = alloca ptr, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep286 = getelementptr inbounds i8, ptr %9, i64 24
-  %.sroa.gep282 = getelementptr inbounds i8, ptr %9, i64 16
-  %.sroa.gep278 = getelementptr inbounds i8, ptr %9, i64 32
-  %.sroa.gep274 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = alloca ptr, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca [1 x { ptr, ptr }], align 8
   %13 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep252 = getelementptr inbounds i8, ptr %13, i64 24
-  %.sroa.gep248 = getelementptr inbounds i8, ptr %13, i64 16
-  %.sroa.gep244 = getelementptr inbounds i8, ptr %13, i64 32
-  %.sroa.gep240 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = alloca ptr, align 8
   %15 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %16 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %17 = alloca { ptr, [2 x i64] }, align 8
   %18 = alloca [1 x { ptr, ptr }], align 8
   %19 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep251 = getelementptr inbounds i8, ptr %19, i64 24
-  %.sroa.gep247 = getelementptr inbounds i8, ptr %19, i64 16
-  %.sroa.gep243 = getelementptr inbounds i8, ptr %19, i64 32
-  %.sroa.gep239 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = alloca ptr, align 8
   %21 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %22 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -24072,10 +24056,6 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   %24 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %25 = alloca [1 x { ptr, ptr }], align 8
   %26 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep250 = getelementptr inbounds i8, ptr %26, i64 24
-  %.sroa.gep246 = getelementptr inbounds i8, ptr %26, i64 16
-  %.sroa.gep242 = getelementptr inbounds i8, ptr %26, i64 32
-  %.sroa.gep238 = getelementptr inbounds i8, ptr %26, i64 8
   %27 = alloca ptr, align 8
   %28 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %29 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -24097,28 +24077,16 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   %45 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %46 = alloca [1 x { ptr, ptr }], align 8
   %47 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep285 = getelementptr inbounds i8, ptr %47, i64 24
-  %.sroa.gep281 = getelementptr inbounds i8, ptr %47, i64 16
-  %.sroa.gep277 = getelementptr inbounds i8, ptr %47, i64 32
-  %.sroa.gep273 = getelementptr inbounds i8, ptr %47, i64 8
   %48 = alloca ptr, align 8
   %49 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %50 = alloca [1 x { ptr, ptr }], align 8
   %51 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep237 = getelementptr inbounds i8, ptr %51, i64 24
-  %.sroa.gep233 = getelementptr inbounds i8, ptr %51, i64 16
-  %.sroa.gep229 = getelementptr inbounds i8, ptr %51, i64 32
-  %.sroa.gep225 = getelementptr inbounds i8, ptr %51, i64 8
   %52 = alloca ptr, align 8
   %53 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %54 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %55 = alloca { ptr, [2 x i64] }, align 8
   %56 = alloca [1 x { ptr, ptr }], align 8
   %57 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep236 = getelementptr inbounds i8, ptr %57, i64 24
-  %.sroa.gep232 = getelementptr inbounds i8, ptr %57, i64 16
-  %.sroa.gep228 = getelementptr inbounds i8, ptr %57, i64 32
-  %.sroa.gep224 = getelementptr inbounds i8, ptr %57, i64 8
   %58 = alloca ptr, align 8
   %59 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %60 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -24126,10 +24094,6 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   %62 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %63 = alloca [1 x { ptr, ptr }], align 8
   %64 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep235 = getelementptr inbounds i8, ptr %64, i64 24
-  %.sroa.gep231 = getelementptr inbounds i8, ptr %64, i64 16
-  %.sroa.gep227 = getelementptr inbounds i8, ptr %64, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %64, i64 8
   %65 = alloca ptr, align 8
   %66 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %67 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -24182,6 +24146,42 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   %99 = getelementptr inbounds i8, ptr %2, i64 8
   %100 = load i64, ptr %99, align 8, !alias.scope !4729, !noalias !4727, !noundef !4
   %101 = icmp eq i64 %98, %100
+  %.sink221.i.sroa.gep = getelementptr inbounds i8, ptr %64, i64 8
+  %.sink221.i.sroa.gep224 = getelementptr inbounds i8, ptr %57, i64 8
+  %.sink221.i.sroa.gep225 = getelementptr inbounds i8, ptr %51, i64 8
+  %.sink221.i.sroa.gep227 = getelementptr inbounds i8, ptr %64, i64 32
+  %.sink221.i.sroa.gep228 = getelementptr inbounds i8, ptr %57, i64 32
+  %.sink221.i.sroa.gep229 = getelementptr inbounds i8, ptr %51, i64 32
+  %.sink221.i.sroa.gep231 = getelementptr inbounds i8, ptr %64, i64 16
+  %.sink221.i.sroa.gep232 = getelementptr inbounds i8, ptr %57, i64 16
+  %.sink221.i.sroa.gep233 = getelementptr inbounds i8, ptr %51, i64 16
+  %.sink221.i.sroa.gep235 = getelementptr inbounds i8, ptr %64, i64 24
+  %.sink221.i.sroa.gep236 = getelementptr inbounds i8, ptr %57, i64 24
+  %.sink221.i.sroa.gep237 = getelementptr inbounds i8, ptr %51, i64 24
+  %.sink221.i158.sroa.gep = getelementptr inbounds i8, ptr %26, i64 8
+  %.sink221.i158.sroa.gep238 = getelementptr inbounds i8, ptr %19, i64 8
+  %.sink221.i158.sroa.gep239 = getelementptr inbounds i8, ptr %13, i64 8
+  %.sink221.i158.sroa.gep241 = getelementptr inbounds i8, ptr %26, i64 32
+  %.sink221.i158.sroa.gep242 = getelementptr inbounds i8, ptr %19, i64 32
+  %.sink221.i158.sroa.gep243 = getelementptr inbounds i8, ptr %13, i64 32
+  %.sink221.i158.sroa.gep245 = getelementptr inbounds i8, ptr %26, i64 16
+  %.sink221.i158.sroa.gep246 = getelementptr inbounds i8, ptr %19, i64 16
+  %.sink221.i158.sroa.gep247 = getelementptr inbounds i8, ptr %13, i64 16
+  %.sink221.i158.sroa.gep249 = getelementptr inbounds i8, ptr %26, i64 24
+  %.sink221.i158.sroa.gep250 = getelementptr inbounds i8, ptr %19, i64 24
+  %.sink221.i158.sroa.gep251 = getelementptr inbounds i8, ptr %13, i64 24
+  %.sink271.sroa.gep = getelementptr inbounds i8, ptr %47, i64 8
+  %.sink271.sroa.gep272 = getelementptr inbounds i8, ptr %9, i64 8
+  %.sink271.sroa.gep273 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink271.sroa.gep275 = getelementptr inbounds i8, ptr %47, i64 32
+  %.sink271.sroa.gep276 = getelementptr inbounds i8, ptr %9, i64 32
+  %.sink271.sroa.gep277 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink271.sroa.gep279 = getelementptr inbounds i8, ptr %47, i64 16
+  %.sink271.sroa.gep280 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sink271.sroa.gep281 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink271.sroa.gep283 = getelementptr inbounds i8, ptr %47, i64 24
+  %.sink271.sroa.gep284 = getelementptr inbounds i8, ptr %9, i64 24
+  %.sink271.sroa.gep285 = getelementptr inbounds i8, ptr %6, i64 24
   br i1 %101, label %102, label %105
 
 102:                                              ; preds = %3
@@ -24864,12 +24864,12 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %318, %264, %208
+  %.sink221.i.sroa.phi = phi ptr [ %.sink221.i.sroa.gep, %208 ], [ %.sink221.i.sroa.gep224, %264 ], [ %.sink221.i.sroa.gep225, %318 ]
+  %.sink221.i.sroa.phi226 = phi ptr [ %.sink221.i.sroa.gep227, %208 ], [ %.sink221.i.sroa.gep228, %264 ], [ %.sink221.i.sroa.gep229, %318 ]
+  %.sink221.i.sroa.phi230 = phi ptr [ %.sink221.i.sroa.gep231, %208 ], [ %.sink221.i.sroa.gep232, %264 ], [ %.sink221.i.sroa.gep233, %318 ]
+  %.sink221.i.sroa.phi234 = phi ptr [ %.sink221.i.sroa.gep235, %208 ], [ %.sink221.i.sroa.gep236, %264 ], [ %.sink221.i.sroa.gep237, %318 ]
   %.sink221.i = phi ptr [ %64, %208 ], [ %57, %264 ], [ %51, %318 ]
   %.sink.i = phi ptr [ %63, %208 ], [ %56, %264 ], [ %50, %318 ]
-  %.sink221.i.sroa.phi = phi ptr [ %.sroa.gep, %208 ], [ %.sroa.gep224, %264 ], [ %.sroa.gep225, %318 ]
-  %.sink221.i.sroa.phi226 = phi ptr [ %.sroa.gep227, %208 ], [ %.sroa.gep228, %264 ], [ %.sroa.gep229, %318 ]
-  %.sink221.i.sroa.phi230 = phi ptr [ %.sroa.gep231, %208 ], [ %.sroa.gep232, %264 ], [ %.sroa.gep233, %318 ]
-  %.sink221.i.sroa.phi234 = phi ptr [ %.sroa.gep235, %208 ], [ %.sroa.gep236, %264 ], [ %.sroa.gep237, %318 ]
   store i64 2, ptr %.sink221.i.sroa.phi, align 8, !noalias !4780
   store ptr null, ptr %.sink221.i.sroa.phi226, align 8, !noalias !4780
   store ptr %.sink.i, ptr %.sink221.i.sroa.phi230, align 8, !noalias !4780
@@ -25626,16 +25626,16 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   br label %.invoke.i157
 
 .invoke.i157:                                     ; preds = %558, %504, %448
+  %.sink221.i158.sroa.phi = phi ptr [ %.sink221.i158.sroa.gep, %448 ], [ %.sink221.i158.sroa.gep238, %504 ], [ %.sink221.i158.sroa.gep239, %558 ]
+  %.sink221.i158.sroa.phi240 = phi ptr [ %.sink221.i158.sroa.gep241, %448 ], [ %.sink221.i158.sroa.gep242, %504 ], [ %.sink221.i158.sroa.gep243, %558 ]
+  %.sink221.i158.sroa.phi244 = phi ptr [ %.sink221.i158.sroa.gep245, %448 ], [ %.sink221.i158.sroa.gep246, %504 ], [ %.sink221.i158.sroa.gep247, %558 ]
+  %.sink221.i158.sroa.phi248 = phi ptr [ %.sink221.i158.sroa.gep249, %448 ], [ %.sink221.i158.sroa.gep250, %504 ], [ %.sink221.i158.sroa.gep251, %558 ]
   %.sink221.i158 = phi ptr [ %26, %448 ], [ %19, %504 ], [ %13, %558 ]
   %.sink.i159 = phi ptr [ %25, %448 ], [ %18, %504 ], [ %12, %558 ]
-  %.sink221.i158.sroa.phi = phi ptr [ %.sroa.gep238, %448 ], [ %.sroa.gep239, %504 ], [ %.sroa.gep240, %558 ]
-  %.sink221.i158.sroa.phi241 = phi ptr [ %.sroa.gep242, %448 ], [ %.sroa.gep243, %504 ], [ %.sroa.gep244, %558 ]
-  %.sink221.i158.sroa.phi245 = phi ptr [ %.sroa.gep246, %448 ], [ %.sroa.gep247, %504 ], [ %.sroa.gep248, %558 ]
-  %.sink221.i158.sroa.phi249 = phi ptr [ %.sroa.gep250, %448 ], [ %.sroa.gep251, %504 ], [ %.sroa.gep252, %558 ]
   store i64 2, ptr %.sink221.i158.sroa.phi, align 8, !noalias !5048
-  store ptr null, ptr %.sink221.i158.sroa.phi241, align 8, !noalias !5048
-  store ptr %.sink.i159, ptr %.sink221.i158.sroa.phi245, align 8, !noalias !5048
-  store i64 1, ptr %.sink221.i158.sroa.phi249, align 8, !noalias !5048
+  store ptr null, ptr %.sink221.i158.sroa.phi240, align 8, !noalias !5048
+  store ptr %.sink.i159, ptr %.sink221.i158.sroa.phi244, align 8, !noalias !5048
+  store i64 1, ptr %.sink221.i158.sroa.phi248, align 8, !noalias !5048
   invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink221.i158, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.32.llvm.6485340210107833496) #10
           to label %.cont.i160 unwind label %396, !noalias !5058
 
@@ -25748,17 +25748,17 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   br label %.invoke
 
 .invoke:                                          ; preds = %340, %580, %590
-  %.sink272 = phi ptr [ %47, %340 ], [ %9, %580 ], [ %6, %590 ]
+  %.sink271.sroa.phi = phi ptr [ %.sink271.sroa.gep, %340 ], [ %.sink271.sroa.gep272, %580 ], [ %.sink271.sroa.gep273, %590 ]
+  %.sink271.sroa.phi274 = phi ptr [ %.sink271.sroa.gep275, %340 ], [ %.sink271.sroa.gep276, %580 ], [ %.sink271.sroa.gep277, %590 ]
+  %.sink271.sroa.phi278 = phi ptr [ %.sink271.sroa.gep279, %340 ], [ %.sink271.sroa.gep280, %580 ], [ %.sink271.sroa.gep281, %590 ]
+  %.sink271.sroa.phi282 = phi ptr [ %.sink271.sroa.gep283, %340 ], [ %.sink271.sroa.gep284, %580 ], [ %.sink271.sroa.gep285, %590 ]
+  %.sink271 = phi ptr [ %47, %340 ], [ %9, %580 ], [ %6, %590 ]
   %.sink = phi ptr [ %46, %340 ], [ %8, %580 ], [ %5, %590 ]
-  %.sink272.sroa.phi = phi ptr [ %.sroa.gep273, %340 ], [ %.sroa.gep274, %580 ], [ %.sroa.gep275, %590 ]
-  %.sink272.sroa.phi276 = phi ptr [ %.sroa.gep277, %340 ], [ %.sroa.gep278, %580 ], [ %.sroa.gep279, %590 ]
-  %.sink272.sroa.phi280 = phi ptr [ %.sroa.gep281, %340 ], [ %.sroa.gep282, %580 ], [ %.sroa.gep283, %590 ]
-  %.sink272.sroa.phi284 = phi ptr [ %.sroa.gep285, %340 ], [ %.sroa.gep286, %580 ], [ %.sroa.gep287, %590 ]
-  store i64 2, ptr %.sink272.sroa.phi, align 8, !noalias !4
-  store ptr null, ptr %.sink272.sroa.phi276, align 8, !noalias !4
-  store ptr %.sink, ptr %.sink272.sroa.phi280, align 8, !noalias !4
-  store i64 1, ptr %.sink272.sroa.phi284, align 8, !noalias !4
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink272, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.32.llvm.6485340210107833496) #10
+  store i64 2, ptr %.sink271.sroa.phi, align 8, !noalias !4
+  store ptr null, ptr %.sink271.sroa.phi274, align 8, !noalias !4
+  store ptr %.sink, ptr %.sink271.sroa.phi278, align 8, !noalias !4
+  store i64 1, ptr %.sink271.sroa.phi282, align 8, !noalias !4
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink271, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.32.llvm.6485340210107833496) #10
           to label %.cont unwind label %103
 
 .cont:                                            ; preds = %.invoke
@@ -25832,17 +25832,9 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep194 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sroa.gep190 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.gep186 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.gep182 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = alloca ptr, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep193 = getelementptr inbounds i8, ptr %9, i64 24
-  %.sroa.gep189 = getelementptr inbounds i8, ptr %9, i64 16
-  %.sroa.gep185 = getelementptr inbounds i8, ptr %9, i64 32
-  %.sroa.gep181 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = alloca ptr, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { ptr, [2 x i64] }, align 8
@@ -25867,10 +25859,6 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
   %31 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %32 = alloca [1 x { ptr, ptr }], align 8
   %33 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep192 = getelementptr inbounds i8, ptr %33, i64 24
-  %.sroa.gep188 = getelementptr inbounds i8, ptr %33, i64 16
-  %.sroa.gep184 = getelementptr inbounds i8, ptr %33, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %33, i64 8
   %34 = alloca ptr, align 8
   %35 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %36 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -25915,6 +25903,18 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
   %61 = getelementptr inbounds i8, ptr %2, i64 8
   %62 = load i64, ptr %61, align 8, !alias.scope !5308, !noalias !5306, !noundef !4
   %63 = icmp eq i64 %60, %62
+  %.sink178.sroa.gep = getelementptr inbounds i8, ptr %33, i64 8
+  %.sink178.sroa.gep181 = getelementptr inbounds i8, ptr %9, i64 8
+  %.sink178.sroa.gep182 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink178.sroa.gep184 = getelementptr inbounds i8, ptr %33, i64 32
+  %.sink178.sroa.gep185 = getelementptr inbounds i8, ptr %9, i64 32
+  %.sink178.sroa.gep186 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink178.sroa.gep188 = getelementptr inbounds i8, ptr %33, i64 16
+  %.sink178.sroa.gep189 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sink178.sroa.gep190 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink178.sroa.gep192 = getelementptr inbounds i8, ptr %33, i64 24
+  %.sink178.sroa.gep193 = getelementptr inbounds i8, ptr %9, i64 24
+  %.sink178.sroa.gep194 = getelementptr inbounds i8, ptr %6, i64 24
   br i1 %63, label %64, label %67
 
 64:                                               ; preds = %3
@@ -26828,12 +26828,12 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
   br label %.invoke
 
 .invoke:                                          ; preds = %165, %335, %346
+  %.sink178.sroa.phi = phi ptr [ %.sink178.sroa.gep, %165 ], [ %.sink178.sroa.gep181, %335 ], [ %.sink178.sroa.gep182, %346 ]
+  %.sink178.sroa.phi183 = phi ptr [ %.sink178.sroa.gep184, %165 ], [ %.sink178.sroa.gep185, %335 ], [ %.sink178.sroa.gep186, %346 ]
+  %.sink178.sroa.phi187 = phi ptr [ %.sink178.sroa.gep188, %165 ], [ %.sink178.sroa.gep189, %335 ], [ %.sink178.sroa.gep190, %346 ]
+  %.sink178.sroa.phi191 = phi ptr [ %.sink178.sroa.gep192, %165 ], [ %.sink178.sroa.gep193, %335 ], [ %.sink178.sroa.gep194, %346 ]
   %.sink178 = phi ptr [ %33, %165 ], [ %9, %335 ], [ %6, %346 ]
   %.sink = phi ptr [ %32, %165 ], [ %8, %335 ], [ %5, %346 ]
-  %.sink178.sroa.phi = phi ptr [ %.sroa.gep, %165 ], [ %.sroa.gep181, %335 ], [ %.sroa.gep182, %346 ]
-  %.sink178.sroa.phi183 = phi ptr [ %.sroa.gep184, %165 ], [ %.sroa.gep185, %335 ], [ %.sroa.gep186, %346 ]
-  %.sink178.sroa.phi187 = phi ptr [ %.sroa.gep188, %165 ], [ %.sroa.gep189, %335 ], [ %.sroa.gep190, %346 ]
-  %.sink178.sroa.phi191 = phi ptr [ %.sroa.gep192, %165 ], [ %.sroa.gep193, %335 ], [ %.sroa.gep194, %346 ]
   store i64 2, ptr %.sink178.sroa.phi, align 8, !noalias !4
   store ptr null, ptr %.sink178.sroa.phi183, align 8, !noalias !4
   store ptr %.sink, ptr %.sink178.sroa.phi187, align 8, !noalias !4
@@ -26913,17 +26913,9 @@ define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep31 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sroa.gep28 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.gep25 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.gep22 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = alloca ptr, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %.sroa.gep30 = getelementptr inbounds i8, ptr %9, i64 24
-  %.sroa.gep27 = getelementptr inbounds i8, ptr %9, i64 16
-  %.sroa.gep24 = getelementptr inbounds i8, ptr %9, i64 32
-  %.sroa.gep = getelementptr inbounds i8, ptr %9, i64 8
   %10 = alloca ptr, align 8
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -26962,6 +26954,14 @@ define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$
   %33 = getelementptr inbounds i8, ptr %1, i64 8
   %34 = load i64, ptr %33, align 8, !alias.scope !5618, !noalias !5616, !noundef !4
   %35 = icmp eq i64 %32, %34
+  %.sink21.sroa.gep = getelementptr inbounds i8, ptr %9, i64 8
+  %.sink21.sroa.gep22 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink21.sroa.gep24 = getelementptr inbounds i8, ptr %9, i64 32
+  %.sink21.sroa.gep25 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink21.sroa.gep27 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sink21.sroa.gep28 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink21.sroa.gep30 = getelementptr inbounds i8, ptr %9, i64 24
+  %.sink21.sroa.gep31 = getelementptr inbounds i8, ptr %6, i64 24
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %2
@@ -27309,12 +27309,12 @@ define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$
   br label %.invoke
 
 .invoke:                                          ; preds = %133, %143
+  %.sink21.sroa.phi = phi ptr [ %.sink21.sroa.gep, %133 ], [ %.sink21.sroa.gep22, %143 ]
+  %.sink21.sroa.phi23 = phi ptr [ %.sink21.sroa.gep24, %133 ], [ %.sink21.sroa.gep25, %143 ]
+  %.sink21.sroa.phi26 = phi ptr [ %.sink21.sroa.gep27, %133 ], [ %.sink21.sroa.gep28, %143 ]
+  %.sink21.sroa.phi29 = phi ptr [ %.sink21.sroa.gep30, %133 ], [ %.sink21.sroa.gep31, %143 ]
   %.sink21 = phi ptr [ %9, %133 ], [ %6, %143 ]
   %.sink = phi ptr [ %8, %133 ], [ %5, %143 ]
-  %.sink21.sroa.phi = phi ptr [ %.sroa.gep, %133 ], [ %.sroa.gep22, %143 ]
-  %.sink21.sroa.phi23 = phi ptr [ %.sroa.gep24, %133 ], [ %.sroa.gep25, %143 ]
-  %.sink21.sroa.phi26 = phi ptr [ %.sroa.gep27, %133 ], [ %.sroa.gep28, %143 ]
-  %.sink21.sroa.phi29 = phi ptr [ %.sroa.gep30, %133 ], [ %.sroa.gep31, %143 ]
   store i64 2, ptr %.sink21.sroa.phi, align 8, !noalias !4
   store ptr null, ptr %.sink21.sroa.phi23, align 8, !noalias !4
   store ptr %.sink, ptr %.sink21.sroa.phi26, align 8, !noalias !4

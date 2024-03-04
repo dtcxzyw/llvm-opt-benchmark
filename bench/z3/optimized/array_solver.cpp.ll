@@ -1577,6 +1577,7 @@ entry:
   %m_num_scopes.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i32, ptr %m_num_scopes.i, align 8
   %cmp.not1.i = icmp eq i32 %0, 0
+  %indvars.iv.sroa.gep9 = getelementptr inbounds i8, ptr %turn, i64 1
   br i1 %cmp.not1.i, label %_ZN3euf13th_euf_solver10force_pushEv.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.body.i
@@ -1608,9 +1609,8 @@ _ZN3euf13th_euf_solver10force_pushEv.exit:        ; preds = %for.body.i, %entry
 
 for.body:                                         ; preds = %_ZN3euf13th_euf_solver10force_pushEv.exit, %for.inc
   %cmp = phi i1 [ true, %_ZN3euf13th_euf_solver10force_pushEv.exit ], [ false, %for.inc ]
-  %indvars.iv = phi i64 [ 0, %_ZN3euf13th_euf_solver10force_pushEv.exit ], [ 1, %for.inc ]
-  %arrayidx5 = getelementptr inbounds [2 x i8], ptr %turn, i64 0, i64 %indvars.iv
-  %5 = load i8, ptr %arrayidx5, align 1
+  %indvars.iv.sroa.phi = phi ptr [ %turn, %_ZN3euf13th_euf_solver10force_pushEv.exit ], [ %indvars.iv.sroa.gep9, %for.inc ]
+  %5 = load i8, ptr %indvars.iv.sroa.phi, align 1
   %6 = and i8 %5, 1
   %tobool.not = icmp eq i8 %6, 0
   br i1 %tobool.not, label %land.lhs.true10, label %land.lhs.true

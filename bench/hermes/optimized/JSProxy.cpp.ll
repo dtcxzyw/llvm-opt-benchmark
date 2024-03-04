@@ -2458,14 +2458,14 @@ entry:
   %targetDesc = alloca %"struct.hermes::vm::ComputedPropertyDescriptor", align 4
   %tmpPropNameStorage = alloca %"class.hermes::vm::MutableHandle", align 8
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp60 = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp60.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp60, i64 8
   %retval.sroa.0.0.copyload.i = load i64, ptr %target.coerce, align 8
   %retval.sroa.0.0.copyload.i7 = load i64, ptr %nameValHandle.coerce, align 8
   %call20 = tail call { i32, i64 } @_ZN6hermes2vm8Callable12executeCall2ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_S6_b(ptr %trap.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %handler.coerce, i64 %retval.sroa.0.0.copyload.i, i64 %retval.sroa.0.0.copyload.i7, i1 noundef zeroext false) #13
   %0 = extractvalue { i32, i64 } %call20, 0
   %cmp.i = icmp eq i32 %0, 0
+  %ref.tmp60.sink42.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp60, i64 8
+  %ref.tmp60.sink42.sroa.gep43 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -2550,8 +2550,8 @@ if.then59:                                        ; preds = %if.end57
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then46, %if.then59
+  %ref.tmp60.sink42.sroa.phi = phi ptr [ %ref.tmp60.sink42.sroa.gep, %if.then59 ], [ %ref.tmp60.sink42.sroa.gep43, %if.then46 ]
   %ref.tmp60.sink42 = phi ptr [ %ref.tmp60, %if.then59 ], [ %ref.tmp, %if.then46 ]
-  %ref.tmp60.sink42.sroa.phi = phi ptr [ %ref.tmp60.sroa.gep, %if.then59 ], [ %ref.tmp.sroa.gep, %if.then46 ]
   store i32 3, ptr %ref.tmp60.sink42.sroa.phi, align 8
   %call61 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp60.sink42) #13
   %bf.value.i34 = and i32 %call61, 255
@@ -3276,9 +3276,7 @@ entry:
   %targetValueOrAccessor = alloca %"class.hermes::vm::MutableHandle.184", align 8
   %tmpPropNameStorage = alloca %"class.hermes::vm::MutableHandle", align 8
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp97 = alloca %"class.hermes::vm::TwineChar16", align 8
-  %ref.tmp97.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp97, i64 8
   %coerce.val.ip = inttoptr i64 %receiver.coerce to ptr
   %retval.sroa.0.0.copyload.i = load i64, ptr %target.coerce, align 8
   %retval.sroa.0.0.copyload.i6 = load i64, ptr %nameValHandle.coerce, align 8
@@ -3287,6 +3285,8 @@ entry:
   %call32 = tail call { i32, i64 } @_ZN6hermes2vm8Callable12executeCall4ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_S6_S6_S6_b(ptr %trap.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %handler.coerce, i64 %retval.sroa.0.0.copyload.i, i64 %retval.sroa.0.0.copyload.i6, i64 %retval.sroa.0.0.copyload.i7, i64 %retval.sroa.0.0.copyload.i8, i1 noundef zeroext false) #13
   %0 = extractvalue { i32, i64 } %call32, 0
   %cmp.i = icmp eq i32 %0, 0
+  %ref.tmp97.sink49.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp97, i64 8
+  %ref.tmp97.sink49.sroa.gep50 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -3410,8 +3410,8 @@ if.then96:                                        ; preds = %land.lhs.true89
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then81, %if.then96
+  %ref.tmp97.sink49.sroa.phi = phi ptr [ %ref.tmp97.sink49.sroa.gep, %if.then96 ], [ %ref.tmp97.sink49.sroa.gep50, %if.then81 ]
   %ref.tmp97.sink49 = phi ptr [ %ref.tmp97, %if.then96 ], [ %ref.tmp, %if.then81 ]
-  %ref.tmp97.sink49.sroa.phi = phi ptr [ %ref.tmp97.sroa.gep, %if.then96 ], [ %ref.tmp.sroa.gep, %if.then81 ]
   store i32 3, ptr %ref.tmp97.sink49.sroa.phi, align 8
   %call98 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp97.sink49) #13
   %bf.value.i40 = and i32 %call98, 255
