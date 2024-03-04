@@ -2,7 +2,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN4core3num20_$LT$impl$u20$u8$GT$20eq_ignore_ascii_case17h55b6d4ad7c51d4e8E"(ptr align 1 %0, ptr align 1 %1) unnamed_addr #0 {
+define hidden zeroext i1 @"_ZN4core3num20_$LT$impl$u20$u8$GT$20eq_ignore_ascii_case17h6e4f9cff87749135E"(ptr align 1 %0, ptr align 1 %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
@@ -66,6 +66,6 @@ attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "tar
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 2, !"Dwarf Version", i32 4}
 !3 = !{i32 2, !"Debug Info Version", i32 3}
-!4 = !{!"rustc version 1.75.0 (82e1608df 2023-12-21)"}
+!4 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !5 = !{}
 !6 = !{i8 0, i8 2}

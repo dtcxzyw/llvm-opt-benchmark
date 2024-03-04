@@ -1,32 +1,32 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-@anon.ed21be42d600c29442b46db34271237f.0 = private unnamed_addr constant <{}> zeroinitializer, align 8
-@anon.ed21be42d600c29442b46db34271237f.1 = private constant <{ ptr, [16 x i8], ptr, ptr, ptr }> <{ ptr @"_ZN4core3ptr35drop_in_place$LT$log..NopLogger$GT$17h111be3c232d326a6E", [16 x i8] c"\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN43_$LT$log..NopLogger$u20$as$u20$log..Log$GT$7enabled17h2793aae0574a5e24E", ptr @"_ZN43_$LT$log..NopLogger$u20$as$u20$log..Log$GT$3log17h708bceb5041d9b42E", ptr @"_ZN43_$LT$log..NopLogger$u20$as$u20$log..Log$GT$5flush17h25f2ebc232a9f5cfE" }>, align 8
-@_ZN3log6LOGGER17h018a7ff6f708aa11E = hidden global <{ ptr, ptr }> <{ ptr @anon.ed21be42d600c29442b46db34271237f.0, ptr @anon.ed21be42d600c29442b46db34271237f.1 }>, align 8
-@_ZN3log5STATE17h1d2af362dbccaea1E = hidden global <{ [8 x i8] }> zeroinitializer, align 8
-@_ZN3log20MAX_LOG_LEVEL_FILTER17hc941653559b1647bE = global <{ [8 x i8] }> zeroinitializer, align 8
-@anon.ed21be42d600c29442b46db34271237f.2 = private unnamed_addr constant <{ [3 x i8] }> <{ [3 x i8] c"OFF" }>, align 1
-@anon.ed21be42d600c29442b46db34271237f.3 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"ERROR" }>, align 1
-@anon.ed21be42d600c29442b46db34271237f.4 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"WARN" }>, align 1
-@anon.ed21be42d600c29442b46db34271237f.5 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"INFO" }>, align 1
-@anon.ed21be42d600c29442b46db34271237f.6 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"DEBUG" }>, align 1
-@anon.ed21be42d600c29442b46db34271237f.7 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"TRACE" }>, align 1
-@_ZN3log15LOG_LEVEL_NAMES17h7bc9eaeff63ebc20E = internal constant <{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }> <{ ptr @anon.ed21be42d600c29442b46db34271237f.2, [8 x i8] c"\03\00\00\00\00\00\00\00", ptr @anon.ed21be42d600c29442b46db34271237f.3, [8 x i8] c"\05\00\00\00\00\00\00\00", ptr @anon.ed21be42d600c29442b46db34271237f.4, [8 x i8] c"\04\00\00\00\00\00\00\00", ptr @anon.ed21be42d600c29442b46db34271237f.5, [8 x i8] c"\04\00\00\00\00\00\00\00", ptr @anon.ed21be42d600c29442b46db34271237f.6, [8 x i8] c"\05\00\00\00\00\00\00\00", ptr @anon.ed21be42d600c29442b46db34271237f.7, [8 x i8] c"\05\00\00\00\00\00\00\00" }>, align 8
-@anon.ed21be42d600c29442b46db34271237f.8 = private unnamed_addr constant <{ [74 x i8] }> <{ [74 x i8] c"attempted to set a logger after the logging system was already initialized" }>, align 1
-@_ZN3log16SET_LOGGER_ERROR17hf8f8424a21dcba05E = internal constant <{ ptr, [8 x i8] }> <{ ptr @anon.ed21be42d600c29442b46db34271237f.8, [8 x i8] c"J\00\00\00\00\00\00\00" }>, align 8
-@anon.ed21be42d600c29442b46db34271237f.9 = private unnamed_addr constant <{ [70 x i8] }> <{ [70 x i8] c"attempted to convert a string that doesn't match an existing log level" }>, align 1
-@_ZN3log17LEVEL_PARSE_ERROR17h2ce3ab48169bd399E = internal constant <{ ptr, [8 x i8] }> <{ ptr @anon.ed21be42d600c29442b46db34271237f.9, [8 x i8] c"F\00\00\00\00\00\00\00" }>, align 8
-@anon.ed21be42d600c29442b46db34271237f.10 = private unnamed_addr constant <{ [10 x i8] }> <{ [10 x i8] c"src/lib.rs" }>, align 1
-@anon.ed21be42d600c29442b46db34271237f.11 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.ed21be42d600c29442b46db34271237f.10, [16 x i8] c"\0A\00\00\00\00\00\00\00\0F\02\00\00\09\00\00\00" }>, align 8
-@anon.ed21be42d600c29442b46db34271237f.12 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.ed21be42d600c29442b46db34271237f.10, [16 x i8] c"\0A\00\00\00\00\00\00\00|\02\00\00\09\00\00\00" }>, align 8
-@anon.ed21be42d600c29442b46db34271237f.13 = private unnamed_addr constant <{ [110 x i8] }> <{ [110 x i8] c"internal error: entered unreachable code: set_logger_racy must not be used with other initialization functions" }>, align 1
-@anon.ed21be42d600c29442b46db34271237f.14 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.ed21be42d600c29442b46db34271237f.13, [8 x i8] c"n\00\00\00\00\00\00\00" }>, align 8
-@anon.ed21be42d600c29442b46db34271237f.15 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.ed21be42d600c29442b46db34271237f.10, [16 x i8] c"\0A\00\00\00\00\00\00\00\88\05\00\00\0D\00\00\00" }>, align 8
-@_ZN3log6logger3NOP17he4416c6312d0c489E = internal constant <{}> zeroinitializer, align 1
+@anon.73edd90b7ca94f48e86826f8a1528075.0 = private unnamed_addr constant <{}> zeroinitializer, align 8
+@anon.73edd90b7ca94f48e86826f8a1528075.1 = private constant <{ ptr, [16 x i8], ptr, ptr, ptr }> <{ ptr @"_ZN4core3ptr35drop_in_place$LT$log..NopLogger$GT$17h7ed8aa900a262847E", [16 x i8] c"\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN43_$LT$log..NopLogger$u20$as$u20$log..Log$GT$7enabled17h87b0424d1e3c230fE", ptr @"_ZN43_$LT$log..NopLogger$u20$as$u20$log..Log$GT$3log17hf1e9011e421cd0aaE", ptr @"_ZN43_$LT$log..NopLogger$u20$as$u20$log..Log$GT$5flush17h7e3cfae4fff6e7baE" }>, align 8
+@_ZN3log6LOGGER17h928567353702cd93E = hidden global <{ ptr, ptr }> <{ ptr @anon.73edd90b7ca94f48e86826f8a1528075.0, ptr @anon.73edd90b7ca94f48e86826f8a1528075.1 }>, align 8
+@_ZN3log5STATE17h113d224d71599152E = hidden global <{ [8 x i8] }> zeroinitializer, align 8
+@_ZN3log20MAX_LOG_LEVEL_FILTER17hd263acc384b3a87eE = global <{ [8 x i8] }> zeroinitializer, align 8
+@anon.73edd90b7ca94f48e86826f8a1528075.2 = private unnamed_addr constant <{ [3 x i8] }> <{ [3 x i8] c"OFF" }>, align 1
+@anon.73edd90b7ca94f48e86826f8a1528075.3 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"ERROR" }>, align 1
+@anon.73edd90b7ca94f48e86826f8a1528075.4 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"WARN" }>, align 1
+@anon.73edd90b7ca94f48e86826f8a1528075.5 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"INFO" }>, align 1
+@anon.73edd90b7ca94f48e86826f8a1528075.6 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"DEBUG" }>, align 1
+@anon.73edd90b7ca94f48e86826f8a1528075.7 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"TRACE" }>, align 1
+@_ZN3log15LOG_LEVEL_NAMES17he52ef187a29cf26bE = internal constant <{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }> <{ ptr @anon.73edd90b7ca94f48e86826f8a1528075.2, [8 x i8] c"\03\00\00\00\00\00\00\00", ptr @anon.73edd90b7ca94f48e86826f8a1528075.3, [8 x i8] c"\05\00\00\00\00\00\00\00", ptr @anon.73edd90b7ca94f48e86826f8a1528075.4, [8 x i8] c"\04\00\00\00\00\00\00\00", ptr @anon.73edd90b7ca94f48e86826f8a1528075.5, [8 x i8] c"\04\00\00\00\00\00\00\00", ptr @anon.73edd90b7ca94f48e86826f8a1528075.6, [8 x i8] c"\05\00\00\00\00\00\00\00", ptr @anon.73edd90b7ca94f48e86826f8a1528075.7, [8 x i8] c"\05\00\00\00\00\00\00\00" }>, align 8
+@anon.73edd90b7ca94f48e86826f8a1528075.8 = private unnamed_addr constant <{ [74 x i8] }> <{ [74 x i8] c"attempted to set a logger after the logging system was already initialized" }>, align 1
+@_ZN3log16SET_LOGGER_ERROR17ha9d81dd74799faf9E = internal constant <{ ptr, [8 x i8] }> <{ ptr @anon.73edd90b7ca94f48e86826f8a1528075.8, [8 x i8] c"J\00\00\00\00\00\00\00" }>, align 8
+@anon.73edd90b7ca94f48e86826f8a1528075.9 = private unnamed_addr constant <{ [70 x i8] }> <{ [70 x i8] c"attempted to convert a string that doesn't match an existing log level" }>, align 1
+@_ZN3log17LEVEL_PARSE_ERROR17hcb3c679981f80741E = internal constant <{ ptr, [8 x i8] }> <{ ptr @anon.73edd90b7ca94f48e86826f8a1528075.9, [8 x i8] c"F\00\00\00\00\00\00\00" }>, align 8
+@anon.73edd90b7ca94f48e86826f8a1528075.10 = private unnamed_addr constant <{ [10 x i8] }> <{ [10 x i8] c"src/lib.rs" }>, align 1
+@anon.73edd90b7ca94f48e86826f8a1528075.11 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.73edd90b7ca94f48e86826f8a1528075.10, [16 x i8] c"\0A\00\00\00\00\00\00\00\0F\02\00\00\09\00\00\00" }>, align 8
+@anon.73edd90b7ca94f48e86826f8a1528075.12 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.73edd90b7ca94f48e86826f8a1528075.10, [16 x i8] c"\0A\00\00\00\00\00\00\00|\02\00\00\09\00\00\00" }>, align 8
+@anon.73edd90b7ca94f48e86826f8a1528075.13 = private unnamed_addr constant <{ [110 x i8] }> <{ [110 x i8] c"internal error: entered unreachable code: set_logger_racy must not be used with other initialization functions" }>, align 1
+@anon.73edd90b7ca94f48e86826f8a1528075.14 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.73edd90b7ca94f48e86826f8a1528075.13, [8 x i8] c"n\00\00\00\00\00\00\00" }>, align 8
+@anon.73edd90b7ca94f48e86826f8a1528075.15 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.73edd90b7ca94f48e86826f8a1528075.10, [16 x i8] c"\0A\00\00\00\00\00\00\00\88\05\00\00\0D\00\00\00" }>, align 8
+@_ZN3log6logger3NOP17h76d2933748223f33E = internal constant <{}> zeroinitializer, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h99d6082dcf660e10E"(ptr align 1 %0, i64 %1) unnamed_addr #0 {
+define i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str17he0078a83cc928544E"(ptr align 1 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { ptr, ptr }, align 8
@@ -35,7 +35,7 @@ define i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds { ptr, i64 }, ptr %3, i32 0, i32 1
   store i64 %1, ptr %8, align 8
-  %9 = call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17hc482efd0a39f188dE"(ptr align 8 @_ZN3log15LOG_LEVEL_NAMES17h7bc9eaeff63ebc20E, i64 6)
+  %9 = call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h9011637c1ba31edaE"(ptr align 8 @_ZN3log15LOG_LEVEL_NAMES17he52ef187a29cf26bE, i64 6)
   store { ptr, ptr } %9, ptr %5, align 8
   %10 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 0
   store ptr %0, ptr %10, align 8
@@ -45,37 +45,37 @@ define i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from
   %13 = load ptr, ptr %12, align 8, !nonnull !5, !align !6, !noundef !5
   %14 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 1
   %15 = load i64, ptr %14, align 8, !noundef !5
-  %16 = call { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h36ba9f3e6f4a52b6E"(ptr align 8 %5, ptr align 1 %13, i64 %15)
+  %16 = call { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h5cc96ce75801af92E"(ptr align 8 %5, ptr align 1 %13, i64 %15)
   %17 = extractvalue { i64, i64 } %16, 0
   %18 = extractvalue { i64, i64 } %16, 1
-  %19 = call { i64, i64 } @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0d1d37a1a436931fE"(i64 %17, i64 %18)
+  %19 = call { i64, i64 } @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hddec1af15dc534bfE"(i64 %17, i64 %18)
   %20 = extractvalue { i64, i64 } %19, 0
   %21 = extractvalue { i64, i64 } %19, 1
-  %22 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator6filter17h32882e705a1fef21E(i64 %20, i64 %21)
+  %22 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator6filter17h64bf7c0ab0718ecfE(i64 %20, i64 %21)
   %23 = extractvalue { i64, i64 } %22, 0
   %24 = extractvalue { i64, i64 } %22, 1
-  %25 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator3map17he047c4ecf1094ab6E(i64 %23, i64 %24)
+  %25 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator3map17hfda438c8e34bca90E(i64 %23, i64 %24)
   store { i64, i64 } %25, ptr %6, align 8
-  %26 = call i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h392b27fbe0fc1099E"(ptr align 8 %6), !range !7
-  %27 = call i64 @"_ZN4core6option15Option$LT$T$GT$5ok_or17hfca4128da1f24970E"(i64 %26), !range !7
+  %26 = call i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdec75010e607479fE"(ptr align 8 %6), !range !7
+  %27 = call i64 @"_ZN4core6option15Option$LT$T$GT$5ok_or17he6fb5cd73964de67E"(i64 %26), !range !7
   ret i64 %27
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN49_$LT$log..Level$u20$as$u20$core..fmt..Display$GT$3fmt17h9ac68941ff70924cE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN49_$LT$log..Level$u20$as$u20$core..fmt..Display$GT$3fmt17h0ab6d85f33fe12c6E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %3, align 8
-  %5 = call { ptr, i64 } @_ZN3log5Level6as_str17h10c60bcf1fa480d6E(ptr align 8 %0)
+  %5 = call { ptr, i64 } @_ZN3log5Level6as_str17hff4c9ebb572ed834E(ptr align 8 %0)
   %6 = extractvalue { ptr, i64 } %5, 0
   %7 = extractvalue { ptr, i64 } %5, 1
-  %8 = call zeroext i1 @_ZN4core3fmt9Formatter3pad17he4af1c9215758460E(ptr align 8 %1, ptr align 1 %6, i64 %7)
+  %8 = call zeroext i1 @_ZN4core3fmt9Formatter3pad17h9aaaf10c548e542cE(ptr align 8 %1, ptr align 1 %6, i64 %7)
   ret i1 %8
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i64 @_ZN3log5Level10from_usize17he7e300d3d821a0e6E(i64 %0) unnamed_addr #0 {
+define i64 @_ZN3log5Level10from_usize17ha6fc239ca7b4f790E(i64 %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -132,7 +132,7 @@ define i64 @_ZN3log5Level10from_usize17he7e300d3d821a0e6E(i64 %0) unnamed_addr #
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, i64 } @_ZN3log5Level6as_str17h10c60bcf1fa480d6E(ptr align 8 %0) unnamed_addr #0 {
+define { ptr, i64 } @_ZN3log5Level6as_str17hff4c9ebb572ed834E(ptr align 8 %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
@@ -148,7 +148,7 @@ define { ptr, i64 } @_ZN3log5Level6as_str17h10c60bcf1fa480d6E(ptr align 8 %0) un
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds [6 x { ptr, i64 }], ptr @_ZN3log15LOG_LEVEL_NAMES17h7bc9eaeff63ebc20E, i64 0, i64 %5
+  %12 = getelementptr inbounds [6 x { ptr, i64 }], ptr @_ZN3log15LOG_LEVEL_NAMES17he52ef187a29cf26bE, i64 0, i64 %5
   %13 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 0
   %14 = load ptr, ptr %13, align 8, !nonnull !5, !align !6, !noundef !5
   %15 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 1
@@ -158,12 +158,12 @@ define { ptr, i64 } @_ZN3log5Level6as_str17h10c60bcf1fa480d6E(ptr align 8 %0) un
   ret { ptr, i64 } %18
 
 19:                                               ; preds = %1
-  call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 %5, i64 6, ptr align 8 @anon.ed21be42d600c29442b46db34271237f.11) #6
+  call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 %5, i64 6, ptr align 8 @anon.73edd90b7ca94f48e86826f8a1528075.11) #6
   unreachable
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { i64, i64 } @_ZN3log5Level4iter17h7e1c6cbb70d3845fE() unnamed_addr #0 {
+define { i64, i64 } @_ZN3log5Level4iter17h693d377321c4070bE() unnamed_addr #0 {
   %1 = alloca { i64, i64 }, align 8
   store i64 1, ptr %1, align 8
   %2 = getelementptr inbounds { i64, i64 }, ptr %1, i32 0, i32 1
@@ -172,7 +172,7 @@ define { i64, i64 } @_ZN3log5Level4iter17h7e1c6cbb70d3845fE() unnamed_addr #0 {
   %4 = load i64, ptr %3, align 8, !noundef !5
   %5 = getelementptr inbounds { i64, i64 }, ptr %1, i32 0, i32 1
   %6 = load i64, ptr %5, align 8, !noundef !5
-  %7 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator3map17h2b5cd4acc35d28dcE(i64 %4, i64 %6)
+  %7 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator3map17hce7544aa6f332ec9E(i64 %4, i64 %6)
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = extractvalue { i64, i64 } %7, 1
   %10 = insertvalue { i64, i64 } poison, i64 %8, 0
@@ -181,7 +181,7 @@ define { i64, i64 } @_ZN3log5Level4iter17h7e1c6cbb70d3845fE() unnamed_addr #0 {
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core..str..traits..FromStr$GT$8from_str17ha37e0da982b28291E"(ptr align 1 %0, i64 %1) unnamed_addr #0 {
+define i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hd8b1bf44f0ff9b3cE"(ptr align 1 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { ptr, ptr }, align 8
@@ -189,7 +189,7 @@ define i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core..str..traits..FromStr$GT
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds { ptr, i64 }, ptr %3, i32 0, i32 1
   store i64 %1, ptr %7, align 8
-  %8 = call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17hc482efd0a39f188dE"(ptr align 8 @_ZN3log15LOG_LEVEL_NAMES17h7bc9eaeff63ebc20E, i64 6)
+  %8 = call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h9011637c1ba31edaE"(ptr align 8 @_ZN3log15LOG_LEVEL_NAMES17he52ef187a29cf26bE, i64 6)
   store { ptr, ptr } %8, ptr %5, align 8
   %9 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 0
   store ptr %0, ptr %9, align 8
@@ -199,29 +199,29 @@ define i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core..str..traits..FromStr$GT
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !align !6, !noundef !5
   %13 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 1
   %14 = load i64, ptr %13, align 8, !noundef !5
-  %15 = call { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd9aba129d9d38f42E"(ptr align 8 %5, ptr align 1 %12, i64 %14)
+  %15 = call { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h697aef78370445c6E"(ptr align 8 %5, ptr align 1 %12, i64 %14)
   %16 = extractvalue { i64, i64 } %15, 0
   %17 = extractvalue { i64, i64 } %15, 1
-  %18 = call i64 @"_ZN4core6option15Option$LT$T$GT$3map17h1b7820d8910b4230E"(i64 %16, i64 %17), !range !9
-  %19 = call i64 @"_ZN4core6option15Option$LT$T$GT$5ok_or17h02d153b423dca111E"(i64 %18), !range !9
+  %18 = call i64 @"_ZN4core6option15Option$LT$T$GT$3map17h044b5bddd14d1fe8E"(i64 %16, i64 %17), !range !9
+  %19 = call i64 @"_ZN4core6option15Option$LT$T$GT$5ok_or17h599b04183cc12779E"(i64 %18), !range !9
   ret i64 %19
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN55_$LT$log..LevelFilter$u20$as$u20$core..fmt..Display$GT$3fmt17hd948ca06fa058622E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN55_$LT$log..LevelFilter$u20$as$u20$core..fmt..Display$GT$3fmt17h3de1bd90e2f87b61E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %3, align 8
-  %5 = call { ptr, i64 } @_ZN3log11LevelFilter6as_str17h69bcce6d9d1c0554E(ptr align 8 %0)
+  %5 = call { ptr, i64 } @_ZN3log11LevelFilter6as_str17h395aef8576648d2aE(ptr align 8 %0)
   %6 = extractvalue { ptr, i64 } %5, 0
   %7 = extractvalue { ptr, i64 } %5, 1
-  %8 = call zeroext i1 @_ZN4core3fmt9Formatter3pad17he4af1c9215758460E(ptr align 8 %1, ptr align 1 %6, i64 %7)
+  %8 = call zeroext i1 @_ZN4core3fmt9Formatter3pad17h9aaaf10c548e542cE(ptr align 8 %1, ptr align 1 %6, i64 %7)
   ret i1 %8
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i64 @_ZN3log11LevelFilter10from_usize17h9b75863a933ff5d0E(i64 %0) unnamed_addr #0 {
+define i64 @_ZN3log11LevelFilter10from_usize17h94cdcdc5e7dde043E(i64 %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -286,7 +286,7 @@ define i64 @_ZN3log11LevelFilter10from_usize17h9b75863a933ff5d0E(i64 %0) unnamed
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, i64 } @_ZN3log11LevelFilter6as_str17h69bcce6d9d1c0554E(ptr align 8 %0) unnamed_addr #0 {
+define { ptr, i64 } @_ZN3log11LevelFilter6as_str17h395aef8576648d2aE(ptr align 8 %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
@@ -300,7 +300,7 @@ define { ptr, i64 } @_ZN3log11LevelFilter6as_str17h69bcce6d9d1c0554E(ptr align 8
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds [6 x { ptr, i64 }], ptr @_ZN3log15LOG_LEVEL_NAMES17h7bc9eaeff63ebc20E, i64 0, i64 %5
+  %10 = getelementptr inbounds [6 x { ptr, i64 }], ptr @_ZN3log15LOG_LEVEL_NAMES17he52ef187a29cf26bE, i64 0, i64 %5
   %11 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !align !6, !noundef !5
   %13 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 1
@@ -310,12 +310,12 @@ define { ptr, i64 } @_ZN3log11LevelFilter6as_str17h69bcce6d9d1c0554E(ptr align 8
   ret { ptr, i64 } %16
 
 17:                                               ; preds = %1
-  call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 %5, i64 6, ptr align 8 @anon.ed21be42d600c29442b46db34271237f.12) #6
+  call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 %5, i64 6, ptr align 8 @anon.73edd90b7ca94f48e86826f8a1528075.12) #6
   unreachable
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { i64, i64 } @_ZN3log11LevelFilter4iter17h47df02c7b24e49c4E() unnamed_addr #0 {
+define { i64, i64 } @_ZN3log11LevelFilter4iter17hc9a08b8b3963a4fcE() unnamed_addr #0 {
   %1 = alloca { i64, i64 }, align 8
   store i64 0, ptr %1, align 8
   %2 = getelementptr inbounds { i64, i64 }, ptr %1, i32 0, i32 1
@@ -324,7 +324,7 @@ define { i64, i64 } @_ZN3log11LevelFilter4iter17h47df02c7b24e49c4E() unnamed_add
   %4 = load i64, ptr %3, align 8, !noundef !5
   %5 = getelementptr inbounds { i64, i64 }, ptr %1, i32 0, i32 1
   %6 = load i64, ptr %5, align 8, !noundef !5
-  %7 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator3map17h9ef84f6752294ae4E(i64 %4, i64 %6)
+  %7 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator3map17he64d724d538ba85cE(i64 %4, i64 %6)
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = extractvalue { i64, i64 } %7, 1
   %10 = insertvalue { i64, i64 } poison, i64 %8, 0
@@ -333,13 +333,13 @@ define { i64, i64 } @_ZN3log11LevelFilter4iter17h47df02c7b24e49c4E() unnamed_add
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN3log6Record7builder17h7a96eaa466e85ccdE(ptr sret({ { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } } }) align 8 %0) unnamed_addr #1 {
-  call void @_ZN3log13RecordBuilder3new17h7ce5d7ca13a9c3eaE(ptr sret({ { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } } }) align 8 %0)
+define hidden void @_ZN3log6Record7builder17h25e6d1d4daac6bd9E(ptr sret({ { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } } }) align 8 %0) unnamed_addr #1 {
+  call void @_ZN3log13RecordBuilder3new17h3d11953a13092b4eE(ptr sret({ { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } } }) align 8 %0)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN3log13RecordBuilder3new17h7ce5d7ca13a9c3eaE(ptr sret({ { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } } }) align 8 %0) unnamed_addr #1 {
+define internal void @_ZN3log13RecordBuilder3new17h3d11953a13092b4eE(ptr sret({ { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } } }) align 8 %0) unnamed_addr #1 {
   %2 = alloca { i32, i32 }, align 4
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
@@ -347,9 +347,9 @@ define internal void @_ZN3log13RecordBuilder3new17h7ce5d7ca13a9c3eaE(ptr sret({ 
   %6 = alloca { i64, { ptr, i64 } }, align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %8 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } }, align 8
-  call void @_ZN4core3fmt9Arguments9new_const17h655f237c251b95c4E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %7, ptr align 8 @anon.ed21be42d600c29442b46db34271237f.0, i64 0)
-  call void @_ZN3log8Metadata7builder17h49b24690175412bcE(ptr sret({ { i64, { ptr, i64 } } }) align 8 %5)
-  call void @_ZN3log15MetadataBuilder5build17h345706d69c2eaf56E(ptr sret({ i64, { ptr, i64 } }) align 8 %6, ptr align 8 %5)
+  call void @_ZN4core3fmt9Arguments9new_const17h612caa91f98b5834E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %7, ptr align 8 @anon.73edd90b7ca94f48e86826f8a1528075.0, i64 0)
+  call void @_ZN3log8Metadata7builder17h7e3835f46d0a02c9E(ptr sret({ { i64, { ptr, i64 } } }) align 8 %5)
+  call void @_ZN3log15MetadataBuilder5build17h0fc7912a8eacd331E(ptr sret({ i64, { ptr, i64 } }) align 8 %6, ptr align 8 %5)
   store i64 2, ptr %4, align 8
   store i64 2, ptr %3, align 8
   store i32 0, ptr %2, align 4
@@ -374,7 +374,7 @@ define internal void @_ZN3log13RecordBuilder3new17h7ce5d7ca13a9c3eaE(ptr sret({ 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden align 8 ptr @_ZN3log13RecordBuilder4args17hfefef885a57ac04eE(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define hidden align 8 ptr @_ZN3log13RecordBuilder4args17hd1f8babdfcdd0ffeE(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } }, ptr %0, i32 0, i32 4
@@ -383,7 +383,7 @@ define hidden align 8 ptr @_ZN3log13RecordBuilder4args17hfefef885a57ac04eE(ptr a
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden align 8 ptr @_ZN3log13RecordBuilder5level17h13bf51b54cd82ec2E(ptr align 8 %0, i64 %1) unnamed_addr #1 {
+define hidden align 8 ptr @_ZN3log13RecordBuilder5level17h49dfb0e6cfaebbf6E(ptr align 8 %0, i64 %1) unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
@@ -394,7 +394,7 @@ define hidden align 8 ptr @_ZN3log13RecordBuilder5level17h13bf51b54cd82ec2E(ptr 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden align 8 ptr @_ZN3log13RecordBuilder6target17hbb9adf76f18e4912E(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
+define hidden align 8 ptr @_ZN3log13RecordBuilder6target17h269daa8622c76768E(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
@@ -412,7 +412,7 @@ define hidden align 8 ptr @_ZN3log13RecordBuilder6target17hbb9adf76f18e4912E(ptr
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden align 8 ptr @_ZN3log13RecordBuilder18module_path_static17ha6d6df7c4b299e77E(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
+define hidden align 8 ptr @_ZN3log13RecordBuilder18module_path_static17hb111f90b2079431cE(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca ptr, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
@@ -421,13 +421,13 @@ define hidden align 8 ptr @_ZN3log13RecordBuilder18module_path_static17ha6d6df7c
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 1
   store i64 %2, ptr %8, align 8
-  call void @"_ZN4core6option15Option$LT$T$GT$3map17h8f29c4517262019cE"(ptr sret({ i64, [2 x i64] }) align 8 %6, ptr align 1 %1, i64 %2)
+  call void @"_ZN4core6option15Option$LT$T$GT$3map17hda4e1625cc15b1d6E"(ptr sret({ i64, [2 x i64] }) align 8 %6, ptr align 1 %1, i64 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %6, i64 24, i1 false)
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden align 8 ptr @_ZN3log13RecordBuilder11file_static17h0b6c7a6012416789E(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
+define hidden align 8 ptr @_ZN3log13RecordBuilder11file_static17haee36d492c56e810E(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca ptr, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
@@ -436,14 +436,14 @@ define hidden align 8 ptr @_ZN3log13RecordBuilder11file_static17h0b6c7a601241678
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 1
   store i64 %2, ptr %8, align 8
-  call void @"_ZN4core6option15Option$LT$T$GT$3map17h8f29c4517262019cE"(ptr sret({ i64, [2 x i64] }) align 8 %6, ptr align 1 %1, i64 %2)
+  call void @"_ZN4core6option15Option$LT$T$GT$3map17hda4e1625cc15b1d6E"(ptr sret({ i64, [2 x i64] }) align 8 %6, ptr align 1 %1, i64 %2)
   %9 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } }, ptr %0, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %6, i64 24, i1 false)
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden align 8 ptr @_ZN3log13RecordBuilder4line17h5995892edf326ad1E(ptr align 8 %0, i32 %1, i32 %2) unnamed_addr #1 {
+define hidden align 8 ptr @_ZN3log13RecordBuilder4line17h8f8c6fef59f34c77E(ptr align 8 %0, i32 %1, i32 %2) unnamed_addr #1 {
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
@@ -460,27 +460,27 @@ define hidden align 8 ptr @_ZN3log13RecordBuilder4line17h5995892edf326ad1E(ptr a
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN3log13RecordBuilder5build17h174367ed2a6dc624E(ptr sret({ { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define hidden void @_ZN3log13RecordBuilder5build17hd11d3d690d983d46E(ptr sret({ { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
-  call void @"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17h5d1b5ed84615a4abE"(ptr sret({ { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } }) align 8 %0, ptr align 8 %1)
+  call void @"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17hbbbb53174cbbb07bE"(ptr sret({ { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } }) align 8 %0, ptr align 8 %1)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN61_$LT$log..RecordBuilder$u20$as$u20$core..default..Default$GT$7default17hbb7ea4d3b5e821cbE"(ptr sret({ { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } } }) align 8 %0) unnamed_addr #0 {
-  call void @_ZN3log13RecordBuilder3new17h7ce5d7ca13a9c3eaE(ptr sret({ { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } } }) align 8 %0)
+define void @"_ZN61_$LT$log..RecordBuilder$u20$as$u20$core..default..Default$GT$7default17h20446077339664b6E"(ptr sret({ { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } } }) align 8 %0) unnamed_addr #0 {
+  call void @_ZN3log13RecordBuilder3new17h3d11953a13092b4eE(ptr sret({ { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } } }) align 8 %0)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN3log8Metadata7builder17h49b24690175412bcE(ptr sret({ { i64, { ptr, i64 } } }) align 8 %0) unnamed_addr #1 {
-  call void @_ZN3log15MetadataBuilder3new17h8d11d83bb5f65a34E(ptr sret({ { i64, { ptr, i64 } } }) align 8 %0)
+define hidden void @_ZN3log8Metadata7builder17h7e3835f46d0a02c9E(ptr sret({ { i64, { ptr, i64 } } }) align 8 %0) unnamed_addr #1 {
+  call void @_ZN3log15MetadataBuilder3new17h12edeb4bd1ae289aE(ptr sret({ { i64, { ptr, i64 } } }) align 8 %0)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN3log15MetadataBuilder3new17h8d11d83bb5f65a34E(ptr sret({ { i64, { ptr, i64 } } }) align 8 %0) unnamed_addr #1 {
+define internal void @_ZN3log15MetadataBuilder3new17h12edeb4bd1ae289aE(ptr sret({ { i64, { ptr, i64 } } }) align 8 %0) unnamed_addr #1 {
   %2 = alloca i64, align 8
   %3 = alloca { i64, { ptr, i64 } }, align 8
   store i64 3, ptr %2, align 8
@@ -488,7 +488,7 @@ define internal void @_ZN3log15MetadataBuilder3new17h8d11d83bb5f65a34E(ptr sret(
   store i64 %4, ptr %3, align 8
   %5 = getelementptr inbounds { i64, { ptr, i64 } }, ptr %3, i32 0, i32 1
   %6 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 0
-  store ptr @anon.ed21be42d600c29442b46db34271237f.0, ptr %6, align 8
+  store ptr @anon.73edd90b7ca94f48e86826f8a1528075.0, ptr %6, align 8
   %7 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
   store i64 0, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %3, i64 24, i1 false)
@@ -496,7 +496,7 @@ define internal void @_ZN3log15MetadataBuilder3new17h8d11d83bb5f65a34E(ptr sret(
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden align 8 ptr @_ZN3log15MetadataBuilder5level17h0dbc745350a94a8dE(ptr align 8 %0, i64 %1) unnamed_addr #1 {
+define hidden align 8 ptr @_ZN3log15MetadataBuilder5level17h5a134cce99e2450fE(ptr align 8 %0, i64 %1) unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
@@ -506,7 +506,7 @@ define hidden align 8 ptr @_ZN3log15MetadataBuilder5level17h0dbc745350a94a8dE(pt
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden align 8 ptr @_ZN3log15MetadataBuilder6target17hc4b3f7681002eee8E(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
+define hidden align 8 ptr @_ZN3log15MetadataBuilder6target17h48c7d0aa23361821E(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
@@ -523,21 +523,21 @@ define hidden align 8 ptr @_ZN3log15MetadataBuilder6target17hc4b3f7681002eee8E(p
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN3log15MetadataBuilder5build17h345706d69c2eaf56E(ptr sret({ i64, { ptr, i64 } }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define hidden void @_ZN3log15MetadataBuilder5build17h0fc7912a8eacd331E(ptr sret({ i64, { ptr, i64 } }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
-  call void @"_ZN52_$LT$log..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h6d967ee43812a0d8E"(ptr sret({ i64, { ptr, i64 } }) align 8 %0, ptr align 8 %1)
+  call void @"_ZN52_$LT$log..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h0675a03ea90aff34E"(ptr sret({ i64, { ptr, i64 } }) align 8 %0, ptr align 8 %1)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN63_$LT$log..MetadataBuilder$u20$as$u20$core..default..Default$GT$7default17h4ac81ebb7bf721cbE"(ptr sret({ { i64, { ptr, i64 } } }) align 8 %0) unnamed_addr #0 {
-  call void @_ZN3log15MetadataBuilder3new17h8d11d83bb5f65a34E(ptr sret({ { i64, { ptr, i64 } } }) align 8 %0)
+define void @"_ZN63_$LT$log..MetadataBuilder$u20$as$u20$core..default..Default$GT$7default17hf0d43cdb2c7f2068E"(ptr sret({ { i64, { ptr, i64 } } }) align 8 %0) unnamed_addr #0 {
+  call void @_ZN3log15MetadataBuilder3new17h12edeb4bd1ae289aE(ptr sret({ { i64, { ptr, i64 } } }) align 8 %0)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN43_$LT$log..NopLogger$u20$as$u20$log..Log$GT$7enabled17h2793aae0574a5e24E"(ptr align 1 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN43_$LT$log..NopLogger$u20$as$u20$log..Log$GT$7enabled17h87b0424d1e3c230fE"(ptr align 1 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
@@ -546,7 +546,7 @@ define zeroext i1 @"_ZN43_$LT$log..NopLogger$u20$as$u20$log..Log$GT$7enabled17h2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN43_$LT$log..NopLogger$u20$as$u20$log..Log$GT$3log17h708bceb5041d9b42E"(ptr align 1 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN43_$LT$log..NopLogger$u20$as$u20$log..Log$GT$3log17hf1e9011e421cd0aaE"(ptr align 1 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
@@ -555,14 +555,14 @@ define void @"_ZN43_$LT$log..NopLogger$u20$as$u20$log..Log$GT$3log17h708bceb5041
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN43_$LT$log..NopLogger$u20$as$u20$log..Log$GT$5flush17h25f2ebc232a9f5cfE"(ptr align 1 %0) unnamed_addr #0 {
+define void @"_ZN43_$LT$log..NopLogger$u20$as$u20$log..Log$GT$5flush17h7e3cfae4fff6e7baE"(ptr align 1 %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @_ZN3log10set_logger17h4b739eca9a904551E(ptr align 1 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @_ZN3log10set_logger17h3edcc2626e11cd4dE(ptr align 1 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { ptr, ptr }, align 8
   %4 = alloca { ptr, ptr }, align 8
   %5 = getelementptr inbounds { ptr, ptr }, ptr %3, i32 0, i32 0
@@ -577,12 +577,12 @@ define zeroext i1 @_ZN3log10set_logger17h4b739eca9a904551E(ptr align 1 %0, ptr a
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !6, !noundef !5
   %11 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 1
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !align !11, !noundef !5
-  %13 = call zeroext i1 @_ZN3log16set_logger_inner17h099f8e8db5e8f9dbE(ptr align 1 %10, ptr align 8 %12)
+  %13 = call zeroext i1 @_ZN3log16set_logger_inner17hd6bd3d7aad7ce28bE(ptr align 1 %10, ptr align 8 %12)
   ret i1 %13
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @_ZN3log15set_logger_racy17h77665d847b334d89E(ptr align 1 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @_ZN3log15set_logger_racy17hd69853dc26ae10deE(ptr align 1 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { ptr, ptr }, align 8
   %4 = alloca [0 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -595,7 +595,7 @@ define zeroext i1 @_ZN3log15set_logger_racy17h77665d847b334d89E(ptr align 1 %0, 
   store ptr %1, ptr %10, align 8
   store i8 4, ptr %7, align 1
   %11 = load i8, ptr %7, align 1, !range !12, !noundef !5
-  %12 = call i64 @_ZN4core4sync6atomic11AtomicUsize4load17hf576bd2b96c285d5E(ptr align 8 @_ZN3log5STATE17h1d2af362dbccaea1E, i8 %11)
+  %12 = call i64 @_ZN4core4sync6atomic11AtomicUsize4load17h6c23459240cb1be8E(ptr align 8 @_ZN3log5STATE17h113d224d71599152E, i8 %11)
   switch i64 %12, label %13 [
     i64 0, label %14
     i64 1, label %16
@@ -606,17 +606,17 @@ define zeroext i1 @_ZN3log15set_logger_racy17h77665d847b334d89E(ptr align 1 %0, 
   br label %17
 
 14:                                               ; preds = %2
-  store ptr %0, ptr @_ZN3log6LOGGER17h018a7ff6f708aa11E, align 8
-  store ptr %1, ptr getelementptr inbounds ({ ptr, ptr }, ptr @_ZN3log6LOGGER17h018a7ff6f708aa11E, i32 0, i32 1), align 8
+  store ptr %0, ptr @_ZN3log6LOGGER17h928567353702cd93E, align 8
+  store ptr %1, ptr getelementptr inbounds ({ ptr, ptr }, ptr @_ZN3log6LOGGER17h928567353702cd93E, i32 0, i32 1), align 8
   store i8 4, ptr %6, align 1
   %15 = load i8, ptr %6, align 1, !range !12, !noundef !5
-  call void @_ZN4core4sync6atomic11AtomicUsize5store17h891194b96d6a80bfE(ptr align 8 @_ZN3log5STATE17h1d2af362dbccaea1E, i64 2, i8 %15)
+  call void @_ZN4core4sync6atomic11AtomicUsize5store17h900e670847e45facE(ptr align 8 @_ZN3log5STATE17h113d224d71599152E, i64 2, i8 %15)
   store i8 0, ptr %8, align 1
   br label %17
 
 16:                                               ; preds = %2
-  call void @_ZN4core3fmt9Arguments6new_v117h354229d12b1cc346E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %5, ptr align 8 @anon.ed21be42d600c29442b46db34271237f.14, i64 1, ptr align 8 %4, i64 0)
-  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr align 8 %5, ptr align 8 @anon.ed21be42d600c29442b46db34271237f.15) #6
+  call void @_ZN4core3fmt9Arguments6new_v117hfd7f892edbc355e6E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %5, ptr align 8 @anon.73edd90b7ca94f48e86826f8a1528075.14, i64 1, ptr align 8 %4, i64 0)
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr align 8 %5, ptr align 8 @anon.73edd90b7ca94f48e86826f8a1528075.15) #6
   unreachable
 
 17:                                               ; preds = %14, %13
@@ -626,42 +626,42 @@ define zeroext i1 @_ZN3log15set_logger_racy17h77665d847b334d89E(ptr align 1 %0, 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN58_$LT$log..SetLoggerError$u20$as$u20$core..fmt..Display$GT$3fmt17h82ef7949ad5cdbbcE"(ptr align 1 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN58_$LT$log..SetLoggerError$u20$as$u20$core..fmt..Display$GT$3fmt17h6a310781c1e81c9aE"(ptr align 1 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %3, align 8
-  %5 = load ptr, ptr @_ZN3log16SET_LOGGER_ERROR17hf8f8424a21dcba05E, align 8, !nonnull !5, !align !6, !noundef !5
-  %6 = load i64, ptr getelementptr inbounds ({ ptr, i64 }, ptr @_ZN3log16SET_LOGGER_ERROR17hf8f8424a21dcba05E, i32 0, i32 1), align 8, !noundef !5
-  %7 = call zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr align 8 %1, ptr align 1 %5, i64 %6)
+  %5 = load ptr, ptr @_ZN3log16SET_LOGGER_ERROR17ha9d81dd74799faf9E, align 8, !nonnull !5, !align !6, !noundef !5
+  %6 = load i64, ptr getelementptr inbounds ({ ptr, i64 }, ptr @_ZN3log16SET_LOGGER_ERROR17ha9d81dd74799faf9E, i32 0, i32 1), align 8, !noundef !5
+  %7 = call zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr align 8 %1, ptr align 1 %5, i64 %6)
   ret i1 %7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN59_$LT$log..ParseLevelError$u20$as$u20$core..fmt..Display$GT$3fmt17hb056a8eb0ca82aa6E"(ptr align 1 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN59_$LT$log..ParseLevelError$u20$as$u20$core..fmt..Display$GT$3fmt17hf943b6ada22a9422E"(ptr align 1 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %3, align 8
-  %5 = load ptr, ptr @_ZN3log17LEVEL_PARSE_ERROR17h2ce3ab48169bd399E, align 8, !nonnull !5, !align !6, !noundef !5
-  %6 = load i64, ptr getelementptr inbounds ({ ptr, i64 }, ptr @_ZN3log17LEVEL_PARSE_ERROR17h2ce3ab48169bd399E, i32 0, i32 1), align 8, !noundef !5
-  %7 = call zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr align 8 %1, ptr align 1 %5, i64 %6)
+  %5 = load ptr, ptr @_ZN3log17LEVEL_PARSE_ERROR17hcb3c679981f80741E, align 8, !nonnull !5, !align !6, !noundef !5
+  %6 = load i64, ptr getelementptr inbounds ({ ptr, i64 }, ptr @_ZN3log17LEVEL_PARSE_ERROR17hcb3c679981f80741E, i32 0, i32 1), align 8, !noundef !5
+  %7 = call zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr align 8 %1, ptr align 1 %5, i64 %6)
   ret i1 %7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, ptr } @_ZN3log6logger17h271f2f17ae5c94b4E() unnamed_addr #0 {
+define { ptr, ptr } @_ZN3log6logger17hc89fc8deb273310aE() unnamed_addr #0 {
   %1 = alloca i8, align 1
   %2 = alloca { ptr, ptr }, align 8
   store i8 2, ptr %1, align 1
   %3 = load i8, ptr %1, align 1, !range !12, !noundef !5
-  %4 = call i64 @_ZN4core4sync6atomic11AtomicUsize4load17hf576bd2b96c285d5E(ptr align 8 @_ZN3log5STATE17h1d2af362dbccaea1E, i8 %3)
+  %4 = call i64 @_ZN4core4sync6atomic11AtomicUsize4load17h6c23459240cb1be8E(ptr align 8 @_ZN3log5STATE17h113d224d71599152E, i8 %3)
   %5 = icmp ne i64 %4, 2
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %0
-  %7 = load ptr, ptr @_ZN3log6LOGGER17h018a7ff6f708aa11E, align 8, !nonnull !5, !align !6, !noundef !5
-  %8 = load ptr, ptr getelementptr inbounds ({ ptr, ptr }, ptr @_ZN3log6LOGGER17h018a7ff6f708aa11E, i32 0, i32 1), align 8, !nonnull !5, !align !11, !noundef !5
+  %7 = load ptr, ptr @_ZN3log6LOGGER17h928567353702cd93E, align 8, !nonnull !5, !align !6, !noundef !5
+  %8 = load ptr, ptr getelementptr inbounds ({ ptr, ptr }, ptr @_ZN3log6LOGGER17h928567353702cd93E, i32 0, i32 1), align 8, !nonnull !5, !align !11, !noundef !5
   %9 = getelementptr inbounds { ptr, ptr }, ptr %2, i32 0, i32 0
   store ptr %7, ptr %9, align 8
   %10 = getelementptr inbounds { ptr, ptr }, ptr %2, i32 0, i32 1
@@ -670,9 +670,9 @@ define { ptr, ptr } @_ZN3log6logger17h271f2f17ae5c94b4E() unnamed_addr #0 {
 
 11:                                               ; preds = %0
   %12 = getelementptr inbounds { ptr, ptr }, ptr %2, i32 0, i32 0
-  store ptr @_ZN3log6logger3NOP17he4416c6312d0c489E, ptr %12, align 8
+  store ptr @_ZN3log6logger3NOP17h76d2933748223f33E, ptr %12, align 8
   %13 = getelementptr inbounds { ptr, ptr }, ptr %2, i32 0, i32 1
-  store ptr @anon.ed21be42d600c29442b46db34271237f.1, ptr %13, align 8
+  store ptr @anon.73edd90b7ca94f48e86826f8a1528075.1, ptr %13, align 8
   br label %14
 
 14:                                               ; preds = %11, %6
@@ -686,7 +686,7 @@ define { ptr, ptr } @_ZN3log6logger17h271f2f17ae5c94b4E() unnamed_addr #0 {
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal i64 @"_ZN49_$LT$log..Level$u20$as$u20$core..clone..Clone$GT$5clone17he1d415952a1dc696E"(ptr align 8 %0) unnamed_addr #1 {
+define internal i64 @"_ZN49_$LT$log..Level$u20$as$u20$core..clone..Clone$GT$5clone17h4c0e8e1a7ca21baeE"(ptr align 8 %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load i64, ptr %0, align 8, !range !8, !noundef !5
@@ -694,7 +694,7 @@ define internal i64 @"_ZN49_$LT$log..Level$u20$as$u20$core..clone..Clone$GT$5clo
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN3log14MaybeStaticStr6Static17h3c3be02d55bf41eeE(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
+define hidden void @_ZN3log14MaybeStaticStr6Static17h7bf665980296abebE(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
   %4 = alloca { ptr, i64 }, align 8
   %5 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 0
   store ptr %1, ptr %5, align 8
@@ -710,7 +710,7 @@ define hidden void @_ZN3log14MaybeStaticStr6Static17h3c3be02d55bf41eeE(ptr sret(
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN58_$LT$log..MaybeStaticStr$u20$as$u20$core..clone..Clone$GT$5clone17hc1c8a0e44480fd35E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define hidden void @"_ZN58_$LT$log..MaybeStaticStr$u20$as$u20$core..clone..Clone$GT$5clone17h03f44d8947d00bb1E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %1, i64 24, i1 false)
@@ -718,7 +718,7 @@ define hidden void @"_ZN58_$LT$log..MaybeStaticStr$u20$as$u20$core..clone..Clone
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17h5d1b5ed84615a4abE"(ptr sret({ { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define internal void @"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17hbbbb53174cbbb07bE"(ptr sret({ { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -726,14 +726,14 @@ define internal void @"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5c
   %7 = alloca { i64, { ptr, i64 } }, align 8
   store ptr %1, ptr %3, align 8
   %8 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } }, ptr %1, i32 0, i32 2
-  call void @"_ZN52_$LT$log..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h6d967ee43812a0d8E"(ptr sret({ i64, { ptr, i64 } }) align 8 %7, ptr align 8 %8)
+  call void @"_ZN52_$LT$log..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h0675a03ea90aff34E"(ptr sret({ i64, { ptr, i64 } }) align 8 %7, ptr align 8 %8)
   %9 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } }, ptr %1, i32 0, i32 4
-  call void @"_ZN59_$LT$core..fmt..Arguments$u20$as$u20$core..clone..Clone$GT$5clone17hd31ccb1bc73a860dE"(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr align 8 %9)
-  call void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc21c97856de18c66E"(ptr sret({ i64, [2 x i64] }) align 8 %5, ptr align 8 %1)
+  call void @"_ZN59_$LT$core..fmt..Arguments$u20$as$u20$core..clone..Clone$GT$5clone17hb19338062c08b76cE"(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr align 8 %9)
+  call void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9568e2ba3f440e06E"(ptr sret({ i64, [2 x i64] }) align 8 %5, ptr align 8 %1)
   %10 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } }, ptr %1, i32 0, i32 1
-  call void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc21c97856de18c66E"(ptr sret({ i64, [2 x i64] }) align 8 %4, ptr align 8 %10)
+  call void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9568e2ba3f440e06E"(ptr sret({ i64, [2 x i64] }) align 8 %4, ptr align 8 %10)
   %11 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } }, ptr %1, i32 0, i32 3
-  %12 = call { i32, i32 } @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcb2bd9fd1cf096dbE"(ptr align 4 %11)
+  %12 = call { i32, i32 } @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd503fd852822f693E"(ptr align 4 %11)
   %13 = extractvalue { i32, i32 } %12, 0
   %14 = extractvalue { i32, i32 } %12, 1
   %15 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } }, ptr %0, i32 0, i32 2
@@ -752,11 +752,11 @@ define internal void @"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @"_ZN52_$LT$log..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h6d967ee43812a0d8E"(ptr sret({ i64, { ptr, i64 } }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define internal void @"_ZN52_$LT$log..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h0675a03ea90aff34E"(ptr sret({ i64, { ptr, i64 } }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8
-  %5 = call i64 @"_ZN49_$LT$log..Level$u20$as$u20$core..clone..Clone$GT$5clone17he1d415952a1dc696E"(ptr align 8 %1), !range !8
+  %5 = call i64 @"_ZN49_$LT$log..Level$u20$as$u20$core..clone..Clone$GT$5clone17h4c0e8e1a7ca21baeE"(ptr align 8 %1), !range !8
   %6 = getelementptr inbounds { i64, { ptr, i64 } }, ptr %1, i32 0, i32 1
   store ptr %6, ptr %3, align 8
   %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !6, !noundef !5
@@ -776,31 +776,31 @@ define internal void @"_ZN52_$LT$log..Metadata$u20$as$u20$core..clone..Clone$GT$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare void @"_ZN4core3ptr35drop_in_place$LT$log..NopLogger$GT$17h111be3c232d326a6E"(ptr align 1) unnamed_addr #1
+declare void @"_ZN4core3ptr35drop_in_place$LT$log..NopLogger$GT$17h7ed8aa900a262847E"(ptr align 1) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17hc482efd0a39f188dE"(ptr align 8, i64) unnamed_addr #1
+declare { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h9011637c1ba31edaE"(ptr align 8, i64) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h36ba9f3e6f4a52b6E"(ptr align 8, ptr align 1, i64) unnamed_addr #1
+declare { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h5cc96ce75801af92E"(ptr align 8, ptr align 1, i64) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare { i64, i64 } @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0d1d37a1a436931fE"(i64, i64) unnamed_addr #1
+declare { i64, i64 } @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hddec1af15dc534bfE"(i64, i64) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator6filter17h32882e705a1fef21E(i64, i64) unnamed_addr #1
+declare { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator6filter17h64bf7c0ab0718ecfE(i64, i64) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator3map17he047c4ecf1094ab6E(i64, i64) unnamed_addr #1
+declare { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator3map17hfda438c8e34bca90E(i64, i64) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h392b27fbe0fc1099E"(ptr align 8) unnamed_addr #1
+declare i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdec75010e607479fE"(ptr align 8) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare i64 @"_ZN4core6option15Option$LT$T$GT$5ok_or17hfca4128da1f24970E"(i64) unnamed_addr #1
+declare i64 @"_ZN4core6option15Option$LT$T$GT$5ok_or17he6fb5cd73964de67E"(i64) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare zeroext i1 @_ZN4core3fmt9Formatter3pad17he4af1c9215758460E(ptr align 8, ptr align 1, i64) unnamed_addr #0
+declare zeroext i1 @_ZN4core3fmt9Formatter3pad17h9aaaf10c548e542cE(ptr align 8, ptr align 1, i64) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #2
@@ -809,58 +809,58 @@ declare void @llvm.assume(i1 noundef) #2
 declare i1 @llvm.expect.i1(i1, i1) #3
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64, i64, ptr align 8) unnamed_addr #4
+declare void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64, i64, ptr align 8) unnamed_addr #4
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator3map17h2b5cd4acc35d28dcE(i64, i64) unnamed_addr #1
+declare { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator3map17hce7544aa6f332ec9E(i64, i64) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd9aba129d9d38f42E"(ptr align 8, ptr align 1, i64) unnamed_addr #1
+declare { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h697aef78370445c6E"(ptr align 8, ptr align 1, i64) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare i64 @"_ZN4core6option15Option$LT$T$GT$3map17h1b7820d8910b4230E"(i64, i64) unnamed_addr #1
+declare i64 @"_ZN4core6option15Option$LT$T$GT$3map17h044b5bddd14d1fe8E"(i64, i64) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare i64 @"_ZN4core6option15Option$LT$T$GT$5ok_or17h02d153b423dca111E"(i64) unnamed_addr #1
+declare i64 @"_ZN4core6option15Option$LT$T$GT$5ok_or17h599b04183cc12779E"(i64) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator3map17h9ef84f6752294ae4E(i64, i64) unnamed_addr #1
+declare { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator3map17he64d724d538ba85cE(i64, i64) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_ZN4core3fmt9Arguments9new_const17h655f237c251b95c4E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8, ptr align 8, i64) unnamed_addr #1
+declare hidden void @_ZN4core3fmt9Arguments9new_const17h612caa91f98b5834E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8, ptr align 8, i64) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare void @"_ZN4core6option15Option$LT$T$GT$3map17h8f29c4517262019cE"(ptr sret({ i64, [2 x i64] }) align 8, ptr align 1, i64) unnamed_addr #1
+declare void @"_ZN4core6option15Option$LT$T$GT$3map17hda4e1625cc15b1d6E"(ptr sret({ i64, [2 x i64] }) align 8, ptr align 1, i64) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden zeroext i1 @_ZN3log16set_logger_inner17h099f8e8db5e8f9dbE(ptr align 1, ptr align 8) unnamed_addr #0
+declare hidden zeroext i1 @_ZN3log16set_logger_inner17hd6bd3d7aad7ce28bE(ptr align 1, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden i64 @_ZN4core4sync6atomic11AtomicUsize4load17hf576bd2b96c285d5E(ptr align 8, i8) unnamed_addr #1
+declare hidden i64 @_ZN4core4sync6atomic11AtomicUsize4load17h6c23459240cb1be8E(ptr align 8, i8) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_ZN4core4sync6atomic11AtomicUsize5store17h891194b96d6a80bfE(ptr align 8, i64, i8) unnamed_addr #1
+declare hidden void @_ZN4core4sync6atomic11AtomicUsize5store17h900e670847e45facE(ptr align 8, i64, i8) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_ZN4core3fmt9Arguments6new_v117h354229d12b1cc346E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8, ptr align 8, i64, ptr align 8, i64) unnamed_addr #1
+declare hidden void @_ZN4core3fmt9Arguments6new_v117hfd7f892edbc355e6E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8, ptr align 8, i64, ptr align 8, i64) unnamed_addr #1
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr align 8, ptr align 8) unnamed_addr #4
+declare void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr align 8, ptr align 8) unnamed_addr #4
 
 ; Function Attrs: nonlazybind uwtable
-declare zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr align 8, ptr align 1, i64) unnamed_addr #0
+declare zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr align 8, ptr align 1, i64) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @"_ZN59_$LT$core..fmt..Arguments$u20$as$u20$core..clone..Clone$GT$5clone17hd31ccb1bc73a860dE"(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8, ptr align 8) unnamed_addr #1
+declare hidden void @"_ZN59_$LT$core..fmt..Arguments$u20$as$u20$core..clone..Clone$GT$5clone17hb19338062c08b76cE"(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc21c97856de18c66E"(ptr sret({ i64, [2 x i64] }) align 8, ptr align 8) unnamed_addr #1
+declare void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9568e2ba3f440e06E"(ptr sret({ i64, [2 x i64] }) align 8, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare { i32, i32 } @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcb2bd9fd1cf096dbE"(ptr align 4) unnamed_addr #1
+declare { i32, i32 } @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd503fd852822f693E"(ptr align 4) unnamed_addr #1
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -877,7 +877,7 @@ attributes #6 = { noreturn }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 2, !"Dwarf Version", i32 4}
 !3 = !{i32 2, !"Debug Info Version", i32 3}
-!4 = !{!"rustc version 1.75.0 (82e1608df 2023-12-21)"}
+!4 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !5 = !{}
 !6 = !{i64 1}
 !7 = !{i64 0, i64 6}

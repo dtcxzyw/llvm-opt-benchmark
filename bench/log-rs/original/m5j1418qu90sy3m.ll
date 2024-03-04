@@ -1,33 +1,33 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.0 = private unnamed_addr constant <{ [40 x i8] }> <{ [40 x i8] c"there is no such thing as a release load" }>, align 1
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.1 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.0, [8 x i8] c"(\00\00\00\00\00\00\00" }>, align 8
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.2 = private unnamed_addr constant <{}> zeroinitializer, align 8
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.3 = private unnamed_addr constant <{ [79 x i8] }> <{ [79 x i8] c"/rustc/82e1608dfa6e0b5569232559e3d385fea5a93112/library/core/src/sync/atomic.rs" }>, align 1
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.4 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.3, [16 x i8] c"O\00\00\00\00\00\00\00\DB\0C\00\00\18\00\00\00" }>, align 8
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.5 = private unnamed_addr constant <{ [12 x i8] }> <{ [12 x i8] c"invalid args" }>, align 1
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.6 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.5, [8 x i8] c"\0C\00\00\00\00\00\00\00" }>, align 8
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.7 = private unnamed_addr constant <{ [75 x i8] }> <{ [75 x i8] c"/rustc/82e1608dfa6e0b5569232559e3d385fea5a93112/library/core/src/fmt/mod.rs" }>, align 1
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.8 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.7, [16 x i8] c"K\00\00\00\00\00\00\00C\01\00\00\0D\00\00\00" }>, align 8
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.9 = private unnamed_addr constant <{ [49 x i8] }> <{ [49 x i8] c"there is no such thing as an acquire-release load" }>, align 1
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.10 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.9, [8 x i8] c"1\00\00\00\00\00\00\00" }>, align 8
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.11 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.3, [16 x i8] c"O\00\00\00\00\00\00\00\DC\0C\00\00\17\00\00\00" }>, align 8
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.12 = private unnamed_addr constant <{ [42 x i8] }> <{ [42 x i8] c"there is no such thing as an acquire store" }>, align 1
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.13 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.12, [8 x i8] c"*\00\00\00\00\00\00\00" }>, align 8
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.14 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.3, [16 x i8] c"O\00\00\00\00\00\00\00\CC\0C\00\00\18\00\00\00" }>, align 8
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.15 = private unnamed_addr constant <{ [50 x i8] }> <{ [50 x i8] c"there is no such thing as an acquire-release store" }>, align 1
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.16 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.15, [8 x i8] c"2\00\00\00\00\00\00\00" }>, align 8
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.17 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.3, [16 x i8] c"O\00\00\00\00\00\00\00\CD\0C\00\00\17\00\00\00" }>, align 8
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.18 = private unnamed_addr constant <{ [52 x i8] }> <{ [52 x i8] c"there is no such thing as a release failure ordering" }>, align 1
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.19 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.18, [8 x i8] c"4\00\00\00\00\00\00\00" }>, align 8
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.20 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.3, [16 x i8] c"O\00\00\00\00\00\00\000\0D\00\00\1D\00\00\00" }>, align 8
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.21 = private unnamed_addr constant <{ [61 x i8] }> <{ [61 x i8] c"there is no such thing as an acquire-release failure ordering" }>, align 1
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.22 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.21, [8 x i8] c"=\00\00\00\00\00\00\00" }>, align 8
-@anon.08ca7ab150487b5119dee7d4c4a82c1a.23 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.3, [16 x i8] c"O\00\00\00\00\00\00\00/\0D\00\00\1C\00\00\00" }>, align 8
+@anon.0aaa42ddb8f69e6218e65d2616654d47.0 = private unnamed_addr constant <{ [40 x i8] }> <{ [40 x i8] c"there is no such thing as a release load" }>, align 1
+@anon.0aaa42ddb8f69e6218e65d2616654d47.1 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.0, [8 x i8] c"(\00\00\00\00\00\00\00" }>, align 8
+@anon.0aaa42ddb8f69e6218e65d2616654d47.2 = private unnamed_addr constant <{}> zeroinitializer, align 8
+@anon.0aaa42ddb8f69e6218e65d2616654d47.3 = private unnamed_addr constant <{ [79 x i8] }> <{ [79 x i8] c"/rustc/07dca489ac2d933c78d3c5158e3f43beefeb02ce/library/core/src/sync/atomic.rs" }>, align 1
+@anon.0aaa42ddb8f69e6218e65d2616654d47.4 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.3, [16 x i8] c"O\00\00\00\00\00\00\00\DB\0C\00\00\18\00\00\00" }>, align 8
+@anon.0aaa42ddb8f69e6218e65d2616654d47.5 = private unnamed_addr constant <{ [12 x i8] }> <{ [12 x i8] c"invalid args" }>, align 1
+@anon.0aaa42ddb8f69e6218e65d2616654d47.6 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.5, [8 x i8] c"\0C\00\00\00\00\00\00\00" }>, align 8
+@anon.0aaa42ddb8f69e6218e65d2616654d47.7 = private unnamed_addr constant <{ [75 x i8] }> <{ [75 x i8] c"/rustc/07dca489ac2d933c78d3c5158e3f43beefeb02ce/library/core/src/fmt/mod.rs" }>, align 1
+@anon.0aaa42ddb8f69e6218e65d2616654d47.8 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.7, [16 x i8] c"K\00\00\00\00\00\00\00C\01\00\00\0D\00\00\00" }>, align 8
+@anon.0aaa42ddb8f69e6218e65d2616654d47.9 = private unnamed_addr constant <{ [49 x i8] }> <{ [49 x i8] c"there is no such thing as an acquire-release load" }>, align 1
+@anon.0aaa42ddb8f69e6218e65d2616654d47.10 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.9, [8 x i8] c"1\00\00\00\00\00\00\00" }>, align 8
+@anon.0aaa42ddb8f69e6218e65d2616654d47.11 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.3, [16 x i8] c"O\00\00\00\00\00\00\00\DC\0C\00\00\17\00\00\00" }>, align 8
+@anon.0aaa42ddb8f69e6218e65d2616654d47.12 = private unnamed_addr constant <{ [42 x i8] }> <{ [42 x i8] c"there is no such thing as an acquire store" }>, align 1
+@anon.0aaa42ddb8f69e6218e65d2616654d47.13 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.12, [8 x i8] c"*\00\00\00\00\00\00\00" }>, align 8
+@anon.0aaa42ddb8f69e6218e65d2616654d47.14 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.3, [16 x i8] c"O\00\00\00\00\00\00\00\CC\0C\00\00\18\00\00\00" }>, align 8
+@anon.0aaa42ddb8f69e6218e65d2616654d47.15 = private unnamed_addr constant <{ [50 x i8] }> <{ [50 x i8] c"there is no such thing as an acquire-release store" }>, align 1
+@anon.0aaa42ddb8f69e6218e65d2616654d47.16 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.15, [8 x i8] c"2\00\00\00\00\00\00\00" }>, align 8
+@anon.0aaa42ddb8f69e6218e65d2616654d47.17 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.3, [16 x i8] c"O\00\00\00\00\00\00\00\CD\0C\00\00\17\00\00\00" }>, align 8
+@anon.0aaa42ddb8f69e6218e65d2616654d47.18 = private unnamed_addr constant <{ [52 x i8] }> <{ [52 x i8] c"there is no such thing as a release failure ordering" }>, align 1
+@anon.0aaa42ddb8f69e6218e65d2616654d47.19 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.18, [8 x i8] c"4\00\00\00\00\00\00\00" }>, align 8
+@anon.0aaa42ddb8f69e6218e65d2616654d47.20 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.3, [16 x i8] c"O\00\00\00\00\00\00\000\0D\00\00\1D\00\00\00" }>, align 8
+@anon.0aaa42ddb8f69e6218e65d2616654d47.21 = private unnamed_addr constant <{ [61 x i8] }> <{ [61 x i8] c"there is no such thing as an acquire-release failure ordering" }>, align 1
+@anon.0aaa42ddb8f69e6218e65d2616654d47.22 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.21, [8 x i8] c"=\00\00\00\00\00\00\00" }>, align 8
+@anon.0aaa42ddb8f69e6218e65d2616654d47.23 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.3, [16 x i8] c"O\00\00\00\00\00\00\00/\0D\00\00\1C\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @_ZN4core4sync6atomic11atomic_load17ha2a8ff290b5a2507E(ptr %0, i8 %1) unnamed_addr #0 {
+define i64 @_ZN4core4sync6atomic11atomic_load17h8400e1fa7b393678E(ptr %0, i8 %1) unnamed_addr #0 {
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca ptr, align 8
@@ -61,7 +61,7 @@ define i64 @_ZN4core4sync6atomic11atomic_load17ha2a8ff290b5a2507E(ptr %0, i8 %1)
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 0
-  store ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.1, ptr %20, align 8
+  store ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.1, ptr %20, align 8
   %21 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 1
   store i64 1, ptr %21, align 8
   br i1 false, label %44, label %31
@@ -73,7 +73,7 @@ define i64 @_ZN4core4sync6atomic11atomic_load17ha2a8ff290b5a2507E(ptr %0, i8 %1)
 
 24:                                               ; preds = %2
   %25 = getelementptr inbounds { ptr, i64 }, ptr %3, i32 0, i32 0
-  store ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.10, ptr %25, align 8
+  store ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.10, ptr %25, align 8
   %26 = getelementptr inbounds { ptr, i64 }, ptr %3, i32 0, i32 1
   store i64 1, ptr %26, align 8
   br i1 false, label %58, label %45
@@ -90,7 +90,7 @@ define i64 @_ZN4core4sync6atomic11atomic_load17ha2a8ff290b5a2507E(ptr %0, i8 %1)
 31:                                               ; preds = %19
   store ptr null, ptr %6, align 8
   %32 = getelementptr inbounds { ptr, i64 }, ptr %11, i32 0, i32 0
-  store ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.1, ptr %32, align 8
+  store ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.1, ptr %32, align 8
   %33 = getelementptr inbounds { ptr, i64 }, ptr %11, i32 0, i32 1
   store i64 1, ptr %33, align 8
   %34 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 0
@@ -104,21 +104,21 @@ define i64 @_ZN4core4sync6atomic11atomic_load17ha2a8ff290b5a2507E(ptr %0, i8 %1)
   store i64 %37, ptr %40, align 8
   %41 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %11, i32 0, i32 1
   %42 = getelementptr inbounds { ptr, i64 }, ptr %41, i32 0, i32 0
-  store ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.2, ptr %42, align 8
+  store ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.2, ptr %42, align 8
   %43 = getelementptr inbounds { ptr, i64 }, ptr %41, i32 0, i32 1
   store i64 0, ptr %43, align 8
-  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr align 8 %11, ptr align 8 @anon.08ca7ab150487b5119dee7d4c4a82c1a.4) #2
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr align 8 %11, ptr align 8 @anon.0aaa42ddb8f69e6218e65d2616654d47.4) #2
   unreachable
 
 44:                                               ; preds = %19
-  call void @_ZN4core3fmt9Arguments9new_const17h655f237c251b95c4E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %7, ptr align 8 @anon.08ca7ab150487b5119dee7d4c4a82c1a.6, i64 1)
-  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr align 8 %7, ptr align 8 @anon.08ca7ab150487b5119dee7d4c4a82c1a.8) #2
+  call void @_ZN4core3fmt9Arguments9new_const17h612caa91f98b5834E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %7, ptr align 8 @anon.0aaa42ddb8f69e6218e65d2616654d47.6, i64 1)
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr align 8 %7, ptr align 8 @anon.0aaa42ddb8f69e6218e65d2616654d47.8) #2
   unreachable
 
 45:                                               ; preds = %24
   store ptr null, ptr %8, align 8
   %46 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
-  store ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.10, ptr %46, align 8
+  store ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.10, ptr %46, align 8
   %47 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 1
   store i64 1, ptr %47, align 8
   %48 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 0
@@ -132,20 +132,20 @@ define i64 @_ZN4core4sync6atomic11atomic_load17ha2a8ff290b5a2507E(ptr %0, i8 %1)
   store i64 %51, ptr %54, align 8
   %55 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %10, i32 0, i32 1
   %56 = getelementptr inbounds { ptr, i64 }, ptr %55, i32 0, i32 0
-  store ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.2, ptr %56, align 8
+  store ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.2, ptr %56, align 8
   %57 = getelementptr inbounds { ptr, i64 }, ptr %55, i32 0, i32 1
   store i64 0, ptr %57, align 8
-  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr align 8 %10, ptr align 8 @anon.08ca7ab150487b5119dee7d4c4a82c1a.11) #2
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr align 8 %10, ptr align 8 @anon.0aaa42ddb8f69e6218e65d2616654d47.11) #2
   unreachable
 
 58:                                               ; preds = %24
-  call void @_ZN4core3fmt9Arguments9new_const17h655f237c251b95c4E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %9, ptr align 8 @anon.08ca7ab150487b5119dee7d4c4a82c1a.6, i64 1)
-  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr align 8 %9, ptr align 8 @anon.08ca7ab150487b5119dee7d4c4a82c1a.8) #2
+  call void @_ZN4core3fmt9Arguments9new_const17h612caa91f98b5834E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %9, ptr align 8 @anon.0aaa42ddb8f69e6218e65d2616654d47.6, i64 1)
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr align 8 %9, ptr align 8 @anon.0aaa42ddb8f69e6218e65d2616654d47.8) #2
   unreachable
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @_ZN4core4sync6atomic12atomic_store17he1629d11264a95d9E(ptr %0, i64 %1, i8 %2) unnamed_addr #0 {
+define void @_ZN4core4sync6atomic12atomic_store17hd18bed03daa1edbbE(ptr %0, i64 %1, i8 %2) unnamed_addr #0 {
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { ptr, i64 }, align 8
   %6 = alloca i64, align 8
@@ -183,14 +183,14 @@ define void @_ZN4core4sync6atomic12atomic_store17he1629d11264a95d9E(ptr %0, i64 
 
 20:                                               ; preds = %3
   %21 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 0
-  store ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.13, ptr %21, align 8
+  store ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.13, ptr %21, align 8
   %22 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
   store i64 1, ptr %22, align 8
   br i1 false, label %41, label %28
 
 23:                                               ; preds = %3
   %24 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 0
-  store ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.16, ptr %24, align 8
+  store ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.16, ptr %24, align 8
   %25 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 1
   store i64 1, ptr %25, align 8
   br i1 false, label %55, label %42
@@ -205,7 +205,7 @@ define void @_ZN4core4sync6atomic12atomic_store17he1629d11264a95d9E(ptr %0, i64 
 28:                                               ; preds = %20
   store ptr null, ptr %8, align 8
   %29 = getelementptr inbounds { ptr, i64 }, ptr %13, i32 0, i32 0
-  store ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.13, ptr %29, align 8
+  store ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.13, ptr %29, align 8
   %30 = getelementptr inbounds { ptr, i64 }, ptr %13, i32 0, i32 1
   store i64 1, ptr %30, align 8
   %31 = getelementptr inbounds { ptr, i64 }, ptr %8, i32 0, i32 0
@@ -219,21 +219,21 @@ define void @_ZN4core4sync6atomic12atomic_store17he1629d11264a95d9E(ptr %0, i64 
   store i64 %34, ptr %37, align 8
   %38 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %13, i32 0, i32 1
   %39 = getelementptr inbounds { ptr, i64 }, ptr %38, i32 0, i32 0
-  store ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.2, ptr %39, align 8
+  store ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.2, ptr %39, align 8
   %40 = getelementptr inbounds { ptr, i64 }, ptr %38, i32 0, i32 1
   store i64 0, ptr %40, align 8
-  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr align 8 %13, ptr align 8 @anon.08ca7ab150487b5119dee7d4c4a82c1a.14) #2
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr align 8 %13, ptr align 8 @anon.0aaa42ddb8f69e6218e65d2616654d47.14) #2
   unreachable
 
 41:                                               ; preds = %20
-  call void @_ZN4core3fmt9Arguments9new_const17h655f237c251b95c4E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %9, ptr align 8 @anon.08ca7ab150487b5119dee7d4c4a82c1a.6, i64 1)
-  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr align 8 %9, ptr align 8 @anon.08ca7ab150487b5119dee7d4c4a82c1a.8) #2
+  call void @_ZN4core3fmt9Arguments9new_const17h612caa91f98b5834E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %9, ptr align 8 @anon.0aaa42ddb8f69e6218e65d2616654d47.6, i64 1)
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr align 8 %9, ptr align 8 @anon.0aaa42ddb8f69e6218e65d2616654d47.8) #2
   unreachable
 
 42:                                               ; preds = %23
   store ptr null, ptr %10, align 8
   %43 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 0
-  store ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.16, ptr %43, align 8
+  store ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.16, ptr %43, align 8
   %44 = getelementptr inbounds { ptr, i64 }, ptr %12, i32 0, i32 1
   store i64 1, ptr %44, align 8
   %45 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
@@ -247,20 +247,20 @@ define void @_ZN4core4sync6atomic12atomic_store17he1629d11264a95d9E(ptr %0, i64 
   store i64 %48, ptr %51, align 8
   %52 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %12, i32 0, i32 1
   %53 = getelementptr inbounds { ptr, i64 }, ptr %52, i32 0, i32 0
-  store ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.2, ptr %53, align 8
+  store ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.2, ptr %53, align 8
   %54 = getelementptr inbounds { ptr, i64 }, ptr %52, i32 0, i32 1
   store i64 0, ptr %54, align 8
-  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr align 8 %12, ptr align 8 @anon.08ca7ab150487b5119dee7d4c4a82c1a.17) #2
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr align 8 %12, ptr align 8 @anon.0aaa42ddb8f69e6218e65d2616654d47.17) #2
   unreachable
 
 55:                                               ; preds = %23
-  call void @_ZN4core3fmt9Arguments9new_const17h655f237c251b95c4E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %11, ptr align 8 @anon.08ca7ab150487b5119dee7d4c4a82c1a.6, i64 1)
-  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr align 8 %11, ptr align 8 @anon.08ca7ab150487b5119dee7d4c4a82c1a.8) #2
+  call void @_ZN4core3fmt9Arguments9new_const17h612caa91f98b5834E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %11, ptr align 8 @anon.0aaa42ddb8f69e6218e65d2616654d47.6, i64 1)
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr align 8 %11, ptr align 8 @anon.0aaa42ddb8f69e6218e65d2616654d47.8) #2
   unreachable
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h306df18a534c777aE(ptr %0, i64 %1, i64 %2, i8 %3, i8 %4) unnamed_addr #0 {
+define { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17he498e280c52cf5f6E(ptr %0, i64 %1, i64 %2, i8 %3, i8 %4) unnamed_addr #0 {
   %6 = alloca { ptr, i64 }, align 8
   %7 = alloca { ptr, i64 }, align 8
   %8 = alloca i8, align 1
@@ -530,14 +530,14 @@ define { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h306df18a534
 
 152:                                              ; preds = %41
   %153 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
-  store ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.19, ptr %153, align 8
+  store ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.19, ptr %153, align 8
   %154 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
   store i64 1, ptr %154, align 8
   br i1 false, label %171, label %158
 
 155:                                              ; preds = %41
   %156 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 0
-  store ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.22, ptr %156, align 8
+  store ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.22, ptr %156, align 8
   %157 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 1
   store i64 1, ptr %157, align 8
   br i1 false, label %185, label %172
@@ -545,7 +545,7 @@ define { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h306df18a534
 158:                                              ; preds = %152
   store ptr null, ptr %15, align 8
   %159 = getelementptr inbounds { ptr, i64 }, ptr %17, i32 0, i32 0
-  store ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.19, ptr %159, align 8
+  store ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.19, ptr %159, align 8
   %160 = getelementptr inbounds { ptr, i64 }, ptr %17, i32 0, i32 1
   store i64 1, ptr %160, align 8
   %161 = getelementptr inbounds { ptr, i64 }, ptr %15, i32 0, i32 0
@@ -559,21 +559,21 @@ define { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h306df18a534
   store i64 %164, ptr %167, align 8
   %168 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %17, i32 0, i32 1
   %169 = getelementptr inbounds { ptr, i64 }, ptr %168, i32 0, i32 0
-  store ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.2, ptr %169, align 8
+  store ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.2, ptr %169, align 8
   %170 = getelementptr inbounds { ptr, i64 }, ptr %168, i32 0, i32 1
   store i64 0, ptr %170, align 8
-  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr align 8 %17, ptr align 8 @anon.08ca7ab150487b5119dee7d4c4a82c1a.20) #2
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr align 8 %17, ptr align 8 @anon.0aaa42ddb8f69e6218e65d2616654d47.20) #2
   unreachable
 
 171:                                              ; preds = %152
-  call void @_ZN4core3fmt9Arguments9new_const17h655f237c251b95c4E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %16, ptr align 8 @anon.08ca7ab150487b5119dee7d4c4a82c1a.6, i64 1)
-  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr align 8 %16, ptr align 8 @anon.08ca7ab150487b5119dee7d4c4a82c1a.8) #2
+  call void @_ZN4core3fmt9Arguments9new_const17h612caa91f98b5834E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %16, ptr align 8 @anon.0aaa42ddb8f69e6218e65d2616654d47.6, i64 1)
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr align 8 %16, ptr align 8 @anon.0aaa42ddb8f69e6218e65d2616654d47.8) #2
   unreachable
 
 172:                                              ; preds = %155
   store ptr null, ptr %13, align 8
   %173 = getelementptr inbounds { ptr, i64 }, ptr %18, i32 0, i32 0
-  store ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.22, ptr %173, align 8
+  store ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.22, ptr %173, align 8
   %174 = getelementptr inbounds { ptr, i64 }, ptr %18, i32 0, i32 1
   store i64 1, ptr %174, align 8
   %175 = getelementptr inbounds { ptr, i64 }, ptr %13, i32 0, i32 0
@@ -587,23 +587,23 @@ define { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h306df18a534
   store i64 %178, ptr %181, align 8
   %182 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %18, i32 0, i32 1
   %183 = getelementptr inbounds { ptr, i64 }, ptr %182, i32 0, i32 0
-  store ptr @anon.08ca7ab150487b5119dee7d4c4a82c1a.2, ptr %183, align 8
+  store ptr @anon.0aaa42ddb8f69e6218e65d2616654d47.2, ptr %183, align 8
   %184 = getelementptr inbounds { ptr, i64 }, ptr %182, i32 0, i32 1
   store i64 0, ptr %184, align 8
-  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr align 8 %18, ptr align 8 @anon.08ca7ab150487b5119dee7d4c4a82c1a.23) #2
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr align 8 %18, ptr align 8 @anon.0aaa42ddb8f69e6218e65d2616654d47.23) #2
   unreachable
 
 185:                                              ; preds = %155
-  call void @_ZN4core3fmt9Arguments9new_const17h655f237c251b95c4E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %14, ptr align 8 @anon.08ca7ab150487b5119dee7d4c4a82c1a.6, i64 1)
-  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr align 8 %14, ptr align 8 @anon.08ca7ab150487b5119dee7d4c4a82c1a.8) #2
+  call void @_ZN4core3fmt9Arguments9new_const17h612caa91f98b5834E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %14, ptr align 8 @anon.0aaa42ddb8f69e6218e65d2616654d47.6, i64 1)
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr align 8 %14, ptr align 8 @anon.0aaa42ddb8f69e6218e65d2616654d47.8) #2
   unreachable
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr align 8, ptr align 8) unnamed_addr #1
+declare void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr align 8, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_ZN4core3fmt9Arguments9new_const17h655f237c251b95c4E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8, ptr align 8, i64) unnamed_addr #0
+declare hidden void @_ZN4core3fmt9Arguments9new_const17h612caa91f98b5834E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8, ptr align 8, i64) unnamed_addr #0
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -616,7 +616,7 @@ attributes #2 = { noreturn }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 2, !"Dwarf Version", i32 4}
 !3 = !{i32 2, !"Debug Info Version", i32 3}
-!4 = !{!"rustc version 1.75.0 (82e1608df 2023-12-21)"}
+!4 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !5 = !{i8 0, i8 5}
 !6 = !{}
 !7 = !{i64 8}

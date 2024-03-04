@@ -1,10 +1,10 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-@anon.011d901641f57018de1fc2aaf92a9d74.0 = private unnamed_addr constant <{ [43 x i8] }> <{ [43 x i8] c"called `Option::unwrap()` on a `None` value" }>, align 1
+@anon.f038820c5ad829e1128de27950e0ac9f.0 = private unnamed_addr constant <{ [43 x i8] }> <{ [43 x i8] c"called `Option::unwrap()` on a `None` value" }>, align 1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17heff3f336326a9988E(ptr align 8 %0, ptr align 1 %1) unnamed_addr #0 {
+define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17h55ca745df9493815E(ptr align 8 %0, ptr align 1 %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -15,7 +15,7 @@ define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17heff3f336326a9
   store ptr %1, ptr %4, align 8
   store ptr %1, ptr %6, align 8
   %9 = load ptr, ptr %6, align 8, !nonnull !5, !align !6, !noundef !5
-  %10 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h967e48e962a6f71aE(ptr align 8 %0, ptr align 1 %9)
+  %10 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc13728e7bb3733acE(ptr align 8 %0, ptr align 1 %9)
   store { i64, i64 } %10, ptr %7, align 8
   %11 = load i64, ptr %7, align 8, !range !7, !noundef !5
   %12 = icmp eq i64 %11, 0
@@ -56,7 +56,7 @@ define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17heff3f336326a9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator6filter17h32882e705a1fef21E(i64 %0, i64 %1) unnamed_addr #0 {
+define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator6filter17h64bf7c0ab0718ecfE(i64 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { i64, i64 }, align 8
   %4 = alloca { i64, i64 }, align 8
   %5 = getelementptr inbounds { i64, i64 }, ptr %3, i32 0, i32 0
@@ -77,7 +77,7 @@ define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator6filter17h32882e705a1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h967e48e962a6f71aE(ptr align 8 %0, ptr align 1 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc13728e7bb3733acE(ptr align 8 %0, ptr align 1 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca { ptr, i32 }, align 8
@@ -94,7 +94,7 @@ define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h967e48e96
   br label %13
 
 13:                                               ; preds = %40, %2
-  %14 = invoke { i64, i64 } @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h129460b30251d1efE"(ptr align 8 %0)
+  %14 = invoke { i64, i64 } @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e023aac3fa4c10dE"(ptr align 8 %0)
           to label %24 unwind label %18
 
 15:                                               ; preds = %18
@@ -126,7 +126,7 @@ define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h967e48e96
   store i8 0, ptr %7, align 1
   store i64 %29, ptr %8, align 8
   %30 = load i64, ptr %8, align 8, !noundef !5
-  %31 = invoke { i64, i64 } @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h493507c37e7fd6afE"(ptr align 8 %12, i64 %30)
+  %31 = invoke { i64, i64 } @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h63368174fa58ac9fE"(ptr align 8 %12, i64 %30)
           to label %33 unwind label %18
 
 32:                                               ; preds = %24
@@ -135,7 +135,7 @@ define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h967e48e96
 33:                                               ; preds = %27
   %34 = extractvalue { i64, i64 } %31, 0
   %35 = extractvalue { i64, i64 } %31, 1
-  %36 = invoke { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17he20da2ec232b832cE"(i64 %34, i64 %35)
+  %36 = invoke { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hb7078410a438565bE"(i64 %34, i64 %35)
           to label %37 unwind label %18
 
 37:                                               ; preds = %33
@@ -152,7 +152,7 @@ define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h967e48e96
   %42 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
   %43 = load i64, ptr %42, align 8, !noundef !5
   store i64 %43, ptr %3, align 8
-  %44 = invoke { i64, i64 } @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h0880a0e3aa2f3522E"(i64 %43)
+  %44 = invoke { i64, i64 } @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h4a937607be30c3aaE"(i64 %43)
           to label %45 unwind label %18
 
 45:                                               ; preds = %41
@@ -173,7 +173,7 @@ define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h967e48e96
 
 54:                                               ; preds = %32
   store i8 0, ptr %7, align 1
-  %55 = invoke { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h4303f724afb9c76eE"()
+  %55 = invoke { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h5b7254a4d001dffcE"()
           to label %56 unwind label %18
 
 56:                                               ; preds = %54
@@ -193,7 +193,7 @@ define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h967e48e96
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @"_ZN4core6option15Option$LT$T$GT$3map17h1b7820d8910b4230E"(i64 %0, i64 %1) unnamed_addr #0 {
+define i64 @"_ZN4core6option15Option$LT$T$GT$3map17h044b5bddd14d1fe8E"(i64 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i8, align 1
   %5 = alloca i64, align 8
@@ -219,7 +219,7 @@ define i64 @"_ZN4core6option15Option$LT$T$GT$3map17h1b7820d8910b4230E"(i64 %0, i
   store i8 0, ptr %4, align 1
   store i64 %15, ptr %5, align 8
   %16 = load i64, ptr %5, align 8, !noundef !5
-  %17 = call i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h8c6fc8db0c42daf2E"(i64 %16), !range !9
+  %17 = call i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h831146a252a7a3b9E"(i64 %16), !range !9
   store i64 %17, ptr %6, align 8
   br label %18
 
@@ -240,7 +240,7 @@ define i64 @"_ZN4core6option15Option$LT$T$GT$3map17h1b7820d8910b4230E"(i64 %0, i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core6option15Option$LT$T$GT$3map17h8f29c4517262019cE"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
+define void @"_ZN4core6option15Option$LT$T$GT$3map17hda4e1625cc15b1d6E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca i8, align 1
   %6 = alloca { ptr, i64 }, align 8
@@ -280,7 +280,7 @@ define void @"_ZN4core6option15Option$LT$T$GT$3map17h8f29c4517262019cE"(ptr sret
   %27 = load ptr, ptr %26, align 8, !nonnull !5, !align !6, !noundef !5
   %28 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 1
   %29 = load i64, ptr %28, align 8, !noundef !5
-  call void @_ZN4core3ops8function6FnOnce9call_once17hb3bfd603d2806f48E(ptr sret({ i64, [2 x i64] }) align 8 %7, ptr align 1 %27, i64 %29)
+  call void @_ZN4core3ops8function6FnOnce9call_once17h04481f3551d64dbbE(ptr sret({ i64, [2 x i64] }) align 8 %7, ptr align 1 %27, i64 %29)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %7, i64 24, i1 false)
   br label %30
 
@@ -300,7 +300,7 @@ define void @"_ZN4core6option15Option$LT$T$GT$3map17h8f29c4517262019cE"(ptr sret
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @"_ZN4core6option15Option$LT$T$GT$5ok_or17h02d153b423dca111E"(i64 %0) unnamed_addr #0 {
+define i64 @"_ZN4core6option15Option$LT$T$GT$5ok_or17h599b04183cc12779E"(i64 %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i8, align 1
   %4 = alloca i64, align 8
@@ -341,7 +341,7 @@ define i64 @"_ZN4core6option15Option$LT$T$GT$5ok_or17h02d153b423dca111E"(i64 %0)
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @"_ZN4core6option15Option$LT$T$GT$5ok_or17hfca4128da1f24970E"(i64 %0) unnamed_addr #0 {
+define i64 @"_ZN4core6option15Option$LT$T$GT$5ok_or17he6fb5cd73964de67E"(i64 %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i8, align 1
   %4 = alloca i64, align 8
@@ -382,7 +382,7 @@ define i64 @"_ZN4core6option15Option$LT$T$GT$5ok_or17hfca4128da1f24970E"(i64 %0)
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @"_ZN4core6option15Option$LT$T$GT$6unwrap17he18e49e73ce4ba42E"(i64 %0, ptr align 8 %1) unnamed_addr #0 {
+define i64 @"_ZN4core6option15Option$LT$T$GT$6unwrap17h6e24f4ee4049a4aaE"(i64 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   store i64 %0, ptr %4, align 8
@@ -393,7 +393,7 @@ define i64 @"_ZN4core6option15Option$LT$T$GT$6unwrap17he18e49e73ce4ba42E"(i64 %0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
-  call void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr align 1 @anon.011d901641f57018de1fc2aaf92a9d74.0, i64 43, ptr align 8 %1) #4
+  call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr align 1 @anon.f038820c5ad829e1128de27950e0ac9f.0, i64 43, ptr align 8 %1) #4
   unreachable
 
 10:                                               ; preds = %2
@@ -406,7 +406,7 @@ define i64 @"_ZN4core6option15Option$LT$T$GT$6unwrap17he18e49e73ce4ba42E"(i64 %0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hf74fb176bbca28c4E"(i64 %0, ptr align 8 %1) unnamed_addr #0 {
+define i64 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hc685a92a881411b9E"(i64 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   store i64 %0, ptr %4, align 8
@@ -417,7 +417,7 @@ define i64 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hf74fb176bbca28c4E"(i64 %0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
-  call void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr align 1 @anon.011d901641f57018de1fc2aaf92a9d74.0, i64 43, ptr align 8 %1) #4
+  call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr align 1 @anon.f038820c5ad829e1128de27950e0ac9f.0, i64 43, ptr align 8 %1) #4
   unreachable
 
 10:                                               ; preds = %2
@@ -430,7 +430,7 @@ define i64 @"_ZN4core6option15Option$LT$T$GT$6unwrap17hf74fb176bbca28c4E"(i64 %0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h20560bb1d75bef2fE"(ptr align 8 %0) unnamed_addr #0 {
+define zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h09ac835e9309e33dE"(ptr align 8 %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %0, align 8, !noundef !5
@@ -442,7 +442,7 @@ define zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h20560bb1d75bef2fE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc21c97856de18c66E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9568e2ba3f440e06E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -459,7 +459,7 @@ define void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Cl
 
 11:                                               ; preds = %2
   store ptr %1, ptr %3, align 8
-  call void @"_ZN58_$LT$log..MaybeStaticStr$u20$as$u20$core..clone..Clone$GT$5clone17hc1c8a0e44480fd35E"(ptr sret({ i64, [2 x i64] }) align 8 %5, ptr align 8 %1)
+  call void @"_ZN58_$LT$log..MaybeStaticStr$u20$as$u20$core..clone..Clone$GT$5clone17h03f44d8947d00bb1E"(ptr sret({ i64, [2 x i64] }) align 8 %5, ptr align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %5, i64 24, i1 false)
   br label %12
 
@@ -471,7 +471,7 @@ define void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Cl
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { i32, i32 } @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcb2bd9fd1cf096dbE"(ptr align 4 %0) unnamed_addr #0 {
+define { i32, i32 } @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd503fd852822f693E"(ptr align 4 %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -511,7 +511,7 @@ define { i32, i32 } @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { i64, i64 } @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h129460b30251d1efE"(ptr align 8 %0) unnamed_addr #0 {
+define { i64, i64 } @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e023aac3fa4c10dE"(ptr align 8 %0) unnamed_addr #0 {
   %2 = alloca { i64, i64 }, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -543,7 +543,7 @@ define { i64, i64 } @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { i64, i64 } @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0d1d37a1a436931fE"(i64 %0, i64 %1) unnamed_addr #0 {
+define { i64, i64 } @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hddec1af15dc534bfE"(i64 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { i64, i64 }, align 8
   %4 = alloca { i64, i64 }, align 8
   %5 = alloca { i64, i64 }, align 8
@@ -576,31 +576,31 @@ define { i64, i64 } @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..i
 declare i32 @rust_eh_personality(...) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare { i64, i64 } @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h493507c37e7fd6afE"(ptr align 8, i64) unnamed_addr #0
+declare { i64, i64 } @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h63368174fa58ac9fE"(ptr align 8, i64) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17he20da2ec232b832cE"(i64, i64) unnamed_addr #0
+declare { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hb7078410a438565bE"(i64, i64) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare { i64, i64 } @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h0880a0e3aa2f3522E"(i64) unnamed_addr #0
+declare { i64, i64 } @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h4a937607be30c3aaE"(i64) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h4303f724afb9c76eE"() unnamed_addr #0
+declare { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h5b7254a4d001dffcE"() unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h8c6fc8db0c42daf2E"(i64) unnamed_addr #0
+declare hidden i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h831146a252a7a3b9E"(i64) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare void @_ZN4core3ops8function6FnOnce9call_once17hb3bfd603d2806f48E(ptr sret({ i64, [2 x i64] }) align 8, ptr align 1, i64) unnamed_addr #0
+declare void @_ZN4core3ops8function6FnOnce9call_once17h04481f3551d64dbbE(ptr sret({ i64, [2 x i64] }) align 8, ptr align 1, i64) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr align 1, i64, ptr align 8) unnamed_addr #3
+declare void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr align 1, i64, ptr align 8) unnamed_addr #3
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @"_ZN58_$LT$log..MaybeStaticStr$u20$as$u20$core..clone..Clone$GT$5clone17hc1c8a0e44480fd35E"(ptr sret({ i64, [2 x i64] }) align 8, ptr align 8) unnamed_addr #0
+declare hidden void @"_ZN58_$LT$log..MaybeStaticStr$u20$as$u20$core..clone..Clone$GT$5clone17h03f44d8947d00bb1E"(ptr sret({ i64, [2 x i64] }) align 8, ptr align 8) unnamed_addr #0
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind "target-cpu"="x86-64" }
@@ -615,7 +615,7 @@ attributes #4 = { noreturn }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 2, !"Dwarf Version", i32 4}
 !3 = !{i32 2, !"Debug Info Version", i32 3}
-!4 = !{!"rustc version 1.75.0 (82e1608df 2023-12-21)"}
+!4 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !5 = !{}
 !6 = !{i64 1}
 !7 = !{i64 0, i64 2}

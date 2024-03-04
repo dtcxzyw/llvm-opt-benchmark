@@ -2,7 +2,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { i64, i64 } @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h0880a0e3aa2f3522E"(i64 %0) unnamed_addr #0 {
+define { i64, i64 } @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h4a937607be30c3aaE"(i64 %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca { i64, i64 }, align 8
   %4 = alloca i64, align 8
@@ -22,7 +22,7 @@ define { i64, i64 } @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$G
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define zeroext i1 @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h0b4df76450a6ca8dE"() unnamed_addr #0 {
+define zeroext i1 @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hbf652f8d22fbbdddE"() unnamed_addr #0 {
   %1 = alloca i8, align 1
   store i8 1, ptr %1, align 1
   %2 = load i8, ptr %1, align 1, !range !7, !noundef !5
@@ -31,7 +31,7 @@ define zeroext i1 @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h60bc0937792d9af9E"(ptr align 1 %0, ptr align 1 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h38490fc8119b1c9bE"(ptr align 1 %0, ptr align 1 %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -82,7 +82,7 @@ define zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$
   store ptr %34, ptr %5, align 8
   %35 = getelementptr i8, ptr %0, i64 1
   %36 = getelementptr i8, ptr %1, i64 1
-  %37 = call zeroext i1 @"_ZN4core3cmp5impls59_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$$RP$$GT$2eq17h078eff96e4191cabE"(ptr align 1 %35, ptr align 1 %36)
+  %37 = call zeroext i1 @"_ZN4core3cmp5impls59_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$$RP$$GT$2eq17h93c4f3ebc1c84460E"(ptr align 1 %35, ptr align 1 %36)
   %38 = zext i1 %37 to i8
   store i8 %38, ptr %11, align 1
   br label %25
@@ -99,7 +99,7 @@ define zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$
   store ptr %45, ptr %3, align 8
   %46 = getelementptr i8, ptr %0, i64 1
   %47 = getelementptr i8, ptr %1, i64 1
-  %48 = call zeroext i1 @"_ZN4core3cmp5impls59_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$$RP$$GT$2eq17h078eff96e4191cabE"(ptr align 1 %46, ptr align 1 %47)
+  %48 = call zeroext i1 @"_ZN4core3cmp5impls59_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$$RP$$GT$2eq17h93c4f3ebc1c84460E"(ptr align 1 %46, ptr align 1 %47)
   %49 = zext i1 %48 to i8
   store i8 %49, ptr %11, align 1
   br label %25
@@ -109,7 +109,16 @@ define zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h4303f724afb9c76eE"() unnamed_addr #0 {
+define zeroext i1 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h493ae1dfeb1ce7e9E"() unnamed_addr #0 {
+  %1 = alloca i8, align 1
+  store i8 0, ptr %1, align 1
+  %2 = load i8, ptr %1, align 1, !range !7, !noundef !5
+  %3 = trunc i8 %2 to i1
+  ret i1 %3
+}
+
+; Function Attrs: inlinehint nonlazybind uwtable
+define { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h5b7254a4d001dffcE"() unnamed_addr #0 {
   %1 = alloca { i64, i64 }, align 8
   store i64 0, ptr %1, align 8
   %2 = getelementptr inbounds { i64, i64 }, ptr %1, i32 0, i32 0
@@ -122,16 +131,7 @@ define { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define zeroext i1 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h4f900756a1c6c787E"() unnamed_addr #0 {
-  %1 = alloca i8, align 1
-  store i8 0, ptr %1, align 1
-  %2 = load i8, ptr %1, align 1, !range !7, !noundef !5
-  %3 = trunc i8 %2 to i1
-  ret i1 %3
-}
-
-; Function Attrs: inlinehint nonlazybind uwtable
-define zeroext i1 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h2294aacb7f18dd55E"(i1 zeroext %0) unnamed_addr #0 {
+define zeroext i1 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h369214189fcbbeedE"(i1 zeroext %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = zext i1 %0 to i8
@@ -160,7 +160,7 @@ define zeroext i1 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17he20da2ec232b832cE"(i64 %0, i64 %1) unnamed_addr #0 {
+define { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hb7078410a438565bE"(i64 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca { i64, i64 }, align 8
@@ -205,7 +205,7 @@ define { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT
 declare void @llvm.assume(i1 noundef) #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden zeroext i1 @"_ZN4core3cmp5impls59_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$$RP$$GT$2eq17h078eff96e4191cabE"(ptr align 1, ptr align 1) unnamed_addr #0
+declare hidden zeroext i1 @"_ZN4core3cmp5impls59_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$$RP$$GT$2eq17h93c4f3ebc1c84460E"(ptr align 1, ptr align 1) unnamed_addr #0
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
@@ -217,7 +217,7 @@ attributes #1 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 2, !"Dwarf Version", i32 4}
 !3 = !{i32 2, !"Debug Info Version", i32 3}
-!4 = !{!"rustc version 1.75.0 (82e1608df 2023-12-21)"}
+!4 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !5 = !{}
 !6 = !{i64 0, i64 2}
 !7 = !{i8 0, i8 2}

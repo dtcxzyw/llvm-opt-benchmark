@@ -1,22 +1,22 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-@anon.ce92690768c7cf7be80de2163cfc7865.0 = private unnamed_addr constant <{ [73 x i8] }> <{ [73 x i8] c"assertion failed: 0 < pointee_size && pointee_size <= isize::MAX as usize" }>, align 1
-@anon.ce92690768c7cf7be80de2163cfc7865.1 = private unnamed_addr constant <{ [81 x i8] }> <{ [81 x i8] c"/rustc/82e1608dfa6e0b5569232559e3d385fea5a93112/library/core/src/ptr/const_ptr.rs" }>, align 1
-@anon.ce92690768c7cf7be80de2163cfc7865.2 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.ce92690768c7cf7be80de2163cfc7865.1, [16 x i8] c"Q\00\00\00\00\00\00\003\03\00\00\09\00\00\00" }>, align 8
+@anon.b50a3080033301d1245f550eebd35333.0 = private unnamed_addr constant <{ [73 x i8] }> <{ [73 x i8] c"assertion failed: 0 < pointee_size && pointee_size <= isize::MAX as usize" }>, align 1
+@anon.b50a3080033301d1245f550eebd35333.1 = private unnamed_addr constant <{ [81 x i8] }> <{ [81 x i8] c"/rustc/07dca489ac2d933c78d3c5158e3f43beefeb02ce/library/core/src/ptr/const_ptr.rs" }>, align 1
+@anon.b50a3080033301d1245f550eebd35333.2 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.b50a3080033301d1245f550eebd35333.1, [16 x i8] c"Q\00\00\00\00\00\00\004\03\00\00\09\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17hf03123a90a89a8dcE(ptr align 8 %0) unnamed_addr #0 {
+define i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h6396c15d60950a31E(ptr align 8 %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca { i64, { i64, i64 } }, align 8
   store ptr %0, ptr %2, align 8
-  call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf025befe5c8fdd3cE"(ptr sret({ i64, { i64, i64 } }) align 8 %3, ptr align 8 %0)
+  call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5561820fee2dff77E"(ptr sret({ i64, { i64, i64 } }) align 8 %3, ptr align 8 %0)
   %4 = load i64, ptr %3, align 8, !noundef !5
   ret i64 %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, ptr } @"_ZN4core5slice4iter87_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$$RF$$u5b$T$u5d$$GT$9into_iter17h6abcffa045061360E"(ptr align 1 %0, i64 %1) unnamed_addr #0 {
+define { ptr, ptr } @"_ZN4core5slice4iter87_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$$RF$$u5b$T$u5d$$GT$9into_iter17hcb9c9f6e566ada93E"(ptr align 1 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -62,7 +62,7 @@ define { ptr, ptr } @"_ZN4core5slice4iter87_$LT$impl$u20$core..iter..traits..col
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 1 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h4a66e3e0b59668c0E"(ptr align 8 %0, i64 %1) unnamed_addr #1 {
+define align 1 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h7f3d5a0ceec2122eE"(ptr align 8 %0, i64 %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -77,7 +77,7 @@ define align 1 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h730a60252dee05efE"(ptr align 8 %0) unnamed_addr #1 {
+define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6dba21e204446bd7E"(ptr align 8 %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -87,8 +87,8 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
@@ -98,99 +98,95 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %19 = alloca ptr, align 8
   %20 = alloca ptr, align 8
   %21 = alloca ptr, align 8
-  %22 = alloca ptr, align 8
-  %23 = alloca i8, align 1
-  %24 = alloca ptr, align 8
+  %22 = alloca i8, align 1
+  %23 = alloca ptr, align 8
+  %24 = alloca i64, align 8
   %25 = alloca i64, align 8
   %26 = alloca i64, align 8
-  %27 = alloca i64, align 8
-  %28 = alloca i64, align 8
-  store i64 1, ptr %28, align 8
-  store i64 1, ptr %27, align 8
   store i64 1, ptr %26, align 8
   store i64 1, ptr %25, align 8
-  store ptr %0, ptr %19, align 8
-  br i1 false, label %36, label %29
+  store i64 1, ptr %24, align 8
+  store ptr %0, ptr %18, align 8
+  br i1 false, label %34, label %27
 
-29:                                               ; preds = %1
-  %30 = getelementptr inbounds { ptr, ptr }, ptr %0, i32 0, i32 1
-  store ptr %30, ptr %18, align 8
-  %31 = load ptr, ptr %30, align 8, !nonnull !5, !noundef !5
-  store ptr %31, ptr %22, align 8
-  store ptr %0, ptr %17, align 8
-  store ptr %22, ptr %16, align 8
-  %32 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
-  store ptr %32, ptr %15, align 8
-  %33 = load ptr, ptr %22, align 8, !nonnull !5, !noundef !5
-  store ptr %33, ptr %14, align 8
-  %34 = icmp eq ptr %32, %33
-  %35 = zext i1 %34 to i8
-  store i8 %35, ptr %23, align 1
-  br label %42
+27:                                               ; preds = %1
+  %28 = getelementptr inbounds { ptr, ptr }, ptr %0, i32 0, i32 1
+  store ptr %28, ptr %17, align 8
+  %29 = load ptr, ptr %28, align 8, !nonnull !5, !noundef !5
+  store ptr %29, ptr %21, align 8
+  store ptr %0, ptr %16, align 8
+  store ptr %21, ptr %15, align 8
+  %30 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
+  store ptr %30, ptr %14, align 8
+  %31 = load ptr, ptr %21, align 8, !nonnull !5, !noundef !5
+  store ptr %31, ptr %13, align 8
+  %32 = icmp eq ptr %30, %31
+  %33 = zext i1 %32 to i8
+  store i8 %33, ptr %22, align 1
+  br label %40
 
-36:                                               ; preds = %1
-  %37 = getelementptr inbounds { ptr, ptr }, ptr %0, i32 0, i32 1
-  %38 = load ptr, ptr %37, align 8, !noundef !5
-  store ptr %38, ptr %13, align 8
-  %39 = ptrtoint ptr %38 to i64
-  store i64 %39, ptr %12, align 8
-  %40 = icmp eq i64 %39, 0
-  %41 = zext i1 %40 to i8
-  store i8 %41, ptr %23, align 1
-  br label %42
+34:                                               ; preds = %1
+  %35 = getelementptr inbounds { ptr, ptr }, ptr %0, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8, !noundef !5
+  store ptr %36, ptr %12, align 8
+  %37 = ptrtoint ptr %36 to i64
+  store i64 %37, ptr %11, align 8
+  %38 = icmp eq i64 %37, 0
+  %39 = zext i1 %38 to i8
+  store i8 %39, ptr %22, align 1
+  br label %40
 
-42:                                               ; preds = %36, %29
-  %43 = load i8, ptr %23, align 1, !range !6, !noundef !5
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %47, label %45
+40:                                               ; preds = %34, %27
+  %41 = load i8, ptr %22, align 1, !range !6, !noundef !5
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %45, label %43
 
-45:                                               ; preds = %42
-  %46 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
-  store ptr %46, ptr %21, align 8
-  br i1 false, label %53, label %48
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
+  store ptr %44, ptr %20, align 8
+  br i1 false, label %51, label %46
 
-47:                                               ; preds = %42
-  store ptr null, ptr %24, align 8
-  br label %59
-
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds { ptr, ptr }, ptr %0, i32 0, i32 1
-  store ptr %49, ptr %11, align 8
-  store ptr %49, ptr %10, align 8
-  %50 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
-  store ptr %50, ptr %9, align 8
-  store ptr %50, ptr %8, align 8
-  %51 = getelementptr inbounds { ptr, i64 }, ptr %50, i64 1
-  store ptr %51, ptr %20, align 8
-  %52 = load ptr, ptr %20, align 8, !nonnull !5, !noundef !5
-  store ptr %52, ptr %0, align 8
+45:                                               ; preds = %40
+  store ptr null, ptr %23, align 8
   br label %57
 
-53:                                               ; preds = %45
-  %54 = getelementptr inbounds { ptr, ptr }, ptr %0, i32 0, i32 1
-  store ptr %54, ptr %7, align 8
-  store ptr %54, ptr %6, align 8
-  %55 = load i64, ptr %54, align 8, !noundef !5
-  store i64 %55, ptr %5, align 8
-  %56 = sub nuw i64 %55, 1
-  store i64 %56, ptr %54, align 8
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds { ptr, ptr }, ptr %0, i32 0, i32 1
+  store ptr %47, ptr %10, align 8
+  store ptr %47, ptr %9, align 8
+  %48 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
+  store ptr %48, ptr %8, align 8
+  %49 = getelementptr inbounds { ptr, i64 }, ptr %48, i64 1
+  store ptr %49, ptr %19, align 8
+  %50 = load ptr, ptr %19, align 8, !nonnull !5, !noundef !5
+  store ptr %50, ptr %0, align 8
+  br label %55
+
+51:                                               ; preds = %43
+  %52 = getelementptr inbounds { ptr, ptr }, ptr %0, i32 0, i32 1
+  store ptr %52, ptr %7, align 8
+  store ptr %52, ptr %6, align 8
+  %53 = load i64, ptr %52, align 8, !noundef !5
+  store i64 %53, ptr %5, align 8
+  %54 = sub nuw i64 %53, 1
+  store i64 %54, ptr %52, align 8
+  br label %55
+
+55:                                               ; preds = %51, %46
+  store ptr %20, ptr %4, align 8
+  %56 = load ptr, ptr %20, align 8, !nonnull !5, !noundef !5
+  store ptr %56, ptr %3, align 8
+  store ptr %56, ptr %2, align 8
+  store ptr %56, ptr %23, align 8
   br label %57
 
-57:                                               ; preds = %53, %48
-  store ptr %21, ptr %4, align 8
-  %58 = load ptr, ptr %21, align 8, !nonnull !5, !noundef !5
-  store ptr %58, ptr %3, align 8
-  store ptr %58, ptr %2, align 8
-  store ptr %58, ptr %24, align 8
-  br label %59
-
-59:                                               ; preds = %57, %47
-  %60 = load ptr, ptr %24, align 8, !align !7, !noundef !5
-  ret ptr %60
+57:                                               ; preds = %55, %45
+  %58 = load ptr, ptr %23, align 8, !align !7, !noundef !5
+  ret ptr %58
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h36ba9f3e6f4a52b6E"(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h5cc96ce75801af92E"(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -237,7 +233,7 @@ define { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core
   br label %51
 
 31:                                               ; preds = %32, %23
-  invoke void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr align 1 @anon.ce92690768c7cf7be80de2163cfc7865.0, i64 73, ptr align 8 @anon.ce92690768c7cf7be80de2163cfc7865.2) #6
+  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr align 1 @anon.b50a3080033301d1245f550eebd35333.0, i64 73, ptr align 8 @anon.b50a3080033301d1245f550eebd35333.2) #6
           to label %50 unwind label %44
 
 32:                                               ; preds = %23
@@ -278,7 +274,7 @@ define { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core
   br label %52
 
 52:                                               ; preds = %76, %51
-  %53 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h730a60252dee05efE"(ptr align 8 %0)
+  %53 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6dba21e204446bd7E"(ptr align 8 %0)
           to label %54 unwind label %44
 
 54:                                               ; preds = %52
@@ -295,7 +291,7 @@ define { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core
   store ptr %61, ptr %4, align 8
   store ptr %61, ptr %15, align 8
   %62 = load ptr, ptr %15, align 8, !nonnull !5, !align !7, !noundef !5
-  %63 = invoke zeroext i1 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h636801f14c2525a4E"(ptr align 8 %20, ptr align 8 %62)
+  %63 = invoke zeroext i1 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h905847ef48892185E"(ptr align 8 %20, ptr align 8 %62)
           to label %65 unwind label %44
 
 64:                                               ; preds = %54
@@ -337,7 +333,7 @@ define { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd9aba129d9d38f42E"(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h697aef78370445c6E"(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -384,7 +380,7 @@ define { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core
   br label %51
 
 31:                                               ; preds = %32, %23
-  invoke void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr align 1 @anon.ce92690768c7cf7be80de2163cfc7865.0, i64 73, ptr align 8 @anon.ce92690768c7cf7be80de2163cfc7865.2) #6
+  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr align 1 @anon.b50a3080033301d1245f550eebd35333.0, i64 73, ptr align 8 @anon.b50a3080033301d1245f550eebd35333.2) #6
           to label %50 unwind label %44
 
 32:                                               ; preds = %23
@@ -425,7 +421,7 @@ define { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core
   br label %52
 
 52:                                               ; preds = %76, %51
-  %53 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h730a60252dee05efE"(ptr align 8 %0)
+  %53 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6dba21e204446bd7E"(ptr align 8 %0)
           to label %54 unwind label %44
 
 54:                                               ; preds = %52
@@ -442,7 +438,7 @@ define { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core
   store ptr %61, ptr %4, align 8
   store ptr %61, ptr %15, align 8
   %62 = load ptr, ptr %15, align 8, !nonnull !5, !align !7, !noundef !5
-  %63 = invoke zeroext i1 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17he1f78a9456c432a2E"(ptr align 8 %20, ptr align 8 %62)
+  %63 = invoke zeroext i1 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h68e7ce33b976eb8dE"(ptr align 8 %20, ptr align 8 %62)
           to label %65 unwind label %44
 
 64:                                               ; preds = %54
@@ -484,7 +480,7 @@ define { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf025befe5c8fdd3cE"(ptr sret({ i64, { i64, i64 } }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5561820fee2dff77E"(ptr sret({ i64, { i64, i64 } }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -521,7 +517,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
   br label %29
 
 22:                                               ; preds = %23, %14
-  call void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr align 1 @anon.ce92690768c7cf7be80de2163cfc7865.0, i64 73, ptr align 8 @anon.ce92690768c7cf7be80de2163cfc7865.2) #6
+  call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr align 1 @anon.b50a3080033301d1245f550eebd35333.0, i64 73, ptr align 8 @anon.b50a3080033301d1245f550eebd35333.2) #6
   unreachable
 
 23:                                               ; preds = %14
@@ -558,10 +554,10 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 declare i32 @rust_eh_personality(...) unnamed_addr #2
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr align 1, i64, ptr align 8) unnamed_addr #3
+declare void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr align 1, i64, ptr align 8) unnamed_addr #3
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden zeroext i1 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h636801f14c2525a4E"(ptr align 8, ptr align 8) unnamed_addr #1
+declare hidden zeroext i1 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h905847ef48892185E"(ptr align 8, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #4
@@ -570,7 +566,7 @@ declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #4
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden zeroext i1 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17he1f78a9456c432a2E"(ptr align 8, ptr align 8) unnamed_addr #1
+declare hidden zeroext i1 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h68e7ce33b976eb8dE"(ptr align 8, ptr align 8) unnamed_addr #1
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -587,7 +583,7 @@ attributes #6 = { noreturn }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 2, !"Dwarf Version", i32 4}
 !3 = !{i32 2, !"Debug Info Version", i32 3}
-!4 = !{!"rustc version 1.75.0 (82e1608df 2023-12-21)"}
+!4 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !5 = !{}
 !6 = !{i8 0, i8 2}
 !7 = !{i64 8}

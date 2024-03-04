@@ -1,15 +1,15 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-@anon.2d591f337110b27db3cd4eb5ef34e608.0 = private unnamed_addr constant <{ [12 x i8] }> <{ [12 x i8] c"invalid args" }>, align 1
-@anon.2d591f337110b27db3cd4eb5ef34e608.1 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.2d591f337110b27db3cd4eb5ef34e608.0, [8 x i8] c"\0C\00\00\00\00\00\00\00" }>, align 8
-@anon.2d591f337110b27db3cd4eb5ef34e608.2 = private unnamed_addr constant <{}> zeroinitializer, align 8
-@anon.2d591f337110b27db3cd4eb5ef34e608.3 = private unnamed_addr constant <{ [75 x i8] }> <{ [75 x i8] c"/rustc/82e1608dfa6e0b5569232559e3d385fea5a93112/library/core/src/fmt/mod.rs" }>, align 1
-@anon.2d591f337110b27db3cd4eb5ef34e608.4 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.2d591f337110b27db3cd4eb5ef34e608.3, [16 x i8] c"K\00\00\00\00\00\00\00M\01\00\00\0D\00\00\00" }>, align 8
-@anon.2d591f337110b27db3cd4eb5ef34e608.5 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.2d591f337110b27db3cd4eb5ef34e608.3, [16 x i8] c"K\00\00\00\00\00\00\00C\01\00\00\0D\00\00\00" }>, align 8
+@anon.49db38112561b061624aa133aa5ff197.0 = private unnamed_addr constant <{ [12 x i8] }> <{ [12 x i8] c"invalid args" }>, align 1
+@anon.49db38112561b061624aa133aa5ff197.1 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.49db38112561b061624aa133aa5ff197.0, [8 x i8] c"\0C\00\00\00\00\00\00\00" }>, align 8
+@anon.49db38112561b061624aa133aa5ff197.2 = private unnamed_addr constant <{}> zeroinitializer, align 8
+@anon.49db38112561b061624aa133aa5ff197.3 = private unnamed_addr constant <{ [75 x i8] }> <{ [75 x i8] c"/rustc/07dca489ac2d933c78d3c5158e3f43beefeb02ce/library/core/src/fmt/mod.rs" }>, align 1
+@anon.49db38112561b061624aa133aa5ff197.4 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.49db38112561b061624aa133aa5ff197.3, [16 x i8] c"K\00\00\00\00\00\00\00M\01\00\00\0D\00\00\00" }>, align 8
+@anon.49db38112561b061624aa133aa5ff197.5 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.49db38112561b061624aa133aa5ff197.3, [16 x i8] c"K\00\00\00\00\00\00\00C\01\00\00\0D\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3fmt9Arguments6new_v117h354229d12b1cc346E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %0, ptr align 8 %1, i64 %2, ptr align 8 %3, i64 %4) unnamed_addr #0 {
+define hidden void @_ZN4core3fmt9Arguments6new_v117hfd7f892edbc355e6E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %0, ptr align 8 %1, i64 %2, ptr align 8 %3, i64 %4) unnamed_addr #0 {
   %6 = alloca { ptr, i64 }, align 8
   %7 = alloca { ptr, i64 }, align 8
   %8 = alloca { ptr, i64 }, align 8
@@ -59,12 +59,12 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h354229d12b1cc346E(ptr sret({
 
 34:                                               ; preds = %20, %17
   %35 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 0
-  store ptr @anon.2d591f337110b27db3cd4eb5ef34e608.1, ptr %35, align 8
+  store ptr @anon.49db38112561b061624aa133aa5ff197.1, ptr %35, align 8
   %36 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 1
   store i64 1, ptr %36, align 8
   store ptr null, ptr %9, align 8
   %37 = getelementptr inbounds { ptr, i64 }, ptr %11, i32 0, i32 0
-  store ptr @anon.2d591f337110b27db3cd4eb5ef34e608.1, ptr %37, align 8
+  store ptr @anon.49db38112561b061624aa133aa5ff197.1, ptr %37, align 8
   %38 = getelementptr inbounds { ptr, i64 }, ptr %11, i32 0, i32 1
   store i64 1, ptr %38, align 8
   %39 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 0
@@ -78,15 +78,15 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h354229d12b1cc346E(ptr sret({
   store i64 %42, ptr %45, align 8
   %46 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %11, i32 0, i32 1
   %47 = getelementptr inbounds { ptr, i64 }, ptr %46, i32 0, i32 0
-  store ptr @anon.2d591f337110b27db3cd4eb5ef34e608.2, ptr %47, align 8
+  store ptr @anon.49db38112561b061624aa133aa5ff197.2, ptr %47, align 8
   %48 = getelementptr inbounds { ptr, i64 }, ptr %46, i32 0, i32 1
   store i64 0, ptr %48, align 8
-  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr align 8 %11, ptr align 8 @anon.2d591f337110b27db3cd4eb5ef34e608.4) #3
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr align 8 %11, ptr align 8 @anon.49db38112561b061624aa133aa5ff197.4) #3
   unreachable
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3fmt9Arguments9new_const17h655f237c251b95c4E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %0, ptr align 8 %1, i64 %2) unnamed_addr #0 {
+define hidden void @_ZN4core3fmt9Arguments9new_const17h612caa91f98b5834E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %0, ptr align 8 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { ptr, i64 }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -114,19 +114,19 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h655f237c251b95c4E(ptr sre
   store i64 %16, ptr %19, align 8
   %20 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %0, i32 0, i32 1
   %21 = getelementptr inbounds { ptr, i64 }, ptr %20, i32 0, i32 0
-  store ptr @anon.2d591f337110b27db3cd4eb5ef34e608.2, ptr %21, align 8
+  store ptr @anon.49db38112561b061624aa133aa5ff197.2, ptr %21, align 8
   %22 = getelementptr inbounds { ptr, i64 }, ptr %20, i32 0, i32 1
   store i64 0, ptr %22, align 8
   ret void
 
 23:                                               ; preds = %3
-  call void @_ZN4core3fmt9Arguments9new_const17h655f237c251b95c4E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr align 8 @anon.2d591f337110b27db3cd4eb5ef34e608.1, i64 1)
-  call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr align 8 %6, ptr align 8 @anon.2d591f337110b27db3cd4eb5ef34e608.5) #3
+  call void @_ZN4core3fmt9Arguments9new_const17h612caa91f98b5834E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr align 8 @anon.49db38112561b061624aa133aa5ff197.1, i64 1)
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr align 8 %6, ptr align 8 @anon.49db38112561b061624aa133aa5ff197.5) #3
   unreachable
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN59_$LT$core..fmt..Arguments$u20$as$u20$core..clone..Clone$GT$5clone17hd31ccb1bc73a860dE"(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden void @"_ZN59_$LT$core..fmt..Arguments$u20$as$u20$core..clone..Clone$GT$5clone17hb19338062c08b76cE"(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %1, i64 48, i1 false)
@@ -134,7 +134,7 @@ define hidden void @"_ZN59_$LT$core..fmt..Arguments$u20$as$u20$core..clone..Clon
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr align 8, ptr align 8) unnamed_addr #1
+declare void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr align 8, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
@@ -151,6 +151,6 @@ attributes #3 = { noreturn }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 2, !"Dwarf Version", i32 4}
 !3 = !{i32 2, !"Debug Info Version", i32 3}
-!4 = !{!"rustc version 1.75.0 (82e1608df 2023-12-21)"}
+!4 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !5 = !{i64 8}
 !6 = !{}
