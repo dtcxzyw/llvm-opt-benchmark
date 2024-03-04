@@ -274,3 +274,6 @@
 [submodule "bench/quickjs/quickjs"]
 	path = bench/quickjs/quickjs
 	url = git@github.com:bellard/quickjs.git
+[submodule "bench/sqlite/sqlite"]
+	path = bench/sqlite/sqlite
+	url = git@github.com:sqlite/sqlite.git
