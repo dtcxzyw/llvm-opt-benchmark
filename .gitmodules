@@ -301,3 +301,6 @@
 [submodule "bench/hwloc/hwloc"]
 	path = bench/hwloc/hwloc
 	url = git@github.com:open-mpi/hwloc.git
+[submodule "bench/openmpi/ompi"]
+	path = bench/openmpi/ompi
+	url = git@github.com:open-mpi/ompi.git

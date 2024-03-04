@@ -1,0 +1,344 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.mca_io_base_component_2_0_0_t = type { %struct.mca_base_component_2_1_0_t, %struct.mca_base_component_data_2_0_0_t, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.mca_base_component_2_1_0_t = type { i32, i32, i32, [16 x i8], i32, i32, i32, [32 x i8], i32, i32, i32, [64 x i8], i32, i32, i32, ptr, ptr, ptr, ptr, i32, [28 x i8] }
+%struct.mca_base_component_data_2_0_0_t = type { i32, [32 x i8] }
+%struct.mca_io_base_module_2_0_0_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.opal_mutex_t = type { %struct.opal_object_t, %union.pthread_mutex_t, i32 }
+%struct.opal_object_t = type { ptr, i32 }
+%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
+%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
+%struct.__pthread_internal_list = type { ptr, ptr }
+%struct.opal_class_t = type { ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i64 }
+
+@mca_io_ompio_cycle_buffer_size = global i32 536870912, align 4
+@mca_io_ompio_pipeline_buffer_size = global i32 1048576, align 4
+@mca_io_ompio_bytes_per_agg = global i32 33554432, align 4
+@mca_io_ompio_num_aggregators = global i32 -1, align 4
+@mca_io_ompio_record_offset_info = global i32 0, align 4
+@mca_io_ompio_coll_timing_info = global i32 0, align 4
+@mca_io_ompio_max_aggregators_ratio = global i32 8, align 4
+@mca_io_ompio_aggregators_cutoff_threshold = global i32 3, align 4
+@mca_io_ompio_overwrite_amode = global i32 1, align 4
+@mca_io_ompio_verbose_info_parsing = global i32 0, align 4
+@mca_io_ompio_grouping_option = global i32 5, align 4
+@.str = private unnamed_addr constant [48 x i8] c"OMPI/MPI OMPIO io MCA component version 5.1.0a1\00", align 1
+@mca_io_ompio_component_version_string = global ptr @.str, align 8
+@mca_io_ompio_component = global %struct.mca_io_base_component_2_0_0_t { %struct.mca_base_component_2_1_0_t { i32 2, i32 1, i32 0, [16 x i8] c"ompi\00\00\00\00\00\00\00\00\00\00\00\00", i32 5, i32 1, i32 0, [32 x i8] c"io\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", i32 2, i32 0, i32 0, [64 x i8] c"ompio\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", i32 5, i32 1, i32 0, ptr @open_component, ptr @close_component, ptr null, ptr @register_component, i32 0, [28 x i8] zeroinitializer }, %struct.mca_base_component_data_2_0_0_t { i32 2, [32 x i8] zeroinitializer }, ptr @init_query, ptr @file_query, ptr @file_unquery, ptr @delete_query, ptr null, ptr @delete_select, ptr @register_datarep }, align 8
+@priority_param = internal global i32 30, align 4
+@.str.1 = private unnamed_addr constant [9 x i8] c"priority\00", align 1
+@.str.2 = private unnamed_addr constant [35 x i8] c"Priority of the io ompio component\00", align 1
+@delete_priority_param = internal global i32 30, align 4
+@.str.3 = private unnamed_addr constant [16 x i8] c"delete_priority\00", align 1
+@.str.4 = private unnamed_addr constant [42 x i8] c"Delete priority of the io ompio component\00", align 1
+@.str.5 = private unnamed_addr constant [24 x i8] c"record_file_offset_info\00", align 1
+@.str.6 = private unnamed_addr constant [42 x i8] c"The information of the file offset/length\00", align 1
+@.str.7 = private unnamed_addr constant [17 x i8] c"coll_timing_info\00", align 1
+@.str.8 = private unnamed_addr constant [47 x i8] c"Enable collective algorithm timing information\00", align 1
+@.str.9 = private unnamed_addr constant [18 x i8] c"cycle_buffer_size\00", align 1
+@.str.10 = private unnamed_addr constant [53 x i8] c"Data size issued by individual reads/writes per call\00", align 1
+@.str.11 = private unnamed_addr constant [21 x i8] c"pipeline_buffer_size\00", align 1
+@.str.12 = private unnamed_addr constant [82 x i8] c"Size of temporary buffer used by individual reads/writes in the pipeline protocol\00", align 1
+@.str.13 = private unnamed_addr constant [14 x i8] c"bytes_per_agg\00", align 1
+@.str.14 = private unnamed_addr constant [55 x i8] c"Size of temporary buffer for collective I/O operations\00", align 1
+@.str.15 = private unnamed_addr constant [16 x i8] c"num_aggregators\00", align 1
+@.str.16 = private unnamed_addr constant [52 x i8] c"number of aggregators for collective I/O operations\00", align 1
+@.str.17 = private unnamed_addr constant [16 x i8] c"grouping_option\00", align 1
+@.str.18 = private unnamed_addr constant [272 x i8] c"Option for grouping of processes in the aggregator selection 1: Data volume based grouping 2: maximizing group size uniformity 3: maximimze data contiguity 4: hybrid optimization  5: simple (default) 6: skip refinement step 7: simple+: grouping based on default file view\00", align 1
+@.str.19 = private unnamed_addr constant [22 x i8] c"max_aggregators_ratio\00", align 1
+@.str.20 = private unnamed_addr constant [217 x i8] c"Maximum number of processes that can be an aggregator expressed as the ratio to the number of process used to open the file i.e 1 out of n processes can be an aggregator, with n being specified by this mca parameter.\00", align 1
+@.str.21 = private unnamed_addr constant [29 x i8] c"aggregators_cutoff_threshold\00", align 1
+@.str.22 = private unnamed_addr constant [190 x i8] c"Relative cutoff threshold for incrementing the number of aggregators in the simple aggregator selection algorithm (5). Lower value for this parameter will lead to higher no. of aggregators.\00", align 1
+@.str.23 = private unnamed_addr constant [16 x i8] c"overwrite_amode\00", align 1
+@.str.24 = private unnamed_addr constant [134 x i8] c"Overwrite WRONLY amode to RDWR to enable data sieving 1: allow overwrite (default) 0: do not overwrite amode provided by application \00", align 1
+@.str.25 = private unnamed_addr constant [21 x i8] c"verbose_info_parsing\00", align 1
+@.str.26 = private unnamed_addr constant [139 x i8] c"Provide visual output when parsing info objects 0: no verbose output (default) 1: verbose output by rank 0 2: verbose output by all ranks \00", align 1
+@mca_io_ompio_module = external global %struct.mca_io_base_module_2_0_0_t, align 8
+@opal_uses_threads = external global i8, align 1
+@mca_io_ompio_mutex = internal global %struct.opal_mutex_t { %struct.opal_object_t { ptr @opal_mutex_t_class, i32 1 }, %union.pthread_mutex_t zeroinitializer, i32 0 }, align 8
+@opal_mutex_t_class = external global %struct.opal_class_t, align 8
+
+; Function Attrs: nounwind uwtable
+define internal i32 @open_component() #0 {
+  call void @mca_common_ompio_request_init()
+  %1 = call i32 @mca_common_ompio_set_callbacks(ptr noundef @ompi_io_ompio_generate_current_file_view, ptr noundef @mca_io_ompio_get_mca_parameter_value)
+  ret i32 %1
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @close_component() #0 {
+  call void @mca_common_ompio_request_fini()
+  %1 = call i32 @mca_common_ompio_buffer_alloc_fini()
+  ret i32 0
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @register_component() #0 {
+  store i32 30, ptr @priority_param, align 4
+  %1 = call i32 @mca_base_component_var_register(ptr noundef @mca_io_ompio_component, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @priority_param)
+  store i32 30, ptr @delete_priority_param, align 4
+  %2 = call i32 @mca_base_component_var_register(ptr noundef @mca_io_ompio_component, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @delete_priority_param)
+  store i32 0, ptr @mca_io_ompio_record_offset_info, align 4
+  %3 = call i32 @mca_base_component_var_register(ptr noundef @mca_io_ompio_component, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_io_ompio_record_offset_info)
+  store i32 0, ptr @mca_io_ompio_coll_timing_info, align 4
+  %4 = call i32 @mca_base_component_var_register(ptr noundef @mca_io_ompio_component, ptr noundef @.str.7, ptr noundef @.str.8, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_io_ompio_coll_timing_info)
+  store i32 536870912, ptr @mca_io_ompio_cycle_buffer_size, align 4
+  %5 = call i32 @mca_base_component_var_register(ptr noundef @mca_io_ompio_component, ptr noundef @.str.9, ptr noundef @.str.10, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_io_ompio_cycle_buffer_size)
+  store i32 1048576, ptr @mca_io_ompio_pipeline_buffer_size, align 4
+  %6 = call i32 @mca_base_component_var_register(ptr noundef @mca_io_ompio_component, ptr noundef @.str.11, ptr noundef @.str.12, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_io_ompio_pipeline_buffer_size)
+  store i32 33554432, ptr @mca_io_ompio_bytes_per_agg, align 4
+  %7 = call i32 @mca_base_component_var_register(ptr noundef @mca_io_ompio_component, ptr noundef @.str.13, ptr noundef @.str.14, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_io_ompio_bytes_per_agg)
+  store i32 -1, ptr @mca_io_ompio_num_aggregators, align 4
+  %8 = call i32 @mca_base_component_var_register(ptr noundef @mca_io_ompio_component, ptr noundef @.str.15, ptr noundef @.str.16, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_io_ompio_num_aggregators)
+  store i32 5, ptr @mca_io_ompio_grouping_option, align 4
+  %9 = call i32 @mca_base_component_var_register(ptr noundef @mca_io_ompio_component, ptr noundef @.str.17, ptr noundef @.str.18, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_io_ompio_grouping_option)
+  store i32 8, ptr @mca_io_ompio_max_aggregators_ratio, align 4
+  %10 = call i32 @mca_base_component_var_register(ptr noundef @mca_io_ompio_component, ptr noundef @.str.19, ptr noundef @.str.20, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_io_ompio_max_aggregators_ratio)
+  store i32 3, ptr @mca_io_ompio_aggregators_cutoff_threshold, align 4
+  %11 = call i32 @mca_base_component_var_register(ptr noundef @mca_io_ompio_component, ptr noundef @.str.21, ptr noundef @.str.22, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_io_ompio_aggregators_cutoff_threshold)
+  store i32 1, ptr @mca_io_ompio_overwrite_amode, align 4
+  %12 = call i32 @mca_base_component_var_register(ptr noundef @mca_io_ompio_component, ptr noundef @.str.23, ptr noundef @.str.24, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_io_ompio_overwrite_amode)
+  store i32 0, ptr @mca_io_ompio_verbose_info_parsing, align 4
+  %13 = call i32 @mca_base_component_var_register(ptr noundef @mca_io_ompio_component, ptr noundef @.str.25, ptr noundef @.str.26, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_io_ompio_verbose_info_parsing)
+  ret i32 0
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @init_query(i1 noundef zeroext %0, i1 noundef zeroext %1) #0 {
+  %3 = alloca i8, align 1
+  %4 = alloca i8, align 1
+  %5 = zext i1 %0 to i8
+  store i8 %5, ptr %3, align 1
+  %6 = zext i1 %1 to i8
+  store i8 %6, ptr %4, align 1
+  ret i32 0
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @file_query(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  %9 = load i32, ptr @priority_param, align 4
+  %10 = load ptr, ptr %7, align 8
+  store i32 %9, ptr %10, align 4
+  %11 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 464) #4
+  store ptr %11, ptr %8, align 8
+  %12 = load ptr, ptr %8, align 8
+  %13 = icmp eq ptr null, %12
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  br label %18
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %8, align 8
+  %17 = load ptr, ptr %6, align 8
+  store ptr %16, ptr %17, align 8
+  store ptr @mca_io_ompio_module, ptr %4, align 8
+  br label %18
+
+18:                                               ; preds = %15, %14
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @file_unquery(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr null, %5
+  br i1 %6, label %7, label %9
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %8) #5
+  br label %9
+
+9:                                                ; preds = %7, %2
+  ret i32 0
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @delete_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load i32, ptr @delete_priority_param, align 4
+  %12 = load ptr, ptr %10, align 8
+  store i32 %11, ptr %12, align 4
+  %13 = load ptr, ptr %9, align 8
+  store i8 1, ptr %13, align 1
+  %14 = load ptr, ptr %8, align 8
+  store ptr null, ptr %14, align 8
+  ret i32 0
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @delete_select(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  br label %8
+
+8:                                                ; preds = %3
+  %9 = load i8, ptr @opal_uses_threads, align 1
+  %10 = trunc i8 %9 to i1
+  %11 = xor i1 %10, true
+  %12 = xor i1 %11, true
+  %13 = zext i1 %12 to i32
+  %14 = sext i32 %13 to i64
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %8
+  call void @opal_mutex_lock(ptr noundef @mca_io_ompio_mutex)
+  br label %17
+
+17:                                               ; preds = %16, %8
+  br label %18
+
+18:                                               ; preds = %17
+  %19 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = call i32 @mca_common_ompio_file_delete(ptr noundef %19, ptr noundef %20)
+  store i32 %21, ptr %7, align 4
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load i8, ptr @opal_uses_threads, align 1
+  %24 = trunc i8 %23 to i1
+  %25 = xor i1 %24, true
+  %26 = xor i1 %25, true
+  %27 = zext i1 %26 to i32
+  %28 = sext i32 %27 to i64
+  %29 = icmp ne i64 %28, 0
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %22
+  call void @opal_mutex_unlock(ptr noundef @mca_io_ompio_mutex)
+  br label %31
+
+31:                                               ; preds = %30, %22
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load i32, ptr %7, align 4
+  ret i32 %33
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @register_datarep(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  ret i32 -1
+}
+
+declare i32 @mca_base_component_var_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+
+declare void @mca_common_ompio_request_init() #1
+
+declare i32 @mca_common_ompio_set_callbacks(ptr noundef, ptr noundef) #1
+
+declare i32 @ompi_io_ompio_generate_current_file_view(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
+
+declare i32 @mca_io_ompio_get_mca_parameter_value(ptr noundef, i32 noundef) #1
+
+declare void @mca_common_ompio_request_fini() #1
+
+declare i32 @mca_common_ompio_buffer_alloc_fini() #1
+
+; Function Attrs: nounwind allocsize(0,1)
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #2
+
+; Function Attrs: nounwind
+declare void @free(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal void @opal_mutex_lock(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %struct.opal_mutex_t, ptr %3, i32 0, i32 1
+  call void @opal_thread_internal_mutex_lock(ptr noundef %4)
+  ret void
+}
+
+declare i32 @mca_common_ompio_file_delete(ptr noundef, ptr noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal void @opal_mutex_unlock(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %struct.opal_mutex_t, ptr %3, i32 0, i32 1
+  call void @opal_thread_internal_mutex_unlock(ptr noundef %4)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @opal_thread_internal_mutex_lock(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i32 @pthread_mutex_lock(ptr noundef %3) #5
+  ret void
+}
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_lock(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal void @opal_thread_internal_mutex_unlock(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i32 @pthread_mutex_unlock(ptr noundef %3) #5
+  ret void
+}
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_unlock(ptr noundef) #3
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind allocsize(0,1) }
+attributes #5 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
