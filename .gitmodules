@@ -340,3 +340,6 @@
 [submodule "bench/diesel-rs/diesel"]
 	path = bench/diesel-rs/diesel
 	url = git@github.com:diesel-rs/diesel.git
+[submodule "bench/ring-rs/ring"]
+	path = bench/ring-rs/ring
+	url = git@github.com:briansmith/ring.git
