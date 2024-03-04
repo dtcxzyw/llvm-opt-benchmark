@@ -502,7 +502,7 @@ for.cond.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end80
   %s8Length.072 = phi i32 [ %add83, %if.end80 ], [ 0, %for.cond.preheader ]
-  %i.071 = phi i32 [ %i.1.lcssa, %if.end80 ], [ 0, %for.cond.preheader ]
+  %i.071 = phi i32 [ %i.1.lcssa78, %if.end80 ], [ 0, %for.cond.preheader ]
   %sub = sub nsw i32 %s16Length, %i.071
   %cmp1 = icmp slt i32 %sub, 715827882
   %mul = mul nsw i32 %sub, 3
@@ -519,7 +519,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i32 %sub10, ptr %capacity, align 4
   %invariant.gep = getelementptr i8, ptr %call9, i64 1
   %cmp1366 = icmp sgt i32 %2, 3
-  br i1 %cmp1366, label %do.body, label %for.end
+  br i1 %cmp1366, label %do.body, label %if.end80
 
 do.body:                                          ; preds = %for.body, %do.end76
   %j.068 = phi i32 [ %j.3, %do.end76 ], [ 0, %for.body ]
@@ -630,24 +630,24 @@ do.end76:                                         ; preds = %if.then25, %if.end6
   %15 = select i1 %cmp12, i1 %cmp13, i1 false
   br i1 %15, label %do.body, label %for.end, !llvm.loop !4
 
-for.end:                                          ; preds = %do.end76, %for.body
-  %i.1.lcssa = phi i32 [ %i.071, %for.body ], [ %i.248, %do.end76 ]
-  %j.0.lcssa = phi i32 [ 0, %for.body ], [ %j.3, %do.end76 ]
+for.end:                                          ; preds = %do.end76
   %sub77 = sub nsw i32 2147483647, %s8Length.072
-  %cmp78 = icmp sgt i32 %j.0.lcssa, %sub77
+  %cmp78 = icmp sgt i32 %j.3, %sub77
   br i1 %cmp78, label %if.then79, label %if.end80
 
 if.then79:                                        ; preds = %for.end
   store i32 8, ptr %errorCode, align 4
   br label %return
 
-if.end80:                                         ; preds = %for.end
+if.end80:                                         ; preds = %for.body, %for.end
+  %j.0.lcssa79 = phi i32 [ %j.3, %for.end ], [ 0, %for.body ]
+  %i.1.lcssa78 = phi i32 [ %i.248, %for.end ], [ %i.071, %for.body ]
   %vtable81 = load ptr, ptr %sink, align 8
   %vfn82 = getelementptr inbounds i8, ptr %vtable81, i64 16
   %16 = load ptr, ptr %vfn82, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %call9, i32 noundef %j.0.lcssa)
-  %add83 = add nsw i32 %j.0.lcssa, %s8Length.072
-  %cmp = icmp slt i32 %i.1.lcssa, %s16Length
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %call9, i32 noundef %j.0.lcssa79)
+  %add83 = add nsw i32 %j.0.lcssa79, %s8Length.072
+  %cmp = icmp slt i32 %i.1.lcssa78, %s16Length
   br i1 %cmp, label %for.body, label %for.end84, !llvm.loop !6
 
 for.end84:                                        ; preds = %if.end80, %for.cond.preheader

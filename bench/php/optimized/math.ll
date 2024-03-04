@@ -2775,8 +2775,8 @@ define hidden void @zif_decbin(ptr noundef %0, ptr nocapture noundef writeonly %
   %18 = call i64 @llvm.ctlz.i64(i64 %16, i1 true), !range !4
   %19 = sub nuw nsw i64 64, %18
   %.0127 = select i1 %17, i64 1, i64 %19
-  %20 = and i64 %.0127, 120
-  %21 = add nuw nsw i64 %20, 32
+  %20 = add nuw nsw i64 %.0127, 32
+  %21 = and i64 %20, 248
   %22 = call noalias ptr @_emalloc(i64 noundef %21) #19
   store i32 1, ptr %22, align 4
   %23 = getelementptr inbounds i8, ptr %22, i64 4

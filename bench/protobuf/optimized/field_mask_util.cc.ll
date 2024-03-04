@@ -3922,20 +3922,18 @@ if.then7:                                         ; preds = %if.then
   br i1 %cmp14, label %if.then15, label %if.end53
 
 if.then15:                                        ; preds = %if.then7
-  %conv17 = zext nneg i8 %call11.val90 to i32
-  %sub18 = sub nuw nsw i32 6, %conv17
+  %sub18 = sub nuw nsw i8 6, %call11.val90
   %4 = load i32, ptr %position_, align 4
   %conv20 = and i32 %4, 254
   %cmp21 = icmp ult i32 %conv20, 6
-  %5 = zext i1 %cmp21 to i32
-  %div69 = lshr i32 %sub18, %5
-  %conv23 = trunc i32 %div69 to i8
-  %.sroa.speculated112 = tail call i8 @llvm.umax.i8(i8 %conv23, i8 1)
+  %5 = zext i1 %cmp21 to i8
+  %div69 = lshr i8 %sub18, %5
+  %.sroa.speculated112 = tail call i8 @llvm.umax.i8(i8 %div69, i8 1)
   %conv26 = and i32 %4, 255
   %conv27 = zext nneg i8 %.sroa.speculated112 to i32
   %cmp31.not = icmp uge i32 %conv26, %conv27
-  %add35 = add nuw nsw i32 %conv27, %conv17
-  %cmp36 = icmp ult i32 %add35, 6
+  %narrow = add nuw nsw i8 %.sroa.speculated112, %call11.val90
+  %cmp36 = icmp ult i8 %narrow, 6
   %or.cond = select i1 %cmp31.not, i1 true, i1 %cmp36
   br i1 %or.cond, label %if.then37, label %if.end53
 
@@ -3973,14 +3971,12 @@ if.then59:                                        ; preds = %if.end53
   br i1 %cmp67, label %if.then68, label %if.end108
 
 if.then68:                                        ; preds = %if.then59
-  %conv71 = zext nneg i8 %call64.val87 to i32
-  %sub72 = sub nuw nsw i32 6, %conv71
+  %sub72 = sub nuw nsw i8 6, %call64.val87
   %10 = load i32, ptr %position_, align 4
   %cmp75.inv = icmp sgt i32 %10, 0
-  %11 = zext i1 %cmp75.inv to i32
-  %div7870 = lshr i32 %sub72, %11
-  %conv79 = trunc i32 %div7870 to i8
-  %.sroa.speculated = tail call i8 @llvm.umax.i8(i8 %conv79, i8 1)
+  %11 = zext i1 %cmp75.inv to i8
+  %div7870 = lshr i8 %sub72, %11
+  %.sroa.speculated = tail call i8 @llvm.umax.i8(i8 %div7870, i8 1)
   %conv83 = and i32 %10, 255
   %12 = getelementptr i8, ptr %0, i64 10
   %.val72 = load i8, ptr %12, align 1
@@ -3988,8 +3984,8 @@ if.then68:                                        ; preds = %if.then59
   %conv86 = zext nneg i8 %.sroa.speculated to i32
   %sub87 = sub nsw i32 %conv85, %conv86
   %cmp88.not = icmp sle i32 %conv83, %sub87
-  %add93 = add nuw nsw i32 %conv86, %conv71
-  %cmp94 = icmp ult i32 %add93, 6
+  %narrow119 = add nuw nsw i8 %.sroa.speculated, %call64.val87
+  %cmp94 = icmp ult i8 %narrow119, 6
   %or.cond118 = select i1 %cmp88.not, i1 true, i1 %cmp94
   br i1 %or.cond118, label %if.then95, label %if.end108
 

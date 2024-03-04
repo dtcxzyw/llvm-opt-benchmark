@@ -4383,11 +4383,11 @@ define internal i64 @d_lite_cwday(i64 noundef %0) #0 {
 m_cwday.exit:                                     ; preds = %5, %9
   %12 = phi i32 [ %8, %5 ], [ %11, %9 ]
   %13 = icmp eq i32 %12, 0
-  %spec.store.select.i = select i1 %13, i32 7, i32 %12
-  %14 = zext nneg i32 %spec.store.select.i to i64
-  %15 = shl nuw nsw i64 %14, 1
-  %16 = or disjoint i64 %15, 1
-  ret i64 %16
+  %14 = shl nuw nsw i32 %12, 1
+  %15 = or disjoint i32 %14, 1
+  %16 = select i1 %13, i32 15, i32 %15
+  %17 = zext nneg i32 %16 to i64
+  ret i64 %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4410,9 +4410,9 @@ define internal i64 @d_lite_wday(i64 noundef %0) #0 {
 
 m_wday.exit:                                      ; preds = %5, %9
   %12 = phi i32 [ %8, %5 ], [ %11, %9 ]
-  %13 = zext nneg i32 %12 to i64
-  %14 = shl nuw nsw i64 %13, 1
-  %15 = or disjoint i64 %14, 1
+  %13 = shl nuw nsw i32 %12, 1
+  %14 = or disjoint i32 %13, 1
+  %15 = zext nneg i32 %14 to i64
   ret i64 %15
 }
 
@@ -23037,9 +23037,9 @@ define internal fastcc i64 @deconstruct_keys(i64 noundef %0, i64 noundef %1, i32
 
 m_wday.exit:                                      ; preds = %32, %36
   %39 = phi i32 [ %35, %32 ], [ %38, %36 ]
-  %40 = zext nneg i32 %39 to i64
-  %41 = shl nuw nsw i64 %40, 1
-  %42 = or disjoint i64 %41, 1
+  %40 = shl nuw nsw i32 %39, 1
+  %41 = or disjoint i32 %40, 1
+  %42 = zext nneg i32 %41 to i64
   %43 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %29, i64 noundef %42) #20
   %.not94 = icmp eq i32 %2, 0
   br i1 %.not94, label %.loopexit, label %44
@@ -23402,9 +23402,9 @@ rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.t
 
 m_wday.exit120:                                   ; preds = %242, %246
   %249 = phi i32 [ %245, %242 ], [ %248, %246 ]
-  %250 = zext nneg i32 %249 to i64
-  %251 = shl nuw nsw i64 %250, 1
-  %252 = or disjoint i64 %251, 1
+  %250 = shl nuw nsw i32 %249, 1
+  %251 = or disjoint i32 %250, 1
+  %252 = zext nneg i32 %251 to i64
   %253 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %203, i64 noundef %252) #20
   br label %254
 

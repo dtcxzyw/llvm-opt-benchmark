@@ -964,44 +964,43 @@ for.body.lr.ph.i:                                 ; preds = %entry
   %6 = zext nneg i32 %conv.i to i64
   %7 = getelementptr i8, ptr %state, i64 %6
   %scevgep29.i = getelementptr i8, ptr %7, i64 40
-  %8 = sub nuw nsw i32 55, %conv.i
-  %9 = zext nneg i32 %8 to i64
-  %10 = add nuw nsw i64 %9, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep29.i, ptr noundef nonnull align 16 dereferenceable(1) @PAD, i64 %10, i1 false)
+  %narrow.i = sub nuw nsw i32 56, %conv.i
+  %8 = zext nneg i32 %narrow.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep29.i, ptr noundef nonnull align 16 dereferenceable(1) @PAD, i64 %8, i1 false)
   br label %SHA256_Pad.exit
 
 SHA256_Pad.exit:                                  ; preds = %for.cond6.preheader.i, %for.body.lr.ph.i
   %buf27.i = getelementptr inbounds i8, ptr %state, i64 40
   %arrayidx28.i = getelementptr i8, ptr %state, i64 96
-  %11 = load i64, ptr %count.i, align 8
-  %conv.i.i = trunc i64 %11 to i8
+  %9 = load i64, ptr %count.i, align 8
+  %conv.i.i = trunc i64 %9 to i8
   %arrayidx.i.i = getelementptr i8, ptr %state, i64 103
   store i8 %conv.i.i, ptr %arrayidx.i.i, align 1
-  %shr.i.i = lshr i64 %11, 8
+  %shr.i.i = lshr i64 %9, 8
   %conv1.i.i = trunc i64 %shr.i.i to i8
   %arrayidx2.i.i = getelementptr i8, ptr %state, i64 102
   store i8 %conv1.i.i, ptr %arrayidx2.i.i, align 1
-  %shr3.i.i = lshr i64 %11, 16
+  %shr3.i.i = lshr i64 %9, 16
   %conv4.i.i = trunc i64 %shr3.i.i to i8
   %arrayidx5.i.i = getelementptr i8, ptr %state, i64 101
   store i8 %conv4.i.i, ptr %arrayidx5.i.i, align 1
-  %shr6.i.i = lshr i64 %11, 24
+  %shr6.i.i = lshr i64 %9, 24
   %conv7.i.i = trunc i64 %shr6.i.i to i8
   %arrayidx8.i.i = getelementptr i8, ptr %state, i64 100
   store i8 %conv7.i.i, ptr %arrayidx8.i.i, align 1
-  %shr9.i.i = lshr i64 %11, 32
+  %shr9.i.i = lshr i64 %9, 32
   %conv10.i.i = trunc i64 %shr9.i.i to i8
   %arrayidx11.i.i = getelementptr i8, ptr %state, i64 99
   store i8 %conv10.i.i, ptr %arrayidx11.i.i, align 1
-  %shr12.i.i = lshr i64 %11, 40
+  %shr12.i.i = lshr i64 %9, 40
   %conv13.i.i = trunc i64 %shr12.i.i to i8
   %arrayidx14.i.i = getelementptr i8, ptr %state, i64 98
   store i8 %conv13.i.i, ptr %arrayidx14.i.i, align 1
-  %shr15.i.i = lshr i64 %11, 48
+  %shr15.i.i = lshr i64 %9, 48
   %conv16.i.i = trunc i64 %shr15.i.i to i8
   %arrayidx17.i.i = getelementptr i8, ptr %state, i64 97
   store i8 %conv16.i.i, ptr %arrayidx17.i.i, align 1
-  %shr18.i.i = lshr i64 %11, 56
+  %shr18.i.i = lshr i64 %9, 56
   %conv19.i.i = trunc i64 %shr18.i.i to i8
   store i8 %conv19.i.i, ptr %arrayidx28.i, align 1
   %arrayidx35.i = getelementptr inbounds i8, ptr %tmp32, i64 256
@@ -1013,19 +1012,19 @@ for.body.i:                                       ; preds = %for.body.i, %SHA256
   %mul.i = shl nuw nsw i64 %i.04.i, 2
   %add.ptr.i = getelementptr i8, ptr %out, i64 %mul.i
   %arrayidx.i = getelementptr i32, ptr %state, i64 %i.04.i
-  %12 = load i32, ptr %arrayidx.i, align 4
-  %conv.i.i3 = trunc i32 %12 to i8
+  %10 = load i32, ptr %arrayidx.i, align 4
+  %conv.i.i3 = trunc i32 %10 to i8
   %arrayidx.i.i4 = getelementptr i8, ptr %add.ptr.i, i64 3
   store i8 %conv.i.i3, ptr %arrayidx.i.i4, align 1
-  %shr.i.i5 = lshr i32 %12, 8
+  %shr.i.i5 = lshr i32 %10, 8
   %conv1.i.i6 = trunc i32 %shr.i.i5 to i8
   %arrayidx2.i.i7 = getelementptr i8, ptr %add.ptr.i, i64 2
   store i8 %conv1.i.i6, ptr %arrayidx2.i.i7, align 1
-  %shr3.i.i8 = lshr i32 %12, 16
+  %shr3.i.i8 = lshr i32 %10, 16
   %conv4.i.i9 = trunc i32 %shr3.i.i8 to i8
   %arrayidx5.i.i10 = getelementptr i8, ptr %add.ptr.i, i64 1
   store i8 %conv4.i.i9, ptr %arrayidx5.i.i10, align 1
-  %shr6.i.i11 = lshr i32 %12, 24
+  %shr6.i.i11 = lshr i32 %10, 24
   %conv7.i.i12 = trunc i32 %shr6.i.i11 to i8
   store i8 %conv7.i.i12, ptr %add.ptr.i, align 1
   %inc.i = add nuw nsw i64 %i.04.i, 1

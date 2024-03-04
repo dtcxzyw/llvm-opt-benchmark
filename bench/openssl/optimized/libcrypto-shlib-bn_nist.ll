@@ -146,9 +146,9 @@ for.body31.preheader:                             ; preds = %if.end23, %for.cond
   %8 = zext nneg i32 %7 to i64
   %scevgep = getelementptr i8, ptr %buf, i64 %8
   %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 3)
-  %9 = sub nuw nsw i32 5, %smax
-  %10 = zext nneg i32 %9 to i64
-  %11 = shl nuw nsw i64 %10, 3
+  %9 = shl i32 %smax, 3
+  %10 = sub i32 40, %9
+  %11 = zext i32 %10 to i64
   %12 = add nuw nsw i64 %11, 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %12, i1 false)
   br label %for.end36
@@ -579,9 +579,9 @@ for.body31.preheader:                             ; preds = %if.end23, %for.cond
   %8 = zext nneg i32 %7 to i64
   %scevgep = getelementptr i8, ptr %buf, i64 %8
   %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 4)
-  %9 = sub nuw nsw i32 7, %smax
-  %10 = zext nneg i32 %9 to i64
-  %11 = shl nuw nsw i64 %10, 3
+  %9 = shl i32 %smax, 3
+  %10 = sub i32 56, %9
+  %11 = zext i32 %10 to i64
   %12 = add nuw nsw i64 %11, 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %12, i1 false)
   br label %for.end36
@@ -852,9 +852,9 @@ for.body31.preheader:                             ; preds = %if.end23, %for.cond
   %8 = zext nneg i32 %7 to i64
   %scevgep = getelementptr i8, ptr %buf, i64 %8
   %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 6)
-  %9 = sub nuw nsw i32 11, %smax
-  %10 = zext nneg i32 %9 to i64
-  %11 = shl nuw nsw i64 %10, 3
+  %9 = shl i32 %smax, 3
+  %10 = sub i32 88, %9
+  %11 = zext i32 %10 to i64
   %12 = add nuw nsw i64 %11, 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %12, i1 false)
   br label %for.end36
@@ -1178,9 +1178,9 @@ for.body31.preheader:                             ; preds = %if.end23, %for.cond
   %4 = shl nuw nsw i32 %ii.0.lcssa63, 3
   %5 = zext nneg i32 %4 to i64
   %scevgep = getelementptr i8, ptr %t_d, i64 %5
-  %6 = sub nuw nsw i32 8, %ii.0.lcssa63
-  %7 = zext nneg i32 %6 to i64
-  %8 = shl nuw nsw i64 %7, 3
+  %6 = shl nuw nsw i32 %ii.0.lcssa63, 3
+  %7 = sub nsw i32 64, %6
+  %8 = zext i32 %7 to i64
   %9 = add nuw nsw i64 %8, 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %9, i1 false)
   br label %for.end36

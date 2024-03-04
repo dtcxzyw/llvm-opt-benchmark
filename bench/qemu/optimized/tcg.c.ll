@@ -3559,21 +3559,19 @@ for.body45.preheader.i:                           ; preds = %for.cond41.preheade
   %125 = zext nneg i32 %124 to i64
   %scevgep.i = getelementptr i8, ptr @indirect_reg_alloc_order, i64 %125
   %scevgep57.i = getelementptr i8, ptr @tcg_target_reg_alloc_order, i64 %125
-  %126 = sub nuw nsw i32 30, %i.0.lcssa66.i
-  %127 = zext nneg i32 %126 to i64
-  %128 = shl nuw nsw i64 %127, 2
-  %129 = add nuw nsw i64 %128, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 4 dereferenceable(1) %scevgep57.i, i64 %129, i1 false)
+  %narrow = sub nuw nsw i32 124, %124
+  %126 = zext nneg i32 %narrow to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 4 dereferenceable(1) %scevgep57.i, i64 %126, i1 false)
   br label %tcg_context_init.exit
 
 for.body32.i:                                     ; preds = %for.body32.i, %for.body32.preheader.i
   %indvars.iv52.i = phi i64 [ 0, %for.body32.preheader.i ], [ %indvars.iv.next53.i, %for.body32.i ]
-  %130 = xor i64 %indvars.iv52.i, -1
-  %131 = add nsw i64 %130, %123
-  %arrayidx35.i = getelementptr [31 x i32], ptr @tcg_target_reg_alloc_order, i64 0, i64 %131
-  %132 = load i32, ptr %arrayidx35.i, align 4
+  %127 = xor i64 %indvars.iv52.i, -1
+  %128 = add nsw i64 %127, %123
+  %arrayidx35.i = getelementptr [31 x i32], ptr @tcg_target_reg_alloc_order, i64 0, i64 %128
+  %129 = load i32, ptr %arrayidx35.i, align 4
   %arrayidx37.i = getelementptr [31 x i32], ptr @indirect_reg_alloc_order, i64 0, i64 %indvars.iv52.i
-  store i32 %132, ptr %arrayidx37.i, align 4
+  store i32 %129, ptr %arrayidx37.i, align 4
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %exitcond56.not.i = icmp eq i64 %indvars.iv.next53.i, %wide.trip.count.i
   br i1 %exitcond56.not.i, label %for.cond41.preheader.i, label %for.body32.i, !llvm.loop !18
@@ -3582,42 +3580,42 @@ tcg_context_init.exit:                            ; preds = %for.cond41.preheade
   %call.i.i = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #31
   store ptr %call.i.i, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 33), align 8
   %call1.i.i = tail call ptr @g_ptr_array_new_with_free_func(ptr noundef nonnull @qemu_plugin_insn_cleanup_fn) #28
-  %133 = load ptr, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 33), align 8
-  store ptr %call1.i.i, ptr %133, align 8
-  %134 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  store ptr @tcg_init_ctx, ptr %134, align 8
-  store ptr %134, ptr @tcg_ctxs, align 8
+  %130 = load ptr, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 33), align 8
+  store ptr %call1.i.i, ptr %130, align 8
+  %131 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  store ptr @tcg_init_ctx, ptr %131, align 8
+  store ptr %131, ptr @tcg_ctxs, align 8
   store i32 1, ptr @tcg_cur_ctxs, align 4
   store i32 1, ptr @tcg_max_ctxs, align 4
-  %135 = load i32, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 16), align 4
-  %136 = and i32 %135, 32
-  %tobool55.not.i = icmp eq i32 %136, 0
+  %132 = load i32, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 16), align 4
+  %133 = and i32 %132, 32
+  %tobool55.not.i = icmp eq i32 %133, 0
   tail call void @llvm.assume(i1 %tobool55.not.i)
-  %137 = load i32, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 6), align 4
-  %138 = load i32, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 7), align 8
-  %cmp.i.i.i = icmp eq i32 %137, %138
+  %134 = load i32, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 6), align 4
+  %135 = load i32, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 7), align 8
+  %cmp.i.i.i = icmp eq i32 %134, %135
   tail call void @llvm.assume(i1 %cmp.i.i.i)
-  %cmp3.i.i.i = icmp slt i32 %137, 512
+  %cmp3.i.i.i = icmp slt i32 %134, 512
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
-  %inc.i.i.i = add nsw i32 %137, 1
+  %inc.i.i.i = add nsw i32 %134, 1
   store i32 %inc.i.i.i, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 6), align 4
   store i32 %inc.i.i.i, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 7), align 8
-  %idxprom.i.i.i.i = sext i32 %137 to i64
+  %idxprom.i.i.i.i = sext i32 %134 to i64
   %arrayidx.i.i.i.i = getelementptr [512 x %struct.TCGTemp], ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 37, i64 0, i32 0), i64 0, i64 %idxprom.i.i.i.i
-  %139 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %139, i8 0, i64 48, i1 false)
+  %136 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %136, i8 0, i64 48, i1 false)
   store i64 12901744645, ptr %arrayidx.i.i.i.i, align 8
   %name15.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 32
   store ptr @.str.10, ptr %name15.i.i, align 8
-  %140 = load i32, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 16), align 4
-  %or.i.i = or i32 %140, 32
+  %137 = load i32, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 16), align 4
+  %or.i.i = or i32 %137, 32
   store i32 %or.i.i, ptr getelementptr inbounds (%struct.TCGContext, ptr @tcg_init_ctx, i64 0, i32 16), align 4
-  %141 = load ptr, ptr %134, align 8
+  %138 = load ptr, ptr %131, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %arrayidx.i.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %141 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %138 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %142 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
-  store ptr %142, ptr @tcg_env, align 8
+  %139 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
+  store ptr %139, ptr @tcg_env, align 8
   tail call void @tcg_region_init(i64 noundef %tb_size, i32 noundef %splitwx, i32 noundef %max_cpus) #28
   ret void
 }

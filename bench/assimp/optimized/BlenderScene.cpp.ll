@@ -7231,9 +7231,9 @@ for.body26.preheader:                             ; preds = %for.cond.preheader,
   %25 = shl nuw nsw i32 %i.0.lcssa44, 2
   %26 = zext nneg i32 %25 to i64
   %scevgep = getelementptr i8, ptr %out, i64 %26
-  %27 = sub nuw nsw i32 2, %i.0.lcssa44
-  %28 = zext nneg i32 %27 to i64
-  %29 = shl nuw nsw i64 %28, 2
+  %27 = shl i32 %i.0.lcssa44, 2
+  %28 = sub i32 8, %27
+  %29 = zext i32 %28 to i64
   %30 = add nuw nsw i64 %29, 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %30, i1 false)
   br label %try.cont
@@ -15669,9 +15669,9 @@ for.body26.preheader:                             ; preds = %for.cond.preheader,
   %25 = shl nuw nsw i32 %i.0.lcssa44, 2
   %26 = zext nneg i32 %25 to i64
   %scevgep = getelementptr i8, ptr %out, i64 %26
-  %27 = sub nuw nsw i32 2, %i.0.lcssa44
-  %28 = zext nneg i32 %27 to i64
-  %29 = shl nuw nsw i64 %28, 2
+  %27 = shl i32 %i.0.lcssa44, 2
+  %28 = sub i32 8, %27
+  %29 = zext i32 %28 to i64
   %30 = add nuw nsw i64 %29, 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %30, i1 false)
   br label %try.cont
@@ -15932,9 +15932,9 @@ for.body26.preheader:                             ; preds = %for.cond.preheader,
   %25 = shl nuw nsw i32 %i.0.lcssa47, 2
   %26 = zext nneg i32 %25 to i64
   %scevgep = getelementptr i8, ptr %out, i64 %26
-  %27 = sub nuw nsw i32 2, %i.0.lcssa47
-  %28 = zext nneg i32 %27 to i64
-  %29 = shl nuw nsw i64 %28, 2
+  %27 = shl i32 %i.0.lcssa47, 2
+  %28 = sub i32 8, %27
+  %29 = zext i32 %28 to i64
   %30 = add nuw nsw i64 %29, 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %30, i1 false)
   br label %try.cont
@@ -18794,7 +18794,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %catch.dispatch, %lpad35, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %17, %lpad.i.i ], [ %30, %lpad35 ], [ %.pn18, %catch.dispatch ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %lpad.i.i ], [ %28, %lpad35 ], [ %.pn18, %catch.dispatch ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -18849,10 +18849,9 @@ for.body26.preheader:                             ; preds = %for.cond.preheader,
   %i.0.lcssa47 = phi i32 [ %inc, %for.cond23.preheader ], [ 0, %for.cond.preheader ]
   %25 = zext nneg i32 %i.0.lcssa47 to i64
   %scevgep = getelementptr i8, ptr %out, i64 %25
-  %26 = sub nuw nsw i32 239, %i.0.lcssa47
-  %27 = zext nneg i32 %26 to i64
-  %28 = add nuw nsw i64 %27, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %28, i1 false)
+  %narrow = sub i32 240, %i.0.lcssa47
+  %26 = zext i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %26, i1 false)
   br label %try.cont
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -18865,22 +18864,22 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %i.040, 1
   %conv18 = zext nneg i32 %inc to i64
-  %29 = load i64, ptr %array_sizes, align 8
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %29, i64 240)
+  %27 = load i64, ptr %array_sizes, align 8
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %27, i64 240)
   %cmp = icmp ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !36
 
 lpad35:                                           ; preds = %call.i.noexc21, %catch
-  %30 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad
 
 terminate.lpad:                                   ; preds = %lpad35
-  %31 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #20
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #20
   unreachable
 }
 
@@ -19051,7 +19050,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %catch.dispatch, %lpad35, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %17, %lpad.i.i ], [ %30, %lpad35 ], [ %.pn18, %catch.dispatch ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %lpad.i.i ], [ %28, %lpad35 ], [ %.pn18, %catch.dispatch ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -19106,10 +19105,9 @@ for.body26.preheader:                             ; preds = %for.cond.preheader,
   %i.0.lcssa44 = phi i32 [ %inc, %for.cond23.preheader ], [ 0, %for.cond.preheader ]
   %25 = zext nneg i32 %i.0.lcssa44 to i64
   %scevgep = getelementptr i8, ptr %out, i64 %25
-  %26 = sub nuw nsw i32 239, %i.0.lcssa44
-  %27 = zext nneg i32 %26 to i64
-  %28 = add nuw nsw i64 %27, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %28, i1 false)
+  %narrow = sub i32 240, %i.0.lcssa44
+  %26 = zext i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %26, i1 false)
   br label %try.cont
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -19122,22 +19120,22 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %i.037, 1
   %conv18 = zext nneg i32 %inc to i64
-  %29 = load i64, ptr %array_sizes, align 8
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %29, i64 240)
+  %27 = load i64, ptr %array_sizes, align 8
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %27, i64 240)
   %cmp = icmp ugt i64 %.sroa.speculated, %conv18
   br i1 %cmp, label %for.body, label %for.cond23.preheader, !llvm.loop !37
 
 lpad35:                                           ; preds = %catch
-  %30 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad
 
 terminate.lpad:                                   ; preds = %lpad35
-  %31 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #20
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #20
   unreachable
 }
 
@@ -20448,9 +20446,9 @@ for.body26.preheader:                             ; preds = %for.cond.preheader,
   %25 = shl nuw nsw i32 %i.0.lcssa48, 2
   %26 = zext nneg i32 %25 to i64
   %scevgep = getelementptr i8, ptr %out, i64 %26
-  %27 = sub nuw nsw i32 41, %i.0.lcssa48
-  %28 = zext nneg i32 %27 to i64
-  %29 = shl nuw nsw i64 %28, 2
+  %27 = shl i32 %i.0.lcssa48, 2
+  %28 = sub i32 164, %27
+  %29 = zext i32 %28 to i64
   %30 = add nuw nsw i64 %29, 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %30, i1 false)
   br label %try.cont

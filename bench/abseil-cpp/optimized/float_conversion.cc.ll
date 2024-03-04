@@ -4225,11 +4225,8 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit72.i.i.i.i: ; preds 
   %digits_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
   br label %do.body.i.i.i.i
 
-do.body.loopexit.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i
-  br label %do.body.i.i.i.i, !llvm.loop !48
-
-do.body.i.i.i.i:                                  ; preds = %do.body.loopexit.i.i.i.i, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit72.i.i.i.i
-  %35 = phi i64 [ %2, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit72.i.i.i.i ], [ %.pr.i.i.i.i.i, %do.body.loopexit.i.i.i.i ]
+do.body.i.i.i.i:                                  ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_115BinaryToDecimal13AdvanceDigitsEv.exit.i.i.i.i, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit72.i.i.i.i
+  %35 = phi i64 [ 9, %_ZN4absl19str_format_internal12_GLOBAL__N_115BinaryToDecimal13AdvanceDigitsEv.exit.i.i.i.i ], [ %2, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit72.i.i.i.i ]
   %36 = load ptr, ptr %ptr.coerce, align 8
   %sink13.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 24
   %37 = load ptr, ptr %sink13.i.i.i.i, align 8
@@ -4288,20 +4285,22 @@ if.end.i86.i.i.i.i:                               ; preds = %_ZN4absl19str_forma
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.end.i86.i.i.i.i
-  %w.03.i.i.i.i.i = phi i32 [ %48, %if.end.i86.i.i.i.i ], [ %div.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %49 = phi i64 [ 0, %if.end.i86.i.i.i.i ], [ %.pr.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %rem.i.i.i.i.i = urem i32 %w.03.i.i.i.i.i, 10
+  %w.04.i.i.i.i.i = phi i32 [ %48, %if.end.i86.i.i.i.i ], [ %div.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %49 = phi i64 [ 0, %if.end.i86.i.i.i.i ], [ %inc6.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %rem.i.i.i.i.i = urem i32 %w.04.i.i.i.i.i, 10
   %50 = trunc i32 %rem.i.i.i.i.i to i8
   %conv.i.i.i.i.i = or disjoint i8 %50, 48
   %inc6.i.i.i.i.i = add nuw nsw i64 %49, 1
-  store i64 %inc6.i.i.i.i.i, ptr %size_.i.i.i.i.i.i, align 8
   %sub.i88.i.i.i.i = sub nuw nsw i64 8, %49
   %arrayidx.i.i.i.i.i = getelementptr inbounds [9 x i8], ptr %digits_.i.i.i.i.i, i64 0, i64 %sub.i88.i.i.i.i
   store i8 %conv.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
-  %div.i.i.i.i.i = udiv i32 %w.03.i.i.i.i.i, 10
-  %.pr.i.i.i.i.i = load i64, ptr %size_.i.i.i.i.i.i, align 8
-  %cmp4.i.i.i.i.i = icmp ult i64 %.pr.i.i.i.i.i, 9
-  br i1 %cmp4.i.i.i.i.i, label %for.body.i.i.i.i.i, label %do.body.loopexit.i.i.i.i, !llvm.loop !48
+  %div.i.i.i.i.i = udiv i32 %w.04.i.i.i.i.i, 10
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %inc6.i.i.i.i.i, 9
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_115BinaryToDecimal13AdvanceDigitsEv.exit.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !48
+
+_ZN4absl19str_format_internal12_GLOBAL__N_115BinaryToDecimal13AdvanceDigitsEv.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i
+  store i64 9, ptr %size_.i.i.i.i.i.i, align 8
+  br label %do.body.i.i.i.i
 
 do.end.i.i.i.i:                                   ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i
   %51 = load ptr, ptr %ptr.coerce, align 8

@@ -978,9 +978,9 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
   %438 = shl nuw nsw i32 %.14.lcssa1477, 2
   %439 = zext nneg i32 %438 to i64
   %scevgep = getelementptr i8, ptr %.0796, i64 %439
-  %440 = sub nuw nsw i32 100, %.14.lcssa1477
-  %441 = zext nneg i32 %440 to i64
-  %442 = shl nuw nsw i64 %441, 2
+  %440 = shl nuw nsw i32 %.14.lcssa1477, 2
+  %441 = sub nsw i32 400, %440
+  %442 = zext i32 %441 to i64
   %443 = add nuw nsw i64 %442, 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %443, i1 false)
   br label %._crit_edge1179

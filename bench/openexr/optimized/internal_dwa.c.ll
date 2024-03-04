@@ -5724,18 +5724,17 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @dctInverse8x8_scalar(ptr nocapture noundef %data, i32 noundef %zeroedRows) unnamed_addr #3 {
 entry:
-  %cmp176 = icmp slt i32 %zeroedRows, 8
-  br i1 %cmp176, label %for.body.preheader, label %for.body133.preheader
+  %cmp176.not = icmp eq i32 %zeroedRows, 8
+  br i1 %cmp176.not, label %for.body133.preheader, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
   %sub = sub i32 8, %zeroedRows
-  %smax = tail call i32 @llvm.smax.i32(i32 %sub, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext i32 %sub to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %0 = shl nsw i64 %indvars.iv, 3
+  %0 = shl nuw nsw i64 %indvars.iv, 3
   %add.ptr = getelementptr inbounds float, ptr %data, i64 %0
   %arrayidx = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %1 = load float, ptr %arrayidx, align 4

@@ -364,13 +364,12 @@ define internal fastcc ptr @_fmt(ptr nocapture noundef readonly %0, ptr noundef 
   %110 = icmp slt i32 %103, -1999
   %111 = icmp sgt i16 %.lhs.trunc.i, 0
   %or.cond3.i = and i1 %110, %111
-  %112 = add nuw nsw i32 %104, -100
   %.033.i.v = select i1 %or.cond3.i, i32 20, i32 19
   %.033.i = add nsw i32 %.033.i.v, %105
-  %.0.i = select i1 %or.cond3.i, i32 %112, i32 %104
-  %113 = icmp eq i32 %.033.i, 0
-  %114 = icmp slt i32 %.0.i, 0
-  %or.cond5.i = select i1 %113, i1 %114, i1 false
+  %112 = icmp eq i32 %.033.i, 0
+  %113 = icmp slt i32 %104, 0
+  %114 = or i1 %113, %or.cond3.i
+  %or.cond5.i = and i1 %114, %112
   br i1 %or.cond5.i, label %115, label %123
 
 115:                                              ; preds = %109

@@ -1829,12 +1829,12 @@ if.then33:                                        ; preds = %if.end29
   %idxprom35 = zext i32 %sub to i64
   %arrayidx36 = getelementptr inbounds i8, ptr %input, i64 %idxprom35
   %5 = load i8, ptr %arrayidx36, align 1
-  %conv37 = zext i8 %5 to i32
+  %conv37 = zext i8 %5 to i16
   %narrow = sub nuw nsw i8 8, %4
-  %sub39 = zext nneg i8 %narrow to i32
-  %6 = lshr i32 254, %sub39
-  %7 = and i32 %6, %conv37
-  %cmp42.not = icmp eq i32 %7, 0
+  %sub39 = zext nneg i8 %narrow to i16
+  %6 = lshr i16 254, %sub39
+  %7 = and i16 %6, %conv37
+  %cmp42.not = icmp eq i16 %7, 0
   br i1 %cmp42.not, label %if.end46, label %return
 
 if.end46:                                         ; preds = %if.then33, %if.end29

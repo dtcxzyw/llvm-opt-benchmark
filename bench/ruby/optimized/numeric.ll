@@ -8751,7 +8751,7 @@ declare i64 @rb_big_size_m(i64 noundef) local_unnamed_addr #3
 define hidden i64 @rb_int_bit_length(i64 noundef %0) local_unnamed_addr #2 {
   %2 = and i64 %0, 1
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %10, label %3
+  br i1 %.not, label %8, label %3
 
 3:                                                ; preds = %1
   %4 = ashr i64 %0, 1
@@ -8759,31 +8759,29 @@ define hidden i64 @rb_int_bit_length(i64 noundef %0) local_unnamed_addr #2 {
   %spec.select.i = xor i64 %4, %.lobit.i
   %5 = tail call i64 @llvm.ctlz.i64(i64 %spec.select.i, i1 false), !range !22
   %6 = shl nuw nsw i64 %5, 1
-  %7 = sub nuw nsw i64 128, %6
-  %8 = and i64 %7, 8589934590
-  %9 = or disjoint i64 %8, 1
+  %7 = sub nuw nsw i64 129, %6
   br label %.critedge
 
-10:                                               ; preds = %1
-  %11 = and i64 %0, 6
-  %12 = icmp ne i64 %11, 0
-  %13 = icmp eq i64 %0, 0
-  %14 = or i1 %13, %12
-  br i1 %14, label %.critedge, label %15
+8:                                                ; preds = %1
+  %9 = and i64 %0, 6
+  %10 = icmp ne i64 %9, 0
+  %11 = icmp eq i64 %0, 0
+  %12 = or i1 %11, %10
+  br i1 %12, label %.critedge, label %13
 
-15:                                               ; preds = %10
-  %16 = inttoptr i64 %0 to ptr
-  %17 = load i64, ptr %16, align 8
-  %18 = and i64 %17, 31
-  %19 = icmp eq i64 %18, 10
-  br i1 %19, label %20, label %.critedge
+13:                                               ; preds = %8
+  %14 = inttoptr i64 %0 to ptr
+  %15 = load i64, ptr %14, align 8
+  %16 = and i64 %15, 31
+  %17 = icmp eq i64 %16, 10
+  br i1 %17, label %18, label %.critedge
 
-20:                                               ; preds = %15
-  %21 = tail call i64 @rb_big_bit_length(i64 noundef %0) #23
+18:                                               ; preds = %13
+  %19 = tail call i64 @rb_big_bit_length(i64 noundef %0) #23
   br label %.critedge
 
-.critedge:                                        ; preds = %15, %10, %20, %3
-  %.022 = phi i64 [ %9, %3 ], [ %21, %20 ], [ 4, %10 ], [ 4, %15 ]
+.critedge:                                        ; preds = %13, %8, %18, %3
+  %.022 = phi i64 [ %7, %3 ], [ %19, %18 ], [ 4, %8 ], [ 4, %13 ]
   ret i64 %.022
 }
 
@@ -13981,7 +13979,7 @@ rb_int_abs.exit:                                  ; preds = %7, %10, %12, %17, %
 define internal i64 @builtin_inline_class_162(ptr nocapture readnone %0, i64 noundef %1) #2 {
   %3 = and i64 %1, 1
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %11, label %4
+  br i1 %.not.i, label %9, label %4
 
 4:                                                ; preds = %2
   %5 = ashr i64 %1, 1
@@ -13989,31 +13987,29 @@ define internal i64 @builtin_inline_class_162(ptr nocapture readnone %0, i64 nou
   %spec.select.i.i = xor i64 %5, %.lobit.i.i
   %6 = tail call i64 @llvm.ctlz.i64(i64 %spec.select.i.i, i1 false), !range !22
   %7 = shl nuw nsw i64 %6, 1
-  %8 = sub nuw nsw i64 128, %7
-  %9 = and i64 %8, 8589934590
-  %10 = or disjoint i64 %9, 1
+  %8 = sub nuw nsw i64 129, %7
   br label %rb_int_bit_length.exit
 
-11:                                               ; preds = %2
-  %12 = and i64 %1, 6
-  %13 = icmp ne i64 %12, 0
-  %14 = icmp eq i64 %1, 0
-  %15 = or i1 %14, %13
-  br i1 %15, label %rb_int_bit_length.exit, label %16
+9:                                                ; preds = %2
+  %10 = and i64 %1, 6
+  %11 = icmp ne i64 %10, 0
+  %12 = icmp eq i64 %1, 0
+  %13 = or i1 %12, %11
+  br i1 %13, label %rb_int_bit_length.exit, label %14
 
-16:                                               ; preds = %11
-  %17 = inttoptr i64 %1 to ptr
-  %18 = load i64, ptr %17, align 8
-  %19 = and i64 %18, 31
-  %20 = icmp eq i64 %19, 10
-  br i1 %20, label %21, label %rb_int_bit_length.exit
+14:                                               ; preds = %9
+  %15 = inttoptr i64 %1 to ptr
+  %16 = load i64, ptr %15, align 8
+  %17 = and i64 %16, 31
+  %18 = icmp eq i64 %17, 10
+  br i1 %18, label %19, label %rb_int_bit_length.exit
 
-21:                                               ; preds = %16
-  %22 = tail call i64 @rb_big_bit_length(i64 noundef %1) #23
+19:                                               ; preds = %14
+  %20 = tail call i64 @rb_big_bit_length(i64 noundef %1) #23
   br label %rb_int_bit_length.exit
 
-rb_int_bit_length.exit:                           ; preds = %4, %11, %16, %21
-  %.022.i = phi i64 [ %10, %4 ], [ %22, %21 ], [ 4, %11 ], [ 4, %16 ]
+rb_int_bit_length.exit:                           ; preds = %4, %9, %14, %19
+  %.022.i = phi i64 [ %8, %4 ], [ %20, %19 ], [ 4, %9 ], [ 4, %14 ]
   ret i64 %.022.i
 }
 
@@ -15868,7 +15864,7 @@ rb_long2num_inline.exit.i:                        ; preds = %50, %47
 
 rb_int_bit_length.exit:                           ; preds = %54, %59, %64
   %.022.i = phi i64 [ %65, %64 ], [ 4, %54 ], [ 4, %59 ]
-  br i1 %.not146, label %73, label %66
+  br i1 %.not146, label %71, label %66
 
 66:                                               ; preds = %rb_int_bit_length.exit
   %67 = ashr i64 %.093, 1
@@ -15876,263 +15872,261 @@ rb_int_bit_length.exit:                           ; preds = %54, %59, %64
   %spec.select.i.i107 = xor i64 %67, %.lobit.i.i106
   %68 = tail call i64 @llvm.ctlz.i64(i64 %spec.select.i.i107, i1 false), !range !22
   %69 = shl nuw nsw i64 %68, 1
-  %70 = sub nuw nsw i64 128, %69
-  %71 = and i64 %70, 8589934590
-  %72 = or disjoint i64 %71, 1
+  %70 = sub nuw nsw i64 129, %69
   br label %rb_int_bit_length.exit109
 
-73:                                               ; preds = %rb_int_bit_length.exit
-  %74 = and i64 %.093, 6
-  %75 = icmp ne i64 %74, 0
-  %76 = or i1 %23, %75
-  br i1 %76, label %rb_int_bit_length.exit109, label %77
+71:                                               ; preds = %rb_int_bit_length.exit
+  %72 = and i64 %.093, 6
+  %73 = icmp ne i64 %72, 0
+  %74 = or i1 %23, %73
+  br i1 %74, label %rb_int_bit_length.exit109, label %75
 
-77:                                               ; preds = %73
-  %78 = inttoptr i64 %.093 to ptr
-  %79 = load i64, ptr %78, align 8
-  %80 = and i64 %79, 31
-  %81 = icmp eq i64 %80, 10
-  br i1 %81, label %82, label %rb_int_bit_length.exit109
+75:                                               ; preds = %71
+  %76 = inttoptr i64 %.093 to ptr
+  %77 = load i64, ptr %76, align 8
+  %78 = and i64 %77, 31
+  %79 = icmp eq i64 %78, 10
+  br i1 %79, label %80, label %rb_int_bit_length.exit109
 
-82:                                               ; preds = %77
-  %83 = tail call i64 @rb_big_bit_length(i64 noundef %.093) #23
+80:                                               ; preds = %75
+  %81 = tail call i64 @rb_big_bit_length(i64 noundef %.093) #23
   br label %rb_int_bit_length.exit109
 
-rb_int_bit_length.exit109:                        ; preds = %66, %73, %77, %82
-  %.022.i108 = phi i64 [ %72, %66 ], [ %83, %82 ], [ 4, %73 ], [ 4, %77 ]
-  %84 = and i64 %.022.i, 1
-  %.not.i110 = icmp eq i64 %84, 0
-  br i1 %.not.i110, label %87, label %85
+rb_int_bit_length.exit109:                        ; preds = %66, %71, %75, %80
+  %.022.i108 = phi i64 [ %70, %66 ], [ %81, %80 ], [ 4, %71 ], [ 4, %75 ]
+  %82 = and i64 %.022.i, 1
+  %.not.i110 = icmp eq i64 %82, 0
+  br i1 %.not.i110, label %85, label %83
+
+83:                                               ; preds = %rb_int_bit_length.exit109
+  %84 = tail call fastcc i64 @fix_divide(i64 noundef %.022.i, i64 noundef %.022.i108, i64 noundef 47)
+  br label %rb_int_div.exit
 
 85:                                               ; preds = %rb_int_bit_length.exit109
-  %86 = tail call fastcc i64 @fix_divide(i64 noundef %.022.i, i64 noundef %.022.i108, i64 noundef 47)
+  %86 = and i64 %.022.i, 6
+  %87 = icmp ne i64 %86, 0
+  %88 = icmp eq i64 %.022.i, 0
+  %89 = or i1 %88, %87
+  br i1 %89, label %.critedge.preheader, label %90
+
+90:                                               ; preds = %85
+  %91 = inttoptr i64 %.022.i to ptr
+  %92 = load i64, ptr %91, align 8
+  %93 = and i64 %92, 31
+  %94 = icmp eq i64 %93, 10
+  br i1 %94, label %95, label %.critedge.preheader
+
+95:                                               ; preds = %90
+  %96 = tail call i64 @rb_big_div(i64 noundef %.022.i, i64 noundef %.022.i108) #23
   br label %rb_int_div.exit
 
-87:                                               ; preds = %rb_int_bit_length.exit109
-  %88 = and i64 %.022.i, 6
-  %89 = icmp ne i64 %88, 0
-  %90 = icmp eq i64 %.022.i, 0
-  %91 = or i1 %90, %89
-  br i1 %91, label %.critedge.preheader, label %92
+rb_int_div.exit:                                  ; preds = %83, %95
+  %.024.i = phi i64 [ %84, %83 ], [ %96, %95 ]
+  %97 = and i64 %.024.i, 1
+  %.not.i111 = icmp eq i64 %97, 0
+  br i1 %.not.i111, label %100, label %98
 
-92:                                               ; preds = %87
-  %93 = inttoptr i64 %.022.i to ptr
-  %94 = load i64, ptr %93, align 8
-  %95 = and i64 %94, 31
-  %96 = icmp eq i64 %95, 10
-  br i1 %96, label %97, label %.critedge.preheader
-
-97:                                               ; preds = %92
-  %98 = tail call i64 @rb_big_div(i64 noundef %.022.i, i64 noundef %.022.i108) #23
-  br label %rb_int_div.exit
-
-rb_int_div.exit:                                  ; preds = %85, %97
-  %.024.i = phi i64 [ %86, %85 ], [ %98, %97 ]
-  %99 = and i64 %.024.i, 1
-  %.not.i111 = icmp eq i64 %99, 0
-  br i1 %.not.i111, label %102, label %100
+98:                                               ; preds = %rb_int_div.exit
+  %99 = icmp slt i64 %.024.i, 100
+  br i1 %99, label %.critedge.preheader, label %int_lt.exit.thread137
 
 100:                                              ; preds = %rb_int_div.exit
-  %101 = icmp slt i64 %.024.i, 100
-  br i1 %101, label %.critedge.preheader, label %int_lt.exit.thread137
+  %101 = and i64 %.024.i, 6
+  %102 = icmp ne i64 %101, 0
+  %103 = icmp eq i64 %.024.i, 0
+  %104 = or i1 %103, %102
+  br i1 %104, label %.critedge.preheader, label %105
 
-102:                                              ; preds = %rb_int_div.exit
-  %103 = and i64 %.024.i, 6
-  %104 = icmp ne i64 %103, 0
-  %105 = icmp eq i64 %.024.i, 0
-  %106 = or i1 %105, %104
-  br i1 %106, label %.critedge.preheader, label %107
+105:                                              ; preds = %100
+  %106 = inttoptr i64 %.024.i to ptr
+  %107 = load i64, ptr %106, align 8
+  %108 = and i64 %107, 31
+  %109 = icmp eq i64 %108, 10
+  br i1 %109, label %int_lt.exit, label %.critedge.preheader
 
-107:                                              ; preds = %102
-  %108 = inttoptr i64 %.024.i to ptr
-  %109 = load i64, ptr %108, align 8
-  %110 = and i64 %109, 31
-  %111 = icmp eq i64 %110, 10
-  br i1 %111, label %int_lt.exit, label %.critedge.preheader
-
-int_lt.exit:                                      ; preds = %107
-  %112 = tail call i64 @rb_big_lt(i64 noundef %.024.i, i64 noundef 101) #23
-  %.not = icmp eq i64 %112, 0
+int_lt.exit:                                      ; preds = %105
+  %110 = tail call i64 @rb_big_lt(i64 noundef %.024.i, i64 noundef 101) #23
+  %.not = icmp eq i64 %110, 0
   br i1 %.not, label %int_lt.exit.thread137, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %int_lt.exit, %102, %107, %92, %87, %100
-  %113 = tail call i64 @rb_ary_new() #23
+.critedge.preheader:                              ; preds = %int_lt.exit, %100, %105, %90, %85, %98
+  %111 = tail call i64 @rb_ary_new() #23
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.preheader, %RARRAY_AREF.exit116
-  %.092154 = phi i64 [ %133, %RARRAY_AREF.exit116 ], [ %0, %.critedge.preheader ]
-  %114 = tail call i64 @rb_int_divmod(i64 noundef %.092154, i64 noundef %.093)
-  %115 = inttoptr i64 %114 to ptr
-  %116 = load i64, ptr %115, align 8
-  %117 = and i64 %116, 8192
-  %.not.i.i = icmp eq i64 %117, 0
-  br i1 %.not.i.i, label %120, label %118
+  %.092154 = phi i64 [ %131, %RARRAY_AREF.exit116 ], [ %0, %.critedge.preheader ]
+  %112 = tail call i64 @rb_int_divmod(i64 noundef %.092154, i64 noundef %.093)
+  %113 = inttoptr i64 %112 to ptr
+  %114 = load i64, ptr %113, align 8
+  %115 = and i64 %114, 8192
+  %.not.i.i = icmp eq i64 %115, 0
+  br i1 %.not.i.i, label %118, label %116
+
+116:                                              ; preds = %.critedge
+  %117 = getelementptr inbounds i8, ptr %113, i64 16
+  br label %RARRAY_AREF.exit
 
 118:                                              ; preds = %.critedge
-  %119 = getelementptr inbounds i8, ptr %115, i64 16
+  %119 = getelementptr inbounds i8, ptr %113, i64 32
+  %120 = load ptr, ptr %119, align 8
   br label %RARRAY_AREF.exit
 
-120:                                              ; preds = %.critedge
-  %121 = getelementptr inbounds i8, ptr %115, i64 32
-  %122 = load ptr, ptr %121, align 8
-  br label %RARRAY_AREF.exit
+RARRAY_AREF.exit:                                 ; preds = %116, %118
+  %.0.i.i113 = phi ptr [ %117, %116 ], [ %120, %118 ]
+  %121 = getelementptr i8, ptr %.0.i.i113, i64 8
+  %122 = load i64, ptr %121, align 8
+  %123 = tail call i64 @rb_ary_push(i64 noundef %111, i64 noundef %122) #23
+  %124 = load i64, ptr %113, align 8
+  %125 = and i64 %124, 8192
+  %.not.i.i114 = icmp eq i64 %125, 0
+  br i1 %.not.i.i114, label %128, label %126
 
-RARRAY_AREF.exit:                                 ; preds = %118, %120
-  %.0.i.i113 = phi ptr [ %119, %118 ], [ %122, %120 ]
-  %123 = getelementptr i8, ptr %.0.i.i113, i64 8
-  %124 = load i64, ptr %123, align 8
-  %125 = tail call i64 @rb_ary_push(i64 noundef %113, i64 noundef %124) #23
-  %126 = load i64, ptr %115, align 8
-  %127 = and i64 %126, 8192
-  %.not.i.i114 = icmp eq i64 %127, 0
-  br i1 %.not.i.i114, label %130, label %128
+126:                                              ; preds = %RARRAY_AREF.exit
+  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  br label %RARRAY_AREF.exit116
 
 128:                                              ; preds = %RARRAY_AREF.exit
-  %129 = getelementptr inbounds i8, ptr %115, i64 16
+  %129 = getelementptr inbounds i8, ptr %113, i64 32
+  %130 = load ptr, ptr %129, align 8
   br label %RARRAY_AREF.exit116
 
-130:                                              ; preds = %RARRAY_AREF.exit
-  %131 = getelementptr inbounds i8, ptr %115, i64 32
-  %132 = load ptr, ptr %131, align 8
-  br label %RARRAY_AREF.exit116
-
-RARRAY_AREF.exit116:                              ; preds = %128, %130
-  %.0.i.i115 = phi ptr [ %129, %128 ], [ %132, %130 ]
-  %133 = load i64, ptr %.0.i.i115, align 8
-  %134 = and i64 %133, 1
-  %135 = icmp eq i64 %134, 0
-  %136 = icmp sgt i64 %133, 1
-  %or.cond145 = or i1 %136, %135
+RARRAY_AREF.exit116:                              ; preds = %126, %128
+  %.0.i.i115 = phi ptr [ %127, %126 ], [ %130, %128 ]
+  %131 = load i64, ptr %.0.i.i115, align 8
+  %132 = and i64 %131, 1
+  %133 = icmp eq i64 %132, 0
+  %134 = icmp sgt i64 %131, 1
+  %or.cond145 = or i1 %134, %133
   br i1 %or.cond145, label %.critedge, label %rb_fix_digits.exit, !llvm.loop !43
 
-int_lt.exit.thread137:                            ; preds = %100, %int_lt.exit
-  %137 = tail call i64 @rb_ary_new() #23
-  %138 = tail call i64 @int_lt(i64 noundef %.093, i64 noundef %0)
-  %139 = icmp eq i64 %138, 20
-  br i1 %139, label %.lr.ph, label %._crit_edge
+int_lt.exit.thread137:                            ; preds = %98, %int_lt.exit
+  %135 = tail call i64 @rb_ary_new() #23
+  %136 = tail call i64 @int_lt(i64 noundef %.093, i64 noundef %0)
+  %137 = icmp eq i64 %136, 20
+  br i1 %137, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %int_lt.exit.thread137, %.lr.ph
-  %.095150 = phi i64 [ %141, %.lr.ph ], [ %.093, %int_lt.exit.thread137 ]
-  %140 = tail call i64 @rb_ary_push(i64 noundef %137, i64 noundef %.095150) #23
-  %141 = tail call i64 @rb_int_mul(i64 noundef %.095150, i64 noundef %.095150)
-  %142 = tail call i64 @int_lt(i64 noundef %141, i64 noundef %0)
-  %143 = icmp eq i64 %142, 20
-  br i1 %143, label %.lr.ph, label %._crit_edge, !llvm.loop !44
+  %.095150 = phi i64 [ %139, %.lr.ph ], [ %.093, %int_lt.exit.thread137 ]
+  %138 = tail call i64 @rb_ary_push(i64 noundef %135, i64 noundef %.095150) #23
+  %139 = tail call i64 @rb_int_mul(i64 noundef %.095150, i64 noundef %.095150)
+  %140 = tail call i64 @int_lt(i64 noundef %139, i64 noundef %0)
+  %141 = icmp eq i64 %140, 20
+  br i1 %141, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %int_lt.exit.thread137
-  %144 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %0) #23
-  %145 = inttoptr i64 %137 to ptr
+  %142 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %0) #23
+  %143 = inttoptr i64 %135 to ptr
+  %144 = getelementptr inbounds i8, ptr %143, i64 16
+  %145 = inttoptr i64 %142 to ptr
   %146 = getelementptr inbounds i8, ptr %145, i64 16
-  %147 = inttoptr i64 %144 to ptr
-  %148 = getelementptr inbounds i8, ptr %147, i64 16
-  %149 = getelementptr inbounds i8, ptr %147, i64 32
-  br label %150
+  %147 = getelementptr inbounds i8, ptr %145, i64 32
+  br label %148
 
 .loopexit:                                        ; preds = %RARRAY_AREF.exit130._crit_edge, %rb_array_len.exit121
-  br label %150, !llvm.loop !45
+  br label %148, !llvm.loop !45
 
-150:                                              ; preds = %.loopexit, %._crit_edge
-  %151 = load i64, ptr %145, align 8
-  %152 = and i64 %151, 8192
-  %.not.i117 = icmp eq i64 %152, 0
-  br i1 %.not.i117, label %156, label %153
+148:                                              ; preds = %.loopexit, %._crit_edge
+  %149 = load i64, ptr %143, align 8
+  %150 = and i64 %149, 8192
+  %.not.i117 = icmp eq i64 %150, 0
+  br i1 %.not.i117, label %154, label %151
 
-153:                                              ; preds = %150
-  %154 = lshr i64 %151, 15
-  %155 = and i64 %154, 127
+151:                                              ; preds = %148
+  %152 = lshr i64 %149, 15
+  %153 = and i64 %152, 127
   br label %rb_array_len.exit
 
-156:                                              ; preds = %150
-  %157 = load i64, ptr %146, align 8
+154:                                              ; preds = %148
+  %155 = load i64, ptr %144, align 8
   br label %rb_array_len.exit
 
-rb_array_len.exit:                                ; preds = %153, %156
-  %.0.i118 = phi i64 [ %155, %153 ], [ %157, %156 ]
+rb_array_len.exit:                                ; preds = %151, %154
+  %.0.i118 = phi i64 [ %153, %151 ], [ %155, %154 ]
   %.not97 = icmp eq i64 %.0.i118, 0
-  br i1 %.not97, label %rb_fix_digits.exit, label %158
+  br i1 %.not97, label %rb_fix_digits.exit, label %156
 
-158:                                              ; preds = %rb_array_len.exit
-  %159 = tail call i64 @rb_ary_pop(i64 noundef %137) #23
-  %160 = load i64, ptr %147, align 8
-  %161 = and i64 %160, 8192
-  %.not.i119 = icmp eq i64 %161, 0
-  br i1 %.not.i119, label %165, label %162
+156:                                              ; preds = %rb_array_len.exit
+  %157 = tail call i64 @rb_ary_pop(i64 noundef %135) #23
+  %158 = load i64, ptr %145, align 8
+  %159 = and i64 %158, 8192
+  %.not.i119 = icmp eq i64 %159, 0
+  br i1 %.not.i119, label %163, label %160
 
-162:                                              ; preds = %158
-  %163 = lshr i64 %160, 15
-  %164 = and i64 %163, 127
+160:                                              ; preds = %156
+  %161 = lshr i64 %158, 15
+  %162 = and i64 %161, 127
   br label %rb_array_len.exit121
 
-165:                                              ; preds = %158
-  %166 = load i64, ptr %148, align 8
+163:                                              ; preds = %156
+  %164 = load i64, ptr %146, align 8
   br label %rb_array_len.exit121
 
-rb_array_len.exit121:                             ; preds = %162, %165
-  %.0.i120 = phi i64 [ %164, %162 ], [ %166, %165 ]
-  %167 = add i64 %.0.i120, -1
-  %168 = icmp sgt i64 %167, -1
-  br i1 %168, label %.lr.ph152, label %.loopexit
+rb_array_len.exit121:                             ; preds = %160, %163
+  %.0.i120 = phi i64 [ %162, %160 ], [ %164, %163 ]
+  %165 = add i64 %.0.i120, -1
+  %166 = icmp sgt i64 %165, -1
+  br i1 %166, label %.lr.ph152, label %.loopexit
 
 .lr.ph152:                                        ; preds = %rb_array_len.exit121, %RARRAY_AREF.exit130._crit_edge
-  %.094151 = phi i64 [ %192, %RARRAY_AREF.exit130._crit_edge ], [ %167, %rb_array_len.exit121 ]
-  %169 = load i64, ptr %147, align 8
-  %170 = and i64 %169, 8192
-  %.not.i.i122 = icmp eq i64 %170, 0
-  br i1 %.not.i.i122, label %171, label %RARRAY_AREF.exit124
+  %.094151 = phi i64 [ %190, %RARRAY_AREF.exit130._crit_edge ], [ %165, %rb_array_len.exit121 ]
+  %167 = load i64, ptr %145, align 8
+  %168 = and i64 %167, 8192
+  %.not.i.i122 = icmp eq i64 %168, 0
+  br i1 %.not.i.i122, label %169, label %RARRAY_AREF.exit124
 
-171:                                              ; preds = %.lr.ph152
-  %172 = load ptr, ptr %149, align 8
+169:                                              ; preds = %.lr.ph152
+  %170 = load ptr, ptr %147, align 8
   br label %RARRAY_AREF.exit124
 
-RARRAY_AREF.exit124:                              ; preds = %.lr.ph152, %171
-  %.0.i.i123 = phi ptr [ %172, %171 ], [ %148, %.lr.ph152 ]
-  %173 = getelementptr i64, ptr %.0.i.i123, i64 %.094151
-  %174 = load i64, ptr %173, align 8
-  %175 = tail call i64 @rb_int_divmod(i64 noundef %174, i64 noundef %159)
-  %176 = inttoptr i64 %175 to ptr
-  %177 = load i64, ptr %176, align 8
-  %178 = and i64 %177, 8192
-  %.not.i.i125 = icmp eq i64 %178, 0
-  br i1 %.not.i.i125, label %181, label %179
+RARRAY_AREF.exit124:                              ; preds = %.lr.ph152, %169
+  %.0.i.i123 = phi ptr [ %170, %169 ], [ %146, %.lr.ph152 ]
+  %171 = getelementptr i64, ptr %.0.i.i123, i64 %.094151
+  %172 = load i64, ptr %171, align 8
+  %173 = tail call i64 @rb_int_divmod(i64 noundef %172, i64 noundef %157)
+  %174 = inttoptr i64 %173 to ptr
+  %175 = load i64, ptr %174, align 8
+  %176 = and i64 %175, 8192
+  %.not.i.i125 = icmp eq i64 %176, 0
+  br i1 %.not.i.i125, label %179, label %177
+
+177:                                              ; preds = %RARRAY_AREF.exit124
+  %178 = getelementptr inbounds i8, ptr %174, i64 16
+  br label %RARRAY_AREF.exit130
 
 179:                                              ; preds = %RARRAY_AREF.exit124
-  %180 = getelementptr inbounds i8, ptr %176, i64 16
+  %180 = getelementptr inbounds i8, ptr %174, i64 32
+  %181 = load ptr, ptr %180, align 8
   br label %RARRAY_AREF.exit130
 
-181:                                              ; preds = %RARRAY_AREF.exit124
-  %182 = getelementptr inbounds i8, ptr %176, i64 32
-  %183 = load ptr, ptr %182, align 8
-  br label %RARRAY_AREF.exit130
+RARRAY_AREF.exit130:                              ; preds = %177, %179
+  %.in = phi ptr [ %178, %177 ], [ %181, %179 ]
+  %182 = load i64, ptr %.in, align 8
+  %183 = getelementptr i8, ptr %.in, i64 8
+  %184 = load i64, ptr %183, align 8
+  %185 = icmp ne i64 %.094151, %165
+  %186 = icmp ne i64 %182, 1
+  %or.cond = select i1 %185, i1 true, i1 %186
+  %187 = shl nuw i64 %.094151, 1
+  br i1 %or.cond, label %188, label %RARRAY_AREF.exit130._crit_edge
 
-RARRAY_AREF.exit130:                              ; preds = %179, %181
-  %.in = phi ptr [ %180, %179 ], [ %183, %181 ]
-  %184 = load i64, ptr %.in, align 8
-  %185 = getelementptr i8, ptr %.in, i64 8
-  %186 = load i64, ptr %185, align 8
-  %187 = icmp ne i64 %.094151, %167
-  %188 = icmp ne i64 %184, 1
-  %or.cond = select i1 %187, i1 true, i1 %188
-  %189 = shl nuw i64 %.094151, 1
-  br i1 %or.cond, label %190, label %RARRAY_AREF.exit130._crit_edge
-
-190:                                              ; preds = %RARRAY_AREF.exit130
-  %191 = or disjoint i64 %189, 1
-  tail call void @rb_ary_store(i64 noundef %144, i64 noundef %191, i64 noundef %184) #23
+188:                                              ; preds = %RARRAY_AREF.exit130
+  %189 = or disjoint i64 %187, 1
+  tail call void @rb_ary_store(i64 noundef %142, i64 noundef %189, i64 noundef %182) #23
   br label %RARRAY_AREF.exit130._crit_edge
 
-RARRAY_AREF.exit130._crit_edge:                   ; preds = %RARRAY_AREF.exit130, %190
-  tail call void @rb_ary_store(i64 noundef %144, i64 noundef %189, i64 noundef %186) #23
-  %192 = add nsw i64 %.094151, -1
-  %193 = icmp sgt i64 %.094151, 0
-  br i1 %193, label %.lr.ph152, label %.loopexit, !llvm.loop !46
+RARRAY_AREF.exit130._crit_edge:                   ; preds = %RARRAY_AREF.exit130, %188
+  tail call void @rb_ary_store(i64 noundef %142, i64 noundef %187, i64 noundef %184) #23
+  %190 = add nsw i64 %.094151, -1
+  %191 = icmp sgt i64 %.094151, 0
+  br i1 %191, label %.lr.ph152, label %.loopexit, !llvm.loop !46
 
 rb_fix_digits.exit.sink.split:                    ; preds = %53, %39
   %.sink = phi i64 [ 1, %39 ], [ %0, %53 ]
-  %194 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %.sink) #23
+  %192 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %.sink) #23
   br label %rb_fix_digits.exit
 
 rb_fix_digits.exit:                               ; preds = %rb_long2num_inline.exit.i, %rb_array_len.exit, %RARRAY_AREF.exit116, %rb_fix_digits.exit.sink.split, %41
-  %.091 = phi i64 [ %42, %41 ], [ %194, %rb_fix_digits.exit.sink.split ], [ %113, %RARRAY_AREF.exit116 ], [ %144, %rb_array_len.exit ], [ %42, %rb_long2num_inline.exit.i ]
+  %.091 = phi i64 [ %42, %41 ], [ %192, %rb_fix_digits.exit.sink.split ], [ %111, %RARRAY_AREF.exit116 ], [ %142, %rb_array_len.exit ], [ %42, %rb_long2num_inline.exit.i ]
   ret i64 %.091
 }
 

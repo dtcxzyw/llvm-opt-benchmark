@@ -62,13 +62,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call5 = tail call noundef i64 @_ZN4absl18ToInt64NanosecondsENS_8DurationE(i64 %d.coerce0, i32 %d.coerce1) #9
-  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %call5, i64 0)
   %call.i = tail call noundef i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #8
   %sub = sub nsw i64 9223372036854775807, %call.i
-  %cmp9 = icmp ugt i64 %spec.store.select, %sub
+  %cmp9 = icmp sgt i64 %call5, %sub
   br i1 %cmp9, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end
+  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %call5, i64 0)
   %add = add nsw i64 %spec.store.select, %call.i
   %shl = shl i64 %add, 1
   %or = or disjoint i64 %shl, 1
@@ -102,7 +102,7 @@ if.then4:                                         ; preds = %if.end
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %sub, i64 0)
   %call8 = tail call noundef i64 @_ZN4absl19GetCurrentTimeNanosEv()
   %sub9 = sub nsw i64 9223372036854775807, %call8
-  %cmp = icmp ugt i64 %.sroa.speculated, %sub9
+  %cmp = icmp sgt i64 %sub, %sub9
   %add = add nsw i64 %.sroa.speculated, %call8
   %spec.select = select i1 %cmp, i64 9223372036854775807, i64 %add
   br label %return
@@ -167,7 +167,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %.sroa.speculated.i = tail call i64 @llvm.smax.i64(i64 %sub.i, i64 0)
   %call8.i = tail call noundef i64 @_ZN4absl19GetCurrentTimeNanosEv()
   %sub9.i = sub nsw i64 9223372036854775807, %call8.i
-  %cmp.i = icmp ugt i64 %.sroa.speculated.i, %sub9.i
+  %cmp.i = icmp sgt i64 %sub.i, %sub9.i
   %add.i = add nsw i64 %.sroa.speculated.i, %call8.i
   %spec.select.i = select i1 %cmp.i, i64 9223372036854775807, i64 %add.i
   br label %_ZNK4absl24synchronization_internal13KernelTimeout12MakeAbsNanosEv.exit
@@ -376,7 +376,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %.sroa.speculated.i = tail call i64 @llvm.smax.i64(i64 %sub.i, i64 0)
   %call8.i = tail call noundef i64 @_ZN4absl19GetCurrentTimeNanosEv()
   %sub9.i = sub nsw i64 9223372036854775807, %call8.i
-  %cmp.i1 = icmp ugt i64 %.sroa.speculated.i, %sub9.i
+  %cmp.i1 = icmp sgt i64 %sub.i, %sub9.i
   %add.i = add nsw i64 %.sroa.speculated.i, %call8.i
   %spec.select.i = select i1 %cmp.i1, i64 9223372036854775807, i64 %add.i
   br label %_ZNK4absl24synchronization_internal13KernelTimeout12MakeAbsNanosEv.exit

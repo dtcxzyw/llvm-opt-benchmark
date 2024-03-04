@@ -2020,26 +2020,25 @@ for.body414.lr.ph.i:                              ; preds = %for.cond411.prehead
   %242 = zext nneg i32 %i.0.lcssa459.i to i64
   %243 = getelementptr i8, ptr %call.i, i64 %242
   %scevgep.i = getelementptr i8, ptr %243, i64 201
-  %244 = sub nuw nsw i32 5, %i.0.lcssa459.i
-  %245 = zext nneg i32 %244 to i64
-  %246 = add nuw nsw i64 %245, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %246, i1 false)
+  %narrow.i = sub nuw nsw i32 6, %i.0.lcssa459.i
+  %244 = zext nneg i32 %narrow.i to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %244, i1 false)
   br label %for.end420.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %247 = phi ptr [ %239, %for.body.lr.ph.i ], [ %249, %for.body.i ]
-  %id.i = getelementptr inbounds i8, ptr %247, i64 8
+  %245 = phi ptr [ %239, %for.body.lr.ph.i ], [ %247, %for.body.i ]
+  %id.i = getelementptr inbounds i8, ptr %245, i64 8
   %arrayidx407.i = getelementptr [6 x i8], ptr %id.i, i64 0, i64 %indvars.iv.i
-  %248 = load i8, ptr %arrayidx407.i, align 1
+  %246 = load i8, ptr %arrayidx407.i, align 1
   %arrayidx410.i = getelementptr [16 x i8], ptr %data408.i, i64 0, i64 %indvars.iv.i
-  store i8 %248, ptr %arrayidx410.i, align 1
+  store i8 %246, ptr %arrayidx410.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %249 = load ptr, ptr %113, align 8
-  %id_len.i = getelementptr inbounds i8, ptr %249, i64 14
-  %250 = load i8, ptr %id_len.i, align 2
-  %251 = zext i8 %250 to i64
-  %cmp404.i = icmp ult i64 %indvars.iv.next.i, %251
+  %247 = load ptr, ptr %113, align 8
+  %id_len.i = getelementptr inbounds i8, ptr %247, i64 14
+  %248 = load i8, ptr %id_len.i, align 2
+  %249 = zext i8 %248 to i64
+  %cmp404.i = icmp ult i64 %indvars.iv.next.i, %249
   br i1 %cmp404.i, label %for.body.i, label %for.cond411.preheader.i, !llvm.loop !8
 
 for.end420.i:                                     ; preds = %for.body414.lr.ph.i, %for.cond411.preheader.i
@@ -2049,8 +2048,8 @@ for.end420.i:                                     ; preds = %for.body414.lr.ph.i
   br label %sw.epilog
 
 do.body425.i:                                     ; preds = %lor.lhs.false396.i
-  %252 = load i32, ptr @qemu_loglevel, align 4
-  %and.i414.i = and i32 %252, 2048
+  %250 = load i32, ptr @qemu_loglevel, align 4
+  %and.i414.i = and i32 %250, 2048
   %cmp.i415.not.i = icmp eq i32 %and.i414.i, 0
   br i1 %cmp.i415.not.i, label %sw.epilog, label %if.then433.i
 
@@ -2060,14 +2059,14 @@ if.then433.i:                                     ; preds = %do.body425.i
 
 sw.bb437.i:                                       ; preds = %if.end14.i
   %volatile_cfg.i = getelementptr inbounds i8, ptr %call.i, i64 240
-  %253 = load i32, ptr %volatile_cfg.i, align 8
-  %conv439.i = trunc i32 %253 to i8
+  %251 = load i32, ptr %volatile_cfg.i, align 8
+  %conv439.i = trunc i32 %251 to i8
   %data440.i = getelementptr inbounds i8, ptr %call.i, i64 201
   %four_bytes_address_mode442.i = getelementptr inbounds i8, ptr %call.i, i64 258
-  %254 = load i8, ptr %four_bytes_address_mode442.i, align 2
-  %255 = shl i8 %254, 5
-  %256 = and i8 %255, 32
-  %conv453.i = or i8 %256, %conv439.i
+  %252 = load i8, ptr %four_bytes_address_mode442.i, align 2
+  %253 = shl i8 %252, 5
+  %254 = and i8 %253, 32
+  %conv453.i = or i8 %254, %conv439.i
   store i8 %conv453.i, ptr %data440.i, align 1
   store i32 0, ptr %pos, align 8
   store i32 1, ptr %len, align 4
@@ -2076,9 +2075,9 @@ sw.bb437.i:                                       ; preds = %if.end14.i
 
 sw.bb457.i:                                       ; preds = %if.end14.i, %if.end14.i
   %write_enable458.i = getelementptr inbounds i8, ptr %call.i, i64 257
-  %257 = load i8, ptr %write_enable458.i, align 1
-  %258 = and i8 %257, 1
-  %tobool459.not.i = icmp eq i8 %258, 0
+  %255 = load i8, ptr %write_enable458.i, align 1
+  %256 = and i8 %255, 1
+  %tobool459.not.i = icmp eq i8 %256, 0
   br i1 %tobool459.not.i, label %do.body462.i, label %if.then460.i
 
 if.then460.i:                                     ; preds = %sw.bb457.i
@@ -2087,8 +2086,8 @@ if.then460.i:                                     ; preds = %sw.bb457.i
   br label %sw.epilog
 
 do.body462.i:                                     ; preds = %sw.bb457.i
-  %259 = load i32, ptr @qemu_loglevel, align 4
-  %and.i416.i = and i32 %259, 2048
+  %257 = load i32, ptr @qemu_loglevel, align 4
+  %and.i416.i = and i32 %257, 2048
   %cmp.i417.not.i = icmp eq i32 %and.i416.i, 0
   br i1 %cmp.i417.not.i, label %sw.epilog, label %if.then470.i
 
@@ -2108,9 +2107,9 @@ sw.bb477.i:                                       ; preds = %if.end14.i
 
 sw.bb479.i:                                       ; preds = %if.end14.i, %if.end14.i
   %ear.i = getelementptr inbounds i8, ptr %call.i, i64 268
-  %260 = load i8, ptr %ear.i, align 4
+  %258 = load i8, ptr %ear.i, align 4
   %data480.i = getelementptr inbounds i8, ptr %call.i, i64 201
-  store i8 %260, ptr %data480.i, align 1
+  store i8 %258, ptr %data480.i, align 1
   store i32 0, ptr %pos, align 8
   store i32 1, ptr %len, align 4
   store i8 5, ptr %state, align 8
@@ -2118,9 +2117,9 @@ sw.bb479.i:                                       ; preds = %if.end14.i, %if.end
 
 sw.bb485.i:                                       ; preds = %if.end14.i, %if.end14.i
   %write_enable486.i = getelementptr inbounds i8, ptr %call.i, i64 257
-  %261 = load i8, ptr %write_enable486.i, align 1
-  %262 = and i8 %261, 1
-  %tobool487.not.i = icmp eq i8 %262, 0
+  %259 = load i8, ptr %write_enable486.i, align 1
+  %260 = and i8 %259, 1
+  %tobool487.not.i = icmp eq i8 %260, 0
   br i1 %tobool487.not.i, label %sw.epilog, label %if.then488.i
 
 if.then488.i:                                     ; preds = %sw.bb485.i
@@ -2132,11 +2131,11 @@ if.then488.i:                                     ; preds = %sw.bb485.i
 
 sw.bb494.i:                                       ; preds = %if.end14.i
   %nonvolatile_cfg.i = getelementptr inbounds i8, ptr %call.i, i64 236
-  %263 = load i32, ptr %nonvolatile_cfg.i, align 4
-  %conv496.i = trunc i32 %263 to i8
+  %261 = load i32, ptr %nonvolatile_cfg.i, align 4
+  %conv496.i = trunc i32 %261 to i8
   %data497.i = getelementptr inbounds i8, ptr %call.i, i64 201
   store i8 %conv496.i, ptr %data497.i, align 1
-  %shr.i = lshr i32 %263, 8
+  %shr.i = lshr i32 %261, 8
   %conv501.i = trunc i32 %shr.i to i8
   %arrayidx503.i = getelementptr i8, ptr %call.i, i64 202
   store i8 %conv501.i, ptr %arrayidx503.i, align 1
@@ -2147,15 +2146,15 @@ sw.bb494.i:                                       ; preds = %if.end14.i
 
 sw.bb507.i:                                       ; preds = %if.end14.i
   %write_enable508.i = getelementptr inbounds i8, ptr %call.i, i64 257
-  %264 = load i8, ptr %write_enable508.i, align 1
-  %265 = and i8 %264, 1
-  %tobool509.not.i = icmp eq i8 %265, 0
+  %262 = load i8, ptr %write_enable508.i, align 1
+  %263 = and i8 %262, 1
+  %tobool509.not.i = icmp eq i8 %263, 0
   br i1 %tobool509.not.i, label %sw.epilog, label %land.lhs.true511.i
 
 land.lhs.true511.i:                               ; preds = %sw.bb507.i
   %s.val216.i = load ptr, ptr %113, align 8
-  %266 = getelementptr i8, ptr %s.val216.i, i64 8
-  %s.val216.val.i = load i8, ptr %266, align 8
+  %264 = getelementptr i8, ptr %s.val216.i, i64 8
+  %s.val216.val.i = load i8, ptr %264, align 8
   %call512.i = tail call fastcc i32 @get_man(i8 %s.val216.val.i)
   %cmp513.i = icmp eq i32 %call512.i, 2
   br i1 %cmp513.i, label %if.then515.i, label %sw.epilog
@@ -2169,8 +2168,8 @@ if.then515.i:                                     ; preds = %land.lhs.true511.i
 
 sw.bb521.i:                                       ; preds = %if.end14.i
   %volatile_cfg522.i = getelementptr inbounds i8, ptr %call.i, i64 240
-  %267 = load i32, ptr %volatile_cfg522.i, align 8
-  %conv524.i = trunc i32 %267 to i8
+  %265 = load i32, ptr %volatile_cfg522.i, align 8
+  %conv524.i = trunc i32 %265 to i8
   %data525.i = getelementptr inbounds i8, ptr %call.i, i64 201
   store i8 %conv524.i, ptr %data525.i, align 1
   store i32 0, ptr %pos, align 8
@@ -2180,9 +2179,9 @@ sw.bb521.i:                                       ; preds = %if.end14.i
 
 sw.bb530.i:                                       ; preds = %if.end14.i
   %write_enable531.i = getelementptr inbounds i8, ptr %call.i, i64 257
-  %268 = load i8, ptr %write_enable531.i, align 1
-  %269 = and i8 %268, 1
-  %tobool532.not.i = icmp eq i8 %269, 0
+  %266 = load i8, ptr %write_enable531.i, align 1
+  %267 = and i8 %266, 1
+  %tobool532.not.i = icmp eq i8 %267, 0
   br i1 %tobool532.not.i, label %sw.epilog, label %if.then533.i
 
 if.then533.i:                                     ; preds = %sw.bb530.i
@@ -2194,8 +2193,8 @@ if.then533.i:                                     ; preds = %sw.bb530.i
 
 sw.bb539.i:                                       ; preds = %if.end14.i
   %enh_volatile_cfg.i = getelementptr inbounds i8, ptr %call.i, i64 244
-  %270 = load i32, ptr %enh_volatile_cfg.i, align 4
-  %conv541.i = trunc i32 %270 to i8
+  %268 = load i32, ptr %enh_volatile_cfg.i, align 4
+  %conv541.i = trunc i32 %268 to i8
   %data542.i = getelementptr inbounds i8, ptr %call.i, i64 201
   store i8 %conv541.i, ptr %data542.i, align 1
   store i32 0, ptr %pos, align 8
@@ -2205,9 +2204,9 @@ sw.bb539.i:                                       ; preds = %if.end14.i
 
 sw.bb547.i:                                       ; preds = %if.end14.i
   %write_enable548.i = getelementptr inbounds i8, ptr %call.i, i64 257
-  %271 = load i8, ptr %write_enable548.i, align 1
-  %272 = and i8 %271, 1
-  %tobool549.not.i = icmp eq i8 %272, 0
+  %269 = load i8, ptr %write_enable548.i, align 1
+  %270 = and i8 %269, 1
+  %tobool549.not.i = icmp eq i8 %270, 0
   br i1 %tobool549.not.i, label %sw.epilog, label %if.then550.i
 
 if.then550.i:                                     ; preds = %sw.bb547.i
@@ -2224,9 +2223,9 @@ sw.bb556.i:                                       ; preds = %if.end14.i
 
 sw.bb558.i:                                       ; preds = %if.end14.i
   %reset_enable559.i = getelementptr inbounds i8, ptr %call.i, i64 259
-  %273 = load i8, ptr %reset_enable559.i, align 1
-  %274 = and i8 %273, 1
-  %tobool560.not.i = icmp eq i8 %274, 0
+  %271 = load i8, ptr %reset_enable559.i, align 1
+  %272 = and i8 %271, 1
+  %tobool560.not.i = icmp eq i8 %272, 0
   br i1 %tobool560.not.i, label %sw.epilog, label %if.then561.i
 
 if.then561.i:                                     ; preds = %sw.bb558.i
@@ -2235,8 +2234,8 @@ if.then561.i:                                     ; preds = %sw.bb558.i
 
 sw.bb563.i:                                       ; preds = %if.end14.i
   %s.val215.i = load ptr, ptr %113, align 8
-  %275 = getelementptr i8, ptr %s.val215.i, i64 8
-  %s.val215.val.i = load i8, ptr %275, align 8
+  %273 = getelementptr i8, ptr %s.val215.i, i64 8
+  %s.val215.val.i = load i8, ptr %273, align 8
   %call564.i = tail call fastcc i32 @get_man(i8 %s.val215.val.i)
   switch i32 %call564.i, label %sw.epilog [
     i32 0, label %sw.bb565.i
@@ -2245,11 +2244,11 @@ sw.bb563.i:                                       ; preds = %if.end14.i
 
 sw.bb565.i:                                       ; preds = %sw.bb563.i
   %quad_enable566.i = getelementptr inbounds i8, ptr %call.i, i64 260
-  %276 = load i8, ptr %quad_enable566.i, align 4
-  %277 = shl i8 %276, 1
-  %278 = and i8 %277, 2
+  %274 = load i8, ptr %quad_enable566.i, align 4
+  %275 = shl i8 %274, 1
+  %276 = and i8 %275, 2
   %data574.i = getelementptr inbounds i8, ptr %call.i, i64 201
-  store i8 %278, ptr %data574.i, align 1
+  store i8 %276, ptr %data574.i, align 1
   store i32 0, ptr %pos, align 8
   store i32 1, ptr %len, align 4
   store i8 5, ptr %state, align 8
@@ -2267,24 +2266,24 @@ sw.bb583.i:                                       ; preds = %if.end14.i
 
 sw.bb585.i:                                       ; preds = %if.end14.i
   %s.val.i = load ptr, ptr %113, align 8
-  %279 = getelementptr i8, ptr %s.val.i, i64 8
-  %s.val.val.i = load i8, ptr %279, align 8
+  %277 = getelementptr i8, ptr %s.val.i, i64 8
+  %s.val.val.i = load i8, ptr %277, align 8
   %call586.i = tail call fastcc i32 @get_man(i8 %s.val.val.i)
   %cmp587.i = icmp eq i32 %call586.i, 4
   br i1 %cmp587.i, label %if.then589.i, label %do.body618.i
 
 if.then589.i:                                     ; preds = %sw.bb585.i
   %write_enable590.i = getelementptr inbounds i8, ptr %call.i, i64 257
-  %280 = load i8, ptr %write_enable590.i, align 1
-  %281 = and i8 %280, 1
-  %tobool591.not.i = icmp eq i8 %281, 0
+  %278 = load i8, ptr %write_enable590.i, align 1
+  %279 = and i8 %278, 1
+  %tobool591.not.i = icmp eq i8 %279, 0
   br i1 %tobool591.not.i, label %do.body605.i, label %if.then592.i
 
 if.then592.i:                                     ; preds = %if.then589.i
   %aai_enable593.i = getelementptr inbounds i8, ptr %call.i, i64 261
-  %282 = load i8, ptr %aai_enable593.i, align 1
-  %283 = and i8 %282, 1
-  %tobool594.not.i = icmp eq i8 %283, 0
+  %280 = load i8, ptr %aai_enable593.i, align 1
+  %281 = and i8 %280, 1
+  %tobool594.not.i = icmp eq i8 %281, 0
   br i1 %tobool594.not.i, label %if.else597.i, label %if.then595.i
 
 if.then595.i:                                     ; preds = %if.then592.i
@@ -2300,8 +2299,8 @@ if.else597.i:                                     ; preds = %if.then592.i
   br label %sw.epilog
 
 do.body605.i:                                     ; preds = %if.then589.i
-  %284 = load i32, ptr @qemu_loglevel, align 4
-  %and.i418.i = and i32 %284, 2048
+  %282 = load i32, ptr @qemu_loglevel, align 4
+  %and.i418.i = and i32 %282, 2048
   %cmp.i419.not.i = icmp eq i32 %and.i418.i, 0
   br i1 %cmp.i419.not.i, label %sw.epilog, label %if.then613.i
 
@@ -2310,8 +2309,8 @@ if.then613.i:                                     ; preds = %do.body605.i
   br label %sw.epilog
 
 do.body618.i:                                     ; preds = %sw.bb585.i
-  %285 = load i32, ptr @qemu_loglevel, align 4
-  %and.i420.i = and i32 %285, 2048
+  %283 = load i32, ptr @qemu_loglevel, align 4
+  %and.i420.i = and i32 %283, 2048
   %cmp.i421.not.i = icmp eq i32 %and.i420.i, 0
   br i1 %cmp.i421.not.i, label %sw.epilog, label %if.then626.i
 
@@ -2320,16 +2319,16 @@ if.then626.i:                                     ; preds = %do.body618.i
   br label %sw.epilog
 
 sw.bb630.i:                                       ; preds = %if.end14.i
-  %286 = load ptr, ptr %113, align 8
-  %sfdp_read.i = getelementptr inbounds i8, ptr %286, i64 32
-  %287 = load ptr, ptr %sfdp_read.i, align 8
-  %tobool632.not.i = icmp eq ptr %287, null
+  %284 = load ptr, ptr %113, align 8
+  %sfdp_read.i = getelementptr inbounds i8, ptr %284, i64 32
+  %285 = load ptr, ptr %sfdp_read.i, align 8
+  %tobool632.not.i = icmp eq ptr %285, null
   br i1 %tobool632.not.i, label %sw.default641.i, label %if.then633.i
 
 if.then633.i:                                     ; preds = %sw.bb630.i
   %call634.i = tail call fastcc i32 @get_addr_length(ptr noundef nonnull %call.i), !range !7
-  %288 = trunc i32 %call634.i to i8
-  %conv635.i = add nuw nsw i8 %288, 1
+  %286 = trunc i32 %call634.i to i8
+  %conv635.i = add nuw nsw i8 %286, 1
   store i8 %conv635.i, ptr %needed_bytes, align 1
   store i32 0, ptr %pos, align 8
   store i32 0, ptr %len, align 4
@@ -2344,8 +2343,8 @@ sw.default641.i:                                  ; preds = %sw.bb630.i, %if.end
   store i8 1, ptr %data_read_loop645.i, align 4
   %data646.i = getelementptr inbounds i8, ptr %call.i, i64 201
   store i8 0, ptr %data646.i, align 1
-  %289 = load i32, ptr @qemu_loglevel, align 4
-  %and.i422.i = and i32 %289, 2048
+  %287 = load i32, ptr @qemu_loglevel, align 4
+  %and.i422.i = and i32 %287, 2048
   %cmp.i423.not.i = icmp eq i32 %and.i422.i, 0
   br i1 %cmp.i423.not.i, label %sw.epilog, label %if.then656.i
 

@@ -138,28 +138,27 @@ get_power2.exit.i:                                ; preds = %2
   %.sink.i = phi ptr [ %26, %22 ], [ null, %get_power2.exit.i ]
   %28 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %.sink.i, ptr %28, align 8
-  %29 = zext nneg i32 %10 to i64
-  %30 = shl i64 24, %29
-  %31 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %30) #23
-  %32 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
+  %29 = shl i64 24, %13
+  %30 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %29) #23
+  %31 = getelementptr inbounds i8, ptr %3, i64 48
+  store ptr %30, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 0, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %3, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   %.not.i.i = icmp eq ptr %.sink.i, null
-  br i1 %.not.i.i, label %rb_st_init_existing_table_with_size.exit, label %35
+  br i1 %.not.i.i, label %rb_st_init_existing_table_with_size.exit, label %34
 
-35:                                               ; preds = %27
-  %36 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %29, i32 3
-  %37 = load i64, ptr %36, align 8
-  %38 = shl i64 %37, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.sink.i, i8 0, i64 %38, i1 false)
+34:                                               ; preds = %27
+  %35 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %13, i32 3
+  %36 = load i64, ptr %35, align 8
+  %37 = shl i64 %36, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.sink.i, i8 0, i64 %37, i1 false)
   br label %rb_st_init_existing_table_with_size.exit
 
-rb_st_init_existing_table_with_size.exit:         ; preds = %27, %35
-  %39 = getelementptr inbounds i8, ptr %3, i64 4
-  store i32 0, ptr %39, align 4
+rb_st_init_existing_table_with_size.exit:         ; preds = %27, %34
+  %38 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 0, ptr %38, align 4
   ret ptr %3
 }
 
