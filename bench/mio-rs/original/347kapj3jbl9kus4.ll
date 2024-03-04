@@ -4,7 +4,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h0647ad49e864b48cE(ptr align 1 %0, i64 %1, i64 %2, i1 zeroext %3) unnamed_addr #0 {
+define internal { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hbfe8d54abbf4a48eE(ptr align 1 %0, i64 %1, i64 %2, i1 zeroext %3) unnamed_addr #0 {
   %5 = alloca { ptr, i64 }, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -301,7 +301,7 @@ define internal { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h0647ad49e864b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h4759946f57342b8dE"(ptr align 1 %0, i64 %1, i64 %2) unnamed_addr #0 {
+define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h5d1a3975539de5e4E"(ptr align 1 %0, i64 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca { i64, i64 }, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
@@ -309,7 +309,7 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
   store i64 %1, ptr %6, align 8
   %7 = getelementptr inbounds { i64, i64 }, ptr %4, i32 0, i32 1
   store i64 %2, ptr %7, align 8
-  %8 = call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h0647ad49e864b48cE(ptr align 1 %0, i64 %1, i64 %2, i1 zeroext true)
+  %8 = call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hbfe8d54abbf4a48eE(ptr align 1 %0, i64 %1, i64 %2, i1 zeroext true)
   %9 = extractvalue { ptr, i64 } %8, 0
   %10 = extractvalue { ptr, i64 } %8, 1
   %11 = insertvalue { ptr, i64 } poison, ptr %9, 0
@@ -318,7 +318,7 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hd64b68f448f93dbeE"(ptr align 1 %0, i64 %1, i64 %2) unnamed_addr #0 {
+define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h799435fb58f627c8E"(ptr align 1 %0, i64 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca { i64, i64 }, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
@@ -326,7 +326,7 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
   store i64 %1, ptr %6, align 8
   %7 = getelementptr inbounds { i64, i64 }, ptr %4, i32 0, i32 1
   store i64 %2, ptr %7, align 8
-  %8 = call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h0647ad49e864b48cE(ptr align 1 %0, i64 %1, i64 %2, i1 zeroext false)
+  %8 = call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hbfe8d54abbf4a48eE(ptr align 1 %0, i64 %1, i64 %2, i1 zeroext false)
   %9 = extractvalue { ptr, i64 } %8, 0
   %10 = extractvalue { ptr, i64 } %8, 1
   %11 = insertvalue { ptr, i64 } poison, ptr %9, 0
@@ -356,6 +356,6 @@ attributes #4 = { nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 2, !"Dwarf Version", i32 4}
 !3 = !{i32 2, !"Debug Info Version", i32 3}
-!4 = !{!"rustc version 1.75.0 (82e1608df 2023-12-21)"}
+!4 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !5 = !{}
 !6 = !{i64 1, i64 -9223372036854775807}

@@ -2,7 +2,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define zeroext i1 @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17he0c5091dd9b66f46E"(ptr align 8 %0) unnamed_addr #0 {
+define zeroext i1 @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h8bcc2fdb3815ce0fE"(ptr align 8 %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   store i8 1, ptr %2, align 1
   %3 = load i8, ptr %2, align 1, !range !5, !noundef !6
@@ -11,7 +11,7 @@ define zeroext i1 @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define ptr @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h78b65b407eb17ec1E"(ptr %0) unnamed_addr #0 {
+define ptr @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h3a3ef554693c31f5E"(ptr %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i8, align 1
   %4 = alloca ptr, align 8
@@ -27,7 +27,7 @@ define ptr @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h78b65b407eb17ec1E"(ptr %
 
 11:                                               ; preds = %1
   store i8 0, ptr %3, align 1
-  call void @"_ZN3mio5waker5Waker3new28_$u7b$$u7b$closure$u7d$$u7d$17h545036f6d230e749E"()
+  call void @"_ZN3mio4poll8Registry9try_clone28_$u7b$$u7b$closure$u7d$$u7d$17h3b41739a65d40fa8E"()
   store ptr null, ptr %4, align 8
   br label %14
 
@@ -54,7 +54,7 @@ define ptr @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h78b65b407eb17ec1E"(ptr %
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define ptr @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7cc5cf2a24868694E"(ptr %0) unnamed_addr #0 {
+define ptr @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h98f9a6c3c1aa3c06E"(ptr %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i8, align 1
   %4 = alloca ptr, align 8
@@ -70,7 +70,7 @@ define ptr @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7cc5cf2a24868694E"(ptr %
 
 11:                                               ; preds = %1
   store i8 0, ptr %3, align 1
-  call void @"_ZN3mio4poll8Registry9try_clone28_$u7b$$u7b$closure$u7d$$u7d$17hbeace23d5060d65dE"()
+  call void @"_ZN3mio5waker5Waker3new28_$u7b$$u7b$closure$u7d$$u7d$17hc1b4eb4d4ded38c8E"()
   store ptr null, ptr %4, align 8
   br label %14
 
@@ -97,7 +97,7 @@ define ptr @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7cc5cf2a24868694E"(ptr %
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define zeroext i1 @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h7efcbfd88c73a5eeE"(i1 zeroext %0) unnamed_addr #0 {
+define zeroext i1 @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h572fe71b55e505d7E"(i1 zeroext %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = zext i1 %0 to i8
@@ -126,10 +126,10 @@ define zeroext i1 @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @"_ZN3mio5waker5Waker3new28_$u7b$$u7b$closure$u7d$$u7d$17h545036f6d230e749E"() unnamed_addr #0
+declare hidden void @"_ZN3mio4poll8Registry9try_clone28_$u7b$$u7b$closure$u7d$$u7d$17h3b41739a65d40fa8E"() unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @"_ZN3mio4poll8Registry9try_clone28_$u7b$$u7b$closure$u7d$$u7d$17hbeace23d5060d65dE"() unnamed_addr #0
+declare hidden void @"_ZN3mio5waker5Waker3new28_$u7b$$u7b$closure$u7d$$u7d$17hc1b4eb4d4ded38c8E"() unnamed_addr #0
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 
@@ -140,6 +140,6 @@ attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "tar
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 2, !"Dwarf Version", i32 4}
 !3 = !{i32 2, !"Debug Info Version", i32 3}
-!4 = !{!"rustc version 1.75.0 (82e1608df 2023-12-21)"}
+!4 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !5 = !{i8 0, i8 2}
 !6 = !{}

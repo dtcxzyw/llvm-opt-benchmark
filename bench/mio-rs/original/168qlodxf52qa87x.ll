@@ -1,12 +1,12 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-@anon.ca450294c362aca5ee8b574cd10f8dda.0 = private unnamed_addr constant <{ [80 x i8] }> <{ [80 x i8] c"/rustc/82e1608dfa6e0b5569232559e3d385fea5a93112/library/core/src/alloc/layout.rs" }>, align 1
-@anon.ca450294c362aca5ee8b574cd10f8dda.1 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.ca450294c362aca5ee8b574cd10f8dda.0, [16 x i8] c"P\00\00\00\00\00\00\00\C1\01\00\00)\00\00\00" }>, align 8
-@str.0 = internal constant [25 x i8] c"attempt to divide by zero"
+@anon.4ffdf693d02e217395f971786d4f6f35.0 = private unnamed_addr constant <{ [80 x i8] }> <{ [80 x i8] c"/rustc/07dca489ac2d933c78d3c5158e3f43beefeb02ce/library/core/src/alloc/layout.rs" }>, align 1
+@anon.4ffdf693d02e217395f971786d4f6f35.1 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.4ffdf693d02e217395f971786d4f6f35.0, [16 x i8] c"P\00\00\00\00\00\00\00\C1\01\00\00)\00\00\00" }>, align 8
+@str.0 = internal unnamed_addr constant [25 x i8] c"attempt to divide by zero"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17hd36a56c24061139eE(i64 %0, i64 %1, i64 %2) unnamed_addr #0 {
+define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h1d793669cebcfd2dE(i64 %0, i64 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -23,7 +23,7 @@ define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17hd36a56c24
   br i1 %13, label %14, label %27
 
 14:                                               ; preds = %40, %3
-  %15 = mul i64 %0, %2
+  %15 = mul nuw i64 %0, %2
   store i64 %15, ptr %5, align 8
   store i64 %1, ptr %9, align 8
   %16 = load i64, ptr %9, align 8, !range !5, !noundef !6
@@ -64,7 +64,7 @@ define hidden { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17hd36a56c24
   br i1 %38, label %41, label %40
 
 39:                                               ; preds = %27
-  call void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr align 1 @str.0, i64 25, ptr align 8 @anon.ca450294c362aca5ee8b574cd10f8dda.1) #4
+  call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr align 1 @str.0, i64 25, ptr align 8 @anon.4ffdf693d02e217395f971786d4f6f35.1) #4
   unreachable
 
 40:                                               ; preds = %36
@@ -91,7 +91,7 @@ declare void @llvm.assume(i1 noundef) #1
 declare i1 @llvm.expect.i1(i1, i1) #2
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr align 1, i64, ptr align 8) unnamed_addr #3
+declare void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr align 1, i64, ptr align 8) unnamed_addr #3
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
@@ -106,7 +106,7 @@ attributes #4 = { noreturn }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 2, !"Dwarf Version", i32 4}
 !3 = !{i32 2, !"Debug Info Version", i32 3}
-!4 = !{!"rustc version 1.75.0 (82e1608df 2023-12-21)"}
+!4 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !5 = !{i64 1, i64 -9223372036854775807}
 !6 = !{}
 !7 = !{i64 0, i64 -9223372036854775807}
