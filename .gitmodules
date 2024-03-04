@@ -319,3 +319,6 @@
 [submodule "bench/mio-rs/mio"]
 	path = bench/mio-rs/mio
 	url = git@github.com:tokio-rs/mio.git
+[submodule "bench/tokio-rs/tokio"]
+	path = bench/tokio-rs/tokio
+	url = git@github.com:tokio-rs/tokio.git
