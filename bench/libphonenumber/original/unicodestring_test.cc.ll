@@ -1,0 +1,16180 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%"class.std::ios_base::Init" = type { i8 }
+%"class.std::basic_ostream" = type { ptr, %"class.std::basic_ios" }
+%"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
+%"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
+%"struct.std::ios_base::_Words" = type { ptr, i64 }
+%"class.std::locale" = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
+%"class.i18n::phonenumbers::UnicodeString" = type <{ %"class.i18n::phonenumbers::UnicodeText", %"class.i18n::phonenumbers::UnicodeText::const_iterator", i32, [4 x i8] }>
+%"class.i18n::phonenumbers::UnicodeText" = type { %"class.i18n::phonenumbers::UnicodeText::Repr" }
+%"class.i18n::phonenumbers::UnicodeText::Repr" = type <{ ptr, i32, i32, i8, i8, [6 x i8] }>
+%"class.i18n::phonenumbers::UnicodeText::const_iterator" = type { ptr }
+%"struct.testing::internal::CodeLocation" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
+%"class.std::allocator" = type { i8 }
+%"class.testing::internal::GTestLog" = type { i32 }
+%"class.testing::AssertionResult" = type { i8, %"class.std::unique_ptr" }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
+%"struct.std::_Head_base.1" = type { ptr }
+%"class.testing::Message" = type { %"class.std::unique_ptr.2" }
+%"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
+%"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
+%"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
+%"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
+%"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
+%"struct.std::_Head_base.9" = type { ptr }
+%"class.testing::internal::AssertHelper" = type { ptr }
+%struct._Guard = type { ptr }
+%"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
+%"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
+%"class.std::basic_istream.base" = type { ptr, i64 }
+%"class.std::basic_ostream.base" = type { ptr }
+%"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
+%"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
+
+$_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
+
+$_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi = comdat any
+
+$_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci = comdat any
+
+$_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal12CodeLocationD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers13UnicodeStringC2Ev = comdat any
+
+$_ZN7testing8internal8EqHelper7CompareIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_ = comdat any
+
+$_ZNK7testing15AssertionResultcvbEv = comdat any
+
+$_ZNK7testing15AssertionResult15failure_messageEv = comdat any
+
+$_ZN7testing7MessageD2Ev = comdat any
+
+$_ZN7testing15AssertionResultD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers13UnicodeStringD2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEEC2Ev = comdat any
+
+$_ZN4i18n12phonenumbers13UnicodeStringC2EPKc = comdat any
+
+$_ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_ = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_ = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEEC2Ev = comdat any
+
+$_ZN4i18n12phonenumbers13UnicodeString6appendEi = comdat any
+
+$_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_ = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_ = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEEC2Ev = comdat any
+
+$_ZNSt14numeric_limitsIiE3maxEv = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal8EqHelper7CompareIciTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_ = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEEC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEEC2Ev = comdat any
+
+$_ZN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestD0Ev = comdat any
+
+$_ZN7testing4Test5SetupEv = comdat any
+
+$_ZN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers26UnicodeString_IndexOf_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers26UnicodeString_IndexOf_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers32UnicodeString_TempSubString_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers32UnicodeString_TempSubString_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestD2Ev = comdat any
+
+$_ZN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers17UnicodeTextToUTF8B5cxx11ERKNS0_11UnicodeTextE = comdat any
+
+$_ZNK4i18n12phonenumbers11UnicodeText9utf8_dataEv = comdat any
+
+$_ZNK4i18n12phonenumbers11UnicodeText11utf8_lengthEv = comdat any
+
+$_ZN7testing8internal15TestFactoryBaseC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEE10CreateTestEv = comdat any
+
+$_ZN7testing8internal15TestFactoryBaseD2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryBaseD0Ev = comdat any
+
+$_ZN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestC2Ev = comdat any
+
+$_ZNK7testing15AssertionResult7messageEv = comdat any
+
+$_ZNKSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE3getEv = comdat any
+
+$_ZNKSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEptEv = comdat any
+
+$_ZNKSt15__uniq_ptr_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE6_M_ptrEv = comdat any
+
+$_ZSt3getILm0EJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKSD_ = comdat any
+
+$_ZSt12__get_helperILm0EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJSt14default_deleteIS5_EEERKT0_RKSt11_Tuple_implIXT_EJS9_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEE7_M_headERKS9_ = comdat any
+
+$_ZNSt10_Head_baseILm0EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE7_M_headERKS7_ = comdat any
+
+$_ZNSt10unique_ptrINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev = comdat any
+
+$_ZNSt15__uniq_ptr_implINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE6_M_ptrEv = comdat any
+
+$_ZNSt10unique_ptrINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE11get_deleterEv = comdat any
+
+$_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_ = comdat any
+
+$__clang_call_terminate = comdat any
+
+$_ZSt3getILm0EJPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSD_ = comdat any
+
+$_ZSt12__get_helperILm0EPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEJSt14default_deleteIS5_EEERT0_RSt11_Tuple_implIXT_EJS9_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEE7_M_headERS9_ = comdat any
+
+$_ZNSt10_Head_baseILm0EPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEELb0EE7_M_headERS7_ = comdat any
+
+$_ZNSt15__uniq_ptr_implINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE10_M_deleterEv = comdat any
+
+$_ZSt3getILm1EJPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSD_ = comdat any
+
+$_ZSt12__get_helperILm1ESt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEJEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEEE7_M_headERS8_ = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEELb1EE7_M_headERS8_ = comdat any
+
+$_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev = comdat any
+
+$_ZNSt15__uniq_ptr_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE6_M_ptrEv = comdat any
+
+$_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE11get_deleterEv = comdat any
+
+$_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_ = comdat any
+
+$_ZSt3getILm0EJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSD_ = comdat any
+
+$_ZSt12__get_helperILm0EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJSt14default_deleteIS5_EEERT0_RSt11_Tuple_implIXT_EJS9_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm0EJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEE7_M_headERS9_ = comdat any
+
+$_ZNSt10_Head_baseILm0EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE7_M_headERS7_ = comdat any
+
+$_ZNSt15__uniq_ptr_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE10_M_deleterEv = comdat any
+
+$_ZSt3getILm1EJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSD_ = comdat any
+
+$_ZSt12__get_helperILm1ESt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE = comdat any
+
+$_ZNSt11_Tuple_implILm1EJSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7_M_headERS8_ = comdat any
+
+$_ZNSt10_Head_baseILm1ESt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb1EE7_M_headERS8_ = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestC2Ev = comdat any
+
+$_ZN4i18n12phonenumbers17UTF8ToUnicodeTextEPKci = comdat any
+
+$_ZN4i18n12phonenumbers17UTF8ToUnicodeTextEPKcib = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestC2Ev = comdat any
+
+$_ZN4i18n12phonenumbers13UnicodeString21invalidateCachedIndexEv = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers26UnicodeString_IndexOf_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers32UnicodeString_TempSubString_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestC2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEED2Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEED0Ev = comdat any
+
+$_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEE10CreateTestEv = comdat any
+
+$_ZN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestC2Ev = comdat any
+
+$_ZNSt11char_traitsIcE6lengthEPKc = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev = comdat any
+
+$_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
+
+$_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag = comdat any
+
+$_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ = comdat any
+
+$_ZN7testing8internal19GetNotDefaultOrNullEPFvvES2_ = comdat any
+
+$_ZN7testing4Test13SetUpTestCaseEv = comdat any
+
+$_ZN7testing4Test14SetUpTestSuiteEv = comdat any
+
+$_ZN7testing8internal8GTestLog9GetStreamEv = comdat any
+
+$_ZN7testing4Test16TearDownTestCaseEv = comdat any
+
+$_ZN7testing4Test17TearDownTestSuiteEv = comdat any
+
+$_ZN7testing8internal11CmpHelperEQIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_ = comdat any
+
+$_ZSteqIcSt11char_traitsIcESaIcEEbPKT_RKNSt7__cxx1112basic_stringIS3_T0_T1_EE = comdat any
+
+$_ZN7testing8internal18CmpHelperEQFailureIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_ = comdat any
+
+$_ZN7testing8internal33FormatForComparisonFailureMessageIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_RKT_RKT0_ = comdat any
+
+$_ZN7testing8internal33FormatForComparisonFailureMessageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA1_cEES7_RKT_RKT0_ = comdat any
+
+$_ZN7testing8internal19FormatForComparisonIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6FormatEPKc = comdat any
+
+$_ZN7testing8internal19FormatForComparisonIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6FormatES3_ = comdat any
+
+$_ZN7testing13PrintToStringIPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_ = comdat any
+
+$_ZN7testing8internal21UniversalTersePrinterIPKcE5PrintES3_PSo = comdat any
+
+$_ZN7testing8internal14UniversalPrintINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_PSo = comdat any
+
+$_ZN7testing8internal16UniversalPrinterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5PrintERKS7_PSo = comdat any
+
+$_ZN7testing8internal7PrintToERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo = comdat any
+
+$_ZN7testing8internal19FormatForComparisonINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA1_cE6FormatERKS7_ = comdat any
+
+$_ZN7testing13PrintToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_ = comdat any
+
+$_ZN7testing8internal21UniversalTersePrinterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5PrintERKS7_PSo = comdat any
+
+$_ZN7testing8internal11CmpHelperEQIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_ = comdat any
+
+$_ZN7testing8internal18CmpHelperEQFailureIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_ = comdat any
+
+$_ZN7testing8internal33FormatForComparisonFailureMessageIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_RKT_RKT0_ = comdat any
+
+$_ZN7testing8internal33FormatForComparisonFailureMessageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA6_cEES7_RKT_RKT0_ = comdat any
+
+$_ZN7testing8internal19FormatForComparisonIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6FormatEPKc = comdat any
+
+$_ZN7testing8internal19FormatForComparisonINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA6_cE6FormatERKS7_ = comdat any
+
+$_ZN7testing8internal11CmpHelperEQIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_ = comdat any
+
+$_ZN7testing8internal18CmpHelperEQFailureIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_ = comdat any
+
+$_ZN7testing8internal33FormatForComparisonFailureMessageIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_RKT_RKT0_ = comdat any
+
+$_ZN7testing8internal33FormatForComparisonFailureMessageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA7_cEES7_RKT_RKT0_ = comdat any
+
+$_ZN7testing8internal19FormatForComparisonIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6FormatEPKc = comdat any
+
+$_ZN7testing8internal19FormatForComparisonINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA7_cE6FormatERKS7_ = comdat any
+
+$_ZN7testing8internal11CmpHelperEQIN4i18n12phonenumbers13UnicodeStringES4_EENS_15AssertionResultEPKcS7_RKT_RKT0_ = comdat any
+
+$_ZN7testing8internal18CmpHelperEQFailureIN4i18n12phonenumbers13UnicodeStringES4_EENS_15AssertionResultEPKcS7_RKT_RKT0_ = comdat any
+
+$_ZN7testing8internal33FormatForComparisonFailureMessageIN4i18n12phonenumbers13UnicodeStringES4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_ = comdat any
+
+$_ZN7testing8internal19FormatForComparisonIN4i18n12phonenumbers13UnicodeStringES4_E6FormatB5cxx11ERKS4_ = comdat any
+
+$_ZN7testing13PrintToStringIN4i18n12phonenumbers13UnicodeStringEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_ = comdat any
+
+$_ZN7testing8internal21UniversalTersePrinterIN4i18n12phonenumbers13UnicodeStringEE5PrintERKS4_PSo = comdat any
+
+$_ZN7testing8internal14UniversalPrintIN4i18n12phonenumbers13UnicodeStringEEEvRKT_PSo = comdat any
+
+$_ZN7testing8internal16UniversalPrinterIN4i18n12phonenumbers13UnicodeStringEE5PrintERKS4_PSo = comdat any
+
+$_ZN7testing8internal7PrintToIN4i18n12phonenumbers13UnicodeStringEEEvRKT_PSo = comdat any
+
+$_ZN7testing8internal17PrintWithFallbackIN4i18n12phonenumbers13UnicodeStringEEEvRKT_PSo = comdat any
+
+$_ZN7testing8internal16ContainerPrinter10PrintValueIN4i18n12phonenumbers13UnicodeStringEvEEvRKT_PSo = comdat any
+
+$_ZNK4i18n12phonenumbers13UnicodeString5beginEv = comdat any
+
+$_ZNK4i18n12phonenumbers13UnicodeString3endEv = comdat any
+
+$_ZN4i18n12phonenumbersneERKNS0_11UnicodeText14const_iteratorES4_ = comdat any
+
+$_ZN7testing8internal14UniversalPrintIiEEvRKT_PSo = comdat any
+
+$_ZN4i18n12phonenumberseqERKNS0_11UnicodeText14const_iteratorES4_ = comdat any
+
+$_ZN7testing8internal16UniversalPrinterIiE5PrintERKiPSo = comdat any
+
+$_ZN7testing8internal7PrintToIiEEvRKT_PSo = comdat any
+
+$_ZN7testing8internal17PrintWithFallbackIiEEvRKT_PSo = comdat any
+
+$_ZN7testing8internal52internal_stream_operator_without_lexical_name_lookup13StreamPrinter10PrintValueIivRSoEEvRKT_PSo = comdat any
+
+$_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_ = comdat any
+
+$_ZN7testing8internal18CmpHelperEQFailureIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_ = comdat any
+
+$_ZN7testing8internal33FormatForComparisonFailureMessageIiiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_ = comdat any
+
+$_ZN7testing8internal19FormatForComparisonIiiE6FormatB5cxx11ERKi = comdat any
+
+$_ZN7testing13PrintToStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_ = comdat any
+
+$_ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo = comdat any
+
+$_ZN7testing8internal11CmpHelperEQIciEENS_15AssertionResultEPKcS4_RKT_RKT0_ = comdat any
+
+$_ZN7testing8internal18CmpHelperEQFailureIciEENS_15AssertionResultEPKcS4_RKT_RKT0_ = comdat any
+
+$_ZN7testing8internal33FormatForComparisonFailureMessageIciEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_ = comdat any
+
+$_ZN7testing8internal33FormatForComparisonFailureMessageIicEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_ = comdat any
+
+$_ZN7testing8internal19FormatForComparisonIciE6FormatB5cxx11ERKc = comdat any
+
+$_ZN7testing13PrintToStringIcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_ = comdat any
+
+$_ZN7testing8internal21UniversalTersePrinterIcE5PrintERKcPSo = comdat any
+
+$_ZN7testing8internal14UniversalPrintIcEEvRKT_PSo = comdat any
+
+$_ZN7testing8internal16UniversalPrinterIcE5PrintERKcPSo = comdat any
+
+$_ZN7testing8internal7PrintToEcPSo = comdat any
+
+$_ZN7testing8internal19FormatForComparisonIicE6FormatB5cxx11ERKi = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryBaseE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryBaseE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryBaseE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEEE = comdat any
+
+$_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEEE = comdat any
+
+$_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEEE = comdat any
+
+$_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEEE = comdat any
+
+@_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
+@__dso_handle = external hidden global i8
+@_ZN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_Test10test_info_E = dso_local global ptr null, align 8
+@.str = private unnamed_addr constant [14 x i8] c"UnicodeString\00", align 1
+@.str.2 = private unnamed_addr constant [28 x i8] c"ToUTF8StringWithEmptyString\00", align 1
+@.str.3 = private unnamed_addr constant [151 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libphonenumber/libphonenumber/cpp/test/phonenumbers/unicodestring_test.cc\00", align 1
+@.str.4 = private unnamed_addr constant [3 x i8] c"\22\22\00", align 1
+@.str.5 = private unnamed_addr constant [5 x i8] c"utf8\00", align 1
+@.str.6 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@_ZN4i18n12phonenumbers31UnicodeString_ToUTF8String_Test10test_info_E = dso_local global ptr null, align 8
+@.str.8 = private unnamed_addr constant [13 x i8] c"ToUTF8String\00", align 1
+@.str.9 = private unnamed_addr constant [6 x i8] c"hello\00", align 1
+@.str.10 = private unnamed_addr constant [8 x i8] c"\22hello\22\00", align 1
+@_ZN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_Test10test_info_E = dso_local global ptr null, align 8
+@.str.12 = private unnamed_addr constant [25 x i8] c"ToUTF8StringWithNonAscii\00", align 1
+@.str.13 = private unnamed_addr constant [7 x i8] c"\EF\BC\95\EF\BC\93\00", align 1
+@.str.14 = private unnamed_addr constant [27 x i8] c"\22\\xEF\\xBC\\x95\\xEF\\xBC\\x93\22\00", align 1
+@_ZN4i18n12phonenumbers34UnicodeString_AppendCodepoint_Test10test_info_E = dso_local global ptr null, align 8
+@.str.16 = private unnamed_addr constant [16 x i8] c"AppendCodepoint\00", align 1
+@.str.17 = private unnamed_addr constant [19 x i8] c"UnicodeString(\22h\22)\00", align 1
+@.str.18 = private unnamed_addr constant [2 x i8] c"s\00", align 1
+@.str.19 = private unnamed_addr constant [2 x i8] c"h\00", align 1
+@.str.20 = private unnamed_addr constant [20 x i8] c"UnicodeString(\22he\22)\00", align 1
+@.str.21 = private unnamed_addr constant [3 x i8] c"he\00", align 1
+@_ZN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_Test10test_info_E = dso_local global ptr null, align 8
+@.str.23 = private unnamed_addr constant [28 x i8] c"AppendCodepointWithNonAscii\00", align 1
+@.str.24 = private unnamed_addr constant [31 x i8] c"UnicodeString(\22\\xEF\\xBC\\x95\22 )\00", align 1
+@.str.25 = private unnamed_addr constant [4 x i8] c"\EF\BC\95\00", align 1
+@.str.26 = private unnamed_addr constant [43 x i8] c"UnicodeString(\22\\xEF\\xBC\\x95\\xEF\\xBC\\x93\22 )\00", align 1
+@_ZN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_Test10test_info_E = dso_local global ptr null, align 8
+@.str.28 = private unnamed_addr constant [20 x i8] c"AppendUnicodeString\00", align 1
+@.str.29 = private unnamed_addr constant [4 x i8] c"llo\00", align 1
+@.str.30 = private unnamed_addr constant [23 x i8] c"UnicodeString(\22hello\22)\00", align 1
+@_ZN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_Test10test_info_E = dso_local global ptr null, align 8
+@.str.32 = private unnamed_addr constant [32 x i8] c"AppendUnicodeStringWithNonAscii\00", align 1
+@.str.33 = private unnamed_addr constant [30 x i8] c"UnicodeString(\22\\xEF\\xBC\\x95\22)\00", align 1
+@.str.34 = private unnamed_addr constant [4 x i8] c"\EF\BC\93\00", align 1
+@_ZN4i18n12phonenumbers26UnicodeString_IndexOf_Test10test_info_E = dso_local global ptr null, align 8
+@.str.36 = private unnamed_addr constant [8 x i8] c"IndexOf\00", align 1
+@.str.37 = private unnamed_addr constant [2 x i8] c"0\00", align 1
+@.str.38 = private unnamed_addr constant [15 x i8] c"s.indexOf('h')\00", align 1
+@.str.39 = private unnamed_addr constant [2 x i8] c"2\00", align 1
+@.str.40 = private unnamed_addr constant [15 x i8] c"s.indexOf('l')\00", align 1
+@.str.41 = private unnamed_addr constant [2 x i8] c"4\00", align 1
+@.str.42 = private unnamed_addr constant [15 x i8] c"s.indexOf('o')\00", align 1
+@_ZN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_Test10test_info_E = dso_local global ptr null, align 8
+@.str.44 = private unnamed_addr constant [20 x i8] c"IndexOfWithNonAscii\00", align 1
+@.str.45 = private unnamed_addr constant [2 x i8] c"1\00", align 1
+@.str.46 = private unnamed_addr constant [19 x i8] c"s.indexOf(0xFF13 )\00", align 1
+@_ZN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_Test10test_info_E = dso_local global ptr null, align 8
+@.str.48 = private unnamed_addr constant [23 x i8] c"ReplaceWithEmptyInputs\00", align 1
+@.str.49 = private unnamed_addr constant [18 x i8] c"UnicodeString(\22\22)\00", align 1
+@_ZN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_Test10test_info_E = dso_local global ptr null, align 8
+@.str.51 = private unnamed_addr constant [28 x i8] c"ReplaceWithEmptyReplacement\00", align 1
+@_ZN4i18n12phonenumbers34UnicodeString_ReplaceBegining_Test10test_info_E = dso_local global ptr null, align 8
+@.str.53 = private unnamed_addr constant [16 x i8] c"ReplaceBegining\00", align 1
+@.str.54 = private unnamed_addr constant [12 x i8] c"hello world\00", align 1
+@.str.55 = private unnamed_addr constant [6 x i8] c"HELLO\00", align 1
+@.str.56 = private unnamed_addr constant [29 x i8] c"UnicodeString(\22HELLO world\22)\00", align 1
+@.str.57 = private unnamed_addr constant [12 x i8] c"HELLO world\00", align 1
+@_ZN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_Test10test_info_E = dso_local global ptr null, align 8
+@.str.59 = private unnamed_addr constant [14 x i8] c"ReplaceMiddle\00", align 1
+@.str.60 = private unnamed_addr constant [3 x i8] c"AB\00", align 1
+@.str.61 = private unnamed_addr constant [30 x i8] c"UnicodeString(\22helloABworld\22)\00", align 1
+@.str.62 = private unnamed_addr constant [13 x i8] c"helloABworld\00", align 1
+@_ZN4i18n12phonenumbers29UnicodeString_ReplaceEnd_Test10test_info_E = dso_local global ptr null, align 8
+@.str.64 = private unnamed_addr constant [11 x i8] c"ReplaceEnd\00", align 1
+@.str.65 = private unnamed_addr constant [30 x i8] c"UnicodeString(\22hello worlAB\22)\00", align 1
+@.str.66 = private unnamed_addr constant [13 x i8] c"hello worlAB\00", align 1
+@_ZN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_Test10test_info_E = dso_local global ptr null, align 8
+@.str.68 = private unnamed_addr constant [20 x i8] c"ReplaceWithNonAscii\00", align 1
+@.str.69 = private unnamed_addr constant [7 x i8] c"\EF\BC\91\EF\BC\90\00", align 1
+@.str.70 = private unnamed_addr constant [51 x i8] c"UnicodeString(\22hel\\xEF\\xBC\\x91\\xEF\\xBC\\x90 world\22)\00", align 1
+@.str.71 = private unnamed_addr constant [16 x i8] c"hel\EF\BC\91\EF\BC\90 world\00", align 1
+@_ZN4i18n12phonenumbers34UnicodeString_SetCharBegining_Test10test_info_E = dso_local global ptr null, align 8
+@.str.73 = private unnamed_addr constant [16 x i8] c"SetCharBegining\00", align 1
+@.str.74 = private unnamed_addr constant [23 x i8] c"UnicodeString(\22Hello\22)\00", align 1
+@.str.75 = private unnamed_addr constant [6 x i8] c"Hello\00", align 1
+@_ZN4i18n12phonenumbers32UnicodeString_SetCharMiddle_Test10test_info_E = dso_local global ptr null, align 8
+@.str.77 = private unnamed_addr constant [14 x i8] c"SetCharMiddle\00", align 1
+@.str.78 = private unnamed_addr constant [23 x i8] c"UnicodeString(\22heLlo\22)\00", align 1
+@.str.79 = private unnamed_addr constant [6 x i8] c"heLlo\00", align 1
+@_ZN4i18n12phonenumbers29UnicodeString_SetCharEnd_Test10test_info_E = dso_local global ptr null, align 8
+@.str.81 = private unnamed_addr constant [11 x i8] c"SetCharEnd\00", align 1
+@.str.82 = private unnamed_addr constant [23 x i8] c"UnicodeString(\22hellO\22)\00", align 1
+@.str.83 = private unnamed_addr constant [6 x i8] c"hellO\00", align 1
+@_ZN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_Test10test_info_E = dso_local global ptr null, align 8
+@.str.85 = private unnamed_addr constant [20 x i8] c"SetCharWithNonAscii\00", align 1
+@.str.86 = private unnamed_addr constant [35 x i8] c"UnicodeString(\22hell\\xEF\\xBC\\x90\22 )\00", align 1
+@.str.87 = private unnamed_addr constant [8 x i8] c"hell\EF\BC\90\00", align 1
+@_ZN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_Test10test_info_E = dso_local global ptr null, align 8
+@.str.89 = private unnamed_addr constant [29 x i8] c"TempSubStringWithEmptyString\00", align 1
+@.str.90 = private unnamed_addr constant [36 x i8] c"UnicodeString().tempSubString(0, 0)\00", align 1
+@_ZN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_Test10test_info_E = dso_local global ptr null, align 8
+@.str.92 = private unnamed_addr constant [31 x i8] c"TempSubStringWithInvalidInputs\00", align 1
+@.str.93 = private unnamed_addr constant [19 x i8] c"s.tempSubString(6)\00", align 1
+@.str.94 = private unnamed_addr constant [22 x i8] c"s.tempSubString(2, 6)\00", align 1
+@_ZN4i18n12phonenumbers32UnicodeString_TempSubString_Test10test_info_E = dso_local global ptr null, align 8
+@.str.96 = private unnamed_addr constant [14 x i8] c"TempSubString\00", align 1
+@.str.97 = private unnamed_addr constant [22 x i8] c"s.tempSubString(0, 0)\00", align 1
+@.str.98 = private unnamed_addr constant [22 x i8] c"s.tempSubString(0, 1)\00", align 1
+@.str.99 = private unnamed_addr constant [22 x i8] c"s.tempSubString(0, 5)\00", align 1
+@.str.100 = private unnamed_addr constant [21 x i8] c"UnicodeString(\22llo\22)\00", align 1
+@.str.101 = private unnamed_addr constant [22 x i8] c"s.tempSubString(2, 3)\00", align 1
+@_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_Test10test_info_E = dso_local global ptr null, align 8
+@.str.103 = private unnamed_addr constant [26 x i8] c"TempSubStringWithNoLength\00", align 1
+@.str.104 = private unnamed_addr constant [19 x i8] c"s.tempSubString(0)\00", align 1
+@.str.105 = private unnamed_addr constant [19 x i8] c"s.tempSubString(2)\00", align 1
+@_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_Test10test_info_E = dso_local global ptr null, align 8
+@.str.107 = private unnamed_addr constant [26 x i8] c"TempSubStringWithNonAscii\00", align 1
+@.str.108 = private unnamed_addr constant [10 x i8] c"hel\EF\BC\91\EF\BC\90\00", align 1
+@.str.109 = private unnamed_addr constant [31 x i8] c"UnicodeString(\22\\xEF\\xBC\\x91\22 )\00", align 1
+@.str.110 = private unnamed_addr constant [22 x i8] c"s.tempSubString(3, 1)\00", align 1
+@.str.111 = private unnamed_addr constant [4 x i8] c"\EF\BC\91\00", align 1
+@_ZN4i18n12phonenumbers32UnicodeString_OperatorEqual_Test10test_info_E = dso_local global ptr null, align 8
+@.str.113 = private unnamed_addr constant [14 x i8] c"OperatorEqual\00", align 1
+@_ZN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_Test10test_info_E = dso_local global ptr null, align 8
+@.str.115 = private unnamed_addr constant [26 x i8] c"OperatorEqualWithNonAscii\00", align 1
+@.str.116 = private unnamed_addr constant [45 x i8] c"UnicodeString(\22hel\\xEF\\xBC\\x91\\xEF\\xBC\\x90\22)\00", align 1
+@_ZN4i18n12phonenumbers34UnicodeString_OperatorBracket_Test10test_info_E = dso_local global ptr null, align 8
+@.str.118 = private unnamed_addr constant [16 x i8] c"OperatorBracket\00", align 1
+@.str.119 = private unnamed_addr constant [4 x i8] c"'h'\00", align 1
+@.str.120 = private unnamed_addr constant [5 x i8] c"s[0]\00", align 1
+@.str.121 = private unnamed_addr constant [4 x i8] c"'e'\00", align 1
+@.str.122 = private unnamed_addr constant [5 x i8] c"s[1]\00", align 1
+@.str.123 = private unnamed_addr constant [4 x i8] c"'l'\00", align 1
+@.str.124 = private unnamed_addr constant [5 x i8] c"s[2]\00", align 1
+@.str.125 = private unnamed_addr constant [5 x i8] c"s[3]\00", align 1
+@.str.126 = private unnamed_addr constant [4 x i8] c"'o'\00", align 1
+@.str.127 = private unnamed_addr constant [5 x i8] c"s[4]\00", align 1
+@_ZN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_Test10test_info_E = dso_local global ptr null, align 8
+@.str.129 = private unnamed_addr constant [28 x i8] c"OperatorBracketWithNonAscii\00", align 1
+@.str.130 = private unnamed_addr constant [7 x i8] c"0xFF11\00", align 1
+@.str.131 = private unnamed_addr constant [7 x i8] c"0xFF10\00", align 1
+@_ZN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_Test10test_info_E = dso_local global ptr null, align 8
+@.str.133 = private unnamed_addr constant [45 x i8] c"OperatorBracketWithIteratorCacheInvalidation\00", align 1
+@.str.134 = private unnamed_addr constant [23 x i8] c"UnicodeString(\22hEllo\22)\00", align 1
+@.str.135 = private unnamed_addr constant [6 x i8] c"hEllo\00", align 1
+@.str.136 = private unnamed_addr constant [4 x i8] c"'E'\00", align 1
+@_ZTVN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestE, ptr @_ZN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestD2Ev, ptr @_ZN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
+@_ZTSN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestE = dso_local constant [70 x i8] c"N4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestE\00", align 1
+@_ZTIN7testing4TestE = external constant ptr
+@_ZTIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestE, ptr @_ZN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestD2Ev, ptr @_ZN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers31UnicodeString_ToUTF8String_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestE = dso_local constant [55 x i8] c"N4i18n12phonenumbers31UnicodeString_ToUTF8String_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestE, ptr @_ZN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestD2Ev, ptr @_ZN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestE = dso_local constant [67 x i8] c"N4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestE, ptr @_ZN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestD2Ev, ptr @_ZN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers34UnicodeString_AppendCodepoint_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestE = dso_local constant [58 x i8] c"N4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestE, ptr @_ZN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestD2Ev, ptr @_ZN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestE = dso_local constant [70 x i8] c"N4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestE, ptr @_ZN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestD2Ev, ptr @_ZN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestE = dso_local constant [62 x i8] c"N4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestE, ptr @_ZN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestD2Ev, ptr @_ZN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestE = dso_local constant [74 x i8] c"N4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers26UnicodeString_IndexOf_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers26UnicodeString_IndexOf_TestE, ptr @_ZN4i18n12phonenumbers26UnicodeString_IndexOf_TestD2Ev, ptr @_ZN4i18n12phonenumbers26UnicodeString_IndexOf_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers26UnicodeString_IndexOf_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers26UnicodeString_IndexOf_TestE = dso_local constant [50 x i8] c"N4i18n12phonenumbers26UnicodeString_IndexOf_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers26UnicodeString_IndexOf_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers26UnicodeString_IndexOf_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestE, ptr @_ZN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestD2Ev, ptr @_ZN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestE = dso_local constant [62 x i8] c"N4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestE, ptr @_ZN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestD2Ev, ptr @_ZN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestE = dso_local constant [65 x i8] c"N4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestE, ptr @_ZN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestD2Ev, ptr @_ZN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestE = dso_local constant [70 x i8] c"N4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestE, ptr @_ZN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestD2Ev, ptr @_ZN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers34UnicodeString_ReplaceBegining_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestE = dso_local constant [58 x i8] c"N4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestE, ptr @_ZN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestD2Ev, ptr @_ZN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestE = dso_local constant [56 x i8] c"N4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestE, ptr @_ZN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestD2Ev, ptr @_ZN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers29UnicodeString_ReplaceEnd_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestE = dso_local constant [53 x i8] c"N4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestE, ptr @_ZN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestD2Ev, ptr @_ZN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestE = dso_local constant [62 x i8] c"N4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestE, ptr @_ZN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestD2Ev, ptr @_ZN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers34UnicodeString_SetCharBegining_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestE = dso_local constant [58 x i8] c"N4i18n12phonenumbers34UnicodeString_SetCharBegining_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestE, ptr @_ZN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestD2Ev, ptr @_ZN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers32UnicodeString_SetCharMiddle_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestE = dso_local constant [56 x i8] c"N4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestE, ptr @_ZN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestD2Ev, ptr @_ZN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers29UnicodeString_SetCharEnd_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestE = dso_local constant [53 x i8] c"N4i18n12phonenumbers29UnicodeString_SetCharEnd_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestE, ptr @_ZN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestD2Ev, ptr @_ZN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestE = dso_local constant [62 x i8] c"N4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestE, ptr @_ZN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestD2Ev, ptr @_ZN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestE = dso_local constant [71 x i8] c"N4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestE, ptr @_ZN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestD2Ev, ptr @_ZN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestE = dso_local constant [73 x i8] c"N4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers32UnicodeString_TempSubString_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers32UnicodeString_TempSubString_TestE, ptr @_ZN4i18n12phonenumbers32UnicodeString_TempSubString_TestD2Ev, ptr @_ZN4i18n12phonenumbers32UnicodeString_TempSubString_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers32UnicodeString_TempSubString_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers32UnicodeString_TempSubString_TestE = dso_local constant [56 x i8] c"N4i18n12phonenumbers32UnicodeString_TempSubString_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers32UnicodeString_TempSubString_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers32UnicodeString_TempSubString_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestE, ptr @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestD2Ev, ptr @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestE = dso_local constant [68 x i8] c"N4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestE, ptr @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestD2Ev, ptr @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestE = dso_local constant [68 x i8] c"N4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestE, ptr @_ZN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestD2Ev, ptr @_ZN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers32UnicodeString_OperatorEqual_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestE = dso_local constant [56 x i8] c"N4i18n12phonenumbers32UnicodeString_OperatorEqual_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestE, ptr @_ZN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestD2Ev, ptr @_ZN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestE = dso_local constant [68 x i8] c"N4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestE, ptr @_ZN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestD2Ev, ptr @_ZN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers34UnicodeString_OperatorBracket_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestE = dso_local constant [58 x i8] c"N4i18n12phonenumbers34UnicodeString_OperatorBracket_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestE, ptr @_ZN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestD2Ev, ptr @_ZN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestE = dso_local constant [70 x i8] c"N4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestE, ptr @_ZN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestD2Ev, ptr @_ZN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTSN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestE = dso_local constant [87 x i8] c"N4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestE\00", align 1
+@_ZTIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestE, ptr @_ZTIN7testing4TestE }, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEEE = linkonce_odr dso_local constant [108 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEEE\00", comdat, align 1
+@_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
+@_ZTSN7testing8internal15TestFactoryBaseE = linkonce_odr dso_local constant [37 x i8] c"N7testing8internal15TestFactoryBaseE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryBaseE = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryBaseE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryBaseE, ptr @_ZN7testing8internal15TestFactoryBaseD2Ev, ptr @_ZN7testing8internal15TestFactoryBaseD0Ev, ptr @__cxa_pure_virtual] }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEEE = linkonce_odr dso_local constant [93 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEEE = linkonce_odr dso_local constant [105 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEEE = linkonce_odr dso_local constant [96 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEEE = linkonce_odr dso_local constant [108 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEEE = linkonce_odr dso_local constant [100 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEEE = linkonce_odr dso_local constant [112 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEEE = linkonce_odr dso_local constant [88 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEEE = linkonce_odr dso_local constant [100 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEEE = linkonce_odr dso_local constant [103 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEEE = linkonce_odr dso_local constant [108 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEEE = linkonce_odr dso_local constant [96 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEEE = linkonce_odr dso_local constant [94 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEEE = linkonce_odr dso_local constant [91 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEEE = linkonce_odr dso_local constant [100 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEEE = linkonce_odr dso_local constant [96 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEEE = linkonce_odr dso_local constant [94 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEEE = linkonce_odr dso_local constant [91 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEEE = linkonce_odr dso_local constant [100 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEEE = linkonce_odr dso_local constant [109 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEEE = linkonce_odr dso_local constant [111 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEEE = linkonce_odr dso_local constant [94 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEEE = linkonce_odr dso_local constant [106 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEEE = linkonce_odr dso_local constant [106 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEEE = linkonce_odr dso_local constant [94 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEEE = linkonce_odr dso_local constant [106 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEEE = linkonce_odr dso_local constant [96 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEEE = linkonce_odr dso_local constant [108 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEE10CreateTestEv] }, comdat, align 8
+@_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEEE = linkonce_odr dso_local constant [125 x i8] c"N7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEEE\00", comdat, align 1
+@_ZTIN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
+@.str.137 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
+@.str.138 = private unnamed_addr constant [103 x i8] c"generated/home/dtcxzyw/WorkSpace/SDK/vcpkg/installed/x64-linux/include/gtest/internal/gtest-internal.h\00", align 1
+@.str.139 = private unnamed_addr constant [51 x i8] c"Condition !test_case_fp || !test_suite_fp failed. \00", align 1
+@.str.140 = private unnamed_addr constant [107 x i8] c"Test can not provide both SetUpTestSuite and SetUpTestCase, please make sure there is only one present at \00", align 1
+@.str.141 = private unnamed_addr constant [2 x i8] c":\00", align 1
+@_ZSt4cerr = external global %"class.std::basic_ostream", align 8
+@.str.142 = private unnamed_addr constant [112 x i8] c"Test can not provide both TearDownTestSuite and TearDownTestCase, please make sure there is only one present at\00", align 1
+@.str.143 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
+@.str.144 = private unnamed_addr constant [5 x i8] c" ...\00", align 1
+@llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_unicodestring_test.cc, ptr null }]
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+  call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
+  ret void
+}
+
+declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+
+; Function Attrs: nounwind
+declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+
+; Function Attrs: nounwind
+declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phonenumberslsERSoRKNS0_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) #4 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::__cxx11::basic_string", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %8 = load ptr, ptr %4, align 8
+  invoke void @_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %9 unwind label %14
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %3, align 8
+  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %12 unwind label %14
+
+12:                                               ; preds = %9
+  %13 = load ptr, ptr %3, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  ret ptr %13
+
+14:                                               ; preds = %9, %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::__cxx11::basic_string", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds %"class.i18n::phonenumbers::UnicodeString", ptr %6, i32 0, i32 0
+  call void @_ZN4i18n12phonenumbers17UnicodeTextToUTF8B5cxx11ERKNS0_11UnicodeTextE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  ret void
+}
+
+declare i32 @__gxx_personality_v0(...)
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.1() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 36)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 36)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 36)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.2, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+declare noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %10, i32 0, i32 0
+  %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %13 = load ptr, ptr %6, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %14 = load ptr, ptr %5, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %22
+
+16:                                               ; preds = %3
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.137) #14
+          to label %17 unwind label %18
+
+17:                                               ; preds = %16
+  unreachable
+
+18:                                               ; preds = %26, %22, %16
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %7, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %8, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  br label %31
+
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %5, align 8
+  %24 = load ptr, ptr %5, align 8
+  %25 = invoke noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %24)
+          to label %26 unwind label %18
+
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %23, i64 %25
+  store ptr %27, ptr %9, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = load ptr, ptr %9, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %28, ptr noundef %29)
+          to label %30 unwind label %18
+
+30:                                               ; preds = %26
+  ret void
+
+31:                                               ; preds = %18
+  %32 = load ptr, ptr %7, align 8
+  %33 = load i32, ptr %8, align 4
+  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
+  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
+  resume { ptr, i32 } %35
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %10 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %7, i32 0, i32 1
+  %11 = load i32, ptr %6, align 4
+  store i32 %11, ptr %10, align 8
+  ret void
+}
+
+declare noundef ptr @_ZN7testing8internal13GetTestTypeIdEv() #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef %0, i32 noundef %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.testing::internal::GTestLog", align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %10 = call noundef ptr @_ZN7testing8internal19GetNotDefaultOrNullEPFvvES2_(ptr noundef @_ZN7testing4Test13SetUpTestCaseEv, ptr noundef @_ZN7testing4Test13SetUpTestCaseEv)
+  store ptr %10, ptr %5, align 8
+  %11 = call noundef ptr @_ZN7testing8internal19GetNotDefaultOrNullEPFvvES2_(ptr noundef @_ZN7testing4Test14SetUpTestSuiteEv, ptr noundef @_ZN7testing4Test14SetUpTestSuiteEv)
+  store ptr %11, ptr %6, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %18
+
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %6, align 8
+  %16 = icmp ne ptr %15, null
+  %17 = xor i1 %16, true
+  br label %18
+
+18:                                               ; preds = %14, %2
+  %19 = phi i1 [ true, %2 ], [ %17, %14 ]
+  %20 = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %19)
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %18
+  br label %41
+
+22:                                               ; preds = %18
+  call void @_ZN7testing8internal8GTestLogC1ENS0_16GTestLogSeverityEPKci(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 3, ptr noundef @.str.138, i32 noundef 528)
+  %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testing8internal8GTestLog9GetStreamEv(ptr noundef nonnull align 4 dereferenceable(4) %7)
+          to label %24 unwind label %37
+
+24:                                               ; preds = %22
+  %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef @.str.139)
+          to label %26 unwind label %37
+
+26:                                               ; preds = %24
+  %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef @.str.140)
+          to label %28 unwind label %37
+
+28:                                               ; preds = %26
+  %29 = load ptr, ptr %3, align 8
+  %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %29)
+          to label %31 unwind label %37
+
+31:                                               ; preds = %28
+  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef @.str.141)
+          to label %33 unwind label %37
+
+33:                                               ; preds = %31
+  %34 = load i32, ptr %4, align 4
+  %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef %34)
+          to label %36 unwind label %37
+
+36:                                               ; preds = %33
+  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %7) #3
+  br label %41
+
+37:                                               ; preds = %33, %31, %28, %26, %24, %22
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %8, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %9, align 4
+  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %7) #3
+  br label %50
+
+41:                                               ; preds = %36, %21
+  %42 = load ptr, ptr %5, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %46
+
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %5, align 8
+  br label %48
+
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %6, align 8
+  br label %48
+
+48:                                               ; preds = %46, %44
+  %49 = phi ptr [ %45, %44 ], [ %47, %46 ]
+  ret ptr %49
+
+50:                                               ; preds = %37
+  %51 = load ptr, ptr %8, align 8
+  %52 = load i32, ptr %9, align 4
+  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
+  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
+  resume { ptr, i32 } %54
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef %0, i32 noundef %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.testing::internal::GTestLog", align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %10 = call noundef ptr @_ZN7testing8internal19GetNotDefaultOrNullEPFvvES2_(ptr noundef @_ZN7testing4Test16TearDownTestCaseEv, ptr noundef @_ZN7testing4Test16TearDownTestCaseEv)
+  store ptr %10, ptr %5, align 8
+  %11 = call noundef ptr @_ZN7testing8internal19GetNotDefaultOrNullEPFvvES2_(ptr noundef @_ZN7testing4Test17TearDownTestSuiteEv, ptr noundef @_ZN7testing4Test17TearDownTestSuiteEv)
+  store ptr %11, ptr %6, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %18
+
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %6, align 8
+  %16 = icmp ne ptr %15, null
+  %17 = xor i1 %16, true
+  br label %18
+
+18:                                               ; preds = %14, %2
+  %19 = phi i1 [ true, %2 ], [ %17, %14 ]
+  %20 = call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %19)
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %18
+  br label %40
+
+22:                                               ; preds = %18
+  call void @_ZN7testing8internal8GTestLogC1ENS0_16GTestLogSeverityEPKci(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 3, ptr noundef @.str.138, i32 noundef 549)
+  %23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testing8internal8GTestLog9GetStreamEv(ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef @.str.139)
+          to label %25 unwind label %36
+
+25:                                               ; preds = %22
+  %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef @.str.142)
+          to label %27 unwind label %36
+
+27:                                               ; preds = %25
+  %28 = load ptr, ptr %3, align 8
+  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef %28)
+          to label %30 unwind label %36
+
+30:                                               ; preds = %27
+  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef @.str.141)
+          to label %32 unwind label %36
+
+32:                                               ; preds = %30
+  %33 = load i32, ptr %4, align 4
+  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %31, i32 noundef %33)
+          to label %35 unwind label %36
+
+35:                                               ; preds = %32
+  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %7) #3
+  br label %40
+
+36:                                               ; preds = %32, %30, %27, %25, %22
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %8, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %9, align 4
+  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %7) #3
+  br label %49
+
+40:                                               ; preds = %35, %21
+  %41 = load ptr, ptr %5, align 8
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %43, label %45
+
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %5, align 8
+  br label %47
+
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %6, align 8
+  br label %47
+
+47:                                               ; preds = %45, %43
+  %48 = phi ptr [ %44, %43 ], [ %46, %45 ]
+  ret ptr %48
+
+49:                                               ; preds = %36
+  %50 = load ptr, ptr %8, align 8
+  %51 = load i32, ptr %9, align 4
+  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
+  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
+  resume { ptr, i32 } %53
+}
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) #5
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPv(ptr noundef) #6
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %3, i32 0, i32 0
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.std::__cxx11::basic_string", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.testing::AssertionResult", align 8
+  %8 = alloca %"class.testing::Message", align 8
+  %9 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  invoke void @_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %10 unwind label %15
+
+10:                                               ; preds = %1
+  invoke void @_ZN7testing8internal8EqHelper7CompareIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %7, ptr noundef @.str.4, ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) @.str.6, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %11 unwind label %15
+
+11:                                               ; preds = %10
+  %12 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %13 unwind label %19
+
+13:                                               ; preds = %11
+  br i1 %12, label %14, label %23
+
+14:                                               ; preds = %13
+  br label %38
+
+15:                                               ; preds = %10, %1
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  br label %40
+
+19:                                               ; preds = %23, %11
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  br label %39
+
+23:                                               ; preds = %13
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %24 unwind label %19
+
+24:                                               ; preds = %23
+  %25 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %26 unwind label %29
+
+26:                                               ; preds = %24
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 1, ptr noundef @.str.3, i32 noundef 40, ptr noundef %25)
+          to label %27 unwind label %29
+
+27:                                               ; preds = %26
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %28 unwind label %33
+
+28:                                               ; preds = %27
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %38
+
+29:                                               ; preds = %26, %24
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %5, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %6, align 4
+  br label %37
+
+33:                                               ; preds = %27
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %5, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %6, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %37
+
+37:                                               ; preds = %33, %29
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %39
+
+38:                                               ; preds = %28, %14
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+39:                                               ; preds = %37, %19
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %40
+
+40:                                               ; preds = %39, %15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %5, align 8
+  %43 = load i32, ptr %6, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers13UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds %"class.i18n::phonenumbers::UnicodeString", ptr %5, i32 0, i32 0
+  call void @_ZN4i18n12phonenumbers11UnicodeTextC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %7 = getelementptr inbounds %"class.i18n::phonenumbers::UnicodeString", ptr %5, i32 0, i32 1
+  invoke void @_ZN4i18n12phonenumbers11UnicodeText14const_iteratorC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %8 unwind label %10
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.i18n::phonenumbers::UnicodeString", ptr %5, i32 0, i32 2
+  store i32 -1, ptr %9, align 8
+  ret void
+
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %3, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %4, align 4
+  call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  br label %14
+
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal8EqHelper7CompareIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #4 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %7, align 8
+  %12 = load ptr, ptr %8, align 8
+  %13 = load ptr, ptr %9, align 8
+  %14 = load ptr, ptr %10, align 8
+  call void @_ZN7testing8internal11CmpHelperEQIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.testing::AssertionResult", ptr %3, i32 0, i32 0
+  %5 = load i8, ptr %4, align 8
+  %6 = trunc i8 %5 to i1
+  ret i1 %6
+}
+
+declare void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK7testing15AssertionResult7messageEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  ret ptr %4
+}
+
+declare void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, ptr noundef, i32 noundef, ptr noundef) unnamed_addr #1
+
+declare void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) #1
+
+; Function Attrs: nounwind
+declare void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.testing::Message", ptr %3, i32 0, i32 0
+  call void @_ZNSt10unique_ptrINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.testing::AssertionResult", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.i18n::phonenumbers::UnicodeString", ptr %3, i32 0, i32 0
+  call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  ret void
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.7() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 43)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 43)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 43)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.8, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers31UnicodeString_ToUTF8String_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers31UnicodeString_ToUTF8String_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.std::__cxx11::basic_string", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.testing::AssertionResult", align 8
+  %8 = alloca %"class.testing::Message", align 8
+  %9 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.9)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  invoke void @_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %10 unwind label %15
+
+10:                                               ; preds = %1
+  invoke void @_ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %7, ptr noundef @.str.10, ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(6) @.str.9, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %11 unwind label %15
+
+11:                                               ; preds = %10
+  %12 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %13 unwind label %19
+
+13:                                               ; preds = %11
+  br i1 %12, label %14, label %23
+
+14:                                               ; preds = %13
+  br label %38
+
+15:                                               ; preds = %10, %1
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  br label %40
+
+19:                                               ; preds = %23, %11
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  br label %39
+
+23:                                               ; preds = %13
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %24 unwind label %19
+
+24:                                               ; preds = %23
+  %25 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %26 unwind label %29
+
+26:                                               ; preds = %24
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 1, ptr noundef @.str.3, i32 noundef 47, ptr noundef %25)
+          to label %27 unwind label %29
+
+27:                                               ; preds = %26
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %28 unwind label %33
+
+28:                                               ; preds = %27
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %38
+
+29:                                               ; preds = %26, %24
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %5, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %6, align 4
+  br label %37
+
+33:                                               ; preds = %27
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %5, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %6, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %37
+
+37:                                               ; preds = %33, %29
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %39
+
+38:                                               ; preds = %28, %14
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+39:                                               ; preds = %37, %19
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %40
+
+40:                                               ; preds = %39, %15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %5, align 8
+  %43 = load i32, ptr %6, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds %"class.i18n::phonenumbers::UnicodeString", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @strlen(ptr noundef %10) #15
+  %12 = trunc i64 %11 to i32
+  call void @_ZN4i18n12phonenumbers17UTF8ToUnicodeTextEPKci(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeText") align 8 %8, ptr noundef %9, i32 noundef %12)
+  %13 = getelementptr inbounds %"class.i18n::phonenumbers::UnicodeString", ptr %7, i32 0, i32 1
+  invoke void @_ZN4i18n12phonenumbers11UnicodeText14const_iteratorC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %16
+
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds %"class.i18n::phonenumbers::UnicodeString", ptr %7, i32 0, i32 2
+  store i32 -1, ptr %15, align 8
+  ret void
+
+16:                                               ; preds = %2
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %5, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  br label %20
+
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %5, align 8
+  %22 = load i32, ptr %6, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(6) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #4 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %7, align 8
+  %12 = load ptr, ptr %8, align 8
+  %13 = load ptr, ptr %9, align 8
+  %14 = load ptr, ptr %10, align 8
+  call void @_ZN7testing8internal11CmpHelperEQIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(6) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  ret void
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.11() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 50)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 50)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 50)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.12, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.std::__cxx11::basic_string", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.testing::AssertionResult", align 8
+  %8 = alloca %"class.testing::Message", align 8
+  %9 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.13)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  invoke void @_ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %10 unwind label %15
+
+10:                                               ; preds = %1
+  invoke void @_ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %7, ptr noundef @.str.14, ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(7) @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %11 unwind label %15
+
+11:                                               ; preds = %10
+  %12 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %13 unwind label %19
+
+13:                                               ; preds = %11
+  br i1 %12, label %14, label %23
+
+14:                                               ; preds = %13
+  br label %38
+
+15:                                               ; preds = %10, %1
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  br label %40
+
+19:                                               ; preds = %23, %11
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  br label %39
+
+23:                                               ; preds = %13
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %24 unwind label %19
+
+24:                                               ; preds = %23
+  %25 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %26 unwind label %29
+
+26:                                               ; preds = %24
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 1, ptr noundef @.str.3, i32 noundef 54, ptr noundef %25)
+          to label %27 unwind label %29
+
+27:                                               ; preds = %26
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %28 unwind label %33
+
+28:                                               ; preds = %27
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %38
+
+29:                                               ; preds = %26, %24
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %5, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %6, align 4
+  br label %37
+
+33:                                               ; preds = %27
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %5, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %6, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %37
+
+37:                                               ; preds = %33, %29
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %39
+
+38:                                               ; preds = %28, %14
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+39:                                               ; preds = %37, %19
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %40
+
+40:                                               ; preds = %39, %15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %5, align 8
+  %43 = load i32, ptr %6, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(7) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #4 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %7, align 8
+  %12 = load ptr, ptr %8, align 8
+  %13 = load ptr, ptr %9, align 8
+  %14 = load ptr, ptr %10, align 8
+  call void @_ZN7testing8internal11CmpHelperEQIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(7) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  ret void
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.15() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 57)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 57)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 57)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.16, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers34UnicodeString_AppendCodepoint_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers34UnicodeString_AppendCodepoint_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca %"class.testing::AssertionResult", align 8
+  %7 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %8 = alloca %"class.testing::Message", align 8
+  %9 = alloca %"class.testing::internal::AssertHelper", align 8
+  %10 = alloca i32, align 4
+  %11 = alloca %"class.testing::AssertionResult", align 8
+  %12 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %13 = alloca %"class.testing::Message", align 8
+  %14 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 104)
+          to label %15 unwind label %21
+
+15:                                               ; preds = %1
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef @.str.19)
+          to label %16 unwind label %21
+
+16:                                               ; preds = %15
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %6, ptr noundef @.str.17, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %17 unwind label %25
+
+17:                                               ; preds = %16
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #3
+  %18 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %19 unwind label %29
+
+19:                                               ; preds = %17
+  br i1 %18, label %20, label %33
+
+20:                                               ; preds = %19
+  br label %48
+
+21:                                               ; preds = %52, %51, %15, %1
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %4, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %5, align 4
+  br label %87
+
+25:                                               ; preds = %16
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %4, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %5, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #3
+  br label %87
+
+29:                                               ; preds = %33, %17
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %4, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %5, align 4
+  br label %58
+
+33:                                               ; preds = %19
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %34 unwind label %29
+
+34:                                               ; preds = %33
+  %35 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %36 unwind label %39
+
+36:                                               ; preds = %34
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 2, ptr noundef @.str.3, i32 noundef 60, ptr noundef %35)
+          to label %37 unwind label %39
+
+37:                                               ; preds = %36
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %38 unwind label %43
+
+38:                                               ; preds = %37
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  store i32 1, ptr %10, align 4
+  br label %49
+
+39:                                               ; preds = %36, %34
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %4, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %5, align 4
+  br label %47
+
+43:                                               ; preds = %37
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %4, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %5, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %47
+
+47:                                               ; preds = %43, %39
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %58
+
+48:                                               ; preds = %20
+  store i32 0, ptr %10, align 4
+  br label %49
+
+49:                                               ; preds = %48, %38
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  %50 = load i32, ptr %10, align 4
+  switch i32 %50, label %83 [
+    i32 0, label %51
+  ]
+
+51:                                               ; preds = %49
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 101)
+          to label %52 unwind label %21
+
+52:                                               ; preds = %51
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef @.str.21)
+          to label %53 unwind label %21
+
+53:                                               ; preds = %52
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef @.str.20, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %54 unwind label %59
+
+54:                                               ; preds = %53
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %12) #3
+  %55 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %56 unwind label %63
+
+56:                                               ; preds = %54
+  br i1 %55, label %57, label %67
+
+57:                                               ; preds = %56
+  br label %82
+
+58:                                               ; preds = %47, %29
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  br label %87
+
+59:                                               ; preds = %53
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %4, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %5, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %12) #3
+  br label %87
+
+63:                                               ; preds = %67, %54
+  %64 = landingpad { ptr, i32 }
+          cleanup
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %4, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %5, align 4
+  br label %86
+
+67:                                               ; preds = %56
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %68 unwind label %63
+
+68:                                               ; preds = %67
+  %69 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %70 unwind label %73
+
+70:                                               ; preds = %68
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef 1, ptr noundef @.str.3, i32 noundef 62, ptr noundef %69)
+          to label %71 unwind label %73
+
+71:                                               ; preds = %70
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %72 unwind label %77
+
+72:                                               ; preds = %71
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  br label %82
+
+73:                                               ; preds = %70, %68
+  %74 = landingpad { ptr, i32 }
+          cleanup
+  %75 = extractvalue { ptr, i32 } %74, 0
+  store ptr %75, ptr %4, align 8
+  %76 = extractvalue { ptr, i32 } %74, 1
+  store i32 %76, ptr %5, align 4
+  br label %81
+
+77:                                               ; preds = %71
+  %78 = landingpad { ptr, i32 }
+          cleanup
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %4, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %5, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %81
+
+81:                                               ; preds = %77, %73
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  br label %86
+
+82:                                               ; preds = %72, %57
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  store i32 0, ptr %10, align 4
+  br label %83
+
+83:                                               ; preds = %82, %49
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  %84 = load i32, ptr %10, align 4
+  switch i32 %84, label %93 [
+    i32 0, label %85
+    i32 1, label %85
+  ]
+
+85:                                               ; preds = %83, %83
+  ret void
+
+86:                                               ; preds = %81, %63
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  br label %87
+
+87:                                               ; preds = %86, %59, %58, %25, %21
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %88
+
+88:                                               ; preds = %87
+  %89 = load ptr, ptr %4, align 8
+  %90 = load i32, ptr %5, align 4
+  %91 = insertvalue { ptr, i32 } poison, ptr %89, 0
+  %92 = insertvalue { ptr, i32 } %91, i32 %90, 1
+  resume { ptr, i32 } %92
+
+93:                                               ; preds = %83
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers13UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(36) %0, i32 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeString21invalidateCachedIndexEv(ptr noundef nonnull align 8 dereferenceable(36) %5)
+  %6 = getelementptr inbounds %"class.i18n::phonenumbers::UnicodeString", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4
+  call void @_ZN4i18n12phonenumbers11UnicodeText9push_backEi(ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(36) %4) #4 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %7, align 8
+  %12 = load ptr, ptr %8, align 8
+  %13 = load ptr, ptr %9, align 8
+  %14 = load ptr, ptr %10, align 8
+  call void @_ZN7testing8internal11CmpHelperEQIN4i18n12phonenumbers13UnicodeStringES4_EENS_15AssertionResultEPKcS7_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %11, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef nonnull align 8 dereferenceable(36) %14)
+  ret void
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.22() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 65)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 65)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 65)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.23, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca %"class.testing::AssertionResult", align 8
+  %7 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %8 = alloca %"class.testing::Message", align 8
+  %9 = alloca %"class.testing::internal::AssertHelper", align 8
+  %10 = alloca i32, align 4
+  %11 = alloca %"class.testing::AssertionResult", align 8
+  %12 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %13 = alloca %"class.testing::Message", align 8
+  %14 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 65301)
+          to label %15 unwind label %21
+
+15:                                               ; preds = %1
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef @.str.25)
+          to label %16 unwind label %21
+
+16:                                               ; preds = %15
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %6, ptr noundef @.str.24, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %17 unwind label %25
+
+17:                                               ; preds = %16
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #3
+  %18 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %19 unwind label %29
+
+19:                                               ; preds = %17
+  br i1 %18, label %20, label %33
+
+20:                                               ; preds = %19
+  br label %48
+
+21:                                               ; preds = %52, %51, %15, %1
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %4, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %5, align 4
+  br label %87
+
+25:                                               ; preds = %16
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %4, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %5, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #3
+  br label %87
+
+29:                                               ; preds = %33, %17
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %4, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %5, align 4
+  br label %58
+
+33:                                               ; preds = %19
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %34 unwind label %29
+
+34:                                               ; preds = %33
+  %35 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %36 unwind label %39
+
+36:                                               ; preds = %34
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 2, ptr noundef @.str.3, i32 noundef 68, ptr noundef %35)
+          to label %37 unwind label %39
+
+37:                                               ; preds = %36
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %38 unwind label %43
+
+38:                                               ; preds = %37
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  store i32 1, ptr %10, align 4
+  br label %49
+
+39:                                               ; preds = %36, %34
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %4, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %5, align 4
+  br label %47
+
+43:                                               ; preds = %37
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %4, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %5, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %47
+
+47:                                               ; preds = %43, %39
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %58
+
+48:                                               ; preds = %20
+  store i32 0, ptr %10, align 4
+  br label %49
+
+49:                                               ; preds = %48, %38
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  %50 = load i32, ptr %10, align 4
+  switch i32 %50, label %83 [
+    i32 0, label %51
+  ]
+
+51:                                               ; preds = %49
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 65299)
+          to label %52 unwind label %21
+
+52:                                               ; preds = %51
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef @.str.13)
+          to label %53 unwind label %21
+
+53:                                               ; preds = %52
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef @.str.26, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %54 unwind label %59
+
+54:                                               ; preds = %53
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %12) #3
+  %55 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %56 unwind label %63
+
+56:                                               ; preds = %54
+  br i1 %55, label %57, label %67
+
+57:                                               ; preds = %56
+  br label %82
+
+58:                                               ; preds = %47, %29
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  br label %87
+
+59:                                               ; preds = %53
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %4, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %5, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %12) #3
+  br label %87
+
+63:                                               ; preds = %67, %54
+  %64 = landingpad { ptr, i32 }
+          cleanup
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %4, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %5, align 4
+  br label %86
+
+67:                                               ; preds = %56
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %68 unwind label %63
+
+68:                                               ; preds = %67
+  %69 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %70 unwind label %73
+
+70:                                               ; preds = %68
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef 1, ptr noundef @.str.3, i32 noundef 70, ptr noundef %69)
+          to label %71 unwind label %73
+
+71:                                               ; preds = %70
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %72 unwind label %77
+
+72:                                               ; preds = %71
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  br label %82
+
+73:                                               ; preds = %70, %68
+  %74 = landingpad { ptr, i32 }
+          cleanup
+  %75 = extractvalue { ptr, i32 } %74, 0
+  store ptr %75, ptr %4, align 8
+  %76 = extractvalue { ptr, i32 } %74, 1
+  store i32 %76, ptr %5, align 4
+  br label %81
+
+77:                                               ; preds = %71
+  %78 = landingpad { ptr, i32 }
+          cleanup
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %4, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %5, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %81
+
+81:                                               ; preds = %77, %73
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  br label %86
+
+82:                                               ; preds = %72, %57
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  store i32 0, ptr %10, align 4
+  br label %83
+
+83:                                               ; preds = %82, %49
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  %84 = load i32, ptr %10, align 4
+  switch i32 %84, label %93 [
+    i32 0, label %85
+    i32 1, label %85
+  ]
+
+85:                                               ; preds = %83, %83
+  ret void
+
+86:                                               ; preds = %81, %63
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  br label %87
+
+87:                                               ; preds = %86, %59, %58, %25, %21
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %88
+
+88:                                               ; preds = %87
+  %89 = load ptr, ptr %4, align 8
+  %90 = load i32, ptr %5, align 4
+  %91 = insertvalue { ptr, i32 } poison, ptr %89, 0
+  %92 = insertvalue { ptr, i32 } %91, i32 %90, 1
+  resume { ptr, i32 } %92
+
+93:                                               ; preds = %83
+  unreachable
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.27() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 73)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 73)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 73)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.28, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.testing::AssertionResult", align 8
+  %8 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  %11 = alloca i32, align 4
+  %12 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %13 = alloca %"class.testing::AssertionResult", align 8
+  %14 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %15 = alloca %"class.testing::Message", align 8
+  %16 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef @.str.21)
+          to label %17 unwind label %24
+
+17:                                               ; preds = %1
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(36) %4)
+          to label %18 unwind label %28
+
+18:                                               ; preds = %17
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef @.str.21)
+          to label %19 unwind label %24
+
+19:                                               ; preds = %18
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %7, ptr noundef @.str.20, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %20 unwind label %32
+
+20:                                               ; preds = %19
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  %21 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %22 unwind label %36
+
+22:                                               ; preds = %20
+  br i1 %21, label %23, label %40
+
+23:                                               ; preds = %22
+  br label %55
+
+24:                                               ; preds = %60, %58, %18, %1
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %5, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %6, align 4
+  br label %99
+
+28:                                               ; preds = %17
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %5, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  br label %99
+
+32:                                               ; preds = %19
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %5, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  br label %99
+
+36:                                               ; preds = %40, %20
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %5, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %6, align 4
+  br label %66
+
+40:                                               ; preds = %22
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %41 unwind label %36
+
+41:                                               ; preds = %40
+  %42 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %43 unwind label %46
+
+43:                                               ; preds = %41
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 2, ptr noundef @.str.3, i32 noundef 76, ptr noundef %42)
+          to label %44 unwind label %46
+
+44:                                               ; preds = %43
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %45 unwind label %50
+
+45:                                               ; preds = %44
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  store i32 1, ptr %11, align 4
+  br label %56
+
+46:                                               ; preds = %43, %41
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %5, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %6, align 4
+  br label %54
+
+50:                                               ; preds = %44
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %5, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %6, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %54
+
+54:                                               ; preds = %50, %46
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %66
+
+55:                                               ; preds = %23
+  store i32 0, ptr %11, align 4
+  br label %56
+
+56:                                               ; preds = %55, %45
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  %57 = load i32, ptr %11, align 4
+  switch i32 %57, label %95 [
+    i32 0, label %58
+  ]
+
+58:                                               ; preds = %56
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef @.str.29)
+          to label %59 unwind label %24
+
+59:                                               ; preds = %58
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(36) %12)
+          to label %60 unwind label %67
+
+60:                                               ; preds = %59
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %12) #3
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %14, ptr noundef @.str.9)
+          to label %61 unwind label %24
+
+61:                                               ; preds = %60
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %13, ptr noundef @.str.30, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %14, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %62 unwind label %71
+
+62:                                               ; preds = %61
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %14) #3
+  %63 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
+          to label %64 unwind label %75
+
+64:                                               ; preds = %62
+  br i1 %63, label %65, label %79
+
+65:                                               ; preds = %64
+  br label %94
+
+66:                                               ; preds = %54, %36
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %99
+
+67:                                               ; preds = %59
+  %68 = landingpad { ptr, i32 }
+          cleanup
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %5, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %12) #3
+  br label %99
+
+71:                                               ; preds = %61
+  %72 = landingpad { ptr, i32 }
+          cleanup
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %5, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %14) #3
+  br label %99
+
+75:                                               ; preds = %79, %62
+  %76 = landingpad { ptr, i32 }
+          cleanup
+  %77 = extractvalue { ptr, i32 } %76, 0
+  store ptr %77, ptr %5, align 8
+  %78 = extractvalue { ptr, i32 } %76, 1
+  store i32 %78, ptr %6, align 4
+  br label %98
+
+79:                                               ; preds = %64
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %80 unwind label %75
+
+80:                                               ; preds = %79
+  %81 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
+          to label %82 unwind label %85
+
+82:                                               ; preds = %80
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef 1, ptr noundef @.str.3, i32 noundef 78, ptr noundef %81)
+          to label %83 unwind label %85
+
+83:                                               ; preds = %82
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %84 unwind label %89
+
+84:                                               ; preds = %83
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  br label %94
+
+85:                                               ; preds = %82, %80
+  %86 = landingpad { ptr, i32 }
+          cleanup
+  %87 = extractvalue { ptr, i32 } %86, 0
+  store ptr %87, ptr %5, align 8
+  %88 = extractvalue { ptr, i32 } %86, 1
+  store i32 %88, ptr %6, align 4
+  br label %93
+
+89:                                               ; preds = %83
+  %90 = landingpad { ptr, i32 }
+          cleanup
+  %91 = extractvalue { ptr, i32 } %90, 0
+  store ptr %91, ptr %5, align 8
+  %92 = extractvalue { ptr, i32 } %90, 1
+  store i32 %92, ptr %6, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
+  br label %93
+
+93:                                               ; preds = %89, %85
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  br label %98
+
+94:                                               ; preds = %84, %65
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
+  store i32 0, ptr %11, align 4
+  br label %95
+
+95:                                               ; preds = %94, %56
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  %96 = load i32, ptr %11, align 4
+  switch i32 %96, label %105 [
+    i32 0, label %97
+    i32 1, label %97
+  ]
+
+97:                                               ; preds = %95, %95
+  ret void
+
+98:                                               ; preds = %93, %75
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
+  br label %99
+
+99:                                               ; preds = %98, %71, %67, %66, %32, %28, %24
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %100
+
+100:                                              ; preds = %99
+  %101 = load ptr, ptr %5, align 8
+  %102 = load i32, ptr %6, align 4
+  %103 = insertvalue { ptr, i32 } poison, ptr %101, 0
+  %104 = insertvalue { ptr, i32 } %103, i32 %102, 1
+  resume { ptr, i32 } %104
+
+105:                                              ; preds = %95
+  unreachable
+}
+
+declare void @_ZN4i18n12phonenumbers13UnicodeString6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef nonnull align 8 dereferenceable(36)) #1
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.31() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 81)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 81)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 81)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.32, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.testing::AssertionResult", align 8
+  %8 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  %11 = alloca i32, align 4
+  %12 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %13 = alloca %"class.testing::AssertionResult", align 8
+  %14 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %15 = alloca %"class.testing::Message", align 8
+  %16 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef @.str.25)
+          to label %17 unwind label %24
+
+17:                                               ; preds = %1
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(36) %4)
+          to label %18 unwind label %28
+
+18:                                               ; preds = %17
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef @.str.25)
+          to label %19 unwind label %24
+
+19:                                               ; preds = %18
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %7, ptr noundef @.str.33, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %20 unwind label %32
+
+20:                                               ; preds = %19
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  %21 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %22 unwind label %36
+
+22:                                               ; preds = %20
+  br i1 %21, label %23, label %40
+
+23:                                               ; preds = %22
+  br label %55
+
+24:                                               ; preds = %60, %58, %18, %1
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %5, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %6, align 4
+  br label %99
+
+28:                                               ; preds = %17
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %5, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  br label %99
+
+32:                                               ; preds = %19
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %5, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  br label %99
+
+36:                                               ; preds = %40, %20
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %5, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %6, align 4
+  br label %66
+
+40:                                               ; preds = %22
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %41 unwind label %36
+
+41:                                               ; preds = %40
+  %42 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %43 unwind label %46
+
+43:                                               ; preds = %41
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 2, ptr noundef @.str.3, i32 noundef 84, ptr noundef %42)
+          to label %44 unwind label %46
+
+44:                                               ; preds = %43
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %45 unwind label %50
+
+45:                                               ; preds = %44
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  store i32 1, ptr %11, align 4
+  br label %56
+
+46:                                               ; preds = %43, %41
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %5, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %6, align 4
+  br label %54
+
+50:                                               ; preds = %44
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %5, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %6, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %54
+
+54:                                               ; preds = %50, %46
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %66
+
+55:                                               ; preds = %23
+  store i32 0, ptr %11, align 4
+  br label %56
+
+56:                                               ; preds = %55, %45
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  %57 = load i32, ptr %11, align 4
+  switch i32 %57, label %95 [
+    i32 0, label %58
+  ]
+
+58:                                               ; preds = %56
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef @.str.34)
+          to label %59 unwind label %24
+
+59:                                               ; preds = %58
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(36) %12)
+          to label %60 unwind label %67
+
+60:                                               ; preds = %59
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %12) #3
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %14, ptr noundef @.str.13)
+          to label %61 unwind label %24
+
+61:                                               ; preds = %60
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %13, ptr noundef @.str.26, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %14, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %62 unwind label %71
+
+62:                                               ; preds = %61
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %14) #3
+  %63 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
+          to label %64 unwind label %75
+
+64:                                               ; preds = %62
+  br i1 %63, label %65, label %79
+
+65:                                               ; preds = %64
+  br label %94
+
+66:                                               ; preds = %54, %36
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %99
+
+67:                                               ; preds = %59
+  %68 = landingpad { ptr, i32 }
+          cleanup
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %5, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %12) #3
+  br label %99
+
+71:                                               ; preds = %61
+  %72 = landingpad { ptr, i32 }
+          cleanup
+  %73 = extractvalue { ptr, i32 } %72, 0
+  store ptr %73, ptr %5, align 8
+  %74 = extractvalue { ptr, i32 } %72, 1
+  store i32 %74, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %14) #3
+  br label %99
+
+75:                                               ; preds = %79, %62
+  %76 = landingpad { ptr, i32 }
+          cleanup
+  %77 = extractvalue { ptr, i32 } %76, 0
+  store ptr %77, ptr %5, align 8
+  %78 = extractvalue { ptr, i32 } %76, 1
+  store i32 %78, ptr %6, align 4
+  br label %98
+
+79:                                               ; preds = %64
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %80 unwind label %75
+
+80:                                               ; preds = %79
+  %81 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
+          to label %82 unwind label %85
+
+82:                                               ; preds = %80
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef 1, ptr noundef @.str.3, i32 noundef 86, ptr noundef %81)
+          to label %83 unwind label %85
+
+83:                                               ; preds = %82
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %84 unwind label %89
+
+84:                                               ; preds = %83
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  br label %94
+
+85:                                               ; preds = %82, %80
+  %86 = landingpad { ptr, i32 }
+          cleanup
+  %87 = extractvalue { ptr, i32 } %86, 0
+  store ptr %87, ptr %5, align 8
+  %88 = extractvalue { ptr, i32 } %86, 1
+  store i32 %88, ptr %6, align 4
+  br label %93
+
+89:                                               ; preds = %83
+  %90 = landingpad { ptr, i32 }
+          cleanup
+  %91 = extractvalue { ptr, i32 } %90, 0
+  store ptr %91, ptr %5, align 8
+  %92 = extractvalue { ptr, i32 } %90, 1
+  store i32 %92, ptr %6, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
+  br label %93
+
+93:                                               ; preds = %89, %85
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  br label %98
+
+94:                                               ; preds = %84, %65
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
+  store i32 0, ptr %11, align 4
+  br label %95
+
+95:                                               ; preds = %94, %56
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  %96 = load i32, ptr %11, align 4
+  switch i32 %96, label %105 [
+    i32 0, label %97
+    i32 1, label %97
+  ]
+
+97:                                               ; preds = %95, %95
+  ret void
+
+98:                                               ; preds = %93, %75
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
+  br label %99
+
+99:                                               ; preds = %98, %71, %67, %66, %32, %28, %24
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %100
+
+100:                                              ; preds = %99
+  %101 = load ptr, ptr %5, align 8
+  %102 = load i32, ptr %6, align 4
+  %103 = insertvalue { ptr, i32 } poison, ptr %101, 0
+  %104 = insertvalue { ptr, i32 } %103, i32 %102, 1
+  resume { ptr, i32 } %104
+
+105:                                              ; preds = %95
+  unreachable
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.35() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 89)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 89)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 89)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.36, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers26UnicodeString_IndexOf_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers26UnicodeString_IndexOf_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.testing::AssertionResult", align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  %11 = alloca %"class.testing::AssertionResult", align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca %"class.testing::Message", align 8
+  %15 = alloca %"class.testing::internal::AssertHelper", align 8
+  %16 = alloca %"class.testing::AssertionResult", align 8
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca %"class.testing::Message", align 8
+  %20 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.9)
+  store i32 0, ptr %5, align 4
+  %21 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeString7indexOfEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 104)
+          to label %22 unwind label %27
+
+22:                                               ; preds = %1
+  store i32 %21, ptr %6, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %4, ptr noundef @.str.37, ptr noundef @.str.38, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+          to label %23 unwind label %27
+
+23:                                               ; preds = %22
+  %24 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %25 unwind label %31
+
+25:                                               ; preds = %23
+  br i1 %24, label %26, label %35
+
+26:                                               ; preds = %25
+  br label %50
+
+27:                                               ; preds = %79, %77, %52, %50, %22, %1
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %7, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %8, align 4
+  br label %106
+
+31:                                               ; preds = %35, %23
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %7, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %8, align 4
+  br label %57
+
+35:                                               ; preds = %25
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %36 unwind label %31
+
+36:                                               ; preds = %35
+  %37 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %38 unwind label %41
+
+38:                                               ; preds = %36
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1, ptr noundef @.str.3, i32 noundef 91, ptr noundef %37)
+          to label %39 unwind label %41
+
+39:                                               ; preds = %38
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %40 unwind label %45
+
+40:                                               ; preds = %39
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %50
+
+41:                                               ; preds = %38, %36
+  %42 = landingpad { ptr, i32 }
+          cleanup
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %7, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %8, align 4
+  br label %49
+
+45:                                               ; preds = %39
+  %46 = landingpad { ptr, i32 }
+          cleanup
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %7, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %49
+
+49:                                               ; preds = %45, %41
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %57
+
+50:                                               ; preds = %40, %26
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  store i32 2, ptr %12, align 4
+  %51 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeString7indexOfEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 108)
+          to label %52 unwind label %27
+
+52:                                               ; preds = %50
+  store i32 %51, ptr %13, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef @.str.39, ptr noundef @.str.40, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
+          to label %53 unwind label %27
+
+53:                                               ; preds = %52
+  %54 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %55 unwind label %58
+
+55:                                               ; preds = %53
+  br i1 %54, label %56, label %62
+
+56:                                               ; preds = %55
+  br label %77
+
+57:                                               ; preds = %49, %31
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  br label %106
+
+58:                                               ; preds = %62, %53
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %7, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %8, align 4
+  br label %84
+
+62:                                               ; preds = %55
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %63 unwind label %58
+
+63:                                               ; preds = %62
+  %64 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %65 unwind label %68
+
+65:                                               ; preds = %63
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef 1, ptr noundef @.str.3, i32 noundef 92, ptr noundef %64)
+          to label %66 unwind label %68
+
+66:                                               ; preds = %65
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %67 unwind label %72
+
+67:                                               ; preds = %66
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %77
+
+68:                                               ; preds = %65, %63
+  %69 = landingpad { ptr, i32 }
+          cleanup
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %7, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %8, align 4
+  br label %76
+
+72:                                               ; preds = %66
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %7, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  br label %76
+
+76:                                               ; preds = %72, %68
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %84
+
+77:                                               ; preds = %67, %56
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  store i32 4, ptr %17, align 4
+  %78 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeString7indexOfEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 111)
+          to label %79 unwind label %27
+
+79:                                               ; preds = %77
+  store i32 %78, ptr %18, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %16, ptr noundef @.str.41, ptr noundef @.str.42, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+          to label %80 unwind label %27
+
+80:                                               ; preds = %79
+  %81 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %82 unwind label %85
+
+82:                                               ; preds = %80
+  br i1 %81, label %83, label %89
+
+83:                                               ; preds = %82
+  br label %104
+
+84:                                               ; preds = %76, %58
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  br label %106
+
+85:                                               ; preds = %89, %80
+  %86 = landingpad { ptr, i32 }
+          cleanup
+  %87 = extractvalue { ptr, i32 } %86, 0
+  store ptr %87, ptr %7, align 8
+  %88 = extractvalue { ptr, i32 } %86, 1
+  store i32 %88, ptr %8, align 4
+  br label %105
+
+89:                                               ; preds = %82
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %90 unwind label %85
+
+90:                                               ; preds = %89
+  %91 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %92 unwind label %95
+
+92:                                               ; preds = %90
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef 1, ptr noundef @.str.3, i32 noundef 93, ptr noundef %91)
+          to label %93 unwind label %95
+
+93:                                               ; preds = %92
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %94 unwind label %99
+
+94:                                               ; preds = %93
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
+  br label %104
+
+95:                                               ; preds = %92, %90
+  %96 = landingpad { ptr, i32 }
+          cleanup
+  %97 = extractvalue { ptr, i32 } %96, 0
+  store ptr %97, ptr %7, align 8
+  %98 = extractvalue { ptr, i32 } %96, 1
+  store i32 %98, ptr %8, align 4
+  br label %103
+
+99:                                               ; preds = %93
+  %100 = landingpad { ptr, i32 }
+          cleanup
+  %101 = extractvalue { ptr, i32 } %100, 0
+  store ptr %101, ptr %7, align 8
+  %102 = extractvalue { ptr, i32 } %100, 1
+  store i32 %102, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
+  br label %103
+
+103:                                              ; preds = %99, %95
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
+  br label %105
+
+104:                                              ; preds = %94, %83
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+105:                                              ; preds = %103, %85
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %106
+
+106:                                              ; preds = %105, %84, %57, %27
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %107
+
+107:                                              ; preds = %106
+  %108 = load ptr, ptr %7, align 8
+  %109 = load i32, ptr %8, align 4
+  %110 = insertvalue { ptr, i32 } poison, ptr %108, 0
+  %111 = insertvalue { ptr, i32 } %110, i32 %109, 1
+  resume { ptr, i32 } %111
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) #4 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %7, align 8
+  %12 = load ptr, ptr %8, align 8
+  %13 = load ptr, ptr %9, align 8
+  %14 = load ptr, ptr %10, align 8
+  call void @_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %11, ptr noundef %12, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  ret void
+}
+
+declare noundef i32 @_ZNK4i18n12phonenumbers13UnicodeString7indexOfEi(ptr noundef nonnull align 8 dereferenceable(36), i32 noundef) #1
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.43() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 96)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 96)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 96)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.44, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.testing::AssertionResult", align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.13)
+  store i32 1, ptr %5, align 4
+  %11 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeString7indexOfEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 65299)
+          to label %12 unwind label %17
+
+12:                                               ; preds = %1
+  store i32 %11, ptr %6, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %4, ptr noundef @.str.45, ptr noundef @.str.46, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+          to label %13 unwind label %17
+
+13:                                               ; preds = %12
+  %14 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %15 unwind label %21
+
+15:                                               ; preds = %13
+  br i1 %14, label %16, label %25
+
+16:                                               ; preds = %15
+  br label %40
+
+17:                                               ; preds = %12, %1
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %7, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %8, align 4
+  br label %42
+
+21:                                               ; preds = %25, %13
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %7, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %8, align 4
+  br label %41
+
+25:                                               ; preds = %15
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %26 unwind label %21
+
+26:                                               ; preds = %25
+  %27 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %28 unwind label %31
+
+28:                                               ; preds = %26
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1, ptr noundef @.str.3, i32 noundef 98, ptr noundef %27)
+          to label %29 unwind label %31
+
+29:                                               ; preds = %28
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %30 unwind label %35
+
+30:                                               ; preds = %29
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %40
+
+31:                                               ; preds = %28, %26
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %7, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %8, align 4
+  br label %39
+
+35:                                               ; preds = %29
+  %36 = landingpad { ptr, i32 }
+          cleanup
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %7, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %39
+
+39:                                               ; preds = %35, %31
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %41
+
+40:                                               ; preds = %30, %16
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+41:                                               ; preds = %39, %21
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  br label %42
+
+42:                                               ; preds = %41, %17
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.47() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 101)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 101)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 101)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.48, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.testing::AssertionResult", align 8
+  %8 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef @.str.6)
+          to label %11 unwind label %18
+
+11:                                               ; preds = %1
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString7replaceEiiRKS1_(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(36) %4)
+          to label %12 unwind label %22
+
+12:                                               ; preds = %11
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef @.str.6)
+          to label %13 unwind label %18
+
+13:                                               ; preds = %12
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %7, ptr noundef @.str.49, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %14 unwind label %26
+
+14:                                               ; preds = %13
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  %15 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %16 unwind label %30
+
+16:                                               ; preds = %14
+  br i1 %15, label %17, label %34
+
+17:                                               ; preds = %16
+  br label %49
+
+18:                                               ; preds = %12, %1
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
+  br label %51
+
+22:                                               ; preds = %11
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  br label %51
+
+26:                                               ; preds = %13
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  br label %51
+
+30:                                               ; preds = %34, %14
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %5, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %6, align 4
+  br label %50
+
+34:                                               ; preds = %16
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %35 unwind label %30
+
+35:                                               ; preds = %34
+  %36 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %37 unwind label %40
+
+37:                                               ; preds = %35
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1, ptr noundef @.str.3, i32 noundef 104, ptr noundef %36)
+          to label %38 unwind label %40
+
+38:                                               ; preds = %37
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %39 unwind label %44
+
+39:                                               ; preds = %38
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %49
+
+40:                                               ; preds = %37, %35
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %5, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %6, align 4
+  br label %48
+
+44:                                               ; preds = %38
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %5, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %6, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %48
+
+48:                                               ; preds = %44, %40
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %50
+
+49:                                               ; preds = %39, %17
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+50:                                               ; preds = %48, %30
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %51
+
+51:                                               ; preds = %50, %26, %22, %18
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %52
+
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %5, align 8
+  %54 = load i32, ptr %6, align 4
+  %55 = insertvalue { ptr, i32 } poison, ptr %53, 0
+  %56 = insertvalue { ptr, i32 } %55, i32 %54, 1
+  resume { ptr, i32 } %56
+}
+
+declare void @_ZN4i18n12phonenumbers13UnicodeString7replaceEiiRKS1_(ptr noundef nonnull align 8 dereferenceable(36), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(36)) #1
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.50() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 107)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 107)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 107)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.51, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.testing::AssertionResult", align 8
+  %8 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.9)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef @.str.6)
+          to label %11 unwind label %18
+
+11:                                               ; preds = %1
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString7replaceEiiRKS1_(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 0, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(36) %4)
+          to label %12 unwind label %22
+
+12:                                               ; preds = %11
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef @.str.6)
+          to label %13 unwind label %18
+
+13:                                               ; preds = %12
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %7, ptr noundef @.str.49, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %14 unwind label %26
+
+14:                                               ; preds = %13
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  %15 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %16 unwind label %30
+
+16:                                               ; preds = %14
+  br i1 %15, label %17, label %34
+
+17:                                               ; preds = %16
+  br label %49
+
+18:                                               ; preds = %12, %1
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
+  br label %51
+
+22:                                               ; preds = %11
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  br label %51
+
+26:                                               ; preds = %13
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  br label %51
+
+30:                                               ; preds = %34, %14
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %5, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %6, align 4
+  br label %50
+
+34:                                               ; preds = %16
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %35 unwind label %30
+
+35:                                               ; preds = %34
+  %36 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %37 unwind label %40
+
+37:                                               ; preds = %35
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1, ptr noundef @.str.3, i32 noundef 110, ptr noundef %36)
+          to label %38 unwind label %40
+
+38:                                               ; preds = %37
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %39 unwind label %44
+
+39:                                               ; preds = %38
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %49
+
+40:                                               ; preds = %37, %35
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %5, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %6, align 4
+  br label %48
+
+44:                                               ; preds = %38
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %5, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %6, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %48
+
+48:                                               ; preds = %44, %40
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %50
+
+49:                                               ; preds = %39, %17
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+50:                                               ; preds = %48, %30
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %51
+
+51:                                               ; preds = %50, %26, %22, %18
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %52
+
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %5, align 8
+  %54 = load i32, ptr %6, align 4
+  %55 = insertvalue { ptr, i32 } poison, ptr %53, 0
+  %56 = insertvalue { ptr, i32 } %55, i32 %54, 1
+  resume { ptr, i32 } %56
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.52() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 113)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 113)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 113)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.53, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers34UnicodeString_ReplaceBegining_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers34UnicodeString_ReplaceBegining_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.testing::AssertionResult", align 8
+  %8 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.54)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef @.str.55)
+          to label %11 unwind label %18
+
+11:                                               ; preds = %1
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString7replaceEiiRKS1_(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 0, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(36) %4)
+          to label %12 unwind label %22
+
+12:                                               ; preds = %11
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef @.str.57)
+          to label %13 unwind label %18
+
+13:                                               ; preds = %12
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %7, ptr noundef @.str.56, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %14 unwind label %26
+
+14:                                               ; preds = %13
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  %15 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %16 unwind label %30
+
+16:                                               ; preds = %14
+  br i1 %15, label %17, label %34
+
+17:                                               ; preds = %16
+  br label %49
+
+18:                                               ; preds = %12, %1
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
+  br label %51
+
+22:                                               ; preds = %11
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  br label %51
+
+26:                                               ; preds = %13
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  br label %51
+
+30:                                               ; preds = %34, %14
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %5, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %6, align 4
+  br label %50
+
+34:                                               ; preds = %16
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %35 unwind label %30
+
+35:                                               ; preds = %34
+  %36 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %37 unwind label %40
+
+37:                                               ; preds = %35
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1, ptr noundef @.str.3, i32 noundef 116, ptr noundef %36)
+          to label %38 unwind label %40
+
+38:                                               ; preds = %37
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %39 unwind label %44
+
+39:                                               ; preds = %38
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %49
+
+40:                                               ; preds = %37, %35
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %5, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %6, align 4
+  br label %48
+
+44:                                               ; preds = %38
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %5, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %6, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %48
+
+48:                                               ; preds = %44, %40
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %50
+
+49:                                               ; preds = %39, %17
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+50:                                               ; preds = %48, %30
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %51
+
+51:                                               ; preds = %50, %26, %22, %18
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %52
+
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %5, align 8
+  %54 = load i32, ptr %6, align 4
+  %55 = insertvalue { ptr, i32 } poison, ptr %53, 0
+  %56 = insertvalue { ptr, i32 } %55, i32 %54, 1
+  resume { ptr, i32 } %56
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.58() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 119)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 119)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 119)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.59, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.testing::AssertionResult", align 8
+  %8 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.54)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef @.str.60)
+          to label %11 unwind label %18
+
+11:                                               ; preds = %1
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString7replaceEiiRKS1_(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 5, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(36) %4)
+          to label %12 unwind label %22
+
+12:                                               ; preds = %11
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef @.str.62)
+          to label %13 unwind label %18
+
+13:                                               ; preds = %12
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %7, ptr noundef @.str.61, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %14 unwind label %26
+
+14:                                               ; preds = %13
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  %15 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %16 unwind label %30
+
+16:                                               ; preds = %14
+  br i1 %15, label %17, label %34
+
+17:                                               ; preds = %16
+  br label %49
+
+18:                                               ; preds = %12, %1
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
+  br label %51
+
+22:                                               ; preds = %11
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  br label %51
+
+26:                                               ; preds = %13
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  br label %51
+
+30:                                               ; preds = %34, %14
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %5, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %6, align 4
+  br label %50
+
+34:                                               ; preds = %16
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %35 unwind label %30
+
+35:                                               ; preds = %34
+  %36 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %37 unwind label %40
+
+37:                                               ; preds = %35
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1, ptr noundef @.str.3, i32 noundef 122, ptr noundef %36)
+          to label %38 unwind label %40
+
+38:                                               ; preds = %37
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %39 unwind label %44
+
+39:                                               ; preds = %38
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %49
+
+40:                                               ; preds = %37, %35
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %5, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %6, align 4
+  br label %48
+
+44:                                               ; preds = %38
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %5, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %6, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %48
+
+48:                                               ; preds = %44, %40
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %50
+
+49:                                               ; preds = %39, %17
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+50:                                               ; preds = %48, %30
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %51
+
+51:                                               ; preds = %50, %26, %22, %18
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %52
+
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %5, align 8
+  %54 = load i32, ptr %6, align 4
+  %55 = insertvalue { ptr, i32 } poison, ptr %53, 0
+  %56 = insertvalue { ptr, i32 } %55, i32 %54, 1
+  resume { ptr, i32 } %56
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.63() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 125)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 125)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 125)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.64, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers29UnicodeString_ReplaceEnd_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers29UnicodeString_ReplaceEnd_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.testing::AssertionResult", align 8
+  %8 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.54)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef @.str.60)
+          to label %11 unwind label %18
+
+11:                                               ; preds = %1
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString7replaceEiiRKS1_(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 10, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(36) %4)
+          to label %12 unwind label %22
+
+12:                                               ; preds = %11
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef @.str.66)
+          to label %13 unwind label %18
+
+13:                                               ; preds = %12
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %7, ptr noundef @.str.65, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %14 unwind label %26
+
+14:                                               ; preds = %13
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  %15 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %16 unwind label %30
+
+16:                                               ; preds = %14
+  br i1 %15, label %17, label %34
+
+17:                                               ; preds = %16
+  br label %49
+
+18:                                               ; preds = %12, %1
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
+  br label %51
+
+22:                                               ; preds = %11
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  br label %51
+
+26:                                               ; preds = %13
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  br label %51
+
+30:                                               ; preds = %34, %14
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %5, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %6, align 4
+  br label %50
+
+34:                                               ; preds = %16
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %35 unwind label %30
+
+35:                                               ; preds = %34
+  %36 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %37 unwind label %40
+
+37:                                               ; preds = %35
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1, ptr noundef @.str.3, i32 noundef 128, ptr noundef %36)
+          to label %38 unwind label %40
+
+38:                                               ; preds = %37
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %39 unwind label %44
+
+39:                                               ; preds = %38
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %49
+
+40:                                               ; preds = %37, %35
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %5, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %6, align 4
+  br label %48
+
+44:                                               ; preds = %38
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %5, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %6, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %48
+
+48:                                               ; preds = %44, %40
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %50
+
+49:                                               ; preds = %39, %17
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+50:                                               ; preds = %48, %30
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %51
+
+51:                                               ; preds = %50, %26, %22, %18
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %52
+
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %5, align 8
+  %54 = load i32, ptr %6, align 4
+  %55 = insertvalue { ptr, i32 } poison, ptr %53, 0
+  %56 = insertvalue { ptr, i32 } %55, i32 %54, 1
+  resume { ptr, i32 } %56
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.67() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 131)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 131)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 131)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.68, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.testing::AssertionResult", align 8
+  %8 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.54)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef @.str.69)
+          to label %11 unwind label %18
+
+11:                                               ; preds = %1
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString7replaceEiiRKS1_(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 3, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(36) %4)
+          to label %12 unwind label %22
+
+12:                                               ; preds = %11
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef @.str.71)
+          to label %13 unwind label %18
+
+13:                                               ; preds = %12
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %7, ptr noundef @.str.70, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %14 unwind label %26
+
+14:                                               ; preds = %13
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  %15 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %16 unwind label %30
+
+16:                                               ; preds = %14
+  br i1 %15, label %17, label %34
+
+17:                                               ; preds = %16
+  br label %49
+
+18:                                               ; preds = %12, %1
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
+  br label %51
+
+22:                                               ; preds = %11
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  br label %51
+
+26:                                               ; preds = %13
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  br label %51
+
+30:                                               ; preds = %34, %14
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %5, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %6, align 4
+  br label %50
+
+34:                                               ; preds = %16
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %35 unwind label %30
+
+35:                                               ; preds = %34
+  %36 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %37 unwind label %40
+
+37:                                               ; preds = %35
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1, ptr noundef @.str.3, i32 noundef 134, ptr noundef %36)
+          to label %38 unwind label %40
+
+38:                                               ; preds = %37
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %39 unwind label %44
+
+39:                                               ; preds = %38
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %49
+
+40:                                               ; preds = %37, %35
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %5, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %6, align 4
+  br label %48
+
+44:                                               ; preds = %38
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %5, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %6, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %48
+
+48:                                               ; preds = %44, %40
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %50
+
+49:                                               ; preds = %39, %17
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+50:                                               ; preds = %48, %30
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %51
+
+51:                                               ; preds = %50, %26, %22, %18
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %52
+
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %5, align 8
+  %54 = load i32, ptr %6, align 4
+  %55 = insertvalue { ptr, i32 } poison, ptr %53, 0
+  %56 = insertvalue { ptr, i32 } %55, i32 %54, 1
+  resume { ptr, i32 } %56
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.72() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 137)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 137)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 137)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.73, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers34UnicodeString_SetCharBegining_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers34UnicodeString_SetCharBegining_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca %"class.testing::AssertionResult", align 8
+  %7 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %8 = alloca %"class.testing::Message", align 8
+  %9 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.9)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString9setCharAtEii(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 0, i32 noundef 72)
+          to label %10 unwind label %16
+
+10:                                               ; preds = %1
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef @.str.75)
+          to label %11 unwind label %16
+
+11:                                               ; preds = %10
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %6, ptr noundef @.str.74, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %12 unwind label %20
+
+12:                                               ; preds = %11
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #3
+  %13 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %14 unwind label %24
+
+14:                                               ; preds = %12
+  br i1 %13, label %15, label %28
+
+15:                                               ; preds = %14
+  br label %43
+
+16:                                               ; preds = %10, %1
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %4, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %5, align 4
+  br label %45
+
+20:                                               ; preds = %11
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %4, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %5, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #3
+  br label %45
+
+24:                                               ; preds = %28, %12
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %4, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %5, align 4
+  br label %44
+
+28:                                               ; preds = %14
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %29 unwind label %24
+
+29:                                               ; preds = %28
+  %30 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %31 unwind label %34
+
+31:                                               ; preds = %29
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 1, ptr noundef @.str.3, i32 noundef 140, ptr noundef %30)
+          to label %32 unwind label %34
+
+32:                                               ; preds = %31
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %33 unwind label %38
+
+33:                                               ; preds = %32
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %43
+
+34:                                               ; preds = %31, %29
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %4, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %5, align 4
+  br label %42
+
+38:                                               ; preds = %32
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %4, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %5, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %42
+
+42:                                               ; preds = %38, %34
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %44
+
+43:                                               ; preds = %33, %15
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+44:                                               ; preds = %42, %24
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  br label %45
+
+45:                                               ; preds = %44, %20, %16
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %46
+
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %4, align 8
+  %48 = load i32, ptr %5, align 4
+  %49 = insertvalue { ptr, i32 } poison, ptr %47, 0
+  %50 = insertvalue { ptr, i32 } %49, i32 %48, 1
+  resume { ptr, i32 } %50
+}
+
+declare void @_ZN4i18n12phonenumbers13UnicodeString9setCharAtEii(ptr noundef nonnull align 8 dereferenceable(36), i32 noundef, i32 noundef) #1
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.76() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 143)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 143)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 143)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.77, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers32UnicodeString_SetCharMiddle_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers32UnicodeString_SetCharMiddle_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca %"class.testing::AssertionResult", align 8
+  %7 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %8 = alloca %"class.testing::Message", align 8
+  %9 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.9)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString9setCharAtEii(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 2, i32 noundef 76)
+          to label %10 unwind label %16
+
+10:                                               ; preds = %1
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef @.str.79)
+          to label %11 unwind label %16
+
+11:                                               ; preds = %10
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %6, ptr noundef @.str.78, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %12 unwind label %20
+
+12:                                               ; preds = %11
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #3
+  %13 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %14 unwind label %24
+
+14:                                               ; preds = %12
+  br i1 %13, label %15, label %28
+
+15:                                               ; preds = %14
+  br label %43
+
+16:                                               ; preds = %10, %1
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %4, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %5, align 4
+  br label %45
+
+20:                                               ; preds = %11
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %4, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %5, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #3
+  br label %45
+
+24:                                               ; preds = %28, %12
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %4, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %5, align 4
+  br label %44
+
+28:                                               ; preds = %14
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %29 unwind label %24
+
+29:                                               ; preds = %28
+  %30 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %31 unwind label %34
+
+31:                                               ; preds = %29
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 1, ptr noundef @.str.3, i32 noundef 146, ptr noundef %30)
+          to label %32 unwind label %34
+
+32:                                               ; preds = %31
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %33 unwind label %38
+
+33:                                               ; preds = %32
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %43
+
+34:                                               ; preds = %31, %29
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %4, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %5, align 4
+  br label %42
+
+38:                                               ; preds = %32
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %4, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %5, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %42
+
+42:                                               ; preds = %38, %34
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %44
+
+43:                                               ; preds = %33, %15
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+44:                                               ; preds = %42, %24
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  br label %45
+
+45:                                               ; preds = %44, %20, %16
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %46
+
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %4, align 8
+  %48 = load i32, ptr %5, align 4
+  %49 = insertvalue { ptr, i32 } poison, ptr %47, 0
+  %50 = insertvalue { ptr, i32 } %49, i32 %48, 1
+  resume { ptr, i32 } %50
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.80() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 149)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 149)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 149)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.81, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers29UnicodeString_SetCharEnd_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers29UnicodeString_SetCharEnd_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca %"class.testing::AssertionResult", align 8
+  %7 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %8 = alloca %"class.testing::Message", align 8
+  %9 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.9)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString9setCharAtEii(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 4, i32 noundef 79)
+          to label %10 unwind label %16
+
+10:                                               ; preds = %1
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef @.str.83)
+          to label %11 unwind label %16
+
+11:                                               ; preds = %10
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %6, ptr noundef @.str.82, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %12 unwind label %20
+
+12:                                               ; preds = %11
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #3
+  %13 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %14 unwind label %24
+
+14:                                               ; preds = %12
+  br i1 %13, label %15, label %28
+
+15:                                               ; preds = %14
+  br label %43
+
+16:                                               ; preds = %10, %1
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %4, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %5, align 4
+  br label %45
+
+20:                                               ; preds = %11
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %4, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %5, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #3
+  br label %45
+
+24:                                               ; preds = %28, %12
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %4, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %5, align 4
+  br label %44
+
+28:                                               ; preds = %14
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %29 unwind label %24
+
+29:                                               ; preds = %28
+  %30 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %31 unwind label %34
+
+31:                                               ; preds = %29
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 1, ptr noundef @.str.3, i32 noundef 152, ptr noundef %30)
+          to label %32 unwind label %34
+
+32:                                               ; preds = %31
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %33 unwind label %38
+
+33:                                               ; preds = %32
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %43
+
+34:                                               ; preds = %31, %29
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %4, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %5, align 4
+  br label %42
+
+38:                                               ; preds = %32
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %4, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %5, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %42
+
+42:                                               ; preds = %38, %34
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %44
+
+43:                                               ; preds = %33, %15
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+44:                                               ; preds = %42, %24
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  br label %45
+
+45:                                               ; preds = %44, %20, %16
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %46
+
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %4, align 8
+  %48 = load i32, ptr %5, align 4
+  %49 = insertvalue { ptr, i32 } poison, ptr %47, 0
+  %50 = insertvalue { ptr, i32 } %49, i32 %48, 1
+  resume { ptr, i32 } %50
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.84() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 155)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 155)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 155)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.85, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca %"class.testing::AssertionResult", align 8
+  %7 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %8 = alloca %"class.testing::Message", align 8
+  %9 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.9)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString9setCharAtEii(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 4, i32 noundef 65296)
+          to label %10 unwind label %16
+
+10:                                               ; preds = %1
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef @.str.87)
+          to label %11 unwind label %16
+
+11:                                               ; preds = %10
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %6, ptr noundef @.str.86, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %12 unwind label %20
+
+12:                                               ; preds = %11
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #3
+  %13 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %14 unwind label %24
+
+14:                                               ; preds = %12
+  br i1 %13, label %15, label %28
+
+15:                                               ; preds = %14
+  br label %43
+
+16:                                               ; preds = %10, %1
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %4, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %5, align 4
+  br label %45
+
+20:                                               ; preds = %11
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %4, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %5, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #3
+  br label %45
+
+24:                                               ; preds = %28, %12
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %4, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %5, align 4
+  br label %44
+
+28:                                               ; preds = %14
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %29 unwind label %24
+
+29:                                               ; preds = %28
+  %30 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %31 unwind label %34
+
+31:                                               ; preds = %29
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 1, ptr noundef @.str.3, i32 noundef 158, ptr noundef %30)
+          to label %32 unwind label %34
+
+32:                                               ; preds = %31
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %33 unwind label %38
+
+33:                                               ; preds = %32
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %43
+
+34:                                               ; preds = %31, %29
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %4, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %5, align 4
+  br label %42
+
+38:                                               ; preds = %32
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %4, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %5, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %42
+
+42:                                               ; preds = %38, %34
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %44
+
+43:                                               ; preds = %33, %15
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+44:                                               ; preds = %42, %24
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  br label %45
+
+45:                                               ; preds = %44, %20, %16
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %46
+
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %4, align 8
+  %48 = load i32, ptr %5, align 4
+  %49 = insertvalue { ptr, i32 } poison, ptr %47, 0
+  %50 = insertvalue { ptr, i32 } %49, i32 %48, 1
+  resume { ptr, i32 } %50
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.88() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 161)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 161)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 161)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.89, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.testing::AssertionResult", align 8
+  %4 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %5 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %6 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef @.str.6)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %6)
+          to label %11 unwind label %17
+
+11:                                               ; preds = %1
+  invoke void @_ZNK4i18n12phonenumbers13UnicodeString13tempSubStringEii(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeString") align 8 %5, ptr noundef nonnull align 8 dereferenceable(36) %6, i32 noundef 0, i32 noundef 0)
+          to label %12 unwind label %21
+
+12:                                               ; preds = %11
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %3, ptr noundef @.str.49, ptr noundef @.str.90, ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 8 dereferenceable(36) %5)
+          to label %13 unwind label %25
+
+13:                                               ; preds = %12
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %6) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  %14 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+          to label %15 unwind label %31
+
+15:                                               ; preds = %13
+  br i1 %14, label %16, label %35
+
+16:                                               ; preds = %15
+  br label %50
+
+17:                                               ; preds = %1
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %7, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %8, align 4
+  br label %30
+
+21:                                               ; preds = %11
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %7, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %8, align 4
+  br label %29
+
+25:                                               ; preds = %12
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %7, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %8, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #3
+  br label %29
+
+29:                                               ; preds = %25, %21
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %6) #3
+  br label %30
+
+30:                                               ; preds = %29, %17
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  br label %52
+
+31:                                               ; preds = %35, %13
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %7, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %8, align 4
+  br label %51
+
+35:                                               ; preds = %15
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %36 unwind label %31
+
+36:                                               ; preds = %35
+  %37 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+          to label %38 unwind label %41
+
+38:                                               ; preds = %36
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1, ptr noundef @.str.3, i32 noundef 162, ptr noundef %37)
+          to label %39 unwind label %41
+
+39:                                               ; preds = %38
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %40 unwind label %45
+
+40:                                               ; preds = %39
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %50
+
+41:                                               ; preds = %38, %36
+  %42 = landingpad { ptr, i32 }
+          cleanup
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %7, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %8, align 4
+  br label %49
+
+45:                                               ; preds = %39
+  %46 = landingpad { ptr, i32 }
+          cleanup
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %7, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %49
+
+49:                                               ; preds = %45, %41
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %51
+
+50:                                               ; preds = %40, %16
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+
+51:                                               ; preds = %49, %31
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  br label %52
+
+52:                                               ; preds = %51, %30
+  %53 = load ptr, ptr %7, align 8
+  %54 = load i32, ptr %8, align 4
+  %55 = insertvalue { ptr, i32 } poison, ptr %53, 0
+  %56 = insertvalue { ptr, i32 } %55, i32 %54, 1
+  resume { ptr, i32 } %56
+}
+
+declare void @_ZNK4i18n12phonenumbers13UnicodeString13tempSubStringEii(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeString") align 8, ptr noundef nonnull align 8 dereferenceable(36), i32 noundef, i32 noundef) #1
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.91() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 165)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 165)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 165)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.92, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.testing::AssertionResult", align 8
+  %5 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  %11 = alloca %"class.testing::AssertionResult", align 8
+  %12 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %13 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %14 = alloca %"class.testing::Message", align 8
+  %15 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.9)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef @.str.6)
+          to label %16 unwind label %23
+
+16:                                               ; preds = %1
+  %17 = call noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #3
+  invoke void @_ZNK4i18n12phonenumbers13UnicodeString13tempSubStringEii(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeString") align 8 %8, ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 6, i32 noundef %17)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %4, ptr noundef @.str.49, ptr noundef @.str.93, ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(36) %8)
+          to label %19 unwind label %31
+
+19:                                               ; preds = %18
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #3
+  %20 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %21 unwind label %36
+
+21:                                               ; preds = %19
+  br i1 %20, label %22, label %40
+
+22:                                               ; preds = %21
+  br label %55
+
+23:                                               ; preds = %55, %1
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %6, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %7, align 4
+  br label %93
+
+27:                                               ; preds = %16
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %6, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %7, align 4
+  br label %35
+
+31:                                               ; preds = %18
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %6, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %7, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #3
+  br label %93
+
+36:                                               ; preds = %40, %19
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %6, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %7, align 4
+  br label %62
+
+40:                                               ; preds = %21
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %41 unwind label %36
+
+41:                                               ; preds = %40
+  %42 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %43 unwind label %46
+
+43:                                               ; preds = %41
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1, ptr noundef @.str.3, i32 noundef 169, ptr noundef %42)
+          to label %44 unwind label %46
+
+44:                                               ; preds = %43
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %45 unwind label %50
+
+45:                                               ; preds = %44
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %55
+
+46:                                               ; preds = %43, %41
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %6, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %7, align 4
+  br label %54
+
+50:                                               ; preds = %44
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %6, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %7, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %54
+
+54:                                               ; preds = %50, %46
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %62
+
+55:                                               ; preds = %45, %22
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef @.str.6)
+          to label %56 unwind label %23
+
+56:                                               ; preds = %55
+  invoke void @_ZNK4i18n12phonenumbers13UnicodeString13tempSubStringEii(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeString") align 8 %13, ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 2, i32 noundef 6)
+          to label %57 unwind label %63
+
+57:                                               ; preds = %56
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef @.str.49, ptr noundef @.str.94, ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull align 8 dereferenceable(36) %13)
+          to label %58 unwind label %67
+
+58:                                               ; preds = %57
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %13) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %12) #3
+  %59 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %60 unwind label %72
+
+60:                                               ; preds = %58
+  br i1 %59, label %61, label %76
+
+61:                                               ; preds = %60
+  br label %91
+
+62:                                               ; preds = %54, %36
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  br label %93
+
+63:                                               ; preds = %56
+  %64 = landingpad { ptr, i32 }
+          cleanup
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %6, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %7, align 4
+  br label %71
+
+67:                                               ; preds = %57
+  %68 = landingpad { ptr, i32 }
+          cleanup
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %6, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %7, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %13) #3
+  br label %71
+
+71:                                               ; preds = %67, %63
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %12) #3
+  br label %93
+
+72:                                               ; preds = %76, %58
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %6, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %7, align 4
+  br label %92
+
+76:                                               ; preds = %60
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %77 unwind label %72
+
+77:                                               ; preds = %76
+  %78 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %79 unwind label %82
+
+79:                                               ; preds = %77
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef 1, ptr noundef @.str.3, i32 noundef 170, ptr noundef %78)
+          to label %80 unwind label %82
+
+80:                                               ; preds = %79
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %81 unwind label %86
+
+81:                                               ; preds = %80
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %91
+
+82:                                               ; preds = %79, %77
+  %83 = landingpad { ptr, i32 }
+          cleanup
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %6, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %7, align 4
+  br label %90
+
+86:                                               ; preds = %80
+  %87 = landingpad { ptr, i32 }
+          cleanup
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %6, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %7, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  br label %90
+
+90:                                               ; preds = %86, %82
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %92
+
+91:                                               ; preds = %81, %61
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+92:                                               ; preds = %90, %72
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  br label %93
+
+93:                                               ; preds = %92, %71, %62, %35, %23
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %94
+
+94:                                               ; preds = %93
+  %95 = load ptr, ptr %6, align 8
+  %96 = load i32, ptr %7, align 4
+  %97 = insertvalue { ptr, i32 } poison, ptr %95, 0
+  %98 = insertvalue { ptr, i32 } %97, i32 %96, 1
+  resume { ptr, i32 } %98
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #7 comdat align 2 {
+  ret i32 2147483647
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.95() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 173)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 173)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 173)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.96, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers32UnicodeString_TempSubString_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers32UnicodeString_TempSubString_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.testing::AssertionResult", align 8
+  %5 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  %11 = alloca %"class.testing::AssertionResult", align 8
+  %12 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %13 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %14 = alloca %"class.testing::Message", align 8
+  %15 = alloca %"class.testing::internal::AssertHelper", align 8
+  %16 = alloca %"class.testing::AssertionResult", align 8
+  %17 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %18 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %19 = alloca %"class.testing::Message", align 8
+  %20 = alloca %"class.testing::internal::AssertHelper", align 8
+  %21 = alloca %"class.testing::AssertionResult", align 8
+  %22 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %23 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %24 = alloca %"class.testing::Message", align 8
+  %25 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.9)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef @.str.6)
+          to label %26 unwind label %32
+
+26:                                               ; preds = %1
+  invoke void @_ZNK4i18n12phonenumbers13UnicodeString13tempSubStringEii(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeString") align 8 %8, ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 0, i32 noundef 0)
+          to label %27 unwind label %36
+
+27:                                               ; preds = %26
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %4, ptr noundef @.str.49, ptr noundef @.str.97, ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(36) %8)
+          to label %28 unwind label %40
+
+28:                                               ; preds = %27
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #3
+  %29 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %30 unwind label %45
+
+30:                                               ; preds = %28
+  br i1 %29, label %31, label %49
+
+31:                                               ; preds = %30
+  br label %64
+
+32:                                               ; preds = %136, %100, %64, %1
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %6, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %7, align 4
+  br label %174
+
+36:                                               ; preds = %26
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %6, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %7, align 4
+  br label %44
+
+40:                                               ; preds = %27
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %6, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %7, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  br label %44
+
+44:                                               ; preds = %40, %36
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #3
+  br label %174
+
+45:                                               ; preds = %49, %28
+  %46 = landingpad { ptr, i32 }
+          cleanup
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %6, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %7, align 4
+  br label %71
+
+49:                                               ; preds = %30
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %50 unwind label %45
+
+50:                                               ; preds = %49
+  %51 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %52 unwind label %55
+
+52:                                               ; preds = %50
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1, ptr noundef @.str.3, i32 noundef 175, ptr noundef %51)
+          to label %53 unwind label %55
+
+53:                                               ; preds = %52
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %54 unwind label %59
+
+54:                                               ; preds = %53
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %64
+
+55:                                               ; preds = %52, %50
+  %56 = landingpad { ptr, i32 }
+          cleanup
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %6, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %7, align 4
+  br label %63
+
+59:                                               ; preds = %53
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %6, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %7, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %63
+
+63:                                               ; preds = %59, %55
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %71
+
+64:                                               ; preds = %54, %31
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef @.str.19)
+          to label %65 unwind label %32
+
+65:                                               ; preds = %64
+  invoke void @_ZNK4i18n12phonenumbers13UnicodeString13tempSubStringEii(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeString") align 8 %13, ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 0, i32 noundef 1)
+          to label %66 unwind label %72
+
+66:                                               ; preds = %65
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef @.str.17, ptr noundef @.str.98, ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull align 8 dereferenceable(36) %13)
+          to label %67 unwind label %76
+
+67:                                               ; preds = %66
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %13) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %12) #3
+  %68 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %69 unwind label %81
+
+69:                                               ; preds = %67
+  br i1 %68, label %70, label %85
+
+70:                                               ; preds = %69
+  br label %100
+
+71:                                               ; preds = %63, %45
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  br label %174
+
+72:                                               ; preds = %65
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %6, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %7, align 4
+  br label %80
+
+76:                                               ; preds = %66
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %6, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %7, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %13) #3
+  br label %80
+
+80:                                               ; preds = %76, %72
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %12) #3
+  br label %174
+
+81:                                               ; preds = %85, %67
+  %82 = landingpad { ptr, i32 }
+          cleanup
+  %83 = extractvalue { ptr, i32 } %82, 0
+  store ptr %83, ptr %6, align 8
+  %84 = extractvalue { ptr, i32 } %82, 1
+  store i32 %84, ptr %7, align 4
+  br label %107
+
+85:                                               ; preds = %69
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %86 unwind label %81
+
+86:                                               ; preds = %85
+  %87 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %88 unwind label %91
+
+88:                                               ; preds = %86
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef 1, ptr noundef @.str.3, i32 noundef 176, ptr noundef %87)
+          to label %89 unwind label %91
+
+89:                                               ; preds = %88
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %90 unwind label %95
+
+90:                                               ; preds = %89
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %100
+
+91:                                               ; preds = %88, %86
+  %92 = landingpad { ptr, i32 }
+          cleanup
+  %93 = extractvalue { ptr, i32 } %92, 0
+  store ptr %93, ptr %6, align 8
+  %94 = extractvalue { ptr, i32 } %92, 1
+  store i32 %94, ptr %7, align 4
+  br label %99
+
+95:                                               ; preds = %89
+  %96 = landingpad { ptr, i32 }
+          cleanup
+  %97 = extractvalue { ptr, i32 } %96, 0
+  store ptr %97, ptr %6, align 8
+  %98 = extractvalue { ptr, i32 } %96, 1
+  store i32 %98, ptr %7, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  br label %99
+
+99:                                               ; preds = %95, %91
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %107
+
+100:                                              ; preds = %90, %70
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef @.str.9)
+          to label %101 unwind label %32
+
+101:                                              ; preds = %100
+  invoke void @_ZNK4i18n12phonenumbers13UnicodeString13tempSubStringEii(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeString") align 8 %18, ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 0, i32 noundef 5)
+          to label %102 unwind label %108
+
+102:                                              ; preds = %101
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %16, ptr noundef @.str.30, ptr noundef @.str.99, ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull align 8 dereferenceable(36) %18)
+          to label %103 unwind label %112
+
+103:                                              ; preds = %102
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %18) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %17) #3
+  %104 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %105 unwind label %117
+
+105:                                              ; preds = %103
+  br i1 %104, label %106, label %121
+
+106:                                              ; preds = %105
+  br label %136
+
+107:                                              ; preds = %99, %81
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  br label %174
+
+108:                                              ; preds = %101
+  %109 = landingpad { ptr, i32 }
+          cleanup
+  %110 = extractvalue { ptr, i32 } %109, 0
+  store ptr %110, ptr %6, align 8
+  %111 = extractvalue { ptr, i32 } %109, 1
+  store i32 %111, ptr %7, align 4
+  br label %116
+
+112:                                              ; preds = %102
+  %113 = landingpad { ptr, i32 }
+          cleanup
+  %114 = extractvalue { ptr, i32 } %113, 0
+  store ptr %114, ptr %6, align 8
+  %115 = extractvalue { ptr, i32 } %113, 1
+  store i32 %115, ptr %7, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %18) #3
+  br label %116
+
+116:                                              ; preds = %112, %108
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %17) #3
+  br label %174
+
+117:                                              ; preds = %121, %103
+  %118 = landingpad { ptr, i32 }
+          cleanup
+  %119 = extractvalue { ptr, i32 } %118, 0
+  store ptr %119, ptr %6, align 8
+  %120 = extractvalue { ptr, i32 } %118, 1
+  store i32 %120, ptr %7, align 4
+  br label %143
+
+121:                                              ; preds = %105
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %122 unwind label %117
+
+122:                                              ; preds = %121
+  %123 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %124 unwind label %127
+
+124:                                              ; preds = %122
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef 1, ptr noundef @.str.3, i32 noundef 177, ptr noundef %123)
+          to label %125 unwind label %127
+
+125:                                              ; preds = %124
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %126 unwind label %131
+
+126:                                              ; preds = %125
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
+  br label %136
+
+127:                                              ; preds = %124, %122
+  %128 = landingpad { ptr, i32 }
+          cleanup
+  %129 = extractvalue { ptr, i32 } %128, 0
+  store ptr %129, ptr %6, align 8
+  %130 = extractvalue { ptr, i32 } %128, 1
+  store i32 %130, ptr %7, align 4
+  br label %135
+
+131:                                              ; preds = %125
+  %132 = landingpad { ptr, i32 }
+          cleanup
+  %133 = extractvalue { ptr, i32 } %132, 0
+  store ptr %133, ptr %6, align 8
+  %134 = extractvalue { ptr, i32 } %132, 1
+  store i32 %134, ptr %7, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
+  br label %135
+
+135:                                              ; preds = %131, %127
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
+  br label %143
+
+136:                                              ; preds = %126, %106
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %22, ptr noundef @.str.29)
+          to label %137 unwind label %32
+
+137:                                              ; preds = %136
+  invoke void @_ZNK4i18n12phonenumbers13UnicodeString13tempSubStringEii(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeString") align 8 %23, ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 2, i32 noundef 3)
+          to label %138 unwind label %144
+
+138:                                              ; preds = %137
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %21, ptr noundef @.str.100, ptr noundef @.str.101, ptr noundef nonnull align 8 dereferenceable(36) %22, ptr noundef nonnull align 8 dereferenceable(36) %23)
+          to label %139 unwind label %148
+
+139:                                              ; preds = %138
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %23) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %22) #3
+  %140 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
+          to label %141 unwind label %153
+
+141:                                              ; preds = %139
+  br i1 %140, label %142, label %157
+
+142:                                              ; preds = %141
+  br label %172
+
+143:                                              ; preds = %135, %117
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %174
+
+144:                                              ; preds = %137
+  %145 = landingpad { ptr, i32 }
+          cleanup
+  %146 = extractvalue { ptr, i32 } %145, 0
+  store ptr %146, ptr %6, align 8
+  %147 = extractvalue { ptr, i32 } %145, 1
+  store i32 %147, ptr %7, align 4
+  br label %152
+
+148:                                              ; preds = %138
+  %149 = landingpad { ptr, i32 }
+          cleanup
+  %150 = extractvalue { ptr, i32 } %149, 0
+  store ptr %150, ptr %6, align 8
+  %151 = extractvalue { ptr, i32 } %149, 1
+  store i32 %151, ptr %7, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %23) #3
+  br label %152
+
+152:                                              ; preds = %148, %144
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %22) #3
+  br label %174
+
+153:                                              ; preds = %157, %139
+  %154 = landingpad { ptr, i32 }
+          cleanup
+  %155 = extractvalue { ptr, i32 } %154, 0
+  store ptr %155, ptr %6, align 8
+  %156 = extractvalue { ptr, i32 } %154, 1
+  store i32 %156, ptr %7, align 4
+  br label %173
+
+157:                                              ; preds = %141
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %158 unwind label %153
+
+158:                                              ; preds = %157
+  %159 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
+          to label %160 unwind label %163
+
+160:                                              ; preds = %158
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %25, i32 noundef 1, ptr noundef @.str.3, i32 noundef 178, ptr noundef %159)
+          to label %161 unwind label %163
+
+161:                                              ; preds = %160
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %162 unwind label %167
+
+162:                                              ; preds = %161
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #3
+  br label %172
+
+163:                                              ; preds = %160, %158
+  %164 = landingpad { ptr, i32 }
+          cleanup
+  %165 = extractvalue { ptr, i32 } %164, 0
+  store ptr %165, ptr %6, align 8
+  %166 = extractvalue { ptr, i32 } %164, 1
+  store i32 %166, ptr %7, align 4
+  br label %171
+
+167:                                              ; preds = %161
+  %168 = landingpad { ptr, i32 }
+          cleanup
+  %169 = extractvalue { ptr, i32 } %168, 0
+  store ptr %169, ptr %6, align 8
+  %170 = extractvalue { ptr, i32 } %168, 1
+  store i32 %170, ptr %7, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #3
+  br label %171
+
+171:                                              ; preds = %167, %163
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #3
+  br label %173
+
+172:                                              ; preds = %162, %142
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+173:                                              ; preds = %171, %153
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #3
+  br label %174
+
+174:                                              ; preds = %173, %152, %143, %116, %107, %80, %71, %44, %32
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %175
+
+175:                                              ; preds = %174
+  %176 = load ptr, ptr %6, align 8
+  %177 = load i32, ptr %7, align 4
+  %178 = insertvalue { ptr, i32 } poison, ptr %176, 0
+  %179 = insertvalue { ptr, i32 } %178, i32 %177, 1
+  resume { ptr, i32 } %179
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.102() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 181)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 181)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 181)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.103, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.testing::AssertionResult", align 8
+  %5 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  %11 = alloca %"class.testing::AssertionResult", align 8
+  %12 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %13 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %14 = alloca %"class.testing::Message", align 8
+  %15 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.9)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef @.str.9)
+          to label %16 unwind label %23
+
+16:                                               ; preds = %1
+  %17 = call noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #3
+  invoke void @_ZNK4i18n12phonenumbers13UnicodeString13tempSubStringEii(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeString") align 8 %8, ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 0, i32 noundef %17)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %4, ptr noundef @.str.30, ptr noundef @.str.104, ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(36) %8)
+          to label %19 unwind label %31
+
+19:                                               ; preds = %18
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #3
+  %20 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %21 unwind label %36
+
+21:                                               ; preds = %19
+  br i1 %20, label %22, label %40
+
+22:                                               ; preds = %21
+  br label %55
+
+23:                                               ; preds = %55, %1
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %6, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %7, align 4
+  br label %94
+
+27:                                               ; preds = %16
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %6, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %7, align 4
+  br label %35
+
+31:                                               ; preds = %18
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %6, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %7, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #3
+  br label %94
+
+36:                                               ; preds = %40, %19
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %6, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %7, align 4
+  br label %63
+
+40:                                               ; preds = %21
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %41 unwind label %36
+
+41:                                               ; preds = %40
+  %42 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %43 unwind label %46
+
+43:                                               ; preds = %41
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1, ptr noundef @.str.3, i32 noundef 183, ptr noundef %42)
+          to label %44 unwind label %46
+
+44:                                               ; preds = %43
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %45 unwind label %50
+
+45:                                               ; preds = %44
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %55
+
+46:                                               ; preds = %43, %41
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %6, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %7, align 4
+  br label %54
+
+50:                                               ; preds = %44
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %6, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %7, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %54
+
+54:                                               ; preds = %50, %46
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %63
+
+55:                                               ; preds = %45, %22
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef @.str.29)
+          to label %56 unwind label %23
+
+56:                                               ; preds = %55
+  %57 = call noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #3
+  invoke void @_ZNK4i18n12phonenumbers13UnicodeString13tempSubStringEii(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeString") align 8 %13, ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 2, i32 noundef %57)
+          to label %58 unwind label %64
+
+58:                                               ; preds = %56
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef @.str.100, ptr noundef @.str.105, ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull align 8 dereferenceable(36) %13)
+          to label %59 unwind label %68
+
+59:                                               ; preds = %58
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %13) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %12) #3
+  %60 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %61 unwind label %73
+
+61:                                               ; preds = %59
+  br i1 %60, label %62, label %77
+
+62:                                               ; preds = %61
+  br label %92
+
+63:                                               ; preds = %54, %36
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  br label %94
+
+64:                                               ; preds = %56
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %6, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %7, align 4
+  br label %72
+
+68:                                               ; preds = %58
+  %69 = landingpad { ptr, i32 }
+          cleanup
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %6, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %7, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %13) #3
+  br label %72
+
+72:                                               ; preds = %68, %64
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %12) #3
+  br label %94
+
+73:                                               ; preds = %77, %59
+  %74 = landingpad { ptr, i32 }
+          cleanup
+  %75 = extractvalue { ptr, i32 } %74, 0
+  store ptr %75, ptr %6, align 8
+  %76 = extractvalue { ptr, i32 } %74, 1
+  store i32 %76, ptr %7, align 4
+  br label %93
+
+77:                                               ; preds = %61
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %78 unwind label %73
+
+78:                                               ; preds = %77
+  %79 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %80 unwind label %83
+
+80:                                               ; preds = %78
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef 1, ptr noundef @.str.3, i32 noundef 184, ptr noundef %79)
+          to label %81 unwind label %83
+
+81:                                               ; preds = %80
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %82 unwind label %87
+
+82:                                               ; preds = %81
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %92
+
+83:                                               ; preds = %80, %78
+  %84 = landingpad { ptr, i32 }
+          cleanup
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %6, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %7, align 4
+  br label %91
+
+87:                                               ; preds = %81
+  %88 = landingpad { ptr, i32 }
+          cleanup
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %6, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %7, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  br label %91
+
+91:                                               ; preds = %87, %83
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %93
+
+92:                                               ; preds = %82, %62
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+93:                                               ; preds = %91, %73
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  br label %94
+
+94:                                               ; preds = %93, %72, %63, %35, %23
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %95
+
+95:                                               ; preds = %94
+  %96 = load ptr, ptr %6, align 8
+  %97 = load i32, ptr %7, align 4
+  %98 = insertvalue { ptr, i32 } poison, ptr %96, 0
+  %99 = insertvalue { ptr, i32 } %98, i32 %97, 1
+  resume { ptr, i32 } %99
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.106() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 187)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 187)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 187)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.107, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.testing::AssertionResult", align 8
+  %5 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.108)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef @.str.111)
+          to label %11 unwind label %17
+
+11:                                               ; preds = %1
+  invoke void @_ZNK4i18n12phonenumbers13UnicodeString13tempSubStringEii(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeString") align 8 %8, ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 3, i32 noundef 1)
+          to label %12 unwind label %21
+
+12:                                               ; preds = %11
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %4, ptr noundef @.str.109, ptr noundef @.str.110, ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(36) %8)
+          to label %13 unwind label %25
+
+13:                                               ; preds = %12
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #3
+  %14 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %15 unwind label %30
+
+15:                                               ; preds = %13
+  br i1 %14, label %16, label %34
+
+16:                                               ; preds = %15
+  br label %49
+
+17:                                               ; preds = %1
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %6, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %7, align 4
+  br label %51
+
+21:                                               ; preds = %11
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %6, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %7, align 4
+  br label %29
+
+25:                                               ; preds = %12
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %6, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %7, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  br label %29
+
+29:                                               ; preds = %25, %21
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #3
+  br label %51
+
+30:                                               ; preds = %34, %13
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %6, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %7, align 4
+  br label %50
+
+34:                                               ; preds = %15
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %35 unwind label %30
+
+35:                                               ; preds = %34
+  %36 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %37 unwind label %40
+
+37:                                               ; preds = %35
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1, ptr noundef @.str.3, i32 noundef 189, ptr noundef %36)
+          to label %38 unwind label %40
+
+38:                                               ; preds = %37
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %39 unwind label %44
+
+39:                                               ; preds = %38
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %49
+
+40:                                               ; preds = %37, %35
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %6, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %7, align 4
+  br label %48
+
+44:                                               ; preds = %38
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %6, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %7, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %48
+
+48:                                               ; preds = %44, %40
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %50
+
+49:                                               ; preds = %39, %16
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+50:                                               ; preds = %48, %30
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  br label %51
+
+51:                                               ; preds = %50, %29, %17
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %52
+
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %6, align 8
+  %54 = load i32, ptr %7, align 4
+  %55 = insertvalue { ptr, i32 } poison, ptr %53, 0
+  %56 = insertvalue { ptr, i32 } %55, i32 %54, 1
+  resume { ptr, i32 } %56
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.112() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 192)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 192)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 192)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.113, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers32UnicodeString_OperatorEqual_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers32UnicodeString_OperatorEqual_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.testing::AssertionResult", align 8
+  %8 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.9)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef @.str.75)
+          to label %11 unwind label %19
+
+11:                                               ; preds = %1
+  %12 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4i18n12phonenumbers13UnicodeStringaSERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(36) %4)
+          to label %13 unwind label %23
+
+13:                                               ; preds = %11
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef @.str.75)
+          to label %14 unwind label %19
+
+14:                                               ; preds = %13
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %7, ptr noundef @.str.74, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %15 unwind label %27
+
+15:                                               ; preds = %14
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  %16 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %17 unwind label %31
+
+17:                                               ; preds = %15
+  br i1 %16, label %18, label %35
+
+18:                                               ; preds = %17
+  br label %50
+
+19:                                               ; preds = %13, %1
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  br label %52
+
+23:                                               ; preds = %11
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  br label %52
+
+27:                                               ; preds = %14
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %5, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  br label %52
+
+31:                                               ; preds = %35, %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %5, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %6, align 4
+  br label %51
+
+35:                                               ; preds = %17
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %36 unwind label %31
+
+36:                                               ; preds = %35
+  %37 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %38 unwind label %41
+
+38:                                               ; preds = %36
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1, ptr noundef @.str.3, i32 noundef 195, ptr noundef %37)
+          to label %39 unwind label %41
+
+39:                                               ; preds = %38
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %40 unwind label %45
+
+40:                                               ; preds = %39
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %50
+
+41:                                               ; preds = %38, %36
+  %42 = landingpad { ptr, i32 }
+          cleanup
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %5, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %6, align 4
+  br label %49
+
+45:                                               ; preds = %39
+  %46 = landingpad { ptr, i32 }
+          cleanup
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %5, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %6, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %49
+
+49:                                               ; preds = %45, %41
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %51
+
+50:                                               ; preds = %40, %18
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+51:                                               ; preds = %49, %31
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %52
+
+52:                                               ; preds = %51, %27, %23, %19
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %53
+
+53:                                               ; preds = %52
+  %54 = load ptr, ptr %5, align 8
+  %55 = load i32, ptr %6, align 4
+  %56 = insertvalue { ptr, i32 } poison, ptr %54, 0
+  %57 = insertvalue { ptr, i32 } %56, i32 %55, 1
+  resume { ptr, i32 } %57
+}
+
+declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4i18n12phonenumbers13UnicodeStringaSERKS1_(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef nonnull align 8 dereferenceable(36)) #1
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.114() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 198)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 198)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 198)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.115, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.testing::AssertionResult", align 8
+  %8 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.9)
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef @.str.108)
+          to label %11 unwind label %19
+
+11:                                               ; preds = %1
+  %12 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4i18n12phonenumbers13UnicodeStringaSERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(36) %4)
+          to label %13 unwind label %23
+
+13:                                               ; preds = %11
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef @.str.108)
+          to label %14 unwind label %19
+
+14:                                               ; preds = %13
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %7, ptr noundef @.str.116, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %15 unwind label %27
+
+15:                                               ; preds = %14
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  %16 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %17 unwind label %31
+
+17:                                               ; preds = %15
+  br i1 %16, label %18, label %35
+
+18:                                               ; preds = %17
+  br label %50
+
+19:                                               ; preds = %13, %1
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  br label %52
+
+23:                                               ; preds = %11
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #3
+  br label %52
+
+27:                                               ; preds = %14
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %5, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #3
+  br label %52
+
+31:                                               ; preds = %35, %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %5, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %6, align 4
+  br label %51
+
+35:                                               ; preds = %17
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %36 unwind label %31
+
+36:                                               ; preds = %35
+  %37 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %38 unwind label %41
+
+38:                                               ; preds = %36
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1, ptr noundef @.str.3, i32 noundef 201, ptr noundef %37)
+          to label %39 unwind label %41
+
+39:                                               ; preds = %38
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %40 unwind label %45
+
+40:                                               ; preds = %39
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %50
+
+41:                                               ; preds = %38, %36
+  %42 = landingpad { ptr, i32 }
+          cleanup
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %5, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %6, align 4
+  br label %49
+
+45:                                               ; preds = %39
+  %46 = landingpad { ptr, i32 }
+          cleanup
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %5, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %6, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %49
+
+49:                                               ; preds = %45, %41
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %51
+
+50:                                               ; preds = %40, %18
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+51:                                               ; preds = %49, %31
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %52
+
+52:                                               ; preds = %51, %27, %23, %19
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %53
+
+53:                                               ; preds = %52
+  %54 = load ptr, ptr %5, align 8
+  %55 = load i32, ptr %6, align 4
+  %56 = insertvalue { ptr, i32 } poison, ptr %54, 0
+  %57 = insertvalue { ptr, i32 } %56, i32 %55, 1
+  resume { ptr, i32 } %57
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.117() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 204)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 204)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 204)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.118, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers34UnicodeString_OperatorBracket_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers34UnicodeString_OperatorBracket_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.testing::AssertionResult", align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  %11 = alloca %"class.testing::AssertionResult", align 8
+  %12 = alloca i8, align 1
+  %13 = alloca i32, align 4
+  %14 = alloca %"class.testing::Message", align 8
+  %15 = alloca %"class.testing::internal::AssertHelper", align 8
+  %16 = alloca %"class.testing::AssertionResult", align 8
+  %17 = alloca i8, align 1
+  %18 = alloca i32, align 4
+  %19 = alloca %"class.testing::Message", align 8
+  %20 = alloca %"class.testing::internal::AssertHelper", align 8
+  %21 = alloca %"class.testing::AssertionResult", align 8
+  %22 = alloca i8, align 1
+  %23 = alloca i32, align 4
+  %24 = alloca %"class.testing::Message", align 8
+  %25 = alloca %"class.testing::internal::AssertHelper", align 8
+  %26 = alloca %"class.testing::AssertionResult", align 8
+  %27 = alloca i8, align 1
+  %28 = alloca i32, align 4
+  %29 = alloca %"class.testing::Message", align 8
+  %30 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.9)
+  store i8 104, ptr %5, align 1
+  %31 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeStringixEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 0)
+          to label %32 unwind label %37
+
+32:                                               ; preds = %1
+  store i32 %31, ptr %6, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIciTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %4, ptr noundef @.str.119, ptr noundef @.str.120, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+          to label %33 unwind label %37
+
+33:                                               ; preds = %32
+  %34 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %35 unwind label %41
+
+35:                                               ; preds = %33
+  br i1 %34, label %36, label %45
+
+36:                                               ; preds = %35
+  br label %60
+
+37:                                               ; preds = %143, %141, %116, %114, %89, %87, %62, %60, %32, %1
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %7, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %8, align 4
+  br label %170
+
+41:                                               ; preds = %45, %33
+  %42 = landingpad { ptr, i32 }
+          cleanup
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %7, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %8, align 4
+  br label %67
+
+45:                                               ; preds = %35
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %46 unwind label %41
+
+46:                                               ; preds = %45
+  %47 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %48 unwind label %51
+
+48:                                               ; preds = %46
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1, ptr noundef @.str.3, i32 noundef 206, ptr noundef %47)
+          to label %49 unwind label %51
+
+49:                                               ; preds = %48
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %50 unwind label %55
+
+50:                                               ; preds = %49
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %60
+
+51:                                               ; preds = %48, %46
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %7, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %8, align 4
+  br label %59
+
+55:                                               ; preds = %49
+  %56 = landingpad { ptr, i32 }
+          cleanup
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %7, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %59
+
+59:                                               ; preds = %55, %51
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %67
+
+60:                                               ; preds = %50, %36
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  store i8 101, ptr %12, align 1
+  %61 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeStringixEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 1)
+          to label %62 unwind label %37
+
+62:                                               ; preds = %60
+  store i32 %61, ptr %13, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIciTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef @.str.121, ptr noundef @.str.122, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
+          to label %63 unwind label %37
+
+63:                                               ; preds = %62
+  %64 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %65 unwind label %68
+
+65:                                               ; preds = %63
+  br i1 %64, label %66, label %72
+
+66:                                               ; preds = %65
+  br label %87
+
+67:                                               ; preds = %59, %41
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  br label %170
+
+68:                                               ; preds = %72, %63
+  %69 = landingpad { ptr, i32 }
+          cleanup
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %7, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %8, align 4
+  br label %94
+
+72:                                               ; preds = %65
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %73 unwind label %68
+
+73:                                               ; preds = %72
+  %74 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %75 unwind label %78
+
+75:                                               ; preds = %73
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef 1, ptr noundef @.str.3, i32 noundef 207, ptr noundef %74)
+          to label %76 unwind label %78
+
+76:                                               ; preds = %75
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %77 unwind label %82
+
+77:                                               ; preds = %76
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %87
+
+78:                                               ; preds = %75, %73
+  %79 = landingpad { ptr, i32 }
+          cleanup
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %7, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %8, align 4
+  br label %86
+
+82:                                               ; preds = %76
+  %83 = landingpad { ptr, i32 }
+          cleanup
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %7, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  br label %86
+
+86:                                               ; preds = %82, %78
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %94
+
+87:                                               ; preds = %77, %66
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  store i8 108, ptr %17, align 1
+  %88 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeStringixEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 2)
+          to label %89 unwind label %37
+
+89:                                               ; preds = %87
+  store i32 %88, ptr %18, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIciTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %16, ptr noundef @.str.123, ptr noundef @.str.124, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+          to label %90 unwind label %37
+
+90:                                               ; preds = %89
+  %91 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %92 unwind label %95
+
+92:                                               ; preds = %90
+  br i1 %91, label %93, label %99
+
+93:                                               ; preds = %92
+  br label %114
+
+94:                                               ; preds = %86, %68
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  br label %170
+
+95:                                               ; preds = %99, %90
+  %96 = landingpad { ptr, i32 }
+          cleanup
+  %97 = extractvalue { ptr, i32 } %96, 0
+  store ptr %97, ptr %7, align 8
+  %98 = extractvalue { ptr, i32 } %96, 1
+  store i32 %98, ptr %8, align 4
+  br label %121
+
+99:                                               ; preds = %92
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %100 unwind label %95
+
+100:                                              ; preds = %99
+  %101 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %102 unwind label %105
+
+102:                                              ; preds = %100
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef 1, ptr noundef @.str.3, i32 noundef 208, ptr noundef %101)
+          to label %103 unwind label %105
+
+103:                                              ; preds = %102
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %104 unwind label %109
+
+104:                                              ; preds = %103
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
+  br label %114
+
+105:                                              ; preds = %102, %100
+  %106 = landingpad { ptr, i32 }
+          cleanup
+  %107 = extractvalue { ptr, i32 } %106, 0
+  store ptr %107, ptr %7, align 8
+  %108 = extractvalue { ptr, i32 } %106, 1
+  store i32 %108, ptr %8, align 4
+  br label %113
+
+109:                                              ; preds = %103
+  %110 = landingpad { ptr, i32 }
+          cleanup
+  %111 = extractvalue { ptr, i32 } %110, 0
+  store ptr %111, ptr %7, align 8
+  %112 = extractvalue { ptr, i32 } %110, 1
+  store i32 %112, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
+  br label %113
+
+113:                                              ; preds = %109, %105
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
+  br label %121
+
+114:                                              ; preds = %104, %93
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  store i8 108, ptr %22, align 1
+  %115 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeStringixEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 3)
+          to label %116 unwind label %37
+
+116:                                              ; preds = %114
+  store i32 %115, ptr %23, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIciTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %21, ptr noundef @.str.123, ptr noundef @.str.125, ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 4 dereferenceable(4) %23)
+          to label %117 unwind label %37
+
+117:                                              ; preds = %116
+  %118 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
+          to label %119 unwind label %122
+
+119:                                              ; preds = %117
+  br i1 %118, label %120, label %126
+
+120:                                              ; preds = %119
+  br label %141
+
+121:                                              ; preds = %113, %95
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %170
+
+122:                                              ; preds = %126, %117
+  %123 = landingpad { ptr, i32 }
+          cleanup
+  %124 = extractvalue { ptr, i32 } %123, 0
+  store ptr %124, ptr %7, align 8
+  %125 = extractvalue { ptr, i32 } %123, 1
+  store i32 %125, ptr %8, align 4
+  br label %148
+
+126:                                              ; preds = %119
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %127 unwind label %122
+
+127:                                              ; preds = %126
+  %128 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
+          to label %129 unwind label %132
+
+129:                                              ; preds = %127
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %25, i32 noundef 1, ptr noundef @.str.3, i32 noundef 209, ptr noundef %128)
+          to label %130 unwind label %132
+
+130:                                              ; preds = %129
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %131 unwind label %136
+
+131:                                              ; preds = %130
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #3
+  br label %141
+
+132:                                              ; preds = %129, %127
+  %133 = landingpad { ptr, i32 }
+          cleanup
+  %134 = extractvalue { ptr, i32 } %133, 0
+  store ptr %134, ptr %7, align 8
+  %135 = extractvalue { ptr, i32 } %133, 1
+  store i32 %135, ptr %8, align 4
+  br label %140
+
+136:                                              ; preds = %130
+  %137 = landingpad { ptr, i32 }
+          cleanup
+  %138 = extractvalue { ptr, i32 } %137, 0
+  store ptr %138, ptr %7, align 8
+  %139 = extractvalue { ptr, i32 } %137, 1
+  store i32 %139, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #3
+  br label %140
+
+140:                                              ; preds = %136, %132
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #3
+  br label %148
+
+141:                                              ; preds = %131, %120
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #3
+  store i8 111, ptr %27, align 1
+  %142 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeStringixEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 4)
+          to label %143 unwind label %37
+
+143:                                              ; preds = %141
+  store i32 %142, ptr %28, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIciTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %26, ptr noundef @.str.126, ptr noundef @.str.127, ptr noundef nonnull align 1 dereferenceable(1) %27, ptr noundef nonnull align 4 dereferenceable(4) %28)
+          to label %144 unwind label %37
+
+144:                                              ; preds = %143
+  %145 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %26)
+          to label %146 unwind label %149
+
+146:                                              ; preds = %144
+  br i1 %145, label %147, label %153
+
+147:                                              ; preds = %146
+  br label %168
+
+148:                                              ; preds = %140, %122
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #3
+  br label %170
+
+149:                                              ; preds = %153, %144
+  %150 = landingpad { ptr, i32 }
+          cleanup
+  %151 = extractvalue { ptr, i32 } %150, 0
+  store ptr %151, ptr %7, align 8
+  %152 = extractvalue { ptr, i32 } %150, 1
+  store i32 %152, ptr %8, align 4
+  br label %169
+
+153:                                              ; preds = %146
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %154 unwind label %149
+
+154:                                              ; preds = %153
+  %155 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %26)
+          to label %156 unwind label %159
+
+156:                                              ; preds = %154
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %30, i32 noundef 1, ptr noundef @.str.3, i32 noundef 210, ptr noundef %155)
+          to label %157 unwind label %159
+
+157:                                              ; preds = %156
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %158 unwind label %163
+
+158:                                              ; preds = %157
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #3
+  br label %168
+
+159:                                              ; preds = %156, %154
+  %160 = landingpad { ptr, i32 }
+          cleanup
+  %161 = extractvalue { ptr, i32 } %160, 0
+  store ptr %161, ptr %7, align 8
+  %162 = extractvalue { ptr, i32 } %160, 1
+  store i32 %162, ptr %8, align 4
+  br label %167
+
+163:                                              ; preds = %157
+  %164 = landingpad { ptr, i32 }
+          cleanup
+  %165 = extractvalue { ptr, i32 } %164, 0
+  store ptr %165, ptr %7, align 8
+  %166 = extractvalue { ptr, i32 } %164, 1
+  store i32 %166, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #3
+  br label %167
+
+167:                                              ; preds = %163, %159
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #3
+  br label %169
+
+168:                                              ; preds = %158, %147
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+169:                                              ; preds = %167, %149
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #3
+  br label %170
+
+170:                                              ; preds = %169, %148, %121, %94, %67, %37
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %171
+
+171:                                              ; preds = %170
+  %172 = load ptr, ptr %7, align 8
+  %173 = load i32, ptr %8, align 4
+  %174 = insertvalue { ptr, i32 } poison, ptr %172, 0
+  %175 = insertvalue { ptr, i32 } %174, i32 %173, 1
+  resume { ptr, i32 } %175
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal8EqHelper7CompareIciTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) #4 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %7, align 8
+  %12 = load ptr, ptr %8, align 8
+  %13 = load ptr, ptr %9, align 8
+  %14 = load ptr, ptr %10, align 8
+  call void @_ZN7testing8internal11CmpHelperEQIciEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  ret void
+}
+
+declare noundef i32 @_ZNK4i18n12phonenumbers13UnicodeStringixEi(ptr noundef nonnull align 8 dereferenceable(36), i32 noundef) #1
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.128() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 213)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 213)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 213)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.129, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.testing::AssertionResult", align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  %11 = alloca %"class.testing::AssertionResult", align 8
+  %12 = alloca i8, align 1
+  %13 = alloca i32, align 4
+  %14 = alloca %"class.testing::Message", align 8
+  %15 = alloca %"class.testing::internal::AssertHelper", align 8
+  %16 = alloca %"class.testing::AssertionResult", align 8
+  %17 = alloca i8, align 1
+  %18 = alloca i32, align 4
+  %19 = alloca %"class.testing::Message", align 8
+  %20 = alloca %"class.testing::internal::AssertHelper", align 8
+  %21 = alloca %"class.testing::AssertionResult", align 8
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca %"class.testing::Message", align 8
+  %25 = alloca %"class.testing::internal::AssertHelper", align 8
+  %26 = alloca %"class.testing::AssertionResult", align 8
+  %27 = alloca i32, align 4
+  %28 = alloca i32, align 4
+  %29 = alloca %"class.testing::Message", align 8
+  %30 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.108)
+  store i8 104, ptr %5, align 1
+  %31 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeStringixEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 0)
+          to label %32 unwind label %37
+
+32:                                               ; preds = %1
+  store i32 %31, ptr %6, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIciTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %4, ptr noundef @.str.119, ptr noundef @.str.120, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+          to label %33 unwind label %37
+
+33:                                               ; preds = %32
+  %34 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %35 unwind label %41
+
+35:                                               ; preds = %33
+  br i1 %34, label %36, label %45
+
+36:                                               ; preds = %35
+  br label %60
+
+37:                                               ; preds = %143, %141, %116, %114, %89, %87, %62, %60, %32, %1
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %7, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %8, align 4
+  br label %170
+
+41:                                               ; preds = %45, %33
+  %42 = landingpad { ptr, i32 }
+          cleanup
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %7, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %8, align 4
+  br label %67
+
+45:                                               ; preds = %35
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %46 unwind label %41
+
+46:                                               ; preds = %45
+  %47 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %48 unwind label %51
+
+48:                                               ; preds = %46
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1, ptr noundef @.str.3, i32 noundef 215, ptr noundef %47)
+          to label %49 unwind label %51
+
+49:                                               ; preds = %48
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %50 unwind label %55
+
+50:                                               ; preds = %49
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %60
+
+51:                                               ; preds = %48, %46
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %7, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %8, align 4
+  br label %59
+
+55:                                               ; preds = %49
+  %56 = landingpad { ptr, i32 }
+          cleanup
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %7, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %59
+
+59:                                               ; preds = %55, %51
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %67
+
+60:                                               ; preds = %50, %36
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  store i8 101, ptr %12, align 1
+  %61 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeStringixEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 1)
+          to label %62 unwind label %37
+
+62:                                               ; preds = %60
+  store i32 %61, ptr %13, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIciTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef @.str.121, ptr noundef @.str.122, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
+          to label %63 unwind label %37
+
+63:                                               ; preds = %62
+  %64 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %65 unwind label %68
+
+65:                                               ; preds = %63
+  br i1 %64, label %66, label %72
+
+66:                                               ; preds = %65
+  br label %87
+
+67:                                               ; preds = %59, %41
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  br label %170
+
+68:                                               ; preds = %72, %63
+  %69 = landingpad { ptr, i32 }
+          cleanup
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %7, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %8, align 4
+  br label %94
+
+72:                                               ; preds = %65
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %73 unwind label %68
+
+73:                                               ; preds = %72
+  %74 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %75 unwind label %78
+
+75:                                               ; preds = %73
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef 1, ptr noundef @.str.3, i32 noundef 216, ptr noundef %74)
+          to label %76 unwind label %78
+
+76:                                               ; preds = %75
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %77 unwind label %82
+
+77:                                               ; preds = %76
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %87
+
+78:                                               ; preds = %75, %73
+  %79 = landingpad { ptr, i32 }
+          cleanup
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %7, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %8, align 4
+  br label %86
+
+82:                                               ; preds = %76
+  %83 = landingpad { ptr, i32 }
+          cleanup
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %7, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  br label %86
+
+86:                                               ; preds = %82, %78
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %94
+
+87:                                               ; preds = %77, %66
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  store i8 108, ptr %17, align 1
+  %88 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeStringixEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 2)
+          to label %89 unwind label %37
+
+89:                                               ; preds = %87
+  store i32 %88, ptr %18, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIciTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %16, ptr noundef @.str.123, ptr noundef @.str.124, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+          to label %90 unwind label %37
+
+90:                                               ; preds = %89
+  %91 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %92 unwind label %95
+
+92:                                               ; preds = %90
+  br i1 %91, label %93, label %99
+
+93:                                               ; preds = %92
+  br label %114
+
+94:                                               ; preds = %86, %68
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  br label %170
+
+95:                                               ; preds = %99, %90
+  %96 = landingpad { ptr, i32 }
+          cleanup
+  %97 = extractvalue { ptr, i32 } %96, 0
+  store ptr %97, ptr %7, align 8
+  %98 = extractvalue { ptr, i32 } %96, 1
+  store i32 %98, ptr %8, align 4
+  br label %121
+
+99:                                               ; preds = %92
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %100 unwind label %95
+
+100:                                              ; preds = %99
+  %101 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %102 unwind label %105
+
+102:                                              ; preds = %100
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef 1, ptr noundef @.str.3, i32 noundef 217, ptr noundef %101)
+          to label %103 unwind label %105
+
+103:                                              ; preds = %102
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %104 unwind label %109
+
+104:                                              ; preds = %103
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
+  br label %114
+
+105:                                              ; preds = %102, %100
+  %106 = landingpad { ptr, i32 }
+          cleanup
+  %107 = extractvalue { ptr, i32 } %106, 0
+  store ptr %107, ptr %7, align 8
+  %108 = extractvalue { ptr, i32 } %106, 1
+  store i32 %108, ptr %8, align 4
+  br label %113
+
+109:                                              ; preds = %103
+  %110 = landingpad { ptr, i32 }
+          cleanup
+  %111 = extractvalue { ptr, i32 } %110, 0
+  store ptr %111, ptr %7, align 8
+  %112 = extractvalue { ptr, i32 } %110, 1
+  store i32 %112, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
+  br label %113
+
+113:                                              ; preds = %109, %105
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
+  br label %121
+
+114:                                              ; preds = %104, %93
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  store i32 65297, ptr %22, align 4
+  %115 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeStringixEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 3)
+          to label %116 unwind label %37
+
+116:                                              ; preds = %114
+  store i32 %115, ptr %23, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %21, ptr noundef @.str.130, ptr noundef @.str.125, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 4 dereferenceable(4) %23)
+          to label %117 unwind label %37
+
+117:                                              ; preds = %116
+  %118 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
+          to label %119 unwind label %122
+
+119:                                              ; preds = %117
+  br i1 %118, label %120, label %126
+
+120:                                              ; preds = %119
+  br label %141
+
+121:                                              ; preds = %113, %95
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %170
+
+122:                                              ; preds = %126, %117
+  %123 = landingpad { ptr, i32 }
+          cleanup
+  %124 = extractvalue { ptr, i32 } %123, 0
+  store ptr %124, ptr %7, align 8
+  %125 = extractvalue { ptr, i32 } %123, 1
+  store i32 %125, ptr %8, align 4
+  br label %148
+
+126:                                              ; preds = %119
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %127 unwind label %122
+
+127:                                              ; preds = %126
+  %128 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
+          to label %129 unwind label %132
+
+129:                                              ; preds = %127
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %25, i32 noundef 1, ptr noundef @.str.3, i32 noundef 218, ptr noundef %128)
+          to label %130 unwind label %132
+
+130:                                              ; preds = %129
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %131 unwind label %136
+
+131:                                              ; preds = %130
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #3
+  br label %141
+
+132:                                              ; preds = %129, %127
+  %133 = landingpad { ptr, i32 }
+          cleanup
+  %134 = extractvalue { ptr, i32 } %133, 0
+  store ptr %134, ptr %7, align 8
+  %135 = extractvalue { ptr, i32 } %133, 1
+  store i32 %135, ptr %8, align 4
+  br label %140
+
+136:                                              ; preds = %130
+  %137 = landingpad { ptr, i32 }
+          cleanup
+  %138 = extractvalue { ptr, i32 } %137, 0
+  store ptr %138, ptr %7, align 8
+  %139 = extractvalue { ptr, i32 } %137, 1
+  store i32 %139, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #3
+  br label %140
+
+140:                                              ; preds = %136, %132
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #3
+  br label %148
+
+141:                                              ; preds = %131, %120
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #3
+  store i32 65296, ptr %27, align 4
+  %142 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeStringixEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 4)
+          to label %143 unwind label %37
+
+143:                                              ; preds = %141
+  store i32 %142, ptr %28, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %26, ptr noundef @.str.131, ptr noundef @.str.127, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull align 4 dereferenceable(4) %28)
+          to label %144 unwind label %37
+
+144:                                              ; preds = %143
+  %145 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %26)
+          to label %146 unwind label %149
+
+146:                                              ; preds = %144
+  br i1 %145, label %147, label %153
+
+147:                                              ; preds = %146
+  br label %168
+
+148:                                              ; preds = %140, %122
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #3
+  br label %170
+
+149:                                              ; preds = %153, %144
+  %150 = landingpad { ptr, i32 }
+          cleanup
+  %151 = extractvalue { ptr, i32 } %150, 0
+  store ptr %151, ptr %7, align 8
+  %152 = extractvalue { ptr, i32 } %150, 1
+  store i32 %152, ptr %8, align 4
+  br label %169
+
+153:                                              ; preds = %146
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %154 unwind label %149
+
+154:                                              ; preds = %153
+  %155 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %26)
+          to label %156 unwind label %159
+
+156:                                              ; preds = %154
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %30, i32 noundef 1, ptr noundef @.str.3, i32 noundef 219, ptr noundef %155)
+          to label %157 unwind label %159
+
+157:                                              ; preds = %156
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %158 unwind label %163
+
+158:                                              ; preds = %157
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #3
+  br label %168
+
+159:                                              ; preds = %156, %154
+  %160 = landingpad { ptr, i32 }
+          cleanup
+  %161 = extractvalue { ptr, i32 } %160, 0
+  store ptr %161, ptr %7, align 8
+  %162 = extractvalue { ptr, i32 } %160, 1
+  store i32 %162, ptr %8, align 4
+  br label %167
+
+163:                                              ; preds = %157
+  %164 = landingpad { ptr, i32 }
+          cleanup
+  %165 = extractvalue { ptr, i32 } %164, 0
+  store ptr %165, ptr %7, align 8
+  %166 = extractvalue { ptr, i32 } %164, 1
+  store i32 %166, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #3
+  br label %167
+
+167:                                              ; preds = %163, %159
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #3
+  br label %169
+
+168:                                              ; preds = %158, %147
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+169:                                              ; preds = %167, %149
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #3
+  br label %170
+
+170:                                              ; preds = %169, %148, %121, %94, %67, %37
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %171
+
+171:                                              ; preds = %170
+  %172 = load ptr, ptr %7, align 8
+  %173 = load i32, ptr %8, align 4
+  %174 = insertvalue { ptr, i32 } poison, ptr %172, 0
+  %175 = insertvalue { ptr, i32 } %174, i32 %173, 1
+  resume { ptr, i32 } %175
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.132() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"struct.testing::internal::CodeLocation", align 8
+  %2 = alloca %"class.std::__cxx11::basic_string", align 8
+  %3 = alloca %"class.std::allocator", align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %6 unwind label %19
+
+6:                                                ; preds = %0
+  invoke void @_ZN7testing8internal12CodeLocationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 222)
+          to label %7 unwind label %23
+
+7:                                                ; preds = %6
+  %8 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %9 unwind label %27
+
+9:                                                ; preds = %7
+  %10 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 222)
+          to label %11 unwind label %27
+
+11:                                               ; preds = %9
+  %12 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef @.str.3, i32 noundef 222)
+          to label %13 unwind label %27
+
+13:                                               ; preds = %11
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #12
+          to label %15 unwind label %27
+
+15:                                               ; preds = %13
+  invoke void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %16 unwind label %31
+
+16:                                               ; preds = %15
+  %17 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef @.str, ptr noundef @.str.133, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef %14)
+          to label %18 unwind label %27
+
+18:                                               ; preds = %16
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %17, ptr @_ZN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_Test10test_info_E, align 8
+  ret void
+
+19:                                               ; preds = %0
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %4, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %5, align 4
+  br label %37
+
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %4, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %5, align 4
+  br label %36
+
+27:                                               ; preds = %16, %13, %11, %9, %7
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %4, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %5, align 4
+  br label %35
+
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %4, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %5, align 4
+  call void @_ZdlPv(ptr noundef %14) #13
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #3
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %37
+
+37:                                               ; preds = %36, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %4 = alloca %"class.testing::AssertionResult", align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %"class.testing::Message", align 8
+  %10 = alloca %"class.testing::internal::AssertHelper", align 8
+  %11 = alloca %"class.testing::AssertionResult", align 8
+  %12 = alloca i8, align 1
+  %13 = alloca i32, align 4
+  %14 = alloca %"class.testing::Message", align 8
+  %15 = alloca %"class.testing::internal::AssertHelper", align 8
+  %16 = alloca %"class.testing::AssertionResult", align 8
+  %17 = alloca %"class.i18n::phonenumbers::UnicodeString", align 8
+  %18 = alloca %"class.testing::Message", align 8
+  %19 = alloca %"class.testing::internal::AssertHelper", align 8
+  %20 = alloca %"class.testing::AssertionResult", align 8
+  %21 = alloca i8, align 1
+  %22 = alloca i32, align 4
+  %23 = alloca %"class.testing::Message", align 8
+  %24 = alloca %"class.testing::internal::AssertHelper", align 8
+  %25 = alloca %"class.testing::AssertionResult", align 8
+  %26 = alloca i8, align 1
+  %27 = alloca i32, align 4
+  %28 = alloca %"class.testing::Message", align 8
+  %29 = alloca %"class.testing::internal::AssertHelper", align 8
+  %30 = alloca %"class.testing::AssertionResult", align 8
+  %31 = alloca i8, align 1
+  %32 = alloca i32, align 4
+  %33 = alloca %"class.testing::Message", align 8
+  %34 = alloca %"class.testing::internal::AssertHelper", align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef @.str.9)
+  store i8 104, ptr %5, align 1
+  %35 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeStringixEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 0)
+          to label %36 unwind label %41
+
+36:                                               ; preds = %1
+  store i32 %35, ptr %6, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIciTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %4, ptr noundef @.str.119, ptr noundef @.str.120, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+          to label %37 unwind label %41
+
+37:                                               ; preds = %36
+  %38 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %39 unwind label %45
+
+39:                                               ; preds = %37
+  br i1 %38, label %40, label %49
+
+40:                                               ; preds = %39
+  br label %64
+
+41:                                               ; preds = %178, %176, %151, %149, %124, %122, %92, %91, %66, %64, %36, %1
+  %42 = landingpad { ptr, i32 }
+          cleanup
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %7, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %8, align 4
+  br label %205
+
+45:                                               ; preds = %49, %37
+  %46 = landingpad { ptr, i32 }
+          cleanup
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %7, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %8, align 4
+  br label %71
+
+49:                                               ; preds = %39
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %50 unwind label %45
+
+50:                                               ; preds = %49
+  %51 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %52 unwind label %55
+
+52:                                               ; preds = %50
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 1, ptr noundef @.str.3, i32 noundef 224, ptr noundef %51)
+          to label %53 unwind label %55
+
+53:                                               ; preds = %52
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %54 unwind label %59
+
+54:                                               ; preds = %53
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %64
+
+55:                                               ; preds = %52, %50
+  %56 = landingpad { ptr, i32 }
+          cleanup
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %7, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %8, align 4
+  br label %63
+
+59:                                               ; preds = %53
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %7, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %63
+
+63:                                               ; preds = %59, %55
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %71
+
+64:                                               ; preds = %54, %40
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  store i8 101, ptr %12, align 1
+  %65 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeStringixEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 1)
+          to label %66 unwind label %41
+
+66:                                               ; preds = %64
+  store i32 %65, ptr %13, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIciTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef @.str.121, ptr noundef @.str.122, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
+          to label %67 unwind label %41
+
+67:                                               ; preds = %66
+  %68 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %69 unwind label %72
+
+69:                                               ; preds = %67
+  br i1 %68, label %70, label %76
+
+70:                                               ; preds = %69
+  br label %91
+
+71:                                               ; preds = %63, %45
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  br label %205
+
+72:                                               ; preds = %76, %67
+  %73 = landingpad { ptr, i32 }
+          cleanup
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %7, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %8, align 4
+  br label %98
+
+76:                                               ; preds = %69
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %77 unwind label %72
+
+77:                                               ; preds = %76
+  %78 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %79 unwind label %82
+
+79:                                               ; preds = %77
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef 1, ptr noundef @.str.3, i32 noundef 225, ptr noundef %78)
+          to label %80 unwind label %82
+
+80:                                               ; preds = %79
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %81 unwind label %86
+
+81:                                               ; preds = %80
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %91
+
+82:                                               ; preds = %79, %77
+  %83 = landingpad { ptr, i32 }
+          cleanup
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %7, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %8, align 4
+  br label %90
+
+86:                                               ; preds = %80
+  %87 = landingpad { ptr, i32 }
+          cleanup
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %7, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  br label %90
+
+90:                                               ; preds = %86, %82
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %98
+
+91:                                               ; preds = %81, %70
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  invoke void @_ZN4i18n12phonenumbers13UnicodeString9setCharAtEii(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 1, i32 noundef 69)
+          to label %92 unwind label %41
+
+92:                                               ; preds = %91
+  invoke void @_ZN4i18n12phonenumbers13UnicodeStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef @.str.135)
+          to label %93 unwind label %41
+
+93:                                               ; preds = %92
+  invoke void @_ZN7testing8internal8EqHelper7CompareIN4i18n12phonenumbers13UnicodeStringES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %16, ptr noundef @.str.134, ptr noundef @.str.18, ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull align 8 dereferenceable(36) %3)
+          to label %94 unwind label %99
+
+94:                                               ; preds = %93
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %17) #3
+  %95 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %96 unwind label %103
+
+96:                                               ; preds = %94
+  br i1 %95, label %97, label %107
+
+97:                                               ; preds = %96
+  br label %122
+
+98:                                               ; preds = %90, %72
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  br label %205
+
+99:                                               ; preds = %93
+  %100 = landingpad { ptr, i32 }
+          cleanup
+  %101 = extractvalue { ptr, i32 } %100, 0
+  store ptr %101, ptr %7, align 8
+  %102 = extractvalue { ptr, i32 } %100, 1
+  store i32 %102, ptr %8, align 4
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %17) #3
+  br label %205
+
+103:                                              ; preds = %107, %94
+  %104 = landingpad { ptr, i32 }
+          cleanup
+  %105 = extractvalue { ptr, i32 } %104, 0
+  store ptr %105, ptr %7, align 8
+  %106 = extractvalue { ptr, i32 } %104, 1
+  store i32 %106, ptr %8, align 4
+  br label %129
+
+107:                                              ; preds = %96
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18)
+          to label %108 unwind label %103
+
+108:                                              ; preds = %107
+  %109 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %110 unwind label %113
+
+110:                                              ; preds = %108
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef 1, ptr noundef @.str.3, i32 noundef 228, ptr noundef %109)
+          to label %111 unwind label %113
+
+111:                                              ; preds = %110
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %18)
+          to label %112 unwind label %117
+
+112:                                              ; preds = %111
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
+  br label %122
+
+113:                                              ; preds = %110, %108
+  %114 = landingpad { ptr, i32 }
+          cleanup
+  %115 = extractvalue { ptr, i32 } %114, 0
+  store ptr %115, ptr %7, align 8
+  %116 = extractvalue { ptr, i32 } %114, 1
+  store i32 %116, ptr %8, align 4
+  br label %121
+
+117:                                              ; preds = %111
+  %118 = landingpad { ptr, i32 }
+          cleanup
+  %119 = extractvalue { ptr, i32 } %118, 0
+  store ptr %119, ptr %7, align 8
+  %120 = extractvalue { ptr, i32 } %118, 1
+  store i32 %120, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
+  br label %121
+
+121:                                              ; preds = %117, %113
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
+  br label %129
+
+122:                                              ; preds = %112, %97
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  store i8 69, ptr %21, align 1
+  %123 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeStringixEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 1)
+          to label %124 unwind label %41
+
+124:                                              ; preds = %122
+  store i32 %123, ptr %22, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIciTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %20, ptr noundef @.str.136, ptr noundef @.str.122, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 4 dereferenceable(4) %22)
+          to label %125 unwind label %41
+
+125:                                              ; preds = %124
+  %126 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
+          to label %127 unwind label %130
+
+127:                                              ; preds = %125
+  br i1 %126, label %128, label %134
+
+128:                                              ; preds = %127
+  br label %149
+
+129:                                              ; preds = %121, %103
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %205
+
+130:                                              ; preds = %134, %125
+  %131 = landingpad { ptr, i32 }
+          cleanup
+  %132 = extractvalue { ptr, i32 } %131, 0
+  store ptr %132, ptr %7, align 8
+  %133 = extractvalue { ptr, i32 } %131, 1
+  store i32 %133, ptr %8, align 4
+  br label %156
+
+134:                                              ; preds = %127
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %135 unwind label %130
+
+135:                                              ; preds = %134
+  %136 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
+          to label %137 unwind label %140
+
+137:                                              ; preds = %135
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %24, i32 noundef 1, ptr noundef @.str.3, i32 noundef 229, ptr noundef %136)
+          to label %138 unwind label %140
+
+138:                                              ; preds = %137
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %139 unwind label %144
+
+139:                                              ; preds = %138
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #3
+  br label %149
+
+140:                                              ; preds = %137, %135
+  %141 = landingpad { ptr, i32 }
+          cleanup
+  %142 = extractvalue { ptr, i32 } %141, 0
+  store ptr %142, ptr %7, align 8
+  %143 = extractvalue { ptr, i32 } %141, 1
+  store i32 %143, ptr %8, align 4
+  br label %148
+
+144:                                              ; preds = %138
+  %145 = landingpad { ptr, i32 }
+          cleanup
+  %146 = extractvalue { ptr, i32 } %145, 0
+  store ptr %146, ptr %7, align 8
+  %147 = extractvalue { ptr, i32 } %145, 1
+  store i32 %147, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #3
+  br label %148
+
+148:                                              ; preds = %144, %140
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #3
+  br label %156
+
+149:                                              ; preds = %139, %128
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #3
+  store i8 104, ptr %26, align 1
+  %150 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeStringixEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 0)
+          to label %151 unwind label %41
+
+151:                                              ; preds = %149
+  store i32 %150, ptr %27, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIciTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %25, ptr noundef @.str.119, ptr noundef @.str.120, ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 4 dereferenceable(4) %27)
+          to label %152 unwind label %41
+
+152:                                              ; preds = %151
+  %153 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %25)
+          to label %154 unwind label %157
+
+154:                                              ; preds = %152
+  br i1 %153, label %155, label %161
+
+155:                                              ; preds = %154
+  br label %176
+
+156:                                              ; preds = %148, %130
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #3
+  br label %205
+
+157:                                              ; preds = %161, %152
+  %158 = landingpad { ptr, i32 }
+          cleanup
+  %159 = extractvalue { ptr, i32 } %158, 0
+  store ptr %159, ptr %7, align 8
+  %160 = extractvalue { ptr, i32 } %158, 1
+  store i32 %160, ptr %8, align 4
+  br label %183
+
+161:                                              ; preds = %154
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28)
+          to label %162 unwind label %157
+
+162:                                              ; preds = %161
+  %163 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %25)
+          to label %164 unwind label %167
+
+164:                                              ; preds = %162
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %29, i32 noundef 1, ptr noundef @.str.3, i32 noundef 231, ptr noundef %163)
+          to label %165 unwind label %167
+
+165:                                              ; preds = %164
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %28)
+          to label %166 unwind label %171
+
+166:                                              ; preds = %165
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #3
+  br label %176
+
+167:                                              ; preds = %164, %162
+  %168 = landingpad { ptr, i32 }
+          cleanup
+  %169 = extractvalue { ptr, i32 } %168, 0
+  store ptr %169, ptr %7, align 8
+  %170 = extractvalue { ptr, i32 } %168, 1
+  store i32 %170, ptr %8, align 4
+  br label %175
+
+171:                                              ; preds = %165
+  %172 = landingpad { ptr, i32 }
+          cleanup
+  %173 = extractvalue { ptr, i32 } %172, 0
+  store ptr %173, ptr %7, align 8
+  %174 = extractvalue { ptr, i32 } %172, 1
+  store i32 %174, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #3
+  br label %175
+
+175:                                              ; preds = %171, %167
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #3
+  br label %183
+
+176:                                              ; preds = %166, %155
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #3
+  store i8 111, ptr %31, align 1
+  %177 = invoke noundef i32 @_ZNK4i18n12phonenumbers13UnicodeStringixEi(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 4)
+          to label %178 unwind label %41
+
+178:                                              ; preds = %176
+  store i32 %177, ptr %32, align 4
+  invoke void @_ZN7testing8internal8EqHelper7CompareIciTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %30, ptr noundef @.str.126, ptr noundef @.str.127, ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 4 dereferenceable(4) %32)
+          to label %179 unwind label %41
+
+179:                                              ; preds = %178
+  %180 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %30)
+          to label %181 unwind label %184
+
+181:                                              ; preds = %179
+  br i1 %180, label %182, label %188
+
+182:                                              ; preds = %181
+  br label %203
+
+183:                                              ; preds = %175, %157
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #3
+  br label %205
+
+184:                                              ; preds = %188, %179
+  %185 = landingpad { ptr, i32 }
+          cleanup
+  %186 = extractvalue { ptr, i32 } %185, 0
+  store ptr %186, ptr %7, align 8
+  %187 = extractvalue { ptr, i32 } %185, 1
+  store i32 %187, ptr %8, align 4
+  br label %204
+
+188:                                              ; preds = %181
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %33)
+          to label %189 unwind label %184
+
+189:                                              ; preds = %188
+  %190 = invoke noundef ptr @_ZNK7testing15AssertionResult15failure_messageEv(ptr noundef nonnull align 8 dereferenceable(16) %30)
+          to label %191 unwind label %194
+
+191:                                              ; preds = %189
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %34, i32 noundef 1, ptr noundef @.str.3, i32 noundef 232, ptr noundef %190)
+          to label %192 unwind label %194
+
+192:                                              ; preds = %191
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %33)
+          to label %193 unwind label %198
+
+193:                                              ; preds = %192
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #3
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #3
+  br label %203
+
+194:                                              ; preds = %191, %189
+  %195 = landingpad { ptr, i32 }
+          cleanup
+  %196 = extractvalue { ptr, i32 } %195, 0
+  store ptr %196, ptr %7, align 8
+  %197 = extractvalue { ptr, i32 } %195, 1
+  store i32 %197, ptr %8, align 4
+  br label %202
+
+198:                                              ; preds = %192
+  %199 = landingpad { ptr, i32 }
+          cleanup
+  %200 = extractvalue { ptr, i32 } %199, 0
+  store ptr %200, ptr %7, align 8
+  %201 = extractvalue { ptr, i32 } %199, 1
+  store i32 %201, ptr %8, align 4
+  call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #3
+  br label %202
+
+202:                                              ; preds = %198, %194
+  call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #3
+  br label %204
+
+203:                                              ; preds = %193, %182
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #3
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  ret void
+
+204:                                              ; preds = %202, %184
+  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #3
+  br label %205
+
+205:                                              ; preds = %204, %183, %156, %129, %99, %98, %71, %41
+  call void @_ZN4i18n12phonenumbers13UnicodeStringD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #3
+  br label %206
+
+206:                                              ; preds = %205
+  %207 = load ptr, ptr %7, align 8
+  %208 = load i32, ptr %8, align 4
+  %209 = insertvalue { ptr, i32 } poison, ptr %207, 0
+  %210 = insertvalue { ptr, i32 } %209, i32 %208, 1
+  resume { ptr, i32 } %210
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+declare void @_ZN7testing4Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
+
+declare void @_ZN7testing4Test8TearDownEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing4Test5SetupEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret ptr null
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers26UnicodeString_IndexOf_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers26UnicodeString_IndexOf_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers26UnicodeString_IndexOf_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers32UnicodeString_TempSubString_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers32UnicodeString_TempSubString_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers32UnicodeString_TempSubString_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers17UnicodeTextToUTF8B5cxx11ERKNS0_11UnicodeTextE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::allocator", align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef ptr @_ZNK4i18n12phonenumbers11UnicodeText9utf8_dataEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %10 = load ptr, ptr %4, align 8
+  %11 = call noundef i32 @_ZNK4i18n12phonenumbers11UnicodeText11utf8_lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
+  %12 = sext i32 %11 to i64
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %9, i64 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %2
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  ret void
+
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
+}
+
+; Function Attrs: nounwind
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK4i18n12phonenumbers11UnicodeText9utf8_dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.i18n::phonenumbers::UnicodeText", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds %"class.i18n::phonenumbers::UnicodeText::Repr", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK4i18n12phonenumbers11UnicodeText11utf8_lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.i18n::phonenumbers::UnicodeText", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds %"class.i18n::phonenumbers::UnicodeText::Repr", ptr %4, i32 0, i32 1
+  %6 = load i32, ptr %5, align 8
+  ret i32 %6
+}
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.trap() #16
+  unreachable
+}
+
+declare void @__cxa_pure_virtual() unnamed_addr
+
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
+declare void @llvm.trap() #8
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46UnicodeString_ToUTF8StringWithEmptyString_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+declare void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
+
+declare void @_ZN4i18n12phonenumbers11UnicodeTextC1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
+
+declare void @_ZN4i18n12phonenumbers11UnicodeText14const_iteratorC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
+
+; Function Attrs: nounwind
+declare void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK7testing15AssertionResult7messageEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.testing::AssertionResult", ptr %3, i32 0, i32 1
+  %5 = call noundef ptr @_ZNKSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %"class.testing::AssertionResult", ptr %3, i32 0, i32 1
+  %9 = call noundef ptr @_ZNKSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  br label %12
+
+11:                                               ; preds = %1
+  br label %12
+
+12:                                               ; preds = %11, %7
+  %13 = phi ptr [ %10, %7 ], [ @.str.6, %11 ]
+  ret ptr %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNKSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNKSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: nounwind
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNKSt15__uniq_ptr_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKSD_(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKSD_(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJSt14default_deleteIS5_EEERKT0_RKSt11_Tuple_implIXT_EJS9_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJSt14default_deleteIS5_EEERKT0_RKSt11_Tuple_implIXT_EJS9_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEE7_M_headERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEE7_M_headERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE7_M_headERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE7_M_headERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt10unique_ptrINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds %"class.std::unique_ptr.2", ptr %4, i32 0, i32 0
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  store ptr %6, ptr %3, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %15
+
+10:                                               ; preds = %1
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %12 = load ptr, ptr %3, align 8
+  %13 = load ptr, ptr %12, align 8
+  invoke void @_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %13)
+          to label %14 unwind label %17
+
+14:                                               ; preds = %10
+  br label %15
+
+15:                                               ; preds = %14, %1
+  %16 = load ptr, ptr %3, align 8
+  store ptr null, ptr %16, align 8
+  ret void
+
+17:                                               ; preds = %10
+  %18 = landingpad { ptr, i32 }
+          catch ptr null
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl.4", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSD_(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::unique_ptr.2", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #7 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %11, label %7
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %5, align 8
+  %9 = getelementptr inbounds ptr, ptr %8, i64 1
+  %10 = load ptr, ptr %9, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(128) %5) #3
+  br label %11
+
+11:                                               ; preds = %7, %2
+  ret void
+}
+
+; Function Attrs: noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #3
+  call void @_ZSt9terminatev() #16
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr)
+
+declare void @_ZSt9terminatev()
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSD_(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEJSt14default_deleteIS5_EEERT0_RSt11_Tuple_implIXT_EJS9_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEJSt14default_deleteIS5_EEERT0_RSt11_Tuple_implIXT_EJS9_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEE7_M_headERS9_(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEE7_M_headERS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEELb0EE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEELb0EE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Head_base.9", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl.4", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSD_(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSD_(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEJEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEJEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEEE7_M_headERS8_(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEEE7_M_headERS8_(ptr noundef nonnull align 1 dereferenceable(1) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEELb1EE7_M_headERS8_(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEELb1EE7_M_headERS8_(ptr noundef nonnull align 1 dereferenceable(1) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds %"class.std::unique_ptr", ptr %4, i32 0, i32 0
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  store ptr %6, ptr %3, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %15
+
+10:                                               ; preds = %1
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %12 = load ptr, ptr %3, align 8
+  %13 = load ptr, ptr %12, align 8
+  invoke void @_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %13)
+          to label %14 unwind label %17
+
+14:                                               ; preds = %10
+  br label %15
+
+15:                                               ; preds = %14, %1
+  %16 = load ptr, ptr %3, align 8
+  store ptr null, ptr %16, align 8
+  ret void
+
+17:                                               ; preds = %10
+  %18 = landingpad { ptr, i32 }
+          catch ptr null
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSD_(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #7 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %8, label %7
+
+7:                                                ; preds = %2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %8
+
+8:                                                ; preds = %7, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSD_(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJSt14default_deleteIS5_EEERT0_RSt11_Tuple_implIXT_EJS9_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJSt14default_deleteIS5_EEERT0_RSt11_Tuple_implIXT_EJS9_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEE7_M_headERS9_(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEE7_M_headERS9_(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSD_(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSD_(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJEERT0_RSt11_Tuple_implIXT_EJS8_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7_M_headERS8_(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7_M_headERS8_(ptr noundef nonnull align 1 dereferenceable(1) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb1EE7_M_headERS8_(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb1EE7_M_headERS8_(ptr noundef nonnull align 1 dereferenceable(1) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers31UnicodeString_ToUTF8String_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers17UTF8ToUnicodeTextEPKci(ptr dead_on_unwind noalias writable sret(%"class.i18n::phonenumbers::UnicodeText") align 8 %0, ptr noundef %1, i32 noundef %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  %7 = load ptr, ptr %5, align 8
+  %8 = load i32, ptr %6, align 4
+  call void @_ZN4i18n12phonenumbers17UTF8ToUnicodeTextEPKcib(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeText") align 8 %0, ptr noundef %7, i32 noundef %8, i1 noundef zeroext true)
+  ret void
+}
+
+; Function Attrs: nounwind willreturn memory(read)
+declare i64 @strlen(ptr noundef) #10
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers17UTF8ToUnicodeTextEPKcib(ptr dead_on_unwind noalias writable sret(%"class.i18n::phonenumbers::UnicodeText") align 8 %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) #4 comdat personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i8, align 1
+  %9 = alloca i1, align 1
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i32 %2, ptr %7, align 4
+  %12 = zext i1 %3 to i8
+  store i8 %12, ptr %8, align 1
+  store i1 false, ptr %9, align 1
+  call void @_ZN4i18n12phonenumbers11UnicodeTextC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %13 = load i8, ptr %8, align 1
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %24
+
+15:                                               ; preds = %4
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %7, align 4
+  %18 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phonenumbers11UnicodeText8CopyUTF8EPKci(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %16, i32 noundef %17)
+          to label %19 unwind label %20
+
+19:                                               ; preds = %15
+  br label %29
+
+20:                                               ; preds = %24, %15
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %10, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %11, align 4
+  call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
+  br label %33
+
+24:                                               ; preds = %4
+  %25 = load ptr, ptr %6, align 8
+  %26 = load i32, ptr %7, align 4
+  %27 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phonenumbers11UnicodeText11PointToUTF8EPKci(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %25, i32 noundef %26)
+          to label %28 unwind label %20
+
+28:                                               ; preds = %24
+  br label %29
+
+29:                                               ; preds = %28, %19
+  store i1 true, ptr %9, align 1
+  %30 = load i1, ptr %9, align 1
+  br i1 %30, label %32, label %31
+
+31:                                               ; preds = %29
+  call void @_ZN4i18n12phonenumbers11UnicodeTextD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
+  br label %32
+
+32:                                               ; preds = %31, %29
+  ret void
+
+33:                                               ; preds = %20
+  %34 = load ptr, ptr %10, align 8
+  %35 = load i32, ptr %11, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
+}
+
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phonenumbers11UnicodeText8CopyUTF8EPKci(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i32 noundef) #1
+
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN4i18n12phonenumbers11UnicodeText11PointToUTF8EPKci(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i32 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43UnicodeString_ToUTF8StringWithNonAscii_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers34UnicodeString_AppendCodepoint_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers13UnicodeString21invalidateCachedIndexEv(ptr noundef nonnull align 8 dereferenceable(36) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.i18n::phonenumbers::UnicodeString", ptr %3, i32 0, i32 2
+  store i32 -1, ptr %4, align 8
+  ret void
+}
+
+declare void @_ZN4i18n12phonenumbers11UnicodeText9push_backEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46UnicodeString_AppendCodepointWithNonAscii_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers38UnicodeString_AppendUnicodeString_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers50UnicodeString_AppendUnicodeStringWithNonAscii_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers26UnicodeString_IndexOf_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers26UnicodeString_IndexOf_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers26UnicodeString_IndexOf_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers26UnicodeString_IndexOf_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers38UnicodeString_IndexOfWithNonAscii_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41UnicodeString_ReplaceWithEmptyInputs_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46UnicodeString_ReplaceWithEmptyReplacement_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers34UnicodeString_ReplaceBegining_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers32UnicodeString_ReplaceMiddle_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers29UnicodeString_ReplaceEnd_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers38UnicodeString_ReplaceWithNonAscii_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers34UnicodeString_SetCharBegining_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers32UnicodeString_SetCharMiddle_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers29UnicodeString_SetCharEnd_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers38UnicodeString_SetCharWithNonAscii_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers47UnicodeString_TempSubStringWithEmptyString_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers49UnicodeString_TempSubStringWithInvalidInputs_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_TempSubString_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers32UnicodeString_TempSubString_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers32UnicodeString_TempSubString_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers32UnicodeString_TempSubString_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers44UnicodeString_TempSubStringWithNoLength_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers44UnicodeString_TempSubStringWithNonAscii_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers32UnicodeString_OperatorEqual_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers44UnicodeString_OperatorEqualWithNonAscii_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers34UnicodeString_OperatorBracket_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46UnicodeString_OperatorBracketWithNonAscii_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @_ZdlPv(ptr noundef %3) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
+  invoke void @_ZN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret ptr %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %3, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %5) #13
+  br label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %3, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = insertvalue { ptr, i32 } poison, ptr %12, 0
+  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
+  resume { ptr, i32 } %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers63UnicodeString_OperatorBracketWithIteratorCacheInvalidation_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+
+; Function Attrs: noreturn
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #11
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i64 @strlen(ptr noundef %3) #3
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca %struct._Guard, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %13, ptr noundef %14)
+  store i64 %15, ptr %8, align 8
+  %16 = load i64, ptr %8, align 8
+  %17 = icmp ugt i64 %16, 15
+  br i1 %17, label %18, label %21
+
+18:                                               ; preds = %3
+  %19 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %19)
+  %20 = load i64, ptr %8, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %20)
+  br label %28
+
+21:                                               ; preds = %3
+  store ptr %12, ptr %4, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %22)
+          to label %27 unwind label %24
+
+24:                                               ; preds = %21
+  %25 = landingpad { ptr, i32 }
+          catch ptr null
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #16
+  unreachable
+
+27:                                               ; preds = %21
+  br label %28
+
+28:                                               ; preds = %27, %18
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %12)
+  %29 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %30 unwind label %36
+
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %6, align 8
+  %32 = load ptr, ptr %7, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %29, ptr noundef %31, ptr noundef %32) #3
+  %33 = getelementptr inbounds %struct._Guard, ptr %9, i32 0, i32 0
+  store ptr null, ptr %33, align 8
+  %34 = load i64, ptr %8, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %34)
+          to label %35 unwind label %36
+
+35:                                               ; preds = %30
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  ret void
+
+36:                                               ; preds = %30, %28
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %10, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %11, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %40
+
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8
+  %42 = load i32, ptr %11, align 4
+  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
+  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
+  resume { ptr, i32 } %44
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = call noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
+  ret i64 %7
+}
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #1
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #1
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #7 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %struct._Guard, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) #2
+
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %struct._Guard, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %struct._Guard, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %7
+  br label %11
+
+11:                                               ; preds = %10, %1
+  ret void
+
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #16
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN7testing8internal19GetNotDefaultOrNullEPFvvES2_(ptr noundef %0, ptr noundef %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %9
+
+8:                                                ; preds = %2
+  br label %11
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %3, align 8
+  br label %11
+
+11:                                               ; preds = %9, %8
+  %12 = phi ptr [ null, %8 ], [ %10, %9 ]
+  ret ptr %12
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing4Test13SetUpTestCaseEv() #7 comdat align 2 {
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing4Test14SetUpTestSuiteEv() #7 comdat align 2 {
+  ret void
+}
+
+declare noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext) #1
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #1
+
+declare void @_ZN7testing8internal8GTestLogC1ENS0_16GTestLogSeverityEPKci(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN7testing8internal8GTestLog9GetStreamEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret ptr @_ZSt4cerr
+}
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) #1
+
+; Function Attrs: nounwind
+declare void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing4Test16TearDownTestCaseEv() #7 comdat align 2 {
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN7testing4Test17TearDownTestSuiteEv() #7 comdat align 2 {
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal11CmpHelperEQIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #4 comdat {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = getelementptr inbounds [1 x i8], ptr %11, i64 0, i64 0
+  %13 = load ptr, ptr %10, align 8
+  %14 = call noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbPKT_RKNSt7__cxx1112basic_stringIS3_T0_T1_EE(ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %5
+  call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0)
+  br label %21
+
+16:                                               ; preds = %5
+  %17 = load ptr, ptr %7, align 8
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %10, align 8
+  call void @_ZN7testing8internal18CmpHelperEQFailureIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %17, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
+  br label %21
+
+21:                                               ; preds = %16, %15
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbPKT_RKNSt7__cxx1112basic_stringIS3_T0_T1_EE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6) #3
+  %8 = icmp eq i32 %7, 0
+  ret i1 %8
+}
+
+declare void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal18CmpHelperEQFailureIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #4 comdat personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.std::__cxx11::basic_string", align 8
+  %12 = alloca %"class.std::__cxx11::basic_string", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %10, align 8
+  call void @_ZN7testing8internal33FormatForComparisonFailureMessageIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  %19 = load ptr, ptr %10, align 8
+  %20 = load ptr, ptr %9, align 8
+  invoke void @_ZN7testing8internal33FormatForComparisonFailureMessageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA1_cEES7_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 1 dereferenceable(1) %20)
+          to label %21 unwind label %23
+
+21:                                               ; preds = %5
+  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %15, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext false)
+          to label %22 unwind label %27
+
+22:                                               ; preds = %21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  ret void
+
+23:                                               ; preds = %5
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %13, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %14, align 4
+  br label %31
+
+27:                                               ; preds = %21
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %13, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %14, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  br label %31
+
+31:                                               ; preds = %27, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %13, align 8
+  %34 = load i32, ptr %14, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
+}
+
+; Function Attrs: nounwind
+declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #2
+
+declare void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal33FormatForComparisonFailureMessageIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = getelementptr inbounds [1 x i8], ptr %7, i64 0, i64 0
+  call void @_ZN7testing8internal19FormatForComparisonIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6FormatEPKc(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %8)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal33FormatForComparisonFailureMessageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA1_cEES7_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  call void @_ZN7testing8internal19FormatForComparisonINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA1_cE6FormatERKS7_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal19FormatForComparisonIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6FormatEPKc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal19FormatForComparisonIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6FormatES3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal19FormatForComparisonIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6FormatES3_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @_ZN7testing13PrintToStringIPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing13PrintToStringIPKcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5)
+  %8 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp eq ptr %5, null
+  br i1 %10, label %13, label %11
+
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  br label %13
+
+13:                                               ; preds = %11, %2
+  %14 = phi ptr [ %12, %11 ], [ null, %2 ]
+  invoke void @_ZN7testing8internal21UniversalTersePrinterIPKcE5PrintES3_PSo(ptr noundef %9, ptr noundef %14)
+          to label %15 unwind label %17
+
+15:                                               ; preds = %13
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %5)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %15
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #3
+  ret void
+
+17:                                               ; preds = %15, %13
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %6, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %7, align 4
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #3
+  br label %21
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %6, align 8
+  %23 = load i32, ptr %7, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
+}
+
+declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal21UniversalTersePrinterIPKcE5PrintES3_PSo(ptr noundef %0, ptr noundef %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::__cxx11::basic_string", align 8
+  %6 = alloca %"class.std::allocator", align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %9 = load ptr, ptr %3, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %14
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef @.str.143)
+  br label %28
+
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %3, align 8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %6)
+          to label %16 unwind label %19
+
+16:                                               ; preds = %14
+  %17 = load ptr, ptr %4, align 8
+  invoke void @_ZN7testing8internal14UniversalPrintINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_PSo(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %17)
+          to label %18 unwind label %23
+
+18:                                               ; preds = %16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  br label %28
+
+19:                                               ; preds = %14
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %7, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %8, align 4
+  br label %27
+
+23:                                               ; preds = %16
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %7, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %8, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  br label %27
+
+27:                                               ; preds = %23, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  br label %29
+
+28:                                               ; preds = %18, %11
+  ret void
+
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
+}
+
+declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(128)) #1
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal14UniversalPrintINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_PSo(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal16UniversalPrinterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5PrintERKS7_PSo(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5PrintERKS7_PSo(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal7PrintToERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal7PrintToERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal13PrintStringToERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6)
+  ret void
+}
+
+declare void @_ZN7testing8internal13PrintStringToERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal19FormatForComparisonINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA1_cE6FormatERKS7_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZN7testing13PrintToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing13PrintToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #4 comdat personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5)
+  %8 = load ptr, ptr %4, align 8
+  %9 = icmp eq ptr %5, null
+  br i1 %9, label %12, label %10
+
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  br label %12
+
+12:                                               ; preds = %10, %2
+  %13 = phi ptr [ %11, %10 ], [ null, %2 ]
+  invoke void @_ZN7testing8internal21UniversalTersePrinterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5PrintERKS7_PSo(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %13)
+          to label %14 unwind label %16
+
+14:                                               ; preds = %12
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %5)
+          to label %15 unwind label %16
+
+15:                                               ; preds = %14
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #3
+  ret void
+
+16:                                               ; preds = %14, %12
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %6, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %7, align 4
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #3
+  br label %20
+
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %6, align 8
+  %22 = load i32, ptr %7, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal21UniversalTersePrinterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5PrintERKS7_PSo(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal14UniversalPrintINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_PSo(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal11CmpHelperEQIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(6) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #4 comdat {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = getelementptr inbounds [6 x i8], ptr %11, i64 0, i64 0
+  %13 = load ptr, ptr %10, align 8
+  %14 = call noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbPKT_RKNSt7__cxx1112basic_stringIS3_T0_T1_EE(ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %5
+  call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0)
+  br label %21
+
+16:                                               ; preds = %5
+  %17 = load ptr, ptr %7, align 8
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %10, align 8
+  call void @_ZN7testing8internal18CmpHelperEQFailureIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %17, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(6) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
+  br label %21
+
+21:                                               ; preds = %16, %15
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal18CmpHelperEQFailureIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(6) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #4 comdat personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.std::__cxx11::basic_string", align 8
+  %12 = alloca %"class.std::__cxx11::basic_string", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %10, align 8
+  call void @_ZN7testing8internal33FormatForComparisonFailureMessageIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 1 dereferenceable(6) %17, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  %19 = load ptr, ptr %10, align 8
+  %20 = load ptr, ptr %9, align 8
+  invoke void @_ZN7testing8internal33FormatForComparisonFailureMessageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA6_cEES7_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 1 dereferenceable(6) %20)
+          to label %21 unwind label %23
+
+21:                                               ; preds = %5
+  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %15, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext false)
+          to label %22 unwind label %27
+
+22:                                               ; preds = %21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  ret void
+
+23:                                               ; preds = %5
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %13, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %14, align 4
+  br label %31
+
+27:                                               ; preds = %21
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %13, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %14, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  br label %31
+
+31:                                               ; preds = %27, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %13, align 8
+  %34 = load i32, ptr %14, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal33FormatForComparisonFailureMessageIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 1 dereferenceable(6) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = getelementptr inbounds [6 x i8], ptr %7, i64 0, i64 0
+  call void @_ZN7testing8internal19FormatForComparisonIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6FormatEPKc(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %8)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal33FormatForComparisonFailureMessageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA6_cEES7_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(6) %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  call void @_ZN7testing8internal19FormatForComparisonINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA6_cE6FormatERKS7_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal19FormatForComparisonIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6FormatEPKc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal19FormatForComparisonIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6FormatES3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal19FormatForComparisonINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA6_cE6FormatERKS7_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZN7testing13PrintToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal11CmpHelperEQIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(7) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #4 comdat {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = getelementptr inbounds [7 x i8], ptr %11, i64 0, i64 0
+  %13 = load ptr, ptr %10, align 8
+  %14 = call noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbPKT_RKNSt7__cxx1112basic_stringIS3_T0_T1_EE(ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %5
+  call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0)
+  br label %21
+
+16:                                               ; preds = %5
+  %17 = load ptr, ptr %7, align 8
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %10, align 8
+  call void @_ZN7testing8internal18CmpHelperEQFailureIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %17, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(7) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
+  br label %21
+
+21:                                               ; preds = %16, %15
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal18CmpHelperEQFailureIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(7) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #4 comdat personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.std::__cxx11::basic_string", align 8
+  %12 = alloca %"class.std::__cxx11::basic_string", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %10, align 8
+  call void @_ZN7testing8internal33FormatForComparisonFailureMessageIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 1 dereferenceable(7) %17, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  %19 = load ptr, ptr %10, align 8
+  %20 = load ptr, ptr %9, align 8
+  invoke void @_ZN7testing8internal33FormatForComparisonFailureMessageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA7_cEES7_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 1 dereferenceable(7) %20)
+          to label %21 unwind label %23
+
+21:                                               ; preds = %5
+  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %15, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext false)
+          to label %22 unwind label %27
+
+22:                                               ; preds = %21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  ret void
+
+23:                                               ; preds = %5
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %13, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %14, align 4
+  br label %31
+
+27:                                               ; preds = %21
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %13, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %14, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  br label %31
+
+31:                                               ; preds = %27, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %13, align 8
+  %34 = load i32, ptr %14, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal33FormatForComparisonFailureMessageIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 1 dereferenceable(7) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = getelementptr inbounds [7 x i8], ptr %7, i64 0, i64 0
+  call void @_ZN7testing8internal19FormatForComparisonIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6FormatEPKc(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %8)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal33FormatForComparisonFailureMessageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA7_cEES7_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(7) %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  call void @_ZN7testing8internal19FormatForComparisonINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA7_cE6FormatERKS7_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal19FormatForComparisonIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6FormatEPKc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal19FormatForComparisonIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6FormatES3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal19FormatForComparisonINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA7_cE6FormatERKS7_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZN7testing13PrintToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal11CmpHelperEQIN4i18n12phonenumbers13UnicodeStringES4_EENS_15AssertionResultEPKcS7_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(36) %4) #4 comdat {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = load ptr, ptr %10, align 8
+  %13 = call noundef zeroext i1 @_ZNK4i18n12phonenumbers13UnicodeStringeqERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %11, ptr noundef nonnull align 8 dereferenceable(36) %12)
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %5
+  call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0)
+  br label %20
+
+15:                                               ; preds = %5
+  %16 = load ptr, ptr %7, align 8
+  %17 = load ptr, ptr %8, align 8
+  %18 = load ptr, ptr %9, align 8
+  %19 = load ptr, ptr %10, align 8
+  call void @_ZN7testing8internal18CmpHelperEQFailureIN4i18n12phonenumbers13UnicodeStringES4_EENS_15AssertionResultEPKcS7_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %16, ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(36) %18, ptr noundef nonnull align 8 dereferenceable(36) %19)
+  br label %20
+
+20:                                               ; preds = %15, %14
+  ret void
+}
+
+declare noundef zeroext i1 @_ZNK4i18n12phonenumbers13UnicodeStringeqERKS1_(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef nonnull align 8 dereferenceable(36)) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal18CmpHelperEQFailureIN4i18n12phonenumbers13UnicodeStringES4_EENS_15AssertionResultEPKcS7_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(36) %4) #4 comdat personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.std::__cxx11::basic_string", align 8
+  %12 = alloca %"class.std::__cxx11::basic_string", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %10, align 8
+  call void @_ZN7testing8internal33FormatForComparisonFailureMessageIN4i18n12phonenumbers13UnicodeStringES4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull align 8 dereferenceable(36) %18)
+  %19 = load ptr, ptr %10, align 8
+  %20 = load ptr, ptr %9, align 8
+  invoke void @_ZN7testing8internal33FormatForComparisonFailureMessageIN4i18n12phonenumbers13UnicodeStringES4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(36) %19, ptr noundef nonnull align 8 dereferenceable(36) %20)
+          to label %21 unwind label %23
+
+21:                                               ; preds = %5
+  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %15, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext false)
+          to label %22 unwind label %27
+
+22:                                               ; preds = %21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  ret void
+
+23:                                               ; preds = %5
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %13, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %14, align 4
+  br label %31
+
+27:                                               ; preds = %21
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %13, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %14, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  br label %31
+
+31:                                               ; preds = %27, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %13, align 8
+  %34 = load i32, ptr %14, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal33FormatForComparisonFailureMessageIN4i18n12phonenumbers13UnicodeStringES4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(36) %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  call void @_ZN7testing8internal19FormatForComparisonIN4i18n12phonenumbers13UnicodeStringES4_E6FormatB5cxx11ERKS4_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal19FormatForComparisonIN4i18n12phonenumbers13UnicodeStringES4_E6FormatB5cxx11ERKS4_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZN7testing13PrintToStringIN4i18n12phonenumbers13UnicodeStringEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing13PrintToStringIN4i18n12phonenumbers13UnicodeStringEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1) #4 comdat personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5)
+  %8 = load ptr, ptr %4, align 8
+  %9 = icmp eq ptr %5, null
+  br i1 %9, label %12, label %10
+
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  br label %12
+
+12:                                               ; preds = %10, %2
+  %13 = phi ptr [ %11, %10 ], [ null, %2 ]
+  invoke void @_ZN7testing8internal21UniversalTersePrinterIN4i18n12phonenumbers13UnicodeStringEE5PrintERKS4_PSo(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef %13)
+          to label %14 unwind label %16
+
+14:                                               ; preds = %12
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %5)
+          to label %15 unwind label %16
+
+15:                                               ; preds = %14
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #3
+  ret void
+
+16:                                               ; preds = %14, %12
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %6, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %7, align 4
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #3
+  br label %20
+
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %6, align 8
+  %22 = load i32, ptr %7, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal21UniversalTersePrinterIN4i18n12phonenumbers13UnicodeStringEE5PrintERKS4_PSo(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal14UniversalPrintIN4i18n12phonenumbers13UnicodeStringEEEvRKT_PSo(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal14UniversalPrintIN4i18n12phonenumbers13UnicodeStringEEEvRKT_PSo(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal16UniversalPrinterIN4i18n12phonenumbers13UnicodeStringEE5PrintERKS4_PSo(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIN4i18n12phonenumbers13UnicodeStringEE5PrintERKS4_PSo(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal7PrintToIN4i18n12phonenumbers13UnicodeStringEEEvRKT_PSo(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal7PrintToIN4i18n12phonenumbers13UnicodeStringEEEvRKT_PSo(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal17PrintWithFallbackIN4i18n12phonenumbers13UnicodeStringEEEvRKT_PSo(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal17PrintWithFallbackIN4i18n12phonenumbers13UnicodeStringEEEvRKT_PSo(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal16ContainerPrinter10PrintValueIN4i18n12phonenumbers13UnicodeStringEvEEvRKT_PSo(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal16ContainerPrinter10PrintValueIN4i18n12phonenumbers13UnicodeStringEvEEvRKT_PSo(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %"class.i18n::phonenumbers::UnicodeText::const_iterator", align 8
+  %9 = alloca %"class.i18n::phonenumbers::UnicodeText::const_iterator", align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  store i64 32, ptr %5, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %12, i8 noundef signext 123)
+  store i64 0, ptr %6, align 8
+  %14 = load ptr, ptr %3, align 8
+  store ptr %14, ptr %7, align 8
+  %15 = load ptr, ptr %7, align 8
+  call void @_ZNK4i18n12phonenumbers13UnicodeString5beginEv(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeText::const_iterator") align 8 %8, ptr noundef nonnull align 8 dereferenceable(36) %15)
+  %16 = load ptr, ptr %7, align 8
+  call void @_ZNK4i18n12phonenumbers13UnicodeString3endEv(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeText::const_iterator") align 8 %9, ptr noundef nonnull align 8 dereferenceable(36) %16)
+  br label %17
+
+17:                                               ; preds = %39, %2
+  %18 = call noundef zeroext i1 @_ZN4i18n12phonenumbersneERKNS0_11UnicodeText14const_iteratorES4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  br i1 %18, label %19, label %41
+
+19:                                               ; preds = %17
+  %20 = call noundef i32 @_ZNK4i18n12phonenumbers11UnicodeText14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  store i32 %20, ptr %11, align 4
+  store ptr %11, ptr %10, align 8
+  %21 = load i64, ptr %6, align 8
+  %22 = icmp ugt i64 %21, 0
+  br i1 %22, label %23, label %32
+
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %4, align 8
+  %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %24, i8 noundef signext 44)
+  %26 = load i64, ptr %6, align 8
+  %27 = icmp eq i64 %26, 32
+  br i1 %27, label %28, label %31
+
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %4, align 8
+  %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef @.str.144)
+  br label %41
+
+31:                                               ; preds = %23
+  br label %32
+
+32:                                               ; preds = %31, %19
+  %33 = load ptr, ptr %4, align 8
+  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %33, i8 noundef signext 32)
+  %35 = load ptr, ptr %10, align 8
+  %36 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal14UniversalPrintIiEEvRKT_PSo(ptr noundef nonnull align 4 dereferenceable(4) %35, ptr noundef %36)
+  %37 = load i64, ptr %6, align 8
+  %38 = add i64 %37, 1
+  store i64 %38, ptr %6, align 8
+  br label %39
+
+39:                                               ; preds = %32
+  %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phonenumbers11UnicodeText14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  br label %17
+
+41:                                               ; preds = %28, %17
+  %42 = load i64, ptr %6, align 8
+  %43 = icmp ugt i64 %42, 0
+  br i1 %43, label %44, label %47
+
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %4, align 8
+  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %45, i8 noundef signext 32)
+  br label %47
+
+47:                                               ; preds = %44, %41
+  %48 = load ptr, ptr %4, align 8
+  %49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %48, i8 noundef signext 125)
+  ret void
+}
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK4i18n12phonenumbers13UnicodeString5beginEv(ptr dead_on_unwind noalias writable sret(%"class.i18n::phonenumbers::UnicodeText::const_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %"class.i18n::phonenumbers::UnicodeString", ptr %5, i32 0, i32 0
+  call void @_ZNK4i18n12phonenumbers11UnicodeText5beginEv(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeText::const_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK4i18n12phonenumbers13UnicodeString3endEv(ptr dead_on_unwind noalias writable sret(%"class.i18n::phonenumbers::UnicodeText::const_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %"class.i18n::phonenumbers::UnicodeString", ptr %5, i32 0, i32 0
+  call void @_ZNK4i18n12phonenumbers11UnicodeText3endEv(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeText::const_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN4i18n12phonenumbersneERKNS0_11UnicodeText14const_iteratorES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef zeroext i1 @_ZN4i18n12phonenumberseqERKNS0_11UnicodeText14const_iteratorES4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %8 = xor i1 %7, true
+  ret i1 %8
+}
+
+declare noundef i32 @_ZNK4i18n12phonenumbers11UnicodeText14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8)) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal14UniversalPrintIiEEvRKT_PSo(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal16UniversalPrinterIiE5PrintERKiPSo(ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef %6)
+  ret void
+}
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phonenumbers11UnicodeText14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8)) #1
+
+declare void @_ZNK4i18n12phonenumbers11UnicodeText5beginEv(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeText::const_iterator") align 8, ptr noundef nonnull align 8 dereferenceable(24)) #1
+
+declare void @_ZNK4i18n12phonenumbers11UnicodeText3endEv(ptr dead_on_unwind writable sret(%"class.i18n::phonenumbers::UnicodeText::const_iterator") align 8, ptr noundef nonnull align 8 dereferenceable(24)) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZN4i18n12phonenumberseqERKNS0_11UnicodeText14const_iteratorES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.i18n::phonenumbers::UnicodeText::const_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"class.i18n::phonenumbers::UnicodeText::const_iterator", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIiE5PrintERKiPSo(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal7PrintToIiEEvRKT_PSo(ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal7PrintToIiEEvRKT_PSo(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal17PrintWithFallbackIiEEvRKT_PSo(ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal17PrintWithFallbackIiEEvRKT_PSo(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal52internal_stream_operator_without_lexical_name_lookup13StreamPrinter10PrintValueIivRSoEEvRKT_PSo(ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal52internal_stream_operator_without_lexical_name_lookup13StreamPrinter10PrintValueIivRSoEEvRKT_PSo(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i32, ptr %6, align 4
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal11CmpHelperEQIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) #4 comdat {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = load i32, ptr %11, align 4
+  %13 = load ptr, ptr %10, align 8
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp eq i32 %12, %14
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %5
+  call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0)
+  br label %22
+
+17:                                               ; preds = %5
+  %18 = load ptr, ptr %7, align 8
+  %19 = load ptr, ptr %8, align 8
+  %20 = load ptr, ptr %9, align 8
+  %21 = load ptr, ptr %10, align 8
+  call void @_ZN7testing8internal18CmpHelperEQFailureIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %18, ptr noundef %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %21)
+  br label %22
+
+22:                                               ; preds = %17, %16
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal18CmpHelperEQFailureIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) #4 comdat personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.std::__cxx11::basic_string", align 8
+  %12 = alloca %"class.std::__cxx11::basic_string", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %10, align 8
+  call void @_ZN7testing8internal33FormatForComparisonFailureMessageIiiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+  %19 = load ptr, ptr %10, align 8
+  %20 = load ptr, ptr %9, align 8
+  invoke void @_ZN7testing8internal33FormatForComparisonFailureMessageIiiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 4 dereferenceable(4) %20)
+          to label %21 unwind label %23
+
+21:                                               ; preds = %5
+  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %15, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext false)
+          to label %22 unwind label %27
+
+22:                                               ; preds = %21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  ret void
+
+23:                                               ; preds = %5
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %13, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %14, align 4
+  br label %31
+
+27:                                               ; preds = %21
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %13, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %14, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  br label %31
+
+31:                                               ; preds = %27, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %13, align 8
+  %34 = load i32, ptr %14, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal33FormatForComparisonFailureMessageIiiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  call void @_ZN7testing8internal19FormatForComparisonIiiE6FormatB5cxx11ERKi(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal19FormatForComparisonIiiE6FormatB5cxx11ERKi(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZN7testing13PrintToStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing13PrintToStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #4 comdat personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5)
+  %8 = load ptr, ptr %4, align 8
+  %9 = icmp eq ptr %5, null
+  br i1 %9, label %12, label %10
+
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  br label %12
+
+12:                                               ; preds = %10, %2
+  %13 = phi ptr [ %11, %10 ], [ null, %2 ]
+  invoke void @_ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo(ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef %13)
+          to label %14 unwind label %16
+
+14:                                               ; preds = %12
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %5)
+          to label %15 unwind label %16
+
+15:                                               ; preds = %14
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #3
+  ret void
+
+16:                                               ; preds = %14, %12
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %6, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %7, align 4
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #3
+  br label %20
+
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %6, align 8
+  %22 = load i32, ptr %7, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal21UniversalTersePrinterIiE5PrintERKiPSo(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal14UniversalPrintIiEEvRKT_PSo(ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal11CmpHelperEQIciEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) #4 comdat {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = load i8, ptr %11, align 1
+  %13 = sext i8 %12 to i32
+  %14 = load ptr, ptr %10, align 8
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp eq i32 %13, %15
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %5
+  call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0)
+  br label %23
+
+18:                                               ; preds = %5
+  %19 = load ptr, ptr %7, align 8
+  %20 = load ptr, ptr %8, align 8
+  %21 = load ptr, ptr %9, align 8
+  %22 = load ptr, ptr %10, align 8
+  call void @_ZN7testing8internal18CmpHelperEQFailureIciEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %19, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 4 dereferenceable(4) %22)
+  br label %23
+
+23:                                               ; preds = %18, %17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal18CmpHelperEQFailureIciEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) #4 comdat personality ptr @__gxx_personality_v0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.std::__cxx11::basic_string", align 8
+  %12 = alloca %"class.std::__cxx11::basic_string", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %10, align 8
+  call void @_ZN7testing8internal33FormatForComparisonFailureMessageIciEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+  %19 = load ptr, ptr %10, align 8
+  %20 = load ptr, ptr %9, align 8
+  invoke void @_ZN7testing8internal33FormatForComparisonFailureMessageIicEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 1 dereferenceable(1) %20)
+          to label %21 unwind label %23
+
+21:                                               ; preds = %5
+  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %15, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext false)
+          to label %22 unwind label %27
+
+22:                                               ; preds = %21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  ret void
+
+23:                                               ; preds = %5
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %13, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %14, align 4
+  br label %31
+
+27:                                               ; preds = %21
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %13, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %14, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  br label %31
+
+31:                                               ; preds = %27, %23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %13, align 8
+  %34 = load i32, ptr %14, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal33FormatForComparisonFailureMessageIciEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  call void @_ZN7testing8internal19FormatForComparisonIciE6FormatB5cxx11ERKc(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal33FormatForComparisonFailureMessageIicEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  call void @_ZN7testing8internal19FormatForComparisonIicE6FormatB5cxx11ERKi(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal19FormatForComparisonIciE6FormatB5cxx11ERKc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZN7testing13PrintToStringIcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing13PrintToStringIcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #4 comdat personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5)
+  %8 = load ptr, ptr %4, align 8
+  %9 = icmp eq ptr %5, null
+  br i1 %9, label %12, label %10
+
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  br label %12
+
+12:                                               ; preds = %10, %2
+  %13 = phi ptr [ %11, %10 ], [ null, %2 ]
+  invoke void @_ZN7testing8internal21UniversalTersePrinterIcE5PrintERKcPSo(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef %13)
+          to label %14 unwind label %16
+
+14:                                               ; preds = %12
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %5)
+          to label %15 unwind label %16
+
+15:                                               ; preds = %14
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #3
+  ret void
+
+16:                                               ; preds = %14, %12
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %6, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %7, align 4
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #3
+  br label %20
+
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %6, align 8
+  %22 = load i32, ptr %7, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal21UniversalTersePrinterIcE5PrintERKcPSo(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal14UniversalPrintIcEEvRKT_PSo(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal14UniversalPrintIcEEvRKT_PSo(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal16UniversalPrinterIcE5PrintERKcPSo(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIcE5PrintERKcPSo(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i8, ptr %5, align 1
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal7PrintToEcPSo(i8 noundef signext %6, ptr noundef %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal7PrintToEcPSo(i8 noundef signext %0, ptr noundef %1) #4 comdat {
+  %3 = alloca i8, align 1
+  %4 = alloca ptr, align 8
+  store i8 %0, ptr %3, align 1
+  store ptr %1, ptr %4, align 8
+  %5 = load i8, ptr %3, align 1
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN7testing8internal7PrintToEhPSo(i8 noundef zeroext %5, ptr noundef %6)
+  ret void
+}
+
+declare void @_ZN7testing8internal7PrintToEhPSo(i8 noundef zeroext, ptr noundef) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN7testing8internal19FormatForComparisonIicE6FormatB5cxx11ERKi(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZN7testing13PrintToStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  ret void
+}
+
+; Function Attrs: uwtable
+define internal void @_GLOBAL__sub_I_unicodestring_test.cc() #0 section ".text.startup" {
+  call void @__cxx_global_var_init()
+  call void @__cxx_global_var_init.1()
+  call void @__cxx_global_var_init.7()
+  call void @__cxx_global_var_init.11()
+  call void @__cxx_global_var_init.15()
+  call void @__cxx_global_var_init.22()
+  call void @__cxx_global_var_init.27()
+  call void @__cxx_global_var_init.31()
+  call void @__cxx_global_var_init.35()
+  call void @__cxx_global_var_init.43()
+  call void @__cxx_global_var_init.47()
+  call void @__cxx_global_var_init.50()
+  call void @__cxx_global_var_init.52()
+  call void @__cxx_global_var_init.58()
+  call void @__cxx_global_var_init.63()
+  call void @__cxx_global_var_init.67()
+  call void @__cxx_global_var_init.72()
+  call void @__cxx_global_var_init.76()
+  call void @__cxx_global_var_init.80()
+  call void @__cxx_global_var_init.84()
+  call void @__cxx_global_var_init.88()
+  call void @__cxx_global_var_init.91()
+  call void @__cxx_global_var_init.95()
+  call void @__cxx_global_var_init.102()
+  call void @__cxx_global_var_init.106()
+  call void @__cxx_global_var_init.112()
+  call void @__cxx_global_var_init.114()
+  call void @__cxx_global_var_init.117()
+  call void @__cxx_global_var_init.128()
+  call void @__cxx_global_var_init.132()
+  ret void
+}
+
+attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
+attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { builtin allocsize(0) }
+attributes #13 = { builtin nounwind }
+attributes #14 = { noreturn }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}

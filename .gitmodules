@@ -283,3 +283,6 @@
 [submodule "bench/csmith/csmith"]
 	path = bench/csmith/csmith
 	url = git@github.com:csmith-project/csmith.git
+[submodule "bench/libphonenumber/libphonenumber"]
+	path = bench/libphonenumber/libphonenumber
+	url = git@github.com:google/libphonenumber.git
