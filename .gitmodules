@@ -322,3 +322,6 @@
 [submodule "bench/tokio-rs/tokio"]
 	path = bench/tokio-rs/tokio
 	url = git@github.com:tokio-rs/tokio.git
+[submodule "bench/rayon-rs/rayon"]
+	path = bench/rayon-rs/rayon
+	url = git@github.com:rayon-rs/rayon.git

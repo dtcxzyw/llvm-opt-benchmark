@@ -1,0 +1,133 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+; Function Attrs: nonlazybind uwtable
+define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h683c6ec18409043eE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %3, align 8
+  %5 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
+  %6 = call zeroext i1 @"_ZN41_$LT$bool$u20$as$u20$core..fmt..Debug$GT$3fmt17h1b7c2754affae713E"(ptr align 1 %5, ptr align 8 %1)
+  ret i1 %6
+}
+
+; Function Attrs: nonlazybind uwtable
+define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7edd6cb255e92ce9E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %3, align 8
+  %5 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
+  %6 = call zeroext i1 @"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h45ddd673361661ccE"(ptr align 1 %5, ptr align 8 %1)
+  ret i1 %6
+}
+
+; Function Attrs: nonlazybind uwtable
+define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb7d11e73266fa8eeE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %3, align 8
+  %5 = load ptr, ptr %0, align 8, !nonnull !5, !align !7, !noundef !5
+  %6 = call zeroext i1 @"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17h85cbe09ff7bb059eE"(ptr align 8 %5, ptr align 8 %1)
+  ret i1 %6
+}
+
+; Function Attrs: nonlazybind uwtable
+define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he8ef0a01bf5bc59bE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %3, align 8
+  %5 = load ptr, ptr %0, align 8, !nonnull !5, !align !8, !noundef !5
+  %6 = call zeroext i1 @"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u32$GT$3fmt17hc42c7b54380b52a8E"(ptr align 4 %5, ptr align 8 %1)
+  ret i1 %6
+}
+
+; Function Attrs: nonlazybind uwtable
+define zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h207d556c49760c91E"(ptr align 1 %0, i64 %1, ptr align 8 %2) unnamed_addr #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca { ptr, i64 }, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca { ptr, ptr }, align 8
+  %13 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
+  %14 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 0
+  store ptr %0, ptr %14, align 8
+  %15 = getelementptr inbounds { ptr, i64 }, ptr %9, i32 0, i32 1
+  store i64 %1, ptr %15, align 8
+  store ptr %2, ptr %8, align 8
+  call void @_ZN4core3fmt9Formatter10debug_list17hd2813538d9b6973bE(ptr sret({ { ptr, i8, i8, [6 x i8] } }) align 8 %13, ptr align 8 %2)
+  store ptr %0, ptr %7, align 8
+  br i1 false, label %18, label %16
+
+16:                                               ; preds = %3
+  store i64 %1, ptr %6, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 %1
+  store ptr %17, ptr %11, align 8
+  br label %20
+
+18:                                               ; preds = %3
+  store i64 %1, ptr %5, align 8
+  %19 = inttoptr i64 %1 to ptr
+  store ptr %19, ptr %11, align 8
+  br label %20
+
+20:                                               ; preds = %18, %16
+  store ptr %0, ptr %4, align 8
+  store ptr %0, ptr %10, align 8
+  %21 = load ptr, ptr %11, align 8, !noundef !5
+  %22 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
+  store ptr %22, ptr %12, align 8
+  %23 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 1
+  store ptr %21, ptr %23, align 8
+  %24 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !nonnull !5, !noundef !5
+  %26 = getelementptr inbounds { ptr, ptr }, ptr %12, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8, !noundef !5
+  %28 = call align 8 ptr @_ZN4core3fmt8builders9DebugList7entries17h675ef8f1ca553d6bE(ptr align 8 %13, ptr %25, ptr %27)
+  %29 = call zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17ha61bd15b7ba7a35bE(ptr align 8 %28)
+  ret i1 %29
+}
+
+; Function Attrs: inlinehint nonlazybind uwtable
+declare hidden zeroext i1 @"_ZN41_$LT$bool$u20$as$u20$core..fmt..Debug$GT$3fmt17h1b7c2754affae713E"(ptr align 1, ptr align 8) unnamed_addr #1
+
+; Function Attrs: inlinehint nonlazybind uwtable
+declare hidden zeroext i1 @"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h45ddd673361661ccE"(ptr align 1, ptr align 8) unnamed_addr #1
+
+; Function Attrs: inlinehint nonlazybind uwtable
+declare hidden zeroext i1 @"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17h85cbe09ff7bb059eE"(ptr align 8, ptr align 8) unnamed_addr #1
+
+; Function Attrs: inlinehint nonlazybind uwtable
+declare hidden zeroext i1 @"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u32$GT$3fmt17hc42c7b54380b52a8E"(ptr align 4, ptr align 8) unnamed_addr #1
+
+; Function Attrs: nonlazybind uwtable
+declare void @_ZN4core3fmt9Formatter10debug_list17hd2813538d9b6973bE(ptr sret({ { ptr, i8, i8, [6 x i8] } }) align 8, ptr align 8) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare align 8 ptr @_ZN4core3fmt8builders9DebugList7entries17h675ef8f1ca553d6bE(ptr align 8, ptr, ptr) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
+declare zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17ha61bd15b7ba7a35bE(ptr align 8) unnamed_addr #0
+
+attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.ident = !{!4}
+
+!0 = !{i32 8, !"PIC Level", i32 2}
+!1 = !{i32 2, !"RtLibUseGOT", i32 1}
+!2 = !{i32 2, !"Dwarf Version", i32 4}
+!3 = !{i32 2, !"Debug Info Version", i32 3}
+!4 = !{!"rustc version 1.75.0 (82e1608df 2023-12-21)"}
+!5 = !{}
+!6 = !{i64 1}
+!7 = !{i64 8}
+!8 = !{i64 4}
