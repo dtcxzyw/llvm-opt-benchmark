@@ -1,0 +1,900 @@
+; ModuleID = 'bench/postgres/original/tableam.ll'
+source_filename = "bench/postgres/original/tableam.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.SnapshotData = type { i32, i32, i32, ptr, i32, ptr, i32, i8, i8, i8, i32, i32, ptr, i32, i32, %struct.pairingheap_node, i64, i64, i64 }
+%struct.pairingheap_node = type { ptr, ptr, ptr }
+%struct.TM_FailureData = type { %struct.ItemPointerData, i32, i32, i8 }
+%struct.ItemPointerData = type { %struct.BlockIdData, i16 }
+%struct.BlockIdData = type { i16, i16 }
+
+@.str = private unnamed_addr constant [5 x i8] c"heap\00", align 1
+@default_table_access_method = dso_local local_unnamed_addr global ptr @.str, align 8
+@synchronize_seqscans = dso_local local_unnamed_addr global i8 1, align 1
+@TTSOpsHeapTuple = external constant %struct.TupleTableSlotOps, align 8
+@TTSOpsVirtual = external constant %struct.TupleTableSlotOps, align 8
+@SnapshotAnyData = external global %struct.SnapshotData, align 8
+@CheckXidAlive = external local_unnamed_addr global i32, align 4
+@bsysscan = external local_unnamed_addr global i8, align 1
+@.str.1 = private unnamed_addr constant [67 x i8] c"unexpected table_tuple_get_latest_tid call during logical decoding\00", align 1
+@.str.2 = private unnamed_addr constant [10 x i8] c"tableam.c\00", align 1
+@__func__.table_tuple_get_latest_tid = private unnamed_addr constant [27 x i8] c"table_tuple_get_latest_tid\00", align 1
+@.str.3 = private unnamed_addr constant [44 x i8] c"tid (%u, %u) is not valid for relation \22%s\22\00", align 1
+@.str.4 = private unnamed_addr constant [30 x i8] c"tuple already updated by self\00", align 1
+@__func__.simple_table_tuple_delete = private unnamed_addr constant [26 x i8] c"simple_table_tuple_delete\00", align 1
+@.str.5 = private unnamed_addr constant [27 x i8] c"tuple concurrently updated\00", align 1
+@.str.6 = private unnamed_addr constant [27 x i8] c"tuple concurrently deleted\00", align 1
+@.str.7 = private unnamed_addr constant [43 x i8] c"unrecognized table_tuple_delete status: %u\00", align 1
+@__func__.simple_table_tuple_update = private unnamed_addr constant [26 x i8] c"simple_table_tuple_update\00", align 1
+@.str.8 = private unnamed_addr constant [43 x i8] c"unrecognized table_tuple_update status: %u\00", align 1
+@NBuffers = external local_unnamed_addr global i32, align 4
+@__func__.table_block_parallelscan_startblock_init = private unnamed_addr constant [41 x i8] c"table_block_parallelscan_startblock_init\00", align 1
+@.str.9 = private unnamed_addr constant [64 x i8] c"unexpected table_index_fetch_tuple call during logical decoding\00", align 1
+@.str.10 = private unnamed_addr constant [41 x i8] c"../../../../src/include/access/tableam.h\00", align 1
+@__func__.table_index_fetch_tuple = private unnamed_addr constant [24 x i8] c"table_index_fetch_tuple\00", align 1
+
+; Function Attrs: nounwind uwtable
+define dso_local ptr @table_slot_callbacks(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 312
+  %3 = load ptr, ptr %2, align 8
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %8, label %4
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call ptr %6(ptr noundef nonnull %0) #9
+  br label %14
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 115
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %12, 102
+  %TTSOpsHeapTuple.TTSOpsVirtual = select i1 %13, ptr @TTSOpsHeapTuple, ptr @TTSOpsVirtual
+  br label %14
+
+14:                                               ; preds = %8, %4
+  %.0 = phi ptr [ %7, %4 ], [ %TTSOpsHeapTuple.TTSOpsVirtual, %8 ]
+  ret ptr %.0
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local ptr @table_slot_create(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 312
+  %4 = load ptr, ptr %3, align 8
+  %.not.i = icmp eq ptr %4, null
+  br i1 %.not.i, label %9, label %5
+
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call ptr %7(ptr noundef nonnull %0) #9
+  br label %table_slot_callbacks.exit
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 115
+  %13 = load i8, ptr %12, align 1
+  %14 = icmp eq i8 %13, 102
+  %TTSOpsHeapTuple.TTSOpsVirtual.i = select i1 %14, ptr @TTSOpsHeapTuple, ptr @TTSOpsVirtual
+  br label %table_slot_callbacks.exit
+
+table_slot_callbacks.exit:                        ; preds = %5, %9
+  %.0.i = phi ptr [ %8, %5 ], [ %TTSOpsHeapTuple.TTSOpsVirtual.i, %9 ]
+  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %16, ptr noundef %.0.i) #9
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %21, label %18
+
+18:                                               ; preds = %table_slot_callbacks.exit
+  %19 = load ptr, ptr %1, align 8
+  %20 = tail call ptr @lappend(ptr noundef %19, ptr noundef %17) #9
+  store ptr %20, ptr %1, align 8
+  br label %21
+
+21:                                               ; preds = %18, %table_slot_callbacks.exit
+  ret ptr %17
+}
+
+declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local ptr @table_beginscan_catalog(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = load i32, ptr %4, align 8
+  %6 = tail call ptr @GetCatalogSnapshot(i32 noundef %5) #9
+  %7 = tail call ptr @RegisterSnapshot(ptr noundef %6) #9
+  %8 = getelementptr inbounds i8, ptr %0, i64 312
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call ptr %11(ptr noundef %0, ptr noundef %7, i32 noundef %1, ptr noundef %2, ptr noundef null, i32 noundef 961) #9
+  ret ptr %12
+}
+
+declare ptr @RegisterSnapshot(ptr noundef) local_unnamed_addr #1
+
+declare ptr @GetCatalogSnapshot(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @table_scan_update_snapshot(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = tail call ptr @RegisterSnapshot(ptr noundef %1) #9
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = load i32, ptr %5, align 4
+  %7 = or i32 %6, 512
+  store i32 %7, ptr %5, align 4
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local i64 @table_parallelscan_estimate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = load i32, ptr %1, align 8
+  switch i32 %3, label %7 [
+    i32 0, label %4
+    i32 5, label %4
+  ]
+
+4:                                                ; preds = %2, %2
+  %5 = tail call i64 @EstimateSnapshotSpace(ptr noundef nonnull %1) #9
+  %6 = tail call i64 @add_size(i64 noundef 0, i64 noundef %5) #9
+  br label %7
+
+7:                                                ; preds = %2, %4
+  %.0 = phi i64 [ %6, %4 ], [ 0, %2 ]
+  %8 = getelementptr inbounds i8, ptr %0, i64 312
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i64 %11(ptr noundef %0) #9
+  %13 = tail call i64 @add_size(i64 noundef %.0, i64 noundef %12) #9
+  ret i64 %13
+}
+
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
+
+declare i64 @EstimateSnapshotSpace(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @table_parallelscan_initialize(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 72
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call i64 %7(ptr noundef %0, ptr noundef %1) #9
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 %8, ptr %9, align 8
+  %10 = load i32, ptr %2, align 8
+  switch i32 %10, label %13 [
+    i32 0, label %11
+    i32 5, label %11
+  ]
+
+11:                                               ; preds = %3, %3
+  %12 = getelementptr i8, ptr %1, i64 %8
+  tail call void @SerializeSnapshot(ptr noundef nonnull %2, ptr noundef %12) #9
+  br label %13
+
+13:                                               ; preds = %3, %11
+  %.sink = phi i8 [ 0, %11 ], [ 1, %3 ]
+  %14 = getelementptr inbounds i8, ptr %1, i64 5
+  store i8 %.sink, ptr %14, align 1
+  ret void
+}
+
+declare void @SerializeSnapshot(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local ptr @table_beginscan_parallel(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds i8, ptr %1, i64 5
+  %4 = load i8, ptr %3, align 1
+  %5 = and i8 %4, 1
+  %.not = icmp eq i8 %5, 0
+  br i1 %.not, label %6, label %12
+
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = load i64, ptr %7, align 8
+  %9 = getelementptr i8, ptr %1, i64 %8
+  %10 = tail call ptr @RestoreSnapshot(ptr noundef %9) #9
+  %11 = tail call ptr @RegisterSnapshot(ptr noundef %10) #9
+  br label %12
+
+12:                                               ; preds = %2, %6
+  %.09 = phi ptr [ %10, %6 ], [ @SnapshotAnyData, %2 ]
+  %.0 = phi i32 [ 961, %6 ], [ 449, %2 ]
+  %13 = getelementptr inbounds i8, ptr %0, i64 312
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call ptr %16(ptr noundef %0, ptr noundef %.09, i32 noundef 0, ptr noundef null, ptr noundef nonnull %1, i32 noundef %.0) #9
+  ret ptr %17
+}
+
+declare ptr @RestoreSnapshot(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local zeroext i1 @table_index_fetch_tuple_check(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+  %5 = alloca i8, align 1
+  store i8 0, ptr %5, align 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 312
+  %7 = load ptr, ptr %6, align 8
+  %.not.i.i = icmp eq ptr %7, null
+  br i1 %.not.i.i, label %12, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call ptr %10(ptr noundef nonnull %0) #9
+  br label %table_slot_create.exit
+
+12:                                               ; preds = %4
+  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 115
+  %16 = load i8, ptr %15, align 1
+  %17 = icmp eq i8 %16, 102
+  %TTSOpsHeapTuple.TTSOpsVirtual.i.i = select i1 %17, ptr @TTSOpsHeapTuple, ptr @TTSOpsVirtual
+  br label %table_slot_create.exit
+
+table_slot_create.exit:                           ; preds = %8, %12
+  %.0.i.i = phi ptr [ %11, %8 ], [ %TTSOpsHeapTuple.TTSOpsVirtual.i.i, %12 ]
+  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %19, ptr noundef %.0.i.i) #9
+  %21 = load ptr, ptr %6, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 88
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call ptr %23(ptr noundef nonnull %0) #9
+  %25 = load i32, ptr @CheckXidAlive, align 4
+  %26 = icmp ne i32 %25, 0
+  %27 = load i8, ptr @bsysscan, align 1
+  %28 = and i8 %27, 1
+  %.not.i = icmp eq i8 %28, 0
+  %29 = select i1 %26, i1 %.not.i, i1 false
+  br i1 %29, label %30, label %table_index_fetch_tuple.exit
+
+30:                                               ; preds = %table_slot_create.exit
+  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %31)
+  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.10, i32 noundef 1248, ptr noundef nonnull @__func__.table_index_fetch_tuple) #9
+  unreachable
+
+table_index_fetch_tuple.exit:                     ; preds = %table_slot_create.exit
+  %33 = load ptr, ptr %24, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 312
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 112
+  %37 = load ptr, ptr %36, align 8
+  %38 = call zeroext i1 %37(ptr noundef nonnull %24, ptr noundef %1, ptr noundef %2, ptr noundef %20, ptr noundef nonnull %5, ptr noundef %3) #9
+  %39 = load ptr, ptr %24, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 312
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 104
+  %43 = load ptr, ptr %42, align 8
+  call void %43(ptr noundef nonnull %24) #9
+  call void @ExecDropSingleTupleTableSlot(ptr noundef %20) #9
+  ret i1 %38
+}
+
+declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @table_tuple_get_latest_tid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = load ptr, ptr %0, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 312
+  %5 = load ptr, ptr %4, align 8
+  %6 = load i32, ptr @CheckXidAlive, align 4
+  %7 = icmp ne i32 %6, 0
+  %8 = load i8, ptr @bsysscan, align 1
+  %9 = and i8 %8, 1
+  %.not = icmp eq i8 %9, 0
+  %10 = select i1 %7, i1 %.not, i1 false
+  br i1 %10, label %11, label %14
+
+11:                                               ; preds = %2
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %12)
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 256, ptr noundef nonnull @__func__.table_tuple_get_latest_tid) #9
+  unreachable
+
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds i8, ptr %5, i64 128
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call zeroext i1 %16(ptr noundef nonnull %0, ptr noundef %1) #9
+  br i1 %17, label %32, label %18
+
+18:                                               ; preds = %14
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %19)
+  %20 = tail call i32 @errcode(i32 noundef 50856066) #9
+  %.val = load i16, ptr %1, align 2
+  %21 = getelementptr i8, ptr %1, i64 2
+  %.val11 = load i16, ptr %21, align 2
+  %22 = zext i16 %.val to i32
+  %23 = shl nuw i32 %22, 16
+  %24 = zext i16 %.val11 to i32
+  %25 = or disjoint i32 %23, %24
+  %26 = getelementptr i8, ptr %1, i64 4
+  %.val12 = load i16, ptr %26, align 2
+  %27 = zext i16 %.val12 to i32
+  %28 = getelementptr inbounds i8, ptr %3, i64 56
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, i32 noundef %25, i32 noundef %27, ptr noundef nonnull %30) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 268, ptr noundef nonnull @__func__.table_tuple_get_latest_tid) #9
+  unreachable
+
+32:                                               ; preds = %14
+  %33 = getelementptr inbounds i8, ptr %5, i64 136
+  %34 = load ptr, ptr %33, align 8
+  tail call void %34(ptr noundef nonnull %0, ptr noundef %1) #9
+  ret void
+}
+
+; Function Attrs: cold
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
+
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
+
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @simple_table_tuple_insert(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #9
+  %4 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 160
+  %7 = load ptr, ptr %6, align 8
+  tail call void %7(ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef 0, ptr noundef null) #9
+  ret void
+}
+
+declare i32 @GetCurrentCommandId(i1 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @simple_table_tuple_delete(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = alloca %struct.TM_FailureData, align 4
+  %5 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #9
+  %6 = getelementptr inbounds i8, ptr %0, i64 312
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 192
+  %9 = load ptr, ptr %8, align 8
+  %10 = call i32 %9(ptr noundef %0, ptr noundef %1, i32 noundef %5, ptr noundef %2, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %4, i1 noundef zeroext false) #9
+  switch i32 %10, label %20 [
+    i32 2, label %11
+    i32 0, label %23
+    i32 3, label %14
+    i32 4, label %17
+  ]
+
+11:                                               ; preds = %3
+  %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %12)
+  %13 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 315, ptr noundef nonnull @__func__.simple_table_tuple_delete) #9
+  unreachable
+
+14:                                               ; preds = %3
+  %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %15)
+  %16 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 323, ptr noundef nonnull @__func__.simple_table_tuple_delete) #9
+  unreachable
+
+17:                                               ; preds = %3
+  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %18)
+  %19 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 327, ptr noundef nonnull @__func__.simple_table_tuple_delete) #9
+  unreachable
+
+20:                                               ; preds = %3
+  %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %21)
+  %22 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %10) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__.simple_table_tuple_delete) #9
+  unreachable
+
+23:                                               ; preds = %3
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @simple_table_tuple_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = alloca %struct.TM_FailureData, align 4
+  %7 = alloca i32, align 4
+  %8 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #9
+  %9 = getelementptr inbounds i8, ptr %0, i64 312
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 200
+  %12 = load ptr, ptr %11, align 8
+  %13 = call i32 %12(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, ptr noundef %3, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %4) #9
+  switch i32 %13, label %23 [
+    i32 2, label %14
+    i32 0, label %26
+    i32 3, label %17
+    i32 4, label %20
+  ]
+
+14:                                               ; preds = %5
+  %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %15)
+  %16 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 364, ptr noundef nonnull @__func__.simple_table_tuple_update) #9
+  unreachable
+
+17:                                               ; preds = %5
+  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %18)
+  %19 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 372, ptr noundef nonnull @__func__.simple_table_tuple_update) #9
+  unreachable
+
+20:                                               ; preds = %5
+  %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %21)
+  %22 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 376, ptr noundef nonnull @__func__.simple_table_tuple_update) #9
+  unreachable
+
+23:                                               ; preds = %5
+  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %24)
+  %25 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %13) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 380, ptr noundef nonnull @__func__.simple_table_tuple_update) #9
+  unreachable
+
+26:                                               ; preds = %5
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local noundef i64 @table_block_parallelscan_estimate(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
+  ret i64 40
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local noundef i64 @table_block_parallelscan_initialize(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = load i32, ptr %3, align 8
+  store i32 %4, ptr %1, align 8
+  %5 = tail call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %0, i32 noundef 0) #9
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  store i32 %5, ptr %6, align 8
+  %7 = load i8, ptr @synchronize_seqscans, align 1
+  %8 = and i8 %7, 1
+  %.not = icmp eq i8 %8, 0
+  br i1 %.not, label %20, label %9
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 114
+  %13 = load i8, ptr %12, align 2
+  %14 = icmp eq i8 %13, 116
+  br i1 %14, label %20, label %15
+
+15:                                               ; preds = %9
+  %16 = load i32, ptr @NBuffers, align 4
+  %17 = sdiv i32 %16, 4
+  %18 = icmp ugt i32 %5, %17
+  %19 = zext i1 %18 to i8
+  br label %20
+
+20:                                               ; preds = %15, %9, %2
+  %21 = phi i8 [ 0, %9 ], [ 0, %2 ], [ %19, %15 ]
+  %22 = getelementptr inbounds i8, ptr %1, i64 4
+  store i8 %21, ptr %22, align 4
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
+  %23 = getelementptr inbounds i8, ptr %1, i64 20
+  store i8 0, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  store i32 -1, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %1, i64 32
+  store volatile i64 0, ptr %25, align 8
+  ret i64 40
+}
+
+declare i32 @RelationGetNumberOfBlocksInFork(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define dso_local void @table_block_parallelscan_reinitialize(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #4 {
+  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  store volatile i64 0, ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @table_block_parallelscan_startblock_init(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = load i32, ptr %4, align 8
+  %6 = icmp ugt i32 %5, 4095
+  %7 = lshr i32 %5, 11
+  %spec.select = select i1 %6, i32 %7, i32 1
+  %8 = tail call i32 @llvm.ctpop.i32(i32 %spec.select), !range !6
+  %9 = icmp ult i32 %8, 2
+  %10 = tail call i32 @llvm.ctlz.i32(i32 %spec.select, i1 true), !range !6
+  %11 = xor i32 %10, 31
+  %12 = shl nuw nsw i32 2, %11
+  %.0.i = select i1 %9, i32 %spec.select, i32 %12
+  %13 = getelementptr inbounds i8, ptr %1, i64 12
+  %14 = tail call i32 @llvm.umin.i32(i32 %.0.i, i32 8192)
+  store i32 %14, ptr %13, align 4
+  %15 = getelementptr inbounds i8, ptr %2, i64 20
+  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds i8, ptr %2, i64 4
+  br label %18
+
+18:                                               ; preds = %29, %3
+  %.0 = phi i32 [ -1, %3 ], [ %31, %29 ]
+  %19 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %15, i8 1, ptr nonnull elementtype(i8) %15) #9, !srcloc !7
+  %.not = icmp eq i8 %19, 0
+  br i1 %.not, label %22, label %20
+
+20:                                               ; preds = %18
+  %21 = tail call i32 @s_lock(ptr noundef nonnull %15, ptr noundef nonnull @.str.2, i32 noundef 464, ptr noundef nonnull @__func__.table_block_parallelscan_startblock_init) #9
+  br label %22
+
+22:                                               ; preds = %18, %20
+  %23 = load i32, ptr %16, align 8
+  %24 = icmp eq i32 %23, -1
+  br i1 %24, label %25, label %.loopexit
+
+25:                                               ; preds = %22
+  %26 = load i8, ptr %17, align 4
+  %27 = and i8 %26, 1
+  %.not20 = icmp eq i8 %27, 0
+  br i1 %.not20, label %.loopexit.sink.split, label %28
+
+28:                                               ; preds = %25
+  %.not21 = icmp eq i32 %.0, -1
+  br i1 %.not21, label %29, label %.loopexit.sink.split
+
+29:                                               ; preds = %28
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
+  store i8 0, ptr %15, align 4
+  %30 = load i32, ptr %4, align 8
+  %31 = tail call i32 @ss_get_location(ptr noundef %0, i32 noundef %30) #9
+  br label %18
+
+.loopexit.sink.split:                             ; preds = %28, %25
+  %.0.lcssa32.sink = phi i32 [ 0, %25 ], [ %.0, %28 ]
+  store i32 %.0.lcssa32.sink, ptr %16, align 8
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %22, %.loopexit.sink.split
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
+  store i8 0, ptr %15, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+
+declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @ss_get_location(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @table_block_parallelscan_nextpage(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = load i32, ptr %4, align 8
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %9, label %6
+
+6:                                                ; preds = %3
+  %7 = load i64, ptr %1, align 8
+  %8 = add i64 %7, 1
+  br label %28
+
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds i8, ptr %1, i64 12
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp ugt i32 %11, 1
+  br i1 %12, label %13, label %23
+
+13:                                               ; preds = %9
+  %14 = load i64, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %16 = load i32, ptr %15, align 8
+  %17 = shl i32 %11, 6
+  %18 = sub i32 %16, %17
+  %19 = zext i32 %18 to i64
+  %20 = icmp ugt i64 %14, %19
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %13
+  %22 = lshr i32 %11, 1
+  store i32 %22, ptr %10, align 4
+  br label %23
+
+23:                                               ; preds = %21, %13, %9
+  %24 = phi i32 [ %22, %21 ], [ %11, %13 ], [ %11, %9 ]
+  %25 = getelementptr inbounds i8, ptr %2, i64 32
+  %26 = zext i32 %24 to i64
+  %27 = tail call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 %26, ptr nonnull elementtype(i64) %25) #9, !srcloc !10
+  %storemerge.in.pre = load i32, ptr %10, align 4
+  br label %28
+
+28:                                               ; preds = %23, %6
+  %storemerge.in = phi i32 [ %storemerge.in.pre, %23 ], [ %5, %6 ]
+  %storemerge29 = phi i64 [ %27, %23 ], [ %8, %6 ]
+  store i64 %storemerge29, ptr %1, align 8
+  %storemerge = add i32 %storemerge.in, -1
+  store i32 %storemerge, ptr %4, align 8
+  %29 = getelementptr inbounds i8, ptr %2, i64 16
+  %30 = load i32, ptr %29, align 8
+  %31 = zext i32 %30 to i64
+  %.not30 = icmp ult i64 %storemerge29, %31
+  br i1 %.not30, label %32, label %.thread
+
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds i8, ptr %2, i64 24
+  %34 = load i32, ptr %33, align 8
+  %35 = zext i32 %34 to i64
+  %36 = add nuw nsw i64 %storemerge29, %35
+  %37 = urem i64 %36, %31
+  %38 = trunc i64 %37 to i32
+  %39 = getelementptr inbounds i8, ptr %2, i64 4
+  %40 = load i8, ptr %39, align 4
+  %41 = and i8 %40, 1
+  %.not31 = icmp eq i8 %41, 0
+  br i1 %.not31, label %49, label %.sink.split
+
+.thread:                                          ; preds = %28
+  %42 = getelementptr inbounds i8, ptr %2, i64 4
+  %43 = load i8, ptr %42, align 4
+  %44 = and i8 %43, 1
+  %.not3134 = icmp ne i8 %44, 0
+  %45 = icmp eq i64 %storemerge29, %31
+  %or.cond = and i1 %45, %.not3134
+  br i1 %or.cond, label %46, label %49
+
+46:                                               ; preds = %.thread
+  %47 = getelementptr inbounds i8, ptr %2, i64 24
+  %48 = load i32, ptr %47, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %32, %46
+  %.sink = phi i32 [ %48, %46 ], [ %38, %32 ]
+  %.02636.ph = phi i32 [ -1, %46 ], [ %38, %32 ]
+  tail call void @ss_report_location(ptr noundef %0, i32 noundef %.sink) #9
+  br label %49
+
+49:                                               ; preds = %.sink.split, %.thread, %32
+  %.02636 = phi i32 [ -1, %.thread ], [ %38, %32 ], [ %.02636.ph, %.sink.split ]
+  ret i32 %.02636
+}
+
+declare void @ss_report_location(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local i64 @table_block_relation_size(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = icmp eq i32 %1, -1
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  br i1 %3, label %.preheader, label %17
+
+.preheader:                                       ; preds = %2
+  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  br label %6
+
+6:                                                ; preds = %.preheader, %RelationGetSmgr.exit
+  %.016 = phi i32 [ 0, %.preheader ], [ %16, %RelationGetSmgr.exit ]
+  %.0815 = phi i64 [ 0, %.preheader ], [ %15, %RelationGetSmgr.exit ]
+  %7 = load ptr, ptr %4, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %RelationGetSmgr.exit
+
+9:                                                ; preds = %6
+  %10 = load i32, ptr %5, align 4
+  %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
+  %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %11 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %10) #9
+  store ptr %11, ptr %4, align 8
+  tail call void @smgrpin(ptr noundef %11) #9
+  %.pre.i = load ptr, ptr %4, align 8
+  br label %RelationGetSmgr.exit
+
+RelationGetSmgr.exit:                             ; preds = %6, %9
+  %12 = phi ptr [ %.pre.i, %9 ], [ %7, %6 ]
+  %13 = tail call i32 @smgrnblocks(ptr noundef %12, i32 noundef %.016) #9
+  %14 = zext i32 %13 to i64
+  %15 = add i64 %.0815, %14
+  %16 = add nuw nsw i32 %.016, 1
+  %exitcond.not = icmp eq i32 %16, 3
+  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !11
+
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %4, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %RelationGetSmgr.exit14
+
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds i8, ptr %0, i64 28
+  %22 = load i32, ptr %21, align 4
+  %.sroa.0.0.copyload.i10 = load i64, ptr %0, align 8
+  %.sroa.2.0..sroa_idx.i11 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0.copyload.i12 = load i32, ptr %.sroa.2.0..sroa_idx.i11, align 8
+  %23 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i10, i32 %.sroa.2.0.copyload.i12, i32 noundef %22) #9
+  store ptr %23, ptr %4, align 8
+  tail call void @smgrpin(ptr noundef %23) #9
+  %.pre.i13 = load ptr, ptr %4, align 8
+  br label %RelationGetSmgr.exit14
+
+RelationGetSmgr.exit14:                           ; preds = %17, %20
+  %24 = phi ptr [ %.pre.i13, %20 ], [ %18, %17 ]
+  %25 = tail call i32 @smgrnblocks(ptr noundef %24, i32 noundef %1) #9
+  %26 = zext i32 %25 to i64
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %RelationGetSmgr.exit, %RelationGetSmgr.exit14
+  %.1 = phi i64 [ %26, %RelationGetSmgr.exit14 ], [ %15, %RelationGetSmgr.exit ]
+  %27 = shl i64 %.1, 13
+  ret i64 %27
+}
+
+declare i32 @smgrnblocks(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @table_block_relation_estimate_size(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
+  %8 = tail call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %0, i32 noundef 0) #9
+  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %12 = load i32, ptr %11, align 4
+  %13 = getelementptr inbounds i8, ptr %10, i64 100
+  %14 = load float, ptr %13, align 4
+  %15 = fpext float %14 to double
+  %16 = getelementptr inbounds i8, ptr %10, i64 104
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp ult i32 %8, 10
+  %19 = fcmp olt float %14, 0.000000e+00
+  %or.cond = select i1 %18, i1 %19, i1 false
+  br i1 %or.cond, label %20, label %24
+
+20:                                               ; preds = %7
+  %21 = getelementptr inbounds i8, ptr %10, i64 122
+  %22 = load i8, ptr %21, align 2
+  %23 = and i8 %22, 1
+  %.not = icmp eq i8 %23, 0
+  br i1 %.not, label %.thread, label %24
+
+.thread:                                          ; preds = %20
+  store i32 10, ptr %2, align 4
+  br label %27
+
+24:                                               ; preds = %20, %7
+  store i32 %8, ptr %2, align 4
+  %25 = icmp eq i32 %8, 0
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %24
+  store double 0.000000e+00, ptr %3, align 8
+  br label %60
+
+27:                                               ; preds = %.thread, %24
+  %.051 = phi i32 [ 10, %.thread ], [ %8, %24 ]
+  %28 = fcmp oge float %14, 0.000000e+00
+  %29 = icmp ne i32 %12, 0
+  %or.cond3 = select i1 %28, i1 %29, i1 false
+  br i1 %or.cond3, label %30, label %33
+
+30:                                               ; preds = %27
+  %31 = uitofp i32 %12 to double
+  %32 = fdiv double %15, %31
+  br label %50
+
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds i8, ptr %0, i64 296
+  %35 = load ptr, ptr %34, align 8
+  %.not49 = icmp eq ptr %35, null
+  br i1 %.not49, label %40, label %36
+
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds i8, ptr %35, i64 4
+  %38 = load i32, ptr %37, align 4
+  %39 = sext i32 %38 to i64
+  br label %40
+
+40:                                               ; preds = %33, %36
+  %41 = phi i64 [ %39, %36 ], [ 100, %33 ]
+  %42 = tail call i32 @get_rel_data_width(ptr noundef nonnull %0, ptr noundef %1) #9
+  %43 = trunc i64 %5 to i32
+  %44 = add i32 %42, %43
+  %45 = mul i64 %41, %6
+  %46 = udiv i64 %45, 100
+  %47 = sext i32 %44 to i64
+  %48 = udiv i64 %46, %47
+  %49 = uitofp i64 %48 to double
+  br label %50
+
+50:                                               ; preds = %40, %30
+  %.041 = phi double [ %32, %30 ], [ %49, %40 ]
+  %51 = uitofp i32 %.051 to double
+  %52 = fmul double %.041, %51
+  %53 = tail call double @llvm.rint.f64(double %52)
+  store double %53, ptr %3, align 8
+  %54 = icmp eq i32 %17, 0
+  br i1 %54, label %60, label %55
+
+55:                                               ; preds = %50
+  %56 = uitofp i32 %17 to double
+  %57 = fcmp ult double %56, %51
+  br i1 %57, label %58, label %60
+
+58:                                               ; preds = %55
+  %59 = fdiv double %56, %51
+  br label %60
+
+60:                                               ; preds = %55, %50, %58, %26
+  %.sink = phi double [ %59, %58 ], [ 0.000000e+00, %26 ], [ 0.000000e+00, %50 ], [ 1.000000e+00, %55 ]
+  store double %.sink, ptr %4, align 8
+  ret void
+}
+
+declare i32 @get_rel_data_width(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.rint.f64(double) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
+
+declare ptr @smgropen(i64, i32, i32 noundef) local_unnamed_addr #1
+
+declare void @smgrpin(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #8
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = !{i64 2150215259}
+!6 = !{i32 0, i32 33}
+!7 = !{i64 1897490, i64 1897506}
+!8 = !{i64 2150216046}
+!9 = !{i64 2150216171}
+!10 = !{i64 1853792, i64 1853809}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}

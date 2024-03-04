@@ -1,0 +1,761 @@
+; ModuleID = 'bench/postgres/original/hashutil.ll'
+source_filename = "bench/postgres/original/hashutil.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.relopt_parse_elt = type { ptr, i32, i32 }
+%struct.ItemIdData = type { i32 }
+%struct.HashScanPosItem = type { %struct.ItemPointerData, i16 }
+%struct.ItemPointerData = type { %struct.BlockIdData, i16 }
+%struct.BlockIdData = type { i16, i16 }
+
+@.str = private unnamed_addr constant [50 x i8] c"missing support function %d(%u,%u) for index \22%s\22\00", align 1
+@.str.1 = private unnamed_addr constant [11 x i8] c"hashutil.c\00", align 1
+@__func__._hash_datum2hashkey_type = private unnamed_addr constant [25 x i8] c"_hash_datum2hashkey_type\00", align 1
+@.str.2 = private unnamed_addr constant [53 x i8] c"index \22%s\22 contains unexpected zero page at block %u\00", align 1
+@.str.3 = private unnamed_addr constant [19 x i8] c"Please REINDEX it.\00", align 1
+@__func__._hash_checkpage = private unnamed_addr constant [16 x i8] c"_hash_checkpage\00", align 1
+@.str.4 = private unnamed_addr constant [47 x i8] c"index \22%s\22 contains corrupted page at block %u\00", align 1
+@.str.5 = private unnamed_addr constant [31 x i8] c"index \22%s\22 is not a hash index\00", align 1
+@.str.6 = private unnamed_addr constant [34 x i8] c"index \22%s\22 has wrong hash version\00", align 1
+@hashoptions.tab = internal constant [1 x %struct.relopt_parse_elt] [%struct.relopt_parse_elt { ptr @.str.7, i32 1, i32 4 }], align 16
+@.str.7 = private unnamed_addr constant [11 x i8] c"fillfactor\00", align 1
+@LocalBufferBlockPointers = external local_unnamed_addr global ptr, align 8
+@BufferBlocks = external local_unnamed_addr global ptr, align 8
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local noundef zeroext i1 @_hash_checkqual(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+  ret i1 true
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @_hash_datum2hashkey(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
+  %3 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext 1, i16 noundef zeroext 1) #8
+  %4 = getelementptr inbounds i8, ptr %0, i64 432
+  %5 = load ptr, ptr %4, align 8
+  %6 = load i32, ptr %5, align 4
+  %7 = tail call i64 @FunctionCall1Coll(ptr noundef %3, i32 noundef %6, i64 noundef %1) #8
+  %8 = trunc i64 %7 to i32
+  ret i32 %8
+}
+
+declare ptr @index_getprocinfo(ptr noundef, i16 noundef signext, i16 noundef zeroext) local_unnamed_addr #2
+
+declare i64 @FunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @_hash_datum2hashkey_type(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 352
+  %5 = load ptr, ptr %4, align 8
+  %6 = load i32, ptr %5, align 4
+  %7 = tail call i32 @get_opfamily_proc(i32 noundef %6, i32 noundef %2, i32 noundef %2, i16 noundef signext 1) #8
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %8, label %14
+
+8:                                                ; preds = %3
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %9)
+  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef 1, i32 noundef %2, i32 noundef %2, ptr noundef nonnull %12) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 116, ptr noundef nonnull @__func__._hash_datum2hashkey_type) #8
+  unreachable
+
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds i8, ptr %0, i64 432
+  %16 = load ptr, ptr %15, align 8
+  %17 = load i32, ptr %16, align 4
+  %18 = tail call i64 @OidFunctionCall1Coll(i32 noundef %7, i32 noundef %17, i64 noundef %1) #8
+  %19 = trunc i64 %18 to i32
+  ret i32 %19
+}
+
+declare i32 @get_opfamily_proc(i32 noundef, i32 noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #2
+
+; Function Attrs: cold
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare i64 @OidFunctionCall1Coll(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local noundef i32 @_hash_hashkey2bucket(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = and i32 %2, %0
+  %6 = icmp ugt i32 %5, %1
+  %7 = select i1 %6, i32 %3, i32 -1
+  %spec.select = and i32 %7, %5
+  ret i32 %spec.select
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local i32 @_hash_spareindex(i32 noundef %0) local_unnamed_addr #0 {
+  %2 = icmp ult i32 %0, 2
+  %3 = add i32 %0, -1
+  %4 = tail call i32 @llvm.ctlz.i32(i32 %3, i1 true), !range !5
+  %5 = sub nuw nsw i32 32, %4
+  %.0.i = select i1 %2, i32 0, i32 %5
+  %6 = icmp ult i32 %.0.i, 10
+  br i1 %6, label %14, label %7
+
+7:                                                ; preds = %1
+  %8 = shl nuw nsw i32 %.0.i, 2
+  %9 = add nsw i32 %8, -30
+  %10 = add nsw i32 %.0.i, -3
+  %11 = lshr i32 %3, %10
+  %12 = and i32 %11, 3
+  %13 = add nuw nsw i32 %9, %12
+  br label %14
+
+14:                                               ; preds = %1, %7
+  %.0 = phi i32 [ %13, %7 ], [ %.0.i, %1 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local i32 @_hash_get_totalbuckets(i32 noundef %0) local_unnamed_addr #0 {
+  %2 = icmp ult i32 %0, 10
+  br i1 %2, label %3, label %5
+
+3:                                                ; preds = %1
+  %4 = shl nuw nsw i32 1, %0
+  br label %14
+
+5:                                                ; preds = %1
+  %6 = add i32 %0, -10
+  %7 = lshr i32 %6, 2
+  %8 = shl nuw i32 512, %7
+  %9 = and i32 %6, 3
+  %10 = add nuw nsw i32 %9, 1
+  %11 = ashr exact i32 %8, 2
+  %12 = mul nsw i32 %11, %10
+  %13 = add i32 %12, %8
+  br label %14
+
+14:                                               ; preds = %5, %3
+  %.0 = phi i32 [ %4, %3 ], [ %13, %5 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @_hash_checkpage(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+  %4 = icmp slt i32 %1, 0
+  br i1 %4, label %5, label %11
+
+5:                                                ; preds = %3
+  %6 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %7 = xor i32 %1, -1
+  %8 = zext nneg i32 %7 to i64
+  %9 = getelementptr ptr, ptr %6, i64 %8
+  %10 = load ptr, ptr %9, align 8
+  br label %BufferGetPage.exit
+
+11:                                               ; preds = %3
+  %12 = load ptr, ptr @BufferBlocks, align 8
+  %13 = add nsw i32 %1, -1
+  %14 = sext i32 %13 to i64
+  %15 = shl nsw i64 %14, 13
+  %16 = getelementptr i8, ptr %12, i64 %15
+  br label %BufferGetPage.exit
+
+BufferGetPage.exit:                               ; preds = %5, %11
+  %.0.i.i = phi ptr [ %10, %5 ], [ %16, %11 ]
+  %17 = getelementptr i8, ptr %.0.i.i, i64 14
+  %.val = load i16, ptr %17, align 2
+  %18 = icmp eq i16 %.val, 0
+  br i1 %18, label %19, label %28
+
+19:                                               ; preds = %BufferGetPage.exit
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %20)
+  %21 = tail call i32 @errcode(i32 noundef 33557032) #8
+  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %25 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #8
+  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %24, i32 noundef %25) #8
+  %27 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 227, ptr noundef nonnull @__func__._hash_checkpage) #8
+  unreachable
+
+28:                                               ; preds = %BufferGetPage.exit
+  %29 = getelementptr i8, ptr %.0.i.i, i64 16
+  %.val21 = load i16, ptr %29, align 4
+  %30 = getelementptr i8, ptr %.0.i.i, i64 18
+  %.val22 = load i16, ptr %30, align 2
+  %31 = and i16 %.val22, -256
+  %32 = sub i16 %31, %.val21
+  %.not = icmp eq i16 %32, 16
+  br i1 %.not, label %42, label %33
+
+33:                                               ; preds = %28
+  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %34)
+  %35 = tail call i32 @errcode(i32 noundef 33557032) #8
+  %36 = getelementptr inbounds i8, ptr %0, i64 56
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %39 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #8
+  %40 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %38, i32 noundef %39) #8
+  %41 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 238, ptr noundef nonnull @__func__._hash_checkpage) #8
+  unreachable
+
+42:                                               ; preds = %28
+  %cond = icmp eq i32 %2, 0
+  br i1 %cond, label %83, label %43
+
+43:                                               ; preds = %42
+  %44 = zext i16 %.val21 to i64
+  %45 = getelementptr i8, ptr %.0.i.i, i64 %44
+  %46 = getelementptr inbounds i8, ptr %45, i64 12
+  %47 = load i16, ptr %46, align 4
+  %48 = zext i16 %47 to i32
+  %49 = and i32 %48, %2
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %60
+
+51:                                               ; preds = %43
+  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %52)
+  %53 = tail call i32 @errcode(i32 noundef 33557032) #8
+  %54 = getelementptr inbounds i8, ptr %0, i64 56
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  %57 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #8
+  %58 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %56, i32 noundef %57) #8
+  %59 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 250, ptr noundef nonnull @__func__._hash_checkpage) #8
+  unreachable
+
+60:                                               ; preds = %43
+  %61 = icmp eq i32 %2, 8
+  br i1 %61, label %62, label %83
+
+62:                                               ; preds = %60
+  %63 = getelementptr i8, ptr %.0.i.i, i64 24
+  %64 = load i32, ptr %63, align 8
+  %.not19 = icmp eq i32 %64, 105121344
+  br i1 %.not19, label %72, label %65
+
+65:                                               ; preds = %62
+  %66 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %66)
+  %67 = tail call i32 @errcode(i32 noundef 33557032) #8
+  %68 = getelementptr inbounds i8, ptr %0, i64 56
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %71 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %70) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 264, ptr noundef nonnull @__func__._hash_checkpage) #8
+  unreachable
+
+72:                                               ; preds = %62
+  %73 = getelementptr i8, ptr %.0.i.i, i64 28
+  %74 = load i32, ptr %73, align 4
+  %.not20 = icmp eq i32 %74, 4
+  br i1 %.not20, label %83, label %75
+
+75:                                               ; preds = %72
+  %76 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %76)
+  %77 = tail call i32 @errcode(i32 noundef 33557032) #8
+  %78 = getelementptr inbounds i8, ptr %0, i64 56
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 4
+  %81 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %80) #8
+  %82 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 271, ptr noundef nonnull @__func__._hash_checkpage) #8
+  unreachable
+
+83:                                               ; preds = %42, %72, %60
+  ret void
+}
+
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+
+declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #2
+
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define dso_local ptr @hashoptions(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
+  %3 = tail call ptr @build_reloptions(i64 noundef %0, i1 noundef zeroext %1, i32 noundef 8, i64 noundef 8, ptr noundef nonnull @hashoptions.tab, i32 noundef 1) #8
+  ret ptr %3
+}
+
+declare ptr @build_reloptions(i64 noundef, i1 noundef zeroext, i32 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local i32 @_hash_get_indextuple_hashkey(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 6
+  %3 = load i16, ptr %2, align 2
+  %.not.i = icmp sgt i16 %3, -1
+  %..i = select i1 %.not.i, i64 8, i64 16
+  %4 = getelementptr i8, ptr %0, i64 %..i
+  %5 = load i32, ptr %4, align 4
+  ret i32 %5
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local noundef zeroext i1 @_hash_convert_tuple(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
+  %6 = load i8, ptr %2, align 1
+  %7 = and i8 %6, 1
+  %.not = icmp eq i8 %7, 0
+  br i1 %.not, label %8, label %16
+
+8:                                                ; preds = %5
+  %9 = load i64, ptr %1, align 8
+  %10 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext 1, i16 noundef zeroext 1) #8
+  %11 = getelementptr inbounds i8, ptr %0, i64 432
+  %12 = load ptr, ptr %11, align 8
+  %13 = load i32, ptr %12, align 4
+  %14 = tail call i64 @FunctionCall1Coll(ptr noundef %10, i32 noundef %13, i64 noundef %9) #8
+  %15 = and i64 %14, 4294967295
+  store i64 %15, ptr %3, align 8
+  store i8 0, ptr %4, align 1
+  br label %16
+
+16:                                               ; preds = %5, %8
+  ret i1 %.not
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define dso_local zeroext i16 @_hash_binsearch(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+  %3 = getelementptr i8, ptr %0, i64 12
+  %.val = load i16, ptr %3, align 4
+  %4 = icmp ult i16 %.val, 25
+  %5 = zext i16 %.val to i32
+  %6 = add nuw nsw i32 %5, 262120
+  %7 = lshr i32 %6, 2
+  %8 = trunc i32 %7 to i16
+  %9 = add nuw nsw i16 %8, 1
+  %narrow = select i1 %4, i16 1, i16 %9
+  %10 = icmp ugt i16 %narrow, 1
+  br i1 %10, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  br label %12
+
+12:                                               ; preds = %.lr.ph, %12
+  %.019 = phi i16 [ %narrow, %.lr.ph ], [ %.1, %12 ]
+  %.01318 = phi i16 [ 1, %.lr.ph ], [ %.114, %12 ]
+  %13 = zext i16 %.01318 to i32
+  %14 = zext nneg i16 %.019 to i32
+  %15 = add nuw nsw i32 %14, %13
+  %16 = lshr i32 %15, 1
+  %17 = trunc i32 %16 to i16
+  %18 = zext nneg i32 %16 to i64
+  %19 = add nsw i64 %18, -1
+  %20 = getelementptr [0 x %struct.ItemIdData], ptr %11, i64 0, i64 %19
+  %.val17 = load i32, ptr %20, align 4
+  %21 = and i32 %.val17, 32767
+  %22 = zext nneg i32 %21 to i64
+  %23 = getelementptr i8, ptr %0, i64 %22
+  %24 = getelementptr inbounds i8, ptr %23, i64 6
+  %25 = load i16, ptr %24, align 2
+  %.not.i.i = icmp sgt i16 %25, -1
+  %..i.i = select i1 %.not.i.i, i64 8, i64 16
+  %26 = getelementptr i8, ptr %23, i64 %..i.i
+  %27 = load i32, ptr %26, align 4
+  %28 = icmp ult i32 %27, %1
+  %29 = add nuw i16 %17, 1
+  %.114 = select i1 %28, i16 %29, i16 %.01318
+  %.1 = select i1 %28, i16 %.019, i16 %17
+  %30 = icmp ugt i16 %.1, %.114
+  br i1 %30, label %12, label %._crit_edge, !llvm.loop !6
+
+._crit_edge:                                      ; preds = %12, %2
+  %.013.lcssa = phi i16 [ 1, %2 ], [ %.114, %12 ]
+  ret i16 %.013.lcssa
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define dso_local zeroext i16 @_hash_binsearch_last(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+  %3 = getelementptr i8, ptr %0, i64 12
+  %.val = load i16, ptr %3, align 4
+  %4 = icmp ult i16 %.val, 25
+  %5 = zext i16 %.val to i32
+  %6 = add nuw nsw i32 %5, 262120
+  %7 = lshr i32 %6, 2
+  %8 = trunc i32 %7 to i16
+  %.not20 = icmp eq i16 %8, 0
+  %.not = select i1 %4, i1 true, i1 %.not20
+  br i1 %.not, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  br label %10
+
+10:                                               ; preds = %.lr.ph, %10
+  %.019 = phi i16 [ %8, %.lr.ph ], [ %.1, %10 ]
+  %.01318 = phi i16 [ 0, %.lr.ph ], [ %.114, %10 ]
+  %11 = zext i16 %.01318 to i32
+  %12 = zext nneg i16 %.019 to i32
+  %13 = add nuw nsw i32 %11, 1
+  %14 = add nuw nsw i32 %13, %12
+  %15 = lshr i32 %14, 1
+  %16 = trunc i32 %15 to i16
+  %17 = zext nneg i32 %15 to i64
+  %18 = add nsw i64 %17, -1
+  %19 = getelementptr [0 x %struct.ItemIdData], ptr %9, i64 0, i64 %18
+  %.val17 = load i32, ptr %19, align 4
+  %20 = and i32 %.val17, 32767
+  %21 = zext nneg i32 %20 to i64
+  %22 = getelementptr i8, ptr %0, i64 %21
+  %23 = getelementptr inbounds i8, ptr %22, i64 6
+  %24 = load i16, ptr %23, align 2
+  %.not.i.i = icmp sgt i16 %24, -1
+  %..i.i = select i1 %.not.i.i, i64 8, i64 16
+  %25 = getelementptr i8, ptr %22, i64 %..i.i
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp ugt i32 %26, %1
+  %28 = add i16 %16, -1
+  %.114 = select i1 %27, i16 %.01318, i16 %16
+  %.1 = select i1 %27, i16 %28, i16 %.019
+  %29 = icmp ugt i16 %.1, %.114
+  br i1 %29, label %10, label %._crit_edge, !llvm.loop !8
+
+._crit_edge:                                      ; preds = %10, %2
+  %.013.lcssa = phi i16 [ 0, %2 ], [ %.114, %10 ]
+  ret i16 %.013.lcssa
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @_hash_get_oldblock_from_newbucket(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+  %3 = tail call i32 @llvm.ctlz.i32(i32 %1, i1 true), !range !5
+  %4 = xor i32 %3, 31
+  %notmask = shl nsw i32 -1, %4
+  %5 = xor i32 %notmask, -1
+  %6 = and i32 %5, %1
+  %7 = tail call i32 @_hash_getbuf(ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 8) #8
+  %8 = icmp slt i32 %7, 0
+  br i1 %8, label %9, label %15
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %11 = xor i32 %7, -1
+  %12 = zext nneg i32 %11 to i64
+  %13 = getelementptr ptr, ptr %10, i64 %12
+  %14 = load ptr, ptr %13, align 8
+  br label %BufferGetPage.exit
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr @BufferBlocks, align 8
+  %17 = add nsw i32 %7, -1
+  %18 = sext i32 %17 to i64
+  %19 = shl nsw i64 %18, 13
+  %20 = getelementptr i8, ptr %16, i64 %19
+  br label %BufferGetPage.exit
+
+BufferGetPage.exit:                               ; preds = %9, %15
+  %.0.i.i = phi ptr [ %14, %9 ], [ %20, %15 ]
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %37, label %21
+
+21:                                               ; preds = %BufferGetPage.exit
+  %22 = getelementptr i8, ptr %.0.i.i, i64 76
+  %23 = tail call i32 @llvm.ctlz.i32(i32 %6, i1 true), !range !5
+  %24 = sub nuw nsw i32 32, %23
+  %25 = icmp ult i32 %6, 512
+  br i1 %25, label %_hash_spareindex.exit, label %26
+
+26:                                               ; preds = %21
+  %27 = shl nuw nsw i32 %24, 2
+  %28 = add nsw i32 %27, -30
+  %29 = sub nsw i32 29, %23
+  %30 = lshr i32 %6, %29
+  %31 = and i32 %30, 3
+  %32 = add nuw nsw i32 %28, %31
+  br label %_hash_spareindex.exit
+
+_hash_spareindex.exit:                            ; preds = %21, %26
+  %.0.i = phi i32 [ %32, %26 ], [ %24, %21 ]
+  %33 = add nsw i32 %.0.i, -1
+  %34 = zext nneg i32 %33 to i64
+  %35 = getelementptr [98 x i32], ptr %22, i64 0, i64 %34
+  %36 = load i32, ptr %35, align 4
+  br label %37
+
+37:                                               ; preds = %BufferGetPage.exit, %_hash_spareindex.exit
+  %38 = phi i32 [ %36, %_hash_spareindex.exit ], [ 0, %BufferGetPage.exit ]
+  %39 = add nuw i32 %6, 1
+  %40 = add i32 %39, %38
+  tail call void @_hash_relbuf(ptr noundef %0, i32 noundef %7) #8
+  ret i32 %40
+}
+
+declare i32 @_hash_getbuf(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+declare void @_hash_relbuf(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @_hash_get_newblock_from_oldbucket(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+  %3 = tail call i32 @_hash_getbuf(ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 8) #8
+  %4 = icmp slt i32 %3, 0
+  br i1 %4, label %5, label %11
+
+5:                                                ; preds = %2
+  %6 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %7 = xor i32 %3, -1
+  %8 = zext nneg i32 %7 to i64
+  %9 = getelementptr ptr, ptr %6, i64 %8
+  %10 = load ptr, ptr %9, align 8
+  br label %BufferGetPage.exit
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr @BufferBlocks, align 8
+  %13 = add nsw i32 %3, -1
+  %14 = sext i32 %13 to i64
+  %15 = shl nsw i64 %14, 13
+  %16 = getelementptr i8, ptr %12, i64 %15
+  br label %BufferGetPage.exit
+
+BufferGetPage.exit:                               ; preds = %5, %11
+  %.0.i.i = phi ptr [ %10, %5 ], [ %16, %11 ]
+  %17 = getelementptr i8, ptr %.0.i.i, i64 56
+  %18 = load i32, ptr %17, align 8
+  %19 = getelementptr i8, ptr %.0.i.i, i64 48
+  %20 = load i32, ptr %19, align 8
+  %21 = add i32 %18, 1
+  %22 = or i32 %21, %1
+  %23 = icmp ugt i32 %22, %20
+  %24 = lshr i32 %18, 1
+  %25 = add nuw i32 %24, 1
+  %26 = or i32 %25, %1
+  %.0.i = select i1 %23, i32 %26, i32 %22
+  %.not = icmp eq i32 %.0.i, 0
+  br i1 %.not, label %BufferGetPage.exit._crit_edge, label %27
+
+27:                                               ; preds = %BufferGetPage.exit
+  %28 = getelementptr i8, ptr %.0.i.i, i64 76
+  %29 = add i32 %.0.i, 1
+  %30 = icmp ult i32 %29, 2
+  %31 = tail call i32 @llvm.ctlz.i32(i32 %.0.i, i1 true), !range !5
+  %32 = sub nuw nsw i32 32, %31
+  %.0.i.i12 = select i1 %30, i32 0, i32 %32
+  %33 = icmp ult i32 %.0.i.i12, 10
+  br i1 %33, label %_hash_spareindex.exit, label %34
+
+34:                                               ; preds = %27
+  %35 = shl nuw nsw i32 %.0.i.i12, 2
+  %36 = add nsw i32 %35, -30
+  %37 = add nsw i32 %.0.i.i12, -3
+  %38 = lshr i32 %.0.i, %37
+  %39 = and i32 %38, 3
+  %40 = add nuw nsw i32 %36, %39
+  br label %_hash_spareindex.exit
+
+_hash_spareindex.exit:                            ; preds = %27, %34
+  %.0.i13 = phi i32 [ %40, %34 ], [ %.0.i.i12, %27 ]
+  %41 = add nsw i32 %.0.i13, -1
+  %42 = zext i32 %41 to i64
+  %43 = getelementptr [98 x i32], ptr %28, i64 0, i64 %42
+  %44 = load i32, ptr %43, align 4
+  %45 = add i32 %29, %44
+  br label %BufferGetPage.exit._crit_edge
+
+BufferGetPage.exit._crit_edge:                    ; preds = %BufferGetPage.exit, %_hash_spareindex.exit
+  %46 = phi i32 [ %45, %_hash_spareindex.exit ], [ 1, %BufferGetPage.exit ]
+  tail call void @_hash_relbuf(ptr noundef %0, i32 noundef %3) #8
+  ret i32 %46
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local i32 @_hash_get_newbucket_from_oldbucket(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = add i32 %2, 1
+  %6 = or i32 %5, %1
+  %7 = icmp ugt i32 %6, %3
+  %8 = lshr i32 %2, 1
+  %9 = add nuw i32 %8, 1
+  %10 = or i32 %9, %1
+  %.0 = select i1 %7, i32 %10, i32 %6
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @_hash_kill_items(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = load i32, ptr %6, align 8
+  store i32 0, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 28
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %1
+  tail call void @LockBuffer(i32 noundef %9, i32 noundef 1) #8
+  br label %16
+
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds i8, ptr %3, i64 32
+  %14 = load i32, ptr %13, align 4
+  %15 = tail call i32 @_hash_getbuf(ptr noundef %5, i32 noundef %14, i32 noundef 1, i32 noundef 1) #8
+  br label %16
+
+16:                                               ; preds = %12, %11
+  %.0 = phi i32 [ %9, %11 ], [ %15, %12 ]
+  %17 = icmp slt i32 %.0, 0
+  br i1 %17, label %18, label %24
+
+18:                                               ; preds = %16
+  %19 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %20 = xor i32 %.0, -1
+  %21 = zext nneg i32 %20 to i64
+  %22 = getelementptr ptr, ptr %19, i64 %21
+  %23 = load ptr, ptr %22, align 8
+  br label %BufferGetPage.exit
+
+24:                                               ; preds = %16
+  %25 = load ptr, ptr @BufferBlocks, align 8
+  %26 = add nsw i32 %.0, -1
+  %27 = sext i32 %26 to i64
+  %28 = shl nsw i64 %27, 13
+  %29 = getelementptr i8, ptr %25, i64 %28
+  br label %BufferGetPage.exit
+
+BufferGetPage.exit:                               ; preds = %18, %24
+  %.0.i.i = phi ptr [ %23, %18 ], [ %29, %24 ]
+  %30 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %31 = load i16, ptr %30, align 4
+  %32 = zext i16 %31 to i64
+  %33 = getelementptr i8, ptr %.0.i.i, i64 %32
+  %34 = getelementptr i8, ptr %.0.i.i, i64 12
+  %.val = load i16, ptr %34, align 4
+  %35 = icmp ult i16 %.val, 25
+  %36 = zext i16 %.val to i32
+  %37 = add nuw nsw i32 %36, 262120
+  %38 = lshr i32 %37, 2
+  %39 = trunc i32 %38 to i16
+  %.0.i = select i1 %35, i16 0, i16 %39
+  %40 = icmp sgt i32 %7, 0
+  br i1 %40, label %.lr.ph52, label %._crit_edge.thread
+
+.lr.ph52:                                         ; preds = %BufferGetPage.exit
+  %41 = getelementptr inbounds i8, ptr %3, i64 16
+  %42 = getelementptr inbounds i8, ptr %3, i64 56
+  %43 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %wide.trip.count = zext nneg i32 %7 to i64
+  br label %44
+
+44:                                               ; preds = %.lr.ph52, %.loopexit
+  %indvars.iv = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next, %.loopexit ]
+  %.04150 = phi i8 [ 0, %.lr.ph52 ], [ %.1, %.loopexit ]
+  %45 = load ptr, ptr %41, align 8
+  %46 = getelementptr i32, ptr %45, i64 %indvars.iv
+  %47 = load i32, ptr %46, align 4
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr [408 x %struct.HashScanPosItem], ptr %42, i64 0, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 6
+  %51 = load i16, ptr %50, align 2
+  %.not4448 = icmp ugt i16 %51, %.0.i
+  br i1 %.not4448, label %.loopexit, label %.lr.ph
+
+52:                                               ; preds = %.lr.ph
+  %53 = add i16 %.03949, 1
+  %.not44 = icmp ugt i16 %53, %.0.i
+  br i1 %.not44, label %.loopexit, label %.lr.ph, !llvm.loop !9
+
+.lr.ph:                                           ; preds = %44, %52
+  %.03949 = phi i16 [ %53, %52 ], [ %51, %44 ]
+  %54 = zext i16 %.03949 to i64
+  %55 = add nsw i64 %54, -1
+  %56 = getelementptr [0 x %struct.ItemIdData], ptr %43, i64 0, i64 %55
+  %.val45 = load i32, ptr %56, align 4
+  %57 = and i32 %.val45, 32767
+  %58 = zext nneg i32 %57 to i64
+  %59 = getelementptr i8, ptr %.0.i.i, i64 %58
+  %60 = tail call zeroext i1 @ItemPointerEquals(ptr noundef %59, ptr noundef %49) #8
+  br i1 %60, label %61, label %52
+
+61:                                               ; preds = %.lr.ph
+  %62 = getelementptr [0 x %struct.ItemIdData], ptr %43, i64 0, i64 %55
+  %63 = load i32, ptr %62, align 4
+  %64 = or i32 %63, 98304
+  store i32 %64, ptr %62, align 4
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %52, %44, %61
+  %.1 = phi i8 [ 1, %61 ], [ %.04150, %44 ], [ %.04150, %52 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !10
+
+._crit_edge:                                      ; preds = %.loopexit
+  %65 = and i8 %.1, 1
+  %66 = icmp eq i8 %65, 0
+  br i1 %66, label %._crit_edge.thread, label %67
+
+67:                                               ; preds = %._crit_edge
+  %68 = getelementptr inbounds i8, ptr %33, i64 12
+  %69 = load i16, ptr %68, align 4
+  %70 = or i16 %69, 128
+  store i16 %70, ptr %68, align 4
+  tail call void @MarkBufferDirtyHint(i32 noundef %.0, i1 noundef zeroext true) #8
+  br label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %BufferGetPage.exit, %67, %._crit_edge
+  %71 = getelementptr inbounds i8, ptr %3, i64 4
+  %72 = load i32, ptr %71, align 4
+  %73 = load i32, ptr %8, align 4
+  %74 = icmp eq i32 %72, %73
+  %brmerge = or i1 %10, %74
+  br i1 %brmerge, label %75, label %76
+
+75:                                               ; preds = %._crit_edge.thread
+  tail call void @LockBuffer(i32 noundef %73, i32 noundef 0) #8
+  br label %77
+
+76:                                               ; preds = %._crit_edge.thread
+  tail call void @_hash_relbuf(ptr noundef %5, i32 noundef %.0) #8
+  br label %77
+
+77:                                               ; preds = %76, %75
+  ret void
+}
+
+declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #2
+
+declare zeroext i1 @ItemPointerEquals(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @MarkBufferDirtyHint(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #7
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = !{i32 0, i32 33}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

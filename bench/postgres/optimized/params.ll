@@ -1,0 +1,677 @@
+; ModuleID = 'bench/postgres/original/params.ll'
+source_filename = "bench/postgres/original/params.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.ParamExternData = type { i64, i8, i16, i32 }
+%struct.StringInfoData = type { ptr, i32, i32, i32 }
+
+@CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
+@.str = private unnamed_addr constant [20 x i8] c"BuildParamLogString\00", align 1
+@.str.1 = private unnamed_addr constant [9 x i8] c"%s$%d = \00", align 1
+@.str.2 = private unnamed_addr constant [3 x i8] c", \00", align 1
+@.str.3 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.4 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
+@.str.5 = private unnamed_addr constant [32 x i8] c"portal \22%s\22 with parameters: %s\00", align 1
+@.str.6 = private unnamed_addr constant [35 x i8] c"unnamed portal with parameters: %s\00", align 1
+
+; Function Attrs: nounwind uwtable
+define dso_local noundef ptr @makeParamList(i32 noundef %0) local_unnamed_addr #0 {
+  %2 = sext i32 %0 to i64
+  %3 = shl nsw i64 %2, 4
+  %4 = add nsw i64 %3, 64
+  %5 = tail call ptr @palloc(i64 noundef %4) #6
+  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  store ptr @paramlist_parser_setup, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %5, i64 40
+  store ptr %5, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 48
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 56
+  store i32 %0, ptr %9, align 8
+  ret ptr %5
+}
+
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define internal void @paramlist_parser_setup(ptr nocapture noundef writeonly %0, ptr noundef %1) #2 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 200
+  store ptr @paramlist_param_ref, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 216
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local noundef ptr @copyParamList(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = alloca %struct.ParamExternData, align 8
+  %3 = alloca i16, align 2
+  %4 = alloca i8, align 1
+  %5 = icmp eq ptr %0, null
+  br i1 %5, label %.loopexit, label %6
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp slt i32 %8, 1
+  br i1 %9, label %.loopexit, label %10
+
+10:                                               ; preds = %6
+  %11 = zext nneg i32 %8 to i64
+  %12 = shl nuw nsw i64 %11, 4
+  %13 = add nuw nsw i64 %12, 64
+  %14 = tail call ptr @palloc(i64 noundef %13) #6
+  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
+  store ptr @paramlist_parser_setup, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  store ptr %14, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %14, i64 48
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %14, i64 56
+  store i32 %8, ptr %18, align 8
+  %19 = load i32, ptr %7, align 8
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %.lr.ph, label %.loopexit
+
+.lr.ph:                                           ; preds = %10
+  %21 = getelementptr inbounds i8, ptr %14, i64 64
+  %22 = getelementptr inbounds i8, ptr %0, i64 64
+  br label %23
+
+23:                                               ; preds = %.lr.ph, %47
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
+  %24 = getelementptr [0 x %struct.ParamExternData], ptr %21, i64 0, i64 %indvars.iv
+  %25 = load ptr, ptr %0, align 8
+  %.not = icmp eq ptr %25, null
+  br i1 %.not, label %30, label %26
+
+26:                                               ; preds = %23
+  %27 = trunc i64 %indvars.iv to i32
+  %28 = add i32 %27, 1
+  %29 = call ptr %25(ptr noundef nonnull %0, i32 noundef %28, i1 noundef zeroext false, ptr noundef nonnull %2) #6
+  br label %32
+
+30:                                               ; preds = %23
+  %31 = getelementptr [0 x %struct.ParamExternData], ptr %22, i64 0, i64 %indvars.iv
+  br label %32
+
+32:                                               ; preds = %30, %26
+  %.022 = phi ptr [ %29, %26 ], [ %31, %30 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %.022, i64 16, i1 false)
+  %33 = getelementptr inbounds i8, ptr %24, i64 8
+  %34 = load i8, ptr %33, align 8
+  %35 = and i8 %34, 1
+  %.not28 = icmp eq i8 %35, 0
+  br i1 %.not28, label %36, label %47
+
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds i8, ptr %24, i64 12
+  %38 = load i32, ptr %37, align 4
+  %.not29 = icmp eq i32 %38, 0
+  br i1 %.not29, label %47, label %39
+
+39:                                               ; preds = %36
+  call void @get_typlenbyval(i32 noundef %38, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
+  %40 = load i64, ptr %24, align 8
+  %41 = load i8, ptr %4, align 1
+  %42 = and i8 %41, 1
+  %43 = icmp ne i8 %42, 0
+  %44 = load i16, ptr %3, align 2
+  %45 = sext i16 %44 to i32
+  %46 = call i64 @datumCopy(i64 noundef %40, i1 noundef zeroext %43, i32 noundef %45) #6
+  store i64 %46, ptr %24, align 8
+  br label %47
+
+47:                                               ; preds = %32, %36, %39
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %48 = load i32, ptr %7, align 8
+  %49 = sext i32 %48 to i64
+  %50 = icmp slt i64 %indvars.iv.next, %49
+  br i1 %50, label %23, label %.loopexit, !llvm.loop !5
+
+.loopexit:                                        ; preds = %47, %10, %1, %6
+  %.0 = phi ptr [ null, %6 ], [ null, %1 ], [ %14, %10 ], [ %14, %47 ]
+  ret ptr %.0
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+
+declare void @get_typlenbyval(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = alloca %struct.ParamExternData, align 8
+  %3 = alloca i16, align 2
+  %4 = alloca i8, align 1
+  %5 = icmp eq ptr %0, null
+  br i1 %5, label %.loopexit, label %6
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp slt i32 %8, 1
+  br i1 %9, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %6
+  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  br label %11
+
+11:                                               ; preds = %.lr.ph, %26
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
+  %.02229 = phi i64 [ 4, %.lr.ph ], [ %38, %26 ]
+  %12 = load ptr, ptr %0, align 8
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %17, label %13
+
+13:                                               ; preds = %11
+  %14 = trunc i64 %indvars.iv to i32
+  %15 = add i32 %14, 1
+  %16 = call ptr %12(ptr noundef nonnull %0, i32 noundef %15, i1 noundef zeroext false, ptr noundef nonnull %2) #6
+  br label %19
+
+17:                                               ; preds = %11
+  %18 = getelementptr [0 x %struct.ParamExternData], ptr %10, i64 0, i64 %indvars.iv
+  br label %19
+
+19:                                               ; preds = %17, %13
+  %.021 = phi ptr [ %16, %13 ], [ %18, %17 ]
+  %20 = getelementptr inbounds i8, ptr %.021, i64 12
+  %21 = load i32, ptr %20, align 4
+  %22 = call i64 @add_size(i64 noundef %.02229, i64 noundef 4) #6
+  %23 = call i64 @add_size(i64 noundef %22, i64 noundef 2) #6
+  %.not27 = icmp eq i32 %21, 0
+  br i1 %.not27, label %25, label %24
+
+24:                                               ; preds = %19
+  call void @get_typlenbyval(i32 noundef %21, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
+  %.pre = load i8, ptr %4, align 1
+  %.pre31 = load i16, ptr %3, align 2
+  br label %26
+
+25:                                               ; preds = %19
+  store i16 8, ptr %3, align 2
+  store i8 1, ptr %4, align 1
+  br label %26
+
+26:                                               ; preds = %25, %24
+  %27 = phi i16 [ 8, %25 ], [ %.pre31, %24 ]
+  %28 = phi i8 [ 1, %25 ], [ %.pre, %24 ]
+  %29 = load i64, ptr %.021, align 8
+  %30 = getelementptr inbounds i8, ptr %.021, i64 8
+  %31 = load i8, ptr %30, align 8
+  %32 = and i8 %31, 1
+  %33 = icmp ne i8 %32, 0
+  %34 = and i8 %28, 1
+  %35 = icmp ne i8 %34, 0
+  %36 = sext i16 %27 to i32
+  %37 = call i64 @datumEstimateSpace(i64 noundef %29, i1 noundef zeroext %33, i1 noundef zeroext %35, i32 noundef %36) #6
+  %38 = call i64 @add_size(i64 noundef %23, i64 noundef %37) #6
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %39 = load i32, ptr %7, align 8
+  %40 = sext i32 %39 to i64
+  %41 = icmp slt i64 %indvars.iv.next, %40
+  br i1 %41, label %11, label %.loopexit, !llvm.loop !7
+
+.loopexit:                                        ; preds = %26, %1, %6
+  %.0 = phi i64 [ 4, %6 ], [ 4, %1 ], [ %38, %26 ]
+  ret i64 %.0
+}
+
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
+
+declare i64 @datumEstimateSpace(i64 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @SerializeParamList(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = alloca %struct.ParamExternData, align 8
+  %4 = alloca i16, align 2
+  %5 = alloca i8, align 1
+  %6 = icmp eq ptr %0, null
+  br i1 %6, label %.thread, label %10
+
+.thread:                                          ; preds = %2
+  %7 = load ptr, ptr %1, align 8
+  store i32 0, ptr %7, align 1
+  %8 = load ptr, ptr %1, align 8
+  %9 = getelementptr i8, ptr %8, i64 4
+  store ptr %9, ptr %1, align 8
+  br label %._crit_edge
+
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = load i32, ptr %11, align 8
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %12, i32 0)
+  %13 = load ptr, ptr %1, align 8
+  store i32 %spec.select, ptr %13, align 1
+  %14 = load ptr, ptr %1, align 8
+  %15 = getelementptr i8, ptr %14, i64 4
+  store ptr %15, ptr %1, align 8
+  %.not33 = icmp slt i32 %12, 1
+  br i1 %.not33, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %10
+  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %wide.trip.count = zext nneg i32 %spec.select to i64
+  br label %17
+
+17:                                               ; preds = %.lr.ph, %37
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
+  %18 = load ptr, ptr %0, align 8
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %23, label %19
+
+19:                                               ; preds = %17
+  %20 = trunc i64 %indvars.iv to i32
+  %21 = add i32 %20, 1
+  %22 = call ptr %18(ptr noundef nonnull %0, i32 noundef %21, i1 noundef zeroext false, ptr noundef nonnull %3) #6
+  br label %25
+
+23:                                               ; preds = %17
+  %24 = getelementptr [0 x %struct.ParamExternData], ptr %16, i64 0, i64 %indvars.iv
+  br label %25
+
+25:                                               ; preds = %23, %19
+  %.025 = phi ptr [ %22, %19 ], [ %24, %23 ]
+  %26 = getelementptr inbounds i8, ptr %.025, i64 12
+  %27 = load i32, ptr %26, align 4
+  %28 = load ptr, ptr %1, align 8
+  store i32 %27, ptr %28, align 1
+  %29 = load ptr, ptr %1, align 8
+  %30 = getelementptr i8, ptr %29, i64 4
+  store ptr %30, ptr %1, align 8
+  %31 = getelementptr inbounds i8, ptr %.025, i64 10
+  %32 = load i16, ptr %31, align 2
+  store i16 %32, ptr %30, align 1
+  %33 = load ptr, ptr %1, align 8
+  %34 = getelementptr i8, ptr %33, i64 2
+  store ptr %34, ptr %1, align 8
+  %.not31 = icmp eq i32 %27, 0
+  br i1 %.not31, label %36, label %35
+
+35:                                               ; preds = %25
+  call void @get_typlenbyval(i32 noundef %27, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
+  %.pre = load i8, ptr %5, align 1
+  %.pre35 = load i16, ptr %4, align 2
+  br label %37
+
+36:                                               ; preds = %25
+  store i16 8, ptr %4, align 2
+  store i8 1, ptr %5, align 1
+  br label %37
+
+37:                                               ; preds = %36, %35
+  %38 = phi i16 [ 8, %36 ], [ %.pre35, %35 ]
+  %39 = phi i8 [ 1, %36 ], [ %.pre, %35 ]
+  %40 = load i64, ptr %.025, align 8
+  %41 = getelementptr inbounds i8, ptr %.025, i64 8
+  %42 = load i8, ptr %41, align 8
+  %43 = and i8 %42, 1
+  %44 = icmp ne i8 %43, 0
+  %45 = and i8 %39, 1
+  %46 = icmp ne i8 %45, 0
+  %47 = sext i16 %38 to i32
+  call void @datumSerialize(i64 noundef %40, i1 noundef zeroext %44, i1 noundef zeroext %46, i32 noundef %47, ptr noundef nonnull %1) #6
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !8
+
+._crit_edge:                                      ; preds = %37, %.thread, %10
+  ret void
+}
+
+declare void @datumSerialize(i64 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local noundef ptr @RestoreParamList(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = load ptr, ptr %0, align 8
+  %.0.copyload = load i32, ptr %2, align 1
+  %3 = getelementptr i8, ptr %2, i64 4
+  store ptr %3, ptr %0, align 8
+  %4 = sext i32 %.0.copyload to i64
+  %5 = shl nsw i64 %4, 4
+  %6 = add nsw i64 %5, 64
+  %7 = tail call ptr @palloc(i64 noundef %6) #6
+  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
+  store ptr @paramlist_parser_setup, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %7, i64 40
+  store ptr %7, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 48
+  store ptr null, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %7, i64 56
+  store i32 %.0.copyload, ptr %11, align 8
+  %12 = icmp sgt i32 %.0.copyload, 0
+  br i1 %12, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %1
+  %13 = getelementptr inbounds i8, ptr %7, i64 64
+  %wide.trip.count = zext nneg i32 %.0.copyload to i64
+  br label %14
+
+14:                                               ; preds = %.lr.ph, %14
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
+  %15 = getelementptr [0 x %struct.ParamExternData], ptr %13, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds i8, ptr %15, i64 12
+  %17 = load ptr, ptr %0, align 8
+  %18 = load i32, ptr %17, align 1
+  store i32 %18, ptr %16, align 4
+  %19 = load ptr, ptr %0, align 8
+  %20 = getelementptr i8, ptr %19, i64 4
+  store ptr %20, ptr %0, align 8
+  %21 = getelementptr inbounds i8, ptr %15, i64 10
+  %22 = load i16, ptr %20, align 1
+  store i16 %22, ptr %21, align 2
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr i8, ptr %23, i64 2
+  store ptr %24, ptr %0, align 8
+  %25 = getelementptr inbounds i8, ptr %15, i64 8
+  %26 = tail call i64 @datumRestore(ptr noundef nonnull %0, ptr noundef nonnull %25) #6
+  store i64 %26, ptr %15, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !9
+
+._crit_edge:                                      ; preds = %14, %1
+  ret ptr %7
+}
+
+declare i64 @datumRestore(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local ptr @BuildParamLogString(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = alloca %struct.StringInfoData, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  %7 = load ptr, ptr %0, align 8
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %8, label %59
+
+8:                                                ; preds = %3
+  %9 = tail call zeroext i1 @IsAbortedTransactionBlockState() #6
+  br i1 %9, label %59, label %10
+
+10:                                               ; preds = %8
+  call void @initStringInfo(ptr noundef nonnull %4) #6
+  %11 = load ptr, ptr @CurrentMemoryContext, align 8
+  %12 = call ptr @AllocSetContextCreateInternal(ptr noundef %11, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #6
+  %13 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %12, ptr @CurrentMemoryContext, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp sgt i32 %15, 0
+  br i1 %16, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %10
+  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %.not28 = icmp eq ptr %1, null
+  br i1 %.not28, label %.lr.ph.split.us, label %.lr.ph.split
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %32
+  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %32 ], [ 0, %.lr.ph ]
+  %18 = getelementptr [0 x %struct.ParamExternData], ptr %17, i64 0, i64 %indvars.iv34
+  %.not30.us = icmp eq i64 %indvars.iv34, 0
+  %19 = select i1 %.not30.us, ptr @.str.3, ptr @.str.2
+  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
+  %20 = trunc i64 %indvars.iv.next35 to i32
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef nonnull %19, i32 noundef %20) #6
+  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %22 = load i8, ptr %21, align 8
+  %23 = and i8 %22, 1
+  %.not26.us = icmp eq i8 %23, 0
+  br i1 %.not26.us, label %24, label %31
+
+24:                                               ; preds = %.lr.ph.split.us
+  %25 = getelementptr inbounds i8, ptr %18, i64 12
+  %26 = load i32, ptr %25, align 4
+  %.not27.us = icmp eq i32 %26, 0
+  br i1 %.not27.us, label %31, label %27
+
+27:                                               ; preds = %24
+  call void @getTypeOutputInfo(i32 noundef %26, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
+  %28 = load i32, ptr %5, align 4
+  %29 = load i64, ptr %18, align 8
+  %30 = call ptr @OidOutputFunctionCall(i32 noundef %28, i64 noundef %29) #6
+  call void @appendStringInfoStringQuoted(ptr noundef nonnull %4, ptr noundef %30, i32 noundef %2) #6
+  br label %32
+
+31:                                               ; preds = %24, %.lr.ph.split.us
+  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.4) #6
+  br label %32
+
+32:                                               ; preds = %31, %27
+  %33 = load i32, ptr %14, align 8
+  %34 = sext i32 %33 to i64
+  %35 = icmp slt i64 %indvars.iv.next35, %34
+  br i1 %35, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !10
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %54
+  %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.lr.ph ]
+  %36 = getelementptr [0 x %struct.ParamExternData], ptr %17, i64 0, i64 %indvars.iv
+  %.not30 = icmp eq i64 %indvars.iv, 0
+  %37 = select i1 %.not30, ptr @.str.3, ptr @.str.2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %38 = trunc i64 %indvars.iv.next to i32
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef nonnull %37, i32 noundef %38) #6
+  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %40 = load i8, ptr %39, align 8
+  %41 = and i8 %40, 1
+  %.not26 = icmp eq i8 %41, 0
+  br i1 %.not26, label %42, label %45
+
+42:                                               ; preds = %.lr.ph.split
+  %43 = getelementptr inbounds i8, ptr %36, i64 12
+  %44 = load i32, ptr %43, align 4
+  %.not27 = icmp eq i32 %44, 0
+  br i1 %.not27, label %45, label %46
+
+45:                                               ; preds = %42, %.lr.ph.split
+  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.4) #6
+  br label %54
+
+46:                                               ; preds = %42
+  %47 = getelementptr ptr, ptr %1, i64 %indvars.iv
+  %48 = load ptr, ptr %47, align 8
+  %.not29 = icmp eq ptr %48, null
+  br i1 %.not29, label %50, label %49
+
+49:                                               ; preds = %46
+  call void @appendStringInfoStringQuoted(ptr noundef nonnull %4, ptr noundef nonnull %48, i32 noundef %2) #6
+  br label %54
+
+50:                                               ; preds = %46
+  call void @getTypeOutputInfo(i32 noundef %44, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
+  %51 = load i32, ptr %5, align 4
+  %52 = load i64, ptr %36, align 8
+  %53 = call ptr @OidOutputFunctionCall(i32 noundef %51, i64 noundef %52) #6
+  call void @appendStringInfoStringQuoted(ptr noundef nonnull %4, ptr noundef %53, i32 noundef %2) #6
+  br label %54
+
+54:                                               ; preds = %45, %50, %49
+  %55 = load i32, ptr %14, align 8
+  %56 = sext i32 %55 to i64
+  %57 = icmp slt i64 %indvars.iv.next, %56
+  br i1 %57, label %.lr.ph.split, label %._crit_edge, !llvm.loop !10
+
+._crit_edge:                                      ; preds = %54, %32, %10
+  store ptr %13, ptr @CurrentMemoryContext, align 8
+  call void @MemoryContextDelete(ptr noundef %12) #6
+  %58 = load ptr, ptr %4, align 8
+  br label %59
+
+59:                                               ; preds = %3, %8, %._crit_edge
+  %.0 = phi ptr [ %58, %._crit_edge ], [ null, %8 ], [ null, %3 ]
+  ret ptr %.0
+}
+
+declare zeroext i1 @IsAbortedTransactionBlockState() local_unnamed_addr #1
+
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
+
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+
+declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @appendStringInfoStringQuoted(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @getTypeOutputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @OidOutputFunctionCall(i32 noundef, i64 noundef) local_unnamed_addr #1
+
+declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @ParamsErrorCallback(ptr noundef readonly %0) local_unnamed_addr #0 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %28, label %3
+
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %28, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %5, i64 48
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %28, label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %0, align 8
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %22, label %13
+
+13:                                               ; preds = %11
+  %14 = load i8, ptr %12, align 1
+  %.not11 = icmp eq i8 %14, 0
+  br i1 %.not11, label %22, label %15
+
+15:                                               ; preds = %13
+  %16 = tail call i32 @set_errcontext_domain(ptr noundef null) #6
+  %17 = load ptr, ptr %0, align 8
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.5, ptr noundef %17, ptr noundef %20) #6
+  br label %28
+
+22:                                               ; preds = %13, %11
+  %23 = tail call i32 @set_errcontext_domain(ptr noundef null) #6
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.6, ptr noundef %26) #6
+  br label %28
+
+28:                                               ; preds = %1, %3, %7, %22, %15
+  ret void
+}
+
+declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #1
+
+declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal noundef ptr @paramlist_param_ref(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+  %3 = alloca %struct.ParamExternData, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 216
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = load i32, ptr %6, align 4
+  %8 = icmp slt i32 %7, 1
+  br i1 %8, label %37, label %9
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds i8, ptr %5, i64 56
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp sgt i32 %7, %11
+  br i1 %12, label %37, label %13
+
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %5, align 8
+  %.not = icmp eq ptr %14, null
+  br i1 %.not, label %17, label %15
+
+15:                                               ; preds = %13
+  %16 = call ptr %14(ptr noundef nonnull %5, i32 noundef %7, i1 noundef zeroext false, ptr noundef nonnull %3) #6
+  br label %22
+
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %5, i64 64
+  %19 = add nsw i32 %7, -1
+  %20 = zext nneg i32 %19 to i64
+  %21 = getelementptr [0 x %struct.ParamExternData], ptr %18, i64 0, i64 %20
+  br label %22
+
+22:                                               ; preds = %17, %15
+  %.023 = phi ptr [ %16, %15 ], [ %21, %17 ]
+  %23 = getelementptr inbounds i8, ptr %.023, i64 12
+  %24 = load i32, ptr %23, align 4
+  %.not26 = icmp eq i32 %24, 0
+  br i1 %.not26, label %37, label %25
+
+25:                                               ; preds = %22
+  %26 = call noundef ptr @palloc0(i64 noundef 28) #6
+  store i32 8, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  store i32 0, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  store i32 %7, ptr %28, align 4
+  %29 = load i32, ptr %23, align 4
+  %30 = getelementptr inbounds i8, ptr %26, i64 12
+  store i32 %29, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %26, i64 16
+  store i32 -1, ptr %31, align 4
+  %32 = call i32 @get_typcollation(i32 noundef %29) #6
+  %33 = getelementptr inbounds i8, ptr %26, i64 20
+  store i32 %32, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = load i32, ptr %34, align 4
+  %36 = getelementptr inbounds i8, ptr %26, i64 24
+  store i32 %35, ptr %36, align 4
+  br label %37
+
+37:                                               ; preds = %22, %2, %9, %25
+  %.0 = phi ptr [ %26, %25 ], [ null, %9 ], [ null, %2 ], [ null, %22 ]
+  ret ptr %.0
+}
+
+declare i32 @get_typcollation(i32 noundef) local_unnamed_addr #1
+
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #5
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

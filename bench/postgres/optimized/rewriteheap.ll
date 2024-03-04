@@ -1,0 +1,1547 @@
+; ModuleID = 'bench/postgres/original/rewriteheap.ll'
+source_filename = "bench/postgres/original/rewriteheap.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.HASH_SEQ_STATUS = type { ptr, i32, ptr }
+%struct.ItemIdData = type { i32 }
+%struct.ItemPointerData = type { %struct.BlockIdData, i16 }
+%struct.BlockIdData = type { i16, i16 }
+%struct.LogicalRewriteMappingData = type { %struct.RelFileLocator, %struct.RelFileLocator, %struct.ItemPointerData, %struct.ItemPointerData }
+%struct.RelFileLocator = type { i32, i32, i32 }
+%struct.TidHashKey = type { i32, %struct.ItemPointerData }
+%struct.iovec = type { ptr, i64 }
+%struct.xl_heap_rewrite_mapping = type { i32, i32, i32, i64, i32, i64 }
+
+@CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
+@.str = private unnamed_addr constant [14 x i8] c"Table rewrite\00", align 1
+@.str.1 = private unnamed_addr constant [27 x i8] c"Rewrite / Unresolved ctids\00", align 1
+@.str.2 = private unnamed_addr constant [29 x i8] c"Rewrite / Old to new tid map\00", align 1
+@.str.3 = private unnamed_addr constant [42 x i8] c"pg_logical/mappings/map-%x-%x-%X_%X-%x-%x\00", align 1
+@.str.4 = private unnamed_addr constant [31 x i8] c"could not create file \22%s\22: %m\00", align 1
+@.str.5 = private unnamed_addr constant [14 x i8] c"rewriteheap.c\00", align 1
+@__func__.heap_xlog_logical_rewrite = private unnamed_addr constant [26 x i8] c"heap_xlog_logical_rewrite\00", align 1
+@.str.6 = private unnamed_addr constant [39 x i8] c"could not truncate file \22%s\22 to %u: %m\00", align 1
+@.str.7 = private unnamed_addr constant [33 x i8] c"could not write to file \22%s\22: %m\00", align 1
+@.str.8 = private unnamed_addr constant [30 x i8] c"could not fsync file \22%s\22: %m\00", align 1
+@.str.9 = private unnamed_addr constant [30 x i8] c"could not close file \22%s\22: %m\00", align 1
+@.str.10 = private unnamed_addr constant [20 x i8] c"pg_logical/mappings\00", align 1
+@.str.11 = private unnamed_addr constant [2 x i8] c".\00", align 1
+@.str.12 = private unnamed_addr constant [3 x i8] c"..\00", align 1
+@.str.13 = private unnamed_addr constant [23 x i8] c"pg_logical/mappings/%s\00", align 1
+@.str.14 = private unnamed_addr constant [5 x i8] c"map-\00", align 1
+@.str.15 = private unnamed_addr constant [22 x i8] c"map-%x-%x-%X_%X-%x-%x\00", align 1
+@.str.16 = private unnamed_addr constant [30 x i8] c"could not parse filename \22%s\22\00", align 1
+@__func__.CheckPointLogicalRewriteHeap = private unnamed_addr constant [29 x i8] c"CheckPointLogicalRewriteHeap\00", align 1
+@.str.17 = private unnamed_addr constant [35 x i8] c"removing logical rewrite file \22%s\22\00", align 1
+@.str.18 = private unnamed_addr constant [31 x i8] c"could not remove file \22%s\22: %m\00", align 1
+@.str.19 = private unnamed_addr constant [29 x i8] c"could not open file \22%s\22: %m\00", align 1
+@.str.20 = private unnamed_addr constant [43 x i8] c"row is too big: size %zu, maximum size %zu\00", align 1
+@__func__.raw_heap_insert = private unnamed_addr constant [16 x i8] c"raw_heap_insert\00", align 1
+@.str.21 = private unnamed_addr constant [20 x i8] c"failed to add tuple\00", align 1
+@wal_level = external local_unnamed_addr global i32, align 4
+@.str.22 = private unnamed_addr constant [24 x i8] c"Logical rewrite mapping\00", align 1
+@__func__.logical_end_heap_rewrite = private unnamed_addr constant [25 x i8] c"logical_end_heap_rewrite\00", align 1
+@.str.23 = private unnamed_addr constant [44 x i8] c"flushing %u logical rewrite mapping entries\00", align 1
+@__func__.logical_heap_rewrite_flush_mappings = private unnamed_addr constant [36 x i8] c"logical_heap_rewrite_flush_mappings\00", align 1
+@MyDatabaseId = external local_unnamed_addr global i32, align 4
+@.str.24 = private unnamed_addr constant [49 x i8] c"could not write to file \22%s\22, wrote %d of %d: %m\00", align 1
+@__func__.logical_rewrite_log_mapping = private unnamed_addr constant [28 x i8] c"logical_rewrite_log_mapping\00", align 1
+@my_wait_event_info = external local_unnamed_addr global ptr, align 8
+
+; Function Attrs: nounwind uwtable
+define dso_local noundef ptr @begin_heap_rewrite(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+  %6 = alloca %struct.HASHCTL, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %struct.HASHCTL, align 8
+  %9 = load ptr, ptr @CurrentMemoryContext, align 8
+  %10 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %9, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #13
+  %11 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %10, ptr @CurrentMemoryContext, align 8
+  %12 = tail call ptr @palloc0(i64 noundef 104) #13
+  store ptr %0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %12, i64 24
+  store ptr null, ptr %14, align 8
+  %15 = tail call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %1, i32 noundef 0) #13
+  %16 = getelementptr inbounds i8, ptr %12, i64 32
+  store i32 %15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %12, i64 40
+  store i32 %2, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %12, i64 44
+  store i32 %3, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %12, i64 52
+  store i32 %4, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %12, i64 56
+  store ptr %10, ptr %20, align 8
+  %21 = tail call ptr @smgr_bulk_start_rel(ptr noundef %1, i32 noundef 0) #13
+  %22 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %8, i64 32
+  store i64 12, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %8, i64 40
+  store i64 32, ptr %24, align 8
+  %25 = load ptr, ptr %20, align 8
+  %26 = getelementptr inbounds i8, ptr %8, i64 80
+  store ptr %25, ptr %26, align 8
+  %27 = call ptr @hash_create(ptr noundef nonnull @.str.1, i64 noundef 128, ptr noundef nonnull %8, i32 noundef 1064) #13
+  %28 = getelementptr inbounds i8, ptr %12, i64 72
+  store ptr %27, ptr %28, align 8
+  store i64 20, ptr %24, align 8
+  %29 = call ptr @hash_create(ptr noundef nonnull @.str.2, i64 noundef 128, ptr noundef nonnull %8, i32 noundef 1064) #13
+  %30 = getelementptr inbounds i8, ptr %12, i64 80
+  store ptr %29, ptr %30, align 8
+  store ptr %11, ptr @CurrentMemoryContext, align 8
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  %31 = load i32, ptr @wal_level, align 4
+  %32 = icmp sgt i32 %31, 1
+  br i1 %32, label %33, label %.thread.i
+
+33:                                               ; preds = %5
+  %34 = load ptr, ptr %12, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 56
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 114
+  %38 = load i8, ptr %37, align 2
+  %39 = icmp eq i8 %38, 112
+  br i1 %39, label %40, label %.thread.i
+
+40:                                               ; preds = %33
+  %41 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %34) #13
+  br i1 %41, label %.thread18.i, label %43
+
+.thread18.i:                                      ; preds = %40
+  %42 = getelementptr inbounds i8, ptr %12, i64 36
+  store i8 1, ptr %42, align 4
+  br label %58
+
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %12, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 296
+  %46 = load ptr, ptr %45, align 8
+  %.not.i = icmp eq ptr %46, null
+  br i1 %.not.i, label %.thread.i, label %47
+
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds i8, ptr %44, i64 56
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 115
+  %51 = load i8, ptr %50, align 1
+  switch i8 %51, label %.thread.i [
+    i8 114, label %53
+    i8 109, label %53
+  ]
+
+.thread.i:                                        ; preds = %47, %43, %33, %5
+  %52 = getelementptr inbounds i8, ptr %12, i64 36
+  store i8 0, ptr %52, align 4
+  br label %logical_begin_heap_rewrite.exit
+
+53:                                               ; preds = %47, %47
+  %54 = getelementptr inbounds i8, ptr %46, i64 96
+  %55 = load i8, ptr %54, align 8
+  %56 = and i8 %55, 1
+  %.not19.i = icmp eq i8 %56, 0
+  %57 = getelementptr inbounds i8, ptr %12, i64 36
+  store i8 %56, ptr %57, align 4
+  br i1 %.not19.i, label %logical_begin_heap_rewrite.exit, label %58
+
+58:                                               ; preds = %53, %.thread18.i
+  %59 = phi ptr [ %42, %.thread18.i ], [ %57, %53 ]
+  call void @ProcArrayGetReplicationSlotXmin(ptr noundef null, ptr noundef nonnull %7) #13
+  %60 = load i32, ptr %7, align 4
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %63
+
+62:                                               ; preds = %58
+  store i8 0, ptr %59, align 4
+  br label %logical_begin_heap_rewrite.exit
+
+63:                                               ; preds = %58
+  %64 = getelementptr inbounds i8, ptr %12, i64 48
+  store i32 %60, ptr %64, align 8
+  %65 = call i64 @GetXLogInsertRecPtr() #13
+  %66 = getelementptr inbounds i8, ptr %12, i64 64
+  store i64 %65, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %12, i64 96
+  store i32 0, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %6, i64 32
+  store i64 4, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %6, i64 40
+  store i64 1064, ptr %69, align 8
+  %70 = load ptr, ptr %20, align 8
+  %71 = getelementptr inbounds i8, ptr %6, i64 80
+  store ptr %70, ptr %71, align 8
+  %72 = call ptr @hash_create(ptr noundef nonnull @.str.22, i64 noundef 128, ptr noundef nonnull %6, i32 noundef 1064) #13
+  %73 = getelementptr inbounds i8, ptr %12, i64 88
+  store ptr %72, ptr %73, align 8
+  br label %logical_begin_heap_rewrite.exit
+
+logical_begin_heap_rewrite.exit:                  ; preds = %.thread.i, %53, %62, %63
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  ret ptr %12
+}
+
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
+
+declare i32 @RelationGetNumberOfBlocksInFork(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @smgr_bulk_start_rel(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @end_heap_rewrite(ptr nocapture noundef %0) local_unnamed_addr #0 {
+  %2 = alloca %struct.HASH_SEQ_STATUS, align 8
+  %3 = alloca %struct.HASH_SEQ_STATUS, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = load ptr, ptr %4, align 8
+  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %5) #13
+  %6 = call ptr @hash_seq_search(ptr noundef nonnull %3) #13
+  %.not14 = icmp eq ptr %6, null
+  br i1 %.not14, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %7 = phi ptr [ %16, %.lr.ph ], [ %6, %1 ]
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 12
+  store i16 -1, ptr %12, align 2
+  %13 = getelementptr inbounds i8, ptr %11, i64 14
+  store i16 -1, ptr %13, align 2
+  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  store i16 0, ptr %14, align 2
+  %15 = load ptr, ptr %8, align 8
+  call fastcc void @raw_heap_insert(ptr noundef %0, ptr noundef %15)
+  %16 = call ptr @hash_seq_search(ptr noundef nonnull %3) #13
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %.not13 = icmp eq ptr %18, null
+  br i1 %.not13, label %24, label %19
+
+19:                                               ; preds = %._crit_edge
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = load i32, ptr %22, align 8
+  call void @smgr_bulk_write(ptr noundef %21, i32 noundef %23, ptr noundef nonnull %18, i1 noundef zeroext true) #13
+  store ptr null, ptr %17, align 8
+  br label %24
+
+24:                                               ; preds = %19, %._crit_edge
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8
+  call void @smgr_bulk_finish(ptr noundef %26) #13
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  %27 = getelementptr inbounds i8, ptr %0, i64 36
+  %28 = load i8, ptr %27, align 4
+  %29 = and i8 %28, 1
+  %.not.i = icmp eq i8 %29, 0
+  br i1 %.not.i, label %logical_end_heap_rewrite.exit, label %30
+
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds i8, ptr %0, i64 96
+  %32 = load i32, ptr %31, align 8
+  %.not7.i = icmp eq i32 %32, 0
+  br i1 %.not7.i, label %34, label %33
+
+33:                                               ; preds = %30
+  call fastcc void @logical_heap_rewrite_flush_mappings(ptr noundef nonnull %0)
+  br label %34
+
+34:                                               ; preds = %33, %30
+  %35 = getelementptr inbounds i8, ptr %0, i64 88
+  %36 = load ptr, ptr %35, align 8
+  call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %36) #13
+  %37 = call ptr @hash_seq_search(ptr noundef nonnull %2) #13
+  %.not810.i = icmp eq ptr %37, null
+  br i1 %.not810.i, label %logical_end_heap_rewrite.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %34, %49
+  %38 = phi ptr [ %51, %49 ], [ %37, %34 ]
+  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %40 = load i32, ptr %39, align 4
+  %41 = call i32 @FileSync(i32 noundef %40, i32 noundef 167772193) #13
+  %.not9.i = icmp eq i32 %41, 0
+  br i1 %.not9.i, label %49, label %42
+
+42:                                               ; preds = %.lr.ph.i
+  %43 = call i32 @data_sync_elevel(i32 noundef 21) #13
+  %44 = call zeroext i1 @errstart(i32 noundef %43, ptr noundef null) #13
+  br i1 %44, label %45, label %49
+
+45:                                               ; preds = %42
+  %46 = call i32 @errcode_for_file_access() #13
+  %47 = getelementptr inbounds i8, ptr %38, i64 40
+  %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %47) #13
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 927, ptr noundef nonnull @__func__.logical_end_heap_rewrite) #13
+  br label %49
+
+49:                                               ; preds = %45, %42, %.lr.ph.i
+  %50 = load i32, ptr %39, align 4
+  call void @FileClose(i32 noundef %50) #13
+  %51 = call ptr @hash_seq_search(ptr noundef nonnull %2) #13
+  %.not8.i = icmp eq ptr %51, null
+  br i1 %.not8.i, label %logical_end_heap_rewrite.exit, label %.lr.ph.i, !llvm.loop !7
+
+logical_end_heap_rewrite.exit:                    ; preds = %49, %24, %34
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  %52 = getelementptr inbounds i8, ptr %0, i64 56
+  %53 = load ptr, ptr %52, align 8
+  call void @MemoryContextDelete(ptr noundef %53) #13
+  ret void
+}
+
+declare void @hash_seq_init(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @raw_heap_insert(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 56
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 115
+  %8 = load i8, ptr %7, align 1
+  %9 = icmp eq i8 %8, 116
+  br i1 %9, label %21, label %10
+
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 20
+  %14 = load i16, ptr %13, align 4
+  %15 = and i16 %14, 4
+  %.not = icmp eq i16 %15, 0
+  br i1 %.not, label %16, label %19
+
+16:                                               ; preds = %10
+  %17 = load i32, ptr %1, align 8
+  %18 = icmp ugt i32 %17, 2032
+  br i1 %18, label %19, label %21
+
+19:                                               ; preds = %16, %10
+  %20 = tail call ptr @heap_toast_insert_or_update(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef null, i32 noundef 10) #13
+  br label %21
+
+21:                                               ; preds = %16, %2, %19
+  %.046 = phi ptr [ %20, %19 ], [ %1, %2 ], [ %1, %16 ]
+  %22 = load i32, ptr %.046, align 8
+  %23 = zext i32 %22 to i64
+  %24 = add nuw nsw i64 %23, 7
+  %25 = and i64 %24, 8589934584
+  %26 = icmp ugt i64 %25, 8160
+  br i1 %26, label %27, label %31
+
+27:                                               ; preds = %21
+  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %28)
+  %29 = tail call i32 @errcode(i32 noundef 261) #13
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, i64 noundef %25, i64 noundef 8160) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 643, ptr noundef nonnull @__func__.raw_heap_insert) #13
+  unreachable
+
+31:                                               ; preds = %21
+  %32 = load ptr, ptr %3, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 296
+  %34 = load ptr, ptr %33, align 8
+  %.not52 = icmp eq ptr %34, null
+  br i1 %.not52, label %42, label %35
+
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds i8, ptr %34, i64 4
+  %37 = load i32, ptr %36, align 4
+  %38 = shl i32 %37, 13
+  %39 = sub i32 819200, %38
+  %40 = sdiv i32 %39, 100
+  %41 = sext i32 %40 to i64
+  br label %42
+
+42:                                               ; preds = %31, %35
+  %43 = phi i64 [ %41, %35 ], [ 0, %31 ]
+  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  %45 = load ptr, ptr %44, align 8
+  %.not53 = icmp eq ptr %45, null
+  br i1 %.not53, label %58, label %46
+
+46:                                               ; preds = %42
+  %47 = tail call i64 @PageGetHeapFreeSpace(ptr noundef nonnull %45) #13
+  %48 = add nsw i64 %43, %25
+  %49 = icmp ugt i64 %48, %47
+  br i1 %49, label %50, label %62
+
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %54 = load i32, ptr %53, align 8
+  %55 = load ptr, ptr %44, align 8
+  tail call void @smgr_bulk_write(ptr noundef %52, i32 noundef %54, ptr noundef %55, i1 noundef zeroext true) #13
+  store ptr null, ptr %44, align 8
+  %56 = load i32, ptr %53, align 8
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %53, align 8
+  br label %58
+
+58:                                               ; preds = %50, %42
+  %59 = getelementptr inbounds i8, ptr %0, i64 16
+  %60 = load ptr, ptr %59, align 8
+  %61 = tail call ptr @smgr_bulk_get_buf(ptr noundef %60) #13
+  store ptr %61, ptr %44, align 8
+  tail call void @PageInit(ptr noundef %61, i64 noundef 8192, i64 noundef 0) #13
+  br label %62
+
+62:                                               ; preds = %46, %58
+  %.1 = phi ptr [ %61, %58 ], [ %45, %46 ]
+  %63 = getelementptr inbounds i8, ptr %.046, i64 16
+  %64 = load ptr, ptr %63, align 8
+  %65 = load i32, ptr %.046, align 8
+  %66 = zext i32 %65 to i64
+  %67 = tail call zeroext i16 @PageAddItemExtended(ptr noundef %.1, ptr noundef %64, i64 noundef %66, i16 noundef zeroext 0, i32 noundef 2) #13
+  %68 = icmp eq i16 %67, 0
+  br i1 %68, label %69, label %72
+
+69:                                               ; preds = %62
+  %70 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %70)
+  %71 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 681, ptr noundef nonnull @__func__.raw_heap_insert) #13
+  unreachable
+
+72:                                               ; preds = %62
+  %73 = getelementptr inbounds i8, ptr %1, i64 4
+  %74 = getelementptr inbounds i8, ptr %0, i64 32
+  %75 = load i32, ptr %74, align 8
+  %76 = lshr i32 %75, 16
+  %77 = trunc i32 %76 to i16
+  store i16 %77, ptr %73, align 2
+  %78 = trunc i32 %75 to i16
+  %79 = getelementptr inbounds i8, ptr %1, i64 6
+  store i16 %78, ptr %79, align 2
+  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  store i16 %67, ptr %80, align 2
+  %81 = getelementptr inbounds i8, ptr %1, i64 16
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %84 = load i16, ptr %83, align 2
+  %.not58 = icmp eq i16 %84, 0
+  br i1 %.not58, label %85, label %94
+
+85:                                               ; preds = %72
+  %86 = getelementptr inbounds i8, ptr %.1, i64 24
+  %87 = zext i16 %67 to i64
+  %88 = add nsw i64 %87, -1
+  %89 = getelementptr [0 x %struct.ItemIdData], ptr %86, i64 0, i64 %88
+  %.val = load i32, ptr %89, align 4
+  %90 = and i32 %.val, 32767
+  %91 = zext nneg i32 %90 to i64
+  %92 = getelementptr i8, ptr %.1, i64 %91
+  %93 = getelementptr inbounds i8, ptr %92, i64 12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %93, ptr noundef nonnull align 4 dereferenceable(6) %73, i64 6, i1 false)
+  br label %94
+
+94:                                               ; preds = %85, %72
+  %.not55 = icmp eq ptr %.046, %1
+  br i1 %.not55, label %96, label %95
+
+95:                                               ; preds = %94
+  tail call void @heap_freetuple(ptr noundef nonnull %.046) #13
+  br label %96
+
+96:                                               ; preds = %95, %94
+  ret void
+}
+
+declare void @smgr_bulk_write(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
+
+declare void @smgr_bulk_finish(ptr noundef) local_unnamed_addr #1
+
+declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @rewrite_heap_tuple(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = alloca %struct.ItemPointerData, align 2
+  %5 = alloca %struct.LogicalRewriteMappingData, align 4
+  %6 = alloca %struct.TidHashKey, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca %struct.ItemPointerData, align 2
+  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %10, ptr @CurrentMemoryContext, align 8
+  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = load ptr, ptr %14, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false)
+  %16 = load ptr, ptr %12, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 20
+  %18 = load i16, ptr %17, align 4
+  %19 = and i16 %18, 15
+  store i16 %19, ptr %17, align 4
+  %20 = load ptr, ptr %12, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 18
+  %22 = load i16, ptr %21, align 2
+  %23 = and i16 %22, 8191
+  store i16 %23, ptr %21, align 2
+  %24 = load ptr, ptr %14, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 20
+  %26 = load i16, ptr %25, align 4
+  %27 = and i16 %26, -16
+  %28 = load ptr, ptr %12, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 20
+  %30 = load i16, ptr %29, align 4
+  %31 = or i16 %30, %27
+  store i16 %31, ptr %29, align 4
+  %32 = load ptr, ptr %12, align 8
+  %33 = load ptr, ptr %0, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 56
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 132
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds i8, ptr %35, i64 136
+  %39 = load i32, ptr %38, align 4
+  %40 = getelementptr inbounds i8, ptr %0, i64 44
+  %41 = load i32, ptr %40, align 4
+  %42 = getelementptr inbounds i8, ptr %0, i64 52
+  %43 = load i32, ptr %42, align 4
+  %44 = tail call zeroext i1 @heap_freeze_tuple(ptr noundef %32, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef %43) #13
+  %45 = load ptr, ptr %12, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 12
+  store i16 -1, ptr %46, align 2
+  %47 = getelementptr inbounds i8, ptr %45, i64 14
+  store i16 -1, ptr %47, align 2
+  %48 = getelementptr inbounds i8, ptr %45, i64 16
+  store i16 0, ptr %48, align 2
+  %49 = load ptr, ptr %14, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 20
+  %51 = load i16, ptr %50, align 4
+  %52 = and i16 %51, 2048
+  %.not = icmp eq i16 %52, 0
+  br i1 %.not, label %53, label %99
+
+53:                                               ; preds = %3
+  %54 = tail call zeroext i1 @HeapTupleHeaderIsOnlyLocked(ptr noundef nonnull %49) #13
+  br i1 %54, label %99, label %55
+
+55:                                               ; preds = %53
+  %56 = load ptr, ptr %14, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 12
+  %58 = getelementptr i8, ptr %56, i64 16
+  %.val.i = load i16, ptr %58, align 2
+  %59 = icmp eq i16 %.val.i, -3
+  br i1 %59, label %ItemPointerIndicatesMovedPartitions.exit, label %ItemPointerIndicatesMovedPartitions.exit.thread
+
+ItemPointerIndicatesMovedPartitions.exit:         ; preds = %55
+  %.val2.i = load i16, ptr %57, align 2
+  %60 = getelementptr i8, ptr %56, i64 14
+  %.val3.i = load i16, ptr %60, align 2
+  %61 = zext i16 %.val2.i to i32
+  %62 = shl nuw i32 %61, 16
+  %63 = zext i16 %.val3.i to i32
+  %64 = or disjoint i32 %62, %63
+  %65 = icmp eq i32 %64, -1
+  br i1 %65, label %99, label %ItemPointerIndicatesMovedPartitions.exit.thread
+
+ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %55, %ItemPointerIndicatesMovedPartitions.exit
+  %66 = getelementptr inbounds i8, ptr %1, i64 4
+  %67 = tail call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %66, ptr noundef nonnull %57) #13
+  br i1 %67, label %99, label %68
+
+68:                                               ; preds = %ItemPointerIndicatesMovedPartitions.exit.thread
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false)
+  %69 = load ptr, ptr %14, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 20
+  %71 = load i16, ptr %70, align 4
+  %72 = and i16 %71, 6272
+  %or.cond71 = icmp eq i16 %72, 4096
+  br i1 %or.cond71, label %73, label %75
+
+73:                                               ; preds = %68
+  %74 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %69) #13
+  %.pre = load ptr, ptr %14, align 8
+  br label %78
+
+75:                                               ; preds = %68
+  %76 = getelementptr inbounds i8, ptr %69, i64 4
+  %77 = load i32, ptr %76, align 4
+  br label %78
+
+78:                                               ; preds = %75, %73
+  %79 = phi ptr [ %.pre, %73 ], [ %69, %75 ]
+  %80 = phi i32 [ %74, %73 ], [ %77, %75 ]
+  store i32 %80, ptr %6, align 4
+  %81 = getelementptr inbounds i8, ptr %6, i64 4
+  %82 = getelementptr inbounds i8, ptr %79, i64 12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %81, ptr noundef nonnull align 4 dereferenceable(6) %82, i64 6, i1 false)
+  %83 = getelementptr inbounds i8, ptr %0, i64 80
+  %84 = load ptr, ptr %83, align 8
+  %85 = call ptr @hash_search(ptr noundef %84, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null) #13
+  %.not68 = icmp eq ptr %85, null
+  br i1 %.not68, label %92, label %86
+
+86:                                               ; preds = %78
+  %87 = load ptr, ptr %12, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 12
+  %89 = getelementptr inbounds i8, ptr %85, i64 12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %88, ptr noundef nonnull align 4 dereferenceable(6) %89, i64 6, i1 false)
+  %90 = load ptr, ptr %83, align 8
+  %91 = call ptr @hash_search(ptr noundef %90, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %7) #13
+  br label %99
+
+92:                                               ; preds = %78
+  %93 = getelementptr inbounds i8, ptr %0, i64 72
+  %94 = load ptr, ptr %93, align 8
+  %95 = call ptr @hash_search(ptr noundef %94, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %7) #13
+  %96 = getelementptr inbounds i8, ptr %95, i64 12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %96, ptr noundef nonnull align 4 dereferenceable(6) %66, i64 6, i1 false)
+  %97 = call ptr @heap_copytuple(ptr noundef nonnull %2) #13
+  %98 = getelementptr inbounds i8, ptr %95, i64 24
+  store ptr %97, ptr %98, align 8
+  br label %201
+
+99:                                               ; preds = %86, %ItemPointerIndicatesMovedPartitions.exit.thread, %ItemPointerIndicatesMovedPartitions.exit, %53, %3
+  %100 = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.0.0.copyload = load i48, ptr %100, align 4
+  %101 = getelementptr inbounds i8, ptr %0, i64 48
+  %102 = getelementptr inbounds i8, ptr %0, i64 36
+  %103 = getelementptr inbounds i8, ptr %5, i64 24
+  %104 = getelementptr inbounds i8, ptr %5, i64 12
+  %105 = getelementptr inbounds i8, ptr %0, i64 8
+  %106 = getelementptr inbounds i8, ptr %5, i64 30
+  %107 = getelementptr inbounds i8, ptr %0, i64 40
+  %108 = getelementptr inbounds i8, ptr %6, i64 4
+  %109 = getelementptr inbounds i8, ptr %0, i64 72
+  br label %110
+
+110:                                              ; preds = %186, %99
+  %.062 = phi i1 [ false, %99 ], [ true, %186 ]
+  %.sroa.0.0 = phi i48 [ %.sroa.0.0.copyload, %99 ], [ %.sroa.0.0.copyload11, %186 ]
+  %.0 = phi ptr [ %2, %99 ], [ %188, %186 ]
+  call fastcc void @raw_heap_insert(ptr noundef nonnull %0, ptr noundef nonnull %.0)
+  %111 = getelementptr inbounds i8, ptr %.0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %8, ptr noundef nonnull align 4 dereferenceable(6) %111, i64 6, i1 false)
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %4, ptr noundef nonnull align 4 dereferenceable(6) %111, i64 6, i1 false)
+  %112 = load i32, ptr %101, align 8
+  %113 = load i8, ptr %102, align 4
+  %114 = and i8 %113, 1
+  %.not.i = icmp eq i8 %114, 0
+  br i1 %.not.i, label %logical_rewrite_heap_tuple.exit, label %115
+
+115:                                              ; preds = %110
+  %116 = getelementptr inbounds i8, ptr %.0, i64 16
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 20
+  %119 = load i16, ptr %118, align 4
+  %120 = and i16 %119, 768
+  %121 = icmp eq i16 %120, 768
+  br i1 %121, label %124, label %122
+
+122:                                              ; preds = %115
+  %123 = load i32, ptr %117, align 4
+  br label %124
+
+124:                                              ; preds = %122, %115
+  %125 = phi i32 [ %123, %122 ], [ 2, %115 ]
+  %126 = and i16 %119, 6272
+  %or.cond36.i = icmp eq i16 %126, 4096
+  br i1 %or.cond36.i, label %127, label %129
+
+127:                                              ; preds = %124
+  %128 = call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %117) #13
+  br label %132
+
+129:                                              ; preds = %124
+  %130 = getelementptr inbounds i8, ptr %117, i64 4
+  %131 = load i32, ptr %130, align 4
+  br label %132
+
+132:                                              ; preds = %129, %127
+  %133 = phi i32 [ %128, %127 ], [ %131, %129 ]
+  %134 = icmp ugt i32 %125, 2
+  br i1 %134, label %135, label %137
+
+135:                                              ; preds = %132
+  %136 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %125, i32 noundef %112) #13
+  %not..i = xor i1 %136, true
+  br label %137
+
+137:                                              ; preds = %135, %132
+  %.029.i = phi i1 [ false, %132 ], [ %not..i, %135 ]
+  %138 = icmp ugt i32 %133, 2
+  br i1 %138, label %139, label %149
+
+139:                                              ; preds = %137
+  %140 = load ptr, ptr %116, align 8
+  %141 = getelementptr inbounds i8, ptr %140, i64 20
+  %142 = load i16, ptr %141, align 4
+  %143 = zext i16 %142 to i32
+  %144 = and i32 %143, 128
+  %.not35.i = icmp ne i32 %144, 0
+  %145 = and i32 %143, 4176
+  %146 = icmp eq i32 %145, 64
+  %or.cond38.i = or i1 %.not35.i, %146
+  br i1 %or.cond38.i, label %149, label %147
+
+147:                                              ; preds = %139
+  %148 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %133, i32 noundef %112) #13
+  %not.42.i = xor i1 %148, true
+  br label %149
+
+149:                                              ; preds = %147, %139, %137
+  %.0.i = phi i1 [ false, %139 ], [ false, %137 ], [ %not.42.i, %147 ]
+  %brmerge.i = or i1 %.029.i, %.0.i
+  br i1 %brmerge.i, label %150, label %logical_rewrite_heap_tuple.exit
+
+150:                                              ; preds = %149
+  %151 = load ptr, ptr %0, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %151, i64 12, i1 false)
+  store i48 %.sroa.0.0, ptr %103, align 4
+  %152 = load ptr, ptr %105, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %104, ptr noundef nonnull align 8 dereferenceable(12) %152, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %106, ptr noundef nonnull align 2 dereferenceable(6) %4, i64 6, i1 false)
+  br i1 %.029.i, label %153, label %154
+
+153:                                              ; preds = %150
+  call fastcc void @logical_rewrite_log_mapping(ptr noundef nonnull %0, i32 noundef %125, ptr noundef nonnull %5)
+  br label %154
+
+154:                                              ; preds = %153, %150
+  %155 = icmp ne i32 %125, %133
+  %or.cond40.not.i = select i1 %.0.i, i1 %155, i1 false
+  br i1 %or.cond40.not.i, label %156, label %logical_rewrite_heap_tuple.exit
+
+156:                                              ; preds = %154
+  call fastcc void @logical_rewrite_log_mapping(ptr noundef nonnull %0, i32 noundef %133, ptr noundef nonnull %5)
+  br label %logical_rewrite_heap_tuple.exit
+
+logical_rewrite_heap_tuple.exit:                  ; preds = %110, %149, %154, %156
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5)
+  %157 = getelementptr inbounds i8, ptr %.0, i64 16
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds i8, ptr %158, i64 20
+  %160 = load i16, ptr %159, align 4
+  %161 = zext i16 %160 to i32
+  %162 = and i32 %161, 8192
+  %.not69 = icmp eq i32 %162, 0
+  br i1 %.not69, label %.loopexit, label %163
+
+163:                                              ; preds = %logical_rewrite_heap_tuple.exit
+  %164 = and i32 %161, 768
+  %165 = icmp eq i32 %164, 768
+  br i1 %165, label %168, label %166
+
+166:                                              ; preds = %163
+  %167 = load i32, ptr %158, align 4
+  br label %168
+
+168:                                              ; preds = %163, %166
+  %169 = phi i32 [ %167, %166 ], [ 2, %163 ]
+  %170 = load i32, ptr %107, align 8
+  %171 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %169, i32 noundef %170) #13
+  br i1 %171, label %.loopexit, label %172
+
+172:                                              ; preds = %168
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false)
+  %173 = load ptr, ptr %157, align 8
+  %174 = getelementptr inbounds i8, ptr %173, i64 20
+  %175 = load i16, ptr %174, align 4
+  %176 = and i16 %175, 768
+  %177 = icmp eq i16 %176, 768
+  br i1 %177, label %180, label %178
+
+178:                                              ; preds = %172
+  %179 = load i32, ptr %173, align 4
+  br label %180
+
+180:                                              ; preds = %172, %178
+  %181 = phi i32 [ %179, %178 ], [ 2, %172 ]
+  store i32 %181, ptr %6, align 4
+  store i48 %.sroa.0.0, ptr %108, align 4
+  %182 = load ptr, ptr %109, align 8
+  %183 = call ptr @hash_search(ptr noundef %182, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null) #13
+  %.not70 = icmp eq ptr %183, null
+  br i1 %.not70, label %195, label %184
+
+184:                                              ; preds = %180
+  br i1 %.062, label %185, label %186
+
+185:                                              ; preds = %184
+  call void @heap_freetuple(ptr noundef nonnull %.0) #13
+  br label %186
+
+186:                                              ; preds = %185, %184
+  %187 = getelementptr inbounds i8, ptr %183, i64 24
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds i8, ptr %183, i64 12
+  %.sroa.0.0.copyload11 = load i48, ptr %189, align 4
+  %190 = getelementptr inbounds i8, ptr %188, i64 16
+  %191 = load ptr, ptr %190, align 8
+  %192 = getelementptr inbounds i8, ptr %191, i64 12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %192, ptr noundef nonnull align 2 dereferenceable(6) %8, i64 6, i1 false)
+  %193 = load ptr, ptr %109, align 8
+  %194 = call ptr @hash_search(ptr noundef %193, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %7) #13
+  br label %110
+
+195:                                              ; preds = %180
+  %196 = getelementptr inbounds i8, ptr %0, i64 80
+  %197 = load ptr, ptr %196, align 8
+  %198 = call ptr @hash_search(ptr noundef %197, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %7) #13
+  %199 = getelementptr inbounds i8, ptr %198, i64 12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %199, ptr noundef nonnull align 2 dereferenceable(6) %8, i64 6, i1 false)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %168, %logical_rewrite_heap_tuple.exit, %195
+  br i1 %.062, label %200, label %201
+
+200:                                              ; preds = %.loopexit
+  call void @heap_freetuple(ptr noundef nonnull %.0) #13
+  br label %201
+
+201:                                              ; preds = %200, %.loopexit, %92
+  store ptr %11, ptr @CurrentMemoryContext, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+
+declare zeroext i1 @heap_freeze_tuple(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare zeroext i1 @HeapTupleHeaderIsOnlyLocked(ptr noundef) local_unnamed_addr #1
+
+declare zeroext i1 @ItemPointerEquals(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+
+declare i32 @HeapTupleGetUpdateXid(ptr noundef) local_unnamed_addr #1
+
+declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @heap_copytuple(ptr noundef) local_unnamed_addr #1
+
+declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @heap_freetuple(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local noundef zeroext i1 @rewrite_heap_dead_tuple(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+  %3 = alloca %struct.TidHashKey, align 4
+  %4 = alloca i8, align 1
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 0, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 20
+  %9 = load i16, ptr %8, align 4
+  %10 = and i16 %9, 768
+  %11 = icmp eq i16 %10, 768
+  br i1 %11, label %14, label %12
+
+12:                                               ; preds = %2
+  %13 = load i32, ptr %7, align 4
+  br label %14
+
+14:                                               ; preds = %2, %12
+  %15 = phi i32 [ %13, %12 ], [ 2, %2 ]
+  store i32 %15, ptr %3, align 4
+  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %17 = getelementptr inbounds i8, ptr %1, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %16, ptr noundef nonnull align 4 dereferenceable(6) %17, i64 6, i1 false)
+  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = load ptr, ptr %18, align 8
+  %20 = call ptr @hash_search(ptr noundef %19, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #13
+  %.not = icmp ne ptr %20, null
+  br i1 %.not, label %21, label %26
+
+21:                                               ; preds = %14
+  %22 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = load ptr, ptr %22, align 8
+  call void @heap_freetuple(ptr noundef %23) #13
+  %24 = load ptr, ptr %18, align 8
+  %25 = call ptr @hash_search(ptr noundef %24, ptr noundef nonnull %3, i32 noundef 2, ptr noundef nonnull %4) #13
+  br label %26
+
+26:                                               ; preds = %14, %21
+  ret i1 %.not
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @heap_xlog_logical_rewrite(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = alloca [1024 x i8], align 16
+  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 72
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %8 = load i32, ptr %7, align 4
+  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = load i32, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = load i64, ptr %11, align 8
+  %13 = lshr i64 %12, 32
+  %14 = trunc i64 %13 to i32
+  %15 = trunc i64 %12 to i32
+  %16 = load i32, ptr %6, align 8
+  %17 = getelementptr inbounds i8, ptr %4, i64 44
+  %18 = load i32, ptr %17, align 4
+  %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.3, i32 noundef %8, i32 noundef %10, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %18) #13
+  %20 = call i32 @OpenTransientFile(ptr noundef nonnull %2, i32 noundef 65) #13
+  %21 = icmp slt i32 %20, 0
+  br i1 %21, label %22, label %26
+
+22:                                               ; preds = %1
+  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %23)
+  %24 = call i32 @errcode_for_file_access() #13
+  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %2) #13
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1096, ptr noundef nonnull @__func__.heap_xlog_logical_rewrite) #13
+  unreachable
+
+26:                                               ; preds = %1
+  %27 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772194, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %6, i64 16
+  %29 = load i64, ptr %28, align 8
+  %30 = call i32 @ftruncate(i32 noundef %20, i64 noundef %29) #13
+  %.not = icmp eq i32 %30, 0
+  br i1 %.not, label %37, label %31
+
+31:                                               ; preds = %26
+  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %32)
+  %33 = call i32 @errcode_for_file_access() #13
+  %34 = load i64, ptr %28, align 8
+  %35 = trunc i64 %34 to i32
+  %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %2, i32 noundef %35) #13
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1107, ptr noundef nonnull @__func__.heap_xlog_logical_rewrite) #13
+  unreachable
+
+37:                                               ; preds = %26
+  %38 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %38, align 4
+  %39 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 72
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr i8, ptr %41, i64 40
+  %43 = getelementptr inbounds i8, ptr %6, i64 24
+  %44 = load i32, ptr %43, align 8
+  %45 = mul i32 %44, 36
+  %46 = tail call ptr @__errno_location() #15
+  store i32 0, ptr %46, align 4
+  %47 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772192, ptr %47, align 4
+  %48 = zext i32 %45 to i64
+  %49 = load i64, ptr %28, align 8
+  %50 = call i64 @pwrite(i32 noundef %20, ptr noundef %42, i64 noundef %48, i64 noundef %49) #13
+  %.not19 = icmp eq i64 %50, %48
+  br i1 %.not19, label %59, label %51
+
+51:                                               ; preds = %37
+  %52 = load i32, ptr %46, align 4
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %55
+
+54:                                               ; preds = %51
+  store i32 28, ptr %46, align 4
+  br label %55
+
+55:                                               ; preds = %54, %51
+  %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %56)
+  %57 = call i32 @errcode_for_file_access() #13
+  %58 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %2) #13
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1124, ptr noundef nonnull @__func__.heap_xlog_logical_rewrite) #13
+  unreachable
+
+59:                                               ; preds = %37
+  %60 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %60, align 4
+  %61 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772191, ptr %61, align 4
+  %62 = call i32 @pg_fsync(i32 noundef %20) #13
+  %.not20 = icmp eq i32 %62, 0
+  br i1 %.not20, label %69, label %63
+
+63:                                               ; preds = %59
+  %64 = call i32 @data_sync_elevel(i32 noundef 21) #13
+  %65 = call zeroext i1 @errstart(i32 noundef %64, ptr noundef null) #13
+  br i1 %65, label %66, label %69
+
+66:                                               ; preds = %63
+  %67 = call i32 @errcode_for_file_access() #13
+  %68 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %2) #13
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1137, ptr noundef nonnull @__func__.heap_xlog_logical_rewrite) #13
+  br label %69
+
+69:                                               ; preds = %66, %63, %59
+  %70 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %70, align 4
+  %71 = call i32 @CloseTransientFile(i32 noundef %20) #13
+  %.not21 = icmp eq i32 %71, 0
+  br i1 %.not21, label %76, label %72
+
+72:                                               ; preds = %69
+  %73 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %73)
+  %74 = call i32 @errcode_for_file_access() #13
+  %75 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %2) #13
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1143, ptr noundef nonnull @__func__.heap_xlog_logical_rewrite) #13
+  unreachable
+
+76:                                               ; preds = %69
+  ret void
+}
+
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: cold
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @errcode_for_file_access() local_unnamed_addr #1
+
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
+
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind
+declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare ptr @__errno_location() local_unnamed_addr #6
+
+; Function Attrs: nofree
+declare noundef i64 @pwrite(i32 noundef, ptr nocapture noundef readonly, i64 noundef, i64 noundef) local_unnamed_addr #7
+
+declare i32 @pg_fsync(i32 noundef) local_unnamed_addr #1
+
+declare i32 @data_sync_elevel(i32 noundef) local_unnamed_addr #1
+
+declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @CheckPointLogicalRewriteHeap() local_unnamed_addr #0 {
+  %1 = alloca [1044 x i8], align 16
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = tail call i64 @GetRedoRecPtr() #13
+  %9 = tail call i64 @ReplicationSlotsComputeLogicalRestartLSN() #13
+  %.not = icmp ne i64 %9, 0
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %8, i64 %9)
+  %10 = add i64 %spec.select, -1
+  %11 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.10) #13
+  %12 = tail call ptr @ReadDir(ptr noundef %11, ptr noundef nonnull @.str.10) #13
+  %.not2736 = icmp eq ptr %12, null
+  br i1 %.not2736, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %0, %.backedge
+  %13 = phi ptr [ %20, %.backedge ], [ %12, %0 ]
+  %14 = getelementptr inbounds i8, ptr %13, i64 19
+  %15 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(2) @.str.11) #16
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %.backedge, label %17
+
+17:                                               ; preds = %.lr.ph
+  %18 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(3) @.str.12) #16
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %.backedge, label %21
+
+.backedge:                                        ; preds = %43, %66, %.lr.ph, %17, %21, %25
+  %20 = call ptr @ReadDir(ptr noundef %11, ptr noundef nonnull @.str.10) #13
+  %.not27 = icmp eq ptr %20, null
+  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+
+21:                                               ; preds = %17
+  %22 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1044, ptr noundef nonnull @.str.13, ptr noundef nonnull %14) #13
+  %23 = call i32 @get_dirent_type(ptr noundef nonnull %1, ptr noundef nonnull %13, i1 noundef zeroext false, i32 noundef 14) #13
+  %24 = and i32 %23, -3
+  %or.cond.not = icmp eq i32 %24, 0
+  br i1 %or.cond.not, label %25, label %.backedge
+
+25:                                               ; preds = %21
+  %26 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.14, i64 noundef 4) #16
+  %.not28 = icmp eq i32 %26, 0
+  br i1 %.not28, label %27, label %.backedge
+
+27:                                               ; preds = %25
+  %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %14, ptr noundef nonnull @.str.15, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
+  %.not29 = icmp eq i32 %28, 6
+  br i1 %.not29, label %32, label %29
+
+29:                                               ; preds = %27
+  %30 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %30)
+  %31 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, ptr noundef nonnull %14) #13
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1206, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
+  unreachable
+
+32:                                               ; preds = %27
+  %33 = load i32, ptr %6, align 4
+  %34 = zext i32 %33 to i64
+  %35 = shl nuw i64 %34, 32
+  %36 = load i32, ptr %7, align 4
+  %37 = zext i32 %36 to i64
+  %38 = or disjoint i64 %35, %37
+  %or.cond3.not32 = icmp ult i64 %10, %38
+  %or.cond3.not = select i1 %.not, i1 %or.cond3.not32, i1 false
+  br i1 %or.cond3.not, label %50, label %39
+
+39:                                               ; preds = %32
+  %40 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
+  br i1 %40, label %41, label %43
+
+41:                                               ; preds = %39
+  %42 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, ptr noundef nonnull %1) #13
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1212, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
+  br label %43
+
+43:                                               ; preds = %39, %41
+  %44 = call i32 @unlink(ptr noundef nonnull %1) #13
+  %45 = icmp slt i32 %44, 0
+  br i1 %45, label %46, label %.backedge
+
+46:                                               ; preds = %43
+  %47 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %47)
+  %48 = call i32 @errcode_for_file_access() #13
+  %49 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #13
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1216, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
+  unreachable
+
+50:                                               ; preds = %32
+  %51 = call i32 @OpenTransientFile(ptr noundef nonnull %1, i32 noundef 2) #13
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %53, label %57
+
+53:                                               ; preds = %50
+  %54 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %54)
+  %55 = call i32 @errcode_for_file_access() #13
+  %56 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %1) #13
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1231, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
+  unreachable
+
+57:                                               ; preds = %50
+  %58 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772190, ptr %58, align 4
+  %59 = call i32 @pg_fsync(i32 noundef %51) #13
+  %.not30 = icmp eq i32 %59, 0
+  br i1 %.not30, label %66, label %60
+
+60:                                               ; preds = %57
+  %61 = call i32 @data_sync_elevel(i32 noundef 21) #13
+  %62 = call zeroext i1 @errstart(i32 noundef %61, ptr noundef null) #13
+  br i1 %62, label %63, label %66
+
+63:                                               ; preds = %60
+  %64 = call i32 @errcode_for_file_access() #13
+  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %1) #13
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1242, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
+  br label %66
+
+66:                                               ; preds = %63, %60, %57
+  %67 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %67, align 4
+  %68 = call i32 @CloseTransientFile(i32 noundef %51) #13
+  %.not31 = icmp eq i32 %68, 0
+  br i1 %.not31, label %.backedge, label %69
+
+69:                                               ; preds = %66
+  %70 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %70)
+  %71 = call i32 @errcode_for_file_access() #13
+  %72 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %1) #13
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1248, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
+  unreachable
+
+._crit_edge:                                      ; preds = %.backedge, %0
+  %73 = call i32 @FreeDir(ptr noundef %11) #13
+  call void @fsync_fname(ptr noundef nonnull @.str.10, i1 noundef zeroext true) #13
+  ret void
+}
+
+declare i64 @GetRedoRecPtr() local_unnamed_addr #1
+
+declare i64 @ReplicationSlotsComputeLogicalRestartLSN() local_unnamed_addr #1
+
+declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #1
+
+declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+
+declare i32 @get_dirent_type(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #9
+
+declare i32 @FreeDir(ptr noundef) local_unnamed_addr #1
+
+declare void @fsync_fname(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
+
+declare ptr @heap_toast_insert_or_update(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
+
+declare i64 @PageGetHeapFreeSpace(ptr noundef) local_unnamed_addr #1
+
+declare ptr @smgr_bulk_get_buf(ptr noundef) local_unnamed_addr #1
+
+declare void @PageInit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+
+declare zeroext i16 @PageAddItemExtended(ptr noundef, ptr noundef, i64 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
+
+declare zeroext i1 @IsCatalogRelation(ptr noundef) local_unnamed_addr #1
+
+declare void @ProcArrayGetReplicationSlotXmin(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i64 @GetXLogInsertRecPtr() local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr nocapture noundef %0) unnamed_addr #0 {
+  %2 = alloca %struct.iovec, align 8
+  %3 = alloca %struct.HASH_SEQ_STATUS, align 8
+  %4 = alloca %struct.xl_heap_rewrite_mapping, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %.loopexit, label %8
+
+8:                                                ; preds = %1
+  %9 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
+  br i1 %9, label %10, label %13
+
+10:                                               ; preds = %8
+  %11 = load i32, ptr %5, align 8
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, i32 noundef %11) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 822, ptr noundef nonnull @__func__.logical_heap_rewrite_flush_mappings) #13
+  br label %13
+
+13:                                               ; preds = %8, %10
+  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %15 = load ptr, ptr %14, align 8
+  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %15) #13
+  %16 = call ptr @hash_seq_search(ptr noundef nonnull %3) #13
+  %.not58 = icmp eq ptr %16, null
+  br i1 %.not58, label %.loopexit, label %.lr.ph60
+
+.lr.ph60:                                         ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %4, i64 24
+  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 4
+  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %22 = getelementptr inbounds i8, ptr %4, i64 32
+  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  br label %24
+
+24:                                               ; preds = %.lr.ph60, %.backedge
+  %25 = phi ptr [ %16, %.lr.ph60 ], [ %72, %.backedge ]
+  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = getelementptr i8, ptr %25, i64 32
+  %.val = load i32, ptr %27, align 8
+  %28 = icmp eq i32 %.val, 0
+  br i1 %28, label %.backedge, label %29
+
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %0, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 56
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 113
+  %34 = load i8, ptr %33, align 1
+  %35 = and i8 %34, 1
+  %.not48 = icmp eq i8 %35, 0
+  %36 = load i32, ptr @MyDatabaseId, align 4
+  %.041 = select i1 %.not48, i32 %36, i32 0
+  store i32 %.val, ptr %17, align 8
+  %37 = getelementptr inbounds i8, ptr %30, i64 72
+  %38 = load i32, ptr %37, align 8
+  store i32 %38, ptr %18, align 8
+  %39 = load i32, ptr %25, align 8
+  store i32 %39, ptr %4, align 8
+  store i32 %.041, ptr %19, align 4
+  %40 = getelementptr inbounds i8, ptr %25, i64 8
+  %41 = load i64, ptr %40, align 8
+  store i64 %41, ptr %20, align 8
+  %42 = load i64, ptr %21, align 8
+  store i64 %42, ptr %22, align 8
+  %43 = mul i32 %.val, 36
+  %44 = zext i32 %43 to i64
+  %45 = call ptr @palloc(i64 noundef %44) #13
+  %46 = getelementptr inbounds i8, ptr %25, i64 24
+  %47 = load ptr, ptr %46, align 8
+  %.not49 = icmp eq ptr %47, null
+  %.not505564 = icmp eq ptr %47, %26
+  %.not5055 = select i1 %.not49, i1 true, i1 %.not505564
+  br i1 %.not5055, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %29, %.lr.ph
+  %.sroa.0.057 = phi ptr [ %.sroa.6.0, %.lr.ph ], [ %47, %29 ]
+  %.056 = phi ptr [ %49, %.lr.ph ], [ %45, %29 ]
+  %.sroa.6.0.in = getelementptr inbounds i8, ptr %.sroa.0.057, i64 8
+  %.sroa.6.0 = load ptr, ptr %.sroa.6.0.in, align 8
+  %48 = getelementptr i8, ptr %.sroa.0.057, i64 -40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %.056, ptr noundef nonnull align 8 dereferenceable(36) %48, i64 36, i1 false)
+  %49 = getelementptr i8, ptr %.056, i64 36
+  %50 = load ptr, ptr %.sroa.6.0.in, align 8
+  %51 = load ptr, ptr %.sroa.0.057, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  store ptr %50, ptr %52, align 8
+  %53 = load ptr, ptr %.sroa.0.057, align 8
+  store ptr %53, ptr %50, align 8
+  %54 = load i32, ptr %27, align 8
+  %55 = add i32 %54, -1
+  store i32 %55, ptr %27, align 8
+  call void @pfree(ptr noundef %48) #13
+  %56 = load i32, ptr %5, align 8
+  %57 = add i32 %56, -1
+  store i32 %57, ptr %5, align 8
+  %.not50 = icmp eq ptr %.sroa.6.0, %26
+  br i1 %.not50, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+
+._crit_edge:                                      ; preds = %.lr.ph, %29
+  %58 = getelementptr inbounds i8, ptr %25, i64 4
+  %59 = load i32, ptr %58, align 4
+  %60 = load i64, ptr %40, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  store ptr %45, ptr %2, align 8
+  store i64 %44, ptr %23, align 8
+  %61 = call i64 @FileWriteV(i32 noundef %59, ptr noundef nonnull %2, i32 noundef 1, i64 noundef %60, i32 noundef 167772195) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  %62 = trunc i64 %61 to i32
+  %.not51 = icmp eq i32 %43, %62
+  br i1 %.not51, label %68, label %63
+
+63:                                               ; preds = %._crit_edge
+  %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %64)
+  %65 = call i32 @errcode_for_file_access() #13
+  %66 = getelementptr inbounds i8, ptr %25, i64 40
+  %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull %66, i32 noundef %62, i32 noundef %43) #13
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 888, ptr noundef nonnull @__func__.logical_heap_rewrite_flush_mappings) #13
+  unreachable
+
+68:                                               ; preds = %._crit_edge
+  %69 = load i64, ptr %40, align 8
+  %70 = add i64 %69, %44
+  store i64 %70, ptr %40, align 8
+  call void @XLogBeginInsert() #13
+  call void @XLogRegisterData(ptr noundef nonnull %4, i32 noundef 40) #13
+  call void @XLogRegisterData(ptr noundef %45, i32 noundef %43) #13
+  %71 = call i64 @XLogInsert(i8 noundef zeroext 9, i8 noundef zeroext 0) #13
+  call void @pfree(ptr noundef %45) #13
+  br label %.backedge
+
+.backedge:                                        ; preds = %68, %24
+  %72 = call ptr @hash_seq_search(ptr noundef nonnull %3) #13
+  %.not = icmp eq ptr %72, null
+  br i1 %.not, label %.loopexit, label %24, !llvm.loop !10
+
+.loopexit:                                        ; preds = %.backedge, %13, %1
+  ret void
+}
+
+declare i32 @FileSync(i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @FileClose(i32 noundef) local_unnamed_addr #1
+
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
+
+declare void @pfree(ptr noundef) local_unnamed_addr #1
+
+declare void @XLogBeginInsert() local_unnamed_addr #1
+
+declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
+
+declare i64 @FileWriteV(i32 noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @logical_rewrite_log_mapping(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca i8, align 1
+  %6 = alloca [1024 x i8], align 16
+  store i32 %1, ptr %4, align 4
+  %7 = load ptr, ptr %0, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 72
+  %9 = load i32, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = load ptr, ptr %10, align 8
+  %12 = call ptr @hash_search(ptr noundef %11, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5) #13
+  %13 = load i8, ptr %5, align 1
+  %14 = and i8 %13, 1
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %15, label %43
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 56
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 113
+  %20 = load i8, ptr %19, align 1
+  %21 = and i8 %20, 1
+  %.not19 = icmp eq i8 %21, 0
+  %22 = load i32, ptr @MyDatabaseId, align 4
+  %.0 = select i1 %.not19, i32 %22, i32 0
+  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %24 = load i64, ptr %23, align 8
+  %25 = lshr i64 %24, 32
+  %26 = trunc i64 %25 to i32
+  %27 = trunc i64 %24 to i32
+  %28 = load i32, ptr %4, align 4
+  %29 = call i32 @GetCurrentTransactionId() #13
+  %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull @.str.3, i32 noundef %.0, i32 noundef %9, i32 noundef %26, i32 noundef %27, i32 noundef %28, i32 noundef %29) #13
+  %31 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr %31, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %12, i64 24
+  store ptr %31, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %12, i64 32
+  store i32 0, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %12, i64 8
+  store i64 0, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %12, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %35, ptr noundef nonnull align 16 dereferenceable(1024) %6, i64 1024, i1 false)
+  %36 = call i32 @PathNameOpenFile(ptr noundef nonnull %6, i32 noundef 193) #13
+  %37 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %36, ptr %37, align 4
+  %38 = icmp slt i32 %36, 0
+  br i1 %38, label %39, label %43
+
+39:                                               ; preds = %15
+  %40 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %40)
+  %41 = call i32 @errcode_for_file_access() #13
+  %42 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %6) #13
+  call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 979, ptr noundef nonnull @__func__.logical_rewrite_log_mapping) #13
+  unreachable
+
+43:                                               ; preds = %15, %3
+  %44 = getelementptr inbounds i8, ptr %0, i64 56
+  %45 = load ptr, ptr %44, align 8
+  %46 = call ptr @MemoryContextAlloc(ptr noundef %45, i64 noundef 56) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %46, ptr noundef nonnull align 4 dereferenceable(36) %2, i64 36, i1 false)
+  %47 = getelementptr inbounds i8, ptr %12, i64 16
+  %48 = getelementptr inbounds i8, ptr %46, i64 40
+  %49 = getelementptr inbounds i8, ptr %12, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %52, label %dclist_push_tail.exit
+
+52:                                               ; preds = %43
+  store ptr %47, ptr %47, align 8
+  store ptr %47, ptr %49, align 8
+  %53 = getelementptr inbounds i8, ptr %12, i64 32
+  store i32 0, ptr %53, align 8
+  br label %dclist_push_tail.exit
+
+dclist_push_tail.exit:                            ; preds = %43, %52
+  %54 = getelementptr inbounds i8, ptr %46, i64 48
+  store ptr %47, ptr %54, align 8
+  %55 = load ptr, ptr %47, align 8
+  store ptr %55, ptr %48, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  store ptr %48, ptr %56, align 8
+  store ptr %48, ptr %47, align 8
+  %57 = getelementptr inbounds i8, ptr %12, i64 32
+  %58 = load i32, ptr %57, align 8
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %57, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 96
+  %61 = load i32, ptr %60, align 8
+  %62 = add i32 %61, 1
+  store i32 %62, ptr %60, align 8
+  %63 = icmp ugt i32 %62, 999
+  br i1 %63, label %64, label %65
+
+64:                                               ; preds = %dclist_push_tail.exit
+  call fastcc void @logical_heap_rewrite_flush_mappings(ptr noundef nonnull %0)
+  br label %65
+
+65:                                               ; preds = %64, %dclist_push_tail.exit
+  ret void
+}
+
+declare i32 @GetCurrentTransactionId() local_unnamed_addr #1
+
+declare i32 @PathNameOpenFile(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #12
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { cold nounwind }
+attributes #15 = { nounwind willreturn memory(none) }
+attributes #16 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

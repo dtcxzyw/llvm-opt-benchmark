@@ -1,0 +1,505 @@
+; ModuleID = 'bench/postgres/original/arrayutils.ll'
+source_filename = "bench/postgres/original/arrayutils.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+@.str = private unnamed_addr constant [44 x i8] c"array size exceeds the maximum allowed (%d)\00", align 1
+@.str.1 = private unnamed_addr constant [13 x i8] c"arrayutils.c\00", align 1
+@__func__.ArrayGetNItemsSafe = private unnamed_addr constant [19 x i8] c"ArrayGetNItemsSafe\00", align 1
+@.str.2 = private unnamed_addr constant [35 x i8] c"array lower bound is too large: %d\00", align 1
+@__func__.ArrayCheckBoundsSafe = private unnamed_addr constant [21 x i8] c"ArrayCheckBoundsSafe\00", align 1
+@.str.3 = private unnamed_addr constant [36 x i8] c"typmod array must be type cstring[]\00", align 1
+@__func__.ArrayGetIntegerTypmods = private unnamed_addr constant [23 x i8] c"ArrayGetIntegerTypmods\00", align 1
+@.str.4 = private unnamed_addr constant [37 x i8] c"typmod array must be one-dimensional\00", align 1
+@.str.5 = private unnamed_addr constant [36 x i8] c"typmod array must not contain nulls\00", align 1
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define dso_local i32 @ArrayGetOffset(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+  %.01314 = add i32 %0, -1
+  %5 = icmp sgt i32 %.01314, -1
+  br i1 %5, label %.lr.ph.preheader, label %._crit_edge
+
+.lr.ph.preheader:                                 ; preds = %4
+  %6 = zext nneg i32 %.01314 to i64
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ %6, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %.016 = phi i32 [ 0, %.lr.ph.preheader ], [ %13, %.lr.ph ]
+  %.01215 = phi i32 [ 1, %.lr.ph.preheader ], [ %16, %.lr.ph ]
+  %7 = getelementptr i32, ptr %3, i64 %indvars.iv
+  %8 = load i32, ptr %7, align 4
+  %9 = getelementptr i32, ptr %2, i64 %indvars.iv
+  %10 = load i32, ptr %9, align 4
+  %11 = sub i32 %8, %10
+  %12 = mul i32 %11, %.01215
+  %13 = add i32 %12, %.016
+  %14 = getelementptr i32, ptr %1, i64 %indvars.iv
+  %15 = load i32, ptr %14, align 4
+  %16 = mul i32 %15, %.01215
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %.not = icmp eq i64 %indvars.iv, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+
+._crit_edge:                                      ; preds = %.lr.ph, %4
+  %.0.lcssa = phi i32 [ 0, %4 ], [ %13, %.lr.ph ]
+  ret i32 %.0.lcssa
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @ArrayGetNItems(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+  %3 = tail call i32 @ArrayGetNItemsSafe(i32 noundef %0, ptr noundef %1, ptr noundef null)
+  ret i32 %3
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @ArrayGetNItemsSafe(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
+  %4 = icmp slt i32 %0, 1
+  br i1 %4, label %25, label %.preheader.preheader
+
+.preheader.preheader:                             ; preds = %3
+  %wide.trip.count = zext nneg i32 %0 to i64
+  br label %.preheader
+
+5:                                                ; preds = %11
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %18, label %.preheader, !llvm.loop !7
+
+.preheader:                                       ; preds = %.preheader.preheader, %5
+  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %5 ]
+  %.02330 = phi i64 [ 1, %.preheader.preheader ], [ %14, %5 ]
+  %6 = getelementptr i32, ptr %1, i64 %indvars.iv
+  %7 = load i32, ptr %6, align 4
+  %8 = icmp slt i32 %7, 0
+  br i1 %8, label %9, label %11
+
+9:                                                ; preds = %.preheader
+  %10 = tail call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #7
+  br i1 %10, label %.sink.split, label %25
+
+11:                                               ; preds = %.preheader
+  %sext = shl i64 %.02330, 32
+  %12 = ashr exact i64 %sext, 32
+  %13 = zext nneg i32 %7 to i64
+  %14 = mul nsw i64 %12, %13
+  %15 = add nsw i64 %14, 2147483648
+  %.not = icmp ult i64 %15, 4294967296
+  br i1 %.not, label %5, label %16
+
+16:                                               ; preds = %11
+  %17 = tail call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #7
+  br i1 %17, label %.sink.split, label %25
+
+18:                                               ; preds = %5
+  %19 = trunc i64 %14 to i32
+  %20 = icmp ugt i32 %19, 134217727
+  br i1 %20, label %21, label %25
+
+21:                                               ; preds = %18
+  %22 = tail call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #7
+  br i1 %22, label %.sink.split, label %25
+
+.sink.split:                                      ; preds = %21, %16, %9
+  %.sink = phi i32 [ 84, %9 ], [ 93, %16 ], [ 100, %21 ]
+  %23 = tail call i32 @errcode(i32 noundef 261) #7
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef 134217727) #7
+  tail call void @errsave_finish(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.ArrayGetNItemsSafe) #7
+  br label %25
+
+25:                                               ; preds = %.sink.split, %18, %21, %16, %9, %3
+  %.0 = phi i32 [ 0, %3 ], [ -1, %9 ], [ -1, %16 ], [ -1, %21 ], [ %19, %18 ], [ -1, %.sink.split ]
+  ret i32 %.0
+}
+
+declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+
+declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define dso_local void @ArrayCheckBounds(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+  %4 = icmp slt i32 %0, 1
+  br i1 %4, label %ArrayCheckBoundsSafe.exit, label %.lr.ph.preheader.i
+
+.lr.ph.preheader.i:                               ; preds = %3
+  %5 = zext nneg i32 %0 to i64
+  br label %.lr.ph.i
+
+6:                                                ; preds = %.lr.ph.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i, %5
+  br i1 %exitcond.i, label %ArrayCheckBoundsSafe.exit, label %.lr.ph.i, !llvm.loop !8
+
+.lr.ph.i:                                         ; preds = %6, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %6 ]
+  %7 = getelementptr i32, ptr %1, i64 %indvars.iv.i
+  %8 = load i32, ptr %7, align 4
+  %9 = getelementptr i32, ptr %2, i64 %indvars.iv.i
+  %10 = load i32, ptr %9, align 4
+  %11 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %8, i32 %10)
+  %12 = extractvalue { i32, i1 } %11, 1
+  br i1 %12, label %13, label %6
+
+13:                                               ; preds = %.lr.ph.i
+  %14 = tail call zeroext i1 @errsave_start(ptr noundef null, ptr noundef null) #7
+  br i1 %14, label %15, label %ArrayCheckBoundsSafe.exit
+
+15:                                               ; preds = %13
+  %16 = getelementptr i32, ptr %2, i64 %indvars.iv.i
+  %17 = tail call i32 @errcode(i32 noundef 261) #7
+  %18 = load i32, ptr %16, align 4
+  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %18) #7
+  tail call void @errsave_finish(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @__func__.ArrayCheckBoundsSafe) #7
+  br label %ArrayCheckBoundsSafe.exit
+
+ArrayCheckBoundsSafe.exit:                        ; preds = %6, %3, %13, %15
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local zeroext i1 @ArrayCheckBoundsSafe(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 {
+  %5 = icmp slt i32 %0, 1
+  br i1 %5, label %.loopexit, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %4
+  %6 = zext nneg i32 %0 to i64
+  %wide.trip.count = zext nneg i32 %0 to i64
+  %7 = load i32, ptr %1, align 4
+  %8 = load i32, ptr %2, align 4
+  %9 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %7, i32 %8)
+  %10 = extractvalue { i32, i1 } %9, 1
+  br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph29
+
+.lr.ph29:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv28 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv28, 1
+  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !8
+
+.lr.ph:                                           ; preds = %.lr.ph29
+  %11 = getelementptr i32, ptr %1, i64 %indvars.iv.next
+  %12 = load i32, ptr %11, align 4
+  %13 = getelementptr i32, ptr %2, i64 %indvars.iv.next
+  %14 = load i32, ptr %13, align 4
+  %15 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %12, i32 %14)
+  %16 = extractvalue { i32, i1 } %15, 1
+  br i1 %16, label %.lr.ph._crit_edge.loopexit, label %.lr.ph29, !llvm.loop !8
+
+.lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
+  %17 = icmp uge i64 %indvars.iv.next, %6
+  br label %.lr.ph._crit_edge
+
+.lr.ph._crit_edge:                                ; preds = %.lr.ph._crit_edge.loopexit, %.lr.ph.preheader
+  %indvars.iv.lcssa = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph._crit_edge.loopexit ]
+  %.lcssa = phi i1 [ false, %.lr.ph.preheader ], [ %17, %.lr.ph._crit_edge.loopexit ]
+  %18 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #7
+  br i1 %18, label %19, label %.loopexit
+
+19:                                               ; preds = %.lr.ph._crit_edge
+  %20 = getelementptr i32, ptr %2, i64 %indvars.iv.lcssa
+  %21 = tail call i32 @errcode(i32 noundef 261) #7
+  %22 = load i32, ptr %20, align 4
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %22) #7
+  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @__func__.ArrayCheckBoundsSafe) #7
+  br label %.loopexit
+
+.loopexit.loopexit:                               ; preds = %.lr.ph29
+  %24 = icmp uge i64 %indvars.iv.next, %6
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %4, %19, %.lr.ph._crit_edge
+  %25 = phi i1 [ %.lcssa, %19 ], [ %.lcssa, %.lr.ph._crit_edge ], [ true, %4 ], [ %24, %.loopexit.loopexit ]
+  ret i1 %25
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local void @mda_get_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 {
+  %5 = icmp sgt i32 %0, 0
+  br i1 %5, label %.lr.ph.preheader, label %._crit_edge
+
+.lr.ph.preheader:                                 ; preds = %4
+  %wide.trip.count = zext nneg i32 %0 to i64
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %6 = getelementptr i32, ptr %3, i64 %indvars.iv
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr i32, ptr %2, i64 %indvars.iv
+  %9 = load i32, ptr %8, align 4
+  %10 = add i32 %7, 1
+  %11 = sub i32 %10, %9
+  %12 = getelementptr i32, ptr %1, i64 %indvars.iv
+  store i32 %11, ptr %12, align 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+
+._crit_edge:                                      ; preds = %.lr.ph, %4
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local void @mda_get_prod(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
+  %4 = add i32 %0, -1
+  %5 = sext i32 %4 to i64
+  %6 = getelementptr i32, ptr %2, i64 %5
+  store i32 1, ptr %6, align 4
+  %7 = add i32 %0, -2
+  %8 = icmp sgt i32 %7, -1
+  br i1 %8, label %.lr.ph.preheader, label %._crit_edge
+
+.lr.ph.preheader:                                 ; preds = %3
+  %9 = zext nneg i32 %7 to i64
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ %9, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %10 = shl i64 %indvars.iv, 32
+  %sext = add i64 %10, 4294967296
+  %11 = ashr exact i64 %sext, 32
+  %12 = getelementptr i32, ptr %2, i64 %11
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr i32, ptr %1, i64 %11
+  %15 = load i32, ptr %14, align 4
+  %16 = mul i32 %15, %13
+  %17 = getelementptr i32, ptr %2, i64 %indvars.iv
+  store i32 %16, ptr %17, align 4
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %.not = icmp eq i64 %indvars.iv, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local void @mda_get_offset_values(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 {
+  %5 = add i32 %0, -1
+  %6 = sext i32 %5 to i64
+  %7 = getelementptr i32, ptr %1, i64 %6
+  store i32 0, ptr %7, align 4
+  %8 = add i32 %0, -2
+  %9 = icmp sgt i32 %8, -1
+  br i1 %9, label %.lr.ph24.preheader, label %._crit_edge25
+
+.lr.ph24.preheader:                               ; preds = %4
+  %10 = zext nneg i32 %8 to i64
+  br label %.lr.ph24
+
+.lr.ph24:                                         ; preds = %.lr.ph24.preheader, %._crit_edge
+  %indvars.iv29 = phi i64 [ %10, %.lr.ph24.preheader ], [ %indvars.iv.next30, %._crit_edge ]
+  %indvars.iv = phi i32 [ %5, %.lr.ph24.preheader ], [ %indvars.iv.next, %._crit_edge ]
+  %11 = getelementptr i32, ptr %2, i64 %indvars.iv29
+  %12 = load i32, ptr %11, align 4
+  %13 = add i32 %12, -1
+  %14 = getelementptr i32, ptr %1, i64 %indvars.iv29
+  store i32 %13, ptr %14, align 4
+  %15 = trunc i64 %indvars.iv29 to i32
+  %16 = add i32 %15, 1
+  %17 = icmp slt i32 %16, %0
+  br i1 %17, label %.lr.ph.preheader, label %._crit_edge
+
+.lr.ph.preheader:                                 ; preds = %.lr.ph24
+  %18 = sext i32 %indvars.iv to i64
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv26 = phi i64 [ %18, %.lr.ph.preheader ], [ %indvars.iv.next27, %.lr.ph ]
+  %storemerge20 = phi i32 [ %13, %.lr.ph.preheader ], [ %25, %.lr.ph ]
+  %19 = getelementptr i32, ptr %3, i64 %indvars.iv26
+  %20 = load i32, ptr %19, align 4
+  %21 = add i32 %20, -1
+  %22 = getelementptr i32, ptr %2, i64 %indvars.iv26
+  %23 = load i32, ptr %22, align 4
+  %24 = mul i32 %21, %23
+  %25 = sub i32 %storemerge20, %24
+  store i32 %25, ptr %14, align 4
+  %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next27 to i32
+  %exitcond.not = icmp eq i32 %lftr.wideiv, %0
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph24
+  %indvars.iv.next30 = add nsw i64 %indvars.iv29, -1
+  %26 = icmp sgt i64 %indvars.iv29, 0
+  %indvars.iv.next = add i32 %indvars.iv, -1
+  br i1 %26, label %.lr.ph24, label %._crit_edge25, !llvm.loop !12
+
+._crit_edge25:                                    ; preds = %._crit_edge, %4
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define dso_local i32 @mda_next_tuple(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+  %4 = icmp slt i32 %0, 1
+  br i1 %4, label %.critedge, label %5
+
+5:                                                ; preds = %3
+  %6 = add nsw i32 %0, -1
+  %7 = zext nneg i32 %6 to i64
+  %8 = getelementptr i32, ptr %1, i64 %7
+  %9 = load i32, ptr %8, align 4
+  %10 = add i32 %9, 1
+  %11 = getelementptr i32, ptr %2, i64 %7
+  %12 = load i32, ptr %11, align 4
+  %13 = srem i32 %10, %12
+  store i32 %13, ptr %8, align 4
+  %.not26 = icmp eq i32 %6, 0
+  br i1 %.not26, label %.critedge24, label %.lr.ph
+
+.lr.ph:                                           ; preds = %5, %16
+  %14 = phi i32 [ %24, %16 ], [ %13, %5 ]
+  %.027 = phi i32 [ %17, %16 ], [ %6, %5 ]
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %.critedge
+
+16:                                               ; preds = %.lr.ph
+  %17 = add nsw i32 %.027, -1
+  %18 = zext nneg i32 %17 to i64
+  %19 = getelementptr i32, ptr %1, i64 %18
+  %20 = load i32, ptr %19, align 4
+  %21 = add i32 %20, 1
+  %22 = getelementptr i32, ptr %2, i64 %18
+  %23 = load i32, ptr %22, align 4
+  %24 = srem i32 %21, %23
+  store i32 %24, ptr %19, align 4
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %.critedge24, label %.lr.ph, !llvm.loop !13
+
+.critedge24:                                      ; preds = %16, %5
+  %25 = load i32, ptr %1, align 4
+  %.not23 = icmp eq i32 %25, 0
+  %. = sext i1 %.not23 to i32
+  br label %.critedge
+
+.critedge:                                        ; preds = %.lr.ph, %.critedge24, %3
+  %.021 = phi i32 [ -1, %3 ], [ %., %.critedge24 ], [ %.027, %.lr.ph ]
+  ret i32 %.021
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local ptr @ArrayGetIntegerTypmods(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+  %3 = alloca ptr, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = load i32, ptr %4, align 4
+  %.not = icmp eq i32 %5, 2275
+  br i1 %.not, label %10, label %6
+
+6:                                                ; preds = %2
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %7)
+  %8 = tail call i32 @errcode(i32 noundef 352845954) #7
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 242, ptr noundef nonnull @__func__.ArrayGetIntegerTypmods) #7
+  unreachable
+
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = load i32, ptr %11, align 4
+  %.not12 = icmp eq i32 %12, 1
+  br i1 %.not12, label %17, label %13
+
+13:                                               ; preds = %10
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %14)
+  %15 = tail call i32 @errcode(i32 noundef 352845954) #7
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 247, ptr noundef nonnull @__func__.ArrayGetIntegerTypmods) #7
+  unreachable
+
+17:                                               ; preds = %10
+  %18 = tail call zeroext i1 @array_contains_nulls(ptr noundef nonnull %0) #7
+  br i1 %18, label %19, label %23
+
+19:                                               ; preds = %17
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %20)
+  %21 = tail call i32 @errcode(i32 noundef 67108994) #7
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 252, ptr noundef nonnull @__func__.ArrayGetIntegerTypmods) #7
+  unreachable
+
+23:                                               ; preds = %17
+  call void @deconstruct_array_builtin(ptr noundef nonnull %0, i32 noundef 2275, ptr noundef nonnull %3, ptr noundef null, ptr noundef %1) #7
+  %24 = load i32, ptr %1, align 4
+  %25 = sext i32 %24 to i64
+  %26 = shl nsw i64 %25, 2
+  %27 = call ptr @palloc(i64 noundef %26) #7
+  %28 = load i32, ptr %1, align 4
+  %29 = icmp sgt i32 %28, 0
+  br i1 %29, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %23, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %23 ]
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr i64, ptr %30, i64 %indvars.iv
+  %32 = load i64, ptr %31, align 8
+  %33 = inttoptr i64 %32 to ptr
+  %34 = call i32 @pg_strtoint32(ptr noundef %33) #7
+  %35 = getelementptr i32, ptr %27, i64 %indvars.iv
+  store i32 %34, ptr %35, align 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %36 = load i32, ptr %1, align 4
+  %37 = sext i32 %36 to i64
+  %38 = icmp slt i64 %indvars.iv.next, %37
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+
+._crit_edge:                                      ; preds = %.lr.ph, %23
+  %39 = load ptr, ptr %3, align 8
+  call void @pfree(ptr noundef %39) #7
+  ret ptr %27
+}
+
+; Function Attrs: cold
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare zeroext i1 @array_contains_nulls(ptr noundef) local_unnamed_addr #2
+
+declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+
+declare i32 @pg_strtoint32(ptr noundef) local_unnamed_addr #2
+
+declare void @pfree(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare { i32, i1 } @llvm.sadd.with.overflow.i32(i32, i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #6
+
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}

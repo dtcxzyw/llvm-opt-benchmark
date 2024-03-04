@@ -1,0 +1,1058 @@
+; ModuleID = 'bench/postgres/original/pg_enum.ll'
+source_filename = "bench/postgres/original/pg_enum.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%union.ListCell = type { ptr }
+%struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
+%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
+%struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.nameData = type { [64 x i8] }
+%struct.HASH_SEQ_STATUS = type { ptr, i32, ptr }
+
+@binary_upgrade_next_pg_enum_oid = dso_local local_unnamed_addr global i32 0, align 4
+@TTSOpsHeapTuple = external constant %struct.TupleTableSlotOps, align 8
+@.str = private unnamed_addr constant [24 x i8] c"invalid enum label \22%s\22\00", align 1
+@.str.1 = private unnamed_addr constant [33 x i8] c"Labels must be %d bytes or less.\00", align 1
+@.str.2 = private unnamed_addr constant [10 x i8] c"pg_enum.c\00", align 1
+@__func__.EnumValuesCreate = private unnamed_addr constant [17 x i8] c"EnumValuesCreate\00", align 1
+@__func__.AddEnumLabel = private unnamed_addr constant [13 x i8] c"AddEnumLabel\00", align 1
+@.str.3 = private unnamed_addr constant [41 x i8] c"enum label \22%s\22 already exists, skipping\00", align 1
+@.str.4 = private unnamed_addr constant [31 x i8] c"enum label \22%s\22 already exists\00", align 1
+@.str.5 = private unnamed_addr constant [35 x i8] c"\22%s\22 is not an existing enum label\00", align 1
+@IsBinaryUpgrade = external local_unnamed_addr global i8, align 1
+@.str.6 = private unnamed_addr constant [54 x i8] c"pg_enum OID value not set when in binary upgrade mode\00", align 1
+@.str.7 = private unnamed_addr constant [64 x i8] c"ALTER TYPE ADD BEFORE/AFTER is incompatible with binary upgrade\00", align 1
+@uncommitted_enums = internal unnamed_addr global ptr null, align 8
+@__func__.RenameEnumLabel = private unnamed_addr constant [16 x i8] c"RenameEnumLabel\00", align 1
+@TopTransactionContext = external local_unnamed_addr global ptr, align 8
+@.str.8 = private unnamed_addr constant [18 x i8] c"Uncommitted enums\00", align 1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @EnumValuesCreate(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+  %.not.i = icmp eq ptr %1, null
+  br i1 %.not.i, label %list_length.exit, label %3
+
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = load i32, ptr %4, align 4
+  br label %list_length.exit
+
+list_length.exit:                                 ; preds = %2, %3
+  %6 = phi i32 [ %5, %3 ], [ 0, %2 ]
+  %7 = tail call ptr @table_open(i32 noundef 3501, i32 noundef 3) #10
+  %8 = sext i32 %6 to i64
+  %9 = shl nsw i64 %8, 2
+  %10 = tail call ptr @palloc(i64 noundef %9) #10
+  %11 = icmp sgt i32 %6, 0
+  br i1 %11, label %.preheader86.preheader, label %._crit_edge
+
+.preheader86.preheader:                           ; preds = %list_length.exit
+  %wide.trip.count = zext nneg i32 %6 to i64
+  br label %.preheader86
+
+.preheader86:                                     ; preds = %.preheader86.preheader, %15
+  %indvars.iv = phi i64 [ 0, %.preheader86.preheader ], [ %indvars.iv.next, %15 ]
+  br label %12
+
+12:                                               ; preds = %.preheader86, %12
+  %13 = tail call i32 @GetNewOidWithIndex(ptr noundef %7, i32 noundef 3502, i16 noundef signext 1) #10
+  %14 = and i32 %13, 1
+  %.not83 = icmp eq i32 %14, 0
+  br i1 %.not83, label %15, label %12, !llvm.loop !5
+
+15:                                               ; preds = %12
+  %16 = getelementptr i32, ptr %10, i64 %indvars.iv
+  store i32 %13, ptr %16, align 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader86, !llvm.loop !7
+
+._crit_edge:                                      ; preds = %15, %list_length.exit
+  tail call void @pg_qsort(ptr noundef %10, i64 noundef %8, i64 noundef 4, ptr noundef nonnull @oid_cmp) #10
+  %17 = tail call ptr @CatalogOpenIndexes(ptr noundef %7) #10
+  %18 = tail call i64 @llvm.umin.i64(i64 %8, i64 862)
+  %19 = trunc i64 %18 to i32
+  %20 = shl nuw nsw i64 %18, 3
+  %21 = tail call ptr @palloc(i64 noundef %20) #10
+  %.not = icmp eq i32 %19, 0
+  br i1 %.not, label %.preheader, label %.lr.ph
+
+.lr.ph:                                           ; preds = %._crit_edge
+  %22 = getelementptr inbounds i8, ptr %7, i64 64
+  br label %28
+
+.preheader:                                       ; preds = %28, %._crit_edge
+  br i1 %.not.i, label %._crit_edge96.thread, label %.lr.ph95
+
+.lr.ph95:                                         ; preds = %.preheader
+  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = zext i32 %0 to i64
+  %26 = load i32, ptr %23, align 4
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %.lr.ph128, label %._crit_edge96
+
+28:                                               ; preds = %.lr.ph, %28
+  %indvars.iv106 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next107, %28 ]
+  %29 = load ptr, ptr %22, align 8
+  %30 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %29, ptr noundef nonnull @TTSOpsHeapTuple) #10
+  %31 = getelementptr ptr, ptr %21, i64 %indvars.iv106
+  store ptr %30, ptr %31, align 8
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %exitcond110.not = icmp eq i64 %indvars.iv.next107, %18
+  br i1 %exitcond110.not, label %.preheader, label %28, !llvm.loop !8
+
+.lr.ph128:                                        ; preds = %.lr.ph95, %88
+  %.07593127 = phi i32 [ %.176, %88 ], [ 0, %.lr.ph95 ]
+  %indvars.iv111126 = phi i64 [ %indvars.iv.next112, %88 ], [ 0, %.lr.ph95 ]
+  %32 = load ptr, ptr %24, align 8
+  %33 = getelementptr %union.ListCell, ptr %32, i64 %indvars.iv111126
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call ptr @palloc0(i64 noundef 64) #10
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #11
+  %39 = icmp ugt i64 %38, 63
+  br i1 %39, label %40, label %45
+
+40:                                               ; preds = %.lr.ph128
+  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %41)
+  %42 = tail call i32 @errcode(i32 noundef 33579140) #10
+  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %36) #10
+  %44 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1, i32 noundef 63) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 139, ptr noundef nonnull @__func__.EnumValuesCreate) #10
+  unreachable
+
+45:                                               ; preds = %.lr.ph128
+  %46 = sext i32 %.07593127 to i64
+  %47 = getelementptr ptr, ptr %21, i64 %46
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %52 = load ptr, ptr %51, align 8
+  tail call void %52(ptr noundef %48) #10
+  %53 = load ptr, ptr %47, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 32
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %53, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %58 = load i32, ptr %57, align 8
+  %59 = sext i32 %58 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %55, i8 0, i64 %59, i1 false)
+  %60 = getelementptr i32, ptr %10, i64 %indvars.iv111126
+  %61 = load i32, ptr %60, align 4
+  %62 = zext i32 %61 to i64
+  %63 = load ptr, ptr %47, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 24
+  %65 = load ptr, ptr %64, align 8
+  store i64 %62, ptr %65, align 8
+  %66 = load ptr, ptr %47, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 24
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr i8, ptr %68, i64 8
+  store i64 %25, ptr %69, align 8
+  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111126, 1
+  %70 = trunc i64 %indvars.iv.next112 to i32
+  %71 = sitofp i32 %70 to float
+  %72 = bitcast float %71 to i32
+  %73 = sext i32 %72 to i64
+  %74 = load ptr, ptr %47, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 24
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr i8, ptr %76, i64 16
+  store i64 %73, ptr %77, align 8
+  tail call void @namestrcpy(ptr noundef %37, ptr noundef %36) #10
+  %78 = ptrtoint ptr %37 to i64
+  %79 = load ptr, ptr %47, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 24
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr i8, ptr %81, i64 24
+  store i64 %78, ptr %82, align 8
+  %83 = load ptr, ptr %47, align 8
+  %84 = tail call ptr @ExecStoreVirtualTuple(ptr noundef %83) #10
+  %85 = add i32 %.07593127, 1
+  %86 = icmp eq i32 %85, %19
+  br i1 %86, label %87, label %88
+
+87:                                               ; preds = %45
+  tail call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %7, ptr noundef nonnull %21, i32 noundef %19, ptr noundef %17) #10
+  br label %88
+
+88:                                               ; preds = %87, %45
+  %.176 = phi i32 [ 0, %87 ], [ %85, %45 ]
+  %89 = load i32, ptr %23, align 4
+  %90 = sext i32 %89 to i64
+  %91 = icmp slt i64 %indvars.iv.next112, %90
+  br i1 %91, label %.lr.ph128, label %._crit_edge96
+
+._crit_edge96:                                    ; preds = %88, %.lr.ph95
+  %.07593.lcssa = phi i32 [ 0, %.lr.ph95 ], [ %.176, %88 ]
+  %92 = icmp sgt i32 %.07593.lcssa, 0
+  br i1 %92, label %93, label %._crit_edge96.thread
+
+93:                                               ; preds = %._crit_edge96
+  tail call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %7, ptr noundef %21, i32 noundef %.07593.lcssa, ptr noundef %17) #10
+  br label %._crit_edge96.thread
+
+._crit_edge96.thread:                             ; preds = %.preheader, %93, %._crit_edge96
+  tail call void @pfree(ptr noundef %10) #10
+  br i1 %.not, label %._crit_edge102, label %.lr.ph101
+
+.lr.ph101:                                        ; preds = %._crit_edge96.thread, %.lr.ph101
+  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.lr.ph101 ], [ 0, %._crit_edge96.thread ]
+  %94 = getelementptr ptr, ptr %21, i64 %indvars.iv116
+  %95 = load ptr, ptr %94, align 8
+  tail call void @ExecDropSingleTupleTableSlot(ptr noundef %95) #10
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
+  %exitcond120.not = icmp eq i64 %indvars.iv.next117, %18
+  br i1 %exitcond120.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !9
+
+._crit_edge102:                                   ; preds = %.lr.ph101, %._crit_edge96.thread
+  tail call void @CatalogCloseIndexes(ptr noundef %17) #10
+  tail call void @table_close(ptr noundef %7, i32 noundef 3) #10
+  ret void
+}
+
+declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
+
+declare i32 @GetNewOidWithIndex(ptr noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #1
+
+declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @oid_cmp(ptr noundef, ptr noundef) #1
+
+declare ptr @CatalogOpenIndexes(ptr noundef) local_unnamed_addr #1
+
+declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+
+; Function Attrs: cold
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
+
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
+
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
+
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+
+declare void @namestrcpy(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @ExecStoreVirtualTuple(ptr noundef) local_unnamed_addr #1
+
+declare void @CatalogTuplesMultiInsertWithInfo(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @pfree(ptr noundef) local_unnamed_addr #1
+
+declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #1
+
+declare void @CatalogCloseIndexes(ptr noundef) local_unnamed_addr #1
+
+declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @EnumValuesDelete(i32 noundef %0) local_unnamed_addr #0 {
+  %2 = alloca [1 x %struct.ScanKeyData], align 16
+  %3 = tail call ptr @table_open(i32 noundef 3501, i32 noundef 3) #10
+  %4 = zext i32 %0 to i64
+  call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %4) #10
+  %5 = call ptr @systable_beginscan(ptr noundef %3, i32 noundef 3503, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2) #10
+  %6 = call ptr @systable_getnext(ptr noundef %5) #10
+  %.not6 = icmp eq ptr %6, null
+  br i1 %.not6, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %7 = phi ptr [ %9, %.lr.ph ], [ %6, %1 ]
+  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  call void @CatalogTupleDelete(ptr noundef %3, ptr noundef nonnull %8) #10
+  %9 = call ptr @systable_getnext(ptr noundef %5) #10
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  call void @systable_endscan(ptr noundef %5) #10
+  call void @table_close(ptr noundef %3, i32 noundef 3) #10
+  ret void
+}
+
+declare void @ScanKeyInit(ptr noundef, i16 noundef signext, i16 noundef zeroext, i32 noundef, i64 noundef) local_unnamed_addr #1
+
+declare ptr @systable_beginscan(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @systable_getnext(ptr noundef) local_unnamed_addr #1
+
+declare void @CatalogTupleDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @systable_endscan(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+  %6 = alloca %struct.HASHCTL, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca [4 x i64], align 16
+  %9 = alloca [4 x i8], align 4
+  %10 = alloca %struct.nameData, align 1
+  %11 = alloca float, align 4
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %13 = icmp ugt i64 %12, 63
+  br i1 %13, label %14, label %19
+
+14:                                               ; preds = %5
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %15)
+  %16 = tail call i32 @errcode(i32 noundef 33579140) #10
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %1) #10
+  %18 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1, i32 noundef 63) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 261, ptr noundef nonnull @__func__.AddEnumLabel) #10
+  unreachable
+
+19:                                               ; preds = %5
+  tail call void @LockDatabaseObject(i32 noundef 1247, i32 noundef %0, i16 noundef zeroext 0, i32 noundef 7) #10
+  %20 = zext i32 %0 to i64
+  %21 = ptrtoint ptr %1 to i64
+  %22 = tail call ptr @SearchSysCache2(i32 noundef 24, i64 noundef %20, i64 noundef %21) #10
+  %.not = icmp eq ptr %22, null
+  br i1 %.not, label %33, label %23
+
+23:                                               ; preds = %19
+  tail call void @ReleaseSysCache(ptr noundef nonnull %22) #10
+  br i1 %4, label %24, label %29
+
+24:                                               ; preds = %23
+  %25 = tail call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #10
+  br i1 %25, label %26, label %223
+
+26:                                               ; preds = %24
+  %27 = tail call i32 @errcode(i32 noundef 290948) #10
+  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %1) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 289, ptr noundef nonnull @__func__.AddEnumLabel) #10
+  br label %223
+
+29:                                               ; preds = %23
+  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %30)
+  %31 = tail call i32 @errcode(i32 noundef 290948) #10
+  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %1) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 296, ptr noundef nonnull @__func__.AddEnumLabel) #10
+  unreachable
+
+33:                                               ; preds = %19
+  %34 = tail call ptr @table_open(i32 noundef 3501, i32 noundef 3) #10
+  %35 = icmp eq ptr %2, null
+  %.097.v = select i1 %3, i32 1, i32 -1
+  %36 = tail call ptr @SearchSysCacheList(i32 noundef 24, i32 noundef 1, i64 noundef %20, i64 noundef 0, i64 noundef 0) #10
+  %37 = getelementptr inbounds i8, ptr %36, i64 64
+  %38 = load i32, ptr %37, align 8
+  %39 = sext i32 %38 to i64
+  %40 = shl nsw i64 %39, 3
+  %41 = tail call ptr @palloc(i64 noundef %40) #10
+  %42 = icmp sgt i32 %38, 0
+  br i1 %35, label %.split.us, label %.split.preheader
+
+.split.preheader:                                 ; preds = %33
+  br i1 %42, label %.lr.ph, label %.preheader112.thread
+
+.split.us:                                        ; preds = %33
+  br i1 %42, label %.lr.ph.us, label %._crit_edge.us.thread
+
+._crit_edge.us.thread:                            ; preds = %.split.us
+  tail call void @pg_qsort(ptr noundef %41, i64 noundef %39, i64 noundef 8, ptr noundef nonnull @sort_order_cmp) #10
+  br label %157
+
+._crit_edge.us:                                   ; preds = %43
+  tail call void @pg_qsort(ptr noundef nonnull %41, i64 noundef %39, i64 noundef 8, ptr noundef nonnull @sort_order_cmp) #10
+  br i1 %42, label %60, label %157
+
+43:                                               ; preds = %.lr.ph.us, %43
+  %indvars.iv175 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next176, %43 ]
+  %44 = getelementptr [0 x ptr], ptr %48, i64 0, i64 %indvars.iv175
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 64
+  %47 = getelementptr ptr, ptr %41, i64 %indvars.iv175
+  store ptr %46, ptr %47, align 8
+  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
+  %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178
+  br i1 %exitcond179.not, label %._crit_edge.us, label %43, !llvm.loop !11
+
+.lr.ph.us:                                        ; preds = %.split.us
+  %48 = getelementptr inbounds i8, ptr %36, i64 80
+  %wide.trip.count178 = zext nneg i32 %38 to i64
+  br label %43
+
+.preheader112.thread:                             ; preds = %RenumberEnumType.exit, %.split.preheader
+  %.lcssa224 = phi i64 [ %39, %.split.preheader ], [ %152, %RenumberEnumType.exit ]
+  %.lcssa218 = phi ptr [ %41, %.split.preheader ], [ %154, %RenumberEnumType.exit ]
+  tail call void @pg_qsort(ptr noundef %.lcssa218, i64 noundef %.lcssa224, i64 noundef 8, ptr noundef nonnull @sort_order_cmp) #10
+  br label %.preheader112._crit_edge
+
+.lr.ph:                                           ; preds = %.split.preheader, %RenumberEnumType.exit
+  %49 = phi i1 [ %155, %RenumberEnumType.exit ], [ %42, %.split.preheader ]
+  %50 = phi ptr [ %154, %RenumberEnumType.exit ], [ %41, %.split.preheader ]
+  %51 = phi i64 [ %152, %RenumberEnumType.exit ], [ %39, %.split.preheader ]
+  %52 = phi i32 [ %151, %RenumberEnumType.exit ], [ %38, %.split.preheader ]
+  %53 = phi ptr [ %149, %RenumberEnumType.exit ], [ %36, %.split.preheader ]
+  %54 = getelementptr inbounds i8, ptr %53, i64 80
+  %wide.trip.count = zext nneg i32 %52 to i64
+  br label %55
+
+55:                                               ; preds = %.lr.ph, %55
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
+  %56 = getelementptr [0 x ptr], ptr %54, i64 0, i64 %indvars.iv
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 64
+  %59 = getelementptr ptr, ptr %50, i64 %indvars.iv
+  store ptr %58, ptr %59, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.preheader112, label %55, !llvm.loop !11
+
+.preheader112:                                    ; preds = %55
+  tail call void @pg_qsort(ptr noundef nonnull %50, i64 noundef %51, i64 noundef 8, ptr noundef nonnull @sort_order_cmp) #10
+  br i1 %49, label %.lr.ph138.preheader, label %.preheader112._crit_edge
+
+.lr.ph138.preheader:                              ; preds = %.preheader112
+  %wide.trip.count173 = zext nneg i32 %52 to i64
+  br label %.lr.ph138
+
+60:                                               ; preds = %._crit_edge.us
+  %61 = zext nneg i32 %38 to i64
+  %62 = getelementptr ptr, ptr %41, i64 %61
+  %63 = getelementptr i8, ptr %62, i64 -8
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 16
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 22
+  %68 = load i8, ptr %67, align 2
+  %69 = zext i8 %68 to i64
+  %70 = getelementptr i8, ptr %66, i64 %69
+  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = load float, ptr %71, align 4
+  %73 = fadd float %72, 1.000000e+00
+  br label %157
+
+.lr.ph138:                                        ; preds = %.lr.ph138.preheader, %85
+  %indvars.iv170 = phi i64 [ 0, %.lr.ph138.preheader ], [ %indvars.iv.next171, %85 ]
+  %74 = getelementptr ptr, ptr %50, i64 %indvars.iv170
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 16
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 22
+  %79 = load i8, ptr %78, align 2
+  %80 = zext i8 %79 to i64
+  %81 = getelementptr i8, ptr %77, i64 %80
+  %82 = getelementptr inbounds i8, ptr %81, i64 12
+  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(1) %2) #11
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %89, label %85
+
+85:                                               ; preds = %.lr.ph138
+  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
+  %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count173
+  br i1 %exitcond174.not, label %.preheader112._crit_edge, label %.lr.ph138, !llvm.loop !12
+
+.preheader112._crit_edge:                         ; preds = %.preheader112, %85, %.preheader112.thread
+  %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %86)
+  %87 = tail call i32 @errcode(i32 noundef 50856066) #10
+  %88 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %2) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 351, ptr noundef nonnull @__func__.AddEnumLabel) #10
+  unreachable
+
+89:                                               ; preds = %.lr.ph138
+  %90 = trunc i64 %indvars.iv170 to i32
+  %sext = shl i64 %indvars.iv170, 32
+  %91 = ashr exact i64 %sext, 32
+  %92 = getelementptr ptr, ptr %50, i64 %91
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 16
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 22
+  %97 = load i8, ptr %96, align 2
+  %98 = zext i8 %97 to i64
+  %99 = getelementptr i8, ptr %95, i64 %98
+  %.097 = add i32 %.097.v, %90
+  %100 = icmp slt i32 %.097, 0
+  br i1 %100, label %101, label %105
+
+101:                                              ; preds = %89
+  %102 = getelementptr inbounds i8, ptr %99, i64 8
+  %103 = load float, ptr %102, align 4
+  %104 = fadd float %103, -1.000000e+00
+  br label %157
+
+105:                                              ; preds = %89
+  %.not103 = icmp slt i32 %.097, %52
+  br i1 %.not103, label %110, label %106
+
+106:                                              ; preds = %105
+  %107 = getelementptr inbounds i8, ptr %99, i64 8
+  %108 = load float, ptr %107, align 4
+  %109 = fadd float %108, 1.000000e+00
+  br label %157
+
+110:                                              ; preds = %105
+  %111 = zext nneg i32 %.097 to i64
+  %112 = getelementptr ptr, ptr %50, i64 %111
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 16
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 22
+  %117 = load i8, ptr %116, align 2
+  %118 = zext i8 %117 to i64
+  %119 = getelementptr i8, ptr %115, i64 %118
+  %120 = getelementptr inbounds i8, ptr %99, i64 8
+  %121 = load float, ptr %120, align 4
+  %122 = getelementptr inbounds i8, ptr %119, i64 8
+  %123 = load float, ptr %122, align 4
+  %124 = fadd float %121, %123
+  %125 = fmul float %124, 5.000000e-01
+  store volatile float %125, ptr %11, align 4
+  %.0..0..0..0.7 = load volatile float, ptr %11, align 4
+  %126 = load float, ptr %120, align 4
+  %127 = fcmp oeq float %.0..0..0..0.7, %126
+  br i1 %127, label %.lr.ph.i.preheader, label %128
+
+128:                                              ; preds = %110
+  %.0..0..0..0.8 = load volatile float, ptr %11, align 4
+  %129 = load float, ptr %122, align 4
+  %130 = fcmp oeq float %.0..0..0..0.8, %129
+  br i1 %130, label %.lr.ph.i.preheader, label %156
+
+.lr.ph.i.preheader:                               ; preds = %110, %128
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %147
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %147 ], [ %wide.trip.count173, %.lr.ph.i.preheader ]
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
+  %131 = getelementptr ptr, ptr %50, i64 %indvars.iv.next.i
+  %132 = load ptr, ptr %131, align 8
+  %133 = tail call ptr @heap_copytuple(ptr noundef %132) #10
+  %134 = getelementptr inbounds i8, ptr %133, i64 16
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds i8, ptr %135, i64 22
+  %137 = load i8, ptr %136, align 2
+  %138 = zext i8 %137 to i64
+  %139 = getelementptr i8, ptr %135, i64 %138
+  %140 = trunc i64 %indvars.iv.i to i32
+  %141 = sitofp i32 %140 to float
+  %142 = getelementptr inbounds i8, ptr %139, i64 8
+  %143 = load float, ptr %142, align 4
+  %144 = fcmp une float %143, %141
+  br i1 %144, label %145, label %147
+
+145:                                              ; preds = %.lr.ph.i
+  store float %141, ptr %142, align 4
+  %146 = getelementptr inbounds i8, ptr %133, i64 4
+  tail call void @CatalogTupleUpdate(ptr noundef %34, ptr noundef nonnull %146, ptr noundef nonnull %133) #10
+  br label %147
+
+147:                                              ; preds = %145, %.lr.ph.i
+  tail call void @heap_freetuple(ptr noundef nonnull %133) #10
+  %148 = icmp ugt i64 %indvars.iv.i, 1
+  br i1 %148, label %.lr.ph.i, label %RenumberEnumType.exit, !llvm.loop !13
+
+RenumberEnumType.exit:                            ; preds = %147
+  tail call void @CommandCounterIncrement() #10
+  tail call void @pfree(ptr noundef nonnull %50) #10
+  tail call void @ReleaseCatCacheList(ptr noundef %53) #10
+  %149 = tail call ptr @SearchSysCacheList(i32 noundef 24, i32 noundef 1, i64 noundef %20, i64 noundef 0, i64 noundef 0) #10
+  %150 = getelementptr inbounds i8, ptr %149, i64 64
+  %151 = load i32, ptr %150, align 8
+  %152 = sext i32 %151 to i64
+  %153 = shl nsw i64 %152, 3
+  %154 = tail call ptr @palloc(i64 noundef %153) #10
+  %155 = icmp sgt i32 %151, 0
+  br i1 %155, label %.lr.ph, label %.preheader112.thread
+
+156:                                              ; preds = %128
+  %.0..0..0..0.9 = load volatile float, ptr %11, align 4
+  br label %157
+
+157:                                              ; preds = %._crit_edge.us.thread, %._crit_edge.us, %101, %156, %106, %60
+  %158 = phi ptr [ %36, %60 ], [ %53, %101 ], [ %53, %106 ], [ %53, %156 ], [ %36, %._crit_edge.us ], [ %36, %._crit_edge.us.thread ]
+  %159 = phi i32 [ %38, %60 ], [ %52, %101 ], [ %52, %106 ], [ %52, %156 ], [ %38, %._crit_edge.us ], [ %38, %._crit_edge.us.thread ]
+  %160 = phi ptr [ %41, %60 ], [ %50, %101 ], [ %50, %106 ], [ %50, %156 ], [ %41, %._crit_edge.us ], [ %41, %._crit_edge.us.thread ]
+  %.0 = phi float [ %73, %60 ], [ %104, %101 ], [ %109, %106 ], [ %.0..0..0..0.9, %156 ], [ 1.000000e+00, %._crit_edge.us ], [ 1.000000e+00, %._crit_edge.us.thread ]
+  %.fr = freeze i32 %159
+  %161 = load i8, ptr @IsBinaryUpgrade, align 1
+  %162 = and i8 %161, 1
+  %.not104 = icmp eq i8 %162, 0
+  br i1 %.not104, label %.preheader, label %186
+
+.preheader:                                       ; preds = %157
+  %.not108145 = icmp sgt i32 %.fr, 0
+  br i1 %.not108145, label %.lr.ph148.us.preheader, label %.critedge
+
+.lr.ph148.us.preheader:                           ; preds = %.preheader
+  %wide.trip.count183 = zext nneg i32 %.fr to i64
+  br label %.lr.ph148.us
+
+.lr.ph148.us:                                     ; preds = %.lr.ph148.us.backedge, %.lr.ph148.us.preheader
+  %163 = tail call i32 @GetNewOidWithIndex(ptr noundef %34, i32 noundef 3502, i16 noundef signext 1) #10
+  store i32 %163, ptr %7, align 4
+  br label %164
+
+164:                                              ; preds = %.lr.ph148.us, %183
+  %indvars.iv180 = phi i64 [ 0, %.lr.ph148.us ], [ %indvars.iv.next181, %183 ]
+  %165 = getelementptr ptr, ptr %160, i64 %indvars.iv180
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds i8, ptr %166, i64 16
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds i8, ptr %168, i64 22
+  %170 = load i8, ptr %169, align 2
+  %171 = zext i8 %170 to i64
+  %172 = getelementptr i8, ptr %168, i64 %171
+  %173 = load i32, ptr %172, align 4
+  %174 = and i32 %173, 1
+  %.not105.us = icmp eq i32 %174, 0
+  br i1 %.not105.us, label %175, label %183
+
+175:                                              ; preds = %164
+  %176 = getelementptr inbounds i8, ptr %172, i64 8
+  %177 = load float, ptr %176, align 4
+  %178 = fcmp olt float %177, %.0
+  br i1 %178, label %180, label %179
+
+179:                                              ; preds = %175
+  %.not106.us = icmp ugt i32 %173, %163
+  br i1 %.not106.us, label %183, label %181
+
+180:                                              ; preds = %175
+  %.not107.us = icmp ult i32 %173, %163
+  br i1 %.not107.us, label %183, label %181
+
+181:                                              ; preds = %180, %179
+  %182 = and i32 %163, 1
+  %.not109.us = icmp eq i32 %182, 0
+  br i1 %.not109.us, label %.lr.ph148.us.backedge, label %.loopexit
+
+.lr.ph148.us.backedge:                            ; preds = %181, %..critedge_crit_edge.us
+  br label %.lr.ph148.us
+
+183:                                              ; preds = %180, %179, %164
+  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
+  %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
+  br i1 %exitcond184.not, label %..critedge_crit_edge.us, label %164, !llvm.loop !14
+
+..critedge_crit_edge.us:                          ; preds = %183
+  %184 = and i32 %163, 1
+  %185 = icmp eq i32 %184, 0
+  br i1 %185, label %.loopexit, label %.lr.ph148.us.backedge
+
+186:                                              ; preds = %157
+  %187 = load i32, ptr @binary_upgrade_next_pg_enum_oid, align 4
+  %.not110 = icmp eq i32 %187, 0
+  br i1 %.not110, label %188, label %192
+
+188:                                              ; preds = %186
+  %189 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %189)
+  %190 = tail call i32 @errcode(i32 noundef 50856066) #10
+  %191 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 408, ptr noundef nonnull @__func__.AddEnumLabel) #10
+  unreachable
+
+192:                                              ; preds = %186
+  br i1 %35, label %197, label %193
+
+193:                                              ; preds = %192
+  %194 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %194)
+  %195 = tail call i32 @errcode(i32 noundef 50856066) #10
+  %196 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 418, ptr noundef nonnull @__func__.AddEnumLabel) #10
+  unreachable
+
+197:                                              ; preds = %192
+  store i32 %187, ptr %7, align 4
+  store i32 0, ptr @binary_upgrade_next_pg_enum_oid, align 4
+  br label %.loopexit
+
+.critedge:                                        ; preds = %.preheader, %.critedge
+  %198 = tail call i32 @GetNewOidWithIndex(ptr noundef %34, i32 noundef 3502, i16 noundef signext 1) #10
+  %199 = and i32 %198, 1
+  %200 = icmp eq i32 %199, 0
+  br i1 %200, label %.loopexit.split, label %.critedge
+
+.loopexit.split:                                  ; preds = %.critedge
+  store i32 %198, ptr %7, align 4
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %181, %..critedge_crit_edge.us, %.loopexit.split, %197
+  %201 = phi i32 [ %198, %.loopexit.split ], [ %187, %197 ], [ %163, %..critedge_crit_edge.us ], [ %163, %181 ]
+  tail call void @pfree(ptr noundef %160) #10
+  tail call void @ReleaseCatCacheList(ptr noundef %158) #10
+  store i32 0, ptr %9, align 4
+  %202 = zext i32 %201 to i64
+  store i64 %202, ptr %8, align 16
+  %203 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 %20, ptr %203, align 8
+  %204 = bitcast float %.0 to i32
+  %205 = sext i32 %204 to i64
+  %206 = getelementptr inbounds i8, ptr %8, i64 16
+  store i64 %205, ptr %206, align 16
+  call void @namestrcpy(ptr noundef nonnull %10, ptr noundef %1) #10
+  %207 = ptrtoint ptr %10 to i64
+  %208 = getelementptr inbounds i8, ptr %8, i64 24
+  store i64 %207, ptr %208, align 8
+  %209 = getelementptr inbounds i8, ptr %34, i64 64
+  %210 = load ptr, ptr %209, align 8
+  %211 = call ptr @heap_form_tuple(ptr noundef %210, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
+  call void @CatalogTupleInsert(ptr noundef %34, ptr noundef %211) #10
+  call void @heap_freetuple(ptr noundef %211) #10
+  call void @table_close(ptr noundef %34, i32 noundef 3) #10
+  %212 = load ptr, ptr @uncommitted_enums, align 8
+  %213 = icmp eq ptr %212, null
+  br i1 %213, label %214, label %220
+
+214:                                              ; preds = %.loopexit
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6)
+  %215 = getelementptr inbounds i8, ptr %6, i64 32
+  store i64 4, ptr %215, align 8
+  %216 = getelementptr inbounds i8, ptr %6, i64 40
+  store i64 4, ptr %216, align 8
+  %217 = load ptr, ptr @TopTransactionContext, align 8
+  %218 = getelementptr inbounds i8, ptr %6, i64 80
+  store ptr %217, ptr %218, align 8
+  %219 = call ptr @hash_create(ptr noundef nonnull @.str.8, i64 noundef 32, ptr noundef nonnull %6, i32 noundef 1064) #10
+  store ptr %219, ptr @uncommitted_enums, align 8
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)
+  br label %220
+
+220:                                              ; preds = %214, %.loopexit
+  %221 = phi ptr [ %219, %214 ], [ %212, %.loopexit ]
+  %222 = call ptr @hash_search(ptr noundef %221, ptr noundef nonnull %7, i32 noundef 1, ptr noundef null) #10
+  br label %223
+
+223:                                              ; preds = %26, %24, %220
+  ret void
+}
+
+declare void @LockDatabaseObject(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
+
+declare ptr @SearchSysCache2(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+
+declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
+
+declare ptr @SearchSysCacheList(i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define internal i32 @sort_order_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+  %3 = load ptr, ptr %0, align 8
+  %4 = load ptr, ptr %1, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 22
+  %8 = load i8, ptr %7, align 2
+  %9 = zext i8 %8 to i64
+  %10 = getelementptr i8, ptr %6, i64 %9
+  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %14 = load i8, ptr %13, align 2
+  %15 = zext i8 %14 to i64
+  %16 = getelementptr i8, ptr %12, i64 %15
+  %17 = getelementptr inbounds i8, ptr %10, i64 8
+  %18 = load float, ptr %17, align 4
+  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = load float, ptr %19, align 4
+  %21 = fcmp olt float %18, %20
+  %22 = fcmp ogt float %18, %20
+  %. = zext i1 %22 to i32
+  %.0 = select i1 %21, i32 -1, i32 %.
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+
+declare void @ReleaseCatCacheList(ptr noundef) local_unnamed_addr #1
+
+declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @CatalogTupleInsert(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @heap_freetuple(ptr noundef) local_unnamed_addr #1
+
+declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @RenameEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
+  %5 = icmp ugt i64 %4, 63
+  br i1 %5, label %6, label %11
+
+6:                                                ; preds = %3
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %7)
+  %8 = tail call i32 @errcode(i32 noundef 33579140) #10
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %2) #10
+  %10 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1, i32 noundef 63) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 556, ptr noundef nonnull @__func__.RenameEnumLabel) #10
+  unreachable
+
+11:                                               ; preds = %3
+  tail call void @LockDatabaseObject(i32 noundef 1247, i32 noundef %0, i16 noundef zeroext 0, i32 noundef 7) #10
+  %12 = tail call ptr @table_open(i32 noundef 3501, i32 noundef 3) #10
+  %13 = zext i32 %0 to i64
+  %14 = tail call ptr @SearchSysCacheList(i32 noundef 24, i32 noundef 1, i64 noundef %13, i64 noundef 0, i64 noundef 0) #10
+  %15 = getelementptr inbounds i8, ptr %14, i64 64
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.lr.ph, label %._crit_edge.thread
+
+.lr.ph:                                           ; preds = %11
+  %18 = getelementptr inbounds i8, ptr %14, i64 80
+  %wide.trip.count = zext nneg i32 %16 to i64
+  br label %19
+
+19:                                               ; preds = %.lr.ph, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
+  %.03136 = phi i8 [ 0, %.lr.ph ], [ %.1, %19 ]
+  %.03235 = phi ptr [ null, %.lr.ph ], [ %spec.select, %19 ]
+  %20 = getelementptr [0 x ptr], ptr %18, i64 0, i64 %indvars.iv
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 80
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 22
+  %25 = load i8, ptr %24, align 2
+  %26 = zext i8 %25 to i64
+  %27 = getelementptr i8, ptr %23, i64 %26
+  %28 = getelementptr inbounds i8, ptr %27, i64 12
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %1) #11
+  %30 = icmp eq i32 %29, 0
+  %31 = getelementptr inbounds i8, ptr %21, i64 64
+  %spec.select = select i1 %30, ptr %31, ptr %.03235
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %2) #11
+  %33 = icmp eq i32 %32, 0
+  %.1 = select i1 %33, i8 1, i8 %.03136
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !15
+
+._crit_edge:                                      ; preds = %19
+  %.not = icmp eq ptr %spec.select, null
+  br i1 %.not, label %._crit_edge.thread, label %37
+
+._crit_edge.thread:                               ; preds = %11, %._crit_edge
+  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %34)
+  %35 = tail call i32 @errcode(i32 noundef 50856066) #10
+  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %1) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 594, ptr noundef nonnull @__func__.RenameEnumLabel) #10
+  unreachable
+
+37:                                               ; preds = %._crit_edge
+  %38 = and i8 %.1, 1
+  %39 = icmp eq i8 %38, 0
+  br i1 %39, label %44, label %40
+
+40:                                               ; preds = %37
+  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %41)
+  %42 = tail call i32 @errcode(i32 noundef 290948) #10
+  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %2) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 599, ptr noundef nonnull @__func__.RenameEnumLabel) #10
+  unreachable
+
+44:                                               ; preds = %37
+  %45 = tail call ptr @heap_copytuple(ptr noundef nonnull %spec.select) #10
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 22
+  %49 = load i8, ptr %48, align 2
+  %50 = zext i8 %49 to i64
+  %51 = getelementptr i8, ptr %47, i64 %50
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %14) #10
+  %52 = getelementptr inbounds i8, ptr %51, i64 12
+  tail call void @namestrcpy(ptr noundef nonnull %52, ptr noundef %2) #10
+  %53 = getelementptr inbounds i8, ptr %45, i64 4
+  tail call void @CatalogTupleUpdate(ptr noundef %12, ptr noundef nonnull %53, ptr noundef %45) #10
+  tail call void @heap_freetuple(ptr noundef %45) #10
+  tail call void @table_close(ptr noundef %12, i32 noundef 3) #10
+  ret void
+}
+
+declare ptr @heap_copytuple(ptr noundef) local_unnamed_addr #1
+
+declare void @CatalogTupleUpdate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local zeroext i1 @EnumUncommitted(i32 noundef %0) local_unnamed_addr #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i8, align 1
+  store i32 %0, ptr %2, align 4
+  %4 = load ptr, ptr @uncommitted_enums, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %11, label %6
+
+6:                                                ; preds = %1
+  %7 = call ptr @hash_search(ptr noundef nonnull %4, ptr noundef nonnull %2, i32 noundef 0, ptr noundef nonnull %3) #10
+  %8 = load i8, ptr %3, align 1
+  %9 = and i8 %8, 1
+  %10 = icmp ne i8 %9, 0
+  br label %11
+
+11:                                               ; preds = %1, %6
+  %.0 = phi i1 [ %10, %6 ], [ false, %1 ]
+  ret i1 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+define dso_local void @AtEOXact_Enum() local_unnamed_addr #6 {
+  store ptr null, ptr @uncommitted_enums, align 8
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local i64 @EstimateUncommittedEnumsSpace() local_unnamed_addr #0 {
+  %1 = load ptr, ptr @uncommitted_enums, align 8
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %6, label %2
+
+2:                                                ; preds = %0
+  %3 = tail call i64 @hash_get_num_entries(ptr noundef nonnull %1) #10
+  %4 = shl i64 %3, 2
+  %5 = add i64 %4, 4
+  br label %6
+
+6:                                                ; preds = %0, %2
+  %.0 = phi i64 [ %5, %2 ], [ 4, %0 ]
+  ret i64 %.0
+}
+
+declare i64 @hash_get_num_entries(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @SerializeUncommittedEnums(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = alloca %struct.HASH_SEQ_STATUS, align 8
+  %4 = load ptr, ptr @uncommitted_enums, align 8
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %.loopexit, label %5
+
+5:                                                ; preds = %2
+  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef nonnull %4) #10
+  %6 = call ptr @hash_seq_search(ptr noundef nonnull %3) #10
+  %.not67 = icmp eq ptr %6, null
+  br i1 %.not67, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %5, %.lr.ph
+  %7 = phi ptr [ %10, %.lr.ph ], [ %6, %5 ]
+  %.08 = phi ptr [ %9, %.lr.ph ], [ %0, %5 ]
+  %8 = load i32, ptr %7, align 4
+  %9 = getelementptr i8, ptr %.08, i64 4
+  store i32 %8, ptr %.08, align 4
+  %10 = call ptr @hash_seq_search(ptr noundef nonnull %3) #10
+  %.not6 = icmp eq ptr %10, null
+  br i1 %.not6, label %.loopexit, label %.lr.ph, !llvm.loop !16
+
+.loopexit:                                        ; preds = %.lr.ph, %5, %2
+  %.1 = phi ptr [ %0, %2 ], [ %0, %5 ], [ %9, %.lr.ph ]
+  store i32 0, ptr %.1, align 4
+  ret void
+}
+
+declare void @hash_seq_init(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @RestoreUncommittedEnums(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = alloca %struct.HASHCTL, align 8
+  %3 = load i32, ptr %0, align 4
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %.loopexit, label %4
+
+4:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2)
+  %5 = getelementptr inbounds i8, ptr %2, i64 32
+  store i64 4, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %2, i64 40
+  store i64 4, ptr %6, align 8
+  %7 = load ptr, ptr @TopTransactionContext, align 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 80
+  store ptr %7, ptr %8, align 8
+  %9 = call ptr @hash_create(ptr noundef nonnull @.str.8, i64 noundef 32, ptr noundef nonnull %2, i32 noundef 1064) #10
+  store ptr %9, ptr @uncommitted_enums, align 8
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2)
+  br label %10
+
+10:                                               ; preds = %10, %4
+  %.0 = phi ptr [ %0, %4 ], [ %12, %10 ]
+  %11 = load ptr, ptr @uncommitted_enums, align 8
+  %12 = getelementptr i8, ptr %.0, i64 4
+  %13 = call ptr @hash_search(ptr noundef %11, ptr noundef nonnull %.0, i32 noundef 1, ptr noundef null) #10
+  %14 = load i32, ptr %12, align 4
+  %.not4 = icmp eq i32 %14, 0
+  br i1 %.not4, label %.loopexit, label %10, !llvm.loop !17
+
+.loopexit:                                        ; preds = %10, %1
+  ret void
+}
+
+declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @CommandCounterIncrement() local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { cold nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}

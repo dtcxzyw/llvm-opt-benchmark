@@ -1,0 +1,1522 @@
+; ModuleID = 'bench/postgres/original/parallel.ll'
+source_filename = "bench/postgres/original/parallel.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.ShutdownInformation = type { ptr, ptr }
+%struct.DumpSignalInformation = type { ptr, ptr, i8, i8 }
+%struct.ParallelSlot = type { i32, ptr, ptr, ptr, i32, i32, i32, i32, i32 }
+%struct.fd_set = type { [16 x i64] }
+%struct.timeval = type { i64, i64 }
+
+@shutdown_info = internal global %struct.ShutdownInformation zeroinitializer, align 8
+@signal_info = internal global %struct.DumpSignalInformation zeroinitializer, align 8
+@.str = private unnamed_addr constant [44 x i8] c"could not create communication channels: %m\00", align 1
+@.str.1 = private unnamed_addr constant [36 x i8] c"could not create worker process: %m\00", align 1
+@progname = external local_unnamed_addr global ptr, align 8
+@stderr = external local_unnamed_addr global ptr, align 8
+@.str.2 = private unnamed_addr constant [3 x i8] c": \00", align 1
+@.str.3 = private unnamed_addr constant [20 x i8] c"terminated by user\0A\00", align 1
+@.str.4 = private unnamed_addr constant [6 x i8] c"DUMP \00", align 1
+@.str.5 = private unnamed_addr constant [10 x i8] c"DUMP %d%n\00", align 1
+@.str.6 = private unnamed_addr constant [9 x i8] c"RESTORE \00", align 1
+@.str.7 = private unnamed_addr constant [13 x i8] c"RESTORE %d%n\00", align 1
+@.str.8 = private unnamed_addr constant [48 x i8] c"unrecognized command received from leader: \22%s\22\00", align 1
+@.str.9 = private unnamed_addr constant [6 x i8] c"BLOBS\00", align 1
+@.str.10 = private unnamed_addr constant [42 x i8] c"LOCK TABLE %s IN ACCESS SHARE MODE NOWAIT\00", align 1
+@.str.11 = private unnamed_addr constant [207 x i8] c"could not obtain lock on relation \22%s\22\0AThis usually means that someone requested an ACCESS EXCLUSIVE lock on the table after the pg_dump parent process had gotten the initial ACCESS SHARE lock on the table.\00", align 1
+@.str.12 = private unnamed_addr constant [12 x i8] c"OK %d %d %d\00", align 1
+@.str.13 = private unnamed_addr constant [49 x i8] c"could not write to the communication channel: %m\00", align 1
+@.str.14 = private unnamed_addr constant [8 x i8] c"DUMP %d\00", align 1
+@.str.15 = private unnamed_addr constant [11 x i8] c"RESTORE %d\00", align 1
+@.str.16 = private unnamed_addr constant [35 x i8] c"a worker process died unexpectedly\00", align 1
+@.str.17 = private unnamed_addr constant [4 x i8] c"OK \00", align 1
+@.str.18 = private unnamed_addr constant [43 x i8] c"invalid message received from worker: \22%s\22\00", align 1
+@.str.19 = private unnamed_addr constant [16 x i8] c"%s() failed: %m\00", align 1
+@.str.20 = private unnamed_addr constant [7 x i8] c"select\00", align 1
+@.str.21 = private unnamed_addr constant [14 x i8] c"OK %d %d %d%n\00", align 1
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local void @init_parallel_dump_utils() local_unnamed_addr #0 {
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @on_exit_close_archive(ptr noundef %0) local_unnamed_addr #1 {
+  store ptr %0, ptr getelementptr inbounds (%struct.ShutdownInformation, ptr @shutdown_info, i64 0, i32 1), align 8
+  tail call void @on_exit_nicely(ptr noundef nonnull @archive_close_connection, ptr noundef nonnull @shutdown_info) #18
+  ret void
+}
+
+declare void @on_exit_nicely(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define internal void @archive_close_connection(i32 %0, ptr nocapture noundef readonly %1) #1 {
+  %3 = alloca i32, align 4
+  %4 = load ptr, ptr %1, align 8
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %78, label %5
+
+5:                                                ; preds = %2
+  %6 = load i32, ptr %4, align 8
+  %7 = icmp sgt i32 %6, 0
+  br i1 %7, label %.lr.ph.i, label %GetMyPSlot.exit.thread
+
+.lr.ph.i:                                         ; preds = %5
+  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  br label %13
+
+9:                                                ; preds = %13
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %10 = load i32, ptr %4, align 8
+  %11 = sext i32 %10 to i64
+  %12 = icmp slt i64 %indvars.iv.next.i, %11
+  br i1 %12, label %13, label %GetMyPSlot.exit.thread, !llvm.loop !5
+
+13:                                               ; preds = %9, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
+  %14 = load ptr, ptr %8, align 8
+  %15 = getelementptr %struct.ParallelSlot, ptr %14, i64 %indvars.iv.i, i32 8
+  %16 = load i32, ptr %15, align 8
+  %17 = tail call i32 @getpid() #18
+  %18 = icmp eq i32 %16, %17
+  br i1 %18, label %GetMyPSlot.exit, label %9
+
+GetMyPSlot.exit:                                  ; preds = %13
+  %19 = load ptr, ptr %8, align 8
+  %20 = getelementptr %struct.ParallelSlot, ptr %19, i64 %indvars.iv.i
+  %.not16 = icmp eq ptr %20, null
+  br i1 %.not16, label %GetMyPSlot.exit.thread, label %74
+
+GetMyPSlot.exit.thread:                           ; preds = %9, %5, %GetMyPSlot.exit
+  %21 = load ptr, ptr %1, align 8
+  %22 = load i32, ptr %21, align 8
+  %23 = icmp sgt i32 %22, 0
+  br i1 %23, label %.lr.ph.i19, label %._crit_edge.thread.i
+
+.lr.ph.i19:                                       ; preds = %GetMyPSlot.exit.thread
+  %24 = getelementptr inbounds i8, ptr %21, i64 16
+  br label %26
+
+.preheader.i:                                     ; preds = %26
+  %25 = icmp sgt i32 %31, 0
+  br i1 %25, label %.lr.ph21.i, label %._crit_edge.thread.i
+
+26:                                               ; preds = %26, %.lr.ph.i19
+  %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i21, %26 ]
+  %27 = load ptr, ptr %24, align 8
+  %28 = getelementptr %struct.ParallelSlot, ptr %27, i64 %indvars.iv.i20, i32 5
+  %29 = load i32, ptr %28, align 4
+  %30 = tail call i32 @close(i32 noundef %29) #18
+  %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
+  %31 = load i32, ptr %21, align 8
+  %32 = sext i32 %31 to i64
+  %33 = icmp slt i64 %indvars.iv.next.i21, %32
+  br i1 %33, label %26, label %.preheader.i, !llvm.loop !7
+
+.lr.ph21.i:                                       ; preds = %.preheader.i, %39
+  %.pr31.i = phi i32 [ %.pr.i, %39 ], [ %31, %.preheader.i ]
+  %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %39 ], [ 0, %.preheader.i ]
+  %34 = load ptr, ptr %24, align 8
+  %35 = getelementptr %struct.ParallelSlot, ptr %34, i64 %indvars.iv28.i, i32 8
+  %36 = load i32, ptr %35, align 8
+  %.not.i = icmp eq i32 %36, 0
+  br i1 %.not.i, label %39, label %37
+
+37:                                               ; preds = %.lr.ph21.i
+  %38 = tail call i32 @kill(i32 noundef %36, i32 noundef 15) #18
+  %.pr.pre.i = load i32, ptr %21, align 8
+  br label %39
+
+39:                                               ; preds = %37, %.lr.ph21.i
+  %.pr.i = phi i32 [ %.pr31.i, %.lr.ph21.i ], [ %.pr.pre.i, %37 ]
+  %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
+  %40 = sext i32 %.pr.i to i64
+  %41 = icmp slt i64 %indvars.iv.next29.i, %40
+  br i1 %41, label %.lr.ph21.i, label %._crit_edge.i, !llvm.loop !8
+
+._crit_edge.thread.i:                             ; preds = %.preheader.i, %GetMyPSlot.exit.thread
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  br label %ShutdownWorkersHard.exit
+
+._crit_edge.i:                                    ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  %42 = icmp slt i32 %.pr.i, 1
+  br i1 %42, label %ShutdownWorkersHard.exit, label %.lr.ph.i.lr.ph.i.i
+
+.lr.ph.i.lr.ph.i.i:                               ; preds = %._crit_edge.i
+  %43 = getelementptr inbounds i8, ptr %21, i64 8
+  br label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %.loopexit.i.i, %.lr.ph.i.lr.ph.i.i
+  %44 = phi i32 [ %.pr.i, %.lr.ph.i.lr.ph.i.i ], [ %69, %.loopexit.i.i ]
+  %45 = load ptr, ptr %24, align 8
+  %46 = zext nneg i32 %44 to i64
+  %47 = load i32, ptr %45, align 8
+  %.off.i17.i.i = add i32 %47, -1
+  %switch.i18.i.i = icmp ult i32 %.off.i17.i.i, 2
+  br i1 %switch.i18.i.i, label %.critedge.i.i, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.i, %48
+  %indvars.iv.i19.i.i = phi i64 [ %indvars.iv.next.i.i.i, %48 ], [ 0, %.lr.ph.i.i.i ]
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i19.i.i, 1
+  %exitcond.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %46
+  br i1 %exitcond.i.i.i, label %ShutdownWorkersHard.exit, label %48, !llvm.loop !9
+
+48:                                               ; preds = %.lr.ph.i.i
+  %49 = getelementptr %struct.ParallelSlot, ptr %45, i64 %indvars.iv.next.i.i.i
+  %50 = load i32, ptr %49, align 8
+  %.off.i.i.i = add i32 %50, -1
+  %switch.i.i.i = icmp ult i32 %.off.i.i.i, 2
+  br i1 %switch.i.i.i, label %HasEveryWorkerTerminated.exit.i.i, label %.lr.ph.i.i, !llvm.loop !9
+
+HasEveryWorkerTerminated.exit.i.i:                ; preds = %48
+  %.not.le.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %46
+  br i1 %.not.le.i.i, label %.critedge.i.i, label %ShutdownWorkersHard.exit
+
+.critedge.i.i:                                    ; preds = %HasEveryWorkerTerminated.exit.i.i, %.lr.ph.i.i.i
+  %51 = call i32 @wait(ptr noundef nonnull %3) #18
+  %52 = load i32, ptr %21, align 8
+  %53 = icmp sgt i32 %52, 0
+  call void @llvm.assume(i1 %53)
+  %54 = load ptr, ptr %24, align 8
+  %55 = add nsw i32 %52, -1
+  %56 = zext nneg i32 %55 to i64
+  %57 = mul nuw nsw i64 %56, 56
+  %scevgep.i.i = getelementptr i8, ptr %54, i64 %57
+  %wide.trip.count.i.i = zext nneg i32 %52 to i64
+  br label %58
+
+58:                                               ; preds = %65, %.critedge.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.critedge.i.i ], [ %indvars.iv.next.i.i, %65 ]
+  %59 = getelementptr %struct.ParallelSlot, ptr %54, i64 %indvars.iv.i.i
+  %60 = getelementptr inbounds i8, ptr %59, i64 48
+  %61 = load i32, ptr %60, align 8
+  %62 = icmp eq i32 %61, %51
+  br i1 %62, label %63, label %65
+
+63:                                               ; preds = %58
+  %64 = getelementptr inbounds i8, ptr %59, i64 48
+  store i32 0, ptr %64, align 8
+  %.pre.i = and i64 %indvars.iv.i.i, 4294967295
+  br label %.loopexit.i.i
+
+65:                                               ; preds = %58
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %58, !llvm.loop !10
+
+.loopexit.i.i:                                    ; preds = %65, %63
+  %.pre-phi.i = phi i64 [ %.pre.i, %63 ], [ %wide.trip.count.i.i, %65 ]
+  %66 = phi ptr [ %59, %63 ], [ %scevgep.i.i, %65 ]
+  store i32 3, ptr %66, align 8
+  %67 = load ptr, ptr %43, align 8
+  %68 = getelementptr ptr, ptr %67, i64 %.pre-phi.i
+  store ptr null, ptr %68, align 8
+  %69 = load i32, ptr %21, align 8
+  %70 = icmp slt i32 %69, 1
+  br i1 %70, label %ShutdownWorkersHard.exit, label %.lr.ph.i.i.i, !llvm.loop !11
+
+ShutdownWorkersHard.exit:                         ; preds = %HasEveryWorkerTerminated.exit.i.i, %.loopexit.i.i, %.lr.ph.i.i, %._crit_edge.thread.i, %._crit_edge.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = load ptr, ptr %71, align 8
+  %.not17 = icmp eq ptr %72, null
+  br i1 %.not17, label %82, label %73
+
+73:                                               ; preds = %ShutdownWorkersHard.exit
+  call void @DisconnectDatabase(ptr noundef nonnull %72) #18
+  br label %82
+
+74:                                               ; preds = %GetMyPSlot.exit
+  %75 = getelementptr inbounds i8, ptr %20, i64 24
+  %76 = load ptr, ptr %75, align 8
+  %.not18 = icmp eq ptr %76, null
+  br i1 %.not18, label %82, label %77
+
+77:                                               ; preds = %74
+  tail call void @DisconnectDatabase(ptr noundef nonnull %76) #18
+  br label %82
+
+78:                                               ; preds = %2
+  %79 = getelementptr inbounds i8, ptr %1, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %.not15 = icmp eq ptr %80, null
+  br i1 %.not15, label %82, label %81
+
+81:                                               ; preds = %78
+  tail call void @DisconnectDatabase(ptr noundef nonnull %80) #18
+  br label %82
+
+82:                                               ; preds = %78, %81, %73, %ShutdownWorkersHard.exit, %77, %74
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @set_archive_cancel_info(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+  %3 = load volatile i8, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 2), align 8
+  %4 = and i8 %3, 1
+  %.not.i = icmp eq i8 %4, 0
+  br i1 %.not.i, label %5, label %set_cancel_handler.exit
+
+5:                                                ; preds = %2
+  store volatile i8 1, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 2), align 8
+  %6 = tail call ptr @pqsignal(i32 noundef 2, ptr noundef nonnull @sigTermHandler) #18
+  %7 = tail call ptr @pqsignal(i32 noundef 15, ptr noundef nonnull @sigTermHandler) #18
+  %8 = tail call ptr @pqsignal(i32 noundef 3, ptr noundef nonnull @sigTermHandler) #18
+  br label %set_cancel_handler.exit
+
+set_cancel_handler.exit:                          ; preds = %2, %5
+  %9 = getelementptr inbounds i8, ptr %0, i64 448
+  %10 = load volatile ptr, ptr %9, align 8
+  store volatile ptr null, ptr %9, align 8
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %12, label %11
+
+11:                                               ; preds = %set_cancel_handler.exit
+  tail call void @PQfreeCancel(ptr noundef nonnull %10) #18
+  br label %12
+
+12:                                               ; preds = %11, %set_cancel_handler.exit
+  %.not9 = icmp eq ptr %1, null
+  br i1 %.not9, label %15, label %13
+
+13:                                               ; preds = %12
+  %14 = tail call ptr @PQgetCancel(ptr noundef nonnull %1) #18
+  store volatile ptr %14, ptr %9, align 8
+  br label %15
+
+15:                                               ; preds = %13, %12
+  store volatile ptr %0, ptr @signal_info, align 8
+  ret void
+}
+
+declare void @PQfreeCancel(ptr noundef) local_unnamed_addr #2
+
+declare ptr @PQgetCancel(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define dso_local noundef ptr @ParallelBackupStart(ptr noundef %0) local_unnamed_addr #1 {
+  %2 = alloca [2 x i32], align 4
+  %3 = alloca [2 x i32], align 4
+  %4 = tail call ptr @pg_malloc(i64 noundef 24) #18
+  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = load i32, ptr %5, align 8
+  store i32 %6, ptr %4, align 8
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  %9 = load i32, ptr %5, align 8
+  %10 = icmp eq i32 %9, 1
+  br i1 %10, label %95, label %11
+
+11:                                               ; preds = %1
+  %12 = sext i32 %6 to i64
+  %13 = shl nsw i64 %12, 3
+  %14 = tail call ptr @pg_malloc0(i64 noundef %13) #18
+  store ptr %14, ptr %7, align 8
+  %15 = load i32, ptr %4, align 8
+  %16 = sext i32 %15 to i64
+  %17 = mul nsw i64 %16, 56
+  %18 = tail call ptr @pg_malloc0(i64 noundef %17) #18
+  store ptr %18, ptr %8, align 8
+  store ptr %4, ptr @shutdown_info, align 8
+  %19 = load volatile i8, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 2), align 8
+  %20 = and i8 %19, 1
+  %.not.i.i = icmp eq i8 %20, 0
+  br i1 %.not.i.i, label %21, label %set_cancel_handler.exit.i
+
+21:                                               ; preds = %11
+  store volatile i8 1, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 2), align 8
+  %22 = tail call ptr @pqsignal(i32 noundef 2, ptr noundef nonnull @sigTermHandler) #18
+  %23 = tail call ptr @pqsignal(i32 noundef 15, ptr noundef nonnull @sigTermHandler) #18
+  %24 = tail call ptr @pqsignal(i32 noundef 3, ptr noundef nonnull @sigTermHandler) #18
+  br label %set_cancel_handler.exit.i
+
+set_cancel_handler.exit.i:                        ; preds = %21, %11
+  %25 = getelementptr inbounds i8, ptr %0, i64 448
+  %26 = load volatile ptr, ptr %25, align 8
+  store volatile ptr null, ptr %25, align 8
+  %.not.i = icmp eq ptr %26, null
+  br i1 %.not.i, label %set_archive_cancel_info.exit, label %27
+
+27:                                               ; preds = %set_cancel_handler.exit.i
+  tail call void @PQfreeCancel(ptr noundef nonnull %26) #18
+  br label %set_archive_cancel_info.exit
+
+set_archive_cancel_info.exit:                     ; preds = %set_cancel_handler.exit.i, %27
+  store volatile ptr %0, ptr @signal_info, align 8
+  %28 = tail call i32 @fflush(ptr noundef null)
+  %29 = load i32, ptr %4, align 8
+  %30 = icmp sgt i32 %29, 0
+  br i1 %30, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %set_archive_cancel_info.exit
+  %31 = getelementptr inbounds i8, ptr %2, i64 4
+  %32 = getelementptr inbounds i8, ptr %3, i64 4
+  br label %33
+
+33:                                               ; preds = %.lr.ph, %72
+  %indvars.iv69 = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next70, %72 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr %struct.ParallelSlot, ptr %34, i64 %indvars.iv
+  %36 = call i32 @pipe(ptr noundef nonnull %2) #18
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %41, label %38
+
+38:                                               ; preds = %33
+  %39 = call i32 @pipe(ptr noundef nonnull %3) #18
+  %40 = icmp slt i32 %39, 0
+  br i1 %40, label %41, label %42
+
+41:                                               ; preds = %33, %38
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str) #18
+  call void @exit_nicely(i32 noundef 1) #19
+  unreachable
+
+42:                                               ; preds = %38
+  %43 = load i32, ptr %3, align 4
+  %44 = getelementptr inbounds i8, ptr %35, i64 32
+  store i32 %43, ptr %44, align 8
+  %45 = load i32, ptr %31, align 4
+  %46 = getelementptr inbounds i8, ptr %35, i64 36
+  store i32 %45, ptr %46, align 4
+  %47 = load i32, ptr %2, align 4
+  %48 = getelementptr inbounds i8, ptr %35, i64 40
+  store i32 %47, ptr %48, align 8
+  %49 = load i32, ptr %32, align 4
+  %50 = getelementptr inbounds i8, ptr %35, i64 44
+  store i32 %49, ptr %50, align 4
+  %51 = call i32 @fork() #18
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %69
+
+53:                                               ; preds = %42
+  %54 = call i32 @getpid() #18
+  %55 = getelementptr inbounds i8, ptr %35, i64 48
+  store i32 %54, ptr %55, align 8
+  store volatile i8 1, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 3), align 1
+  %56 = load i32, ptr %3, align 4
+  %57 = call i32 @close(i32 noundef %56) #18
+  %58 = load i32, ptr %31, align 4
+  %59 = call i32 @close(i32 noundef %58) #18
+  %60 = and i64 %indvars.iv, 4294967295
+  %.not = icmp eq i64 %60, 0
+  br i1 %.not, label %._crit_edge58, label %.lr.ph57.preheader
+
+.lr.ph57.preheader:                               ; preds = %53
+  %wide.trip.count = zext nneg i32 %indvars.iv69 to i64
+  br label %.lr.ph57
+
+.lr.ph57:                                         ; preds = %.lr.ph57.preheader, %.lr.ph57
+  %indvars.iv66 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next67, %.lr.ph57 ]
+  %61 = load ptr, ptr %8, align 8
+  %62 = getelementptr %struct.ParallelSlot, ptr %61, i64 %indvars.iv66, i32 4
+  %63 = load i32, ptr %62, align 8
+  %64 = call i32 @close(i32 noundef %63) #18
+  %65 = load ptr, ptr %8, align 8
+  %66 = getelementptr %struct.ParallelSlot, ptr %65, i64 %indvars.iv66, i32 5
+  %67 = load i32, ptr %66, align 4
+  %68 = call i32 @close(i32 noundef %67) #18
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !12
+
+._crit_edge58:                                    ; preds = %.lr.ph57, %53
+  call fastcc void @RunWorker(ptr noundef %0, ptr noundef %35)
+  call void @exit(i32 noundef 0) #19
+  unreachable
+
+69:                                               ; preds = %42
+  %70 = icmp slt i32 %51, 0
+  br i1 %70, label %71, label %72
+
+71:                                               ; preds = %69
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1) #18
+  call void @exit_nicely(i32 noundef 1) #19
+  unreachable
+
+72:                                               ; preds = %69
+  %73 = getelementptr inbounds i8, ptr %35, i64 48
+  store i32 %51, ptr %73, align 8
+  store i32 1, ptr %35, align 8
+  %74 = load i32, ptr %2, align 4
+  %75 = call i32 @close(i32 noundef %74) #18
+  %76 = load i32, ptr %32, align 4
+  %77 = call i32 @close(i32 noundef %76) #18
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %78 = load i32, ptr %4, align 8
+  %79 = sext i32 %78 to i64
+  %80 = icmp slt i64 %indvars.iv.next, %79
+  %indvars.iv.next70 = add nuw nsw i32 %indvars.iv69, 1
+  br i1 %80, label %33, label %._crit_edge, !llvm.loop !13
+
+._crit_edge:                                      ; preds = %72, %set_archive_cancel_info.exit
+  %81 = call ptr @pqsignal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
+  %82 = getelementptr inbounds i8, ptr %0, i64 440
+  %83 = load ptr, ptr %82, align 8
+  %84 = load volatile i8, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 2), align 8
+  %85 = and i8 %84, 1
+  %.not.i.i43 = icmp eq i8 %85, 0
+  br i1 %.not.i.i43, label %86, label %set_cancel_handler.exit.i44
+
+86:                                               ; preds = %._crit_edge
+  store volatile i8 1, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 2), align 8
+  %87 = call ptr @pqsignal(i32 noundef 2, ptr noundef nonnull @sigTermHandler) #18
+  %88 = call ptr @pqsignal(i32 noundef 15, ptr noundef nonnull @sigTermHandler) #18
+  %89 = call ptr @pqsignal(i32 noundef 3, ptr noundef nonnull @sigTermHandler) #18
+  br label %set_cancel_handler.exit.i44
+
+set_cancel_handler.exit.i44:                      ; preds = %86, %._crit_edge
+  %90 = load volatile ptr, ptr %25, align 8
+  store volatile ptr null, ptr %25, align 8
+  %.not.i45 = icmp eq ptr %90, null
+  br i1 %.not.i45, label %92, label %91
+
+91:                                               ; preds = %set_cancel_handler.exit.i44
+  call void @PQfreeCancel(ptr noundef nonnull %90) #18
+  br label %92
+
+92:                                               ; preds = %91, %set_cancel_handler.exit.i44
+  %.not9.i = icmp eq ptr %83, null
+  br i1 %.not9.i, label %set_archive_cancel_info.exit46, label %93
+
+93:                                               ; preds = %92
+  %94 = call ptr @PQgetCancel(ptr noundef nonnull %83) #18
+  store volatile ptr %94, ptr %25, align 8
+  br label %set_archive_cancel_info.exit46
+
+set_archive_cancel_info.exit46:                   ; preds = %92, %93
+  store volatile ptr %0, ptr @signal_info, align 8
+  store volatile ptr %4, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 1), align 8
+  br label %95
+
+95:                                               ; preds = %1, %set_archive_cancel_info.exit46
+  ret ptr %4
+}
+
+declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #2
+
+declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind
+declare i32 @pipe(ptr noundef) local_unnamed_addr #4
+
+declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: noreturn
+declare void @exit_nicely(i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: nofree nounwind
+declare i32 @fork() local_unnamed_addr #3
+
+; Function Attrs: nounwind
+declare i32 @getpid() local_unnamed_addr #4
+
+declare i32 @close(i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @RunWorker(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #1 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca [256 x i8], align 16
+  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = load i32, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 44
+  %9 = load i32, ptr %8, align 4
+  %10 = tail call ptr @CloneArchive(ptr noundef %0) #18
+  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  store ptr %10, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %10, i64 360
+  %13 = load ptr, ptr %12, align 8
+  tail call void %13(ptr noundef %10) #18
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
+  %14 = tail call ptr @pg_malloc(i64 noundef 64) #18
+  %15 = tail call i64 @read(i32 noundef %7, ptr noundef %14, i64 noundef 1) #18
+  %16 = trunc i64 %15 to i32
+  %17 = icmp slt i32 %16, 1
+  br i1 %17, label %getMessageFromLeader.exit.thread.i, label %.lr.ph.i.i.preheader.lr.ph.i
+
+.lr.ph.i.i.preheader.lr.ph.i:                     ; preds = %2
+  %18 = getelementptr inbounds i8, ptr %10, i64 376
+  %19 = getelementptr inbounds i8, ptr %10, i64 440
+  %20 = getelementptr inbounds i8, ptr %10, i64 368
+  %21 = getelementptr inbounds i8, ptr %10, i64 92
+  br label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.backedge, %.lr.ph.i.i.preheader.lr.ph.i
+  %22 = phi ptr [ %14, %.lr.ph.i.i.preheader.lr.ph.i ], [ %.be, %.lr.ph.i.i.i.backedge ]
+  %.01522.i.i.i = phi i32 [ 64, %.lr.ph.i.i.preheader.lr.ph.i ], [ %.01522.i.i.i.be, %.lr.ph.i.i.i.backedge ]
+  %.01621.i.i.i = phi i32 [ 0, %.lr.ph.i.i.preheader.lr.ph.i ], [ %.01621.i.i.i.be, %.lr.ph.i.i.i.backedge ]
+  %.01720.i.i.i = phi ptr [ %14, %.lr.ph.i.i.preheader.lr.ph.i ], [ %.01720.i.i.i.be, %.lr.ph.i.i.i.backedge ]
+  %23 = load i8, ptr %22, align 1
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %getMessageFromLeader.exit.i, label %25
+
+25:                                               ; preds = %.lr.ph.i.i.i
+  %26 = add i32 %.01621.i.i.i, 1
+  %27 = icmp eq i32 %26, %.01522.i.i.i
+  br i1 %27, label %28, label %32
+
+28:                                               ; preds = %25
+  %29 = add i32 %.01522.i.i.i, 16
+  %30 = sext i32 %29 to i64
+  %31 = call ptr @pg_realloc(ptr noundef nonnull %.01720.i.i.i, i64 noundef %30) #18
+  br label %32
+
+32:                                               ; preds = %28, %25
+  %.118.i.i.i = phi ptr [ %31, %28 ], [ %.01720.i.i.i, %25 ]
+  %.1.i.i.i = phi i32 [ %29, %28 ], [ %.01522.i.i.i, %25 ]
+  %33 = sext i32 %26 to i64
+  %34 = getelementptr i8, ptr %.118.i.i.i, i64 %33
+  %35 = call i64 @read(i32 noundef %7, ptr noundef %34, i64 noundef 1) #18
+  %36 = trunc i64 %35 to i32
+  %37 = icmp slt i32 %36, 1
+  br i1 %37, label %getMessageFromLeader.exit.thread.i, label %.lr.ph.i.i.i.backedge
+
+.lr.ph.i.i.i.backedge:                            ; preds = %32, %sendMessageToLeader.exit.i
+  %.be = phi ptr [ %34, %32 ], [ %86, %sendMessageToLeader.exit.i ]
+  %.01522.i.i.i.be = phi i32 [ %.1.i.i.i, %32 ], [ 64, %sendMessageToLeader.exit.i ]
+  %.01621.i.i.i.be = phi i32 [ %26, %32 ], [ 0, %sendMessageToLeader.exit.i ]
+  %.01720.i.i.i.be = phi ptr [ %.118.i.i.i, %32 ], [ %86, %sendMessageToLeader.exit.i ]
+  br label %.lr.ph.i.i.i
+
+getMessageFromLeader.exit.thread.i:               ; preds = %sendMessageToLeader.exit.i, %32, %2
+  %.017.lcssa.i.i.i = phi ptr [ %14, %2 ], [ %86, %sendMessageToLeader.exit.i ], [ %.118.i.i.i, %32 ]
+  call void @pg_free(ptr noundef %.017.lcssa.i.i.i) #18
+  br label %WaitForCommands.exit
+
+getMessageFromLeader.exit.i:                      ; preds = %.lr.ph.i.i.i
+  %.not.i = icmp eq ptr %.01720.i.i.i, null
+  br i1 %.not.i, label %WaitForCommands.exit, label %38
+
+38:                                               ; preds = %getMessageFromLeader.exit.i
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  %39 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01720.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.4, i64 noundef 5) #20
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %45, label %41
+
+41:                                               ; preds = %38
+  %42 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01720.i.i.i, ptr noundef nonnull dereferenceable(9) @.str.6, i64 noundef 8) #20
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %68, label %44
+
+44:                                               ; preds = %41
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull %.01720.i.i.i) #18
+  call void @exit_nicely(i32 noundef 1) #19
+  unreachable
+
+45:                                               ; preds = %38
+  %46 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.01720.i.i.i, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
+  %.sink.i24.i = load i32, ptr %3, align 4
+  %47 = call ptr @getTocEntryByDumpId(ptr noundef %10, i32 noundef %.sink.i24.i) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  %48 = getelementptr inbounds i8, ptr %47, i64 80
+  %49 = load ptr, ptr %48, align 8
+  %50 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(6) @.str.9) #20
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %lockTableForWorker.exit.i, label %52
+
+52:                                               ; preds = %45
+  %53 = call ptr @createPQExpBuffer() #18
+  %54 = getelementptr inbounds i8, ptr %47, i64 48
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %47, i64 40
+  %57 = load ptr, ptr %56, align 8
+  %58 = call ptr @fmtQualifiedId(ptr noundef %55, ptr noundef %57) #18
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %53, ptr noundef nonnull @.str.10, ptr noundef %58) #18
+  %59 = load ptr, ptr %19, align 8
+  %60 = load ptr, ptr %53, align 8
+  %61 = call ptr @PQexec(ptr noundef %59, ptr noundef %60) #18
+  %.not.i.i = icmp eq ptr %61, null
+  br i1 %.not.i.i, label %64, label %62
+
+62:                                               ; preds = %52
+  %63 = call i32 @PQresultStatus(ptr noundef nonnull %61) #18
+  %.not12.i.i = icmp eq i32 %63, 1
+  br i1 %.not12.i.i, label %65, label %64
+
+64:                                               ; preds = %62, %52
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.11, ptr noundef %58) #18
+  call void @exit_nicely(i32 noundef 1) #19
+  unreachable
+
+65:                                               ; preds = %62
+  call void @PQclear(ptr noundef nonnull %61) #18
+  call void @destroyPQExpBuffer(ptr noundef nonnull %53) #18
+  br label %lockTableForWorker.exit.i
+
+lockTableForWorker.exit.i:                        ; preds = %65, %45
+  %66 = load ptr, ptr %20, align 8
+  %67 = call i32 %66(ptr noundef %10, ptr noundef nonnull %47) #18
+  br label %73
+
+68:                                               ; preds = %41
+  %69 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.01720.i.i.i, ptr noundef nonnull @.str.7, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
+  %.sink.i.i = load i32, ptr %3, align 4
+  %70 = call ptr @getTocEntryByDumpId(ptr noundef %10, i32 noundef %.sink.i.i) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  %71 = load ptr, ptr %18, align 8
+  %72 = call i32 %71(ptr noundef %10, ptr noundef %70) #18
+  br label %73
+
+73:                                               ; preds = %68, %lockTableForWorker.exit.i
+  %74 = phi ptr [ %47, %lockTableForWorker.exit.i ], [ %70, %68 ]
+  %.1.i = phi i32 [ %67, %lockTableForWorker.exit.i ], [ %72, %68 ]
+  %75 = getelementptr i8, ptr %74, i64 24
+  %.val13.i = load i32, ptr %75, align 8
+  %76 = icmp eq i32 %.1.i, 12
+  br i1 %76, label %77, label %buildWorkerResponse.exit.i
+
+77:                                               ; preds = %73
+  %78 = load i32, ptr %21, align 4
+  br label %buildWorkerResponse.exit.i
+
+buildWorkerResponse.exit.i:                       ; preds = %77, %73
+  %79 = phi i32 [ %78, %77 ], [ 0, %73 ]
+  %80 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 256, ptr noundef nonnull @.str.12, i32 noundef %.val13.i, i32 noundef %.1.i, i32 noundef %79) #18
+  %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #20
+  %82 = shl i64 %81, 32
+  %sext.i.i = add i64 %82, 4294967296
+  %83 = ashr exact i64 %sext.i.i, 32
+  %84 = call i64 @write(i32 noundef %9, ptr noundef nonnull %5, i64 noundef %83) #18
+  %.not.i15.i = icmp eq i64 %84, %83
+  br i1 %.not.i15.i, label %sendMessageToLeader.exit.i, label %85
+
+85:                                               ; preds = %buildWorkerResponse.exit.i
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.13) #18
+  call void @exit_nicely(i32 noundef 1) #19
+  unreachable
+
+sendMessageToLeader.exit.i:                       ; preds = %buildWorkerResponse.exit.i
+  call void @free(ptr noundef nonnull %.01720.i.i.i) #18
+  %86 = call ptr @pg_malloc(i64 noundef 64) #18
+  %87 = call i64 @read(i32 noundef %7, ptr noundef %86, i64 noundef 1) #18
+  %88 = trunc i64 %87 to i32
+  %89 = icmp slt i32 %88, 1
+  br i1 %89, label %getMessageFromLeader.exit.thread.i, label %.lr.ph.i.i.i.backedge
+
+WaitForCommands.exit:                             ; preds = %getMessageFromLeader.exit.i, %getMessageFromLeader.exit.thread.i
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
+  store ptr null, ptr %11, align 8
+  call void @DisconnectDatabase(ptr noundef %10) #18
+  call void @DeCloneArchive(ptr noundef %10) #18
+  ret void
+}
+
+; Function Attrs: noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #6
+
+declare ptr @pqsignal(i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define dso_local void @ParallelBackupEnd(ptr nocapture noundef readnone %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+  %3 = alloca i32, align 4
+  %4 = load i32, ptr %1, align 8
+  %5 = icmp eq i32 %4, 1
+  br i1 %5, label %53, label %.preheader
+
+.preheader:                                       ; preds = %2
+  %6 = icmp sgt i32 %4, 0
+  br i1 %6, label %.lr.ph, label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  br label %WaitForTerminatingWorkers.exit
+
+.lr.ph:                                           ; preds = %.preheader
+  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  br label %8
+
+8:                                                ; preds = %.lr.ph, %8
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
+  %9 = load ptr, ptr %7, align 8
+  %10 = getelementptr %struct.ParallelSlot, ptr %9, i64 %indvars.iv, i32 4
+  %11 = load i32, ptr %10, align 8
+  %12 = tail call i32 @close(i32 noundef %11) #18
+  %13 = load ptr, ptr %7, align 8
+  %14 = getelementptr %struct.ParallelSlot, ptr %13, i64 %indvars.iv, i32 5
+  %15 = load i32, ptr %14, align 4
+  %16 = tail call i32 @close(i32 noundef %15) #18
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %.pr = load i32, ptr %1, align 8
+  %17 = sext i32 %.pr to i64
+  %18 = icmp slt i64 %indvars.iv.next, %17
+  br i1 %18, label %8, label %._crit_edge, !llvm.loop !14
+
+._crit_edge:                                      ; preds = %8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  %19 = icmp slt i32 %.pr, 1
+  br i1 %19, label %WaitForTerminatingWorkers.exit, label %.lr.ph.i.lr.ph.i
+
+.lr.ph.i.lr.ph.i:                                 ; preds = %._crit_edge
+  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.loopexit.i, %.lr.ph.i.lr.ph.i
+  %22 = phi i32 [ %.pr, %.lr.ph.i.lr.ph.i ], [ %47, %.loopexit.i ]
+  %23 = load ptr, ptr %20, align 8
+  %24 = zext nneg i32 %22 to i64
+  %25 = load i32, ptr %23, align 8
+  %.off.i17.i = add i32 %25, -1
+  %switch.i18.i = icmp ult i32 %.off.i17.i, 2
+  br i1 %switch.i18.i, label %.critedge.i, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %26
+  %indvars.iv.i19.i = phi i64 [ %indvars.iv.next.i.i, %26 ], [ 0, %.lr.ph.i.i ]
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i19.i, 1
+  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, %24
+  br i1 %exitcond.i.i, label %WaitForTerminatingWorkers.exit, label %26, !llvm.loop !9
+
+26:                                               ; preds = %.lr.ph.i
+  %27 = getelementptr %struct.ParallelSlot, ptr %23, i64 %indvars.iv.next.i.i
+  %28 = load i32, ptr %27, align 8
+  %.off.i.i = add i32 %28, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, 2
+  br i1 %switch.i.i, label %HasEveryWorkerTerminated.exit.i, label %.lr.ph.i, !llvm.loop !9
+
+HasEveryWorkerTerminated.exit.i:                  ; preds = %26
+  %.not.le.i = icmp ult i64 %indvars.iv.next.i.i, %24
+  br i1 %.not.le.i, label %.critedge.i, label %WaitForTerminatingWorkers.exit
+
+.critedge.i:                                      ; preds = %HasEveryWorkerTerminated.exit.i, %.lr.ph.i.i
+  %29 = call i32 @wait(ptr noundef nonnull %3) #18
+  %30 = load i32, ptr %1, align 8
+  %31 = icmp sgt i32 %30, 0
+  call void @llvm.assume(i1 %31)
+  %32 = load ptr, ptr %20, align 8
+  %33 = add nsw i32 %30, -1
+  %34 = zext nneg i32 %33 to i64
+  %35 = mul nuw nsw i64 %34, 56
+  %scevgep.i = getelementptr i8, ptr %32, i64 %35
+  %wide.trip.count.i = zext nneg i32 %30 to i64
+  br label %36
+
+36:                                               ; preds = %43, %.critedge.i
+  %indvars.iv.i = phi i64 [ 0, %.critedge.i ], [ %indvars.iv.next.i, %43 ]
+  %37 = getelementptr %struct.ParallelSlot, ptr %32, i64 %indvars.iv.i
+  %38 = getelementptr inbounds i8, ptr %37, i64 48
+  %39 = load i32, ptr %38, align 8
+  %40 = icmp eq i32 %39, %29
+  br i1 %40, label %41, label %43
+
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds i8, ptr %37, i64 48
+  store i32 0, ptr %42, align 8
+  %.pre = and i64 %indvars.iv.i, 4294967295
+  br label %.loopexit.i
+
+43:                                               ; preds = %36
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.loopexit.i, label %36, !llvm.loop !10
+
+.loopexit.i:                                      ; preds = %43, %41
+  %.pre-phi = phi i64 [ %.pre, %41 ], [ %wide.trip.count.i, %43 ]
+  %44 = phi ptr [ %37, %41 ], [ %scevgep.i, %43 ]
+  store i32 3, ptr %44, align 8
+  %45 = load ptr, ptr %21, align 8
+  %46 = getelementptr ptr, ptr %45, i64 %.pre-phi
+  store ptr null, ptr %46, align 8
+  %47 = load i32, ptr %1, align 8
+  %48 = icmp slt i32 %47, 1
+  br i1 %48, label %WaitForTerminatingWorkers.exit, label %.lr.ph.i.i, !llvm.loop !11
+
+WaitForTerminatingWorkers.exit:                   ; preds = %HasEveryWorkerTerminated.exit.i, %.loopexit.i, %.lr.ph.i, %._crit_edge.thread, %._crit_edge
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  store ptr null, ptr @shutdown_info, align 8
+  store volatile ptr null, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 1), align 8
+  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %50 = load ptr, ptr %49, align 8
+  call void @free(ptr noundef %50) #18
+  %51 = getelementptr inbounds i8, ptr %1, i64 16
+  %52 = load ptr, ptr %51, align 8
+  call void @free(ptr noundef %52) #18
+  call void @free(ptr noundef %1) #18
+  br label %53
+
+53:                                               ; preds = %2, %WaitForTerminatingWorkers.exit
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+
+; Function Attrs: nounwind uwtable
+define dso_local void @DispatchJobForTocEntry(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+  %7 = alloca [256 x i8], align 16
+  %8 = getelementptr i8, ptr %1, i64 16
+  br label %9
+
+9:                                                ; preds = %GetIdleWorker.exit.thread, %6
+  %10 = load i32, ptr %1, align 8
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %.lr.ph.i, label %GetIdleWorker.exit.thread
+
+.lr.ph.i:                                         ; preds = %9
+  %12 = load ptr, ptr %8, align 8
+  %wide.trip.count.i = zext nneg i32 %10 to i64
+  br label %13
+
+13:                                               ; preds = %17, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
+  %14 = getelementptr %struct.ParallelSlot, ptr %12, i64 %indvars.iv.i
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp eq i32 %15, 1
+  br i1 %16, label %GetIdleWorker.exit, label %17
+
+17:                                               ; preds = %13
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %GetIdleWorker.exit.thread, label %13, !llvm.loop !15
+
+GetIdleWorker.exit:                               ; preds = %13
+  %18 = and i64 %indvars.iv.i, 4294967295
+  %19 = icmp eq i64 %18, 4294967295
+  br i1 %19, label %GetIdleWorker.exit.thread, label %20
+
+GetIdleWorker.exit.thread:                        ; preds = %17, %9, %GetIdleWorker.exit
+  tail call void @WaitForWorkers(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 2)
+  br label %9, !llvm.loop !16
+
+20:                                               ; preds = %GetIdleWorker.exit
+  switch i32 %3, label %buildWorkerCommand.exit [
+    i32 0, label %.sink.split.i
+    i32 1, label %21
+  ]
+
+21:                                               ; preds = %20
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %21, %20
+  %.str.15.sink.i = phi ptr [ @.str.15, %21 ], [ @.str.14, %20 ]
+  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %23 = load i32, ptr %22, align 8
+  %24 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 256, ptr noundef nonnull %.str.15.sink.i, i32 noundef %23) #18
+  %.val.pre = load ptr, ptr %8, align 8
+  br label %buildWorkerCommand.exit
+
+buildWorkerCommand.exit:                          ; preds = %20, %.sink.split.i
+  %.val = phi ptr [ %12, %20 ], [ %.val.pre, %.sink.split.i ]
+  %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #20
+  %sext = shl i64 %indvars.iv.i, 32
+  %26 = ashr exact i64 %sext, 32
+  %27 = getelementptr %struct.ParallelSlot, ptr %.val, i64 %26, i32 5
+  %28 = load i32, ptr %27, align 4
+  %29 = shl i64 %25, 32
+  %sext.i = add i64 %29, 4294967296
+  %30 = ashr exact i64 %sext.i, 32
+  %31 = call i64 @write(i32 noundef %28, ptr noundef nonnull %7, i64 noundef %30) #18
+  %.not.i = icmp eq i64 %31, %30
+  br i1 %.not.i, label %sendMessageToWorker.exit, label %32
+
+32:                                               ; preds = %buildWorkerCommand.exit
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.13) #18
+  call void @exit_nicely(i32 noundef 1) #19
+  unreachable
+
+sendMessageToWorker.exit:                         ; preds = %buildWorkerCommand.exit
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr %struct.ParallelSlot, ptr %33, i64 %26
+  store i32 2, ptr %34, align 8
+  %35 = load ptr, ptr %8, align 8
+  %36 = getelementptr %struct.ParallelSlot, ptr %35, i64 %26, i32 1
+  store ptr %4, ptr %36, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = getelementptr %struct.ParallelSlot, ptr %37, i64 %26, i32 2
+  store ptr %5, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr ptr, ptr %40, i64 %26
+  store ptr %2, ptr %41, align 8
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @WaitForWorkers(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %.sroa.0.i.i.i = alloca [16 x i64], align 8
+  %8 = alloca %struct.fd_set, align 8
+  %9 = alloca %struct.timeval, align 8
+  %10 = icmp eq i32 %2, 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 92
+  %cond = icmp eq i32 %2, 3
+  br label %GetIdleWorker.exit.thread
+
+GetIdleWorker.exit.thread:                        ; preds = %GetIdleWorker.exit.thread.backedge, %3
+  %.0 = phi i1 [ %10, %3 ], [ true, %GetIdleWorker.exit.thread.backedge ]
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 128, i1 false)
+  %14 = load i32, ptr %1, align 8
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %.lr.ph.i.i, label %._crit_edge.i.i
+
+.lr.ph.i.i:                                       ; preds = %GetIdleWorker.exit.thread
+  %16 = load ptr, ptr %11, align 8
+  %wide.trip.count.i.i = zext nneg i32 %14 to i64
+  br label %17
+
+17:                                               ; preds = %31, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %31 ]
+  %.04256.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.143.i.i, %31 ]
+  %18 = getelementptr %struct.ParallelSlot, ptr %16, i64 %indvars.iv.i.i
+  %19 = load i32, ptr %18, align 8
+  %.off.i.i = add i32 %19, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, 2
+  br i1 %switch.i.i, label %20, label %31
+
+20:                                               ; preds = %17
+  %21 = getelementptr %struct.ParallelSlot, ptr %16, i64 %indvars.iv.i.i, i32 4
+  %22 = load i32, ptr %21, align 8
+  %23 = srem i32 %22, 64
+  %24 = zext nneg i32 %23 to i64
+  %25 = shl nuw i64 1, %24
+  %26 = sdiv i32 %22, 64
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr [16 x i64], ptr %8, i64 0, i64 %27
+  %29 = load i64, ptr %28, align 8
+  %30 = or i64 %25, %29
+  store i64 %30, ptr %28, align 8
+  %spec.select.i.i = call i32 @llvm.smax.i32(i32 %22, i32 %.04256.i.i)
+  br label %31
+
+31:                                               ; preds = %20, %17
+  %.143.i.i = phi i32 [ %.04256.i.i, %17 ], [ %spec.select.i.i, %20 ]
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %17, !llvm.loop !17
+
+._crit_edge.loopexit.i.i:                         ; preds = %31
+  %32 = add i32 %.143.i.i, 1
+  br label %._crit_edge.i.i
+
+._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %GetIdleWorker.exit.thread
+  %.042.lcssa.i.i = phi i32 [ 0, %GetIdleWorker.exit.thread ], [ %32, %._crit_edge.loopexit.i.i ]
+  br i1 %.0, label %33, label %41
+
+33:                                               ; preds = %._crit_edge.i.i
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 128, i1 false)
+  br label %34
+
+34:                                               ; preds = %37, %33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0.i.i.i, i64 128, i1 false)
+  %35 = call i32 @select(i32 noundef %.042.lcssa.i.i, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %37, label %select_loop.exit.i.i
+
+37:                                               ; preds = %34
+  %38 = tail call ptr @__errno_location() #21
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp eq i32 %39, 4
+  br i1 %40, label %34, label %select_loop.exit.i.i
+
+select_loop.exit.i.i:                             ; preds = %37, %34
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %.sroa.0.i.i.i)
+  br label %44
+
+41:                                               ; preds = %._crit_edge.i.i
+  %42 = call i32 @select(i32 noundef %.042.lcssa.i.i, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef nonnull %9) #18
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %getMessageFromWorker.exit.thread.i, label %44
+
+44:                                               ; preds = %41, %select_loop.exit.i.i
+  %.1.i.i = phi i32 [ %35, %select_loop.exit.i.i ], [ %42, %41 ]
+  %45 = icmp slt i32 %.1.i.i, 0
+  br i1 %45, label %49, label %.preheader.i.i
+
+.preheader.i.i:                                   ; preds = %44
+  %46 = load i32, ptr %1, align 8
+  %47 = icmp sgt i32 %46, 0
+  br i1 %47, label %.lr.ph59.i.i, label %getMessageFromWorker.exit.thread.i
+
+.lr.ph59.i.i:                                     ; preds = %.preheader.i.i
+  %48 = load ptr, ptr %11, align 8
+  %wide.trip.count68.i.i = zext nneg i32 %46 to i64
+  br label %50
+
+49:                                               ; preds = %44
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #18
+  call void @exit_nicely(i32 noundef 1) #19
+  unreachable
+
+50:                                               ; preds = %85, %.lr.ph59.i.i
+  %indvars.iv65.i.i = phi i64 [ 0, %.lr.ph59.i.i ], [ %indvars.iv.next66.i.i, %85 ]
+  %51 = getelementptr %struct.ParallelSlot, ptr %48, i64 %indvars.iv65.i.i
+  %52 = load i32, ptr %51, align 8
+  %.off49.i.i = add i32 %52, -1
+  %switch50.i.i = icmp ult i32 %.off49.i.i, 2
+  br i1 %switch50.i.i, label %53, label %85
+
+53:                                               ; preds = %50
+  %54 = getelementptr %struct.ParallelSlot, ptr %48, i64 %indvars.iv65.i.i, i32 4
+  %55 = load i32, ptr %54, align 8
+  %56 = sdiv i32 %55, 64
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr [16 x i64], ptr %8, i64 0, i64 %57
+  %59 = load i64, ptr %58, align 8
+  %60 = srem i32 %55, 64
+  %61 = zext nneg i32 %60 to i64
+  %62 = shl nuw i64 1, %61
+  %63 = and i64 %62, %59
+  %.not.i.i = icmp eq i64 %63, 0
+  br i1 %.not.i.i, label %85, label %64
+
+64:                                               ; preds = %53
+  %65 = call ptr @pg_malloc(i64 noundef 64) #18
+  %66 = call i64 @read(i32 noundef %55, ptr noundef %65, i64 noundef 1) #18
+  %67 = trunc i64 %66 to i32
+  %68 = icmp slt i32 %67, 1
+  br i1 %68, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %64, %79
+  %69 = phi ptr [ %81, %79 ], [ %65, %64 ]
+  %.01522.i.i.i = phi i32 [ %.1.i.i.i, %79 ], [ 64, %64 ]
+  %.01621.i.i.i = phi i32 [ %73, %79 ], [ 0, %64 ]
+  %.01720.i.i.i = phi ptr [ %.118.i.i.i, %79 ], [ %65, %64 ]
+  %70 = load i8, ptr %69, align 1
+  %71 = icmp eq i8 %70, 0
+  br i1 %71, label %getMessageFromWorker.exit.i, label %72
+
+72:                                               ; preds = %.lr.ph.i.i.i
+  %73 = add i32 %.01621.i.i.i, 1
+  %74 = icmp eq i32 %73, %.01522.i.i.i
+  br i1 %74, label %75, label %79
+
+75:                                               ; preds = %72
+  %76 = add i32 %.01522.i.i.i, 16
+  %77 = sext i32 %76 to i64
+  %78 = call ptr @pg_realloc(ptr noundef nonnull %.01720.i.i.i, i64 noundef %77) #18
+  br label %79
+
+79:                                               ; preds = %75, %72
+  %.118.i.i.i = phi ptr [ %78, %75 ], [ %.01720.i.i.i, %72 ]
+  %.1.i.i.i = phi i32 [ %76, %75 ], [ %.01522.i.i.i, %72 ]
+  %80 = sext i32 %73 to i64
+  %81 = getelementptr i8, ptr %.118.i.i.i, i64 %80
+  %82 = call i64 @read(i32 noundef %55, ptr noundef %81, i64 noundef 1) #18
+  %83 = trunc i64 %82 to i32
+  %84 = icmp slt i32 %83, 1
+  br i1 %84, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+
+._crit_edge.i.i.i:                                ; preds = %79, %64
+  %.017.lcssa.i.i.i = phi ptr [ %65, %64 ], [ %.118.i.i.i, %79 ]
+  call void @pg_free(ptr noundef %.017.lcssa.i.i.i) #18
+  br label %getMessageFromWorker.exit.thread.i
+
+85:                                               ; preds = %53, %50
+  %indvars.iv.next66.i.i = add nuw nsw i64 %indvars.iv65.i.i, 1
+  %exitcond69.not.i.i = icmp eq i64 %indvars.iv.next66.i.i, %wide.trip.count68.i.i
+  br i1 %exitcond69.not.i.i, label %getMessageFromWorker.exit.thread.i, label %50, !llvm.loop !18
+
+getMessageFromWorker.exit.thread.i:               ; preds = %85, %._crit_edge.i.i.i, %.preheader.i.i, %41
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  br label %86
+
+getMessageFromWorker.exit.i:                      ; preds = %.lr.ph.i.i.i
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  %.not.not.i = icmp eq ptr %.01720.i.i.i, null
+  br i1 %.not.not.i, label %86, label %88
+
+86:                                               ; preds = %getMessageFromWorker.exit.i, %getMessageFromWorker.exit.thread.i
+  br i1 %.0, label %87, label %ListenToWorkers.exit.thread
+
+87:                                               ; preds = %86
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.16) #18
+  call void @exit_nicely(i32 noundef 1) #19
+  unreachable
+
+88:                                               ; preds = %getMessageFromWorker.exit.i
+  %89 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01720.i.i.i, ptr noundef nonnull dereferenceable(4) @.str.17, i64 noundef 3) #20
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %91, label %100
+
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %11, align 8
+  %sext.i = shl i64 %indvars.iv65.i.i, 32
+  %93 = ashr exact i64 %sext.i, 32
+  %94 = load ptr, ptr %12, align 8
+  %95 = getelementptr ptr, ptr %94, i64 %93
+  %96 = load ptr, ptr %95, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  store i32 0, ptr %7, align 4
+  %97 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01720.i.i.i, ptr noundef nonnull dereferenceable(4) @.str.17, i64 noundef 3) #20
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %ListenToWorkers.exit, label %99
+
+99:                                               ; preds = %91
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef nonnull %.01720.i.i.i) #18
+  call void @exit_nicely(i32 noundef 1) #19
+  unreachable
+
+100:                                              ; preds = %88
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef nonnull %.01720.i.i.i) #18
+  call void @exit_nicely(i32 noundef 1) #19
+  unreachable
+
+ListenToWorkers.exit:                             ; preds = %91
+  %101 = getelementptr %struct.ParallelSlot, ptr %92, i64 %93
+  %102 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.01720.i.i.i, ptr noundef nonnull @.str.21, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5) #18
+  %103 = load i32, ptr %6, align 4
+  %104 = load i32, ptr %13, align 4
+  %105 = add i32 %104, %103
+  store i32 %105, ptr %13, align 4
+  %106 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  %107 = getelementptr inbounds i8, ptr %101, i64 8
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds i8, ptr %101, i64 16
+  %110 = load ptr, ptr %109, align 8
+  call void %108(ptr noundef %0, ptr noundef %96, i32 noundef %106, ptr noundef %110) #18
+  store i32 1, ptr %101, align 8
+  %111 = load ptr, ptr %12, align 8
+  %112 = getelementptr ptr, ptr %111, i64 %93
+  store ptr null, ptr %112, align 8
+  call void @free(ptr noundef nonnull %.01720.i.i.i) #18
+  br i1 %cond, label %123, label %IsEveryWorkerIdle.exit.thread
+
+ListenToWorkers.exit.thread:                      ; preds = %86
+  switch i32 %2, label %GetIdleWorker.exit.thread.backedge [
+    i32 0, label %IsEveryWorkerIdle.exit.thread
+    i32 3, label %123
+    i32 2, label %113
+  ]
+
+113:                                              ; preds = %ListenToWorkers.exit.thread
+  %114 = load i32, ptr %1, align 8
+  %115 = icmp sgt i32 %114, 0
+  br i1 %115, label %.lr.ph.i, label %GetIdleWorker.exit.thread.backedge
+
+.lr.ph.i:                                         ; preds = %113
+  %116 = load ptr, ptr %11, align 8
+  %wide.trip.count.i = zext nneg i32 %114 to i64
+  br label %117
+
+117:                                              ; preds = %121, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %121 ]
+  %118 = getelementptr %struct.ParallelSlot, ptr %116, i64 %indvars.iv.i
+  %119 = load i32, ptr %118, align 8
+  %120 = icmp eq i32 %119, 1
+  br i1 %120, label %GetIdleWorker.exit, label %121
+
+121:                                              ; preds = %117
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %GetIdleWorker.exit.thread.backedge, label %117, !llvm.loop !15
+
+GetIdleWorker.exit:                               ; preds = %117
+  %122 = and i64 %indvars.iv.i, 4294967295
+  %.not = icmp eq i64 %122, 4294967295
+  br i1 %.not, label %GetIdleWorker.exit.thread.backedge, label %IsEveryWorkerIdle.exit.thread
+
+123:                                              ; preds = %ListenToWorkers.exit, %ListenToWorkers.exit.thread
+  %124 = load i32, ptr %1, align 8
+  %125 = icmp slt i32 %124, 1
+  br i1 %125, label %IsEveryWorkerIdle.exit.thread, label %.lr.ph.i8
+
+.lr.ph.i8:                                        ; preds = %123
+  %126 = load ptr, ptr %11, align 8
+  %127 = zext nneg i32 %124 to i64
+  %128 = load i32, ptr %126, align 8
+  %.not.i23 = icmp eq i32 %128, 1
+  br i1 %.not.i23, label %.lr.ph, label %GetIdleWorker.exit.thread.backedge
+
+GetIdleWorker.exit.thread.backedge:               ; preds = %121, %.lr.ph.i8, %113, %IsEveryWorkerIdle.exit, %GetIdleWorker.exit, %ListenToWorkers.exit.thread
+  br label %GetIdleWorker.exit.thread
+
+.lr.ph:                                           ; preds = %.lr.ph.i8, %129
+  %indvars.iv.i1024 = phi i64 [ %indvars.iv.next.i11, %129 ], [ 0, %.lr.ph.i8 ]
+  %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i1024, 1
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i11, %127
+  br i1 %exitcond.i, label %IsEveryWorkerIdle.exit, label %129, !llvm.loop !19
+
+129:                                              ; preds = %.lr.ph
+  %130 = getelementptr %struct.ParallelSlot, ptr %126, i64 %indvars.iv.next.i11
+  %131 = load i32, ptr %130, align 8
+  %.not.i = icmp eq i32 %131, 1
+  br i1 %.not.i, label %.lr.ph, label %IsEveryWorkerIdle.exit, !llvm.loop !19
+
+IsEveryWorkerIdle.exit:                           ; preds = %129, %.lr.ph
+  %.not27.le = icmp ult i64 %indvars.iv.next.i11, %127
+  br i1 %.not27.le, label %GetIdleWorker.exit.thread.backedge, label %IsEveryWorkerIdle.exit.thread
+
+IsEveryWorkerIdle.exit.thread:                    ; preds = %ListenToWorkers.exit, %123, %IsEveryWorkerIdle.exit, %GetIdleWorker.exit, %ListenToWorkers.exit.thread
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define dso_local zeroext i1 @IsEveryWorkerIdle(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+  %2 = load i32, ptr %0, align 8
+  %3 = icmp slt i32 %2, 1
+  br i1 %3, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %1
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = load ptr, ptr %4, align 8
+  %6 = zext nneg i32 %2 to i64
+  %wide.trip.count = zext nneg i32 %2 to i64
+  %7 = load i32, ptr %5, align 8
+  %.not9 = icmp eq i32 %7, 1
+  br i1 %.not9, label %.lr.ph11, label %._crit_edge
+
+.lr.ph11:                                         ; preds = %.lr.ph, %8
+  %indvars.iv10 = phi i64 [ %indvars.iv.next, %8 ], [ 0, %.lr.ph ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv10, 1
+  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond, label %._crit_edge.loopexit, label %8, !llvm.loop !19
+
+8:                                                ; preds = %.lr.ph11
+  %9 = getelementptr %struct.ParallelSlot, ptr %5, i64 %indvars.iv.next
+  %10 = load i32, ptr %9, align 8
+  %.not = icmp eq i32 %10, 1
+  br i1 %.not, label %.lr.ph11, label %._crit_edge.loopexit, !llvm.loop !19
+
+._crit_edge.loopexit:                             ; preds = %8, %.lr.ph11
+  %11 = icmp uge i64 %indvars.iv.next, %6
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %1
+  %.lcssa = phi i1 [ true, %1 ], [ false, %.lr.ph ], [ %11, %._crit_edge.loopexit ]
+  ret i1 %.lcssa
+}
+
+declare void @DisconnectDatabase(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind
+declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: noreturn nounwind uwtable
+define internal void @sigTermHandler(i32 %0) #9 {
+  %2 = alloca [1 x i8], align 1
+  %3 = tail call ptr @pqsignal(i32 noundef 2, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
+  %4 = tail call ptr @pqsignal(i32 noundef 15, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
+  %5 = tail call ptr @pqsignal(i32 noundef 3, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
+  %6 = load volatile ptr, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 1), align 8
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %.loopexit, label %.preheader
+
+.preheader:                                       ; preds = %1
+  %7 = load volatile ptr, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 1), align 8
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp sgt i32 %8, 0
+  br i1 %9, label %.lr.ph, label %.loopexit
+
+.lr.ph:                                           ; preds = %.preheader, %17
+  %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader ]
+  %10 = load volatile ptr, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 1), align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr %struct.ParallelSlot, ptr %12, i64 %indvars.iv, i32 8
+  %14 = load i32, ptr %13, align 8
+  %.not16 = icmp eq i32 %14, 0
+  br i1 %.not16, label %17, label %15
+
+15:                                               ; preds = %.lr.ph
+  %16 = tail call i32 @kill(i32 noundef %14, i32 noundef 15) #18
+  br label %17
+
+17:                                               ; preds = %.lr.ph, %15
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %18 = load volatile ptr, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 1), align 8
+  %19 = load i32, ptr %18, align 8
+  %20 = sext i32 %19 to i64
+  %21 = icmp slt i64 %indvars.iv.next, %20
+  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !20
+
+.loopexit:                                        ; preds = %17, %.preheader, %1
+  %22 = load volatile ptr, ptr @signal_info, align 8
+  %.not12 = icmp eq ptr %22, null
+  br i1 %.not12, label %32, label %23
+
+23:                                               ; preds = %.loopexit
+  %24 = load volatile ptr, ptr @signal_info, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 448
+  %26 = load volatile ptr, ptr %25, align 8
+  %.not13 = icmp eq ptr %26, null
+  br i1 %.not13, label %32, label %27
+
+27:                                               ; preds = %23
+  %28 = load volatile ptr, ptr @signal_info, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 448
+  %30 = load volatile ptr, ptr %29, align 8
+  %31 = call i32 @PQcancel(ptr noundef %30, ptr noundef nonnull %2, i32 noundef 1) #18
+  br label %32
+
+32:                                               ; preds = %27, %23, %.loopexit
+  %33 = load volatile i8, ptr getelementptr inbounds (%struct.DumpSignalInformation, ptr @signal_info, i64 0, i32 3), align 1
+  %34 = and i8 %33, 1
+  %.not14 = icmp eq i8 %34, 0
+  br i1 %.not14, label %35, label %49
+
+35:                                               ; preds = %32
+  %36 = load ptr, ptr @progname, align 8
+  %.not15 = icmp eq ptr %36, null
+  br i1 %.not15, label %45, label %37
+
+37:                                               ; preds = %35
+  %38 = load ptr, ptr @stderr, align 8
+  %39 = call i32 @fileno(ptr noundef %38) #18
+  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #20
+  %41 = call i64 @write(i32 noundef %39, ptr noundef nonnull %36, i64 noundef %40) #18
+  %42 = load ptr, ptr @stderr, align 8
+  %43 = call i32 @fileno(ptr noundef %42) #18
+  %44 = call i64 @write(i32 noundef %43, ptr noundef nonnull @.str.2, i64 noundef 2) #18
+  br label %45
+
+45:                                               ; preds = %35, %37
+  %46 = load ptr, ptr @stderr, align 8
+  %47 = call i32 @fileno(ptr noundef %46) #18
+  %48 = call i64 @write(i32 noundef %47, ptr noundef nonnull @.str.3, i64 noundef 19) #18
+  br label %49
+
+49:                                               ; preds = %45, %32
+  call void @_exit(i32 noundef 1) #19
+  unreachable
+}
+
+declare i32 @PQcancel(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: nofree
+declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+
+; Function Attrs: noreturn
+declare void @_exit(i32 noundef) local_unnamed_addr #5
+
+declare ptr @CloneArchive(ptr noundef) local_unnamed_addr #2
+
+declare void @DeCloneArchive(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nofree
+declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+
+declare ptr @pg_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare void @pg_free(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+
+declare ptr @getTocEntryByDumpId(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+
+declare ptr @createPQExpBuffer() local_unnamed_addr #2
+
+declare ptr @fmtQualifiedId(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+
+declare ptr @PQexec(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #2
+
+declare void @PQclear(ptr noundef) local_unnamed_addr #2
+
+declare void @destroyPQExpBuffer(ptr noundef) local_unnamed_addr #2
+
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+declare i32 @wait(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+
+declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare ptr @__errno_location() local_unnamed_addr #14
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #15
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #17
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { nounwind willreturn memory(read) }
+attributes #21 = { nounwind willreturn memory(none) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}

@@ -1,0 +1,1178 @@
+; ModuleID = 'bench/postgres/original/path_shlib.ll'
+source_filename = "bench/postgres/original/path_shlib.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+@.str = private unnamed_addr constant [5 x i8] c"%s%s\00", align 1
+@.str.1 = private unnamed_addr constant [2 x i8] c"/\00", align 1
+@.str.2 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.3 = private unnamed_addr constant [2 x i8] c".\00", align 1
+@.str.4 = private unnamed_addr constant [3 x i8] c"..\00", align 1
+@stderr = external local_unnamed_addr global ptr, align 8
+@.str.5 = private unnamed_addr constant [19 x i8] c"%s: out of memory\0A\00", align 1
+@.str.6 = private unnamed_addr constant [15 x i8] c"out of memory\0A\00", align 1
+@.str.7 = private unnamed_addr constant [45 x i8] c"could not get current working directory: %s\0A\00", align 1
+@.str.8 = private unnamed_addr constant [6 x i8] c"%s/%s\00", align 1
+@.str.9 = private unnamed_addr constant [23 x i8] c"/usr/local/pgsql/share\00", align 1
+@.str.10 = private unnamed_addr constant [21 x i8] c"/usr/local/pgsql/bin\00", align 1
+@.str.11 = private unnamed_addr constant [21 x i8] c"/usr/local/pgsql/etc\00", align 1
+@.str.12 = private unnamed_addr constant [25 x i8] c"/usr/local/pgsql/include\00", align 1
+@.str.13 = private unnamed_addr constant [32 x i8] c"/usr/local/pgsql/include/server\00", align 1
+@.str.14 = private unnamed_addr constant [21 x i8] c"/usr/local/pgsql/lib\00", align 1
+@.str.15 = private unnamed_addr constant [30 x i8] c"/usr/local/pgsql/share/locale\00", align 1
+@.str.16 = private unnamed_addr constant [28 x i8] c"/usr/local/pgsql/share/doc/\00", align 1
+@.str.17 = private unnamed_addr constant [27 x i8] c"/usr/local/pgsql/share/man\00", align 1
+@.str.18 = private unnamed_addr constant [5 x i8] c"HOME\00", align 1
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define noundef zeroext i1 @has_drive_prefix(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+  ret i1 false
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define noundef ptr @first_dir_separator(ptr noundef readonly %0) local_unnamed_addr #1 {
+  br label %2
+
+2:                                                ; preds = %4, %1
+  %.06 = phi ptr [ %0, %1 ], [ %5, %4 ]
+  %3 = load i8, ptr %.06, align 1
+  switch i8 %3, label %4 [
+    i8 0, label %.loopexit
+    i8 47, label %.loopexit.loopexit
+  ]
+
+4:                                                ; preds = %2
+  %5 = getelementptr i8, ptr %.06, i64 1
+  br label %2, !llvm.loop !4
+
+.loopexit.loopexit:                               ; preds = %2
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %2, %.loopexit.loopexit
+  %.0 = phi ptr [ %.06, %.loopexit.loopexit ], [ null, %2 ]
+  ret ptr %.0
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define noundef ptr @first_path_var_separator(ptr noundef readonly %0) local_unnamed_addr #1 {
+  br label %2
+
+2:                                                ; preds = %4, %1
+  %.06 = phi ptr [ %0, %1 ], [ %5, %4 ]
+  %3 = load i8, ptr %.06, align 1
+  switch i8 %3, label %4 [
+    i8 0, label %.loopexit
+    i8 58, label %.loopexit.loopexit
+  ]
+
+4:                                                ; preds = %2
+  %5 = getelementptr i8, ptr %.06, i64 1
+  br label %2, !llvm.loop !6
+
+.loopexit.loopexit:                               ; preds = %2
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %2, %.loopexit.loopexit
+  %.0 = phi ptr [ %.06, %.loopexit.loopexit ], [ null, %2 ]
+  ret ptr %.0
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define ptr @last_dir_separator(ptr noundef readonly %0) local_unnamed_addr #1 {
+  br label %2
+
+2:                                                ; preds = %5, %1
+  %.06 = phi ptr [ null, %1 ], [ %.1, %5 ]
+  %.0 = phi ptr [ %0, %1 ], [ %6, %5 ]
+  %3 = load i8, ptr %.0, align 1
+  switch i8 %3, label %5 [
+    i8 0, label %7
+    i8 47, label %4
+  ]
+
+4:                                                ; preds = %2
+  br label %5
+
+5:                                                ; preds = %2, %4
+  %.1 = phi ptr [ %.0, %4 ], [ %.06, %2 ]
+  %6 = getelementptr i8, ptr %.0, i64 1
+  br label %2, !llvm.loop !7
+
+7:                                                ; preds = %2
+  ret ptr %.06
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define void @make_native_path(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define void @cleanup_path(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @join_path_components(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+  %.not = icmp eq ptr %0, %1
+  br i1 %.not, label %6, label %4
+
+4:                                                ; preds = %3
+  %5 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 1024) #17
+  br label %6
+
+6:                                                ; preds = %4, %3
+  %7 = load i8, ptr %2, align 1
+  %.not11 = icmp eq i8 %7, 0
+  br i1 %.not11, label %15, label %8
+
+8:                                                ; preds = %6
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %10 = getelementptr i8, ptr %0, i64 %9
+  %11 = sub i64 1024, %9
+  %12 = load i8, ptr %1, align 1
+  %.not12 = icmp eq i8 %12, 0
+  %13 = select i1 %.not12, ptr @.str.2, ptr @.str.1
+  %14 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %10, i64 noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull %13, ptr noundef nonnull %2) #17
+  br label %15
+
+15:                                               ; preds = %8, %6
+  ret void
+}
+
+; Function Attrs: nofree
+declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+
+; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @canonicalize_path(ptr noundef %0) local_unnamed_addr #6 {
+  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %3 = getelementptr i8, ptr %0, i64 %2
+  %4 = icmp ugt ptr %3, %0
+  %.013.i = getelementptr i8, ptr %3, i64 -1
+  %5 = icmp ugt ptr %.013.i, %0
+  %or.cond.i = and i1 %4, %5
+  br i1 %or.cond.i, label %.lr.ph.i, label %trim_trailing_separator.exit
+
+.lr.ph.i:                                         ; preds = %1, %8
+  %.014.i = phi ptr [ %.0.i, %8 ], [ %.013.i, %1 ]
+  %6 = load i8, ptr %.014.i, align 1
+  %7 = icmp eq i8 %6, 47
+  br i1 %7, label %8, label %trim_trailing_separator.exit
+
+8:                                                ; preds = %.lr.ph.i
+  store i8 0, ptr %.014.i, align 1
+  %.0.i = getelementptr i8, ptr %.014.i, i64 -1
+  %9 = icmp ugt ptr %.0.i, %0
+  br i1 %9, label %.lr.ph.i, label %trim_trailing_separator.exit, !llvm.loop !8
+
+trim_trailing_separator.exit:                     ; preds = %.lr.ph.i, %8, %1
+  %10 = load i8, ptr %0, align 1
+  %.not127 = icmp eq i8 %10, 0
+  br i1 %.not127, label %._crit_edge, label %.preheader123
+
+.preheader123:                                    ; preds = %trim_trailing_separator.exit, %16
+  %11 = phi i8 [ %21, %16 ], [ %10, %trim_trailing_separator.exit ]
+  %.075130 = phi i1 [ %18, %16 ], [ false, %trim_trailing_separator.exit ]
+  %.081129 = phi ptr [ %19, %16 ], [ %0, %trim_trailing_separator.exit ]
+  %.083128 = phi ptr [ %20, %16 ], [ %0, %trim_trailing_separator.exit ]
+  %.075.fr = freeze i1 %.075130
+  br i1 %.075.fr, label %.preheader123.split, label %.split
+
+.preheader123.split:                              ; preds = %.preheader123, %.preheader123.split
+  %.182 = phi ptr [ %14, %.preheader123.split ], [ %.081129, %.preheader123 ]
+  %12 = load i8, ptr %.182, align 1
+  %13 = icmp eq i8 %12, 47
+  %14 = getelementptr i8, ptr %.182, i64 1
+  br i1 %13, label %.preheader123.split, label %.split, !llvm.loop !9
+
+.split:                                           ; preds = %.preheader123.split, %.preheader123
+  %.us-phi = phi ptr [ %.081129, %.preheader123 ], [ %.182, %.preheader123.split ]
+  %.us-phi126 = phi i8 [ %11, %.preheader123 ], [ %12, %.preheader123.split ]
+  %.not96 = icmp eq ptr %.083128, %.us-phi
+  br i1 %.not96, label %16, label %15
+
+15:                                               ; preds = %.split
+  store i8 %.us-phi126, ptr %.083128, align 1
+  %.pre = load i8, ptr %.us-phi, align 1
+  br label %16
+
+16:                                               ; preds = %15, %.split
+  %17 = phi i8 [ %.pre, %15 ], [ %.us-phi126, %.split ]
+  %18 = icmp eq i8 %17, 47
+  %19 = getelementptr i8, ptr %.us-phi, i64 1
+  %20 = getelementptr i8, ptr %.083128, i64 1
+  %21 = load i8, ptr %19, align 1
+  %.not = icmp eq i8 %21, 0
+  br i1 %.not, label %._crit_edge, label %.preheader123, !llvm.loop !10
+
+._crit_edge:                                      ; preds = %16, %trim_trailing_separator.exit
+  %.083.lcssa = phi ptr [ %0, %trim_trailing_separator.exit ], [ %20, %16 ]
+  store i8 0, ptr %.083.lcssa, align 1
+  %22 = load i8, ptr %0, align 1
+  switch i8 %22, label %.outer.preheader [
+    i8 0, label %132
+    i8 47, label %23
+  ]
+
+23:                                               ; preds = %._crit_edge
+  %24 = getelementptr i8, ptr %0, i64 1
+  br label %.outer.preheader
+
+.outer.preheader:                                 ; preds = %._crit_edge, %23
+  %.177.ph.ph = phi ptr [ %0, %._crit_edge ], [ %24, %23 ]
+  %.174.ph.ph = phi i32 [ 2, %._crit_edge ], [ 0, %23 ]
+  br label %.outer
+
+.outer:                                           ; preds = %.outer.backedge, %.outer.preheader
+  %.179.ph = phi ptr [ %.177.ph.ph, %.outer.preheader ], [ %.179.ph.be, %.outer.backedge ]
+  %.177.ph = phi ptr [ %.177.ph.ph, %.outer.preheader ], [ %.1, %.outer.backedge ]
+  %.174.ph = phi i32 [ %.174.ph.ph, %.outer.preheader ], [ %.174.ph.be, %.outer.backedge ]
+  %.071.ph = phi i32 [ 0, %.outer.preheader ], [ %.071.ph.be, %.outer.backedge ]
+  br label %25
+
+25:                                               ; preds = %.outer, %.loopexit
+  %.177 = phi ptr [ %.1, %.loopexit ], [ %.177.ph, %.outer ]
+  %26 = load i8, ptr %.177, align 1
+  %.not92 = icmp eq i8 %26, 0
+  br i1 %.not92, label %127, label %.preheader
+
+.preheader:                                       ; preds = %25, %28
+  %27 = phi i8 [ %.pr, %28 ], [ %26, %25 ]
+  %.070 = phi ptr [ %29, %28 ], [ %.177, %25 ]
+  switch i8 %27, label %28 [
+    i8 0, label %.loopexit
+    i8 47, label %30
+  ]
+
+28:                                               ; preds = %.preheader
+  %29 = getelementptr i8, ptr %.070, i64 1
+  %.pr = load i8, ptr %29, align 1
+  br label %.preheader, !llvm.loop !11
+
+30:                                               ; preds = %.preheader
+  %31 = getelementptr i8, ptr %.070, i64 1
+  store i8 0, ptr %.070, align 1
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.preheader, %30
+  %.1 = phi ptr [ %31, %30 ], [ %.070, %.preheader ]
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.177, ptr noundef nonnull dereferenceable(2) @.str.3) #18
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %25, label %34, !llvm.loop !12
+
+34:                                               ; preds = %.loopexit
+  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.177, ptr noundef nonnull dereferenceable(3) @.str.4) #18
+  %36 = icmp eq i32 %35, 0
+  switch i32 %.174.ph, label %.outer.backedge [
+    i32 0, label %37
+    i32 1, label %43
+    i32 2, label %75
+    i32 3, label %84
+    i32 4, label %118
+  ]
+
+37:                                               ; preds = %34
+  br i1 %36, label %.outer.backedge, label %38
+
+38:                                               ; preds = %37
+  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.177) #18
+  %.not.i = icmp eq ptr %.179.ph, %.177
+  br i1 %.not.i, label %append_subdir_to_path.exit, label %40
+
+40:                                               ; preds = %38
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.179.ph, ptr align 1 %.177, i64 %39, i1 false)
+  br label %append_subdir_to_path.exit
+
+append_subdir_to_path.exit:                       ; preds = %38, %40
+  %41 = getelementptr i8, ptr %.179.ph, i64 %39
+  %42 = add i32 %.071.ph, 1
+  br label %.outer.backedge
+
+43:                                               ; preds = %34
+  br i1 %36, label %44, label %69
+
+44:                                               ; preds = %43
+  store i8 0, ptr %.179.ph, align 1
+  %45 = load i8, ptr %0, align 1
+  %46 = icmp eq i8 %45, 0
+  br i1 %46, label %trim_directory.exit, label %47
+
+47:                                               ; preds = %44
+  %48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %49 = getelementptr i8, ptr %0, i64 %48
+  br label %50
+
+50:                                               ; preds = %50, %47
+  %.pn.i = phi ptr [ %49, %47 ], [ %.0.i98, %50 ]
+  %.0.i98 = getelementptr i8, ptr %.pn.i, i64 -1
+  %51 = load i8, ptr %.0.i98, align 1
+  %52 = icmp eq i8 %51, 47
+  %53 = icmp ugt ptr %.0.i98, %0
+  %54 = and i1 %52, %53
+  br i1 %54, label %50, label %.preheader25.i, !llvm.loop !13
+
+.preheader25.i:                                   ; preds = %50, %.preheader25.i
+  %.1.i = phi ptr [ %59, %.preheader25.i ], [ %.0.i98, %50 ]
+  %55 = load i8, ptr %.1.i, align 1
+  %56 = icmp ne i8 %55, 47
+  %57 = icmp ugt ptr %.1.i, %0
+  %58 = and i1 %57, %56
+  %59 = getelementptr i8, ptr %.1.i, i64 -1
+  br i1 %58, label %.preheader25.i, label %.preheader.i, !llvm.loop !14
+
+.preheader.i:                                     ; preds = %.preheader25.i, %61
+  %.2.i = phi ptr [ %62, %61 ], [ %.1.i, %.preheader25.i ]
+  %60 = icmp ugt ptr %.2.i, %0
+  br i1 %60, label %61, label %.critedge.i
+
+61:                                               ; preds = %.preheader.i
+  %62 = getelementptr i8, ptr %.2.i, i64 -1
+  %63 = load i8, ptr %62, align 1
+  %64 = icmp eq i8 %63, 47
+  br i1 %64, label %.preheader.i, label %.critedge.i, !llvm.loop !15
+
+.critedge.i:                                      ; preds = %61, %.preheader.i
+  %65 = icmp eq ptr %.2.i, %0
+  %66 = icmp eq i8 %45, 47
+  %spec.select.idx.i = zext i1 %66 to i64
+  %spec.select.i = getelementptr i8, ptr %0, i64 %spec.select.idx.i
+  %.3.i = select i1 %65, ptr %spec.select.i, ptr %.2.i
+  store i8 0, ptr %.3.i, align 1
+  br label %trim_directory.exit
+
+trim_directory.exit:                              ; preds = %44, %.critedge.i
+  %.024.i = phi ptr [ %.3.i, %.critedge.i ], [ %0, %44 ]
+  %67 = add i32 %.071.ph, -1
+  %68 = icmp ne i32 %67, 0
+  %spec.select = zext i1 %68 to i32
+  br label %.outer.backedge
+
+.outer.backedge:                                  ; preds = %trim_directory.exit, %110, %append_subdir_to_path.exit120, %append_subdir_to_path.exit122, %append_subdir_to_path.exit118, %trim_directory.exit116, %append_subdir_to_path.exit102, %append_subdir_to_path.exit104, %append_subdir_to_path.exit100, %37, %append_subdir_to_path.exit, %34
+  %.179.ph.be = phi ptr [ %.179.ph, %34 ], [ %123, %append_subdir_to_path.exit120 ], [ %126, %append_subdir_to_path.exit122 ], [ %.024.i115, %trim_directory.exit116 ], [ %116, %append_subdir_to_path.exit118 ], [ %79, %append_subdir_to_path.exit102 ], [ %82, %append_subdir_to_path.exit104 ], [ %73, %append_subdir_to_path.exit100 ], [ %.179.ph, %37 ], [ %41, %append_subdir_to_path.exit ], [ %.024.i, %trim_directory.exit ], [ %.024.i115, %110 ]
+  %.174.ph.be = phi i32 [ %.174.ph, %34 ], [ 4, %append_subdir_to_path.exit120 ], [ 3, %append_subdir_to_path.exit122 ], [ 3, %trim_directory.exit116 ], [ 3, %append_subdir_to_path.exit118 ], [ 4, %append_subdir_to_path.exit102 ], [ 3, %append_subdir_to_path.exit104 ], [ 1, %append_subdir_to_path.exit100 ], [ 0, %37 ], [ 1, %append_subdir_to_path.exit ], [ %spec.select, %trim_directory.exit ], [ %., %110 ]
+  %.071.ph.be = phi i32 [ %.071.ph, %34 ], [ %.071.ph, %append_subdir_to_path.exit120 ], [ 1, %append_subdir_to_path.exit122 ], [ %108, %trim_directory.exit116 ], [ %117, %append_subdir_to_path.exit118 ], [ %.071.ph, %append_subdir_to_path.exit102 ], [ %83, %append_subdir_to_path.exit104 ], [ %74, %append_subdir_to_path.exit100 ], [ %.071.ph, %37 ], [ %42, %append_subdir_to_path.exit ], [ %67, %trim_directory.exit ], [ 0, %110 ]
+  br label %.outer, !llvm.loop !12
+
+69:                                               ; preds = %43
+  %70 = getelementptr i8, ptr %.179.ph, i64 1
+  store i8 47, ptr %.179.ph, align 1
+  %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.177) #18
+  %.not.i99 = icmp eq ptr %70, %.177
+  br i1 %.not.i99, label %append_subdir_to_path.exit100, label %72
+
+72:                                               ; preds = %69
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %70, ptr align 1 %.177, i64 %71, i1 false)
+  br label %append_subdir_to_path.exit100
+
+append_subdir_to_path.exit100:                    ; preds = %69, %72
+  %73 = getelementptr i8, ptr %70, i64 %71
+  %74 = add i32 %.071.ph, 1
+  br label %.outer.backedge
+
+75:                                               ; preds = %34
+  %76 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.177) #18
+  %.not.i101 = icmp eq ptr %.179.ph, %.177
+  br i1 %36, label %77, label %80
+
+77:                                               ; preds = %75
+  br i1 %.not.i101, label %append_subdir_to_path.exit102, label %78
+
+78:                                               ; preds = %77
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.179.ph, ptr align 1 %.177, i64 %76, i1 false)
+  br label %append_subdir_to_path.exit102
+
+append_subdir_to_path.exit102:                    ; preds = %77, %78
+  %79 = getelementptr i8, ptr %.179.ph, i64 %76
+  br label %.outer.backedge
+
+80:                                               ; preds = %75
+  br i1 %.not.i101, label %append_subdir_to_path.exit104, label %81
+
+81:                                               ; preds = %80
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.179.ph, ptr align 1 %.177, i64 %76, i1 false)
+  br label %append_subdir_to_path.exit104
+
+append_subdir_to_path.exit104:                    ; preds = %80, %81
+  %82 = getelementptr i8, ptr %.179.ph, i64 %76
+  %83 = add i32 %.071.ph, 1
+  br label %.outer.backedge
+
+84:                                               ; preds = %34
+  br i1 %36, label %85, label %112
+
+85:                                               ; preds = %84
+  store i8 0, ptr %.179.ph, align 1
+  %86 = load i8, ptr %0, align 1
+  %87 = icmp eq i8 %86, 0
+  br i1 %87, label %trim_directory.exit116, label %88
+
+88:                                               ; preds = %85
+  %89 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %90 = getelementptr i8, ptr %0, i64 %89
+  br label %91
+
+91:                                               ; preds = %91, %88
+  %.pn.i105 = phi ptr [ %90, %88 ], [ %.0.i106, %91 ]
+  %.0.i106 = getelementptr i8, ptr %.pn.i105, i64 -1
+  %92 = load i8, ptr %.0.i106, align 1
+  %93 = icmp eq i8 %92, 47
+  %94 = icmp ugt ptr %.0.i106, %0
+  %95 = and i1 %93, %94
+  br i1 %95, label %91, label %.preheader25.i107, !llvm.loop !13
+
+.preheader25.i107:                                ; preds = %91, %.preheader25.i107
+  %.1.i108 = phi ptr [ %100, %.preheader25.i107 ], [ %.0.i106, %91 ]
+  %96 = load i8, ptr %.1.i108, align 1
+  %97 = icmp ne i8 %96, 47
+  %98 = icmp ugt ptr %.1.i108, %0
+  %99 = and i1 %98, %97
+  %100 = getelementptr i8, ptr %.1.i108, i64 -1
+  br i1 %99, label %.preheader25.i107, label %.preheader.i109, !llvm.loop !14
+
+.preheader.i109:                                  ; preds = %.preheader25.i107, %102
+  %.2.i110 = phi ptr [ %103, %102 ], [ %.1.i108, %.preheader25.i107 ]
+  %101 = icmp ugt ptr %.2.i110, %0
+  br i1 %101, label %102, label %.critedge.i111
+
+102:                                              ; preds = %.preheader.i109
+  %103 = getelementptr i8, ptr %.2.i110, i64 -1
+  %104 = load i8, ptr %103, align 1
+  %105 = icmp eq i8 %104, 47
+  br i1 %105, label %.preheader.i109, label %.critedge.i111, !llvm.loop !15
+
+.critedge.i111:                                   ; preds = %102, %.preheader.i109
+  %106 = icmp eq ptr %.2.i110, %0
+  %107 = icmp eq i8 %86, 47
+  %spec.select.idx.i112 = zext i1 %107 to i64
+  %spec.select.i113 = getelementptr i8, ptr %0, i64 %spec.select.idx.i112
+  %.3.i114 = select i1 %106, ptr %spec.select.i113, ptr %.2.i110
+  store i8 0, ptr %.3.i114, align 1
+  br label %trim_directory.exit116
+
+trim_directory.exit116:                           ; preds = %85, %.critedge.i111
+  %.024.i115 = phi ptr [ %.3.i114, %.critedge.i111 ], [ %0, %85 ]
+  %108 = add i32 %.071.ph, -1
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %.outer.backedge
+
+110:                                              ; preds = %trim_directory.exit116
+  %111 = icmp eq ptr %.024.i115, %0
+  %. = select i1 %111, i32 2, i32 4
+  br label %.outer.backedge
+
+112:                                              ; preds = %84
+  %113 = getelementptr i8, ptr %.179.ph, i64 1
+  store i8 47, ptr %.179.ph, align 1
+  %114 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.177) #18
+  %.not.i117 = icmp eq ptr %113, %.177
+  br i1 %.not.i117, label %append_subdir_to_path.exit118, label %115
+
+115:                                              ; preds = %112
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %113, ptr align 1 %.177, i64 %114, i1 false)
+  br label %append_subdir_to_path.exit118
+
+append_subdir_to_path.exit118:                    ; preds = %112, %115
+  %116 = getelementptr i8, ptr %113, i64 %114
+  %117 = add i32 %.071.ph, 1
+  br label %.outer.backedge
+
+118:                                              ; preds = %34
+  %119 = getelementptr i8, ptr %.179.ph, i64 1
+  store i8 47, ptr %.179.ph, align 1
+  %120 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.177) #18
+  %.not.i119 = icmp eq ptr %119, %.177
+  br i1 %36, label %121, label %124
+
+121:                                              ; preds = %118
+  br i1 %.not.i119, label %append_subdir_to_path.exit120, label %122
+
+122:                                              ; preds = %121
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %119, ptr align 1 %.177, i64 %120, i1 false)
+  br label %append_subdir_to_path.exit120
+
+append_subdir_to_path.exit120:                    ; preds = %121, %122
+  %123 = getelementptr i8, ptr %119, i64 %120
+  br label %.outer.backedge
+
+124:                                              ; preds = %118
+  br i1 %.not.i119, label %append_subdir_to_path.exit122, label %125
+
+125:                                              ; preds = %124
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %119, ptr align 1 %.177, i64 %120, i1 false)
+  br label %append_subdir_to_path.exit122
+
+append_subdir_to_path.exit122:                    ; preds = %124, %125
+  %126 = getelementptr i8, ptr %119, i64 %120
+  br label %.outer.backedge
+
+127:                                              ; preds = %25
+  %128 = icmp eq ptr %.179.ph, %0
+  br i1 %128, label %129, label %131
+
+129:                                              ; preds = %127
+  %130 = getelementptr i8, ptr %0, i64 1
+  store i8 46, ptr %0, align 1
+  br label %131
+
+131:                                              ; preds = %129, %127
+  %.3 = phi ptr [ %130, %129 ], [ %.179.ph, %127 ]
+  store i8 0, ptr %.3, align 1
+  br label %132
+
+132:                                              ; preds = %._crit_edge, %131
+  ret void
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define zeroext i1 @path_contains_parent_reference(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+  %2 = load i8, ptr %0, align 1
+  %3 = icmp eq i8 %2, 46
+  br i1 %3, label %4, label %11
+
+4:                                                ; preds = %1
+  %5 = getelementptr i8, ptr %0, i64 1
+  %6 = load i8, ptr %5, align 1
+  %7 = icmp eq i8 %6, 46
+  br i1 %7, label %8, label %11
+
+8:                                                ; preds = %4
+  %9 = getelementptr i8, ptr %0, i64 2
+  %10 = load i8, ptr %9, align 1
+  %switch.selectcmp.case1 = icmp eq i8 %10, 0
+  %switch.selectcmp.case2 = icmp eq i8 %10, 47
+  %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
+  br label %11
+
+11:                                               ; preds = %1, %4, %8
+  %.0 = phi i1 [ %switch.selectcmp, %8 ], [ false, %4 ], [ false, %1 ]
+  ret i1 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define noundef zeroext i1 @path_is_relative_and_below_cwd(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+  %2 = load i8, ptr %0, align 1
+  switch i8 %2, label %path_contains_parent_reference.exit.thread.fold.split [
+    i8 47, label %path_contains_parent_reference.exit.thread
+    i8 46, label %3
+  ]
+
+3:                                                ; preds = %1
+  %4 = getelementptr i8, ptr %0, i64 1
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 46
+  br i1 %6, label %path_contains_parent_reference.exit, label %path_contains_parent_reference.exit.thread
+
+path_contains_parent_reference.exit:              ; preds = %3
+  %7 = getelementptr i8, ptr %0, i64 2
+  %8 = load i8, ptr %7, align 1
+  %switch.selectcmp.case1.i = icmp eq i8 %8, 0
+  %switch.selectcmp.case2.i = icmp eq i8 %8, 47
+  %switch.selectcmp.i = or i1 %switch.selectcmp.case1.i, %switch.selectcmp.case2.i
+  %cond.fr = freeze i1 %switch.selectcmp.i
+  %not.cond.fr = xor i1 %cond.fr, true
+  br label %path_contains_parent_reference.exit.thread
+
+path_contains_parent_reference.exit.thread.fold.split: ; preds = %1
+  br label %path_contains_parent_reference.exit.thread
+
+path_contains_parent_reference.exit.thread:       ; preds = %path_contains_parent_reference.exit, %1, %path_contains_parent_reference.exit.thread.fold.split, %3
+  %.0 = phi i1 [ false, %1 ], [ true, %3 ], [ true, %path_contains_parent_reference.exit.thread.fold.split ], [ %not.cond.fr, %path_contains_parent_reference.exit ]
+  ret i1 %.0
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
+define zeroext i1 @path_is_prefix_of_path(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %sext = shl i64 %3, 32
+  %4 = ashr exact i64 %sext, 32
+  %5 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %1, i64 noundef %4) #18
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %7, label %10
+
+7:                                                ; preds = %2
+  %8 = getelementptr i8, ptr %1, i64 %4
+  %9 = load i8, ptr %8, align 1
+  %switch.selectcmp.case1 = icmp eq i8 %9, 47
+  %switch.selectcmp.case2 = icmp eq i8 %9, 0
+  %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
+  br label %10
+
+10:                                               ; preds = %2, %7
+  %.0 = phi i1 [ %switch.selectcmp, %7 ], [ false, %2 ]
+  ret i1 %.0
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: nounwind uwtable
+define noalias ptr @get_progname(ptr noundef %0) local_unnamed_addr #2 {
+  br label %2
+
+2:                                                ; preds = %5, %1
+  %.06.i = phi ptr [ null, %1 ], [ %.1.i, %5 ]
+  %.0.i = phi ptr [ %0, %1 ], [ %6, %5 ]
+  %3 = load i8, ptr %.0.i, align 1
+  switch i8 %3, label %5 [
+    i8 0, label %last_dir_separator.exit
+    i8 47, label %4
+  ]
+
+4:                                                ; preds = %2
+  br label %5
+
+5:                                                ; preds = %4, %2
+  %.1.i = phi ptr [ %.0.i, %4 ], [ %.06.i, %2 ]
+  %6 = getelementptr i8, ptr %.0.i, i64 1
+  br label %2, !llvm.loop !7
+
+last_dir_separator.exit:                          ; preds = %2
+  %.not = icmp eq ptr %.06.i, null
+  %7 = getelementptr i8, ptr %.06.i, i64 1
+  %.0 = select i1 %.not, ptr %0, ptr %7
+  %8 = tail call noalias ptr @strdup(ptr noundef %.0) #17
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %13
+
+10:                                               ; preds = %last_dir_separator.exit
+  %11 = load ptr, ptr @stderr, align 8
+  %12 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %11, ptr noundef nonnull @.str.5, ptr noundef %.0) #17
+  tail call void @abort() #19
+  unreachable
+
+13:                                               ; preds = %last_dir_separator.exit
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #9
+
+declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+
+; Function Attrs: noreturn nounwind
+declare void @abort() local_unnamed_addr #10
+
+; Function Attrs: nounwind uwtable
+define noundef ptr @make_absolute_path(ptr noundef %0) local_unnamed_addr #2 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %39, label %3
+
+3:                                                ; preds = %1
+  %4 = load i8, ptr %0, align 1
+  %5 = icmp eq i8 %4, 47
+  br i1 %5, label %33, label %.preheader
+
+.preheader:                                       ; preds = %3
+  %6 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #20
+  %.not36 = icmp eq ptr %6, null
+  br i1 %.not36, label %._crit_edge, label %.lr.ph
+
+._crit_edge:                                      ; preds = %15, %.preheader
+  %7 = load ptr, ptr @stderr, align 8
+  %8 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %7, ptr noundef nonnull @.str.6) #17
+  br label %39
+
+.lr.ph:                                           ; preds = %.preheader, %15
+  %9 = phi ptr [ %17, %15 ], [ %6, %.preheader ]
+  %.02237 = phi i64 [ %16, %15 ], [ 1024, %.preheader ]
+  %10 = tail call ptr @getcwd(ptr noundef nonnull %9, i64 noundef %.02237) #17
+  %.not29 = icmp eq ptr %10, null
+  br i1 %.not29, label %11, label %22
+
+11:                                               ; preds = %.lr.ph
+  %12 = tail call ptr @__errno_location() #21
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp eq i32 %13, 34
+  tail call void @free(ptr noundef nonnull %9) #17
+  br i1 %14, label %15, label %18
+
+15:                                               ; preds = %11
+  %16 = shl i64 %.02237, 1
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #20
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph
+
+18:                                               ; preds = %11
+  store i32 %13, ptr %12, align 4
+  %19 = load ptr, ptr @stderr, align 8
+  %20 = tail call ptr @pg_strerror(i32 noundef %13) #17
+  %21 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %19, ptr noundef nonnull @.str.7, ptr noundef %20) #17
+  br label %39
+
+22:                                               ; preds = %.lr.ph
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #18
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %25 = add i64 %23, 2
+  %26 = add i64 %25, %24
+  %27 = tail call noalias ptr @malloc(i64 noundef %26) #20
+  %.not30 = icmp eq ptr %27, null
+  br i1 %.not30, label %28, label %31
+
+28:                                               ; preds = %22
+  tail call void @free(ptr noundef nonnull %9) #17
+  %29 = load ptr, ptr @stderr, align 8
+  %30 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %29, ptr noundef nonnull @.str.6) #17
+  br label %39
+
+31:                                               ; preds = %22
+  %32 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.8, ptr noundef nonnull %9, ptr noundef nonnull %0) #17
+  tail call void @free(ptr noundef nonnull %9) #17
+  br label %38
+
+33:                                               ; preds = %3
+  %34 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #17
+  %.not31 = icmp eq ptr %34, null
+  br i1 %.not31, label %35, label %38
+
+35:                                               ; preds = %33
+  %36 = load ptr, ptr @stderr, align 8
+  %37 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %36, ptr noundef nonnull @.str.6) #17
+  br label %39
+
+38:                                               ; preds = %33, %31
+  %.023 = phi ptr [ %34, %33 ], [ %27, %31 ]
+  tail call void @canonicalize_path(ptr noundef nonnull %.023)
+  br label %39
+
+39:                                               ; preds = %1, %38, %35, %28, %18, %._crit_edge
+  %.0 = phi ptr [ %.023, %38 ], [ null, %35 ], [ null, %28 ], [ null, %18 ], [ null, %._crit_edge ], [ null, %1 ]
+  ret ptr %.0
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
+
+; Function Attrs: nounwind
+declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #12
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare ptr @__errno_location() local_unnamed_addr #13
+
+; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+
+declare ptr @pg_strerror(i32 noundef) local_unnamed_addr #4
+
+declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+
+; Function Attrs: nounwind uwtable
+define void @get_share_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef %0)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @make_relative_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
+  %4 = load i8, ptr %1, align 1
+  %.not8 = icmp eq i8 %4, 0
+  br i1 %.not8, label %dir_strcmp.exit.thread, label %.lr.ph
+
+.lr.ph:                                           ; preds = %3, %15
+  %5 = phi i8 [ %18, %15 ], [ %4, %3 ]
+  %6 = phi i64 [ %16, %15 ], [ 0, %3 ]
+  %.010 = phi i32 [ %.pre-phi, %15 ], [ 0, %3 ]
+  %.0409 = phi i32 [ %.1, %15 ], [ 0, %3 ]
+  %7 = getelementptr i8, ptr @.str.10, i64 %6
+  %8 = load i8, ptr %7, align 1
+  %exitcond = icmp eq i32 %.010, 20
+  br i1 %exitcond, label %.critedge, label %9
+
+9:                                                ; preds = %.lr.ph
+  %10 = icmp eq i8 %5, 47
+  %11 = icmp eq i8 %8, 47
+  %or.cond = and i1 %10, %11
+  br i1 %or.cond, label %12, label %14
+
+12:                                               ; preds = %9
+  %13 = add nuw nsw i32 %.010, 1
+  br label %15
+
+14:                                               ; preds = %9
+  %.not45 = icmp eq i8 %5, %8
+  br i1 %.not45, label %._crit_edge, label %.critedge
+
+._crit_edge:                                      ; preds = %14
+  %.pre = add nuw nsw i32 %.010, 1
+  br label %15
+
+15:                                               ; preds = %._crit_edge, %12
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %13, %12 ]
+  %.1 = phi i32 [ %.0409, %._crit_edge ], [ %13, %12 ]
+  %16 = sext i32 %.pre-phi to i64
+  %17 = getelementptr i8, ptr %1, i64 %16
+  %18 = load i8, ptr %17, align 1
+  %.not = icmp eq i8 %18, 0
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !16
+
+.critedge:                                        ; preds = %.lr.ph, %14, %15
+  %.040.lcssa = phi i32 [ %.0409, %.lr.ph ], [ %.0409, %14 ], [ %.1, %15 ]
+  %19 = icmp eq i32 %.040.lcssa, 0
+  br i1 %19, label %dir_strcmp.exit.thread, label %20
+
+20:                                               ; preds = %.critedge
+  %21 = sext i32 %.040.lcssa to i64
+  %.neg = add i32 %.040.lcssa, -20
+  %22 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024) #17
+  %23 = load i8, ptr %0, align 1
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %trim_directory.exit, label %25
+
+25:                                               ; preds = %20
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %27 = getelementptr i8, ptr %0, i64 %26
+  br label %28
+
+28:                                               ; preds = %28, %25
+  %.pn.i = phi ptr [ %27, %25 ], [ %.0.i, %28 ]
+  %.0.i = getelementptr i8, ptr %.pn.i, i64 -1
+  %29 = load i8, ptr %.0.i, align 1
+  %30 = icmp eq i8 %29, 47
+  %31 = icmp ugt ptr %.0.i, %0
+  %32 = and i1 %30, %31
+  br i1 %32, label %28, label %.preheader25.i, !llvm.loop !13
+
+.preheader25.i:                                   ; preds = %28, %.preheader25.i
+  %.1.i = phi ptr [ %37, %.preheader25.i ], [ %.0.i, %28 ]
+  %33 = load i8, ptr %.1.i, align 1
+  %34 = icmp ne i8 %33, 47
+  %35 = icmp ugt ptr %.1.i, %0
+  %36 = and i1 %35, %34
+  %37 = getelementptr i8, ptr %.1.i, i64 -1
+  br i1 %36, label %.preheader25.i, label %.preheader.i, !llvm.loop !14
+
+.preheader.i:                                     ; preds = %.preheader25.i, %39
+  %.2.i = phi ptr [ %40, %39 ], [ %.1.i, %.preheader25.i ]
+  %38 = icmp ugt ptr %.2.i, %0
+  br i1 %38, label %39, label %.critedge.i
+
+39:                                               ; preds = %.preheader.i
+  %40 = getelementptr i8, ptr %.2.i, i64 -1
+  %41 = load i8, ptr %40, align 1
+  %42 = icmp eq i8 %41, 47
+  br i1 %42, label %.preheader.i, label %.critedge.i, !llvm.loop !15
+
+.critedge.i:                                      ; preds = %39, %.preheader.i
+  %43 = icmp eq ptr %.2.i, %0
+  %44 = icmp eq i8 %23, 47
+  %spec.select.idx.i = zext i1 %44 to i64
+  %spec.select.i = getelementptr i8, ptr %0, i64 %spec.select.idx.i
+  %.3.i = select i1 %43, ptr %spec.select.i, ptr %.2.i
+  store i8 0, ptr %.3.i, align 1
+  br label %trim_directory.exit
+
+trim_directory.exit:                              ; preds = %20, %.critedge.i
+  tail call void @canonicalize_path(ptr noundef nonnull %0)
+  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %46 = trunc i64 %45 to i32
+  %47 = add i32 %.neg, %46
+  %48 = icmp sgt i32 %47, 0
+  br i1 %48, label %49, label %dir_strcmp.exit.thread
+
+49:                                               ; preds = %trim_directory.exit
+  %50 = zext nneg i32 %47 to i64
+  %51 = getelementptr i8, ptr %0, i64 %50
+  %52 = getelementptr i8, ptr %51, i64 -1
+  %53 = load i8, ptr %52, align 1
+  %54 = icmp eq i8 %53, 47
+  br i1 %54, label %55, label %dir_strcmp.exit.thread
+
+55:                                               ; preds = %49
+  %56 = getelementptr i8, ptr @.str.10, i64 %21
+  %57 = load i8, ptr %51, align 1
+  %.not26.i = icmp eq i8 %57, 0
+  br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %55, %68
+  %58 = phi i8 [ %71, %68 ], [ %57, %55 ]
+  %.028.i = phi ptr [ %70, %68 ], [ %56, %55 ]
+  %.01227.i = phi ptr [ %69, %68 ], [ %51, %55 ]
+  %59 = load i8, ptr %.028.i, align 1
+  %.not16.i = icmp eq i8 %59, 0
+  br i1 %.not16.i, label %dir_strcmp.exit.thread, label %60
+
+60:                                               ; preds = %.lr.ph.i
+  %.not19.i = icmp eq i8 %58, %59
+  br i1 %.not19.i, label %68, label %61
+
+61:                                               ; preds = %60
+  %62 = icmp eq i8 %58, 47
+  %63 = icmp eq i8 %59, 47
+  %or.cond.i = and i1 %62, %63
+  br i1 %or.cond.i, label %68, label %64
+
+64:                                               ; preds = %61
+  %65 = sext i8 %58 to i32
+  %66 = sext i8 %59 to i32
+  %67 = sub nsw i32 %65, %66
+  br label %dir_strcmp.exit
+
+68:                                               ; preds = %61, %60
+  %69 = getelementptr i8, ptr %.01227.i, i64 1
+  %70 = getelementptr i8, ptr %.028.i, i64 1
+  %71 = load i8, ptr %69, align 1
+  %.not.i = icmp eq i8 %71, 0
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
+
+._crit_edge.i:                                    ; preds = %68, %55
+  %.0.lcssa.i = phi ptr [ %56, %55 ], [ %70, %68 ]
+  %72 = load i8, ptr %.0.lcssa.i, align 1
+  %.not18.i = icmp ne i8 %72, 0
+  %..i = sext i1 %.not18.i to i32
+  br label %dir_strcmp.exit
+
+dir_strcmp.exit:                                  ; preds = %64, %._crit_edge.i
+  %.013.i = phi i32 [ %67, %64 ], [ %..i, %._crit_edge.i ]
+  %73 = icmp eq i32 %.013.i, 0
+  br i1 %73, label %74, label %dir_strcmp.exit.thread
+
+74:                                               ; preds = %dir_strcmp.exit
+  store i8 0, ptr %51, align 1
+  %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %76 = getelementptr i8, ptr %0, i64 %75
+  %77 = icmp ugt ptr %76, %0
+  %.013.i47 = getelementptr i8, ptr %76, i64 -1
+  %78 = icmp ugt ptr %.013.i47, %0
+  %or.cond.i48 = and i1 %77, %78
+  br i1 %or.cond.i48, label %.lr.ph.i50, label %trim_trailing_separator.exit
+
+.lr.ph.i50:                                       ; preds = %74, %81
+  %.014.i = phi ptr [ %.0.i51, %81 ], [ %.013.i47, %74 ]
+  %79 = load i8, ptr %.014.i, align 1
+  %80 = icmp eq i8 %79, 47
+  br i1 %80, label %81, label %trim_trailing_separator.exit
+
+81:                                               ; preds = %.lr.ph.i50
+  store i8 0, ptr %.014.i, align 1
+  %.0.i51 = getelementptr i8, ptr %.014.i, i64 -1
+  %82 = icmp ugt ptr %.0.i51, %0
+  br i1 %82, label %.lr.ph.i50, label %trim_trailing_separator.exit, !llvm.loop !8
+
+trim_trailing_separator.exit:                     ; preds = %.lr.ph.i50, %81, %74
+  %83 = getelementptr i8, ptr %1, i64 %21
+  %84 = load i8, ptr %83, align 1
+  %.not11.i = icmp eq i8 %84, 0
+  br i1 %.not11.i, label %join_path_components.exit, label %85
+
+85:                                               ; preds = %trim_trailing_separator.exit
+  %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %87 = getelementptr i8, ptr %0, i64 %86
+  %88 = sub i64 1024, %86
+  %89 = load i8, ptr %0, align 1
+  %.not12.i = icmp eq i8 %89, 0
+  %90 = select i1 %.not12.i, ptr @.str.2, ptr @.str.1
+  %91 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %87, i64 noundef %88, ptr noundef nonnull @.str, ptr noundef nonnull %90, ptr noundef nonnull %83) #17
+  br label %join_path_components.exit
+
+join_path_components.exit:                        ; preds = %trim_trailing_separator.exit, %85
+  tail call void @canonicalize_path(ptr noundef nonnull %0)
+  br label %93
+
+dir_strcmp.exit.thread:                           ; preds = %.lr.ph.i, %3, %trim_directory.exit, %49, %dir_strcmp.exit, %.critedge
+  %92 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 1024) #17
+  tail call void @canonicalize_path(ptr noundef %0)
+  br label %93
+
+93:                                               ; preds = %dir_strcmp.exit.thread, %join_path_components.exit
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @get_etc_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.11, ptr noundef %0)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @get_include_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef %0)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @get_pkginclude_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef %0)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @get_includeserver_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.13, ptr noundef %0)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @get_lib_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef %0)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @get_pkglib_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef %0)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @get_locale_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.15, ptr noundef %0)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @get_doc_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.16, ptr noundef %0)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @get_html_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.16, ptr noundef %0)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @get_man_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.17, ptr noundef %0)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define zeroext i1 @get_home_path(ptr noundef %0) local_unnamed_addr #2 {
+  %2 = tail call ptr @getenv(ptr noundef nonnull @.str.18) #17
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %7, label %4
+
+4:                                                ; preds = %1
+  %5 = load i8, ptr %2, align 1
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %7, label %10
+
+7:                                                ; preds = %4, %1
+  %8 = tail call i32 @geteuid() #17
+  %9 = tail call zeroext i1 @pg_get_user_home_dir(i32 noundef %8, ptr noundef %0, i64 noundef 1024) #17
+  br label %12
+
+10:                                               ; preds = %4
+  %11 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024) #17
+  br label %12
+
+12:                                               ; preds = %10, %7
+  %.0 = phi i1 [ %9, %7 ], [ true, %10 ]
+  ret i1 %.0
+}
+
+; Function Attrs: nofree nounwind memory(read)
+declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #15
+
+declare zeroext i1 @pg_get_user_home_dir(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind
+declare i32 @geteuid() local_unnamed_addr #12
+
+; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @get_parent_directory(ptr noundef %0) local_unnamed_addr #6 {
+  %2 = load i8, ptr %0, align 1
+  %3 = icmp eq i8 %2, 0
+  br i1 %3, label %trim_directory.exit, label %4
+
+4:                                                ; preds = %1
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %6 = getelementptr i8, ptr %0, i64 %5
+  br label %7
+
+7:                                                ; preds = %7, %4
+  %.pn.i = phi ptr [ %6, %4 ], [ %.0.i, %7 ]
+  %.0.i = getelementptr i8, ptr %.pn.i, i64 -1
+  %8 = load i8, ptr %.0.i, align 1
+  %9 = icmp eq i8 %8, 47
+  %10 = icmp ugt ptr %.0.i, %0
+  %11 = and i1 %9, %10
+  br i1 %11, label %7, label %.preheader25.i, !llvm.loop !13
+
+.preheader25.i:                                   ; preds = %7, %.preheader25.i
+  %.1.i = phi ptr [ %16, %.preheader25.i ], [ %.0.i, %7 ]
+  %12 = load i8, ptr %.1.i, align 1
+  %13 = icmp ne i8 %12, 47
+  %14 = icmp ugt ptr %.1.i, %0
+  %15 = and i1 %14, %13
+  %16 = getelementptr i8, ptr %.1.i, i64 -1
+  br i1 %15, label %.preheader25.i, label %.preheader.i, !llvm.loop !14
+
+.preheader.i:                                     ; preds = %.preheader25.i, %18
+  %.2.i = phi ptr [ %19, %18 ], [ %.1.i, %.preheader25.i ]
+  %17 = icmp ugt ptr %.2.i, %0
+  br i1 %17, label %18, label %.critedge.i
+
+18:                                               ; preds = %.preheader.i
+  %19 = getelementptr i8, ptr %.2.i, i64 -1
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %20, 47
+  br i1 %21, label %.preheader.i, label %.critedge.i, !llvm.loop !15
+
+.critedge.i:                                      ; preds = %18, %.preheader.i
+  %22 = icmp eq ptr %.2.i, %0
+  %23 = icmp eq i8 %2, 47
+  %spec.select.idx.i = zext i1 %23 to i64
+  %spec.select.i = getelementptr i8, ptr %0, i64 %spec.select.idx.i
+  %.3.i = select i1 %22, ptr %spec.select.i, ptr %.2.i
+  store i8 0, ptr %.3.i, align 1
+  br label %trim_directory.exit
+
+trim_directory.exit:                              ; preds = %1, %.critedge.i
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #16
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind willreturn memory(read) }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { nounwind allocsize(0) }
+attributes #21 = { nounwind willreturn memory(none) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}

@@ -1,0 +1,321 @@
+; ModuleID = 'bench/postgres/original/nbtcompare.ll'
+source_filename = "bench/postgres/original/nbtcompare.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local i64 @btboolcmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i64, ptr %2, align 8
+  %4 = icmp ne i64 %3, 0
+  %5 = getelementptr i8, ptr %0, i64 48
+  %6 = load i64, ptr %5, align 8
+  %7 = icmp ne i64 %6, 0
+  %8 = zext i1 %4 to i64
+  %.neg = sext i1 %7 to i64
+  %9 = add nsw i64 %.neg, %8
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local i64 @btint2cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i64, ptr %2, align 8
+  %4 = trunc i64 %3 to i32
+  %5 = getelementptr i8, ptr %0, i64 48
+  %6 = load i64, ptr %5, align 8
+  %7 = trunc i64 %6 to i32
+  %sext = shl i32 %4, 16
+  %8 = ashr exact i32 %sext, 16
+  %sext3 = shl i32 %7, 16
+  %9 = ashr exact i32 %sext3, 16
+  %10 = sub nsw i32 %8, %9
+  %11 = sext i32 %10 to i64
+  ret i64 %11
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef i64 @btint2sortsupport(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i64, ptr %2, align 8
+  %4 = inttoptr i64 %3 to ptr
+  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr @btint2fastcmp, ptr %5, align 8
+  ret i64 0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define internal i32 @btint2fastcmp(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #2 {
+  %4 = trunc i64 %0 to i32
+  %5 = trunc i64 %1 to i32
+  %sext = shl i32 %4, 16
+  %6 = ashr exact i32 %sext, 16
+  %sext4 = shl i32 %5, 16
+  %7 = ashr exact i32 %sext4, 16
+  %8 = sub nsw i32 %6, %7
+  ret i32 %8
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local i64 @btint4cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i64, ptr %2, align 8
+  %4 = trunc i64 %3 to i32
+  %5 = getelementptr i8, ptr %0, i64 48
+  %6 = load i64, ptr %5, align 8
+  %7 = trunc i64 %6 to i32
+  %8 = icmp sgt i32 %4, %7
+  %9 = icmp ne i32 %4, %7
+  %spec.select = sext i1 %9 to i64
+  %.0 = select i1 %8, i64 1, i64 %spec.select
+  ret i64 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef i64 @btint4sortsupport(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i64, ptr %2, align 8
+  %4 = inttoptr i64 %3 to ptr
+  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr @ssup_datum_int32_cmp, ptr %5, align 8
+  ret i64 0
+}
+
+declare i32 @ssup_datum_int32_cmp(i64 noundef, i64 noundef, ptr noundef) #3
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local i64 @btint8cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i64, ptr %2, align 8
+  %4 = getelementptr i8, ptr %0, i64 48
+  %5 = load i64, ptr %4, align 8
+  %6 = icmp sgt i64 %3, %5
+  %7 = icmp ne i64 %3, %5
+  %spec.select = sext i1 %7 to i64
+  %.0 = select i1 %6, i64 1, i64 %spec.select
+  ret i64 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef i64 @btint8sortsupport(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i64, ptr %2, align 8
+  %4 = inttoptr i64 %3 to ptr
+  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr @ssup_datum_signed_cmp, ptr %5, align 8
+  ret i64 0
+}
+
+declare i32 @ssup_datum_signed_cmp(i64 noundef, i64 noundef, ptr noundef) #3
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local i64 @btint48cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i64, ptr %2, align 8
+  %4 = getelementptr i8, ptr %0, i64 48
+  %5 = load i64, ptr %4, align 8
+  %sext = shl i64 %3, 32
+  %6 = ashr exact i64 %sext, 32
+  %7 = icmp slt i64 %5, %6
+  %8 = icmp ne i64 %5, %6
+  %spec.select = sext i1 %8 to i64
+  %.0 = select i1 %7, i64 1, i64 %spec.select
+  ret i64 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local i64 @btint84cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i64, ptr %2, align 8
+  %4 = getelementptr i8, ptr %0, i64 48
+  %5 = load i64, ptr %4, align 8
+  %sext = shl i64 %5, 32
+  %6 = ashr exact i64 %sext, 32
+  %7 = icmp sgt i64 %3, %6
+  %8 = icmp ne i64 %3, %6
+  %spec.select = sext i1 %8 to i64
+  %.0 = select i1 %7, i64 1, i64 %spec.select
+  ret i64 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local i64 @btint24cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i64, ptr %2, align 8
+  %4 = trunc i64 %3 to i32
+  %5 = getelementptr i8, ptr %0, i64 48
+  %6 = load i64, ptr %5, align 8
+  %7 = trunc i64 %6 to i32
+  %sext = shl i32 %4, 16
+  %8 = ashr exact i32 %sext, 16
+  %9 = icmp sgt i32 %8, %7
+  %10 = icmp ne i32 %8, %7
+  %spec.select = sext i1 %10 to i64
+  %.0 = select i1 %9, i64 1, i64 %spec.select
+  ret i64 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local i64 @btint42cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i64, ptr %2, align 8
+  %4 = trunc i64 %3 to i32
+  %5 = getelementptr i8, ptr %0, i64 48
+  %6 = load i64, ptr %5, align 8
+  %7 = trunc i64 %6 to i32
+  %sext = shl i32 %7, 16
+  %8 = ashr exact i32 %sext, 16
+  %9 = icmp slt i32 %8, %4
+  %10 = icmp ne i32 %8, %4
+  %spec.select = sext i1 %10 to i64
+  %.0 = select i1 %9, i64 1, i64 %spec.select
+  ret i64 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local i64 @btint28cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i64, ptr %2, align 8
+  %4 = getelementptr i8, ptr %0, i64 48
+  %5 = load i64, ptr %4, align 8
+  %sext = shl i64 %3, 48
+  %6 = ashr exact i64 %sext, 48
+  %7 = icmp slt i64 %5, %6
+  %8 = icmp ne i64 %5, %6
+  %spec.select = sext i1 %8 to i64
+  %.0 = select i1 %7, i64 1, i64 %spec.select
+  ret i64 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local i64 @btint82cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i64, ptr %2, align 8
+  %4 = getelementptr i8, ptr %0, i64 48
+  %5 = load i64, ptr %4, align 8
+  %sext = shl i64 %5, 48
+  %6 = ashr exact i64 %sext, 48
+  %7 = icmp sgt i64 %3, %6
+  %8 = icmp ne i64 %3, %6
+  %spec.select = sext i1 %8 to i64
+  %.0 = select i1 %7, i64 1, i64 %spec.select
+  ret i64 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local i64 @btoidcmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i64, ptr %2, align 8
+  %4 = trunc i64 %3 to i32
+  %5 = getelementptr i8, ptr %0, i64 48
+  %6 = load i64, ptr %5, align 8
+  %7 = trunc i64 %6 to i32
+  %8 = icmp ugt i32 %4, %7
+  %9 = icmp ne i32 %4, %7
+  %spec.select = sext i1 %9 to i64
+  %.0 = select i1 %8, i64 1, i64 %spec.select
+  ret i64 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef i64 @btoidsortsupport(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i64, ptr %2, align 8
+  %4 = inttoptr i64 %3 to ptr
+  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr @btoidfastcmp, ptr %5, align 8
+  ret i64 0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define internal noundef i32 @btoidfastcmp(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #2 {
+  %4 = trunc i64 %0 to i32
+  %5 = trunc i64 %1 to i32
+  %6 = icmp ugt i32 %4, %5
+  %7 = icmp ne i32 %4, %5
+  %. = sext i1 %7 to i32
+  %.0 = select i1 %6, i32 1, i32 %.
+  ret i32 %.0
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define dso_local i64 @btoidvectorcmp(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i64, ptr %2, align 8
+  %4 = inttoptr i64 %3 to ptr
+  %5 = getelementptr i8, ptr %0, i64 48
+  %6 = load i64, ptr %5, align 8
+  %7 = inttoptr i64 %6 to ptr
+  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = load i32, ptr %8, align 4
+  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = load i32, ptr %10, align 4
+  %.not = icmp eq i32 %9, %11
+  br i1 %.not, label %.preheader, label %15
+
+.preheader:                                       ; preds = %1
+  %12 = icmp sgt i32 %9, 0
+  br i1 %12, label %.lr.ph, label %.loopexit
+
+.lr.ph:                                           ; preds = %.preheader
+  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %wide.trip.count = zext nneg i32 %9 to i64
+  br label %19
+
+15:                                               ; preds = %1
+  %16 = sub i32 %9, %11
+  %17 = sext i32 %16 to i64
+  br label %.loopexit
+
+18:                                               ; preds = %19
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !5
+
+19:                                               ; preds = %.lr.ph, %18
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
+  %20 = getelementptr [0 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %21 = load i32, ptr %20, align 4
+  %22 = getelementptr [0 x i32], ptr %14, i64 0, i64 %indvars.iv
+  %23 = load i32, ptr %22, align 4
+  %.not22 = icmp eq i32 %21, %23
+  br i1 %.not22, label %18, label %24
+
+24:                                               ; preds = %19
+  %25 = icmp ugt i32 %21, %23
+  %spec.select = select i1 %25, i64 1, i64 -1
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %18, %.preheader, %24, %15
+  %.017 = phi i64 [ %17, %15 ], [ %spec.select, %24 ], [ 0, %.preheader ], [ 0, %18 ]
+  ret i64 %.017
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local i64 @btcharcmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load i64, ptr %2, align 8
+  %4 = getelementptr i8, ptr %0, i64 48
+  %5 = load i64, ptr %4, align 8
+  %6 = and i64 %3, 255
+  %7 = and i64 %5, 255
+  %8 = sub nsw i64 %6, %7
+  ret i64 %8
+}
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

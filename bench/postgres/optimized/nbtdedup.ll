@@ -1,0 +1,1860 @@
+; ModuleID = 'bench/postgres/original/nbtdedup.ll'
+source_filename = "bench/postgres/original/nbtdedup.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.xl_btree_dedup = type { i16 }
+%struct.ItemIdData = type { i32 }
+%struct.BTDedupInterval = type { i16, i16 }
+%struct.ItemPointerData = type { %struct.BlockIdData, i16 }
+%struct.BlockIdData = type { i16, i16 }
+%struct.TM_IndexDeleteOp = type { ptr, i32, i8, i32, i32, ptr, ptr }
+%struct.TM_IndexDelete = type { %struct.ItemPointerData, i16 }
+%struct.TM_IndexStatus = type { i16, i8, i8, i16 }
+
+@.str = private unnamed_addr constant [36 x i8] c"deduplication failed to add highkey\00", align 1
+@.str.1 = private unnamed_addr constant [11 x i8] c"nbtdedup.c\00", align 1
+@__func__._bt_dedup_pass = private unnamed_addr constant [15 x i8] c"_bt_dedup_pass\00", align 1
+@CritSectionCount = external global i32, align 4
+@wal_level = external local_unnamed_addr global i32, align 4
+@.str.2 = private unnamed_addr constant [42 x i8] c"deduplication failed to add tuple to page\00", align 1
+@__func__._bt_dedup_finish_pending = private unnamed_addr constant [25 x i8] c"_bt_dedup_finish_pending\00", align 1
+@.str.3 = private unnamed_addr constant [62 x i8] c"posting list tuple with %d items cannot be split at offset %d\00", align 1
+@__func__._bt_swap_posting = private unnamed_addr constant [17 x i8] c"_bt_swap_posting\00", align 1
+@LocalBufferBlockPointers = external local_unnamed_addr global ptr, align 8
+@BufferBlocks = external local_unnamed_addr global ptr, align 8
+
+; Function Attrs: nounwind uwtable
+define dso_local void @_bt_dedup_pass(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+  %6 = alloca %struct.xl_btree_dedup, align 2
+  %7 = icmp slt i32 %1, 0
+  br i1 %7, label %8, label %14
+
+8:                                                ; preds = %5
+  %9 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %10 = xor i32 %1, -1
+  %11 = zext nneg i32 %10 to i64
+  %12 = getelementptr ptr, ptr %9, i64 %11
+  %13 = load ptr, ptr %12, align 8
+  br label %BufferGetPage.exit
+
+14:                                               ; preds = %5
+  %15 = load ptr, ptr @BufferBlocks, align 8
+  %16 = add nsw i32 %1, -1
+  %17 = sext i32 %16 to i64
+  %18 = shl nsw i64 %17, 13
+  %19 = getelementptr i8, ptr %15, i64 %18
+  br label %BufferGetPage.exit
+
+BufferGetPage.exit:                               ; preds = %8, %14
+  %.0.i.i = phi ptr [ %13, %8 ], [ %19, %14 ]
+  %20 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %21 = load i16, ptr %20, align 4
+  %22 = zext i16 %21 to i64
+  %23 = getelementptr i8, ptr %.0.i.i, i64 %22
+  %24 = getelementptr inbounds i8, ptr %0, i64 320
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 10
+  %27 = load i16, ptr %26, align 2
+  %28 = sext i16 %27 to i32
+  %29 = tail call ptr @palloc(i64 noundef 1704) #9
+  store i8 1, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  store i32 0, ptr %30, align 4
+  %31 = getelementptr i8, ptr %.0.i.i, i64 18
+  %.val = load i16, ptr %31, align 2
+  %32 = and i16 %.val, -256
+  %33 = zext i16 %32 to i64
+  %34 = add nsw i64 %33, -56
+  %35 = udiv i64 %34, 3
+  %36 = and i64 %35, 9223372036854775800
+  %37 = add nsw i64 %36, -8
+  %38 = icmp ult i64 %37, 16382
+  %39 = lshr exact i64 %37, 1
+  %spec.select = select i1 %38, i64 %39, i64 8191
+  %40 = getelementptr inbounds i8, ptr %29, i64 8
+  store i64 %spec.select, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %29, i64 16
+  store ptr null, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %29, i64 24
+  store i16 0, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %29, i64 32
+  store i64 0, ptr %43, align 8
+  %44 = tail call ptr @palloc(i64 noundef %spec.select) #9
+  %45 = getelementptr inbounds i8, ptr %29, i64 40
+  store ptr %44, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %29, i64 48
+  %47 = getelementptr inbounds i8, ptr %29, i64 52
+  %48 = getelementptr inbounds i8, ptr %29, i64 56
+  %49 = getelementptr inbounds i8, ptr %29, i64 64
+  %50 = getelementptr inbounds i8, ptr %23, i64 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %46, i8 0, i64 20, i1 false)
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp eq i32 %51, 0
+  %53 = select i1 %52, i16 1, i16 2
+  %54 = getelementptr i8, ptr %.0.i.i, i64 12
+  %.val102 = load i16, ptr %54, align 4
+  %55 = icmp ult i16 %.val102, 25
+  %56 = zext i16 %.val102 to i32
+  %57 = add nuw nsw i32 %56, 262120
+  %58 = lshr i32 %57, 2
+  %59 = trunc i32 %58 to i16
+  %.0.i = select i1 %55, i16 0, i16 %59
+  br i1 %4, label %_bt_do_singleval.exit, label %60
+
+60:                                               ; preds = %BufferGetPage.exit
+  %61 = load ptr, ptr %24, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 10
+  %63 = load i16, ptr %62, align 2
+  %64 = sext i16 %63 to i32
+  %65 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %66 = zext nneg i16 %53 to i64
+  %67 = add nsw i64 %66, -1
+  %68 = getelementptr [0 x %struct.ItemIdData], ptr %65, i64 0, i64 %67
+  %.val18.i = load i32, ptr %68, align 4
+  %69 = and i32 %.val18.i, 32767
+  %70 = zext nneg i32 %69 to i64
+  %71 = getelementptr i8, ptr %.0.i.i, i64 %70
+  %72 = tail call i32 @_bt_keep_natts_fast(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %71) #9
+  %73 = icmp sgt i32 %72, %64
+  br i1 %73, label %74, label %88
+
+74:                                               ; preds = %60
+  %.val.i = load i16, ptr %54, align 4
+  %75 = icmp ult i16 %.val.i, 25
+  %76 = zext i16 %.val.i to i64
+  %77 = add nuw nsw i64 %76, 262120
+  %78 = lshr i64 %77, 2
+  %79 = and i64 %78, 65535
+  %80 = add nsw i64 %79, -1
+  %81 = select i1 %75, i64 -1, i64 %80
+  %82 = getelementptr [0 x %struct.ItemIdData], ptr %65, i64 0, i64 %81
+  %.val19.i = load i32, ptr %82, align 4
+  %83 = and i32 %.val19.i, 32767
+  %84 = zext nneg i32 %83 to i64
+  %85 = getelementptr i8, ptr %.0.i.i, i64 %84
+  %86 = tail call i32 @_bt_keep_natts_fast(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %85) #9
+  %87 = icmp sgt i32 %86, %64
+  br i1 %87, label %_bt_do_singleval.exit, label %88
+
+88:                                               ; preds = %74, %60
+  br label %_bt_do_singleval.exit
+
+_bt_do_singleval.exit:                            ; preds = %88, %74, %BufferGetPage.exit
+  %.094 = phi i8 [ 0, %BufferGetPage.exit ], [ 0, %88 ], [ 1, %74 ]
+  %89 = tail call ptr @PageGetTempPageCopySpecial(ptr noundef nonnull %.0.i.i) #9
+  %.val105 = load i64, ptr %.0.i.i, align 4
+  %90 = tail call i64 @llvm.fshl.i64(i64 %.val105, i64 %.val105, i64 32)
+  %91 = lshr i64 %90, 32
+  %92 = trunc i64 %91 to i32
+  store i32 %92, ptr %89, align 4
+  %93 = trunc i64 %90 to i32
+  %94 = getelementptr inbounds i8, ptr %89, i64 4
+  store i32 %93, ptr %94, align 4
+  %95 = load i32, ptr %50, align 4
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %110, label %97
+
+97:                                               ; preds = %_bt_do_singleval.exit
+  %98 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %99 = load i32, ptr %98, align 4
+  %100 = lshr i32 %99, 17
+  %101 = zext nneg i32 %100 to i64
+  %102 = and i32 %99, 32767
+  %103 = zext nneg i32 %102 to i64
+  %104 = getelementptr i8, ptr %.0.i.i, i64 %103
+  %105 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %89, ptr noundef %104, i64 noundef %101, i16 noundef zeroext 1, i32 noundef 0) #9
+  %106 = icmp eq i16 %105, 0
+  br i1 %106, label %107, label %110
+
+107:                                              ; preds = %97
+  %108 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %108)
+  %109 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 130, ptr noundef nonnull @__func__._bt_dedup_pass) #9
+  unreachable
+
+110:                                              ; preds = %97, %_bt_do_singleval.exit
+  %.not128 = icmp ugt i16 %53, %.0.i
+  br i1 %.not128, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %110
+  %111 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %112 = getelementptr inbounds i8, ptr %29, i64 68
+  br label %113
+
+113:                                              ; preds = %.lr.ph, %255
+  %.0131 = phi i16 [ %53, %.lr.ph ], [ %256, %255 ]
+  %.195129 = phi i8 [ %.094, %.lr.ph ], [ %.3, %255 ]
+  %114 = zext i16 %.0131 to i64
+  %115 = add nsw i64 %114, -1
+  %116 = getelementptr [0 x %struct.ItemIdData], ptr %111, i64 0, i64 %115
+  %.val104 = load i32, ptr %116, align 4
+  %117 = and i32 %.val104, 32767
+  %118 = zext nneg i32 %117 to i64
+  %119 = getelementptr i8, ptr %.0.i.i, i64 %118
+  %120 = icmp eq i16 %.0131, %53
+  br i1 %120, label %121, label %155
+
+121:                                              ; preds = %113
+  %122 = getelementptr inbounds i8, ptr %119, i64 6
+  %123 = load i16, ptr %122, align 2
+  %124 = and i16 %123, 8192
+  %125 = icmp eq i16 %124, 0
+  br i1 %125, label %BTreeTupleIsPosting.exit.thread.i, label %BTreeTupleIsPosting.exit.i
+
+BTreeTupleIsPosting.exit.i:                       ; preds = %121
+  %126 = getelementptr i8, ptr %119, i64 4
+  %.val.i.i = load i16, ptr %126, align 2
+  %127 = and i16 %.val.i.i, 8192
+  %.not.i = icmp eq i16 %127, 0
+  br i1 %.not.i, label %BTreeTupleIsPosting.exit.thread.i, label %132
+
+BTreeTupleIsPosting.exit.thread.i:                ; preds = %BTreeTupleIsPosting.exit.i, %121
+  %128 = load ptr, ptr %45, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %128, ptr noundef nonnull align 2 dereferenceable(6) %119, i64 6, i1 false)
+  store i32 1, ptr %46, align 8
+  %129 = load i16, ptr %122, align 2
+  %130 = and i16 %129, 8191
+  %131 = zext nneg i16 %130 to i64
+  br label %_bt_dedup_start_pending.exit
+
+132:                                              ; preds = %BTreeTupleIsPosting.exit.i
+  %133 = and i16 %.val.i.i, 4095
+  %134 = zext nneg i16 %133 to i32
+  %135 = load ptr, ptr %45, align 8
+  %.val.i26.i = load i16, ptr %119, align 2
+  %136 = getelementptr i8, ptr %119, i64 2
+  %.val2.i.i = load i16, ptr %136, align 2
+  %137 = zext i16 %.val.i26.i to i64
+  %138 = shl nuw nsw i64 %137, 16
+  %139 = zext i16 %.val2.i.i to i64
+  %140 = or disjoint i64 %138, %139
+  %141 = getelementptr i8, ptr %119, i64 %140
+  %narrow.i = mul nuw nsw i16 %133, 6
+  %142 = zext nneg i16 %narrow.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %135, ptr align 2 %141, i64 %142, i1 false)
+  store i32 %134, ptr %46, align 8
+  %.val24.i = load i16, ptr %119, align 2
+  %.val25.i = load i16, ptr %136, align 2
+  %143 = zext i16 %.val24.i to i64
+  %144 = shl nuw nsw i64 %143, 16
+  %145 = zext i16 %.val25.i to i64
+  %146 = or disjoint i64 %144, %145
+  br label %_bt_dedup_start_pending.exit
+
+_bt_dedup_start_pending.exit:                     ; preds = %BTreeTupleIsPosting.exit.thread.i, %132
+  %.sink.i = phi i64 [ %146, %132 ], [ %131, %BTreeTupleIsPosting.exit.thread.i ]
+  store i64 %.sink.i, ptr %43, align 8
+  store i32 1, ptr %47, align 4
+  store ptr %119, ptr %41, align 8
+  store i16 %53, ptr %42, align 8
+  %147 = load i16, ptr %122, align 2
+  %148 = and i16 %147, 8191
+  %narrow23.i = add nuw nsw i16 %148, 7
+  %149 = and i16 %narrow23.i, 16376
+  %150 = or disjoint i16 %149, 4
+  %151 = zext nneg i16 %150 to i64
+  store i64 %151, ptr %48, align 8
+  %152 = load i32, ptr %49, align 8
+  %153 = sext i32 %152 to i64
+  %154 = getelementptr [408 x %struct.BTDedupInterval], ptr %112, i64 0, i64 %153
+  store i16 %53, ptr %154, align 4
+  br label %255
+
+155:                                              ; preds = %113
+  %156 = load i8, ptr %29, align 8
+  %157 = and i8 %156, 1
+  %.not99 = icmp eq i8 %157, 0
+  br i1 %.not99, label %_bt_dedup_save_htid.exit.thread, label %158
+
+158:                                              ; preds = %155
+  %159 = load ptr, ptr %41, align 8
+  %160 = tail call i32 @_bt_keep_natts_fast(ptr noundef %0, ptr noundef %159, ptr noundef %119) #9
+  %161 = icmp sgt i32 %160, %28
+  br i1 %161, label %162, label %_bt_dedup_save_htid.exit.thread
+
+162:                                              ; preds = %158
+  %163 = getelementptr inbounds i8, ptr %119, i64 6
+  %164 = load i16, ptr %163, align 2
+  %165 = and i16 %164, 8192
+  %166 = icmp eq i16 %165, 0
+  br i1 %166, label %BTreeTupleIsPosting.exit.thread.i112, label %BTreeTupleIsPosting.exit.i108
+
+BTreeTupleIsPosting.exit.i108:                    ; preds = %162
+  %167 = getelementptr i8, ptr %119, i64 4
+  %.val.i.i109 = load i16, ptr %167, align 2
+  %168 = and i16 %.val.i.i109, 8192
+  %.not.i110 = icmp eq i16 %168, 0
+  br i1 %.not.i110, label %BTreeTupleIsPosting.exit.thread.i112, label %169
+
+169:                                              ; preds = %BTreeTupleIsPosting.exit.i108
+  %170 = and i16 %.val.i.i109, 4095
+  %171 = zext nneg i16 %170 to i32
+  %.val.i23.i = load i16, ptr %119, align 2
+  %172 = getelementptr i8, ptr %119, i64 2
+  %.val2.i.i111 = load i16, ptr %172, align 2
+  %173 = zext i16 %.val.i23.i to i64
+  %174 = shl nuw nsw i64 %173, 16
+  %175 = zext i16 %.val2.i.i111 to i64
+  %176 = or disjoint i64 %174, %175
+  %177 = getelementptr i8, ptr %119, i64 %176
+  br label %BTreeTupleIsPosting.exit.thread.i112
+
+BTreeTupleIsPosting.exit.thread.i112:             ; preds = %169, %BTreeTupleIsPosting.exit.i108, %162
+  %.021.i = phi i32 [ %171, %169 ], [ 1, %BTreeTupleIsPosting.exit.i108 ], [ 1, %162 ]
+  %.020.i = phi ptr [ %177, %169 ], [ %119, %BTreeTupleIsPosting.exit.i108 ], [ %119, %162 ]
+  %178 = load i64, ptr %43, align 8
+  %179 = load i32, ptr %46, align 8
+  %180 = add i32 %179, %.021.i
+  %181 = sext i32 %180 to i64
+  %182 = mul nsw i64 %181, 6
+  %183 = add i64 %178, 7
+  %184 = add i64 %183, %182
+  %185 = and i64 %184, -8
+  %186 = load i64, ptr %40, align 8
+  %.not126 = icmp ugt i64 %185, %186
+  br i1 %.not126, label %187, label %_bt_dedup_save_htid.exit
+
+187:                                              ; preds = %BTreeTupleIsPosting.exit.thread.i112
+  %188 = icmp sgt i32 %179, 50
+  br i1 %188, label %189, label %_bt_dedup_save_htid.exit.thread
+
+189:                                              ; preds = %187
+  %190 = load i32, ptr %30, align 4
+  %191 = add i32 %190, 1
+  store i32 %191, ptr %30, align 4
+  br label %_bt_dedup_save_htid.exit.thread
+
+_bt_dedup_save_htid.exit:                         ; preds = %BTreeTupleIsPosting.exit.thread.i112
+  %192 = load i32, ptr %47, align 4
+  %193 = add i32 %192, 1
+  store i32 %193, ptr %47, align 4
+  %194 = load ptr, ptr %45, align 8
+  %195 = sext i32 %179 to i64
+  %196 = getelementptr %struct.ItemPointerData, ptr %194, i64 %195
+  %narrow.i113 = mul nuw nsw i32 %.021.i, 6
+  %197 = zext nneg i32 %narrow.i113 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %196, ptr align 2 %.020.i, i64 %197, i1 false)
+  %198 = load i32, ptr %46, align 8
+  %199 = add i32 %198, %.021.i
+  store i32 %199, ptr %46, align 8
+  %200 = load i16, ptr %163, align 2
+  %201 = and i16 %200, 8191
+  %narrow22.i = add nuw nsw i16 %201, 7
+  %202 = and i16 %narrow22.i, 16376
+  %203 = or disjoint i16 %202, 4
+  %204 = zext nneg i16 %203 to i64
+  %205 = load i64, ptr %48, align 8
+  %206 = add i64 %205, %204
+  store i64 %206, ptr %48, align 8
+  br label %255
+
+_bt_dedup_save_htid.exit.thread:                  ; preds = %189, %187, %158, %155
+  %207 = tail call i64 @_bt_dedup_finish_pending(ptr noundef nonnull %89, ptr noundef nonnull %29)
+  %208 = and i8 %.195129, 1
+  %.not100 = icmp eq i8 %208, 0
+  br i1 %.not100, label %221, label %209
+
+209:                                              ; preds = %_bt_dedup_save_htid.exit.thread
+  %210 = load i32, ptr %30, align 4
+  switch i32 %210, label %221 [
+    i32 5, label %211
+    i32 6, label %220
+  ]
+
+211:                                              ; preds = %209
+  %.val106 = load i16, ptr %31, align 2
+  %212 = and i16 %.val106, -256
+  %213 = zext i16 %212 to i64
+  %reass.sub = sub i64 %213, %3
+  %214 = add i64 %reass.sub, -52
+  %215 = uitofp i64 %214 to double
+  %216 = fmul double %215, 4.000000e-02
+  %217 = fptosi double %216 to i32
+  %218 = load i64, ptr %40, align 8
+  %219 = sext i32 %217 to i64
+  %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %218, i64 %219)
+  store i64 %storemerge.i, ptr %40, align 8
+  br label %221
+
+220:                                              ; preds = %209
+  store i8 0, ptr %29, align 8
+  br label %221
+
+221:                                              ; preds = %209, %211, %220, %_bt_dedup_save_htid.exit.thread
+  %.2 = phi i8 [ %.195129, %211 ], [ 0, %220 ], [ %.195129, %_bt_dedup_save_htid.exit.thread ], [ %.195129, %209 ]
+  %222 = getelementptr inbounds i8, ptr %119, i64 6
+  %223 = load i16, ptr %222, align 2
+  %224 = and i16 %223, 8192
+  %225 = icmp eq i16 %224, 0
+  br i1 %225, label %BTreeTupleIsPosting.exit.thread.i124, label %BTreeTupleIsPosting.exit.i114
+
+BTreeTupleIsPosting.exit.i114:                    ; preds = %221
+  %226 = getelementptr i8, ptr %119, i64 4
+  %.val.i.i115 = load i16, ptr %226, align 2
+  %227 = and i16 %.val.i.i115, 8192
+  %.not.i116 = icmp eq i16 %227, 0
+  br i1 %.not.i116, label %BTreeTupleIsPosting.exit.thread.i124, label %232
+
+BTreeTupleIsPosting.exit.thread.i124:             ; preds = %BTreeTupleIsPosting.exit.i114, %221
+  %228 = load ptr, ptr %45, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %228, ptr noundef nonnull align 2 dereferenceable(6) %119, i64 6, i1 false)
+  store i32 1, ptr %46, align 8
+  %229 = load i16, ptr %222, align 2
+  %230 = and i16 %229, 8191
+  %231 = zext nneg i16 %230 to i64
+  br label %_bt_dedup_start_pending.exit125
+
+232:                                              ; preds = %BTreeTupleIsPosting.exit.i114
+  %233 = and i16 %.val.i.i115, 4095
+  %234 = zext nneg i16 %233 to i32
+  %235 = load ptr, ptr %45, align 8
+  %.val.i26.i117 = load i16, ptr %119, align 2
+  %236 = getelementptr i8, ptr %119, i64 2
+  %.val2.i.i118 = load i16, ptr %236, align 2
+  %237 = zext i16 %.val.i26.i117 to i64
+  %238 = shl nuw nsw i64 %237, 16
+  %239 = zext i16 %.val2.i.i118 to i64
+  %240 = or disjoint i64 %238, %239
+  %241 = getelementptr i8, ptr %119, i64 %240
+  %narrow.i119 = mul nuw nsw i16 %233, 6
+  %242 = zext nneg i16 %narrow.i119 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %235, ptr align 2 %241, i64 %242, i1 false)
+  store i32 %234, ptr %46, align 8
+  %.val24.i120 = load i16, ptr %119, align 2
+  %.val25.i121 = load i16, ptr %236, align 2
+  %243 = zext i16 %.val24.i120 to i64
+  %244 = shl nuw nsw i64 %243, 16
+  %245 = zext i16 %.val25.i121 to i64
+  %246 = or disjoint i64 %244, %245
+  br label %_bt_dedup_start_pending.exit125
+
+_bt_dedup_start_pending.exit125:                  ; preds = %BTreeTupleIsPosting.exit.thread.i124, %232
+  %.sink.i122 = phi i64 [ %246, %232 ], [ %231, %BTreeTupleIsPosting.exit.thread.i124 ]
+  store i64 %.sink.i122, ptr %43, align 8
+  store i32 1, ptr %47, align 4
+  store ptr %119, ptr %41, align 8
+  store i16 %.0131, ptr %42, align 8
+  %247 = load i16, ptr %222, align 2
+  %248 = and i16 %247, 8191
+  %narrow23.i123 = add nuw nsw i16 %248, 7
+  %249 = and i16 %narrow23.i123, 16376
+  %250 = or disjoint i16 %249, 4
+  %251 = zext nneg i16 %250 to i64
+  store i64 %251, ptr %48, align 8
+  %252 = load i32, ptr %49, align 8
+  %253 = sext i32 %252 to i64
+  %254 = getelementptr [408 x %struct.BTDedupInterval], ptr %112, i64 0, i64 %253
+  store i16 %.0131, ptr %254, align 4
+  br label %255
+
+255:                                              ; preds = %_bt_dedup_save_htid.exit, %_bt_dedup_start_pending.exit, %_bt_dedup_start_pending.exit125
+  %.3 = phi i8 [ %.195129, %_bt_dedup_start_pending.exit ], [ %.195129, %_bt_dedup_save_htid.exit ], [ %.2, %_bt_dedup_start_pending.exit125 ]
+  %256 = add i16 %.0131, 1
+  %.not = icmp ugt i16 %256, %.0.i
+  br i1 %.not, label %._crit_edge, label %113, !llvm.loop !5
+
+._crit_edge:                                      ; preds = %255, %110
+  %257 = tail call i64 @_bt_dedup_finish_pending(ptr noundef nonnull %89, ptr noundef nonnull %29)
+  %258 = load i32, ptr %49, align 8
+  %259 = icmp eq i32 %258, 0
+  br i1 %259, label %260, label %262
+
+260:                                              ; preds = %._crit_edge
+  tail call void @pfree(ptr noundef nonnull %89) #9
+  %261 = load ptr, ptr %45, align 8
+  tail call void @pfree(ptr noundef %261) #9
+  tail call void @pfree(ptr noundef nonnull %29) #9
+  br label %308
+
+262:                                              ; preds = %._crit_edge
+  %263 = getelementptr inbounds i8, ptr %23, i64 12
+  %264 = load i16, ptr %263, align 4
+  %265 = and i16 %264, 64
+  %.not98 = icmp eq i16 %265, 0
+  br i1 %.not98, label %274, label %266
+
+266:                                              ; preds = %262
+  %267 = getelementptr inbounds i8, ptr %89, i64 16
+  %268 = load i16, ptr %267, align 4
+  %269 = zext i16 %268 to i64
+  %270 = getelementptr i8, ptr %89, i64 %269
+  %271 = getelementptr inbounds i8, ptr %270, i64 12
+  %272 = load i16, ptr %271, align 4
+  %273 = and i16 %272, -65
+  store i16 %273, ptr %271, align 4
+  br label %274
+
+274:                                              ; preds = %266, %262
+  %275 = load volatile i32, ptr @CritSectionCount, align 4
+  %276 = add i32 %275, 1
+  store volatile i32 %276, ptr @CritSectionCount, align 4
+  tail call void @PageRestoreTempPage(ptr noundef nonnull %89, ptr noundef nonnull %.0.i.i) #9
+  tail call void @MarkBufferDirty(i32 noundef %1) #9
+  %277 = getelementptr inbounds i8, ptr %0, i64 56
+  %278 = load ptr, ptr %277, align 8
+  %279 = getelementptr inbounds i8, ptr %278, i64 114
+  %280 = load i8, ptr %279, align 2
+  %281 = icmp eq i8 %280, 112
+  br i1 %281, label %282, label %304
+
+282:                                              ; preds = %274
+  %283 = load i32, ptr @wal_level, align 4
+  %284 = icmp sgt i32 %283, 0
+  br i1 %284, label %293, label %285
+
+285:                                              ; preds = %282
+  %286 = getelementptr inbounds i8, ptr %0, i64 40
+  %287 = load i32, ptr %286, align 8
+  %288 = icmp eq i32 %287, 0
+  br i1 %288, label %289, label %304
+
+289:                                              ; preds = %285
+  %290 = getelementptr inbounds i8, ptr %0, i64 48
+  %291 = load i32, ptr %290, align 8
+  %292 = icmp eq i32 %291, 0
+  br i1 %292, label %293, label %304
+
+293:                                              ; preds = %289, %282
+  %294 = load i32, ptr %49, align 8
+  %295 = trunc i32 %294 to i16
+  store i16 %295, ptr %6, align 2
+  tail call void @XLogBeginInsert() #9
+  tail call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %1, i8 noundef zeroext 8) #9
+  call void @XLogRegisterData(ptr noundef nonnull %6, i32 noundef 2) #9
+  %296 = getelementptr inbounds i8, ptr %29, i64 68
+  %297 = load i32, ptr %49, align 8
+  %298 = shl i32 %297, 2
+  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull %296, i32 noundef %298) #9
+  %299 = call i64 @XLogInsert(i8 noundef zeroext 11, i8 noundef zeroext 96) #9
+  %300 = lshr i64 %299, 32
+  %301 = trunc i64 %300 to i32
+  store i32 %301, ptr %.0.i.i, align 4
+  %302 = trunc i64 %299 to i32
+  %303 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  store i32 %302, ptr %303, align 4
+  br label %304
+
+304:                                              ; preds = %274, %285, %289, %293
+  %305 = load volatile i32, ptr @CritSectionCount, align 4
+  %306 = add i32 %305, -1
+  store volatile i32 %306, ptr @CritSectionCount, align 4
+  %307 = load ptr, ptr %45, align 8
+  call void @pfree(ptr noundef %307) #9
+  call void @pfree(ptr noundef nonnull %29) #9
+  br label %308
+
+308:                                              ; preds = %304, %260
+  ret void
+}
+
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
+
+declare ptr @PageGetTempPageCopySpecial(ptr noundef) local_unnamed_addr #1
+
+declare zeroext i16 @PageAddItemExtended(ptr noundef, ptr noundef, i64 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: cold
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
+
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local void @_bt_dedup_start_pending(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
+  %4 = getelementptr inbounds i8, ptr %1, i64 6
+  %5 = load i16, ptr %4, align 2
+  %6 = and i16 %5, 8192
+  %7 = icmp eq i16 %6, 0
+  br i1 %7, label %BTreeTupleIsPosting.exit.thread, label %BTreeTupleIsPosting.exit
+
+BTreeTupleIsPosting.exit:                         ; preds = %3
+  %8 = getelementptr i8, ptr %1, i64 4
+  %.val.i = load i16, ptr %8, align 2
+  %9 = and i16 %.val.i, 8192
+  %.not = icmp eq i16 %9, 0
+  br i1 %.not, label %BTreeTupleIsPosting.exit.thread, label %16
+
+BTreeTupleIsPosting.exit.thread:                  ; preds = %3, %BTreeTupleIsPosting.exit
+  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = load ptr, ptr %10, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %11, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
+  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 1, ptr %12, align 8
+  %13 = load i16, ptr %4, align 2
+  %14 = and i16 %13, 8191
+  %15 = zext nneg i16 %14 to i64
+  br label %33
+
+16:                                               ; preds = %BTreeTupleIsPosting.exit
+  %17 = and i16 %.val.i, 4095
+  %18 = zext nneg i16 %17 to i32
+  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = load ptr, ptr %19, align 8
+  %.val.i26 = load i16, ptr %1, align 2
+  %21 = getelementptr i8, ptr %1, i64 2
+  %.val2.i = load i16, ptr %21, align 2
+  %22 = zext i16 %.val.i26 to i64
+  %23 = shl nuw nsw i64 %22, 16
+  %24 = zext i16 %.val2.i to i64
+  %25 = or disjoint i64 %23, %24
+  %26 = getelementptr i8, ptr %1, i64 %25
+  %narrow = mul nuw nsw i16 %17, 6
+  %27 = zext nneg i16 %narrow to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %20, ptr align 2 %26, i64 %27, i1 false)
+  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 %18, ptr %28, align 8
+  %.val24 = load i16, ptr %1, align 2
+  %.val25 = load i16, ptr %21, align 2
+  %29 = zext i16 %.val24 to i64
+  %30 = shl nuw nsw i64 %29, 16
+  %31 = zext i16 %.val25 to i64
+  %32 = or disjoint i64 %30, %31
+  br label %33
+
+33:                                               ; preds = %16, %BTreeTupleIsPosting.exit.thread
+  %.sink = phi i64 [ %32, %16 ], [ %15, %BTreeTupleIsPosting.exit.thread ]
+  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %.sink, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 1, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %1, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  store i16 %2, ptr %37, align 8
+  %38 = load i16, ptr %4, align 2
+  %39 = and i16 %38, 8191
+  %narrow23 = add nuw nsw i16 %39, 7
+  %40 = and i16 %narrow23, 16376
+  %41 = or disjoint i16 %40, 4
+  %42 = zext nneg i16 %41 to i64
+  %43 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %42, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 68
+  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %46 = load i32, ptr %45, align 8
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr [408 x %struct.BTDedupInterval], ptr %44, i64 0, i64 %47
+  store i16 %2, ptr %48, align 4
+  ret void
+}
+
+declare i32 @_bt_keep_natts_fast(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef zeroext i1 @_bt_dedup_save_htid(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+  %3 = getelementptr inbounds i8, ptr %1, i64 6
+  %4 = load i16, ptr %3, align 2
+  %5 = and i16 %4, 8192
+  %6 = icmp eq i16 %5, 0
+  br i1 %6, label %BTreeTupleIsPosting.exit.thread, label %BTreeTupleIsPosting.exit
+
+BTreeTupleIsPosting.exit:                         ; preds = %2
+  %7 = getelementptr i8, ptr %1, i64 4
+  %.val.i = load i16, ptr %7, align 2
+  %8 = and i16 %.val.i, 8192
+  %.not = icmp eq i16 %8, 0
+  br i1 %.not, label %BTreeTupleIsPosting.exit.thread, label %9
+
+9:                                                ; preds = %BTreeTupleIsPosting.exit
+  %10 = and i16 %.val.i, 4095
+  %11 = zext nneg i16 %10 to i32
+  %.val.i23 = load i16, ptr %1, align 2
+  %12 = getelementptr i8, ptr %1, i64 2
+  %.val2.i = load i16, ptr %12, align 2
+  %13 = zext i16 %.val.i23 to i64
+  %14 = shl nuw nsw i64 %13, 16
+  %15 = zext i16 %.val2.i to i64
+  %16 = or disjoint i64 %14, %15
+  %17 = getelementptr i8, ptr %1, i64 %16
+  br label %BTreeTupleIsPosting.exit.thread
+
+BTreeTupleIsPosting.exit.thread:                  ; preds = %2, %BTreeTupleIsPosting.exit, %9
+  %.021 = phi i32 [ %11, %9 ], [ 1, %BTreeTupleIsPosting.exit ], [ 1, %2 ]
+  %.020 = phi ptr [ %17, %9 ], [ %1, %BTreeTupleIsPosting.exit ], [ %1, %2 ]
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = load i64, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = load i32, ptr %20, align 8
+  %22 = add i32 %21, %.021
+  %23 = sext i32 %22 to i64
+  %24 = mul nsw i64 %23, 6
+  %25 = add i64 %19, 7
+  %26 = add i64 %25, %24
+  %27 = and i64 %26, -8
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = load i64, ptr %28, align 8
+  %30 = icmp ule i64 %27, %29
+  br i1 %30, label %37, label %31
+
+31:                                               ; preds = %BTreeTupleIsPosting.exit.thread
+  %32 = icmp sgt i32 %21, 50
+  br i1 %32, label %33, label %56
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds i8, ptr %0, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = add i32 %35, 1
+  store i32 %36, ptr %34, align 4
+  br label %56
+
+37:                                               ; preds = %BTreeTupleIsPosting.exit.thread
+  %38 = getelementptr inbounds i8, ptr %0, i64 52
+  %39 = load i32, ptr %38, align 4
+  %40 = add i32 %39, 1
+  store i32 %40, ptr %38, align 4
+  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = load ptr, ptr %41, align 8
+  %43 = sext i32 %21 to i64
+  %44 = getelementptr %struct.ItemPointerData, ptr %42, i64 %43
+  %narrow = mul nuw nsw i32 %.021, 6
+  %45 = zext nneg i32 %narrow to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %44, ptr align 2 %.020, i64 %45, i1 false)
+  %46 = load i32, ptr %20, align 8
+  %47 = add i32 %46, %.021
+  store i32 %47, ptr %20, align 8
+  %48 = load i16, ptr %3, align 2
+  %49 = and i16 %48, 8191
+  %narrow22 = add nuw nsw i16 %49, 7
+  %50 = and i16 %narrow22, 16376
+  %51 = or disjoint i16 %50, 4
+  %52 = zext nneg i16 %51 to i64
+  %53 = getelementptr inbounds i8, ptr %0, i64 56
+  %54 = load i64, ptr %53, align 8
+  %55 = add i64 %54, %52
+  store i64 %55, ptr %53, align 8
+  br label %56
+
+56:                                               ; preds = %31, %33, %37
+  ret i1 %30
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local i64 @_bt_dedup_finish_pending(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr i8, ptr %0, i64 12
+  %.val = load i16, ptr %3, align 4
+  %4 = icmp ult i16 %.val, 25
+  %5 = zext i16 %.val to i32
+  %6 = add nuw nsw i32 %5, 262120
+  %7 = lshr i32 %6, 2
+  %8 = trunc i32 %7 to i16
+  %9 = add nuw nsw i16 %8, 1
+  %narrow = select i1 %4, i16 1, i16 %9
+  %10 = getelementptr inbounds i8, ptr %1, i64 52
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp eq i32 %11, 1
+  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = load ptr, ptr %13, align 8
+  br i1 %12, label %15, label %25
+
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds i8, ptr %14, i64 6
+  %17 = load i16, ptr %16, align 2
+  %18 = and i16 %17, 8191
+  %19 = zext nneg i16 %18 to i64
+  %20 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %0, ptr noundef %14, i64 noundef %19, i16 noundef zeroext %narrow, i32 noundef 0) #9
+  %21 = icmp eq i16 %20, 0
+  br i1 %21, label %22, label %93
+
+22:                                               ; preds = %15
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %23)
+  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 574, ptr noundef nonnull @__func__._bt_dedup_finish_pending) #9
+  unreachable
+
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds i8, ptr %1, i64 40
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %1, i64 48
+  %29 = load i32, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %14, i64 6
+  %31 = load i16, ptr %30, align 2
+  %32 = and i16 %31, 8192
+  %33 = icmp eq i16 %32, 0
+  br i1 %33, label %BTreeTupleIsPosting.exit.thread.i, label %BTreeTupleIsPosting.exit.i
+
+BTreeTupleIsPosting.exit.i:                       ; preds = %25
+  %34 = getelementptr i8, ptr %14, i64 4
+  %.val.i.i = load i16, ptr %34, align 2
+  %35 = and i16 %.val.i.i, 8192
+  %.not.i = icmp eq i16 %35, 0
+  br i1 %.not.i, label %BTreeTupleIsPosting.exit.thread.i, label %36
+
+36:                                               ; preds = %BTreeTupleIsPosting.exit.i
+  %.val.i = load i16, ptr %14, align 2
+  %37 = getelementptr i8, ptr %14, i64 2
+  %.val26.i = load i16, ptr %37, align 2
+  %38 = zext i16 %.val.i to i32
+  %39 = shl nuw i32 %38, 16
+  %40 = zext i16 %.val26.i to i32
+  %41 = or disjoint i32 %39, %40
+  br label %44
+
+BTreeTupleIsPosting.exit.thread.i:                ; preds = %BTreeTupleIsPosting.exit.i, %25
+  %42 = and i16 %31, 8191
+  %43 = zext nneg i16 %42 to i32
+  br label %44
+
+44:                                               ; preds = %BTreeTupleIsPosting.exit.thread.i, %36
+  %.0.i25 = phi i32 [ %41, %36 ], [ %43, %BTreeTupleIsPosting.exit.thread.i ]
+  %45 = icmp sgt i32 %29, 1
+  %46 = mul i32 %29, 6
+  %47 = add i32 %46, 7
+  %48 = add i32 %47, %.0.i25
+  %49 = and i32 %48, -8
+  %.024.i = select i1 %45, i32 %49, i32 %.0.i25
+  %50 = zext i32 %.024.i to i64
+  %51 = tail call ptr @palloc0(i64 noundef %50) #9
+  %52 = zext i32 %.0.i25 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %51, ptr nonnull align 2 %14, i64 %52, i1 false)
+  %53 = getelementptr inbounds i8, ptr %51, i64 6
+  %54 = load i16, ptr %53, align 2
+  %55 = and i16 %54, -8192
+  %56 = trunc i32 %.024.i to i16
+  %57 = or i16 %55, %56
+  br i1 %45, label %58, label %70
+
+58:                                               ; preds = %44
+  %59 = trunc i32 %29 to i16
+  %60 = or i16 %57, 8192
+  store i16 %60, ptr %53, align 2
+  %61 = or i16 %59, 8192
+  %62 = getelementptr inbounds i8, ptr %51, i64 4
+  store i16 %61, ptr %62, align 2
+  %63 = lshr i32 %.0.i25, 16
+  %64 = trunc i32 %63 to i16
+  store i16 %64, ptr %51, align 2
+  %65 = trunc i32 %.0.i25 to i16
+  %66 = getelementptr inbounds i8, ptr %51, i64 2
+  store i16 %65, ptr %66, align 2
+  %67 = getelementptr i8, ptr %51, i64 %52
+  %68 = zext nneg i32 %29 to i64
+  %69 = mul nuw nsw i64 %68, 6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %67, ptr align 2 %27, i64 %69, i1 false)
+  %.pre = load i16, ptr %53, align 2
+  br label %_bt_form_posting.exit
+
+70:                                               ; preds = %44
+  %71 = and i16 %57, -8193
+  store i16 %71, ptr %53, align 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %51, ptr noundef nonnull align 2 dereferenceable(6) %27, i64 6, i1 false)
+  br label %_bt_form_posting.exit
+
+_bt_form_posting.exit:                            ; preds = %58, %70
+  %72 = phi i16 [ %.pre, %58 ], [ %71, %70 ]
+  %73 = and i16 %72, 8191
+  %74 = zext nneg i16 %73 to i64
+  %75 = load i32, ptr %10, align 4
+  %76 = trunc i32 %75 to i16
+  %77 = getelementptr inbounds i8, ptr %1, i64 68
+  %78 = getelementptr inbounds i8, ptr %1, i64 64
+  %79 = load i32, ptr %78, align 8
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr [408 x %struct.BTDedupInterval], ptr %77, i64 0, i64 %80, i32 1
+  store i16 %76, ptr %81, align 2
+  %82 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %0, ptr noundef nonnull %51, i64 noundef %74, i16 noundef zeroext %narrow, i32 noundef 0) #9
+  %83 = icmp eq i16 %82, 0
+  br i1 %83, label %84, label %87
+
+84:                                               ; preds = %_bt_form_posting.exit
+  %85 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %85)
+  %86 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 594, ptr noundef nonnull @__func__._bt_dedup_finish_pending) #9
+  unreachable
+
+87:                                               ; preds = %_bt_form_posting.exit
+  tail call void @pfree(ptr noundef nonnull %51) #9
+  %88 = getelementptr inbounds i8, ptr %1, i64 56
+  %89 = load i64, ptr %88, align 8
+  %reass.sub = sub i64 %89, %74
+  %90 = add i64 %reass.sub, -4
+  %91 = load i32, ptr %78, align 8
+  %92 = add i32 %91, 1
+  store i32 %92, ptr %78, align 8
+  br label %93
+
+93:                                               ; preds = %15, %87
+  %.0 = phi i64 [ %90, %87 ], [ 0, %15 ]
+  %94 = getelementptr inbounds i8, ptr %1, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, i8 0, i64 16, i1 false)
+  ret i64 %.0
+}
+
+declare void @pfree(ptr noundef) local_unnamed_addr #1
+
+declare void @PageRestoreTempPage(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #1
+
+declare void @XLogBeginInsert() local_unnamed_addr #1
+
+declare void @XLogRegisterBuffer(i8 noundef zeroext, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
+
+declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @XLogRegisterBufData(i8 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local zeroext i1 @_bt_bottomupdel_pass(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = alloca %struct.TM_IndexDeleteOp, align 8
+  %6 = icmp slt i32 %1, 0
+  br i1 %6, label %7, label %13
+
+7:                                                ; preds = %4
+  %8 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %9 = xor i32 %1, -1
+  %10 = zext nneg i32 %9 to i64
+  %11 = getelementptr ptr, ptr %8, i64 %10
+  %12 = load ptr, ptr %11, align 8
+  br label %BufferGetPage.exit
+
+13:                                               ; preds = %4
+  %14 = load ptr, ptr @BufferBlocks, align 8
+  %15 = add nsw i32 %1, -1
+  %16 = sext i32 %15 to i64
+  %17 = shl nsw i64 %16, 13
+  %18 = getelementptr i8, ptr %14, i64 %17
+  br label %BufferGetPage.exit
+
+BufferGetPage.exit:                               ; preds = %7, %13
+  %.0.i.i = phi ptr [ %12, %7 ], [ %18, %13 ]
+  %19 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %20 = load i16, ptr %19, align 4
+  %21 = zext i16 %20 to i64
+  %22 = getelementptr i8, ptr %.0.i.i, i64 %21
+  %23 = getelementptr inbounds i8, ptr %0, i64 320
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 10
+  %26 = load i16, ptr %25, align 2
+  %27 = sext i16 %26 to i32
+  %28 = add i64 %3, 4
+  %29 = tail call ptr @palloc(i64 noundef 1704) #9
+  store i8 1, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  store i32 0, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  store i64 8192, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %29, i64 16
+  store ptr null, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %29, i64 24
+  store i16 0, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %29, i64 32
+  store i64 0, ptr %34, align 8
+  %35 = tail call ptr @palloc(i64 noundef 8192) #9
+  %36 = getelementptr inbounds i8, ptr %29, i64 40
+  store ptr %35, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %29, i64 48
+  %38 = getelementptr inbounds i8, ptr %29, i64 52
+  %39 = getelementptr inbounds i8, ptr %29, i64 56
+  %40 = getelementptr inbounds i8, ptr %29, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %37, i8 0, i64 20, i1 false)
+  store ptr %0, ptr %5, align 8
+  %41 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #9
+  %42 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %41, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %5, i64 12
+  store i8 1, ptr %43, align 4
+  %44 = tail call i64 @llvm.umax.i64(i64 %28, i64 512)
+  %45 = trunc i64 %44 to i32
+  %46 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 %45, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %5, i64 20
+  store i32 0, ptr %47, align 4
+  %48 = tail call ptr @palloc(i64 noundef 10864) #9
+  %49 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %48, ptr %49, align 8
+  %50 = tail call ptr @palloc(i64 noundef 8148) #9
+  %51 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %50, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %22, i64 4
+  %53 = load i32, ptr %52, align 4
+  %54 = icmp eq i32 %53, 0
+  %55 = select i1 %54, i16 1, i16 2
+  %56 = getelementptr i8, ptr %.0.i.i, i64 12
+  %.val = load i16, ptr %56, align 4
+  %57 = icmp ult i16 %.val, 25
+  %58 = zext i16 %.val to i32
+  %59 = add nuw nsw i32 %58, 262120
+  %60 = lshr i32 %59, 2
+  %61 = trunc i32 %60 to i16
+  %.0.i = select i1 %57, i16 0, i16 %61
+  %.not80 = icmp ugt i16 %55, %.0.i
+  br i1 %.not80, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %BufferGetPage.exit
+  %62 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %63 = getelementptr inbounds i8, ptr %29, i64 68
+  br label %64
+
+64:                                               ; preds = %.lr.ph, %188
+  %.05881 = phi i16 [ %55, %.lr.ph ], [ %189, %188 ]
+  %65 = zext i16 %.05881 to i64
+  %66 = add nsw i64 %65, -1
+  %67 = getelementptr [0 x %struct.ItemIdData], ptr %62, i64 0, i64 %66
+  %.val60 = load i32, ptr %67, align 4
+  %68 = and i32 %.val60, 32767
+  %69 = zext nneg i32 %68 to i64
+  %70 = getelementptr i8, ptr %.0.i.i, i64 %69
+  %71 = icmp eq i16 %.05881, %55
+  br i1 %71, label %72, label %106
+
+72:                                               ; preds = %64
+  %73 = getelementptr inbounds i8, ptr %70, i64 6
+  %74 = load i16, ptr %73, align 2
+  %75 = and i16 %74, 8192
+  %76 = icmp eq i16 %75, 0
+  br i1 %76, label %BTreeTupleIsPosting.exit.thread.i, label %BTreeTupleIsPosting.exit.i
+
+BTreeTupleIsPosting.exit.i:                       ; preds = %72
+  %77 = getelementptr i8, ptr %70, i64 4
+  %.val.i.i = load i16, ptr %77, align 2
+  %78 = and i16 %.val.i.i, 8192
+  %.not.i = icmp eq i16 %78, 0
+  br i1 %.not.i, label %BTreeTupleIsPosting.exit.thread.i, label %83
+
+BTreeTupleIsPosting.exit.thread.i:                ; preds = %BTreeTupleIsPosting.exit.i, %72
+  %79 = load ptr, ptr %36, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %79, ptr noundef nonnull align 2 dereferenceable(6) %70, i64 6, i1 false)
+  store i32 1, ptr %37, align 8
+  %80 = load i16, ptr %73, align 2
+  %81 = and i16 %80, 8191
+  %82 = zext nneg i16 %81 to i64
+  br label %_bt_dedup_start_pending.exit
+
+83:                                               ; preds = %BTreeTupleIsPosting.exit.i
+  %84 = and i16 %.val.i.i, 4095
+  %85 = zext nneg i16 %84 to i32
+  %86 = load ptr, ptr %36, align 8
+  %.val.i26.i = load i16, ptr %70, align 2
+  %87 = getelementptr i8, ptr %70, i64 2
+  %.val2.i.i = load i16, ptr %87, align 2
+  %88 = zext i16 %.val.i26.i to i64
+  %89 = shl nuw nsw i64 %88, 16
+  %90 = zext i16 %.val2.i.i to i64
+  %91 = or disjoint i64 %89, %90
+  %92 = getelementptr i8, ptr %70, i64 %91
+  %narrow.i = mul nuw nsw i16 %84, 6
+  %93 = zext nneg i16 %narrow.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %86, ptr align 2 %92, i64 %93, i1 false)
+  store i32 %85, ptr %37, align 8
+  %.val24.i = load i16, ptr %70, align 2
+  %.val25.i = load i16, ptr %87, align 2
+  %94 = zext i16 %.val24.i to i64
+  %95 = shl nuw nsw i64 %94, 16
+  %96 = zext i16 %.val25.i to i64
+  %97 = or disjoint i64 %95, %96
+  br label %_bt_dedup_start_pending.exit
+
+_bt_dedup_start_pending.exit:                     ; preds = %BTreeTupleIsPosting.exit.thread.i, %83
+  %.sink.i = phi i64 [ %97, %83 ], [ %82, %BTreeTupleIsPosting.exit.thread.i ]
+  store i64 %.sink.i, ptr %34, align 8
+  store i32 1, ptr %38, align 4
+  store ptr %70, ptr %32, align 8
+  store i16 %55, ptr %33, align 8
+  %98 = load i16, ptr %73, align 2
+  %99 = and i16 %98, 8191
+  %narrow23.i = add nuw nsw i16 %99, 7
+  %100 = and i16 %narrow23.i, 16376
+  %101 = or disjoint i16 %100, 4
+  %102 = zext nneg i16 %101 to i64
+  store i64 %102, ptr %39, align 8
+  %103 = load i32, ptr %40, align 8
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr [408 x %struct.BTDedupInterval], ptr %63, i64 0, i64 %104
+  store i16 %55, ptr %105, align 4
+  br label %188
+
+106:                                              ; preds = %64
+  %107 = load ptr, ptr %32, align 8
+  %108 = tail call i32 @_bt_keep_natts_fast(ptr noundef %0, ptr noundef %107, ptr noundef %70) #9
+  %109 = icmp sgt i32 %108, %27
+  br i1 %109, label %110, label %_bt_dedup_save_htid.exit.thread
+
+110:                                              ; preds = %106
+  %111 = getelementptr inbounds i8, ptr %70, i64 6
+  %112 = load i16, ptr %111, align 2
+  %113 = and i16 %112, 8192
+  %114 = icmp eq i16 %113, 0
+  br i1 %114, label %BTreeTupleIsPosting.exit.thread.i65, label %BTreeTupleIsPosting.exit.i61
+
+BTreeTupleIsPosting.exit.i61:                     ; preds = %110
+  %115 = getelementptr i8, ptr %70, i64 4
+  %.val.i.i62 = load i16, ptr %115, align 2
+  %116 = and i16 %.val.i.i62, 8192
+  %.not.i63 = icmp eq i16 %116, 0
+  br i1 %.not.i63, label %BTreeTupleIsPosting.exit.thread.i65, label %117
+
+117:                                              ; preds = %BTreeTupleIsPosting.exit.i61
+  %118 = and i16 %.val.i.i62, 4095
+  %119 = zext nneg i16 %118 to i32
+  %.val.i23.i = load i16, ptr %70, align 2
+  %120 = getelementptr i8, ptr %70, i64 2
+  %.val2.i.i64 = load i16, ptr %120, align 2
+  %121 = zext i16 %.val.i23.i to i64
+  %122 = shl nuw nsw i64 %121, 16
+  %123 = zext i16 %.val2.i.i64 to i64
+  %124 = or disjoint i64 %122, %123
+  %125 = getelementptr i8, ptr %70, i64 %124
+  br label %BTreeTupleIsPosting.exit.thread.i65
+
+BTreeTupleIsPosting.exit.thread.i65:              ; preds = %117, %BTreeTupleIsPosting.exit.i61, %110
+  %.021.i = phi i32 [ %119, %117 ], [ 1, %BTreeTupleIsPosting.exit.i61 ], [ 1, %110 ]
+  %.020.i = phi ptr [ %125, %117 ], [ %70, %BTreeTupleIsPosting.exit.i61 ], [ %70, %110 ]
+  %126 = load i64, ptr %34, align 8
+  %127 = load i32, ptr %37, align 8
+  %128 = add i32 %127, %.021.i
+  %129 = sext i32 %128 to i64
+  %130 = mul nsw i64 %129, 6
+  %131 = add i64 %126, 7
+  %132 = add i64 %131, %130
+  %133 = and i64 %132, -8
+  %134 = load i64, ptr %31, align 8
+  %.not79 = icmp ugt i64 %133, %134
+  br i1 %.not79, label %135, label %_bt_dedup_save_htid.exit
+
+135:                                              ; preds = %BTreeTupleIsPosting.exit.thread.i65
+  %136 = icmp sgt i32 %127, 50
+  br i1 %136, label %137, label %_bt_dedup_save_htid.exit.thread
+
+137:                                              ; preds = %135
+  %138 = load i32, ptr %30, align 4
+  %139 = add i32 %138, 1
+  store i32 %139, ptr %30, align 4
+  br label %_bt_dedup_save_htid.exit.thread
+
+_bt_dedup_save_htid.exit:                         ; preds = %BTreeTupleIsPosting.exit.thread.i65
+  %140 = load i32, ptr %38, align 4
+  %141 = add i32 %140, 1
+  store i32 %141, ptr %38, align 4
+  %142 = load ptr, ptr %36, align 8
+  %143 = sext i32 %127 to i64
+  %144 = getelementptr %struct.ItemPointerData, ptr %142, i64 %143
+  %narrow.i66 = mul nuw nsw i32 %.021.i, 6
+  %145 = zext nneg i32 %narrow.i66 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %144, ptr align 2 %.020.i, i64 %145, i1 false)
+  %146 = load i32, ptr %37, align 8
+  %147 = add i32 %146, %.021.i
+  store i32 %147, ptr %37, align 8
+  %148 = load i16, ptr %111, align 2
+  %149 = and i16 %148, 8191
+  %narrow22.i = add nuw nsw i16 %149, 7
+  %150 = and i16 %narrow22.i, 16376
+  %151 = or disjoint i16 %150, 4
+  %152 = zext nneg i16 %151 to i64
+  %153 = load i64, ptr %39, align 8
+  %154 = add i64 %153, %152
+  store i64 %154, ptr %39, align 8
+  br label %188
+
+_bt_dedup_save_htid.exit.thread:                  ; preds = %137, %135, %106
+  call fastcc void @_bt_bottomupdel_finish_pending(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %29, ptr noundef nonnull %5)
+  %155 = getelementptr inbounds i8, ptr %70, i64 6
+  %156 = load i16, ptr %155, align 2
+  %157 = and i16 %156, 8192
+  %158 = icmp eq i16 %157, 0
+  br i1 %158, label %BTreeTupleIsPosting.exit.thread.i77, label %BTreeTupleIsPosting.exit.i67
+
+BTreeTupleIsPosting.exit.i67:                     ; preds = %_bt_dedup_save_htid.exit.thread
+  %159 = getelementptr i8, ptr %70, i64 4
+  %.val.i.i68 = load i16, ptr %159, align 2
+  %160 = and i16 %.val.i.i68, 8192
+  %.not.i69 = icmp eq i16 %160, 0
+  br i1 %.not.i69, label %BTreeTupleIsPosting.exit.thread.i77, label %165
+
+BTreeTupleIsPosting.exit.thread.i77:              ; preds = %BTreeTupleIsPosting.exit.i67, %_bt_dedup_save_htid.exit.thread
+  %161 = load ptr, ptr %36, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %161, ptr noundef nonnull align 2 dereferenceable(6) %70, i64 6, i1 false)
+  store i32 1, ptr %37, align 8
+  %162 = load i16, ptr %155, align 2
+  %163 = and i16 %162, 8191
+  %164 = zext nneg i16 %163 to i64
+  br label %_bt_dedup_start_pending.exit78
+
+165:                                              ; preds = %BTreeTupleIsPosting.exit.i67
+  %166 = and i16 %.val.i.i68, 4095
+  %167 = zext nneg i16 %166 to i32
+  %168 = load ptr, ptr %36, align 8
+  %.val.i26.i70 = load i16, ptr %70, align 2
+  %169 = getelementptr i8, ptr %70, i64 2
+  %.val2.i.i71 = load i16, ptr %169, align 2
+  %170 = zext i16 %.val.i26.i70 to i64
+  %171 = shl nuw nsw i64 %170, 16
+  %172 = zext i16 %.val2.i.i71 to i64
+  %173 = or disjoint i64 %171, %172
+  %174 = getelementptr i8, ptr %70, i64 %173
+  %narrow.i72 = mul nuw nsw i16 %166, 6
+  %175 = zext nneg i16 %narrow.i72 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %168, ptr align 2 %174, i64 %175, i1 false)
+  store i32 %167, ptr %37, align 8
+  %.val24.i73 = load i16, ptr %70, align 2
+  %.val25.i74 = load i16, ptr %169, align 2
+  %176 = zext i16 %.val24.i73 to i64
+  %177 = shl nuw nsw i64 %176, 16
+  %178 = zext i16 %.val25.i74 to i64
+  %179 = or disjoint i64 %177, %178
+  br label %_bt_dedup_start_pending.exit78
+
+_bt_dedup_start_pending.exit78:                   ; preds = %BTreeTupleIsPosting.exit.thread.i77, %165
+  %.sink.i75 = phi i64 [ %179, %165 ], [ %164, %BTreeTupleIsPosting.exit.thread.i77 ]
+  store i64 %.sink.i75, ptr %34, align 8
+  store i32 1, ptr %38, align 4
+  store ptr %70, ptr %32, align 8
+  store i16 %.05881, ptr %33, align 8
+  %180 = load i16, ptr %155, align 2
+  %181 = and i16 %180, 8191
+  %narrow23.i76 = add nuw nsw i16 %181, 7
+  %182 = and i16 %narrow23.i76, 16376
+  %183 = or disjoint i16 %182, 4
+  %184 = zext nneg i16 %183 to i64
+  store i64 %184, ptr %39, align 8
+  %185 = load i32, ptr %40, align 8
+  %186 = sext i32 %185 to i64
+  %187 = getelementptr [408 x %struct.BTDedupInterval], ptr %63, i64 0, i64 %186
+  store i16 %.05881, ptr %187, align 4
+  br label %188
+
+188:                                              ; preds = %_bt_dedup_save_htid.exit, %_bt_dedup_start_pending.exit, %_bt_dedup_start_pending.exit78
+  %189 = add i16 %.05881, 1
+  %.not = icmp ugt i16 %189, %.0.i
+  br i1 %.not, label %._crit_edge, label %64, !llvm.loop !7
+
+._crit_edge:                                      ; preds = %188, %BufferGetPage.exit
+  call fastcc void @_bt_bottomupdel_finish_pending(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %29, ptr noundef nonnull %5)
+  %190 = load i32, ptr %40, align 8
+  %191 = icmp eq i32 %190, 0
+  %192 = load ptr, ptr %36, align 8
+  tail call void @pfree(ptr noundef %192) #9
+  tail call void @pfree(ptr noundef nonnull %29) #9
+  call void @_bt_delitems_delete_check(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %5) #9
+  %193 = load ptr, ptr %49, align 8
+  call void @pfree(ptr noundef %193) #9
+  %194 = load ptr, ptr %51, align 8
+  call void @pfree(ptr noundef %194) #9
+  br i1 %191, label %199, label %195
+
+195:                                              ; preds = %._crit_edge
+  %196 = call i64 @PageGetExactFreeSpace(ptr noundef nonnull %.0.i.i) #9
+  %197 = call i64 @llvm.umax.i64(i64 %28, i64 341)
+  %198 = icmp uge i64 %196, %197
+  br label %199
+
+199:                                              ; preds = %._crit_edge, %195
+  %.0 = phi i1 [ %198, %195 ], [ true, %._crit_edge ]
+  ret i1 %.0
+}
+
+declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @_bt_bottomupdel_finish_pending(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #4 {
+  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %5 = load i32, ptr %4, align 4
+  %6 = icmp sgt i32 %5, 1
+  %7 = zext i1 %6 to i8
+  %8 = icmp sgt i32 %5, 0
+  br i1 %8, label %.lr.ph103, label %._crit_edge.thread
+
+.lr.ph103:                                        ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %12 = getelementptr inbounds i8, ptr %2, i64 20
+  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %.pre = load i32, ptr %12, align 4
+  br label %14
+
+14:                                               ; preds = %.lr.ph103, %.loopexit
+  %15 = phi i32 [ %.pre, %.lr.ph103 ], [ %137, %.loopexit ]
+  %.0102 = phi i32 [ 0, %.lr.ph103 ], [ %138, %.loopexit ]
+  %16 = load i16, ptr %9, align 8
+  %17 = trunc i32 %.0102 to i16
+  %18 = add i16 %16, %17
+  %19 = zext i16 %18 to i64
+  %20 = add nsw i64 %19, -1
+  %21 = getelementptr [0 x %struct.ItemIdData], ptr %10, i64 0, i64 %20
+  %.val = load i32, ptr %21, align 4
+  %22 = and i32 %.val, 32767
+  %23 = zext nneg i32 %22 to i64
+  %24 = getelementptr i8, ptr %0, i64 %23
+  %25 = load ptr, ptr %11, align 8
+  %26 = sext i32 %15 to i64
+  %27 = getelementptr %struct.TM_IndexDelete, ptr %25, i64 %26
+  %28 = load ptr, ptr %13, align 8
+  %29 = getelementptr %struct.TM_IndexStatus, ptr %28, i64 %26
+  %30 = getelementptr inbounds i8, ptr %24, i64 6
+  %31 = load i16, ptr %30, align 2
+  %32 = and i16 %31, 8192
+  %33 = icmp eq i16 %32, 0
+  br i1 %33, label %BTreeTupleIsPosting.exit.thread, label %BTreeTupleIsPosting.exit
+
+BTreeTupleIsPosting.exit:                         ; preds = %14
+  %34 = getelementptr i8, ptr %24, i64 4
+  %.val.i = load i16, ptr %34, align 2
+  %35 = and i16 %.val.i, 8192
+  %.not = icmp eq i16 %35, 0
+  br i1 %.not, label %BTreeTupleIsPosting.exit.thread, label %48
+
+BTreeTupleIsPosting.exit.thread:                  ; preds = %14, %BTreeTupleIsPosting.exit
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %27, ptr noundef nonnull align 2 dereferenceable(6) %24, i64 6, i1 false)
+  %36 = load i32, ptr %12, align 4
+  %37 = trunc i32 %36 to i16
+  %38 = getelementptr inbounds i8, ptr %27, i64 6
+  store i16 %37, ptr %38, align 2
+  store i16 %18, ptr %29, align 2
+  %39 = getelementptr inbounds i8, ptr %29, i64 2
+  store i8 0, ptr %39, align 2
+  %40 = getelementptr inbounds i8, ptr %29, i64 3
+  store i8 %7, ptr %40, align 1
+  %41 = load i32, ptr %21, align 4
+  %42 = lshr i32 %41, 17
+  %43 = trunc i32 %42 to i16
+  %44 = add nuw i16 %43, 4
+  %45 = getelementptr inbounds i8, ptr %29, i64 4
+  store i16 %44, ptr %45, align 2
+  %46 = load i32, ptr %12, align 4
+  %47 = add i32 %46, 1
+  store i32 %47, ptr %12, align 4
+  br label %.loopexit
+
+48:                                               ; preds = %BTreeTupleIsPosting.exit
+  %49 = and i16 %.val.i, 4095
+  %50 = zext nneg i16 %49 to i32
+  br i1 %6, label %BTreeTupleIsPosting.exit.i91, label %81
+
+BTreeTupleIsPosting.exit.i91:                     ; preds = %48
+  %.val.i10.i = load i16, ptr %24, align 2
+  %51 = zext i16 %.val.i10.i to i64
+  %52 = shl nuw nsw i64 %51, 16
+  %53 = getelementptr i8, ptr %24, i64 2
+  %.val2.i.i = load i16, ptr %53, align 2
+  %54 = zext i16 %.val2.i.i to i64
+  %55 = or disjoint i64 %52, %54
+  %56 = getelementptr i8, ptr %24, i64 %55
+  %.phi.trans.insert126 = getelementptr i8, ptr %56, i64 2
+  %.val83.pre = load i16, ptr %.phi.trans.insert126, align 2
+  %.val82.pre = load i16, ptr %56, align 2
+  %57 = lshr i32 %50, 1
+  %58 = getelementptr i8, ptr %24, i64 %55
+  %59 = zext nneg i32 %57 to i64
+  %60 = getelementptr %struct.ItemPointerData, ptr %58, i64 %59
+  %61 = zext nneg i16 %49 to i64
+  %62 = getelementptr %struct.ItemPointerData, ptr %58, i64 %61
+  %63 = getelementptr i8, ptr %62, i64 -6
+  %64 = zext i16 %.val82.pre to i32
+  %65 = shl nuw i32 %64, 16
+  %66 = zext i16 %.val83.pre to i32
+  %67 = or disjoint i32 %65, %66
+  %.val84 = load i16, ptr %60, align 2
+  %68 = getelementptr i8, ptr %60, i64 2
+  %.val85 = load i16, ptr %68, align 2
+  %69 = zext i16 %.val84 to i32
+  %70 = shl nuw i32 %69, 16
+  %71 = zext i16 %.val85 to i32
+  %72 = or disjoint i32 %70, %71
+  %.val86 = load i16, ptr %63, align 2
+  %73 = getelementptr i8, ptr %62, i64 -4
+  %.val87 = load i16, ptr %73, align 2
+  %74 = zext i16 %.val86 to i32
+  %75 = shl nuw i32 %74, 16
+  %76 = zext i16 %.val87 to i32
+  %77 = or disjoint i32 %75, %76
+  %78 = icmp eq i32 %67, %72
+  %79 = icmp eq i32 %72, %77
+  %not. = xor i1 %78, true
+  %80 = select i1 %not., i1 %79, i1 false
+  br label %81
+
+81:                                               ; preds = %BTreeTupleIsPosting.exit.i91, %48
+  %.076 = phi i1 [ %80, %BTreeTupleIsPosting.exit.i91 ], [ false, %48 ]
+  %.075 = phi i1 [ %78, %BTreeTupleIsPosting.exit.i91 ], [ false, %48 ]
+  %.076.fr = freeze i1 %.076
+  %.not105 = icmp eq i16 %49, 0
+  br i1 %.not105, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %81
+  %82 = getelementptr i8, ptr %24, i64 2
+  %83 = add nsw i32 %50, -1
+  %.075.fr = freeze i1 %.075
+  br i1 %.075.fr, label %.lr.ph.split.preheader, label %.lr.ph.split.us
+
+.lr.ph.split.preheader:                           ; preds = %.lr.ph
+  %84 = zext i32 %83 to i64
+  %wide.trip.count118 = zext nneg i16 %49 to i64
+  br label %.lr.ph.split
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %.076.fr, label %.lr.ph.split.us.split.preheader, label %.lr.ph.split.us.split.us.preheader
+
+.lr.ph.split.us.split.us.preheader:               ; preds = %.lr.ph.split.us
+  %wide.trip.count = zext nneg i16 %49 to i64
+  br label %.lr.ph.split.us.split.us
+
+.lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us
+  %85 = zext i32 %83 to i64
+  %wide.trip.count113 = zext nneg i16 %49 to i64
+  br label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %.lr.ph.split.us.split.us
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next, %.lr.ph.split.us.split.us ]
+  %.07399.us.us = phi ptr [ %27, %.lr.ph.split.us.split.us.preheader ], [ %98, %.lr.ph.split.us.split.us ]
+  %.07498.us.us = phi ptr [ %29, %.lr.ph.split.us.split.us.preheader ], [ %99, %.lr.ph.split.us.split.us ]
+  %.val.i.i95.us.us = load i16, ptr %24, align 2
+  %.val2.i.i96.us.us = load i16, ptr %82, align 2
+  %86 = zext i16 %.val.i.i95.us.us to i64
+  %87 = shl nuw nsw i64 %86, 16
+  %88 = zext i16 %.val2.i.i96.us.us to i64
+  %89 = or disjoint i64 %87, %88
+  %90 = getelementptr i8, ptr %24, i64 %89
+  %91 = getelementptr %struct.ItemPointerData, ptr %90, i64 %indvars.iv
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.07399.us.us, ptr noundef nonnull align 2 dereferenceable(6) %91, i64 6, i1 false)
+  %92 = load i32, ptr %12, align 4
+  %93 = trunc i32 %92 to i16
+  %94 = getelementptr inbounds i8, ptr %.07399.us.us, i64 6
+  store i16 %93, ptr %94, align 2
+  store i16 %18, ptr %.07498.us.us, align 2
+  %95 = getelementptr inbounds i8, ptr %.07498.us.us, i64 2
+  store i8 0, ptr %95, align 2
+  %96 = getelementptr inbounds i8, ptr %.07498.us.us, i64 3
+  store i8 0, ptr %96, align 1
+  %97 = getelementptr inbounds i8, ptr %.07498.us.us, i64 4
+  store i16 6, ptr %97, align 2
+  %98 = getelementptr i8, ptr %.07399.us.us, i64 8
+  %99 = getelementptr i8, ptr %.07498.us.us, i64 6
+  %100 = load i32, ptr %12, align 4
+  %101 = add i32 %100, 1
+  store i32 %101, ptr %12, align 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !8
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %.lr.ph.split.us.split
+  %indvars.iv110 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next111, %.lr.ph.split.us.split ]
+  %.07399.us = phi ptr [ %27, %.lr.ph.split.us.split.preheader ], [ %115, %.lr.ph.split.us.split ]
+  %.07498.us = phi ptr [ %29, %.lr.ph.split.us.split.preheader ], [ %116, %.lr.ph.split.us.split ]
+  %.val.i.i95.us = load i16, ptr %24, align 2
+  %.val2.i.i96.us = load i16, ptr %82, align 2
+  %102 = zext i16 %.val.i.i95.us to i64
+  %103 = shl nuw nsw i64 %102, 16
+  %104 = zext i16 %.val2.i.i96.us to i64
+  %105 = or disjoint i64 %103, %104
+  %106 = getelementptr i8, ptr %24, i64 %105
+  %107 = getelementptr %struct.ItemPointerData, ptr %106, i64 %indvars.iv110
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.07399.us, ptr noundef nonnull align 2 dereferenceable(6) %107, i64 6, i1 false)
+  %108 = load i32, ptr %12, align 4
+  %109 = trunc i32 %108 to i16
+  %110 = getelementptr inbounds i8, ptr %.07399.us, i64 6
+  store i16 %109, ptr %110, align 2
+  store i16 %18, ptr %.07498.us, align 2
+  %111 = getelementptr inbounds i8, ptr %.07498.us, i64 2
+  store i8 0, ptr %111, align 2
+  %112 = getelementptr inbounds i8, ptr %.07498.us, i64 3
+  %113 = icmp eq i64 %indvars.iv110, %85
+  %spec.store.select = zext i1 %113 to i8
+  store i8 %spec.store.select, ptr %112, align 1
+  %114 = getelementptr inbounds i8, ptr %.07498.us, i64 4
+  store i16 6, ptr %114, align 2
+  %115 = getelementptr i8, ptr %.07399.us, i64 8
+  %116 = getelementptr i8, ptr %.07498.us, i64 6
+  %117 = load i32, ptr %12, align 4
+  %118 = add i32 %117, 1
+  store i32 %118, ptr %12, align 4
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
+  %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
+  br i1 %exitcond114.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !8
+
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
+  %indvars.iv115 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next116, %.lr.ph.split ]
+  %.07399 = phi ptr [ %27, %.lr.ph.split.preheader ], [ %133, %.lr.ph.split ]
+  %.07498 = phi ptr [ %29, %.lr.ph.split.preheader ], [ %134, %.lr.ph.split ]
+  %.val.i.i95 = load i16, ptr %24, align 2
+  %.val2.i.i96 = load i16, ptr %82, align 2
+  %119 = zext i16 %.val.i.i95 to i64
+  %120 = shl nuw nsw i64 %119, 16
+  %121 = zext i16 %.val2.i.i96 to i64
+  %122 = or disjoint i64 %120, %121
+  %123 = getelementptr i8, ptr %24, i64 %122
+  %124 = getelementptr %struct.ItemPointerData, ptr %123, i64 %indvars.iv115
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.07399, ptr noundef nonnull align 2 dereferenceable(6) %124, i64 6, i1 false)
+  %125 = load i32, ptr %12, align 4
+  %126 = trunc i32 %125 to i16
+  %127 = getelementptr inbounds i8, ptr %.07399, i64 6
+  store i16 %126, ptr %127, align 2
+  store i16 %18, ptr %.07498, align 2
+  %128 = getelementptr inbounds i8, ptr %.07498, i64 2
+  store i8 0, ptr %128, align 2
+  %129 = getelementptr inbounds i8, ptr %.07498, i64 3
+  %130 = icmp eq i64 %indvars.iv115, 0
+  %131 = icmp eq i64 %indvars.iv115, %84
+  %or.cond80 = select i1 %.076.fr, i1 %131, i1 false
+  %or.cond = select i1 %130, i1 true, i1 %or.cond80
+  %spec.store.select104 = zext i1 %or.cond to i8
+  store i8 %spec.store.select104, ptr %129, align 1
+  %132 = getelementptr inbounds i8, ptr %.07498, i64 4
+  store i16 6, ptr %132, align 2
+  %133 = getelementptr i8, ptr %.07399, i64 8
+  %134 = getelementptr i8, ptr %.07498, i64 6
+  %135 = load i32, ptr %12, align 4
+  %136 = add i32 %135, 1
+  store i32 %136, ptr %12, align 4
+  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
+  %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
+  br i1 %exitcond119.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !8
+
+.loopexit:                                        ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split, %.lr.ph.split, %81, %BTreeTupleIsPosting.exit.thread
+  %137 = phi i32 [ %15, %81 ], [ %47, %BTreeTupleIsPosting.exit.thread ], [ %136, %.lr.ph.split ], [ %118, %.lr.ph.split.us.split ], [ %101, %.lr.ph.split.us.split.us ]
+  %138 = add nuw nsw i32 %.0102, 1
+  %139 = load i32, ptr %4, align 4
+  %140 = icmp slt i32 %138, %139
+  br i1 %140, label %14, label %._crit_edge, !llvm.loop !9
+
+._crit_edge:                                      ; preds = %.loopexit
+  br i1 %6, label %141, label %._crit_edge.thread
+
+141:                                              ; preds = %._crit_edge
+  %142 = trunc i32 %139 to i16
+  %143 = getelementptr inbounds i8, ptr %1, i64 68
+  %144 = getelementptr inbounds i8, ptr %1, i64 64
+  %145 = load i32, ptr %144, align 8
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr [408 x %struct.BTDedupInterval], ptr %143, i64 0, i64 %146, i32 1
+  store i16 %142, ptr %147, align 2
+  %148 = load i32, ptr %144, align 8
+  %149 = add i32 %148, 1
+  store i32 %149, ptr %144, align 8
+  br label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %3, %141, %._crit_edge
+  %150 = getelementptr inbounds i8, ptr %1, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %150, i8 0, i64 16, i1 false)
+  ret void
+}
+
+declare void @_bt_delitems_delete_check(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i64 @PageGetExactFreeSpace(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+
+; Function Attrs: nounwind uwtable
+define dso_local ptr @_bt_form_posting(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 6
+  %5 = load i16, ptr %4, align 2
+  %6 = and i16 %5, 8192
+  %7 = icmp eq i16 %6, 0
+  br i1 %7, label %BTreeTupleIsPosting.exit.thread, label %BTreeTupleIsPosting.exit
+
+BTreeTupleIsPosting.exit:                         ; preds = %3
+  %8 = getelementptr i8, ptr %0, i64 4
+  %.val.i = load i16, ptr %8, align 2
+  %9 = and i16 %.val.i, 8192
+  %.not = icmp eq i16 %9, 0
+  br i1 %.not, label %BTreeTupleIsPosting.exit.thread, label %10
+
+10:                                               ; preds = %BTreeTupleIsPosting.exit
+  %.val = load i16, ptr %0, align 2
+  %11 = getelementptr i8, ptr %0, i64 2
+  %.val26 = load i16, ptr %11, align 2
+  %12 = zext i16 %.val to i32
+  %13 = shl nuw i32 %12, 16
+  %14 = zext i16 %.val26 to i32
+  %15 = or disjoint i32 %13, %14
+  br label %18
+
+BTreeTupleIsPosting.exit.thread:                  ; preds = %3, %BTreeTupleIsPosting.exit
+  %16 = and i16 %5, 8191
+  %17 = zext nneg i16 %16 to i32
+  br label %18
+
+18:                                               ; preds = %BTreeTupleIsPosting.exit.thread, %10
+  %.0 = phi i32 [ %15, %10 ], [ %17, %BTreeTupleIsPosting.exit.thread ]
+  %19 = icmp sgt i32 %2, 1
+  %20 = mul i32 %2, 6
+  %21 = add i32 %20, 7
+  %22 = add i32 %21, %.0
+  %23 = and i32 %22, -8
+  %.024 = select i1 %19, i32 %23, i32 %.0
+  %24 = zext i32 %.024 to i64
+  %25 = tail call ptr @palloc0(i64 noundef %24) #9
+  %26 = zext i32 %.0 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %25, ptr nonnull align 2 %0, i64 %26, i1 false)
+  %27 = getelementptr inbounds i8, ptr %25, i64 6
+  %28 = load i16, ptr %27, align 2
+  %29 = and i16 %28, -8192
+  %30 = trunc i32 %.024 to i16
+  %31 = or i16 %29, %30
+  br i1 %19, label %32, label %44
+
+32:                                               ; preds = %18
+  %33 = trunc i32 %2 to i16
+  %34 = or i16 %31, 8192
+  store i16 %34, ptr %27, align 2
+  %35 = or i16 %33, 8192
+  %36 = getelementptr inbounds i8, ptr %25, i64 4
+  store i16 %35, ptr %36, align 2
+  %37 = lshr i32 %.0, 16
+  %38 = trunc i32 %37 to i16
+  store i16 %38, ptr %25, align 2
+  %39 = trunc i32 %.0 to i16
+  %40 = getelementptr inbounds i8, ptr %25, i64 2
+  store i16 %39, ptr %40, align 2
+  %41 = getelementptr i8, ptr %25, i64 %26
+  %42 = zext nneg i32 %2 to i64
+  %43 = mul nuw nsw i64 %42, 6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %41, ptr align 2 %1, i64 %43, i1 false)
+  br label %46
+
+44:                                               ; preds = %18
+  %45 = and i16 %31, -8193
+  store i16 %45, ptr %27, align 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %25, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
+  br label %46
+
+46:                                               ; preds = %44, %32
+  ret ptr %25
+}
+
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @_bt_update_posting(ptr nocapture noundef %0) local_unnamed_addr #0 {
+  %2 = load ptr, ptr %0, align 8
+  %3 = getelementptr i8, ptr %2, i64 4
+  %.val43 = load i16, ptr %3, align 2
+  %4 = and i16 %.val43, 4095
+  %5 = zext nneg i16 %4 to i32
+  %6 = getelementptr inbounds i8, ptr %0, i64 10
+  %7 = load i16, ptr %6, align 2
+  %8 = zext i16 %7 to i32
+  %9 = sub nsw i32 %5, %8
+  %.val44 = load i16, ptr %2, align 2
+  %10 = getelementptr i8, ptr %2, i64 2
+  %.val45 = load i16, ptr %10, align 2
+  %11 = zext i16 %.val44 to i32
+  %12 = shl nuw i32 %11, 16
+  %13 = zext i16 %.val45 to i32
+  %14 = or disjoint i32 %12, %13
+  %15 = icmp sgt i32 %9, 1
+  %16 = mul nsw i32 %9, 6
+  %17 = add nsw i32 %16, 7
+  %18 = add i32 %17, %14
+  %19 = and i32 %18, -8
+  %.040 = select i1 %15, i32 %19, i32 %14
+  %20 = zext i32 %.040 to i64
+  %21 = tail call ptr @palloc0(i64 noundef %20) #9
+  %22 = zext i32 %14 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %21, ptr nonnull align 2 %2, i64 %22, i1 false)
+  %23 = getelementptr inbounds i8, ptr %21, i64 6
+  %24 = load i16, ptr %23, align 2
+  %25 = and i16 %24, -8192
+  %26 = trunc i32 %.040 to i16
+  %27 = or i16 %25, %26
+  br i1 %15, label %28, label %39
+
+28:                                               ; preds = %1
+  %29 = trunc i32 %9 to i16
+  %30 = or i16 %27, 8192
+  %31 = or i16 %29, 8192
+  %32 = getelementptr inbounds i8, ptr %21, i64 4
+  store i16 %31, ptr %32, align 2
+  store i16 %.val44, ptr %21, align 2
+  %33 = getelementptr inbounds i8, ptr %21, i64 2
+  store i16 %.val45, ptr %33, align 2
+  %34 = zext i16 %.val44 to i64
+  %35 = shl nuw nsw i64 %34, 16
+  %36 = zext i16 %.val45 to i64
+  %37 = or disjoint i64 %35, %36
+  %38 = getelementptr i8, ptr %21, i64 %37
+  br label %41
+
+39:                                               ; preds = %1
+  %40 = and i16 %27, -8193
+  br label %41
+
+41:                                               ; preds = %39, %28
+  %.sink = phi i16 [ %30, %28 ], [ %40, %39 ]
+  %.036 = phi ptr [ %38, %28 ], [ %21, %39 ]
+  store i16 %.sink, ptr %23, align 2
+  %.val46 = load i16, ptr %3, align 2
+  %42 = and i16 %.val46, 4095
+  %.not = icmp eq i16 %42, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %41
+  %43 = getelementptr inbounds i8, ptr %0, i64 12
+  br label %44
+
+44:                                               ; preds = %.lr.ph, %66
+  %.val51 = phi i16 [ %.val46, %.lr.ph ], [ %.val, %66 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
+  %.03748 = phi i32 [ 0, %.lr.ph ], [ %.1, %66 ]
+  %.03847 = phi i32 [ 0, %.lr.ph ], [ %.139, %66 ]
+  %45 = load i16, ptr %6, align 2
+  %46 = zext i16 %45 to i32
+  %47 = icmp slt i32 %.03748, %46
+  br i1 %47, label %48, label %56
+
+48:                                               ; preds = %44
+  %49 = sext i32 %.03748 to i64
+  %50 = getelementptr [0 x i16], ptr %43, i64 0, i64 %49
+  %51 = load i16, ptr %50, align 2
+  %52 = zext i16 %51 to i64
+  %53 = icmp eq i64 %indvars.iv, %52
+  br i1 %53, label %54, label %56
+
+54:                                               ; preds = %48
+  %55 = add nsw i32 %.03748, 1
+  br label %66
+
+56:                                               ; preds = %48, %44
+  %57 = add i32 %.03847, 1
+  %58 = sext i32 %.03847 to i64
+  %59 = getelementptr %struct.ItemPointerData, ptr %.036, i64 %58
+  %.val.i.i = load i16, ptr %2, align 2
+  %.val2.i.i = load i16, ptr %10, align 2
+  %60 = zext i16 %.val.i.i to i64
+  %61 = shl nuw nsw i64 %60, 16
+  %62 = zext i16 %.val2.i.i to i64
+  %63 = or disjoint i64 %61, %62
+  %64 = getelementptr i8, ptr %2, i64 %63
+  %65 = getelementptr %struct.ItemPointerData, ptr %64, i64 %indvars.iv
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %59, ptr noundef nonnull align 2 dereferenceable(6) %65, i64 6, i1 false)
+  %.val.pre = load i16, ptr %3, align 2
+  br label %66
+
+66:                                               ; preds = %56, %54
+  %.val = phi i16 [ %.val51, %54 ], [ %.val.pre, %56 ]
+  %.139 = phi i32 [ %.03847, %54 ], [ %57, %56 ]
+  %.1 = phi i32 [ %55, %54 ], [ %.03748, %56 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %67 = and i16 %.val, 4095
+  %68 = zext nneg i16 %67 to i64
+  %69 = icmp ult i64 %indvars.iv.next, %68
+  br i1 %69, label %44, label %._crit_edge, !llvm.loop !10
+
+._crit_edge:                                      ; preds = %66, %41
+  store ptr %21, ptr %0, align 8
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local noundef ptr @_bt_swap_posting(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = getelementptr i8, ptr %1, i64 4
+  %.val = load i16, ptr %4, align 2
+  %5 = and i16 %.val, 4095
+  %6 = zext nneg i16 %5 to i32
+  %7 = icmp sgt i32 %2, 0
+  %8 = icmp ugt i32 %6, %2
+  %or.cond = select i1 %7, i1 %8, i1 false
+  br i1 %or.cond, label %12, label %9
+
+9:                                                ; preds = %3
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %10)
+  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %6, i32 noundef %2) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1044, ptr noundef nonnull @__func__._bt_swap_posting) #9
+  unreachable
+
+12:                                               ; preds = %3
+  %13 = tail call ptr @CopyIndexTuple(ptr noundef nonnull %1) #9
+  %.val.i.i = load i16, ptr %13, align 2
+  %14 = getelementptr i8, ptr %13, i64 2
+  %.val2.i.i = load i16, ptr %14, align 2
+  %15 = zext i16 %.val.i.i to i64
+  %16 = shl nuw nsw i64 %15, 16
+  %17 = zext i16 %.val2.i.i to i64
+  %18 = or disjoint i64 %16, %17
+  %19 = getelementptr i8, ptr %13, i64 %18
+  %20 = zext nneg i32 %2 to i64
+  %21 = getelementptr %struct.ItemPointerData, ptr %19, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 6
+  %23 = xor i32 %2, -1
+  %24 = add nsw i32 %6, %23
+  %25 = sext i32 %24 to i64
+  %26 = mul nsw i64 %25, 6
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %22, ptr align 1 %21, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %21, ptr noundef nonnull align 2 dereferenceable(6) %0, i64 6, i1 false)
+  %27 = getelementptr inbounds i8, ptr %1, i64 6
+  %28 = load i16, ptr %27, align 2
+  %29 = and i16 %28, 8192
+  %30 = icmp eq i16 %29, 0
+  br i1 %30, label %BTreeTupleGetMaxHeapTID.exit, label %BTreeTupleIsPosting.exit.i
+
+BTreeTupleIsPosting.exit.i:                       ; preds = %12
+  %.val.i.i23 = load i16, ptr %4, align 2
+  %31 = and i16 %.val.i.i23, 8192
+  %.not.i = icmp eq i16 %31, 0
+  br i1 %.not.i, label %BTreeTupleGetMaxHeapTID.exit, label %32
+
+32:                                               ; preds = %BTreeTupleIsPosting.exit.i
+  %33 = and i16 %.val.i.i23, 4095
+  %34 = zext nneg i16 %33 to i64
+  %.val.i.i.i = load i16, ptr %1, align 2
+  %35 = getelementptr i8, ptr %1, i64 2
+  %.val2.i.i.i = load i16, ptr %35, align 2
+  %36 = zext i16 %.val.i.i.i to i64
+  %37 = shl nuw nsw i64 %36, 16
+  %38 = zext i16 %.val2.i.i.i to i64
+  %39 = or disjoint i64 %37, %38
+  %40 = getelementptr i8, ptr %1, i64 %39
+  %41 = getelementptr %struct.ItemPointerData, ptr %40, i64 %34
+  %42 = getelementptr i8, ptr %41, i64 -6
+  br label %BTreeTupleGetMaxHeapTID.exit
+
+BTreeTupleGetMaxHeapTID.exit:                     ; preds = %12, %BTreeTupleIsPosting.exit.i, %32
+  %.0.i = phi ptr [ %42, %32 ], [ %1, %BTreeTupleIsPosting.exit.i ], [ %1, %12 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %0, ptr noundef nonnull align 2 dereferenceable(6) %.0.i, i64 6, i1 false)
+  ret ptr %13
+}
+
+declare ptr @CopyIndexTuple(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #7
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #7
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

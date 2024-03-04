@@ -1,0 +1,191 @@
+; ModuleID = 'bench/openmpi/original/pfile_open_f.ll'
+source_filename = "bench/openmpi/original/pfile_open_f.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.ompi_predefined_file_t = type { %struct.ompi_file_t, [576 x i8] }
+%struct.ompi_file_t = type { %struct.opal_infosubscriber_t, ptr, ptr, i32, i32, i32, ptr, i32, i32, %struct.opal_mutex_t, %union.mca_io_base_components_t, %union.mca_io_base_modules_t, ptr }
+%struct.opal_infosubscriber_t = type { %struct.opal_object_t, %struct.opal_hash_table_t, ptr }
+%struct.opal_object_t = type { ptr, i32 }
+%struct.opal_hash_table_t = type { %struct.opal_object_t, ptr, i64, i64, i64, i32, i32, i32, i32, ptr }
+%struct.opal_mutex_t = type { %struct.opal_object_t, %union.pthread_mutex_t, i32 }
+%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
+%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
+%struct.__pthread_internal_list = type { ptr, ptr }
+%union.mca_io_base_components_t = type { %struct.mca_io_base_component_2_0_0_t }
+%struct.mca_io_base_component_2_0_0_t = type { %struct.mca_base_component_2_1_0_t, %struct.mca_base_component_data_2_0_0_t, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.mca_base_component_2_1_0_t = type { i32, i32, i32, [16 x i8], i32, i32, i32, [32 x i8], i32, i32, i32, [64 x i8], i32, i32, i32, ptr, ptr, ptr, ptr, i32, [28 x i8] }
+%struct.mca_base_component_data_2_0_0_t = type { i32, [32 x i8] }
+%union.mca_io_base_modules_t = type { %struct.mca_io_base_module_2_0_0_t }
+%struct.mca_io_base_module_2_0_0_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.opal_pointer_array_t = type { %struct.opal_object_t, %struct.opal_mutex_t, i32, i32, i32, i32, i32, ptr, ptr }
+
+@ompi_mpi_file_null = external global %struct.ompi_predefined_file_t, align 8
+@.str = private unnamed_addr constant [14 x i8] c"MPI_FILE_OPEN\00", align 1
+@ompi_errcode_intern_lastused = external local_unnamed_addr global i32, align 4
+@ompi_errcodes_intern = external global %struct.opal_pointer_array_t, align 8
+@opal_uses_threads = external local_unnamed_addr global i8, align 1
+
+@PMPI_FILE_OPEN = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_file_open_f
+@pmpi_file_open = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_file_open_f
+@pmpi_file_open_ = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_file_open_f
+@pmpi_file_open__ = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_file_open_f
+@PMPI_File_open_f = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_file_open_f
+@PMPI_File_open_f08 = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_file_open_f
+@MPI_FILE_OPEN = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_file_open_f
+@mpi_file_open = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_file_open_f
+@mpi_file_open_ = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_file_open_f
+@mpi_file_open__ = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_file_open_f
+@MPI_File_open_f = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_file_open_f
+@MPI_File_open_f08 = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_file_open_f
+
+; Function Attrs: nounwind uwtable
+define void @ompi_file_open_f(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5, i32 noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = load i32, ptr %0, align 4
+  %11 = tail call ptr @PMPI_Comm_f2c(i32 noundef %10) #4
+  %12 = load i32, ptr %3, align 4
+  %13 = tail call ptr @PMPI_Info_f2c(i32 noundef %12) #4
+  %14 = call i32 @ompi_fortran_string_f2c(ptr noundef %1, i32 noundef %6, ptr noundef nonnull %9) #4
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %49, label %15
+
+15:                                               ; preds = %7
+  %16 = load ptr, ptr getelementptr inbounds (%struct.ompi_predefined_file_t, ptr @ompi_mpi_file_null, i64 0, i32 0, i32 6), align 8
+  %17 = load i32, ptr getelementptr inbounds (%struct.ompi_predefined_file_t, ptr @ompi_mpi_file_null, i64 0, i32 0, i32 7), align 8
+  %18 = icmp sgt i32 %14, -1
+  br i1 %18, label %ompi_errcode_get_mpi_code.exit, label %.preheader.i
+
+.preheader.i:                                     ; preds = %15
+  %19 = load i32, ptr @ompi_errcode_intern_lastused, align 4
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %.lr.ph.i, label %ompi_errcode_get_mpi_code.exit
+
+21:                                               ; preds = %opal_pointer_array_get_item.exit.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %22 = load i32, ptr @ompi_errcode_intern_lastused, align 4
+  %23 = sext i32 %22 to i64
+  %24 = icmp slt i64 %indvars.iv.next.i, %23
+  br i1 %24, label %.lr.ph.i, label %ompi_errcode_get_mpi_code.exit, !llvm.loop !4
+
+.lr.ph.i:                                         ; preds = %.preheader.i, %21
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %21 ], [ 0, %.preheader.i ]
+  %25 = load i32, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 4), align 8
+  %26 = sext i32 %25 to i64
+  %.not.i = icmp slt i64 %indvars.iv.i, %26
+  br i1 %.not.i, label %27, label %opal_pointer_array_get_item.exit.i
+
+27:                                               ; preds = %.lr.ph.i
+  %28 = load i8, ptr @opal_uses_threads, align 1
+  %29 = and i8 %28, 1
+  %.not.i.i = icmp eq i8 %29, 0
+  br i1 %.not.i.i, label %.thread.i.i, label %33
+
+.thread.i.i:                                      ; preds = %27
+  %30 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 8), align 8
+  %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv.i
+  %32 = load ptr, ptr %31, align 8
+  br label %opal_pointer_array_get_item.exit.i
+
+33:                                               ; preds = %27
+  %34 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #4
+  %.pre.i.i = load i8, ptr @opal_uses_threads, align 1
+  %.pre1.i.i = and i8 %.pre.i.i, 1
+  %35 = icmp eq i8 %.pre1.i.i, 0
+  %36 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 8), align 8
+  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv.i
+  %38 = load ptr, ptr %37, align 8
+  br i1 %35, label %opal_pointer_array_get_item.exit.i, label %39
+
+39:                                               ; preds = %33
+  %40 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_errcodes_intern, i64 0, i32 1, i32 1)) #4
+  br label %opal_pointer_array_get_item.exit.i
+
+opal_pointer_array_get_item.exit.i:               ; preds = %39, %33, %.thread.i.i, %.lr.ph.i
+  %.0.i.i = phi ptr [ null, %.lr.ph.i ], [ %38, %33 ], [ %38, %39 ], [ %32, %.thread.i.i ]
+  %41 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp eq i32 %42, %14
+  br i1 %43, label %44, label %21
+
+44:                                               ; preds = %opal_pointer_array_get_item.exit.i
+  %45 = getelementptr inbounds i8, ptr %.0.i.i, i64 20
+  %46 = load i32, ptr %45, align 4
+  br label %ompi_errcode_get_mpi_code.exit
+
+ompi_errcode_get_mpi_code.exit:                   ; preds = %21, %15, %.preheader.i, %44
+  %.0.i = phi i32 [ %14, %15 ], [ %46, %44 ], [ 14, %.preheader.i ], [ 14, %21 ]
+  %47 = call i32 @ompi_errhandler_invoke(ptr noundef %16, ptr noundef nonnull @ompi_mpi_file_null, i32 noundef %17, i32 noundef %.0.i, ptr noundef nonnull @.str) #4
+  %.not17 = icmp eq ptr %5, null
+  br i1 %.not17, label %61, label %48
+
+48:                                               ; preds = %ompi_errcode_get_mpi_code.exit
+  store i32 %47, ptr %5, align 4
+  br label %61
+
+49:                                               ; preds = %7
+  %50 = load ptr, ptr %9, align 8
+  %51 = load i32, ptr %2, align 4
+  %52 = call i32 @PMPI_File_open(ptr noundef %11, ptr noundef %50, i32 noundef %51, ptr noundef %13, ptr noundef nonnull %8) #4
+  %.not16 = icmp eq ptr %5, null
+  br i1 %.not16, label %54, label %53
+
+53:                                               ; preds = %49
+  store i32 %52, ptr %5, align 4
+  br label %54
+
+54:                                               ; preds = %53, %49
+  %55 = icmp eq i32 %52, 0
+  br i1 %55, label %56, label %59
+
+56:                                               ; preds = %54
+  %57 = load ptr, ptr %8, align 8
+  %58 = call i32 @PMPI_File_c2f(ptr noundef %57) #4
+  store i32 %58, ptr %4, align 4
+  br label %59
+
+59:                                               ; preds = %56, %54
+  %60 = load ptr, ptr %9, align 8
+  call void @free(ptr noundef %60) #4
+  br label %61
+
+61:                                               ; preds = %ompi_errcode_get_mpi_code.exit, %48, %59
+  ret void
+}
+
+declare ptr @PMPI_Comm_f2c(i32 noundef) local_unnamed_addr #1
+
+declare ptr @PMPI_Info_f2c(i32 noundef) local_unnamed_addr #1
+
+declare i32 @ompi_fortran_string_f2c(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @ompi_errhandler_invoke(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @PMPI_File_open(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @PMPI_File_c2f(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

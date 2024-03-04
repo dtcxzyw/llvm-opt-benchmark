@@ -1,0 +1,512 @@
+; ModuleID = 'bench/recastnavigation/original/DetourProximityGrid.cpp.ll'
+source_filename = "bench/recastnavigation/original/DetourProximityGrid.cpp.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%"struct.dtProximityGrid::Item" = type { i16, i16, i16, i16 }
+
+$__clang_call_terminate = comdat any
+
+@.str = private unnamed_addr constant [13 x i8] c"poolSize > 0\00", align 1
+@.str.1 = private unnamed_addr constant [154 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/recastnavigation/recastnavigation/DetourCrowd/Source/DetourProximityGrid.cpp\00", align 1
+@.str.2 = private unnamed_addr constant [16 x i8] c"cellSize > 0.0f\00", align 1
+
+@_ZN15dtProximityGridC1Ev = unnamed_addr alias void (ptr), ptr @_ZN15dtProximityGridC2Ev
+@_ZN15dtProximityGridD1Ev = unnamed_addr alias void (ptr), ptr @_ZN15dtProximityGridD2Ev
+
+; Function Attrs: mustprogress uwtable
+define noundef ptr @_Z20dtAllocProximityGridv() local_unnamed_addr #0 {
+  %1 = tail call noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef 56, i32 noundef 0)
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %3, label %2
+
+2:                                                ; preds = %0
+  tail call void @_ZN15dtProximityGridC1Ev(ptr noundef nonnull align 8 dereferenceable(52) %1)
+  br label %3
+
+3:                                                ; preds = %0, %2
+  ret ptr %1
+}
+
+declare noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define void @_Z19dtFreeProximityGridP15dtProximityGrid(ptr noundef %0) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %3, label %2
+
+2:                                                ; preds = %1
+  tail call void @_ZN15dtProximityGridD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #12
+  tail call void @_Z6dtFreePv(ptr noundef nonnull %0)
+  br label %3
+
+3:                                                ; preds = %1, %2
+  ret void
+}
+
+declare void @_Z6dtFreePv(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define void @_ZN15dtProximityGridC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %0) unnamed_addr #2 align 2 {
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 0, i64 36, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN15dtProximityGridD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_Z6dtFreePv(ptr noundef %3)
+          to label %4 unwind label %8
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8
+  invoke void @_Z6dtFreePv(ptr noundef %6)
+          to label %7 unwind label %8
+
+7:                                                ; preds = %4
+  ret void
+
+8:                                                ; preds = %4, %1
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #13
+  unreachable
+}
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #13
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
+
+declare void @_ZSt9terminatev() local_unnamed_addr
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN15dtProximityGrid4initEif(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
+  %5 = icmp eq ptr %4, null
+  %6 = icmp sgt i32 %1, 0
+  %or.cond = or i1 %6, %5
+  br i1 %or.cond, label %8, label %7
+
+7:                                                ; preds = %3
+  tail call void %4(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 68)
+  br label %8
+
+8:                                                ; preds = %7, %3
+  %9 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
+  %10 = icmp eq ptr %9, null
+  %11 = fcmp ogt float %2, 0.000000e+00
+  %or.cond3 = or i1 %11, %10
+  br i1 %or.cond3, label %13, label %12
+
+12:                                               ; preds = %8
+  tail call void %9(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 69)
+  br label %13
+
+13:                                               ; preds = %12, %8
+  store float %2, ptr %0, align 8
+  %14 = fdiv float 1.000000e+00, %2
+  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  store float %14, ptr %15, align 4
+  %16 = add i32 %1, -1
+  %17 = lshr i32 %16, 1
+  %18 = or i32 %17, %16
+  %19 = lshr i32 %18, 2
+  %20 = or i32 %19, %18
+  %21 = lshr i32 %20, 4
+  %22 = or i32 %21, %20
+  %23 = lshr i32 %22, 8
+  %24 = or i32 %23, %22
+  %25 = lshr i32 %24, 16
+  %26 = or i32 %25, %24
+  %27 = add i32 %26, 1
+  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 %27, ptr %28, align 8
+  %29 = sext i32 %27 to i64
+  %30 = shl nsw i64 %29, 1
+  %31 = tail call noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef %30, i32 noundef 0)
+  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %31, ptr %32, align 8
+  %.not = icmp eq ptr %31, null
+  br i1 %.not, label %46, label %33
+
+33:                                               ; preds = %13
+  %34 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %1, ptr %34, align 4
+  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 0, ptr %35, align 8
+  %36 = sext i32 %1 to i64
+  %37 = shl nsw i64 %36, 3
+  %38 = tail call noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef %37, i32 noundef 0)
+  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %38, ptr %39, align 8
+  %.not15 = icmp eq ptr %38, null
+  br i1 %.not15, label %46, label %40
+
+40:                                               ; preds = %33
+  %41 = load ptr, ptr %32, align 8
+  %42 = load i32, ptr %28, align 8
+  %43 = sext i32 %42 to i64
+  %44 = shl nsw i64 %43, 1
+  tail call void @llvm.memset.p0.i64(ptr align 2 %41, i8 -1, i64 %44, i1 false)
+  store i32 0, ptr %35, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 36
+  store <4 x i32> <i32 65535, i32 65535, i32 -65535, i32 -65535>, ptr %45, align 4
+  br label %46
+
+46:                                               ; preds = %33, %13, %40
+  %.0 = phi i1 [ true, %40 ], [ false, %13 ], [ false, %33 ]
+  ret i1 %.0
+}
+
+declare noundef ptr @_Z21dtAssertFailGetCustomv() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define void @_ZN15dtProximityGrid5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0) local_unnamed_addr #5 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = load i32, ptr %4, align 8
+  %6 = sext i32 %5 to i64
+  %7 = shl nsw i64 %6, 1
+  tail call void @llvm.memset.p0.i64(ptr align 2 %3, i8 -1, i64 %7, i1 false)
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 36
+  store <4 x i32> <i32 65535, i32 65535, i32 -65535, i32 -65535>, ptr %9, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN15dtProximityGrid7addItemEtffff(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, i16 noundef zeroext %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #7 align 2 {
+  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = load <4 x float>, ptr %7, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 36
+  %10 = shufflevector <4 x float> %8, <4 x float> poison, <2 x i32> zeroinitializer
+  %11 = insertelement <2 x float> poison, float %2, i64 0
+  %12 = insertelement <2 x float> %11, float %3, i64 1
+  %13 = fmul <2 x float> %10, %12
+  %14 = tail call <2 x float> @llvm.floor.v2f32(<2 x float> %13)
+  %15 = fptosi <2 x float> %14 to <2 x i32>
+  %16 = load <2 x i32>, ptr %9, align 4
+  %17 = tail call <2 x i32> @llvm.smin.v2i32(<2 x i32> %16, <2 x i32> %15)
+  store <2 x i32> %17, ptr %9, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 44
+  %19 = insertelement <2 x float> poison, float %4, i64 0
+  %20 = insertelement <2 x float> %19, float %5, i64 1
+  %21 = fmul <2 x float> %10, %20
+  %22 = tail call <2 x float> @llvm.floor.v2f32(<2 x float> %21)
+  %23 = fptosi <2 x float> %22 to <2 x i32>
+  %24 = load <2 x i32>, ptr %18, align 4
+  %25 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %24, <2 x i32> %23)
+  store <2 x i32> %25, ptr %18, align 4
+  %26 = extractelement <2 x i32> %23, i64 1
+  %27 = extractelement <2 x i32> %15, i64 1
+  %.not33 = icmp sgt i32 %27, %26
+  br i1 %.not33, label %._crit_edge35, label %.preheader.lr.ph
+
+.preheader.lr.ph:                                 ; preds = %6
+  %28 = extractelement <2 x i32> %23, i64 0
+  %29 = extractelement <2 x i32> %15, i64 0
+  %.not3031 = icmp sgt i32 %29, %28
+  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  br i1 %.not3031, label %._crit_edge35, label %.preheader.lr.ph.split
+
+.preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
+  %35 = load i32, ptr %30, align 8
+  %36 = load i32, ptr %31, align 4
+  %37 = icmp slt i32 %35, %36
+  br i1 %37, label %.preheader, label %._crit_edge35
+
+.preheader:                                       ; preds = %.preheader.lr.ph.split, %._crit_edge
+  %.034 = phi i32 [ %69, %._crit_edge ], [ %27, %.preheader.lr.ph.split ]
+  %38 = mul nsw i32 %.034, 19349663
+  %39 = trunc i32 %.034 to i16
+  %40 = load i32, ptr %30, align 8
+  %41 = load i32, ptr %31, align 4
+  %42 = icmp slt i32 %40, %41
+  br i1 %42, label %.lr.ph.split, label %._crit_edge
+
+.lr.ph.split:                                     ; preds = %.preheader, %67
+  %.02932 = phi i32 [ %68, %67 ], [ %29, %.preheader ]
+  %43 = load i32, ptr %30, align 8
+  %44 = load i32, ptr %31, align 4
+  %45 = icmp slt i32 %43, %44
+  br i1 %45, label %46, label %67
+
+46:                                               ; preds = %.lr.ph.split
+  %47 = load i32, ptr %32, align 8
+  %48 = mul nsw i32 %.02932, 73856093
+  %49 = xor i32 %48, %38
+  %50 = add nsw i32 %47, -1
+  %51 = and i32 %50, %49
+  %52 = trunc i32 %43 to i16
+  %53 = add nsw i32 %43, 1
+  store i32 %53, ptr %30, align 8
+  %54 = load ptr, ptr %33, align 8
+  %.mask = and i32 %43, 65535
+  %55 = zext nneg i32 %.mask to i64
+  %56 = getelementptr inbounds %"struct.dtProximityGrid::Item", ptr %54, i64 %55
+  %57 = trunc i32 %.02932 to i16
+  %58 = getelementptr inbounds i8, ptr %56, i64 2
+  store i16 %57, ptr %58, align 2
+  %59 = getelementptr inbounds i8, ptr %56, i64 4
+  store i16 %39, ptr %59, align 2
+  store i16 %1, ptr %56, align 2
+  %60 = load ptr, ptr %34, align 8
+  %61 = sext i32 %51 to i64
+  %62 = getelementptr inbounds i16, ptr %60, i64 %61
+  %63 = load i16, ptr %62, align 2
+  %64 = getelementptr inbounds i8, ptr %56, i64 6
+  store i16 %63, ptr %64, align 2
+  %65 = load ptr, ptr %34, align 8
+  %66 = getelementptr inbounds i16, ptr %65, i64 %61
+  store i16 %52, ptr %66, align 2
+  br label %67
+
+67:                                               ; preds = %.lr.ph.split, %46
+  %68 = add i32 %.02932, 1
+  %exitcond.not = icmp eq i32 %.02932, %28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !4
+
+._crit_edge:                                      ; preds = %67, %.preheader
+  %69 = add i32 %.034, 1
+  %exitcond42.not = icmp eq i32 %.034, %26
+  br i1 %exitcond42.not, label %._crit_edge35, label %.preheader, !llvm.loop !7
+
+._crit_edge35:                                    ; preds = %._crit_edge, %.preheader.lr.ph.split, %.preheader.lr.ph, %6
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @_ZNK15dtProximityGrid10queryItemsEffffPti(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
+  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = load float, ptr %8, align 4
+  %10 = fmul float %9, %1
+  %11 = tail call noundef float @llvm.floor.f32(float %10)
+  %12 = fptosi float %11 to i32
+  %13 = fmul float %9, %2
+  %14 = tail call noundef float @llvm.floor.f32(float %13)
+  %15 = fptosi float %14 to i32
+  %16 = fmul float %9, %3
+  %17 = tail call noundef float @llvm.floor.f32(float %16)
+  %18 = fptosi float %17 to i32
+  %19 = fmul float %9, %4
+  %20 = tail call noundef float @llvm.floor.f32(float %19)
+  %21 = fptosi float %20 to i32
+  %.not70 = icmp sgt i32 %15, %21
+  br i1 %.not70, label %.loopexit, label %.preheader.lr.ph
+
+.preheader.lr.ph:                                 ; preds = %7
+  %.not4664 = icmp sgt i32 %12, %18
+  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.not4664, label %.loopexit, label %.preheader
+
+.preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge68
+  %.04172 = phi i32 [ %.2.lcssa, %._crit_edge68 ], [ 0, %.preheader.lr.ph ]
+  %.04371 = phi i32 [ %60, %._crit_edge68 ], [ %15, %.preheader.lr.ph ]
+  %25 = mul nsw i32 %.04371, 19349663
+  br label %26
+
+26:                                               ; preds = %.preheader, %._crit_edge63
+  %.166 = phi i32 [ %.04172, %.preheader ], [ %.2.lcssa, %._crit_edge63 ]
+  %.04465 = phi i32 [ %12, %.preheader ], [ %59, %._crit_edge63 ]
+  %27 = load i32, ptr %22, align 8
+  %28 = mul nsw i32 %.04465, 73856093
+  %29 = xor i32 %28, %25
+  %30 = add nsw i32 %27, -1
+  %31 = and i32 %30, %29
+  %32 = load ptr, ptr %23, align 8
+  %33 = sext i32 %31 to i64
+  %34 = getelementptr inbounds i16, ptr %32, i64 %33
+  %.04257 = load i16, ptr %34, align 2
+  %.not4758 = icmp eq i16 %.04257, -1
+  br i1 %.not4758, label %._crit_edge63, label %.lr.ph62
+
+.lr.ph62:                                         ; preds = %26, %.critedge
+  %.04260 = phi i16 [ %.042, %.critedge ], [ %.04257, %26 ]
+  %.259 = phi i32 [ %.3, %.critedge ], [ %.166, %26 ]
+  %35 = load ptr, ptr %24, align 8
+  %36 = zext i16 %.04260 to i64
+  %37 = getelementptr inbounds %"struct.dtProximityGrid::Item", ptr %35, i64 %36
+  %38 = getelementptr inbounds i8, ptr %37, i64 2
+  %39 = load i16, ptr %38, align 2
+  %40 = sext i16 %39 to i32
+  %41 = icmp eq i32 %.04465, %40
+  br i1 %41, label %42, label %.critedge
+
+42:                                               ; preds = %.lr.ph62
+  %43 = getelementptr inbounds i8, ptr %37, i64 4
+  %44 = load i16, ptr %43, align 2
+  %45 = sext i16 %44 to i32
+  %46 = icmp eq i32 %.04371, %45
+  br i1 %46, label %47, label %.critedge
+
+47:                                               ; preds = %42
+  %48 = sext i32 %.259 to i64
+  %49 = getelementptr inbounds i16, ptr %5, i64 %48
+  %.not4855 = icmp eq i32 %.259, 0
+  br i1 %.not4855, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %47
+  %50 = load i16, ptr %37, align 2
+  br label %53
+
+51:                                               ; preds = %53
+  %52 = getelementptr inbounds i8, ptr %.056, i64 2
+  %.not48 = icmp eq ptr %52, %49
+  br i1 %.not48, label %._crit_edge, label %53, !llvm.loop !8
+
+53:                                               ; preds = %.lr.ph, %51
+  %.056 = phi ptr [ %5, %.lr.ph ], [ %52, %51 ]
+  %54 = load i16, ptr %.056, align 2
+  %.not49 = icmp eq i16 %54, %50
+  br i1 %.not49, label %.critedge, label %51
+
+._crit_edge:                                      ; preds = %51, %47
+  %.not50 = icmp slt i32 %.259, %6
+  br i1 %.not50, label %55, label %.loopexit
+
+55:                                               ; preds = %._crit_edge
+  %56 = load i16, ptr %37, align 2
+  %57 = add nsw i32 %.259, 1
+  store i16 %56, ptr %49, align 2
+  br label %.critedge
+
+.critedge:                                        ; preds = %53, %55, %42, %.lr.ph62
+  %.3 = phi i32 [ %57, %55 ], [ %.259, %42 ], [ %.259, %.lr.ph62 ], [ %.259, %53 ]
+  %58 = getelementptr inbounds i8, ptr %37, i64 6
+  %.042 = load i16, ptr %58, align 2
+  %.not47 = icmp eq i16 %.042, -1
+  br i1 %.not47, label %._crit_edge63, label %.lr.ph62, !llvm.loop !9
+
+._crit_edge63:                                    ; preds = %.critedge, %26
+  %.2.lcssa = phi i32 [ %.166, %26 ], [ %.3, %.critedge ]
+  %59 = add i32 %.04465, 1
+  %exitcond.not = icmp eq i32 %.04465, %18
+  br i1 %exitcond.not, label %._crit_edge68, label %26, !llvm.loop !10
+
+._crit_edge68:                                    ; preds = %._crit_edge63
+  %60 = add i32 %.04371, 1
+  %exitcond77.not = icmp eq i32 %.04371, %21
+  br i1 %exitcond77.not, label %.loopexit, label %.preheader, !llvm.loop !11
+
+.loopexit:                                        ; preds = %._crit_edge68, %._crit_edge, %.preheader.lr.ph, %7
+  %.040 = phi i32 [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ %.259, %._crit_edge ], [ %.2.lcssa, %._crit_edge68 ]
+  ret i32 %.040
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define noundef i32 @_ZNK15dtProximityGrid14getItemCountAtEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = load i32, ptr %4, align 8
+  %6 = mul nsw i32 %1, 73856093
+  %7 = mul nsw i32 %2, 19349663
+  %8 = xor i32 %7, %6
+  %9 = add nsw i32 %5, -1
+  %10 = and i32 %9, %8
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = sext i32 %10 to i64
+  %14 = getelementptr inbounds i16, ptr %12, i64 %13
+  %.01213 = load i16, ptr %14, align 2
+  %.not14 = icmp eq i16 %.01213, -1
+  br i1 %.not14, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %3
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8
+  br label %17
+
+17:                                               ; preds = %.lr.ph, %30
+  %.01216 = phi i16 [ %.01213, %.lr.ph ], [ %.012, %30 ]
+  %.015 = phi i32 [ 0, %.lr.ph ], [ %.1, %30 ]
+  %18 = zext i16 %.01216 to i64
+  %19 = getelementptr inbounds %"struct.dtProximityGrid::Item", ptr %16, i64 %18
+  %20 = getelementptr inbounds i8, ptr %19, i64 2
+  %21 = load i16, ptr %20, align 2
+  %22 = sext i16 %21 to i32
+  %23 = icmp eq i32 %22, %1
+  br i1 %23, label %24, label %30
+
+24:                                               ; preds = %17
+  %25 = getelementptr inbounds i8, ptr %19, i64 4
+  %26 = load i16, ptr %25, align 2
+  %27 = sext i16 %26 to i32
+  %28 = icmp eq i32 %27, %2
+  %29 = zext i1 %28 to i32
+  %spec.select = add nsw i32 %.015, %29
+  br label %30
+
+30:                                               ; preds = %24, %17
+  %.1 = phi i32 [ %.015, %17 ], [ %spec.select, %24 ]
+  %31 = getelementptr inbounds i8, ptr %19, i64 6
+  %.012 = load i16, ptr %31, align 2
+  %.not = icmp eq i16 %.012, -1
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !12
+
+._crit_edge:                                      ; preds = %30, %3
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %30 ]
+  ret i32 %.0.lcssa
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.floor.f32(float) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <2 x float> @llvm.floor.v2f32(<2 x float>) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <2 x i32> @llvm.smax.v2i32(<2 x i32>, <2 x i32>) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <2 x i32> @llvm.smin.v2i32(<2 x i32>, <2 x i32>) #11
+
+attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5, !6}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{!"llvm.loop.unswitch.partial.disable"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
