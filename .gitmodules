@@ -337,3 +337,6 @@
 [submodule "bench/html5ever-rs/html5ever"]
 	path = bench/html5ever-rs/html5ever
 	url = git@github.com:servo/html5ever.git
+[submodule "bench/diesel-rs/diesel"]
+	path = bench/diesel-rs/diesel
+	url = git@github.com:diesel-rs/diesel.git
