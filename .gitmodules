@@ -289,3 +289,6 @@
 [submodule "bench/ruby/ruby"]
 	path = bench/ruby/ruby
 	url = git@github.com:ruby/ruby.git
+[submodule "bench/postgres/postgres"]
+	path = bench/postgres/postgres
+	url = git@github.com:postgres/postgres.git
