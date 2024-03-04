@@ -295,3 +295,6 @@
 [submodule "bench/recastnavigation/recastnavigation"]
 	path = bench/recastnavigation/recastnavigation
 	url = git@github.com:recastnavigation/recastnavigation.git
+[submodule "bench/stockfish/Stockfish"]
+	path = bench/stockfish/Stockfish
+	url = git@github.com:official-stockfish/Stockfish.git
