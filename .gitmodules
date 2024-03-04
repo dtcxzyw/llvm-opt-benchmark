@@ -328,3 +328,6 @@
 [submodule "bench/unicode-normalization-rs/unicode-normalization"]
 	path = bench/unicode-normalization-rs/unicode-normalization
 	url = git@github.com:unicode-rs/unicode-normalization.git
+[submodule "bench/image-rs/image"]
+	path = bench/image-rs/image
+	url = git@github.com:image-rs/image.git
