@@ -277,3 +277,6 @@
 [submodule "bench/sqlite/sqlite"]
 	path = bench/sqlite/sqlite
 	url = git@github.com:sqlite/sqlite.git
+[submodule "bench/glog/glog"]
+	path = bench/glog/glog
+	url = git@github.com:google/glog.git
