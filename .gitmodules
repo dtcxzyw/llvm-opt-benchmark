@@ -313,3 +313,6 @@
 [submodule "bench/log-rs/log"]
 	path = bench/log-rs/log
 	url = git@github.com:rust-lang/log.git
+[submodule "bench/clap-rs/clap"]
+	path = bench/clap-rs/clap
+	url = git@github.com:clap-rs/clap.git
