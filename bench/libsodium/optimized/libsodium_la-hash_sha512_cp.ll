@@ -992,10 +992,9 @@ for.body.lr.ph.i:                                 ; preds = %entry
   %6 = zext nneg i32 %conv.i to i64
   %7 = getelementptr i8, ptr %state, i64 %6
   %scevgep29.i = getelementptr i8, ptr %7, i64 80
-  %8 = sub nuw nsw i32 111, %conv.i
-  %9 = zext nneg i32 %8 to i64
-  %10 = add nuw nsw i64 %9, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep29.i, ptr noundef nonnull align 16 dereferenceable(1) @PAD, i64 %10, i1 false)
+  %narrow.i = sub nuw nsw i32 112, %conv.i
+  %8 = zext nneg i32 %narrow.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep29.i, ptr noundef nonnull align 16 dereferenceable(1) @PAD, i64 %8, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.lr.ph.i, %for.cond7.preheader.i
@@ -1008,35 +1007,35 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %mul.i.i = shl nuw nsw i64 %i.06.i.i, 3
   %add.ptr.i.i = getelementptr i8, ptr %arrayidx29.i, i64 %mul.i.i
   %arrayidx.i.i = getelementptr i64, ptr %count.i, i64 %i.06.i.i
-  %11 = load i64, ptr %arrayidx.i.i, align 8
-  %conv.i.i.i = trunc i64 %11 to i8
+  %9 = load i64, ptr %arrayidx.i.i, align 8
+  %conv.i.i.i = trunc i64 %9 to i8
   %arrayidx.i.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 7
   store i8 %conv.i.i.i, ptr %arrayidx.i.i.i, align 1
-  %shr.i.i.i = lshr i64 %11, 8
+  %shr.i.i.i = lshr i64 %9, 8
   %conv1.i.i.i = trunc i64 %shr.i.i.i to i8
   %arrayidx2.i.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 6
   store i8 %conv1.i.i.i, ptr %arrayidx2.i.i.i, align 1
-  %shr3.i.i.i = lshr i64 %11, 16
+  %shr3.i.i.i = lshr i64 %9, 16
   %conv4.i.i.i = trunc i64 %shr3.i.i.i to i8
   %arrayidx5.i.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 5
   store i8 %conv4.i.i.i, ptr %arrayidx5.i.i.i, align 1
-  %shr6.i.i.i = lshr i64 %11, 24
+  %shr6.i.i.i = lshr i64 %9, 24
   %conv7.i.i.i = trunc i64 %shr6.i.i.i to i8
   %arrayidx8.i.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 4
   store i8 %conv7.i.i.i, ptr %arrayidx8.i.i.i, align 1
-  %shr9.i.i.i = lshr i64 %11, 32
+  %shr9.i.i.i = lshr i64 %9, 32
   %conv10.i.i.i = trunc i64 %shr9.i.i.i to i8
   %arrayidx11.i.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 3
   store i8 %conv10.i.i.i, ptr %arrayidx11.i.i.i, align 1
-  %shr12.i.i.i = lshr i64 %11, 40
+  %shr12.i.i.i = lshr i64 %9, 40
   %conv13.i.i.i = trunc i64 %shr12.i.i.i to i8
   %arrayidx14.i.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 2
   store i8 %conv13.i.i.i, ptr %arrayidx14.i.i.i, align 1
-  %shr15.i.i.i = lshr i64 %11, 48
+  %shr15.i.i.i = lshr i64 %9, 48
   %conv16.i.i.i = trunc i64 %shr15.i.i.i to i8
   %arrayidx17.i.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 1
   store i8 %conv16.i.i.i, ptr %arrayidx17.i.i.i, align 1
-  %shr18.i.i.i = lshr i64 %11, 56
+  %shr18.i.i.i = lshr i64 %9, 56
   %conv19.i.i.i = trunc i64 %shr18.i.i.i to i8
   store i8 %conv19.i.i.i, ptr %add.ptr.i.i, align 1
   %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
@@ -1054,35 +1053,35 @@ for.body.i:                                       ; preds = %for.body.i, %SHA512
   %mul.i = shl nuw nsw i64 %i.06.i, 3
   %add.ptr.i = getelementptr i8, ptr %out, i64 %mul.i
   %arrayidx.i3 = getelementptr i64, ptr %state, i64 %i.06.i
-  %12 = load i64, ptr %arrayidx.i3, align 8
-  %conv.i.i = trunc i64 %12 to i8
+  %10 = load i64, ptr %arrayidx.i3, align 8
+  %conv.i.i = trunc i64 %10 to i8
   %arrayidx.i.i4 = getelementptr i8, ptr %add.ptr.i, i64 7
   store i8 %conv.i.i, ptr %arrayidx.i.i4, align 1
-  %shr.i.i = lshr i64 %12, 8
+  %shr.i.i = lshr i64 %10, 8
   %conv1.i.i = trunc i64 %shr.i.i to i8
   %arrayidx2.i.i = getelementptr i8, ptr %add.ptr.i, i64 6
   store i8 %conv1.i.i, ptr %arrayidx2.i.i, align 1
-  %shr3.i.i = lshr i64 %12, 16
+  %shr3.i.i = lshr i64 %10, 16
   %conv4.i.i = trunc i64 %shr3.i.i to i8
   %arrayidx5.i.i = getelementptr i8, ptr %add.ptr.i, i64 5
   store i8 %conv4.i.i, ptr %arrayidx5.i.i, align 1
-  %shr6.i.i = lshr i64 %12, 24
+  %shr6.i.i = lshr i64 %10, 24
   %conv7.i.i = trunc i64 %shr6.i.i to i8
   %arrayidx8.i.i = getelementptr i8, ptr %add.ptr.i, i64 4
   store i8 %conv7.i.i, ptr %arrayidx8.i.i, align 1
-  %shr9.i.i = lshr i64 %12, 32
+  %shr9.i.i = lshr i64 %10, 32
   %conv10.i.i = trunc i64 %shr9.i.i to i8
   %arrayidx11.i.i = getelementptr i8, ptr %add.ptr.i, i64 3
   store i8 %conv10.i.i, ptr %arrayidx11.i.i, align 1
-  %shr12.i.i = lshr i64 %12, 40
+  %shr12.i.i = lshr i64 %10, 40
   %conv13.i.i = trunc i64 %shr12.i.i to i8
   %arrayidx14.i.i = getelementptr i8, ptr %add.ptr.i, i64 2
   store i8 %conv13.i.i, ptr %arrayidx14.i.i, align 1
-  %shr15.i.i = lshr i64 %12, 48
+  %shr15.i.i = lshr i64 %10, 48
   %conv16.i.i = trunc i64 %shr15.i.i to i8
   %arrayidx17.i.i = getelementptr i8, ptr %add.ptr.i, i64 1
   store i8 %conv16.i.i, ptr %arrayidx17.i.i, align 1
-  %shr18.i.i = lshr i64 %12, 56
+  %shr18.i.i = lshr i64 %10, 56
   %conv19.i.i = trunc i64 %shr18.i.i to i8
   store i8 %conv19.i.i, ptr %add.ptr.i, align 1
   %inc.i = add nuw nsw i64 %i.06.i, 1

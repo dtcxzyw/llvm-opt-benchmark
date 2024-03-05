@@ -625,7 +625,7 @@ if.end8:                                          ; preds = %while.end
 if.end.i.i19:                                     ; preds = %if.end8
   %sub4.i.i20 = add nuw nsw i64 %conv.le, 255
   %add.i.i21 = sub nuw nsw i64 %sub4.i.i20, %sub.i.i16
-  %and.i.i22 = and i64 %add.i.i21, 4294967040
+  %and.i.i22 = and i64 %add.i.i21, 256
   %call7.i.i23 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i13) #7
   %add8.i.i24 = add i64 %call7.i.i23, %and.i.i22
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %output_.i.i13, i64 noundef %add8.i.i24)

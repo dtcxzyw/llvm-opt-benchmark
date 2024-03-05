@@ -52228,10 +52228,9 @@ for.body.i.preheader:                             ; preds = %if.end155.i
   %27 = zext nneg i32 %18 to i64
   %28 = getelementptr i8, ptr %d, i64 %27
   %scevgep58 = getelementptr i8, ptr %28, i64 10
-  %29 = sub nuw nsw i32 18, %18
-  %30 = zext nneg i32 %29 to i64
-  %31 = add nuw nsw i64 %30, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep58, i8 0, i64 %31, i1 false), !tbaa !7, !alias.scope !812
+  %narrow = sub nuw nsw i32 19, %18
+  %29 = zext nneg i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep58, i8 0, i64 %29, i1 false), !tbaa !7, !alias.scope !812
   br label %_ZN17duckdb_fast_float13parse_decimalEPKcS1_c.exit
 
 _ZN17duckdb_fast_float13parse_decimalEPKcS1_c.exit: ; preds = %for.body.i.preheader, %if.end155.i
@@ -54562,10 +54561,9 @@ for.body.i.preheader:                             ; preds = %if.end155.i
   %27 = zext nneg i32 %18 to i64
   %28 = getelementptr i8, ptr %d, i64 %27
   %scevgep58 = getelementptr i8, ptr %28, i64 10
-  %29 = sub nuw nsw i32 18, %18
-  %30 = zext nneg i32 %29 to i64
-  %31 = add nuw nsw i64 %30, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep58, i8 0, i64 %31, i1 false), !tbaa !7, !alias.scope !841
+  %narrow = sub nuw nsw i32 19, %18
+  %29 = zext nneg i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep58, i8 0, i64 %29, i1 false), !tbaa !7, !alias.scope !841
   br label %_ZN17duckdb_fast_float13parse_decimalEPKcS1_c.exit
 
 _ZN17duckdb_fast_float13parse_decimalEPKcS1_c.exit: ; preds = %for.body.i.preheader, %if.end155.i

@@ -47,7 +47,11 @@ if.then13:                                        ; preds = %if.then9
   %or.i = zext i1 %cmp.not.i to i64
   %spec.select.i = or i64 %shr.i, %or.i
   %cmp8.not17.i = icmp eq i64 %wordDist.036, 3
-  br i1 %cmp8.not17.i, label %softfloat_shortShiftRightJamM.exit, label %while.body.lr.ph.i
+  br i1 %cmp8.not17.i, label %softfloat_shortShiftRightJamM.exit.thread, label %while.body.lr.ph.i
+
+softfloat_shortShiftRightJamM.exit.thread:        ; preds = %if.then13
+  store i64 %spec.select.i, ptr %zPtr, align 8
+  br label %if.end27
 
 while.body.lr.ph.i:                               ; preds = %if.then13
   %sub3.i = sub nsw i64 3, %wordDist.036
@@ -70,11 +74,9 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %cmp8.not.i = icmp eq i64 %indvars.iv.next.i, %3
   br i1 %cmp8.not.i, label %softfloat_shortShiftRightJamM.exit, label %while.body.i
 
-softfloat_shortShiftRightJamM.exit:               ; preds = %while.body.i, %if.then13
-  %index.0.lcssa.i = phi i64 [ 0, %if.then13 ], [ %3, %while.body.i ]
-  %partWordZ.1.lcssa.i = phi i64 [ %spec.select.i, %if.then13 ], [ %shr21.i, %while.body.i ]
-  %arrayidx23.i = getelementptr i64, ptr %zPtr, i64 %index.0.lcssa.i
-  store i64 %partWordZ.1.lcssa.i, ptr %arrayidx23.i, align 8
+softfloat_shortShiftRightJamM.exit:               ; preds = %while.body.i
+  %arrayidx23.i = getelementptr i64, ptr %zPtr, i64 %3
+  store i64 %shr21.i, ptr %arrayidx23.i, align 8
   %tobool16.not = icmp eq i64 %wordDist.036, 0
   br i1 %tobool16.not, label %wordJam37, label %if.end27
 
@@ -99,7 +101,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %tobool23.not = icmp eq i8 %dec26, 0
   br i1 %tobool23.not, label %if.end27, label %for.body
 
-if.end27:                                         ; preds = %for.body, %if.else, %softfloat_shortShiftRightJamM.exit
+if.end27:                                         ; preds = %for.body, %softfloat_shortShiftRightJamM.exit.thread, %if.else, %softfloat_shortShiftRightJamM.exit
   %sub28 = sub nuw nsw i64 4, %wordDist.036
   %add.ptr29 = getelementptr i64, ptr %zPtr, i64 %sub28
   %7 = shl nuw nsw i64 %wordDist.036, 3

@@ -1907,8 +1907,8 @@ if.then2:                                         ; preds = %if.then
   br i1 %cmp3, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then2
-  %narrow128 = add nuw nsw i16 %rem102, 13
-  %add = zext nneg i16 %narrow128 to i32
+  %narrow130 = add nuw nsw i16 %rem102, 13
+  %add = zext nneg i16 %narrow130 to i32
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then2
@@ -1957,8 +1957,8 @@ cond.end18:                                       ; preds = %cond.false14, %cond
   br i1 %cmp23, label %cond.true24, label %cond.false26
 
 cond.true24:                                      ; preds = %cond.end18
-  %narrow127 = add nuw nsw i16 %rem21104, 13
-  %add25 = zext nneg i16 %narrow127 to i32
+  %narrow129 = add nuw nsw i16 %rem21104, 13
+  %add25 = zext nneg i16 %narrow129 to i32
   br label %cond.end30
 
 cond.false26:                                     ; preds = %cond.end18
@@ -2052,19 +2052,19 @@ if.then78:                                        ; preds = %if.else76
   %div81108.neg = sub nsw i32 0, %div81108.zext
   %cmp82.not = icmp eq i16 %rem80105106, 0
   %dec = xor i32 %div81108.zext, -1
-  %narrow125 = sub nuw nsw i16 243, %rem80105106
+  %narrow126 = sub nuw nsw i16 243, %rem80105106
   %diff.addr.0 = select i1 %cmp82.not, i32 %div81108.neg, i32 %dec
-  %narrow126 = select i1 %cmp82.not, i16 0, i16 %narrow125
-  %cmp86 = icmp ugt i16 %narrow126, 19
+  %narrow127 = select i1 %cmp82.not, i16 0, i16 %narrow126
+  %cmp86 = icmp ugt i16 %narrow127, 19
   br i1 %cmp86, label %cond.true87, label %cond.false89
 
 cond.true87:                                      ; preds = %if.then78
-  %m.0 = zext nneg i16 %narrow126 to i32
-  %add88 = add nuw nsw i32 %m.0, 13
+  %narrow128 = add nuw nsw i16 %narrow127, 13
+  %add88 = zext nneg i16 %narrow128 to i32
   br label %cond.end93
 
 cond.false89:                                     ; preds = %if.then78
-  %idxprom90 = zext nneg i16 %narrow126 to i64
+  %idxprom90 = zext nneg i16 %narrow127 to i64
   %arrayidx91 = getelementptr inbounds [20 x i8], ptr @_ZL16bocu1TrailToByte, i64 0, i64 %idxprom90
   %8 = load i8, ptr %arrayidx91, align 1
   %conv92 = sext i8 %8 to i32
@@ -2121,8 +2121,8 @@ cond.end119:                                      ; preds = %cond.false115, %con
   br i1 %cmp131, label %cond.true132, label %cond.false134
 
 cond.true132:                                     ; preds = %cond.end119
-  %m.2 = zext nneg i16 %narrow124 to i32
-  %add133 = add nuw nsw i32 %m.2, 13
+  %narrow125 = add nuw nsw i16 %narrow124, 13
+  %add133 = zext nneg i16 %narrow125 to i32
   br label %cond.end138
 
 cond.false134:                                    ; preds = %cond.end119

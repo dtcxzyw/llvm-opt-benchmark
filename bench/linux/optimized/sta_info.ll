@@ -7352,7 +7352,7 @@ define dso_local void @ieee80211_sta_set_max_amsdu_subframes(ptr nocapture nound
   %4 = getelementptr inbounds i8, ptr %0, i64 2708
   store i8 0, ptr %4, align 4
   %5 = icmp ult i32 %2, 8
-  br i1 %5, label %25, label %6
+  br i1 %5, label %23, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr i8, ptr %1, i64 7
@@ -7372,17 +7372,15 @@ define dso_local void @ieee80211_sta_set_max_amsdu_subframes(ptr nocapture nound
 17:                                               ; preds = %11, %6
   %18 = phi i8 [ %16, %11 ], [ %9, %6 ]
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %25, label %20
+  br i1 %19, label %23, label %20
 
 20:                                               ; preds = %17
-  %21 = zext nneg i8 %18 to i32
-  %22 = sub nuw nsw i32 4, %21
-  %23 = shl nuw nsw i32 4, %22
-  %24 = trunc i32 %23 to i8
-  store i8 %24, ptr %4, align 4
-  br label %25
+  %21 = sub nuw nsw i8 4, %18
+  %22 = shl nuw nsw i8 4, %21
+  store i8 %22, ptr %4, align 4
+  br label %23
 
-25:                                               ; preds = %20, %17, %3
+23:                                               ; preds = %20, %17, %3
   ret void
 }
 

@@ -11941,7 +11941,7 @@ if.end43.i:                                       ; preds = %land.lhs.true35.i, 
   %382 = trunc i64 %indvars.iv.i313 to i32
   %reass.sub.i = add i32 %382, 3
   %sub.i317 = sub i32 %reass.sub.i, %got_comma.032.i
-  %idxprom48.i = sext i32 %sub.i317 to i64
+  %idxprom48.i = zext nneg i32 %sub.i317 to i64
   %arrayidx49.i = getelementptr inbounds ptr, ptr %call24.i, i64 %idxprom48.i
   store ptr %call46.i, ptr %arrayidx49.i, align 8
   %spec.select.i318 = zext i1 %tobool29.not.i to i32

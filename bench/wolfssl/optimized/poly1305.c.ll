@@ -518,6 +518,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 if.end28.i:                                       ; preds = %for.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %little64, i64 %spec.select.i
   %conv17.i = trunc i64 %spec.select.i to i32
+  %sub18.i = sub nuw nsw i64 16, %spec.select.i
   %buffer26.i = getelementptr inbounds i8, ptr %ctx, i64 72
   tail call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull %buffer26.i, i64 noundef 16)
   store i64 0, ptr %leftover.i, align 8
@@ -532,8 +533,6 @@ if.end42.i.thread:                                ; preds = %if.end28.i, %lor.lh
   br label %return
 
 for.cond45.preheader.i:                           ; preds = %if.end28.i
-  %sub18.i = sub nuw nsw i64 16, %spec.select.i
-  %conv46.i = and i64 %sub18.i, 4294967295
   %buffer51.i = getelementptr inbounds i8, ptr %ctx, i64 72
   br label %for.body49.i
 
@@ -546,12 +545,12 @@ for.body49.i:                                     ; preds = %for.body49.i, %for.
   %arrayidx54.i = getelementptr inbounds [16 x i8], ptr %buffer51.i, i64 0, i64 %add53.i
   store i8 %4, ptr %arrayidx54.i, align 1
   %inc56.i = add nuw nsw i64 %i.145.i, 1
-  %exitcond46.not.i = icmp eq i64 %inc56.i, %conv46.i
+  %exitcond46.not.i = icmp eq i64 %inc56.i, %sub18.i
   br i1 %exitcond46.not.i, label %for.end57.i, label %for.body49.i, !llvm.loop !6
 
 for.end57.i:                                      ; preds = %for.body49.i
   %6 = load i64, ptr %leftover.i, align 8
-  %add60.i = add i64 %6, %conv46.i
+  %add60.i = add i64 %6, %sub18.i
   store i64 %add60.i, ptr %leftover.i, align 8
   br label %return
 
@@ -613,6 +612,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 if.end28.i:                                       ; preds = %for.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %little64, i64 %spec.select.i
   %conv17.i = trunc i64 %spec.select.i to i32
+  %sub18.i = sub nuw nsw i64 16, %spec.select.i
   %buffer26.i = getelementptr inbounds i8, ptr %ctx, i64 72
   tail call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull %buffer26.i, i64 noundef 16)
   store i64 0, ptr %leftover.i, align 8
@@ -627,8 +627,6 @@ if.end42.i.thread:                                ; preds = %if.end28.i, %lor.lh
   br label %return
 
 for.cond45.preheader.i:                           ; preds = %if.end28.i
-  %sub18.i = sub nuw nsw i64 16, %spec.select.i
-  %conv46.i = and i64 %sub18.i, 4294967295
   %buffer51.i = getelementptr inbounds i8, ptr %ctx, i64 72
   br label %for.body49.i
 
@@ -641,12 +639,12 @@ for.body49.i:                                     ; preds = %for.body49.i, %for.
   %arrayidx54.i = getelementptr inbounds [16 x i8], ptr %buffer51.i, i64 0, i64 %add53.i
   store i8 %4, ptr %arrayidx54.i, align 1
   %inc56.i = add nuw nsw i64 %i.145.i, 1
-  %exitcond46.not.i = icmp eq i64 %inc56.i, %conv46.i
+  %exitcond46.not.i = icmp eq i64 %inc56.i, %sub18.i
   br i1 %exitcond46.not.i, label %for.end57.i, label %for.body49.i, !llvm.loop !6
 
 for.end57.i:                                      ; preds = %for.body49.i
   %6 = load i64, ptr %leftover.i, align 8
-  %add60.i = add i64 %6, %conv46.i
+  %add60.i = add i64 %6, %sub18.i
   store i64 %add60.i, ptr %leftover.i, align 8
   br label %return
 

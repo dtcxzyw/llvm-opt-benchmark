@@ -98136,29 +98136,13 @@ if.end80:                                         ; preds = %if.then69, %if.end4
   %out_frac.0 = phi i64 [ %shl57, %if.end49 ], [ %spec.select, %if.then69 ]
   %out_exp.0 = phi i64 [ %add63, %if.end49 ], [ %spec.select53, %if.then69 ]
   %cmp3.not.i77 = icmp sgt i32 %frac_size, 64
-  br i1 %cmp3.not.i77, label %if.else.i81, label %deposit64.exit
+  br i1 %cmp3.not.i77, label %if.else.i81, label %deposit64.exit105
 
 if.else.i81:                                      ; preds = %if.end80
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 496, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit64) #11
   unreachable
 
-deposit64.exit:                                   ; preds = %if.end80
-  %cmp3.not.i83 = icmp slt i32 %sub.i54, %exp_size
-  br i1 %cmp3.not.i83, label %if.else.i92, label %deposit64.exit93
-
-if.else.i92:                                      ; preds = %deposit64.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 496, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit64) #11
-  unreachable
-
-deposit64.exit93:                                 ; preds = %deposit64.exit
-  %cmp3.not.i96 = icmp sgt i32 %add, 63
-  br i1 %cmp3.not.i96, label %if.else.i104, label %deposit64.exit105
-
-if.else.i104:                                     ; preds = %deposit64.exit93
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 496, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit64) #11
-  unreachable
-
-deposit64.exit105:                                ; preds = %deposit64.exit93
+deposit64.exit105:                                ; preds = %if.end80
   %shl.i = shl i64 %shr6.i, %sh_prom.i56
   %not.i89 = xor i64 %shl.i, -1
   %9 = and i64 %out_frac.0, %not.i89

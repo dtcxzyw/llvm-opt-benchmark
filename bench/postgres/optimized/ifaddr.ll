@@ -127,10 +127,10 @@ define dso_local noundef i32 @pg_sockaddr_cidr_mask(ptr nocapture noundef writeo
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %29
-  %32 = trunc i64 %.133 to i32
-  %33 = sub nuw nsw i32 8, %32
-  %34 = shl nuw nsw i32 255, %33
-  %35 = trunc i32 %34 to i8
+  %32 = trunc i64 %.133 to i16
+  %33 = sub nuw nsw i16 8, %32
+  %34 = shl nuw nsw i16 255, %33
+  %35 = trunc i16 %34 to i8
   br label %36
 
 36:                                               ; preds = %29, %27, %31

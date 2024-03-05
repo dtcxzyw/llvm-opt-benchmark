@@ -6182,7 +6182,7 @@ define hidden void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17h971540
   %umax = call i8 @llvm.umax.i8(i8 %13, i8 49)
   %37 = add nuw nsw i8 %umax, 7
   %38 = sub nuw nsw i8 %37, %13
-  %39 = and i8 %38, -8
+  %39 = and i8 %38, 120
   %40 = add nuw nsw i8 %13, 8
   %41 = add nuw nsw i8 %40, %39
   store i8 %41, ptr %7, align 8
@@ -6392,7 +6392,7 @@ define hidden void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hc7878b
   %umax = call i8 @llvm.umax.i8(i8 %21, i8 49)
   %55 = add nuw nsw i8 %umax, 7
   %56 = sub nuw nsw i8 %55, %21
-  %57 = and i8 %56, -8
+  %57 = and i8 %56, 120
   %58 = add nuw nsw i8 %21, 8
   %59 = add nuw nsw i8 %58, %57
   store i8 %59, ptr %10, align 8
@@ -6587,7 +6587,7 @@ define hidden void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hdd17f5
   %umax = call i8 @llvm.umax.i8(i8 %17, i8 49)
   %41 = add nuw nsw i8 %umax, 7
   %42 = sub nuw nsw i8 %41, %17
-  %43 = and i8 %42, -8
+  %43 = and i8 %42, 120
   %44 = add nuw nsw i8 %17, 8
   %45 = add nuw nsw i8 %44, %43
   store i8 %45, ptr %7, align 8

@@ -2128,8 +2128,8 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   %951 = zext i32 %948 to i64
   br label %952
 
-952:                                              ; preds = %992, %944
-  %953 = phi i64 [ 1, %944 ], [ %997, %992 ]
+952:                                              ; preds = %991, %944
+  %953 = phi i64 [ 1, %944 ], [ %996, %991 ]
   %954 = shl i64 %953, 2
   %955 = sub nuw nsw i64 %951, %954
   %956 = getelementptr [8 x i16], ptr %4, i64 0, i64 %953
@@ -2181,27 +2181,26 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br label %985
 
 985:                                              ; preds = %982, %978, %964, %952
-  %986 = and i64 %955, 4294705152
-  %987 = icmp eq i64 %986, 0
-  %988 = trunc i64 %955 to i32
-  br i1 %987, label %989, label %992
+  %986 = icmp ult i64 %955, 262144
+  %987 = trunc i64 %955 to i32
+  br i1 %986, label %988, label %991
 
-989:                                              ; preds = %985
-  %990 = load i32, ptr %949, align 4
-  %991 = add i32 %990, %988
-  br label %992
+988:                                              ; preds = %985
+  %989 = load i32, ptr %949, align 4
+  %990 = add i32 %989, %987
+  br label %991
 
-992:                                              ; preds = %989, %985
-  %993 = phi i32 [ %991, %989 ], [ %988, %985 ]
-  %994 = load ptr, ptr %950, align 8
-  %995 = zext i32 %993 to i64
-  %996 = getelementptr i8, ptr %994, i64 %995
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %962, ptr elementtype(i32) %996) #10, !srcloc !16
-  %997 = add nuw nsw i64 %953, 1
-  %998 = icmp eq i64 %997, 7
-  br i1 %998, label %.loopexit, label %952, !llvm.loop !23
+991:                                              ; preds = %988, %985
+  %992 = phi i32 [ %990, %988 ], [ %987, %985 ]
+  %993 = load ptr, ptr %950, align 8
+  %994 = zext i32 %992 to i64
+  %995 = getelementptr i8, ptr %993, i64 %994
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %962, ptr elementtype(i32) %995) #10, !srcloc !16
+  %996 = add nuw nsw i64 %953, 1
+  %997 = icmp eq i64 %996, 7
+  br i1 %997, label %.loopexit, label %952, !llvm.loop !23
 
-.loopexit:                                        ; preds = %992, %919
+.loopexit:                                        ; preds = %991, %919
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   ret void
 }

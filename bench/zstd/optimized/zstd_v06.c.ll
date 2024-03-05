@@ -6530,7 +6530,6 @@ FSEv06_initDState.exit100.i:                      ; preds = %BITv06_reloadDStrea
   %sh_prom2.i.i.i110.i = zext nneg i32 %and1.i.i.i109.i to i64
   %shr3.i.i.i111.i = lshr i64 %shr.i.i.i107.i, %sh_prom2.i.i.i110.i
   %add.i.i.i112.i = add i32 %bitD.val3.i.i103.i, %conv.i101.i
-  store i32 %add.i.i.i112.i, ptr %50, align 8
   store i64 %shr3.i.i.i111.i, ptr %stateML.i, align 8
   %cmp.i.i113.i = icmp ugt i32 %add.i.i.i112.i, 64
   br i1 %cmp.i.i113.i, label %ZSTDv06_decompressSequences.exit, label %if.end.i.i114.i
@@ -6705,7 +6704,6 @@ if.end18.i.i:                                     ; preds = %for.body27.i
   %sh_prom2.i.i.i175.i = zext nneg i32 %and1.i.i.i174.i to i64
   %shr3.i.i.i176.i = lshr i64 %shr.i.i.i172.i, %sh_prom2.i.i.i175.i
   %add.i.i.i177.i = add i32 %bitD.val3.i.i168.i, %conv4.i.i
-  store i32 %add.i.i.i177.i, ptr %50, align 8
   %add12.i.i = add nuw i64 %shr3.i.i.i176.i, %conv10.i.i
   %cmp.i178.i = icmp ult i64 %add12.i.i, 3
   br i1 %cmp.i178.i, label %if.then20.i.i, label %if.else49.i.i

@@ -54,36 +54,38 @@ if.end35:                                         ; preds = %if.end23
 
 if.else38:                                        ; preds = %if.end23
   %cmp39 = icmp ult i64 %add, 9
-  %conv41 = zext i8 %bits to i32
-  %2 = trunc i64 %add to i32
   br i1 %cmp39, label %if.then40, label %if.else50
 
 if.then40:                                        ; preds = %if.else38
-  %sh_prom43 = sub nuw nsw i32 8, %2
-  %shl44 = shl nuw nsw i32 %conv41, %sh_prom43
+  %conv41 = zext i8 %bits to i16
+  %2 = trunc i64 %add to i16
+  %sh_prom43 = sub nuw nsw i16 8, %2
+  %shl44 = shl nuw i16 %conv41, %sh_prom43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr nonnull sret(%"class.std::reverse_iterator") align 8 %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(32) %this) #4
   %3 = load i64, ptr %ref.tmp45, align 8
   %4 = inttoptr i64 %3 to ptr
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 -1
   %5 = load i8, ptr %incdec.ptr.i.i, align 1
-  %6 = trunc i32 %shl44 to i8
+  %6 = trunc i16 %shl44 to i8
   %conv49 = or i8 %5, %6
   store i8 %conv49, ptr %incdec.ptr.i.i, align 1
   br label %if.end68
 
 if.else50:                                        ; preds = %if.else38
-  %sh_prom53 = add i32 %2, -8
-  %shr = lshr i32 %conv41, %sh_prom53
+  %conv51 = zext i8 %bits to i32
+  %7 = trunc i64 %add to i32
+  %sh_prom53 = add i32 %7, -8
+  %shr = lshr i32 %conv51, %sh_prom53
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr nonnull sret(%"class.std::reverse_iterator") align 8 %ref.tmp54, ptr noundef nonnull align 8 dereferenceable(32) %this) #4
-  %7 = load i64, ptr %ref.tmp54, align 8
-  %8 = inttoptr i64 %7 to ptr
-  %incdec.ptr.i.i15 = getelementptr inbounds i8, ptr %8, i64 -1
-  %9 = load i8, ptr %incdec.ptr.i.i15, align 1
-  %10 = trunc i32 %shr to i8
-  %conv59 = or i8 %9, %10
+  %8 = load i64, ptr %ref.tmp54, align 8
+  %9 = inttoptr i64 %8 to ptr
+  %incdec.ptr.i.i15 = getelementptr inbounds i8, ptr %9, i64 -1
+  %10 = load i8, ptr %incdec.ptr.i.i15, align 1
+  %11 = trunc i32 %shr to i8
+  %conv59 = or i8 %10, %11
   store i8 %conv59, ptr %incdec.ptr.i.i15, align 1
-  %sh_prom63 = sub i32 16, %2
-  %shl64 = shl i32 %conv41, %sh_prom63
+  %sh_prom63 = sub i32 16, %7
+  %shl64 = shl i32 %conv51, %sh_prom63
   %conv65 = trunc i32 %shl64 to i8
   %call66 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef 1, i8 noundef signext %conv65)
   br label %if.end68

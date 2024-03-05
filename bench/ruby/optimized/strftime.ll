@@ -4880,7 +4880,6 @@ buffer_size_check.exit2844:                       ; preds = %resize_buffer.exit2
 
 .lr.ph3469.preheader:                             ; preds = %.preheader3131
   %2185 = sub i32 9, %spec.select2328
-  %smax = call i32 @llvm.smax.i32(i32 %2185, i32 1)
   br label %.lr.ph3469
 
 2186:                                             ; preds = %2182
@@ -4901,7 +4900,7 @@ buffer_size_check.exit2844:                       ; preds = %resize_buffer.exit2
   %.018703467 = phi i64 [ %2196, %.lr.ph3469 ], [ %2183, %.lr.ph3469.preheader ]
   %2196 = sdiv i64 %.018703467, 10
   %2197 = add nuw nsw i32 %.018693468, 1
-  %exitcond3818.not = icmp eq i32 %2197, %smax
+  %exitcond3818.not = icmp eq i32 %2197, %2185
   br i1 %exitcond3818.not, label %._crit_edge, label %.lr.ph3469, !llvm.loop !234
 
 ._crit_edge:                                      ; preds = %.lr.ph3469, %.preheader3131

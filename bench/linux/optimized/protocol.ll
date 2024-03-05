@@ -20,20 +20,19 @@ define dso_local void @usb_stor_pad12_command(ptr noundef %0, ptr noundef %1) lo
   %3 = getelementptr inbounds i8, ptr %0, i64 156
   %4 = load i16, ptr %3, align 4
   %5 = icmp ult i16 %4, 12
-  br i1 %5, label %6, label %13
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
   %7 = zext nneg i16 %4 to i64
   %8 = getelementptr i8, ptr %0, i64 %7
   %9 = getelementptr i8, ptr %8, i64 164
-  %10 = sub nuw nsw i16 11, %4
-  %11 = zext nneg i16 %10 to i64
-  %12 = add nuw nsw i64 %11, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 %9, i8 0, i64 %12, i1 false)
+  %narrow = sub nuw nsw i16 12, %4
+  %10 = zext nneg i16 %narrow to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 %9, i8 0, i64 %10, i1 false)
   store i16 12, ptr %3, align 4
-  br label %13
+  br label %11
 
-13:                                               ; preds = %6, %2
+11:                                               ; preds = %6, %2
   tail call void @usb_stor_invoke_transport(ptr noundef %0, ptr noundef %1) #6
   ret void
 }
@@ -46,44 +45,43 @@ define dso_local void @usb_stor_ufi_command(ptr noundef %0, ptr noundef %1) loca
   %3 = getelementptr inbounds i8, ptr %0, i64 156
   %4 = load i16, ptr %3, align 4
   %5 = icmp ult i16 %4, 12
-  br i1 %5, label %6, label %13
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
   %7 = zext nneg i16 %4 to i64
   %8 = getelementptr i8, ptr %0, i64 %7
   %9 = getelementptr i8, ptr %8, i64 164
-  %10 = sub nuw nsw i16 11, %4
-  %11 = zext nneg i16 %10 to i64
-  %12 = add nuw nsw i64 %11, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 %9, i8 0, i64 %12, i1 false)
-  br label %13
+  %narrow = sub nuw nsw i16 12, %4
+  %10 = zext nneg i16 %narrow to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 %9, i8 0, i64 %10, i1 false)
+  br label %11
 
-13:                                               ; preds = %6, %2
+11:                                               ; preds = %6, %2
   store i16 12, ptr %3, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 164
-  %15 = load i8, ptr %14, align 4
-  switch i8 %15, label %23 [
-    i8 18, label %19
-    i8 90, label %16
-    i8 3, label %18
+  %12 = getelementptr inbounds i8, ptr %0, i64 164
+  %13 = load i8, ptr %12, align 4
+  switch i8 %13, label %21 [
+    i8 18, label %17
+    i8 90, label %14
+    i8 3, label %16
   ]
 
-16:                                               ; preds = %13
-  %17 = getelementptr i8, ptr %0, i64 171
-  store i8 0, ptr %17, align 1
-  br label %19
+14:                                               ; preds = %11
+  %15 = getelementptr i8, ptr %0, i64 171
+  store i8 0, ptr %15, align 1
+  br label %17
 
-18:                                               ; preds = %13
-  br label %19
+16:                                               ; preds = %11
+  br label %17
 
-19:                                               ; preds = %18, %16, %13
-  %20 = phi i64 [ 168, %18 ], [ 172, %16 ], [ 168, %13 ]
-  %21 = phi i8 [ 18, %18 ], [ 8, %16 ], [ 36, %13 ]
-  %22 = getelementptr i8, ptr %0, i64 %20
-  store i8 %21, ptr %22, align 4
-  br label %23
+17:                                               ; preds = %16, %14, %11
+  %18 = phi i64 [ 168, %16 ], [ 172, %14 ], [ 168, %11 ]
+  %19 = phi i8 [ 18, %16 ], [ 8, %14 ], [ 36, %11 ]
+  %20 = getelementptr i8, ptr %0, i64 %18
+  store i8 %19, ptr %20, align 4
+  br label %21
 
-23:                                               ; preds = %19, %13
+21:                                               ; preds = %17, %11
   tail call void @usb_stor_invoke_transport(ptr noundef %0, ptr noundef %1) #6
   ret void
 }

@@ -231,14 +231,14 @@ define dso_local noundef i32 @lg4ff_raw_event(ptr nocapture noundef readnone %0,
   %34 = phi i64 [ 3, %32 ], [ 6, %31 ], [ 5, %13 ], [ 5, %13 ]
   %35 = getelementptr i8, ptr %2, i64 %34
   %36 = load i8, ptr %35, align 1
-  %37 = zext i8 %36 to i32
-  %38 = add nuw nsw i32 %37, 255
+  %37 = zext i8 %36 to i16
+  %38 = add nuw nsw i16 %37, 255
   %39 = getelementptr i8, ptr %35, i64 1
   %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  %42 = sub nuw nsw i32 %38, %41
-  %43 = lshr i32 %42, 1
-  %44 = trunc i32 %43 to i8
+  %41 = zext i8 %40 to i16
+  %42 = sub nuw nsw i16 %38, %41
+  %43 = lshr i16 %42, 1
+  %44 = trunc i16 %43 to i8
   store i8 %44, ptr %35, align 1
   br label %45
 

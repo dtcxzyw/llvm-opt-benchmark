@@ -1024,7 +1024,7 @@ if.end4.i98:                                      ; preds = %for.end
   %add.ptr.i96 = getelementptr inbounds i8, ptr %hmac_key, i64 %spec.select.i94
   %sub3.i97 = sub nuw nsw i64 64, %spec.select.i94
   %rem.i101 = and i64 %sub3.i97, 63
-  %sub5.i102 = and i64 %sub3.i97, -64
+  %sub5.i102 = and i64 %sub3.i97, 64
   %tobool6.not.i103 = icmp eq i64 %sub5.i102, 0
   br i1 %tobool6.not.i103, label %if.end21.i114, label %if.then7.i104
 
@@ -1089,7 +1089,7 @@ if.end4.i131:                                     ; preds = %for.end29
   %add.ptr.i129 = getelementptr inbounds i8, ptr %hmac_key, i64 %spec.select.i127
   %sub3.i130 = sub nuw nsw i64 64, %spec.select.i127
   %rem.i134 = and i64 %sub3.i130, 63
-  %sub5.i135 = and i64 %sub3.i130, -64
+  %sub5.i135 = and i64 %sub3.i130, 64
   %tobool6.not.i136 = icmp eq i64 %sub5.i135, 0
   br i1 %tobool6.not.i136, label %if.end21.i147, label %if.then7.i137
 
