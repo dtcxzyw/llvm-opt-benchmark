@@ -3588,45 +3588,31 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17h64ef2250447e437dE.l
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = add i64 %5, 1
-  %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 %6)
-  %8 = extractvalue { i64, i1 } %7, 1
-  %9 = xor i1 %8, true
-  tail call void @llvm.assume(i1 %9)
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = add i64 %3, -1
-  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %11)
-  %13 = extractvalue { i64, i1 } %12, 1
-  %14 = xor i1 %13, true
-  tail call void @llvm.assume(i1 %14)
-  %15 = extractvalue { i64, i1 } %12, 0
-  %16 = sub i64 0, %3
-  %17 = and i64 %15, %16
-  %18 = add i64 %5, 17
-  %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %18)
-  %20 = extractvalue { i64, i1 } %19, 0
-  %21 = extractvalue { i64, i1 } %19, 1
-  %22 = sub nuw i64 -9223372036854775808, %3
-  %23 = icmp ule i64 %20, %22
-  %24 = xor i1 %21, true
-  tail call void @llvm.assume(i1 %24)
-  tail call void @llvm.assume(i1 %23)
-  %25 = icmp ult i64 %3, -9223372036854775807
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp ne i64 %3, 0
-  tail call void @llvm.assume(i1 %26)
-  %27 = icmp eq i64 %20, 0
-  br i1 %27, label %"_ZN106_$LT$allocator_api2..stable..alloc..global..Global$u20$as$u20$allocator_api2..stable..alloc..Allocator$GT$10deallocate17hff0cc1b59ac6006eE.llvm.7682522193326259475.exit", label %28
+  %7 = mul nuw i64 %6, %2
+  %8 = add i64 %3, -1
+  %9 = add nuw i64 %8, %7
+  %10 = sub i64 0, %3
+  %11 = and i64 %9, %10
+  %12 = add i64 %5, 17
+  %13 = add nuw i64 %11, %12
+  %14 = sub nuw i64 -9223372036854775808, %3
+  %15 = icmp ule i64 %13, %14
+  tail call void @llvm.assume(i1 %15)
+  %16 = icmp ult i64 %3, -9223372036854775807
+  tail call void @llvm.assume(i1 %16)
+  %17 = icmp ne i64 %3, 0
+  tail call void @llvm.assume(i1 %17)
+  %18 = icmp eq i64 %13, 0
+  br i1 %18, label %"_ZN106_$LT$allocator_api2..stable..alloc..global..Global$u20$as$u20$allocator_api2..stable..alloc..Allocator$GT$10deallocate17hff0cc1b59ac6006eE.llvm.7682522193326259475.exit", label %19
 
-28:                                               ; preds = %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17h64ef2250447e437dE.llvm.7682522193326259475.exit
-  %29 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %30 = sub nsw i64 0, %17
-  %31 = getelementptr inbounds i8, ptr %29, i64 %30
-  %32 = icmp sgt i64 %11, -1
-  tail call void @llvm.assume(i1 %32)
-  tail call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef %20, i64 noundef %3) #21
+19:                                               ; preds = %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17h64ef2250447e437dE.llvm.7682522193326259475.exit
+  %20 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %21 = sub nsw i64 0, %11
+  %22 = getelementptr inbounds i8, ptr %20, i64 %21
+  tail call void @__rust_dealloc(ptr noundef nonnull %22, i64 noundef %13, i64 noundef %3) #21
   br label %"_ZN106_$LT$allocator_api2..stable..alloc..global..Global$u20$as$u20$allocator_api2..stable..alloc..Allocator$GT$10deallocate17hff0cc1b59ac6006eE.llvm.7682522193326259475.exit"
 
-"_ZN106_$LT$allocator_api2..stable..alloc..global..Global$u20$as$u20$allocator_api2..stable..alloc..Allocator$GT$10deallocate17hff0cc1b59ac6006eE.llvm.7682522193326259475.exit": ; preds = %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17h64ef2250447e437dE.llvm.7682522193326259475.exit, %28
+"_ZN106_$LT$allocator_api2..stable..alloc..global..Global$u20$as$u20$allocator_api2..stable..alloc..Allocator$GT$10deallocate17hff0cc1b59ac6006eE.llvm.7682522193326259475.exit": ; preds = %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17h64ef2250447e437dE.llvm.7682522193326259475.exit, %19
   ret void
 }
 
@@ -3650,45 +3636,31 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17h5
 8:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1858)
   %9 = add i64 %6, 1
-  %10 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 %9)
-  %11 = extractvalue { i64, i1 } %10, 1
-  %12 = xor i1 %11, true
-  tail call void @llvm.assume(i1 %12)
-  %13 = extractvalue { i64, i1 } %10, 0
-  %14 = add i64 %3, -1
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %13, i64 %14)
-  %16 = extractvalue { i64, i1 } %15, 1
-  %17 = xor i1 %16, true
-  tail call void @llvm.assume(i1 %17)
-  %18 = extractvalue { i64, i1 } %15, 0
-  %19 = sub i64 0, %3
-  %20 = and i64 %18, %19
-  %21 = add i64 %6, 17
-  %22 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %20, i64 %21)
-  %23 = extractvalue { i64, i1 } %22, 0
-  %24 = extractvalue { i64, i1 } %22, 1
-  %25 = sub nuw i64 -9223372036854775808, %3
-  %26 = icmp ule i64 %23, %25
-  %27 = xor i1 %24, true
-  tail call void @llvm.assume(i1 %27)
-  tail call void @llvm.assume(i1 %26)
-  %28 = icmp ult i64 %3, -9223372036854775807
-  tail call void @llvm.assume(i1 %28)
-  %29 = icmp ne i64 %3, 0
-  tail call void @llvm.assume(i1 %29)
-  %30 = icmp eq i64 %23, 0
-  br i1 %30, label %_ZN9hashbrown3raw5inner13RawTableInner12free_buckets17hcde882ad281f143eE.llvm.7682522193326259475.exit, label %31
+  %10 = mul nuw i64 %9, %2
+  %11 = add i64 %3, -1
+  %12 = add nuw i64 %11, %10
+  %13 = sub i64 0, %3
+  %14 = and i64 %12, %13
+  %15 = add i64 %6, 17
+  %16 = add nuw i64 %15, %14
+  %17 = sub nuw i64 -9223372036854775808, %3
+  %18 = icmp ule i64 %16, %17
+  tail call void @llvm.assume(i1 %18)
+  %19 = icmp ult i64 %3, -9223372036854775807
+  tail call void @llvm.assume(i1 %19)
+  %20 = icmp ne i64 %3, 0
+  tail call void @llvm.assume(i1 %20)
+  %21 = icmp eq i64 %16, 0
+  br i1 %21, label %_ZN9hashbrown3raw5inner13RawTableInner12free_buckets17hcde882ad281f143eE.llvm.7682522193326259475.exit, label %22
 
-31:                                               ; preds = %8
-  %32 = load ptr, ptr %0, align 8, !alias.scope !1858, !nonnull !4, !noundef !4
-  %33 = sub nsw i64 0, %20
-  %34 = getelementptr inbounds i8, ptr %32, i64 %33
-  %35 = icmp sgt i64 %14, -1
-  tail call void @llvm.assume(i1 %35)
-  tail call void @__rust_dealloc(ptr noundef nonnull %34, i64 noundef %23, i64 noundef %3) #21, !noalias !1858
+22:                                               ; preds = %8
+  %23 = load ptr, ptr %0, align 8, !alias.scope !1858, !nonnull !4, !noundef !4
+  %24 = sub nsw i64 0, %14
+  %25 = getelementptr inbounds i8, ptr %23, i64 %24
+  tail call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %16, i64 noundef %3) #21, !noalias !1858
   br label %_ZN9hashbrown3raw5inner13RawTableInner12free_buckets17hcde882ad281f143eE.llvm.7682522193326259475.exit
 
-_ZN9hashbrown3raw5inner13RawTableInner12free_buckets17hcde882ad281f143eE.llvm.7682522193326259475.exit: ; preds = %31, %8, %4
+_ZN9hashbrown3raw5inner13RawTableInner12free_buckets17hcde882ad281f143eE.llvm.7682522193326259475.exit: ; preds = %22, %8, %4
   ret void
 }
 
@@ -3702,45 +3674,31 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17h9
 8:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1861)
   %9 = add i64 %6, 1
-  %10 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 %9)
-  %11 = extractvalue { i64, i1 } %10, 1
-  %12 = xor i1 %11, true
-  tail call void @llvm.assume(i1 %12)
-  %13 = extractvalue { i64, i1 } %10, 0
-  %14 = add i64 %3, -1
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %13, i64 %14)
-  %16 = extractvalue { i64, i1 } %15, 1
-  %17 = xor i1 %16, true
-  tail call void @llvm.assume(i1 %17)
-  %18 = extractvalue { i64, i1 } %15, 0
-  %19 = sub i64 0, %3
-  %20 = and i64 %18, %19
-  %21 = add i64 %6, 17
-  %22 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %20, i64 %21)
-  %23 = extractvalue { i64, i1 } %22, 0
-  %24 = extractvalue { i64, i1 } %22, 1
-  %25 = sub nuw i64 -9223372036854775808, %3
-  %26 = icmp ule i64 %23, %25
-  %27 = xor i1 %24, true
-  tail call void @llvm.assume(i1 %27)
-  tail call void @llvm.assume(i1 %26)
-  %28 = icmp ult i64 %3, -9223372036854775807
-  tail call void @llvm.assume(i1 %28)
-  %29 = icmp ne i64 %3, 0
-  tail call void @llvm.assume(i1 %29)
-  %30 = icmp eq i64 %23, 0
-  br i1 %30, label %_ZN9hashbrown3raw5inner13RawTableInner12free_buckets17hcde882ad281f143eE.llvm.7682522193326259475.exit, label %31
+  %10 = mul nuw i64 %9, %2
+  %11 = add i64 %3, -1
+  %12 = add nuw i64 %11, %10
+  %13 = sub i64 0, %3
+  %14 = and i64 %12, %13
+  %15 = add i64 %6, 17
+  %16 = add nuw i64 %15, %14
+  %17 = sub nuw i64 -9223372036854775808, %3
+  %18 = icmp ule i64 %16, %17
+  tail call void @llvm.assume(i1 %18)
+  %19 = icmp ult i64 %3, -9223372036854775807
+  tail call void @llvm.assume(i1 %19)
+  %20 = icmp ne i64 %3, 0
+  tail call void @llvm.assume(i1 %20)
+  %21 = icmp eq i64 %16, 0
+  br i1 %21, label %_ZN9hashbrown3raw5inner13RawTableInner12free_buckets17hcde882ad281f143eE.llvm.7682522193326259475.exit, label %22
 
-31:                                               ; preds = %8
-  %32 = load ptr, ptr %0, align 8, !alias.scope !1861, !nonnull !4, !noundef !4
-  %33 = sub nsw i64 0, %20
-  %34 = getelementptr inbounds i8, ptr %32, i64 %33
-  %35 = icmp sgt i64 %14, -1
-  tail call void @llvm.assume(i1 %35)
-  tail call void @__rust_dealloc(ptr noundef nonnull %34, i64 noundef %23, i64 noundef %3) #21, !noalias !1861
+22:                                               ; preds = %8
+  %23 = load ptr, ptr %0, align 8, !alias.scope !1861, !nonnull !4, !noundef !4
+  %24 = sub nsw i64 0, %14
+  %25 = getelementptr inbounds i8, ptr %23, i64 %24
+  tail call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %16, i64 noundef %3) #21, !noalias !1861
   br label %_ZN9hashbrown3raw5inner13RawTableInner12free_buckets17hcde882ad281f143eE.llvm.7682522193326259475.exit
 
-_ZN9hashbrown3raw5inner13RawTableInner12free_buckets17hcde882ad281f143eE.llvm.7682522193326259475.exit: ; preds = %31, %8, %4
+_ZN9hashbrown3raw5inner13RawTableInner12free_buckets17hcde882ad281f143eE.llvm.7682522193326259475.exit: ; preds = %22, %8, %4
   ret void
 }
 
