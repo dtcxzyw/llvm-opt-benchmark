@@ -443,49 +443,45 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define { i64, i64 } @_ZN3re28Compiler3CatENS_4FragES1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(212) %this, i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1) local_unnamed_addr #9 align 2 {
 entry:
-  %retval.sroa.0 = alloca <2 x i64>, align 16
   %a = alloca %"struct.re2::Frag", align 8
-  %b.sroa.0 = alloca <2 x i64>, align 16
   store i64 %a.coerce0, ptr %a, align 8
   %a.8.a.8.a.8.a.8..sroa_idx = getelementptr inbounds i8, ptr %a, i64 8
   store i64 %a.coerce1, ptr %a.8.a.8.a.8.a.8..sroa_idx, align 8
-  store i64 %b.coerce0, ptr %b.sroa.0, align 16
-  %b.sroa.0.8.b.8.b.8.b.8.b.8..sroa_idx66 = getelementptr inbounds i8, ptr %b.sroa.0, i64 8
-  store i64 %b.coerce1, ptr %b.sroa.0.8.b.8.b.8.b.8.b.8..sroa_idx66, align 8
-  %0 = and i64 %a.coerce0, 4294967295
-  %cmp.i = icmp eq i64 %0, 0
-  %1 = and i64 %b.coerce0, 4294967295
-  %cmp.i9 = icmp eq i64 %1, 0
+  %0 = bitcast i64 %b.coerce0 to <8 x i8>
+  %b.sroa.0.0.vec.expand = shufflevector <8 x i8> %0, <8 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %1 = bitcast i64 %b.coerce1 to <8 x i8>
+  %b.sroa.0.8.vec.expand = shufflevector <8 x i8> %1, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %b.sroa.0.8.vecblend = shufflevector <16 x i8> %b.sroa.0.0.vec.expand, <16 x i8> %b.sroa.0.8.vec.expand, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %2 = and i64 %a.coerce0, 4294967295
+  %cmp.i = icmp eq i64 %2, 0
+  %3 = and i64 %b.coerce0, 4294967295
+  %cmp.i9 = icmp eq i64 %3, 0
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.i9
-  %2 = trunc i64 %a.coerce0 to i32
-  %3 = lshr i64 %a.coerce0, 32
-  %4 = trunc i64 %3 to i32
-  %5 = trunc i64 %b.coerce0 to i32
-  %6 = lshr i64 %b.coerce1, 32
-  %7 = trunc i64 %6 to i8
-  %8 = lshr i64 %a.coerce1, 32
+  %4 = trunc i64 %a.coerce0 to i32
+  %5 = lshr i64 %a.coerce0, 32
+  %6 = trunc i64 %5 to i32
+  %7 = trunc i64 %b.coerce0 to i32
+  %8 = lshr i64 %b.coerce1, 32
   %9 = trunc i64 %8 to i8
-  br i1 %or.cond, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store <2 x i64> zeroinitializer, ptr %retval.sroa.0, align 16
-  br label %return
+  %10 = lshr i64 %a.coerce1, 32
+  %11 = trunc i64 %10 to i8
+  br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %sext = shl i64 %a.coerce0, 32
   %conv.i = ashr exact i64 %sext, 32
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
-  %10 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %10, i64 %conv.i
-  %11 = load i32, ptr %arrayidx.i.i, align 4
-  %and.i = and i32 %11, 7
+  %12 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
+  %arrayidx.i.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %12, i64 %conv.i
+  %13 = load i32, ptr %arrayidx.i.i, align 4
+  %and.i = and i32 %13, 7
   %cmp = icmp eq i32 %and.i, 6
   br i1 %cmp, label %land.lhs.true, label %if.end19
 
 land.lhs.true:                                    ; preds = %if.end
-  %shl = shl i32 %2, 1
-  %cmp9 = icmp eq i32 %shl, %4
-  %cmp12 = icmp ult i32 %11, 16
+  %shl = shl i32 %4, 1
+  %cmp9 = icmp eq i32 %shl, %6
+  %cmp12 = icmp ult i32 %13, 16
   %or.cond57 = and i1 %cmp12, %cmp9
   br i1 %or.cond57, label %if.then13, label %if.end19
 
@@ -494,105 +490,101 @@ if.then13:                                        ; preds = %land.lhs.true
   %a.4.a.4.a.4.a.4.agg.tmp16.sroa.0.0.copyload = load i64, ptr %a.4.a.4.a.4.a.4.head.sroa_idx, align 4
   %l.sroa.0.0.extract.trunc.i = trunc i64 %a.4.a.4.a.4.a.4.agg.tmp16.sroa.0.0.copyload to i32
   %cmp.not7.i = icmp eq i32 %l.sroa.0.0.extract.trunc.i, 0
-  br i1 %cmp.not7.i, label %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit, label %while.body.lr.ph.i
+  br i1 %cmp.not7.i, label %return, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then13
-  %shl.i.i = shl i32 %5, 4
+  %shl.i.i = shl i32 %7, 4
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
   %l.sroa.0.08.i = phi i32 [ %l.sroa.0.0.extract.trunc.i, %while.body.lr.ph.i ], [ %l.sroa.0.1.i, %if.end.i ]
   %shr.i10 = lshr i32 %l.sroa.0.08.i, 1
   %idxprom.i = zext nneg i32 %shr.i10 to i64
-  %arrayidx.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %10, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %12, i64 %idxprom.i
   %and.i11 = and i32 %l.sroa.0.08.i, 1
   %tobool.not.i = icmp eq i32 %and.i11, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %12 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  %13 = load i32, ptr %12, align 4
-  store i32 %5, ptr %12, align 4
+  %14 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %15 = load i32, ptr %14, align 4
+  store i32 %7, ptr %14, align 4
   br label %if.end.i
 
 if.else.i:                                        ; preds = %while.body.i
-  %14 = load i32, ptr %arrayidx.i, align 4
-  %shr.i.i = lshr i32 %14, 4
-  %15 = and i32 %14, 15
-  %or4.i.i = or disjoint i32 %15, %shl.i.i
+  %16 = load i32, ptr %arrayidx.i, align 4
+  %shr.i.i = lshr i32 %16, 4
+  %17 = and i32 %16, 15
+  %or4.i.i = or disjoint i32 %17, %shl.i.i
   store i32 %or4.i.i, ptr %arrayidx.i, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
-  %l.sroa.0.1.i = phi i32 [ %13, %if.then.i ], [ %shr.i.i, %if.else.i ]
+  %l.sroa.0.1.i = phi i32 [ %15, %if.then.i ], [ %shr.i.i, %if.else.i ]
   %cmp.not.i = icmp eq i32 %l.sroa.0.1.i, 0
-  br i1 %cmp.not.i, label %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit, label %while.body.i, !llvm.loop !7
-
-_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit: ; preds = %if.end.i, %if.then13
-  %b.sroa.0.0.b.sroa.0.0.retval.sroa.0.0.copyload = load <2 x i64>, ptr %b.sroa.0, align 16
-  store <2 x i64> %b.sroa.0.0.b.sroa.0.0.retval.sroa.0.0.copyload, ptr %retval.sroa.0, align 16
-  br label %return
+  br i1 %cmp.not.i, label %return, label %while.body.i, !llvm.loop !7
 
 if.end19:                                         ; preds = %land.lhs.true, %if.end
   %reversed_ = getelementptr inbounds i8, ptr %this, i64 112
-  %16 = load i8, ptr %reversed_, align 8
-  %17 = and i8 %16, 1
-  %tobool.not = icmp eq i8 %17, 0
+  %18 = load i8, ptr %reversed_, align 8
+  %19 = and i8 %18, 1
+  %tobool.not = icmp eq i8 %19, 0
   br i1 %tobool.not, label %if.end32, label %if.then20
 
 if.then20:                                        ; preds = %if.end19
-  %b.sroa.0.4.b.4.b.4.b.4.b.4.end24.sroa_idx64 = getelementptr inbounds i8, ptr %b.sroa.0, i64 4
-  %b.sroa.0.4.b.sroa.0.4.b.4.b.4.b.4.b.4.agg.tmp23.sroa.0.0.copyload = load i64, ptr %b.sroa.0.4.b.4.b.4.b.4.b.4.end24.sroa_idx64, align 4
-  %l.sroa.0.0.extract.trunc.i13 = trunc i64 %b.sroa.0.4.b.sroa.0.4.b.4.b.4.b.4.b.4.agg.tmp23.sroa.0.0.copyload to i32
+  %b.sroa.0.4.vec.extract.extract = shufflevector <8 x i8> %0, <8 x i8> poison, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %20 = bitcast <16 x i8> %b.sroa.0.4.vec.extract.extract to <4 x i32>
+  %l.sroa.0.0.extract.trunc.i13 = extractelement <4 x i32> %20, i64 0
   %cmp.not7.i14 = icmp eq i32 %l.sroa.0.0.extract.trunc.i13, 0
   br i1 %cmp.not7.i14, label %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit31, label %while.body.lr.ph.i15
 
 while.body.lr.ph.i15:                             ; preds = %if.then20
-  %shl.i.i16 = shl i32 %2, 4
+  %shl.i.i16 = shl i32 %4, 4
   br label %while.body.i17
 
 while.body.i17:                                   ; preds = %if.end.i25, %while.body.lr.ph.i15
   %l.sroa.0.08.i18 = phi i32 [ %l.sroa.0.0.extract.trunc.i13, %while.body.lr.ph.i15 ], [ %l.sroa.0.1.i26, %if.end.i25 ]
   %shr.i19 = lshr i32 %l.sroa.0.08.i18, 1
   %idxprom.i20 = zext nneg i32 %shr.i19 to i64
-  %arrayidx.i21 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %10, i64 %idxprom.i20
+  %arrayidx.i21 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %12, i64 %idxprom.i20
   %and.i22 = and i32 %l.sroa.0.08.i18, 1
   %tobool.not.i23 = icmp eq i32 %and.i22, 0
   br i1 %tobool.not.i23, label %if.else.i28, label %if.then.i24
 
 if.then.i24:                                      ; preds = %while.body.i17
-  %18 = getelementptr inbounds i8, ptr %arrayidx.i21, i64 4
-  %19 = load i32, ptr %18, align 4
-  store i32 %2, ptr %18, align 4
+  %21 = getelementptr inbounds i8, ptr %arrayidx.i21, i64 4
+  %22 = load i32, ptr %21, align 4
+  store i32 %4, ptr %21, align 4
   br label %if.end.i25
 
 if.else.i28:                                      ; preds = %while.body.i17
-  %20 = load i32, ptr %arrayidx.i21, align 4
-  %shr.i.i29 = lshr i32 %20, 4
-  %21 = and i32 %20, 15
-  %or4.i.i30 = or disjoint i32 %21, %shl.i.i16
+  %23 = load i32, ptr %arrayidx.i21, align 4
+  %shr.i.i29 = lshr i32 %23, 4
+  %24 = and i32 %23, 15
+  %or4.i.i30 = or disjoint i32 %24, %shl.i.i16
   store i32 %or4.i.i30, ptr %arrayidx.i21, align 4
   br label %if.end.i25
 
 if.end.i25:                                       ; preds = %if.else.i28, %if.then.i24
-  %l.sroa.0.1.i26 = phi i32 [ %19, %if.then.i24 ], [ %shr.i.i29, %if.else.i28 ]
+  %l.sroa.0.1.i26 = phi i32 [ %22, %if.then.i24 ], [ %shr.i.i29, %if.else.i28 ]
   %cmp.not.i27 = icmp eq i32 %l.sroa.0.1.i26, 0
   br i1 %cmp.not.i27, label %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit31, label %while.body.i17, !llvm.loop !7
 
 _ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit31: ; preds = %if.end.i25, %if.then20
   %a.4.a.4.a.4.a.4.end28.sroa_idx = getelementptr inbounds i8, ptr %a, i64 4
-  %a.4.a.4.a.4.a.4.agg.tmp27.sroa.0.0.copyload = load i64, ptr %a.4.a.4.a.4.a.4.end28.sroa_idx, align 4
-  %22 = and i8 %7, 1
-  %tobool29 = icmp ne i8 %22, 0
-  %23 = and i8 %9, 1
-  %tobool31 = icmp ne i8 %23, 0
-  %24 = select i1 %tobool29, i1 %tobool31, i1 false
-  %frombool.i = zext i1 %24 to i8
-  store i32 %5, ptr %retval.sroa.0, align 16
-  %retval.sroa.0.4.retval.4.retval.4.end3.i.sroa_idx59 = getelementptr inbounds i8, ptr %retval.sroa.0, i64 4
-  store i64 %a.4.a.4.a.4.a.4.agg.tmp27.sroa.0.0.copyload, ptr %retval.sroa.0.4.retval.4.retval.4.end3.i.sroa_idx59, align 4
-  %retval.sroa.0.12.retval.12.retval.12.nullable4.i.sroa_idx62 = getelementptr inbounds i8, ptr %retval.sroa.0, i64 12
-  store i8 %frombool.i, ptr %retval.sroa.0.12.retval.12.retval.12.nullable4.i.sroa_idx62, align 4
+  %a.4.a.4.a.4.a.4.agg.tmp27.sroa.0.0.copyload74 = load <8 x i8>, ptr %a.4.a.4.a.4.a.4.end28.sroa_idx, align 4
+  %25 = and i8 %9, 1
+  %tobool29 = icmp ne i8 %25, 0
+  %26 = and i8 %11, 1
+  %tobool31 = icmp ne i8 %26, 0
+  %27 = select i1 %tobool29, i1 %tobool31, i1 false
+  %frombool.i = zext i1 %27 to i8
+  %28 = bitcast i32 %7 to <4 x i8>
+  %retval.sroa.0.0.vec.expand = shufflevector <4 x i8> %28, <4 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %retval.sroa.0.0.vecblend = shufflevector <16 x i8> %retval.sroa.0.0.vec.expand, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 undef, i8 undef, i8 undef>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 29, i32 30, i32 31>
+  %retval.sroa.0.4.vec.expand = shufflevector <8 x i8> %a.4.a.4.a.4.a.4.agg.tmp27.sroa.0.0.copyload74, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison>
+  %retval.sroa.0.4.vecblend = shufflevector <16 x i8> %retval.sroa.0.0.vecblend, <16 x i8> %retval.sroa.0.4.vec.expand, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 poison, i32 13, i32 14, i32 15>
+  %retval.sroa.0.12.vec.insert = insertelement <16 x i8> %retval.sroa.0.4.vecblend, i8 %frombool.i, i64 12
   br label %return
 
 if.end32:                                         ; preds = %if.end19
@@ -603,59 +595,64 @@ if.end32:                                         ; preds = %if.end19
   br i1 %cmp.not7.i34, label %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit51, label %while.body.lr.ph.i35
 
 while.body.lr.ph.i35:                             ; preds = %if.end32
-  %shl.i.i36 = shl i32 %5, 4
+  %shl.i.i36 = shl i32 %7, 4
   br label %while.body.i37
 
 while.body.i37:                                   ; preds = %if.end.i45, %while.body.lr.ph.i35
   %l.sroa.0.08.i38 = phi i32 [ %l.sroa.0.0.extract.trunc.i33, %while.body.lr.ph.i35 ], [ %l.sroa.0.1.i46, %if.end.i45 ]
   %shr.i39 = lshr i32 %l.sroa.0.08.i38, 1
   %idxprom.i40 = zext nneg i32 %shr.i39 to i64
-  %arrayidx.i41 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %10, i64 %idxprom.i40
+  %arrayidx.i41 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %12, i64 %idxprom.i40
   %and.i42 = and i32 %l.sroa.0.08.i38, 1
   %tobool.not.i43 = icmp eq i32 %and.i42, 0
   br i1 %tobool.not.i43, label %if.else.i48, label %if.then.i44
 
 if.then.i44:                                      ; preds = %while.body.i37
-  %25 = getelementptr inbounds i8, ptr %arrayidx.i41, i64 4
-  %26 = load i32, ptr %25, align 4
-  store i32 %5, ptr %25, align 4
+  %29 = getelementptr inbounds i8, ptr %arrayidx.i41, i64 4
+  %30 = load i32, ptr %29, align 4
+  store i32 %7, ptr %29, align 4
   br label %if.end.i45
 
 if.else.i48:                                      ; preds = %while.body.i37
-  %27 = load i32, ptr %arrayidx.i41, align 4
-  %shr.i.i49 = lshr i32 %27, 4
-  %28 = and i32 %27, 15
-  %or4.i.i50 = or disjoint i32 %28, %shl.i.i36
+  %31 = load i32, ptr %arrayidx.i41, align 4
+  %shr.i.i49 = lshr i32 %31, 4
+  %32 = and i32 %31, 15
+  %or4.i.i50 = or disjoint i32 %32, %shl.i.i36
   store i32 %or4.i.i50, ptr %arrayidx.i41, align 4
   br label %if.end.i45
 
 if.end.i45:                                       ; preds = %if.else.i48, %if.then.i44
-  %l.sroa.0.1.i46 = phi i32 [ %26, %if.then.i44 ], [ %shr.i.i49, %if.else.i48 ]
+  %l.sroa.0.1.i46 = phi i32 [ %30, %if.then.i44 ], [ %shr.i.i49, %if.else.i48 ]
   %cmp.not.i47 = icmp eq i32 %l.sroa.0.1.i46, 0
   br i1 %cmp.not.i47, label %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit51, label %while.body.i37, !llvm.loop !7
 
 _ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit51: ; preds = %if.end.i45, %if.end32
-  %b.sroa.0.4.b.4.b.4.b.4.b.4.end40.sroa_idx65 = getelementptr inbounds i8, ptr %b.sroa.0, i64 4
-  %b.sroa.0.4.b.sroa.0.4.b.4.b.4.b.4.b.4.agg.tmp39.sroa.0.0.copyload = load i64, ptr %b.sroa.0.4.b.4.b.4.b.4.b.4.end40.sroa_idx65, align 4
-  %29 = and i8 %9, 1
-  %tobool42 = icmp ne i8 %29, 0
-  %30 = and i8 %7, 1
-  %tobool45 = icmp ne i8 %30, 0
-  %31 = select i1 %tobool42, i1 %tobool45, i1 false
-  %frombool.i52 = zext i1 %31 to i8
-  store i32 %2, ptr %retval.sroa.0, align 16
-  %retval.sroa.0.4.retval.4.retval.4.end3.i53.sroa_idx60 = getelementptr inbounds i8, ptr %retval.sroa.0, i64 4
-  store i64 %b.sroa.0.4.b.sroa.0.4.b.4.b.4.b.4.b.4.agg.tmp39.sroa.0.0.copyload, ptr %retval.sroa.0.4.retval.4.retval.4.end3.i53.sroa_idx60, align 4
-  %retval.sroa.0.12.retval.12.retval.12.nullable4.i54.sroa_idx63 = getelementptr inbounds i8, ptr %retval.sroa.0, i64 12
-  store i8 %frombool.i52, ptr %retval.sroa.0.12.retval.12.retval.12.nullable4.i54.sroa_idx63, align 4
+  %b.sroa.0.4.vec.extract71.extract = shufflevector <16 x i8> %b.sroa.0.8.vecblend, <16 x i8> poison, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %b.sroa.0.4.vec.extract71.bc = bitcast <16 x i8> %b.sroa.0.4.vec.extract71.extract to <2 x i64>
+  %b.sroa.0.4.vec.extract71.extract75 = extractelement <2 x i64> %b.sroa.0.4.vec.extract71.bc, i64 0
+  %33 = and i8 %11, 1
+  %tobool42 = icmp ne i8 %33, 0
+  %34 = and i8 %9, 1
+  %tobool45 = icmp ne i8 %34, 0
+  %35 = select i1 %tobool42, i1 %tobool45, i1 false
+  %frombool.i52 = zext i1 %35 to i8
+  %36 = bitcast i32 %4 to <4 x i8>
+  %retval.sroa.0.0.vec.expand62 = shufflevector <4 x i8> %36, <4 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %retval.sroa.0.0.vecblend63 = shufflevector <16 x i8> %retval.sroa.0.0.vec.expand62, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 undef, i8 undef, i8 undef>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 29, i32 30, i32 31>
+  %37 = bitcast i64 %b.sroa.0.4.vec.extract71.extract75 to <8 x i8>
+  %retval.sroa.0.4.vec.expand65 = shufflevector <8 x i8> %37, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison>
+  %retval.sroa.0.4.vecblend66 = shufflevector <16 x i8> %retval.sroa.0.0.vecblend63, <16 x i8> %retval.sroa.0.4.vec.expand65, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 poison, i32 13, i32 14, i32 15>
+  %retval.sroa.0.12.vec.insert68 = insertelement <16 x i8> %retval.sroa.0.4.vecblend66, i8 %frombool.i52, i64 12
   br label %return
 
-return:                                           ; preds = %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit51, %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit31, %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit, %if.then
-  %retval.sroa.0.0.retval.sroa.0.0.retval.0.retval.0..fca.0.load = load i64, ptr %retval.sroa.0, align 16
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.retval.sroa.0.0.retval.0.retval.0..fca.0.load, 0
-  %retval.sroa.0.8.retval.8.retval.8..fca.1.gep.sroa_idx61 = getelementptr inbounds i8, ptr %retval.sroa.0, i64 8
-  %retval.sroa.0.8.retval.sroa.0.8.retval.8.retval.8..fca.1.load = load i64, ptr %retval.sroa.0.8.retval.8.retval.8..fca.1.gep.sroa_idx61, align 8
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.0.8.retval.sroa.0.8.retval.8.retval.8..fca.1.load, 1
+return:                                           ; preds = %if.then13, %if.end.i, %entry, %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit51, %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit31
+  %retval.sroa.0.0 = phi <16 x i8> [ %retval.sroa.0.12.vec.insert68, %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit51 ], [ %retval.sroa.0.12.vec.insert, %_ZN3re29PatchList5PatchEPNS_4Prog4InstES0_j.exit31 ], [ zeroinitializer, %entry ], [ %b.sroa.0.8.vecblend, %if.end.i ], [ %b.sroa.0.8.vecblend, %if.then13 ]
+  %retval.sroa.0.0.vec.extract.bc = bitcast <16 x i8> %retval.sroa.0.0 to <2 x i64>
+  %retval.sroa.0.0.vec.extract.extract = extractelement <2 x i64> %retval.sroa.0.0.vec.extract.bc, i64 0
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.vec.extract.extract, 0
+  %retval.sroa.0.8.vec.extract.bc = bitcast <16 x i8> %retval.sroa.0.0 to <2 x i64>
+  %retval.sroa.0.8.vec.extract.extract = extractelement <2 x i64> %retval.sroa.0.8.vec.extract.bc, i64 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.0.8.vec.extract.extract, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
@@ -665,63 +662,52 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define { i64, i64 } @_ZN3re28Compiler3AltENS_4FragES1_(ptr nocapture noundef nonnull align 8 dereferenceable(212) %this, i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1) local_unnamed_addr #0 align 2 {
 entry:
-  %retval.sroa.0 = alloca <2 x i64>, align 16
-  %a.sroa.0 = alloca <2 x i64>, align 16
-  %b.sroa.0 = alloca <2 x i64>, align 16
-  store i64 %a.coerce0, ptr %a.sroa.0, align 16
-  %a.sroa.0.8.a.8.a.8.a.8.a.8..sroa_idx11 = getelementptr inbounds i8, ptr %a.sroa.0, i64 8
-  store i64 %a.coerce1, ptr %a.sroa.0.8.a.8.a.8.a.8.a.8..sroa_idx11, align 8
-  store i64 %b.coerce0, ptr %b.sroa.0, align 16
-  %b.sroa.0.8.b.8.b.8.b.8.b.8..sroa_idx13 = getelementptr inbounds i8, ptr %b.sroa.0, i64 8
-  store i64 %b.coerce1, ptr %b.sroa.0.8.b.8.b.8.b.8.b.8..sroa_idx13, align 8
-  %0 = and i64 %a.coerce0, 4294967295
-  %cmp.i = icmp eq i64 %0, 0
-  %1 = trunc i64 %a.coerce0 to i32
-  %2 = trunc i64 %b.coerce0 to i32
-  br i1 %cmp.i, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %b.sroa.0.0.b.sroa.0.0.retval.sroa.0.0.copyload = load <2 x i64>, ptr %b.sroa.0, align 16
-  store <2 x i64> %b.sroa.0.0.b.sroa.0.0.retval.sroa.0.0.copyload, ptr %retval.sroa.0, align 16
-  br label %return
+  %0 = bitcast i64 %a.coerce0 to <8 x i8>
+  %a.sroa.0.0.vec.expand = shufflevector <8 x i8> %0, <8 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %1 = bitcast i64 %a.coerce1 to <8 x i8>
+  %a.sroa.0.8.vec.expand = shufflevector <8 x i8> %1, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %a.sroa.0.8.vecblend = shufflevector <16 x i8> %a.sroa.0.0.vec.expand, <16 x i8> %a.sroa.0.8.vec.expand, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %2 = bitcast i64 %b.coerce0 to <8 x i8>
+  %b.sroa.0.0.vec.expand = shufflevector <8 x i8> %2, <8 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %3 = bitcast i64 %b.coerce1 to <8 x i8>
+  %b.sroa.0.8.vec.expand = shufflevector <8 x i8> %3, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %b.sroa.0.8.vecblend = shufflevector <16 x i8> %b.sroa.0.0.vec.expand, <16 x i8> %b.sroa.0.8.vec.expand, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %4 = and i64 %a.coerce0, 4294967295
+  %cmp.i = icmp eq i64 %4, 0
+  %5 = trunc i64 %a.coerce0 to i32
+  %6 = trunc i64 %b.coerce0 to i32
+  br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %3 = and i64 %b.coerce0, 4294967295
-  %cmp.i3 = icmp eq i64 %3, 0
-  br i1 %cmp.i3, label %if.then4, label %if.end5
-
-if.then4:                                         ; preds = %if.end
-  %a.sroa.0.0.a.sroa.0.0.retval.sroa.0.0.copyload6 = load <2 x i64>, ptr %a.sroa.0, align 16
-  store <2 x i64> %a.sroa.0.0.a.sroa.0.0.retval.sroa.0.0.copyload6, ptr %retval.sroa.0, align 16
-  br label %return
+  %7 = and i64 %b.coerce0, 4294967295
+  %cmp.i3 = icmp eq i64 %7, 0
+  br i1 %cmp.i3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
   %call6 = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp = icmp slt i32 %call6, 0
-  br i1 %cmp, label %if.then7, label %if.end9
-
-if.then7:                                         ; preds = %if.end5
-  store <2 x i64> zeroinitializer, ptr %retval.sroa.0, align 16
-  br label %return
+  br i1 %cmp, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
   %conv.i = zext nneg i32 %call6 to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
-  %4 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %4, i64 %conv.i
-  tail call void @_ZN3re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i, i32 noundef %1, i32 noundef %2)
-  %5 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %a.sroa.0.4.a.4.a.4.a.4.a.4.end.sroa_idx10 = getelementptr inbounds i8, ptr %a.sroa.0, i64 4
-  %a.sroa.0.4.a.sroa.0.4.a.4.a.4.a.4.a.4.agg.tmp15.sroa.0.0.copyload = load i64, ptr %a.sroa.0.4.a.4.a.4.a.4.a.4.end.sroa_idx10, align 4
-  %b.sroa.0.4.b.4.b.4.b.4.b.4.end17.sroa_idx12 = getelementptr inbounds i8, ptr %b.sroa.0, i64 4
-  %b.sroa.0.4.b.sroa.0.4.b.4.b.4.b.4.b.4.agg.tmp16.sroa.0.0.copyload = load i64, ptr %b.sroa.0.4.b.4.b.4.b.4.b.4.end17.sroa_idx12, align 4
-  %l2.sroa.0.0.extract.trunc.i = trunc i64 %b.sroa.0.4.b.sroa.0.4.b.4.b.4.b.4.b.4.agg.tmp16.sroa.0.0.copyload to i32
-  %6 = and i64 %a.sroa.0.4.a.sroa.0.4.a.4.a.4.a.4.a.4.agg.tmp15.sroa.0.0.copyload, 4294967295
-  %cmp.i4 = icmp eq i64 %6, 0
+  %8 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
+  %arrayidx.i.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %8, i64 %conv.i
+  tail call void @_ZN3re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i, i32 noundef %5, i32 noundef %6)
+  %9 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
+  %a.sroa.0.4.vec.extract.extract = shufflevector <16 x i8> %a.sroa.0.8.vecblend, <16 x i8> poison, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %a.sroa.0.4.vec.extract.bc = bitcast <16 x i8> %a.sroa.0.4.vec.extract.extract to <2 x i64>
+  %a.sroa.0.4.vec.extract.extract12 = extractelement <2 x i64> %a.sroa.0.4.vec.extract.bc, i64 0
+  %b.sroa.0.4.vec.extract.extract = shufflevector <16 x i8> %b.sroa.0.8.vecblend, <16 x i8> poison, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %b.sroa.0.4.vec.extract.bc = bitcast <16 x i8> %b.sroa.0.4.vec.extract.extract to <2 x i64>
+  %b.sroa.0.4.vec.extract.extract13 = extractelement <2 x i64> %b.sroa.0.4.vec.extract.bc, i64 0
+  %l2.sroa.0.0.extract.trunc.i = trunc i64 %b.sroa.0.4.vec.extract.extract13 to i32
+  %10 = and i64 %a.sroa.0.4.vec.extract.extract12, 4294967295
+  %cmp.i4 = icmp eq i64 %10, 0
   br i1 %cmp.i4, label %if.end9._ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit_crit_edge, label %if.end.i
 
 if.end9._ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit_crit_edge: ; preds = %if.end9
-  %.pre = and i64 %b.sroa.0.4.b.sroa.0.4.b.4.b.4.b.4.b.4.agg.tmp16.sroa.0.0.copyload, 4294967295
+  %.pre = and i64 %b.sroa.0.4.vec.extract.extract13, 4294967295
   br label %_ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit
 
 if.end.i:                                         ; preds = %if.end9
@@ -729,49 +715,53 @@ if.end.i:                                         ; preds = %if.end9
   br i1 %cmp2.i, label %_ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %shr.i = lshr i64 %a.sroa.0.4.a.sroa.0.4.a.4.a.4.a.4.a.4.agg.tmp15.sroa.0.0.copyload, 33
-  %arrayidx.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %5, i64 %shr.i
-  %7 = and i64 %a.sroa.0.4.a.sroa.0.4.a.4.a.4.a.4.a.4.agg.tmp15.sroa.0.0.copyload, 4294967296
-  %tobool.not.i = icmp eq i64 %7, 0
+  %shr.i = lshr i64 %a.sroa.0.4.vec.extract.extract12, 33
+  %arrayidx.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %9, i64 %shr.i
+  %11 = and i64 %a.sroa.0.4.vec.extract.extract12, 4294967296
+  %tobool.not.i = icmp eq i64 %11, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %8 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  store i32 %l2.sroa.0.0.extract.trunc.i, ptr %8, align 4
+  %12 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  store i32 %l2.sroa.0.0.extract.trunc.i, ptr %12, align 4
   br label %_ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit
 
 if.else.i:                                        ; preds = %if.end4.i
   %shl.i.i = shl i32 %l2.sroa.0.0.extract.trunc.i, 4
-  %9 = load i32, ptr %arrayidx.i, align 4
-  %10 = and i32 %9, 15
-  %or4.i.i = or disjoint i32 %10, %shl.i.i
+  %13 = load i32, ptr %arrayidx.i, align 4
+  %14 = and i32 %13, 15
+  %or4.i.i = or disjoint i32 %14, %shl.i.i
   store i32 %or4.i.i, ptr %arrayidx.i, align 4
   br label %_ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit
 
 _ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit: ; preds = %if.end9._ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit_crit_edge, %if.end.i, %if.then6.i, %if.else.i
-  %retval.sroa.0.0.insert.ext.i.pre-phi = phi i64 [ %.pre, %if.end9._ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit_crit_edge ], [ %6, %if.end.i ], [ %6, %if.then6.i ], [ %6, %if.else.i ]
-  %retval.sroa.4.0.in.i = phi i64 [ %b.sroa.0.4.b.sroa.0.4.b.4.b.4.b.4.b.4.agg.tmp16.sroa.0.0.copyload, %if.end9._ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit_crit_edge ], [ %a.sroa.0.4.a.sroa.0.4.a.4.a.4.a.4.a.4.agg.tmp15.sroa.0.0.copyload, %if.end.i ], [ %b.sroa.0.4.b.sroa.0.4.b.4.b.4.b.4.b.4.agg.tmp16.sroa.0.0.copyload, %if.then6.i ], [ %b.sroa.0.4.b.sroa.0.4.b.4.b.4.b.4.b.4.agg.tmp16.sroa.0.0.copyload, %if.else.i ]
+  %retval.sroa.0.0.insert.ext.i.pre-phi = phi i64 [ %.pre, %if.end9._ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit_crit_edge ], [ %10, %if.end.i ], [ %10, %if.then6.i ], [ %10, %if.else.i ]
+  %retval.sroa.4.0.in.i = phi i64 [ %b.sroa.0.4.vec.extract.extract13, %if.end9._ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit_crit_edge ], [ %a.sroa.0.4.vec.extract.extract12, %if.end.i ], [ %b.sroa.0.4.vec.extract.extract13, %if.then6.i ], [ %b.sroa.0.4.vec.extract.extract13, %if.else.i ]
   %retval.sroa.4.0.i = and i64 %retval.sroa.4.0.in.i, -4294967296
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.4.0.i, %retval.sroa.0.0.insert.ext.i.pre-phi
-  %11 = and i64 %a.coerce1, 4294967296
-  %tobool = icmp ne i64 %11, 0
-  %12 = and i64 %b.coerce1, 4294967296
-  %tobool20 = icmp ne i64 %12, 0
-  %13 = select i1 %tobool, i1 true, i1 %tobool20
-  %frombool.i = zext i1 %13 to i8
-  store i32 %call6, ptr %retval.sroa.0, align 16
-  %retval.sroa.0.4.retval.4.retval.4.end3.i.sroa_idx7 = getelementptr inbounds i8, ptr %retval.sroa.0, i64 4
-  store i64 %retval.sroa.0.0.insert.insert.i, ptr %retval.sroa.0.4.retval.4.retval.4.end3.i.sroa_idx7, align 4
-  %retval.sroa.0.12.retval.12.retval.12.nullable4.i.sroa_idx9 = getelementptr inbounds i8, ptr %retval.sroa.0, i64 12
-  store i8 %frombool.i, ptr %retval.sroa.0.12.retval.12.retval.12.nullable4.i.sroa_idx9, align 4
+  %15 = and i64 %a.coerce1, 4294967296
+  %tobool = icmp ne i64 %15, 0
+  %16 = and i64 %b.coerce1, 4294967296
+  %tobool20 = icmp ne i64 %16, 0
+  %17 = select i1 %tobool, i1 true, i1 %tobool20
+  %frombool.i = zext i1 %17 to i8
+  %18 = bitcast i32 %call6 to <4 x i8>
+  %retval.sroa.0.0.vec.expand = shufflevector <4 x i8> %18, <4 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %retval.sroa.0.0.vecblend = shufflevector <16 x i8> %retval.sroa.0.0.vec.expand, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 undef, i8 undef, i8 undef>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 29, i32 30, i32 31>
+  %19 = bitcast i64 %retval.sroa.0.0.insert.insert.i to <8 x i8>
+  %retval.sroa.0.4.vec.expand = shufflevector <8 x i8> %19, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison>
+  %retval.sroa.0.4.vecblend = shufflevector <16 x i8> %retval.sroa.0.0.vecblend, <16 x i8> %retval.sroa.0.4.vec.expand, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 poison, i32 13, i32 14, i32 15>
+  %retval.sroa.0.12.vec.insert = insertelement <16 x i8> %retval.sroa.0.4.vecblend, i8 %frombool.i, i64 12
   br label %return
 
-return:                                           ; preds = %_ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit, %if.then7, %if.then4, %if.then
-  %retval.sroa.0.0.retval.sroa.0.0.retval.0.retval.0..fca.0.load = load i64, ptr %retval.sroa.0, align 16
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.retval.sroa.0.0.retval.0.retval.0..fca.0.load, 0
-  %retval.sroa.0.8.retval.8.retval.8..fca.1.gep.sroa_idx8 = getelementptr inbounds i8, ptr %retval.sroa.0, i64 8
-  %retval.sroa.0.8.retval.sroa.0.8.retval.8.retval.8..fca.1.load = load i64, ptr %retval.sroa.0.8.retval.8.retval.8..fca.1.gep.sroa_idx8, align 8
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.0.8.retval.sroa.0.8.retval.8.retval.8..fca.1.load, 1
+return:                                           ; preds = %if.end5, %if.end, %entry, %_ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit
+  %retval.sroa.0.0 = phi <16 x i8> [ %retval.sroa.0.12.vec.insert, %_ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit ], [ %b.sroa.0.8.vecblend, %entry ], [ %a.sroa.0.8.vecblend, %if.end ], [ zeroinitializer, %if.end5 ]
+  %retval.sroa.0.0.vec.extract.bc = bitcast <16 x i8> %retval.sroa.0.0 to <2 x i64>
+  %retval.sroa.0.0.vec.extract.extract = extractelement <2 x i64> %retval.sroa.0.0.vec.extract.bc, i64 0
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.vec.extract.extract, 0
+  %retval.sroa.0.8.vec.extract.bc = bitcast <16 x i8> %retval.sroa.0.0 to <2 x i64>
+  %retval.sroa.0.8.vec.extract.extract = extractelement <2 x i64> %retval.sroa.0.8.vec.extract.bc, i64 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.0.8.vec.extract.extract, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
@@ -1509,23 +1499,9 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEEN
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3re28Compiler22UncachedRuneByteSuffixEhhbi(ptr nocapture noundef nonnull align 8 dereferenceable(212) %this, i8 noundef zeroext %lo, i8 noundef zeroext %hi, i1 noundef zeroext %foldcase, i32 noundef %next) local_unnamed_addr #0 align 2 {
 entry:
-  %retval.i.i.sroa.0 = alloca <4 x i32>, align 16
-  %retval.i.sroa.0 = alloca <4 x i32>, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.sroa.0)
   %call.i = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i = icmp slt i32 %call.i, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.sroa.0)
-  store i32 0, ptr %retval.i.i.sroa.0, align 16
-  %retval.i.i.sroa.0.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx17 = getelementptr inbounds i8, ptr %retval.i.i.sroa.0, i64 4
-  store i64 0, ptr %retval.i.i.sroa.0.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx17, align 4
-  %retval.i.i.sroa.0.12.retval.i.i.12.retval.i.i.12.retval.i.12.retval.i.12.retval.12.retval.12.nullable.i.sroa_idx18 = getelementptr inbounds i8, ptr %retval.i.i.sroa.0, i64 12
-  store i8 0, ptr %retval.i.i.sroa.0.12.retval.i.i.12.retval.i.i.12.retval.i.12.retval.i.12.retval.12.retval.12.nullable.i.sroa_idx18, align 4
-  %retval.i.i.sroa.0.0.retval.i.i.sroa.0.0. = load <4 x i32>, ptr %retval.i.i.sroa.0, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.sroa.0)
-  br label %_ZN3re28Compiler9ByteRangeEiib.exit
+  br i1 %cmp.i, label %_ZN3re28Compiler9ByteRangeEiib.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %conv2 = zext i8 %hi to i32
@@ -1539,24 +1515,25 @@ if.end.i:                                         ; preds = %entry
   %shl.i = shl nuw i32 %call.i, 1
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %shl.i to i64
   %retval.sroa.0.0.insert.insert.i.i = mul nuw i64 %retval.sroa.2.0.insert.ext.i.i, 4294967297
-  store i32 %call.i, ptr %retval.i.sroa.0, align 16
-  %retval.i.sroa.0.4.retval.i.4.retval.i.4.retval.4.retval.4.end3.i.sroa_idx15 = getelementptr inbounds i8, ptr %retval.i.sroa.0, i64 4
-  store i64 %retval.sroa.0.0.insert.insert.i.i, ptr %retval.i.sroa.0.4.retval.i.4.retval.i.4.retval.4.retval.4.end3.i.sroa_idx15, align 4
-  %retval.i.sroa.0.12.retval.i.12.retval.i.12.retval.12.retval.12.nullable4.i.sroa_idx16 = getelementptr inbounds i8, ptr %retval.i.sroa.0, i64 12
-  store i8 0, ptr %retval.i.sroa.0.12.retval.i.12.retval.i.12.retval.12.retval.12.nullable4.i.sroa_idx16, align 4
-  %retval.i.sroa.0.0.retval.i.sroa.0.0. = load <4 x i32>, ptr %retval.i.sroa.0, align 16
+  %1 = bitcast i32 %call.i to <4 x i8>
+  %retval.i.sroa.0.0.vec.expand = shufflevector <4 x i8> %1, <4 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %retval.i.sroa.0.0.vecblend = shufflevector <16 x i8> %retval.i.sroa.0.0.vec.expand, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 undef, i8 undef, i8 undef>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 29, i32 30, i32 31>
+  %2 = bitcast i64 %retval.sroa.0.0.insert.insert.i.i to <8 x i8>
+  %retval.i.sroa.0.4.vec.expand = shufflevector <8 x i8> %2, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison>
+  %retval.i.sroa.0.4.vecblend = shufflevector <16 x i8> %retval.i.sroa.0.0.vecblend, <16 x i8> %retval.i.sroa.0.4.vec.expand, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 poison, i32 13, i32 14, i32 15>
+  %retval.i.sroa.0.12.vec.insert = insertelement <16 x i8> %retval.i.sroa.0.4.vecblend, i8 0, i64 12
+  %3 = bitcast <16 x i8> %retval.i.sroa.0.12.vec.insert to <4 x i32>
   br label %_ZN3re28Compiler9ByteRangeEiib.exit
 
-_ZN3re28Compiler9ByteRangeEiib.exit:              ; preds = %if.then.i, %if.end.i
-  %1 = phi <4 x i32> [ %retval.i.sroa.0.0.retval.i.sroa.0.0., %if.end.i ], [ %retval.i.i.sroa.0.0.retval.i.i.sroa.0.0., %if.then.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.sroa.0)
+_ZN3re28Compiler9ByteRangeEiib.exit:              ; preds = %entry, %if.end.i
+  %4 = phi <4 x i32> [ %3, %if.end.i ], [ zeroinitializer, %entry ]
   %cmp.not = icmp eq i32 %next, 0
   %add.ptr.i.i.i.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 128
-  %2 = load ptr, ptr %add.ptr.i.i.i.i.i.i4, align 8
+  %5 = load ptr, ptr %add.ptr.i.i.i.i.i.i4, align 8
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZN3re28Compiler9ByteRangeEiib.exit
-  %l.sroa.0.0.extract.trunc.i = extractelement <4 x i32> %1, i64 1
+  %l.sroa.0.0.extract.trunc.i = extractelement <4 x i32> %4, i64 1
   %cmp.not7.i = icmp eq i32 %l.sroa.0.0.extract.trunc.i, 0
   br i1 %cmp.not7.i, label %if.end, label %while.body.lr.ph.i
 
@@ -1568,43 +1545,43 @@ while.body.i:                                     ; preds = %if.end.i3, %while.b
   %l.sroa.0.08.i = phi i32 [ %l.sroa.0.0.extract.trunc.i, %while.body.lr.ph.i ], [ %l.sroa.0.1.i, %if.end.i3 ]
   %shr.i = lshr i32 %l.sroa.0.08.i, 1
   %idxprom.i = zext nneg i32 %shr.i to i64
-  %arrayidx.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %2, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %5, i64 %idxprom.i
   %and.i = and i32 %l.sroa.0.08.i, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i2
 
 if.then.i2:                                       ; preds = %while.body.i
-  %3 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  %4 = load i32, ptr %3, align 4
-  store i32 %next, ptr %3, align 4
+  %6 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %7 = load i32, ptr %6, align 4
+  store i32 %next, ptr %6, align 4
   br label %if.end.i3
 
 if.else.i:                                        ; preds = %while.body.i
-  %5 = load i32, ptr %arrayidx.i, align 4
-  %shr.i.i = lshr i32 %5, 4
-  %6 = and i32 %5, 15
-  %or4.i.i = or disjoint i32 %6, %shl.i.i
+  %8 = load i32, ptr %arrayidx.i, align 4
+  %shr.i.i = lshr i32 %8, 4
+  %9 = and i32 %8, 15
+  %or4.i.i = or disjoint i32 %9, %shl.i.i
   store i32 %or4.i.i, ptr %arrayidx.i, align 4
   br label %if.end.i3
 
 if.end.i3:                                        ; preds = %if.else.i, %if.then.i2
-  %l.sroa.0.1.i = phi i32 [ %4, %if.then.i2 ], [ %shr.i.i, %if.else.i ]
+  %l.sroa.0.1.i = phi i32 [ %7, %if.then.i2 ], [ %shr.i.i, %if.else.i ]
   %cmp.not.i = icmp eq i32 %l.sroa.0.1.i, 0
   br i1 %cmp.not.i, label %if.end, label %while.body.i, !llvm.loop !7
 
 if.else:                                          ; preds = %_ZN3re28Compiler9ByteRangeEiib.exit
   %end7 = getelementptr inbounds i8, ptr %this, i64 196
   %agg.tmp6.sroa.0.0.copyload = load i64, ptr %end7, align 4
-  %f.sroa.0.4.vec.extract14.extract = shufflevector <4 x i32> %1, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 poison, i32 poison>
+  %f.sroa.0.4.vec.extract14.extract = shufflevector <4 x i32> %4, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 poison, i32 poison>
   %f.sroa.0.4.vec.extract14.bc = bitcast <4 x i32> %f.sroa.0.4.vec.extract14.extract to <2 x i64>
-  %f.sroa.0.4.vec.extract14.extract20 = extractelement <2 x i64> %f.sroa.0.4.vec.extract14.bc, i64 0
-  %l2.sroa.0.0.extract.trunc.i = trunc i64 %f.sroa.0.4.vec.extract14.extract20 to i32
-  %7 = and i64 %agg.tmp6.sroa.0.0.copyload, 4294967295
-  %cmp.i5 = icmp eq i64 %7, 0
+  %f.sroa.0.4.vec.extract14.extract18 = extractelement <2 x i64> %f.sroa.0.4.vec.extract14.bc, i64 0
+  %l2.sroa.0.0.extract.trunc.i = trunc i64 %f.sroa.0.4.vec.extract14.extract18 to i32
+  %10 = and i64 %agg.tmp6.sroa.0.0.copyload, 4294967295
+  %cmp.i5 = icmp eq i64 %10, 0
   br i1 %cmp.i5, label %if.else._ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit_crit_edge, label %if.end.i6
 
 if.else._ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit_crit_edge: ; preds = %if.else
-  %.pre = and i64 %f.sroa.0.4.vec.extract14.extract20, 4294967295
+  %.pre = and i64 %f.sroa.0.4.vec.extract14.extract18, 4294967295
   br label %_ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit
 
 if.end.i6:                                        ; preds = %if.else
@@ -1613,35 +1590,35 @@ if.end.i6:                                        ; preds = %if.else
 
 if.end4.i:                                        ; preds = %if.end.i6
   %shr.i7 = lshr i64 %agg.tmp6.sroa.0.0.copyload, 33
-  %arrayidx.i8 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %2, i64 %shr.i7
-  %8 = and i64 %agg.tmp6.sroa.0.0.copyload, 4294967296
-  %tobool.not.i9 = icmp eq i64 %8, 0
+  %arrayidx.i8 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %5, i64 %shr.i7
+  %11 = and i64 %agg.tmp6.sroa.0.0.copyload, 4294967296
+  %tobool.not.i9 = icmp eq i64 %11, 0
   br i1 %tobool.not.i9, label %if.else.i10, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %9 = getelementptr inbounds i8, ptr %arrayidx.i8, i64 4
-  store i32 %l2.sroa.0.0.extract.trunc.i, ptr %9, align 4
+  %12 = getelementptr inbounds i8, ptr %arrayidx.i8, i64 4
+  store i32 %l2.sroa.0.0.extract.trunc.i, ptr %12, align 4
   br label %_ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit
 
 if.else.i10:                                      ; preds = %if.end4.i
   %shl.i.i11 = shl i32 %l2.sroa.0.0.extract.trunc.i, 4
-  %10 = load i32, ptr %arrayidx.i8, align 4
-  %11 = and i32 %10, 15
-  %or4.i.i12 = or disjoint i32 %11, %shl.i.i11
+  %13 = load i32, ptr %arrayidx.i8, align 4
+  %14 = and i32 %13, 15
+  %or4.i.i12 = or disjoint i32 %14, %shl.i.i11
   store i32 %or4.i.i12, ptr %arrayidx.i8, align 4
   br label %_ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit
 
 _ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit: ; preds = %if.else._ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit_crit_edge, %if.end.i6, %if.then6.i, %if.else.i10
-  %retval.sroa.0.0.insert.ext.i.pre-phi = phi i64 [ %.pre, %if.else._ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit_crit_edge ], [ %7, %if.end.i6 ], [ %7, %if.then6.i ], [ %7, %if.else.i10 ]
-  %retval.sroa.4.0.in.i = phi i64 [ %f.sroa.0.4.vec.extract14.extract20, %if.else._ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit_crit_edge ], [ %agg.tmp6.sroa.0.0.copyload, %if.end.i6 ], [ %f.sroa.0.4.vec.extract14.extract20, %if.then6.i ], [ %f.sroa.0.4.vec.extract14.extract20, %if.else.i10 ]
+  %retval.sroa.0.0.insert.ext.i.pre-phi = phi i64 [ %.pre, %if.else._ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit_crit_edge ], [ %10, %if.end.i6 ], [ %10, %if.then6.i ], [ %10, %if.else.i10 ]
+  %retval.sroa.4.0.in.i = phi i64 [ %f.sroa.0.4.vec.extract14.extract18, %if.else._ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit_crit_edge ], [ %agg.tmp6.sroa.0.0.copyload, %if.end.i6 ], [ %f.sroa.0.4.vec.extract14.extract18, %if.then6.i ], [ %f.sroa.0.4.vec.extract14.extract18, %if.else.i10 ]
   %retval.sroa.4.0.i = and i64 %retval.sroa.4.0.in.i, -4294967296
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.4.0.i, %retval.sroa.0.0.insert.ext.i.pre-phi
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %end7, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i3, %if.then, %_ZN3re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit
-  %12 = extractelement <4 x i32> %1, i64 0
-  ret i32 %12
+  %15 = extractelement <4 x i32> %4, i64 0
+  ret i32 %15
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2343,7 +2320,6 @@ return:                                           ; preds = %if.end71, %if.then2
 ; Function Attrs: mustprogress uwtable
 define { i64, i64 } @_ZN3re28Compiler13FindByteRangeEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(212) %this, i32 noundef %root, i32 noundef %id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %retval.sroa.0 = alloca <2 x i64>, align 16
   %ref.tmp = alloca %class.LogMessage, align 8
   %conv.i = sext i32 %root to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -2380,14 +2356,14 @@ while.body.us:                                    ; preds = %while.cond.us
   %8 = load i8, ptr %7, align 4
   %9 = load i8, ptr %2, align 4
   %cmp.i26.us = icmp eq i8 %8, %9
-  br i1 %cmp.i26.us, label %land.lhs.true.i27.us, label %if.then18
+  br i1 %cmp.i26.us, label %land.lhs.true.i27.us, label %return
 
 land.lhs.true.i27.us:                             ; preds = %while.body.us
   %hi_.i.i28.us = getelementptr inbounds i8, ptr %arrayidx.i.i.i23.us, i64 5
   %10 = load i8, ptr %hi_.i.i28.us, align 1
   %11 = load i8, ptr %hi_.i17.i29, align 1
   %cmp12.i30.us = icmp eq i8 %10, %11
-  br i1 %cmp12.i30.us, label %_ZN3re28Compiler14ByteRangeEqualEii.exit35.us, label %if.then18
+  br i1 %cmp12.i30.us, label %_ZN3re28Compiler14ByteRangeEqualEii.exit35.us, label %return
 
 _ZN3re28Compiler14ByteRangeEqualEii.exit35.us:    ; preds = %land.lhs.true.i27.us
   %hint_foldcase_.i.i32.us = getelementptr inbounds i8, ptr %arrayidx.i.i.i23.us, i64 6
@@ -2396,7 +2372,7 @@ _ZN3re28Compiler14ByteRangeEqualEii.exit35.us:    ; preds = %land.lhs.true.i27.u
   %14 = xor i16 %13, %12
   %15 = and i16 %14, 1
   %cmp19.i34.us = icmp eq i16 %15, 0
-  br i1 %cmp19.i34.us, label %if.then14, label %if.then18
+  br i1 %cmp19.i34.us, label %if.then14, label %return
 
 if.then:                                          ; preds = %entry
   %16 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
@@ -2406,7 +2382,7 @@ if.then:                                          ; preds = %entry
   %18 = getelementptr inbounds i8, ptr %arrayidx.i.i8.i, i64 4
   %19 = load i8, ptr %18, align 4
   %cmp.i = icmp eq i8 %17, %19
-  br i1 %cmp.i, label %land.lhs.true.i, label %if.else
+  br i1 %cmp.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %if.then
   %hi_.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 5
@@ -2414,7 +2390,7 @@ land.lhs.true.i:                                  ; preds = %if.then
   %hi_.i17.i = getelementptr inbounds i8, ptr %arrayidx.i.i8.i, i64 5
   %21 = load i8, ptr %hi_.i17.i, align 1
   %cmp12.i = icmp eq i8 %20, %21
-  br i1 %cmp12.i, label %_ZN3re28Compiler14ByteRangeEqualEii.exit, label %if.else
+  br i1 %cmp12.i, label %_ZN3re28Compiler14ByteRangeEqualEii.exit, label %return
 
 _ZN3re28Compiler14ByteRangeEqualEii.exit:         ; preds = %land.lhs.true.i
   %hint_foldcase_.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 6
@@ -2424,54 +2400,49 @@ _ZN3re28Compiler14ByteRangeEqualEii.exit:         ; preds = %land.lhs.true.i
   %24 = xor i16 %23, %22
   %25 = and i16 %24, 1
   %cmp19.i = icmp eq i16 %25, 0
-  br i1 %cmp19.i, label %if.then4, label %if.else
+  br i1 %cmp19.i, label %if.then4, label %return
 
 if.then4:                                         ; preds = %_ZN3re28Compiler14ByteRangeEqualEii.exit
-  store i32 %root, ptr %retval.sroa.0, align 16
-  %retval.sroa.0.4.retval.4.retval.4.end3.i.sroa_idx121 = getelementptr inbounds i8, ptr %retval.sroa.0, i64 4
-  store i64 0, ptr %retval.sroa.0.4.retval.4.retval.4.end3.i.sroa_idx121, align 4
-  %retval.sroa.0.12.retval.12.retval.12.nullable4.i.sroa_idx125 = getelementptr inbounds i8, ptr %retval.sroa.0, i64 12
-  store i8 0, ptr %retval.sroa.0.12.retval.12.retval.12.nullable4.i.sroa_idx125, align 4
-  br label %return
-
-if.else:                                          ; preds = %if.then, %land.lhs.true.i, %_ZN3re28Compiler14ByteRangeEqualEii.exit
-  store <2 x i64> zeroinitializer, ptr %retval.sroa.0, align 16
+  %26 = bitcast i32 %root to <4 x i8>
+  %retval.sroa.0.0.vec.expand = shufflevector <4 x i8> %26, <4 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %retval.sroa.0.0.vecblend = shufflevector <16 x i8> %retval.sroa.0.0.vec.expand, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 undef, i8 undef, i8 undef>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 29, i32 30, i32 31>
+  %retval.sroa.0.12.vec.insert = shufflevector <16 x i8> %retval.sroa.0.0.vecblend, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 13, i32 14, i32 15>
   br label %return
 
 while.cond:                                       ; preds = %while.cond.preheader, %if.end17
   %root.addr.0 = phi i32 [ %shr.i, %if.end17 ], [ %root, %while.cond.preheader ]
   %conv.i14 = sext i32 %root.addr.0 to i64
   %arrayidx.i.i16 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %0, i64 %conv.i14
-  %26 = load i32, ptr %arrayidx.i.i16, align 4
-  %and.i17 = and i32 %26, 7
+  %27 = load i32, ptr %arrayidx.i.i16, align 4
+  %and.i17 = and i32 %27, 7
   %cmp9 = icmp eq i32 %and.i17, 0
   br i1 %cmp9, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %27 = getelementptr inbounds i8, ptr %arrayidx.i.i16, i64 4
-  %28 = load i32, ptr %27, align 4
-  %conv.i.i21 = sext i32 %28 to i64
+  %28 = getelementptr inbounds i8, ptr %arrayidx.i.i16, i64 4
+  %29 = load i32, ptr %28, align 4
+  %conv.i.i21 = sext i32 %29 to i64
   %arrayidx.i.i.i23 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %0, i64 %conv.i.i21
-  %29 = getelementptr inbounds i8, ptr %arrayidx.i.i.i23, i64 4
-  %30 = load i8, ptr %29, align 4
-  %31 = load i8, ptr %2, align 4
-  %cmp.i26 = icmp eq i8 %30, %31
+  %30 = getelementptr inbounds i8, ptr %arrayidx.i.i.i23, i64 4
+  %31 = load i8, ptr %30, align 4
+  %32 = load i8, ptr %2, align 4
+  %cmp.i26 = icmp eq i8 %31, %32
   br i1 %cmp.i26, label %land.lhs.true.i27, label %if.end17
 
 land.lhs.true.i27:                                ; preds = %while.body
   %hi_.i.i28 = getelementptr inbounds i8, ptr %arrayidx.i.i.i23, i64 5
-  %32 = load i8, ptr %hi_.i.i28, align 1
-  %33 = load i8, ptr %hi_.i17.i29, align 1
-  %cmp12.i30 = icmp eq i8 %32, %33
+  %33 = load i8, ptr %hi_.i.i28, align 1
+  %34 = load i8, ptr %hi_.i17.i29, align 1
+  %cmp12.i30 = icmp eq i8 %33, %34
   br i1 %cmp12.i30, label %_ZN3re28Compiler14ByteRangeEqualEii.exit35, label %if.end17
 
 _ZN3re28Compiler14ByteRangeEqualEii.exit35:       ; preds = %land.lhs.true.i27
   %hint_foldcase_.i.i32 = getelementptr inbounds i8, ptr %arrayidx.i.i.i23, i64 6
-  %34 = load i16, ptr %hint_foldcase_.i.i32, align 2
-  %35 = load i16, ptr %hint_foldcase_.i25.i33, align 2
-  %36 = xor i16 %35, %34
-  %37 = and i16 %36, 1
-  %cmp19.i34 = icmp eq i16 %37, 0
+  %35 = load i16, ptr %hint_foldcase_.i.i32, align 2
+  %36 = load i16, ptr %hint_foldcase_.i25.i33, align 2
+  %37 = xor i16 %36, %35
+  %38 = and i16 %37, 1
+  %cmp19.i34 = icmp eq i16 %38, 0
   br i1 %cmp19.i34, label %if.then14, label %if.end17
 
 if.then14:                                        ; preds = %_ZN3re28Compiler14ByteRangeEqualEii.exit35, %_ZN3re28Compiler14ByteRangeEqualEii.exit35.us
@@ -2480,62 +2451,58 @@ if.then14:                                        ; preds = %_ZN3re28Compiler14B
   %or = or disjoint i32 %shl, 1
   %retval.sroa.2.0.insert.ext.i = zext i32 %or to i64
   %retval.sroa.0.0.insert.insert.i = mul nuw i64 %retval.sroa.2.0.insert.ext.i, 4294967297
-  store i32 %.us-phi, ptr %retval.sroa.0, align 16
-  %retval.sroa.0.4.retval.4.retval.4.end3.i36.sroa_idx122 = getelementptr inbounds i8, ptr %retval.sroa.0, i64 4
-  store i64 %retval.sroa.0.0.insert.insert.i, ptr %retval.sroa.0.4.retval.4.retval.4.end3.i36.sroa_idx122, align 4
-  %retval.sroa.0.12.retval.12.retval.12.nullable4.i37.sroa_idx126 = getelementptr inbounds i8, ptr %retval.sroa.0, i64 12
-  store i8 0, ptr %retval.sroa.0.12.retval.12.retval.12.nullable4.i37.sroa_idx126, align 4
+  %39 = bitcast i32 %.us-phi to <4 x i8>
+  %retval.sroa.0.0.vec.expand127 = shufflevector <4 x i8> %39, <4 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %retval.sroa.0.0.vecblend128 = shufflevector <16 x i8> %retval.sroa.0.0.vec.expand127, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 undef, i8 undef, i8 undef>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 29, i32 30, i32 31>
+  %40 = bitcast i64 %retval.sroa.0.0.insert.insert.i to <8 x i8>
+  %retval.sroa.0.4.vec.expand = shufflevector <8 x i8> %40, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison>
+  %retval.sroa.0.4.vecblend133 = shufflevector <16 x i8> %retval.sroa.0.0.vecblend128, <16 x i8> %retval.sroa.0.4.vec.expand, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 poison, i32 13, i32 14, i32 15>
+  %retval.sroa.0.12.vec.insert138 = insertelement <16 x i8> %retval.sroa.0.4.vecblend133, i8 0, i64 12
   br label %return
 
 if.end17:                                         ; preds = %while.body, %land.lhs.true.i27, %_ZN3re28Compiler14ByteRangeEqualEii.exit35
-  %shr.i = lshr i32 %26, 4
+  %shr.i = lshr i32 %27, 4
   %conv.i49 = zext nneg i32 %shr.i to i64
   %arrayidx.i.i51 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %0, i64 %conv.i49
-  %38 = load i32, ptr %arrayidx.i.i51, align 4
-  %and.i52 = and i32 %38, 7
+  %41 = load i32, ptr %arrayidx.i.i51, align 4
+  %and.i52 = and i32 %41, 7
   %cmp27 = icmp eq i32 %and.i52, 0
   br i1 %cmp27, label %while.cond, label %if.else29, !llvm.loop !16
 
-if.then18:                                        ; preds = %_ZN3re28Compiler14ByteRangeEqualEii.exit35.us, %land.lhs.true.i27.us, %while.body.us
-  store <2 x i64> zeroinitializer, ptr %retval.sroa.0, align 16
-  br label %return
-
 if.else29:                                        ; preds = %if.end17
   %arrayidx.i.i51.le = getelementptr inbounds %"class.re2::Prog::Inst", ptr %0, i64 %conv.i49
-  %39 = getelementptr inbounds i8, ptr %arrayidx.i.i51.le, i64 4
-  %40 = load i8, ptr %39, align 4
-  %cmp.i58 = icmp eq i8 %40, %31
-  br i1 %cmp.i58, label %land.lhs.true.i59, label %if.else35
+  %42 = getelementptr inbounds i8, ptr %arrayidx.i.i51.le, i64 4
+  %43 = load i8, ptr %42, align 4
+  %cmp.i58 = icmp eq i8 %43, %32
+  br i1 %cmp.i58, label %land.lhs.true.i59, label %return
 
 land.lhs.true.i59:                                ; preds = %if.else29
   %hi_.i.i60 = getelementptr inbounds i8, ptr %arrayidx.i.i51.le, i64 5
-  %41 = load i8, ptr %hi_.i.i60, align 1
-  %42 = load i8, ptr %hi_.i17.i29, align 1
-  %cmp12.i62 = icmp eq i8 %41, %42
-  br i1 %cmp12.i62, label %_ZN3re28Compiler14ByteRangeEqualEii.exit67, label %if.else35
+  %44 = load i8, ptr %hi_.i.i60, align 1
+  %45 = load i8, ptr %hi_.i17.i29, align 1
+  %cmp12.i62 = icmp eq i8 %44, %45
+  br i1 %cmp12.i62, label %_ZN3re28Compiler14ByteRangeEqualEii.exit67, label %return
 
 _ZN3re28Compiler14ByteRangeEqualEii.exit67:       ; preds = %land.lhs.true.i59
   %hint_foldcase_.i.i64 = getelementptr inbounds i8, ptr %arrayidx.i.i51.le, i64 6
-  %43 = load i16, ptr %hint_foldcase_.i.i64, align 2
-  %44 = load i16, ptr %hint_foldcase_.i25.i33, align 2
-  %45 = xor i16 %44, %43
-  %46 = and i16 %45, 1
-  %cmp19.i66 = icmp eq i16 %46, 0
-  br i1 %cmp19.i66, label %if.then31, label %if.else35
+  %46 = load i16, ptr %hint_foldcase_.i.i64, align 2
+  %47 = load i16, ptr %hint_foldcase_.i25.i33, align 2
+  %48 = xor i16 %47, %46
+  %49 = and i16 %48, 1
+  %cmp19.i66 = icmp eq i16 %49, 0
+  br i1 %cmp19.i66, label %if.then31, label %return
 
 if.then31:                                        ; preds = %_ZN3re28Compiler14ByteRangeEqualEii.exit67
   %shl33 = shl i32 %root.addr.0, 1
   %retval.sroa.2.0.insert.ext.i68 = zext i32 %shl33 to i64
   %retval.sroa.0.0.insert.insert.i69 = mul nuw i64 %retval.sroa.2.0.insert.ext.i68, 4294967297
-  store i32 %root.addr.0, ptr %retval.sroa.0, align 16
-  %retval.sroa.0.4.retval.4.retval.4.end3.i70.sroa_idx123 = getelementptr inbounds i8, ptr %retval.sroa.0, i64 4
-  store i64 %retval.sroa.0.0.insert.insert.i69, ptr %retval.sroa.0.4.retval.4.retval.4.end3.i70.sroa_idx123, align 4
-  %retval.sroa.0.12.retval.12.retval.12.nullable4.i71.sroa_idx127 = getelementptr inbounds i8, ptr %retval.sroa.0, i64 12
-  store i8 0, ptr %retval.sroa.0.12.retval.12.retval.12.nullable4.i71.sroa_idx127, align 4
-  br label %return
-
-if.else35:                                        ; preds = %if.else29, %land.lhs.true.i59, %_ZN3re28Compiler14ByteRangeEqualEii.exit67
-  store <2 x i64> zeroinitializer, ptr %retval.sroa.0, align 16
+  %50 = bitcast i32 %root.addr.0 to <4 x i8>
+  %retval.sroa.0.0.vec.expand130 = shufflevector <4 x i8> %50, <4 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %retval.sroa.0.0.vecblend131 = shufflevector <16 x i8> %retval.sroa.0.0.vec.expand130, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 undef, i8 undef, i8 undef>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 29, i32 30, i32 31>
+  %51 = bitcast i64 %retval.sroa.0.0.insert.insert.i69 to <8 x i8>
+  %retval.sroa.0.4.vec.expand135 = shufflevector <8 x i8> %51, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison>
+  %retval.sroa.0.4.vecblend136 = shufflevector <16 x i8> %retval.sroa.0.0.vecblend131, <16 x i8> %retval.sroa.0.4.vec.expand135, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 poison, i32 13, i32 14, i32 15>
+  %retval.sroa.0.12.vec.insert140 = insertelement <16 x i8> %retval.sroa.0.4.vecblend136, i8 0, i64 12
   br label %return
 
 while.end:                                        ; preds = %while.cond, %while.cond.us
@@ -2558,11 +2525,11 @@ invoke.cont6.i:                                   ; preds = %invoke.cont4.i
           to label %_ZN10LogMessageC2EPKci.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %47, %lpad.i ], [ %48, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %52, %lpad.i ], [ %53, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %invoke.cont6.i, %invoke.cont4.i, %invoke.cont2.i, %while.end
-  %47 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str_.i) #25
   br label %common.resume
@@ -2573,21 +2540,22 @@ _ZN10LogMessageC2EPKci.exit:                      ; preds = %invoke.cont6.i
 
 invoke.cont39:                                    ; preds = %_ZN10LogMessageC2EPKci.exit
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp) #25
-  store <2 x i64> zeroinitializer, ptr %retval.sroa.0, align 16
   br label %return
 
 lpad:                                             ; preds = %_ZN10LogMessageC2EPKci.exit
-  %48 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp) #25
   br label %common.resume
 
-return:                                           ; preds = %invoke.cont39, %if.else35, %if.then31, %if.then18, %if.then14, %if.else, %if.then4
-  %retval.sroa.0.0.retval.sroa.0.0.retval.0.retval.0..fca.0.load = load i64, ptr %retval.sroa.0, align 16
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.retval.sroa.0.0.retval.0.retval.0..fca.0.load, 0
-  %retval.sroa.0.8.retval.8.retval.8..fca.1.gep.sroa_idx124 = getelementptr inbounds i8, ptr %retval.sroa.0, i64 8
-  %retval.sroa.0.8.retval.sroa.0.8.retval.8.retval.8..fca.1.load = load i64, ptr %retval.sroa.0.8.retval.8.retval.8..fca.1.gep.sroa_idx124, align 8
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.0.8.retval.sroa.0.8.retval.8.retval.8..fca.1.load, 1
+return:                                           ; preds = %_ZN3re28Compiler14ByteRangeEqualEii.exit67, %land.lhs.true.i59, %if.else29, %while.body.us, %land.lhs.true.i27.us, %_ZN3re28Compiler14ByteRangeEqualEii.exit35.us, %_ZN3re28Compiler14ByteRangeEqualEii.exit, %land.lhs.true.i, %if.then, %invoke.cont39, %if.then31, %if.then14, %if.then4
+  %retval.sroa.0.0 = phi <16 x i8> [ %retval.sroa.0.12.vec.insert, %if.then4 ], [ %retval.sroa.0.12.vec.insert138, %if.then14 ], [ zeroinitializer, %invoke.cont39 ], [ %retval.sroa.0.12.vec.insert140, %if.then31 ], [ zeroinitializer, %if.then ], [ zeroinitializer, %land.lhs.true.i ], [ zeroinitializer, %_ZN3re28Compiler14ByteRangeEqualEii.exit ], [ zeroinitializer, %_ZN3re28Compiler14ByteRangeEqualEii.exit35.us ], [ zeroinitializer, %land.lhs.true.i27.us ], [ zeroinitializer, %while.body.us ], [ zeroinitializer, %if.else29 ], [ zeroinitializer, %land.lhs.true.i59 ], [ zeroinitializer, %_ZN3re28Compiler14ByteRangeEqualEii.exit67 ]
+  %retval.sroa.0.0.vec.extract.bc = bitcast <16 x i8> %retval.sroa.0.0 to <2 x i64>
+  %retval.sroa.0.0.vec.extract.extract = extractelement <2 x i64> %retval.sroa.0.0.vec.extract.bc, i64 0
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.vec.extract.extract, 0
+  %retval.sroa.0.8.vec.extract.bc = bitcast <16 x i8> %retval.sroa.0.0 to <2 x i64>
+  %retval.sroa.0.8.vec.extract.extract = extractelement <2 x i64> %retval.sroa.0.8.vec.extract.bc, i64 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.0.8.vec.extract.extract, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
