@@ -31848,8 +31848,8 @@ invoke.cont64.i.i.i.i.i.i:                        ; preds = %_ZN9grpc_core5Slice
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i44.i.i.i.i.i.i = getelementptr inbounds i8, ptr %77, i64 20
   %79 = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i44.i.i.i.i.i.i, align 4
   %tobool.i.not.i.i.i.i.i.i.i = icmp ne i16 %and2.i.i.i.i.i43.i.i.i.i.i.i, 0
-  %cmp.not6566.i.i.i.i.i.i = icmp eq i32 %79, 0
-  %cmp.not.i.i.i.i.i.i = select i1 %tobool.i.not.i.i.i.i.i.i.i, i1 %cmp.not6566.i.i.i.i.i.i, i1 false
+  %cmp.not65.i.i.i.i.i.i = icmp eq i32 %79, 0
+  %cmp.not.i.i.i.i.i.i = select i1 %tobool.i.not.i.i.i.i.i.i.i, i1 %cmp.not65.i.i.i.i.i.i, i1 false
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont64.i.if.then.i59.i_crit_edge.i.i.i.i.i, label %if.then71.i.i.i.i.i.i
 
 invoke.cont64.i.if.then.i59.i_crit_edge.i.i.i.i.i: ; preds = %invoke.cont64.i.i.i.i.i.i
@@ -32688,9 +32688,9 @@ _ZN9grpc_core10GetContextINS_12BatchBuilderEEEPT_v.exit.i.i.i.i.i.i.i.i: ; preds
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %111, i64 2
   %114 = load i16, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i, align 2, !noalias !1271
   %and2.i.i.i.i.i.i.i.i.i.i.i.i.i = and i16 %114, 512
-  %cmp.i.i.not.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i16 %and2.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
+  %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i16 %and2.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
   %retval.0.i.not4.i.i.i.i.i.i.i.i = icmp eq i8 %113, 0
-  %retval.0.i.not.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.not.i.i.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %retval.0.i.not4.i.i.i.i.i.i.i.i
+  %retval.0.i.not.i.i.i.i.i.i.i.i = select i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %retval.0.i.not4.i.i.i.i.i.i.i.i
   %115 = getelementptr inbounds i8, ptr %0, i64 104
   %.val.i.i.i.i.i.i.i.i = load ptr, ptr %115, align 8, !noalias !1271
   call void @llvm.experimental.noalias.scope.decl(metadata !1274)
@@ -33034,10 +33034,10 @@ if.then:                                          ; preds = %entry
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 2
   %1 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
   %and2.i.i.i.i.i = and i16 %1, 64
-  %cmp.i.i.not.i.i.not.i = icmp eq i16 %and2.i.i.i.i.i, 0
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 20
   %2 = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %retval.0.i = select i1 %cmp.i.i.not.i.i.not.i, i32 2, i32 %2
+  %tobool.i.not.i = icmp eq i16 %and2.i.i.i.i.i, 0
+  %retval.0.i = select i1 %tobool.i.not.i, i32 2, i32 %2
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load i16, ptr %0, align 2
   %storemerge.i.i.i.i = or i16 %3, 1024

@@ -3345,7 +3345,7 @@ if.then34:                                        ; preds = %if.end30
 if.end35:                                         ; preds = %if.end30
   %.size = select i1 %1, i64 2147483648, i64 %size
   %brmerge94 = or i1 %1, %3
-  %created_size.0 = select i1 %brmerge94, i64 0, i64 %.size
+  %created_size.0 = select i1 %brmerge94, i64 0, i64 %size
   %call50 = tail call ptr %extent_fn(i64 noundef %created_size.0, i32 noundef 0, i1 noundef zeroext %3, i1 noundef zeroext %1, i1 noundef zeroext %cmp22, i1 noundef zeroext %zeroed_grain, ptr noundef %opaque, ptr noundef %errp) #15
   %tobool51.not = icmp eq ptr %call50, null
   br i1 %tobool51.not, label %if.end146, label %if.end53

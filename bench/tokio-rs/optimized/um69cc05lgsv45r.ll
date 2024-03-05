@@ -8660,12 +8660,12 @@ _ZN5tokio7runtime6driver6Handle4time17h85722b047daee337E.exit: ; preds = %4
 
 .noexc:                                           ; preds = %20
   %24 = load i64, ptr %7, align 8, !range !152, !noalias !1520, !noundef !47
-  %trunc.not.not.i = icmp eq i64 %24, 0
   %25 = getelementptr inbounds i8, ptr %7, i64 24
   %26 = load i64, ptr %25, align 8, !noalias !1520
   %27 = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1520
-  %.028 = select i1 %trunc.not.not.i, i64 0, i64 %27
+  %switch.not.not = icmp eq i64 %24, 0
+  %.028 = select i1 %switch.not.not, i64 0, i64 %27
   %28 = getelementptr inbounds i8, ptr %21, i64 56
   store i64 %.028, ptr %28, align 8
   %29 = tail call { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h5ccce900420b99d6E.llvm.700930863383756518(ptr noundef nonnull %21, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
@@ -8679,7 +8679,7 @@ _ZN5tokio7runtime6driver6Handle4time17h85722b047daee337E.exit: ; preds = %4
   br label %"_ZN4core3ptr102drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..time..InnerState$GT$$GT$17he881a5200f4b27eaE.exit"
 
 "_ZN4core3ptr102drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..time..InnerState$GT$$GT$17he881a5200f4b27eaE.exit": ; preds = %32, %.noexc
-  br i1 %trunc.not.not.i, label %33, label %.noexc41
+  br i1 %switch.not.not, label %33, label %.noexc41
 
 33:                                               ; preds = %"_ZN4core3ptr102drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..time..InnerState$GT$$GT$17he881a5200f4b27eaE.exit"
   %.not29 = icmp eq i32 %3, 1000000000

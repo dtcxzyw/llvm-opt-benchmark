@@ -1247,7 +1247,7 @@ if.else:                                          ; preds = %if.end264
 
 if.end288:                                        ; preds = %if.else, %luaG_checkopenop.exit
   %cmp289.not = icmp sgt i32 %and2, %reg
-  %spec.select574 = select i1 %cmp289.not, i32 %last.1, i32 %pc.0644
+  %spec.select574 = select i1 %cmp289.not, i32 %last.0643, i32 %pc.0644
   br label %for.inc417
 
 sw.bb293:                                         ; preds = %if.end141

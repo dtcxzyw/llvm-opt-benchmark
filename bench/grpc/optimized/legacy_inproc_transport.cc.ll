@@ -2781,13 +2781,12 @@ invoke.cont187:                                   ; preds = %if.end161
   %91 = load ptr, ptr %payload173, align 8
   %92 = load ptr, ptr %91, align 8
   %93 = load i16, ptr %92, align 2
-  %cmp.i.i.i.i.i = icmp slt i16 %93, 0
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %92, i64 56
   %94 = load i64, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %retval.sroa.0.0.i = select i1 %cmp.i.i.i.i.i, i64 %94, i64 undef
+  %tobool.i.not.i = icmp slt i16 %93, 0
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %cond170, align 8
-  %95 = call i64 @llvm.smin.i64(i64 %retval.sroa.0.0.i, i64 %agg.tmp.sroa.0.0.copyload.i)
-  %spec.select = select i1 %cmp.i.i.i.i.i, i64 %95, i64 %agg.tmp.sroa.0.0.copyload.i
+  %95 = call i64 @llvm.smin.i64(i64 %94, i64 %agg.tmp.sroa.0.0.copyload.i)
+  %spec.select = select i1 %tobool.i.not.i, i64 %95, i64 %agg.tmp.sroa.0.0.copyload.i
   store i64 %spec.select, ptr %cond170, align 8
   store i8 1, ptr %initial_md_sent, align 8
   br label %if.end191
