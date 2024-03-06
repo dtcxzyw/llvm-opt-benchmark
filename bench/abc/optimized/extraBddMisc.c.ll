@@ -4089,7 +4089,7 @@ define void @Extra_ZddTest() local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %0, %2
-  %.020 = phi i32 [ 1, %0 ], [ %15, %2 ]
+  %.020 = phi i32 [ 1, %0 ], [ %16, %2 ]
   %3 = mul nuw nsw i32 %.020, 1000
   %4 = tail call ptr @Extra_zddRandomSet(ptr noundef %1, i32 noundef 64, i32 noundef %3, double noundef 5.000000e-01)
   tail call void @Cudd_Ref(ptr noundef %4) #18
@@ -4097,18 +4097,19 @@ define void @Extra_ZddTest() local_unnamed_addr #0 {
   %6 = sitofp i32 %5 to double
   %7 = fmul double %6, 2.000000e+01
   %8 = fmul double %7, 0x3EB0000000000000
-  %9 = sitofp i32 %3 to double
-  %10 = fmul double %9, 8.000000e+00
+  %9 = mul nuw nsw i32 %.020, 8000
+  %10 = sitofp i32 %9 to double
   %11 = fmul double %10, 0x3EB0000000000000
-  %12 = fmul double %10, 1.000000e+02
-  %13 = fdiv double %12, %7
-  %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef 64, i32 noundef %3, i32 noundef %5, double noundef %8, double noundef %11, double noundef %13)
+  %12 = mul nuw nsw i32 %.020, 800000
+  %13 = sitofp i32 %12 to double
+  %14 = fdiv double %13, %7
+  %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef 64, i32 noundef %3, i32 noundef %5, double noundef %8, double noundef %11, double noundef %14)
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef %1, ptr noundef %4) #18
-  %15 = add nuw nsw i32 %.020, 1
-  %exitcond.not = icmp eq i32 %15, 11
-  br i1 %exitcond.not, label %16, label %2, !llvm.loop !45
+  %16 = add nuw nsw i32 %.020, 1
+  %exitcond.not = icmp eq i32 %16, 11
+  br i1 %exitcond.not, label %17, label %2, !llvm.loop !45
 
-16:                                               ; preds = %2
+17:                                               ; preds = %2
   tail call void @Cudd_Quit(ptr noundef %1) #18
   ret void
 }

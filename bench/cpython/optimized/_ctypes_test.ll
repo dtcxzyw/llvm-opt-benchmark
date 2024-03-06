@@ -230,12 +230,11 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %0 = trunc i64 %indvars.iv to i32
-  %conv2 = uitofp i32 %0 to double
-  %add = fadd double %conv2, 1.000000e+00
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %0 = trunc i64 %indvars.iv.next to i32
+  %add = uitofp i32 %0 to double
   %arrayidx = getelementptr [4 x double], ptr %agg.result, i64 0, i64 %indvars.iv
   store double %add, ptr %arrayidx, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
@@ -269,12 +268,11 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %0 = trunc i64 %indvars.iv to i32
-  %conv2 = uitofp i32 %0 to double
-  %add = fadd double %conv2, 1.000000e+00
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %0 = trunc i64 %indvars.iv.next to i32
+  %add = uitofp i32 %0 to double
   %arrayidx = getelementptr [8 x double], ptr %agg.result, i64 0, i64 %indvars.iv
   store double %add, ptr %arrayidx, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
@@ -308,12 +306,11 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %0 = trunc i64 %indvars.iv to i32
-  %conv2 = uitofp i32 %0 to double
-  %add = fadd double %conv2, 1.000000e+00
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %0 = trunc i64 %indvars.iv.next to i32
+  %add = uitofp i32 %0 to double
   %arrayidx = getelementptr [9 x double], ptr %agg.result, i64 0, i64 %indvars.iv
   store double %add, ptr %arrayidx, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 

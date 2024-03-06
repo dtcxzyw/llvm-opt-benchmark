@@ -8039,22 +8039,22 @@ if.else:                                          ; preds = %if.end
   %1 = tail call i32 @llvm.umin.i32(i32 %num_segments, i32 512)
   %cond5.i = tail call i32 @llvm.umax.i32(i32 %1, i32 3)
   %conv = sitofp i32 %cond5.i to float
-  %sub5 = fadd float %conv, -1.000000e+00
+  %2 = add nsw i32 %cond5.i, -1
+  %sub5 = sitofp i32 %2 to float
   %mul = fmul float %sub5, 0x401921FB60000000
   %div = fdiv float %mul, %conv
   %sub7 = fadd float %radius, -5.000000e-01
-  %sub8 = add nsw i32 %cond5.i, -1
-  tail call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull align 4 dereferenceable(8) %center, float noundef %sub7, float noundef 0.000000e+00, float noundef %div, i32 noundef %sub8)
+  tail call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull align 4 dereferenceable(8) %center, float noundef %sub7, float noundef 0.000000e+00, float noundef %div, i32 noundef %2)
   %_Path.i.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 120
   %.pre = load i32, ptr %_Path.i.phi.trans.insert, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.else, %if.then4
-  %2 = phi i32 [ %.pre, %if.else ], [ %dec, %if.then4 ]
+  %3 = phi i32 [ %.pre, %if.else ], [ %dec, %if.then4 ]
   %_Path.i = getelementptr inbounds i8, ptr %this, i64 120
   %Data.i = getelementptr inbounds i8, ptr %this, i64 128
-  %3 = load ptr, ptr %Data.i, align 8
-  tail call void @_ZN10ImDrawList11AddPolylineEPK6ImVec2ijif(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef %3, i32 noundef %2, i32 noundef %col, i32 noundef 1, float noundef %thickness)
+  %4 = load ptr, ptr %Data.i, align 8
+  tail call void @_ZN10ImDrawList11AddPolylineEPK6ImVec2ijif(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef %4, i32 noundef %3, i32 noundef %col, i32 noundef 1, float noundef %thickness)
   store i32 0, ptr %_Path.i, align 8
   br label %return
 
@@ -8086,21 +8086,21 @@ if.else:                                          ; preds = %if.end
   %1 = tail call i32 @llvm.umin.i32(i32 %num_segments, i32 512)
   %cond5.i = tail call i32 @llvm.umax.i32(i32 %1, i32 3)
   %conv = sitofp i32 %cond5.i to float
-  %sub = fadd float %conv, -1.000000e+00
+  %2 = add nsw i32 %cond5.i, -1
+  %sub = sitofp i32 %2 to float
   %mul = fmul float %sub, 0x401921FB60000000
   %div = fdiv float %mul, %conv
-  %sub6 = add nsw i32 %cond5.i, -1
-  tail call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull align 4 dereferenceable(8) %center, float noundef %radius, float noundef 0.000000e+00, float noundef %div, i32 noundef %sub6)
+  tail call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull align 4 dereferenceable(8) %center, float noundef %radius, float noundef 0.000000e+00, float noundef %div, i32 noundef %2)
   %_Path.i.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 120
   %.pre = load i32, ptr %_Path.i.phi.trans.insert, align 8
   br label %if.end7
 
 if.end7:                                          ; preds = %if.else, %if.then4
-  %2 = phi i32 [ %.pre, %if.else ], [ %dec, %if.then4 ]
+  %3 = phi i32 [ %.pre, %if.else ], [ %dec, %if.then4 ]
   %_Path.i = getelementptr inbounds i8, ptr %this, i64 120
   %Data.i = getelementptr inbounds i8, ptr %this, i64 128
-  %3 = load ptr, ptr %Data.i, align 8
-  tail call void @_ZN10ImDrawList19AddConvexPolyFilledEPK6ImVec2ij(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef %3, i32 noundef %2, i32 noundef %col)
+  %4 = load ptr, ptr %Data.i, align 8
+  tail call void @_ZN10ImDrawList19AddConvexPolyFilledEPK6ImVec2ij(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef %4, i32 noundef %3, i32 noundef %col)
   store i32 0, ptr %_Path.i, align 8
   br label %return
 
