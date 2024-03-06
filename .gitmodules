@@ -382,3 +382,6 @@
 [submodule "bench/nori/nori"]
 	path = bench/nori/nori
 	url = git@github.com:wjakob/nori.git
+[submodule "bench/draco/draco"]
+	path = bench/draco/draco
+	url = git@github.com:google/draco.git
