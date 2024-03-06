@@ -358,3 +358,6 @@
 [submodule "bench/nix/nix"]
 	path = bench/nix/nix
 	url = git@github.com:NixOS/nix.git
+[submodule "bench/vcpkg/vcpkg-tool"]
+	path = bench/vcpkg/vcpkg-tool
+	url = git@github.com:microsoft/vcpkg-tool.git
