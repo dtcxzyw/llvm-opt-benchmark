@@ -355,3 +355,6 @@
 [submodule "bench/raylib/raylib"]
 	path = bench/raylib/raylib
 	url = git@github.com:raysan5/raylib.git
+[submodule "bench/nix/nix"]
+	path = bench/nix/nix
+	url = git@github.com:NixOS/nix.git
