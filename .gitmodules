@@ -352,3 +352,6 @@
 [submodule "bench/spike/riscv-isa-sim"]
 	path = bench/spike/riscv-isa-sim
 	url = git@github.com:riscv-software-src/riscv-isa-sim.git
+[submodule "bench/raylib/raylib"]
+	path = bench/raylib/raylib
+	url = git@github.com:raysan5/raylib.git
