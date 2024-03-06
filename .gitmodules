@@ -349,3 +349,6 @@
 [submodule "bench/abc/abc"]
 	path = bench/abc/abc
 	url = git@github.com:berkeley-abc/abc.git
+[submodule "bench/spike/riscv-isa-sim"]
+	path = bench/spike/riscv-isa-sim
+	url = git@github.com:riscv-software-src/riscv-isa-sim.git
