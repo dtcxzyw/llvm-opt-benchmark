@@ -364,3 +364,6 @@
 [submodule "bench/ninja/ninja"]
 	path = bench/ninja/ninja
 	url = git@github.com:ninja-build/ninja.git
+[submodule "bench/ceres/ceres-solver"]
+	path = bench/ceres/ceres-solver
+	url = git@github.com:ceres-solver/ceres-solver.git
