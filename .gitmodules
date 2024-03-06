@@ -373,3 +373,6 @@
 [submodule "bench/jq/jq"]
 	path = bench/jq/jq
 	url = git@github.com:jqlang/jq.git
+[submodule "bench/faiss/faiss"]
+	path = bench/faiss/faiss
+	url = git@github.com:facebookresearch/faiss.git
