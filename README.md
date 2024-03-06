@@ -1,6 +1,7 @@
 # LLVM Opt Benchmark
 
 [![CI](https://github.com/dtcxzyw/llvm-opt-benchmark/actions/workflows/llvm-ci.yml/badge.svg?branch=main)](https://github.com/dtcxzyw/llvm-opt-benchmark/actions/workflows/llvm-ci.yml)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/dtcxzyw/llvm-opt-benchmark)
 
 Don't submit PR to add new benchmark. You can request new benchmarks [here](https://github.com/dtcxzyw/llvm-opt-benchmark/issues/133).
 
