@@ -93504,7 +93504,7 @@ _ZN4pbrt13ScratchBuffer5AllocINS_17SPPMPixelListNodeEJEEENS_16AllocationTraitsIT
   store i64 0, ptr %56, align 8
   store ptr %arrayidx.i.i.i.i, ptr %add.ptr.i.i.i.i.i, align 8
   %57 = load ptr, ptr %7, align 8
-  %conv45.i.i.i = and i64 %rem.i.i.i, 4294967295
+  %conv45.i.i.i = and i64 %rem.i.i.i, 2147483647
   %58 = load ptr, ptr %57, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::atomic.552", ptr %58, i64 %conv45.i.i.i
   %59 = load atomic i64, ptr %add.ptr.i.i.i.i seq_cst, align 8
@@ -95014,7 +95014,7 @@ if.then95.i.i.i:                                  ; preds = %invoke.cont90.i.i.i
 
 do.end.i.i.i:                                     ; preds = %invoke.cont90.i.i.i
   %107 = load ptr, ptr %19, align 8
-  %conv98.i.i.i = and i64 %rem.i.i.i, 4294967295
+  %conv98.i.i.i = and i64 %rem.i.i.i, 2147483647
   %108 = load ptr, ptr %107, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::atomic.552", ptr %108, i64 %conv98.i.i.i
   %109 = load atomic i64, ptr %add.ptr.i.i.i.i monotonic, align 8

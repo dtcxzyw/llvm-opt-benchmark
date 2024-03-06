@@ -6168,7 +6168,7 @@ define internal fastcc void @rcu_init_one() unnamed_addr #9 section ".init.text"
   br label %131
 
 131:                                              ; preds = %.thread, %147
-  %132 = phi i64 [ 0, %.thread ], [ %156, %147 ]
+  %132 = phi i64 [ 0, %.thread ], [ %155, %147 ]
   %133 = phi ptr [ %130, %.thread ], [ %142, %147 ]
   %134 = load i64, ptr @__cpu_possible_mask, align 8
   %135 = shl nsw i64 -1, %132
@@ -6191,7 +6191,7 @@ define internal fastcc void @rcu_init_one() unnamed_addr #9 section ".init.text"
   br i1 %145, label %.preheader, label %147, !llvm.loop !260
 
 147:                                              ; preds = %.preheader
-  %148 = and i64 %139, 4294967295
+  %148 = and i64 %139, 63
   %149 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %148
   %150 = load i64, ptr %149, align 8
   %151 = add i64 %150, ptrtoint (ptr @rcu_data to i64)
@@ -6199,11 +6199,10 @@ define internal fastcc void @rcu_init_one() unnamed_addr #9 section ".init.text"
   %153 = getelementptr inbounds i8, ptr %152, i64 24
   store ptr %142, ptr %153, align 8
   tail call fastcc void @rcu_boot_init_percpu_data(i32 noundef %140) #30
-  %154 = shl i64 %139, 32
-  %155 = add i64 %154, 4294967296
-  %156 = ashr exact i64 %155, 32
-  %157 = icmp ugt i64 %156, 63
-  br i1 %157, label %.thread6, label %131, !prof !129, !llvm.loop !261
+  %154 = add nuw nsw i64 %139, 1
+  %155 = and i64 %154, 127
+  %156 = icmp ugt i64 %155, 63
+  br i1 %156, label %.thread6, label %131, !prof !129, !llvm.loop !261
 
 .thread6:                                         ; preds = %131, %147, %138
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #28
@@ -6981,7 +6980,7 @@ define dso_local void @rcu_fwd_progress_check(i64 %0) #1 align 16 {
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %30
-  %35 = and i64 %31, 4294967295
+  %35 = and i64 %31, 63
   %36 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, ptrtoint (ptr @rcu_data to i64)
@@ -7018,8 +7017,8 @@ define dso_local void @rcu_fwd_progress_check(i64 %0) #1 align 16 {
   %57 = phi i64 [ %23, %44 ], [ %.pre, %52 ], [ %23, %34 ]
   %58 = phi i32 [ %26, %44 ], [ %55, %52 ], [ %26, %34 ]
   %59 = phi i64 [ %25, %44 ], [ %56, %52 ], [ %25, %34 ]
-  %60 = add i64 %31, 1
-  %61 = and i64 %60, 4294967295
+  %60 = add nuw nsw i64 %31, 1
+  %61 = and i64 %60, 127
   %62 = icmp ugt i64 %61, 63
   br i1 %62, label %.thread, label %22, !prof !129, !llvm.loop !278
 

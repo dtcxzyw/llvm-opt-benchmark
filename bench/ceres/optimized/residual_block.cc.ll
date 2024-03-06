@@ -125,7 +125,7 @@ _ZNSt16allocator_traitsISaIPKdEE8allocateERS2_m.exit.i.i.i: ; preds = %29
 
 .lr.ph:                                           ; preds = %33
   %36 = getelementptr inbounds i8, ptr %0, i64 16
-  %wide.trip.count = and i64 %22, 4294967295
+  %wide.trip.count = and i64 %22, 2147483647
   br label %37
 
 37:                                               ; preds = %.lr.ph, %37
@@ -186,7 +186,7 @@ _ZNSt16allocator_traitsISaIPdEE8allocateERS1_m.exit.i.i.i: ; preds = %46
 
 .lr.ph154:                                        ; preds = %.preheader148
   %54 = getelementptr inbounds i8, ptr %0, i64 16
-  %wide.trip.count170 = and i64 %22, 4294967295
+  %wide.trip.count170 = and i64 %22, 2147483647
   br label %55
 
 .thread:                                          ; preds = %52
@@ -439,7 +439,7 @@ _ZNK5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6Strid
 
 .lr.ph157:                                        ; preds = %_ZNK5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE11squaredNormEv.exit
   %154 = getelementptr inbounds i8, ptr %0, i64 16
-  %wide.trip.count175 = and i64 %22, 4294967295
+  %wide.trip.count175 = and i64 %22, 2147483647
   br label %155
 
 155:                                              ; preds = %.lr.ph157, %_ZN5ceres8internal20MatrixMatrixMultiplyILin1ELin1ELin1ELin1ELi0EEEvPKdiiS3_iiPdiiii.exit
@@ -540,7 +540,7 @@ _ZN5ceres8internal20MatrixMatrixMultiplyILin1ELin1ELin1ELin1ELi0EEEvPKdiiS3_iiPd
 
 .lr.ph159:                                        ; preds = %201
   %202 = getelementptr inbounds i8, ptr %0, i64 16
-  %wide.trip.count180 = and i64 %22, 4294967295
+  %wide.trip.count180 = and i64 %22, 2147483647
   br label %203
 
 203:                                              ; preds = %.lr.ph159, %223
@@ -683,7 +683,7 @@ define hidden noundef i32 @_ZNK5ceres8internal13ResidualBlock28NumScratchDoubles
 .lr.ph:                                           ; preds = %1
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %wide.trip.count = and i64 %10, 4294967295
+  %wide.trip.count = and i64 %10, 2147483647
   br label %15
 
 15:                                               ; preds = %.lr.ph, %24

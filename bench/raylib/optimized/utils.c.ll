@@ -250,7 +250,7 @@ define ptr @LoadFileData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   br i1 %14, label %15, label %27
 
 15:                                               ; preds = %9
-  %16 = and i64 %11, 4294967295
+  %16 = and i64 %11, 2147483647
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #22
   %.not42 = icmp eq ptr %17, null
   br i1 %.not42, label %26, label %18

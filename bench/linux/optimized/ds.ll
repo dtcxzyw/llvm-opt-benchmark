@@ -411,7 +411,7 @@ define dso_local void @release_ds_buffers() local_unnamed_addr #4 align 16 {
   br i1 %33, label %34, label %.preheader.preheader
 
 34:                                               ; preds = %30
-  %35 = and i64 %31, 4294967295
+  %35 = and i64 %31, 63
   %36 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, ptrtoint (ptr @cpu_hw_events to i64)
@@ -426,8 +426,8 @@ define dso_local void @release_ds_buffers() local_unnamed_addr #4 align 16 {
   br label %.preheader8
 
 .preheader8:                                      ; preds = %43, %34
-  %45 = add i64 %31, 1
-  %46 = and i64 %45, 4294967295
+  %45 = add nuw nsw i64 %31, 1
+  %46 = and i64 %45, 127
   %47 = icmp ult i64 %46, 64
   br i1 %47, label %.preheader8.preheader, label %.preheader.preheader, !prof !12, !llvm.loop !16
 
@@ -451,8 +451,8 @@ define dso_local void @release_ds_buffers() local_unnamed_addr #4 align 16 {
 57:                                               ; preds = %53
   tail call fastcc void @release_pebs_buffer(i32 noundef %55)
   tail call fastcc void @release_bts_buffer(i32 noundef %55)
-  %58 = add i64 %54, 1
-  %59 = and i64 %58, 4294967295
+  %58 = add nuw nsw i64 %54, 1
+  %59 = and i64 %58, 127
   %60 = icmp ult i64 %59, 64
   br i1 %60, label %.preheader, label %.thread, !prof !12, !llvm.loop !17
 
@@ -648,7 +648,7 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #4 align 16 {
   %28 = tail call ptr @get_cpu_entry_area(i32 noundef %25) #14
   %29 = getelementptr inbounds i8, ptr %28, i64 106496
   tail call void @llvm.memset.p0.i64(ptr noundef align 4096 dereferenceable(4096) %29, i8 0, i64 4096, i1 false)
-  %30 = and i64 %24, 4294967295
+  %30 = and i64 %24, 63
   %31 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, ptrtoint (ptr @cpu_hw_events to i64)
@@ -910,7 +910,7 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #4 align 16 {
   %199 = phi i1 [ true, %103 ], [ %196, %.thread21 ]
   %200 = phi i32 [ 1, %103 ], [ %197, %.thread21 ]
   %201 = and i1 %104, %199
-  %202 = add i64 %24, 1
+  %202 = add nuw nsw i64 %24, 1
   br i1 %201, label %.preheader32.preheader, label %12, !llvm.loop !36
 
 .thread:                                          ; preds = %18, %12, %23
@@ -937,8 +937,8 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #4 align 16 {
 
 213:                                              ; preds = %209
   tail call fastcc void @release_bts_buffer(i32 noundef %211)
-  %214 = add i64 %210, 1
-  %215 = and i64 %214, 4294967295
+  %214 = add nuw nsw i64 %210, 1
+  %215 = and i64 %214, 127
   %216 = icmp ult i64 %215, 64
   br i1 %216, label %.preheader32, label %.thread23, !prof !12, !llvm.loop !37
 
@@ -964,8 +964,8 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #4 align 16 {
 
 228:                                              ; preds = %224
   tail call fastcc void @release_pebs_buffer(i32 noundef %226)
-  %229 = add i64 %225, 1
-  %230 = and i64 %229, 4294967295
+  %229 = add nuw nsw i64 %225, 1
+  %230 = and i64 %229, 127
   %231 = icmp ult i64 %230, 64
   br i1 %231, label %.preheader, label %.thread25, !prof !12, !llvm.loop !38
 
@@ -1040,7 +1040,7 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #4 align 16 {
   br i1 %273, label %274, label %.thread28
 
 274:                                              ; preds = %270
-  %275 = and i64 %271, 4294967295
+  %275 = and i64 %271, 63
   %276 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %275
   %277 = load i64, ptr %276, align 8
   %278 = add i64 %277, ptrtoint (ptr @cpu_hw_events to i64)
@@ -1061,8 +1061,8 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #4 align 16 {
 
 289:                                              ; preds = %283, %274
   %290 = phi i64 [ %.pre, %283 ], [ %265, %274 ]
-  %291 = add i64 %271, 1
-  %292 = and i64 %291, 4294967295
+  %291 = add nuw nsw i64 %271, 1
+  %292 = and i64 %291, 127
   %293 = icmp ult i64 %292, 64
   br i1 %293, label %264, label %.thread28, !prof !12, !llvm.loop !40
 

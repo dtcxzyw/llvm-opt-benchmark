@@ -3852,7 +3852,7 @@ if.end:                                           ; preds = %_ZN4llvh3sys4pathL1
 
 cleanup:                                          ; preds = %if.end.i, %_ZNK4llvh15SmallVectorImplIcEeqERKS1_.exit, %if.end
   %34 = phi ptr [ %.pre14, %_ZNK4llvh15SmallVectorImplIcEeqERKS1_.exit ], [ %.pre, %if.end ], [ %.pre14, %if.end.i ]
-  %retval.0.i10 = phi i1 [ false, %_ZNK4llvh15SmallVectorImplIcEeqERKS1_.exit ], [ true, %if.end ], [ false, %if.end.i ]
+  %retval.0 = phi i1 [ false, %_ZNK4llvh15SmallVectorImplIcEeqERKS1_.exit ], [ true, %if.end ], [ false, %if.end.i ]
   %cmp.i.i.i.i7 = icmp eq ptr %34, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i7, label %_ZN4llvh11SmallStringILj256EED2Ev.exit, label %if.then.i.i.i8
 
@@ -3861,7 +3861,7 @@ if.then.i.i.i8:                                   ; preds = %cleanup
   br label %_ZN4llvh11SmallStringILj256EED2Ev.exit
 
 _ZN4llvh11SmallStringILj256EED2Ev.exit:           ; preds = %cleanup, %if.then.i.i.i8
-  ret i1 %retval.0.i10
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5337,7 +5337,7 @@ entry:
 
 if.end:                                           ; preds = %entry, %if.end
   %call110 = phi i64 [ %call1, %if.end ], [ %call17, %entry ]
-  %conv3 = and i64 %call110, 4294967295
+  %conv3 = and i64 %call110, 2147483647
   call void @_ZN4llvh3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %Hash, ptr nonnull %call5.i.i.i.i.i.i, i64 %conv3) #29
   %call1 = call i64 @read(i32 noundef %FD, ptr noundef nonnull %call5.i.i.i.i.i.i, i64 noundef 4096) #29
   %conv = trunc i64 %call1 to i32

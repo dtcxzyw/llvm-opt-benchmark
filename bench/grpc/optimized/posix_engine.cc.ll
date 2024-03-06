@@ -7923,7 +7923,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conv2 = and i64 %handle.coerce0, 4294967295
+  %conv2 = and i64 %handle.coerce0, 2147483647
   %connection_shards_ = getelementptr inbounds i8, ptr %this, i64 24
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_finish.i, align 8

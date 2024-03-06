@@ -2263,7 +2263,7 @@ define dso_local noundef zeroext i1 @LockRelease(ptr noundef %0, i32 noundef %1,
   br i1 %49, label %50, label %69
 
 50:                                               ; preds = %48
-  %51 = and i64 %indvars.iv.next, 4294967295
+  %51 = and i64 %indvars.iv.next, 2147483647
   %52 = getelementptr %struct.LOCALLOCKOWNER, ptr %43, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, %.0105
@@ -3379,7 +3379,7 @@ define internal fastcc void @ReleaseLockIfHeld(ptr noundef %0, i1 noundef zeroex
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %9
-  %12 = and i64 %indvars.iv.next, 4294967295
+  %12 = and i64 %indvars.iv.next, 2147483647
   %13 = getelementptr %struct.LOCALLOCKOWNER, ptr %5, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %.029
@@ -5836,7 +5836,6 @@ define dso_local noundef zeroext i1 @VirtualXactLock(i64 %0, i1 noundef zeroext 
   br i1 %12, label %13, label %34
 
 13:                                               ; preds = %2
-  %.sroa.0.0.insert.insert = or i64 %0, 4294967295
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store i8 0, ptr %9, align 1
@@ -5869,7 +5868,7 @@ define dso_local noundef zeroext i1 @VirtualXactLock(i64 %0, i1 noundef zeroext 
   br i1 %.not6.i, label %26, label %.thread11.i
 
 26:                                               ; preds = %25, %.thread.i
-  %27 = call i32 @TwoPhaseGetXidByVirtualXID(i64 %.sroa.0.0.insert.insert, ptr noundef nonnull %9) #16
+  %27 = call i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr noundef nonnull %9) #16
   %.not7.i = icmp eq i32 %27, 0
   br i1 %.not7.i, label %XactLockForVirtualXact.exit, label %.thread11.i
 

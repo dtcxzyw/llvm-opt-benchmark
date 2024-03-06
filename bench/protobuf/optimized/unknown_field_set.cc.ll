@@ -300,7 +300,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %conv = and i64 %sub.ptr.div.i.i, 4294967295
+  %conv = and i64 %sub.ptr.div.i.i, 2147483647
   %add = add nsw i64 %sub.ptr.div.i, %conv
   %cmp.i = icmp ugt i64 %add, 576460752303423487
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -345,7 +345,7 @@ _ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_
   br label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_m.exit.i, %if.end.i
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE9push_backERKS2_.exit
@@ -492,7 +492,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %conv = and i64 %sub.ptr.div.i.i, 4294967295
+  %conv = and i64 %sub.ptr.div.i.i, 2147483647
   %add = add nsw i64 %sub.ptr.div.i, %conv
   %cmp.i = icmp ugt i64 %add, 576460752303423487
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -537,7 +537,7 @@ _ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_
   br label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_m.exit.i, %if.end.i
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN6google8protobuf12UnknownField8DeepCopyERKS1_.exit

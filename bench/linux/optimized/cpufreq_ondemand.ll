@@ -97,7 +97,7 @@ define internal fastcc void @od_set_powersave_bias(i32 noundef %0) unnamed_addr 
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %9
-  %14 = and i64 %10, 4294967295
+  %14 = and i64 %10, 63
   %15 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %14) #13, !srcloc !7
   %16 = icmp ult i8 %15, 2
   call void @llvm.assume(i1 %16)
@@ -135,8 +135,8 @@ define internal fastcc void @od_set_powersave_bias(i32 noundef %0) unnamed_addr 
   br label %38
 
 38:                                               ; preds = %29, %25, %21, %18, %13
-  %39 = add i64 %10, 1
-  %40 = and i64 %39, 4294967295
+  %39 = add nuw nsw i64 %10, 1
+  %40 = and i64 %39, 127
   %41 = icmp ugt i64 %40, 63
   br i1 %41, label %.thread, label %3, !prof !8, !llvm.loop !9
 

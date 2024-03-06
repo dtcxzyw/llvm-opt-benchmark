@@ -1738,7 +1738,7 @@ StartLogicalReplication.exit:                     ; preds = %498, %508
 
 577:                                              ; preds = %571
   call void @pq_sendbytes(ptr noundef nonnull %3, ptr noundef nonnull %6, i32 noundef %564) #16
-  %578 = and i64 %563, 4294967295
+  %578 = and i64 %563, 2147483647
   %579 = sub nsw i64 %.030.i, %578
   %580 = icmp sgt i64 %579, 0
   br i1 %580, label %.lr.ph.i70, label %._crit_edge.i, !llvm.loop !28

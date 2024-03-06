@@ -215,7 +215,7 @@ rb_array_const_ptr.exit:                          ; preds = %49, %51
   br i1 %55, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %rb_array_const_ptr.exit
-  %wide.trip.count = and i64 %.0.i.i, 4294967295
+  %wide.trip.count = and i64 %.0.i.i, 2147483647
   %56 = inttoptr i64 %54 to ptr
   %57 = getelementptr inbounds i8, ptr %56, i64 16
   %58 = getelementptr inbounds i8, ptr %56, i64 24

@@ -592,7 +592,7 @@ define dso_local i32 @seq_buf_path(ptr nocapture noundef %0, ptr noundef %1, ptr
 
 37:                                               ; preds = %32
   %38 = load i64, ptr %4, align 8
-  %39 = and i64 %30, 4294967295
+  %39 = and i64 %30, 2147483647
   %40 = add i64 %38, %39
   %41 = load i64, ptr %6, align 8
   %42 = icmp ugt i64 %40, %41

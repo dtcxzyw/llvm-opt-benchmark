@@ -2453,7 +2453,7 @@ if.then.i191:                                     ; preds = %for.body249
   br i1 %cmp614.i, label %for.body.preheader.i, label %clusterManagerNodeArrayReset.exit
 
 for.body.preheader.i:                             ; preds = %if.then.i191
-  %wide.trip.count.i = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count.i = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
@@ -2504,7 +2504,7 @@ if.end.i199:                                      ; preds = %for.end255
 while.body.lr.ph.i:                               ; preds = %if.end.i199
   %mul.i205 = mul nsw i32 %conv.i201, 500
   %sub.i = shl i64 %56, 32
-  %sext.i = add i64 %sub.i, -4294967296
+  %sext.i = add nsw i64 %sub.i, -4294967296
   %mul18.i = ashr exact i64 %sext.i, 29
   br label %while.body.i
 
@@ -2958,7 +2958,7 @@ cleanup:                                          ; preds = %if.end355.thread256
   br i1 %cmp78319466, label %for.body415.preheader, label %for.end421
 
 for.body415.preheader:                            ; preds = %cleanup
-  %wide.trip.count456 = and i64 %18, 4294967295
+  %wide.trip.count456 = and i64 %18, 2147483647
   br label %for.body415
 
 for.body415:                                      ; preds = %for.body415.preheader, %for.body415
@@ -5812,7 +5812,7 @@ if.end136:                                        ; preds = %if.end114, %if.then
   br i1 %cmp141156, label %for.body143.preheader, label %while.cond92.loopexit
 
 for.body143.preheader:                            ; preds = %if.end136
-  %wide.trip.count = and i64 %33, 4294967295
+  %wide.trip.count = and i64 %33, 2147483647
   br label %for.body143
 
 for.body143:                                      ; preds = %for.body143.preheader, %if.end177
@@ -5833,7 +5833,7 @@ for.body143:                                      ; preds = %for.body143.prehead
   br i1 %cmp23.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.body143
-  %wide.trip.count.i = and i64 %39, 4294967295
+  %wide.trip.count.i = and i64 %39, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
@@ -17011,7 +17011,7 @@ if.then195:                                       ; preds = %while.body192
 
 if.else198:                                       ; preds = %while.body192
   %call199 = call ptr @hi_sdsnew(ptr noundef %flags.3157) #33
-  %idx.ext200 = and i64 %call188158, 4294967295
+  %idx.ext200 = and i64 %call188158, 2147483647
   %add.ptr201 = getelementptr inbounds i8, ptr %flags.3157, i64 %idx.ext200
   br label %if.end202
 
@@ -23371,7 +23371,7 @@ for.body.lr.ph:                                   ; preds = %while.end
   %conv11 = sitofp i32 %numslots to float
   %div = fdiv float %conv11, %tot_slots.0.lcssa
   %len34 = getelementptr inbounds i8, ptr %call, i64 40
-  %wide.trip.count = and i64 %0, 4294967295
+  %wide.trip.count = and i64 %0, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc45

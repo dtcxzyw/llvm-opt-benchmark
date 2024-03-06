@@ -698,7 +698,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %19, %13
   br i1 %25, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %Vec_IntAlloc.exit.i
-  %wide.trip.count.i = and i64 %14, 4294967295
+  %wide.trip.count.i = and i64 %14, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %Vec_IntPush.exit.i, %.lr.ph.preheader.i

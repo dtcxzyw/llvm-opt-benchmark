@@ -2271,7 +2271,7 @@ _ZL11Vec_StrFillP10Vec_Str_t_ic.exit85:           ; preds = %.lr.ph.i81, %_ZL11V
   br i1 %142, label %.lr.ph.i.i, label %_ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge103
-  %wide.trip.count.i.i = and i64 %140, 4294967295
+  %wide.trip.count.i.i = and i64 %140, 2147483647
   br label %143
 
 143:                                              ; preds = %_ZL11Vec_StrPushP10Vec_Str_t_c.exit.i.i, %.lr.ph.i.i
@@ -2615,7 +2615,7 @@ bmcg_sat_solver_set_nvars.exit:                   ; preds = %.lr.ph.i, %20
 
 .preheader.lr.ph.i:                               ; preds = %.lr.ph
   %44 = getelementptr inbounds i8, ptr %32, i64 736
-  %wide.trip.count.i = and i64 %41, 4294967295
+  %wide.trip.count.i = and i64 %41, 2147483647
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %72, %.preheader.lr.ph.i

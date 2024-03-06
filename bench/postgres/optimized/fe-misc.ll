@@ -895,7 +895,7 @@ define internal fastcc i32 @pqSendSome(ptr noundef %0, i32 noundef %1) unnamed_a
   br label %78
 
 45:                                               ; preds = %30
-  %46 = and i64 %31, 4294967295
+  %46 = and i64 %31, 2147483647
   %47 = getelementptr i8, ptr %.038.ph89, i64 %46
   %48 = sub nsw i32 %.041.ph88, %32
   %49 = sub i32 %.037.ph90, %32

@@ -743,11 +743,11 @@ Abc_UtilStrsav.exit.i.i:                          ; preds = %229, %223, %214
   %241 = getelementptr inbounds i8, ptr %233, i64 %240
   store i8 0, ptr %241, align 1
   %242 = shl i64 %235, 32
-  %sext.i.i = add i64 %242, -8589934592
+  %sext.i.i = add nsw i64 %242, -8589934592
   %243 = ashr exact i64 %sext.i.i, 32
   %244 = getelementptr inbounds i8, ptr %233, i64 %243
   store i8 0, ptr %244, align 1
-  %sext68.i.i = add i64 %242, -12884901888
+  %sext68.i.i = add nsw i64 %242, -12884901888
   %245 = ashr exact i64 %sext68.i.i, 32
   %246 = getelementptr inbounds i8, ptr %233, i64 %245
   store i8 0, ptr %246, align 1
@@ -1922,7 +1922,7 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
   br i1 %or.cond, label %17, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
-  %wide.trip.count = and i64 %14, 4294967295
+  %wide.trip.count = and i64 %14, 2147483647
   br label %.lr.ph
 
 17:                                               ; preds = %4
@@ -2473,7 +2473,7 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
   br i1 %or.cond, label %17, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
-  %wide.trip.count = and i64 %14, 4294967295
+  %wide.trip.count = and i64 %14, 2147483647
   br label %.lr.ph
 
 17:                                               ; preds = %4

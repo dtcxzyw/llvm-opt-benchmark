@@ -505,7 +505,7 @@ define internal i32 @ompi_win_finalize() #0 {
 
 .thread.i:                                        ; preds = %9
   %12 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_windows, i64 0, i32 8), align 8
-  %13 = and i64 %.040, 4294967295
+  %13 = and i64 %.040, 2147483647
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   br label %opal_pointer_array_get_item.exit
@@ -516,7 +516,7 @@ define internal i32 @ompi_win_finalize() #0 {
   %.pre1.i = and i8 %.pre.i, 1
   %18 = icmp eq i8 %.pre1.i, 0
   %19 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_mpi_windows, i64 0, i32 8), align 8
-  %20 = and i64 %.040, 4294967295
+  %20 = and i64 %.040, 2147483647
   %21 = getelementptr inbounds ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   br i1 %18, label %opal_pointer_array_get_item.exit, label %23

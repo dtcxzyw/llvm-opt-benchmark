@@ -5249,7 +5249,7 @@ define internal fastcc void @flush_all_cpus_locked(ptr noundef %0) unnamed_addr 
   br label %.preheader
 
 12:                                               ; preds = %8
-  %13 = and i64 %9, 4294967295
+  %13 = and i64 %9, 63
   %14 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, ptrtoint (ptr @slub_flush to i64)
@@ -5291,8 +5291,8 @@ define internal fastcc void @flush_all_cpus_locked(ptr noundef %0) unnamed_addr 
   br label %39
 
 39:                                               ; preds = %31, %29
-  %40 = add i64 %9, 1
-  %41 = and i64 %40, 4294967295
+  %40 = add nuw nsw i64 %9, 1
+  %41 = and i64 %40, 127
   %42 = icmp ugt i64 %41, 63
   br i1 %42, label %.preheader.preheader, label %2, !prof !103, !llvm.loop !104
 
@@ -13108,7 +13108,7 @@ define internal i64 @slabs_cpu_partial_show(ptr nocapture noundef readonly %0, p
 51:                                               ; preds = %47
   %52 = load ptr, ptr %0, align 8
   %53 = ptrtoint ptr %52 to i64
-  %54 = and i64 %48, 4294967295
+  %54 = and i64 %48, 63
   %55 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %54
   %56 = load i64, ptr %55, align 8
   %57 = add i64 %56, %53
@@ -13133,8 +13133,8 @@ define internal i64 @slabs_cpu_partial_show(ptr nocapture noundef readonly %0, p
 71:                                               ; preds = %62, %51
   %72 = phi i64 [ %.pre, %62 ], [ %41, %51 ]
   %73 = phi i32 [ %70, %62 ], [ %43, %51 ]
-  %74 = add i64 %48, 1
-  %75 = and i64 %74, 4294967295
+  %74 = add nuw nsw i64 %48, 1
+  %75 = and i64 %74, 127
   %76 = icmp ugt i64 %75, 63
   br i1 %76, label %.thread8, label %40, !prof !103, !llvm.loop !239
 

@@ -1774,7 +1774,7 @@ define internal fastcc void @dmi_save_devices(ptr noundef %0) unnamed_addr #0 se
 
 9:                                                ; preds = %1
   %10 = getelementptr i8, ptr %0, i64 4
-  %11 = and i64 %6, 4294967295
+  %11 = and i64 %6, 2147483647
   br label %12
 
 12:                                               ; preds = %24, %9

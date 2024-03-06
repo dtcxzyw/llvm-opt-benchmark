@@ -797,7 +797,7 @@ define dso_local i64 @hash_estimate_size(i64 noundef %0, i64 noundef %1) local_u
   br i1 %30, label %26, label %choose_nelem_alloc.exit, !llvm.loop !11
 
 choose_nelem_alloc.exit:                          ; preds = %26
-  %31 = and i64 %28, 4294967295
+  %31 = and i64 %28, 2147483647
   %32 = add i64 %0, -1
   %33 = sdiv i64 %32, %31
   %34 = add nsw i64 %33, 1

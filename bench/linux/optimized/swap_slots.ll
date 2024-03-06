@@ -64,8 +64,8 @@ define dso_local void @disable_swap_slots_cache_lock() local_unnamed_addr #0 ali
 
 13:                                               ; preds = %9
   tail call fastcc void @drain_slots_cache_cpu(i32 noundef %11, i1 noundef zeroext false)
-  %14 = add i64 %10, 1
-  %15 = and i64 %14, 4294967295
+  %14 = add nuw nsw i64 %10, 1
+  %15 = and i64 %14, 127
   %16 = icmp ugt i64 %15, 63
   br i1 %16, label %.thread, label %3, !prof !6, !llvm.loop !7
 
@@ -349,8 +349,8 @@ define dso_local i64 @folio_alloc_swap(ptr noundef %0) local_unnamed_addr #0 ali
 
 35:                                               ; preds = %31
   tail call fastcc void @drain_slots_cache_cpu(i32 noundef %33, i1 noundef zeroext false)
-  %36 = add i64 %32, 1
-  %37 = and i64 %36, 4294967295
+  %36 = add nuw nsw i64 %32, 1
+  %37 = and i64 %36, 127
   %38 = icmp ugt i64 %37, 63
   br i1 %38, label %.loopexit, label %25, !prof !6, !llvm.loop !7
 

@@ -1159,7 +1159,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit114:         ; preds = %165, %149
   br label %.body112
 
 195:                                              ; preds = %.lr.ph287
-  %196 = and i64 %185, 4294967295
+  %196 = and i64 %185, 2147483647
   %197 = ptrtoint ptr %.sroa.8.0284 to i64
   %198 = ptrtoint ptr %.sroa.0170.0285 to i64
   %199 = sub i64 %197, %198
@@ -1254,7 +1254,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit116.split.us.preheader: ; preds = %_ZNSt12_Vec
   %.sroa.14.2 = phi ptr [ %231, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i ], [ %.sroa.14.0283, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.14.0283, %209 ], [ %.sroa.14.0283, %232 ]
   %.sroa.8.2 = phi ptr [ %230, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i ], [ %215, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %210, %209 ], [ %spec.select, %232 ]
   %.sroa.0170.3 = phi ptr [ %221, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i ], [ %.sroa.0170.0285, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.0170.0285, %209 ], [ %.sroa.0170.0285, %232 ]
-  %wide.trip.count = and i64 %185, 4294967295
+  %wide.trip.count = and i64 %185, 2147483647
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit116.split.us
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit116.split.us:   ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit116.split.us.preheader, %._crit_edge264.us

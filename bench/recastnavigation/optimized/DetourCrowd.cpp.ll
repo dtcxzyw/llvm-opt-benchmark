@@ -1724,7 +1724,7 @@ _ZNK14dtPathCorridor11getLastPolyEv.exit:         ; preds = %111, %112
   %127 = getelementptr inbounds i8, ptr %19, i64 596
   %128 = load i32, ptr %127, align 4
   %129 = load ptr, ptr %10, align 8
-  %130 = and i64 %30, 4294967295
+  %130 = and i64 %30, 2147483647
   %131 = getelementptr inbounds %struct.dtCrowdAgent, ptr %129, i64 %130
   %132 = getelementptr inbounds i8, ptr %131, i64 596
   store i32 %128, ptr %132, align 4

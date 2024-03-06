@@ -628,7 +628,7 @@ define dso_local noundef i32 @get_vfs_caps_from_disk(ptr noundef %0, ptr noundef
   br i1 %16, label %63, label %17
 
 17:                                               ; preds = %15
-  %18 = and i64 %13, 4294967295
+  %18 = and i64 %13, 2147483647
   %19 = icmp ult i64 %18, 4
   br i1 %19, label %63, label %20
 

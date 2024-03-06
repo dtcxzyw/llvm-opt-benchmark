@@ -279,7 +279,7 @@ define dso_local noundef i32 @acpi_get_psd_map(i32 noundef %0, ptr noundef %1) #
   br i1 %38, label %62, label %39
 
 39:                                               ; preds = %37
-  %40 = and i64 %34, 4294967295
+  %40 = and i64 %34, 63
   %41 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %40
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, ptrtoint (ptr @cpc_desc_ptr to i64)
@@ -315,8 +315,8 @@ define dso_local noundef i32 @acpi_get_psd_map(i32 noundef %0, ptr noundef %1) #
 
 62:                                               ; preds = %61, %47, %37
   %63 = phi i64 [ %.pre, %61 ], [ %28, %47 ], [ %28, %37 ]
-  %64 = add i64 %34, 1
-  %65 = and i64 %64, 4294967295
+  %64 = add nuw nsw i64 %34, 1
+  %65 = and i64 %64, 127
   %66 = icmp ugt i64 %65, 63
   br i1 %66, label %.thread, label %27, !prof !10, !llvm.loop !13
 

@@ -2689,7 +2689,7 @@ define internal fastcc void @opal_info_show_mca_group_params(ptr noundef %0, i32
 .lr.ph119:                                        ; preds = %48
   %51 = select i1 %.160, ptr @.str.87, ptr @.str.128
   %52 = select i1 %.160, ptr @.str.131, ptr @.str.132
-  %wide.trip.count = and i64 %.val, 4294967295
+  %wide.trip.count = and i64 %.val, 2147483647
   %53 = getelementptr inbounds i8, ptr %0, i64 64
   %54 = getelementptr inbounds i8, ptr %0, i64 64
   %55 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2857,7 +2857,7 @@ define internal fastcc void @opal_info_show_mca_group_params(ptr noundef %0, i32
 .lr.ph129:                                        ; preds = %._crit_edge120
   %132 = select i1 %.160, ptr @.str.87, ptr @.str.128
   %133 = select i1 %.160, ptr @.str.131, ptr @.str.132
-  %wide.trip.count148 = and i64 %.val103, 4294967295
+  %wide.trip.count148 = and i64 %.val103, 2147483647
   %134 = getelementptr inbounds i8, ptr %0, i64 64
   %135 = getelementptr inbounds i8, ptr %0, i64 64
   %136 = getelementptr inbounds i8, ptr %0, i64 64
@@ -3002,7 +3002,7 @@ define internal fastcc void @opal_info_show_mca_group_params(ptr noundef %0, i32
   br i1 %204, label %.lr.ph133.preheader, label %._crit_edge134
 
 .lr.ph133.preheader:                              ; preds = %._crit_edge130
-  %wide.trip.count153 = and i64 %.val104, 4294967295
+  %wide.trip.count153 = and i64 %.val104, 2147483647
   br label %.lr.ph133
 
 .lr.ph133:                                        ; preds = %.lr.ph133.preheader, %210

@@ -340,7 +340,7 @@ define dso_local i32 @insn_get_code_seg_params(ptr nocapture noundef readonly %0
 
 40:                                               ; preds = %9
   call void asm sideeffect "sgdt $0", "=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.desc_ptr) %2) #7, !srcloc !16
-  %41 = and i32 %10, 65528
+  %41 = and i32 %10, 32760
   %42 = load i16, ptr %2, align 2
   %43 = zext i16 %42 to i32
   %44 = icmp ugt i32 %41, %43
@@ -351,7 +351,7 @@ define dso_local i32 @insn_get_code_seg_params(ptr nocapture noundef readonly %0
   br label %69
 
 45:                                               ; preds = %40
-  %46 = and i64 %4, 65528
+  %46 = and i64 %4, 32760
   %47 = getelementptr inbounds i8, ptr %2, i64 2
   %48 = load i64, ptr %47, align 2
   %49 = add i64 %48, %46

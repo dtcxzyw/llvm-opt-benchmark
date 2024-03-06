@@ -4891,7 +4891,7 @@ define void @Rtl_TokenUnspace(ptr nocapture noundef %0) local_unnamed_addr #19 {
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %1
-  %wide.trip.count = and i64 %2, 4294967295
+  %wide.trip.count = and i64 %2, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
@@ -4996,7 +4996,7 @@ define noalias noundef ptr @Rtl_NtkReadFile(ptr noundef %0, ptr noundef %1) loca
   br i1 %20, label %.lr.ph.preheader.i, label %Rtl_TokenUnspace.exit
 
 .lr.ph.preheader.i:                               ; preds = %17
-  %wide.trip.count.i = and i64 %18, 4294967295
+  %wide.trip.count.i = and i64 %18, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.preheader.i
@@ -9231,7 +9231,7 @@ Rtl_NtkReadType.exit:                             ; preds = %28
   %.val31.val = load ptr, ptr %48, align 8
   %49 = getelementptr i8, ptr %.val31.val, i64 8
   %.val31.val.val = load ptr, ptr %49, align 8
-  %50 = and i64 %indvars.iv.i.i, 4294967295
+  %50 = and i64 %indvars.iv.i.i, 2147483647
   %51 = getelementptr inbounds ptr, ptr %.val31.val.val, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 4

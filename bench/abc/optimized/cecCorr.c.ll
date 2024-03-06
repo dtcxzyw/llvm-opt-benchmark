@@ -2471,7 +2471,7 @@ define void @Cec_ManStartSimInfo(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %or.cond, label %.lr.ph.us.preheader, label %.preheader
 
 .lr.ph.us.preheader:                              ; preds = %2
-  %12 = and i64 %7, 17179869180
+  %12 = and i64 %7, 8589934588
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph.us
 
@@ -2495,7 +2495,7 @@ define void @Cec_ManStartSimInfo(ptr nocapture noundef readonly %0, i32 noundef 
 
 .lr.ph.us37.preheader:                            ; preds = %.preheader
   %18 = sext i32 %1 to i64
-  %wide.trip.count46 = and i64 %8, 4294967295
+  %wide.trip.count46 = and i64 %8, 2147483647
   br label %.lr.ph.us37
 
 .lr.ph.us37:                                      ; preds = %.lr.ph.us37.preheader, %._crit_edge.us38
@@ -2553,7 +2553,7 @@ define void @Gia_ManCorrRemapSimInfo(ptr nocapture noundef readonly %0, ptr noca
   br i1 %15, label %.lr.ph54.split.us.preheader, label %.critedge
 
 .lr.ph54.split.us.preheader:                      ; preds = %.lr.ph54
-  %wide.trip.count = and i64 %8, 4294967295
+  %wide.trip.count = and i64 %8, 2147483647
   br label %.lr.ph54.split.us
 
 .lr.ph54.split.us:                                ; preds = %.lr.ph54.split.us.preheader, %Gia_ObjReprObj.exit.thread.us
@@ -2852,7 +2852,7 @@ define void @Gia_ManCorrPerformRemapping(ptr nocapture noundef readonly %0, ptr 
   br i1 %13, label %.lr.ph.us.preheader, label %.critedge
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph29
-  %wide.trip.count = and i64 %8, 4294967295
+  %wide.trip.count = and i64 %8, 2147483647
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -3479,7 +3479,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %3
   br i1 %or.cond.i, label %.lr.ph.us.preheader.i, label %.preheader.i
 
 .lr.ph.us.preheader.i:                            ; preds = %37
-  %48 = and i64 %43, 17179869180
+  %48 = and i64 %43, 8589934588
   %wide.trip.count.i27 = zext nneg i32 %.val to i64
   br label %.lr.ph.us.i
 
@@ -3501,7 +3501,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %3
 
 .lr.ph.us37.preheader.i:                          ; preds = %.preheader.i
   %52 = sext i32 %.val to i64
-  %wide.trip.count46.i = and i64 %44, 4294967295
+  %wide.trip.count46.i = and i64 %44, 2147483647
   br label %.lr.ph.us37.i
 
 .lr.ph.us37.i:                                    ; preds = %._crit_edge.us38.i, %.lr.ph.us37.preheader.i
@@ -3545,7 +3545,7 @@ Cec_ManStartSimInfo.exit:                         ; preds = %._crit_edge.us38.i,
   br i1 %or.cond, label %.lr.ph.us.preheader.i31, label %Gia_ManCorrPerformRemapping.exit
 
 .lr.ph.us.preheader.i31:                          ; preds = %Cec_ManStartSimInfo.exit
-  %wide.trip.count.i32 = and i64 %65, 4294967295
+  %wide.trip.count.i32 = and i64 %65, 2147483647
   %.val20.us.i = load ptr, ptr %36, align 8
   %69 = zext nneg i32 %.val26.i to i64
   br label %.lr.ph.us.i33
@@ -3692,7 +3692,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %2
   br i1 %or.cond51.i, label %.lr.ph.us37.preheader.i, label %Cec_ManStartSimInfo.exit
 
 .lr.ph.us37.preheader.i:                          ; preds = %.lr.ph
-  %wide.trip.count46.i = and i64 %32, 4294967295
+  %wide.trip.count46.i = and i64 %32, 2147483647
   br label %.lr.ph.us37.i
 
 .lr.ph.us37.i:                                    ; preds = %._crit_edge.us38.i, %.lr.ph.us37.preheader.i

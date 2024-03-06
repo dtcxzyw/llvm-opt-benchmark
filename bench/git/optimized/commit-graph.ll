@@ -1153,7 +1153,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %buf = getelementptr inbounds i8, ptr %line, i64 16
   %objects = getelementptr inbounds i8, ptr %r, i64 16
-  %4 = and i64 %div, 4294967295
+  %4 = and i64 %div, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc30
@@ -3020,7 +3020,7 @@ if.end39:                                         ; preds = %if.then23, %compute
   br i1 %tobool.not, label %for.inc40, label %while.body, !llvm.loop !25
 
 for.inc40:                                        ; preds = %if.end39, %if.end, %for.body
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load ptr, ptr %commits, align 8
   %nr = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load i64, ptr %nr, align 8
@@ -4680,7 +4680,7 @@ for.body.i295:                                    ; preds = %for.cond.preheader.
   %call19.i = call fastcc ptr @commit_graph_data_at(i32 %.val.i)
   %generation.i = getelementptr inbounds i8, ptr %call19.i, i64 8
   store i64 0, ptr %generation.i, align 8
-  %indvars.iv.next.i298 = add nuw i64 %indvars.iv.i296, 1
+  %indvars.iv.next.i298 = add nuw nsw i64 %indvars.iv.i296, 1
   %236 = load i64, ptr %nr, align 8
   %cmp.i299 = icmp ugt i64 %236, %indvars.iv.next.i298
   br i1 %cmp.i299, label %for.body.i295, label %if.end20.i, !llvm.loop !42
@@ -4714,7 +4714,7 @@ if.then37.i:                                      ; preds = %for.body27.i
   br label %for.inc40.i
 
 for.inc40.i:                                      ; preds = %if.then37.i, %for.body27.i
-  %indvars.iv.next30.i = add nuw i64 %indvars.iv29.i, 1
+  %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %244 = load i64, ptr %nr, align 8
   %cmp25.i = icmp ugt i64 %244, %indvars.iv.next30.i
   br i1 %cmp25.i, label %for.body27.i, label %for.end42.i, !llvm.loop !43
@@ -4896,7 +4896,7 @@ cond.end57.i:                                     ; preds = %cond.true55.i, %if.
   %269 = load i64, ptr %total_bloom_filter_data_size, align 8
   %add.i330 = add i64 %269, %cond58.i
   store i64 %add.i330, ptr %total_bloom_filter_data_size, align 8
-  %indvars.iv.next.i331 = add nuw i64 %indvars.iv.i325, 1
+  %indvars.iv.next.i331 = add nuw nsw i64 %indvars.iv.i325, 1
   call void @display_progress(ptr noundef %250, i64 noundef %indvars.iv.next.i331) #22
   %270 = load i64, ptr %nr, align 8
   %cmp29.i = icmp ugt i64 %270, %indvars.iv.next.i331
@@ -8125,7 +8125,7 @@ if.end:                                           ; preds = %while.body
   %inc = add i64 %5, 1
   store i64 %inc, ptr %progress_cnt, align 8
   call void @display_progress(ptr noundef %4, i64 noundef %inc) #22
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %list.112, i64 8
   %6 = load i64, ptr %nr, align 8
   %cmp3 = icmp ugt i64 %6, %indvars.iv.next
@@ -8185,7 +8185,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = load i64, ptr %rawsz, align 8
   %conv4 = trunc i64 %7 to i32
   tail call void @hashwrite(ptr noundef %f, ptr noundef nonnull %oid, i32 noundef %conv4) #22
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %list.07, i64 8
   %8 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %8, %indvars.iv.next
@@ -8653,7 +8653,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %10, ptr %data.addr.i, align 4
   call void @hashwrite(ptr noundef %f, ptr noundef nonnull %data.addr.i, i32 noundef 4) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.addr.i)
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %11, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !70
@@ -8716,7 +8716,7 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %10, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !71

@@ -20017,8 +20017,8 @@ for.body25.lr.ph:                                 ; preds = %for.cond23.preheade
   %mpNext3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
   %mpCapacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 56
   %mnNodeSize9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 64
-  %wide.trip.count = and i64 %sub.ptr.div.i.i.i, 4294967295
-  %wide.trip.count1782 = and i64 %sub.ptr.div.i.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i.i, 2147483647
+  %wide.trip.count1782 = and i64 %sub.ptr.div.i.i.i, 2147483647
   br label %for.body25
 
 for.body:                                         ; preds = %invoke.cont10, %for.inc
@@ -21068,8 +21068,8 @@ for.cond116.preheader:                            ; preds = %for.inc113
   br i1 %or.cond.i.i, label %if.end187, label %for.cond116.preheader1762
 
 for.cond116.preheader1762:                        ; preds = %for.cond116.preheader
-  %wide.trip.count1788 = and i64 %sub.ptr.div.i338, 4294967295
-  %wide.trip.count1793 = and i64 %sub.ptr.div.i338, 4294967295
+  %wide.trip.count1788 = and i64 %sub.ptr.div.i338, 2147483647
+  %wide.trip.count1793 = and i64 %sub.ptr.div.i338, 2147483647
   br label %for.cond116
 
 for.body110:                                      ; preds = %invoke.cont104, %for.inc113
@@ -24285,7 +24285,7 @@ invoke.cont32:                                    ; preds = %for.body29
   br i1 %cmp363999, label %invoke.cont42.preheader, label %invoke.cont62.preheader
 
 invoke.cont42.preheader:                          ; preds = %invoke.cont32
-  %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %invoke.cont42
 
 invoke.cont62.preheader:                          ; preds = %invoke.cont55, %invoke.cont32
@@ -24898,7 +24898,7 @@ while.end:                                        ; preds = %_ZN10TestObjectD2Ev
   br i1 %cmp794002, label %for.body80.preheader, label %for.end103
 
 for.body80.preheader:                             ; preds = %while.end
-  %wide.trip.count4054 = and i64 %sub.ptr.div.i332, 4294967295
+  %wide.trip.count4054 = and i64 %sub.ptr.div.i332, 2147483647
   br label %for.body80
 
 for.body80:                                       ; preds = %for.body80.preheader, %invoke.cont98
@@ -25568,7 +25568,7 @@ for.body134:                                      ; preds = %invoke.cont132
   br i1 %cmp1384008, label %invoke.cont145.preheader, label %for.end193
 
 invoke.cont145.preheader:                         ; preds = %for.body134
-  %wide.trip.count4060 = and i64 %sub.ptr.div.i503, 4294967295
+  %wide.trip.count4060 = and i64 %sub.ptr.div.i503, 2147483647
   br label %invoke.cont145
 
 invoke.cont145:                                   ; preds = %invoke.cont145.preheader, %invoke.cont163
@@ -26073,7 +26073,7 @@ for.end168:                                       ; preds = %invoke.cont163
   br i1 %cmp1724010, label %for.body173.preheader, label %for.end193
 
 for.body173.preheader:                            ; preds = %for.end168
-  %wide.trip.count4065 = and i64 %.pre4077, 4294967295
+  %wide.trip.count4065 = and i64 %.pre4077, 2147483647
   br label %for.body173
 
 for.body173:                                      ; preds = %for.body173.preheader, %invoke.cont188
@@ -30372,8 +30372,8 @@ for.body25.lr.ph:                                 ; preds = %for.cond23.preheade
   %mpNext3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
   %mpCapacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 56
   %mnNodeSize9.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 64
-  %wide.trip.count = and i64 %sub.ptr.div.i.i.i, 4294967295
-  %wide.trip.count1753 = and i64 %sub.ptr.div.i.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i.i, 2147483647
+  %wide.trip.count1753 = and i64 %sub.ptr.div.i.i.i, 2147483647
   br label %for.body25
 
 for.body:                                         ; preds = %invoke.cont10, %for.inc
@@ -31451,8 +31451,8 @@ for.cond113.preheader:                            ; preds = %for.inc110
   br i1 %or.cond.i.i, label %if.end183, label %for.cond113.preheader1735
 
 for.cond113.preheader1735:                        ; preds = %for.cond113.preheader
-  %wide.trip.count1759 = and i64 %sub.ptr.div.i343, 4294967295
-  %wide.trip.count1764 = and i64 %sub.ptr.div.i343, 4294967295
+  %wide.trip.count1759 = and i64 %sub.ptr.div.i343, 2147483647
+  %wide.trip.count1764 = and i64 %sub.ptr.div.i343, 2147483647
   br label %for.cond113
 
 for.body107:                                      ; preds = %invoke.cont101, %for.inc110
@@ -34694,7 +34694,7 @@ invoke.cont32:                                    ; preds = %for.body29
   br i1 %cmp364038, label %invoke.cont41.preheader, label %invoke.cont61.preheader
 
 invoke.cont41.preheader:                          ; preds = %invoke.cont32
-  %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %invoke.cont41
 
 invoke.cont61.preheader:                          ; preds = %invoke.cont54, %invoke.cont32
@@ -35249,7 +35249,7 @@ while.end:                                        ; preds = %_ZN10TestObjectD2Ev
   br i1 %cmp774041, label %for.body78.preheader, label %for.end100
 
 for.body78.preheader:                             ; preds = %while.end
-  %wide.trip.count4088 = and i64 %sub.ptr.div.i332, 4294967295
+  %wide.trip.count4088 = and i64 %sub.ptr.div.i332, 2147483647
   br label %for.body78
 
 for.body78:                                       ; preds = %for.body78.preheader, %invoke.cont95
@@ -35968,7 +35968,7 @@ for.body131:                                      ; preds = %invoke.cont129
   br i1 %cmp1354047, label %invoke.cont141.preheader, label %for.end189
 
 invoke.cont141.preheader:                         ; preds = %for.body131
-  %wide.trip.count4094 = and i64 %sub.ptr.div.i498, 4294967295
+  %wide.trip.count4094 = and i64 %sub.ptr.div.i498, 2147483647
   br label %invoke.cont141
 
 invoke.cont141:                                   ; preds = %invoke.cont141.preheader, %invoke.cont160
@@ -36415,7 +36415,7 @@ for.end165:                                       ; preds = %invoke.cont160
   br i1 %cmp1694049, label %for.body170.preheader, label %for.end189
 
 for.body170.preheader:                            ; preds = %for.end165
-  %wide.trip.count4099 = and i64 %.pre4109, 4294967295
+  %wide.trip.count4099 = and i64 %.pre4109, 2147483647
   br label %for.body170
 
 for.body170:                                      ; preds = %for.body170.preheader, %invoke.cont184
@@ -43768,7 +43768,7 @@ for.body17.lr.ph:                                 ; preds = %invoke.cont12
   %mpNext3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
   %mpCapacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 56
   %mnNodeSize9.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 64
-  %wide.trip.count = and i64 %sub.ptr.div.i.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i.i, 2147483647
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %for.inc28
@@ -57632,9 +57632,9 @@ if.then.i:
 
 invoke.cont:                                      ; preds = %if.then.i
   %1 = load ptr, ptr %ref.tmp4.i, align 8
-  %.sroa.gep = getelementptr inbounds i8, ptr %1, i64 36
+  %second.i = getelementptr inbounds i8, ptr %1, i64 36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i)
-  store i32 1, ptr %.sroa.gep, align 4
+  store i32 1, ptr %second.i, align 4
   store i32 1, ptr %ref.tmp1, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp4.i1)
   %pCurrent.05.i.i3 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8, !noalias !1861
@@ -57675,10 +57675,10 @@ if.then.i23:                                      ; preds = %lor.rhs.i18, %_ZN5e
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %.noexc25, %lor.rhs.i18
-  %.pn = phi ptr [ %4, %.noexc25 ], [ %pRangeEnd.1.i.i13, %lor.rhs.i18 ]
-  %itLower.sroa.0.0.i21.sroa.phi = getelementptr inbounds i8, ptr %.pn, i64 36
+  %itLower.sroa.0.0.i21 = phi ptr [ %4, %.noexc25 ], [ %pRangeEnd.1.i.i13, %lor.rhs.i18 ]
+  %second.i22 = getelementptr inbounds i8, ptr %itLower.sroa.0.0.i21, i64 36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i1)
-  %5 = load i32, ptr %itLower.sroa.0.0.i21.sroa.phi, align 4
+  %5 = load i32, ptr %second.i22, align 4
   %cmp = icmp eq i32 %5, 1
   %call6 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.9, i32 noundef 961, ptr noundef nonnull @.str.183)
           to label %invoke.cont5 unwind label %lpad

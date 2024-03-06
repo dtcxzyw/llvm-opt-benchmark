@@ -4528,7 +4528,7 @@ for.inc29:                                        ; preds = %for.inc29.loopexit,
   %childRanges.sroa.12.1.lcssa = phi ptr [ %childRanges.sroa.12.0599, %for.body ], [ %childRanges.sroa.12.3, %for.inc29.loopexit ]
   %childRanges.sroa.7.1.lcssa = phi ptr [ %childRanges.sroa.7.0600, %for.body ], [ %childRanges.sroa.7.3, %for.inc29.loopexit ]
   %childRanges.sroa.0.1.lcssa = phi ptr [ %childRanges.sroa.0.0601, %for.body ], [ %childRanges.sroa.0.4, %for.inc29.loopexit ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %665 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %664 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -6703,7 +6703,7 @@ invoke.cont37.i:                                  ; preds = %if.then32.i
 
 for.inc.i:                                        ; preds = %invoke.cont37.i, %invoke.cont30.i
   %numInner.1.i = phi i32 [ %numInner.0.i1007, %invoke.cont30.i ], [ %inc.i, %invoke.cont37.i ]
-  %indvars.iv.next1153 = add nuw i64 %indvars.iv1152, 1
+  %indvars.iv.next1153 = add nuw nsw i64 %indvars.iv1152, 1
   %303 = load ptr, ptr %e_.i, align 8
   %304 = load ptr, ptr %rows, align 8
   %sub.ptr.lhs.cast.i406 = ptrtoint ptr %303 to i64
@@ -12181,7 +12181,7 @@ sw.default.i.i.i:                                 ; preds = %_ZN8facebook5velox9
           to label %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_122serializeEncodedColumnEPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 _ZN8facebook5velox10serializer6presto12_GLOBAL__N_122serializeEncodedColumnEPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i: ; preds = %sw.default.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_125serializeDictionaryColumnILNS0_8TypeKindE32EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_125serializeDictionaryColumnILNS0_8TypeKindE31EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_125serializeDictionaryColumnILNS0_8TypeKindE30EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_125serializeDictionaryColumnILNS0_8TypeKindE9EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_125serializeDictionaryColumnILNS0_8TypeKindE8EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_125serializeDictionaryColumnILNS0_8TypeKindE7EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_125serializeDictionaryColumnILNS0_8TypeKindE6EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_125serializeDictionaryColumnILNS0_8TypeKindE5EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_125serializeDictionaryColumnILNS0_8TypeKindE10EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_125serializeDictionaryColumnILNS0_8TypeKindE4EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_125serializeDictionaryColumnILNS0_8TypeKindE2EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_125serializeDictionaryColumnILNS0_8TypeKindE1EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_125serializeDictionaryColumnILNS0_8TypeKindE3EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_125serializeDictionaryColumnILNS0_8TypeKindE0EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_125serializeDictionaryColumnILNS0_8TypeKindE35EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_125serializeDictionaryColumnILNS0_8TypeKindE33EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantColumnILNS0_8TypeKindE32EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantColumnILNS0_8TypeKindE31EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantColumnILNS0_8TypeKindE30EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantColumnILNS0_8TypeKindE9EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantColumnILNS0_8TypeKindE8EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantColumnILNS0_8TypeKindE7EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantColumnILNS0_8TypeKindE6EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantColumnILNS0_8TypeKindE5EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantColumnILNS0_8TypeKindE10EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantColumnILNS0_8TypeKindE4EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantColumnILNS0_8TypeKindE2EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantColumnILNS0_8TypeKindE1EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantColumnILNS0_8TypeKindE3EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantColumnILNS0_8TypeKindE0EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantColumnILNS0_8TypeKindE35EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_123serializeConstantColumnILNS0_8TypeKindE33EEEvPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE.exit.i.i.i.i
-  %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %562 = load ptr, ptr %vector, align 8
   %childrenSize_.i.i.i = getelementptr inbounds i8, ptr %562, i64 104
   %563 = load i64, ptr %childrenSize_.i.i.i, align 8
@@ -16769,7 +16769,7 @@ _ZNKSt8functionIFvPN8facebook5velox15ByteInputStreamERKSt10shared_ptrIKNS1_4Type
 
 if.end120:                                        ; preds = %_ZNKSt8functionIFvPN8facebook5velox15ByteInputStreamERKSt10shared_ptrIKNS1_4TypeEEPNS1_6memory10MemoryPoolERS4_INS1_10BaseVectorEEibEEclES3_S9_SC_SF_ib.exit, %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EED2Ev.exit498, %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EED2Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %encoding) #18
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %437 = load ptr, ptr %_M_finish.i, align 8
   %438 = load ptr, ptr %types, align 8
   %sub.ptr.lhs.cast.i122 = ptrtoint ptr %437 to i64
@@ -17140,7 +17140,7 @@ _ZN8facebook5velox9RowVector7childAtEj.exit162:   ; preds = %_ZN8facebook5velox9
           to label %for.inc unwind label %lpad10.loopexit
 
 for.inc:                                          ; preds = %invoke.cont51, %_ZN8facebook5velox9RowVector7childAtEj.exit162
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i64, ptr %childrenSize_.i148, align 8
   %cmp44 = icmp ugt i64 %48, %indvars.iv.next
   br i1 %cmp44, label %_ZN8facebook5velox9RowVector7childAtEj.exit155, label %for.end, !llvm.loop !156
@@ -17916,7 +17916,7 @@ for.end:                                          ; preds = %for.inc, %for.body
   %13 = load i32, ptr %12, align 4
   %conv34 = add i32 %13, %div.i
   store i32 %conv34, ptr %12, align 4
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load ptr, ptr %e_.i, align 8
   %15 = load ptr, ptr %ranges, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
@@ -18165,7 +18165,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIPiSaIS
   br i1 %cmp10, label %for.body11, label %for.inc21, !llvm.loop !165
 
 for.inc21:                                        ; preds = %for.inc, %for.body
-  %indvars.iv.next36 = add nuw i64 %indvars.iv35, 1
+  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %25 = load ptr, ptr %e_.i, align 8
   %26 = load ptr, ptr %ranges, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %25 to i64
@@ -18514,7 +18514,7 @@ _ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT
 
 for.body.lr.ph.i:                                 ; preds = %_ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT_.exit.i
   %28 = trunc i64 %call2.i to i32
-  %wide.trip.count.i = and i64 %sub.ptr.div68.i.i, 4294967295
+  %wide.trip.count.i = and i64 %sub.ptr.div68.i.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -18922,7 +18922,7 @@ _ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT
 
 for.body.lr.ph.i98:                               ; preds = %_ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT_.exit.i91
   %80 = trunc i64 %call2.i7 to i32
-  %wide.trip.count.i99 = and i64 %sub.ptr.div68.i.i95, 4294967295
+  %wide.trip.count.i99 = and i64 %sub.ptr.div68.i.i95, 2147483647
   br label %for.body.i100
 
 for.body.i100:                                    ; preds = %for.body.i100, %for.body.lr.ph.i98
@@ -19340,7 +19340,7 @@ _ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT
 
 for.body.lr.ph.i.i228:                            ; preds = %_ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT_.exit.i.i
   %132 = trunc i64 %call2.i.i to i32
-  %wide.trip.count.i.i = and i64 %sub.ptr.div68.i.i.i, 4294967295
+  %wide.trip.count.i.i = and i64 %sub.ptr.div68.i.i.i, 2147483647
   br label %for.body.i.i229
 
 for.body.i.i229:                                  ; preds = %for.body.i.i229, %for.body.lr.ph.i.i228
@@ -19738,7 +19738,7 @@ _ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT
 
 for.body.lr.ph.i100.i:                            ; preds = %_ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT_.exit.i93.i
   %182 = trunc i64 %call2.i9.i to i32
-  %wide.trip.count.i101.i = and i64 %sub.ptr.div68.i.i97.i, 4294967295
+  %wide.trip.count.i101.i = and i64 %sub.ptr.div68.i.i97.i, 2147483647
   br label %for.body.i102.i
 
 for.body.i102.i:                                  ; preds = %for.body.i102.i, %for.body.lr.ph.i100.i
@@ -20136,7 +20136,7 @@ _ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT
 
 for.body.lr.ph.i321.i:                            ; preds = %_ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT_.exit.i314.i
   %232 = trunc i64 %call2.i230.i to i32
-  %wide.trip.count.i322.i = and i64 %sub.ptr.div68.i.i318.i, 4294967295
+  %wide.trip.count.i322.i = and i64 %sub.ptr.div68.i.i318.i, 2147483647
   br label %for.body.i323.i
 
 for.body.i323.i:                                  ; preds = %for.body.i323.i, %for.body.lr.ph.i321.i
@@ -20534,7 +20534,7 @@ _ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT
 
 for.body.lr.ph.i542.i:                            ; preds = %_ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT_.exit.i535.i
   %282 = trunc i64 %call2.i451.i to i32
-  %wide.trip.count.i543.i = and i64 %sub.ptr.div68.i.i539.i, 4294967295
+  %wide.trip.count.i543.i = and i64 %sub.ptr.div68.i.i539.i, 2147483647
   br label %for.body.i544.i
 
 for.body.i544.i:                                  ; preds = %for.body.i544.i, %for.body.lr.ph.i542.i
@@ -20932,7 +20932,7 @@ _ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT
 
 for.body.lr.ph.i763.i:                            ; preds = %_ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT_.exit.i756.i
   %332 = trunc i64 %call2.i672.i to i32
-  %wide.trip.count.i764.i = and i64 %sub.ptr.div68.i.i760.i, 4294967295
+  %wide.trip.count.i764.i = and i64 %sub.ptr.div68.i.i760.i, 2147483647
   br label %for.body.i765.i
 
 for.body.i765.i:                                  ; preds = %for.body.i765.i, %for.body.lr.ph.i763.i
@@ -21330,7 +21330,7 @@ _ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT
 
 for.body.lr.ph.i984.i:                            ; preds = %_ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT_.exit.i977.i
   %382 = trunc i64 %call2.i893.i to i32
-  %wide.trip.count.i985.i = and i64 %sub.ptr.div68.i.i981.i, 4294967295
+  %wide.trip.count.i985.i = and i64 %sub.ptr.div68.i.i981.i, 2147483647
   br label %for.body.i986.i
 
 for.body.i986.i:                                  ; preds = %for.body.i986.i, %for.body.lr.ph.i984.i
@@ -21728,7 +21728,7 @@ _ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT
 
 for.body.lr.ph.i1205.i:                           ; preds = %_ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT_.exit.i1198.i
   %432 = trunc i64 %call2.i1114.i to i32
-  %wide.trip.count.i1206.i = and i64 %sub.ptr.div68.i.i1202.i, 4294967295
+  %wide.trip.count.i1206.i = and i64 %sub.ptr.div68.i.i1202.i, 2147483647
   br label %for.body.i1207.i
 
 for.body.i1207.i:                                 ; preds = %for.body.i1207.i, %for.body.lr.ph.i1205.i
@@ -22126,7 +22126,7 @@ _ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT
 
 for.body.lr.ph.i1426.i:                           ; preds = %_ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT_.exit.i1419.i
   %482 = trunc i64 %call2.i1335.i to i32
-  %wide.trip.count.i1427.i = and i64 %sub.ptr.div68.i.i1423.i, 4294967295
+  %wide.trip.count.i1427.i = and i64 %sub.ptr.div68.i.i1423.i, 2147483647
   br label %for.body.i1428.i
 
 for.body.i1428.i:                                 ; preds = %for.body.i1428.i, %for.body.lr.ph.i1426.i
@@ -22542,7 +22542,7 @@ _ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT
 
 for.body.lr.ph.i1647.i:                           ; preds = %_ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT_.exit.i1640.i
   %538 = trunc i64 %call2.i1556.i to i32
-  %wide.trip.count.i1648.i = and i64 %sub.ptr.div68.i.i1644.i, 4294967295
+  %wide.trip.count.i1648.i = and i64 %sub.ptr.div68.i.i1644.i, 2147483647
   br label %for.body.i1649.i
 
 for.body.i1649.i:                                 ; preds = %for.body.i1649.i, %for.body.lr.ph.i1647.i
@@ -22940,7 +22940,7 @@ _ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT
 
 for.body.lr.ph.i1868.i:                           ; preds = %_ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT_.exit.i1861.i
   %588 = trunc i64 %call2.i1777.i to i32
-  %wide.trip.count.i1869.i = and i64 %sub.ptr.div68.i.i1865.i, 4294967295
+  %wide.trip.count.i1869.i = and i64 %sub.ptr.div68.i.i1865.i, 2147483647
   br label %for.body.i1870.i
 
 for.body.i1870.i:                                 ; preds = %for.body.i1870.i, %for.body.lr.ph.i1868.i
@@ -23338,7 +23338,7 @@ _ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT
 
 for.body.lr.ph.i2089.i:                           ; preds = %_ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT_.exit.i2082.i
   %638 = trunc i64 %call2.i1998.i to i32
-  %wide.trip.count.i2090.i = and i64 %sub.ptr.div68.i.i2086.i, 4294967295
+  %wide.trip.count.i2090.i = and i64 %sub.ptr.div68.i.i2086.i, 2147483647
   br label %for.body.i2091.i
 
 for.body.i2091.i:                                 ; preds = %for.body.i2091.i, %for.body.lr.ph.i2089.i
@@ -23736,7 +23736,7 @@ _ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT
 
 for.body.lr.ph.i2310.i:                           ; preds = %_ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT_.exit.i2303.i
   %688 = trunc i64 %call2.i2219.i to i32
-  %wide.trip.count.i2311.i = and i64 %sub.ptr.div68.i.i2307.i, 4294967295
+  %wide.trip.count.i2311.i = and i64 %sub.ptr.div68.i.i2307.i, 2147483647
   br label %for.body.i2312.i
 
 for.body.i2312.i:                                 ; preds = %for.body.i2312.i, %for.body.lr.ph.i2310.i
@@ -26244,7 +26244,7 @@ _ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT
   br i1 %cmp271, label %for.body28.preheader, label %for.end46
 
 for.body28.preheader:                             ; preds = %_ZN8facebook5velox4simd16indicesOfSetBitsIN5xsimd4fma3INS3_4avx2EEEEEiPKmiiPiRKT_.exit
-  %wide.trip.count = and i64 %sub.ptr.div68.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div68.i, 2147483647
   br label %for.body28
 
 for.body28:                                       ; preds = %for.body28.preheader, %for.body28
@@ -27933,7 +27933,7 @@ for.inc16.loopexit.i:                             ; preds = %_ZN8facebook5velox1
 
 for.inc16.i:                                      ; preds = %for.inc16.loopexit.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit.i
   %29 = phi ptr [ %.pre.i, %for.inc16.loopexit.i ], [ %13, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit.i ]
-  %indvars.iv.next110.i = add nuw i64 %indvars.iv109.i, 1
+  %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
   %30 = load ptr, ptr %e_.i34.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %30 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %29 to i64
@@ -28105,7 +28105,7 @@ for.inc49.loopexit.i:                             ; preds = %for.inc46.i
 for.inc49.i:                                      ; preds = %for.inc49.loopexit.i, %for.body24.i
   %62 = phi ptr [ %.pre119.i, %for.inc49.loopexit.i ], [ %31, %for.body24.i ]
   %63 = phi ptr [ %.pre118.i, %for.inc49.loopexit.i ], [ %32, %for.body24.i ]
-  %indvars.iv.next116.i = add nuw i64 %indvars.iv115.i, 1
+  %indvars.iv.next116.i = add nuw nsw i64 %indvars.iv115.i, 1
   %sub.ptr.lhs.cast.i35.i = ptrtoint ptr %63 to i64
   %sub.ptr.rhs.cast.i36.i = ptrtoint ptr %62 to i64
   %sub.ptr.sub.i37.i = sub i64 %sub.ptr.lhs.cast.i35.i, %sub.ptr.rhs.cast.i36.i
@@ -28269,7 +28269,7 @@ for.inc16.loopexit.i63:                           ; preds = %_ZN8facebook5velox1
 
 for.inc16.i38:                                    ; preds = %for.inc16.loopexit.i63, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit.i34
   %87 = phi ptr [ %.pre.i64, %for.inc16.loopexit.i63 ], [ %72, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit.i34 ]
-  %indvars.iv.next112.i = add nuw i64 %indvars.iv111.i, 1
+  %indvars.iv.next112.i = add nuw nsw i64 %indvars.iv111.i, 1
   %88 = load ptr, ptr %e_.i35.i, align 8
   %sub.ptr.lhs.cast.i.i39 = ptrtoint ptr %88 to i64
   %sub.ptr.rhs.cast.i.i40 = ptrtoint ptr %87 to i64
@@ -28441,7 +28441,7 @@ for.inc49.loopexit.i88:                           ; preds = %for.inc46.i86
 for.inc49.i77:                                    ; preds = %for.inc49.loopexit.i88, %for.body24.i75
   %119 = phi ptr [ %.pre121.i, %for.inc49.loopexit.i88 ], [ %89, %for.body24.i75 ]
   %120 = phi ptr [ %.pre120.i, %for.inc49.loopexit.i88 ], [ %90, %for.body24.i75 ]
-  %indvars.iv.next118.i = add nuw i64 %indvars.iv117.i, 1
+  %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
   %sub.ptr.lhs.cast.i36.i = ptrtoint ptr %120 to i64
   %sub.ptr.rhs.cast.i37.i = ptrtoint ptr %119 to i64
   %sub.ptr.sub.i38.i = sub i64 %sub.ptr.lhs.cast.i36.i, %sub.ptr.rhs.cast.i37.i
@@ -28604,7 +28604,7 @@ for.inc16.loopexit.i163:                          ; preds = %_ZN8facebook5velox1
 
 for.inc16.i138:                                   ; preds = %for.inc16.loopexit.i163, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit.i133
   %144 = phi ptr [ %.pre.i164, %for.inc16.loopexit.i163 ], [ %129, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit.i133 ]
-  %indvars.iv.next110.i139 = add nuw i64 %indvars.iv109.i129, 1
+  %indvars.iv.next110.i139 = add nuw nsw i64 %indvars.iv109.i129, 1
   %145 = load ptr, ptr %e_.i34.i116, align 8
   %sub.ptr.lhs.cast.i.i140 = ptrtoint ptr %145 to i64
   %sub.ptr.rhs.cast.i.i141 = ptrtoint ptr %144 to i64
@@ -28775,7 +28775,7 @@ for.inc49.loopexit.i225:                          ; preds = %for.inc46.i222
 for.inc49.i191:                                   ; preds = %for.inc49.loopexit.i225, %for.body24.i186
   %176 = phi ptr [ %.pre119.i227, %for.inc49.loopexit.i225 ], [ %146, %for.body24.i186 ]
   %177 = phi ptr [ %.pre118.i226, %for.inc49.loopexit.i225 ], [ %147, %for.body24.i186 ]
-  %indvars.iv.next116.i192 = add nuw i64 %indvars.iv115.i187, 1
+  %indvars.iv.next116.i192 = add nuw nsw i64 %indvars.iv115.i187, 1
   %sub.ptr.lhs.cast.i35.i193 = ptrtoint ptr %177 to i64
   %sub.ptr.rhs.cast.i36.i194 = ptrtoint ptr %176 to i64
   %sub.ptr.sub.i37.i195 = sub i64 %sub.ptr.lhs.cast.i35.i193, %sub.ptr.rhs.cast.i36.i194
@@ -29272,7 +29272,7 @@ for.inc20.i:                                      ; preds = %for.inc20.i.loopexi
   %childRanges.i.sroa.13.1.lcssa = phi ptr [ %childRanges.i.sroa.13.0949, %for.body.i261 ], [ %childRanges.i.sroa.13.3, %for.inc20.i.loopexit ]
   %childRanges.i.sroa.8.1.lcssa = phi ptr [ %childRanges.i.sroa.8.0950, %for.body.i261 ], [ %childRanges.i.sroa.8.3, %for.inc20.i.loopexit ]
   %childRanges.i.sroa.0.1.lcssa = phi ptr [ %childRanges.i.sroa.0.0951, %for.body.i261 ], [ %childRanges.i.sroa.0.4, %for.inc20.i.loopexit ]
-  %indvars.iv.next985 = add nuw i64 %indvars.iv984, 1
+  %indvars.iv.next985 = add nuw nsw i64 %indvars.iv984, 1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %241 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %240 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -29294,7 +29294,7 @@ invoke.cont33.i:                                  ; preds = %invoke.cont33.i.lr.
           to label %for.inc36.i unwind label %lpad.i.loopexit
 
 for.inc36.i:                                      ; preds = %invoke.cont33.i
-  %indvars.iv.next988 = add nuw i64 %indvars.iv987, 1
+  %indvars.iv.next988 = add nuw nsw i64 %indvars.iv987, 1
   %244 = load i64, ptr %childrenSize_.i353, align 8
   %cmp27.i = icmp ugt i64 %244, %indvars.iv.next988
   br i1 %cmp27.i, label %invoke.cont33.i, label %for.end38.i, !llvm.loop !225
@@ -29596,7 +29596,7 @@ for.inc27.i:                                      ; preds = %for.inc27.i.loopexi
   %childRanges.i268.sroa.17.2.lcssa = phi ptr [ %childRanges.i268.sroa.17.1929, %for.body.i284 ], [ %childRanges.i268.sroa.17.4, %for.inc27.i.loopexit ]
   %childRanges.i268.sroa.10.2.lcssa = phi ptr [ %childRanges.i268.sroa.10.1930, %for.body.i284 ], [ %childRanges.i268.sroa.10.4, %for.inc27.i.loopexit ]
   %childRanges.i268.sroa.0.2.lcssa = phi ptr [ %childRanges.i268.sroa.0.1931, %for.body.i284 ], [ %childRanges.i268.sroa.0.5, %for.inc27.i.loopexit ]
-  %indvars.iv.next982 = add nuw i64 %indvars.iv981, 1
+  %indvars.iv.next982 = add nuw nsw i64 %indvars.iv981, 1
   %sub.ptr.lhs.cast.i551 = ptrtoint ptr %279 to i64
   %sub.ptr.rhs.cast.i552 = ptrtoint ptr %278 to i64
   %sub.ptr.sub.i553 = sub i64 %sub.ptr.lhs.cast.i551, %sub.ptr.rhs.cast.i552
@@ -29923,7 +29923,7 @@ for.inc27.i321:                                   ; preds = %for.inc27.i321.loop
   %childRanges.i295.sroa.19.2.lcssa = phi ptr [ %childRanges.i295.sroa.19.1909, %for.body.i313 ], [ %childRanges.i295.sroa.19.4, %for.inc27.i321.loopexit ]
   %childRanges.i295.sroa.11.2.lcssa = phi ptr [ %childRanges.i295.sroa.11.1910, %for.body.i313 ], [ %childRanges.i295.sroa.11.4, %for.inc27.i321.loopexit ]
   %childRanges.i295.sroa.0.2.lcssa = phi ptr [ %childRanges.i295.sroa.0.1911, %for.body.i313 ], [ %childRanges.i295.sroa.0.5, %for.inc27.i321.loopexit ]
-  %indvars.iv.next976 = add nuw i64 %indvars.iv975, 1
+  %indvars.iv.next976 = add nuw nsw i64 %indvars.iv975, 1
   %sub.ptr.lhs.cast.i698 = ptrtoint ptr %317 to i64
   %sub.ptr.rhs.cast.i699 = ptrtoint ptr %316 to i64
   %sub.ptr.sub.i700 = sub i64 %sub.ptr.lhs.cast.i698, %sub.ptr.rhs.cast.i699
@@ -30213,7 +30213,7 @@ for.inc34.us:                                     ; preds = %for.inc34.us.loopex
   %newRanges.sroa.20.1.lcssa.us = phi ptr [ %newRanges.sroa.20.0100.us, %for.body.us ], [ %newRanges.sroa.20.3.us.us, %for.inc34.us.loopexit ]
   %newRanges.sroa.10.1.lcssa.us = phi ptr [ %newRanges.sroa.10.0101.us, %for.body.us ], [ %newRanges.sroa.10.5.us.us, %for.inc34.us.loopexit ]
   %newRanges.sroa.0.1.lcssa.us = phi ptr [ %newRanges.sroa.0.0102.us, %for.body.us ], [ %newRanges.sroa.0.4.us.us, %for.inc34.us.loopexit ]
-  %indvars.iv.next120 = add nuw i64 %indvars.iv119, 1
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %sub.ptr.lhs.cast.i.us = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.us = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.us = sub i64 %sub.ptr.lhs.cast.i.us, %sub.ptr.rhs.cast.i.us
@@ -30518,7 +30518,7 @@ for.inc34:                                        ; preds = %for.inc34.loopexit,
   %newRanges.sroa.20.1.lcssa = phi ptr [ %newRanges.sroa.20.0100, %for.body ], [ %newRanges.sroa.20.3, %for.inc34.loopexit ]
   %newRanges.sroa.10.1.lcssa = phi ptr [ %newRanges.sroa.10.0101, %for.body ], [ %newRanges.sroa.10.5, %for.inc34.loopexit ]
   %newRanges.sroa.0.1.lcssa = phi ptr [ %newRanges.sroa.0.0102, %for.body ], [ %newRanges.sroa.0.4, %for.inc34.loopexit ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %30 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -33926,7 +33926,7 @@ for.inc40.i:                                      ; preds = %for.inc40.loopexit.
   %47 = phi ptr [ %24, %for.body9.i ], [ %.pre115.i, %for.inc40.loopexit.i ]
   %firstNonNull.1.lcssa.i = phi i32 [ %firstNonNull.0102.i, %for.body9.i ], [ %firstNonNull.2.i, %for.inc40.loopexit.i ]
   %lastNonNull.1.lcssa.i = phi i32 [ %lastNonNull.0103.i, %for.body9.i ], [ %lastNonNull.2.i, %for.inc40.loopexit.i ]
-  %indvars.iv.next112.i = add nuw i64 %indvars.iv111.i, 1
+  %indvars.iv.next112.i = add nuw nsw i64 %indvars.iv111.i, 1
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %47 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %46 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -34326,7 +34326,7 @@ for.inc40.i18:                                    ; preds = %for.inc40.loopexit.
   %109 = phi ptr [ %65, %for.body9.i15 ], [ %.pre95.i, %for.inc40.loopexit.i65 ]
   %firstNonNull.1.lcssa.i19 = phi i32 [ %firstNonNull.082.i, %for.body9.i15 ], [ %firstNonNull.2.i61, %for.inc40.loopexit.i65 ]
   %lastNonNull.1.lcssa.i20 = phi i32 [ %lastNonNull.083.i, %for.body9.i15 ], [ %lastNonNull.2.i62, %for.inc40.loopexit.i65 ]
-  %indvars.iv.next92.i = add nuw i64 %indvars.iv91.i, 1
+  %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
   %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %109 to i64
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %108 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
@@ -34457,7 +34457,7 @@ for.inc17.loopexit.i.i:                           ; preds = %_ZN8facebook5velox1
 
 for.inc17.i.i:                                    ; preds = %for.inc17.loopexit.i.i, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit.i.i
   %126 = phi ptr [ %.pre.i.i132, %for.inc17.loopexit.i.i ], [ %119, %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream13appendNonNullEi.exit.i.i ]
-  %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %127 = load ptr, ptr %e_.i33.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %127 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %126 to i64
@@ -34591,7 +34591,7 @@ for.inc52.loopexit.i.i:                           ; preds = %for.inc49.i.i
 for.inc52.i.i:                                    ; preds = %for.inc52.loopexit.i.i, %for.body25.i.i
   %149 = phi ptr [ %.pre95.i.i, %for.inc52.loopexit.i.i ], [ %128, %for.body25.i.i ]
   %150 = phi ptr [ %.pre94.i.i, %for.inc52.loopexit.i.i ], [ %129, %for.body25.i.i ]
-  %indvars.iv.next92.i.i = add nuw i64 %indvars.iv91.i.i, 1
+  %indvars.iv.next92.i.i = add nuw nsw i64 %indvars.iv91.i.i, 1
   %sub.ptr.lhs.cast.i34.i.i = ptrtoint ptr %150 to i64
   %sub.ptr.rhs.cast.i35.i.i = ptrtoint ptr %149 to i64
   %sub.ptr.sub.i36.i.i = sub i64 %sub.ptr.lhs.cast.i34.i.i, %sub.ptr.rhs.cast.i35.i.i
@@ -34905,7 +34905,7 @@ for.inc40.i.i:                                    ; preds = %for.inc40.loopexit.
   %201 = phi ptr [ %173, %for.body9.i.i ], [ %.pre148.i.i, %for.inc40.loopexit.i.i ]
   %firstNonNull.1.lcssa.i.i = phi i32 [ %firstNonNull.0135.i.i, %for.body9.i.i ], [ %firstNonNull.2.i.i, %for.inc40.loopexit.i.i ]
   %lastNonNull.1.lcssa.i.i = phi i32 [ %lastNonNull.0136.i.i, %for.body9.i.i ], [ %lastNonNull.2.i.i, %for.inc40.loopexit.i.i ]
-  %indvars.iv.next145.i.i = add nuw i64 %indvars.iv144.i.i, 1
+  %indvars.iv.next145.i.i = add nuw nsw i64 %indvars.iv144.i.i, 1
   %sub.ptr.lhs.cast.i.i6.i = ptrtoint ptr %201 to i64
   %sub.ptr.rhs.cast.i.i7.i = ptrtoint ptr %200 to i64
   %sub.ptr.sub.i.i8.i = sub i64 %sub.ptr.lhs.cast.i.i6.i, %sub.ptr.rhs.cast.i.i7.i
@@ -35268,7 +35268,7 @@ for.inc40.i64.i:                                  ; preds = %for.inc40.loopexit.
   %259 = phi ptr [ %232, %for.body9.i61.i ], [ %.pre145.i.i, %for.inc40.loopexit.i151.i ]
   %firstNonNull.1.lcssa.i65.i = phi i32 [ %firstNonNull.0132.i.i, %for.body9.i61.i ], [ %firstNonNull.2.i147.i, %for.inc40.loopexit.i151.i ]
   %lastNonNull.1.lcssa.i66.i = phi i32 [ %lastNonNull.0133.i.i, %for.body9.i61.i ], [ %lastNonNull.2.i148.i, %for.inc40.loopexit.i151.i ]
-  %indvars.iv.next142.i.i = add nuw i64 %indvars.iv141.i.i, 1
+  %indvars.iv.next142.i.i = add nuw nsw i64 %indvars.iv141.i.i, 1
   %sub.ptr.lhs.cast.i.i67.i = ptrtoint ptr %259 to i64
   %sub.ptr.rhs.cast.i.i68.i = ptrtoint ptr %258 to i64
   %sub.ptr.sub.i.i69.i = sub i64 %sub.ptr.lhs.cast.i.i67.i, %sub.ptr.rhs.cast.i.i68.i
@@ -35633,7 +35633,7 @@ for.inc40.i239.i:                                 ; preds = %for.inc40.loopexit.
   %318 = phi ptr [ %290, %for.body9.i232.i ], [ %.pre148.i341.i, %for.inc40.loopexit.i340.i ]
   %firstNonNull.1.lcssa.i240.i = phi i32 [ %firstNonNull.0135.i235.i, %for.body9.i232.i ], [ %firstNonNull.2.i336.i, %for.inc40.loopexit.i340.i ]
   %lastNonNull.1.lcssa.i241.i = phi i32 [ %lastNonNull.0136.i234.i, %for.body9.i232.i ], [ %lastNonNull.2.i337.i, %for.inc40.loopexit.i340.i ]
-  %indvars.iv.next145.i242.i = add nuw i64 %indvars.iv144.i233.i, 1
+  %indvars.iv.next145.i242.i = add nuw nsw i64 %indvars.iv144.i233.i, 1
   %sub.ptr.lhs.cast.i.i243.i = ptrtoint ptr %318 to i64
   %sub.ptr.rhs.cast.i.i244.i = ptrtoint ptr %317 to i64
   %sub.ptr.sub.i.i245.i = sub i64 %sub.ptr.lhs.cast.i.i243.i, %sub.ptr.rhs.cast.i.i244.i
@@ -36000,7 +36000,7 @@ for.inc40.i437.i:                                 ; preds = %for.inc40.loopexit.
   %378 = phi ptr [ %350, %for.body9.i430.i ], [ %.pre148.i539.i, %for.inc40.loopexit.i538.i ]
   %firstNonNull.1.lcssa.i438.i = phi i32 [ %firstNonNull.0135.i433.i, %for.body9.i430.i ], [ %firstNonNull.2.i534.i, %for.inc40.loopexit.i538.i ]
   %lastNonNull.1.lcssa.i439.i = phi i32 [ %lastNonNull.0136.i432.i, %for.body9.i430.i ], [ %lastNonNull.2.i535.i, %for.inc40.loopexit.i538.i ]
-  %indvars.iv.next145.i440.i = add nuw i64 %indvars.iv144.i431.i, 1
+  %indvars.iv.next145.i440.i = add nuw nsw i64 %indvars.iv144.i431.i, 1
   %sub.ptr.lhs.cast.i.i441.i = ptrtoint ptr %378 to i64
   %sub.ptr.rhs.cast.i.i442.i = ptrtoint ptr %377 to i64
   %sub.ptr.sub.i.i443.i = sub i64 %sub.ptr.lhs.cast.i.i441.i, %sub.ptr.rhs.cast.i.i442.i
@@ -36406,7 +36406,7 @@ for.inc40.i624.i:                                 ; preds = %for.inc40.loopexit.
   %440 = phi ptr [ %411, %for.body9.i621.i ], [ %.pre168.i.i, %for.inc40.loopexit.i666.i ]
   %firstNonNull.1.lcssa.i625.i = phi i32 [ %firstNonNull.0155.i.i, %for.body9.i621.i ], [ %firstNonNull.2.i662.i, %for.inc40.loopexit.i666.i ]
   %lastNonNull.1.lcssa.i626.i = phi i32 [ %lastNonNull.0156.i.i, %for.body9.i621.i ], [ %lastNonNull.2.i663.i, %for.inc40.loopexit.i666.i ]
-  %indvars.iv.next165.i.i = add nuw i64 %indvars.iv164.i.i, 1
+  %indvars.iv.next165.i.i = add nuw nsw i64 %indvars.iv164.i.i, 1
   %sub.ptr.lhs.cast.i.i627.i = ptrtoint ptr %440 to i64
   %sub.ptr.rhs.cast.i.i628.i = ptrtoint ptr %439 to i64
   %sub.ptr.sub.i.i629.i = sub i64 %sub.ptr.lhs.cast.i.i627.i, %sub.ptr.rhs.cast.i.i628.i
@@ -36793,7 +36793,7 @@ for.inc40.i744.i:                                 ; preds = %for.inc40.loopexit.
   %501 = phi ptr [ %473, %for.body9.i737.i ], [ %.pre148.i846.i, %for.inc40.loopexit.i845.i ]
   %firstNonNull.1.lcssa.i745.i = phi i32 [ %firstNonNull.0135.i740.i, %for.body9.i737.i ], [ %firstNonNull.2.i841.i, %for.inc40.loopexit.i845.i ]
   %lastNonNull.1.lcssa.i746.i = phi i32 [ %lastNonNull.0136.i739.i, %for.body9.i737.i ], [ %lastNonNull.2.i842.i, %for.inc40.loopexit.i845.i ]
-  %indvars.iv.next145.i747.i = add nuw i64 %indvars.iv144.i738.i, 1
+  %indvars.iv.next145.i747.i = add nuw nsw i64 %indvars.iv144.i738.i, 1
   %sub.ptr.lhs.cast.i.i748.i = ptrtoint ptr %501 to i64
   %sub.ptr.rhs.cast.i.i749.i = ptrtoint ptr %500 to i64
   %sub.ptr.sub.i.i750.i = sub i64 %sub.ptr.lhs.cast.i.i748.i, %sub.ptr.rhs.cast.i.i749.i
@@ -37160,7 +37160,7 @@ for.inc40.i942.i:                                 ; preds = %for.inc40.loopexit.
   %561 = phi ptr [ %533, %for.body9.i935.i ], [ %.pre148.i1044.i, %for.inc40.loopexit.i1043.i ]
   %firstNonNull.1.lcssa.i943.i = phi i32 [ %firstNonNull.0135.i938.i, %for.body9.i935.i ], [ %firstNonNull.2.i1039.i, %for.inc40.loopexit.i1043.i ]
   %lastNonNull.1.lcssa.i944.i = phi i32 [ %lastNonNull.0136.i937.i, %for.body9.i935.i ], [ %lastNonNull.2.i1040.i, %for.inc40.loopexit.i1043.i ]
-  %indvars.iv.next145.i945.i = add nuw i64 %indvars.iv144.i936.i, 1
+  %indvars.iv.next145.i945.i = add nuw nsw i64 %indvars.iv144.i936.i, 1
   %sub.ptr.lhs.cast.i.i946.i = ptrtoint ptr %561 to i64
   %sub.ptr.rhs.cast.i.i947.i = ptrtoint ptr %560 to i64
   %sub.ptr.sub.i.i948.i = sub i64 %sub.ptr.lhs.cast.i.i946.i, %sub.ptr.rhs.cast.i.i947.i
@@ -37493,7 +37493,7 @@ for.inc28.loopexit.i.i:                           ; preds = %for.inc26.i.i
 for.inc28.i.i:                                    ; preds = %for.inc28.loopexit.i.i, %for.body9.i1124.i
   %615 = phi ptr [ %.pre80.i.i, %for.inc28.loopexit.i.i ], [ %590, %for.body9.i1124.i ]
   %616 = phi ptr [ %.pre79.i.i, %for.inc28.loopexit.i.i ], [ %591, %for.body9.i1124.i ]
-  %indvars.iv.next76.i.i = add nuw i64 %indvars.iv75.i.i, 1
+  %indvars.iv.next76.i.i = add nuw nsw i64 %indvars.iv75.i.i, 1
   %sub.ptr.lhs.cast.i.i1127.i = ptrtoint ptr %616 to i64
   %sub.ptr.rhs.cast.i.i1128.i = ptrtoint ptr %615 to i64
   %sub.ptr.sub.i.i1129.i = sub i64 %sub.ptr.lhs.cast.i.i1127.i, %sub.ptr.rhs.cast.i.i1128.i
@@ -37768,7 +37768,7 @@ for.inc28.loopexit.i1261.i:                       ; preds = %for.inc26.i1258.i
 for.inc28.i1215.i:                                ; preds = %for.inc28.loopexit.i1261.i, %for.body9.i1210.i
   %661 = phi ptr [ %.pre80.i1263.i, %for.inc28.loopexit.i1261.i ], [ %636, %for.body9.i1210.i ]
   %662 = phi ptr [ %.pre79.i1262.i, %for.inc28.loopexit.i1261.i ], [ %637, %for.body9.i1210.i ]
-  %indvars.iv.next76.i1216.i = add nuw i64 %indvars.iv75.i1211.i, 1
+  %indvars.iv.next76.i1216.i = add nuw nsw i64 %indvars.iv75.i1211.i, 1
   %sub.ptr.lhs.cast.i.i1217.i = ptrtoint ptr %662 to i64
   %sub.ptr.rhs.cast.i.i1218.i = ptrtoint ptr %661 to i64
   %sub.ptr.sub.i.i1219.i = sub i64 %sub.ptr.lhs.cast.i.i1217.i, %sub.ptr.rhs.cast.i.i1218.i
@@ -38120,7 +38120,7 @@ for.inc40.i1353.i:                                ; preds = %for.inc40.loopexit.
   %716 = phi ptr [ %677, %for.body9.i1350.i ], [ %.pre106.i.i, %for.inc40.loopexit.i1402.i ]
   %firstNonNull.1.lcssa.i1354.i = phi i32 [ %firstNonNull.092.i.i, %for.body9.i1350.i ], [ %firstNonNull.2.i1398.i, %for.inc40.loopexit.i1402.i ]
   %lastNonNull.1.lcssa.i1355.i = phi i32 [ %lastNonNull.093.i.i, %for.body9.i1350.i ], [ %lastNonNull.2.i1399.i, %for.inc40.loopexit.i1402.i ]
-  %indvars.iv.next103.i.i = add nuw i64 %indvars.iv102.i.i, 1
+  %indvars.iv.next103.i.i = add nuw nsw i64 %indvars.iv102.i.i, 1
   %sub.ptr.lhs.cast.i.i1356.i = ptrtoint ptr %716 to i64
   %sub.ptr.rhs.cast.i.i1357.i = ptrtoint ptr %715 to i64
   %sub.ptr.sub.i.i1358.i = sub i64 %sub.ptr.lhs.cast.i.i1356.i, %sub.ptr.rhs.cast.i.i1357.i
@@ -52599,7 +52599,7 @@ _ZNK8facebook5velox6Buffer9asMutableIhEEPT_v.exit: ; preds = %if.end9
   br i1 %cmp15.i, label %for.body.preheader.i, label %_ZN8facebook5velox4bits11reverseBitsEPhi.exit
 
 for.body.preheader.i:                             ; preds = %_ZNK8facebook5velox6Buffer9asMutableIhEEPT_v.exit
-  %wide.trip.count.i = and i64 %call13, 4294967295
+  %wide.trip.count.i = and i64 %call13, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -68765,8 +68765,7 @@ _ZNK8facebook5velox6Buffer9asMutableISt10shared_ptrIvEEEPT_v.exit.i: ; preds = %
 for.body.lr.ph.i:                                 ; preds = %_ZNK8facebook5velox6Buffer9asMutableISt10shared_ptrIvEEEPT_v.exit.i
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %initValue, i64 16
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %initValue, i64 8
-  %sext16.i = shl i64 %numElements, 32
-  %wide.trip.count.i = ashr exact i64 %sext16.i, 32
+  %sext16.i = and i64 %numElements, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -68808,7 +68807,7 @@ if.else.i:                                        ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.then20.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %sext16.i
   br i1 %exitcond.not.i, label %nrvo.skipdtor, label %for.body.i, !llvm.loop !524
 
 lpad:                                             ; preds = %if.end9.i
@@ -71417,7 +71416,7 @@ _ZN8facebook5velox9RowVector7childAtEj.exit:      ; preds = %_ZN8facebook5velox9
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.316", ptr %streams_.val, i64 %indvars.iv
   %call9.val = load ptr, ptr %add.ptr.i, align 8
   tail call fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_115serializeColumnEPKNS0_10BaseVectorERKN5folly5RangeIPKNS0_10IndexRangeEEEPNS3_12VectorStreamE(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %ranges, ptr noundef %call9.val)
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load ptr, ptr %vector, align 8
   %childrenSize_.i = getelementptr inbounds i8, ptr %8, i64 104
   %9 = load i64, ptr %childrenSize_.i, align 8
@@ -71569,7 +71568,7 @@ _ZN8facebook5velox9RowVector7childAtEj.exit:      ; preds = %_ZN8facebook5velox9
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.316", ptr %streams_.val, i64 %indvars.iv
   %call11.val = load ptr, ptr %add.ptr.i, align 8
   tail call fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_115serializeColumnEPKNS0_10BaseVectorERKN5folly5RangeIPKiEEPNS3_12VectorStreamERNS0_7ScratchE(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(16) %rows, ptr noundef %call11.val, ptr noundef nonnull align 8 dereferenceable(24) %scratch)
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load ptr, ptr %vector, align 8
   %childrenSize_.i = getelementptr inbounds i8, ptr %9, i64 104
   %10 = load i64, ptr %childrenSize_.i, align 8
@@ -72519,7 +72518,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.then6.i.i.i
   br label %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream10appendNullEv.exit.i.i
 
 _ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream10appendNullEv.exit.i.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.end.i.i.i
-  %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %15 = load ptr, ptr %e_.i.i.i, align 8
   %16 = load ptr, ptr %rows, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %15 to i64
@@ -75879,7 +75878,7 @@ _ZNK8facebook5velox9RowVector7childAtEj.exit:     ; preds = %_ZNK8facebook5velox
           to label %for.inc.i unwind label %lpad9.i.loopexit
 
 for.inc.i:                                        ; preds = %_ZNK8facebook5velox9RowVector7childAtEj.exit
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %460 = load i64, ptr %childrenSize_.i206, align 8
   %cmp.i22 = icmp ugt i64 %460, %indvars.iv.next
   br i1 %cmp.i22, label %_ZNK8facebook5velox9RowVector7childAtEj.exit, label %for.end.i, !llvm.loop !621
@@ -76520,7 +76519,7 @@ invoke.cont39:                                    ; preds = %if.end34
 
 for.inc:                                          ; preds = %if.end.i.i.i.i, %.noexc38, %if.then.i.i.i.i, %invoke.cont39
   %numInner.2 = phi i32 [ %inc, %invoke.cont39 ], [ %numInner.1, %if.then.i.i.i.i ], [ %numInner.1, %.noexc38 ], [ %numInner.1, %if.end.i.i.i.i ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = load ptr, ptr %e_.i, align 8
   %42 = load ptr, ptr %rows, align 8
   %sub.ptr.lhs.cast.i30 = ptrtoint ptr %41 to i64
@@ -77575,7 +77574,7 @@ invoke.cont.i78:                                  ; preds = %if.end14.i.i.i86, %
   br i1 %cmp4.i.i, label %for.body.preheader.i.i, label %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_19copyWordsIiEEvPT_PKiiPKS5_b.exit.i
 
 for.body.preheader.i.i:                           ; preds = %invoke.cont.i78
-  %wide.trip.count.i.i80 = and i64 %sub.ptr.div.i28.i, 4294967295
+  %wide.trip.count.i.i80 = and i64 %sub.ptr.div.i28.i, 2147483647
   br label %for.body.i.i81
 
 for.body.i.i81:                                   ; preds = %for.body.i.i81, %for.body.preheader.i.i
@@ -78334,7 +78333,7 @@ invoke.cont.i335:                                 ; preds = %call.i.i.noexc.i389
   br i1 %cmp4.i.i342, label %for.body.preheader.i.i364, label %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_19copyWordsIaEEvPT_PKiiPKS5_b.exit.i
 
 for.body.preheader.i.i364:                        ; preds = %invoke.cont.i335
-  %wide.trip.count.i.i365 = and i64 %sub.ptr.div.i28.i340, 4294967295
+  %wide.trip.count.i.i365 = and i64 %sub.ptr.div.i28.i340, 2147483647
   br label %for.body.i.i366
 
 for.body.i.i366:                                  ; preds = %for.body.i.i366, %for.body.preheader.i.i364
@@ -79247,7 +79246,7 @@ invoke.cont.i736:                                 ; preds = %if.end14.i.i.i754, 
   br i1 %cmp4.i.i743, label %for.body.preheader.i.i744, label %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_19copyWordsIsEEvPT_PKiiPKS5_b.exit.i
 
 for.body.preheader.i.i744:                        ; preds = %invoke.cont.i736
-  %wide.trip.count.i.i745 = and i64 %sub.ptr.div.i28.i741, 4294967295
+  %wide.trip.count.i.i745 = and i64 %sub.ptr.div.i28.i741, 2147483647
   br label %for.body.i.i746
 
 for.body.i.i746:                                  ; preds = %for.body.i.i746, %for.body.preheader.i.i744
@@ -79901,7 +79900,7 @@ invoke.cont.i1089:                                ; preds = %if.end14.i.i.i1107,
   br i1 %cmp4.i.i1096, label %for.body.preheader.i.i1097, label %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_19copyWordsIlEEvPT_PKiiPKS5_b.exit.i
 
 for.body.preheader.i.i1097:                       ; preds = %invoke.cont.i1089
-  %wide.trip.count.i.i1098 = and i64 %sub.ptr.div.i28.i1094, 4294967295
+  %wide.trip.count.i.i1098 = and i64 %sub.ptr.div.i28.i1094, 2147483647
   br label %for.body.i.i1099
 
 for.body.i.i1099:                                 ; preds = %for.body.i.i1099, %for.body.preheader.i.i1097
@@ -80562,14 +80561,14 @@ for.cond7.preheader.i.i:                          ; preds = %invoke.cont.i1345
   br i1 %cmp21.i.i1352, label %for.body9.preheader.i.i, label %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_19copyWordsInEEvPT_PKiiPKS5_b.exit.i
 
 for.body9.preheader.i.i:                          ; preds = %for.cond7.preheader.i.i
-  %wide.trip.count.i.i1359 = and i64 %sub.ptr.div.i28.i1350, 4294967295
+  %wide.trip.count.i.i1359 = and i64 %sub.ptr.div.i28.i1350, 2147483647
   br label %for.body9.i.i
 
 for.cond.preheader.i.i:                           ; preds = %invoke.cont.i1345
   br i1 %cmp21.i.i1352, label %for.body.preheader.i.i1353, label %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_19copyWordsInEEvPT_PKiiPKS5_b.exit.i
 
 for.body.preheader.i.i1353:                       ; preds = %for.cond.preheader.i.i
-  %wide.trip.count28.i.i = and i64 %sub.ptr.div.i28.i1350, 4294967295
+  %wide.trip.count28.i.i = and i64 %sub.ptr.div.i28.i1350, 2147483647
   br label %for.body.i.i1354
 
 for.body.i.i1354:                                 ; preds = %for.body.i.i1354, %for.body.preheader.i.i1353
@@ -81252,7 +81251,7 @@ invoke.cont.i1699:                                ; preds = %if.end14.i.i.i1717,
   br i1 %cmp4.i.i1706, label %for.body.preheader.i.i1707, label %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_19copyWordsIfEEvPT_PKiiPKS5_b.exit.i
 
 for.body.preheader.i.i1707:                       ; preds = %invoke.cont.i1699
-  %wide.trip.count.i.i1708 = and i64 %sub.ptr.div.i28.i1704, 4294967295
+  %wide.trip.count.i.i1708 = and i64 %sub.ptr.div.i28.i1704, 2147483647
   br label %for.body.i.i1709
 
 for.body.i.i1709:                                 ; preds = %for.body.i.i1709, %for.body.preheader.i.i1707
@@ -81906,7 +81905,7 @@ invoke.cont.i2053:                                ; preds = %if.end14.i.i.i2071,
   br i1 %cmp4.i.i2060, label %for.body.preheader.i.i2061, label %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_19copyWordsIdEEvPT_PKiiPKS5_b.exit.i
 
 for.body.preheader.i.i2061:                       ; preds = %invoke.cont.i2053
-  %wide.trip.count.i.i2062 = and i64 %sub.ptr.div.i28.i2058, 4294967295
+  %wide.trip.count.i.i2062 = and i64 %sub.ptr.div.i28.i2058, 2147483647
   br label %for.body.i.i2063
 
 for.body.i.i2063:                                 ; preds = %for.body.i.i2063, %for.body.preheader.i.i2061

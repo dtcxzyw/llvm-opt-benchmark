@@ -2004,7 +2004,7 @@ define internal fastcc ptr @SortAndUniqItems(ptr noundef %0, ptr nocapture nound
   br i1 %29, label %64, label %30
 
 30:                                               ; preds = %._crit_edge
-  %31 = and i64 %27, 4294967295
+  %31 = and i64 %27, 2147483647
   tail call void @qsort_arg(ptr noundef %12, i64 noundef %31, i64 noundef 8, ptr noundef nonnull @compareQueryOperand, ptr noundef %8) #11
   %32 = load i32, ptr %1, align 4
   %33 = icmp sgt i32 %32, 1

@@ -8328,7 +8328,7 @@ define dso_local i32 @do_tcp_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
   br i1 %30, label %39, label %31
 
 31:                                               ; preds = %27
-  %32 = and i64 %28, 4294967295
+  %32 = and i64 %28, 2147483647
   %33 = getelementptr [16 x i8], ptr %8, i64 0, i64 %32
   store i8 0, ptr %33, align 1
   call void @sockopt_lock_sock(ptr noundef %0) #22
@@ -8378,7 +8378,7 @@ define dso_local i32 @do_tcp_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
   br i1 %58, label %63, label %59
 
 59:                                               ; preds = %55
-  %60 = and i64 %56, 4294967295
+  %60 = and i64 %56, 2147483647
   %61 = getelementptr [16 x i8], ptr %9, i64 0, i64 %60
   store i8 0, ptr %61, align 1
   call void @sockopt_lock_sock(ptr noundef %0) #22

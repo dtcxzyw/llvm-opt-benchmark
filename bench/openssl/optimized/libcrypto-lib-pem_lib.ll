@@ -326,9 +326,8 @@ if.end11.i:                                       ; preds = %if.end7.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %check_pem.exit
 
 if.end.i.i:                                       ; preds = %if.end11.i
-  %sext.i.i = shl i64 %call.i.i, 32
-  %idx.ext.i.i = ashr exact i64 %sext.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 %idx.ext.i.i
+  %sext.i.i = and i64 %call.i.i, 2147483647
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 %sext.i.i
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -11
   %call6.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr5.i.i, ptr noundef nonnull dereferenceable(12) @.str.22) #9
   %tobool.not.i.i = icmp eq i32 %call6.i.i, 0
@@ -371,9 +370,8 @@ if.then23.i:                                      ; preds = %if.end20.i
   br i1 %cmp.not.i36.i, label %if.end.i38.i, label %check_pem.exit
 
 if.end.i38.i:                                     ; preds = %if.then23.i
-  %sext.i39.i = shl i64 %call.i31.i, 32
-  %idx.ext.i40.i = ashr exact i64 %sext.i39.i, 32
-  %add.ptr.i41.i = getelementptr inbounds i8, ptr %7, i64 %idx.ext.i40.i
+  %sext.i39.i = and i64 %call.i31.i, 2147483647
+  %add.ptr.i41.i = getelementptr inbounds i8, ptr %7, i64 %sext.i39.i
   %add.ptr5.i45.i = getelementptr inbounds i8, ptr %add.ptr.i41.i, i64 -10
   %call6.i46.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr5.i45.i, ptr noundef nonnull dereferenceable(11) @.str.23) #9
   %tobool.not.i47.i = icmp eq i32 %call6.i46.i, 0

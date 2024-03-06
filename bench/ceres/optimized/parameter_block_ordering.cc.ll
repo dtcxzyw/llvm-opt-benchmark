@@ -898,8 +898,8 @@ _ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread: ; preds = %.lr.ph
   br i1 %66, label %.lr.ph83.preheader, label %._crit_edge84
 
 .lr.ph83.preheader:                               ; preds = %52
-  %67 = and i64 %62, 4294967295
-  %wide.trip.count99 = and i64 %62, 4294967295
+  %67 = and i64 %62, 2147483647
+  %wide.trip.count99 = and i64 %62, 2147483647
   br label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit38.thread

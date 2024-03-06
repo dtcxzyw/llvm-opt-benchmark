@@ -565,7 +565,7 @@ define dso_local void @clocksource_verify_percpu(ptr noundef %0) #2 align 16 {
   br i1 %128, label %129, label %131
 
 129:                                              ; preds = %118
-  %130 = and i64 %113, 4294967295
+  %130 = and i64 %113, 63
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @cpus_behind, i64 %130) #16, !srcloc !21
   %.pre = load i64, ptr @csnow_mid, align 8
   %.pre18 = load i64, ptr %101, align 8
@@ -580,7 +580,7 @@ define dso_local void @clocksource_verify_percpu(ptr noundef %0) #2 align 16 {
   br i1 %136, label %137, label %139
 
 137:                                              ; preds = %131
-  %138 = and i64 %113, 4294967295
+  %138 = and i64 %113, 63
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @cpus_ahead, i64 %138) #16, !srcloc !21
   %.pre19 = load i64, ptr %101, align 8
   br label %139
@@ -607,8 +607,8 @@ define dso_local void @clocksource_verify_percpu(ptr noundef %0) #2 align 16 {
 156:                                              ; preds = %139, %116
   %157 = phi i64 [ %107, %116 ], [ %155, %139 ]
   %158 = phi i64 [ %106, %116 ], [ %154, %139 ]
-  %159 = add i64 %113, 1
-  %160 = and i64 %159, 4294967295
+  %159 = add nuw nsw i64 %113, 1
+  %160 = and i64 %159, 127
   %161 = icmp ugt i64 %160, 63
   br i1 %161, label %.thread16, label %104, !prof !31, !llvm.loop !32
 

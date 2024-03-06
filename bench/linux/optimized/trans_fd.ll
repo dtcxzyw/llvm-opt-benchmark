@@ -1291,7 +1291,7 @@ define internal void @p9_read_work(ptr noundef %0) #2 align 16 {
 
 51:                                               ; preds = %36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
-  %52 = and i64 %44, 4294967295
+  %52 = and i64 %44, 2147483647
   %53 = load i64, ptr %21, align 8
   %54 = add i64 %53, %52
   store i64 %54, ptr %21, align 8

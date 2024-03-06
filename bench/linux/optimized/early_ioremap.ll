@@ -146,7 +146,7 @@ define dso_local void @early_iounmap(ptr noundef %0, i64 noundef %1) local_unnam
   br label %49
 
 14:                                               ; preds = %11
-  %15 = and i64 %4, 4294967295
+  %15 = and i64 %4, 2147483647
   %16 = getelementptr [8 x i64], ptr @prev_size, i64 0, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, %1
@@ -300,7 +300,7 @@ define internal fastcc ptr @__early_ioremap(i64 noundef %0, i64 noundef %1, i64 
   br label %66
 
 25:                                               ; preds = %19
-  %26 = and i64 %9, 4294967295
+  %26 = and i64 %9, 2147483647
   %27 = getelementptr [8 x i64], ptr @prev_size, i64 0, i64 %26
   store i64 %1, ptr %27, align 8
   %28 = and i64 %0, 4095

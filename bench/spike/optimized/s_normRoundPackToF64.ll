@@ -21,7 +21,7 @@ define i64 @softfloat_normRoundPackToF64(i1 noundef zeroext %0, i64 noundef %1, 
   %.not = icmp eq i64 %2, 0
   %14 = shl i64 %7, 52
   %15 = select i1 %.not, i64 0, i64 %14
-  %16 = add i64 %15, %13
+  %16 = or disjoint i64 %15, %13
   %17 = add nsw i32 %8, -10
   %18 = zext nneg i32 %17 to i64
   %19 = shl i64 %2, %18

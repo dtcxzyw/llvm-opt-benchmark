@@ -11235,7 +11235,7 @@ define internal noundef i32 @OnUpdateRfc1867Freq(ptr nocapture readnone %0, ptr 
   br label %27
 
 25:                                               ; preds = %15, %12
-  %26 = and i64 %8, 4294967295
+  %26 = and i64 %8, 2147483647
   br label %27
 
 27:                                               ; preds = %25, %23

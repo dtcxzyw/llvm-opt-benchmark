@@ -596,7 +596,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %sw.bb
-  %conv.i = and i64 %addr, 4294967295
+  %conv.i = and i64 %addr, 4095
   %mem.i = getelementptr inbounds i8, ptr %opaque, i64 11888
   %arrayidx.i = getelementptr [4096 x i8], ptr %mem.i, i64 0, i64 %conv.i
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -686,7 +686,7 @@ sw.bb2:                                           ; preds = %entry
 
 if.then.i25:                                      ; preds = %sw.bb2
   %mem.i.i = getelementptr inbounds i8, ptr %opaque, i64 11888
-  %idxprom.i.i = and i64 %addr, 4294967295
+  %idxprom.i.i = and i64 %addr, 4095
   %arrayidx.i.i = getelementptr [4096 x i8], ptr %mem.i.i, i64 0, i64 %idxprom.i.i
   %8 = ptrtoint ptr %arrayidx.i.i to i64
   %and.i.i = and i64 %8, 1
@@ -771,7 +771,7 @@ sw.bb6:                                           ; preds = %entry
 
 if.then.i50:                                      ; preds = %sw.bb6
   %mem.i.i51 = getelementptr inbounds i8, ptr %opaque, i64 11888
-  %idxprom.i.i52 = and i64 %addr, 4294967295
+  %idxprom.i.i52 = and i64 %addr, 4095
   %arrayidx.i.i53 = getelementptr [4096 x i8], ptr %mem.i.i51, i64 0, i64 %idxprom.i.i52
   %17 = ptrtoint ptr %arrayidx.i.i53 to i64
   %and.i.i54 = and i64 %17, 3
@@ -1198,7 +1198,7 @@ sw.bb5:                                           ; preds = %entry
 
 if.then.i47:                                      ; preds = %sw.bb5
   %mem.i.i48 = getelementptr inbounds i8, ptr %opaque, i64 11888
-  %idxprom.i.i49 = and i64 %addr, 4294967295
+  %idxprom.i.i49 = and i64 %addr, 4095
   %arrayidx.i.i50 = getelementptr [4096 x i8], ptr %mem.i.i48, i64 0, i64 %idxprom.i.i49
   %33 = ptrtoint ptr %arrayidx.i.i50 to i64
   %and.i.i51 = and i64 %33, 3

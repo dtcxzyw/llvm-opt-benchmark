@@ -406,7 +406,7 @@ define dso_local i32 @__register_one_node(i32 noundef %0) local_unnamed_addr #0 
   br i1 %31, label %32, label %.thread
 
 32:                                               ; preds = %28
-  %33 = and i64 %29, 4294967295
+  %33 = and i64 %29, 63
   %34 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, ptrtoint (ptr @numa_node to i64)
@@ -441,8 +441,8 @@ define dso_local i32 @__register_one_node(i32 noundef %0) local_unnamed_addr #0 
   br label %56
 
 56:                                               ; preds = %52, %47, %44, %40, %32
-  %57 = add i64 %29, 1
-  %58 = and i64 %57, 4294967295
+  %57 = add nuw nsw i64 %29, 1
+  %58 = and i64 %57, 127
   %59 = icmp ugt i64 %58, 63
   br i1 %59, label %.thread, label %22, !prof !11, !llvm.loop !12
 

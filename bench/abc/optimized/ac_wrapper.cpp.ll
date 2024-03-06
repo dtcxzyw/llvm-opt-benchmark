@@ -7652,7 +7652,7 @@ _ZNSt6vectorIN3acd23ac_decomposition_resultESaIS1_EE5clearEv.exit: ; preds = %1,
   br i1 %43, label %44, label %.preheader.us.preheader.i
 
 44:                                               ; preds = %.lr.ph
-  %.mask = and i64 %indvars.iv, 255
+  %.mask = and i64 %indvars.iv, 7
   %45 = shl nuw nsw i64 1, %.mask
   %46 = getelementptr inbounds [6 x i64], ptr @_ZN5kitty6detailL15projections_negE, i64 0, i64 %.mask
   %47 = load i64, ptr %46, align 8
@@ -7772,7 +7772,7 @@ _ZN5kitty7has_varINS_18static_truth_tableILj10EEEEEbRKT_h.exit.thread: ; preds =
   br i1 %43, label %.preheader.i, label %.preheader47.us.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN5kitty7has_varINS_18static_truth_tableILj10EEEEEbRKT_h.exit.thread
-  %.mask118 = and i64 %indvars.iv, 255
+  %.mask118 = and i64 %indvars.iv, 7
   %87 = shl nuw nsw i64 1, %.mask118
   %88 = getelementptr inbounds [6 x i64], ptr @_ZN5kitty6detailL15projections_negE, i64 0, i64 %.mask118
   %89 = load i64, ptr %88, align 8
@@ -8391,7 +8391,7 @@ _ZSt4copyIPKmN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEET0_T_SA_S9_.ex
   br i1 %381, label %_ZN5kitty19dynamic_truth_table9mask_bitsEv.exit.i.i, label %_ZN5kitty9shrink_toINS_18static_truth_tableILj10EEEEENS_19dynamic_truth_tableERKT_j.exit
 
 _ZN5kitty19dynamic_truth_table9mask_bitsEv.exit.i.i: ; preds = %_ZSt4copyIPKmN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEET0_T_SA_S9_.exit.i.i
-  %382 = and i64 %363, 4294967295
+  %382 = and i64 %363, 7
   %383 = getelementptr inbounds [7 x i64], ptr @_ZN5kitty6detailL5masksE, i64 0, i64 %382
   %384 = load i64, ptr %383, align 8, !noalias !153
   %385 = load i64, ptr %371, align 8, !noalias !153
@@ -8801,7 +8801,7 @@ _ZNSt6vectorIN5kitty19dynamic_truth_tableESaIS1_EE12emplace_backIJRjEEERS1_DpOT_
   %146 = load ptr, ptr %122, align 8
   %147 = getelementptr inbounds i8, ptr %122, i64 8
   %148 = load ptr, ptr %147, align 8
-  %.mask = and i32 %124, 255
+  %.mask = and i32 %124, 7
   %149 = zext nneg i32 %.mask to i64
   %150 = getelementptr inbounds [6 x i64], ptr @_ZN5kitty6detailL11projectionsE, i64 0, i64 %149
   %151 = load i64, ptr %150, align 8

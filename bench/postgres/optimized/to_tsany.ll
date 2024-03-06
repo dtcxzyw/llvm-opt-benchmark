@@ -470,7 +470,7 @@ define dso_local noundef i64 @to_tsvector_byid(ptr nocapture noundef readonly %0
   br i1 %38, label %.sink.split, label %39
 
 39:                                               ; preds = %33
-  %40 = and i64 %35, 4294967295
+  %40 = and i64 %35, 2147483647
   %41 = icmp ugt i64 %40, 44739242
   br i1 %41, label %.sink.split, label %42
 
@@ -486,7 +486,7 @@ define dso_local noundef i64 @to_tsvector_byid(ptr nocapture noundef readonly %0
   store i32 0, ptr %44, align 4
   %45 = getelementptr inbounds i8, ptr %2, i64 16
   store i32 0, ptr %45, align 8
-  %46 = and i64 %43, 4294967295
+  %46 = and i64 %43, 2147483647
   %47 = mul nuw nsw i64 %46, 24
   %48 = tail call ptr @palloc(i64 noundef %47) #8
   store ptr %48, ptr %2, align 8

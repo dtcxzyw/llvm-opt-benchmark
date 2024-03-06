@@ -159,7 +159,7 @@ define internal fastcc i64 @__se_sys_io_uring_register(i64 noundef %0, i64 nound
   br i1 %20, label %.thread, label %21, !prof !14
 
 21:                                               ; preds = %13
-  %22 = and i64 %0, 4294967295
+  %22 = and i64 %0, 15
   %23 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 16, i64 %22) #11, !srcloc !15
   %24 = getelementptr inbounds i8, ptr %17, i64 24
   %25 = and i64 %23, %22

@@ -824,7 +824,7 @@ define dso_local noundef i32 @drm_color_lut_check(ptr noundef readonly %0, i32 n
   %16 = icmp eq i32 %15, 0
   %17 = and i32 %1, 2
   %18 = icmp eq i32 %17, 0
-  %19 = and i64 %11, 4294967295
+  %19 = and i64 %11, 2147483647
   br i1 %18, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %14

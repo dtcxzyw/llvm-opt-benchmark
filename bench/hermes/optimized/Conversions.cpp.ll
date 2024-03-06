@@ -127,7 +127,7 @@ for.cond.preheader:                               ; preds = %if.end18
   br i1 %cmp2299, label %for.body.preheader, label %for.cond25.preheader
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %wide.trip.count137 = and i64 %sub.ptr.sub, 4294967295
+  %wide.trip.count137 = and i64 %sub.ptr.sub, 2147483647
   br label %for.body
 
 for.cond25.preheader:                             ; preds = %for.body, %for.cond.preheader
@@ -219,7 +219,7 @@ for.cond74.preheader:                             ; preds = %for.body68, %if.the
   br i1 %cmp7586, label %for.body76.preheader, label %if.end141
 
 for.body76.preheader:                             ; preds = %for.cond74.preheader
-  %wide.trip.count123 = and i64 %sub.ptr.sub, 4294967295
+  %wide.trip.count123 = and i64 %sub.ptr.sub, 2147483647
   br label %for.body76
 
 for.body68:                                       ; preds = %if.then61, %for.body68
@@ -282,7 +282,7 @@ if.else104:                                       ; preds = %if.else83
   br i1 %cmp11570, label %for.body116.preheader, label %for.end122
 
 for.body116.preheader:                            ; preds = %if.else104
-  %wide.trip.count = and i64 %sub.ptr.sub, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.sub, 2147483647
   br label %for.body116
 
 for.body116:                                      ; preds = %for.body116.preheader, %for.body116

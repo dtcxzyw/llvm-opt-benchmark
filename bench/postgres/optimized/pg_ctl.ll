@@ -2452,7 +2452,7 @@ define internal fastcc ptr @readfile(ptr nocapture noundef readonly %0, ptr noca
   br i1 %25, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %wide.trip.count = and i64 %21, 4294967295
+  %wide.trip.count = and i64 %21, 2147483647
   br label %.lr.ph
 
 26:                                               ; preds = %18
@@ -2482,7 +2482,7 @@ define internal fastcc ptr @readfile(ptr nocapture noundef readonly %0, ptr noca
   br i1 %25, label %.lr.ph73.preheader, label %._crit_edge74
 
 .lr.ph73.preheader:                               ; preds = %._crit_edge
-  %wide.trip.count80 = and i64 %21, 4294967295
+  %wide.trip.count80 = and i64 %21, 2147483647
   br label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %60

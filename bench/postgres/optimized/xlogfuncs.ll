@@ -946,7 +946,7 @@ define dso_local noundef i64 @pg_promote(ptr nocapture noundef readonly %0) loca
   br i1 %59, label %60, label %.loopexit
 
 60:                                               ; preds = %._crit_edge
-  %61 = and i64 %5, 4294967295
+  %61 = and i64 %5, 2147483647
   %62 = tail call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i64 noundef %61, i32 noundef %6) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 753, ptr noundef nonnull @__func__.pg_promote) #9
   br label %.loopexit

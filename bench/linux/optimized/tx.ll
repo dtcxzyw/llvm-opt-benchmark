@@ -9876,8 +9876,8 @@ define internal fastcc void @ieee80211_mlo_multicast_tx(ptr nocapture noundef re
   br label %36
 
 36:                                               ; preds = %32, %29
-  %37 = add i64 %26, 1
-  %38 = and i64 %37, 4294967295
+  %37 = add nuw nsw i64 %26, 1
+  %38 = and i64 %37, 31
   %39 = icmp ult i64 %38, 15
   br i1 %39, label %19, label %.thread, !prof !164, !llvm.loop !165
 

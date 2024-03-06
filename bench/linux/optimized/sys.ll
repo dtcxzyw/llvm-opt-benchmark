@@ -3360,7 +3360,7 @@ define internal fastcc noundef i64 @__se_sys_sethostname(i64 noundef %0, i64 nou
   br i1 %16, label %28, label %17
 
 17:                                               ; preds = %14
-  %18 = and i64 %1, 4294967295
+  %18 = and i64 %1, 127
   %19 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %4, i64 noundef %18) #13
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %21, label %28
@@ -3530,7 +3530,7 @@ define internal fastcc noundef i64 @__se_sys_setdomainname(i64 noundef %0, i64 n
   br i1 %16, label %28, label %17
 
 17:                                               ; preds = %14
-  %18 = and i64 %1, 4294967295
+  %18 = and i64 %1, 127
   %19 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %4, i64 noundef %18) #13
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %21, label %28

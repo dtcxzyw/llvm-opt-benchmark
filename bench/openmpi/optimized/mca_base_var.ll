@@ -2682,7 +2682,7 @@ define internal fastcc i32 @var_find_by_name(ptr noundef %0, ptr nocapture nound
 
 .thread.i.i:                                      ; preds = %17
   %20 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @mca_base_vars, i64 0, i32 8), align 8
-  %21 = and i64 %9, 4294967295
+  %21 = and i64 %9, 2147483647
   %22 = getelementptr inbounds ptr, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   br label %var_get.exit
@@ -2693,7 +2693,7 @@ define internal fastcc i32 @var_find_by_name(ptr noundef %0, ptr nocapture nound
   %.pre1.i.i = and i8 %.pre.i.i, 1
   %26 = icmp eq i8 %.pre1.i.i, 0
   %27 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @mca_base_vars, i64 0, i32 8), align 8
-  %28 = and i64 %9, 4294967295
+  %28 = and i64 %9, 2147483647
   %29 = getelementptr inbounds ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   br i1 %26, label %var_get.exit, label %31
@@ -2865,7 +2865,7 @@ define noundef i32 @mca_base_var_build_env(ptr noundef %0, ptr noundef %1, i1 no
 
 .thread.i:                                        ; preds = %16
   %19 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @mca_base_vars, i64 0, i32 8), align 8
-  %20 = and i64 %.02739, 4294967295
+  %20 = and i64 %.02739, 2147483647
   %21 = getelementptr inbounds ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   br label %opal_pointer_array_get_item.exit
@@ -2876,7 +2876,7 @@ define noundef i32 @mca_base_var_build_env(ptr noundef %0, ptr noundef %1, i1 no
   %.pre1.i = and i8 %.pre.i, 1
   %25 = icmp eq i8 %.pre1.i, 0
   %26 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @mca_base_vars, i64 0, i32 8), align 8
-  %27 = and i64 %.02739, 4294967295
+  %27 = and i64 %.02739, 2147483647
   %28 = getelementptr inbounds ptr, ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   br i1 %25, label %opal_pointer_array_get_item.exit, label %30
@@ -4502,7 +4502,7 @@ source_name.exit:                                 ; preds = %100, %105, %107
   br i1 %or.cond238, label %.lr.ph236.preheader, label %.loopexit
 
 .lr.ph236.preheader:                              ; preds = %220
-  %wide.trip.count243 = and i64 %.val, 4294967295
+  %wide.trip.count243 = and i64 %.val, 2147483647
   br label %.lr.ph236
 
 .lr.ph236:                                        ; preds = %.lr.ph236.preheader, %var_get.exit168.thread
@@ -4661,7 +4661,7 @@ var_get.exit168.thread:                           ; preds = %opal_pointer_array_
   br i1 %303, label %.lr.ph.preheader, label %.loopexit229
 
 .lr.ph.preheader:                                 ; preds = %301
-  %304 = and i64 %.val, 4294967295
+  %304 = and i64 %.val, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %var_get.exit179.thread

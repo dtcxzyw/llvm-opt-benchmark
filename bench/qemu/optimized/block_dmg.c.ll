@@ -474,7 +474,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %land.lhs.true, label %if.end6
 
 land.lhs.true:                                    ; preds = %if.end
-  %idx.ext = and i64 %call, 4294967295
+  %idx.ext = and i64 %call, 2147483647
   %add.ptr = getelementptr i8, ptr %filename, i64 %idx.ext
   %add.ptr2 = getelementptr i8, ptr %add.ptr, i64 -4
   %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr2, ptr noundef nonnull dereferenceable(5) @.str.21) #13
@@ -524,7 +524,7 @@ for.body.lr.ph:                                   ; preds = %if.end8
   %current_chunk = getelementptr inbounds i8, ptr %0, i64 96
   %sectors = getelementptr inbounds i8, ptr %0, i64 80
   %uncompressed_chunk = getelementptr inbounds i8, ptr %0, i64 112
-  %wide.trip.count = and i64 %shr1, 4294967295
+  %wide.trip.count = and i64 %shr1, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc

@@ -199,7 +199,7 @@ define dso_local noundef i32 @__scm_send(ptr noundef %0, ptr nocapture noundef r
   %69 = getelementptr inbounds i8, ptr %63, i64 16
   %70 = sext i16 %62 to i64
   %71 = getelementptr [253 x ptr], ptr %69, i64 0, i64 %70
-  %72 = and i64 %46, 4294967295
+  %72 = and i64 %46, 255
   br label %79
 
 73:                                               ; preds = %88

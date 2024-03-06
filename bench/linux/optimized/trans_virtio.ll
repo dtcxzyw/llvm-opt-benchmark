@@ -1567,7 +1567,7 @@ define internal fastcc i32 @p9_get_mapped_pages(ptr nocapture noundef readonly %
 
 50:                                               ; preds = %45
   store i32 1, ptr %5, align 4
-  %51 = and i64 %47, 4294967295
+  %51 = and i64 %47, 2147483647
   %52 = load i64, ptr %4, align 8
   %53 = add nuw nsw i64 %51, 4095
   %54 = add i64 %53, %52
@@ -1624,7 +1624,7 @@ define internal fastcc i32 @p9_get_mapped_pages(ptr nocapture noundef readonly %
 84:                                               ; preds = %81
   %85 = sub nsw i64 0, %82
   %86 = getelementptr i8, ptr %63, i64 %85
-  %87 = and i64 %71, 4294967295
+  %87 = and i64 %71, 2147483647
   br label %88
 
 88:                                               ; preds = %107, %84

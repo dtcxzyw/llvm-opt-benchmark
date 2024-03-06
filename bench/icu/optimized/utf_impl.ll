@@ -443,25 +443,35 @@ if.then10:                                        ; preds = %if.then7
 
 if.else:                                          ; preds = %if.then7
   %cmp14 = icmp ult i8 %2, -16
-  %conv25 = lshr i32 %c, 4
-  %shr26 = and i32 %conv25, 15
-  %idxprom27 = zext nneg i32 %shr26 to i64
-  %arrayidx28 = getelementptr inbounds [17 x i8], ptr @.str, i64 0, i64 %idxprom27
+  br i1 %cmp14, label %cond.true, label %cond.false
+
+cond.true:                                        ; preds = %if.else
   %and16 = and i32 %conv3, 15
   %idxprom17 = zext nneg i32 %and16 to i64
   %arrayidx18 = getelementptr inbounds [17 x i8], ptr @.str.1, i64 0, i64 %idxprom17
   %conv21 = lshr i32 %c, 5
-  %conv3.sink = select i1 %cmp14, i32 %conv21, i32 %conv3
-  %conv29120.sink.in.in = select i1 %cmp14, ptr %arrayidx18, ptr %arrayidx28
+  %shr = and i32 %conv21, 5
+  br label %cond.end
+
+cond.false:                                       ; preds = %if.else
+  %conv25 = lshr i32 %c, 4
+  %shr26 = and i32 %conv25, 11
+  %idxprom27 = zext nneg i32 %shr26 to i64
+  %arrayidx28 = getelementptr inbounds [17 x i8], ptr @.str, i64 0, i64 %idxprom27
+  %and31 = and i32 %conv3, 7
+  br label %cond.end
+
+cond.end:                                         ; preds = %cond.false, %cond.true
+  %and31.sink = phi i32 [ %and31, %cond.false ], [ %shr, %cond.true ]
+  %conv29120.sink.in.in = phi ptr [ %arrayidx28, %cond.false ], [ %arrayidx18, %cond.true ]
   %conv29120.sink.in = load i8, ptr %conv29120.sink.in.in, align 1
   %conv29120.sink = zext i8 %conv29120.sink.in to i32
-  %and31 = and i32 %conv3.sink, 7
-  %shl32 = shl nuw nsw i32 1, %and31
+  %shl32 = shl nuw nsw i32 1, %and31.sink
   %and33 = and i32 %shl32, %conv29120.sink
   %tobool.not = icmp eq i32 %and33, 0
   br i1 %tobool.not, label %if.end186, label %if.then34
 
-if.then34:                                        ; preds = %if.else
+if.then34:                                        ; preds = %cond.end
   store i32 %dec, ptr %pi, align 4
   %cmp.i = icmp sgt i8 %strict, -1
   br i1 %cmp.i, label %return, label %if.else.i
@@ -625,7 +635,7 @@ lor.lhs.false172:                                 ; preds = %land.lhs.true170
 _ZL10errorValueia.exit110:                        ; preds = %land.lhs.true170, %lor.lhs.false172
   br label %return
 
-if.end186:                                        ; preds = %if.else, %if.else111, %if.then60, %if.then131, %if.then140, %if.else126, %if.else36, %entry
+if.end186:                                        ; preds = %cond.end, %if.else111, %if.then60, %if.then131, %if.then140, %if.else126, %if.else36, %entry
   %cmp.i111 = icmp sgt i8 %strict, -1
   br i1 %cmp.i111, label %return, label %if.else.i112
 

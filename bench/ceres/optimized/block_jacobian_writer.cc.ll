@@ -236,7 +236,7 @@ _ZNSt6vectorIPiSaIS0_EED2Ev.exit:                 ; preds = %_ZNSt6vectorIiSaIiE
 
 .lr.ph.i:                                         ; preds = %.lr.ph177.i
   %57 = getelementptr inbounds i8, ptr %43, i64 16
-  %wide.trip.count.i = and i64 %54, 4294967295
+  %wide.trip.count.i = and i64 %54, 2147483647
   br label %58
 
 58:                                               ; preds = %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread.i, %.lr.ph.i
@@ -489,7 +489,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_bas
   br i1 %175, label %.lr.ph185.preheader.i, label %._crit_edge195.i
 
 .lr.ph185.preheader.i:                            ; preds = %_ZNSt6vectorISt4pairIiiESaIS1_EE7reserveEm.exit.i
-  %wide.trip.count231.i = and i64 %158, 4294967295
+  %wide.trip.count231.i = and i64 %158, 2147483647
   br label %.lr.ph185.i
 
 .lr.ph185.i:                                      ; preds = %_ZNSt6vectorISt4pairIiiESaIS1_EE12emplace_backIJRKiRiEEERS1_DpOT_.exit.i, %.lr.ph185.preheader.i
@@ -1514,7 +1514,7 @@ _ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEm.exit: ; preds = 
 .lr.ph95:                                         ; preds = %140
   %163 = getelementptr inbounds i8, ptr %143, i64 16
   %164 = load ptr, ptr %163, align 8
-  %wide.trip.count = and i64 %159, 4294967295
+  %wide.trip.count = and i64 %159, 2147483647
   br label %165
 
 165:                                              ; preds = %.lr.ph95, %165
@@ -1539,7 +1539,7 @@ _ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEm.exit: ; preds = 
 
 .lr.ph100:                                        ; preds = %._crit_edge96
   %173 = getelementptr inbounds i8, ptr %143, i64 16
-  %wide.trip.count116 = and i64 %159, 4294967295
+  %wide.trip.count116 = and i64 %159, 2147483647
   br label %174
 
 174:                                              ; preds = %.lr.ph100, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit76.thread

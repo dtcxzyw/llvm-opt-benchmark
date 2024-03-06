@@ -1822,7 +1822,7 @@ define internal fastcc void @pmix_info_show_mca_group_params(ptr noundef %0) unn
 .lr.ph76:                                         ; preds = %.preheader63
   %49 = select i1 %.134, ptr @.str.55, ptr @.str.167
   %50 = select i1 %.134, ptr @.str.170, ptr @.str.171
-  %wide.trip.count = and i64 %.val, 4294967295
+  %wide.trip.count = and i64 %.val, 2147483647
   %51 = getelementptr inbounds i8, ptr %0, i64 168
   %52 = getelementptr inbounds i8, ptr %0, i64 168
   %53 = getelementptr inbounds i8, ptr %0, i64 168
@@ -1975,7 +1975,7 @@ define internal fastcc void @pmix_info_show_mca_group_params(ptr noundef %0) unn
   br i1 %123, label %.lr.ph80.preheader, label %._crit_edge81
 
 .lr.ph80.preheader:                               ; preds = %._crit_edge77
-  %wide.trip.count92 = and i64 %.val62, 4294967295
+  %wide.trip.count92 = and i64 %.val62, 2147483647
   br label %.lr.ph80
 
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %129

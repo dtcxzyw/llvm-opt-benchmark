@@ -145,7 +145,7 @@ for.cond10.preheader.i:                           ; preds = %sw.bb
   br i1 %cmp538.i, label %for.body13.preheader.i, label %putinteger.exit
 
 for.body13.preheader.i:                           ; preds = %for.cond10.preheader.i
-  %7 = and i64 %call5, 4294967295
+  %7 = and i64 %call5, 2147483647
   %8 = add nsw i64 %7, -1
   %xtraiter = and i64 %call5, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
@@ -174,7 +174,7 @@ for.cond.preheader.i:                             ; preds = %sw.bb
   br i1 %cmp538.i, label %for.body.preheader.i, label %putinteger.exit
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %wide.trip.count.i = and i64 %call5, 4294967295
+  %wide.trip.count.i = and i64 %call5, 2147483647
   %10 = add nsw i64 %wide.trip.count.i, -1
   %xtraiter147 = and i64 %call5, 3
   %11 = icmp ult i64 %10, 3
@@ -293,7 +293,7 @@ sw.bb33:                                          ; preds = %while.end
   br i1 %or.cond.i108, label %while.body.preheader.i, label %correctbytes.exit
 
 while.body.preheader.i:                           ; preds = %sw.bb33
-  %15 = and i64 %call5, 4294967295
+  %15 = and i64 %call5, 2147483647
   %16 = add nsw i64 %15, -1
   br label %while.body.i
 
@@ -329,7 +329,7 @@ sw.bb39:                                          ; preds = %while.end
   br i1 %or.cond.i116, label %while.body.preheader.i118, label %correctbytes.exit127
 
 while.body.preheader.i118:                        ; preds = %sw.bb39
-  %20 = and i64 %call5, 4294967295
+  %20 = and i64 %call5, 2147483647
   %21 = add nsw i64 %20, -1
   br label %while.body.i119
 
@@ -524,7 +524,7 @@ for.cond2.preheader.i:                            ; preds = %sw.bb
   br i1 %cmp144.i, label %for.body5.preheader.i, label %if.end.i143
 
 for.body5.preheader.i:                            ; preds = %for.cond2.preheader.i
-  %9 = and i64 %call7, 4294967295
+  %9 = and i64 %call7, 2147483647
   %10 = add nsw i64 %9, -1
   %xtraiter = and i64 %call7, 3
   %11 = icmp ult i64 %10, 3
@@ -541,7 +541,7 @@ for.cond.preheader.i:                             ; preds = %sw.bb
   br i1 %cmp144.i, label %for.body.preheader.i, label %if.end.i143
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %wide.trip.count.i = and i64 %call7, 4294967295
+  %wide.trip.count.i = and i64 %call7, 2147483647
   %12 = add nsw i64 %wide.trip.count.i, -1
   %xtraiter174 = and i64 %call7, 3
   %13 = icmp ult i64 %12, 3

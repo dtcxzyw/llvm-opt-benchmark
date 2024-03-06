@@ -3662,7 +3662,7 @@ Io_MvGetLine.exit133.i.i.i:                       ; preds = %1543, %.critedge.lo
   br i1 %1557, label %.lr.ph.preheader.i.i.i.i, label %Io_ReadBlifCleanName.exit.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %1554
-  %wide.trip.count.i134.i.i.i = and i64 %1555, 4294967295
+  %wide.trip.count.i134.i.i.i = and i64 %1555, 2147483647
   br label %.lr.ph.i135.i.i.i
 
 1558:                                             ; preds = %.lr.ph.i135.i.i.i
@@ -8400,7 +8400,7 @@ define internal fastcc void @Vec_StrPrintStr(ptr nocapture noundef %0, ptr nocap
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
-  %wide.trip.count = and i64 %3, 4294967295
+  %wide.trip.count = and i64 %3, 2147483647
   br label %7
 
 7:                                                ; preds = %.lr.ph, %Vec_StrPush.exit

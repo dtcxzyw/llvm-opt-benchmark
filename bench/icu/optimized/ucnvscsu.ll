@@ -1530,7 +1530,7 @@ for.body.i246.preheader:                          ; preds = %for.inc.i, %_ZL9get
   br label %for.body.i246
 
 if.then68:                                        ; preds = %_ZL9getWindowPKjj.exit
-  %idxprom70 = and i64 %indvars.iv.i, 255
+  %idxprom70 = and i64 %indvars.iv.i, 127
   %arrayidx71 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom70
   %13 = load i32, ptr %arrayidx71, align 4
   %14 = load i8, ptr %nextWindowUseIndex.i259, align 1
@@ -1756,7 +1756,7 @@ for.body.i342.preheader:                          ; preds = %for.inc.i300, %_ZL9
 
 if.then119:                                       ; preds = %_ZL9getWindowPKjj.exit306
   %cmp120.not = icmp ult ptr %incdec.ptr, %3
-  %idxprom123 = and i64 %indvars.iv.i296, 255
+  %idxprom123 = and i64 %indvars.iv.i296, 127
   br i1 %cmp120.not, label %lor.lhs.false121, label %if.then128
 
 lor.lhs.false121:                                 ; preds = %if.then119
@@ -1868,7 +1868,7 @@ if.then152:                                       ; preds = %_ZL9getWindowPKjj.e
   %narrow240 = add nuw i8 %conv.i352, 1
   %add154 = zext i8 %narrow240 to i32
   %shl155 = shl nuw nsw i32 %add154, 8
-  %idxprom156 = and i64 %indvars.iv.i343, 255
+  %idxprom156 = and i64 %indvars.iv.i343, 127
   %arrayidx157 = getelementptr inbounds [8 x i32], ptr @_ZL13staticOffsets, i64 0, i64 %idxprom156
   %39 = load i32, ptr %arrayidx157, align 4
   %sub158 = sub i32 %conv11, %39
@@ -2040,7 +2040,7 @@ _ZL9getWindowPKjj.exit372:                        ; preds = %for.body.i361
   br i1 %cmp248, label %if.then249, label %if.else259
 
 if.then249:                                       ; preds = %_ZL9getWindowPKjj.exit372
-  %idxprom251 = and i64 %indvars.iv.i362, 255
+  %idxprom251 = and i64 %indvars.iv.i362, 127
   %arrayidx252 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom251
   %48 = load i32, ptr %arrayidx252, align 4
   %49 = load i8, ptr %nextWindowUseIndex.i259, align 1
@@ -2088,7 +2088,7 @@ _ZL16useDynamicWindowP8SCSUDataa.exit403:         ; preds = %while.body.i389, %d
   store i8 %conv.i371, ptr %arrayidx21.i402, align 1
   %53 = trunc i64 %indvars.iv.i362 to i32
   %conv253 = shl i32 %53, 8
-  %add254 = and i32 %conv253, 65280
+  %add254 = and i32 %conv253, 32512
   %sub256 = sub i32 %conv206, %48
   %or257 = add nuw nsw i32 %add254, 57472
   %or258 = or i32 %or257, %sub256
@@ -2184,7 +2184,7 @@ land.lhs.true310:                                 ; preds = %land.lhs.true308
   br i1 %cmp313, label %if.else324, label %if.then314
 
 if.then314:                                       ; preds = %land.lhs.true310, %land.lhs.true308
-  %idxprom316 = and i64 %indvars.iv.i412, 255
+  %idxprom316 = and i64 %indvars.iv.i412, 127
   %arrayidx317 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom316
   %60 = load i32, ptr %arrayidx317, align 4
   %61 = load i8, ptr %nextWindowUseIndex.i259, align 1
@@ -2232,7 +2232,7 @@ _ZL16useDynamicWindowP8SCSUDataa.exit453:         ; preds = %while.body.i439, %d
   store i8 %conv.i421, ptr %arrayidx21.i452, align 1
   %65 = trunc i64 %indvars.iv.i412 to i32
   %conv318 = shl i32 %65, 8
-  %add319 = and i32 %conv318, 65280
+  %add319 = and i32 %conv318, 32512
   %sub321 = sub i32 %sub296, %60
   %or322 = add nuw nsw i32 %add319, 57472
   %or323 = or i32 %or322, %sub321
@@ -2741,7 +2741,7 @@ for.body.i300.preheader:                          ; preds = %for.inc.i, %_ZL9get
   br label %for.body.i300
 
 if.then87:                                        ; preds = %_ZL9getWindowPKjj.exit
-  %idxprom89 = and i64 %indvars.iv.i, 255
+  %idxprom89 = and i64 %indvars.iv.i, 127
   %arrayidx90 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom89
   %16 = load i32, ptr %arrayidx90, align 4
   %17 = load i8, ptr %nextWindowUseIndex.i313, align 1
@@ -2977,7 +2977,7 @@ for.body.i396.preheader:                          ; preds = %for.inc.i354, %_ZL9
 
 if.then142:                                       ; preds = %_ZL9getWindowPKjj.exit360
   %cmp143.not = icmp ult ptr %incdec.ptr, %3
-  %idxprom146 = and i64 %indvars.iv.i350, 255
+  %idxprom146 = and i64 %indvars.iv.i350, 127
   br i1 %cmp143.not, label %lor.lhs.false144, label %if.then151
 
 lor.lhs.false144:                                 ; preds = %if.then142
@@ -3089,7 +3089,7 @@ if.then175:                                       ; preds = %_ZL9getWindowPKjj.e
   %narrow294 = add nuw i8 %conv.i406, 1
   %add177 = zext i8 %narrow294 to i32
   %shl178 = shl nuw nsw i32 %add177, 8
-  %idxprom179 = and i64 %indvars.iv.i397, 255
+  %idxprom179 = and i64 %indvars.iv.i397, 127
   %arrayidx180 = getelementptr inbounds [8 x i32], ptr @_ZL13staticOffsets, i64 0, i64 %idxprom179
   %42 = load i32, ptr %arrayidx180, align 4
   %sub181 = sub i32 %conv13, %42
@@ -3269,7 +3269,7 @@ _ZL9getWindowPKjj.exit426:                        ; preds = %for.body.i415
   br i1 %cmp277, label %if.then278, label %if.else288
 
 if.then278:                                       ; preds = %_ZL9getWindowPKjj.exit426
-  %idxprom280 = and i64 %indvars.iv.i416, 255
+  %idxprom280 = and i64 %indvars.iv.i416, 127
   %arrayidx281 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom280
   %50 = load i32, ptr %arrayidx281, align 4
   %51 = load i8, ptr %nextWindowUseIndex.i313, align 1
@@ -3317,7 +3317,7 @@ _ZL16useDynamicWindowP8SCSUDataa.exit457:         ; preds = %while.body.i443, %d
   store i8 %conv.i425, ptr %arrayidx21.i456, align 1
   %55 = trunc i64 %indvars.iv.i416 to i32
   %conv282 = shl i32 %55, 8
-  %add283 = and i32 %conv282, 65280
+  %add283 = and i32 %conv282, 32512
   %sub285 = sub i32 %conv229, %50
   %or286 = add nuw nsw i32 %add283, 57472
   %or287 = or i32 %or286, %sub285
@@ -3417,7 +3417,7 @@ land.lhs.true340:                                 ; preds = %land.lhs.true338
   br i1 %cmp343, label %if.else354, label %if.then344
 
 if.then344:                                       ; preds = %land.lhs.true340, %land.lhs.true338
-  %idxprom346 = and i64 %indvars.iv.i466, 255
+  %idxprom346 = and i64 %indvars.iv.i466, 127
   %arrayidx347 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom346
   %62 = load i32, ptr %arrayidx347, align 4
   %63 = load i8, ptr %nextWindowUseIndex.i313, align 1
@@ -3465,7 +3465,7 @@ _ZL16useDynamicWindowP8SCSUDataa.exit507:         ; preds = %while.body.i493, %d
   store i8 %conv.i475, ptr %arrayidx21.i506, align 1
   %67 = trunc i64 %indvars.iv.i466 to i32
   %conv348 = shl i32 %67, 8
-  %add349 = and i32 %conv348, 65280
+  %add349 = and i32 %conv348, 32512
   %sub351 = sub i32 %sub326, %62
   %or352 = add nuw nsw i32 %add349, 57472
   %or353 = or i32 %or352, %sub351

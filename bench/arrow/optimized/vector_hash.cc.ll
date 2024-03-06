@@ -34760,7 +34760,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51358.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %17 = add i64 %position.0370.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -37097,7 +37097,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51407.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %12 = add i64 %position.0419.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -39341,7 +39341,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51363.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %13 = add i64 %position.0375.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -43211,7 +43211,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51363.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %13 = add i64 %position.0375.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -45483,7 +45483,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51360.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %13 = add i64 %position.0372.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -47738,7 +47738,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51290.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %12 = add i64 %position.0302.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -52047,7 +52047,7 @@ if.end:                                           ; preds = %if.then5
   %conv8 = zext i8 %0 to i64
   %shl9 = shl nuw nsw i64 %conv8, 16
   %div19 = lshr i64 %length, 1
-  %idxprom = and i64 %div19, 2147483647
+  %idxprom = and i64 %div19, 1
   %arrayidx10 = getelementptr inbounds i8, ptr %data, i64 %idxprom
   %1 = load i8, ptr %arrayidx10, align 1
   %conv11 = zext i8 %1 to i64
@@ -52057,7 +52057,7 @@ if.end:                                           ; preds = %if.then5
   %arrayidx15 = getelementptr inbounds i8, ptr %data, i64 %idxprom14
   %2 = load i8, ptr %arrayidx15, align 1
   %conv16 = zext i8 %2 to i64
-  %shl.masked = and i64 %shl, 4278190080
+  %shl.masked = and i64 %shl, 50331648
   %xor.masked = or disjoint i64 %shl9, %shl.masked
   %xor13.masked = or disjoint i64 %xor.masked, %shl12
   %conv.i = or disjoint i64 %xor13.masked, %conv16
@@ -52066,7 +52066,7 @@ if.end:                                           ; preds = %if.then5
   br label %return
 
 if.end18:                                         ; preds = %if.then3
-  %idx.ext = and i64 %length, 4294967295
+  %idx.ext = and i64 %length, 15
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   %add.ptr20 = getelementptr inbounds i8, ptr %add.ptr, i64 -4
   %ret.0.copyload.i = load i32, ptr %add.ptr20, align 1
@@ -53490,7 +53490,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51290.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %12 = add i64 %position.0302.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -58405,7 +58405,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51291.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %11 = add i64 %position.0303.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -60369,7 +60369,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51290.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %11 = add i64 %position.0302.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -62083,7 +62083,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51369.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %14 = add i64 %position.0381.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -73607,7 +73607,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51291.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %7 = add i64 %position.0303.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -74653,7 +74653,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51294.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %5 = add i64 %position.0306.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -75556,7 +75556,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51327.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %6 = add i64 %position.0339.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -76498,7 +76498,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51327.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %6 = add i64 %position.0339.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -77440,7 +77440,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51327.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %6 = add i64 %position.0339.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -78420,7 +78420,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51290.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %12 = add i64 %position.0302.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -79619,7 +79619,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51290.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %12 = add i64 %position.0302.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -80785,7 +80785,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51291.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %10 = add i64 %position.0303.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -81972,7 +81972,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51290.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %11 = add i64 %position.0302.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -83116,7 +83116,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51327.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %6 = add i64 %position.0339.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -90396,7 +90396,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51291.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %11 = add i64 %position.0303.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -91373,7 +91373,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51294.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %9 = add i64 %position.0306.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -92374,7 +92374,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51294.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %9 = add i64 %position.0306.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -93306,7 +93306,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51294.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %9 = add i64 %position.0306.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -94238,7 +94238,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51294.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %9 = add i64 %position.0306.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -95212,7 +95212,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51290.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %16 = add i64 %position.0302.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -96417,7 +96417,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51290.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %16 = add i64 %position.0302.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -97589,7 +97589,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51291.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %14 = add i64 %position.0303.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -98782,7 +98782,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51290.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %15 = add i64 %position.0302.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i
@@ -99928,7 +99928,7 @@ for.cond48.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i
   br i1 %cmp51294.i.i.i.i, label %for.body52.preheader.i.i.i.i, label %if.end104.i.i.i.i
 
 for.body52.preheader.i.i.i.i:                     ; preds = %for.cond48.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i, 32767
   %conv50.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %9 = add i64 %position.0306.i.i.i.i, %conv50.i.i.i.i
   br label %for.body52.i.i.i.i

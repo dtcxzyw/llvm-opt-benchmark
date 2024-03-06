@@ -1271,7 +1271,7 @@ if.end11.i.i:                                     ; preds = %_ZZN9grpc_core12_GL
   br i1 %1, label %switch.lookup, label %_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm.exit.i.i
 
 switch.lookup:                                    ; preds = %if.end11.i.i
-  %2 = and i64 %algorithm.018.i.i, 4294967295
+  %2 = and i64 %algorithm.018.i.i, 3
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._GLOBAL__sub_I_compression_internal.cc, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm.exit.i.i

@@ -1379,7 +1379,7 @@ _ZN5draco6StatusC2ENS0_4CodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br i1 %98, label %.lr.ph.preheader.i, label %_ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE.exit
 
 .lr.ph.preheader.i:                               ; preds = %92
-  %wide.trip.count.i = and i64 %.val, 4294967295
+  %wide.trip.count.i = and i64 %.val, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -1443,7 +1443,7 @@ _ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE
   %126 = getelementptr inbounds i8, ptr %15, i64 24
   %127 = getelementptr inbounds i8, ptr %15, i64 8
   %128 = getelementptr inbounds i8, ptr %15, i64 32
-  %wide.trip.count = and i64 %123, 4294967295
+  %wide.trip.count = and i64 %123, 2147483647
   br label %129
 
 129:                                              ; preds = %.lr.ph, %.loopexit97

@@ -1342,7 +1342,7 @@ define dso_local void @_ZN3irr3gui10StaticText10updateTextEv(ptr noundef nonnull
   %168 = getelementptr inbounds i8, ptr %14, i64 32
   %169 = getelementptr inbounds i8, ptr %14, i64 48
   %170 = getelementptr inbounds i8, ptr %14, i64 56
-  %171 = and i64 %87, 4294967295
+  %171 = and i64 %87, 2147483647
   br label %437
 
 172:                                              ; preds = %111
@@ -1372,7 +1372,7 @@ define dso_local void @_ZN3irr3gui10StaticText10updateTextEv(ptr noundef nonnull
   %194 = getelementptr inbounds i8, ptr %6, i64 16
   %195 = getelementptr inbounds i8, ptr %6, i64 8
   %196 = and i64 %175, 4294967295
-  %197 = and i64 %87, 4294967295
+  %197 = and i64 %87, 2147483647
   br label %198
 
 .loopexit:                                        ; preds = %425, %172

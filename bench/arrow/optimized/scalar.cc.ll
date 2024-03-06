@@ -15705,7 +15705,7 @@ if.end:                                           ; preds = %if.then5
   %conv8 = zext i8 %0 to i64
   %shl9 = shl nuw nsw i64 %conv8, 16
   %div19 = lshr i64 %length, 1
-  %idxprom = and i64 %div19, 2147483647
+  %idxprom = and i64 %div19, 1
   %arrayidx10 = getelementptr inbounds i8, ptr %data, i64 %idxprom
   %1 = load i8, ptr %arrayidx10, align 1
   %conv11 = zext i8 %1 to i64
@@ -15715,7 +15715,7 @@ if.end:                                           ; preds = %if.then5
   %arrayidx15 = getelementptr inbounds i8, ptr %data, i64 %idxprom14
   %2 = load i8, ptr %arrayidx15, align 1
   %conv16 = zext i8 %2 to i64
-  %shl.masked = and i64 %shl, 4278190080
+  %shl.masked = and i64 %shl, 50331648
   %xor.masked = or disjoint i64 %shl9, %shl.masked
   %xor13.masked = or disjoint i64 %xor.masked, %shl12
   %conv.i = or disjoint i64 %xor13.masked, %conv16
@@ -15724,7 +15724,7 @@ if.end:                                           ; preds = %if.then5
   br label %return
 
 if.end18:                                         ; preds = %if.then3
-  %idx.ext = and i64 %length, 4294967295
+  %idx.ext = and i64 %length, 15
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   %add.ptr20 = getelementptr inbounds i8, ptr %add.ptr, i64 -4
   %ret.0.copyload.i = load i32, ptr %add.ptr20, align 1

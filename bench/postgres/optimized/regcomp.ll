@@ -29341,7 +29341,7 @@ define internal fastcc zeroext i1 @checkmatchall_recurse(ptr nocapture noundef r
   br i1 %74, label %.lr.ph85.preheader, label %.thread
 
 .lr.ph85.preheader:                               ; preds = %72
-  %75 = and i64 %indvars.iv88, 4294967295
+  %75 = and i64 %indvars.iv88, 511
   %76 = getelementptr i8, ptr %16, i64 %75
   %scevgep = getelementptr i8, ptr %76, i64 1
   %77 = sub nsw i64 256, %indvars.iv88

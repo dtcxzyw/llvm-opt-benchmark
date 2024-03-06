@@ -773,7 +773,7 @@ uncompress_debug_section.exit:                    ; preds = %123
   br i1 %150, label %.lr.ph473.preheader, label %.loopexit334
 
 .lr.ph473.preheader:                              ; preds = %.preheader333
-  %wide.trip.count = and i64 %147, 4294967295
+  %wide.trip.count = and i64 %147, 2147483647
   br label %.lr.ph473
 
 .lr.ph473:                                        ; preds = %.lr.ph473.preheader, %171
@@ -2447,7 +2447,7 @@ debug_info_read.exit:                             ; preds = %.backedge.i, %rngli
 
 .lr.ph480.split.us.preheader:                     ; preds = %.lr.ph480
   %900 = sext i32 %.0196 to i64
-  %wide.trip.count615 = and i64 %895, 4294967295
+  %wide.trip.count615 = and i64 %895, 2147483647
   %.pre = load i64, ptr %898, align 8
   %wide.trip.count610 = sext i32 %0 to i64
   br label %.lr.ph480.split.us

@@ -420,7 +420,7 @@ define dso_local noundef i32 @dmar_insert_dev_scope(ptr nocapture noundef readon
   br i1 %.not, label %.loopexit12, label %41
 
 41:                                               ; preds = %40
-  %42 = and i64 %29, 4294967295
+  %42 = and i64 %29, 2147483647
   br label %46
 
 43:                                               ; preds = %54

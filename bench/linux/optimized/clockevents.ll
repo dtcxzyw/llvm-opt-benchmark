@@ -1241,7 +1241,7 @@ define internal fastcc i32 @tick_init_sysfs() unnamed_addr #4 section ".init.tex
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %10
-  %15 = and i64 %11, 4294967295
+  %15 = and i64 %11, 63
   %16 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, ptrtoint (ptr @tick_percpu_dev to i64)
@@ -1262,7 +1262,7 @@ define internal fastcc i32 @tick_init_sysfs() unnamed_addr #4 section ".init.tex
 27:                                               ; preds = %24
   %28 = tail call i32 @device_create_file(ptr noundef %19, ptr noundef nonnull @dev_attr_unbind_device) #11
   %29 = icmp eq i32 %28, 0
-  %30 = add i64 %11, 1
+  %30 = add nuw nsw i64 %11, 1
   br i1 %29, label %1, label %.thread7, !llvm.loop !57
 
 .thread:                                          ; preds = %5, %1, %10

@@ -41396,7 +41396,7 @@ if.else180:                                       ; preds = %if.else72
 
 if.then185:                                       ; preds = %if.else180
   %conv186 = trunc i64 %div181 to i8
-  %add188 = add i8 %conv186, 48
+  %add188 = or disjoint i8 %conv186, 48
   %incdec.ptr190 = getelementptr inbounds i8, ptr %buffer, i64 1
   store i8 %add188, ptr %buffer, align 1
   br label %if.end243

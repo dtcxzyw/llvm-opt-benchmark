@@ -172,7 +172,7 @@ for.cond.i.i:                                     ; preds = %pgb_try_mmap_skip_b
   br i1 %11, label %pgb_fixed.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %idxprom.i.i = and i64 %indvars.iv.next.i.i, 4294967295
+  %idxprom.i.i = and i64 %indvars.iv.next.i.i, 2147483647
   %arrayidx.i.i = getelementptr [3 x [2 x i64]], ptr %ga.i, i64 0, i64 %idxprom.i.i
   %12 = load i64, ptr %arrayidx.i.i, align 8
   %add.i.i = add i64 %12, %5
@@ -267,7 +267,7 @@ for.cond.i.i28:                                   ; preds = %pgb_try_mmap_skip_b
   br i1 %22, label %pgb_dynamic.exit, label %for.body.i.i31
 
 for.body.i.i31:                                   ; preds = %for.cond.i.i28
-  %idxprom.i.i32 = and i64 %indvars.iv.next.i.i30, 4294967295
+  %idxprom.i.i32 = and i64 %indvars.iv.next.i.i30, 2147483647
   %arrayidx.i.i33 = getelementptr [3 x [2 x i64]], ptr %ga.i14, i64 0, i64 %idxprom.i.i32
   %23 = load i64, ptr %arrayidx.i.i33, align 8
   %arrayidx5.i.i34 = getelementptr i8, ptr %arrayidx.i.i33, i64 8
@@ -357,7 +357,7 @@ for.cond.i.i.i:                                   ; preds = %pgb_try_mmap_skip_b
   br i1 %32, label %if.end15.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
-  %idxprom.i.i.i = and i64 %indvars.iv.next.i.i.i, 4294967295
+  %idxprom.i.i.i = and i64 %indvars.iv.next.i.i.i, 2147483647
   %arrayidx.i.i.i = getelementptr [3 x [2 x i64]], ptr %ga.i14, i64 0, i64 %idxprom.i.i.i
   %33 = load i64, ptr %arrayidx.i.i.i, align 8
   %add.i.i.i = add i64 %33, %and.i.i
@@ -477,7 +477,7 @@ for.cond.i12.i.i:                                 ; preds = %for.cond.i12.i.i.pr
   br i1 %46, label %pgb_find_itree.exit.i, label %for.body.i16.i.i
 
 for.body.i16.i.i:                                 ; preds = %for.cond.i12.i.i
-  %idxprom.i17.i.i = and i64 %indvars.iv.next.i14.i.i, 4294967295
+  %idxprom.i17.i.i = and i64 %indvars.iv.next.i14.i.i, 2147483647
   %arrayidx.i18.i.i = getelementptr [3 x [2 x i64]], ptr %ga.i14, i64 0, i64 %idxprom.i17.i.i
   %47 = load i64, ptr %arrayidx.i18.i.i, align 8
   %add.i19.i.i = add i64 %47, %and.i45.i

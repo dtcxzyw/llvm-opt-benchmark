@@ -3714,7 +3714,7 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr nocapture no
   br i1 %227, label %297, label %228
 
 228:                                              ; preds = %223
-  %229 = and i64 %225, 4294967295
+  %229 = and i64 %225, 127
   %230 = mul nuw nsw i64 %229, 40
   %231 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %230, i32 noundef 3264) #19
   store ptr %231, ptr %194, align 8

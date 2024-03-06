@@ -1175,7 +1175,7 @@ if.end68:                                         ; preds = %invoke.cont65, %inv
   br i1 %cmp, label %land.lhs.true, label %if.else84.invoke
 
 land.lhs.true:                                    ; preds = %if.end68
-  %idx.ext = and i64 %call71, 4294967295
+  %idx.ext = and i64 %call71, 2147483647
   %add.ptr = getelementptr inbounds i8, ptr %44, i64 %idx.ext
   %add.ptr74 = getelementptr inbounds i8, ptr %add.ptr, i64 -7
   %call75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr74, ptr noundef nonnull dereferenceable(8) @.str.16) #21
@@ -5906,7 +5906,7 @@ land.lhs.true:                                    ; preds = %invoke.cont4
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %land.lhs.true
-  %idx.ext = and i64 %call6, 4294967295
+  %idx.ext = and i64 %call6, 2147483647
   %add.ptr = getelementptr inbounds i8, ptr %call8, i64 %idx.ext
   %add.ptr9 = getelementptr inbounds i8, ptr %add.ptr, i64 -7
   %call10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr9, ptr noundef nonnull dereferenceable(8) @.str.16) #21

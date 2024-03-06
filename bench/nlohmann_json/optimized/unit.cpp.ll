@@ -1125,7 +1125,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i1.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
-  %idxprom.i.i.i = and i64 %sub.i.i, 4294967295
+  %idxprom.i.i.i = and i64 %sub.i.i, 31
   %arrayidx.i.i.i = getelementptr inbounds [24 x i8], ptr %agg.result, i64 0, i64 %idxprom.i.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1, !alias.scope !11
   %4 = trunc i64 %sub.i.i to i8
@@ -1362,7 +1362,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %idxprom.i.i = and i64 %call, 4294967295
+  %idxprom.i.i = and i64 %call, 31
   %arrayidx.i.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 %idxprom.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   %0 = trunc i64 %call to i8
@@ -5836,7 +5836,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %idxprom.i.i.i = and i64 %call.i, 4294967295
+  %idxprom.i.i.i = and i64 %call.i, 31
   %arrayidx.i.i.i10 = getelementptr inbounds [24 x i8], ptr %ref.tmp, i64 0, i64 %idxprom.i.i.i
   store i8 0, ptr %arrayidx.i.i.i10, align 1
   %0 = trunc i64 %call.i to i8
@@ -6349,7 +6349,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %idxprom.i.i.i = and i64 %call.i, 4294967295
+  %idxprom.i.i.i = and i64 %call.i, 31
   %arrayidx.i.i.i = getelementptr inbounds [24 x i8], ptr %ref.tmp4, i64 0, i64 %idxprom.i.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %1 = trunc i64 %call.i to i8
@@ -7260,7 +7260,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont3
-  %idxprom.i.i.i = and i64 %call.i, 4294967295
+  %idxprom.i.i.i = and i64 %call.i, 31
   %arrayidx.i.i.i = getelementptr inbounds [24 x i8], ptr %ref.tmp, i64 0, i64 %idxprom.i.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %2 = trunc i64 %call.i to i8
@@ -9375,7 +9375,7 @@ if.then:                                          ; preds = %invoke.cont
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %idxprom.i.i.i = and i64 %call.i, 4294967295
+  %idxprom.i.i.i = and i64 %call.i, 31
   %arrayidx.i.i.i = getelementptr inbounds [24 x i8], ptr %ref.tmp, i64 0, i64 %idxprom.i.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %3 = trunc i64 %call.i to i8
@@ -11408,7 +11408,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %idxprom.i.i.i = and i64 %call.i, 4294967295
+  %idxprom.i.i.i = and i64 %call.i, 31
   %arrayidx.i.i.i = getelementptr inbounds [24 x i8], ptr %ref.tmp, i64 0, i64 %idxprom.i.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %1 = trunc i64 %call.i to i8
@@ -11922,7 +11922,7 @@ entry:
   br i1 %cmp.i.i.i10, label %if.then.i.i.i22, label %if.else.i.i.i11
 
 if.then.i.i.i22:                                  ; preds = %entry
-  %idxprom.i.i.i23 = and i64 %call.i8, 4294967295
+  %idxprom.i.i.i23 = and i64 %call.i8, 31
   %arrayidx.i.i.i24 = getelementptr inbounds [24 x i8], ptr %ref.tmp4, i64 0, i64 %idxprom.i.i.i23
   store i8 0, ptr %arrayidx.i.i.i24, align 1
   %0 = trunc i64 %call.i8 to i8
@@ -11970,7 +11970,7 @@ invoke.cont11:                                    ; preds = %if.then.i.i.i43
   br i1 %cmp.i.i.i52, label %if.then.i.i.i64, label %if.else.i.i.i53
 
 if.then.i.i.i64:                                  ; preds = %invoke.cont11
-  %idxprom.i.i.i65 = and i64 %call.i50, 4294967295
+  %idxprom.i.i.i65 = and i64 %call.i50, 31
   %arrayidx.i.i.i66 = getelementptr inbounds [24 x i8], ptr %ref.tmp12, i64 0, i64 %idxprom.i.i.i65
   store i8 0, ptr %arrayidx.i.i.i66, align 1
   %1 = trunc i64 %call.i50 to i8
@@ -13393,7 +13393,7 @@ if.then404:                                       ; preds = %if.end400
   br i1 %cmp.i.i.i221, label %if.then.i.i.i232, label %if.else.i.i.i222
 
 if.then.i.i.i232:                                 ; preds = %if.then404
-  %idxprom.i.i.i233 = and i64 %call.i219, 4294967295
+  %idxprom.i.i.i233 = and i64 %call.i219, 31
   %arrayidx.i.i.i234 = getelementptr inbounds [24 x i8], ptr %ref.tmp405, i64 0, i64 %idxprom.i.i.i233
   store i8 0, ptr %arrayidx.i.i.i234, align 1
   %147 = trunc i64 %call.i219 to i8
@@ -13552,7 +13552,7 @@ invoke.cont418:                                   ; preds = %_ZNSt6vectorIPKN7do
   br i1 %cmp.i.i.i290, label %if.then.i.i.i301, label %if.else.i.i.i291
 
 if.then.i.i.i301:                                 ; preds = %invoke.cont418
-  %idxprom.i.i.i302 = and i64 %call.i288, 4294967295
+  %idxprom.i.i.i302 = and i64 %call.i288, 31
   %arrayidx.i.i.i303 = getelementptr inbounds [24 x i8], ptr %ref.tmp419, i64 0, i64 %idxprom.i.i.i302
   store i8 0, ptr %arrayidx.i.i.i303, align 1
   %159 = trunc i64 %call.i288 to i8
@@ -14881,7 +14881,7 @@ _ZN7doctest12_GLOBAL__N_112getReportersEv.exit:   ; preds = %if.then, %init.chec
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN7doctest12_GLOBAL__N_112getReportersEv.exit
-  %idxprom.i.i.i.i = and i64 %call.i.i, 4294967295
+  %idxprom.i.i.i.i = and i64 %call.i.i, 31
   %arrayidx.i.i.i.i = getelementptr inbounds [24 x i8], ptr %second.i, i64 0, i64 %idxprom.i.i.i.i
   store i8 0, ptr %arrayidx.i.i.i.i, align 1
   %3 = trunc i64 %call.i.i to i8
@@ -14966,7 +14966,7 @@ _ZN7doctest12_GLOBAL__N_112getListenersEv.exit:   ; preds = %if.else, %init.chec
   br i1 %cmp.i.i.i.i30, label %if.then.i.i.i.i42, label %if.else.i.i.i.i31
 
 if.then.i.i.i.i42:                                ; preds = %_ZN7doctest12_GLOBAL__N_112getListenersEv.exit
-  %idxprom.i.i.i.i43 = and i64 %call.i.i28, 4294967295
+  %idxprom.i.i.i.i43 = and i64 %call.i.i28, 31
   %arrayidx.i.i.i.i44 = getelementptr inbounds [24 x i8], ptr %second.i27, i64 0, i64 %idxprom.i.i.i.i43
   store i8 0, ptr %arrayidx.i.i.i.i44, align 1
   %12 = trunc i64 %call.i.i28 to i8
@@ -15397,7 +15397,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %idxprom.i.i.i = and i64 %call.i, 4294967295
+  %idxprom.i.i.i = and i64 %call.i, 31
   %arrayidx.i.i.i = getelementptr inbounds [24 x i8], ptr %ref.tmp, i64 0, i64 %idxprom.i.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %3 = trunc i64 %call.i to i8
@@ -15735,7 +15735,8 @@ if.then24:                                        ; preds = %if.then17
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then24
-  %arrayidx.i.i.i = getelementptr inbounds [24 x i8], ptr %ref.tmp, i64 0, i64 %7
+  %idxprom.i.i.i = and i64 %call21, 31
+  %arrayidx.i.i.i = getelementptr inbounds [24 x i8], ptr %ref.tmp, i64 0, i64 %idxprom.i.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %8 = trunc i64 %call21 to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %8
@@ -15759,8 +15760,9 @@ if.else.i.i.i:                                    ; preds = %if.then24
   br label %_ZN7doctest6StringC2EPKc.exit
 
 _ZN7doctest6StringC2EPKc.exit:                    ; preds = %if.then.i.i.i, %if.else.i.i.i
+  %conv.pre-phi.i.i = phi i64 [ %idxprom.i.i.i, %if.then.i.i.i ], [ %7, %if.else.i.i.i ]
   %retval.0.i.i.i = phi ptr [ %ref.tmp, %if.then.i.i.i ], [ %call.i.i.i, %if.else.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i, ptr nonnull align 1 %add.ptr, i64 %7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i, ptr nonnull align 1 %add.ptr, i64 %conv.pre-phi.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %value, i64 23
   %9 = load i8, ptr %arrayidx.i.i, align 1
   %cmp.i.i = icmp sgt i8 %9, -1
@@ -16106,7 +16108,7 @@ for.body.i8:                                      ; preds = %_ZN7doctest17TestCa
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i8
-  %idxprom.i.i.i.i = and i64 %call.i.i9, 4294967295
+  %idxprom.i.i.i.i = and i64 %call.i.i9, 31
   %arrayidx.i.i.i.i = getelementptr inbounds [24 x i8], ptr %ref.tmp.i, i64 0, i64 %idxprom.i.i.i.i
   store i8 0, ptr %arrayidx.i.i.i.i, align 1
   %12 = trunc i64 %call.i.i9 to i8
@@ -24470,7 +24472,7 @@ if.then:                                          ; preds = %entry
 for.body.lr.ph:                                   ; preds = %if.then
   %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
   %xml = getelementptr inbounds i8, ptr %this, i64 8
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont22
@@ -27307,7 +27309,7 @@ call3.i.noexc:                                    ; preds = %if.then.i14
   br i1 %cmp1.i, label %for.body.preheader.i, label %invoke.cont22
 
 for.body.preheader.i:                             ; preds = %call3.i.noexc
-  %wide.trip.count.i = and i64 %sub.ptr.div.i.i.i, 4294967295
+  %wide.trip.count.i = and i64 %sub.ptr.div.i.i.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %call6.i.noexc, %for.body.preheader.i
@@ -27625,7 +27627,7 @@ call3.i.noexc:                                    ; preds = %if.then.i13
   br i1 %cmp1.i, label %for.body.preheader.i, label %invoke.cont27
 
 for.body.preheader.i:                             ; preds = %call3.i.noexc
-  %wide.trip.count.i = and i64 %sub.ptr.div.i.i.i, 4294967295
+  %wide.trip.count.i = and i64 %sub.ptr.div.i.i.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %call6.i.noexc, %for.body.preheader.i
@@ -31710,7 +31712,7 @@ for.cond.preheader:                               ; preds = %invoke.cont26
   br i1 %cmp78, label %for.body.preheader, label %if.end39
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %41 = and i64 %sub.ptr.div.i.i, 4294967295
+  %41 = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -33013,7 +33015,7 @@ _ZN7doctest5ColorlsERSoNS0_4EnumE.exit:           ; preds = %if.then, %land.lhs.
   br i1 %cmp5, label %for.body.preheader, label %if.end
 
 for.body.preheader:                               ; preds = %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body

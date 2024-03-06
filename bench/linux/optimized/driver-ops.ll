@@ -3666,11 +3666,11 @@ define dso_local i32 @drv_change_vif_links(ptr noundef %0, ptr noundef %1, i16 n
   br i1 %49, label %50, label %.thread10
 
 50:                                               ; preds = %46
-  %51 = and i64 %47, 4294967295
+  %51 = and i64 %47, 15
   %52 = getelementptr [15 x ptr], ptr %40, i64 0, i64 %51
   %53 = load volatile ptr, ptr %52, align 8
-  %54 = add i64 %47, 1
-  %55 = and i64 %54, 4294967295
+  %54 = add nuw nsw i64 %47, 1
+  %55 = and i64 %54, 31
   %56 = icmp ugt i64 %55, 14
   br i1 %56, label %.thread10, label %41, !prof !259, !llvm.loop !260
 
@@ -3804,11 +3804,11 @@ define dso_local i32 @drv_change_vif_links(ptr noundef %0, ptr noundef %1, i16 n
   br i1 %130, label %131, label %.thread12
 
 131:                                              ; preds = %127
-  %132 = and i64 %128, 4294967295
+  %132 = and i64 %128, 15
   %133 = getelementptr [15 x ptr], ptr %40, i64 0, i64 %132
   %134 = load volatile ptr, ptr %133, align 8
-  %135 = add i64 %128, 1
-  %136 = and i64 %135, 4294967295
+  %135 = add nuw nsw i64 %128, 1
+  %136 = and i64 %135, 31
   %137 = icmp ugt i64 %136, 14
   br i1 %137, label %.thread12, label %122, !prof !259, !llvm.loop !265
 

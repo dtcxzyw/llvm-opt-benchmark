@@ -1301,7 +1301,7 @@ thread-pre-split:                                 ; preds = %47
   br i1 %109, label %110, label %mld_ifc_event.exit
 
 110:                                              ; preds = %108
-  %111 = and i64 %67, 4294967295
+  %111 = and i64 %67, 2147483647
   br label %112
 
 112:                                              ; preds = %112, %110

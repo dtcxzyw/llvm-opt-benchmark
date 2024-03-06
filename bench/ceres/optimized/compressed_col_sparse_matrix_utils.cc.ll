@@ -137,7 +137,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %41, %_ZNSt6vectorIi
 .lr.ph85:                                         ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
   %49 = getelementptr inbounds i8, ptr %2, i64 8
   %50 = getelementptr inbounds i8, ptr %4, i64 16
-  %wide.trip.count = and i64 %37, 4294967295
+  %wide.trip.count = and i64 %37, 2147483647
   br label %51
 
 51:                                               ; preds = %.lr.ph85, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit70
@@ -525,7 +525,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %62, %64, %70, %72
   br i1 %73, label %.lr.ph32.preheader, label %._crit_edge33
 
 .lr.ph32.preheader:                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %wide.trip.count = and i64 %38, 4294967295
+  %wide.trip.count = and i64 %38, 2147483647
   br label %.lr.ph32
 
 .lr.ph32:                                         ; preds = %.lr.ph32.preheader, %._crit_edge

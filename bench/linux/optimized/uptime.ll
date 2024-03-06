@@ -64,7 +64,7 @@ define internal noundef i32 @uptime_proc_show(ptr noundef %0, ptr nocapture read
 16:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false), !annotation !6
-  %17 = and i64 %13, 4294967295
+  %17 = and i64 %13, 63
   %18 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, ptrtoint (ptr @kernel_cpustat to i64)
@@ -73,8 +73,8 @@ define internal noundef i32 @uptime_proc_show(ptr noundef %0, ptr nocapture read
   %22 = call i64 @get_idle_time(ptr noundef nonnull %4, i32 noundef %14) #6
   %23 = add i64 %22, %7
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #6
-  %24 = add i64 %13, 1
-  %25 = and i64 %24, 4294967295
+  %24 = add nuw nsw i64 %13, 1
+  %25 = and i64 %24, 127
   %26 = icmp ugt i64 %25, 63
   br i1 %26, label %.thread, label %5, !prof !7, !llvm.loop !8
 

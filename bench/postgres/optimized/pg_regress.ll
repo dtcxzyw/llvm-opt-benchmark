@@ -1216,7 +1216,7 @@ make_temp_sockdir.exit.i:                         ; preds = %313
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph30.i.i
   %379 = tail call ptr @__ctype_b_loc() #24
-  %380 = and i64 %376, 4294967295
+  %380 = and i64 %376, 2147483647
   br label %381
 
 381:                                              ; preds = %389, %.lr.ph.i.i
@@ -1991,7 +1991,7 @@ create_role.exit:                                 ; preds = %._crit_edge.i
 
 .lr.ph.i193:                                      ; preds = %.lr.ph197.i
   %691 = tail call ptr @__ctype_b_loc() #24
-  %692 = and i64 %688, 4294967295
+  %692 = and i64 %688, 2147483647
   br label %693
 
 693:                                              ; preds = %701, %.lr.ph.i193
@@ -2116,13 +2116,13 @@ thread-pre-split.i:                               ; preds = %722, %717
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
   store i64 %740, ptr %25, align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
-  %.promoted249.i = load i32, ptr %27, align 16
-  %.promoted252.i = load i64, ptr %26, align 16
+  %.promoted253.i = load i32, ptr %27, align 16
+  %.promoted256.i = load i64, ptr %26, align 16
   br label %.lr.ph24.split.us.split.us.i.i
 
 .lr.ph24.split.us.split.us.i.i:                   ; preds = %..loopexit_crit_edge.us.us.i.i, %733
-  %741 = phi i64 [ %756, %..loopexit_crit_edge.us.us.i.i ], [ %.promoted252.i, %733 ]
-  %742 = phi i32 [ %757, %..loopexit_crit_edge.us.us.i.i ], [ %.promoted249.i, %733 ]
+  %741 = phi i64 [ %756, %..loopexit_crit_edge.us.us.i.i ], [ %.promoted256.i, %733 ]
+  %742 = phi i32 [ %757, %..loopexit_crit_edge.us.us.i.i ], [ %.promoted253.i, %733 ]
   %743 = phi i32 [ %758, %..loopexit_crit_edge.us.us.i.i ], [ %735, %733 ]
   %744 = phi i32 [ %759, %..loopexit_crit_edge.us.us.i.i ], [ %735, %733 ]
   %.023.us.us.i.i = phi i32 [ %.1.us.us.i.i, %..loopexit_crit_edge.us.us.i.i ], [ 1, %733 ]
@@ -2518,8 +2518,8 @@ wait_for_tests.exit:                              ; preds = %..loopexit_crit_edg
 ._crit_edge188.thread.i:                          ; preds = %862
   %932 = getelementptr [100 x i32], ptr %27, i64 0, i64 %indvars.iv223.i
   %933 = load i32, ptr %932, align 4
-  %.not154234.i = icmp eq i32 %933, 0
-  br i1 %.not154234.i, label %.thread236.i, label %934
+  %.not154238.i = icmp eq i32 %933, 0
+  br i1 %.not154238.i, label %.thread240.i, label %934
 
 934:                                              ; preds = %._crit_edge188.thread.i, %._crit_edge188.i
   %935 = phi i32 [ %933, %._crit_edge188.thread.i ], [ %931, %._crit_edge188.i ]
@@ -2576,7 +2576,7 @@ test_status_failed.exit.i:                        ; preds = %943, %941
   br label %log_child_failure.exit.i
 
 960:                                              ; preds = %._crit_edge188.i
-  br i1 %.0126.lcssa.i, label %961, label %.thread236.i
+  br i1 %.0126.lcssa.i, label %961, label %.thread240.i
 
 961:                                              ; preds = %960
   %962 = load ptr, ptr %874, align 8
@@ -2607,7 +2607,7 @@ test_status_failed.exit160.i:                     ; preds = %968, %966
   call void (i32, ptr, ...) @emit_tap_output(i32 noundef 5, ptr noundef nonnull @.str.239, ptr noundef nonnull @.str.240, i32 noundef %973, i32 noundef 0, ptr noundef nonnull @.str.1, i32 noundef %861, i32 noundef 36, ptr noundef %962, double noundef %964)
   br label %log_child_failure.exit.i
 
-.thread236.i:                                     ; preds = %960, %._crit_edge188.thread.i
+.thread240.i:                                     ; preds = %960, %._crit_edge188.thread.i
   %974 = getelementptr [100 x ptr], ptr %20, i64 0, i64 %indvars.iv223.i
   %975 = load ptr, ptr %974, align 8
   %976 = sitofp i64 %867 to double
@@ -2620,7 +2620,7 @@ test_status_failed.exit160.i:                     ; preds = %968, %966
   call void (i32, ptr, ...) @emit_tap_output(i32 noundef 5, ptr noundef nonnull @.str.239, ptr noundef nonnull @.str.1, i32 noundef %981, i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %861, i32 noundef 36, ptr noundef %975, double noundef %977)
   br label %log_child_failure.exit.i
 
-log_child_failure.exit.i:                         ; preds = %.thread236.i, %test_status_failed.exit160.i, %959, %957, %951
+log_child_failure.exit.i:                         ; preds = %.thread240.i, %test_status_failed.exit160.i, %959, %957, %951
   %indvars.iv.next224.i = add nuw nsw i64 %indvars.iv223.i, 1
   %exitcond227.not.i = icmp eq i64 %indvars.iv.next224.i, %wide.trip.count226.i
   br i1 %exitcond227.not.i, label %.lr.ph194.i, label %862, !llvm.loop !26

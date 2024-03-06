@@ -1139,7 +1139,7 @@ pmix_cmd_line_get_param.exit702.thread:           ; preds = %399, %391, %pmix_cm
 
 422:                                              ; preds = %418
   %423 = shl i64 %419, 7
-  %424 = and i64 %423, 549755813760
+  %424 = and i64 %423, 274877906816
   %425 = call noalias ptr @malloc(i64 noundef %424) #24
   store ptr %425, ptr @forward_signals_events, align 8
   %426 = icmp eq ptr %425, null

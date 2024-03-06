@@ -102,7 +102,7 @@ define dso_local void @setup_per_cpu_areas() local_unnamed_addr #0 section ".ini
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr @pcpu_unit_offsets, align 8
-  %34 = and i64 %29, 4294967295
+  %34 = and i64 %29, 63
   %35 = getelementptr i64, ptr %33, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, %21
@@ -163,8 +163,8 @@ define dso_local void @setup_per_cpu_areas() local_unnamed_addr #0 section ".ini
   br label %75
 
 75:                                               ; preds = %74, %67
-  %76 = add i64 %29, 1
-  %77 = and i64 %76, 4294967295
+  %76 = add nuw nsw i64 %29, 1
+  %77 = and i64 %76, 127
   %78 = icmp ugt i64 %77, 63
   br i1 %78, label %.thread9, label %22, !prof !6, !llvm.loop !7
 

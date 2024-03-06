@@ -3546,7 +3546,7 @@ define void @_ZNK3irr2io11CFileSystem19getRelativeFilenameERKNS_4core6stringIcEE
 39:                                               ; preds = %27
   %40 = getelementptr inbounds i8, ptr %5, i64 16
   %41 = getelementptr inbounds i8, ptr %5, i64 8
-  %42 = and i64 %36, 4294967295
+  %42 = and i64 %36, 2147483647
   br label %43
 
 43:                                               ; preds = %329, %39

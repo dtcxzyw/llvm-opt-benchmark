@@ -1621,7 +1621,7 @@ for.body:                                         ; preds = %Q_.exit, %for.body
   %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %6, i64 %indvars.iv44
   %7 = load ptr, ptr %arrayidx, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %err, ptr noundef nonnull @.str.30, ptr noundef %7) #21
-  %indvars.iv.next45 = add nuw i64 %indvars.iv44, 1
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %8 = load i64, ptr %nr, align 8
   %cmp10 = icmp ugt i64 %8, %indvars.iv.next45
   br i1 %cmp10, label %for.body, label %return, !llvm.loop !13
@@ -1661,7 +1661,7 @@ for.body31:                                       ; preds = %Q_.exit32, %for.bod
   %arrayidx35 = getelementptr inbounds %struct.string_list_item, ptr %12, i64 %indvars.iv
   %13 = load ptr, ptr %arrayidx35, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %err, ptr noundef nonnull @.str.30, ptr noundef %13) #21
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i64, ptr %nr18, align 8
   %cmp29 = icmp ugt i64 %14, %indvars.iv.next
   br i1 %cmp29, label %for.body31, label %return, !llvm.loop !14
@@ -3500,7 +3500,7 @@ if.end30:                                         ; preds = %sw.epilog
   br label %return
 
 switch.lookup:                                    ; preds = %if.end23
-  %3 = and i64 %call17, 4294967295
+  %3 = and i64 %call17, 3
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.git_config_perm, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return

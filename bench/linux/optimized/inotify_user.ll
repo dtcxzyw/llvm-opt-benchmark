@@ -1018,7 +1018,7 @@ define internal i64 @inotify_read(ptr nocapture noundef readonly %0, ptr noundef
 
 95:                                               ; preds = %.thread8, %88
   %96 = phi i64 [ 16, %.thread8 ], [ %92, %88 ]
-  %97 = and i64 %96, 4294967295
+  %97 = and i64 %96, 2147483647
   %98 = getelementptr i8, ptr %.fr31, i64 %97
   %99 = sub i64 %22, %97
   br label %21, !llvm.loop !45

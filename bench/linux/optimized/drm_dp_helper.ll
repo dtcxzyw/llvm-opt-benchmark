@@ -1108,7 +1108,7 @@ define internal fastcc i32 @drm_dp_dpcd_access(ptr noundef %0, i8 noundef zeroex
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %23
-  %28 = and i64 %20, 4294967295
+  %28 = and i64 %20, 2147483647
   %29 = icmp eq i64 %28, %4
   br i1 %29, label %.loopexit, label %30
 
@@ -1604,7 +1604,7 @@ define dso_local i32 @drm_dp_read_dpcd_caps(ptr noundef %0, ptr noundef %1) #3 a
   br i1 %19, label %52, label %20
 
 20:                                               ; preds = %16
-  %21 = and i64 %17, 4294967295
+  %21 = and i64 %17, 2147483647
   %22 = icmp eq i64 %21, 15
   br i1 %22, label %23, label %52
 
@@ -5947,7 +5947,7 @@ define internal fastcc i32 @drm_dp_i2c_do_msg(ptr noundef %0, ptr noundef %1) un
   ]
 
 99:                                               ; preds = %97
-  %100 = and i64 %36, 4294967295
+  %100 = and i64 %36, 2147483647
   %101 = load i64, ptr %16, align 8
   %102 = icmp eq i64 %100, %101
   br i1 %102, label %164, label %103

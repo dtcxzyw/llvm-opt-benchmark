@@ -1401,7 +1401,7 @@ _ZN5Eigen9DenseBaseINS_8DiagonalINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0EEEE7s
   br i1 %372, label %.lr.ph.us.preheader.i, label %.split.us.i
 
 .lr.ph.us.preheader.i:                            ; preds = %_ZN5Eigen9DenseBaseINS_8DiagonalINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0EEEE7setZeroEv.exit.i
-  %wide.trip.count.i = and i64 %347, 4294967295
+  %wide.trip.count.i = and i64 %347, 2147483647
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i.backedge, %.lr.ph.us.preheader.i
@@ -3026,7 +3026,7 @@ define hidden void @_ZN5ceres8internal27FindInterpolatingPolynomialERKSt6vectorI
   br i1 %15, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %2
-  %wide.trip.count = and i64 %13, 4294967295
+  %wide.trip.count = and i64 %13, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3118,13 +3118,13 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sc
 .lr.ph91.split.preheader:                         ; preds = %.lr.ph91.thread, %.lr.ph91
   %45 = phi ptr [ %42, %.lr.ph91.thread ], [ %43, %.lr.ph91 ]
   %.not60.not82125 = phi i1 [ false, %.lr.ph91.thread ], [ %.not60.not82, %.lr.ph91 ]
-  %wide.trip.count103 = and i64 %13, 4294967295
+  %wide.trip.count103 = and i64 %13, 2147483647
   %wide.trip.count98 = zext nneg i32 %.047.lcssa to i64
   br label %.lr.ph91.split
 
 .lr.ph91.split.us.preheader:                      ; preds = %.lr.ph91
   %46 = zext nneg i32 %26 to i64
-  %wide.trip.count118 = and i64 %13, 4294967295
+  %wide.trip.count118 = and i64 %13, 2147483647
   %wide.trip.count108 = zext nneg i32 %.047.lcssa to i64
   %wide.trip.count113 = zext i32 %26 to i64
   br label %.lr.ph91.split.us
@@ -21094,7 +21094,7 @@ _ZN5Eigen7NoAliasINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0E
   br i1 %220, label %.lr.ph.preheader.i.i, label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %.loopexit
-  %wide.trip.count.i.i = and i64 %218, 4294967295
+  %wide.trip.count.i.i = and i64 %218, 2147483647
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -21137,7 +21137,7 @@ _ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.
   br i1 %238, label %.lr.ph.preheader.i.i69, label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.exit75
 
 .lr.ph.preheader.i.i69:                           ; preds = %._crit_edge
-  %wide.trip.count.i.i70 = and i64 %236, 4294967295
+  %wide.trip.count.i.i70 = and i64 %236, 2147483647
   br label %.lr.ph.i.i71
 
 .lr.ph.i.i71:                                     ; preds = %.lr.ph.i.i71, %.lr.ph.preheader.i.i69

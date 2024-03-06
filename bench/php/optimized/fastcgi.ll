@@ -960,7 +960,7 @@ define hidden i32 @fcgi_read(ptr nocapture noundef %0, ptr nocapture noundef %1,
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %19
-  %27 = and i64 %23, 4294967295
+  %27 = and i64 %23, 2147483647
   %28 = add i64 %27, %.0.i
   br label %35
 
@@ -1034,7 +1034,7 @@ safe_read.exit:                                   ; preds = %29, %35, %33
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %56
-  %64 = and i64 %60, 4294967295
+  %64 = and i64 %60, 2147483647
   %65 = add i64 %64, %.0.i55
   br label %72
 
@@ -1077,7 +1077,7 @@ thread-pre-split.i57:                             ; preds = %66
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %75
-  %83 = and i64 %79, 4294967295
+  %83 = and i64 %79, 2147483647
   %84 = add i64 %83, %.0.i63
   br label %91
 
@@ -1120,7 +1120,7 @@ safe_read.exit62:                                 ; preds = %72, %66, %91, %85, 
   store i32 %96, ptr %7, align 4
   %97 = sub nsw i32 %.089, %.047
   %98 = add nuw nsw i32 %.04688, %.047
-  %99 = and i64 %.047.in, 4294967295
+  %99 = and i64 %.047.in, 2147483647
   %100 = getelementptr inbounds i8, ptr %.04986, i64 %99
   %101 = icmp eq i32 %95, %.047
   br i1 %101, label %102, label %.loopexit
@@ -1147,7 +1147,7 @@ safe_read.exit62:                                 ; preds = %72, %66, %91, %85, 
   br i1 %113, label %114, label %117
 
 114:                                              ; preds = %107
-  %115 = and i64 %111, 4294967295
+  %115 = and i64 %111, 2147483647
   %116 = add i64 %115, %.0.i71
   br label %123
 
@@ -1687,7 +1687,7 @@ fcgi_hash_clean.exit.i:                           ; preds = %.lr.ph21.i.i, %._cr
   br i1 %155, label %156, label %159
 
 156:                                              ; preds = %149
-  %157 = and i64 %153, 4294967295
+  %157 = and i64 %153, 2147483647
   %158 = add i64 %157, %.0.i.i
   br label %165
 
@@ -1748,7 +1748,7 @@ safe_read.exit.i:                                 ; preds = %165, %163
   br i1 %186, label %187, label %190
 
 187:                                              ; preds = %.preheader230.i
-  %188 = and i64 %184, 4294967295
+  %188 = and i64 %184, 2147483647
   %189 = add i64 %188, %.0.i150.i
   br label %196
 
@@ -1843,7 +1843,7 @@ safe_read.exit157.i:                              ; preds = %196, %194
   br i1 %232, label %233, label %236
 
 233:                                              ; preds = %226
-  %234 = and i64 %230, 4294967295
+  %234 = and i64 %230, 2147483647
   %235 = add i64 %234, %.0.i158.i
   br label %242
 
@@ -1940,7 +1940,7 @@ safe_read.exit165.thread.i:                       ; preds = %242, %safe_read.exi
   br i1 %271, label %272, label %275
 
 272:                                              ; preds = %265
-  %273 = and i64 %269, 4294967295
+  %273 = and i64 %269, 2147483647
   %274 = add i64 %273, %.0.i166.i
   br label %281
 
@@ -2015,7 +2015,7 @@ safe_read.exit173.i:                              ; preds = %281, %279
   br i1 %306, label %307, label %310
 
 307:                                              ; preds = %300
-  %308 = and i64 %304, 4294967295
+  %308 = and i64 %304, 2147483647
   %309 = add i64 %308, %.0.i174.i
   br label %316
 
@@ -2066,7 +2066,7 @@ safe_read.exit181.thread.i:                       ; preds = %316, %safe_read.exi
   br i1 %325, label %326, label %329
 
 326:                                              ; preds = %.preheader.i39
-  %327 = and i64 %323, 4294967295
+  %327 = and i64 %323, 2147483647
   %328 = add i64 %327, %.0.i182.i
   br label %335
 
@@ -2135,7 +2135,7 @@ safe_read.exit189.i:                              ; preds = %335, %333
   br i1 %361, label %362, label %365
 
 362:                                              ; preds = %355
-  %363 = and i64 %359, 4294967295
+  %363 = and i64 %359, 2147483647
   %364 = add i64 %363, %.0.i190.i
   br label %371
 
@@ -2337,7 +2337,7 @@ fcgi_make_header.exit.i:                          ; preds = %443, %.loopexit.i
   br i1 %455, label %456, label %459
 
 456:                                              ; preds = %449
-  %457 = and i64 %453, 4294967295
+  %457 = and i64 %453, 2147483647
   %458 = add i64 %457, %.0.i52
   br label %461
 
@@ -2608,7 +2608,7 @@ close_packet.exit:                                ; preds = %2, %fcgi_make_heade
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %56
-  %64 = and i64 %60, 4294967295
+  %64 = and i64 %60, 2147483647
   %65 = add i64 %64, %.0.i
   br label %68
 
@@ -2920,7 +2920,7 @@ close_packet.exit127:                             ; preds = %95, %fcgi_make_head
   br i1 %154, label %155, label %158
 
 155:                                              ; preds = %148
-  %156 = and i64 %152, 4294967295
+  %156 = and i64 %152, 2147483647
   %157 = add i64 %156, %.0.i
   br label %160
 
@@ -3039,7 +3039,7 @@ fcgi_make_header.exit:                            ; preds = %._crit_edge, %196
   br i1 %213, label %214, label %217
 
 214:                                              ; preds = %207
-  %215 = and i64 %211, 4294967295
+  %215 = and i64 %211, 2147483647
   %216 = add i64 %215, %.0.i130
   br label %219
 

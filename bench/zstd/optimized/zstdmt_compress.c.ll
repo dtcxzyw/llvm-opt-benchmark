@@ -3512,7 +3512,7 @@ for.body.lr.ph:                                   ; preds = %if.end122
   %job_mutex148 = getelementptr inbounds i8, ptr %jobDescription, i64 16
   %cSize150 = getelementptr inbounds i8, ptr %jobDescription, i64 8
   %job_cond = getelementptr inbounds i8, ptr %jobDescription, i64 56
-  %wide.trip.count = and i64 %div121, 4294967295
+  %wide.trip.count = and i64 %div121, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end145

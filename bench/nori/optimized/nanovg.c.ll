@@ -36703,9 +36703,9 @@ stbi__malloc_mad4.exit.thread:                    ; preds = %stbi__mul2sizes_val
   %70 = getelementptr inbounds i8, ptr %0, i64 52
   %71 = getelementptr inbounds i8, ptr %0, i64 57
   %72 = sext i32 %spec.store.select to i64
-  %73 = and i64 %.fr, 4294967295
-  %wide.trip.count151 = and i64 %26, 4294967295
-  %wide.trip.count146 = and i64 %.fr, 4294967295
+  %73 = and i64 %.fr, 2147483647
+  %wide.trip.count151 = and i64 %26, 2147483647
+  %wide.trip.count146 = and i64 %.fr, 2147483647
   br label %.lr.ph64.split.us
 
 .lr.ph64.split.us:                                ; preds = %.lr.ph64.split.us.preheader, %._crit_edge61.us

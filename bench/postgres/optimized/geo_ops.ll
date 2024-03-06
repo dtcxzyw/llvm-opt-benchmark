@@ -19943,7 +19943,7 @@ define dso_local noundef i64 @circle_poly(ptr nocapture noundef readonly %0) loc
 .lr.ph:                                           ; preds = %40
   %42 = getelementptr inbounds i8, ptr %32, i64 40
   %43 = getelementptr inbounds i8, ptr %7, i64 8
-  %wide.trip.count = and i64 %3, 4294967295
+  %wide.trip.count = and i64 %3, 2147483647
   br label %45
 
 44:                                               ; preds = %40

@@ -815,7 +815,7 @@ for.cond.preheader.i.i:                           ; preds = %if.then.i25.i
   br i1 %cmp149207.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
 for.body.preheader.i.i:                           ; preds = %for.cond.preheader.i.i
-  %wide.trip.count.i.i = and i64 %sub.ptr.sub.i.i.i, 4294967295
+  %wide.trip.count.i.i = and i64 %sub.ptr.sub.i.i.i, 2147483647
   br label %for.body.i.i
 
 for.cond187.preheader.i.i:                        ; preds = %if.then.i25.i
@@ -823,7 +823,7 @@ for.cond187.preheader.i.i:                        ; preds = %if.then.i25.i
   br i1 %cmp188209.i.i, label %for.body190.preheader.i.i, label %for.end206.i.i
 
 for.body190.preheader.i.i:                        ; preds = %for.cond187.preheader.i.i
-  %wide.trip.count221.i.i = and i64 %sub.ptr.sub.i.i.i, 4294967295
+  %wide.trip.count221.i.i = and i64 %sub.ptr.sub.i.i.i, 2147483647
   br label %for.body190.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i25.i
@@ -1006,7 +1006,7 @@ __redisReaderSetError.exit102.i.i:                ; preds = %if.then.i94.i.i, %l
   br label %processLineItem.exit.i
 
 if.end23.i.i:                                     ; preds = %if.then18.i.i
-  %conv19.i.i = and i64 %sub.ptr.sub.i.i.i, 4294967295
+  %conv19.i.i = and i64 %sub.ptr.sub.i.i.i, 511
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i22.i, ptr nonnull align 1 %add.ptr.i.i.i, i64 %conv19.i.i, i1 false)
   %arrayidx26.i.i = getelementptr inbounds [326 x i8], ptr %buf.i22.i, i64 0, i64 %conv19.i.i
   store i8 0, ptr %arrayidx26.i.i, align 1

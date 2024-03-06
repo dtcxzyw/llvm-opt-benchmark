@@ -865,7 +865,7 @@ define internal i64 @vcs_write(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %158, label %176, label %159
 
 159:                                              ; preds = %157
-  %160 = and i64 %73, 4294967295
+  %160 = and i64 %73, 3
   %161 = getelementptr i8, ptr %5, i64 %160
   %162 = add i32 %153, -1
   %163 = xor i32 %154, 3
@@ -874,7 +874,7 @@ define internal i64 @vcs_write(ptr nocapture noundef readonly %0, ptr noundef %1
   %166 = zext nneg i32 %165 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %161, ptr noundef nonnull align 1 dereferenceable(1) %14, i64 %166, i1 false)
   %167 = zext i32 %162 to i64
-  %168 = sub nsw i64 3, %160
+  %168 = xor i64 %160, 3
   %169 = call i64 @llvm.umin.i64(i64 %167, i64 %168)
   %170 = trunc i64 %169 to i32
   %171 = sub i32 %162, %170

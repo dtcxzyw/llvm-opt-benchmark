@@ -624,7 +624,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
   br i1 %or.cond.i, label %.lr.ph.i.i, label %70
 
 .lr.ph.i.i:                                       ; preds = %43
-  %zext.i = and i64 %21, 4294967295
+  %zext.i = and i64 %21, 2147483647
   br label %46
 
 46:                                               ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIZNKS0_7Program4PlusEPKdS4_PdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i", %.lr.ph.i.i
@@ -2275,7 +2275,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 .lr.ph145:                                        ; preds = %.lr.ph149
   %71 = getelementptr inbounds i8, ptr %59, i64 16
-  %wide.trip.count = and i64 %68, 4294967295
+  %wide.trip.count = and i64 %68, 2147483647
   br label %72
 
 72:                                               ; preds = %.lr.ph145, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread
@@ -2727,7 +2727,7 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal7Program30IsParameterBlockS
   br i1 %24, label %.lr.ph.i.i.i.preheader.preheader, label %._crit_edge.split.thread
 
 .lr.ph.i.i.i.preheader.preheader:                 ; preds = %.lr.ph24.split
-  %wide.trip.count = and i64 %22, 4294967295
+  %wide.trip.count = and i64 %22, 2147483647
   br label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %.lr.ph.i.i.i.preheader.preheader, %_ZNKSt3setIPdSt4lessIS0_ESaIS0_EE5countERKS0_.exit
@@ -2852,7 +2852,7 @@ define hidden void @_ZNK5ceres8internal7Program36CreateJacobianBlockSparsityTran
   br i1 %55, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph70
-  %wide.trip.count = and i64 %51, 4294967295
+  %wide.trip.count = and i64 %51, 2147483647
   %56 = trunc i64 %indvars.iv74 to i32
   %57 = sub i32 %56, %2
   br label %58
@@ -3153,7 +3153,7 @@ define hidden noundef i32 @_ZNK5ceres8internal7Program30MaxDerivativesPerResidua
 
 .lr.ph:                                           ; preds = %.lr.ph26
   %18 = getelementptr inbounds i8, ptr %6, i64 16
-  %wide.trip.count = and i64 %15, 4294967295
+  %wide.trip.count = and i64 %15, 2147483647
   br label %19
 
 19:                                               ; preds = %.lr.ph, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit

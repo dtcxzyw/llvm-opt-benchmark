@@ -3346,7 +3346,7 @@ define void @mca_pml_ob1_send_request_copy_in_out(ptr noundef %0, i64 noundef %1
 .lr.ph:                                           ; preds = %8
   %20 = getelementptr inbounds i8, ptr %5, i64 152
   %21 = getelementptr inbounds i8, ptr %5, i64 160
-  %22 = and i64 %.val, 4294967295
+  %22 = and i64 %.val, 2147483647
   br label %23
 
 23:                                               ; preds = %.lr.ph, %mca_bml_base_btl_array_get_next.exit

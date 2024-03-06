@@ -5207,7 +5207,7 @@ define i32 @pmix20_bfrop_unpack_array(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %36, label %.lr.ph.preheader.i, label %pmix20_bfrop_unpack_value.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %31
-  %wide.trip.count.i = and i64 %30, 4294967295
+  %wide.trip.count.i = and i64 %30, 2147483647
   br label %.lr.ph.i
 
 37:                                               ; preds = %40

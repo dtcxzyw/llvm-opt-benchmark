@@ -71,7 +71,7 @@ define void @Io_WriteEqn(ptr nocapture noundef readonly %0, ptr noundef %1) loca
   br i1 %28, label %.lr.ph.preheader.i, label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = and i64 %24, 4294967295
+  %wide.trip.count.i = and i64 %24, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31, %.lr.ph.preheader.i

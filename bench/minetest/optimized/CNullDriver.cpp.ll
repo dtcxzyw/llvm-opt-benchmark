@@ -9168,7 +9168,7 @@ define noundef i32 @_ZN3irr5video11CNullDriver19addMaterialRendererEPNS0_17IMate
   br i1 %64, label %65, label %.loopexit
 
 65:                                               ; preds = %54
-  %66 = and i64 %62, 4294967295
+  %66 = and i64 %62, 7
   %67 = getelementptr inbounds [6 x ptr], ptr @_ZN3irr5videoL25sBuiltInMaterialTypeNamesE, i64 0, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !118
   %69 = icmp eq i64 %66, 5

@@ -17190,7 +17190,7 @@ invoke.cont326.lr.ph:                             ; preds = %for.cond321.prehead
   %idxprom.i.i = sext i32 %add.i.i261 to i64
   %arrayidx.i.i262 = getelementptr inbounds %"class.std::vector.141", ptr %110, i64 %idxprom.i.i
   %141 = load ptr, ptr %arrayidx.i.i262, align 8
-  %wide.trip.count = and i64 %139, 4294967295
+  %wide.trip.count = and i64 %139, 2147483647
   br label %invoke.cont326
 
 invoke.cont326:                                   ; preds = %invoke.cont326.lr.ph, %invoke.cont326
@@ -25832,10 +25832,10 @@ for.cond216.preheader.lr.ph:                      ; preds = %_ZNSt6vectorINSt7__
   br i1 %cmp218868, label %for.cond216.preheader.us.preheader, label %if.then280
 
 for.cond216.preheader.us.preheader:               ; preds = %for.cond216.preheader.lr.ph
-  %wide.trip.count926 = and i64 %retval.sroa.0.0.copyload.i, 4294967295
-  %wide.trip.count = and i64 %65, 4294967295
-  %wide.trip.count916 = and i64 %65, 4294967295
-  %wide.trip.count921 = and i64 %65, 4294967295
+  %wide.trip.count926 = and i64 %retval.sroa.0.0.copyload.i, 2147483647
+  %wide.trip.count = and i64 %65, 2147483647
+  %wide.trip.count916 = and i64 %65, 2147483647
+  %wide.trip.count921 = and i64 %65, 2147483647
   br label %for.cond216.preheader.us
 
 for.cond216.preheader.us:                         ; preds = %for.cond216.preheader.us.preheader, %for.cond216.for.inc276_crit_edge.us
@@ -26476,8 +26476,8 @@ for.cond314.preheader.lr.ph:                      ; preds = %for.cond309.prehead
   br i1 %cmp320889, label %for.cond314.preheader.us.us.preheader, label %for.end363
 
 for.cond314.preheader.us.us.preheader:            ; preds = %for.cond314.preheader.lr.ph
-  %wide.trip.count941 = and i64 %retval.sroa.0.0.copyload.i, 4294967295
-  %wide.trip.count936 = and i64 %65, 4294967295
+  %wide.trip.count941 = and i64 %retval.sroa.0.0.copyload.i, 2147483647
+  %wide.trip.count936 = and i64 %65, 2147483647
   br label %for.cond314.preheader.us.us
 
 for.cond314.preheader.us.us:                      ; preds = %for.cond314.preheader.us.us.preheader, %for.cond314.for.inc361_crit_edge.split.us.us.us
@@ -29487,9 +29487,9 @@ for.cond927.preheader.lr.ph:                      ; preds = %if.end918
   br i1 %cmp9294912, label %for.cond927.preheader.us.preheader, label %if.end978
 
 for.cond927.preheader.us.preheader:               ; preds = %for.cond927.preheader.lr.ph
-  %wide.trip.count5114 = and i64 %res.sroa.15.0.in.in, 4294967295
-  %wide.trip.count = and i64 %.fr, 4294967295
-  %wide.trip.count5109 = and i64 %.fr, 4294967295
+  %wide.trip.count5114 = and i64 %res.sroa.15.0.in.in, 2147483647
+  %wide.trip.count = and i64 %.fr, 2147483647
+  %wide.trip.count5109 = and i64 %.fr, 2147483647
   br label %for.cond927.preheader.us
 
 for.cond927.preheader.us:                         ; preds = %for.cond927.preheader.us.preheader, %for.cond927.for.inc975_crit_edge.us
@@ -30141,7 +30141,7 @@ for.cond1042.preheader.lr.ph:                     ; preds = %for.cond1037.prehea
   br i1 %cmp10444918, label %for.cond1042.preheader.us.preheader, label %for.end1077
 
 for.cond1042.preheader.us.preheader:              ; preds = %for.cond1042.preheader.lr.ph
-  %wide.trip.count5124 = and i64 %res.sroa.15.0.in.in, 4294967295
+  %wide.trip.count5124 = and i64 %res.sroa.15.0.in.in, 2147483647
   br label %for.cond1042.preheader.us
 
 for.cond1042.preheader.us:                        ; preds = %for.cond1042.preheader.us.preheader, %for.cond1042.for.inc1075_crit_edge.us
@@ -30367,8 +30367,8 @@ for.cond1094.preheader.lr.ph:                     ; preds = %if.end1085
   br i1 %cmp10964933, label %for.cond1094.preheader.us.preheader, label %if.end1134
 
 for.cond1094.preheader.us.preheader:              ; preds = %for.cond1094.preheader.lr.ph
-  %wide.trip.count5140 = and i64 %res.sroa.15.0.in.in, 4294967295
-  %wide.trip.count5134 = and i64 %.fr, 4294967295
+  %wide.trip.count5140 = and i64 %res.sroa.15.0.in.in, 2147483647
+  %wide.trip.count5134 = and i64 %.fr, 2147483647
   br label %for.cond1094.preheader.us
 
 for.cond1094.preheader.us:                        ; preds = %for.cond1094.preheader.us.preheader, %for.cond1094.for.inc1131_crit_edge.us
@@ -30660,7 +30660,7 @@ for.cond1159.preheader.lr.ph:                     ; preds = %for.cond1154.prehea
   br i1 %cmp11614972, label %for.cond1159.preheader.us.preheader, label %for.end1245
 
 for.cond1159.preheader.us.preheader:              ; preds = %for.cond1159.preheader.lr.ph
-  %wide.trip.count5153 = and i64 %res.sroa.15.0.in.in, 4294967295
+  %wide.trip.count5153 = and i64 %res.sroa.15.0.in.in, 2147483647
   br label %for.cond1159.preheader.us
 
 for.cond1159.preheader.us:                        ; preds = %for.cond1159.preheader.us.preheader, %for.cond1159.for.inc1243_crit_edge.us
@@ -33818,8 +33818,8 @@ if.end1252:                                       ; preds = %_ZNSt6vectorIN4pbrt
 for.cond1261.preheader.lr.ph:                     ; preds = %if.end1252
   %cmp12635004 = icmp sgt i32 %res.sroa.0.0, 0
   %cmp12675002 = icmp sgt i32 %conv.i, 0
-  %wide.trip.count5168 = and i64 %res.sroa.15.0.in.in, 4294967295
-  %wide.trip.count5163 = and i64 %.fr, 4294967295
+  %wide.trip.count5168 = and i64 %res.sroa.15.0.in.in, 2147483647
+  %wide.trip.count5163 = and i64 %.fr, 2147483647
   br label %for.cond1261.preheader
 
 for.cond1261.preheader:                           ; preds = %for.cond1261.preheader.lr.ph, %for.inc1289
@@ -34043,8 +34043,8 @@ if.end1292:                                       ; preds = %for.inc1289, %if.en
 for.cond1301.preheader.lr.ph:                     ; preds = %if.end1292
   %cmp13035012 = icmp sgt i32 %res.sroa.0.0, 0
   %cmp13075010 = icmp sgt i32 %conv.i, 0
-  %wide.trip.count5183 = and i64 %res.sroa.15.0.in.in, 4294967295
-  %wide.trip.count5178 = and i64 %.fr, 4294967295
+  %wide.trip.count5183 = and i64 %res.sroa.15.0.in.in, 2147483647
+  %wide.trip.count5178 = and i64 %.fr, 2147483647
   br label %for.cond1301.preheader
 
 for.cond1301.preheader:                           ; preds = %for.cond1301.preheader.lr.ph, %for.inc1334
@@ -34275,9 +34275,9 @@ for.cond1346.preheader.lr.ph:                     ; preds = %if.end1337
   %999 = getelementptr inbounds i8, ptr %ref.tmp1350, i64 16
   %nAlloc.i.i1418 = getelementptr inbounds i8, ptr %ref.tmp1350, i64 32
   %cmp13715018 = icmp sgt i32 %conv.i, 0
-  %wide.trip.count5193 = and i64 %res.sroa.15.0.in.in, 4294967295
-  %wide.trip.count5203 = and i64 %res.sroa.15.0.in.in, 4294967295
-  %wide.trip.count5198 = and i64 %.fr, 4294967295
+  %wide.trip.count5193 = and i64 %res.sroa.15.0.in.in, 2147483647
+  %wide.trip.count5203 = and i64 %res.sroa.15.0.in.in, 2147483647
+  %wide.trip.count5198 = and i64 %.fr, 2147483647
   br label %for.cond1346.preheader
 
 for.cond1346.preheader:                           ; preds = %for.cond1346.preheader.lr.ph, %for.inc1393
@@ -34599,9 +34599,9 @@ for.cond1405.preheader.lr.ph:                     ; preds = %if.end1396
   %cmp14075034 = icmp sgt i32 %res.sroa.0.0, 0
   %cmp14215028 = icmp sgt i32 %conv.i, 1
   %cmp14425032 = icmp slt i32 %conv.i, 1
-  %wide.trip.count5223 = and i64 %res.sroa.15.0.in.in, 4294967295
-  %wide.trip.count5213 = and i64 %.fr, 4294967295
-  %wide.trip.count5218 = and i64 %.fr, 4294967295
+  %wide.trip.count5223 = and i64 %res.sroa.15.0.in.in, 2147483647
+  %wide.trip.count5213 = and i64 %.fr, 2147483647
+  %wide.trip.count5218 = and i64 %.fr, 2147483647
   br label %for.cond1405.preheader
 
 for.cond1405.preheader:                           ; preds = %for.cond1405.preheader.lr.ph, %for.inc1465
@@ -35009,8 +35009,8 @@ if.end1468:                                       ; preds = %for.inc1465, %if.en
 for.cond1477.preheader.lr.ph:                     ; preds = %if.end1468
   %cmp14795042 = icmp sgt i32 %res.sroa.0.0, 0
   %cmp14835039 = icmp sgt i32 %conv.i, 0
-  %wide.trip.count5238 = and i64 %res.sroa.15.0.in.in, 4294967295
-  %wide.trip.count5233 = and i64 %.fr, 4294967295
+  %wide.trip.count5238 = and i64 %res.sroa.15.0.in.in, 2147483647
+  %wide.trip.count5233 = and i64 %.fr, 2147483647
   br label %for.cond1477.preheader
 
 for.cond1477.preheader:                           ; preds = %for.cond1477.preheader.lr.ph, %for.inc1506
@@ -35319,7 +35319,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 for.body1536.lr.ph:                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1798
   %cmp15475048 = icmp sgt i32 %conv.i, 0
-  %wide.trip.count5248 = and i64 %.fr, 4294967295
+  %wide.trip.count5248 = and i64 %.fr, 2147483647
   br label %for.body1536
 
 for.body1536:                                     ; preds = %for.body1536.lr.ph, %for.inc1569

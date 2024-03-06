@@ -150,7 +150,7 @@ define { i64, ptr } @jq_realpath(i64 %0, ptr %1) local_unnamed_addr #0 {
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  %8 = and i64 %4, 4294967295
+  %8 = and i64 %4, 2147483647
   %9 = tail call ptr @jv_mem_alloc(i64 noundef %8) #12
   br label %10
 

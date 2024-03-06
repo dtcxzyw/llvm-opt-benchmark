@@ -289,7 +289,7 @@ if.end3:                                          ; preds = %if.then.i, %if.then
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @replay_get_byte() local_unnamed_addr #0 {
+define dso_local noundef zeroext i8 @replay_get_byte() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @replay_file, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -682,7 +682,7 @@ declare void @qemu_cond_init(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @replay_mutex_locked() local_unnamed_addr #7 {
 entry:
   %0 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @replay_locked)
@@ -834,7 +834,7 @@ if.then.i.i.i:                                    ; preds = %if.then2.i.i
 
 replay_put_event.exit:                            ; preds = %if.then7, %if.then.i.i, %if.then2.i.i, %if.then.i.i.i
   tail call void @replay_put_dword(i32 noundef %conv)
-  %conv8 = and i64 %sub, 4294967295
+  %conv8 = and i64 %sub, 2147483647
   %3 = load i64, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 1), align 8
   %add = add i64 %3, %conv8
   store i64 %add, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 1), align 8
@@ -848,7 +848,7 @@ if.then16:                                        ; preds = %if.then13
   %4 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 2), align 8
   %sub17 = sub i32 %4, %conv
   store i32 %sub17, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 2), align 8
-  %conv18 = and i64 %sub, 4294967295
+  %conv18 = and i64 %sub, 2147483647
   %add19 = add i64 %conv18, %0
   store i64 %add19, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i64 0, i32 1), align 8
   %cmp20 = icmp eq i32 %4, %conv
@@ -931,7 +931,7 @@ attributes #3 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn nounwind }

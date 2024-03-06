@@ -9058,7 +9058,7 @@ define dso_local void @setup_pcp_cacheinfo() local_unnamed_addr #0 align 16 {
 19:                                               ; preds = %15
   %20 = load ptr, ptr %8, align 32
   %21 = ptrtoint ptr %20 to i64
-  %22 = and i64 %16, 4294967295
+  %22 = and i64 %16, 63
   %23 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %21
@@ -9079,8 +9079,8 @@ define dso_local void @setup_pcp_cacheinfo() local_unnamed_addr #0 align 16 {
   %39 = or disjoint i8 %38, %37
   store i8 %39, ptr %35, align 8
   tail call void @_raw_spin_unlock(ptr noundef %26) #22
-  %40 = add i64 %16, 1
-  %41 = and i64 %40, 4294967295
+  %40 = add nuw nsw i64 %16, 1
+  %41 = and i64 %40, 127
   %42 = icmp ugt i64 %41, 63
   br i1 %42, label %.thread, label %9, !prof !9, !llvm.loop !198
 

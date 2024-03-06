@@ -45,7 +45,7 @@ define dso_local void @acpi_thermal_cpufreq_init(ptr noundef %0) local_unnamed_a
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %10
-  %15 = and i64 %11, 4294967295
+  %15 = and i64 %11, 63
   %16 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, ptrtoint (ptr @processors to i64)
@@ -71,8 +71,8 @@ define dso_local void @acpi_thermal_cpufreq_init(ptr noundef %0) local_unnamed_a
   br label %31
 
 31:                                               ; preds = %28, %26, %14
-  %32 = add i64 %11, 1
-  %33 = and i64 %32, 4294967295
+  %32 = add nuw nsw i64 %11, 1
+  %33 = and i64 %32, 127
   %34 = icmp ugt i64 %33, 63
   br i1 %34, label %.thread, label %4, !prof !6, !llvm.loop !7
 
@@ -574,7 +574,7 @@ define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef %
   br i1 %56, label %57, label %.thread11
 
 57:                                               ; preds = %53
-  %58 = and i64 %54, 4294967295
+  %58 = and i64 %54, 63
   %59 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %58
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, ptrtoint (ptr @cpu_info to i64)
@@ -671,8 +671,8 @@ define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef %
   br label %132
 
 132:                                              ; preds = %128, %.thread13, %71, %57
-  %133 = add i64 %54, 1
-  %134 = and i64 %133, 4294967295
+  %133 = add nuw nsw i64 %54, 1
+  %134 = and i64 %133, 127
   %135 = icmp ugt i64 %134, 63
   br i1 %135, label %.thread11, label %47, !prof !6, !llvm.loop !15
 

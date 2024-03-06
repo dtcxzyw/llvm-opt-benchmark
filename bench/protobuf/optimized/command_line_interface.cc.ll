@@ -1537,7 +1537,7 @@ invoke.cont57:                                    ; preds = %invoke.cont55
           to label %cleanup.thread unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end62:                                         ; preds = %do.end41
-  %idx.ext = and i64 %call33, 4294967295
+  %idx.ext = and i64 %call33, 2147483647
   %add.ptr = getelementptr inbounds i8, ptr %data.063, i64 %idx.ext
   %sub = sub nsw i32 %size.062, %conv34
   %cmp29 = icmp sgt i32 %sub, 0
@@ -7314,7 +7314,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont.i
 
 if.then.i.i:                                      ; preds = %entry
-  %conv2.i.i = and i64 %call.i.i, 4294967295
+  %conv2.i.i = and i64 %call.i.i, 2147483647
   %call3.i10.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %path_str.i, ptr noundef nonnull %buffer.i.i, i64 noundef %conv2.i.i)
           to label %if.end.i unwind label %lpad.i
 

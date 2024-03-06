@@ -1897,7 +1897,7 @@ pmix_obj_run_destructors.exit146:                 ; preds = %.lr.ph.i143, %110
 
 146:                                              ; preds = %144, %139, %137
   %147 = phi i32 [ %.pre, %144 ], [ %135, %139 ], [ %135, %137 ]
-  %148 = and i64 %85, 4294967295
+  %148 = and i64 %85, 2147483647
   %149 = getelementptr inbounds [8192 x i8], ptr %83, i64 0, i64 %148
   %150 = sub nsw i32 %147, %86
   %151 = sext i32 %150 to i64

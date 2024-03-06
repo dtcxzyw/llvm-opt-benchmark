@@ -992,7 +992,7 @@ define dso_local void @speculative_store_bypass_ht_init() local_unnamed_addr #8 
   br i1 %25, label %34, label %26
 
 26:                                               ; preds = %24
-  %27 = and i64 %21, 4294967295
+  %27 = and i64 %21, 63
   %28 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, ptrtoint (ptr @ssb_state to i64)
@@ -1002,8 +1002,8 @@ define dso_local void @speculative_store_bypass_ht_init() local_unnamed_addr #8 
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %26, %24
-  %35 = add i64 %21, 1
-  %36 = and i64 %35, 4294967295
+  %35 = add nuw nsw i64 %21, 1
+  %36 = and i64 %35, 127
   %37 = icmp ugt i64 %36, 63
   br i1 %37, label %.thread, label %15, !prof !54, !llvm.loop !55
 

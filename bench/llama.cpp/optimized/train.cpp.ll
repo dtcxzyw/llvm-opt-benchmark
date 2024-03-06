@@ -5698,7 +5698,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   br i1 %cmp112.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %while.body.i
-  %wide.trip.count.i = and i64 %17, 4294967295
+  %wide.trip.count.i = and i64 %17, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i

@@ -1653,7 +1653,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
   br i1 %or.cond.i, label %.lr.ph.i.i, label %98
 
 .lr.ph.i.i:                                       ; preds = %61
-  %zext.i = and i64 %40, 4294967295
+  %zext.i = and i64 %40, 2147483647
   br label %64
 
 64:                                               ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIZNKS0_17BlockSparseMatrix26RightMultiplyAndAccumulateEPKdPdPNS0_11ContextImplEiE3$_0JRiEEEviOT_DpOT0_.exit.i.i", %.lr.ph.i.i
@@ -2874,7 +2874,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 356:                                              ; preds = %136
   %357 = shl nsw i32 %4, 2
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %358 = and i64 %110, 4294967295
+  %358 = and i64 %110, 2147483647
   %359 = getelementptr %"struct.ceres::internal::CompressedList", ptr %118, i64 %358
   %360 = getelementptr i8, ptr %359, i64 -4
   %.val.i.i = load i32, ptr %360, align 4, !noalias !31
@@ -5692,7 +5692,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 367:                                              ; preds = %81
   %368 = shl nsw i32 %3, 2
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  %369 = and i64 %60, 4294967295
+  %369 = and i64 %60, 2147483647
   %370 = getelementptr %"struct.ceres::internal::CompressedList", ptr %56, i64 %369
   %371 = getelementptr i8, ptr %370, i64 -4
   %.val.i.i = load i32, ptr %371, align 4, !noalias !56
@@ -7743,7 +7743,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 308:                                              ; preds = %78
   %309 = shl nsw i32 %3, 2
   call void @llvm.experimental.noalias.scope.decl(metadata !77)
-  %310 = and i64 %57, 4294967295
+  %310 = and i64 %57, 2147483647
   %311 = getelementptr %"struct.ceres::internal::CompressedList", ptr %53, i64 %310
   %312 = getelementptr i8, ptr %311, i64 -4
   %.val.i.i = load i32, ptr %312, align 4, !noalias !77
@@ -8949,7 +8949,7 @@ _ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__d
 
 .lr.ph27.preheader.i:                             ; preds = %_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
   %28 = getelementptr inbounds i8, ptr %17, i64 4
-  %wide.trip.count.i = and i64 %25, 4294967295
+  %wide.trip.count.i = and i64 %25, 2147483647
   br label %.lr.ph27.i
 
 .lr.ph27.i:                                       ; preds = %.loopexit.i, %.lr.ph27.preheader.i
@@ -9082,7 +9082,7 @@ _ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1
   br i1 %79, label %.lr.ph.preheader.i, label %._crit_edge.i5
 
 .lr.ph.preheader.i:                               ; preds = %.noexc
-  %wide.trip.count.i6 = and i64 %75, 4294967295
+  %wide.trip.count.i6 = and i64 %75, 2147483647
   br label %.lr.ph.i7
 
 .lr.ph.i7:                                        ; preds = %.lr.ph.i7, %.lr.ph.preheader.i
@@ -9361,7 +9361,7 @@ _ZN6google12Check_EQImplB5cxx11EiiPKc.exit19.thread: ; preds = %_ZN6google12Chec
   %95 = getelementptr i8, ptr %1, i64 64
   %.val9 = load ptr, ptr %95, align 8
   %.val = load ptr, ptr %58, align 8
-  %wide.trip.count.i = and i64 %92, 4294967295
+  %wide.trip.count.i = and i64 %92, 2147483647
   br label %.lr.ph24.i
 
 .lr.ph24.i:                                       ; preds = %138, %.lr.ph24.preheader.i
@@ -9502,7 +9502,7 @@ _ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__d
 
 .lr.ph34.preheader.i:                             ; preds = %_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
   %28 = getelementptr inbounds i8, ptr %17, i64 4
-  %wide.trip.count.i = and i64 %25, 4294967295
+  %wide.trip.count.i = and i64 %25, 2147483647
   br label %.lr.ph34.i
 
 .lr.ph34.i:                                       ; preds = %.loopexit.i, %.lr.ph34.preheader.i
@@ -9651,7 +9651,7 @@ _ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0
   br i1 %86, label %.lr.ph.preheader.i, label %._crit_edge.i3
 
 .lr.ph.preheader.i:                               ; preds = %.noexc
-  %wide.trip.count.i4 = and i64 %82, 4294967295
+  %wide.trip.count.i4 = and i64 %82, 2147483647
   br label %.lr.ph.i5
 
 .lr.ph.i5:                                        ; preds = %.lr.ph.i5, %.lr.ph.preheader.i
@@ -9923,7 +9923,7 @@ _ZN6google12Check_EQImplB5cxx11EiiPKc.exit19.thread: ; preds = %_ZN6google12Chec
   %95 = getelementptr i8, ptr %1, i64 64
   %.val9 = load ptr, ptr %95, align 8
   %.val = load ptr, ptr %58, align 8
-  %wide.trip.count.i = and i64 %92, 4294967295
+  %wide.trip.count.i = and i64 %92, 2147483647
   br label %96
 
 96:                                               ; preds = %171, %.lr.ph61.i

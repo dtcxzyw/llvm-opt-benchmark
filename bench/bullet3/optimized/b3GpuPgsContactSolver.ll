@@ -5941,7 +5941,7 @@ invoke.cont327:                                   ; preds = %invoke.cont325
   br i1 %cmp25.i, label %if.then.lr.ph.i, label %_Z14SetSortDataCPUP10b3Contact4P15b3RigidBodyDataP10b3SortDataifRK6b3Int4i.exit
 
 if.then.lr.ph.i:                                  ; preds = %invoke.cont327
-  %wide.trip.count.i = and i64 %269, 4294967295
+  %wide.trip.count.i = and i64 %269, 2147483647
   br label %if.then.i624
 
 if.then.i624:                                     ; preds = %if.then.i624, %if.then.lr.ph.i
@@ -6400,7 +6400,7 @@ invoke.cont391:                                   ; preds = %call.i.i.noexc754, 
 
 _ZN20b3AlignedObjectArrayIjE8allocateEi.exit.i:   ; preds = %invoke.cont391
   %conv.i.i.i1616 = shl i64 %479, 2
-  %mul.i.i.i1617 = and i64 %conv.i.i.i1616, 17179869180
+  %mul.i.i.i1617 = and i64 %conv.i.i.i1616, 8589934588
   %call.i.i.i1643 = invoke noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %mul.i.i.i1617, i32 noundef 16)
           to label %call.i.i.i.noexc1642 unwind label %lpad392
 
@@ -6460,7 +6460,7 @@ if.then3.i.i1630:                                 ; preds = %if.then.i22.i1627
   store i8 1, ptr %m_ownsMemory.i.i758, align 8
   store ptr %call.i.i.i1643, ptr %m_data.i.i759, align 8
   store i32 %_Count.addr.0.i1624, ptr %m_capacity.i.i761, align 8
-  %wide.trip.count.i765 = and i64 %479, 4294967295
+  %wide.trip.count.i765 = and i64 %479, 2147483647
   br label %for.body9.i
 
 for.body9.i:                                      ; preds = %for.body9.i, %.noexc769
@@ -6793,7 +6793,7 @@ _ZN20b3AlignedObjectArrayI10b3Contact4E6resizeEiRKS0_.exit: ; preds = %for.body9
 for.body450.lr.ph:                                ; preds = %_ZN20b3AlignedObjectArrayI10b3Contact4E6resizeEiRKS0_.exit
   %541 = load ptr, ptr %m_data.i.i837, align 8
   %542 = load ptr, ptr %m_data.i.i841, align 8
-  %wide.trip.count = and i64 %269, 4294967295
+  %wide.trip.count = and i64 %269, 2147483647
   br label %for.body450
 
 for.body450:                                      ; preds = %for.body450.lr.ph, %for.body450
@@ -10783,7 +10783,7 @@ while.cond:                                       ; preds = %while.cond, %do.bod
   %2 = load ptr, ptr %m_data, align 8
   %arrayidx4 = getelementptr inbounds %struct.b3Contact4, ptr %2, i64 %indvars.iv
   %call = call noundef zeroext i1 %CompareFunc(ptr noundef nonnull align 16 dereferenceable(112) %arrayidx4, ptr noundef nonnull align 16 dereferenceable(112) %x)
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br i1 %call, label %while.cond, label %while.cond5.preheader, !llvm.loop !37
 
 while.cond5.preheader:                            ; preds = %while.cond
@@ -10795,7 +10795,7 @@ while.cond5:                                      ; preds = %while.cond5, %while
   %4 = load ptr, ptr %m_data, align 8
   %arrayidx8 = getelementptr inbounds %struct.b3Contact4, ptr %4, i64 %indvars.iv25
   %call9 = call noundef zeroext i1 %CompareFunc(ptr noundef nonnull align 16 dereferenceable(112) %x, ptr noundef nonnull align 16 dereferenceable(112) %arrayidx8)
-  %indvars.iv.next26 = add i64 %indvars.iv25, -1
+  %indvars.iv.next26 = add nsw i64 %indvars.iv25, -1
   br i1 %call9, label %while.cond5, label %while.end11, !llvm.loop !38
 
 while.end11:                                      ; preds = %while.cond5
@@ -10947,7 +10947,7 @@ while.cond:                                       ; preds = %while.cond, %do.bod
   %3 = load ptr, ptr %m_data, align 8
   %arrayidx4 = getelementptr inbounds %struct.b3SortData, ptr %3, i64 %indvars.iv
   %call = call noundef zeroext i1 %CompareFunc(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx4, ptr noundef nonnull align 4 dereferenceable(8) %x)
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br i1 %call, label %while.cond, label %while.cond5.preheader, !llvm.loop !41
 
 while.cond5.preheader:                            ; preds = %while.cond
@@ -10959,7 +10959,7 @@ while.cond5:                                      ; preds = %while.cond5, %while
   %5 = load ptr, ptr %m_data, align 8
   %arrayidx8 = getelementptr inbounds %struct.b3SortData, ptr %5, i64 %indvars.iv25
   %call9 = call noundef zeroext i1 %CompareFunc(ptr noundef nonnull align 4 dereferenceable(8) %x, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx8)
-  %indvars.iv.next26 = add i64 %indvars.iv25, -1
+  %indvars.iv.next26 = add nsw i64 %indvars.iv25, -1
   br i1 %call9, label %while.cond5, label %while.end11, !llvm.loop !42
 
 while.end11:                                      ; preds = %while.cond5

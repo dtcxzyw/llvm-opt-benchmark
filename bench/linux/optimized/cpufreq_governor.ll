@@ -143,7 +143,7 @@ define dso_local void @gov_update_cpu_data(ptr noundef readonly %0) #0 align 16 
   br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %20
-  %25 = and i64 %21, 4294967295
+  %25 = and i64 %21, 63
   %26 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, ptrtoint (ptr @cpu_dbs to i64)
@@ -167,8 +167,8 @@ define dso_local void @gov_update_cpu_data(ptr noundef readonly %0) #0 align 16 
   br label %42
 
 42:                                               ; preds = %35, %24
-  %43 = add i64 %21, 1
-  %44 = and i64 %43, 4294967295
+  %43 = add nuw nsw i64 %21, 1
+  %44 = and i64 %43, 127
   %45 = icmp ugt i64 %44, 63
   br i1 %45, label %.thread, label %13, !prof !11, !llvm.loop !12
 
@@ -216,7 +216,7 @@ define dso_local i32 @dbs_update(ptr nocapture noundef readonly %0) #0 align 16 
   br i1 %29, label %30, label %.thread
 
 30:                                               ; preds = %26
-  %31 = and i64 %27, 4294967295
+  %31 = and i64 %27, 63
   %32 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, ptrtoint (ptr @cpu_dbs to i64)
@@ -309,8 +309,8 @@ define dso_local i32 @dbs_update(ptr nocapture noundef readonly %0) #0 align 16 
   %88 = phi i32 [ %86, %84 ], [ %21, %81 ]
   %89 = call i32 @llvm.umax.i32(i32 %82, i32 %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
-  %90 = add i64 %27, 1
-  %91 = and i64 %90, 4294967295
+  %90 = add nuw nsw i64 %27, 1
+  %91 = and i64 %90, 127
   %92 = icmp ugt i64 %91, 63
   br i1 %92, label %.thread, label %18, !prof !11, !llvm.loop !15
 
@@ -679,7 +679,7 @@ define dso_local noundef i32 @cpufreq_dbs_governor_start(ptr noundef %0) #0 alig
   br i1 %34, label %35, label %.thread
 
 35:                                               ; preds = %31
-  %36 = and i64 %32, 4294967295
+  %36 = and i64 %32, 63
   %37 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, ptrtoint (ptr @cpu_dbs to i64)
@@ -689,8 +689,8 @@ define dso_local noundef i32 @cpufreq_dbs_governor_start(ptr noundef %0) #0 alig
   store i64 %42, ptr %40, align 8
   %43 = getelementptr inbounds i8, ptr %40, i64 24
   store i32 0, ptr %43, align 8
-  %44 = add i64 %32, 1
-  %45 = and i64 %44, 4294967295
+  %44 = add nuw nsw i64 %32, 1
+  %45 = and i64 %44, 127
   %46 = icmp ugt i64 %45, 63
   br i1 %46, label %.thread, label %.split.us, !prof !11, !llvm.loop !22
 
@@ -709,7 +709,7 @@ define dso_local noundef i32 @cpufreq_dbs_governor_start(ptr noundef %0) #0 alig
   br i1 %55, label %56, label %.thread
 
 56:                                               ; preds = %52
-  %57 = and i64 %53, 4294967295
+  %57 = and i64 %53, 63
   %58 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, ptrtoint (ptr @cpu_dbs to i64)
@@ -726,8 +726,8 @@ define dso_local noundef i32 @cpufreq_dbs_governor_start(ptr noundef %0) #0 alig
   %69 = load i64, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %61, i64 16
   store i64 %69, ptr %70, align 8
-  %71 = add i64 %53, 1
-  %72 = and i64 %71, 4294967295
+  %71 = add nuw nsw i64 %53, 1
+  %72 = and i64 %71, 127
   %73 = icmp ugt i64 %72, 63
   br i1 %73, label %.thread, label %.split, !prof !11, !llvm.loop !22
 
@@ -759,15 +759,15 @@ define dso_local noundef i32 @cpufreq_dbs_governor_start(ptr noundef %0) #0 alig
   br i1 %90, label %91, label %.thread7
 
 91:                                               ; preds = %87
-  %92 = and i64 %88, 4294967295
+  %92 = and i64 %88, 63
   %93 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %92
   %94 = load i64, ptr %93, align 8
   %95 = add i64 %94, ptrtoint (ptr @cpu_dbs to i64)
   %96 = inttoptr i64 %95 to ptr
   %97 = getelementptr inbounds i8, ptr %96, i64 32
   tail call void @cpufreq_add_update_util_hook(i32 noundef %89, ptr noundef %97, ptr noundef nonnull @dbs_update_util_handler) #9
-  %98 = add i64 %88, 1
-  %99 = and i64 %98, 4294967295
+  %98 = add nuw nsw i64 %88, 1
+  %99 = and i64 %98, 127
   %100 = icmp ugt i64 %99, 63
   br i1 %100, label %.thread7, label %81, !prof !11, !llvm.loop !23
 
@@ -799,8 +799,8 @@ define dso_local void @cpufreq_dbs_governor_stop(ptr nocapture noundef readonly 
 
 15:                                               ; preds = %11
   tail call void @cpufreq_remove_update_util_hook(i32 noundef %13) #9
-  %16 = add i64 %12, 1
-  %17 = and i64 %16, 4294967295
+  %16 = add nuw nsw i64 %12, 1
+  %17 = and i64 %16, 127
   %18 = icmp ugt i64 %17, 63
   br i1 %18, label %.thread, label %5, !prof !11, !llvm.loop !24
 

@@ -1901,7 +1901,7 @@ define internal noundef i32 @CmdCommandScrGenLinux(ptr nocapture noundef readonl
   br i1 %97, label %.lr.ph198.preheader, label %._crit_edge
 
 .lr.ph198.preheader:                              ; preds = %93
-  %98 = and i64 %95, 4294967295
+  %98 = and i64 %95, 2147483647
   br label %.lr.ph198
 
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %.lr.ph198
@@ -1935,7 +1935,7 @@ define internal noundef i32 @CmdCommandScrGenLinux(ptr nocapture noundef readonl
   br i1 %111, label %.lr.ph201.preheader, label %._crit_edge202
 
 .lr.ph201.preheader:                              ; preds = %106
-  %112 = and i64 %109, 4294967295
+  %112 = and i64 %109, 2147483647
   br label %.lr.ph201
 
 .lr.ph201:                                        ; preds = %.lr.ph201.preheader, %.lr.ph201

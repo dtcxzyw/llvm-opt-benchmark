@@ -34946,7 +34946,7 @@ sdefl_put.exit168.i:                              ; preds = %.lr.ph.i166.i, %sde
   br i1 %516, label %.lr.ph234.preheader.i, label %.preheader214.i
 
 .lr.ph234.preheader.i:                            ; preds = %.preheader217.i
-  %wide.trip.count264.i = and i64 %307, 4294967295
+  %wide.trip.count264.i = and i64 %307, 2147483647
   br label %.lr.ph234.i
 
 .lr.ph232.i:                                      ; preds = %sdefl_put.exit174.i, %.lr.ph232.preheader.i
@@ -37648,7 +37648,7 @@ UpdateGestures.exit:                              ; preds = %8, %12
   br i1 %47, label %switch.lookup, label %56
 
 switch.lookup:                                    ; preds = %45
-  %48 = and i64 %indvars.iv108, 4294967295
+  %48 = and i64 %indvars.iv108, 15
   %switch.gep = getelementptr inbounds [15 x i32], ptr @switch.table.PollInputEvents, i64 0, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
   %49 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv108
@@ -43334,7 +43334,7 @@ define noundef nonnull ptr @GetPrevDirectoryPath(ptr nocapture noundef readonly 
   br label %.loopexit.split
 
 .split.preheader:                                 ; preds = %1
-  %7 = and i64 %.fr, 4294967295
+  %7 = and i64 %.fr, 2147483647
   br label %.split
 
 .split:                                           ; preds = %.split.preheader, %9

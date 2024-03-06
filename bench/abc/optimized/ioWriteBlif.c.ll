@@ -1607,7 +1607,7 @@ define void @Io_NtkWriteNodeIntStruct(ptr nocapture noundef %0, ptr nocapture no
   br i1 %or.cond, label %17, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
-  %wide.trip.count = and i64 %14, 4294967295
+  %wide.trip.count = and i64 %14, 2147483647
   br label %.lr.ph
 
 17:                                               ; preds = %4
@@ -2188,7 +2188,7 @@ define void @Io_NtkWriteModelIntStruct(ptr nocapture noundef %0, ptr nocapture n
   br i1 %or.cond, label %26, label %.lr.ph202.preheader
 
 .lr.ph202.preheader:                              ; preds = %._crit_edge
-  %wide.trip.count = and i64 %23, 4294967295
+  %wide.trip.count = and i64 %23, 2147483647
   br label %.lr.ph202
 
 26:                                               ; preds = %._crit_edge

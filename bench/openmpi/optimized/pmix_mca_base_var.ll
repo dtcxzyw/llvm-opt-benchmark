@@ -1500,7 +1500,7 @@ pmix_mca_base_var_generate_full_name4.exit:       ; preds = %19
 
 pmix_pointer_array_get_item.exit.i.i:             ; preds = %46
   %50 = load ptr, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @pmix_mca_base_vars, i64 0, i32 7), align 8
-  %51 = and i64 %42, 4294967295
+  %51 = and i64 %42, 2147483647
   %52 = getelementptr inbounds ptr, ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8
   br label %var_get.exit.i
@@ -1563,7 +1563,7 @@ define i32 @pmix_mca_base_var_find_by_name(ptr noundef %0, ptr nocapture noundef
 
 var_get.exit.i:                                   ; preds = %12
   %16 = load ptr, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @pmix_mca_base_vars, i64 0, i32 7), align 8
-  %17 = and i64 %8, 4294967295
+  %17 = and i64 %8, 2147483647
   %18 = getelementptr inbounds ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not8.i = icmp eq ptr %19, null
@@ -1612,7 +1612,7 @@ define internal fastcc void @var_find_by_name(ptr noundef %0, ptr nocapture noun
 
 pmix_pointer_array_get_item.exit.i:               ; preds = %13
   %17 = load ptr, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @pmix_mca_base_vars, i64 0, i32 7), align 8
-  %18 = and i64 %9, 4294967295
+  %18 = and i64 %9, 2147483647
   %19 = getelementptr inbounds ptr, ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   br label %var_get.exit
@@ -1718,7 +1718,7 @@ define noundef i32 @pmix_mca_base_var_build_env(ptr noundef %0, ptr noundef %1) 
 
 pmix_pointer_array_get_item.exit:                 ; preds = %.lr.ph
   %15 = load ptr, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @pmix_mca_base_vars, i64 0, i32 7), align 8
-  %16 = and i64 %.03143, 4294967295
+  %16 = and i64 %.03143, 2147483647
   %17 = getelementptr inbounds ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
@@ -3644,7 +3644,7 @@ source_name.exit:                                 ; preds = %76, %81, %83
   br i1 %or.cond234, label %.lr.ph232.preheader, label %.loopexit
 
 .lr.ph232.preheader:                              ; preds = %193
-  %wide.trip.count241 = and i64 %.val, 4294967295
+  %wide.trip.count241 = and i64 %.val, 2147483647
   %.pre246 = load i8, ptr @pmix_mca_base_var_initialized, align 1
   br label %.lr.ph232
 
@@ -3772,7 +3772,7 @@ var_get.exit164.thread:                           ; preds = %pmix_pointer_array_
   br i1 %258, label %.lr.ph.preheader, label %.loopexit223
 
 .lr.ph.preheader:                                 ; preds = %.preheader222
-  %259 = and i64 %.val, 4294967295
+  %259 = and i64 %.val, 2147483647
   %.pre244 = load i8, ptr @pmix_mca_base_var_initialized, align 1
   br label %.lr.ph
 

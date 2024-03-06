@@ -679,7 +679,7 @@ Abc_TtMinBase.exit:                               ; preds = %Abc_TtHasVar.exit.t
   br i1 %or.cond, label %187, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %Abc_TtMinBase.exit
-  %wide.trip.count = and i64 %184, 4294967295
+  %wide.trip.count = and i64 %184, 2147483647
   br label %.lr.ph
 
 187:                                              ; preds = %Abc_TtMinBase.exit
@@ -8866,9 +8866,10 @@ If_CluCopy.exit:                                  ; preds = %.lr.ph.preheader.i,
   br i1 %53, label %.lr.ph.i146, label %If_CluMoveGroupToMsb.exit
 
 .lr.ph.i146:                                      ; preds = %._crit_edge153
-  %54 = and i32 %5, 255
+  %54 = and i32 %5, 127
   %55 = getelementptr inbounds i8, ptr %17, i64 2
-  %wide.trip.count175 = zext nneg i32 %54 to i64
+  %umax = call i32 @llvm.umax.i32(i32 %54, i32 1)
+  %wide.trip.count175 = zext nneg i32 %umax to i64
   %56 = zext nneg i32 %54 to i64
   br label %57
 

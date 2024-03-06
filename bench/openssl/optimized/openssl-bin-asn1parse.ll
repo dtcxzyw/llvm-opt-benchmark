@@ -408,7 +408,7 @@ for.body:                                         ; preds = %if.then151, %for.in
   br i1 %cmp161, label %if.then167, label %lor.lhs.false163
 
 lor.lhs.false163:                                 ; preds = %for.body
-  %conv164 = and i64 %call159, 4294967295
+  %conv164 = and i64 %call159, 2147483647
   %cmp165.not = icmp slt i64 %conv164, %tmplen.0128
   br i1 %cmp165.not, label %if.end171, label %if.then167
 

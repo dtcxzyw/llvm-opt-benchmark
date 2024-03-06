@@ -1379,7 +1379,7 @@ cpstrdup.exit.i:                                  ; preds = %391, %382
 
 453:                                              ; preds = %449
   %454 = load ptr, ptr %315, align 8
-  %455 = and i64 %437, 4294967295
+  %455 = and i64 %437, 2147483647
   %456 = getelementptr ptr, ptr %454, i64 %455
   %457 = load ptr, ptr %456, align 8
   br label %getAffixFlagSet.exit.i
@@ -2933,10 +2933,10 @@ define internal i32 @cmpaffix(ptr nocapture noundef readonly %0, ptr nocapture n
   br i1 %26, label %27, label %37
 
 27:                                               ; preds = %23
-  %28 = and i64 %indvars.iv.next.i, 4294967295
+  %28 = and i64 %indvars.iv.next.i, 2147483647
   %29 = getelementptr i8, ptr %15, i64 %28
   %30 = load i8, ptr %29, align 1
-  %31 = and i64 %indvars.iv.next27.i, 4294967295
+  %31 = and i64 %indvars.iv.next27.i, 2147483647
   %32 = getelementptr i8, ptr %17, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = icmp ult i8 %30, %33

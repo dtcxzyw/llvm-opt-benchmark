@@ -6061,8 +6061,8 @@ define internal i32 @trace_raw_output_xhci_log_ctrl_ctx(ptr noundef %0, i32 %1, 
   %38 = select i1 %37, ptr @.str.150, ptr @.str.149
   %39 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %33, ptr noundef nonnull dereferenceable(1) @.str.199, i32 noundef %35, ptr noundef nonnull %38) #11
   %40 = add i32 %39, %22
-  %41 = add i64 %29, 1
-  %42 = and i64 %41, 4294967295
+  %41 = add nuw nsw i64 %29, 1
+  %42 = and i64 %41, 63
   %43 = icmp ugt i64 %42, 31
   br i1 %43, label %.thread, label %20, !prof !77, !llvm.loop !78
 
@@ -6115,8 +6115,8 @@ define internal i32 @trace_raw_output_xhci_log_ctrl_ctx(ptr noundef %0, i32 %1, 
   %78 = select i1 %77, ptr @.str.150, ptr @.str.149
   %79 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %74, ptr noundef nonnull dereferenceable(1) @.str.199, i32 noundef %75, ptr noundef nonnull %78) #11
   %80 = add i32 %79, %64
-  %81 = add i64 %69, 1
-  %82 = and i64 %81, 4294967295
+  %81 = add nuw nsw i64 %69, 1
+  %82 = and i64 %81, 63
   %83 = icmp ugt i64 %82, 31
   br i1 %83, label %.thread9, label %62, !prof !77, !llvm.loop !79
 

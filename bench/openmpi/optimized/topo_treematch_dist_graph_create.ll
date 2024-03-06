@@ -1408,7 +1408,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
 .lr.ph1236:                                       ; preds = %._crit_edge1233
   %601 = getelementptr inbounds i8, ptr %595, i64 16
   %.pre1468 = load ptr, ptr %601, align 8
-  %602 = and i64 %597, 4294967295
+  %602 = and i64 %597, 2147483647
   br label %603
 
 603:                                              ; preds = %.lr.ph1236, %603

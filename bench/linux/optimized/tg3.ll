@@ -5856,7 +5856,7 @@ thread-pre-split80.thread:                        ; preds = %.thread79, %1981, %
 2385:                                             ; preds = %2381
   %2386 = trunc i32 %2366 to i8
   %2387 = or disjoint i8 %2386, 96
-  %2388 = and i64 %2382, 4294967295
+  %2388 = and i64 %2382, 31
   %2389 = getelementptr [32 x i8], ptr %2182, i64 0, i64 %2388
   store i8 %2387, ptr %2389, align 1
   br label %2390

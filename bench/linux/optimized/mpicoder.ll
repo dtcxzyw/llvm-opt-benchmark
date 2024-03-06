@@ -101,7 +101,7 @@ define dso_local ptr @mpi_read_raw_data(ptr nocapture noundef readonly %0, i64 n
   %46 = sub i32 0, %34
   %47 = and i32 %46, 7
   %48 = getelementptr inbounds i8, ptr %37, i64 24
-  %49 = and i64 %31, 4294967295
+  %49 = and i64 %31, 2147483647
   br label %50
 
 50:                                               ; preds = %66, %45

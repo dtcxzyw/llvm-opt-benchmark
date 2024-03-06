@@ -4743,7 +4743,7 @@ define hidden noalias noundef ptr @qoi_read(ptr nocapture noundef readonly %0, p
   br label %27
 
 14:                                               ; preds = %10
-  %15 = and i64 %7, 4294967295
+  %15 = and i64 %7, 2147483647
   %16 = tail call noalias ptr @malloc(i64 noundef %15) #50
   %.not27 = icmp eq ptr %16, null
   br i1 %.not27, label %17, label %19

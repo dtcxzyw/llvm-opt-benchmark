@@ -764,7 +764,7 @@ define dso_local i64 @gin_consistent_jsonb(ptr nocapture noundef readonly %0) lo
   br i1 %18, label %.lr.ph41.preheader, label %.loopexit
 
 .lr.ph41.preheader:                               ; preds = %17
-  %wide.trip.count51 = and i64 %9, 4294967295
+  %wide.trip.count51 = and i64 %9, 2147483647
   br label %.lr.ph41
 
 19:                                               ; preds = %.lr.ph41
@@ -794,7 +794,7 @@ define dso_local i64 @gin_consistent_jsonb(ptr nocapture noundef readonly %0) lo
   br i1 %26, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %25
-  %wide.trip.count = and i64 %9, 4294967295
+  %wide.trip.count = and i64 %9, 2147483647
   br label %.lr.ph
 
 27:                                               ; preds = %.lr.ph
@@ -961,7 +961,7 @@ define dso_local i64 @gin_triconsistent_jsonb(ptr nocapture noundef readonly %0)
   br i1 %15, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %14
-  %wide.trip.count = and i64 %9, 4294967295
+  %wide.trip.count = and i64 %9, 2147483647
   br label %.lr.ph
 
 16:                                               ; preds = %.lr.ph
@@ -986,7 +986,7 @@ define dso_local i64 @gin_triconsistent_jsonb(ptr nocapture noundef readonly %0)
   br i1 %22, label %.lr.ph44.preheader, label %.loopexit
 
 .lr.ph44.preheader:                               ; preds = %.preheader
-  %wide.trip.count54 = and i64 %9, 4294967295
+  %wide.trip.count54 = and i64 %9, 2147483647
   br label %.lr.ph44
 
 23:                                               ; preds = %.lr.ph44
@@ -1264,7 +1264,7 @@ define dso_local i64 @gin_consistent_jsonb_path(ptr nocapture noundef readonly %
   br i1 %19, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %18
-  %wide.trip.count = and i64 %9, 4294967295
+  %wide.trip.count = and i64 %9, 2147483647
   br label %.lr.ph
 
 20:                                               ; preds = %.lr.ph
@@ -1333,7 +1333,7 @@ define dso_local i64 @gin_triconsistent_jsonb_path(ptr nocapture noundef readonl
   br i1 %15, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %wide.trip.count = and i64 %9, 4294967295
+  %wide.trip.count = and i64 %9, 2147483647
   br label %.lr.ph
 
 16:                                               ; preds = %.lr.ph

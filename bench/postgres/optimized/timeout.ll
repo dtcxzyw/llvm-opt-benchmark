@@ -392,7 +392,7 @@ find_active_timeout.exit.thread:                  ; preds = %17, %10, %23, %find
   unreachable
 
 29:                                               ; preds = %23
-  %30 = and i64 %indvars.iv.i, 4294967295
+  %30 = and i64 %indvars.iv.i, 2147483647
   %31 = getelementptr [23 x ptr], ptr @active_timeouts, i64 0, i64 %30
   %32 = load volatile ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 4
@@ -652,7 +652,7 @@ find_active_timeout.exit.thread:                  ; preds = %15, %8, %21, %find_
   unreachable
 
 27:                                               ; preds = %21
-  %28 = and i64 %indvars.iv.i, 4294967295
+  %28 = and i64 %indvars.iv.i, 2147483647
   %29 = getelementptr [23 x ptr], ptr @active_timeouts, i64 0, i64 %28
   %30 = load volatile ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 4
@@ -772,7 +772,7 @@ find_active_timeout.exit.thread:                  ; preds = %11, %24, %find_acti
   unreachable
 
 30:                                               ; preds = %24
-  %31 = and i64 %indvars.iv.i, 4294967295
+  %31 = and i64 %indvars.iv.i, 2147483647
   %32 = getelementptr [23 x ptr], ptr @active_timeouts, i64 0, i64 %31
   %33 = load volatile ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 4

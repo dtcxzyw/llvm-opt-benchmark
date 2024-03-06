@@ -1316,7 +1316,7 @@ rb_long2int_inline.exit:                          ; preds = %1
   br i1 %8, label %9, label %RARRAY_PTR.exit
 
 9:                                                ; preds = %rb_long2int_inline.exit
-  %10 = and i64 %4, 4294967295
+  %10 = and i64 %4, 2147483647
   %11 = tail call i64 @rb_ary_hidden_new(i64 noundef %10) #15
   store i64 %11, ptr %2, align 16
   tail call void @rb_gc_writebarrier_unprotect(i64 noundef %11) #15
@@ -1349,7 +1349,7 @@ RARRAY_PTR.exit:                                  ; preds = %rb_long2int_inline.
   %.01016 = phi ptr [ %.010.ph, %RARRAY_PTR.exit.thread ], [ %2, %RARRAY_PTR.exit ]
   %21 = getelementptr inbounds i8, ptr %3, i64 8
   %22 = getelementptr inbounds i8, ptr %3, i64 16
-  %wide.trip.count = and i64 %4, 4294967295
+  %wide.trip.count = and i64 %4, 2147483647
   %.pre = load i32, ptr %3, align 16
   br label %23
 

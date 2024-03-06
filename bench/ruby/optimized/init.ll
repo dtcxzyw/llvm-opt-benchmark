@@ -1322,7 +1322,7 @@ define i64 @rsock_s_accept(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 
 28:                                               ; preds = %._crit_edge
   %29 = shl i64 %.lcssa21, 1
-  %30 = and i64 %29, 8589934590
+  %30 = and i64 %29, 4294967294
   %31 = or disjoint i64 %30, 1
   br label %42
 

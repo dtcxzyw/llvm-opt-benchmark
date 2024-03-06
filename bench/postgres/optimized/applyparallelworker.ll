@@ -1317,7 +1317,7 @@ list_length.exit:                                 ; preds = %31, %33
 
 41:                                               ; preds = %39
   %.val = load ptr, ptr %38, align 8
-  %42 = and i64 %indvars.iv.next, 4294967295
+  %42 = and i64 %indvars.iv.next, 2147483647
   %43 = getelementptr %union.ListCell, ptr %.val, i64 %42
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, %5

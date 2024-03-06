@@ -456,7 +456,7 @@ define void @ompi_vprotocol_pessimist_delivery_replay(i64 noundef %0, ptr nounde
   %23 = load i64, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 1), align 8
   %24 = getelementptr inbounds i8, ptr %.03256, i64 80
   %25 = load i64, ptr %24, align 8
-  %wide.trip.count = and i64 %0, 4294967295
+  %wide.trip.count = and i64 %0, 2147483647
   br label %26
 
 26:                                               ; preds = %.lr.ph59, %82

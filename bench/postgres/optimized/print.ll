@@ -6743,7 +6743,7 @@ integer_digits.exit.i:                            ; preds = %117, %additional_nu
 
 .lr.ph.i:                                         ; preds = %126
   %128 = load ptr, ptr @thousands_sep, align 8
-  %wide.trip.count.i = and i64 %119, 4294967295
+  %wide.trip.count.i = and i64 %119, 2147483647
   br label %129
 
 129:                                              ; preds = %140, %.lr.ph.i

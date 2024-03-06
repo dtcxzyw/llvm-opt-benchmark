@@ -38903,8 +38903,8 @@ entry:
   %mnNextResize.i.i = getelementptr inbounds i8, ptr %fixedHashMap, i64 40
   %mNodeBuffer.i.i = getelementptr inbounds i8, ptr %fixedHashMap, i64 896
   %mBucketBuffer.i = getelementptr inbounds i8, ptr %fixedHashMap, i64 88
-  %wide.trip.count = and i64 %0, 4294967295
-  %wide.trip.count131 = and i64 %0, 4294967295
+  %wide.trip.count = and i64 %0, 2147483647
+  %wide.trip.count131 = and i64 %0, 2147483647
   br label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc40
@@ -39468,8 +39468,8 @@ entry:
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %fixedHashMap, i64 88
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %fixedHashMap, i64 32
   %mnElementCount.i.i = getelementptr inbounds i8, ptr %fixedHashMap, i64 24
-  %wide.trip.count = and i64 %0, 4294967295
-  %wide.trip.count145 = and i64 %0, 4294967295
+  %wide.trip.count = and i64 %0, 2147483647
+  %wide.trip.count145 = and i64 %0, 2147483647
   br label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc40
@@ -40062,8 +40062,8 @@ entry:
   %mnNextResize.i.i = getelementptr inbounds i8, ptr %fixedHashMap, i64 40
   %mNodeBuffer.i.i = getelementptr inbounds i8, ptr %fixedHashMap, i64 896
   %mBucketBuffer.i = getelementptr inbounds i8, ptr %fixedHashMap, i64 88
-  %wide.trip.count = and i64 %0, 4294967295
-  %wide.trip.count132 = and i64 %0, 4294967295
+  %wide.trip.count = and i64 %0, 2147483647
+  %wide.trip.count132 = and i64 %0, 2147483647
   br label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc40
@@ -40618,8 +40618,8 @@ entry:
   %mpCapacity.i.i.i.i = getelementptr inbounds i8, ptr %fixedHashMap, i64 64
   %mpNext3.i.i.i.i.i = getelementptr inbounds i8, ptr %fixedHashMap, i64 56
   %mnNodeSize9.i.i.i.i.i = getelementptr inbounds i8, ptr %fixedHashMap, i64 72
-  %wide.trip.count = and i64 %0, 4294967295
-  %wide.trip.count137 = and i64 %0, 4294967295
+  %wide.trip.count = and i64 %0, 2147483647
+  %wide.trip.count137 = and i64 %0, 2147483647
   br label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc40

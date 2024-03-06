@@ -991,7 +991,7 @@ lo_open.exit:                                     ; preds = %53
   br i1 %71, label %72, label %77
 
 72:                                               ; preds = %.preheader
-  %73 = and i64 %69, 4294967295
+  %73 = and i64 %69, 2147483647
   %74 = call i32 @lo_write(ptr noundef nonnull %0, i32 noundef %65, ptr noundef nonnull %16, i64 noundef %73)
   %.not42 = icmp eq i32 %74, %70
   br i1 %.not42, label %.preheader, label %75, !llvm.loop !7

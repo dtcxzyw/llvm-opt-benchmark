@@ -232,7 +232,7 @@ define dso_local noundef i64 @ginarrayconsistent(ptr nocapture noundef readonly 
   br i1 %18, label %.lr.ph50.preheader, label %.loopexit
 
 .lr.ph50.preheader:                               ; preds = %17
-  %wide.trip.count67 = and i64 %9, 4294967295
+  %wide.trip.count67 = and i64 %9, 2147483647
   br label %.lr.ph50
 
 .lr.ph50:                                         ; preds = %.lr.ph50.preheader, %26
@@ -261,7 +261,7 @@ define dso_local noundef i64 @ginarrayconsistent(ptr nocapture noundef readonly 
   br i1 %28, label %.lr.ph43.preheader, label %.loopexit
 
 .lr.ph43.preheader:                               ; preds = %27
-  %wide.trip.count62 = and i64 %9, 4294967295
+  %wide.trip.count62 = and i64 %9, 2147483647
   br label %.lr.ph43
 
 29:                                               ; preds = %33
@@ -294,7 +294,7 @@ define dso_local noundef i64 @ginarrayconsistent(ptr nocapture noundef readonly 
   br i1 %39, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %38
-  %wide.trip.count = and i64 %9, 4294967295
+  %wide.trip.count = and i64 %9, 2147483647
   br label %.lr.ph
 
 40:                                               ; preds = %.lr.ph
@@ -350,7 +350,7 @@ define dso_local i64 @ginarraytriconsistent(ptr nocapture noundef readonly %0) l
   br i1 %14, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader41
-  %wide.trip.count = and i64 %9, 4294967295
+  %wide.trip.count = and i64 %9, 2147483647
   br label %.lr.ph
 
 .preheader38:                                     ; preds = %1
@@ -358,7 +358,7 @@ define dso_local i64 @ginarraytriconsistent(ptr nocapture noundef readonly %0) l
   br i1 %15, label %.lr.ph49.preheader, label %.loopexit
 
 .lr.ph49.preheader:                               ; preds = %.preheader38
-  %wide.trip.count68 = and i64 %9, 4294967295
+  %wide.trip.count68 = and i64 %9, 2147483647
   br label %.lr.ph49
 
 .preheader:                                       ; preds = %1
@@ -366,7 +366,7 @@ define dso_local i64 @ginarraytriconsistent(ptr nocapture noundef readonly %0) l
   br i1 %16, label %.lr.ph57.preheader, label %.loopexit
 
 .lr.ph57.preheader:                               ; preds = %.preheader
-  %wide.trip.count72 = and i64 %9, 4294967295
+  %wide.trip.count72 = and i64 %9, 2147483647
   br label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %.lr.ph57.preheader, %27

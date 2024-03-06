@@ -1087,7 +1087,7 @@ if.end66.i.i.i:                                   ; preds = %if.then64.i.i.i, %f
   br i1 %cmp6915.i.i.i, label %for.body71.preheader.i.i.i, label %for.end76.i.i.i
 
 for.body71.preheader.i.i.i:                       ; preds = %if.end66.i.i.i
-  %wide.trip.count.i.i.i87 = and i64 %85, 4294967295
+  %wide.trip.count.i.i.i87 = and i64 %85, 2147483647
   br label %for.body71.i.i.i
 
 for.body71.i.i.i:                                 ; preds = %for.body71.i.i.i, %for.body71.preheader.i.i.i

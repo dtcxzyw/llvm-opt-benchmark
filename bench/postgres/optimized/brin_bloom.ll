@@ -318,8 +318,8 @@ define dso_local i64 @brin_bloom_consistent(ptr nocapture noundef readonly %0) l
   %24 = getelementptr inbounds i8, ptr %20, i64 8
   %25 = getelementptr inbounds i8, ptr %20, i64 6
   %26 = getelementptr inbounds i8, ptr %20, i64 16
-  %27 = and i64 %12, 4294967295
-  %wide.trip.count = and i64 %12, 4294967295
+  %27 = and i64 %12, 2147483647
+  %wide.trip.count = and i64 %12, 2147483647
   br label %28
 
 28:                                               ; preds = %.lr.ph34, %.critedge

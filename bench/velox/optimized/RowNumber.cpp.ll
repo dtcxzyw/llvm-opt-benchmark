@@ -1829,7 +1829,7 @@ if.then:                                          ; preds = %entry
 for.body.lr.ph.i:                                 ; preds = %if.then
   %rowNumber_.i = getelementptr inbounds i8, ptr %this, i64 80
   %7 = sext i32 %resultOffset to i64
-  %wide.trip.count.i = and i64 %div3.i, 4294967295
+  %wide.trip.count.i = and i64 %div3.i, 2147483647
   %invariant.gep.i = getelementptr i32, ptr %call5.i, i64 %7
   br label %for.body.i
 
@@ -1853,7 +1853,7 @@ if.else:                                          ; preds = %entry
 for.body.lr.ph.i10:                               ; preds = %if.else
   %rowNumber_.i11 = getelementptr inbounds i8, ptr %this, i64 80
   %10 = sext i32 %resultOffset to i64
-  %wide.trip.count.i12 = and i64 %div3.i, 4294967295
+  %wide.trip.count.i12 = and i64 %div3.i, 2147483647
   %invariant.gep.i13 = getelementptr i64, ptr %call5.i8, i64 %10
   br label %for.body.i14
 
@@ -2208,7 +2208,7 @@ if.end24:                                         ; preds = %delete.notnull.i.i.
   ret ptr %37
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2669,7 +2669,7 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind memory(read) }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #15 = { builtin allocsize(0) }

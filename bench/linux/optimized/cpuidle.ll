@@ -147,7 +147,7 @@ define dso_local i32 @cpuidle_play_dead() local_unnamed_addr #3 align 16 {
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %10
-  %16 = and i64 %12, 4294967295
+  %16 = and i64 %12, 2147483647
   %17 = getelementptr [10 x %struct.cpuidle_state], ptr %8, i64 0, i64 %16, i32 9
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
@@ -1488,7 +1488,7 @@ define dso_local i32 @cpuidle_register(ptr noundef %0, ptr nocapture readnone %1
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %19
-  %24 = and i64 %20, 4294967295
+  %24 = and i64 %20, 63
   %25 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, ptrtoint (ptr @cpuidle_dev to i64)
@@ -1497,7 +1497,7 @@ define dso_local i32 @cpuidle_register(ptr noundef %0, ptr nocapture readnone %1
   store i32 %21, ptr %29, align 4
   %30 = tail call i32 @cpuidle_register_device(ptr noundef %28)
   %31 = icmp eq i32 %30, 0
-  %32 = add i64 %20, 1
+  %32 = add nuw nsw i64 %20, 1
   br i1 %31, label %9, label %33, !llvm.loop !61
 
 33:                                               ; preds = %23

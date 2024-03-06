@@ -639,7 +639,7 @@ get_ours_cache_pos.exit.i76:                      ; preds = %while.body.i.i70
   br i1 %cmp7.i, label %for.inc.i57, label %if.end.i
 
 if.end.i:                                         ; preds = %get_ours_cache_pos.exit.i76
-  %idxprom10.i77 = and i64 %indvars.iv.i.i66, 4294967295
+  %idxprom10.i77 = and i64 %indvars.iv.i.i66, 2147483647
   %arrayidx11.i78 = getelementptr inbounds ptr, ptr %69, i64 %idxprom10.i77
   %76 = load ptr, ptr %arrayidx11.i78, align 8
   %ce_mode.i79 = getelementptr inbounds i8, ptr %76, i64 52
@@ -1009,7 +1009,7 @@ for.body181.lr.ph:                                ; preds = %if.then175
 for.body181:                                      ; preds = %for.body181.lr.ph, %for.inc208
   %indvars.iv129 = phi i64 [ 0, %for.body181.lr.ph ], [ %indvars.iv.next130, %for.inc208 ]
   %gitmodules_modified.0110 = phi i32 [ 0, %for.body181.lr.ph ], [ %gitmodules_modified.1, %for.inc208 ]
-  %tobool205.not109 = phi i1 [ false, %for.body181.lr.ph ], [ true, %for.inc208 ]
+  %tobool205.not.not109 = phi i1 [ false, %for.body181.lr.ph ], [ true, %for.inc208 ]
   %112 = load ptr, ptr @list.2, align 8
   %arrayidx184 = getelementptr inbounds %struct.anon.0, ptr %112, i64 %indvars.iv129
   %113 = load ptr, ptr %arrayidx184, align 8
@@ -1049,7 +1049,7 @@ if.end195:                                        ; preds = %strbuf_setlen.exit
 if.end200:                                        ; preds = %for.body181
   %call201 = call i32 @remove_path(ptr noundef %113) #13
   %tobool202.not = icmp eq i32 %call201, 0
-  %brmerge = or i1 %tobool205.not109, %tobool202.not
+  %brmerge = or i1 %tobool205.not.not109, %tobool202.not
   br i1 %brmerge, label %for.inc208, label %if.then206
 
 if.then206:                                       ; preds = %if.end200
@@ -1250,7 +1250,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %err_msg, ptr noundef nonnull @.str.47, ptr noundef %3) #13
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %4, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13

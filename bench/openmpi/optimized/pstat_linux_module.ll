@@ -135,7 +135,7 @@ define internal noundef i32 @query(i32 noundef %0, ptr noundef %1, ptr noundef %
   br i1 %43, label %pmix_obj_run_destructors.exit877, label %45
 
 45:                                               ; preds = %40
-  %46 = and i64 %41, 4294967295
+  %46 = and i64 %41, 2147483647
   %47 = getelementptr inbounds [4096 x i8], ptr %15, i64 0, i64 %46
   store i8 0, ptr %47, align 1
   %48 = getelementptr inbounds i8, ptr %1, i64 268
@@ -2894,7 +2894,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %1423, 
   br i1 %1504, label %1505, label %.loopexit901
 
 1505:                                             ; preds = %._crit_edge1062
-  %1506 = and i64 %1502, 4294967295
+  %1506 = and i64 %1502, 2147483647
   %1507 = call ptr @PMIx_Disk_stats_create(i64 noundef %1506) #17
   %1508 = getelementptr inbounds i8, ptr %2, i64 72
   store ptr %1507, ptr %1508, align 8
@@ -3227,7 +3227,7 @@ pmix_obj_new_tma.exit865:                         ; preds = %.lr.ph.i.i862, %161
   br i1 %1671, label %1672, label %.loopexit
 
 1672:                                             ; preds = %._crit_edge1074
-  %1673 = and i64 %1669, 4294967295
+  %1673 = and i64 %1669, 2147483647
   %1674 = call ptr @PMIx_Net_stats_create(i64 noundef %1673) #17
   %1675 = getelementptr inbounds i8, ptr %2, i64 88
   store ptr %1674, ptr %1675, align 8

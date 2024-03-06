@@ -2374,7 +2374,7 @@ _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit28:    ; preds = %if.then.i26, %if.en
   br i1 %cmp.i.i, label %if.then.i.i, label %while.body.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit28
-  %conv.i.i = and i64 %sub, 4294967295
+  %conv.i.i = and i64 %sub, 127
   %call2.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull @_ZZL13write_paddingILc32EERN4llvh11raw_ostreamES2_jE5Chars, i64 noundef %conv.i.i)
   br label %return
 
@@ -2393,7 +2393,7 @@ sw.bb15:                                          ; preds = %if.end
   br i1 %cmp.i.i29, label %if.then.i.i37, label %while.body.i.i30
 
 if.then.i.i37:                                    ; preds = %sw.bb15
-  %conv.i.i38 = and i64 %sub, 4294967295
+  %conv.i.i38 = and i64 %sub, 127
   %call2.i.i39 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull @_ZZL13write_paddingILc32EERN4llvh11raw_ostreamES2_jE5Chars, i64 noundef %conv.i.i38)
   br label %_ZN4llvh11raw_ostream6indentEj.exit40
 
@@ -2441,7 +2441,7 @@ sw.bb21:                                          ; preds = %if.end
   br i1 %cmp.i.i54, label %if.then.i.i62, label %while.body.i.i55
 
 if.then.i.i62:                                    ; preds = %sw.bb21
-  %conv.i.i63 = and i64 %div15, 4294967295
+  %conv.i.i63 = and i64 %div15, 127
   %call2.i.i64 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull @_ZZL13write_paddingILc32EERN4llvh11raw_ostreamES2_jE5Chars, i64 noundef %conv.i.i63)
   br label %_ZN4llvh11raw_ostream6indentEj.exit65
 
@@ -2489,7 +2489,7 @@ _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit78:    ; preds = %if.then.i76, %if.en
   br i1 %cmp.i.i79, label %if.then.i.i87, label %while.body.i.i80
 
 if.then.i.i87:                                    ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit78
-  %conv.i.i88 = and i64 %sub28, 4294967295
+  %conv.i.i88 = and i64 %sub28, 127
   %call2.i.i89 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull @_ZZL13write_paddingILc32EERN4llvh11raw_ostreamES2_jE5Chars, i64 noundef %conv.i.i88)
   br label %return
 

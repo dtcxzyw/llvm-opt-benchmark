@@ -234,7 +234,7 @@ if.end.i.i:                                       ; preds = %for.body.i9.i
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %entropy.i.i, i8 0, i64 64, i1 false)
-  %wide.trip.count.i.i = and i64 %call2.i.i, 4294967295
+  %wide.trip.count.i.i = and i64 %call2.i.i, 2147483647
   br label %for.body12.i.i
 
 for.body12.i.i:                                   ; preds = %for.inc.i.i, %if.end7.i.i

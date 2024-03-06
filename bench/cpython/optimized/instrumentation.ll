@@ -2528,7 +2528,7 @@ if.end38.i:                                       ; preds = %if.then27.i
   br i1 %44, label %for.body.preheader.i.i, label %for.cond9.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.end38.i
-  %45 = and i64 %code.val.i59.i, 4294967295
+  %45 = and i64 %code.val.i59.i, 2147483647
   br label %for.body.i66.i
 
 for.cond9.preheader.i.i:                          ; preds = %for.body.i66.i, %if.end38.i
@@ -3188,7 +3188,7 @@ if.end57.i:                                       ; preds = %if.then46.i
   br i1 %cmp1.i73.i, label %for.body.lr.ph.i74.i, label %if.end59.i
 
 for.body.lr.ph.i74.i:                             ; preds = %if.end57.i
-  %wide.trip.count.i76.i = and i64 %code.val39.i, 4294967295
+  %wide.trip.count.i76.i = and i64 %code.val39.i, 2147483647
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %158, i8 %17, i64 %wide.trip.count.i76.i, i1 false)
   %.pre618.pre = load ptr, ptr %_co_monitoring.i.i, align 8
   br label %if.end59.i
@@ -3223,7 +3223,7 @@ for.cond.preheader.i:                             ; preds = %if.then67.i
   br i1 %cmp8089.i, label %for.body.preheader.i, label %if.end85.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %wide.trip.count.i = and i64 %code.val103, 4294967295
+  %wide.trip.count.i = and i64 %code.val103, 2147483647
   br label %for.body.i
 
 if.then77.i:                                      ; preds = %if.then67.i
@@ -3273,7 +3273,7 @@ for.cond105.preheader.i:                          ; preds = %if.then92.i
   br i1 %cmp10691.i, label %for.body108.preheader.i, label %if.end10
 
 for.body108.preheader.i:                          ; preds = %for.cond105.preheader.i
-  %wide.trip.count98.i = and i64 %code.val103, 4294967295
+  %wide.trip.count98.i = and i64 %code.val103, 2147483647
   br label %for.body108.i
 
 if.then101.i:                                     ; preds = %if.then92.i

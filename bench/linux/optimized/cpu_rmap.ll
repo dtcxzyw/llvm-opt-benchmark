@@ -76,13 +76,13 @@ define dso_local ptr @alloc_cpu_rmap(i32 noundef %0, i32 noundef %1) #0 align 16
 30:                                               ; preds = %26
   %31 = urem i32 %28, %0
   %32 = trunc i32 %31 to i16
-  %33 = and i64 %27, 4294967295
+  %33 = and i64 %27, 63
   %34 = getelementptr [0 x %struct.anon], ptr %20, i64 0, i64 %33
   store i16 %32, ptr %34, align 4
   %35 = getelementptr inbounds i8, ptr %34, i64 2
   store i16 -1, ptr %35, align 2
-  %36 = add i64 %27, 1
-  %37 = and i64 %36, 4294967295
+  %36 = add nuw nsw i64 %27, 1
+  %37 = and i64 %36, 127
   %38 = icmp ugt i64 %37, 63
   br i1 %38, label %.thread, label %21, !prof !6, !llvm.loop !7
 
@@ -158,7 +158,7 @@ define dso_local i32 @cpu_rmap_add(ptr nocapture noundef readonly %0, ptr nounde
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %18
-  %22 = and i64 %11, 4294967295
+  %22 = and i64 %11, 2147483647
   %23 = getelementptr ptr, ptr %8, i64 %22
   store ptr %1, ptr %23, align 8
   br label %.thread
@@ -537,7 +537,7 @@ define dso_local i32 @irq_cpu_rmap_add(ptr noundef %0, i32 noundef %1) #0 align 
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %34
-  %38 = and i64 %27, 4294967295
+  %38 = and i64 %27, 2147483647
   %39 = getelementptr ptr, ptr %24, i64 %38
   store ptr %4, ptr %39, align 8
   %40 = trunc i64 %27 to i16

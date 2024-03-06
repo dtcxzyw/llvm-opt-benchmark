@@ -1154,7 +1154,7 @@ define dso_local void @apply_retpolines(ptr noundef %0, ptr noundef readnone %1)
   %79 = zext nneg i32 %77 to i64
   %80 = getelementptr i8, ptr %9, i64 %79
   %81 = getelementptr i8, ptr %22, i64 %79
-  %82 = and i64 %54, 4294967295
+  %82 = and i64 %54, 15
   %83 = getelementptr [0 x [32 x i8]], ptr @__x86_indirect_call_thunk_array, i64 0, i64 %82
   %84 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %80) #22, !srcloc !56
   %85 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %81) #22, !srcloc !57
@@ -1168,7 +1168,7 @@ define dso_local void @apply_retpolines(ptr noundef %0, ptr noundef readnone %1)
   %90 = zext nneg i32 %88 to i64
   %91 = getelementptr i8, ptr %9, i64 %90
   %92 = getelementptr i8, ptr %22, i64 %90
-  %93 = and i64 %54, 4294967295
+  %93 = and i64 %54, 15
   %94 = getelementptr [0 x [32 x i8]], ptr @__x86_indirect_jump_thunk_array, i64 0, i64 %93
   %95 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %91) #22, !srcloc !56
   %96 = call ptr asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %92) #22, !srcloc !57

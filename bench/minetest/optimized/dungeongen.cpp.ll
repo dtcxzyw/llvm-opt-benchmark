@@ -846,11 +846,11 @@ define dso_local void @_ZN10DungeonGen11makeDungeonEN3irr4core8vector3dIsEE(ptr 
   %115 = load i16, ptr %106, align 2, !tbaa !63
   %116 = sext i16 %115 to i64
   %117 = load ptr, ptr %101, align 8, !tbaa !105
-  %118 = and i32 %52, 65535
+  %118 = and i32 %52, 32767
   %119 = zext nneg i32 %118 to i64
-  %120 = and i32 %42, 65535
+  %120 = and i32 %42, 32767
   %121 = zext nneg i32 %120 to i64
-  %122 = and i32 %47, 65535
+  %122 = and i32 %47, 32767
   %123 = zext nneg i32 %122 to i64
   br label %124
 
@@ -1522,7 +1522,7 @@ define dso_local void @_ZN10DungeonGen8makeRoomEN3irr4core8vector3dIsEES3_(ptr n
 
 162:                                              ; preds = %160
   %163 = trunc i48 %1 to i32
-  %164 = and i32 %163, 65535
+  %164 = and i32 %163, 32767
   %.pre61.pre.pre = load ptr, ptr %0, align 8, !tbaa !4
   br label %310
 

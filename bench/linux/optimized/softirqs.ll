@@ -57,8 +57,8 @@ define internal noundef i32 @show_softirqs(ptr noundef %0, ptr nocapture readnon
 
 13:                                               ; preds = %9
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %11) #3
-  %14 = add i64 %10, 1
-  %15 = and i64 %14, 4294967295
+  %14 = add nuw nsw i64 %10, 1
+  %15 = and i64 %14, 127
   %16 = icmp ugt i64 %15, 63
   br i1 %16, label %.thread, label %3, !prof !6, !llvm.loop !7
 

@@ -631,7 +631,7 @@ prune_element_hashtable.exit:                     ; preds = %124, %102
 283:                                              ; preds = %279
   %284 = load i32, ptr %0, align 8
   %285 = call i32 @llvm.smax.i32(i32 %284, i32 2)
-  %286 = and i64 %280, 4294967295
+  %286 = and i64 %280, 2147483647
   %287 = shl nuw nsw i64 %286, 3
   %288 = call ptr @palloc(i64 noundef %287) #7
   call void @hash_seq_init(ptr noundef nonnull %7, ptr noundef %39) #7

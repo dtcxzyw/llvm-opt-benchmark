@@ -3138,7 +3138,7 @@ define internal fastcc i32 @__cpa_process_fault(ptr nocapture noundef %0, i64 no
   br label %316
 
 274:                                              ; preds = %.thread23
-  %275 = and i64 %.in, 4294967295
+  %275 = and i64 %.in, 2147483647
   store i64 %275, ptr %82, align 8
   br label %316
 

@@ -1332,7 +1332,7 @@ entry:
   br i1 %cmp6.i.i, label %for.body.preheader.i.i, label %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i
 
 for.body.preheader.i.i:                           ; preds = %entry
-  %wide.trip.count.i.i = and i64 %call.i.i, 4294967295
+  %wide.trip.count.i.i = and i64 %call.i.i, 2147483647
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -1354,7 +1354,7 @@ _ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i: ; preds = %for.body.i.i, %e
   br i1 %cmp6.i3.i, label %for.body.preheader.i5.i, label %_ZNK4cvc58internal8Rational4hashEv.exit
 
 for.body.preheader.i5.i:                          ; preds = %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i
-  %wide.trip.count.i6.i = and i64 %call.i1.i, 4294967295
+  %wide.trip.count.i6.i = and i64 %call.i1.i, 2147483647
   br label %for.body.i7.i
 
 for.body.i7.i:                                    ; preds = %for.body.i7.i, %for.body.preheader.i5.i
@@ -1429,7 +1429,7 @@ entry:
   br i1 %cmp6.i.i.i, label %for.body.preheader.i.i.i, label %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %entry
-  %wide.trip.count.i.i.i = and i64 %call.i.i.i, 4294967295
+  %wide.trip.count.i.i.i = and i64 %call.i.i.i, 2147483647
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.preheader.i.i.i
@@ -1451,7 +1451,7 @@ _ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i.i: ; preds = %for.body.i.i.i
   br i1 %cmp6.i3.i.i, label %for.body.preheader.i5.i.i, label %_ZNK4cvc58internal19RealAlgebraicNumber4hashEv.exit
 
 for.body.preheader.i5.i.i:                        ; preds = %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i.i
-  %wide.trip.count.i6.i.i = and i64 %call.i1.i.i, 4294967295
+  %wide.trip.count.i6.i.i = and i64 %call.i1.i.i, 2147483647
   br label %for.body.i7.i.i
 
 for.body.i7.i.i:                                  ; preds = %for.body.i7.i.i, %for.body.preheader.i5.i.i

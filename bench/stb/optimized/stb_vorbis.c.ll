@@ -14201,7 +14201,7 @@ for.end171:                                       ; preds = %lor.lhs.false156, %
   br i1 %cmp145, label %for.body175.lr.ph, label %for.end182
 
 for.body175.lr.ph:                                ; preds = %for.end171
-  %wide.trip.count = and i64 %indvars.iv, 4294967295
+  %wide.trip.count = and i64 %indvars.iv, 2147483647
   br label %for.body175
 
 for.body175:                                      ; preds = %for.body175.lr.ph, %skip.exit

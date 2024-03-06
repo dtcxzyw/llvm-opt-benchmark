@@ -316,7 +316,7 @@ define internal fastcc noundef i64 @__se_sys_iopl(i64 noundef %0) unnamed_addr #
   br i1 %17, label %18, label %35
 
 18:                                               ; preds = %15, %11
-  %19 = and i64 %0, 4294967295
+  %19 = and i64 %0, 3
   store i64 %19, ptr %7, align 8
   %20 = icmp eq i32 %2, 3
   br i1 %20, label %25, label %21

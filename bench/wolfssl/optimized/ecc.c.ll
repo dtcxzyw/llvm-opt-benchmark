@@ -2017,7 +2017,7 @@ wc_ecc_get_curve_idx_from_name.exit:              ; preds = %land.lhs.true.i
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %wc_ecc_get_curve_idx_from_name.exit
-  %idxprom = and i64 %indvars.iv.i, 4294967295
+  %idxprom = and i64 %indvars.iv.i, 2147483647
   %arrayidx = getelementptr inbounds [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 8
   br label %return
@@ -2058,7 +2058,7 @@ wc_ecc_get_curve_idx_from_name.exit:              ; preds = %land.lhs.true.i
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %wc_ecc_get_curve_idx_from_name.exit
-  %idxprom = and i64 %indvars.iv.i, 4294967295
+  %idxprom = and i64 %indvars.iv.i, 2147483647
   %id = getelementptr inbounds [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %idxprom, i32 1
   %2 = load i32, ptr %id, align 4
   br label %return
@@ -4499,7 +4499,7 @@ if.end18:                                         ; preds = %if.end12
   br i1 %or.cond5.not, label %if.then28, label %if.end228
 
 if.then28:                                        ; preds = %if.end18
-  %sub = sub i32 %cond, %call19
+  %sub = sub nsw i32 %cond, %call19
   %idx.ext = zext i32 %sub to i64
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %idx.ext
   %call29 = tail call i32 @sp_to_unsigned_bin(ptr noundef nonnull %kA, ptr noundef nonnull %add.ptr) #19
@@ -4507,7 +4507,7 @@ if.then28:                                        ; preds = %if.end18
   br i1 %cmp30, label %if.end36, label %if.end228
 
 if.end36:                                         ; preds = %if.then28
-  %sub32 = sub i32 %cond, %call20
+  %sub32 = sub nsw i32 %cond, %call20
   %idx.ext33 = zext i32 %sub32 to i64
   %add.ptr34 = getelementptr inbounds i8, ptr %call13, i64 %idx.ext33
   %call35 = tail call i32 @sp_to_unsigned_bin(ptr noundef nonnull %kB, ptr noundef nonnull %add.ptr34) #19

@@ -4832,7 +4832,7 @@ Abc_Clock.exit96:                                 ; preds = %76, %81
   br i1 %91, label %.lr.ph.i98, label %Llb_ManResultPrint.exit
 
 .lr.ph.i98:                                       ; preds = %Abc_Clock.exit96
-  %92 = and i64 %indvars.iv136, 4294967295
+  %92 = and i64 %indvars.iv136, 2147483647
   br label %93
 
 93:                                               ; preds = %98, %.lr.ph.i98

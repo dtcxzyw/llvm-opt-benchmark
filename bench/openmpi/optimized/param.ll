@@ -412,7 +412,7 @@ define internal fastcc void @prte_info_show_mca_group_params(ptr noundef %0) unn
   br i1 %10, label %.lr.ph32.preheader, label %._crit_edge33
 
 .lr.ph32.preheader:                               ; preds = %1
-  %wide.trip.count = and i64 %.val, 4294967295
+  %wide.trip.count = and i64 %.val, 2147483647
   %11 = getelementptr inbounds i8, ptr %0, i64 168
   br label %.lr.ph32
 
@@ -499,7 +499,7 @@ define internal fastcc void @prte_info_show_mca_group_params(ptr noundef %0) unn
   br i1 %49, label %.lr.ph36.preheader, label %._crit_edge37
 
 .lr.ph36.preheader:                               ; preds = %._crit_edge33
-  %wide.trip.count46 = and i64 %.val27, 4294967295
+  %wide.trip.count46 = and i64 %.val27, 2147483647
   br label %.lr.ph36
 
 .lr.ph36:                                         ; preds = %.lr.ph36.preheader, %55

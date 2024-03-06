@@ -392,7 +392,7 @@ define dso_local i64 @window_ntile(ptr nocapture noundef %0) local_unnamed_addr 
 
 23:                                               ; preds = %16
   store i32 1, ptr %5, align 8
-  %24 = and i64 %11, 4294967295
+  %24 = and i64 %11, 2147483647
   %25 = sdiv i64 %10, %24
   %26 = srem i64 %10, %24
   %27 = getelementptr inbounds i8, ptr %5, i64 16

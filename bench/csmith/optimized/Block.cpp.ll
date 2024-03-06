@@ -5107,7 +5107,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPK7CFGEdgeSt6vectorIS4_SaIS4_EEEES9_ET
   br i1 %184, label %.lr.ph194.preheader, label %.loopexit
 
 .lr.ph194.preheader:                              ; preds = %.preheader
-  %wide.trip.count = and i64 %182, 4294967295
+  %wide.trip.count = and i64 %182, 2147483647
   br label %.lr.ph194
 
 .lr.ph191:                                        ; preds = %._crit_edge, %209

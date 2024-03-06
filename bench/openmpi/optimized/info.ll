@@ -310,7 +310,7 @@ opal_obj_run_destructors.exit48:                  ; preds = %.lr.ph.i45, %opal_o
 
 .thread.i:                                        ; preds = %23
   %26 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_info_f_to_c_table, i64 0, i32 8), align 8
-  %27 = and i64 %.02888, 4294967295
+  %27 = and i64 %.02888, 2147483647
   %28 = getelementptr inbounds ptr, ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   br label %opal_pointer_array_get_item.exit
@@ -321,7 +321,7 @@ opal_obj_run_destructors.exit48:                  ; preds = %.lr.ph.i45, %opal_o
   %.pre1.i = and i8 %.pre.i, 1
   %32 = icmp eq i8 %.pre1.i, 0
   %33 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_info_f_to_c_table, i64 0, i32 8), align 8
-  %34 = and i64 %.02888, 4294967295
+  %34 = and i64 %.02888, 2147483647
   %35 = getelementptr inbounds ptr, ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
   br i1 %32, label %opal_pointer_array_get_item.exit, label %37
@@ -406,7 +406,7 @@ opal_obj_run_destructors.exit56:                  ; preds = %.lr.ph.i53, %58
 
 .thread.i61:                                      ; preds = %68
   %71 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_info_f_to_c_table, i64 0, i32 8), align 8
-  %72 = and i64 %.02888, 4294967295
+  %72 = and i64 %.02888, 2147483647
   %73 = getelementptr inbounds ptr, ptr %71, i64 %72
   %74 = load ptr, ptr %73, align 8
   br label %opal_pointer_array_get_item.exit62
@@ -417,7 +417,7 @@ opal_obj_run_destructors.exit56:                  ; preds = %.lr.ph.i53, %58
   %.pre1.i59 = and i8 %.pre.i58, 1
   %77 = icmp eq i8 %.pre1.i59, 0
   %78 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @ompi_info_f_to_c_table, i64 0, i32 8), align 8
-  %79 = and i64 %.02888, 4294967295
+  %79 = and i64 %.02888, 2147483647
   %80 = getelementptr inbounds ptr, ptr %78, i64 %79
   %81 = load ptr, ptr %80, align 8
   br i1 %77, label %opal_pointer_array_get_item.exit62, label %82

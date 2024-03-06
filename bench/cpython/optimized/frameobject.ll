@@ -3419,7 +3419,7 @@ if.end34:                                         ; preds = %if.end27
   br i1 %cmp9.i, label %for.body.preheader.i, label %if.then38
 
 for.body.preheader.i:                             ; preds = %if.end34
-  %wide.trip.count.i = and i64 %call.val, 4294967295
+  %wide.trip.count.i = and i64 %call.val, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -3467,7 +3467,7 @@ for.body.preheader:                               ; preds = %if.end41
   %idxprom = ashr i64 %sext, 32
   %arrayidx = getelementptr i64, ptr %call42, i64 %idxprom
   %22 = load i64, ptr %arrayidx, align 8
-  %wide.trip.count = and i64 %call.val, 4294967295
+  %wide.trip.count = and i64 %call.val, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc

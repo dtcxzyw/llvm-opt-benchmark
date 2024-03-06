@@ -1660,7 +1660,7 @@ select.unfold:                                    ; preds = %11, %3, %8
   br i1 %21, label %.thread7, label %22
 
 22:                                               ; preds = %20
-  %23 = and i64 %15, 4294967295
+  %23 = and i64 %15, 2147483647
   %24 = shl nuw nsw i64 %23, 3
   %25 = add nuw nsw i64 %24, 32
   %26 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %25, i32 noundef 3136) #17

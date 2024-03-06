@@ -2354,7 +2354,7 @@ define internal fastcc noundef i32 @prte_ras_slurm_discover(ptr noundef %0, ptr 
   br i1 %.not182, label %.loopexit163.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %19
-  %22 = and i64 %20, 4294967295
+  %22 = and i64 %20, 2147483647
   %23 = add nuw i32 %21, 1
   br label %.lr.ph
 
@@ -2445,7 +2445,7 @@ define internal fastcc noundef i32 @prte_ras_slurm_discover(ptr noundef %0, ptr 
   br i1 %50, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %43
-  %wide.trip.count.i = and i64 %48, 4294967295
+  %wide.trip.count.i = and i64 %48, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %58, %.lr.ph.preheader.i

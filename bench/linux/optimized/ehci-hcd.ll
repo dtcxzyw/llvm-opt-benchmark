@@ -2327,7 +2327,7 @@ define internal noundef i32 @ehci_hrtimer_func(ptr noundef %0) #0 align 16 {
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %16
-  %21 = and i64 %17, 4294967295
+  %21 = and i64 %17, 15
   %22 = getelementptr [12 x i64], ptr %10, i64 0, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = icmp slt i64 %7, %23
@@ -2354,8 +2354,8 @@ define internal noundef i32 @ehci_hrtimer_func(ptr noundef %0) #0 align 16 {
   br label %35
 
 35:                                               ; preds = %34, %28, %25
-  %36 = add i64 %17, 1
-  %37 = and i64 %36, 4294967295
+  %36 = add nuw nsw i64 %17, 1
+  %37 = and i64 %36, 31
   %38 = icmp ugt i64 %37, 11
   br i1 %38, label %.thread, label %11, !prof !29, !llvm.loop !30
 

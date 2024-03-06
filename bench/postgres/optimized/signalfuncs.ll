@@ -190,7 +190,7 @@ define dso_local noundef i64 @pg_terminate_backend(ptr nocapture noundef readonl
   br i1 %or.cond, label %28, label %pg_wait_until_termination.exit
 
 28:                                               ; preds = %25
-  %29 = and i64 %6, 4294967295
+  %29 = and i64 %6, 2147483647
   br label %30
 
 30:                                               ; preds = %44, %28

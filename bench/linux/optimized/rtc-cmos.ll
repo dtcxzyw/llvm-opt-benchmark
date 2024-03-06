@@ -1312,7 +1312,7 @@ define internal noundef i32 @cmos_set_alarm(ptr noundef %0, ptr noundef %1) #3 a
   br i1 %121, label %122, label %125
 
 122:                                              ; preds = %119
-  %123 = and i32 %100, 255
+  %123 = and i32 %100, 31
   %124 = call zeroext i8 @_bin2bcd(i32 noundef %123) #11
   br label %125
 
@@ -1323,7 +1323,7 @@ define internal noundef i32 @cmos_set_alarm(ptr noundef %0, ptr noundef %1) #3 a
   br i1 %127, label %128, label %131
 
 128:                                              ; preds = %125
-  %129 = and i32 %103, 255
+  %129 = and i32 %103, 63
   %130 = call zeroext i8 @_bin2bcd(i32 noundef %129) #11
   br label %131
 
@@ -1334,7 +1334,7 @@ define internal noundef i32 @cmos_set_alarm(ptr noundef %0, ptr noundef %1) #3 a
   br i1 %133, label %134, label %137
 
 134:                                              ; preds = %131
-  %135 = and i32 %105, 255
+  %135 = and i32 %105, 63
   %136 = call zeroext i8 @_bin2bcd(i32 noundef %135) #11
   br label %137
 

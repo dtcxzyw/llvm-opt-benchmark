@@ -1188,7 +1188,7 @@ define noundef i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0, ptr nou
   br i1 %47, label %.lr.ph.preheader.i, label %.loopexit219
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph270
-  %wide.trip.count.i = and i64 %45, 4294967295
+  %wide.trip.count.i = and i64 %45, 2147483647
   br label %.lr.ph.i
 
 48:                                               ; preds = %.lr.ph.i
@@ -1503,7 +1503,7 @@ define noundef i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0, ptr nou
   br i1 %209, label %.lr.ph.preheader.i204, label %.loopexit
 
 .lr.ph.preheader.i204:                            ; preds = %.lr.ph292
-  %wide.trip.count.i205 = and i64 %207, 4294967295
+  %wide.trip.count.i205 = and i64 %207, 2147483647
   br label %.lr.ph.i206
 
 210:                                              ; preds = %.lr.ph.i206
@@ -2729,7 +2729,7 @@ Vec_StrPush.exit108.i:                            ; preds = %240, %Vec_StrGrow.e
 .lr.ph.i.i:                                       ; preds = %267
   %272 = getelementptr inbounds i8, ptr %268, i64 4
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %268, i64 8
-  %wide.trip.count.i.i = and i64 %269, 4294967295
+  %wide.trip.count.i.i = and i64 %269, 2147483647
   br label %273
 
 273:                                              ; preds = %Vec_StrPush.exit.i.i, %.lr.ph.i.i
@@ -3495,7 +3495,7 @@ Vec_StrPush.exit158.i:                            ; preds = %519, %Vec_StrGrow.e
   br i1 %645, label %.lr.ph.preheader.i.i, label %Io_ReadBlifCleanName.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph.i131
-  %wide.trip.count.i.i132 = and i64 %643, 4294967295
+  %wide.trip.count.i.i132 = and i64 %643, 2147483647
   br label %.lr.ph.i.i133
 
 646:                                              ; preds = %.lr.ph.i.i133

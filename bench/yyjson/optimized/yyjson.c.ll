@@ -10222,7 +10222,7 @@ if.then2122.i3109:                                ; preds = %if.then2118.i3094
   br label %if.end2129.i3101
 
 if.else2125.i3097:                                ; preds = %if.then2118.i3094
-  %idxprom2126.i3098 = and i64 %storemerge7773.in, 4294967295
+  %idxprom2126.i3098 = and i64 %storemerge7773.in, 2147483647
   %arrayidx2127.i3099 = getelementptr inbounds [23 x double], ptr @f64_pow10_table, i64 0, i64 %idxprom2126.i3098
   %197 = load double, ptr %arrayidx2127.i3099, align 8
   %mul2128.i3100 = fmul double %197, %conv2119.i3095
@@ -17192,7 +17192,7 @@ if.then2122.i5094:                                ; preds = %if.then2118.i5079
   br label %if.end2129.i5086
 
 if.else2125.i5082:                                ; preds = %if.then2118.i5079
-  %idxprom2126.i5083 = and i64 %storemerge7752.in, 4294967295
+  %idxprom2126.i5083 = and i64 %storemerge7752.in, 2147483647
   %arrayidx2127.i5084 = getelementptr inbounds [23 x double], ptr @f64_pow10_table, i64 0, i64 %idxprom2126.i5083
   %937 = load double, ptr %arrayidx2127.i5084, align 8
   %mul2128.i5085 = fmul double %937, %conv2119.i5080
@@ -20741,7 +20741,7 @@ if.then2122.i:                                    ; preds = %if.then2118.i
   br label %if.end2129.i
 
 if.else2125.i:                                    ; preds = %if.then2118.i
-  %idxprom2126.i = and i64 %storemerge7731.in, 4294967295
+  %idxprom2126.i = and i64 %storemerge7731.in, 2147483647
   %arrayidx2127.i = getelementptr inbounds [23 x double], ptr @f64_pow10_table, i64 0, i64 %idxprom2126.i
   %1258 = load double, ptr %arrayidx2127.i, align 8
   %mul2128.i = fmul double %1258, %conv2119.i
@@ -27649,7 +27649,7 @@ if.then2122.i1124:                                ; preds = %if.then2118.i1109
   br label %if.end2129.i1116
 
 if.else2125.i1112:                                ; preds = %if.then2118.i1109
-  %idxprom2126.i1113 = and i64 %storemerge7711.in, 4294967295
+  %idxprom2126.i1113 = and i64 %storemerge7711.in, 2147483647
   %arrayidx2127.i1114 = getelementptr inbounds [23 x double], ptr @f64_pow10_table, i64 0, i64 %idxprom2126.i1113
   %2019 = load double, ptr %arrayidx2127.i1114, align 8
   %mul2128.i1115 = fmul double %2019, %conv2119.i1110
@@ -31093,7 +31093,7 @@ if.then2122.i.i:                                  ; preds = %if.then2118.i.i
   br label %if.end2129.i.i
 
 if.else2125.i.i:                                  ; preds = %if.then2118.i.i
-  %idxprom2126.i.i = and i64 %storemerge.in.i, 4294967295
+  %idxprom2126.i.i = and i64 %storemerge.in.i, 2147483647
   %arrayidx2127.i.i = getelementptr inbounds [23 x double], ptr @f64_pow10_table, i64 0, i64 %idxprom2126.i.i
   %2335 = load double, ptr %arrayidx2127.i.i, align 8
   %mul2128.i.i = fmul double %2335, %conv2119.i.i
@@ -35862,7 +35862,7 @@ if.then2122.i:                                    ; preds = %if.then2118.i
   br label %if.end2129.i
 
 if.else2125.i:                                    ; preds = %if.then2118.i
-  %idxprom2126.i = and i64 %storemerge.in, 4294967295
+  %idxprom2126.i = and i64 %storemerge.in, 2147483647
   %arrayidx2127.i = getelementptr inbounds [23 x double], ptr @f64_pow10_table, i64 0, i64 %idxprom2126.i
   %153 = load double, ptr %arrayidx2127.i, align 8
   %mul2128.i = fmul double %153, %conv2119.i

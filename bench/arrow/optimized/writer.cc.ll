@@ -2575,7 +2575,7 @@ for.cond.preheader.i.i:                           ; preds = %do.end8.i
   br i1 %cmp88.i.i, label %_ZN5arrow6StatusD2Ev.exit.preheader.i.i, label %_ZN5arrow6StatusD2Ev.exit124.thread198
 
 _ZN5arrow6StatusD2Ev.exit.preheader.i.i:          ; preds = %for.cond.preheader.i.i
-  %wide.trip.count.i.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count.i.i = and i64 %sub.ptr.div.i.i, 2147483647
   br label %_ZN5arrow6StatusD2Ev.exit.i.i
 
 if.then.i.i:                                      ; preds = %do.end8.i
@@ -2622,7 +2622,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %_ZNSt6vectorIN5arro
   %_M_refcount.i.i.i11.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i.i.i.i, i64 8
   %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i.i, i64 8
   %storage_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1.i.i.i, i64 8
-  %wide.trip.count.i.i.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count.i.i.i = and i64 %sub.ptr.div.i.i, 2147483647
   %53 = ptrtoint ptr %this to i64
   br label %for.body.i.i.i
 

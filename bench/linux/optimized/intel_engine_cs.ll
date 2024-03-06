@@ -815,8 +815,8 @@ define dso_local noundef i32 @intel_engines_init_mmio(ptr noundef %0) local_unna
   br i1 %207, label %208, label %.thread.loopexit
 
 208:                                              ; preds = %203
-  %209 = add i64 %205, 22
-  %210 = and i64 %209, 4294967295
+  %209 = add nuw nsw i64 %205, 22
+  %210 = and i64 %209, 31
   %211 = shl nuw nsw i64 1, %210
   %212 = load i32, ptr %185, align 4
   %213 = trunc i64 %211 to i32
@@ -836,8 +836,8 @@ define dso_local noundef i32 @intel_engines_init_mmio(ptr noundef %0) local_unna
   %222 = phi ptr [ %220, %218 ], [ null, %208 ]
   %223 = load i32, ptr %6, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %222, i32 noundef 1, ptr noundef nonnull @.str.28, i32 noundef %223, i32 noundef %206) #18
-  %224 = add i64 %205, 1
-  %225 = and i64 %224, 4294967295
+  %224 = add nuw nsw i64 %205, 1
+  %225 = and i64 %224, 7
   %226 = icmp ugt i64 %225, 3
   br i1 %226, label %.thread.loopexit, label %196, !prof !25, !llvm.loop !26
 

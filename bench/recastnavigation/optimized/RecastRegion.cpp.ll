@@ -4141,7 +4141,7 @@ _ZN10rcIntArray6resizeEi.exit.i:                  ; preds = %_ZN12rcVectorBaseIi
 
 .lr.ph162.i:                                      ; preds = %._crit_edge.i424
   %893 = zext i16 %853 to i32
-  %wide.trip.count.i = and i64 %855, 4294967295
+  %wide.trip.count.i = and i64 %855, 2147483647
   br label %894
 
 894:                                              ; preds = %903, %.lr.ph162.i
@@ -9600,7 +9600,7 @@ _ZN10rcIntArray6resizeEi.exit.i:                  ; preds = %.sink.split.i.i, %8
 .lr.ph699.i:                                      ; preds = %_ZN10rcIntArray6resizeEi.exit.i
   %882 = getelementptr inbounds i8, ptr %827, i64 32
   %883 = getelementptr inbounds i8, ptr %827, i64 6
-  %wide.trip.count763.i = and i64 %879, 4294967295
+  %wide.trip.count763.i = and i64 %879, 2147483647
   br label %884
 
 884:                                              ; preds = %.loopexit630.i, %.lr.ph699.i

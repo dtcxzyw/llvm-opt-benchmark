@@ -6401,7 +6401,7 @@ rb_long2int_inline.exit:                          ; preds = %12
 
 20:                                               ; preds = %rb_long2int_inline.exit
   store i64 0, ptr %7, align 8
-  %21 = ashr exact i64 %sext, 29
+  %21 = lshr exact i64 %sext, 29
   %22 = alloca i8, i64 %21, align 16
   br label %28
 

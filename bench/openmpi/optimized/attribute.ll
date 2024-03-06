@@ -3343,7 +3343,7 @@ define i32 @ompi_attr_delete_all(i32 noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %40, label %.lr.ph40.preheader, label %._crit_edge41
 
 .lr.ph40.preheader:                               ; preds = %._crit_edge
-  %41 = and i64 %.val, 4294967295
+  %41 = and i64 %.val, 2147483647
   br label %.lr.ph40
 
 42:                                               ; preds = %.lr.ph40

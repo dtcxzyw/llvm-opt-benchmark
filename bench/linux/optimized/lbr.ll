@@ -1197,7 +1197,7 @@ define dso_local void @release_lbr_buffers() local_unnamed_addr #0 align 16 {
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %7
-  %12 = and i64 %8, 4294967295
+  %12 = and i64 %8, 63
   %13 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = tail call ptr @x86_get_pmu(i32 noundef %9) #11
@@ -1220,8 +1220,8 @@ define dso_local void @release_lbr_buffers() local_unnamed_addr #0 align 16 {
   br label %26
 
 26:                                               ; preds = %25, %19, %11
-  %27 = add i64 %8, 1
-  %28 = and i64 %27, 4294967295
+  %27 = add nuw nsw i64 %8, 1
+  %28 = and i64 %27, 127
   %29 = icmp ugt i64 %28, 63
   br i1 %29, label %.thread, label %1, !prof !22, !llvm.loop !23
 
@@ -1258,7 +1258,7 @@ define dso_local void @reserve_lbr_buffers() local_unnamed_addr #0 align 16 {
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %7
-  %12 = and i64 %8, 4294967295
+  %12 = and i64 %8, 63
   %13 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = tail call ptr @x86_get_pmu(i32 noundef %9) #11
@@ -1285,8 +1285,8 @@ define dso_local void @reserve_lbr_buffers() local_unnamed_addr #0 align 16 {
   br label %31
 
 31:                                               ; preds = %25, %19, %11
-  %32 = add i64 %8, 1
-  %33 = and i64 %32, 4294967295
+  %32 = add nuw nsw i64 %8, 1
+  %33 = and i64 %32, 127
   %34 = icmp ugt i64 %33, 63
   br i1 %34, label %.thread, label %1, !prof !22, !llvm.loop !24
 

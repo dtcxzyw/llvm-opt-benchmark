@@ -3315,7 +3315,7 @@ if.then2.i:                                       ; preds = %sw.bb.i
   br i1 %cmp3.i, label %if.then4.i, label %if.end51
 
 if.then4.i:                                       ; preds = %if.then2.i
-  %10 = and i64 %call43, 4294967295
+  %10 = and i64 %call43, 2147483647
   %11 = getelementptr i32, ptr %add.ptr.i, i64 %10
   %arrayidx.i = getelementptr i8, ptr %11, i64 4
   %12 = load i32, ptr %arrayidx.i, align 4
@@ -3331,7 +3331,7 @@ sw.bb7.i:                                         ; preds = %if.end.i
   br i1 %cmp11.i, label %if.then12.i, label %if.end51
 
 if.then12.i:                                      ; preds = %sw.bb7.i
-  %15 = and i64 %call43, 4294967295
+  %15 = and i64 %call43, 2147483647
   %16 = getelementptr i16, ptr %add.ptr10.i, i64 %15
   %arrayidx15.i = getelementptr i8, ptr %16, i64 2
   %17 = load i16, ptr %arrayidx15.i, align 2

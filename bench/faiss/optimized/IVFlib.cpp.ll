@@ -4034,7 +4034,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 67:                                               ; preds = %50
   %68 = zext i8 %60 to i64
-  %69 = and i64 %58, 4294967295
+  %69 = and i64 %58, 2147483647
   %70 = add nsw i32 %59, -8
   %71 = icmp ugt i32 %70, 8
   br i1 %71, label %.lr.ph.i, label %._crit_edge.i

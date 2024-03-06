@@ -683,7 +683,7 @@ define dso_local i32 @ReadWalSummary(ptr nocapture noundef %0, ptr noundef %1, i
   unreachable
 
 19:                                               ; preds = %3
-  %20 = and i64 %10, 4294967295
+  %20 = and i64 %10, 2147483647
   %21 = load i64, ptr %7, align 8
   %22 = add i64 %21, %20
   store i64 %22, ptr %7, align 8
@@ -737,7 +737,7 @@ define dso_local noundef i32 @WriteWalSummary(ptr nocapture noundef %0, ptr noun
   unreachable
 
 29:                                               ; preds = %19
-  %30 = and i64 %10, 4294967295
+  %30 = and i64 %10, 2147483647
   %31 = load i64, ptr %7, align 8
   %32 = add i64 %31, %30
   store i64 %32, ptr %7, align 8

@@ -2502,7 +2502,7 @@ tailrecurse:                                      ; preds = %53, %4
   br i1 %10, label %.lr.ph.preheader.i, label %Abc_ZddCombPrint.exit
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
-  %wide.trip.count.i = and i64 %indvars.iv, 4294967295
+  %wide.trip.count.i = and i64 %indvars.iv, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -2531,7 +2531,7 @@ Abc_ZddCombPrint.exit:                            ; preds = %.lr.ph.i, %._crit_e
   br i1 %10, label %.lr.ph23.preheader.i, label %Abc_ZddComb2Perm.exit
 
 .lr.ph23.preheader.i:                             ; preds = %.preheader.i
-  %36 = and i64 %indvars.iv, 4294967295
+  %36 = and i64 %indvars.iv, 2147483647
   br label %.lr.ph23.i
 
 .lr.ph.i32:                                       ; preds = %.lr.ph.i32, %.lr.ph.preheader.i30

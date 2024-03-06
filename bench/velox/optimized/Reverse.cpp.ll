@@ -1070,13 +1070,13 @@ arraydestroy.body42:                              ; preds = %arraydestroy.body42
 
 ehcleanup:                                        ; preds = %arraydestroy.body42, %lpad33
   %.pn = phi { ptr, i32 } [ %32, %lpad33 ], [ %33, %arraydestroy.body42 ]
-  %cleanup.isactive.0 = phi i1 [ false, %lpad33 ], [ true, %arraydestroy.body42 ]
+  %34 = phi i1 [ false, %lpad33 ], [ true, %arraydestroy.body42 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #21
   br label %ehcleanup47
 
 ehcleanup47:                                      ; preds = %lpad31, %lpad.i49, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %31, %lpad31 ], [ %6, %lpad.i49 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %ehcleanup ], [ false, %lpad31 ], [ false, %lpad.i49 ]
+  %cleanup.isactive.1 = phi i1 [ %34, %ehcleanup ], [ false, %lpad31 ], [ false, %lpad.i49 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #21
   br label %ehcleanup48
 
@@ -4845,7 +4845,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %value_7.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 8
   store ptr null, ptr %value_7.i.i, align 8
-  %conv.i.i = and i64 %.pre.i, 4294967295
+  %conv.i.i = and i64 %.pre.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i, ptr align 1 %46, i64 %conv.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i
 
@@ -5971,7 +5971,7 @@ if.end:                                           ; preds = %if.end9.i.i.i, %if.
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
@@ -12785,7 +12785,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %value_7.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 8
   store ptr null, ptr %value_7.i.i, align 8
-  %conv.i.i = and i64 %.pre.i, 4294967295
+  %conv.i.i = and i64 %.pre.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i, ptr align 1 %23, i64 %conv.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i
 
@@ -13425,7 +13425,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %value_7.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 8
   store ptr null, ptr %value_7.i.i, align 8
-  %conv.i.i = and i64 %.pre.i, 4294967295
+  %conv.i.i = and i64 %.pre.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i, ptr align 1 %30, i64 %conv.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i
 
@@ -13710,7 +13710,7 @@ attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind memory(read) }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #15 = { alwaysinline mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

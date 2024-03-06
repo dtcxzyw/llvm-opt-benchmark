@@ -930,7 +930,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly %0, ptr noundef %
   br i1 %475, label %476, label %509, !prof !16
 
 476:                                              ; preds = %469
-  %477 = and i64 %462, 4294967295
+  %477 = and i64 %462, 2147483647
   br label %478
 
 478:                                              ; preds = %502, %476

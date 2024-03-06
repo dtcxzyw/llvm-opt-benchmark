@@ -979,7 +979,7 @@ Vec_PtrPush.exit132.i.i.i.i:                      ; preds = %387, %Vec_PtrGrow.e
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %398, %406
   %.0.in.lcssa.i.i.i227.i.i = phi i64 [ %indvars.iv.i.i.i.i.i, %406 ], [ 0, %398 ]
-  %408 = and i64 %.0.in.lcssa.i.i.i227.i.i, 4294967295
+  %408 = and i64 %.0.in.lcssa.i.i.i227.i.i, 2147483647
   br label %409
 
 409:                                              ; preds = %409, %.lr.ph.i.i.i.i.i

@@ -16426,7 +16426,7 @@ if.end34:                                         ; preds = %for.body29
   br i1 %16, label %switch.lookup, label %clusterGetMessageTypeString.exit
 
 switch.lookup:                                    ; preds = %if.end34
-  %17 = and i64 %indvars.iv55, 4294967295
+  %17 = and i64 %indvars.iv55, 15
   %switch.gep = getelementptr inbounds [11 x ptr], ptr @switch.table.genClusterInfoString.15, i64 0, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %clusterGetMessageTypeString.exit
@@ -16468,7 +16468,7 @@ if.end56:                                         ; preds = %for.body51
   br i1 %22, label %switch.lookup66, label %clusterGetMessageTypeString.exit42
 
 switch.lookup66:                                  ; preds = %if.end56
-  %23 = and i64 %indvars.iv59, 4294967295
+  %23 = and i64 %indvars.iv59, 15
   %switch.gep67 = getelementptr inbounds [11 x ptr], ptr @switch.table.genClusterInfoString.15, i64 0, i64 %23
   %switch.load68 = load ptr, ptr %switch.gep67, align 8
   br label %clusterGetMessageTypeString.exit42

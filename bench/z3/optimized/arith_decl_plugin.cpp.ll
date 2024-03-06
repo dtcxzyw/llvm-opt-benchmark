@@ -746,14 +746,14 @@ if.then9:                                         ; preds = %land.lhs.true7
   br i1 %cmp.i.i, label %_ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit.thread, label %_ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit
 
 _ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit.thread:   ; preds = %if.then9
-  %idxprom.i266 = and i64 %call.i.i.i.i23, 4294967295
+  %idxprom.i266 = and i64 %call.i.i.i.i23, 15
   br label %if.then12
 
 _ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit:          ; preds = %if.then9
   %arrayidx.i.i = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.not.i = icmp ugt i32 %11, %conv.i
-  %idxprom.i = and i64 %call.i.i.i.i23, 4294967295
+  %idxprom.i = and i64 %call.i.i.i.i23, 15
   br i1 %cmp.not.i, label %_ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit.cont, label %if.then12
 
 _ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit.cont:     ; preds = %_ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit
@@ -1035,14 +1035,14 @@ if.else:                                          ; preds = %land.lhs.true7, %if
   br i1 %cmp.i.i37, label %_ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit46.thread, label %_ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit46
 
 _ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit46.thread: ; preds = %if.else
-  %idxprom.i43274 = and i64 %call.i.i.i.i23, 4294967295
+  %idxprom.i43274 = and i64 %call.i.i.i.i23, 15
   br label %if.then57
 
 _ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit46:        ; preds = %if.else
   %arrayidx.i.i39 = getelementptr inbounds i8, ptr %43, i64 -4
   %44 = load i32, ptr %arrayidx.i.i39, align 4
   %cmp.not.i42 = icmp ugt i32 %44, %conv.i
-  %idxprom.i43 = and i64 %call.i.i.i.i23, 4294967295
+  %idxprom.i43 = and i64 %call.i.i.i.i23, 15
   br i1 %cmp.not.i42, label %_ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit46.cont, label %if.then57
 
 _ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit46.cont:   ; preds = %_ZNK6vectorIP3appLb0EjE3getEjRKS1_.exit46

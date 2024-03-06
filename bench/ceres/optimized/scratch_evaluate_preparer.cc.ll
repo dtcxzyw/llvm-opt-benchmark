@@ -179,7 +179,7 @@ define hidden void @_ZN5ceres8internal23ScratchEvaluatePreparer7PrepareEPKNS0_13
 .lr.ph:                                           ; preds = %5
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %1, i64 16
-  %wide.trip.count = and i64 %16, 4294967295
+  %wide.trip.count = and i64 %16, 2147483647
   br label %21
 
 21:                                               ; preds = %.lr.ph, %59

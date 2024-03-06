@@ -364,7 +364,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %div = udiv i32 %e.124, %multiplier.123
   %8 = trunc i32 %div to i8
   %conv51 = add i8 %8, 48
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx54 = getelementptr inbounds [36 x i8], ptr %buffer, i64 0, i64 %indvars.iv
   store i8 %conv51, ptr %arrayidx54, align 1
   %rem = urem i32 %e.124, %multiplier.123
@@ -1731,7 +1731,7 @@ while.cond6.preheader:                            ; preds = %do.body, %_ZN2EA4St
 _ZN2EA4StdC7IsspaceEDs.exit144:                   ; preds = %while.cond6.preheader, %while.body10
   %call7266 = phi i32 [ %call7, %while.body10 ], [ %call7263, %while.cond6.preheader ]
   %nReadCountSum.1265 = phi i32 [ %inc, %while.body10 ], [ %nReadCountSum.0.ph173272, %while.cond6.preheader ]
-  %conv.mask = and i32 %call7266, 65535
+  %conv.mask = and i32 %call7266, 255
   %conv.i141 = zext nneg i32 %conv.mask to i64
   %arrayidx.i142 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 0, i64 %conv.i141
   %11 = load i8, ptr %arrayidx.i142, align 1
@@ -1869,7 +1869,7 @@ while.cond38.preheader:                           ; preds = %if.end36
 _ZN2EA4StdC7IsspaceEDs.exit151:                   ; preds = %while.cond38.preheader, %while.body43
   %call39293 = phi i32 [ %call39, %while.body43 ], [ %call39290, %while.cond38.preheader ]
   %nReadCountSum.2292 = phi i32 [ %inc44, %while.body43 ], [ %nReadCountSum.0.ph173272, %while.cond38.preheader ]
-  %conv40.mask = and i32 %call39293, 65535
+  %conv40.mask = and i32 %call39293, 255
   %conv.i148 = zext nneg i32 %conv40.mask to i64
   %arrayidx.i149 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 0, i64 %conv.i148
   %23 = load i8, ptr %arrayidx.i149, align 1
@@ -2252,7 +2252,7 @@ sw.bb203:                                         ; preds = %if.end36, %if.end36
 _ZN2EA4StdC7IsspaceEDs.exit158:                   ; preds = %sw.bb203, %while.body209
   %nReadCountSum.3280 = phi i32 [ %inc210, %while.body209 ], [ %nReadCountSum.0.ph173272, %sw.bb203 ]
   %storemerge129279 = phi i32 [ %call211, %while.body209 ], [ %call204, %sw.bb203 ]
-  %conv206.mask = and i32 %storemerge129279, 65535
+  %conv206.mask = and i32 %storemerge129279, 255
   %conv.i155 = zext nneg i32 %conv206.mask to i64
   %arrayidx.i156 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 0, i64 %conv.i155
   %53 = load i8, ptr %arrayidx.i156, align 1
@@ -4622,7 +4622,7 @@ for.cond15.preheader.i:                           ; preds = %if.end293
   br i1 %cmp625.i, label %for.body19.preheader.i, label %if.then29.i
 
 for.body19.preheader.i:                           ; preds = %for.cond15.preheader.i
-  %conv17.i = and i32 %i249.0.in193, 65535
+  %conv17.i = and i32 %i249.0.in193, 32767
   %55 = zext nneg i32 %conv17.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull align 2 %doubleValue, i64 %55, i1 false)
   br label %if.then29.i
@@ -4631,7 +4631,7 @@ for.cond.preheader.i:                             ; preds = %if.end293
   br i1 %cmp625.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %conv269.mask190 = and i32 %i249.0.in193, 65535
+  %conv269.mask190 = and i32 %i249.0.in193, 32767
   %conv5.i = zext nneg i32 %conv269.mask190 to i64
   br label %for.body.i
 
@@ -4692,7 +4692,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %div.i = udiv i32 %e.124.i, %multiplier.123.i
   %60 = trunc i32 %div.i to i8
   %conv51.i = add i8 %60, 48
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx54.i = getelementptr inbounds [36 x i8], ptr %buffer.i, i64 0, i64 %indvars.iv.i
   store i8 %conv51.i, ptr %arrayidx54.i, align 1
   %rem.i = urem i32 %e.124.i, %multiplier.123.i
@@ -5998,7 +5998,7 @@ for.cond15.preheader.i:                           ; preds = %if.end293
   br i1 %cmp625.i, label %for.body19.preheader.i, label %if.then29.i
 
 for.body19.preheader.i:                           ; preds = %for.cond15.preheader.i
-  %conv17.i = and i32 %i249.0.in222, 65535
+  %conv17.i = and i32 %i249.0.in222, 32767
   %45 = zext nneg i32 %conv17.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull align 2 %doubleValue, i64 %45, i1 false)
   br label %if.then29.i
@@ -6007,7 +6007,7 @@ for.cond.preheader.i:                             ; preds = %if.end293
   br i1 %cmp625.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %conv269.mask220 = and i32 %i249.0.in222, 65535
+  %conv269.mask220 = and i32 %i249.0.in222, 32767
   %conv5.i = zext nneg i32 %conv269.mask220 to i64
   br label %for.body.i
 
@@ -6068,7 +6068,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %div.i = udiv i32 %e.124.i, %multiplier.123.i
   %50 = trunc i32 %div.i to i8
   %conv51.i = add i8 %50, 48
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx54.i = getelementptr inbounds [36 x i8], ptr %buffer.i, i64 0, i64 %indvars.iv.i
   store i8 %conv51.i, ptr %arrayidx54.i, align 1
   %rem.i = urem i32 %e.124.i, %multiplier.123.i
@@ -7339,7 +7339,7 @@ for.cond15.preheader.i:                           ; preds = %if.end278
   br i1 %cmp625.i, label %for.body19.preheader.i, label %if.then29.i
 
 for.body19.preheader.i:                           ; preds = %for.cond15.preheader.i
-  %conv17.i = and i32 %i234.0.in214, 65535
+  %conv17.i = and i32 %i234.0.in214, 32767
   %39 = zext nneg i32 %conv17.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull align 2 %doubleValue, i64 %39, i1 false)
   br label %if.then29.i
@@ -7348,7 +7348,7 @@ for.cond.preheader.i:                             ; preds = %if.end278
   br i1 %cmp625.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %conv254.mask212 = and i32 %i234.0.in214, 65535
+  %conv254.mask212 = and i32 %i234.0.in214, 32767
   %conv5.i = zext nneg i32 %conv254.mask212 to i64
   br label %for.body.i
 
@@ -7409,7 +7409,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %div.i = udiv i32 %e.124.i, %multiplier.123.i
   %44 = trunc i32 %div.i to i8
   %conv51.i = add i8 %44, 48
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx54.i = getelementptr inbounds [36 x i8], ptr %buffer.i, i64 0, i64 %indvars.iv.i
   store i8 %conv51.i, ptr %arrayidx54.i, align 1
   %rem.i = urem i32 %e.124.i, %multiplier.123.i

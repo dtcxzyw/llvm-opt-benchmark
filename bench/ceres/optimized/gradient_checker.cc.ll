@@ -330,7 +330,7 @@ _ZNSt6vectorIPKN5ceres8ManifoldESaIS3_EE6resizeEmRKS3_.exit: ; preds = %22, %27,
   br i1 %51, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %37
-  %wide.trip.count = and i64 %49, 4294967295
+  %wide.trip.count = and i64 %49, 2147483647
   %.phi.trans.insert = getelementptr inbounds i8, ptr %32, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %52 = getelementptr inbounds i8, ptr %32, i64 8
@@ -1409,7 +1409,7 @@ _ZNSt6vectorIPdSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPdmS0_
   %79 = ptrtoint ptr %.sroa.0219.0 to i64
   %80 = sub i64 %78, %79
   %81 = ashr exact i64 %80, 3
-  %wide.trip.count = and i64 %48, 4294967295
+  %wide.trip.count = and i64 %48, 2147483647
   br label %82
 
 82:                                               ; preds = %.lr.ph, %145
@@ -1627,7 +1627,7 @@ _ZNSt6vectorIPdSaIS0_EEC2EmRKS1_.exit137:         ; preds = %_ZSt6fill_nIPPdmS0_
   %174 = ptrtoint ptr %.sroa.0212.0 to i64
   %175 = sub i64 %173, %174
   %176 = ashr exact i64 %175, 3
-  %wide.trip.count497 = and i64 %48, 4294967295
+  %wide.trip.count497 = and i64 %48, 2147483647
   %.pre500 = load ptr, ptr %149, align 8
   %.pre501 = load ptr, ptr %4, align 8
   br label %177

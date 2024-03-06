@@ -1668,7 +1668,7 @@ radius_add_attribute.exit170.i.i:                 ; preds = %621, %619, %617
   br label %.backedge.i.i
 
 785:                                              ; preds = %774
-  %786 = and i64 %733, 4294967295
+  %786 = and i64 %733, 2147483647
   %787 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %486) #19
   %788 = add i64 %787, %786
   %789 = call ptr @palloc(i64 noundef %788) #16

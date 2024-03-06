@@ -9860,7 +9860,7 @@ define dso_local noundef i32 @blk_mq_init_allocated_queue(ptr noundef %0, ptr no
 98:                                               ; preds = %94
   %99 = load ptr, ptr %38, align 8
   %100 = ptrtoint ptr %99 to i64
-  %101 = and i64 %95, 4294967295
+  %101 = and i64 %95, 63
   %102 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %101
   %103 = load i64, ptr %102, align 8
   %104 = add i64 %103, %100
@@ -9889,8 +9889,8 @@ define dso_local noundef i32 @blk_mq_init_allocated_queue(ptr noundef %0, ptr no
   br i1 %117, label %.loopexit11.split.us.us, label %.preheader10.us
 
 .loopexit11.split.us.us:                          ; preds = %138, %114
-  %118 = add i64 %95, 1
-  %119 = and i64 %118, 4294967295
+  %118 = add nuw nsw i64 %95, 1
+  %119 = and i64 %118, 127
   %120 = icmp ult i64 %119, 64
   br i1 %120, label %.split.us, label %.thread9, !prof !214, !llvm.loop !217
 
@@ -9941,7 +9941,7 @@ define dso_local noundef i32 @blk_mq_init_allocated_queue(ptr noundef %0, ptr no
 152:                                              ; preds = %148
   %153 = load ptr, ptr %38, align 8
   %154 = ptrtoint ptr %153 to i64
-  %155 = and i64 %149, 4294967295
+  %155 = and i64 %149, 63
   %156 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %155
   %157 = load i64, ptr %156, align 8
   %158 = add i64 %157, %154
@@ -9986,8 +9986,8 @@ define dso_local noundef i32 @blk_mq_init_allocated_queue(ptr noundef %0, ptr no
   br i1 %184, label %.preheader10, label %.loopexit11.split, !llvm.loop !218
 
 .loopexit11.split:                                ; preds = %.preheader10, %168
-  %185 = add i64 %149, 1
-  %186 = and i64 %185, 4294967295
+  %185 = add nuw nsw i64 %149, 1
+  %186 = and i64 %185, 127
   %187 = icmp ult i64 %186, 64
   br i1 %187, label %.split, label %.thread9, !prof !214, !llvm.loop !217
 

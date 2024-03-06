@@ -137,7 +137,7 @@ define void @Abc_Sort_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
 .lr.ph61.preheader:                               ; preds = %.preheader
   %18 = add nuw nsw i64 %7, 4294967295
   %wide.trip.count68 = and i64 %18, 4294967295
-  %wide.trip.count = and i64 %7, 4294967295
+  %wide.trip.count = and i64 %7, 2147483647
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge, %.lr.ph61.preheader
@@ -261,7 +261,7 @@ define void @Abc_Sort_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
   br i1 %68, label %.lr.ph50.i, label %Abc_SortMerge.exit, !llvm.loop !7
 
 Abc_SortMerge.exit:                               ; preds = %.lr.ph50.i, %.preheader.i
-  %69 = and i64 %6, 17179869180
+  %69 = and i64 %6, 8589934588
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr align 4 %2, i64 %69, i1 false)
   br label %.loopexit
 
@@ -428,7 +428,7 @@ define void @Abc_SortCost2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 .lr.ph66.preheader:                               ; preds = %.preheader
   %25 = add nuw nsw i64 %8, 4294967295
   %wide.trip.count73 = and i64 %25, 4294967295
-  %wide.trip.count = and i64 %8, 4294967295
+  %wide.trip.count = and i64 %8, 2147483647
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge, %.lr.ph66.preheader
@@ -564,7 +564,7 @@ define void @Abc_SortCost2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %87, label %.lr.ph53.i, label %Abc_SortMergeCost2.exit, !llvm.loop !12
 
 Abc_SortMergeCost2.exit:                          ; preds = %.lr.ph53.i, %.preheader.i
-  %88 = and i64 %7, 17179869180
+  %88 = and i64 %7, 8589934588
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr align 4 %2, i64 %88, i1 false)
   br label %.loopexit
 
@@ -722,7 +722,7 @@ define void @Abc_SortCost2Reverse_rec(ptr noundef %0, ptr noundef %1, ptr nounde
 .lr.ph66.preheader:                               ; preds = %.preheader
   %25 = add nuw nsw i64 %8, 4294967295
   %wide.trip.count73 = and i64 %25, 4294967295
-  %wide.trip.count = and i64 %8, 4294967295
+  %wide.trip.count = and i64 %8, 2147483647
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge, %.lr.ph66.preheader
@@ -858,7 +858,7 @@ define void @Abc_SortCost2Reverse_rec(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %87, label %.lr.ph53.i, label %Abc_SortMergeCost2Reverse.exit, !llvm.loop !17
 
 Abc_SortMergeCost2Reverse.exit:                   ; preds = %.lr.ph53.i, %.preheader.i
-  %88 = and i64 %7, 17179869180
+  %88 = and i64 %7, 8589934588
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr align 4 %2, i64 %88, i1 false)
   br label %.loopexit
 
@@ -1035,7 +1035,7 @@ define void @Abc_MergeSortCost_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
 .lr.ph76.preheader:                               ; preds = %.preheader
   %23 = add nsw i64 %8, 4294967295
   %wide.trip.count83 = and i64 %23, 4294967295
-  %wide.trip.count = and i64 %8, 4294967295
+  %wide.trip.count = and i64 %8, 2147483647
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge, %.lr.ph76.preheader
@@ -1190,7 +1190,7 @@ define void @Abc_MergeSortCost_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 Abc_MergeSortCostMerge.exit:                      ; preds = %.lr.ph61.i, %.preheader.i
   %98 = shl nsw i64 %8, 3
-  %99 = and i64 %98, 34359738360
+  %99 = and i64 %98, 17179869176
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr align 4 %2, i64 %99, i1 false)
   br label %.loopexit
 

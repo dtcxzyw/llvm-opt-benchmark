@@ -434,7 +434,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext = sext i32 %mul33 to i64
   %add.ptr = getelementptr inbounds i16, ptr %tmpBufferEnd.0185, i64 %idx.ext
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %c.sroa.0.0183) #18
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load ptr, ptr %_channels, align 8
   %call16 = tail call ptr @_ZNK7Imf_3_211ChannelList3endEv(ptr noundef nonnull align 8 dereferenceable(48) %17)
   %cmp.i.i.i.not = icmp eq ptr %call.i.i, %call16
@@ -809,7 +809,7 @@ if.end106:                                        ; preds = %for.inc103, %for.in
   br i1 %cmp321.i, label %for.body4.preheader.i, label %for.end16.i
 
 for.body4.preheader.i:                            ; preds = %if.end106
-  %wide.trip.count.i = and i64 %sub.ptr.div, 4294967295
+  %wide.trip.count.i = and i64 %sub.ptr.div, 2147483647
   br label %for.body4.i
 
 for.body4.i:                                      ; preds = %for.body4.i, %for.body4.preheader.i
@@ -916,7 +916,7 @@ _ZN7Imf_3_212_GLOBAL__N_120forwardLutFromBitmapEPKhPt.exit: ; preds = %for.inc.i
   br i1 %cmp321.i, label %for.body.preheader.i, label %_ZN7Imf_3_212_GLOBAL__N_18applyLutEPKtPti.exit
 
 for.body.preheader.i:                             ; preds = %_ZN7Imf_3_212_GLOBAL__N_120forwardLutFromBitmapEPKhPt.exit
-  %wide.trip.count.i92 = and i64 %sub.ptr.div, 4294967295
+  %wide.trip.count.i92 = and i64 %sub.ptr.div, 2147483647
   br label %for.body.i93
 
 for.body.i93:                                     ; preds = %for.body.i93, %for.body.preheader.i
@@ -1245,7 +1245,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext34 = sext i32 %mul33 to i64
   %add.ptr35 = getelementptr inbounds i16, ptr %tmpBufferEnd.0158, i64 %idx.ext34
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %c.sroa.0.0156) #18
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load ptr, ptr %_channels, align 8
   %call16 = tail call ptr @_ZNK7Imf_3_211ChannelList3endEv(ptr noundef nonnull align 8 dereferenceable(48) %17)
   %cmp.i.i.i.not = icmp eq ptr %call.i.i, %call16
@@ -1526,7 +1526,7 @@ for.end131:                                       ; preds = %for.inc129, %for.co
   br i1 %cmp5.i, label %for.body.preheader.i, label %_ZN7Imf_3_212_GLOBAL__N_18applyLutEPKtPti.exit
 
 for.body.preheader.i:                             ; preds = %for.end131
-  %wide.trip.count.i = and i64 %sub.ptr.div139, 4294967295
+  %wide.trip.count.i = and i64 %sub.ptr.div139, 2147483647
   br label %for.body.i89
 
 for.body.i89:                                     ; preds = %for.body.i89, %for.body.preheader.i

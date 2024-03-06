@@ -515,7 +515,7 @@ multipart_buffer_new.exit:                        ; preds = %142, %146
   %203 = load i32, ptr %139, align 4
   %204 = add nsw i32 %203, %200
   store i32 %204, ptr %139, align 4
-  %205 = and i64 %199, 4294967295
+  %205 = and i64 %199, 2147483647
   %206 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8
   %207 = add nsw i64 %206, %205
   store i64 %207, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8
@@ -2277,7 +2277,7 @@ define internal fastcc i64 @multipart_buffer_read(ptr nocapture noundef %0, ptr 
   %31 = load i32, ptr %4, align 4
   %32 = add nsw i32 %31, %28
   store i32 %32, ptr %4, align 4
-  %33 = and i64 %27, 4294967295
+  %33 = and i64 %27, 2147483647
   %34 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8
   %35 = add nsw i64 %34, %33
   store i64 %35, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8
@@ -2543,7 +2543,7 @@ next_line.exit.thread:                            ; preds = %18, %next_line.exit
   %52 = load i32, ptr %4, align 4
   %53 = add nsw i32 %52, %49
   store i32 %53, ptr %4, align 4
-  %54 = and i64 %48, 4294967295
+  %54 = and i64 %48, 2147483647
   %55 = load i64, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8
   %56 = add nsw i64 %55, %54
   store i64 %56, ptr getelementptr inbounds (%struct._sapi_globals_struct, ptr @sapi_globals, i64 0, i32 3), align 8

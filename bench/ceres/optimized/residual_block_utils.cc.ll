@@ -56,7 +56,7 @@ define hidden void @_ZN5ceres8internal20InvalidateEvaluationERKNS0_13ResidualBlo
 
 .lr.ph:                                           ; preds = %4
   %19 = getelementptr inbounds i8, ptr %0, i64 16
-  %wide.trip.count = and i64 %13, 4294967295
+  %wide.trip.count = and i64 %13, 2147483647
   br label %20
 
 20:                                               ; preds = %.lr.ph, %20
@@ -217,12 +217,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
   br i1 %53, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %wide.trip.count102 = and i64 %34, 4294967295
+  %wide.trip.count102 = and i64 %34, 2147483647
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.not49 = icmp eq ptr %5, null
-  %wide.trip.count128 = and i64 %34, 4294967295
+  %wide.trip.count128 = and i64 %34, 2147483647
   br i1 %.not49, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split.preheader
 
 .lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us
@@ -563,7 +563,7 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal17IsEvaluationValidERKNS0_13
 
 .lr.ph:                                           ; preds = %18
   %21 = getelementptr inbounds i8, ptr %0, i64 16
-  %wide.trip.count = and i64 %13, 4294967295
+  %wide.trip.count = and i64 %13, 2147483647
   br label %22
 
 22:                                               ; preds = %22, %.lr.ph

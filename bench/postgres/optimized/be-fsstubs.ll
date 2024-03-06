@@ -180,7 +180,7 @@ define dso_local noundef i64 @be_lo_close(ptr nocapture noundef readonly %0) loc
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr @cookies, align 8
-  %9 = and i64 %3, 4294967295
+  %9 = and i64 %3, 2147483647
   %10 = getelementptr ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
@@ -330,7 +330,7 @@ define dso_local i64 @be_lo_lseek(ptr nocapture noundef readonly %0) local_unnam
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr @cookies, align 8
-  %14 = and i64 %3, 4294967295
+  %14 = and i64 %3, 2147483647
   %15 = getelementptr ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
@@ -383,7 +383,7 @@ define dso_local i64 @be_lo_lseek64(ptr nocapture noundef readonly %0) local_unn
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr @cookies, align 8
-  %13 = and i64 %3, 4294967295
+  %13 = and i64 %3, 2147483647
   %14 = getelementptr ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
@@ -439,7 +439,7 @@ define dso_local i64 @be_lo_tell(ptr nocapture noundef readonly %0) local_unname
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr @cookies, align 8
-  %9 = and i64 %3, 4294967295
+  %9 = and i64 %3, 2147483647
   %10 = getelementptr ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
@@ -486,7 +486,7 @@ define dso_local i64 @be_lo_tell64(ptr nocapture noundef readonly %0) local_unna
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr @cookies, align 8
-  %9 = and i64 %3, 4294967295
+  %9 = and i64 %3, 2147483647
   %10 = getelementptr ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null

@@ -164,7 +164,7 @@ define noundef i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 {
 
 19:                                               ; preds = %0
   %20 = shl i64 %16, 7
-  %21 = and i64 %20, 549755813760
+  %21 = and i64 %20, 274877906816
   %22 = tail call noalias ptr @malloc(i64 noundef %21) #17
   store ptr %22, ptr @forward_signals_events, align 8
   %23 = icmp eq ptr %22, null

@@ -1300,7 +1300,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 49:                                               ; preds = %47
   store i16 123, ptr %46, align 1
   %50 = getelementptr inbounds i8, ptr %2, i64 8
-  %wide.trip.count684 = and i64 %spec.select, 4294967295
+  %wide.trip.count684 = and i64 %spec.select, 2147483647
   br label %51
 
 51:                                               ; preds = %49, %51
@@ -1349,7 +1349,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 75:                                               ; preds = %73
   store i16 123, ptr %72, align 1
   %76 = getelementptr inbounds i8, ptr %2, i64 8
-  %wide.trip.count679 = and i64 %spec.select, 4294967295
+  %wide.trip.count679 = and i64 %spec.select, 2147483647
   br label %77
 
 77:                                               ; preds = %75, %77
@@ -1396,7 +1396,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 99:                                               ; preds = %97
   store i16 123, ptr %96, align 1
   %100 = getelementptr inbounds i8, ptr %2, i64 8
-  %wide.trip.count674 = and i64 %spec.select, 4294967295
+  %wide.trip.count674 = and i64 %spec.select, 2147483647
   br label %101
 
 101:                                              ; preds = %99, %101
@@ -1445,7 +1445,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 125:                                              ; preds = %123
   store i16 123, ptr %122, align 1
   %126 = getelementptr inbounds i8, ptr %2, i64 8
-  %wide.trip.count669 = and i64 %spec.select, 4294967295
+  %wide.trip.count669 = and i64 %spec.select, 2147483647
   br label %127
 
 127:                                              ; preds = %125, %127
@@ -1492,7 +1492,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 149:                                              ; preds = %147
   store i16 123, ptr %146, align 1
   %150 = getelementptr inbounds i8, ptr %2, i64 8
-  %wide.trip.count664 = and i64 %spec.select, 4294967295
+  %wide.trip.count664 = and i64 %spec.select, 2147483647
   br label %151
 
 151:                                              ; preds = %149, %151
@@ -1539,7 +1539,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 173:                                              ; preds = %171
   store i16 123, ptr %170, align 1
   %174 = getelementptr inbounds i8, ptr %2, i64 8
-  %wide.trip.count659 = and i64 %spec.select, 4294967295
+  %wide.trip.count659 = and i64 %spec.select, 2147483647
   br label %175
 
 175:                                              ; preds = %173, %175
@@ -1586,7 +1586,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 197:                                              ; preds = %195
   store i16 123, ptr %194, align 1
   %198 = getelementptr inbounds i8, ptr %2, i64 8
-  %wide.trip.count654 = and i64 %spec.select, 4294967295
+  %wide.trip.count654 = and i64 %spec.select, 2147483647
   br label %199
 
 199:                                              ; preds = %197, %199
@@ -1633,7 +1633,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 221:                                              ; preds = %219
   store i16 123, ptr %218, align 1
   %222 = getelementptr inbounds i8, ptr %2, i64 8
-  %wide.trip.count649 = and i64 %spec.select, 4294967295
+  %wide.trip.count649 = and i64 %spec.select, 2147483647
   br label %223
 
 223:                                              ; preds = %221, %223
@@ -1680,7 +1680,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 245:                                              ; preds = %243
   store i16 123, ptr %242, align 1
   %246 = getelementptr inbounds i8, ptr %2, i64 8
-  %wide.trip.count644 = and i64 %spec.select, 4294967295
+  %wide.trip.count644 = and i64 %spec.select, 2147483647
   br label %247
 
 247:                                              ; preds = %245, %sprintf_float_value.exit
@@ -1756,7 +1756,7 @@ sprintf_float_value.exit:                         ; preds = %254, %261, %263, %2
 282:                                              ; preds = %280
   store i16 123, ptr %279, align 1
   %283 = getelementptr inbounds i8, ptr %2, i64 8
-  %wide.trip.count639 = and i64 %spec.select, 4294967295
+  %wide.trip.count639 = and i64 %spec.select, 2147483647
   br label %284
 
 284:                                              ; preds = %282, %sprintf_double_value.exit
@@ -1835,7 +1835,7 @@ sprintf_double_value.exit:                        ; preds = %291, %298, %300, %3
 
 .lr.ph581:                                        ; preds = %319
   %321 = getelementptr inbounds i8, ptr %2, i64 8
-  %wide.trip.count634 = and i64 %spec.select, 4294967295
+  %wide.trip.count634 = and i64 %spec.select, 2147483647
   br label %322
 
 322:                                              ; preds = %.lr.ph581, %322
@@ -2054,7 +2054,7 @@ quote_postgres.exit:                              ; preds = %370
 
 .lr.ph576:                                        ; preds = %.preheader
   %435 = getelementptr inbounds i8, ptr %2, i64 8
-  %wide.trip.count629 = and i64 %spec.select, 4294967295
+  %wide.trip.count629 = and i64 %spec.select, 2147483647
   br label %436
 
 436:                                              ; preds = %.lr.ph576, %471
@@ -2166,7 +2166,7 @@ quote_postgres.exit:                              ; preds = %370
 
 .lr.ph571:                                        ; preds = %.preheader547
   %483 = getelementptr inbounds i8, ptr %2, i64 8
-  %wide.trip.count624 = and i64 %spec.select, 4294967295
+  %wide.trip.count624 = and i64 %spec.select, 2147483647
   br label %484
 
 484:                                              ; preds = %.lr.ph571, %524
@@ -2294,7 +2294,7 @@ quote_postgres.exit513.thread:                    ; preds = %488, %quote_postgre
 
 .lr.ph566:                                        ; preds = %.preheader548
   %536 = getelementptr inbounds i8, ptr %2, i64 8
-  %wide.trip.count619 = and i64 %spec.select, 4294967295
+  %wide.trip.count619 = and i64 %spec.select, 2147483647
   br label %537
 
 537:                                              ; preds = %.lr.ph566, %578
@@ -2423,7 +2423,7 @@ quote_postgres.exit517.thread:                    ; preds = %542, %quote_postgre
 
 .lr.ph:                                           ; preds = %.preheader549
   %590 = getelementptr inbounds i8, ptr %2, i64 8
-  %wide.trip.count = and i64 %spec.select, 4294967295
+  %wide.trip.count = and i64 %spec.select, 2147483647
   br label %591
 
 591:                                              ; preds = %.lr.ph, %632

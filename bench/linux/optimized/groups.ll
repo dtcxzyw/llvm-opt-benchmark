@@ -429,8 +429,8 @@ define internal fastcc i64 @__se_sys_setgroups(i64 noundef %0, i64 noundef %1) u
 
 8:                                                ; preds = %6
   %9 = shl i64 %0, 2
-  %10 = add i64 %9, 8
-  %11 = and i64 %10, 4294967292
+  %10 = add nuw nsw i64 %9, 8
+  %11 = and i64 %10, 1048572
   %12 = tail call noalias ptr @kvmalloc_node(i64 noundef %11, i32 noundef 4197568, i32 noundef -1) #9
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %14

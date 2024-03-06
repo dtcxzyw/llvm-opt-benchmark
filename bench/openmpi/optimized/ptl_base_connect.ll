@@ -377,7 +377,7 @@ define noundef i32 @pmix_ptl_base_recv_blocking(i32 noundef %0, ptr noundef %1, 
 
 .outer:                                           ; preds = %.lr.ph38, %.lr.ph38.preheader
   %.lcssa = phi i64 [ %14, %.lr.ph38.preheader ], [ %30, %.lr.ph38 ]
-  %47 = and i64 %.lcssa, 4294967295
+  %47 = and i64 %.lcssa, 2147483647
   %48 = add i64 %47, %.021.ph39
   %49 = icmp ult i64 %48, %2
   br i1 %49, label %.lr.ph.split.us, label %.outer._crit_edge, !llvm.loop !6

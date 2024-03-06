@@ -4499,7 +4499,7 @@ define dso_local void @rcu_barrier_tasks() #1 align 16 {
 28:                                               ; preds = %25
   %29 = load ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 20), align 8
   %30 = ptrtoint ptr %29 to i64
-  %31 = and i64 %22, 4294967295
+  %31 = and i64 %22, 63
   %32 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, %30
@@ -4518,8 +4518,8 @@ define dso_local void @rcu_barrier_tasks() #1 align 16 {
 
 42:                                               ; preds = %41, %28
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %38, i64 noundef %39) #16
-  %43 = add i64 %22, 1
-  %44 = and i64 %43, 4294967295
+  %43 = add nuw nsw i64 %22, 1
+  %44 = and i64 %43, 127
   %45 = icmp ugt i64 %44, 63
   br i1 %45, label %.thread, label %15, !prof !91, !llvm.loop !92
 
@@ -4782,7 +4782,7 @@ define internal fastcc void @rcu_spawn_tasks_kthread() unnamed_addr #6 section "
 29:                                               ; preds = %25
   %30 = load ptr, ptr getelementptr inbounds (%struct.rcu_tasks, ptr @rcu_tasks, i64 0, i32 20), align 8
   %31 = ptrtoint ptr %30 to i64
-  %32 = and i64 %26, 4294967295
+  %32 = and i64 %26, 63
   %33 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, %31
@@ -4854,8 +4854,8 @@ define internal fastcc void @rcu_spawn_tasks_kthread() unnamed_addr #6 section "
   br label %64
 
 64:                                               ; preds = %62, %52
-  %65 = add i64 %26, 1
-  %66 = and i64 %65, 4294967295
+  %65 = add nuw nsw i64 %26, 1
+  %66 = and i64 %65, 127
   %67 = icmp ugt i64 %66, 63
   br i1 %67, label %.thread, label %19, !prof !91, !llvm.loop !105
 

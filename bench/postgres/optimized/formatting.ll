@@ -11307,7 +11307,7 @@ seq_search_ascii.exit:                            ; preds = %.lr.ph.i25, %60, %2
 
 86:                                               ; preds = %seq_search_ascii.exit
   %87 = load ptr, ptr %1, align 8
-  %88 = and i64 %.2.in, 4294967295
+  %88 = and i64 %.2.in, 2147483647
   %89 = getelementptr i8, ptr %87, i64 %88
   store ptr %89, ptr %1, align 8
   br label %90

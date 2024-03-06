@@ -329,7 +329,7 @@ thread-pre-split:                                 ; preds = %._crit_edge100, %qu
 
 .lr.ph33.i:                                       ; preds = %.loopexit.i
   %117 = shl i32 %13, 3
-  %wide.trip.count.i = and i64 %95, 4294967295
+  %wide.trip.count.i = and i64 %95, 2147483647
   br label %118
 
 118:                                              ; preds = %118, %.lr.ph33.i
@@ -895,7 +895,7 @@ define dso_local i64 @gtsvector_same(ptr nocapture noundef readonly %0) local_un
   br i1 %55, label %.lr.ph52.preheader, label %.loopexit
 
 .lr.ph52.preheader:                               ; preds = %52
-  %wide.trip.count58 = and i64 %44, 4294967295
+  %wide.trip.count58 = and i64 %44, 2147483647
   br label %.lr.ph52
 
 56:                                               ; preds = %.lr.ph52
@@ -1005,7 +1005,7 @@ define dso_local i64 @gtsvector_penalty(ptr nocapture noundef readonly %0) local
 
 .lr.ph33.i:                                       ; preds = %.loopexit.i
   %56 = shl i32 %19, 3
-  %wide.trip.count.i = and i64 %35, 4294967295
+  %wide.trip.count.i = and i64 %35, 2147483647
   br label %57
 
 57:                                               ; preds = %57, %.lr.ph33.i
@@ -1262,7 +1262,7 @@ define dso_local i64 @gtsvector_picksplit(ptr nocapture noundef readonly %0) loc
 
 .lr.ph33.i.i:                                     ; preds = %.loopexit.i.i
   %80 = shl i32 %16, 3
-  %wide.trip.count.i.i = and i64 %58, 4294967295
+  %wide.trip.count.i.i = and i64 %58, 2147483647
   br label %81
 
 81:                                               ; preds = %81, %.lr.ph33.i.i
@@ -1399,7 +1399,7 @@ fillcache.exit253.preheader:                      ; preds = %.lr.ph
   br i1 %146, label %.lr.ph33.i.i244.us, label %fillcache.exit253.us
 
 .lr.ph33.i.i244.us:                               ; preds = %.loopexit.i.i243.us
-  %wide.trip.count.i.i245.us = and i64 %130, 4294967295
+  %wide.trip.count.i.i245.us = and i64 %130, 2147483647
   br label %147
 
 147:                                              ; preds = %147, %.lr.ph33.i.i244.us
@@ -1694,7 +1694,7 @@ gtsvector_alloc.exit264:                          ; preds = %gtsvector_alloc.exi
 
 .lr.ph33.i.i267:                                  ; preds = %.loopexit.i.i266
   %310 = shl i32 %16, 3
-  %wide.trip.count.i.i268 = and i64 %288, 4294967295
+  %wide.trip.count.i.i268 = and i64 %288, 2147483647
   br label %311
 
 311:                                              ; preds = %311, %.lr.ph33.i.i267

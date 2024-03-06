@@ -999,7 +999,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit58:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %55, label %.preheader74.us.preheader, label %.loopexit
 
 .preheader74.us.preheader:                        ; preds = %.preheader74.lr.ph
-  %59 = and i64 %35, 4294967295
+  %59 = and i64 %35, 2147483647
   %wide.trip.count = zext nneg i32 %44 to i64
   br label %.preheader74.us
 

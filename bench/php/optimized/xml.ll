@@ -8140,7 +8140,7 @@ define hidden void @zif_xml_parse(ptr nocapture noundef readonly %0, ptr nocaptu
   %30 = getelementptr inbounds i8, ptr %17, i64 -13
   %31 = load i8, ptr %30, align 1
   %32 = and i8 %31, 1
-  %.not12.i = icmp eq i8 %32, 0
+  %.not.i = icmp eq i8 %32, 0
   %33 = load ptr, ptr %25, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
@@ -8150,14 +8150,14 @@ define hidden void @zif_xml_parse(ptr nocapture noundef readonly %0, ptr nocaptu
   %39 = zext nneg i8 %32 to i32
   %masksel.i = shl nuw nsw i32 %39, 19
   %.sink.i = or disjoint i32 %38, %masksel.i
-  %.sink13.i = select i1 %.not12.i, i64 10000000, i64 0
+  %.sink12.i = select i1 %.not.i, i64 10000000, i64 0
   store i32 %.sink.i, ptr %36, align 4
   %40 = load ptr, ptr %25, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 456
   %44 = load ptr, ptr %43, align 8
-  %45 = call i64 @xmlDictSetLimit(ptr noundef %44, i64 noundef %.sink13.i) #16
+  %45 = call i64 @xmlDictSetLimit(ptr noundef %44, i64 noundef %.sink12.i) #16
   store i8 1, ptr %18, align 2
   %46 = load ptr, ptr %25, align 8
   %47 = trunc i64 %27 to i32
@@ -8195,7 +8195,7 @@ define hidden void @zif_xml_parse_into_struct(ptr nocapture noundef readonly %0,
   %14 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %15 = icmp ne ptr %14, null
   call void @llvm.assume(i1 %15)
-  br label %112
+  br label %110
 
 16:                                               ; preds = %2
   %17 = load ptr, ptr %3, align 8
@@ -8211,7 +8211,7 @@ define hidden void @zif_xml_parse_into_struct(ptr nocapture noundef readonly %0,
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.38) #16
   %24 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %24, align 8
-  br label %112
+  br label %110
 
 25:                                               ; preds = %16
   %26 = load ptr, ptr %5, align 8
@@ -8259,7 +8259,7 @@ define hidden void @zif_xml_parse_into_struct(ptr nocapture noundef readonly %0,
   %45 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %46 = icmp ne ptr %45, null
   call void @llvm.assume(i1 %46)
-  br label %112
+  br label %110
 
 47:                                               ; preds = %.thread, %25
   %48 = load ptr, ptr %4, align 8
@@ -8303,7 +8303,7 @@ define hidden void @zif_xml_parse_into_struct(ptr nocapture noundef readonly %0,
   %66 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %67 = icmp ne ptr %66, null
   call void @llvm.assume(i1 %67)
-  br label %112
+  br label %110
 
 68:                                               ; preds = %._crit_edge, %63
   %69 = phi i32 [ %.pre, %._crit_edge ], [ 775, %63 ]
@@ -8349,43 +8349,39 @@ xml_parser_free_ltags.exit:                       ; preds = %80, %._crit_edge.i
   call void @php_XML_SetCharacterDataHandler(ptr noundef %86, ptr noundef nonnull @_xml_characterDataHandler) #16
   %87 = load ptr, ptr %6, align 8
   %88 = load i64, ptr %7, align 8
-  %89 = load i8, ptr %20, align 2
-  %90 = and i8 %89, 1
-  %.not.i79 = icmp eq i8 %90, 0
-  call void @llvm.assume(i1 %.not.i79)
-  %91 = getelementptr inbounds i8, ptr %18, i64 -13
-  %92 = load i8, ptr %91, align 1
-  %93 = and i8 %92, 1
-  %.not12.i = icmp eq i8 %93, 0
-  %94 = load ptr, ptr %19, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 24
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 564
-  %98 = load i32, ptr %97, align 4
-  %99 = and i32 %98, -524289
-  %100 = zext nneg i8 %93 to i32
-  %masksel.i = shl nuw nsw i32 %100, 19
-  %.sink.i = or disjoint i32 %99, %masksel.i
-  %.sink13.i = select i1 %.not12.i, i64 10000000, i64 0
-  store i32 %.sink.i, ptr %97, align 4
-  %101 = load ptr, ptr %19, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 24
+  %89 = getelementptr inbounds i8, ptr %18, i64 -13
+  %90 = load i8, ptr %89, align 1
+  %91 = and i8 %90, 1
+  %.not.i79 = icmp eq i8 %91, 0
+  %92 = load ptr, ptr %19, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 24
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 564
+  %96 = load i32, ptr %95, align 4
+  %97 = and i32 %96, -524289
+  %98 = zext nneg i8 %91 to i32
+  %masksel.i = shl nuw nsw i32 %98, 19
+  %.sink.i = or disjoint i32 %97, %masksel.i
+  %.sink12.i = select i1 %.not.i79, i64 10000000, i64 0
+  store i32 %.sink.i, ptr %95, align 4
+  %99 = load ptr, ptr %19, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 24
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 456
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 456
-  %105 = load ptr, ptr %104, align 8
-  %106 = call i64 @xmlDictSetLimit(ptr noundef %105, i64 noundef %.sink13.i) #16
+  %104 = call i64 @xmlDictSetLimit(ptr noundef %103, i64 noundef %.sink12.i) #16
   store i8 1, ptr %20, align 2
-  %107 = load ptr, ptr %19, align 8
-  %108 = trunc i64 %88 to i32
-  %109 = call i32 @php_XML_Parse(ptr noundef %107, ptr noundef %87, i32 noundef %108, i32 noundef 1) #16
+  %105 = load ptr, ptr %19, align 8
+  %106 = trunc i64 %88 to i32
+  %107 = call i32 @php_XML_Parse(ptr noundef %105, ptr noundef %87, i32 noundef %106, i32 noundef 1) #16
   store i8 0, ptr %20, align 2
-  %110 = sext i32 %109 to i64
-  store i64 %110, ptr %1, align 8
-  %111 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 4, ptr %111, align 8
-  br label %112
+  %108 = sext i32 %107 to i64
+  store i64 %108, ptr %1, align 8
+  %109 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 4, ptr %109, align 8
+  br label %110
 
-112:                                              ; preds = %xml_parser_free_ltags.exit, %65, %44, %23, %13
+110:                                              ; preds = %xml_parser_free_ltags.exit, %65, %44, %23, %13
   ret void
 }
 

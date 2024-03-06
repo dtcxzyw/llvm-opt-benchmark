@@ -4978,7 +4978,7 @@ define dso_local noundef zeroext i1 @check_backtrace_functions(ptr nocapture nou
   br i1 %21, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %17
-  %wide.trip.count = and i64 %5, 4294967295
+  %wide.trip.count = and i64 %5, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29

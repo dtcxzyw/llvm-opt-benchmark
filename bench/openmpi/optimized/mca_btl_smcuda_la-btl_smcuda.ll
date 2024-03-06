@@ -115,7 +115,7 @@ define i32 @mca_btl_smcuda_add_procs(ptr noundef %0, i64 noundef %1, ptr nocaptu
 
 .lr.ph:                                           ; preds = %.preheader
   %20 = getelementptr inbounds i8, ptr %16, i64 40
-  %wide.trip.count = and i64 %1, 4294967295
+  %wide.trip.count = and i64 %1, 2147483647
   br label %21
 
 21:                                               ; preds = %.lr.ph, %77
@@ -825,7 +825,7 @@ smcuda_btl_first_time_init.exit:                  ; preds = %346
   br i1 %19, label %.lr.ph147.preheader, label %._crit_edge148
 
 .lr.ph147.preheader:                              ; preds = %348
-  %wide.trip.count180 = and i64 %1, 4294967295
+  %wide.trip.count180 = and i64 %1, 2147483647
   br label %.lr.ph147
 
 .lr.ph147:                                        ; preds = %.lr.ph147.preheader, %359

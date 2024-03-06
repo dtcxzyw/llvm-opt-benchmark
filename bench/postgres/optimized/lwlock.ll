@@ -1774,7 +1774,7 @@ define dso_local void @LWLockRelease(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %6
-  %9 = and i64 %indvars.iv.next, 4294967295
+  %9 = and i64 %indvars.iv.next, 2147483647
   %10 = getelementptr [200 x %struct.LWLockHandle], ptr @held_lwlocks, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 16
   %12 = icmp eq ptr %11, %0

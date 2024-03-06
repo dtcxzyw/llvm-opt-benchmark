@@ -1081,8 +1081,8 @@ define dso_local noundef i32 @populate_cache_leaves(i32 noundef %0) local_unname
   br i1 %111, label %.thread23, label %89, !prof !21, !llvm.loop !22
 
 .thread23:                                        ; preds = %89, %108, %98, %83
-  %112 = add i64 %80, 1
-  %113 = and i64 %112, 4294967295
+  %112 = add nuw nsw i64 %80, 1
+  %113 = and i64 %112, 127
   %114 = icmp ugt i64 %113, 63
   br i1 %114, label %.thread, label %.preheader, !prof !21, !llvm.loop !23
 
@@ -1123,7 +1123,7 @@ define dso_local noundef i32 @populate_cache_leaves(i32 noundef %0) local_unname
   br i1 %140, label %.thread27, label %141
 
 141:                                              ; preds = %137
-  %142 = and i64 %134, 4294967295
+  %142 = and i64 %134, 63
   %143 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %142
   %144 = load i64, ptr %143, align 8
   %145 = add i64 %144, ptrtoint (ptr @cpu_info to i64)
@@ -1180,8 +1180,8 @@ define dso_local noundef i32 @populate_cache_leaves(i32 noundef %0) local_unname
   br i1 %180, label %.thread27, label %154, !prof !21, !llvm.loop !24
 
 .thread27:                                        ; preds = %154, %176, %160, %141, %137
-  %181 = add i64 %134, 1
-  %182 = and i64 %181, 4294967295
+  %181 = add nuw nsw i64 %134, 1
+  %182 = and i64 %181, 127
   %183 = icmp ugt i64 %182, 63
   br i1 %183, label %.thread, label %127, !prof !21, !llvm.loop !25
 
@@ -1214,7 +1214,7 @@ define dso_local noundef i32 @populate_cache_leaves(i32 noundef %0) local_unname
   br i1 %202, label %203, label %.thread
 
 203:                                              ; preds = %199
-  %204 = and i64 %200, 4294967295
+  %204 = and i64 %200, 63
   %205 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %204
   %206 = load i64, ptr %205, align 8
   %207 = add i64 %206, ptrtoint (ptr @cpu_info to i64)
@@ -1244,8 +1244,8 @@ define dso_local noundef i32 @populate_cache_leaves(i32 noundef %0) local_unname
   br label %223
 
 223:                                              ; preds = %221, %218, %215, %203
-  %224 = add i64 %200, 1
-  %225 = and i64 %224, 4294967295
+  %224 = add nuw nsw i64 %200, 1
+  %225 = and i64 %224, 127
   %226 = icmp ugt i64 %225, 63
   br i1 %226, label %.thread, label %193, !prof !21, !llvm.loop !26
 

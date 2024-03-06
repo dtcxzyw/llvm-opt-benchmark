@@ -1626,7 +1626,7 @@ define internal fastcc i64 @__se_sys_pidfd_open(i64 noundef %0, i64 noundef %1) 
 
 23:                                               ; preds = %16, %10
   %24 = phi ptr [ %22, %16 ], [ null, %10 ]
-  %25 = and i64 %0, 4294967295
+  %25 = and i64 %0, 2147483647
   %26 = tail call ptr @idr_find(ptr noundef %24, i64 noundef %25) #14
   %27 = icmp eq ptr %26, null
   br i1 %27, label %find_get_pid.exit, label %28

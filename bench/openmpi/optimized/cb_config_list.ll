@@ -853,7 +853,7 @@ find_name.exit.i.i:                               ; preds = %154
   %162 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i.i
   store i32 %159, ptr %162, align 4
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %163 = and i64 %indvars.iv.i.i.i, 4294967295
+  %163 = and i64 %indvars.iv.i.i.i, 2147483647
   %164 = getelementptr inbounds i8, ptr %19, i64 %163
   store i8 1, ptr %164, align 1
   %165 = add nuw nsw i32 %159, 1
@@ -892,7 +892,7 @@ find_name.exit52.i.i:                             ; preds = %171
   br i1 %177, label %find_name.exit52.thread.i.i, label %match_this_proc.exit.i
 
 find_name.exit52.thread.i.i:                      ; preds = %find_name.exit52.i.i
-  %178 = and i64 %indvars.iv.i45.i.i, 4294967295
+  %178 = and i64 %indvars.iv.i45.i.i, 2147483647
   %179 = getelementptr inbounds i8, ptr %19, i64 %178
   store i8 1, ptr %179, align 1
   %180 = add nuw nsw i32 %176, 1
@@ -975,7 +975,7 @@ find_name.exit.i97.i:                             ; preds = %197
   %205 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i84.i
   store i32 %202, ptr %205, align 4
   %indvars.iv.next.i98.i = add nsw i64 %indvars.iv.i84.i, 1
-  %206 = and i64 %indvars.iv.i.i90.i, 4294967295
+  %206 = and i64 %indvars.iv.i.i90.i, 2147483647
   %207 = getelementptr inbounds i8, ptr %19, i64 %206
   store i8 1, ptr %207, align 1
   %208 = add nuw nsw i32 %202, 1
@@ -1014,7 +1014,7 @@ find_name.exit52.i80.i:                           ; preds = %214
   br i1 %220, label %find_name.exit52.thread.i81.i, label %match_this_proc.exit100.i
 
 find_name.exit52.thread.i81.i:                    ; preds = %find_name.exit52.i80.i
-  %221 = and i64 %indvars.iv.i45.i74.i, 4294967295
+  %221 = and i64 %indvars.iv.i45.i74.i, 2147483647
   %222 = getelementptr inbounds i8, ptr %19, i64 %221
   store i8 1, ptr %222, align 1
   %223 = add nuw nsw i32 %219, 1

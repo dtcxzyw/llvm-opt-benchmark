@@ -6727,7 +6727,7 @@ for.end:                                          ; preds = %if.else, %if.then9
   br i1 %cmp3758, label %for.body.preheader, label %for.end65
 
 for.body.preheader:                               ; preds = %for.end
-  %9 = and i64 %indvars.iv, 4294967295
+  %9 = and i64 %indvars.iv, 255
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc64

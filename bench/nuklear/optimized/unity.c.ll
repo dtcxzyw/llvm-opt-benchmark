@@ -6529,7 +6529,7 @@ for.cond.preheader.i42:                           ; preds = %nk_utf_decode_byte.
   br i1 %7, label %for.body.preheader.i61, label %for.end.i48
 
 for.body.preheader.i61:                           ; preds = %for.cond.preheader.i42
-  %8 = and i64 %1, 4294967295
+  %8 = and i64 %1, 2147483647
   %zext = and i64 %indvars.iv.i.i31, 4294967295
   br label %for.body.i62
 
@@ -7769,7 +7769,7 @@ for.cond.preheader.i35:                           ; preds = %nk_utf_decode_byte.
   br i1 %6, label %for.body.preheader.i54, label %for.end.i41
 
 for.body.preheader.i54:                           ; preds = %for.cond.preheader.i35
-  %7 = and i64 %.pre122, 4294967295
+  %7 = and i64 %.pre122, 2147483647
   %zext = and i64 %indvars.iv.i.i24, 4294967295
   br label %for.body.i55
 
@@ -8113,7 +8113,7 @@ for.cond.preheader.i93:                           ; preds = %nk_utf_decode_byte.
   br i1 %8, label %for.body.preheader.i112, label %for.end.i99
 
 for.body.preheader.i112:                          ; preds = %for.cond.preheader.i93
-  %9 = and i64 %2, 4294967295
+  %9 = and i64 %2, 2147483647
   %zext = and i64 %indvars.iv.i.i82, 4294967295
   br label %for.body.i113
 
@@ -8325,7 +8325,7 @@ for.cond.preheader.i225:                          ; preds = %nk_utf_decode_byte.
   br i1 %34, label %for.body.preheader.i244, label %for.end.i231
 
 for.body.preheader.i244:                          ; preds = %for.cond.preheader.i225
-  %35 = and i64 %2, 4294967295
+  %35 = and i64 %2, 2147483647
   %zext356 = and i64 %indvars.iv.i.i214, 4294967295
   br label %for.body.i245
 
@@ -8724,7 +8724,7 @@ for.cond.preheader.i20:                           ; preds = %nk_utf_decode_byte.
   br i1 %7, label %for.body.preheader.i39, label %for.end.i26
 
 for.body.preheader.i39:                           ; preds = %for.cond.preheader.i20
-  %8 = and i64 %1, 4294967295
+  %8 = and i64 %1, 2147483647
   %zext = and i64 %indvars.iv.i.i9, 4294967295
   br label %for.body.i40
 
@@ -29657,7 +29657,7 @@ nk_range_count.exit:                              ; preds = %while.cond.i
   br i1 %cmp20, label %for.body.preheader, label %do.cond
 
 for.body.preheader:                               ; preds = %nk_range_count.exit
-  %wide.trip.count = and i64 %div.i, 4294967295
+  %wide.trip.count = and i64 %div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end17
@@ -31154,7 +31154,7 @@ nk_range_count.exit.i:                            ; preds = %while.cond.i.i
   br i1 %cmp6.i.i, label %for.body.preheader.i.i, label %nk_range_glyph_count.exit.i
 
 for.body.preheader.i.i:                           ; preds = %nk_range_count.exit.i
-  %wide.trip.count.i.i = and i64 %div.i.i, 4294967295
+  %wide.trip.count.i.i = and i64 %div.i.i, 2147483647
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -31469,7 +31469,7 @@ nk_range_count.exit.i.i:                          ; preds = %while.cond.i.i.i
   br i1 %cmp20.i.i, label %for.body.preheader.i.i122, label %do.cond.i.i
 
 for.body.preheader.i.i122:                        ; preds = %nk_range_count.exit.i.i
-  %wide.trip.count.i.i123 = and i64 %div.i.i.i, 4294967295
+  %wide.trip.count.i.i123 = and i64 %div.i.i.i, 2147483647
   br label %for.body.i.i124
 
 for.body.i.i124:                                  ; preds = %if.end17.i.i, %for.body.preheader.i.i122
@@ -31646,7 +31646,7 @@ nk_range_count.exit:                              ; preds = %while.cond.i
   br i1 %cmp6.i, label %for.body.preheader.i, label %nk_range_glyph_count.exit
 
 for.body.preheader.i:                             ; preds = %nk_range_count.exit
-  %wide.trip.count.i = and i64 %div.i, 4294967295
+  %wide.trip.count.i = and i64 %div.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -60562,7 +60562,7 @@ for.cond.preheader.i1356:                         ; preds = %nk_utf_decode_byte.
   br i1 %82, label %for.body.preheader.i1375, label %for.end.i1362
 
 for.body.preheader.i1375:                         ; preds = %for.cond.preheader.i1356
-  %83 = and i64 %76, 4294967295
+  %83 = and i64 %76, 2147483647
   %zext = and i64 %indvars.iv.i.i1345, 4294967295
   br label %for.body.i1376
 
@@ -74422,7 +74422,7 @@ nk_range_count.exit.i:                            ; preds = %while.cond.i.i
   br i1 %cmp20.i, label %for.body.preheader.i19, label %do.cond.i
 
 for.body.preheader.i19:                           ; preds = %nk_range_count.exit.i
-  %wide.trip.count.i = and i64 %div.i.i, 4294967295
+  %wide.trip.count.i = and i64 %div.i.i, 2147483647
   br label %for.body.i20
 
 for.body.i20:                                     ; preds = %if.end17.i, %for.body.preheader.i19
@@ -74631,7 +74631,7 @@ nk_range_count.exit.i:                            ; preds = %while.cond.i.i
   br i1 %cmp20.i, label %for.body.preheader.i, label %do.cond.i
 
 for.body.preheader.i:                             ; preds = %nk_range_count.exit.i
-  %wide.trip.count.i = and i64 %div.i.i, 4294967295
+  %wide.trip.count.i = and i64 %div.i.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end17.i, %for.body.preheader.i
@@ -78969,7 +78969,7 @@ for.cond.preheader.i39:                           ; preds = %nk_utf_decode_byte.
   br i1 %12, label %for.body.preheader.i58, label %for.end.i45
 
 for.body.preheader.i58:                           ; preds = %for.cond.preheader.i39
-  %13 = and i64 %6, 4294967295
+  %13 = and i64 %6, 2147483647
   %zext = and i64 %indvars.iv.i.i28, 4294967295
   br label %for.body.i59
 
@@ -79213,7 +79213,7 @@ for.cond.preheader.i21:                           ; preds = %nk_utf_decode_byte.
   br i1 %7, label %for.body.preheader.i40, label %for.end.i27
 
 for.body.preheader.i40:                           ; preds = %for.cond.preheader.i21
-  %8 = and i64 %1, 4294967295
+  %8 = and i64 %1, 2147483647
   %zext = and i64 %indvars.iv.i.i10, 4294967295
   br label %for.body.i41
 
@@ -79666,7 +79666,7 @@ for.cond.preheader.i29:                           ; preds = %nk_utf_decode_byte.
   br i1 %7, label %for.body.preheader.i48, label %for.end.i35
 
 for.body.preheader.i48:                           ; preds = %for.cond.preheader.i29
-  %8 = and i64 %1, 4294967295
+  %8 = and i64 %1, 2147483647
   %zext = and i64 %indvars.iv.i.i18, 4294967295
   br label %for.body.i49
 

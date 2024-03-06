@@ -203,7 +203,7 @@ define internal fastcc void @Io_WriteVerilogInt(ptr noundef %0, ptr nocapture no
   br i1 %9, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = and i64 %5, 4294967295
+  %wide.trip.count.i = and i64 %5, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.preheader.i
@@ -242,7 +242,7 @@ define internal fastcc void @Io_WriteVerilogInt(ptr noundef %0, ptr nocapture no
   br i1 %21, label %.lr.ph48.preheader.i, label %._crit_edge49.i
 
 .lr.ph48.preheader.i:                             ; preds = %20
-  %wide.trip.count54.i = and i64 %5, 4294967295
+  %wide.trip.count54.i = and i64 %5, 2147483647
   br label %.lr.ph48.i
 
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i, %.lr.ph48.preheader.i
@@ -486,7 +486,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %87
   br i1 %132, label %.lr.ph.preheader.i232.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i232.i:                          ; preds = %.preheader.i.i
-  %wide.trip.count.i.i = and i64 %128, 4294967295
+  %wide.trip.count.i.i = and i64 %128, 2147483647
   br label %.lr.ph.i233.i
 
 .lr.ph.i233.i:                                    ; preds = %140, %.lr.ph.preheader.i232.i
@@ -525,7 +525,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %87
   br i1 %144, label %.lr.ph48.preheader.i.i, label %._crit_edge49.i.i
 
 .lr.ph48.preheader.i.i:                           ; preds = %143
-  %wide.trip.count54.i.i = and i64 %128, 4294967295
+  %wide.trip.count54.i.i = and i64 %128, 2147483647
   br label %.lr.ph48.i.i
 
 .lr.ph48.i.i:                                     ; preds = %.lr.ph48.i.i, %.lr.ph48.preheader.i.i
@@ -588,7 +588,7 @@ Io_WriteVerilogGetName.exit.i:                    ; preds = %140, %._crit_edge49
   br i1 %172, label %.lr.ph.preheader.i248.i, label %._crit_edge.i246.i
 
 .lr.ph.preheader.i248.i:                          ; preds = %.preheader.i245.i
-  %wide.trip.count.i249.i = and i64 %168, 4294967295
+  %wide.trip.count.i249.i = and i64 %168, 2147483647
   br label %.lr.ph.i250.i
 
 .lr.ph.i250.i:                                    ; preds = %180, %.lr.ph.preheader.i248.i
@@ -627,7 +627,7 @@ Io_WriteVerilogGetName.exit.i:                    ; preds = %140, %._crit_edge49
   br i1 %184, label %.lr.ph48.preheader.i239.i, label %._crit_edge49.i235.i
 
 .lr.ph48.preheader.i239.i:                        ; preds = %183
-  %wide.trip.count54.i240.i = and i64 %168, 4294967295
+  %wide.trip.count54.i240.i = and i64 %168, 2147483647
   br label %.lr.ph48.i241.i
 
 .lr.ph48.i241.i:                                  ; preds = %.lr.ph48.i241.i, %.lr.ph48.preheader.i239.i
@@ -694,7 +694,7 @@ Io_WriteVerilogGetName.exit258.i:                 ; preds = %180, %._crit_edge49
   br i1 %212, label %.lr.ph.preheader.i273.i, label %._crit_edge.i271.i
 
 .lr.ph.preheader.i273.i:                          ; preds = %.preheader.i270.i
-  %wide.trip.count.i274.i = and i64 %208, 4294967295
+  %wide.trip.count.i274.i = and i64 %208, 2147483647
   br label %.lr.ph.i275.i
 
 .lr.ph.i275.i:                                    ; preds = %220, %.lr.ph.preheader.i273.i
@@ -733,7 +733,7 @@ Io_WriteVerilogGetName.exit258.i:                 ; preds = %180, %._crit_edge49
   br i1 %224, label %.lr.ph48.preheader.i264.i, label %._crit_edge49.i260.i
 
 .lr.ph48.preheader.i264.i:                        ; preds = %223
-  %wide.trip.count54.i265.i = and i64 %208, 4294967295
+  %wide.trip.count54.i265.i = and i64 %208, 2147483647
   br label %.lr.ph48.i266.i
 
 .lr.ph48.i266.i:                                  ; preds = %.lr.ph48.i266.i, %.lr.ph48.preheader.i264.i
@@ -796,7 +796,7 @@ Io_WriteVerilogGetName.exit283.i:                 ; preds = %220, %._crit_edge49
   br i1 %252, label %.lr.ph.preheader.i298.i, label %._crit_edge.i296.i
 
 .lr.ph.preheader.i298.i:                          ; preds = %.preheader.i295.i
-  %wide.trip.count.i299.i = and i64 %248, 4294967295
+  %wide.trip.count.i299.i = and i64 %248, 2147483647
   br label %.lr.ph.i300.i
 
 .lr.ph.i300.i:                                    ; preds = %260, %.lr.ph.preheader.i298.i
@@ -835,7 +835,7 @@ Io_WriteVerilogGetName.exit283.i:                 ; preds = %220, %._crit_edge49
   br i1 %264, label %.lr.ph48.preheader.i289.i, label %._crit_edge49.i285.i
 
 .lr.ph48.preheader.i289.i:                        ; preds = %263
-  %wide.trip.count54.i290.i = and i64 %248, 4294967295
+  %wide.trip.count54.i290.i = and i64 %248, 2147483647
   br label %.lr.ph48.i291.i
 
 .lr.ph48.i291.i:                                  ; preds = %.lr.ph48.i291.i, %.lr.ph48.preheader.i289.i
@@ -991,7 +991,7 @@ Abc_Base10Log.exit315.i:                          ; preds = %.lr.ph.i310.i, %288
   br i1 %332, label %.lr.ph.preheader.i330.i, label %._crit_edge.i328.i
 
 .lr.ph.preheader.i330.i:                          ; preds = %.preheader.i327.i
-  %wide.trip.count.i331.i = and i64 %328, 4294967295
+  %wide.trip.count.i331.i = and i64 %328, 2147483647
   br label %.lr.ph.i332.i
 
 .lr.ph.i332.i:                                    ; preds = %340, %.lr.ph.preheader.i330.i
@@ -1030,7 +1030,7 @@ Abc_Base10Log.exit315.i:                          ; preds = %.lr.ph.i310.i, %288
   br i1 %344, label %.lr.ph48.preheader.i321.i, label %._crit_edge49.i317.i
 
 .lr.ph48.preheader.i321.i:                        ; preds = %343
-  %wide.trip.count54.i322.i = and i64 %328, 4294967295
+  %wide.trip.count54.i322.i = and i64 %328, 2147483647
   br label %.lr.ph48.i323.i
 
 .lr.ph48.i323.i:                                  ; preds = %.lr.ph48.i323.i, %.lr.ph48.preheader.i321.i
@@ -1093,7 +1093,7 @@ Io_WriteVerilogGetName.exit340.i:                 ; preds = %340, %._crit_edge49
   br i1 %369, label %.lr.ph.preheader.i355.i, label %._crit_edge.i353.i
 
 .lr.ph.preheader.i355.i:                          ; preds = %.preheader.i352.i
-  %wide.trip.count.i356.i = and i64 %365, 4294967295
+  %wide.trip.count.i356.i = and i64 %365, 2147483647
   br label %.lr.ph.i357.i
 
 .lr.ph.i357.i:                                    ; preds = %377, %.lr.ph.preheader.i355.i
@@ -1132,7 +1132,7 @@ Io_WriteVerilogGetName.exit340.i:                 ; preds = %340, %._crit_edge49
   br i1 %381, label %.lr.ph48.preheader.i346.i, label %._crit_edge49.i342.i
 
 .lr.ph48.preheader.i346.i:                        ; preds = %380
-  %wide.trip.count54.i347.i = and i64 %365, 4294967295
+  %wide.trip.count54.i347.i = and i64 %365, 2147483647
   br label %.lr.ph48.i348.i
 
 .lr.ph48.i348.i:                                  ; preds = %.lr.ph48.i348.i, %.lr.ph48.preheader.i346.i
@@ -1184,7 +1184,7 @@ Io_WriteVerilogGetName.exit365.i:                 ; preds = %377, %._crit_edge49
   br i1 %403, label %.lr.ph.preheader.i380.i, label %._crit_edge.i378.i
 
 .lr.ph.preheader.i380.i:                          ; preds = %.preheader.i377.i
-  %wide.trip.count.i381.i = and i64 %399, 4294967295
+  %wide.trip.count.i381.i = and i64 %399, 2147483647
   br label %.lr.ph.i382.i
 
 .lr.ph.i382.i:                                    ; preds = %411, %.lr.ph.preheader.i380.i
@@ -1223,7 +1223,7 @@ Io_WriteVerilogGetName.exit365.i:                 ; preds = %377, %._crit_edge49
   br i1 %415, label %.lr.ph48.preheader.i371.i, label %._crit_edge49.i367.i
 
 .lr.ph48.preheader.i371.i:                        ; preds = %414
-  %wide.trip.count54.i372.i = and i64 %399, 4294967295
+  %wide.trip.count54.i372.i = and i64 %399, 2147483647
   br label %.lr.ph48.i373.i
 
 .lr.ph48.i373.i:                                  ; preds = %.lr.ph48.i373.i, %.lr.ph48.preheader.i371.i
@@ -1270,7 +1270,7 @@ Io_WriteVerilogGetName.exit390.i:                 ; preds = %411, %._crit_edge49
   br i1 %431, label %.lr.ph.preheader.i405.i, label %._crit_edge.i403.i
 
 .lr.ph.preheader.i405.i:                          ; preds = %.preheader.i402.i
-  %wide.trip.count.i406.i = and i64 %427, 4294967295
+  %wide.trip.count.i406.i = and i64 %427, 2147483647
   br label %.lr.ph.i407.i
 
 .lr.ph.i407.i:                                    ; preds = %439, %.lr.ph.preheader.i405.i
@@ -1309,7 +1309,7 @@ Io_WriteVerilogGetName.exit390.i:                 ; preds = %411, %._crit_edge49
   br i1 %443, label %.lr.ph48.preheader.i396.i, label %._crit_edge49.i392.i
 
 .lr.ph48.preheader.i396.i:                        ; preds = %442
-  %wide.trip.count54.i397.i = and i64 %427, 4294967295
+  %wide.trip.count54.i397.i = and i64 %427, 2147483647
   br label %.lr.ph48.i398.i
 
 .lr.ph48.i398.i:                                  ; preds = %.lr.ph48.i398.i, %.lr.ph48.preheader.i396.i
@@ -1361,7 +1361,7 @@ Io_WriteVerilogGetName.exit415.i:                 ; preds = %439, %._crit_edge49
   br i1 %464, label %.lr.ph.preheader.i430.i, label %._crit_edge.i428.i
 
 .lr.ph.preheader.i430.i:                          ; preds = %.preheader.i427.i
-  %wide.trip.count.i431.i = and i64 %460, 4294967295
+  %wide.trip.count.i431.i = and i64 %460, 2147483647
   br label %.lr.ph.i432.i
 
 .lr.ph.i432.i:                                    ; preds = %472, %.lr.ph.preheader.i430.i
@@ -1400,7 +1400,7 @@ Io_WriteVerilogGetName.exit415.i:                 ; preds = %439, %._crit_edge49
   br i1 %476, label %.lr.ph48.preheader.i421.i, label %._crit_edge49.i417.i
 
 .lr.ph48.preheader.i421.i:                        ; preds = %475
-  %wide.trip.count54.i422.i = and i64 %460, 4294967295
+  %wide.trip.count54.i422.i = and i64 %460, 2147483647
   br label %.lr.ph48.i423.i
 
 .lr.ph48.i423.i:                                  ; preds = %.lr.ph48.i423.i, %.lr.ph48.preheader.i421.i
@@ -1508,7 +1508,7 @@ Io_WriteVerilogGetName.exit440.i:                 ; preds = %472, %._crit_edge49
   br i1 %526, label %.lr.ph.preheader.i455.i, label %._crit_edge.i453.i
 
 .lr.ph.preheader.i455.i:                          ; preds = %.preheader.i452.i
-  %wide.trip.count.i456.i = and i64 %522, 4294967295
+  %wide.trip.count.i456.i = and i64 %522, 2147483647
   br label %.lr.ph.i457.i
 
 .lr.ph.i457.i:                                    ; preds = %534, %.lr.ph.preheader.i455.i
@@ -1547,7 +1547,7 @@ Io_WriteVerilogGetName.exit440.i:                 ; preds = %472, %._crit_edge49
   br i1 %538, label %.lr.ph48.preheader.i446.i, label %._crit_edge49.i442.i
 
 .lr.ph48.preheader.i446.i:                        ; preds = %537
-  %wide.trip.count54.i447.i = and i64 %522, 4294967295
+  %wide.trip.count54.i447.i = and i64 %522, 2147483647
   br label %.lr.ph48.i448.i
 
 .lr.ph48.i448.i:                                  ; preds = %.lr.ph48.i448.i, %.lr.ph48.preheader.i446.i
@@ -1606,7 +1606,7 @@ Io_WriteVerilogGetName.exit465.i:                 ; preds = %534, %._crit_edge49
   br i1 %564, label %.lr.ph.preheader.i480.i, label %._crit_edge.i478.i
 
 .lr.ph.preheader.i480.i:                          ; preds = %.preheader.i477.i
-  %wide.trip.count.i481.i = and i64 %560, 4294967295
+  %wide.trip.count.i481.i = and i64 %560, 2147483647
   br label %.lr.ph.i482.i
 
 .lr.ph.i482.i:                                    ; preds = %572, %.lr.ph.preheader.i480.i
@@ -1645,7 +1645,7 @@ Io_WriteVerilogGetName.exit465.i:                 ; preds = %534, %._crit_edge49
   br i1 %576, label %.lr.ph48.preheader.i471.i, label %._crit_edge49.i467.i
 
 .lr.ph48.preheader.i471.i:                        ; preds = %575
-  %wide.trip.count54.i472.i = and i64 %560, 4294967295
+  %wide.trip.count54.i472.i = and i64 %560, 2147483647
   br label %.lr.ph48.i473.i
 
 .lr.ph48.i473.i:                                  ; preds = %.lr.ph48.i473.i, %.lr.ph48.preheader.i471.i
@@ -1707,7 +1707,7 @@ Io_WriteVerilogGetName.exit490.i:                 ; preds = %572, %._crit_edge49
   br i1 %601, label %.lr.ph.preheader.i505.i, label %._crit_edge.i503.i
 
 .lr.ph.preheader.i505.i:                          ; preds = %.preheader.i502.i
-  %wide.trip.count.i506.i = and i64 %597, 4294967295
+  %wide.trip.count.i506.i = and i64 %597, 2147483647
   br label %.lr.ph.i507.i
 
 .lr.ph.i507.i:                                    ; preds = %609, %.lr.ph.preheader.i505.i
@@ -1746,7 +1746,7 @@ Io_WriteVerilogGetName.exit490.i:                 ; preds = %572, %._crit_edge49
   br i1 %613, label %.lr.ph48.preheader.i496.i, label %._crit_edge49.i492.i
 
 .lr.ph48.preheader.i496.i:                        ; preds = %612
-  %wide.trip.count54.i497.i = and i64 %597, 4294967295
+  %wide.trip.count54.i497.i = and i64 %597, 2147483647
   br label %.lr.ph48.i498.i
 
 .lr.ph48.i498.i:                                  ; preds = %.lr.ph48.i498.i, %.lr.ph48.preheader.i496.i
@@ -2121,7 +2121,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %4
   br i1 %54, label %.lr.ph.preheader.i242, label %._crit_edge.i
 
 .lr.ph.preheader.i242:                            ; preds = %.preheader.i
-  %wide.trip.count.i = and i64 %50, 4294967295
+  %wide.trip.count.i = and i64 %50, 2147483647
   br label %.lr.ph.i243
 
 .lr.ph.i243:                                      ; preds = %62, %.lr.ph.preheader.i242
@@ -2160,7 +2160,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %4
   br i1 %66, label %.lr.ph48.preheader.i, label %._crit_edge49.i
 
 .lr.ph48.preheader.i:                             ; preds = %65
-  %wide.trip.count54.i = and i64 %50, 4294967295
+  %wide.trip.count54.i = and i64 %50, 2147483647
   br label %.lr.ph48.i
 
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i, %.lr.ph48.preheader.i
@@ -2223,7 +2223,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %62, %._crit_edge.i,
   br i1 %94, label %.lr.ph.preheader.i258, label %._crit_edge.i256
 
 .lr.ph.preheader.i258:                            ; preds = %.preheader.i255
-  %wide.trip.count.i259 = and i64 %90, 4294967295
+  %wide.trip.count.i259 = and i64 %90, 2147483647
   br label %.lr.ph.i260
 
 .lr.ph.i260:                                      ; preds = %102, %.lr.ph.preheader.i258
@@ -2262,7 +2262,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %62, %._crit_edge.i,
   br i1 %106, label %.lr.ph48.preheader.i249, label %._crit_edge49.i245
 
 .lr.ph48.preheader.i249:                          ; preds = %105
-  %wide.trip.count54.i250 = and i64 %90, 4294967295
+  %wide.trip.count54.i250 = and i64 %90, 2147483647
   br label %.lr.ph48.i251
 
 .lr.ph48.i251:                                    ; preds = %.lr.ph48.i251, %.lr.ph48.preheader.i249
@@ -2329,7 +2329,7 @@ Io_WriteVerilogGetName.exit268:                   ; preds = %102, %._crit_edge.i
   br i1 %134, label %.lr.ph.preheader.i283, label %._crit_edge.i281
 
 .lr.ph.preheader.i283:                            ; preds = %.preheader.i280
-  %wide.trip.count.i284 = and i64 %130, 4294967295
+  %wide.trip.count.i284 = and i64 %130, 2147483647
   br label %.lr.ph.i285
 
 .lr.ph.i285:                                      ; preds = %142, %.lr.ph.preheader.i283
@@ -2368,7 +2368,7 @@ Io_WriteVerilogGetName.exit268:                   ; preds = %102, %._crit_edge.i
   br i1 %146, label %.lr.ph48.preheader.i274, label %._crit_edge49.i270
 
 .lr.ph48.preheader.i274:                          ; preds = %145
-  %wide.trip.count54.i275 = and i64 %130, 4294967295
+  %wide.trip.count54.i275 = and i64 %130, 2147483647
   br label %.lr.ph48.i276
 
 .lr.ph48.i276:                                    ; preds = %.lr.ph48.i276, %.lr.ph48.preheader.i274
@@ -2431,7 +2431,7 @@ Io_WriteVerilogGetName.exit293:                   ; preds = %142, %._crit_edge.i
   br i1 %174, label %.lr.ph.preheader.i308, label %._crit_edge.i306
 
 .lr.ph.preheader.i308:                            ; preds = %.preheader.i305
-  %wide.trip.count.i309 = and i64 %170, 4294967295
+  %wide.trip.count.i309 = and i64 %170, 2147483647
   br label %.lr.ph.i310
 
 .lr.ph.i310:                                      ; preds = %182, %.lr.ph.preheader.i308
@@ -2470,7 +2470,7 @@ Io_WriteVerilogGetName.exit293:                   ; preds = %142, %._crit_edge.i
   br i1 %186, label %.lr.ph48.preheader.i299, label %._crit_edge49.i295
 
 .lr.ph48.preheader.i299:                          ; preds = %185
-  %wide.trip.count54.i300 = and i64 %170, 4294967295
+  %wide.trip.count54.i300 = and i64 %170, 2147483647
   br label %.lr.ph48.i301
 
 .lr.ph48.i301:                                    ; preds = %.lr.ph48.i301, %.lr.ph48.preheader.i299
@@ -2571,7 +2571,7 @@ Io_WriteVerilogGetName.exit318:                   ; preds = %182, %._crit_edge.i
   br i1 %230, label %.lr.ph.preheader.i333, label %._crit_edge.i331
 
 .lr.ph.preheader.i333:                            ; preds = %.preheader.i330
-  %wide.trip.count.i334 = and i64 %226, 4294967295
+  %wide.trip.count.i334 = and i64 %226, 2147483647
   br label %.lr.ph.i335
 
 .lr.ph.i335:                                      ; preds = %238, %.lr.ph.preheader.i333
@@ -2610,7 +2610,7 @@ Io_WriteVerilogGetName.exit318:                   ; preds = %182, %._crit_edge.i
   br i1 %242, label %.lr.ph48.preheader.i324, label %._crit_edge49.i320
 
 .lr.ph48.preheader.i324:                          ; preds = %241
-  %wide.trip.count54.i325 = and i64 %226, 4294967295
+  %wide.trip.count54.i325 = and i64 %226, 2147483647
   br label %.lr.ph48.i326
 
 .lr.ph48.i326:                                    ; preds = %.lr.ph48.i326, %.lr.ph48.preheader.i324
@@ -2676,7 +2676,7 @@ Io_WriteVerilogGetName.exit343:                   ; preds = %238, %._crit_edge.i
   br i1 %270, label %.lr.ph.preheader.i358, label %._crit_edge.i356
 
 .lr.ph.preheader.i358:                            ; preds = %.preheader.i355
-  %wide.trip.count.i359 = and i64 %266, 4294967295
+  %wide.trip.count.i359 = and i64 %266, 2147483647
   br label %.lr.ph.i360
 
 .lr.ph.i360:                                      ; preds = %278, %.lr.ph.preheader.i358
@@ -2715,7 +2715,7 @@ Io_WriteVerilogGetName.exit343:                   ; preds = %238, %._crit_edge.i
   br i1 %282, label %.lr.ph48.preheader.i349, label %._crit_edge49.i345
 
 .lr.ph48.preheader.i349:                          ; preds = %281
-  %wide.trip.count54.i350 = and i64 %266, 4294967295
+  %wide.trip.count54.i350 = and i64 %266, 2147483647
   br label %.lr.ph48.i351
 
 .lr.ph48.i351:                                    ; preds = %.lr.ph48.i351, %.lr.ph48.preheader.i349
@@ -2912,7 +2912,7 @@ Abc_Base10Log.exit375:                            ; preds = %.lr.ph.i370, %.crit
   br i1 %370, label %.lr.ph.preheader.i390, label %._crit_edge.i388
 
 .lr.ph.preheader.i390:                            ; preds = %.preheader.i387
-  %wide.trip.count.i391 = and i64 %366, 4294967295
+  %wide.trip.count.i391 = and i64 %366, 2147483647
   br label %.lr.ph.i392
 
 .lr.ph.i392:                                      ; preds = %378, %.lr.ph.preheader.i390
@@ -2951,7 +2951,7 @@ Abc_Base10Log.exit375:                            ; preds = %.lr.ph.i370, %.crit
   br i1 %382, label %.lr.ph48.preheader.i381, label %._crit_edge49.i377
 
 .lr.ph48.preheader.i381:                          ; preds = %381
-  %wide.trip.count54.i382 = and i64 %366, 4294967295
+  %wide.trip.count54.i382 = and i64 %366, 2147483647
   br label %.lr.ph48.i383
 
 .lr.ph48.i383:                                    ; preds = %.lr.ph48.i383, %.lr.ph48.preheader.i381
@@ -3015,7 +3015,7 @@ Io_WriteVerilogGetName.exit400:                   ; preds = %378, %._crit_edge.i
   br i1 %407, label %.lr.ph.preheader.i415, label %._crit_edge.i413
 
 .lr.ph.preheader.i415:                            ; preds = %.preheader.i412
-  %wide.trip.count.i416 = and i64 %403, 4294967295
+  %wide.trip.count.i416 = and i64 %403, 2147483647
   br label %.lr.ph.i417
 
 .lr.ph.i417:                                      ; preds = %415, %.lr.ph.preheader.i415
@@ -3054,7 +3054,7 @@ Io_WriteVerilogGetName.exit400:                   ; preds = %378, %._crit_edge.i
   br i1 %419, label %.lr.ph48.preheader.i406, label %._crit_edge49.i402
 
 .lr.ph48.preheader.i406:                          ; preds = %418
-  %wide.trip.count54.i407 = and i64 %403, 4294967295
+  %wide.trip.count54.i407 = and i64 %403, 2147483647
   br label %.lr.ph48.i408
 
 .lr.ph48.i408:                                    ; preds = %.lr.ph48.i408, %.lr.ph48.preheader.i406
@@ -3121,7 +3121,7 @@ Io_WriteVerilogGetName.exit425:                   ; preds = %415, %._crit_edge.i
   br i1 %452, label %.lr.ph.preheader.i440, label %._crit_edge.i438
 
 .lr.ph.preheader.i440:                            ; preds = %.preheader.i437
-  %wide.trip.count.i441 = and i64 %448, 4294967295
+  %wide.trip.count.i441 = and i64 %448, 2147483647
   br label %.lr.ph.i442
 
 .lr.ph.i442:                                      ; preds = %460, %.lr.ph.preheader.i440
@@ -3160,7 +3160,7 @@ Io_WriteVerilogGetName.exit425:                   ; preds = %415, %._crit_edge.i
   br i1 %464, label %.lr.ph48.preheader.i431, label %._crit_edge49.i427
 
 .lr.ph48.preheader.i431:                          ; preds = %463
-  %wide.trip.count54.i432 = and i64 %448, 4294967295
+  %wide.trip.count54.i432 = and i64 %448, 2147483647
   br label %.lr.ph48.i433
 
 .lr.ph48.i433:                                    ; preds = %.lr.ph48.i433, %.lr.ph48.preheader.i431
@@ -3231,7 +3231,7 @@ Io_WriteVerilogGetName.exit450:                   ; preds = %460, %._crit_edge.i
   br i1 %491, label %.lr.ph.preheader.i465, label %._crit_edge.i463
 
 .lr.ph.preheader.i465:                            ; preds = %.preheader.i462
-  %wide.trip.count.i466 = and i64 %487, 4294967295
+  %wide.trip.count.i466 = and i64 %487, 2147483647
   br label %.lr.ph.i467
 
 .lr.ph.i467:                                      ; preds = %499, %.lr.ph.preheader.i465
@@ -3270,7 +3270,7 @@ Io_WriteVerilogGetName.exit450:                   ; preds = %460, %._crit_edge.i
   br i1 %503, label %.lr.ph48.preheader.i456, label %._crit_edge49.i452
 
 .lr.ph48.preheader.i456:                          ; preds = %502
-  %wide.trip.count54.i457 = and i64 %487, 4294967295
+  %wide.trip.count54.i457 = and i64 %487, 2147483647
   br label %.lr.ph48.i458
 
 .lr.ph48.i458:                                    ; preds = %.lr.ph48.i458, %.lr.ph48.preheader.i456
@@ -3418,7 +3418,7 @@ Io_WriteVerilogGetName.exit475:                   ; preds = %499, %._crit_edge.i
   br i1 %567, label %.lr.ph.preheader.i490, label %._crit_edge.i488
 
 .lr.ph.preheader.i490:                            ; preds = %.preheader.i487
-  %wide.trip.count.i491 = and i64 %563, 4294967295
+  %wide.trip.count.i491 = and i64 %563, 2147483647
   br label %.lr.ph.i492
 
 .lr.ph.i492:                                      ; preds = %575, %.lr.ph.preheader.i490
@@ -3457,7 +3457,7 @@ Io_WriteVerilogGetName.exit475:                   ; preds = %499, %._crit_edge.i
   br i1 %579, label %.lr.ph48.preheader.i481, label %._crit_edge49.i477
 
 .lr.ph48.preheader.i481:                          ; preds = %578
-  %wide.trip.count54.i482 = and i64 %563, 4294967295
+  %wide.trip.count54.i482 = and i64 %563, 2147483647
   br label %.lr.ph48.i483
 
 .lr.ph48.i483:                                    ; preds = %.lr.ph48.i483, %.lr.ph48.preheader.i481
@@ -3515,7 +3515,7 @@ Io_WriteVerilogGetName.exit500:                   ; preds = %575, %._crit_edge.i
   br i1 %603, label %.lr.ph.preheader.i515, label %._crit_edge.i513
 
 .lr.ph.preheader.i515:                            ; preds = %.preheader.i512
-  %wide.trip.count.i516 = and i64 %599, 4294967295
+  %wide.trip.count.i516 = and i64 %599, 2147483647
   br label %.lr.ph.i517
 
 .lr.ph.i517:                                      ; preds = %611, %.lr.ph.preheader.i515
@@ -3554,7 +3554,7 @@ Io_WriteVerilogGetName.exit500:                   ; preds = %575, %._crit_edge.i
   br i1 %615, label %.lr.ph48.preheader.i506, label %._crit_edge49.i502
 
 .lr.ph48.preheader.i506:                          ; preds = %614
-  %wide.trip.count54.i507 = and i64 %599, 4294967295
+  %wide.trip.count54.i507 = and i64 %599, 2147483647
   br label %.lr.ph48.i508
 
 .lr.ph48.i508:                                    ; preds = %.lr.ph48.i508, %.lr.ph48.preheader.i506
@@ -3622,7 +3622,7 @@ define void @Io_WriteVerilogLutInt(ptr nocapture noundef %0, ptr nocapture nound
   br i1 %10, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = and i64 %6, 4294967295
+  %wide.trip.count.i = and i64 %6, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
@@ -3661,7 +3661,7 @@ define void @Io_WriteVerilogLutInt(ptr nocapture noundef %0, ptr nocapture nound
   br i1 %22, label %.lr.ph48.preheader.i, label %._crit_edge49.i
 
 .lr.ph48.preheader.i:                             ; preds = %21
-  %wide.trip.count54.i = and i64 %6, 4294967295
+  %wide.trip.count54.i = and i64 %6, 2147483647
   br label %.lr.ph48.i
 
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i, %.lr.ph48.preheader.i
@@ -3862,7 +3862,7 @@ define internal fastcc void @Io_WriteVerilogPis(ptr nocapture noundef %0, ptr no
   br i1 %21, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = and i64 %17, 4294967295
+  %wide.trip.count.i = and i64 %17, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %29, %.lr.ph.preheader.i
@@ -3901,7 +3901,7 @@ define internal fastcc void @Io_WriteVerilogPis(ptr nocapture noundef %0, ptr no
   br i1 %33, label %.lr.ph48.preheader.i, label %._crit_edge49.i
 
 .lr.ph48.preheader.i:                             ; preds = %32
-  %wide.trip.count54.i = and i64 %17, 4294967295
+  %wide.trip.count54.i = and i64 %17, 2147483647
   br label %.lr.ph48.i
 
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i, %.lr.ph48.preheader.i
@@ -3959,7 +3959,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %29, %._crit_edge.i,
   br i1 %56, label %.lr.ph.preheader.i39, label %._crit_edge.i37
 
 .lr.ph.preheader.i39:                             ; preds = %.preheader.i36
-  %wide.trip.count.i40 = and i64 %52, 4294967295
+  %wide.trip.count.i40 = and i64 %52, 2147483647
   br label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %64, %.lr.ph.preheader.i39
@@ -3998,7 +3998,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %29, %._crit_edge.i,
   br i1 %68, label %.lr.ph48.preheader.i30, label %._crit_edge49.i26
 
 .lr.ph48.preheader.i30:                           ; preds = %67
-  %wide.trip.count54.i31 = and i64 %52, 4294967295
+  %wide.trip.count54.i31 = and i64 %52, 2147483647
   br label %.lr.ph48.i32
 
 .lr.ph48.i32:                                     ; preds = %.lr.ph48.i32, %.lr.ph48.preheader.i30
@@ -4113,7 +4113,7 @@ define internal fastcc void @Io_WriteVerilogPos(ptr nocapture noundef %0, ptr no
   br i1 %32, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = and i64 %28, 4294967295
+  %wide.trip.count.i = and i64 %28, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.preheader.i
@@ -4152,7 +4152,7 @@ define internal fastcc void @Io_WriteVerilogPos(ptr nocapture noundef %0, ptr no
   br i1 %44, label %.lr.ph48.preheader.i, label %._crit_edge49.i
 
 .lr.ph48.preheader.i:                             ; preds = %43
-  %wide.trip.count54.i = and i64 %28, 4294967295
+  %wide.trip.count54.i = and i64 %28, 2147483647
   br label %.lr.ph48.i
 
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i, %.lr.ph48.preheader.i
@@ -4210,7 +4210,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %40, %._crit_edge.i,
   br i1 %67, label %.lr.ph.preheader.i55, label %._crit_edge.i53
 
 .lr.ph.preheader.i55:                             ; preds = %.preheader.i52
-  %wide.trip.count.i56 = and i64 %63, 4294967295
+  %wide.trip.count.i56 = and i64 %63, 2147483647
   br label %.lr.ph.i57
 
 .lr.ph.i57:                                       ; preds = %75, %.lr.ph.preheader.i55
@@ -4249,7 +4249,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %40, %._crit_edge.i,
   br i1 %79, label %.lr.ph48.preheader.i46, label %._crit_edge49.i42
 
 .lr.ph48.preheader.i46:                           ; preds = %78
-  %wide.trip.count54.i47 = and i64 %63, 4294967295
+  %wide.trip.count54.i47 = and i64 %63, 2147483647
   br label %.lr.ph48.i48
 
 .lr.ph48.i48:                                     ; preds = %.lr.ph48.i48, %.lr.ph48.preheader.i46
@@ -4379,7 +4379,7 @@ define internal fastcc void @Io_WriteVerilogRegs(ptr nocapture noundef %0, ptr n
   br i1 %33, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = and i64 %29, 4294967295
+  %wide.trip.count.i = and i64 %29, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.preheader.i
@@ -4418,7 +4418,7 @@ define internal fastcc void @Io_WriteVerilogRegs(ptr nocapture noundef %0, ptr n
   br i1 %45, label %.lr.ph48.preheader.i, label %._crit_edge49.i
 
 .lr.ph48.preheader.i:                             ; preds = %44
-  %wide.trip.count54.i = and i64 %29, 4294967295
+  %wide.trip.count54.i = and i64 %29, 2147483647
   br label %.lr.ph48.i
 
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i, %.lr.ph48.preheader.i
@@ -4476,7 +4476,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %41, %._crit_edge.i,
   br i1 %68, label %.lr.ph.preheader.i49, label %._crit_edge.i47
 
 .lr.ph.preheader.i49:                             ; preds = %.preheader.i46
-  %wide.trip.count.i50 = and i64 %64, 4294967295
+  %wide.trip.count.i50 = and i64 %64, 2147483647
   br label %.lr.ph.i51
 
 .lr.ph.i51:                                       ; preds = %76, %.lr.ph.preheader.i49
@@ -4515,7 +4515,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %41, %._crit_edge.i,
   br i1 %80, label %.lr.ph48.preheader.i40, label %._crit_edge49.i36
 
 .lr.ph48.preheader.i40:                           ; preds = %79
-  %wide.trip.count54.i41 = and i64 %64, 4294967295
+  %wide.trip.count54.i41 = and i64 %64, 2147483647
   br label %.lr.ph48.i42
 
 .lr.ph48.i42:                                     ; preds = %.lr.ph48.i42, %.lr.ph48.preheader.i40
@@ -4850,7 +4850,7 @@ define internal fastcc void @Io_WriteVerilogWires(ptr nocapture noundef %0, ptr 
   br i1 %48, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = and i64 %44, 4294967295
+  %wide.trip.count.i = and i64 %44, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %56, %.lr.ph.preheader.i
@@ -4889,7 +4889,7 @@ define internal fastcc void @Io_WriteVerilogWires(ptr nocapture noundef %0, ptr 
   br i1 %60, label %.lr.ph48.preheader.i, label %._crit_edge49.i
 
 .lr.ph48.preheader.i:                             ; preds = %59
-  %wide.trip.count54.i = and i64 %44, 4294967295
+  %wide.trip.count54.i = and i64 %44, 2147483647
   br label %.lr.ph48.i
 
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i, %.lr.ph48.preheader.i
@@ -4947,7 +4947,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %56, %._crit_edge.i,
   br i1 %83, label %.lr.ph.preheader.i181, label %._crit_edge.i179
 
 .lr.ph.preheader.i181:                            ; preds = %.preheader.i178
-  %wide.trip.count.i182 = and i64 %79, 4294967295
+  %wide.trip.count.i182 = and i64 %79, 2147483647
   br label %.lr.ph.i183
 
 .lr.ph.i183:                                      ; preds = %91, %.lr.ph.preheader.i181
@@ -4986,7 +4986,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %56, %._crit_edge.i,
   br i1 %95, label %.lr.ph48.preheader.i172, label %._crit_edge49.i168
 
 .lr.ph48.preheader.i172:                          ; preds = %94
-  %wide.trip.count54.i173 = and i64 %79, 4294967295
+  %wide.trip.count54.i173 = and i64 %79, 2147483647
   br label %.lr.ph48.i174
 
 .lr.ph48.i174:                                    ; preds = %.lr.ph48.i174, %.lr.ph48.preheader.i172
@@ -5090,7 +5090,7 @@ Io_WriteVerilogGetName.exit191:                   ; preds = %91, %._crit_edge.i1
   br i1 %140, label %.lr.ph.preheader.i206, label %._crit_edge.i204
 
 .lr.ph.preheader.i206:                            ; preds = %.preheader.i203
-  %wide.trip.count.i207 = and i64 %136, 4294967295
+  %wide.trip.count.i207 = and i64 %136, 2147483647
   br label %.lr.ph.i208
 
 .lr.ph.i208:                                      ; preds = %148, %.lr.ph.preheader.i206
@@ -5129,7 +5129,7 @@ Io_WriteVerilogGetName.exit191:                   ; preds = %91, %._crit_edge.i1
   br i1 %152, label %.lr.ph48.preheader.i197, label %._crit_edge49.i193
 
 .lr.ph48.preheader.i197:                          ; preds = %151
-  %wide.trip.count54.i198 = and i64 %136, 4294967295
+  %wide.trip.count54.i198 = and i64 %136, 2147483647
   br label %.lr.ph48.i199
 
 .lr.ph48.i199:                                    ; preds = %.lr.ph48.i199, %.lr.ph48.preheader.i197
@@ -5187,7 +5187,7 @@ Io_WriteVerilogGetName.exit216:                   ; preds = %148, %._crit_edge.i
   br i1 %175, label %.lr.ph.preheader.i231, label %._crit_edge.i229
 
 .lr.ph.preheader.i231:                            ; preds = %.preheader.i228
-  %wide.trip.count.i232 = and i64 %171, 4294967295
+  %wide.trip.count.i232 = and i64 %171, 2147483647
   br label %.lr.ph.i233
 
 .lr.ph.i233:                                      ; preds = %183, %.lr.ph.preheader.i231
@@ -5226,7 +5226,7 @@ Io_WriteVerilogGetName.exit216:                   ; preds = %148, %._crit_edge.i
   br i1 %187, label %.lr.ph48.preheader.i222, label %._crit_edge49.i218
 
 .lr.ph48.preheader.i222:                          ; preds = %186
-  %wide.trip.count54.i223 = and i64 %171, 4294967295
+  %wide.trip.count54.i223 = and i64 %171, 2147483647
   br label %.lr.ph48.i224
 
 .lr.ph48.i224:                                    ; preds = %.lr.ph48.i224, %.lr.ph48.preheader.i222
@@ -5353,7 +5353,7 @@ Io_WriteVerilogGetName.exit241:                   ; preds = %183, %._crit_edge.i
   br i1 %237, label %.lr.ph.preheader.i256, label %._crit_edge.i254
 
 .lr.ph.preheader.i256:                            ; preds = %.preheader.i253
-  %wide.trip.count.i257 = and i64 %233, 4294967295
+  %wide.trip.count.i257 = and i64 %233, 2147483647
   br label %.lr.ph.i258
 
 .lr.ph.i258:                                      ; preds = %245, %.lr.ph.preheader.i256
@@ -5392,7 +5392,7 @@ Io_WriteVerilogGetName.exit241:                   ; preds = %183, %._crit_edge.i
   br i1 %249, label %.lr.ph48.preheader.i247, label %._crit_edge49.i243
 
 .lr.ph48.preheader.i247:                          ; preds = %248
-  %wide.trip.count54.i248 = and i64 %233, 4294967295
+  %wide.trip.count54.i248 = and i64 %233, 2147483647
   br label %.lr.ph48.i249
 
 .lr.ph48.i249:                                    ; preds = %.lr.ph48.i249, %.lr.ph48.preheader.i247
@@ -5450,7 +5450,7 @@ Io_WriteVerilogGetName.exit266:                   ; preds = %245, %._crit_edge.i
   br i1 %272, label %.lr.ph.preheader.i281, label %._crit_edge.i279
 
 .lr.ph.preheader.i281:                            ; preds = %.preheader.i278
-  %wide.trip.count.i282 = and i64 %268, 4294967295
+  %wide.trip.count.i282 = and i64 %268, 2147483647
   br label %.lr.ph.i283
 
 .lr.ph.i283:                                      ; preds = %280, %.lr.ph.preheader.i281
@@ -5489,7 +5489,7 @@ Io_WriteVerilogGetName.exit266:                   ; preds = %245, %._crit_edge.i
   br i1 %284, label %.lr.ph48.preheader.i272, label %._crit_edge49.i268
 
 .lr.ph48.preheader.i272:                          ; preds = %283
-  %wide.trip.count54.i273 = and i64 %268, 4294967295
+  %wide.trip.count54.i273 = and i64 %268, 2147483647
   br label %.lr.ph48.i274
 
 .lr.ph48.i274:                                    ; preds = %.lr.ph48.i274, %.lr.ph48.preheader.i272
@@ -5594,7 +5594,7 @@ Io_WriteVerilogGetName.exit291:                   ; preds = %280, %._crit_edge.i
   br i1 %333, label %.lr.ph.preheader.i307, label %._crit_edge.i305
 
 .lr.ph.preheader.i307:                            ; preds = %.preheader.i304
-  %wide.trip.count.i308 = and i64 %329, 4294967295
+  %wide.trip.count.i308 = and i64 %329, 2147483647
   br label %.lr.ph.i309
 
 .lr.ph.i309:                                      ; preds = %341, %.lr.ph.preheader.i307
@@ -5633,7 +5633,7 @@ Io_WriteVerilogGetName.exit291:                   ; preds = %280, %._crit_edge.i
   br i1 %345, label %.lr.ph48.preheader.i298, label %._crit_edge49.i294
 
 .lr.ph48.preheader.i298:                          ; preds = %344
-  %wide.trip.count54.i299 = and i64 %329, 4294967295
+  %wide.trip.count54.i299 = and i64 %329, 2147483647
   br label %.lr.ph48.i300
 
 .lr.ph48.i300:                                    ; preds = %.lr.ph48.i300, %.lr.ph48.preheader.i298
@@ -5691,7 +5691,7 @@ Io_WriteVerilogGetName.exit317:                   ; preds = %341, %._crit_edge.i
   br i1 %368, label %.lr.ph.preheader.i332, label %._crit_edge.i330
 
 .lr.ph.preheader.i332:                            ; preds = %.preheader.i329
-  %wide.trip.count.i333 = and i64 %364, 4294967295
+  %wide.trip.count.i333 = and i64 %364, 2147483647
   br label %.lr.ph.i334
 
 .lr.ph.i334:                                      ; preds = %376, %.lr.ph.preheader.i332
@@ -5730,7 +5730,7 @@ Io_WriteVerilogGetName.exit317:                   ; preds = %341, %._crit_edge.i
   br i1 %380, label %.lr.ph48.preheader.i323, label %._crit_edge49.i319
 
 .lr.ph48.preheader.i323:                          ; preds = %379
-  %wide.trip.count54.i324 = and i64 %364, 4294967295
+  %wide.trip.count54.i324 = and i64 %364, 2147483647
   br label %.lr.ph48.i325
 
 .lr.ph48.i325:                                    ; preds = %.lr.ph48.i325, %.lr.ph48.preheader.i323
@@ -5856,7 +5856,7 @@ define internal fastcc void @Io_WriteVerilogLatches(ptr nocapture noundef %0, pt
   br i1 %35, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = and i64 %31, 4294967295
+  %wide.trip.count.i = and i64 %31, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43, %.lr.ph.preheader.i
@@ -5895,7 +5895,7 @@ define internal fastcc void @Io_WriteVerilogLatches(ptr nocapture noundef %0, pt
   br i1 %47, label %.lr.ph48.preheader.i, label %._crit_edge49.i
 
 .lr.ph48.preheader.i:                             ; preds = %46
-  %wide.trip.count54.i = and i64 %31, 4294967295
+  %wide.trip.count54.i = and i64 %31, 2147483647
   br label %.lr.ph48.i
 
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i, %.lr.ph48.preheader.i
@@ -5958,7 +5958,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %43, %._crit_edge.i,
   br i1 %74, label %.lr.ph.preheader.i86, label %._crit_edge.i84
 
 .lr.ph.preheader.i86:                             ; preds = %.preheader.i83
-  %wide.trip.count.i87 = and i64 %70, 4294967295
+  %wide.trip.count.i87 = and i64 %70, 2147483647
   br label %.lr.ph.i88
 
 .lr.ph.i88:                                       ; preds = %82, %.lr.ph.preheader.i86
@@ -5997,7 +5997,7 @@ Io_WriteVerilogGetName.exit:                      ; preds = %43, %._crit_edge.i,
   br i1 %86, label %.lr.ph48.preheader.i77, label %._crit_edge49.i73
 
 .lr.ph48.preheader.i77:                           ; preds = %85
-  %wide.trip.count54.i78 = and i64 %70, 4294967295
+  %wide.trip.count54.i78 = and i64 %70, 2147483647
   br label %.lr.ph48.i79
 
 .lr.ph48.i79:                                     ; preds = %.lr.ph48.i79, %.lr.ph48.preheader.i77
@@ -6152,7 +6152,7 @@ Io_WriteVerilogGetName.exit96:                    ; preds = %82, %._crit_edge.i8
   br i1 %151, label %.lr.ph.preheader.i111, label %._crit_edge.i109
 
 .lr.ph.preheader.i111:                            ; preds = %.preheader.i108
-  %wide.trip.count.i112 = and i64 %147, 4294967295
+  %wide.trip.count.i112 = and i64 %147, 2147483647
   br label %.lr.ph.i113
 
 .lr.ph.i113:                                      ; preds = %159, %.lr.ph.preheader.i111
@@ -6191,7 +6191,7 @@ Io_WriteVerilogGetName.exit96:                    ; preds = %82, %._crit_edge.i8
   br i1 %163, label %.lr.ph48.preheader.i102, label %._crit_edge49.i98
 
 .lr.ph48.preheader.i102:                          ; preds = %162
-  %wide.trip.count54.i103 = and i64 %147, 4294967295
+  %wide.trip.count54.i103 = and i64 %147, 2147483647
   br label %.lr.ph48.i104
 
 .lr.ph48.i104:                                    ; preds = %.lr.ph48.i104, %.lr.ph48.preheader.i102
@@ -6257,7 +6257,7 @@ Io_WriteVerilogGetName.exit121:                   ; preds = %159, %._crit_edge.i
   br i1 %191, label %.lr.ph.preheader.i136, label %._crit_edge.i134
 
 .lr.ph.preheader.i136:                            ; preds = %.preheader.i133
-  %wide.trip.count.i137 = and i64 %187, 4294967295
+  %wide.trip.count.i137 = and i64 %187, 2147483647
   br label %.lr.ph.i138
 
 .lr.ph.i138:                                      ; preds = %199, %.lr.ph.preheader.i136
@@ -6296,7 +6296,7 @@ Io_WriteVerilogGetName.exit121:                   ; preds = %159, %._crit_edge.i
   br i1 %203, label %.lr.ph48.preheader.i127, label %._crit_edge49.i123
 
 .lr.ph48.preheader.i127:                          ; preds = %202
-  %wide.trip.count54.i128 = and i64 %187, 4294967295
+  %wide.trip.count54.i128 = and i64 %187, 2147483647
   br label %.lr.ph48.i129
 
 .lr.ph48.i129:                                    ; preds = %.lr.ph48.i129, %.lr.ph48.preheader.i127

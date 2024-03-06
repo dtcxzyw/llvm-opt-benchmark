@@ -543,7 +543,7 @@ cond.true3.i.i:                                   ; preds = %cond.true.i.i
 
 cond.false.i.i:                                   ; preds = %cond.true.i.i
   %shr5.i.i = lshr i64 %sub.ptr.div.i, 16
-  %idxprom7.i.i = and i64 %shr5.i.i, 65535
+  %idxprom7.i.i = and i64 %shr5.i.i, 255
   %arrayidx8.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom7.i.i
   %35 = load i32, ptr %arrayidx8.i.i, align 4
   %add9.i.i = add nsw i32 %35, 16
@@ -555,14 +555,14 @@ cond.false10.i.i:                                 ; preds = %if.end.i.i
 
 cond.true13.i.i:                                  ; preds = %cond.false10.i.i
   %shr14.i.i = lshr i64 %sub.ptr.div.i, 8
-  %idxprom16.i.i = and i64 %shr14.i.i, 16777215
+  %idxprom16.i.i = and i64 %shr14.i.i, 255
   %arrayidx17.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom16.i.i
   %36 = load i32, ptr %arrayidx17.i.i, align 4
   %add18.i.i = add nsw i32 %36, 8
   br label %cond.end27.i.i
 
 cond.false19.i.i:                                 ; preds = %cond.false10.i.i
-  %idxprom22.i.i = and i64 %sub.ptr.div.i, 4294967295
+  %idxprom22.i.i = and i64 %sub.ptr.div.i, 255
   %arrayidx23.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom22.i.i
   %37 = load i32, ptr %arrayidx23.i.i, align 4
   br label %cond.end27.i.i
@@ -1334,7 +1334,7 @@ cond.true13.i.i.i:                                ; preds = %cond.false10.i.i.i
   br label %for.cond.outer.i.i.preheader
 
 cond.false19.i.i.i:                               ; preds = %cond.false10.i.i.i
-  %idxprom22.i.i.i = and i64 %sub.ptr.div4.i.i, 4294967295
+  %idxprom22.i.i.i = and i64 %sub.ptr.div4.i.i, 255
   %arrayidx23.i.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom22.i.i.i
   %93 = load i32, ptr %arrayidx23.i.i.i, align 4
   br label %for.cond.outer.i.i.preheader
@@ -1874,7 +1874,7 @@ cond.true13.i469.i.i:                             ; preds = %cond.false10.i467.i
   br label %tr_ilg.exit477.i.i
 
 cond.false19.i474.i.i:                            ; preds = %cond.false10.i467.i.i
-  %idxprom22.i475.i.i = and i64 %sub.ptr.div120.i.i, 4294967295
+  %idxprom22.i475.i.i = and i64 %sub.ptr.div120.i.i, 255
   %arrayidx23.i476.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom22.i475.i.i
   %140 = load i32, ptr %arrayidx23.i476.i.i, align 4
   br label %tr_ilg.exit477.i.i
@@ -1924,7 +1924,7 @@ cond.true13.i494.i.i:                             ; preds = %cond.false10.i492.i
   br label %for.cond.outer.i.i.backedge
 
 cond.false19.i499.i.i:                            ; preds = %cond.false10.i492.i.i
-  %idxprom22.i500.i.i = and i64 %sub.ptr.div134.i.i, 4294967295
+  %idxprom22.i500.i.i = and i64 %sub.ptr.div134.i.i, 255
   %arrayidx23.i501.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom22.i500.i.i
   %144 = load i32, ptr %arrayidx23.i501.i.i, align 4
   br label %for.cond.outer.i.i.backedge
@@ -1952,7 +1952,7 @@ cond.true3.i506.i.i:                              ; preds = %cond.true.i504.i.i
 
 cond.false.i512.i.i:                              ; preds = %cond.true.i504.i.i
   %shr5.i513.i.i = lshr i64 %sub.ptr.div96.i.i, 16
-  %idxprom7.i514.i.i = and i64 %shr5.i513.i.i, 65535
+  %idxprom7.i514.i.i = and i64 %shr5.i513.i.i, 255
   %arrayidx8.i515.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom7.i514.i.i
   %146 = load i32, ptr %arrayidx8.i515.i.i, align 4
   %add9.i516.i.i = add nsw i32 %146, 16
@@ -1964,14 +1964,14 @@ cond.false10.i517.i.i:                            ; preds = %if.then143.i.i
 
 cond.true13.i519.i.i:                             ; preds = %cond.false10.i517.i.i
   %shr14.i520.i.i = lshr i64 %sub.ptr.div96.i.i, 8
-  %idxprom16.i521.i.i = and i64 %shr14.i520.i.i, 16777215
+  %idxprom16.i521.i.i = and i64 %shr14.i520.i.i, 255
   %arrayidx17.i522.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom16.i521.i.i
   %147 = load i32, ptr %arrayidx17.i522.i.i, align 4
   %add18.i523.i.i = add nsw i32 %147, 8
   br label %for.cond.outer.i.i.backedge
 
 cond.false19.i524.i.i:                            ; preds = %cond.false10.i517.i.i
-  %idxprom22.i525.i.i = and i64 %sub.ptr.div96.i.i, 4294967295
+  %idxprom22.i525.i.i = and i64 %sub.ptr.div96.i.i, 255
   %arrayidx23.i526.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom22.i525.i.i
   %148 = load i32, ptr %arrayidx23.i526.i.i, align 4
   br label %for.cond.outer.i.i.backedge
@@ -2045,7 +2045,7 @@ cond.true13.i544.i.i:                             ; preds = %cond.false10.i542.i
   br label %tr_ilg.exit552.i.i
 
 cond.false19.i549.i.i:                            ; preds = %cond.false10.i542.i.i
-  %idxprom22.i550.i.i = and i64 %sub.ptr.div195.i.i, 4294967295
+  %idxprom22.i550.i.i = and i64 %sub.ptr.div195.i.i, 255
   %arrayidx23.i551.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom22.i550.i.i
   %157 = load i32, ptr %arrayidx23.i551.i.i, align 4
   br label %tr_ilg.exit552.i.i
@@ -2095,7 +2095,7 @@ cond.true13.i569.i.i:                             ; preds = %cond.false10.i567.i
   br label %for.cond.outer.i.i.backedge
 
 cond.false19.i574.i.i:                            ; preds = %cond.false10.i567.i.i
-  %idxprom22.i575.i.i = and i64 %sub.ptr.div209.i.i, 4294967295
+  %idxprom22.i575.i.i = and i64 %sub.ptr.div209.i.i, 255
   %arrayidx23.i576.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom22.i575.i.i
   %161 = load i32, ptr %arrayidx23.i576.i.i, align 4
   br label %for.cond.outer.i.i.backedge
@@ -2123,7 +2123,7 @@ cond.true3.i581.i.i:                              ; preds = %cond.true.i579.i.i
 
 cond.false.i587.i.i:                              ; preds = %cond.true.i579.i.i
   %shr5.i588.i.i = lshr i64 %sub.ptr.div92.i.i, 16
-  %idxprom7.i589.i.i = and i64 %shr5.i588.i.i, 65535
+  %idxprom7.i589.i.i = and i64 %shr5.i588.i.i, 255
   %arrayidx8.i590.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom7.i589.i.i
   %163 = load i32, ptr %arrayidx8.i590.i.i, align 4
   %add9.i591.i.i = add nsw i32 %163, 16
@@ -2135,14 +2135,14 @@ cond.false10.i592.i.i:                            ; preds = %if.then219.i.i
 
 cond.true13.i594.i.i:                             ; preds = %cond.false10.i592.i.i
   %shr14.i595.i.i = lshr i64 %sub.ptr.div92.i.i, 8
-  %idxprom16.i596.i.i = and i64 %shr14.i595.i.i, 16777215
+  %idxprom16.i596.i.i = and i64 %shr14.i595.i.i, 255
   %arrayidx17.i597.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom16.i596.i.i
   %164 = load i32, ptr %arrayidx17.i597.i.i, align 4
   %add18.i598.i.i = add nsw i32 %164, 8
   br label %for.cond.outer.i.i.backedge
 
 cond.false19.i599.i.i:                            ; preds = %cond.false10.i592.i.i
-  %idxprom22.i600.i.i = and i64 %sub.ptr.div92.i.i, 4294967295
+  %idxprom22.i600.i.i = and i64 %sub.ptr.div92.i.i, 255
   %arrayidx23.i601.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom22.i600.i.i
   %165 = load i32, ptr %arrayidx23.i601.i.i, align 4
   br label %for.cond.outer.i.i.backedge
@@ -3512,7 +3512,7 @@ cond.true3.i700.i.i:                              ; preds = %cond.true.i698.i.i
 
 cond.false.i706.i.i:                              ; preds = %cond.true.i698.i.i
   %shr5.i707.i.i = lshr i64 %.pre337.i, 16
-  %idxprom7.i708.i.i = and i64 %shr5.i707.i.i, 65535
+  %idxprom7.i708.i.i = and i64 %shr5.i707.i.i, 255
   %arrayidx8.i709.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom7.i708.i.i
   %360 = load i32, ptr %arrayidx8.i709.i.i, align 4
   %add9.i710.i.i = add nsw i32 %360, 16
@@ -3524,14 +3524,14 @@ cond.false10.i711.i.i:                            ; preds = %cond.true576.i.i
 
 cond.true13.i713.i.i:                             ; preds = %cond.false10.i711.i.i
   %shr14.i714.i.i = lshr i64 %.pre337.i, 8
-  %idxprom16.i715.i.i = and i64 %shr14.i714.i.i, 16777215
+  %idxprom16.i715.i.i = and i64 %shr14.i714.i.i, 255
   %arrayidx17.i716.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom16.i715.i.i
   %361 = load i32, ptr %arrayidx17.i716.i.i, align 4
   %add18.i717.i.i = add nsw i32 %361, 8
   br label %cond.end584.i.i
 
 cond.false19.i718.i.i:                            ; preds = %cond.false10.i711.i.i
-  %idxprom22.i719.i.i = and i64 %.pre337.i, 4294967295
+  %idxprom22.i719.i.i = and i64 %.pre337.i, 255
   %arrayidx23.i720.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom22.i719.i.i
   %362 = load i32, ptr %arrayidx23.i720.i.i, align 4
   br label %cond.end584.i.i
@@ -3983,7 +3983,7 @@ cond.true3.i757.i.i:                              ; preds = %cond.true.i755.i.i
 
 cond.false.i763.i.i:                              ; preds = %cond.true.i755.i.i
   %shr5.i764.i.i = lshr i64 %sub.ptr.div515.i.i, 16
-  %idxprom7.i765.i.i = and i64 %shr5.i764.i.i, 65535
+  %idxprom7.i765.i.i = and i64 %shr5.i764.i.i, 255
   %arrayidx8.i766.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom7.i765.i.i
   %378 = load i32, ptr %arrayidx8.i766.i.i, align 4
   %add9.i767.i.i = add nsw i32 %378, 16
@@ -3995,14 +3995,14 @@ cond.false10.i768.i.i:                            ; preds = %if.then1238.i.i
 
 cond.true13.i770.i.i:                             ; preds = %cond.false10.i768.i.i
   %shr14.i771.i.i = lshr i64 %sub.ptr.div515.i.i, 8
-  %idxprom16.i772.i.i = and i64 %shr14.i771.i.i, 16777215
+  %idxprom16.i772.i.i = and i64 %shr14.i771.i.i, 255
   %arrayidx17.i773.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom16.i772.i.i
   %379 = load i32, ptr %arrayidx17.i773.i.i, align 4
   %add18.i774.i.i = add nsw i32 %379, 8
   br label %tr_ilg.exit778.i.i
 
 cond.false19.i775.i.i:                            ; preds = %cond.false10.i768.i.i
-  %idxprom22.i776.i.i = and i64 %sub.ptr.div515.i.i, 4294967295
+  %idxprom22.i776.i.i = and i64 %sub.ptr.div515.i.i, 255
   %arrayidx23.i777.i.i = getelementptr inbounds [256 x i32], ptr @lg_table, i64 0, i64 %idxprom22.i776.i.i
   %380 = load i32, ptr %arrayidx23.i777.i.i, align 4
   br label %tr_ilg.exit778.i.i
@@ -4861,7 +4861,7 @@ if.end34:                                         ; preds = %for.inc213.i, %for.
   br i1 %cmp3791, label %for.body.preheader, label %for.cond46.preheader
 
 for.body.preheader:                               ; preds = %if.end34
-  %wide.trip.count = and i64 %pidx.0.in, 4294967295
+  %wide.trip.count = and i64 %pidx.0.in, 2147483647
   br label %for.body
 
 for.cond46.preheader:                             ; preds = %for.body, %if.end34

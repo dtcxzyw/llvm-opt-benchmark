@@ -7800,7 +7800,7 @@ define noundef i64 @_ZN6casadi10Integrator10adjmap_outEx(i64 noundef %0) local_u
   br i1 %3, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %1
-  %4 = and i64 %0, 4294967295
+  %4 = and i64 %0, 7
   %switch.gep = getelementptr inbounds [7 x i64], ptr @switch.table._ZN6casadi10Integrator10adjmap_outEx, i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %5

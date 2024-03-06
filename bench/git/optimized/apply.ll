@@ -861,7 +861,7 @@ for.cond.preheader.i.i:                           ; preds = %if.end.i
   br i1 %cmp311.i.i, label %for.body.preheader.i.i, label %free_and_fail1.i
 
 for.body.preheader.i.i:                           ; preds = %for.cond.preheader.i.i
-  %wide.trip.count.i.i = and i64 %2, 4294967295
+  %wide.trip.count.i.i = and i64 %2, 2147483647
   br label %for.body.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
@@ -974,7 +974,7 @@ for.cond.preheader.i54.i:                         ; preds = %if.end45.i
   br i1 %cmp311.i55.i, label %for.body.preheader.i57.i, label %free_and_fail1.i
 
 for.body.preheader.i57.i:                         ; preds = %for.cond.preheader.i54.i
-  %wide.trip.count.i58.i = and i64 %sub.ptr.sub50.i, 4294967295
+  %wide.trip.count.i58.i = and i64 %sub.ptr.sub50.i, 2147483647
   br label %for.body.i59.i
 
 if.then.i76.i:                                    ; preds = %if.end45.i
@@ -1116,7 +1116,7 @@ for.cond.preheader.i112.i:                        ; preds = %if.end88.i
   br i1 %cmp311.i113.i, label %for.body.preheader.i115.i, label %git_header_name.exit.thread.sink.split
 
 for.body.preheader.i115.i:                        ; preds = %for.cond.preheader.i112.i
-  %wide.trip.count.i116.i = and i64 %20, 4294967295
+  %wide.trip.count.i116.i = and i64 %20, 2147483647
   br label %for.body.i117.i
 
 if.then.i134.i:                                   ; preds = %if.end88.i
@@ -1243,7 +1243,7 @@ for.cond.preheader.i141.i:                        ; preds = %if.end140.i
   br i1 %cmp311.i142.i, label %for.body.preheader.i144.i, label %git_header_name.exit.thread
 
 for.body.preheader.i144.i:                        ; preds = %for.cond.preheader.i141.i
-  %wide.trip.count.i145.i = and i64 %sub144.i, 4294967295
+  %wide.trip.count.i145.i = and i64 %sub144.i, 2147483647
   br label %for.body.i146.i
 
 if.then.i163.i:                                   ; preds = %if.end140.i
@@ -3012,7 +3012,7 @@ if.end14.i:                                       ; preds = %do.cond.i.i.i, %if.
   %call6.sink.i = phi i32 [ %call6.i, %if.then4.i ], [ %call11.i, %if.else8.i ], [ 0, %if.then14.i.i ], [ 0, %lor.lhs.false.i76.i ], [ 0, %use_patch.exit.i ], [ 0, %do.cond.i.i.i ]
   %ws_rule7.i = getelementptr inbounds i8, ptr %call2, i64 44
   store i32 %call6.sink.i, ptr %ws_rule7.i, align 4
-  %idx.ext.i = and i64 %offset.088.i.i, 4294967295
+  %idx.ext.i = and i64 %offset.088.i.i, 2147483647
   %idx.ext15.i = sext i32 %hdrsize.0.i to i64
   %59 = add nsw i64 %idx.ext.i, %idx.ext15.i
   %sub18.i = sub i64 %sub, %59
@@ -3313,7 +3313,7 @@ sw.bb.i.i.i:                                      ; preds = %if.end30.i.i.i, %if
   br i1 %cmp.i114.i.i.i, label %land.lhs.true.i.i.i.i, label %check_old_for_crlf.exit.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %sw.bb.i.i.i
-  %76 = and i64 %len.1.i112.i.i.i, 4294967295
+  %76 = and i64 %len.1.i112.i.i.i, 2147483647
   %77 = getelementptr i8, ptr %line.addr.0263.i.i.i, i64 %76
   %arrayidx.i116.i.i.i = getelementptr i8, ptr %77, i64 -1
   %78 = load i8, ptr %arrayidx.i116.i.i.i, align 1
@@ -3391,7 +3391,7 @@ if.then49.i.i.i:                                  ; preds = %sw.bb46.i.i.i
   br i1 %cmp.i125.i.i.i, label %land.lhs.true.i127.i.i.i, label %if.end59.i.i.i
 
 land.lhs.true.i127.i.i.i:                         ; preds = %if.then49.i.i.i
-  %91 = and i64 %len.1.i112.i.i.i, 4294967295
+  %91 = and i64 %len.1.i112.i.i.i, 2147483647
   %92 = getelementptr i8, ptr %line.addr.0263.i.i.i, i64 %91
   %arrayidx.i128.i.i.i = getelementptr i8, ptr %92, i64 -1
   %93 = load i8, ptr %arrayidx.i128.i.i.i, align 1
@@ -3471,7 +3471,7 @@ if.then65.i.i.i:                                  ; preds = %sw.bb62.i.i.i
   br i1 %cmp.i162.i.i.i, label %land.lhs.true.i164.i.i.i, label %if.end75.i.i.i
 
 land.lhs.true.i164.i.i.i:                         ; preds = %if.then65.i.i.i
-  %105 = and i64 %len.1.i112.i.i.i, 4294967295
+  %105 = and i64 %len.1.i112.i.i.i, 2147483647
   %106 = getelementptr i8, ptr %line.addr.0263.i.i.i, i64 %105
   %arrayidx.i165.i.i.i = getelementptr i8, ptr %106, i64 -1
   %107 = load i8, ptr %arrayidx.i165.i.i.i, align 1
@@ -9961,7 +9961,7 @@ if.end53:                                         ; preds = %if.end45
   br i1 %tobool61.not, label %if.end63, label %corrupt.loopexit
 
 if.end63:                                         ; preds = %if.end53
-  %idx.ext64 = and i64 %len.1.i69, 4294967295
+  %idx.ext64 = and i64 %len.1.i69, 2147483647
   %add.ptr65 = getelementptr inbounds i8, ptr %buffer.0, i64 %idx.ext64
   %sub67 = sub i64 %size.0, %idx.ext64
   br label %while.body
@@ -12170,7 +12170,7 @@ for.end24.thread.i.i:                             ; preds = %for.cond12.preheade
 
 for.body15.lr.ph.i.i:                             ; preds = %for.cond12.preheader.i.i
   %252 = load ptr, ptr %line.i.i.i, align 8
-  %wide.trip.count15.i.i = and i64 %spec.select.i340.i, 4294967295
+  %wide.trip.count15.i.i = and i64 %spec.select.i340.i, 2147483647
   %invariant.gep.i.i = getelementptr %struct.line, ptr %252, i64 %conv4.i.i
   br label %for.body15.i.i
 

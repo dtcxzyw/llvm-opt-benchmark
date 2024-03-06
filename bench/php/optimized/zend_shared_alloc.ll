@@ -988,38 +988,34 @@ define hidden void @zend_shared_alloc_unlock() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_shared_alloc_lock() local_unnamed_addr #0 {
   %1 = alloca %struct.flock, align 8
-  %2 = load i8, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 2), align 2
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  tail call void @llvm.assume(i1 %.not)
   store i16 1, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 2
-  store i16 0, ptr %4, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  store i64 1, ptr %6, align 8
-  br label %7
+  %2 = getelementptr inbounds i8, ptr %1, i64 2
+  store i16 0, ptr %2, align 2
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 0, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  store i64 1, ptr %4, align 8
+  br label %5
 
-7:                                                ; preds = %11, %0
-  %8 = load i32, ptr @lock_file, align 4
-  %9 = call i32 (i32, i32, ...) @fcntl(i32 noundef %8, i32 noundef 7, ptr noundef nonnull %1) #20
-  %10 = icmp eq i32 %9, -1
-  br i1 %10, label %11, label %18
+5:                                                ; preds = %9, %0
+  %6 = load i32, ptr @lock_file, align 4
+  %7 = call i32 (i32, i32, ...) @fcntl(i32 noundef %6, i32 noundef 7, ptr noundef nonnull %1) #20
+  %8 = icmp eq i32 %7, -1
+  br i1 %8, label %9, label %16
 
-11:                                               ; preds = %7
-  %12 = tail call ptr @__errno_location() #21
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp eq i32 %13, 4
-  br i1 %14, label %7, label %15
+9:                                                ; preds = %5
+  %10 = tail call ptr @__errno_location() #21
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp eq i32 %11, 4
+  br i1 %12, label %5, label %13
 
-15:                                               ; preds = %11
-  %16 = call ptr @strerror(i32 noundef %13) #20
-  %17 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef %16, i32 noundef %17) #22
+13:                                               ; preds = %9
+  %14 = call ptr @strerror(i32 noundef %11) #20
+  %15 = load i32, ptr %10, align 4
+  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef %14, i32 noundef %15) #22
   unreachable
 
-18:                                               ; preds = %7
+16:                                               ; preds = %5
   store i8 1, ptr getelementptr inbounds (%struct._zend_accel_globals, ptr @accel_globals, i64 0, i32 2), align 2
   ret void
 }

@@ -1217,7 +1217,7 @@ if.then223:                                       ; preds = %if.else219
   %60 = load double, ptr %prevEdgeLengthEstimate228, align 8
   %add229 = fadd double %add, %60
   store double %add229, ptr %prevEdgeLengthEstimate228, align 8
-  %61 = and i64 %sub.ptr.div.i, 4294967295
+  %61 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body233
 
 for.body233:                                      ; preds = %if.then223, %for.inc259
@@ -1262,14 +1262,14 @@ if.end262:                                        ; preds = %for.inc259, %if.els
   br i1 %cmp266299, label %for.body267.preheader, label %for.end312
 
 for.body267.preheader:                            ; preds = %if.end262
-  %wide.trip.count345 = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count345 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body267
 
 for.cond289.preheader:                            ; preds = %for.inc285
   br i1 %cmp266299, label %for.body291.preheader, label %for.end312
 
 for.body291.preheader:                            ; preds = %for.cond289.preheader
-  %69 = and i64 %sub.ptr.div.i, 4294967295
+  %69 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body291
 
 for.body267:                                      ; preds = %for.body267.preheader, %for.inc285
@@ -3572,7 +3572,7 @@ for.cond406.preheader:                            ; preds = %for.body397
 
 land.rhs.lr.ph:                                   ; preds = %for.cond406.preheader
   %sub.ptr.rhs.cast = ptrtoint ptr %call5.i.i.i.i2.i.i717 to i64
-  %wide.trip.count1678 = and i64 %sub.ptr.div.i807, 4294967295
+  %wide.trip.count1678 = and i64 %sub.ptr.div.i807, 2147483647
   br label %land.rhs
 
 for.body397:                                      ; preds = %for.body397.preheader, %for.body397
@@ -3753,7 +3753,7 @@ for.cond461.preheader:                            ; preds = %for.inc456, %_ZN7ms
   br i1 %cmp4621516, label %for.body463.preheader, label %_ZNSt6vectorIiSaIiEED2Ev.exit920
 
 for.body463.preheader:                            ; preds = %for.cond461.preheader
-  %wide.trip.count1686 = and i64 %sub.ptr.div.i6651713, 4294967295
+  %wide.trip.count1686 = and i64 %sub.ptr.div.i6651713, 2147483647
   br label %for.body463
 
 for.body439:                                      ; preds = %for.body439.lr.ph, %for.inc456

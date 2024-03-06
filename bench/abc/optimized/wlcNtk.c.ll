@@ -9850,7 +9850,7 @@ define i32 @Wlc_NtkDcFlopNum(ptr nocapture noundef readonly %0) local_unnamed_ad
   br i1 %8, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %5
-  %wide.trip.count = and i64 %6, 4294967295
+  %wide.trip.count = and i64 %6, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

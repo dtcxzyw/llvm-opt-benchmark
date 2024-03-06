@@ -173,7 +173,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %60, %6
   %72 = getelementptr inbounds i8, ptr %56, i64 120
   %73 = getelementptr inbounds i8, ptr %8, i64 144
   tail call void @PMIx_Xfer_procid(ptr noundef nonnull %72, ptr noundef nonnull %73) #11
-  %74 = and i64 %11, 4294967295
+  %74 = and i64 %11, 2147483647
   %75 = tail call noalias ptr @malloc(i64 noundef %74) #13
   %76 = getelementptr inbounds i8, ptr %56, i64 384
   store ptr %75, ptr %76, align 8

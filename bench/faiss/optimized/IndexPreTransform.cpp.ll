@@ -110,7 +110,7 @@ define void @_ZN5faiss17IndexPreTransform5trainElPKf(ptr nocapture noundef nonnu
   br i1 %22, label %23, label %.loopexit
 
 23:                                               ; preds = %21
-  %24 = and i64 %indvars.iv.next, 4294967295
+  %24 = and i64 %indvars.iv.next, 2147483647
   %25 = getelementptr inbounds ptr, ptr %12, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 16

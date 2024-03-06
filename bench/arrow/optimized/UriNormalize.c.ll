@@ -244,7 +244,7 @@ if.else.i172:                                     ; preds = %if.end.i
 
 if.end13.i:                                       ; preds = %if.else.i172
   %22 = load ptr, ptr %memory, align 8
-  %conv14.i = and i64 %sub.ptr.sub.i, 4294967295
+  %conv14.i = and i64 %sub.ptr.sub.i, 2147483647
   %call.i173 = tail call ptr %22(ptr noundef nonnull %memory, i64 noundef %conv14.i) #5
   %cmp15.i = icmp eq ptr %call.i173, null
   br i1 %cmp15.i, label %if.then55, label %for.body.i174
@@ -338,7 +338,7 @@ if.else.i201:                                     ; preds = %if.end.i195
 
 if.end13.i203:                                    ; preds = %if.else.i201
   %33 = load ptr, ptr %memory, align 8
-  %conv14.i204 = and i64 %sub.ptr.sub.i198, 4294967295
+  %conv14.i204 = and i64 %sub.ptr.sub.i198, 2147483647
   %call.i205 = tail call ptr %33(ptr noundef nonnull %memory, i64 noundef %conv14.i204) #5
   %cmp15.i206 = icmp eq ptr %call.i205, null
   br i1 %cmp15.i206, label %if.then84, label %for.body.i209
@@ -575,7 +575,7 @@ if.else.i282:                                     ; preds = %if.end.i276
 
 if.end13.i284:                                    ; preds = %if.else.i282
   %67 = load ptr, ptr %memory, align 8
-  %conv14.i285 = and i64 %sub.ptr.sub.i279, 4294967295
+  %conv14.i285 = and i64 %sub.ptr.sub.i279, 2147483647
   %call.i286 = tail call ptr %67(ptr noundef nonnull %memory, i64 noundef %conv14.i285) #5
   %cmp15.i287 = icmp eq ptr %call.i286, null
   br i1 %cmp15.i287, label %if.then167, label %if.end18.i
@@ -779,7 +779,7 @@ if.else.i335:                                     ; preds = %if.end.i329
 
 if.end13.i337:                                    ; preds = %if.else.i335
   %93 = load ptr, ptr %memory, align 8
-  %conv14.i338 = and i64 %sub.ptr.sub.i332, 4294967295
+  %conv14.i338 = and i64 %sub.ptr.sub.i332, 2147483647
   %call.i339 = tail call ptr %93(ptr noundef nonnull %memory, i64 noundef %conv14.i338) #5
   %cmp15.i340 = icmp eq ptr %call.i339, null
   br i1 %cmp15.i340, label %if.then247, label %if.end18.i341
@@ -998,7 +998,7 @@ if.else.i419:                                     ; preds = %if.end.i413
 
 if.end13.i421:                                    ; preds = %if.else.i419
   %124 = load ptr, ptr %memory, align 8
-  %conv14.i422 = and i64 %sub.ptr.sub.i416, 4294967295
+  %conv14.i422 = and i64 %sub.ptr.sub.i416, 2147483647
   %call.i423 = tail call ptr %124(ptr noundef nonnull %memory, i64 noundef %conv14.i422) #5
   %cmp15.i424 = icmp eq ptr %call.i423, null
   br i1 %cmp15.i424, label %if.then307, label %if.end18.i425
@@ -1687,7 +1687,7 @@ if.else.i174:                                     ; preds = %if.end.i
 
 if.end13.i:                                       ; preds = %if.else.i174
   %22 = load ptr, ptr %memory, align 8
-  %conv14.i = and i64 %sub.ptr.div.i, 4294967295
+  %conv14.i = and i64 %sub.ptr.div.i, 2147483647
   %mul.i175 = shl nuw nsw i64 %conv14.i, 2
   %call.i176 = tail call ptr %22(ptr noundef nonnull %memory, i64 noundef %mul.i175) #5
   %cmp15.i = icmp eq ptr %call.i176, null
@@ -1783,7 +1783,7 @@ if.else.i204:                                     ; preds = %if.end.i197
 
 if.end13.i206:                                    ; preds = %if.else.i204
   %33 = load ptr, ptr %memory, align 8
-  %conv14.i207 = and i64 %sub.ptr.div.i201, 4294967295
+  %conv14.i207 = and i64 %sub.ptr.div.i201, 2147483647
   %mul.i208 = shl nuw nsw i64 %conv14.i207, 2
   %call.i209 = tail call ptr %33(ptr noundef nonnull %memory, i64 noundef %mul.i208) #5
   %cmp15.i210 = icmp eq ptr %call.i209, null
@@ -2022,7 +2022,7 @@ if.else.i287:                                     ; preds = %if.end.i280
 
 if.end13.i289:                                    ; preds = %if.else.i287
   %67 = load ptr, ptr %memory, align 8
-  %mul.i290 = and i64 %sub.ptr.sub.i283, 17179869180
+  %mul.i290 = and i64 %sub.ptr.sub.i283, 8589934588
   %call.i291 = tail call ptr %67(ptr noundef nonnull %memory, i64 noundef %mul.i290) #5
   %cmp15.i292 = icmp eq ptr %call.i291, null
   br i1 %cmp15.i292, label %if.then167, label %if.end18.i
@@ -2227,7 +2227,7 @@ if.else.i341:                                     ; preds = %if.end.i334
 
 if.end13.i343:                                    ; preds = %if.else.i341
   %93 = load ptr, ptr %memory, align 8
-  %mul.i344 = and i64 %sub.ptr.sub.i337, 17179869180
+  %mul.i344 = and i64 %sub.ptr.sub.i337, 8589934588
   %call.i345 = tail call ptr %93(ptr noundef nonnull %memory, i64 noundef %mul.i344) #5
   %cmp15.i346 = icmp eq ptr %call.i345, null
   br i1 %cmp15.i346, label %if.then239, label %if.end18.i347
@@ -2447,7 +2447,7 @@ if.else.i426:                                     ; preds = %if.end.i419
 
 if.end13.i428:                                    ; preds = %if.else.i426
   %124 = load ptr, ptr %memory, align 8
-  %mul.i429 = and i64 %sub.ptr.sub.i422, 17179869180
+  %mul.i429 = and i64 %sub.ptr.sub.i422, 8589934588
   %call.i430 = tail call ptr %124(ptr noundef nonnull %memory, i64 noundef %mul.i429) #5
   %cmp15.i431 = icmp eq ptr %call.i430, null
   br i1 %cmp15.i431, label %if.then295, label %if.end18.i432
@@ -3098,7 +3098,7 @@ if.else:                                          ; preds = %if.end
 
 if.end13:                                         ; preds = %if.else
   %2 = load ptr, ptr %memory, align 8
-  %conv14 = and i64 %sub.ptr.sub, 4294967295
+  %conv14 = and i64 %sub.ptr.sub, 2147483647
   %call = tail call ptr %2(ptr noundef nonnull %memory, i64 noundef %conv14) #5
   %cmp15 = icmp eq ptr %call, null
   br i1 %cmp15, label %return, label %if.end18
@@ -3447,7 +3447,7 @@ if.else:                                          ; preds = %if.end
 
 if.end13:                                         ; preds = %if.else
   %2 = load ptr, ptr %memory, align 8
-  %mul = and i64 %sub.ptr.sub, 17179869180
+  %mul = and i64 %sub.ptr.sub, 8589934588
   %call = tail call ptr %2(ptr noundef nonnull %memory, i64 noundef %mul) #5
   %cmp15 = icmp eq ptr %call, null
   br i1 %cmp15, label %return, label %if.end18

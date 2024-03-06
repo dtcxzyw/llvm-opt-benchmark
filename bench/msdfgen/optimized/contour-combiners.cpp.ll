@@ -517,7 +517,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %windings = getelementptr inbounds i8, ptr %this, i64 16
-  %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -581,7 +581,7 @@ for.cond41.preheader:                             ; preds = %land.lhs.true37
 
 for.body43.lr.ph:                                 ; preds = %for.cond41.preheader
   %windings44 = getelementptr inbounds i8, ptr %this, i64 16
-  %wide.trip.count80 = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count80 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body43
 
 for.body43:                                       ; preds = %for.body43.lr.ph, %for.inc62
@@ -627,7 +627,7 @@ for.cond70.preheader:                             ; preds = %land.lhs.true66
 
 for.body72.lr.ph:                                 ; preds = %for.cond70.preheader
   %windings73 = getelementptr inbounds i8, ptr %this, i64 16
-  %wide.trip.count85 = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count85 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body72
 
 for.body72:                                       ; preds = %for.body72.lr.ph, %for.inc92
@@ -665,7 +665,7 @@ if.end97:                                         ; preds = %for.inc62, %for.inc
 
 for.body101.lr.ph:                                ; preds = %if.end97
   %windings102 = getelementptr inbounds i8, ptr %this, i64 16
-  %wide.trip.count90 = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count90 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body101
 
 for.body101:                                      ; preds = %for.body101.lr.ph, %for.inc122
@@ -990,7 +990,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %windings = getelementptr inbounds i8, ptr %this, i64 16
-  %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1054,7 +1054,7 @@ for.cond41.preheader:                             ; preds = %land.lhs.true37
 
 for.body43.lr.ph:                                 ; preds = %for.cond41.preheader
   %windings44 = getelementptr inbounds i8, ptr %this, i64 16
-  %wide.trip.count78 = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count78 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body43
 
 for.body43:                                       ; preds = %for.body43.lr.ph, %for.inc62
@@ -1100,7 +1100,7 @@ for.cond70.preheader:                             ; preds = %land.lhs.true66
 
 for.body72.lr.ph:                                 ; preds = %for.cond70.preheader
   %windings73 = getelementptr inbounds i8, ptr %this, i64 16
-  %wide.trip.count83 = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count83 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body72
 
 for.body72:                                       ; preds = %for.body72.lr.ph, %for.inc92
@@ -1138,7 +1138,7 @@ if.end97:                                         ; preds = %for.inc62, %for.inc
 
 for.body101.lr.ph:                                ; preds = %if.end97
   %windings102 = getelementptr inbounds i8, ptr %this, i64 16
-  %wide.trip.count88 = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count88 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body101
 
 for.body101:                                      ; preds = %for.body101.lr.ph, %for.inc122
@@ -1480,7 +1480,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %windings = getelementptr inbounds i8, ptr %this, i64 16
   %g.i35 = getelementptr inbounds i8, ptr %edgeDistance, i64 8
-  %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1602,7 +1602,7 @@ for.body39.lr.ph:                                 ; preds = %for.cond37.preheade
   %windings40 = getelementptr inbounds i8, ptr %this, i64 16
   %g.i74 = getelementptr inbounds i8, ptr %contourDistance, i64 8
   %b.i75 = getelementptr inbounds i8, ptr %contourDistance, i64 16
-  %wide.trip.count259 = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count259 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body39
 
 for.body39:                                       ; preds = %for.body39.lr.ph, %for.inc57
@@ -1675,7 +1675,7 @@ for.body67.lr.ph:                                 ; preds = %for.cond65.preheade
   %windings68 = getelementptr inbounds i8, ptr %this, i64 16
   %g.i106 = getelementptr inbounds i8, ptr %contourDistance73, i64 8
   %b.i107 = getelementptr inbounds i8, ptr %contourDistance73, i64 16
-  %wide.trip.count264 = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count264 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body67
 
 for.body67:                                       ; preds = %for.body67.lr.ph, %for.inc86
@@ -1746,7 +1746,7 @@ for.body95.lr.ph:                                 ; preds = %if.end91
   %windings96 = getelementptr inbounds i8, ptr %this, i64 16
   %g.i138 = getelementptr inbounds i8, ptr %contourDistance101, i64 8
   %b.i139 = getelementptr inbounds i8, ptr %contourDistance101, i64 16
-  %wide.trip.count269 = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count269 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body95
 
 for.body95:                                       ; preds = %for.body95.lr.ph, %for.inc115
@@ -2137,7 +2137,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %windings = getelementptr inbounds i8, ptr %this, i64 16
   %g.i = getelementptr inbounds i8, ptr %edgeDistance, i64 8
-  %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2262,7 +2262,7 @@ for.body39.lr.ph:                                 ; preds = %if.then35
   %g.i72 = getelementptr inbounds i8, ptr %contourDistance, i64 8
   %b.i73 = getelementptr inbounds i8, ptr %contourDistance, i64 16
   %distance.sroa.25.0.contourDistance.sroa_idx = getelementptr inbounds i8, ptr %contourDistance, i64 24
-  %wide.trip.count269 = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count269 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body39
 
 for.body39:                                       ; preds = %for.body39.lr.ph, %for.inc57
@@ -2341,7 +2341,7 @@ for.body67.lr.ph:                                 ; preds = %if.then63
   %g.i104 = getelementptr inbounds i8, ptr %contourDistance73, i64 8
   %b.i105 = getelementptr inbounds i8, ptr %contourDistance73, i64 16
   %distance.sroa.25.0.contourDistance73.sroa_idx = getelementptr inbounds i8, ptr %contourDistance73, i64 24
-  %wide.trip.count274 = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count274 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body67
 
 for.body67:                                       ; preds = %for.body67.lr.ph, %for.inc86
@@ -2417,7 +2417,7 @@ for.body95.lr.ph:                                 ; preds = %if.end91
   %g.i136 = getelementptr inbounds i8, ptr %contourDistance101, i64 8
   %b.i137 = getelementptr inbounds i8, ptr %contourDistance101, i64 16
   %distance.sroa.25.0.contourDistance101.sroa_idx = getelementptr inbounds i8, ptr %contourDistance101, i64 24
-  %wide.trip.count279 = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count279 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body95
 
 for.body95:                                       ; preds = %for.body95.lr.ph, %for.inc115

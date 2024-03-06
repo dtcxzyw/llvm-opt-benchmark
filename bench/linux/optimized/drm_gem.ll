@@ -2464,7 +2464,7 @@ define dso_local i32 @drm_gem_lock_reservations(ptr nocapture noundef readonly %
   br i1 %38, label %39, label %.loopexit
 
 39:                                               ; preds = %37
-  %40 = and i64 %28, 4294967295
+  %40 = and i64 %28, 2147483647
   br label %41
 
 41:                                               ; preds = %41, %39

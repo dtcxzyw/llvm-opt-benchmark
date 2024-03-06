@@ -1033,7 +1033,7 @@ pmix_mca_base_var_group_get_internal.exit:        ; preds = %10
   br i1 %18, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %pmix_mca_base_var_group_get_internal.exit
-  %wide.trip.count = and i64 %.val, 4294967295
+  %wide.trip.count = and i64 %.val, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
@@ -1064,7 +1064,7 @@ pmix_mca_base_var_group_get_internal.exit:        ; preds = %10
   br i1 %30, label %.lr.ph31.preheader, label %._crit_edge32
 
 .lr.ph31.preheader:                               ; preds = %._crit_edge
-  %wide.trip.count37 = and i64 %.val20, 4294967295
+  %wide.trip.count37 = and i64 %.val20, 2147483647
   br label %.lr.ph31
 
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
@@ -1526,7 +1526,7 @@ compare_strings.exit19.thread.loopexit103.split.loop.exit105.i: ; preds = %153
 
 pmix_pointer_array_get_item.exit.i.i27:           ; preds = %171
   %177 = load ptr, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @pmix_mca_base_var_groups, i64 0, i32 7), align 8
-  %178 = and i64 %173, 4294967295
+  %178 = and i64 %173, 2147483647
   %179 = getelementptr inbounds ptr, ptr %177, i64 %178
   %180 = load ptr, ptr %179, align 8
   %181 = icmp eq ptr %180, null
@@ -1587,7 +1587,7 @@ define i32 @pmix_mca_base_var_group_find_by_name(ptr noundef %0, ptr nocapture n
 
 pmix_pointer_array_get_item.exit.i.i:             ; preds = %6
   %12 = load ptr, ptr getelementptr inbounds (%struct.pmix_pointer_array_t, ptr @pmix_mca_base_var_groups, i64 0, i32 7), align 8
-  %13 = and i64 %8, 4294967295
+  %13 = and i64 %8, 2147483647
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
@@ -1646,7 +1646,7 @@ pmix_mca_base_var_group_get_internal.exit:        ; preds = %11
   br i1 %20, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %pmix_mca_base_var_group_get_internal.exit
-  %wide.trip.count = and i64 %.val14, 4294967295
+  %wide.trip.count = and i64 %.val14, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24

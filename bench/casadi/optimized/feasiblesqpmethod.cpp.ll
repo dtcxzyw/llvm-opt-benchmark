@@ -11846,7 +11846,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi8SparsityE
   br i1 %1996, label %1997, label %_ZN6casadi29casadi_feasiblesqpmethod_workIdEEvPKNS_29casadi_feasiblesqpmethod_probIT_EEPxS6_i.exit
 
 1997:                                             ; preds = %1971
-  %1998 = and i64 %1975, 4294967295
+  %1998 = and i64 %1975, 2147483647
   %1999 = shl nuw nsw i64 %1998, 1
   %reass.add62.i = mul i64 %1999, %1988
   %2000 = add i64 %reass.add62.i, %1998

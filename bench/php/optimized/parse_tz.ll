@@ -2320,7 +2320,7 @@ define hidden ptr @timelib_get_time_zone_info(i64 noundef %0, ptr noundef %1) lo
   br i1 %28, label %29, label %fetch_leaptime_offset.exit.thread
 
 29:                                               ; preds = %.preheader
-  %30 = and i64 %indvars.iv.next.i, 4294967295
+  %30 = and i64 %indvars.iv.next.i, 2147483647
   %31 = getelementptr inbounds %struct._tlinfo, ptr %27, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = icmp slt i64 %32, %0

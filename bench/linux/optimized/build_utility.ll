@@ -1451,7 +1451,7 @@ define internal noundef i32 @sugov_start(ptr nocapture noundef readonly %0) #0 a
   br i1 %41, label %42, label %.thread
 
 42:                                               ; preds = %38
-  %43 = and i64 %39, 4294967295
+  %43 = and i64 %39, 63
   %44 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, ptrtoint (ptr @sugov_cpu to i64)
@@ -1494,8 +1494,8 @@ define internal noundef i32 @sugov_start(ptr nocapture noundef readonly %0) #0 a
   br label %63
 
 63:                                               ; preds = %59, %58, %51
-  %64 = add i64 %39, 1
-  %65 = and i64 %64, 4294967295
+  %64 = add nuw nsw i64 %39, 1
+  %65 = and i64 %64, 127
   %66 = icmp ult i64 %65, 64
   br i1 %66, label %32, label %.thread, !prof !51, !llvm.loop !52
 
@@ -5040,13 +5040,13 @@ define dso_local noundef i32 @cpupri_find_fitness(ptr noundef %0, ptr noundef %1
   br i1 %46, label %49, label %47
 
 47:                                               ; preds = %45
-  %48 = and i64 %42, 4294967295
+  %48 = and i64 %42, 63
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %48) #42, !srcloc !107
   br label %49
 
 49:                                               ; preds = %47, %45
-  %50 = add i64 %42, 1
-  %51 = and i64 %50, 4294967295
+  %50 = add nuw nsw i64 %42, 1
+  %51 = and i64 %50, 127
   %52 = icmp ult i64 %51, 64
   br i1 %52, label %.preheader.us, label %..thread14thread-pre-split.us_crit_edge, !prof !51, !llvm.loop !108
 
@@ -7460,7 +7460,7 @@ define internal fastcc noundef i32 @build_sched_domains(ptr noundef %0, ptr noun
   br i1 %121, label %.loopexit155, label %122
 
 122:                                              ; preds = %118
-  %123 = and i64 %115, 4294967295
+  %123 = and i64 %115, 63
   %124 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %123
   br label %129
 
@@ -7521,8 +7521,8 @@ define internal fastcc noundef i32 @build_sched_domains(ptr noundef %0, ptr noun
   br i1 %165, label %166, label %378
 
 166:                                              ; preds = %157, %149, %147
-  %167 = add i64 %144, 1
-  %168 = and i64 %167, 4294967295
+  %167 = add nuw nsw i64 %144, 1
+  %168 = and i64 %167, 127
   %169 = icmp ult i64 %168, 64
   br i1 %169, label %.preheader154, label %.thread96.loopexit, !prof !51, !llvm.loop !169
 
@@ -7902,8 +7902,8 @@ define internal fastcc noundef i32 @build_sched_domains(ptr noundef %0, ptr noun
 
 .loopexit155:                                     ; preds = %125, %374, %118
   %.ph = phi i8 [ %109, %118 ], [ %360, %374 ], [ %360, %125 ]
-  %379 = add i64 %115, 1
-  %380 = and i64 %379, 4294967295
+  %379 = add nuw nsw i64 %115, 1
+  %380 = and i64 %379, 127
   %381 = icmp ult i64 %380, 64
   br i1 %381, label %107, label %.preheader152, !prof !51, !llvm.loop !188
 
@@ -8802,8 +8802,8 @@ define internal fastcc noundef i32 @build_sched_domains(ptr noundef %0, ptr noun
 
 950:                                              ; preds = %945, %943
   %951 = phi i32 [ %941, %943 ], [ %949, %945 ]
-  %952 = add i64 %940, 1
-  %953 = and i64 %952, 4294967295
+  %952 = add nuw nsw i64 %940, 1
+  %953 = and i64 %952, 127
   %954 = icmp ult i64 %953, 64
   br i1 %954, label %.preheader139, label %.thread121, !prof !51, !llvm.loop !217
 
@@ -8872,7 +8872,7 @@ define internal fastcc noundef i32 @build_sched_domains(ptr noundef %0, ptr noun
   br i1 %989, label %990, label %.thread123
 
 990:                                              ; preds = %986
-  %991 = and i64 %987, 4294967295
+  %991 = and i64 %987, 63
   %992 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %991
   %993 = load i64, ptr %992, align 8
   %994 = add i64 %993, %106
@@ -8911,8 +8911,8 @@ define internal fastcc noundef i32 @build_sched_domains(ptr noundef %0, ptr noun
 
 .loopexit137:                                     ; preds = %1012, %.preheader136, %1000
   %1015 = phi i8 [ %981, %1000 ], [ 1, %.preheader136 ], [ %981, %1012 ]
-  %1016 = add i64 %987, 1
-  %1017 = and i64 %1016, 4294967295
+  %1016 = add nuw nsw i64 %987, 1
+  %1017 = and i64 %1016, 127
   %1018 = icmp ult i64 %1017, 64
   br i1 %1018, label %979, label %.thread123, !prof !51, !llvm.loop !222
 
@@ -9268,8 +9268,8 @@ define dso_local void @partition_sched_domains_locked(i32 noundef %0, ptr nounde
 
 79:                                               ; preds = %75
   tail call fastcc void @cpu_attach_domain(ptr noundef null, ptr noundef nonnull @def_root_domain, i32 noundef %77)
-  %80 = add i64 %76, 1
-  %81 = and i64 %80, 4294967295
+  %80 = add nuw nsw i64 %76, 1
+  %81 = and i64 %80, 127
   %82 = icmp ult i64 %81, 64
   br i1 %82, label %69, label %.thread15.us, !prof !51, !llvm.loop !229
 
@@ -9407,8 +9407,8 @@ define dso_local void @partition_sched_domains_locked(i32 noundef %0, ptr nounde
 
 148:                                              ; preds = %144
   tail call fastcc void @cpu_attach_domain(ptr noundef null, ptr noundef nonnull @def_root_domain, i32 noundef %146)
-  %149 = add i64 %145, 1
-  %150 = and i64 %149, 4294967295
+  %149 = add nuw nsw i64 %145, 1
+  %150 = and i64 %149, 127
   %151 = icmp ult i64 %150, 64
   br i1 %151, label %138, label %.thread15, !prof !51, !llvm.loop !229
 
@@ -9734,7 +9734,7 @@ define internal fastcc i64 @__se_sys_membarrier(i64 noundef %0, i64 noundef %1, 
   br i1 %39, label %57, label %40
 
 40:                                               ; preds = %37
-  %41 = and i64 %34, 4294967295
+  %41 = and i64 %34, 63
   %42 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = add i64 %43, ptrtoint (ptr @runqueues to i64)
@@ -9758,8 +9758,8 @@ define internal fastcc i64 @__se_sys_membarrier(i64 noundef %0, i64 noundef %1, 
   br label %57
 
 57:                                               ; preds = %56, %50, %40, %37
-  %58 = add i64 %34, 1
-  %59 = and i64 %58, 4294967295
+  %58 = add nuw nsw i64 %34, 1
+  %59 = and i64 %58, 127
   %60 = icmp ult i64 %59, 64
   br i1 %60, label %27, label %.thread4, !prof !51, !llvm.loop !240
 
@@ -10124,7 +10124,7 @@ define dso_local void @housekeeping_init() local_unnamed_addr #3 section ".init.
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %11
-  %16 = and i64 %12, 4294967295
+  %16 = and i64 %12, 15
   %17 = getelementptr [9 x [1 x %struct.cpumask]], ptr @housekeeping, i64 0, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
@@ -10139,8 +10139,8 @@ define dso_local void @housekeeping_init() local_unnamed_addr #3 section ".init.
 
 21:                                               ; preds = %20, %15
   %22 = phi i64 [ %.pre, %20 ], [ %5, %15 ]
-  %23 = add i64 %12, 1
-  %24 = and i64 %23, 4294967295
+  %23 = add nuw nsw i64 %12, 1
+  %24 = and i64 %23, 31
   %25 = icmp ult i64 %24, 9
   br i1 %25, label %4, label %.thread, !prof !51, !llvm.loop !255
 
@@ -10722,7 +10722,7 @@ define internal noundef i32 @cpuacct_all_seq_show(ptr noundef %0, ptr nocapture 
 
 16:                                               ; preds = %12
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.18, i32 noundef %14) #42
-  %17 = and i64 %13, 4294967295
+  %17 = and i64 %13, 63
   %18 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = load ptr, ptr %5, align 8
@@ -10749,8 +10749,8 @@ define internal noundef i32 @cpuacct_all_seq_show(ptr noundef %0, ptr nocapture 
   %40 = add i64 %37, %39
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %40) #42
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.15) #42
-  %41 = add i64 %13, 1
-  %42 = and i64 %41, 4294967295
+  %41 = add nuw nsw i64 %13, 1
+  %42 = and i64 %41, 127
   %43 = icmp ult i64 %42, 64
   br i1 %43, label %6, label %.thread, !prof !51, !llvm.loop !266
 
@@ -13130,11 +13130,11 @@ define internal fastcc noundef i32 @housekeeping_setup(ptr noundef %0, i64 nound
   br i1 %53, label %54, label %.thread
 
 54:                                               ; preds = %50
-  %55 = and i64 %51, 4294967295
+  %55 = and i64 %51, 15
   %56 = getelementptr [9 x [1 x %struct.cpumask]], ptr @housekeeping, i64 0, i64 %55
   store i64 %42, ptr %56, align 8
-  %57 = add i64 %51, 1
-  %58 = and i64 %57, 4294967295
+  %57 = add nuw nsw i64 %51, 1
+  %58 = and i64 %57, 31
   %59 = icmp ult i64 %58, 9
   br i1 %59, label %.preheader, label %.thread, !prof !51, !llvm.loop !303
 
@@ -13158,11 +13158,11 @@ define internal fastcc noundef i32 @housekeeping_setup(ptr noundef %0, i64 nound
   br i1 %72, label %.thread7, label %73
 
 73:                                               ; preds = %69
-  %74 = and i64 %70, 4294967295
+  %74 = and i64 %70, 15
   %75 = getelementptr [9 x [1 x %struct.cpumask]], ptr @housekeeping, i64 0, i64 %74
   %76 = load i64, ptr %75, align 8
   %77 = icmp eq i64 %43, %76
-  %78 = add i64 %70, 1
+  %78 = add nuw nsw i64 %70, 1
   br i1 %77, label %60, label %.thread10, !llvm.loop !304
 
 .thread10:                                        ; preds = %73
@@ -13188,11 +13188,11 @@ define internal fastcc noundef i32 @housekeeping_setup(ptr noundef %0, i64 nound
   br i1 %90, label %91, label %.thread
 
 91:                                               ; preds = %87
-  %92 = and i64 %88, 4294967295
+  %92 = and i64 %88, 15
   %93 = getelementptr [9 x [1 x %struct.cpumask]], ptr @housekeeping, i64 0, i64 %92
   store i64 %43, ptr %93, align 8
-  %94 = add i64 %88, 1
-  %95 = and i64 %94, 4294967295
+  %94 = add nuw nsw i64 %88, 1
+  %95 = and i64 %94, 31
   %96 = icmp ult i64 %95, 9
   br i1 %96, label %81, label %.thread, !prof !51, !llvm.loop !305
 

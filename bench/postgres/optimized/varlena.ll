@@ -5793,7 +5793,7 @@ define dso_local i64 @byteaGetByte(ptr nocapture noundef readonly %0) local_unna
   %.not21 = icmp eq i8 %39, 0
   %.v = select i1 %.not21, i64 4, i64 1
   %40 = getelementptr inbounds i8, ptr %5, i64 %.v
-  %41 = and i64 %7, 4294967295
+  %41 = and i64 %7, 2147483647
   %42 = getelementptr i8, ptr %40, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i64
@@ -5909,7 +5909,7 @@ define dso_local noundef i64 @byteaSetByte(ptr nocapture noundef readonly %0) lo
   %20 = load i64, ptr %19, align 8
   %21 = trunc i64 %20 to i8
   %22 = getelementptr inbounds i8, ptr %5, i64 4
-  %23 = and i64 %7, 4294967295
+  %23 = and i64 %7, 2147483647
   %24 = getelementptr i8, ptr %22, i64 %23
   store i8 %21, ptr %24, align 1
   %25 = ptrtoint ptr %5 to i64

@@ -269,7 +269,7 @@ define internal fastcc noundef i32 @init_srcu_struct_fields(ptr noundef %0, i1 n
 58:                                               ; preds = %54
   %59 = load ptr, ptr %.ph, align 8
   %60 = ptrtoint ptr %59 to i64
-  %61 = and i64 %55, 4294967295
+  %61 = and i64 %55, 63
   %62 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %61
   %63 = load i64, ptr %62, align 8
   %64 = add i64 %63, %60
@@ -306,8 +306,8 @@ define internal fastcc noundef i32 @init_srcu_struct_fields(ptr noundef %0, i1 n
   tail call void @init_timer_key(ptr noundef %83, ptr noundef nonnull @srcu_delay_timer, i32 noundef 0, ptr noundef null, ptr noundef null) #13
   %84 = getelementptr inbounds i8, ptr %65, i64 328
   store ptr %0, ptr %84, align 8
-  %85 = add i64 %55, 1
-  %86 = and i64 %85, 4294967295
+  %85 = add nuw nsw i64 %55, 1
+  %86 = and i64 %85, 127
   %87 = icmp ugt i64 %86, 63
   br i1 %87, label %.thread5, label %48, !prof !7, !llvm.loop !8
 
@@ -1868,7 +1868,7 @@ define dso_local void @srcu_torture_stats_print(ptr nocapture noundef readonly %
 39:                                               ; preds = %35
   %40 = load ptr, ptr %16, align 8
   %41 = ptrtoint ptr %40 to i64
-  %42 = and i64 %36, 4294967295
+  %42 = and i64 %36, 63
   %43 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %42
   %44 = load i64, ptr %43, align 8
   %45 = add i64 %44, %41
@@ -1895,8 +1895,8 @@ define dso_local void @srcu_torture_stats_print(ptr nocapture noundef readonly %
   %65 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i32 noundef %37, i64 noundef %56, i64 noundef %57, i32 noundef %64) #16
   %66 = add i64 %56, %29
   %67 = add i64 %57, %30
-  %68 = add i64 %36, 1
-  %69 = and i64 %68, 4294967295
+  %68 = add nuw nsw i64 %36, 1
+  %69 = and i64 %68, 127
   %70 = icmp ugt i64 %69, 63
   br i1 %70, label %.thread, label %27, !prof !7, !llvm.loop !94
 
@@ -2961,7 +2961,7 @@ define internal fastcc noundef zeroext i1 @init_srcu_struct_nodes(ptr nocapture 
 129:                                              ; preds = %125
   %130 = load ptr, ptr %118, align 8
   %131 = ptrtoint ptr %130 to i64
-  %132 = and i64 %126, 4294967295
+  %132 = and i64 %126, 63
   %133 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %132
   %134 = load i64, ptr %133, align 8
   %135 = add i64 %134, %131
@@ -3007,8 +3007,8 @@ define internal fastcc noundef zeroext i1 @init_srcu_struct_nodes(ptr nocapture 
   %158 = shl nuw i64 1, %157
   %159 = getelementptr inbounds i8, ptr %136, i64 312
   store i64 %158, ptr %159, align 8
-  %160 = add i64 %126, 1
-  %161 = and i64 %160, 4294967295
+  %160 = add nuw nsw i64 %126, 1
+  %161 = and i64 %160, 127
   %162 = icmp ugt i64 %161, 63
   br i1 %162, label %.thread, label %120, !prof !7, !llvm.loop !117
 

@@ -159,7 +159,7 @@ define internal fastcc i32 @do_nftw(ptr noundef %0, ptr nocapture noundef readon
   br i1 %60, label %61, label %66
 
 61:                                               ; preds = %59
-  %62 = and i64 %.079.lcssa, 4294967295
+  %62 = and i64 %.079.lcssa, 2147483647
   %63 = getelementptr i8, ptr %0, i64 %62
   %64 = getelementptr i8, ptr %63, i64 -1
   store i8 0, ptr %64, align 1
@@ -295,7 +295,7 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
   br i1 %118, label %119, label %124
 
 119:                                              ; preds = %117
-  %120 = and i64 %.079.lcssa, 4294967295
+  %120 = and i64 %.079.lcssa, 2147483647
   %121 = getelementptr i8, ptr %0, i64 %120
   %122 = getelementptr i8, ptr %121, i64 -1
   store i8 0, ptr %122, align 1

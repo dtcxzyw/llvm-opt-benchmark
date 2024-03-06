@@ -10814,7 +10814,7 @@ _ZL17llama_log_softmaxPfm.exit66:                 ; preds = %for.body6.i59, %_ZS
   br i1 %cmp3199, label %for.body32.preheader, label %if.then44
 
 for.body32.preheader:                             ; preds = %_ZL17llama_log_softmaxPfm.exit66
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body32
 
 for.body32:                                       ; preds = %for.body32.preheader, %for.body32

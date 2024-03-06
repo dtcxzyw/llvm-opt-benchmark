@@ -31363,7 +31363,7 @@ do.body65.thread91:                               ; preds = %if.then35
 
 if.then68:                                        ; preds = %if.then35
   %call63 = tail call i32 @fclose(ptr noundef nonnull %call17)
-  %conv71 = and i64 %call37, 4294967295
+  %conv71 = and i64 %call37, 2147483647
   %call72 = call i32 @wolfSSL_CTX_use_PrivateKey_buffer(ptr noundef nonnull %call1, ptr noundef nonnull %buff, i64 noundef %conv71, i32 noundef 2) #22
   %cmp78 = icmp eq i32 %call72, 1
   br i1 %cmp78, label %if.then99, label %do.body81
@@ -31424,7 +31424,7 @@ do.body154.thread117:                             ; preds = %if.then121
 
 if.then157:                                       ; preds = %if.then121
   %call152 = call i32 @fclose(ptr noundef nonnull %call101)
-  %conv160 = and i64 %call124, 4294967295
+  %conv160 = and i64 %call124, 2147483647
   %call161 = call i32 @wolfSSL_CTX_use_PrivateKey_buffer(ptr noundef nonnull %call1, ptr noundef nonnull %buff, i64 noundef %conv160, i32 noundef 1) #22
   %cmp167 = icmp eq i32 %call161, 1
   br i1 %cmp167, label %if.then188, label %do.body170
@@ -31485,7 +31485,7 @@ do.body243.thread142:                             ; preds = %if.then210
 
 if.then246:                                       ; preds = %if.then210
   %call241 = call i32 @fclose(ptr noundef nonnull %call190)
-  %conv249 = and i64 %call213, 4294967295
+  %conv249 = and i64 %call213, 2147483647
   %call250 = call i32 @wolfSSL_CTX_use_PrivateKey_buffer(ptr noundef nonnull %call1, ptr noundef nonnull %buff, i64 noundef %conv249, i32 noundef 1) #22
   %cmp256 = icmp eq i32 %call250, 1
   br i1 %cmp256, label %if.then277, label %do.body259
@@ -31599,7 +31599,7 @@ do.body399.thread159:                             ; preds = %if.then366
 
 if.then402:                                       ; preds = %if.then366
   %call397 = call i32 @fclose(ptr noundef nonnull %call346)
-  %conv405 = and i64 %call369, 4294967295
+  %conv405 = and i64 %call369, 2147483647
   %call406 = call i32 @wolfSSL_CTX_use_PrivateKey_buffer(ptr noundef %call1, ptr noundef nonnull %buff, i64 noundef %conv405, i32 noundef 2) #22
   %cmp412 = icmp eq i32 %call406, 1
   br i1 %cmp412, label %do.end429, label %do.body415
@@ -32631,7 +32631,7 @@ do.body83.thread37:                               ; preds = %if.then53
 
 if.then86:                                        ; preds = %if.then53
   %call81 = tail call i32 @fclose(ptr noundef nonnull %call35)
-  %conv89 = and i64 %call55, 4294967295
+  %conv89 = and i64 %call55, 2147483647
   %call90 = call i32 @wolfSSL_CTX_load_verify_buffer_ex(ptr noundef nonnull %call1, ptr noundef nonnull %ca_expired_cert, i64 noundef %conv89, i32 noundef 2, i32 noundef 0, i32 noundef 0) #22
   %cmp96.not = icmp eq i32 %call90, 1
   br i1 %cmp96.not, label %do.body99, label %if.then117

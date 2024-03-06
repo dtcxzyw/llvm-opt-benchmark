@@ -286,7 +286,7 @@ if.then10:                                        ; preds = %if.end7
 
 for.body.preheader.i:                             ; preds = %if.then10
   %28 = sext i32 %script.0 to i64
-  %wide.trip.count.i = and i64 %call, 4294967295
+  %wide.trip.count.i = and i64 %call, 2147483647
   br label %for.body.i28
 
 for.body.i28:                                     ; preds = %for.body.i28, %for.body.preheader.i
@@ -316,7 +316,7 @@ if.then16.critedge:                               ; preds = %if.end7
 
 for.body.preheader.i35:                           ; preds = %if.then16.critedge
   %31 = sext i32 %script.0 to i64
-  %wide.trip.count.i36 = and i64 %call, 4294967295
+  %wide.trip.count.i36 = and i64 %call, 2147483647
   br label %for.body.i37
 
 for.body.i37:                                     ; preds = %for.body.i37, %for.body.preheader.i35
@@ -514,7 +514,7 @@ if.end.i.i70:                                     ; preds = %if.then.i.i68, %if.
   br i1 %cmp3.not13.i.i, label %handle_script.exit, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.end.i.i70
-  %41 = add i64 %call2.i.i71, 1
+  %41 = add nuw nsw i64 %call2.i.i71, 1
   %wide.trip.count.i.i = and i64 %41, 4294967295
   br label %for.body.i.i
 

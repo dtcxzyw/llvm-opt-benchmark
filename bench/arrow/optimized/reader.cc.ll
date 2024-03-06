@@ -54103,7 +54103,7 @@ call5.i.i.i.i2.i.i7.i.i.noexc:                    ; preds = %for.body.lr.ph.i.i
   %_M_refcount.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i.i.i, i64 8
   %_M_refcount4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
   %storage_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1.i.i, i64 8
-  %wide.trip.count.i.i = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count.i.i = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %call5.i.i.i.i2.i.i7.i.i.noexc

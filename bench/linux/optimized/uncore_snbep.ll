@@ -4275,7 +4275,7 @@ define internal fastcc i32 @skx_pmu_get_topology(ptr noundef %0, ptr nocapture n
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %21
-  %26 = and i64 %22, 4294967295
+  %26 = and i64 %22, 63
   %27 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, ptrtoint (ptr @cpu_info to i64)
@@ -4283,7 +4283,7 @@ define internal fastcc i32 @skx_pmu_get_topology(ptr noundef %0, ptr nocapture n
   %31 = getelementptr inbounds i8, ptr %30, i64 244
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, %10
-  %34 = add i64 %22, 1
+  %34 = add nuw nsw i64 %22, 1
   br i1 %33, label %.thread, label %13, !llvm.loop !46
 
 .thread:                                          ; preds = %17, %13, %25, %21

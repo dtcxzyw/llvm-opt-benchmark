@@ -2489,7 +2489,7 @@ if.then21:                                        ; preds = %if.else
 
 for.body.lr.ph.i:                                 ; preds = %if.then21
   %is_tn3270.i = getelementptr inbounds i8, ptr %call.i12, i64 266
-  %6 = and i64 %call8, 4294967295
+  %6 = and i64 %call8, 2147483647
   %umax = call i64 @llvm.umax.i64(i64 %6, i64 1)
   %7 = add nsw i64 %umax, -1
   br label %for.body.i

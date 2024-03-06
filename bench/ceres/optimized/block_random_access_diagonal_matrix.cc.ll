@@ -752,7 +752,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
   %71 = getelementptr inbounds i8, ptr %3, i64 16
   %72 = getelementptr inbounds i8, ptr %4, i64 16
   %73 = getelementptr inbounds i8, ptr %4, i64 8
-  %74 = and i64 %31, 4294967295
+  %74 = and i64 %31, 2147483647
   br label %75
 
 75:                                               ; preds = %"_ZZN5ceres8internal31BlockRandomAccessDiagonalMatrix6InvertEvENK3$_0clEi.exit.i", %.lr.ph.i.i
@@ -2721,7 +2721,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
   %.sroa.313.0..sroa_idx14.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %.sroa.4.0..sroa_idx16.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
   %.sroa.7.32..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
-  %zext.i = and i64 %44, 4294967295
+  %zext.i = and i64 %44, 2147483647
   br label %87
 
 87:                                               ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIZNKS0_31BlockRandomAccessDiagonalMatrix26RightMultiplyAndAccumulateEPKdPdE3$_0JRiEEEviOT_DpOT0_.exit.i.i", %.lr.ph.i.i

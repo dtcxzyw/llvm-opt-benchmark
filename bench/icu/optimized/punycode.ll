@@ -116,7 +116,7 @@ if.end98.us:                                      ; preds = %if.then84.us, %if.t
 for.inc144.us:                                    ; preds = %if.end98.us, %if.end139.us
   %destLength.3.us = phi i32 [ %inc99.us, %if.end98.us ], [ %destLength.2181.us, %if.end139.us ]
   %j.5.us = phi i32 [ %j.3182.us, %if.end98.us ], [ %j.4.us, %if.end139.us ]
-  %indvars.iv.next233 = add nuw i64 %indvars.iv232, 1
+  %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %inc145.us = add nsw i32 %j.5.us, 1
   %cmp74.us = icmp slt i32 %inc145.us, %srcLength
   br i1 %cmp74.us, label %for.body.us, label %if.end147, !llvm.loop !4
@@ -242,7 +242,7 @@ if.end66:                                         ; preds = %land.end.thread, %i
 for.inc:                                          ; preds = %if.end36, %if.end66
   %destLength.1 = phi i32 [ %inc37, %if.end36 ], [ %destLength.0188, %if.end66 ]
   %j.2 = phi i32 [ %j.0189, %if.end36 ], [ %j.1, %if.end66 ]
-  %indvars.iv.next236 = add nuw i64 %indvars.iv235, 1
+  %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %inc71 = add nsw i32 %j.2, 1
   %idxprom = sext i32 %inc71 to i64
   %arrayidx = getelementptr inbounds i16, ptr %src, i64 %idxprom
@@ -349,7 +349,7 @@ if.end139:                                        ; preds = %land.end106.thread,
 for.inc144:                                       ; preds = %if.end98, %if.end139
   %destLength.3 = phi i32 [ %inc99, %if.end98 ], [ %destLength.2181, %if.end139 ]
   %j.5 = phi i32 [ %j.3182, %if.end98 ], [ %j.4, %if.end139 ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %inc145 = add nsw i32 %j.5, 1
   %cmp74 = icmp slt i32 %inc145, %srcLength
   br i1 %cmp74, label %for.body, label %if.end147, !llvm.loop !4
@@ -485,7 +485,7 @@ if.then210:                                       ; preds = %if.end208
   br label %if.end218
 
 if.end218:                                        ; preds = %if.end208, %if.then210
-  %indvars.iv.next241 = add i64 %indvars.iv240, 1
+  %indvars.iv.next241 = add nsw i64 %indvars.iv240, 1
   %add224 = add nuw nsw i32 %k.0207, 36
   %sub197 = sub nsw i32 %add224, %bias.1215
   %cmp198 = icmp slt i32 %sub197, 1
@@ -664,7 +664,7 @@ for.end:                                          ; preds = %for.body
 
 while.body.lr.ph:                                 ; preds = %for.end
   %cmp32.not = icmp eq ptr %caseFlags, null
-  %5 = and i64 %2, 4294967295
+  %5 = and i64 %2, 2147483647
   %6 = sext i32 %destCapacity to i64
   br i1 %cmp32.not, label %while.body.us, label %while.body
 

@@ -769,7 +769,7 @@ should_ignore_relpath.exit.i67.backedge:          ; preds = %._crit_edge.i.i82, 
 .lr.ph.i21.i:                                     ; preds = %.preheader.i.i, %289
   %283 = phi i64 [ %293, %289 ], [ %278, %.preheader.i.i ]
   %.053.i.i = phi i64 [ %290, %289 ], [ 0, %.preheader.i.i ]
-  %284 = and i64 %283, 4294967295
+  %284 = and i64 %283, 2147483647
   %285 = call i32 @pg_checksum_update(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %284) #16
   %286 = icmp slt i32 %285, 0
   br i1 %286, label %287, label %289

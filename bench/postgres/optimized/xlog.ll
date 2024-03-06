@@ -10422,7 +10422,7 @@ WALInsertLockRelease.exit94:                      ; preds = %.preheader.i90
   br label %.backedge
 
 159:                                              ; preds = %151
-  %160 = and i64 %152, 4294967295
+  %160 = and i64 %152, 2147483647
   %161 = icmp ugt i64 %160, 1023
   br i1 %161, label %162, label %166
 

@@ -602,7 +602,7 @@ get_next_fr_off.exit260:                          ; preds = %70, %95, %109, %._c
   br i1 %132, label %133, label %142
 
 133:                                              ; preds = %127
-  %134 = and i64 %130, 4294967295
+  %134 = and i64 %130, 2147483647
   %135 = load i64, ptr %117, align 8
   %136 = mul nsw i64 %135, %134
   %137 = add nsw i64 %136, %122
@@ -1253,7 +1253,7 @@ get_next_fr_off.exit285:                          ; preds = %435, %460, %474, %.
   br i1 %497, label %498, label %507
 
 498:                                              ; preds = %492
-  %499 = and i64 %495, 4294967295
+  %499 = and i64 %495, 2147483647
   %500 = load i64, ptr %482, align 8
   %501 = mul nsw i64 %500, %499
   %502 = add nsw i64 %501, %487
@@ -1791,7 +1791,7 @@ define internal fastcc void @find_next_off(ptr nocapture noundef %0, i64 noundef
   br i1 %40, label %41, label %50
 
 41:                                               ; preds = %35
-  %42 = and i64 %38, 4294967295
+  %42 = and i64 %38, 2147483647
   %43 = load i64, ptr %26, align 8
   %44 = mul nsw i64 %43, %42
   %45 = add nsw i64 %44, %30
@@ -2484,7 +2484,7 @@ get_next_fr_off.exit225.us:                       ; preds = %342, %334, %332, %.
   br i1 %369, label %370, label %379
 
 370:                                              ; preds = %364
-  %371 = and i64 %367, 4294967295
+  %371 = and i64 %367, 2147483647
   %372 = load i64, ptr %354, align 8
   %373 = mul nsw i64 %372, %371
   %374 = add nsw i64 %373, %359
@@ -3132,7 +3132,7 @@ define noundef i32 @ADIOI_Build_client_pre_req(ptr nocapture noundef readonly %0
   br i1 %115, label %116, label %125
 
 116:                                              ; preds = %110
-  %117 = and i64 %113, 4294967295
+  %117 = and i64 %113, 2147483647
   %118 = mul nsw i64 %117, %112
   %119 = add nsw i64 %118, %105
   store i64 %119, ptr %89, align 8
@@ -3894,7 +3894,7 @@ get_next_fr_off.exit134:                          ; preds = %185, %210, %224, %.
   br i1 %243, label %244, label %253
 
 244:                                              ; preds = %238
-  %245 = and i64 %241, 4294967295
+  %245 = and i64 %241, 2147483647
   %246 = load i64, ptr %32, align 8
   %247 = mul nsw i64 %246, %245
   %248 = add nsw i64 %247, %233
@@ -4223,7 +4223,7 @@ view_state_add_region.exit:                       ; preds = %.loopexit.i99, %413
   br i1 %432, label %433, label %443
 
 433:                                              ; preds = %426
-  %434 = and i64 %430, 4294967295
+  %434 = and i64 %430, 2147483647
   %435 = mul nsw i64 %434, %429
   %436 = add nsw i64 %435, %422
   store i64 %436, ptr %170, align 8

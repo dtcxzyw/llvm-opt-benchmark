@@ -531,7 +531,7 @@ _ZN5Gluco15RegionAllocatorIjE5allocEi.exit:       ; preds = %3
 .lr.ph.i.i:                                       ; preds = %54
   %58 = getelementptr inbounds i8, ptr %24, i64 12
   %59 = trunc i96 %55 to i64
-  %wide.trip.count.i.i = and i64 %59, 4294967295
+  %wide.trip.count.i.i = and i64 %59, 2147483647
   br label %60
 
 60:                                               ; preds = %60, %.lr.ph.i.i
@@ -2819,7 +2819,7 @@ define noundef zeroext i1 @_ZN5Gluco10SimpSolver16strengthenClauseEjNS_3LitE(ptr
 
 .lr.ph.preheader.i.i:                             ; preds = %41
   %47 = trunc i96 %44 to i64
-  %wide.trip.count.i.i = and i64 %47, 4294967295
+  %wide.trip.count.i.i = and i64 %47, 2147483647
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %50, %.lr.ph.preheader.i.i
@@ -2892,7 +2892,7 @@ _ZN5GlucoL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i: ; preds = %64, %._crit_
 
 .lr.ph.i3.i:                                      ; preds = %_ZN5GlucoL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i
   %78 = trunc i96 %75 to i64
-  %wide.trip.count.i4.i = and i64 %78, 4294967295
+  %wide.trip.count.i4.i = and i64 %78, 2147483647
   br label %79
 
 79:                                               ; preds = %79, %.lr.ph.i3.i
@@ -2971,7 +2971,7 @@ _ZN5Gluco6Clause10strengthenENS_3LitE.exit:       ; preds = %79, %_ZN5GlucoL6rem
 
 .lr.ph.preheader.i.i56:                           ; preds = %116
   %122 = trunc i96 %119 to i64
-  %wide.trip.count.i.i57 = and i64 %122, 4294967295
+  %wide.trip.count.i.i57 = and i64 %122, 2147483647
   br label %.lr.ph.i.i58
 
 .lr.ph.i.i58:                                     ; preds = %125, %.lr.ph.preheader.i.i56
@@ -3044,7 +3044,7 @@ _ZN5GlucoL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i44: ; preds = %139, %._cr
 
 .lr.ph.i3.i46:                                    ; preds = %_ZN5GlucoL6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i44
   %153 = trunc i96 %150 to i64
-  %wide.trip.count.i4.i47 = and i64 %153, 4294967295
+  %wide.trip.count.i4.i47 = and i64 %153, 2147483647
   br label %154
 
 154:                                              ; preds = %154, %.lr.ph.i3.i46
@@ -3310,7 +3310,7 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit:             ; preds = %5, %.preheader.i
 
 .lr.ph.preheader:                                 ; preds = %.preheader60
   %40 = trunc i96 %37 to i64
-  %wide.trip.count = and i64 %40, 4294967295
+  %wide.trip.count = and i64 %40, 2147483647
   br label %.lr.ph
 
 41:                                               ; preds = %.lr.ph
@@ -3529,7 +3529,7 @@ define noundef zeroext i1 @_ZN5Gluco10SimpSolver5mergeERKNS_6ClauseES3_iRi(ptr n
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %35 = trunc i96 %32 to i64
-  %wide.trip.count = and i64 %35, 4294967295
+  %wide.trip.count = and i64 %35, 2147483647
   br label %.lr.ph
 
 36:                                               ; preds = %.lr.ph
@@ -4088,7 +4088,7 @@ _ZN5Gluco5QueueIjE5clearEb.exit:                  ; preds = %32, %.preheader.i.i
 .lr.ph.i:                                         ; preds = %41
   %59 = getelementptr inbounds i8, ptr %54, i64 12
   %60 = trunc i96 %56 to i64
-  %wide.trip.count.i = and i64 %60, 4294967295
+  %wide.trip.count.i = and i64 %60, 2147483647
   br label %61
 
 61:                                               ; preds = %61, %.lr.ph.i
@@ -4869,7 +4869,7 @@ _ZN5Gluco8OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit:
   %.1147.us = phi i32 [ %.0146.us, %.lr.ph40.i.us ], [ %.0146.us, %96 ], [ %95, %._crit_edge.i.us ]
   %100 = phi i32 [ %88, %.lr.ph40.i.us ], [ %88, %96 ], [ %95, %._crit_edge.i.us ]
   %indvars.iv.next47.i.us = add nuw nsw i64 %indvars.iv46.i.us, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next47.i.us, %107
+  %exitcond.not = icmp eq i64 %indvars.iv.next47.i.us, %umax
   br i1 %exitcond.not, label %.loopexit194.us, label %.lr.ph40.i.us, !llvm.loop !31
 
 .loopexit194.us:                                  ; preds = %99, %59
@@ -4893,10 +4893,11 @@ _ZN5Gluco10SimpSolver5mergeERKNS_6ClauseES3_iRi.exit.us: ; preds = %96, %103
 
 .lr.ph40.i.preheader.us:                          ; preds = %59
   %106 = trunc i96 %85 to i64
-  %107 = and i64 %106, 4294967295
+  %107 = and i64 %106, 2147483647
+  %umax = tail call i64 @llvm.umax.i64(i64 %107, i64 1)
   %108 = icmp sgt i32 %83, 0
   %109 = trunc i96 %82 to i64
-  %wide.trip.count.i60.us = and i64 %109, 4294967295
+  %wide.trip.count.i60.us = and i64 %109, 2147483647
   br label %.lr.ph40.i.us
 
 ._crit_edge.us:                                   ; preds = %_ZN5Gluco10SimpSolver5mergeERKNS_6ClauseES3_iRi.exit.us
@@ -4927,7 +4928,7 @@ _ZN5Gluco10SimpSolver5mergeERKNS_6ClauseES3_iRi.exit.us: ; preds = %96, %103
 
 .lr.ph.preheader.i:                               ; preds = %110
   %122 = trunc i96 %119 to i64
-  %123 = and i64 %122, 4294967295
+  %123 = and i64 %122, 2147483647
   %124 = load i32, ptr %117, align 4
   %.not.i51219 = icmp eq i32 %124, %48
   br i1 %.not.i51219, label %_ZN5GlucoL4findINS_6ClauseENS_3LitEEEbRT_RKT0_.exit, label %.lr.ph
@@ -6393,7 +6394,7 @@ _ZN5Gluco15RegionAllocatorIjE5allocEi.exit.i:     ; preds = %_ZN5Gluco15RegionAl
 .lr.ph.i.i.i:                                     ; preds = %117
   %121 = getelementptr inbounds i8, ptr %87, i64 12
   %122 = trunc i96 %118 to i64
-  %wide.trip.count.i.i.i = and i64 %122, 4294967295
+  %wide.trip.count.i.i.i = and i64 %122, 2147483647
   br label %123
 
 123:                                              ; preds = %123, %.lr.ph.i.i.i
@@ -6500,7 +6501,7 @@ _ZN5Gluco15ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit: ; preds = %._crit_edg
 .lr.ph.i.i:                                       ; preds = %189
   %193 = getelementptr inbounds i8, ptr %147, i64 12
   %194 = trunc i96 %190 to i64
-  %wide.trip.count.i.i = and i64 %194, 4294967295
+  %wide.trip.count.i.i = and i64 %194, 2147483647
   br label %195
 
 195:                                              ; preds = %195, %.lr.ph.i.i
@@ -6676,7 +6677,7 @@ define linkonce_odr void @_ZN5Gluco15ClauseAllocator5relocERjRS0_(ptr noundef no
 .lr.ph.i:                                         ; preds = %73
   %77 = getelementptr inbounds i8, ptr %31, i64 12
   %78 = trunc i96 %74 to i64
-  %wide.trip.count.i = and i64 %78, 4294967295
+  %wide.trip.count.i = and i64 %78, 2147483647
   br label %79
 
 79:                                               ; preds = %79, %.lr.ph.i
@@ -8061,7 +8062,7 @@ _ZN5Gluco15RegionAllocatorIjE5allocEi.exit:       ; preds = %3
 .lr.ph.i.i:                                       ; preds = %56
   %60 = getelementptr inbounds i8, ptr %25, i64 12
   %61 = trunc i96 %57 to i64
-  %wide.trip.count.i.i = and i64 %61, 4294967295
+  %wide.trip.count.i.i = and i64 %61, 2147483647
   br label %62
 
 62:                                               ; preds = %62, %.lr.ph.i.i
@@ -8428,6 +8429,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #17
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

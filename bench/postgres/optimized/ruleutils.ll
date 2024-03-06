@@ -9160,7 +9160,7 @@ define dso_local i64 @pg_get_function_arg_default(ptr nocapture noundef %0) loca
   ]
 
 .lr.ph.split.preheader:                           ; preds = %23, %23, %23
-  %wide.trip.count = and i64 %11, 4294967295
+  %wide.trip.count = and i64 %11, 2147483647
   br label %.lr.ph.split
 
 is_input_argument.exit.thread:                    ; preds = %23, %17

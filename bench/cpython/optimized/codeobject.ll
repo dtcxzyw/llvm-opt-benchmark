@@ -2410,7 +2410,7 @@ for.cond.preheader:                               ; preds = %if.end25
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %ob_item = getelementptr inbounds i8, ptr %varnames, i64 24
-  %wide.trip.count = and i64 %varnames.val59, 4294967295
+  %wide.trip.count = and i64 %varnames.val59, 2147483647
   %ob_item.i.i = getelementptr inbounds i8, ptr %call21, i64 24
   %ob_sval.i.i.i = getelementptr inbounds i8, ptr %call27, i64 32
   br label %for.body
@@ -2430,15 +2430,15 @@ for.body40.lr.ph:                                 ; preds = %for.cond37.preheade
 
 for.body40.preheader:                             ; preds = %for.cond37.preheader.thread, %for.body40.lr.ph
   %offset.0.lcssa157161 = phi i32 [ %conv, %for.body40.lr.ph ], [ 0, %for.cond37.preheader.thread ]
-  %wide.trip.count136 = and i64 %cellvars.val58, 4294967295
+  %wide.trip.count136 = and i64 %cellvars.val58, 2147483647
   %ob_item.i.i74 = getelementptr inbounds i8, ptr %call21, i64 24
   %ob_sval.i.i.i76 = getelementptr inbounds i8, ptr %call27, i64 32
   %12 = getelementptr inbounds i8, ptr %cellvars, i64 24
   br label %for.body40
 
 for.body40.us.preheader:                          ; preds = %for.body40.lr.ph
-  %wide.trip.count146 = and i64 %cellvars.val58, 4294967295
-  %wide.trip.count141 = and i64 %varnames.val59, 4294967295
+  %wide.trip.count146 = and i64 %cellvars.val58, 2147483647
+  %wide.trip.count141 = and i64 %varnames.val59, 2147483647
   %ob_item.i.i74.us = getelementptr inbounds i8, ptr %call21, i64 24
   %ob_sval.i.i.i76.us = getelementptr inbounds i8, ptr %call27, i64 32
   %ob_sval.i.i.us = getelementptr inbounds i8, ptr %call27, i64 32
@@ -2536,7 +2536,7 @@ for.cond74.preheader:                             ; preds = %_Py_set_localsplus_
 
 for.body77.lr.ph:                                 ; preds = %for.cond74.preheader
   %ob_item79 = getelementptr inbounds i8, ptr %freevars, i64 24
-  %wide.trip.count151 = and i64 %freevars.val57, 4294967295
+  %wide.trip.count151 = and i64 %freevars.val57, 2147483647
   %ob_item.i.i83 = getelementptr inbounds i8, ptr %call21, i64 24
   %ob_sval.i.i.i85 = getelementptr inbounds i8, ptr %call27, i64 32
   br label %for.body77

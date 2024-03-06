@@ -788,7 +788,7 @@ define dso_local i64 @bpf_skb_load_helper_8(i64 noundef %0, i64 noundef %1, i64 
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
-  %16 = and i64 %3, 4294967295
+  %16 = and i64 %3, 2147483647
   %17 = getelementptr i8, ptr %8, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
@@ -843,7 +843,7 @@ define dso_local i64 @bpf_skb_load_helper_8_no_cache(i64 noundef %0, i64 noundef
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %16
-  %21 = and i64 %1, 4294967295
+  %21 = and i64 %1, 2147483647
   %22 = getelementptr i8, ptr %10, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
@@ -893,7 +893,7 @@ define dso_local i64 @bpf_skb_load_helper_16(i64 noundef %0, i64 noundef %1, i64
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %11
-  %16 = and i64 %3, 4294967295
+  %16 = and i64 %3, 2147483647
   %17 = getelementptr i8, ptr %8, i64 %16
   %18 = load i16, ptr %17, align 1
   %19 = tail call i16 @llvm.bswap.i16(i16 %18)
@@ -951,7 +951,7 @@ define dso_local i64 @bpf_skb_load_helper_16_no_cache(i64 noundef %0, i64 nounde
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %16
-  %21 = and i64 %1, 4294967295
+  %21 = and i64 %1, 2147483647
   %22 = getelementptr i8, ptr %10, i64 %21
   %23 = load i16, ptr %22, align 1
   %24 = tail call i16 @llvm.bswap.i16(i16 %23)
@@ -1004,7 +1004,7 @@ define dso_local i64 @bpf_skb_load_helper_32(i64 noundef %0, i64 noundef %1, i64
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %11
-  %16 = and i64 %3, 4294967295
+  %16 = and i64 %3, 2147483647
   %17 = getelementptr i8, ptr %8, i64 %16
   %18 = load i32, ptr %17, align 1
   %19 = tail call i32 @llvm.bswap.i32(i32 %18)
@@ -1062,7 +1062,7 @@ define dso_local i64 @bpf_skb_load_helper_32_no_cache(i64 noundef %0, i64 nounde
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %16
-  %21 = and i64 %1, 4294967295
+  %21 = and i64 %1, 2147483647
   %22 = getelementptr i8, ptr %10, i64 %21
   %23 = load i32, ptr %22, align 1
   %24 = tail call i32 @llvm.bswap.i32(i32 %23)
@@ -2141,7 +2141,7 @@ define dso_local noundef i64 @bpf_skb_store_bytes(i64 noundef %0, i64 noundef %1
   br i1 %38, label %39, label %94, !prof !9
 
 39:                                               ; preds = %13
-  %40 = and i64 %1, 4294967295
+  %40 = and i64 %1, 2147483647
   %41 = getelementptr i8, ptr %17, i64 %40
   %42 = and i64 %4, 1
   %43 = icmp eq i64 %42, 0
@@ -2381,7 +2381,7 @@ define dso_local noundef i64 @bpf_skb_load_bytes(i64 noundef %0, i64 noundef %1,
 19:                                               ; preds = %11
   %20 = getelementptr inbounds i8, ptr %6, i64 200
   %21 = load ptr, ptr %20, align 8
-  %22 = and i64 %1, 4294967295
+  %22 = and i64 %1, 2147483647
   %23 = getelementptr i8, ptr %21, i64 %22
   br label %29
 
@@ -2501,7 +2501,7 @@ define dso_local noundef i64 @bpf_flow_dissector_load_bytes(i64 noundef %0, i64 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds i8, ptr %13, i64 200
   %25 = load ptr, ptr %24, align 8
-  %26 = and i64 %1, 4294967295
+  %26 = and i64 %1, 65535
   %27 = getelementptr i8, ptr %25, i64 %26
   br label %31
 
@@ -9983,7 +9983,7 @@ define dso_local noundef i64 @bpf_skb_set_tunnel_opt(i64 noundef %0, i64 noundef
 
 47:                                               ; preds = %43
   %48 = getelementptr i8, ptr %32, i64 96
-  %49 = and i64 %2, 4294967295
+  %49 = and i64 %2, 255
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr align 1 %7, i64 %49, i1 false)
   %50 = getelementptr inbounds i8, ptr %32, i64 40
   %51 = load i16, ptr %50, align 8
@@ -10163,7 +10163,7 @@ define dso_local i64 @bpf_skb_ancestor_cgroup_id(i64 noundef %0, i64 noundef %1,
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %28, i64 1048
-  %36 = and i64 %1, 4294967295
+  %36 = and i64 %1, 2147483647
   %37 = getelementptr [0 x ptr], ptr %35, i64 0, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
@@ -10272,7 +10272,7 @@ define dso_local i64 @bpf_sk_ancestor_cgroup_id(i64 noundef %0, i64 noundef %1, 
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %28, i64 1048
-  %36 = and i64 %1, 4294967295
+  %36 = and i64 %1, 2147483647
   %37 = getelementptr [0 x ptr], ptr %35, i64 0, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
@@ -23085,7 +23085,7 @@ define dso_local noundef i64 @sk_reuseport_load_bytes(i64 noundef %0, i64 nounde
 20:                                               ; preds = %12
   %21 = getelementptr inbounds i8, ptr %10, i64 200
   %22 = load ptr, ptr %21, align 8
-  %23 = and i64 %1, 4294967295
+  %23 = and i64 %1, 2147483647
   %24 = getelementptr i8, ptr %22, i64 %23
   br label %30
 

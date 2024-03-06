@@ -3678,7 +3678,7 @@ define dso_local noundef i32 @schedule_on_each_cpu(ptr noundef %0) local_unnamed
   br i1 %16, label %17, label %.preheader.preheader
 
 17:                                               ; preds = %13
-  %18 = and i64 %14, 4294967295
+  %18 = and i64 %14, 63
   %19 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %6
@@ -3717,8 +3717,8 @@ define dso_local noundef i32 @schedule_on_each_cpu(ptr noundef %0) local_unnamed
   br label %36
 
 36:                                               ; preds = %35, %32
-  %37 = add i64 %14, 1
-  %38 = and i64 %37, 4294967295
+  %37 = add nuw nsw i64 %14, 1
+  %38 = and i64 %37, 127
   %39 = icmp ugt i64 %38, 63
   br i1 %39, label %.preheader.preheader, label %7, !prof !154, !llvm.loop !155
 
@@ -6580,8 +6580,8 @@ define dso_local noundef i32 @workqueue_online_cpu(i32 noundef %0) local_unnamed
 
 133:                                              ; preds = %129
   call fastcc void @wq_update_pod(ptr noundef %92, i32 noundef %131, i32 noundef %0, i1 noundef zeroext true)
-  %134 = add i64 %130, 1
-  %135 = and i64 %134, 4294967295
+  %134 = add nuw nsw i64 %130, 1
+  %135 = and i64 %134, 127
   %136 = icmp ugt i64 %135, 63
   br i1 %136, label %.thread, label %117, !prof !154, !llvm.loop !226
 
@@ -7034,8 +7034,8 @@ unbind_worker.exit:                               ; preds = %80, %83, %84, %87
 
 143:                                              ; preds = %139
   tail call fastcc void @wq_update_pod(ptr noundef %102, i32 noundef %141, i32 noundef %0, i1 noundef zeroext false)
-  %144 = add i64 %140, 1
-  %145 = and i64 %144, 4294967295
+  %144 = add nuw nsw i64 %140, 1
+  %145 = and i64 %144, 127
   %146 = icmp ugt i64 %145, 63
   br i1 %146, label %.thread, label %127, !prof !154, !llvm.loop !242
 
@@ -8065,18 +8065,18 @@ define dso_local void @workqueue_init_early() local_unnamed_addr #12 section ".i
   br i1 %50, label %51, label %.preheader.preheader
 
 51:                                               ; preds = %47
-  %52 = and i64 %48, 4294967295
+  %52 = and i64 %48, 63
   %53 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %52
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, ptrtoint (ptr @cpu_worker_pools to i64)
   %56 = inttoptr i64 %55 to ptr
   %57 = getelementptr i8, ptr %56, i64 1632
   %58 = icmp ugt ptr %57, %56
-  %59 = add i64 %48, 1
+  %59 = add nuw nsw i64 %48, 1
   br i1 %58, label %60, label %.loopexit
 
 60:                                               ; preds = %51
-  %61 = and i64 %59, 4294967295
+  %61 = and i64 %59, 127
   %62 = getelementptr [65 x [1 x i64]], ptr @cpu_bit_bitmap, i64 0, i64 %61
   br label %63
 
@@ -8141,7 +8141,7 @@ define dso_local void @workqueue_init_early() local_unnamed_addr #12 section ".i
   unreachable
 
 .loopexit:                                        ; preds = %90, %51
-  %100 = and i64 %59, 4294967295
+  %100 = and i64 %59, 127
   %101 = icmp ugt i64 %100, 63
   br i1 %101, label %.preheader.preheader, label %41, !prof !154, !llvm.loop !275
 
@@ -8609,8 +8609,8 @@ define dso_local void @workqueue_init_topology() local_unnamed_addr #12 section 
 
 17:                                               ; preds = %13
   tail call fastcc void @wq_update_pod(ptr noundef %6, i32 noundef %15, i32 noundef %15, i1 noundef zeroext true)
-  %18 = add i64 %14, 1
-  %19 = and i64 %18, 4294967295
+  %18 = add nuw nsw i64 %14, 1
+  %19 = and i64 %18, 127
   %20 = icmp ugt i64 %19, 63
   br i1 %20, label %.thread, label %7, !prof !154, !llvm.loop !302
 
@@ -8681,28 +8681,28 @@ define internal fastcc void @init_pod_type(ptr nocapture noundef %0, ptr nocaptu
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %7, align 8
-  %38 = and i64 %25, 4294967295
+  %38 = and i64 %25, 63
   %39 = getelementptr i32, ptr %37, i64 %38
   %40 = load i32, ptr %39, align 4
   br label %45
 
 41:                                               ; preds = %34
-  %42 = add i64 %25, 1
-  %43 = and i64 %42, 4294967295
+  %42 = add nuw nsw i64 %25, 1
+  %43 = and i64 %42, 127
   %44 = icmp ugt i64 %43, 63
   br i1 %44, label %.thread11, label %.preheader17, !prof !154, !llvm.loop !306
 
 45:                                               ; preds = %36, %30
   %46 = phi ptr [ %33, %30 ], [ %37, %36 ]
   %47 = phi i32 [ %31, %30 ], [ %40, %36 ]
-  %48 = and i64 %16, 4294967295
+  %48 = and i64 %16, 63
   %49 = getelementptr i32, ptr %46, i64 %48
   store i32 %47, ptr %49, align 4
   br label %.thread11
 
 .thread11:                                        ; preds = %.preheader17, %41, %24, %45
-  %50 = add i64 %16, 1
-  %51 = and i64 %50, 4294967295
+  %50 = add nuw nsw i64 %16, 1
+  %51 = and i64 %50, 127
   %52 = icmp ugt i64 %51, 63
   br i1 %52, label %.thread, label %.preheader18, !prof !154, !llvm.loop !307
 
@@ -9420,7 +9420,7 @@ define internal fastcc ptr @apply_wqattrs_prepare(ptr noundef %0, ptr nocapture 
   %61 = add i32 %60, 1
   store i32 %61, ptr %59, align 8
   %62 = load ptr, ptr %40, align 8
-  %63 = and i64 %52, 4294967295
+  %63 = and i64 %52, 63
   %64 = getelementptr [0 x ptr], ptr %43, i64 0, i64 %63
   store ptr %62, ptr %64, align 8
   br label %70
@@ -9428,7 +9428,7 @@ define internal fastcc ptr @apply_wqattrs_prepare(ptr noundef %0, ptr nocapture 
 65:                                               ; preds = %55
   tail call fastcc void @wq_calc_pod_cpumask(ptr noundef nonnull %15, i32 noundef %53, i32 noundef -1)
   %66 = tail call fastcc ptr @alloc_unbound_pwq(ptr noundef %0, ptr noundef nonnull %15)
-  %67 = and i64 %52, 4294967295
+  %67 = and i64 %52, 63
   %68 = getelementptr [0 x ptr], ptr %43, i64 0, i64 %67
   store ptr %66, ptr %68, align 8
   %69 = icmp eq ptr %66, null
@@ -9438,8 +9438,8 @@ define internal fastcc ptr @apply_wqattrs_prepare(ptr noundef %0, ptr nocapture 
 70:                                               ; preds = %65, %58
   %71 = phi ptr [ %45, %65 ], [ %62, %58 ]
   %72 = phi i64 [ %.pre, %65 ], [ %46, %58 ]
-  %73 = add i64 %52, 1
-  %74 = and i64 %73, 4294967295
+  %73 = add nuw nsw i64 %52, 1
+  %74 = and i64 %73, 127
   %75 = icmp ugt i64 %74, 63
   br i1 %75, label %.thread6, label %44, !prof !154, !llvm.loop !317
 
@@ -12546,8 +12546,8 @@ define internal i32 @wq_affn_dfl_set(ptr nocapture noundef readonly %0, ptr noca
 
 35:                                               ; preds = %31
   tail call fastcc void @wq_update_pod(ptr noundef %24, i32 noundef %33, i32 noundef %33, i1 noundef zeroext true)
-  %36 = add i64 %32, 1
-  %37 = and i64 %36, 4294967295
+  %36 = add nuw nsw i64 %32, 1
+  %37 = and i64 %36, 127
   %38 = icmp ugt i64 %37, 63
   br i1 %38, label %.thread7, label %25, !prof !154, !llvm.loop !394
 

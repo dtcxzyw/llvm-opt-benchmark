@@ -4177,14 +4177,7 @@ invoke.cont18:                                    ; preds = %_ZNKSt14default_del
   %9 = load i64, ptr %hi.sroa.0.0.ptr55, align 8
   %conv23 = trunc i64 %9 to i8
   %cmp.not.i3.i.not.i = icmp eq i8 %conv, 0
-  br i1 %cmp.not.i3.i.not.i, label %invoke.cont18._ZN4absl7CharSet12RangeForWordEccm.exit23._ZN4absl7CharSet12RangeForWordEccm.exit44_crit_edge.i_crit_edge, label %_ZN4absl7CharSet12RangeForWordEccm.exit.i
-
-invoke.cont18._ZN4absl7CharSet12RangeForWordEccm.exit23._ZN4absl7CharSet12RangeForWordEccm.exit44_crit_edge.i_crit_edge: ; preds = %invoke.cont18
-  %.pre = and i64 %8, 63
-  %.pre58 = sub nuw nsw i64 64, %.pre
-  %.pre59 = lshr i64 -1, %.pre58
-  %.pre60 = xor i64 %.pre59, -1
-  br label %invoke.cont25
+  br i1 %cmp.not.i3.i.not.i, label %invoke.cont25, label %_ZN4absl7CharSet12RangeForWordEccm.exit.i
 
 _ZN4absl7CharSet12RangeForWordEccm.exit.i:        ; preds = %invoke.cont18
   %cmp2.not.i7.i.i = icmp ult i8 %conv, 64
@@ -4207,11 +4200,11 @@ cond.false.i5.i39.i:                              ; preds = %_ZN4absl7CharSet12R
   %13 = select i1 %cmp2.not.i7.i40.i, i64 %10, i64 0
   br label %invoke.cont25
 
-invoke.cont25:                                    ; preds = %_ZN4absl7CharSet12RangeForWordEccm.exit.i, %_ZN4absl7CharSet12RangeForWordEccm.exit23.i, %invoke.cont18._ZN4absl7CharSet12RangeForWordEccm.exit23._ZN4absl7CharSet12RangeForWordEccm.exit44_crit_edge.i_crit_edge, %cond.false.i5.i39.i
-  %cond6.i4.i1676.i = phi i64 [ %12, %cond.false.i5.i39.i ], [ -1, %invoke.cont18._ZN4absl7CharSet12RangeForWordEccm.exit23._ZN4absl7CharSet12RangeForWordEccm.exit44_crit_edge.i_crit_edge ], [ %12, %_ZN4absl7CharSet12RangeForWordEccm.exit23.i ], [ -1, %_ZN4absl7CharSet12RangeForWordEccm.exit.i ]
-  %cond6.i4.i7074.i = phi i64 [ %11, %cond.false.i5.i39.i ], [ -1, %invoke.cont18._ZN4absl7CharSet12RangeForWordEccm.exit23._ZN4absl7CharSet12RangeForWordEccm.exit44_crit_edge.i_crit_edge ], [ %11, %_ZN4absl7CharSet12RangeForWordEccm.exit23.i ], [ %11, %_ZN4absl7CharSet12RangeForWordEccm.exit.i ]
-  %.pre-phi.i = phi i64 [ %10, %cond.false.i5.i39.i ], [ %.pre60, %invoke.cont18._ZN4absl7CharSet12RangeForWordEccm.exit23._ZN4absl7CharSet12RangeForWordEccm.exit44_crit_edge.i_crit_edge ], [ %10, %_ZN4absl7CharSet12RangeForWordEccm.exit23.i ], [ %10, %_ZN4absl7CharSet12RangeForWordEccm.exit.i ]
-  %cond6.i4.i37.i = phi i64 [ %13, %cond.false.i5.i39.i ], [ -1, %invoke.cont18._ZN4absl7CharSet12RangeForWordEccm.exit23._ZN4absl7CharSet12RangeForWordEccm.exit44_crit_edge.i_crit_edge ], [ -1, %_ZN4absl7CharSet12RangeForWordEccm.exit23.i ], [ -1, %_ZN4absl7CharSet12RangeForWordEccm.exit.i ]
+invoke.cont25:                                    ; preds = %_ZN4absl7CharSet12RangeForWordEccm.exit.i, %_ZN4absl7CharSet12RangeForWordEccm.exit23.i, %invoke.cont18, %cond.false.i5.i39.i
+  %cond6.i4.i1676.i = phi i64 [ %12, %cond.false.i5.i39.i ], [ %12, %_ZN4absl7CharSet12RangeForWordEccm.exit23.i ], [ -1, %_ZN4absl7CharSet12RangeForWordEccm.exit.i ], [ -1, %invoke.cont18 ]
+  %cond6.i4.i7074.i = phi i64 [ %11, %cond.false.i5.i39.i ], [ %11, %_ZN4absl7CharSet12RangeForWordEccm.exit23.i ], [ %11, %_ZN4absl7CharSet12RangeForWordEccm.exit.i ], [ -1, %invoke.cont18 ]
+  %.pre-phi.i = phi i64 [ %10, %cond.false.i5.i39.i ], [ %10, %_ZN4absl7CharSet12RangeForWordEccm.exit23.i ], [ %10, %_ZN4absl7CharSet12RangeForWordEccm.exit.i ], [ poison, %invoke.cont18 ]
+  %cond6.i4.i37.i = phi i64 [ %13, %cond.false.i5.i39.i ], [ -1, %_ZN4absl7CharSet12RangeForWordEccm.exit23.i ], [ -1, %_ZN4absl7CharSet12RangeForWordEccm.exit.i ], [ -1, %invoke.cont18 ]
   %cmp.not.i.not.i25.i = icmp sgt i8 %conv23, -1
   %cmp2.not.i.i28.i = icmp ult i8 %conv23, -65
   %14 = add i64 %9, 1

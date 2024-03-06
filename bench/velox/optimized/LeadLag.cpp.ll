@@ -1125,13 +1125,13 @@ arraydestroy.body94:                              ; preds = %arraydestroy.body94
 
 ehcleanup:                                        ; preds = %arraydestroy.body94, %lpad85
   %.pn = phi { ptr, i32 } [ %54, %lpad85 ], [ %55, %arraydestroy.body94 ]
-  %cleanup.isactive.0 = phi i1 [ false, %lpad85 ], [ true, %arraydestroy.body94 ]
+  %56 = phi i1 [ false, %lpad85 ], [ true, %arraydestroy.body94 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81) #24
   br label %ehcleanup99
 
 ehcleanup99:                                      ; preds = %lpad83, %lpad.i130, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %53, %lpad83 ], [ %14, %lpad.i130 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %ehcleanup ], [ false, %lpad83 ], [ false, %lpad.i130 ]
+  %cleanup.isactive.1 = phi i1 [ %56, %ehcleanup ], [ false, %lpad83 ], [ false, %lpad.i130 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp82) #24
   br label %ehcleanup100
 
@@ -5973,7 +5973,7 @@ _ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb1EE19rowNum
   %retval.0.i.i.i = phi i32 [ -2, %for.body.i.i ], [ %38, %return.loopexit.split.loop.exit6.i.i.i ], [ -2, %for.inc.i.i.i ]
   %add.ptr.i17.i.i = getelementptr inbounds i32, ptr %32, i64 %indvars.iv.i.i
   store i32 %retval.0.i.i.i, ptr %add.ptr.i17.i.i, align 4
-  %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %39 = load ptr, ptr %_M_finish.i.i, align 8
   %40 = load ptr, ptr %rowNumbers_, align 8
   %sub.ptr.lhs.cast.i13.i.i = ptrtoint ptr %39 to i64
@@ -6154,7 +6154,7 @@ _ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit.i: ; preds = %if.end8.
   br i1 %cmp31.i, label %for.body.lr.ph.i, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb1EE13setRowNumbersILb1EEEvi.exit
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit.i
-  %wide.trip.count.i = and i64 %div7, 4294967295
+  %wide.trip.count.i = and i64 %div7, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -6399,7 +6399,7 @@ _ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit.i62: ; preds = %if.end
   br i1 %cmp30.i, label %for.body.lr.ph.i63, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb1EE13setRowNumbersILb0EEEvi.exit
 
 for.body.lr.ph.i63:                               ; preds = %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit.i62
-  %wide.trip.count.i65 = and i64 %div7, 4294967295
+  %wide.trip.count.i65 = and i64 %div7, 2147483647
   br label %for.body.i66
 
 for.body.i66:                                     ; preds = %for.inc.i88, %for.body.lr.ph.i63
@@ -6527,7 +6527,7 @@ if.then11.i:                                      ; preds = %for.body.i117
 for.inc.i120:                                     ; preds = %if.then11.i, %for.body.i117
   %137 = phi ptr [ %129, %for.body.i117 ], [ %.pre118.i, %if.then11.i ]
   %138 = phi ptr [ %130, %for.body.i117 ], [ %.pre.i, %if.then11.i ]
-  %indvars.iv.next.i121 = add nuw i64 %indvars.iv.i118, 1
+  %indvars.iv.next.i121 = add nuw nsw i64 %indvars.iv.i118, 1
   %sub.ptr.lhs.cast.i.i122 = ptrtoint ptr %138 to i64
   %sub.ptr.rhs.cast.i.i123 = ptrtoint ptr %137 to i64
   %sub.ptr.sub.i.i124 = sub i64 %sub.ptr.lhs.cast.i.i122, %sub.ptr.rhs.cast.i.i123
@@ -6662,7 +6662,7 @@ for.inc33.i:                                      ; preds = %_ZNSt6vectorIiSaIiE
   %defaultValueRowNumbers.sroa.21.3.i = phi ptr [ %defaultValueRowNumbers.sroa.21.199.i, %for.body24.i ], [ %add.ptr19.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %defaultValueRowNumbers.sroa.21.199.i, %if.then.i.i29.i ]
   %defaultValueRowNumbers.sroa.12.3.i = phi ptr [ %defaultValueRowNumbers.sroa.12.1100.i, %for.body24.i ], [ %incdec.ptr.i.i.i.i140, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %incdec.ptr.i.i.i, %if.then.i.i29.i ]
   %defaultValueRowNumbers.sroa.0.4.i = phi ptr [ %defaultValueRowNumbers.sroa.0.1101.i, %for.body24.i ], [ %cond.i10.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %defaultValueRowNumbers.sroa.0.1101.i, %if.then.i.i29.i ]
-  %indvars.iv.next113.i = add nuw i64 %indvars.iv112.i, 1
+  %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
   %146 = load ptr, ptr %_M_finish.i.i, align 8
   %147 = load ptr, ptr %rowNumbers_, align 8
   %sub.ptr.lhs.cast.i22.i = ptrtoint ptr %146 to i64
@@ -6968,7 +6968,7 @@ _ZNSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE4EEELN9__gnu_cx
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
 
 declare void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr.89") align 8, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -10724,7 +10724,7 @@ _ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit.i: ; preds = %if.end8.
   br i1 %cmp38.i, label %for.body.lr.ph.i, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb0EE13setRowNumbersILb1EEEvi.exit
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit.i
-  %wide.trip.count.i = and i64 %div7, 4294967295
+  %wide.trip.count.i = and i64 %div7, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -10983,7 +10983,7 @@ for.body.lr.ph.i63:                               ; preds = %_ZNSt10shared_ptrIN
   %sub.i70 = shl i64 %sub.ptr.sub.i.i.i68, 29
   %sext30.i = add i64 %sub.i70, -4294967296
   %conv29.i = ashr i64 %sext30.i, 32
-  %wide.trip.count.i71 = and i64 %div7, 4294967295
+  %wide.trip.count.i71 = and i64 %div7, 2147483647
   br label %for.body.i72
 
 for.body.i72:                                     ; preds = %for.inc.i93, %for.body.lr.ph.i63
@@ -11111,7 +11111,7 @@ if.then11.i:                                      ; preds = %for.body.i122
 for.inc.i125:                                     ; preds = %if.then11.i, %for.body.i122
   %141 = phi ptr [ %133, %for.body.i122 ], [ %.pre118.i, %if.then11.i ]
   %142 = phi ptr [ %134, %for.body.i122 ], [ %.pre.i, %if.then11.i ]
-  %indvars.iv.next.i126 = add nuw i64 %indvars.iv.i123, 1
+  %indvars.iv.next.i126 = add nuw nsw i64 %indvars.iv.i123, 1
   %sub.ptr.lhs.cast.i.i127 = ptrtoint ptr %142 to i64
   %sub.ptr.rhs.cast.i.i128 = ptrtoint ptr %141 to i64
   %sub.ptr.sub.i.i129 = sub i64 %sub.ptr.lhs.cast.i.i127, %sub.ptr.rhs.cast.i.i128
@@ -11246,7 +11246,7 @@ for.inc33.i:                                      ; preds = %_ZNSt6vectorIiSaIiE
   %defaultValueRowNumbers.sroa.21.3.i = phi ptr [ %defaultValueRowNumbers.sroa.21.199.i, %for.body24.i ], [ %add.ptr19.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %defaultValueRowNumbers.sroa.21.199.i, %if.then.i.i29.i ]
   %defaultValueRowNumbers.sroa.12.3.i = phi ptr [ %defaultValueRowNumbers.sroa.12.1100.i, %for.body24.i ], [ %incdec.ptr.i.i.i.i146, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %incdec.ptr.i.i.i, %if.then.i.i29.i ]
   %defaultValueRowNumbers.sroa.0.4.i = phi ptr [ %defaultValueRowNumbers.sroa.0.1101.i, %for.body24.i ], [ %cond.i10.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %defaultValueRowNumbers.sroa.0.1101.i, %if.then.i.i29.i ]
-  %indvars.iv.next113.i = add nuw i64 %indvars.iv112.i, 1
+  %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
   %150 = load ptr, ptr %_M_finish.i.i, align 8
   %151 = load ptr, ptr %rowNumbers_, align 8
   %sub.ptr.lhs.cast.i22.i = ptrtoint ptr %150 to i64
@@ -11373,7 +11373,7 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #12 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind memory(read) }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nofree nosync nounwind memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

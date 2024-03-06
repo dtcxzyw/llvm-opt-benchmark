@@ -2558,7 +2558,7 @@ _ZN6chrono6format10formatting14write_hundreds17h4281177c9451098aE.exit.thread: ;
   br label %87
 
 87:                                               ; preds = %.thread, %72, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hc837ed62ef544522E.llvm.5435959977682051014.exit81"
-  %88 = and i32 %.062.in, 207
+  %88 = and i32 %.062.in, 15
   %89 = or disjoint i32 %88, 48
   %90 = tail call noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hc837ed62ef544522E.llvm.5435959977682051014"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %89)
   br label %58

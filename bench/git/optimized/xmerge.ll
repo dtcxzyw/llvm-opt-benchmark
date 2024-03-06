@@ -486,7 +486,7 @@ lor.lhs.false96:                                  ; preds = %lor.lhs.false91
   br i1 %cmp1.i, label %for.body.preheader.i, label %if.end166
 
 for.body.preheader.i:                             ; preds = %lor.lhs.false96
-  %wide.trip.count.i = and i64 %39, 4294967295
+  %wide.trip.count.i = and i64 %39, 2147483647
   br label %for.body.i259
 
 for.cond.i:                                       ; preds = %for.body.i259
@@ -1712,7 +1712,7 @@ if.end55.i:                                       ; preds = %if.end51.i, %if.the
 
 for.cond.preheader.i.i122.i:                      ; preds = %if.end55.i
   %tobool4.not.i.i123.i = icmp eq ptr %cond65.i, null
-  %wide.trip.count33.i.i124.i = and i64 %20, 4294967295
+  %wide.trip.count33.i.i124.i = and i64 %20, 2147483647
   br i1 %tobool4.not.i.i123.i, label %for.body.us.i.i140.i, label %for.body.i.i125.i
 
 for.body.us.i.i140.i:                             ; preds = %for.cond.preheader.i.i122.i, %for.body.us.i.i140.i
@@ -1874,7 +1874,7 @@ if.end104.i:                                      ; preds = %if.end100.i, %if.th
 
 for.cond.preheader.i.i152.i:                      ; preds = %if.end104.i
   %tobool4.not.i.i153.i = icmp eq ptr %cond113.i, null
-  %wide.trip.count33.i.i154.i = and i64 %37, 4294967295
+  %wide.trip.count33.i.i154.i = and i64 %37, 2147483647
   br i1 %tobool4.not.i.i153.i, label %for.body.us.i.i195.i, label %for.body.i.i155.i
 
 for.body.us.i.i195.i:                             ; preds = %for.cond.preheader.i.i152.i, %for.body.us.i.i195.i
@@ -2020,7 +2020,7 @@ if.end136.i:                                      ; preds = %if.end132.i, %if.th
 
 for.cond.preheader.i.i206.i:                      ; preds = %if.end136.i
   %tobool4.not.i.i207.i = icmp eq ptr %cond145.i, null
-  %wide.trip.count33.i.i208.i = and i64 %54, 4294967295
+  %wide.trip.count33.i.i208.i = and i64 %54, 2147483647
   br i1 %tobool4.not.i.i207.i, label %for.body.us.i.i249.i, label %for.body.i.i209.i
 
 for.body.us.i.i249.i:                             ; preds = %for.cond.preheader.i.i206.i, %for.body.us.i.i249.i
@@ -2251,7 +2251,7 @@ if.then15:                                        ; preds = %xdl_recs_copy.exit
 
 for.cond.preheader.i.i52:                         ; preds = %if.then15
   %tobool4.not.i.i53 = icmp eq ptr %cond28, null
-  %wide.trip.count33.i.i54 = and i64 %84, 4294967295
+  %wide.trip.count33.i.i54 = and i64 %84, 2147483647
   br i1 %tobool4.not.i.i53, label %for.body.us.i.i70, label %for.body.i.i55
 
 for.body.us.i.i70:                                ; preds = %for.cond.preheader.i.i52, %for.body.us.i.i70
@@ -2376,7 +2376,7 @@ if.then35:                                        ; preds = %if.end31
 
 for.cond.preheader.i.i82:                         ; preds = %if.then35
   %tobool4.not.i.i83 = icmp eq ptr %cond44, null
-  %wide.trip.count33.i.i84 = and i64 %102, 4294967295
+  %wide.trip.count33.i.i84 = and i64 %102, 2147483647
   br i1 %tobool4.not.i.i83, label %for.body.us.i.i100, label %for.body.i.i85
 
 for.body.us.i.i100:                               ; preds = %for.cond.preheader.i.i82, %for.body.us.i.i100

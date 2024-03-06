@@ -147,7 +147,7 @@ mca_coll_han_component_name_to_id.exit:           ; preds = %.preheader.i
   br i1 %or.cond41, label %mca_coll_han_component_name_to_id.exit.thread, label %32
 
 32:                                               ; preds = %mca_coll_han_component_name_to_id.exit
-  %33 = and i64 %indvars.iv.i, 4294967295
+  %33 = and i64 %indvars.iv.i, 2147483647
   %34 = getelementptr inbounds [7 x %struct.collective_module_storage_s], ptr %15, i64 0, i64 %33
   store ptr %20, ptr %34, align 8
   %35 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4

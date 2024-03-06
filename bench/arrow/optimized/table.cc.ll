@@ -2449,7 +2449,7 @@ entry:
   br i1 %cmp302, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
-  %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   %.pre = load ptr, ptr %batches, align 8
   br label %for.body
 
@@ -2699,7 +2699,7 @@ invoke.cont34:                                    ; preds = %call5.i.i.i.i2.i.i.
 for.cond40.preheader.lr.ph:                       ; preds = %invoke.cont34
   %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp43, i64 8
   %wide.trip.count321 = zext nneg i32 %call2 to i64
-  %wide.trip.count316 = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count316 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.cond40.preheader
 
 for.cond40.preheader:                             ; preds = %for.cond40.preheader.lr.ph, %_ZNSt10shared_ptrIN5arrow12ChunkedArrayEED2Ev.exit
@@ -4000,7 +4000,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont17
   br i1 %cmp.i.i22, label %if.then.i.i31, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.body.lr.ph
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit
@@ -6477,7 +6477,7 @@ invoke.cont6:                                     ; preds = %call5.i.i.i.i2.i.i.
 for.body.lr.ph:                                   ; preds = %invoke.cont6
   %schema_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
-  %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIN5arrow5FieldEED2Ev.exit

@@ -6580,7 +6580,7 @@ if.then.i54:                                      ; preds = %entry
 if.end.i49:                                       ; preds = %entry
   %values_.i50 = getelementptr inbounds i8, ptr %args, i64 8
   %5 = load ptr, ptr %values_.i50, align 8
-  %idx.ext.i51 = and i64 %index, 4294967295
+  %idx.ext.i51 = and i64 %index, 2147483647
   %add.ptr.i52 = getelementptr inbounds i64, ptr %5, i64 %idx.ext.i51
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit57
 
@@ -6612,7 +6612,7 @@ if.then.i:                                        ; preds = %do.end9
 if.end.i:                                         ; preds = %do.end9
   %values_.i = getelementptr inbounds i8, ptr %args, i64 8
   %11 = load ptr, ptr %values_.i, align 8
-  %idx.ext.i = and i64 %index, 4294967295
+  %idx.ext.i = and i64 %index, 2147483647
   %add.ptr.i = getelementptr inbounds i64, ptr %11, i64 %idx.ext.i
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 

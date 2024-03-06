@@ -2553,7 +2553,7 @@ Vec_IntPush.exit136:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %221, label %.lr.ph.i, label %Vec_StrPrintStr.exit
 
 .lr.ph.i:                                         ; preds = %.critedge6
-  %wide.trip.count.i = and i64 %219, 4294967295
+  %wide.trip.count.i = and i64 %219, 2147483647
   br label %222
 
 222:                                              ; preds = %Vec_StrPush.exit.i, %.lr.ph.i

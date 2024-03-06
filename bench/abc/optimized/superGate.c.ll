@@ -2902,7 +2902,7 @@ define internal fastcc void @Vec_StrPrintStr(ptr nocapture noundef %0, ptr nocap
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
-  %wide.trip.count = and i64 %3, 4294967295
+  %wide.trip.count = and i64 %3, 2147483647
   br label %7
 
 7:                                                ; preds = %.lr.ph, %Vec_StrPush.exit
@@ -3749,7 +3749,7 @@ Vec_StrPush.exit48:                               ; preds = %.Vec_StrGrow.exit10
   %.val34 = load ptr, ptr %7, align 8
   %123 = sext i32 %.val to i64
   %scevgep = getelementptr i8, ptr %.val34, i64 %123
-  %124 = and i64 %120, 4294967295
+  %124 = and i64 %120, 2147483647
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep, ptr nonnull align 16 %2, i64 %124, i1 false)
   br label %._crit_edge
 

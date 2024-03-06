@@ -1667,7 +1667,7 @@ define noundef ptr @_ZN3irr5scene13CSceneManager15getUncachedMeshEPNS_2io9IReadF
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %4
-  %16 = and i64 %12, 4294967295
+  %16 = and i64 %12, 2147483647
   br label %17
 
 17:                                               ; preds = %58, %15

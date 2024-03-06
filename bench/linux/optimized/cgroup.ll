@@ -11423,7 +11423,7 @@ define dso_local i32 @cgroup_can_fork(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %203, label %204, label %.loopexit
 
 204:                                              ; preds = %202
-  %205 = and i64 %188, 4294967295
+  %205 = and i64 %188, 2147483647
   br label %206
 
 206:                                              ; preds = %215, %204

@@ -82,7 +82,7 @@ define dso_local ptr @dma_common_contiguous_remap(ptr noundef %0, i64 noundef %1
   br i1 %15, label %16, label %.loopexit
 
 16:                                               ; preds = %14
-  %17 = and i64 %6, 4294967295
+  %17 = and i64 %6, 2147483647
   br label %18
 
 18:                                               ; preds = %18, %16

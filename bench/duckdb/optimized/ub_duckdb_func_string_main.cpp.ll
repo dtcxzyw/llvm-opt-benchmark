@@ -13228,7 +13228,7 @@ if.then.i:                                        ; preds = %invoke.cont13
   br i1 %cmp.i, label %invoke.cont16, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %conv.i.i = and i64 %output_length.0.lcssa.i.i160, 4294967295
+  %conv.i.i = and i64 %output_length.0.lcssa.i.i160, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %inlined.i125, ptr nonnull align 1 %call.i161, i64 %conv.i.i, i1 false)
   br label %invoke.cont16
 
@@ -13253,7 +13253,7 @@ if.then.i130:                                     ; preds = %invoke.cont16
   br i1 %cmp.i132, label %invoke.cont20, label %if.end.i133
 
 if.end.i133:                                      ; preds = %if.then.i130
-  %conv.i.i134 = and i64 %output_length.0.lcssa.i.i88, 4294967295
+  %conv.i.i134 = and i64 %output_length.0.lcssa.i.i88, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %inlined.i131, ptr nonnull align 1 %call.i9394, i64 %conv.i.i134, i1 false)
   %ptr.i9.i.phi.trans.insert = getelementptr inbounds i8, ptr %pat_lcase, i64 8
   %.pre = load ptr, ptr %ptr.i9.i.phi.trans.insert, align 8
@@ -39444,7 +39444,7 @@ if.then.i:                                        ; preds = %cond.end
   br i1 %cmp.i330, label %invoke.cont88, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %conv.i.i331 = and i64 %42, 4294967295
+  %conv.i.i331 = and i64 %42, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %ref.tmp81.sroa.5, ptr align 1 %41, i64 %conv.i.i331, i1 false)
   br label %invoke.cont88
 
@@ -39768,7 +39768,7 @@ if.then.i403.us:                                  ; preds = %invoke.cont170.us
   br i1 %cmp.i405.us, label %invoke.cont184.us, label %if.end.i406.us
 
 if.end.i406.us:                                   ; preds = %if.then.i403.us
-  %conv.i.i407.us = and i64 %89, 4294967295
+  %conv.i.i407.us = and i64 %89, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %ref.tmp172.sroa.5, ptr align 1 %88, i64 %conv.i.i407.us, i1 false)
   br label %invoke.cont184.us
 
@@ -40175,7 +40175,7 @@ for.cond.preheader.i:                             ; preds = %entry
   br i1 %cmp39.not.i, label %_ZN6duckdb8string_t8FinalizeEv.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %conv.i.i = and i64 %0, 4294967295
+  %conv.i.i = and i64 %0, 15
   %4 = getelementptr i8, ptr %retval, i64 %conv.i.i
   %scevgep.i = getelementptr i8, ptr %4, i64 4
   %reass.sub = tail call i64 @llvm.usub.sat.i64(i64 11, i64 %conv.i.i)
@@ -40392,7 +40392,7 @@ for.cond.preheader.i.i:                           ; preds = %if.then
   br i1 %cmp39.not.i.i, label %_ZN6duckdb20SubstringEmptyStringERNS_6VectorE.exit, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %for.cond.preheader.i.i
-  %conv.i.i.i = and i64 %5, 4294967295
+  %conv.i.i.i = and i64 %5, 15
   %9 = getelementptr i8, ptr %retval.i, i64 %conv.i.i.i
   %scevgep.i.i = getelementptr i8, ptr %9, i64 4
   %reass.sub.i = tail call i64 @llvm.usub.sat.i64(i64 11, i64 %conv.i.i.i)
@@ -40728,7 +40728,7 @@ for.cond.preheader.i.i:                           ; preds = %if.then
   br i1 %cmp39.not.i.i, label %_ZN6duckdb20SubstringEmptyStringERNS_6VectorE.exit, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %for.cond.preheader.i.i
-  %conv.i.i.i = and i64 %2, 4294967295
+  %conv.i.i.i = and i64 %2, 15
   %6 = getelementptr i8, ptr %retval.i, i64 %conv.i.i.i
   %scevgep.i.i = getelementptr i8, ptr %6, i64 4
   %reass.sub.i = tail call i64 @llvm.usub.sat.i64(i64 11, i64 %conv.i.i.i)
@@ -40846,7 +40846,7 @@ for.cond.preheader.i.i177:                        ; preds = %if.then42
   br i1 %cmp39.not.i.i178, label %cleanup47.thread, label %for.body.preheader.i.i179
 
 for.body.preheader.i.i179:                        ; preds = %for.cond.preheader.i.i177
-  %conv.i.i.i180 = and i64 %15, 4294967295
+  %conv.i.i.i180 = and i64 %15, 15
   %19 = getelementptr i8, ptr %retval.i168, i64 %conv.i.i.i180
   %scevgep.i.i181 = getelementptr i8, ptr %19, i64 4
   %reass.sub.i182 = tail call i64 @llvm.usub.sat.i64(i64 11, i64 %conv.i.i.i180)
@@ -40945,7 +40945,7 @@ for.cond.preheader.i.i197:                        ; preds = %if.then87
   br i1 %cmp39.not.i.i198, label %cleanup92, label %for.body.preheader.i.i199
 
 for.body.preheader.i.i199:                        ; preds = %for.cond.preheader.i.i197
-  %conv.i.i.i200 = and i64 %24, 4294967295
+  %conv.i.i.i200 = and i64 %24, 15
   %28 = getelementptr i8, ptr %retval.i188, i64 %conv.i.i.i200
   %scevgep.i.i201 = getelementptr i8, ptr %28, i64 4
   %reass.sub.i202 = tail call i64 @llvm.usub.sat.i64(i64 11, i64 %conv.i.i.i200)
@@ -41106,7 +41106,7 @@ for.cond.preheader.i.i:                           ; preds = %if.then
   br i1 %cmp39.not.i.i, label %_ZN6duckdb20SubstringEmptyStringERNS_6VectorE.exit, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %for.cond.preheader.i.i
-  %conv.i.i.i = and i64 %5, 4294967295
+  %conv.i.i.i = and i64 %5, 15
   %9 = getelementptr i8, ptr %retval.i, i64 %conv.i.i.i
   %scevgep.i.i = getelementptr i8, ptr %9, i64 4
   %reass.sub.i = tail call i64 @llvm.usub.sat.i64(i64 11, i64 %conv.i.i.i)
@@ -41348,7 +41348,7 @@ for.cond.preheader.i.i147:                        ; preds = %if.then20
   br i1 %cmp39.not.i.i148, label %_ZN6duckdb20SubstringEmptyStringERNS_6VectorE.exit154, label %for.body.preheader.i.i149
 
 for.body.preheader.i.i149:                        ; preds = %for.cond.preheader.i.i147
-  %conv.i.i.i150 = and i64 %29, 4294967295
+  %conv.i.i.i150 = and i64 %29, 15
   %33 = getelementptr i8, ptr %retval.i138, i64 %conv.i.i.i150
   %scevgep.i.i151 = getelementptr i8, ptr %33, i64 4
   %reass.sub.i152 = call i64 @llvm.usub.sat.i64(i64 11, i64 %conv.i.i.i150)
@@ -65128,7 +65128,7 @@ for.cond.preheader.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i
   br i1 %cmp39.not.i.i.i.i.i.i.i, label %_ZN6duckdb20SubstringEmptyStringERNS_6VectorE.exit.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %for.cond.preheader.i.i.i.i.i.i.i
-  %conv.i.i.i.i.i.i.i.i = and i64 %148, 4294967295
+  %conv.i.i.i.i.i.i.i.i = and i64 %148, 15
   %gep180.i.i.i.i = getelementptr i8, ptr %invariant.gep179.i.i.i.i, i64 %conv.i.i.i.i.i.i.i.i
   %reass.sub.i.i.i.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 11, i64 %conv.i.i.i.i.i.i.i.i)
   %151 = add nuw nsw i64 %reass.sub.i.i.i.i.i.i, 1
@@ -65262,7 +65262,7 @@ for.cond.preheader.i.i.i160.i.i.i.i:              ; preds = %if.then.i152.i.i.i.
   br i1 %cmp39.not.i.i.i161.i.i.i.i, label %_ZN6duckdb20SubstringEmptyStringERNS_6VectorE.exit.i157.i.i.i.i, label %for.body.preheader.i.i.i162.i.i.i.i
 
 for.body.preheader.i.i.i162.i.i.i.i:              ; preds = %for.cond.preheader.i.i.i160.i.i.i.i
-  %conv.i.i.i.i163.i.i.i.i = and i64 %164, 4294967295
+  %conv.i.i.i.i163.i.i.i.i = and i64 %164, 15
   %gep186.i.i.i.i = getelementptr i8, ptr %invariant.gep185.i.i.i.i, i64 %conv.i.i.i.i163.i.i.i.i
   %reass.sub.i.i165.i.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 11, i64 %conv.i.i.i.i163.i.i.i.i)
   %167 = add nuw nsw i64 %reass.sub.i.i165.i.i.i.i, 1
@@ -65612,7 +65612,7 @@ for.cond.preheader.i.i.i.i.i181.i.i:              ; preds = %if.then.i.i.i174.i.
   br i1 %cmp39.not.i.i.i.i.i182.i.i, label %_ZN6duckdb20SubstringEmptyStringERNS_6VectorE.exit.i.i.i178.i.i, label %for.body.preheader.i.i.i.i.i183.i.i
 
 for.body.preheader.i.i.i.i.i183.i.i:              ; preds = %for.cond.preheader.i.i.i.i.i181.i.i
-  %conv.i.i.i.i.i.i184.i.i = and i64 %210, 4294967295
+  %conv.i.i.i.i.i.i184.i.i = and i64 %210, 15
   %gep180.i.i185.i.i = getelementptr i8, ptr %invariant.gep179.i.i113.i.i, i64 %conv.i.i.i.i.i.i184.i.i
   %reass.sub.i.i.i.i186.i.i = tail call i64 @llvm.usub.sat.i64(i64 11, i64 %conv.i.i.i.i.i.i184.i.i)
   %213 = add nuw nsw i64 %reass.sub.i.i.i.i186.i.i, 1
@@ -65745,7 +65745,7 @@ for.cond.preheader.i.i.i160.i.i248.i.i:           ; preds = %if.then.i152.i.i241
   br i1 %cmp39.not.i.i.i161.i.i249.i.i, label %_ZN6duckdb20SubstringEmptyStringERNS_6VectorE.exit.i157.i.i245.i.i, label %for.body.preheader.i.i.i162.i.i250.i.i
 
 for.body.preheader.i.i.i162.i.i250.i.i:           ; preds = %for.cond.preheader.i.i.i160.i.i248.i.i
-  %conv.i.i.i.i163.i.i251.i.i = and i64 %225, 4294967295
+  %conv.i.i.i.i163.i.i251.i.i = and i64 %225, 15
   %gep186.i.i252.i.i = getelementptr i8, ptr %invariant.gep185.i.i117.i.i, i64 %conv.i.i.i.i163.i.i251.i.i
   %reass.sub.i.i165.i.i253.i.i = tail call i64 @llvm.usub.sat.i64(i64 11, i64 %conv.i.i.i.i163.i.i251.i.i)
   %228 = add nuw nsw i64 %reass.sub.i.i165.i.i253.i.i, 1
@@ -66065,7 +66065,7 @@ for.cond.preheader.i.i.i.i.i377.i.i:              ; preds = %if.then.i.i.i370.i.
   br i1 %cmp39.not.i.i.i.i.i378.i.i, label %_ZN6duckdb20SubstringEmptyStringERNS_6VectorE.exit.i.i.i374.i.i, label %for.body.preheader.i.i.i.i.i379.i.i
 
 for.body.preheader.i.i.i.i.i379.i.i:              ; preds = %for.cond.preheader.i.i.i.i.i377.i.i
-  %conv.i.i.i.i.i.i380.i.i = and i64 %271, 4294967295
+  %conv.i.i.i.i.i.i380.i.i = and i64 %271, 15
   %gep191.i.i.i.i = getelementptr i8, ptr %invariant.gep190.i.i.i.i, i64 %conv.i.i.i.i.i.i380.i.i
   %reass.sub.i.i.i.i381.i.i = tail call i64 @llvm.usub.sat.i64(i64 11, i64 %conv.i.i.i.i.i.i380.i.i)
   %274 = add nuw nsw i64 %reass.sub.i.i.i.i381.i.i, 1
@@ -66200,7 +66200,7 @@ for.cond.preheader.i.i.i171.i.i.i.i:              ; preds = %if.then.i163.i.i.i.
   br i1 %cmp39.not.i.i.i172.i.i.i.i, label %_ZN6duckdb20SubstringEmptyStringERNS_6VectorE.exit.i168.i.i.i.i, label %for.body.preheader.i.i.i173.i.i.i.i
 
 for.body.preheader.i.i.i173.i.i.i.i:              ; preds = %for.cond.preheader.i.i.i171.i.i.i.i
-  %conv.i.i.i.i174.i.i.i.i = and i64 %287, 4294967295
+  %conv.i.i.i.i174.i.i.i.i = and i64 %287, 15
   %gep197.i.i.i.i = getelementptr i8, ptr %invariant.gep196.i.i.i.i, i64 %conv.i.i.i.i174.i.i.i.i
   %reass.sub.i.i176.i.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 11, i64 %conv.i.i.i.i174.i.i.i.i)
   %290 = add nuw nsw i64 %reass.sub.i.i176.i.i.i.i, 1

@@ -5340,7 +5340,7 @@ define dso_local void @SortTocFromFile(ptr nocapture noundef %0) local_unnamed_a
 
 getTocEntryByDumpId.exit:                         ; preds = %59
   %61 = load ptr, ptr %19, align 8
-  %62 = and i64 %37, 4294967295
+  %62 = and i64 %37, 2147483647
   %63 = getelementptr ptr, ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8
   %.not31 = icmp eq ptr %64, null

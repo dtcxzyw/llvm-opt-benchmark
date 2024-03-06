@@ -151,7 +151,7 @@ define i64 @sendfile(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %12
-  %19 = and i64 %15, 4294967295
+  %19 = and i64 %15, 2147483647
   br label %23
 
 20:                                               ; preds = %4, %9, %12

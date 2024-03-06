@@ -7285,12 +7285,12 @@ ssl_has_cert_type.exit.i:                         ; preds = %if.end.i
   br i1 %cmp3.i.not.i, label %if.end6.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %ssl_has_cert_type.exit.i
-  %idxprom.i = and i64 %sub.ptr.div, 4294967295
+  %idxprom.i = and i64 %sub.ptr.div, 2147483647
   %privatekey.i = getelementptr inbounds %struct.cert_pkey_st, ptr %9, i64 %idxprom.i, i32 1
   br label %ssl_has_cert.exit
 
 if.end6.i:                                        ; preds = %ssl_has_cert_type.exit.i, %if.end.i
-  %idxprom9.i = and i64 %sub.ptr.div, 4294967295
+  %idxprom9.i = and i64 %sub.ptr.div, 2147483647
   %arrayidx10.i = getelementptr inbounds %struct.cert_pkey_st, ptr %9, i64 %idxprom9.i
   %11 = load ptr, ptr %arrayidx10.i, align 8
   %cmp11.not.i = icmp eq ptr %11, null

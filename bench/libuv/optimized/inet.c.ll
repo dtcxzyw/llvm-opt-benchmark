@@ -523,13 +523,13 @@ if.end11:                                         ; preds = %if.end9, %sw.bb2
   br i1 %cmp.i, label %if.then.i23, label %while.cond.outer.i.preheader
 
 if.then.i23:                                      ; preds = %if.end11
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.0, i64 1
-  %10 = load i8, ptr %incdec.ptr.i, align 1
+  %s.0.sroa.phi = getelementptr inbounds i8, ptr %s.0, i64 1
+  %10 = load i8, ptr %s.0.sroa.phi, align 1
   %cmp3.not.i = icmp eq i8 %10, 58
   br i1 %cmp3.not.i, label %while.cond.outer.i.preheader, label %inet_pton6.exit
 
 while.cond.outer.i.preheader:                     ; preds = %if.then.i23, %if.end11
-  %curtok.0.ph.i.ph = phi ptr [ %s.0, %if.end11 ], [ %incdec.ptr.i, %if.then.i23 ]
+  %curtok.0.ph.i.ph = phi ptr [ %s.0, %if.end11 ], [ %s.0.sroa.phi, %if.then.i23 ]
   br label %while.cond.outer.i
 
 while.cond.outer.i:                               ; preds = %while.cond.outer.i.preheader, %if.then29.i
@@ -735,8 +735,8 @@ for.cond.preheader.i:                             ; preds = %if.then88.i
   br i1 %cmp97.not97.i, label %if.end110.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %23 = and i64 %sub.ptr.sub91.i, 4294967295
-  %24 = add i64 %sub.ptr.sub91.i, 1
+  %23 = and i64 %sub.ptr.sub91.i, 2147483647
+  %24 = add nuw nsw i64 %sub.ptr.sub91.i, 1
   %wide.trip.count.i = and i64 %24, 4294967295
   br label %for.body.i
 

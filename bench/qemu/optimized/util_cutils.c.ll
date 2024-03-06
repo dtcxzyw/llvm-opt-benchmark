@@ -1870,7 +1870,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.end10.thread11, label %if.end4
 
 if.end10.thread11:                                ; preds = %if.end
-  %idxprom = and i64 %call, 4294967295
+  %idxprom = and i64 %call, 2147483647
   %arrayidx = getelementptr [4096 x i8], ptr %buf, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   br label %if.then12

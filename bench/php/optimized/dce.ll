@@ -2211,7 +2211,7 @@ zend_bitset_pop_first.exit1665.backedge:          ; preds = %.loopexit1769, %zen
   %1229 = and i64 %1228, %1221
   store i64 %1229, ptr %1227, align 8
   %1230 = load ptr, ptr %253, align 8
-  %1231 = and i64 %1214, 4294967295
+  %1231 = and i64 %1214, 2147483647
   %1232 = getelementptr inbounds %struct._zend_op, ptr %1230, i64 %1231
   %1233 = load ptr, ptr %254, align 8
   %1234 = getelementptr inbounds %struct._zend_ssa_op, ptr %1233, i64 %1231

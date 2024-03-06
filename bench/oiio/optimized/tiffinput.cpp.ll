@@ -9946,7 +9946,7 @@ while.cond.preheader.lr.ph.i:                     ; preds = %for.body174
   %sub.i73 = xor i32 %notmask.i, -1
   %cmp233.i.not = icmp eq i16 %63, 0
   %conv32.i = zext nneg i32 %sub.i73 to i64
-  %65 = and i64 %cond180, 4294967295
+  %65 = and i64 %cond180, 2147483647
   br i1 %cmp233.i.not, label %while.cond.preheader.lr.ph.split.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.i:                        ; preds = %while.cond.preheader.lr.ph.i, %while.cond.while.end_crit_edge.us.i
@@ -10069,7 +10069,7 @@ while.cond.preheader.lr.ph.i82:                   ; preds = %for.body215
   br i1 %cmp233.i85.not, label %while.cond.preheader.lr.ph.split.i87, label %while.cond.preheader.us.preheader.i88
 
 while.cond.preheader.us.preheader.i88:            ; preds = %while.cond.preheader.lr.ph.i82
-  %wide.trip.count.i89 = and i64 %cond221, 4294967295
+  %wide.trip.count.i89 = and i64 %cond221, 2147483647
   br label %while.cond.preheader.us.i90
 
 while.cond.preheader.us.i90:                      ; preds = %while.cond.while.end_crit_edge.us.i116, %while.cond.preheader.us.preheader.i88
@@ -10174,7 +10174,7 @@ if.then248:                                       ; preds = %if.end245
   br i1 %or.cond50.i, label %for.cond2.preheader.us.us.preheader.i, label %cleanup
 
 for.cond2.preheader.us.us.preheader.i:            ; preds = %if.then248
-  %85 = and i64 %call64, 4294967295
+  %85 = and i64 %call64, 2147483647
   %wide.trip.count40.i = zext nneg i32 %cond to i64
   %wide.trip.count.i139 = zext nneg i32 %conv.i137 to i64
   br label %for.cond2.preheader.us.us.i
@@ -10248,7 +10248,7 @@ if.then257:                                       ; preds = %if.end253
   br i1 %or.cond.i146, label %for.body.preheader.i, label %cleanup260
 
 for.body.preheader.i:                             ; preds = %if.then257
-  %wide.trip.count.i147 = and i64 %mul66, 4294967295
+  %wide.trip.count.i147 = and i64 %mul66, 2147483647
   br label %for.body.i148
 
 for.body.i148:                                    ; preds = %for.body.i148, %for.body.preheader.i
@@ -16926,7 +16926,7 @@ for.body.lr.ph:                                   ; preds = %while.end
   %size_.i.i = getelementptr inbounds i8, ptr %out.coerce, i64 16
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %out.coerce, i64 24
   %ptr_.i.i29 = getelementptr inbounds i8, ptr %out.coerce, i64 8
-  %wide.trip.count = and i64 %digits.coerce1, 4294967295
+  %wide.trip.count = and i64 %digits.coerce1, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -30043,7 +30043,7 @@ _ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit: ; preds = %_ZN3fmt2v
   br i1 %cmp53, label %for.cond6.preheader.preheader, label %for.cond24.preheader
 
 for.cond6.preheader.preheader:                    ; preds = %_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit
-  %wide.trip.count79 = and i64 %0, 4294967295
+  %wide.trip.count79 = and i64 %0, 2147483647
   br label %for.body8.lr.ph
 
 for.body8.lr.ph:                                  ; preds = %invoke.cont18, %for.cond6.preheader.preheader

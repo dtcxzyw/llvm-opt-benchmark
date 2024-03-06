@@ -731,7 +731,7 @@ cond.end:                                         ; preds = %entry
   br i1 %cmp4, label %if.then, label %if.end8
 
 if.then:                                          ; preds = %cond.end.thread, %cond.end
-  %idxprom = and i64 %call, 4294967295
+  %idxprom = and i64 %call, 2147483647
   %arrayidx = getelementptr inbounds [10240 x i8], ptr %filename, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #27
@@ -6699,7 +6699,7 @@ for.body.lr.ph:                                   ; preds = %while.end
   %size_.i.i = getelementptr inbounds i8, ptr %out.coerce, i64 16
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %out.coerce, i64 24
   %ptr_.i.i29 = getelementptr inbounds i8, ptr %out.coerce, i64 8
-  %wide.trip.count = and i64 %digits.coerce1, 4294967295
+  %wide.trip.count = and i64 %digits.coerce1, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -15875,7 +15875,7 @@ _ZN3fmt2v86detail9normalizeILi0EEENS1_2fpES3_.exit: ; preds = %if.end42, %while.
   %ptr_.i93 = getelementptr inbounds i8, ptr %buf, i64 8
   %24 = load ptr, ptr %ptr_.i93, align 8
   %sub54 = sub nsw i32 348, %mul6.i
-  %sh_prom.i = zext i32 %add3.i.neg to i64
+  %sh_prom.i = zext nneg i32 %add3.i.neg to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %shr.i = lshr i64 %cond.i.i, %sh_prom.i
   %conv.i = trunc i64 %shr.i to i32
@@ -20852,7 +20852,7 @@ _ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit: ; preds = %_ZN3fmt2v
   br i1 %cmp53, label %for.cond6.preheader.preheader, label %for.cond24.preheader
 
 for.cond6.preheader.preheader:                    ; preds = %_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit
-  %wide.trip.count79 = and i64 %0, 4294967295
+  %wide.trip.count79 = and i64 %0, 2147483647
   br label %for.body8.lr.ph
 
 for.body8.lr.ph:                                  ; preds = %invoke.cont18, %for.cond6.preheader.preheader

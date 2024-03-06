@@ -716,14 +716,14 @@ define dso_local noundef ptr @relay_open(ptr noundef %0, ptr noundef %1, i64 nou
 62:                                               ; preds = %59
   %63 = load ptr, ptr %29, align 8
   %64 = ptrtoint ptr %63 to i64
-  %65 = and i64 %56, 4294967295
+  %65 = and i64 %56, 63
   %66 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %65
   %67 = load i64, ptr %66, align 8
   %68 = add i64 %67, %64
   %69 = inttoptr i64 %68 to ptr
   store ptr %60, ptr %69, align 8
-  %70 = add i64 %56, 1
-  %71 = and i64 %70, 4294967295
+  %70 = add nuw nsw i64 %56, 1
+  %71 = and i64 %70, 127
   %72 = icmp ugt i64 %71, 63
   br i1 %72, label %.thread, label %49, !prof !10, !llvm.loop !18
 
@@ -968,7 +968,7 @@ define dso_local i32 @relay_late_setup_files(ptr noundef %0, ptr noundef %1, ptr
 73:                                               ; preds = %69
   %74 = load ptr, ptr %57, align 8
   %75 = ptrtoint ptr %74 to i64
-  %76 = and i64 %70, 4294967295
+  %76 = and i64 %70, 63
   %77 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %76
   %78 = load i64, ptr %77, align 8
   %79 = add i64 %78, %75
@@ -1047,7 +1047,7 @@ define dso_local i32 @relay_late_setup_files(ptr noundef %0, ptr noundef %1, ptr
 114:                                              ; preds = %112, %111, %101
   %115 = phi i32 [ %113, %112 ], [ 0, %101 ], [ 0, %111 ]
   %116 = icmp eq i32 %115, 0
-  %117 = add i64 %70, 1
+  %117 = add nuw nsw i64 %70, 1
   br i1 %116, label %60, label %.thread13, !prof !17, !llvm.loop !42
 
 .thread13:                                        ; preds = %90, %86, %64, %60, %114, %69, %85, %83

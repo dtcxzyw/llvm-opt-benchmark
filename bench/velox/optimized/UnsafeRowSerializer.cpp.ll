@@ -2369,7 +2369,7 @@ _ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIte
   br i1 %cmp6.not.i.i, label %for.end.i.i178, label %for.body.i.i171
 
 for.cond.i.i:                                     ; preds = %invoke.cont4.i.i
-  %indvars.iv.next.i.i177 = add nuw i64 %indvars.iv.i.i172, 1
+  %indvars.iv.next.i.i177 = add nuw nsw i64 %indvars.iv.i.i172, 1
   %12 = load i64, ptr %size.i.i, align 8, !noalias !34
   %cmp.i6.i = icmp ugt i64 %12, %indvars.iv.next.i.i177
   br i1 %cmp.i6.i, label %for.body.i.i171, label %for.end.i.i178, !llvm.loop !39
@@ -5435,7 +5435,7 @@ if.then2.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i84.i.
 
 if.end6.i.i.i.i.i.i:                              ; preds = %if.then2.i.i.i.i.i.i
   store ptr null, ptr %retval.i.i.i.i.i.8.retval.i.i.i.i.i.8.retval.i.i.i.i.i.8.retval.i.i.i.i.8.retval.i.i.i.i.8.retval.i.i.i.8.retval.i.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8.value_7.i.sroa_idx, align 8, !noalias !163
-  %conv.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i872.i.i.i, 4294967295
+  %conv.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i872.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.i.i.i.i.i.4.retval.i.i.i.i.i.4.retval.i.i.i.i.i.4.retval.i.i.i.i.4.retval.i.i.i.i.4.retval.i.i.i.4.retval.i.i.i.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.prefix_.i.sroa_idx, ptr align 1 %agg.tmp.sroa.2.0.copyload.i874.i.i.i, i64 %conv.i.i.i.i.i.i, i1 false)
   %retval.i.i.i.i.i.8.retval.i.i.i.i.i.8.retval.i.i.i.i.i.8.retval.i.i.i.i.8.retval.i.i.i.i.8.retval.i.i.i.8.retval.i.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.pre.i.i.i.i.i = load ptr, ptr %retval.i.i.i.i.i.8.retval.i.i.i.i.i.8.retval.i.i.i.i.i.8.retval.i.i.i.i.8.retval.i.i.i.i.8.retval.i.i.i.8.retval.i.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8.value_7.i.sroa_idx261, align 8, !noalias !163
   br label %invoke.cont27.i876.i.i.i
@@ -5675,7 +5675,7 @@ if.then2.i.i.i1005.i.i.i:                         ; preds = %if.end.i.i.i966.i.i
 
 if.end6.i.i.i1007.i.i.i:                          ; preds = %if.then2.i.i.i1005.i.i.i
   store ptr null, ptr %retval.i.i922.i.i.i.8.retval.i.i922.i.i.i.8.retval.i.i922.i.i.i.8.retval.i.i922.i.i.8.retval.i.i922.i.i.8.retval.i.i922.i.8.retval.i.i922.i.8.retval.i.i922.8.retval.i.i922.8.retval.i.8.retval.i.8.retval.8.retval.8.value_7.i.sroa_idx, align 8, !noalias !173
-  %conv.i.i.i1008.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i962.i.i.i, 4294967295
+  %conv.i.i.i1008.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i962.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.i.i922.i.i.i.4.retval.i.i922.i.i.i.4.retval.i.i922.i.i.i.4.retval.i.i922.i.i.4.retval.i.i922.i.i.4.retval.i.i922.i.4.retval.i.i922.i.4.retval.i.i922.4.retval.i.i922.4.retval.i.4.retval.i.4.retval.4.retval.4.prefix_.i.sroa_idx, ptr align 1 %agg.tmp.sroa.2.0.copyload.i963.i.i.i, i64 %conv.i.i.i1008.i.i.i, i1 false)
   %retval.i.i922.i.i.i.8.retval.i.i922.i.i.i.8.retval.i.i922.i.i.i.8.retval.i.i922.i.i.8.retval.i.i922.i.i.8.retval.i.i922.i.8.retval.i.i922.i.8.retval.i.i922.8.retval.i.i922.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.pre.i.i1009.i.i.i = load ptr, ptr %retval.i.i922.i.i.i.8.retval.i.i922.i.i.i.8.retval.i.i922.i.i.i.8.retval.i.i922.i.i.8.retval.i.i922.i.i.8.retval.i.i922.i.8.retval.i.i922.i.8.retval.i.i922.8.retval.i.i922.8.retval.i.8.retval.i.8.retval.8.retval.8.value_7.i.sroa_idx264, align 8, !noalias !173
   br label %invoke.cont26.i.i.i.i
@@ -9673,7 +9673,7 @@ invoke.cont84.i:                                  ; preds = %for.body78.i
   %234 = load ptr, ptr %numElements_.i, align 8
   %add.ptr.i442.i = getelementptr inbounds i64, ptr %234, i64 %indvars.iv200
   store i64 %call85.i, ptr %add.ptr.i442.i, align 8
-  %indvars.iv.next201 = add nuw i64 %indvars.iv200, 1
+  %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %235 = load i64, ptr %numRows_.i.i, align 8
   %cmp77.i = icmp ugt i64 %235, %indvars.iv.next201
   br i1 %cmp77.i, label %for.body78.i, label %_ZNSt10shared_ptrIN8facebook5velox3row12_GLOBAL__N_116MapBatchIteratorEED2Ev.exit, !llvm.loop !251
@@ -39322,8 +39322,7 @@ _ZNK8facebook5velox6Buffer9asMutableISt10shared_ptrIvEEEPT_v.exit.i: ; preds = %
 for.body.lr.ph.i:                                 ; preds = %_ZNK8facebook5velox6Buffer9asMutableISt10shared_ptrIvEEEPT_v.exit.i
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %initValue, i64 16
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %initValue, i64 8
-  %sext16.i = shl i64 %numElements, 32
-  %wide.trip.count.i = ashr exact i64 %sext16.i, 32
+  %sext16.i = and i64 %numElements, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -39365,7 +39364,7 @@ if.else.i:                                        ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.then20.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %sext16.i
   br i1 %exitcond.not.i, label %nrvo.skipdtor, label %for.body.i, !llvm.loop !499
 
 lpad:                                             ; preds = %if.end9.i
@@ -42547,7 +42546,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i: ; preds = %entry
   %conv.i = shl i64 %size, 2
-  %1 = and i64 %conv.i, 17179869180
+  %1 = and i64 %conv.i, 8589934588
   %2 = add nuw nsw i64 %1, 96
   %vtable.i.i = load ptr, ptr %pool, align 8, !noalias !533
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 192

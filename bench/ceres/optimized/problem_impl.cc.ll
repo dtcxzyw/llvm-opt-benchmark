@@ -1213,7 +1213,7 @@ define hidden void @_ZN5ceres8internal11ProblemImpl27InternalRemoveResidualBlock
 
 .lr.ph:                                           ; preds = %14
   %26 = getelementptr inbounds i8, ptr %1, i64 16
-  %wide.trip.count = and i64 %23, 4294967295
+  %wide.trip.count = and i64 %23, 2147483647
   br label %27
 
 27:                                               ; preds = %.lr.ph, %27
@@ -4500,7 +4500,7 @@ _ZSt8distanceINSt8__detail14_Node_iteratorIPN5ceres8internal13ResidualBlockELb1E
 .lr.ph51:                                         ; preds = %.lr.ph55
   %72 = getelementptr inbounds i8, ptr %60, i64 16
   %73 = load ptr, ptr %72, align 8
-  %wide.trip.count = and i64 %69, 4294967295
+  %wide.trip.count = and i64 %69, 2147483647
   br label %75
 
 74:                                               ; preds = %75
@@ -7042,7 +7042,7 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal11ProblemImpl21EvaluateResi
 
 .lr.ph:                                           ; preds = %20
   %.not37 = icmp eq ptr %6, null
-  %wide.trip.count54 = and i64 %31, 4294967295
+  %wide.trip.count54 = and i64 %31, 2147483647
   br i1 %.not37, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us
@@ -7886,7 +7886,7 @@ _ZNSt6vectorIPdSaIS0_EE6resizeEm.exit:            ; preds = %31, %33, %35, %37
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIPdSaIS0_EE6resizeEm.exit
   %39 = getelementptr inbounds i8, ptr %1, i64 16
-  %wide.trip.count = and i64 %13, 4294967295
+  %wide.trip.count = and i64 %13, 2147483647
   br label %40
 
 40:                                               ; preds = %.lr.ph, %40
@@ -8141,7 +8141,7 @@ _ZNSt6vectorIPN5ceres8internal13ResidualBlockESaIS3_EE5clearEv.exit: ; preds = %
 .lr.ph:                                           ; preds = %88
   %105 = getelementptr inbounds i8, ptr %93, i64 16
   %106 = load ptr, ptr %105, align 8
-  %wide.trip.count = and i64 %102, 4294967295
+  %wide.trip.count = and i64 %102, 2147483647
   br label %108
 
 107:                                              ; preds = %108
@@ -15044,7 +15044,7 @@ define linkonce_odr hidden void @_ZZN5ceres8internal16ProgramEvaluatorINS0_23Scr
 .lr.ph:                                           ; preds = %81
   %95 = getelementptr inbounds i8, ptr %24, i64 16
   %96 = getelementptr inbounds i8, ptr %17, i64 16
-  %wide.trip.count = and i64 %92, 4294967295
+  %wide.trip.count = and i64 %92, 2147483647
   br label %97
 
 97:                                               ; preds = %.lr.ph, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread

@@ -49,7 +49,7 @@ while.cond:                                       ; preds = %while.cond, %if.end
   %conv10 = sext i32 %0 to i64
   %call11 = tail call i32 @strncmp(ptr noundef nonnull %call, ptr noundef nonnull %str, i64 noundef %conv10) #6
   %cmp12.not = icmp eq i32 %call11, 0
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %cmp12.not, label %while.end, label %while.cond, !llvm.loop !4
 
 while.end:                                        ; preds = %while.cond
@@ -74,14 +74,14 @@ entry:
   br i1 %cmp.i, label %slg_write.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %add.i = add i64 %call, 1
+  %add.i = add nuw nsw i64 %call, 1
   %conv.i = and i64 %add.i, 4294967295
   %call.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %conv.i, ptr noundef nonnull @.str.1, i32 noundef 202) #5
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %slg_write.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %conv5.i = and i64 %call, 4294967295
+  %conv5.i = and i64 %call, 2147483647
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr align 1 %str, i64 %conv5.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i, i64 %conv5.i
   store i8 0, ptr %arrayidx.i, align 1
@@ -95,7 +95,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.e
   %conv10.i = sext i32 %0 to i64
   %call11.i = tail call i32 @strncmp(ptr noundef nonnull %call.i, ptr noundef nonnull %str.i, i64 noundef %conv10.i) #6
   %cmp12.not.i = icmp eq i32 %call11.i, 0
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %cmp12.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !4
 
 while.end.i:                                      ; preds = %while.cond.i

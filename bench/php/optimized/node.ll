@@ -4319,9 +4319,9 @@ define internal fastcc void @dom_canonicalization(ptr nocapture noundef readonly
 
 188:                                              ; preds = %184
   %189 = call ptr @xmlOutputBufferGetContent(ptr noundef nonnull %.0175) #12
-  %190 = and i64 %185, 4294967295
-  %191 = add nuw nsw i64 %190, 32
-  %192 = and i64 %191, 8589934584
+  %190 = and i64 %185, 2147483647
+  %191 = add nuw nsw i64 %185, 32
+  %192 = and i64 %191, 4294967288
   %193 = call noalias ptr @_emalloc(i64 noundef %192) #10
   store i32 1, ptr %193, align 4
   %194 = getelementptr inbounds i8, ptr %193, i64 4

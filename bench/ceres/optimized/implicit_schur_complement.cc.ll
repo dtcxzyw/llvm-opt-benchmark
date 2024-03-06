@@ -815,7 +815,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
   %62 = getelementptr inbounds i8, ptr %5, i64 16
   %63 = getelementptr inbounds i8, ptr %6, i64 16
   %64 = getelementptr inbounds i8, ptr %6, i64 8
-  %65 = and i64 %36, 4294967295
+  %65 = and i64 %36, 2147483647
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZZN5ceres8internal23ImplicitSchurComplement20AddDiagonalAndInvertEPKdPNS0_17BlockSparseMatrixEENK3$_0clEi.exit.i", %.lr.ph.i.preheader.i

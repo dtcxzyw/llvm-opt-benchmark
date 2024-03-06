@@ -1407,7 +1407,7 @@ buffers_to_iovec.exit._crit_edge:                 ; preds = %buffers_to_iovec.ex
   unreachable
 
 70:                                               ; preds = %.lr.ph
-  %71 = and i64 %47, 4294967295
+  %71 = and i64 %47, 2147483647
   %72 = add i64 %71, %.04970
   %73 = icmp eq i64 %72, %34
   br i1 %73, label %.loopexit, label %74

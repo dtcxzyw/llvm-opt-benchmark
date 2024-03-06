@@ -4570,7 +4570,7 @@ thread-pre-split:                                 ; preds = %105, %314, %select.
 
 672:                                              ; preds = %669
   %673 = load ptr, ptr %659, align 8
-  %674 = and i64 %43, 4294967295
+  %674 = and i64 %43, 524287
   %675 = getelementptr i8, ptr %673, i64 %674
   %676 = getelementptr i8, ptr %675, i64 -12
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %676, i8 0, i64 12, i1 false)

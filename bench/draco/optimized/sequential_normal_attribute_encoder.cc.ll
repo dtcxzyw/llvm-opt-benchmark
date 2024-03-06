@@ -2859,7 +2859,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit168:            ; preds = %_ZSt6fill_nIPimiET_
   %103 = call i32 @llvm.umax.i32(i32 %4, i32 1)
   %104 = zext nneg i32 %103 to i64
   %105 = shl nuw nsw i64 %104, 2
-  %106 = and i64 %87, 4294967295
+  %106 = and i64 %87, 2147483647
   br label %107
 
 .preheader:                                       ; preds = %_ZZN5draco56MeshPredictionSchemeConstrainedMultiParallelogramEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE23ComputeCorrectionValuesEPKiPiiiPKNS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEN23PredictionConfigurationD2Ev.exit243, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit168
@@ -6349,7 +6349,7 @@ _ZN5draco42MeshPredictionSchemeGeometricNormalEncoderIiNS_62PredictionSchemeNorm
   %indvars.iv.i7.sroa.gep9.i35 = getelementptr inbounds i8, ptr %9, i64 4
   %48 = getelementptr inbounds i8, ptr %7, i64 4
   %49 = getelementptr inbounds i8, ptr %0, i64 140
-  %wide.trip.count = and i64 %40, 4294967295
+  %wide.trip.count = and i64 %40, 2147483647
   br label %50
 
 50:                                               ; preds = %.lr.ph, %_ZNK5draco7VectorDIiLi2EE6AbsSumEv.exit49
@@ -8241,7 +8241,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit168:            ; preds = %_ZSt6fill_nIPimiET_
   %102 = call i32 @llvm.umax.i32(i32 %4, i32 1)
   %103 = zext nneg i32 %102 to i64
   %104 = shl nuw nsw i64 %103, 2
-  %105 = and i64 %87, 4294967295
+  %105 = and i64 %87, 2147483647
   br label %106
 
 .preheader:                                       ; preds = %_ZZN5draco56MeshPredictionSchemeConstrainedMultiParallelogramEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE23ComputeCorrectionValuesEPKiPiiiPKNS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEN23PredictionConfigurationD2Ev.exit236, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit168
@@ -10442,7 +10442,7 @@ _ZN5draco42MeshPredictionSchemeGeometricNormalEncoderIiNS_62PredictionSchemeNorm
   %indvars.iv.i7.sroa.gep9.i35 = getelementptr inbounds i8, ptr %9, i64 4
   %48 = getelementptr inbounds i8, ptr %7, i64 4
   %49 = getelementptr inbounds i8, ptr %0, i64 140
-  %wide.trip.count = and i64 %40, 4294967295
+  %wide.trip.count = and i64 %40, 2147483647
   br label %50
 
 50:                                               ; preds = %.lr.ph, %_ZNK5draco7VectorDIiLi2EE6AbsSumEv.exit49

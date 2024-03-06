@@ -812,7 +812,7 @@ if.end15:                                         ; preds = %while.body
   %sub = sub i32 %7, %conv9
   store i32 %sub, ptr %avail_in, align 8
   %8 = load ptr, ptr %strm1, align 8
-  %idx.ext = and i64 %call8, 4294967295
+  %idx.ext = and i64 %call8, 2147483647
   %add.ptr = getelementptr inbounds i8, ptr %8, i64 %idx.ext
   store ptr %add.ptr, ptr %strm1, align 8
   %tobool4.not = icmp eq i32 %sub, 0

@@ -7078,7 +7078,7 @@ invoke.cont1820.lr.ph:                            ; preds = %invoke.cont1813
   %sub.ptr.rhs.cast.i2705 = ptrtoint ptr %538 to i64
   %sub.ptr.sub.i2706 = sub i64 %sub.ptr.rhs.cast8.i.i, %sub.ptr.rhs.cast.i2705
   %sub.ptr.div.i2707 = ashr exact i64 %sub.ptr.sub.i2706, 2
-  %wide.trip.count = and i64 %add11.i.i, 4294967295
+  %wide.trip.count = and i64 %add11.i.i, 2147483647
   br label %invoke.cont1820
 
 invoke.cont1820:                                  ; preds = %invoke.cont1820.lr.ph, %for.inc1825
@@ -7279,7 +7279,7 @@ _ZN5eastl5dequeIiNS_9allocatorELj64EED2Ev.exit2761: ; preds = %invoke.cont1851, 
 
 invoke.cont1867.lr.ph:                            ; preds = %_ZN5eastl5dequeIiNS_9allocatorELj64EED2Ev.exit2761
   %mpBegin3.i.i2796 = getelementptr inbounds i8, ptr %intDeque1854, i64 24
-  %wide.trip.count13547 = and i64 %add11.i.i2794, 4294967295
+  %wide.trip.count13547 = and i64 %add11.i.i2794, 2147483647
   br label %invoke.cont1867
 
 invoke.cont1867:                                  ; preds = %invoke.cont1867.lr.ph, %invoke.cont1867
@@ -7424,7 +7424,7 @@ invoke.cont1895.lr.ph:                            ; preds = %invoke.cont1888
   %sub.ptr.rhs.cast.i2941 = ptrtoint ptr %589 to i64
   %sub.ptr.sub.i2942 = sub i64 %sub.ptr.rhs.cast8.i.i2933, %sub.ptr.rhs.cast.i2941
   %sub.ptr.div.i2943 = ashr exact i64 %sub.ptr.sub.i2942, 2
-  %wide.trip.count13552 = and i64 %add11.i.i2936, 4294967295
+  %wide.trip.count13552 = and i64 %add11.i.i2936, 2147483647
   br label %invoke.cont1895
 
 invoke.cont1895:                                  ; preds = %invoke.cont1895.lr.ph, %for.inc1900
@@ -8518,8 +8518,8 @@ for.body2341:                                     ; preds = %for.body2341.lr.ph,
 
 invoke.cont2355.lr.ph:                            ; preds = %for.body2341
   %div13195 = lshr i64 %add11.i.i3525, 1
-  %conv2.i = and i64 %div13195, 2147483647
-  %wide.trip.count13558 = and i64 %add11.i.i3525, 4294967295
+  %conv2.i = and i64 %div13195, 1073741823
+  %wide.trip.count13558 = and i64 %add11.i.i3525, 2147483647
   br label %invoke.cont2355
 
 invoke.cont2355:                                  ; preds = %invoke.cont2355.lr.ph, %invoke.cont2355
@@ -9764,8 +9764,8 @@ for.body2634:                                     ; preds = %for.body2634.lr.ph,
 
 invoke.cont2651.lr.ph:                            ; preds = %for.body2634
   %div264613196 = lshr i64 %add11.i.i4207, 1
-  %conv2.i4216 = and i64 %div264613196, 2147483647
-  %wide.trip.count13569 = and i64 %add11.i.i4207, 4294967295
+  %conv2.i4216 = and i64 %div264613196, 1073741823
+  %wide.trip.count13569 = and i64 %add11.i.i4207, 2147483647
   br label %invoke.cont2651
 
 invoke.cont2651:                                  ; preds = %invoke.cont2651.lr.ph, %invoke.cont2651

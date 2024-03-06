@@ -288,7 +288,7 @@ if.else19.i:                                      ; preds = %if.else.i
   br i1 %cmp29.not.i, label %for.inc.i, label %for.inc36.i
 
 for.inc.i:                                        ; preds = %if.else19.i, %if.then.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx3.i = getelementptr inbounds [20 x [5 x i8]], ptr @_ZL18escSeqCompoundText, i64 0, i64 %indvars.iv31.i, i64 %indvars.iv.next.i
   %15 = load i8, ptr %arrayidx3.i, align 1
   %cmp4.not.not.i = icmp eq i8 %15, 0
@@ -422,7 +422,7 @@ if.then79:                                        ; preds = %if.else77
   br i1 %cmp6.i65, label %for.body.preheader.i, label %_ZL11findNextEscPKcS0_.exit
 
 for.body.preheader.i:                             ; preds = %if.then79
-  %wide.trip.count.i = and i64 %sub.ptr.sub.i, 4294967295
+  %wide.trip.count.i = and i64 %sub.ptr.sub.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i68, %for.body.preheader.i
@@ -942,7 +942,7 @@ for.body68:                                       ; preds = %for.body68.preheade
   %indvars.iv134 = phi i64 [ %44, %for.body68.preheader ], [ %indvars.iv.next135, %for.body68 ]
   %indvars.iv132 = phi i64 [ 0, %for.body68.preheader ], [ %indvars.iv.next133, %for.body68 ]
   %45 = phi i8 [ %43, %for.body68.preheader ], [ %46, %for.body68 ]
-  %indvars.iv.next135 = add nuw i64 %indvars.iv134, 1
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %arrayidx75 = getelementptr inbounds [7 x i8], ptr %tmpTargetBuffer, i64 0, i64 %indvars.iv134
   store i8 %45, ptr %arrayidx75, align 1
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1

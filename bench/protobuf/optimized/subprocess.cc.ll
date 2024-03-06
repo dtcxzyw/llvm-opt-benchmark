@@ -580,7 +580,7 @@ invoke.cont136:                                   ; preds = %if.then133
   br i1 %cmp139, label %if.then140, label %if.else145
 
 if.then140:                                       ; preds = %invoke.cont136
-  %conv142 = and i64 %call137, 4294967295
+  %conv142 = and i64 %call137, 2147483647
   %call144 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %output_data, ptr noundef nonnull %buffer, i64 noundef %conv142)
           to label %while.cond18thread-pre-split unwind label %lpad15.loopexit.split-lp.loopexit.loopexit, !llvm.loop !4
 

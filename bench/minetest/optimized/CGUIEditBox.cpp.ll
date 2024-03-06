@@ -1545,7 +1545,7 @@ define void @_ZN3irr3gui11CGUIEditBox18calculateScrollPosEv(ptr noundef nonnull 
   br i1 %32, label %33, label %224
 
 33:                                               ; preds = %22
-  %34 = and i64 %30, 4294967295
+  %34 = and i64 %30, 2147483647
   br label %35
 
 35:                                               ; preds = %40, %33
@@ -5616,7 +5616,7 @@ define noundef i32 @_ZN3irr3gui11CGUIEditBox14getLineFromPosEi(ptr nocapture nou
   br i1 %20, label %21, label %.loopexit
 
 21:                                               ; preds = %10
-  %22 = and i64 %18, 4294967295
+  %22 = and i64 %18, 2147483647
   br label %23
 
 23:                                               ; preds = %28, %21
@@ -6201,7 +6201,7 @@ define void @_ZN3irr3gui11CGUIEditBox4drawEv(ptr noundef nonnull align 8 derefer
   br i1 %224, label %225, label %.thread
 
 225:                                              ; preds = %210
-  %226 = and i64 %222, 4294967295
+  %226 = and i64 %222, 2147483647
   br label %227
 
 227:                                              ; preds = %232, %225
@@ -7053,7 +7053,7 @@ define void @_ZN3irr3gui11CGUIEditBox4drawEv(ptr noundef nonnull align 8 derefer
   br i1 %743, label %744, label %.loopexit71
 
 744:                                              ; preds = %733
-  %745 = and i64 %741, 4294967295
+  %745 = and i64 %741, 2147483647
   br label %746
 
 746:                                              ; preds = %751, %744

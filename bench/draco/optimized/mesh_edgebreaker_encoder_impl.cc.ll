@@ -4528,7 +4528,7 @@ _ZNSt6vectorIN5draco26MeshEdgebreakerEncoderImplINS0_31MeshEdgebreakerTraversalE
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN5draco26MeshEdgebreakerEncoderImplINS0_31MeshEdgebreakerTraversalEncoderEE13AttributeDataESaIS4_EE6resizeEm.exit
   %42 = getelementptr inbounds i8, ptr %0, i64 24
-  %wide.trip.count = and i64 %15, 4294967295
+  %wide.trip.count = and i64 %15, 2147483647
   br label %43
 
 43:                                               ; preds = %.lr.ph, %104
@@ -10197,7 +10197,7 @@ _ZNSt6vectorIN5draco26MeshEdgebreakerEncoderImplINS0_41MeshEdgebreakerTraversalP
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN5draco26MeshEdgebreakerEncoderImplINS0_41MeshEdgebreakerTraversalPredictiveEncoderEE13AttributeDataESaIS4_EE6resizeEm.exit
   %42 = getelementptr inbounds i8, ptr %0, i64 24
-  %wide.trip.count = and i64 %15, 4294967295
+  %wide.trip.count = and i64 %15, 2147483647
   br label %43
 
 43:                                               ; preds = %.lr.ph, %104
@@ -16119,7 +16119,7 @@ _ZNSt6vectorIN5draco26MeshEdgebreakerEncoderImplINS0_38MeshEdgebreakerTraversalV
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN5draco26MeshEdgebreakerEncoderImplINS0_38MeshEdgebreakerTraversalValenceEncoderEE13AttributeDataESaIS4_EE6resizeEm.exit
   %42 = getelementptr inbounds i8, ptr %0, i64 24
-  %wide.trip.count = and i64 %15, 4294967295
+  %wide.trip.count = and i64 %15, 2147483647
   br label %43
 
 43:                                               ; preds = %.lr.ph, %104

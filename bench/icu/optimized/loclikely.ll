@@ -650,7 +650,7 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %if
   ]
 
 while.body.i.i:                                   ; preds = %while.cond.i.i, %while.cond.i.i
-  %indvars.iv.next.i.i = add i64 %indvars.iv.i.i, 1
+  %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   br label %while.cond.i.i, !llvm.loop !4
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
@@ -661,7 +661,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
   br i1 %cmp3348.i.i, label %for.body.preheader.i.i, label %do.end61.i.i
 
 for.body.preheader.i.i:                           ; preds = %while.end.i.i
-  %wide.trip.count.i.i = and i64 %call30.i.i, 4294967295
+  %wide.trip.count.i.i = and i64 %call30.i.i, 2147483647
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
@@ -956,7 +956,7 @@ while.cond.i:                                     ; preds = %while.body.i, %whil
   ]
 
 while.body.i:                                     ; preds = %while.cond.i, %while.cond.i
-  %indvars.iv.next.i = add i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   br label %while.cond.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.cond.i
@@ -967,7 +967,7 @@ while.end.i:                                      ; preds = %while.cond.i
   br i1 %cmp2255.i, label %for.body.preheader.i, label %do.end.i
 
 for.body.preheader.i:                             ; preds = %while.end.i
-  %wide.trip.count.i = and i64 %call20.i, 4294967295
+  %wide.trip.count.i = and i64 %call20.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
@@ -1047,7 +1047,7 @@ if.else5.i.i:                                     ; preds = %if.end69.i
   br i1 %cmp6.i.i, label %if.then7.i.i, label %if.end27.i.i
 
 if.then7.i.i:                                     ; preds = %if.else5.i.i
-  %conv.i37.i.i = and i64 %call75.i, 4294967295
+  %conv.i37.i.i = and i64 %call75.i, 2147483647
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tagBuffer.i.i, ptr align 1 %spec.store.select.i, i64 %conv.i37.i.i, i1 false)
   br label %if.end27.i.i
 
@@ -1063,7 +1063,7 @@ if.then29.i.i:                                    ; preds = %if.end27.i.i
   %inc.i.i.i = add nuw nsw i32 %tagLength.0.i.i, 1
   %idxprom1.i39.i.i = zext nneg i32 %inc.i.i.i to i64
   %arrayidx2.i40.i.i = getelementptr inbounds i8, ptr %tagBuffer.i.i, i64 %idxprom1.i39.i.i
-  %conv.i41.i.i = and i64 %call79.i, 4294967295
+  %conv.i41.i.i = and i64 %call79.i, 2147483647
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx2.i40.i.i, ptr align 1 %15, i64 %conv.i41.i.i, i1 false)
   %add.i42.i.i = add nuw nsw i32 %inc.i.i.i, %conv80.i
   br label %if.end49.i.i
@@ -1080,7 +1080,7 @@ if.then51.i.i:                                    ; preds = %if.end49.i.i
   %inc.i46.i.i = add nuw nsw i32 %tagLength.1.i.i, 1
   %idxprom1.i47.i.i = zext nneg i32 %inc.i46.i.i to i64
   %arrayidx2.i48.i.i = getelementptr inbounds i8, ptr %tagBuffer.i.i, i64 %idxprom1.i47.i.i
-  %conv.i49.i.i = and i64 %call83.i, 4294967295
+  %conv.i49.i.i = and i64 %call83.i, 2147483647
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx2.i48.i.i, ptr align 1 %16, i64 %conv.i49.i.i, i1 false)
   %add.i50.i.i = add nuw nsw i32 %inc.i46.i.i, %conv84.i
   br label %if.end71.i.i

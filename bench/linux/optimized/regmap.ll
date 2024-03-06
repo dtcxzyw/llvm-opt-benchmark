@@ -7336,7 +7336,7 @@ define internal fastcc i32 @_regmap_raw_write_impl(ptr noundef %0, i32 noundef %
   br i1 %396, label %397, label %.loopexit
 
 397:                                              ; preds = %391
-  %398 = and i64 %387, 4294967295
+  %398 = and i64 %387, 2147483647
   br label %399
 
 399:                                              ; preds = %399, %397
@@ -9829,7 +9829,7 @@ define internal fastcc i32 @_regmap_raw_read(ptr noundef %0, i32 noundef %1, ptr
   br i1 %111, label %112, label %.loopexit
 
 112:                                              ; preds = %106
-  %113 = and i64 %102, 4294967295
+  %113 = and i64 %102, 2147483647
   br label %114
 
 114:                                              ; preds = %114, %112

@@ -675,7 +675,7 @@ define weak_odr void @_ZNK5faiss21IndexReplicasTemplateINS_5IndexEE6searchElPKfl
   br i1 %71, label %_ZNSt8functionIFviPKN5faiss5IndexEEED2Ev.exit, label %72
 
 72:                                               ; preds = %70
-  %73 = and i64 %52, 4294967295
+  %73 = and i64 %52, 2147483647
   %74 = add i64 %1, -1
   %75 = add i64 %74, %73
   %76 = sdiv i64 %75, %73
@@ -1614,7 +1614,7 @@ define weak_odr void @_ZNK5faiss21IndexReplicasTemplateINS_11IndexBinaryEE6searc
   br i1 %71, label %_ZNSt8functionIFviPKN5faiss11IndexBinaryEEED2Ev.exit, label %72
 
 72:                                               ; preds = %70
-  %73 = and i64 %52, 4294967295
+  %73 = and i64 %52, 2147483647
   %74 = add i64 %1, -1
   %75 = add i64 %74, %73
   %76 = sdiv i64 %75, %73
@@ -3591,7 +3591,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_5IndexEE18syncWithSubI
   br i1 %33, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %18
-  %wide.trip.count = and i64 %13, 4294967295
+  %wide.trip.count = and i64 %13, 2147483647
   br label %.lr.ph
 
 34:                                               ; preds = %95
@@ -6517,7 +6517,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEE18syncW
 
 .lr.ph:                                           ; preds = %17
   %40 = load i32, ptr %21, align 8
-  %wide.trip.count = and i64 %37, 4294967295
+  %wide.trip.count = and i64 %37, 2147483647
   br label %42
 
 41:                                               ; preds = %103

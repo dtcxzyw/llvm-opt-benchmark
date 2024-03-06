@@ -2442,7 +2442,7 @@ define internal fastcc void @sendFileWithContent(ptr noundef %0, ptr noundef %1,
 52:                                               ; preds = %._crit_edge
   %53 = getelementptr inbounds i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8
-  %55 = and i64 %49, 4294967295
+  %55 = and i64 %49, 2147483647
   %56 = ptrtoint ptr %54 to i64
   %57 = and i64 %56, 7
   %58 = icmp eq i64 %57, 0
@@ -2940,7 +2940,7 @@ push_to_sink.exit145.thread:                      ; preds = %132, %135, %push_to
 
 239:                                              ; preds = %._crit_edge
   %240 = load ptr, ptr %149, align 8
-  %241 = and i64 %236, 4294967295
+  %241 = and i64 %236, 2147483647
   %242 = ptrtoint ptr %240 to i64
   %243 = and i64 %242, 7
   %244 = icmp eq i64 %243, 0

@@ -1156,7 +1156,7 @@ define dso_local i32 @mp_map_gsi_to_irq(i32 noundef %0, i32 noundef %1, ptr noun
   br i1 %25, label %.thread6, label %26
 
 26:                                               ; preds = %23
-  %27 = and i64 %14, 4294967295
+  %27 = and i64 %14, 2147483647
   %28 = getelementptr [128 x %struct.ioapic], ptr @ioapics, i64 0, i64 %27, i32 3
   %29 = getelementptr inbounds i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4

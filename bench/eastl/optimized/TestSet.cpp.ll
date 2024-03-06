@@ -16095,8 +16095,8 @@ for.body27.lr.ph:                                 ; preds = %for.cond25.preheade
   %cmp7.i = icmp sgt i64 %sub.ptr.div.i.i.i, 1
   %conv32 = trunc i64 %sub.ptr.div.i.i.i to i32
   %cmp341800 = icmp sgt i32 %conv32, 0
-  %wide.trip.count = and i64 %sub.ptr.div.i.i.i, 4294967295
-  %wide.trip.count1848 = and i64 %sub.ptr.div.i.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i.i, 2147483647
+  %wide.trip.count1848 = and i64 %sub.ptr.div.i.i.i, 2147483647
   br label %for.body27
 
 for.body:                                         ; preds = %invoke.cont11, %for.inc
@@ -17094,8 +17094,8 @@ for.cond117.preheader:                            ; preds = %for.inc114
   br i1 %or.cond.i.i, label %if.end187, label %for.cond117.preheader1825
 
 for.cond117.preheader1825:                        ; preds = %for.cond117.preheader
-  %wide.trip.count1854 = and i64 %sub.ptr.div.i320, 4294967295
-  %wide.trip.count1859 = and i64 %sub.ptr.div.i320, 4294967295
+  %wide.trip.count1854 = and i64 %sub.ptr.div.i320, 2147483647
+  %wide.trip.count1859 = and i64 %sub.ptr.div.i320, 2147483647
   br label %for.cond117
 
 for.body111:                                      ; preds = %invoke.cont105, %for.inc114
@@ -20212,7 +20212,7 @@ invoke.cont34:                                    ; preds = %for.body31
   br i1 %cmp382857, label %for.body39.preheader, label %while.cond.preheader
 
 for.body39.preheader:                             ; preds = %invoke.cont34
-  %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body39
 
 while.cond.preheader:                             ; preds = %invoke.cont59, %invoke.cont34
@@ -20807,7 +20807,7 @@ while.end:                                        ; preds = %_ZN10TestObjectD2Ev
   br i1 %cmp822860, label %for.body83.preheader, label %for.end106
 
 for.body83.preheader:                             ; preds = %while.end
-  %wide.trip.count2963 = and i64 %sub.ptr.div.i289, 4294967295
+  %wide.trip.count2963 = and i64 %sub.ptr.div.i289, 2147483647
   br label %for.body83
 
 for.body83:                                       ; preds = %for.body83.preheader, %invoke.cont101
@@ -21422,7 +21422,7 @@ for.body137:                                      ; preds = %invoke.cont135
   br i1 %cmp1412866, label %for.body142.preheader, label %for.end197
 
 for.body142.preheader:                            ; preds = %for.body137
-  %wide.trip.count2969 = and i64 %sub.ptr.div.i458, 4294967295
+  %wide.trip.count2969 = and i64 %sub.ptr.div.i458, 2147483647
   br label %for.body142
 
 for.body142:                                      ; preds = %for.body142.preheader, %invoke.cont167
@@ -21909,7 +21909,7 @@ for.end172:                                       ; preds = %invoke.cont167
   br i1 %cmp1762868, label %for.body177.preheader, label %for.end197
 
 for.body177.preheader:                            ; preds = %for.end172
-  %wide.trip.count2974 = and i64 %.pre2989, 4294967295
+  %wide.trip.count2974 = and i64 %.pre2989, 2147483647
   br label %for.body177
 
 for.body177:                                      ; preds = %for.body177.preheader, %invoke.cont192
@@ -25539,8 +25539,8 @@ for.body27.lr.ph:                                 ; preds = %for.cond25.preheade
   %cmp7.i = icmp sgt i64 %sub.ptr.div.i.i.i, 1
   %conv32 = trunc i64 %sub.ptr.div.i.i.i to i32
   %cmp341569 = icmp sgt i32 %conv32, 0
-  %wide.trip.count = and i64 %sub.ptr.div.i.i.i, 4294967295
-  %wide.trip.count1614 = and i64 %sub.ptr.div.i.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i.i, 2147483647
+  %wide.trip.count1614 = and i64 %sub.ptr.div.i.i.i, 2147483647
   br label %for.body27
 
 for.body:                                         ; preds = %invoke.cont11, %for.inc
@@ -26566,8 +26566,8 @@ for.cond114.preheader:                            ; preds = %for.inc111
   br i1 %or.cond.i.i, label %if.end184, label %for.cond114.preheader1595
 
 for.cond114.preheader1595:                        ; preds = %for.cond114.preheader
-  %wide.trip.count1620 = and i64 %sub.ptr.div.i322, 4294967295
-  %wide.trip.count1625 = and i64 %sub.ptr.div.i322, 4294967295
+  %wide.trip.count1620 = and i64 %sub.ptr.div.i322, 2147483647
+  %wide.trip.count1625 = and i64 %sub.ptr.div.i322, 2147483647
   br label %for.cond114
 
 for.body108:                                      ; preds = %invoke.cont102, %for.inc111
@@ -29480,7 +29480,7 @@ invoke.cont34:                                    ; preds = %for.body31
   br i1 %cmp382677, label %for.body39.preheader, label %while.cond.preheader
 
 for.body39.preheader:                             ; preds = %invoke.cont34
-  %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body39
 
 while.cond.preheader:                             ; preds = %invoke.cont59, %invoke.cont34
@@ -30008,7 +30008,7 @@ while.end:                                        ; preds = %_ZN10TestObjectD2Ev
   br i1 %cmp802680, label %for.body81.preheader, label %for.end103
 
 for.body81.preheader:                             ; preds = %while.end
-  %wide.trip.count2776 = and i64 %sub.ptr.div.i291, 4294967295
+  %wide.trip.count2776 = and i64 %sub.ptr.div.i291, 2147483647
   br label %for.body81
 
 for.body81:                                       ; preds = %for.body81.preheader, %invoke.cont98
@@ -30669,7 +30669,7 @@ for.body134:                                      ; preds = %invoke.cont132
   br i1 %cmp1382686, label %for.body139.preheader, label %for.end194
 
 for.body139.preheader:                            ; preds = %for.body134
-  %wide.trip.count2782 = and i64 %sub.ptr.div.i465, 4294967295
+  %wide.trip.count2782 = and i64 %sub.ptr.div.i465, 2147483647
   br label %for.body139
 
 for.body139:                                      ; preds = %for.body139.preheader, %invoke.cont165
@@ -31089,7 +31089,7 @@ for.end170:                                       ; preds = %invoke.cont165
   br i1 %cmp1742688, label %for.body175.preheader, label %for.end194
 
 for.body175.preheader:                            ; preds = %for.end170
-  %wide.trip.count2787 = and i64 %.pre2798, 4294967295
+  %wide.trip.count2787 = and i64 %.pre2798, 2147483647
   br label %for.body175
 
 for.body175:                                      ; preds = %for.body175.preheader, %invoke.cont189

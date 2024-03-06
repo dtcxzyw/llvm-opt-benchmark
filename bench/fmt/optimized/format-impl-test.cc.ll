@@ -9941,7 +9941,7 @@ _ZN3fmt3v1019basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit: ; preds = %invoke.c
   br i1 %cmp85.not, label %for.cond27.preheader, label %for.cond7.preheader.preheader
 
 for.cond7.preheader.preheader:                    ; preds = %_ZN3fmt3v1019basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit
-  %wide.trip.count114 = and i64 %0, 4294967295
+  %wide.trip.count114 = and i64 %0, 2147483647
   br label %for.body9.lr.ph
 
 for.body9.lr.ph:                                  ; preds = %invoke.cont19, %for.cond7.preheader.preheader
@@ -9958,8 +9958,8 @@ for.cond27.preheader:                             ; preds = %invoke.cont19, %_ZN
 
 for.body29.lr.ph:                                 ; preds = %for.cond27.preheader
   %sub = add nsw i32 %conv, -1
-  %15 = and i64 %0, 4294967295
-  %16 = and i64 %0, 4294967295
+  %15 = and i64 %0, 2147483647
+  %16 = and i64 %0, 2147483647
   br label %for.body29
 
 for.body9:                                        ; preds = %for.body9.lr.ph, %for.body9
@@ -24599,7 +24599,7 @@ for.body.lr.ph:                                   ; preds = %while.end
   %size_.i.i = getelementptr inbounds i8, ptr %out.coerce, i64 16
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %out.coerce, i64 24
   %ptr_.i.i33 = getelementptr inbounds i8, ptr %out.coerce, i64 8
-  %wide.trip.count = and i64 %digits.coerce1, 4294967295
+  %wide.trip.count = and i64 %digits.coerce1, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -51074,7 +51074,7 @@ for.body.preheader:                               ; preds = %while.end
   %10 = load i64, ptr %0, align 8
   %11 = trunc i64 %10 to i32
   %conv11 = add i32 %11, -1
-  %wide.trip.count = and i64 %digits.coerce1, 4294967295
+  %wide.trip.count = and i64 %digits.coerce1, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %invoke.cont25

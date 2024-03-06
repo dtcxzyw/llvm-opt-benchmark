@@ -5691,7 +5691,7 @@ invoke.cont:                                      ; preds = %_ZNKSt6vectorIS_IhS
   br i1 %cmp22309, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %invoke.cont
-  %wide.trip.count = and i64 %.pre321, 4294967295
+  %wide.trip.count = and i64 %.pre321, 2147483647
   br label %for.body
 
 for.cond:                                         ; preds = %invoke.cont32
@@ -5895,7 +5895,7 @@ invoke.cont72:                                    ; preds = %sw.bb69
   br i1 %or.cond.i152, label %for.body.us.preheader.i153, label %invoke.cont79
 
 for.body.us.preheader.i153:                       ; preds = %invoke.cont72
-  %41 = and i64 %sub.ptr.div.i83.pre-phi330, 4294967295
+  %41 = and i64 %sub.ptr.div.i83.pre-phi330, 2147483647
   %wide.trip.count.i155 = zext nneg i32 %36 to i64
   br label %for.body.us.i156
 
@@ -5957,7 +5957,7 @@ invoke.cont91:                                    ; preds = %sw.bb86
   br i1 %or.cond.i183, label %for.body.us.preheader.i184, label %_ZN18OpenImageIO_v2_6_08PSDInput14interleave_rowItEEvPT_NS_4spanIKSt6vectorIhSaIhEELln1EEEii.exit200
 
 for.body.us.preheader.i184:                       ; preds = %invoke.cont91
-  %51 = and i64 %sub.ptr.div.i83.pre-phi330, 4294967295
+  %51 = and i64 %sub.ptr.div.i83.pre-phi330, 2147483647
   %wide.trip.count.i186 = zext nneg i32 %36 to i64
   br label %for.body.us.i187
 
@@ -6016,7 +6016,7 @@ invoke.cont110:                                   ; preds = %sw.default105
   br i1 %or.cond.i215, label %for.body.us.preheader.i216, label %_ZN18OpenImageIO_v2_6_08PSDInput14interleave_rowIhEEvPT_NS_4spanIKSt6vectorIhSaIhEELln1EEEii.exit232
 
 for.body.us.preheader.i216:                       ; preds = %invoke.cont110
-  %58 = and i64 %sub.ptr.div.i83.pre-phi330, 4294967295
+  %58 = and i64 %sub.ptr.div.i83.pre-phi330, 2147483647
   %wide.trip.count.i218 = zext nneg i32 %36 to i64
   br label %for.body.us.i219
 
@@ -7899,7 +7899,7 @@ if.then18:                                        ; preds = %if.end
   br label %return
 
 if.end19:                                         ; preds = %if.end, %if.end
-  %7 = lshr i16 %6, 3
+  %7 = lshr exact i16 %6, 3
   %div = zext nneg i16 %7 to i32
   %8 = load i32, ptr %width, align 4
   %mul = mul i32 %8, %div
@@ -15370,7 +15370,7 @@ for.body.lr.ph:                                   ; preds = %while.end
   %size_.i.i = getelementptr inbounds i8, ptr %out.coerce, i64 16
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %out.coerce, i64 24
   %ptr_.i.i29 = getelementptr inbounds i8, ptr %out.coerce, i64 8
-  %wide.trip.count = and i64 %digits.coerce1, 4294967295
+  %wide.trip.count = and i64 %digits.coerce1, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -28487,7 +28487,7 @@ _ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit: ; preds = %_ZN3fmt2v
   br i1 %cmp53, label %for.cond6.preheader.preheader, label %for.cond24.preheader
 
 for.cond6.preheader.preheader:                    ; preds = %_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit
-  %wide.trip.count79 = and i64 %0, 4294967295
+  %wide.trip.count79 = and i64 %0, 2147483647
   br label %for.body8.lr.ph
 
 for.body8.lr.ph:                                  ; preds = %invoke.cont18, %for.cond6.preheader.preheader
@@ -41640,7 +41640,7 @@ _ZN3fmt2v86detail9normalizeILi0EEENS1_2fpES3_.exit: ; preds = %if.end42, %while.
   %ptr_.i93 = getelementptr inbounds i8, ptr %buf, i64 8
   %24 = load ptr, ptr %ptr_.i93, align 8
   %sub54 = sub nsw i32 348, %mul6.i
-  %sh_prom.i = zext i32 %add3.i.neg to i64
+  %sh_prom.i = zext nneg i32 %add3.i.neg to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %shr.i = lshr i64 %cond.i.i, %sh_prom.i
   %conv.i = trunc i64 %shr.i to i32

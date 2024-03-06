@@ -2815,7 +2815,7 @@ define i32 @PMIx_IOF_deregister(i64 noundef %0, ptr noundef %1, i64 noundef %2, 
 
 pmix_pointer_array_get_item.exit:                 ; preds = %41
   %47 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 21, i32 7), align 8
-  %48 = and i64 %0, 4294967295
+  %48 = and i64 %0, 2147483647
   %49 = getelementptr inbounds ptr, ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
@@ -5162,7 +5162,7 @@ define void @pmix_iof_read_local_handler(i32 %0, i16 signext %1, ptr noundef %2)
 
 45:                                               ; preds = %15
   store ptr %4, ptr %6, align 8
-  %46 = and i64 %16, 4294967295
+  %46 = and i64 %16, 2147483647
   %47 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %46, ptr %47, align 8
   br label %48
@@ -11422,7 +11422,7 @@ pmix_obj_run_destructors.exit106:                 ; preds = %.lr.ph.i103, %105
   %124 = getelementptr inbounds i8, ptr %26, i64 120
   %125 = getelementptr inbounds i8, ptr %26, i64 144
   %126 = load ptr, ptr %125, align 8
-  %127 = and i64 %71, 4294967295
+  %127 = and i64 %71, 2147483647
   %128 = getelementptr inbounds i8, ptr %126, i64 %127
   %129 = sub nsw i32 %120, %72
   %130 = sext i32 %129 to i64

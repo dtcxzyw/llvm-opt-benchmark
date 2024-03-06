@@ -1245,7 +1245,7 @@ _ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_49PredictionSchemeNorm
   %42 = getelementptr inbounds i8, ptr %0, i64 160
   %43 = getelementptr inbounds i8, ptr %0, i64 144
   %indvars.iv.i.sroa.gep7.i = getelementptr inbounds i8, ptr %9, i64 4
-  %wide.trip.count = and i64 %36, 4294967295
+  %wide.trip.count = and i64 %36, 2147483647
   br label %44
 
 44:                                               ; preds = %.lr.ph, %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
@@ -3219,7 +3219,7 @@ _ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_49PredictionSchemeNorm
   %42 = getelementptr inbounds i8, ptr %0, i64 160
   %43 = getelementptr inbounds i8, ptr %0, i64 144
   %indvars.iv.i.sroa.gep7.i = getelementptr inbounds i8, ptr %9, i64 4
-  %wide.trip.count = and i64 %36, 4294967295
+  %wide.trip.count = and i64 %36, 2147483647
   br label %44
 
 44:                                               ; preds = %.lr.ph, %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
@@ -4585,7 +4585,7 @@ _ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_62PredictionSchemeNorm
   %42 = getelementptr inbounds i8, ptr %0, i64 160
   %43 = getelementptr inbounds i8, ptr %0, i64 144
   %indvars.iv.i.sroa.gep10.i = getelementptr inbounds i8, ptr %8, i64 4
-  %wide.trip.count = and i64 %36, 4294967295
+  %wide.trip.count = and i64 %36, 2147483647
   br label %44
 
 44:                                               ; preds = %.lr.ph, %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
@@ -5810,7 +5810,7 @@ _ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_62PredictionSchemeNorm
   %42 = getelementptr inbounds i8, ptr %0, i64 160
   %43 = getelementptr inbounds i8, ptr %0, i64 144
   %indvars.iv.i.sroa.gep10.i = getelementptr inbounds i8, ptr %8, i64 4
-  %wide.trip.count = and i64 %36, 4294967295
+  %wide.trip.count = and i64 %36, 2147483647
   br label %44
 
 44:                                               ; preds = %.lr.ph, %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit

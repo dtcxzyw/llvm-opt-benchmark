@@ -12759,7 +12759,7 @@ Vec_PtrPush.exit100:                              ; preds = %Vec_PtrPush.exit100
 
 .lr.ph116:                                        ; preds = %._crit_edge
   %87 = getelementptr inbounds i8, ptr %5, i64 256
-  %88 = and i64 %indvars.iv, 4294967295
+  %88 = and i64 %indvars.iv, 255
   br label %90
 
 .preheader:                                       ; preds = %Vec_PtrPush.exit107

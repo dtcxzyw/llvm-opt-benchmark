@@ -48,8 +48,8 @@ define noundef ptr @itoa(i32 noundef %0, ptr noundef returned %1, i32 noundef %2
 
 .lr.ph.preheader:                                 ; preds = %16
   %22 = lshr i64 %19, 1
-  %23 = and i64 %19, 4294967295
-  %wide.trip.count = and i64 %22, 2147483647
+  %23 = and i64 %19, 2147483647
+  %wide.trip.count = and i64 %22, 1073741823
   %24 = getelementptr i8, ptr %1, i64 %23
   br label %.lr.ph
 

@@ -9318,7 +9318,7 @@ terminate.lpad.i.i1741:                           ; preds = %_ZN4cvc58internal8R
   unreachable
 
 cleanup781:                                       ; preds = %_ZN4cvc58internal8RationalD2Ev.exit1740, %_ZN4cvc58internal8RationalD2Ev.exit1722, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1159
-  %cleanup.dest.slot.2 = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1159 ], [ true, %_ZN4cvc58internal8RationalD2Ev.exit1722 ], [ false, %_ZN4cvc58internal8RationalD2Ev.exit1740 ]
+  %switch = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1159 ], [ true, %_ZN4cvc58internal8RationalD2Ev.exit1722 ], [ false, %_ZN4cvc58internal8RationalD2Ev.exit1740 ]
   %420 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_S3_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %msum, ptr noundef %420)
           to label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit unwind label %terminate.lpad.i.i1744
@@ -9331,7 +9331,7 @@ terminate.lpad.i.i1744:                           ; preds = %cleanup781
   unreachable
 
 _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit: ; preds = %cleanup781
-  br i1 %cleanup.dest.slot.2, label %if.end786, label %return
+  br i1 %switch, label %if.end786, label %return
 
 ehcleanup784:                                     ; preds = %ehcleanup779, %lpad445, %lpad443
   %.pn90.pn.pn.pn = phi { ptr, i32 } [ %267, %lpad443 ], [ %268, %lpad445 ], [ %.pn90.pn.pn, %ehcleanup779 ]
@@ -11399,7 +11399,7 @@ invoke.cont:                                      ; preds = %if.then
   br i1 %7, label %switch.lookup, label %_ZN4cvc58internal13preprocessing6passes8toStringENS2_16LearnedRewriteIdE.exit.i
 
 switch.lookup:                                    ; preds = %invoke.cont
-  %8 = and i64 %add, 4294967295
+  %8 = and i64 %add, 7
   %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_13preprocessing6passes16LearnedRewriteIdEE9printSafeEi, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal13preprocessing6passes8toStringENS2_16LearnedRewriteIdE.exit.i
@@ -11620,7 +11620,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %6, label %switch.lookup, label %_ZN4cvc58internal12toStringImplINS0_13preprocessing6passes16LearnedRewriteIdEEEDTcl8toStringfp_EERKT_i.exit.i
 
 switch.lookup:                                    ; preds = %if.end
-  %7 = and i64 %add, 4294967295
+  %7 = and i64 %add, 7
   %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_13preprocessing6passes16LearnedRewriteIdEE9printSafeEi, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal12toStringImplINS0_13preprocessing6passes16LearnedRewriteIdEEEDTcl8toStringfp_EERKT_i.exit.i

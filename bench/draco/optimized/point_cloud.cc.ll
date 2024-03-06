@@ -1371,7 +1371,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN5draco9IndexTypeIj
 
 .lr.ph.i.i.i.i:                                   ; preds = %50
   %58 = zext i32 %.val9.i.i to i64
-  %59 = and i64 %55, 4294967295
+  %59 = and i64 %55, 2147483647
   br label %62
 
 60:                                               ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit11.i.i.i.i
@@ -1425,7 +1425,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   br i1 %84, label %.lr.ph.i.i16.i.i, label %"_ZNKSt8__detail15_Hash_code_baseIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEESt4pairIKS4_S4_ENS_10_Select1stEZNS1_10PointCloud19DeduplicatePointIdsEvE3$_0NS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS6_.exit.i.i"
 
 .lr.ph.i.i16.i.i:                                 ; preds = %76
-  %wide.trip.count.i.i.i.i = and i64 %82, 4294967295
+  %wide.trip.count.i.i.i.i = and i64 %82, 2147483647
   %85 = trunc i64 %indvars.iv to i32
   br label %86
 
@@ -1501,7 +1501,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %114
   %121 = zext i32 %.val19.i.i.i.i to i64
-  %122 = and i64 %118, 4294967295
+  %122 = and i64 %118, 2147483647
   br label %125
 
 123:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit11.i.i.i.i.i.i.i
@@ -1639,7 +1639,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev.exit: 
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %161
   %169 = zext i32 %.val18.i.i.i to i64
-  %170 = and i64 %166, 4294967295
+  %170 = and i64 %166, 2147483647
   br label %173
 
 171:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit11.i.i.i.i.i
@@ -1703,7 +1703,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   br i1 %196, label %.lr.ph.i.i29.i.i.i, label %212
 
 .lr.ph.i.i29.i.i.i:                               ; preds = %.loopexit.i.i.i
-  %wide.trip.count.i.i.i.i.i = and i64 %194, 4294967295
+  %wide.trip.count.i.i.i.i.i = and i64 %194, 2147483647
   br label %197
 
 197:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.i.i.i.i.i, %.lr.ph.i.i29.i.i.i
@@ -1780,7 +1780,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %226
   %233 = zext i32 %.val19.i.i.i.i.i to i64
-  %234 = and i64 %230, 4294967295
+  %234 = and i64 %230, 2147483647
   br label %237
 
 235:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit11.i.i.i.i.i.i.i.i

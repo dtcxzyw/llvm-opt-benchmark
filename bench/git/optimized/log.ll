@@ -2991,7 +2991,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %23 = load i64, ptr %len.i.i, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %22, i64 %23
   store i8 0, ptr %arrayidx3.i, align 1
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @extra_hdr, i64 0, i32 1), align 8
   %cmp540 = icmp ugt i64 %24, %indvars.iv.next
   br i1 %cmp540, label %for.body, label %for.end, !llvm.loop !15
@@ -3027,7 +3027,7 @@ if.end552:                                        ; preds = %if.then551, %for.bo
   %27 = load ptr, ptr %arrayidx554, align 8
   %call.i96 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #21
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %27, i64 noundef %call.i96) #20
-  %indvars.iv.next379 = add nuw i64 %indvars.iv378, 1
+  %indvars.iv.next379 = add nuw nsw i64 %indvars.iv378, 1
   %28 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @extra_to, i64 0, i32 1), align 8
   %cmp558 = icmp ugt i64 %28, %indvars.iv.next379
   br i1 %cmp558, label %if.then560, label %if.end561
@@ -3125,7 +3125,7 @@ if.end575:                                        ; preds = %if.then574, %for.bo
   %44 = load ptr, ptr %arrayidx577, align 8
   %call.i129 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #21
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %44, i64 noundef %call.i129) #20
-  %indvars.iv.next382 = add nuw i64 %indvars.iv381, 1
+  %indvars.iv.next382 = add nuw nsw i64 %indvars.iv381, 1
   %45 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @extra_cc, i64 0, i32 1), align 8
   %cmp581 = icmp ugt i64 %45, %indvars.iv.next382
   br i1 %cmp581, label %if.then583, label %if.end584
@@ -3683,7 +3683,7 @@ land.lhs.true833:                                 ; preds = %if.end831
   br i1 %tobool835.not, label %if.end837, label %while.cond, !llvm.loop !18
 
 if.end837:                                        ; preds = %land.lhs.true833, %if.end831
-  %indvars.iv.next385 = add i64 %indvars.iv384, 1
+  %indvars.iv.next385 = add nsw i64 %indvars.iv384, 1
   br i1 %mul.ov.i, label %if.then.i168, label %st_mult.exit
 
 if.then.i168:                                     ; preds = %if.end837
@@ -4049,9 +4049,9 @@ if.then.i.i203:                                   ; preds = %if.end41.i
   unreachable
 
 for.body.preheader.i:                             ; preds = %if.end41.i
-  %mul.i.i = ashr exact i64 %sext, 29
+  %mul.i.i = lshr exact i64 %sext, 29
   %call44.i = call ptr @xmalloc(i64 noundef %mul.i.i) #20
-  %wide.trip.count.i = and i64 %indvars.iv384, 4294967295
+  %wide.trip.count.i = and i64 %indvars.iv384, 2147483647
   br label %for.body.i
 
 while.cond.preheader.i:                           ; preds = %for.body.i
@@ -4625,7 +4625,7 @@ if.end9.i:                                        ; preds = %land.lhs.true.i244,
   br i1 %225, label %for.body.preheader.i267, label %for.end.i246
 
 for.body.preheader.i267:                          ; preds = %if.end9.i
-  %226 = and i64 %indvars.iv384, 4294967295
+  %226 = and i64 %indvars.iv384, 2147483647
   br label %for.body.i268
 
 for.body.i268:                                    ; preds = %if.end16.i, %for.body.preheader.i267
@@ -4926,7 +4926,7 @@ prepare_cover_text.exit.i:                        ; preds = %if.else31.i.i, %if.
   br i1 %cmp54.i, label %for.body34.preheader.i, label %for.end39.i
 
 for.body34.preheader.i:                           ; preds = %prepare_cover_text.exit.i
-  %wide.trip.count.i256 = and i64 %indvars.iv384, 4294967295
+  %wide.trip.count.i256 = and i64 %indvars.iv384, 2147483647
   br label %for.body34.i
 
 for.body34.i:                                     ; preds = %for.body34.i, %for.body34.preheader.i
@@ -5131,7 +5131,7 @@ while.body995.lr.ph:                              ; preds = %if.end990
   %ref_message_ids1011 = getelementptr inbounds i8, ptr %rev, i64 456
   %file1056 = getelementptr inbounds i8, ptr %rev, i64 1920
   %mime_boundary1057 = getelementptr inbounds i8, ptr %rev, i64 352
-  %294 = and i64 %indvars.iv384, 4294967295
+  %294 = and i64 %indvars.iv384, 2147483647
   %295 = sext i32 %total.0 to i64
   %.pre393 = load ptr, ptr %progress, align 8
   br label %while.body995

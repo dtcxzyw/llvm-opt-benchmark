@@ -1544,7 +1544,7 @@ define internal noundef i32 @unix_gid_parse(ptr noundef %0, ptr noundef %1, i32 
   br i1 %63, label %64, label %.loopexit
 
 64:                                               ; preds = %62
-  %65 = and i64 %48, 4294967295
+  %65 = and i64 %48, 2147483647
   %66 = getelementptr inbounds i8, ptr %59, i64 8
   br label %67
 

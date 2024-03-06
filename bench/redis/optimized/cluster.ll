@@ -2833,7 +2833,7 @@ sdslen.exit123:                                   ; preds = %sw.bb.i120, %sw.bb3
   br i1 %cmp23.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %sdslen.exit123
-  %wide.trip.count.i = and i64 %retval.0.i110, 4294967295
+  %wide.trip.count.i = and i64 %retval.0.i110, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
@@ -3450,7 +3450,7 @@ sdslen.exit:                                      ; preds = %sw.bb.i, %sw.bb3.i,
   br i1 %cmp23.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %sdslen.exit
-  %wide.trip.count.i = and i64 %retval.0.i, 4294967295
+  %wide.trip.count.i = and i64 %retval.0.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
@@ -4017,7 +4017,7 @@ sdslen.exit:                                      ; preds = %sw.bb.i, %sw.bb3.i,
   br i1 %cmp23.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %sdslen.exit
-  %wide.trip.count.i = and i64 %retval.0.i, 4294967295
+  %wide.trip.count.i = and i64 %retval.0.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i

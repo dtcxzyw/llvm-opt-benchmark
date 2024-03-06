@@ -1423,7 +1423,7 @@ _ZNSt6vectorIS_IPN5ceres8internal13ResidualBlockESaIS3_EESaIS5_EE6resizeEm.exit:
   br i1 %305, label %._crit_edge149, label %.lr.ph148.split.preheader
 
 .lr.ph148.split.preheader:                        ; preds = %.lr.ph148
-  %wide.trip.count = and i64 %300, 4294967295
+  %wide.trip.count = and i64 %300, 2147483647
   br label %.lr.ph148.split
 
 .lr.ph148.splitthread-pre-split:                  ; preds = %_ZNSt6vectorIPN5ceres8internal13ResidualBlockESaIS3_EE9push_backERKS3_.exit

@@ -406,7 +406,7 @@ find_separator.exit.i:                            ; preds = %for.body.i.i
   br i1 %cmp6.i, label %if.then8.i23, label %if.else.i21
 
 if.then8.i23:                                     ; preds = %find_separator.exit.i
-  %conv9.i = and i64 %sub.ptr.sub.i.i, 4294967295
+  %conv9.i = and i64 %sub.ptr.sub.i.i, 2147483647
   call fastcc void @parse_trailer(ptr noundef nonnull %tok.i, ptr noundef nonnull %val.i, ptr noundef null, ptr noundef nonnull %10, i64 noundef %conv9.i)
   %17 = load i32, ptr %unfold.i, align 8
   %tobool.not.i24 = icmp eq i32 %17, 0
@@ -2490,7 +2490,7 @@ if.then4.i17:                                     ; preds = %strbuf_setlen.exit
   br label %strbuf_setlen.exit18
 
 strbuf_setlen.exit18:                             ; preds = %strbuf_setlen.exit, %if.then4.i17
-  %conv10 = and i64 %retval.0.i, 4294967295
+  %conv10 = and i64 %retval.0.i, 2147483647
   tail call fastcc void @parse_trailer(ptr noundef nonnull %iter, ptr noundef nonnull %val, ptr noundef null, ptr noundef nonnull %3, i64 noundef %conv10)
   tail call fastcc void @unfold_value(ptr noundef nonnull %val)
   br label %return

@@ -66,7 +66,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %_ZN7
   %arrayidx.i = getelementptr inbounds i64, ptr %call.i, i64 %indvars.iv.i13
   %2 = load i64, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq i64 %2, 0
-  %indvars.iv.next.i14 = add nuw i64 %indvars.iv.i13, 1
+  %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   br i1 %tobool.not.i, label %while.cond.i, label %for.cond.preheader.i, !llvm.loop !6
 
 for.cond.preheader.i:                             ; preds = %while.cond.i
@@ -658,7 +658,7 @@ for.body25.i.i:                                   ; preds = %for.body14.i.i, %fo
   br i1 %cmp28.i.i, label %if.then.i164.i, label %for.inc35.i.i
 
 if.then.i164.i:                                   ; preds = %for.body25.i.i
-  %conv29.i.i = and i64 %69, 4294967295
+  %conv29.i.i = and i64 %69, 2147483647
   %arrayidx31.i.i = getelementptr inbounds [59 x i64], ptr %n.i.i, i64 0, i64 %conv29.i.i
   %70 = load i64, ptr %arrayidx31.i.i, align 8
   %inc32.i.i = add i64 %70, 1
@@ -1703,7 +1703,7 @@ for.body25.i.i:                                   ; preds = %for.body14.i.i, %fo
   br i1 %cmp28.i.i, label %if.then.i.i, label %for.inc35.i.i
 
 if.then.i.i:                                      ; preds = %for.body25.i.i
-  %conv29.i.i = and i64 %35, 4294967295
+  %conv29.i.i = and i64 %35, 2147483647
   %arrayidx31.i.i = getelementptr inbounds [59 x i64], ptr %n.i.i, i64 0, i64 %conv29.i.i
   %36 = load i64, ptr %arrayidx31.i.i, align 8
   %inc32.i.i = add i64 %36, 1
@@ -1798,7 +1798,7 @@ if.end60:                                         ; preds = %invoke.cont49
 
 for.body.preheader.i:                             ; preds = %if.end60
   %44 = zext nneg i32 %1 to i64
-  %45 = add i32 %2, 1
+  %45 = add nuw nsw i32 %2, 1
   br label %for.body.i72
 
 for.body.i72:                                     ; preds = %for.inc80.i, %for.body.preheader.i

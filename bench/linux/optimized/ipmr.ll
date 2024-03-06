@@ -2646,7 +2646,7 @@ define dso_local i32 @ip_mr_input(ptr noundef %0) local_unnamed_addr #1 align 16
   br i1 %84, label %85, label %.thread
 
 85:                                               ; preds = %80
-  %86 = and i64 %82, 4294967295
+  %86 = and i64 %82, 2147483647
   %87 = getelementptr [32 x %struct.vif_device], ptr %78, i64 0, i64 %86
   %88 = load volatile ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, %25
@@ -2958,7 +2958,7 @@ define internal fastcc void @ip_mr_forward(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %13
-  %19 = and i64 %15, 4294967295
+  %19 = and i64 %15, 2147483647
   %20 = getelementptr [32 x %struct.vif_device], ptr %9, i64 0, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %2
@@ -2998,7 +2998,7 @@ define internal fastcc void @ip_mr_forward(ptr noundef %0, ptr noundef %1, ptr n
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %46, i64 72
-  %50 = and i64 %15, 4294967295
+  %50 = and i64 %15, 2147483647
   %51 = getelementptr [32 x i8], ptr %49, i64 0, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, -1
@@ -3046,7 +3046,7 @@ define internal fastcc void @ip_mr_forward(ptr noundef %0, ptr noundef %1, ptr n
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds i8, ptr %4, i64 72
-  %81 = and i64 %15, 4294967295
+  %81 = and i64 %15, 2147483647
   %82 = getelementptr [32 x i8], ptr %80, i64 0, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = icmp eq i8 %83, -1
@@ -3426,7 +3426,7 @@ define dso_local i32 @ipmr_get_route(ptr nocapture noundef readonly %0, ptr noun
   br i1 %29, label %30, label %.thread
 
 30:                                               ; preds = %25
-  %31 = and i64 %27, 4294967295
+  %31 = and i64 %27, 2147483647
   %32 = getelementptr [32 x %struct.vif_device], ptr %23, i64 0, i64 %31
   %33 = load volatile ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %18

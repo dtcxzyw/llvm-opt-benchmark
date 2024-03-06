@@ -855,11 +855,7 @@ _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit: ; preds = %for.inc.i, %for.bod
   %spec.select.i317 = tail call noundef i64 @llvm.usub.sat.i64(i64 %msk_true_size.0.lcssa.i, i64 %91)
   %conv = trunc i64 %spec.select.i317 to i32
   %cmp434.not = icmp eq i32 %conv, 0
-  br i1 %cmp434.not, label %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.for.body54.lr.ph_crit_edge, label %for.cond25.preheader.lr.ph
-
-_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.for.body54.lr.ph_crit_edge: ; preds = %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit
-  %.pre = and i64 %spec.select.i317, 4294967295
-  br label %for.body54.lr.ph
+  br i1 %cmp434.not, label %for.body54.lr.ph, label %for.cond25.preheader.lr.ph
 
 for.cond25.preheader.lr.ph:                       ; preds = %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit
   %cmp33 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0439, i64 64
@@ -871,8 +867,8 @@ for.cond51.preheader:                             ; preds = %for.cond.cleanup27
   %cmp52436 = icmp ult i32 %conv, 16
   br i1 %cmp52436, label %for.body54.lr.ph, label %cleanup91
 
-for.body54.lr.ph:                                 ; preds = %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.for.body54.lr.ph_crit_edge, %for.cond51.preheader
-  %.pre-phi = phi i64 [ %.pre, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.for.body54.lr.ph_crit_edge ], [ %92, %for.cond51.preheader ]
+for.body54.lr.ph:                                 ; preds = %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit, %for.cond51.preheader
+  %.pre-phi = phi i64 [ %92, %for.cond51.preheader ], [ 0, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit ]
   %nocase.i325 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0439, i64 32
   %.pre487 = load ptr, ptr %__begin1.sroa.0.0439, align 8
   %.pre488 = load i8, ptr %nocase.i325, align 8, !range !5

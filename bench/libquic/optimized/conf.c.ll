@@ -333,7 +333,7 @@ while.cond.preheader:                             ; preds = %if.end11
   br i1 %cmp21251, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %while.cond.preheader
-  %3 = and i64 %call14, 4294967295
+  %3 = and i64 %call14, 2147483647
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.else
@@ -1424,7 +1424,7 @@ if.end40:                                         ; preds = %if.then29, %while.b
   %8 = phi i8 [ %7, %if.then29 ], [ %6, %while.body ]
   %from.addr.2 = phi ptr [ %incdec.ptr30, %if.then29 ], [ %from.addr.1114, %while.body ]
   %9 = load ptr, ptr %data, align 8
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx43 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv
   store i8 %8, ptr %arrayidx43, align 1
   %from.addr.1 = getelementptr inbounds i8, ptr %from.addr.2, i64 1
@@ -1489,7 +1489,7 @@ if.end80:                                         ; preds = %if.then72, %while.b
   %18 = phi i8 [ %16, %while.body68 ], [ %1, %if.then72 ]
   %from.addr.5 = phi ptr [ %from.addr.4123, %while.body68 ], [ %add.ptr, %if.then72 ]
   %19 = load ptr, ptr %data, align 8
-  %indvars.iv.next141 = add i64 %indvars.iv140, 1
+  %indvars.iv.next141 = add nsw i64 %indvars.iv140, 1
   %inc83 = add nsw i32 %to.2121, 1
   %arrayidx85 = getelementptr inbounds i8, ptr %19, i64 %indvars.iv140
   store i8 %18, ptr %arrayidx85, align 1
@@ -1701,7 +1701,7 @@ while.body231:                                    ; preds = %while.body231.prehe
   %p.0134 = phi ptr [ %retval.0.i, %while.body231.preheader ], [ %incdec.ptr232, %while.body231 ]
   %incdec.ptr232 = getelementptr inbounds i8, ptr %p.0134, i64 1
   %41 = load ptr, ptr %data, align 8
-  %indvars.iv.next143 = add i64 %indvars.iv142, 1
+  %indvars.iv.next143 = add nsw i64 %indvars.iv142, 1
   %arrayidx236 = getelementptr inbounds i8, ptr %41, i64 %indvars.iv142
   store i8 %40, ptr %arrayidx236, align 1
   %42 = load i8, ptr %incdec.ptr232, align 1

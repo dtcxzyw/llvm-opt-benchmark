@@ -85,10 +85,7 @@ lpad.i:                                           ; preds = %invoke.cont59.i, %i
   resume { ptr, i32 } %2
 
 if.end.i:                                         ; preds = %if.then
-  %sext.i = mul i64 %div.i, 371085174374400
-  %conv4.i = ashr exact i64 %sext.i, 32
-  %sub.i = sub i64 %conv6, %conv4.i
-  %div6.i = udiv i64 %sub.i, 3600
+  %div6.i = udiv i64 %conv6, 3600
   %conv7.i = trunc i64 %div6.i to i32
   %tobool9.not.i = icmp eq i32 %conv7.i, 0
   br i1 %tobool9.not.i, label %if.end22.i, label %if.end16.i
@@ -103,7 +100,7 @@ if.then12.i:                                      ; preds = %invoke.cont.i
           to label %if.end16.i unwind label %lpad.i, !noalias !4
 
 if.end16.i:                                       ; preds = %if.then12.i, %if.end.i
-  %sub3248.i = phi i64 [ %sub26.i, %if.then12.i ], [ %sub.i, %if.end.i ]
+  %sub3248.i = phi i64 [ %sub26.i, %if.then12.i ], [ %conv6, %if.end.i ]
   %div63446.i = phi i64 [ %div627.i, %if.then12.i ], [ %div6.i, %if.end.i ]
   %conv73544.i = phi i32 [ %conv728.i, %if.then12.i ], [ %conv7.i, %if.end.i ]
   %add.ptr17.i = getelementptr inbounds i8, ptr %out.i, i64 16
@@ -115,10 +112,7 @@ invoke.cont18.i:                                  ; preds = %if.end16.i
           to label %if.then36.i unwind label %lpad.i, !noalias !4
 
 if.end22.i:                                       ; preds = %if.end.i
-  %sext20.i = mul i64 %div6.i, 15461882265600
-  %conv24.i = ashr exact i64 %sext20.i, 32
-  %sub25.i = sub i64 %sub.i, %conv24.i
-  %div27.i = udiv i64 %sub25.i, 60
+  %div27.i = udiv i64 %conv6, 60
   %conv28.i = trunc i64 %div27.i to i32
   %tobool33.not.i = icmp eq i32 %conv28.i, 0
   br i1 %tobool33.not.i, label %if.end52.i, label %if.end40.i
@@ -133,7 +127,7 @@ if.then36.i:                                      ; preds = %invoke.cont18.i
           to label %if.end40.i unwind label %lpad.i, !noalias !4
 
 if.end40.i:                                       ; preds = %if.then36.i, %if.end22.i
-  %sub256476.i = phi i64 [ %sub2557.i, %if.then36.i ], [ %sub25.i, %if.end22.i ]
+  %sub256476.i = phi i64 [ %sub2557.i, %if.then36.i ], [ %conv6, %if.end22.i ]
   %div276674.i = phi i64 [ %div2758.i, %if.then36.i ], [ %div27.i, %if.end22.i ]
   %conv286772.i = phi i32 [ %conv2859.i, %if.then36.i ], [ %conv28.i, %if.end22.i ]
   %add.ptr41.i = getelementptr inbounds i8, ptr %out.i, i64 16
@@ -150,7 +144,7 @@ if.then48.i:                                      ; preds = %invoke.cont42.i
 
 if.end52.i:                                       ; preds = %if.then48.i, %if.end22.i
   %div2765.i = phi i64 [ %div276674.i, %if.then48.i ], [ %div27.i, %if.end22.i ]
-  %sub2563.i = phi i64 [ %sub256476.i, %if.then48.i ], [ %sub25.i, %if.end22.i ]
+  %sub2563.i = phi i64 [ %sub256476.i, %if.then48.i ], [ %conv6, %if.end22.i ]
   %sext21.i = mul i64 %div2765.i, 257698037760
   %conv54.i = ashr exact i64 %sext21.i, 32
   %sub55.i = sub i64 %sub2563.i, %conv54.i

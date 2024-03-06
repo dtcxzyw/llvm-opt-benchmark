@@ -4681,7 +4681,7 @@ if.then7:                                         ; preds = %for.body
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.end.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then7
-  %idx.ext.i.i = and i64 %call.i.i, 4294967295
+  %idx.ext.i.i = and i64 %call.i.i, 2147483647
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i.i
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -7
   %call2.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr1.i.i, ptr noundef nonnull dereferenceable(8) @.str.1) #20
@@ -4690,14 +4690,10 @@ land.lhs.true.i.i:                                ; preds = %if.then7
 
 if.end.i.i:                                       ; preds = %if.then7
   %cmp4.i.i = icmp eq i32 %conv.i.i, 6
-  br i1 %cmp4.i.i, label %if.end.land.lhs.true5_crit_edge.i.i, label %if.end12.i.i
+  br i1 %cmp4.i.i, label %land.lhs.true5.i.i, label %if.end12.i.i
 
-if.end.land.lhs.true5_crit_edge.i.i:              ; preds = %if.end.i.i
-  %.pre.i.i = and i64 %call.i.i, 4294967295
-  br label %land.lhs.true5.i.i
-
-land.lhs.true5.i.i:                               ; preds = %if.end.land.lhs.true5_crit_edge.i.i, %land.lhs.true.i.i
-  %idx.ext6.pre-phi.i.i = phi i64 [ %.pre.i.i, %if.end.land.lhs.true5_crit_edge.i.i ], [ %idx.ext.i.i, %land.lhs.true.i.i ]
+land.lhs.true5.i.i:                               ; preds = %if.end.i.i, %land.lhs.true.i.i
+  %idx.ext6.pre-phi.i.i = phi i64 [ %idx.ext.i.i, %land.lhs.true.i.i ], [ 6, %if.end.i.i ]
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext6.pre-phi.i.i
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i, i64 -6
   %call9.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr8.i.i, ptr noundef nonnull dereferenceable(7) @.str.2) #20
@@ -4847,7 +4843,7 @@ if.else:                                          ; preds = %for.body
   br i1 %cmp.i11, label %land.lhs.true.i, label %if.end.i12
 
 land.lhs.true.i:                                  ; preds = %if.else
-  %idx.ext.i = and i64 %call.i, 4294967295
+  %idx.ext.i = and i64 %call.i, 2147483647
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -7
   %call2.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr1.i, ptr noundef nonnull dereferenceable(8) @.str.1) #20
@@ -4856,14 +4852,10 @@ land.lhs.true.i:                                  ; preds = %if.else
 
 if.end.i12:                                       ; preds = %if.else
   %cmp4.i = icmp eq i32 %conv.i10, 6
-  br i1 %cmp4.i, label %if.end.land.lhs.true5_crit_edge.i, label %22
+  br i1 %cmp4.i, label %land.lhs.true5.i, label %22
 
-if.end.land.lhs.true5_crit_edge.i:                ; preds = %if.end.i12
-  %.pre.i = and i64 %call.i, 4294967295
-  br label %land.lhs.true5.i
-
-land.lhs.true5.i:                                 ; preds = %if.end.land.lhs.true5_crit_edge.i, %land.lhs.true.i
-  %idx.ext6.pre-phi.i = phi i64 [ %.pre.i, %if.end.land.lhs.true5_crit_edge.i ], [ %idx.ext.i, %land.lhs.true.i ]
+land.lhs.true5.i:                                 ; preds = %if.end.i12, %land.lhs.true.i
+  %idx.ext6.pre-phi.i = phi i64 [ %idx.ext.i, %land.lhs.true.i ], [ 6, %if.end.i12 ]
   %add.ptr7.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext6.pre-phi.i
   %add.ptr8.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 -6
   %call9.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr8.i, ptr noundef nonnull dereferenceable(7) @.str.2) #20

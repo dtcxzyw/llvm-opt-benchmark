@@ -906,7 +906,7 @@ while.body.i:                                     ; preds = %find_header.exit.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %buf.024.i to i64
   %sub.ptr.sub.neg.i = add i64 %conv226.i, %sub.ptr.rhs.cast.i
   %sub.i = sub i64 %sub.ptr.sub.neg.i, %sub.ptr.lhs.cast.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %40 = load i64, ptr %nr.i, align 8
   %cmp.not.i36 = icmp ugt i64 %40, %indvars.iv.i
   br i1 %cmp.not.i36, label %lor.lhs.false.i, label %check_cert_push_options.exit.thread
@@ -1188,7 +1188,7 @@ for.body23.lr.ph.i.i:                             ; preds = %for.cond17.preheade
   br i1 %cmp2843.i.i, label %for.body23.us.preheader.i.i, label %for.body23.i.i
 
 for.body23.us.preheader.i.i:                      ; preds = %for.body23.lr.ph.i.i
-  %wide.trip.count.i.i = and i64 %div39.i.i, 4294967295
+  %wide.trip.count.i.i = and i64 %div39.i.i, 2147483647
   br label %for.body23.us.i.i
 
 for.body23.us.i.i:                                ; preds = %for.inc74.us.i.i, %for.body23.us.preheader.i.i
@@ -6408,7 +6408,7 @@ if.then13:                                        ; preds = %land.lhs.true10
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %land.lhs.true10, %if.then13
   %11 = phi ptr [ %4, %for.body ], [ %4, %land.lhs.true ], [ %.pre31, %land.lhs.true10 ], [ %.pre, %if.then13 ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %nr = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %12, %indvars.iv.next
@@ -6443,7 +6443,7 @@ for.body29:                                       ; preds = %if.end22, %for.body
   %17 = load ptr, ptr %extra, align 8
   %arrayidx32 = getelementptr inbounds %struct.object_id, ptr %17, i64 %indvars.iv28
   %call33 = call i32 @register_shallow(ptr noundef %16, ptr noundef %arrayidx32) #16
-  %indvars.iv.next29 = add nuw i64 %indvars.iv28, 1
+  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %18 = load i64, ptr %nr26, align 8
   %cmp27 = icmp ugt i64 %18, %indvars.iv.next29
   br i1 %cmp27, label %for.body29, label %for.end36, !llvm.loop !53

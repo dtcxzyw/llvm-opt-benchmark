@@ -158,7 +158,7 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %11
-  %16 = and i64 %12, 4294967295
+  %16 = and i64 %12, 63
   %17 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, ptrtoint (ptr @cgroup_rstat_cpu_lock to i64)
@@ -503,8 +503,8 @@ define internal fastcc void @cgroup_rstat_flush_locked(ptr noundef %0) unnamed_a
   br label %246
 
 246:                                              ; preds = %245, %238
-  %247 = add i64 %12, 1
-  %248 = and i64 %247, 4294967295
+  %247 = add nuw nsw i64 %12, 1
+  %248 = and i64 %247, 127
   %249 = icmp ugt i64 %248, 63
   br i1 %249, label %.thread, label %5, !prof !20, !llvm.loop !21
 

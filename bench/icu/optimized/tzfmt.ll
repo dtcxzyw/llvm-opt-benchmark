@@ -1250,7 +1250,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %46, label %switch.lookup, label %for.inc.i
 
 switch.lookup:                                    ; preds = %for.body.i
-  %47 = and i64 %indvars.iv.i, 4294967295
+  %47 = and i64 %indvars.iv.i, 7
   %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %47
   %switch.load = load i32, ptr %switch.gep, align 4
   %arrayidx.i = getelementptr inbounds [6 x %"class.icu_75::UnicodeString"], ptr %fGMTOffsetPatterns.ptr, i64 0, i64 %indvars.iv.i
@@ -1854,7 +1854,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %1, label %switch.lookup, label %for.inc
 
 switch.lookup:                                    ; preds = %for.body
-  %2 = and i64 %indvars.iv, 4294967295
+  %2 = and i64 %indvars.iv, 7
   %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   %arrayidx = getelementptr inbounds [6 x %"class.icu_75::UnicodeString"], ptr %fGMTOffsetPatterns13, i64 0, i64 %indvars.iv
@@ -2190,7 +2190,7 @@ for.body.i:                                       ; preds = %delete.end47, %for.
   br i1 %14, label %switch.lookup, label %for.inc.i
 
 switch.lookup:                                    ; preds = %for.body.i
-  %15 = and i64 %indvars.iv.i, 4294967295
+  %15 = and i64 %indvars.iv.i, 7
   %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   %arrayidx.i = getelementptr inbounds [6 x %"class.icu_75::UnicodeString"], ptr %fGMTOffsetPatterns37, i64 0, i64 %indvars.iv.i

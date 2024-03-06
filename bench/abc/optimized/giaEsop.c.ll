@@ -2577,7 +2577,7 @@ Vec_IntFind.exit:                                 ; preds = %44
   br i1 %54, label %.lr.ph.i149, label %Vec_IntDrop.exit
 
 .lr.ph.i149:                                      ; preds = %51
-  %55 = and i64 %indvars.iv.i, 4294967295
+  %55 = and i64 %indvars.iv.i, 2147483647
   br label %56
 
 56:                                               ; preds = %56, %.lr.ph.i149

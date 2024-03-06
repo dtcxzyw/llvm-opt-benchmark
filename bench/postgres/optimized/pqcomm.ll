@@ -2673,7 +2673,7 @@ define internal fastcc noundef i32 @internal_flush() unnamed_addr #0 {
 
 .outer:                                           ; preds = %11
   store i32 0, ptr @internal_flush.last_reported_send_errno, align 4
-  %27 = and i64 %13, 4294967295
+  %27 = and i64 %13, 2147483647
   %28 = getelementptr i8, ptr %.09.ph20, i64 %27
   %29 = load i32, ptr @PqSendStart, align 4
   %30 = add i32 %29, %14

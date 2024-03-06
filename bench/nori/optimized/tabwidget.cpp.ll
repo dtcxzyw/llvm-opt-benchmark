@@ -1870,7 +1870,7 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit66.critedge: ; preds = %_ZN7nanoguiplER
 
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %127
   %133 = getelementptr inbounds i8, ptr %0, i64 200
-  %134 = and i64 %12, 4294967295
+  %134 = and i64 %12, 2147483647
   %135 = load ptr, ptr %133, align 8
   %136 = getelementptr inbounds i32, ptr %135, i64 %134
   %137 = load i32, ptr %136, align 4
@@ -1899,13 +1899,13 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %127
   store i32 %149, ptr %43, align 8
   store i32 %149, ptr %42, align 4
   %150 = getelementptr inbounds i8, ptr %0, i64 224
-  %151 = and i64 %12, 4294967295
+  %151 = and i64 %12, 2147483647
   %152 = load ptr, ptr %150, align 8
   %153 = getelementptr inbounds i32, ptr %152, i64 %151
   %154 = load i32, ptr %153, align 4
   %155 = getelementptr inbounds i8, ptr %0, i64 260
   store i32 %154, ptr %155, align 4
-  %156 = add i64 %12, 1
+  %156 = add nuw nsw i64 %12, 1
   %157 = and i64 %156, 4294967295
   %158 = getelementptr inbounds i32, ptr %152, i64 %157
   %159 = load i32, ptr %158, align 4

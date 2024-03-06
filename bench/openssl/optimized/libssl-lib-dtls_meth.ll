@@ -751,7 +751,7 @@ if.then.i.i:                                      ; preds = %satsub64be.exit.i.i
   br i1 %cmp3.i.i, label %if.then5.i.i, label %if.end.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %conv.i.i122 = and i64 %spec.select38.i.i.i, 4294967295
+  %conv.i.i122 = and i64 %spec.select38.i.i.i, 63
   %103 = load i64, ptr %retval.0.i97, align 8
   %shl.i.i123 = shl i64 %103, %conv.i.i122
   %or.i.i124 = add nuw nsw i64 %shl.i.i123, 1

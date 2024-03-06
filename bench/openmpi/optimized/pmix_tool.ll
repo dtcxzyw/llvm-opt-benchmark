@@ -4039,7 +4039,7 @@ define internal void @tool_iof_handler(ptr nocapture noundef readonly %0, ptr no
 
 pmix_pointer_array_get_item.exit:                 ; preds = %189
   %.val100 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 21, i32 7), align 8
-  %194 = and i64 %190, 4294967295
+  %194 = and i64 %190, 2147483647
   %195 = getelementptr inbounds ptr, ptr %.val100, i64 %194
   %196 = load ptr, ptr %195, align 8
   %.not91 = icmp eq ptr %196, null

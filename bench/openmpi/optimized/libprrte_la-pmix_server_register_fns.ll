@@ -1114,7 +1114,7 @@ pmix_obj_new_tma.exit614:                         ; preds = %.lr.ph.i.i611, %494
   br i1 %526, label %527, label %544
 
 527:                                              ; preds = %._crit_edge722
-  %528 = and i64 %524, 4294967295
+  %528 = and i64 %524, 2147483647
   call void @PMIx_Data_array_construct(ptr noundef nonnull %21, i64 noundef %528, i16 noundef zeroext 22) #11
   %529 = load ptr, ptr %424, align 8
   %530 = mul nuw nsw i64 %528, 260

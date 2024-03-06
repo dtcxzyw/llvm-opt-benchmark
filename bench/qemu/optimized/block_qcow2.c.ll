@@ -737,7 +737,7 @@ header_ext_add.exit:                              ; preds = %if.end.i, %if.then5
   br i1 %cmp62, label %fail, label %if.end65
 
 if.end65:                                         ; preds = %header_ext_add.exit
-  %idx.ext66 = and i64 %add1.i, 4294967288
+  %idx.ext66 = and i64 %add1.i, 2147483640
   %add.ptr67 = getelementptr i8, ptr %buf.0, i64 %idx.ext66
   %sub69 = sub i64 %buflen.0, %idx.ext66
   br label %if.end70
@@ -787,7 +787,7 @@ header_ext_add.exit154:                           ; preds = %if.end.i147, %if.th
   br i1 %cmp80, label %fail, label %if.end83
 
 if.end83:                                         ; preds = %header_ext_add.exit154
-  %idx.ext84 = and i64 %add1.i145, 4294967288
+  %idx.ext84 = and i64 %add1.i145, 2147483640
   %add.ptr85 = getelementptr i8, ptr %buf.1, i64 %idx.ext84
   %sub87 = sub i64 %buflen.1, %idx.ext84
   br label %if.end88
@@ -833,7 +833,7 @@ header_ext_add.exit161:                           ; preds = %if.then91, %if.end.
   br i1 %cmp114, label %fail, label %if.end117
 
 if.end117:                                        ; preds = %header_ext_add.exit161
-  %idx.ext118 = and i64 %retval.0.i160, 4294967292
+  %idx.ext118 = and i64 %retval.0.i160, 2147483644
   %add.ptr119 = getelementptr i8, ptr %buf.2, i64 %idx.ext118
   %sub121 = sub i64 %buflen.2, %idx.ext118
   br label %if.end122
@@ -942,7 +942,7 @@ header_ext_add.exit186:                           ; preds = %if.end.i180, %if.th
   br i1 %cmp168, label %fail, label %if.end171
 
 if.end171:                                        ; preds = %header_ext_add.exit186
-  %idx.ext172 = and i64 %add1.i178, 4294967288
+  %idx.ext172 = and i64 %add1.i178, 2147483640
   %add.ptr173 = getelementptr i8, ptr %buf.6217, i64 %idx.ext172
   %sub175 = sub i64 %buflen.6216, %idx.ext172
   %next = getelementptr inbounds i8, ptr %uext.0218, i64 8

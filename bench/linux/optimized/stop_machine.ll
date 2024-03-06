@@ -785,7 +785,7 @@ define internal fastcc i32 @stop_cpus(ptr nocapture noundef readonly %0, ptr nou
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %16
-  %21 = and i64 %17, 4294967295
+  %21 = and i64 %17, 63
   %22 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, ptrtoint (ptr getelementptr inbounds (%struct.cpu_stopper, ptr @cpu_stopper, i64 0, i32 4) to i64)
@@ -802,8 +802,8 @@ define internal fastcc i32 @stop_cpus(ptr nocapture noundef readonly %0, ptr nou
   store i64 %30, ptr %31, align 8
   %32 = call fastcc zeroext i1 @cpu_stop_queue_work(i32 noundef %18, ptr noundef %25)
   %33 = select i1 %32, i8 1, i8 %11
-  %34 = add i64 %17, 1
-  %35 = and i64 %34, 4294967295
+  %34 = add nuw nsw i64 %17, 1
+  %35 = and i64 %34, 127
   %36 = icmp ugt i64 %35, 63
   br i1 %36, label %.thread, label %9, !prof !34, !llvm.loop !45
 
@@ -1020,7 +1020,7 @@ define dso_local i32 @stop_machine_from_inactive_cpu(ptr noundef %0, ptr noundef
   br i1 %41, label %42, label %.thread
 
 42:                                               ; preds = %38
-  %43 = and i64 %39, 4294967295
+  %43 = and i64 %39, 63
   %44 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, ptrtoint (ptr getelementptr inbounds (%struct.cpu_stopper, ptr @cpu_stopper, i64 0, i32 4) to i64)
@@ -1036,8 +1036,8 @@ define dso_local i32 @stop_machine_from_inactive_cpu(ptr noundef %0, ptr noundef
   %53 = getelementptr inbounds i8, ptr %47, i64 24
   store i64 %52, ptr %53, align 8
   %54 = call fastcc zeroext i1 @cpu_stop_queue_work(i32 noundef %40, ptr noundef %47)
-  %55 = add i64 %39, 1
-  %56 = and i64 %55, 4294967295
+  %55 = add nuw nsw i64 %39, 1
+  %56 = and i64 %55, 127
   %57 = icmp ugt i64 %56, 63
   br i1 %57, label %.thread, label %32, !prof !34, !llvm.loop !45
 

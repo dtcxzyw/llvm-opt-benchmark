@@ -134,7 +134,7 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
   br i1 %36, label %37, label %.thread19.split.us
 
 37:                                               ; preds = %33
-  %38 = and i64 %34, 4294967295
+  %38 = and i64 %34, 63
   %39 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, ptrtoint (ptr @processors to i64)
@@ -190,7 +190,7 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
   br i1 %71, label %95, label %72
 
 72:                                               ; preds = %70
-  %73 = and i64 %66, 4294967295
+  %73 = and i64 %66, 63
   %74 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %73
   %75 = load i64, ptr %74, align 8
   %76 = add i64 %75, ptrtoint (ptr @processors to i64)
@@ -231,8 +231,8 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
 
 95:                                               ; preds = %94, %80, %72, %70
   %96 = phi i64 [ %.pre, %94 ], [ %60, %80 ], [ %60, %72 ], [ %60, %70 ]
-  %97 = add i64 %66, 1
-  %98 = and i64 %97, 4294967295
+  %97 = add nuw nsw i64 %66, 1
+  %98 = and i64 %97, 127
   %99 = icmp ugt i64 %98, 63
   br i1 %99, label %.thread23, label %59, !prof !6, !llvm.loop !12
 
@@ -254,7 +254,7 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
   br i1 %110, label %127, label %111
 
 111:                                              ; preds = %109
-  %112 = and i64 %106, 4294967295
+  %112 = and i64 %106, 63
   %113 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %112
   %114 = load i64, ptr %113, align 8
   %115 = add i64 %114, ptrtoint (ptr @processors to i64)
@@ -277,14 +277,14 @@ define dso_local void @acpi_processor_throttling_init() local_unnamed_addr #0 al
   br label %127
 
 127:                                              ; preds = %124, %119, %111, %109
-  %128 = add i64 %106, 1
-  %129 = and i64 %128, 4294967295
+  %128 = add nuw nsw i64 %106, 1
+  %129 = and i64 %128, 127
   %130 = icmp ugt i64 %129, 63
   br i1 %130, label %.thread25, label %100, !prof !6, !llvm.loop !13
 
 .thread25:                                        ; preds = %100, %127, %105, %49, %45, %37
-  %131 = add i64 %34, 1
-  %132 = and i64 %131, 4294967295
+  %131 = add nuw nsw i64 %34, 1
+  %132 = and i64 %131, 127
   %133 = icmp ugt i64 %132, 63
   br i1 %133, label %.thread25..thread19.split.us_crit_edge, label %.thread, !prof !6, !llvm.loop !14
 

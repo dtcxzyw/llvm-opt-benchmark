@@ -168,7 +168,7 @@ define noundef i32 @ompi_osc_rdma_free(ptr nocapture noundef %0) local_unnamed_a
 
 .lr.ph213:                                        ; preds = %.preheader209
   %58 = getelementptr inbounds i8, ptr %6, i64 1080
-  %wide.trip.count = and i64 %53, 4294967295
+  %wide.trip.count = and i64 %53, 2147483647
   br label %59
 
 59:                                               ; preds = %.lr.ph213, %89

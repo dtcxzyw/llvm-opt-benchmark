@@ -3223,7 +3223,7 @@ define internal fastcc noundef ptr @timesub(ptr nocapture noundef readonly %0, i
   br i1 %12, label %13, label %.loopexit.loopexit
 
 13:                                               ; preds = %11
-  %14 = and i64 %indvars.iv.next, 4294967295
+  %14 = and i64 %indvars.iv.next, 2147483647
   %15 = getelementptr [50 x %struct.lsinfo], ptr %10, i64 0, i64 %14
   %16 = load i64, ptr %0, align 8
   %17 = load i64, ptr %15, align 8

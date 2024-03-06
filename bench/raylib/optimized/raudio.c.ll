@@ -32338,13 +32338,13 @@ ma_channel_map_get_channel.exit350.us395.us:      ; preds = %ma_channel_map_get_
   br label %ma_channel_map_get_channel.exit350.us.us.us
 
 switch.lookup:                                    ; preds = %236
-  %258 = and i64 %indvars.iv529, 4294967295
+  %258 = and i64 %indvars.iv529, 7
   %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table.ma_channel_map_apply_f32, i64 0, i64 %258
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %ma_channel_map_get_channel.exit350.us.us.us
 
 switch.lookup53:                                  ; preds = %239
-  %259 = and i64 %indvars.iv529, 4294967295
+  %259 = and i64 %indvars.iv529, 7
   %switch.gep54 = getelementptr inbounds [5 x i64], ptr @switch.table.ma_channel_map_apply_f32.46, i64 0, i64 %259
   %switch.load55 = load i64, ptr %switch.gep54, align 8
   br label %ma_channel_map_get_channel.exit350.us.us.us
@@ -32356,12 +32356,12 @@ switch.lookup56:                                  ; preds = %242
   br label %ma_channel_map_get_channel.exit350.us.us.us
 
 switch.lookup59:                                  ; preds = %245
-  %switch.idx.cast = and i64 %indvars.iv529, 4294967295
+  %switch.idx.cast = and i64 %indvars.iv529, 3
   %switch.offset = add nuw nsw i64 %switch.idx.cast, 2
   br label %ma_channel_map_get_channel.exit350.us.us.us
 
 switch.lookup60:                                  ; preds = %249
-  %261 = and i64 %indvars.iv529, 4294967295
+  %261 = and i64 %indvars.iv529, 7
   %switch.gep61 = getelementptr inbounds [7 x i64], ptr @switch.table.ma_channel_map_apply_f32.48, i64 0, i64 %261
   %switch.load62 = load i64, ptr %switch.gep61, align 8
   br label %ma_channel_map_get_channel.exit350.us.us.us
@@ -72125,7 +72125,7 @@ stb_vorbis_get_file_offset.exit.i:                ; preds = %354, %348, %344
   br i1 %258, label %.lr.ph205.i, label %._crit_edge206.i
 
 .lr.ph205.i:                                      ; preds = %.loopexit.i
-  %wide.trip.count.i = and i64 %indvars.iv.i, 4294967295
+  %wide.trip.count.i = and i64 %indvars.iv.i, 2147483647
   br label %372
 
 372:                                              ; preds = %skip.exit.i, %.lr.ph205.i
@@ -84763,7 +84763,7 @@ define hidden noalias noundef ptr @qoa_read(ptr nocapture noundef readonly %0, p
 
 11:                                               ; preds = %4
   %12 = tail call i32 @fseek(ptr noundef nonnull %3, i64 noundef 0, i32 noundef 0)
-  %13 = and i64 %6, 4294967295
+  %13 = and i64 %6, 2147483647
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #83
   %.not22 = icmp eq ptr %14, null
   br i1 %.not22, label %15, label %17

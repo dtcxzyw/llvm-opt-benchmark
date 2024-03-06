@@ -920,7 +920,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %48 = add nsw i32 %29, -2
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %48, ptr %49, align 8
-  %50 = and i64 %21, 4294967295
+  %50 = and i64 %21, 2147483647
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -2
   %.val.i = load i8, ptr %52, align 1
@@ -941,7 +941,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %61 = add nsw i32 %29, -3
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %61, ptr %62, align 8
-  %63 = and i64 %21, 4294967295
+  %63 = and i64 %21, 2147483647
   %64 = getelementptr inbounds i8, ptr %27, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -3
   %66 = getelementptr i8, ptr %64, i64 -2
@@ -958,7 +958,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %74 = add nsw i32 %29, -4
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %74, ptr %75, align 8
-  %76 = and i64 %21, 4294967295
+  %76 = and i64 %21, 2147483647
   %77 = getelementptr inbounds i8, ptr %27, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 1
@@ -4223,7 +4223,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %48 = add nsw i32 %29, -2
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %48, ptr %49, align 8
-  %50 = and i64 %21, 4294967295
+  %50 = and i64 %21, 2147483647
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -2
   %.val.i = load i8, ptr %52, align 1
@@ -4244,7 +4244,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %61 = add nsw i32 %29, -3
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %61, ptr %62, align 8
-  %63 = and i64 %21, 4294967295
+  %63 = and i64 %21, 2147483647
   %64 = getelementptr inbounds i8, ptr %27, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -3
   %66 = getelementptr i8, ptr %64, i64 -2
@@ -4261,7 +4261,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %74 = add nsw i32 %29, -4
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %74, ptr %75, align 8
-  %76 = and i64 %21, 4294967295
+  %76 = and i64 %21, 2147483647
   %77 = getelementptr inbounds i8, ptr %27, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 1
@@ -4583,7 +4583,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %48 = add nsw i32 %29, -2
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %48, ptr %49, align 8
-  %50 = and i64 %21, 4294967295
+  %50 = and i64 %21, 2147483647
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -2
   %.val.i = load i8, ptr %52, align 1
@@ -4604,7 +4604,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %61 = add nsw i32 %29, -3
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %61, ptr %62, align 8
-  %63 = and i64 %21, 4294967295
+  %63 = and i64 %21, 2147483647
   %64 = getelementptr inbounds i8, ptr %27, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -3
   %66 = getelementptr i8, ptr %64, i64 -2
@@ -4621,7 +4621,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %74 = add nsw i32 %29, -4
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %74, ptr %75, align 8
-  %76 = and i64 %21, 4294967295
+  %76 = and i64 %21, 2147483647
   %77 = getelementptr inbounds i8, ptr %27, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 1
@@ -4943,7 +4943,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %48 = add nsw i32 %29, -2
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %48, ptr %49, align 8
-  %50 = and i64 %21, 4294967295
+  %50 = and i64 %21, 2147483647
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -2
   %.val.i = load i8, ptr %52, align 1
@@ -4964,7 +4964,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %61 = add nsw i32 %29, -3
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %61, ptr %62, align 8
-  %63 = and i64 %21, 4294967295
+  %63 = and i64 %21, 2147483647
   %64 = getelementptr inbounds i8, ptr %27, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -3
   %66 = getelementptr i8, ptr %64, i64 -2
@@ -4981,7 +4981,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %74 = add nsw i32 %29, -4
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %74, ptr %75, align 8
-  %76 = and i64 %21, 4294967295
+  %76 = and i64 %21, 2147483647
   %77 = getelementptr inbounds i8, ptr %27, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 1
@@ -5303,7 +5303,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %48 = add nsw i32 %29, -2
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %48, ptr %49, align 8
-  %50 = and i64 %21, 4294967295
+  %50 = and i64 %21, 2147483647
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -2
   %.val.i = load i8, ptr %52, align 1
@@ -5324,7 +5324,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %61 = add nsw i32 %29, -3
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %61, ptr %62, align 8
-  %63 = and i64 %21, 4294967295
+  %63 = and i64 %21, 2147483647
   %64 = getelementptr inbounds i8, ptr %27, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -3
   %66 = getelementptr i8, ptr %64, i64 -2
@@ -5341,7 +5341,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %74 = add nsw i32 %29, -4
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %74, ptr %75, align 8
-  %76 = and i64 %21, 4294967295
+  %76 = and i64 %21, 2147483647
   %77 = getelementptr inbounds i8, ptr %27, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 1
@@ -5663,7 +5663,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %48 = add nsw i32 %29, -2
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %48, ptr %49, align 8
-  %50 = and i64 %21, 4294967295
+  %50 = and i64 %21, 2147483647
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -2
   %.val.i = load i8, ptr %52, align 1
@@ -5684,7 +5684,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %61 = add nsw i32 %29, -3
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %61, ptr %62, align 8
-  %63 = and i64 %21, 4294967295
+  %63 = and i64 %21, 2147483647
   %64 = getelementptr inbounds i8, ptr %27, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -3
   %66 = getelementptr i8, ptr %64, i64 -2
@@ -5701,7 +5701,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %74 = add nsw i32 %29, -4
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %74, ptr %75, align 8
-  %76 = and i64 %21, 4294967295
+  %76 = and i64 %21, 2147483647
   %77 = getelementptr inbounds i8, ptr %27, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 1
@@ -6023,7 +6023,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %48 = add nsw i32 %29, -2
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %48, ptr %49, align 8
-  %50 = and i64 %21, 4294967295
+  %50 = and i64 %21, 2147483647
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -2
   %.val.i = load i8, ptr %52, align 1
@@ -6044,7 +6044,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %61 = add nsw i32 %29, -3
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %61, ptr %62, align 8
-  %63 = and i64 %21, 4294967295
+  %63 = and i64 %21, 2147483647
   %64 = getelementptr inbounds i8, ptr %27, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -3
   %66 = getelementptr i8, ptr %64, i64 -2
@@ -6061,7 +6061,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %74 = add nsw i32 %29, -4
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %74, ptr %75, align 8
-  %76 = and i64 %21, 4294967295
+  %76 = and i64 %21, 2147483647
   %77 = getelementptr inbounds i8, ptr %27, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 1
@@ -6383,7 +6383,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %48 = add nsw i32 %29, -2
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %48, ptr %49, align 8
-  %50 = and i64 %21, 4294967295
+  %50 = and i64 %21, 2147483647
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -2
   %.val.i = load i8, ptr %52, align 1
@@ -6404,7 +6404,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %61 = add nsw i32 %29, -3
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %61, ptr %62, align 8
-  %63 = and i64 %21, 4294967295
+  %63 = and i64 %21, 2147483647
   %64 = getelementptr inbounds i8, ptr %27, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -3
   %66 = getelementptr i8, ptr %64, i64 -2
@@ -6421,7 +6421,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %74 = add nsw i32 %29, -4
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %74, ptr %75, align 8
-  %76 = and i64 %21, 4294967295
+  %76 = and i64 %21, 2147483647
   %77 = getelementptr inbounds i8, ptr %27, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 1
@@ -6743,7 +6743,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %48 = add nsw i32 %29, -2
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %48, ptr %49, align 8
-  %50 = and i64 %21, 4294967295
+  %50 = and i64 %21, 2147483647
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -2
   %.val.i = load i8, ptr %52, align 1
@@ -6764,7 +6764,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %61 = add nsw i32 %29, -3
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %61, ptr %62, align 8
-  %63 = and i64 %21, 4294967295
+  %63 = and i64 %21, 2147483647
   %64 = getelementptr inbounds i8, ptr %27, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -3
   %66 = getelementptr i8, ptr %64, i64 -2
@@ -6781,7 +6781,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %74 = add nsw i32 %29, -4
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %74, ptr %75, align 8
-  %76 = and i64 %21, 4294967295
+  %76 = and i64 %21, 2147483647
   %77 = getelementptr inbounds i8, ptr %27, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 1
@@ -7217,7 +7217,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %48 = add nsw i32 %29, -2
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %48, ptr %49, align 8
-  %50 = and i64 %21, 4294967295
+  %50 = and i64 %21, 2147483647
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -2
   %.val.i = load i8, ptr %52, align 1
@@ -7238,7 +7238,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %61 = add nsw i32 %29, -3
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %61, ptr %62, align 8
-  %63 = and i64 %21, 4294967295
+  %63 = and i64 %21, 2147483647
   %64 = getelementptr inbounds i8, ptr %27, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -3
   %66 = getelementptr i8, ptr %64, i64 -2
@@ -7255,7 +7255,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %74 = add nsw i32 %29, -4
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %74, ptr %75, align 8
-  %76 = and i64 %21, 4294967295
+  %76 = and i64 %21, 2147483647
   %77 = getelementptr inbounds i8, ptr %27, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 1
@@ -7691,7 +7691,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %48 = add nsw i32 %29, -2
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %48, ptr %49, align 8
-  %50 = and i64 %21, 4294967295
+  %50 = and i64 %21, 2147483647
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -2
   %.val.i = load i8, ptr %52, align 1
@@ -7712,7 +7712,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %61 = add nsw i32 %29, -3
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %61, ptr %62, align 8
-  %63 = and i64 %21, 4294967295
+  %63 = and i64 %21, 2147483647
   %64 = getelementptr inbounds i8, ptr %27, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -3
   %66 = getelementptr i8, ptr %64, i64 -2
@@ -7729,7 +7729,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %74 = add nsw i32 %29, -4
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %74, ptr %75, align 8
-  %76 = and i64 %21, 4294967295
+  %76 = and i64 %21, 2147483647
   %77 = getelementptr inbounds i8, ptr %27, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 1
@@ -8165,7 +8165,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %48 = add nsw i32 %29, -2
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %48, ptr %49, align 8
-  %50 = and i64 %21, 4294967295
+  %50 = and i64 %21, 2147483647
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -2
   %.val.i = load i8, ptr %52, align 1
@@ -8186,7 +8186,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %61 = add nsw i32 %29, -3
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %61, ptr %62, align 8
-  %63 = and i64 %21, 4294967295
+  %63 = and i64 %21, 2147483647
   %64 = getelementptr inbounds i8, ptr %27, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -3
   %66 = getelementptr i8, ptr %64, i64 -2
@@ -8203,7 +8203,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %74 = add nsw i32 %29, -4
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %74, ptr %75, align 8
-  %76 = and i64 %21, 4294967295
+  %76 = and i64 %21, 2147483647
   %77 = getelementptr inbounds i8, ptr %27, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 1
@@ -8639,7 +8639,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %48 = add nsw i32 %29, -2
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %48, ptr %49, align 8
-  %50 = and i64 %21, 4294967295
+  %50 = and i64 %21, 2147483647
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -2
   %.val.i = load i8, ptr %52, align 1
@@ -8660,7 +8660,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %61 = add nsw i32 %29, -3
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %61, ptr %62, align 8
-  %63 = and i64 %21, 4294967295
+  %63 = and i64 %21, 2147483647
   %64 = getelementptr inbounds i8, ptr %27, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -3
   %66 = getelementptr i8, ptr %64, i64 -2
@@ -8677,7 +8677,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %74 = add nsw i32 %29, -4
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %74, ptr %75, align 8
-  %76 = and i64 %21, 4294967295
+  %76 = and i64 %21, 2147483647
   %77 = getelementptr inbounds i8, ptr %27, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 1
@@ -9113,7 +9113,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %48 = add nsw i32 %29, -2
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %48, ptr %49, align 8
-  %50 = and i64 %21, 4294967295
+  %50 = and i64 %21, 2147483647
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -2
   %.val.i = load i8, ptr %52, align 1
@@ -9134,7 +9134,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %61 = add nsw i32 %29, -3
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %61, ptr %62, align 8
-  %63 = and i64 %21, 4294967295
+  %63 = and i64 %21, 2147483647
   %64 = getelementptr inbounds i8, ptr %27, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -3
   %66 = getelementptr i8, ptr %64, i64 -2
@@ -9151,7 +9151,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %74 = add nsw i32 %29, -4
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %74, ptr %75, align 8
-  %76 = and i64 %21, 4294967295
+  %76 = and i64 %21, 2147483647
   %77 = getelementptr inbounds i8, ptr %27, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 1
@@ -9587,7 +9587,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %48 = add nsw i32 %29, -2
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %48, ptr %49, align 8
-  %50 = and i64 %21, 4294967295
+  %50 = and i64 %21, 2147483647
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -2
   %.val.i = load i8, ptr %52, align 1
@@ -9608,7 +9608,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %61 = add nsw i32 %29, -3
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %61, ptr %62, align 8
-  %63 = and i64 %21, 4294967295
+  %63 = and i64 %21, 2147483647
   %64 = getelementptr inbounds i8, ptr %27, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -3
   %66 = getelementptr i8, ptr %64, i64 -2
@@ -9625,7 +9625,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %74 = add nsw i32 %29, -4
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %74, ptr %75, align 8
-  %76 = and i64 %21, 4294967295
+  %76 = and i64 %21, 2147483647
   %77 = getelementptr inbounds i8, ptr %27, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 1
@@ -9947,7 +9947,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %48 = add nsw i32 %29, -2
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %48, ptr %49, align 8
-  %50 = and i64 %21, 4294967295
+  %50 = and i64 %21, 2147483647
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -2
   %.val.i = load i8, ptr %52, align 1
@@ -9968,7 +9968,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %61 = add nsw i32 %29, -3
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %61, ptr %62, align 8
-  %63 = and i64 %21, 4294967295
+  %63 = and i64 %21, 2147483647
   %64 = getelementptr inbounds i8, ptr %27, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -3
   %66 = getelementptr i8, ptr %64, i64 -2
@@ -9985,7 +9985,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %74 = add nsw i32 %29, -4
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %74, ptr %75, align 8
-  %76 = and i64 %21, 4294967295
+  %76 = and i64 %21, 2147483647
   %77 = getelementptr inbounds i8, ptr %27, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 1
@@ -10307,7 +10307,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %48 = add nsw i32 %29, -2
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %48, ptr %49, align 8
-  %50 = and i64 %21, 4294967295
+  %50 = and i64 %21, 2147483647
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -2
   %.val.i = load i8, ptr %52, align 1
@@ -10328,7 +10328,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %61 = add nsw i32 %29, -3
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %61, ptr %62, align 8
-  %63 = and i64 %21, 4294967295
+  %63 = and i64 %21, 2147483647
   %64 = getelementptr inbounds i8, ptr %27, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -3
   %66 = getelementptr i8, ptr %64, i64 -2
@@ -10345,7 +10345,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %74 = add nsw i32 %29, -4
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %74, ptr %75, align 8
-  %76 = and i64 %21, 4294967295
+  %76 = and i64 %21, 2147483647
   %77 = getelementptr inbounds i8, ptr %27, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 1
@@ -10667,7 +10667,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %48 = add nsw i32 %29, -2
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %48, ptr %49, align 8
-  %50 = and i64 %21, 4294967295
+  %50 = and i64 %21, 2147483647
   %51 = getelementptr inbounds i8, ptr %27, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -2
   %.val.i = load i8, ptr %52, align 1
@@ -10688,7 +10688,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %61 = add nsw i32 %29, -3
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %61, ptr %62, align 8
-  %63 = and i64 %21, 4294967295
+  %63 = and i64 %21, 2147483647
   %64 = getelementptr inbounds i8, ptr %27, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -3
   %66 = getelementptr i8, ptr %64, i64 -2
@@ -10705,7 +10705,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %74 = add nsw i32 %29, -4
   %75 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %74, ptr %75, align 8
-  %76 = and i64 %21, 4294967295
+  %76 = and i64 %21, 2147483647
   %77 = getelementptr inbounds i8, ptr %27, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 1

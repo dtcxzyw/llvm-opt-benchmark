@@ -201,7 +201,7 @@ Vec_StrFree.exit:                                 ; preds = %Wlc_ComputeSum.exit
 
 .lr.ph.i63.preheader:                             ; preds = %._crit_edge78
   %55 = lshr i64 %indvars.iv, 1
-  %56 = and i64 %55, 2147483647
+  %56 = and i64 %55, 1073741823
   br label %.lr.ph.i63
 
 .lr.ph.i63:                                       ; preds = %.lr.ph.i63.preheader, %.lr.ph.i63

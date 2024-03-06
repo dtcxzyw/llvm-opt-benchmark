@@ -1413,7 +1413,7 @@ _ZNK12Transduction7ManUtilIN6NewBdd3ManEjLj4294967295EE6UpdateERjj.exit76: ; pre
   br i1 %352, label %.lr.ph.preheader.i, label %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE10ShufflePisEi.exit
 
 .lr.ph.preheader.i:                               ; preds = %344
-  %353 = and i64 %350, 4294967295
+  %353 = and i64 %350, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -6793,7 +6793,7 @@ _ZNK12Transduction7ManUtilIN5NewTt3ManEjLj4294967295EE6UpdateERjj.exit71: ; pred
   br i1 %327, label %.lr.ph.preheader.i, label %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE10ShufflePisEi.exit
 
 .lr.ph.preheader.i:                               ; preds = %319
-  %328 = and i64 %325, 4294967295
+  %328 = and i64 %325, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i

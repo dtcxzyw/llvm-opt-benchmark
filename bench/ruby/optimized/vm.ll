@@ -23100,7 +23100,7 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   br i1 %18, label %19, label %40
 
 19:                                               ; preds = %RARRAY_LENINT.exit
-  %20 = and i64 %.0.i.i, 4294967295
+  %20 = and i64 %.0.i.i, 2147483647
   %21 = tail call i64 @rb_ary_subseq(i64 noundef %2, i64 noundef 0, i64 noundef %20) #20
   store i64 %21, ptr %4, align 8
   %22 = inttoptr i64 %21 to ptr
@@ -45010,7 +45010,7 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
 
 rb_array_const_ptr.exit:                          ; preds = %22, %24
   %.0.i = phi ptr [ %23, %22 ], [ %26, %24 ]
-  %27 = and i64 %.0.i.i, 4294967295
+  %27 = and i64 %.0.i.i, 2147483647
   %28 = getelementptr i64, ptr %.0.i, i64 %27
   %29 = getelementptr i8, ptr %28, i64 -8
   %30 = load i64, ptr %29, align 8

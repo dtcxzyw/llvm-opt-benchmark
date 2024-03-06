@@ -2091,7 +2091,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %80
   br label %.loopexit
 
 98:                                               ; preds = %33
-  %99 = and i64 %13, 4294967295
+  %99 = and i64 %13, 2147483647
   %100 = load ptr, ptr %2, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 736
   %102 = load i64, ptr %101, align 8

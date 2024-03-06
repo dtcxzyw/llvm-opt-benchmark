@@ -7994,7 +7994,7 @@ list_length.exit193.thread:                       ; preds = %list_length.exit191
   br i1 %60, label %61, label %.thread206
 
 61:                                               ; preds = %58
-  %62 = and i64 %indvars.iv284, 4294967295
+  %62 = and i64 %indvars.iv284, 2147483647
   %63 = getelementptr ptr, ptr %20, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = tail call ptr @lappend(ptr noundef %64, ptr noundef %35) #12

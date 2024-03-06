@@ -1450,7 +1450,7 @@ define dso_local noundef i32 @irq_matrix_reserve_managed(ptr noundef %0, ptr noc
 19:                                               ; preds = %15
   %20 = load ptr, ptr %3, align 8
   %21 = ptrtoint ptr %20 to i64
-  %22 = and i64 %16, 4294967295
+  %22 = and i64 %16, 63
   %23 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %21
@@ -1538,8 +1538,8 @@ define dso_local noundef i32 @irq_matrix_reserve_managed(ptr noundef %0, ptr noc
   br label %74
 
 74:                                               ; preds = %53, %54, %67, %71
-  %75 = add i64 %16, 1
-  %76 = and i64 %75, 4294967295
+  %75 = add nuw nsw i64 %16, 1
+  %76 = and i64 %75, 127
   %77 = icmp ugt i64 %76, 63
   br i1 %77, label %.thread, label %9, !prof !64, !llvm.loop !65
 
@@ -1560,8 +1560,8 @@ define dso_local noundef i32 @irq_matrix_reserve_managed(ptr noundef %0, ptr noc
   br i1 %88, label %.thread, label %89
 
 89:                                               ; preds = %83
-  %90 = add i64 %84, 1
-  %91 = and i64 %90, 4294967295
+  %90 = add nuw nsw i64 %84, 1
+  %91 = and i64 %90, 127
   %92 = getelementptr [65 x [1 x i64]], ptr @cpu_bit_bitmap, i64 0, i64 %91
   tail call void @irq_matrix_remove_managed(ptr noundef %0, ptr noundef %92)
   %93 = icmp ugt i64 %91, 63
@@ -1597,7 +1597,7 @@ define dso_local void @irq_matrix_remove_managed(ptr noundef %0, ptr nocapture n
 17:                                               ; preds = %13
   %18 = load ptr, ptr %3, align 8
   %19 = ptrtoint ptr %18 to i64
-  %20 = and i64 %14, 4294967295
+  %20 = and i64 %14, 63
   %21 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %19
@@ -1691,8 +1691,8 @@ define dso_local void @irq_matrix_remove_managed(ptr noundef %0, ptr nocapture n
   br label %72
 
 72:                                               ; preds = %69, %65, %52, %51, %38, %28
-  %73 = add i64 %14, 1
-  %74 = and i64 %73, 4294967295
+  %73 = add nuw nsw i64 %14, 1
+  %74 = and i64 %73, 127
   %75 = icmp ugt i64 %74, 63
   br i1 %75, label %.thread, label %7, !prof !64, !llvm.loop !78
 
@@ -1728,7 +1728,7 @@ define dso_local i32 @irq_matrix_alloc_managed(ptr noundef %0, ptr nocapture nou
 19:                                               ; preds = %15
   %20 = load ptr, ptr %7, align 8
   %21 = ptrtoint ptr %20 to i64
-  %22 = and i64 %16, 4294967295
+  %22 = and i64 %16, 63
   %23 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %21
@@ -1749,8 +1749,8 @@ define dso_local i32 @irq_matrix_alloc_managed(ptr noundef %0, ptr nocapture nou
 36:                                               ; preds = %30, %19
   %37 = phi i32 [ %11, %19 ], [ %34, %30 ]
   %38 = phi i32 [ %10, %19 ], [ %35, %30 ]
-  %39 = add i64 %16, 1
-  %40 = and i64 %39, 4294967295
+  %39 = add nuw nsw i64 %16, 1
+  %40 = and i64 %39, 127
   %41 = icmp ugt i64 %40, 63
   br i1 %41, label %.thread, label %8, !prof !64, !llvm.loop !79
 
@@ -2078,7 +2078,7 @@ define dso_local i32 @irq_matrix_alloc(ptr noundef %0, ptr nocapture noundef rea
 20:                                               ; preds = %16
   %21 = load ptr, ptr %8, align 8
   %22 = ptrtoint ptr %21 to i64
-  %23 = and i64 %17, 4294967295
+  %23 = and i64 %17, 63
   %24 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %22
@@ -2098,8 +2098,8 @@ define dso_local i32 @irq_matrix_alloc(ptr noundef %0, ptr nocapture noundef rea
 36:                                               ; preds = %31, %20
   %37 = phi i32 [ %12, %20 ], [ %34, %31 ]
   %38 = phi i32 [ %11, %20 ], [ %35, %31 ]
-  %39 = add i64 %17, 1
-  %40 = and i64 %39, 4294967295
+  %39 = add nuw nsw i64 %17, 1
+  %40 = and i64 %39, 127
   %41 = icmp ugt i64 %40, 63
   br i1 %41, label %.thread, label %9, !prof !64, !llvm.loop !105
 

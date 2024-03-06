@@ -1606,14 +1606,14 @@ writer_reinit_block_writer.exit:                  ; preds = %while.body, %if.the
   br i1 %cmp866, label %for.body.preheader, label %for.end36
 
 for.body.preheader:                               ; preds = %writer_reinit_block_writer.exit
-  %wide.trip.count = and i64 %11, 4294967295
+  %wide.trip.count = and i64 %11, 2147483647
   br label %for.body
 
 for.cond28.preheader:                             ; preds = %for.inc
   br i1 %cmp866, label %for.body31.preheader, label %for.end36
 
 for.body31.preheader:                             ; preds = %for.cond28.preheader
-  %wide.trip.count83 = and i64 %11, 4294967295
+  %wide.trip.count83 = and i64 %11, 2147483647
   br label %for.body31
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc

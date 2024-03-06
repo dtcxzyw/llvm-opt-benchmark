@@ -184,7 +184,7 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
   br i1 %50, label %.lr.ph41.preheader, label %._crit_edge
 
 .lr.ph41.preheader:                               ; preds = %.split
-  %51 = and i64 %48, 4294967295
+  %51 = and i64 %48, 2147483647
   br label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41

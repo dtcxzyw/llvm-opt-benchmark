@@ -4045,7 +4045,7 @@ _ZN10rcIntArrayixEi.exit297.i:                    ; preds = %.noexc406, %.noexc4
 
 .lr.ph.i299.i:                                    ; preds = %_ZN10rcIntArrayixEi.exit297.i
   %1832 = lshr i64 %1828, 2
-  %wide.trip.count.i300.i = and i64 %1832, 1073741823
+  %wide.trip.count.i300.i = and i64 %1832, 536870911
   %1833 = extractelement <2 x float> %1822, i64 0
   %1834 = extractelement <2 x float> %1822, i64 1
   br label %1835

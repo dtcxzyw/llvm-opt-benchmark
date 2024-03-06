@@ -2027,7 +2027,7 @@ define internal fastcc void @_bt_restore_page(ptr noundef %0, ptr noundef %1, i3
   br i1 %20, label %21, label %35
 
 21:                                               ; preds = %19
-  %22 = and i64 %indvars.iv.next, 4294967295
+  %22 = and i64 %indvars.iv.next, 2147483647
   %23 = getelementptr [408 x ptr], ptr %4, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr [408 x i16], ptr %5, i64 0, i64 %22

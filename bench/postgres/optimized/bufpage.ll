@@ -1315,7 +1315,7 @@ define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext 
 76:                                               ; preds = %66
   %77 = zext nneg i32 %44 to i64
   %78 = getelementptr [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %77
-  %79 = and i64 %73, 4294967295
+  %79 = and i64 %73, 2147483647
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %78, ptr align 4 %70, i64 %79, i1 false)
   %.pre = load i16, ptr %7, align 2
   %.pre82 = zext i16 %.pre to i32

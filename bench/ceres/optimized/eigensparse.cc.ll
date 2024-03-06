@@ -1648,7 +1648,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit.i: ; preds = %39
   br i1 %45, label %.lr.ph.preheader.i, label %_ZN5Eigen17PermutationMatrixILin1ELin1EiEC2IS1_EERKNS_11InverseImplIT_NS_18PermutationStorageEEE.exit
 
 .lr.ph.preheader.i:                               ; preds = %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit.i
-  %wide.trip.count.i = and i64 %34, 4294967295
+  %wide.trip.count.i = and i64 %34, 2147483647
   %46 = load ptr, ptr %20, align 8
   br label %.lr.ph.i
 
@@ -1762,7 +1762,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %20, %17
   %29 = getelementptr inbounds i8, ptr %1, i64 48
   %30 = getelementptr inbounds i8, ptr %1, i64 24
   %31 = getelementptr inbounds i8, ptr %1, i64 32
-  %wide.trip.count = and i64 %5, 4294967295
+  %wide.trip.count = and i64 %5, 2147483647
   br label %32
 
 32:                                               ; preds = %.lr.ph69, %._crit_edge
@@ -1883,7 +1883,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIiED2Ev.exit: ; preds = %70, %72
 .lr.ph73:                                         ; preds = %._crit_edge70
   %not. = xor i1 %2, true
   %88 = zext i1 %not. to i32
-  %wide.trip.count80 = and i64 %5, 4294967295
+  %wide.trip.count80 = and i64 %5, 2147483647
   br label %89
 
 89:                                               ; preds = %.lr.ph73, %89
@@ -3009,7 +3009,7 @@ _ZN5Eigen12SparseMatrixIdLi0EiE14resizeNonZerosEl.exit: ; preds = %_ZNK5Eigen20S
   br i1 %144, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %118
-  %wide.trip.count = and i64 %4, 4294967295
+  %wide.trip.count = and i64 %4, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3078,7 +3078,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIiED2Ev.exit: ; preds = %151, %1
   br i1 %166, label %._crit_edge799, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge789
-  %wide.trip.count.i = and i64 %4, 4294967295
+  %wide.trip.count.i = and i64 %4, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %170, %.lr.ph.preheader.i
@@ -3103,7 +3103,7 @@ _ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit: ; preds = %170
 .lr.ph798:                                        ; preds = %_ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit
   %171 = sub nuw i32 -2, %5
   %172 = getelementptr inbounds i32, ptr %120, i64 %154
-  %wide.trip.count953 = and i64 %4, 4294967295
+  %wide.trip.count953 = and i64 %4, 2147483647
   br label %173
 
 173:                                              ; preds = %.lr.ph798, %209
@@ -3211,10 +3211,10 @@ _ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit: ; preds = %170
   br i1 %214, label %.preheader778.lr.ph, label %.preheader771
 
 .preheader778.lr.ph:                              ; preds = %._crit_edge799
-  %wide.trip.count.i515 = and i64 %4, 4294967295
+  %wide.trip.count.i515 = and i64 %4, 2147483647
   %sext1040 = shl i64 %4, 32
   %215 = ashr exact i64 %sext1040, 32
-  %wide.trip.count962 = and i64 %4, 4294967295
+  %wide.trip.count962 = and i64 %4, 2147483647
   br label %.preheader778
 
 .preheader778:                                    ; preds = %.preheader778.lr.ph, %564
@@ -3234,7 +3234,7 @@ _ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit: ; preds = %170
   br i1 %144, label %.lr.ph918.preheader, label %.preheader770
 
 .lr.ph918.preheader:                              ; preds = %.preheader771
-  %wide.trip.count1016 = and i64 %4, 4294967295
+  %wide.trip.count1016 = and i64 %4, 2147483647
   br label %.lr.ph918
 
 .lr.ph801:                                        ; preds = %.lr.ph801.preheader, %221
@@ -4091,11 +4091,11 @@ select.unfold:                                    ; preds = %513
   %569 = zext nneg i32 %89 to i64
   %570 = shl nuw nsw i64 %569, 2
   call void @llvm.memset.p0.i64(ptr align 4 %126, i8 -1, i64 %570, i1 false)
-  %571 = and i64 %4, 4294967295
+  %571 = and i64 %4, 2147483647
   br label %.lr.ph923
 
 .lr.ph925.preheader:                              ; preds = %587
-  %572 = and i64 %4, 4294967295
+  %572 = and i64 %4, 2147483647
   br label %.lr.ph925
 
 .lr.ph923:                                        ; preds = %.lr.ph923.preheader, %587
@@ -6922,8 +6922,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.p
   %52 = getelementptr inbounds i8, ptr %0, i64 104
   %53 = getelementptr inbounds i8, ptr %0, i64 176
   %54 = getelementptr inbounds i8, ptr %0, i64 168
-  %55 = and i64 %4, 4294967295
-  %wide.trip.count205 = and i64 %4, 4294967295
+  %55 = and i64 %4, 2147483647
+  %wide.trip.count205 = and i64 %4, 2147483647
   br label %56
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit: ; preds = %._crit_edge185
@@ -9536,7 +9536,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit.i: ; preds = %41
   br i1 %47, label %.lr.ph.preheader.i, label %_ZN5Eigen17PermutationMatrixILin1ELin1EiEC2IS1_EERKNS_11InverseImplIT_NS_18PermutationStorageEEE.exit
 
 .lr.ph.preheader.i:                               ; preds = %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit.i
-  %wide.trip.count.i = and i64 %36, 4294967295
+  %wide.trip.count.i = and i64 %36, 2147483647
   %48 = load ptr, ptr %19, align 8
   br label %.lr.ph.i
 
@@ -9650,7 +9650,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %20, %17
   %29 = getelementptr inbounds i8, ptr %1, i64 48
   %30 = getelementptr inbounds i8, ptr %1, i64 24
   %31 = getelementptr inbounds i8, ptr %1, i64 32
-  %wide.trip.count = and i64 %5, 4294967295
+  %wide.trip.count = and i64 %5, 2147483647
   br label %32
 
 32:                                               ; preds = %.lr.ph69, %._crit_edge
@@ -9771,7 +9771,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIiED2Ev.exit: ; preds = %70, %72
 .lr.ph73:                                         ; preds = %._crit_edge70
   %not. = xor i1 %2, true
   %88 = zext i1 %not. to i32
-  %wide.trip.count80 = and i64 %5, 4294967295
+  %wide.trip.count80 = and i64 %5, 2147483647
   br label %89
 
 89:                                               ; preds = %.lr.ph73, %89
@@ -10018,8 +10018,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.p
   %52 = getelementptr inbounds i8, ptr %0, i64 104
   %53 = getelementptr inbounds i8, ptr %0, i64 176
   %54 = getelementptr inbounds i8, ptr %0, i64 168
-  %55 = and i64 %4, 4294967295
-  %wide.trip.count205 = and i64 %4, 4294967295
+  %55 = and i64 %4, 2147483647
+  %wide.trip.count205 = and i64 %4, 2147483647
   br label %56
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit: ; preds = %._crit_edge185
@@ -11974,7 +11974,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit.i: ; preds = %39
   br i1 %45, label %.lr.ph.preheader.i, label %_ZN5Eigen17PermutationMatrixILin1ELin1EiEC2IS1_EERKNS_11InverseImplIT_NS_18PermutationStorageEEE.exit
 
 .lr.ph.preheader.i:                               ; preds = %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit.i
-  %wide.trip.count.i = and i64 %34, 4294967295
+  %wide.trip.count.i = and i64 %34, 2147483647
   %46 = load ptr, ptr %20, align 8
   br label %.lr.ph.i
 
@@ -12088,7 +12088,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %20, %17
   %29 = getelementptr inbounds i8, ptr %1, i64 48
   %30 = getelementptr inbounds i8, ptr %1, i64 24
   %31 = getelementptr inbounds i8, ptr %1, i64 32
-  %wide.trip.count = and i64 %5, 4294967295
+  %wide.trip.count = and i64 %5, 2147483647
   br label %32
 
 32:                                               ; preds = %.lr.ph68, %._crit_edge
@@ -12209,7 +12209,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIiED2Ev.exit: ; preds = %70, %72
 .lr.ph72:                                         ; preds = %._crit_edge69
   %not. = xor i1 %2, true
   %88 = zext i1 %not. to i32
-  %wide.trip.count79 = and i64 %5, 4294967295
+  %wide.trip.count79 = and i64 %5, 2147483647
   br label %89
 
 89:                                               ; preds = %.lr.ph72, %89
@@ -13275,7 +13275,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIfLi0EiEEE8nonZerosEv.exit: ; 
   br i1 %139, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %113
-  %wide.trip.count = and i64 %4, 4294967295
+  %wide.trip.count = and i64 %4, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -13344,7 +13344,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIiED2Ev.exit: ; preds = %146, %1
   br i1 %161, label %._crit_edge799, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge789
-  %wide.trip.count.i = and i64 %4, 4294967295
+  %wide.trip.count.i = and i64 %4, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %165, %.lr.ph.preheader.i
@@ -13369,7 +13369,7 @@ _ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit: ; preds = %165
 .lr.ph798:                                        ; preds = %_ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit
   %166 = sub nuw i32 -2, %5
   %167 = getelementptr inbounds i32, ptr %115, i64 %149
-  %wide.trip.count953 = and i64 %4, 4294967295
+  %wide.trip.count953 = and i64 %4, 2147483647
   br label %168
 
 168:                                              ; preds = %.lr.ph798, %204
@@ -13477,10 +13477,10 @@ _ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit: ; preds = %165
   br i1 %209, label %.preheader778.lr.ph, label %.preheader771
 
 .preheader778.lr.ph:                              ; preds = %._crit_edge799
-  %wide.trip.count.i515 = and i64 %4, 4294967295
+  %wide.trip.count.i515 = and i64 %4, 2147483647
   %sext1040 = shl i64 %4, 32
   %210 = ashr exact i64 %sext1040, 32
-  %wide.trip.count962 = and i64 %4, 4294967295
+  %wide.trip.count962 = and i64 %4, 2147483647
   br label %.preheader778
 
 .preheader778:                                    ; preds = %.preheader778.lr.ph, %559
@@ -13500,7 +13500,7 @@ _ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit: ; preds = %165
   br i1 %139, label %.lr.ph918.preheader, label %.preheader770
 
 .lr.ph918.preheader:                              ; preds = %.preheader771
-  %wide.trip.count1016 = and i64 %4, 4294967295
+  %wide.trip.count1016 = and i64 %4, 2147483647
   br label %.lr.ph918
 
 .lr.ph801:                                        ; preds = %.lr.ph801.preheader, %216
@@ -14357,11 +14357,11 @@ select.unfold:                                    ; preds = %508
   %564 = zext nneg i32 %89 to i64
   %565 = shl nuw nsw i64 %564, 2
   call void @llvm.memset.p0.i64(ptr align 4 %121, i8 -1, i64 %565, i1 false)
-  %566 = and i64 %4, 4294967295
+  %566 = and i64 %4, 2147483647
   br label %.lr.ph923
 
 .lr.ph925.preheader:                              ; preds = %582
-  %567 = and i64 %4, 4294967295
+  %567 = and i64 %4, 2147483647
   br label %.lr.ph925
 
 .lr.ph923:                                        ; preds = %.lr.ph923.preheader, %582
@@ -17056,8 +17056,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.p
   %48 = getelementptr inbounds i8, ptr %0, i64 104
   %49 = getelementptr inbounds i8, ptr %0, i64 172
   %50 = getelementptr inbounds i8, ptr %0, i64 168
-  %51 = and i64 %4, 4294967295
-  %wide.trip.count207 = and i64 %4, 4294967295
+  %51 = and i64 %4, 2147483647
+  %wide.trip.count207 = and i64 %4, 2147483647
   br label %52
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit: ; preds = %._crit_edge187
@@ -19605,7 +19605,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit.i: ; preds = %41
   br i1 %47, label %.lr.ph.preheader.i, label %_ZN5Eigen17PermutationMatrixILin1ELin1EiEC2IS1_EERKNS_11InverseImplIT_NS_18PermutationStorageEEE.exit
 
 .lr.ph.preheader.i:                               ; preds = %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit.i
-  %wide.trip.count.i = and i64 %36, 4294967295
+  %wide.trip.count.i = and i64 %36, 2147483647
   %48 = load ptr, ptr %19, align 8
   br label %.lr.ph.i
 
@@ -19719,7 +19719,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %20, %17
   %29 = getelementptr inbounds i8, ptr %1, i64 48
   %30 = getelementptr inbounds i8, ptr %1, i64 24
   %31 = getelementptr inbounds i8, ptr %1, i64 32
-  %wide.trip.count = and i64 %5, 4294967295
+  %wide.trip.count = and i64 %5, 2147483647
   br label %32
 
 32:                                               ; preds = %.lr.ph68, %._crit_edge
@@ -19840,7 +19840,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIiED2Ev.exit: ; preds = %70, %72
 .lr.ph72:                                         ; preds = %._crit_edge69
   %not. = xor i1 %2, true
   %88 = zext i1 %not. to i32
-  %wide.trip.count79 = and i64 %5, 4294967295
+  %wide.trip.count79 = and i64 %5, 2147483647
   br label %89
 
 89:                                               ; preds = %.lr.ph72, %89
@@ -20071,8 +20071,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit.p
   %48 = getelementptr inbounds i8, ptr %0, i64 104
   %49 = getelementptr inbounds i8, ptr %0, i64 172
   %50 = getelementptr inbounds i8, ptr %0, i64 168
-  %51 = and i64 %4, 4294967295
-  %wide.trip.count207 = and i64 %4, 4294967295
+  %51 = and i64 %4, 2147483647
+  %wide.trip.count207 = and i64 %4, 2147483647
   br label %52
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit: ; preds = %._crit_edge187

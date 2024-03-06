@@ -327,7 +327,7 @@ define internal fastcc i64 @process_vm_rw(i32 noundef %0, ptr noundef %1, i64 no
   br label %.loopexit
 
 125:                                              ; preds = %123
-  %126 = and i64 %116, 4294967295
+  %126 = and i64 %116, 2147483647
   %127 = shl nuw nsw i64 %126, 12
   %128 = sub nsw i64 %127, %110
   %129 = call i64 @llvm.umin.i64(i64 %128, i64 %107)

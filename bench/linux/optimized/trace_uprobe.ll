@@ -3453,7 +3453,7 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
   br i1 %57, label %58, label %.thread
 
 58:                                               ; preds = %54
-  %59 = and i64 %55, 4294967295
+  %59 = and i64 %55, 63
   %60 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = add i64 %61, ptrtoint (ptr @numa_node to i64)
@@ -3491,8 +3491,8 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
   %87 = add i64 %86, %81
   %88 = inttoptr i64 %87 to ptr
   tail call void @__mutex_init(ptr noundef %88, ptr noundef nonnull @.str.25, ptr noundef nonnull @uprobe_buffer_init.__key) #16
-  %89 = add i64 %55, 1
-  %90 = and i64 %89, 4294967295
+  %89 = add nuw nsw i64 %55, 1
+  %90 = and i64 %89, 127
   %91 = icmp ugt i64 %90, 63
   br i1 %91, label %.thread, label %.preheader27, !prof !75, !llvm.loop !76
 
@@ -3519,7 +3519,7 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
 
 105:                                              ; preds = %98
   %106 = ptrtoint ptr %104 to i64
-  %107 = and i64 %99, 4294967295
+  %107 = and i64 %99, 63
   %108 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %107
   %109 = load i64, ptr %108, align 8
   %110 = add i64 %109, %106
@@ -3528,8 +3528,8 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
   %113 = load ptr, ptr %112, align 8
   %114 = ptrtoint ptr %113 to i64
   tail call void @free_pages(i64 noundef %114, i32 noundef 0) #16
-  %115 = add i64 %99, 1
-  %116 = and i64 %115, 4294967295
+  %115 = add nuw nsw i64 %99, 1
+  %116 = and i64 %115, 127
   %117 = icmp ugt i64 %116, 63
   br i1 %117, label %.thread19, label %.preheader25, !prof !75, !llvm.loop !77
 

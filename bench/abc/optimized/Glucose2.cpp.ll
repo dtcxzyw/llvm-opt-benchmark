@@ -1351,7 +1351,7 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit:      ; preds = %3
 .lr.ph.i.i:                                       ; preds = %54
   %58 = getelementptr inbounds i8, ptr %24, i64 12
   %59 = trunc i96 %55 to i64
-  %wide.trip.count.i.i = and i64 %59, 4294967295
+  %wide.trip.count.i.i = and i64 %59, 2147483647
   br label %60
 
 60:                                               ; preds = %60, %.lr.ph.i.i
@@ -3968,7 +3968,7 @@ _ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit: ; preds = %._crit_edge.i, %1
   %236 = load i32, ptr %119, align 8
   %.fr = freeze i1 %235
   %237 = trunc i96 %229 to i64
-  %wide.trip.count345 = and i64 %237, 4294967295
+  %wide.trip.count345 = and i64 %237, 2147483647
   br i1 %.fr, label %.lr.ph278.split.us, label %.lr.ph278.split
 
 .lr.ph278.split.us:                               ; preds = %.lr.ph278, %246
@@ -3996,7 +3996,7 @@ _ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit: ; preds = %._crit_edge.i, %1
 .lr.ph284:                                        ; preds = %.preheader
   %247 = load ptr, ptr %111, align 8
   %248 = trunc i96 %229 to i64
-  %wide.trip.count350 = and i64 %248, 4294967295
+  %wide.trip.count350 = and i64 %248, 2147483647
   br label %301
 
 .lr.ph278.split:                                  ; preds = %.lr.ph278, %261
@@ -5335,7 +5335,7 @@ define noundef zeroext i1 @_ZNK6Gluco26Solver9satisfiedERKNS_6ClauseE(ptr nocapt
   %10 = getelementptr inbounds i8, ptr %0, i64 632
   %11 = load ptr, ptr %10, align 8
   %12 = trunc i96 %7 to i64
-  %wide.trip.count = and i64 %12, 4294967295
+  %wide.trip.count = and i64 %12, 2147483647
   br label %32
 
 13:                                               ; preds = %2
@@ -9267,7 +9267,7 @@ define void @_ZN6Gluco26Solver15removeSatisfiedERNS_3vecIjEE(ptr nocapture nound
 .lr.ph.i:                                         ; preds = %.preheader.i
   %22 = load ptr, ptr %8, align 8
   %23 = trunc i96 %19 to i64
-  %wide.trip.count.i = and i64 %23, 4294967295
+  %wide.trip.count.i = and i64 %23, 2147483647
   br label %34
 
 24:                                               ; preds = %9
@@ -12297,7 +12297,7 @@ define void @_ZN6Gluco26Solver8toDimacsEP8_IO_FILERNS_6ClauseERNS_3vecIiEERi(ptr
   %14 = getelementptr inbounds i8, ptr %0, i64 632
   %15 = load ptr, ptr %14, align 8
   %16 = trunc i96 %11 to i64
-  %wide.trip.count.i = and i64 %16, 4294967295
+  %wide.trip.count.i = and i64 %16, 2147483647
   br label %37
 
 17:                                               ; preds = %5
@@ -12505,7 +12505,7 @@ define void @_ZN6Gluco26Solver8toDimacsEP8_IO_FILERKNS_3vecINS_3LitEEE(ptr nocap
 
 .lr.ph.i.us:                                      ; preds = %.preheader.i.us
   %33 = trunc i96 %30 to i64
-  %wide.trip.count.i.us = and i64 %33, 4294967295
+  %wide.trip.count.i.us = and i64 %33, 2147483647
   br label %34
 
 34:                                               ; preds = %43, %.lr.ph.i.us
@@ -12648,7 +12648,7 @@ _ZN6Gluco23vecIiED2Ev.exit:                       ; preds = %.loopexit.split-lp,
 .lr.ph.i42:                                       ; preds = %.preheader.i41
   %94 = load ptr, ptr %48, align 8
   %95 = trunc i96 %91 to i64
-  %wide.trip.count.i43 = and i64 %95, 4294967295
+  %wide.trip.count.i43 = and i64 %95, 2147483647
   br label %106
 
 96:                                               ; preds = %76
@@ -13380,7 +13380,7 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit.i:    ; preds = %_ZN6Gluco215RegionA
 .lr.ph.i.i.i:                                     ; preds = %223
   %227 = getelementptr inbounds i8, ptr %193, i64 12
   %228 = trunc i96 %224 to i64
-  %wide.trip.count.i.i.i = and i64 %228, 4294967295
+  %wide.trip.count.i.i.i = and i64 %228, 2147483647
   br label %229
 
 229:                                              ; preds = %229, %.lr.ph.i.i.i
@@ -13487,7 +13487,7 @@ _ZN6Gluco215ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit: ; preds = %._crit_ed
 .lr.ph.i.i62:                                     ; preds = %295
   %299 = getelementptr inbounds i8, ptr %253, i64 12
   %300 = trunc i96 %296 to i64
-  %wide.trip.count.i.i = and i64 %300, 4294967295
+  %wide.trip.count.i.i = and i64 %300, 2147483647
   br label %301
 
 301:                                              ; preds = %301, %.lr.ph.i.i62
@@ -13687,7 +13687,7 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit.i86:  ; preds = %_ZN6Gluco215RegionA
 .lr.ph.i.i.i90:                                   ; preds = %403
   %407 = getelementptr inbounds i8, ptr %373, i64 12
   %408 = trunc i96 %404 to i64
-  %wide.trip.count.i.i.i91 = and i64 %408, 4294967295
+  %wide.trip.count.i.i.i91 = and i64 %408, 2147483647
   br label %409
 
 409:                                              ; preds = %409, %.lr.ph.i.i.i90
@@ -13794,7 +13794,7 @@ _ZN6Gluco215ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit101: ; preds = %._crit
 .lr.ph.i.i72:                                     ; preds = %475
   %479 = getelementptr inbounds i8, ptr %433, i64 12
   %480 = trunc i96 %476 to i64
-  %wide.trip.count.i.i73 = and i64 %480, 4294967295
+  %wide.trip.count.i.i73 = and i64 %480, 2147483647
   br label %481
 
 481:                                              ; preds = %481, %.lr.ph.i.i72
@@ -14079,7 +14079,7 @@ define linkonce_odr void @_ZN6Gluco215ClauseAllocator5relocERjRS0_(ptr noundef n
 .lr.ph.i:                                         ; preds = %73
   %77 = getelementptr inbounds i8, ptr %31, i64 12
   %78 = trunc i96 %74 to i64
-  %wide.trip.count.i = and i64 %78, 4294967295
+  %wide.trip.count.i = and i64 %78, 2147483647
   br label %79
 
 79:                                               ; preds = %79, %.lr.ph.i
@@ -17109,7 +17109,7 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit:      ; preds = %3
 .lr.ph.i.i:                                       ; preds = %56
   %60 = getelementptr inbounds i8, ptr %25, i64 12
   %61 = trunc i96 %57 to i64
-  %wide.trip.count.i.i = and i64 %61, 4294967295
+  %wide.trip.count.i.i = and i64 %61, 2147483647
   br label %62
 
 62:                                               ; preds = %62, %.lr.ph.i.i

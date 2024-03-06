@@ -160,7 +160,7 @@ define internal noundef i32 @dns_resolver_preparse(ptr nocapture noundef %0) #0 
   br i1 %14, label %15, label %66
 
 15:                                               ; preds = %12
-  %16 = and i64 %5, 4294967294
+  %16 = and i64 %5, 2147483646
   %17 = icmp ult i64 %16, 6
   br i1 %17, label %.thread, label %18
 

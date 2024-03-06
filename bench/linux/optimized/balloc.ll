@@ -1660,7 +1660,7 @@ define internal fastcc noundef i32 @ext4_validate_block_bitmap(ptr noundef %0, p
   br i1 %140, label %141, label %ext4_valid_block_bitmap.exit
 
 141:                                              ; preds = %137
-  %142 = and i64 %134, 4294967295
+  %142 = and i64 %134, 2147483647
   %143 = getelementptr inbounds i8, ptr %82, i64 40
   %144 = load i64, ptr %143, align 8
   %145 = add nsw i64 %142, -1

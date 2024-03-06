@@ -3254,7 +3254,7 @@ define internal noundef i64 @sapi_cgi_ub_write(ptr nocapture noundef readonly %0
   %3 = tail call i64 @write(i32 noundef 1, ptr noundef %.01420, i64 noundef %.01321) #28
   %4 = trunc i64 %3 to i32
   %5 = icmp slt i32 %4, 1
-  %6 = and i64 %3, 4294967295
+  %6 = and i64 %3, 2147483647
   %.not1617 = icmp eq i64 %6, 0
   %.not16 = or i1 %5, %.not1617
   br i1 %.not16, label %7, label %9
@@ -3551,7 +3551,7 @@ define internal i64 @sapi_cgi_read_post(ptr nocapture noundef %0, i64 noundef %1
   br i1 %11, label %._crit_edge, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = and i64 %9, 4294967295
+  %13 = and i64 %9, 2147483647
   %14 = add i64 %13, %.015
   %15 = icmp ult i64 %14, %6
   br i1 %15, label %.lr.ph, label %._crit_edge

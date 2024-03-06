@@ -11538,7 +11538,7 @@ select.unfold294:                                 ; preds = %.loopexit404, %sele
 
 1582:                                             ; preds = %1577, %1574
   %1583 = getelementptr inbounds i8, ptr %1568, i64 3
-  %1584 = and i64 %1571, 4294967295
+  %1584 = and i64 %1571, 2147483647
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1583, ptr nonnull align 1 %1568, i64 %1584, i1 false)
   %1585 = getelementptr inbounds i8, ptr %.24.i315, i64 3
   %1586 = add nuw nsw i32 %1572, 3

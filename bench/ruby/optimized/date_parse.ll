@@ -451,7 +451,7 @@ str_end_with_word.exit:                           ; preds = %31, %32
   br i1 %39, label %40, label %str_end_with_word.exit.thread
 
 40:                                               ; preds = %str_end_with_word.exit
-  %41 = and i64 %.lcssa.in.i, 4294967295
+  %41 = and i64 %.lcssa.in.i, 2147483647
   %42 = sub nsw i64 %12, %41
   %.not.i144 = icmp sgt i64 %42, 8
   br i1 %.not.i144, label %43, label %str_end_with_word.exit176.thread
@@ -502,7 +502,7 @@ str_end_with_word.exit159:                        ; preds = %55, %56
   br i1 %63, label %64, label %str_end_with_word.exit159.thread
 
 64:                                               ; preds = %str_end_with_word.exit159
-  %65 = and i64 %.lcssa.in.i155, 4294967295
+  %65 = and i64 %.lcssa.in.i155, 2147483647
   %66 = sub nsw i64 %42, %65
   br label %str_end_with_word.exit176.thread
 
@@ -555,7 +555,7 @@ str_end_with_word.exit176:                        ; preds = %78, %79
   br i1 %86, label %87, label %str_end_with_word.exit176.thread
 
 87:                                               ; preds = %str_end_with_word.exit176
-  %88 = and i64 %.lcssa.in.i172, 4294967295
+  %88 = and i64 %.lcssa.in.i172, 2147483647
   %89 = sub nsw i64 %42, %88
   br label %str_end_with_word.exit176.thread
 
@@ -611,7 +611,7 @@ str_end_with_word.exit193:                        ; preds = %103, %104
   br i1 %111, label %112, label %str_end_with_word.exit176.thread
 
 112:                                              ; preds = %str_end_with_word.exit193
-  %113 = and i64 %.lcssa.in.i189, 4294967295
+  %113 = and i64 %.lcssa.in.i189, 2147483647
   %114 = sub nsw i64 %12, %113
   br label %str_end_with_word.exit176.thread
 

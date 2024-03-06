@@ -34,7 +34,7 @@ define hidden void @tm_free_solution(ptr nocapture noundef %0) local_unnamed_add
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %1
-  %wide.trip.count = and i64 %3, 4294967295
+  %wide.trip.count = and i64 %3, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

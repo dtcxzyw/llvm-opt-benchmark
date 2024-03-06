@@ -17811,7 +17811,7 @@ pmix_obj_new_tma.exit.thread84:                   ; preds = %.lr.ph.i.i, %25
 
 pmix_pointer_array_get_item.exit:                 ; preds = %130
   %.val82 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 21, i32 7), align 8
-  %135 = and i64 %131, 4294967295
+  %135 = and i64 %131, 2147483647
   %136 = getelementptr inbounds ptr, ptr %.val82, i64 %135
   %137 = load ptr, ptr %136, align 8
   %138 = icmp eq ptr %137, null

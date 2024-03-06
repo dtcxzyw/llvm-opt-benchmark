@@ -3917,7 +3917,7 @@ thread-pre-split:                                 ; preds = %49
   br i1 %111, label %112, label %.loopexit
 
 112:                                              ; preds = %110
-  %113 = and i64 %70, 4294967295
+  %113 = and i64 %70, 2147483647
   br label %114
 
 114:                                              ; preds = %114, %112

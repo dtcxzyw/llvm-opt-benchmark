@@ -2662,7 +2662,7 @@ Bac_NtkStartCopies.exit:                          ; preds = %20, %Vec_IntGrow.ex
 
 Bac_BoxBiNum.exit.i:                              ; preds = %69, %.preheader410
   %.0.lcssa.i.i = phi i64 [ 0, %.preheader410 ], [ %indvars.iv.i.i138, %69 ]
-  %73 = and i64 %.0.lcssa.i.i, 4294967295
+  %73 = and i64 %.0.lcssa.i.i, 2147483647
   %74 = getelementptr inbounds i8, ptr %.val124, i64 %73
   %75 = load i8, ptr %74, align 1
   %.mask.i99.i = and i8 %75, -2

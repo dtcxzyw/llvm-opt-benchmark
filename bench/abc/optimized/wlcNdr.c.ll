@@ -4058,7 +4058,7 @@ define void @Ndr_ObjReadConstant(ptr nocapture noundef %0, ptr noundef %1) local
   br i1 %6, label %.lr.ph.preheader, label %.thread
 
 .lr.ph.preheader:                                 ; preds = %3
-  %wide.trip.count = and i64 %4, 4294967295
+  %wide.trip.count = and i64 %4, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10

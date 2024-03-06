@@ -337,7 +337,7 @@ while.end.i103:                                   ; preds = %land.rhs.i
 land.rhs4.preheader.i:                            ; preds = %land.rhs.preheader.i, %while.end.i103
   %indvars.iv.i100.lcssa136 = phi i64 [ %indvars.iv.next.i101122, %while.end.i103 ], [ %27, %land.rhs.preheader.i ]
   %.lcssa116135 = phi i32 [ %30, %while.end.i103 ], [ %.pr.i, %land.rhs.preheader.i ]
-  %wide.trip.count.i = and i64 %indvars.iv.i100.lcssa136, 4294967295
+  %wide.trip.count.i = and i64 %indvars.iv.i100.lcssa136, 2147483647
   br label %land.rhs4.i
 
 land.rhs4.i:                                      ; preds = %while.body9.i, %land.rhs4.preheader.i
@@ -376,7 +376,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %35 = sub nuw nsw i64 %indvars.iv41.i, %33
   %arrayidx.i22.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %35
   store i8 %34, ptr %arrayidx.i22.i, align 1
-  %indvars.iv.next42.i = add nsw i64 %indvars.iv41.i, 1
+  %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %36 = load i32, ptr %length, align 4
   %37 = sext i32 %36 to i64
   %cmp12.i = icmp slt i64 %indvars.iv.next42.i, %37

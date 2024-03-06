@@ -1062,7 +1062,7 @@ find_option.exit206:                              ; preds = %116, %95
   br i1 %126, label %.lr.ph39.i, label %.loopexit291
 
 .lr.ph39.i:                                       ; preds = %125
-  %wide.trip.count.i = and i64 %122, 4294967295
+  %wide.trip.count.i = and i64 %122, 2147483647
   br label %127
 
 127:                                              ; preds = %.loopexit.i, %.lr.ph39.i

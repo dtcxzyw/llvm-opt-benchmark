@@ -2475,7 +2475,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE
   %24 = getelementptr inbounds i8, ptr %1, i64 24
   %25 = getelementptr inbounds i8, ptr %1, i64 16
   %26 = icmp sgt i32 %17, 0
-  %27 = and i64 %16, 4294967295
+  %27 = and i64 %16, 2147483647
   %sext = shl i64 %16, 32
   %28 = ashr exact i64 %sext, 32
   br label %29
@@ -17185,7 +17185,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   br i1 %291, label %.lr.ph.preheader.i.i, label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %._crit_edge187
-  %wide.trip.count.i.i = and i64 %289, 4294967295
+  %wide.trip.count.i.i = and i64 %289, 2147483647
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i

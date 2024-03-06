@@ -44,7 +44,7 @@ new_size.exit:                                    ; preds = %3
   store i32 0, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %14, i64 8
   store i32 %11, ptr %18, align 8
-  %19 = and i64 %10, 4294967295
+  %19 = and i64 %10, 2147483647
   %20 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 8) #11
   %21 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %20, ptr %21, align 8
@@ -158,7 +158,7 @@ new_size.exit.i:                                  ; preds = %2
   store i32 0, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 %10, ptr %17, align 8
-  %18 = and i64 %9, 4294967295
+  %18 = and i64 %9, 2147483647
   %19 = tail call noalias ptr @calloc(i64 noundef %18, i64 noundef 8) #11
   %20 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %19, ptr %20, align 8
@@ -236,7 +236,7 @@ new_size.exit.i:                                  ; preds = %2
   store i32 0, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 %10, ptr %17, align 8
-  %18 = and i64 %9, 4294967295
+  %18 = and i64 %9, 2147483647
   %19 = tail call noalias ptr @calloc(i64 noundef %18, i64 noundef 8) #11
   %20 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %19, ptr %20, align 8
@@ -494,7 +494,7 @@ new_size.exit.i:                                  ; preds = %54
   br i1 %63, label %rehash.exit, label %64
 
 64:                                               ; preds = %new_size.exit.i
-  %65 = and i64 %61, 4294967295
+  %65 = and i64 %61, 2147483647
   %66 = tail call noalias ptr @calloc(i64 noundef %65, i64 noundef 8) #11
   %67 = icmp eq ptr %66, null
   br i1 %67, label %rehash.exit, label %.preheader.i
@@ -620,7 +620,7 @@ new_size.exit.i:                                  ; preds = %16
   br i1 %25, label %rehash.exit, label %26
 
 26:                                               ; preds = %new_size.exit.i
-  %27 = and i64 %23, 4294967295
+  %27 = and i64 %23, 2147483647
   %28 = tail call noalias ptr @calloc(i64 noundef %27, i64 noundef 8) #11
   %29 = icmp eq ptr %28, null
   br i1 %29, label %rehash.exit, label %.preheader.i

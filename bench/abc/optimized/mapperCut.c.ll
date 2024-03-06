@@ -732,7 +732,7 @@ Map_CutList2Array.exit.i:                         ; preds = %.lr.ph.i.i46
   br i1 %292, label %.preheader.i53, label %297
 
 .preheader.i53:                                   ; preds = %Map_CutList2Array.exit.i
-  %wide.trip.count.i54 = and i64 %indvars.iv.next.i.i48, 4294967295
+  %wide.trip.count.i54 = and i64 %indvars.iv.next.i.i48, 2147483647
   br label %293
 
 .thread.i:                                        ; preds = %293
@@ -1766,7 +1766,7 @@ Map_CutList2Array.exit:                           ; preds = %.lr.ph.i
 
 .preheader:                                       ; preds = %Map_CutList2Array.exit
   %12 = getelementptr inbounds i8, ptr %0, i64 1776
-  %wide.trip.count = and i64 %indvars.iv.next.i, 4294967295
+  %wide.trip.count = and i64 %indvars.iv.next.i, 2147483647
   br label %14
 
 .thread:                                          ; preds = %14

@@ -2713,7 +2713,7 @@ define internal void @dmi_check_onboard_devices(ptr nocapture noundef readonly %
 14:                                               ; preds = %6
   %15 = getelementptr i8, ptr %0, i64 4
   %16 = getelementptr inbounds i8, ptr %3, i64 22
-  %17 = and i64 %11, 4294967295
+  %17 = and i64 %11, 2147483647
   br label %18
 
 18:                                               ; preds = %.thread, %14

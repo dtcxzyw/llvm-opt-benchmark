@@ -2746,10 +2746,10 @@ for.cond.us.preheader:                            ; preds = %_ZN5arrow6StatusD2E
   %70 = and i64 %69, 4294967295
   %71 = add nuw nsw i64 %70, 1
   %72 = mul nsw i64 %71, %idx.ext
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
-  %wide.trip.count353 = and i64 %sub.ptr.div.i.i, 4294967295
-  %wide.trip.count358 = and i64 %sub.ptr.div.i.i, 4294967295
-  %wide.trip.count363 = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
+  %wide.trip.count353 = and i64 %sub.ptr.div.i.i, 2147483647
+  %wide.trip.count358 = and i64 %sub.ptr.div.i.i, 2147483647
+  %wide.trip.count363 = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.cond.us
 
 for.cond.us:                                      ; preds = %for.cond.us.preheader, %invoke.cont75.us
@@ -7074,7 +7074,7 @@ if.then.i.i56:                                    ; preds = %for.body.i
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.then.i.i56
   %cmp1.i.i.i.i.i.i = icmp slt i32 %conv.i, 1
-  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 2147483647
   br i1 %cmp1.i.i.i.i.i.i, label %invoke.cont45, label %for.body.i.i.i.i.us
 
 for.body.i.i.i.i.us:                              ; preds = %for.body.i.i.i.i.preheader, %for.inc.i.i.i.i.us
@@ -7554,7 +7554,7 @@ if.then.i.i55:                                    ; preds = %for.body.i
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.then.i.i55
   %cmp1.i.i.i.i.i.i = icmp slt i32 %conv.i, 1
-  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 2147483647
   br i1 %cmp1.i.i.i.i.i.i, label %invoke.cont44, label %for.body.i.i.i.i.us
 
 for.body.i.i.i.i.us:                              ; preds = %for.body.i.i.i.i.preheader, %for.inc.i.i.i.i.us
@@ -8035,7 +8035,7 @@ if.then.i.i55:                                    ; preds = %for.body.i
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.then.i.i55
   %cmp1.i.i.i.i.i.i = icmp slt i32 %conv.i, 1
-  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 2147483647
   br i1 %cmp1.i.i.i.i.i.i, label %invoke.cont44, label %for.body.i.i.i.i.us
 
 for.body.i.i.i.i.us:                              ; preds = %for.body.i.i.i.i.preheader, %for.inc.i.i.i.i.us
@@ -8501,7 +8501,7 @@ if.then.i.i55:                                    ; preds = %for.body.i
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.then.i.i55
   %cmp1.i.i.i.i.i.i = icmp slt i32 %conv.i, 1
-  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 2147483647
   br i1 %cmp1.i.i.i.i.i.i, label %invoke.cont44, label %for.body.i.i.i.i.us
 
 for.body.i.i.i.i.us:                              ; preds = %for.body.i.i.i.i.preheader, %for.inc.i.i.i.i.us
@@ -8984,7 +8984,7 @@ if.then.i.i55:                                    ; preds = %for.body.i
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.then.i.i55
   %cmp1.i.i.i.i.i.i = icmp slt i32 %conv.i, 1
-  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 2147483647
   br i1 %cmp1.i.i.i.i.i.i, label %invoke.cont44, label %for.body.i.i.i.i.us
 
 for.body.i.i.i.i.us:                              ; preds = %for.body.i.i.i.i.preheader, %for.inc.i.i.i.i.us
@@ -9468,7 +9468,7 @@ if.then.i.i62:                                    ; preds = %for.body.i
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.then.i.i62
   %cmp1.i.i.i.i.i.i = icmp slt i32 %conv.i, 1
-  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 2147483647
   br i1 %cmp1.i.i.i.i.i.i, label %invoke.cont44, label %for.body.i.i.i.i.us
 
 for.body.i.i.i.i.us:                              ; preds = %for.body.i.i.i.i.preheader, %for.inc.i.i.i.i.us
@@ -9953,7 +9953,7 @@ if.then.i.i59:                                    ; preds = %for.body.i
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.then.i.i59
   %cmp1.i.i.i.i.i.i = icmp slt i32 %conv.i, 1
-  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 2147483647
   br i1 %cmp1.i.i.i.i.i.i, label %invoke.cont44, label %for.body.i.i.i.i.us
 
 for.body.i.i.i.i.us:                              ; preds = %for.body.i.i.i.i.preheader, %for.inc.i.i.i.i.us
@@ -10423,7 +10423,7 @@ if.then.i.i59:                                    ; preds = %for.body.i
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.then.i.i59
   %cmp1.i.i.i.i.i.i = icmp slt i32 %conv.i, 1
-  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 2147483647
   br i1 %cmp1.i.i.i.i.i.i, label %invoke.cont44, label %for.body.i.i.i.i.us
 
 for.body.i.i.i.i.us:                              ; preds = %for.body.i.i.i.i.preheader, %for.inc.i.i.i.i.us
@@ -10907,7 +10907,7 @@ if.then.i.i55:                                    ; preds = %for.body.i
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.then.i.i55
   %cmp1.i.i.i.i.i.i = icmp slt i32 %conv.i, 1
-  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 2147483647
   br i1 %cmp1.i.i.i.i.i.i, label %invoke.cont44, label %for.body.i.i.i.i.us
 
 for.body.i.i.i.i.us:                              ; preds = %for.body.i.i.i.i.preheader, %for.inc.i.i.i.i.us
@@ -11391,7 +11391,7 @@ if.then.i.i59:                                    ; preds = %for.body.i
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.then.i.i59
   %cmp1.i.i.i.i.i.i = icmp slt i32 %conv.i, 1
-  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 2147483647
   br i1 %cmp1.i.i.i.i.i.i, label %invoke.cont44, label %for.body.i.i.i.i.us
 
 for.body.i.i.i.i.us:                              ; preds = %for.body.i.i.i.i.preheader, %for.inc.i.i.i.i.us
@@ -11876,7 +11876,7 @@ if.then.i.i62:                                    ; preds = %for.body.i
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.then.i.i62
   %cmp1.i.i.i.i.i.i = icmp slt i32 %conv.i, 1
-  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 2147483647
   br i1 %cmp1.i.i.i.i.i.i, label %invoke.cont44, label %for.body.i.i.i.i.us
 
 for.body.i.i.i.i.us:                              ; preds = %for.body.i.i.i.i.preheader, %for.inc.i.i.i.i.us
@@ -12346,7 +12346,7 @@ if.then.i.i59:                                    ; preds = %for.body.i
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.then.i.i59
   %cmp1.i.i.i.i.i.i = icmp slt i32 %conv.i, 1
-  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 2147483647
   br i1 %cmp1.i.i.i.i.i.i, label %invoke.cont44, label %for.body.i.i.i.i.us
 
 for.body.i.i.i.i.us:                              ; preds = %for.body.i.i.i.i.preheader, %for.inc.i.i.i.i.us
@@ -12830,7 +12830,7 @@ if.then.i.i58:                                    ; preds = %for.body.i
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.then.i.i58
   %cmp1.i.i.i.i.i.i = icmp slt i32 %conv.i, 1
-  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 2147483647
   br i1 %cmp1.i.i.i.i.i.i, label %invoke.cont44, label %for.body.i.i.i.i.us
 
 for.body.i.i.i.i.us:                              ; preds = %for.body.i.i.i.i.preheader, %for.inc.i.i.i.i.us
@@ -13313,7 +13313,7 @@ if.then.i.i62:                                    ; preds = %for.body.i
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.then.i.i62
   %cmp1.i.i.i.i.i.i = icmp slt i32 %conv.i, 1
-  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 2147483647
   br i1 %cmp1.i.i.i.i.i.i, label %invoke.cont44, label %for.body.i.i.i.i.us
 
 for.body.i.i.i.i.us:                              ; preds = %for.body.i.i.i.i.preheader, %for.inc.i.i.i.i.us
@@ -13797,7 +13797,7 @@ if.then.i.i62:                                    ; preds = %for.body.i
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.then.i.i62
   %cmp1.i.i.i.i.i.i = icmp slt i32 %conv.i, 1
-  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 2147483647
   br i1 %cmp1.i.i.i.i.i.i, label %invoke.cont44, label %for.body.i.i.i.i.us
 
 for.body.i.i.i.i.us:                              ; preds = %for.body.i.i.i.i.preheader, %for.inc.i.i.i.i.us
@@ -14266,7 +14266,7 @@ if.then.i.i62:                                    ; preds = %for.body.i
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.then.i.i62
   %cmp1.i.i.i.i.i.i = icmp slt i32 %conv.i, 1
-  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %conv.i.i.i.i.i.i = and i64 %sub.ptr.div.i.i, 2147483647
   br i1 %cmp1.i.i.i.i.i.i, label %invoke.cont44, label %for.body.i.i.i.i.us
 
 for.body.i.i.i.i.us:                              ; preds = %for.body.i.i.i.i.preheader, %for.inc.i.i.i.i.us

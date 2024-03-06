@@ -139,7 +139,7 @@ find_unconnected_slot.exit:                       ; preds = %45
 
 51:                                               ; preds = %find_unconnected_slot.exit
   call fastcc void @connect_slot(ptr noundef nonnull %0, i32 noundef %49, ptr noundef %1)
-  %52 = and i64 %indvars.iv.i34, 4294967295
+  %52 = and i64 %indvars.iv.i34, 2147483647
   %53 = getelementptr [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %52
   %54 = getelementptr inbounds i8, ptr %53, i64 8
   store i8 1, ptr %54, align 8
@@ -164,7 +164,7 @@ find_any_idle_slot.exit:                          ; preds = %.lr.ph.i38
   br i1 %60, label %61, label %find_any_idle_slot.exit.thread
 
 61:                                               ; preds = %find_any_idle_slot.exit
-  %62 = and i64 %indvars.iv.i39, 4294967295
+  %62 = and i64 %indvars.iv.i39, 2147483647
   %63 = getelementptr [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %62
   %64 = load ptr, ptr %63, align 8
   call void @disconnectDatabase(ptr noundef %64) #9

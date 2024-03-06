@@ -770,7 +770,7 @@ define i32 @prte_rml_get_num_contributors(ptr noundef readonly %0, i64 noundef %
   br i1 %or.cond, label %.preheader.us.preheader, label %.loopexit21
 
 .preheader.us.preheader:                          ; preds = %.preheader20
-  %wide.trip.count = and i64 %1, 4294967295
+  %wide.trip.count = and i64 %1, 2147483647
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %..loopexit_crit_edge.us

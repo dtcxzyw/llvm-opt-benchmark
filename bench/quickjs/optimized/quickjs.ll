@@ -11572,7 +11572,7 @@ JS_AtomToString.exit:                             ; preds = %21
   br label %js_new_string8.exit
 
 31:                                               ; preds = %21
-  %32 = and i64 %2, 4294967295
+  %32 = and i64 %2, 2147483647
   %33 = add nuw nsw i64 %32, 17
   %34 = load ptr, ptr %24, align 8
   %35 = getelementptr inbounds i8, ptr %24, i64 32
@@ -81013,7 +81013,7 @@ to_digit.exit330:                                 ; preds = %176, %183, %185
   br i1 %243, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %242
-  %wide.trip.count = and i64 %229, 4294967295
+  %wide.trip.count = and i64 %229, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %250
@@ -90932,7 +90932,7 @@ JS_FreeValue.exit47:                              ; preds = %9, %13, %17
   br i1 %70, label %.lr.ph.preheader, label %.loopexit71
 
 .lr.ph.preheader:                                 ; preds = %.preheader70
-  %wide.trip.count = and i64 %26, 4294967295
+  %wide.trip.count = and i64 %26, 2147483647
   %.pre88 = load ptr, ptr %64, align 8
   %71 = getelementptr inbounds i8, ptr %.pre88, i64 16
   br label %.lr.ph
@@ -91059,7 +91059,7 @@ string_buffer_concat.exit:                        ; preds = %.loopexit69, %99, %
   br i1 %126, label %.lr.ph75.preheader, label %.loopexit
 
 .lr.ph75.preheader:                               ; preds = %.preheader
-  %wide.trip.count85 = and i64 %28, 4294967295
+  %wide.trip.count85 = and i64 %28, 2147483647
   %127 = load ptr, ptr %64, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 16
   %129 = load i32, ptr %38, align 8
@@ -111945,7 +111945,7 @@ string_get.exit198:                               ; preds = %245, %249
 
 .thread:                                          ; preds = %262, %272, %274
   %.1241 = phi i32 [ %139, %274 ], [ %139, %272 ], [ %.0126, %262 ]
-  %290 = and i64 %.0.i161.in, 4294967295
+  %290 = and i64 %.0.i161.in, 2147483647
   %291 = sub i32 %.1241, %.0.i161
   br i1 %.not.i164, label %295, label %292
 
@@ -114013,7 +114013,7 @@ string_getc.exit:                                 ; preds = %68, %74, %79, %84
   br i1 %142, label %.lr.ph.i.i, label %string_buffer_puts8.exit.thread
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %wide.trip.count.i.i = and i64 %132, 4294967295
+  %wide.trip.count.i.i = and i64 %132, 2147483647
   %143 = load ptr, ptr %42, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 16
   br label %145
@@ -136333,7 +136333,7 @@ js_malloc.exit.i:                                 ; preds = %1557
 
 .lr.ph.preheader.i:                               ; preds = %js_malloc.exit.i
   %1572 = shl i64 %.val266, 1
-  %1573 = and i64 %1572, 8589934590
+  %1573 = and i64 %1572, 4294967294
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %1563, i8 -1, i64 %1573, i1 false)
   br label %._crit_edge.i290
 
@@ -194280,7 +194280,7 @@ JS_FreeValue.exit379:                             ; preds = %222, %228, %233
   %.sroa.15.2 = phi i64 [ %.sroa.15.1, %.preheader ], [ %.sroa.15.0, %.lr.ph572.split.us ], [ %.sroa.15.0, %.lr.ph572.split ], [ %.sroa.15.1, %214 ], [ %.sroa.15.1, %242 ]
   %246 = trunc i64 %.2 to i32
   %247 = icmp sgt i32 %246, -1
-  %.sroa.0319.0.insert.ext = and i64 %.2, 4294967295
+  %.sroa.0319.0.insert.ext = and i64 %.2, 2147483647
   %248 = uitofp i32 %246 to double
   %249 = bitcast double %248 to i64
   %.sroa.0314.0 = select i1 %247, i64 %.sroa.0319.0.insert.ext, i64 %249
@@ -204328,7 +204328,7 @@ string_buffer_putc8.exit:                         ; preds = %34, %45, %47
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %63 = getelementptr inbounds i8, ptr %7, i64 8
-  %wide.trip.count.i.i = and i64 %52, 4294967295
+  %wide.trip.count.i.i = and i64 %52, 2147483647
   br label %64
 
 64:                                               ; preds = %64, %.lr.ph.i.i
@@ -204439,7 +204439,7 @@ string_buffer_putc8.exit58:                       ; preds = %88, %99, %101
 
 .lr.ph.i.i65:                                     ; preds = %.preheader.i.i60
   %114 = getelementptr inbounds i8, ptr %7, i64 8
-  %wide.trip.count.i.i66 = and i64 %103, 4294967295
+  %wide.trip.count.i.i66 = and i64 %103, 2147483647
   br label %115
 
 115:                                              ; preds = %115, %.lr.ph.i.i65
@@ -204891,7 +204891,7 @@ string_buffer_puts8.exit134:                      ; preds = %.string_buffer_puts
 
 .lr.ph.i.i141:                                    ; preds = %.preheader.i.i136
   %336 = getelementptr inbounds i8, ptr %7, i64 8
-  %wide.trip.count.i.i142 = and i64 %326, 4294967295
+  %wide.trip.count.i.i142 = and i64 %326, 2147483647
   br label %337
 
 337:                                              ; preds = %337, %.lr.ph.i.i141
@@ -208410,7 +208410,7 @@ JS_ToUint32.exit218:                              ; preds = %52, %59
   br i1 %207, label %208, label %209
 
 208:                                              ; preds = %205
-  %.sroa.0194.0.insert.ext = and i64 %.0196, 4294967295
+  %.sroa.0194.0.insert.ext = and i64 %.0196, 2147483647
   br label %221
 
 209:                                              ; preds = %205

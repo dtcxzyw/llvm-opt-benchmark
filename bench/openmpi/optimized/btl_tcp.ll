@@ -66,7 +66,7 @@ define noundef i32 @mca_btl_tcp_add_procs(ptr noundef %0, i64 noundef %1, ptr no
   %12 = getelementptr inbounds i8, ptr %0, i64 808
   %13 = getelementptr inbounds i8, ptr %0, i64 824
   %.not57 = icmp eq ptr %4, null
-  %wide.trip.count74 = and i64 %1, 4294967295
+  %wide.trip.count74 = and i64 %1, 2147483647
   br label %14
 
 14:                                               ; preds = %.lr.ph66, %109
@@ -921,7 +921,7 @@ define i32 @mca_btl_tcp_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 
 
 .lr.ph:                                           ; preds = %4
   %19 = getelementptr inbounds i8, ptr %2, i64 104
-  %wide.trip.count = and i64 %16, 4294967295
+  %wide.trip.count = and i64 %16, 2147483647
   br label %20
 
 20:                                               ; preds = %.lr.ph, %20
@@ -1402,7 +1402,7 @@ define i32 @mca_btl_tcp_recv_blocking(i32 noundef %0, ptr noundef %1, i64 nounde
 
 .outer:                                           ; preds = %.lr.ph28, %.lr.ph28.preheader
   %.lcssa = phi i64 [ %6, %.lr.ph28.preheader ], [ %14, %.lr.ph28 ]
-  %17 = and i64 %.lcssa, 4294967295
+  %17 = and i64 %.lcssa, 2147483647
   %18 = add i64 %17, %.0.ph31
   %19 = icmp ult i64 %18, %2
   br i1 %19, label %.lr.ph.split.us, label %.outer._crit_edge, !llvm.loop !13

@@ -7444,9 +7444,9 @@ define dso_local i64 @satisfies_hash_partition(ptr nocapture noundef readonly %0
 
 .loopexit:                                        ; preds = %262, %216, %.preheader, %191
   %.4 = phi i64 [ 0, %191 ], [ 0, %.preheader ], [ %.1126, %216 ], [ %.3, %262 ]
-  %266 = and i64 %22, 4294967295
+  %266 = and i64 %22, 2147483647
   %267 = urem i64 %.4, %266
-  %268 = and i64 %24, 4294967295
+  %268 = and i64 %24, 2147483647
   %269 = icmp eq i64 %267, %268
   %270 = zext i1 %269 to i64
   br label %271

@@ -447,7 +447,7 @@ if.end14.i:                                       ; preds = %if.else.i, %if.then
   %op.pn.i = phi ptr [ %op.addr.0, %if.then2.i ], [ %10, %if.else.i ]
   store i8 %conv10.sink.i, ptr %op.addr.0, align 1
   %op.addr.0.i = getelementptr i8, ptr %op.pn.i, i64 1
-  %idx.ext15.i = and i64 %sub.ptr.sub74, 4294967295
+  %idx.ext15.i = and i64 %sub.ptr.sub74, 2147483647
   %add.ptr16.i = getelementptr inbounds i8, ptr %op.addr.0.i, i64 %idx.ext15.i
   br label %do.body.i
 
@@ -883,7 +883,7 @@ if.end11:                                         ; preds = %if.end, %entry
   br i1 %or.cond.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end11
-  %shr.i = lshr i32 %conv.i, 2
+  %shr.i = lshr exact i32 %conv.i, 2
   %sub.i = add nsw i32 %shr.i, -58
   br label %_ZN6snappy15CalculateNeededEh.exit
 
@@ -959,7 +959,7 @@ if.else:                                          ; preds = %_ZN6snappy15Calcula
 
 if.then52:                                        ; preds = %if.else
   %scratch_53 = getelementptr inbounds i8, ptr %this, i64 37
-  %conv55 = and i64 %sub.ptr.sub, 4294967295
+  %conv55 = and i64 %sub.ptr.sub, 7
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %scratch_53, ptr nonnull align 1 %ip.0, i64 %conv55, i1 false)
   %18 = load ptr, ptr %this, align 8
   %peeked_57 = getelementptr inbounds i8, ptr %this, i64 32

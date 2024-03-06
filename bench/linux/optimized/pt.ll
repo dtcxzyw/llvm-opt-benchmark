@@ -1391,8 +1391,8 @@ define internal i32 @pt_init() #5 section ".init.text" align 16 {
   %23 = select i1 %19, i32 %22, i32 0
   %24 = add i32 %23, %8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19
-  %25 = add i64 %14, 1
-  %26 = and i64 %25, 4294967295
+  %25 = add nuw nsw i64 %14, 1
+  %26 = and i64 %25, 127
   %27 = icmp ugt i64 %26, 63
   br i1 %27, label %.thread, label %6, !prof !37, !llvm.loop !38
 

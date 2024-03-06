@@ -529,7 +529,7 @@ define noundef i32 @_ZN14dtPathCorridor11findCornersEPfPhPjiP14dtNavMeshQueryPK1
   br i1 %51, label %.lr.ph41.preheader, label %.loopexit
 
 .lr.ph41.preheader:                               ; preds = %._crit_edge
-  %wide.trip.count = and i64 %indvars.iv.lcssa, 4294967295
+  %wide.trip.count = and i64 %indvars.iv.lcssa, 2147483647
   br label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %58

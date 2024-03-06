@@ -265,7 +265,7 @@ mca_han_algorithm_count.exit.i:                   ; preds = %.preheader.i.i
   br i1 %26, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %24
-  %wide.trip.count.i = and i64 %indvars.iv.i.i, 4294967295
+  %wide.trip.count.i = and i64 %indvars.iv.i.i, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i

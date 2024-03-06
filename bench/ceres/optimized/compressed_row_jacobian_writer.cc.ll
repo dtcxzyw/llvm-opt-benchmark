@@ -302,7 +302,7 @@ define hidden void @_ZN5ceres8internal27CompressedRowJacobianWriter25GetOrderedP
   %20 = getelementptr inbounds i8, ptr %8, i64 16
   %21 = getelementptr inbounds i8, ptr %2, i64 8
   %22 = getelementptr inbounds i8, ptr %2, i64 16
-  %wide.trip.count = and i64 %17, 4294967295
+  %wide.trip.count = and i64 %17, 2147483647
   br label %23
 
 23:                                               ; preds = %.lr.ph, %_ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit
@@ -492,7 +492,7 @@ define hidden void @_ZNK5ceres8internal27CompressedRowJacobianWriter14CreateJaco
 
 .lr.ph:                                           ; preds = %.lr.ph215
   %35 = getelementptr inbounds i8, ptr %21, i64 16
-  %wide.trip.count = and i64 %32, 4294967295
+  %wide.trip.count = and i64 %32, 2147483647
   br label %36
 
 36:                                               ; preds = %.lr.ph, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread
@@ -635,7 +635,7 @@ _ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRKiS4_iEENSt8__de
 
 .lr.ph224:                                        ; preds = %.lr.ph247
   %103 = getelementptr inbounds i8, ptr %91, i64 16
-  %wide.trip.count275 = and i64 %100, 4294967295
+  %wide.trip.count275 = and i64 %100, 2147483647
   br label %104
 
 104:                                              ; preds = %.lr.ph224, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit110.thread
@@ -829,7 +829,7 @@ _ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7
 
 .lr.ph251:                                        ; preds = %_ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit
   %170 = getelementptr inbounds i8, ptr %91, i64 16
-  %wide.trip.count295 = and i64 %100, 4294967295
+  %wide.trip.count295 = and i64 %100, 2147483647
   br label %171
 
 171:                                              ; preds = %.lr.ph251, %193

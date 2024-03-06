@@ -7907,7 +7907,7 @@ trans_sweep.exit:                                 ; preds = %89, %89, %89, %89
 
 104:                                              ; preds = %102
   %105 = load ptr, ptr %10, align 8
-  %106 = and i64 %indvars.iv.next113, 4294967295
+  %106 = and i64 %indvars.iv.next113, 2147483647
   %107 = getelementptr %struct.rb_econv_elem_t, ptr %105, i64 %106, i32 5
   %108 = load i32, ptr %107, align 8
   switch i32 %108, label %.loopexit [

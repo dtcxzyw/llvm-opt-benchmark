@@ -1235,7 +1235,7 @@ define noalias noundef ptr @Abc_CexTransformUndc(ptr nocapture noundef readonly 
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %2
-  %wide.trip.count = and i64 %3, 4294967295
+  %wide.trip.count = and i64 %3, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1286,7 +1286,7 @@ define noalias noundef ptr @Abc_CexTransformUndc(ptr nocapture noundef readonly 
   %32 = getelementptr inbounds i8, ptr %0, i64 20
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   %34 = getelementptr inbounds i8, ptr %calloc.i, i64 20
-  %wide.trip.count88 = and i64 %3, 4294967295
+  %wide.trip.count88 = and i64 %3, 2147483647
   br label %39
 
 .preheader64:                                     ; preds = %62, %._crit_edge

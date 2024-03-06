@@ -3139,8 +3139,8 @@ define internal fastcc void @print_local_APICs(i32 noundef %0) unnamed_addr #9 s
 
 16:                                               ; preds = %10
   %17 = tail call i32 @smp_call_function_single(i32 noundef %12, ptr noundef nonnull @print_local_APIC, ptr noundef null, i32 noundef 1) #15
-  %18 = add i64 %11, 1
-  %19 = and i64 %18, 4294967295
+  %18 = add nuw nsw i64 %11, 1
+  %19 = and i64 %18, 127
   %20 = icmp ugt i64 %19, 63
   br i1 %20, label %.thread, label %4, !prof !116, !llvm.loop !117
 

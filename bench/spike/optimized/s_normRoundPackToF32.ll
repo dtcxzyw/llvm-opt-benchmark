@@ -30,29 +30,29 @@ define i32 @softfloat_normRoundPackToF32(i1 noundef zeroext %0, i64 noundef %1, 
   %20 = trunc i64 %17 to i32
   %21 = icmp ult i32 %20, 253
   %or.cond = select i1 %19, i1 %21, i1 false
-  br i1 %or.cond, label %22, label %32
+  br i1 %or.cond, label %22, label %31
 
 22:                                               ; preds = %3
   %23 = select i1 %0, i64 2147483648, i64 0
   %.not = icmp eq i64 %2, 0
   %24 = shl i64 %17, 23
-  %25 = select i1 %.not, i64 0, i64 %24
-  %26 = add i64 %25, %23
-  %27 = add nsw i32 %18, -7
-  %28 = zext nneg i32 %27 to i64
-  %29 = shl i64 %2, %28
-  %30 = add i64 %26, %29
-  %31 = trunc i64 %30 to i32
-  br label %36
+  %.masked = select i1 %.not, i64 0, i64 %24
+  %25 = add nsw i32 %18, -7
+  %26 = zext nneg i32 %25 to i64
+  %27 = shl i64 %2, %26
+  %28 = add i64 %27, %23
+  %29 = add i64 %28, %.masked
+  %30 = trunc i64 %29 to i32
+  br label %35
 
-32:                                               ; preds = %3
-  %33 = zext nneg i32 %18 to i64
-  %34 = shl i64 %2, %33
-  %35 = tail call i32 @softfloat_roundPackToF32(i1 noundef zeroext %0, i64 noundef %17, i64 noundef %34) #2
-  br label %36
+31:                                               ; preds = %3
+  %32 = zext nneg i32 %18 to i64
+  %33 = shl i64 %2, %32
+  %34 = tail call i32 @softfloat_roundPackToF32(i1 noundef zeroext %0, i64 noundef %17, i64 noundef %33) #2
+  br label %35
 
-36:                                               ; preds = %32, %22
-  %.sroa.016.0 = phi i32 [ %31, %22 ], [ %35, %32 ]
+35:                                               ; preds = %31, %22
+  %.sroa.016.0 = phi i32 [ %30, %22 ], [ %34, %31 ]
   ret i32 %.sroa.016.0
 }
 

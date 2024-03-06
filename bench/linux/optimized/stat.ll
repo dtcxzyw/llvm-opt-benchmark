@@ -176,7 +176,7 @@ define internal noundef i32 @show_stat(ptr noundef %0, ptr nocapture readnone %1
   br i1 %45, label %46, label %.thread
 
 46:                                               ; preds = %42
-  %47 = and i64 %43, 4294967295
+  %47 = and i64 %43, 63
   %48 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %47
   %49 = load i64, ptr %48, align 8
   %50 = add i64 %49, ptrtoint (ptr @kernel_cpustat to i64)
@@ -275,8 +275,8 @@ define internal noundef i32 @show_stat(ptr noundef %0, ptr nocapture readnone %1
   %120 = add i64 %70, %29
   %121 = add i64 %97, %28
   %122 = add i64 %121, %98
-  %123 = add i64 %43, 1
-  %124 = and i64 %123, 4294967295
+  %123 = add nuw nsw i64 %43, 1
+  %124 = and i64 %123, 127
   %125 = icmp ugt i64 %124, 63
   br i1 %125, label %.thread, label %24, !prof !12, !llvm.loop !13
 
@@ -332,7 +332,7 @@ define internal noundef i32 @show_stat(ptr noundef %0, ptr nocapture readnone %1
   br i1 %146, label %147, label %.thread18
 
 147:                                              ; preds = %143
-  %148 = and i64 %144, 4294967295
+  %148 = and i64 %144, 63
   %149 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %148
   %150 = load i64, ptr %149, align 8
   %151 = add i64 %150, ptrtoint (ptr @kernel_cpustat to i64)
@@ -414,8 +414,8 @@ define internal noundef i32 @show_stat(ptr noundef %0, ptr nocapture readnone %1
   %199 = call i64 @nsec_to_clock_t(i64 noundef %171) #7
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef %199) #7
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #7
-  %200 = add i64 %144, 1
-  %201 = and i64 %200, 4294967295
+  %200 = add nuw nsw i64 %144, 1
+  %201 = and i64 %200, 127
   %202 = icmp ugt i64 %201, 63
   br i1 %202, label %.thread18, label %137, !prof !12, !llvm.loop !14
 

@@ -281,7 +281,7 @@ if.end9:                                          ; preds = %if.else, %if.then5.
   br i1 %cmp2225, label %land.rhs.preheader, label %while.end
 
 land.rhs.preheader:                               ; preds = %if.end9
-  %wide.trip.count = and i64 %.sroa.speculated, 4294967295
+  %wide.trip.count = and i64 %.sroa.speculated, 2147483647
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body

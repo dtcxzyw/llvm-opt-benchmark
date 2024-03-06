@@ -9718,7 +9718,7 @@ define linkonce_odr hidden void @_ZZNK5ceres8internal21PartitionedMatrixViewILi2
   %24 = getelementptr inbounds i8, ptr %0, i64 32
   %25 = sext i32 %10 to i64
   %26 = getelementptr inbounds i8, ptr %0, i64 20
-  %wide.trip.count = and i64 %19, 4294967295
+  %wide.trip.count = and i64 %19, 2147483647
   br label %27
 
 27:                                               ; preds = %.lr.ph, %32
@@ -10000,7 +10000,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNKS0_21PartitionedMatrixViewILi2ELi2ELin1E
 
 .lr.ph.i40:                                       ; preds = %.lr.ph.i
   %107 = sext i32 %95 to i64
-  %wide.trip.count.i = and i64 %104, 4294967295
+  %wide.trip.count.i = and i64 %104, 2147483647
   %108 = and i32 %96, 1
   %.not.i42 = icmp eq i32 %108, 0
   %109 = add nsw i32 %96, -1
@@ -10687,7 +10687,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNKS0_21PartitionedMatrixViewILi2ELi2ELin1E
 
 .lr.ph.i41:                                       ; preds = %.lr.ph.i
   %149 = sext i32 %137 to i64
-  %wide.trip.count.i = and i64 %146, 4294967295
+  %wide.trip.count.i = and i64 %146, 2147483647
   %150 = and i32 %138, 1
   %.not.i43 = icmp eq i32 %150, 0
   %151 = add nsw i32 %138, -1
@@ -11750,7 +11750,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i.i.i
   %117 = sext i32 %105 to i64
-  %wide.trip.count.i = and i64 %114, 4294967295
+  %wide.trip.count.i = and i64 %114, 2147483647
   %118 = and i32 %106, 1
   %.not.i41 = icmp eq i32 %118, 0
   %119 = add nsw i32 %106, -1
@@ -12447,7 +12447,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i.i.i
   %159 = sext i32 %147 to i64
-  %wide.trip.count.i = and i64 %156, 4294967295
+  %wide.trip.count.i = and i64 %156, 2147483647
   %160 = and i32 %148, 1
   %.not.i42 = icmp eq i32 %160, 0
   %161 = add nsw i32 %148, -1
@@ -22485,7 +22485,7 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6Stride
 .lr.ph:                                           ; preds = %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit
   %66 = getelementptr inbounds i8, ptr %0, i64 20
   %67 = getelementptr inbounds i8, ptr %0, i64 24
-  %wide.trip.count = and i64 %63, 4294967295
+  %wide.trip.count = and i64 %63, 2147483647
   br label %68
 
 68:                                               ; preds = %.lr.ph, %73

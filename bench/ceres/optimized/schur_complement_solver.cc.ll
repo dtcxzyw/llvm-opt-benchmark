@@ -1978,7 +1978,7 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EED2Ev.exit: ; preds = %2, %_ZNSt6vect
   br i1 %45, label %.lr.ph243.preheader, label %._crit_edge244
 
 .lr.ph243.preheader:                              ; preds = %.preheader185
-  %46 = and i64 %27, 4294967295
+  %46 = and i64 %27, 2147483647
   br label %.lr.ph243
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EED2Ev.exit, %48
@@ -4689,7 +4689,7 @@ _ZNSt6vectorIN5ceres8internal27SchurEliminatorForOneFBlockILi2ELi3ELi6EE5ChunkES
 
 .lr.ph54:                                         ; preds = %_ZNSt6vectorIN5ceres8internal27SchurEliminatorForOneFBlockILi2ELi3ELi6EE5ChunkESaIS4_EE5clearEv.exit
   %72 = getelementptr inbounds i8, ptr %0, i64 24
-  %73 = and i64 %64, 4294967295
+  %73 = and i64 %64, 2147483647
   br label %74
 
 74:                                               ; preds = %.lr.ph54, %._crit_edge

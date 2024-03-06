@@ -464,7 +464,7 @@ zend_bitset_pop_first.exit154.backedge:           ; preds = %scdf_mark_edge_feas
   %95 = and i64 %94, %91
   store i64 %95, ptr %93, align 8
   %96 = load ptr, ptr %14, align 8
-  %97 = and i64 %85, 4294967295
+  %97 = and i64 %85, 2147483647
   %98 = getelementptr inbounds i32, ptr %96, i64 %97
   %99 = load i32, ptr %98, align 4
   %100 = load ptr, ptr %12, align 8
@@ -666,7 +666,7 @@ zend_bitset_first.exit.i150:                      ; preds = %.lr.ph.i.i147
   %229 = and i64 %228, %225
   store i64 %229, ptr %227, align 8
   %230 = load ptr, ptr %15, align 8
-  %231 = and i64 %220, 4294967295
+  %231 = and i64 %220, 2147483647
   %232 = getelementptr inbounds %struct._zend_basic_block, ptr %230, i64 %231
   %233 = load ptr, ptr %20, align 8
   %234 = getelementptr inbounds %struct._zend_ssa_block, ptr %233, i64 %231

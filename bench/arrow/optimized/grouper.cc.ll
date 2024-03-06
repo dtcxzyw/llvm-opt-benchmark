@@ -11607,7 +11607,7 @@ for.cond.preheader:                               ; preds = %do.end7
   br i1 %cmp20115, label %for.body.preheader, label %for.end84
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body
 
 if.then10:                                        ; preds = %do.end7
@@ -16581,7 +16581,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %3 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   %diff_sink_.i.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
   %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %dict, i64 8
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -17096,7 +17096,7 @@ for.body53.lr.ph:                                 ; preds = %_ZNSt10unique_ptrIN
   %key_types_54 = getelementptr inbounds i8, ptr %this, i64 72
   %col_metadata_ = getelementptr inbounds i8, ptr %this, i64 96
   %cols_ = getelementptr inbounds i8, ptr %this, i64 120
-  %wide.trip.count384 = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count384 = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body53
 
 for.cond100.preheader:                            ; preds = %invoke.cont94, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit
@@ -27095,7 +27095,7 @@ for.cond19.preheader.i:                           ; preds = %if.else.i
   br i1 %cmp2235.i, label %for.body23.preheader.i, label %if.end32.i
 
 for.body23.preheader.i:                           ; preds = %for.cond19.preheader.i
-  %block.sroa.0.0.extract.trunc.mask.i = and i32 %call.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i = and i32 %call.i, 32767
   %conv21.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i to i64
   %14 = add i64 %position.047.i, %conv21.i
   br label %for.body23.i
@@ -27381,7 +27381,7 @@ for.cond19.preheader.i:                           ; preds = %if.else.i
   br i1 %cmp2239.i, label %for.body23.preheader.i, label %if.end32.i
 
 for.body23.preheader.i:                           ; preds = %for.cond19.preheader.i
-  %block.sroa.0.0.extract.trunc.mask.i = and i32 %call.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i = and i32 %call.i, 32767
   %conv21.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i to i64
   %13 = add i64 %position.051.i, %conv21.i
   br label %for.body23.i
@@ -28826,7 +28826,7 @@ for.cond19.preheader.i:                           ; preds = %if.else.i
   br i1 %cmp2234.i, label %for.body23.preheader.i, label %if.end32.i
 
 for.body23.preheader.i:                           ; preds = %for.cond19.preheader.i
-  %block.sroa.0.0.extract.trunc.mask.i = and i32 %call.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i = and i32 %call.i, 32767
   %conv21.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i to i64
   %15 = add i64 %position.046.i, %conv21.i
   br label %for.body23.i
@@ -29003,7 +29003,7 @@ for.cond19.preheader.i:                           ; preds = %if.else.i
   br i1 %cmp2236.i, label %for.body23.preheader.i, label %if.end32.i
 
 for.body23.preheader.i:                           ; preds = %for.cond19.preheader.i
-  %block.sroa.0.0.extract.trunc.mask.i = and i32 %call.i, 65535
+  %block.sroa.0.0.extract.trunc.mask.i = and i32 %call.i, 32767
   %conv21.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i to i64
   %13 = add i64 %position.048.i, %conv21.i
   br label %for.body23.i

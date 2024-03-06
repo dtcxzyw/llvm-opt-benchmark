@@ -926,7 +926,7 @@ select.unfold:                                    ; preds = %25, %22
 
 47:                                               ; preds = %44
   %48 = icmp eq i16 %33, 0
-  %49 = select i1 %48, i64 6, i64 4294967295
+  %49 = select i1 %48, i64 6, i64 7
   %50 = and i64 %49, %5
   %51 = add i64 %1, 4095
   %52 = and i64 %51, -4096
@@ -3197,9 +3197,9 @@ define dso_local i64 @alloc_pages_bulk_array_mempolicy(i32 noundef %0, i64 nound
   %27 = phi ptr [ @default_policy, %3 ], [ @default_policy, %25 ], [ %14, %10 ], [ %21, %19 ]
   %28 = getelementptr inbounds i8, ptr %27, i64 4
   %29 = load i16, ptr %28, align 4
-  switch i16 %29, label %127 [
+  switch i16 %29, label %126 [
     i16 3, label %30
-    i16 5, label %112
+    i16 5, label %111
   ]
 
 30:                                               ; preds = %26
@@ -3211,158 +3211,157 @@ define dso_local i64 @alloc_pages_bulk_array_mempolicy(i32 noundef %0, i64 nound
   br i1 %35, label %36, label %.loopexit
 
 36:                                               ; preds = %30
-  %37 = shl i64 %33, 32
-  %38 = ashr exact i64 %37, 32
-  %39 = udiv i64 %1, %38
-  %40 = mul i64 %39, %33
-  %41 = sub i64 %1, %40
-  %42 = trunc i64 %41 to i32
-  %43 = trunc i64 %39 to i32
-  %44 = add i32 %43, 1
-  %45 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #21
-  %46 = inttoptr i64 %45 to ptr
-  %47 = getelementptr inbounds i8, ptr %46, i64 2440
-  br label %48
+  %37 = and i64 %33, 2147483647
+  %38 = udiv i64 %1, %37
+  %39 = mul i64 %38, %33
+  %40 = sub i64 %1, %39
+  %41 = trunc i64 %40 to i32
+  %42 = trunc i64 %38 to i32
+  %43 = add i32 %42, 1
+  %44 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #21
+  %45 = inttoptr i64 %44 to ptr
+  %46 = getelementptr inbounds i8, ptr %45, i64 2440
+  br label %47
 
-48:                                               ; preds = %105, %36
-  %49 = phi i64 [ 0, %36 ], [ %109, %105 ]
-  %50 = phi i32 [ 0, %36 ], [ %110, %105 ]
-  %51 = phi i32 [ %42, %36 ], [ %106, %105 ]
-  %52 = phi ptr [ %2, %36 ], [ %108, %105 ]
-  %53 = icmp eq i32 %51, 0
-  %54 = load i16, ptr %47, align 8
-  %55 = sext i16 %54 to i32
-  %56 = add nsw i32 %55, 1
-  %57 = icmp ugt i32 %56, 63
+47:                                               ; preds = %104, %36
+  %48 = phi i64 [ 0, %36 ], [ %108, %104 ]
+  %49 = phi i32 [ 0, %36 ], [ %109, %104 ]
+  %50 = phi i32 [ %41, %36 ], [ %105, %104 ]
+  %51 = phi ptr [ %2, %36 ], [ %107, %104 ]
+  %52 = icmp eq i32 %50, 0
+  %53 = load i16, ptr %46, align 8
+  %54 = sext i16 %53 to i32
+  %55 = add nsw i32 %54, 1
+  %56 = icmp ugt i32 %55, 63
   %.pr17.pre = load i64, ptr %31, align 8
-  br i1 %53, label %82, label %58
+  br i1 %52, label %81, label %57
 
-58:                                               ; preds = %48
-  br i1 %57, label %.thread, label %59, !prof !8
+57:                                               ; preds = %47
+  br i1 %56, label %.thread, label %58, !prof !8
 
-59:                                               ; preds = %58
-  %60 = zext nneg i32 %56 to i64
-  %61 = shl nsw i64 -1, %60
-  %62 = and i64 %.pr17.pre, %61
-  %63 = icmp eq i64 %62, 0
-  br i1 %63, label %.thread, label %64
+58:                                               ; preds = %57
+  %59 = zext nneg i32 %55 to i64
+  %60 = shl nsw i64 -1, %59
+  %61 = and i64 %.pr17.pre, %60
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %.thread, label %63
 
-64:                                               ; preds = %59
-  %65 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %62) #20, !srcloc !7
-  %66 = trunc i64 %65 to i32
-  %67 = icmp ugt i32 %66, 63
-  br i1 %67, label %.thread, label %.thread18
+63:                                               ; preds = %58
+  %64 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %61) #20, !srcloc !7
+  %65 = trunc i64 %64 to i32
+  %66 = icmp ugt i32 %65, 63
+  br i1 %66, label %.thread, label %.thread18
 
-.thread:                                          ; preds = %58, %64, %59
-  %68 = icmp eq i64 %.pr17.pre, 0
-  br i1 %68, label %71, label %69
+.thread:                                          ; preds = %57, %63, %58
+  %67 = icmp eq i64 %.pr17.pre, 0
+  br i1 %67, label %70, label %68
 
-69:                                               ; preds = %.thread
-  %70 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.pr17.pre) #20, !srcloc !7
-  br label %71
+68:                                               ; preds = %.thread
+  %69 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.pr17.pre) #20, !srcloc !7
+  br label %70
 
-71:                                               ; preds = %.thread, %69
-  %72 = phi i64 [ %70, %69 ], [ 64, %.thread ]
-  %73 = trunc i64 %72 to i32
-  %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 64)
-  %75 = icmp ult i32 %73, 64
-  br i1 %75, label %.thread18, label %78
+70:                                               ; preds = %.thread, %68
+  %71 = phi i64 [ %69, %68 ], [ 64, %.thread ]
+  %72 = trunc i64 %71 to i32
+  %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 64)
+  %74 = icmp ult i32 %72, 64
+  br i1 %74, label %.thread18, label %77
 
-.thread18:                                        ; preds = %64, %71
-  %76 = phi i32 [ %74, %71 ], [ %66, %64 ]
-  %77 = trunc i32 %76 to i16
-  store i16 %77, ptr %47, align 8
-  br label %78
+.thread18:                                        ; preds = %63, %70
+  %75 = phi i32 [ %73, %70 ], [ %65, %63 ]
+  %76 = trunc i32 %75 to i16
+  store i16 %76, ptr %46, align 8
+  br label %77
 
-78:                                               ; preds = %.thread18, %71
-  %79 = phi i32 [ %76, %.thread18 ], [ 64, %71 ]
-  %80 = tail call i64 @__alloc_pages_bulk(i32 noundef %0, i32 noundef %79, ptr noundef null, i32 noundef %44, ptr noundef null, ptr noundef %52) #19
-  %81 = add i32 %51, -1
-  br label %105
+77:                                               ; preds = %.thread18, %70
+  %78 = phi i32 [ %75, %.thread18 ], [ 64, %70 ]
+  %79 = tail call i64 @__alloc_pages_bulk(i32 noundef %0, i32 noundef %78, ptr noundef null, i32 noundef %43, ptr noundef null, ptr noundef %51) #19
+  %80 = add i32 %50, -1
+  br label %104
 
-82:                                               ; preds = %48
-  br i1 %57, label %.thread16, label %83, !prof !8
+81:                                               ; preds = %47
+  br i1 %56, label %.thread16, label %82, !prof !8
 
-83:                                               ; preds = %82
-  %84 = zext nneg i32 %56 to i64
-  %85 = shl nsw i64 -1, %84
-  %86 = and i64 %.pr17.pre, %85
-  %87 = icmp eq i64 %86, 0
-  br i1 %87, label %.thread16, label %88
+82:                                               ; preds = %81
+  %83 = zext nneg i32 %55 to i64
+  %84 = shl nsw i64 -1, %83
+  %85 = and i64 %.pr17.pre, %84
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %.thread16, label %87
 
-88:                                               ; preds = %83
-  %89 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %86) #20, !srcloc !7
-  %90 = trunc i64 %89 to i32
-  %91 = icmp ugt i32 %90, 63
-  br i1 %91, label %.thread16, label %.thread19
+87:                                               ; preds = %82
+  %88 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %85) #20, !srcloc !7
+  %89 = trunc i64 %88 to i32
+  %90 = icmp ugt i32 %89, 63
+  br i1 %90, label %.thread16, label %.thread19
 
-.thread16:                                        ; preds = %82, %88, %83
-  %92 = icmp eq i64 %.pr17.pre, 0
-  br i1 %92, label %95, label %93
+.thread16:                                        ; preds = %81, %87, %82
+  %91 = icmp eq i64 %.pr17.pre, 0
+  br i1 %91, label %94, label %92
 
-93:                                               ; preds = %.thread16
-  %94 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.pr17.pre) #20, !srcloc !7
-  br label %95
+92:                                               ; preds = %.thread16
+  %93 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.pr17.pre) #20, !srcloc !7
+  br label %94
 
-95:                                               ; preds = %.thread16, %93
-  %96 = phi i64 [ %94, %93 ], [ 64, %.thread16 ]
-  %97 = trunc i64 %96 to i32
-  %98 = tail call i32 @llvm.umin.i32(i32 %97, i32 64)
-  %99 = icmp ult i32 %97, 64
-  br i1 %99, label %.thread19, label %102
+94:                                               ; preds = %.thread16, %92
+  %95 = phi i64 [ %93, %92 ], [ 64, %.thread16 ]
+  %96 = trunc i64 %95 to i32
+  %97 = tail call i32 @llvm.umin.i32(i32 %96, i32 64)
+  %98 = icmp ult i32 %96, 64
+  br i1 %98, label %.thread19, label %101
 
-.thread19:                                        ; preds = %88, %95
-  %100 = phi i32 [ %98, %95 ], [ %90, %88 ]
-  %101 = trunc i32 %100 to i16
-  store i16 %101, ptr %47, align 8
-  br label %102
+.thread19:                                        ; preds = %87, %94
+  %99 = phi i32 [ %97, %94 ], [ %89, %87 ]
+  %100 = trunc i32 %99 to i16
+  store i16 %100, ptr %46, align 8
+  br label %101
 
-102:                                              ; preds = %.thread19, %95
-  %103 = phi i32 [ %100, %.thread19 ], [ 64, %95 ]
-  %104 = tail call i64 @__alloc_pages_bulk(i32 noundef %0, i32 noundef %103, ptr noundef null, i32 noundef %43, ptr noundef null, ptr noundef %52) #19
-  br label %105
+101:                                              ; preds = %.thread19, %94
+  %102 = phi i32 [ %99, %.thread19 ], [ 64, %94 ]
+  %103 = tail call i64 @__alloc_pages_bulk(i32 noundef %0, i32 noundef %102, ptr noundef null, i32 noundef %42, ptr noundef null, ptr noundef %51) #19
+  br label %104
 
-105:                                              ; preds = %102, %78
-  %106 = phi i32 [ %81, %78 ], [ 0, %102 ]
-  %107 = phi i64 [ %80, %78 ], [ %104, %102 ]
-  %108 = getelementptr ptr, ptr %52, i64 %107
-  %109 = add i64 %107, %49
-  %110 = add nuw nsw i32 %50, 1
-  %111 = icmp eq i32 %110, %34
-  br i1 %111, label %.loopexit, label %48, !llvm.loop !58
+104:                                              ; preds = %101, %77
+  %105 = phi i32 [ %80, %77 ], [ 0, %101 ]
+  %106 = phi i64 [ %79, %77 ], [ %103, %101 ]
+  %107 = getelementptr ptr, ptr %51, i64 %106
+  %108 = add i64 %106, %48
+  %109 = add nuw nsw i32 %49, 1
+  %110 = icmp eq i32 %109, %34
+  br i1 %110, label %.loopexit, label %47, !llvm.loop !58
 
-112:                                              ; preds = %26
-  %113 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @numa_node) #20, !srcloc !12
-  %114 = and i32 %0, -41985
-  %115 = or disjoint i32 %114, 8192
-  %116 = getelementptr inbounds i8, ptr %27, i64 8
-  %117 = trunc i64 %1 to i32
-  %118 = tail call i64 @__alloc_pages_bulk(i32 noundef %115, i32 noundef %113, ptr noundef %116, i32 noundef %117, ptr noundef null, ptr noundef %2) #19
-  %119 = icmp ult i64 %118, %1
-  br i1 %119, label %120, label %.loopexit
+111:                                              ; preds = %26
+  %112 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @numa_node) #20, !srcloc !12
+  %113 = and i32 %0, -41985
+  %114 = or disjoint i32 %113, 8192
+  %115 = getelementptr inbounds i8, ptr %27, i64 8
+  %116 = trunc i64 %1 to i32
+  %117 = tail call i64 @__alloc_pages_bulk(i32 noundef %114, i32 noundef %112, ptr noundef %115, i32 noundef %116, ptr noundef null, ptr noundef %2) #19
+  %118 = icmp ult i64 %117, %1
+  br i1 %118, label %119, label %.loopexit
 
-120:                                              ; preds = %112
-  %121 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @numa_node) #20, !srcloc !12
-  %122 = sub i64 %1, %118
-  %123 = trunc i64 %122 to i32
-  %124 = getelementptr ptr, ptr %2, i64 %118
-  %125 = tail call i64 @__alloc_pages_bulk(i32 noundef %0, i32 noundef %121, ptr noundef null, i32 noundef %123, ptr noundef null, ptr noundef %124) #19
-  %126 = add i64 %125, %118
+119:                                              ; preds = %111
+  %120 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @numa_node) #20, !srcloc !12
+  %121 = sub i64 %1, %117
+  %122 = trunc i64 %121 to i32
+  %123 = getelementptr ptr, ptr %2, i64 %117
+  %124 = tail call i64 @__alloc_pages_bulk(i32 noundef %0, i32 noundef %120, ptr noundef null, i32 noundef %122, ptr noundef null, ptr noundef %123) #19
+  %125 = add i64 %124, %117
   br label %.loopexit
 
-127:                                              ; preds = %26
-  %128 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @numa_node) #20, !srcloc !12
-  store i32 %128, ptr %4, align 4
-  %129 = call fastcc ptr @policy_nodemask(i32 noundef %0, ptr noundef %27, i64 noundef -1, ptr noundef nonnull %4)
-  %130 = load i32, ptr %4, align 4
-  %131 = trunc i64 %1 to i32
-  %132 = tail call i64 @__alloc_pages_bulk(i32 noundef %0, i32 noundef %130, ptr noundef %129, i32 noundef %131, ptr noundef null, ptr noundef %2) #19
+126:                                              ; preds = %26
+  %127 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @numa_node) #20, !srcloc !12
+  store i32 %127, ptr %4, align 4
+  %128 = call fastcc ptr @policy_nodemask(i32 noundef %0, ptr noundef %27, i64 noundef -1, ptr noundef nonnull %4)
+  %129 = load i32, ptr %4, align 4
+  %130 = trunc i64 %1 to i32
+  %131 = tail call i64 @__alloc_pages_bulk(i32 noundef %0, i32 noundef %129, ptr noundef %128, i32 noundef %130, ptr noundef null, ptr noundef %2) #19
   br label %.loopexit
 
-.loopexit:                                        ; preds = %105, %127, %120, %112, %30
-  %133 = phi i64 [ %132, %127 ], [ 0, %30 ], [ %126, %120 ], [ %118, %112 ], [ %109, %105 ]
+.loopexit:                                        ; preds = %104, %126, %119, %111, %30
+  %132 = phi i64 [ %131, %126 ], [ 0, %30 ], [ %125, %119 ], [ %117, %111 ], [ %108, %104 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #19
-  ret i64 %133
+  ret i64 %132
 }
 
 ; Function Attrs: null_pointer_is_valid

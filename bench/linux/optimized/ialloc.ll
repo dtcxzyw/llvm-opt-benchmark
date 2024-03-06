@@ -3503,7 +3503,7 @@ define dso_local i32 @ext4_init_inode_table(ptr noundef %0, i32 noundef %1, i32 
   br i1 %45, label %51, label %46
 
 46:                                               ; preds = %32
-  %47 = and i64 %43, 4294967295
+  %47 = and i64 %43, 2147483647
   %48 = getelementptr inbounds i8, ptr %7, i64 40
   %49 = load i64, ptr %48, align 8
   %50 = icmp ugt i64 %47, %49
@@ -3539,7 +3539,7 @@ define dso_local i32 @ext4_init_inode_table(ptr noundef %0, i32 noundef %1, i32 
 ._crit_edge:                                      ; preds = %27, %61, %53
   %68 = phi i64 [ %43, %61 ], [ %43, %53 ], [ 0, %27 ]
   %69 = call i64 @ext4_inode_table(ptr noundef %0, ptr noundef nonnull %8) #10
-  %70 = and i64 %68, 4294967295
+  %70 = and i64 %68, 2147483647
   %71 = add i64 %69, %70
   %72 = getelementptr inbounds i8, ptr %7, i64 40
   %73 = load i64, ptr %72, align 8

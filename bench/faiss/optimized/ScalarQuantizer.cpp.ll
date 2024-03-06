@@ -6135,7 +6135,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i: ; preds = %42
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i, label %.noexc12.i.i.i.i.i.i
 
 .noexc12.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i
-  %47 = ashr exact i64 %sext.i.i.i.i.i, 30
+  %47 = lshr exact i64 %sext.i.i.i.i.i, 30
   %48 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #26
           to label %.noexc8.i.i.i.i.i unwind label %56
 
@@ -6206,7 +6206,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i.i.i: ; preds = %
   br i1 %.not.i.i.i.i.i.i22.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i, label %.noexc12.i.i23.i.i.i.i
 
 .noexc12.i.i23.i.i.i.i:                           ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i.i.i
-  %64 = ashr exact i64 %sext.i.i.i.i.i, 30
+  %64 = lshr exact i64 %sext.i.i.i.i.i, 30
   %65 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %64) #26
           to label %.noexc8.i24.i.i.i.i unwind label %73
 
@@ -6282,7 +6282,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i.i.i: ; preds = %
   br i1 %.not.i.i.i.i.i.i31.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i, label %.noexc12.i.i32.i.i.i.i
 
 .noexc12.i.i32.i.i.i.i:                           ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i.i.i
-  %94 = ashr exact i64 %sext.i29.i.i.i.i, 30
+  %94 = lshr exact i64 %sext.i29.i.i.i.i, 30
   %95 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %94) #26
           to label %.noexc8.i33.i.i.i.i unwind label %103
 
@@ -6389,7 +6389,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i63.i.i: ; preds = %
   br i1 %.not.i.i.i.i.i.i.i.i64.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i, label %.noexc12.i.i.i.i65.i.i
 
 .noexc12.i.i.i.i65.i.i:                           ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i63.i.i
-  %138 = ashr exact i64 %sext.i.i.i50.i.i, 30
+  %138 = lshr exact i64 %sext.i.i.i50.i.i, 30
   %139 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %138) #26
           to label %.noexc8.i.i.i66.i.i unwind label %147
 
@@ -6456,7 +6456,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i51.i.i: ; preds =
   br i1 %.not.i.i.i.i.i.i22.i.i52.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i, label %.noexc12.i.i23.i.i53.i.i
 
 .noexc12.i.i23.i.i53.i.i:                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i51.i.i
-  %155 = ashr exact i64 %sext.i.i.i50.i.i, 30
+  %155 = lshr exact i64 %sext.i.i.i50.i.i, 30
   %156 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %155) #26
           to label %.noexc8.i24.i.i56.i.i unwind label %164
 
@@ -6532,7 +6532,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i72.i.i: ; preds =
   br i1 %.not.i.i.i.i.i.i31.i.i73.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i, label %.noexc12.i.i32.i.i74.i.i
 
 .noexc12.i.i32.i.i74.i.i:                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i72.i.i
-  %185 = ashr exact i64 %sext.i29.i.i71.i.i, 30
+  %185 = lshr exact i64 %sext.i29.i.i71.i.i, 30
   %186 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %185) #26
           to label %.noexc8.i33.i.i75.i.i unwind label %194
 
@@ -6637,7 +6637,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i94.i.i: ; preds = %
   br i1 %.not.i.i.i.i.i.i.i.i95.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i, label %.noexc12.i.i.i.i96.i.i
 
 .noexc12.i.i.i.i96.i.i:                           ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i94.i.i
-  %227 = ashr exact i64 %sext.i.i.i81.i.i, 30
+  %227 = lshr exact i64 %sext.i.i.i81.i.i, 30
   %228 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %227) #26
           to label %.noexc8.i.i.i97.i.i unwind label %236
 
@@ -6702,7 +6702,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i82.i.i: ; preds =
   br i1 %.not.i.i.i.i.i.i22.i.i83.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i, label %.noexc12.i.i23.i.i84.i.i
 
 .noexc12.i.i23.i.i84.i.i:                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i82.i.i
-  %242 = ashr exact i64 %sext.i.i.i81.i.i, 30
+  %242 = lshr exact i64 %sext.i.i.i81.i.i, 30
   %243 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %242) #26
           to label %.noexc8.i24.i.i87.i.i unwind label %251
 
@@ -6776,7 +6776,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i103.i.i: ; preds 
   br i1 %.not.i.i.i.i.i.i31.i.i104.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i, label %.noexc12.i.i32.i.i105.i.i
 
 .noexc12.i.i32.i.i105.i.i:                        ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i103.i.i
-  %270 = ashr exact i64 %sext.i29.i.i102.i.i, 30
+  %270 = lshr exact i64 %sext.i29.i.i102.i.i, 30
   %271 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %270) #26
           to label %.noexc8.i33.i.i106.i.i unwind label %279
 
@@ -6881,7 +6881,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i125.i.i: ; preds = 
   br i1 %.not.i.i.i.i.i.i.i.i126.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i, label %.noexc12.i.i.i.i127.i.i
 
 .noexc12.i.i.i.i127.i.i:                          ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i125.i.i
-  %312 = ashr exact i64 %sext.i.i.i112.i.i, 30
+  %312 = lshr exact i64 %sext.i.i.i112.i.i, 30
   %313 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %312) #26
           to label %.noexc8.i.i.i128.i.i unwind label %321
 
@@ -6946,7 +6946,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i113.i.i: ; preds 
   br i1 %.not.i.i.i.i.i.i22.i.i114.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i, label %.noexc12.i.i23.i.i115.i.i
 
 .noexc12.i.i23.i.i115.i.i:                        ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i113.i.i
-  %327 = ashr exact i64 %sext.i.i.i112.i.i, 30
+  %327 = lshr exact i64 %sext.i.i.i112.i.i, 30
   %328 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %327) #26
           to label %.noexc8.i24.i.i118.i.i unwind label %336
 
@@ -7020,7 +7020,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i134.i.i: ; preds 
   br i1 %.not.i.i.i.i.i.i31.i.i135.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i, label %.noexc12.i.i32.i.i136.i.i
 
 .noexc12.i.i32.i.i136.i.i:                        ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i134.i.i
-  %355 = ashr exact i64 %sext.i29.i.i133.i.i, 30
+  %355 = lshr exact i64 %sext.i29.i.i133.i.i, 30
   %356 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %355) #26
           to label %.noexc8.i33.i.i137.i.i unwind label %364
 
@@ -7125,7 +7125,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i156.i.i: ; preds = 
   br i1 %.not.i.i.i.i.i.i.i.i157.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i, label %.noexc12.i.i.i.i158.i.i
 
 .noexc12.i.i.i.i158.i.i:                          ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i156.i.i
-  %397 = ashr exact i64 %sext.i.i.i143.i.i, 30
+  %397 = lshr exact i64 %sext.i.i.i143.i.i, 30
   %398 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %397) #26
           to label %.noexc8.i.i.i159.i.i unwind label %406
 
@@ -7190,7 +7190,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i144.i.i: ; preds 
   br i1 %.not.i.i.i.i.i.i22.i.i145.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i, label %.noexc12.i.i23.i.i146.i.i
 
 .noexc12.i.i23.i.i146.i.i:                        ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i144.i.i
-  %412 = ashr exact i64 %sext.i.i.i143.i.i, 30
+  %412 = lshr exact i64 %sext.i.i.i143.i.i, 30
   %413 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %412) #26
           to label %.noexc8.i24.i.i149.i.i unwind label %421
 
@@ -7264,7 +7264,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i165.i.i: ; preds 
   br i1 %.not.i.i.i.i.i.i31.i.i166.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i, label %.noexc12.i.i32.i.i167.i.i
 
 .noexc12.i.i32.i.i167.i.i:                        ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i165.i.i
-  %440 = ashr exact i64 %sext.i29.i.i164.i.i, 30
+  %440 = lshr exact i64 %sext.i29.i.i164.i.i, 30
   %441 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %440) #26
           to label %.noexc8.i33.i.i168.i.i unwind label %449
 
@@ -7362,7 +7362,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i: ; preds = %476
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i, label %.noexc12.i.i.i.i.i
 
 .noexc12.i.i.i.i.i:                               ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i
-  %477 = ashr exact i64 %sext.i.i.i.i, 30
+  %477 = lshr exact i64 %sext.i.i.i.i, 30
   %478 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %477) #26
           to label %.noexc8.i.i.i.i unwind label %486
 
@@ -7423,7 +7423,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i.i: ; preds = %48
   br i1 %.not.i.i.i.i.i.i22.i.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i, label %.noexc12.i.i23.i.i.i
 
 .noexc12.i.i23.i.i.i:                             ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i.i
-  %490 = ashr exact i64 %sext.i.i.i.i, 30
+  %490 = lshr exact i64 %sext.i.i.i.i, 30
   %491 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %490) #26
           to label %.noexc8.i24.i.i.i unwind label %499
 
@@ -7491,7 +7491,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i.i: ; preds = %50
   br i1 %.not.i.i.i.i.i.i31.i.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i, label %.noexc12.i.i32.i.i.i
 
 .noexc12.i.i32.i.i.i:                             ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i.i
-  %514 = ashr exact i64 %sext.i29.i.i.i, 30
+  %514 = lshr exact i64 %sext.i29.i.i.i, 30
   %515 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %514) #26
           to label %.noexc8.i33.i.i.i unwind label %523
 
@@ -7624,7 +7624,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i181.i.i: ; preds = %_
   store i8 %.sink.i.i.i.i, ptr %561, align 8
   %562 = getelementptr inbounds i8, ptr %535, i64 112
   store ptr %2, ptr %562, align 8
-  %563 = ashr exact i64 %sext.i.i175.i.i, 30
+  %563 = lshr exact i64 %sext.i.i175.i.i, 30
   %564 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %563) #26
           to label %.noexc14.i.i.i.i.i unwind label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev.exit.i.i.i.i.i
 
@@ -7726,7 +7726,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i28.i.i.i: ; preds = %_Z
   store i8 %.sink.i30.i.i.i, ptr %588, align 8
   %589 = getelementptr inbounds i8, ptr %535, i64 112
   store ptr %2, ptr %589, align 8
-  %590 = ashr exact i64 %sext.i.i175.i.i, 30
+  %590 = lshr exact i64 %sext.i.i175.i.i, 30
   %591 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %590) #26
           to label %.noexc14.i.i32.i.i.i unwind label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev.exit.i.i31.i.i.i
 
@@ -7830,7 +7830,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i46.i.i.i: ; preds = %_Z
   store i8 %.sink.i47.i.i.i, ptr %621, align 8
   %622 = getelementptr inbounds i8, ptr %535, i64 112
   store ptr %2, ptr %622, align 8
-  %623 = ashr exact i64 %sext.i38.i.i.i, 30
+  %623 = lshr exact i64 %sext.i38.i.i.i, 30
   %624 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %623) #26
           to label %.noexc14.i.i49.i.i.i unwind label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev.exit.i.i48.i.i.i
 
@@ -7929,7 +7929,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i201.i.i: ; preds = %6
   br i1 %.not.i.i.i.i.i.i.i202.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i, label %.noexc12.i.i.i203.i.i
 
 .noexc12.i.i.i203.i.i:                            ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i201.i.i
-  %656 = ashr exact i64 %sext.i.i187.i.i, 30
+  %656 = lshr exact i64 %sext.i.i187.i.i, 30
   %657 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %656) #26
           to label %.noexc8.i.i204.i.i unwind label %665
 
@@ -7990,7 +7990,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i188.i.i: ; preds = 
   br i1 %.not.i.i.i.i.i.i22.i189.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i, label %.noexc12.i.i23.i190.i.i
 
 .noexc12.i.i23.i190.i.i:                          ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i188.i.i
-  %669 = ashr exact i64 %sext.i.i187.i.i, 30
+  %669 = lshr exact i64 %sext.i.i187.i.i, 30
   %670 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %669) #26
           to label %.noexc8.i24.i193.i.i unwind label %678
 
@@ -8058,7 +8058,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i210.i.i: ; preds = 
   br i1 %.not.i.i.i.i.i.i31.i211.i.i, label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i, label %.noexc12.i.i32.i212.i.i
 
 .noexc12.i.i32.i212.i.i:                          ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i210.i.i
-  %693 = ashr exact i64 %sext.i29.i209.i.i, 30
+  %693 = lshr exact i64 %sext.i29.i209.i.i, 30
   %694 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %693) #26
           to label %.noexc8.i33.i213.i.i unwind label %702
 

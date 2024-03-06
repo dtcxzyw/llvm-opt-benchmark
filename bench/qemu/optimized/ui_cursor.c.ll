@@ -233,7 +233,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %or.cond.i, label %if.else, label %cursor_alloc.exit
 
 cursor_alloc.exit:                                ; preds = %for.end
-  %conv37.mask = and i32 %14, 65535
+  %conv37.mask = and i32 %14, 1023
   %conv1.i = zext nneg i32 %conv37.mask to i64
   %15 = shl nuw nsw i16 %conv, 2
   %mul.i = zext nneg i16 %15 to i64

@@ -6086,7 +6086,7 @@ if.then2.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i10.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i:                          ; preds = %if.then2.i.i.i.i.i.i.i.i
   store ptr null, ptr %value_13.i.i.i.i.i.i.i.i, align 8
-  %conv.i.i13.i.i.i.i.i.i = and i64 %.pre.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i13.i.i.i.i.i.i = and i64 %.pre.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i12.i.i.i.i.i.i, ptr align 1 %306, i64 %conv.i.i13.i.i.i.i.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i.i
 
@@ -6695,7 +6695,7 @@ if.then2.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i11.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then2.i.i.i.i.i.i.i.i.i
   store ptr null, ptr %value_13.i.i.i.i.i.i.i.i.i, align 8
-  %conv.i.i14.i.i.i.i.i.i.i = and i64 %.pre.i.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i14.i.i.i.i.i.i.i = and i64 %.pre.i.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i13.i.i.i.i.i.i.i, ptr align 1 %395, i64 %conv.i.i14.i.i.i.i.i.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i.i.i
 
@@ -48150,7 +48150,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i9
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %value_7.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 8
   store ptr null, ptr %value_7.i.i, align 8
-  %conv.i.i12 = and i64 %.pre.i, 4294967295
+  %conv.i.i12 = and i64 %.pre.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i11, ptr align 1 %34, i64 %conv.i.i12, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i
 
@@ -48394,7 +48394,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %value_7.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 8
   store ptr null, ptr %value_7.i.i, align 8
-  %conv.i.i = and i64 %.pre.i, 4294967295
+  %conv.i.i = and i64 %.pre.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i, ptr align 1 %30, i64 %conv.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i
 
@@ -48528,7 +48528,7 @@ if.then2.i:                                       ; preds = %if.end.i
 if.end6.i:                                        ; preds = %if.then2.i
   %value_7.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %value_7.i, align 8
-  %conv.i = and i64 %call, 4294967295
+  %conv.i = and i64 %call, 15
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i, ptr align 1 %data, i64 %conv.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit
 
@@ -48731,7 +48731,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i10
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %value_7.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 8
   store ptr null, ptr %value_7.i.i, align 8
-  %conv.i.i13 = and i64 %.pre.i, 4294967295
+  %conv.i.i13 = and i64 %.pre.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i12, ptr align 1 %42, i64 %conv.i.i13, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i
 

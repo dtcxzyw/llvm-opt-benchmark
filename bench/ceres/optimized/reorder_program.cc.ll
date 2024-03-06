@@ -1791,7 +1791,7 @@ _ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit47: ; preds = %1
   br i1 %178, label %.lr.ph.preheader.i.i.i, label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.exit.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.noexc.i
-  %wide.trip.count.i.i.i = and i64 %166, 4294967295
+  %wide.trip.count.i.i.i = and i64 %166, 2147483647
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
@@ -1852,7 +1852,7 @@ _ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EEC2EmRKS4_.exit.i: ; preds
   br i1 %196, label %.lr.ph.preheader.i, label %.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EEC2EmRKS4_.exit.i
-  %wide.trip.count.i = and i64 %116, 4294967295
+  %wide.trip.count.i = and i64 %116, 2147483647
   %.pre.i = load ptr, ptr %182, align 8
   br label %.lr.ph.i
 
@@ -2716,7 +2716,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc34, %_ZNSt6ve
   br i1 %78, label %.lr.ph.preheader.i.i.i, label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.exit.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.noexc.i
-  %wide.trip.count.i.i.i = and i64 %66, 4294967295
+  %wide.trip.count.i.i.i = and i64 %66, 2147483647
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
@@ -13600,7 +13600,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIiLi0EiEEE8nonZerosEv.exit: ; 
   br i1 %139, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %113
-  %wide.trip.count = and i64 %4, 4294967295
+  %wide.trip.count = and i64 %4, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -13669,7 +13669,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIiED2Ev.exit: ; preds = %146, %1
   br i1 %161, label %._crit_edge799, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge789
-  %wide.trip.count.i = and i64 %4, 4294967295
+  %wide.trip.count.i = and i64 %4, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %165, %.lr.ph.preheader.i
@@ -13694,7 +13694,7 @@ _ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit: ; preds = %165
 .lr.ph798:                                        ; preds = %_ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit
   %166 = sub nuw i32 -2, %5
   %167 = getelementptr inbounds i32, ptr %115, i64 %149
-  %wide.trip.count953 = and i64 %4, 4294967295
+  %wide.trip.count953 = and i64 %4, 2147483647
   br label %168
 
 168:                                              ; preds = %.lr.ph798, %204
@@ -13802,10 +13802,10 @@ _ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit: ; preds = %165
   br i1 %209, label %.preheader778.lr.ph, label %.preheader771
 
 .preheader778.lr.ph:                              ; preds = %._crit_edge799
-  %wide.trip.count.i515 = and i64 %4, 4294967295
+  %wide.trip.count.i515 = and i64 %4, 2147483647
   %sext1040 = shl i64 %4, 32
   %210 = ashr exact i64 %sext1040, 32
-  %wide.trip.count962 = and i64 %4, 4294967295
+  %wide.trip.count962 = and i64 %4, 2147483647
   br label %.preheader778
 
 .preheader778:                                    ; preds = %.preheader778.lr.ph, %559
@@ -13825,7 +13825,7 @@ _ZN5Eigen8internalL9cs_wclearIiEET_S2_S2_PS2_S2_.exit: ; preds = %165
   br i1 %139, label %.lr.ph918.preheader, label %.preheader770
 
 .lr.ph918.preheader:                              ; preds = %.preheader771
-  %wide.trip.count1016 = and i64 %4, 4294967295
+  %wide.trip.count1016 = and i64 %4, 2147483647
   br label %.lr.ph918
 
 .lr.ph801:                                        ; preds = %.lr.ph801.preheader, %216
@@ -14682,11 +14682,11 @@ select.unfold:                                    ; preds = %508
   %564 = zext nneg i32 %89 to i64
   %565 = shl nuw nsw i64 %564, 2
   call void @llvm.memset.p0.i64(ptr align 4 %121, i8 -1, i64 %565, i1 false)
-  %566 = and i64 %4, 4294967295
+  %566 = and i64 %4, 2147483647
   br label %.lr.ph923
 
 .lr.ph925.preheader:                              ; preds = %582
-  %567 = and i64 %4, 4294967295
+  %567 = and i64 %4, 2147483647
   br label %.lr.ph925
 
 .lr.ph923:                                        ; preds = %.lr.ph923.preheader, %582

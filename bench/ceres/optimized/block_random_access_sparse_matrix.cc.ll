@@ -365,7 +365,7 @@ _ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEm.exit: ; preds = 
 
 .lr.ph178.preheader:                              ; preds = %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE6resizeEm.exit
   %125 = load ptr, ptr %89, align 8
-  %wide.trip.count = and i64 %78, 4294967295
+  %wide.trip.count = and i64 %78, 2147483647
   %.pre201 = load ptr, ptr %1, align 8
   br label %.lr.ph178
 
@@ -674,7 +674,7 @@ _ZNSt10unique_ptrIN5ceres8internal17BlockSparseMatrixESt14default_deleteIS2_EED2
 
 .lr.ph187:                                        ; preds = %.critedge64
   %241 = getelementptr inbounds i8, ptr %6, i64 8
-  %wide.trip.count198 = and i64 %78, 4294967295
+  %wide.trip.count198 = and i64 %78, 2147483647
   br label %242
 
 242:                                              ; preds = %.lr.ph187, %._crit_edge185
@@ -1166,7 +1166,7 @@ define hidden void @_ZNK5ceres8internal29BlockRandomAccessSparseMatrix35Symmetri
 
 .lr.ph38:                                         ; preds = %3
   %20 = getelementptr inbounds i8, ptr %6, i64 24
-  %wide.trip.count = and i64 %17, 4294967295
+  %wide.trip.count = and i64 %17, 2147483647
   br label %21
 
 21:                                               ; preds = %.lr.ph38, %._crit_edge

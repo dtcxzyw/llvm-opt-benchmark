@@ -2355,7 +2355,7 @@ define internal void @intel_pstate_update_limits(i32 noundef %0) #0 align 16 {
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr @all_cpu_data, align 8
-  %31 = and i64 %23, 4294967295
+  %31 = and i64 %23, 63
   %32 = getelementptr ptr, ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = load i8, ptr getelementptr inbounds (%struct.global_params, ptr @global, i64 0, i32 2), align 2, !range !13, !noundef !14
@@ -2370,8 +2370,8 @@ define internal void @intel_pstate_update_limits(i32 noundef %0) #0 align 16 {
   br label %40
 
 40:                                               ; preds = %29, %26
-  %41 = add i64 %23, 1
-  %42 = and i64 %41, 4294967295
+  %41 = add nuw nsw i64 %23, 1
+  %42 = and i64 %41, 127
   %43 = icmp ugt i64 %42, 63
   br i1 %43, label %.thread, label %16, !prof !56, !llvm.loop !57
 
@@ -5601,7 +5601,7 @@ define internal fastcc void @intel_pstate_driver_cleanup() unnamed_addr #0 align
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @all_cpu_data, align 8
-  %13 = and i64 %8, 4294967295
+  %13 = and i64 %8, 63
   %14 = getelementptr ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
@@ -5639,8 +5639,8 @@ define internal fastcc void @intel_pstate_driver_cleanup() unnamed_addr #0 align
 
 31:                                               ; preds = %25, %11
   %32 = phi i64 [ %.pre, %25 ], [ %2, %11 ]
-  %33 = add i64 %8, 1
-  %34 = and i64 %33, 4294967295
+  %33 = add nuw nsw i64 %8, 1
+  %34 = and i64 %33, 127
   %35 = icmp ugt i64 %34, 63
   br i1 %35, label %.thread, label %1, !prof !56, !llvm.loop !79
 
@@ -5711,8 +5711,8 @@ define internal i64 @store_hwp_dynamic_boost(ptr nocapture readnone %0, ptr noca
 
 24:                                               ; preds = %20
   call void @cpufreq_update_policy(i32 noundef %22) #26
-  %25 = add i64 %21, 1
-  %26 = and i64 %25, 4294967295
+  %25 = add nuw nsw i64 %21, 1
+  %26 = and i64 %25, 127
   %27 = icmp ugt i64 %26, 63
   br i1 %27, label %.thread, label %14, !prof !56, !llvm.loop !80
 
@@ -5859,8 +5859,8 @@ define internal noundef i64 @store_no_turbo(ptr nocapture readnone %0, ptr nocap
 
 55:                                               ; preds = %51
   call void @cpufreq_update_policy(i32 noundef %53) #26
-  %56 = add i64 %52, 1
-  %57 = and i64 %56, 4294967295
+  %56 = add nuw nsw i64 %52, 1
+  %57 = and i64 %56, 127
   %58 = icmp ugt i64 %57, 63
   br i1 %58, label %.thread, label %45, !prof !56, !llvm.loop !80
 
@@ -6011,8 +6011,8 @@ define internal noundef i64 @store_max_perf_pct(ptr nocapture readnone %0, ptr n
 
 28:                                               ; preds = %24
   call void @cpufreq_update_policy(i32 noundef %26) #26
-  %29 = add i64 %25, 1
-  %30 = and i64 %29, 4294967295
+  %29 = add nuw nsw i64 %25, 1
+  %30 = and i64 %29, 127
   %31 = icmp ugt i64 %30, 63
   br i1 %31, label %.thread, label %.preheader, !prof !56, !llvm.loop !80
 
@@ -6054,7 +6054,7 @@ define internal fastcc void @update_qos_request(i32 noundef %0) unnamed_addr #0 
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr @all_cpu_data, align 8
-  %17 = and i64 %12, 4294967295
+  %17 = and i64 %12, 63
   %18 = getelementptr ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr @cpufreq_cpu_get(i32 noundef %13) #26
@@ -6135,8 +6135,8 @@ define internal fastcc void @update_qos_request(i32 noundef %0) unnamed_addr #0 
   br label %67
 
 67:                                               ; preds = %65, %54, %22, %15
-  %68 = add i64 %12, 1
-  %69 = and i64 %68, 4294967295
+  %68 = add nuw nsw i64 %12, 1
+  %69 = and i64 %68, 127
   %70 = icmp ugt i64 %69, 63
   br i1 %70, label %.thread, label %5, !prof !56, !llvm.loop !81
 
@@ -6221,8 +6221,8 @@ define internal noundef i64 @store_min_perf_pct(ptr nocapture readnone %0, ptr n
 
 40:                                               ; preds = %36
   call void @cpufreq_update_policy(i32 noundef %38) #26
-  %41 = add i64 %37, 1
-  %42 = and i64 %41, 4294967295
+  %41 = add nuw nsw i64 %37, 1
+  %42 = and i64 %41, 127
   %43 = icmp ugt i64 %42, 63
   br i1 %43, label %.thread, label %.preheader, !prof !56, !llvm.loop !80
 

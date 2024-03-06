@@ -800,7 +800,7 @@ Bac_ObjNameStr.exit.i:                            ; preds = %Bac_ObjName.exit.th
 
 Bac_BoxBiNum.exit.i:                              ; preds = %64, %.preheader.i
   %.0.lcssa.i.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.i.i, %64 ]
-  %68 = and i64 %.0.lcssa.i.i, 4294967295
+  %68 = and i64 %.0.lcssa.i.i, 2147483647
   %.not53.i = icmp eq i64 %68, %indvars.iv296
   %69 = select i1 %.not53.i, ptr @.str.10, ptr @.str.65
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %25, ptr noundef nonnull %69)
@@ -1657,7 +1657,7 @@ define internal fastcc void @Vec_StrPrintStr(ptr nocapture noundef %0, ptr nocap
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
-  %wide.trip.count = and i64 %3, 4294967295
+  %wide.trip.count = and i64 %3, 2147483647
   br label %7
 
 7:                                                ; preds = %.lr.ph, %Vec_StrPush.exit
@@ -3360,7 +3360,7 @@ Bac_ManFindRealNameId.exit:                       ; preds = %292, %295
 .lr.ph.i319:                                      ; preds = %Bac_ManFindRealNameId.exit
   %307 = getelementptr inbounds i8, ptr %.val193.val194, i64 4
   %.phi.trans.insert.i.i320 = getelementptr inbounds i8, ptr %.val193.val194, i64 8
-  %wide.trip.count.i321 = and i64 %304, 4294967295
+  %wide.trip.count.i321 = and i64 %304, 2147483647
   br label %308
 
 308:                                              ; preds = %Vec_StrPush.exit.i325, %.lr.ph.i319

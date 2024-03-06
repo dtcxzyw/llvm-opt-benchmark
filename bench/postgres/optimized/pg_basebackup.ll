@@ -3980,7 +3980,7 @@ define internal fastcc ptr @CreateBackupStreamer(ptr noundef %0, ptr noundef %1,
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %18
-  %22 = and i64 %9, 4294967295
+  %22 = and i64 %9, 2147483647
   %23 = getelementptr i8, ptr %0, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -4
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(5) @.str.256) #18

@@ -21342,7 +21342,7 @@ if.then.i.i:                                      ; preds = %invoke.cont23
   br i1 %cmp.i.i, label %invoke.cont25, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %conv.i.i.i = and i64 %21, 4294967295
+  %conv.i.i.i = and i64 %21, 15
   %agg.tmp.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %20, i64 %conv.i.i.i, i1 false)
   %agg.tmp.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 8
@@ -21786,7 +21786,7 @@ if.then.i.i320:                                   ; preds = %invoke.cont72
   br i1 %cmp.i.i322, label %invoke.cont74, label %if.end.i.i323
 
 if.end.i.i323:                                    ; preds = %if.then.i.i320
-  %conv.i.i.i324 = and i64 %72, 4294967295
+  %conv.i.i.i324 = and i64 %72, 15
   %agg.tmp70.sroa.0.4.inlined.i.i321.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp70.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp70.sroa.0.4.inlined.i.i321.sroa_idx, ptr align 1 %71, i64 %conv.i.i.i324, i1 false)
   %agg.tmp70.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp70.sroa.0, i64 8
@@ -22064,7 +22064,7 @@ if.then.i.i413:                                   ; preds = %if.then88
   br i1 %cmp.i.i415, label %_ZN6duckdb8string_tC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit418, label %if.end.i.i416
 
 if.end.i.i416:                                    ; preds = %if.then.i.i413
-  %conv.i.i.i417 = and i64 %106, 4294967295
+  %conv.i.i.i417 = and i64 %106, 15
   %agg.tmp89.sroa.0.4.inlined.i.i414.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp89.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp89.sroa.0.4.inlined.i.i414.sroa_idx, ptr align 1 %105, i64 %conv.i.i.i417, i1 false)
   %agg.tmp89.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp89.sroa.0, i64 8
@@ -23965,7 +23965,7 @@ if.then.i.i:                                      ; preds = %invoke.cont24
   br i1 %cmp.i.i180, label %invoke.cont26, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %conv.i.i.i = and i64 %26, 4294967295
+  %conv.i.i.i = and i64 %26, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %25, i64 %conv.i.i.i, i1 false)
   %agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8..pre = load ptr, ptr %agg.tmp.sroa.0.8..sroa_idx, align 8
   br label %invoke.cont26
@@ -35199,7 +35199,7 @@ if.then.i.i197:                                   ; preds = %if.else
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i197
-  %conv.i.i.i = and i64 %23, 4294967295
+  %conv.i.i.i = and i64 %23, 15
   %agg.tmp33.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp33.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp33.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %29, i64 %conv.i.i.i, i1 false)
   %agg.tmp33.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp33.sroa.0, i64 8
@@ -35486,7 +35486,7 @@ if.then.i.i:                                      ; preds = %if.else
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %conv.i.i.i = and i64 %8, 4294967295
+  %conv.i.i.i = and i64 %8, 15
   %agg.tmp.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %14, i64 %conv.i.i.i, i1 false)
   %agg.tmp.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 8

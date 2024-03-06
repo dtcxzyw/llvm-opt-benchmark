@@ -9790,7 +9790,7 @@ define linkonce_odr hidden void @_ZZNK5ceres8internal21PartitionedMatrixViewILi3
   %24 = getelementptr inbounds i8, ptr %0, i64 32
   %25 = sext i32 %10 to i64
   %26 = getelementptr inbounds i8, ptr %0, i64 20
-  %wide.trip.count = and i64 %19, 4294967295
+  %wide.trip.count = and i64 %19, 2147483647
   br label %27
 
 27:                                               ; preds = %.lr.ph, %_ZN5ceres8internal29MatrixTransposeVectorMultiplyILi3ELi3ELi1EEEvPKdiiS3_Pd.exit
@@ -10113,7 +10113,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE
 
 .lr.ph.i40:                                       ; preds = %.lr.ph.i
   %107 = sext i32 %95 to i64
-  %wide.trip.count.i = and i64 %104, 4294967295
+  %wide.trip.count.i = and i64 %104, 2147483647
   br label %108
 
 108:                                              ; preds = %_ZN5ceres8internal29MatrixTransposeVectorMultiplyILi3ELi3ELi1EEEvPKdiiS3_Pd.exit.i, %.lr.ph.i40
@@ -10732,7 +10732,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNKS0_21PartitionedMatrixViewILi3ELi3ELi3EE
 
 .lr.ph.i41:                                       ; preds = %.lr.ph.i
   %149 = sext i32 %137 to i64
-  %wide.trip.count.i = and i64 %146, 4294967295
+  %wide.trip.count.i = and i64 %146, 2147483647
   br label %150
 
 150:                                              ; preds = %_ZN5ceres8internal29MatrixTransposeVectorMultiplyILi3ELi3ELi1EEEvPKdiiS3_Pd.exit.i, %.lr.ph.i41
@@ -11727,7 +11727,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i.i.i
   %117 = sext i32 %105 to i64
-  %wide.trip.count.i = and i64 %114, 4294967295
+  %wide.trip.count.i = and i64 %114, 2147483647
   br label %118
 
 118:                                              ; preds = %_ZN5ceres8internal29MatrixTransposeVectorMultiplyILi3ELi3ELi1EEEvPKdiiS3_Pd.exit.i, %.lr.ph.i
@@ -12356,7 +12356,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_11ParallelForIZNKS0_21PartitionedMatri
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i.i.i
   %159 = sext i32 %147 to i64
-  %wide.trip.count.i = and i64 %156, 4294967295
+  %wide.trip.count.i = and i64 %156, 2147483647
   br label %160
 
 160:                                              ; preds = %_ZN5ceres8internal29MatrixTransposeVectorMultiplyILi3ELi3ELi1EEEvPKdiiS3_Pd.exit.i, %.lr.ph.i
@@ -22863,7 +22863,7 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6Stride
   %81 = getelementptr inbounds i8, ptr %5, i64 8
   %82 = getelementptr inbounds i8, ptr %5, i64 16
   %83 = getelementptr inbounds i8, ptr %5, i64 24
-  %wide.trip.count = and i64 %68, 4294967295
+  %wide.trip.count = and i64 %68, 2147483647
   br label %84
 
 84:                                               ; preds = %.lr.ph, %89

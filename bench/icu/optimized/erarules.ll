@@ -293,7 +293,7 @@ if.then68:                                        ; preds = %if.end65
   br label %cleanup180
 
 if.end69:                                         ; preds = %if.end65
-  %conv70 = and i64 %call61, 4294967295
+  %conv70 = and i64 %call61, 2147483647
   %arrayidx.i = getelementptr inbounds i32, ptr %call29, i64 %conv70
   %6 = load i32, ptr %arrayidx.i, align 4
   %cmp.i61.not = icmp eq i32 %6, 0
@@ -378,8 +378,8 @@ if.then119:                                       ; preds = %lor.lhs.false113, %
 if.end120:                                        ; preds = %lor.lhs.false113
   %shl.i = shl nsw i32 %11, 16
   %shl1.i = shl nuw nsw i32 %12, 8
-  %or.i = or i32 %shl1.i, %shl.i
-  %or2.i = or i32 %or.i, %13
+  %or.i = or disjoint i32 %shl1.i, %shl.i
+  %or2.i = or disjoint i32 %or.i, %13
   store i32 %or2.i, ptr %arrayidx.i68, align 4
   %.pr.pre = load ptr, ptr %res, align 8
   br label %cleanup
@@ -750,8 +750,8 @@ if.else8.i:                                       ; preds = %if.end8
 if.else11.i:                                      ; preds = %if.else8.i
   %shl.i.i = shl nsw i32 %year, 16
   %shl1.i.i = shl nuw nsw i32 %month, 8
-  %or.i.i = or i32 %shl1.i.i, %shl.i.i
-  %or2.i.i = or i32 %or.i.i, %day
+  %or.i.i = or disjoint i32 %shl1.i.i, %shl.i.i
+  %or2.i.i = or disjoint i32 %or.i.i, %day
   %or.cond45.not = icmp slt i32 %or2.i.i, %7
   br i1 %or.cond45.not, label %if.end15.thread, label %if.end15
 
@@ -776,7 +776,7 @@ if.end15.thread:                                  ; preds = %if.else11.i
 while.body.lr.ph.split.thread:                    ; preds = %if.end15.thread
   %shl.i.i2376 = shl nsw i32 %year, 16
   %shl1.i.i2477 = shl nuw nsw i32 %month, 8
-  %or.i.i2578 = or i32 %shl1.i.i2477, %shl.i.i2376
+  %or.i.i2578 = or disjoint i32 %shl1.i.i2477, %shl.i.i2376
   br label %while.body.preheader
 
 while.body.lr.ph:                                 ; preds = %if.end15
@@ -804,14 +804,14 @@ while.body.us:                                    ; preds = %while.body.us.prehe
 while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
   %shl1.i.i24 = shl nuw nsw i32 %month, 8
   %shl.i.i23 = shl nsw i32 %year, 16
-  %or.i.i25 = or i32 %shl1.i.i24, %shl.i.i23
+  %or.i.i25 = or disjoint i32 %shl1.i.i24, %shl.i.i23
   %cmp9.i21 = icmp sgt i32 %year, 32767
   br i1 %cmp9.i21, label %while.body.us50, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %while.body.lr.ph.split.thread, %while.body.lr.ph.split
   %low.07281100 = phi i32 [ 0, %while.body.lr.ph.split.thread ], [ %5, %while.body.lr.ph.split ]
   %or.i.i2578.pn = phi i32 [ %or.i.i2578, %while.body.lr.ph.split.thread ], [ %or.i.i25, %while.body.lr.ph.split ]
-  %or2.i.i268299 = or i32 %or.i.i2578.pn, %day
+  %or2.i.i268299 = or disjoint i32 %or.i.i2578.pn, %day
   br label %while.body
 
 while.body.us50:                                  ; preds = %while.body.lr.ph.split, %while.body.us50

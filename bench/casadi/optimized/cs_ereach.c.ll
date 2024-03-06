@@ -74,7 +74,7 @@ define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef reado
 
 .lr.ph75.preheader:                               ; preds = %.preheader69
   %41 = sext i32 %.05978 to i64
-  %42 = and i64 %indvars.iv.next, 4294967295
+  %42 = and i64 %indvars.iv.next, 2147483647
   br label %.lr.ph75
 
 .lr.ph:                                           ; preds = %.preheader70, %.lr.ph

@@ -48642,7 +48642,7 @@ if.then.i.i2123:                                  ; preds = %invoke.cont190
   br i1 %cmp.i.i2125, label %invoke.cont192, label %if.end.i.i2126
 
 if.end.i.i2126:                                   ; preds = %if.then.i.i2123
-  %conv.i.i.i2127 = and i64 %179, 4294967295
+  %conv.i.i.i2127 = and i64 %179, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp180.sroa.0.4.inlined.i.i2124.sroa_idx, ptr align 1 %178, i64 %conv.i.i.i2127, i1 false)
   %agg.tmp180.sroa.0.8.agg.tmp180.sroa.0.8.agg.tmp180.sroa.0.8.agg.tmp180.sroa.0.8.agg.tmp180.sroa.0.8.agg.tmp180.sroa.0.8.agg.tmp180.sroa.0.8.agg.tmp180.sroa.0.8..pre = load ptr, ptr %agg.tmp180.sroa.0.8..sroa_idx, align 8
   br label %invoke.cont192
@@ -49113,7 +49113,7 @@ if.then.i.i2296:                                  ; preds = %invoke.cont240
   br i1 %cmp.i.i2298, label %invoke.cont242, label %if.end.i.i2299
 
 if.end.i.i2299:                                   ; preds = %if.then.i.i2296
-  %conv.i.i.i2300 = and i64 %233, 4294967295
+  %conv.i.i.i2300 = and i64 %233, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp230.sroa.0.4.inlined.i.i2297.sroa_idx, ptr align 1 %232, i64 %conv.i.i.i2300, i1 false)
   %agg.tmp230.sroa.0.8.agg.tmp230.sroa.0.8.agg.tmp230.sroa.0.8.agg.tmp230.sroa.0.8.agg.tmp230.sroa.0.8.agg.tmp230.sroa.0.8.agg.tmp230.sroa.0.8.agg.tmp230.sroa.0.8..pre = load ptr, ptr %agg.tmp230.sroa.0.8..sroa_idx, align 8
   br label %invoke.cont242
@@ -49489,7 +49489,7 @@ if.then.i.i2422:                                  ; preds = %invoke.cont291
   br i1 %cmp.i.i2424, label %invoke.cont293, label %if.end.i.i2425
 
 if.end.i.i2425:                                   ; preds = %if.then.i.i2422
-  %conv.i.i.i2426 = and i64 %282, 4294967295
+  %conv.i.i.i2426 = and i64 %282, 15
   %agg.tmp283.sroa.0.4.inlined.i.i2423.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp283.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp283.sroa.0.4.inlined.i.i2423.sroa_idx, ptr align 1 %281, i64 %conv.i.i.i2426, i1 false)
   %agg.tmp283.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp283.sroa.0, i64 8
@@ -49731,7 +49731,7 @@ if.then.i.i2537:                                  ; preds = %invoke.cont317
   br i1 %cmp.i.i2539, label %invoke.cont319, label %if.end.i.i2540
 
 if.end.i.i2540:                                   ; preds = %if.then.i.i2537
-  %conv.i.i.i2541 = and i64 %318, 4294967295
+  %conv.i.i.i2541 = and i64 %318, 15
   %agg.tmp309.sroa.0.4.inlined.i.i2538.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp309.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp309.sroa.0.4.inlined.i.i2538.sroa_idx, ptr align 1 %317, i64 %conv.i.i.i2541, i1 false)
   %agg.tmp309.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp309.sroa.0, i64 8

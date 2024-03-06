@@ -1838,7 +1838,7 @@ define dso_local noundef zeroext i1 @WALRead(ptr noundef %0, ptr nocapture nound
   br label %.loopexit
 
 56:                                               ; preds = %37
-  %57 = and i64 %47, 4294967295
+  %57 = and i64 %47, 2147483647
   %58 = add i64 %57, %.05061
   %59 = sub i64 %.05160, %57
   %60 = getelementptr i8, ptr %.04863, i64 %57

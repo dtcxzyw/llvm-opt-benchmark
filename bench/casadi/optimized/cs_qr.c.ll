@@ -185,7 +185,7 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
 
 .lr.ph235.preheader:                              ; preds = %.preheader
   %106 = sext i32 %.0199238 to i64
-  %107 = and i64 %indvars.iv.next, 4294967295
+  %107 = and i64 %indvars.iv.next, 2147483647
   br label %.lr.ph235
 
 .lr.ph232:                                        ; preds = %.lr.ph242, %.lr.ph232

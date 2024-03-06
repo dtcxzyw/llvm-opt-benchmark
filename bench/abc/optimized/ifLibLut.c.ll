@@ -768,7 +768,7 @@ Abc_UtilStrsav.exit:                              ; preds = %6, %7
 
 .preheader113.lr.ph:                              ; preds = %.preheader114
   %68 = getelementptr inbounds i8, ptr %calloc, i64 148
-  %wide.trip.count158 = and i64 %indvars.iv.next150.lcssa.sink, 4294967295
+  %wide.trip.count158 = and i64 %indvars.iv.next150.lcssa.sink, 2147483647
   br label %.preheader113
 
 .preheader:                                       ; preds = %.outer._crit_edge
@@ -776,7 +776,7 @@ Abc_UtilStrsav.exit:                              ; preds = %6, %7
 
 .lr.ph136:                                        ; preds = %.preheader
   %69 = getelementptr inbounds i8, ptr %calloc, i64 148
-  %wide.trip.count = and i64 %indvars.iv.next150.lcssa.sink, 4294967295
+  %wide.trip.count = and i64 %indvars.iv.next150.lcssa.sink, 2147483647
   br label %90
 
 .preheader113:                                    ; preds = %.preheader113.lr.ph, %89

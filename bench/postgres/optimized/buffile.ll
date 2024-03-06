@@ -794,7 +794,7 @@ extendBufFile.exit:                               ; preds = %30, %35
   br label %103
 
 103:                                              ; preds = %94, %91
-  %104 = and i64 %83, 4294967295
+  %104 = and i64 %83, 2147483647
   %105 = load i64, ptr %9, align 8
   %106 = add i64 %105, %104
   store i64 %106, ptr %9, align 8

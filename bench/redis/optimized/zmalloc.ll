@@ -32,7 +32,7 @@ entry:
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn allocsize(1) memory(none) uwtable
-define dso_local ptr @extend_to_usable(ptr noundef readnone returned %ptr, i64 noundef %size) local_unnamed_addr #2 {
+define dso_local noundef ptr @extend_to_usable(ptr noundef readnone returned %ptr, i64 noundef %size) local_unnamed_addr #2 {
 entry:
   ret ptr %ptr
 }
@@ -673,7 +673,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %idxprom = and i64 %call1, 4294967295
+  %idxprom = and i64 %call1, 2147483647
   %arrayidx = getelementptr inbounds [4096 x i8], ptr %buf, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %sub = add i64 %call1, 4294967295
@@ -790,7 +790,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @zmalloc_get_allocator_info(ptr noundef %allocated, ptr noundef %active, ptr noundef %resident) local_unnamed_addr #3 {
+define dso_local noundef i32 @zmalloc_get_allocator_info(ptr noundef %allocated, ptr noundef %active, ptr noundef %resident) local_unnamed_addr #3 {
 entry:
   %epoch = alloca i64, align 8
   %sz = alloca i64, align 8
@@ -822,7 +822,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @jemalloc_purge() local_unnamed_addr #3 {
+define dso_local noundef i32 @jemalloc_purge() local_unnamed_addr #3 {
 entry:
   %tmp = alloca [32 x i8], align 16
   %narenas = alloca i32, align 4

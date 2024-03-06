@@ -798,7 +798,7 @@ RARRAY_LENINT.exit.i:                             ; preds = %rb_array_len.exit.i
   unreachable
 
 85:                                               ; preds = %RARRAY_LENINT.exit.i
-  %86 = and i64 %.0.i.i.i, 4294967295
+  %86 = and i64 %.0.i.i.i, 2147483647
   %87 = call i64 @rb_ary_new_capa(i64 noundef %86) #8
   %.not3.i = icmp eq i32 %81, 0
   br i1 %.not3.i, label %normalize_argument_types.exit, label %.lr.ph.i

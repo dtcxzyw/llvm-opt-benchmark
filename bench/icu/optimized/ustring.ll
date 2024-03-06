@@ -1178,7 +1178,7 @@ u_strlen_75.exit55.i:                             ; preds = %while.cond.i46.i
   br i1 %cmp24.not.not.i, label %return, label %if.end26.i
 
 if.end26.i:                                       ; preds = %u_strlen_75.exit55.i
-  %idx.ext27.i = and i64 %sub.ptr.div.i53.i, 4294967295
+  %idx.ext27.i = and i64 %sub.ptr.div.i53.i, 2147483647
   %add.ptr28.i = getelementptr inbounds i16, ptr %s, i64 %idx.ext27.i
   %2 = and i16 %c, -9216
   switch i16 %2, label %while.body.i.us.us [
@@ -1333,7 +1333,7 @@ u_strlen_75.exit55.i.i:                           ; preds = %while.cond.i46.i.i
   br i1 %cmp24.not.not.i.i, label %return, label %if.end26.i.i
 
 if.end26.i.i:                                     ; preds = %u_strlen_75.exit55.i.i
-  %idx.ext27.i.i = and i64 %sub.ptr.div.i53.i.i, 4294967295
+  %idx.ext27.i.i = and i64 %sub.ptr.div.i53.i.i, 2147483647
   %add.ptr28.i.i = getelementptr inbounds i16, ptr %s, i64 %idx.ext27.i.i
   %2 = and i16 %conv, -9216
   switch i16 %2, label %while.body.i.us.us.i [
@@ -1551,7 +1551,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   %1 = and i16 %0, -2048
   %cmp2 = icmp ne i16 %1, -10240
   %2 = and i1 %cmp, %cmp2
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next110 = add nuw i32 %indvars.iv109, 1
   br i1 %2, label %while.cond, label %while.cond3, !llvm.loop !23
 
@@ -1561,7 +1561,7 @@ while.cond3:                                      ; preds = %while.cond, %while.
   %arrayidx5 = getelementptr inbounds i16, ptr %matchSet, i64 %indvars.iv103
   %3 = load i16, ptr %arrayidx5, align 2
   %cmp7.not = icmp eq i16 %3, 0
-  %indvars.iv.next104 = add nuw i64 %indvars.iv103, 1
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %indvars.iv.next112 = add nuw i32 %indvars.iv111, 1
   br i1 %cmp7.not, label %for.cond.preheader, label %while.cond3, !llvm.loop !24
 

@@ -4928,7 +4928,7 @@ if.then14.i:                                      ; preds = %if.end.i
   br label %return
 
 SSL_set_session_id_context.exit:                  ; preds = %if.end.i
-  %conv.i = and i64 %11, 4294967295
+  %conv.i = and i64 %11, 63
   %sid_ctx_length.i = getelementptr inbounds i8, ptr %cond1114.i, i64 2136
   store i64 %conv.i, ptr %sid_ctx_length.i, align 8
   %sid_ctx16.i = getelementptr inbounds i8, ptr %cond1114.i, i64 2144

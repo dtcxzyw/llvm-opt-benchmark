@@ -4668,9 +4668,9 @@ for.body108.us.preheader:                         ; preds = %for.cond105.prehead
   %callback_already_read.i.i = getelementptr inbounds i8, ptr %s, i64 184
   %add.ptr.i.i = getelementptr inbounds i8, ptr %s, i64 57
   %12 = sext i32 %spec.store.select to i64
-  %13 = and i64 %call44.fr, 4294967295
-  %wide.trip.count312 = and i64 %call31, 4294967295
-  %wide.trip.count306 = and i64 %call44.fr, 4294967295
+  %13 = and i64 %call44.fr, 2147483647
+  %wide.trip.count312 = and i64 %call31, 2147483647
+  %wide.trip.count306 = and i64 %call44.fr, 2147483647
   br label %for.body108.us
 
 for.body108.us:                                   ; preds = %for.body108.us.preheader, %for.inc241.us

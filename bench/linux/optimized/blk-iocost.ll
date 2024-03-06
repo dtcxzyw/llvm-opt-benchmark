@@ -7591,7 +7591,7 @@ define internal void @ioc_rqos_throttle(ptr nocapture noundef readonly %0, ptr n
   br i1 %149, label %150, label %157
 
 150:                                              ; preds = %145
-  %151 = and i64 %147, 4294967295
+  %151 = and i64 %147, 2147483647
   %152 = getelementptr [0 x ptr], ptr %143, i64 0, i64 %151
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 112

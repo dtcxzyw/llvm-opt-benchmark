@@ -2311,7 +2311,7 @@ _ZSt6fill_nIPfifET_S1_T0_RKT1_.exit:              ; preds = %_ZSt6fill_nIPfifET_
 
 .lr.ph79:                                         ; preds = %_ZSt6fill_nIPfifET_S1_T0_RKT1_.exit
   %23 = icmp sgt i32 %.fr81, 0
-  %wide.trip.count92 = and i64 %10, 4294967295
+  %wide.trip.count92 = and i64 %10, 2147483647
   br i1 %23, label %.lr.ph79.split.us.preheader, label %.lr.ph79.split
 
 .lr.ph79.split.us.preheader:                      ; preds = %.lr.ph79
@@ -3234,7 +3234,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %66 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv
   store i32 %60, ptr %66, align 4
   %67 = load i8, ptr %45, align 8
-  %68 = and i64 %59, 4294967295
+  %68 = and i64 %59, 2147483647
   %69 = load ptr, ptr %3, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 %68
   store i8 %67, ptr %70, align 1
@@ -3376,7 +3376,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %or.cond95, label %193, label %132
 
 132:                                              ; preds = %.lr.ph145
-  %133 = and i64 %127, 4294967295
+  %133 = and i64 %127, 2147483647
   %134 = load ptr, ptr %3, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 %133
   %136 = load i8, ptr %135, align 1
@@ -3929,7 +3929,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %64 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv
   store i32 %60, ptr %64, align 4
   %65 = load i8, ptr %45, align 8
-  %66 = and i64 %59, 4294967295
+  %66 = and i64 %59, 2147483647
   %67 = load ptr, ptr %3, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 %66
   store i8 %65, ptr %68, align 1
@@ -4187,7 +4187,7 @@ _ZNSt6vectorIN5faiss4NodeESaIS1_EE12emplace_backIJRiRfEEERS1_DpOT_.exit: ; preds
   br i1 %or.cond93, label %262, label %171
 
 171:                                              ; preds = %.lr.ph170
-  %172 = and i64 %166, 4294967295
+  %172 = and i64 %166, 2147483647
   %173 = load ptr, ptr %3, align 8
   %174 = getelementptr inbounds i8, ptr %173, i64 %172
   %175 = load i8, ptr %174, align 1
@@ -4450,7 +4450,7 @@ define void @_ZN5faiss3NSG10sync_pruneEiRSt6vectorINS_4NodeESaIS2_EERNS_16Distan
   br i1 %or.cond, label %26, label %_ZNSt6vectorIN5faiss4NodeESaIS1_EE12emplace_backIJRiRfEEERS1_DpOT_.exit
 
 26:                                               ; preds = %15
-  %27 = and i64 %22, 4294967295
+  %27 = and i64 %22, 2147483647
   %28 = load ptr, ptr %4, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 %27
   %30 = load i8, ptr %29, align 1

@@ -51381,7 +51381,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers9StructDefESt6vectorIS4
 for.body.preheader.i:                             ; preds = %if.else.i284, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers9StructDefESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit.thread.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers9StructDefESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit.i
   %sub.ptr.div.i22.i = phi i64 [ %sub.ptr.div.i16.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers9StructDefESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit.thread.i ], [ %sub.ptr.div.i.i.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers9StructDefESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit.i ], [ 1, %if.else.i284 ]
   %cond.i.i.i.i71319.i = phi ptr [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers9StructDefESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit.thread.i ], [ %call5.i.i.i.i2.i6.i.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers9StructDefESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit.i ], [ %call5.i.i.i.i2.i6.i.i, %if.else.i284 ]
-  %wide.trip.count.i = and i64 %sub.ptr.div.i22.i, 4294967295
+  %wide.trip.count.i = and i64 %sub.ptr.div.i22.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -51852,7 +51852,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers7EnumDefESt6vectorIS4_S
 for.body.preheader.i36:                           ; preds = %if.else.i300, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers7EnumDefESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit.thread.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers7EnumDefESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit.i
   %sub.ptr.div.i22.i37 = phi i64 [ %sub.ptr.div.i16.i47, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers7EnumDefESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit.thread.i ], [ %sub.ptr.div.i.i.i.i27, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers7EnumDefESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit.i ], [ 1, %if.else.i300 ]
   %cond.i.i.i.i71319.i38 = phi ptr [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers7EnumDefESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit.thread.i ], [ %call5.i.i.i.i2.i6.i.i25, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers7EnumDefESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit.i ], [ %call5.i.i.i.i2.i6.i.i25, %if.else.i300 ]
-  %wide.trip.count.i39 = and i64 %sub.ptr.div.i22.i37, 4294967295
+  %wide.trip.count.i39 = and i64 %sub.ptr.div.i22.i37, 2147483647
   br label %for.body.i40
 
 for.body.i40:                                     ; preds = %for.body.i40, %for.body.preheader.i36

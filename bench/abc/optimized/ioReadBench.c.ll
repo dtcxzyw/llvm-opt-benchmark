@@ -319,7 +319,7 @@ Vec_StrFill.exit.i:                               ; preds = %.lr.ph.i.preheader.
   br i1 %126, label %.lr.ph.i236.i, label %Vec_StrPrintStr.exit.i
 
 .lr.ph.i236.i:                                    ; preds = %Vec_StrFill.exit.i
-  %wide.trip.count.i.i = and i64 %124, 4294967295
+  %wide.trip.count.i.i = and i64 %124, 2147483647
   br label %127
 
 127:                                              ; preds = %Vec_StrPush.exit.i.i, %.lr.ph.i236.i

@@ -345,7 +345,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   br i1 %.not179.i, label %.loopexit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %120
-  %123 = and i64 %121, 4294967295
+  %123 = and i64 %121, 2147483647
   %124 = add nuw i32 %122, 1
   br label %.lr.ph.i
 
@@ -555,7 +555,7 @@ define noundef i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
   br i1 %207, label %.lr.ph.preheader.i.i, label %._crit_edge.i140.i
 
 .lr.ph.preheader.i.i:                             ; preds = %202
-  %wide.trip.count.i.i = and i64 %205, 4294967295
+  %wide.trip.count.i.i = and i64 %205, 2147483647
   br label %.lr.ph.i142.i
 
 .lr.ph.i142.i:                                    ; preds = %217, %.lr.ph.preheader.i.i

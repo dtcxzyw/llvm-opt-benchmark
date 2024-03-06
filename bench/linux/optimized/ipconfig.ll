@@ -2856,7 +2856,7 @@ define internal fastcc void @ic_dhcp_init_options(ptr noundef %0) unnamed_addr #
   br i1 %60, label %61, label %75
 
 61:                                               ; preds = %56
-  %62 = and i64 %58, 4294967295
+  %62 = and i64 %58, 2147483647
   %63 = ptrtoint ptr %57 to i64
   %64 = ptrtoint ptr %0 to i64
   %65 = add i64 %64, 311

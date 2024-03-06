@@ -878,8 +878,8 @@ define internal fastcc void @cpufreq_notify_transition(ptr noundef %0, ptr nound
   br label %50
 
 50:                                               ; preds = %47, %43, %30, %28
-  %51 = add i64 %25, 1
-  %52 = and i64 %51, 4294967295
+  %51 = add nuw nsw i64 %25, 1
+  %52 = and i64 %51, 127
   %53 = icmp ugt i64 %52, 63
   br i1 %53, label %.thread, label %18, !prof !34, !llvm.loop !35
 
@@ -1680,7 +1680,7 @@ define dso_local i64 @cpufreq_show_cpus(ptr nocapture noundef readonly %0, ptr n
   %21 = sext i32 %20 to i64
   %22 = add nsw i64 %4, %21
   %23 = icmp ugt i64 %22, 4090
-  %24 = add i64 %14, 1
+  %24 = add nuw nsw i64 %14, 1
   br i1 %23, label %.thread, label %3, !llvm.loop !54
 
 .thread:                                          ; preds = %8, %3, %17, %13
@@ -2975,8 +2975,8 @@ define dso_local i32 @cpufreq_driver_fast_switch(ptr noundef %0, i32 noundef %1)
   br label %49
 
 49:                                               ; preds = %46, %42, %29, %28
-  %50 = add i64 %25, 1
-  %51 = and i64 %50, 4294967295
+  %50 = add nuw nsw i64 %25, 1
+  %51 = and i64 %50, 127
   %52 = icmp ugt i64 %51, 63
   br i1 %52, label %.thread, label %.preheader, !prof !34, !llvm.loop !64
 
@@ -4455,7 +4455,7 @@ define internal fastcc i32 @cpufreq_online(i32 noundef %0) unnamed_addr #0 align
   br i1 %177, label %178, label %.thread55
 
 178:                                              ; preds = %174
-  %179 = and i64 %175, 4294967295
+  %179 = and i64 %175, 63
   %180 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %179
   %181 = load i64, ptr %180, align 8
   %182 = add i64 %181, ptrtoint (ptr @cpufreq_cpu_data to i64)
@@ -4482,8 +4482,8 @@ define internal fastcc i32 @cpufreq_online(i32 noundef %0) unnamed_addr #0 align
   br label %194
 
 194:                                              ; preds = %193, %190, %186, %178
-  %195 = add i64 %175, 1
-  %196 = and i64 %195, 4294967295
+  %195 = add nuw nsw i64 %175, 1
+  %196 = and i64 %195, 127
   %197 = icmp ugt i64 %196, 63
   br i1 %197, label %.thread55, label %168, !prof !34, !llvm.loop !83
 
@@ -4879,10 +4879,10 @@ define internal fastcc i32 @cpufreq_online(i32 noundef %0) unnamed_addr #0 align
 417:                                              ; preds = %413
   %418 = tail call ptr @get_cpu_device(i32 noundef %415) #21
   tail call void @sysfs_remove_link(ptr noundef %418, ptr noundef nonnull @.str.29) #21
-  %419 = and i64 %414, 4294967295
+  %419 = and i64 %414, 63
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %406, i64 %419) #21, !srcloc !78
-  %420 = add i64 %414, 1
-  %421 = and i64 %420, 4294967295
+  %420 = add nuw nsw i64 %414, 1
+  %421 = and i64 %420, 127
   %422 = icmp ugt i64 %421, 63
   br i1 %422, label %.thread78, label %407, !prof !34, !llvm.loop !87
 
@@ -5302,7 +5302,7 @@ define internal i64 @show_affected_cpus(ptr nocapture noundef readonly %0, ptr n
   %21 = sext i32 %20 to i64
   %22 = add nsw i64 %4, %21
   %23 = icmp ugt i64 %22, 4090
-  %24 = add i64 %14, 1
+  %24 = add nuw nsw i64 %14, 1
   br i1 %23, label %.thread, label %3, !llvm.loop !54
 
 .thread:                                          ; preds = %8, %3, %17, %13
@@ -5345,7 +5345,7 @@ define internal i64 @show_related_cpus(ptr nocapture noundef readonly %0, ptr no
   %22 = sext i32 %21 to i64
   %23 = add nsw i64 %5, %22
   %24 = icmp ugt i64 %23, 4090
-  %25 = add i64 %15, 1
+  %25 = add nuw nsw i64 %15, 1
   br i1 %24, label %.thread, label %4, !llvm.loop !54
 
 .thread:                                          ; preds = %9, %4, %18, %14

@@ -1241,7 +1241,7 @@ sw.epilog.i:                                      ; preds = %entry
   unreachable
 
 switch.lookup:                                    ; preds = %entry
-  %conv.i.mask = and i32 %widthMode, 255
+  %conv.i.mask = and i32 %widthMode, 3
   %1 = zext nneg i32 %conv.i.mask to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -1254,7 +1254,7 @@ sw.epilog.i5:                                     ; preds = %switch.lookup
   unreachable
 
 switch.lookup22:                                  ; preds = %switch.lookup
-  %conv.i1.mask = and i32 %heightMode, 255
+  %conv.i1.mask = and i32 %heightMode, 3
   %3 = zext nneg i32 %conv.i1.mask to i64
   %switch.gep23 = getelementptr inbounds [3 x i32], ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 0, i64 %3
   %switch.load24 = load i32, ptr %switch.gep23, align 4
@@ -1276,11 +1276,11 @@ sw.epilog.i17:                                    ; preds = %switch.lookup19
   unreachable
 
 switch.lookup25:                                  ; preds = %switch.lookup19
-  %conv.i7.mask = and i32 %lastWidthMode, 255
+  %conv.i7.mask = and i32 %lastWidthMode, 3
   %6 = zext nneg i32 %conv.i7.mask to i64
   %switch.gep20 = getelementptr inbounds [3 x i32], ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 0, i64 %6
   %switch.load21 = load i32, ptr %switch.gep20, align 4
-  %conv.i13.mask = and i32 %lastHeightMode, 255
+  %conv.i13.mask = and i32 %lastHeightMode, 3
   %7 = zext nneg i32 %conv.i13.mask to i64
   %switch.gep26 = getelementptr inbounds [3 x i32], ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 0, i64 %7
   %switch.load27 = load i32, ptr %switch.gep26, align 4

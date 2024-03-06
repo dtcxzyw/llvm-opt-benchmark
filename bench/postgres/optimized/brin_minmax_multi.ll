@@ -1889,7 +1889,7 @@ define dso_local noundef i64 @brin_minmax_multi_consistent(ptr nocapture noundef
   br i1 %28, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph158
-  %wide.trip.count = and i64 %12, 4294967295
+  %wide.trip.count = and i64 %12, 2147483647
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.thread, %1
@@ -1907,7 +1907,7 @@ define dso_local noundef i64 @brin_minmax_multi_consistent(ptr nocapture noundef
   br i1 %36, label %.lr.ph161.preheader, label %.loopexit
 
 .lr.ph161.preheader:                              ; preds = %.lr.ph164
-  %wide.trip.count199 = and i64 %12, 4294967295
+  %wide.trip.count199 = and i64 %12, 2147483647
   br label %.lr.ph161
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread

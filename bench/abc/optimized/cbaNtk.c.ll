@@ -6416,7 +6416,7 @@ define i32 @Cba_StrCmp(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 
 39:                                               ; preds = %33, %._crit_edge47.i
   %.033.in.lcssa.i = phi i64 [ %indvars.iv.i, %33 ], [ 0, %._crit_edge47.i ]
-  %40 = and i64 %.033.in.lcssa.i, 4294967295
+  %40 = and i64 %.033.in.lcssa.i, 2147483647
   %41 = getelementptr inbounds i8, ptr %3, i64 %40
   %42 = tail call i32 @atoi(ptr nocapture noundef nonnull %41) #27
   %43 = getelementptr inbounds i8, ptr %4, i64 %40
@@ -6519,7 +6519,7 @@ define i32 @Cba_StrCmp(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 
 89:                                               ; preds = %83, %._crit_edge47.i25
   %.033.in.lcssa.i29 = phi i64 [ %indvars.iv.i28, %83 ], [ 0, %._crit_edge47.i25 ]
-  %90 = and i64 %.033.in.lcssa.i29, 4294967295
+  %90 = and i64 %.033.in.lcssa.i29, 2147483647
   %91 = getelementptr inbounds i8, ptr %3, i64 %90
   %92 = tail call i32 @atoi(ptr nocapture noundef nonnull %91) #27
   %93 = getelementptr inbounds i8, ptr %4, i64 %90

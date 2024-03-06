@@ -7075,7 +7075,7 @@ for.cond61.preheader:                             ; preds = %for.end
 for.body65.lr.ph:                                 ; preds = %for.cond61.preheader
   %sub.neg = add i32 %cardinality, 1
   %add = sub i32 %sub.neg, %conv63
-  %wide.trip.count = and i64 %sub.ptr.div.i168, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i168, 2147483647
   br label %for.body65
 
 for.cond61:                                       ; preds = %for.body65
@@ -14411,7 +14411,7 @@ if.then274:                                       ; preds = %for.body270
 
 for.body.lr.ph.i:                                 ; preds = %if.then274
   %71 = and i64 %storemerge121082, 4294967295
-  %wide.trip.count.i = and i64 %66, 4294967295
+  %wide.trip.count.i = and i64 %66, 2147483647
   br label %for.body.i946
 
 for.body.i946:                                    ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -15984,7 +15984,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %d_regions = getelementptr inbounds i8, ptr %this, i64 240
   %1 = load ptr, ptr %d_regions, align 8
   %2 = zext i32 %ri to i64
-  %wide.trip.count = and i64 %0, 4294967295
+  %wide.trip.count = and i64 %0, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -18804,7 +18804,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %d_regions = getelementptr inbounds i8, ptr %this, i64 240
   %1 = load ptr, ptr %d_regions, align 8
-  %wide.trip.count = and i64 %0, 4294967295
+  %wide.trip.count = and i64 %0, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body

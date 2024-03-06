@@ -1979,7 +1979,7 @@ while.cond59:                                     ; preds = %while.cond59, %whil
   %gep92 = getelementptr i8, ptr %invariant.gep91, i64 %idx.neg
   %3 = load i8, ptr %gep92, align 1
   %cmp62 = icmp eq i8 %3, 32
-  %indvars.iv.next118 = add nuw i64 %indvars.iv117, 1
+  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   br i1 %cmp62, label %while.cond59, label %while.end65, !llvm.loop !7
 
 while.end65:                                      ; preds = %while.cond59
@@ -2529,7 +2529,7 @@ entry:
   br i1 %cmp11, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
-  %wide.trip.count = and i64 %call, 4294967295
+  %wide.trip.count = and i64 %call, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -3446,7 +3446,7 @@ invoke.cont:                                      ; preds = %land.rhs
   br i1 %tobool.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %invoke.cont
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %while.cond, !llvm.loop !31
 
 lpad.loopexit:                                    ; preds = %for.body, %invoke.cont36
@@ -3546,7 +3546,7 @@ invoke.cont:                                      ; preds = %lor.rhs
           to label %invoke.cont20 unwind label %lpad.loopexit
 
 invoke.cont20:                                    ; preds = %invoke.cont
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %while.cond, !llvm.loop !33
 
 lpad.loopexit:                                    ; preds = %lor.rhs, %invoke.cont
@@ -3813,7 +3813,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
   br i1 %cmp11.i, label %for.body.preheader.i, label %if.end25
 
 for.body.preheader.i:                             ; preds = %land.lhs.true4
-  %wide.trip.count.i = and i64 %call.i, 4294967295
+  %wide.trip.count.i = and i64 %call.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
@@ -4412,7 +4412,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
   br i1 %cmp11.i, label %for.body.preheader.i, label %if.end25
 
 for.body.preheader.i:                             ; preds = %land.lhs.true4
-  %wide.trip.count.i = and i64 %call.i, 4294967295
+  %wide.trip.count.i = and i64 %call.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
@@ -4857,7 +4857,7 @@ land.lhs.true3:                                   ; preds = %land.lhs.true
   br i1 %cmp11.i, label %for.body.preheader.i, label %if.end45
 
 for.body.preheader.i:                             ; preds = %land.lhs.true3
-  %wide.trip.count.i = and i64 %call.i, 4294967295
+  %wide.trip.count.i = and i64 %call.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i

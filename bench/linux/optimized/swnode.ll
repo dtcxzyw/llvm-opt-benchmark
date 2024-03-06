@@ -1931,7 +1931,7 @@ define internal i32 @software_node_read_string_array(ptr noundef readonly %0, pt
   br i1 %39, label %.thread16, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %32
-  %40 = and i64 %35, 4294967295
+  %40 = and i64 %35, 2147483647
   %41 = tail call i64 @llvm.umin.i64(i64 %40, i64 %3)
   %42 = shl nuw nsw i64 %41, 3
   br label %.preheader

@@ -3370,7 +3370,7 @@ define dso_local noundef zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %
   br i1 %112, label %140, label %113
 
 113:                                              ; preds = %.lr.ph.i.i
-  %114 = and i64 %111, 4294967295
+  %114 = and i64 %111, 2147483647
   %.not.i.i = icmp eq i64 %114, 36
   br i1 %.not.i.i, label %119, label %115
 
@@ -4963,7 +4963,7 @@ ReorderBufferToastReplace.exit:                   ; preds = %330, %._crit_edge12
 
 .lr.ph:                                           ; preds = %598
   %606 = getelementptr inbounds i8, ptr %189, i64 48
-  %wide.trip.count = and i64 %600, 4294967295
+  %wide.trip.count = and i64 %600, 2147483647
   br label %607
 
 607:                                              ; preds = %.lr.ph, %633
@@ -6935,7 +6935,7 @@ ReorderBufferSerializeReserve.exit:               ; preds = %76, %.sink.split.i
   unreachable
 
 95:                                               ; preds = %89
-  %96 = and i64 %84, 4294967295
+  %96 = and i64 %84, 2147483647
   %.not68 = icmp eq i64 %96, 88
   br i1 %.not68, label %101, label %97
 
@@ -7004,7 +7004,7 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   unreachable
 
 128:                                              ; preds = %ReorderBufferSerializeReserve.exit72
-  %129 = and i64 %121, 4294967295
+  %129 = and i64 %121, 2147483647
   %130 = load i64, ptr %117, align 8
   %131 = add i64 %130, -88
   %.not69 = icmp eq i64 %129, %131

@@ -1230,7 +1230,7 @@ if.then.i129:                                     ; preds = %if.else
   br i1 %cmp.i131, label %_ZN6duckdb8string_tC2EPKcj.exit, label %if.end.i132
 
 if.end.i132:                                      ; preds = %if.then.i129
-  %conv.i.i133 = and i64 %25, 4294967295
+  %conv.i.i133 = and i64 %25, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %ref.tmp40.sroa.4, ptr align 1 %add.ptr, i64 %conv.i.i133, i1 false)
   br label %_ZN6duckdb8string_tC2EPKcj.exit
 

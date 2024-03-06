@@ -1657,7 +1657,7 @@ display_grouping.exit.i:                          ; preds = %.preheader.i176.i, 
   br i1 %426, label %.lr.ph.preheader.i185.i, label %._crit_edge.i183.i
 
 .lr.ph.preheader.i185.i:                          ; preds = %416
-  %427 = and i64 %412, 4294967295
+  %427 = and i64 %412, 2147483647
   br label %.lr.ph.i187.i
 
 .lr.ph.i187.i:                                    ; preds = %436, %.lr.ph.preheader.i185.i
@@ -2302,7 +2302,8 @@ create_tab_work.exit..loopexit_crit_edge.i.i:     ; preds = %create_tab_work.exi
 
 .preheader78.preheader.i.i:                       ; preds = %create_tab_work.exit.i.i
   %704 = zext i32 %2 to i64
-  %705 = and i64 %412, 4294967295
+  %705 = and i64 %412, 2147483647
+  %umax.i = call i64 @llvm.umax.i64(i64 %705, i64 1)
   br label %.preheader78.i.i
 
 .preheader78.i.i:                                 ; preds = %._crit_edge.i213.i, %.preheader78.preheader.i.i
@@ -2334,7 +2335,7 @@ create_tab_work.exit..loopexit_crit_edge.i.i:     ; preds = %create_tab_work.exi
   %719 = load double, ptr %718, align 8
   %720 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, double noundef %719)
   %indvars.iv.next99.i.i = add nuw nsw i64 %indvars.iv98.i.i, 1
-  %exitcond307.not.i = icmp eq i64 %indvars.iv.next99.i.i, %705
+  %exitcond307.not.i = icmp eq i64 %indvars.iv.next99.i.i, %umax.i
   br i1 %exitcond307.not.i, label %.loopexit.i.i, label %.preheader78.i.i, !llvm.loop !47
 
 .loopexit.i.i:                                    ; preds = %._crit_edge.i213.i, %create_tab_work.exit..loopexit_crit_edge.i.i
@@ -2347,7 +2348,7 @@ create_tab_work.exit..loopexit_crit_edge.i.i:     ; preds = %create_tab_work.exi
 
 .lr.ph90.i.i:                                     ; preds = %.loopexit.i.i
   %invariant.gep.i.i.i = getelementptr i8, ptr %724, i64 -8
-  %725 = and i64 %412, 4294967295
+  %725 = and i64 %412, 2147483647
   %reass.sub = sub nsw i64 %.pre-phi.i.i, %725
   br label %726
 
@@ -2470,7 +2471,7 @@ build_bound_array.exit.i.i:                       ; preds = %.lr.ph32.i.i.i, %74
   br i1 %426, label %.lr.ph.i72.i.i, label %init_independent_group_mat.exit.i.i.preheader
 
 .lr.ph.i72.i.i:                                   ; preds = %._crit_edge91.i.i
-  %wide.trip.count66.i.i.i = and i64 %412, 4294967295
+  %wide.trip.count66.i.i.i = and i64 %412, 2147483647
   br i1 %229, label %.split.us39.us.preheader.i.i.i, label %.split.i.i.i
 
 .split.us39.us.preheader.i.i.i:                   ; preds = %.lr.ph.i72.i.i
@@ -4778,6 +4779,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #20

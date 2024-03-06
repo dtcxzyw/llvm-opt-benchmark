@@ -23,29 +23,29 @@ define i16 @softfloat_normRoundPackToF16(i1 noundef zeroext %0, i64 noundef %1, 
   %16 = trunc i64 %13 to i32
   %17 = icmp ult i32 %16, 29
   %or.cond = select i1 %15, i1 %17, i1 false
-  br i1 %or.cond, label %18, label %28
+  br i1 %or.cond, label %18, label %27
 
 18:                                               ; preds = %3
   %19 = select i1 %0, i64 32768, i64 0
   %.not = icmp eq i64 %2, 0
   %20 = shl i64 %13, 10
-  %21 = select i1 %.not, i64 0, i64 %20
-  %22 = add i64 %21, %19
-  %23 = add nsw i32 %14, -4
-  %24 = zext nneg i32 %23 to i64
-  %25 = shl i64 %2, %24
-  %26 = add i64 %22, %25
-  %27 = trunc i64 %26 to i16
-  br label %32
+  %.masked = select i1 %.not, i64 0, i64 %20
+  %21 = add nsw i32 %14, -4
+  %22 = zext nneg i32 %21 to i64
+  %23 = shl i64 %2, %22
+  %24 = add i64 %23, %19
+  %25 = add i64 %24, %.masked
+  %26 = trunc i64 %25 to i16
+  br label %31
 
-28:                                               ; preds = %3
-  %29 = zext nneg i32 %14 to i64
-  %30 = shl i64 %2, %29
-  %31 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %0, i64 noundef %13, i64 noundef %30) #2
-  br label %32
+27:                                               ; preds = %3
+  %28 = zext nneg i32 %14 to i64
+  %29 = shl i64 %2, %28
+  %30 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %0, i64 noundef %13, i64 noundef %29) #2
+  br label %31
 
-32:                                               ; preds = %28, %18
-  %.sroa.016.0 = phi i16 [ %27, %18 ], [ %31, %28 ]
+31:                                               ; preds = %27, %18
+  %.sroa.016.0 = phi i16 [ %26, %18 ], [ %30, %27 ]
   ret i16 %.sroa.016.0
 }
 

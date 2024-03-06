@@ -3557,7 +3557,7 @@ define dso_local i64 @time_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 40:                                               ; preds = %25
   %41 = icmp sgt i64 %39, -1
-  %42 = and i64 %15, 4294967295
+  %42 = and i64 %15, 7
   %43 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeOffsets, i64 0, i64 %42
   %44 = load i64, ptr %43, align 8
   %45 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %42
@@ -3743,7 +3743,7 @@ define dso_local i64 @time_recv(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %or.cond.i, label %.sink.split.i, label %AdjustTimeForTypmod.exit
 
 .sink.split.i:                                    ; preds = %12
-  %14 = and i64 %6, 4294967295
+  %14 = and i64 %6, 7
   %15 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeOffsets, i64 0, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %14
@@ -3919,7 +3919,7 @@ define dso_local i64 @time_scale(ptr nocapture noundef readonly %0) local_unname
 
 7:                                                ; preds = %1
   %8 = icmp sgt i64 %3, -1
-  %9 = and i64 %5, 4294967295
+  %9 = and i64 %5, 7
   %10 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeOffsets, i64 0, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %9
@@ -4834,7 +4834,7 @@ define dso_local noundef i64 @timetz_in(ptr nocapture noundef %0) local_unnamed_
 
 43:                                               ; preds = %25
   %44 = icmp sgt i64 %41, -1
-  %45 = and i64 %15, 4294967295
+  %45 = and i64 %15, 7
   %46 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeOffsets, i64 0, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %45
@@ -4992,7 +4992,7 @@ define dso_local i64 @timetz_recv(ptr nocapture noundef readonly %0) local_unnam
 23:                                               ; preds = %22
   %24 = load i64, ptr %8, align 8
   %25 = icmp sgt i64 %24, -1
-  %26 = and i64 %6, 4294967295
+  %26 = and i64 %6, 7
   %27 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeOffsets, i64 0, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %26
@@ -5130,7 +5130,7 @@ define dso_local noundef i64 @timetz_scale(ptr nocapture noundef readonly %0) lo
 
 13:                                               ; preds = %1
   %14 = icmp sgt i64 %9, -1
-  %15 = and i64 %6, 4294967295
+  %15 = and i64 %6, 7
   %16 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeOffsets, i64 0, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr [7 x i64], ptr @AdjustTimeForTypmod.TimeScales, i64 0, i64 %15

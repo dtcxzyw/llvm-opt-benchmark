@@ -834,7 +834,7 @@ for.cond.preheader:                               ; preds = %invoke.cont24
   br i1 %cmp2940.not, label %if.end36, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc

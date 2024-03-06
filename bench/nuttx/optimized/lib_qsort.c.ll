@@ -666,7 +666,7 @@ swapfunc.exit303.loopexit329:                     ; preds = %.preheader328
   br i1 %279, label %280, label %swapfunc.exit310
 
 280:                                              ; preds = %273
-  %281 = and i64 %., 4294967295
+  %281 = and i64 %., 2147483647
   %282 = sub nsw i64 0, %281
   %283 = getelementptr i8, ptr %.1225.lcssa, i64 %282
   br i1 %or.cond396, label %284, label %.preheader341
@@ -716,7 +716,7 @@ swapfunc.exit310:                                 ; preds = %.preheader341, %286
   br i1 %306, label %307, label %swapfunc.exit317
 
 307:                                              ; preds = %swapfunc.exit310
-  %308 = and i64 %.265, 4294967295
+  %308 = and i64 %.265, 2147483647
   %309 = sub nsw i64 0, %308
   %310 = getelementptr i8, ptr %236, i64 %309
   br i1 %or.cond396, label %311, label %.preheader339

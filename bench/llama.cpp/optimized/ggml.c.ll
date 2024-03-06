@@ -2560,11 +2560,11 @@ for.cond51.preheader:                             ; preds = %entry
 for.body54.lr.ph:                                 ; preds = %for.cond51.preheader
   %conv58 = sitofp i32 %value to float
   %cmp3.i54 = icmp sgt i32 %conv1, 0
-  %wide.trip.count.i56 = and i64 %3, 4294967295
+  %wide.trip.count.i56 = and i64 %3, 2147483647
   br i1 %cmp3.i54, label %for.body54.us.preheader, label %sw.epilog
 
 for.body54.us.preheader:                          ; preds = %for.body54.lr.ph
-  %wide.trip.count = and i64 %mul5.i, 4294967295
+  %wide.trip.count = and i64 %mul5.i, 2147483647
   br label %for.body54.us
 
 for.body54.us:                                    ; preds = %for.body54.us.preheader, %ggml_vec_set_f32.exit.loopexit.us
@@ -2596,11 +2596,11 @@ for.body37.lr.ph:                                 ; preds = %for.cond34.preheade
   %7 = tail call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %vecinit44, i32 0)
   %vecext = extractelement <8 x i16> %7, i64 0
   %cmp3.i47 = icmp sgt i32 %conv1, 0
-  %wide.trip.count.i48 = and i64 %3, 4294967295
+  %wide.trip.count.i48 = and i64 %3, 2147483647
   br i1 %cmp3.i47, label %for.body37.us.preheader, label %sw.epilog
 
 for.body37.us.preheader:                          ; preds = %for.body37.lr.ph
-  %wide.trip.count89 = and i64 %mul5.i, 4294967295
+  %wide.trip.count89 = and i64 %mul5.i, 2147483647
   br label %for.body37.us
 
 for.body37.us:                                    ; preds = %for.body37.us.preheader, %ggml_vec_set_f16.exit.loopexit.us
@@ -2628,11 +2628,11 @@ for.cond22.preheader:                             ; preds = %entry
 
 for.body25.lr.ph:                                 ; preds = %for.cond22.preheader
   %cmp3.i39 = icmp sgt i32 %conv1, 0
-  %wide.trip.count.i41 = and i64 %3, 4294967295
+  %wide.trip.count.i41 = and i64 %3, 2147483647
   br i1 %cmp3.i39, label %for.body25.us.preheader, label %sw.epilog
 
 for.body25.us.preheader:                          ; preds = %for.body25.lr.ph
-  %wide.trip.count94 = and i64 %mul5.i, 4294967295
+  %wide.trip.count94 = and i64 %mul5.i, 2147483647
   br label %for.body25.us
 
 for.body25.us:                                    ; preds = %for.body25.us.preheader, %ggml_vec_set_i32.exit.loopexit.us
@@ -2661,11 +2661,11 @@ for.cond9.preheader:                              ; preds = %entry
 for.body12.lr.ph:                                 ; preds = %for.cond9.preheader
   %conv16 = trunc i32 %value to i16
   %cmp3.i36 = icmp sgt i32 %conv1, 0
-  %wide.trip.count.i = and i64 %3, 4294967295
+  %wide.trip.count.i = and i64 %3, 2147483647
   br i1 %cmp3.i36, label %for.body12.us.preheader, label %sw.epilog
 
 for.body12.us.preheader:                          ; preds = %for.body12.lr.ph
-  %wide.trip.count99 = and i64 %mul5.i, 4294967295
+  %wide.trip.count99 = and i64 %mul5.i, 2147483647
   br label %for.body12.us
 
 for.body12.us:                                    ; preds = %for.body12.us.preheader, %ggml_vec_set_i16.exit.loopexit.us
@@ -2694,11 +2694,11 @@ for.cond.preheader:                               ; preds = %entry
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp3.i = icmp sgt i32 %conv1, 0
   %conv6 = trunc i32 %value to i8
-  %8 = and i64 %3, 4294967295
+  %8 = and i64 %3, 2147483647
   br i1 %cmp3.i, label %for.body.us.preheader, label %sw.epilog
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %wide.trip.count104 = and i64 %mul5.i, 4294967295
+  %wide.trip.count104 = and i64 %mul5.i, 2147483647
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.body.us
@@ -2784,11 +2784,11 @@ for.cond51.preheader:                             ; preds = %entry
 
 for.body54.lr.ph:                                 ; preds = %for.cond51.preheader
   %cmp3.i54 = icmp sgt i32 %conv1, 0
-  %wide.trip.count.i56 = and i64 %3, 4294967295
+  %wide.trip.count.i56 = and i64 %3, 2147483647
   br i1 %cmp3.i54, label %for.body54.us.preheader, label %sw.epilog
 
 for.body54.us.preheader:                          ; preds = %for.body54.lr.ph
-  %wide.trip.count = and i64 %mul5.i, 4294967295
+  %wide.trip.count = and i64 %mul5.i, 2147483647
   br label %for.body54.us
 
 for.body54.us:                                    ; preds = %for.body54.us.preheader, %ggml_vec_set_f32.exit.loopexit.us
@@ -2819,11 +2819,11 @@ for.body38.lr.ph:                                 ; preds = %for.cond35.preheade
   %7 = tail call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %vecinit44, i32 0)
   %vecext = extractelement <8 x i16> %7, i64 0
   %cmp3.i47 = icmp sgt i32 %conv1, 0
-  %wide.trip.count.i48 = and i64 %3, 4294967295
+  %wide.trip.count.i48 = and i64 %3, 2147483647
   br i1 %cmp3.i47, label %for.body38.us.preheader, label %sw.epilog
 
 for.body38.us.preheader:                          ; preds = %for.body38.lr.ph
-  %wide.trip.count89 = and i64 %mul5.i, 4294967295
+  %wide.trip.count89 = and i64 %mul5.i, 2147483647
   br label %for.body38.us
 
 for.body38.us:                                    ; preds = %for.body38.us.preheader, %ggml_vec_set_f16.exit.loopexit.us
@@ -2852,11 +2852,11 @@ for.cond22.preheader:                             ; preds = %entry
 for.body25.lr.ph:                                 ; preds = %for.cond22.preheader
   %conv29 = fptosi float %value to i32
   %cmp3.i39 = icmp sgt i32 %conv1, 0
-  %wide.trip.count.i41 = and i64 %3, 4294967295
+  %wide.trip.count.i41 = and i64 %3, 2147483647
   br i1 %cmp3.i39, label %for.body25.us.preheader, label %sw.epilog
 
 for.body25.us.preheader:                          ; preds = %for.body25.lr.ph
-  %wide.trip.count94 = and i64 %mul5.i, 4294967295
+  %wide.trip.count94 = and i64 %mul5.i, 2147483647
   br label %for.body25.us
 
 for.body25.us:                                    ; preds = %for.body25.us.preheader, %ggml_vec_set_i32.exit.loopexit.us
@@ -2885,11 +2885,11 @@ for.cond9.preheader:                              ; preds = %entry
 for.body12.lr.ph:                                 ; preds = %for.cond9.preheader
   %conv16 = fptosi float %value to i16
   %cmp3.i36 = icmp sgt i32 %conv1, 0
-  %wide.trip.count.i = and i64 %3, 4294967295
+  %wide.trip.count.i = and i64 %3, 2147483647
   br i1 %cmp3.i36, label %for.body12.us.preheader, label %sw.epilog
 
 for.body12.us.preheader:                          ; preds = %for.body12.lr.ph
-  %wide.trip.count99 = and i64 %mul5.i, 4294967295
+  %wide.trip.count99 = and i64 %mul5.i, 2147483647
   br label %for.body12.us
 
 for.body12.us:                                    ; preds = %for.body12.us.preheader, %ggml_vec_set_i16.exit.loopexit.us
@@ -2918,11 +2918,11 @@ for.cond.preheader:                               ; preds = %entry
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp3.i = icmp sgt i32 %conv1, 0
   %conv6 = fptosi float %value to i8
-  %8 = and i64 %3, 4294967295
+  %8 = and i64 %3, 2147483647
   br i1 %cmp3.i, label %for.body.us.preheader, label %sw.epilog
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %wide.trip.count104 = and i64 %mul5.i, 4294967295
+  %wide.trip.count104 = and i64 %mul5.i, 2147483647
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.body.us
@@ -25821,7 +25821,7 @@ for.end367:                                       ; preds = %for.end367.loopexit
 
 gguf_get_key.exit.lr.ph.i:                        ; preds = %for.end367
   %59 = load ptr, ptr %kv, align 8
-  %wide.trip.count.i = and i64 %58, 4294967295
+  %wide.trip.count.i = and i64 %58, 2147483647
   br label %gguf_get_key.exit.i
 
 gguf_get_key.exit.i:                              ; preds = %for.inc.i, %gguf_get_key.exit.lr.ph.i
@@ -26226,7 +26226,7 @@ entry:
 gguf_get_key.exit.lr.ph:                          ; preds = %entry
   %kv.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %kv.i, align 8
-  %wide.trip.count = and i64 %0, 4294967295
+  %wide.trip.count = and i64 %0, 2147483647
   br label %gguf_get_key.exit
 
 gguf_get_key.exit:                                ; preds = %gguf_get_key.exit.lr.ph, %for.inc
@@ -27199,7 +27199,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %infos.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %infos.i, align 8
-  %wide.trip.count = and i64 %0, 4294967295
+  %wide.trip.count = and i64 %0, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -27258,7 +27258,7 @@ entry:
   br i1 %cmp5.i.i, label %gguf_get_key.exit.lr.ph.i.i, label %if.end.i
 
 gguf_get_key.exit.lr.ph.i.i:                      ; preds = %entry
-  %wide.trip.count.i.i = and i64 %0, 4294967295
+  %wide.trip.count.i.i = and i64 %0, 2147483647
   br label %gguf_get_key.exit.i.i
 
 gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_get_key.exit.lr.ph.i.i
@@ -27325,7 +27325,7 @@ entry:
   br i1 %cmp5.i.i, label %gguf_get_key.exit.lr.ph.i.i, label %if.end.i
 
 gguf_get_key.exit.lr.ph.i.i:                      ; preds = %entry
-  %wide.trip.count.i.i = and i64 %0, 4294967295
+  %wide.trip.count.i.i = and i64 %0, 2147483647
   br label %gguf_get_key.exit.i.i
 
 gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_get_key.exit.lr.ph.i.i
@@ -27392,7 +27392,7 @@ entry:
   br i1 %cmp5.i.i, label %gguf_get_key.exit.lr.ph.i.i, label %if.end.i
 
 gguf_get_key.exit.lr.ph.i.i:                      ; preds = %entry
-  %wide.trip.count.i.i = and i64 %0, 4294967295
+  %wide.trip.count.i.i = and i64 %0, 2147483647
   br label %gguf_get_key.exit.i.i
 
 gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_get_key.exit.lr.ph.i.i
@@ -27459,7 +27459,7 @@ entry:
   br i1 %cmp5.i.i, label %gguf_get_key.exit.lr.ph.i.i, label %if.end.i
 
 gguf_get_key.exit.lr.ph.i.i:                      ; preds = %entry
-  %wide.trip.count.i.i = and i64 %0, 4294967295
+  %wide.trip.count.i.i = and i64 %0, 2147483647
   br label %gguf_get_key.exit.i.i
 
 gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_get_key.exit.lr.ph.i.i
@@ -27526,7 +27526,7 @@ entry:
   br i1 %cmp5.i.i, label %gguf_get_key.exit.lr.ph.i.i, label %if.end.i
 
 gguf_get_key.exit.lr.ph.i.i:                      ; preds = %entry
-  %wide.trip.count.i.i = and i64 %0, 4294967295
+  %wide.trip.count.i.i = and i64 %0, 2147483647
   br label %gguf_get_key.exit.i.i
 
 gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_get_key.exit.lr.ph.i.i
@@ -27593,7 +27593,7 @@ entry:
   br i1 %cmp5.i.i, label %gguf_get_key.exit.lr.ph.i.i, label %if.end.i
 
 gguf_get_key.exit.lr.ph.i.i:                      ; preds = %entry
-  %wide.trip.count.i.i = and i64 %0, 4294967295
+  %wide.trip.count.i.i = and i64 %0, 2147483647
   br label %gguf_get_key.exit.i.i
 
 gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_get_key.exit.lr.ph.i.i
@@ -27660,7 +27660,7 @@ entry:
   br i1 %cmp5.i.i, label %gguf_get_key.exit.lr.ph.i.i, label %if.end.i
 
 gguf_get_key.exit.lr.ph.i.i:                      ; preds = %entry
-  %wide.trip.count.i.i = and i64 %0, 4294967295
+  %wide.trip.count.i.i = and i64 %0, 2147483647
   br label %gguf_get_key.exit.i.i
 
 gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_get_key.exit.lr.ph.i.i
@@ -27727,7 +27727,7 @@ entry:
   br i1 %cmp5.i.i, label %gguf_get_key.exit.lr.ph.i.i, label %if.end.i
 
 gguf_get_key.exit.lr.ph.i.i:                      ; preds = %entry
-  %wide.trip.count.i.i = and i64 %0, 4294967295
+  %wide.trip.count.i.i = and i64 %0, 2147483647
   br label %gguf_get_key.exit.i.i
 
 gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_get_key.exit.lr.ph.i.i
@@ -27794,7 +27794,7 @@ entry:
   br i1 %cmp5.i.i, label %gguf_get_key.exit.lr.ph.i.i, label %if.end.i
 
 gguf_get_key.exit.lr.ph.i.i:                      ; preds = %entry
-  %wide.trip.count.i.i = and i64 %0, 4294967295
+  %wide.trip.count.i.i = and i64 %0, 2147483647
   br label %gguf_get_key.exit.i.i
 
 gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_get_key.exit.lr.ph.i.i
@@ -27861,7 +27861,7 @@ entry:
   br i1 %cmp5.i.i, label %gguf_get_key.exit.lr.ph.i.i, label %if.end.i
 
 gguf_get_key.exit.lr.ph.i.i:                      ; preds = %entry
-  %wide.trip.count.i.i = and i64 %0, 4294967295
+  %wide.trip.count.i.i = and i64 %0, 2147483647
   br label %gguf_get_key.exit.i.i
 
 gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_get_key.exit.lr.ph.i.i
@@ -27928,7 +27928,7 @@ entry:
   br i1 %cmp5.i.i, label %gguf_get_key.exit.lr.ph.i.i, label %if.end.i
 
 gguf_get_key.exit.lr.ph.i.i:                      ; preds = %entry
-  %wide.trip.count.i.i = and i64 %0, 4294967295
+  %wide.trip.count.i.i = and i64 %0, 2147483647
   br label %gguf_get_key.exit.i.i
 
 gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_get_key.exit.lr.ph.i.i
@@ -27996,7 +27996,7 @@ entry:
   br i1 %cmp5.i.i, label %gguf_get_key.exit.lr.ph.i.i, label %if.end.i
 
 gguf_get_key.exit.lr.ph.i.i:                      ; preds = %entry
-  %wide.trip.count.i.i = and i64 %0, 4294967295
+  %wide.trip.count.i.i = and i64 %0, 2147483647
   br label %gguf_get_key.exit.i.i
 
 gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_get_key.exit.lr.ph.i.i
@@ -28071,7 +28071,7 @@ entry:
   br i1 %cmp5.i.i, label %gguf_get_key.exit.lr.ph.i.i, label %if.end.i
 
 gguf_get_key.exit.lr.ph.i.i:                      ; preds = %entry
-  %wide.trip.count.i.i = and i64 %0, 4294967295
+  %wide.trip.count.i.i = and i64 %0, 2147483647
   br label %gguf_get_key.exit.i.i
 
 gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_get_key.exit.lr.ph.i.i
@@ -28154,7 +28154,7 @@ entry:
   br i1 %cmp5.i.i, label %gguf_get_key.exit.lr.ph.i.i, label %if.end.i
 
 gguf_get_key.exit.lr.ph.i.i:                      ; preds = %entry
-  %wide.trip.count.i.i = and i64 %0, 4294967295
+  %wide.trip.count.i.i = and i64 %0, 2147483647
   br label %gguf_get_key.exit.i.i
 
 gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_get_key.exit.lr.ph.i.i
@@ -28654,7 +28654,7 @@ entry:
 for.body.lr.ph.i:                                 ; preds = %entry
   %infos.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %infos.i.i, align 8
-  %wide.trip.count.i = and i64 %0, 4294967295
+  %wide.trip.count.i = and i64 %0, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -28703,7 +28703,7 @@ entry:
 for.body.lr.ph.i:                                 ; preds = %entry
   %infos.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %infos.i.i, align 8
-  %wide.trip.count.i = and i64 %0, 4294967295
+  %wide.trip.count.i = and i64 %0, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -28734,7 +28734,7 @@ do.body:                                          ; preds = %for.inc.i, %entry, 
   unreachable
 
 if.end:                                           ; preds = %gguf_find_tensor.exit
-  %idxprom = and i64 %indvars.iv.i, 4294967295
+  %idxprom = and i64 %indvars.iv.i, 2147483647
   %data3 = getelementptr inbounds %struct.gguf_tensor_info, ptr %1, i64 %idxprom, i32 5
   store ptr %data, ptr %data3, align 8
   %6 = load ptr, ptr %infos.i.i, align 8
@@ -34259,7 +34259,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   %cmp120127.i = icmp slt i64 %div99.i, 1
   %conv123.i = trunc i64 %2 to i32
   %cmp5.i.i = icmp slt i32 %conv123.i, 1
-  %wide.trip.count.i.i = and i64 %2, 4294967295
+  %wide.trip.count.i.i = and i64 %2, 2147483647
   %40 = sext i32 %mul.i to i64
   %wide.trip.count140.i = sext i32 %cond.i to i64
   %brmerge.i = or i1 %cmp5.i.i, %cmp120127.i
@@ -35146,7 +35146,7 @@ for.body.lr.ph.i179:                              ; preds = %do.end121.i
   %data171.i = getelementptr inbounds i8, ptr %dst, i64 280
   %conv181.i = trunc i64 %151 to i32
   %cmp4.i.i = icmp sgt i32 %conv181.i, 0
-  %wide.trip.count.i.i181 = and i64 %151, 4294967295
+  %wide.trip.count.i.i181 = and i64 %151, 2147483647
   %202 = lshr i64 458801, %idxprom62.i
   %203 = and i64 %202, 1
   %cmp183.not.not.i = icmp eq i64 %203, 0
@@ -35400,7 +35400,7 @@ for.body.lr.ph.i:                                 ; preds = %do.end61.i
   %data97.i = getelementptr inbounds i8, ptr %src0, i64 280
   %data107.i = getelementptr inbounds i8, ptr %src1, i64 280
   %cmp4.i.i = icmp sgt i32 %conv88.i, 0
-  %wide.trip.count.i.i = and i64 %1, 4294967295
+  %wide.trip.count.i.i = and i64 %1, 2147483647
   br i1 %cmp4.i.i, label %for.body.us.preheader.i, label %sw.epilog
 
 for.body.us.preheader.i:                          ; preds = %for.body.lr.ph.i
@@ -36147,7 +36147,7 @@ for.body.lr.ph.i187:                              ; preds = %do.end110.i
   %data151.i = getelementptr inbounds i8, ptr %dst, i64 280
   %conv161.i = trunc i64 %126 to i32
   %cmp3.i80.i = icmp sgt i32 %conv161.i, 0
-  %wide.trip.count.i.i188 = and i64 %126, 4294967295
+  %wide.trip.count.i.i188 = and i64 %126, 2147483647
   %177 = sext i32 %mul.i185 to i64
   %wide.trip.count89.i = sext i32 %cond.i186 to i64
   br i1 %cmp3.i80.i, label %for.body.us.i192, label %for.body.i
@@ -36630,7 +36630,7 @@ for.body.lr.ph.i:                                 ; preds = %do.end153.i
   %data197.i = getelementptr inbounds i8, ptr %src0, i64 280
   %data208.i = getelementptr inbounds i8, ptr %src1, i64 280
   %cmp5.i.i = icmp sgt i32 %conv46.i, 0
-  %wide.trip.count.i.i = and i64 %43, 4294967295
+  %wide.trip.count.i.i = and i64 %43, 2147483647
   %74 = sext i32 %mul156.i to i64
   %wide.trip.count.i = sext i32 %cond164.i to i64
   br label %for.body.i
@@ -36798,7 +36798,7 @@ for.body120.lr.ph.i:                              ; preds = %for.cond117.prehead
   br i1 %cmp1662.i, label %for.body120.us.preheader.i, label %ggml_compute_forward_sub_f32.exit
 
 for.body120.us.preheader.i:                       ; preds = %for.body120.lr.ph.i
-  %wide.trip.count.i = and i64 %mul5.i.i, 4294967295
+  %wide.trip.count.i = and i64 %mul5.i.i, 2147483647
   br label %for.body120.us.i
 
 for.body120.us.i:                                 ; preds = %for.cond164.for.inc189_crit_edge.us.i, %for.body120.us.preheader.i
@@ -36867,11 +36867,11 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   %data96.i = getelementptr inbounds i8, ptr %src0, i64 280
   %data106.i = getelementptr inbounds i8, ptr %src1, i64 280
   %cmp5.i.i = icmp sgt i32 %conv87.i, 0
-  %wide.trip.count.i.i = and i64 %11, 4294967295
+  %wide.trip.count.i.i = and i64 %11, 2147483647
   br i1 %cmp5.i.i, label %for.body.us.preheader.i, label %ggml_compute_forward_sub_f32.exit
 
 for.body.us.preheader.i:                          ; preds = %for.body.lr.ph.i
-  %wide.trip.count20.i = and i64 %mul5.i.i, 4294967295
+  %wide.trip.count20.i = and i64 %mul5.i.i, 2147483647
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %ggml_vec_sub_f32.exit.loopexit.us.i, %for.body.us.preheader.i
@@ -37112,7 +37112,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then73.i
   %cmp107123.i = icmp slt i64 %div86.i, 1
   %conv110.i = trunc i64 %5 to i32
   %cmp5.i.i = icmp slt i32 %conv110.i, 1
-  %wide.trip.count.i.i = and i64 %5, 4294967295
+  %wide.trip.count.i.i = and i64 %5, 2147483647
   %conv116.i = sext i32 %20 to i64
   %brmerge.i = or i1 %cmp5.i.i, %cmp107123.i
   br label %for.body.i
@@ -37415,7 +37415,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then73.i
   %cmp107122.i = icmp slt i64 %div86.i, 1
   %conv110.i = trunc i64 %2 to i32
   %cmp5.i.i = icmp slt i32 %conv110.i, 1
-  %wide.trip.count.i.i = and i64 %2, 4294967295
+  %wide.trip.count.i.i = and i64 %2, 2147483647
   %conv116.i = sext i32 %17 to i64
   %brmerge.i = or i1 %cmp5.i.i, %cmp107122.i
   br label %for.body.i
@@ -37598,11 +37598,11 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
   %data8.i = getelementptr inbounds i8, ptr %src0, i64 280
   %arrayidx11.i = getelementptr inbounds i8, ptr %src0, i64 56
   %cmp6.i.i = icmp sgt i32 %conv3.i, 0
-  %wide.trip.count.i.i = and i64 %4, 4294967295
+  %wide.trip.count.i.i = and i64 %4, 2147483647
   br i1 %cmp6.i.i, label %for.body.us.preheader.i, label %ggml_compute_forward_sqr_f32.exit
 
 for.body.us.preheader.i:                          ; preds = %for.body.lr.ph.i
-  %wide.trip.count.i = and i64 %mul5.i.i, 4294967295
+  %wide.trip.count.i = and i64 %mul5.i.i, 2147483647
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %ggml_vec_sqr_f32.exit.loopexit.us.i, %for.body.us.preheader.i
@@ -37682,11 +37682,11 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
   %data8.i = getelementptr inbounds i8, ptr %src0, i64 280
   %arrayidx11.i = getelementptr inbounds i8, ptr %src0, i64 56
   %cmp4.i.i = icmp sgt i32 %conv3.i, 0
-  %wide.trip.count.i.i = and i64 %4, 4294967295
+  %wide.trip.count.i.i = and i64 %4, 2147483647
   br i1 %cmp4.i.i, label %for.body.us.preheader.i, label %ggml_compute_forward_sqrt_f32.exit
 
 for.body.us.preheader.i:                          ; preds = %for.body.lr.ph.i
-  %wide.trip.count.i = and i64 %mul5.i.i, 4294967295
+  %wide.trip.count.i = and i64 %mul5.i.i, 2147483647
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %ggml_vec_sqrt_f32.exit.loopexit.us.i, %for.body.us.preheader.i
@@ -37835,11 +37835,11 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   %data40.i = getelementptr inbounds i8, ptr %src0, i64 280
   %arrayidx43.i = getelementptr inbounds i8, ptr %src0, i64 56
   %cmp4.i.i = icmp sgt i32 %conv15.i, 0
-  %wide.trip.count.i.i = and i64 %4, 4294967295
+  %wide.trip.count.i.i = and i64 %4, 2147483647
   br i1 %cmp4.i.i, label %for.body.us.preheader.i, label %ggml_compute_forward_log_f32.exit
 
 for.body.us.preheader.i:                          ; preds = %for.body.lr.ph.i
-  %wide.trip.count.i = and i64 %mul5.i.i, 4294967295
+  %wide.trip.count.i = and i64 %mul5.i.i, 2147483647
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %ggml_vec_log_f32.exit.loopexit.us.i, %for.body.us.preheader.i
@@ -37928,7 +37928,7 @@ for.cond17.preheader.lr.ph.i:                     ; preds = %if.end.i
   %ne.i = getelementptr inbounds i8, ptr %src0, i64 16
   %7 = load i64, ptr %ne.i, align 8
   %cmp186.i = icmp sgt i64 %2, 0
-  %wide.trip.count.i.i = and i64 %7, 4294967295
+  %wide.trip.count.i.i = and i64 %7, 2147483647
   %cmp211.i = icmp sgt i64 %1, 0
   %or.cond.i = select i1 %cmp186.i, i1 %cmp211.i, i1 false
   br i1 %or.cond.i, label %for.cond17.preheader.lr.ph.split.us.split.us.i, label %for.end32.i
@@ -38026,7 +38026,7 @@ for.cond17.preheader.lr.ph.i16:                   ; preds = %if.end.i6
   %ne.i17 = getelementptr inbounds i8, ptr %src0, i64 16
   %18 = load i64, ptr %ne.i17, align 8
   %cmp186.i18 = icmp sgt i64 %13, 0
-  %wide.trip.count.i.i19 = and i64 %18, 4294967295
+  %wide.trip.count.i.i19 = and i64 %18, 2147483647
   %cmp211.i20 = icmp sgt i64 %12, 0
   %or.cond.i21 = select i1 %cmp186.i18, i1 %cmp211.i20, i1 false
   br i1 %or.cond.i21, label %for.cond17.preheader.lr.ph.split.us.split.us.i22, label %for.end32.i14
@@ -38249,7 +38249,7 @@ for.cond83.preheader.lr.ph.i:                     ; preds = %for.cond.preheader.
   %cmp8438.i = icmp sgt i64 %13, 0
   %data.i = getelementptr inbounds i8, ptr %src0, i64 280
   %data93.i = getelementptr inbounds i8, ptr %dst, i64 280
-  %wide.trip.count.i.i = and i64 %11, 4294967295
+  %wide.trip.count.i.i = and i64 %11, 2147483647
   %cmp8736.i = icmp sgt i64 %12, 0
   %or.cond.i = select i1 %cmp8438.i, i1 %cmp8736.i, i1 false
   br i1 %or.cond.i, label %for.cond83.preheader.lr.ph.split.us.split.us.i, label %ggml_compute_forward_sum_rows_f32.exit
@@ -38409,7 +38409,7 @@ for.cond34.preheader.lr.ph.i:                     ; preds = %if.end.i
   %cmp353.i = icmp sgt i64 %2, 0
   %data.i = getelementptr inbounds i8, ptr %dst, i64 280
   %data44.i = getelementptr inbounds i8, ptr %src0, i64 280
-  %wide.trip.count.i.i = and i64 %10, 4294967295
+  %wide.trip.count.i.i = and i64 %10, 2147483647
   %conv51.i = sitofp i64 %10 to float
   %cmp381.i = icmp sgt i64 %1, 0
   %or.cond.i = select i1 %cmp353.i, i1 %cmp381.i, i1 false
@@ -38564,7 +38564,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
   %data9.i = getelementptr inbounds i8, ptr %dst, i64 280
   %conv.i = trunc i64 %4 to i32
   %cmp10.i.i = icmp sgt i32 %conv.i, 0
-  %wide.trip.count.i.i = and i64 %4, 4294967295
+  %wide.trip.count.i.i = and i64 %4, 2147483647
   br i1 %cmp10.i.i, label %for.body.us.i, label %for.body.i
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %ggml_vec_argmax_f32.exit.loopexit.us.i
@@ -38762,10 +38762,10 @@ for.cond67.preheader.lr.ph.i:                     ; preds = %for.cond.preheader.
   br i1 %brmerge266.i, label %sw.epilog, label %for.cond67.preheader.us.us.us.us.us.us.us.preheader.i
 
 for.cond67.preheader.us.us.us.us.us.us.us.preheader.i: ; preds = %for.cond67.preheader.lr.ph.i
-  %wide.trip.count261.i = and i64 %div47.i, 4294967295
-  %wide.trip.count252.i = and i64 %div45.i, 4294967295
-  %wide.trip.count243.i = and i64 %div43.i, 4294967295
-  %wide.trip.count.i = and i64 %div.i, 4294967295
+  %wide.trip.count261.i = and i64 %div47.i, 2147483647
+  %wide.trip.count252.i = and i64 %div45.i, 2147483647
+  %wide.trip.count243.i = and i64 %div43.i, 2147483647
+  %wide.trip.count.i = and i64 %div.i, 2147483647
   br label %for.cond67.preheader.us.us.us.us.us.us.us.i
 
 for.cond67.preheader.us.us.us.us.us.us.us.i:      ; preds = %for.cond67.for.inc149_crit_edge.split.us.split.us.split.us.split.us.split.us.us.us.split.us.us.us.us.us.us.i, %for.cond67.preheader.us.us.us.us.us.us.us.preheader.i
@@ -38995,7 +38995,7 @@ for.cond67.preheader.lr.ph.i61:                   ; preds = %for.cond.preheader.
   %mul111.i = shl i64 %34, 2
   %data114.i = getelementptr inbounds i8, ptr %src0, i64 280
   %cmp4.i.i = icmp slt i32 %conv94.i, 1
-  %wide.trip.count.i.i = and i64 %34, 4294967295
+  %wide.trip.count.i.i = and i64 %34, 2147483647
   %cmp7399.i = icmp slt i32 %conv46.i47, 1
   %or.cond.not257.i = or i1 %cmp69129.i, %cmp7399.i
   %brmerge.i63 = or i1 %cmp7878.i, %or.cond.not257.i
@@ -39006,10 +39006,10 @@ for.cond67.preheader.lr.ph.i61:                   ; preds = %for.cond.preheader.
   br i1 %brmerge256.i, label %sw.epilog, label %for.cond67.preheader.us.us.us.us.us.us.us.preheader.i64
 
 for.cond67.preheader.us.us.us.us.us.us.us.preheader.i64: ; preds = %for.cond67.preheader.lr.ph.i61
-  %wide.trip.count251.i = and i64 %div47.i48, 4294967295
-  %wide.trip.count242.i = and i64 %div45.i46, 4294967295
-  %wide.trip.count233.i = and i64 %div43.i44, 4294967295
-  %wide.trip.count.i65 = and i64 %div.i42, 4294967295
+  %wide.trip.count251.i = and i64 %div47.i48, 2147483647
+  %wide.trip.count242.i = and i64 %div45.i46, 2147483647
+  %wide.trip.count233.i = and i64 %div43.i44, 2147483647
+  %wide.trip.count.i65 = and i64 %div.i42, 2147483647
   br label %for.cond67.preheader.us.us.us.us.us.us.us.i66
 
 for.cond67.preheader.us.us.us.us.us.us.us.i66:    ; preds = %for.cond67.for.inc139_crit_edge.split.us.split.us.split.us.split.us.split.us.us.us.split.us.us.us.us.us.us.i, %for.cond67.preheader.us.us.us.us.us.us.us.preheader.i64
@@ -39292,7 +39292,7 @@ for.cond73.preheader.lr.ph.i:                     ; preds = %for.cond.preheader.
 
 for.cond73.preheader.us.us.us.preheader.i:        ; preds = %for.cond73.preheader.lr.ph.i
   %wide.trip.count.i78.i = shl i64 %5, 2
-  %29 = and i64 %wide.trip.count.i78.i, 17179869180
+  %29 = and i64 %wide.trip.count.i78.i, 8589934588
   br label %for.cond73.preheader.us.us.us.i
 
 for.cond73.preheader.us.us.us.i:                  ; preds = %for.cond73.for.inc96_crit_edge.split.us.split.us.us.us.us.i, %for.cond73.preheader.us.us.us.preheader.i
@@ -39339,7 +39339,7 @@ for.body.preheader.i.i:                           ; preds = %if.then66.i
   %data.i = getelementptr inbounds i8, ptr %dst, i64 280
   %31 = load ptr, ptr %data.i, align 8
   %wide.trip.count.i.i = shl i64 %mul68.i, 2
-  %32 = and i64 %wide.trip.count.i.i, 17179869180
+  %32 = and i64 %wide.trip.count.i.i, 8589934588
   tail call void @llvm.memset.p0.i64(ptr align 4 %31, i8 0, i64 %32, i1 false)
   br label %if.end99.i
 
@@ -39358,7 +39358,7 @@ for.cond105.preheader.lr.ph.i:                    ; preds = %if.end99.i
   %data145.i = getelementptr inbounds i8, ptr %src0, i64 280
   %mul164.i = shl i64 %5, 2
   %cmp4.i.i = icmp slt i32 %conv134.i, 1
-  %wide.trip.count.i86.i = and i64 %5, 4294967295
+  %wide.trip.count.i86.i = and i64 %5, 2147483647
   %cmp111172.i = icmp slt i32 %conv46.i, 1
   %or.cond374.not381.i = or i1 %cmp107202.i, %cmp111172.i
   %brmerge375.i = or i1 %cmp117151.i, %or.cond374.not381.i
@@ -39369,10 +39369,10 @@ for.cond105.preheader.lr.ph.i:                    ; preds = %if.end99.i
   br i1 %brmerge379.i, label %ggml_compute_forward_repeat_back_f32.exit, label %for.cond105.preheader.us.us.us.us.us.us.us.preheader.i
 
 for.cond105.preheader.us.us.us.us.us.us.us.preheader.i: ; preds = %for.cond105.preheader.lr.ph.i
-  %wide.trip.count371.i = and i64 %div47.i, 4294967295
-  %wide.trip.count362.i = and i64 %div45.i, 4294967295
-  %wide.trip.count353.i = and i64 %div43.i, 4294967295
-  %wide.trip.count.i = and i64 %div.i, 4294967295
+  %wide.trip.count371.i = and i64 %div47.i, 2147483647
+  %wide.trip.count362.i = and i64 %div45.i, 2147483647
+  %wide.trip.count353.i = and i64 %div43.i, 2147483647
+  %wide.trip.count.i = and i64 %div.i, 2147483647
   br label %for.cond105.preheader.us.us.us.us.us.us.us.i
 
 for.cond105.preheader.us.us.us.us.us.us.us.i:     ; preds = %for.cond105.for.inc185_crit_edge.split.us.split.us.split.us.split.us.split.us.us.us.split.us.us.us.us.us.us.i, %for.cond105.preheader.us.us.us.us.us.us.us.preheader.i
@@ -39908,7 +39908,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end34.i
   %data48.i = getelementptr inbounds i8, ptr %src0, i64 280
   %data54.i = getelementptr inbounds i8, ptr %grad, i64 280
   %cmp5.i.i = icmp sgt i32 %conv.i, 0
-  %wide.trip.count.i.i = and i64 %29, 4294967295
+  %wide.trip.count.i.i = and i64 %29, 2147483647
   br i1 %cmp5.i.i, label %for.body.us.preheader.i, label %ggml_compute_forward_silu_back_f32.exit
 
 for.body.us.preheader.i:                          ; preds = %for.body.lr.ph.i
@@ -41586,7 +41586,7 @@ for.cond65.preheader.lr.ph.i:                     ; preds = %do.end14.i
   %data104.i = getelementptr inbounds i8, ptr %dst, i64 280
   %conv111.i = trunc i64 %1 to i32
   %cmp4.i.i = icmp sgt i32 %conv111.i, 0
-  %wide.trip.count.i.i = and i64 %1, 4294967295
+  %wide.trip.count.i.i = and i64 %1, 2147483647
   %and.i.i = and i32 %conv111.i, -32
   %cmp26.i.i = icmp sgt i32 %and.i.i, 0
   %30 = and i64 %1, 4294967264
@@ -44215,7 +44215,7 @@ sw.epilog.sink.split:                             ; preds = %if.then103.i, %if.t
   %data.i38 = getelementptr inbounds i8, ptr %dst, i64 280
   %207 = load ptr, ptr %data.i38, align 8
   %wide.trip.count.i.i39 = shl i64 %mul105.i.sink, 2
-  %208 = and i64 %wide.trip.count.i.i39, 17179869180
+  %208 = and i64 %wide.trip.count.i.i39, 8589934588
   tail call void @llvm.memset.p0.i64(ptr align 4 %207, i8 0, i64 %208, i1 false)
   br label %sw.epilog
 
@@ -44954,7 +44954,7 @@ for.body.lr.ph.i:                                 ; preds = %do.end116.i
   %data150.i = getelementptr inbounds i8, ptr %dst, i64 280
   %data160.i = getelementptr inbounds i8, ptr %src1, i64 280
   %cmp4.i.i = icmp sgt i32 %conv46.i, 0
-  %wide.trip.count.i.i = and i64 %43, 4294967295
+  %wide.trip.count.i.i = and i64 %43, 2147483647
   %64 = sext i32 %mul119.i to i64
   %wide.trip.count.i = sext i32 %cond127.i to i64
   br label %for.body.i
@@ -45180,7 +45180,7 @@ for.cond52.preheader.lr.ph.i:                     ; preds = %if.end.i12
   %data69.i = getelementptr inbounds i8, ptr %dst, i64 280
   %conv76.i = trunc i64 %31 to i32
   %cmp4.i.i = icmp slt i32 %conv76.i, 1
-  %wide.trip.count.i.i = and i64 %31, 4294967295
+  %wide.trip.count.i.i = and i64 %31, 2147483647
   %cmp561.i = icmp slt i64 %22, 1
   %or.cond.not30.i = select i1 %cmp533.i, i1 true, i1 %cmp561.i
   %brmerge.i = select i1 %or.cond.not30.i, i1 true, i1 %cmp4.i.i
@@ -45293,7 +45293,7 @@ for.cond52.preheader.lr.ph.i43:                   ; preds = %if.end.i29
   %data63.i = getelementptr inbounds i8, ptr %dst, i64 280
   %data70.i = getelementptr inbounds i8, ptr %src0, i64 280
   %cmp4.i.i47 = icmp slt i32 %conv62.i, 1
-  %wide.trip.count.i.i48 = and i64 %50, 4294967295
+  %wide.trip.count.i.i48 = and i64 %50, 2147483647
   %cmp561.i49 = icmp slt i64 %41, 1
   %or.cond.not30.i50 = select i1 %cmp533.i45, i1 true, i1 %cmp561.i49
   %brmerge.i51 = select i1 %or.cond.not30.i50, i1 true, i1 %cmp4.i.i47
@@ -45549,8 +45549,8 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   br i1 %cmp4635.i, label %for.body.us.preheader.i, label %sw.epilog
 
 for.body.us.preheader.i:                          ; preds = %for.body.lr.ph.i
-  %wide.trip.count45.i = and i64 %mul8.i.i, 4294967295
-  %wide.trip.count.i = and i64 %24, 4294967295
+  %wide.trip.count45.i = and i64 %mul8.i.i, 2147483647
+  %wide.trip.count.i = and i64 %24, 2147483647
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %for.cond45.for.inc64_crit_edge.us.i, %for.body.us.preheader.i
@@ -45763,11 +45763,11 @@ for.body.lr.ph.i64:                               ; preds = %for.cond.preheader.
   %data55.i = getelementptr inbounds i8, ptr %src0, i64 280
   %arrayidx58.i = getelementptr inbounds i8, ptr %src0, i64 56
   %cmp5.i.i = icmp sgt i32 %conv.i42, 0
-  %wide.trip.count.i.i = and i64 %67, 4294967295
+  %wide.trip.count.i.i = and i64 %67, 2147483647
   br i1 %cmp5.i.i, label %for.body.us.preheader.i66, label %sw.epilog
 
 for.body.us.preheader.i66:                        ; preds = %for.body.lr.ph.i64
-  %wide.trip.count.i67 = and i64 %mul8.i.i49, 4294967295
+  %wide.trip.count.i67 = and i64 %mul8.i.i49, 2147483647
   br label %for.body.us.i68
 
 for.body.us.i68:                                  ; preds = %ggml_vec_add_f32.exit.loopexit.us.i, %for.body.us.preheader.i66
@@ -46178,7 +46178,7 @@ for.body.lr.ph.i:                                 ; preds = %cond.end.i
   %data35.i = getelementptr inbounds i8, ptr %src1, i64 280
   %arrayidx38.i = getelementptr inbounds i8, ptr %src1, i64 56
   %cmp4.i.i = icmp sgt i32 %conv.i, 0
-  %wide.trip.count.i.i = and i64 %5, 4294967295
+  %wide.trip.count.i.i = and i64 %5, 2147483647
   %and.i.i = and i32 %conv.i, -32
   %vecinit.i.i.i = insertelement <8 x float> poison, float %scale.0.copyload.i, i64 0
   %vecinit7.i.i.i = shufflevector <8 x float> %vecinit.i.i.i, <8 x float> poison, <8 x i32> zeroinitializer
@@ -46624,7 +46624,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end34.i
   %sext.i = shl i64 %3, 32
   %wide.trip.count.i.i = ashr exact i64 %sext.i, 32
   %cmp4.i.i = icmp sgt i32 %conv.i, 0
-  %wide.trip.count.i107.i = and i64 %3, 4294967295
+  %wide.trip.count.i107.i = and i64 %3, 2147483647
   %46 = sext i32 %mul.i to i64
   %wide.trip.count.i = sext i32 %cond.i to i64
   br label %for.body.i
@@ -46936,8 +46936,8 @@ for.cond49.preheader.us.us.preheader.i:           ; preds = %for.cond49.preheade
   %15 = sext i32 %shl.i to i64
   %sext31.i = shl i64 %7, 32
   %16 = ashr exact i64 %sext31.i, 32
-  %wide.trip.count29.i = and i64 %2, 4294967295
-  %wide.trip.count23.i = and i64 %3, 4294967295
+  %wide.trip.count29.i = and i64 %2, 2147483647
+  %wide.trip.count23.i = and i64 %3, 2147483647
   %wide.trip.count.i = zext nneg i32 %div.i to i64
   br label %for.cond49.preheader.us.us.i
 
@@ -47250,7 +47250,7 @@ for.body.us.preheader.i:                          ; preds = %for.body.lr.ph.i
   %15 = sext i32 %2 to i64
   %sext.i = shl i64 %mul5.i.i, 32
   %16 = ashr exact i64 %sext.i, 32
-  %wide.trip.count.i = and i64 %6, 4294967295
+  %wide.trip.count.i = and i64 %6, 2147483647
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %for.cond38.for.inc65_crit_edge.us.i, %for.body.us.preheader.i
@@ -50845,11 +50845,11 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
   %data8.i = getelementptr inbounds i8, ptr %src0, i64 280
   %arrayidx11.i = getelementptr inbounds i8, ptr %src0, i64 56
   %cmp11.i.i = icmp sgt i32 %conv3.i, 0
-  %wide.trip.count.i.i = and i64 %4, 4294967295
+  %wide.trip.count.i.i = and i64 %4, 2147483647
   br i1 %cmp11.i.i, label %for.body.us.preheader.i, label %ggml_compute_forward_leaky_relu_f32.exit
 
 for.body.us.preheader.i:                          ; preds = %for.body.lr.ph.i
-  %wide.trip.count.i = and i64 %mul5.i.i, 4294967295
+  %wide.trip.count.i = and i64 %mul5.i.i, 2147483647
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %ggml_vec_leaky_relu_f32.exit.loopexit.us.i, %for.body.us.preheader.i
@@ -51214,7 +51214,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end198.i
   %wide.trip.count.i226.i = ashr exact i64 %sext434.i, 32
   %cmp324449.i = icmp sgt i64 %2, 0
   %cmp7.i.i = icmp sgt i32 %conv.i, 0
-  %wide.trip.count.i237.i = and i64 %10, 4294967295
+  %wide.trip.count.i237.i = and i64 %10, 2147483647
   %cmp341452.i = icmp sgt i32 %and4.i.i, 0
   %idx.ext405.i = sext i32 %and4.i.i to i64
   %62 = and i64 %1, 1
@@ -52489,7 +52489,7 @@ for.end291.i:                                     ; preds = %for.body287.i, %ggm
   br i1 %cmp7.i.i134, label %for.body.preheader.i.i, label %ggml_vec_max_f32.exit.i135
 
 for.body.preheader.i.i:                           ; preds = %for.end291.i
-  %wide.trip.count.i166.i = and i64 %cond250.i, 4294967295
+  %wide.trip.count.i166.i = and i64 %cond250.i, 2147483647
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -53109,7 +53109,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end238.i
   %conv297.i = trunc i64 %10 to i32
   %data298.i = getelementptr inbounds i8, ptr %b1, i64 280
   %cmp5.i.i = icmp sgt i32 %conv297.i, 0
-  %wide.trip.count.i154.i = and i64 %10, 4294967295
+  %wide.trip.count.i154.i = and i64 %10, 2147483647
   %cmp322242.i = icmp sgt i64 %1, 0
   %data326.i = getelementptr inbounds i8, ptr %dst, i64 280
   %data338.i = getelementptr inbounds i8, ptr %c0, i64 280
@@ -53124,7 +53124,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end238.i
   %wide.trip.count.i188.i = ashr exact i64 %sext236.i, 32
   %data371.i = getelementptr inbounds i8, ptr %c1, i64 280
   %cmp5.i222.i = icmp sgt i32 %conv276.i, 0
-  %wide.trip.count.i224.i = and i64 %1, 4294967295
+  %wide.trip.count.i224.i = and i64 %1, 2147483647
   %79 = sext i32 %mul240.i to i64
   %wide.trip.count.i = sext i32 %cond.i to i64
   br label %for.body.i
@@ -53837,7 +53837,7 @@ for.body.lr.ph.i:                                 ; preds = %do.end238.i
   %arrayidx34.i339.i = getelementptr inbounds i8, ptr %sum.i331.i, i64 64
   %arrayidx34.i339.c.i = getelementptr inbounds i8, ptr %sum.i331.i, i64 96
   %cmp3.i375.i = icmp sgt i32 %conv.i, 0
-  %wide.trip.count.i377.i = and i64 %8, 4294967295
+  %wide.trip.count.i377.i = and i64 %8, 2147483647
   %cmp310546.i = icmp sgt i64 %2, 0
   %or.cond.i = select i1 %cmp300552.i, i1 %cmp310546.i, i1 false
   br i1 %or.cond.i, label %for.body.us.us.preheader.i, label %ggml_compute_forward_flash_attn_back_f32.exit
@@ -53848,7 +53848,7 @@ for.body.us.us.preheader.i:                       ; preds = %for.body.lr.ph.i
   %75 = shl i64 %mul317.i, 2
   %76 = sext i32 %mul275.i to i64
   %wide.trip.count596.i = sext i32 %cond283.i to i64
-  %wide.trip.count591.i = and i64 %div287.i, 4294967295
+  %wide.trip.count591.i = and i64 %div287.i, 2147483647
   br label %for.body.us.us.i
 
 for.body.us.us.i:                                 ; preds = %for.cond299.for.inc578_crit_edge.split.us.us.us.i, %for.body.us.us.preheader.i
@@ -53964,7 +53964,7 @@ for.end387.us.us.us.i:                            ; preds = %for.body383.us.us.u
   br i1 %cmp7.i.us.us.us.i, label %for.body.preheader.i.us.us.us.i, label %ggml_vec_max_f32.exit.us.us.us.i
 
 for.body.preheader.i.us.us.us.i:                  ; preds = %for.end387.us.us.us.i
-  %wide.trip.count.i277.us.us.us.i = and i64 %cond347.us.us.us.i, 4294967295
+  %wide.trip.count.i277.us.us.us.i = and i64 %cond347.us.us.us.i, 2147483647
   br label %for.body.i.us.us.us.i
 
 for.body.i.us.us.us.i:                            ; preds = %for.body.i.us.us.us.i, %for.body.preheader.i.us.us.us.i
@@ -54048,7 +54048,7 @@ ggml_vec_scale_f32.exit308.us.us.us.i:            ; preds = %for.body24.i289.us.
 for.body.preheader.i309.us.us.us.i:               ; preds = %ggml_vec_scale_f32.exit308.us.us.us.i
   %scevgep.i = getelementptr i8, ptr %81, i64 %75
   %wide.trip.count.i310.us.us.us.i = shl i64 %cond347.us.us.us.i, 2
-  %93 = and i64 %wide.trip.count.i310.us.us.us.i, 17179869180
+  %93 = and i64 %wide.trip.count.i310.us.us.us.i, 8589934588
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i, i8 0, i64 %93, i1 false)
   br label %ggml_vec_set_f32.exit.us.us.us.i
 
@@ -54149,7 +54149,7 @@ ggml_vec_acc1_f32.exit.us.us.us.i:                ; preds = %for.body.i378.us.us
   br i1 %cmp7.i.us.us.us.i, label %for.body.preheader.i383.us.us.us.i, label %ggml_vec_mul_f32.exit.us.us.us.i
 
 for.body.preheader.i383.us.us.us.i:               ; preds = %ggml_vec_acc1_f32.exit.us.us.us.i
-  %wide.trip.count.i384.us.us.us.i = and i64 %cond347.us.us.us.i, 4294967295
+  %wide.trip.count.i384.us.us.us.i = and i64 %cond347.us.us.us.i, 2147483647
   br label %for.body.i385.us.us.us.i
 
 for.body.i385.us.us.us.i:                         ; preds = %for.body.i385.us.us.us.i, %for.body.preheader.i383.us.us.us.i
@@ -55009,11 +55009,11 @@ for.body.lr.ph.i.i:                               ; preds = %if.end.i.i
   %data8.i.i = getelementptr inbounds i8, ptr %src0, i64 280
   %arrayidx11.i.i = getelementptr inbounds i8, ptr %src0, i64 56
   %cmp4.i.i.i = icmp sgt i32 %conv3.i.i, 0
-  %wide.trip.count.i.i.i = and i64 %8, 4294967295
+  %wide.trip.count.i.i.i = and i64 %8, 2147483647
   br i1 %cmp4.i.i.i, label %for.body.us.preheader.i.i, label %sw.epilog
 
 for.body.us.preheader.i.i:                        ; preds = %for.body.lr.ph.i.i
-  %wide.trip.count.i.i = and i64 %mul5.i.i.i, 4294967295
+  %wide.trip.count.i.i = and i64 %mul5.i.i.i, 2147483647
   br label %for.body.us.i.i
 
 for.body.us.i.i:                                  ; preds = %ggml_vec_abs_f32.exit.loopexit.us.i.i, %for.body.us.preheader.i.i
@@ -55087,11 +55087,11 @@ for.body.lr.ph.i.i45:                             ; preds = %if.end.i.i37
   %data8.i.i50 = getelementptr inbounds i8, ptr %src0, i64 280
   %arrayidx11.i.i51 = getelementptr inbounds i8, ptr %src0, i64 56
   %cmp6.i.i.i = icmp sgt i32 %conv3.i.i47, 0
-  %wide.trip.count.i.i.i52 = and i64 %21, 4294967295
+  %wide.trip.count.i.i.i52 = and i64 %21, 2147483647
   br i1 %cmp6.i.i.i, label %for.body.us.preheader.i.i53, label %sw.epilog
 
 for.body.us.preheader.i.i53:                      ; preds = %for.body.lr.ph.i.i45
-  %wide.trip.count.i.i54 = and i64 %mul5.i.i.i42, 4294967295
+  %wide.trip.count.i.i54 = and i64 %mul5.i.i.i42, 2147483647
   br label %for.body.us.i.i55
 
 for.body.us.i.i55:                                ; preds = %ggml_vec_sgn_f32.exit.loopexit.us.i.i, %for.body.us.preheader.i.i53
@@ -55168,11 +55168,11 @@ for.body.lr.ph.i.i82:                             ; preds = %if.end.i.i74
   %data8.i.i87 = getelementptr inbounds i8, ptr %src0, i64 280
   %arrayidx11.i.i88 = getelementptr inbounds i8, ptr %src0, i64 56
   %cmp4.i.i.i89 = icmp sgt i32 %conv3.i.i84, 0
-  %wide.trip.count.i.i.i90 = and i64 %33, 4294967295
+  %wide.trip.count.i.i.i90 = and i64 %33, 2147483647
   br i1 %cmp4.i.i.i89, label %for.body.us.preheader.i.i91, label %sw.epilog
 
 for.body.us.preheader.i.i91:                      ; preds = %for.body.lr.ph.i.i82
-  %wide.trip.count.i.i92 = and i64 %mul5.i.i.i79, 4294967295
+  %wide.trip.count.i.i92 = and i64 %mul5.i.i.i79, 2147483647
   br label %for.body.us.i.i93
 
 for.body.us.i.i93:                                ; preds = %ggml_vec_neg_f32.exit.loopexit.us.i.i, %for.body.us.preheader.i.i91
@@ -55246,11 +55246,11 @@ for.body.lr.ph.i.i121:                            ; preds = %if.end.i.i113
   %data8.i.i126 = getelementptr inbounds i8, ptr %src0, i64 280
   %arrayidx11.i.i127 = getelementptr inbounds i8, ptr %src0, i64 56
   %cmp4.i.i.i128 = icmp sgt i32 %conv3.i.i123, 0
-  %wide.trip.count.i.i.i129 = and i64 %45, 4294967295
+  %wide.trip.count.i.i.i129 = and i64 %45, 2147483647
   br i1 %cmp4.i.i.i128, label %for.body.us.preheader.i.i130, label %sw.epilog
 
 for.body.us.preheader.i.i130:                     ; preds = %for.body.lr.ph.i.i121
-  %wide.trip.count.i.i131 = and i64 %mul5.i.i.i118, 4294967295
+  %wide.trip.count.i.i131 = and i64 %mul5.i.i.i118, 2147483647
   br label %for.body.us.i.i132
 
 for.body.us.i.i132:                               ; preds = %ggml_vec_step_f32.exit.loopexit.us.i.i, %for.body.us.preheader.i.i130
@@ -55325,11 +55325,11 @@ for.body.lr.ph.i.i161:                            ; preds = %if.end.i.i153
   %data8.i.i166 = getelementptr inbounds i8, ptr %src0, i64 280
   %arrayidx11.i.i167 = getelementptr inbounds i8, ptr %src0, i64 56
   %cmp4.i.i.i168 = icmp sgt i32 %conv3.i.i163, 0
-  %wide.trip.count.i.i.i169 = and i64 %57, 4294967295
+  %wide.trip.count.i.i.i169 = and i64 %57, 2147483647
   br i1 %cmp4.i.i.i168, label %for.body.us.preheader.i.i170, label %sw.epilog
 
 for.body.us.preheader.i.i170:                     ; preds = %for.body.lr.ph.i.i161
-  %wide.trip.count.i.i171 = and i64 %mul5.i.i.i158, 4294967295
+  %wide.trip.count.i.i171 = and i64 %mul5.i.i.i158, 2147483647
   br label %for.body.us.i.i172
 
 for.body.us.i.i172:                               ; preds = %ggml_vec_tanh_f32.exit.loopexit.us.i.i, %for.body.us.preheader.i.i170
@@ -55403,11 +55403,11 @@ for.body.lr.ph.i.i200:                            ; preds = %if.end.i.i192
   %data8.i.i205 = getelementptr inbounds i8, ptr %src0, i64 280
   %arrayidx11.i.i206 = getelementptr inbounds i8, ptr %src0, i64 56
   %cmp8.i.i.i = icmp sgt i32 %conv3.i.i202, 0
-  %wide.trip.count.i.i.i207 = and i64 %69, 4294967295
+  %wide.trip.count.i.i.i207 = and i64 %69, 2147483647
   br i1 %cmp8.i.i.i, label %for.body.us.preheader.i.i208, label %sw.epilog
 
 for.body.us.preheader.i.i208:                     ; preds = %for.body.lr.ph.i.i200
-  %wide.trip.count.i.i209 = and i64 %mul5.i.i.i197, 4294967295
+  %wide.trip.count.i.i209 = and i64 %mul5.i.i.i197, 2147483647
   br label %for.body.us.i.i210
 
 for.body.us.i.i210:                               ; preds = %ggml_vec_elu_f32.exit.loopexit.us.i.i, %for.body.us.preheader.i.i208
@@ -55490,11 +55490,11 @@ for.body.lr.ph.i.i241:                            ; preds = %if.end.i.i233
   %data8.i.i246 = getelementptr inbounds i8, ptr %src0, i64 280
   %arrayidx11.i.i247 = getelementptr inbounds i8, ptr %src0, i64 56
   %cmp6.i.i.i248 = icmp sgt i32 %conv3.i.i243, 0
-  %wide.trip.count.i.i.i249 = and i64 %81, 4294967295
+  %wide.trip.count.i.i.i249 = and i64 %81, 2147483647
   br i1 %cmp6.i.i.i248, label %for.body.us.preheader.i.i250, label %sw.epilog
 
 for.body.us.preheader.i.i250:                     ; preds = %for.body.lr.ph.i.i241
-  %wide.trip.count.i.i251 = and i64 %mul5.i.i.i238, 4294967295
+  %wide.trip.count.i.i251 = and i64 %mul5.i.i.i238, 2147483647
   br label %for.body.us.i.i252
 
 for.body.us.i.i252:                               ; preds = %ggml_vec_relu_f32.exit.loopexit.us.i.i, %for.body.us.preheader.i.i250
@@ -55672,7 +55672,7 @@ for.body.lr.ph.i.i277:                            ; preds = %if.end20.i.i
   %data.i.i279 = getelementptr inbounds i8, ptr %dst, i64 280
   %data34.i.i = getelementptr inbounds i8, ptr %src0, i64 280
   %cmp4.i.i.i280 = icmp sgt i32 %conv.i.i278, 0
-  %wide.trip.count.i.i.i281 = and i64 %108, 4294967295
+  %wide.trip.count.i.i.i281 = and i64 %108, 2147483647
   br i1 %cmp4.i.i.i280, label %for.body.us.preheader.i.i282, label %sw.epilog
 
 for.body.us.preheader.i.i282:                     ; preds = %for.body.lr.ph.i.i277
@@ -55862,7 +55862,7 @@ for.body.lr.ph.i.i363:                            ; preds = %if.end20.i.i350
   %data.i.i365 = getelementptr inbounds i8, ptr %dst, i64 280
   %data34.i.i366 = getelementptr inbounds i8, ptr %src0, i64 280
   %cmp4.i.i.i367 = icmp sgt i32 %conv.i.i364, 0
-  %wide.trip.count.i.i.i368 = and i64 %147, 4294967295
+  %wide.trip.count.i.i.i368 = and i64 %147, 2147483647
   br i1 %cmp4.i.i.i367, label %for.body.us.preheader.i.i369, label %sw.epilog
 
 for.body.us.preheader.i.i369:                     ; preds = %for.body.lr.ph.i.i363
@@ -56052,7 +56052,7 @@ for.body.lr.ph.i.i460:                            ; preds = %if.end20.i.i447
   %data.i.i462 = getelementptr inbounds i8, ptr %dst, i64 280
   %data34.i.i463 = getelementptr inbounds i8, ptr %src0, i64 280
   %cmp4.i.i.i464 = icmp sgt i32 %conv.i.i461, 0
-  %wide.trip.count.i.i.i465 = and i64 %186, 4294967295
+  %wide.trip.count.i.i.i465 = and i64 %186, 2147483647
   br i1 %cmp4.i.i.i464, label %for.body.us.preheader.i.i466, label %sw.epilog
 
 for.body.us.preheader.i.i466:                     ; preds = %for.body.lr.ph.i.i460
@@ -56477,7 +56477,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end6.i
   %arrayidx12.i = getelementptr inbounds i8, ptr %dst, i64 56
   %data13.i = getelementptr inbounds i8, ptr %src0, i64 280
   %arrayidx16.i = getelementptr inbounds i8, ptr %src0, i64 56
-  %wide.trip.count.i = and i64 %mul5.i.i, 4294967295
+  %wide.trip.count.i = and i64 %mul5.i.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -56545,7 +56545,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
   %arrayidx11.i = getelementptr inbounds i8, ptr %src0, i64 56
   %data14.i = getelementptr inbounds i8, ptr %src1, i64 280
   %arrayidx17.i = getelementptr inbounds i8, ptr %src1, i64 56
-  %wide.trip.count.i = and i64 %mul5.i.i, 4294967295
+  %wide.trip.count.i = and i64 %mul5.i.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -56910,7 +56910,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end60.i
   %mul82.i = mul nsw i32 %32, %conv.i
   %idx.ext83.i = sext i32 %mul82.i to i64
   %cmp7.i111.i = icmp sgt i32 %conv.i, 0
-  %wide.trip.count.i113.i = and i64 %3, 4294967295
+  %wide.trip.count.i113.i = and i64 %3, 2147483647
   %and.i.i = and i32 %conv.i, -32
   %cmp26.i.i = icmp sgt i32 %and.i.i, 0
   %42 = and i64 %3, 4294967264
@@ -57357,7 +57357,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end40.i
   %data56.i = getelementptr inbounds i8, ptr %src1, i64 280
   %conv61.i = trunc i64 %5 to i32
   %cmp7.i146.i = icmp sgt i32 %conv61.i, 0
-  %wide.trip.count.i.i = and i64 %5, 4294967295
+  %wide.trip.count.i.i = and i64 %5, 2147483647
   %cmp64199.i = icmp sgt i64 %5, 0
   %and.i.i = and i32 %conv61.i, -32
   %cmp26.i.i = icmp sgt i32 %and.i.i, 0

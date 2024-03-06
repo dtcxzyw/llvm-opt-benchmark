@@ -1063,7 +1063,7 @@ define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(
   br i1 %37, label %.lr.ph58.preheader, label %.preheader
 
 .lr.ph58.preheader:                               ; preds = %._crit_edge
-  %wide.trip.count = and i64 %9, 4294967295
+  %wide.trip.count = and i64 %9, 2147483647
   br label %.lr.ph58
 
 .preheader:                                       ; preds = %136, %._crit_edge

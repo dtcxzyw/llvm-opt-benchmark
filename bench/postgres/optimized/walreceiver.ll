@@ -955,7 +955,7 @@ XLogWalRcvClose.exit139:                          ; preds = %361, %362
   unreachable
 
 394:                                              ; preds = %.thread50.i.i
-  %395 = and i64 %379, 4294967295
+  %395 = and i64 %379, 2147483647
   %396 = add i64 %395, %.03036.i.i
   %397 = sub i64 %.02937.i.i, %395
   %398 = getelementptr i8, ptr %.038.i.i, i64 %395

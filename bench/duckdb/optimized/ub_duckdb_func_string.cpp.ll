@@ -17459,11 +17459,8 @@ for.body52.us.i.i226.i.i:                         ; preds = %for.body52.lr.ph.i.
   %i.0177.us.i.i227.i.i = phi i64 [ %inc66.us.i.i232.i.i, %for.body52.us.i.i226.i.i ], [ 0, %for.body52.lr.ph.i.i198.i.i ]
   %arrayidx56.us.i.i.i.i = getelementptr inbounds i64, ptr %67, i64 %i.0177.us.i.i227.i.i
   %88 = load i64, ptr %arrayidx56.us.i.i.i.i, align 8, !tbaa !68, !alias.scope !458, !noalias !461
-  %add.i.i.i154.us.i.i.i.i = add nsw i64 %88, %conv.i.i.i.i.i.i145.i.i205.i.i
-  %cond.i.i.i.i155.us.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %add.i.i.i154.us.i.i.i.i, i64 0)
-  %cmp.i.i.i140.us.i2.i.i.i = icmp slt i64 %88, 0
-  %.sink.i.i228.i.i = select i1 %cmp.i.i.i140.us.i2.i.i.i, i64 %cond.i.i.i.i155.us.i.i.i.i, i64 %88
-  %call.i.i.i.i162.us.i.i229.i.i = tail call { i64, ptr } @_ZN6duckdb12SubstringFun17SubstringGraphemeERNS_6VectorENS_8string_tEll(ptr noundef nonnull align 8 dereferenceable(104) %result, i64 %lentry53.sroa.0.0.copyload.fr.i.i.i.i, ptr %lentry53.sroa.4.0.copyload.i.i201.i.i, i64 noundef 1, i64 noundef %.sink.i.i228.i.i), !noalias !452
+  %cond.i.i.i.i155.us.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %88, i64 0)
+  %call.i.i.i.i162.us.i.i229.i.i = tail call { i64, ptr } @_ZN6duckdb12SubstringFun17SubstringGraphemeERNS_6VectorENS_8string_tEll(ptr noundef nonnull align 8 dereferenceable(104) %result, i64 %lentry53.sroa.0.0.copyload.fr.i.i.i.i, ptr %lentry53.sroa.4.0.copyload.i.i201.i.i, i64 noundef 1, i64 noundef %cond.i.i.i.i155.us.i.i.i.i), !noalias !452
   %89 = extractvalue { i64, ptr } %call.i.i.i.i162.us.i.i229.i.i, 0
   %90 = extractvalue { i64, ptr } %call.i.i.i.i162.us.i.i229.i.i, 1
   %arrayidx64.us.i.i230.i.i = getelementptr inbounds %"struct.duckdb::string_t", ptr %69, i64 %i.0177.us.i.i227.i.i
@@ -17530,11 +17527,8 @@ for.body9.i.us.i.i.i:                             ; preds = %for.body9.lr.ph.i.i
   %base_idx.1169.i.us.i.i.i = phi i64 [ %inc.i.us.i.i.i, %for.body9.i.us.i.i.i ], [ %base_idx.0175.i.i121.i.i, %for.body9.lr.ph.i.i134.i.i ]
   %arrayidx10.i.us.i.i.i = getelementptr inbounds i64, ptr %67, i64 %base_idx.1169.i.us.i.i.i
   %96 = load i64, ptr %arrayidx10.i.us.i.i.i, align 8, !tbaa !68, !alias.scope !458, !noalias !461
-  %add.i.i.i.i.us.i.i.i = add nsw i64 %96, %conv.i.i.i.i.i.i.i.i139.i.i
-  %cond.i.i.i.i.i.us.i.i.i = call i64 @llvm.smax.i64(i64 %add.i.i.i.i.us.i.i.i, i64 0)
-  %cmp.i.i.i.i.us.i375.i.i = icmp slt i64 %96, 0
-  %.sink192.i.us.i.i.i = select i1 %cmp.i.i.i.i.us.i375.i.i, i64 %cond.i.i.i.i.i.us.i.i.i, i64 %96
-  %call.i.i.i.i.i.us.i.i.i = call { i64, ptr } @_ZN6duckdb12SubstringFun17SubstringGraphemeERNS_6VectorENS_8string_tEll(ptr noundef nonnull align 8 dereferenceable(104) %result, i64 %lentry.sroa.0.0.copyload.i.fr.i.i.i, ptr %lentry.sroa.4.0.copyload.i.i136.i.i, i64 noundef 1, i64 noundef %.sink192.i.us.i.i.i), !noalias !452
+  %cond.i.i.i.i.i.us.i.i.i = call i64 @llvm.smax.i64(i64 %96, i64 0)
+  %call.i.i.i.i.i.us.i.i.i = call { i64, ptr } @_ZN6duckdb12SubstringFun17SubstringGraphemeERNS_6VectorENS_8string_tEll(ptr noundef nonnull align 8 dereferenceable(104) %result, i64 %lentry.sroa.0.0.copyload.i.fr.i.i.i, ptr %lentry.sroa.4.0.copyload.i.i136.i.i, i64 noundef 1, i64 noundef %cond.i.i.i.i.i.us.i.i.i), !noalias !452
   %97 = extractvalue { i64, ptr } %call.i.i.i.i.i.us.i.i.i, 0
   %98 = extractvalue { i64, ptr } %call.i.i.i.i.i.us.i.i.i, 1
   %arrayidx16.i.us.i.i.i = getelementptr inbounds %"struct.duckdb::string_t", ptr %69, i64 %base_idx.1169.i.us.i.i.i
@@ -22440,14 +22434,10 @@ for.body52.lr.ph.i.i243.i.i:                      ; preds = %for.cond49.preheade
   %cond.i.i.i.i.i.i147.i.i249.i.i = select i1 %cmp.i.i.i.i.i.i.i145.i.i247.i.i, ptr %inlined.i.i.i.i.i.i146.i.i248.i.i, ptr %lentry53.sroa.4.0.copyload.i.i246.i.i
   %conv.i.i.i.i.i.i148.i.i250.i.i = and i64 %lentry53.sroa.0.0.copyload.i.i244.i.i, 4294967295
   %cmp.not9.not.i.i.i.i.i149.i.i251.i.i = icmp eq i32 %95, 0
-  br i1 %cmp.not9.not.i.i.i.i.i149.i.i251.i.i, label %for.body52.lr.ph.split.us.i.i.i.i, label %for.body52.i.i252.i.i
+  br i1 %cmp.not9.not.i.i.i.i.i149.i.i251.i.i, label %for.body52.us.i.i276.i.i, label %for.body52.i.i252.i.i
 
-for.body52.lr.ph.split.us.i.i.i.i:                ; preds = %for.body52.lr.ph.i.i243.i.i
-  %sub14.i.i.i165.us.i.i275.i.i = add nuw nsw i64 %conv.i.i.i.i.i.i148.i.i250.i.i, 1
-  br label %for.body52.us.i.i276.i.i
-
-for.body52.us.i.i276.i.i:                         ; preds = %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L13RightFunctionINS_17LeftRightGraphemeEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_8string_tElE_bSA_lSA_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.us.i.i.i.i, %for.body52.lr.ph.split.us.i.i.i.i
-  %i.0191.us.i.i277.i.i = phi i64 [ 0, %for.body52.lr.ph.split.us.i.i.i.i ], [ %inc66.us.i.i282.i.i, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L13RightFunctionINS_17LeftRightGraphemeEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_8string_tElE_bSA_lSA_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.us.i.i.i.i ]
+for.body52.us.i.i276.i.i:                         ; preds = %for.body52.lr.ph.i.i243.i.i, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L13RightFunctionINS_17LeftRightGraphemeEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_8string_tElE_bSA_lSA_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.us.i.i.i.i
+  %i.0191.us.i.i277.i.i = phi i64 [ %inc66.us.i.i282.i.i, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L13RightFunctionINS_17LeftRightGraphemeEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_8string_tElE_bSA_lSA_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.us.i.i.i.i ], [ 0, %for.body52.lr.ph.i.i243.i.i ]
   %arrayidx56.us.i.i.i.i = getelementptr inbounds i64, ptr %75, i64 %i.0191.us.i.i277.i.i
   %96 = load i64, ptr %arrayidx56.us.i.i.i.i, align 8, !tbaa !68, !alias.scope !615, !noalias !618
   %cmp.i.i.i157.us.i.i.i.i = icmp sgt i64 %96, -1
@@ -22460,7 +22450,7 @@ if.end.i.i.i158.us.i.i.i.i:                       ; preds = %for.body52.us.i.i27
 if.then8.i.i.i160.us.i.i.i.i:                     ; preds = %if.end.i.i.i158.us.i.i.i.i
   %sub9.i.i.i161.us.i.i.i.i = sub nsw i64 0, %96
   %cond.i35.i.i.i162.us.i.i.i.i = tail call noundef i64 @llvm.smin.i64(i64 %conv.i.i.i.i.i.i148.i.i250.i.i, i64 %sub9.i.i.i161.us.i.i.i.i)
-  %sub11.i.i.i163.us.i.i.i.i = sub nsw i64 %conv.i.i.i.i.i.i148.i.i250.i.i, %cond.i35.i.i.i162.us.i.i.i.i
+  %sub11.i.i.i163.us.i.i.i.i = sub nuw nsw i64 %conv.i.i.i.i.i.i148.i.i250.i.i, %cond.i35.i.i.i162.us.i.i.i.i
   br label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L13RightFunctionINS_17LeftRightGraphemeEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_8string_tElE_bSA_lSA_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.us.i.i.i.i
 
 if.then.i.i.i168.us.i.i.i.i:                      ; preds = %for.body52.us.i.i276.i.i
@@ -22469,7 +22459,7 @@ if.then.i.i.i168.us.i.i.i.i:                      ; preds = %for.body52.us.i.i27
 
 _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L13RightFunctionINS_17LeftRightGraphemeEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_8string_tElE_bSA_lSA_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.us.i.i.i.i: ; preds = %if.then.i.i.i168.us.i.i.i.i, %if.then8.i.i.i160.us.i.i.i.i, %if.end.i.i.i158.us.i.i.i.i
   %len5.0.sink37.i.i.i164.us.i.i.i.i = phi i64 [ %cond.i.i.i.i169.us.i.i283.i.i, %if.then.i.i.i168.us.i.i.i.i ], [ %sub11.i.i.i163.us.i.i.i.i, %if.then8.i.i.i160.us.i.i.i.i ], [ 0, %if.end.i.i.i158.us.i.i.i.i ]
-  %add15.i.i.i166.us.i.i278.i.i = sub nsw i64 %sub14.i.i.i165.us.i.i275.i.i, %len5.0.sink37.i.i.i164.us.i.i.i.i
+  %add15.i.i.i166.us.i.i278.i.i = sub nsw i64 1, %len5.0.sink37.i.i.i164.us.i.i.i.i
   %call.i36.i.i.i167.us.i.i279.i.i = tail call { i64, ptr } @_ZN6duckdb12SubstringFun17SubstringGraphemeERNS_6VectorENS_8string_tEll(ptr noundef nonnull align 8 dereferenceable(104) %result, i64 %lentry53.sroa.0.0.copyload.i.i244.i.i, ptr %lentry53.sroa.4.0.copyload.i.i246.i.i, i64 noundef %add15.i.i.i166.us.i.i278.i.i, i64 noundef %len5.0.sink37.i.i.i164.us.i.i.i.i), !noalias !609
   %97 = extractvalue { i64, ptr } %call.i36.i.i.i167.us.i.i279.i.i, 0
   %98 = extractvalue { i64, ptr } %call.i36.i.i.i167.us.i.i279.i.i, 1
@@ -31984,7 +31974,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.cond.cleanup.i.
   br i1 %cmp.i.i.i.i.i.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i", label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i.i
-  %conv.i.i.i.i.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i.i.i.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i.i, 15
   %retval.sroa.0.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4.inlined.i18.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.i.i.i.i.i.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4.inlined.i18.sroa_idx, ptr align 1 %16, i64 %conv.i.i.i.i.i.i.i.i, i1 false)
   %retval.sroa.0.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.i.i.i.i.i.i, i64 8
@@ -32288,7 +32278,7 @@ if.then.i.i.i.i.i30.i.i.i:                        ; preds = %for.cond.cleanup.i.
   br i1 %cmp.i.i.i.i.i.i63.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i", label %if.end.i.i.i.i.i31.i.i.i
 
 if.end.i.i.i.i.i31.i.i.i:                         ; preds = %if.then.i.i.i.i.i30.i.i.i
-  %conv.i.i.i.i.i.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i61.i.i, 4294967295
+  %conv.i.i.i.i.i.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i61.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4.inlined.i18.sroa_idx, ptr align 1 %54, i64 %conv.i.i.i.i.i.i.i.i.i, i1 false), !noalias !919
   %retval.sroa.0.i.i.i.i.i.i.i.8.retval.sroa.0.i.i.i.i.i.i.i.8.retval.sroa.0.i.i.i.i.i.i.i.8.retval.sroa.0.i.i.i.i.i.i.i.8.retval.sroa.0.i.i.i.i.i.i.i.8.retval.sroa.0.i.i.i.i.i.i.i.8.retval.sroa.0.i.i.i.i.i.i.i.8.retval.sroa.0.i.i.i.i.i.i.8.retval.sroa.0.i.i.i.i.i.i.8.retval.sroa.0.i.i.i.i.i.8.retval.sroa.0.i.i.i.i.i.8.retval.sroa.0.i.i.i.i.8.retval.sroa.0.i.i.i.i.8.retval.sroa.0.i.i.i.8.retval.sroa.0.i.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.8.retval.sroa.0.i.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.pre.i.i.i.i.i.i.i = load ptr, ptr %retval.sroa.0.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx, align 8, !noalias !919
   br label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i"
@@ -32453,7 +32443,7 @@ if.then.i.i.i.i128.i.i.i.i:                       ; preds = %for.cond.cleanup.i.
   br i1 %cmp.i.i.i.i130.i.i.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit148.i.i.i.i", label %if.end.i.i.i.i131.i.i.i.i
 
 if.end.i.i.i.i131.i.i.i.i:                        ; preds = %if.then.i.i.i.i128.i.i.i.i
-  %conv.i.i.i.i.i132.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i120.i.i.i.i, 4294967295
+  %conv.i.i.i.i.i132.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i120.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.i.i106.i.i.i.i.4.i.i.i106.i.i.i.i.4.i.i.i106.i.i.i.i.4.i.i.i106.i.i.i.i.4.i.i.i106.i.i.i.i.4.i.i.i106.i.i.i.i.4.i.i.i106.i.i.i.i.4.i.i.i106.i.i.i.4.i.i.i106.i.i.i.4.i.i.i106.i.i.4.i.i.i106.i.i.4.i.i.i106.i.4.i.i.i106.i.4.i.i.i106.4.i.i.i106.4.i.i.4.i.i.4.i.4.i.4.inlined.i18.sroa_idx, ptr align 1 %68, i64 %conv.i.i.i.i.i132.i.i.i.i, i1 false), !noalias !919
   %retval.sroa.0.i.i.i106.i.i.i.i.8.retval.sroa.0.i.i.i106.i.i.i.i.8.retval.sroa.0.i.i.i106.i.i.i.i.8.retval.sroa.0.i.i.i106.i.i.i.i.8.retval.sroa.0.i.i.i106.i.i.i.i.8.retval.sroa.0.i.i.i106.i.i.i.i.8.retval.sroa.0.i.i.i106.i.i.i.i.8.retval.sroa.0.i.i.i106.i.i.i.8.retval.sroa.0.i.i.i106.i.i.i.8.retval.sroa.0.i.i.i106.i.i.8.retval.sroa.0.i.i.i106.i.i.8.retval.sroa.0.i.i.i106.i.8.retval.sroa.0.i.i.i106.i.8.retval.sroa.0.i.i.i106.8.retval.sroa.0.i.i.i106.8.retval.sroa.0.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.8.retval.sroa.0.i.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.pre.i.i.i134.i.i.i.i = load ptr, ptr %retval.sroa.0.i.i.i106.i.i.i.i.8.i.i.i106.i.i.i.i.8.i.i.i106.i.i.i.i.8.i.i.i106.i.i.i.i.8.i.i.i106.i.i.i.i.8.i.i.i106.i.i.i.i.8.i.i.i106.i.i.i.i.8.i.i.i106.i.i.i.8.i.i.i106.i.i.i.8.i.i.i106.i.i.8.i.i.i106.i.i.8.i.i.i106.i.8.i.i.i106.i.8.i.i.i106.8.i.i.i106.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx, align 8, !noalias !919
   br label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit148.i.i.i.i"
@@ -32611,7 +32601,7 @@ if.then.i.i.i.i171.i.i.i.i:                       ; preds = %for.cond.cleanup.i.
   br i1 %cmp.i.i.i.i173.i.i.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit191.i.i.i.i", label %if.end.i.i.i.i174.i.i.i.i
 
 if.end.i.i.i.i174.i.i.i.i:                        ; preds = %if.then.i.i.i.i171.i.i.i.i
-  %conv.i.i.i.i.i175.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i163.i.i.i.i, 4294967295
+  %conv.i.i.i.i.i175.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i163.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.i.i149.i.i.i.i.4.i.i.i149.i.i.i.i.4.i.i.i149.i.i.i.i.4.i.i.i149.i.i.i.i.4.i.i.i149.i.i.i.i.4.i.i.i149.i.i.i.i.4.i.i.i149.i.i.i.i.4.i.i.i149.i.i.i.4.i.i.i149.i.i.i.4.i.i.i149.i.i.4.i.i.i149.i.i.4.i.i.i149.i.4.i.i.i149.i.4.i.i.i149.4.i.i.i149.4.i.i.4.i.i.4.i.4.i.4.inlined.i18.sroa_idx, ptr align 1 %81, i64 %conv.i.i.i.i.i175.i.i.i.i, i1 false), !noalias !919
   %retval.sroa.0.i.i.i149.i.i.i.i.8.retval.sroa.0.i.i.i149.i.i.i.i.8.retval.sroa.0.i.i.i149.i.i.i.i.8.retval.sroa.0.i.i.i149.i.i.i.i.8.retval.sroa.0.i.i.i149.i.i.i.i.8.retval.sroa.0.i.i.i149.i.i.i.i.8.retval.sroa.0.i.i.i149.i.i.i.i.8.retval.sroa.0.i.i.i149.i.i.i.8.retval.sroa.0.i.i.i149.i.i.i.8.retval.sroa.0.i.i.i149.i.i.8.retval.sroa.0.i.i.i149.i.i.8.retval.sroa.0.i.i.i149.i.8.retval.sroa.0.i.i.i149.i.8.retval.sroa.0.i.i.i149.8.retval.sroa.0.i.i.i149.8.retval.sroa.0.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.8.retval.sroa.0.i.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.pre.i.i.i177.i.i.i.i = load ptr, ptr %retval.sroa.0.i.i.i149.i.i.i.i.8.i.i.i149.i.i.i.i.8.i.i.i149.i.i.i.i.8.i.i.i149.i.i.i.i.8.i.i.i149.i.i.i.i.8.i.i.i149.i.i.i.i.8.i.i.i149.i.i.i.i.8.i.i.i149.i.i.i.8.i.i.i149.i.i.i.8.i.i.i149.i.i.8.i.i.i149.i.i.8.i.i.i149.i.8.i.i.i149.i.8.i.i.i149.8.i.i.i149.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx, align 8, !noalias !919
   br label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit191.i.i.i.i"
@@ -32972,7 +32962,7 @@ if.then.i.i.i.i.i30.i175.i.i:                     ; preds = %for.cond.cleanup.i.
   br i1 %cmp.i.i.i.i.i.i176.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i167.i.i", label %if.end.i.i.i.i.i31.i177.i.i
 
 if.end.i.i.i.i.i31.i177.i.i:                      ; preds = %if.then.i.i.i.i.i30.i175.i.i
-  %conv.i.i.i.i.i.i.i178.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i163.i.i, 4294967295
+  %conv.i.i.i.i.i.i.i178.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i163.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.i.i.i.i73.i.i.4.i.i.i.i.i73.i.i.4.i.i.i.i.i73.i.i.4.i.i.i.i.i73.i.i.4.i.i.i.i.i73.i.i.4.i.i.i.i.i73.i.i.4.i.i.i.i.i73.i.i.4.i.i.i.i.i73.i.4.i.i.i.i.i73.i.4.i.i.i.i.i73.4.i.i.i.i.i73.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4.inlined.i18.sroa_idx, ptr align 1 %122, i64 %conv.i.i.i.i.i.i.i178.i.i, i1 false), !noalias !935
   %retval.sroa.0.i.i.i.i.i73.i.i.8.retval.sroa.0.i.i.i.i.i73.i.i.8.retval.sroa.0.i.i.i.i.i73.i.i.8.retval.sroa.0.i.i.i.i.i73.i.i.8.retval.sroa.0.i.i.i.i.i73.i.i.8.retval.sroa.0.i.i.i.i.i73.i.i.8.retval.sroa.0.i.i.i.i.i73.i.i.8.retval.sroa.0.i.i.i.i.i73.i.8.retval.sroa.0.i.i.i.i.i73.i.8.retval.sroa.0.i.i.i.i.i73.8.retval.sroa.0.i.i.i.i.i73.8.retval.sroa.0.i.i.i.i.8.retval.sroa.0.i.i.i.i.8.retval.sroa.0.i.i.i.8.retval.sroa.0.i.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.8.retval.sroa.0.i.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.pre.i.i.i.i.i179.i.i = load ptr, ptr %retval.sroa.0.i.i.i.i.i73.i.i.8.i.i.i.i.i73.i.i.8.i.i.i.i.i73.i.i.8.i.i.i.i.i73.i.i.8.i.i.i.i.i73.i.i.8.i.i.i.i.i73.i.i.8.i.i.i.i.i73.i.i.8.i.i.i.i.i73.i.8.i.i.i.i.i73.i.8.i.i.i.i.i73.8.i.i.i.i.i73.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx, align 8, !noalias !935
   br label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i167.i.i"
@@ -33129,7 +33119,7 @@ if.then.i.i.i.i128.i.i301.i.i:                    ; preds = %for.cond.cleanup.i.
   br i1 %cmp.i.i.i.i130.i.i302.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit148.i.i292.i.i", label %if.end.i.i.i.i131.i.i303.i.i
 
 if.end.i.i.i.i131.i.i303.i.i:                     ; preds = %if.then.i.i.i.i128.i.i301.i.i
-  %conv.i.i.i.i.i132.i.i304.i.i = and i64 %sub.ptr.sub.i.i.i.i120.i.i288.i.i, 4294967295
+  %conv.i.i.i.i.i132.i.i304.i.i = and i64 %sub.ptr.sub.i.i.i.i120.i.i288.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.i.i106.i.i71.i.i.4.i.i.i106.i.i71.i.i.4.i.i.i106.i.i71.i.i.4.i.i.i106.i.i71.i.i.4.i.i.i106.i.i71.i.i.4.i.i.i106.i.i71.i.i.4.i.i.i106.i.i71.i.i.4.i.i.i106.i.i71.i.4.i.i.i106.i.i71.i.4.i.i.i106.i.i71.4.i.i.i106.i.i71.4.i.i.i106.i.4.i.i.i106.i.4.i.i.i106.4.i.i.i106.4.i.i.4.i.i.4.i.4.i.4.inlined.i18.sroa_idx, ptr align 1 %136, i64 %conv.i.i.i.i.i132.i.i304.i.i, i1 false), !noalias !935
   %retval.sroa.0.i.i.i106.i.i71.i.i.8.retval.sroa.0.i.i.i106.i.i71.i.i.8.retval.sroa.0.i.i.i106.i.i71.i.i.8.retval.sroa.0.i.i.i106.i.i71.i.i.8.retval.sroa.0.i.i.i106.i.i71.i.i.8.retval.sroa.0.i.i.i106.i.i71.i.i.8.retval.sroa.0.i.i.i106.i.i71.i.i.8.retval.sroa.0.i.i.i106.i.i71.i.8.retval.sroa.0.i.i.i106.i.i71.i.8.retval.sroa.0.i.i.i106.i.i71.8.retval.sroa.0.i.i.i106.i.i71.8.retval.sroa.0.i.i.i106.i.8.retval.sroa.0.i.i.i106.i.8.retval.sroa.0.i.i.i106.8.retval.sroa.0.i.i.i106.8.retval.sroa.0.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.8.retval.sroa.0.i.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.pre.i.i.i134.i.i305.i.i = load ptr, ptr %retval.sroa.0.i.i.i106.i.i71.i.i.8.i.i.i106.i.i71.i.i.8.i.i.i106.i.i71.i.i.8.i.i.i106.i.i71.i.i.8.i.i.i106.i.i71.i.i.8.i.i.i106.i.i71.i.i.8.i.i.i106.i.i71.i.i.8.i.i.i106.i.i71.i.8.i.i.i106.i.i71.i.8.i.i.i106.i.i71.8.i.i.i106.i.i71.8.i.i.i106.i.8.i.i.i106.i.8.i.i.i106.8.i.i.i106.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx, align 8, !noalias !935
   br label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit148.i.i292.i.i"
@@ -33281,7 +33271,7 @@ if.then.i.i.i.i171.i.i441.i.i:                    ; preds = %for.cond.cleanup.i.
   br i1 %cmp.i.i.i.i173.i.i442.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit191.i.i433.i.i", label %if.end.i.i.i.i174.i.i443.i.i
 
 if.end.i.i.i.i174.i.i443.i.i:                     ; preds = %if.then.i.i.i.i171.i.i441.i.i
-  %conv.i.i.i.i.i175.i.i444.i.i = and i64 %sub.ptr.sub.i.i.i.i163.i.i429.i.i, 4294967295
+  %conv.i.i.i.i.i175.i.i444.i.i = and i64 %sub.ptr.sub.i.i.i.i163.i.i429.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.i.i149.i.i69.i.i.4.i.i.i149.i.i69.i.i.4.i.i.i149.i.i69.i.i.4.i.i.i149.i.i69.i.i.4.i.i.i149.i.i69.i.i.4.i.i.i149.i.i69.i.i.4.i.i.i149.i.i69.i.i.4.i.i.i149.i.i69.i.4.i.i.i149.i.i69.i.4.i.i.i149.i.i69.4.i.i.i149.i.i69.4.i.i.i149.i.4.i.i.i149.i.4.i.i.i149.4.i.i.i149.4.i.i.4.i.i.4.i.4.i.4.inlined.i18.sroa_idx, ptr align 1 %149, i64 %conv.i.i.i.i.i175.i.i444.i.i, i1 false), !noalias !935
   %retval.sroa.0.i.i.i149.i.i69.i.i.8.retval.sroa.0.i.i.i149.i.i69.i.i.8.retval.sroa.0.i.i.i149.i.i69.i.i.8.retval.sroa.0.i.i.i149.i.i69.i.i.8.retval.sroa.0.i.i.i149.i.i69.i.i.8.retval.sroa.0.i.i.i149.i.i69.i.i.8.retval.sroa.0.i.i.i149.i.i69.i.i.8.retval.sroa.0.i.i.i149.i.i69.i.8.retval.sroa.0.i.i.i149.i.i69.i.8.retval.sroa.0.i.i.i149.i.i69.8.retval.sroa.0.i.i.i149.i.i69.8.retval.sroa.0.i.i.i149.i.8.retval.sroa.0.i.i.i149.i.8.retval.sroa.0.i.i.i149.8.retval.sroa.0.i.i.i149.8.retval.sroa.0.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.8.retval.sroa.0.i.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.pre.i.i.i177.i.i445.i.i = load ptr, ptr %retval.sroa.0.i.i.i149.i.i69.i.i.8.i.i.i149.i.i69.i.i.8.i.i.i149.i.i69.i.i.8.i.i.i149.i.i69.i.i.8.i.i.i149.i.i69.i.i.8.i.i.i149.i.i69.i.i.8.i.i.i149.i.i69.i.i.8.i.i.i149.i.i69.i.8.i.i.i149.i.i69.i.8.i.i.i149.i.i69.8.i.i.i149.i.i69.8.i.i.i149.i.8.i.i.i149.i.8.i.i.i149.8.i.i.i149.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx, align 8, !noalias !935
   br label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit191.i.i433.i.i"
@@ -33620,7 +33610,7 @@ if.then.i.i.i.i.i41.i.i.i:                        ; preds = %for.cond.cleanup.i.
   br i1 %cmp.i.i.i.i.i.i621.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i615.i.i", label %if.end.i.i.i.i.i42.i.i.i
 
 if.end.i.i.i.i.i42.i.i.i:                         ; preds = %if.then.i.i.i.i.i41.i.i.i
-  %conv.i.i.i.i.i.i.i622.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i611.i.i, 4294967295
+  %conv.i.i.i.i.i.i.i622.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i611.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.i.i.i.i544.i.i.4.i.i.i.i.i544.i.i.4.i.i.i.i.i544.i.i.4.i.i.i.i.i544.i.i.4.i.i.i.i.i544.i.i.4.i.i.i.i.i544.i.i.4.i.i.i.i.i544.i.i.4.i.i.i.i.i544.i.4.i.i.i.i.i544.i.4.i.i.i.i.i544.4.i.i.i.i.i544.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4.inlined.i18.sroa_idx, ptr align 1 %187, i64 %conv.i.i.i.i.i.i.i622.i.i, i1 false), !noalias !957
   %retval.sroa.0.i.i.i.i.i544.i.i.8.retval.sroa.0.i.i.i.i.i544.i.i.8.retval.sroa.0.i.i.i.i.i544.i.i.8.retval.sroa.0.i.i.i.i.i544.i.i.8.retval.sroa.0.i.i.i.i.i544.i.i.8.retval.sroa.0.i.i.i.i.i544.i.i.8.retval.sroa.0.i.i.i.i.i544.i.i.8.retval.sroa.0.i.i.i.i.i544.i.8.retval.sroa.0.i.i.i.i.i544.i.8.retval.sroa.0.i.i.i.i.i544.8.retval.sroa.0.i.i.i.i.i544.8.retval.sroa.0.i.i.i.i.8.retval.sroa.0.i.i.i.i.8.retval.sroa.0.i.i.i.8.retval.sroa.0.i.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.8.retval.sroa.0.i.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.pre.i.i.i.i.i623.i.i = load ptr, ptr %retval.sroa.0.i.i.i.i.i544.i.i.8.i.i.i.i.i544.i.i.8.i.i.i.i.i544.i.i.8.i.i.i.i.i544.i.i.8.i.i.i.i.i544.i.i.8.i.i.i.i.i544.i.i.8.i.i.i.i.i544.i.i.8.i.i.i.i.i544.i.8.i.i.i.i.i544.i.8.i.i.i.i.i544.8.i.i.i.i.i544.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx, align 8, !noalias !957
   br label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i615.i.i"
@@ -33779,7 +33769,7 @@ if.then.i.i.i.i139.i.i.i.i:                       ; preds = %for.cond.cleanup.i.
   br i1 %cmp.i.i.i.i141.i.i.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit159.i.i.i.i", label %if.end.i.i.i.i142.i.i.i.i
 
 if.end.i.i.i.i142.i.i.i.i:                        ; preds = %if.then.i.i.i.i139.i.i.i.i
-  %conv.i.i.i.i.i143.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i131.i.i.i.i, 4294967295
+  %conv.i.i.i.i.i143.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i131.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.i.i117.i.i.i.i.4.i.i.i117.i.i.i.i.4.i.i.i117.i.i.i.i.4.i.i.i117.i.i.i.i.4.i.i.i117.i.i.i.i.4.i.i.i117.i.i.i.i.4.i.i.i117.i.i.i.i.4.i.i.i117.i.i.i.4.i.i.i117.i.i.i.4.i.i.i117.i.i.4.i.i.i117.i.i.4.i.i.i117.i.4.i.i.i117.i.4.i.i.i117.4.i.i.i117.4.i.i.4.i.i.4.i.4.i.4.inlined.i18.sroa_idx, ptr align 1 %201, i64 %conv.i.i.i.i.i143.i.i.i.i, i1 false), !noalias !957
   %retval.sroa.0.i.i.i117.i.i.i.i.8.retval.sroa.0.i.i.i117.i.i.i.i.8.retval.sroa.0.i.i.i117.i.i.i.i.8.retval.sroa.0.i.i.i117.i.i.i.i.8.retval.sroa.0.i.i.i117.i.i.i.i.8.retval.sroa.0.i.i.i117.i.i.i.i.8.retval.sroa.0.i.i.i117.i.i.i.i.8.retval.sroa.0.i.i.i117.i.i.i.8.retval.sroa.0.i.i.i117.i.i.i.8.retval.sroa.0.i.i.i117.i.i.8.retval.sroa.0.i.i.i117.i.i.8.retval.sroa.0.i.i.i117.i.8.retval.sroa.0.i.i.i117.i.8.retval.sroa.0.i.i.i117.8.retval.sroa.0.i.i.i117.8.retval.sroa.0.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.8.retval.sroa.0.i.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.pre.i.i.i145.i.i.i.i = load ptr, ptr %retval.sroa.0.i.i.i117.i.i.i.i.8.i.i.i117.i.i.i.i.8.i.i.i117.i.i.i.i.8.i.i.i117.i.i.i.i.8.i.i.i117.i.i.i.i.8.i.i.i117.i.i.i.i.8.i.i.i117.i.i.i.i.8.i.i.i117.i.i.i.8.i.i.i117.i.i.i.8.i.i.i117.i.i.8.i.i.i117.i.i.8.i.i.i117.i.8.i.i.i117.i.8.i.i.i117.8.i.i.i117.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx, align 8, !noalias !957
   br label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit159.i.i.i.i"
@@ -33940,7 +33930,7 @@ if.then.i.i.i.i182.i.i.i.i:                       ; preds = %for.cond.cleanup.i.
   br i1 %cmp.i.i.i.i184.i.i.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit202.i.i.i.i", label %if.end.i.i.i.i185.i.i.i.i
 
 if.end.i.i.i.i185.i.i.i.i:                        ; preds = %if.then.i.i.i.i182.i.i.i.i
-  %conv.i.i.i.i.i186.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i174.i.i.i.i, 4294967295
+  %conv.i.i.i.i.i186.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i174.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.i.i160.i.i.i.i.4.i.i.i160.i.i.i.i.4.i.i.i160.i.i.i.i.4.i.i.i160.i.i.i.i.4.i.i.i160.i.i.i.i.4.i.i.i160.i.i.i.i.4.i.i.i160.i.i.i.i.4.i.i.i160.i.i.i.4.i.i.i160.i.i.i.4.i.i.i160.i.i.4.i.i.i160.i.i.4.i.i.i160.i.4.i.i.i160.i.4.i.i.i160.4.i.i.i160.4.i.i.4.i.i.4.i.4.i.4.inlined.i18.sroa_idx, ptr align 1 %215, i64 %conv.i.i.i.i.i186.i.i.i.i, i1 false), !noalias !957
   %retval.sroa.0.i.i.i160.i.i.i.i.8.retval.sroa.0.i.i.i160.i.i.i.i.8.retval.sroa.0.i.i.i160.i.i.i.i.8.retval.sroa.0.i.i.i160.i.i.i.i.8.retval.sroa.0.i.i.i160.i.i.i.i.8.retval.sroa.0.i.i.i160.i.i.i.i.8.retval.sroa.0.i.i.i160.i.i.i.i.8.retval.sroa.0.i.i.i160.i.i.i.8.retval.sroa.0.i.i.i160.i.i.i.8.retval.sroa.0.i.i.i160.i.i.8.retval.sroa.0.i.i.i160.i.i.8.retval.sroa.0.i.i.i160.i.8.retval.sroa.0.i.i.i160.i.8.retval.sroa.0.i.i.i160.8.retval.sroa.0.i.i.i160.8.retval.sroa.0.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.8.retval.sroa.0.i.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.pre.i.i.i188.i.i.i.i = load ptr, ptr %retval.sroa.0.i.i.i160.i.i.i.i.8.i.i.i160.i.i.i.i.8.i.i.i160.i.i.i.i.8.i.i.i160.i.i.i.i.8.i.i.i160.i.i.i.i.8.i.i.i160.i.i.i.i.8.i.i.i160.i.i.i.i.8.i.i.i160.i.i.i.8.i.i.i160.i.i.i.8.i.i.i160.i.i.8.i.i.i160.i.i.8.i.i.i160.i.8.i.i.i160.i.8.i.i.i160.8.i.i.i160.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx, align 8, !noalias !957
   br label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit202.i.i.i.i"
@@ -34228,7 +34218,7 @@ if.then.i.i.i.i.i.i777.i.i:                       ; preds = %for.cond.cleanup.i.
   br i1 %cmp.i.i.i.i.i.i778.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i769.i.i", label %if.end.i.i.i.i.i.i779.i.i
 
 if.end.i.i.i.i.i.i779.i.i:                        ; preds = %if.then.i.i.i.i.i.i777.i.i
-  %conv.i.i.i.i.i.i.i780.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i765.i.i, 4294967295
+  %conv.i.i.i.i.i.i.i780.i.i = and i64 %sub.ptr.sub.i.i.i.i.i.i765.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.i.i.i.i735.i.i.4.i.i.i.i.i735.i.i.4.i.i.i.i.i735.i.i.4.i.i.i.i.i735.i.i.4.i.i.i.i.i735.i.i.4.i.i.i.i.i735.i.i.4.i.i.i.i.i735.i.i.4.i.i.i.i.i735.i.4.i.i.i.i.i735.i.4.i.i.i.i.i735.4.i.i.i.i.i735.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4.inlined.i18.sroa_idx, ptr align 1 %248, i64 %conv.i.i.i.i.i.i.i780.i.i, i1 false), !noalias !976
   %retval.sroa.0.i.i.i.i.i735.i.i.8.retval.sroa.0.i.i.i.i.i735.i.i.8.retval.sroa.0.i.i.i.i.i735.i.i.8.retval.sroa.0.i.i.i.i.i735.i.i.8.retval.sroa.0.i.i.i.i.i735.i.i.8.retval.sroa.0.i.i.i.i.i735.i.i.8.retval.sroa.0.i.i.i.i.i735.i.i.8.retval.sroa.0.i.i.i.i.i735.i.8.retval.sroa.0.i.i.i.i.i735.i.8.retval.sroa.0.i.i.i.i.i735.8.retval.sroa.0.i.i.i.i.i735.8.retval.sroa.0.i.i.i.i.8.retval.sroa.0.i.i.i.i.8.retval.sroa.0.i.i.i.8.retval.sroa.0.i.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.8.retval.sroa.0.i.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.pre.i.i.i.i.i781.i.i = load ptr, ptr %retval.sroa.0.i.i.i.i.i735.i.i.8.i.i.i.i.i735.i.i.8.i.i.i.i.i735.i.i.8.i.i.i.i.i735.i.i.8.i.i.i.i.i735.i.i.8.i.i.i.i.i735.i.i.8.i.i.i.i.i735.i.i.8.i.i.i.i.i735.i.8.i.i.i.i.i735.i.8.i.i.i.i.i735.8.i.i.i.i.i735.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx, align 8, !noalias !976
   br label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i769.i.i"
@@ -34429,7 +34419,7 @@ if.then.i.i.i.i116.i.i.i.i:                       ; preds = %for.cond.cleanup.i.
   br i1 %cmp.i.i.i.i118.i.i.i.i, label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit136.i.i.i.i", label %if.end.i.i.i.i119.i.i.i.i
 
 if.end.i.i.i.i119.i.i.i.i:                        ; preds = %if.then.i.i.i.i116.i.i.i.i
-  %conv.i.i.i.i.i120.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i108.i.i.i.i, 4294967295
+  %conv.i.i.i.i.i120.i.i.i.i = and i64 %sub.ptr.sub.i.i.i.i108.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.i.i94.i.i.i.i.4.i.i.i94.i.i.i.i.4.i.i.i94.i.i.i.i.4.i.i.i94.i.i.i.i.4.i.i.i94.i.i.i.i.4.i.i.i94.i.i.i.i.4.i.i.i94.i.i.i.i.4.i.i.i94.i.i.i.4.i.i.i94.i.i.i.4.i.i.i94.i.i.4.i.i.i94.i.i.4.i.i.i94.i.4.i.i.i94.i.4.i.i.i94.4.i.i.i94.4.i.i.4.i.i.4.i.4.i.4.inlined.i18.sroa_idx, ptr align 1 %268, i64 %conv.i.i.i.i.i120.i.i.i.i, i1 false), !noalias !976
   %retval.sroa.0.i.i.i94.i.i.i.i.8.retval.sroa.0.i.i.i94.i.i.i.i.8.retval.sroa.0.i.i.i94.i.i.i.i.8.retval.sroa.0.i.i.i94.i.i.i.i.8.retval.sroa.0.i.i.i94.i.i.i.i.8.retval.sroa.0.i.i.i94.i.i.i.i.8.retval.sroa.0.i.i.i94.i.i.i.i.8.retval.sroa.0.i.i.i94.i.i.i.8.retval.sroa.0.i.i.i94.i.i.i.8.retval.sroa.0.i.i.i94.i.i.8.retval.sroa.0.i.i.i94.i.i.8.retval.sroa.0.i.i.i94.i.8.retval.sroa.0.i.i.i94.i.8.retval.sroa.0.i.i.i94.8.retval.sroa.0.i.i.i94.8.retval.sroa.0.i.i.8.retval.sroa.0.i.i.8.retval.sroa.0.i.8.retval.sroa.0.i.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.pre.i.i.i122.i.i.i.i = load ptr, ptr %retval.sroa.0.i.i.i94.i.i.i.i.8.i.i.i94.i.i.i.i.8.i.i.i94.i.i.i.i.8.i.i.i94.i.i.i.i.8.i.i.i94.i.i.i.i.8.i.i.i94.i.i.i.i.8.i.i.i94.i.i.i.i.8.i.i.i94.i.i.i.8.i.i.i94.i.i.i.8.i.i.i94.i.i.8.i.i.i94.i.i.8.i.i.i94.i.8.i.i.i94.i.8.i.i.i94.8.i.i.i94.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx, align 8, !noalias !976
   br label %"_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L14RepeatFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEE3$_0bNS_8string_tElS9_EET3_T_T1_T2_RNS_12ValidityMaskEm.exit136.i.i.i.i"
@@ -48665,7 +48655,7 @@ if.then.i.i202:                                   ; preds = %if.end114
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i202
-  %conv.i.i.i = and i64 %41, 4294967295
+  %conv.i.i.i = and i64 %41, 15
   %retval.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %42, i64 %conv.i.i.i, i1 false)
   %retval.sroa.0.8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0, i64 8
@@ -67089,7 +67079,7 @@ if.then.i.i.i:                                    ; preds = %for.end.i.i
   br i1 %cmp.i.i.i, label %"_ZZN6duckdbL15ReplaceFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEENK3$_0clENS_8string_tES7_S7_.exit", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
-  %conv.i.i.i.i = and i64 %sub.ptr.sub.i.i.i, 4294967295
+  %conv.i.i.i.i = and i64 %sub.ptr.sub.i.i.i, 15
   %retval.sroa.0.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.4.i.4.inlined.i73.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.i.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.4.i.4.inlined.i73.sroa_idx, ptr align 1 %11, i64 %conv.i.i.i.i, i1 false)
   %retval.sroa.0.i.i.8.i.i.8.i.i.8.i.i.8.i.i.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.i.i, i64 8
@@ -70672,7 +70662,7 @@ if.then.i.i.i:                                    ; preds = %for.end.i.i
   br i1 %cmp.i.i.i, label %invoke.cont92.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
-  %conv.i.i.i.i = and i64 %sub.ptr.sub.i.i.i, 4294967295
+  %conv.i.i.i.i = and i64 %sub.ptr.sub.i.i.i, 15
   %retval.sroa.0.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.4.i.4.inlined.i304.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.i.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.4.i.4.inlined.i304.sroa_idx, ptr align 1 %76, i64 %conv.i.i.i.i, i1 false)
   br label %invoke.cont92.i.i
@@ -85630,7 +85620,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   br i1 %cmp.i48.i, label %_ZN6duckdbL15LeftPadFunctionERKNS_8string_tEiS2_RNS_6vectorIcLb1EEE.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %conv.i.i49.i = and i64 %sub.ptr.sub.i.i, 4294967295
+  %conv.i.i49.i = and i64 %sub.ptr.sub.i.i, 15
   %retval.sroa.0.i.4.i.4.i.4.i.4.i.4.i.4.i.4.inlined.i47.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.4.i.4.i.4.i.4.i.4.i.4.i.4.inlined.i47.sroa_idx, ptr align 1 %19, i64 %conv.i.i49.i, i1 false)
   %retval.sroa.0.i.8.i.8.i.8.i.8.i.8.i.8.i.8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.i, i64 8
@@ -85895,7 +85885,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   br i1 %cmp.i48.i, label %_ZN6duckdbL16RightPadFunctionERKNS_8string_tEiS2_RNS_6vectorIcLb1EEE.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %conv.i.i49.i = and i64 %sub.ptr.sub.i.i, 4294967295
+  %conv.i.i49.i = and i64 %sub.ptr.sub.i.i, 15
   %retval.sroa.0.i.4.i.4.i.4.i.4.i.4.i.4.i.4.inlined.i47.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.4.i.4.i.4.i.4.i.4.i.4.i.4.inlined.i47.sroa_idx, ptr align 1 %19, i64 %conv.i.i49.i, i1 false)
   %retval.sroa.0.i.8.i.8.i.8.i.8.i.8.i.8.i.8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.i, i64 8

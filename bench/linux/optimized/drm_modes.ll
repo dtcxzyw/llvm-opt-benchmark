@@ -3118,7 +3118,7 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   %251 = getelementptr inbounds i8, ptr %1, i64 140
   %252 = getelementptr inbounds i8, ptr %2, i64 59
   %253 = getelementptr inbounds i8, ptr %2, i64 57
-  %254 = and i64 %246, 4294967295
+  %254 = and i64 %246, 2147483647
   br label %255
 
 255:                                              ; preds = %278, %250

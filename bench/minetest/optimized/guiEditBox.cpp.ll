@@ -3533,7 +3533,7 @@ define dso_local noundef i32 @_ZN10GUIEditBox14getLineFromPosEi(ptr nocapture no
   br i1 %20, label %21, label %.loopexit
 
 21:                                               ; preds = %10
-  %22 = and i64 %18, 4294967295
+  %22 = and i64 %18, 2147483647
   br label %23
 
 23:                                               ; preds = %28, %21
@@ -3602,7 +3602,7 @@ define dso_local noundef zeroext i1 @_ZN10GUIEditBox7onKeyUpERKN3irr6SEventERiS4
   br i1 %33, label %34, label %.loopexit
 
 34:                                               ; preds = %21
-  %35 = and i64 %31, 4294967295
+  %35 = and i64 %31, 2147483647
   br label %36
 
 36:                                               ; preds = %41, %34
@@ -3732,7 +3732,7 @@ define dso_local noundef zeroext i1 @_ZN10GUIEditBox9onKeyDownERKN3irr6SEventERi
   br i1 %33, label %34, label %.loopexit
 
 34:                                               ; preds = %21
-  %35 = and i64 %31, 4294967295
+  %35 = and i64 %31, 2147483647
   br label %36
 
 36:                                               ; preds = %41, %34

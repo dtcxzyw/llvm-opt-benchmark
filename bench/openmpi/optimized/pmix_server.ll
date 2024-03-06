@@ -2928,7 +2928,7 @@ define internal void @server_iof_handler(ptr nocapture noundef readonly %0, ptr 
 
 pmix_pointer_array_get_item.exit:                 ; preds = %193
   %.val101 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 21, i32 7), align 8
-  %198 = and i64 %194, 4294967295
+  %198 = and i64 %194, 2147483647
   %199 = getelementptr inbounds ptr, ptr %.val101, i64 %198
   %200 = load ptr, ptr %199, align 8
   %.not92 = icmp eq ptr %200, null
@@ -32600,7 +32600,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %71
 
 pmix_pointer_array_get_item.exit:                 ; preds = %85
   %.val213 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 21, i32 7), align 8
-  %91 = and i64 %87, 4294967295
+  %91 = and i64 %87, 2147483647
   %92 = getelementptr inbounds ptr, ptr %.val213, i64 %91
   %93 = load ptr, ptr %92, align 8
   %.not198 = icmp eq ptr %93, null
@@ -33019,7 +33019,7 @@ pmix_obj_run_destructors.exit236:                 ; preds = %.lr.ph.i233, %293
 
 pmix_pointer_array_get_item.exit239:              ; preds = %307
   %.val211 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 21, i32 7), align 8
-  %313 = and i64 %309, 4294967295
+  %313 = and i64 %309, 2147483647
   %314 = getelementptr inbounds ptr, ptr %.val211, i64 %313
   %315 = load ptr, ptr %314, align 8
   %.not204 = icmp eq ptr %315, null

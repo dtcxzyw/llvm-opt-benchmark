@@ -76,7 +76,7 @@ define void @Gia_ManAutomSimulate(ptr noundef %0, ptr nocapture noundef readonly
   %29 = getelementptr inbounds i8, ptr %1, i64 8
   %30 = getelementptr inbounds i8, ptr %0, i64 24
   %31 = getelementptr inbounds i8, ptr %0, i64 72
-  %wide.trip.count = and i64 %5, 4294967295
+  %wide.trip.count = and i64 %5, 2147483647
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge8
@@ -439,7 +439,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 
 .lr.ph:                                           ; preds = %Vec_IntStartFull.exit
   %22 = getelementptr i8, ptr %11, i64 8
-  %wide.trip.count = and i64 %4, 4294967295
+  %wide.trip.count = and i64 %4, 2147483647
   br label %23
 
 23:                                               ; preds = %.lr.ph, %67
@@ -563,7 +563,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 ._crit_edge.loopexit:                             ; preds = %67
   %.val24.pre = load ptr, ptr %22, align 8
-  %68 = and i64 %4, 4294967295
+  %68 = and i64 %4, 2147483647
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %Vec_IntStartFull.exit, %._crit_edge.loopexit
@@ -586,7 +586,7 @@ define void @Gia_ManPrintAutom(ptr nocapture noundef readonly %0, ptr nocapture 
 
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr i8, ptr %1, i64 8
-  %wide.trip.count = and i64 %3, 4294967295
+  %wide.trip.count = and i64 %3, 2147483647
   br label %7
 
 7:                                                ; preds = %.lr.ph, %22
@@ -1133,7 +1133,7 @@ Vec_IntStartFull.exit234:                         ; preds = %Vec_IntAlloc.exit.t
 .lr.ph306:                                        ; preds = %Vec_IntStartFull.exit234
   %134 = getelementptr i8, ptr %102, i64 8
   %135 = zext nneg i32 %103 to i64
-  %wide.trip.count = and i64 %10, 4294967295
+  %wide.trip.count = and i64 %10, 2147483647
   br label %136
 
 136:                                              ; preds = %.lr.ph306, %._crit_edge364
@@ -1283,7 +1283,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph.i:                                         ; preds = %201
   %205 = getelementptr i8, ptr %102, i64 8
-  %wide.trip.count.i = and i64 %202, 4294967295
+  %wide.trip.count.i = and i64 %202, 2147483647
   br label %206
 
 206:                                              ; preds = %221, %.lr.ph.i
@@ -1327,7 +1327,7 @@ Gia_ManPrintAutom.exit:                           ; preds = %221, %201, %._crit_
   %227 = getelementptr i8, ptr %27, i64 64
   %228 = getelementptr inbounds i8, ptr %.pre360, i64 8
   %229 = getelementptr i8, ptr %92, i64 8
-  %wide.trip.count341 = and i64 %10, 4294967295
+  %wide.trip.count341 = and i64 %10, 2147483647
   br label %230
 
 230:                                              ; preds = %.lr.ph314, %.critedge2

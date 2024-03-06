@@ -1097,7 +1097,7 @@ if.end82.i:                                       ; preds = %if.end81.i, %if.end
   %trieValue.4.i = phi i32 [ %trieValue.1.i, %if.end35.i ], [ %trieValue.2.i, %if.end64.i ], [ %13, %if.end64.thread.i ], [ %trieValue.2.i, %if.end81.us.i ], [ %21, %if.end81.i ]
   %value15.3.i = phi i32 [ %value15.1.i, %if.end35.i ], [ %value15.2.i, %if.end64.i ], [ %value15.0.i, %if.end64.thread.i ], [ %value15.2.i, %if.end81.us.i ], [ %value15.2157166.i, %if.end81.i ]
   %haveValue.3.i = phi i8 [ %haveValue.1.i, %if.end35.i ], [ %haveValue.2.i, %if.end64.i ], [ %haveValue.0.i, %if.end64.thread.i ], [ %haveValue.2.i, %if.end81.us.i ], [ %haveValue.2158165.i, %if.end81.i ]
-  %indvars.iv.next149.i = add nuw i64 %indvars.iv148.i, 1
+  %indvars.iv.next149.i = add nuw nsw i64 %indvars.iv148.i, 1
   %23 = load i32, ptr %highStart.i, align 8
   %cmp85.i = icmp slt i32 %c.2.i, %23
   br i1 %cmp85.i, label %do.body.i, label %do.end.i, !llvm.loop !8
@@ -2863,7 +2863,7 @@ while.body.i190.i.i:                              ; preds = %while.body.i190.i.i
 
 for.inc.i.i.i:                                    ; preds = %while.body.i190.i.i
   %152 = trunc i64 %indvars.iv.next.i193.i.i to i32
-  %indvars.iv.next368.i.i.i = add nuw i64 %indvars.iv367.i.i.i, 1
+  %indvars.iv.next368.i.i.i = add nuw nsw i64 %indvars.iv367.i.i.i, 1
   %cmp3.i194.i.i = icmp sgt i32 %shr.i, %152
   br i1 %cmp3.i194.i.i, label %for.body.i184.i.i, label %if.end27.i.i.i, !llvm.loop !41
 
@@ -3440,7 +3440,7 @@ while.cond321.preheader.i.i.i:                    ; preds = %if.end315.i.i.i
   br i1 %cmp322337.i.i.i, label %while.body323.preheader.i.i.i, label %if.end336.i.i.i
 
 while.body323.preheader.i.i.i:                    ; preds = %while.cond321.preheader.i.i.i
-  %242 = and i64 %indvars.iv.i259.i.i.i, 4294967295
+  %242 = and i64 %indvars.iv.i259.i.i.i, 63
   br label %while.body323.i.i.i
 
 while.body323.i.i.i:                              ; preds = %while.body323.i.i.i, %while.body323.preheader.i.i.i
@@ -3697,7 +3697,7 @@ if.end416.i.i.i:                                  ; preds = %while.end413.i.i.i,
   %indexLength.7.i.i.i = phi i32 [ %indexLength.6.lcssa.i.i.i, %while.end413.i.i.i ], [ %indexLength.5355.i.i.i, %if.end388.i.i.i ]
   %i2.0.i.i.i = phi i32 [ %sub400440.i.i.i, %while.end413.i.i.i ], [ %n374.0.i.i.i, %if.end388.i.i.i ]
   %conv417.i.i.i = trunc i32 %i2.0.i.i.i to i16
-  %indvars.iv.next420.i.i.i = add nuw i64 %indvars.iv419.i.i.i, 1
+  %indvars.iv.next420.i.i.i = add nuw nsw i64 %indvars.iv419.i.i.i, 1
   %arrayidx421.i.i.i = getelementptr inbounds i16, ptr %272, i64 %indvars.iv419.i.i.i
   store i16 %conv417.i.i.i, ptr %arrayidx421.i.i.i, align 2
   %add423.i.i.i = add nsw i32 %blockLength.1314.i.i.i, %i370.0358.i.i.i

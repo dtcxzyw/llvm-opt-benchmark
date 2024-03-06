@@ -87,7 +87,7 @@ define void @Cec_ManSeqDeriveInfoFromCex(ptr nocapture noundef readonly %0, ptr 
   br i1 %28, label %.lr.ph56.us.preheader, label %._crit_edge61
 
 .lr.ph56.us.preheader:                            ; preds = %.lr.ph60
-  %29 = and i64 %8, 17179869180
+  %29 = and i64 %8, 8589934588
   br label %.lr.ph56.us
 
 .lr.ph56.us:                                      ; preds = %.lr.ph56.us.preheader, %.lr.ph56.us
@@ -121,7 +121,7 @@ define void @Cec_ManSeqDeriveInfoFromCex(ptr nocapture noundef readonly %0, ptr 
   br i1 %39, label %.lr.ph63.us.preheader, label %.lr.ph67.split
 
 .lr.ph63.us.preheader:                            ; preds = %.lr.ph67
-  %wide.trip.count = and i64 %9, 4294967295
+  %wide.trip.count = and i64 %9, 2147483647
   br label %.lr.ph63.us
 
 .lr.ph63.us:                                      ; preds = %.lr.ph63.us.preheader, %._crit_edge.us69
@@ -179,7 +179,7 @@ define void @Cec_ManSeqDeriveInfoFromCex(ptr nocapture noundef readonly %0, ptr 
 
 .lr.ph72.us.preheader:                            ; preds = %.preheader
   %66 = zext i32 %.246.lcssa to i64
-  %wide.trip.count99 = and i64 %9, 4294967295
+  %wide.trip.count99 = and i64 %9, 2147483647
   br label %.lr.ph72.us
 
 .lr.ph72.us:                                      ; preds = %.lr.ph72.us.preheader, %._crit_edge.us77
@@ -317,11 +317,11 @@ define void @Cec_ManSeqDeriveInfoInitRandom(ptr nocapture noundef readonly %0, p
   br i1 %.not, label %.lr.ph.us.us.preheader, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph35.split.us
-  %wide.trip.count = and i64 %9, 4294967295
+  %wide.trip.count = and i64 %9, 2147483647
   br label %.lr.ph.us
 
 .lr.ph.us.us.preheader:                           ; preds = %.lr.ph35.split.us
-  %15 = and i64 %8, 17179869180
+  %15 = and i64 %8, 8589934588
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %.lr.ph.us.us
@@ -387,7 +387,7 @@ define void @Cec_ManSeqDeriveInfoInitRandom(ptr nocapture noundef readonly %0, p
 
 .lr.ph.us45.preheader:                            ; preds = %.preheader
   %41 = zext nneg i32 %.023.lcssa to i64
-  %wide.trip.count64 = and i64 %9, 4294967295
+  %wide.trip.count64 = and i64 %9, 2147483647
   br label %.lr.ph.us45
 
 .lr.ph.us45:                                      ; preds = %.lr.ph.us45.preheader, %._crit_edge.us
@@ -1298,7 +1298,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %Vec_PtrAllocSimInfo
   br i1 %79, label %.lr.ph.us.preheader.i, label %Cec_ManSeqDeriveInfoInitRandom.exit
 
 .lr.ph.us.preheader.i:                            ; preds = %.lr.ph35.i
-  %wide.trip.count.i84 = and i64 %76, 4294967295
+  %wide.trip.count.i84 = and i64 %76, 2147483647
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.split.us37.i, %.lr.ph.us.preheader.i
@@ -1349,7 +1349,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %Vec_PtrAllocSimInfo
 
 .lr.ph.us45.preheader.i:                          ; preds = %.preheader.i
   %99 = zext nneg i32 %.023.lcssa.i to i64
-  %wide.trip.count64.i = and i64 %76, 4294967295
+  %wide.trip.count64.i = and i64 %76, 2147483647
   br label %.lr.ph.us45.i
 
 .lr.ph.us45.i:                                    ; preds = %._crit_edge.us.i, %.lr.ph.us45.preheader.i

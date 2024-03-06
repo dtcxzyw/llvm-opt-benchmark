@@ -4926,8 +4926,7 @@ while.cond.i:                                     ; preds = %call.i.noexc
   br i1 %cmp.i.not.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %conv.i.i = and i64 %inlined_string_index.coerce, 4294967295
-  %call.i.i4750 = invoke noundef nonnull ptr @_ZN4absl12lts_2023080212log_internal17MakeCheckOpStringIllEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %conv.i.i, i64 noundef 0, ptr noundef nonnull @.str.65)
+  %call.i.i4750 = invoke noundef nonnull ptr @_ZN4absl12lts_2023080212log_internal17MakeCheckOpStringIllEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.65)
           to label %call.i.i47.noexc unwind label %lpad13
 
 call.i.i47.noexc:                                 ; preds = %while.body.i

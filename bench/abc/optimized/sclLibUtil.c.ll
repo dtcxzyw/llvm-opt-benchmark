@@ -5939,7 +5939,7 @@ Vec_StrPrintStr.exit:                             ; preds = %Vec_StrPush.exit.i
   br i1 %57, label %.lr.ph.i53, label %.lr.ph.i66
 
 .lr.ph.i53:                                       ; preds = %Vec_StrPrintStr.exit
-  %wide.trip.count.i55 = and i64 %55, 4294967295
+  %wide.trip.count.i55 = and i64 %55, 2147483647
   br label %58
 
 58:                                               ; preds = %Vec_StrPush.exit.i59, %.lr.ph.i53
@@ -6082,7 +6082,7 @@ Vec_StrPush.exit.i72:                             ; preds = %108, %Vec_StrGrow.e
   br i1 %120, label %.lr.ph.i79, label %.lr.ph.i92
 
 .lr.ph.i79:                                       ; preds = %Vec_StrPush.exit.i72
-  %wide.trip.count.i81 = and i64 %118, 4294967295
+  %wide.trip.count.i81 = and i64 %118, 2147483647
   br label %121
 
 121:                                              ; preds = %Vec_StrPush.exit.i85, %.lr.ph.i79
@@ -6223,7 +6223,7 @@ Vec_StrPush.exit.i98:                             ; preds = %171, %Vec_StrGrow.e
   br i1 %181, label %.lr.ph.i105, label %.lr.ph.i118
 
 .lr.ph.i105:                                      ; preds = %Vec_StrPush.exit.i98
-  %wide.trip.count.i107 = and i64 %179, 4294967295
+  %wide.trip.count.i107 = and i64 %179, 2147483647
   br label %182
 
 182:                                              ; preds = %Vec_StrPush.exit.i111, %.lr.ph.i105
@@ -6367,7 +6367,7 @@ Vec_StrPush.exit.i124:                            ; preds = %232, %Vec_StrGrow.e
   br i1 %243, label %.lr.ph.i131, label %.lr.ph.i144.preheader
 
 .lr.ph.i131:                                      ; preds = %Vec_StrPush.exit.i124
-  %wide.trip.count.i133 = and i64 %241, 4294967295
+  %wide.trip.count.i133 = and i64 %241, 2147483647
   br label %244
 
 244:                                              ; preds = %Vec_StrPush.exit.i137, %.lr.ph.i131
@@ -6601,7 +6601,7 @@ Vec_StrPrintStr.exit169:                          ; preds = %Vec_StrPush.exit.i1
   br i1 %341, label %.lr.ph.i170, label %Vec_StrPrintStr.exit182
 
 .lr.ph.i170:                                      ; preds = %Vec_StrPrintStr.exit169
-  %wide.trip.count.i172 = and i64 %339, 4294967295
+  %wide.trip.count.i172 = and i64 %339, 2147483647
   br label %342
 
 342:                                              ; preds = %Vec_StrPush.exit.i176, %.lr.ph.i170
@@ -6681,7 +6681,7 @@ Vec_StrPrintStr.exit182:                          ; preds = %Vec_StrPush.exit.i1
   br i1 %374, label %.lr.ph.i183, label %Vec_StrPrintStr.exit195
 
 .lr.ph.i183:                                      ; preds = %Vec_StrPrintStr.exit182
-  %wide.trip.count.i185 = and i64 %372, 4294967295
+  %wide.trip.count.i185 = and i64 %372, 2147483647
   br label %375
 
 375:                                              ; preds = %Vec_StrPush.exit.i189, %.lr.ph.i183
@@ -6854,7 +6854,7 @@ define internal fastcc void @Vec_StrPrintStr(ptr nocapture noundef %0, ptr nocap
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
-  %wide.trip.count = and i64 %3, 4294967295
+  %wide.trip.count = and i64 %3, 2147483647
   br label %7
 
 7:                                                ; preds = %.lr.ph, %Vec_StrPush.exit
@@ -8938,7 +8938,7 @@ Vec_StrPrintStr.exit:                             ; preds = %Vec_StrPush.exit.i
   br i1 %1076, label %.lr.ph.i96, label %Vec_StrPrintStr.exit108
 
 .lr.ph.i96:                                       ; preds = %Vec_StrPrintStr.exit
-  %wide.trip.count.i98 = and i64 %1074, 4294967295
+  %wide.trip.count.i98 = and i64 %1074, 2147483647
   br label %1077
 
 1077:                                             ; preds = %Vec_StrPush.exit.i102, %.lr.ph.i96
@@ -9018,7 +9018,7 @@ Vec_StrPrintStr.exit108:                          ; preds = %Vec_StrPush.exit.i1
   br i1 %1110, label %.lr.ph.i109, label %Vec_StrPrintStr.exit121
 
 .lr.ph.i109:                                      ; preds = %Vec_StrPrintStr.exit108
-  %wide.trip.count.i111 = and i64 %1108, 4294967295
+  %wide.trip.count.i111 = and i64 %1108, 2147483647
   br label %1111
 
 1111:                                             ; preds = %Vec_StrPush.exit.i115, %.lr.ph.i109
@@ -11168,7 +11168,7 @@ Vec_StrPrintStr.exit:                             ; preds = %Vec_StrPush.exit.i
   br i1 %1087, label %.lr.ph.i102, label %Vec_StrPrintStr.exit114
 
 .lr.ph.i102:                                      ; preds = %Vec_StrPrintStr.exit
-  %wide.trip.count.i104 = and i64 %1085, 4294967295
+  %wide.trip.count.i104 = and i64 %1085, 2147483647
   br label %1088
 
 1088:                                             ; preds = %Vec_StrPush.exit.i108, %.lr.ph.i102
@@ -11248,7 +11248,7 @@ Vec_StrPrintStr.exit114:                          ; preds = %Vec_StrPush.exit.i1
   br i1 %1121, label %.lr.ph.i115, label %Vec_StrPrintStr.exit127
 
 .lr.ph.i115:                                      ; preds = %Vec_StrPrintStr.exit114
-  %wide.trip.count.i117 = and i64 %1119, 4294967295
+  %wide.trip.count.i117 = and i64 %1119, 2147483647
   br label %1122
 
 1122:                                             ; preds = %Vec_StrPush.exit.i121, %.lr.ph.i115

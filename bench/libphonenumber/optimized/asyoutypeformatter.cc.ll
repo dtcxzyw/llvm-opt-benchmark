@@ -2624,7 +2624,7 @@ _ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit: ; preds = %40
 55:                                               ; preds = %50
   %56 = getelementptr inbounds i8, ptr %0, i64 250
   store i8 1, ptr %56, align 2
-  %57 = and i64 %52, 4294967295
+  %57 = and i64 %52, 2147483647
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef 0, i64 noundef %57)
           to label %58 unwind label %.thread25
 
@@ -3142,7 +3142,7 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter26InputAccruedN
 
 10:                                               ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
-  %wide.trip.count = and i64 %7, 4294967295
+  %wide.trip.count = and i64 %7, 2147483647
   br label %11
 
 11:                                               ; preds = %10, %15

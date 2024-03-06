@@ -348,7 +348,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %rb_long2int_inline.
   br i1 %16, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %14
-  %wide.trip.count = and i64 %2, 4294967295
+  %wide.trip.count = and i64 %2, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27

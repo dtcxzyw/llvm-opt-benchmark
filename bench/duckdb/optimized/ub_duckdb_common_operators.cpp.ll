@@ -13186,7 +13186,7 @@ if.then.i.i24:                                    ; preds = %if.end
   br i1 %cmp.i.i, label %invoke.cont10, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i24
-  %conv.i.i.i = and i64 %6, 4294967295
+  %conv.i.i.i = and i64 %6, 15
   %agg.tmp.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %5, i64 %conv.i.i.i, i1 false)
   %agg.tmp.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 8

@@ -427,7 +427,7 @@ if.then.us:                                       ; preds = %if.then.us.preheade
 if.then6.us:                                      ; preds = %if.then.us
   %3 = load ptr, ptr @the_repository, align 8
   %4 = load ptr, ptr %objects, align 8
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx.us = getelementptr inbounds %struct.object_array_entry, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx.us, align 8
   %call.us = call ptr @deref_tag(ptr noundef %3, ptr noundef %5, ptr noundef null, i32 noundef 0) #12
@@ -1049,7 +1049,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %9 = load i32, ptr %count, align 4
   %inc = add nsw i32 %9, 1
   store i32 %inc, ptr %count, align 4
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %10, %indvars.iv.next
   br i1 %cmp, label %for.body, label %return, !llvm.loop !16
@@ -1449,7 +1449,7 @@ for.inc.sink.split:                               ; preds = %for.body, %if.then1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %land.lhs.true
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %13, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
@@ -2136,7 +2136,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end6.i
   %theirs.i = getelementptr inbounds i8, ptr %info, i64 24
   %cmp26111.i = icmp slt i32 %conv.i, 1
   %tobool.not.i50.i = icmp ne ptr %ref_status, null
-  %wide.trip.count.i69 = and i64 %div49.i, 4294967295
+  %wide.trip.count.i69 = and i64 %div49.i, 2147483647
   br label %for.body.i70
 
 for.body.i70:                                     ; preds = %for.inc39.i, %for.body.lr.ph.i
@@ -2285,7 +2285,7 @@ for.body48.lr.ph.i:                               ; preds = %for.end41.i
   %cmp69116.i = icmp slt i32 %conv.i, 1
   %nr76.i = getelementptr inbounds i8, ptr %ca.i, i64 8
   %tobool.not.i89.i = icmp ne ptr %ref_status, null
-  %wide.trip.count130.i = and i64 %div49.i, 4294967295
+  %wide.trip.count130.i = and i64 %div49.i, 2147483647
   br label %for.body48.i
 
 for.body48.i:                                     ; preds = %for.inc88.i, %for.body48.lr.ph.i

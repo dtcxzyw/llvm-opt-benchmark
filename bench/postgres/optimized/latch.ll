@@ -732,7 +732,7 @@ define dso_local i32 @WaitEventSetWait(ptr nocapture noundef readonly %0, i64 no
   unreachable
 
 92:                                               ; preds = %87
-  %93 = and i64 %78, 4294966272
+  %93 = and i64 %78, 2147482624
   %94 = icmp eq i64 %93, 0
   br i1 %94, label %drain.exit.i, label %.backedge.i.i.backedge
 

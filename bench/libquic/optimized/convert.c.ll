@@ -808,7 +808,7 @@ for.body.preheader.i:                             ; preds = %if.end24.i
   %cmp.i2 = icmp eq i32 %rem15.i, 0
   %sub.i = sub nuw nsw i32 19, %rem15.i
   %spec.store.select.i = select i1 %cmp.i2, i32 0, i32 %sub.i
-  %wide.trip.count.i = and i64 %indvars.iv.i, 4294967295
+  %wide.trip.count.i = and i64 %indvars.iv.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i

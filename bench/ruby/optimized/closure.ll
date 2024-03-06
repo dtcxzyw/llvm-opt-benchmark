@@ -286,7 +286,7 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   br i1 %40, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %RARRAY_LENINT.exit
-  %wide.trip.count = and i64 %.0.i.i, 4294967295
+  %wide.trip.count = and i64 %.0.i.i, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %rb_num2int_inline.exit

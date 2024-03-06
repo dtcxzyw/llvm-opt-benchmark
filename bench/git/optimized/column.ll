@@ -91,7 +91,7 @@ for.body.i:                                       ; preds = %if.then31, %for.bod
   %arrayidx.i = getelementptr inbounds %struct.string_list_item, ptr %6, i64 %indvars.iv.i
   %7 = load ptr, ptr %arrayidx.i, align 8
   %call.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef nonnull @.str, ptr noundef %7, ptr noundef nonnull @.str.1)
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %8 = load i64, ptr %nr, align 8
   %cmp.i20 = icmp ugt i64 %8, %indvars.iv.next.i
   br i1 %cmp.i20, label %for.body.i, label %sw.epilog, !llvm.loop !5
@@ -115,7 +115,7 @@ for.body.i23:                                     ; preds = %sw.bb, %for.body.i2
   %arrayidx.i25 = getelementptr inbounds %struct.string_list_item, ptr %10, i64 %indvars.iv.i24
   %11 = load ptr, ptr %arrayidx.i25, align 8
   %call.i26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %cond3842, ptr noundef %11, ptr noundef %cond1245)
-  %indvars.iv.next.i27 = add nuw i64 %indvars.iv.i24, 1
+  %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i24, 1
   %12 = load i64, ptr %nr, align 8
   %cmp.i28 = icmp ugt i64 %12, %indvars.iv.next.i27
   br i1 %cmp.i28, label %for.body.i23, label %sw.epilog, !llvm.loop !5
@@ -145,7 +145,7 @@ for.body.i31:                                     ; preds = %st_mult.exit.i, %fo
   %call1.i.i = tail call i32 @utf8_strnwidth(ptr noundef %16, i64 noundef %call.i.i, i32 noundef 1) #9
   %arrayidx10.i = getelementptr inbounds i32, ptr %call4.i, i64 %indvars.iv.i32
   store i32 %call1.i.i, ptr %arrayidx10.i, align 4
-  %indvars.iv.next.i34 = add nuw i64 %indvars.iv.i32, 1
+  %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i32, 1
   %17 = load i64, ptr %nr, align 8
   %cmp.i35 = icmp ugt i64 %17, %indvars.iv.next.i34
   br i1 %cmp.i35, label %for.body.i31, label %for.end.i, !llvm.loop !7
@@ -350,7 +350,7 @@ compute_column_width.exit.i.i:                    ; preds = %for.inc37.i.i.split
   br i1 %cmp2792.i.i, label %for.body.lr.ph.i29.i, label %for.end.i.i
 
 for.body.lr.ph.i29.i:                             ; preds = %compute_column_width.exit.i.i
-  %wide.trip.count.i.i = and i64 %div.i27.i, 4294967295
+  %wide.trip.count.i.i = and i64 %div.i27.i, 2147483647
   br label %for.body.i30.i
 
 for.body.i30.i:                                   ; preds = %for.body.i30.i, %for.body.lr.ph.i29.i
@@ -385,7 +385,7 @@ for.body.i44.i.preheader.i:                       ; preds = %while.end.i.i
   br i1 %cmp727.i51.i.i, label %for.body.i44.i.preheader.split.us.i, label %for.body.i44.i.i
 
 for.body.i44.i.preheader.split.us.i:              ; preds = %for.body.i44.i.preheader.i
-  %52 = and i64 %indvars.iv234.i, 4294967295
+  %52 = and i64 %indvars.iv234.i, 2147483647
   br i1 %cmp1.i.i.i, label %for.body.i44.i.us.us.preheader.i, label %for.body.i44.i.us.i
 
 for.body.i44.i.us.us.preheader.i:                 ; preds = %for.body.i44.i.preheader.split.us.i

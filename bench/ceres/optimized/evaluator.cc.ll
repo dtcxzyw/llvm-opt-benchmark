@@ -2979,7 +2979,7 @@ define linkonce_odr hidden void @_ZZN5ceres8internal16ProgramEvaluatorINS0_23Scr
 .lr.ph:                                           ; preds = %81
   %95 = getelementptr inbounds i8, ptr %24, i64 16
   %96 = getelementptr inbounds i8, ptr %17, i64 16
-  %wide.trip.count = and i64 %92, 4294967295
+  %wide.trip.count = and i64 %92, 2147483647
   br label %97
 
 97:                                               ; preds = %.lr.ph, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread
@@ -3101,7 +3101,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal19DenseJacobianWriter5WriteEi
   %41 = getelementptr inbounds i8, ptr %8, i64 8
   %42 = getelementptr inbounds i8, ptr %8, i64 16
   %43 = getelementptr inbounds i8, ptr %8, i64 24
-  %wide.trip.count = and i64 %25, 4294967295
+  %wide.trip.count = and i64 %25, 2147483647
   br label %44
 
 44:                                               ; preds = %.lr.ph, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread
@@ -8856,7 +8856,7 @@ define linkonce_odr hidden void @_ZZN5ceres8internal16ProgramEvaluatorINS0_23Scr
 .lr.ph:                                           ; preds = %81
   %95 = getelementptr inbounds i8, ptr %24, i64 16
   %96 = getelementptr inbounds i8, ptr %17, i64 16
-  %wide.trip.count = and i64 %92, 4294967295
+  %wide.trip.count = and i64 %92, 2147483647
   br label %97
 
 97:                                               ; preds = %.lr.ph, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread
@@ -11766,7 +11766,7 @@ define linkonce_odr hidden void @_ZZN5ceres8internal16ProgramEvaluatorINS0_21Blo
 .lr.ph:                                           ; preds = %72
   %86 = getelementptr inbounds i8, ptr %24, i64 16
   %87 = getelementptr inbounds i8, ptr %17, i64 16
-  %wide.trip.count = and i64 %83, 4294967295
+  %wide.trip.count = and i64 %83, 2147483647
   br label %88
 
 88:                                               ; preds = %.lr.ph, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread
@@ -14600,7 +14600,7 @@ define linkonce_odr hidden void @_ZZN5ceres8internal16ProgramEvaluatorINS0_23Scr
 .lr.ph:                                           ; preds = %81
   %95 = getelementptr inbounds i8, ptr %24, i64 16
   %96 = getelementptr inbounds i8, ptr %17, i64 16
-  %wide.trip.count = and i64 %92, 4294967295
+  %wide.trip.count = and i64 %92, 2147483647
   br label %97
 
 97:                                               ; preds = %.lr.ph, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread

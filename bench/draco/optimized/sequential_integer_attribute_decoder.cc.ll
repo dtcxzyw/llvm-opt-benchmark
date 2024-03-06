@@ -2743,7 +2743,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   %96 = getelementptr inbounds i8, ptr %0, i64 24
   %97 = getelementptr inbounds i8, ptr %0, i64 20
   %98 = getelementptr inbounds i8, ptr %0, i64 28
-  %wide.trip.count = and i64 %90, 4294967295
+  %wide.trip.count = and i64 %90, 2147483647
   br label %99
 
 99:                                               ; preds = %.lr.ph, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit43
@@ -3461,7 +3461,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   %99 = getelementptr inbounds i8, ptr %0, i64 20
   %100 = getelementptr inbounds i8, ptr %0, i64 28
   %101 = shl nuw nsw i64 %wide.trip.count.i, 2
-  %wide.trip.count151 = and i64 %92, 4294967295
+  %wide.trip.count151 = and i64 %92, 2147483647
   br label %102
 
 102:                                              ; preds = %.lr.ph133, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit74
@@ -4500,8 +4500,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %126 = call i32 @llvm.umax.i32(i32 %4, i32 1)
   %127 = zext nneg i32 %126 to i64
   %128 = shl nuw nsw i64 %127, 2
-  %129 = and i64 %117, 4294967295
-  %wide.trip.count280 = and i64 %117, 4294967295
+  %129 = and i64 %117, 2147483647
+  %wide.trip.count280 = and i64 %117, 2147483647
   br label %130
 
 130:                                              ; preds = %.lr.ph232, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit143
@@ -6357,7 +6357,7 @@ _ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit: ; preds = %23, %25,
   %40 = getelementptr inbounds i8, ptr %0, i64 24
   %41 = getelementptr inbounds i8, ptr %0, i64 20
   %42 = getelementptr inbounds i8, ptr %0, i64 28
-  %wide.trip.count = and i64 %37, 4294967295
+  %wide.trip.count = and i64 %37, 2147483647
   br label %43
 
 43:                                               ; preds = %.lr.ph, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit
@@ -7995,7 +7995,7 @@ _ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit: ; preds = %20, %22,
   %38 = getelementptr inbounds i8, ptr %0, i64 24
   %39 = getelementptr inbounds i8, ptr %0, i64 20
   %40 = getelementptr inbounds i8, ptr %0, i64 28
-  %wide.trip.count = and i64 %34, 4294967295
+  %wide.trip.count = and i64 %34, 2147483647
   br label %41
 
 41:                                               ; preds = %.lr.ph, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit
@@ -9468,7 +9468,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometric
   %31 = getelementptr inbounds i8, ptr %0, i64 20
   %32 = getelementptr inbounds i8, ptr %0, i64 40
   %33 = getelementptr inbounds i8, ptr %0, i64 28
-  %wide.trip.count = and i64 %20, 4294967295
+  %wide.trip.count = and i64 %20, 2147483647
   br label %34
 
 34:                                               ; preds = %.lr.ph, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit
@@ -11169,7 +11169,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   %95 = getelementptr inbounds i8, ptr %0, i64 24
   %96 = getelementptr inbounds i8, ptr %0, i64 20
   %97 = getelementptr inbounds i8, ptr %0, i64 28
-  %wide.trip.count = and i64 %90, 4294967295
+  %wide.trip.count = and i64 %90, 2147483647
   br label %98
 
 98:                                               ; preds = %.lr.ph, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit43
@@ -11750,7 +11750,7 @@ _ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS
   %98 = getelementptr inbounds i8, ptr %0, i64 20
   %99 = getelementptr inbounds i8, ptr %0, i64 28
   %100 = shl nuw nsw i64 %wide.trip.count.i, 2
-  %wide.trip.count148 = and i64 %92, 4294967295
+  %wide.trip.count148 = and i64 %92, 2147483647
   br label %101
 
 101:                                              ; preds = %.lr.ph130, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit72
@@ -12779,8 +12779,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %125 = call i32 @llvm.umax.i32(i32 %4, i32 1)
   %126 = zext nneg i32 %125 to i64
   %127 = shl nuw nsw i64 %126, 2
-  %128 = and i64 %117, 4294967295
-  %wide.trip.count274 = and i64 %117, 4294967295
+  %128 = and i64 %117, 2147483647
+  %wide.trip.count274 = and i64 %117, 2147483647
   br label %129
 
 129:                                              ; preds = %.lr.ph226, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit136
@@ -13883,7 +13883,7 @@ _ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit: ; preds = %23, %25,
   %40 = getelementptr inbounds i8, ptr %0, i64 24
   %41 = getelementptr inbounds i8, ptr %0, i64 20
   %42 = getelementptr inbounds i8, ptr %0, i64 28
-  %wide.trip.count = and i64 %37, 4294967295
+  %wide.trip.count = and i64 %37, 2147483647
   br label %43
 
 43:                                               ; preds = %.lr.ph, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit
@@ -14914,7 +14914,7 @@ _ZN5draco33PredictionSchemeWrapTransformBaseIiE4InitEi.exit: ; preds = %20, %22,
   %38 = getelementptr inbounds i8, ptr %0, i64 24
   %39 = getelementptr inbounds i8, ptr %0, i64 20
   %40 = getelementptr inbounds i8, ptr %0, i64 28
-  %wide.trip.count = and i64 %34, 4294967295
+  %wide.trip.count = and i64 %34, 2147483647
   br label %41
 
 41:                                               ; preds = %.lr.ph, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit
@@ -15768,7 +15768,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometric
   %31 = getelementptr inbounds i8, ptr %0, i64 20
   %32 = getelementptr inbounds i8, ptr %0, i64 40
   %33 = getelementptr inbounds i8, ptr %0, i64 28
-  %wide.trip.count = and i64 %20, 4294967295
+  %wide.trip.count = and i64 %20, 2147483647
   br label %34
 
 34:                                               ; preds = %.lr.ph, %_ZNK5draco37PredictionSchemeWrapDecodingTransformIiiE20ComputeOriginalValueEPKiS3_Pi.exit

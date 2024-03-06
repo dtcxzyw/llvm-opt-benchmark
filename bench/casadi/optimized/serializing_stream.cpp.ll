@@ -2461,7 +2461,7 @@ _ZN6casadi17SerializingStream4packEi.exit:        ; preds = %24
   br i1 %35, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZN6casadi17SerializingStream4packEi.exit
-  %wide.trip.count = and i64 %13, 4294967295
+  %wide.trip.count = and i64 %13, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

@@ -134,7 +134,7 @@ define dso_local i32 @pg_strip_crlf(ptr nocapture noundef %0) local_unnamed_addr
   br i1 %4, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %1
-  %5 = and i64 %2, 4294967295
+  %5 = and i64 %2, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge2

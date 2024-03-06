@@ -1649,7 +1649,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_5IndexEE18syncWithSubInd
   br i1 %32, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %17
-  %wide.trip.count = and i64 %12, 4294967295
+  %wide.trip.count = and i64 %12, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %94
@@ -3015,7 +3015,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEE18syncWit
 
 .lr.ph:                                           ; preds = %16
   %39 = load i32, ptr %20, align 8
-  %wide.trip.count = and i64 %36, 4294967295
+  %wide.trip.count = and i64 %36, 2147483647
   br label %40
 
 40:                                               ; preds = %.lr.ph, %102

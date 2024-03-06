@@ -1139,7 +1139,7 @@ define dso_local i32 @seq_path(ptr nocapture noundef %0, ptr noundef %1, ptr nou
 
 61:                                               ; preds = %57
   %62 = load i64, ptr %4, align 8
-  %63 = and i64 %55, 4294967295
+  %63 = and i64 %55, 2147483647
   %64 = add i64 %62, %63
   %65 = load i64, ptr %6, align 8
   %66 = icmp ugt i64 %64, %65
@@ -1278,7 +1278,7 @@ define dso_local noundef i32 @seq_path_root(ptr nocapture noundef %0, ptr nounde
 
 62:                                               ; preds = %.thread11
   %63 = load i64, ptr %5, align 8
-  %64 = and i64 %.in.fr, 4294967295
+  %64 = and i64 %.in.fr, 2147483647
   %65 = add i64 %63, %64
   %66 = icmp ugt i64 %65, %.pre
   br i1 %66, label %67, label %.thread12.thread19, !prof !11
@@ -1415,7 +1415,7 @@ define dso_local i32 @seq_dentry(ptr nocapture noundef %0, ptr noundef %1, ptr n
 
 61:                                               ; preds = %57
   %62 = load i64, ptr %4, align 8
-  %63 = and i64 %55, 4294967295
+  %63 = and i64 %55, 2147483647
   %64 = add i64 %62, %63
   %65 = load i64, ptr %6, align 8
   %66 = icmp ugt i64 %64, %65
@@ -2115,7 +2115,7 @@ define dso_local void @seq_pad(ptr nocapture noundef %0, i8 noundef zeroext %1) 
   br i1 %9, label %10, label %22
 
 10:                                               ; preds = %2
-  %11 = and i64 %7, 4294967295
+  %11 = and i64 %7, 2147483647
   %12 = add i64 %11, %6
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
@@ -2549,7 +2549,7 @@ define dso_local ptr @seq_hlist_start_percpu(ptr noundef %0, ptr nocapture nound
   br i1 %16, label %17, label %.loopexit
 
 17:                                               ; preds = %13
-  %18 = and i64 %14, 4294967295
+  %18 = and i64 %14, 63
   %19 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %4

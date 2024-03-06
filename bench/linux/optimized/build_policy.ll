@@ -3791,7 +3791,7 @@ define dso_local i32 @cpudl_find(ptr nocapture noundef readonly %0, ptr noundef 
   br i1 %30, label %38, label %31
 
 31:                                               ; preds = %28
-  %32 = and i64 %25, 4294967295
+  %32 = and i64 %25, 63
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %32) #28, !srcloc !119
   %33 = icmp ult i64 %19, 1024
   br i1 %33, label %37, label %34
@@ -3807,8 +3807,8 @@ define dso_local i32 @cpudl_find(ptr nocapture noundef readonly %0, ptr noundef 
 38:                                               ; preds = %37, %34, %28
   %39 = phi i64 [ %19, %28 ], [ 1024, %37 ], [ 1024, %34 ]
   %40 = phi i32 [ %18, %28 ], [ %26, %37 ], [ %18, %34 ]
-  %41 = add i64 %25, 1
-  %42 = and i64 %41, 4294967295
+  %41 = add nuw nsw i64 %25, 1
+  %42 = and i64 %41, 127
   %43 = icmp ugt i64 %42, 63
   br i1 %43, label %..threadthread-pre-split_crit_edge, label %16, !prof !77, !llvm.loop !136
 
@@ -13180,7 +13180,7 @@ define internal void @pull_dl_task(ptr noundef %0) #2 align 16 {
   br i1 %27, label %106, label %28
 
 28:                                               ; preds = %26
-  %29 = and i64 %23, 4294967295
+  %29 = and i64 %23, 63
   %30 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, ptrtoint (ptr @runqueues to i64)
@@ -13321,8 +13321,8 @@ define internal void @pull_dl_task(ptr noundef %0) #2 align 16 {
 106:                                              ; preds = %105, %92, %36, %26
   %107 = phi i64 [ %15, %26 ], [ %15, %36 ], [ %87, %105 ], [ %87, %92 ]
   %108 = phi i8 [ %14, %26 ], [ %14, %36 ], [ %88, %105 ], [ %88, %92 ]
-  %109 = add i64 %23, 1
-  %110 = and i64 %109, 4294967295
+  %109 = add nuw nsw i64 %23, 1
+  %110 = and i64 %109, 127
   %111 = icmp ugt i64 %110, 63
   br i1 %111, label %.thread, label %12, !prof !77, !llvm.loop !292
 

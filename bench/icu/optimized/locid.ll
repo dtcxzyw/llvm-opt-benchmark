@@ -2026,7 +2026,7 @@ while.end:                                        ; preds = %while.cond
   br i1 %or.cond4, label %if.then35, label %while.cond38.preheader
 
 while.cond38.preheader:                           ; preds = %while.end
-  %8 = and i64 %call30, 4294967295
+  %8 = and i64 %call30, 536870911
   %9 = icmp ne i32 %conv31, 0
   %10 = zext i1 %9 to i32
   br label %while.cond38

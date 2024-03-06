@@ -3903,7 +3903,7 @@ define dso_local void @_ZN8GUITable8setTableERKSt6vectorINS_6OptionESaIS1_EERKS0
   %299 = getelementptr inbounds i8, ptr %0, i64 369
   %300 = getelementptr inbounds i8, ptr %0, i64 488
   %301 = getelementptr inbounds i8, ptr %0, i64 464
-  %302 = and i64 %95, 4294967295
+  %302 = and i64 %95, 2147483647
   br label %312
 
 .loopexit139:                                     ; preds = %.loopexit131, %276

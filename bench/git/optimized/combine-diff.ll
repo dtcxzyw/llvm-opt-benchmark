@@ -2377,10 +2377,8 @@ for.body.lr.ph.i:                                 ; preds = %if.then41
   %tobool.i = icmp ne i32 %and.i, 0
   %18 = and i64 %bf.load42, 72057594037927936
   %tobool154.not.i.i = icmp eq i64 %18, 0
-  %wide.trip.count.i.i = and i64 %15, 4294967295
-  %sext.i = shl i64 %15, 32
-  %conv12.i.i = ashr exact i64 %sext.i, 32
-  %mul.i.i.i = mul nuw nsw i64 %conv12.i.i, 72
+  %wide.trip.count.i.i = and i64 %15, 2147483647
+  %mul.i.i.i = mul nuw nsw i64 %wide.trip.count.i.i, 72
   %tobool15.i = icmp ne ptr %17, null
   br label %for.body.i
 
@@ -2458,7 +2456,7 @@ st_add.exit93.i.i:                                ; preds = %st_add.exit87.i.i
   %add.i91.i.i = add nsw i64 %add.i85.i.i, %mul.i.i.i
   %call15.i.i = call ptr @xmalloc(i64 noundef %add.i91.i.i) #14
   %parent.i.i = getelementptr inbounds i8, ptr %call15.i.i, i64 56
-  %arrayidx17.i.i = getelementptr inbounds [0 x %struct.combine_diff_parent], ptr %parent.i.i, i64 0, i64 %conv12.i.i
+  %arrayidx17.i.i = getelementptr inbounds [0 x %struct.combine_diff_parent], ptr %parent.i.i, i64 0, i64 %wide.trip.count.i.i
   %path18.i.i = getelementptr inbounds i8, ptr %call15.i.i, i64 8
   store ptr %arrayidx17.i.i, ptr %path18.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx17.i.i, ptr align 1 %26, i64 %conv9.i.i, i1 false)
@@ -2773,7 +2771,7 @@ for.body77:                                       ; preds = %st_mult.exit, %for.
   %arrayidx78 = getelementptr inbounds %struct.obj_order, ptr %call74, i64 %indvars.iv
   store ptr %p.1128, ptr %arrayidx78, align 8
   %83 = load ptr, ptr %p.1128, align 8
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %tobool76.not = icmp eq ptr %83, null
   br i1 %tobool76.not, label %for.end82, label %for.body77, !llvm.loop !65
 
@@ -3021,7 +3019,7 @@ combined_pair.exit.i:                             ; preds = %if.end.i.i.i44.i.i,
   %119 = or disjoint i16 %bf.clear60.i.i, %118
   %bf.set61.i.i = xor i16 %119, 1
   store i16 %bf.set61.i.i, ptr %oid_valid57.i.i, align 2
-  %indvars.iv.next.i105 = add nuw i64 %indvars.iv.i102, 1
+  %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i102, 1
   %arrayidx.i106 = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv.i102
   store ptr %call.i.i103, ptr %arrayidx.i106, align 8
   %120 = load ptr, ptr %p.013.i, align 8
@@ -3093,7 +3091,7 @@ while.body.lr.ph:                                 ; preds = %if.end148
   br i1 %cmp152136, label %while.body.us.preheader, label %while.body
 
 while.body.us.preheader:                          ; preds = %while.body.lr.ph
-  %wide.trip.count151 = and i64 %0, 4294967295
+  %wide.trip.count151 = and i64 %0, 2147483647
   br label %while.body.us
 
 while.body.us:                                    ; preds = %while.body.us.preheader, %for.cond151.for.end173_crit_edge.us
@@ -3188,7 +3186,7 @@ st_mult.exit:                                     ; preds = %entry
   br i1 %cmp9, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %st_mult.exit
-  %wide.trip.count = and i64 %0, 4294967295
+  %wide.trip.count = and i64 %0, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body

@@ -497,7 +497,7 @@ while.cond.preheader:                             ; preds = %entry
 
 while.body.lr.ph.lr.ph:                           ; preds = %while.cond.preheader
   %isEscapeAppended = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = and i64 %sub.ptr.div, 4294967295
+  %9 = and i64 %sub.ptr.div, 2147483647
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %if.end247

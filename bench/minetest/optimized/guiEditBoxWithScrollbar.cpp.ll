@@ -1907,7 +1907,7 @@ define dso_local void @_ZN23GUIEditBoxWithScrollBar4drawEv(ptr noundef nonnull a
   %297 = zext i32 %241 to i64
   %298 = zext i32 %289 to i64
   %299 = sext i32 %286 to i64
-  %300 = and i64 %242, 4294967295
+  %300 = and i64 %242, 2147483647
   br label %303
 
 .loopexit53:                                      ; preds = %627, %274

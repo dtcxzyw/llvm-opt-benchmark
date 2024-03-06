@@ -677,7 +677,7 @@ hwloc_utils_check_api_version.exit._crit_edge:    ; preds = %hwloc_utils_check_a
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.loopexit.i
   %222 = phi i64 [ %261, %.loopexit.i ], [ %217, %.preheader.i ]
-  %223 = and i64 %222, 4294967295
+  %223 = and i64 %222, 2147483647
   %224 = getelementptr inbounds [101 x i8], ptr %4, i64 0, i64 %223
   store i8 0, ptr %224, align 1
   %225 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 10) #15

@@ -242,7 +242,7 @@ cond.true.i21.i:                                  ; preds = %if.end5.i
   br label %ZSTD_LLcode.exit.i
 
 cond.false.i17.i:                                 ; preds = %if.end5.i
-  %idxprom.i18.i = and i64 %sub.ptr.sub28.i, 4294967295
+  %idxprom.i18.i = and i64 %sub.ptr.sub28.i, 63
   %arrayidx.i19.i = getelementptr inbounds [64 x i8], ptr @ZSTD_LLcode.LL_Code, i64 0, i64 %idxprom.i18.i
   %23 = load i8, ptr %arrayidx.i19.i, align 1
   %conv.i20.i = zext i8 %23 to i32
@@ -1645,7 +1645,7 @@ cond.true.i21.i:                                  ; preds = %if.end5.i
   br label %ZSTD_LLcode.exit.i
 
 cond.false.i17.i:                                 ; preds = %if.end5.i
-  %idxprom.i18.i = and i64 %sub.ptr.sub28.i, 4294967295
+  %idxprom.i18.i = and i64 %sub.ptr.sub28.i, 63
   %arrayidx.i19.i = getelementptr inbounds [64 x i8], ptr @ZSTD_LLcode.LL_Code, i64 0, i64 %idxprom.i18.i
   %25 = load i8, ptr %arrayidx.i19.i, align 1
   %conv.i20.i = zext i8 %25 to i32
@@ -4904,7 +4904,7 @@ ZSTD_count.exit415:                               ; preds = %if.then2.i396, %if.
   br i1 %cmp289.i, label %if.then291.i, label %if.end314.i
 
 if.then291.i:                                     ; preds = %ZSTD_count.exit415
-  %add295.i = add i32 %sub265.i, 3
+  %add295.i = add nuw nsw i32 %sub265.i, 3
   store i32 %add295.i, ptr %matches, align 4
   %conv298.i = trunc i64 %retval.0.i372 to i32
   %len300.i = getelementptr inbounds i8, ptr %matches, i64 4
@@ -7023,7 +7023,7 @@ if.end287.i:                                      ; preds = %if.end56.i373, %if.
   br i1 %cmp289.i, label %if.then291.i, label %if.end314.i
 
 if.then291.i:                                     ; preds = %if.end287.i
-  %add295.i = add i32 %sub265.i, 3
+  %add295.i = add nuw nsw i32 %sub265.i, 3
   store i32 %add295.i, ptr %matches, align 4
   %conv298.i = trunc i64 %mlen.i.0 to i32
   %len300.i = getelementptr inbounds i8, ptr %matches, i64 4
@@ -9325,7 +9325,7 @@ ZSTD_count.exit423:                               ; preds = %if.then2.i404, %if.
   br i1 %cmp289.i, label %if.then291.i, label %if.end314.i
 
 if.then291.i:                                     ; preds = %ZSTD_count.exit423
-  %add295.i = add i32 %sub265.i, 3
+  %add295.i = add nuw nsw i32 %sub265.i, 3
   store i32 %add295.i, ptr %matches, align 4
   %conv298.i = trunc i64 %retval.0.i380 to i32
   %len300.i = getelementptr inbounds i8, ptr %matches, i64 4

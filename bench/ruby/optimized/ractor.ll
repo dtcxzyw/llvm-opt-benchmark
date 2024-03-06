@@ -924,7 +924,7 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   %17 = getelementptr inbounds i8, ptr %4, i64 16
   %18 = getelementptr inbounds i8, ptr %4, i64 32
   %19 = getelementptr i8, ptr %0, i64 48
-  %wide.trip.count = and i64 %.0.i.i, 4294967295
+  %wide.trip.count = and i64 %.0.i.i, 2147483647
   br label %20
 
 20:                                               ; preds = %.lr.ph, %RARRAY_AREF.exit

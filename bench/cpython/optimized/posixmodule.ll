@@ -13474,7 +13474,7 @@ do.end.i:                                         ; preds = %land.rhs.i, %land.l
   br i1 %cmp4.i.i, label %for.body.preheader.i.i, label %iov_cleanup.exit.i
 
 for.body.preheader.i.i:                           ; preds = %do.end.i
-  %wide.trip.count.i.i = and i64 %call1.i12, 4294967295
+  %wide.trip.count.i.i = and i64 %call1.i12, 2147483647
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -13835,7 +13835,7 @@ if.end24.i:                                       ; preds = %land.rhs.i, %do.bod
   br i1 %cmp4.i.i, label %for.body.preheader.i.i, label %os_pwritev_impl.exit
 
 for.body.preheader.i.i:                           ; preds = %if.end24.i
-  %wide.trip.count.i.i = and i64 %call1.i12, 4294967295
+  %wide.trip.count.i.i = and i64 %call1.i12, 2147483647
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -18069,7 +18069,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp5.i, label %os_cpu_count_impl.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
-  %conv9.i = and i64 %call3.i, 4294967295
+  %conv9.i = and i64 %call3.i, 2147483647
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.end8.i, %if.then.i
@@ -23186,7 +23186,7 @@ do.end:                                           ; preds = %land.lhs.true, %lan
   br i1 %cmp4.i, label %for.body.preheader.i, label %iov_cleanup.exit
 
 for.body.preheader.i:                             ; preds = %do.end
-  %wide.trip.count.i = and i64 %call1, 4294967295
+  %wide.trip.count.i = and i64 %call1, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -23415,7 +23415,7 @@ if.end23:                                         ; preds = %land.rhs, %do.body,
   br i1 %cmp4.i, label %for.body.preheader.i, label %iov_cleanup.exit
 
 for.body.preheader.i:                             ; preds = %if.end23
-  %wide.trip.count.i = and i64 %call1, 4294967295
+  %wide.trip.count.i = and i64 %call1, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i

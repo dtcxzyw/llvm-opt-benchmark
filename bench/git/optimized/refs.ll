@@ -4964,14 +4964,14 @@ check_refname_component.exit.i54:                 ; preds = %if.end69.i.i90
   br i1 %cmp13.i57.old, label %refs_ref_exists.exit.thread, label %if.end16.i58
 
 if.end16.i58:                                     ; preds = %land.lhs.true72.i.i97, %check_refname_component.exit.i54
-  %idxprom.i59 = and i64 %sub.ptr.sub.i.i93, 4294967295
+  %idxprom.i59 = and i64 %sub.ptr.sub.i.i93, 2147483647
   %arrayidx.i60 = getelementptr inbounds i8, ptr %refname.addr.0.i35, i64 %idxprom.i59
   %13 = load i8, ptr %arrayidx.i60, align 1
   %cmp17.i61 = icmp eq i8 %13, 0
   br i1 %cmp17.i61, label %while.end.i67, label %if.end20.i62
 
 if.end20.i62:                                     ; preds = %if.end16.i58
-  %add.i64 = add i64 %sub.ptr.sub.i.i93, 1
+  %add.i64 = add nuw nsw i64 %sub.ptr.sub.i.i93, 1
   %idx.ext.i65 = and i64 %add.i64, 4294967295
   %add.ptr.i66 = getelementptr inbounds i8, ptr %refname.addr.0.i35, i64 %idx.ext.i65
   br label %while.body.i33
@@ -5120,14 +5120,14 @@ check_refname_component.exit.i:                   ; preds = %if.end69.i.i
   br i1 %cmp13.i.old, label %refs_ref_exists.exit.thread, label %if.end16.i
 
 if.end16.i:                                       ; preds = %land.lhs.true72.i.i, %check_refname_component.exit.i
-  %idxprom.i = and i64 %sub.ptr.sub.i.i, 4294967295
+  %idxprom.i = and i64 %sub.ptr.sub.i.i, 2147483647
   %arrayidx.i = getelementptr inbounds i8, ptr %refname.addr.0.i17, i64 %idxprom.i
   %26 = load i8, ptr %arrayidx.i, align 1
   %cmp17.i = icmp eq i8 %26, 0
   br i1 %cmp17.i, label %while.end.i, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end16.i
-  %add.i = add i64 %sub.ptr.sub.i.i, 1
+  %add.i = add nuw nsw i64 %sub.ptr.sub.i.i, 1
   %idx.ext.i = and i64 %add.i, 4294967295
   %add.ptr.i = getelementptr inbounds i8, ptr %refname.addr.0.i17, i64 %idx.ext.i
   br label %while.body.i
@@ -5427,7 +5427,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph
   br label %return
 
 for.cond:                                         ; preds = %if.end5
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %3, %indvars.iv.next
   br i1 %cmp, label %for.body, label %return, !llvm.loop !26
@@ -7087,7 +7087,7 @@ for.body.lr.ph:                                   ; preds = %if.end4
   br label %for.body
 
 for.cond:                                         ; preds = %strbuf_setlen.exit
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %1, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !29
@@ -7433,7 +7433,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i
   br i1 %tobool3.not.us.i, label %cleanup, label %find_descendant_ref.exit
 
 for.cond.i:                                       ; preds = %if.end5.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %33 = load i64, ptr %nr.i, align 8
   %cmp.i = icmp ugt i64 %33, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %cleanup, !llvm.loop !26
@@ -7913,7 +7913,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %tobool4.not = icmp eq i32 %and3, 0
   %cond8 = select i1 %tobool4.not, ptr null, ptr %2
   tail call void %cb(ptr noundef nonnull %refname, ptr noundef %cond, ptr noundef %cond8, ptr noundef %cb_data) #22
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %4, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !32

@@ -2053,7 +2053,7 @@ define internal ptr @psql_completion(ptr nocapture readnone %0, i32 noundef %1, 
   br i1 %171, label %172, label %.thread.i
 
 172:                                              ; preds = %170
-  %173 = and i64 %indvars.iv.next.i, 4294967295
+  %173 = and i64 %indvars.iv.next.i, 2147483647
   %174 = getelementptr i8, ptr %.072.i, i64 %173
   %175 = load i8, ptr %174, align 1
   %176 = sext i8 %175 to i32

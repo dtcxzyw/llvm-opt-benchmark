@@ -9033,7 +9033,7 @@ _ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv
   br i1 %cmp140174, label %for.body141.preheader, label %for.end147
 
 for.body141.preheader:                            ; preds = %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit
-  %wide.trip.count = and i64 %sub.ptr.div.i.i128, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i128, 2147483647
   br label %for.body141
 
 for.body141:                                      ; preds = %for.body141.preheader, %for.body141
@@ -13257,7 +13257,7 @@ land.end93:                                       ; preds = %land.lhs.true80
   br i1 %77, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %land.end93
-  %78 = and i64 %sub.ptr.div.i.i, 4294967295
+  %78 = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit
@@ -16949,7 +16949,7 @@ if.end84:                                         ; preds = %if.end84.sink.split
 if.then90:                                        ; preds = %if.end84
   %nchannels = getelementptr inbounds i8, ptr %2, i64 60
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i56)
-  %retval.i17.i.sroa.0.0.insert.ext.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %retval.i17.i.sroa.0.0.insert.ext.i = and i64 %sub.ptr.div.i.i, 2147483647
   %23 = load i32, ptr %nchannels, align 4
   %retval.i.i.sroa.0.0.insert.ext.i58 = zext i32 %23 to i64
   %24 = ptrtoint ptr %formatcode.0 to i64
@@ -17027,7 +17027,7 @@ for.cond.preheader:                               ; preds = %invoke.cont106
   br i1 %cmp127125, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %wide.trip.count = and i64 %sub.ptr.div.i.i75, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i75, 2147483647
   br label %for.body
 
 if.then112:                                       ; preds = %invoke.cont106
@@ -17106,7 +17106,7 @@ for.cond140.preheader:                            ; preds = %for.end
   br i1 %cmp145127, label %for.body146.preheader, label %if.end158
 
 for.body146.preheader:                            ; preds = %for.cond140.preheader
-  %wide.trip.count137 = and i64 %sub.ptr.div.i.i86, 4294967295
+  %wide.trip.count137 = and i64 %sub.ptr.div.i.i86, 2147483647
   br label %for.body146
 
 for.cond140:                                      ; preds = %for.body146
@@ -17154,7 +17154,7 @@ for.cond165.preheader:                            ; preds = %if.end158
   br i1 %cmp170129, label %for.body171.preheader, label %if.end184
 
 for.body171.preheader:                            ; preds = %for.cond165.preheader
-  %wide.trip.count142 = and i64 %sub.ptr.div.i.i99, 4294967295
+  %wide.trip.count142 = and i64 %sub.ptr.div.i.i99, 2147483647
   br label %for.body171
 
 for.cond165:                                      ; preds = %for.body171
@@ -17214,7 +17214,7 @@ invoke.cont192:                                   ; preds = %if.then191
 
 for.body201.lr.ph:                                ; preds = %invoke.cont192
   %arrayinit.element.i.i.i118 = getelementptr inbounds i8, ptr %ref.tmp.i116, i64 16
-  %wide.trip.count147 = and i64 %sub.ptr.div.i114, 4294967295
+  %wide.trip.count147 = and i64 %sub.ptr.div.i114, 2147483647
   br label %for.body201
 
 for.body201:                                      ; preds = %for.body201.lr.ph, %for.inc211
@@ -17718,7 +17718,7 @@ if.end:                                           ; preds = %invoke.cont9
   br i1 %cmp697, label %for.body51.preheader, label %for.end
 
 for.body51.preheader:                             ; preds = %if.end
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body51
 
 for.body51:                                       ; preds = %for.body51.preheader, %for.body51
@@ -21946,7 +21946,7 @@ if.then132:                                       ; preds = %if.end130
 
 for.body139.lr.ph:                                ; preds = %if.then132
   %79 = load i32, ptr %m_autotile, align 16
-  %wide.trip.count = and i64 %sub.ptr.div.i.i403, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i403, 2147483647
   br label %for.body139
 
 for.cond137:                                      ; preds = %for.body139
@@ -29551,7 +29551,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %2 = load ptr, ptr %subimagename, align 8
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -37913,7 +37913,7 @@ for.body.lr.ph:                                   ; preds = %while.end
   %size_.i.i = getelementptr inbounds i8, ptr %out.coerce, i64 16
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %out.coerce, i64 24
   %ptr_.i.i29 = getelementptr inbounds i8, ptr %out.coerce, i64 8
-  %wide.trip.count = and i64 %digits.coerce1, 4294967295
+  %wide.trip.count = and i64 %digits.coerce1, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -51030,7 +51030,7 @@ _ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit: ; preds = %_ZN3fmt2v
   br i1 %cmp53, label %for.cond6.preheader.preheader, label %for.cond24.preheader
 
 for.cond6.preheader.preheader:                    ; preds = %_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit
-  %wide.trip.count79 = and i64 %0, 4294967295
+  %wide.trip.count79 = and i64 %0, 2147483647
   br label %for.body8.lr.ph
 
 for.body8.lr.ph:                                  ; preds = %invoke.cont18, %for.cond6.preheader.preheader
@@ -64183,7 +64183,7 @@ _ZN3fmt2v86detail9normalizeILi0EEENS1_2fpES3_.exit: ; preds = %if.end42, %while.
   %ptr_.i93 = getelementptr inbounds i8, ptr %buf, i64 8
   %24 = load ptr, ptr %ptr_.i93, align 8
   %sub54 = sub nsw i32 348, %mul6.i
-  %sh_prom.i = zext i32 %add3.i.neg to i64
+  %sh_prom.i = zext nneg i32 %add3.i.neg to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %shr.i = lshr i64 %cond.i.i, %sh_prom.i
   %conv.i = trunc i64 %shr.i to i32

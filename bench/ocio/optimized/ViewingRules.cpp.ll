@@ -1421,7 +1421,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %colorSpaceAccesssor, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %colorSpaceAccesssor, i64 24
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %cs, i64 8
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit
@@ -1663,7 +1663,7 @@ for.end:                                          ; preds = %_ZNSt10shared_ptrIK
 for.body35.lr.ph:                                 ; preds = %for.end
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %colorspace.i, i64 8
   %m_name44 = getelementptr inbounds i8, ptr %this, i64 112
-  %wide.trip.count86 = and i64 %sub.ptr.div.i.i40, 4294967295
+  %wide.trip.count86 = and i64 %sub.ptr.div.i.i40, 2147483647
   br label %for.body35
 
 for.body35:                                       ; preds = %for.body35.lr.ph, %for.inc69
@@ -2432,7 +2432,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %_ZNK19OpenColorIO_v2_4dev13TokensManager8getTokenEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %conv4.i = and i64 %colorSpaceIndex, 4294967295
+  %conv4.i = and i64 %colorSpaceIndex, 2147483647
   %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i64 %conv4.i
   %call6.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #18
   br label %_ZNK19OpenColorIO_v2_4dev13TokensManager8getTokenEi.exit
@@ -3116,7 +3116,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %_ZNK19OpenColorIO_v2_4dev13TokensManager8getTokenEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %conv4.i = and i64 %encodingIndex, 4294967295
+  %conv4.i = and i64 %encodingIndex, 2147483647
   %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i64 %conv4.i
   %call6.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #18
   br label %_ZNK19OpenColorIO_v2_4dev13TokensManager8getTokenEi.exit

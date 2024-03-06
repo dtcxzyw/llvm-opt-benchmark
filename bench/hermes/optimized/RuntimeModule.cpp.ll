@@ -503,7 +503,7 @@ entry:
   br i1 %cmp7, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
-  %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -1903,7 +1903,7 @@ entry:
 if.then:                                          ; preds = %entry
   %objectLiteralHiddenClasses_ = getelementptr inbounds i8, ptr %this, i64 144
   %shl.i = shl nuw i32 %keyBufferIndex, 8
-  %or.i = or i32 %shl.i, %numLiterals
+  %or.i = or disjoint i32 %shl.i, %numLiterals
   %1 = load ptr, ptr %objectLiteralHiddenClasses_, align 8
   %NumBuckets.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i32, ptr %NumBuckets.i.i.i.i, align 8
@@ -2019,7 +2019,7 @@ entry:
 if.then:                                          ; preds = %entry
   %objectLiteralHiddenClasses_ = getelementptr inbounds i8, ptr %this, i64 144
   %shl.i = shl nuw i32 %keyBufferIndex, 8
-  %or.i = or i32 %0, %shl.i
+  %or.i = or disjoint i32 %0, %shl.i
   store i32 %or.i, ptr %ref.tmp, align 4
   %2 = load ptr, ptr %objectLiteralHiddenClasses_, align 8
   %NumBuckets.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160

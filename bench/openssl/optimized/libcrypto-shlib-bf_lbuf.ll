@@ -368,7 +368,7 @@ land.lhs.true:                                    ; preds = %if.end23
   br i1 %cmp27.not, label %return, label %if.then29
 
 if.then29:                                        ; preds = %land.lhs.true
-  %conv30 = and i64 %num, 4294967295
+  %conv30 = and i64 %num, 2147483647
   %call31 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %conv30, ptr noundef nonnull @.str.1, i32 noundef 235) #5
   %cmp32 = icmp eq ptr %call31, null
   br i1 %cmp32, label %return, label %if.end36

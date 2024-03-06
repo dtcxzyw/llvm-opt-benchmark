@@ -309,7 +309,7 @@ define dso_local void @acpi_processor_ppc_init(ptr noundef %0) local_unnamed_add
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %10
-  %15 = and i64 %11, 4294967295
+  %15 = and i64 %11, 63
   %16 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, ptrtoint (ptr @processors to i64)
@@ -331,8 +331,8 @@ define dso_local void @acpi_processor_ppc_init(ptr noundef %0) local_unnamed_add
   br label %29
 
 29:                                               ; preds = %27, %22, %14
-  %30 = add i64 %11, 1
-  %31 = and i64 %30, 4294967295
+  %30 = add nuw nsw i64 %11, 1
+  %31 = and i64 %30, 127
   %32 = icmp ugt i64 %31, 63
   br i1 %32, label %.thread, label %4, !prof !8, !llvm.loop !9
 
@@ -1106,7 +1106,7 @@ define dso_local i32 @acpi_processor_preregister_performance(ptr noundef %0) #0 
   br i1 %77, label %78, label %.thread25
 
 78:                                               ; preds = %74
-  %79 = and i64 %75, 4294967295
+  %79 = and i64 %75, 63
   %80 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %79
   %81 = load i64, ptr %80, align 8
   %82 = add i64 %81, ptrtoint (ptr @processors to i64)
@@ -1185,7 +1185,7 @@ define dso_local i32 @acpi_processor_preregister_performance(ptr noundef %0) #0 
   br i1 %122, label %150, label %123
 
 123:                                              ; preds = %121
-  %124 = and i64 %117, 4294967295
+  %124 = and i64 %117, 63
   %125 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %124
   %126 = load i64, ptr %125, align 8
   %127 = add i64 %126, ptrtoint (ptr @processors to i64)
@@ -1226,8 +1226,8 @@ define dso_local i32 @acpi_processor_preregister_performance(ptr noundef %0) #0 
 
 150:                                              ; preds = %147, %131, %123, %121
   %151 = phi i64 [ %.pre38, %147 ], [ %111, %131 ], [ %111, %123 ], [ %111, %121 ]
-  %152 = add i64 %117, 1
-  %153 = and i64 %152, 4294967295
+  %152 = add nuw nsw i64 %117, 1
+  %153 = and i64 %152, 127
   %154 = icmp ugt i64 %153, 63
   br i1 %154, label %.thread27, label %110, !prof !8, !llvm.loop !23
 
@@ -1249,7 +1249,7 @@ define dso_local i32 @acpi_processor_preregister_performance(ptr noundef %0) #0 
   br i1 %165, label %191, label %166
 
 166:                                              ; preds = %164
-  %167 = and i64 %161, 4294967295
+  %167 = and i64 %161, 63
   %168 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %167
   %169 = load i64, ptr %168, align 8
   %170 = add i64 %169, ptrtoint (ptr @processors to i64)
@@ -1282,14 +1282,14 @@ define dso_local i32 @acpi_processor_preregister_performance(ptr noundef %0) #0 
   br label %191
 
 191:                                              ; preds = %181, %174, %166, %164
-  %192 = add i64 %161, 1
-  %193 = and i64 %192, 4294967295
+  %192 = add nuw nsw i64 %161, 1
+  %193 = and i64 %192, 127
   %194 = icmp ugt i64 %193, 63
   br i1 %194, label %.thread29, label %155, !prof !8, !llvm.loop !24
 
 .thread29:                                        ; preds = %155, %191, %160, %90, %86, %78
-  %195 = add i64 %75, 1
-  %196 = and i64 %195, 4294967295
+  %195 = add nuw nsw i64 %75, 1
+  %196 = and i64 %195, 127
   %197 = icmp ugt i64 %196, 63
   br i1 %197, label %.thread29..thread25.loopexit35_crit_edge, label %.preheader, !prof !8, !llvm.loop !25
 

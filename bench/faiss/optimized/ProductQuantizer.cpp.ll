@@ -170,7 +170,7 @@ define void @_ZN5faiss16ProductQuantizer5trainEmPKf(ptr noundef nonnull align 8 
   %42 = getelementptr inbounds i8, ptr %4, i64 24
   %43 = trunc i64 %1 to i32
   %44 = icmp sgt i32 %43, 0
-  %wide.trip.count92.i = and i64 %1, 4294967295
+  %wide.trip.count92.i = and i64 %1, 2147483647
   %45 = sitofp i32 %43 to float
   %46 = getelementptr inbounds i8, ptr %0, i64 56
   %47 = getelementptr inbounds i8, ptr %5, i64 16
@@ -367,7 +367,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %113
   br i1 %.not.i.i.i.i.i, label %.preheader63.i, label %.noexc53.i
 
 .noexc53.i:                                       ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %122 = ashr exact i64 %sext89, 30
+  %122 = lshr exact i64 %sext89, 30
   %123 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %122) #23
           to label %.noexc53 unwind label %.loopexit
 
@@ -386,7 +386,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %44, label %.preheader65.us.preheader.i, label %.lr.ph.i
 
 .preheader65.us.preheader.i:                      ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i
-  %wide.trip.count.i = and i64 %114, 4294967295
+  %wide.trip.count.i = and i64 %114, 2147483647
   br label %.preheader65.us.i
 
 .preheader65.us.i:                                ; preds = %._crit_edge.us.i, %.preheader65.us.preheader.i
@@ -431,7 +431,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %135, label %.lr.ph71.us.preheader.i, label %.lr.ph75.split.i
 
 .lr.ph71.us.preheader.i:                          ; preds = %.lr.ph75.i
-  %137 = and i64 %116, 4294967295
+  %137 = and i64 %116, 2147483647
   %138 = shl nuw nsw i64 %137, 2
   %scevgep116.i = getelementptr i8, ptr %118, i64 %138
   %scevgep118.i = getelementptr i8, ptr %.sroa.0.0129134.i, i64 %138
@@ -556,7 +556,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_
 .lr.ph.split.us.i:                                ; preds = %.preheader.i
   %181 = shl nuw nsw i32 1, %178
   %182 = icmp sgt i32 %178, 0
-  %183 = and i64 %175, 4294967295
+  %183 = and i64 %175, 2147483647
   %wide.trip.count64.i = zext nneg i32 %181 to i64
   br i1 %182, label %.lr.ph35.us.us.preheader.i, label %.lr.ph35.us.preheader.i
 
@@ -565,7 +565,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_
   br label %.lr.ph35.us.i
 
 .lr.ph35.us.us.preheader.i:                       ; preds = %.lr.ph.split.us.i
-  %wide.trip.count53.i = and i64 %177, 4294967295
+  %wide.trip.count53.i = and i64 %177, 2147483647
   br label %.lr.ph35.us.us.i
 
 .lr.ph35.us.us.i:                                 ; preds = %._crit_edge36.split.us.us.us.i, %.lr.ph35.us.us.preheader.i

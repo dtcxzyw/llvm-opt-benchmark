@@ -112,7 +112,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
 .lr.ph:                                           ; preds = %.critedge
   %32 = tail call ptr @__ctype_b_loc() #20
   %33 = load ptr, ptr %32, align 8
-  %wide.trip.count = and i64 %29, 4294967295
+  %wide.trip.count = and i64 %29, 2147483647
   br label %34
 
 34:                                               ; preds = %.lr.ph, %53
@@ -1765,7 +1765,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef %1
   br i1 %.not182.i, label %.loopexit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %29
-  %32 = and i64 %30, 4294967295
+  %32 = and i64 %30, 2147483647
   %33 = add nuw i32 %31, 1
   br label %.lr.ph.i
 
@@ -1975,7 +1975,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef %1
   br i1 %116, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %111
-  %wide.trip.count.i.i = and i64 %114, 4294967295
+  %wide.trip.count.i.i = and i64 %114, 2147483647
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %126, %.lr.ph.preheader.i.i

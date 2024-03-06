@@ -1829,7 +1829,7 @@ if.then55:                                        ; preds = %if.end50
   br i1 %cmp5872, label %for.body.preheader, label %if.end69
 
 for.body.preheader:                               ; preds = %if.then55
-  %wide.trip.count = and i64 %div41, 4294967295
+  %wide.trip.count = and i64 %div41, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -4417,7 +4417,7 @@ if.end.i:                                         ; preds = %for.body
 
 if.then.i.i:                                      ; preds = %if.end.i
   %42 = load ptr, ptr @target_fd_trans, align 8
-  %idxprom.i.i = and i64 %fd.03882, 4294967295
+  %idxprom.i.i = and i64 %fd.03882, 2147483647
   %arrayidx.i.i = getelementptr ptr, ptr %42, i64 %idxprom.i.i
   store ptr null, ptr %arrayidx.i.i, align 8
   br label %glib_autoptr_cleanup_QemuLockable.exit.i
@@ -8103,7 +8103,7 @@ if.end2372:                                       ; preds = %sw.bb2363
   br i1 %cmp2373, label %if.then2375, label %if.end2381
 
 if.then2375:                                      ; preds = %if.end2372
-  %conv2376 = and i64 %arg1, 4294967295
+  %conv2376 = and i64 %arg1, 131071
   %call2377 = tail call noalias ptr @g_try_malloc_n(i64 noundef %conv2376, i64 noundef 4) #29
   %tobool2378.not = icmp eq ptr %call2377, null
   br i1 %tobool2378.not, label %cleanup, label %if.end2381
@@ -8129,7 +8129,7 @@ get_errno.exit2975:                               ; preds = %if.end2381, %if.the
 
 if.then2390:                                      ; preds = %get_errno.exit2975
   %conv2391 = shl i64 %arg1, 2
-  %mul2392 = and i64 %conv2391, 17179869180
+  %mul2392 = and i64 %conv2391, 524284
   %call2393 = tail call ptr @lock_user(i32 noundef 3, i64 noundef %arg2, i64 noundef %mul2392, i1 noundef zeroext false) #26
   %tobool2394.not = icmp eq ptr %call2393, null
   br i1 %tobool2394.not, label %cleanup, label %for.cond2397.preheader
@@ -8165,22 +8165,22 @@ sw.bb2414:                                        ; preds = %entry
 
 if.end2426:                                       ; preds = %sw.bb2414
   %cmp2427.not = icmp eq i32 %conv2416, 0
-  %.pre3906 = and i64 %arg1, 4294967295
   br i1 %cmp2427.not, label %if.end2456, label %if.then2429
 
 if.then2429:                                      ; preds = %if.end2426
-  %call2431 = tail call noalias ptr @g_try_malloc_n(i64 noundef %.pre3906, i64 noundef 4) #29
+  %conv2430 = and i64 %arg1, 131071
+  %call2431 = tail call noalias ptr @g_try_malloc_n(i64 noundef %conv2430, i64 noundef 4) #29
   %tobool2432.not = icmp eq ptr %call2431, null
   br i1 %tobool2432.not, label %cleanup2461, label %if.end2434
 
 if.end2434:                                       ; preds = %if.then2429
-  %mul2436 = shl nuw nsw i64 %.pre3906, 2
+  %mul2436 = shl nuw nsw i64 %conv2430, 2
   %call2437 = tail call ptr @lock_user(i32 noundef 1, i64 noundef %arg2, i64 noundef %mul2436, i1 noundef zeroext true) #26
   %tobool2438.not = icmp eq ptr %call2437, null
   br i1 %tobool2438.not, label %cleanup2461, label %for.body2444.preheader
 
 for.body2444.preheader:                           ; preds = %if.end2434
-  %wide.trip.count = and i64 %arg1, 4294967295
+  %wide.trip.count = and i64 %arg1, 131071
   br label %for.body2444
 
 for.body2444:                                     ; preds = %for.body2444.preheader, %for.body2444
@@ -8194,8 +8194,9 @@ for.body2444:                                     ; preds = %for.body2444.prehea
   br i1 %exitcond.not, label %if.end2456, label %for.body2444, !llvm.loop !28
 
 if.end2456:                                       ; preds = %for.body2444, %if.end2426
+  %conv2457.pre-phi = phi i64 [ 0, %if.end2426 ], [ %conv2430, %for.body2444 ]
   %grouplist2418.0 = phi ptr [ null, %if.end2426 ], [ %call2431, %for.body2444 ]
-  %call2458 = tail call i32 @setgroups(i64 noundef %.pre3906, ptr noundef %grouplist2418.0) #26
+  %call2458 = tail call i32 @setgroups(i64 noundef %conv2457.pre-phi, ptr noundef %grouplist2418.0) #26
   %conv2459 = sext i32 %call2458 to i64
   %cmp.i2978 = icmp eq i32 %call2458, -1
   br i1 %cmp.i2978, label %if.then.i2980, label %cleanup2461
@@ -9630,7 +9631,7 @@ sw.bb3265:                                        ; preds = %entry
   br i1 %or.cond32, label %return, label %if.end3278
 
 if.end3278:                                       ; preds = %sw.bb3265
-  %mul3280 = ashr exact i64 %sext, 28
+  %mul3280 = lshr exact i64 %sext, 28
   %call3281 = tail call ptr @lock_user(i32 noundef 3, i64 noundef %arg2, i64 noundef %mul3280, i1 noundef zeroext true) #26
   %tobool3282.not = icmp eq ptr %call3281, null
   br i1 %tobool3282.not, label %return, label %if.end3284
@@ -9798,7 +9799,7 @@ next_free_host_timer.exit:                        ; preds = %while.end.i
   br i1 %cmp3399, label %return, label %if.else3402
 
 if.else3402:                                      ; preds = %next_free_host_timer.exit
-  %idx.ext = and i64 %indvars.iv.i, 4294967295
+  %idx.ext = and i64 %indvars.iv.i, 2147483647
   %add.ptr3403 = getelementptr ptr, ptr @g_posix_timers, i64 %idx.ext
   %tobool3404.not = icmp eq i64 %arg2, 0
   br i1 %tobool3404.not, label %if.end3411, label %if.then3405
@@ -14959,7 +14960,7 @@ for.cond.preheader.i:                             ; preds = %if.end6.i
   br i1 %cmp1213.i, label %do.body.preheader.i, label %target_to_host_semarray.exit.thread
 
 do.body.preheader.i:                              ; preds = %for.cond.preheader.i
-  %wide.trip.count.i = and i64 %2, 4294967295
+  %wide.trip.count.i = and i64 %2, 2147483647
   br label %do.body.i
 
 if.then10.i:                                      ; preds = %if.end6.i
@@ -15033,7 +15034,7 @@ for.cond.preheader.i98:                           ; preds = %if.end.i92
   br i1 %cmp710.i, label %do.body.preheader.i101, label %host_to_target_semarray.exit.thread
 
 do.body.preheader.i101:                           ; preds = %for.cond.preheader.i98
-  %wide.trip.count.i102 = and i64 %5, 4294967295
+  %wide.trip.count.i102 = and i64 %5, 2147483647
   br label %do.body.i103
 
 do.body.i103:                                     ; preds = %do.body.i103, %do.body.preheader.i101
@@ -18416,7 +18417,7 @@ if.then62.i:                                      ; preds = %if.end49.thread.i
   br i1 %cmp6566.i, label %do.body67.preheader.i, label %if.end121.i
 
 do.body67.preheader.i:                            ; preds = %if.then62.i
-  %wide.trip.count.i = and i64 %div57.i, 4294967295
+  %wide.trip.count.i = and i64 %div57.i, 2147483647
   br label %do.body67.i
 
 do.body67.i:                                      ; preds = %do.body67.i, %do.body67.preheader.i

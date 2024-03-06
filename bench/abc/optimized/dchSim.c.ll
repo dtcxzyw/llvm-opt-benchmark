@@ -62,14 +62,14 @@ define i32 @Dch_NodeHash(ptr nocapture noundef readonly %0, ptr nocapture nounde
   br i1 %19, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader25
-  %wide.trip.count = and i64 %10, 4294967295
+  %wide.trip.count = and i64 %10, 2147483647
   br label %.lr.ph
 
 .preheader:                                       ; preds = %2
   br i1 %19, label %.lr.ph31.preheader, label %.loopexit
 
 .lr.ph31.preheader:                               ; preds = %.preheader
-  %wide.trip.count39 = and i64 %10, 4294967295
+  %wide.trip.count39 = and i64 %10, 2147483647
   br label %.lr.ph31
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -134,14 +134,14 @@ define noundef i32 @Dch_NodeIsConst(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %19, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader22
-  %wide.trip.count = and i64 %10, 4294967295
+  %wide.trip.count = and i64 %10, 2147483647
   br label %.lr.ph
 
 .preheader:                                       ; preds = %2
   br i1 %19, label %.lr.ph29.preheader, label %.loopexit
 
 .lr.ph29.preheader:                               ; preds = %.preheader
-  %wide.trip.count39 = and i64 %10, 4294967295
+  %wide.trip.count39 = and i64 %10, 2147483647
   br label %.lr.ph29
 
 20:                                               ; preds = %.lr.ph
@@ -209,14 +209,14 @@ define noundef i32 @Dch_NodesAreEqual(ptr nocapture noundef readonly %0, ptr noc
   br i1 %27, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader31
-  %wide.trip.count = and i64 %11, 4294967295
+  %wide.trip.count = and i64 %11, 2147483647
   br label %.lr.ph
 
 .preheader:                                       ; preds = %3
   br i1 %27, label %.lr.ph38.preheader, label %.loopexit
 
 .lr.ph38.preheader:                               ; preds = %.preheader
-  %wide.trip.count48 = and i64 %11, 4294967295
+  %wide.trip.count48 = and i64 %11, 2147483647
   br label %.lr.ph38
 
 28:                                               ; preds = %.lr.ph
@@ -288,7 +288,7 @@ define void @Dch_PerformRandomSimulation(ptr nocapture noundef readonly %0, ptr 
   br i1 %23, label %.lr.ph.us.preheader, label %.lr.ph121.split
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph121
-  %wide.trip.count = and i64 %10, 4294967295
+  %wide.trip.count = and i64 %10, 2147483647
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -337,10 +337,10 @@ define void @Dch_PerformRandomSimulation(ptr nocapture noundef readonly %0, ptr 
 
 .lr.ph131:                                        ; preds = %.critedge.preheader
   %45 = icmp sgt i32 %11, 0
-  %wide.trip.count146 = and i64 %10, 4294967295
-  %wide.trip.count151 = and i64 %10, 4294967295
-  %wide.trip.count156 = and i64 %10, 4294967295
-  %wide.trip.count161 = and i64 %10, 4294967295
+  %wide.trip.count146 = and i64 %10, 2147483647
+  %wide.trip.count151 = and i64 %10, 2147483647
+  %wide.trip.count156 = and i64 %10, 2147483647
+  %wide.trip.count161 = and i64 %10, 2147483647
   br label %60
 
 .lr.ph121.split:                                  ; preds = %.lr.ph121, %.lr.ph121.split

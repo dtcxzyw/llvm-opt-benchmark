@@ -28657,7 +28657,7 @@ define dso_local noundef i32 @base_yyparse() local_unnamed_addr #0 {
 
 15065:                                            ; preds = %15057
   call void @free(ptr noundef %15061) #17
-  %15066 = and i64 %15059, 4294967295
+  %15066 = and i64 %15059, 2147483647
   %15067 = add nuw nsw i64 %15066, 9
   %15068 = call ptr @mm_alloc(i64 noundef %15067) #17
   store ptr %15068, ptr %6, align 8

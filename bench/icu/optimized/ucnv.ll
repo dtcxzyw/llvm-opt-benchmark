@@ -1804,7 +1804,7 @@ if.then47:                                        ; preds = %if.then43
   %cmp.i110 = icmp sgt i32 %sourceIndex.3, -1
   %sub.i = sub nsw i32 %sourceIndex.3, %errorInputLength.0
   %delta.0.i = select i1 %cmp.i110, i32 %sub.i, i32 -1
-  %idx.ext.i = and i64 %sub.ptr.sub, 4294967295
+  %idx.ext.i = and i64 %sub.ptr.sub, 2147483647
   %add.ptr.i = getelementptr inbounds i32, ptr %offsets.1, i64 %idx.ext.i
   %cmp1.i = icmp eq i32 %delta.0.i, 0
   br i1 %cmp1.i, label %_ZL14_updateOffsetsPiiii.exit, label %if.else3.i
@@ -2388,7 +2388,7 @@ if.then48:                                        ; preds = %if.then44
   %cmp.i109 = icmp sgt i32 %sourceIndex.3, -1
   %sub.i = sub nsw i32 %sourceIndex.3, %errorInputLength.0
   %delta.0.i = select i1 %cmp.i109, i32 %sub.i, i32 -1
-  %idx.ext.i = and i64 %sub.ptr.div, 4294967295
+  %idx.ext.i = and i64 %sub.ptr.div, 2147483647
   %add.ptr.i = getelementptr inbounds i32, ptr %offsets.1, i64 %idx.ext.i
   %cmp1.i = icmp eq i32 %delta.0.i, 0
   br i1 %cmp1.i, label %_ZL14_updateOffsetsPiiii.exit, label %if.else3.i
@@ -2580,7 +2580,7 @@ if.then148:                                       ; preds = %if.then146
   br i1 %cmp156, label %do.body158, label %if.end167
 
 do.body158:                                       ; preds = %if.then148
-  %conv162 = and i64 %sub.ptr.sub154, 4294967295
+  %conv162 = and i64 %sub.ptr.sub154, 2147483647
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %preToU73, ptr align 1 %35, i64 %conv162, i1 false)
   %46 = trunc i64 %sub.ptr.sub154 to i8
   %conv165 = sub i8 0, %46

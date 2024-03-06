@@ -305,7 +305,7 @@ Mpm_CutSetupInfo.exit:                            ; preds = %Mpm_CutGetArea.exit
   %159 = load i32, ptr %158, align 4
   %160 = lshr i32 %159, 27
   %161 = getelementptr inbounds i8, ptr %14, i64 36
-  %wide.trip.count = and i64 %indvars.iv, 4294967295
+  %wide.trip.count = and i64 %indvars.iv, 2147483647
   %.not.i.i94 = icmp ult i32 %159, 134217728
   %wide.trip.count.i.i = zext nneg i32 %160 to i64
   br label %162

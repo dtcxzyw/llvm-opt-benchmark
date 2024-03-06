@@ -114,8 +114,8 @@ define dso_local void @setup_cpu_entry_areas() local_unnamed_addr #3 section ".i
 
 11:                                               ; preds = %7
   tail call fastcc void @setup_cpu_entry_area(i32 noundef %9) #5
-  %12 = add i64 %8, 1
-  %13 = and i64 %12, 4294967295
+  %12 = add nuw nsw i64 %8, 1
+  %13 = and i64 %12, 127
   %14 = icmp ugt i64 %13, 63
   br i1 %14, label %.thread, label %1, !prof !6, !llvm.loop !7
 
@@ -208,7 +208,7 @@ define internal fastcc void @init_cea_offsets() unnamed_addr #3 section ".init.t
   br i1 %53, label %54, label %.thread10
 
 54:                                               ; preds = %50
-  %55 = and i64 %51, 4294967295
+  %55 = and i64 %51, 63
   %56 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %55
   %57 = load i64, ptr %56, align 8
   %58 = add i64 %57, ptrtoint (ptr @_cea_offset to i64)
@@ -220,19 +220,19 @@ define internal fastcc void @init_cea_offsets() unnamed_addr #3 section ".init.t
 
 63:                                               ; preds = %54
   %64 = icmp eq i32 %29, %52
-  %65 = add i64 %51, 1
+  %65 = add nuw nsw i64 %51, 1
   br i1 %64, label %.thread10, label %42, !llvm.loop !12
 
 .thread10:                                        ; preds = %46, %42, %63, %50
   %66 = zext i32 %39 to i64
-  %67 = and i64 %28, 4294967295
+  %67 = and i64 %28, 63
   %68 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = add i64 %69, ptrtoint (ptr @_cea_offset to i64)
   %71 = inttoptr i64 %70 to ptr
   store i64 %66, ptr %71, align 8
-  %72 = add i64 %28, 1
-  %73 = and i64 %72, 4294967295
+  %72 = add nuw nsw i64 %28, 1
+  %73 = and i64 %72, 127
   %74 = icmp ugt i64 %73, 63
   br i1 %74, label %.thread, label %.preheader12, !prof !6, !llvm.loop !13
 

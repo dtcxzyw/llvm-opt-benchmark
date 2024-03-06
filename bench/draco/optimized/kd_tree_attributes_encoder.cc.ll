@@ -7649,7 +7649,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusINS0
   br i1 %or.cond, label %.backedge, label %.lr.ph195.split.preheader, !llvm.loop !116
 
 .lr.ph195.split.preheader:                        ; preds = %.preheader
-  %wide.trip.count = and i64 %97, 4294967295
+  %wide.trip.count = and i64 %97, 3
   br label %.lr.ph195.split
 
 .lr.ph:                                           ; preds = %103, %.lr.ph
@@ -9456,7 +9456,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusINS0
   br i1 %.not219, label %.backedge, label %.lr.ph216.preheader, !llvm.loop !149
 
 .lr.ph216.preheader:                              ; preds = %.preheader
-  %wide.trip.count = and i64 %102, 4294967295
+  %wide.trip.count = and i64 %102, 3
   br label %.lr.ph216
 
 .lr.ph:                                           ; preds = %108, %.lr.ph
@@ -10547,7 +10547,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusINS0
   br i1 %or.cond, label %.backedge, label %.lr.ph195.split.preheader, !llvm.loop !173
 
 .lr.ph195.split.preheader:                        ; preds = %.preheader
-  %wide.trip.count = and i64 %102, 4294967295
+  %wide.trip.count = and i64 %102, 3
   br label %.lr.ph195.split
 
 .lr.ph:                                           ; preds = %108, %.lr.ph
@@ -11600,7 +11600,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE14EncodingStatusINS0
   br i1 %or.cond, label %.backedge, label %.lr.ph200.split.preheader, !llvm.loop !196
 
 .lr.ph200.split.preheader:                        ; preds = %.preheader
-  %wide.trip.count = and i64 %102, 4294967295
+  %wide.trip.count = and i64 %102, 3
   br label %.lr.ph200.split
 
 .lr.ph:                                           ; preds = %108, %.lr.ph
@@ -12643,7 +12643,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE14EncodingStatusINS0
   br i1 %or.cond, label %.backedge, label %.lr.ph195.split.preheader, !llvm.loop !219
 
 .lr.ph195.split.preheader:                        ; preds = %.preheader
-  %wide.trip.count = and i64 %102, 4294967295
+  %wide.trip.count = and i64 %102, 3
   br label %.lr.ph195.split
 
 .lr.ph:                                           ; preds = %108, %.lr.ph
@@ -13696,7 +13696,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE14EncodingStatusINS0
   br i1 %or.cond, label %.backedge, label %.lr.ph200.split.preheader, !llvm.loop !242
 
 .lr.ph200.split.preheader:                        ; preds = %.preheader
-  %wide.trip.count = and i64 %102, 4294967295
+  %wide.trip.count = and i64 %102, 3
   br label %.lr.ph200.split
 
 .lr.ph:                                           ; preds = %108, %.lr.ph
@@ -14737,7 +14737,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE14EncodingStatusINS0
   br i1 %or.cond, label %.backedge, label %.lr.ph195.split.preheader, !llvm.loop !265
 
 .lr.ph195.split.preheader:                        ; preds = %.preheader
-  %wide.trip.count = and i64 %102, 4294967295
+  %wide.trip.count = and i64 %102, 3
   br label %.lr.ph195.split
 
 .lr.ph:                                           ; preds = %108, %.lr.ph

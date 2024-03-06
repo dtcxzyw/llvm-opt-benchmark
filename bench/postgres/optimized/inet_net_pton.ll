@@ -820,7 +820,7 @@ getv4.exit.thread114.thread297:                   ; preds = %.outer131, %getv4.e
   br i1 %.not87211, label %.thread120, label %.lr.ph213.preheader
 
 .lr.ph213.preheader:                              ; preds = %.preheader
-  %126 = and i64 %123, 4294967295
+  %126 = and i64 %123, 2147483647
   br label %.lr.ph213
 
 .lr.ph213:                                        ; preds = %.lr.ph213.preheader, %.lr.ph213

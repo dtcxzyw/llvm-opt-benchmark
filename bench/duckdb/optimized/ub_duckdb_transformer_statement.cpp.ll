@@ -20941,7 +20941,7 @@ if.then.i.i85:                                    ; preds = %invoke.cont40
   br i1 %cmp.i.i86, label %invoke.cont46, label %if.end.i.i87
 
 if.end.i.i87:                                     ; preds = %if.then.i.i85
-  %conv.i.i.i = and i64 %24, 4294967295
+  %conv.i.i.i = and i64 %24, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp44.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %23, i64 %conv.i.i.i, i1 false)
   %agg.tmp44.sroa.0.8.agg.tmp44.sroa.0.8.agg.tmp44.sroa.0.8.agg.tmp44.sroa.0.8.agg.tmp44.sroa.0.8.agg.tmp44.sroa.0.8.agg.tmp44.sroa.0.8.agg.tmp44.sroa.0.8..pre = load ptr, ptr %agg.tmp44.sroa.0.8..sroa_idx, align 8
   br label %invoke.cont46
@@ -49310,7 +49310,7 @@ if.then.i.i640:                                   ; preds = %invoke.cont59
   br i1 %cmp.i.i641, label %invoke.cont62, label %if.end.i.i642
 
 if.end.i.i642:                                    ; preds = %if.then.i.i640
-  %conv.i.i.i = and i64 %call.i639, 4294967295
+  %conv.i.i.i = and i64 %call.i639, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %35, i64 %conv.i.i.i, i1 false)
   %agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8..pre = load ptr, ptr %agg.tmp.sroa.0.8..sroa_idx, align 8
   br label %invoke.cont62

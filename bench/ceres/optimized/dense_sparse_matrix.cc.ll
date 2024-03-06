@@ -509,7 +509,7 @@ define hidden void @_ZNK5ceres8internal17DenseSparseMatrix17SquaredColumnNormEPd
 
 _ZSt6fill_nIPdidET_S1_T0_RKT1_.exit.loopexit:     ; preds = %2
   %11 = shl i64 %8, 3
-  %12 = and i64 %11, 34359738360
+  %12 = and i64 %11, 17179869176
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %12, i1 false)
   br label %_ZSt6fill_nIPdidET_S1_T0_RKT1_.exit
 
@@ -521,7 +521,7 @@ _ZSt6fill_nIPdidET_S1_T0_RKT1_.exit:              ; preds = %_ZSt6fill_nIPdidET_
 
 .preheader.us.preheader:                          ; preds = %_ZSt6fill_nIPdidET_S1_T0_RKT1_.exit
   %15 = load ptr, ptr %3, align 8
-  %wide.trip.count = and i64 %8, 4294967295
+  %wide.trip.count = and i64 %8, 2147483647
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us

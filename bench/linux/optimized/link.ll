@@ -286,11 +286,11 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
   br i1 %43, label %.loopexit23, label %44
 
 44:                                               ; preds = %40
-  %45 = and i64 %37, 4294967295
+  %45 = and i64 %37, 15
   %46 = getelementptr [15 x ptr], ptr %5, i64 0, i64 %45
   store ptr %42, ptr %46, align 8
-  %47 = add i64 %37, 1
-  %48 = and i64 %47, 4294967295
+  %47 = add nuw nsw i64 %37, 1
+  %48 = and i64 %47, 31
   %49 = icmp ugt i64 %48, 14
   br i1 %49, label %.thread, label %31, !prof !17, !llvm.loop !18
 
@@ -318,7 +318,7 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
   br i1 %63, label %64, label %.preheader.preheader
 
 64:                                               ; preds = %60
-  %65 = and i64 %61, 4294967295
+  %65 = and i64 %61, 15
   %66 = getelementptr [15 x ptr], ptr %51, i64 0, i64 %65
   %67 = load volatile ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, %54
@@ -334,8 +334,8 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
   store volatile ptr null, ptr %66, align 8
   %73 = getelementptr [15 x ptr], ptr %50, i64 0, i64 %65
   store volatile ptr null, ptr %73, align 8
-  %74 = add i64 %61, 1
-  %75 = and i64 %74, 4294967295
+  %74 = add nuw nsw i64 %61, 1
+  %75 = and i64 %74, 31
   %76 = icmp ugt i64 %75, 14
   br i1 %76, label %.preheader.preheader, label %55, !prof !17, !llvm.loop !21
 
@@ -356,7 +356,7 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
   br i1 %84, label %85, label %.thread17
 
 85:                                               ; preds = %81
-  %.pre = and i64 %82, 4294967295
+  %.pre = and i64 %82, 15
   br i1 %18, label %._crit_edge, label %86
 
 86:                                               ; preds = %85
@@ -387,8 +387,8 @@ define dso_local i32 @ieee80211_vif_set_links(ptr noundef %0, i16 noundef zeroex
   br label %99
 
 99:                                               ; preds = %98, %._crit_edge
-  %100 = add i64 %82, 1
-  %101 = and i64 %100, 4294967295
+  %100 = add nuw nsw i64 %82, 1
+  %101 = and i64 %100, 31
   %102 = icmp ugt i64 %101, 14
   br i1 %102, label %.thread17, label %.preheader, !prof !17, !llvm.loop !25
 
@@ -921,12 +921,12 @@ define internal fastcc i32 @_ieee80211_set_active_links(ptr noundef %0, i16 noun
   br i1 %56, label %57, label %.thread
 
 57:                                               ; preds = %53
-  %58 = and i64 %54, 4294967295
+  %58 = and i64 %54, 15
   %59 = getelementptr [15 x ptr], ptr %47, i64 0, i64 %58
   %60 = load ptr, ptr %59, align 8
   call void @ieee80211_link_release_channel(ptr noundef %60) #10
-  %61 = add i64 %54, 1
-  %62 = and i64 %61, 4294967295
+  %61 = add nuw nsw i64 %54, 1
+  %62 = and i64 %61, 31
   %63 = icmp ugt i64 %62, 14
   br i1 %63, label %.thread, label %48, !prof !17, !llvm.loop !55
 
@@ -1032,7 +1032,7 @@ define internal fastcc i32 @_ieee80211_set_active_links(ptr noundef %0, i16 noun
   br i1 %113, label %114, label %.thread15
 
 114:                                              ; preds = %110
-  %115 = and i64 %111, 4294967295
+  %115 = and i64 %111, 15
   %116 = getelementptr [15 x ptr], ptr %47, i64 0, i64 %115
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 720
@@ -1051,8 +1051,8 @@ define internal fastcc i32 @_ieee80211_set_active_links(ptr noundef %0, i16 noun
 124:                                              ; preds = %123, %114
   call void @ieee80211_mgd_set_link_qos_params(ptr noundef %117) #10
   call void @ieee80211_link_info_change_notify(ptr noundef %0, ptr noundef %117, i64 noundef 941892798) #10
-  %125 = add i64 %111, 1
-  %126 = and i64 %125, 4294967295
+  %125 = add nuw nsw i64 %111, 1
+  %126 = and i64 %125, 31
   %127 = icmp ugt i64 %126, 14
   br i1 %127, label %.thread15, label %105, !prof !17, !llvm.loop !70
 

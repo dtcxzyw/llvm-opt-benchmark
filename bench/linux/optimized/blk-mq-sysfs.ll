@@ -609,8 +609,8 @@ define internal i64 @blk_mq_hw_sysfs_cpus_show(ptr nocapture noundef readonly %0
 
 23:                                               ; preds = %16
   %24 = add i32 %20, %6
-  %25 = add i64 %13, 1
-  %26 = and i64 %25, 4294967295
+  %25 = add nuw nsw i64 %13, 1
+  %26 = and i64 %25, 127
   %27 = icmp ugt i64 %26, 63
   br i1 %27, label %.thread, label %4, !prof !6, !llvm.loop !22
 

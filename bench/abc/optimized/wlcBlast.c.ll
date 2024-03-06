@@ -21313,7 +21313,7 @@ Vec_PtrPush.exit3970:                             ; preds = %.Vec_PtrGrow.exit11
   br i1 %4760, label %.lr.ph4931.preheader, label %._crit_edge4932
 
 .lr.ph4931.preheader:                             ; preds = %4757
-  %wide.trip.count5381 = and i64 %4758, 4294967295
+  %wide.trip.count5381 = and i64 %4758, 2147483647
   br label %.lr.ph4931
 
 .lr.ph4931:                                       ; preds = %.lr.ph4931.preheader, %4803
@@ -21895,7 +21895,7 @@ Vec_PtrPush.exit4005:                             ; preds = %.Vec_PtrGrow.exit11
   %5028 = sub i32 %.val2661, %5016
   %5029 = sext i32 %5028 to i64
   %5030 = sext i32 %5027 to i64
-  %wide.trip.count5402 = and i64 %5015, 4294967295
+  %wide.trip.count5402 = and i64 %5015, 2147483647
   br label %.lr.ph4951
 
 .preheader4601:                                   ; preds = %.lr.ph4951, %5014

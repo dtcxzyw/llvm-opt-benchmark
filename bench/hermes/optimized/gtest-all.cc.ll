@@ -2116,7 +2116,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont14
   %BufferMode.i.i.i.i101 = getelementptr inbounds i8, ptr %OS.i.i99, i64 32
   %OutBufStart.i.i.i.i102 = getelementptr inbounds i8, ptr %OS.i.i99, i64 8
   %OS.i.i.i103 = getelementptr inbounds i8, ptr %OS.i.i99, i64 40
-  %15 = and i64 %sub.ptr.div.i56, 4294967295
+  %15 = and i64 %sub.ptr.div.i56, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont32
@@ -5695,7 +5695,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i.i, label %if.end.i.preheader.i.i.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i.i
 
 if.end.i.preheader.i.i.i.i.i.i:                   ; preds = %land.rhs.i.i.i.i.i
-  %12 = and i64 %sub.ptr.div.i.i.i.i.i.i.i.i, 4294967295
+  %12 = and i64 %sub.ptr.div.i.i.i.i.i.i.i.i, 2147483647
   br label %if.end.i.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i.i
@@ -5797,7 +5797,7 @@ land.rhs.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
   br i1 %cmp6.i.i.i.i.i, label %if.end.i.preheader.i.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i
 
 if.end.i.preheader.i.i.i.i.i:                     ; preds = %land.rhs.i.i.i.i
-  %12 = and i64 %sub.ptr.div.i.i.i.i.i.i.i, 4294967295
+  %12 = and i64 %sub.ptr.div.i.i.i.i.i.i.i, 2147483647
   br label %if.end.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i
@@ -5944,7 +5944,7 @@ land.rhs.i.i:                                     ; preds = %for.body.i.i
   br i1 %cmp6.i.i.i.i, label %if.end.i.preheader.i.i.i.i, label %_ZN7testing8TestCase10TestPassedEPKNS_8TestInfoE.exit.i
 
 if.end.i.preheader.i.i.i.i:                       ; preds = %land.rhs.i.i
-  %10 = and i64 %sub.ptr.div.i.i.i.i.i.i, 4294967295
+  %10 = and i64 %sub.ptr.div.i.i.i.i.i.i, 2147483647
   br label %if.end.i.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i
@@ -6028,7 +6028,7 @@ land.rhs.i:                                       ; preds = %for.body.i
   br i1 %cmp6.i.i.i, label %if.end.i.preheader.i.i.i, label %_ZN7testing8TestCase10TestPassedEPKNS_8TestInfoE.exit
 
 if.end.i.preheader.i.i.i:                         ; preds = %land.rhs.i
-  %7 = and i64 %sub.ptr.div.i.i.i.i.i, 4294967295
+  %7 = and i64 %sub.ptr.div.i.i.i.i.i, 2147483647
   br label %if.end.i.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i
@@ -6125,7 +6125,7 @@ land.rhs.i.i:                                     ; preds = %for.body.i.i
   br i1 %cmp6.i.i.i, label %if.end.i.preheader.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i
 
 if.end.i.preheader.i.i.i:                         ; preds = %land.rhs.i.i
-  %10 = and i64 %sub.ptr.div.i.i.i.i.i, 4294967295
+  %10 = and i64 %sub.ptr.div.i.i.i.i.i, 2147483647
   br label %if.end.i.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i
@@ -6204,7 +6204,7 @@ land.rhs.i:                                       ; preds = %for.body.i
   br i1 %cmp6.i.i, label %if.end.i.preheader.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit
 
 if.end.i.preheader.i.i:                           ; preds = %land.rhs.i
-  %7 = and i64 %sub.ptr.div.i.i.i.i, 4294967295
+  %7 = and i64 %sub.ptr.div.i.i.i.i, 2147483647
   br label %if.end.i.i.i
 
 for.cond.i.i:                                     ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i
@@ -15714,8 +15714,8 @@ entry:
   br i1 %cmp6, label %if.end.i.preheader, label %return
 
 if.end.i.preheader:                               ; preds = %entry
-  %2 = and i64 %sub.ptr.div.i.i, 4294967295
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %2 = and i64 %sub.ptr.div.i.i, 2147483647
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %if.end.i
 
 for.cond:                                         ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit
@@ -21556,7 +21556,7 @@ entry:
   br i1 %cmp6.i.i, label %if.end.i.preheader.i.i, label %if.then
 
 if.end.i.preheader.i.i:                           ; preds = %entry
-  %2 = and i64 %sub.ptr.div.i.i.i.i, 4294967295
+  %2 = and i64 %sub.ptr.div.i.i.i.i, 2147483647
   br label %if.end.i.i.i
 
 for.cond.i.i:                                     ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i
@@ -21609,7 +21609,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp6.i, label %if.end.i.preheader.i, label %if.end8
 
 if.end.i.preheader.i:                             ; preds = %if.end
-  %6 = and i64 %sub.ptr.div.i.i.i, 4294967295
+  %6 = and i64 %sub.ptr.div.i.i.i, 2147483647
   br label %if.end.i.i
 
 for.cond.i:                                       ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i
@@ -21922,7 +21922,7 @@ land.rhs.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
   br i1 %cmp6.i.i.i.i.i, label %if.end.i.preheader.i.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i
 
 if.end.i.preheader.i.i.i.i.i:                     ; preds = %land.rhs.i.i.i.i
-  %11 = and i64 %sub.ptr.div.i.i.i.i.i.i.i, 4294967295
+  %11 = and i64 %sub.ptr.div.i.i.i.i.i.i.i, 2147483647
   br label %if.end.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i
@@ -22037,7 +22037,7 @@ land.rhs.i.i:                                     ; preds = %for.body.i.i
   br i1 %cmp6.i.i.i, label %if.end.i.preheader.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i
 
 if.end.i.preheader.i.i.i:                         ; preds = %land.rhs.i.i
-  %30 = and i64 %sub.ptr.div.i.i.i.i.i, 4294967295
+  %30 = and i64 %sub.ptr.div.i.i.i.i.i, 2147483647
   br label %if.end.i.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i
@@ -22137,7 +22137,7 @@ lor.lhs.false15:                                  ; preds = %_ZNK7testing8TestCa
   br i1 %cmp6.i.i, label %if.end.i.preheader.i.i, label %for.inc
 
 if.end.i.preheader.i.i:                           ; preds = %lor.lhs.false15
-  %44 = and i64 %sub.ptr.div.i.i.i.i37, 4294967295
+  %44 = and i64 %sub.ptr.div.i.i.i.i37, 2147483647
   br label %if.end.i.i.i
 
 for.cond.i.i:                                     ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i
@@ -22269,7 +22269,7 @@ land.rhs.i.i.i:                                   ; preds = %for.body.i.i.i
   br i1 %cmp6.i.i.i.i, label %if.end.i.preheader.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i
 
 if.end.i.preheader.i.i.i.i:                       ; preds = %land.rhs.i.i.i
-  %11 = and i64 %sub.ptr.div.i.i.i.i.i.i, 4294967295
+  %11 = and i64 %sub.ptr.div.i.i.i.i.i.i, 2147483647
   br label %if.end.i.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i
@@ -22605,7 +22605,7 @@ land.rhs.i.i.i.i:                                 ; preds = %for.body.i.i.i.i35
   br i1 %cmp6.i.i.i.i.i.i, label %if.end.i.preheader.i.i.i.i.i.i, label %_ZN7testing8TestCase10TestPassedEPKNS_8TestInfoE.exit.i.i.i
 
 if.end.i.preheader.i.i.i.i.i.i:                   ; preds = %land.rhs.i.i.i.i
-  %40 = and i64 %sub.ptr.div.i.i.i.i.i.i.i.i, 4294967295
+  %40 = and i64 %sub.ptr.div.i.i.i.i.i.i.i.i, 2147483647
   br label %if.end.i.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i.i
@@ -22708,7 +22708,7 @@ land.rhs.i.i.i.i70:                               ; preds = %for.body.i.i.i.i65
   br i1 %cmp6.i.i.i.i.i, label %if.end.i.preheader.i.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i
 
 if.end.i.preheader.i.i.i.i.i:                     ; preds = %land.rhs.i.i.i.i70
-  %55 = and i64 %sub.ptr.div.i.i.i.i.i.i.i, 4294967295
+  %55 = and i64 %sub.ptr.div.i.i.i.i.i.i.i, 2147483647
   br label %if.end.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i
@@ -22806,7 +22806,7 @@ land.rhs.i.i.i.i103:                              ; preds = %for.body.i.i.i.i98
   br i1 %cmp6.i.i.i.i.i111, label %if.end.i.preheader.i.i.i.i.i123, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i112
 
 if.end.i.preheader.i.i.i.i.i123:                  ; preds = %land.rhs.i.i.i.i103
-  %69 = and i64 %sub.ptr.div.i.i.i.i.i.i.i109, 4294967295
+  %69 = and i64 %sub.ptr.div.i.i.i.i.i.i.i109, 2147483647
   br label %if.end.i.i.i.i.i.i124
 
 for.cond.i.i.i.i.i131:                            ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i128
@@ -23016,7 +23016,7 @@ land.rhs.i.i.i:                                   ; preds = %for.body.i.i.i
   br i1 %cmp6.i.i.i.i.i, label %if.end.i.preheader.i.i.i.i.i, label %_ZN7testing8TestCase10TestPassedEPKNS_8TestInfoE.exit.i.i
 
 if.end.i.preheader.i.i.i.i.i:                     ; preds = %land.rhs.i.i.i
-  %11 = and i64 %sub.ptr.div.i.i.i.i.i.i.i, 4294967295
+  %11 = and i64 %sub.ptr.div.i.i.i.i.i.i.i, 2147483647
   br label %if.end.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i
@@ -23632,7 +23632,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3, label %for.body.preheader, label %if.end
 
 for.body.preheader:                               ; preds = %if.then
-  %4 = and i64 %sub.ptr.div.i, 4294967295
+  %4 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -23675,7 +23675,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3, label %for.body.preheader, label %if.end
 
 for.body.preheader:                               ; preds = %if.then
-  %4 = and i64 %sub.ptr.div.i, 4294967295
+  %4 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -23718,7 +23718,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3, label %for.body.preheader, label %if.end
 
 for.body.preheader:                               ; preds = %if.then
-  %4 = and i64 %sub.ptr.div.i, 4294967295
+  %4 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -23761,7 +23761,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3, label %for.body.preheader, label %if.end
 
 for.body.preheader:                               ; preds = %if.then
-  %4 = and i64 %sub.ptr.div.i, 4294967295
+  %4 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -23804,7 +23804,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3, label %for.body.preheader, label %if.end
 
 for.body.preheader:                               ; preds = %if.then
-  %4 = and i64 %sub.ptr.div.i, 4294967295
+  %4 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -23887,7 +23887,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3, label %for.body.preheader, label %if.end
 
 for.body.preheader:                               ; preds = %if.then
-  %4 = and i64 %sub.ptr.div.i, 4294967295
+  %4 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -24520,7 +24520,7 @@ land.rhs.i.i.i.i:                                 ; preds = %for.body.i.i.i.i89
   br i1 %cmp6.i.i.i.i.i, label %if.end.i.preheader.i.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i
 
 if.end.i.preheader.i.i.i.i.i:                     ; preds = %land.rhs.i.i.i.i
-  %31 = and i64 %sub.ptr.div.i.i.i.i.i.i.i, 4294967295
+  %31 = and i64 %sub.ptr.div.i.i.i.i.i.i.i, 2147483647
   br label %if.end.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i
@@ -28540,7 +28540,7 @@ land.rhs.i.i:                                     ; preds = %for.body.i.i84
   br i1 %cmp6.i.i.i, label %if.end.i.preheader.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i
 
 if.end.i.preheader.i.i.i:                         ; preds = %land.rhs.i.i
-  %25 = and i64 %sub.ptr.div.i.i.i.i.i, 4294967295
+  %25 = and i64 %sub.ptr.div.i.i.i.i.i, 2147483647
   br label %if.end.i.i.i.i93
 
 for.cond.i.i.i:                                   ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i
@@ -30500,7 +30500,7 @@ land.rhs.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp6.i.i.i.i.i.i.i, label %if.end.i.preheader.i.i.i.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i.i.i
 
 if.end.i.preheader.i.i.i.i.i.i.i:                 ; preds = %land.rhs.i.i.i.i.i.i
-  %13 = and i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i, 4294967295
+  %13 = and i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i, 2147483647
   br label %if.end.i.i.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i.i:                           ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i.i.i
@@ -30604,7 +30604,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i.i, label %if.end.i.preheader.i.i.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i.i
 
 if.end.i.preheader.i.i.i.i.i.i:                   ; preds = %land.rhs.i.i.i.i.i
-  %13 = and i64 %sub.ptr.div.i.i.i.i.i.i.i.i, 4294967295
+  %13 = and i64 %sub.ptr.div.i.i.i.i.i.i.i.i, 2147483647
   br label %if.end.i.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i.i
@@ -30816,7 +30816,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i.i, label %if.end.i.preheader.i.i.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i.i
 
 if.end.i.preheader.i.i.i.i.i.i:                   ; preds = %land.rhs.i.i.i.i.i
-  %12 = and i64 %sub.ptr.div.i.i.i.i.i.i.i.i, 4294967295
+  %12 = and i64 %sub.ptr.div.i.i.i.i.i.i.i.i, 2147483647
   br label %if.end.i.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i.i
@@ -30879,7 +30879,7 @@ lor.rhs:                                          ; preds = %entry, %_ZNK7testin
   br i1 %cmp6.i, label %if.end.i.preheader.i, label %lor.end
 
 if.end.i.preheader.i:                             ; preds = %lor.rhs
-  %19 = and i64 %sub.ptr.div.i.i.i, 4294967295
+  %19 = and i64 %sub.ptr.div.i.i.i, 2147483647
   br label %if.end.i.i
 
 for.cond.i:                                       ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i
@@ -37292,7 +37292,7 @@ invoke.cont.i:                                    ; preds = %while.cond.i
   br i1 %cmp.i, label %while.body.i, label %do.cond.i
 
 while.body.i:                                     ; preds = %invoke.cont.i
-  %idxprom.i = and i64 %call.i8.i, 4294967295
+  %idxprom.i = and i64 %call.i8.i, 2147483647
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr %buffer.i, i64 0, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 1
   %4 = load ptr, ptr %error.i, align 8
@@ -50226,7 +50226,7 @@ entry:
   br i1 %cmp6.i.i, label %if.end.i.preheader.i.i, label %_ZNK7testing10TestResult6PassedEv.exit
 
 if.end.i.preheader.i.i:                           ; preds = %entry
-  %2 = and i64 %sub.ptr.div.i.i.i.i, 4294967295
+  %2 = and i64 %sub.ptr.div.i.i.i.i, 2147483647
   br label %if.end.i.i.i
 
 for.cond.i.i:                                     ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i
@@ -50509,7 +50509,7 @@ land.rhs.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
   br i1 %cmp6.i.i.i.i.i, label %if.end.i.preheader.i.i.i.i.i, label %_ZN7testing8TestCase10TestFailedEPKNS_8TestInfoE.exit.i.i.i
 
 if.end.i.preheader.i.i.i.i.i:                     ; preds = %land.rhs.i.i.i.i
-  %7 = and i64 %sub.ptr.div.i.i.i.i.i.i.i, 4294967295
+  %7 = and i64 %sub.ptr.div.i.i.i.i.i.i.i, 2147483647
   br label %if.end.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %_ZNK7testing10TestResult17GetTestPartResultEi.exit.i.i.i.i.i

@@ -2007,7 +2007,7 @@ xfrm_parse_spi.exit45:                            ; preds = %1033, %1028
   %1100 = or i1 %1098, %1099
   tail call void @__rcu_read_lock() #10
   %1101 = zext i1 %1100 to i64
-  %1102 = and i32 %1089, 255
+  %1102 = and i32 %1089, 15
   %1103 = zext nneg i32 %1102 to i64
   %1104 = getelementptr [2 x [11 x ptr]], ptr @xfrm_input_afinfo, i64 0, i64 %1101, i64 %1103
   %1105 = load volatile ptr, ptr %1104, align 8
@@ -2256,7 +2256,7 @@ xfrm_parse_spi.exit.thread:                       ; preds = %1096, %1107, %1071,
   %1244 = or i1 %1242, %1243
   tail call void @__rcu_read_lock() #10
   %1245 = zext i1 %1244 to i64
-  %1246 = and i32 %1236, 255
+  %1246 = and i32 %1236, 15
   %1247 = zext nneg i32 %1246 to i64
   %1248 = getelementptr [2 x [11 x ptr]], ptr @xfrm_input_afinfo, i64 0, i64 %1245, i64 %1247
   %1249 = load volatile ptr, ptr %1248, align 8

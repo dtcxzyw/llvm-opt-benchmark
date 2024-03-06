@@ -378,9 +378,9 @@ pmix_obj_new_tma.exit327.thread357:               ; preds = %.lr.ph.i.i324, %64
   %147 = getelementptr inbounds i8, ptr %51, i64 976
   %148 = getelementptr inbounds i8, ptr %51, i64 712
   %149 = getelementptr inbounds i8, ptr %51, i64 840
-  %wide.trip.count453 = and i64 %113, 4294967295
-  %wide.trip.count = and i64 %116, 4294967295
-  %wide.trip.count460 = and i64 %116, 4294967295
+  %wide.trip.count453 = and i64 %113, 2147483647
+  %wide.trip.count = and i64 %116, 2147483647
+  %wide.trip.count460 = and i64 %116, 2147483647
   %brmerge = select i1 %140, i1 true, i1 %141
   br i1 %brmerge, label %.thread361, label %.preheader.lr.ph.split.us
 
@@ -2615,7 +2615,7 @@ define internal fastcc noundef zeroext i1 @tcp_peer_recv_blocking(ptr noundef %0
 
 .outer:                                           ; preds = %.lr.ph66, %.lr.ph66.preheader
   %.lcssa = phi i64 [ %23, %.lr.ph66.preheader ], [ %80, %.lr.ph66 ]
-  %83 = and i64 %.lcssa, 4294967295
+  %83 = and i64 %.lcssa, 2147483647
   %84 = add i64 %83, %.039.ph69
   %.not = icmp ult i64 %84, %3
   br i1 %.not, label %.lr.ph.split, label %.outer._crit_edge, !llvm.loop !18

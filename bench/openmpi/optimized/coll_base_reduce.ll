@@ -295,9 +295,9 @@ opal_datatype_span.exit296:                       ; preds = %ompi_datatype_copy_
 
 .lr.ph370.split.preheader:                        ; preds = %.lr.ph370
   %95 = add i64 %21, 4294967295
-  %96 = and i64 %21, 4294967295
+  %96 = and i64 %21, 2147483647
   %97 = and i64 %95, 4294967295
-  %98 = and i64 %21, 4294967295
+  %98 = and i64 %21, 2147483647
   br label %.lr.ph370.split
 
 .lr.ph370.split:                                  ; preds = %.lr.ph370.split.preheader, %._crit_edge361

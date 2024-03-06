@@ -3835,7 +3835,7 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
 
 vec.epilog.middle.block:                          ; preds = %vec.epilog.vector.body
   %ind.end = or disjoint i64 %n.vec76, 2
-  %ind.end78 = add nsw i64 %output_idx.0.lcssa.shrunk, %44
+  %ind.end78 = add nuw nsw i64 %output_idx.0.lcssa.shrunk, %44
   %cmp.n81 = icmp eq i64 %5, %n.vec76
   br i1 %cmp.n81, label %for.cond.cleanup8, label %for.cond11.preheader.preheader
 
@@ -5615,7 +5615,7 @@ if.then.i8:                                       ; preds = %_ZN6duckdbL10GetBit
   br i1 %cmp.i, label %invoke.cont, label %if.end.i9
 
 if.end.i9:                                        ; preds = %if.then.i8
-  %conv.i.i = and i64 %3, 4294967295
+  %conv.i.i = and i64 %3, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %inlined.i, ptr nonnull align 1 %call.i7, i64 %conv.i.i, i1 false)
   br label %invoke.cont
 
@@ -7819,12 +7819,12 @@ for.cond:                                         ; preds = %for.inc, %entry
   %bits.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp.sroa.0.0.copyload to i32
   %cmp.i.i.i.i = icmp ult i32 %bits.sroa.0.0.extract.trunc.i, 13
   %conv.i.i = shl i64 %agg.tmp.sroa.0.0.copyload, 3
-  %sub.i = and i64 %conv.i.i, 34359738360
-  %mul.i = add nsw i64 %sub.i, -8
   br i1 %cmp.i.i.i.i, label %_ZN6duckdb3Bit9BitLengthENS_8string_tE.exit, label %_ZN6duckdb3Bit9BitLengthENS_8string_tE.exit.thread
 
 _ZN6duckdb3Bit9BitLengthENS_8string_tE.exit:      ; preds = %for.cond
   %bits.sroa.3.0.extract.shift.i = lshr i64 %agg.tmp.sroa.0.0.copyload, 32
+  %sub.i = and i64 %conv.i.i, 120
+  %mul.i = add nsw i64 %sub.i, -8
   %conv.i3.i = and i64 %bits.sroa.3.0.extract.shift.i, 255
   %sub2.i = sub nsw i64 %mul.i, %conv.i3.i
   %cmp = icmp ult i64 %i.0, %sub2.i
@@ -7832,8 +7832,10 @@ _ZN6duckdb3Bit9BitLengthENS_8string_tE.exit:      ; preds = %for.cond
 
 _ZN6duckdb3Bit9BitLengthENS_8string_tE.exit.thread: ; preds = %for.cond
   %.else.val.i = load i8, ptr %agg.tmp.sroa.2.0.copyload, align 1, !tbaa !117
+  %sub.i73 = and i64 %conv.i.i, 34359738360
+  %mul.i74 = add nsw i64 %sub.i73, -8
   %conv.i3.i75 = zext i8 %.else.val.i to i64
-  %sub2.i76 = sub nsw i64 %mul.i, %conv.i3.i75
+  %sub2.i76 = sub nsw i64 %mul.i74, %conv.i3.i75
   %cmp77 = icmp ult i64 %i.0, %sub2.i76
   br i1 %cmp77, label %_ZN6duckdb3Bit9BitLengthENS_8string_tE.exit39.thread, label %for.cond.cleanup
 
@@ -7922,7 +7924,7 @@ _ZN6duckdb3Bit9BitLengthENS_8string_tE.exit39:    ; preds = %_ZN6duckdb3Bit9BitL
 _ZN6duckdb3Bit9BitLengthENS_8string_tE.exit39.thread: ; preds = %_ZN6duckdb3Bit9BitLengthENS_8string_tE.exit.thread
   %28 = load i64, ptr %shift, align 8, !tbaa !87
   %29 = add i64 %28, %conv.i3.i75
-  %sub85 = sub i64 %mul.i, %29
+  %sub85 = sub i64 %mul.i74, %29
   %cmp686 = icmp ult i64 %i.0, %sub85
   br i1 %cmp686, label %_ZN6duckdb3Bit6GetBitENS_8string_tEm.exit, label %if.else
 
@@ -18293,7 +18295,7 @@ if.then.i.i293:                                   ; preds = %sw.bb72
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.i.i294
 
 if.end.i.i294:                                    ; preds = %if.then.i.i293
-  %conv.i.i.i = and i64 %51, 4294967295
+  %conv.i.i.i = and i64 %51, 15
   %agg.tmp.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %50, i64 %conv.i.i.i, i1 false)
   %agg.tmp.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 8
@@ -32180,7 +32182,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i, label %_ZN6duckdb8string_tC2EPKcj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %conv.i.i = and i64 %call, 4294967295
+  %conv.i.i = and i64 %call, 15
   %string_val.sroa.0.4.inlined.i.sroa_idx = getelementptr inbounds i8, ptr %string_val.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %string_val.sroa.0.4.inlined.i.sroa_idx, ptr align 1 %value, i64 %conv.i.i, i1 false)
   %string_val.sroa.0.8.string_val.sroa_idx = getelementptr inbounds i8, ptr %string_val.sroa.0, i64 8
@@ -35040,7 +35042,7 @@ if.then.i:                                        ; preds = %if.end50
   br i1 %cmp.i, label %invoke.cont, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %conv.i.i = and i64 %sub, 4294967295
+  %conv.i.i = and i64 %sub, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %nr_string.sroa.0.4.inlined.i.sroa_idx, ptr nonnull align 1 %add.ptr, i64 %conv.i.i, i1 false)
   %nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre = load ptr, ptr %nr_string.sroa.0.8.nr_string.sroa_idx, align 8, !tbaa !3
   br label %invoke.cont
@@ -40269,7 +40271,7 @@ if.then.i.i110:                                   ; preds = %invoke.cont39
   br i1 %cmp.i.i111, label %invoke.cont41, label %if.end.i.i112
 
 if.end.i.i112:                                    ; preds = %if.then.i.i110
-  %conv.i.i.i = and i64 %31, 4294967295
+  %conv.i.i.i = and i64 %31, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %30, i64 %conv.i.i.i, i1 false)
   %agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8..pre = load ptr, ptr %agg.tmp.sroa.0.8..sroa_idx, align 8
   br label %invoke.cont41
@@ -42645,11 +42647,10 @@ for.cond.preheader.i.i.thread:                    ; preds = %if.then.i.i.i
   %0 = getelementptr inbounds i8, ptr %retval.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa_idx14.i7, ptr align 1 %data, i64 %len, i1 false)
-  %.pre = and i64 %len, 4294967295
   br label %for.body.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.then.i.i.i
-  %conv.i.i.i.i = and i64 %len, 4294967295
+  %conv.i.i.i.i = and i64 %len, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.sroa.4.i, ptr align 1 %call.i.i, i64 %conv.i.i.i.i, i1 false)
   %retval.sroa.0.i.sroa.4.i.4.i.4.i.4.i.4.i.4.i.4.i.4.i.8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.i.sroa.4.i, i64 4
   %retval.sroa.0.i.sroa.4.i.4.retval.sroa.0.i.sroa.4.i.4.retval.sroa.0.i.sroa.4.i.4.retval.sroa.0.i.sroa.4.i.4.retval.sroa.0.i.sroa.4.i.4.retval.sroa.0.i.sroa.4.i.4.retval.sroa.0.i.sroa.4.i.4.retval.sroa.0.i.sroa.4.4.retval.sroa.0.i.sroa.4.8.retval.sroa.0.i.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.pre.i.i = load ptr, ptr %retval.sroa.0.i.sroa.4.i.4.i.4.i.4.i.4.i.4.i.4.i.4.i.8..fca.1.gep.sroa_idx, align 4
@@ -42665,7 +42666,7 @@ for.cond.preheader.i.i:                           ; preds = %if.then.i.i.i
   br i1 %cmp39.not.i.i, label %_ZN6duckdb10StringHeap7AddBlobEPKcm.exit, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %for.cond.preheader.i.i, %for.cond.preheader.i.i.thread
-  %conv.i.i.i.pre-phi = phi i64 [ %.pre, %for.cond.preheader.i.i.thread ], [ %conv.i.i.i.i, %for.cond.preheader.i.i ]
+  %conv.i.i.i.pre-phi = phi i64 [ 0, %for.cond.preheader.i.i.thread ], [ %conv.i.i.i.i, %for.cond.preheader.i.i ]
   %2 = phi ptr [ %0, %for.cond.preheader.i.i.thread ], [ %1, %for.cond.preheader.i.i ]
   %3 = getelementptr i8, ptr %retval.i, i64 %conv.i.i.i.pre-phi
   %scevgep.i.i = getelementptr i8, ptr %3, i64 4
@@ -42717,11 +42718,10 @@ for.cond.preheader.i.thread:                      ; preds = %if.then.i.i
   %0 = getelementptr inbounds i8, ptr %retval, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa_idx144, ptr align 1 %data, i64 %len, i1 false)
-  %.pre = and i64 %len, 4294967295
   br label %for.body.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then.i.i
-  %conv.i.i.i = and i64 %len, 4294967295
+  %conv.i.i.i = and i64 %len, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.sroa.4, ptr align 1 %call.i, i64 %conv.i.i.i, i1 false)
   %retval.sroa.0.i.sroa.4.4.i.8..fca.1.gep.sroa_idx6 = getelementptr inbounds i8, ptr %retval.sroa.0.i.sroa.4, i64 4
   %retval.sroa.0.i.sroa.4.4.retval.sroa.0.i.sroa.4.4.retval.sroa.0.i.sroa.4.4.retval.sroa.0.i.sroa.4.4.retval.sroa.0.i.sroa.4.4.retval.sroa.0.i.sroa.4.4.retval.sroa.0.i.sroa.4.8.retval.sroa.0.i.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.pre.i = load ptr, ptr %retval.sroa.0.i.sroa.4.4.i.8..fca.1.gep.sroa_idx6, align 4
@@ -42737,7 +42737,7 @@ for.cond.preheader.i:                             ; preds = %if.then.i.i
   br i1 %cmp39.not.i, label %_ZN6duckdb8string_t8FinalizeEv.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i.thread, %for.cond.preheader.i
-  %conv.i.i.pre-phi = phi i64 [ %.pre, %for.cond.preheader.i.thread ], [ %conv.i.i.i, %for.cond.preheader.i ]
+  %conv.i.i.pre-phi = phi i64 [ 0, %for.cond.preheader.i.thread ], [ %conv.i.i.i, %for.cond.preheader.i ]
   %2 = phi ptr [ %0, %for.cond.preheader.i.thread ], [ %1, %for.cond.preheader.i ]
   %3 = getelementptr i8, ptr %retval, i64 %conv.i.i.pre-phi
   %scevgep.i = getelementptr i8, ptr %3, i64 4
@@ -42790,11 +42790,10 @@ for.cond.preheader.i.i.thread.i:                  ; preds = %if.then.i.i.i.i
   %0 = getelementptr inbounds i8, ptr %retval.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa_idx14.i7.i, ptr align 1 %data, i64 %call, i1 false)
-  %.pre.i = and i64 %call, 4294967295
   br label %for.body.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %if.then.i.i.i.i
-  %conv.i.i.i.i.i = and i64 %call, 4294967295
+  %conv.i.i.i.i.i = and i64 %call, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.sroa.4.i.i, ptr align 1 %call.i.i.i, i64 %conv.i.i.i.i.i, i1 false)
   %retval.sroa.0.i.sroa.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.4.i.4.i.8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.i.sroa.4.i.i, i64 4
   %retval.sroa.0.i.sroa.4.i.i.4.retval.sroa.0.i.sroa.4.i.i.4.retval.sroa.0.i.sroa.4.i.i.4.retval.sroa.0.i.sroa.4.i.i.4.retval.sroa.0.i.sroa.4.i.i.4.retval.sroa.0.i.sroa.4.i.i.4.retval.sroa.0.i.sroa.4.i.i.4.retval.sroa.0.i.sroa.4.i.4.retval.sroa.0.i.sroa.4.i.4.retval.sroa.0.i.sroa.4.4.retval.sroa.0.i.sroa.4.8.retval.sroa.0.i.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.pre.i.i.i = load ptr, ptr %retval.sroa.0.i.sroa.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.4.i.4.i.8..fca.1.gep.sroa_idx, align 4
@@ -42810,7 +42809,7 @@ for.cond.preheader.i.i.i:                         ; preds = %if.then.i.i.i.i
   br i1 %cmp39.not.i.i.i, label %_ZN6duckdb10StringHeap9AddStringEPKcm.exit, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %for.cond.preheader.i.i.i, %for.cond.preheader.i.i.thread.i
-  %conv.i.i.i.pre-phi.i = phi i64 [ %.pre.i, %for.cond.preheader.i.i.thread.i ], [ %conv.i.i.i.i.i, %for.cond.preheader.i.i.i ]
+  %conv.i.i.i.pre-phi.i = phi i64 [ 0, %for.cond.preheader.i.i.thread.i ], [ %conv.i.i.i.i.i, %for.cond.preheader.i.i.i ]
   %2 = phi ptr [ %0, %for.cond.preheader.i.i.thread.i ], [ %1, %for.cond.preheader.i.i.i ]
   %3 = getelementptr i8, ptr %retval.i.i, i64 %conv.i.i.i.pre-phi.i
   %scevgep.i.i.i = getelementptr i8, ptr %3, i64 4
@@ -42866,11 +42865,10 @@ for.cond.preheader.i.i.thread.i:                  ; preds = %if.then.i.i.i.i
   %2 = getelementptr inbounds i8, ptr %retval.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa_idx14.i7.i, ptr align 1 %0, i64 %1, i1 false)
-  %.pre.i = and i64 %1, 4294967295
   br label %for.body.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %if.then.i.i.i.i
-  %conv.i.i.i.i.i = and i64 %1, 4294967295
+  %conv.i.i.i.i.i = and i64 %1, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.sroa.4.i.i, ptr align 1 %call.i.i.i, i64 %conv.i.i.i.i.i, i1 false)
   %retval.sroa.0.i.sroa.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.4.i.4.i.8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.i.sroa.4.i.i, i64 4
   %retval.sroa.0.i.sroa.4.i.i.4.retval.sroa.0.i.sroa.4.i.i.4.retval.sroa.0.i.sroa.4.i.i.4.retval.sroa.0.i.sroa.4.i.i.4.retval.sroa.0.i.sroa.4.i.i.4.retval.sroa.0.i.sroa.4.i.i.4.retval.sroa.0.i.sroa.4.i.i.4.retval.sroa.0.i.sroa.4.i.4.retval.sroa.0.i.sroa.4.i.4.retval.sroa.0.i.sroa.4.4.retval.sroa.0.i.sroa.4.8.retval.sroa.0.i.8.retval.sroa.0.8.retval.sroa.0.8.retval.sroa.0.8..fca.1.load.pre.i.i.i = load ptr, ptr %retval.sroa.0.i.sroa.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.4.i.4.i.8..fca.1.gep.sroa_idx, align 4
@@ -42886,7 +42884,7 @@ for.cond.preheader.i.i.i:                         ; preds = %if.then.i.i.i.i
   br i1 %cmp39.not.i.i.i, label %_ZN6duckdb10StringHeap9AddStringEPKcm.exit, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %for.cond.preheader.i.i.i, %for.cond.preheader.i.i.thread.i
-  %conv.i.i.i.pre-phi.i = phi i64 [ %.pre.i, %for.cond.preheader.i.i.thread.i ], [ %conv.i.i.i.i.i, %for.cond.preheader.i.i.i ]
+  %conv.i.i.i.pre-phi.i = phi i64 [ 0, %for.cond.preheader.i.i.thread.i ], [ %conv.i.i.i.i.i, %for.cond.preheader.i.i.i ]
   %4 = phi ptr [ %2, %for.cond.preheader.i.i.thread.i ], [ %3, %for.cond.preheader.i.i.i ]
   %5 = getelementptr i8, ptr %retval.i.i, i64 %conv.i.i.i.pre-phi.i
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 4
@@ -43007,7 +43005,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i, label %_ZN6duckdb8string_tC2EPKcj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %conv.i.i = and i64 %len, 4294967295
+  %conv.i.i = and i64 %len, 15
   %retval.sroa.0.4.inlined.i.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.4.inlined.i.sroa_idx, ptr align 1 %call, i64 %conv.i.i, i1 false)
   %retval.sroa.0.8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0, i64 8
@@ -43680,7 +43678,7 @@ if.then.i143:                                     ; preds = %if.then70
   br i1 %cmp.i144, label %_ZN6duckdb8string_tC2EPKcj.exit, label %if.end.i145
 
 if.end.i145:                                      ; preds = %if.then.i143
-  %conv.i.i = and i64 %sub.ptr.sub, 4294967295
+  %conv.i.i = and i64 %sub.ptr.sub, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %ref.tmp71.sroa.4, ptr nonnull align 1 %add.ptr64, i64 %conv.i.i, i1 false)
   br label %_ZN6duckdb8string_tC2EPKcj.exit
 
@@ -46770,7 +46768,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %1 = trunc i64 %div.i41 to i8
-  %conv.i25 = add nuw nsw i8 %1, 48
+  %conv.i25 = or disjoint i8 %1, 48
   br label %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit
 
 if.else.i:                                        ; preds = %entry
@@ -58872,7 +58870,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %cmp.i.i, label %invoke.cont4, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %conv.i.i.i = and i64 %1, 4294967295
+  %conv.i.i.i = and i64 %1, 15
   %agg.tmp2.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp2.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %0, i64 %conv.i.i.i, i1 false)
   %agg.tmp2.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0, i64 8
@@ -59347,7 +59345,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %cmp.i.i, label %invoke.cont4, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %conv.i.i.i = and i64 %1, 4294967295
+  %conv.i.i.i = and i64 %1, 15
   %agg.tmp2.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp2.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %0, i64 %conv.i.i.i, i1 false)
   %agg.tmp2.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0, i64 8
@@ -61496,7 +61494,7 @@ if.then.i.i421:                                   ; preds = %sw.bb62
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2EPKc.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i421
-  %conv.i.i.i = and i64 %call.i419, 4294967295
+  %conv.i.i.i = and i64 %call.i419, 15
   %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %114, i64 %conv.i.i.i, i1 false)
   %agg.tmp63.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 8
@@ -63133,7 +63131,7 @@ if.then.i.i421:                                   ; preds = %sw.bb62
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2EPKc.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i421
-  %conv.i.i.i = and i64 %call.i419, 4294967295
+  %conv.i.i.i = and i64 %call.i419, 15
   %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %114, i64 %conv.i.i.i, i1 false)
   %agg.tmp63.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 8
@@ -64777,7 +64775,7 @@ if.then.i.i421:                                   ; preds = %sw.bb62
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2EPKc.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i421
-  %conv.i.i.i = and i64 %call.i419, 4294967295
+  %conv.i.i.i = and i64 %call.i419, 15
   %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %114, i64 %conv.i.i.i, i1 false)
   %agg.tmp63.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 8
@@ -66493,7 +66491,7 @@ if.then.i.i421:                                   ; preds = %sw.bb62
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2EPKc.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i421
-  %conv.i.i.i = and i64 %call.i419, 4294967295
+  %conv.i.i.i = and i64 %call.i419, 15
   %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %114, i64 %conv.i.i.i, i1 false)
   %agg.tmp63.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 8
@@ -68111,7 +68109,7 @@ if.then.i.i477:                                   ; preds = %sw.bb62
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2EPKc.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i477
-  %conv.i.i.i = and i64 %call.i475, 4294967295
+  %conv.i.i.i = and i64 %call.i475, 15
   %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %102, i64 %conv.i.i.i, i1 false)
   %agg.tmp63.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 8
@@ -69740,7 +69738,7 @@ if.then.i.i421:                                   ; preds = %sw.bb62
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2EPKc.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i421
-  %conv.i.i.i = and i64 %call.i419, 4294967295
+  %conv.i.i.i = and i64 %call.i419, 15
   %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %114, i64 %conv.i.i.i, i1 false)
   %agg.tmp63.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 8
@@ -71370,7 +71368,7 @@ if.then.i.i421:                                   ; preds = %sw.bb62
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2EPKc.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i421
-  %conv.i.i.i = and i64 %call.i419, 4294967295
+  %conv.i.i.i = and i64 %call.i419, 15
   %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %114, i64 %conv.i.i.i, i1 false)
   %agg.tmp63.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 8
@@ -73000,7 +72998,7 @@ if.then.i.i421:                                   ; preds = %sw.bb62
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2EPKc.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i421
-  %conv.i.i.i = and i64 %call.i419, 4294967295
+  %conv.i.i.i = and i64 %call.i419, 15
   %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %114, i64 %conv.i.i.i, i1 false)
   %agg.tmp63.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 8
@@ -74630,7 +74628,7 @@ if.then.i.i421:                                   ; preds = %sw.bb62
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2EPKc.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i421
-  %conv.i.i.i = and i64 %call.i419, 4294967295
+  %conv.i.i.i = and i64 %call.i419, 15
   %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %114, i64 %conv.i.i.i, i1 false)
   %agg.tmp63.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 8
@@ -76431,7 +76429,7 @@ if.then.i.i421:                                   ; preds = %sw.bb62
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2EPKc.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i421
-  %conv.i.i.i = and i64 %call.i419, 4294967295
+  %conv.i.i.i = and i64 %call.i419, 15
   %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %114, i64 %conv.i.i.i, i1 false)
   %agg.tmp63.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 8
@@ -78061,7 +78059,7 @@ if.then.i.i421:                                   ; preds = %sw.bb62
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2EPKc.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i421
-  %conv.i.i.i = and i64 %call.i419, 4294967295
+  %conv.i.i.i = and i64 %call.i419, 15
   %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp63.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %114, i64 %conv.i.i.i, i1 false)
   %agg.tmp63.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp63.sroa.0, i64 8
@@ -79622,7 +79620,7 @@ if.then.i.i444:                                   ; preds = %sw.bb78
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2EPKc.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i444
-  %conv.i.i.i = and i64 %call.i442, 4294967295
+  %conv.i.i.i = and i64 %call.i442, 15
   %agg.tmp79.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp79.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp79.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %103, i64 %conv.i.i.i, i1 false)
   %agg.tmp79.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp79.sroa.0, i64 8
@@ -81248,7 +81246,7 @@ if.then.i.i430:                                   ; preds = %sw.bb78
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2EPKc.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i430
-  %conv.i.i.i = and i64 %call.i428, 4294967295
+  %conv.i.i.i = and i64 %call.i428, 15
   %agg.tmp79.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp79.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp79.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %99, i64 %conv.i.i.i, i1 false)
   %agg.tmp79.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp79.sroa.0, i64 8
@@ -82910,7 +82908,7 @@ if.then.i.i444:                                   ; preds = %sw.bb78
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2EPKc.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i444
-  %conv.i.i.i = and i64 %call.i442, 4294967295
+  %conv.i.i.i = and i64 %call.i442, 15
   %agg.tmp79.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp79.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp79.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %103, i64 %conv.i.i.i, i1 false)
   %agg.tmp79.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp79.sroa.0, i64 8
@@ -86067,7 +86065,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %conv.i.i.i = and i64 %1, 4294967295
+  %conv.i.i.i = and i64 %1, 15
   %retval.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %0, i64 %conv.i.i.i, i1 false)
   %retval.sroa.0.8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0, i64 8
@@ -90851,7 +90849,7 @@ if.then.i.i180:                                   ; preds = %if.then38
   br i1 %cmp.i.i, label %_ZN6duckdb8string_tC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i180
-  %conv.i.i.i = and i64 %68, 4294967295
+  %conv.i.i.i = and i64 %68, 15
   %agg.tmp.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %67, i64 %conv.i.i.i, i1 false)
   %agg.tmp.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 8
@@ -91827,7 +91825,7 @@ if.then.i.i316:                                   ; preds = %if.then79
   br i1 %cmp.i.i, label %invoke.cont84, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i316
-  %conv.i.i.i = and i64 %73, 4294967295
+  %conv.i.i.i = and i64 %73, 15
   %agg.tmp82.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp82.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp82.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %72, i64 %conv.i.i.i, i1 false)
   %agg.tmp82.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp82.sroa.0, i64 8
@@ -106659,7 +106657,7 @@ if.then.i.i.i.i87:                                ; preds = %if.then.i.i
   br i1 %cmp.i.i.i.i, label %invoke.cont3.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i87
-  %conv.i.i.i.i.i = and i64 %29, 4294967295
+  %conv.i.i.i.i.i = and i64 %29, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.sroa.0.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.4.i.4.inlined.i.i.sroa_idx, ptr align 1 %28, i64 %conv.i.i.i.i.i, i1 false)
   %agg.tmp.sroa.0.i.i.8.agg.tmp.sroa.0.i.i.8.agg.tmp.sroa.0.i.i.8.agg.tmp.sroa.0.i.i.8.agg.tmp.sroa.0.i.i.8.agg.tmp.sroa.0.i.i.8.agg.tmp.sroa.0.i.i.8.agg.tmp.sroa.0.i.8.agg.tmp.sroa.0.i.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8.agg.tmp.sroa.0.8..pre.i.i = load ptr, ptr %agg.tmp.sroa.0.i.i.8.i.i.8.i.i.8.i.i.8.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8
   br label %invoke.cont3.i.i
@@ -108593,7 +108591,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i, label %_ZN6duckdb8string_tC2EPKcj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %conv.i.i = and i64 %len, 4294967295
+  %conv.i.i = and i64 %len, 15
   %agg.tmp.sroa.0.4.inlined.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.sroa.0.4.inlined.i.sroa_idx, ptr align 1 %data, i64 %conv.i.i, i1 false)
   %agg.tmp.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 8
@@ -108731,7 +108729,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i, label %_ZN6duckdb8string_tC2EPKcj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %conv.i.i = and i64 %len, 4294967295
+  %conv.i.i = and i64 %len, 15
   %agg.tmp.sroa.0.4.inlined.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.sroa.0.4.inlined.i.sroa_idx, ptr align 1 %data, i64 %conv.i.i, i1 false)
   %agg.tmp.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 8
@@ -108768,7 +108766,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i, label %_ZN6duckdb8string_tC2EPKcj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %conv.i.i = and i64 %call, 4294967295
+  %conv.i.i = and i64 %call, 15
   %agg.tmp.sroa.0.4.inlined.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.sroa.0.4.inlined.i.sroa_idx, ptr align 1 %data, i64 %conv.i.i, i1 false)
   %agg.tmp.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 8
@@ -108807,7 +108805,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i, label %_ZN6duckdb8string_tC2EPKcj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %conv.i.i = and i64 %1, 4294967295
+  %conv.i.i = and i64 %1, 15
   %agg.tmp.sroa.0.4.inlined.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.sroa.0.4.inlined.i.sroa_idx, ptr align 1 %0, i64 %conv.i.i, i1 false)
   %agg.tmp.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 8
@@ -108926,7 +108924,7 @@ if.then.i.i.i17:                                  ; preds = %if.end4
   br i1 %cmp.i.i.i18, label %_ZN6duckdb18VectorStringBuffer11EmptyStringEm.exit, label %if.end.i.i.i19
 
 if.end.i.i.i19:                                   ; preds = %if.then.i.i.i17
-  %conv.i.i.i.i = and i64 %len, 4294967295
+  %conv.i.i.i.i = and i64 %len, 15
   %retval.sroa.0.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.4.i.4.inlined.i.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.i.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.sroa.0.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.i.4.i.4.i.4.inlined.i.sroa_idx, ptr align 1 %call.i.i, i64 %conv.i.i.i.i, i1 false)
   %retval.sroa.0.i.i.8.i.i.8.i.i.8.i.i.8.i.i.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.i.i, i64 8
@@ -109560,7 +109558,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i, label %_ZN6duckdb8string_tC2EPKcj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %conv.i.i = and i64 %len, 4294967295
+  %conv.i.i = and i64 %len, 15
   %agg.tmp.sroa.0.4.inlined.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.sroa.0.4.inlined.i.sroa_idx, ptr align 1 %data, i64 %conv.i.i, i1 false)
   %agg.tmp.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.sroa.0, i64 8

@@ -2817,7 +2817,7 @@ define internal fastcc void @__lru_add_drain_all(i1 noundef zeroext %0) unnamed_
   br i1 %21, label %22, label %.preheader.preheader
 
 22:                                               ; preds = %18
-  %23 = and i64 %19, 4294967295
+  %23 = and i64 %19, 63
   %24 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, ptrtoint (ptr @cpu_fbatches to i64)
@@ -2881,8 +2881,8 @@ define internal fastcc void @__lru_add_drain_all(i1 noundef zeroext %0) unnamed_
   br label %63
 
 63:                                               ; preds = %55, %53
-  %64 = add i64 %19, 1
-  %65 = and i64 %64, 4294967295
+  %64 = add nuw nsw i64 %19, 1
+  %65 = and i64 %64, 127
   %66 = icmp ugt i64 %65, 63
   br i1 %66, label %.preheader.preheader, label %12, !prof !101, !llvm.loop !102
 

@@ -4129,7 +4129,7 @@ while.body.i.i:                                   ; preds = %while.body.preheade
   br i1 %cmp15.not.i.i, label %if.end18.i.i, label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %while.body.i.i
-  %indvars.iv.next51.i.i = add i64 %indvars.iv50.i.i, 1
+  %indvars.iv.next51.i.i = add nsw i64 %indvars.iv50.i.i, 1
   %arrayidx.i.i = getelementptr inbounds [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %indvars.iv.next51.i.i
   %14 = load i16, ptr %arrayidx.i.i, align 16
   %cmp9.not.i.i = icmp eq i16 %14, 0
@@ -4162,7 +4162,7 @@ _ZN6icu_7512FormatParser17getCanonicalIndexERKNS_13UnicodeStringE.exit: ; preds 
   br i1 %cmp8, label %for.inc31, label %if.end10
 
 if.end10:                                         ; preds = %_ZN6icu_7512FormatParser17getCanonicalIndexERKNS_13UnicodeStringE.exit
-  %idxprom11 = and i64 %indvars.iv50.i.i, 4294967295
+  %idxprom11 = and i64 %indvars.iv50.i.i, 2147483647
   %arrayidx12 = getelementptr inbounds [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %idxprom11
   %field13 = getelementptr inbounds i8, ptr %arrayidx12, i64 4
   %19 = load i32, ptr %field13, align 4
@@ -4649,7 +4649,7 @@ ehcleanup6:                                       ; preds = %ehcleanup, %lpad
 
 declare noundef ptr @_ZN6icu_7510DateFormat18createDateInstanceENS0_6EStyleERKNS_6LocaleE(i32 noundef, ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #5
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
@@ -7028,7 +7028,7 @@ while.body.i.i:                                   ; preds = %while.body.preheade
   br i1 %cmp15.not.i.i, label %if.end18.i.i, label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %while.body.i.i
-  %indvars.iv.next51.i.i = add i64 %indvars.iv50.i.i, 1
+  %indvars.iv.next51.i.i = add nsw i64 %indvars.iv50.i.i, 1
   %arrayidx.i.i = getelementptr inbounds [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %indvars.iv.next51.i.i
   %30 = load i16, ptr %arrayidx.i.i, align 16
   %cmp9.not.i.i = icmp eq i16 %30, 0
@@ -7061,7 +7061,7 @@ invoke.cont22:                                    ; preds = %if.end29.i.i, %if.e
   br i1 %cmp24, label %if.end191.invoke, label %if.end28
 
 if.end28:                                         ; preds = %invoke.cont22
-  %idxprom29 = and i64 %indvars.iv50.i.i, 4294967295
+  %idxprom29 = and i64 %indvars.iv50.i.i, 2147483647
   %arrayidx30 = getelementptr inbounds [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %idxprom29
   %field31 = getelementptr inbounds i8, ptr %arrayidx30, i64 4
   %35 = load i32, ptr %field31, align 4
@@ -11198,7 +11198,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp15.not, label %if.end18, label %if.then16
 
 if.then16:                                        ; preds = %while.body
-  %indvars.iv.next51 = add i64 %indvars.iv50, 1
+  %indvars.iv.next51 = add nsw i64 %indvars.iv50, 1
   %arrayidx = getelementptr inbounds [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %indvars.iv.next51
   %8 = load i16, ptr %arrayidx, align 16
   %cmp9.not = icmp eq i16 %8, 0
@@ -13173,7 +13173,7 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind memory(read) }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree nounwind }

@@ -678,7 +678,7 @@ if.end.i:                                         ; preds = %if.then
   br i1 %cmp14.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %if.end.i
-  %wide.trip.count.i = and i64 %call.i, 4294967295
+  %wide.trip.count.i = and i64 %call.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
@@ -1110,11 +1110,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv2 = shl i64 %call, 2
-  %mul = and i64 %conv2, 17179869180
+  %mul = and i64 %conv2, 8589934588
   %call3 = tail call ptr @app_malloc(i64 noundef %mul, ptr noundef nonnull @.str.23) #6
   %call4 = tail call i64 @SSL_ctrl(ptr noundef %s, i32 noundef 90, i64 noundef 0, ptr noundef %call3) #6
   %call5 = tail call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.24) #6
-  %wide.trip.count = and i64 %call, 4294967295
+  %wide.trip.count = and i64 %call, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %if.end10
@@ -1148,7 +1148,7 @@ if.end16:                                         ; preds = %for.end
   br i1 %cmp2129, label %for.body23.preheader, label %for.end35
 
 for.body23.preheader:                             ; preds = %if.end16
-  %wide.trip.count35 = and i64 %call18, 4294967295
+  %wide.trip.count35 = and i64 %call18, 2147483647
   br label %for.body23
 
 for.body23:                                       ; preds = %for.body23.preheader, %if.end27

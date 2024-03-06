@@ -2658,7 +2658,7 @@ define internal void @vmstat_shepherd(ptr nocapture readnone %0) #0 align 16 {
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %8
-  %13 = and i64 %9, 4294967295
+  %13 = and i64 %9, 63
   %14 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, ptrtoint (ptr @vmstat_work to i64)
@@ -2738,8 +2738,8 @@ need_update.exit:                                 ; preds = %.thread7.i, %27, %5
   br label %62
 
 62:                                               ; preds = %need_update.exit, %21, %19, %12
-  %63 = add i64 %9, 1
-  %64 = and i64 %63, 4294967295
+  %63 = add nuw nsw i64 %9, 1
+  %64 = and i64 %63, 127
   %65 = icmp ugt i64 %64, 63
   br i1 %65, label %.thread, label %2, !prof !7, !llvm.loop !100
 
@@ -3531,7 +3531,7 @@ define internal noundef i32 @zoneinfo_show(ptr noundef %0, ptr noundef %1) #0 al
 98:                                               ; preds = %94
   %99 = load ptr, ptr %86, align 32
   %100 = ptrtoint ptr %99 to i64
-  %101 = and i64 %95, 4294967295
+  %101 = and i64 %95, 63
   %102 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %101
   %103 = load i64, ptr %102, align 8
   %104 = add i64 %103, %100
@@ -3552,8 +3552,8 @@ define internal noundef i32 @zoneinfo_show(ptr noundef %0, ptr noundef %1) #0 al
   %118 = load i8, ptr %117, align 2
   %119 = sext i8 %118 to i32
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.178, i32 noundef %119) #17
-  %120 = add i64 %95, 1
-  %121 = and i64 %120, 4294967295
+  %120 = add nuw nsw i64 %95, 1
+  %121 = and i64 %120, 127
   %122 = icmp ugt i64 %121, 63
   br i1 %122, label %.thread, label %88, !prof !7, !llvm.loop !126
 

@@ -172,7 +172,7 @@ define void @onig_strcpy(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %3
-  %10 = and i64 %6, 4294967295
+  %10 = and i64 %6, 2147483647
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %1, i64 %10, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 %10
   store i8 0, ptr %11, align 1
@@ -2184,7 +2184,7 @@ onig_strcpy.exit:                                 ; preds = %23
   %sext45 = shl i64 %16, 32
   %25 = ashr exact i64 %sext45, 32
   %26 = getelementptr inbounds i8, ptr %13, i64 %25
-  %27 = and i64 %6, 4294967295
+  %27 = and i64 %6, 2147483647
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %1, i64 %27, i1 false)
   %28 = getelementptr inbounds i8, ptr %26, i64 %27
   store i8 0, ptr %28, align 1
@@ -2207,7 +2207,7 @@ onig_strcpy.exit:                                 ; preds = %23
   br i1 %38, label %39, label %onig_strcpy.exit.i
 
 39:                                               ; preds = %37
-  %40 = and i64 %16, 4294967295
+  %40 = and i64 %16, 2147483647
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr align 1 %13, i64 %40, i1 false)
   %41 = getelementptr inbounds i8, ptr %35, i64 %40
   store i8 0, ptr %41, align 1
@@ -2215,7 +2215,7 @@ onig_strcpy.exit:                                 ; preds = %23
 
 onig_strcpy.exit.i:                               ; preds = %37, %39
   %42 = getelementptr inbounds i8, ptr %35, i64 %16
-  %43 = and i64 %6, 4294967295
+  %43 = and i64 %6, 2147483647
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr align 1 %1, i64 %43, i1 false)
   %44 = getelementptr inbounds i8, ptr %42, i64 %43
   br label %strcat_capa_from_static.exit
@@ -2241,7 +2241,7 @@ onig_strcpy.exit.i:                               ; preds = %37, %39
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds i8, ptr %.012.i, i64 %16
-  %56 = and i64 %6, 4294967295
+  %56 = and i64 %6, 2147483647
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr align 1 %1, i64 %56, i1 false)
   %57 = getelementptr inbounds i8, ptr %55, i64 %56
   br label %strcat_capa_from_static.exit
@@ -2261,7 +2261,7 @@ onig_strcpy.exit49:                               ; preds = %9
   %sext = shl i64 %16, 32
   %58 = ashr exact i64 %sext, 32
   %59 = getelementptr inbounds i8, ptr %13, i64 %58
-  %60 = and i64 %6, 4294967295
+  %60 = and i64 %6, 2147483647
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr align 1 %1, i64 %60, i1 false)
   %61 = getelementptr inbounds i8, ptr %59, i64 %60
   store i8 0, ptr %61, align 1
@@ -15378,7 +15378,7 @@ callout_tag_entry_raw.exit:                       ; preds = %21, %33, %36, %39, 
 onig_reg_callout_list_at.exit:                    ; preds = %48
   %52 = getelementptr inbounds i8, ptr %45, i64 32
   %53 = load ptr, ptr %52, align 8
-  %54 = and i64 %4, 4294967295
+  %54 = and i64 %4, 2147483647
   %55 = getelementptr %struct.CalloutListEntry, ptr %53, i64 %54
   %56 = getelementptr i8, ptr %55, i64 -144
   %57 = icmp eq ptr %56, null

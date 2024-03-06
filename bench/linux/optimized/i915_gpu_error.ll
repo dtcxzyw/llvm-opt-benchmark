@@ -5898,7 +5898,7 @@ define internal fastcc void @intel_gpu_error_print_vma(ptr nocapture noundef %0,
 
 .thread:                                          ; preds = %51, %63
   %71 = phi i64 [ %68, %63 ], [ 1024, %51 ]
-  %72 = and i64 %71, 4294967295
+  %72 = and i64 %71, 2147483647
   br label %73
 
 73:                                               ; preds = %__i915_error_grow.exit, %.thread

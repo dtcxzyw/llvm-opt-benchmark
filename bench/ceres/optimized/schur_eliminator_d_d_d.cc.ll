@@ -16585,7 +16585,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   br i1 %291, label %.lr.ph.preheader.i.i, label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %._crit_edge187
-  %wide.trip.count.i.i = and i64 %289, 4294967295
+  %wide.trip.count.i.i = and i64 %289, 2147483647
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i

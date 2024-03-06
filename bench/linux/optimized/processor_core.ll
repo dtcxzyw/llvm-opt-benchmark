@@ -450,14 +450,14 @@ define dso_local i32 @acpi_map_cpuid(i32 noundef %0, i32 noundef %1) local_unnam
   br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %20
-  %25 = and i64 %21, 4294967295
+  %25 = and i64 %21, 63
   %26 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, ptrtoint (ptr @x86_cpu_to_apicid to i64)
   %29 = inttoptr i64 %28 to ptr
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, %0
-  %32 = add i64 %21, 1
+  %32 = add nuw nsw i64 %21, 1
   br i1 %31, label %.thread, label %12, !llvm.loop !7
 
 .thread:                                          ; preds = %16, %12, %24, %20, %6
@@ -502,14 +502,14 @@ define dso_local i32 @acpi_get_cpuid(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %22
-  %27 = and i64 %23, 4294967295
+  %27 = and i64 %23, 63
   %28 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, ptrtoint (ptr @x86_cpu_to_apicid to i64)
   %31 = inttoptr i64 %30 to ptr
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, %4
-  %34 = add i64 %23, 1
+  %34 = add nuw nsw i64 %23, 1
   br i1 %33, label %.thread, label %14, !llvm.loop !7
 
 .thread:                                          ; preds = %18, %14, %26, %22, %8

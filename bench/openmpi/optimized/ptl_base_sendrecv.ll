@@ -2139,7 +2139,7 @@ pmix_obj_new_tma.exit.thread155:                  ; preds = %.lr.ph.i.i, %44
   br i1 %107, label %.loopexit173, label %108
 
 108:                                              ; preds = %106
-  %109 = and i64 %90, 4294967295
+  %109 = and i64 %90, 2147483647
   %110 = sub i64 %.1.ph, %109
   %111 = getelementptr inbounds i8, ptr %.027.i.ph, i64 %109
   %.not.i140 = icmp eq i64 %110, 0
@@ -2385,7 +2385,7 @@ thread-pre-split.i141:                            ; preds = %236, %226
   br i1 %250, label %.loopexit, label %251
 
 251:                                              ; preds = %249
-  %252 = and i64 %233, 4294967295
+  %252 = and i64 %233, 2147483647
   %253 = load i64, ptr %230, align 8
   %254 = sub i64 %253, %252
   store i64 %254, ptr %230, align 8

@@ -57,8 +57,8 @@ define dso_local void @gen11_gt_irq_handler(ptr noundef %0, i32 noundef %1) loca
 33:                                               ; preds = %29
   %34 = load ptr, ptr %5, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = and i64 %30, 4294967295
-  %37 = shl nuw i64 1, %36
+  %36 = and i64 %30, 31
+  %37 = shl nuw nsw i64 1, %36
   %38 = trunc i64 %37 to i32
   %39 = getelementptr i8, ptr %35, i64 %22
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %38, ptr elementtype(i32) %39) #3, !srcloc !7
@@ -281,8 +281,8 @@ define dso_local void @gen11_gt_irq_handler(ptr noundef %0, i32 noundef %1) loca
   br label %158
 
 158:                                              ; preds = %.thread11, %156, %154, %152, %150, %147, %145, %144, %141, %135, %131, %125, %119, %113, %103, %62
-  %159 = add i64 %30, 1
-  %160 = and i64 %159, 4294967295
+  %159 = add nuw nsw i64 %30, 1
+  %160 = and i64 %159, 63
   %161 = icmp ugt i64 %160, 31
   br i1 %161, label %.thread, label %24, !prof !26, !llvm.loop !27
 

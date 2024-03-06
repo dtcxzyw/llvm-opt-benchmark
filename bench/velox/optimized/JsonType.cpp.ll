@@ -21675,7 +21675,7 @@ if.then2.i.i13.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i8.i.i.i.i
 
 if.end6.i.i15.i.i.i.i.i.i.i:                      ; preds = %if.then2.i.i13.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i16.sroa_idx, align 8
-  %conv.i.i17.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i17.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.4.agg.tmp6.i.4.agg.tmp6.4.agg.tmp6.4.prefix_.i.i10.sroa_idx, ptr align 1 %call.i5.i.i.i.i.i.i.i, i64 %conv.i.i17.i.i.i.i.i.i.i, i1 false)
   %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8..pre.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i16.sroa_idx522, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i
@@ -21878,7 +21878,7 @@ if.then2.i.i13.i.i.i.i.i.i:                       ; preds = %if.end.i.i8.i.i.i.i
 
 if.end6.i.i15.i.i.i.i.i.i:                        ; preds = %if.then2.i.i13.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i16.sroa_idx, align 8
-  %conv.i.i17.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i17.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.4.agg.tmp3.i.i.i.i.4.agg.tmp3.i.i.i.i.4.agg.tmp3.i.i.i.4.agg.tmp3.i.i.i.4.agg.tmp3.i.i.4.agg.tmp3.i.i.4.agg.tmp3.i.4.agg.tmp3.i.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i10.sroa_idx, ptr align 1 %call.i5.i.i.i.i.i.i, i64 %conv.i.i17.i.i.i.i.i.i, i1 false)
   %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8..pre.i.i.i.i.i.i = load ptr, ptr %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i16.sroa_idx525, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i
@@ -22485,7 +22485,7 @@ if.then2.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then2.i.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i4.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i4.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i3.i.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i.i.i, i1 false)
   %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..pre.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx528, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i167
@@ -22690,7 +22690,7 @@ if.then2.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i:                          ; preds = %if.then2.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i39.i.i.i.i.i = and i64 %call2.i4.i.i.i.i.i.i, 4294967295
+  %conv.i.i.i39.i.i.i.i.i = and i64 %call2.i4.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i3.i.i.i.i.i.i, i64 %conv.i.i.i39.i.i.i.i.i, i1 false)
   %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..pre.i.i.i.i.i.i = load ptr, ptr %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx531, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i215
@@ -23274,7 +23274,7 @@ if.then2.i.i12.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i7.i.i.i.i
 
 if.end6.i.i14.i.i.i.i.i.i.i:                      ; preds = %if.then2.i.i12.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i16.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.4.agg.tmp6.i.4.agg.tmp6.4.agg.tmp6.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4.i.i.i.i.i.i.i, i64 %conv.i.i16.i.i.i.i.i.i.i, i1 false)
   %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8..pre.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i15.sroa_idx508, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i
@@ -23471,7 +23471,7 @@ if.then2.i.i12.i.i.i.i.i.i:                       ; preds = %if.end.i.i7.i.i.i.i
 
 if.end6.i.i14.i.i.i.i.i.i:                        ; preds = %if.then2.i.i12.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i16.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.4.agg.tmp3.i.i.i.i.4.agg.tmp3.i.i.i.i.4.agg.tmp3.i.i.i.4.agg.tmp3.i.i.i.4.agg.tmp3.i.i.4.agg.tmp3.i.i.4.agg.tmp3.i.4.agg.tmp3.i.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4.i.i.i.i.i.i, i64 %conv.i.i16.i.i.i.i.i.i, i1 false)
   %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8..pre.i.i.i.i.i.i = load ptr, ptr %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx511, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i
@@ -24064,7 +24064,7 @@ if.then2.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then2.i.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i154, 4294967295
+  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i154, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i.i.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i.i.i, i1 false)
   %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..pre.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx514, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i155
@@ -24255,7 +24255,7 @@ if.then2.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i:                          ; preds = %if.then2.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i37.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i200, 4294967295
+  %conv.i.i.i37.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i200, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i.i36.i.i.i.i.i, i64 %conv.i.i.i37.i.i.i.i.i, i1 false)
   %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..pre.i.i.i.i.i.i = load ptr, ptr %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx517, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i201
@@ -24839,7 +24839,7 @@ if.then2.i.i12.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i7.i.i.i.i
 
 if.end6.i.i14.i.i.i.i.i.i.i:                      ; preds = %if.then2.i.i12.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i16.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.4.agg.tmp6.i.4.agg.tmp6.4.agg.tmp6.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4.i.i.i.i.i.i.i, i64 %conv.i.i16.i.i.i.i.i.i.i, i1 false)
   %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8..pre.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i15.sroa_idx508, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i
@@ -25036,7 +25036,7 @@ if.then2.i.i12.i.i.i.i.i.i:                       ; preds = %if.end.i.i7.i.i.i.i
 
 if.end6.i.i14.i.i.i.i.i.i:                        ; preds = %if.then2.i.i12.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i16.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.4.agg.tmp3.i.i.i.i.4.agg.tmp3.i.i.i.i.4.agg.tmp3.i.i.i.4.agg.tmp3.i.i.i.4.agg.tmp3.i.i.4.agg.tmp3.i.i.4.agg.tmp3.i.4.agg.tmp3.i.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4.i.i.i.i.i.i, i64 %conv.i.i16.i.i.i.i.i.i, i1 false)
   %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8..pre.i.i.i.i.i.i = load ptr, ptr %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx511, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i
@@ -25629,7 +25629,7 @@ if.then2.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then2.i.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i154, 4294967295
+  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i154, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i.i.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i.i.i, i1 false)
   %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..pre.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx514, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i155
@@ -25820,7 +25820,7 @@ if.then2.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i:                          ; preds = %if.then2.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i37.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i200, 4294967295
+  %conv.i.i.i37.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i200, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i.i36.i.i.i.i.i, i64 %conv.i.i.i37.i.i.i.i.i, i1 false)
   %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..pre.i.i.i.i.i.i = load ptr, ptr %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx517, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i201
@@ -26404,7 +26404,7 @@ if.then2.i.i12.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i7.i.i.i.i
 
 if.end6.i.i14.i.i.i.i.i.i.i:                      ; preds = %if.then2.i.i12.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i16.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.4.agg.tmp6.i.4.agg.tmp6.4.agg.tmp6.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4.i.i.i.i.i.i.i, i64 %conv.i.i16.i.i.i.i.i.i.i, i1 false)
   %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8..pre.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i15.sroa_idx508, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i
@@ -26601,7 +26601,7 @@ if.then2.i.i12.i.i.i.i.i.i:                       ; preds = %if.end.i.i7.i.i.i.i
 
 if.end6.i.i14.i.i.i.i.i.i:                        ; preds = %if.then2.i.i12.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i16.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.4.agg.tmp3.i.i.i.i.4.agg.tmp3.i.i.i.i.4.agg.tmp3.i.i.i.4.agg.tmp3.i.i.i.4.agg.tmp3.i.i.4.agg.tmp3.i.i.4.agg.tmp3.i.4.agg.tmp3.i.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4.i.i.i.i.i.i, i64 %conv.i.i16.i.i.i.i.i.i, i1 false)
   %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8..pre.i.i.i.i.i.i = load ptr, ptr %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx511, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i
@@ -27194,7 +27194,7 @@ if.then2.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then2.i.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i154, 4294967295
+  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i154, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i.i.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i.i.i, i1 false)
   %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..pre.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx514, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i155
@@ -27385,7 +27385,7 @@ if.then2.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i:                          ; preds = %if.then2.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i37.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i200, 4294967295
+  %conv.i.i.i37.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i200, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i.i36.i.i.i.i.i, i64 %conv.i.i.i37.i.i.i.i.i, i1 false)
   %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..pre.i.i.i.i.i.i = load ptr, ptr %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx517, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i201
@@ -27969,7 +27969,7 @@ if.then2.i.i12.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i7.i.i.i.i
 
 if.end6.i.i14.i.i.i.i.i.i.i:                      ; preds = %if.then2.i.i12.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i16.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.4.agg.tmp6.i.4.agg.tmp6.4.agg.tmp6.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4.i.i.i.i.i.i.i, i64 %conv.i.i16.i.i.i.i.i.i.i, i1 false)
   %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8..pre.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i15.sroa_idx508, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i
@@ -28166,7 +28166,7 @@ if.then2.i.i12.i.i.i.i.i.i:                       ; preds = %if.end.i.i7.i.i.i.i
 
 if.end6.i.i14.i.i.i.i.i.i:                        ; preds = %if.then2.i.i12.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i16.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.4.agg.tmp3.i.i.i.i.4.agg.tmp3.i.i.i.i.4.agg.tmp3.i.i.i.4.agg.tmp3.i.i.i.4.agg.tmp3.i.i.4.agg.tmp3.i.i.4.agg.tmp3.i.4.agg.tmp3.i.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4.i.i.i.i.i.i, i64 %conv.i.i16.i.i.i.i.i.i, i1 false)
   %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8..pre.i.i.i.i.i.i = load ptr, ptr %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx511, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i
@@ -28759,7 +28759,7 @@ if.then2.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then2.i.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i154, 4294967295
+  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i154, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i.i.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i.i.i, i1 false)
   %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..pre.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx514, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i155
@@ -28950,7 +28950,7 @@ if.then2.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i:                          ; preds = %if.then2.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i37.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i200, 4294967295
+  %conv.i.i.i37.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i200, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i.i36.i.i.i.i.i, i64 %conv.i.i.i37.i.i.i.i.i, i1 false)
   %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..pre.i.i.i.i.i.i = load ptr, ptr %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx517, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i201
@@ -29534,7 +29534,7 @@ if.then2.i.i12.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i7.i.i.i.i
 
 if.end6.i.i14.i.i.i.i.i.i.i:                      ; preds = %if.then2.i.i12.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i16.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.4.agg.tmp6.i.4.agg.tmp6.4.agg.tmp6.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4.i.i.i.i.i.i.i, i64 %conv.i.i16.i.i.i.i.i.i.i, i1 false)
   %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8..pre.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i15.sroa_idx508, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i
@@ -29731,7 +29731,7 @@ if.then2.i.i12.i.i.i.i.i.i:                       ; preds = %if.end.i.i7.i.i.i.i
 
 if.end6.i.i14.i.i.i.i.i.i:                        ; preds = %if.then2.i.i12.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i16.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.4.agg.tmp3.i.i.i.i.4.agg.tmp3.i.i.i.i.4.agg.tmp3.i.i.i.4.agg.tmp3.i.i.i.4.agg.tmp3.i.i.4.agg.tmp3.i.i.4.agg.tmp3.i.4.agg.tmp3.i.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4.i.i.i.i.i.i, i64 %conv.i.i16.i.i.i.i.i.i, i1 false)
   %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8..pre.i.i.i.i.i.i = load ptr, ptr %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx511, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i
@@ -30324,7 +30324,7 @@ if.then2.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then2.i.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i154, 4294967295
+  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i154, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i.i.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i.i.i, i1 false)
   %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..pre.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx514, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i155
@@ -30515,7 +30515,7 @@ if.then2.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i:                          ; preds = %if.then2.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i37.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i200, 4294967295
+  %conv.i.i.i37.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i200, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i.i36.i.i.i.i.i, i64 %conv.i.i.i37.i.i.i.i.i, i1 false)
   %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..pre.i.i.i.i.i.i = load ptr, ptr %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx517, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i201
@@ -31099,7 +31099,7 @@ if.then2.i.i12.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i7.i.i.i.i
 
 if.end6.i.i14.i.i.i.i.i.i.i:                      ; preds = %if.then2.i.i12.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i16.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.4.agg.tmp6.i.4.agg.tmp6.4.agg.tmp6.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4.i.i.i.i.i.i.i, i64 %conv.i.i16.i.i.i.i.i.i.i, i1 false)
   %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8..pre.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i15.sroa_idx508, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i
@@ -31296,7 +31296,7 @@ if.then2.i.i12.i.i.i.i.i.i:                       ; preds = %if.end.i.i7.i.i.i.i
 
 if.end6.i.i14.i.i.i.i.i.i:                        ; preds = %if.then2.i.i12.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i16.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.4.agg.tmp3.i.i.i.i.4.agg.tmp3.i.i.i.i.4.agg.tmp3.i.i.i.4.agg.tmp3.i.i.i.4.agg.tmp3.i.i.4.agg.tmp3.i.i.4.agg.tmp3.i.4.agg.tmp3.i.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4.i.i.i.i.i.i, i64 %conv.i.i16.i.i.i.i.i.i, i1 false)
   %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8..pre.i.i.i.i.i.i = load ptr, ptr %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx511, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i
@@ -31889,7 +31889,7 @@ if.then2.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then2.i.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i154, 4294967295
+  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i154, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i.i.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i.i.i, i1 false)
   %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..pre.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx514, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i155
@@ -32080,7 +32080,7 @@ if.then2.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i:                          ; preds = %if.then2.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i37.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i200, 4294967295
+  %conv.i.i.i37.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i200, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i.i36.i.i.i.i.i, i64 %conv.i.i.i37.i.i.i.i.i, i1 false)
   %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..pre.i.i.i.i.i.i = load ptr, ptr %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx517, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i201
@@ -32664,7 +32664,7 @@ if.then2.i.i12.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i7.i.i.i.i
 
 if.end6.i.i14.i.i.i.i.i.i.i:                      ; preds = %if.then2.i.i12.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i16.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.4.agg.tmp6.i.4.agg.tmp6.4.agg.tmp6.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4.i.i.i.i.i.i.i, i64 %conv.i.i16.i.i.i.i.i.i.i, i1 false)
   %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8..pre.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i15.sroa_idx508, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i
@@ -32861,7 +32861,7 @@ if.then2.i.i12.i.i.i.i.i.i:                       ; preds = %if.end.i.i7.i.i.i.i
 
 if.end6.i.i14.i.i.i.i.i.i:                        ; preds = %if.then2.i.i12.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i16.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.4.agg.tmp3.i.i.i.i.i.4.agg.tmp3.i.i.i.i.4.agg.tmp3.i.i.i.i.4.agg.tmp3.i.i.i.4.agg.tmp3.i.i.i.4.agg.tmp3.i.i.4.agg.tmp3.i.i.4.agg.tmp3.i.4.agg.tmp3.i.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4.i.i.i.i.i.i, i64 %conv.i.i16.i.i.i.i.i.i, i1 false)
   %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8..pre.i.i.i.i.i.i = load ptr, ptr %agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.i.8.agg.tmp3.i.8.agg.tmp3.i.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx511, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i
@@ -33454,7 +33454,7 @@ if.then2.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then2.i.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i154, 4294967295
+  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i154, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i.i.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i.i.i, i1 false)
   %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..pre.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx514, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i155
@@ -33645,7 +33645,7 @@ if.then2.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i:                          ; preds = %if.then2.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i37.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i200, 4294967295
+  %conv.i.i.i37.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i200, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i.i36.i.i.i.i.i, i64 %conv.i.i.i37.i.i.i.i.i, i1 false)
   %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..pre.i.i.i.i.i.i = load ptr, ptr %agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx517, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i201
@@ -34290,7 +34290,7 @@ if.then2.i.i13.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i8.i.i.i.i
 
 if.end6.i.i15.i.i.i.i.i.i.i:                      ; preds = %if.then2.i.i13.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i16.sroa_idx, align 8
-  %conv.i.i17.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i17.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.4.agg.tmp6.i.4.agg.tmp6.4.agg.tmp6.4.prefix_.i.i10.sroa_idx, ptr align 1 %call.i5.i.i.i.i.i.i.i, i64 %conv.i.i17.i.i.i.i.i.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i
 
@@ -35068,7 +35068,7 @@ if.then2.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then2.i.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i186, 4294967295
+  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i186, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i3.i.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i187
 
@@ -35839,7 +35839,7 @@ if.then2.i.i13.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i8.i.i.i.i
 
 if.end6.i.i15.i.i.i.i.i.i.i:                      ; preds = %if.then2.i.i13.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i16.sroa_idx, align 8
-  %conv.i.i17.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i17.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.4.agg.tmp6.i.4.agg.tmp6.4.agg.tmp6.4.prefix_.i.i10.sroa_idx, ptr align 1 %call.i5.i.i.i.i.i.i.i, i64 %conv.i.i17.i.i.i.i.i.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i
 
@@ -36617,7 +36617,7 @@ if.then2.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then2.i.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i186, 4294967295
+  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i186, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i3.i.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i187
 
@@ -37351,7 +37351,7 @@ if.then2.i.i13.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i8.i.i.i.i
 
 if.end6.i.i15.i.i.i.i.i.i.i:                      ; preds = %if.then2.i.i13.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i16.sroa_idx, align 8
-  %conv.i.i17.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i17.i.i.i.i.i.i.i = and i64 %call2.i.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.i.4.agg.tmp6.i.4.agg.tmp6.i.4.agg.tmp6.4.agg.tmp6.4.prefix_.i.i10.sroa_idx, ptr align 1 %call.i5.i.i.i.i.i.i.i, i64 %conv.i.i17.i.i.i.i.i.i.i, i1 false)
   %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8..pre.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.i.8.agg.tmp6.i.8.agg.tmp6.i.8.agg.tmp6.8.agg.tmp6.8.value_7.i.i16.sroa_idx498, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i
@@ -38100,7 +38100,7 @@ if.then2.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.
 
 if.end6.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then2.i.i.i.i.i.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i4.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i.i.i.i.i.i.i.i = and i64 %call2.i4.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.i.4.agg.tmp.i.i.4.agg.tmp.i.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i3.i.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i.i.i, i1 false)
   %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8..pre.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.i.8.agg.tmp.i.i.8.agg.tmp.i.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx501, align 8
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i.i.i174
@@ -40810,7 +40810,7 @@ if.then2.i.i96.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i91.i.i.i.
 
 if.end6.i.i98.i.i.i.i.i.i.i:                      ; preds = %if.then2.i.i96.i.i.i.i.i.i.i
   store ptr null, ptr %value_13.i.i95.i.i.i.i.i.i.i, align 8
-  %conv.i.i100.i.i.i.i.i.i.i = and i64 %.pre.i.i.i.i.i.i.i.i, 4294967295
+  %conv.i.i100.i.i.i.i.i.i.i = and i64 %.pre.i.i.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i93.i.i.i.i.i.i.i, ptr align 1 %365, i64 %conv.i.i100.i.i.i.i.i.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i.i.i
 
@@ -41444,7 +41444,7 @@ if.then2.i.i13:                                   ; preds = %if.end.i.i8
 if.end6.i.i15:                                    ; preds = %if.then2.i.i13
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i16.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
   store ptr null, ptr %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i16.sroa_idx, align 8
-  %conv.i.i17 = and i64 %call2.i, 4294967295
+  %conv.i.i17 = and i64 %call2.i, 15
   %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i10.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i10.sroa_idx, ptr align 1 %call.i5, i64 %conv.i.i17, i1 false)
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i16.sroa_idx28 = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
@@ -41684,7 +41684,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr null, ptr %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i = and i64 %call2.i4, 4294967295
+  %conv.i.i = and i64 %call2.i4, 15
   %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i3, i64 %conv.i.i, i1 false)
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx12 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
@@ -41917,7 +41917,7 @@ if.then2.i.i12:                                   ; preds = %if.end.i.i7
 if.end6.i.i14:                                    ; preds = %if.then2.i.i12
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
   store ptr null, ptr %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16 = and i64 %call2.i, 4294967295
+  %conv.i.i16 = and i64 %call2.i, 15
   %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4, i64 %conv.i.i16, i1 false)
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx27 = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
@@ -42269,7 +42269,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr null, ptr %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i = and i64 %call2.i, 4294967295
+  %conv.i.i = and i64 %call2.i, 15
   %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i, i64 %conv.i.i, i1 false)
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx10 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
@@ -42614,7 +42614,7 @@ if.then2.i.i12:                                   ; preds = %if.end.i.i7
 if.end6.i.i14:                                    ; preds = %if.then2.i.i12
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
   store ptr null, ptr %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16 = and i64 %call2.i, 4294967295
+  %conv.i.i16 = and i64 %call2.i, 15
   %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4, i64 %conv.i.i16, i1 false)
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx27 = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
@@ -42959,7 +42959,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr null, ptr %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i = and i64 %call2.i, 4294967295
+  %conv.i.i = and i64 %call2.i, 15
   %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i, i64 %conv.i.i, i1 false)
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx10 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
@@ -43305,7 +43305,7 @@ if.then2.i.i12:                                   ; preds = %if.end.i.i7
 if.end6.i.i14:                                    ; preds = %if.then2.i.i12
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
   store ptr null, ptr %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16 = and i64 %call2.i, 4294967295
+  %conv.i.i16 = and i64 %call2.i, 15
   %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4, i64 %conv.i.i16, i1 false)
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx27 = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
@@ -43650,7 +43650,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr null, ptr %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i = and i64 %call2.i, 4294967295
+  %conv.i.i = and i64 %call2.i, 15
   %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i, i64 %conv.i.i, i1 false)
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx10 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
@@ -43996,7 +43996,7 @@ if.then2.i.i12:                                   ; preds = %if.end.i.i7
 if.end6.i.i14:                                    ; preds = %if.then2.i.i12
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
   store ptr null, ptr %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16 = and i64 %call2.i, 4294967295
+  %conv.i.i16 = and i64 %call2.i, 15
   %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4, i64 %conv.i.i16, i1 false)
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx27 = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
@@ -44340,7 +44340,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr null, ptr %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i = and i64 %call2.i, 4294967295
+  %conv.i.i = and i64 %call2.i, 15
   %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i, i64 %conv.i.i, i1 false)
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx10 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
@@ -44685,7 +44685,7 @@ if.then2.i.i12:                                   ; preds = %if.end.i.i7
 if.end6.i.i14:                                    ; preds = %if.then2.i.i12
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
   store ptr null, ptr %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16 = and i64 %call2.i, 4294967295
+  %conv.i.i16 = and i64 %call2.i, 15
   %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4, i64 %conv.i.i16, i1 false)
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx27 = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
@@ -45032,7 +45032,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr null, ptr %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i = and i64 %call2.i, 4294967295
+  %conv.i.i = and i64 %call2.i, 15
   %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i, i64 %conv.i.i, i1 false)
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx10 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
@@ -45380,7 +45380,7 @@ if.then2.i.i12:                                   ; preds = %if.end.i.i7
 if.end6.i.i14:                                    ; preds = %if.then2.i.i12
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
   store ptr null, ptr %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16 = and i64 %call2.i, 4294967295
+  %conv.i.i16 = and i64 %call2.i, 15
   %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4, i64 %conv.i.i16, i1 false)
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx27 = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
@@ -45725,7 +45725,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr null, ptr %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i = and i64 %call2.i, 4294967295
+  %conv.i.i = and i64 %call2.i, 15
   %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i, i64 %conv.i.i, i1 false)
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx10 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
@@ -46069,7 +46069,7 @@ if.then2.i.i12:                                   ; preds = %if.end.i.i7
 if.end6.i.i14:                                    ; preds = %if.then2.i.i12
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
   store ptr null, ptr %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx, align 8
-  %conv.i.i16 = and i64 %call2.i, 4294967295
+  %conv.i.i16 = and i64 %call2.i, 15
   %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i9.sroa_idx, ptr align 1 %call.i4, i64 %conv.i.i16, i1 false)
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i15.sroa_idx27 = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
@@ -46411,7 +46411,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr null, ptr %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i = and i64 %call2.i, 4294967295
+  %conv.i.i = and i64 %call2.i, 15
   %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i, i64 %conv.i.i, i1 false)
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx10 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
@@ -46820,7 +46820,7 @@ if.then2.i.i13:                                   ; preds = %if.end.i.i8
 if.end6.i.i15:                                    ; preds = %if.then2.i.i13
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i16.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
   store ptr null, ptr %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i16.sroa_idx, align 8
-  %conv.i.i17 = and i64 %call2.i, 4294967295
+  %conv.i.i17 = and i64 %call2.i, 15
   %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i10.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i10.sroa_idx, ptr align 1 %call.i5, i64 %conv.i.i17, i1 false)
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -47160,7 +47160,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr null, ptr %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i = and i64 %call2.i, 4294967295
+  %conv.i.i = and i64 %call2.i, 15
   %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i3, i64 %conv.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -47460,7 +47460,7 @@ if.then2.i.i13:                                   ; preds = %if.end.i.i8
 if.end6.i.i15:                                    ; preds = %if.then2.i.i13
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i16.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
   store ptr null, ptr %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i16.sroa_idx, align 8
-  %conv.i.i17 = and i64 %call2.i, 4294967295
+  %conv.i.i17 = and i64 %call2.i, 15
   %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i10.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i10.sroa_idx, ptr align 1 %call.i5, i64 %conv.i.i17, i1 false)
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -47761,7 +47761,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr null, ptr %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i = and i64 %call2.i, 4294967295
+  %conv.i.i = and i64 %call2.i, 15
   %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i3, i64 %conv.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -48018,7 +48018,7 @@ if.then2.i.i13:                                   ; preds = %if.end.i.i8
 if.end6.i.i15:                                    ; preds = %if.then2.i.i13
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i16.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
   store ptr null, ptr %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i16.sroa_idx, align 8
-  %conv.i.i17 = and i64 %call2.i, 4294967295
+  %conv.i.i17 = and i64 %call2.i, 15
   %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i10.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp3.4.agg.tmp3.4.agg.tmp3.4.prefix_.i.i10.sroa_idx, ptr align 1 %call.i5, i64 %conv.i.i17, i1 false)
   %agg.tmp3.8.agg.tmp3.8.agg.tmp3.8.value_7.i.i16.sroa_idx28 = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
@@ -48279,7 +48279,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr null, ptr %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i = and i64 %call2.i4, 4294967295
+  %conv.i.i = and i64 %call2.i4, 15
   %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i3, i64 %conv.i.i, i1 false)
   %agg.tmp.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx12 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
@@ -53911,7 +53911,7 @@ if.then2.i.i96:                                   ; preds = %if.end.i.i91
 if.end6.i.i98:                                    ; preds = %if.then2.i.i96
   %value_7.i.i99 = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 8
   store ptr null, ptr %value_7.i.i99, align 8
-  %conv.i.i100 = and i64 %.pre.i, 4294967295
+  %conv.i.i100 = and i64 %.pre.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i93, ptr align 1 %39, i64 %conv.i.i100, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i
 
@@ -57113,7 +57113,7 @@ if.then2.i.i155.i.i.i.i.i.i.i:                    ; preds = %if.end.i.i150.i.i.i
 
 if.end6.i.i157.i.i.i.i.i.i.i:                     ; preds = %if.then2.i.i155.i.i.i.i.i.i.i
   store ptr null, ptr %value_13.i.i154.i.i.i.i.i.i.i, align 8
-  %conv.i.i159.i.i.i.i.i.i.i = and i64 %.pre.i.i.i.i.i.i.i.i408, 4294967295
+  %conv.i.i159.i.i.i.i.i.i.i = and i64 %.pre.i.i.i.i.i.i.i.i408, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i152.i.i.i.i.i.i.i, ptr align 1 %441, i64 %conv.i.i159.i.i.i.i.i.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i.i.i
 
@@ -59671,7 +59671,7 @@ if.then2.i.i155:                                  ; preds = %if.end.i.i150
 if.end6.i.i157:                                   ; preds = %if.then2.i.i155
   %value_7.i.i158 = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 8
   store ptr null, ptr %value_7.i.i158, align 8
-  %conv.i.i159 = and i64 %.pre.i, 4294967295
+  %conv.i.i159 = and i64 %.pre.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i152, ptr align 1 %89, i64 %conv.i.i159, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i
 
@@ -62776,7 +62776,7 @@ while.end58.i.i.i.i.i.i.i.i:                      ; preds = %_ZN8facebook5velox1
 
 for.inc.i.i.i.i.i.i.i:                            ; preds = %while.end58.i.i.i.i.i.i.i.i, %_ZN8facebook5velox15UDFOutputString6resizeEm.exit.i.i67.i.i.i.i.i.i, %_ZN8facebook5velox15UDFOutputString6resizeEm.exit.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i58.i.i.i.i.i.i)
-  %indvars.iv.next.i.i.i.i.i.i.i = add nuw i64 %indvars.iv.i.i.i.i.i.i.i, 1
+  %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %283 = load ptr, ptr %agg.tmp16.sroa.3.0.agg.tmp1620.sroa_idx, align 8
   %284 = load i64, ptr %283, align 8
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %284, %indvars.iv.next.i.i.i.i.i.i.i
@@ -62855,7 +62855,7 @@ if.then2.i.i92.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i87.i.i.i.
 
 if.end6.i.i94.i.i.i.i.i.i.i:                      ; preds = %if.then2.i.i92.i.i.i.i.i.i.i
   store ptr null, ptr %value_13.i.i91.i.i.i.i.i.i.i, align 8
-  %conv.i.i96.i.i.i.i.i.i.i = and i64 %.pre.i.i.i.i.i.i.i.i178, 4294967295
+  %conv.i.i96.i.i.i.i.i.i.i = and i64 %.pre.i.i.i.i.i.i.i.i178, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i89.i.i.i.i.i.i.i, ptr align 1 %299, i64 %conv.i.i96.i.i.i.i.i.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i.i.i
 
@@ -63890,7 +63890,7 @@ if.end10:                                         ; preds = %_ZN8facebook5velox1
           to label %for.inc unwind label %lpad.loopexit
 
 for.inc:                                          ; preds = %if.end10
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load ptr, ptr %9, align 8
   %21 = load i64, ptr %20, align 8
   %cmp = icmp ugt i64 %21, %indvars.iv.next
@@ -63972,7 +63972,7 @@ if.then2.i.i92:                                   ; preds = %if.end.i.i87
 if.end6.i.i94:                                    ; preds = %if.then2.i.i92
   %value_7.i.i95 = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 8
   store ptr null, ptr %value_7.i.i95, align 8
-  %conv.i.i96 = and i64 %.pre.i, 4294967295
+  %conv.i.i96 = and i64 %.pre.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i89, ptr align 1 %36, i64 %conv.i.i96, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i
 
@@ -84335,7 +84335,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %value_7.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 8
   store ptr null, ptr %value_7.i.i, align 8
-  %conv.i.i = and i64 %.pre.i, 4294967295
+  %conv.i.i = and i64 %.pre.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i, ptr align 1 %10, i64 %conv.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i
 

@@ -49,7 +49,7 @@ _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.lr.ph: ; preds = %4
   br i1 %12, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.preheader, label %.critedge
 
 _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.preheader: ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.lr.ph
-  %wide.trip.count = and i64 %5, 4294967295
+  %wide.trip.count = and i64 %5, 2147483647
   br label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit
 
 _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit:       ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.preheader, %22

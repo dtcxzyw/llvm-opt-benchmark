@@ -992,7 +992,7 @@ define internal i32 @nf_log_proc_dostring(ptr nocapture noundef readonly %0, i32
   br i1 %24, label %46, label %25
 
 25:                                               ; preds = %22
-  %26 = and i64 %11, 255
+  %26 = and i64 %11, 15
   call void @mutex_lock(ptr noundef nonnull @nf_log_mutex) #15
   br label %.thread.sink.split
 

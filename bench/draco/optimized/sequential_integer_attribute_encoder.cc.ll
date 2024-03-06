@@ -4717,7 +4717,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit170:            ; preds = %_ZSt6fill_nIPimiET_
   %141 = call i32 @llvm.umax.i32(i32 %4, i32 1)
   %142 = zext nneg i32 %141 to i64
   %143 = shl nuw nsw i64 %142, 2
-  %144 = and i64 %121, 4294967295
+  %144 = and i64 %121, 2147483647
   br label %145
 
 .preheader:                                       ; preds = %_ZZN5draco56MeshPredictionSchemeConstrainedMultiParallelogramEncoderIiNS_37PredictionSchemeWrapEncodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE23ComputeCorrectionValuesEPKiPiiiPKNS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEN23PredictionConfigurationD2Ev.exit255, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit170
@@ -8471,7 +8471,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometric
   %38 = getelementptr inbounds i8, ptr %0, i64 32
   %39 = getelementptr inbounds i8, ptr %0, i64 28
   %40 = getelementptr inbounds i8, ptr %0, i64 164
-  %wide.trip.count = and i64 %24, 4294967295
+  %wide.trip.count = and i64 %24, 2147483647
   br label %41
 
 41:                                               ; preds = %.lr.ph, %_ZNK5draco7VectorDIiLi2EE6AbsSumEv.exit59
@@ -11216,7 +11216,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit170:            ; preds = %_ZSt6fill_nIPimiET_
   %140 = call i32 @llvm.umax.i32(i32 %4, i32 1)
   %141 = zext nneg i32 %140 to i64
   %142 = shl nuw nsw i64 %141, 2
-  %143 = and i64 %121, 4294967295
+  %143 = and i64 %121, 2147483647
   br label %144
 
 .preheader:                                       ; preds = %_ZZN5draco56MeshPredictionSchemeConstrainedMultiParallelogramEncoderIiNS_37PredictionSchemeWrapEncodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE23ComputeCorrectionValuesEPKiPiiiPKNS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEN23PredictionConfigurationD2Ev.exit248, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit170
@@ -13777,7 +13777,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometric
   %38 = getelementptr inbounds i8, ptr %0, i64 32
   %39 = getelementptr inbounds i8, ptr %0, i64 28
   %40 = getelementptr inbounds i8, ptr %0, i64 164
-  %wide.trip.count = and i64 %24, 4294967295
+  %wide.trip.count = and i64 %24, 2147483647
   br label %41
 
 41:                                               ; preds = %.lr.ph, %_ZNK5draco7VectorDIiLi2EE6AbsSumEv.exit59

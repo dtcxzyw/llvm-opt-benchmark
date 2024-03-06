@@ -4552,7 +4552,7 @@ define internal fastcc void @init_timer_cpus() unnamed_addr #4 section ".init.te
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %7
-  %12 = and i64 %8, 4294967295
+  %12 = and i64 %8, 63
   %13 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %12
   br label %14
 
@@ -4576,8 +4576,8 @@ define internal fastcc void @init_timer_cpus() unnamed_addr #4 section ".init.te
   br i1 %15, label %14, label %27, !llvm.loop !108
 
 27:                                               ; preds = %14
-  %28 = add i64 %8, 1
-  %29 = and i64 %28, 4294967295
+  %28 = add nuw nsw i64 %8, 1
+  %29 = and i64 %28, 127
   %30 = icmp ult i64 %29, 64
   br i1 %30, label %1, label %.thread, !prof !109, !llvm.loop !110
 

@@ -5510,7 +5510,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %50
 
 201:                                              ; preds = %190
   store ptr %194, ptr %9, align 8
-  %202 = and i64 %198, 4294967295
+  %202 = and i64 %198, 2147483647
   store i64 %202, ptr %71, align 8
   br label %203
 

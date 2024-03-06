@@ -52,7 +52,7 @@ define noundef i32 @pmix_fd_read(i32 noundef %0, i32 noundef %1, ptr nocapture n
 
 .outer:                                           ; preds = %.split.us
   %16 = sub nsw i32 %.013.ph25, %.us-phi20
-  %17 = and i64 %.us-phi, 4294967295
+  %17 = and i64 %.us-phi, 2147483647
   %18 = getelementptr inbounds i8, ptr %.0.ph26, i64 %17
   %19 = icmp sgt i32 %16, 0
   br i1 %19, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !4
@@ -107,7 +107,7 @@ define noundef i32 @pmix_fd_write(i32 noundef %0, i32 noundef %1, ptr nocapture 
 
 .outer:                                           ; preds = %.split.us
   %16 = sub nsw i32 %.012.ph25, %.us-phi20
-  %17 = and i64 %.us-phi, 4294967295
+  %17 = and i64 %.us-phi, 2147483647
   %18 = getelementptr inbounds i8, ptr %.0.ph26, i64 %17
   %19 = icmp sgt i32 %16, 0
   br i1 %19, label %.lr.ph.split.us, label %.thread, !llvm.loop !6

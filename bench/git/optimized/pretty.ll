@@ -615,7 +615,7 @@ land.lhs.true43:                                  ; preds = %if.end41
   br i1 %cmp10.i, label %for.body.preheader.i, label %if.else55
 
 for.body.preheader.i:                             ; preds = %land.lhs.true43
-  %20 = and i64 %.pre166, 4294967295
+  %20 = and i64 %.pre166, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
@@ -658,7 +658,7 @@ if.else:                                          ; preds = %for.inc.i, %if.end4
   br i1 %cmp5.i47, label %for.body.preheader.i49, label %if.else55
 
 for.body.preheader.i49:                           ; preds = %if.else
-  %wide.trip.count.i50 = and i64 %.pre166, 4294967295
+  %wide.trip.count.i50 = and i64 %.pre166, 2147483647
   br label %for.body.i51
 
 for.body.i51:                                     ; preds = %for.inc.i54, %for.body.preheader.i49
@@ -688,7 +688,7 @@ for.inc.i54:                                      ; preds = %for.body.i51
 
 if.then51:                                        ; preds = %for.body.i51, %for.body.i51, %for.body.i51, %for.body.i51, %for.body.i51, %for.body.i51, %for.body.i51, %for.body.i51, %for.body.i51, %for.body.i51, %for.body.i51, %for.body.i51, %for.body.i51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %quoted, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_wrap.tmp, i64 24, i1 false)
-  %add.i = add i64 %.pre166, 2
+  %add.i = add nuw nsw i64 %.pre166, 2
   %conv.i = and i64 %add.i, 4294967295
   call void @strbuf_grow(ptr noundef nonnull %quoted, i64 noundef %conv.i) #19
   %24 = load i64, ptr %quoted, align 8
@@ -3484,7 +3484,7 @@ if.end:                                           ; preds = %if.then3, %if.then
   br i1 %or.cond, label %for.body.preheader.i, label %if.else
 
 for.body.preheader.i:                             ; preds = %if.end
-  %10 = and i64 %.pre111, 4294967295
+  %10 = and i64 %.pre111, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i

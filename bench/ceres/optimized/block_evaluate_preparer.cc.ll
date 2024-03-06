@@ -47,7 +47,7 @@ define hidden void @_ZN5ceres8internal21BlockEvaluatePreparer7PrepareEPKNS0_13Re
   %25 = getelementptr inbounds ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %1, i64 16
-  %wide.trip.count = and i64 %20, 4294967295
+  %wide.trip.count = and i64 %20, 2147483647
   br label %28
 
 28:                                               ; preds = %.lr.ph, %56

@@ -470,13 +470,13 @@ define internal void @early_dbgp_write(ptr nocapture readnone %0, ptr nocapture 
   %68 = or i32 %52, 32512
   %69 = or i32 %58, %66
   %70 = or disjoint i32 %69, 225
-  %71 = or i32 %67, %65
-  %72 = or i32 %71, 48
+  %71 = or disjoint i32 %67, %65
+  %72 = or disjoint i32 %71, 48
   %73 = icmp ugt i32 %49, 3
   br i1 %73, label %74, label %.loopexit
 
 74:                                               ; preds = %64
-  %75 = and i64 %43, 4294967295
+  %75 = and i64 %43, 15
   br label %88
 
 76:                                               ; preds = %76, %51

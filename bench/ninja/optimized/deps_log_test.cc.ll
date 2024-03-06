@@ -15475,7 +15475,7 @@ _ZN7testing15AssertionResultD2Ev.exit160:         ; preds = %294, %_ZNKSt14defau
   %309 = getelementptr inbounds i8, ptr %31, i64 72
   %310 = getelementptr inbounds i8, ptr %31, i64 80
   %311 = getelementptr inbounds i8, ptr %43, i64 8
-  %312 = and i64 %299, 4294967295
+  %312 = and i64 %299, 2147483647
   br label %313
 
 313:                                              ; preds = %.lr.ph278, %.critedge260

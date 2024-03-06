@@ -570,7 +570,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %sub.i = add nsw i64 %sub.ptr.div.i.i, -1
-  %wide.trip.count.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count.i = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end.i
@@ -624,7 +624,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %sub = add nsw i64 %sub.ptr.div.i, -1
-  %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -18734,7 +18734,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.end.i.i:                                       ; preds = %land.lhs.true
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i.i, -1
-  %wide.trip.count.i.i = and i64 %sub.ptr.div.i.i.i, 4294967295
+  %wide.trip.count.i.i = and i64 %sub.ptr.div.i.i.i, 2147483647
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i.i
@@ -18813,7 +18813,7 @@ land.lhs.true16:                                  ; preds = %for.body
 
 if.end.i.i19:                                     ; preds = %land.lhs.true16
   %sub.i.i20 = add nsw i64 %sub.ptr.div.i.i.i16, -1
-  %wide.trip.count.i.i21 = and i64 %sub.ptr.div.i.i.i16, 4294967295
+  %wide.trip.count.i.i21 = and i64 %sub.ptr.div.i.i.i16, 2147483647
   br label %for.body.i.i22
 
 for.body.i.i22:                                   ; preds = %for.body.i.i22, %if.end.i.i19
@@ -18924,7 +18924,7 @@ land.lhs.true34:                                  ; preds = %for.body26
 
 if.end.i.i60:                                     ; preds = %land.lhs.true34
   %sub.i.i61 = add nsw i64 %sub.ptr.div.i.i.i57, -1
-  %wide.trip.count.i.i62 = and i64 %sub.ptr.div.i.i.i57, 4294967295
+  %wide.trip.count.i.i62 = and i64 %sub.ptr.div.i.i.i57, 2147483647
   br label %for.body.i.i63
 
 for.body.i.i63:                                   ; preds = %for.body.i.i63, %if.end.i.i60
@@ -21681,7 +21681,7 @@ land.lhs.true:                                    ; preds = %invoke.cont41
   br i1 %cmp47, label %if.end.i64, label %if.else67
 
 if.end.i64:                                       ; preds = %land.lhs.true
-  %conv = and i64 %sub.ptr.div.i.i54, 4294967295
+  %conv = and i64 %sub.ptr.div.i.i54, 2147483647
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %solution, i64 48
   %49 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i.i65 = ptrtoint ptr %49 to i64
@@ -24890,7 +24890,7 @@ invoke.cont92.us:                                 ; preds = %_ZNSt6vectorIN10Cli
 
 if.end.i.i.us:                                    ; preds = %invoke.cont92.us
   %sub.i.i.us = add nsw i64 %sub.ptr.div.i.i.i.us, -1
-  %wide.trip.count.i.i.us = and i64 %sub.ptr.div.i.i.i.us, 4294967295
+  %wide.trip.count.i.i.us = and i64 %sub.ptr.div.i.i.i.us, 2147483647
   br label %for.body.i.i.us
 
 for.body.i.i.us:                                  ; preds = %for.body.i.i.us, %if.end.i.i.us

@@ -2998,7 +2998,7 @@ define i32 @onig_unicode_define_user_property(ptr nocapture noundef readonly %0,
   br i1 %14, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %wide.trip.count = and i64 %6, 4294967295
+  %wide.trip.count = and i64 %6, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23

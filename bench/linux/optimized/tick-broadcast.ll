@@ -1376,7 +1376,7 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef %0) #2 align 16 
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %12
-  %17 = and i64 %13, 4294967295
+  %17 = and i64 %13, 63
   %18 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, ptrtoint (ptr @tick_cpu_device to i64)
@@ -1403,8 +1403,8 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef %0) #2 align 16 
   %32 = phi i64 [ %5, %27 ], [ %.pre, %26 ]
   %33 = phi i32 [ %29, %27 ], [ %8, %26 ]
   %34 = phi i64 [ %30, %27 ], [ %7, %26 ]
-  %35 = add i64 %13, 1
-  %36 = and i64 %35, 4294967295
+  %35 = add nuw nsw i64 %13, 1
+  %36 = and i64 %35, 127
   %37 = icmp ugt i64 %36, 63
   br i1 %37, label %.thread, label %4, !prof !11, !llvm.loop !32
 

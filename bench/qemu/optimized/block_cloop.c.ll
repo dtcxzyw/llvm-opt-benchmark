@@ -370,7 +370,7 @@ if.end8:                                          ; preds = %if.end
 for.body.lr.ph:                                   ; preds = %if.end8
   %sectors_per_block = getelementptr inbounds i8, ptr %0, i64 64
   %uncompressed_block = getelementptr inbounds i8, ptr %0, i64 80
-  %wide.trip.count = and i64 %shr1, 4294967295
+  %wide.trip.count = and i64 %shr1, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end23

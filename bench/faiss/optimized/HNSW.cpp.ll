@@ -9051,7 +9051,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %19, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %wide.trip.count = and i64 %10, 4294967295
+  %wide.trip.count = and i64 %10, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -9198,7 +9198,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit67:             ; preds = %_ZSt6fill_nIPimiET_
   br i1 %19, label %.lr.ph117, label %._crit_edge118
 
 .lr.ph117:                                        ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit67
-  %wide.trip.count123 = and i64 %10, 4294967295
+  %wide.trip.count123 = and i64 %10, 2147483647
   br label %71
 
 71:                                               ; preds = %.lr.ph117, %._crit_edge114

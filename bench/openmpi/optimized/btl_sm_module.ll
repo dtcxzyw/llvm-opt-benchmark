@@ -193,7 +193,7 @@ sm_btl_first_time_init.exit:                      ; preds = %mca_smsc_base_has_f
   %89 = icmp ne ptr %4, null
   %90 = getelementptr inbounds i8, ptr %8, i64 256
   %91 = getelementptr inbounds i8, ptr %11, i64 256
-  %wide.trip.count = and i64 %1, 4294967295
+  %wide.trip.count = and i64 %1, 2147483647
   br label %92
 
 92:                                               ; preds = %.lr.ph, %206

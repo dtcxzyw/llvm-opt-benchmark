@@ -1643,14 +1643,14 @@ define internal fastcc i32 @inode_doinit_use_xattr(ptr noundef %0, ptr noundef %
   br i1 %16, label %61, label %17
 
 17:                                               ; preds = %13
-  %18 = add i64 %14, 1
+  %18 = add nuw nsw i64 %14, 1
   %19 = and i64 %18, 4294967295
   %20 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %19, i32 noundef 3136) #29
   %21 = icmp eq ptr %20, null
   br i1 %21, label %61, label %22
 
 22:                                               ; preds = %17
-  %23 = and i64 %14, 4294967295
+  %23 = and i64 %14, 2147483647
   %24 = getelementptr i8, ptr %20, i64 %23
   store i8 0, ptr %24, align 1
   %25 = tail call i64 @__vfs_getxattr(ptr noundef %1, ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef nonnull %20, i64 noundef %23) #24

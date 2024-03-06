@@ -1985,7 +1985,7 @@ if.else:                                          ; preds = %if.end11
 
 for.inc:                                          ; preds = %if.end21, %if.else, %if.then, %if.then10
   %valuesOffset.1 = phi i64 [ %add, %if.then10 ], [ %valuesOffset.047, %if.then ], [ %add23, %if.end21 ], [ %add27, %if.else ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load ptr, ptr %_M_finish.i, align 8
   %33 = load ptr, ptr %children_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %32 to i64
@@ -9366,7 +9366,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i: ; preds = %entry
   %conv.i = lshr exact i64 %sub.ptr.sub.i, 2
-  %5 = and i64 %conv.i, 17179869180
+  %5 = and i64 %conv.i, 8589934588
   %6 = add nuw nsw i64 %5, 96
   %vtable.i.i = load ptr, ptr %pool, align 8, !noalias !225
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 192
@@ -9468,7 +9468,7 @@ if.then.i.i.i63:                                  ; preds = %invoke.cont
 
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i34: ; preds = %invoke.cont
   %conv.i35 = shl i64 %17, 2
-  %20 = and i64 %conv.i35, 17179869180
+  %20 = and i64 %conv.i35, 8589934588
   %21 = add nuw nsw i64 %20, 96
   %vtable.i.i36 = load ptr, ptr %18, align 8, !noalias !232
   %vfn.i.i37 = getelementptr inbounds i8, ptr %vtable.i.i36, i64 192

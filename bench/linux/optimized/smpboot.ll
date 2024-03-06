@@ -483,7 +483,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   br i1 %43, label %44, label %.thread
 
 44:                                               ; preds = %40
-  %45 = and i64 %41, 4294967295
+  %45 = and i64 %41, 63
   %46 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, ptrtoint (ptr @cpu_info to i64)
@@ -758,8 +758,8 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   br label %223
 
 223:                                              ; preds = %216, %205, %.thread18
-  %224 = add i64 %41, 1
-  %225 = and i64 %224, 4294967295
+  %224 = add nuw nsw i64 %41, 1
+  %225 = and i64 %224, 127
   %226 = icmp ugt i64 %225, 63
   br i1 %226, label %.thread, label %34, !prof !13, !llvm.loop !22
 
@@ -825,7 +825,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   br i1 %262, label %263, label %.thread22
 
 263:                                              ; preds = %259
-  %264 = and i64 %260, 4294967295
+  %264 = and i64 %260, 63
   %265 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %264
   %266 = load i64, ptr %265, align 8
   %267 = icmp eq i32 %261, %0
@@ -887,8 +887,8 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
 
 303:                                              ; preds = %296, %295, %268
   %304 = phi i64 [ %.pre, %296 ], [ %.pre, %295 ], [ %254, %268 ]
-  %305 = add i64 %260, 1
-  %306 = and i64 %305, 4294967295
+  %305 = add nuw nsw i64 %260, 1
+  %306 = and i64 %305, 127
   %307 = icmp ugt i64 %306, 63
   br i1 %307, label %.thread22, label %.thread20.split.us, !prof !13, !llvm.loop !24
 
@@ -920,7 +920,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   br i1 %326, label %327, label %.thread22
 
 327:                                              ; preds = %323
-  %328 = and i64 %324, 4294967295
+  %328 = and i64 %324, 63
   %329 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %328
   %330 = load i64, ptr %329, align 8
   %331 = icmp eq i32 %325, %0
@@ -967,8 +967,8 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   br label %358
 
 358:                                              ; preds = %.critedge28, %347, %339, %332
-  %359 = add i64 %324, 1
-  %360 = and i64 %359, 4294967295
+  %359 = add nuw nsw i64 %324, 1
+  %360 = and i64 %359, 127
   %361 = icmp ugt i64 %360, 63
   br i1 %361, label %.thread22, label %.thread20.split, !prof !13, !llvm.loop !24
 
@@ -2512,7 +2512,7 @@ define dso_local void @smp_kick_mwait_play_dead() local_unnamed_addr #2 align 16
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %10
-  %15 = and i64 %11, 4294967295
+  %15 = and i64 %11, 63
   %16 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, ptrtoint (ptr @mwait_cpu_dead to i64)
@@ -2553,8 +2553,8 @@ define dso_local void @smp_kick_mwait_play_dead() local_unnamed_addr #2 align 16
   br label %38
 
 38:                                               ; preds = %36, %34, %.loopexit, %14
-  %39 = add i64 %11, 1
-  %40 = and i64 %39, 4294967295
+  %39 = add nuw nsw i64 %11, 1
+  %40 = and i64 %39, 127
   %41 = icmp ugt i64 %40, 63
   br i1 %41, label %.thread, label %1, !prof !13, !llvm.loop !52
 

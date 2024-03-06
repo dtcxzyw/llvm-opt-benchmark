@@ -33935,13 +33935,13 @@ sw.epilog51.i.i.us.us:                            ; preds = %sw.default.i228.i.u
   br label %ma_channel_map_get_channel.exit351.us.us
 
 switch.lookup:                                    ; preds = %sw.bb24.i.i.us.us
-  %208 = and i64 %indvars.iv550, 4294967295
+  %208 = and i64 %indvars.iv550, 7
   %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table.ma_channel_map_apply_f32, i64 0, i64 %208
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %ma_channel_map_get_channel.exit351.us.us
 
 switch.lookup709:                                 ; preds = %sw.bb17.i.i.us.us
-  %209 = and i64 %indvars.iv550, 4294967295
+  %209 = and i64 %indvars.iv550, 7
   %switch.gep710 = getelementptr inbounds [5 x i64], ptr @switch.table.ma_channel_map_apply_f32.50, i64 0, i64 %209
   %switch.load711 = load i64, ptr %switch.gep710, align 8
   br label %ma_channel_map_get_channel.exit351.us.us
@@ -33953,12 +33953,12 @@ switch.lookup712:                                 ; preds = %sw.bb11.i.i.us.us
   br label %ma_channel_map_get_channel.exit351.us.us
 
 switch.lookup715:                                 ; preds = %sw.bb6.i.i.us.us
-  %switch.idx.cast = and i64 %indvars.iv550, 4294967295
+  %switch.idx.cast = and i64 %indvars.iv550, 3
   %switch.offset = add nuw nsw i64 %switch.idx.cast, 2
   br label %ma_channel_map_get_channel.exit351.us.us
 
 switch.lookup716:                                 ; preds = %sw.bb32.i.i.us.us
-  %211 = and i64 %indvars.iv550, 4294967295
+  %211 = and i64 %indvars.iv550, 7
   %switch.gep717 = getelementptr inbounds [7 x i64], ptr @switch.table.ma_channel_map_apply_f32.52, i64 0, i64 %211
   %switch.load718 = load i64, ptr %switch.gep717, align 8
   br label %ma_channel_map_get_channel.exit351.us.us
@@ -134682,7 +134682,7 @@ if.end160:                                        ; preds = %if.end98, %if.then1
   br i1 %cmp162, label %if.then164, label %if.else166
 
 if.then164:                                       ; preds = %if.end160
-  %conv.i521.mask = and i32 %result.0.i520, 255
+  %conv.i521.mask = and i32 %result.0.i520, 15
   %idxprom = zext nneg i32 %conv.i521.mask to i64
   %arrayidx = getelementptr inbounds [12 x i32], ptr @__const.ma_dr_flac__read_next_flac_frame_header.sampleRateTable, i64 0, i64 %idxprom
   %89 = load i32, ptr %arrayidx, align 4
@@ -136851,7 +136851,7 @@ if.end10:                                         ; preds = %if.end42.i.i59, %if
   br i1 %cmp12, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end10
-  %conv11 = and i32 %result.0.i40, 255
+  %conv11 = and i32 %result.0.i40, 15
   %div23 = lshr i32 %blockSize, %conv11
   %cmp17 = icmp ult i32 %div23, %lpcOrder
   br i1 %cmp17, label %return, label %if.end20
@@ -147762,7 +147762,7 @@ sw.bb24.i103:                                     ; preds = %if.end42.i.i, %if.t
   br i1 %cmp, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %sw.bb24.i103
-  %conv.i.mask = and i32 %result.0.i, 255
+  %conv.i.mask = and i32 %result.0.i, 127
   %conv7 = zext nneg i32 %conv.i.mask to i64
   store i64 %conv7, ptr %pNumberOut, align 8
   store i8 %8, ptr %pCRCOut, align 1
@@ -149022,7 +149022,7 @@ if.end10:                                         ; preds = %if.end42.i.i48, %if
   br i1 %cmp12, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end10
-  %conv11 = and i32 %result.0.i29, 255
+  %conv11 = and i32 %result.0.i29, 15
   %div12 = lshr i32 %blockSize, %conv11
   %cmp17.not = icmp ugt i32 %div12, %order
   br i1 %cmp17.not, label %if.end20, label %return

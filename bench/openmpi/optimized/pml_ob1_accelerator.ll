@@ -1029,7 +1029,7 @@ define noundef i64 @mca_pml_ob1_rdma_cuda_btls(ptr nocapture noundef readonly %0
 
 .lr.ph:                                           ; preds = %.preheader
   %12 = getelementptr inbounds i8, ptr %0, i64 160
-  %13 = and i64 %.val, 4294967295
+  %13 = and i64 %.val, 2147483647
   br label %14
 
 14:                                               ; preds = %.lr.ph, %.thread

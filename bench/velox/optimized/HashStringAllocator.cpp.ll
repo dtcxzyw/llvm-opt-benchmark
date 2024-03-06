@@ -2277,7 +2277,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %retval.8.retval.8.retval.8.value_7.i.i.sroa_idx = getelementptr inbounds i8, ptr %retval, i64 8
   store ptr null, ptr %retval.8.retval.8.retval.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i = and i64 %call2.i, 4294967295
+  %conv.i.i = and i64 %call2.i, 15
   %retval.4.retval.4.retval.4.prefix_.i.i.sroa_idx = getelementptr inbounds i8, ptr %retval, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.4.retval.4.retval.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i, i64 %conv.i.i, i1 false)
   br label %invoke.cont16
@@ -2468,7 +2468,7 @@ if.end9.i.i:                                      ; preds = %if.end
   br i1 %cmp10.not.i.i, label %if.end18.i.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.end9.i.i
-  %div12.i.i141516 = lshr i32 %.sroa.speculated.i, 6
+  %div12.i.i151617 = lshr i32 %.sroa.speculated.i, 6
   %sub13.i.i = sub nsw i32 %mul.i.i.i, %.sroa.speculated.i
   %sh_prom.i.i27.i.i = zext nneg i32 %sub13.i.i to i64
   %notmask.i.i28.i.i = shl nsw i64 -1, %sh_prom.i.i27.i.i
@@ -2476,7 +2476,7 @@ if.then11.i.i:                                    ; preds = %if.end9.i.i
   %sub.i30.i.i = sub nsw i32 64, %sub13.i.i
   %sh_prom.i31.i.i = zext nneg i32 %sub.i30.i.i to i64
   %shl.i32.i.i = shl i64 %sub.i.i29.i.i, %sh_prom.i31.i.i
-  %idxprom.i33.i.i = zext nneg i32 %div12.i.i141516 to i64
+  %idxprom.i33.i.i = zext nneg i32 %div12.i.i151617 to i64
   %arrayidx.i34.i.i = getelementptr inbounds i64, ptr %freeNonEmpty_, i64 %idxprom.i33.i.i
   %3 = load i64, ptr %arrayidx.i34.i.i, align 8
   %and.i35.i.i = and i64 %3, %shl.i32.i.i

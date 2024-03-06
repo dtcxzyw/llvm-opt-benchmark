@@ -1483,7 +1483,7 @@ define internal fastcc i32 @regex_fixed_prefix(ptr nocapture noundef readonly %0
   br i1 %36, label %42, label %37
 
 37:                                               ; preds = %35
-  %38 = and i64 %26, 4294967295
+  %38 = and i64 %26, 2147483647
   %39 = getelementptr i8, ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -2
   %41 = load i8, ptr %40, align 1
@@ -1557,7 +1557,7 @@ regex_selectivity.exit:                           ; preds = %47, %49, %51
   br i1 %74, label %80, label %75
 
 75:                                               ; preds = %73
-  %76 = and i64 %62, 4294967295
+  %76 = and i64 %62, 2147483647
   %77 = getelementptr i8, ptr %61, i64 %76
   %78 = getelementptr i8, ptr %77, i64 -2
   %79 = load i8, ptr %78, align 1

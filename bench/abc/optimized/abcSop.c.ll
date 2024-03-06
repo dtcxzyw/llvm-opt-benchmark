@@ -1989,7 +1989,7 @@ Abc_Base2Log.exit:                                ; preds = %.lr.ph.i, %1
   br label %64
 
 .lr.ph.preheader:                                 ; preds = %11
-  %wide.trip.count = and i64 %2, 4294967295
+  %wide.trip.count = and i64 %2, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
@@ -2382,7 +2382,7 @@ Abc_Base2Log.exit:                                ; preds = %.lr.ph.i
   br label %79
 
 .lr.ph.preheader:                                 ; preds = %15
-  %wide.trip.count = and i64 %2, 4294967295
+  %wide.trip.count = and i64 %2, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %72
@@ -2952,7 +2952,7 @@ define internal fastcc void @Vec_StrPrintStr(ptr nocapture noundef %0, ptr nocap
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
-  %wide.trip.count = and i64 %3, 4294967295
+  %wide.trip.count = and i64 %3, 2147483647
   br label %7
 
 7:                                                ; preds = %.lr.ph, %Vec_StrPush.exit

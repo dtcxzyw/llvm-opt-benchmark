@@ -1654,7 +1654,7 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
   br label %.thread25
 
 61:                                               ; preds = %56
-  %62 = and i64 %44, 4294967295
+  %62 = and i64 %44, 2147483647
   %63 = getelementptr [4 x ptr], ptr @check_output_sfx.channel_sfx, i64 0, i64 %62
   %64 = load ptr, ptr %63, align 8
   br label %.thread25
@@ -1704,7 +1704,7 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
   br label %.thread25
 
 89:                                               ; preds = %84
-  %90 = and i64 %72, 4294967295
+  %90 = and i64 %72, 2147483647
   %91 = getelementptr [4 x ptr], ptr @check_output_sfx.channel_sfx, i64 0, i64 %90
   %92 = load ptr, ptr %91, align 8
   br label %.thread25
@@ -1773,7 +1773,7 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
   br i1 %124, label %.loopexit, label %125
 
 125:                                              ; preds = %123
-  %126 = and i64 %113, 4294967295
+  %126 = and i64 %113, 2147483647
   br label %127
 
 127:                                              ; preds = %.thread51, %125

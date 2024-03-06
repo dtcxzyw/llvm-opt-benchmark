@@ -1011,7 +1011,7 @@ define internal noundef i32 @iommu_pmu_add(ptr noundef %0, i32 noundef %1) #0 al
 
 40:                                               ; preds = %37
   %41 = getelementptr i8, ptr %4, i64 312
-  %42 = and i64 %16, 4294967295
+  %42 = and i64 %16, 2147483647
   %43 = getelementptr [64 x ptr], ptr %41, i64 0, i64 %42
   store ptr %0, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 396

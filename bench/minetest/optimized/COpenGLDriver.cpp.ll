@@ -12128,7 +12128,7 @@ define void @_ZN3irr5video13COpenGLDriver11setMaterialERKNS0_9SMaterialE(ptr nou
   ret void
 
 .preheader:                                       ; preds = %78, %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit
-  %81 = phi i64 [ %132, %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit ], [ 4, %78 ]
+  %81 = phi i64 [ %133, %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit ], [ 4, %78 ]
   %82 = load ptr, ptr %10, align 8, !tbaa !6
   %83 = getelementptr inbounds i8, ptr %82, i64 16
   %84 = trunc i64 %81 to i32
@@ -12141,74 +12141,75 @@ define void @_ZN3irr5video13COpenGLDriver11setMaterialERKNS0_9SMaterialE(ptr nou
 
 90:                                               ; preds = %.preheader
   %91 = getelementptr inbounds i8, ptr %82, i64 32
-  %92 = getelementptr inbounds [4 x ptr], ptr %91, i64 0, i64 %81
-  %93 = load ptr, ptr %92, align 8, !tbaa !134
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit, label %95
+  %92 = and i64 %81, 3
+  %93 = getelementptr inbounds [4 x ptr], ptr %91, i64 0, i64 %92
+  %94 = load ptr, ptr %93, align 8, !tbaa !134
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit, label %96
 
-95:                                               ; preds = %90
-  %96 = load ptr, ptr %83, align 8, !tbaa !319
-  %97 = or disjoint i32 %84, 33984
-  %98 = getelementptr inbounds i8, ptr %96, i64 172
-  %99 = load i32, ptr %98, align 4, !tbaa !223
-  %100 = icmp eq i32 %99, %97
-  br i1 %100, label %114, label %101
+96:                                               ; preds = %90
+  %97 = load ptr, ptr %83, align 8, !tbaa !319
+  %98 = or disjoint i32 %84, 33984
+  %99 = getelementptr inbounds i8, ptr %97, i64 172
+  %100 = load i32, ptr %99, align 4, !tbaa !223
+  %101 = icmp eq i32 %100, %98
+  br i1 %101, label %115, label %102
 
-101:                                              ; preds = %95
-  %102 = getelementptr inbounds i8, ptr %96, i64 8
-  %103 = load ptr, ptr %102, align 8, !tbaa !224
-  %104 = getelementptr inbounds i8, ptr %103, i64 1736
-  %105 = load ptr, ptr %104, align 8, !tbaa !225
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %107, label %111
+102:                                              ; preds = %96
+  %103 = getelementptr inbounds i8, ptr %97, i64 8
+  %104 = load ptr, ptr %103, align 8, !tbaa !224
+  %105 = getelementptr inbounds i8, ptr %104, i64 1736
+  %106 = load ptr, ptr %105, align 8, !tbaa !225
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %108, label %112
 
-107:                                              ; preds = %101
-  %108 = getelementptr inbounds i8, ptr %103, i64 1744
-  %109 = load ptr, ptr %108, align 8, !tbaa !226
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %113, label %111
+108:                                              ; preds = %102
+  %109 = getelementptr inbounds i8, ptr %104, i64 1744
+  %110 = load ptr, ptr %109, align 8, !tbaa !226
+  %111 = icmp eq ptr %110, null
+  br i1 %111, label %114, label %112
 
-111:                                              ; preds = %107, %101
-  %112 = phi ptr [ %105, %101 ], [ %109, %107 ]
-  tail call void %112(i32 noundef %97) #24
-  br label %113
-
-113:                                              ; preds = %111, %107
-  store i32 %97, ptr %98, align 4, !tbaa !223
+112:                                              ; preds = %108, %102
+  %113 = phi ptr [ %106, %102 ], [ %110, %108 ]
+  tail call void %113(i32 noundef %98) #24
   br label %114
 
-114:                                              ; preds = %95, %113
-  %115 = getelementptr inbounds i8, ptr %93, i64 128
-  %116 = load i32, ptr %115, align 8, !tbaa !325
-  %117 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !333
-  tail call void %117(i32 noundef %116, i32 noundef 0) #24
-  %118 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !334
-  tail call void %118(i32 noundef %116) #24
-  store ptr null, ptr %92, align 8, !tbaa !134
-  %119 = load ptr, ptr %93, align 8, !tbaa !3
-  %120 = getelementptr i8, ptr %119, i64 -24
-  %121 = load i64, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %93, i64 %121
-  %123 = getelementptr inbounds i8, ptr %122, i64 16
-  %124 = load i32, ptr %123, align 8, !tbaa !140
-  %125 = add nsw i32 %124, -1
-  store i32 %125, ptr %123, align 8, !tbaa !140
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit
+114:                                              ; preds = %112, %108
+  store i32 %98, ptr %99, align 4, !tbaa !223
+  br label %115
 
-127:                                              ; preds = %114
-  %128 = load ptr, ptr %122, align 8, !tbaa !3
-  %129 = getelementptr inbounds i8, ptr %128, i64 8
-  %130 = load ptr, ptr %129, align 8
-  tail call void %130(ptr noundef nonnull align 8 dereferenceable(20) %122) #24
+115:                                              ; preds = %96, %114
+  %116 = getelementptr inbounds i8, ptr %94, i64 128
+  %117 = load i32, ptr %116, align 8, !tbaa !325
+  %118 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 59), align 8, !tbaa !333
+  tail call void %118(i32 noundef %117, i32 noundef 0) #24
+  %119 = load ptr, ptr getelementptr inbounds (%class.OpenGLProcedures, ptr @GL, i64 0, i32 22), align 8, !tbaa !334
+  tail call void %119(i32 noundef %117) #24
+  store ptr null, ptr %93, align 8, !tbaa !134
+  %120 = load ptr, ptr %94, align 8, !tbaa !3
+  %121 = getelementptr i8, ptr %120, i64 -24
+  %122 = load i64, ptr %121, align 8
+  %123 = getelementptr inbounds i8, ptr %94, i64 %122
+  %124 = getelementptr inbounds i8, ptr %123, i64 16
+  %125 = load i32, ptr %124, align 8, !tbaa !140
+  %126 = add nsw i32 %125, -1
+  store i32 %126, ptr %124, align 8, !tbaa !140
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %128, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit
+
+128:                                              ; preds = %115
+  %129 = load ptr, ptr %123, align 8, !tbaa !3
+  %130 = getelementptr inbounds i8, ptr %129, i64 8
+  %131 = load ptr, ptr %130, align 8
+  tail call void %131(ptr noundef nonnull align 8 dereferenceable(20) %123) #24
   br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit
 
-_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit: ; preds = %.preheader, %90, %114, %127
-  %131 = load i8, ptr %6, align 1, !tbaa !151
-  %132 = add nuw nsw i64 %81, 1
-  %133 = zext i8 %131 to i64
-  %134 = icmp ult i64 %132, %133
-  br i1 %134, label %.preheader, label %.loopexit, !llvm.loop !400
+_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit: ; preds = %.preheader, %90, %115, %128
+  %132 = load i8, ptr %6, align 1, !tbaa !151
+  %133 = add nuw nsw i64 %81, 1
+  %134 = zext i8 %132 to i64
+  %135 = icmp ult i64 %133, %134
+  br i1 %135, label %.preheader, label %.loopexit, !llvm.loop !400
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

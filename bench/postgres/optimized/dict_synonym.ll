@@ -395,7 +395,7 @@ define dso_local i64 @dsynonym_lexize(ptr nocapture noundef readonly %0) local_u
   br i1 %.not, label %23, label %20
 
 20:                                               ; preds = %16
-  %21 = and i64 %10, 4294967295
+  %21 = and i64 %10, 2147483647
   %22 = tail call ptr @pnstrdup(ptr noundef %8, i64 noundef %21) #7
   br label %25
 

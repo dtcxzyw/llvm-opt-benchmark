@@ -22296,7 +22296,7 @@ if.end45:                                         ; preds = %sw.bb32
 
 for.body54.lr.ph:                                 ; preds = %if.end45
   %_M_refcount.i.i43 = getelementptr inbounds i8, ptr %cs59, i64 8
-  %wide.trip.count158 = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count158 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body54
 
 for.cond52:                                       ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit74
@@ -22462,7 +22462,7 @@ if.end97:                                         ; preds = %sw.bb83
 
 for.body106.lr.ph:                                ; preds = %if.end97
   %_M_refcount.i.i94 = getelementptr inbounds i8, ptr %cs112, i64 8
-  %wide.trip.count = and i64 %sub.ptr.div.i79, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i79, 2147483647
   br label %for.body106
 
 for.cond104:                                      ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit125
@@ -25103,7 +25103,7 @@ for.end155:                                       ; preds = %for.end155.loopexit
 
 for.body161.lr.ph:                                ; preds = %for.end155
   %_M_refcount.i.i62 = getelementptr inbounds i8, ptr %l, i64 8
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body161
 
 for.cond159:                                      ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit
@@ -27741,7 +27741,7 @@ if.end:                                           ; preds = %_ZNK19OpenColorIO_v
   br i1 %cmp18, label %for.body.preheader, label %cleanup
 
 for.body.preheader:                               ; preds = %if.end
-  %wide.trip.count = and i64 %sub.ptr.div.i10.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i10.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc

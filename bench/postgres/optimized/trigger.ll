@@ -3029,7 +3029,7 @@ define dso_local void @RelationBuildTriggers(ptr nocapture noundef %0) local_unn
 
 77:                                               ; preds = %25
   %.mask = shl i32 %73, 1
-  %78 = and i32 %.mask, 131070
+  %78 = and i32 %.mask, 65534
   %79 = zext nneg i32 %78 to i64
   %80 = call ptr @palloc(i64 noundef %79) #15
   %81 = getelementptr inbounds i8, ptr %27, i64 48

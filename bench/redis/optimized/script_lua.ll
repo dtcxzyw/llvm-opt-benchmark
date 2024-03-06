@@ -1523,7 +1523,7 @@ if.end4:                                          ; preds = %if.else, %if.then2,
   br i1 %cmp8.i, label %for.body.preheader.i, label %luaCreateArray.exit
 
 for.body.preheader.i:                             ; preds = %if.end4
-  %wide.trip.count.i = and i64 %nkeys, 4294967295
+  %wide.trip.count.i = and i64 %nkeys, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %sdslen.exit.i, %for.body.preheader.i
@@ -1601,7 +1601,7 @@ if.end8:                                          ; preds = %if.then7, %luaCreat
   br i1 %cmp8.i36, label %for.body.preheader.i37, label %luaCreateArray.exit64
 
 for.body.preheader.i37:                           ; preds = %if.end8
-  %wide.trip.count.i38 = and i64 %nargs, 4294967295
+  %wide.trip.count.i38 = and i64 %nargs, 2147483647
   br label %for.body.i39
 
 for.body.i39:                                     ; preds = %sdslen.exit.i48, %for.body.preheader.i37

@@ -1147,7 +1147,7 @@ mca_base_var_group_get_internal.exit:             ; preds = %23
   br i1 %31, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %mca_base_var_group_get_internal.exit
-  %wide.trip.count = and i64 %.val, 4294967295
+  %wide.trip.count = and i64 %.val, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
@@ -1186,7 +1186,7 @@ mca_base_var_group_get_internal.exit:             ; preds = %23
   br i1 %48, label %.lr.ph66.preheader, label %._crit_edge67
 
 .lr.ph66.preheader:                               ; preds = %._crit_edge
-  %wide.trip.count80 = and i64 %.val46, 4294967295
+  %wide.trip.count80 = and i64 %.val46, 2147483647
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %60
@@ -1225,7 +1225,7 @@ mca_base_var_group_get_internal.exit:             ; preds = %23
   br i1 %65, label %.lr.ph70.preheader, label %._crit_edge71
 
 .lr.ph70.preheader:                               ; preds = %._crit_edge67
-  %wide.trip.count85 = and i64 %.val47, 4294967295
+  %wide.trip.count85 = and i64 %.val47, 2147483647
   %.pre92 = load i8, ptr @opal_uses_threads, align 1
   br label %.lr.ph70
 
@@ -1301,7 +1301,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br i1 %95, label %.lr.ph74.preheader, label %._crit_edge75
 
 .lr.ph74.preheader:                               ; preds = %._crit_edge71
-  %wide.trip.count90 = and i64 %.val48, 4294967295
+  %wide.trip.count90 = and i64 %.val48, 2147483647
   br label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %.lr.ph74
@@ -1573,7 +1573,7 @@ define internal fastcc i32 @group_find_by_name(ptr noundef %0, ptr nocapture nou
 
 .thread.i.i:                                      ; preds = %13
   %16 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @mca_base_var_groups, i64 0, i32 8), align 8
-  %17 = and i64 %9, 4294967295
+  %17 = and i64 %9, 2147483647
   %18 = getelementptr inbounds ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   br label %opal_pointer_array_get_item.exit.i
@@ -1584,7 +1584,7 @@ define internal fastcc i32 @group_find_by_name(ptr noundef %0, ptr nocapture nou
   %.pre1.i.i = and i8 %.pre.i.i, 1
   %22 = icmp eq i8 %.pre1.i.i, 0
   %23 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @mca_base_var_groups, i64 0, i32 8), align 8
-  %24 = and i64 %9, 4294967295
+  %24 = and i64 %9, 2147483647
   %25 = getelementptr inbounds ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   br i1 %22, label %opal_pointer_array_get_item.exit.i, label %27
@@ -1681,7 +1681,7 @@ mca_base_var_group_get_internal.exit:             ; preds = %23
   br i1 %32, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %mca_base_var_group_get_internal.exit
-  %wide.trip.count = and i64 %.val14, 4294967295
+  %wide.trip.count = and i64 %.val14, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
@@ -1787,7 +1787,7 @@ mca_base_var_group_get_internal.exit:             ; preds = %23
   br i1 %32, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %mca_base_var_group_get_internal.exit
-  %wide.trip.count = and i64 %.val14, 4294967295
+  %wide.trip.count = and i64 %.val14, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
@@ -1891,7 +1891,7 @@ mca_base_var_group_get_internal.exit:             ; preds = %22
   br i1 %31, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %mca_base_var_group_get_internal.exit
-  %wide.trip.count = and i64 %.val16, 4294967295
+  %wide.trip.count = and i64 %.val16, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
@@ -2051,7 +2051,7 @@ mca_base_var_group_get_internal.exit:             ; preds = %23
   br i1 %31, label %.lr.ph.preheader, label %mca_base_var_group_get_internal.exit.thread
 
 .lr.ph.preheader:                                 ; preds = %mca_base_var_group_get_internal.exit
-  %wide.trip.count = and i64 %.val, 4294967295
+  %wide.trip.count = and i64 %.val, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37

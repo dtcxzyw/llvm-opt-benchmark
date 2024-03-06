@@ -1565,7 +1565,7 @@ define internal i32 @virtnet_probe(ptr noundef %0) #3 align 16 {
 514:                                              ; preds = %.thread24, %511
   %515 = getelementptr inbounds i8, ptr %506, i64 784
   %516 = load i64, ptr %515, align 8
-  %517 = and i64 %508, 4294967295
+  %517 = and i64 %508, 63
   %518 = shl nuw i64 1, %517
   %519 = and i64 %516, %518
   %520 = icmp eq i64 %519, 0

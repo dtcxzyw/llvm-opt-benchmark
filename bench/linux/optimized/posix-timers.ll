@@ -1748,7 +1748,7 @@ define dso_local i64 @__x64_sys_clock_settime(ptr nocapture noundef readonly %0)
   br label %34
 
 15:                                               ; preds = %13
-  %16 = and i64 %4, 4294967295
+  %16 = and i64 %4, 15
   %17 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %16) #8, !srcloc !29
   %18 = and i64 %17, %16
   %19 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %18
@@ -1875,7 +1875,7 @@ define dso_local i64 @__x64_sys_clock_gettime(ptr nocapture noundef readonly %0)
   br label %35
 
 15:                                               ; preds = %13
-  %16 = and i64 %4, 4294967295
+  %16 = and i64 %4, 15
   %17 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %16) #8, !srcloc !29
   %18 = and i64 %17, %16
   %19 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %18
@@ -2047,7 +2047,7 @@ define dso_local i64 @__x64_sys_clock_adjtime(ptr nocapture noundef readonly %0)
   br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %16
-  %19 = and i64 %4, 4294967295
+  %19 = and i64 %4, 15
   %20 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %19) #8, !srcloc !29
   %21 = and i64 %20, %19
   %22 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %21
@@ -2179,7 +2179,7 @@ define dso_local i64 @__x64_sys_clock_getres(ptr nocapture noundef readonly %0) 
   br label %36
 
 15:                                               ; preds = %13
-  %16 = and i64 %4, 4294967295
+  %16 = and i64 %4, 15
   %17 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %16) #8, !srcloc !29
   %18 = and i64 %17, %16
   %19 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %18
@@ -2310,7 +2310,7 @@ define dso_local i64 @__x64_sys_clock_settime32(ptr nocapture noundef readonly %
   br label %34
 
 15:                                               ; preds = %13
-  %16 = and i64 %4, 4294967295
+  %16 = and i64 %4, 15
   %17 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %16) #8, !srcloc !29
   %18 = and i64 %17, %16
   %19 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %18
@@ -2437,7 +2437,7 @@ define dso_local i64 @__x64_sys_clock_gettime32(ptr nocapture noundef readonly %
   br label %35
 
 15:                                               ; preds = %13
-  %16 = and i64 %4, 4294967295
+  %16 = and i64 %4, 15
   %17 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %16) #8, !srcloc !29
   %18 = and i64 %17, %16
   %19 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %18
@@ -2571,7 +2571,7 @@ define dso_local i64 @__x64_sys_clock_adjtime32(ptr nocapture noundef readonly %
   br i1 %19, label %.thread5, label %20
 
 20:                                               ; preds = %18
-  %21 = and i64 %4, 4294967295
+  %21 = and i64 %4, 15
   %22 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %21) #8, !srcloc !29
   %23 = and i64 %22, %21
   %24 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %23
@@ -2707,7 +2707,7 @@ define dso_local i64 @__x64_sys_clock_getres_time32(ptr nocapture noundef readon
   br label %34
 
 15:                                               ; preds = %13
-  %16 = and i64 %4, 4294967295
+  %16 = and i64 %4, 15
   %17 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %16) #8, !srcloc !29
   %18 = and i64 %17, %16
   %19 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %18
@@ -2840,7 +2840,7 @@ define dso_local i64 @__x64_sys_clock_nanosleep(ptr nocapture noundef readonly %
   br label %57
 
 21:                                               ; preds = %19
-  %22 = and i64 %4, 4294967295
+  %22 = and i64 %4, 15
   %23 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %22) #8, !srcloc !29
   %24 = and i64 %23, %22
   %25 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %24
@@ -3024,7 +3024,7 @@ define dso_local i64 @__x64_sys_clock_nanosleep_time32(ptr nocapture noundef rea
   br label %57
 
 21:                                               ; preds = %19
-  %22 = and i64 %4, 4294967295
+  %22 = and i64 %4, 15
   %23 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %22) #8, !srcloc !29
   %24 = and i64 %23, %22
   %25 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %24

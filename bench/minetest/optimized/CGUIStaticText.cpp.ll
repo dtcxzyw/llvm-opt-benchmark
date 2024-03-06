@@ -1708,7 +1708,7 @@ define void @_ZN3irr3gui14CGUIStaticText9breakTextEv(ptr noundef nonnull align 8
   %104 = getelementptr inbounds i8, ptr %13, i64 8
   %105 = getelementptr inbounds i8, ptr %14, i64 16
   %106 = getelementptr inbounds i8, ptr %14, i64 8
-  %107 = and i64 %65, 4294967295
+  %107 = and i64 %65, 2147483647
   br label %420
 
 108:                                              ; preds = %82

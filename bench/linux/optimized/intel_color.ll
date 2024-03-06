@@ -1551,7 +1551,7 @@ define internal void @chv_load_luts(ptr nocapture noundef readonly %0) #0 align 
   %234 = add i32 %233, 1990656
   %235 = getelementptr inbounds i8, ptr %232, i64 7404
   %236 = getelementptr inbounds i8, ptr %232, i64 7368
-  %237 = and i64 %226, 4294967295
+  %237 = and i64 %226, 2147483647
   br label %238
 
 238:                                              ; preds = %322, %229
@@ -1723,7 +1723,7 @@ define internal void @chv_load_luts(ptr nocapture noundef readonly %0) #0 align 
   %345 = add i32 %344, 1994752
   %346 = getelementptr inbounds i8, ptr %343, i64 7404
   %347 = getelementptr inbounds i8, ptr %343, i64 7368
-  %348 = and i64 %337, 4294967295
+  %348 = and i64 %337, 2147483647
   br label %349
 
 349:                                              ; preds = %433, %340
@@ -2355,7 +2355,7 @@ define internal zeroext i1 @chv_lut_equal(ptr nocapture noundef readonly %0, ptr
 
 35:                                               ; preds = %29
   %36 = select i1 %9, i64 65535, i64 3
-  %37 = and i64 %20, 4294967295
+  %37 = and i64 %20, 2147483647
   %38 = load i16, ptr %33, align 2
   %39 = zext i16 %38 to i64
   %40 = load i16, ptr %31, align 2
@@ -2507,7 +2507,7 @@ define internal zeroext i1 @chv_lut_equal(ptr nocapture noundef readonly %0, ptr
 144:                                              ; preds = %138
   %145 = lshr i32 65535, %118
   %146 = zext nneg i32 %145 to i64
-  %147 = and i64 %129, 4294967295
+  %147 = and i64 %129, 2147483647
   %148 = load i16, ptr %142, align 2
   %149 = zext i16 %148 to i64
   %150 = load i16, ptr %140, align 2
@@ -5175,7 +5175,7 @@ define internal zeroext i1 @i965_lut_equal(ptr nocapture noundef readonly %0, pt
 52:                                               ; preds = %46
   %53 = lshr i32 65535, %26
   %54 = zext nneg i32 %53 to i64
-  %55 = and i64 %37, 4294967295
+  %55 = and i64 %37, 2147483647
   %56 = load i16, ptr %50, align 2
   %57 = zext i16 %56 to i64
   %58 = load i16, ptr %48, align 2
@@ -10463,7 +10463,7 @@ define internal zeroext i1 @icl_lut_equal(ptr nocapture noundef readonly %0, ptr
 36:                                               ; preds = %30
   %37 = lshr i32 65535, %9
   %38 = zext nneg i32 %37 to i64
-  %39 = and i64 %21, 4294967295
+  %39 = and i64 %21, 2147483647
   %40 = load i16, ptr %34, align 2
   %41 = zext i16 %40 to i64
   %42 = load i16, ptr %32, align 2
@@ -12601,7 +12601,7 @@ ilk_lut_write.exit11:                             ; preds = %47, %75
 84:                                               ; preds = %ilk_lut_write.exit11
   %85 = add i32 %8, 304264
   %86 = getelementptr inbounds i8, ptr %3, i64 2632
-  %87 = and i64 %4, 4294967295
+  %87 = and i64 %4, 2147483647
   %88 = icmp ult i32 %85, 262144
   br label %100
 
@@ -13172,7 +13172,7 @@ ilk_lut_write.exit8:                              ; preds = %49, %78
 
 85:                                               ; preds = %ilk_lut_write.exit8
   %86 = add i32 %8, 304132
-  %87 = and i64 %4, 4294967295
+  %87 = and i64 %4, 2147483647
   %88 = icmp ult i32 %86, 262144
   br label %89
 
@@ -15198,7 +15198,7 @@ ilk_csc_limited_range.exit:                       ; preds = %87, %94, %99, %103
 
 229:                                              ; preds = %223
   %230 = add nsw i32 %218, -1
-  %231 = and i64 %217, 4294967295
+  %231 = and i64 %217, 2147483647
   br label %232
 
 232:                                              ; preds = %232, %229
@@ -16039,7 +16039,7 @@ define internal zeroext i1 @glk_lut_equal(ptr nocapture noundef readonly %0, ptr
 
 34:                                               ; preds = %28
   %35 = select i1 %8, i64 65535, i64 0
-  %36 = and i64 %19, 4294967295
+  %36 = and i64 %19, 2147483647
   %37 = load i16, ptr %32, align 2
   %38 = zext i16 %37 to i64
   %39 = load i16, ptr %30, align 2
@@ -16185,7 +16185,7 @@ define internal zeroext i1 @glk_lut_equal(ptr nocapture noundef readonly %0, ptr
 139:                                              ; preds = %133
   %140 = lshr i32 65535, %113
   %141 = zext nneg i32 %140 to i64
-  %142 = and i64 %124, 4294967295
+  %142 = and i64 %124, 2147483647
   %143 = load i16, ptr %137, align 2
   %144 = zext i16 %143 to i64
   %145 = load i16, ptr %135, align 2
@@ -17793,7 +17793,7 @@ define internal zeroext i1 @ivb_lut_equal(ptr nocapture noundef readonly %0, ptr
 50:                                               ; preds = %44
   %51 = lshr i32 65535, %24
   %52 = zext nneg i32 %51 to i64
-  %53 = and i64 %35, 4294967295
+  %53 = and i64 %35, 2147483647
   %54 = load i16, ptr %48, align 2
   %55 = zext i16 %54 to i64
   %56 = load i16, ptr %46, align 2
@@ -17959,7 +17959,7 @@ define internal zeroext i1 @ivb_lut_equal(ptr nocapture noundef readonly %0, ptr
 164:                                              ; preds = %158
   %165 = lshr i32 65535, %138
   %166 = zext nneg i32 %165 to i64
-  %167 = and i64 %149, 4294967295
+  %167 = and i64 %149, 2147483647
   %168 = load i16, ptr %162, align 2
   %169 = zext i16 %168 to i64
   %170 = load i16, ptr %160, align 2
@@ -18131,7 +18131,7 @@ define internal fastcc i32 @ilk_assign_luts(ptr noundef %0) unnamed_addr #0 alig
 
 53:                                               ; preds = %47
   %54 = add nsw i32 %42, -1
-  %55 = and i64 %41, 4294967295
+  %55 = and i64 %41, 2147483647
   br label %56
 
 56:                                               ; preds = %56, %53
@@ -19014,7 +19014,7 @@ define internal fastcc void @ivb_load_lut_10(ptr nocapture noundef readonly %0, 
 
 11:                                               ; preds = %2
   %12 = add i32 %9, 304132
-  %13 = and i64 %4, 4294967295
+  %13 = and i64 %4, 2147483647
   %14 = getelementptr i8, ptr %0, i64 4920
   %15 = icmp ult i32 %10, 262144
   %16 = icmp ult i32 %12, 262144
@@ -19899,7 +19899,7 @@ define internal void @ilk_load_luts(ptr nocapture noundef readonly %0) #0 align 
   %22 = load i32, ptr %21, align 8
   %23 = shl i32 %22, 12
   %24 = add i32 %23, 307200
-  %25 = and i64 %16, 4294967295
+  %25 = and i64 %16, 2147483647
   %26 = getelementptr i8, ptr %0, i64 4920
   br label %27
 
@@ -20278,7 +20278,7 @@ define internal zeroext i1 @ilk_lut_equal(ptr nocapture noundef readonly %0, ptr
 48:                                               ; preds = %42
   %49 = lshr i32 65535, %22
   %50 = zext nneg i32 %49 to i64
-  %51 = and i64 %33, 4294967295
+  %51 = and i64 %33, 2147483647
   %52 = load i16, ptr %46, align 2
   %53 = zext i16 %52 to i64
   %54 = load i16, ptr %44, align 2
@@ -20431,7 +20431,7 @@ define internal zeroext i1 @ilk_lut_equal(ptr nocapture noundef readonly %0, ptr
 159:                                              ; preds = %153
   %160 = lshr i32 65535, %133
   %161 = zext nneg i32 %160 to i64
-  %162 = and i64 %144, 4294967295
+  %162 = and i64 %144, 2147483647
   %163 = load i16, ptr %157, align 2
   %164 = zext i16 %163 to i64
   %165 = load i16, ptr %155, align 2

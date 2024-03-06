@@ -1091,7 +1091,7 @@ define dso_local ptr @kstrdup_quotable_cmdline(ptr noundef %0, i32 noundef %1) #
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %11
-  %17 = and i64 %13, 4294967295
+  %17 = and i64 %13, 2147483647
   %18 = getelementptr i8, ptr %4, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 0

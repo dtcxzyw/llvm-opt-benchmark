@@ -834,7 +834,7 @@ define dso_local noundef zeroext i1 @parsePGArray(ptr nocapture noundef readonly
   br i1 %.not52, label %14, label %.loopexit
 
 14:                                               ; preds = %9
-  %15 = and i64 %4, 4294967295
+  %15 = and i64 %4, 2147483647
   %16 = mul nuw nsw i64 %15, 9
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #14
   %18 = icmp eq ptr %17, null

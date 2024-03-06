@@ -1000,7 +1000,7 @@ if.else78.i:                                      ; preds = %if.end59.i, %if.end
   br i1 %cmp81.i, label %if.end91.sink.split.i, label %lor.lhs.false82.i
 
 lor.lhs.false82.i:                                ; preds = %if.else78.i
-  %conv.mask = and i32 %month, 255
+  %conv.mask = and i32 %month, 15
   %idxprom.i = zext nneg i32 %conv.mask to i64
   %arrayidx.i = getelementptr inbounds [12 x i8], ptr @_ZN6icu_7514SimpleTimeZone17STATICMONTHLENGTHE, i64 0, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1
@@ -1189,7 +1189,7 @@ if.end32.i.i:                                     ; preds = %if.end21.i.i
   br i1 %cmp81.i.i, label %if.end91.sink.split.i.i, label %lor.lhs.false82.i.i
 
 lor.lhs.false82.i.i:                              ; preds = %if.end32.i.i
-  %conv.mask.i = and i32 %month, 255
+  %conv.mask.i = and i32 %month, 15
   %idxprom.i.i = zext nneg i32 %conv.mask.i to i64
   %arrayidx.i.i = getelementptr inbounds [12 x i8], ptr @_ZN6icu_7514SimpleTimeZone17STATICMONTHLENGTHE, i64 0, i64 %idxprom.i.i
   %4 = load i8, ptr %arrayidx.i.i, align 1
@@ -1310,7 +1310,7 @@ if.else78.i.i:                                    ; preds = %if.end59.i.i, %if.e
   br i1 %cmp81.i.i, label %if.end91.sink.split.i.i, label %lor.lhs.false82.i.i
 
 lor.lhs.false82.i.i:                              ; preds = %if.else78.i.i
-  %conv.mask.i = and i32 %month, 255
+  %conv.mask.i = and i32 %month, 15
   %idxprom.i.i = zext nneg i32 %conv.mask.i to i64
   %arrayidx.i.i = getelementptr inbounds [12 x i8], ptr @_ZN6icu_7514SimpleTimeZone17STATICMONTHLENGTHE, i64 0, i64 %idxprom.i.i
   %8 = load i8, ptr %arrayidx.i.i, align 1
@@ -1429,7 +1429,7 @@ if.else78.i:                                      ; preds = %if.end59.i, %if.end
   br i1 %cmp81.i, label %if.end91.sink.split.i, label %lor.lhs.false82.i
 
 lor.lhs.false82.i:                                ; preds = %if.else78.i
-  %conv.mask = and i32 %month, 255
+  %conv.mask = and i32 %month, 15
   %idxprom.i = zext nneg i32 %conv.mask to i64
   %arrayidx.i = getelementptr inbounds [12 x i8], ptr @_ZN6icu_7514SimpleTimeZone17STATICMONTHLENGTHE, i64 0, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1
@@ -1620,7 +1620,7 @@ if.end32.i.i:                                     ; preds = %if.end21.i.i
   br i1 %cmp81.i.i, label %if.end91.sink.split.i.i, label %lor.lhs.false82.i.i
 
 lor.lhs.false82.i.i:                              ; preds = %if.end32.i.i
-  %conv.mask.i = and i32 %month, 255
+  %conv.mask.i = and i32 %month, 15
   %idxprom.i.i = zext nneg i32 %conv.mask.i to i64
   %arrayidx.i.i = getelementptr inbounds [12 x i8], ptr @_ZN6icu_7514SimpleTimeZone17STATICMONTHLENGTHE, i64 0, i64 %idxprom.i.i
   %4 = load i8, ptr %arrayidx.i.i, align 1
@@ -1742,7 +1742,7 @@ if.else78.i.i:                                    ; preds = %if.end59.i.i, %if.e
   br i1 %cmp81.i.i, label %if.end91.sink.split.i.i, label %lor.lhs.false82.i.i
 
 lor.lhs.false82.i.i:                              ; preds = %if.else78.i.i
-  %conv.mask.i = and i32 %month, 255
+  %conv.mask.i = and i32 %month, 15
   %idxprom.i.i = zext nneg i32 %conv.mask.i to i64
   %arrayidx.i.i = getelementptr inbounds [12 x i8], ptr @_ZN6icu_7514SimpleTimeZone17STATICMONTHLENGTHE, i64 0, i64 %idxprom.i.i
   %8 = load i8, ptr %arrayidx.i.i, align 1

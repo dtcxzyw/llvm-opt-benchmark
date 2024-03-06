@@ -8377,7 +8377,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit.i: ; preds = %162, %166
   br i1 %175, label %.lr.ph.preheader.i, label %_ZN5Eigen17PermutationMatrixILin1ELin1EiEC2IS1_EERKNS_11InverseImplIT_NS_18PermutationStorageEEE.exit
 
 .lr.ph.preheader.i:                               ; preds = %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit.i
-  %wide.trip.count.i = and i64 %160, 4294967295
+  %wide.trip.count.i = and i64 %160, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -30678,7 +30678,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   br i1 %291, label %.lr.ph.preheader.i.i, label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %._crit_edge187
-  %wide.trip.count.i.i = and i64 %289, 4294967295
+  %wide.trip.count.i.i = and i64 %289, 2147483647
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -51495,7 +51495,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1
   br i1 %352, label %.lr.ph.preheader.i.i, label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %._crit_edge185
-  %wide.trip.count.i.i = and i64 %350, 4294967295
+  %wide.trip.count.i.i = and i64 %350, 2147483647
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -69973,7 +69973,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit.i: ; preds = %42, %_ZN5
   br i1 %48, label %.lr.ph.preheader.i, label %_ZN5Eigen17PermutationMatrixILin1ELin1EiEC2IS1_EERKNS_11InverseImplIT_NS_18PermutationStorageEEE.exit
 
 .lr.ph.preheader.i:                               ; preds = %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit.i
-  %wide.trip.count.i = and i64 %37, 4294967295
+  %wide.trip.count.i = and i64 %37, 2147483647
   %49 = load ptr, ptr %4, align 8
   br label %.lr.ph.i
 
@@ -70561,7 +70561,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit.i: ; preds = %88, %84
   br i1 %96, label %.lr.ph.preheader.i, label %_ZN5Eigen17PermutationMatrixILin1ELin1EiEC2IS1_EERKNS_11InverseImplIT_NS_18PermutationStorageEEE.exit
 
 .lr.ph.preheader.i:                               ; preds = %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit.i
-  %wide.trip.count.i = and i64 %83, 4294967295
+  %wide.trip.count.i = and i64 %83, 2147483647
   %97 = load ptr, ptr %81, align 8
   br label %.lr.ph.i
 
@@ -70660,7 +70660,7 @@ _ZN5Eigen12SparseMatrixIdLi0EiE10uncompressEv.exit: ; preds = %121, %114, %111
   %136 = getelementptr inbounds i8, ptr %0, i64 280
   %137 = getelementptr inbounds i8, ptr %0, i64 272
   %138 = getelementptr inbounds i8, ptr %0, i64 64
-  %wide.trip.count = and i64 %9, 4294967295
+  %wide.trip.count = and i64 %9, 2147483647
   br label %139
 
 139:                                              ; preds = %.lr.ph, %146
@@ -70714,7 +70714,7 @@ _ZN5Eigen12SparseMatrixIdLi0EiE10uncompressEv.exit: ; preds = %121, %114, %111
 .lr.ph495:                                        ; preds = %.preheader479
   %164 = getelementptr inbounds i8, ptr %0, i64 80
   %165 = getelementptr inbounds i8, ptr %0, i64 64
-  %wide.trip.count566 = and i64 %9, 4294967295
+  %wide.trip.count566 = and i64 %9, 2147483647
   br label %166
 
 166:                                              ; preds = %.lr.ph495, %.loopexit476
@@ -70827,7 +70827,7 @@ _ZN5Eigen8internal15unary_evaluatorINS_12CwiseUnaryOpINS0_14scalar_abs2_opIdEEKN
   br i1 %218, label %.lr.ph.preheader.i.i, label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %.noexc
-  %wide.trip.count.i.i = and i64 %216, 4294967295
+  %wide.trip.count.i.i = and i64 %216, 2147483647
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -70862,10 +70862,10 @@ _ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.
   %236 = getelementptr inbounds i8, ptr %0, i64 176
   %237 = getelementptr inbounds i8, ptr %0, i64 160
   %238 = getelementptr inbounds i8, ptr %0, i64 248
-  %sext466 = add i64 %sext464, -4294967296
+  %sext466 = add nsw i64 %sext464, -4294967296
   %239 = ashr exact i64 %sext466, 32
   %240 = shl nuw nsw i64 %11, 2
-  %wide.trip.count578 = and i64 %9, 4294967295
+  %wide.trip.count578 = and i64 %9, 2147483647
   br label %241
 
 241:                                              ; preds = %.lr.ph552, %572
@@ -72091,7 +72091,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit37: ; preds = %_ZN5Eigen
 .lr.ph:                                           ; preds = %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit37
   %122 = getelementptr inbounds i8, ptr %1, i64 24
   %123 = load ptr, ptr %122, align 8
-  %124 = add i64 %12, 1
+  %124 = add nuw nsw i64 %12, 1
   %wide.trip.count = and i64 %124, 4294967295
   br label %128
 
@@ -72185,7 +72185,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit37: ; preds = %_ZN5Eigen
   br label %186
 
 154:                                              ; preds = %152
-  %155 = and i64 %12, 4294967295
+  %155 = and i64 %12, 2147483647
   %156 = getelementptr inbounds i32, ptr %.sroa.051.0, i64 %155
   %157 = load i32, ptr %156, align 4
   %158 = icmp slt i32 %157, 0
@@ -72258,7 +72258,7 @@ _ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE6resizeEl.exit.p
   br i1 %188, label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE6resizeEl.exit.preheader77, label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE6resizeEl.exit._crit_edge
 
 _ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE6resizeEl.exit.preheader77: ; preds = %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE6resizeEl.exit.preheader
-  %wide.trip.count92 = and i64 %12, 4294967295
+  %wide.trip.count92 = and i64 %12, 2147483647
   br label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE6resizeEl.exit
 
 _ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE6resizeEl.exit: ; preds = %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE6resizeEl.exit.preheader77, %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE6resizeEl.exit
@@ -72414,7 +72414,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EE
   %51 = getelementptr inbounds i8, ptr %0, i64 48
   %52 = getelementptr inbounds i8, ptr %0, i64 24
   %53 = getelementptr inbounds i8, ptr %0, i64 32
-  %wide.trip.count = and i64 %6, 4294967295
+  %wide.trip.count = and i64 %6, 2147483647
   br label %58
 
 .preheader:                                       ; preds = %._crit_edge
@@ -72427,7 +72427,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EE
   %56 = getelementptr inbounds i8, ptr %0, i64 32
   %sext187 = shl i64 %9, 32
   %57 = ashr exact i64 %sext187, 32
-  %wide.trip.count185 = and i64 %6, 4294967295
+  %wide.trip.count185 = and i64 %6, 2147483647
   br label %91
 
 58:                                               ; preds = %.lr.ph169, %._crit_edge

@@ -14566,7 +14566,7 @@ define dso_local void @_Z10read_itemsP9lua_StateiP8IGameDef(ptr dead_on_unwind n
   %68 = ptrtoint ptr %66 to i64
   %69 = sub i64 %67, %68
   %70 = sdiv exact i64 %69, 312
-  %71 = and i64 %35, 4294967295
+  %71 = and i64 %35, 2147483647
   %72 = icmp ult i64 %70, %71
   br i1 %72, label %73, label %75
 

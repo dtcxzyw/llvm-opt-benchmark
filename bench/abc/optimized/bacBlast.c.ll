@@ -4587,7 +4587,7 @@ Vec_IntFillExtra.exit153:                         ; preds = %Bac_ObjDup.exit88.i
 
 Bac_BoxBiNum.exit.i.i:                            ; preds = %326, %.preheader
   %.0.lcssa.i.i.i = phi i64 [ 0, %.preheader ], [ %indvars.iv.i.i89.i, %326 ]
-  %330 = and i64 %.0.lcssa.i.i.i, 4294967295
+  %330 = and i64 %.0.lcssa.i.i.i, 2147483647
   %331 = getelementptr inbounds i8, ptr %.val62.i, i64 %330
   %332 = load i8, ptr %331, align 1
   %.mask.i105.i.i = and i8 %332, -2

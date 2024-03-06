@@ -2955,7 +2955,7 @@ define internal fastcc i32 @DecodeTimezone(ptr noundef %0, ptr nocapture noundef
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %11
-  %16 = and i64 %12, 4294967295
+  %16 = and i64 %12, 2147483647
   %17 = getelementptr i8, ptr %0, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -2
   %19 = call i32 @strtoint(ptr noundef %18, ptr noundef nonnull %3, i32 noundef 10) #18
@@ -3242,7 +3242,7 @@ define internal fastcc noundef i32 @DecodeDate(ptr noundef %0, i32 noundef %1, p
 .lr.ph:                                           ; preds = %._crit_edge
   %50 = tail call ptr @__ctype_b_loc() #19
   %51 = getelementptr inbounds i8, ptr %3, i64 16
-  %wide.trip.count = and i64 %indvars.iv.next134, 4294967295
+  %wide.trip.count = and i64 %indvars.iv.next134, 2147483647
   br label %54
 
 .preheader:                                       ; preds = %106
@@ -3251,7 +3251,7 @@ define internal fastcc noundef i32 @DecodeDate(ptr noundef %0, i32 noundef %1, p
   br i1 %49, label %.lr.ph113.preheader, label %._crit_edge114
 
 .lr.ph113.preheader:                              ; preds = %.preheader
-  %wide.trip.count129 = and i64 %indvars.iv.next134, 4294967295
+  %wide.trip.count129 = and i64 %indvars.iv.next134, 2147483647
   br label %.lr.ph113
 
 54:                                               ; preds = %.lr.ph, %106

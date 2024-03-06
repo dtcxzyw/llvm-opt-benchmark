@@ -443,7 +443,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %145, %_ZNSt6vectorI
   br i1 %171, label %.lr.ph378.preheader, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit174
 
 .lr.ph378.preheader:                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
-  %wide.trip.count = and i64 %95, 4294967295
+  %wide.trip.count = and i64 %95, 2147483647
   %.pre443 = load ptr, ptr %76, align 8
   br label %.lr.ph378
 

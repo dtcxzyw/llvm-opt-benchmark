@@ -530,7 +530,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
-  %conv9 = and i64 %sub7, 4294967295
+  %conv9 = and i64 %sub7, 2147483647
   %cmp.not.i.i.i.i = icmp eq i64 %conv9, 0
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i.i
 
@@ -616,7 +616,7 @@ if.end5:                                          ; preds = %_ZNK3dpx13GenericHe
   br i1 %cmp.i, label %if.then.i, label %_ZN3dpx13GenericHeader13SetDataOffsetEij.exit
 
 if.then.i:                                        ; preds = %if.end5
-  %conv9.i = and i64 %sub7.i, 4294967295
+  %conv9.i = and i64 %sub7.i, 2147483647
   %cmp.not.i.i.i.i.i = icmp ne i64 %conv9.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i.i.i)
   %call5.i.i.i.i1.i.i7.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv9.i) #20
@@ -725,7 +725,7 @@ if.end5:                                          ; preds = %_ZNK3dpx13GenericHe
   br i1 %cmp.i, label %if.then.i, label %if.end8
 
 if.then.i:                                        ; preds = %if.end5
-  %conv9.i = and i64 %sub7.i, 4294967295
+  %conv9.i = and i64 %sub7.i, 2147483647
   %cmp.not.i.i.i.i.i = icmp ne i64 %conv9.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i.i.i)
   %call5.i.i.i.i1.i.i7.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv9.i) #20

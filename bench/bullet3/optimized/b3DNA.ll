@@ -830,7 +830,7 @@ invoke.cont:                                      ; preds = %if.end.i
   br i1 %cmp8, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %invoke.cont
-  %wide.trip.count = and i64 %call, 4294967295
+  %wide.trip.count = and i64 %call, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %invoke.cont6
@@ -2046,7 +2046,7 @@ entry:
   br i1 %cmp9, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
-  %wide.trip.count = and i64 %call, 4294967295
+  %wide.trip.count = and i64 %call, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc

@@ -2472,7 +2472,7 @@ define dso_local noundef i32 @blkcg_policy_register(ptr noundef %0) #1 align 16 
 
 30:                                               ; preds = %22
   store i32 %11, ptr %0, align 8
-  %31 = and i64 %3, 4294967295
+  %31 = and i64 %3, 7
   %32 = getelementptr [6 x ptr], ptr @blkcg_policy, i64 0, i64 %31
   store ptr %0, ptr %32, align 8
   %33 = load ptr, ptr @all_blkcgs, align 8
@@ -3722,8 +3722,8 @@ define internal void @__blkg_release(ptr noundef %0) #1 align 16 {
 15:                                               ; preds = %11
   %.val = load ptr, ptr %4, align 8
   tail call fastcc void @__blkcg_rstat_flush(ptr %.val, i32 noundef %13)
-  %16 = add i64 %12, 1
-  %17 = and i64 %16, 4294967295
+  %16 = add nuw nsw i64 %12, 1
+  %17 = and i64 %16, 127
   %18 = icmp ugt i64 %17, 63
   br i1 %18, label %.thread, label %5, !prof !22, !llvm.loop !91
 

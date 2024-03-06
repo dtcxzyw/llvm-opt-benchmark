@@ -273,7 +273,7 @@ define dso_local void @copy_file(ptr noundef %0, ptr noundef %1) local_unnamed_a
   store i32 0, ptr %36, align 4
   %37 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772172, ptr %37, align 4
-  %38 = and i64 %25, 4294967295
+  %38 = and i64 %25, 2147483647
   %39 = tail call i64 @write(i32 noundef %11, ptr noundef %3, i64 noundef %38) #7
   %40 = trunc i64 %39 to i32
   %.not40 = icmp eq i32 %40, %26

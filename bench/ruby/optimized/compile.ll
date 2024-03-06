@@ -6596,7 +6596,7 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   store ptr %48, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %26, i64 16
   %52 = getelementptr inbounds i8, ptr %26, i64 32
-  %wide.trip.count = and i64 %.0.i.i, 4294967295
+  %wide.trip.count = and i64 %.0.i.i, 2147483647
   br label %53
 
 53:                                               ; preds = %.lr.ph, %68
@@ -6958,7 +6958,7 @@ RARRAY_LENINT.exit191:                            ; preds = %rb_array_len.exit.i
 .lr.ph292:                                        ; preds = %239
   %242 = getelementptr inbounds i8, ptr %210, i64 16
   %243 = getelementptr inbounds i8, ptr %210, i64 32
-  %wide.trip.count333 = and i64 %.0.i.i189, 4294967295
+  %wide.trip.count333 = and i64 %.0.i.i189, 2147483647
   br label %244
 
 244:                                              ; preds = %.lr.ph292, %RARRAY_AREF.exit194
@@ -7092,7 +7092,7 @@ int_param.exit.i:                                 ; preds = %.int_param.exit_cri
   %307 = getelementptr inbounds i8, ptr %267, i64 16
   %308 = getelementptr inbounds i8, ptr %267, i64 32
   %309 = getelementptr inbounds i8, ptr %282, i64 4
-  %wide.trip.count.i = and i64 %.0.i.i.i, 4294967295
+  %wide.trip.count.i = and i64 %.0.i.i.i, 2147483647
   br label %310
 
 310:                                              ; preds = %RB_SYMBOL_P.exit.thread.i, %.lr.ph.i197
@@ -8564,7 +8564,7 @@ RARRAY_LENINT.exit.i.i:                           ; preds = %rb_array_len.exit.i
   %1058 = getelementptr inbounds i8, ptr %1041, i64 16
   %1059 = getelementptr inbounds i8, ptr %1041, i64 32
   %1060 = getelementptr inbounds i8, ptr %1055, i64 8
-  %wide.trip.count.i.i = and i64 %.0.i.i.i.i, 4294967295
+  %wide.trip.count.i.i = and i64 %.0.i.i.i.i, 2147483647
   br label %1061
 
 1061:                                             ; preds = %RARRAY_AREF.exit.i.i, %.lr.ph.i.i
@@ -12696,7 +12696,7 @@ ibf_load_small_value.exit78.i:                    ; preds = %.lr.ph.i73.i, %1701
   br i1 %1716, label %1717, label %.loopexit.i
 
 1717:                                             ; preds = %ibf_load_small_value.exit78.i
-  %1718 = and i64 %.021.lcssa.i72.i, 4294967295
+  %1718 = and i64 %.021.lcssa.i72.i, 2147483647
   %1719 = tail call noalias ptr @rb_xmalloc_mul_add(i64 noundef %1718, i64 noundef 8, i64 noundef 8) #37
   %1720 = getelementptr inbounds i8, ptr %1719, i64 4
   store i32 0, ptr %1720, align 4
@@ -12795,11 +12795,11 @@ ibf_load_small_value.exit88.i:                    ; preds = %.lr.ph.i83.i, %1746
   %1766 = shl nuw i64 %.0.i.i111, 32
   %1767 = shl i64 %.021.lcssa.i52.i, 16
   %1768 = and i64 %1767, 4294901760
-  %1769 = shl i64 %.021.lcssa.i62.i, 1
-  %1770 = and i64 %1769, 4294967294
-  %1771 = or disjoint i64 %1766, %1768
-  %1772 = or disjoint i64 %1771, 1
-  %1773 = add nuw i64 %1772, %1770
+  %1769 = or disjoint i64 %1768, %1766
+  %1770 = shl i64 %.021.lcssa.i62.i, 1
+  %1771 = and i64 %1770, 65534
+  %1772 = or disjoint i64 %1771, %1769
+  %1773 = or disjoint i64 %1772, 1
   %1774 = inttoptr i64 %1773 to ptr
   br label %vm_ci_new_.exit.i
 
@@ -13499,7 +13499,7 @@ ibf_load_insns_info_positions.exit:               ; preds = %ibf_load_small_valu
   br i1 %2128, label %ibf_load_alloc.exit.i, label %ibf_load_local_table.exit
 
 ibf_load_alloc.exit.i:                            ; preds = %ibf_load_insns_info_positions.exit
-  %2129 = and i64 %.021.lcssa.i222, 4294967295
+  %2129 = and i64 %.021.lcssa.i222, 2147483647
   %2130 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef 8, i64 noundef %2129) #39
   %2131 = shl nuw nsw i64 %2129, 3
   %2132 = load ptr, ptr %23, align 8
@@ -58543,8 +58543,8 @@ APPEND_LIST.exit:                                 ; preds = %20, %26, %27
   %55 = shl nuw i32 %spec.select.i, 16
   %56 = zext i32 %55 to i64
   %57 = shl i64 %41, 1
-  %58 = and i64 %57, 4294967294
-  %59 = or i64 %58, %56
+  %58 = and i64 %57, 65534
+  %59 = or disjoint i64 %58, %56
   %60 = or disjoint i64 %59, 1
   %61 = inttoptr i64 %60 to ptr
   br label %vm_ci_new_.exit.i
@@ -82629,7 +82629,7 @@ ibf_load_small_value.exit:                        ; preds = %.lr.ph.i, %.thread4
   unreachable
 
 switch.lookup:                                    ; preds = %ibf_load_small_value.exit
-  %45 = and i64 %.021.lcssa.i, 4294967295
+  %45 = and i64 %.021.lcssa.i, 7
   %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.ibf_load_object_class, i64 0, i64 %45
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0 = load i64, ptr %switch.load, align 8

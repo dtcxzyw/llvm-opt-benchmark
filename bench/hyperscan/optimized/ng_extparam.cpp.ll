@@ -504,7 +504,7 @@ if.then.i41:                                      ; preds = %land.lhs.true99
   unreachable
 
 _ZNK3ue25depthcvjEv.exit44:                       ; preds = %land.lhs.true99
-  %conv102 = and i64 %.in, 4294967295
+  %conv102 = and i64 %.in, 2147483647
   %cmp103.not = icmp ugt i64 %.pre, %conv102
   br i1 %cmp103.not, label %if.end111, label %do.end106
 

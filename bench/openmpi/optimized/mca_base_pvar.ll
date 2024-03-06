@@ -225,7 +225,7 @@ define i32 @mca_base_pvar_find_by_name(ptr noundef %0, i32 noundef %1, ptr nocap
 
 .thread.i.i:                                      ; preds = %17
   %20 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @registered_pvars, i64 0, i32 8), align 8
-  %21 = and i64 %9, 4294967295
+  %21 = and i64 %9, 2147483647
   %22 = getelementptr inbounds ptr, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   br label %opal_pointer_array_get_item.exit.i
@@ -236,7 +236,7 @@ define i32 @mca_base_pvar_find_by_name(ptr noundef %0, i32 noundef %1, ptr nocap
   %.pre1.i.i = and i8 %.pre.i.i, 1
   %26 = icmp eq i8 %.pre1.i.i, 0
   %27 = load ptr, ptr getelementptr inbounds (%struct.opal_pointer_array_t, ptr @registered_pvars, i64 0, i32 8), align 8
-  %28 = and i64 %9, 4294967295
+  %28 = and i64 %9, 2147483647
   %29 = getelementptr inbounds ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   br i1 %26, label %opal_pointer_array_get_item.exit.i, label %31

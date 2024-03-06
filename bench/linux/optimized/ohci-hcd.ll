@@ -5453,7 +5453,7 @@ define internal fastcc i32 @ed_schedule(ptr nocapture noundef %0, ptr noundef %1
   br i1 %133, label %134, label %.loopexit
 
 134:                                              ; preds = %130
-  %135 = and i32 %125, 255
+  %135 = and i32 %125, 31
   %136 = getelementptr inbounds i8, ptr %0, i64 56
   %137 = getelementptr inbounds i8, ptr %0, i64 16
   %138 = getelementptr inbounds i8, ptr %1, i64 16

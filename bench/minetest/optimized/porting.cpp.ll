@@ -1053,7 +1053,7 @@ define dso_local noundef zeroext i1 @_ZN7porting14setSystemPathsEv() local_unnam
   br i1 %42, label %43, label %48
 
 43:                                               ; preds = %38
-  %44 = and i64 %40, 4294967295
+  %44 = and i64 %40, 2147483647
   %45 = getelementptr inbounds i8, ptr %9, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !35
   %47 = icmp eq i8 %46, 47

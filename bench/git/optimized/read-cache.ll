@@ -617,7 +617,7 @@ while.body.lr.ph.us.i.i.i:                        ; preds = %while.body.lr.ph.lr
 
 while.body.us.i.i.i:                              ; preds = %while.cond.backedge.us.i.i.i, %while.body.lr.ph.us.i.i.i
   %indvars.iv36.i.i.i = phi i64 [ %indvars.iv.next37.i.i.i, %while.cond.backedge.us.i.i.i ], [ %27, %while.body.lr.ph.us.i.i.i ]
-  %indvars.iv.next37.i.i.i = add nsw i64 %indvars.iv36.i.i.i, 1
+  %indvars.iv.next37.i.i.i = add nuw nsw i64 %indvars.iv36.i.i.i, 1
   %arrayidx.us.i.i.i = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv36.i.i.i
   %28 = load ptr, ptr %arrayidx.us.i.i.i, align 8
   %ce_namelen3.us.i.i.i = getelementptr inbounds i8, ptr %28, i64 64
@@ -663,7 +663,7 @@ while.body.lr.ph.i.i.i:                           ; preds = %while.body.lr.ph.lr
 
 while.body.i.i.i:                                 ; preds = %while.cond.backedge.i.i.i, %while.body.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %36, %while.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %while.cond.backedge.i.i.i ]
-  %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv.i.i.i
   %37 = load ptr, ptr %arrayidx.i.i.i, align 8
   %ce_namelen3.i.i.i = getelementptr inbounds i8, ptr %37, i64 64
@@ -3817,7 +3817,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   br i1 %tobool77.not, label %while.body, label %while.end.loopexit.split.loop.exit102
 
 while.body:                                       ; preds = %land.rhs
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = trunc i64 %indvars.iv.next to i32
   %cmp69 = icmp ugt i32 %15, %18
   br i1 %cmp69, label %land.rhs, label %while.end, !llvm.loop !19
@@ -5457,7 +5457,7 @@ if.end44.i:                                       ; preds = %if.end35.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end44.i
   %entries.i = getelementptr inbounds i8, ptr %call47.i, i64 4
-  %wide.trip.count.i = and i64 %div33.i, 4294967295
+  %wide.trip.count.i = and i64 %div33.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i

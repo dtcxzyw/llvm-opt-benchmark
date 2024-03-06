@@ -965,8 +965,8 @@ if.else:                                          ; preds = %index2adr.exit
 
 if.else5:                                         ; preds = %if.else
   %not = shl nsw i64 %shr, 2
-  %mul = and i64 %not, 4294967292
-  %sh_prom = xor i64 %mul, 4294967292
+  %mul = and i64 %not, 60
+  %sh_prom = xor i64 %mul, 60
   %shr8 = lshr i64 2069309203685648, %sh_prom
   %24 = trunc i64 %shr8 to i32
   %conv9 = and i32 %24, 15
@@ -1097,8 +1097,8 @@ if.else.i:                                        ; preds = %index2adr.exit.i
 
 if.else5.i:                                       ; preds = %if.else.i
   %not.i = shl nsw i64 %shr.i, 2
-  %mul.i = and i64 %not.i, 4294967292
-  %sh_prom.i = xor i64 %mul.i, 4294967292
+  %mul.i = and i64 %not.i, 60
+  %sh_prom.i = xor i64 %mul.i, 60
   %shr8.i = lshr i64 2069309203685648, %sh_prom.i
   %24 = trunc i64 %shr8.i to i32
   %conv9.i = and i32 %24, 15
@@ -6685,7 +6685,7 @@ if.else12:                                        ; preds = %index2adr.exit
   %gcroot = getelementptr inbounds i8, ptr %25, i64 424
   %cmp15 = icmp ult i32 %conv, -13
   %26 = sub nsw i64 21, %shr
-  %27 = and i64 %26, 4294967295
+  %27 = and i64 %26, 63
   %cond = select i1 %cmp15, i64 35, i64 %27
   %arrayidx = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot, i64 0, i64 %cond
   br label %if.end20
@@ -8555,7 +8555,7 @@ if.else74:                                        ; preds = %if.end60
   %gcroot75 = getelementptr inbounds i8, ptr %25, i64 424
   %cmp78 = icmp ult i32 %conv62, -13
   %50 = sub nsw i64 21, %shr61
-  %51 = and i64 %50, 4294967295
+  %51 = and i64 %50, 63
   %cond = select i1 %cmp78, i64 35, i64 %51
   %arrayidx82 = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot75, i64 0, i64 %cond
   store i64 %49, ptr %arrayidx82, align 8

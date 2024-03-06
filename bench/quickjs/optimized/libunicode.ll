@@ -1283,7 +1283,7 @@ define dso_local i32 @unicode_normalize(ptr nocapture noundef writeonly %0, ptr 
   br i1 %28, label %.lr.ph83.preheader.i, label %sort_cc.exit.thread
 
 .lr.ph83.preheader.i:                             ; preds = %22
-  %29 = and i64 %26, 4294967295
+  %29 = and i64 %26, 2147483647
   br label %.lr.ph83.i
 
 .lr.ph83.i:                                       ; preds = %unicode_get_cc.exit.thread.i, %.lr.ph83.preheader.i
@@ -1629,7 +1629,7 @@ sort_cc.exit:                                     ; preds = %unicode_get_cc.exit
 
 .lr.ph95:                                         ; preds = %sort_cc.exit
   %200 = getelementptr inbounds i8, ptr %7, i64 4
-  %wide.trip.count110 = and i64 %26, 4294967295
+  %wide.trip.count110 = and i64 %26, 2147483647
   br label %201
 
 201:                                              ; preds = %.lr.ph95, %270

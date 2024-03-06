@@ -2819,9 +2819,8 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.then
-  %sext.i = shl i64 %call.i, 32
-  %idx.ext.i = ashr exact i64 %sext.i, 32
-  %add.ptr.i = getelementptr inbounds i8, ptr %pem_name, i64 %idx.ext.i
+  %sext.i = and i64 %call.i, 2147483647
+  %add.ptr.i = getelementptr inbounds i8, ptr %pem_name, i64 %sext.i
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -11
   %0 = load i8, ptr %add.ptr5.i, align 1
   %cmp7.not.i = icmp eq i8 %0, 32
@@ -3027,9 +3026,8 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.else
-  %sext.i = shl i64 %call.i, 32
-  %idx.ext.i = ashr exact i64 %sext.i, 32
-  %add.ptr.i = getelementptr inbounds i8, ptr %pem_name, i64 %idx.ext.i
+  %sext.i = and i64 %call.i, 2147483647
+  %add.ptr.i = getelementptr inbounds i8, ptr %pem_name, i64 %sext.i
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -12
   %0 = load i8, ptr %add.ptr5.i, align 1
   %cmp7.not.i = icmp eq i8 %0, 32

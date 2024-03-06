@@ -757,7 +757,7 @@ if.end.i62:                                       ; preds = %invoke.cont36
   br i1 %cmp326.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %if.end.i62
-  %wide.trip.count.i = and i64 %div12.i, 4294967295
+  %wide.trip.count.i = and i64 %div12.i, 2147483647
   br label %for.body.i70
 
 for.cond.i:                                       ; preds = %call18.i.noexc
@@ -1422,7 +1422,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp326, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end
-  %wide.trip.count = and i64 %div12, 4294967295
+  %wide.trip.count = and i64 %div12, 2147483647
   br label %for.body
 
 for.cond:                                         ; preds = %if.end15
@@ -2329,7 +2329,7 @@ invoke.cont131:                                   ; preds = %if.then122
           to label %for.inc138 unwind label %lpad45.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.inc138:                                       ; preds = %_ZN8facebook5velox17SelectivityVector8clearAllEv.exit, %invoke.cont131, %invoke.cont117, %invoke.cont77, %invoke.cont77
-  %indvars.iv.next437 = add nuw i64 %indvars.iv436, 1
+  %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
   %116 = load i64, ptr %numCases_, align 8
   %cmp = icmp ugt i64 %116, %indvars.iv.next437
   br i1 %cmp, label %for.body44, label %for.end139, !llvm.loop !19
@@ -4200,7 +4200,7 @@ for.end.thread:                                   ; preds = %entry
   br label %for.end37
 
 for.cond:                                         ; preds = %for.body
-  %indvars.iv.next = add nuw i64 %indvars.iv, 2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %cmp = icmp ugt i64 %0, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.body15.preheader, !llvm.loop !55
 
@@ -4223,7 +4223,7 @@ for.body15.preheader:                             ; preds = %for.cond
   br label %for.body15
 
 for.cond11:                                       ; preds = %if.end29
-  %indvars.iv.next25 = add nuw i64 %indvars.iv24, 1
+  %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %7 = load i64, ptr %numCases_, align 8
   %cmp14 = icmp ugt i64 %7, %indvars.iv.next25
   br i1 %cmp14, label %for.body15, label %for.end37, !llvm.loop !56
@@ -5617,7 +5617,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #10
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #11
 
 declare noundef i32 @_ZNK8facebook5velox7RowType11getChildIdxERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
@@ -7157,7 +7157,7 @@ attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind memory(read) }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

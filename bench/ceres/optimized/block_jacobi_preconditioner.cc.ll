@@ -602,7 +602,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
   br i1 %or.cond.i, label %.lr.ph.i.preheader.i, label %118
 
 .lr.ph.i.preheader.i:                             ; preds = %70
-  %73 = and i64 %48, 4294967295
+  %73 = and i64 %48, 2147483647
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZZN5ceres8internal31BlockSparseJacobiPreconditioner10UpdateImplERKNS0_17BlockSparseMatrixEPKdENK3$_0clEi.exit.i", %.lr.ph.i.preheader.i
@@ -1269,7 +1269,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i14:   ; preds = %_ZN6google22MakeChe
   br i1 %or.cond.i16, label %.lr.ph.i.i53, label %387
 
 .lr.ph.i.i53:                                     ; preds = %345
-  %zext.i = and i64 %324, 4294967295
+  %zext.i = and i64 %324, 2147483647
   br label %348
 
 348:                                              ; preds = %"_ZN5ceres8internal18InvokeWithThreadIdIZNS0_31BlockSparseJacobiPreconditioner10UpdateImplERKNS0_17BlockSparseMatrixEPKdE3$_1JRiEEEviOT_DpOT0_.exit.i.i", %.lr.ph.i.i53
@@ -1909,7 +1909,7 @@ _ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_delete
 
 .lr.ph83:                                         ; preds = %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit
   %invariant.gep = getelementptr i8, ptr %59, i64 4
-  %wide.trip.count = and i64 %54, 4294967295
+  %wide.trip.count = and i64 %54, 2147483647
   br label %61
 
 61:                                               ; preds = %.lr.ph83, %._crit_edge79
@@ -2981,7 +2981,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i47:   ; preds = %_ZN6google22MakeChe
   %312 = getelementptr inbounds i8, ptr %5, i64 16
   %313 = getelementptr inbounds i8, ptr %6, i64 16
   %314 = getelementptr inbounds i8, ptr %6, i64 8
-  %315 = and i64 %43, 4294967295
+  %315 = and i64 %43, 2147483647
   br label %.lr.ph.i.i83
 
 .lr.ph.i.i83:                                     ; preds = %"_ZZN5ceres8internal28BlockCRSJacobiPreconditioner10UpdateImplERKNS0_25CompressedRowSparseMatrixEPKdENK3$_1clEi.exit.i", %.lr.ph.i.preheader.i

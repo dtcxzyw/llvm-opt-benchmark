@@ -31,7 +31,7 @@ st_mult.exit75:                                   ; preds = %entry
   br i1 %cmp.not76, label %for.cond15.preheader, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %st_mult.exit75
-  %0 = add i64 %call1, 1
+  %0 = add nuw nsw i64 %call1, 1
   %wide.trip.count = and i64 %0, 4294967295
   br label %for.body
 
@@ -44,9 +44,9 @@ for.body18.lr.ph:                                 ; preds = %for.cond15.preheade
   br i1 %cmp2378, label %for.body18.us.preheader, label %for.body18
 
 for.body18.us.preheader:                          ; preds = %for.body18.lr.ph
-  %wide.trip.count136 = and i64 %call, 4294967295
-  %wide.trip.count125 = and i64 %call1, 4294967295
-  %wide.trip.count130 = and i64 %call1, 4294967295
+  %wide.trip.count136 = and i64 %call, 2147483647
+  %wide.trip.count125 = and i64 %call1, 2147483647
+  %wide.trip.count130 = and i64 %call1, 2147483647
   br label %for.body18.us
 
 for.body18.us:                                    ; preds = %for.body18.us.preheader, %for.cond22.for.cond15.loopexit_crit_edge.us

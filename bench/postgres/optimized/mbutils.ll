@@ -833,7 +833,7 @@ define dso_local i64 @pg_encoding_max_length_sql(ptr nocapture noundef %0) local
   br i1 %or.cond, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = and i64 %3, 4294967295
+  %6 = and i64 %3, 63
   %7 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %6, i32 6
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64

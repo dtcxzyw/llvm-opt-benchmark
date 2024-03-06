@@ -3082,7 +3082,7 @@ land.lhs.true311:                                 ; preds = %land.lhs.true306
 
 if.then316:                                       ; preds = %land.lhs.true311
   %add.ptr317 = getelementptr i8, ptr %uptr.1, i64 1
-  %conv319 = and i64 %call272, 4294967295
+  %conv319 = and i64 %call272, 2147483647
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %vptr.0.lcssa, ptr align 1 %add.ptr317, i64 %conv319, i1 false)
   br label %if.end333
 

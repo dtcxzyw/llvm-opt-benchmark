@@ -3133,7 +3133,7 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit41
   br i1 %.not.i.i43, label %init_addrinfo.exit, label %194
 
 194:                                              ; preds = %193
-  %195 = and i64 %186, 4294967295
+  %195 = and i64 %186, 4095
   %196 = getelementptr inbounds i8, ptr %20, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %196, ptr align 1 %.sroa.2.0.i40, i64 %195, i1 false)
   br label %init_addrinfo.exit

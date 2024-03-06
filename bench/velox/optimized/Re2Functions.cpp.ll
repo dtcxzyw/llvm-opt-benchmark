@@ -14824,7 +14824,7 @@ if.then2.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i39.i.i.i.
 
 if.end6.i.i.i.i.i.i.i:                            ; preds = %if.then2.i.i.i.i.i.i.i
   store ptr null, ptr %value_13.i.i.i.i.i.i.i, align 8
-  %conv.i16.i.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i, 4294967295
+  %conv.i16.i.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i15.i.i.i.i.i.i, ptr align 1 %extracted.sroa.0.0.copyload.i.i.i.i.i.i, i64 %conv.i16.i.i.i.i.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i
 
@@ -14839,7 +14839,7 @@ _ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i
           to label %.noexc44.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i
 
 .noexc44.i.i.i.i.i:                               ; preds = %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i
-  %conv.i.i40.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i, 4294967295
+  %conv.i.i40.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i, 2147483647
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %conv.i.i40.i.i.i.i.i, 12
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUliE_clEi.exit45.i.i.i.i.i.i
 
@@ -15724,7 +15724,7 @@ if.then2.i.i.i.i.i.i.i318:                        ; preds = %if.end.i.i41.i.i.i.
 
 if.end6.i.i.i.i.i.i.i320:                         ; preds = %if.then2.i.i.i.i.i.i.i318
   store ptr null, ptr %value_13.i.i.i.i.i.i.i188, align 8
-  %conv.i16.i.i.i.i.i.i321 = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i311, 4294967295
+  %conv.i16.i.i.i.i.i.i321 = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i311, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i15.i.i.i.i.i.i187, ptr align 1 %extracted.sroa.0.0.copyload.i.i.i.i.i.i309, i64 %conv.i16.i.i.i.i.i.i321, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i316
 
@@ -15739,7 +15739,7 @@ _ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i316: ; preds = %if.else.i.
           to label %.noexc46.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i259
 
 .noexc46.i.i.i.i.i:                               ; preds = %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i316
-  %conv.i.i42.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i311, 4294967295
+  %conv.i.i42.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i311, 2147483647
   %cmp.i.i.i.i.i.i.i317 = icmp ugt i64 %conv.i.i42.i.i.i.i.i, 12
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUliE0_clEi.exit41.i.i.i.i.i.i
 
@@ -16730,7 +16730,7 @@ if.then2.i.i.i.i.i.i.i640:                        ; preds = %if.end.i.i41.i.i.i.
 
 if.end6.i.i.i.i.i.i.i642:                         ; preds = %if.then2.i.i.i.i.i.i.i640
   store ptr null, ptr %value_13.i.i.i.i.i.i.i493, align 8
-  %conv.i16.i.i.i.i.i.i643 = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i631, 4294967295
+  %conv.i16.i.i.i.i.i.i643 = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i631, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i15.i.i.i.i.i.i492, ptr align 1 %extracted.sroa.0.0.copyload.i.i.i.i.i.i629, i64 %conv.i16.i.i.i.i.i.i643, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i637
 
@@ -16745,7 +16745,7 @@ _ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i637: ; preds = %if.else.i.
           to label %.noexc48.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i583
 
 .noexc48.i.i.i.i.i:                               ; preds = %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i637
-  %conv.i.i42.i.i.i.i.i638 = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i631, 4294967295
+  %conv.i.i42.i.i.i.i.i638 = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i631, 2147483647
   %cmp.i.i.i.i.i.i.i639 = icmp ugt i64 %conv.i.i42.i.i.i.i.i638, 12
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUliE1_clEi.exit64.i.i.i.i.i.i
 
@@ -20426,7 +20426,7 @@ if.then2.i:                                       ; preds = %if.end.i
 if.end6.i:                                        ; preds = %if.then2.i
   %value_7.i = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
   store ptr null, ptr %value_7.i, align 8
-  %conv.i16 = and i64 %extracted.sroa.2.0.copyload, 4294967295
+  %conv.i16 = and i64 %extracted.sroa.2.0.copyload, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i15, ptr align 1 %extracted.sroa.0.0.copyload, i64 %conv.i16, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit
 
@@ -20439,7 +20439,7 @@ if.else.i:                                        ; preds = %if.end.i
 
 _ZN8facebook5velox10StringViewC2EPKci.exit:       ; preds = %if.then2.i, %if.end6.i, %if.else.i
   call void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE9setNoCopyEiRKS2_(ptr noundef nonnull align 8 dereferenceable(280) %result, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22)
-  %conv.i = and i64 %extracted.sroa.2.0.copyload, 4294967295
+  %conv.i = and i64 %extracted.sroa.2.0.copyload, 2147483647
   %cmp.i = icmp ugt i64 %conv.i, 12
   br label %return
 
@@ -22469,7 +22469,7 @@ if.then2.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i39.i.i.i.
 
 if.end6.i.i.i.i.i.i.i:                            ; preds = %if.then2.i.i.i.i.i.i.i
   store ptr null, ptr %value_13.i.i.i.i.i.i.i, align 8
-  %conv.i16.i.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i, 4294967295
+  %conv.i16.i.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i15.i.i.i.i.i.i, ptr align 1 %extracted.sroa.0.0.copyload.i.i.i.i.i.i, i64 %conv.i16.i.i.i.i.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i
 
@@ -22484,7 +22484,7 @@ _ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i
           to label %.noexc44.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i
 
 .noexc44.i.i.i.i.i:                               ; preds = %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i
-  %conv.i.i40.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i, 4294967295
+  %conv.i.i40.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i, 2147483647
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %conv.i.i40.i.i.i.i.i, 12
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUliE_clEi.exit45.i.i.i.i.i.i
 
@@ -23380,7 +23380,7 @@ if.then2.i.i.i.i.i.i.i336:                        ; preds = %if.end.i.i41.i.i.i.
 
 if.end6.i.i.i.i.i.i.i338:                         ; preds = %if.then2.i.i.i.i.i.i.i336
   store ptr null, ptr %value_13.i.i.i.i.i.i.i188, align 8
-  %conv.i16.i.i.i.i.i.i339 = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i329, 4294967295
+  %conv.i16.i.i.i.i.i.i339 = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i329, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i15.i.i.i.i.i.i187, ptr align 1 %extracted.sroa.0.0.copyload.i.i.i.i.i.i327, i64 %conv.i16.i.i.i.i.i.i339, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i334
 
@@ -23395,7 +23395,7 @@ _ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i334: ; preds = %if.else.i.
           to label %.noexc46.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i272
 
 .noexc46.i.i.i.i.i:                               ; preds = %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i334
-  %conv.i.i42.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i329, 4294967295
+  %conv.i.i42.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i329, 2147483647
   %cmp.i.i.i.i.i.i.i335 = icmp ugt i64 %conv.i.i42.i.i.i.i.i, 12
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUliE0_clEi.exit45.i.i.i.i.i.i
 
@@ -24390,7 +24390,7 @@ if.then2.i.i.i.i.i.i.i653:                        ; preds = %if.end.i.i42.i.i.i.
 
 if.end6.i.i.i.i.i.i.i655:                         ; preds = %if.then2.i.i.i.i.i.i.i653
   store ptr null, ptr %value_13.i.i.i.i.i.i.i513, align 8
-  %conv.i16.i.i.i.i.i.i656 = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i646, 4294967295
+  %conv.i16.i.i.i.i.i.i656 = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i646, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i15.i.i.i.i.i.i512, ptr align 1 %extracted.sroa.0.0.copyload.i.i.i.i.i.i644, i64 %conv.i16.i.i.i.i.i.i656, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i651
 
@@ -24405,7 +24405,7 @@ _ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i651: ; preds = %if.else.i.
           to label %.noexc49.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i603
 
 .noexc49.i.i.i.i.i:                               ; preds = %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i651
-  %conv.i.i43.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i646, 4294967295
+  %conv.i.i43.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i646, 2147483647
   %cmp.i.i.i.i.i.i.i652 = icmp ugt i64 %conv.i.i43.i.i.i.i.i, 12
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUliE1_clEi.exit69.i.i.i.i.i.i
 
@@ -27961,7 +27961,7 @@ if.then2.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i55.i.i.i.
 
 if.end6.i.i.i.i.i.i.i:                            ; preds = %if.then2.i.i.i.i.i.i.i
   store ptr null, ptr %value_13.i.i.i.i.i.i.i, align 8
-  %conv.i16.i.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i, 4294967295
+  %conv.i16.i.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i15.i.i.i.i.i.i, ptr align 1 %extracted.sroa.0.0.copyload.i.i.i.i.i.i, i64 %conv.i16.i.i.i.i.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i
 
@@ -27976,7 +27976,7 @@ _ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i
           to label %.noexc70.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i72
 
 .noexc70.i.i.i.i.i:                               ; preds = %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i
-  %conv.i.i56.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i, 4294967295
+  %conv.i.i56.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i, 2147483647
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %conv.i.i56.i.i.i.i.i, 12
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUliE_clEi.exit.i.i.i.i.i
 
@@ -32155,7 +32155,7 @@ if.then2.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i55.i.i.i.
 
 if.end6.i.i.i.i.i.i.i:                            ; preds = %if.then2.i.i.i.i.i.i.i
   store ptr null, ptr %value_13.i.i.i.i.i.i.i, align 8
-  %conv.i16.i.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i, 4294967295
+  %conv.i16.i.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i15.i.i.i.i.i.i, ptr align 1 %extracted.sroa.0.0.copyload.i.i.i.i.i.i, i64 %conv.i16.i.i.i.i.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i
 
@@ -32170,7 +32170,7 @@ _ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i
           to label %.noexc70.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i72
 
 .noexc70.i.i.i.i.i:                               ; preds = %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i.i.i.i.i
-  %conv.i.i56.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i, 4294967295
+  %conv.i.i56.i.i.i.i.i = and i64 %extracted.sroa.2.0.copyload.i.i.i.i.i.i, 2147483647
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %conv.i.i56.i.i.i.i.i, 12
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUliE_clEi.exit.i.i.i.i.i
 
@@ -58250,7 +58250,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %value_7.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 8
   store ptr null, ptr %value_7.i.i, align 8
-  %conv.i.i = and i64 %.pre.i, 4294967295
+  %conv.i.i = and i64 %.pre.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i, ptr align 1 %10, i64 %conv.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i
 
@@ -62486,7 +62486,7 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end6.i:                                        ; preds = %if.then2.i
   store ptr null, ptr %value_13.i, align 8
-  %conv.i = and i64 %subMatch.sroa.2.0.copyload, 4294967295
+  %conv.i = and i64 %subMatch.sroa.2.0.copyload, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i, ptr align 1 %subMatch.sroa.0.0.copyload, i64 %conv.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit
 

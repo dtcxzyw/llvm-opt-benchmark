@@ -167,7 +167,7 @@ define internal i32 @input_leds_connect(ptr noundef %0, ptr noundef %1, ptr noca
   br i1 %59, label %60, label %.thread14
 
 60:                                               ; preds = %56
-  %61 = and i64 %57, 4294967295
+  %61 = and i64 %57, 15
   %62 = getelementptr [16 x %struct.anon.2], ptr @input_led_info, i64 0, i64 %61
   %63 = load ptr, ptr %62, align 16
   %64 = icmp eq ptr %63, null
@@ -223,8 +223,8 @@ define internal i32 @input_leds_connect(ptr noundef %0, ptr noundef %1, ptr noca
 
 92:                                               ; preds = %90, %60
   %93 = phi i32 [ %91, %90 ], [ %50, %60 ]
-  %94 = add i64 %57, 1
-  %95 = and i64 %94, 4294967295
+  %94 = add nuw nsw i64 %57, 1
+  %95 = and i64 %94, 31
   %96 = icmp ugt i64 %95, 15
   br i1 %96, label %.thread14, label %48, !prof !6, !llvm.loop !10
 

@@ -1884,7 +1884,7 @@ define internal fastcc void @Vec_StrAppend(ptr nocapture noundef %0, ptr nocaptu
 .lr.ph.i:                                         ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %wide.trip.count.i = and i64 %3, 4294967295
+  %wide.trip.count.i = and i64 %3, 2147483647
   br label %7
 
 7:                                                ; preds = %Vec_StrPush.exit.i, %.lr.ph.i

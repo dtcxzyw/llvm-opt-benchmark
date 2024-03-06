@@ -1016,7 +1016,7 @@ define dso_local void @SerializeClientConnectionInfo(i64 noundef %0, ptr nocaptu
   %10 = getelementptr i8, ptr %1, i64 8
   %11 = load ptr, ptr @MyClientConnectionInfo, align 8
   %12 = shl i64 %6, 32
-  %sext = add i64 %12, 4294967296
+  %sext = add nuw i64 %12, 4294967296
   %13 = ashr exact i64 %sext, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, i64 %13, i1 false)
   br label %14
@@ -1158,7 +1158,7 @@ define internal fastcc void @CreateLockFile(ptr noundef %0, i1 noundef zeroext %
   unreachable
 
 58:                                               ; preds = %49
-  %59 = and i64 %42, 4294967295
+  %59 = and i64 %42, 2147483647
   %60 = getelementptr [2304 x i8], ptr %6, i64 0, i64 %59
   store i8 0, ptr %60, align 1
   %61 = call i32 @atoi(ptr nocapture noundef nonnull %6) #24

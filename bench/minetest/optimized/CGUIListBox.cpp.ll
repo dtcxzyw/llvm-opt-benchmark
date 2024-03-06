@@ -1694,7 +1694,7 @@ define void @_ZN3irr3gui11CGUIListBox11setSelectedEPKw(ptr noundef nonnull align
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %4
-  %16 = and i64 %12, 4294967295
+  %16 = and i64 %12, 2147483647
   br label %17
 
 17:                                               ; preds = %23, %15

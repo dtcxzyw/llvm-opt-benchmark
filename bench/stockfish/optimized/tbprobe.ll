@@ -7032,7 +7032,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %87, %89, %91, %93
   br i1 %102, label %.lr.ph120.preheader, label %._crit_edge
 
 .lr.ph120.preheader:                              ; preds = %.preheader
-  %wide.trip.count = and i64 %97, 4294967295
+  %wide.trip.count = and i64 %97, 2147483647
   br label %.lr.ph120
 
 103:                                              ; preds = %.lr.ph, %103

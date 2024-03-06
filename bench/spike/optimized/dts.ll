@@ -675,7 +675,7 @@ define void @_Z11dts_compileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br i1 %104, label %105, label %109
 
 105:                                              ; preds = %102
-  %106 = and i64 %101, 4294967295
+  %106 = and i64 %101, 2147483647
   %107 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull %6, i64 noundef %106)
           to label %99 unwind label %.loopexit, !llvm.loop !8
 

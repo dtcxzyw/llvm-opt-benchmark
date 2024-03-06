@@ -1364,7 +1364,7 @@ define i32 @Kit_TruthFindVarNum(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %4, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %1
-  %wide.trip.count = and i64 %2, 4294967295
+  %wide.trip.count = and i64 %2, 2147483647
   br label %.lr.ph
 
 5:                                                ; preds = %.lr.ph
@@ -1424,7 +1424,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   br i1 %13, label %.lr.ph.preheader.i, label %Kit_TruthFindVarNum.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %Abc_Clock.exit
-  %wide.trip.count.i = and i64 %11, 4294967295
+  %wide.trip.count.i = and i64 %11, 2147483647
   br label %.lr.ph.i
 
 14:                                               ; preds = %.lr.ph.i

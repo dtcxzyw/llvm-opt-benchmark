@@ -511,7 +511,7 @@ define dso_local void @default_send_IPI_mask_allbutself_phys(ptr nocapture nound
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %16
-  %19 = and i64 %13, 4294967295
+  %19 = and i64 %13, 63
   %20 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, ptrtoint (ptr @x86_cpu_to_apicid to i64)
@@ -524,8 +524,8 @@ define dso_local void @default_send_IPI_mask_allbutself_phys(ptr nocapture nound
   br label %29
 
 29:                                               ; preds = %18, %16
-  %30 = add i64 %13, 1
-  %31 = and i64 %30, 4294967295
+  %30 = add nuw nsw i64 %13, 1
+  %31 = and i64 %30, 127
   %32 = icmp ugt i64 %31, 63
   br i1 %32, label %.thread, label %.split.us, !prof !33, !llvm.loop !36
 
@@ -548,7 +548,7 @@ define dso_local void @default_send_IPI_mask_allbutself_phys(ptr nocapture nound
   br i1 %43, label %60, label %44
 
 44:                                               ; preds = %42
-  %45 = and i64 %39, 4294967295
+  %45 = and i64 %39, 63
   %46 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, ptrtoint (ptr @x86_cpu_to_apicid to i64)
@@ -573,8 +573,8 @@ define dso_local void @default_send_IPI_mask_allbutself_phys(ptr nocapture nound
   br label %60
 
 60:                                               ; preds = %.loopexit, %42
-  %61 = add i64 %39, 1
-  %62 = and i64 %61, 4294967295
+  %61 = add nuw nsw i64 %39, 1
+  %62 = and i64 %61, 127
   %63 = icmp ugt i64 %62, 63
   br i1 %63, label %.thread, label %.split, !prof !33, !llvm.loop !36
 

@@ -1345,7 +1345,7 @@ define internal fastcc void @cyc2ns_init_secondary_cpus() unnamed_addr #12 secti
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %8, i64 32
   store i32 0, ptr %19, align 4
-  %20 = and i64 %13, 4294967295
+  %20 = and i64 %13, 63
   %21 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, ptrtoint (ptr @cyc2ns to i64)
@@ -1359,8 +1359,8 @@ define internal fastcc void @cyc2ns_init_secondary_cpus() unnamed_addr #12 secti
 26:                                               ; preds = %18, %16
   %27 = phi i64 [ %.pre, %18 ], [ %6, %16 ]
   %28 = phi ptr [ %24, %18 ], [ %8, %16 ]
-  %29 = add i64 %13, 1
-  %30 = and i64 %29, 4294967295
+  %29 = add nuw nsw i64 %13, 1
+  %30 = and i64 %29, 127
   %31 = icmp ugt i64 %30, 63
   br i1 %31, label %.thread, label %5, !prof !41, !llvm.loop !55
 
@@ -2199,8 +2199,8 @@ define internal void @tsc_refine_calibration_work(ptr nocapture readnone %0) #6 
   br label %197
 
 197:                                              ; preds = %196, %193
-  %198 = add i64 %184, 1
-  %199 = and i64 %198, 4294967295
+  %198 = add nuw nsw i64 %184, 1
+  %199 = and i64 %198, 127
   %200 = icmp ugt i64 %199, 63
   br i1 %200, label %.thread10, label %177, !prof !41, !llvm.loop !65
 

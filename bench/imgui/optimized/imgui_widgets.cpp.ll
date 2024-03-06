@@ -22296,7 +22296,7 @@ _ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.
   br i1 %cmp161851.i, label %for.body162.preheader.i, label %for.end.i
 
 for.body162.preheader.i:                          ; preds = %_ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.exit.i
-  %wide.trip.count912.i = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count912.i = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body162.i
 
 for.body162.i:                                    ; preds = %if.end170.i, %for.body162.preheader.i
@@ -22579,7 +22579,7 @@ _ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.
   br i1 %cmp253846.i, label %for.body254.preheader.i, label %for.end269.i
 
 for.body254.preheader.i:                          ; preds = %_ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.exit622.i
-  %wide.trip.count.i = and i64 %sub.ptr.div.i602.i, 4294967295
+  %wide.trip.count.i = and i64 %sub.ptr.div.i602.i, 2147483647
   br label %for.body254.i
 
 for.body254.i:                                    ; preds = %if.end264.i, %for.body254.preheader.i
@@ -37894,7 +37894,7 @@ if.end22:                                         ; preds = %while.end
 
 for.body.lr.ph:                                   ; preds = %if.end22
   %9 = zext nneg i32 %i.051 to i64
-  %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.cond:                                         ; preds = %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit

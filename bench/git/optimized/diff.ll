@@ -8853,7 +8853,7 @@ if.end37.i:                                       ; preds = %if.end34.i
   br i1 %cmp6.i.i, label %for.body.preheader.i.i, label %remove_space.exit.i
 
 for.body.preheader.i.i:                           ; preds = %if.end37.i
-  %wide.trip.count.i.i = and i64 %call45.i, 4294967295
+  %wide.trip.count.i.i = and i64 %call45.i, 2147483647
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
@@ -8893,7 +8893,7 @@ remove_space.exit.i:                              ; preds = %for.inc.i.i, %if.en
   br i1 %cmp6.i51.i, label %for.body.preheader.i57.i, label %remove_space.exit72.i
 
 for.body.preheader.i57.i:                         ; preds = %remove_space.exit.i
-  %wide.trip.count.i58.i = and i64 %call52.i, 4294967295
+  %wide.trip.count.i58.i = and i64 %call52.i, 2147483647
   br label %for.body.i59.i
 
 for.body.i59.i:                                   ; preds = %for.inc.i66.i, %for.body.preheader.i57.i
@@ -16404,7 +16404,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp6.i, label %for.body.preheader.i, label %remove_space.exit
 
 for.body.preheader.i:                             ; preds = %if.end
-  %wide.trip.count.i = and i64 %len, 4294967295
+  %wide.trip.count.i = and i64 %len, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i

@@ -4376,7 +4376,7 @@ define internal fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %62, %58
-  %66 = and i64 %55, 4294967295
+  %66 = and i64 %55, 63
   %67 = getelementptr [64 x i32], ptr @pcpu_build_alloc_info.group_map, i64 0, i64 %66
   store i32 %39, ptr %67, align 4
   %68 = load i32, ptr %45, align 4
@@ -4386,8 +4386,8 @@ define internal fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1
   br label %70
 
 70:                                               ; preds = %65, %62, %59
-  %71 = add i64 %55, 1
-  %72 = and i64 %71, 4294967295
+  %71 = add nuw nsw i64 %55, 1
+  %72 = and i64 %71, 127
   %73 = icmp ult i64 %72, 64
   br i1 %73, label %48, label %..threadthread-pre-split_crit_edge, !prof !41, !llvm.loop !127
 
@@ -4610,7 +4610,7 @@ define internal fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1
   br i1 %214, label %215, label %.thread22
 
 215:                                              ; preds = %211
-  %216 = and i64 %212, 4294967295
+  %216 = and i64 %212, 63
   %217 = getelementptr [64 x i32], ptr @pcpu_build_alloc_info.group_map, i64 0, i64 %216
   %218 = load i32, ptr %217, align 4
   %219 = zext i32 %218 to i64
@@ -4630,8 +4630,8 @@ define internal fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1
 
 227:                                              ; preds = %221, %215
   %228 = phi i64 [ %.pre, %221 ], [ %206, %215 ]
-  %229 = add i64 %212, 1
-  %230 = and i64 %229, 4294967295
+  %229 = add nuw nsw i64 %212, 1
+  %230 = and i64 %229, 127
   %231 = icmp ult i64 %230, 64
   br i1 %231, label %205, label %.thread22, !prof !41, !llvm.loop !135
 
@@ -6295,7 +6295,7 @@ define internal fastcc noundef i32 @pcpu_populate_chunk(ptr noundef %0, i32 noun
   br i1 %34, label %.thread25, label %35
 
 35:                                               ; preds = %31
-  %36 = and i64 %32, 4294967295
+  %36 = and i64 %32, 63
   %37 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %36
   br label %38
 
@@ -6333,8 +6333,8 @@ define internal fastcc noundef i32 @pcpu_populate_chunk(ptr noundef %0, i32 noun
   br i1 %61, label %.loopexit39.us, label %38, !llvm.loop !155
 
 .loopexit39.us:                                   ; preds = %59
-  %62 = add i64 %32, 1
-  %63 = and i64 %62, 4294967295
+  %62 = add nuw nsw i64 %32, 1
+  %63 = and i64 %62, 127
   %64 = icmp ult i64 %63, 64
   br i1 %64, label %.thread.split.us, label %.thread25, !prof !41, !llvm.loop !156
 
@@ -6402,7 +6402,7 @@ define internal fastcc noundef i32 @pcpu_populate_chunk(ptr noundef %0, i32 noun
   br i1 %102, label %.thread27, label %103
 
 103:                                              ; preds = %97
-  %104 = and i64 %98, 4294967295
+  %104 = and i64 %98, 63
   br label %105
 
 105:                                              ; preds = %105, %103
@@ -6422,8 +6422,8 @@ define internal fastcc noundef i32 @pcpu_populate_chunk(ptr noundef %0, i32 noun
   br i1 %117, label %118, label %105, !llvm.loop !158
 
 118:                                              ; preds = %105
-  %119 = add i64 %98, 1
-  %120 = and i64 %119, 4294967295
+  %119 = add nuw nsw i64 %98, 1
+  %120 = and i64 %119, 127
   %121 = icmp ult i64 %120, 64
   br i1 %121, label %.loopexit38, label %.thread27, !prof !41, !llvm.loop !159
 
@@ -6455,7 +6455,7 @@ define internal fastcc noundef i32 @pcpu_populate_chunk(ptr noundef %0, i32 noun
   %140 = load ptr, ptr %122, align 64
   %141 = ptrtoint ptr %140 to i64
   %142 = load ptr, ptr @pcpu_unit_offsets, align 8
-  %143 = and i64 %136, 4294967295
+  %143 = and i64 %136, 63
   %144 = getelementptr i64, ptr %142, i64 %143
   %145 = load i64, ptr %144, align 8
   %146 = add i64 %141, %124
@@ -6499,8 +6499,8 @@ define internal fastcc noundef i32 @pcpu_populate_chunk(ptr noundef %0, i32 noun
   br i1 %176, label %.loopexit34, label %166, !llvm.loop !160
 
 .loopexit34:                                      ; preds = %166, %161
-  %177 = add i64 %136, 1
-  %178 = and i64 %177, 4294967295
+  %177 = add nuw nsw i64 %136, 1
+  %178 = and i64 %177, 127
   %179 = icmp ult i64 %178, 64
   br i1 %179, label %129, label %.thread27, !prof !41, !llvm.loop !161
 
@@ -6524,15 +6524,15 @@ define internal fastcc noundef i32 @pcpu_populate_chunk(ptr noundef %0, i32 noun
   %192 = load ptr, ptr %122, align 64
   %193 = ptrtoint ptr %192 to i64
   %194 = load ptr, ptr @pcpu_unit_offsets, align 8
-  %195 = and i64 %186, 4294967295
+  %195 = and i64 %186, 63
   %196 = getelementptr i64, ptr %194, i64 %195
   %197 = load i64, ptr %196, align 8
   %198 = add i64 %193, %124
   %199 = add i64 %198, %197
   %200 = add i64 %199, %127
   tail call void @vunmap_range_noflush(i64 noundef %199, i64 noundef %200) #23
-  %201 = add i64 %186, 1
-  %202 = and i64 %201, 4294967295
+  %201 = add nuw nsw i64 %186, 1
+  %202 = and i64 %201, 127
   %203 = icmp ult i64 %202, 64
   br i1 %203, label %.preheader, label %.thread31, !prof !41, !llvm.loop !162
 

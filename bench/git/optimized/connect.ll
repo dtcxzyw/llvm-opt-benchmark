@@ -1642,7 +1642,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %13, i64 %indvars.iv
   %14 = load ptr, ptr %arrayidx, align 8
   tail call void (i32, ptr, ...) @packet_write_fmt(i32 noundef %fd_out, ptr noundef nonnull @.str.17, ptr noundef %14) #23
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %15, %indvars.iv.next
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !15
@@ -1681,7 +1681,7 @@ for.body24:                                       ; preds = %land.rhs.lr.ph, %fo
   %arrayidx26 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv84
   %18 = load ptr, ptr %arrayidx26, align 8
   tail call void (i32, ptr, ...) @packet_write_fmt(i32 noundef %fd_out, ptr noundef nonnull @.str.22, ptr noundef %18) #23
-  %indvars.iv.next85 = add nuw i64 %indvars.iv84, 1
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %19 = load i64, ptr %nr21, align 8
   %cmp22 = icmp ugt i64 %19, %indvars.iv.next85
   br i1 %cmp22, label %for.body24, label %for.end29
@@ -1873,7 +1873,7 @@ if.end71.i:                                       ; preds = %lor.lhs.false67.i
 
 for.inc84.i:                                      ; preds = %do.cond.i40.i, %if.end71.i
   %list.addr.2 = phi ptr [ %call74.i, %if.end71.i ], [ %list.addr.1, %do.cond.i40.i ]
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %48 = load i64, ptr %nr49.i, align 8
   %cmp50.i = icmp ugt i64 %48, %indvars.iv.next.i
   br i1 %cmp50.i, label %for.body52.i, label %process_ref_v2.exit, !llvm.loop !18
@@ -3647,7 +3647,7 @@ land.lhs.true43:                                  ; preds = %if.then40
 
 if.end47:                                         ; preds = %land.lhs.true43, %if.then40
   %matchlen.1 = phi i64 [ %matchlen.0.in, %if.then40 ], [ %spec.select, %land.lhs.true43 ]
-  %conv48 = and i64 %matchlen.1, 4294967295
+  %conv48 = and i64 %matchlen.1, 2147483647
   %call49 = tail call ptr @xmemdupz(ptr noundef nonnull %value, i64 noundef %conv48) #23
   store ptr %call49, ptr @git_proxy_command, align 8
   br label %return

@@ -3280,7 +3280,7 @@ define dso_local noundef i64 @bitsetbit(ptr nocapture noundef readonly %0) local
   %41 = xor i32 %40, 7
   %42 = icmp eq i32 %11, 0
   %43 = shl nuw nsw i32 1, %41
-  %44 = and i64 %39, 536870911
+  %44 = and i64 %39, 268435455
   %45 = getelementptr i8, ptr %33, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = trunc i32 %43 to i8
@@ -3323,7 +3323,7 @@ define dso_local i64 @bitgetbit(ptr nocapture noundef readonly %0) local_unnamed
   %19 = lshr i64 %7, 3
   %20 = and i32 %8, 7
   %21 = xor i32 %20, 7
-  %22 = and i64 %19, 536870911
+  %22 = and i64 %19, 268435455
   %23 = getelementptr i8, ptr %18, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32

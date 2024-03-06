@@ -6305,7 +6305,7 @@ php_cli_server_client_read_request.exit.thread28: ; preds = %15
   %33 = getelementptr inbounds i8, ptr %1, i64 40
   %34 = getelementptr inbounds i8, ptr %1, i64 64
   store ptr %1, ptr %34, align 8
-  %35 = and i64 %12, 4294967295
+  %35 = and i64 %12, 2147483647
   %36 = call i64 @php_http_parser_execute(ptr noundef nonnull %33, ptr noundef nonnull @php_cli_server_client_read_request.settings, ptr noundef nonnull %5, i64 noundef %35) #29
   %.not22.i = icmp eq i64 %36, %35
   br i1 %.not22.i, label %php_cli_server_client_read_request.exit, label %37

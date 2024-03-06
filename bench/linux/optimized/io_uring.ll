@@ -9144,7 +9144,7 @@ define internal fastcc i64 @__se_sys_io_uring_enter(i64 noundef %0, i64 noundef 
   br i1 %29, label %.thread, label %30, !prof !26
 
 30:                                               ; preds = %22
-  %31 = and i64 %0, 4294967295
+  %31 = and i64 %0, 15
   %32 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 16, i64 %31) #23, !srcloc !124
   %33 = getelementptr inbounds i8, ptr %26, i64 24
   %34 = and i64 %32, %31
@@ -15308,7 +15308,7 @@ define internal fastcc ptr @__io_uaddr_map(ptr nocapture noundef writeonly %0, p
 
 14:                                               ; preds = %9
   %15 = shl nuw nsw i64 %11, 3
-  %16 = and i64 %15, 34359738360
+  %16 = and i64 %15, 524280
   %17 = tail call noalias ptr @kvmalloc_node(i64 noundef %16, i32 noundef 3264, i32 noundef -1) #28
   %18 = icmp eq ptr %17, null
   br i1 %18, label %70, label %19
@@ -15355,7 +15355,7 @@ define internal fastcc ptr @__io_uaddr_map(ptr nocapture noundef writeonly %0, p
   %43 = shl i64 %42, 6
   %44 = add i64 %43, %41
   %45 = inttoptr i64 %44 to ptr
-  %46 = and i64 %11, 4294967295
+  %46 = and i64 %11, 65535
   br label %47
 
 47:                                               ; preds = %58, %37

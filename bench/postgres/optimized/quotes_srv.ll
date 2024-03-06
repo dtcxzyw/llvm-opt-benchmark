@@ -19,7 +19,7 @@ define dso_local noalias noundef ptr @escape_single_quotes_ascii(ptr nocapture n
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %wide.trip.count = and i64 %2, 4294967295
+  %wide.trip.count = and i64 %2, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15

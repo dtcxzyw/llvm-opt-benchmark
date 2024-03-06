@@ -23086,7 +23086,7 @@ define hidden void @_ZN5image2io14free_functions12load_decoder17haae34e43ebee6ee
   br i1 %120, label %switch.lookup, label %122
 
 switch.lookup:                                    ; preds = %109
-  %.mask = and i32 %.sroa.7.i.i.sroa.9.1.copyload.i, 255
+  %.mask = and i32 %.sroa.7.i.i.sroa.9.1.copyload.i, 15
   %121 = zext nneg i32 %.mask to i64
   %switch.gep = getelementptr inbounds [12 x i8], ptr @"switch.table._ZN5image6codecs3tga7decoder19TgaDecoder$LT$R$GT$3new17hafc2a6ea4d6ce2d7E", i64 0, i64 %121
   %switch.load = load i8, ptr %switch.gep, align 1
@@ -30219,7 +30219,7 @@ define internal fastcc void @"_ZN5image6codecs3tga7decoder19TgaDecoder$LT$R$GT$3
   br i1 %30, label %switch.lookup, label %32
 
 switch.lookup:                                    ; preds = %22
-  %.mask = and i32 %.sroa.7.i.i.sroa.9.1.copyload, 255
+  %.mask = and i32 %.sroa.7.i.i.sroa.9.1.copyload, 15
   %31 = zext nneg i32 %.mask to i64
   %switch.gep = getelementptr inbounds [12 x i8], ptr @"switch.table._ZN5image6codecs3tga7decoder19TgaDecoder$LT$R$GT$3new17hafc2a6ea4d6ce2d7E", i64 0, i64 %31
   %switch.load = load i8, ptr %switch.gep, align 1

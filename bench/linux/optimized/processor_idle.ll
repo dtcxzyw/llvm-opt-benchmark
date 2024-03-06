@@ -1576,7 +1576,7 @@ define internal fastcc noundef i32 @acpi_processor_evaluate_lpi(ptr noundef %0, 
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %17
-  %28 = and i64 %21, 4294967295
+  %28 = and i64 %21, 2147483647
   %29 = mul nuw nsw i64 %28, 72
   %30 = call noalias align 8 ptr @__kmalloc(i64 noundef %29, i32 noundef 3520) #21
   %31 = icmp eq ptr %30, null
