@@ -9560,9 +9560,9 @@ for.body97.us.preheader:                          ; preds = %for.cond95.preheade
   %callback_already_read.i.i = getelementptr inbounds i8, ptr %s, i64 184
   %add.ptr.i.i = getelementptr inbounds i8, ptr %s, i64 57
   %12 = sext i32 %spec.store.select to i64
-  %13 = and i64 %call41.fr, 4294967295
-  %wide.trip.count130 = and i64 %call29, 4294967295
-  %wide.trip.count124 = and i64 %call41.fr, 4294967295
+  %13 = and i64 %call41.fr, 2147483647
+  %wide.trip.count130 = and i64 %call29, 2147483647
+  %wide.trip.count124 = and i64 %call41.fr, 2147483647
   br label %for.body97.us
 
 for.body97.us:                                    ; preds = %for.body97.us.preheader, %for.inc210.us

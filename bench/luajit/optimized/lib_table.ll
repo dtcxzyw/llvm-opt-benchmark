@@ -358,8 +358,8 @@ cond.true22:                                      ; preds = %cond.end19
   br i1 %cmp24, label %cond.end33, label %cond.false27
 
 cond.false27:                                     ; preds = %cond.true22
-  %not = and i64 %shr, 4294967295
-  %13 = xor i64 %not, 4294967295
+  %not = and i64 %shr, 15
+  %13 = xor i64 %not, 15
   br label %cond.end33
 
 cond.end33:                                       ; preds = %cond.end19, %cond.false27, %cond.true22

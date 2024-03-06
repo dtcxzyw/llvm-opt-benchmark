@@ -536,7 +536,7 @@ if.end5:                                          ; preds = %for.cond.i14, %X509
 
 lor.lhs.false2.i:                                 ; preds = %if.end5
   %call.i26 = tail call i64 @sk_num(ptr noundef nonnull %x) #4
-  %conv.i = and i64 %indvars.iv.next.i, 4294967295
+  %conv.i = and i64 %indvars.iv.next.i, 2147483647
   %cmp3.not.i = icmp ugt i64 %call.i26, %conv.i
   br i1 %cmp3.not.i, label %if.else.i, label %X509at_get_attr.exit
 

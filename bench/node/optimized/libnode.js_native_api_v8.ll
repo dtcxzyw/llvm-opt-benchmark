@@ -16103,7 +16103,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %f
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %values_.i = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %values_.i, align 8
-  %idx.ext.i = and i64 %i.020, 4294967295
+  %idx.ext.i = and i64 %i.020, 2147483647
   %add.ptr.i = getelementptr inbounds i64, ptr %7, i64 %idx.ext.i
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 

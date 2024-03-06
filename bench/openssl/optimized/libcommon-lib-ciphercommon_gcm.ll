@@ -833,7 +833,7 @@ if.end.i34:                                       ; preds = %lor.lhs.false12
   %libctx.i = getelementptr inbounds i8, ptr %ctx, i64 232
   %23 = load ptr, ptr %libctx.i, align 8
   %iv.i = getelementptr inbounds i8, ptr %ctx, i64 85
-  %conv6.i = and i64 %22, 4294967295
+  %conv6.i = and i64 %22, 2147483647
   %call.i35 = tail call i32 @RAND_bytes_ex(ptr noundef %23, ptr noundef nonnull %iv.i, i64 noundef %conv6.i, i32 noundef 0) #4
   %cmp7.i = icmp slt i32 %call.i35, 1
   br i1 %cmp7.i, label %return, label %if.end17.thread

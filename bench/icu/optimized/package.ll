@@ -1126,7 +1126,7 @@ if.then15:                                        ; preds = %if.end11
   unreachable
 
 if.end20:                                         ; preds = %if.end11
-  %conv23 = and i64 %call1.i, 4294967295
+  %conv23 = and i64 %call1.i, 2147483647
   %call25 = call i64 @fread(ptr noundef nonnull %call12, i64 noundef 1, i64 noundef %conv23, ptr noundef nonnull %call)
   %conv26 = trunc i64 %call25 to i32
   %cmp27.not = icmp eq i32 %conv.i, %conv26

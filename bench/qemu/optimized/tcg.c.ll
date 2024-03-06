@@ -18742,7 +18742,7 @@ do.body:                                          ; preds = %entry
 
 switch.lookup:                                    ; preds = %entry
   %shl.i = shl nuw nsw i32 4, %spec.select.i
-  %4 = and i64 %2, 255
+  %4 = and i64 %2, 7
   %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table.temp_allocate_frame, i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %current_frame_offset = getelementptr inbounds i8, ptr %s, i64 80

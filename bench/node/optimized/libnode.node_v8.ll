@@ -5641,7 +5641,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %compact_.i.i = getelementptr inbounds i8, ptr %writer, i64 8
   %indent_.i.i = getelementptr inbounds i8, ptr %writer, i64 12
   %state_.i = getelementptr inbounds i8, ptr %writer, i64 16
-  %wide.trip.count = and i64 %call21, 4294967295
+  %wide.trip.count = and i64 %call21, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4node10JSONWriter8json_endEv.exit

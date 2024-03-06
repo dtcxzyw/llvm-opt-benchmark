@@ -38707,8 +38707,7 @@ _ZNK8facebook5velox6Buffer9asMutableISt10shared_ptrIvEEEPT_v.exit.i: ; preds = %
 for.body.lr.ph.i:                                 ; preds = %_ZNK8facebook5velox6Buffer9asMutableISt10shared_ptrIvEEEPT_v.exit.i
   %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %initValue, i64 16
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %initValue, i64 8
-  %sext16.i = shl i64 %numElements, 32
-  %wide.trip.count.i = ashr exact i64 %sext16.i, 32
+  %sext16.i = and i64 %numElements, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -38750,7 +38749,7 @@ if.else.i:                                        ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.then20.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %sext16.i
   br i1 %exitcond.not.i, label %nrvo.skipdtor, label %for.body.i, !llvm.loop !459
 
 lpad:                                             ; preds = %if.end9.i

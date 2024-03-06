@@ -17,7 +17,7 @@ entry:
   br i1 %cmp24, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
-  %wide.trip.count = and i64 %call, 4294967295
+  %wide.trip.count = and i64 %call, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -83,7 +83,7 @@ entry:
   br i1 %cmp43, label %for.body.preheader, label %if.then68
 
 for.body.preheader:                               ; preds = %entry
-  %wide.trip.count = and i64 %call, 4294967295
+  %wide.trip.count = and i64 %call, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc

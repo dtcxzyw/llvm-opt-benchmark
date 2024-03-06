@@ -677,7 +677,7 @@ while.cond.preheader:                             ; preds = %if.end
 
 land.rhs.lr.ph:                                   ; preds = %while.cond.preheader
   %call14 = tail call ptr @__ctype_b_loc() #10
-  %1 = and i64 %call1, 4294967295
+  %1 = and i64 %call1, 2147483647
   br label %land.rhs
 
 if.then5:                                         ; preds = %if.end

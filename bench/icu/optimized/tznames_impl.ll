@@ -4299,7 +4299,7 @@ if.end11.i.i:                                     ; preds = %if.then7.i.i
   br i1 %9, label %switch.lookup, label %_ZN6icu_756ZNames13getTZNameTypeENS_22UTimeZoneNameTypeIndexE.exit.i.i
 
 switch.lookup:                                    ; preds = %if.end11.i.i
-  %10 = and i64 %indvars.iv.i, 4294967295
+  %10 = and i64 %indvars.iv.i, 7
   %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN6icu_7517TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 0, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN6icu_756ZNames13getTZNameTypeENS_22UTimeZoneNameTypeIndexE.exit.i.i
@@ -4395,7 +4395,7 @@ if.end11.i.i25:                                   ; preds = %if.then7.i.i22
   br i1 %21, label %switch.lookup69, label %_ZN6icu_756ZNames13getTZNameTypeENS_22UTimeZoneNameTypeIndexE.exit.i.i29
 
 switch.lookup69:                                  ; preds = %if.end11.i.i25
-  %22 = and i64 %indvars.iv.i19, 4294967295
+  %22 = and i64 %indvars.iv.i19, 7
   %switch.gep70 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN6icu_7517TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 0, i64 %22
   %switch.load71 = load i32, ptr %switch.gep70, align 4
   br label %_ZN6icu_756ZNames13getTZNameTypeENS_22UTimeZoneNameTypeIndexE.exit.i.i29

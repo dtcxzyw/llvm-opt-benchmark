@@ -1276,7 +1276,7 @@ for.cond138.preheader:                            ; preds = %if.then133
   br i1 %cmp141231, label %for.body142.preheader, label %for.cond163.preheader
 
 for.body142.preheader:                            ; preds = %for.cond138.preheader
-  %wide.trip.count275 = and i64 %sub.ptr.div.i95, 4294967295
+  %wide.trip.count275 = and i64 %sub.ptr.div.i95, 2147483647
   %.pre289 = load double, ptr %intersections.sroa.0.2.lcssa, align 8
   br label %for.body142
 
@@ -1285,7 +1285,7 @@ for.cond163.preheader:                            ; preds = %for.inc159, %for.co
   br i1 %cmp166234, label %for.body167.preheader, label %for.inc191
 
 for.body167.preheader:                            ; preds = %for.cond163.preheader
-  %wide.trip.count280 = and i64 %sub.ptr.div.i95, 4294967295
+  %wide.trip.count280 = and i64 %sub.ptr.div.i95, 2147483647
   br label %for.body167
 
 for.body142:                                      ; preds = %for.body142.preheader, %for.inc159

@@ -3409,7 +3409,7 @@ for.end78:                                        ; preds = %for.inc76
   br i1 %cmp90280, label %for.body91.lr.ph, label %for.end112
 
 for.body91.lr.ph:                                 ; preds = %for.end78
-  %wide.trip.count = and i64 %sub.ptr.div.i122, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i122, 2147483647
   br label %for.body91
 
 for.body91:                                       ; preds = %for.body91.lr.ph, %if.end103
@@ -3485,7 +3485,7 @@ if.then3.i.i.cont:                                ; preds = %if.then3.i.i.invoke
   unreachable
 
 if.end4.i.i:                                      ; preds = %if.end133
-  %mul.i.i157 = and i64 %sub.ptr.sub.i135.pre-phi314, 34359738360
+  %mul.i.i157 = and i64 %sub.ptr.sub.i135.pre-phi314, 17179869176
   %call5.i3.i159 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i157) #24
           to label %invoke.cont138 unwind label %lpad45.loopexit.split-lp
 

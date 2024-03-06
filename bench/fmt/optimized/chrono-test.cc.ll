@@ -128979,7 +128979,7 @@ _ZN3fmt3v1019basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit: ; preds = %_ZN3fmt3
   br i1 %cmp51, label %for.cond6.preheader.preheader, label %for.cond26.preheader
 
 for.cond6.preheader.preheader:                    ; preds = %_ZN3fmt3v1019basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit
-  %wide.trip.count77 = and i64 %0, 4294967295
+  %wide.trip.count77 = and i64 %0, 2147483647
   br label %for.body8.lr.ph
 
 for.body8.lr.ph:                                  ; preds = %invoke.cont18, %for.cond6.preheader.preheader
@@ -130398,7 +130398,7 @@ for.body.preheader:                               ; preds = %while.end
   %11 = load i64, ptr %0, align 8
   %12 = trunc i64 %11 to i32
   %conv11 = add i32 %12, -1
-  %wide.trip.count = and i64 %digits.coerce1, 4294967295
+  %wide.trip.count = and i64 %digits.coerce1, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end25

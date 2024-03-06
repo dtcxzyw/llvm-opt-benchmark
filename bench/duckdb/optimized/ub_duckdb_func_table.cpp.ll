@@ -62561,7 +62561,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
 
 for.cond.preheader.us.preheader.i:                ; preds = %invoke.cont
   %conv17 = trunc i64 %rem to i32
-  %12 = and i64 %add8, 4294967295
+  %12 = and i64 %add8, 2147483647
   %min.iters.check = icmp ult i64 %12, 16
   %n.mod.vf = and i64 %add8, 15
   %n.vec = sub nsw i64 %12, %n.mod.vf

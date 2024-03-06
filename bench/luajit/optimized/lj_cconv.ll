@@ -1300,7 +1300,7 @@ if.end10.i:                                       ; preds = %if.end7.i
 
 for.inc.i:                                        ; preds = %if.end10.i, %if.then.i
   %ofs.1.i = phi i32 [ %ofs.0.i, %if.then.i ], [ %add.i, %if.end10.i ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond.i
 
 for.end.i:                                        ; preds = %if.then.i
@@ -1489,8 +1489,8 @@ entry:
   %shr = ashr i64 %2, 47
   %conv1 = trunc i64 %shr to i32
   %cmp = icmp ult i32 %conv1, -13
-  %not = and i64 %shr, 4294967295
-  %3 = xor i64 %not, 4294967295
+  %not = and i64 %shr, 15
+  %3 = xor i64 %not, 15
   %cond = select i1 %cmp, i64 13, i64 %3
   %arrayidx = getelementptr inbounds [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %cond
   %4 = load ptr, ptr %arrayidx, align 8

@@ -5854,7 +5854,7 @@ name_is_illegal.exit:                             ; preds = %if.end25
   br i1 %cmp.i.not, label %if.end30, label %out_nofid
 
 if.end30:                                         ; preds = %name_is_illegal.exit
-  %conv31 = and i64 %call20, 4294967295
+  %conv31 = and i64 %call20, 2147483647
   %add32 = add i64 %conv31, %offset.0174
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i16, ptr %nwnames, align 2

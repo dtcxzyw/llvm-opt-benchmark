@@ -1743,7 +1743,7 @@ land.lhs.true.i.i:                                ; preds = %_ZNK6icu_757UVector
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %13 = load ptr, ptr %elements.i, align 8
-  %idxprom.i.i = and i64 %retval.0.i.in, 4294967295
+  %idxprom.i.i = and i64 %retval.0.i.in, 2147483647
   %arrayidx.i.i = getelementptr inbounds %union.UElement, ptr %13, i64 %idxprom.i.i
   %14 = load ptr, ptr %arrayidx.i.i, align 8
   %sub7.i.i = add nsw i32 %12, -1
@@ -2098,7 +2098,7 @@ land.lhs.true.i.i:                                ; preds = %_ZNK6icu_757UVector
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %elements.i.i3 = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load ptr, ptr %elements.i.i3, align 8
-  %idxprom.i.i = and i64 %retval.0.i.i.in, 4294967295
+  %idxprom.i.i = and i64 %retval.0.i.i.in, 2147483647
   %arrayidx.i.i4 = getelementptr inbounds %union.UElement, ptr %9, i64 %idxprom.i.i
   %10 = load ptr, ptr %arrayidx.i.i4, align 8
   %sub7.i.i = add nsw i32 %8, -1

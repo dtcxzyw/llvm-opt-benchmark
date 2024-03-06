@@ -366,7 +366,7 @@ if.then17:                                        ; preds = %land.lhs.true
 
 if.end18:                                         ; preds = %lor.lhs.false.preheader, %lor.lhs.false
   %call61521 = phi i64 [ %call6, %lor.lhs.false ], [ %call611, %lor.lhs.false.preheader ]
-  %conv20 = and i64 %call61521, 4294967295
+  %conv20 = and i64 %call61521, 2147483647
   call void @write_or_die(i32 noundef 1, ptr noundef nonnull %in, i64 noundef %conv20) #12
   %call6 = call i64 @read_in_full(i32 noundef %call, ptr noundef nonnull %in, i64 noundef 1024) #12
   %conv = trunc i64 %call6 to i32

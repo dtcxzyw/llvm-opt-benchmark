@@ -1502,7 +1502,7 @@ while.cond.preheader.i.i:                         ; preds = %load_at.exit68.i.i
 while.body.lr.ph.lr.ph.i.i:                       ; preds = %while.cond.preheader.i.i
   %tobool39.not.i.i = icmp eq ptr %sym_cb, null
   %tobool81.not.i.i = icmp eq i32 %clear_lsb, 0
-  %56 = and i64 %div.i.i, 4294967295
+  %56 = and i64 %div.i.i, 2147483647
   br i1 %cmp25.not, label %while.body.lr.ph.lr.ph.split.us.i.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.lr.ph.split.us.i.i:              ; preds = %while.body.lr.ph.lr.ph.i.i
@@ -2196,7 +2196,7 @@ for.body22.lr.ph.i.i:                             ; preds = %if.end16.i215.i
   br i1 %cond.i.i, label %for.body22.us.preheader.i.i, label %for.body22.lr.ph.split.i.i
 
 for.body22.us.preheader.i.i:                      ; preds = %for.body22.lr.ph.i.i
-  %wide.trip.count91.i.i = and i64 %div.i216.i, 4294967295
+  %wide.trip.count91.i.i = and i64 %div.i216.i, 2147483647
   br label %for.body22.us.i.i
 
 for.body22.us.i.i:                                ; preds = %for.inc61.us.i.i, %for.body22.us.preheader.i.i
@@ -2272,7 +2272,7 @@ for.body22.lr.ph.split.i.i:                       ; preds = %for.body22.lr.ph.i.
   br i1 %cmp25.not, label %fail.i.i, label %for.body22.preheader.i.i
 
 for.body22.preheader.i.i:                         ; preds = %for.body22.lr.ph.split.i.i
-  %wide.trip.count86.i.i = and i64 %div.i216.i, 4294967295
+  %wide.trip.count86.i.i = and i64 %div.i216.i, 2147483647
   br label %for.body22.i.i
 
 for.body22.i.i:                                   ; preds = %for.body22.i.i, %for.body22.preheader.i.i

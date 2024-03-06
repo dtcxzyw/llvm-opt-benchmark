@@ -9811,7 +9811,7 @@ if.then.i.i31:                                    ; preds = %_ZNK6duckdb8string_
   br i1 %cmp.i.i33, label %invoke.cont, label %if.end.i.i34
 
 if.end.i.i34:                                     ; preds = %if.then.i.i31
-  %conv.i.i.i = and i64 %10, 4294967295
+  %conv.i.i.i = and i64 %10, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix.i.i, ptr align 1 %9, i64 %conv.i.i.i, i1 false)
   br label %invoke.cont
 

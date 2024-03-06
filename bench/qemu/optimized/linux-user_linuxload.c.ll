@@ -306,10 +306,10 @@ if.end27.i:                                       ; preds = %if.end20.i
   br i1 %cmp28.i, label %if.then30.i, label %if.end35.i
 
 if.then30.i:                                      ; preds = %if.end27.i
-  %idx.ext.i = and i64 %call23.i, 4294967295
+  %idx.ext.i = and i64 %call23.i, 1023
   %add.ptr.i = getelementptr i8, ptr %bprm, i64 %idx.ext.i
   %sub33.i = sub i64 1024, %call23.i
-  %conv34.i = and i64 %sub33.i, 4294967295
+  %conv34.i = and i64 %sub33.i, 2047
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %conv34.i, i1 false)
   br label %if.end35.i
 

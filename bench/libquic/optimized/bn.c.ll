@@ -830,7 +830,7 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   %1 = load ptr, ptr %bn, align 8
-  %2 = and i64 %num, 4294967295
+  %2 = and i64 %num, 2147483647
   %3 = getelementptr i64, ptr %1, i64 %2
   br label %for.body.i
 

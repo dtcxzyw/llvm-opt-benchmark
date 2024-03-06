@@ -984,7 +984,7 @@ if.end:                                           ; preds = %_ZN4node6crypto7Nod
   br i1 %or.cond, label %land.lhs.true6, label %if.end11
 
 land.lhs.true6:                                   ; preds = %if.end
-  %conv7 = and i64 %call2, 4294967295
+  %conv7 = and i64 %call2, 2147483647
   %1 = load i64, ptr %length_.i, align 8
   %cmp9 = icmp ult i64 %conv7, %1
   %inc = zext i1 %cmp9 to i32

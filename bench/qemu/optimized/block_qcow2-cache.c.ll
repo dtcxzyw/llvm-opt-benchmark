@@ -1170,7 +1170,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %e
 
 qcow2_cache_get_table_idx.exit:                   ; preds = %land.lhs.true.i
   %4 = load ptr, ptr %c, align 8
-  %idxprom = and i64 %div.i, 4294967295
+  %idxprom = and i64 %div.i, 2147483647
   %ref = getelementptr %struct.Qcow2CachedTable, ptr %4, i64 %idxprom, i32 2
   %5 = load i32, ptr %ref, align 8
   %dec = add i32 %5, -1
@@ -1238,7 +1238,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %e
 
 qcow2_cache_get_table_idx.exit:                   ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %c, align 8
-  %idxprom = and i64 %div.i, 4294967295
+  %idxprom = and i64 %div.i, 2147483647
   %arrayidx = getelementptr %struct.Qcow2CachedTable, ptr %3, i64 %idxprom
   %4 = load i64, ptr %arrayidx, align 8
   %cmp.not = icmp eq i64 %4, 0
@@ -1325,7 +1325,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %e
 
 qcow2_cache_get_table_idx.exit:                   ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %c, align 8
-  %idxprom = and i64 %div.i, 4294967295
+  %idxprom = and i64 %div.i, 2147483647
   %arrayidx = getelementptr %struct.Qcow2CachedTable, ptr %3, i64 %idxprom
   %ref = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %4 = load i32, ptr %ref, align 8

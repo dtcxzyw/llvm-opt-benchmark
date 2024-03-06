@@ -12948,7 +12948,7 @@ for.cond107.preheader.i.i.i:                      ; preds = %invoke.cont101.i.i.
   br i1 %cmp93.i.i.i, label %for.body108.preheader.i.i.i, label %for.end119.i.i.i
 
 for.body108.preheader.i.i.i:                      ; preds = %for.cond107.preheader.i.i.i
-  %wide.trip.count.i.i.i = and i64 %sub.ptr.div.i.i373.i.i, 4294967295
+  %wide.trip.count.i.i.i = and i64 %sub.ptr.div.i.i373.i.i, 2147483647
   br label %for.body108.i.i.i
 
 for.body108.i.i.i:                                ; preds = %for.inc118.i.i.i, %for.body108.preheader.i.i.i

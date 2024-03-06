@@ -6390,7 +6390,7 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i.i1768
 
 if.end6.i.i.i:                                    ; preds = %if.then2.i.i.i
   store ptr null, ptr %agg.tmp.i.8.agg.tmp.i.8.agg.tmp.i.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8, !noalias !302
-  %conv.i.i.i = and i64 %call2.i.i, 4294967295
+  %conv.i.i.i = and i64 %call2.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i.4.agg.tmp.i.4.agg.tmp.i.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i16.i, i64 %conv.i.i.i, i1 false), !noalias !302
   br label %invoke.cont9.i
 
@@ -7023,7 +7023,7 @@ if.then2.i.i.i2103:                               ; preds = %if.end.i.i.i1952
 
 if.end6.i.i.i2105:                                ; preds = %if.then2.i.i.i2103
   store ptr null, ptr %agg.tmp.i1890.8.agg.tmp.i1890.8.agg.tmp.i1890.8.agg.tmp.8.agg.tmp.8.value_7.i.i.sroa_idx, align 8, !noalias !335
-  %conv.i.i.i2106 = and i64 %call2.i.i1949, 4294967295
+  %conv.i.i.i2106 = and i64 %call2.i.i1949, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp.i1890.4.agg.tmp.i1890.4.agg.tmp.i1890.4.agg.tmp.4.agg.tmp.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i16.i1948, i64 %conv.i.i.i2106, i1 false), !noalias !335
   br label %invoke.cont9.i1955
 

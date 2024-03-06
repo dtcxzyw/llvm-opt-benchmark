@@ -385,7 +385,7 @@ if.end40:                                         ; preds = %if.end35, %if.then2
   br i1 %cmp46, label %if.then47, label %if.end57
 
 if.then47:                                        ; preds = %if.end40
-  %conv49 = and i64 %sub.ptr.sub44, 4294967295
+  %conv49 = and i64 %sub.ptr.sub44, 2147483647
   %47 = load ptr, ptr %fFile, align 8
   %call51 = call i64 @fwrite(ptr noundef nonnull %charBuffer, i64 noundef 1, i64 noundef %conv49, ptr noundef %47)
   %48 = load ptr, ptr %mySource, align 8

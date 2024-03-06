@@ -51107,7 +51107,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt10shared_ptrIN
   %storage_.i.i223 = getelementptr inbounds i8, ptr %ref.tmp74, i64 8
   %_M_refcount.i.i.i.i224 = getelementptr inbounds i8, ptr %child_array, i64 8
   %_M_refcount4.i.i.i.i225 = getelementptr inbounds i8, ptr %ref.tmp74, i64 16
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body
 
 for.cond:                                         ; preds = %cleanup110

@@ -2408,7 +2408,7 @@ ssl_has_cert_type.exit.i:                         ; preds = %if.end.i
 if.then3.i:                                       ; preds = %ssl_has_cert_type.exit.i
   %pkeys.i = getelementptr inbounds i8, ptr %.pre145, i64 32
   %14 = load ptr, ptr %pkeys.i, align 8
-  %idxprom.i = and i64 %j.0127, 4294967295
+  %idxprom.i = and i64 %j.0127, 2147483647
   %privatekey.i = getelementptr inbounds %struct.cert_pkey_st, ptr %14, i64 %idxprom.i, i32 1
   br label %ssl_has_cert.exit
 
@@ -2416,7 +2416,7 @@ if.end6.i:                                        ; preds = %if.end.i.if.end6.i_
   %15 = phi ptr [ %.pre, %if.end.i.if.end6.i_crit_edge ], [ %.pre145, %ssl_has_cert_type.exit.i ]
   %pkeys8.i = getelementptr inbounds i8, ptr %15, i64 32
   %16 = load ptr, ptr %pkeys8.i, align 8
-  %idxprom9.i = and i64 %j.0127, 4294967295
+  %idxprom9.i = and i64 %j.0127, 2147483647
   %arrayidx10.i = getelementptr inbounds %struct.cert_pkey_st, ptr %16, i64 %idxprom9.i
   %17 = load ptr, ptr %arrayidx10.i, align 8
   %cmp11.not.i = icmp eq ptr %17, null

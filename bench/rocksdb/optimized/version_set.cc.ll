@@ -22240,7 +22240,7 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
   br i1 %cmp4654, label %for.body48.preheader, label %for.cond28.loopexit
 
 for.body48.preheader:                             ; preds = %for.body34
-  %39 = and i64 %sub.ptr.div.i, 4294967295
+  %39 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body48
 
 for.body48:                                       ; preds = %for.body48.preheader, %for.inc65
@@ -39333,7 +39333,7 @@ for.body25.lr.ph:                                 ; preds = %if.else
   %_M_node5.i.i.i.i69 = getelementptr inbounds i8, ptr %writers, i64 40
   %_M_finish.i.i71 = getelementptr inbounds i8, ptr %this, i64 368
   %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 384
-  %wide.trip.count = and i64 %add.i43, 4294967295
+  %wide.trip.count = and i64 %add.i43, 2147483647
   br label %for.body25
 
 for.body25:                                       ; preds = %for.body25.lr.ph, %_ZNSt8functionIFvRKN7rocksdb6StatusEEED2Ev.exit

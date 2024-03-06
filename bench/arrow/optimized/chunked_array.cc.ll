@@ -3083,7 +3083,7 @@ while.end.thread:                                 ; preds = %cleanup.done
   br label %while.cond39.preheader
 
 land.rhs.preheader:                               ; preds = %cleanup.done
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body

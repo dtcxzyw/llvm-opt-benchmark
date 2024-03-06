@@ -274,7 +274,7 @@ if.then:                                          ; preds = %cond.end
 do.end:                                           ; preds = %cond.end
   %tobool.not.not = icmp eq i32 %include_certificate_type, 0
   %add = select i1 %tobool.not.not, i64 3, i64 4
-  %conv5 = and i64 %call.i, 4294967295
+  %conv5 = and i64 %call.i, 2147483647
   %add6 = add nuw nsw i64 %add, %conv5
   %cmp746.not = icmp eq i32 %conv, 0
   br i1 %cmp746.not, label %for.end, label %for.body

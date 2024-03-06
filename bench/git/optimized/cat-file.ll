@@ -1021,7 +1021,7 @@ for.cond.preheader.i.i.i:                         ; preds = %if.then49.i.i
   br i1 %cmp6.i.i.i, label %for.body.preheader.i.i.i, label %dispatch_calls.exit.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %for.cond.preheader.i.i.i
-  %wide.trip.count.i.i.i = and i64 %nr.0121.i.i, 4294967295
+  %wide.trip.count.i.i.i = and i64 %nr.0121.i.i, 2147483647
   br label %for.body.i.i.i
 
 if.then.i32.i.i:                                  ; preds = %if.then49.i.i
@@ -1141,7 +1141,7 @@ for.cond.preheader.i42.i.i:                       ; preds = %if.then85.i.i
   br i1 %cmp6.i43.i.i, label %for.body.preheader.i45.i.i, label %dispatch_calls.exit55.i.i
 
 for.body.preheader.i45.i.i:                       ; preds = %for.cond.preheader.i42.i.i
-  %wide.trip.count.i46.i.i = and i64 %nr.1.i.i, 4294967295
+  %wide.trip.count.i46.i.i = and i64 %nr.1.i.i, 2147483647
   br label %for.body.i47.i.i
 
 if.then.i53.i.i:                                  ; preds = %if.then85.i.i

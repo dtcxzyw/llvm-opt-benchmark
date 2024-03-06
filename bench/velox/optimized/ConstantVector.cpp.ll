@@ -73,7 +73,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %ref.tmp.sroa.2.4.value_7.i.i.sroa_idx26 = getelementptr inbounds i8, ptr %ref.tmp.sroa.2, i64 4
   store ptr null, ptr %ref.tmp.sroa.2.4.value_7.i.i.sroa_idx26, align 4
-  %conv.i.i = and i64 %call2.i, 4294967295
+  %conv.i.i = and i64 %call2.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %ref.tmp.sroa.2, ptr align 1 %call.i, i64 %conv.i.i, i1 false)
   br label %return
 
@@ -225,7 +225,7 @@ if.then2.i:                                       ; preds = %if.end.i
 if.end6.i:                                        ; preds = %if.then2.i
   %ref.tmp12.sroa.2.4.value_7.i.sroa_idx24 = getelementptr inbounds i8, ptr %ref.tmp12.sroa.2, i64 4
   store ptr null, ptr %ref.tmp12.sroa.2.4.value_7.i.sroa_idx24, align 4
-  %conv.i20 = and i64 %22, 4294967295
+  %conv.i20 = and i64 %22, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %ref.tmp12.sroa.2, ptr align 1 %21, i64 %conv.i20, i1 false)
   br label %return
 

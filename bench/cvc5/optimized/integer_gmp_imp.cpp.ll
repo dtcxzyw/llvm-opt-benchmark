@@ -1799,7 +1799,7 @@ entry:
   br i1 %cmp6.i, label %for.body.preheader.i, label %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit
 
 for.body.preheader.i:                             ; preds = %entry
-  %wide.trip.count.i = and i64 %call.i, 4294967295
+  %wide.trip.count.i = and i64 %call.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i

@@ -5316,7 +5316,7 @@ for.cond.preheader:                               ; preds = %if.end32, %while.co
   br i1 %cmp5048, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %wide.trip.count = and i64 %indvars.iv.next.lcssa.sink, 4294967295
+  %wide.trip.count = and i64 %indvars.iv.next.lcssa.sink, 2147483647
   br label %for.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge

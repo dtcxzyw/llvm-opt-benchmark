@@ -2072,7 +2072,7 @@ while.cond:                                       ; preds = %while.body, %entry
   br i1 %.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %conv6 = and i64 %indvars.iv.next, 4294967295
+  %conv6 = and i64 %indvars.iv.next, 2147483647
   %add.ptr.i = getelementptr inbounds i32, ptr %1, i64 %conv6
   %7 = load i32, ptr %add.ptr.i, align 4
   %conv9 = and i64 %indvars.iv.next28, 2147483647

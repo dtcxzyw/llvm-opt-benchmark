@@ -18422,8 +18422,8 @@ for.body.i16.lr.ph:                               ; preds = %if.then.i
   %left_start_idx_.i.i36 = getelementptr inbounds i8, ptr %impl.i12, i64 32
   %range_length_.i.i38 = getelementptr inbounds i8, ptr %impl.i12, i64 48
   %result_.i.i39 = getelementptr inbounds i8, ptr %impl.i12, i64 56
-  %9 = and i64 %sub.ptr.div.i.i, 4294967295
-  %wide.trip.count76 = and i64 %sub.ptr.div.i.i, 4294967295
+  %9 = and i64 %sub.ptr.div.i.i, 2147483647
+  %wide.trip.count76 = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body.i16
 
 for.cond.i13:                                     ; preds = %for.body.i16
@@ -18550,7 +18550,7 @@ if.end8.i.lr.ph:                                  ; preds = %_ZN5arrow8internal1
   br i1 %cmp.i1.not63, label %if.end8.i.us.preheader, label %if.end8.i
 
 if.end8.i.us.preheader:                           ; preds = %if.end8.i.lr.ph
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %if.end8.i.us
 
 if.end8.i.us:                                     ; preds = %if.end8.i.us.preheader, %for.cond.i._ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_10StructTypeEENKUlllE_clEll.exit_crit_edge.us

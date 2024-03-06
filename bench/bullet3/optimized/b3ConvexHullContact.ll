@@ -18500,7 +18500,7 @@ invoke.cont1349:                                  ; preds = %invoke.cont1345
 
 _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE8allocateEi.exit.i: ; preds = %invoke.cont1349
   %conv.i.i.i5194 = shl i64 %994, 5
-  %mul.i.i.i5195 = and i64 %conv.i.i.i5194, 137438953440
+  %mul.i.i.i5195 = and i64 %conv.i.i.i5194, 68719476704
   %call.i.i.i5221 = invoke noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %mul.i.i.i5195, i32 noundef 16)
           to label %call.i.i.i.noexc5220 unwind label %lpad1350
 
@@ -22197,7 +22197,7 @@ invoke.cont1978:                                  ; preds = %invoke.cont1974
 
 _ZN20b3AlignedObjectArrayI9b3Vector3E8allocateEi.exit.i5550: ; preds = %invoke.cont1978
   %conv.i.i.i5551 = shl i64 %1550, 4
-  %mul.i.i.i5552 = and i64 %conv.i.i.i5551, 68719476720
+  %mul.i.i.i5552 = and i64 %conv.i.i.i5551, 34359738352
   %call.i.i.i5580 = invoke noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %mul.i.i.i5552, i32 noundef 16)
           to label %call.i.i.i.noexc5579 unwind label %lpad1979
 
@@ -22218,7 +22218,7 @@ _ZNK20b3AlignedObjectArrayI9b3Vector3E4copyEiiPS0_.exit18.i5577: ; preds = %call
   store i8 1, ptr %m_ownsMemory.i.i3613, align 8
   store ptr %call.i.i.i5580, ptr %m_data.i.i3614, align 8
   store i32 %_Count.addr.0.i5559, ptr %m_capacity.i.i3616, align 8
-  %wide.trip.count.i3622 = and i64 %1550, 4294967295
+  %wide.trip.count.i3622 = and i64 %1550, 2147483647
   br label %for.body9.i3623
 
 for.body9.i3623:                                  ; preds = %for.body9.i3623, %.noexc3628

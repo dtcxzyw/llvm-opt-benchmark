@@ -1620,7 +1620,7 @@ _ZNSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE6resizeEm.exit: ; preds 
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIN5arrow7compute17KeyColumnMetadataESaIS2_EE6resizeEm.exit
   %storage_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.cond:                                         ; preds = %_ZN5arrow6ResultINS_7compute17KeyColumnMetadataEED2Ev.exit
@@ -1920,7 +1920,7 @@ _ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE6resizeEm.exit: ; preds = %
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIN5arrow7compute14KeyColumnArrayESaIS2_EE6resizeEm.exit
   %storage_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.cond:                                         ; preds = %_ZN5arrow6ResultINS_7compute14KeyColumnArrayEED2Ev.exit

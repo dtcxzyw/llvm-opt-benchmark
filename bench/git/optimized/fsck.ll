@@ -544,14 +544,14 @@ for.end.i:                                        ; preds = %fsck_msg_type.exit.
 
 fsck_set_msg_type_from_ids.exit:                  ; preds = %if.end11.split, %for.end.i
   %6 = phi ptr [ %call2.i, %for.end.i ], [ %2, %if.end11.split ]
-  %idxprom6.i = and i64 %indvars.iv.i, 4294967295
+  %idxprom6.i = and i64 %indvars.iv.i, 2147483647
   %arrayidx7.i = getelementptr inbounds i32, ptr %6, i64 %idxprom6.i
   store i32 3, ptr %arrayidx7.i, align 4
   br label %if.end17
 
 land.lhs.true:                                    ; preds = %if.else.i, %if.else4.i
   %retval.0.i17.ph = phi i32 [ 0, %if.else4.i ], [ 4, %if.else.i ]
-  %idxprom = and i64 %indvars.iv.i, 4294967295
+  %idxprom = and i64 %indvars.iv.i, 2147483647
   %msg_type14 = getelementptr inbounds [59 x %struct.anon], ptr @msg_id_info, i64 0, i64 %idxprom, i32 3
   %7 = load i32, ptr %msg_type14, align 8
   %cmp15 = icmp eq i32 %7, 2
@@ -660,7 +660,7 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp40, label %land.lhs.true.preheader, label %for.end
 
 land.lhs.true.preheader:                          ; preds = %if.end
-  %wide.trip.count = and i64 %call1, 4294967295
+  %wide.trip.count = and i64 %call1, 2147483647
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.lhs.true.preheader, %for.body

@@ -1272,7 +1272,7 @@ if.then12:                                        ; preds = %land.lhs.true
   br i1 %cmp1939, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.then12
-  %wide.trip.count = and i64 %8, 4294967295
+  %wide.trip.count = and i64 %8, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body

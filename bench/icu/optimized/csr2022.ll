@@ -110,7 +110,7 @@ while.cond11.preheader.us:                        ; preds = %while.body5.us
   br i1 %cmp1231.us, label %while.body13.us.preheader, label %while.end.us
 
 while.body13.us.preheader:                        ; preds = %while.cond11.preheader.us
-  %wide.trip.count58 = and i64 %call.us, 4294967295
+  %wide.trip.count58 = and i64 %call.us, 2147483647
   br label %while.body13.us
 
 while.cond3.preheader.us:                         ; preds = %while.body.us
@@ -254,7 +254,7 @@ while.cond11.preheader.us.i:                      ; preds = %while.body5.us.i
   br i1 %cmp1231.us.i, label %while.body13.us.preheader.i, label %while.end.us.i
 
 while.body13.us.preheader.i:                      ; preds = %while.cond11.preheader.us.i
-  %wide.trip.count58.i = and i64 %call.us.i, 4294967295
+  %wide.trip.count58.i = and i64 %call.us.i, 2147483647
   br label %while.body13.us.i
 
 while.cond3.preheader.us.i:                       ; preds = %while.body.us.i
@@ -501,7 +501,7 @@ while.cond11.preheader.us.i:                      ; preds = %while.body5.us.i
   br i1 %cmp1231.us.i, label %while.body13.us.preheader.i, label %while.end.us.i
 
 while.body13.us.preheader.i:                      ; preds = %while.cond11.preheader.us.i
-  %wide.trip.count58.i = and i64 %call.us.i, 4294967295
+  %wide.trip.count58.i = and i64 %call.us.i, 2147483647
   br label %while.body13.us.i
 
 while.cond3.preheader.us.i:                       ; preds = %while.body.us.i

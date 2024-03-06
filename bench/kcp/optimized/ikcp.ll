@@ -2547,7 +2547,7 @@ ikcp_canlog.exit.i324:                            ; preds = %if.then282
   br i1 %cmp1.i.not.i326, label %ikcp_output.exit336, label %if.then.i327
 
 if.then.i327:                                     ; preds = %ikcp_canlog.exit.i324
-  %conv.i328 = and i64 %sub.ptr.sub278, 4294967295
+  %conv.i328 = and i64 %sub.ptr.sub278, 2147483647
   tail call void (ptr, i32, ptr, ...) @ikcp_log(ptr noundef nonnull %kcp, i32 noundef 1, ptr noundef nonnull @.str.6, i64 noundef %conv.i328)
   br label %ikcp_output.exit336
 

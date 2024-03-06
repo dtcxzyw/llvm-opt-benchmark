@@ -1424,7 +1424,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.
   br i1 %cmp39136, label %for.body.preheader, label %if.end52
 
 for.body.preheader:                               ; preds = %invoke.cont
-  %wide.trip.count = and i64 %mul, 4294967295
+  %wide.trip.count = and i64 %mul, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -1518,7 +1518,7 @@ invoke.cont62:                                    ; preds = %if.end.i.i.i.i.i.i.
   br i1 %cmp65140, label %for.body66.preheader, label %if.end82
 
 for.body66.preheader:                             ; preds = %invoke.cont62
-  %wide.trip.count151 = and i64 %mul, 4294967295
+  %wide.trip.count151 = and i64 %mul, 2147483647
   br label %for.body66
 
 for.body66:                                       ; preds = %for.body66.preheader, %for.body66
@@ -1593,7 +1593,7 @@ for.body96.lr.ph:                                 ; preds = %invoke.cont92.threa
   %values88.sroa.0.0158 = phi ptr [ null, %invoke.cont92.thread ], [ %call5.i.i.i.i2.i.i98, %invoke.cont92 ]
   %m_len.i.i100 = getelementptr inbounds i8, ptr %v, i64 8
   %m_len.i1.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
-  %wide.trip.count146 = and i64 %mul, 4294967295
+  %wide.trip.count146 = and i64 %mul, 2147483647
   br label %for.body96
 
 for.body96:                                       ; preds = %for.body96.lr.ph, %for.inc106

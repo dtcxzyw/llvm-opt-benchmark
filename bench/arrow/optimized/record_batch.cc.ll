@@ -7000,7 +7000,7 @@ invoke.cont6:                                     ; preds = %call5.i.i.i.i2.i.i.
 for.body.lr.ph:                                   ; preds = %invoke.cont6
   %schema_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
-  %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit

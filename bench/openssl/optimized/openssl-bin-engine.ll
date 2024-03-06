@@ -900,7 +900,7 @@ if.end25:                                         ; preds = %if.end24, %if.else
   br i1 %cmp7, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %if.end25
-  %idx.ext = and i64 %call5, 4294967295
+  %idx.ext = and i64 %call5, 2147483647
   %add.ptr = getelementptr inbounds i8, ptr %p.0, i64 %idx.ext
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 44, ptr %add.ptr, align 1
