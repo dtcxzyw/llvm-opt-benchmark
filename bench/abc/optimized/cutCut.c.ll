@@ -1,0 +1,652 @@
+; ModuleID = 'bench/abc/original/cutCut.c.ll'
+source_filename = "bench/abc/original/cutCut.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+@.str = private unnamed_addr constant [7 x i8] c"%d : {\00", align 1
+@.str.1 = private unnamed_addr constant [4 x i8] c" %d\00", align 1
+@.str.2 = private unnamed_addr constant [5 x i8] c"(%d)\00", align 1
+@.str.3 = private unnamed_addr constant [3 x i8] c" }\00", align 1
+@.str.5 = private unnamed_addr constant [26 x i8] c"%d : %5d %5d %5d %5d %5d\0A\00", align 1
+@str = private unnamed_addr constant [13 x i8] c"Cannot merge\00", align 1
+
+; Function Attrs: nounwind uwtable
+define noundef ptr @Cut_CutAlloc(ptr nocapture noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %3) #10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  %5 = load ptr, ptr %0, align 8
+  %6 = load i32, ptr %5, align 4
+  %7 = shl i32 %6, 24
+  %8 = and i32 %7, 251658240
+  store i32 %8, ptr %4, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = load i32, ptr %9, align 8
+  %11 = shl i32 %10, 22
+  %12 = and i32 %11, 4194304
+  %13 = or disjoint i32 %12, %8
+  store i32 %13, ptr %4, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 228
+  %15 = load <2 x i32>, ptr %14, align 4
+  %16 = add nsw <2 x i32> %15, <i32 1, i32 1>
+  store <2 x i32> %16, ptr %14, align 4
+  %17 = getelementptr inbounds i8, ptr %0, i64 240
+  %18 = load i32, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 236
+  %20 = load i32, ptr %19, align 4
+  %21 = extractelement <2 x i32> %16, i64 1
+  %22 = sub nsw i32 %21, %20
+  %23 = icmp slt i32 %18, %22
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %1
+  store i32 %22, ptr %17, align 8
+  br label %25
+
+25:                                               ; preds = %24, %1
+  ret ptr %4
+}
+
+declare ptr @Extra_MmFixedEntryFetch(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+
+; Function Attrs: nounwind uwtable
+define void @Cut_CutRecycle(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 236
+  %4 = load i32, ptr %3, align 4
+  %5 = add nsw i32 %4, 1
+  store i32 %5, ptr %3, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 228
+  %7 = load i32, ptr %6, align 4
+  %8 = add nsw i32 %7, -1
+  store i32 %8, ptr %6, align 4
+  %9 = load i32, ptr %1, align 8
+  %.mask = and i32 %9, -268435456
+  %10 = icmp eq i32 %.mask, 268435456
+  br i1 %10, label %11, label %15
+
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds i8, ptr %0, i64 244
+  %13 = load i32, ptr %12, align 4
+  %14 = add nsw i32 %13, -1
+  store i32 %14, ptr %12, align 4
+  br label %15
+
+15:                                               ; preds = %11, %2
+  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = load ptr, ptr %16, align 8
+  tail call void @Extra_MmFixedEntryRecycle(ptr noundef %17, ptr noundef nonnull %1) #10
+  ret void
+}
+
+declare void @Extra_MmFixedEntryRecycle(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define noundef i32 @Cut_CutCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+  %3 = load i32, ptr %0, align 8
+  %4 = lshr i32 %3, 28
+  %5 = load i32, ptr %1, align 8
+  %6 = lshr i32 %5, 28
+  %7 = icmp ult i32 %4, %6
+  br i1 %7, label %.loopexit, label %8
+
+8:                                                ; preds = %2
+  %9 = icmp ugt i32 %4, %6
+  br i1 %9, label %.loopexit, label %.preheader
+
+.preheader:                                       ; preds = %8
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %.not = icmp ult i32 %3, 268435456
+  br i1 %.not, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader
+  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %wide.trip.count = zext nneg i32 %4 to i64
+  br label %13
+
+12:                                               ; preds = %19
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !4
+
+13:                                               ; preds = %.lr.ph, %12
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
+  %14 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %15 = load i32, ptr %14, align 4
+  %16 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp slt i32 %15, %17
+  br i1 %18, label %.loopexit, label %19
+
+19:                                               ; preds = %13
+  %20 = icmp sgt i32 %15, %17
+  br i1 %20, label %.loopexit, label %12
+
+.loopexit:                                        ; preds = %13, %19, %12, %.preheader, %8, %2
+  %.015 = phi i32 [ -1, %2 ], [ 1, %8 ], [ 0, %.preheader ], [ -1, %13 ], [ 1, %19 ], [ 0, %12 ]
+  ret i32 %.015
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @Cut_CutDupList(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+  %3 = alloca ptr, align 8
+  store ptr null, ptr %3, align 8
+  %4 = icmp eq ptr %1, null
+  br i1 %4, label %16, label %.preheader
+
+.preheader:                                       ; preds = %2
+  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  br label %7
+
+7:                                                ; preds = %.preheader, %7
+  %.01317 = phi ptr [ %1, %.preheader ], [ %14, %7 ]
+  %.01416 = phi ptr [ %3, %.preheader ], [ %12, %7 ]
+  %8 = load ptr, ptr %5, align 8
+  %9 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %8) #10
+  %10 = load i32, ptr %6, align 8
+  %11 = sext i32 %10 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %.01317, i64 %11, i1 false)
+  store ptr %9, ptr %.01416, align 8
+  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds i8, ptr %.01317, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %.not = icmp eq ptr %14, null
+  br i1 %.not, label %15, label %7, !llvm.loop !6
+
+15:                                               ; preds = %7
+  store ptr null, ptr %12, align 8
+  %.0..0..0..0. = load ptr, ptr %3, align 8
+  br label %16
+
+16:                                               ; preds = %2, %15
+  %.0 = phi ptr [ %.0..0..0..0., %15 ], [ null, %2 ]
+  ret ptr %.0
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+
+; Function Attrs: nounwind uwtable
+define void @Cut_CutRecycleList(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2
+  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  br label %4
+
+4:                                                ; preds = %4, %.lr.ph
+  %.0914 = phi ptr [ %1, %.lr.ph ], [ %.015, %4 ]
+  %.015.in = getelementptr inbounds i8, ptr %.0914, i64 16
+  %.015 = load ptr, ptr %.015.in, align 8
+  %5 = load ptr, ptr %3, align 8
+  tail call void @Extra_MmFixedEntryRecycle(ptr noundef %5, ptr noundef nonnull %.0914) #10
+  %.not12 = icmp eq ptr %.015, null
+  br i1 %.not12, label %._crit_edge, label %4, !llvm.loop !7
+
+._crit_edge:                                      ; preds = %4, %2
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define i32 @Cut_CutCountList(ptr noundef readonly %0) local_unnamed_addr #5 {
+  %.not5 = icmp eq ptr %0, null
+  br i1 %.not5, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %.07 = phi i32 [ %2, %.lr.ph ], [ 0, %1 ]
+  %.046 = phi ptr [ %4, %.lr.ph ], [ %0, %1 ]
+  %2 = add nuw nsw i32 %.07, 1
+  %3 = getelementptr inbounds i8, ptr %.046, i64 16
+  %4 = load ptr, ptr %3, align 8
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %2, %.lr.ph ]
+  ret i32 %.0.lcssa
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define ptr @Cut_CutMergeLists(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
+  %3 = alloca ptr, align 8
+  store ptr null, ptr %3, align 8
+  %4 = icmp ne ptr %0, null
+  %5 = icmp ne ptr %1, null
+  %6 = and i1 %4, %5
+  br i1 %6, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %2, %28
+  %.01522 = phi ptr [ %29, %28 ], [ %3, %2 ]
+  %.01621 = phi ptr [ %.1, %28 ], [ %1, %2 ]
+  %.01720 = phi ptr [ %.118, %28 ], [ %0, %2 ]
+  %7 = load i32, ptr %.01720, align 8
+  %8 = lshr i32 %7, 28
+  %9 = load i32, ptr %.01621, align 8
+  %10 = lshr i32 %9, 28
+  %11 = icmp ult i32 %8, %10
+  br i1 %11, label %Cut_CutCompare.exit, label %12
+
+12:                                               ; preds = %.lr.ph
+  %13 = icmp ugt i32 %8, %10
+  br i1 %13, label %.loopexit, label %.preheader.i
+
+.preheader.i:                                     ; preds = %12
+  %14 = getelementptr inbounds i8, ptr %.01720, i64 24
+  %.not.i = icmp ult i32 %7, 268435456
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.preheader.i
+  %15 = getelementptr inbounds i8, ptr %.01621, i64 24
+  %wide.trip.count.i = zext nneg i32 %8 to i64
+  br label %16
+
+16:                                               ; preds = %22, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
+  %17 = getelementptr inbounds [0 x i32], ptr %14, i64 0, i64 %indvars.iv.i
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds [0 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp slt i32 %18, %20
+  br i1 %21, label %Cut_CutCompare.exit, label %22
+
+22:                                               ; preds = %16
+  %23 = icmp sgt i32 %18, %20
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %or.cond = select i1 %23, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond, label %.loopexit, label %16, !llvm.loop !4
+
+Cut_CutCompare.exit:                              ; preds = %16, %.lr.ph
+  %24 = getelementptr inbounds i8, ptr %.01720, i64 16
+  %25 = load ptr, ptr %24, align 8
+  br label %28
+
+.loopexit:                                        ; preds = %22, %12, %.preheader.i
+  %26 = getelementptr inbounds i8, ptr %.01621, i64 16
+  %27 = load ptr, ptr %26, align 8
+  br label %28
+
+28:                                               ; preds = %.loopexit, %Cut_CutCompare.exit
+  %.118 = phi ptr [ %25, %Cut_CutCompare.exit ], [ %.01720, %.loopexit ]
+  %.1 = phi ptr [ %.01621, %Cut_CutCompare.exit ], [ %27, %.loopexit ]
+  %.0 = phi ptr [ %.01720, %Cut_CutCompare.exit ], [ %.01621, %.loopexit ]
+  store ptr %.0, ptr %.01522, align 8
+  %29 = getelementptr inbounds i8, ptr %.0, i64 16
+  %30 = icmp ne ptr %.118, null
+  %31 = icmp ne ptr %.1, null
+  %32 = select i1 %30, i1 %31, i1 false
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+
+._crit_edge:                                      ; preds = %28, %2
+  %.017.lcssa = phi ptr [ %0, %2 ], [ %.118, %28 ]
+  %.016.lcssa = phi ptr [ %1, %2 ], [ %.1, %28 ]
+  %.015.lcssa = phi ptr [ %3, %2 ], [ %29, %28 ]
+  %.lcssa = phi i1 [ %4, %2 ], [ %30, %28 ]
+  %33 = select i1 %.lcssa, ptr %.017.lcssa, ptr %.016.lcssa
+  store ptr %33, ptr %.015.lcssa, align 8
+  %.0..0..0..0. = load ptr, ptr %3, align 8
+  ret ptr %.0..0..0..0.
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @Cut_CutNumberList(ptr noundef %0) local_unnamed_addr #6 {
+  %.not5 = icmp eq ptr %0, null
+  br i1 %.not5, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %.07 = phi i32 [ %2, %.lr.ph ], [ 0, %1 ]
+  %.046 = phi ptr [ %8, %.lr.ph ], [ %0, %1 ]
+  %2 = add nuw nsw i32 %.07, 1
+  %3 = load i32, ptr %.046, align 8
+  %4 = and i32 %.07, 2047
+  %5 = and i32 %3, -2048
+  %6 = or disjoint i32 %5, %4
+  store i32 %6, ptr %.046, align 8
+  %7 = getelementptr inbounds i8, ptr %.046, i64 16
+  %8 = load ptr, ptr %7, align 8
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define noundef ptr @Cut_CutCreateTriv(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = load ptr, ptr %0, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 28
+  %5 = load i32, ptr %4, align 4
+  %.not = icmp eq i32 %5, 0
+  %6 = shl i32 %1, 8
+  %spec.select = select i1 %.not, i32 %1, i32 %6
+  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %8) #10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  %10 = load ptr, ptr %0, align 8
+  %11 = load i32, ptr %10, align 4
+  %12 = shl i32 %11, 24
+  %13 = and i32 %12, 251658240
+  store i32 %13, ptr %9, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %15 = load i32, ptr %14, align 8
+  %16 = shl i32 %15, 22
+  %17 = and i32 %16, 4194304
+  %18 = or disjoint i32 %17, %13
+  store i32 %18, ptr %9, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 228
+  %20 = load <2 x i32>, ptr %19, align 4
+  %21 = add nsw <2 x i32> %20, <i32 1, i32 1>
+  store <2 x i32> %21, ptr %19, align 4
+  %22 = getelementptr inbounds i8, ptr %0, i64 240
+  %23 = load i32, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 236
+  %25 = load i32, ptr %24, align 4
+  %26 = extractelement <2 x i32> %21, i64 1
+  %27 = sub nsw i32 %26, %25
+  %28 = icmp slt i32 %23, %27
+  br i1 %28, label %29, label %Cut_CutAlloc.exit
+
+29:                                               ; preds = %2
+  store i32 %27, ptr %22, align 8
+  br label %Cut_CutAlloc.exit
+
+Cut_CutAlloc.exit:                                ; preds = %2, %29
+  %30 = load i32, ptr %9, align 8
+  %31 = and i32 %30, 268435455
+  %32 = or disjoint i32 %31, 268435456
+  store i32 %32, ptr %9, align 8
+  %33 = getelementptr inbounds i8, ptr %9, i64 24
+  store i32 %spec.select, ptr %33, align 8
+  %34 = srem i32 %spec.select, 31
+  %35 = shl nuw nsw i32 1, %34
+  %36 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 %35, ptr %36, align 4
+  %37 = load ptr, ptr %0, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 20
+  %39 = load i32, ptr %38, align 4
+  %.not17 = icmp eq i32 %39, 0
+  br i1 %.not17, label %.loopexit, label %40
+
+40:                                               ; preds = %Cut_CutAlloc.exit
+  %41 = lshr i32 %30, 24
+  %42 = and i32 %41, 15
+  %43 = zext nneg i32 %42 to i64
+  %44 = getelementptr inbounds i32, ptr %33, i64 %43
+  %45 = getelementptr inbounds i8, ptr %0, i64 60
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp sgt i32 %46, 0
+  br i1 %47, label %.lr.ph, label %.loopexit
+
+.lr.ph:                                           ; preds = %40, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %40 ]
+  %48 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv
+  store i32 -1431655766, ptr %48, align 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %49 = load i32, ptr %45, align 4
+  %50 = sext i32 %49 to i64
+  %51 = icmp slt i64 %indvars.iv.next, %50
+  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !11
+
+.loopexit:                                        ; preds = %.lr.ph, %40, %Cut_CutAlloc.exit
+  %52 = getelementptr inbounds i8, ptr %0, i64 244
+  %53 = load i32, ptr %52, align 4
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %52, align 4
+  ret ptr %9
+}
+
+; Function Attrs: nofree nounwind uwtable
+define void @Cut_CutPrint(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+  %3 = load i32, ptr %0, align 8
+  %4 = lshr i32 %3, 28
+  %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %4)
+  %6 = load i32, ptr %0, align 8
+  %.not15 = icmp ult i32 %6, 268435456
+  br i1 %.not15, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2
+  %.not = icmp eq i32 %1, 0
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
+  %indvars.iv18 = phi i64 [ %indvars.iv.next19, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %8 = getelementptr inbounds [0 x i32], ptr %7, i64 0, i64 %indvars.iv18
+  %9 = load i32, ptr %8, align 4
+  %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %9)
+  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
+  %11 = load i32, ptr %0, align 8
+  %12 = lshr i32 %11, 28
+  %13 = zext nneg i32 %12 to i64
+  %14 = icmp ult i64 %indvars.iv.next19, %13
+  br i1 %14, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !12
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %23
+  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.lr.ph ]
+  %15 = getelementptr inbounds [0 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %16 = load i32, ptr %15, align 4
+  %17 = ashr i32 %16, 8
+  %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %17)
+  %19 = load i32, ptr %15, align 4
+  %20 = and i32 %19, 255
+  %.not13 = icmp eq i32 %20, 0
+  br i1 %.not13, label %23, label %21
+
+21:                                               ; preds = %.lr.ph.split
+  %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %20)
+  br label %23
+
+23:                                               ; preds = %21, %.lr.ph.split
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %24 = load i32, ptr %0, align 8
+  %25 = lshr i32 %24, 28
+  %26 = zext nneg i32 %25 to i64
+  %27 = icmp ult i64 %indvars.iv.next, %26
+  br i1 %27, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
+
+._crit_edge:                                      ; preds = %23, %.lr.ph.split.us, %2
+  %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3)
+  ret void
+}
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+
+; Function Attrs: nofree nounwind uwtable
+define void @Cut_CutPrintList(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+  %.not4 = icmp eq ptr %0, null
+  br i1 %.not4, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.05 = phi ptr [ %4, %.lr.ph ], [ %0, %2 ]
+  tail call void @Cut_CutPrint(ptr noundef nonnull %.05, i32 noundef %1)
+  %putchar = tail call i32 @putchar(i32 10)
+  %3 = getelementptr inbounds i8, ptr %.05, i64 16
+  %4 = load ptr, ptr %3, align 8
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+
+._crit_edge:                                      ; preds = %.lr.ph, %2
+  ret void
+}
+
+; Function Attrs: nofree nounwind uwtable
+define void @Cut_CutPrintMerge(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #7 {
+  %putchar = tail call i32 @putchar(i32 10)
+  %4 = load i32, ptr %1, align 8
+  %5 = lshr i32 %4, 28
+  %.not = icmp ult i32 %4, 268435456
+  br i1 %.not, label %.thread45, label %6
+
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp ugt i32 %4, 536870911
+  br i1 %9, label %10, label %.thread45
+
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %1, i64 28
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp ugt i32 %4, 805306367
+  br i1 %13, label %14, label %.thread45
+
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp ugt i32 %4, 1073741823
+  br i1 %17, label %18, label %.thread45
+
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds i8, ptr %1, i64 36
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp ugt i32 %4, 1342177279
+  br i1 %21, label %22, label %.thread45
+
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds i8, ptr %1, i64 40
+  %24 = load i32, ptr %23, align 8
+  br label %.thread45
+
+.thread45:                                        ; preds = %3, %6, %10, %14, %18, %22
+  %25 = phi i32 [ %20, %22 ], [ %20, %18 ], [ -1, %14 ], [ -1, %10 ], [ -1, %6 ], [ -1, %3 ]
+  %26 = phi i32 [ %12, %22 ], [ %12, %18 ], [ %12, %14 ], [ %12, %10 ], [ -1, %6 ], [ -1, %3 ]
+  %27 = phi i32 [ %8, %22 ], [ %8, %18 ], [ %8, %14 ], [ %8, %10 ], [ %8, %6 ], [ -1, %3 ]
+  %28 = phi i32 [ %16, %22 ], [ %16, %18 ], [ %16, %14 ], [ -1, %10 ], [ -1, %6 ], [ -1, %3 ]
+  %29 = phi i32 [ %24, %22 ], [ -1, %18 ], [ -1, %14 ], [ -1, %10 ], [ -1, %6 ], [ -1, %3 ]
+  %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %5, i32 noundef %27, i32 noundef %26, i32 noundef %28, i32 noundef %25, i32 noundef %29)
+  %31 = load i32, ptr %2, align 8
+  %32 = lshr i32 %31, 28
+  %.not34 = icmp ult i32 %31, 268435456
+  br i1 %.not34, label %.thread58, label %33
+
+33:                                               ; preds = %.thread45
+  %34 = getelementptr inbounds i8, ptr %2, i64 24
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp ugt i32 %31, 536870911
+  br i1 %36, label %37, label %.thread58
+
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds i8, ptr %2, i64 28
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ugt i32 %31, 805306367
+  br i1 %40, label %41, label %.thread58
+
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds i8, ptr %2, i64 32
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp ugt i32 %31, 1073741823
+  br i1 %44, label %45, label %.thread58
+
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds i8, ptr %2, i64 36
+  %47 = load i32, ptr %46, align 4
+  %48 = icmp ugt i32 %31, 1342177279
+  br i1 %48, label %49, label %.thread58
+
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds i8, ptr %2, i64 40
+  %51 = load i32, ptr %50, align 8
+  br label %.thread58
+
+.thread58:                                        ; preds = %.thread45, %33, %37, %41, %45, %49
+  %52 = phi i32 [ %47, %49 ], [ %47, %45 ], [ -1, %41 ], [ -1, %37 ], [ -1, %33 ], [ -1, %.thread45 ]
+  %53 = phi i32 [ %39, %49 ], [ %39, %45 ], [ %39, %41 ], [ %39, %37 ], [ -1, %33 ], [ -1, %.thread45 ]
+  %54 = phi i32 [ %35, %49 ], [ %35, %45 ], [ %35, %41 ], [ %35, %37 ], [ %35, %33 ], [ -1, %.thread45 ]
+  %55 = phi i32 [ %43, %49 ], [ %43, %45 ], [ %43, %41 ], [ -1, %37 ], [ -1, %33 ], [ -1, %.thread45 ]
+  %56 = phi i32 [ %51, %49 ], [ -1, %45 ], [ -1, %41 ], [ -1, %37 ], [ -1, %33 ], [ -1, %.thread45 ]
+  %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %32, i32 noundef %54, i32 noundef %53, i32 noundef %55, i32 noundef %52, i32 noundef %56)
+  %58 = icmp eq ptr %0, null
+  br i1 %58, label %59, label %60
+
+59:                                               ; preds = %.thread58
+  %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
+  br label %88
+
+60:                                               ; preds = %.thread58
+  %61 = load i32, ptr %0, align 8
+  %62 = lshr i32 %61, 28
+  %.not35 = icmp ult i32 %61, 268435456
+  br i1 %.not35, label %.thread71, label %63
+
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds i8, ptr %0, i64 24
+  %65 = load i32, ptr %64, align 8
+  %66 = icmp ugt i32 %61, 536870911
+  br i1 %66, label %67, label %.thread71
+
+67:                                               ; preds = %63
+  %68 = getelementptr inbounds i8, ptr %0, i64 28
+  %69 = load i32, ptr %68, align 4
+  %70 = icmp ugt i32 %61, 805306367
+  br i1 %70, label %71, label %.thread71
+
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds i8, ptr %0, i64 32
+  %73 = load i32, ptr %72, align 8
+  %74 = icmp ugt i32 %61, 1073741823
+  br i1 %74, label %75, label %.thread71
+
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds i8, ptr %0, i64 36
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp ugt i32 %61, 1342177279
+  br i1 %78, label %79, label %.thread71
+
+79:                                               ; preds = %75
+  %80 = getelementptr inbounds i8, ptr %0, i64 40
+  %81 = load i32, ptr %80, align 8
+  br label %.thread71
+
+.thread71:                                        ; preds = %60, %63, %67, %71, %75, %79
+  %82 = phi i32 [ %77, %79 ], [ %77, %75 ], [ -1, %71 ], [ -1, %67 ], [ -1, %63 ], [ -1, %60 ]
+  %83 = phi i32 [ %69, %79 ], [ %69, %75 ], [ %69, %71 ], [ %69, %67 ], [ -1, %63 ], [ -1, %60 ]
+  %84 = phi i32 [ %65, %79 ], [ %65, %75 ], [ %65, %71 ], [ %65, %67 ], [ %65, %63 ], [ -1, %60 ]
+  %85 = phi i32 [ %73, %79 ], [ %73, %75 ], [ %73, %71 ], [ -1, %67 ], [ -1, %63 ], [ -1, %60 ]
+  %86 = phi i32 [ %81, %79 ], [ -1, %75 ], [ -1, %71 ], [ -1, %67 ], [ -1, %63 ], [ -1, %60 ]
+  %87 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %62, i32 noundef %84, i32 noundef %83, i32 noundef %85, i32 noundef %82, i32 noundef %86)
+  br label %88
+
+88:                                               ; preds = %.thread71, %59
+  ret void
+}
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #9
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind }
+attributes #10 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

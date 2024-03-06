@@ -1,0 +1,2618 @@
+; ModuleID = 'bench/abc/original/cuddSubsetHB.c.ll'
+source_filename = "bench/abc/original/cuddSubsetHB.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.NodeData = type { ptr, ptr, ptr }
+
+@memOut = internal unnamed_addr global i1 false, align 4
+@.str = private unnamed_addr constant [27 x i8] c"Cannot subset, nil object\0A\00", align 1
+@one = internal unnamed_addr global ptr null, align 8
+@zero = internal unnamed_addr global ptr null, align 8
+@max = internal unnamed_addr global double 0.000000e+00, align 8
+@.str.1 = private unnamed_addr constant [30 x i8] c"Out-of-memory; Cannot subset\0A\00", align 1
+@.str.2 = private unnamed_addr constant [52 x i8] c"Something is wrong, ought to be node quality table\0A\00", align 1
+@.str.3 = private unnamed_addr constant [42 x i8] c"Something wrong, st__table insert failed\0A\00", align 1
+@page = internal unnamed_addr global i32 0, align 4
+@mintermPages = internal unnamed_addr global ptr null, align 8
+@nodePages = internal unnamed_addr global ptr null, align 8
+@lightNodePages = internal unnamed_addr global ptr null, align 8
+@nodeDataPage = internal unnamed_addr global i32 0, align 4
+@nodeDataPages = internal unnamed_addr global ptr null, align 8
+@maxPages = internal unnamed_addr global i32 0, align 4
+@currentMintermPage = internal unnamed_addr global ptr null, align 8
+@pageIndex = internal unnamed_addr global i32 0, align 4
+@maxNodeDataPages = internal unnamed_addr global i32 0, align 4
+@currentNodeDataPage = internal unnamed_addr global ptr null, align 8
+@nodeDataPageIndex = internal unnamed_addr global i32 0, align 4
+@currentNodePage = internal unnamed_addr global ptr null, align 8
+@currentLightNodePage = internal unnamed_addr global ptr null, align 8
+@.str.4 = private unnamed_addr constant [55 x i8] c"Something is wrong, ought to be in node quality table\0A\00", align 1
+@.str.5 = private unnamed_addr constant [59 x i8] c"Something wrong, couldnt find nodes in node quality table\0A\00", align 1
+@.str.6 = private unnamed_addr constant [51 x i8] c"This node should not be in the approximated table\0A\00", align 1
+
+; Function Attrs: nounwind uwtable
+define ptr @Cudd_SubsetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  store i1 false, ptr @memOut, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 448
+  br label %6
+
+6:                                                ; preds = %6, %4
+  store i32 0, ptr %5, align 8
+  %7 = tail call ptr @cuddSubsetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3)
+  %8 = load i32, ptr %5, align 8
+  %9 = icmp ne i32 %8, 1
+  %.b = load i1, ptr @memOut, align 4
+  %.not6 = select i1 %9, i1 true, i1 %.b
+  br i1 %.not6, label %10, label %6, !llvm.loop !4
+
+10:                                               ; preds = %6
+  ret ptr %7
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @cuddSubsetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = icmp eq ptr %1, null
+  br i1 %8, label %9, label %14
+
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds i8, ptr %0, i64 616
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i64 @fwrite(ptr nonnull @.str, i64 26, i64 1, ptr %11)
+  %13 = getelementptr inbounds i8, ptr %0, i64 624
+  store i32 4, ptr %13, align 8
+  br label %195
+
+14:                                               ; preds = %4
+  %15 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #6
+  store ptr %15, ptr @one, align 8
+  %16 = ptrtoint ptr %15 to i64
+  %17 = xor i64 %16, 1
+  %18 = inttoptr i64 %17 to ptr
+  store ptr %18, ptr @zero, align 8
+  %19 = icmp eq i32 %2, 0
+  %spec.store.select = select i1 %19, i32 1023, i32 %2
+  %20 = ptrtoint ptr %1 to i64
+  %21 = and i64 %20, -2
+  %22 = inttoptr i64 %21 to ptr
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp eq i32 %23, 2147483647
+  br i1 %24, label %195, label %25
+
+25:                                               ; preds = %14
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %spec.store.select) #6
+  store double %ldexp, ptr @max, align 8
+  %ldexp.i = tail call double @ldexp(double 1.000000e+00, i32 %spec.store.select) #6
+  store double %ldexp.i, ptr @max, align 8
+  %26 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #6
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %45, label %28
+
+28:                                               ; preds = %25
+  store i32 128, ptr @maxPages, align 4
+  %29 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #7
+  store ptr %29, ptr @mintermPages, align 8
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %.sink.split.i, label %31
+
+31:                                               ; preds = %28
+  store i32 0, ptr @page, align 4
+  %32 = tail call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #7
+  store ptr %32, ptr @currentMintermPage, align 8
+  store ptr %32, ptr %29, align 8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %.sink.split.sink.split.i, label %34
+
+34:                                               ; preds = %31
+  store i32 0, ptr @pageIndex, align 4
+  store i32 128, ptr @maxNodeDataPages, align 4
+  %35 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #7
+  store ptr %35, ptr @nodeDataPages, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %38
+
+37:                                               ; preds = %34
+  tail call void @free(ptr noundef nonnull %32) #6
+  br label %.sink.split.sink.split.i
+
+38:                                               ; preds = %34
+  store i32 0, ptr @nodeDataPage, align 4
+  %39 = tail call noalias dereferenceable_or_null(24576) ptr @malloc(i64 noundef 24576) #7
+  store ptr %39, ptr @currentNodeDataPage, align 8
+  store ptr %39, ptr %35, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %42
+
+41:                                               ; preds = %38
+  tail call void @free(ptr noundef nonnull %32) #6
+  tail call void @free(ptr noundef nonnull %29) #6
+  store ptr null, ptr @mintermPages, align 8
+  br label %.sink.split.sink.split.i
+
+42:                                               ; preds = %38
+  store i32 0, ptr @nodeDataPageIndex, align 4
+  %43 = load double, ptr @max, align 8
+  %44 = tail call fastcc double @SubsetCountMintermAux(ptr noundef nonnull %1, double noundef %43, ptr noundef nonnull %26)
+  %.b.i = load i1, ptr @memOut, align 4
+  br i1 %.b.i, label %45, label %SubsetCountMinterm.exit
+
+.sink.split.sink.split.i:                         ; preds = %41, %37, %31
+  %.sink.i = phi ptr [ %29, %37 ], [ %35, %41 ], [ %29, %31 ]
+  %mintermPages.sink.i = phi ptr [ @mintermPages, %37 ], [ @nodeDataPages, %41 ], [ @mintermPages, %31 ]
+  tail call void @free(ptr noundef nonnull %.sink.i) #6
+  store ptr null, ptr %mintermPages.sink.i, align 8
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %28
+  tail call void @st__free_table(ptr noundef nonnull %26) #6
+  br label %45
+
+45:                                               ; preds = %.sink.split.i, %42, %25
+  store i1 true, ptr @memOut, align 4
+  %46 = getelementptr inbounds i8, ptr %0, i64 616
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 29, i64 1, ptr %47)
+  %49 = getelementptr inbounds i8, ptr %0, i64 624
+  store i32 1, ptr %49, align 8
+  br label %195
+
+SubsetCountMinterm.exit:                          ; preds = %42
+  %ldexp.i108 = tail call double @ldexp(double 1.000000e+00, i32 %spec.store.select) #6
+  store double %ldexp.i108, ptr @max, align 8
+  store i32 128, ptr @maxPages, align 4
+  %50 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #7
+  store ptr %50, ptr @nodePages, align 8
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %102, label %52
+
+52:                                               ; preds = %SubsetCountMinterm.exit
+  %53 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #7
+  store ptr %53, ptr @lightNodePages, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %.preheader.i, label %70
+
+.preheader.i:                                     ; preds = %52
+  %55 = load i32, ptr @page, align 4
+  %.not6987.i = icmp slt i32 %55, 0
+  %.pre115.i = load ptr, ptr @mintermPages, align 8
+  br i1 %.not6987.i, label %._crit_edge90.i, label %.lr.ph89.i
+
+.lr.ph89.i:                                       ; preds = %.preheader.i
+  %56 = add nuw i32 %55, 1
+  %wide.trip.count105.i = zext i32 %56 to i64
+  br label %57
+
+57:                                               ; preds = %61, %.lr.ph89.i
+  %indvars.iv102.i = phi i64 [ 0, %.lr.ph89.i ], [ %indvars.iv.next103.i, %61 ]
+  %58 = getelementptr inbounds ptr, ptr %.pre115.i, i64 %indvars.iv102.i
+  %59 = load ptr, ptr %58, align 8
+  %.not75.i = icmp eq ptr %59, null
+  br i1 %.not75.i, label %61, label %60
+
+60:                                               ; preds = %57
+  tail call void @free(ptr noundef nonnull %59) #6
+  store ptr null, ptr %58, align 8
+  br label %61
+
+61:                                               ; preds = %60, %57
+  %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
+  %exitcond106.not.i = icmp eq i64 %indvars.iv.next103.i, %wide.trip.count105.i
+  br i1 %exitcond106.not.i, label %._crit_edge90.thread.i, label %57, !llvm.loop !6
+
+._crit_edge90.i:                                  ; preds = %.preheader.i
+  %.not70.i = icmp eq ptr %.pre115.i, null
+  br i1 %.not70.i, label %62, label %._crit_edge90.thread.i
+
+._crit_edge90.thread.i:                           ; preds = %61, %._crit_edge90.i
+  tail call void @free(ptr noundef nonnull %.pre115.i) #6
+  store ptr null, ptr @mintermPages, align 8
+  br label %62
+
+62:                                               ; preds = %._crit_edge90.thread.i, %._crit_edge90.i
+  %63 = load i32, ptr @nodeDataPage, align 4
+  %.not7191.i = icmp slt i32 %63, 0
+  %.pre116.i = load ptr, ptr @nodeDataPages, align 8
+  br i1 %.not7191.i, label %._crit_edge95.i, label %.lr.ph94.i
+
+.lr.ph94.i:                                       ; preds = %62
+  %64 = add nuw i32 %63, 1
+  %wide.trip.count110.i = zext i32 %64 to i64
+  br label %65
+
+65:                                               ; preds = %69, %.lr.ph94.i
+  %indvars.iv107.i = phi i64 [ 0, %.lr.ph94.i ], [ %indvars.iv.next108.i, %69 ]
+  %66 = getelementptr inbounds ptr, ptr %.pre116.i, i64 %indvars.iv107.i
+  %67 = load ptr, ptr %66, align 8
+  %.not74.i = icmp eq ptr %67, null
+  br i1 %.not74.i, label %69, label %68
+
+68:                                               ; preds = %65
+  tail call void @free(ptr noundef nonnull %67) #6
+  store ptr null, ptr %66, align 8
+  br label %69
+
+69:                                               ; preds = %68, %65
+  %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
+  %exitcond111.not.i = icmp eq i64 %indvars.iv.next108.i, %wide.trip.count110.i
+  br i1 %exitcond111.not.i, label %._crit_edge95.thread.i, label %65, !llvm.loop !7
+
+._crit_edge95.i:                                  ; preds = %62
+  %.not72.i = icmp eq ptr %.pre116.i, null
+  br i1 %.not72.i, label %.sink.split.i111, label %._crit_edge95.thread.i
+
+._crit_edge95.thread.i:                           ; preds = %69, %._crit_edge95.i
+  tail call void @free(ptr noundef nonnull %.pre116.i) #6
+  br label %.sink.split.sink.split.i110
+
+70:                                               ; preds = %52
+  store i32 0, ptr @page, align 4
+  %71 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #7
+  store ptr %71, ptr %50, align 8
+  store ptr %71, ptr @currentNodePage, align 8
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %.preheader76.split.i, label %85
+
+.preheader76.split.i:                             ; preds = %70
+  %73 = load ptr, ptr @mintermPages, align 8
+  %74 = load ptr, ptr %73, align 8
+  %.not68.i = icmp eq ptr %74, null
+  br i1 %.not68.i, label %76, label %75
+
+75:                                               ; preds = %.preheader76.split.i
+  tail call void @free(ptr noundef nonnull %74) #6
+  br label %76
+
+76:                                               ; preds = %75, %.preheader76.split.i
+  tail call void @free(ptr noundef nonnull %73) #6
+  store ptr null, ptr @mintermPages, align 8
+  %77 = load i32, ptr @nodeDataPage, align 4
+  %.not6382.i = icmp slt i32 %77, 0
+  %.pre114.i = load ptr, ptr @nodeDataPages, align 8
+  br i1 %.not6382.i, label %._crit_edge86.i, label %.lr.ph85.i
+
+.lr.ph85.i:                                       ; preds = %76
+  %78 = add nuw i32 %77, 1
+  %wide.trip.count100.i = zext i32 %78 to i64
+  br label %79
+
+79:                                               ; preds = %83, %.lr.ph85.i
+  %indvars.iv97.i = phi i64 [ 0, %.lr.ph85.i ], [ %indvars.iv.next98.i, %83 ]
+  %80 = getelementptr inbounds ptr, ptr %.pre114.i, i64 %indvars.iv97.i
+  %81 = load ptr, ptr %80, align 8
+  %.not67.i = icmp eq ptr %81, null
+  br i1 %.not67.i, label %83, label %82
+
+82:                                               ; preds = %79
+  tail call void @free(ptr noundef nonnull %81) #6
+  store ptr null, ptr %80, align 8
+  br label %83
+
+83:                                               ; preds = %82, %79
+  %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
+  %exitcond101.not.i = icmp eq i64 %indvars.iv.next98.i, %wide.trip.count100.i
+  br i1 %exitcond101.not.i, label %._crit_edge86.thread.i, label %79, !llvm.loop !8
+
+._crit_edge86.i:                                  ; preds = %76
+  %.not64.i = icmp eq ptr %.pre114.i, null
+  br i1 %.not64.i, label %84, label %._crit_edge86.thread.i
+
+._crit_edge86.thread.i:                           ; preds = %83, %._crit_edge86.i
+  tail call void @free(ptr noundef nonnull %.pre114.i) #6
+  store ptr null, ptr @nodeDataPages, align 8
+  br label %84
+
+84:                                               ; preds = %._crit_edge86.thread.i, %._crit_edge86.i
+  tail call void @free(ptr noundef %53) #6
+  br label %.sink.split.sink.split.i110
+
+85:                                               ; preds = %70
+  %86 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #7
+  store ptr %86, ptr %53, align 8
+  store ptr %86, ptr @currentLightNodePage, align 8
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %.preheader77.split.i, label %100
+
+.preheader77.split.i:                             ; preds = %85
+  %88 = load ptr, ptr @mintermPages, align 8
+  %89 = load ptr, ptr %88, align 8
+  %.not60.i = icmp eq ptr %89, null
+  br i1 %.not60.i, label %91, label %90
+
+90:                                               ; preds = %.preheader77.split.i
+  tail call void @free(ptr noundef nonnull %89) #6
+  br label %91
+
+91:                                               ; preds = %90, %.preheader77.split.i
+  tail call void @free(ptr noundef nonnull %88) #6
+  store ptr null, ptr @mintermPages, align 8
+  %92 = load i32, ptr @nodeDataPage, align 4
+  %.not5479.i = icmp slt i32 %92, 0
+  %.pre.i = load ptr, ptr @nodeDataPages, align 8
+  br i1 %.not5479.i, label %._crit_edge.i, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %91
+  %93 = add nuw i32 %92, 1
+  %wide.trip.count.i = zext i32 %93 to i64
+  br label %94
+
+94:                                               ; preds = %98, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %98 ]
+  %95 = getelementptr inbounds ptr, ptr %.pre.i, i64 %indvars.iv.i
+  %96 = load ptr, ptr %95, align 8
+  %.not59.i = icmp eq ptr %96, null
+  br i1 %.not59.i, label %98, label %97
+
+97:                                               ; preds = %94
+  tail call void @free(ptr noundef nonnull %96) #6
+  store ptr null, ptr %95, align 8
+  br label %98
+
+98:                                               ; preds = %97, %94
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %._crit_edge.thread.i, label %94, !llvm.loop !9
+
+._crit_edge.i:                                    ; preds = %91
+  %.not55.i = icmp eq ptr %.pre.i, null
+  br i1 %.not55.i, label %99, label %._crit_edge.thread.i
+
+._crit_edge.thread.i:                             ; preds = %98, %._crit_edge.i
+  tail call void @free(ptr noundef nonnull %.pre.i) #6
+  store ptr null, ptr @nodeDataPages, align 8
+  br label %99
+
+99:                                               ; preds = %._crit_edge.thread.i, %._crit_edge.i
+  tail call void @free(ptr noundef %71) #6
+  store ptr null, ptr @currentNodePage, align 8
+  tail call void @free(ptr noundef %53) #6
+  br label %.sink.split.sink.split.i110
+
+100:                                              ; preds = %85
+  store i32 0, ptr @pageIndex, align 4
+  %101 = tail call fastcc i32 @SubsetCountNodesAux(ptr noundef nonnull %1, ptr noundef nonnull %26, double noundef %ldexp.i108)
+  %.b.i109 = load i1, ptr @memOut, align 4
+  br i1 %.b.i109, label %102, label %SubsetCountNodes.exit
+
+.sink.split.sink.split.i110:                      ; preds = %99, %84, %._crit_edge95.thread.i
+  %nodeDataPages.sink.i = phi ptr [ @nodeDataPages, %._crit_edge95.thread.i ], [ @lightNodePages, %84 ], [ @lightNodePages, %99 ]
+  store ptr null, ptr %nodeDataPages.sink.i, align 8
+  br label %.sink.split.i111
+
+.sink.split.i111:                                 ; preds = %.sink.split.sink.split.i110, %._crit_edge95.i
+  tail call void @free(ptr noundef %50) #6
+  store ptr null, ptr @nodePages, align 8
+  br label %102
+
+102:                                              ; preds = %SubsetCountMinterm.exit, %100, %.sink.split.i111
+  store i1 true, ptr @memOut, align 4
+  %103 = getelementptr inbounds i8, ptr %0, i64 616
+  %104 = load ptr, ptr %103, align 8
+  %105 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 29, i64 1, ptr %104)
+  %106 = getelementptr inbounds i8, ptr %0, i64 624
+  store i32 1, ptr %106, align 8
+  br label %195
+
+SubsetCountNodes.exit:                            ; preds = %100
+  %107 = call i32 @st__lookup(ptr noundef nonnull %26, ptr noundef nonnull %1, ptr noundef nonnull %5) #6
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %109, label %114
+
+109:                                              ; preds = %SubsetCountNodes.exit
+  %110 = getelementptr inbounds i8, ptr %0, i64 616
+  %111 = load ptr, ptr %110, align 8
+  %112 = call i64 @fwrite(ptr nonnull @.str.2, i64 51, i64 1, ptr %111)
+  %113 = getelementptr inbounds i8, ptr %0, i64 624
+  store i32 5, ptr %113, align 8
+  br label %114
+
+114:                                              ; preds = %109, %SubsetCountNodes.exit
+  %115 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #7
+  %116 = icmp eq ptr %115, null
+  br i1 %116, label %117, label %119
+
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds i8, ptr %0, i64 624
+  store i32 1, ptr %118, align 8
+  br label %195
+
+119:                                              ; preds = %114
+  store i32 %101, ptr %115, align 4
+  %120 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #6
+  %121 = load ptr, ptr @one, align 8
+  %122 = ptrtoint ptr %121 to i64
+  %123 = and i64 %122, -2
+  %124 = inttoptr i64 %123 to ptr
+  %125 = getelementptr inbounds i8, ptr %124, i64 4
+  %126 = load i32, ptr %125, align 4
+  %127 = add i32 %126, 1
+  store i32 %127, ptr %125, align 4
+  %128 = call ptr @Cudd_ReadOne(ptr noundef %0) #6
+  %129 = call i32 @st__insert(ptr noundef %120, ptr noundef %128, ptr noundef null) #6
+  %130 = icmp eq i32 %129, -10000
+  br i1 %130, label %131, label %135
+
+131:                                              ; preds = %119
+  %132 = getelementptr inbounds i8, ptr %0, i64 608
+  %133 = load ptr, ptr %132, align 8
+  %134 = call i64 @fwrite(ptr nonnull @.str.3, i64 41, i64 1, ptr %133)
+  br label %135
+
+135:                                              ; preds = %131, %119
+  %136 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #6
+  %137 = call fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %115, ptr noundef nonnull %26, i32 noundef %3, ptr noundef %120, ptr noundef %136)
+  %.not = icmp eq ptr %137, null
+  br i1 %.not, label %145, label %138
+
+138:                                              ; preds = %135
+  %139 = ptrtoint ptr %137 to i64
+  %140 = and i64 %139, -2
+  %141 = inttoptr i64 %140 to ptr
+  %142 = getelementptr inbounds i8, ptr %141, i64 4
+  %143 = load i32, ptr %142, align 4
+  %144 = add i32 %143, 1
+  store i32 %144, ptr %142, align 4
+  br label %145
+
+145:                                              ; preds = %138, %135
+  %146 = call ptr @st__init_gen(ptr noundef %136) #6
+  %147 = icmp eq ptr %146, null
+  br i1 %147, label %149, label %.preheader117
+
+.preheader117:                                    ; preds = %145
+  %148 = call i32 @st__gen(ptr noundef nonnull %146, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
+  %.not94118 = icmp eq i32 %148, 0
+  br i1 %.not94118, label %._crit_edge, label %.lr.ph
+
+149:                                              ; preds = %145
+  call void @st__free_table(ptr noundef %136) #6
+  br label %195
+
+.lr.ph:                                           ; preds = %.preheader117, %.lr.ph
+  %150 = load ptr, ptr %7, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %150) #6
+  %151 = call i32 @st__gen(ptr noundef nonnull %146, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
+  %.not94 = icmp eq i32 %151, 0
+  br i1 %.not94, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader117
+  call void @st__free_gen(ptr noundef nonnull %146) #6
+  call void @st__free_table(ptr noundef %136) #6
+  %152 = call ptr @st__init_gen(ptr noundef %120) #6
+  %153 = icmp eq ptr %152, null
+  br i1 %153, label %155, label %.preheader
+
+.preheader:                                       ; preds = %._crit_edge
+  %154 = call i32 @st__gen(ptr noundef nonnull %152, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
+  %.not95119 = icmp eq i32 %154, 0
+  br i1 %.not95119, label %._crit_edge121, label %.lr.ph120
+
+155:                                              ; preds = %._crit_edge
+  call void @st__free_table(ptr noundef %120) #6
+  br label %195
+
+.lr.ph120:                                        ; preds = %.preheader, %.lr.ph120
+  %156 = load ptr, ptr %6, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %156) #6
+  %157 = call i32 @st__gen(ptr noundef nonnull %152, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
+  %.not95 = icmp eq i32 %157, 0
+  br i1 %.not95, label %._crit_edge121, label %.lr.ph120, !llvm.loop !11
+
+._crit_edge121:                                   ; preds = %.lr.ph120, %.preheader
+  call void @st__free_gen(ptr noundef nonnull %152) #6
+  call void @st__free_table(ptr noundef %120) #6
+  %158 = load i32, ptr @page, align 4
+  %.not96122 = icmp slt i32 %158, 0
+  %.pre = load ptr, ptr @mintermPages, align 8
+  br i1 %.not96122, label %._crit_edge126, label %.lr.ph125
+
+.lr.ph125:                                        ; preds = %._crit_edge121
+  %159 = add nuw i32 %158, 1
+  %wide.trip.count = zext i32 %159 to i64
+  br label %160
+
+160:                                              ; preds = %.lr.ph125, %164
+  %indvars.iv = phi i64 [ 0, %.lr.ph125 ], [ %indvars.iv.next, %164 ]
+  %161 = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv
+  %162 = load ptr, ptr %161, align 8
+  %.not107 = icmp eq ptr %162, null
+  br i1 %.not107, label %164, label %163
+
+163:                                              ; preds = %160
+  call void @free(ptr noundef nonnull %162) #6
+  store ptr null, ptr %161, align 8
+  br label %164
+
+164:                                              ; preds = %163, %160
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %165, label %160, !llvm.loop !12
+
+._crit_edge126:                                   ; preds = %._crit_edge121
+  %.not97 = icmp eq ptr %.pre, null
+  br i1 %.not97, label %.thread, label %.thread164
+
+.thread164:                                       ; preds = %._crit_edge126
+  call void @free(ptr noundef nonnull %.pre) #6
+  store ptr null, ptr @mintermPages, align 8
+  %.pre158165 = load ptr, ptr @nodePages, align 8
+  br label %._crit_edge131
+
+.thread:                                          ; preds = %._crit_edge126
+  %.pre158162 = load ptr, ptr @nodePages, align 8
+  br label %._crit_edge131
+
+165:                                              ; preds = %164
+  call void @free(ptr noundef nonnull %.pre) #6
+  store ptr null, ptr @mintermPages, align 8
+  %.pre158 = load ptr, ptr @nodePages, align 8
+  br i1 %.not96122, label %._crit_edge131, label %.lr.ph130
+
+.lr.ph130:                                        ; preds = %165
+  %166 = add nuw i32 %158, 1
+  %wide.trip.count146 = zext i32 %166 to i64
+  br label %167
+
+167:                                              ; preds = %.lr.ph130, %171
+  %indvars.iv143 = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next144, %171 ]
+  %168 = getelementptr inbounds ptr, ptr %.pre158, i64 %indvars.iv143
+  %169 = load ptr, ptr %168, align 8
+  %.not106 = icmp eq ptr %169, null
+  br i1 %.not106, label %171, label %170
+
+170:                                              ; preds = %167
+  call void @free(ptr noundef nonnull %169) #6
+  store ptr null, ptr %168, align 8
+  br label %171
+
+171:                                              ; preds = %170, %167
+  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
+  %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
+  br i1 %exitcond147.not, label %172, label %167, !llvm.loop !13
+
+._crit_edge131:                                   ; preds = %.thread164, %.thread, %165
+  %.pre158163 = phi ptr [ %.pre158162, %.thread ], [ %.pre158, %165 ], [ %.pre158165, %.thread164 ]
+  %.not99 = icmp eq ptr %.pre158163, null
+  br i1 %.not99, label %.thread169, label %.thread172
+
+.thread172:                                       ; preds = %._crit_edge131
+  call void @free(ptr noundef nonnull %.pre158163) #6
+  store ptr null, ptr @nodePages, align 8
+  %.pre159174 = load ptr, ptr @lightNodePages, align 8
+  br label %._crit_edge136
+
+.thread169:                                       ; preds = %._crit_edge131
+  %.pre159170 = load ptr, ptr @lightNodePages, align 8
+  br label %._crit_edge136
+
+172:                                              ; preds = %171
+  call void @free(ptr noundef nonnull %.pre158) #6
+  store ptr null, ptr @nodePages, align 8
+  %.pre159 = load ptr, ptr @lightNodePages, align 8
+  br i1 %.not96122, label %._crit_edge136, label %.lr.ph135
+
+.lr.ph135:                                        ; preds = %172
+  %173 = add nuw i32 %158, 1
+  %wide.trip.count151 = zext i32 %173 to i64
+  br label %174
+
+174:                                              ; preds = %.lr.ph135, %178
+  %indvars.iv148 = phi i64 [ 0, %.lr.ph135 ], [ %indvars.iv.next149, %178 ]
+  %175 = getelementptr inbounds ptr, ptr %.pre159, i64 %indvars.iv148
+  %176 = load ptr, ptr %175, align 8
+  %.not105 = icmp eq ptr %176, null
+  br i1 %.not105, label %178, label %177
+
+177:                                              ; preds = %174
+  call void @free(ptr noundef nonnull %176) #6
+  store ptr null, ptr %175, align 8
+  br label %178
+
+178:                                              ; preds = %177, %174
+  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
+  %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
+  br i1 %exitcond152.not, label %._crit_edge136.thread, label %174, !llvm.loop !14
+
+._crit_edge136:                                   ; preds = %.thread172, %.thread169, %172
+  %.pre159171 = phi ptr [ %.pre159170, %.thread169 ], [ %.pre159, %172 ], [ %.pre159174, %.thread172 ]
+  %.not101 = icmp eq ptr %.pre159171, null
+  br i1 %.not101, label %179, label %._crit_edge136.thread
+
+._crit_edge136.thread:                            ; preds = %178, %._crit_edge136
+  %.pre159171177 = phi ptr [ %.pre159171, %._crit_edge136 ], [ %.pre159, %178 ]
+  call void @free(ptr noundef nonnull %.pre159171177) #6
+  store ptr null, ptr @lightNodePages, align 8
+  br label %179
+
+179:                                              ; preds = %._crit_edge136, %._crit_edge136.thread
+  %180 = load i32, ptr @nodeDataPage, align 4
+  %.not102137 = icmp slt i32 %180, 0
+  %.pre160 = load ptr, ptr @nodeDataPages, align 8
+  br i1 %.not102137, label %._crit_edge141, label %.lr.ph140
+
+.lr.ph140:                                        ; preds = %179
+  %181 = add nuw i32 %180, 1
+  %wide.trip.count156 = zext i32 %181 to i64
+  br label %182
+
+182:                                              ; preds = %.lr.ph140, %186
+  %indvars.iv153 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next154, %186 ]
+  %183 = getelementptr inbounds ptr, ptr %.pre160, i64 %indvars.iv153
+  %184 = load ptr, ptr %183, align 8
+  %.not104 = icmp eq ptr %184, null
+  br i1 %.not104, label %186, label %185
+
+185:                                              ; preds = %182
+  call void @free(ptr noundef nonnull %184) #6
+  store ptr null, ptr %183, align 8
+  br label %186
+
+186:                                              ; preds = %185, %182
+  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
+  %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
+  br i1 %exitcond157.not, label %._crit_edge141.thread, label %182, !llvm.loop !15
+
+._crit_edge141:                                   ; preds = %179
+  %.not103 = icmp eq ptr %.pre160, null
+  br i1 %.not103, label %187, label %._crit_edge141.thread
+
+._crit_edge141.thread:                            ; preds = %186, %._crit_edge141
+  call void @free(ptr noundef nonnull %.pre160) #6
+  store ptr null, ptr @nodeDataPages, align 8
+  br label %187
+
+187:                                              ; preds = %._crit_edge141, %._crit_edge141.thread
+  call void @st__free_table(ptr noundef nonnull %26) #6
+  call void @free(ptr noundef %115) #6
+  br i1 %.not, label %195, label %188
+
+188:                                              ; preds = %187
+  %189 = ptrtoint ptr %137 to i64
+  %190 = and i64 %189, -2
+  %191 = inttoptr i64 %190 to ptr
+  %192 = getelementptr inbounds i8, ptr %191, i64 4
+  %193 = load i32, ptr %192, align 4
+  %194 = add i32 %193, -1
+  store i32 %194, ptr %192, align 4
+  br label %195
+
+195:                                              ; preds = %187, %14, %188, %155, %149, %117, %102, %45, %9
+  %.0 = phi ptr [ null, %9 ], [ null, %45 ], [ null, %102 ], [ null, %117 ], [ null, %149 ], [ null, %155 ], [ %137, %188 ], [ %1, %14 ], [ null, %187 ]
+  ret ptr %.0
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @Cudd_SupersetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = ptrtoint ptr %1 to i64
+  %6 = xor i64 %5, 1
+  %7 = inttoptr i64 %6 to ptr
+  store i1 false, ptr @memOut, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 448
+  br label %9
+
+9:                                                ; preds = %9, %4
+  store i32 0, ptr %8, align 8
+  %10 = tail call ptr @cuddSubsetHeavyBranch(ptr noundef %0, ptr noundef %7, i32 noundef %2, i32 noundef %3)
+  %11 = load i32, ptr %8, align 8
+  %12 = icmp ne i32 %11, 1
+  %.b = load i1, ptr @memOut, align 4
+  %.not8 = select i1 %12, i1 true, i1 %.b
+  br i1 %.not8, label %13, label %9, !llvm.loop !16
+
+13:                                               ; preds = %9
+  %14 = ptrtoint ptr %10 to i64
+  %15 = icmp ne ptr %10, null
+  %16 = zext i1 %15 to i64
+  %17 = xor i64 %16, %14
+  %18 = inttoptr i64 %17 to ptr
+  ret ptr %18
+}
+
+declare ptr @Cudd_ReadOne(ptr noundef) local_unnamed_addr #1
+
+declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
+
+declare ptr @st__init_table(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @st__ptrcmp(ptr noundef, ptr noundef) #1
+
+declare i32 @st__ptrhash(ptr noundef, i32 noundef) #1
+
+declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = load i32, ptr %2, align 4
+  %.not = icmp sgt i32 %12, %4
+  br i1 %.not, label %14, label %13
+
+13:                                               ; preds = %7
+  tail call fastcc void @StoreNodes(ptr noundef %5, ptr noundef %0, ptr noundef %1)
+  br label %172
+
+14:                                               ; preds = %7
+  %15 = ptrtoint ptr %1 to i64
+  %16 = and i64 %15, -2
+  %17 = inttoptr i64 %16 to ptr
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp eq i32 %18, 2147483647
+  br i1 %19, label %172, label %20
+
+20:                                               ; preds = %14
+  %21 = call i32 @st__lookup(ptr noundef %3, ptr noundef %1, ptr noundef nonnull %8) #6
+  %.not110 = icmp eq i32 %21, 0
+  br i1 %.not110, label %22, label %26
+
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %0, i64 616
+  %24 = load ptr, ptr %23, align 8
+  %25 = call i64 @fwrite(ptr nonnull @.str.4, i64 54, i64 1, ptr %24)
+  br label %26
+
+26:                                               ; preds = %22, %20
+  %27 = getelementptr inbounds i8, ptr %17, i64 16
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %17, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %31 = ptrtoint ptr %28 to i64
+  %32 = and i64 %15, 1
+  %33 = xor i64 %32, %31
+  %34 = inttoptr i64 %33 to ptr
+  %35 = ptrtoint ptr %30 to i64
+  %36 = xor i64 %32, %35
+  %37 = inttoptr i64 %36 to ptr
+  %38 = and i64 %31, -2
+  %39 = inttoptr i64 %38 to ptr
+  %40 = load i32, ptr %39, align 8
+  %41 = icmp eq i32 %40, 2147483647
+  br i1 %41, label %53, label %42
+
+42:                                               ; preds = %26
+  %43 = call i32 @st__lookup(ptr noundef %3, ptr noundef %34, ptr noundef nonnull %9) #6
+  %.not111 = icmp eq i32 %43, 0
+  br i1 %.not111, label %44, label %49
+
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds i8, ptr %0, i64 608
+  %46 = load ptr, ptr %45, align 8
+  %47 = call i64 @fwrite(ptr nonnull @.str.5, i64 58, i64 1, ptr %46)
+  %48 = getelementptr inbounds i8, ptr %0, i64 624
+  store i32 5, ptr %48, align 8
+  br label %172
+
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = load double, ptr %51, align 8
+  br label %58
+
+53:                                               ; preds = %26
+  %54 = load ptr, ptr @zero, align 8
+  %55 = icmp eq ptr %54, %34
+  br i1 %55, label %58, label %56
+
+56:                                               ; preds = %53
+  %57 = load double, ptr @max, align 8
+  br label %58
+
+58:                                               ; preds = %53, %56, %49
+  %.0104 = phi double [ %57, %56 ], [ %52, %49 ], [ 0.000000e+00, %53 ]
+  %59 = and i64 %35, -2
+  %60 = inttoptr i64 %59 to ptr
+  %61 = load i32, ptr %60, align 8
+  %62 = icmp eq i32 %61, 2147483647
+  br i1 %62, label %74, label %63
+
+63:                                               ; preds = %58
+  %64 = call i32 @st__lookup(ptr noundef %3, ptr noundef %37, ptr noundef nonnull %10) #6
+  %.not112 = icmp eq i32 %64, 0
+  br i1 %.not112, label %65, label %70
+
+65:                                               ; preds = %63
+  %66 = getelementptr inbounds i8, ptr %0, i64 608
+  %67 = load ptr, ptr %66, align 8
+  %68 = call i64 @fwrite(ptr nonnull @.str.5, i64 58, i64 1, ptr %67)
+  %69 = getelementptr inbounds i8, ptr %0, i64 624
+  store i32 5, ptr %69, align 8
+  br label %172
+
+70:                                               ; preds = %63
+  %71 = load ptr, ptr %10, align 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = load double, ptr %72, align 8
+  br label %79
+
+74:                                               ; preds = %58
+  %75 = load ptr, ptr @zero, align 8
+  %76 = icmp eq ptr %75, %37
+  br i1 %76, label %79, label %77
+
+77:                                               ; preds = %74
+  %78 = load double, ptr @max, align 8
+  br label %79
+
+79:                                               ; preds = %74, %77, %70
+  %.0103 = phi double [ %78, %77 ], [ %73, %70 ], [ 0.000000e+00, %74 ]
+  %80 = load i32, ptr %2, align 4
+  %81 = load ptr, ptr %8, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %83 = load ptr, ptr %82, align 8
+  %84 = load i32, ptr %83, align 4
+  %85 = sub nsw i32 %80, %84
+  store i32 %85, ptr %2, align 4
+  %86 = fcmp ult double %.0104, %.0103
+  br i1 %86, label %110, label %87
+
+87:                                               ; preds = %79
+  %88 = call fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %34, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6)
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %172, label %90
+
+90:                                               ; preds = %87
+  %91 = ptrtoint ptr %88 to i64
+  %92 = and i64 %91, -2
+  %93 = inttoptr i64 %92 to ptr
+  %94 = getelementptr inbounds i8, ptr %93, i64 4
+  %95 = load i32, ptr %94, align 4
+  %96 = add i32 %95, 1
+  store i32 %96, ptr %94, align 4
+  %97 = call i32 @st__lookup(ptr noundef %5, ptr noundef nonnull %60, ptr noundef nonnull %11) #6
+  %.not115 = icmp eq i32 %97, 0
+  br i1 %.not115, label %98, label %133
+
+98:                                               ; preds = %90
+  %99 = call i32 @st__lookup(ptr noundef %6, ptr noundef %37, ptr noundef nonnull %11) #6
+  %.not116 = icmp eq i32 %99, 0
+  br i1 %.not116, label %105, label %100
+
+100:                                              ; preds = %98
+  %101 = load ptr, ptr %11, align 8
+  %102 = ptrtoint ptr %101 to i64
+  %103 = and i64 %102, -2
+  %104 = inttoptr i64 %103 to ptr
+  br label %133
+
+105:                                              ; preds = %98
+  %106 = load ptr, ptr @zero, align 8
+  %107 = ptrtoint ptr %106 to i64
+  %108 = and i64 %107, -2
+  %109 = inttoptr i64 %108 to ptr
+  br label %133
+
+110:                                              ; preds = %79
+  %111 = call fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %37, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6)
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %172, label %113
+
+113:                                              ; preds = %110
+  %114 = ptrtoint ptr %111 to i64
+  %115 = and i64 %114, -2
+  %116 = inttoptr i64 %115 to ptr
+  %117 = getelementptr inbounds i8, ptr %116, i64 4
+  %118 = load i32, ptr %117, align 4
+  %119 = add i32 %118, 1
+  store i32 %119, ptr %117, align 4
+  %120 = call i32 @st__lookup(ptr noundef %5, ptr noundef nonnull %39, ptr noundef nonnull %11) #6
+  %.not113 = icmp eq i32 %120, 0
+  br i1 %.not113, label %121, label %133
+
+121:                                              ; preds = %113
+  %122 = call i32 @st__lookup(ptr noundef %6, ptr noundef %34, ptr noundef nonnull %11) #6
+  %.not114 = icmp eq i32 %122, 0
+  br i1 %.not114, label %128, label %123
+
+123:                                              ; preds = %121
+  %124 = load ptr, ptr %11, align 8
+  %125 = ptrtoint ptr %124 to i64
+  %126 = and i64 %125, -2
+  %127 = inttoptr i64 %126 to ptr
+  br label %133
+
+128:                                              ; preds = %121
+  %129 = load ptr, ptr @zero, align 8
+  %130 = ptrtoint ptr %129 to i64
+  %131 = and i64 %130, -2
+  %132 = inttoptr i64 %131 to ptr
+  br label %133
+
+133:                                              ; preds = %113, %90, %128, %123, %105, %100
+  %.sink125 = phi ptr [ %132, %128 ], [ %127, %123 ], [ %109, %105 ], [ %104, %100 ], [ %60, %90 ], [ %39, %113 ]
+  %.0102 = phi ptr [ %129, %128 ], [ %124, %123 ], [ %88, %105 ], [ %88, %100 ], [ %88, %90 ], [ %34, %113 ]
+  %.0101 = phi ptr [ %111, %128 ], [ %111, %123 ], [ %106, %105 ], [ %101, %100 ], [ %37, %90 ], [ %111, %113 ]
+  %134 = getelementptr inbounds i8, ptr %.sink125, i64 4
+  %135 = load i32, ptr %134, align 4
+  %136 = add i32 %135, 1
+  store i32 %136, ptr %134, align 4
+  %137 = call i32 @Cudd_NodeReadIndex(ptr noundef nonnull %17) #6
+  %138 = call ptr @Cudd_ReadVars(ptr noundef %0, i32 noundef %137) #6
+  %139 = ptrtoint ptr %138 to i64
+  %140 = and i64 %139, -2
+  %141 = inttoptr i64 %140 to ptr
+  %142 = getelementptr inbounds i8, ptr %141, i64 4
+  %143 = load i32, ptr %142, align 4
+  %144 = add i32 %143, 1
+  store i32 %144, ptr %142, align 4
+  %145 = call ptr @cuddBddIteRecur(ptr noundef %0, ptr noundef %138, ptr noundef %.0102, ptr noundef %.0101) #6
+  %.not117 = icmp eq ptr %145, null
+  br i1 %.not117, label %.critedge, label %146
+
+146:                                              ; preds = %133
+  %147 = ptrtoint ptr %145 to i64
+  %148 = and i64 %147, -2
+  %149 = inttoptr i64 %148 to ptr
+  %150 = getelementptr inbounds i8, ptr %149, i64 4
+  %151 = load i32, ptr %150, align 4
+  %152 = add i32 %151, 1
+  store i32 %152, ptr %150, align 4
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %138) #6
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0102) #6
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0101) #6
+  %153 = call i32 @st__lookup(ptr noundef %5, ptr noundef %149, ptr noundef nonnull %11) #6
+  %.not118 = icmp eq i32 %153, 0
+  br i1 %.not118, label %154, label %158
+
+154:                                              ; preds = %146
+  %155 = load i32, ptr %150, align 4
+  %156 = add i32 %155, 1
+  store i32 %156, ptr %150, align 4
+  %157 = call i32 @st__insert(ptr noundef %5, ptr noundef nonnull %149, ptr noundef null) #6
+  %.not119 = icmp eq i32 %157, 0
+  br i1 %.not119, label %172, label %158
+
+158:                                              ; preds = %154, %146
+  %.not120 = icmp eq ptr %17, %149
+  br i1 %.not120, label %169, label %159
+
+159:                                              ; preds = %158
+  %160 = call i32 @st__lookup(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %11) #6
+  %.not121 = icmp eq i32 %160, 0
+  br i1 %.not121, label %165, label %161
+
+161:                                              ; preds = %159
+  %162 = getelementptr inbounds i8, ptr %0, i64 616
+  %163 = load ptr, ptr %162, align 8
+  %164 = call i64 @fwrite(ptr nonnull @.str.6, i64 50, i64 1, ptr %163)
+  br label %169
+
+165:                                              ; preds = %159
+  %166 = load i32, ptr %150, align 4
+  %167 = add i32 %166, 1
+  store i32 %167, ptr %150, align 4
+  %168 = call i32 @st__insert(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %145) #6
+  %.not122 = icmp eq i32 %168, 0
+  br i1 %.not122, label %172, label %169
+
+169:                                              ; preds = %161, %165, %158
+  %170 = load i32, ptr %150, align 4
+  %171 = add i32 %170, -1
+  store i32 %171, ptr %150, align 4
+  br label %172
+
+.critedge:                                        ; preds = %133
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %138) #6
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0102) #6
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0101) #6
+  br label %172
+
+172:                                              ; preds = %.critedge, %165, %154, %110, %87, %14, %169, %65, %44, %13
+  %.0 = phi ptr [ %1, %13 ], [ %145, %169 ], [ null, %65 ], [ null, %44 ], [ %1, %14 ], [ null, %87 ], [ null, %110 ], [ null, %154 ], [ null, %165 ], [ null, %.critedge ]
+  ret ptr %.0
+}
+
+declare ptr @st__init_gen(ptr noundef) local_unnamed_addr #1
+
+declare void @st__free_table(ptr noundef) local_unnamed_addr #1
+
+declare i32 @st__gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @st__free_gen(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind uwtable
+define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noundef %1, ptr noundef %2) unnamed_addr #0 {
+  %4 = alloca ptr, align 8
+  %5 = ptrtoint ptr %0 to i64
+  %6 = and i64 %5, -2
+  %7 = inttoptr i64 %6 to ptr
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp eq i32 %8, 2147483647
+  br i1 %9, label %10, label %13
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr @zero, align 8
+  %12 = icmp eq ptr %11, %0
+  %. = select i1 %12, double 0.000000e+00, double %1
+  br label %122
+
+13:                                               ; preds = %3
+  %14 = call i32 @st__lookup(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4) #6
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %19, label %15
+
+15:                                               ; preds = %13
+  %16 = load ptr, ptr %4, align 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = load double, ptr %17, align 8
+  br label %122
+
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %7, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %7, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = ptrtoint ptr %21 to i64
+  %25 = and i64 %5, 1
+  %26 = xor i64 %25, %24
+  %27 = inttoptr i64 %26 to ptr
+  %28 = call fastcc double @SubsetCountMintermAux(ptr noundef %27, double noundef %1, ptr noundef %2)
+  %29 = fmul double %28, 5.000000e-01
+  %.b64 = load i1, ptr @memOut, align 4
+  br i1 %.b64, label %122, label %30
+
+30:                                               ; preds = %19
+  %31 = ptrtoint ptr %23 to i64
+  %32 = xor i64 %25, %31
+  %33 = inttoptr i64 %32 to ptr
+  %34 = call fastcc double @SubsetCountMintermAux(ptr noundef %33, double noundef %1, ptr noundef %2)
+  %.b63 = load i1, ptr @memOut, align 4
+  br i1 %.b63, label %122, label %35
+
+35:                                               ; preds = %30
+  %36 = fmul double %34, 5.000000e-01
+  %37 = fadd double %29, %36
+  %38 = load i32, ptr @pageIndex, align 4
+  %39 = icmp eq i32 %38, 2048
+  br i1 %39, label %40, label %ResizeCountMintermPages.exitthread-pre-split
+
+40:                                               ; preds = %35
+  %41 = load i32, ptr @page, align 4
+  %42 = add nsw i32 %41, 1
+  store i32 %42, ptr @page, align 4
+  %43 = load i32, ptr @maxPages, align 4
+  %44 = icmp eq i32 %42, %43
+  br i1 %44, label %45, label %._crit_edge52.i
+
+._crit_edge52.i:                                  ; preds = %40
+  %.pre53.i = load ptr, ptr @mintermPages, align 8
+  br label %63
+
+45:                                               ; preds = %40
+  %46 = add nsw i32 %41, 129
+  %47 = sext i32 %46 to i64
+  %48 = shl nsw i64 %47, 3
+  %49 = call noalias ptr @malloc(i64 noundef %48) #7
+  %50 = icmp eq ptr %49, null
+  %.pre54.i = load ptr, ptr @mintermPages, align 8
+  br i1 %50, label %.preheader.i, label %.preheader31.i
+
+.preheader31.i:                                   ; preds = %45
+  %51 = icmp sgt i32 %41, -1
+  br i1 %51, label %.lr.ph.i, label %._crit_edge.i
+
+.lr.ph.i:                                         ; preds = %.preheader31.i
+  %wide.trip.count.i = zext nneg i32 %42 to i64
+  br label %57
+
+.preheader.i:                                     ; preds = %45
+  %.not2937.i = icmp slt i32 %41, 0
+  br i1 %.not2937.i, label %._crit_edge40.i, label %.lr.ph39.i
+
+.lr.ph39.i:                                       ; preds = %.preheader.i
+  %wide.trip.count50.i = zext nneg i32 %42 to i64
+  br label %52
+
+52:                                               ; preds = %56, %.lr.ph39.i
+  %indvars.iv47.i = phi i64 [ 0, %.lr.ph39.i ], [ %indvars.iv.next48.i, %56 ]
+  %53 = getelementptr inbounds ptr, ptr %.pre54.i, i64 %indvars.iv47.i
+  %54 = load ptr, ptr %53, align 8
+  %.not27.i = icmp eq ptr %54, null
+  br i1 %.not27.i, label %56, label %55
+
+55:                                               ; preds = %52
+  call void @free(ptr noundef nonnull %54) #6
+  store ptr null, ptr %53, align 8
+  br label %56
+
+56:                                               ; preds = %55, %52
+  %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
+  %exitcond51.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count50.i
+  br i1 %exitcond51.not.i, label %.preheader.sink.split, label %52, !llvm.loop !17
+
+._crit_edge40.i:                                  ; preds = %.preheader.i
+  %.not26.i = icmp eq ptr %.pre54.i, null
+  br i1 %.not26.i, label %.preheader, label %.preheader.sink.split
+
+57:                                               ; preds = %57, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %57 ]
+  %58 = getelementptr inbounds ptr, ptr %.pre54.i, i64 %indvars.iv.i
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv.i
+  store ptr %59, ptr %60, align 8
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %._crit_edge.thread.i, label %57, !llvm.loop !18
+
+._crit_edge.thread.i:                             ; preds = %57
+  store i32 %46, ptr @maxPages, align 4
+  br label %61
+
+._crit_edge.i:                                    ; preds = %.preheader31.i
+  store i32 %46, ptr @maxPages, align 4
+  %.not.i = icmp eq ptr %.pre54.i, null
+  br i1 %.not.i, label %62, label %61
+
+61:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
+  call void @free(ptr noundef nonnull %.pre54.i) #6
+  br label %62
+
+62:                                               ; preds = %61, %._crit_edge.i
+  store ptr %49, ptr @mintermPages, align 8
+  br label %63
+
+63:                                               ; preds = %62, %._crit_edge52.i
+  %64 = phi ptr [ %.pre53.i, %._crit_edge52.i ], [ %49, %62 ]
+  %65 = call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #7
+  %66 = sext i32 %42 to i64
+  %67 = getelementptr inbounds ptr, ptr %64, i64 %66
+  store ptr %65, ptr %67, align 8
+  store ptr %65, ptr @currentMintermPage, align 8
+  %68 = icmp eq ptr %65, null
+  br i1 %68, label %.preheader30.i, label %ResizeCountMintermPages.exitthread-pre-split
+
+.preheader30.i:                                   ; preds = %63
+  %.not2833.i = icmp slt i32 %41, 0
+  br i1 %.not2833.i, label %.preheader.sink.split, label %.lr.ph35.preheader.i
+
+.lr.ph35.preheader.i:                             ; preds = %.preheader30.i
+  %wide.trip.count45.i = zext nneg i32 %42 to i64
+  br label %.lr.ph35.i
+
+.lr.ph35.i:                                       ; preds = %72, %.lr.ph35.preheader.i
+  %indvars.iv42.i = phi i64 [ 0, %.lr.ph35.preheader.i ], [ %indvars.iv.next43.i, %72 ]
+  %69 = getelementptr inbounds ptr, ptr %64, i64 %indvars.iv42.i
+  %70 = load ptr, ptr %69, align 8
+  %.not25.i = icmp eq ptr %70, null
+  br i1 %.not25.i, label %72, label %71
+
+71:                                               ; preds = %.lr.ph35.i
+  call void @free(ptr noundef nonnull %70) #6
+  store ptr null, ptr %69, align 8
+  br label %72
+
+72:                                               ; preds = %71, %.lr.ph35.i
+  %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
+  %exitcond46.not.i = icmp eq i64 %indvars.iv.next43.i, %wide.trip.count45.i
+  br i1 %exitcond46.not.i, label %.preheader.sink.split, label %.lr.ph35.i, !llvm.loop !19
+
+.preheader.sink.split:                            ; preds = %72, %56, %.preheader30.i, %._crit_edge40.i
+  %.sink = phi ptr [ %.pre54.i, %._crit_edge40.i ], [ %64, %.preheader30.i ], [ %.pre54.i, %56 ], [ %64, %72 ]
+  call void @free(ptr noundef nonnull %.sink) #6
+  store ptr null, ptr @mintermPages, align 8
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.sink.split, %._crit_edge40.i
+  store i1 true, ptr @memOut, align 4
+  %73 = load i32, ptr @nodeDataPage, align 4
+  %.not7489 = icmp slt i32 %73, 0
+  %.pre112 = load ptr, ptr @nodeDataPages, align 8
+  br i1 %.not7489, label %._crit_edge92, label %.lr.ph91
+
+.lr.ph91:                                         ; preds = %.preheader
+  %74 = add nuw i32 %73, 1
+  %wide.trip.count107 = zext i32 %74 to i64
+  br label %75
+
+75:                                               ; preds = %.lr.ph91, %79
+  %indvars.iv104 = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next105, %79 ]
+  %76 = getelementptr inbounds ptr, ptr %.pre112, i64 %indvars.iv104
+  %77 = load ptr, ptr %76, align 8
+  %.not76 = icmp eq ptr %77, null
+  br i1 %.not76, label %79, label %78
+
+78:                                               ; preds = %75
+  call void @free(ptr noundef nonnull %77) #6
+  store ptr null, ptr %76, align 8
+  br label %79
+
+79:                                               ; preds = %78, %75
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
+  %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
+  br i1 %exitcond108.not, label %._crit_edge92.thread, label %75, !llvm.loop !20
+
+._crit_edge92:                                    ; preds = %.preheader
+  %.not75 = icmp eq ptr %.pre112, null
+  br i1 %.not75, label %80, label %._crit_edge92.thread
+
+._crit_edge92.thread:                             ; preds = %79, %._crit_edge92
+  call void @free(ptr noundef nonnull %.pre112) #6
+  store ptr null, ptr @nodeDataPages, align 8
+  br label %80
+
+80:                                               ; preds = %._crit_edge92, %._crit_edge92.thread
+  call void @st__free_table(ptr noundef %2) #6
+  br label %122
+
+ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
+  %81 = phi i32 [ %38, %35 ], [ 0, %63 ]
+  %82 = load ptr, ptr @currentMintermPage, align 8
+  %83 = sext i32 %81 to i64
+  %84 = getelementptr inbounds double, ptr %82, i64 %83
+  %85 = add nsw i32 %81, 1
+  store i32 %85, ptr @pageIndex, align 4
+  store double %37, ptr %84, align 8
+  %86 = load i32, ptr @nodeDataPageIndex, align 4
+  %87 = icmp eq i32 %86, 1024
+  br i1 %87, label %88, label %.thread
+
+88:                                               ; preds = %ResizeCountMintermPages.exitthread-pre-split
+  call fastcc void @ResizeNodeDataPages()
+  %.b.pre = load i1, ptr @memOut, align 4
+  br i1 %.b.pre, label %.preheader77, label %.thread
+
+.preheader77:                                     ; preds = %88
+  %89 = load i32, ptr @page, align 4
+  %.not7185 = icmp slt i32 %89, 0
+  %.pre111 = load ptr, ptr @mintermPages, align 8
+  br i1 %.not7185, label %._crit_edge88, label %.lr.ph87
+
+.lr.ph87:                                         ; preds = %.preheader77
+  %90 = add nuw i32 %89, 1
+  %wide.trip.count102 = zext i32 %90 to i64
+  br label %91
+
+91:                                               ; preds = %.lr.ph87, %95
+  %indvars.iv99 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next100, %95 ]
+  %92 = getelementptr inbounds ptr, ptr %.pre111, i64 %indvars.iv99
+  %93 = load ptr, ptr %92, align 8
+  %.not73 = icmp eq ptr %93, null
+  br i1 %.not73, label %95, label %94
+
+94:                                               ; preds = %91
+  call void @free(ptr noundef nonnull %93) #6
+  store ptr null, ptr %92, align 8
+  br label %95
+
+95:                                               ; preds = %94, %91
+  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
+  %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
+  br i1 %exitcond103.not, label %._crit_edge88.thread, label %91, !llvm.loop !21
+
+._crit_edge88:                                    ; preds = %.preheader77
+  %.not72 = icmp eq ptr %.pre111, null
+  br i1 %.not72, label %96, label %._crit_edge88.thread
+
+._crit_edge88.thread:                             ; preds = %95, %._crit_edge88
+  call void @free(ptr noundef nonnull %.pre111) #6
+  store ptr null, ptr @mintermPages, align 8
+  br label %96
+
+96:                                               ; preds = %._crit_edge88, %._crit_edge88.thread
+  call void @st__free_table(ptr noundef %2) #6
+  br label %122
+
+.thread:                                          ; preds = %ResizeCountMintermPages.exitthread-pre-split, %88
+  %97 = load ptr, ptr @currentNodeDataPage, align 8
+  %98 = load i32, ptr @nodeDataPageIndex, align 4
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds %struct.NodeData, ptr %97, i64 %99
+  %101 = add nsw i32 %98, 1
+  store i32 %101, ptr @nodeDataPageIndex, align 4
+  store ptr %84, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %100, i64 8
+  store ptr null, ptr %102, align 8
+  %103 = call i32 @st__insert(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %100) #6
+  %104 = icmp eq i32 %103, -10000
+  br i1 %104, label %105, label %122
+
+105:                                              ; preds = %.thread
+  store i1 true, ptr @memOut, align 4
+  %106 = load i32, ptr @page, align 4
+  %.not6578 = icmp slt i32 %106, 0
+  %.pre = load ptr, ptr @mintermPages, align 8
+  br i1 %.not6578, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %105
+  %107 = add nuw i32 %106, 1
+  %wide.trip.count = zext i32 %107 to i64
+  br label %108
+
+108:                                              ; preds = %.lr.ph, %112
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %112 ]
+  %109 = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv
+  %110 = load ptr, ptr %109, align 8
+  %.not70 = icmp eq ptr %110, null
+  br i1 %.not70, label %112, label %111
+
+111:                                              ; preds = %108
+  call void @free(ptr noundef nonnull %110) #6
+  store ptr null, ptr %109, align 8
+  br label %112
+
+112:                                              ; preds = %111, %108
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge.thread, label %108, !llvm.loop !22
+
+._crit_edge:                                      ; preds = %105
+  %.not66 = icmp eq ptr %.pre, null
+  br i1 %.not66, label %113, label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %112, %._crit_edge
+  call void @free(ptr noundef nonnull %.pre) #6
+  store ptr null, ptr @mintermPages, align 8
+  br label %113
+
+113:                                              ; preds = %._crit_edge, %._crit_edge.thread
+  %114 = load i32, ptr @nodeDataPage, align 4
+  %.not6780 = icmp slt i32 %114, 0
+  %.pre110 = load ptr, ptr @nodeDataPages, align 8
+  br i1 %.not6780, label %._crit_edge84, label %.lr.ph83
+
+.lr.ph83:                                         ; preds = %113
+  %115 = add nuw i32 %114, 1
+  %wide.trip.count97 = zext i32 %115 to i64
+  br label %116
+
+116:                                              ; preds = %.lr.ph83, %120
+  %indvars.iv94 = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next95, %120 ]
+  %117 = getelementptr inbounds ptr, ptr %.pre110, i64 %indvars.iv94
+  %118 = load ptr, ptr %117, align 8
+  %.not69 = icmp eq ptr %118, null
+  br i1 %.not69, label %120, label %119
+
+119:                                              ; preds = %116
+  call void @free(ptr noundef nonnull %118) #6
+  store ptr null, ptr %117, align 8
+  br label %120
+
+120:                                              ; preds = %119, %116
+  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
+  %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
+  br i1 %exitcond98.not, label %._crit_edge84.thread, label %116, !llvm.loop !23
+
+._crit_edge84:                                    ; preds = %113
+  %.not68 = icmp eq ptr %.pre110, null
+  br i1 %.not68, label %121, label %._crit_edge84.thread
+
+._crit_edge84.thread:                             ; preds = %120, %._crit_edge84
+  call void @free(ptr noundef nonnull %.pre110) #6
+  store ptr null, ptr @nodeDataPages, align 8
+  br label %121
+
+121:                                              ; preds = %._crit_edge84, %._crit_edge84.thread
+  call void @st__free_table(ptr noundef %2) #6
+  br label %122
+
+122:                                              ; preds = %.thread, %30, %19, %10, %121, %96, %80, %15
+  %.053 = phi double [ %18, %15 ], [ 0.000000e+00, %80 ], [ 0.000000e+00, %96 ], [ 0.000000e+00, %121 ], [ %., %10 ], [ 0.000000e+00, %19 ], [ 0.000000e+00, %30 ], [ %37, %.thread ]
+  ret double %.053
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @ResizeNodeDataPages() unnamed_addr #0 {
+  %1 = load i32, ptr @nodeDataPage, align 4
+  %2 = add nsw i32 %1, 1
+  store i32 %2, ptr @nodeDataPage, align 4
+  %3 = load i32, ptr @maxNodeDataPages, align 4
+  %4 = icmp eq i32 %2, %3
+  br i1 %4, label %5, label %._crit_edge52
+
+._crit_edge52:                                    ; preds = %0
+  %.pre53 = load ptr, ptr @nodeDataPages, align 8
+  br label %24
+
+5:                                                ; preds = %0
+  %6 = add nsw i32 %1, 129
+  %7 = sext i32 %6 to i64
+  %8 = shl nsw i64 %7, 3
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #7
+  %10 = icmp eq ptr %9, null
+  %.pre54 = load ptr, ptr @nodeDataPages, align 8
+  br i1 %10, label %.preheader, label %.preheader31
+
+.preheader31:                                     ; preds = %5
+  %11 = icmp sgt i32 %1, -1
+  br i1 %11, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %.preheader31
+  %wide.trip.count = zext nneg i32 %2 to i64
+  br label %18
+
+.preheader:                                       ; preds = %5
+  %.not2937 = icmp slt i32 %1, 0
+  br i1 %.not2937, label %._crit_edge40, label %.lr.ph39
+
+.lr.ph39:                                         ; preds = %.preheader
+  %wide.trip.count50 = zext nneg i32 %2 to i64
+  br label %12
+
+12:                                               ; preds = %.lr.ph39, %16
+  %indvars.iv47 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next48, %16 ]
+  %13 = getelementptr inbounds ptr, ptr %.pre54, i64 %indvars.iv47
+  %14 = load ptr, ptr %13, align 8
+  %.not27 = icmp eq ptr %14, null
+  br i1 %.not27, label %16, label %15
+
+15:                                               ; preds = %12
+  tail call void @free(ptr noundef nonnull %14) #6
+  store ptr null, ptr %13, align 8
+  br label %16
+
+16:                                               ; preds = %15, %12
+  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
+  %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
+  br i1 %exitcond51.not, label %._crit_edge40.thread, label %12, !llvm.loop !24
+
+._crit_edge40:                                    ; preds = %.preheader
+  %.not26 = icmp eq ptr %.pre54, null
+  br i1 %.not26, label %17, label %._crit_edge40.thread
+
+._crit_edge40.thread:                             ; preds = %16, %._crit_edge40
+  tail call void @free(ptr noundef nonnull %.pre54) #6
+  store ptr null, ptr @nodeDataPages, align 8
+  br label %17
+
+17:                                               ; preds = %._crit_edge40, %._crit_edge40.thread
+  store i1 true, ptr @memOut, align 4
+  br label %35
+
+18:                                               ; preds = %.lr.ph, %18
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
+  %19 = getelementptr inbounds ptr, ptr %.pre54, i64 %indvars.iv
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  store ptr %20, ptr %21, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge.thread, label %18, !llvm.loop !25
+
+._crit_edge.thread:                               ; preds = %18
+  store i32 %6, ptr @maxNodeDataPages, align 4
+  br label %22
+
+._crit_edge:                                      ; preds = %.preheader31
+  store i32 %6, ptr @maxNodeDataPages, align 4
+  %.not = icmp eq ptr %.pre54, null
+  br i1 %.not, label %23, label %22
+
+22:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  tail call void @free(ptr noundef nonnull %.pre54) #6
+  br label %23
+
+23:                                               ; preds = %._crit_edge, %22
+  store ptr %9, ptr @nodeDataPages, align 8
+  br label %24
+
+24:                                               ; preds = %._crit_edge52, %23
+  %25 = phi ptr [ %.pre53, %._crit_edge52 ], [ %9, %23 ]
+  %26 = tail call noalias dereferenceable_or_null(24576) ptr @malloc(i64 noundef 24576) #7
+  %27 = sext i32 %2 to i64
+  %28 = getelementptr inbounds ptr, ptr %25, i64 %27
+  store ptr %26, ptr %28, align 8
+  store ptr %26, ptr @currentNodeDataPage, align 8
+  %29 = icmp eq ptr %26, null
+  br i1 %29, label %.preheader30, label %34
+
+.preheader30:                                     ; preds = %24
+  %.not2833 = icmp slt i32 %1, 0
+  br i1 %.not2833, label %._crit_edge36, label %.lr.ph35.preheader
+
+.lr.ph35.preheader:                               ; preds = %.preheader30
+  %wide.trip.count45 = zext nneg i32 %2 to i64
+  br label %.lr.ph35
+
+.lr.ph35:                                         ; preds = %.lr.ph35.preheader, %33
+  %indvars.iv42 = phi i64 [ 0, %.lr.ph35.preheader ], [ %indvars.iv.next43, %33 ]
+  %30 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv42
+  %31 = load ptr, ptr %30, align 8
+  %.not25 = icmp eq ptr %31, null
+  br i1 %.not25, label %33, label %32
+
+32:                                               ; preds = %.lr.ph35
+  tail call void @free(ptr noundef nonnull %31) #6
+  store ptr null, ptr %30, align 8
+  br label %33
+
+33:                                               ; preds = %32, %.lr.ph35
+  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
+  %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
+  br i1 %exitcond46.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !26
+
+._crit_edge36:                                    ; preds = %33, %.preheader30
+  tail call void @free(ptr noundef nonnull %25) #6
+  store ptr null, ptr @nodeDataPages, align 8
+  store i1 true, ptr @memOut, align 4
+  br label %35
+
+34:                                               ; preds = %24
+  store i32 0, ptr @nodeDataPageIndex, align 4
+  br label %35
+
+35:                                               ; preds = %34, %._crit_edge36, %17
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef %1, double noundef %2) unnamed_addr #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = icmp eq ptr %0, null
+  br i1 %8, label %190, label %9
+
+9:                                                ; preds = %3
+  %10 = ptrtoint ptr %0 to i64
+  %11 = and i64 %10, -2
+  %12 = inttoptr i64 %11 to ptr
+  %13 = load i32, ptr %12, align 8
+  %14 = icmp eq i32 %13, 2147483647
+  br i1 %14, label %190, label %15
+
+15:                                               ; preds = %9
+  %16 = call i32 @st__lookup(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %4) #6
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %18, label %190
+
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %.not = icmp eq ptr %21, null
+  br i1 %.not, label %22, label %190
+
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds i8, ptr %12, i64 16
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %12, i64 24
+  %26 = load ptr, ptr %25, align 8
+  %27 = ptrtoint ptr %24 to i64
+  %28 = and i64 %10, 1
+  %29 = xor i64 %28, %27
+  %30 = inttoptr i64 %29 to ptr
+  %31 = ptrtoint ptr %26 to i64
+  %32 = xor i64 %28, %31
+  %33 = inttoptr i64 %32 to ptr
+  %34 = and i64 %27, -2
+  %35 = inttoptr i64 %34 to ptr
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp eq i32 %36, 2147483647
+  br i1 %37, label %38, label %41
+
+38:                                               ; preds = %22
+  %39 = load ptr, ptr @zero, align 8
+  %40 = icmp eq ptr %39, %30
+  %. = select i1 %40, double 0.000000e+00, double %2
+  br label %48
+
+41:                                               ; preds = %22
+  %42 = call i32 @st__lookup(ptr noundef %1, ptr noundef %30, ptr noundef nonnull %5) #6
+  %43 = icmp eq i32 %42, 1
+  br i1 %43, label %44, label %190
+
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %5, align 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = load double, ptr %46, align 8
+  br label %48
+
+48:                                               ; preds = %38, %44
+  %.098 = phi double [ %47, %44 ], [ %., %38 ]
+  %49 = and i64 %31, -2
+  %50 = inttoptr i64 %49 to ptr
+  %51 = load i32, ptr %50, align 8
+  %52 = icmp eq i32 %51, 2147483647
+  br i1 %52, label %53, label %56
+
+53:                                               ; preds = %48
+  %54 = load ptr, ptr @zero, align 8
+  %55 = icmp eq ptr %54, %33
+  %.146 = select i1 %55, double 0.000000e+00, double %2
+  br label %63
+
+56:                                               ; preds = %48
+  %57 = call i32 @st__lookup(ptr noundef %1, ptr noundef %33, ptr noundef nonnull %6) #6
+  %58 = icmp eq i32 %57, 1
+  br i1 %58, label %59, label %190
+
+59:                                               ; preds = %56
+  %60 = load ptr, ptr %6, align 8
+  %61 = load ptr, ptr %60, align 8
+  %62 = load double, ptr %61, align 8
+  br label %63
+
+63:                                               ; preds = %53, %59
+  %.097 = phi double [ %62, %59 ], [ %.146, %53 ]
+  %64 = fcmp ult double %.098, %.097
+  br i1 %64, label %93, label %65
+
+65:                                               ; preds = %63
+  %66 = call fastcc i32 @SubsetCountNodesAux(ptr noundef %30, ptr noundef %1, double noundef %2)
+  %.b125 = load i1, ptr @memOut, align 4
+  br i1 %.b125, label %190, label %67
+
+67:                                               ; preds = %65
+  %68 = call fastcc i32 @SubsetCountNodesAux(ptr noundef %33, ptr noundef %1, double noundef %2)
+  %.b124 = load i1, ptr @memOut, align 4
+  br i1 %.b124, label %190, label %69
+
+69:                                               ; preds = %67
+  %70 = load i32, ptr @pageIndex, align 4
+  %71 = icmp eq i32 %70, 2048
+  br i1 %71, label %72, label %.thread
+
+72:                                               ; preds = %69
+  call fastcc void @ResizeCountNodePages()
+  %.b123.pr = load i1, ptr @memOut, align 4
+  br i1 %.b123.pr, label %.preheader152, label %..thread_crit_edge
+
+..thread_crit_edge:                               ; preds = %72
+  %.pre = load i32, ptr @pageIndex, align 4
+  br label %.thread
+
+.preheader152:                                    ; preds = %72
+  %73 = load i32, ptr @page, align 4
+  %.not140153 = icmp slt i32 %73, 0
+  %.pre219 = load ptr, ptr @mintermPages, align 8
+  br i1 %.not140153, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader152
+  %74 = add nuw i32 %73, 1
+  %wide.trip.count = zext i32 %74 to i64
+  br label %75
+
+75:                                               ; preds = %.lr.ph, %79
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
+  %76 = getelementptr inbounds ptr, ptr %.pre219, i64 %indvars.iv
+  %77 = load ptr, ptr %76, align 8
+  %.not145 = icmp eq ptr %77, null
+  br i1 %.not145, label %79, label %78
+
+78:                                               ; preds = %75
+  call void @free(ptr noundef nonnull %77) #6
+  store ptr null, ptr %76, align 8
+  br label %79
+
+79:                                               ; preds = %78, %75
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge.thread, label %75, !llvm.loop !27
+
+._crit_edge:                                      ; preds = %.preheader152
+  %.not141 = icmp eq ptr %.pre219, null
+  br i1 %.not141, label %80, label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %79, %._crit_edge
+  call void @free(ptr noundef nonnull %.pre219) #6
+  store ptr null, ptr @mintermPages, align 8
+  br label %80
+
+80:                                               ; preds = %._crit_edge, %._crit_edge.thread
+  %81 = load i32, ptr @nodeDataPage, align 4
+  %.not142155 = icmp slt i32 %81, 0
+  %.pre220 = load ptr, ptr @nodeDataPages, align 8
+  br i1 %.not142155, label %._crit_edge159, label %.lr.ph158
+
+.lr.ph158:                                        ; preds = %80
+  %82 = add nuw i32 %81, 1
+  %wide.trip.count187 = zext i32 %82 to i64
+  br label %83
+
+83:                                               ; preds = %.lr.ph158, %87
+  %indvars.iv184 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next185, %87 ]
+  %84 = getelementptr inbounds ptr, ptr %.pre220, i64 %indvars.iv184
+  %85 = load ptr, ptr %84, align 8
+  %.not144 = icmp eq ptr %85, null
+  br i1 %.not144, label %87, label %86
+
+86:                                               ; preds = %83
+  call void @free(ptr noundef nonnull %85) #6
+  store ptr null, ptr %84, align 8
+  br label %87
+
+87:                                               ; preds = %86, %83
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
+  %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
+  br i1 %exitcond188.not, label %._crit_edge159.thread, label %83, !llvm.loop !28
+
+._crit_edge159:                                   ; preds = %80
+  %.not143 = icmp eq ptr %.pre220, null
+  br i1 %.not143, label %88, label %._crit_edge159.thread
+
+._crit_edge159.thread:                            ; preds = %87, %._crit_edge159
+  call void @free(ptr noundef nonnull %.pre220) #6
+  store ptr null, ptr @nodeDataPages, align 8
+  br label %88
+
+88:                                               ; preds = %._crit_edge159, %._crit_edge159.thread
+  call void @st__free_table(ptr noundef %1) #6
+  br label %190
+
+.thread:                                          ; preds = %..thread_crit_edge, %69
+  %89 = phi i32 [ %.pre, %..thread_crit_edge ], [ %70, %69 ]
+  %90 = load ptr, ptr @currentLightNodePage, align 8
+  %91 = sext i32 %89 to i64
+  %92 = getelementptr inbounds i32, ptr %90, i64 %91
+  store i32 %68, ptr %92, align 4
+  br label %121
+
+93:                                               ; preds = %63
+  %94 = call fastcc i32 @SubsetCountNodesAux(ptr noundef %33, ptr noundef %1, double noundef %2)
+  %.b122 = load i1, ptr @memOut, align 4
+  br i1 %.b122, label %190, label %95
+
+95:                                               ; preds = %93
+  %96 = call fastcc i32 @SubsetCountNodesAux(ptr noundef %30, ptr noundef %1, double noundef %2)
+  %.b121 = load i1, ptr @memOut, align 4
+  br i1 %.b121, label %190, label %97
+
+97:                                               ; preds = %95
+  %98 = load i32, ptr @pageIndex, align 4
+  %99 = icmp eq i32 %98, 2048
+  br i1 %99, label %100, label %.thread148
+
+100:                                              ; preds = %97
+  call fastcc void @ResizeCountNodePages()
+  %.b120.pr = load i1, ptr @memOut, align 4
+  br i1 %.b120.pr, label %.preheader, label %..thread148_crit_edge
+
+..thread148_crit_edge:                            ; preds = %100
+  %.pre221 = load i32, ptr @pageIndex, align 4
+  br label %.thread148
+
+.preheader:                                       ; preds = %100
+  %101 = load i32, ptr @page, align 4
+  %.not126174 = icmp slt i32 %101, 0
+  %.pre227 = load ptr, ptr @mintermPages, align 8
+  br i1 %.not126174, label %._crit_edge177, label %.lr.ph176
+
+.lr.ph176:                                        ; preds = %.preheader
+  %102 = add nuw i32 %101, 1
+  %wide.trip.count212 = zext i32 %102 to i64
+  br label %103
+
+103:                                              ; preds = %.lr.ph176, %107
+  %indvars.iv209 = phi i64 [ 0, %.lr.ph176 ], [ %indvars.iv.next210, %107 ]
+  %104 = getelementptr inbounds ptr, ptr %.pre227, i64 %indvars.iv209
+  %105 = load ptr, ptr %104, align 8
+  %.not131 = icmp eq ptr %105, null
+  br i1 %.not131, label %107, label %106
+
+106:                                              ; preds = %103
+  call void @free(ptr noundef nonnull %105) #6
+  store ptr null, ptr %104, align 8
+  br label %107
+
+107:                                              ; preds = %106, %103
+  %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
+  %exitcond213.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count212
+  br i1 %exitcond213.not, label %._crit_edge177.thread, label %103, !llvm.loop !29
+
+._crit_edge177:                                   ; preds = %.preheader
+  %.not127 = icmp eq ptr %.pre227, null
+  br i1 %.not127, label %108, label %._crit_edge177.thread
+
+._crit_edge177.thread:                            ; preds = %107, %._crit_edge177
+  call void @free(ptr noundef nonnull %.pre227) #6
+  store ptr null, ptr @mintermPages, align 8
+  br label %108
+
+108:                                              ; preds = %._crit_edge177, %._crit_edge177.thread
+  %109 = load i32, ptr @nodeDataPage, align 4
+  %.not128178 = icmp slt i32 %109, 0
+  %.pre228 = load ptr, ptr @nodeDataPages, align 8
+  br i1 %.not128178, label %._crit_edge182, label %.lr.ph181
+
+.lr.ph181:                                        ; preds = %108
+  %110 = add nuw i32 %109, 1
+  %wide.trip.count217 = zext i32 %110 to i64
+  br label %111
+
+111:                                              ; preds = %.lr.ph181, %115
+  %indvars.iv214 = phi i64 [ 0, %.lr.ph181 ], [ %indvars.iv.next215, %115 ]
+  %112 = getelementptr inbounds ptr, ptr %.pre228, i64 %indvars.iv214
+  %113 = load ptr, ptr %112, align 8
+  %.not130 = icmp eq ptr %113, null
+  br i1 %.not130, label %115, label %114
+
+114:                                              ; preds = %111
+  call void @free(ptr noundef nonnull %113) #6
+  store ptr null, ptr %112, align 8
+  br label %115
+
+115:                                              ; preds = %114, %111
+  %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
+  %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
+  br i1 %exitcond218.not, label %._crit_edge182.thread, label %111, !llvm.loop !30
+
+._crit_edge182:                                   ; preds = %108
+  %.not129 = icmp eq ptr %.pre228, null
+  br i1 %.not129, label %116, label %._crit_edge182.thread
+
+._crit_edge182.thread:                            ; preds = %115, %._crit_edge182
+  call void @free(ptr noundef nonnull %.pre228) #6
+  store ptr null, ptr @nodeDataPages, align 8
+  br label %116
+
+116:                                              ; preds = %._crit_edge182, %._crit_edge182.thread
+  call void @st__free_table(ptr noundef %1) #6
+  br label %190
+
+.thread148:                                       ; preds = %..thread148_crit_edge, %97
+  %117 = phi i32 [ %.pre221, %..thread148_crit_edge ], [ %98, %97 ]
+  %118 = load ptr, ptr @currentLightNodePage, align 8
+  %119 = sext i32 %117 to i64
+  %120 = getelementptr inbounds i32, ptr %118, i64 %119
+  store i32 %96, ptr %120, align 4
+  br label %121
+
+121:                                              ; preds = %.thread148, %.thread
+  %.sink = phi ptr [ %120, %.thread148 ], [ %92, %.thread ]
+  %.pre-phi = phi i64 [ %119, %.thread148 ], [ %91, %.thread ]
+  %122 = phi i32 [ %117, %.thread148 ], [ %89, %.thread ]
+  %.0101 = phi i32 [ %94, %.thread148 ], [ %68, %.thread ]
+  %.099 = phi i32 [ %96, %.thread148 ], [ %66, %.thread ]
+  %.sink240 = load ptr, ptr %4, align 8
+  %123 = getelementptr inbounds i8, ptr %.sink240, i64 16
+  store ptr %.sink, ptr %123, align 8
+  %124 = load ptr, ptr @currentNodePage, align 8
+  %125 = getelementptr inbounds i32, ptr %124, i64 %.pre-phi
+  %126 = add i32 %.0101, 1
+  %127 = add i32 %126, %.099
+  store i32 %127, ptr %125, align 4
+  %128 = load ptr, ptr %4, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 8
+  store ptr %125, ptr %129, align 8
+  %130 = add nsw i32 %122, 1
+  store i32 %130, ptr @pageIndex, align 4
+  %131 = xor i64 %10, 1
+  %132 = inttoptr i64 %131 to ptr
+  %133 = call i32 @st__lookup(ptr noundef %1, ptr noundef %132, ptr noundef nonnull %7) #6
+  %134 = icmp eq i32 %133, 1
+  br i1 %134, label %135, label %188
+
+135:                                              ; preds = %121
+  %136 = load i32, ptr @pageIndex, align 4
+  %137 = icmp eq i32 %136, 2048
+  br i1 %137, label %138, label %139
+
+138:                                              ; preds = %135
+  call fastcc void @ResizeCountNodePages()
+  br label %139
+
+139:                                              ; preds = %138, %135
+  %.b119 = load i1, ptr @memOut, align 4
+  br i1 %.b119, label %.preheader150, label %156
+
+.preheader150:                                    ; preds = %139
+  %140 = load i32, ptr @page, align 4
+  %141 = icmp sgt i32 %140, 0
+  %.pre225 = load ptr, ptr @mintermPages, align 8
+  br i1 %141, label %.lr.ph168, label %._crit_edge169
+
+.lr.ph168:                                        ; preds = %.preheader150
+  %wide.trip.count202 = zext nneg i32 %140 to i64
+  br label %142
+
+142:                                              ; preds = %.lr.ph168, %146
+  %indvars.iv199 = phi i64 [ 0, %.lr.ph168 ], [ %indvars.iv.next200, %146 ]
+  %143 = getelementptr inbounds ptr, ptr %.pre225, i64 %indvars.iv199
+  %144 = load ptr, ptr %143, align 8
+  %.not139 = icmp eq ptr %144, null
+  br i1 %.not139, label %146, label %145
+
+145:                                              ; preds = %142
+  call void @free(ptr noundef nonnull %144) #6
+  store ptr null, ptr %143, align 8
+  br label %146
+
+146:                                              ; preds = %145, %142
+  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
+  %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
+  br i1 %exitcond203.not, label %._crit_edge169.thread, label %142, !llvm.loop !31
+
+._crit_edge169:                                   ; preds = %.preheader150
+  %.not136 = icmp eq ptr %.pre225, null
+  br i1 %.not136, label %147, label %._crit_edge169.thread
+
+._crit_edge169.thread:                            ; preds = %146, %._crit_edge169
+  call void @free(ptr noundef nonnull %.pre225) #6
+  store ptr null, ptr @mintermPages, align 8
+  br label %147
+
+147:                                              ; preds = %._crit_edge169, %._crit_edge169.thread
+  %148 = load i32, ptr @nodeDataPage, align 4
+  %149 = icmp sgt i32 %148, 0
+  %.pre226 = load ptr, ptr @nodeDataPages, align 8
+  br i1 %149, label %.lr.ph172, label %._crit_edge173
+
+.lr.ph172:                                        ; preds = %147
+  %wide.trip.count207 = zext nneg i32 %148 to i64
+  br label %150
+
+150:                                              ; preds = %.lr.ph172, %154
+  %indvars.iv204 = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next205, %154 ]
+  %151 = getelementptr inbounds ptr, ptr %.pre226, i64 %indvars.iv204
+  %152 = load ptr, ptr %151, align 8
+  %.not138 = icmp eq ptr %152, null
+  br i1 %.not138, label %154, label %153
+
+153:                                              ; preds = %150
+  call void @free(ptr noundef nonnull %152) #6
+  store ptr null, ptr %151, align 8
+  br label %154
+
+154:                                              ; preds = %153, %150
+  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
+  %exitcond208.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count207
+  br i1 %exitcond208.not, label %._crit_edge173.thread, label %150, !llvm.loop !32
+
+._crit_edge173:                                   ; preds = %147
+  %.not137 = icmp eq ptr %.pre226, null
+  br i1 %.not137, label %155, label %._crit_edge173.thread
+
+._crit_edge173.thread:                            ; preds = %154, %._crit_edge173
+  call void @free(ptr noundef nonnull %.pre226) #6
+  store ptr null, ptr @nodeDataPages, align 8
+  br label %155
+
+155:                                              ; preds = %._crit_edge173, %._crit_edge173.thread
+  call void @st__free_table(ptr noundef %1) #6
+  br label %190
+
+156:                                              ; preds = %139
+  %157 = load ptr, ptr @currentLightNodePage, align 8
+  %158 = load i32, ptr @pageIndex, align 4
+  %159 = sext i32 %158 to i64
+  %160 = getelementptr inbounds i32, ptr %157, i64 %159
+  store i32 0, ptr %160, align 4
+  %161 = load ptr, ptr %7, align 8
+  %162 = getelementptr inbounds i8, ptr %161, i64 16
+  store ptr %160, ptr %162, align 8
+  %163 = icmp eq i32 %158, 2048
+  br i1 %163, label %164, label %.thread235
+
+164:                                              ; preds = %156
+  call fastcc void @ResizeCountNodePages()
+  %.b.pre = load i1, ptr @memOut, align 4
+  br i1 %.b.pre, label %.preheader151, label %.thread235
+
+.preheader151:                                    ; preds = %164
+  %165 = load i32, ptr @page, align 4
+  %166 = icmp sgt i32 %165, 0
+  %.pre223 = load ptr, ptr @mintermPages, align 8
+  br i1 %166, label %.lr.ph161, label %._crit_edge162
+
+.lr.ph161:                                        ; preds = %.preheader151
+  %wide.trip.count192 = zext nneg i32 %165 to i64
+  br label %167
+
+167:                                              ; preds = %.lr.ph161, %171
+  %indvars.iv189 = phi i64 [ 0, %.lr.ph161 ], [ %indvars.iv.next190, %171 ]
+  %168 = getelementptr inbounds ptr, ptr %.pre223, i64 %indvars.iv189
+  %169 = load ptr, ptr %168, align 8
+  %.not135 = icmp eq ptr %169, null
+  br i1 %.not135, label %171, label %170
+
+170:                                              ; preds = %167
+  call void @free(ptr noundef nonnull %169) #6
+  store ptr null, ptr %168, align 8
+  br label %171
+
+171:                                              ; preds = %170, %167
+  %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
+  %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
+  br i1 %exitcond193.not, label %._crit_edge162.thread, label %167, !llvm.loop !33
+
+._crit_edge162:                                   ; preds = %.preheader151
+  %.not132 = icmp eq ptr %.pre223, null
+  br i1 %.not132, label %172, label %._crit_edge162.thread
+
+._crit_edge162.thread:                            ; preds = %171, %._crit_edge162
+  call void @free(ptr noundef nonnull %.pre223) #6
+  store ptr null, ptr @mintermPages, align 8
+  br label %172
+
+172:                                              ; preds = %._crit_edge162, %._crit_edge162.thread
+  %173 = load i32, ptr @nodeDataPage, align 4
+  %174 = icmp sgt i32 %173, 0
+  %.pre224 = load ptr, ptr @nodeDataPages, align 8
+  br i1 %174, label %.lr.ph165, label %._crit_edge166
+
+.lr.ph165:                                        ; preds = %172
+  %wide.trip.count197 = zext nneg i32 %173 to i64
+  br label %175
+
+175:                                              ; preds = %.lr.ph165, %179
+  %indvars.iv194 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next195, %179 ]
+  %176 = getelementptr inbounds ptr, ptr %.pre224, i64 %indvars.iv194
+  %177 = load ptr, ptr %176, align 8
+  %.not134 = icmp eq ptr %177, null
+  br i1 %.not134, label %179, label %178
+
+178:                                              ; preds = %175
+  call void @free(ptr noundef nonnull %177) #6
+  store ptr null, ptr %176, align 8
+  br label %179
+
+179:                                              ; preds = %178, %175
+  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
+  %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
+  br i1 %exitcond198.not, label %._crit_edge166.thread, label %175, !llvm.loop !34
+
+._crit_edge166:                                   ; preds = %172
+  %.not133 = icmp eq ptr %.pre224, null
+  br i1 %.not133, label %180, label %._crit_edge166.thread
+
+._crit_edge166.thread:                            ; preds = %179, %._crit_edge166
+  call void @free(ptr noundef nonnull %.pre224) #6
+  store ptr null, ptr @nodeDataPages, align 8
+  br label %180
+
+180:                                              ; preds = %._crit_edge166, %._crit_edge166.thread
+  call void @st__free_table(ptr noundef %1) #6
+  br label %190
+
+.thread235:                                       ; preds = %156, %164
+  %181 = load ptr, ptr @currentNodePage, align 8
+  %182 = load i32, ptr @pageIndex, align 4
+  %183 = sext i32 %182 to i64
+  %184 = getelementptr inbounds i32, ptr %181, i64 %183
+  store i32 0, ptr %184, align 4
+  %185 = load ptr, ptr %7, align 8
+  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  store ptr %184, ptr %186, align 8
+  %187 = add nsw i32 %182, 1
+  store i32 %187, ptr @pageIndex, align 4
+  br label %188
+
+188:                                              ; preds = %.thread235, %121
+  %189 = load i32, ptr %125, align 4
+  br label %190
+
+190:                                              ; preds = %95, %93, %67, %65, %56, %41, %15, %18, %3, %9, %188, %180, %155, %116, %88
+  %.0 = phi i32 [ 0, %88 ], [ 0, %155 ], [ 0, %180 ], [ %189, %188 ], [ 0, %116 ], [ 0, %9 ], [ 0, %3 ], [ 0, %18 ], [ 0, %15 ], [ 0, %41 ], [ 0, %56 ], [ 0, %65 ], [ 0, %67 ], [ 0, %93 ], [ 0, %95 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
+  %1 = load i32, ptr @page, align 4
+  %2 = add nsw i32 %1, 1
+  store i32 %2, ptr @page, align 4
+  %3 = load i32, ptr @maxPages, align 4
+  %4 = icmp eq i32 %2, %3
+  br i1 %4, label %5, label %._crit_edge191
+
+._crit_edge191:                                   ; preds = %0
+  %.pre192 = load ptr, ptr @nodePages, align 8
+  br label %46
+
+5:                                                ; preds = %0
+  %6 = add nsw i32 %1, 129
+  %7 = sext i32 %6 to i64
+  %8 = shl nsw i64 %7, 3
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #7
+  %10 = icmp eq ptr %9, null
+  %.pre195 = load ptr, ptr @nodePages, align 8
+  br i1 %10, label %.preheader, label %.preheader103
+
+.preheader103:                                    ; preds = %5
+  %11 = icmp sgt i32 %1, -1
+  br i1 %11, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %.preheader103
+  %wide.trip.count = zext nneg i32 %2 to i64
+  br label %24
+
+.preheader:                                       ; preds = %5
+  %.not97135 = icmp slt i32 %1, 0
+  br i1 %.not97135, label %._crit_edge138, label %.lr.ph137
+
+.lr.ph137:                                        ; preds = %.preheader
+  %wide.trip.count183 = zext nneg i32 %2 to i64
+  br label %12
+
+12:                                               ; preds = %.lr.ph137, %16
+  %indvars.iv180 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next181, %16 ]
+  %13 = getelementptr inbounds ptr, ptr %.pre195, i64 %indvars.iv180
+  %14 = load ptr, ptr %13, align 8
+  %.not91 = icmp eq ptr %14, null
+  br i1 %.not91, label %16, label %15
+
+15:                                               ; preds = %12
+  tail call void @free(ptr noundef nonnull %14) #6
+  store ptr null, ptr %13, align 8
+  br label %16
+
+16:                                               ; preds = %15, %12
+  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
+  %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
+  br i1 %exitcond184.not, label %17, label %12, !llvm.loop !35
+
+._crit_edge138:                                   ; preds = %.preheader
+  %.not88 = icmp eq ptr %.pre195, null
+  br i1 %.not88, label %.thread, label %.thread200
+
+.thread200:                                       ; preds = %._crit_edge138
+  tail call void @free(ptr noundef nonnull %.pre195) #6
+  store ptr null, ptr @nodePages, align 8
+  %.pre196201 = load ptr, ptr @lightNodePages, align 8
+  br label %._crit_edge143
+
+.thread:                                          ; preds = %._crit_edge138
+  %.pre196198 = load ptr, ptr @lightNodePages, align 8
+  br label %._crit_edge143
+
+17:                                               ; preds = %16
+  tail call void @free(ptr noundef nonnull %.pre195) #6
+  store ptr null, ptr @nodePages, align 8
+  %.pre196 = load ptr, ptr @lightNodePages, align 8
+  br i1 %.not97135, label %._crit_edge143, label %.lr.ph142
+
+.lr.ph142:                                        ; preds = %17
+  %wide.trip.count188 = zext nneg i32 %2 to i64
+  br label %18
+
+18:                                               ; preds = %.lr.ph142, %22
+  %indvars.iv185 = phi i64 [ 0, %.lr.ph142 ], [ %indvars.iv.next186, %22 ]
+  %19 = getelementptr inbounds ptr, ptr %.pre196, i64 %indvars.iv185
+  %20 = load ptr, ptr %19, align 8
+  %.not90 = icmp eq ptr %20, null
+  br i1 %.not90, label %22, label %21
+
+21:                                               ; preds = %18
+  tail call void @free(ptr noundef nonnull %20) #6
+  store ptr null, ptr %19, align 8
+  br label %22
+
+22:                                               ; preds = %21, %18
+  %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
+  %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
+  br i1 %exitcond189.not, label %._crit_edge143.thread, label %18, !llvm.loop !36
+
+._crit_edge143:                                   ; preds = %.thread200, %.thread, %17
+  %.pre196199 = phi ptr [ %.pre196198, %.thread ], [ %.pre196, %17 ], [ %.pre196201, %.thread200 ]
+  %.not89 = icmp eq ptr %.pre196199, null
+  br i1 %.not89, label %23, label %._crit_edge143.thread
+
+._crit_edge143.thread:                            ; preds = %22, %._crit_edge143
+  %.pre196199204 = phi ptr [ %.pre196199, %._crit_edge143 ], [ %.pre196, %22 ]
+  tail call void @free(ptr noundef nonnull %.pre196199204) #6
+  store ptr null, ptr @lightNodePages, align 8
+  br label %23
+
+23:                                               ; preds = %._crit_edge143, %._crit_edge143.thread
+  store i1 true, ptr @memOut, align 4
+  br label %78
+
+24:                                               ; preds = %.lr.ph, %24
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
+  %25 = getelementptr inbounds ptr, ptr %.pre195, i64 %indvars.iv
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  store ptr %26, ptr %27, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge.thread, label %24, !llvm.loop !37
+
+._crit_edge:                                      ; preds = %.preheader103
+  %.not = icmp eq ptr %.pre195, null
+  br i1 %.not, label %28, label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %24, %._crit_edge
+  tail call void @free(ptr noundef nonnull %.pre195) #6
+  br label %28
+
+28:                                               ; preds = %._crit_edge, %._crit_edge.thread
+  store ptr %9, ptr @nodePages, align 8
+  %29 = tail call noalias ptr @malloc(i64 noundef %8) #7
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %.preheader99, label %.preheader102
+
+.preheader102:                                    ; preds = %28
+  %.pre190 = load ptr, ptr @lightNodePages, align 8
+  br i1 %11, label %.lr.ph106, label %._crit_edge107
+
+.lr.ph106:                                        ; preds = %.preheader102
+  %wide.trip.count148 = zext nneg i32 %2 to i64
+  br label %41
+
+.preheader99:                                     ; preds = %28
+  %.not95126 = icmp slt i32 %1, 0
+  br i1 %.not95126, label %._crit_edge129.thread, label %.lr.ph128.preheader
+
+._crit_edge129.thread:                            ; preds = %.preheader99
+  tail call void @free(ptr noundef nonnull %9) #6
+  store ptr null, ptr @nodePages, align 8
+  %.pre194206 = load ptr, ptr @lightNodePages, align 8
+  br label %._crit_edge134
+
+.lr.ph128.preheader:                              ; preds = %.preheader99
+  %wide.trip.count173 = zext nneg i32 %2 to i64
+  br label %.lr.ph128
+
+.lr.ph128:                                        ; preds = %.lr.ph128.preheader, %34
+  %indvars.iv170 = phi i64 [ 0, %.lr.ph128.preheader ], [ %indvars.iv.next171, %34 ]
+  %31 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv170
+  %32 = load ptr, ptr %31, align 8
+  %.not87 = icmp eq ptr %32, null
+  br i1 %.not87, label %34, label %33
+
+33:                                               ; preds = %.lr.ph128
+  tail call void @free(ptr noundef nonnull %32) #6
+  store ptr null, ptr %31, align 8
+  br label %34
+
+34:                                               ; preds = %33, %.lr.ph128
+  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
+  %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count173
+  br i1 %exitcond174.not, label %._crit_edge129, label %.lr.ph128, !llvm.loop !38
+
+._crit_edge129:                                   ; preds = %34
+  tail call void @free(ptr noundef nonnull %9) #6
+  store ptr null, ptr @nodePages, align 8
+  %.pre194 = load ptr, ptr @lightNodePages, align 8
+  br i1 %.not95126, label %._crit_edge134, label %.lr.ph133
+
+.lr.ph133:                                        ; preds = %._crit_edge129
+  %wide.trip.count178 = zext nneg i32 %2 to i64
+  br label %35
+
+35:                                               ; preds = %.lr.ph133, %39
+  %indvars.iv175 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next176, %39 ]
+  %36 = getelementptr inbounds ptr, ptr %.pre194, i64 %indvars.iv175
+  %37 = load ptr, ptr %36, align 8
+  %.not86 = icmp eq ptr %37, null
+  br i1 %.not86, label %39, label %38
+
+38:                                               ; preds = %35
+  tail call void @free(ptr noundef nonnull %37) #6
+  store ptr null, ptr %36, align 8
+  br label %39
+
+39:                                               ; preds = %38, %35
+  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
+  %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178
+  br i1 %exitcond179.not, label %._crit_edge134.thread, label %35, !llvm.loop !39
+
+._crit_edge134:                                   ; preds = %._crit_edge129.thread, %._crit_edge129
+  %.pre194207 = phi ptr [ %.pre194206, %._crit_edge129.thread ], [ %.pre194, %._crit_edge129 ]
+  %.not85 = icmp eq ptr %.pre194207, null
+  br i1 %.not85, label %40, label %._crit_edge134.thread
+
+._crit_edge134.thread:                            ; preds = %39, %._crit_edge134
+  %.pre194207210 = phi ptr [ %.pre194207, %._crit_edge134 ], [ %.pre194, %39 ]
+  tail call void @free(ptr noundef nonnull %.pre194207210) #6
+  store ptr null, ptr @lightNodePages, align 8
+  br label %40
+
+40:                                               ; preds = %._crit_edge134, %._crit_edge134.thread
+  store i1 true, ptr @memOut, align 4
+  br label %78
+
+41:                                               ; preds = %.lr.ph106, %41
+  %indvars.iv145 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next146, %41 ]
+  %42 = getelementptr inbounds ptr, ptr %.pre190, i64 %indvars.iv145
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv145
+  store ptr %43, ptr %44, align 8
+  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
+  %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
+  br i1 %exitcond149.not, label %._crit_edge107.thread, label %41, !llvm.loop !40
+
+._crit_edge107:                                   ; preds = %.preheader102
+  %.not74 = icmp eq ptr %.pre190, null
+  br i1 %.not74, label %45, label %._crit_edge107.thread
+
+._crit_edge107.thread:                            ; preds = %41, %._crit_edge107
+  tail call void @free(ptr noundef nonnull %.pre190) #6
+  br label %45
+
+45:                                               ; preds = %._crit_edge107, %._crit_edge107.thread
+  store ptr %29, ptr @lightNodePages, align 8
+  store i32 %6, ptr @maxPages, align 4
+  br label %46
+
+46:                                               ; preds = %._crit_edge191, %45
+  %47 = phi ptr [ %.pre192, %._crit_edge191 ], [ %9, %45 ]
+  %48 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #7
+  %49 = sext i32 %2 to i64
+  %50 = getelementptr inbounds ptr, ptr %47, i64 %49
+  store ptr %48, ptr %50, align 8
+  store ptr %48, ptr @currentNodePage, align 8
+  %51 = icmp eq ptr %48, null
+  br i1 %51, label %.preheader100, label %62
+
+.preheader100:                                    ; preds = %46
+  %.not93117 = icmp slt i32 %1, 0
+  br i1 %.not93117, label %._crit_edge120.thread, label %.lr.ph119.preheader
+
+._crit_edge120.thread:                            ; preds = %.preheader100
+  tail call void @free(ptr noundef nonnull %47) #6
+  store ptr null, ptr @nodePages, align 8
+  %.pre193212 = load ptr, ptr @lightNodePages, align 8
+  br label %._crit_edge125
+
+.lr.ph119.preheader:                              ; preds = %.preheader100
+  %wide.trip.count163 = zext nneg i32 %2 to i64
+  br label %.lr.ph119
+
+.lr.ph119:                                        ; preds = %.lr.ph119.preheader, %55
+  %indvars.iv160 = phi i64 [ 0, %.lr.ph119.preheader ], [ %indvars.iv.next161, %55 ]
+  %52 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv160
+  %53 = load ptr, ptr %52, align 8
+  %.not83 = icmp eq ptr %53, null
+  br i1 %.not83, label %55, label %54
+
+54:                                               ; preds = %.lr.ph119
+  tail call void @free(ptr noundef nonnull %53) #6
+  store ptr null, ptr %52, align 8
+  br label %55
+
+55:                                               ; preds = %54, %.lr.ph119
+  %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
+  %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
+  br i1 %exitcond164.not, label %._crit_edge120, label %.lr.ph119, !llvm.loop !41
+
+._crit_edge120:                                   ; preds = %55
+  tail call void @free(ptr noundef nonnull %47) #6
+  store ptr null, ptr @nodePages, align 8
+  %.pre193 = load ptr, ptr @lightNodePages, align 8
+  br i1 %.not93117, label %._crit_edge125, label %.lr.ph124
+
+.lr.ph124:                                        ; preds = %._crit_edge120
+  %wide.trip.count168 = zext nneg i32 %2 to i64
+  br label %56
+
+56:                                               ; preds = %.lr.ph124, %60
+  %indvars.iv165 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next166, %60 ]
+  %57 = getelementptr inbounds ptr, ptr %.pre193, i64 %indvars.iv165
+  %58 = load ptr, ptr %57, align 8
+  %.not82 = icmp eq ptr %58, null
+  br i1 %.not82, label %60, label %59
+
+59:                                               ; preds = %56
+  tail call void @free(ptr noundef nonnull %58) #6
+  store ptr null, ptr %57, align 8
+  br label %60
+
+60:                                               ; preds = %59, %56
+  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
+  %exitcond169.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count168
+  br i1 %exitcond169.not, label %._crit_edge125.thread, label %56, !llvm.loop !42
+
+._crit_edge125:                                   ; preds = %._crit_edge120.thread, %._crit_edge120
+  %.pre193213 = phi ptr [ %.pre193212, %._crit_edge120.thread ], [ %.pre193, %._crit_edge120 ]
+  %.not81 = icmp eq ptr %.pre193213, null
+  br i1 %.not81, label %61, label %._crit_edge125.thread
+
+._crit_edge125.thread:                            ; preds = %60, %._crit_edge125
+  %.pre193213216 = phi ptr [ %.pre193213, %._crit_edge125 ], [ %.pre193, %60 ]
+  tail call void @free(ptr noundef nonnull %.pre193213216) #6
+  store ptr null, ptr @lightNodePages, align 8
+  br label %61
+
+61:                                               ; preds = %._crit_edge125, %._crit_edge125.thread
+  store i1 true, ptr @memOut, align 4
+  br label %78
+
+62:                                               ; preds = %46
+  %63 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #7
+  %64 = load ptr, ptr @lightNodePages, align 8
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %49
+  store ptr %63, ptr %65, align 8
+  store ptr %63, ptr @currentLightNodePage, align 8
+  %66 = icmp eq ptr %63, null
+  br i1 %66, label %.preheader101, label %77
+
+.preheader101:                                    ; preds = %62
+  %.not75108 = icmp slt i32 %1, -1
+  br i1 %.not75108, label %._crit_edge111.thread, label %.lr.ph110.preheader
+
+._crit_edge111.thread:                            ; preds = %.preheader101
+  tail call void @free(ptr noundef nonnull %47) #6
+  store ptr null, ptr @nodePages, align 8
+  br label %._crit_edge116.thread
+
+.lr.ph110.preheader:                              ; preds = %.preheader101
+  %67 = add i32 %1, 2
+  %wide.trip.count153 = zext i32 %67 to i64
+  br label %.lr.ph110
+
+.lr.ph110:                                        ; preds = %.lr.ph110.preheader, %71
+  %indvars.iv150 = phi i64 [ 0, %.lr.ph110.preheader ], [ %indvars.iv.next151, %71 ]
+  %68 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv150
+  %69 = load ptr, ptr %68, align 8
+  %.not79 = icmp eq ptr %69, null
+  br i1 %.not79, label %71, label %70
+
+70:                                               ; preds = %.lr.ph110
+  tail call void @free(ptr noundef nonnull %69) #6
+  store ptr null, ptr %68, align 8
+  br label %71
+
+71:                                               ; preds = %70, %.lr.ph110
+  %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
+  %exitcond154 = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
+  br i1 %exitcond154, label %._crit_edge111, label %.lr.ph110, !llvm.loop !43
+
+._crit_edge111:                                   ; preds = %71
+  tail call void @free(ptr noundef nonnull %47) #6
+  store ptr null, ptr @nodePages, align 8
+  %.not92112 = icmp slt i32 %1, 0
+  br i1 %.not92112, label %._crit_edge116, label %.lr.ph115.preheader
+
+.lr.ph115.preheader:                              ; preds = %._crit_edge111
+  %wide.trip.count158 = zext nneg i32 %2 to i64
+  br label %.lr.ph115
+
+.lr.ph115:                                        ; preds = %.lr.ph115.preheader, %75
+  %indvars.iv155 = phi i64 [ 0, %.lr.ph115.preheader ], [ %indvars.iv.next156, %75 ]
+  %72 = getelementptr inbounds ptr, ptr %64, i64 %indvars.iv155
+  %73 = load ptr, ptr %72, align 8
+  %.not78 = icmp eq ptr %73, null
+  br i1 %.not78, label %75, label %74
+
+74:                                               ; preds = %.lr.ph115
+  tail call void @free(ptr noundef nonnull %73) #6
+  store ptr null, ptr %72, align 8
+  br label %75
+
+75:                                               ; preds = %74, %.lr.ph115
+  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
+  %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
+  br i1 %exitcond159.not, label %._crit_edge116.thread, label %.lr.ph115, !llvm.loop !44
+
+._crit_edge116:                                   ; preds = %._crit_edge111
+  %.not77 = icmp eq ptr %64, null
+  br i1 %.not77, label %76, label %._crit_edge116.thread
+
+._crit_edge116.thread:                            ; preds = %75, %._crit_edge111.thread, %._crit_edge116
+  tail call void @free(ptr noundef nonnull %64) #6
+  store ptr null, ptr @lightNodePages, align 8
+  br label %76
+
+76:                                               ; preds = %._crit_edge116, %._crit_edge116.thread
+  store i1 true, ptr @memOut, align 4
+  br label %78
+
+77:                                               ; preds = %62
+  store i32 0, ptr @pageIndex, align 4
+  br label %78
+
+78:                                               ; preds = %77, %76, %61, %40, %23
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @StoreNodes(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+  %4 = ptrtoint ptr %1 to i64
+  %5 = and i64 %4, -2
+  %6 = inttoptr i64 %5 to ptr
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp eq i32 %7, 2147483647
+  br i1 %8, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %1, i64 616
+  br label %10
+
+10:                                               ; preds = %.lr.ph, %tailrecurse
+  %.tr1718 = phi ptr [ %2, %.lr.ph ], [ %27, %tailrecurse ]
+  %11 = ptrtoint ptr %.tr1718 to i64
+  %12 = and i64 %11, -2
+  %13 = inttoptr i64 %12 to ptr
+  %14 = tail call i32 @st__lookup(ptr noundef %0, ptr noundef %13, ptr noundef null) #6
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %15, label %._crit_edge
+
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds i8, ptr %13, i64 4
+  %17 = load i32, ptr %16, align 4
+  %18 = add i32 %17, 1
+  store i32 %18, ptr %16, align 4
+  %19 = tail call i32 @st__insert(ptr noundef %0, ptr noundef %13, ptr noundef null) #6
+  %20 = icmp eq i32 %19, -10000
+  br i1 %20, label %21, label %tailrecurse
+
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %9, align 8
+  %23 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 41, i64 1, ptr %22)
+  br label %tailrecurse
+
+tailrecurse:                                      ; preds = %21, %15
+  %24 = getelementptr inbounds i8, ptr %13, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %13, i64 24
+  %27 = load ptr, ptr %26, align 8
+  tail call fastcc void @StoreNodes(ptr noundef %0, ptr noundef %1, ptr noundef %25)
+  %28 = load i32, ptr %6, align 8
+  %29 = icmp eq i32 %28, 2147483647
+  br i1 %29, label %._crit_edge, label %10
+
+._crit_edge:                                      ; preds = %tailrecurse, %10, %3
+  ret void
+}
+
+declare i32 @Cudd_NodeReadIndex(ptr noundef) local_unnamed_addr #1
+
+declare ptr @Cudd_ReadVars(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @cuddBddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree willreturn
+declare double @ldexp(double, i32) local_unnamed_addr #4
+
+; Function Attrs: nofree nounwind
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree willreturn }
+attributes #5 = { nofree nounwind }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind allocsize(0) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}
+!37 = distinct !{!37, !5}
+!38 = distinct !{!38, !5}
+!39 = distinct !{!39, !5}
+!40 = distinct !{!40, !5}
+!41 = distinct !{!41, !5}
+!42 = distinct !{!42, !5}
+!43 = distinct !{!43, !5}
+!44 = distinct !{!44, !5}

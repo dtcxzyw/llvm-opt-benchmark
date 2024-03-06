@@ -1,0 +1,815 @@
+; ModuleID = 'bench/abc/original/mtrGroup.c.ll'
+source_filename = "bench/abc/original/mtrGroup.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+@.str = private unnamed_addr constant [4 x i8] c"(%u\00", align 1
+@.str.2 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
+@.str.9 = private unnamed_addr constant [9 x i8] c"%d %d %s\00", align 1
+
+; Function Attrs: nounwind uwtable
+define ptr @Mtr_InitGroupTree(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call ptr @Mtr_InitTree() #9
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %8, label %5
+
+5:                                                ; preds = %2
+  store i32 0, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 %0, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %1, ptr %7, align 8
+  br label %8
+
+8:                                                ; preds = %2, %5
+  ret ptr %3
+}
+
+declare ptr @Mtr_InitTree() local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define ptr @Mtr_MakeGroup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = icmp eq i32 %2, 0
+  %6 = add i32 %2, %1
+  br i1 %5, label %.loopexit, label %tailrecurse.preheader
+
+tailrecurse.preheader:                            ; preds = %4
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 4
+  %.pre = load i32, ptr %.phi.trans.insert, align 4
+  br label %tailrecurse
+
+tailrecurse:                                      ; preds = %tailrecurse.preheader, %54
+  %7 = phi i32 [ %.lcssa310, %54 ], [ %.pre, %tailrecurse.preheader ]
+  %.tr = phi ptr [ %.0173244.lcssa, %54 ], [ %0, %tailrecurse.preheader ]
+  %8 = icmp ugt i32 %7, %1
+  br i1 %8, label %.loopexit, label %9
+
+9:                                                ; preds = %tailrecurse
+  %10 = getelementptr inbounds i8, ptr %.tr, i64 8
+  %11 = load i32, ptr %10, align 8
+  %12 = add i32 %11, %7
+  %13 = icmp ugt i32 %6, %12
+  br i1 %13, label %.loopexit, label %14
+
+14:                                               ; preds = %9
+  %15 = icmp eq i32 %11, %2
+  %16 = icmp eq i32 %7, %1
+  %or.cond = and i1 %16, %15
+  br i1 %or.cond, label %17, label %18
+
+17:                                               ; preds = %14
+  store i32 %3, ptr %.tr, align 8
+  br label %.loopexit
+
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %27, label %.preheader212.preheader
+
+.preheader212.preheader:                          ; preds = %18
+  %22 = getelementptr inbounds i8, ptr %20, i64 4
+  %23 = load i32, ptr %22, align 4
+  %24 = getelementptr inbounds i8, ptr %20, i64 8
+  %25 = load i32, ptr %24, align 8
+  %26 = add i32 %25, %23
+  %.not190325 = icmp ugt i32 %26, %1
+  br i1 %.not190325, label %.critedge, label %.lr.ph
+
+27:                                               ; preds = %18
+  %28 = tail call ptr @Mtr_AllocNode() #9
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %.loopexit, label %30
+
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %32 = getelementptr inbounds i8, ptr %28, i64 4
+  store i32 %1, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  store i32 %2, ptr %33, align 8
+  store i32 %3, ptr %28, align 8
+  %34 = getelementptr inbounds i8, ptr %28, i64 16
+  store ptr %.tr, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %28, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
+  store ptr %28, ptr %31, align 8
+  br label %.loopexit
+
+.preheader212:                                    ; preds = %.lr.ph
+  %36 = getelementptr inbounds i8, ptr %42, i64 4
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds i8, ptr %42, i64 8
+  %39 = load i32, ptr %38, align 8
+  %40 = add i32 %39, %37
+  %.not190 = icmp ugt i32 %40, %1
+  br i1 %.not190, label %.critedge, label %.lr.ph, !llvm.loop !4
+
+.lr.ph:                                           ; preds = %.preheader212.preheader, %.preheader212
+  %.0173244326 = phi ptr [ %42, %.preheader212 ], [ %20, %.preheader212.preheader ]
+  %41 = getelementptr inbounds i8, ptr %.0173244326, i64 40
+  %42 = load ptr, ptr %41, align 8
+  %cond = icmp eq ptr %42, null
+  br i1 %cond, label %43, label %.preheader212, !llvm.loop !4
+
+43:                                               ; preds = %.lr.ph
+  %44 = tail call ptr @Mtr_AllocNode() #9
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %.loopexit, label %46
+
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds i8, ptr %.0173244326, i64 40
+  %48 = getelementptr inbounds i8, ptr %44, i64 4
+  store i32 %1, ptr %48, align 4
+  %49 = getelementptr inbounds i8, ptr %44, i64 8
+  store i32 %2, ptr %49, align 8
+  store i32 %3, ptr %44, align 8
+  %50 = getelementptr inbounds i8, ptr %44, i64 16
+  store ptr %.tr, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %44, i64 32
+  store ptr %.0173244326, ptr %51, align 8
+  store ptr %44, ptr %47, align 8
+  %52 = getelementptr inbounds i8, ptr %44, i64 24
+  store ptr null, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %44, i64 40
+  store ptr null, ptr %53, align 8
+  br label %.loopexit
+
+.critedge:                                        ; preds = %.preheader212, %.preheader212.preheader
+  %.0245.lcssa = phi ptr [ null, %.preheader212.preheader ], [ %.0173244326, %.preheader212 ]
+  %.0173244.lcssa = phi ptr [ %20, %.preheader212.preheader ], [ %42, %.preheader212 ]
+  %.lcssa310 = phi i32 [ %23, %.preheader212.preheader ], [ %37, %.preheader212 ]
+  %.lcssa307 = phi i32 [ %26, %.preheader212.preheader ], [ %40, %.preheader212 ]
+  %.not191 = icmp ugt i32 %.lcssa310, %1
+  br i1 %.not191, label %55, label %54
+
+54:                                               ; preds = %.critedge
+  %.not192 = icmp ugt i32 %6, %.lcssa307
+  br i1 %.not192, label %.thread, label %tailrecurse
+
+55:                                               ; preds = %.critedge
+  %56 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %.not193 = icmp ugt i32 %6, %.lcssa310
+  br i1 %.not193, label %72, label %58
+
+.thread:                                          ; preds = %54
+  %57 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %.old = icmp ult i32 %.lcssa310, %1
+  br i1 %.old, label %.loopexit, label %.preheader
+
+58:                                               ; preds = %55
+  %59 = tail call ptr @Mtr_AllocNode() #9
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %.loopexit, label %61
+
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds i8, ptr %59, i64 4
+  store i32 %1, ptr %62, align 4
+  %63 = getelementptr inbounds i8, ptr %59, i64 8
+  store i32 %2, ptr %63, align 8
+  store i32 %3, ptr %59, align 8
+  %64 = getelementptr inbounds i8, ptr %59, i64 24
+  store ptr null, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %59, i64 16
+  store ptr %.tr, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %59, i64 32
+  store ptr %.0245.lcssa, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %59, i64 40
+  store ptr %.0173244.lcssa, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %.0173244.lcssa, i64 32
+  store ptr %59, ptr %68, align 8
+  %.not200 = icmp eq ptr %.0245.lcssa, null
+  br i1 %.not200, label %71, label %69
+
+69:                                               ; preds = %61
+  %70 = getelementptr inbounds i8, ptr %.0245.lcssa, i64 40
+  store ptr %59, ptr %70, align 8
+  br label %.loopexit
+
+71:                                               ; preds = %61
+  store ptr %59, ptr %56, align 8
+  br label %.loopexit
+
+72:                                               ; preds = %55
+  %73 = icmp ult i32 %6, %.lcssa307
+  br i1 %73, label %.loopexit, label %.preheader
+
+.preheader:                                       ; preds = %.thread, %72
+  %74 = phi ptr [ %57, %.thread ], [ %56, %72 ]
+  br label %75
+
+75:                                               ; preds = %.preheader, %76
+  %.0173.pn = phi ptr [ %.0172, %76 ], [ %.0173244.lcssa, %.preheader ]
+  %.0172.in = getelementptr inbounds i8, ptr %.0173.pn, i64 40
+  %.0172 = load ptr, ptr %.0172.in, align 8
+  %cond202 = icmp eq ptr %.0172, null
+  br i1 %cond202, label %83, label %76
+
+76:                                               ; preds = %75
+  %77 = getelementptr inbounds i8, ptr %.0172, i64 4
+  %78 = load i32, ptr %77, align 4
+  %79 = getelementptr inbounds i8, ptr %.0172, i64 8
+  %80 = load i32, ptr %79, align 8
+  %81 = add i32 %80, %78
+  %82 = icmp ult i32 %81, %6
+  br i1 %82, label %75, label %.critedge2, !llvm.loop !6
+
+83:                                               ; preds = %75
+  %84 = tail call ptr @Mtr_AllocNode() #9
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %.loopexit, label %86
+
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds i8, ptr %84, i64 4
+  store i32 %1, ptr %87, align 4
+  %88 = getelementptr inbounds i8, ptr %84, i64 8
+  store i32 %2, ptr %88, align 8
+  store i32 %3, ptr %84, align 8
+  %89 = getelementptr inbounds i8, ptr %84, i64 24
+  store ptr %.0173244.lcssa, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %84, i64 16
+  store ptr %.tr, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %84, i64 32
+  store ptr %.0245.lcssa, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %84, i64 40
+  store ptr null, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %.0173244.lcssa, i64 32
+  store ptr null, ptr %93, align 8
+  %.not198 = icmp eq ptr %.0245.lcssa, null
+  %94 = getelementptr inbounds i8, ptr %.0245.lcssa, i64 40
+  %.sink = select i1 %.not198, ptr %74, ptr %94
+  store ptr %84, ptr %.sink, align 8
+  br label %95
+
+95:                                               ; preds = %86, %95
+  %.1249 = phi ptr [ %.0173244.lcssa, %86 ], [ %98, %95 ]
+  %96 = getelementptr inbounds i8, ptr %.1249, i64 16
+  store ptr %84, ptr %96, align 8
+  %97 = getelementptr inbounds i8, ptr %.1249, i64 40
+  %98 = load ptr, ptr %97, align 8
+  %.not199 = icmp eq ptr %98, null
+  br i1 %.not199, label %.loopexit, label %95, !llvm.loop !7
+
+.critedge2:                                       ; preds = %76
+  %99 = add i32 %6, -1
+  %.not195 = icmp uge i32 %99, %78
+  %100 = icmp ult i32 %6, %81
+  %or.cond207 = and i1 %.not195, %100
+  br i1 %or.cond207, label %.loopexit, label %101
+
+101:                                              ; preds = %.critedge2
+  %102 = tail call ptr @Mtr_AllocNode() #9
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %.loopexit, label %104
+
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds i8, ptr %102, i64 4
+  store i32 %1, ptr %105, align 4
+  %106 = getelementptr inbounds i8, ptr %102, i64 8
+  store i32 %2, ptr %106, align 8
+  store i32 %3, ptr %102, align 8
+  %107 = getelementptr inbounds i8, ptr %102, i64 24
+  store ptr %.0173244.lcssa, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %102, i64 16
+  store ptr %.tr, ptr %108, align 8
+  %109 = icmp eq ptr %.0245.lcssa, null
+  %110 = getelementptr inbounds i8, ptr %.0245.lcssa, i64 40
+  %.sink302 = select i1 %109, ptr %74, ptr %110
+  store ptr %102, ptr %.sink302, align 8
+  %111 = getelementptr inbounds i8, ptr %102, i64 32
+  store ptr %.0245.lcssa, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %.0172, i64 40
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %102, i64 40
+  store ptr %113, ptr %114, align 8
+  %.not196 = icmp eq ptr %113, null
+  br i1 %.not196, label %117, label %115
+
+115:                                              ; preds = %104
+  %116 = getelementptr inbounds i8, ptr %113, i64 32
+  store ptr %102, ptr %116, align 8
+  br label %117
+
+117:                                              ; preds = %115, %104
+  store ptr null, ptr %112, align 8
+  %118 = getelementptr inbounds i8, ptr %.0173244.lcssa, i64 32
+  store ptr null, ptr %118, align 8
+  br label %119
+
+119:                                              ; preds = %117, %119
+  %.0174248 = phi ptr [ %.0173244.lcssa, %117 ], [ %122, %119 ]
+  %120 = getelementptr inbounds i8, ptr %.0174248, i64 16
+  store ptr %102, ptr %120, align 8
+  %121 = getelementptr inbounds i8, ptr %.0174248, i64 40
+  %122 = load ptr, ptr %121, align 8
+  %.not197 = icmp eq ptr %122, null
+  br i1 %.not197, label %.loopexit, label %119, !llvm.loop !8
+
+.loopexit:                                        ; preds = %9, %tailrecurse, %119, %95, %4, %.critedge2, %101, %83, %.thread, %72, %69, %71, %58, %43, %27, %46, %30, %17
+  %.0175 = phi ptr [ %.tr, %17 ], [ %28, %30 ], [ %44, %46 ], [ null, %27 ], [ null, %43 ], [ null, %58 ], [ %59, %71 ], [ %59, %69 ], [ null, %72 ], [ null, %.thread ], [ null, %83 ], [ null, %101 ], [ null, %.critedge2 ], [ null, %4 ], [ %84, %95 ], [ %102, %119 ], [ null, %tailrecurse ], [ null, %9 ]
+  ret ptr %.0175
+}
+
+declare ptr @Mtr_AllocNode() local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define ptr @Mtr_DissolveGroup(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %34, label %5
+
+5:                                                ; preds = %1
+  %6 = load i32, ptr %0, align 8
+  %7 = and i32 %6, 1
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %8, label %34
+
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %34, label %.preheader
+
+.preheader:                                       ; preds = %8
+  %12 = getelementptr inbounds i8, ptr %10, i64 40
+  %13 = load ptr, ptr %12, align 8
+  %.not3134 = icmp eq ptr %13, null
+  br i1 %.not3134, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %14 = phi ptr [ %17, %.lr.ph ], [ %13, %.preheader ]
+  %.035 = phi ptr [ %14, %.lr.ph ], [ %10, %.preheader ]
+  %15 = getelementptr inbounds i8, ptr %.035, i64 16
+  store ptr %3, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  %17 = load ptr, ptr %16, align 8
+  %.not31 = icmp eq ptr %17, null
+  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader
+  %.0.lcssa33 = phi ptr [ %10, %.preheader ], [ %14, %.lr.ph ]
+  %18 = getelementptr inbounds i8, ptr %.0.lcssa33, i64 40
+  %19 = getelementptr inbounds i8, ptr %.0.lcssa33, i64 16
+  store ptr %3, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %18, align 8
+  %.not32 = icmp eq ptr %21, null
+  br i1 %.not32, label %24, label %22
+
+22:                                               ; preds = %._crit_edge
+  %23 = getelementptr inbounds i8, ptr %21, i64 32
+  store ptr %.0.lcssa33, ptr %23, align 8
+  br label %24
+
+24:                                               ; preds = %22, %._crit_edge
+  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = load ptr, ptr %25, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  store ptr %26, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %3, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, %0
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds i8, ptr %26, i64 40
+  %.sink = select i1 %31, ptr %29, ptr %33
+  store ptr %32, ptr %.sink, align 8
+  tail call void @Mtr_DeallocNode(ptr noundef nonnull %0) #9
+  br label %34
+
+34:                                               ; preds = %5, %8, %1, %24
+  %.027 = phi ptr [ %3, %24 ], [ null, %1 ], [ null, %8 ], [ null, %5 ]
+  ret ptr %.027
+}
+
+declare void @Mtr_DeallocNode(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define ptr @Mtr_FindGroup(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+  %4 = add i32 %2, %1
+  %5 = icmp eq i32 %2, 0
+  br i1 %5, label %.split39, label %tailrecurse
+
+tailrecurse:                                      ; preds = %3, %._crit_edge
+  %.tr = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %3 ]
+  %6 = getelementptr inbounds i8, ptr %.tr, i64 4
+  %7 = load i32, ptr %6, align 4
+  %8 = icmp ugt i32 %7, %1
+  br i1 %8, label %.split39, label %9
+
+9:                                                ; preds = %tailrecurse
+  %10 = getelementptr inbounds i8, ptr %.tr, i64 8
+  %11 = load i32, ptr %10, align 8
+  %12 = add i32 %11, %7
+  %13 = icmp ugt i32 %4, %12
+  br i1 %13, label %.split39, label %14
+
+14:                                               ; preds = %9
+  %15 = icmp eq i32 %11, %2
+  %16 = icmp eq i32 %7, %1
+  %or.cond = and i1 %16, %15
+  br i1 %or.cond, label %.split39, label %17
+
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %.split39, label %.preheader
+
+.preheader:                                       ; preds = %17
+  %21 = getelementptr inbounds i8, ptr %19, i64 4
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = load i32, ptr %23, align 8
+  %25 = add i32 %24, %22
+  %.not36 = icmp ugt i32 %25, %1
+  br i1 %.not36, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.037 = phi ptr [ %27, %.lr.ph ], [ %19, %.preheader ]
+  %26 = getelementptr inbounds i8, ptr %.037, i64 40
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %29 = load i32, ptr %28, align 4
+  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %31 = load i32, ptr %30, align 8
+  %32 = add i32 %31, %29
+  %.not = icmp ugt i32 %32, %1
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader
+  %.0.lcssa = phi ptr [ %19, %.preheader ], [ %27, %.lr.ph ]
+  %.lcssa = phi i32 [ %25, %.preheader ], [ %32, %.lr.ph ]
+  %.not33 = icmp ugt i32 %4, %.lcssa
+  br i1 %.not33, label %.split39, label %tailrecurse
+
+.split39:                                         ; preds = %9, %tailrecurse, %14, %17, %._crit_edge, %3
+  %.026.split = phi ptr [ null, %3 ], [ null, %9 ], [ null, %tailrecurse ], [ %.tr, %14 ], [ null, %17 ], [ null, %._crit_edge ]
+  ret ptr %.026.split
+}
+
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @Mtr_SwapGroups(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, %0
+  br i1 %5, label %9, label %6
+
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = load ptr, ptr %7, align 8
+  %.not = icmp eq ptr %8, %1
+  br i1 %.not, label %9, label %43
+
+9:                                                ; preds = %2, %6
+  %.035 = phi ptr [ %1, %6 ], [ %0, %2 ]
+  %.034 = phi ptr [ %0, %6 ], [ %1, %2 ]
+  %10 = getelementptr inbounds i8, ptr %.034, i64 8
+  %11 = load i32, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %.035, i64 8
+  %13 = load i32, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %.034, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %43, label %17
+
+17:                                               ; preds = %9
+  %18 = getelementptr inbounds i8, ptr %.035, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %.not40 = icmp eq ptr %19, %15
+  br i1 %.not40, label %20, label %43
+
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds i8, ptr %15, i64 24
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp eq ptr %22, %.034
+  br i1 %23, label %28, label %24
+
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds i8, ptr %.034, i64 32
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  br label %28
+
+28:                                               ; preds = %20, %24
+  %.sink = phi ptr [ %27, %24 ], [ %21, %20 ]
+  store ptr %.035, ptr %.sink, align 8
+  %29 = getelementptr inbounds i8, ptr %.035, i64 40
+  %30 = load ptr, ptr %29, align 8
+  %.not41 = icmp eq ptr %30, null
+  br i1 %.not41, label %33, label %31
+
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds i8, ptr %30, i64 32
+  store ptr %.034, ptr %32, align 8
+  %.pre = load ptr, ptr %29, align 8
+  br label %33
+
+33:                                               ; preds = %31, %28
+  %34 = phi ptr [ %.pre, %31 ], [ null, %28 ]
+  %35 = getelementptr inbounds i8, ptr %.034, i64 40
+  store ptr %34, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %.034, i64 32
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %.035, i64 32
+  store ptr %37, ptr %38, align 8
+  store ptr %.035, ptr %36, align 8
+  store ptr %.034, ptr %29, align 8
+  %39 = tail call fastcc i32 @mtrShiftHL(ptr noundef nonnull %.034, i32 noundef %13), !range !11
+  %.not42 = icmp eq i32 %39, 0
+  br i1 %.not42, label %43, label %40
+
+40:                                               ; preds = %33
+  %41 = sub nsw i32 0, %11
+  %42 = tail call fastcc i32 @mtrShiftHL(ptr noundef nonnull %.035, i32 noundef %41), !range !11
+  br label %43
+
+43:                                               ; preds = %40, %33, %9, %17, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %17 ], [ 0, %9 ], [ 0, %33 ], [ %42, %40 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef i32 @mtrShiftHL(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = load i32, ptr %3, align 4
+  %5 = add nsw i32 %4, %1
+  %6 = icmp slt i32 %5, 0
+  br i1 %6, label %.loopexit, label %7
+
+7:                                                ; preds = %2
+  store i32 %5, ptr %3, align 4
+  %8 = load i32, ptr %0, align 8
+  %9 = and i32 %8, 1
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %10, label %.loopexit
+
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %.not19 = icmp eq ptr %12, null
+  br i1 %.not19, label %.loopexit, label %.preheader
+
+.preheader:                                       ; preds = %10, %14
+  %.0 = phi ptr [ %16, %14 ], [ %12, %10 ]
+  %13 = tail call fastcc i32 @mtrShiftHL(ptr noundef nonnull %.0, i32 noundef %1), !range !11
+  %.not20 = icmp eq i32 %13, 0
+  br i1 %.not20, label %.loopexit, label %14
+
+14:                                               ; preds = %.preheader
+  %15 = getelementptr inbounds i8, ptr %.0, i64 40
+  %16 = load ptr, ptr %15, align 8
+  %.not21 = icmp eq ptr %16, null
+  br i1 %.not21, label %.loopexit, label %.preheader, !llvm.loop !12
+
+.loopexit:                                        ; preds = %14, %.preheader, %7, %10, %2
+  %.015 = phi i32 [ 0, %2 ], [ 1, %10 ], [ 1, %7 ], [ 1, %14 ], [ 0, %.preheader ]
+  ret i32 %.015
+}
+
+; Function Attrs: nofree nounwind uwtable
+define void @Mtr_PrintGroups(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+  %.not = icmp eq i32 %1, 0
+  br i1 %.not, label %3, label %7
+
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = load i32, ptr %4, align 4
+  %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %5)
+  br label %7
+
+7:                                                ; preds = %3, %2
+  %8 = load i32, ptr %0, align 8
+  %9 = and i32 %8, 1
+  %.not18 = icmp eq i32 %9, 0
+  br i1 %.not18, label %10, label %14
+
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %.preheader
+
+14:                                               ; preds = %10, %7
+  br i1 %.not, label %.thread, label %.critedge
+
+.thread:                                          ; preds = %14
+  %putchar = tail call i32 @putchar(i32 44)
+  br label %18
+
+.preheader:                                       ; preds = %10, %.preheader
+  %.030 = phi ptr [ %16, %.preheader ], [ %12, %10 ]
+  tail call void @Mtr_PrintGroups(ptr noundef nonnull %.030, i32 noundef %1)
+  %15 = getelementptr inbounds i8, ptr %.030, i64 40
+  %16 = load ptr, ptr %15, align 8
+  %.not19 = icmp eq ptr %16, null
+  br i1 %.not19, label %17, label %.preheader, !llvm.loop !13
+
+17:                                               ; preds = %.preheader
+  br i1 %.not, label %18, label %.critedge
+
+18:                                               ; preds = %.thread, %17
+  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %20 = load i32, ptr %19, align 4
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = load i32, ptr %21, align 8
+  %23 = add i32 %20, -1
+  %24 = add i32 %23, %22
+  %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %24)
+  %26 = load i32, ptr %0, align 8
+  %.not20 = icmp eq i32 %26, 0
+  br i1 %.not20, label %39, label %27
+
+27:                                               ; preds = %18
+  %putchar21 = tail call i32 @putchar(i32 124)
+  %28 = load i32, ptr %0, align 8
+  %29 = and i32 %28, 4
+  %.not22 = icmp eq i32 %29, 0
+  br i1 %.not22, label %31, label %30
+
+30:                                               ; preds = %27
+  %putchar23 = tail call i32 @putchar(i32 70)
+  %.pre = load i32, ptr %0, align 8
+  br label %31
+
+31:                                               ; preds = %30, %27
+  %32 = phi i32 [ %.pre, %30 ], [ %28, %27 ]
+  %33 = and i32 %32, 8
+  %.not24 = icmp eq i32 %33, 0
+  br i1 %.not24, label %35, label %34
+
+34:                                               ; preds = %31
+  %putchar25 = tail call i32 @putchar(i32 78)
+  %.pre31 = load i32, ptr %0, align 8
+  br label %35
+
+35:                                               ; preds = %34, %31
+  %36 = phi i32 [ %.pre31, %34 ], [ %32, %31 ]
+  %37 = and i32 %36, 2
+  %.not26 = icmp eq i32 %37, 0
+  br i1 %.not26, label %39, label %38
+
+38:                                               ; preds = %35
+  %putchar27 = tail call i32 @putchar(i32 83)
+  br label %39
+
+39:                                               ; preds = %35, %38, %18
+  %putchar28 = tail call i32 @putchar(i32 41)
+  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %.critedge
+
+43:                                               ; preds = %39
+  %putchar29 = tail call i32 @putchar(i32 10)
+  br label %.critedge
+
+.critedge:                                        ; preds = %14, %39, %43, %17
+  ret void
+}
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+
+; Function Attrs: nounwind uwtable
+define ptr @Mtr_ReadGroups(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca [33 x i8], align 16
+  %6 = tail call ptr @Mtr_InitTree() #9
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %Mtr_InitGroupTree.exit.thread, label %Mtr_InitGroupTree.exit
+
+Mtr_InitGroupTree.exit:                           ; preds = %2
+  store i32 0, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 0, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 %1, ptr %9, align 8
+  br label %10
+
+10:                                               ; preds = %Mtr_InitGroupTree.exit, %36
+  %11 = call i32 @feof(ptr noundef %0) #9
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %12, label %Mtr_InitGroupTree.exit.thread
+
+12:                                               ; preds = %10
+  %13 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
+  switch i32 %13, label %Mtr_InitGroupTree.exit.thread.sink.split [
+    i32 -1, label %Mtr_InitGroupTree.exit.thread
+    i32 3, label %14
+  ]
+
+14:                                               ; preds = %12
+  %15 = load i32, ptr %3, align 4
+  %16 = icmp slt i32 %15, 0
+  br i1 %16, label %Mtr_InitGroupTree.exit.thread.sink.split, label %17
+
+17:                                               ; preds = %14
+  %18 = load i32, ptr %4, align 4
+  %19 = add nsw i32 %18, %15
+  %20 = icmp sgt i32 %19, %1
+  %21 = icmp slt i32 %18, 1
+  %or.cond = or i1 %21, %20
+  br i1 %or.cond, label %Mtr_InitGroupTree.exit.thread.sink.split, label %22
+
+22:                                               ; preds = %17
+  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #10
+  %24 = icmp ugt i64 %23, 32
+  br i1 %24, label %Mtr_InitGroupTree.exit.thread.sink.split, label %.preheader
+
+.preheader:                                       ; preds = %22, %34
+  %.024 = phi i32 [ %.1, %34 ], [ 0, %22 ]
+  %.0 = phi ptr [ %35, %34 ], [ %5, %22 ]
+  %25 = load i8, ptr %.0, align 1
+  switch i8 %25, label %Mtr_InitGroupTree.exit.thread [
+    i8 0, label %36
+    i8 68, label %34
+    i8 70, label %26
+    i8 78, label %28
+    i8 83, label %30
+    i8 84, label %32
+  ]
+
+26:                                               ; preds = %.preheader
+  %27 = or i32 %.024, 4
+  br label %34
+
+28:                                               ; preds = %.preheader
+  %29 = or i32 %.024, 8
+  br label %34
+
+30:                                               ; preds = %.preheader
+  %31 = or i32 %.024, 2
+  br label %34
+
+32:                                               ; preds = %.preheader
+  %33 = or i32 %.024, 1
+  br label %34
+
+34:                                               ; preds = %.preheader, %26, %28, %30, %32
+  %.1 = phi i32 [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %.024, %.preheader ]
+  %35 = getelementptr inbounds i8, ptr %.0, i64 1
+  br label %.preheader, !llvm.loop !14
+
+36:                                               ; preds = %.preheader
+  %37 = call ptr @Mtr_MakeGroup(ptr noundef nonnull %6, i32 noundef %15, i32 noundef %18, i32 noundef %.024)
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %Mtr_InitGroupTree.exit.thread.sink.split, label %10, !llvm.loop !15
+
+Mtr_InitGroupTree.exit.thread.sink.split:         ; preds = %36, %22, %14, %17, %12
+  call void @Mtr_FreeTree(ptr noundef nonnull %6) #9
+  br label %Mtr_InitGroupTree.exit.thread
+
+Mtr_InitGroupTree.exit.thread:                    ; preds = %10, %12, %.preheader, %Mtr_InitGroupTree.exit.thread.sink.split, %2
+  %.023 = phi ptr [ null, %2 ], [ null, %Mtr_InitGroupTree.exit.thread.sink.split ], [ null, %.preheader ], [ %6, %12 ], [ %6, %10 ]
+  ret ptr %.023
+}
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #5
+
+declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare void @Mtr_FreeTree(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #7
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = !{i32 0, i32 2}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

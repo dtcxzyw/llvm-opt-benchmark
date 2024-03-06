@@ -1,0 +1,8027 @@
+; ModuleID = 'bench/nori/original/screen.cpp.ll'
+source_filename = "bench/nori/original/screen.cpp.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%"class.std::ios_base::Init" = type { i8 }
+%"class.std::map" = type { %"class.std::_Rb_tree" }
+%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<GLFWwindow *, std::pair<GLFWwindow *const, nanogui::Screen *>, std::_Select1st<std::pair<GLFWwindow *const, nanogui::Screen *>>, std::less<GLFWwindow *>>::_Rb_tree_impl" }
+%"struct.std::_Rb_tree<GLFWwindow *, std::pair<GLFWwindow *const, nanogui::Screen *>, std::_Select1st<std::pair<GLFWwindow *const, nanogui::Screen *>>, std::less<GLFWwindow *>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
+%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
+%"struct.std::less" = type { i8 }
+%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
+%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
+%"class.std::basic_ostream" = type { ptr, %"class.std::basic_ios" }
+%"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
+%"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
+%"struct.std::ios_base::_Words" = type { ptr, i64 }
+%"class.std::locale" = type { ptr }
+%struct.NVGparams = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.GLNVGtexture = type { i32, i32, i32, i32, i32, i32 }
+%struct.GLNVGcall = type { i32, i32, i32, i32, i32, i32, i32, %struct.GLNVGblend }
+%struct.GLNVGblend = type { i32, i32, i32, i32 }
+%struct.GLNVGpath = type { i32, i32, i32, i32 }
+%struct.NVGpath = type { i32, i32, i8, i32, ptr, i32, ptr, i32, i32, i32 }
+%struct.NVGvertex = type { float, float, float, float }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
+%"class.std::allocator.4" = type { i8 }
+%"struct.nanogui::Array.35" = type { [3 x float] }
+%"struct.nanogui::Array.34" = type { [3 x i32] }
+%"struct.nanogui::Array" = type { [2 x i32] }
+%"class.std::vector.27" = type { %"struct.std::_Vector_base.28" }
+%"struct.std::_Vector_base.28" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
+%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.nanogui::Array.25" = type { [2 x float] }
+
+$_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEED2Ev = comdat any
+
+$_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_ = comdat any
+
+$_ZNSt7__cxx119to_stringEj = comdat any
+
+$_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEEixERS8_ = comdat any
+
+$__clang_call_terminate = comdat any
+
+$_ZNK7nanogui6Widget17absolute_positionEv = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev = comdat any
+
+$_ZN7nanogui6Screen10drop_eventERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE = comdat any
+
+$_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E = comdat any
+
+$_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS3_ = comdat any
+
+$_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE5eraseERS3_ = comdat any
+
+$_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
+
+@_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
+@__dso_handle = external hidden global i8
+@_ZN7nanogui17__nanogui_screensE = hidden global %"class.std::map" zeroinitializer, align 8
+@_ZTVN7nanogui6ScreenE = hidden unnamed_addr constant { [24 x ptr] } { [24 x ptr] [ptr null, ptr @_ZTIN7nanogui6ScreenE, ptr @_ZN7nanogui6ScreenD2Ev, ptr @_ZN7nanogui6ScreenD0Ev, ptr @_ZN7nanogui6Widget9set_themeEPNS_5ThemeE, ptr @_ZN7nanogui6Widget9add_childEiPS0_, ptr @_ZN7nanogui6Widget18mouse_button_eventERKNS_5ArrayIiLm2EEEibi, ptr @_ZN7nanogui6Widget18mouse_motion_eventERKNS_5ArrayIiLm2EEES4_ii, ptr @_ZN7nanogui6Widget16mouse_drag_eventERKNS_5ArrayIiLm2EEES4_ii, ptr @_ZN7nanogui6Widget17mouse_enter_eventERKNS_5ArrayIiLm2EEEb, ptr @_ZN7nanogui6Widget12scroll_eventERKNS_5ArrayIiLm2EEERKNS1_IfLm2EEE, ptr @_ZN7nanogui6Widget11focus_eventEb, ptr @_ZN7nanogui6Screen14keyboard_eventEiiii, ptr @_ZN7nanogui6Screen24keyboard_character_eventEj, ptr @_ZNK7nanogui6Widget14preferred_sizeEP10NVGcontext, ptr @_ZN7nanogui6Widget14perform_layoutEP10NVGcontext, ptr @_ZN7nanogui6Widget4drawEP10NVGcontext, ptr @_ZN7nanogui6Screen8draw_allEv, ptr @_ZN7nanogui6Screen5clearEv, ptr @_ZN7nanogui6Screen10draw_setupEv, ptr @_ZN7nanogui6Screen13draw_contentsEv, ptr @_ZN7nanogui6Screen13draw_teardownEv, ptr @_ZN7nanogui6Screen10drop_eventERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE, ptr @_ZN7nanogui6Screen12resize_eventERKNS_5ArrayIiLm2EEE] }, align 8
+@.str = private unnamed_addr constant [69 x i8] c"Screen::Screen(): stencil_buffer = True requires depth_buffer = True\00", align 1
+@_ZTISt13runtime_error = external constant ptr
+@stderr = external local_unnamed_addr global ptr, align 8
+@.str.2 = private unnamed_addr constant [67 x i8] c"Could not allocate floating point framebuffer, retrying without..\0A\00", align 1
+@.str.3 = private unnamed_addr constant [28 x i8] c"Could not create an OpenGL \00", align 1
+@.str.4 = private unnamed_addr constant [2 x i8] c".\00", align 1
+@.str.5 = private unnamed_addr constant [10 x i8] c" context!\00", align 1
+@.str.6 = private unnamed_addr constant [48 x i8] c"Could not allocate floating point framebuffer.\0A\00", align 1
+@.str.7 = private unnamed_addr constant [29 x i8] c"Could not initialize NanoVG!\00", align 1
+@.str.8 = private unnamed_addr constant [5 x i8] c"sans\00", align 1
+@_ZTISt9exception = external constant ptr
+@_ZSt4cerr = external global %"class.std::basic_ostream", align 8
+@.str.9 = private unnamed_addr constant [36 x i8] c"Caught exception in event handler: \00", align 1
+@_ZTIN7nanogui6WidgetE = external constant ptr
+@_ZTIN7nanogui6WindowE = external constant ptr
+@_ZTIN7nanogui5PopupE = external constant ptr
+@_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
+@_ZTSN7nanogui6ScreenE = hidden constant [18 x i8] c"N7nanogui6ScreenE\00", align 1
+@_ZTIN7nanogui6ScreenE = hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7nanogui6ScreenE, ptr @_ZTIN7nanogui6WidgetE }, align 8
+@.str.10 = private unnamed_addr constant [69 x i8] c"#version 150 core\0A#define NANOVG_GL3 1\0A#define USE_UNIFORMBUFFER 1\0A\0A\00", align 1
+@.str.11 = private unnamed_addr constant [384 x i8] c"#ifdef NANOVG_GL3\0A\09uniform vec2 viewSize;\0A\09in vec2 vertex;\0A\09in vec2 tcoord;\0A\09out vec2 ftcoord;\0A\09out vec2 fpos;\0A#else\0A\09uniform vec2 viewSize;\0A\09attribute vec2 vertex;\0A\09attribute vec2 tcoord;\0A\09varying vec2 ftcoord;\0A\09varying vec2 fpos;\0A#endif\0Avoid main(void) {\0A\09ftcoord = tcoord;\0A\09fpos = vertex;\0A\09gl_Position = vec4(2.0*vertex.x/viewSize.x - 1.0, 1.0 - 2.0*vertex.y/viewSize.y, 0, 1);\0A}\0A\00", align 1
+@.str.12 = private unnamed_addr constant [3163 x i8] c"#ifdef GL_ES\0A#if defined(GL_FRAGMENT_PRECISION_HIGH) || defined(NANOVG_GL3)\0A precision highp float;\0A#else\0A precision mediump float;\0A#endif\0A#endif\0A#ifdef NANOVG_GL3\0A#ifdef USE_UNIFORMBUFFER\0A\09layout(std140) uniform frag {\0A\09\09mat3 scissorMat;\0A\09\09mat3 paintMat;\0A\09\09vec4 innerCol;\0A\09\09vec4 outerCol;\0A\09\09vec2 scissorExt;\0A\09\09vec2 scissorScale;\0A\09\09vec2 extent;\0A\09\09float radius;\0A\09\09float feather;\0A\09\09float strokeMult;\0A\09\09float strokeThr;\0A\09\09int texType;\0A\09\09int type;\0A\09};\0A#else\0A\09uniform vec4 frag[UNIFORMARRAY_SIZE];\0A#endif\0A\09uniform sampler2D tex;\0A\09in vec2 ftcoord;\0A\09in vec2 fpos;\0A\09out vec4 outColor;\0A#else\0A\09uniform vec4 frag[UNIFORMARRAY_SIZE];\0A\09uniform sampler2D tex;\0A\09varying vec2 ftcoord;\0A\09varying vec2 fpos;\0A#endif\0A#ifndef USE_UNIFORMBUFFER\0A\09#define scissorMat mat3(frag[0].xyz, frag[1].xyz, frag[2].xyz)\0A\09#define paintMat mat3(frag[3].xyz, frag[4].xyz, frag[5].xyz)\0A\09#define innerCol frag[6]\0A\09#define outerCol frag[7]\0A\09#define scissorExt frag[8].xy\0A\09#define scissorScale frag[8].zw\0A\09#define extent frag[9].xy\0A\09#define radius frag[9].z\0A\09#define feather frag[9].w\0A\09#define strokeMult frag[10].x\0A\09#define strokeThr frag[10].y\0A\09#define texType int(frag[10].z)\0A\09#define type int(frag[10].w)\0A#endif\0A\0Afloat sdroundrect(vec2 pt, vec2 ext, float rad) {\0A\09vec2 ext2 = ext - vec2(rad,rad);\0A\09vec2 d = abs(pt) - ext2;\0A\09return min(max(d.x,d.y),0.0) + length(max(d,0.0)) - rad;\0A}\0A\0A// Scissoring\0Afloat scissorMask(vec2 p) {\0A\09vec2 sc = (abs((scissorMat * vec3(p,1.0)).xy) - scissorExt);\0A\09sc = vec2(0.5,0.5) - sc * scissorScale;\0A\09return clamp(sc.x,0.0,1.0) * clamp(sc.y,0.0,1.0);\0A}\0A#ifdef EDGE_AA\0A// Stroke - from [0..1] to clipped pyramid, where the slope is 1px.\0Afloat strokeMask() {\0A\09return min(1.0, (1.0-abs(ftcoord.x*2.0-1.0))*strokeMult) * min(1.0, ftcoord.y);\0A}\0A#endif\0A\0Avoid main(void) {\0A   vec4 result;\0A\09float scissor = scissorMask(fpos);\0A#ifdef EDGE_AA\0A\09float strokeAlpha = strokeMask();\0A\09if (strokeAlpha < strokeThr) discard;\0A#else\0A\09float strokeAlpha = 1.0;\0A#endif\0A\09if (type == 0) {\09\09\09// Gradient\0A\09\09// Calculate gradient color using box gradient\0A\09\09vec2 pt = (paintMat * vec3(fpos,1.0)).xy;\0A\09\09float d = clamp((sdroundrect(pt, extent, radius) + feather*0.5) / feather, 0.0, 1.0);\0A\09\09vec4 color = mix(innerCol,outerCol,d);\0A\09\09// Combine alpha\0A\09\09color *= strokeAlpha * scissor;\0A\09\09result = color;\0A\09} else if (type == 1) {\09\09// Image\0A\09\09// Calculate color fron texture\0A\09\09vec2 pt = (paintMat * vec3(fpos,1.0)).xy / extent;\0A#ifdef NANOVG_GL3\0A\09\09vec4 color = texture(tex, pt);\0A#else\0A\09\09vec4 color = texture2D(tex, pt);\0A#endif\0A\09\09if (texType == 1) color = vec4(color.xyz*color.w,color.w);\09\09if (texType == 2) color = vec4(color.x);\09\09// Apply color tint and alpha.\0A\09\09color *= innerCol;\0A\09\09// Combine alpha\0A\09\09color *= strokeAlpha * scissor;\0A\09\09result = color;\0A\09} else if (type == 2) {\09\09// Stencil fill\0A\09\09result = vec4(1,1,1,1);\0A\09} else if (type == 3) {\09\09// Textured tris\0A#ifdef NANOVG_GL3\0A\09\09vec4 color = texture(tex, ftcoord);\0A#else\0A\09\09vec4 color = texture2D(tex, ftcoord);\0A#endif\0A\09\09if (texType == 1) color = vec4(color.xyz*color.w,color.w);\09\09if (texType == 2) color = vec4(color.x);\09\09color *= scissor;\0A\09\09result = color * innerCol;\0A\09}\0A#ifdef NANOVG_GL3\0A\09outColor = result;\0A#else\0A\09gl_FragColor = result;\0A#endif\0A}\0A\00", align 1
+@.str.13 = private unnamed_addr constant [5 x i8] c"init\00", align 1
+@.str.14 = private unnamed_addr constant [7 x i8] c"shader\00", align 1
+@.str.15 = private unnamed_addr constant [19 x i8] c"#define EDGE_AA 1\0A\00", align 1
+@.str.16 = private unnamed_addr constant [18 x i8] c"uniform locations\00", align 1
+@.str.17 = private unnamed_addr constant [12 x i8] c"create done\00", align 1
+@.str.18 = private unnamed_addr constant [21 x i8] c"Error %08x after %s\0A\00", align 1
+@.str.19 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.20 = private unnamed_addr constant [5 x i8] c"vert\00", align 1
+@.str.21 = private unnamed_addr constant [5 x i8] c"frag\00", align 1
+@.str.22 = private unnamed_addr constant [7 x i8] c"vertex\00", align 1
+@.str.23 = private unnamed_addr constant [7 x i8] c"tcoord\00", align 1
+@.str.24 = private unnamed_addr constant [24 x i8] c"Shader %s/%s error:\0A%s\0A\00", align 1
+@.str.25 = private unnamed_addr constant [22 x i8] c"Program %s error:\0A%s\0A\00", align 1
+@.str.26 = private unnamed_addr constant [9 x i8] c"viewSize\00", align 1
+@.str.27 = private unnamed_addr constant [4 x i8] c"tex\00", align 1
+@.str.28 = private unnamed_addr constant [11 x i8] c"create tex\00", align 1
+@.str.29 = private unnamed_addr constant [12 x i8] c"fill simple\00", align 1
+@.str.30 = private unnamed_addr constant [10 x i8] c"fill fill\00", align 1
+@.str.31 = private unnamed_addr constant [14 x i8] c"tex paint tex\00", align 1
+@.str.32 = private unnamed_addr constant [12 x i8] c"convex fill\00", align 1
+@.str.33 = private unnamed_addr constant [14 x i8] c"stroke fill 0\00", align 1
+@.str.34 = private unnamed_addr constant [14 x i8] c"stroke fill 1\00", align 1
+@.str.35 = private unnamed_addr constant [12 x i8] c"stroke fill\00", align 1
+@.str.36 = private unnamed_addr constant [15 x i8] c"triangles fill\00", align 1
+@_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = linkonce_odr dso_local local_unnamed_addr constant [201 x i8] c"00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899\00", comdat, align 16
+@.str.37 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
+@.str.38 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
+@llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_screen.cpp, ptr null }]
+
+@_ZN7nanogui6ScreenC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN7nanogui6ScreenC2Ev
+@_ZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjj = hidden unnamed_addr alias void (ptr, ptr, ptr, i1, i1, i1, i1, i1, i32, i32), ptr @_ZN7nanogui6ScreenC2ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjj
+@_ZN7nanogui6ScreenD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN7nanogui6ScreenD2Ev
+
+declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
+
+; Function Attrs: nounwind
+declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define hidden ptr @nvgCreateGL3(i32 noundef %0) local_unnamed_addr #3 {
+  %2 = alloca %struct.NVGparams, align 8
+  %calloc = tail call dereferenceable_or_null(176) ptr @calloc(i64 1, i64 176)
+  %3 = icmp eq ptr %calloc, null
+  br i1 %3, label %23, label %4
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr @_ZL19glnvg__renderCreatePv, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  store ptr @_ZL26glnvg__renderCreateTexturePviiiiPKh, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr @_ZL26glnvg__renderDeleteTexturePvi, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %2, i64 40
+  store ptr @_ZL26glnvg__renderUpdateTexturePviiiiiPKh, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %2, i64 48
+  store ptr @_ZL27glnvg__renderGetTextureSizePviPiS0_, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %2, i64 56
+  store ptr @_ZL21glnvg__renderViewportPvfff, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %2, i64 64
+  store ptr @_ZL19glnvg__renderCancelPv, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %2, i64 72
+  store ptr @_ZL18glnvg__renderFlushPv, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %2, i64 80
+  store ptr @_ZL17glnvg__renderFillPvP8NVGpaint26NVGcompositeOperationStateP10NVGscissorfPKfPK7NVGpathi, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %2, i64 88
+  store ptr @_ZL19glnvg__renderStrokePvP8NVGpaint26NVGcompositeOperationStateP10NVGscissorffPK7NVGpathi, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %2, i64 96
+  store ptr @_ZL22glnvg__renderTrianglesPvP8NVGpaint26NVGcompositeOperationStateP10NVGscissorPK9NVGvertexi, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %2, i64 104
+  store ptr @_ZL19glnvg__renderDeletePv, ptr %17, align 8
+  store ptr %calloc, ptr %2, align 8
+  %18 = and i32 %0, 1
+  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %18, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %calloc, i64 68
+  store i32 %0, ptr %20, align 4
+  %21 = call ptr @nvgCreateInternal(ptr noundef nonnull %2)
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %1, %4
+  br label %24
+
+24:                                               ; preds = %4, %23
+  %.0 = phi ptr [ null, %23 ], [ %21, %4 ]
+  ret ptr %.0
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i32 @_ZL19glnvg__renderCreatePv(ptr noundef %0) #3 {
+  %2 = alloca i32, align 4
+  store i32 4, ptr %2, align 4
+  %3 = getelementptr i8, ptr %0, i64 68
+  %.val = load i32, ptr %3, align 4
+  %4 = and i32 %.val, 4
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit, label %6
+
+6:                                                ; preds = %1
+  %7 = tail call i32 @glGetError()
+  %.not.i = icmp eq i32 %7, 0
+  br i1 %.not.i, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit, label %8
+
+8:                                                ; preds = %6
+  %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %7, ptr noundef nonnull @.str.13)
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit
+
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit:    ; preds = %1, %6, %8
+  %10 = load i32, ptr %3, align 4
+  %11 = and i32 %10, 1
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %15, label %12
+
+12:                                               ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit
+  %13 = tail call fastcc noundef i32 @_ZL19glnvg__createShaderP11GLNVGshaderPKcS2_S2_S2_S2_(ptr noundef nonnull %0, ptr noundef nonnull @.str.15)
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %52, label %18
+
+15:                                               ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit
+  %16 = tail call fastcc noundef i32 @_ZL19glnvg__createShaderP11GLNVGshaderPKcS2_S2_S2_S2_(ptr noundef nonnull %0, ptr noundef null)
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %52, label %18
+
+18:                                               ; preds = %15, %12
+  %.val14 = load i32, ptr %3, align 4
+  %19 = and i32 %.val14, 4
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit17, label %21
+
+21:                                               ; preds = %18
+  %22 = tail call i32 @glGetError()
+  %.not.i16 = icmp eq i32 %22, 0
+  br i1 %.not.i16, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit17, label %23
+
+23:                                               ; preds = %21
+  %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %22, ptr noundef nonnull @.str.16)
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit17
+
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit17:  ; preds = %18, %21, %23
+  %25 = load i32, ptr %0, align 4
+  %26 = tail call i32 @glGetUniformLocation(i32 noundef %25, ptr noundef nonnull @.str.26)
+  %27 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %26, ptr %27, align 4
+  %28 = load i32, ptr %0, align 4
+  %29 = tail call i32 @glGetUniformLocation(i32 noundef %28, ptr noundef nonnull @.str.27)
+  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %29, ptr %30, align 4
+  %31 = load i32, ptr %0, align 4
+  %32 = tail call i32 @glGetUniformBlockIndex(i32 noundef %31, ptr noundef nonnull @.str.21)
+  %33 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %32, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %0, i64 56
+  tail call void @glGenVertexArrays(i32 noundef 1, ptr noundef nonnull %34)
+  %35 = getelementptr inbounds i8, ptr %0, i64 52
+  tail call void @glGenBuffers(i32 noundef 1, ptr noundef nonnull %35)
+  %36 = load i32, ptr %0, align 8
+  %37 = load i32, ptr %33, align 4
+  tail call void @glUniformBlockBinding(i32 noundef %36, i32 noundef %37, i32 noundef 0)
+  %38 = getelementptr inbounds i8, ptr %0, i64 60
+  tail call void @glGenBuffers(i32 noundef 1, ptr noundef nonnull %38)
+  call void @glGetIntegerv(i32 noundef 35380, ptr noundef nonnull %2)
+  %39 = load i32, ptr %2, align 4
+  %40 = sext i32 %39 to i64
+  %41 = add nsw i64 %40, 176
+  %42 = urem i64 176, %40
+  %43 = sub nsw i64 %41, %42
+  %44 = trunc i64 %43 to i32
+  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %44, ptr %45, align 8
+  %.val15 = load i32, ptr %3, align 4
+  %46 = and i32 %.val15, 4
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit19, label %48
+
+48:                                               ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit17
+  %49 = call i32 @glGetError()
+  %.not.i18 = icmp eq i32 %49, 0
+  br i1 %.not.i18, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit19, label %50
+
+50:                                               ; preds = %48
+  %51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %49, ptr noundef nonnull @.str.17)
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit19
+
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit19:  ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit17, %48, %50
+  call void @glFinish()
+  br label %52
+
+52:                                               ; preds = %15, %12, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit19
+  %.0 = phi i32 [ 1, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit19 ], [ 0, %12 ], [ 0, %15 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i32 @_ZL26glnvg__renderCreateTexturePviiiiPKh(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
+  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp sgt i32 %8, 0
+  br i1 %9, label %.lr.ph.i, label %._crit_edge.i
+
+.lr.ph.i:                                         ; preds = %6
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %wide.trip.count.i = zext nneg i32 %8 to i64
+  br label %13
+
+12:                                               ; preds = %13
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %13, !llvm.loop !5
+
+13:                                               ; preds = %12, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
+  %14 = getelementptr inbounds %struct.GLNVGtexture, ptr %11, i64 %indvars.iv.i
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %_ZL19glnvg__allocTextureP12GLNVGcontext.exit, label %12
+
+._crit_edge.i:                                    ; preds = %12, %6
+  %17 = getelementptr inbounds i8, ptr %0, i64 44
+  %18 = load i32, ptr %17, align 4
+  %.not.i = icmp slt i32 %8, %18
+  br i1 %.not.i, label %._crit_edge._crit_edge.i, label %19
+
+._crit_edge._crit_edge.i:                         ; preds = %._crit_edge.i
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
+  br label %31
+
+19:                                               ; preds = %._crit_edge.i
+  %20 = tail call i32 @llvm.smax.i32(i32 %8, i32 3)
+  %21 = add nuw nsw i32 %20, 1
+  %22 = sdiv i32 %18, 2
+  %23 = add nsw i32 %21, %22
+  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = load ptr, ptr %24, align 8
+  %26 = sext i32 %23 to i64
+  %27 = mul nsw i64 %26, 24
+  %28 = tail call ptr @realloc(ptr noundef %25, i64 noundef %27) #29
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %_ZL19glnvg__allocTextureP12GLNVGcontext.exit.thread, label %30
+
+30:                                               ; preds = %19
+  store ptr %28, ptr %24, align 8
+  store i32 %23, ptr %17, align 4
+  %.pre37.i = load i32, ptr %7, align 8
+  br label %31
+
+31:                                               ; preds = %30, %._crit_edge._crit_edge.i
+  %32 = phi i32 [ %8, %._crit_edge._crit_edge.i ], [ %.pre37.i, %30 ]
+  %33 = phi ptr [ %.pre.i, %._crit_edge._crit_edge.i ], [ %28, %30 ]
+  %34 = add nsw i32 %32, 1
+  store i32 %34, ptr %7, align 8
+  %35 = sext i32 %32 to i64
+  %36 = getelementptr inbounds %struct.GLNVGtexture, ptr %33, i64 %35
+  br label %_ZL19glnvg__allocTextureP12GLNVGcontext.exit
+
+_ZL19glnvg__allocTextureP12GLNVGcontext.exit:     ; preds = %13, %31
+  %.1.i = phi ptr [ %36, %31 ], [ %14, %13 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.1.i, i8 0, i64 24, i1 false)
+  %37 = getelementptr inbounds i8, ptr %0, i64 48
+  %38 = load i32, ptr %37, align 8
+  %39 = add nsw i32 %38, 1
+  store i32 %39, ptr %37, align 8
+  store i32 %39, ptr %.1.i, align 4
+  %40 = getelementptr inbounds i8, ptr %.1.i, i64 4
+  tail call void @glGenTextures(i32 noundef 1, ptr noundef nonnull %40)
+  %41 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  store i32 %2, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %.1.i, i64 12
+  store i32 %3, ptr %42, align 4
+  %43 = getelementptr inbounds i8, ptr %.1.i, i64 16
+  store i32 %1, ptr %43, align 4
+  %44 = getelementptr inbounds i8, ptr %.1.i, i64 20
+  store i32 %4, ptr %44, align 4
+  %45 = load i32, ptr %40, align 4
+  %46 = getelementptr inbounds i8, ptr %0, i64 136
+  %47 = load i32, ptr %46, align 8
+  %.not.i38 = icmp eq i32 %47, %45
+  br i1 %.not.i38, label %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit, label %48
+
+48:                                               ; preds = %_ZL19glnvg__allocTextureP12GLNVGcontext.exit
+  store i32 %45, ptr %46, align 8
+  tail call void @glBindTexture(i32 noundef 3553, i32 noundef %45)
+  br label %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit
+
+_ZL18glnvg__bindTextureP12GLNVGcontextj.exit:     ; preds = %_ZL19glnvg__allocTextureP12GLNVGcontext.exit, %48
+  tail call void @glPixelStorei(i32 noundef 3317, i32 noundef 1)
+  %49 = load i32, ptr %41, align 4
+  tail call void @glPixelStorei(i32 noundef 3314, i32 noundef %49)
+  tail call void @glPixelStorei(i32 noundef 3316, i32 noundef 0)
+  tail call void @glPixelStorei(i32 noundef 3315, i32 noundef 0)
+  %50 = icmp eq i32 %1, 2
+  br i1 %50, label %51, label %52
+
+51:                                               ; preds = %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit
+  tail call void @glTexImage2D(i32 noundef 3553, i32 noundef 0, i32 noundef 6408, i32 noundef %2, i32 noundef %3, i32 noundef 0, i32 noundef 6408, i32 noundef 5121, ptr noundef %5)
+  br label %53
+
+52:                                               ; preds = %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit
+  tail call void @glTexImage2D(i32 noundef 3553, i32 noundef 0, i32 noundef 6403, i32 noundef %2, i32 noundef %3, i32 noundef 0, i32 noundef 6403, i32 noundef 5121, ptr noundef %5)
+  br label %53
+
+53:                                               ; preds = %52, %51
+  %54 = and i32 %4, 1
+  %.not = icmp eq i32 %54, 0
+  %55 = and i32 %4, 32
+  %.not33 = icmp eq i32 %55, 0
+  %.51 = select i1 %.not, i32 9729, i32 9987
+  %.52 = select i1 %.not, i32 9728, i32 9984
+  %.sink47.sink = select i1 %.not33, i32 %.51, i32 %.52
+  %.sink48 = select i1 %.not33, i32 9729, i32 9728
+  tail call void @glTexParameteri(i32 noundef 3553, i32 noundef 10241, i32 noundef %.sink47.sink)
+  tail call void @glTexParameteri(i32 noundef 3553, i32 noundef 10240, i32 noundef %.sink48)
+  %56 = and i32 %4, 2
+  %.not36 = icmp eq i32 %56, 0
+  %. = select i1 %.not36, i32 33071, i32 10497
+  tail call void @glTexParameteri(i32 noundef 3553, i32 noundef 10242, i32 noundef %.)
+  %57 = and i32 %4, 4
+  %.not37 = icmp eq i32 %57, 0
+  %.sink50 = select i1 %.not37, i32 33071, i32 10497
+  tail call void @glTexParameteri(i32 noundef 3553, i32 noundef 10243, i32 noundef %.sink50)
+  tail call void @glPixelStorei(i32 noundef 3317, i32 noundef 4)
+  tail call void @glPixelStorei(i32 noundef 3314, i32 noundef 0)
+  tail call void @glPixelStorei(i32 noundef 3316, i32 noundef 0)
+  tail call void @glPixelStorei(i32 noundef 3315, i32 noundef 0)
+  br i1 %.not, label %59, label %58
+
+58:                                               ; preds = %53
+  tail call void @glGenerateMipmap(i32 noundef 3553)
+  br label %59
+
+59:                                               ; preds = %58, %53
+  %60 = getelementptr i8, ptr %0, i64 68
+  %.val = load i32, ptr %60, align 4
+  %61 = and i32 %.val, 4
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit, label %63
+
+63:                                               ; preds = %59
+  %64 = tail call i32 @glGetError()
+  %.not.i39 = icmp eq i32 %64, 0
+  br i1 %.not.i39, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit, label %65
+
+65:                                               ; preds = %63
+  %66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %64, ptr noundef nonnull @.str.28)
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit
+
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit:    ; preds = %59, %63, %65
+  %67 = load i32, ptr %46, align 8
+  %.not.i40 = icmp eq i32 %67, 0
+  br i1 %.not.i40, label %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit41, label %68
+
+68:                                               ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit
+  store i32 0, ptr %46, align 8
+  tail call void @glBindTexture(i32 noundef 3553, i32 noundef 0)
+  br label %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit41
+
+_ZL18glnvg__bindTextureP12GLNVGcontextj.exit41:   ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit, %68
+  %69 = load i32, ptr %.1.i, align 4
+  br label %_ZL19glnvg__allocTextureP12GLNVGcontext.exit.thread
+
+_ZL19glnvg__allocTextureP12GLNVGcontext.exit.thread: ; preds = %19, %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit41
+  %.0 = phi i32 [ %69, %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit41 ], [ 0, %19 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i32 @_ZL26glnvg__renderDeleteTexturePvi(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = load i32, ptr %3, align 8
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %.lr.ph.i, label %_ZL20glnvg__deleteTextureP12GLNVGcontexti.exit
+
+.lr.ph.i:                                         ; preds = %2
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = load ptr, ptr %6, align 8
+  %wide.trip.count.i = zext nneg i32 %4 to i64
+  br label %9
+
+8:                                                ; preds = %9
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %_ZL20glnvg__deleteTextureP12GLNVGcontexti.exit, label %9, !llvm.loop !7
+
+9:                                                ; preds = %8, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
+  %10 = getelementptr inbounds %struct.GLNVGtexture, ptr %7, i64 %indvars.iv.i
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp eq i32 %11, %1
+  br i1 %12, label %13, label %8
+
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds i8, ptr %10, i64 4
+  %15 = load i32, ptr %14, align 4
+  %.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i, label %22, label %16
+
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %10, i64 20
+  %18 = load i32, ptr %17, align 4
+  %19 = and i32 %18, 65536
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %16
+  tail call void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %14)
+  %.pre.i = load ptr, ptr %6, align 8
+  br label %22
+
+22:                                               ; preds = %21, %16, %13
+  %23 = phi ptr [ %.pre.i, %21 ], [ %7, %16 ], [ %7, %13 ]
+  %24 = getelementptr inbounds %struct.GLNVGtexture, ptr %23, i64 %indvars.iv.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %24, i8 0, i64 24, i1 false)
+  br label %_ZL20glnvg__deleteTextureP12GLNVGcontexti.exit
+
+_ZL20glnvg__deleteTextureP12GLNVGcontexti.exit:   ; preds = %8, %2, %22
+  %.014.i = phi i32 [ 1, %22 ], [ 0, %2 ], [ 0, %8 ]
+  ret i32 %.014.i
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i32 @_ZL26glnvg__renderUpdateTexturePviiiiiPKh(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) #3 {
+  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp sgt i32 %9, 0
+  br i1 %10, label %.lr.ph.i, label %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit23
+
+.lr.ph.i:                                         ; preds = %7
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %wide.trip.count.i = zext nneg i32 %9 to i64
+  br label %14
+
+13:                                               ; preds = %14
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit23, label %14, !llvm.loop !8
+
+14:                                               ; preds = %13, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
+  %15 = getelementptr inbounds %struct.GLNVGtexture, ptr %12, i64 %indvars.iv.i
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp eq i32 %16, %1
+  br i1 %17, label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit, label %13
+
+_ZL18glnvg__findTextureP12GLNVGcontexti.exit:     ; preds = %14
+  %18 = getelementptr inbounds i8, ptr %15, i64 4
+  %19 = load i32, ptr %18, align 4
+  %20 = getelementptr inbounds i8, ptr %0, i64 136
+  %21 = load i32, ptr %20, align 8
+  %.not.i = icmp eq i32 %21, %19
+  br i1 %.not.i, label %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit, label %22
+
+22:                                               ; preds = %_ZL18glnvg__findTextureP12GLNVGcontexti.exit
+  store i32 %19, ptr %20, align 8
+  tail call void @glBindTexture(i32 noundef 3553, i32 noundef %19)
+  br label %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit
+
+_ZL18glnvg__bindTextureP12GLNVGcontextj.exit:     ; preds = %_ZL18glnvg__findTextureP12GLNVGcontexti.exit, %22
+  tail call void @glPixelStorei(i32 noundef 3317, i32 noundef 1)
+  %23 = getelementptr inbounds i8, ptr %15, i64 8
+  %24 = load i32, ptr %23, align 4
+  tail call void @glPixelStorei(i32 noundef 3314, i32 noundef %24)
+  tail call void @glPixelStorei(i32 noundef 3316, i32 noundef %2)
+  tail call void @glPixelStorei(i32 noundef 3315, i32 noundef %3)
+  %25 = getelementptr inbounds i8, ptr %15, i64 16
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp eq i32 %26, 2
+  %. = select i1 %27, i32 6408, i32 6403
+  tail call void @glTexSubImage2D(i32 noundef 3553, i32 noundef 0, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %., i32 noundef 5121, ptr noundef %6)
+  tail call void @glPixelStorei(i32 noundef 3317, i32 noundef 4)
+  tail call void @glPixelStorei(i32 noundef 3314, i32 noundef 0)
+  tail call void @glPixelStorei(i32 noundef 3316, i32 noundef 0)
+  tail call void @glPixelStorei(i32 noundef 3315, i32 noundef 0)
+  %28 = load i32, ptr %20, align 8
+  %.not.i22 = icmp eq i32 %28, 0
+  br i1 %.not.i22, label %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit23, label %29
+
+29:                                               ; preds = %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit
+  store i32 0, ptr %20, align 8
+  tail call void @glBindTexture(i32 noundef 3553, i32 noundef 0)
+  br label %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit23
+
+_ZL18glnvg__bindTextureP12GLNVGcontextj.exit23:   ; preds = %13, %7, %29, %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit
+  %.0 = phi i32 [ 1, %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit ], [ 1, %29 ], [ 0, %7 ], [ 0, %13 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal noundef i32 @_ZL27glnvg__renderGetTextureSizePviPiS0_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #5 {
+  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp sgt i32 %6, 0
+  br i1 %7, label %.lr.ph.i, label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread
+
+.lr.ph.i:                                         ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = load ptr, ptr %8, align 8
+  %wide.trip.count.i = zext nneg i32 %6 to i64
+  br label %11
+
+10:                                               ; preds = %11
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread, label %11, !llvm.loop !8
+
+11:                                               ; preds = %10, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
+  %12 = getelementptr inbounds %struct.GLNVGtexture, ptr %9, i64 %indvars.iv.i
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp eq i32 %13, %1
+  br i1 %14, label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit, label %10
+
+_ZL18glnvg__findTextureP12GLNVGcontexti.exit:     ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = load i32, ptr %15, align 4
+  store i32 %16, ptr %2, align 4
+  %17 = getelementptr inbounds i8, ptr %12, i64 12
+  %18 = load i32, ptr %17, align 4
+  store i32 %18, ptr %3, align 4
+  br label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread
+
+_ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread: ; preds = %10, %4, %_ZL18glnvg__findTextureP12GLNVGcontexti.exit
+  %.0 = phi i32 [ 1, %_ZL18glnvg__findTextureP12GLNVGcontexti.exit ], [ 0, %4 ], [ 0, %10 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define internal void @_ZL21glnvg__renderViewportPvfff(ptr nocapture noundef writeonly %0, float noundef %1, float noundef %2, float %3) #6 {
+  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  store float %1, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  store float %2, ptr %6, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define internal void @_ZL19glnvg__renderCancelPv(ptr nocapture noundef writeonly %0) #6 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 116
+  store i32 0, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 100
+  store i32 0, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 0, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 132
+  store i32 0, ptr %5, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZL18glnvg__renderFlushPv(ptr noundef %0) #3 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 84
+  %3 = load i32, ptr %2, align 4
+  %4 = icmp sgt i32 %3, 0
+  br i1 %4, label %5, label %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit
+
+5:                                                ; preds = %1
+  %6 = load i32, ptr %0, align 8
+  tail call void @glUseProgram(i32 noundef %6)
+  tail call void @glEnable(i32 noundef 2884)
+  tail call void @glCullFace(i32 noundef 1029)
+  tail call void @glFrontFace(i32 noundef 2305)
+  tail call void @glEnable(i32 noundef 3042)
+  tail call void @glDisable(i32 noundef 2929)
+  tail call void @glDisable(i32 noundef 3089)
+  tail call void @glColorMask(i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
+  tail call void @glStencilMask(i32 noundef -1)
+  tail call void @glStencilOp(i32 noundef 7680, i32 noundef 7680, i32 noundef 7680)
+  tail call void @glStencilFunc(i32 noundef 519, i32 noundef 0, i32 noundef -1)
+  tail call void @glActiveTexture(i32 noundef 33984)
+  tail call void @glBindTexture(i32 noundef 3553, i32 noundef 0)
+  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds i8, ptr %0, i64 140
+  %9 = getelementptr inbounds i8, ptr %0, i64 144
+  %10 = getelementptr inbounds i8, ptr %0, i64 148
+  store <4 x i32> <i32 0, i32 -1, i32 519, i32 0>, ptr %7, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %12 = getelementptr inbounds i8, ptr %0, i64 156
+  %13 = getelementptr inbounds i8, ptr %0, i64 164
+  %14 = getelementptr inbounds i8, ptr %0, i64 160
+  store <4 x i32> <i32 -1, i32 1280, i32 1280, i32 1280>, ptr %11, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 168
+  store i32 1280, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %0, i64 60
+  %17 = load i32, ptr %16, align 4
+  tail call void @glBindBuffer(i32 noundef 35345, i32 noundef %17)
+  %18 = getelementptr inbounds i8, ptr %0, i64 132
+  %19 = load i32, ptr %18, align 4
+  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = load i32, ptr %20, align 8
+  %22 = mul nsw i32 %21, %19
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds i8, ptr %0, i64 120
+  %25 = load ptr, ptr %24, align 8
+  tail call void @glBufferData(i32 noundef 35345, i64 noundef %23, ptr noundef %25, i32 noundef 35040)
+  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = load i32, ptr %26, align 8
+  tail call void @glBindVertexArray(i32 noundef %27)
+  %28 = getelementptr inbounds i8, ptr %0, i64 52
+  %29 = load i32, ptr %28, align 4
+  tail call void @glBindBuffer(i32 noundef 34962, i32 noundef %29)
+  %30 = getelementptr inbounds i8, ptr %0, i64 116
+  %31 = load i32, ptr %30, align 4
+  %32 = sext i32 %31 to i64
+  %33 = shl nsw i64 %32, 4
+  %34 = getelementptr inbounds i8, ptr %0, i64 104
+  %35 = load ptr, ptr %34, align 8
+  tail call void @glBufferData(i32 noundef 34962, i64 noundef %33, ptr noundef %35, i32 noundef 35040)
+  tail call void @glEnableVertexAttribArray(i32 noundef 0)
+  tail call void @glEnableVertexAttribArray(i32 noundef 1)
+  tail call void @glVertexAttribPointer(i32 noundef 0, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 16, ptr noundef null)
+  tail call void @glVertexAttribPointer(i32 noundef 1, i32 noundef 2, i32 noundef 5126, i8 noundef zeroext 0, i32 noundef 16, ptr noundef nonnull inttoptr (i64 8 to ptr))
+  %36 = getelementptr inbounds i8, ptr %0, i64 12
+  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = load i32, ptr %37, align 4
+  tail call void @glUniform1i(i32 noundef %38, i32 noundef 0)
+  %39 = load i32, ptr %36, align 4
+  %40 = getelementptr inbounds i8, ptr %0, i64 32
+  tail call void @glUniform2fv(i32 noundef %39, i32 noundef 1, ptr noundef nonnull %40)
+  %41 = load i32, ptr %16, align 4
+  tail call void @glBindBuffer(i32 noundef 35345, i32 noundef %41)
+  %42 = load i32, ptr %2, align 4
+  %43 = icmp sgt i32 %42, 0
+  br i1 %43, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %5
+  %44 = getelementptr inbounds i8, ptr %0, i64 72
+  %45 = getelementptr i8, ptr %0, i64 68
+  %46 = getelementptr inbounds i8, ptr %0, i64 88
+  br label %47
+
+47:                                               ; preds = %.lr.ph, %_ZL17glnvg__convexFillP12GLNVGcontextP9GLNVGcall.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL17glnvg__convexFillP12GLNVGcontextP9GLNVGcall.exit ]
+  %48 = load ptr, ptr %44, align 8
+  %49 = getelementptr inbounds %struct.GLNVGcall, ptr %48, i64 %indvars.iv
+  %50 = getelementptr inbounds i8, ptr %49, i64 28
+  %51 = load i32, ptr %12, align 4
+  %52 = load i32, ptr %50, align 4
+  %.not.i = icmp eq i32 %51, %52
+  br i1 %.not.i, label %53, label %65
+
+53:                                               ; preds = %47
+  %54 = load i32, ptr %14, align 4
+  %55 = getelementptr inbounds i8, ptr %49, i64 32
+  %56 = load i32, ptr %55, align 4
+  %.not14.i = icmp eq i32 %54, %56
+  br i1 %.not14.i, label %57, label %65
+
+57:                                               ; preds = %53
+  %58 = load i32, ptr %13, align 4
+  %59 = getelementptr inbounds i8, ptr %49, i64 36
+  %60 = load i32, ptr %59, align 4
+  %.not15.i = icmp eq i32 %58, %60
+  br i1 %.not15.i, label %61, label %65
+
+61:                                               ; preds = %57
+  %62 = load i32, ptr %15, align 4
+  %63 = getelementptr inbounds i8, ptr %49, i64 40
+  %64 = load i32, ptr %63, align 4
+  %.not16.i = icmp eq i32 %62, %64
+  br i1 %.not16.i, label %_ZL24glnvg__blendFuncSeparateP12GLNVGcontextPK10GLNVGblend.exit, label %65
+
+65:                                               ; preds = %61, %57, %53, %47
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %50, i64 16, i1 false)
+  %66 = load i32, ptr %50, align 4
+  %67 = getelementptr inbounds i8, ptr %49, i64 32
+  %68 = load i32, ptr %67, align 4
+  %69 = getelementptr inbounds i8, ptr %49, i64 36
+  %70 = load i32, ptr %69, align 4
+  %71 = getelementptr inbounds i8, ptr %49, i64 40
+  %72 = load i32, ptr %71, align 4
+  tail call void @glBlendFuncSeparate(i32 noundef %66, i32 noundef %68, i32 noundef %70, i32 noundef %72)
+  br label %_ZL24glnvg__blendFuncSeparateP12GLNVGcontextPK10GLNVGblend.exit
+
+_ZL24glnvg__blendFuncSeparateP12GLNVGcontextPK10GLNVGblend.exit: ; preds = %61, %65
+  %73 = load i32, ptr %49, align 4
+  switch i32 %73, label %_ZL17glnvg__convexFillP12GLNVGcontextP9GLNVGcall.exit [
+    i32 1, label %74
+    i32 2, label %142
+    i32 3, label %172
+    i32 4, label %256
+  ]
+
+74:                                               ; preds = %_ZL24glnvg__blendFuncSeparateP12GLNVGcontextPK10GLNVGblend.exit
+  %75 = load ptr, ptr %46, align 8
+  %76 = getelementptr inbounds i8, ptr %49, i64 8
+  %77 = load i32, ptr %76, align 4
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds %struct.GLNVGpath, ptr %75, i64 %78
+  %80 = getelementptr inbounds i8, ptr %49, i64 12
+  %81 = load i32, ptr %80, align 4
+  tail call void @glEnable(i32 noundef 2960)
+  %82 = load i32, ptr %8, align 4
+  %.not.i.i = icmp eq i32 %82, 255
+  br i1 %.not.i.i, label %_ZL18glnvg__stencilMaskP12GLNVGcontextj.exit.i, label %83
+
+83:                                               ; preds = %74
+  store i32 255, ptr %8, align 4
+  tail call void @glStencilMask(i32 noundef 255)
+  br label %_ZL18glnvg__stencilMaskP12GLNVGcontextj.exit.i
+
+_ZL18glnvg__stencilMaskP12GLNVGcontextj.exit.i:   ; preds = %83, %74
+  %84 = load i32, ptr %9, align 8
+  %.not.i33.i = icmp eq i32 %84, 519
+  br i1 %.not.i33.i, label %85, label %89
+
+85:                                               ; preds = %_ZL18glnvg__stencilMaskP12GLNVGcontextj.exit.i
+  %86 = load i32, ptr %10, align 4
+  %.not14.i.i = icmp eq i32 %86, 0
+  br i1 %.not14.i.i, label %87, label %89
+
+87:                                               ; preds = %85
+  %88 = load i32, ptr %11, align 8
+  %.not15.i.i = icmp eq i32 %88, 255
+  br i1 %.not15.i.i, label %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit.i, label %89
+
+89:                                               ; preds = %87, %85, %_ZL18glnvg__stencilMaskP12GLNVGcontextj.exit.i
+  store i32 519, ptr %9, align 8
+  store i32 0, ptr %10, align 4
+  store i32 255, ptr %11, align 8
+  tail call void @glStencilFunc(i32 noundef 519, i32 noundef 0, i32 noundef 255)
+  br label %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit.i
+
+_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit.i: ; preds = %89, %87
+  tail call void @glColorMask(i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0)
+  %90 = getelementptr inbounds i8, ptr %49, i64 24
+  %91 = load i32, ptr %90, align 4
+  %92 = load i32, ptr %16, align 4
+  %93 = sext i32 %91 to i64
+  tail call void @glBindBufferRange(i32 noundef 35345, i32 noundef 0, i32 noundef %92, i64 noundef %93, i64 noundef 176)
+  %94 = load i32, ptr %7, align 8
+  %.not.i12.i.i = icmp eq i32 %94, 0
+  br i1 %.not.i12.i.i, label %_ZL18glnvg__setUniformsP12GLNVGcontextii.exit.i, label %95
+
+95:                                               ; preds = %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit.i
+  store i32 0, ptr %7, align 8
+  tail call void @glBindTexture(i32 noundef 3553, i32 noundef 0)
+  br label %_ZL18glnvg__setUniformsP12GLNVGcontextii.exit.i
+
+_ZL18glnvg__setUniformsP12GLNVGcontextii.exit.i:  ; preds = %95, %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit.i
+  %.val32.i = load i32, ptr %45, align 4
+  %96 = and i32 %.val32.i, 4
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i, label %98
+
+98:                                               ; preds = %_ZL18glnvg__setUniformsP12GLNVGcontextii.exit.i
+  %99 = tail call i32 @glGetError()
+  %.not.i34.i = icmp eq i32 %99, 0
+  br i1 %.not.i34.i, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i, label %100
+
+100:                                              ; preds = %98
+  %101 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %99, ptr noundef nonnull @.str.29)
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i
+
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i:  ; preds = %100, %98, %_ZL18glnvg__setUniformsP12GLNVGcontextii.exit.i
+  tail call void @glStencilOpSeparate(i32 noundef 1028, i32 noundef 7680, i32 noundef 7680, i32 noundef 34055)
+  tail call void @glStencilOpSeparate(i32 noundef 1029, i32 noundef 7680, i32 noundef 7680, i32 noundef 34056)
+  tail call void @glDisable(i32 noundef 2884)
+  %102 = icmp sgt i32 %81, 0
+  br i1 %102, label %.lr.ph.preheader.i, label %._crit_edge.i
+
+.lr.ph.preheader.i:                               ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i
+  %wide.trip.count.i = zext nneg i32 %81 to i64
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %103 = getelementptr inbounds %struct.GLNVGpath, ptr %79, i64 %indvars.iv.i
+  %104 = load i32, ptr %103, align 4
+  %105 = getelementptr inbounds i8, ptr %103, i64 4
+  %106 = load i32, ptr %105, align 4
+  tail call void @glDrawArrays(i32 noundef 6, i32 noundef %104, i32 noundef %106)
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i
+  tail call void @glEnable(i32 noundef 2884)
+  tail call void @glColorMask(i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
+  %107 = load i32, ptr %90, align 4
+  %108 = load i32, ptr %20, align 8
+  %109 = add nsw i32 %108, %107
+  %110 = getelementptr inbounds i8, ptr %49, i64 4
+  %111 = load i32, ptr %110, align 4
+  tail call fastcc void @_ZL18glnvg__setUniformsP12GLNVGcontextii(ptr noundef %0, i32 noundef %109, i32 noundef %111)
+  %.val.i = load i32, ptr %45, align 4
+  %112 = and i32 %.val.i, 4
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit36.i, label %114
+
+114:                                              ; preds = %._crit_edge.i
+  %115 = tail call i32 @glGetError()
+  %.not.i35.i = icmp eq i32 %115, 0
+  br i1 %.not.i35.i, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit36.i, label %116
+
+116:                                              ; preds = %114
+  %117 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %115, ptr noundef nonnull @.str.30)
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit36.i
+
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit36.i: ; preds = %116, %114, %._crit_edge.i
+  %118 = load i32, ptr %45, align 4
+  %119 = and i32 %118, 1
+  %.not.i48 = icmp eq i32 %119, 0
+  br i1 %.not.i48, label %.loopexit.i, label %120
+
+120:                                              ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit36.i
+  %121 = load i32, ptr %9, align 8
+  %.not.i37.i = icmp eq i32 %121, 514
+  br i1 %.not.i37.i, label %122, label %126
+
+122:                                              ; preds = %120
+  %123 = load i32, ptr %10, align 4
+  %.not14.i38.i = icmp eq i32 %123, 0
+  br i1 %.not14.i38.i, label %124, label %126
+
+124:                                              ; preds = %122
+  %125 = load i32, ptr %11, align 8
+  %.not15.i39.i = icmp eq i32 %125, 255
+  br i1 %.not15.i39.i, label %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit40.i, label %126
+
+126:                                              ; preds = %124, %122, %120
+  store i32 514, ptr %9, align 8
+  store i32 0, ptr %10, align 4
+  store i32 255, ptr %11, align 8
+  tail call void @glStencilFunc(i32 noundef 514, i32 noundef 0, i32 noundef 255)
+  br label %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit40.i
+
+_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit40.i: ; preds = %126, %124
+  tail call void @glStencilOp(i32 noundef 7680, i32 noundef 7680, i32 noundef 7680)
+  br i1 %102, label %.lr.ph47.preheader.i, label %.loopexit.i
+
+.lr.ph47.preheader.i:                             ; preds = %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit40.i
+  %wide.trip.count52.i = zext nneg i32 %81 to i64
+  br label %.lr.ph47.i
+
+.lr.ph47.i:                                       ; preds = %.lr.ph47.i, %.lr.ph47.preheader.i
+  %indvars.iv49.i = phi i64 [ 0, %.lr.ph47.preheader.i ], [ %indvars.iv.next50.i, %.lr.ph47.i ]
+  %127 = getelementptr inbounds %struct.GLNVGpath, ptr %79, i64 %indvars.iv49.i
+  %128 = getelementptr inbounds i8, ptr %127, i64 8
+  %129 = load i32, ptr %128, align 4
+  %130 = getelementptr inbounds i8, ptr %127, i64 12
+  %131 = load i32, ptr %130, align 4
+  tail call void @glDrawArrays(i32 noundef 5, i32 noundef %129, i32 noundef %131)
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
+  br i1 %exitcond53.not.i, label %.loopexit.i, label %.lr.ph47.i, !llvm.loop !10
+
+.loopexit.i:                                      ; preds = %.lr.ph47.i, %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit40.i, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit36.i
+  %132 = load i32, ptr %9, align 8
+  %.not.i41.i = icmp eq i32 %132, 517
+  br i1 %.not.i41.i, label %133, label %137
+
+133:                                              ; preds = %.loopexit.i
+  %134 = load i32, ptr %10, align 4
+  %.not14.i42.i = icmp eq i32 %134, 0
+  br i1 %.not14.i42.i, label %135, label %137
+
+135:                                              ; preds = %133
+  %136 = load i32, ptr %11, align 8
+  %.not15.i43.i = icmp eq i32 %136, 255
+  br i1 %.not15.i43.i, label %_ZL11glnvg__fillP12GLNVGcontextP9GLNVGcall.exit, label %137
+
+137:                                              ; preds = %135, %133, %.loopexit.i
+  store i32 517, ptr %9, align 8
+  store i32 0, ptr %10, align 4
+  store i32 255, ptr %11, align 8
+  tail call void @glStencilFunc(i32 noundef 517, i32 noundef 0, i32 noundef 255)
+  br label %_ZL11glnvg__fillP12GLNVGcontextP9GLNVGcall.exit
+
+_ZL11glnvg__fillP12GLNVGcontextP9GLNVGcall.exit:  ; preds = %135, %137
+  tail call void @glStencilOp(i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %138 = getelementptr inbounds i8, ptr %49, i64 16
+  %139 = load i32, ptr %138, align 4
+  %140 = getelementptr inbounds i8, ptr %49, i64 20
+  %141 = load i32, ptr %140, align 4
+  tail call void @glDrawArrays(i32 noundef 5, i32 noundef %139, i32 noundef %141)
+  tail call void @glDisable(i32 noundef 2960)
+  br label %_ZL17glnvg__convexFillP12GLNVGcontextP9GLNVGcall.exit
+
+142:                                              ; preds = %_ZL24glnvg__blendFuncSeparateP12GLNVGcontextPK10GLNVGblend.exit
+  %143 = load ptr, ptr %46, align 8
+  %144 = getelementptr inbounds i8, ptr %49, i64 8
+  %145 = load i32, ptr %144, align 4
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr inbounds %struct.GLNVGpath, ptr %143, i64 %146
+  %148 = getelementptr inbounds i8, ptr %49, i64 12
+  %149 = load i32, ptr %148, align 4
+  %150 = getelementptr inbounds i8, ptr %49, i64 24
+  %151 = load i32, ptr %150, align 4
+  %152 = getelementptr inbounds i8, ptr %49, i64 4
+  %153 = load i32, ptr %152, align 4
+  tail call fastcc void @_ZL18glnvg__setUniformsP12GLNVGcontextii(ptr noundef nonnull %0, i32 noundef %151, i32 noundef %153)
+  %.val.i49 = load i32, ptr %45, align 4
+  %154 = and i32 %.val.i49, 4
+  %155 = icmp eq i32 %154, 0
+  br i1 %155, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i51, label %156
+
+156:                                              ; preds = %142
+  %157 = tail call i32 @glGetError()
+  %.not.i.i50 = icmp eq i32 %157, 0
+  br i1 %.not.i.i50, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i51, label %158
+
+158:                                              ; preds = %156
+  %159 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %157, ptr noundef nonnull @.str.32)
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i51
+
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i51: ; preds = %158, %156, %142
+  %160 = icmp sgt i32 %149, 0
+  br i1 %160, label %.lr.ph.preheader.i53, label %_ZL17glnvg__convexFillP12GLNVGcontextP9GLNVGcall.exit
+
+.lr.ph.preheader.i53:                             ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i51
+  %wide.trip.count.i54 = zext nneg i32 %149 to i64
+  br label %.lr.ph.i55
+
+.lr.ph.i55:                                       ; preds = %171, %.lr.ph.preheader.i53
+  %indvars.iv.i56 = phi i64 [ 0, %.lr.ph.preheader.i53 ], [ %indvars.iv.next.i57, %171 ]
+  %161 = getelementptr inbounds %struct.GLNVGpath, ptr %147, i64 %indvars.iv.i56
+  %162 = load i32, ptr %161, align 4
+  %163 = getelementptr inbounds i8, ptr %161, i64 4
+  %164 = load i32, ptr %163, align 4
+  tail call void @glDrawArrays(i32 noundef 6, i32 noundef %162, i32 noundef %164)
+  %165 = getelementptr inbounds i8, ptr %161, i64 12
+  %166 = load i32, ptr %165, align 4
+  %167 = icmp sgt i32 %166, 0
+  br i1 %167, label %168, label %171
+
+168:                                              ; preds = %.lr.ph.i55
+  %169 = getelementptr inbounds i8, ptr %161, i64 8
+  %170 = load i32, ptr %169, align 4
+  tail call void @glDrawArrays(i32 noundef 5, i32 noundef %170, i32 noundef %166)
+  br label %171
+
+171:                                              ; preds = %168, %.lr.ph.i55
+  %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i56, 1
+  %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, %wide.trip.count.i54
+  br i1 %exitcond.not.i58, label %_ZL17glnvg__convexFillP12GLNVGcontextP9GLNVGcall.exit, label %.lr.ph.i55, !llvm.loop !11
+
+172:                                              ; preds = %_ZL24glnvg__blendFuncSeparateP12GLNVGcontextPK10GLNVGblend.exit
+  %173 = load ptr, ptr %46, align 8
+  %174 = getelementptr inbounds i8, ptr %49, i64 8
+  %175 = load i32, ptr %174, align 4
+  %176 = sext i32 %175 to i64
+  %177 = getelementptr inbounds %struct.GLNVGpath, ptr %173, i64 %176
+  %178 = getelementptr inbounds i8, ptr %49, i64 12
+  %179 = load i32, ptr %178, align 4
+  %180 = load i32, ptr %45, align 4
+  %181 = and i32 %180, 2
+  %.not.i59 = icmp eq i32 %181, 0
+  br i1 %.not.i59, label %239, label %182
+
+182:                                              ; preds = %172
+  tail call void @glEnable(i32 noundef 2960)
+  %183 = load i32, ptr %8, align 4
+  %.not.i.i60 = icmp eq i32 %183, 255
+  br i1 %.not.i.i60, label %_ZL18glnvg__stencilMaskP12GLNVGcontextj.exit.i61, label %184
+
+184:                                              ; preds = %182
+  store i32 255, ptr %8, align 4
+  tail call void @glStencilMask(i32 noundef 255)
+  br label %_ZL18glnvg__stencilMaskP12GLNVGcontextj.exit.i61
+
+_ZL18glnvg__stencilMaskP12GLNVGcontextj.exit.i61: ; preds = %184, %182
+  %185 = load i32, ptr %9, align 8
+  %.not.i51.i = icmp eq i32 %185, 514
+  br i1 %.not.i51.i, label %186, label %190
+
+186:                                              ; preds = %_ZL18glnvg__stencilMaskP12GLNVGcontextj.exit.i61
+  %187 = load i32, ptr %10, align 4
+  %.not14.i.i72 = icmp eq i32 %187, 0
+  br i1 %.not14.i.i72, label %188, label %190
+
+188:                                              ; preds = %186
+  %189 = load i32, ptr %11, align 8
+  %.not15.i.i73 = icmp eq i32 %189, 255
+  br i1 %.not15.i.i73, label %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit.i62, label %190
+
+190:                                              ; preds = %188, %186, %_ZL18glnvg__stencilMaskP12GLNVGcontextj.exit.i61
+  store i32 514, ptr %9, align 8
+  store i32 0, ptr %10, align 4
+  store i32 255, ptr %11, align 8
+  tail call void @glStencilFunc(i32 noundef 514, i32 noundef 0, i32 noundef 255)
+  br label %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit.i62
+
+_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit.i62: ; preds = %190, %188
+  tail call void @glStencilOp(i32 noundef 7680, i32 noundef 7680, i32 noundef 7682)
+  %191 = getelementptr inbounds i8, ptr %49, i64 24
+  %192 = load i32, ptr %191, align 4
+  %193 = load i32, ptr %20, align 8
+  %194 = add nsw i32 %193, %192
+  %195 = getelementptr inbounds i8, ptr %49, i64 4
+  %196 = load i32, ptr %195, align 4
+  tail call fastcc void @_ZL18glnvg__setUniformsP12GLNVGcontextii(ptr noundef nonnull %0, i32 noundef %194, i32 noundef %196)
+  %.val50.i = load i32, ptr %45, align 4
+  %197 = and i32 %.val50.i, 4
+  %198 = icmp eq i32 %197, 0
+  br i1 %198, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i63, label %199
+
+199:                                              ; preds = %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit.i62
+  %200 = tail call i32 @glGetError()
+  %.not.i52.i = icmp eq i32 %200, 0
+  br i1 %.not.i52.i, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i63, label %201
+
+201:                                              ; preds = %199
+  %202 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %200, ptr noundef nonnull @.str.33)
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i63
+
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i63: ; preds = %201, %199, %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit.i62
+  %203 = icmp sgt i32 %179, 0
+  br i1 %203, label %.lr.ph.preheader.i66, label %._crit_edge.i64
+
+.lr.ph.preheader.i66:                             ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i63
+  %wide.trip.count.i67 = zext nneg i32 %179 to i64
+  br label %.lr.ph.i68
+
+.lr.ph.i68:                                       ; preds = %.lr.ph.i68, %.lr.ph.preheader.i66
+  %indvars.iv.i69 = phi i64 [ 0, %.lr.ph.preheader.i66 ], [ %indvars.iv.next.i70, %.lr.ph.i68 ]
+  %204 = getelementptr inbounds %struct.GLNVGpath, ptr %177, i64 %indvars.iv.i69
+  %205 = getelementptr inbounds i8, ptr %204, i64 8
+  %206 = load i32, ptr %205, align 4
+  %207 = getelementptr inbounds i8, ptr %204, i64 12
+  %208 = load i32, ptr %207, align 4
+  tail call void @glDrawArrays(i32 noundef 5, i32 noundef %206, i32 noundef %208)
+  %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
+  %exitcond.not.i71 = icmp eq i64 %indvars.iv.next.i70, %wide.trip.count.i67
+  br i1 %exitcond.not.i71, label %._crit_edge.i64, label %.lr.ph.i68, !llvm.loop !12
+
+._crit_edge.i64:                                  ; preds = %.lr.ph.i68, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i63
+  %209 = load i32, ptr %191, align 4
+  %210 = load i32, ptr %195, align 4
+  tail call fastcc void @_ZL18glnvg__setUniformsP12GLNVGcontextii(ptr noundef %0, i32 noundef %209, i32 noundef %210)
+  %211 = load i32, ptr %9, align 8
+  %.not.i53.i = icmp eq i32 %211, 514
+  br i1 %.not.i53.i, label %212, label %216
+
+212:                                              ; preds = %._crit_edge.i64
+  %213 = load i32, ptr %10, align 4
+  %.not14.i54.i = icmp eq i32 %213, 0
+  br i1 %.not14.i54.i, label %214, label %216
+
+214:                                              ; preds = %212
+  %215 = load i32, ptr %11, align 8
+  %.not15.i55.i = icmp eq i32 %215, 255
+  br i1 %.not15.i55.i, label %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit56.i, label %216
+
+216:                                              ; preds = %214, %212, %._crit_edge.i64
+  store i32 514, ptr %9, align 8
+  store i32 0, ptr %10, align 4
+  store i32 255, ptr %11, align 8
+  tail call void @glStencilFunc(i32 noundef 514, i32 noundef 0, i32 noundef 255)
+  br label %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit56.i
+
+_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit56.i: ; preds = %216, %214
+  tail call void @glStencilOp(i32 noundef 7680, i32 noundef 7680, i32 noundef 7680)
+  br i1 %203, label %.lr.ph67.preheader.i, label %._crit_edge68.i
+
+.lr.ph67.preheader.i:                             ; preds = %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit56.i
+  %wide.trip.count78.i = zext nneg i32 %179 to i64
+  br label %.lr.ph67.i
+
+.lr.ph67.i:                                       ; preds = %.lr.ph67.i, %.lr.ph67.preheader.i
+  %indvars.iv75.i = phi i64 [ 0, %.lr.ph67.preheader.i ], [ %indvars.iv.next76.i, %.lr.ph67.i ]
+  %217 = getelementptr inbounds %struct.GLNVGpath, ptr %177, i64 %indvars.iv75.i
+  %218 = getelementptr inbounds i8, ptr %217, i64 8
+  %219 = load i32, ptr %218, align 4
+  %220 = getelementptr inbounds i8, ptr %217, i64 12
+  %221 = load i32, ptr %220, align 4
+  tail call void @glDrawArrays(i32 noundef 5, i32 noundef %219, i32 noundef %221)
+  %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
+  %exitcond79.not.i = icmp eq i64 %indvars.iv.next76.i, %wide.trip.count78.i
+  br i1 %exitcond79.not.i, label %._crit_edge68.i, label %.lr.ph67.i, !llvm.loop !13
+
+._crit_edge68.i:                                  ; preds = %.lr.ph67.i, %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit56.i
+  tail call void @glColorMask(i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0)
+  %222 = load i32, ptr %9, align 8
+  %.not.i57.i = icmp eq i32 %222, 519
+  br i1 %.not.i57.i, label %223, label %227
+
+223:                                              ; preds = %._crit_edge68.i
+  %224 = load i32, ptr %10, align 4
+  %.not14.i58.i = icmp eq i32 %224, 0
+  br i1 %.not14.i58.i, label %225, label %227
+
+225:                                              ; preds = %223
+  %226 = load i32, ptr %11, align 8
+  %.not15.i59.i = icmp eq i32 %226, 255
+  br i1 %.not15.i59.i, label %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit60.i, label %227
+
+227:                                              ; preds = %225, %223, %._crit_edge68.i
+  store i32 519, ptr %9, align 8
+  store i32 0, ptr %10, align 4
+  store i32 255, ptr %11, align 8
+  tail call void @glStencilFunc(i32 noundef 519, i32 noundef 0, i32 noundef 255)
+  br label %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit60.i
+
+_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit60.i: ; preds = %227, %225
+  tail call void @glStencilOp(i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %.val49.i = load i32, ptr %45, align 4
+  %228 = and i32 %.val49.i, 4
+  %229 = icmp eq i32 %228, 0
+  br i1 %229, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit62.i, label %230
+
+230:                                              ; preds = %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit60.i
+  %231 = tail call i32 @glGetError()
+  %.not.i61.i = icmp eq i32 %231, 0
+  br i1 %.not.i61.i, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit62.i, label %232
+
+232:                                              ; preds = %230
+  %233 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %231, ptr noundef nonnull @.str.34)
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit62.i
+
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit62.i: ; preds = %232, %230, %_ZL18glnvg__stencilFuncP12GLNVGcontextjij.exit60.i
+  br i1 %203, label %.lr.ph70.preheader.i, label %._crit_edge71.i
+
+.lr.ph70.preheader.i:                             ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit62.i
+  %wide.trip.count83.i = zext nneg i32 %179 to i64
+  br label %.lr.ph70.i
+
+.lr.ph70.i:                                       ; preds = %.lr.ph70.i, %.lr.ph70.preheader.i
+  %indvars.iv80.i = phi i64 [ 0, %.lr.ph70.preheader.i ], [ %indvars.iv.next81.i, %.lr.ph70.i ]
+  %234 = getelementptr inbounds %struct.GLNVGpath, ptr %177, i64 %indvars.iv80.i
+  %235 = getelementptr inbounds i8, ptr %234, i64 8
+  %236 = load i32, ptr %235, align 4
+  %237 = getelementptr inbounds i8, ptr %234, i64 12
+  %238 = load i32, ptr %237, align 4
+  tail call void @glDrawArrays(i32 noundef 5, i32 noundef %236, i32 noundef %238)
+  %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
+  %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count83.i
+  br i1 %exitcond84.not.i, label %._crit_edge71.i, label %.lr.ph70.i, !llvm.loop !14
+
+._crit_edge71.i:                                  ; preds = %.lr.ph70.i, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit62.i
+  tail call void @glColorMask(i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1)
+  tail call void @glDisable(i32 noundef 2960)
+  br label %_ZL17glnvg__convexFillP12GLNVGcontextP9GLNVGcall.exit
+
+239:                                              ; preds = %172
+  %240 = getelementptr inbounds i8, ptr %49, i64 24
+  %241 = load i32, ptr %240, align 4
+  %242 = getelementptr inbounds i8, ptr %49, i64 4
+  %243 = load i32, ptr %242, align 4
+  tail call fastcc void @_ZL18glnvg__setUniformsP12GLNVGcontextii(ptr noundef nonnull %0, i32 noundef %241, i32 noundef %243)
+  %.val.i74 = load i32, ptr %45, align 4
+  %244 = and i32 %.val.i74, 4
+  %245 = icmp eq i32 %244, 0
+  br i1 %245, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit64.i, label %246
+
+246:                                              ; preds = %239
+  %247 = tail call i32 @glGetError()
+  %.not.i63.i = icmp eq i32 %247, 0
+  br i1 %.not.i63.i, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit64.i, label %248
+
+248:                                              ; preds = %246
+  %249 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %247, ptr noundef nonnull @.str.35)
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit64.i
+
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit64.i: ; preds = %248, %246, %239
+  %250 = icmp sgt i32 %179, 0
+  br i1 %250, label %.lr.ph73.preheader.i, label %_ZL17glnvg__convexFillP12GLNVGcontextP9GLNVGcall.exit
+
+.lr.ph73.preheader.i:                             ; preds = %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit64.i
+  %wide.trip.count88.i = zext nneg i32 %179 to i64
+  br label %.lr.ph73.i
+
+.lr.ph73.i:                                       ; preds = %.lr.ph73.i, %.lr.ph73.preheader.i
+  %indvars.iv85.i = phi i64 [ 0, %.lr.ph73.preheader.i ], [ %indvars.iv.next86.i, %.lr.ph73.i ]
+  %251 = getelementptr inbounds %struct.GLNVGpath, ptr %177, i64 %indvars.iv85.i
+  %252 = getelementptr inbounds i8, ptr %251, i64 8
+  %253 = load i32, ptr %252, align 4
+  %254 = getelementptr inbounds i8, ptr %251, i64 12
+  %255 = load i32, ptr %254, align 4
+  tail call void @glDrawArrays(i32 noundef 5, i32 noundef %253, i32 noundef %255)
+  %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
+  %exitcond89.not.i = icmp eq i64 %indvars.iv.next86.i, %wide.trip.count88.i
+  br i1 %exitcond89.not.i, label %_ZL17glnvg__convexFillP12GLNVGcontextP9GLNVGcall.exit, label %.lr.ph73.i, !llvm.loop !15
+
+256:                                              ; preds = %_ZL24glnvg__blendFuncSeparateP12GLNVGcontextPK10GLNVGblend.exit
+  %257 = getelementptr inbounds i8, ptr %49, i64 24
+  %258 = load i32, ptr %257, align 4
+  %259 = getelementptr inbounds i8, ptr %49, i64 4
+  %260 = load i32, ptr %259, align 4
+  tail call fastcc void @_ZL18glnvg__setUniformsP12GLNVGcontextii(ptr noundef nonnull %0, i32 noundef %258, i32 noundef %260)
+  %.val.i75 = load i32, ptr %45, align 4
+  %261 = and i32 %.val.i75, 4
+  %262 = icmp eq i32 %261, 0
+  br i1 %262, label %_ZL16glnvg__trianglesP12GLNVGcontextP9GLNVGcall.exit, label %263
+
+263:                                              ; preds = %256
+  %264 = tail call i32 @glGetError()
+  %.not.i.i76 = icmp eq i32 %264, 0
+  br i1 %.not.i.i76, label %_ZL16glnvg__trianglesP12GLNVGcontextP9GLNVGcall.exit, label %265
+
+265:                                              ; preds = %263
+  %266 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %264, ptr noundef nonnull @.str.36)
+  br label %_ZL16glnvg__trianglesP12GLNVGcontextP9GLNVGcall.exit
+
+_ZL16glnvg__trianglesP12GLNVGcontextP9GLNVGcall.exit: ; preds = %256, %263, %265
+  %267 = getelementptr inbounds i8, ptr %49, i64 16
+  %268 = load i32, ptr %267, align 4
+  %269 = getelementptr inbounds i8, ptr %49, i64 20
+  %270 = load i32, ptr %269, align 4
+  tail call void @glDrawArrays(i32 noundef 4, i32 noundef %268, i32 noundef %270)
+  br label %_ZL17glnvg__convexFillP12GLNVGcontextP9GLNVGcall.exit
+
+_ZL17glnvg__convexFillP12GLNVGcontextP9GLNVGcall.exit: ; preds = %.lr.ph73.i, %171, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit64.i, %._crit_edge71.i, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i51, %_ZL24glnvg__blendFuncSeparateP12GLNVGcontextPK10GLNVGblend.exit, %_ZL11glnvg__fillP12GLNVGcontextP9GLNVGcall.exit, %_ZL16glnvg__trianglesP12GLNVGcontextP9GLNVGcall.exit
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %271 = load i32, ptr %2, align 4
+  %272 = sext i32 %271 to i64
+  %273 = icmp slt i64 %indvars.iv.next, %272
+  br i1 %273, label %47, label %._crit_edge, !llvm.loop !16
+
+._crit_edge:                                      ; preds = %_ZL17glnvg__convexFillP12GLNVGcontextP9GLNVGcall.exit, %5
+  tail call void @glDisableVertexAttribArray(i32 noundef 0)
+  tail call void @glDisableVertexAttribArray(i32 noundef 1)
+  tail call void @glBindVertexArray(i32 noundef 0)
+  tail call void @glDisable(i32 noundef 2884)
+  tail call void @glBindBuffer(i32 noundef 34962, i32 noundef 0)
+  tail call void @glUseProgram(i32 noundef 0)
+  %274 = load i32, ptr %7, align 8
+  %.not.i78 = icmp eq i32 %274, 0
+  br i1 %.not.i78, label %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit, label %275
+
+275:                                              ; preds = %._crit_edge
+  store i32 0, ptr %7, align 8
+  tail call void @glBindTexture(i32 noundef 3553, i32 noundef 0)
+  br label %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit
+
+_ZL18glnvg__bindTextureP12GLNVGcontextj.exit:     ; preds = %275, %._crit_edge, %1
+  %276 = getelementptr inbounds i8, ptr %0, i64 116
+  store i32 0, ptr %276, align 4
+  %277 = getelementptr inbounds i8, ptr %0, i64 100
+  store i32 0, ptr %277, align 4
+  store i32 0, ptr %2, align 4
+  %278 = getelementptr inbounds i8, ptr %0, i64 132
+  store i32 0, ptr %278, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZL17glnvg__renderFillPvP8NVGpaint26NVGcompositeOperationStateP10NVGscissorfPKfPK7NVGpathi(ptr nocapture noundef %0, ptr noundef %1, i64 %2, i64 %3, ptr noundef %4, float noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 noundef %8) #3 {
+  %10 = getelementptr inbounds i8, ptr %0, i64 84
+  %11 = load i32, ptr %10, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = load i32, ptr %12, align 8
+  %.not.i = icmp slt i32 %11, %13
+  br i1 %.not.i, label %._crit_edge.i, label %14
+
+._crit_edge.i:                                    ; preds = %9
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 72
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
+  br label %26
+
+14:                                               ; preds = %9
+  %15 = tail call i32 @llvm.smax.i32(i32 %11, i32 127)
+  %16 = add nuw nsw i32 %15, 1
+  %17 = sdiv i32 %13, 2
+  %18 = add nsw i32 %16, %17
+  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = load ptr, ptr %19, align 8
+  %21 = sext i32 %18 to i64
+  %22 = mul nsw i64 %21, 44
+  %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #29
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread, label %25
+
+25:                                               ; preds = %14
+  store ptr %23, ptr %19, align 8
+  store i32 %18, ptr %12, align 8
+  %.pre17.i = load i32, ptr %10, align 4
+  br label %26
+
+26:                                               ; preds = %25, %._crit_edge.i
+  %27 = phi i32 [ %11, %._crit_edge.i ], [ %.pre17.i, %25 ]
+  %28 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %23, %25 ]
+  %29 = add nsw i32 %27, 1
+  store i32 %29, ptr %10, align 4
+  %30 = sext i32 %27 to i64
+  %31 = getelementptr inbounds %struct.GLNVGcall, ptr %28, i64 %30
+  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %32, i8 0, i64 40, i1 false)
+  store i32 1, ptr %31, align 4
+  %33 = getelementptr inbounds i8, ptr %31, i64 20
+  store i32 4, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %0, i64 100
+  %35 = load i32, ptr %34, align 4
+  %36 = add nsw i32 %35, %8
+  %37 = getelementptr inbounds i8, ptr %0, i64 96
+  %38 = load i32, ptr %37, align 8
+  %39 = icmp sgt i32 %36, %38
+  br i1 %39, label %40, label %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
+
+40:                                               ; preds = %26
+  %41 = tail call noundef i32 @llvm.smax.i32(i32 %36, i32 128)
+  %42 = sdiv i32 %38, 2
+  %43 = add nsw i32 %41, %42
+  %44 = getelementptr inbounds i8, ptr %0, i64 88
+  %45 = load ptr, ptr %44, align 8
+  %46 = sext i32 %43 to i64
+  %47 = shl nsw i64 %46, 4
+  %48 = tail call ptr @realloc(ptr noundef %45, i64 noundef %47) #29
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, label %50
+
+50:                                               ; preds = %40
+  store ptr %48, ptr %44, align 8
+  store i32 %43, ptr %37, align 8
+  %.pre.i112 = load i32, ptr %34, align 4
+  %.pre19.i = add nsw i32 %.pre.i112, %8
+  br label %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
+
+_ZL17glnvg__allocPathsP12GLNVGcontexti.exit:      ; preds = %26, %50
+  %.pre-phi.i = phi i32 [ %.pre19.i, %50 ], [ %36, %26 ]
+  %51 = phi i32 [ %.pre.i112, %50 ], [ %35, %26 ]
+  store i32 %.pre-phi.i, ptr %34, align 4
+  %52 = getelementptr inbounds i8, ptr %31, i64 8
+  store i32 %51, ptr %52, align 4
+  %53 = icmp eq i32 %51, -1
+  br i1 %53, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %54
+
+54:                                               ; preds = %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
+  %55 = getelementptr inbounds i8, ptr %31, i64 12
+  store i32 %8, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %1, i64 72
+  %57 = load i32, ptr %56, align 4
+  %58 = getelementptr inbounds i8, ptr %31, i64 4
+  store i32 %57, ptr %58, align 4
+  %59 = tail call fastcc { i64, i64 } @_ZL30glnvg__blendCompositeOperation26NVGcompositeOperationState(i64 %2, i64 %3)
+  %60 = extractvalue { i64, i64 } %59, 0
+  %61 = extractvalue { i64, i64 } %59, 1
+  %62 = getelementptr inbounds i8, ptr %31, i64 28
+  store i64 %60, ptr %62, align 4
+  %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 36
+  store i64 %61, ptr %.sroa.216.0..sroa_idx, align 4
+  %63 = icmp eq i32 %8, 1
+  br i1 %63, label %64, label %68
+
+64:                                               ; preds = %54
+  %65 = getelementptr inbounds i8, ptr %7, i64 48
+  %66 = load i32, ptr %65, align 8
+  %.not = icmp eq i32 %66, 0
+  br i1 %.not, label %.lr.ph.preheader.i, label %67
+
+67:                                               ; preds = %64
+  store i32 2, ptr %31, align 4
+  store i32 0, ptr %33, align 4
+  br label %.lr.ph.preheader.i
+
+68:                                               ; preds = %54
+  %69 = icmp sgt i32 %8, 0
+  br i1 %69, label %.lr.ph.preheader.i, label %_ZL19glnvg__maxVertCountPK7NVGpathi.exit
+
+.lr.ph.preheader.i:                               ; preds = %64, %67, %68
+  %wide.trip.count.i = zext nneg i32 %8 to i64
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %.011.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %76, %.lr.ph.i ]
+  %70 = getelementptr inbounds %struct.NVGpath, ptr %7, i64 %indvars.iv.i
+  %71 = getelementptr inbounds i8, ptr %70, i64 24
+  %72 = load i32, ptr %71, align 8
+  %73 = add nsw i32 %72, %.011.i
+  %74 = getelementptr inbounds i8, ptr %70, i64 40
+  %75 = load i32, ptr %74, align 8
+  %76 = add nsw i32 %73, %75
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %_ZL19glnvg__maxVertCountPK7NVGpathi.exit, label %.lr.ph.i, !llvm.loop !17
+
+_ZL19glnvg__maxVertCountPK7NVGpathi.exit:         ; preds = %.lr.ph.i, %68
+  %.0.lcssa.i = phi i32 [ 0, %68 ], [ %76, %.lr.ph.i ]
+  %77 = load i32, ptr %33, align 4
+  %78 = add nsw i32 %77, %.0.lcssa.i
+  %79 = getelementptr inbounds i8, ptr %0, i64 116
+  %80 = load i32, ptr %79, align 4
+  %81 = add nsw i32 %80, %78
+  %82 = getelementptr inbounds i8, ptr %0, i64 112
+  %83 = load i32, ptr %82, align 8
+  %84 = icmp sgt i32 %81, %83
+  br i1 %84, label %85, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
+
+85:                                               ; preds = %_ZL19glnvg__maxVertCountPK7NVGpathi.exit
+  %86 = tail call noundef i32 @llvm.smax.i32(i32 %81, i32 4096)
+  %87 = sdiv i32 %83, 2
+  %88 = add nsw i32 %86, %87
+  %89 = getelementptr inbounds i8, ptr %0, i64 104
+  %90 = load ptr, ptr %89, align 8
+  %91 = sext i32 %88 to i64
+  %92 = shl nsw i64 %91, 4
+  %93 = tail call ptr @realloc(ptr noundef %90, i64 noundef %92) #29
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %95
+
+95:                                               ; preds = %85
+  store ptr %93, ptr %89, align 8
+  store i32 %88, ptr %82, align 8
+  %.pre.i116 = load i32, ptr %79, align 4
+  %.pre19.i117 = add nsw i32 %.pre.i116, %78
+  br label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
+
+_ZL17glnvg__allocVertsP12GLNVGcontexti.exit:      ; preds = %_ZL19glnvg__maxVertCountPK7NVGpathi.exit, %95
+  %.pre-phi.i114 = phi i32 [ %.pre19.i117, %95 ], [ %81, %_ZL19glnvg__maxVertCountPK7NVGpathi.exit ]
+  %96 = phi i32 [ %.pre.i116, %95 ], [ %80, %_ZL19glnvg__maxVertCountPK7NVGpathi.exit ]
+  store i32 %.pre-phi.i114, ptr %79, align 4
+  %97 = icmp eq i32 %96, -1
+  br i1 %97, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %.preheader
+
+.preheader:                                       ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
+  %98 = icmp sgt i32 %8, 0
+  br i1 %98, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %.preheader
+  %99 = getelementptr inbounds i8, ptr %0, i64 88
+  %100 = getelementptr inbounds i8, ptr %0, i64 104
+  %wide.trip.count = zext nneg i32 %8 to i64
+  br label %101
+
+101:                                              ; preds = %.lr.ph, %141
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %141 ]
+  %.0103132 = phi i32 [ %96, %.lr.ph ], [ %.2, %141 ]
+  %102 = load ptr, ptr %99, align 8
+  %103 = load i32, ptr %52, align 4
+  %104 = trunc i64 %indvars.iv to i32
+  %105 = add nsw i32 %103, %104
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds %struct.GLNVGpath, ptr %102, i64 %106
+  %108 = getelementptr inbounds %struct.NVGpath, ptr %7, i64 %indvars.iv
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %107, i8 0, i64 16, i1 false)
+  %109 = getelementptr inbounds i8, ptr %108, i64 24
+  %110 = load i32, ptr %109, align 8
+  %111 = icmp sgt i32 %110, 0
+  br i1 %111, label %112, label %124
+
+112:                                              ; preds = %101
+  store i32 %.0103132, ptr %107, align 4
+  %113 = load i32, ptr %109, align 8
+  %114 = getelementptr inbounds i8, ptr %107, i64 4
+  store i32 %113, ptr %114, align 4
+  %115 = load ptr, ptr %100, align 8
+  %116 = sext i32 %.0103132 to i64
+  %117 = getelementptr inbounds %struct.NVGvertex, ptr %115, i64 %116
+  %118 = getelementptr inbounds i8, ptr %108, i64 16
+  %119 = load ptr, ptr %118, align 8
+  %120 = sext i32 %113 to i64
+  %121 = shl nsw i64 %120, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %117, ptr align 4 %119, i64 %121, i1 false)
+  %122 = load i32, ptr %109, align 8
+  %123 = add nsw i32 %122, %.0103132
+  br label %124
+
+124:                                              ; preds = %112, %101
+  %.1 = phi i32 [ %123, %112 ], [ %.0103132, %101 ]
+  %125 = getelementptr inbounds i8, ptr %108, i64 40
+  %126 = load i32, ptr %125, align 8
+  %127 = icmp sgt i32 %126, 0
+  br i1 %127, label %128, label %141
+
+128:                                              ; preds = %124
+  %129 = getelementptr inbounds i8, ptr %107, i64 8
+  store i32 %.1, ptr %129, align 4
+  %130 = load i32, ptr %125, align 8
+  %131 = getelementptr inbounds i8, ptr %107, i64 12
+  store i32 %130, ptr %131, align 4
+  %132 = load ptr, ptr %100, align 8
+  %133 = sext i32 %.1 to i64
+  %134 = getelementptr inbounds %struct.NVGvertex, ptr %132, i64 %133
+  %135 = getelementptr inbounds i8, ptr %108, i64 32
+  %136 = load ptr, ptr %135, align 8
+  %137 = sext i32 %130 to i64
+  %138 = shl nsw i64 %137, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %134, ptr align 4 %136, i64 %138, i1 false)
+  %139 = load i32, ptr %125, align 8
+  %140 = add nsw i32 %139, %.1
+  br label %141
+
+141:                                              ; preds = %124, %128
+  %.2 = phi i32 [ %140, %128 ], [ %.1, %124 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %101, !llvm.loop !18
+
+._crit_edge:                                      ; preds = %141, %.preheader
+  %.0103.lcssa = phi i32 [ %96, %.preheader ], [ %.2, %141 ]
+  %142 = load i32, ptr %31, align 4
+  %143 = icmp eq i32 %142, 1
+  br i1 %143, label %144, label %201
+
+144:                                              ; preds = %._crit_edge
+  %145 = getelementptr inbounds i8, ptr %31, i64 16
+  store i32 %.0103.lcssa, ptr %145, align 4
+  %146 = getelementptr inbounds i8, ptr %0, i64 104
+  %147 = load ptr, ptr %146, align 8
+  %148 = sext i32 %.0103.lcssa to i64
+  %149 = getelementptr inbounds %struct.NVGvertex, ptr %147, i64 %148
+  %150 = getelementptr inbounds i8, ptr %6, i64 8
+  %151 = getelementptr inbounds i8, ptr %6, i64 12
+  %152 = load <2 x float>, ptr %150, align 4
+  store <2 x float> %152, ptr %149, align 4
+  %153 = getelementptr inbounds i8, ptr %149, i64 8
+  store <2 x float> <float 5.000000e-01, float 1.000000e+00>, ptr %153, align 4
+  %154 = getelementptr inbounds i8, ptr %149, i64 16
+  %155 = getelementptr inbounds i8, ptr %6, i64 4
+  %156 = load <2 x float>, ptr %155, align 4
+  %157 = shufflevector <2 x float> %156, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x float> %157, ptr %154, align 4
+  %158 = getelementptr inbounds i8, ptr %149, i64 24
+  store <2 x float> <float 5.000000e-01, float 1.000000e+00>, ptr %158, align 4
+  %159 = getelementptr inbounds i8, ptr %149, i64 32
+  %160 = load float, ptr %6, align 4
+  %161 = load float, ptr %151, align 4
+  store float %160, ptr %159, align 4
+  %162 = getelementptr inbounds i8, ptr %149, i64 36
+  store float %161, ptr %162, align 4
+  %163 = getelementptr inbounds i8, ptr %149, i64 40
+  store <2 x float> <float 5.000000e-01, float 1.000000e+00>, ptr %163, align 4
+  %164 = getelementptr inbounds i8, ptr %149, i64 48
+  %165 = load <2 x float>, ptr %6, align 4
+  store <2 x float> %165, ptr %164, align 4
+  %166 = getelementptr inbounds i8, ptr %149, i64 56
+  store <2 x float> <float 5.000000e-01, float 1.000000e+00>, ptr %166, align 4
+  %167 = getelementptr inbounds i8, ptr %0, i64 64
+  %168 = load i32, ptr %167, align 8
+  %169 = getelementptr inbounds i8, ptr %0, i64 132
+  %170 = load i32, ptr %169, align 4
+  %171 = add nsw i32 %170, 2
+  %172 = getelementptr inbounds i8, ptr %0, i64 128
+  %173 = load i32, ptr %172, align 8
+  %174 = icmp sgt i32 %171, %173
+  br i1 %174, label %175, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
+
+175:                                              ; preds = %144
+  %176 = tail call noundef i32 @llvm.smax.i32(i32 %171, i32 128)
+  %177 = sdiv i32 %173, 2
+  %178 = add nsw i32 %176, %177
+  %179 = getelementptr inbounds i8, ptr %0, i64 120
+  %180 = load ptr, ptr %179, align 8
+  %181 = mul nsw i32 %178, %168
+  %182 = sext i32 %181 to i64
+  %183 = tail call ptr @realloc(ptr noundef %180, i64 noundef %182) #29
+  %184 = icmp eq ptr %183, null
+  br i1 %184, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, label %185
+
+185:                                              ; preds = %175
+  store ptr %183, ptr %179, align 8
+  store i32 %178, ptr %172, align 8
+  %.pre.i120 = load i32, ptr %169, align 4
+  %.pre22.i = add nsw i32 %.pre.i120, 2
+  br label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
+
+_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit: ; preds = %144, %185
+  %.pre-phi.i118 = phi i32 [ %.pre22.i, %185 ], [ %171, %144 ]
+  %186 = phi i32 [ %.pre.i120, %185 ], [ %170, %144 ]
+  %187 = mul nsw i32 %186, %168
+  store i32 %.pre-phi.i118, ptr %169, align 4
+  %188 = getelementptr inbounds i8, ptr %31, i64 24
+  store i32 %187, ptr %188, align 4
+  %189 = icmp eq i32 %187, -1
+  br i1 %189, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %190
+
+190:                                              ; preds = %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
+  %191 = getelementptr i8, ptr %0, i64 120
+  %.val = load ptr, ptr %191, align 8
+  %192 = sext i32 %187 to i64
+  %193 = getelementptr inbounds i8, ptr %.val, i64 %192
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(176) %193, i8 0, i64 172, i1 false)
+  %194 = getelementptr inbounds i8, ptr %193, i64 164
+  store float -1.000000e+00, ptr %194, align 4
+  %195 = getelementptr inbounds i8, ptr %193, i64 172
+  store i32 2, ptr %195, align 4
+  %196 = load i32, ptr %188, align 4
+  %197 = load i32, ptr %167, align 8
+  %198 = add nsw i32 %197, %196
+  %.val109 = load ptr, ptr %191, align 8
+  %199 = sext i32 %198 to i64
+  %200 = getelementptr inbounds i8, ptr %.val109, i64 %199
+  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %200, ptr noundef %1, ptr noundef %4, float noundef %5, float noundef %5, float noundef -1.000000e+00)
+  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
+
+201:                                              ; preds = %._crit_edge
+  %202 = getelementptr inbounds i8, ptr %0, i64 64
+  %203 = load i32, ptr %202, align 8
+  %204 = getelementptr inbounds i8, ptr %0, i64 132
+  %205 = load i32, ptr %204, align 4
+  %206 = add nsw i32 %205, 1
+  %207 = getelementptr inbounds i8, ptr %0, i64 128
+  %208 = load i32, ptr %207, align 8
+  %.not131 = icmp slt i32 %205, %208
+  br i1 %.not131, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit125, label %209
+
+209:                                              ; preds = %201
+  %210 = tail call noundef i32 @llvm.smax.i32(i32 %206, i32 128)
+  %211 = sdiv i32 %208, 2
+  %212 = add nsw i32 %210, %211
+  %213 = getelementptr inbounds i8, ptr %0, i64 120
+  %214 = load ptr, ptr %213, align 8
+  %215 = mul nsw i32 %212, %203
+  %216 = sext i32 %215 to i64
+  %217 = tail call ptr @realloc(ptr noundef %214, i64 noundef %216) #29
+  %218 = icmp eq ptr %217, null
+  br i1 %218, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, label %219
+
+219:                                              ; preds = %209
+  store ptr %217, ptr %213, align 8
+  store i32 %212, ptr %207, align 8
+  %.pre.i123 = load i32, ptr %204, align 4
+  %.pre22.i124 = add nsw i32 %.pre.i123, 1
+  br label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit125
+
+_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit125: ; preds = %201, %219
+  %.pre-phi.i121 = phi i32 [ %.pre22.i124, %219 ], [ %206, %201 ]
+  %220 = phi i32 [ %.pre.i123, %219 ], [ %205, %201 ]
+  %221 = mul nsw i32 %220, %203
+  store i32 %.pre-phi.i121, ptr %204, align 4
+  %222 = getelementptr inbounds i8, ptr %31, i64 24
+  store i32 %221, ptr %222, align 4
+  %223 = icmp eq i32 %221, -1
+  br i1 %223, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %224
+
+224:                                              ; preds = %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit125
+  %225 = getelementptr i8, ptr %0, i64 120
+  %.val110 = load ptr, ptr %225, align 8
+  %226 = sext i32 %221 to i64
+  %227 = getelementptr inbounds i8, ptr %.val110, i64 %226
+  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %227, ptr noundef %1, ptr noundef %4, float noundef %5, float noundef %5, float noundef -1.000000e+00)
+  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
+
+_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split: ; preds = %209, %175, %40
+  %.sink135 = phi i64 [ 8, %40 ], [ 24, %175 ], [ 24, %209 ]
+  %228 = getelementptr inbounds i8, ptr %31, i64 %.sink135
+  store i32 -1, ptr %228, align 4
+  br label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread
+
+_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread: ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, %85, %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit125, %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit, %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit, %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
+  %229 = load i32, ptr %10, align 4
+  %230 = icmp sgt i32 %229, 0
+  br i1 %230, label %231, label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
+
+231:                                              ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread
+  %232 = add nsw i32 %229, -1
+  store i32 %232, ptr %10, align 4
+  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
+
+_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread: ; preds = %14, %190, %224, %231, %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZL19glnvg__renderStrokePvP8NVGpaint26NVGcompositeOperationStateP10NVGscissorffPK7NVGpathi(ptr nocapture noundef %0, ptr noundef %1, i64 %2, i64 %3, ptr noundef %4, float noundef %5, float noundef %6, ptr nocapture noundef readonly %7, i32 noundef %8) #3 {
+  %10 = getelementptr inbounds i8, ptr %0, i64 84
+  %11 = load i32, ptr %10, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = load i32, ptr %12, align 8
+  %.not.i = icmp slt i32 %11, %13
+  br i1 %.not.i, label %._crit_edge.i, label %14
+
+._crit_edge.i:                                    ; preds = %9
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 72
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
+  br label %26
+
+14:                                               ; preds = %9
+  %15 = tail call i32 @llvm.smax.i32(i32 %11, i32 127)
+  %16 = add nuw nsw i32 %15, 1
+  %17 = sdiv i32 %13, 2
+  %18 = add nsw i32 %16, %17
+  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = load ptr, ptr %19, align 8
+  %21 = sext i32 %18 to i64
+  %22 = mul nsw i64 %21, 44
+  %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #29
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread, label %25
+
+25:                                               ; preds = %14
+  store ptr %23, ptr %19, align 8
+  store i32 %18, ptr %12, align 8
+  %.pre17.i = load i32, ptr %10, align 4
+  br label %26
+
+26:                                               ; preds = %25, %._crit_edge.i
+  %27 = phi i32 [ %11, %._crit_edge.i ], [ %.pre17.i, %25 ]
+  %28 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %23, %25 ]
+  %29 = add nsw i32 %27, 1
+  store i32 %29, ptr %10, align 4
+  %30 = sext i32 %27 to i64
+  %31 = getelementptr inbounds %struct.GLNVGcall, ptr %28, i64 %30
+  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %32, i8 0, i64 40, i1 false)
+  store i32 3, ptr %31, align 4
+  %33 = getelementptr inbounds i8, ptr %0, i64 100
+  %34 = load i32, ptr %33, align 4
+  %35 = add nsw i32 %34, %8
+  %36 = getelementptr inbounds i8, ptr %0, i64 96
+  %37 = load i32, ptr %36, align 8
+  %38 = icmp sgt i32 %35, %37
+  br i1 %38, label %39, label %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
+
+39:                                               ; preds = %26
+  %40 = tail call noundef i32 @llvm.smax.i32(i32 %35, i32 128)
+  %41 = sdiv i32 %37, 2
+  %42 = add nsw i32 %40, %41
+  %43 = getelementptr inbounds i8, ptr %0, i64 88
+  %44 = load ptr, ptr %43, align 8
+  %45 = sext i32 %42 to i64
+  %46 = shl nsw i64 %45, 4
+  %47 = tail call ptr @realloc(ptr noundef %44, i64 noundef %46) #29
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, label %49
+
+49:                                               ; preds = %39
+  store ptr %47, ptr %43, align 8
+  store i32 %42, ptr %36, align 8
+  %.pre.i82 = load i32, ptr %33, align 4
+  %.pre19.i = add nsw i32 %.pre.i82, %8
+  br label %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
+
+_ZL17glnvg__allocPathsP12GLNVGcontexti.exit:      ; preds = %26, %49
+  %.pre-phi.i = phi i32 [ %.pre19.i, %49 ], [ %35, %26 ]
+  %50 = phi i32 [ %.pre.i82, %49 ], [ %34, %26 ]
+  store i32 %.pre-phi.i, ptr %33, align 4
+  %51 = getelementptr inbounds i8, ptr %31, i64 8
+  store i32 %50, ptr %51, align 4
+  %52 = icmp eq i32 %50, -1
+  br i1 %52, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %53
+
+53:                                               ; preds = %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
+  %54 = getelementptr inbounds i8, ptr %31, i64 12
+  store i32 %8, ptr %54, align 4
+  %55 = getelementptr inbounds i8, ptr %1, i64 72
+  %56 = load i32, ptr %55, align 4
+  %57 = getelementptr inbounds i8, ptr %31, i64 4
+  store i32 %56, ptr %57, align 4
+  %58 = tail call fastcc { i64, i64 } @_ZL30glnvg__blendCompositeOperation26NVGcompositeOperationState(i64 %2, i64 %3)
+  %59 = extractvalue { i64, i64 } %58, 0
+  %60 = extractvalue { i64, i64 } %58, 1
+  %61 = getelementptr inbounds i8, ptr %31, i64 28
+  store i64 %59, ptr %61, align 4
+  %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 36
+  store i64 %60, ptr %.sroa.29.0..sroa_idx, align 4
+  %62 = icmp sgt i32 %8, 0
+  br i1 %62, label %.lr.ph.preheader.i, label %_ZL19glnvg__maxVertCountPK7NVGpathi.exit
+
+.lr.ph.preheader.i:                               ; preds = %53
+  %wide.trip.count.i = zext nneg i32 %8 to i64
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %.011.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %69, %.lr.ph.i ]
+  %63 = getelementptr inbounds %struct.NVGpath, ptr %7, i64 %indvars.iv.i
+  %64 = getelementptr inbounds i8, ptr %63, i64 24
+  %65 = load i32, ptr %64, align 8
+  %66 = add nsw i32 %65, %.011.i
+  %67 = getelementptr inbounds i8, ptr %63, i64 40
+  %68 = load i32, ptr %67, align 8
+  %69 = add nsw i32 %66, %68
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %_ZL19glnvg__maxVertCountPK7NVGpathi.exit, label %.lr.ph.i, !llvm.loop !17
+
+_ZL19glnvg__maxVertCountPK7NVGpathi.exit:         ; preds = %.lr.ph.i, %53
+  %.0.lcssa.i = phi i32 [ 0, %53 ], [ %69, %.lr.ph.i ]
+  %70 = getelementptr inbounds i8, ptr %0, i64 116
+  %71 = load i32, ptr %70, align 4
+  %72 = add nsw i32 %71, %.0.lcssa.i
+  %73 = getelementptr inbounds i8, ptr %0, i64 112
+  %74 = load i32, ptr %73, align 8
+  %75 = icmp sgt i32 %72, %74
+  br i1 %75, label %76, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
+
+76:                                               ; preds = %_ZL19glnvg__maxVertCountPK7NVGpathi.exit
+  %77 = tail call noundef i32 @llvm.smax.i32(i32 %72, i32 4096)
+  %78 = sdiv i32 %74, 2
+  %79 = add nsw i32 %77, %78
+  %80 = getelementptr inbounds i8, ptr %0, i64 104
+  %81 = load ptr, ptr %80, align 8
+  %82 = sext i32 %79 to i64
+  %83 = shl nsw i64 %82, 4
+  %84 = tail call ptr @realloc(ptr noundef %81, i64 noundef %83) #29
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %86
+
+86:                                               ; preds = %76
+  store ptr %84, ptr %80, align 8
+  store i32 %79, ptr %73, align 8
+  %.pre.i86 = load i32, ptr %70, align 4
+  %.pre19.i87 = add nsw i32 %.pre.i86, %.0.lcssa.i
+  br label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
+
+_ZL17glnvg__allocVertsP12GLNVGcontexti.exit:      ; preds = %_ZL19glnvg__maxVertCountPK7NVGpathi.exit, %86
+  %.pre-phi.i84 = phi i32 [ %.pre19.i87, %86 ], [ %72, %_ZL19glnvg__maxVertCountPK7NVGpathi.exit ]
+  %87 = phi i32 [ %.pre.i86, %86 ], [ %71, %_ZL19glnvg__maxVertCountPK7NVGpathi.exit ]
+  store i32 %.pre-phi.i84, ptr %70, align 4
+  %88 = icmp eq i32 %87, -1
+  br i1 %88, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %.preheader
+
+.preheader:                                       ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
+  br i1 %62, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %.preheader
+  %89 = getelementptr inbounds i8, ptr %0, i64 88
+  %90 = getelementptr inbounds i8, ptr %0, i64 104
+  %wide.trip.count = zext nneg i32 %8 to i64
+  br label %91
+
+91:                                               ; preds = %.lr.ph, %114
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %114 ]
+  %.072102 = phi i32 [ %87, %.lr.ph ], [ %.1, %114 ]
+  %92 = load ptr, ptr %89, align 8
+  %93 = load i32, ptr %51, align 4
+  %94 = trunc i64 %indvars.iv to i32
+  %95 = add nsw i32 %93, %94
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds %struct.GLNVGpath, ptr %92, i64 %96
+  %98 = getelementptr inbounds %struct.NVGpath, ptr %7, i64 %indvars.iv
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %97, i8 0, i64 16, i1 false)
+  %99 = getelementptr inbounds i8, ptr %98, i64 40
+  %100 = load i32, ptr %99, align 8
+  %.not78 = icmp eq i32 %100, 0
+  br i1 %.not78, label %114, label %101
+
+101:                                              ; preds = %91
+  %102 = getelementptr inbounds i8, ptr %97, i64 8
+  store i32 %.072102, ptr %102, align 4
+  %103 = load i32, ptr %99, align 8
+  %104 = getelementptr inbounds i8, ptr %97, i64 12
+  store i32 %103, ptr %104, align 4
+  %105 = load ptr, ptr %90, align 8
+  %106 = sext i32 %.072102 to i64
+  %107 = getelementptr inbounds %struct.NVGvertex, ptr %105, i64 %106
+  %108 = getelementptr inbounds i8, ptr %98, i64 32
+  %109 = load ptr, ptr %108, align 8
+  %110 = sext i32 %103 to i64
+  %111 = shl nsw i64 %110, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %107, ptr align 4 %109, i64 %111, i1 false)
+  %112 = load i32, ptr %99, align 8
+  %113 = add nsw i32 %112, %.072102
+  br label %114
+
+114:                                              ; preds = %91, %101
+  %.1 = phi i32 [ %113, %101 ], [ %.072102, %91 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %91, !llvm.loop !19
+
+._crit_edge:                                      ; preds = %114, %.preheader
+  %115 = getelementptr inbounds i8, ptr %0, i64 68
+  %116 = load i32, ptr %115, align 4
+  %117 = and i32 %116, 2
+  %.not = icmp eq i32 %117, 0
+  %118 = getelementptr inbounds i8, ptr %0, i64 64
+  %119 = load i32, ptr %118, align 8
+  %120 = getelementptr inbounds i8, ptr %0, i64 132
+  %121 = load i32, ptr %120, align 4
+  %122 = getelementptr inbounds i8, ptr %0, i64 128
+  %123 = load i32, ptr %122, align 8
+  br i1 %.not, label %151, label %124
+
+124:                                              ; preds = %._crit_edge
+  %125 = add nsw i32 %121, 2
+  %126 = icmp sgt i32 %125, %123
+  br i1 %126, label %127, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
+
+127:                                              ; preds = %124
+  %128 = tail call noundef i32 @llvm.smax.i32(i32 %125, i32 128)
+  %129 = sdiv i32 %123, 2
+  %130 = add nsw i32 %128, %129
+  %131 = getelementptr inbounds i8, ptr %0, i64 120
+  %132 = load ptr, ptr %131, align 8
+  %133 = mul nsw i32 %130, %119
+  %134 = sext i32 %133 to i64
+  %135 = tail call ptr @realloc(ptr noundef %132, i64 noundef %134) #29
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, label %137
+
+137:                                              ; preds = %127
+  store ptr %135, ptr %131, align 8
+  store i32 %130, ptr %122, align 8
+  %.pre.i90 = load i32, ptr %120, align 4
+  %.pre22.i = add nsw i32 %.pre.i90, 2
+  br label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
+
+_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit: ; preds = %124, %137
+  %.pre-phi.i88 = phi i32 [ %.pre22.i, %137 ], [ %125, %124 ]
+  %138 = phi i32 [ %.pre.i90, %137 ], [ %121, %124 ]
+  %139 = mul nsw i32 %138, %119
+  store i32 %.pre-phi.i88, ptr %120, align 4
+  %140 = getelementptr inbounds i8, ptr %31, i64 24
+  store i32 %139, ptr %140, align 4
+  %141 = icmp eq i32 %139, -1
+  br i1 %141, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %142
+
+142:                                              ; preds = %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
+  %143 = getelementptr i8, ptr %0, i64 120
+  %.val = load ptr, ptr %143, align 8
+  %144 = sext i32 %139 to i64
+  %145 = getelementptr inbounds i8, ptr %.val, i64 %144
+  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %145, ptr noundef %1, ptr noundef %4, float noundef %6, float noundef %5, float noundef -1.000000e+00)
+  %146 = load i32, ptr %140, align 4
+  %147 = load i32, ptr %118, align 8
+  %148 = add nsw i32 %147, %146
+  %.val79 = load ptr, ptr %143, align 8
+  %149 = sext i32 %148 to i64
+  %150 = getelementptr inbounds i8, ptr %.val79, i64 %149
+  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %150, ptr noundef %1, ptr noundef %4, float noundef %6, float noundef %5, float noundef 0x3FEFEFEFE0000000)
+  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
+
+151:                                              ; preds = %._crit_edge
+  %152 = add nsw i32 %121, 1
+  %.not101 = icmp slt i32 %121, %123
+  br i1 %.not101, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit95, label %153
+
+153:                                              ; preds = %151
+  %154 = tail call noundef i32 @llvm.smax.i32(i32 %152, i32 128)
+  %155 = sdiv i32 %123, 2
+  %156 = add nsw i32 %154, %155
+  %157 = getelementptr inbounds i8, ptr %0, i64 120
+  %158 = load ptr, ptr %157, align 8
+  %159 = mul nsw i32 %156, %119
+  %160 = sext i32 %159 to i64
+  %161 = tail call ptr @realloc(ptr noundef %158, i64 noundef %160) #29
+  %162 = icmp eq ptr %161, null
+  br i1 %162, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, label %163
+
+163:                                              ; preds = %153
+  store ptr %161, ptr %157, align 8
+  store i32 %156, ptr %122, align 8
+  %.pre.i93 = load i32, ptr %120, align 4
+  %.pre22.i94 = add nsw i32 %.pre.i93, 1
+  br label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit95
+
+_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit95: ; preds = %151, %163
+  %.pre-phi.i91 = phi i32 [ %.pre22.i94, %163 ], [ %152, %151 ]
+  %164 = phi i32 [ %.pre.i93, %163 ], [ %121, %151 ]
+  %165 = mul nsw i32 %164, %119
+  store i32 %.pre-phi.i91, ptr %120, align 4
+  %166 = getelementptr inbounds i8, ptr %31, i64 24
+  store i32 %165, ptr %166, align 4
+  %167 = icmp eq i32 %165, -1
+  br i1 %167, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %168
+
+168:                                              ; preds = %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit95
+  %169 = getelementptr i8, ptr %0, i64 120
+  %.val80 = load ptr, ptr %169, align 8
+  %170 = sext i32 %165 to i64
+  %171 = getelementptr inbounds i8, ptr %.val80, i64 %170
+  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %171, ptr noundef %1, ptr noundef %4, float noundef %6, float noundef %5, float noundef -1.000000e+00)
+  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
+
+_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split: ; preds = %153, %127, %39
+  %.sink105 = phi i64 [ 8, %39 ], [ 24, %127 ], [ 24, %153 ]
+  %172 = getelementptr inbounds i8, ptr %31, i64 %.sink105
+  store i32 -1, ptr %172, align 4
+  br label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread
+
+_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread: ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, %76, %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit95, %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit, %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit, %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
+  %173 = load i32, ptr %10, align 4
+  %174 = icmp sgt i32 %173, 0
+  br i1 %174, label %175, label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
+
+175:                                              ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread
+  %176 = add nsw i32 %173, -1
+  store i32 %176, ptr %10, align 4
+  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
+
+_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread: ; preds = %14, %142, %168, %175, %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZL22glnvg__renderTrianglesPvP8NVGpaint26NVGcompositeOperationStateP10NVGscissorPK9NVGvertexi(ptr nocapture noundef %0, ptr noundef %1, i64 %2, i64 %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) #3 {
+  %8 = getelementptr inbounds i8, ptr %0, i64 84
+  %9 = load i32, ptr %8, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = load i32, ptr %10, align 8
+  %.not.i = icmp slt i32 %9, %11
+  br i1 %.not.i, label %._crit_edge.i, label %12
+
+._crit_edge.i:                                    ; preds = %7
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 72
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
+  br label %24
+
+12:                                               ; preds = %7
+  %13 = tail call i32 @llvm.smax.i32(i32 %9, i32 127)
+  %14 = add nuw nsw i32 %13, 1
+  %15 = sdiv i32 %11, 2
+  %16 = add nsw i32 %14, %15
+  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = load ptr, ptr %17, align 8
+  %19 = sext i32 %16 to i64
+  %20 = mul nsw i64 %19, 44
+  %21 = tail call ptr @realloc(ptr noundef %18, i64 noundef %20) #29
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread, label %23
+
+23:                                               ; preds = %12
+  store ptr %21, ptr %17, align 8
+  store i32 %16, ptr %10, align 8
+  %.pre17.i = load i32, ptr %8, align 4
+  br label %24
+
+24:                                               ; preds = %23, %._crit_edge.i
+  %25 = phi i32 [ %9, %._crit_edge.i ], [ %.pre17.i, %23 ]
+  %26 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %21, %23 ]
+  %27 = add nsw i32 %25, 1
+  store i32 %27, ptr %8, align 4
+  %28 = sext i32 %25 to i64
+  %29 = getelementptr inbounds %struct.GLNVGcall, ptr %26, i64 %28
+  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %30, i8 0, i64 40, i1 false)
+  store i32 4, ptr %29, align 4
+  %31 = getelementptr inbounds i8, ptr %1, i64 72
+  %32 = load i32, ptr %31, align 4
+  %33 = getelementptr inbounds i8, ptr %29, i64 4
+  store i32 %32, ptr %33, align 4
+  %34 = tail call fastcc { i64, i64 } @_ZL30glnvg__blendCompositeOperation26NVGcompositeOperationState(i64 %2, i64 %3)
+  %35 = extractvalue { i64, i64 } %34, 0
+  %36 = extractvalue { i64, i64 } %34, 1
+  %37 = getelementptr inbounds i8, ptr %29, i64 28
+  store i64 %35, ptr %37, align 4
+  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 36
+  store i64 %36, ptr %.sroa.22.0..sroa_idx, align 4
+  %38 = getelementptr inbounds i8, ptr %0, i64 116
+  %39 = load i32, ptr %38, align 4
+  %40 = add nsw i32 %39, %6
+  %41 = getelementptr inbounds i8, ptr %0, i64 112
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp sgt i32 %40, %42
+  br i1 %43, label %44, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
+
+44:                                               ; preds = %24
+  %45 = tail call noundef i32 @llvm.smax.i32(i32 %40, i32 4096)
+  %46 = sdiv i32 %42, 2
+  %47 = add nsw i32 %45, %46
+  %48 = getelementptr inbounds i8, ptr %0, i64 104
+  %49 = load ptr, ptr %48, align 8
+  %50 = sext i32 %47 to i64
+  %51 = shl nsw i64 %50, 4
+  %52 = tail call ptr @realloc(ptr noundef %49, i64 noundef %51) #29
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %.sink.split, label %54
+
+54:                                               ; preds = %44
+  store ptr %52, ptr %48, align 8
+  store i32 %47, ptr %41, align 8
+  %.pre.i35 = load i32, ptr %38, align 4
+  %.pre19.i = add nsw i32 %.pre.i35, %6
+  br label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
+
+_ZL17glnvg__allocVertsP12GLNVGcontexti.exit:      ; preds = %24, %54
+  %.pre-phi.i = phi i32 [ %.pre19.i, %54 ], [ %40, %24 ]
+  %55 = phi i32 [ %.pre.i35, %54 ], [ %39, %24 ]
+  store i32 %.pre-phi.i, ptr %38, align 4
+  %56 = getelementptr inbounds i8, ptr %29, i64 16
+  store i32 %55, ptr %56, align 4
+  %57 = icmp eq i32 %55, -1
+  br i1 %57, label %94, label %58
+
+58:                                               ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
+  %59 = getelementptr inbounds i8, ptr %29, i64 20
+  store i32 %6, ptr %59, align 4
+  %60 = getelementptr inbounds i8, ptr %0, i64 104
+  %61 = load ptr, ptr %60, align 8
+  %62 = sext i32 %55 to i64
+  %63 = getelementptr inbounds %struct.NVGvertex, ptr %61, i64 %62
+  %64 = sext i32 %6 to i64
+  %65 = shl nsw i64 %64, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %63, ptr align 4 %5, i64 %65, i1 false)
+  %66 = getelementptr inbounds i8, ptr %0, i64 64
+  %67 = load i32, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 132
+  %69 = load i32, ptr %68, align 4
+  %70 = add nsw i32 %69, 1
+  %71 = getelementptr inbounds i8, ptr %0, i64 128
+  %72 = load i32, ptr %71, align 8
+  %.not = icmp slt i32 %69, %72
+  br i1 %.not, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit, label %73
+
+73:                                               ; preds = %58
+  %74 = tail call noundef i32 @llvm.smax.i32(i32 %70, i32 128)
+  %75 = sdiv i32 %72, 2
+  %76 = add nsw i32 %74, %75
+  %77 = getelementptr inbounds i8, ptr %0, i64 120
+  %78 = load ptr, ptr %77, align 8
+  %79 = mul nsw i32 %76, %67
+  %80 = sext i32 %79 to i64
+  %81 = tail call ptr @realloc(ptr noundef %78, i64 noundef %80) #29
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %.sink.split, label %83
+
+83:                                               ; preds = %73
+  store ptr %81, ptr %77, align 8
+  store i32 %76, ptr %71, align 8
+  %.pre.i38 = load i32, ptr %68, align 4
+  %.pre22.i = add nsw i32 %.pre.i38, 1
+  br label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
+
+_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit: ; preds = %58, %83
+  %.pre-phi.i36 = phi i32 [ %.pre22.i, %83 ], [ %70, %58 ]
+  %84 = phi i32 [ %.pre.i38, %83 ], [ %69, %58 ]
+  %85 = mul nsw i32 %84, %67
+  store i32 %.pre-phi.i36, ptr %68, align 4
+  %86 = getelementptr inbounds i8, ptr %29, i64 24
+  store i32 %85, ptr %86, align 4
+  %87 = icmp eq i32 %85, -1
+  br i1 %87, label %94, label %88
+
+88:                                               ; preds = %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
+  %89 = getelementptr i8, ptr %0, i64 120
+  %.val = load ptr, ptr %89, align 8
+  %90 = sext i32 %85 to i64
+  %91 = getelementptr inbounds i8, ptr %.val, i64 %90
+  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %91, ptr noundef nonnull %1, ptr noundef %4, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
+  %92 = getelementptr inbounds i8, ptr %91, i64 172
+  store i32 3, ptr %92, align 4
+  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
+
+.sink.split:                                      ; preds = %73, %44
+  %.sink42 = phi i64 [ 16, %44 ], [ 24, %73 ]
+  %93 = getelementptr inbounds i8, ptr %29, i64 %.sink42
+  store i32 -1, ptr %93, align 4
+  br label %94
+
+94:                                               ; preds = %.sink.split, %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit, %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
+  %95 = load i32, ptr %8, align 4
+  %96 = icmp sgt i32 %95, 0
+  br i1 %96, label %97, label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
+
+97:                                               ; preds = %94
+  %98 = add nsw i32 %95, -1
+  store i32 %98, ptr %8, align 4
+  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
+
+_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread: ; preds = %12, %97, %94, %88
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZL19glnvg__renderDeletePv(ptr noundef %0) #3 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %56, label %3
+
+3:                                                ; preds = %1
+  %4 = load i32, ptr %0, align 4
+  %.not.i = icmp eq i32 %4, 0
+  br i1 %.not.i, label %6, label %5
+
+5:                                                ; preds = %3
+  tail call void @glDeleteProgram(i32 noundef %4)
+  br label %6
+
+6:                                                ; preds = %5, %3
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = load i32, ptr %7, align 4
+  %.not8.i = icmp eq i32 %8, 0
+  br i1 %.not8.i, label %10, label %9
+
+9:                                                ; preds = %6
+  tail call void @glDeleteShader(i32 noundef %8)
+  br label %10
+
+10:                                               ; preds = %9, %6
+  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = load i32, ptr %11, align 4
+  %.not9.i = icmp eq i32 %12, 0
+  br i1 %.not9.i, label %_ZL19glnvg__deleteShaderP11GLNVGshader.exit, label %13
+
+13:                                               ; preds = %10
+  tail call void @glDeleteShader(i32 noundef %12)
+  br label %_ZL19glnvg__deleteShaderP11GLNVGshader.exit
+
+_ZL19glnvg__deleteShaderP11GLNVGshader.exit:      ; preds = %10, %13
+  %14 = getelementptr inbounds i8, ptr %0, i64 60
+  %15 = load i32, ptr %14, align 4
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %17, label %16
+
+16:                                               ; preds = %_ZL19glnvg__deleteShaderP11GLNVGshader.exit
+  tail call void @glDeleteBuffers(i32 noundef 1, ptr noundef nonnull %14)
+  br label %17
+
+17:                                               ; preds = %16, %_ZL19glnvg__deleteShaderP11GLNVGshader.exit
+  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = load i32, ptr %18, align 8
+  %.not24 = icmp eq i32 %19, 0
+  br i1 %.not24, label %21, label %20
+
+20:                                               ; preds = %17
+  tail call void @glDeleteVertexArrays(i32 noundef 1, ptr noundef nonnull %18)
+  br label %21
+
+21:                                               ; preds = %20, %17
+  %22 = getelementptr inbounds i8, ptr %0, i64 52
+  %23 = load i32, ptr %22, align 4
+  %.not25 = icmp eq i32 %23, 0
+  br i1 %.not25, label %25, label %24
+
+24:                                               ; preds = %21
+  tail call void @glDeleteBuffers(i32 noundef 1, ptr noundef nonnull %22)
+  br label %25
+
+25:                                               ; preds = %24, %21
+  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp sgt i32 %27, 0
+  br i1 %28, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %25
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  br label %30
+
+30:                                               ; preds = %.lr.ph, %42
+  %31 = phi i32 [ %27, %.lr.ph ], [ %43, %42 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
+  %32 = load ptr, ptr %29, align 8
+  %33 = getelementptr inbounds %struct.GLNVGtexture, ptr %32, i64 %indvars.iv
+  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %35 = load i32, ptr %34, align 4
+  %.not26 = icmp eq i32 %35, 0
+  br i1 %.not26, label %42, label %36
+
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds i8, ptr %33, i64 20
+  %38 = load i32, ptr %37, align 4
+  %39 = and i32 %38, 65536
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %42
+
+41:                                               ; preds = %36
+  tail call void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %34)
+  %.pre = load i32, ptr %26, align 8
+  br label %42
+
+42:                                               ; preds = %30, %36, %41
+  %43 = phi i32 [ %31, %30 ], [ %31, %36 ], [ %.pre, %41 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %44 = sext i32 %43 to i64
+  %45 = icmp slt i64 %indvars.iv.next, %44
+  br i1 %45, label %30, label %._crit_edge, !llvm.loop !20
+
+._crit_edge:                                      ; preds = %42, %25
+  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = load ptr, ptr %46, align 8
+  tail call void @free(ptr noundef %47) #30
+  %48 = getelementptr inbounds i8, ptr %0, i64 88
+  %49 = load ptr, ptr %48, align 8
+  tail call void @free(ptr noundef %49) #30
+  %50 = getelementptr inbounds i8, ptr %0, i64 104
+  %51 = load ptr, ptr %50, align 8
+  tail call void @free(ptr noundef %51) #30
+  %52 = getelementptr inbounds i8, ptr %0, i64 120
+  %53 = load ptr, ptr %52, align 8
+  tail call void @free(ptr noundef %53) #30
+  %54 = getelementptr inbounds i8, ptr %0, i64 72
+  %55 = load ptr, ptr %54, align 8
+  tail call void @free(ptr noundef %55) #30
+  tail call void @free(ptr noundef nonnull %0) #30
+  br label %56
+
+56:                                               ; preds = %1, %._crit_edge
+  ret void
+}
+
+declare ptr @nvgCreateInternal(ptr noundef) local_unnamed_addr #0
+
+declare void @nvgDeleteInternal(ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define hidden void @nvgDeleteGL3(ptr noundef %0) local_unnamed_addr #3 {
+  tail call void @nvgDeleteInternal(ptr noundef %0)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden i32 @nvglCreateImageFromHandleGL3(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+  %6 = tail call ptr @nvgInternalParams(ptr noundef %0)
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp sgt i32 %9, 0
+  br i1 %10, label %.lr.ph.i, label %._crit_edge.i
+
+.lr.ph.i:                                         ; preds = %5
+  %11 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %wide.trip.count.i = zext nneg i32 %9 to i64
+  br label %14
+
+13:                                               ; preds = %14
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %14, !llvm.loop !5
+
+14:                                               ; preds = %13, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
+  %15 = getelementptr inbounds %struct.GLNVGtexture, ptr %12, i64 %indvars.iv.i
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %_ZL19glnvg__allocTextureP12GLNVGcontext.exit, label %13
+
+._crit_edge.i:                                    ; preds = %13, %5
+  %18 = getelementptr inbounds i8, ptr %7, i64 44
+  %19 = load i32, ptr %18, align 4
+  %.not.i = icmp slt i32 %9, %19
+  br i1 %.not.i, label %._crit_edge._crit_edge.i, label %20
+
+._crit_edge._crit_edge.i:                         ; preds = %._crit_edge.i
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %7, i64 24
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
+  br label %32
+
+20:                                               ; preds = %._crit_edge.i
+  %21 = tail call i32 @llvm.smax.i32(i32 %9, i32 3)
+  %22 = add nuw nsw i32 %21, 1
+  %23 = sdiv i32 %19, 2
+  %24 = add nsw i32 %22, %23
+  %25 = getelementptr inbounds i8, ptr %7, i64 24
+  %26 = load ptr, ptr %25, align 8
+  %27 = sext i32 %24 to i64
+  %28 = mul nsw i64 %27, 24
+  %29 = tail call ptr @realloc(ptr noundef %26, i64 noundef %28) #29
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %_ZL19glnvg__allocTextureP12GLNVGcontext.exit.thread, label %31
+
+31:                                               ; preds = %20
+  store ptr %29, ptr %25, align 8
+  store i32 %24, ptr %18, align 4
+  %.pre37.i = load i32, ptr %8, align 8
+  br label %32
+
+32:                                               ; preds = %31, %._crit_edge._crit_edge.i
+  %33 = phi i32 [ %9, %._crit_edge._crit_edge.i ], [ %.pre37.i, %31 ]
+  %34 = phi ptr [ %.pre.i, %._crit_edge._crit_edge.i ], [ %29, %31 ]
+  %35 = add nsw i32 %33, 1
+  store i32 %35, ptr %8, align 8
+  %36 = sext i32 %33 to i64
+  %37 = getelementptr inbounds %struct.GLNVGtexture, ptr %34, i64 %36
+  br label %_ZL19glnvg__allocTextureP12GLNVGcontext.exit
+
+_ZL19glnvg__allocTextureP12GLNVGcontext.exit:     ; preds = %14, %32
+  %.1.i = phi ptr [ %37, %32 ], [ %15, %14 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.1.i, i8 0, i64 24, i1 false)
+  %38 = getelementptr inbounds i8, ptr %7, i64 48
+  %39 = load i32, ptr %38, align 8
+  %40 = add nsw i32 %39, 1
+  store i32 %40, ptr %38, align 8
+  store i32 %40, ptr %.1.i, align 4
+  %41 = getelementptr inbounds i8, ptr %.1.i, i64 16
+  store i32 2, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %.1.i, i64 4
+  store i32 %1, ptr %42, align 4
+  %43 = getelementptr inbounds i8, ptr %.1.i, i64 20
+  store i32 %4, ptr %43, align 4
+  %44 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  store i32 %2, ptr %44, align 4
+  %45 = getelementptr inbounds i8, ptr %.1.i, i64 12
+  store i32 %3, ptr %45, align 4
+  br label %_ZL19glnvg__allocTextureP12GLNVGcontext.exit.thread
+
+_ZL19glnvg__allocTextureP12GLNVGcontext.exit.thread: ; preds = %20, %_ZL19glnvg__allocTextureP12GLNVGcontext.exit
+  %.0 = phi i32 [ %40, %_ZL19glnvg__allocTextureP12GLNVGcontext.exit ], [ 0, %20 ]
+  ret i32 %.0
+}
+
+declare ptr @nvgInternalParams(ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define hidden i32 @nvglImageHandleGL3(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+.lr.ph.i:
+  %2 = tail call ptr @nvgInternalParams(ptr noundef %0)
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %5 = load i32, ptr %4, align 8
+  %6 = icmp sgt i32 %5, 0
+  tail call void @llvm.assume(i1 %6)
+  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = load ptr, ptr %7, align 8
+  %wide.trip.count.i = zext nneg i32 %5 to i64
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp eq i32 %9, %1
+  br i1 %10, label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.i, %.lr.ph
+  %indvars.iv.i3 = phi i64 [ %indvars.iv.next.i, %.lr.ph ], [ 0, %.lr.ph.i ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i3, 1
+  %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, %wide.trip.count.i
+  tail call void @llvm.assume(i1 %exitcond.not.i)
+  %11 = getelementptr inbounds %struct.GLNVGtexture, ptr %8, i64 %indvars.iv.next.i
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp eq i32 %12, %1
+  br i1 %13, label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit, label %.lr.ph
+
+_ZL18glnvg__findTextureP12GLNVGcontexti.exit:     ; preds = %.lr.ph, %.lr.ph.i
+  %.lcssa = phi ptr [ %8, %.lr.ph.i ], [ %11, %.lr.ph ]
+  %14 = getelementptr inbounds i8, ptr %.lcssa, i64 4
+  %15 = load i32, ptr %14, align 4
+  ret i32 %15
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
+          to label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EED2Ev.exit unwind label %4
+
+4:                                                ; preds = %1
+  %5 = landingpad { ptr, i32 }
+          catch ptr null
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #31
+  unreachable
+
+_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EED2Ev.exit: ; preds = %1
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6ScreenC2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i8, align 1
+  tail call void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef null)
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN7nanogui6ScreenE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  store i32 0, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 216
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  %8 = getelementptr inbounds i8, ptr %0, i64 272
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 288
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  store i8 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 292
+  store <4 x float> <float 0x3FD3333340000000, float 0x3FD3333340000000, float 0x3FD47AE140000000, float 1.000000e+00>, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 312
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #30
+  %12 = getelementptr inbounds i8, ptr %0, i64 344
+  %13 = getelementptr inbounds i8, ptr %0, i64 352
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
+  %14 = getelementptr inbounds i8, ptr %0, i64 160
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %12, i8 0, i64 6, i1 false)
+  store i32 0, ptr %2, align 4
+  store i32 0, ptr %3, align 4
+  invoke void @glGetFramebufferAttachmentParameteriv(i32 noundef 36009, i32 noundef 6145, i32 noundef 33302, ptr noundef nonnull %3)
+          to label %15 unwind label %30
+
+15:                                               ; preds = %1
+  invoke void @glGetFramebufferAttachmentParameteriv(i32 noundef 36009, i32 noundef 6146, i32 noundef 33303, ptr noundef nonnull %2)
+          to label %16 unwind label %30
+
+16:                                               ; preds = %15
+  invoke void @glGetBooleanv(i32 noundef 34848, ptr noundef nonnull %4)
+          to label %17 unwind label %30
+
+17:                                               ; preds = %16
+  %18 = getelementptr inbounds i8, ptr %0, i64 348
+  %19 = getelementptr inbounds i8, ptr %0, i64 347
+  %20 = getelementptr inbounds i8, ptr %0, i64 346
+  %21 = load i32, ptr %3, align 4
+  %22 = icmp sgt i32 %21, 0
+  %23 = zext i1 %22 to i8
+  store i8 %23, ptr %20, align 2
+  %24 = load i32, ptr %2, align 4
+  %25 = icmp sgt i32 %24, 0
+  %26 = zext i1 %25 to i8
+  store i8 %26, ptr %19, align 1
+  %27 = load i8, ptr %4, align 1
+  %28 = icmp ne i8 %27, 0
+  %29 = zext i1 %28 to i8
+  store i8 %29, ptr %18, align 4
+  ret void
+
+30:                                               ; preds = %16, %15, %1
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = getelementptr inbounds i8, ptr %0, i64 368
+  %33 = load ptr, ptr %32, align 8
+  %.not.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i, label %_ZNSt8functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev.exit, label %34
+
+34:                                               ; preds = %30
+  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+          to label %_ZNSt8functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev.exit unwind label %36
+
+36:                                               ; preds = %34
+  %37 = landingpad { ptr, i32 }
+          catch ptr null
+  %38 = extractvalue { ptr, i32 } %37, 0
+  call void @__clang_call_terminate(ptr %38) #31
+  unreachable
+
+_ZNSt8functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev.exit: ; preds = %30, %34
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #30
+  %39 = load ptr, ptr %7, align 8
+  %.not.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EED2Ev.exit, label %40
+
+40:                                               ; preds = %_ZNSt8functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %39) #32
+  br label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EED2Ev.exit
+
+_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EED2Ev.exit: ; preds = %_ZNSt8functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev.exit, %40
+  call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #30
+  resume { ptr, i32 } %31
+}
+
+declare void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef) unnamed_addr #0
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+
+declare void @glGetFramebufferAttachmentParameteriv(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glGetBooleanv(i32 noundef, ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+
+; Function Attrs: nounwind
+declare void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140)) unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6ScreenC2ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjj(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i32 noundef %8, i32 noundef %9) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %11 = alloca %"class.std::__cxx11::basic_string", align 8
+  %12 = alloca %"class.std::__cxx11::basic_string", align 8
+  %13 = alloca %"class.std::__cxx11::basic_string", align 8
+  %14 = alloca %"class.std::__cxx11::basic_string", align 8
+  %15 = alloca %"class.std::__cxx11::basic_string", align 8
+  %16 = alloca %"class.std::__cxx11::basic_string", align 8
+  %17 = alloca i8, align 1
+  tail call void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef null)
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN7nanogui6ScreenE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 144
+  %19 = getelementptr inbounds i8, ptr %0, i64 208
+  store i32 0, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 216
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
+  %21 = getelementptr inbounds i8, ptr %0, i64 240
+  %22 = getelementptr inbounds i8, ptr %0, i64 272
+  store ptr null, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 288
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  store i8 1, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 292
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 296
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 300
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 304
+  store <4 x float> <float 0x3FD3333340000000, float 0x3FD3333340000000, float 0x3FD47AE140000000, float 1.000000e+00>, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %0, i64 312
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %2)
+          to label %26 unwind label %46
+
+26:                                               ; preds = %10
+  %27 = insertelement <4 x i1> poison, i1 %4, i64 0
+  %28 = insertelement <4 x i1> %27, i1 %5, i64 1
+  %29 = insertelement <4 x i1> %28, i1 %6, i64 2
+  %30 = insertelement <4 x i1> %29, i1 %7, i64 3
+  %31 = zext <4 x i1> %30 to <4 x i8>
+  %32 = getelementptr inbounds i8, ptr %0, i64 344
+  store i8 0, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 345
+  %34 = getelementptr inbounds i8, ptr %0, i64 348
+  store <4 x i8> %31, ptr %33, align 1
+  %35 = getelementptr inbounds i8, ptr %0, i64 349
+  store i8 0, ptr %35, align 1
+  %36 = getelementptr inbounds i8, ptr %0, i64 352
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 32, i1 false)
+  %37 = getelementptr inbounds i8, ptr %0, i64 160
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, i8 0, i64 48, i1 false)
+  invoke void @glfwWindowHint(i32 noundef 139265, i32 noundef 196609)
+          to label %38 unwind label %.loopexit.split-lp
+
+38:                                               ; preds = %26
+  invoke void @glfwWindowHint(i32 noundef 139266, i32 noundef %8)
+          to label %39 unwind label %.loopexit.split-lp
+
+39:                                               ; preds = %38
+  invoke void @glfwWindowHint(i32 noundef 139267, i32 noundef %9)
+          to label %40 unwind label %.loopexit.split-lp
+
+40:                                               ; preds = %39
+  invoke void @glfwWindowHint(i32 noundef 139270, i32 noundef 1)
+          to label %41 unwind label %.loopexit.split-lp
+
+41:                                               ; preds = %40
+  invoke void @glfwWindowHint(i32 noundef 139272, i32 noundef 204801)
+          to label %42 unwind label %.loopexit.split-lp
+
+42:                                               ; preds = %41
+  %.not63 = xor i1 %6, true
+  %brmerge = or i1 %.not63, %5
+  br i1 %brmerge, label %50, label %43
+
+43:                                               ; preds = %42
+  %44 = tail call ptr @__cxa_allocate_exception(i64 16) #30
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull @.str)
+          to label %45 unwind label %48
+
+45:                                               ; preds = %43
+  invoke void @__cxa_throw(ptr nonnull %44, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #33
+          to label %190 unwind label %.loopexit.split-lp
+
+46:                                               ; preds = %10
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  br label %187
+
+.loopexit.split:                                  ; preds = %.preheader.split, %96
+  %lpad.loopexit = landingpad { ptr, i32 }
+          cleanup
+  br label %.loopexit
+
+.loopexit.split-lp:                               ; preds = %26, %38, %39, %40, %41, %45, %50, %53, %54, %55, %56, %57, %58, %62, %63, %65, %.thread, %124, %129, %135, %138, %141, %146, %147, %148, %150, %153, %156, %159, %162, %165, %168, %171, %174, %177
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %.loopexit
+
+48:                                               ; preds = %43
+  %49 = landingpad { ptr, i32 }
+          cleanup
+  tail call void @__cxa_free_exception(ptr %44) #30
+  br label %.loopexit
+
+50:                                               ; preds = %42
+  %spec.select = select i1 %5, i32 32, i32 0
+  %.148 = select i1 %6, i32 24, i32 %spec.select
+  %.046 = select i1 %6, i32 8, i32 0
+  %51 = load i8, ptr %34, align 4
+  %52 = and i8 %51, 1
+  %.not = icmp eq i8 %52, 0
+  %.049 = select i1 %.not, i32 8, i32 16
+  invoke void @glfwWindowHint(i32 noundef 135169, i32 noundef %.049)
+          to label %53 unwind label %.loopexit.split-lp
+
+53:                                               ; preds = %50
+  invoke void @glfwWindowHint(i32 noundef 135170, i32 noundef %.049)
+          to label %54 unwind label %.loopexit.split-lp
+
+54:                                               ; preds = %53
+  invoke void @glfwWindowHint(i32 noundef 135171, i32 noundef %.049)
+          to label %55 unwind label %.loopexit.split-lp
+
+55:                                               ; preds = %54
+  invoke void @glfwWindowHint(i32 noundef 135172, i32 noundef %.049)
+          to label %56 unwind label %.loopexit.split-lp
+
+56:                                               ; preds = %55
+  invoke void @glfwWindowHint(i32 noundef 135174, i32 noundef %.046)
+          to label %57 unwind label %.loopexit.split-lp
+
+57:                                               ; preds = %56
+  invoke void @glfwWindowHint(i32 noundef 135173, i32 noundef %.148)
+          to label %58 unwind label %.loopexit.split-lp
+
+58:                                               ; preds = %57
+  %59 = load i8, ptr %34, align 4
+  %60 = and i8 %59, 1
+  %61 = zext nneg i8 %60 to i32
+  invoke void @glfwWindowHint(i32 noundef 135185, i32 noundef %61)
+          to label %62 unwind label %.loopexit.split-lp
+
+62:                                               ; preds = %58
+  invoke void @glfwWindowHint(i32 noundef 131076, i32 noundef 0)
+          to label %63 unwind label %.loopexit.split-lp
+
+63:                                               ; preds = %62
+  %64 = zext i1 %3 to i32
+  invoke void @glfwWindowHint(i32 noundef 131075, i32 noundef %64)
+          to label %65 unwind label %.loopexit.split-lp
+
+65:                                               ; preds = %63
+  invoke void @glfwWindowHint(i32 noundef 139276, i32 noundef 1)
+          to label %.preheader unwind label %.loopexit.split-lp
+
+.preheader:                                       ; preds = %65
+  %66 = getelementptr inbounds i8, ptr %1, i64 4
+  br i1 %4, label %.preheader.split.us, label %.preheader.split
+
+.preheader.split.us:                              ; preds = %.preheader, %83
+  %67 = phi i1 [ false, %83 ], [ true, %.preheader ]
+  %68 = invoke ptr @glfwGetPrimaryMonitor()
+          to label %69 unwind label %.loopexit.split.us
+
+69:                                               ; preds = %.preheader.split.us
+  %70 = invoke ptr @glfwGetVideoMode(ptr noundef %68)
+          to label %71 unwind label %.loopexit.split.us
+
+71:                                               ; preds = %69
+  %72 = load i32, ptr %70, align 4
+  %73 = getelementptr inbounds i8, ptr %70, i64 4
+  %74 = load i32, ptr %73, align 4
+  %75 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #30
+  %76 = invoke ptr @glfwCreateWindow(i32 noundef %72, i32 noundef %74, ptr noundef %75, ptr noundef %68, ptr noundef null)
+          to label %77 unwind label %.loopexit.split.us
+
+77:                                               ; preds = %71
+  store ptr %76, ptr %18, align 8
+  %78 = icmp eq ptr %76, null
+  br i1 %78, label %79, label %.thread
+
+79:                                               ; preds = %77
+  %80 = load i8, ptr %34, align 4
+  %81 = and i8 %80, 1
+  %.not52.us = icmp eq i8 %81, 0
+  br i1 %.not52.us, label %.split.us, label %82
+
+82:                                               ; preds = %79
+  store i8 0, ptr %34, align 4
+  invoke void @glfwWindowHint(i32 noundef 135185, i32 noundef 0)
+          to label %83 unwind label %.loopexit.split.us
+
+83:                                               ; preds = %82
+  %84 = load ptr, ptr @stderr, align 8
+  %85 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 66, i64 1, ptr %84) #34
+  br i1 %67, label %.preheader.split.us, label %.split.us, !llvm.loop !21
+
+.loopexit.split.us:                               ; preds = %82, %71, %69, %.preheader.split.us
+  %lpad.loopexit.us = landingpad { ptr, i32 }
+          cleanup
+  br label %.loopexit
+
+.preheader.split:                                 ; preds = %.preheader, %97
+  %86 = phi i1 [ false, %97 ], [ true, %.preheader ]
+  %87 = load i32, ptr %1, align 4
+  %88 = load i32, ptr %66, align 4
+  %89 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #30
+  %90 = invoke ptr @glfwCreateWindow(i32 noundef %87, i32 noundef %88, ptr noundef %89, ptr noundef null, ptr noundef null)
+          to label %91 unwind label %.loopexit.split
+
+91:                                               ; preds = %.preheader.split
+  store ptr %90, ptr %18, align 8
+  %92 = icmp eq ptr %90, null
+  br i1 %92, label %93, label %.thread
+
+93:                                               ; preds = %91
+  %94 = load i8, ptr %34, align 4
+  %95 = and i8 %94, 1
+  %.not52 = icmp eq i8 %95, 0
+  br i1 %.not52, label %.split.us, label %96
+
+96:                                               ; preds = %93
+  store i8 0, ptr %34, align 4
+  invoke void @glfwWindowHint(i32 noundef 135185, i32 noundef 0)
+          to label %97 unwind label %.loopexit.split
+
+97:                                               ; preds = %96
+  %98 = load ptr, ptr @stderr, align 8
+  %99 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 66, i64 1, ptr %98) #34
+  br i1 %86, label %.preheader.split, label %.split.us, !llvm.loop !21
+
+.split.us:                                        ; preds = %97, %93, %79, %83
+  %.pr = load ptr, ptr %18, align 8
+  %.not53 = icmp eq ptr %.pr, null
+  br i1 %.not53, label %100, label %.thread
+
+100:                                              ; preds = %.split.us
+  %101 = tail call ptr @__cxa_allocate_exception(i64 16) #30
+  call void @_ZNSt7__cxx119to_stringEj(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, i32 noundef %8) #30
+  %102 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef 0, ptr noundef nonnull @.str.3)
+          to label %103 unwind label %.thread66
+
+103:                                              ; preds = %100
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %102) #30
+  %104 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.4)
+          to label %105 unwind label %111
+
+105:                                              ; preds = %103
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %104) #30
+  call void @_ZNSt7__cxx119to_stringEj(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, i32 noundef %9) #30
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %16)
+          to label %106 unwind label %113
+
+106:                                              ; preds = %105
+  %107 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.5)
+          to label %108 unwind label %115
+
+108:                                              ; preds = %106
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %107) #30
+  invoke void @_ZNSt13runtime_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %109 unwind label %117
+
+109:                                              ; preds = %108
+  invoke void @__cxa_throw(ptr nonnull %101, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #33
+          to label %190 unwind label %117
+
+.thread66:                                        ; preds = %100
+  %110 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #30
+  br label %122
+
+111:                                              ; preds = %103
+  %112 = landingpad { ptr, i32 }
+          cleanup
+  br label %121
+
+113:                                              ; preds = %105
+  %114 = landingpad { ptr, i32 }
+          cleanup
+  br label %120
+
+115:                                              ; preds = %106
+  %116 = landingpad { ptr, i32 }
+          cleanup
+  br label %119
+
+117:                                              ; preds = %109, %108
+  %.0 = phi i1 [ false, %109 ], [ true, %108 ]
+  %118 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #30
+  br label %119
+
+119:                                              ; preds = %117, %115
+  %.pn = phi { ptr, i32 } [ %118, %117 ], [ %116, %115 ]
+  %.1 = phi i1 [ %.0, %117 ], [ true, %115 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #30
+  br label %120
+
+120:                                              ; preds = %119, %113
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %119 ], [ %114, %113 ]
+  %.2 = phi i1 [ %.1, %119 ], [ true, %113 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #30
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #30
+  br label %121
+
+121:                                              ; preds = %111, %120
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %120 ], [ %112, %111 ]
+  %.3 = phi i1 [ %.2, %120 ], [ true, %111 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #30
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #30
+  br i1 %.3, label %122, label %.loopexit
+
+122:                                              ; preds = %.thread66, %121
+  %.pn.pn.pn.pn69 = phi { ptr, i32 } [ %110, %.thread66 ], [ %.pn.pn.pn, %121 ]
+  call void @__cxa_free_exception(ptr %101) #30
+  br label %.loopexit
+
+.thread:                                          ; preds = %91, %77, %.split.us
+  %123 = phi ptr [ %.pr, %.split.us ], [ %76, %77 ], [ %90, %91 ]
+  invoke void @glfwMakeContextCurrent(ptr noundef nonnull %123)
+          to label %124 unwind label %.loopexit.split-lp
+
+124:                                              ; preds = %.thread
+  %125 = load ptr, ptr %18, align 8
+  invoke void @glfwSetInputMode(ptr noundef %125, i32 noundef 208897, i32 noundef 212993)
+          to label %126 unwind label %.loopexit.split-lp
+
+126:                                              ; preds = %124
+  %127 = load i8, ptr %34, align 4
+  %128 = and i8 %127, 1
+  %.not58 = icmp eq i8 %128, 0
+  br i1 %.not58, label %135, label %129
+
+129:                                              ; preds = %126
+  invoke void @glGetBooleanv(i32 noundef 34848, ptr noundef nonnull %17)
+          to label %130 unwind label %.loopexit.split-lp
+
+130:                                              ; preds = %129
+  %131 = load i8, ptr %17, align 1
+  %.not59 = icmp eq i8 %131, 0
+  br i1 %.not59, label %132, label %135
+
+132:                                              ; preds = %130
+  %133 = load ptr, ptr @stderr, align 8
+  %134 = call i64 @fwrite(ptr nonnull @.str.6, i64 47, i64 1, ptr %133) #34
+  store i8 0, ptr %34, align 4
+  br label %135
+
+135:                                              ; preds = %130, %132, %126
+  %136 = load ptr, ptr %18, align 8
+  %137 = getelementptr inbounds i8, ptr %0, i64 244
+  invoke void @glfwGetFramebufferSize(ptr noundef %136, ptr noundef nonnull %21, ptr noundef nonnull %137)
+          to label %138 unwind label %.loopexit.split-lp
+
+138:                                              ; preds = %135
+  %139 = load i32, ptr %21, align 8
+  %140 = load i32, ptr %137, align 4
+  invoke void @glViewport(i32 noundef 0, i32 noundef 0, i32 noundef %139, i32 noundef %140)
+          to label %141 unwind label %.loopexit.split-lp
+
+141:                                              ; preds = %138
+  %142 = load float, ptr %24, align 4
+  %143 = load float, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %144 = load float, ptr %.sroa.3.0..sroa_idx.i, align 4
+  %145 = load float, ptr %.sroa.4.0..sroa_idx.i, align 8
+  invoke void @glClearColor(float noundef %142, float noundef %143, float noundef %144, float noundef %145)
+          to label %146 unwind label %.loopexit.split-lp
+
+146:                                              ; preds = %141
+  invoke void @glClear(i32 noundef 17664)
+          to label %147 unwind label %.loopexit.split-lp
+
+147:                                              ; preds = %146
+  invoke void @glfwSwapInterval(i32 noundef 0)
+          to label %148 unwind label %.loopexit.split-lp
+
+148:                                              ; preds = %147
+  %149 = load ptr, ptr %18, align 8
+  invoke void @glfwSwapBuffers(ptr noundef %149)
+          to label %150 unwind label %.loopexit.split-lp
+
+150:                                              ; preds = %148
+  %151 = load ptr, ptr %18, align 8
+  %152 = invoke ptr @glfwSetCursorPosCallback(ptr noundef %151, ptr noundef nonnull @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_08__invokeEP10GLFWwindowdd")
+          to label %153 unwind label %.loopexit.split-lp
+
+153:                                              ; preds = %150
+  %154 = load ptr, ptr %18, align 8
+  %155 = invoke ptr @glfwSetMouseButtonCallback(ptr noundef %154, ptr noundef nonnull @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_18__invokeEP10GLFWwindowiii")
+          to label %156 unwind label %.loopexit.split-lp
+
+156:                                              ; preds = %153
+  %157 = load ptr, ptr %18, align 8
+  %158 = invoke ptr @glfwSetKeyCallback(ptr noundef %157, ptr noundef nonnull @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_28__invokeEP10GLFWwindowiiii")
+          to label %159 unwind label %.loopexit.split-lp
+
+159:                                              ; preds = %156
+  %160 = load ptr, ptr %18, align 8
+  %161 = invoke ptr @glfwSetCharCallback(ptr noundef %160, ptr noundef nonnull @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_38__invokeEP10GLFWwindowj")
+          to label %162 unwind label %.loopexit.split-lp
+
+162:                                              ; preds = %159
+  %163 = load ptr, ptr %18, align 8
+  %164 = invoke ptr @glfwSetDropCallback(ptr noundef %163, ptr noundef nonnull @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_48__invokeEP10GLFWwindowiPPKc")
+          to label %165 unwind label %.loopexit.split-lp
+
+165:                                              ; preds = %162
+  %166 = load ptr, ptr %18, align 8
+  %167 = invoke ptr @glfwSetScrollCallback(ptr noundef %166, ptr noundef nonnull @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_58__invokeEP10GLFWwindowdd")
+          to label %168 unwind label %.loopexit.split-lp
+
+168:                                              ; preds = %165
+  %169 = load ptr, ptr %18, align 8
+  %170 = invoke ptr @glfwSetFramebufferSizeCallback(ptr noundef %169, ptr noundef nonnull @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_68__invokeEP10GLFWwindowii")
+          to label %171 unwind label %.loopexit.split-lp
+
+171:                                              ; preds = %168
+  %172 = load ptr, ptr %18, align 8
+  %173 = invoke ptr @glfwSetWindowFocusCallback(ptr noundef %172, ptr noundef nonnull @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_78__invokeEP10GLFWwindowi")
+          to label %174 unwind label %.loopexit.split-lp
+
+174:                                              ; preds = %171
+  %175 = load ptr, ptr %18, align 8
+  %176 = invoke ptr @glfwSetWindowContentScaleCallback(ptr noundef %175, ptr noundef nonnull @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_88__invokeEP10GLFWwindowff")
+          to label %177 unwind label %.loopexit.split-lp
+
+177:                                              ; preds = %174
+  %178 = load ptr, ptr %18, align 8
+  invoke void @_ZN7nanogui6Screen10initializeEP10GLFWwindowb(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %178, i1 noundef zeroext true)
+          to label %179 unwind label %.loopexit.split-lp
+
+179:                                              ; preds = %177
+  ret void
+
+.loopexit:                                        ; preds = %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %121, %122, %48
+  %.pn60 = phi { ptr, i32 } [ %.pn.pn.pn.pn69, %122 ], [ %.pn.pn.pn, %121 ], [ %49, %48 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
+  %180 = getelementptr inbounds i8, ptr %0, i64 368
+  %181 = load ptr, ptr %180, align 8
+  %.not.i.i = icmp eq ptr %181, null
+  br i1 %.not.i.i, label %_ZNSt8functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev.exit, label %182
+
+182:                                              ; preds = %.loopexit
+  %183 = invoke noundef zeroext i1 %181(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %36, i32 noundef 3)
+          to label %_ZNSt8functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev.exit unwind label %184
+
+184:                                              ; preds = %182
+  %185 = landingpad { ptr, i32 }
+          catch ptr null
+  %186 = extractvalue { ptr, i32 } %185, 0
+  call void @__clang_call_terminate(ptr %186) #31
+  unreachable
+
+_ZNSt8functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev.exit: ; preds = %.loopexit, %182
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #30
+  br label %187
+
+187:                                              ; preds = %_ZNSt8functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev.exit, %46
+  %.pn60.pn = phi { ptr, i32 } [ %.pn60, %_ZNSt8functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev.exit ], [ %47, %46 ]
+  %188 = load ptr, ptr %20, align 8
+  %.not.i.i.i = icmp eq ptr %188, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EED2Ev.exit, label %189
+
+189:                                              ; preds = %187
+  call void @_ZdlPv(ptr noundef nonnull %188) #32
+  br label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EED2Ev.exit
+
+_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EED2Ev.exit: ; preds = %187, %189
+  call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #30
+  resume { ptr, i32 } %.pn60.pn
+
+190:                                              ; preds = %109, %45
+  unreachable
+}
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
+
+declare void @glfwWindowHint(i32 noundef, i32 noundef) local_unnamed_addr #0
+
+declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
+
+declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #0
+
+declare void @__cxa_free_exception(ptr) local_unnamed_addr
+
+; Function Attrs: nounwind
+declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
+
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+
+declare ptr @glfwGetPrimaryMonitor() local_unnamed_addr #0
+
+declare ptr @glfwGetVideoMode(ptr noundef) local_unnamed_addr #0
+
+declare ptr @glfwCreateWindow(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: nounwind
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat {
+  %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #30
+  %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #30
+  %6 = add i64 %5, %4
+  %7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #30
+  %8 = icmp ugt i64 %6, %7
+  br i1 %8, label %9, label %13
+
+9:                                                ; preds = %3
+  %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #30
+  %.not = icmp ugt i64 %6, %10
+  br i1 %.not, label %13, label %11
+
+11:                                               ; preds = %9
+  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  br label %15
+
+13:                                               ; preds = %3, %9
+  %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  br label %15
+
+15:                                               ; preds = %13, %11
+  %.sink = phi ptr [ %14, %13 ], [ %12, %11 ]
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink) #30
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEj(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1) local_unnamed_addr #7 comdat personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.std::allocator.4", align 1
+  %4 = icmp ult i32 %1, 10
+  br i1 %4, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %2, %16
+  %.02230.i = phi i32 [ %17, %16 ], [ %1, %2 ]
+  %.02329.i = phi i32 [ %18, %16 ], [ 1, %2 ]
+  %5 = icmp ult i32 %.02230.i, 100
+  br i1 %5, label %6, label %8
+
+6:                                                ; preds = %.lr.ph.i
+  %7 = add i32 %.02329.i, 1
+  br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
+
+8:                                                ; preds = %.lr.ph.i
+  %9 = icmp ult i32 %.02230.i, 1000
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %8
+  %11 = add i32 %.02329.i, 2
+  br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
+
+12:                                               ; preds = %8
+  %13 = icmp ult i32 %.02230.i, 10000
+  br i1 %13, label %14, label %16
+
+14:                                               ; preds = %12
+  %15 = add i32 %.02329.i, 3
+  br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
+
+16:                                               ; preds = %12
+  %17 = udiv i32 %.02230.i, 10000
+  %18 = add i32 %.02329.i, 4
+  %19 = icmp ult i32 %.02230.i, 100000
+  br i1 %19, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !22
+
+_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
+  %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
+  %20 = zext i32 %.0.i to i64
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #30
+  %21 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+          to label %.noexc unwind label %61
+
+.noexc:                                           ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %.noexc2 unwind label %61
+
+.noexc2:                                          ; preds = %.noexc
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %20, i8 noundef signext 0)
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit unwind label %22
+
+22:                                               ; preds = %.noexc2
+  %23 = landingpad { ptr, i32 }
+          catch ptr null
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #30
+  br label %.body
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.noexc2
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #30
+  %24 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0)
+          to label %25 unwind label %61
+
+25:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
+  %26 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #30
+  %27 = icmp ugt i32 %1, 99
+  br i1 %27, label %.lr.ph.preheader.i, label %._crit_edge.i
+
+.lr.ph.preheader.i:                               ; preds = %25
+  %28 = trunc i64 %26 to i32
+  %29 = add i32 %28, -1
+  br label %.lr.ph.i3
+
+.lr.ph.i3:                                        ; preds = %.lr.ph.i3, %.lr.ph.preheader.i
+  %.020.i = phi i32 [ %32, %.lr.ph.i3 ], [ %1, %.lr.ph.preheader.i ]
+  %.01819.i = phi i32 [ %45, %.lr.ph.i3 ], [ %29, %.lr.ph.preheader.i ]
+  %30 = urem i32 %.020.i, 100
+  %31 = shl nuw nsw i32 %30, 1
+  %32 = udiv i32 %.020.i, 100
+  %33 = or disjoint i32 %31, 1
+  %34 = zext nneg i32 %33 to i64
+  %35 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %34
+  %36 = load i8, ptr %35, align 1
+  %37 = zext i32 %.01819.i to i64
+  %38 = getelementptr inbounds i8, ptr %24, i64 %37
+  store i8 %36, ptr %38, align 1
+  %39 = zext nneg i32 %31 to i64
+  %40 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %39
+  %41 = load i8, ptr %40, align 2
+  %42 = add i32 %.01819.i, -1
+  %43 = zext i32 %42 to i64
+  %44 = getelementptr inbounds i8, ptr %24, i64 %43
+  store i8 %41, ptr %44, align 1
+  %45 = add i32 %.01819.i, -2
+  %46 = icmp ugt i32 %.020.i, 9999
+  br i1 %46, label %.lr.ph.i3, label %._crit_edge.i, !llvm.loop !23
+
+._crit_edge.i:                                    ; preds = %.lr.ph.i3, %25
+  %.0.lcssa.i = phi i32 [ %1, %25 ], [ %32, %.lr.ph.i3 ]
+  %47 = icmp ugt i32 %.0.lcssa.i, 9
+  br i1 %47, label %48, label %58
+
+48:                                               ; preds = %._crit_edge.i
+  %49 = shl nuw nsw i32 %.0.lcssa.i, 1
+  %50 = or disjoint i32 %49, 1
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %51
+  %53 = load i8, ptr %52, align 1
+  %54 = getelementptr inbounds i8, ptr %24, i64 1
+  store i8 %53, ptr %54, align 1
+  %55 = zext nneg i32 %49 to i64
+  %56 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %55
+  %57 = load i8, ptr %56, align 2
+  br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
+
+58:                                               ; preds = %._crit_edge.i
+  %59 = trunc i32 %.0.lcssa.i to i8
+  %60 = or disjoint i8 %59, 48
+  br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
+
+_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %48, %58
+  %storemerge.i = phi i8 [ %60, %58 ], [ %57, %48 ]
+  store i8 %storemerge.i, ptr %24, align 1
+  ret void
+
+61:                                               ; preds = %.noexc, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
+  %62 = landingpad { ptr, i32 }
+          catch ptr null
+  br label %.body
+
+.body:                                            ; preds = %22, %61
+  %eh.lpad-body = phi { ptr, i32 } [ %62, %61 ], [ %23, %22 ]
+  %63 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %63) #31
+  unreachable
+}
+
+declare void @_ZNSt13runtime_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
+
+declare void @glfwMakeContextCurrent(ptr noundef) local_unnamed_addr #0
+
+declare void @glfwSetInputMode(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
+
+declare void @glfwGetFramebufferSize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glViewport(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
+
+declare void @glClearColor(float noundef, float noundef, float noundef, float noundef) local_unnamed_addr #0
+
+declare void @glClear(i32 noundef) local_unnamed_addr #0
+
+declare void @glfwSwapInterval(i32 noundef) local_unnamed_addr #0
+
+declare void @glfwSwapBuffers(ptr noundef) local_unnamed_addr #0
+
+declare ptr @glfwSetCursorPosCallback(ptr noundef, ptr noundef) local_unnamed_addr #0
+
+declare ptr @glfwSetMouseButtonCallback(ptr noundef, ptr noundef) local_unnamed_addr #0
+
+declare ptr @glfwSetKeyCallback(ptr noundef, ptr noundef) local_unnamed_addr #0
+
+declare ptr @glfwSetCharCallback(ptr noundef, ptr noundef) local_unnamed_addr #0
+
+declare ptr @glfwSetDropCallback(ptr noundef, ptr noundef) local_unnamed_addr #0
+
+declare ptr @glfwSetScrollCallback(ptr noundef, ptr noundef) local_unnamed_addr #0
+
+declare ptr @glfwSetFramebufferSizeCallback(ptr noundef, ptr noundef) local_unnamed_addr #0
+
+declare ptr @glfwSetWindowFocusCallback(ptr noundef, ptr noundef) local_unnamed_addr #0
+
+declare ptr @glfwSetWindowContentScaleCallback(ptr noundef, ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen10initializeEP10GLFWwindowb(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %struct.NVGparams, align 8
+  %5 = alloca %struct.NVGparams, align 8
+  %6 = alloca float, align 4
+  %7 = alloca float, align 4
+  %8 = zext i1 %2 to i8
+  %9 = getelementptr inbounds i8, ptr %0, i64 144
+  store ptr %1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 344
+  store i8 %8, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds i8, ptr %0, i64 52
+  tail call void @glfwGetWindowSize(ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %13 = load ptr, ptr %9, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 240
+  %15 = getelementptr inbounds i8, ptr %0, i64 244
+  tail call void @glfwGetFramebufferSize(ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @glfwGetWindowContentScale(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %16 = load float, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  %17 = getelementptr inbounds i8, ptr %0, i64 248
+  store float %16, ptr %17, align 8
+  %18 = fcmp une float %16, 1.000000e+00
+  br i1 %18, label %19, label %32
+
+19:                                               ; preds = %3
+  %20 = getelementptr inbounds i8, ptr %0, i64 345
+  %21 = load i8, ptr %20, align 1
+  %22 = and i8 %21, 1
+  %.not = icmp eq i8 %22, 0
+  br i1 %.not, label %23, label %32
+
+23:                                               ; preds = %19
+  %24 = load i32, ptr %11, align 8
+  %25 = sitofp i32 %24 to float
+  %26 = fmul float %16, %25
+  %27 = fptosi float %26 to i32
+  %28 = load i32, ptr %12, align 4
+  %29 = sitofp i32 %28 to float
+  %30 = fmul float %16, %29
+  %31 = fptosi float %30 to i32
+  call void @glfwSetWindowSize(ptr noundef %1, i32 noundef %27, i32 noundef %31)
+  br label %32
+
+32:                                               ; preds = %23, %19, %3
+  %33 = getelementptr inbounds i8, ptr %0, i64 347
+  %34 = load i8, ptr %33, align 1
+  %35 = and i8 %34, 1
+  %.not17 = icmp eq i8 %35, 0
+  br i1 %.not17, label %.split16, label %.split
+
+.split16:                                         ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5)
+  %calloc.i = call dereferenceable_or_null(176) ptr @calloc(i64 1, i64 176)
+  %36 = icmp eq ptr %calloc.i, null
+  br i1 %36, label %54, label %37
+
+37:                                               ; preds = %.split16
+  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 1, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr @_ZL19glnvg__renderCreatePv, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr @_ZL26glnvg__renderCreateTexturePviiiiPKh, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr @_ZL26glnvg__renderDeleteTexturePvi, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %5, i64 40
+  store ptr @_ZL26glnvg__renderUpdateTexturePviiiiiPKh, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %5, i64 48
+  store ptr @_ZL27glnvg__renderGetTextureSizePviPiS0_, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr @_ZL21glnvg__renderViewportPvfff, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %5, i64 64
+  store ptr @_ZL19glnvg__renderCancelPv, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %5, i64 72
+  store ptr @_ZL18glnvg__renderFlushPv, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %5, i64 80
+  store ptr @_ZL17glnvg__renderFillPvP8NVGpaint26NVGcompositeOperationStateP10NVGscissorfPKfPK7NVGpathi, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %5, i64 88
+  store ptr @_ZL19glnvg__renderStrokePvP8NVGpaint26NVGcompositeOperationStateP10NVGscissorffPK7NVGpathi, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %5, i64 96
+  store ptr @_ZL22glnvg__renderTrianglesPvP8NVGpaint26NVGcompositeOperationStateP10NVGscissorPK9NVGvertexi, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %5, i64 104
+  store ptr @_ZL19glnvg__renderDeletePv, ptr %50, align 8
+  store ptr %calloc.i, ptr %5, align 8
+  %51 = getelementptr inbounds i8, ptr %calloc.i, i64 68
+  store i32 1, ptr %51, align 4
+  %52 = call ptr @nvgCreateInternal(ptr noundef nonnull %5)
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %nvgCreateGL3.exit
+
+54:                                               ; preds = %37, %.split16
+  br label %nvgCreateGL3.exit
+
+nvgCreateGL3.exit:                                ; preds = %37, %54
+  %.0.i = phi ptr [ null, %54 ], [ %52, %37 ]
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5)
+  br label %74
+
+.split:                                           ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
+  %calloc.i20 = call dereferenceable_or_null(176) ptr @calloc(i64 1, i64 176)
+  %55 = icmp eq ptr %calloc.i20, null
+  br i1 %55, label %73, label %56
+
+56:                                               ; preds = %.split
+  %57 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr @_ZL19glnvg__renderCreatePv, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr @_ZL26glnvg__renderCreateTexturePviiiiPKh, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr @_ZL26glnvg__renderDeleteTexturePvi, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr @_ZL26glnvg__renderUpdateTexturePviiiiiPKh, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %4, i64 48
+  store ptr @_ZL27glnvg__renderGetTextureSizePviPiS0_, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %4, i64 56
+  store ptr @_ZL21glnvg__renderViewportPvfff, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %4, i64 64
+  store ptr @_ZL19glnvg__renderCancelPv, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %4, i64 72
+  store ptr @_ZL18glnvg__renderFlushPv, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %4, i64 80
+  store ptr @_ZL17glnvg__renderFillPvP8NVGpaint26NVGcompositeOperationStateP10NVGscissorfPKfPK7NVGpathi, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %4, i64 88
+  store ptr @_ZL19glnvg__renderStrokePvP8NVGpaint26NVGcompositeOperationStateP10NVGscissorffPK7NVGpathi, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %4, i64 96
+  store ptr @_ZL22glnvg__renderTrianglesPvP8NVGpaint26NVGcompositeOperationStateP10NVGscissorPK9NVGvertexi, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %4, i64 104
+  store ptr @_ZL19glnvg__renderDeletePv, ptr %69, align 8
+  store ptr %calloc.i20, ptr %4, align 8
+  %70 = getelementptr inbounds i8, ptr %calloc.i20, i64 68
+  store i32 3, ptr %70, align 4
+  %71 = call ptr @nvgCreateInternal(ptr noundef nonnull %4)
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %73, label %nvgCreateGL3.exit22
+
+73:                                               ; preds = %56, %.split
+  br label %nvgCreateGL3.exit22
+
+nvgCreateGL3.exit22:                              ; preds = %56, %73
+  %.0.i21 = phi ptr [ null, %73 ], [ %71, %56 ]
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
+  br label %74
+
+74:                                               ; preds = %nvgCreateGL3.exit, %nvgCreateGL3.exit22
+  %phi.call = phi ptr [ %.0.i21, %nvgCreateGL3.exit22 ], [ %.0.i, %nvgCreateGL3.exit ]
+  %75 = getelementptr inbounds i8, ptr %0, i64 152
+  store ptr %phi.call, ptr %75, align 8
+  %.not18 = icmp eq ptr %phi.call, null
+  br i1 %.not18, label %76, label %81
+
+76:                                               ; preds = %74
+  %77 = call ptr @__cxa_allocate_exception(i64 16) #30
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull @.str.7)
+          to label %78 unwind label %79
+
+78:                                               ; preds = %76
+  call void @__cxa_throw(ptr nonnull %77, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #33
+  unreachable
+
+79:                                               ; preds = %76
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  call void @__cxa_free_exception(ptr %77) #30
+  br label %114
+
+81:                                               ; preds = %74
+  %82 = call i32 @glfwGetWindowAttrib(ptr noundef %1, i32 noundef 131076)
+  %83 = icmp ne i32 %82, 0
+  %84 = getelementptr inbounds i8, ptr %0, i64 88
+  %85 = zext i1 %83 to i8
+  store i8 %85, ptr %84, align 8
+  %86 = call noalias noundef nonnull dereferenceable(528) ptr @_Znwm(i64 noundef 528) #35
+  %87 = load ptr, ptr %75, align 8
+  invoke void @_ZN7nanogui5ThemeC1EP10NVGcontext(ptr noundef nonnull align 8 dereferenceable(528) %86, ptr noundef %87)
+          to label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge unwind label %104
+
+_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %81
+  %88 = load ptr, ptr %0, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 16
+  %90 = load ptr, ptr %89, align 8
+  call void %90(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef nonnull %86)
+  %91 = getelementptr inbounds i8, ptr %0, i64 252
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %91, i8 0, i64 17, i1 false)
+  %92 = call double @glfwGetTime()
+  %93 = getelementptr inbounds i8, ptr %0, i64 280
+  store double %92, ptr %93, align 8
+  %94 = getelementptr inbounds i8, ptr %0, i64 288
+  store i8 1, ptr %94, align 8
+  %95 = getelementptr inbounds i8, ptr %0, i64 349
+  store i8 1, ptr %95, align 1
+  %96 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEEixERS8_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN7nanogui17__nanogui_screensE, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  store ptr %0, ptr %96, align 8
+  %97 = getelementptr inbounds i8, ptr %0, i64 160
+  br label %98
+
+98:                                               ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge, %98
+  %.025 = phi i64 [ 0, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ], [ %103, %98 ]
+  %99 = trunc i64 %.025 to i32
+  %100 = add nuw nsw i32 %99, 221185
+  %101 = call ptr @glfwCreateStandardCursor(i32 noundef %100)
+  %102 = getelementptr inbounds [6 x ptr], ptr %97, i64 0, i64 %.025
+  store ptr %101, ptr %102, align 8
+  %103 = add nuw nsw i64 %.025, 1
+  %exitcond.not = icmp eq i64 %103, 6
+  br i1 %exitcond.not, label %106, label %98, !llvm.loop !24
+
+104:                                              ; preds = %81
+  %105 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZdlPv(ptr noundef nonnull %86) #32
+  br label %114
+
+106:                                              ; preds = %98
+  %107 = load ptr, ptr %75, align 8
+  %108 = load i32, ptr %11, align 8
+  %109 = sitofp i32 %108 to float
+  %110 = load i32, ptr %12, align 4
+  %111 = sitofp i32 %110 to float
+  %112 = load float, ptr %17, align 8
+  call void @nvgBeginFrame(ptr noundef %107, float noundef %109, float noundef %111, float noundef %112)
+  %113 = load ptr, ptr %75, align 8
+  call void @nvgEndFrame(ptr noundef %113)
+  ret void
+
+114:                                              ; preds = %104, %79
+  %.pn = phi { ptr, i32 } [ %105, %104 ], [ %80, %79 ]
+  resume { ptr, i32 } %.pn
+}
+
+declare void @glfwGetWindowSize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glfwSetWindowSize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
+
+declare i32 @glfwGetWindowAttrib(ptr noundef, i32 noundef) local_unnamed_addr #0
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
+
+declare void @_ZN7nanogui5ThemeC1EP10NVGcontext(ptr noundef nonnull align 8 dereferenceable(528), ptr noundef) unnamed_addr #0
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+
+declare double @glfwGetTime() local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEEixERS8_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %.not10.i.i.i = icmp eq ptr %4, null
+  %.pre = load ptr, ptr %1, align 8
+  br i1 %.not10.i.i.i, label %.critedge, label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
+  %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %4, %2 ]
+  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %5, %2 ]
+  %6 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp ult ptr %7, %.pre
+  %.19.i.i.i = select i1 %8, ptr %.0811.i.i.i, ptr %.012.i.i.i
+  %.1.in.v.i.i.i = select i1 %8, i64 24, i64 16
+  %.1.in.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
+  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
+  %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
+  br i1 %.not.i.i.i, label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit, label %.lr.ph.i.i.i, !llvm.loop !25
+
+_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit: ; preds = %.lr.ph.i.i.i
+  %9 = icmp eq ptr %.19.i.i.i, %5
+  br i1 %9, label %.critedge, label %10
+
+10:                                               ; preds = %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit
+  %11 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp ult ptr %.pre, %12
+  br i1 %13, label %.critedge, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_.exit
+
+.critedge:                                        ; preds = %2, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit, %10
+  %.08.lcssa.i.i.i12 = phi ptr [ %5, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit ], [ %.19.i.i.i, %10 ], [ %5, %2 ]
+  %14 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #35
+  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  store ptr %.pre, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  store ptr null, ptr %16, align 8
+  %17 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i12, ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %18 unwind label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE10_Auto_nodeD2Ev.exit.i
+
+18:                                               ; preds = %.critedge
+  %19 = extractvalue { ptr, ptr } %17, 0
+  %20 = extractvalue { ptr, ptr } %17, 1
+  %.not.i = icmp eq ptr %20, null
+  br i1 %.not.i, label %33, label %21
+
+21:                                               ; preds = %18
+  %.not.i.i.i4 = icmp ne ptr %19, null
+  %22 = icmp eq ptr %5, %20
+  %or.cond.i.i.i = select i1 %.not.i.i.i4, i1 true, i1 %22
+  br i1 %or.cond.i.i.i, label %.thread.i, label %23
+
+23:                                               ; preds = %21
+  %24 = load ptr, ptr %15, align 8
+  %25 = getelementptr inbounds i8, ptr %20, i64 32
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp ult ptr %24, %26
+  br label %.thread.i
+
+.thread.i:                                        ; preds = %23, %21
+  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #30
+  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = load i64, ptr %29, align 8
+  %31 = add i64 %30, 1
+  store i64 %31, ptr %29, align 8
+  br label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_.exit
+
+_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE10_Auto_nodeD2Ev.exit.i: ; preds = %.critedge
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #32
+  resume { ptr, i32 } %32
+
+33:                                               ; preds = %18
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #32
+  br label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_.exit
+
+_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_.exit: ; preds = %33, %.thread.i, %10
+  %.sroa.07.0 = phi ptr [ %.19.i.i.i, %10 ], [ %14, %.thread.i ], [ %19, %33 ]
+  %34 = getelementptr inbounds i8, ptr %.sroa.07.0, i64 40
+  ret ptr %34
+}
+
+declare ptr @glfwCreateStandardCursor(i32 noundef) local_unnamed_addr #0
+
+declare void @nvgBeginFrame(ptr noundef, float noundef, float noundef, float noundef) local_unnamed_addr #0
+
+declare void @nvgEndFrame(ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN7nanogui6ScreenD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN7nanogui6ScreenE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = invoke noundef i64 @_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE5eraseERS3_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN7nanogui17__nanogui_screensE, ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE5eraseERS8_.exit.preheader unwind label %.loopexit.split-lp
+
+_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE5eraseERS8_.exit.preheader: ; preds = %1
+  %4 = getelementptr inbounds i8, ptr %0, i64 160
+  br label %5
+
+5:                                                ; preds = %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE5eraseERS8_.exit.preheader, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE5eraseERS8_.exit
+  %.010 = phi i64 [ 0, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE5eraseERS8_.exit.preheader ], [ %9, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE5eraseERS8_.exit ]
+  %6 = getelementptr inbounds [6 x ptr], ptr %4, i64 0, i64 %.010
+  %7 = load ptr, ptr %6, align 8
+  %.not9 = icmp eq ptr %7, null
+  br i1 %.not9, label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE5eraseERS8_.exit, label %8
+
+8:                                                ; preds = %5
+  invoke void @glfwDestroyCursor(ptr noundef nonnull %7)
+          to label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE5eraseERS8_.exit unwind label %.loopexit
+
+_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE5eraseERS8_.exit: ; preds = %5, %8
+  %9 = add nuw nsw i64 %.010, 1
+  %exitcond.not = icmp eq i64 %9, 6
+  br i1 %exitcond.not, label %10, label %5, !llvm.loop !26
+
+10:                                               ; preds = %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE5eraseERS8_.exit
+  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %12 = load ptr, ptr %11, align 8
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %nvgDeleteGL3.exit, label %13
+
+13:                                               ; preds = %10
+  invoke void @nvgDeleteInternal(ptr noundef nonnull %12)
+          to label %nvgDeleteGL3.exit unwind label %.loopexit.split-lp
+
+nvgDeleteGL3.exit:                                ; preds = %13, %10
+  %14 = load ptr, ptr %2, align 8
+  %.not7 = icmp eq ptr %14, null
+  br i1 %.not7, label %20, label %15
+
+15:                                               ; preds = %nvgDeleteGL3.exit
+  %16 = getelementptr inbounds i8, ptr %0, i64 344
+  %17 = load i8, ptr %16, align 8
+  %18 = and i8 %17, 1
+  %.not8 = icmp eq i8 %18, 0
+  br i1 %.not8, label %20, label %19
+
+19:                                               ; preds = %15
+  invoke void @glfwDestroyWindow(ptr noundef nonnull %14)
+          to label %20 unwind label %.loopexit.split-lp
+
+20:                                               ; preds = %19, %15, %nvgDeleteGL3.exit
+  %21 = getelementptr inbounds i8, ptr %0, i64 368
+  %22 = load ptr, ptr %21, align 8
+  %.not.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i, label %_ZNSt8functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev.exit, label %23
+
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds i8, ptr %0, i64 352
+  %25 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %24, i32 noundef 3)
+          to label %_ZNSt8functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev.exit unwind label %26
+
+26:                                               ; preds = %23
+  %27 = landingpad { ptr, i32 }
+          catch ptr null
+  %28 = extractvalue { ptr, i32 } %27, 0
+  tail call void @__clang_call_terminate(ptr %28) #31
+  unreachable
+
+_ZNSt8functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev.exit: ; preds = %20, %23
+  %29 = getelementptr inbounds i8, ptr %0, i64 312
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #30
+  %30 = getelementptr inbounds i8, ptr %0, i64 216
+  %31 = load ptr, ptr %30, align 8
+  %.not.i.i.i = icmp eq ptr %31, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EED2Ev.exit, label %32
+
+32:                                               ; preds = %_ZNSt8functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %31) #32
+  br label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EED2Ev.exit
+
+_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EED2Ev.exit: ; preds = %_ZNSt8functionIFvN7nanogui5ArrayIiLm2EEEEED2Ev.exit, %32
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #30
+  ret void
+
+.loopexit:                                        ; preds = %8
+  %lpad.loopexit = landingpad { ptr, i32 }
+          catch ptr null
+  br label %33
+
+.loopexit.split-lp:                               ; preds = %19, %1, %13
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          catch ptr null
+  br label %33
+
+33:                                               ; preds = %.loopexit.split-lp, %.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %34 = extractvalue { ptr, i32 } %lpad.phi, 0
+  tail call void @__clang_call_terminate(ptr %34) #31
+  unreachable
+}
+
+; Function Attrs: noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #30
+  tail call void @_ZSt9terminatev() #31
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
+
+declare void @_ZSt9terminatev() local_unnamed_addr
+
+declare void @glfwDestroyCursor(ptr noundef) local_unnamed_addr #0
+
+declare void @glfwDestroyWindow(ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN7nanogui6ScreenD0Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 align 2 {
+  tail call void @_ZN7nanogui6ScreenD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #32
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen11set_visibleEb(ptr nocapture noundef nonnull align 8 dereferenceable(384) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = load i8, ptr %3, align 8
+  %5 = and i8 %4, 1
+  %6 = icmp eq i8 %5, 0
+  %.not = xor i1 %6, %1
+  br i1 %.not, label %13, label %7
+
+7:                                                ; preds = %2
+  %8 = zext i1 %1 to i8
+  store i8 %8, ptr %3, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 144
+  %10 = load ptr, ptr %9, align 8
+  br i1 %1, label %11, label %12
+
+11:                                               ; preds = %7
+  tail call void @glfwShowWindow(ptr noundef %10)
+  br label %13
+
+12:                                               ; preds = %7
+  tail call void @glfwHideWindow(ptr noundef %10)
+  br label %13
+
+13:                                               ; preds = %11, %12, %2
+  ret void
+}
+
+declare void @glfwShowWindow(ptr noundef) local_unnamed_addr #0
+
+declare void @glfwHideWindow(ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen11set_captionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 312
+  %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #30
+  %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #30
+  %6 = icmp eq i64 %4, %5
+  br i1 %6, label %7, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
+
+7:                                                ; preds = %2
+  %8 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #30
+  %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #30
+  %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #30
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread4, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
+
+_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit: ; preds = %7
+  %bcmp.i.i = tail call i32 @bcmp(ptr %8, ptr %9, i64 %10)
+  %.not = icmp eq i32 %bcmp.i.i, 0
+  br i1 %.not, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread4, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
+
+_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %2, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
+  %12 = getelementptr inbounds i8, ptr %0, i64 144
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #30
+  tail call void @glfwSetWindowTitle(ptr noundef %13, ptr noundef %14)
+  %15 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  br label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread4
+
+_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread4: ; preds = %7, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
+  ret void
+}
+
+declare void @glfwSetWindowTitle(ptr noundef, ptr noundef) local_unnamed_addr #0
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen8set_sizeERKNS_5ArrayIiLm2EEE(ptr nocapture noundef nonnull align 8 dereferenceable(384) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = load i64, ptr %1, align 4
+  store i64 %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %1, align 4
+  %8 = sitofp i32 %7 to float
+  %9 = getelementptr inbounds i8, ptr %0, i64 248
+  %10 = load float, ptr %9, align 8
+  %11 = fmul float %10, %8
+  %12 = fptosi float %11 to i32
+  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = load i32, ptr %13, align 4
+  %15 = sitofp i32 %14 to float
+  %16 = fmul float %10, %15
+  %17 = fptosi float %16 to i32
+  tail call void @glfwSetWindowSize(ptr noundef %6, i32 noundef %12, i32 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen5clearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0) unnamed_addr #3 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 292
+  %3 = load float, ptr %2, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 296
+  %5 = load float, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 300
+  %7 = load float, ptr %6, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 304
+  %9 = load float, ptr %8, align 8
+  tail call void @glClearColor(float noundef %3, float noundef %5, float noundef %7, float noundef %9)
+  tail call void @glClear(i32 noundef 17664)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen10draw_setupEv(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #12 align 2 {
+_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge:
+  %1 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = load ptr, ptr %1, align 8
+  tail call void @glfwMakeContextCurrent(ptr noundef %2)
+  %3 = load ptr, ptr %1, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 240
+  %5 = getelementptr inbounds i8, ptr %0, i64 244
+  tail call void @glfwGetFramebufferSize(ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %6 = load ptr, ptr %1, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds i8, ptr %0, i64 52
+  tail call void @glfwGetWindowSize(ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %9 = load i64, ptr %7, align 8
+  store i64 %9, ptr %4, align 8
+  %10 = lshr i64 %9, 32
+  %11 = getelementptr inbounds i8, ptr %0, i64 248
+  %12 = load <4 x float>, ptr %11, align 8
+  %13 = insertelement <2 x i64> poison, i64 %9, i64 0
+  %14 = insertelement <2 x i64> %13, i64 %10, i64 1
+  %15 = trunc <2 x i64> %14 to <2 x i32>
+  %16 = sitofp <2 x i32> %15 to <2 x float>
+  %17 = shufflevector <4 x float> %12, <4 x float> poison, <2 x i32> zeroinitializer
+  %18 = fdiv <2 x float> %16, %17
+  %19 = fptosi <2 x float> %18 to <2 x i32>
+  store <2 x i32> %19, ptr %7, align 8
+  %20 = extractelement <2 x i32> %15, i64 0
+  %21 = extractelement <2 x i32> %15, i64 1
+  tail call void @glViewport(i32 noundef 0, i32 noundef 0, i32 noundef %20, i32 noundef %21)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen13draw_teardownEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0) unnamed_addr #3 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = load ptr, ptr %2, align 8
+  tail call void @glfwSwapBuffers(ptr noundef %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen8draw_allEv(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #3 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 349
+  %3 = load i8, ptr %2, align 1
+  %4 = and i8 %3, 1
+  %.not = icmp eq i8 %4, 0
+  br i1 %.not, label %15, label %5
+
+5:                                                ; preds = %1
+  store i8 0, ptr %2, align 1
+  %6 = load ptr, ptr %0, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 136
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(384) %0)
+  %9 = load ptr, ptr %0, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 144
+  %11 = load ptr, ptr %10, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(384) %0)
+  tail call void @_ZN7nanogui6Screen12draw_widgetsEv(ptr noundef nonnull align 8 dereferenceable(384) %0)
+  %12 = load ptr, ptr %0, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 152
+  %14 = load ptr, ptr %13, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(384) %0)
+  br label %15
+
+15:                                               ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen12draw_widgetsEv(ptr noundef nonnull align 8 dereferenceable(384) %0) local_unnamed_addr #12 align 2 {
+  %2 = alloca %"struct.nanogui::Array.35", align 8
+  %3 = alloca %"struct.nanogui::Array.35", align 4
+  %4 = alloca %"struct.nanogui::Array.35", align 4
+  %5 = alloca %"struct.nanogui::Array.34", align 4
+  %6 = alloca %"struct.nanogui::Array.35", align 8
+  %7 = alloca %"struct.nanogui::Array.35", align 4
+  %8 = alloca %"struct.nanogui::Array.35", align 4
+  %9 = alloca %"struct.nanogui::Array.34", align 4
+  %10 = alloca [4 x float], align 16
+  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = load i32, ptr %13, align 8
+  %15 = sitofp i32 %14 to float
+  %16 = getelementptr inbounds i8, ptr %0, i64 52
+  %17 = load i32, ptr %16, align 4
+  %18 = sitofp i32 %17 to float
+  %19 = getelementptr inbounds i8, ptr %0, i64 248
+  %20 = load float, ptr %19, align 8
+  tail call void @nvgBeginFrame(ptr noundef %12, float noundef %15, float noundef %18, float noundef %20)
+  %21 = load ptr, ptr %11, align 8
+  %22 = load ptr, ptr %0, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 112
+  %24 = load ptr, ptr %23, align 8
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef %21)
+  %25 = tail call double @glfwGetTime()
+  %26 = getelementptr inbounds i8, ptr %0, i64 280
+  %27 = load double, ptr %26, align 8
+  %28 = fsub double %25, %27
+  %29 = fcmp ogt double %28, 5.000000e-01
+  br i1 %29, label %30, label %171
+
+30:                                               ; preds = %1
+  %31 = getelementptr inbounds i8, ptr %0, i64 260
+  %32 = tail call noundef ptr @_ZN7nanogui6Widget11find_widgetERKNS_5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef nonnull align 4 dereferenceable(8) %31)
+  %.not = icmp eq ptr %32, null
+  br i1 %.not, label %171, label %33
+
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %32, i64 96
+  %35 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #30
+  br i1 %35, label %171, label %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
+
+_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %33
+  %36 = load ptr, ptr %11, align 8
+  tail call void @nvgFontFace(ptr noundef %36, ptr noundef nonnull @.str.8)
+  %37 = load ptr, ptr %11, align 8
+  tail call void @nvgFontSize(ptr noundef %37, float noundef 1.500000e+01)
+  %38 = load ptr, ptr %11, align 8
+  tail call void @nvgTextAlign(ptr noundef %38, i32 noundef 9)
+  %39 = load ptr, ptr %11, align 8
+  tail call void @nvgTextLineHeight(ptr noundef %39, float noundef 0x3FF19999A0000000)
+  %40 = tail call i64 @_ZNK7nanogui6Widget17absolute_positionEv(ptr noundef nonnull align 8 dereferenceable(140) %32)
+  %.sroa.062.0.extract.trunc = trunc i64 %40 to i32
+  %.sroa.263.0.extract.shift = lshr i64 %40, 32
+  %.sroa.263.0.extract.trunc = trunc i64 %.sroa.263.0.extract.shift to i32
+  %41 = getelementptr inbounds i8, ptr %32, i64 48
+  %42 = load i32, ptr %41, align 4
+  %43 = sdiv i32 %42, 2
+  %44 = getelementptr inbounds i8, ptr %32, i64 52
+  %45 = load i32, ptr %44, align 4
+  %46 = add nsw i32 %45, 10
+  %47 = add nsw i32 %43, %.sroa.062.0.extract.trunc
+  %48 = add nsw i32 %46, %.sroa.263.0.extract.trunc
+  %49 = load ptr, ptr %11, align 8
+  %50 = sitofp i32 %47 to float
+  %51 = sitofp i32 %48 to float
+  %52 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #30
+  %53 = call float @nvgTextBounds(ptr noundef %49, float noundef %50, float noundef %51, ptr noundef %52, ptr noundef null, ptr noundef nonnull %10)
+  %54 = getelementptr inbounds i8, ptr %10, i64 8
+  %55 = load float, ptr %54, align 8
+  %56 = load float, ptr %10, align 16
+  %57 = fsub float %55, %56
+  %58 = fmul float %57, 5.000000e-01
+  %59 = fptosi float %58 to i32
+  %60 = icmp sgt i32 %59, 75
+  br i1 %60, label %61, label %70
+
+61:                                               ; preds = %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
+  %62 = load ptr, ptr %11, align 8
+  call void @nvgTextAlign(ptr noundef %62, i32 noundef 10)
+  %63 = load ptr, ptr %11, align 8
+  %64 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #30
+  call void @nvgTextBoxBounds(ptr noundef %63, float noundef %50, float noundef %51, float noundef 1.500000e+02, ptr noundef %64, ptr noundef null, ptr noundef nonnull %10)
+  %65 = load float, ptr %54, align 8
+  %66 = load float, ptr %10, align 16
+  %67 = fsub float %65, %66
+  %68 = fmul float %67, 5.000000e-01
+  %69 = fptosi float %68 to i32
+  br label %70
+
+70:                                               ; preds = %61, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
+  %71 = phi float [ %65, %61 ], [ %55, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge ]
+  %72 = phi float [ %66, %61 ], [ %56, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge ]
+  %.0 = phi i32 [ %69, %61 ], [ %59, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge ]
+  %73 = sub nsw i32 %47, %.0
+  %74 = icmp slt i32 %73, 8
+  br i1 %74, label %75, label %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i
+
+75:                                               ; preds = %70
+  %76 = add nsw i32 %73, -8
+  %77 = sub nsw i32 %47, %76
+  %78 = sitofp i32 %76 to float
+  %79 = fsub float %72, %78
+  store float %79, ptr %10, align 16
+  %80 = fsub float %71, %78
+  store float %80, ptr %54, align 8
+  br label %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i
+
+_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i:              ; preds = %75, %70
+  %.sroa.066.0 = phi i32 [ %77, %75 ], [ %47, %70 ]
+  %.028 = phi i32 [ %76, %75 ], [ 0, %70 ]
+  %81 = load ptr, ptr %11, align 8
+  %82 = fadd double %28, -5.000000e-01
+  %83 = fmul double %82, 2.000000e+00
+  %84 = fcmp olt double %83, 1.000000e+00
+  %.sroa.speculated = select i1 %84, double %83, double 1.000000e+00
+  %85 = fmul double %.sroa.speculated, 8.000000e-01
+  %86 = fptrunc double %85 to float
+  call void @nvgGlobalAlpha(ptr noundef %81, float noundef %86)
+  %87 = load ptr, ptr %11, align 8
+  call void @nvgBeginPath(ptr noundef %87)
+  %88 = load ptr, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false)
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
+  br label %89
+
+89:                                               ; preds = %89, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i
+  %.05.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i ], [ %94, %89 ]
+  %90 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %.05.i.i.i
+  %91 = load i32, ptr %90, align 4
+  %92 = sitofp i32 %91 to float
+  %93 = getelementptr inbounds [3 x float], ptr %7, i64 0, i64 %.05.i.i.i
+  store float %92, ptr %93, align 4
+  %94 = add nuw nsw i64 %.05.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %94, 3
+  br i1 %exitcond.not.i.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i, label %89, !llvm.loop !27
+
+_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i: ; preds = %89, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i
+  %.04.i.i.i = phi i64 [ %96, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i ], [ 0, %89 ]
+  %95 = getelementptr inbounds [3 x float], ptr %8, i64 0, i64 %.04.i.i.i
+  store float 2.550000e+02, ptr %95, align 4
+  %96 = add nuw nsw i64 %.04.i.i.i, 1
+  %exitcond.not.i2.i.i = icmp eq i64 %96, 3
+  br i1 %exitcond.not.i2.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i, !llvm.loop !28
+
+_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i:            ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
+  br label %97
+
+97:                                               ; preds = %97, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i
+  %.06.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i ], [ %104, %97 ]
+  %98 = getelementptr inbounds [3 x float], ptr %7, i64 0, i64 %.06.i.i.i
+  %99 = load float, ptr %98, align 4
+  %100 = getelementptr inbounds [3 x float], ptr %8, i64 0, i64 %.06.i.i.i
+  %101 = load float, ptr %100, align 4
+  %102 = fdiv float %99, %101
+  %103 = getelementptr inbounds [3 x float], ptr %6, i64 0, i64 %.06.i.i.i
+  store float %102, ptr %103, align 4
+  %104 = add nuw nsw i64 %.06.i.i.i, 1
+  %exitcond.not.i3.i.i = icmp eq i64 %104, 3
+  br i1 %exitcond.not.i3.i.i, label %_ZN7nanogui5ColorC2Eii.exit, label %97, !llvm.loop !29
+
+_ZN7nanogui5ColorC2Eii.exit:                      ; preds = %97
+  %.sroa.0.0.copyload.i.i.i = load <2 x float>, ptr %6, align 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0.copyload.i.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
+  %.sroa.356.12.vec.insert = insertelement <2 x float> <float poison, float 1.000000e+00>, float %.sroa.2.0.copyload.i.i.i, i64 0
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
+  call void @nvgFillColor(ptr noundef %88, <2 x float> %.sroa.0.0.copyload.i.i.i, <2 x float> %.sroa.356.12.vec.insert)
+  %105 = load ptr, ptr %11, align 8
+  %106 = load float, ptr %10, align 16
+  %107 = fadd float %106, -4.000000e+00
+  %108 = sitofp i32 %.0 to float
+  %109 = fsub float %107, %108
+  %110 = getelementptr inbounds i8, ptr %10, i64 4
+  %111 = load float, ptr %110, align 4
+  %112 = fadd float %111, -4.000000e+00
+  %113 = load float, ptr %54, align 8
+  %114 = fsub float %113, %106
+  %115 = fptosi float %114 to i32
+  %116 = add nsw i32 %115, 8
+  %117 = sitofp i32 %116 to float
+  %118 = getelementptr inbounds i8, ptr %10, i64 12
+  %119 = load float, ptr %118, align 4
+  %120 = fsub float %119, %111
+  %121 = fptosi float %120 to i32
+  %122 = add nsw i32 %121, 8
+  %123 = sitofp i32 %122 to float
+  call void @nvgRoundedRect(ptr noundef %105, float noundef %109, float noundef %112, float noundef %117, float noundef %123, float noundef 3.000000e+00)
+  %124 = load float, ptr %54, align 8
+  %125 = load float, ptr %10, align 16
+  %126 = fadd float %124, %125
+  %127 = fmul float %126, 5.000000e-01
+  %128 = fptosi float %127 to i32
+  %129 = sub nsw i32 %128, %.0
+  %130 = add nsw i32 %129, %.028
+  %131 = load ptr, ptr %11, align 8
+  %132 = sitofp i32 %130 to float
+  %133 = load float, ptr %110, align 4
+  %134 = fadd float %133, -1.000000e+01
+  call void @nvgMoveTo(ptr noundef %131, float noundef %132, float noundef %134)
+  %135 = load ptr, ptr %11, align 8
+  %136 = add nsw i32 %130, 7
+  %137 = sitofp i32 %136 to float
+  %138 = load float, ptr %110, align 4
+  %139 = fadd float %138, 1.000000e+00
+  call void @nvgLineTo(ptr noundef %135, float noundef %137, float noundef %139)
+  %140 = load ptr, ptr %11, align 8
+  %141 = add nsw i32 %130, -7
+  %142 = sitofp i32 %141 to float
+  %143 = load float, ptr %110, align 4
+  %144 = fadd float %143, 1.000000e+00
+  call void @nvgLineTo(ptr noundef %140, float noundef %142, float noundef %144)
+  %145 = load ptr, ptr %11, align 8
+  call void @nvgFill(ptr noundef %145)
+  %146 = load ptr, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
+  br label %147
+
+147:                                              ; preds = %147, %_ZN7nanogui5ColorC2Eii.exit
+  %.04.i.i32 = phi i64 [ 0, %_ZN7nanogui5ColorC2Eii.exit ], [ %149, %147 ]
+  %148 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %.04.i.i32
+  store i32 255, ptr %148, align 4
+  %149 = add nuw nsw i64 %.04.i.i32, 1
+  %exitcond.not.i.i33 = icmp eq i64 %149, 3
+  br i1 %exitcond.not.i.i33, label %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i34, label %147, !llvm.loop !30
+
+_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i34:            ; preds = %147
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
+  br label %150
+
+150:                                              ; preds = %150, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i34
+  %.05.i.i.i35 = phi i64 [ 0, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i34 ], [ %155, %150 ]
+  %151 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %.05.i.i.i35
+  %152 = load i32, ptr %151, align 4
+  %153 = sitofp i32 %152 to float
+  %154 = getelementptr inbounds [3 x float], ptr %3, i64 0, i64 %.05.i.i.i35
+  store float %153, ptr %154, align 4
+  %155 = add nuw nsw i64 %.05.i.i.i35, 1
+  %exitcond.not.i.i.i36 = icmp eq i64 %155, 3
+  br i1 %exitcond.not.i.i.i36, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i37, label %150, !llvm.loop !27
+
+_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i37: ; preds = %150, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i37
+  %.04.i.i.i38 = phi i64 [ %157, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i37 ], [ 0, %150 ]
+  %156 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %.04.i.i.i38
+  store float 2.550000e+02, ptr %156, align 4
+  %157 = add nuw nsw i64 %.04.i.i.i38, 1
+  %exitcond.not.i2.i.i39 = icmp eq i64 %157, 3
+  br i1 %exitcond.not.i2.i.i39, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i40, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i37, !llvm.loop !28
+
+_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i40:          ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i37
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
+  br label %158
+
+158:                                              ; preds = %158, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i40
+  %.06.i.i.i41 = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i40 ], [ %165, %158 ]
+  %159 = getelementptr inbounds [3 x float], ptr %3, i64 0, i64 %.06.i.i.i41
+  %160 = load float, ptr %159, align 4
+  %161 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %.06.i.i.i41
+  %162 = load float, ptr %161, align 4
+  %163 = fdiv float %160, %162
+  %164 = getelementptr inbounds [3 x float], ptr %2, i64 0, i64 %.06.i.i.i41
+  store float %163, ptr %164, align 4
+  %165 = add nuw nsw i64 %.06.i.i.i41, 1
+  %exitcond.not.i3.i.i42 = icmp eq i64 %165, 3
+  br i1 %exitcond.not.i3.i.i42, label %_ZN7nanogui5ColorC2Eii.exit51, label %158, !llvm.loop !29
+
+_ZN7nanogui5ColorC2Eii.exit51:                    ; preds = %158
+  %.sroa.0.0.copyload.i.i.i43 = load <2 x float>, ptr %2, align 8
+  %.sroa.2.0..sroa_idx.i.i.i44 = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0.copyload.i.i.i45 = load float, ptr %.sroa.2.0..sroa_idx.i.i.i44, align 8
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
+  %.sroa.3.12.vec.insert = insertelement <2 x float> <float poison, float 1.000000e+00>, float %.sroa.2.0.copyload.i.i.i45, i64 0
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
+  call void @nvgFillColor(ptr noundef %146, <2 x float> %.sroa.0.0.copyload.i.i.i43, <2 x float> %.sroa.3.12.vec.insert)
+  %166 = load ptr, ptr %11, align 8
+  call void @nvgFontBlur(ptr noundef %166, float noundef 0.000000e+00)
+  %167 = load ptr, ptr %11, align 8
+  %168 = sub nsw i32 %.sroa.066.0, %.0
+  %169 = sitofp i32 %168 to float
+  %170 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #30
+  call void @nvgTextBox(ptr noundef %167, float noundef %169, float noundef %51, float noundef 1.500000e+02, ptr noundef %170, ptr noundef null)
+  br label %171
+
+171:                                              ; preds = %30, %33, %_ZN7nanogui5ColorC2Eii.exit51, %1
+  %172 = load ptr, ptr %11, align 8
+  call void @nvgEndFrame(ptr noundef %172)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen13draw_contentsEv(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #3 align 2 {
+  %2 = load ptr, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %2, i64 128
+  %4 = load ptr, ptr %3, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(384) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen9nvg_flushEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0) local_unnamed_addr #3 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call ptr @nvgInternalParams(ptr noundef %3)
+  %5 = getelementptr inbounds i8, ptr %4, i64 72
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  tail call void %6(ptr noundef %7)
+  %8 = getelementptr inbounds i8, ptr %4, i64 56
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = load i32, ptr %11, align 8
+  %13 = sitofp i32 %12 to float
+  %14 = getelementptr inbounds i8, ptr %0, i64 52
+  %15 = load i32, ptr %14, align 4
+  %16 = sitofp i32 %15 to float
+  %17 = getelementptr inbounds i8, ptr %0, i64 248
+  %18 = load float, ptr %17, align 8
+  tail call void %9(ptr noundef %10, float noundef %13, float noundef %16, float noundef %18)
+  ret void
+}
+
+declare noundef ptr @_ZN7nanogui6Widget11find_widgetERKNS_5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #0
+
+; Function Attrs: nounwind
+declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
+
+declare void @nvgFontFace(ptr noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @nvgFontSize(ptr noundef, float noundef) local_unnamed_addr #0
+
+declare void @nvgTextAlign(ptr noundef, i32 noundef) local_unnamed_addr #0
+
+declare void @nvgTextLineHeight(ptr noundef, float noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden i64 @_ZNK7nanogui6Widget17absolute_positionEv(ptr noundef nonnull align 8 dereferenceable(140) %0) local_unnamed_addr #3 comdat align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %common.ret, label %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
+
+common.ret5:                                      ; preds = %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge, %common.ret
+  %common.ret5.op = phi i64 [ %.sroa.0.0.copyload, %common.ret ], [ %.sroa.04.0.insert.insert, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge ]
+  ret i64 %common.ret5.op
+
+_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %1
+  %4 = tail call i64 @_ZNK7nanogui6Widget17absolute_positionEv(ptr noundef nonnull align 8 dereferenceable(140) %3)
+  %.sroa.0.0.extract.trunc = trunc i64 %4 to i32
+  %.sroa.2.0.extract.shift = lshr i64 %4, 32
+  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = load i32, ptr %5, align 8
+  %7 = add nsw i32 %6, %.sroa.0.0.extract.trunc
+  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %9 = load i32, ptr %8, align 4
+  %10 = add nsw i32 %9, %.sroa.2.0.extract.trunc
+  %.sroa.4.0.insert.ext = zext i32 %10 to i64
+  %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
+  %.sroa.04.0.insert.ext = zext i32 %7 to i64
+  %.sroa.04.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.04.0.insert.ext
+  br label %common.ret5
+
+common.ret:                                       ; preds = %1
+  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.0.0.copyload = load i64, ptr %11, align 8
+  br label %common.ret5
+}
+
+declare float @nvgTextBounds(ptr noundef, float noundef, float noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @nvgTextBoxBounds(ptr noundef, float noundef, float noundef, float noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @nvgGlobalAlpha(ptr noundef, float noundef) local_unnamed_addr #0
+
+declare void @nvgBeginPath(ptr noundef) local_unnamed_addr #0
+
+declare void @nvgFillColor(ptr noundef, <2 x float>, <2 x float>) local_unnamed_addr #0
+
+declare void @nvgRoundedRect(ptr noundef, float noundef, float noundef, float noundef, float noundef, float noundef) local_unnamed_addr #0
+
+declare void @nvgMoveTo(ptr noundef, float noundef, float noundef) local_unnamed_addr #0
+
+declare void @nvgLineTo(ptr noundef, float noundef, float noundef) local_unnamed_addr #0
+
+declare void @nvgFill(ptr noundef) local_unnamed_addr #0
+
+declare void @nvgFontBlur(ptr noundef, float noundef) local_unnamed_addr #0
+
+declare void @nvgTextBox(ptr noundef, float noundef, float noundef, float noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef zeroext i1 @_ZN7nanogui6Screen14keyboard_eventEiiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
+  %6 = getelementptr inbounds i8, ptr %0, i64 216
+  %7 = getelementptr inbounds i8, ptr %0, i64 224
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %6, align 8
+  %.not = icmp eq ptr %8, %9
+  %10 = getelementptr inbounds i8, ptr %8, i64 -8
+  %.not810 = icmp eq ptr %10, %9
+  %or.cond = select i1 %.not, i1 true, i1 %.not810
+  br i1 %or.cond, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %5, %22
+  %11 = phi ptr [ %23, %22 ], [ %9, %5 ]
+  %.sroa.06.011 = phi ptr [ %12, %22 ], [ %10, %5 ]
+  %12 = getelementptr inbounds i8, ptr %.sroa.06.011, i64 -8
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 90
+  %15 = load i8, ptr %14, align 2
+  %16 = and i8 %15, 1
+  %.not9 = icmp eq i8 %16, 0
+  br i1 %.not9, label %22, label %17
+
+17:                                               ; preds = %.lr.ph
+  %18 = load ptr, ptr %13, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 80
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(140) %13, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  br i1 %21, label %.loopexit, label %._crit_edge
+
+._crit_edge:                                      ; preds = %17
+  %.pre = load ptr, ptr %6, align 8, !noalias !31
+  br label %22
+
+22:                                               ; preds = %._crit_edge, %.lr.ph
+  %23 = phi ptr [ %.pre, %._crit_edge ], [ %11, %.lr.ph ]
+  %.not8 = icmp eq ptr %12, %23
+  br i1 %.not8, label %.loopexit, label %.lr.ph, !llvm.loop !34
+
+.loopexit:                                        ; preds = %17, %22, %5
+  %.0 = phi i1 [ false, %5 ], [ true, %17 ], [ false, %22 ]
+  ret i1 %.0
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef zeroext i1 @_ZN7nanogui6Screen24keyboard_character_eventEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 216
+  %4 = getelementptr inbounds i8, ptr %0, i64 224
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %.not = icmp eq ptr %5, %6
+  %7 = getelementptr inbounds i8, ptr %5, i64 -8
+  %.not57 = icmp eq ptr %7, %6
+  %or.cond = select i1 %.not, i1 true, i1 %.not57
+  br i1 %or.cond, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %19
+  %8 = phi ptr [ %20, %19 ], [ %6, %2 ]
+  %.sroa.03.08 = phi ptr [ %9, %19 ], [ %7, %2 ]
+  %9 = getelementptr inbounds i8, ptr %.sroa.03.08, i64 -8
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 90
+  %12 = load i8, ptr %11, align 2
+  %13 = and i8 %12, 1
+  %.not6 = icmp eq i8 %13, 0
+  br i1 %.not6, label %19, label %14
+
+14:                                               ; preds = %.lr.ph
+  %15 = load ptr, ptr %10, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 88
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(140) %10, i32 noundef %1)
+  br i1 %18, label %.loopexit, label %._crit_edge
+
+._crit_edge:                                      ; preds = %14
+  %.pre = load ptr, ptr %3, align 8, !noalias !35
+  br label %19
+
+19:                                               ; preds = %._crit_edge, %.lr.ph
+  %20 = phi ptr [ %.pre, %._crit_edge ], [ %8, %.lr.ph ]
+  %.not5 = icmp eq ptr %9, %20
+  br i1 %.not5, label %.loopexit, label %.lr.ph, !llvm.loop !38
+
+.loopexit:                                        ; preds = %14, %19, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %14 ], [ false, %19 ]
+  ret i1 %.0
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef zeroext i1 @_ZN7nanogui6Screen12resize_eventERKNS_5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"struct.nanogui::Array", align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 368
+  %5 = load ptr, ptr %4, align 8
+  %.not.i.i.not = icmp eq ptr %5, null
+  br i1 %.not.i.i.not, label %9, label %_ZNKSt8functionIFvN7nanogui5ArrayIiLm2EEEEEclES2_.exit
+
+_ZNKSt8functionIFvN7nanogui5ArrayIiLm2EEEEEclES2_.exit: ; preds = %2
+  %6 = getelementptr inbounds i8, ptr %0, i64 352
+  %.sroa.0.0.copyload = load i64, ptr %1, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  store i64 %.sroa.0.0.copyload, ptr %3, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 376
+  %8 = load ptr, ptr %7, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(8) %3)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  br label %9
+
+9:                                                ; preds = %_ZNKSt8functionIFvN7nanogui5ArrayIiLm2EEEEEclES2_.exit, %2
+  %10 = getelementptr inbounds i8, ptr %0, i64 349
+  store i8 1, ptr %10, align 1
+  %11 = load ptr, ptr %0, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 120
+  %13 = load ptr, ptr %12, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(384) %0)
+  ret i1 true
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen6redrawEv(ptr nocapture noundef nonnull align 8 dereferenceable(384) %0) local_unnamed_addr #3 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 349
+  %3 = load i8, ptr %2, align 1
+  %4 = and i8 %3, 1
+  %.not = icmp eq i8 %4, 0
+  br i1 %.not, label %5, label %6
+
+5:                                                ; preds = %1
+  store i8 1, ptr %2, align 1
+  tail call void @glfwPostEmptyEvent()
+  br label %6
+
+6:                                                ; preds = %5, %1
+  ret void
+}
+
+declare void @glfwPostEmptyEvent() local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen25cursor_pos_callback_eventEdd(ptr noundef nonnull align 8 dereferenceable(384) %0, double noundef %1, double noundef %2) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge:
+  %3 = alloca %"struct.nanogui::Array", align 8
+  %4 = alloca %"struct.nanogui::Array", align 4
+  %5 = alloca %"struct.nanogui::Array", align 8
+  %6 = alloca %"struct.nanogui::Array", align 8
+  %7 = insertelement <2 x double> poison, double %1, i64 0
+  %8 = insertelement <2 x double> %7, double %2, i64 1
+  %9 = fptosi <2 x double> %8 to <2 x i32>
+  %10 = getelementptr inbounds i8, ptr %0, i64 248
+  %11 = load <4 x float>, ptr %10, align 8
+  %12 = tail call double @glfwGetTime()
+  %13 = getelementptr inbounds i8, ptr %0, i64 280
+  store double %12, ptr %13, align 8
+  %14 = sitofp <2 x i32> %9 to <2 x float>
+  %15 = shufflevector <4 x float> %11, <4 x float> poison, <2 x i32> zeroinitializer
+  %16 = fdiv <2 x float> %14, %15
+  %17 = fptosi <2 x float> %16 to <2 x i32>
+  %18 = add nsw <2 x i32> %17, <i32 -1, i32 -2>
+  store <2 x i32> %18, ptr %3, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 268
+  %20 = load i8, ptr %19, align 4
+  %21 = and i8 %20, 1
+  %.not = icmp eq i8 %21, 0
+  br i1 %.not, label %22, label %56
+
+22:                                               ; preds = %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge
+  %23 = invoke noundef ptr @_ZN7nanogui6Widget11find_widgetERKNS_5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef nonnull align 4 dereferenceable(8) %3)
+          to label %24 unwind label %37
+
+24:                                               ; preds = %22
+  %.not16 = icmp eq ptr %23, null
+  br i1 %.not16, label %.thread, label %25
+
+25:                                               ; preds = %24
+  %26 = getelementptr inbounds i8, ptr %23, i64 136
+  %27 = load i32, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 208
+  %29 = load i32, ptr %28, align 8
+  %.not17 = icmp eq i32 %27, %29
+  br i1 %.not17, label %.thread, label %30
+
+30:                                               ; preds = %25
+  store i32 %27, ptr %28, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 144
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 160
+  %34 = sext i32 %27 to i64
+  %35 = getelementptr inbounds [6 x ptr], ptr %33, i64 0, i64 %34
+  %36 = load ptr, ptr %35, align 8
+  invoke void @glfwSetCursor(ptr noundef %32, ptr noundef %36)
+          to label %.thread unwind label %37
+
+37:                                               ; preds = %.thread, %.critedge, %56, %30, %22
+  %38 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  %39 = extractvalue { ptr, i32 } %38, 1
+  %40 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #30
+  %41 = icmp eq i32 %39, %40
+  br i1 %41, label %42, label %101
+
+42:                                               ; preds = %37
+  %43 = extractvalue { ptr, i32 } %38, 0
+  %44 = call ptr @__cxa_begin_catch(ptr %43) #30
+  %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.9)
+          to label %46 unwind label %99
+
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %44, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %50 = call noundef ptr %49(ptr noundef nonnull align 8 dereferenceable(8) %44) #30
+  %51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %50)
+          to label %52 unwind label %99
+
+52:                                               ; preds = %46
+  %53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %54 unwind label %99
+
+54:                                               ; preds = %52
+  call void @__cxa_end_catch()
+  br label %55
+
+55:                                               ; preds = %93, %54
+  ret void
+
+56:                                               ; preds = %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge
+  %57 = getelementptr inbounds i8, ptr %0, i64 272
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  %60 = load ptr, ptr %59, align 8
+  %61 = invoke i64 @_ZNK7nanogui6Widget17absolute_positionEv(ptr noundef nonnull align 8 dereferenceable(140) %60)
+          to label %.critedge unwind label %37
+
+.critedge:                                        ; preds = %56
+  %.sroa.0.0.extract.trunc = trunc i64 %61 to i32
+  %.sroa.2.0.extract.shift = lshr i64 %61, 32
+  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa_idx59 = getelementptr inbounds i8, ptr %4, i64 4
+  %62 = getelementptr inbounds i8, ptr %0, i64 260
+  %63 = load <2 x i32>, ptr %3, align 8
+  %64 = extractelement <2 x i32> %63, i64 0
+  %65 = sub nsw i32 %64, %.sroa.0.0.extract.trunc
+  %66 = extractelement <2 x i32> %63, i64 1
+  %67 = sub nsw i32 %66, %.sroa.2.0.extract.trunc
+  store i32 %65, ptr %4, align 4
+  store i32 %67, ptr %.sroa_idx59, align 4
+  %68 = load <2 x i32>, ptr %62, align 4
+  %69 = sub nsw <2 x i32> %63, %68
+  store <2 x i32> %69, ptr %5, align 8
+  %70 = getelementptr inbounds i8, ptr %0, i64 252
+  %71 = load i32, ptr %70, align 4
+  %72 = getelementptr inbounds i8, ptr %0, i64 256
+  %73 = load i32, ptr %72, align 8
+  %74 = load ptr, ptr %58, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 48
+  %76 = load ptr, ptr %75, align 8
+  %77 = invoke noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(140) %58, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(8) %5, i32 noundef %71, i32 noundef %73)
+          to label %78 unwind label %37
+
+78:                                               ; preds = %.critedge
+  br i1 %77, label %93, label %.thread
+
+.thread:                                          ; preds = %24, %25, %30, %78
+  %79 = getelementptr inbounds i8, ptr %0, i64 260
+  %80 = load <2 x i32>, ptr %3, align 8
+  %81 = load <2 x i32>, ptr %79, align 4
+  %82 = sub nsw <2 x i32> %80, %81
+  store <2 x i32> %82, ptr %6, align 8
+  %83 = getelementptr inbounds i8, ptr %0, i64 252
+  %84 = load i32, ptr %83, align 4
+  %85 = getelementptr inbounds i8, ptr %0, i64 256
+  %86 = load i32, ptr %85, align 8
+  %87 = load ptr, ptr %0, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 40
+  %89 = load ptr, ptr %88, align 8
+  %90 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef %84, i32 noundef %86)
+          to label %91 unwind label %37
+
+91:                                               ; preds = %.thread
+  %92 = zext i1 %90 to i8
+  br label %93
+
+93:                                               ; preds = %91, %78
+  %.1 = phi i8 [ 1, %78 ], [ %92, %91 ]
+  %94 = getelementptr inbounds i8, ptr %0, i64 260
+  %95 = load i64, ptr %3, align 8
+  store i64 %95, ptr %94, align 4
+  %96 = getelementptr inbounds i8, ptr %0, i64 349
+  %97 = load i8, ptr %96, align 1
+  %.masked = and i8 %97, 1
+  %98 = or i8 %.masked, %.1
+  store i8 %98, ptr %96, align 1
+  br label %55
+
+99:                                               ; preds = %52, %46, %42
+  %100 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %101 unwind label %102
+
+101:                                              ; preds = %99, %37
+  %.merged = phi { ptr, i32 } [ %100, %99 ], [ %38, %37 ]
+  resume { ptr, i32 } %.merged
+
+102:                                              ; preds = %99
+  %103 = landingpad { ptr, i32 }
+          catch ptr null
+  %104 = extractvalue { ptr, i32 } %103, 0
+  call void @__clang_call_terminate(ptr %104) #31
+  unreachable
+}
+
+declare void @glfwSetCursor(ptr noundef, ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for(ptr) #13
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
+
+declare void @__cxa_end_catch() local_unnamed_addr
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen27mouse_button_callback_eventEiii(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca %"struct.nanogui::Array", align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 256
+  store i32 %3, ptr %6, align 8
+  %7 = tail call double @glfwGetTime()
+  %8 = getelementptr inbounds i8, ptr %0, i64 280
+  store double %7, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  %10 = getelementptr inbounds i8, ptr %0, i64 224
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %9, align 8
+  %13 = ptrtoint ptr %11 to i64
+  %14 = ptrtoint ptr %12 to i64
+  %15 = sub i64 %13, %14
+  %16 = icmp ugt i64 %15, 8
+  br i1 %16, label %17, label %.thread
+
+17:                                               ; preds = %4
+  %18 = getelementptr i8, ptr %12, i64 %15
+  %19 = getelementptr i8, ptr %18, i64 -16
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %.thread, label %22
+
+22:                                               ; preds = %17
+  %23 = tail call ptr @__dynamic_cast(ptr nonnull %20, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6WindowE, i64 0) #30
+  %.not37 = icmp eq ptr %23, null
+  br i1 %.not37, label %.thread, label %24
+
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds i8, ptr %23, i64 184
+  %26 = load i8, ptr %25, align 8
+  %27 = and i8 %26, 1
+  %.not53 = icmp eq i8 %27, 0
+  br i1 %.not53, label %.thread, label %28
+
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %0, i64 260
+  %30 = getelementptr inbounds i8, ptr %23, i64 40
+  %31 = load <2 x i32>, ptr %29, align 4
+  %32 = load <2 x i32>, ptr %30, align 4
+  %33 = sub nsw <2 x i32> %31, %32
+  %34 = extractelement <2 x i32> %33, i64 0
+  %35 = extractelement <2 x i32> %33, i64 1
+  %36 = or i32 %35, %34
+  %or.cond.i = icmp sgt i32 %36, -1
+  %37 = getelementptr inbounds i8, ptr %23, i64 48
+  %38 = load i32, ptr %37, align 4
+  %39 = icmp slt i32 %34, %38
+  %or.cond8.i = select i1 %or.cond.i, i1 %39, i1 false
+  br i1 %or.cond8.i, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread
+
+_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit: ; preds = %28
+  %40 = getelementptr inbounds i8, ptr %23, i64 52
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp slt i32 %35, %41
+  br i1 %42, label %.thread, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread
+
+.loopexit:                                        ; preds = %134
+  %lpad.loopexit = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %43
+
+.loopexit.split-lp:                               ; preds = %71, %83, %.critedge, %109, %120, %_ZN7nanogui6Screen12update_focusEPNS_6WidgetE.exit
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  br label %43
+
+43:                                               ; preds = %.loopexit.split-lp, %.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %44 = extractvalue { ptr, i32 } %lpad.phi, 1
+  %45 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #30
+  %46 = icmp eq i32 %44, %45
+  br i1 %46, label %47, label %158
+
+47:                                               ; preds = %43
+  %48 = extractvalue { ptr, i32 } %lpad.phi, 0
+  %49 = call ptr @__cxa_begin_catch(ptr %48) #30
+  %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.9)
+          to label %51 unwind label %156
+
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %49, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %54 = load ptr, ptr %53, align 8
+  %55 = call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(8) %49) #30
+  %56 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef %55)
+          to label %57 unwind label %156
+
+57:                                               ; preds = %51
+  %58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %59 unwind label %156
+
+59:                                               ; preds = %57
+  call void @__cxa_end_catch()
+  br label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread
+
+_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread: ; preds = %28, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, %150, %59
+  ret void
+
+.thread:                                          ; preds = %17, %22, %24, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, %4
+  %60 = icmp eq i32 %2, 1
+  %61 = shl nuw i32 1, %1
+  br i1 %60, label %62, label %66
+
+62:                                               ; preds = %.thread
+  %63 = getelementptr inbounds i8, ptr %0, i64 252
+  %64 = load i32, ptr %63, align 4
+  %65 = or i32 %64, %61
+  store i32 %65, ptr %63, align 4
+  br label %71
+
+66:                                               ; preds = %.thread
+  %67 = xor i32 %61, -1
+  %68 = getelementptr inbounds i8, ptr %0, i64 252
+  %69 = load i32, ptr %68, align 4
+  %70 = and i32 %69, %67
+  store i32 %70, ptr %68, align 4
+  br label %71
+
+71:                                               ; preds = %66, %62
+  %72 = getelementptr inbounds i8, ptr %0, i64 260
+  %73 = invoke noundef ptr @_ZN7nanogui6Widget11find_widgetERKNS_5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef nonnull align 4 dereferenceable(8) %72)
+          to label %74 unwind label %.loopexit.split-lp
+
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds i8, ptr %0, i64 268
+  %76 = load i8, ptr %75, align 4
+  %77 = and i8 %76, 1
+  %78 = icmp ne i8 %77, 0
+  %79 = icmp eq i32 %2, 0
+  %or.cond = and i1 %79, %78
+  br i1 %or.cond, label %80, label %103
+
+80:                                               ; preds = %74
+  %81 = getelementptr inbounds i8, ptr %0, i64 272
+  %82 = load ptr, ptr %81, align 8
+  %.not38 = icmp eq ptr %73, %82
+  br i1 %.not38, label %103, label %83
+
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds i8, ptr %82, i64 16
+  %85 = load ptr, ptr %84, align 8
+  %86 = invoke i64 @_ZNK7nanogui6Widget17absolute_positionEv(ptr noundef nonnull align 8 dereferenceable(140) %85)
+          to label %.critedge unwind label %.loopexit.split-lp
+
+.critedge:                                        ; preds = %83
+  %.sroa.0.0.extract.trunc = trunc i64 %86 to i32
+  %.sroa.2.0.extract.shift = lshr i64 %86, 32
+  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %87 = load i32, ptr %72, align 4
+  %88 = sub nsw i32 %87, %.sroa.0.0.extract.trunc
+  %89 = getelementptr inbounds i8, ptr %0, i64 264
+  %90 = load i32, ptr %89, align 8
+  %91 = sub nsw i32 %90, %.sroa.2.0.extract.trunc
+  store i32 %88, ptr %5, align 4
+  %.sroa_idx48 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %91, ptr %.sroa_idx48, align 4
+  %92 = load i32, ptr %6, align 8
+  %93 = load ptr, ptr %82, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 32
+  %95 = load ptr, ptr %94, align 8
+  %96 = invoke noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(140) %82, ptr noundef nonnull align 4 dereferenceable(8) %5, i32 noundef %1, i1 noundef zeroext false, i32 noundef %92)
+          to label %97 unwind label %.loopexit.split-lp
+
+97:                                               ; preds = %.critedge
+  %98 = getelementptr inbounds i8, ptr %0, i64 349
+  %99 = load i8, ptr %98, align 1
+  %100 = and i8 %99, 1
+  %101 = zext i1 %96 to i8
+  %102 = or i8 %100, %101
+  store i8 %102, ptr %98, align 1
+  br label %103
+
+103:                                              ; preds = %97, %80, %74
+  %.not39 = icmp eq ptr %73, null
+  br i1 %.not39, label %116, label %104
+
+104:                                              ; preds = %103
+  %105 = getelementptr inbounds i8, ptr %73, i64 136
+  %106 = load i32, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %0, i64 208
+  %108 = load i32, ptr %107, align 8
+  %.not40 = icmp eq i32 %106, %108
+  br i1 %.not40, label %116, label %109
+
+109:                                              ; preds = %104
+  store i32 %106, ptr %107, align 8
+  %110 = getelementptr inbounds i8, ptr %0, i64 144
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds i8, ptr %0, i64 160
+  %113 = sext i32 %106 to i64
+  %114 = getelementptr inbounds [6 x ptr], ptr %112, i64 0, i64 %113
+  %115 = load ptr, ptr %114, align 8
+  invoke void @glfwSetCursor(ptr noundef %111, ptr noundef %115)
+          to label %116 unwind label %.loopexit.split-lp
+
+116:                                              ; preds = %109, %104, %103
+  %117 = icmp ugt i32 %1, 1
+  %118 = load i8, ptr %75, align 4
+  %119 = and i8 %118, 1
+  %.not41 = icmp eq i8 %119, 0
+  %or.cond3 = and i1 %60, %.not41
+  %or.cond3.not = xor i1 %or.cond3, true
+  %brmerge = or i1 %117, %or.cond3.not
+  br i1 %brmerge, label %141, label %120
+
+120:                                              ; preds = %116
+  %121 = invoke noundef ptr @_ZN7nanogui6Widget11find_widgetERKNS_5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef nonnull align 4 dereferenceable(8) %72)
+          to label %122 unwind label %.loopexit.split-lp
+
+122:                                              ; preds = %120
+  %123 = getelementptr inbounds i8, ptr %0, i64 272
+  %124 = icmp eq ptr %121, %0
+  %spec.select = select i1 %124, ptr null, ptr %121
+  store ptr %spec.select, ptr %123, align 8
+  %125 = icmp ne ptr %spec.select, null
+  %126 = zext i1 %125 to i8
+  store i8 %126, ptr %75, align 4
+  br i1 %125, label %_ZN7nanogui6Screen12update_focusEPNS_6WidgetE.exit, label %127
+
+127:                                              ; preds = %122
+  %128 = load ptr, ptr %9, align 8
+  %129 = load ptr, ptr %10, align 8
+  %.not2125.i = icmp eq ptr %128, %129
+  br i1 %.not2125.i, label %_ZN7nanogui6Screen12update_focusEPNS_6WidgetE.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %127, %.noexc
+  %.sroa.012.026.i = phi ptr [ %139, %.noexc ], [ %128, %127 ]
+  %130 = load ptr, ptr %.sroa.012.026.i, align 8
+  %131 = getelementptr inbounds i8, ptr %130, i64 90
+  %132 = load i8, ptr %131, align 2
+  %133 = and i8 %132, 1
+  %.not23.i = icmp eq i8 %133, 0
+  br i1 %.not23.i, label %.noexc, label %134
+
+134:                                              ; preds = %.lr.ph.i
+  %135 = load ptr, ptr %130, align 8
+  %136 = getelementptr inbounds i8, ptr %135, i64 72
+  %137 = load ptr, ptr %136, align 8
+  %138 = invoke noundef zeroext i1 %137(ptr noundef nonnull align 8 dereferenceable(140) %130, i1 noundef zeroext false)
+          to label %.noexc unwind label %.loopexit
+
+.noexc:                                           ; preds = %134, %.lr.ph.i
+  %139 = getelementptr inbounds i8, ptr %.sroa.012.026.i, i64 8
+  %.not21.i = icmp eq ptr %139, %129
+  br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i
+
+._crit_edge.i:                                    ; preds = %.noexc
+  %.pre.i = load ptr, ptr %9, align 8
+  %.pre37.i = load ptr, ptr %10, align 8
+  %.not.i.i.i = icmp eq ptr %.pre37.i, %.pre.i
+  br i1 %.not.i.i.i, label %_ZN7nanogui6Screen12update_focusEPNS_6WidgetE.exit, label %140
+
+140:                                              ; preds = %._crit_edge.i
+  store ptr %.pre.i, ptr %10, align 8
+  br label %_ZN7nanogui6Screen12update_focusEPNS_6WidgetE.exit
+
+141:                                              ; preds = %116
+  %142 = icmp ne i8 %119, 0
+  %or.cond5 = and i1 %79, %142
+  %or.cond5.not = xor i1 %or.cond5, true
+  %brmerge43 = or i1 %117, %or.cond5.not
+  br i1 %brmerge43, label %_ZN7nanogui6Screen12update_focusEPNS_6WidgetE.exit, label %143
+
+143:                                              ; preds = %141
+  store i8 0, ptr %75, align 4
+  %144 = getelementptr inbounds i8, ptr %0, i64 272
+  store ptr null, ptr %144, align 8
+  br label %_ZN7nanogui6Screen12update_focusEPNS_6WidgetE.exit
+
+_ZN7nanogui6Screen12update_focusEPNS_6WidgetE.exit: ; preds = %._crit_edge.i, %127, %140, %141, %143, %122
+  %145 = load i32, ptr %6, align 8
+  %146 = load ptr, ptr %0, align 8
+  %147 = getelementptr inbounds i8, ptr %146, i64 32
+  %148 = load ptr, ptr %147, align 8
+  %149 = invoke noundef zeroext i1 %148(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef nonnull align 4 dereferenceable(8) %72, i32 noundef %1, i1 noundef zeroext %60, i32 noundef %145)
+          to label %150 unwind label %.loopexit.split-lp
+
+150:                                              ; preds = %_ZN7nanogui6Screen12update_focusEPNS_6WidgetE.exit
+  %151 = getelementptr inbounds i8, ptr %0, i64 349
+  %152 = load i8, ptr %151, align 1
+  %153 = and i8 %152, 1
+  %154 = zext i1 %149 to i8
+  %155 = or i8 %153, %154
+  store i8 %155, ptr %151, align 1
+  br label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread
+
+156:                                              ; preds = %57, %51, %47
+  %157 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %158 unwind label %159
+
+158:                                              ; preds = %156, %43
+  %.merged = phi { ptr, i32 } [ %157, %156 ], [ %lpad.phi, %43 ]
+  resume { ptr, i32 } %.merged
+
+159:                                              ; preds = %156
+  %160 = landingpad { ptr, i32 }
+          catch ptr null
+  %161 = extractvalue { ptr, i32 } %160, 0
+  call void @__clang_call_terminate(ptr %161) #31
+  unreachable
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #14
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen12update_focusEPNS_6WidgetE(ptr nocapture noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 216
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 224
+  %6 = load ptr, ptr %5, align 8
+  %.not2125 = icmp eq ptr %4, %6
+  br i1 %.not2125, label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %16
+  %.sroa.012.026 = phi ptr [ %17, %16 ], [ %4, %2 ]
+  %7 = load ptr, ptr %.sroa.012.026, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 90
+  %9 = load i8, ptr %8, align 2
+  %10 = and i8 %9, 1
+  %.not23 = icmp eq i8 %10, 0
+  br i1 %.not23, label %16, label %11
+
+11:                                               ; preds = %.lr.ph
+  %12 = load ptr, ptr %7, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 72
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(140) %7, i1 noundef zeroext false)
+  br label %16
+
+16:                                               ; preds = %.lr.ph, %11
+  %17 = getelementptr inbounds i8, ptr %.sroa.012.026, i64 8
+  %.not21 = icmp eq ptr %17, %6
+  br i1 %.not21, label %._crit_edge, label %.lr.ph
+
+._crit_edge:                                      ; preds = %16
+  %.pre = load ptr, ptr %3, align 8
+  %.pre37 = load ptr, ptr %5, align 8
+  %.not.i.i = icmp eq ptr %.pre37, %.pre
+  br i1 %.not.i.i, label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit, label %18
+
+18:                                               ; preds = %._crit_edge
+  store ptr %.pre, ptr %5, align 8
+  br label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit
+
+_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit: ; preds = %2, %._crit_edge, %18
+  %19 = phi ptr [ %.pre, %._crit_edge ], [ %.pre, %18 ], [ %4, %2 ]
+  %20 = phi ptr [ %.pre37, %._crit_edge ], [ %.pre, %18 ], [ %4, %2 ]
+  %.not27 = icmp eq ptr %1, null
+  br i1 %.not27, label %._crit_edge31, label %.lr.ph30
+
+.lr.ph30:                                         ; preds = %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit
+  %21 = getelementptr inbounds i8, ptr %0, i64 232
+  br label %22
+
+22:                                               ; preds = %.lr.ph30, %51
+  %23 = phi ptr [ %20, %.lr.ph30 ], [ %52, %51 ]
+  %.029 = phi ptr [ null, %.lr.ph30 ], [ %spec.select, %51 ]
+  %.02028 = phi ptr [ %1, %.lr.ph30 ], [ %55, %51 ]
+  %24 = load ptr, ptr %21, align 8
+  %.not.i = icmp eq ptr %23, %24
+  br i1 %.not.i, label %28, label %25
+
+25:                                               ; preds = %22
+  store ptr %.02028, ptr %23, align 8
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  store ptr %27, ptr %5, align 8
+  br label %51
+
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %3, align 8
+  %30 = ptrtoint ptr %23 to i64
+  %31 = ptrtoint ptr %29 to i64
+  %32 = sub i64 %30, %31
+  %33 = icmp eq i64 %32, 9223372036854775800
+  br i1 %33, label %34, label %_ZNKSt6vectorIPN7nanogui6WidgetESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+
+34:                                               ; preds = %28
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.38) #33
+  unreachable
+
+_ZNKSt6vectorIPN7nanogui6WidgetESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %28
+  %35 = ashr exact i64 %32, 3
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %35, i64 1)
+  %36 = add nsw i64 %.sroa.speculated.i.i.i, %35
+  %37 = icmp ult i64 %36, %35
+  %38 = tail call i64 @llvm.umin.i64(i64 %36, i64 1152921504606846975)
+  %39 = select i1 %37, i64 1152921504606846975, i64 %38
+  %.not.i.i.i = icmp eq i64 %39, 0
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN7nanogui6WidgetESaIS2_EE11_M_allocateEm.exit.i.i, label %40
+
+40:                                               ; preds = %_ZNKSt6vectorIPN7nanogui6WidgetESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %41 = shl nuw nsw i64 %39, 3
+  %42 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %41) #35
+  br label %_ZNSt12_Vector_baseIPN7nanogui6WidgetESaIS2_EE11_M_allocateEm.exit.i.i
+
+_ZNSt12_Vector_baseIPN7nanogui6WidgetESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %40, %_ZNKSt6vectorIPN7nanogui6WidgetESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %43 = phi ptr [ %42, %40 ], [ null, %_ZNKSt6vectorIPN7nanogui6WidgetESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+  %44 = getelementptr inbounds ptr, ptr %43, i64 %35
+  store ptr %.02028, ptr %44, align 8
+  %45 = icmp sgt i64 %32, 0
+  br i1 %45, label %46, label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+
+46:                                               ; preds = %_ZNSt12_Vector_baseIPN7nanogui6WidgetESaIS2_EE11_M_allocateEm.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %43, ptr align 8 %29, i64 %32, i1 false)
+  br label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+
+_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %46, %_ZNSt12_Vector_baseIPN7nanogui6WidgetESaIS2_EE11_M_allocateEm.exit.i.i
+  %47 = getelementptr inbounds i8, ptr %43, i64 %32
+  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %.not.i17.i.i = icmp eq ptr %29, null
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %49
+
+49:                                               ; preds = %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %29) #32
+  br label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
+
+_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %49, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  store ptr %43, ptr %3, align 8
+  store ptr %48, ptr %5, align 8
+  %50 = getelementptr inbounds ptr, ptr %43, i64 %39
+  store ptr %50, ptr %21, align 8
+  br label %51
+
+51:                                               ; preds = %25, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
+  %52 = phi ptr [ %27, %25 ], [ %48, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
+  %53 = tail call ptr @__dynamic_cast(ptr nonnull %.02028, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6WindowE, i64 0) #30
+  %.not9 = icmp eq ptr %53, null
+  %spec.select = select i1 %.not9, ptr %.029, ptr %.02028
+  %54 = getelementptr inbounds i8, ptr %.02028, i64 16
+  %55 = load ptr, ptr %54, align 8
+  %.not = icmp eq ptr %55, null
+  br i1 %.not, label %._crit_edge31.loopexit, label %22, !llvm.loop !39
+
+._crit_edge31.loopexit:                           ; preds = %51
+  %.pre38 = load ptr, ptr %3, align 8, !noalias !40
+  br label %._crit_edge31
+
+._crit_edge31:                                    ; preds = %._crit_edge31.loopexit, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit
+  %56 = phi ptr [ %19, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit ], [ %.pre38, %._crit_edge31.loopexit ]
+  %57 = phi ptr [ %20, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit ], [ %52, %._crit_edge31.loopexit ]
+  %.0.lcssa = phi ptr [ null, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit ], [ %spec.select, %._crit_edge31.loopexit ]
+  %.not2232 = icmp eq ptr %57, %56
+  br i1 %.not2232, label %._crit_edge36, label %.lr.ph35
+
+.lr.ph35:                                         ; preds = %._crit_edge31, %.lr.ph35
+  %.sroa.010.033 = phi ptr [ %58, %.lr.ph35 ], [ %57, %._crit_edge31 ]
+  %58 = getelementptr inbounds i8, ptr %.sroa.010.033, i64 -8
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 72
+  %62 = load ptr, ptr %61, align 8
+  %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(140) %59, i1 noundef zeroext true)
+  %64 = load ptr, ptr %3, align 8, !noalias !40
+  %.not22 = icmp eq ptr %58, %64
+  br i1 %.not22, label %._crit_edge36, label %.lr.ph35, !llvm.loop !43
+
+._crit_edge36:                                    ; preds = %.lr.ph35, %._crit_edge31
+  %.not8 = icmp eq ptr %.0.lcssa, null
+  br i1 %.not8, label %66, label %65
+
+65:                                               ; preds = %._crit_edge36
+  tail call void @_ZN7nanogui6Screen20move_window_to_frontEPNS_6WindowE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull %.0.lcssa)
+  br label %66
+
+66:                                               ; preds = %65, %._crit_edge36
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen18key_callback_eventEiiii(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %6 = tail call double @glfwGetTime()
+  %7 = getelementptr inbounds i8, ptr %0, i64 280
+  store double %6, ptr %7, align 8
+  %8 = load ptr, ptr %0, align 8
+  %9 = getelementptr inbounds i8, ptr %8, i64 80
+  %10 = load ptr, ptr %9, align 8
+  %11 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+          to label %12 unwind label %18
+
+12:                                               ; preds = %5
+  %13 = getelementptr inbounds i8, ptr %0, i64 349
+  %14 = load i8, ptr %13, align 1
+  %15 = and i8 %14, 1
+  %16 = zext i1 %11 to i8
+  %17 = or i8 %15, %16
+  store i8 %17, ptr %13, align 1
+  br label %36
+
+18:                                               ; preds = %5
+  %19 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  %20 = extractvalue { ptr, i32 } %19, 1
+  %21 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #30
+  %22 = icmp eq i32 %20, %21
+  br i1 %22, label %23, label %39
+
+23:                                               ; preds = %18
+  %24 = extractvalue { ptr, i32 } %19, 0
+  %25 = tail call ptr @__cxa_begin_catch(ptr %24) #30
+  %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.9)
+          to label %27 unwind label %37
+
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %25, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(8) %25) #30
+  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef %31)
+          to label %33 unwind label %37
+
+33:                                               ; preds = %27
+  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %35 unwind label %37
+
+35:                                               ; preds = %33
+  tail call void @__cxa_end_catch()
+  br label %36
+
+36:                                               ; preds = %35, %12
+  ret void
+
+37:                                               ; preds = %33, %27, %23
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %39 unwind label %40
+
+39:                                               ; preds = %37, %18
+  %.merged = phi { ptr, i32 } [ %38, %37 ], [ %19, %18 ]
+  resume { ptr, i32 } %.merged
+
+40:                                               ; preds = %37
+  %41 = landingpad { ptr, i32 }
+          catch ptr null
+  %42 = extractvalue { ptr, i32 } %41, 0
+  tail call void @__clang_call_terminate(ptr %42) #31
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen19char_callback_eventEj(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = tail call double @glfwGetTime()
+  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  store double %3, ptr %4, align 8
+  %5 = load ptr, ptr %0, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 88
+  %7 = load ptr, ptr %6, align 8
+  %8 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 noundef %1)
+          to label %9 unwind label %15
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds i8, ptr %0, i64 349
+  %11 = load i8, ptr %10, align 1
+  %12 = and i8 %11, 1
+  %13 = zext i1 %8 to i8
+  %14 = or i8 %12, %13
+  store i8 %14, ptr %10, align 1
+  br label %33
+
+15:                                               ; preds = %2
+  %16 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  %17 = extractvalue { ptr, i32 } %16, 1
+  %18 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #30
+  %19 = icmp eq i32 %17, %18
+  br i1 %19, label %20, label %36
+
+20:                                               ; preds = %15
+  %21 = extractvalue { ptr, i32 } %16, 0
+  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #30
+  %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.9)
+          to label %24 unwind label %34
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %22, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %22) #30
+  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef %28)
+          to label %30 unwind label %34
+
+30:                                               ; preds = %24
+  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %32 unwind label %34
+
+32:                                               ; preds = %30
+  tail call void @__cxa_end_catch()
+  br label %33
+
+33:                                               ; preds = %32, %9
+  ret void
+
+34:                                               ; preds = %30, %24, %20
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %36 unwind label %37
+
+36:                                               ; preds = %34, %15
+  %.merged = phi { ptr, i32 } [ %35, %34 ], [ %16, %15 ]
+  resume { ptr, i32 } %.merged
+
+37:                                               ; preds = %34
+  %38 = landingpad { ptr, i32 }
+          catch ptr null
+  %39 = extractvalue { ptr, i32 } %38, 0
+  tail call void @__clang_call_terminate(ptr %39) #31
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen19drop_callback_eventEiPPKc(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.std::vector.27", align 8
+  %5 = sext i32 %1 to i64
+  %6 = icmp slt i32 %1, 0
+  br i1 %6, label %.noexc, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
+
+.noexc:                                           ; preds = %3
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.37) #33
+  unreachable
+
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i: ; preds = %3
+  %.not.i.i.i.i = icmp eq i32 %1, 0
+  br i1 %.not.i.i.i.i, label %.loopexit14.thread, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i
+
+.loopexit14.thread:                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  br label %._crit_edge
+
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
+  %7 = shl nuw nsw i64 %5, 5
+  %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #35
+  store ptr %8, ptr %4, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %8, i64 %5
+  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %10, ptr %11, align 8
+  br label %.lr.ph.i.i.i.i.i
+
+.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i
+  %.08.i.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i.i ], [ %8, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i ]
+  %.057.i.i.i.i.i = phi i64 [ %12, %.lr.ph.i.i.i.i.i ], [ %5, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i ]
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.08.i.i.i.i.i) #30
+  %12 = add nsw i64 %.057.i.i.i.i.i, -1
+  %13 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 32
+  %.not.i.i.i.i.i = icmp eq i64 %12, 0
+  br i1 %.not.i.i.i.i.i, label %.loopexit14, label %.lr.ph.i.i.i.i.i, !llvm.loop !44
+
+.loopexit14:                                      ; preds = %.lr.ph.i.i.i.i.i
+  store ptr %13, ptr %9, align 8
+  br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %.loopexit14
+  %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
+  %wide.trip.count = zext nneg i32 %smax to i64
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
+  %14 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %16, i64 %indvars.iv
+  %18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %15)
+          to label %19 unwind label %.loopexit
+
+19:                                               ; preds = %.lr.ph
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+
+.loopexit:                                        ; preds = %.lr.ph
+  %lpad.loopexit = landingpad { ptr, i32 }
+          cleanup
+  br label %20
+
+.loopexit.split-lp:                               ; preds = %._crit_edge
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %20
+
+20:                                               ; preds = %.loopexit.split-lp, %.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #30
+  resume { ptr, i32 } %lpad.phi
+
+._crit_edge:                                      ; preds = %19, %.loopexit14.thread, %.loopexit14
+  %21 = load ptr, ptr %0, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 160
+  %23 = load ptr, ptr %22, align 8
+  %24 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %25 unwind label %.loopexit.split-lp
+
+25:                                               ; preds = %._crit_edge
+  %26 = getelementptr inbounds i8, ptr %0, i64 349
+  %27 = load i8, ptr %26, align 1
+  %28 = and i8 %27, 1
+  %29 = zext i1 %24 to i8
+  %30 = or i8 %28, %29
+  store i8 %30, ptr %26, align 1
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds i8, ptr %4, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %.not4.i.i.i.i = icmp eq ptr %31, %33
+  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %25, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i ], [ %31, %25 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #30
+  %34 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
+  %.not.i.i.i.i13 = icmp eq ptr %34, %33
+  br i1 %.not.i.i.i.i13, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !46
+
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
+  %.pr.i = load ptr, ptr %4, align 8
+  br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
+
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %25
+  %35 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %31, %25 ]
+  %.not.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %36
+
+36:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %35) #32
+  br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
+
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %36
+  ret void
+}
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %.not4.i.i.i = icmp eq ptr %2, %4
+  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
+  %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #30
+  %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 32
+  %.not.i.i.i = icmp eq ptr %5, %4
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !46
+
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
+  %.pr = load ptr, ptr %0, align 8
+  br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit
+
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, %1
+  %6 = phi ptr [ %.pr, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split ], [ %2, %1 ]
+  %.not.i.i = icmp eq ptr %6, null
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %7
+
+7:                                                ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #32
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
+
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, %7
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen21scroll_callback_eventEdd(ptr noundef nonnull align 8 dereferenceable(384) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"struct.nanogui::Array.25", align 8
+  %5 = tail call double @glfwGetTime()
+  %6 = getelementptr inbounds i8, ptr %0, i64 280
+  store double %5, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 216
+  %8 = getelementptr inbounds i8, ptr %0, i64 224
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %7, align 8
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  %14 = icmp ugt i64 %13, 8
+  br i1 %14, label %15, label %.thread
+
+15:                                               ; preds = %3
+  %16 = getelementptr i8, ptr %10, i64 %13
+  %17 = getelementptr i8, ptr %16, i64 -16
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %.thread, label %20
+
+20:                                               ; preds = %15
+  %21 = tail call ptr @__dynamic_cast(ptr nonnull %18, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6WindowE, i64 0) #30
+  %.not = icmp eq ptr %21, null
+  br i1 %.not, label %.thread, label %22
+
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %21, i64 184
+  %24 = load i8, ptr %23, align 8
+  %25 = and i8 %24, 1
+  %.not15 = icmp eq i8 %25, 0
+  br i1 %.not15, label %.thread, label %26
+
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %0, i64 260
+  %28 = getelementptr inbounds i8, ptr %21, i64 40
+  %29 = load <2 x i32>, ptr %27, align 4
+  %30 = load <2 x i32>, ptr %28, align 4
+  %31 = sub nsw <2 x i32> %29, %30
+  %32 = extractelement <2 x i32> %31, i64 0
+  %33 = extractelement <2 x i32> %31, i64 1
+  %34 = or i32 %33, %32
+  %or.cond.i = icmp sgt i32 %34, -1
+  %35 = getelementptr inbounds i8, ptr %21, i64 48
+  %36 = load i32, ptr %35, align 4
+  %37 = icmp slt i32 %32, %36
+  %or.cond8.i = select i1 %or.cond.i, i1 %37, i1 false
+  br i1 %or.cond8.i, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread
+
+_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit: ; preds = %26
+  %38 = getelementptr inbounds i8, ptr %21, i64 52
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp slt i32 %33, %39
+  br i1 %40, label %.thread, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread
+
+41:                                               ; preds = %.thread
+  %42 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  %43 = extractvalue { ptr, i32 } %42, 1
+  %44 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #30
+  %45 = icmp eq i32 %43, %44
+  br i1 %45, label %46, label %75
+
+46:                                               ; preds = %41
+  %47 = extractvalue { ptr, i32 } %42, 0
+  %48 = call ptr @__cxa_begin_catch(ptr %47) #30
+  %49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.9)
+          to label %50 unwind label %73
+
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %48, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 16
+  %53 = load ptr, ptr %52, align 8
+  %54 = call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(8) %48) #30
+  %55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef %54)
+          to label %56 unwind label %73
+
+56:                                               ; preds = %50
+  %57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %58 unwind label %73
+
+58:                                               ; preds = %56
+  call void @__cxa_end_catch()
+  br label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread
+
+_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread: ; preds = %26, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, %67, %58
+  ret void
+
+.thread:                                          ; preds = %15, %20, %22, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, %3
+  %59 = getelementptr inbounds i8, ptr %0, i64 260
+  %60 = insertelement <2 x double> poison, double %1, i64 0
+  %61 = insertelement <2 x double> %60, double %2, i64 1
+  %62 = fptrunc <2 x double> %61 to <2 x float>
+  store <2 x float> %62, ptr %4, align 8
+  %63 = load ptr, ptr %0, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 64
+  %65 = load ptr, ptr %64, align 8
+  %66 = invoke noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef nonnull align 4 dereferenceable(8) %59, ptr noundef nonnull align 4 dereferenceable(8) %4)
+          to label %67 unwind label %41
+
+67:                                               ; preds = %.thread
+  %68 = getelementptr inbounds i8, ptr %0, i64 349
+  %69 = load i8, ptr %68, align 1
+  %70 = and i8 %69, 1
+  %71 = zext i1 %66 to i8
+  %72 = or i8 %70, %71
+  store i8 %72, ptr %68, align 1
+  br label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread
+
+73:                                               ; preds = %56, %50, %46
+  %74 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %75 unwind label %76
+
+75:                                               ; preds = %73, %41
+  %.merged = phi { ptr, i32 } [ %74, %73 ], [ %42, %41 ]
+  resume { ptr, i32 } %.merged
+
+76:                                               ; preds = %73
+  %77 = landingpad { ptr, i32 }
+          catch ptr null
+  %78 = extractvalue { ptr, i32 } %77, 0
+  call void @__clang_call_terminate(ptr %78) #31
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen21resize_callback_eventEii(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 %1, i32 %2) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"struct.nanogui::Array", align 8
+  %5 = alloca %"struct.nanogui::Array", align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  call void @glfwGetFramebufferSize(ptr noundef %7, ptr noundef nonnull %4, ptr noundef nonnull %8)
+  %9 = load ptr, ptr %6, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  call void @glfwGetWindowSize(ptr noundef %9, ptr noundef nonnull %5, ptr noundef nonnull %10)
+  br label %11
+
+11:                                               ; preds = %11, %3
+  %.not8.i = phi i1 [ true, %3 ], [ false, %11 ]
+  %.07.i.sroa.phi = phi ptr [ %4, %3 ], [ %8, %11 ]
+  %12 = load i32, ptr %.07.i.sroa.phi, align 4
+  %.not.i = icmp eq i32 %12, 0
+  %or.cond.i = and i1 %.not8.i, %.not.i
+  br i1 %or.cond.i, label %11, label %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit, !llvm.loop !47
+
+_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit:           ; preds = %11
+  br i1 %.not.i, label %.critedge, label %.preheader
+
+.preheader:                                       ; preds = %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit, %.preheader
+  %.not8.i7 = phi i1 [ false, %.preheader ], [ true, %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit ]
+  %.07.i8.sroa.phi = phi ptr [ %10, %.preheader ], [ %5, %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit ]
+  %13 = load i32, ptr %.07.i8.sroa.phi, align 4
+  %.not.i9 = icmp eq i32 %13, 0
+  %or.cond.i10 = and i1 %.not8.i7, %.not.i9
+  br i1 %or.cond.i10, label %.preheader, label %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit11, !llvm.loop !47
+
+_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit11:         ; preds = %.preheader
+  br i1 %.not.i9, label %.critedge, label %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge
+
+_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge: ; preds = %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit11
+  %14 = getelementptr inbounds i8, ptr %0, i64 240
+  %15 = load i64, ptr %4, align 8
+  store i64 %15, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = load i64, ptr %5, align 8
+  %18 = lshr i64 %17, 32
+  %19 = getelementptr inbounds i8, ptr %0, i64 248
+  %20 = load <4 x float>, ptr %19, align 8
+  %21 = insertelement <2 x i64> poison, i64 %17, i64 0
+  %22 = insertelement <2 x i64> %21, i64 %18, i64 1
+  %23 = trunc <2 x i64> %22 to <2 x i32>
+  %24 = sitofp <2 x i32> %23 to <2 x float>
+  %25 = shufflevector <4 x float> %20, <4 x float> poison, <2 x i32> zeroinitializer
+  %26 = fdiv <2 x float> %24, %25
+  %27 = fptosi <2 x float> %26 to <2 x i32>
+  store <2 x i32> %27, ptr %16, align 8
+  %28 = call double @glfwGetTime()
+  %29 = getelementptr inbounds i8, ptr %0, i64 280
+  store double %28, ptr %29, align 8
+  %30 = load ptr, ptr %0, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 168
+  %32 = load ptr, ptr %31, align 8
+  %33 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 4 dereferenceable(8) %16)
+          to label %52 unwind label %34
+
+34:                                               ; preds = %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge
+  %35 = landingpad { ptr, i32 }
+          catch ptr @_ZTISt9exception
+  %36 = extractvalue { ptr, i32 } %35, 1
+  %37 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #30
+  %38 = icmp eq i32 %36, %37
+  br i1 %38, label %39, label %59
+
+39:                                               ; preds = %34
+  %40 = extractvalue { ptr, i32 } %35, 0
+  %41 = call ptr @__cxa_begin_catch(ptr %40) #30
+  %42 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.9)
+          to label %43 unwind label %57
+
+43:                                               ; preds = %39
+  %44 = load ptr, ptr %41, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %46 = load ptr, ptr %45, align 8
+  %47 = call noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(8) %41) #30
+  %48 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %47)
+          to label %49 unwind label %57
+
+49:                                               ; preds = %43
+  %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %51 unwind label %57
+
+51:                                               ; preds = %49
+  call void @__cxa_end_catch()
+  br label %52
+
+52:                                               ; preds = %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge, %51
+  %53 = getelementptr inbounds i8, ptr %0, i64 349
+  %54 = load i8, ptr %53, align 1
+  %55 = and i8 %54, 1
+  %.not.i13 = icmp eq i8 %55, 0
+  br i1 %.not.i13, label %56, label %.critedge
+
+56:                                               ; preds = %52
+  store i8 1, ptr %53, align 1
+  call void @glfwPostEmptyEvent()
+  br label %.critedge
+
+.critedge:                                        ; preds = %56, %52, %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit, %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit11
+  ret void
+
+57:                                               ; preds = %49, %43, %39
+  %58 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %59 unwind label %60
+
+59:                                               ; preds = %57, %34
+  %.merged = phi { ptr, i32 } [ %58, %57 ], [ %35, %34 ]
+  resume { ptr, i32 } %.merged
+
+60:                                               ; preds = %57
+  %61 = landingpad { ptr, i32 }
+          catch ptr null
+  %62 = extractvalue { ptr, i32 } %61, 0
+  call void @__clang_call_terminate(ptr %62) #31
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen20move_window_to_frontEPNS_6WindowE(ptr nocapture noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %8 = ptrtoint ptr %4 to i64
+  %9 = sub i64 %7, %8
+  %10 = ashr i64 %9, 5
+  %11 = icmp sgt i64 %10, 0
+  br i1 %11, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %2
+  %12 = and i64 %9, -32
+  %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %12
+  br label %13
+
+13:                                               ; preds = %28, %.lr.ph.i.i.i.i
+  %.052.i.i.i.i = phi i64 [ %10, %.lr.ph.i.i.i.i ], [ %30, %28 ]
+  %.sroa.032.051.i.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i.i ], [ %29, %28 ]
+  %14 = load ptr, ptr %.sroa.032.051.i.i.i.i, align 8
+  %15 = icmp eq ptr %14, %1
+  br i1 %15, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i, label %16
+
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, %1
+  br i1 %19, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i.loopexit.split.loop.exit, label %20
+
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp eq ptr %22, %1
+  br i1 %23, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i.loopexit.split.loop.exit63, label %24
+
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 24
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, %1
+  br i1 %27, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i.loopexit.split.loop.exit65, label %28
+
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 32
+  %30 = add nsw i64 %.052.i.i.i.i, -1
+  %31 = icmp sgt i64 %.052.i.i.i.i, 1
+  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !48
+
+._crit_edge.loopexit.i.i.i.i:                     ; preds = %28
+  %.pre59.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i to i64
+  %.pre60.i.i.i.i = sub i64 %7, %.pre59.i.i.i.i
+  br label %._crit_edge.i.i.i.i
+
+._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %2
+  %.pre-phi61.i.i.i.i = phi i64 [ %.pre60.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %9, %2 ]
+  %.sroa.032.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %4, %2 ]
+  %32 = ashr exact i64 %.pre-phi61.i.i.i.i, 3
+  switch i64 %32, label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit [
+    i64 3, label %33
+    i64 2, label %._crit_edge._crit_edge.i.i.i.i
+    i64 1, label %._crit_edge._crit_edge57.i.i.i.i
+  ]
+
+33:                                               ; preds = %._crit_edge.i.i.i.i
+  %34 = load ptr, ptr %.sroa.032.0.lcssa.i.i.i.i, align 8
+  %35 = icmp eq ptr %34, %1
+  br i1 %35, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i, label %36
+
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds i8, ptr %.sroa.032.0.lcssa.i.i.i.i, i64 8
+  br label %._crit_edge._crit_edge.i.i.i.i
+
+._crit_edge._crit_edge.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i, %36
+  %.sroa.032.1.i.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %38 = load ptr, ptr %.sroa.032.1.i.i.i.i, align 8
+  %39 = icmp eq ptr %38, %1
+  br i1 %39, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i, label %40
+
+40:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i
+  %41 = getelementptr inbounds i8, ptr %.sroa.032.1.i.i.i.i, i64 8
+  br label %._crit_edge._crit_edge57.i.i.i.i
+
+._crit_edge._crit_edge57.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i, %40
+  %.sroa.032.2.i.i.i.i = phi ptr [ %41, %40 ], [ %.sroa.032.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %42 = load ptr, ptr %.sroa.032.2.i.i.i.i, align 8
+  %43 = icmp eq ptr %42, %1
+  %spec.select.i.i.i.i = select i1 %43, ptr %.sroa.032.2.i.i.i.i, ptr %6
+  br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i
+
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i.loopexit.split.loop.exit: ; preds = %16
+  %44 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 8
+  br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i
+
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i.loopexit.split.loop.exit63: ; preds = %20
+  %45 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 16
+  br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i
+
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i.loopexit.split.loop.exit65: ; preds = %24
+  %46 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 24
+  br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i
+
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i: ; preds = %13, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i.loopexit.split.loop.exit63, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i.loopexit.split.loop.exit65, %._crit_edge._crit_edge57.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %33
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %33 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %44, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i.loopexit.split.loop.exit ], [ %45, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i.loopexit.split.loop.exit63 ], [ %46, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i.loopexit.split.loop.exit65 ], [ %.sroa.032.051.i.i.i.i, %13 ]
+  %47 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %6
+  %.sroa.07.026.i.i = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, i64 8
+  %.not27.i.i = icmp eq ptr %.sroa.07.026.i.i, %6
+  %or.cond.i.i = select i1 %47, i1 true, i1 %.not27.i.i
+  br i1 %or.cond.i.i, label %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i, %52
+  %.sroa.07.029.i.i = phi ptr [ %.sroa.07.0.i.i, %52 ], [ %.sroa.07.026.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i ]
+  %.sroa.013.028.i.i = phi ptr [ %.sroa.013.1.i.i, %52 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i ]
+  %48 = load ptr, ptr %.sroa.07.029.i.i, align 8
+  %49 = icmp eq ptr %48, %1
+  br i1 %49, label %52, label %50
+
+50:                                               ; preds = %.lr.ph.i.i
+  store ptr %48, ptr %.sroa.013.028.i.i, align 8
+  %51 = getelementptr inbounds i8, ptr %.sroa.013.028.i.i, i64 8
+  br label %52
+
+52:                                               ; preds = %50, %.lr.ph.i.i
+  %.sroa.013.1.i.i = phi ptr [ %.sroa.013.028.i.i, %.lr.ph.i.i ], [ %51, %50 ]
+  %.sroa.07.0.i.i = getelementptr inbounds i8, ptr %.sroa.07.029.i.i, i64 8
+  %.not.i.i = icmp eq ptr %.sroa.07.0.i.i, %6
+  br i1 %.not.i.i, label %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !49
+
+_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit: ; preds = %52
+  %.pre = load ptr, ptr %5, align 8
+  br label %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit
+
+_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit: ; preds = %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i
+  %53 = phi ptr [ %6, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i ], [ %.pre, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit ]
+  %.sroa.013.2.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKPNS2_6WindowEEEET_SG_SG_T0_.exit.i.i ], [ %.sroa.013.1.i.i, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit ]
+  %.not.i.i20 = icmp eq ptr %.sroa.013.2.i.i, %53
+  br i1 %.not.i.i20, label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit, label %._crit_edge.i.i
+
+._crit_edge.i.i:                                  ; preds = %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit
+  %54 = load ptr, ptr %3, align 8
+  %55 = ptrtoint ptr %.sroa.013.2.i.i to i64
+  %56 = ptrtoint ptr %54 to i64
+  %57 = sub i64 %55, %56
+  %58 = getelementptr inbounds i8, ptr %54, i64 %57
+  store ptr %58, ptr %5, align 8
+  br label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit
+
+_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit: ; preds = %._crit_edge.i.i.i.i, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit, %._crit_edge.i.i
+  %59 = phi ptr [ %53, %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit ], [ %58, %._crit_edge.i.i ], [ %6, %._crit_edge.i.i.i.i ]
+  %60 = getelementptr inbounds i8, ptr %0, i64 80
+  %61 = load ptr, ptr %60, align 8
+  %.not.i.i21 = icmp eq ptr %59, %61
+  br i1 %.not.i.i21, label %65, label %62
+
+62:                                               ; preds = %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit
+  store ptr %1, ptr %59, align 8
+  %63 = load ptr, ptr %5, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 8
+  store ptr %64, ptr %5, align 8
+  br label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit
+
+65:                                               ; preds = %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit
+  %66 = load ptr, ptr %3, align 8
+  %67 = ptrtoint ptr %59 to i64
+  %68 = ptrtoint ptr %66 to i64
+  %69 = sub i64 %67, %68
+  %70 = icmp eq i64 %69, 9223372036854775800
+  br i1 %70, label %71, label %_ZNKSt6vectorIPN7nanogui6WidgetESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+
+71:                                               ; preds = %65
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.38) #33
+  unreachable
+
+_ZNKSt6vectorIPN7nanogui6WidgetESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %65
+  %72 = ashr exact i64 %69, 3
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %72, i64 1)
+  %73 = add nsw i64 %.sroa.speculated.i.i.i.i, %72
+  %74 = icmp ult i64 %73, %72
+  %75 = tail call i64 @llvm.umin.i64(i64 %73, i64 1152921504606846975)
+  %76 = select i1 %74, i64 1152921504606846975, i64 %75
+  %.not.i.i.i.i = icmp eq i64 %76, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN7nanogui6WidgetESaIS2_EE11_M_allocateEm.exit.i.i.i, label %77
+
+77:                                               ; preds = %_ZNKSt6vectorIPN7nanogui6WidgetESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  %78 = shl nuw nsw i64 %76, 3
+  %79 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %78) #35
+  br label %_ZNSt12_Vector_baseIPN7nanogui6WidgetESaIS2_EE11_M_allocateEm.exit.i.i.i
+
+_ZNSt12_Vector_baseIPN7nanogui6WidgetESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %77, %_ZNKSt6vectorIPN7nanogui6WidgetESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  %80 = phi ptr [ %79, %77 ], [ null, %_ZNKSt6vectorIPN7nanogui6WidgetESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %81 = getelementptr inbounds ptr, ptr %80, i64 %72
+  store ptr %1, ptr %81, align 8
+  %82 = icmp sgt i64 %69, 0
+  br i1 %82, label %83, label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
+
+83:                                               ; preds = %_ZNSt12_Vector_baseIPN7nanogui6WidgetESaIS2_EE11_M_allocateEm.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %80, ptr align 8 %66, i64 %69, i1 false)
+  br label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
+
+_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; preds = %83, %_ZNSt12_Vector_baseIPN7nanogui6WidgetESaIS2_EE11_M_allocateEm.exit.i.i.i
+  %84 = getelementptr inbounds i8, ptr %80, i64 %69
+  %85 = getelementptr inbounds i8, ptr %84, i64 8
+  %.not.i17.i.i.i = icmp eq ptr %66, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %86
+
+86:                                               ; preds = %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %66) #32
+  br label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %86, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
+  store ptr %80, ptr %3, align 8
+  store ptr %85, ptr %5, align 8
+  %87 = getelementptr inbounds ptr, ptr %80, i64 %76
+  store ptr %87, ptr %60, align 8
+  br label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit
+
+_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit: ; preds = %62, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+  %88 = phi ptr [ %64, %62 ], [ %85, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %89 = load ptr, ptr %3, align 8
+  %.not4976 = icmp eq ptr %88, %89
+  br i1 %.not4976, label %.critedge, label %.lr.ph.preheader.lr.ph
+
+.lr.ph.preheader.lr.ph:                           ; preds = %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit
+  %90 = ptrtoint ptr %88 to i64
+  %91 = ptrtoint ptr %89 to i64
+  %92 = sub i64 %90, %91
+  br label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.lr.ph, %109
+  %.not4977 = phi i1 [ %.not4976, %.lr.ph.preheader.lr.ph ], [ %.not49, %109 ]
+  %.in = phi i64 [ %92, %.lr.ph.preheader.lr.ph ], [ %113, %109 ]
+  %93 = phi ptr [ %89, %.lr.ph.preheader.lr.ph ], [ %110, %109 ]
+  %94 = ashr exact i64 %.in, 3
+  %umax = tail call i64 @llvm.umax.i64(i64 %94, i64 1)
+  br label %.lr.ph
+
+.preheader:                                       ; preds = %.lr.ph
+  br i1 %.not4977, label %.critedge, label %.lr.ph48.preheader
+
+.lr.ph48.preheader:                               ; preds = %.preheader
+  %umax56 = tail call i64 @llvm.umax.i64(i64 %94, i64 1)
+  br label %.lr.ph48
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01644 = phi i64 [ %98, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01743 = phi i64 [ %spec.select, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %95 = getelementptr inbounds ptr, ptr %93, i64 %.01644
+  %96 = load ptr, ptr %95, align 8
+  %97 = icmp eq ptr %96, %1
+  %spec.select = select i1 %97, i64 %.01644, i64 %.01743
+  %98 = add nuw i64 %.01644, 1
+  %exitcond.not = icmp eq i64 %98, %umax
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !50
+
+.lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.thread
+  %.01547 = phi i64 [ %114, %.thread ], [ 0, %.lr.ph48.preheader ]
+  %99 = getelementptr inbounds ptr, ptr %93, i64 %.01547
+  %100 = load ptr, ptr %99, align 8
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %.thread, label %102
+
+102:                                              ; preds = %.lr.ph48
+  %103 = tail call ptr @__dynamic_cast(ptr nonnull %100, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui5PopupE, i64 0) #30
+  %.not = icmp eq ptr %103, null
+  br i1 %.not, label %.thread, label %104
+
+104:                                              ; preds = %102
+  %105 = getelementptr inbounds i8, ptr %103, i64 192
+  %106 = load ptr, ptr %105, align 8
+  %107 = icmp eq ptr %106, %1
+  %108 = icmp ult i64 %.01547, %spec.select
+  %or.cond = select i1 %107, i1 %108, i1 false
+  br i1 %or.cond, label %109, label %.thread
+
+109:                                              ; preds = %104
+  tail call void @_ZN7nanogui6Screen20move_window_to_frontEPNS_6WindowE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull %103)
+  %.pre58 = load ptr, ptr %5, align 8
+  %110 = load ptr, ptr %3, align 8
+  %111 = ptrtoint ptr %.pre58 to i64
+  %112 = ptrtoint ptr %110 to i64
+  %113 = sub i64 %111, %112
+  %.not49 = icmp eq ptr %.pre58, %110
+  br i1 %.not49, label %.critedge, label %.lr.ph.preheader, !llvm.loop !51
+
+.thread:                                          ; preds = %.lr.ph48, %102, %104
+  %114 = add nuw i64 %.01547, 1
+  %exitcond57.not = icmp eq i64 %114, %umax56
+  br i1 %exitcond57.not, label %.critedge, label %.lr.ph48, !llvm.loop !52
+
+.critedge:                                        ; preds = %.preheader, %109, %.thread, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen14dispose_windowEPNS_6WindowE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 216
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 224
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %8 = ptrtoint ptr %4 to i64
+  %9 = sub i64 %7, %8
+  %10 = ashr i64 %9, 5
+  %11 = icmp sgt i64 %10, 0
+  br i1 %11, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %2
+  %12 = and i64 %9, -32
+  %scevgep.i.i.i = getelementptr i8, ptr %4, i64 %12
+  br label %13
+
+13:                                               ; preds = %28, %.lr.ph.i.i.i
+  %.052.i.i.i = phi i64 [ %10, %.lr.ph.i.i.i ], [ %30, %28 ]
+  %.sroa.032.051.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %29, %28 ]
+  %14 = load ptr, ptr %.sroa.032.051.i.i.i, align 8
+  %15 = icmp eq ptr %14, %1
+  br i1 %15, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit, label %16
+
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, %1
+  br i1 %19, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit.split.loop.exit, label %20
+
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp eq ptr %22, %1
+  br i1 %23, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit.split.loop.exit19, label %24
+
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 24
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, %1
+  br i1 %27, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit.split.loop.exit21, label %28
+
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 32
+  %30 = add nsw i64 %.052.i.i.i, -1
+  %31 = icmp sgt i64 %.052.i.i.i, 1
+  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i, !llvm.loop !48
+
+._crit_edge.loopexit.i.i.i:                       ; preds = %28
+  %.pre59.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
+  %.pre60.i.i.i = sub i64 %7, %.pre59.i.i.i
+  br label %._crit_edge.i.i.i
+
+._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %2
+  %.pre-phi61.i.i.i = phi i64 [ %.pre60.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %9, %2 ]
+  %.sroa.032.0.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %4, %2 ]
+  %32 = ashr exact i64 %.pre-phi61.i.i.i, 3
+  switch i64 %32, label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit [
+    i64 3, label %33
+    i64 2, label %._crit_edge._crit_edge.i.i.i
+    i64 1, label %._crit_edge._crit_edge57.i.i.i
+  ]
+
+33:                                               ; preds = %._crit_edge.i.i.i
+  %34 = load ptr, ptr %.sroa.032.0.lcssa.i.i.i, align 8
+  %35 = icmp eq ptr %34, %1
+  br i1 %35, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit, label %36
+
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds i8, ptr %.sroa.032.0.lcssa.i.i.i, i64 8
+  br label %._crit_edge._crit_edge.i.i.i
+
+._crit_edge._crit_edge.i.i.i:                     ; preds = %._crit_edge.i.i.i, %36
+  %.sroa.032.1.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %38 = load ptr, ptr %.sroa.032.1.i.i.i, align 8
+  %39 = icmp eq ptr %38, %1
+  br i1 %39, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit, label %40
+
+40:                                               ; preds = %._crit_edge._crit_edge.i.i.i
+  %41 = getelementptr inbounds i8, ptr %.sroa.032.1.i.i.i, i64 8
+  br label %._crit_edge._crit_edge57.i.i.i
+
+._crit_edge._crit_edge57.i.i.i:                   ; preds = %._crit_edge.i.i.i, %40
+  %.sroa.032.2.i.i.i = phi ptr [ %41, %40 ], [ %.sroa.032.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %42 = load ptr, ptr %.sroa.032.2.i.i.i, align 8
+  %43 = icmp eq ptr %42, %1
+  %spec.select.i.i.i = select i1 %43, ptr %.sroa.032.2.i.i.i, ptr %6
+  br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit
+
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit.split.loop.exit: ; preds = %16
+  %44 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 8
+  br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit
+
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit.split.loop.exit19: ; preds = %20
+  %45 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 16
+  br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit
+
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit.split.loop.exit21: ; preds = %24
+  %46 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 24
+  br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit
+
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit: ; preds = %13, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit.split.loop.exit19, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit.split.loop.exit21, %33, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge57.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %33 ], [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %44, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit.split.loop.exit ], [ %45, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit.split.loop.exit19 ], [ %46, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit.split.loop.exit21 ], [ %.sroa.032.051.i.i.i, %13 ]
+  %47 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %6
+  %.not.i.i = icmp eq ptr %6, %4
+  %or.cond = or i1 %.not.i.i, %47
+  br i1 %or.cond, label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit, label %48
+
+48:                                               ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit
+  store ptr %4, ptr %5, align 8
+  br label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit
+
+_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit: ; preds = %._crit_edge.i.i.i, %48, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit
+  %49 = getelementptr inbounds i8, ptr %0, i64 272
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %50, %1
+  br i1 %51, label %52, label %53
+
+52:                                               ; preds = %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit
+  store ptr null, ptr %49, align 8
+  br label %53
+
+53:                                               ; preds = %52, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit
+  tail call void @_ZN7nanogui6Widget12remove_childEPKS0_(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef %1)
+  ret void
+}
+
+declare void @_ZN7nanogui6Widget12remove_childEPKS0_(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN7nanogui6Screen13center_windowEPNS_6WindowE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:
+  %2 = getelementptr inbounds i8, ptr %1, i64 48
+  br label %3
+
+3:                                                ; preds = %3, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge
+  %.not8.i = phi i1 [ true, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ], [ false, %3 ]
+  %.07.i = phi i64 [ 0, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ], [ 1, %3 ]
+  %4 = getelementptr inbounds [2 x i32], ptr %2, i64 0, i64 %.07.i
+  %5 = load i32, ptr %4, align 4
+  %.not.i = icmp eq i32 %5, 0
+  %or.cond.i = and i1 %.not8.i, %.not.i
+  br i1 %or.cond.i, label %3, label %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit, !llvm.loop !47
+
+_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit:           ; preds = %3
+  br i1 %.not.i, label %6, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
+
+6:                                                ; preds = %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit
+  %7 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %1, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 96
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call i64 %11(ptr noundef nonnull align 8 dereferenceable(186) %1, ptr noundef %8)
+  store i64 %12, ptr %2, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load ptr, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 104
+  %16 = load ptr, ptr %15, align 8
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(186) %1, ptr noundef %13)
+  br label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
+
+_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %6, %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit
+  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = load i32, ptr %17, align 8
+  %19 = load i32, ptr %2, align 4
+  %20 = sub nsw i32 %18, %19
+  %21 = getelementptr inbounds i8, ptr %0, i64 52
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %1, i64 52
+  %24 = load i32, ptr %23, align 4
+  %25 = sub nsw i32 %22, %24
+  %26 = sdiv i32 %20, 2
+  %27 = sdiv i32 %25, 2
+  %28 = getelementptr inbounds i8, ptr %1, i64 40
+  %.sroa.017.sroa.2.0.insert.ext = zext i32 %27 to i64
+  %.sroa.017.sroa.2.0.insert.shift = shl nuw i64 %.sroa.017.sroa.2.0.insert.ext, 32
+  %.sroa.017.sroa.0.0.insert.ext = zext i32 %26 to i64
+  %.sroa.017.sroa.0.0.insert.insert = or disjoint i64 %.sroa.017.sroa.2.0.insert.shift, %.sroa.017.sroa.0.0.insert.ext
+  store i64 %.sroa.017.sroa.0.0.insert.insert, ptr %28, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef zeroext i1 @_ZNK7nanogui6Screen24tooltip_fade_in_progressEv(ptr noundef nonnull align 8 dereferenceable(384) %0) local_unnamed_addr #3 align 2 {
+  %2 = tail call double @glfwGetTime()
+  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = load double, ptr %3, align 8
+  %5 = fsub double %2, %4
+  %6 = fcmp olt double %5, 2.500000e-01
+  %7 = fcmp ogt double %5, 1.250000e+00
+  %or.cond = or i1 %6, %7
+  br i1 %or.cond, label %15, label %8
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds i8, ptr %0, i64 260
+  %10 = tail call noundef ptr @_ZNK7nanogui6Widget11find_widgetERKNS_5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef nonnull align 4 dereferenceable(8) %9)
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %15, label %11
+
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds i8, ptr %10, i64 96
+  %13 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #30
+  %14 = xor i1 %13, true
+  br label %15
+
+15:                                               ; preds = %8, %11, %1
+  %.0 = phi i1 [ false, %1 ], [ false, %8 ], [ %14, %11 ]
+  ret i1 %.0
+}
+
+declare noundef ptr @_ZNK7nanogui6Widget11find_widgetERKNS_5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define hidden noundef zeroext i8 @_ZNK7nanogui6Screen12pixel_formatEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(384) %0) local_unnamed_addr #15 align 2 {
+  ret i8 3
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define hidden noundef zeroext i8 @_ZNK7nanogui6Screen16component_formatEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0) local_unnamed_addr #16 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 348
+  %3 = load i8, ptr %2, align 4
+  %4 = and i8 %3, 1
+  %.not = icmp eq i8 %4, 0
+  %. = select i1 %.not, i8 2, i8 9
+  ret i8 %.
+}
+
+declare void @_ZN7nanogui6Widget9set_themeEPNS_5ThemeE(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef) unnamed_addr #0
+
+declare void @_ZN7nanogui6Widget9add_childEiPS0_(ptr noundef nonnull align 8 dereferenceable(140), i32 noundef, ptr noundef) unnamed_addr #0
+
+declare noundef zeroext i1 @_ZN7nanogui6Widget18mouse_button_eventERKNS_5ArrayIiLm2EEEibi(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, i1 noundef zeroext, i32 noundef) unnamed_addr #0
+
+declare noundef zeroext i1 @_ZN7nanogui6Widget18mouse_motion_eventERKNS_5ArrayIiLm2EEES4_ii(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, i32 noundef) unnamed_addr #0
+
+declare noundef zeroext i1 @_ZN7nanogui6Widget16mouse_drag_eventERKNS_5ArrayIiLm2EEES4_ii(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, i32 noundef) unnamed_addr #0
+
+declare noundef zeroext i1 @_ZN7nanogui6Widget17mouse_enter_eventERKNS_5ArrayIiLm2EEEb(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef nonnull align 4 dereferenceable(8), i1 noundef zeroext) unnamed_addr #0
+
+declare noundef zeroext i1 @_ZN7nanogui6Widget12scroll_eventERKNS_5ArrayIiLm2EEERKNS1_IfLm2EEE(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #0
+
+declare noundef zeroext i1 @_ZN7nanogui6Widget11focus_eventEb(ptr noundef nonnull align 8 dereferenceable(140), i1 noundef zeroext) unnamed_addr #0
+
+declare i64 @_ZNK7nanogui6Widget14preferred_sizeEP10NVGcontext(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef) unnamed_addr #0
+
+declare void @_ZN7nanogui6Widget14perform_layoutEP10NVGcontext(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef) unnamed_addr #0
+
+declare void @_ZN7nanogui6Widget4drawEP10NVGcontext(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef) unnamed_addr #0
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN7nanogui6Screen10drop_eventERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #7 comdat align 2 {
+  ret i1 false
+}
+
+; Function Attrs: mustprogress uwtable
+define internal fastcc noundef i32 @_ZL19glnvg__createShaderP11GLNVGshaderPKcS2_S2_S2_S2_(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #3 {
+  %3 = alloca [513 x i8], align 16
+  %4 = alloca i32, align 4
+  %5 = alloca [513 x i8], align 16
+  %6 = alloca i32, align 4
+  %7 = alloca [513 x i8], align 16
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca [3 x ptr], align 16
+  store ptr @.str.10, ptr %10, align 16
+  %.not = icmp eq ptr %1, null
+  %11 = select i1 %.not, ptr @.str.19, ptr %1
+  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %11, ptr %12, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  %13 = tail call i32 @glCreateProgram()
+  %14 = tail call i32 @glCreateShader(i32 noundef 35633)
+  %15 = tail call i32 @glCreateShader(i32 noundef 35632)
+  %16 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr @.str.11, ptr %16, align 16
+  call void @glShaderSource(i32 noundef %14, i32 noundef 3, ptr noundef nonnull %10, ptr noundef null)
+  store ptr @.str.12, ptr %16, align 16
+  call void @glShaderSource(i32 noundef %15, i32 noundef 3, ptr noundef nonnull %10, ptr noundef null)
+  call void @glCompileShader(i32 noundef %14)
+  call void @glGetShaderiv(i32 noundef %14, i32 noundef 35713, ptr noundef nonnull %9)
+  %17 = load i32, ptr %9, align 4
+  %.not32 = icmp eq i32 %17, 1
+  br i1 %.not32, label %26, label %18
+
+18:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 513, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  store i32 0, ptr %8, align 4
+  call void @glGetShaderInfoLog(i32 noundef %14, i32 noundef 512, ptr noundef nonnull %8, ptr noundef nonnull %7)
+  %19 = load i32, ptr %8, align 4
+  %20 = icmp sgt i32 %19, 512
+  br i1 %20, label %21, label %_ZL22glnvg__dumpShaderErrorjPKcS0_.exit
+
+21:                                               ; preds = %18
+  store i32 512, ptr %8, align 4
+  br label %_ZL22glnvg__dumpShaderErrorjPKcS0_.exit
+
+_ZL22glnvg__dumpShaderErrorjPKcS0_.exit:          ; preds = %18, %21
+  %22 = phi i32 [ 512, %21 ], [ %19, %18 ]
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds [513 x i8], ptr %7, i64 0, i64 %23
+  store i8 0, ptr %24, align 1
+  %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.20, ptr noundef nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 513, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  br label %49
+
+26:                                               ; preds = %2
+  call void @glCompileShader(i32 noundef %15)
+  call void @glGetShaderiv(i32 noundef %15, i32 noundef 35713, ptr noundef nonnull %9)
+  %27 = load i32, ptr %9, align 4
+  %.not33 = icmp eq i32 %27, 1
+  br i1 %.not33, label %36, label %28
+
+28:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 513, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  store i32 0, ptr %6, align 4
+  call void @glGetShaderInfoLog(i32 noundef %15, i32 noundef 512, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %29 = load i32, ptr %6, align 4
+  %30 = icmp sgt i32 %29, 512
+  br i1 %30, label %31, label %_ZL22glnvg__dumpShaderErrorjPKcS0_.exit35
+
+31:                                               ; preds = %28
+  store i32 512, ptr %6, align 4
+  br label %_ZL22glnvg__dumpShaderErrorjPKcS0_.exit35
+
+_ZL22glnvg__dumpShaderErrorjPKcS0_.exit35:        ; preds = %28, %31
+  %32 = phi i32 [ 512, %31 ], [ %29, %28 ]
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds [513 x i8], ptr %5, i64 0, i64 %33
+  store i8 0, ptr %34, align 1
+  %35 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.21, ptr noundef nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 513, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  br label %49
+
+36:                                               ; preds = %26
+  call void @glAttachShader(i32 noundef %13, i32 noundef %14)
+  call void @glAttachShader(i32 noundef %13, i32 noundef %15)
+  call void @glBindAttribLocation(i32 noundef %13, i32 noundef 0, ptr noundef nonnull @.str.22)
+  call void @glBindAttribLocation(i32 noundef %13, i32 noundef 1, ptr noundef nonnull @.str.23)
+  call void @glLinkProgram(i32 noundef %13)
+  call void @glGetProgramiv(i32 noundef %13, i32 noundef 35714, ptr noundef nonnull %9)
+  %37 = load i32, ptr %9, align 4
+  %.not34 = icmp eq i32 %37, 1
+  br i1 %.not34, label %46, label %38
+
+38:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 513, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  store i32 0, ptr %4, align 4
+  call void @glGetProgramInfoLog(i32 noundef %13, i32 noundef 512, ptr noundef nonnull %4, ptr noundef nonnull %3)
+  %39 = load i32, ptr %4, align 4
+  %40 = icmp sgt i32 %39, 512
+  br i1 %40, label %41, label %_ZL23glnvg__dumpProgramErrorjPKc.exit
+
+41:                                               ; preds = %38
+  store i32 512, ptr %4, align 4
+  br label %_ZL23glnvg__dumpProgramErrorjPKc.exit
+
+_ZL23glnvg__dumpProgramErrorjPKc.exit:            ; preds = %38, %41
+  %42 = phi i32 [ 512, %41 ], [ %39, %38 ]
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds [513 x i8], ptr %3, i64 0, i64 %43
+  store i8 0, ptr %44, align 1
+  %45 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull @.str.14, ptr noundef nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 513, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  br label %49
+
+46:                                               ; preds = %36
+  store i32 %13, ptr %0, align 4
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %14, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %15, ptr %48, align 4
+  br label %49
+
+49:                                               ; preds = %46, %_ZL23glnvg__dumpProgramErrorjPKc.exit, %_ZL22glnvg__dumpShaderErrorjPKcS0_.exit35, %_ZL22glnvg__dumpShaderErrorjPKcS0_.exit
+  %.0 = phi i32 [ 0, %_ZL22glnvg__dumpShaderErrorjPKcS0_.exit ], [ 0, %_ZL22glnvg__dumpShaderErrorjPKcS0_.exit35 ], [ 0, %_ZL23glnvg__dumpProgramErrorjPKc.exit ], [ 1, %46 ]
+  ret i32 %.0
+}
+
+declare void @glGenVertexArrays(i32 noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glGenBuffers(i32 noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glUniformBlockBinding(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
+
+declare void @glGetIntegerv(i32 noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glFinish() local_unnamed_addr #0
+
+declare i32 @glGetError() local_unnamed_addr #0
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #17
+
+declare i32 @glCreateProgram() local_unnamed_addr #0
+
+declare i32 @glCreateShader(i32 noundef) local_unnamed_addr #0
+
+declare void @glShaderSource(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glCompileShader(i32 noundef) local_unnamed_addr #0
+
+declare void @glGetShaderiv(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glAttachShader(i32 noundef, i32 noundef) local_unnamed_addr #0
+
+declare void @glBindAttribLocation(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glLinkProgram(i32 noundef) local_unnamed_addr #0
+
+declare void @glGetProgramiv(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glGetShaderInfoLog(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glGetProgramInfoLog(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
+
+declare i32 @glGetUniformLocation(i32 noundef, ptr noundef) local_unnamed_addr #0
+
+declare i32 @glGetUniformBlockIndex(i32 noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glGenTextures(i32 noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glPixelStorei(i32 noundef, i32 noundef) local_unnamed_addr #0
+
+declare void @glTexImage2D(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glTexParameteri(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
+
+declare void @glGenerateMipmap(i32 noundef) local_unnamed_addr #0
+
+declare void @glBindTexture(i32 noundef, i32 noundef) local_unnamed_addr #0
+
+declare void @glDeleteTextures(i32 noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glTexSubImage2D(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glUseProgram(i32 noundef) local_unnamed_addr #0
+
+declare void @glEnable(i32 noundef) local_unnamed_addr #0
+
+declare void @glCullFace(i32 noundef) local_unnamed_addr #0
+
+declare void @glFrontFace(i32 noundef) local_unnamed_addr #0
+
+declare void @glDisable(i32 noundef) local_unnamed_addr #0
+
+declare void @glColorMask(i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #0
+
+declare void @glStencilMask(i32 noundef) local_unnamed_addr #0
+
+declare void @glStencilOp(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
+
+declare void @glStencilFunc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
+
+declare void @glActiveTexture(i32 noundef) local_unnamed_addr #0
+
+declare void @glBindBuffer(i32 noundef, i32 noundef) local_unnamed_addr #0
+
+declare void @glBufferData(i32 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
+
+declare void @glBindVertexArray(i32 noundef) local_unnamed_addr #0
+
+declare void @glEnableVertexAttribArray(i32 noundef) local_unnamed_addr #0
+
+declare void @glVertexAttribPointer(i32 noundef, i32 noundef, i32 noundef, i8 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glUniform1i(i32 noundef, i32 noundef) local_unnamed_addr #0
+
+declare void @glUniform2fv(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glDisableVertexAttribArray(i32 noundef) local_unnamed_addr #0
+
+declare void @glBlendFuncSeparate(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define internal fastcc void @_ZL18glnvg__setUniformsP12GLNVGcontextii(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 60
+  %5 = load i32, ptr %4, align 4
+  %6 = sext i32 %1 to i64
+  tail call void @glBindBufferRange(i32 noundef 35345, i32 noundef 0, i32 noundef %5, i64 noundef %6, i64 noundef 176)
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %31, label %7
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp sgt i32 %9, 0
+  br i1 %10, label %.lr.ph.i, label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread
+
+.lr.ph.i:                                         ; preds = %7
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %wide.trip.count.i = zext nneg i32 %9 to i64
+  br label %14
+
+13:                                               ; preds = %14
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread, label %14, !llvm.loop !8
+
+14:                                               ; preds = %13, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
+  %15 = getelementptr inbounds %struct.GLNVGtexture, ptr %12, i64 %indvars.iv.i
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp eq i32 %16, %2
+  br i1 %17, label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit, label %13
+
+_ZL18glnvg__findTextureP12GLNVGcontexti.exit:     ; preds = %14
+  %18 = getelementptr inbounds i8, ptr %15, i64 4
+  %19 = load i32, ptr %18, align 4
+  br label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread
+
+_ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread: ; preds = %13, %7, %_ZL18glnvg__findTextureP12GLNVGcontexti.exit
+  %20 = phi i32 [ %19, %_ZL18glnvg__findTextureP12GLNVGcontexti.exit ], [ 0, %7 ], [ 0, %13 ]
+  %21 = getelementptr inbounds i8, ptr %0, i64 136
+  %22 = load i32, ptr %21, align 8
+  %.not.i = icmp eq i32 %22, %20
+  br i1 %.not.i, label %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit, label %23
+
+23:                                               ; preds = %_ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread
+  store i32 %20, ptr %21, align 8
+  tail call void @glBindTexture(i32 noundef 3553, i32 noundef %20)
+  br label %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit
+
+_ZL18glnvg__bindTextureP12GLNVGcontextj.exit:     ; preds = %_ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread, %23
+  %24 = getelementptr i8, ptr %0, i64 68
+  %.val = load i32, ptr %24, align 4
+  %25 = and i32 %.val, 4
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit, label %27
+
+27:                                               ; preds = %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit
+  %28 = tail call i32 @glGetError()
+  %.not.i11 = icmp eq i32 %28, 0
+  br i1 %.not.i11, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit, label %29
+
+29:                                               ; preds = %27
+  %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %28, ptr noundef nonnull @.str.31)
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit
+
+31:                                               ; preds = %3
+  %32 = getelementptr inbounds i8, ptr %0, i64 136
+  %33 = load i32, ptr %32, align 8
+  %.not.i12 = icmp eq i32 %33, 0
+  br i1 %.not.i12, label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit, label %34
+
+34:                                               ; preds = %31
+  store i32 0, ptr %32, align 8
+  tail call void @glBindTexture(i32 noundef 3553, i32 noundef 0)
+  br label %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit
+
+_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit:    ; preds = %34, %31, %29, %27, %_ZL18glnvg__bindTextureP12GLNVGcontextj.exit
+  ret void
+}
+
+declare void @glStencilOpSeparate(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
+
+declare void @glDrawArrays(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
+
+declare void @glBindBufferRange(i32 noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define internal fastcc { i64, i64 } @_ZL30glnvg__blendCompositeOperation26NVGcompositeOperationState(i64 %0, i64 %1) unnamed_addr #15 {
+  %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
+  %.sroa.2.0.extract.shift = lshr i64 %0, 32
+  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.3.8.extract.trunc = trunc i64 %1 to i32
+  %.sroa.5.8.extract.shift = lshr i64 %1, 32
+  %.sroa.5.8.extract.trunc = trunc i64 %.sroa.5.8.extract.shift to i32
+  switch i32 %.sroa.0.0.extract.trunc, label %13 [
+    i32 1, label %_ZL28glnvg_convertBlendFuncFactori.exit
+    i32 2, label %3
+    i32 4, label %4
+    i32 8, label %5
+    i32 16, label %6
+    i32 32, label %7
+    i32 64, label %8
+    i32 128, label %9
+    i32 256, label %10
+    i32 512, label %11
+    i32 1024, label %12
+  ]
+
+3:                                                ; preds = %2
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit
+
+4:                                                ; preds = %2
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit
+
+5:                                                ; preds = %2
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit
+
+6:                                                ; preds = %2
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit
+
+7:                                                ; preds = %2
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit
+
+8:                                                ; preds = %2
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit
+
+9:                                                ; preds = %2
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit
+
+10:                                               ; preds = %2
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit
+
+11:                                               ; preds = %2
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit
+
+12:                                               ; preds = %2
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit
+
+13:                                               ; preds = %2
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit
+
+_ZL28glnvg_convertBlendFuncFactori.exit:          ; preds = %2, %3, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13
+  %14 = phi i1 [ false, %3 ], [ false, %4 ], [ false, %5 ], [ false, %6 ], [ false, %7 ], [ false, %8 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ true, %13 ], [ false, %2 ]
+  %.0.i = phi i64 [ 1, %3 ], [ 768, %4 ], [ 769, %5 ], [ 774, %6 ], [ 775, %7 ], [ 770, %8 ], [ 771, %9 ], [ 772, %10 ], [ 773, %11 ], [ 776, %12 ], [ 1280, %13 ], [ 0, %2 ]
+  switch i32 %.sroa.2.0.extract.trunc, label %25 [
+    i32 1, label %_ZL28glnvg_convertBlendFuncFactori.exit14
+    i32 2, label %15
+    i32 4, label %16
+    i32 8, label %17
+    i32 16, label %18
+    i32 32, label %19
+    i32 64, label %20
+    i32 128, label %21
+    i32 256, label %22
+    i32 512, label %23
+    i32 1024, label %24
+  ]
+
+15:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit14
+
+16:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit14
+
+17:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit14
+
+18:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit14
+
+19:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit14
+
+20:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit14
+
+21:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit14
+
+22:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit14
+
+23:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit14
+
+24:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit14
+
+25:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit14
+
+_ZL28glnvg_convertBlendFuncFactori.exit14:        ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25
+  %26 = phi i1 [ false, %15 ], [ false, %16 ], [ false, %17 ], [ false, %18 ], [ false, %19 ], [ false, %20 ], [ false, %21 ], [ false, %22 ], [ false, %23 ], [ false, %24 ], [ true, %25 ], [ false, %_ZL28glnvg_convertBlendFuncFactori.exit ]
+  %.0.i13 = phi i64 [ 4294967296, %15 ], [ 3298534883328, %16 ], [ 3302829850624, %17 ], [ 3324304687104, %18 ], [ 3328599654400, %19 ], [ 3307124817920, %20 ], [ 3311419785216, %21 ], [ 3315714752512, %22 ], [ 3320009719808, %23 ], [ 3332894621696, %24 ], [ 5497558138880, %25 ], [ 0, %_ZL28glnvg_convertBlendFuncFactori.exit ]
+  switch i32 %.sroa.3.8.extract.trunc, label %37 [
+    i32 1, label %_ZL28glnvg_convertBlendFuncFactori.exit16
+    i32 2, label %27
+    i32 4, label %28
+    i32 8, label %29
+    i32 16, label %30
+    i32 32, label %31
+    i32 64, label %32
+    i32 128, label %33
+    i32 256, label %34
+    i32 512, label %35
+    i32 1024, label %36
+  ]
+
+27:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit14
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit16
+
+28:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit14
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit16
+
+29:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit14
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit16
+
+30:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit14
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit16
+
+31:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit14
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit16
+
+32:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit14
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit16
+
+33:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit14
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit16
+
+34:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit14
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit16
+
+35:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit14
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit16
+
+36:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit14
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit16
+
+37:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit14
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit16
+
+_ZL28glnvg_convertBlendFuncFactori.exit16:        ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit14, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37
+  %38 = phi i1 [ false, %27 ], [ false, %28 ], [ false, %29 ], [ false, %30 ], [ false, %31 ], [ false, %32 ], [ false, %33 ], [ false, %34 ], [ false, %35 ], [ false, %36 ], [ true, %37 ], [ false, %_ZL28glnvg_convertBlendFuncFactori.exit14 ]
+  %.0.i15 = phi i64 [ 1, %27 ], [ 768, %28 ], [ 769, %29 ], [ 774, %30 ], [ 775, %31 ], [ 770, %32 ], [ 771, %33 ], [ 772, %34 ], [ 773, %35 ], [ 776, %36 ], [ 1280, %37 ], [ 0, %_ZL28glnvg_convertBlendFuncFactori.exit14 ]
+  switch i32 %.sroa.5.8.extract.trunc, label %_ZL28glnvg_convertBlendFuncFactori.exit18.thread [
+    i32 1, label %_ZL28glnvg_convertBlendFuncFactori.exit18
+    i32 2, label %39
+    i32 4, label %40
+    i32 8, label %41
+    i32 16, label %42
+    i32 32, label %43
+    i32 64, label %44
+    i32 128, label %45
+    i32 256, label %46
+    i32 512, label %47
+    i32 1024, label %48
+  ]
+
+39:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit16
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit18
+
+40:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit16
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit18
+
+41:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit16
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit18
+
+42:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit16
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit18
+
+43:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit16
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit18
+
+44:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit16
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit18
+
+45:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit16
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit18
+
+46:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit16
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit18
+
+47:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit16
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit18
+
+48:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit16
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit18
+
+_ZL28glnvg_convertBlendFuncFactori.exit18:        ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit16, %39, %40, %41, %42, %43, %44, %45, %46, %47, %48
+  %.0.i17 = phi i64 [ 4294967296, %39 ], [ 3298534883328, %40 ], [ 3302829850624, %41 ], [ 3324304687104, %42 ], [ 3328599654400, %43 ], [ 3307124817920, %44 ], [ 3311419785216, %45 ], [ 3315714752512, %46 ], [ 3320009719808, %47 ], [ 3332894621696, %48 ], [ 0, %_ZL28glnvg_convertBlendFuncFactori.exit16 ]
+  %or.cond = or i1 %14, %26
+  %or.cond5 = or i1 %or.cond, %38
+  br i1 %or.cond5, label %_ZL28glnvg_convertBlendFuncFactori.exit18.thread, label %49
+
+_ZL28glnvg_convertBlendFuncFactori.exit18.thread: ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit16, %_ZL28glnvg_convertBlendFuncFactori.exit18
+  br label %49
+
+49:                                               ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit18, %_ZL28glnvg_convertBlendFuncFactori.exit18.thread
+  %.sroa.09.0 = phi i64 [ 1, %_ZL28glnvg_convertBlendFuncFactori.exit18.thread ], [ %.0.i, %_ZL28glnvg_convertBlendFuncFactori.exit18 ]
+  %.sroa.4.0 = phi i64 [ 3311419785216, %_ZL28glnvg_convertBlendFuncFactori.exit18.thread ], [ %.0.i13, %_ZL28glnvg_convertBlendFuncFactori.exit18 ]
+  %.sroa.7.0 = phi i64 [ 1, %_ZL28glnvg_convertBlendFuncFactori.exit18.thread ], [ %.0.i15, %_ZL28glnvg_convertBlendFuncFactori.exit18 ]
+  %.sroa.11.0 = phi i64 [ 3311419785216, %_ZL28glnvg_convertBlendFuncFactori.exit18.thread ], [ %.0.i17, %_ZL28glnvg_convertBlendFuncFactori.exit18 ]
+  %.sroa.4.0.insert.ext = and i64 %.sroa.4.0, -4294967296
+  %.sroa.09.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.ext, %.sroa.09.0
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.09.0.insert.insert, 0
+  %.sroa.11.8.insert.ext = and i64 %.sroa.11.0, -4294967296
+  %.sroa.7.8.insert.insert = or disjoint i64 %.sroa.11.8.insert.ext, %.sroa.7.0
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.7.8.insert.insert, 1
+  ret { i64, i64 } %.fca.1.insert
+}
+
+; Function Attrs: mustprogress uwtable
+define internal fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, float noundef %4, float noundef %5, float noundef %6) unnamed_addr #12 {
+  %8 = alloca [6 x float], align 16
+  %9 = alloca [6 x float], align 16
+  %10 = alloca [6 x float], align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(176) %1, i8 0, i64 176, i1 false)
+  %11 = getelementptr inbounds i8, ptr %2, i64 40
+  %.sroa.03.0.copyload = load <2 x float>, ptr %11, align 4
+  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 48
+  %.sroa.24.0.copyload = load <2 x float>, ptr %.sroa.24.0..sroa_idx, align 4
+  %12 = shufflevector <2 x float> %.sroa.24.0.copyload, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %13 = fmul <2 x float> %.sroa.03.0.copyload, %12
+  %shift = shufflevector <2 x float> %.sroa.24.0.copyload, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %14 = fmul <2 x float> %.sroa.24.0.copyload, %shift
+  %.sroa.6.8.vec.insert.i = shufflevector <2 x float> %14, <2 x float> %.sroa.24.0.copyload, <2 x i32> <i32 0, i32 3>
+  %15 = getelementptr inbounds i8, ptr %1, i64 96
+  store <2 x float> %13, ptr %15, align 4
+  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 104
+  store <2 x float> %.sroa.6.8.vec.insert.i, ptr %.sroa.26.0..sroa_idx, align 4
+  %16 = getelementptr inbounds i8, ptr %2, i64 56
+  %.sroa.0.0.copyload = load <2 x float>, ptr %16, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 64
+  %.sroa.2.0.copyload = load <2 x float>, ptr %.sroa.2.0..sroa_idx, align 4
+  %17 = shufflevector <2 x float> %.sroa.2.0.copyload, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %18 = fmul <2 x float> %.sroa.0.0.copyload, %17
+  %shift2 = shufflevector <2 x float> %.sroa.2.0.copyload, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %19 = fmul <2 x float> %.sroa.2.0.copyload, %shift2
+  %.sroa.6.8.vec.insert.i75 = shufflevector <2 x float> %19, <2 x float> %.sroa.2.0.copyload, <2 x i32> <i32 0, i32 3>
+  %20 = getelementptr inbounds i8, ptr %1, i64 112
+  store <2 x float> %18, ptr %20, align 4
+  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 120
+  store <2 x float> %.sroa.6.8.vec.insert.i75, ptr %.sroa.22.0..sroa_idx, align 4
+  %21 = getelementptr inbounds i8, ptr %3, i64 24
+  %22 = load float, ptr %21, align 4
+  %23 = fcmp olt float %22, -5.000000e-01
+  br i1 %23, label %28, label %24
+
+24:                                               ; preds = %7
+  %25 = getelementptr inbounds i8, ptr %3, i64 28
+  %26 = load float, ptr %25, align 4
+  %27 = fcmp olt float %26, -5.000000e-01
+  br i1 %27, label %28, label %31
+
+28:                                               ; preds = %24, %7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %1, i8 0, i64 48, i1 false)
+  %29 = getelementptr inbounds i8, ptr %1, i64 128
+  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %1, i64 136
+  store float 1.000000e+00, ptr %30, align 4
+  br label %61
+
+31:                                               ; preds = %24
+  %32 = call i32 @nvgTransformInverse(ptr noundef nonnull %8, ptr noundef nonnull %3)
+  %33 = load <2 x float>, ptr %8, align 16
+  store <2 x float> %33, ptr %1, align 4
+  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  store <2 x float> zeroinitializer, ptr %34, align 4
+  %35 = getelementptr inbounds i8, ptr %8, i64 8
+  %36 = getelementptr inbounds i8, ptr %1, i64 16
+  %37 = load <2 x float>, ptr %35, align 8
+  store <2 x float> %37, ptr %36, align 4
+  %38 = getelementptr inbounds i8, ptr %1, i64 24
+  store <2 x float> zeroinitializer, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %8, i64 16
+  %40 = getelementptr inbounds i8, ptr %1, i64 32
+  %41 = load <2 x float>, ptr %39, align 16
+  store <2 x float> %41, ptr %40, align 4
+  %42 = getelementptr inbounds i8, ptr %1, i64 40
+  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %42, align 4
+  %43 = load float, ptr %21, align 4
+  %44 = getelementptr inbounds i8, ptr %1, i64 128
+  store float %43, ptr %44, align 4
+  %45 = load float, ptr %25, align 4
+  %46 = getelementptr inbounds i8, ptr %1, i64 132
+  store float %45, ptr %46, align 4
+  %47 = load float, ptr %3, align 4
+  %48 = getelementptr inbounds i8, ptr %3, i64 8
+  %49 = load float, ptr %48, align 4
+  %50 = fmul float %49, %49
+  %51 = call float @llvm.fmuladd.f32(float %47, float %47, float %50)
+  %sqrt79 = call float @llvm.sqrt.f32(float %51)
+  %52 = fdiv float %sqrt79, %5
+  %53 = getelementptr inbounds i8, ptr %1, i64 136
+  store float %52, ptr %53, align 4
+  %54 = getelementptr inbounds i8, ptr %3, i64 4
+  %55 = load float, ptr %54, align 4
+  %56 = getelementptr inbounds i8, ptr %3, i64 12
+  %57 = load float, ptr %56, align 4
+  %58 = fmul float %57, %57
+  %59 = call float @llvm.fmuladd.f32(float %55, float %55, float %58)
+  %sqrt = call float @llvm.sqrt.f32(float %59)
+  %60 = fdiv float %sqrt, %5
+  br label %61
+
+61:                                               ; preds = %31, %28
+  %.sink = phi float [ %60, %31 ], [ 1.000000e+00, %28 ]
+  %62 = getelementptr inbounds i8, ptr %1, i64 140
+  store float %.sink, ptr %62, align 4
+  %63 = getelementptr inbounds i8, ptr %1, i64 144
+  %64 = getelementptr inbounds i8, ptr %2, i64 24
+  %65 = load i64, ptr %64, align 4
+  store i64 %65, ptr %63, align 4
+  %66 = fmul float %5, 5.000000e-01
+  %67 = call float @llvm.fmuladd.f32(float %4, float 5.000000e-01, float %66)
+  %68 = fdiv float %67, %5
+  %69 = getelementptr inbounds i8, ptr %1, i64 160
+  store float %68, ptr %69, align 4
+  %70 = getelementptr inbounds i8, ptr %1, i64 164
+  store float %6, ptr %70, align 4
+  %71 = getelementptr inbounds i8, ptr %2, i64 72
+  %72 = load i32, ptr %71, align 4
+  %.not = icmp eq i32 %72, 0
+  %73 = lshr i64 %65, 32
+  %74 = trunc i64 %73 to i32
+  %75 = bitcast i32 %74 to float
+  br i1 %.not, label %110, label %76
+
+76:                                               ; preds = %61
+  %77 = getelementptr inbounds i8, ptr %0, i64 40
+  %78 = load i32, ptr %77, align 8
+  %79 = icmp sgt i32 %78, 0
+  br i1 %79, label %.lr.ph.i, label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread
+
+.lr.ph.i:                                         ; preds = %76
+  %80 = getelementptr inbounds i8, ptr %0, i64 24
+  %81 = load ptr, ptr %80, align 8
+  %wide.trip.count.i = zext nneg i32 %78 to i64
+  br label %83
+
+82:                                               ; preds = %83
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread, label %83, !llvm.loop !8
+
+83:                                               ; preds = %82, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %82 ]
+  %84 = getelementptr inbounds %struct.GLNVGtexture, ptr %81, i64 %indvars.iv.i
+  %85 = load i32, ptr %84, align 4
+  %86 = icmp eq i32 %85, %72
+  br i1 %86, label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit, label %82
+
+_ZL18glnvg__findTextureP12GLNVGcontexti.exit:     ; preds = %83
+  %87 = getelementptr inbounds i8, ptr %84, i64 20
+  %88 = load i32, ptr %87, align 4
+  %89 = and i32 %88, 8
+  %.not67 = icmp eq i32 %89, 0
+  br i1 %.not67, label %96, label %90
+
+90:                                               ; preds = %_ZL18glnvg__findTextureP12GLNVGcontexti.exit
+  %91 = getelementptr inbounds i8, ptr %1, i64 148
+  %92 = fmul float %75, 5.000000e-01
+  call void @nvgTransformTranslate(ptr noundef nonnull %9, float noundef 0.000000e+00, float noundef %92)
+  call void @nvgTransformMultiply(ptr noundef nonnull %9, ptr noundef %2)
+  call void @nvgTransformScale(ptr noundef nonnull %10, float noundef 1.000000e+00, float noundef -1.000000e+00)
+  call void @nvgTransformMultiply(ptr noundef nonnull %10, ptr noundef nonnull %9)
+  %93 = load float, ptr %91, align 4
+  %94 = fmul float %93, -5.000000e-01
+  call void @nvgTransformTranslate(ptr noundef nonnull %9, float noundef 0.000000e+00, float noundef %94)
+  call void @nvgTransformMultiply(ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %95 = call i32 @nvgTransformInverse(ptr noundef nonnull %8, ptr noundef nonnull %9)
+  br label %98
+
+96:                                               ; preds = %_ZL18glnvg__findTextureP12GLNVGcontexti.exit
+  %97 = call i32 @nvgTransformInverse(ptr noundef nonnull %8, ptr noundef %2)
+  br label %98
+
+98:                                               ; preds = %96, %90
+  %99 = getelementptr inbounds i8, ptr %1, i64 172
+  store i32 1, ptr %99, align 4
+  %100 = getelementptr inbounds i8, ptr %84, i64 16
+  %101 = load i32, ptr %100, align 4
+  %102 = icmp eq i32 %101, 2
+  br i1 %102, label %103, label %108
+
+103:                                              ; preds = %98
+  %104 = load i32, ptr %87, align 4
+  %105 = lshr i32 %104, 4
+  %.lobit = and i32 %105, 1
+  %106 = xor i32 %.lobit, 1
+  %107 = getelementptr inbounds i8, ptr %1, i64 168
+  store i32 %106, ptr %107, align 4
+  br label %119
+
+108:                                              ; preds = %98
+  %109 = getelementptr inbounds i8, ptr %1, i64 168
+  store i32 2, ptr %109, align 4
+  br label %119
+
+110:                                              ; preds = %61
+  %111 = getelementptr inbounds i8, ptr %1, i64 172
+  store i32 0, ptr %111, align 4
+  %112 = getelementptr inbounds i8, ptr %2, i64 32
+  %113 = load float, ptr %112, align 4
+  %114 = getelementptr inbounds i8, ptr %1, i64 152
+  store float %113, ptr %114, align 4
+  %115 = getelementptr inbounds i8, ptr %2, i64 36
+  %116 = load float, ptr %115, align 4
+  %117 = getelementptr inbounds i8, ptr %1, i64 156
+  store float %116, ptr %117, align 4
+  %118 = call i32 @nvgTransformInverse(ptr noundef nonnull %8, ptr noundef nonnull %2)
+  br label %119
+
+119:                                              ; preds = %103, %108, %110
+  %120 = getelementptr inbounds i8, ptr %1, i64 48
+  %121 = load <2 x float>, ptr %8, align 16
+  store <2 x float> %121, ptr %120, align 4
+  %122 = getelementptr inbounds i8, ptr %1, i64 56
+  store <2 x float> zeroinitializer, ptr %122, align 4
+  %123 = getelementptr inbounds i8, ptr %8, i64 8
+  %124 = getelementptr inbounds i8, ptr %1, i64 64
+  %125 = load <2 x float>, ptr %123, align 8
+  store <2 x float> %125, ptr %124, align 4
+  %126 = getelementptr inbounds i8, ptr %1, i64 72
+  store <2 x float> zeroinitializer, ptr %126, align 4
+  %127 = getelementptr inbounds i8, ptr %8, i64 16
+  %128 = getelementptr inbounds i8, ptr %1, i64 80
+  %129 = load <2 x float>, ptr %127, align 16
+  store <2 x float> %129, ptr %128, align 4
+  %130 = getelementptr inbounds i8, ptr %1, i64 88
+  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %130, align 4
+  br label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread
+
+_ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread: ; preds = %82, %76, %119
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #18
+
+declare i32 @nvgTransformInverse(ptr noundef, ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fmuladd.f32(float, float, float) #19
+
+declare void @nvgTransformTranslate(ptr noundef, float noundef, float noundef) local_unnamed_addr #0
+
+declare void @nvgTransformMultiply(ptr noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @nvgTransformScale(ptr noundef, float noundef, float noundef) local_unnamed_addr #0
+
+declare void @glDeleteBuffers(i32 noundef, ptr noundef) local_unnamed_addr #0
+
+declare void @glDeleteVertexArrays(i32 noundef, ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #20
+
+declare void @glDeleteProgram(i32 noundef) local_unnamed_addr #0
+
+declare void @glDeleteShader(i32 noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %.not6 = icmp eq ptr %1, null
+  br i1 %.not6, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
+  %3 = getelementptr inbounds i8, ptr %.07, i64 24
+  %4 = load ptr, ptr %3, align 8
+  tail call void @_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
+  %5 = getelementptr inbounds i8, ptr %.07, i64 16
+  %6 = load ptr, ptr %5, align 8
+  tail call void @_ZdlPv(ptr noundef nonnull %.07) #32
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+
+._crit_edge:                                      ; preds = %.lr.ph, %2
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+
+declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
+
+; Function Attrs: nounwind
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #0
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_08__invokeEP10GLFWwindowdd"(ptr noundef readnone %0, double noundef %1, double noundef %2) #3 align 2 {
+  %4 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %.not10.i.i.i.i = icmp eq ptr %4, null
+  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_0clEP10GLFWwindowdd.exit", label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %3, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %4, %3 ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %3 ]
+  %5 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ult ptr %6, %0
+  %.19.i.i.i.i = select i1 %7, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %7, i64 24, i64 16
+  %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
+  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
+  %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
+  br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !25
+
+_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
+  %8 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  br i1 %8, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_0clEP10GLFWwindowdd.exit", label %9
+
+9:                                                ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
+  %10 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp ugt ptr %11, %0
+  br i1 %12, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_0clEP10GLFWwindowdd.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+
+_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 288
+  %16 = load i8, ptr %15, align 8
+  %17 = and i8 %16, 1
+  %.not.i = icmp eq i8 %17, 0
+  br i1 %.not.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_0clEP10GLFWwindowdd.exit", label %18
+
+18:                                               ; preds = %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+  tail call void @_ZN7nanogui6Screen25cursor_pos_callback_eventEdd(ptr noundef nonnull align 8 dereferenceable(384) %14, double noundef %1, double noundef %2)
+  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_0clEP10GLFWwindowdd.exit"
+
+"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_0clEP10GLFWwindowdd.exit": ; preds = %3, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %9, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %18
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_18__invokeEP10GLFWwindowiii"(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #3 align 2 {
+  %5 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %.not10.i.i.i.i = icmp eq ptr %5, null
+  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_1clEP10GLFWwindowiii.exit", label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %4, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %5, %4 ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %4 ]
+  %6 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp ult ptr %7, %0
+  %.19.i.i.i.i = select i1 %8, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %8, i64 24, i64 16
+  %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
+  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
+  %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
+  br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !25
+
+_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
+  %9 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  br i1 %9, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_1clEP10GLFWwindowiii.exit", label %10
+
+10:                                               ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
+  %11 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp ugt ptr %12, %0
+  br i1 %13, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_1clEP10GLFWwindowiii.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+
+_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 288
+  %17 = load i8, ptr %16, align 8
+  %18 = and i8 %17, 1
+  %.not.i = icmp eq i8 %18, 0
+  br i1 %.not.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_1clEP10GLFWwindowiii.exit", label %19
+
+19:                                               ; preds = %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+  tail call void @_ZN7nanogui6Screen27mouse_button_callback_eventEiii(ptr noundef nonnull align 8 dereferenceable(384) %15, i32 noundef %1, i32 noundef %2, i32 noundef %3)
+  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_1clEP10GLFWwindowiii.exit"
+
+"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_1clEP10GLFWwindowiii.exit": ; preds = %4, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %10, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %19
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_28__invokeEP10GLFWwindowiiii"(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #3 align 2 {
+  %6 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %.not10.i.i.i.i = icmp eq ptr %6, null
+  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_2clEP10GLFWwindowiiii.exit", label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %5, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %6, %5 ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %5 ]
+  %7 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ult ptr %8, %0
+  %.19.i.i.i.i = select i1 %9, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %9, i64 24, i64 16
+  %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
+  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
+  %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
+  br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !25
+
+_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
+  %10 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  br i1 %10, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_2clEP10GLFWwindowiiii.exit", label %11
+
+11:                                               ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
+  %12 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp ugt ptr %13, %0
+  br i1 %14, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_2clEP10GLFWwindowiiii.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+
+_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 288
+  %18 = load i8, ptr %17, align 8
+  %19 = and i8 %18, 1
+  %.not.i = icmp eq i8 %19, 0
+  br i1 %.not.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_2clEP10GLFWwindowiiii.exit", label %20
+
+20:                                               ; preds = %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+  tail call void @_ZN7nanogui6Screen18key_callback_eventEiiii(ptr noundef nonnull align 8 dereferenceable(384) %16, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_2clEP10GLFWwindowiiii.exit"
+
+"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_2clEP10GLFWwindowiiii.exit": ; preds = %5, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %11, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_38__invokeEP10GLFWwindowj"(ptr noundef readnone %0, i32 noundef %1) #3 align 2 {
+  %3 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %.not10.i.i.i.i = icmp eq ptr %3, null
+  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_3clEP10GLFWwindowj.exit", label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %2, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %3, %2 ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %2 ]
+  %4 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ult ptr %5, %0
+  %.19.i.i.i.i = select i1 %6, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %6, i64 24, i64 16
+  %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
+  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
+  %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
+  br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !25
+
+_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
+  %7 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  br i1 %7, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_3clEP10GLFWwindowj.exit", label %8
+
+8:                                                ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
+  %9 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ugt ptr %10, %0
+  br i1 %11, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_3clEP10GLFWwindowj.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+
+_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %8
+  %12 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 288
+  %15 = load i8, ptr %14, align 8
+  %16 = and i8 %15, 1
+  %.not.i = icmp eq i8 %16, 0
+  br i1 %.not.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_3clEP10GLFWwindowj.exit", label %17
+
+17:                                               ; preds = %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+  tail call void @_ZN7nanogui6Screen19char_callback_eventEj(ptr noundef nonnull align 8 dereferenceable(384) %13, i32 noundef %1)
+  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_3clEP10GLFWwindowj.exit"
+
+"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_3clEP10GLFWwindowj.exit": ; preds = %2, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %8, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_48__invokeEP10GLFWwindowiPPKc"(ptr noundef readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2) #3 align 2 {
+  %4 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %.not10.i.i.i.i = icmp eq ptr %4, null
+  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.exit", label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %3, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %4, %3 ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %3 ]
+  %5 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ult ptr %6, %0
+  %.19.i.i.i.i = select i1 %7, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %7, i64 24, i64 16
+  %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
+  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
+  %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
+  br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !25
+
+_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
+  %8 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  br i1 %8, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.exit", label %9
+
+9:                                                ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
+  %10 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp ugt ptr %11, %0
+  br i1 %12, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+
+_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 288
+  %16 = load i8, ptr %15, align 8
+  %17 = and i8 %16, 1
+  %.not.i = icmp eq i8 %17, 0
+  br i1 %.not.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.exit", label %18
+
+18:                                               ; preds = %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+  tail call void @_ZN7nanogui6Screen19drop_callback_eventEiPPKc(ptr noundef nonnull align 8 dereferenceable(384) %14, i32 noundef %1, ptr noundef %2)
+  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.exit"
+
+"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.exit": ; preds = %3, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %9, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %18
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_58__invokeEP10GLFWwindowdd"(ptr noundef readnone %0, double noundef %1, double noundef %2) #3 align 2 {
+  %4 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %.not10.i.i.i.i = icmp eq ptr %4, null
+  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_5clEP10GLFWwindowdd.exit", label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %3, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %4, %3 ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %3 ]
+  %5 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ult ptr %6, %0
+  %.19.i.i.i.i = select i1 %7, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %7, i64 24, i64 16
+  %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
+  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
+  %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
+  br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !25
+
+_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
+  %8 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  br i1 %8, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_5clEP10GLFWwindowdd.exit", label %9
+
+9:                                                ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
+  %10 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp ugt ptr %11, %0
+  br i1 %12, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_5clEP10GLFWwindowdd.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+
+_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 288
+  %16 = load i8, ptr %15, align 8
+  %17 = and i8 %16, 1
+  %.not.i = icmp eq i8 %17, 0
+  br i1 %.not.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_5clEP10GLFWwindowdd.exit", label %18
+
+18:                                               ; preds = %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+  tail call void @_ZN7nanogui6Screen21scroll_callback_eventEdd(ptr noundef nonnull align 8 dereferenceable(384) %14, double noundef %1, double noundef %2)
+  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_5clEP10GLFWwindowdd.exit"
+
+"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_5clEP10GLFWwindowdd.exit": ; preds = %3, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %9, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %18
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_68__invokeEP10GLFWwindowii"(ptr noundef readnone %0, i32 %1, i32 %2) #3 align 2 {
+  %4 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %.not10.i.i.i.i = icmp eq ptr %4, null
+  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_6clEP10GLFWwindowii.exit", label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %3, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %4, %3 ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %3 ]
+  %5 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ult ptr %6, %0
+  %.19.i.i.i.i = select i1 %7, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %7, i64 24, i64 16
+  %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
+  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
+  %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
+  br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !25
+
+_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
+  %8 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  br i1 %8, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_6clEP10GLFWwindowii.exit", label %9
+
+9:                                                ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
+  %10 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp ugt ptr %11, %0
+  br i1 %12, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_6clEP10GLFWwindowii.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+
+_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 288
+  %16 = load i8, ptr %15, align 8
+  %17 = and i8 %16, 1
+  %.not.i = icmp eq i8 %17, 0
+  br i1 %.not.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_6clEP10GLFWwindowii.exit", label %18
+
+18:                                               ; preds = %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+  tail call void @_ZN7nanogui6Screen21resize_callback_eventEii(ptr noundef nonnull align 8 dereferenceable(384) %14, i32 poison, i32 poison)
+  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_6clEP10GLFWwindowii.exit"
+
+"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_6clEP10GLFWwindowii.exit": ; preds = %3, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %9, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i, %18
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_78__invokeEP10GLFWwindowi"(ptr noundef readnone %0, i32 noundef %1) #3 align 2 {
+  %3 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %.not10.i.i.i.i = icmp eq ptr %3, null
+  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_7clEP10GLFWwindowi.exit", label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %2, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %3, %2 ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %2 ]
+  %4 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ult ptr %5, %0
+  %.19.i.i.i.i = select i1 %6, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %6, i64 24, i64 16
+  %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
+  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
+  %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
+  br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !25
+
+_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
+  %7 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  br i1 %7, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_7clEP10GLFWwindowi.exit", label %8
+
+8:                                                ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
+  %9 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ugt ptr %10, %0
+  br i1 %11, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_7clEP10GLFWwindowi.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+
+_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %8
+  %12 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp ne i32 %1, 0
+  %15 = load ptr, ptr %13, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 72
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(140) %13, i1 noundef zeroext %14)
+  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_7clEP10GLFWwindowi.exit"
+
+"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_7clEP10GLFWwindowi.exit": ; preds = %2, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %8, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_88__invokeEP10GLFWwindowff"(ptr noundef %0, float %1, float %2) #3 align 2 {
+  %4 = alloca float, align 4
+  %5 = alloca float, align 4
+  %6 = load ptr, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %.not10.i.i.i.i = icmp eq ptr %6, null
+  br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_8clEP10GLFWwindowff.exit", label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %3, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %6, %3 ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), %3 ]
+  %7 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ult ptr %8, %0
+  %.19.i.i.i.i = select i1 %9, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %9, i64 24, i64 16
+  %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
+  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
+  %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
+  br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !25
+
+_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
+  %10 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0)
+  br i1 %10, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_8clEP10GLFWwindowff.exit", label %11
+
+11:                                               ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
+  %12 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp ugt ptr %13, %0
+  br i1 %14, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_8clEP10GLFWwindowff.exit", label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+
+_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
+  %16 = load ptr, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @glfwGetWindowContentScale(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %17 = load float, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  %18 = getelementptr inbounds i8, ptr %16, i64 248
+  store float %17, ptr %18, align 8
+  call void @_ZN7nanogui6Screen21resize_callback_eventEii(ptr noundef nonnull align 8 dereferenceable(384) %16, i32 poison, i32 poison)
+  br label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_8clEP10GLFWwindowff.exit"
+
+"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_8clEP10GLFWwindowff.exit": ; preds = %3, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %11, %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
+  ret void
+}
+
+declare void @glfwGetWindowContentScale(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: nounwind
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) local_unnamed_addr #0
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = icmp eq ptr %4, %1
+  br i1 %5, label %6, label %32
+
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = load i64, ptr %7, align 8
+  %.not = icmp eq i64 %8, 0
+  br i1 %.not, label %16, label %9
+
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %2, align 8
+  %15 = icmp ult ptr %13, %14
+  br i1 %15, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE24_M_get_insert_unique_posERS3_.exit, label %16
+
+16:                                               ; preds = %9, %6
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %.02022.i = load ptr, ptr %17, align 8
+  %.not23.i = icmp eq ptr %.02022.i, null
+  br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %16
+  %18 = load ptr, ptr %2, align 8
+  br label %19
+
+19:                                               ; preds = %19, %.lr.ph.i
+  %.02024.i = phi ptr [ %.02022.i, %.lr.ph.i ], [ %.020.i, %19 ]
+  %20 = getelementptr inbounds i8, ptr %.02024.i, i64 32
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ult ptr %18, %21
+  %.in.v.i = select i1 %22, i64 16, i64 24
+  %.in.i = getelementptr inbounds i8, ptr %.02024.i, i64 %.in.v.i
+  %.020.i = load ptr, ptr %.in.i, align 8
+  %.not.i = icmp eq ptr %.020.i, null
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !54
+
+._crit_edge.i:                                    ; preds = %19
+  br i1 %22, label %._crit_edge.thread.i, label %28
+
+._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
+  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %1, %16 ]
+  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp eq ptr %.019.lcssa28.i, %24
+  br i1 %25, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE24_M_get_insert_unique_posERS3_.exit, label %26
+
+26:                                               ; preds = %._crit_edge.thread.i
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #36
+  %.phi.trans.insert80 = getelementptr inbounds i8, ptr %27, i64 32
+  %.pre81 = load ptr, ptr %.phi.trans.insert80, align 8
+  %.pre82 = load ptr, ptr %2, align 8
+  br label %28
+
+28:                                               ; preds = %26, %._crit_edge.i
+  %29 = phi ptr [ %.pre82, %26 ], [ %18, %._crit_edge.i ]
+  %30 = phi ptr [ %.pre81, %26 ], [ %21, %._crit_edge.i ]
+  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %26 ], [ %.02024.i, %._crit_edge.i ]
+  %.sroa.05.0.i = phi ptr [ %27, %26 ], [ %.02024.i, %._crit_edge.i ]
+  %31 = icmp ult ptr %30, %29
+  %spec.select.i = select i1 %31, ptr null, ptr %.sroa.05.0.i
+  %spec.select21.i = select i1 %31, ptr %.019.lcssa29.i, ptr null
+  br label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE24_M_get_insert_unique_posERS3_.exit
+
+32:                                               ; preds = %3
+  %33 = load ptr, ptr %2, align 8
+  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp ult ptr %33, %35
+  br i1 %36, label %37, label %61
+
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp eq ptr %39, %1
+  br i1 %40, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE24_M_get_insert_unique_posERS3_.exit, label %41
+
+41:                                               ; preds = %37
+  %42 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #36
+  %43 = getelementptr inbounds i8, ptr %42, i64 32
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp ult ptr %44, %33
+  br i1 %45, label %46, label %50
+
+46:                                               ; preds = %41
+  %47 = getelementptr inbounds i8, ptr %42, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, null
+  %spec.select = select i1 %49, ptr null, ptr %1
+  %spec.select71 = select i1 %49, ptr %42, ptr %1
+  br label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE24_M_get_insert_unique_posERS3_.exit
+
+50:                                               ; preds = %41
+  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %.02022.i10 = load ptr, ptr %51, align 8
+  %.not23.i11 = icmp eq ptr %.02022.i10, null
+  br i1 %.not23.i11, label %._crit_edge.thread.i27, label %.lr.ph.i12
+
+.lr.ph.i12:                                       ; preds = %50, %.lr.ph.i12
+  %.02024.i13 = phi ptr [ %.020.i16, %.lr.ph.i12 ], [ %.02022.i10, %50 ]
+  %52 = getelementptr inbounds i8, ptr %.02024.i13, i64 32
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ult ptr %33, %53
+  %.in.v.i14 = select i1 %54, i64 16, i64 24
+  %.in.i15 = getelementptr inbounds i8, ptr %.02024.i13, i64 %.in.v.i14
+  %.020.i16 = load ptr, ptr %.in.i15, align 8
+  %.not.i17 = icmp eq ptr %.020.i16, null
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !54
+
+._crit_edge.i18:                                  ; preds = %.lr.ph.i12
+  br i1 %54, label %._crit_edge.thread.i27, label %58
+
+._crit_edge.thread.i27:                           ; preds = %._crit_edge.i18, %50
+  %.019.lcssa28.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
+  %55 = icmp eq ptr %.019.lcssa28.i28, %39
+  br i1 %55, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE24_M_get_insert_unique_posERS3_.exit, label %56
+
+56:                                               ; preds = %._crit_edge.thread.i27
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #36
+  %.phi.trans.insert78 = getelementptr inbounds i8, ptr %57, i64 32
+  %.pre79 = load ptr, ptr %.phi.trans.insert78, align 8
+  br label %58
+
+58:                                               ; preds = %56, %._crit_edge.i18
+  %59 = phi ptr [ %.pre79, %56 ], [ %53, %._crit_edge.i18 ]
+  %.019.lcssa29.i19 = phi ptr [ %.019.lcssa28.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
+  %.sroa.05.0.i20 = phi ptr [ %57, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
+  %60 = icmp ult ptr %59, %33
+  %spec.select.i21 = select i1 %60, ptr null, ptr %.sroa.05.0.i20
+  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa29.i19, ptr null
+  br label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE24_M_get_insert_unique_posERS3_.exit
+
+61:                                               ; preds = %32
+  %62 = icmp ult ptr %35, %33
+  br i1 %62, label %63, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE24_M_get_insert_unique_posERS3_.exit
+
+63:                                               ; preds = %61
+  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp eq ptr %65, %1
+  br i1 %66, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE24_M_get_insert_unique_posERS3_.exit, label %67
+
+67:                                               ; preds = %63
+  %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #36
+  %69 = getelementptr inbounds i8, ptr %68, i64 32
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp ult ptr %33, %70
+  br i1 %71, label %72, label %76
+
+72:                                               ; preds = %67
+  %73 = getelementptr inbounds i8, ptr %1, i64 24
+  %74 = load ptr, ptr %73, align 8
+  %75 = icmp eq ptr %74, null
+  %spec.select72 = select i1 %75, ptr null, ptr %68
+  %spec.select73 = select i1 %75, ptr %1, ptr %68
+  br label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE24_M_get_insert_unique_posERS3_.exit
+
+76:                                               ; preds = %67
+  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %.02022.i30 = load ptr, ptr %77, align 8
+  %.not23.i31 = icmp eq ptr %.02022.i30, null
+  br i1 %.not23.i31, label %._crit_edge.thread.i47, label %.lr.ph.i32
+
+.lr.ph.i32:                                       ; preds = %76, %.lr.ph.i32
+  %.02024.i33 = phi ptr [ %.020.i36, %.lr.ph.i32 ], [ %.02022.i30, %76 ]
+  %78 = getelementptr inbounds i8, ptr %.02024.i33, i64 32
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp ult ptr %33, %79
+  %.in.v.i34 = select i1 %80, i64 16, i64 24
+  %.in.i35 = getelementptr inbounds i8, ptr %.02024.i33, i64 %.in.v.i34
+  %.020.i36 = load ptr, ptr %.in.i35, align 8
+  %.not.i37 = icmp eq ptr %.020.i36, null
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !54
+
+._crit_edge.i38:                                  ; preds = %.lr.ph.i32
+  br i1 %80, label %._crit_edge.thread.i47, label %86
+
+._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
+  %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
+  %81 = getelementptr inbounds i8, ptr %0, i64 24
+  %82 = load ptr, ptr %81, align 8
+  %83 = icmp eq ptr %.019.lcssa28.i48, %82
+  br i1 %83, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE24_M_get_insert_unique_posERS3_.exit, label %84
+
+84:                                               ; preds = %._crit_edge.thread.i47
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #36
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %85, i64 32
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8
+  br label %86
+
+86:                                               ; preds = %84, %._crit_edge.i38
+  %87 = phi ptr [ %.pre, %84 ], [ %79, %._crit_edge.i38 ]
+  %.019.lcssa29.i39 = phi ptr [ %.019.lcssa28.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
+  %.sroa.05.0.i40 = phi ptr [ %85, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
+  %88 = icmp ult ptr %87, %33
+  %spec.select.i41 = select i1 %88, ptr null, ptr %.sroa.05.0.i40
+  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa29.i39, ptr null
+  br label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE24_M_get_insert_unique_posERS3_.exit
+
+_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE24_M_get_insert_unique_posERS3_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
+  %.sroa.070.0 = phi ptr [ null, %9 ], [ %1, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %1, %37 ], [ %1, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %39, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
+  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
+  ret { ptr, ptr } %.fca.1.insert
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #21
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #21
+
+; Function Attrs: nounwind
+declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i64 @_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE5eraseERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %.041.i = load ptr, ptr %3, align 8
+  %.not42.i = icmp eq ptr %.041.i, null
+  br i1 %.not42.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE11equal_rangeERS3_.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %2
+  %5 = load ptr, ptr %1, align 8
+  br label %6
+
+6:                                                ; preds = %23, %.lr.ph.i
+  %.044.i = phi ptr [ %.041.i, %.lr.ph.i ], [ %.0.i, %23 ]
+  %.02243.i = phi ptr [ %4, %.lr.ph.i ], [ %.123.i, %23 ]
+  %7 = getelementptr inbounds i8, ptr %.044.i, i64 32
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ult ptr %8, %5
+  br i1 %9, label %23, label %10
+
+10:                                               ; preds = %6
+  %11 = icmp ult ptr %5, %8
+  br i1 %11, label %23, label %12
+
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds i8, ptr %.044.i, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %.044.i, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %.not10.i.i = icmp eq ptr %14, null
+  br i1 %.not10.i.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %12, %.lr.ph.i.i
+  %.012.i.i = phi ptr [ %.1.i.i, %.lr.ph.i.i ], [ %14, %12 ]
+  %.0811.i.i = phi ptr [ %.19.i.i, %.lr.ph.i.i ], [ %.044.i, %12 ]
+  %17 = getelementptr inbounds i8, ptr %.012.i.i, i64 32
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp ult ptr %18, %5
+  %.19.i.i = select i1 %19, ptr %.0811.i.i, ptr %.012.i.i
+  %.1.in.v.i.i = select i1 %19, i64 24, i64 16
+  %.1.in.i.i = getelementptr inbounds i8, ptr %.012.i.i, i64 %.1.in.v.i.i
+  %.1.i.i = load ptr, ptr %.1.in.i.i, align 8
+  %.not.i.i = icmp eq ptr %.1.i.i, null
+  br i1 %.not.i.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i, label %.lr.ph.i.i, !llvm.loop !25
+
+_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i: ; preds = %.lr.ph.i.i, %12
+  %.08.lcssa.i.i = phi ptr [ %.044.i, %12 ], [ %.19.i.i, %.lr.ph.i.i ]
+  %.not10.i24.i = icmp eq ptr %16, null
+  br i1 %.not10.i24.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE11equal_rangeERS3_.exit, label %.lr.ph.i25.i
+
+.lr.ph.i25.i:                                     ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i, %.lr.ph.i25.i
+  %.012.i26.i = phi ptr [ %.1.i31.i, %.lr.ph.i25.i ], [ %16, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i ]
+  %.0811.i27.i = phi ptr [ %.19.i28.i, %.lr.ph.i25.i ], [ %.02243.i, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i ]
+  %20 = getelementptr inbounds i8, ptr %.012.i26.i, i64 32
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ult ptr %5, %21
+  %.19.i28.i = select i1 %22, ptr %.012.i26.i, ptr %.0811.i27.i
+  %.1.in.v.i29.i = select i1 %22, i64 16, i64 24
+  %.1.in.i30.i = getelementptr inbounds i8, ptr %.012.i26.i, i64 %.1.in.v.i29.i
+  %.1.i31.i = load ptr, ptr %.1.in.i30.i, align 8
+  %.not.i32.i = icmp eq ptr %.1.i31.i, null
+  br i1 %.not.i32.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE11equal_rangeERS3_.exit, label %.lr.ph.i25.i, !llvm.loop !55
+
+23:                                               ; preds = %10, %6
+  %.sink.i = phi i64 [ 24, %6 ], [ 16, %10 ]
+  %.123.i = phi ptr [ %.02243.i, %6 ], [ %.044.i, %10 ]
+  %24 = getelementptr inbounds i8, ptr %.044.i, i64 %.sink.i
+  %.0.i = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %.0.i, null
+  br i1 %.not.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE11equal_rangeERS3_.exit, label %6, !llvm.loop !56
+
+_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE11equal_rangeERS3_.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i
+  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
+  %.sroa.3.0.i = phi ptr [ %.02243.i, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i ], [ %4, %2 ], [ %.19.i28.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
+  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, %.sroa.037.0.i
+  %30 = icmp eq ptr %4, %.sroa.3.0.i
+  %or.cond.i = select i1 %29, i1 %30, i1 false
+  br i1 %or.cond.i, label %31, label %.critedge.i
+
+31:                                               ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE11equal_rangeERS3_.exit
+  invoke void @_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.041.i)
+          to label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE5clearEv.exit.i unwind label %32
+
+32:                                               ; preds = %31
+  %33 = landingpad { ptr, i32 }
+          catch ptr null
+  %34 = extractvalue { ptr, i32 } %33, 0
+  tail call void @__clang_call_terminate(ptr %34) #31
+  unreachable
+
+_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE5clearEv.exit.i: ; preds = %31
+  store ptr null, ptr %3, align 8
+  store ptr %4, ptr %27, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %4, ptr %35, align 8
+  store i64 0, ptr %25, align 8
+  br label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_ESF_.exit
+
+.critedge.i:                                      ; preds = %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE11equal_rangeERS3_.exit
+  %.not8.i = icmp eq ptr %.sroa.037.0.i, %.sroa.3.0.i
+  br i1 %.not8.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_ESF_.exit, label %.lr.ph.i2
+
+.lr.ph.i2:                                        ; preds = %.critedge.i, %.lr.ph.i2
+  %.sroa.06.09.i = phi ptr [ %36, %.lr.ph.i2 ], [ %.sroa.037.0.i, %.critedge.i ]
+  %36 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.09.i) #36
+  %37 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.06.09.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %37) #32
+  %38 = load i64, ptr %25, align 8
+  %39 = add i64 %38, -1
+  store i64 %39, ptr %25, align 8
+  %.not.i3 = icmp eq ptr %36, %.sroa.3.0.i
+  br i1 %.not.i3, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_ESF_.exit, label %.lr.ph.i2, !llvm.loop !57
+
+_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_ESF_.exit: ; preds = %.lr.ph.i2, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE5clearEv.exit.i, %.critedge.i
+  %40 = phi i64 [ 0, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE5clearEv.exit.i ], [ %26, %.critedge.i ], [ %39, %.lr.ph.i2 ]
+  %41 = sub i64 %26, %40
+  ret i64 %41
+}
+
+; Function Attrs: nounwind
+declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #21
+
+; Function Attrs: nounwind
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
+
+; Function Attrs: noreturn
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #22
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+
+; Function Attrs: uwtable
+define internal void @_GLOBAL__sub_I_screen.cpp() #23 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #30
+  store i32 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8
+  store ptr null, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 2), align 8
+  store ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 0, i32 3), align 8
+  store i64 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZN7nanogui17__nanogui_screensE, i64 0, i32 0, i32 0, i32 1, i32 1), align 8
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEED2Ev, ptr nonnull @_ZN7nanogui17__nanogui_screensE, ptr nonnull @__dso_handle) #30
+  ret void
+}
+
+; Function Attrs: nofree nounwind
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.sqrt.f32(float) #24
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #26
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #27
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #24
+
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #28
+
+attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #2 = { nofree nounwind }
+attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #12 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #13 = { nofree nosync nounwind memory(none) }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #17 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #18 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #21 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #22 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #23 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #28 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #29 = { nounwind allocsize(1) }
+attributes #30 = { nounwind }
+attributes #31 = { noreturn nounwind }
+attributes #32 = { builtin nounwind }
+attributes #33 = { noreturn }
+attributes #34 = { cold }
+attributes #35 = { builtin allocsize(0) }
+attributes #36 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE4rendEv: argument 0"}
+!33 = distinct !{!33, !"_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE4rendEv"}
+!34 = distinct !{!34, !6}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE4rendEv: argument 0"}
+!37 = distinct !{!37, !"_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE4rendEv"}
+!38 = distinct !{!38, !6}
+!39 = distinct !{!39, !6}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE4rendEv: argument 0"}
+!42 = distinct !{!42, !"_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE4rendEv"}
+!43 = distinct !{!43, !6}
+!44 = distinct !{!44, !6}
+!45 = distinct !{!45, !6}
+!46 = distinct !{!46, !6}
+!47 = distinct !{!47, !6}
+!48 = distinct !{!48, !6}
+!49 = distinct !{!49, !6}
+!50 = distinct !{!50, !6}
+!51 = distinct !{!51, !6}
+!52 = distinct !{!52, !6}
+!53 = distinct !{!53, !6}
+!54 = distinct !{!54, !6}
+!55 = distinct !{!55, !6}
+!56 = distinct !{!56, !6}
+!57 = distinct !{!57, !6}

@@ -1,0 +1,313 @@
+; ModuleID = 'bench/abc/original/wlcPth.c.ll'
+source_filename = "bench/abc/original/wlcPth.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
+%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
+%struct.__pthread_internal_list = type { ptr, ptr }
+%struct.Saig_ParBmc_t_ = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i64, ptr, i32, ptr }
+%struct.__va_list_tag = type { i32, i32, ptr, ptr }
+
+@g_nRunIds = internal global i32 0, align 4
+@g_mutex = external global %union.pthread_mutex_t, align 8
+@.str = private unnamed_addr constant [27 x i8] c"Bmc3 found CEX. RunId=%d.\0A\00", align 1
+@.str.1 = private unnamed_addr constant [31 x i8] c"Bmc3 was cancelled. RunId=%d.\0A\00", align 1
+@enable_dbg_outs = external local_unnamed_addr global i32, align 4
+@stdout = external local_unnamed_addr global ptr, align 8
+
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none) uwtable
+define i32 @Wla_CallBackToStop(i32 noundef %0) #0 {
+  %2 = load volatile i32, ptr @g_nRunIds, align 4
+  %3 = icmp sgt i32 %2, %0
+  %4 = zext i1 %3 to i32
+  ret i32 %4
+}
+
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none) uwtable
+define i32 @Wla_GetGlobalRunId() local_unnamed_addr #0 {
+  %1 = load volatile i32, ptr @g_nRunIds, align 4
+  ret i32 %1
+}
+
+; Function Attrs: nounwind uwtable
+define void @Wla_ManJoinThread(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+  %3 = load volatile i32, ptr @g_nRunIds, align 4
+  %4 = icmp eq i32 %3, %1
+  br i1 %4, label %5, label %10
+
+5:                                                ; preds = %2
+  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_mutex) #11
+  %7 = load volatile i32, ptr @g_nRunIds, align 4
+  %8 = add nsw i32 %7, 1
+  store volatile i32 %8, ptr @g_nRunIds, align 4
+  %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_mutex) #11
+  br label %10
+
+10:                                               ; preds = %5, %2
+  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = load ptr, ptr %11, align 8
+  %13 = load i64, ptr %12, align 8
+  %14 = tail call i32 @pthread_join(i64 noundef %13, ptr noundef null) #11
+  %15 = load ptr, ptr %11, align 8
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %17, label %16
+
+16:                                               ; preds = %10
+  tail call void @free(ptr noundef nonnull %15) #11
+  br label %17
+
+17:                                               ; preds = %10, %16
+  store ptr null, ptr %11, align 8
+  ret void
+}
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
+
+declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+
+; Function Attrs: noreturn nounwind uwtable
+define noalias noundef nonnull ptr @Wla_Bmc3Thread(ptr nocapture noundef %0) #5 {
+  %2 = alloca %struct.Saig_ParBmc_t_, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %4) #11
+  call void @Saig_ParBmcSetDefaultParams(ptr noundef nonnull %2) #11
+  %6 = getelementptr inbounds i8, ptr %2, i64 144
+  store ptr @Wla_CallBackToStop, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = load i32, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %2, i64 136
+  store i32 %8, ptr %9, align 8
+  %10 = load ptr, ptr %0, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 72
+  %14 = load i32, ptr %13, align 8
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %20, label %15
+
+15:                                               ; preds = %1
+  %16 = getelementptr inbounds i8, ptr %10, i64 80
+  %17 = load i32, ptr %16, align 8
+  %18 = add nsw i32 %17, 10
+  %19 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 %18, ptr %19, align 4
+  br label %20
+
+20:                                               ; preds = %15, %1
+  %21 = call i32 @Abc_NtkDarBmc3(ptr noundef %5, ptr noundef nonnull %2, i32 noundef 0) #11
+  switch i32 %21, label %65 [
+    i32 0, label %22
+    i32 -1, label %31
+  ]
+
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 312
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8
+  store ptr %24, ptr %26, align 8
+  store ptr null, ptr %23, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 28
+  %28 = load i32, ptr %27, align 4
+  %.not36 = icmp eq i32 %28, 0
+  br i1 %.not36, label %.sink.split, label %29
+
+29:                                               ; preds = %22
+  %30 = load i32, ptr %7, align 8
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str, i32 noundef %30)
+  br label %.sink.split
+
+31:                                               ; preds = %20
+  %32 = load i32, ptr %7, align 8
+  %33 = load volatile i32, ptr @g_nRunIds, align 4
+  %34 = icmp slt i32 %32, %33
+  br i1 %34, label %35, label %39
+
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds i8, ptr %0, i64 28
+  %37 = load i32, ptr %36, align 4
+  %.not35 = icmp eq i32 %37, 0
+  br i1 %.not35, label %39, label %38
+
+38:                                               ; preds = %35
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.1, i32 noundef %32)
+  br label %39
+
+39:                                               ; preds = %38, %35, %31
+  %40 = load ptr, ptr %0, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 88
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp sgt i32 %42, 1
+  br i1 %43, label %44, label %65
+
+44:                                               ; preds = %39
+  %45 = load i32, ptr %7, align 8
+  %46 = load volatile i32, ptr @g_nRunIds, align 4
+  %47 = icmp eq i32 %45, %46
+  br i1 %47, label %48, label %65
+
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds i8, ptr %40, i64 80
+  %50 = load i32, ptr %49, align 8
+  %51 = add nsw i32 %50, 10
+  %52 = call i32 @Wla_ManShrinkAbs(ptr noundef nonnull %40, i32 noundef %51, i32 noundef %45) #11
+  %53 = load ptr, ptr %0, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 80
+  %55 = load i32, ptr %54, align 8
+  %56 = add nsw i32 %55, 10
+  store i32 %56, ptr %54, align 8
+  %57 = icmp eq i32 %52, 1
+  br i1 %57, label %58, label %65
+
+58:                                               ; preds = %48
+  %59 = load ptr, ptr %0, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 84
+  store i32 1, ptr %60, align 4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %22, %29, %58
+  %61 = call i32 @pthread_mutex_lock(ptr noundef nonnull @g_mutex) #11
+  %62 = load volatile i32, ptr @g_nRunIds, align 4
+  %63 = add nsw i32 %62, 1
+  store volatile i32 %63, ptr @g_nRunIds, align 4
+  %64 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_mutex) #11
+  br label %65
+
+65:                                               ; preds = %.sink.split, %20, %48, %44, %39
+  call void @Abc_NtkDelete(ptr noundef %5) #11
+  %66 = load ptr, ptr %3, align 8
+  call void @Aig_ManStop(ptr noundef %66) #11
+  call void @free(ptr noundef nonnull %0) #11
+  call void @pthread_exit(ptr noundef null) #12
+  unreachable
+}
+
+declare ptr @Abc_NtkFromAigPhase(ptr noundef) local_unnamed_addr #3
+
+declare void @Saig_ParBmcSetDefaultParams(ptr noundef) local_unnamed_addr #3
+
+declare i32 @Abc_NtkDarBmc3(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind uwtable
+define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
+  %3 = alloca [1 x %struct.__va_list_tag], align 16
+  %4 = load i32, ptr @enable_dbg_outs, align 4
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %17, label %5
+
+5:                                                ; preds = %2
+  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #11
+  call void @llvm.va_start(ptr nonnull %3)
+  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #11
+  %.not9 = icmp eq i32 %7, 0
+  br i1 %.not9, label %14, label %8
+
+8:                                                ; preds = %5
+  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #11
+  %10 = load ptr, ptr @stdout, align 8
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #13
+  %12 = trunc i64 %11 to i32
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #11
+  call void @free(ptr noundef %9) #11
+  br label %16
+
+14:                                               ; preds = %5
+  %15 = call i32 @vprintf(ptr noundef %1, ptr noundef nonnull %3) #11
+  br label %16
+
+16:                                               ; preds = %14, %8
+  call void @llvm.va_end(ptr nonnull %3)
+  br label %17
+
+17:                                               ; preds = %2, %16
+  ret void
+}
+
+declare i32 @Wla_ManShrinkAbs(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+
+declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #3
+
+declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: noreturn
+declare void @pthread_exit(ptr noundef) local_unnamed_addr #6
+
+; Function Attrs: nounwind uwtable
+define void @Wla_ManConcurrentBmc3(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+  %4 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #14
+  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr %4, ptr %5, align 8
+  %6 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #14
+  store ptr %0, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %1, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %2, ptr %8, align 8
+  %9 = load volatile i32, ptr @g_nRunIds, align 4
+  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  store i32 %9, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 80
+  %14 = load i32, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 28
+  store i32 %14, ptr %15, align 4
+  %16 = tail call i32 @pthread_create(ptr noundef %4, ptr noundef null, ptr noundef nonnull @Wla_Bmc3Thread, ptr noundef nonnull %6) #11
+  ret void
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
+
+; Function Attrs: nounwind
+declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #3
+
+declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start(ptr) #8
+
+declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end(ptr) #8
+
+attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { nounwind allocsize(0,1) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}

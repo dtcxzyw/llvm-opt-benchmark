@@ -1,0 +1,648 @@
+; ModuleID = 'bench/abc/original/mvcLits.c.ll'
+source_filename = "bench/abc/original/mvcLits.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define i32 @Mvc_CoverAnyLiteral(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load i32, ptr %3, align 8
+  %.13956 = add nsw i32 %4, -1
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %.lr.ph58, label %.loopexit49
+
+.lr.ph58:                                         ; preds = %2
+  %.not = icmp eq ptr %1, null
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  br i1 %.not, label %.lr.ph58.split.us, label %.lr.ph58.split
+
+.lr.ph58.split.us:                                ; preds = %.lr.ph58
+  %.14152.us = load ptr, ptr %7, align 8
+  %.not4753.us = icmp eq ptr %.14152.us, null
+  br i1 %.not4753.us, label %.loopexit49, label %.lr.ph.us
+
+.lr.ph.us:                                        ; preds = %.lr.ph58.split.us, %..loopexit_crit_edge.us
+  %.13957.us = phi i32 [ %.139.us, %..loopexit_crit_edge.us ], [ %.13956, %.lr.ph58.split.us ]
+  %8 = lshr i32 %.13957.us, 5
+  %9 = and i32 %.13957.us, 31
+  %10 = zext nneg i32 %8 to i64
+  %11 = shl nuw i32 1, %9
+  br label %12
+
+12:                                               ; preds = %.lr.ph.us, %19
+  %.14155.us = phi ptr [ %.14152.us, %.lr.ph.us ], [ %.141.us, %19 ]
+  %.254.us = phi i32 [ 0, %.lr.ph.us ], [ %.3.us, %19 ]
+  %13 = getelementptr inbounds i8, ptr %.14155.us, i64 16
+  %14 = getelementptr inbounds [1 x i32], ptr %13, i64 0, i64 %10
+  %15 = load i32, ptr %14, align 4
+  %16 = and i32 %15, %11
+  %.not48.us = icmp eq i32 %16, 0
+  br i1 %.not48.us, label %19, label %17
+
+17:                                               ; preds = %12
+  %18 = icmp sgt i32 %.254.us, 0
+  br i1 %18, label %.loopexit49, label %19
+
+19:                                               ; preds = %17, %12
+  %.3.us = phi i32 [ 1, %17 ], [ %.254.us, %12 ]
+  %.141.us = load ptr, ptr %.14155.us, align 8
+  %.not47.us = icmp eq ptr %.141.us, null
+  br i1 %.not47.us, label %..loopexit_crit_edge.us, label %12, !llvm.loop !4
+
+..loopexit_crit_edge.us:                          ; preds = %19
+  %.139.us = add nsw i32 %.13957.us, -1
+  %20 = icmp sgt i32 %.13957.us, 0
+  br i1 %20, label %.lr.ph.us, label %.loopexit49, !llvm.loop !6
+
+.lr.ph58.split:                                   ; preds = %.lr.ph58, %.loopexit
+  %.13957 = phi i32 [ %.139, %.loopexit ], [ %.13956, %.lr.ph58 ]
+  %21 = lshr i32 %.13957, 5
+  %22 = zext nneg i32 %21 to i64
+  %23 = getelementptr inbounds [1 x i32], ptr %6, i64 0, i64 %22
+  %24 = load i32, ptr %23, align 4
+  %25 = and i32 %.13957, 31
+  %26 = shl nuw i32 1, %25
+  %27 = and i32 %24, %26
+  %.not46 = icmp eq i32 %27, 0
+  br i1 %.not46, label %.loopexit, label %28
+
+28:                                               ; preds = %.lr.ph58.split
+  %.14152 = load ptr, ptr %7, align 8
+  %.not4753 = icmp eq ptr %.14152, null
+  br i1 %.not4753, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %28, %35
+  %.14155 = phi ptr [ %.141, %35 ], [ %.14152, %28 ]
+  %.254 = phi i32 [ %.3, %35 ], [ 0, %28 ]
+  %29 = getelementptr inbounds i8, ptr %.14155, i64 16
+  %30 = getelementptr inbounds [1 x i32], ptr %29, i64 0, i64 %22
+  %31 = load i32, ptr %30, align 4
+  %32 = and i32 %31, %26
+  %.not48 = icmp eq i32 %32, 0
+  br i1 %.not48, label %35, label %33
+
+33:                                               ; preds = %.lr.ph
+  %34 = icmp sgt i32 %.254, 0
+  br i1 %34, label %.loopexit49, label %35
+
+35:                                               ; preds = %.lr.ph, %33
+  %.3 = phi i32 [ 1, %33 ], [ %.254, %.lr.ph ]
+  %.141 = load ptr, ptr %.14155, align 8
+  %.not47 = icmp eq ptr %.141, null
+  br i1 %.not47, label %.loopexit, label %.lr.ph, !llvm.loop !4
+
+.loopexit:                                        ; preds = %35, %28, %.lr.ph58.split
+  %.139 = add nsw i32 %.13957, -1
+  %36 = icmp sgt i32 %.13957, 0
+  br i1 %36, label %.lr.ph58.split, label %.loopexit49, !llvm.loop !6
+
+.loopexit49:                                      ; preds = %.loopexit, %33, %..loopexit_crit_edge.us, %17, %.lr.ph58.split.us, %2
+  %.0 = phi i32 [ -1, %2 ], [ -1, %.lr.ph58.split.us ], [ %.13957.us, %17 ], [ -1, %..loopexit_crit_edge.us ], [ %.13957, %33 ], [ -1, %.loopexit ]
+  ret i32 %.0
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define i32 @Mvc_CoverBestLiteral(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load i32, ptr %3, align 8
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %.lr.ph48, label %._crit_edge49.thread
+
+.lr.ph48:                                         ; preds = %2
+  %.not = icmp eq ptr %1, null
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  br i1 %.not, label %.lr.ph48.split.us, label %.lr.ph48.split
+
+.lr.ph48.split.us:                                ; preds = %.lr.ph48
+  %.03340.us = load ptr, ptr %7, align 8
+  %.not3641.us = icmp eq ptr %.03340.us, null
+  br i1 %.not3641.us, label %._crit_edge49.thread, label %.lr.ph.us
+
+.lr.ph.us:                                        ; preds = %.lr.ph48.split.us, %._crit_edge.us
+  %.02846.us = phi i32 [ %spec.select39.us, %._crit_edge.us ], [ -1, %.lr.ph48.split.us ]
+  %.03045.us = phi i32 [ %spec.select38.us, %._crit_edge.us ], [ -1, %.lr.ph48.split.us ]
+  %.03244.us = phi i32 [ %18, %._crit_edge.us ], [ 0, %.lr.ph48.split.us ]
+  %8 = lshr i32 %.03244.us, 5
+  %9 = and i32 %.03244.us, 31
+  %10 = zext nneg i32 %8 to i64
+  br label %11
+
+11:                                               ; preds = %.lr.ph.us, %11
+  %.03343.us = phi ptr [ %.03340.us, %.lr.ph.us ], [ %.033.us, %11 ]
+  %.02742.us = phi i32 [ 0, %.lr.ph.us ], [ %spec.select.us, %11 ]
+  %12 = getelementptr inbounds i8, ptr %.03343.us, i64 16
+  %13 = getelementptr inbounds [1 x i32], ptr %12, i64 0, i64 %10
+  %14 = load i32, ptr %13, align 4
+  %15 = lshr i32 %14, %9
+  %16 = and i32 %15, 1
+  %spec.select.us = add nuw nsw i32 %16, %.02742.us
+  %.033.us = load ptr, ptr %.03343.us, align 8
+  %.not36.us = icmp eq ptr %.033.us, null
+  br i1 %.not36.us, label %._crit_edge.us, label %11, !llvm.loop !7
+
+._crit_edge.us:                                   ; preds = %11
+  %17 = icmp slt i32 %.02846.us, %spec.select.us
+  %spec.select38.us = select i1 %17, i32 %.03244.us, i32 %.03045.us
+  %spec.select39.us = tail call i32 @llvm.smax.i32(i32 %.02846.us, i32 %spec.select.us)
+  %18 = add nuw nsw i32 %.03244.us, 1
+  %exitcond57.not = icmp eq i32 %18, %4
+  br i1 %exitcond57.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !8
+
+.lr.ph48.split:                                   ; preds = %.lr.ph48, %33
+  %.02846 = phi i32 [ %.129, %33 ], [ -1, %.lr.ph48 ]
+  %.03045 = phi i32 [ %.131, %33 ], [ -1, %.lr.ph48 ]
+  %.03244 = phi i32 [ %34, %33 ], [ 0, %.lr.ph48 ]
+  %19 = lshr i32 %.03244, 5
+  %20 = zext nneg i32 %19 to i64
+  %21 = getelementptr inbounds [1 x i32], ptr %6, i64 0, i64 %20
+  %22 = load i32, ptr %21, align 4
+  %23 = and i32 %.03244, 31
+  %24 = shl nuw i32 1, %23
+  %25 = and i32 %22, %24
+  %.not35 = icmp eq i32 %25, 0
+  br i1 %.not35, label %33, label %26
+
+26:                                               ; preds = %.lr.ph48.split
+  %.03340 = load ptr, ptr %7, align 8
+  %.not3641 = icmp eq ptr %.03340, null
+  br i1 %.not3641, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %26, %.lr.ph
+  %.03343 = phi ptr [ %.033, %.lr.ph ], [ %.03340, %26 ]
+  %.02742 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %26 ]
+  %27 = getelementptr inbounds i8, ptr %.03343, i64 16
+  %28 = getelementptr inbounds [1 x i32], ptr %27, i64 0, i64 %20
+  %29 = load i32, ptr %28, align 4
+  %30 = lshr i32 %29, %23
+  %31 = and i32 %30, 1
+  %spec.select = add nuw nsw i32 %31, %.02742
+  %.033 = load ptr, ptr %.03343, align 8
+  %.not36 = icmp eq ptr %.033, null
+  br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+
+._crit_edge:                                      ; preds = %.lr.ph, %26
+  %.027.lcssa = phi i32 [ 0, %26 ], [ %spec.select, %.lr.ph ]
+  %32 = icmp slt i32 %.02846, %.027.lcssa
+  %spec.select38 = select i1 %32, i32 %.03244, i32 %.03045
+  %spec.select39 = tail call i32 @llvm.smax.i32(i32 %.02846, i32 %.027.lcssa)
+  br label %33
+
+33:                                               ; preds = %._crit_edge, %.lr.ph48.split
+  %.131 = phi i32 [ %.03045, %.lr.ph48.split ], [ %spec.select38, %._crit_edge ]
+  %.129 = phi i32 [ %.02846, %.lr.ph48.split ], [ %spec.select39, %._crit_edge ]
+  %34 = add nuw nsw i32 %.03244, 1
+  %exitcond.not = icmp eq i32 %34, %4
+  br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48.split, !llvm.loop !8
+
+._crit_edge49:                                    ; preds = %33, %._crit_edge.us
+  %.030.lcssa = phi i32 [ %spec.select38.us, %._crit_edge.us ], [ %.131, %33 ]
+  %.028.lcssa = phi i32 [ %spec.select39.us, %._crit_edge.us ], [ %.129, %33 ]
+  %.028.lcssa.fr = freeze i32 %.028.lcssa
+  %35 = icmp sgt i32 %.028.lcssa.fr, 1
+  %spec.select63 = select i1 %35, i32 %.030.lcssa, i32 -1
+  br label %._crit_edge49.thread
+
+._crit_edge49.thread:                             ; preds = %.lr.ph48.split.us, %._crit_edge49, %2
+  %36 = phi i32 [ -1, %2 ], [ %spec.select63, %._crit_edge49 ], [ -1, %.lr.ph48.split.us ]
+  ret i32 %36
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define i32 @Mvc_CoverWorstLiteral(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load i32, ptr %3, align 8
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %.lr.ph49, label %._crit_edge50.thread
+
+.lr.ph49:                                         ; preds = %2
+  %.not = icmp eq ptr %1, null
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  br i1 %.not, label %.lr.ph49.split.us, label %.lr.ph49.split
+
+.lr.ph49.split.us:                                ; preds = %.lr.ph49
+  %.03441.us = load ptr, ptr %7, align 8
+  %.not3742.us = icmp eq ptr %.03441.us, null
+  br i1 %.not3742.us, label %._crit_edge50.thread, label %.lr.ph.us
+
+.lr.ph.us:                                        ; preds = %.lr.ph49.split.us, %._crit_edge.us
+  %.02947.us = phi i32 [ %spec.select40.us, %._crit_edge.us ], [ 1000000, %.lr.ph49.split.us ]
+  %.03146.us = phi i32 [ %spec.select39.us, %._crit_edge.us ], [ -1, %.lr.ph49.split.us ]
+  %.03345.us = phi i32 [ %19, %._crit_edge.us ], [ 0, %.lr.ph49.split.us ]
+  %8 = lshr i32 %.03345.us, 5
+  %9 = and i32 %.03345.us, 31
+  %10 = zext nneg i32 %8 to i64
+  br label %11
+
+11:                                               ; preds = %.lr.ph.us, %11
+  %.03444.us = phi ptr [ %.03441.us, %.lr.ph.us ], [ %.034.us, %11 ]
+  %.02843.us = phi i32 [ 0, %.lr.ph.us ], [ %spec.select.us, %11 ]
+  %12 = getelementptr inbounds i8, ptr %.03444.us, i64 16
+  %13 = getelementptr inbounds [1 x i32], ptr %12, i64 0, i64 %10
+  %14 = load i32, ptr %13, align 4
+  %15 = lshr i32 %14, %9
+  %16 = and i32 %15, 1
+  %spec.select.us = add nuw nsw i32 %16, %.02843.us
+  %.034.us = load ptr, ptr %.03444.us, align 8
+  %.not37.us = icmp eq ptr %.034.us, null
+  br i1 %.not37.us, label %._crit_edge.us, label %11, !llvm.loop !9
+
+._crit_edge.us:                                   ; preds = %11
+  %17 = icmp ugt i32 %spec.select.us, 1
+  %18 = icmp sgt i32 %.02947.us, %spec.select.us
+  %or.cond.us = select i1 %17, i1 %18, i1 false
+  %spec.select39.us = select i1 %or.cond.us, i32 %.03345.us, i32 %.03146.us
+  %spec.select40.us = select i1 %or.cond.us, i32 %spec.select.us, i32 %.02947.us
+  %19 = add nuw nsw i32 %.03345.us, 1
+  %exitcond58.not = icmp eq i32 %19, %4
+  br i1 %exitcond58.not, label %._crit_edge50, label %.lr.ph.us, !llvm.loop !10
+
+.lr.ph49.split:                                   ; preds = %.lr.ph49, %35
+  %.02947 = phi i32 [ %.130, %35 ], [ 1000000, %.lr.ph49 ]
+  %.03146 = phi i32 [ %.132, %35 ], [ -1, %.lr.ph49 ]
+  %.03345 = phi i32 [ %36, %35 ], [ 0, %.lr.ph49 ]
+  %20 = lshr i32 %.03345, 5
+  %21 = zext nneg i32 %20 to i64
+  %22 = getelementptr inbounds [1 x i32], ptr %6, i64 0, i64 %21
+  %23 = load i32, ptr %22, align 4
+  %24 = and i32 %.03345, 31
+  %25 = shl nuw i32 1, %24
+  %26 = and i32 %23, %25
+  %.not36 = icmp eq i32 %26, 0
+  br i1 %.not36, label %35, label %27
+
+27:                                               ; preds = %.lr.ph49.split
+  %.03441 = load ptr, ptr %7, align 8
+  %.not3742 = icmp eq ptr %.03441, null
+  br i1 %.not3742, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %27, %.lr.ph
+  %.03444 = phi ptr [ %.034, %.lr.ph ], [ %.03441, %27 ]
+  %.02843 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %27 ]
+  %28 = getelementptr inbounds i8, ptr %.03444, i64 16
+  %29 = getelementptr inbounds [1 x i32], ptr %28, i64 0, i64 %21
+  %30 = load i32, ptr %29, align 4
+  %31 = lshr i32 %30, %24
+  %32 = and i32 %31, 1
+  %spec.select = add nuw nsw i32 %32, %.02843
+  %.034 = load ptr, ptr %.03444, align 8
+  %.not37 = icmp eq ptr %.034, null
+  br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+
+._crit_edge:                                      ; preds = %.lr.ph, %27
+  %.028.lcssa = phi i32 [ 0, %27 ], [ %spec.select, %.lr.ph ]
+  %33 = icmp ugt i32 %.028.lcssa, 1
+  %34 = icmp sgt i32 %.02947, %.028.lcssa
+  %or.cond = select i1 %33, i1 %34, i1 false
+  %spec.select39 = select i1 %or.cond, i32 %.03345, i32 %.03146
+  %spec.select40 = select i1 %or.cond, i32 %.028.lcssa, i32 %.02947
+  br label %35
+
+35:                                               ; preds = %._crit_edge, %.lr.ph49.split
+  %.132 = phi i32 [ %.03146, %.lr.ph49.split ], [ %spec.select39, %._crit_edge ]
+  %.130 = phi i32 [ %.02947, %.lr.ph49.split ], [ %spec.select40, %._crit_edge ]
+  %36 = add nuw nsw i32 %.03345, 1
+  %exitcond.not = icmp eq i32 %36, %4
+  br i1 %exitcond.not, label %._crit_edge50, label %.lr.ph49.split, !llvm.loop !10
+
+._crit_edge50:                                    ; preds = %35, %._crit_edge.us
+  %.031.lcssa = phi i32 [ %spec.select39.us, %._crit_edge.us ], [ %.132, %35 ]
+  %.029.lcssa = phi i32 [ %spec.select40.us, %._crit_edge.us ], [ %.130, %35 ]
+  %.029.lcssa.fr = freeze i32 %.029.lcssa
+  %37 = icmp slt i32 %.029.lcssa.fr, 1000000
+  %spec.select63 = select i1 %37, i32 %.031.lcssa, i32 -1
+  br label %._crit_edge50.thread
+
+._crit_edge50.thread:                             ; preds = %._crit_edge50, %.lr.ph49.split.us, %2
+  %38 = phi i32 [ -1, %2 ], [ -1, %.lr.ph49.split.us ], [ %spec.select63, %._crit_edge50 ]
+  ret i32 %38
+}
+
+; Function Attrs: nounwind uwtable
+define noundef ptr @Mvc_CoverBestLiteralCover(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+  %3 = tail call ptr @Mvc_CoverClone(ptr noundef %0) #5
+  %4 = tail call ptr @Mvc_CubeAlloc(ptr noundef %3) #5
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = load i32, ptr %5, align 8
+  %7 = and i32 %6, 16777215
+  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  switch i32 %7, label %.preheader [
+    i32 0, label %12
+    i32 1, label %13
+  ]
+
+.preheader:                                       ; preds = %2
+  %9 = shl i32 %6, 2
+  %10 = and i32 %9, 67108860
+  %narrow = add nuw nsw i32 %10, 4
+  %11 = zext nneg i32 %narrow to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %8, i8 0, i64 %11, i1 false)
+  br label %.loopexit
+
+12:                                               ; preds = %2
+  store i32 0, ptr %8, align 8
+  br label %.loopexit
+
+13:                                               ; preds = %2
+  store i32 0, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %4, i64 20
+  store i32 0, ptr %14, align 4
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.preheader, %13, %12
+  %15 = tail call ptr @Mvc_CoverReadCubeHead(ptr noundef %1) #5
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %.lr.ph48.i, label %Mvc_CoverBestLiteral.exit
+
+.lr.ph48.i:                                       ; preds = %.loopexit
+  %.not.i = icmp eq ptr %15, null
+  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  br i1 %.not.i, label %.lr.ph48.split.us.i, label %.lr.ph48.split.i
+
+.lr.ph48.split.us.i:                              ; preds = %.lr.ph48.i
+  %.03340.us.i = load ptr, ptr %20, align 8
+  %.not3641.us.i = icmp eq ptr %.03340.us.i, null
+  br i1 %.not3641.us.i, label %Mvc_CoverBestLiteral.exit, label %.lr.ph.us.i
+
+.lr.ph.us.i:                                      ; preds = %.lr.ph48.split.us.i, %._crit_edge.us.i
+  %.02846.us.i = phi i32 [ %spec.select39.us.i, %._crit_edge.us.i ], [ -1, %.lr.ph48.split.us.i ]
+  %.03045.us.i = phi i32 [ %spec.select38.us.i, %._crit_edge.us.i ], [ -1, %.lr.ph48.split.us.i ]
+  %.03244.us.i = phi i32 [ %31, %._crit_edge.us.i ], [ 0, %.lr.ph48.split.us.i ]
+  %21 = lshr i32 %.03244.us.i, 5
+  %22 = and i32 %.03244.us.i, 31
+  %23 = zext nneg i32 %21 to i64
+  br label %24
+
+24:                                               ; preds = %24, %.lr.ph.us.i
+  %.03343.us.i = phi ptr [ %.03340.us.i, %.lr.ph.us.i ], [ %.033.us.i, %24 ]
+  %.02742.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %spec.select.us.i, %24 ]
+  %25 = getelementptr inbounds i8, ptr %.03343.us.i, i64 16
+  %26 = getelementptr inbounds [1 x i32], ptr %25, i64 0, i64 %23
+  %27 = load i32, ptr %26, align 4
+  %28 = lshr i32 %27, %22
+  %29 = and i32 %28, 1
+  %spec.select.us.i = add nuw nsw i32 %29, %.02742.us.i
+  %.033.us.i = load ptr, ptr %.03343.us.i, align 8
+  %.not36.us.i = icmp eq ptr %.033.us.i, null
+  br i1 %.not36.us.i, label %._crit_edge.us.i, label %24, !llvm.loop !7
+
+._crit_edge.us.i:                                 ; preds = %24
+  %30 = icmp slt i32 %.02846.us.i, %spec.select.us.i
+  %spec.select38.us.i = select i1 %30, i32 %.03244.us.i, i32 %.03045.us.i
+  %spec.select39.us.i = tail call i32 @llvm.smax.i32(i32 %.02846.us.i, i32 %spec.select.us.i)
+  %31 = add nuw nsw i32 %.03244.us.i, 1
+  %exitcond57.not.i = icmp eq i32 %31, %17
+  br i1 %exitcond57.not.i, label %._crit_edge49.i, label %.lr.ph.us.i, !llvm.loop !8
+
+.lr.ph48.split.i:                                 ; preds = %.lr.ph48.i, %46
+  %.02846.i = phi i32 [ %.129.i, %46 ], [ -1, %.lr.ph48.i ]
+  %.03045.i = phi i32 [ %.131.i, %46 ], [ -1, %.lr.ph48.i ]
+  %.03244.i = phi i32 [ %47, %46 ], [ 0, %.lr.ph48.i ]
+  %32 = lshr i32 %.03244.i, 5
+  %33 = zext nneg i32 %32 to i64
+  %34 = getelementptr inbounds [1 x i32], ptr %19, i64 0, i64 %33
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %.03244.i, 31
+  %37 = shl nuw i32 1, %36
+  %38 = and i32 %37, %35
+  %.not35.i = icmp eq i32 %38, 0
+  br i1 %.not35.i, label %46, label %39
+
+39:                                               ; preds = %.lr.ph48.split.i
+  %.03340.i = load ptr, ptr %20, align 8
+  %.not3641.i = icmp eq ptr %.03340.i, null
+  br i1 %.not3641.i, label %._crit_edge.i, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %39, %.lr.ph.i
+  %.03343.i = phi ptr [ %.033.i, %.lr.ph.i ], [ %.03340.i, %39 ]
+  %.02742.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ 0, %39 ]
+  %40 = getelementptr inbounds i8, ptr %.03343.i, i64 16
+  %41 = getelementptr inbounds [1 x i32], ptr %40, i64 0, i64 %33
+  %42 = load i32, ptr %41, align 4
+  %43 = lshr i32 %42, %36
+  %44 = and i32 %43, 1
+  %spec.select.i = add nuw nsw i32 %44, %.02742.i
+  %.033.i = load ptr, ptr %.03343.i, align 8
+  %.not36.i = icmp eq ptr %.033.i, null
+  br i1 %.not36.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
+
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %39
+  %.027.lcssa.i = phi i32 [ 0, %39 ], [ %spec.select.i, %.lr.ph.i ]
+  %45 = icmp slt i32 %.02846.i, %.027.lcssa.i
+  %spec.select38.i = select i1 %45, i32 %.03244.i, i32 %.03045.i
+  %spec.select39.i = tail call i32 @llvm.smax.i32(i32 %.02846.i, i32 %.027.lcssa.i)
+  br label %46
+
+46:                                               ; preds = %._crit_edge.i, %.lr.ph48.split.i
+  %.131.i = phi i32 [ %.03045.i, %.lr.ph48.split.i ], [ %spec.select38.i, %._crit_edge.i ]
+  %.129.i = phi i32 [ %.02846.i, %.lr.ph48.split.i ], [ %spec.select39.i, %._crit_edge.i ]
+  %47 = add nuw nsw i32 %.03244.i, 1
+  %exitcond.not.i = icmp eq i32 %47, %17
+  br i1 %exitcond.not.i, label %._crit_edge49.i, label %.lr.ph48.split.i, !llvm.loop !8
+
+._crit_edge49.i:                                  ; preds = %46, %._crit_edge.us.i
+  %.030.lcssa.i = phi i32 [ %spec.select38.us.i, %._crit_edge.us.i ], [ %.131.i, %46 ]
+  %.028.lcssa.i = phi i32 [ %spec.select39.us.i, %._crit_edge.us.i ], [ %.129.i, %46 ]
+  %.028.lcssa.fr.i = freeze i32 %.028.lcssa.i
+  %48 = icmp sgt i32 %.028.lcssa.fr.i, 1
+  %spec.select63.i = select i1 %48, i32 %.030.lcssa.i, i32 -1
+  br label %Mvc_CoverBestLiteral.exit
+
+Mvc_CoverBestLiteral.exit:                        ; preds = %.lr.ph48.split.us.i, %.loopexit, %._crit_edge49.i
+  %49 = phi i32 [ -1, %.loopexit ], [ %spec.select63.i, %._crit_edge49.i ], [ -1, %.lr.ph48.split.us.i ]
+  %50 = and i32 %49, 31
+  %51 = shl nuw i32 1, %50
+  %52 = getelementptr inbounds i8, ptr %4, i64 16
+  %53 = ashr i32 %49, 5
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds [1 x i32], ptr %52, i64 0, i64 %54
+  %56 = load i32, ptr %55, align 4
+  %57 = or i32 %51, %56
+  store i32 %57, ptr %55, align 4
+  %58 = getelementptr inbounds i8, ptr %3, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %64, label %61
+
+61:                                               ; preds = %Mvc_CoverBestLiteral.exit
+  %62 = getelementptr inbounds i8, ptr %3, i64 24
+  %63 = load ptr, ptr %62, align 8
+  br label %64
+
+64:                                               ; preds = %Mvc_CoverBestLiteral.exit, %61
+  %.sink = phi ptr [ %63, %61 ], [ %58, %Mvc_CoverBestLiteral.exit ]
+  store ptr %4, ptr %.sink, align 8
+  %65 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %4, ptr %65, align 8
+  store ptr null, ptr %4, align 8
+  %66 = getelementptr inbounds i8, ptr %3, i64 32
+  %67 = load i32, ptr %66, align 8
+  %68 = add nsw i32 %67, 1
+  store i32 %68, ptr %66, align 8
+  ret ptr %3
+}
+
+declare ptr @Mvc_CoverClone(ptr noundef) local_unnamed_addr #2
+
+declare ptr @Mvc_CubeAlloc(ptr noundef) local_unnamed_addr #2
+
+declare ptr @Mvc_CoverReadCubeHead(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define i32 @Mvc_CoverFirstCubeFirstLit(ptr noundef %0) local_unnamed_addr #1 {
+  %2 = tail call ptr @Mvc_CoverReadCubeHead(ptr noundef %0) #5
+  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load i32, ptr %4, align 8
+  %6 = icmp sgt i32 %5, 0
+  br i1 %6, label %.lr.ph, label %.critedge
+
+.lr.ph:                                           ; preds = %1, %14
+  %.0910 = phi i32 [ %15, %14 ], [ 0, %1 ]
+  %7 = lshr i32 %.0910, 5
+  %8 = zext nneg i32 %7 to i64
+  %9 = getelementptr inbounds [1 x i32], ptr %3, i64 0, i64 %8
+  %10 = load i32, ptr %9, align 4
+  %11 = and i32 %.0910, 31
+  %12 = shl nuw i32 1, %11
+  %13 = and i32 %10, %12
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %14, label %.critedge
+
+14:                                               ; preds = %.lr.ph
+  %15 = add nuw nsw i32 %.0910, 1
+  %exitcond.not = icmp eq i32 %15, %5
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !11
+
+.critedge:                                        ; preds = %.lr.ph, %14, %1
+  %.0 = phi i32 [ -1, %1 ], [ -1, %14 ], [ %.0910, %.lr.ph ]
+  ret i32 %.0
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define i32 @Mvc_CoverCountLiterals(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = load i32, ptr %2, align 8
+  %4 = icmp sgt i32 %3, 0
+  br i1 %4, label %.lr.ph25, label %._crit_edge26
+
+.lr.ph25:                                         ; preds = %1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %.01618 = load ptr, ptr %5, align 8
+  %.not19 = icmp eq ptr %.01618, null
+  br i1 %.not19, label %._crit_edge26, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph25, %._crit_edge
+  %.01423 = phi i32 [ %15, %._crit_edge ], [ 0, %.lr.ph25 ]
+  %.01522 = phi i32 [ %16, %._crit_edge ], [ 0, %.lr.ph25 ]
+  %6 = lshr i32 %.01522, 5
+  %7 = and i32 %.01522, 31
+  %8 = zext nneg i32 %6 to i64
+  br label %9
+
+9:                                                ; preds = %.lr.ph, %9
+  %.01621 = phi ptr [ %.01618, %.lr.ph ], [ %.016, %9 ]
+  %.020 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %9 ]
+  %10 = getelementptr inbounds i8, ptr %.01621, i64 16
+  %11 = getelementptr inbounds [1 x i32], ptr %10, i64 0, i64 %8
+  %12 = load i32, ptr %11, align 4
+  %13 = lshr i32 %12, %7
+  %14 = and i32 %13, 1
+  %spec.select = add nuw nsw i32 %14, %.020
+  %.016 = load ptr, ptr %.01621, align 8
+  %.not = icmp eq ptr %.016, null
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !12
+
+._crit_edge:                                      ; preds = %9
+  %15 = add nuw nsw i32 %spec.select, %.01423
+  %16 = add nuw nsw i32 %.01522, 1
+  %exitcond.not = icmp eq i32 %16, %3
+  br i1 %exitcond.not, label %._crit_edge26, label %.lr.ph, !llvm.loop !13
+
+._crit_edge26:                                    ; preds = %._crit_edge, %.lr.ph25, %1
+  %.014.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph25 ], [ %15, %._crit_edge ]
+  ret i32 %.014.lcssa
+}
+
+; Function Attrs: nounwind uwtable
+define noundef i32 @Mvc_CoverIsOneLiteral(ptr noundef %0) local_unnamed_addr #1 {
+  %2 = tail call i32 @Mvc_CoverReadCubeNum(ptr noundef %0) #5
+  %.not = icmp eq i32 %2, 1
+  br i1 %.not, label %3, label %.critedge
+
+3:                                                ; preds = %1
+  %4 = tail call ptr @Mvc_CoverReadCubeHead(ptr noundef %0) #5
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp sgt i32 %6, 0
+  br i1 %7, label %.lr.ph, label %.critedge
+
+.lr.ph:                                           ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  br label %9
+
+9:                                                ; preds = %.lr.ph, %18
+  %.01015 = phi i32 [ 0, %.lr.ph ], [ %.1, %18 ]
+  %.01114 = phi i32 [ 0, %.lr.ph ], [ %19, %18 ]
+  %10 = lshr i32 %.01114, 5
+  %11 = zext nneg i32 %10 to i64
+  %12 = getelementptr inbounds [1 x i32], ptr %8, i64 0, i64 %11
+  %13 = load i32, ptr %12, align 4
+  %14 = and i32 %.01114, 31
+  %15 = shl nuw i32 1, %14
+  %16 = and i32 %13, %15
+  %.not12 = icmp eq i32 %16, 0
+  br i1 %.not12, label %18, label %17
+
+17:                                               ; preds = %9
+  %.not13 = icmp eq i32 %.01015, 0
+  br i1 %.not13, label %18, label %.critedge
+
+18:                                               ; preds = %9, %17
+  %.1 = phi i32 [ 1, %17 ], [ %.01015, %9 ]
+  %19 = add nuw nsw i32 %.01114, 1
+  %exitcond.not = icmp eq i32 %19, %6
+  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !14
+
+.critedge:                                        ; preds = %17, %18, %3, %1
+  %.0 = phi i32 [ 0, %1 ], [ 1, %3 ], [ 0, %17 ], [ 1, %18 ]
+  ret i32 %.0
+}
+
+declare i32 @Mvc_CoverReadCubeNum(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #3
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+
+attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}

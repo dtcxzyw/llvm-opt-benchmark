@@ -1,0 +1,408 @@
+; ModuleID = 'bench/abc/original/exorUtil.c.ll'
+source_filename = "bench/abc/original/exorUtil.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.cinfo_tag = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i64, i64 }
+
+@g_CoverInfo = external local_unnamed_addr global %struct.cinfo_tag, align 8
+@.str = private unnamed_addr constant [83 x i8] c"Warning! The recorded number of literals (%d) differs from the actual number (%d)\0A\00", align 1
+@.str.6 = private unnamed_addr constant [2 x i8] c"w\00", align 1
+@stderr = external local_unnamed_addr global ptr, align 8
+@.str.7 = private unnamed_addr constant [31 x i8] c"\0A\0ACannot open the output file\0A\00", align 1
+@.str.8 = private unnamed_addr constant [49 x i8] c"# EXORCISM-4 output for command line arguments: \00", align 1
+@.str.9 = private unnamed_addr constant [15 x i8] c"\22-Q %d -V %d\22\0A\00", align 1
+@.str.10 = private unnamed_addr constant [28 x i8] c"# Minimization performed %s\00", align 1
+@.str.11 = private unnamed_addr constant [23 x i8] c"# Initial statistics: \00", align 1
+@.str.12 = private unnamed_addr constant [39 x i8] c"Cubes = %d  Literals = %d  QCost = %d\0A\00", align 1
+@.str.13 = private unnamed_addr constant [23 x i8] c"# Final   statistics: \00", align 1
+@.str.14 = private unnamed_addr constant [47 x i8] c"# File reading and reordering time = %.2f sec\0A\00", align 1
+@.str.15 = private unnamed_addr constant [47 x i8] c"# Starting cover generation time   = %.2f sec\0A\00", align 1
+@.str.16 = private unnamed_addr constant [47 x i8] c"# Pure ESOP minimization time      = %.2f sec\0A\00", align 1
+@.str.17 = private unnamed_addr constant [7 x i8] c".i %d\0A\00", align 1
+@.str.18 = private unnamed_addr constant [7 x i8] c".o %d\0A\00", align 1
+@.str.19 = private unnamed_addr constant [7 x i8] c".p %d\0A\00", align 1
+@.str.20 = private unnamed_addr constant [12 x i8] c".type esop\0A\00", align 1
+@.str.21 = private unnamed_addr constant [4 x i8] c".e\0A\00", align 1
+@switch.table.WriteTableIntoFile = private unnamed_addr constant [3 x i32] [i32 48, i32 49, i32 45], align 4
+
+; Function Attrs: nounwind uwtable
+define i32 @CountLiterals() local_unnamed_addr #0 {
+  %1 = tail call ptr (...) @IterCubeSetStart() #5
+  %.not4 = icmp eq ptr %1, null
+  br i1 %.not4, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %0, %.lr.ph
+  %.06 = phi i32 [ %5, %.lr.ph ], [ 0, %0 ]
+  %.035 = phi ptr [ %6, %.lr.ph ], [ %1, %0 ]
+  %2 = getelementptr inbounds i8, ptr %.035, i64 2
+  %3 = load i16, ptr %2, align 2
+  %4 = sext i16 %3 to i32
+  %5 = add nsw i32 %.06, %4
+  %6 = tail call ptr (...) @IterCubeSetNext() #5
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+
+._crit_edge:                                      ; preds = %.lr.ph, %0
+  %.0.lcssa = phi i32 [ 0, %0 ], [ %5, %.lr.ph ]
+  ret i32 %.0.lcssa
+}
+
+declare ptr @IterCubeSetStart(...) local_unnamed_addr #1
+
+declare ptr @IterCubeSetNext(...) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define i32 @CountLiteralsCheck() local_unnamed_addr #0 {
+  %1 = tail call ptr (...) @IterCubeSetStart() #5
+  %.not23 = icmp eq ptr %1, null
+  br i1 %.not23, label %._crit_edge29.thread, label %.lr.ph28
+
+.lr.ph28:                                         ; preds = %0, %._crit_edge
+  %.026 = phi i32 [ %5, %._crit_edge ], [ 0, %0 ]
+  %.01625 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %0 ]
+  %.01824 = phi ptr [ %17, %._crit_edge ], [ %1, %0 ]
+  %2 = getelementptr inbounds i8, ptr %.01824, i64 2
+  %3 = load i16, ptr %2, align 2
+  %4 = sext i16 %3 to i32
+  %5 = add nsw i32 %.026, %4
+  %6 = load i32, ptr @g_CoverInfo, align 8
+  %7 = icmp sgt i32 %6, 0
+  br i1 %7, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %.lr.ph28, %13
+  %.122 = phi i32 [ %.2, %13 ], [ %.01625, %.lr.ph28 ]
+  %.01721 = phi i32 [ %14, %13 ], [ 0, %.lr.ph28 ]
+  %8 = tail call i32 @GetVar(ptr noundef nonnull %.01824, i32 noundef %.01721) #5
+  switch i32 %8, label %13 [
+    i32 1, label %9
+    i32 2, label %11
+  ]
+
+9:                                                ; preds = %.lr.ph
+  %10 = add nsw i32 %.122, 1
+  br label %13
+
+11:                                               ; preds = %.lr.ph
+  %12 = add nsw i32 %.122, 1
+  br label %13
+
+13:                                               ; preds = %.lr.ph, %9, %11
+  %.2 = phi i32 [ %10, %9 ], [ %12, %11 ], [ %.122, %.lr.ph ]
+  %14 = add nuw nsw i32 %.01721, 1
+  %15 = load i32, ptr @g_CoverInfo, align 8
+  %16 = icmp slt i32 %14, %15
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+
+._crit_edge:                                      ; preds = %13, %.lr.ph28
+  %.1.lcssa = phi i32 [ %.01625, %.lr.ph28 ], [ %.2, %13 ]
+  %17 = tail call ptr (...) @IterCubeSetNext() #5
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %._crit_edge29, label %.lr.ph28, !llvm.loop !7
+
+._crit_edge29:                                    ; preds = %._crit_edge
+  %.not20 = icmp eq i32 %5, %.1.lcssa
+  br i1 %.not20, label %._crit_edge29.thread, label %18
+
+18:                                               ; preds = %._crit_edge29
+  %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %5, i32 noundef %.1.lcssa)
+  br label %._crit_edge29.thread
+
+._crit_edge29.thread:                             ; preds = %0, %18, %._crit_edge29
+  %.016.lcssa35 = phi i32 [ %.1.lcssa, %18 ], [ %.1.lcssa, %._crit_edge29 ], [ 0, %0 ]
+  ret i32 %.016.lcssa35
+}
+
+declare i32 @GetVar(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define i32 @CountQCost() local_unnamed_addr #0 {
+  %1 = tail call ptr (...) @IterCubeSetStart() #5
+  %.not7 = icmp eq ptr %1, null
+  br i1 %.not7, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %0, %.lr.ph
+  %.059 = phi i32 [ %3, %.lr.ph ], [ 0, %0 ]
+  %.068 = phi ptr [ %4, %.lr.ph ], [ %1, %0 ]
+  %2 = tail call i32 @ComputeQCostBits(ptr noundef nonnull %.068) #5
+  %3 = add nsw i32 %2, %.059
+  %4 = tail call ptr (...) @IterCubeSetNext() #5
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+
+._crit_edge:                                      ; preds = %.lr.ph, %0
+  %.05.lcssa = phi i32 [ 0, %0 ], [ %3, %.lr.ph ]
+  ret i32 %.05.lcssa
+}
+
+declare i32 @ComputeQCostBits(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define void @WriteTableIntoFile(ptr nocapture noundef %0) local_unnamed_addr #0 {
+  %2 = tail call ptr (...) @IterCubeSetStart() #5
+  %.not45 = icmp eq ptr %2, null
+  br i1 %.not45, label %._crit_edge47, label %.preheader38
+
+.preheader38:                                     ; preds = %1, %._crit_edge44
+  %.02546 = phi ptr [ %30, %._crit_edge44 ], [ %2, %1 ]
+  %3 = load i32, ptr @g_CoverInfo, align 8
+  %4 = icmp sgt i32 %3, 0
+  br i1 %4, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %.preheader38, %8
+  %.039 = phi i32 [ %9, %8 ], [ 0, %.preheader38 ]
+  %5 = tail call i32 @GetVar(ptr noundef nonnull %.02546, i32 noundef %.039) #5
+  %switch.tableidx = add i32 %5, -1
+  %6 = icmp ult i32 %switch.tableidx, 3
+  br i1 %6, label %switch.lookup, label %8
+
+switch.lookup:                                    ; preds = %.lr.ph
+  %7 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.WriteTableIntoFile, i64 0, i64 %7
+  %switch.load = load i32, ptr %switch.gep, align 4
+  %fputc37 = tail call i32 @fputc(i32 %switch.load, ptr %0)
+  br label %8
+
+8:                                                ; preds = %.lr.ph, %switch.lookup
+  %9 = add nuw nsw i32 %.039, 1
+  %10 = load i32, ptr @g_CoverInfo, align 8
+  %11 = icmp slt i32 %9, %10
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+
+._crit_edge:                                      ; preds = %8, %.preheader38
+  %fputc = tail call i32 @fputc(i32 32, ptr %0)
+  %12 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 1), align 4
+  %13 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 3), align 4
+  %14 = icmp sgt i32 %13, 0
+  br i1 %14, label %.preheader.lr.ph, label %._crit_edge44
+
+.preheader.lr.ph:                                 ; preds = %._crit_edge
+  %15 = getelementptr inbounds i8, ptr %.02546, i64 16
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.lr.ph, %26
+  %indvars.iv = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next, %26 ]
+  %.02642 = phi i32 [ 0, %.preheader.lr.ph ], [ %22, %26 ]
+  br label %16
+
+16:                                               ; preds = %16, %.preheader
+  %.141 = phi i32 [ 0, %.preheader ], [ %24, %16 ]
+  %.12740 = phi i32 [ %.02642, %.preheader ], [ %22, %16 ]
+  %17 = load ptr, ptr %15, align 8
+  %18 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
+  %19 = load i32, ptr %18, align 4
+  %20 = shl nuw i32 1, %.141
+  %21 = and i32 %19, %20
+  %.not32 = icmp eq i32 %21, 0
+  %. = select i1 %.not32, i32 48, i32 49
+  %fputc33 = tail call i32 @fputc(i32 %., ptr %0)
+  %22 = add nsw i32 %.12740, 1
+  %23 = icmp ne i32 %22, %12
+  %24 = add nuw nsw i32 %.141, 1
+  %25 = icmp ult i32 %.141, 31
+  %or.cond = and i1 %23, %25
+  br i1 %or.cond, label %16, label %26, !llvm.loop !10
+
+26:                                               ; preds = %16
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %27 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 3), align 4
+  %28 = sext i32 %27 to i64
+  %29 = icmp slt i64 %indvars.iv.next, %28
+  br i1 %29, label %.preheader, label %._crit_edge44, !llvm.loop !11
+
+._crit_edge44:                                    ; preds = %26, %._crit_edge
+  %fputc31 = tail call i32 @fputc(i32 10, ptr %0)
+  %30 = tail call ptr (...) @IterCubeSetNext() #5
+  %.not = icmp eq ptr %30, null
+  br i1 %.not, label %._crit_edge47, label %.preheader38, !llvm.loop !12
+
+._crit_edge47:                                    ; preds = %._crit_edge44, %1
+  ret void
+}
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define noundef i32 @WriteResultIntoFile(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = alloca i64, align 8
+  %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.6)
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %8
+
+5:                                                ; preds = %1
+  %6 = load ptr, ptr @stderr, align 8
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 30, i64 1, ptr %6) #6
+  br label %74
+
+8:                                                ; preds = %1
+  %9 = call i64 @time(ptr noundef nonnull %2) #5
+  %10 = call ptr @localtime(ptr noundef nonnull %2) #5
+  %11 = call ptr @asctime(ptr noundef %10) #5
+  %12 = call ptr (...) @IterCubeSetStart() #5
+  %.not23.i = icmp eq ptr %12, null
+  br i1 %.not23.i, label %CountLiteralsCheck.exit, label %.lr.ph28.i
+
+.lr.ph28.i:                                       ; preds = %8, %._crit_edge.i
+  %.026.i = phi i32 [ %16, %._crit_edge.i ], [ 0, %8 ]
+  %.01625.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %8 ]
+  %.01824.i = phi ptr [ %28, %._crit_edge.i ], [ %12, %8 ]
+  %13 = getelementptr inbounds i8, ptr %.01824.i, i64 2
+  %14 = load i16, ptr %13, align 2
+  %15 = sext i16 %14 to i32
+  %16 = add nsw i32 %.026.i, %15
+  %17 = load i32, ptr @g_CoverInfo, align 8
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %.lr.ph.i, label %._crit_edge.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph28.i, %24
+  %.122.i = phi i32 [ %.2.i, %24 ], [ %.01625.i, %.lr.ph28.i ]
+  %.01721.i = phi i32 [ %25, %24 ], [ 0, %.lr.ph28.i ]
+  %19 = call i32 @GetVar(ptr noundef nonnull %.01824.i, i32 noundef %.01721.i) #5
+  switch i32 %19, label %24 [
+    i32 1, label %20
+    i32 2, label %22
+  ]
+
+20:                                               ; preds = %.lr.ph.i
+  %21 = add nsw i32 %.122.i, 1
+  br label %24
+
+22:                                               ; preds = %.lr.ph.i
+  %23 = add nsw i32 %.122.i, 1
+  br label %24
+
+24:                                               ; preds = %22, %20, %.lr.ph.i
+  %.2.i = phi i32 [ %21, %20 ], [ %23, %22 ], [ %.122.i, %.lr.ph.i ]
+  %25 = add nuw nsw i32 %.01721.i, 1
+  %26 = load i32, ptr @g_CoverInfo, align 8
+  %27 = icmp slt i32 %25, %26
+  br i1 %27, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
+
+._crit_edge.i:                                    ; preds = %24, %.lr.ph28.i
+  %.1.lcssa.i = phi i32 [ %.01625.i, %.lr.ph28.i ], [ %.2.i, %24 ]
+  %28 = call ptr (...) @IterCubeSetNext() #5
+  %.not.i = icmp eq ptr %28, null
+  br i1 %.not.i, label %._crit_edge29.i, label %.lr.ph28.i, !llvm.loop !7
+
+._crit_edge29.i:                                  ; preds = %._crit_edge.i
+  %.not20.i = icmp eq i32 %16, %.1.lcssa.i
+  br i1 %.not20.i, label %CountLiteralsCheck.exit, label %29
+
+29:                                               ; preds = %._crit_edge29.i
+  %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %16, i32 noundef %.1.lcssa.i)
+  br label %CountLiteralsCheck.exit
+
+CountLiteralsCheck.exit:                          ; preds = %8, %._crit_edge29.i, %29
+  %.016.lcssa35.i = phi i32 [ %.1.lcssa.i, %29 ], [ %16, %._crit_edge29.i ], [ 0, %8 ]
+  store i32 %.016.lcssa35.i, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 9), align 4
+  %31 = call ptr (...) @IterCubeSetStart() #5
+  %.not7.i = icmp eq ptr %31, null
+  br i1 %.not7.i, label %CountQCost.exit, label %.lr.ph.i21
+
+.lr.ph.i21:                                       ; preds = %CountLiteralsCheck.exit, %.lr.ph.i21
+  %.059.i = phi i32 [ %33, %.lr.ph.i21 ], [ 0, %CountLiteralsCheck.exit ]
+  %.068.i = phi ptr [ %34, %.lr.ph.i21 ], [ %31, %CountLiteralsCheck.exit ]
+  %32 = call i32 @ComputeQCostBits(ptr noundef nonnull %.068.i) #5
+  %33 = add nsw i32 %32, %.059.i
+  %34 = call ptr (...) @IterCubeSetNext() #5
+  %.not.i22 = icmp eq ptr %34, null
+  br i1 %.not.i22, label %CountQCost.exit, label %.lr.ph.i21, !llvm.loop !8
+
+CountQCost.exit:                                  ; preds = %.lr.ph.i21, %CountLiteralsCheck.exit
+  %.05.lcssa.i = phi i32 [ 0, %CountLiteralsCheck.exit ], [ %33, %.lr.ph.i21 ]
+  store i32 %.05.lcssa.i, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 11), align 4
+  %35 = call i64 @fwrite(ptr nonnull @.str.8, i64 48, i64 1, ptr nonnull %3)
+  %36 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 14), align 8
+  %37 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 13), align 4
+  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.9, i32 noundef %36, i32 noundef %37) #5
+  %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.10, ptr noundef %11) #5
+  %40 = call i64 @fwrite(ptr nonnull @.str.11, i64 22, i64 1, ptr nonnull %3)
+  %41 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 5), align 4
+  %42 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 8), align 8
+  %43 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 10), align 8
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.12, i32 noundef %41, i32 noundef %42, i32 noundef %43) #5
+  %45 = call i64 @fwrite(ptr nonnull @.str.13, i64 22, i64 1, ptr nonnull %3)
+  %46 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %47 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 9), align 4
+  %48 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 11), align 4
+  %49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.12, i32 noundef %46, i32 noundef %47, i32 noundef %48) #5
+  %50 = load i64, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 17), align 8
+  %51 = sitofp i64 %50 to float
+  %52 = fdiv float %51, 1.000000e+06
+  %53 = fpext float %52 to double
+  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.14, double noundef %53) #5
+  %55 = load i64, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 18), align 8
+  %56 = sitofp i64 %55 to float
+  %57 = fdiv float %56, 1.000000e+06
+  %58 = fpext float %57 to double
+  %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.15, double noundef %58) #5
+  %60 = load i64, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 19), align 8
+  %61 = sitofp i64 %60 to float
+  %62 = fdiv float %61, 1.000000e+06
+  %63 = fpext float %62 to double
+  %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.16, double noundef %63) #5
+  %65 = load i32, ptr @g_CoverInfo, align 8
+  %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.17, i32 noundef %65) #5
+  %67 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 1), align 4
+  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.18, i32 noundef %67) #5
+  %69 = load i32, ptr getelementptr inbounds (%struct.cinfo_tag, ptr @g_CoverInfo, i64 0, i32 6), align 8
+  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.19, i32 noundef %69) #5
+  %71 = call i64 @fwrite(ptr nonnull @.str.20, i64 11, i64 1, ptr nonnull %3)
+  call void @WriteTableIntoFile(ptr noundef nonnull %3)
+  %72 = call i64 @fwrite(ptr nonnull @.str.21, i64 3, i64 1, ptr nonnull %3)
+  %73 = call i32 @fclose(ptr noundef nonnull %3)
+  br label %74
+
+74:                                               ; preds = %CountQCost.exit, %5
+  %.0 = phi i32 [ 1, %5 ], [ 0, %CountQCost.exit ]
+  ret i32 %.0
+}
+
+; Function Attrs: nofree nounwind
+declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+
+; Function Attrs: nounwind
+declare i64 @time(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind
+declare ptr @asctime(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind
+declare ptr @localtime(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+
+; Function Attrs: nofree nounwind
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { cold }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
