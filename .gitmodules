@@ -367,3 +367,6 @@
 [submodule "bench/ceres/ceres-solver"]
 	path = bench/ceres/ceres-solver
 	url = git@github.com:ceres-solver/ceres-solver.git
+[submodule "bench/casadi/casadi"]
+	path = bench/casadi/casadi
+	url = git@github.com:casadi/casadi.git
