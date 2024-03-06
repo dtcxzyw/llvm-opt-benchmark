@@ -4987,81 +4987,78 @@ define void @_ZN12regex_syntax3ast7visitor11HeapVisitor12induct_class17h218cdc3b
   %trunc.not = icmp eq i64 %4, 0
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !5, !align !34, !noundef !5
-  br i1 %trunc.not, label %7, label %12
+  br i1 %trunc.not, label %7, label %10
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %6, i64 152
   %9 = load i32, ptr %8, align 8, !range !36, !noundef !5
-  %10 = add nsw i32 %9, -1114112
-  %11 = icmp ult i32 %10, 8
-  %narrow = select i1 %11, i32 %10, i32 2
-  switch i32 %narrow, label %14 [
-    i32 6, label %15
-    i32 7, label %21
+  switch i32 %9, label %12 [
+    i32 1114118, label %13
+    i32 1114119, label %19
   ]
 
-12:                                               ; preds = %3
+10:                                               ; preds = %3
   store i64 2, ptr %0, align 8
   %.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %6, ptr %.sroa.49.0..sroa_idx, align 8
   %.sroa.510.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %13, ptr %.sroa.510.0..sroa_idx, align 8
-  br label %27
+  %11 = load <2 x ptr>, ptr %6, align 8
+  store <2 x ptr> %11, ptr %.sroa.510.0..sroa_idx, align 8
+  br label %25
 
-14:                                               ; preds = %7
+12:                                               ; preds = %7
   store i64 4, ptr %0, align 8
-  br label %27
+  br label %25
 
-15:                                               ; preds = %7
-  %16 = load ptr, ptr %6, align 8, !nonnull !5, !align !34, !noundef !5
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
-  %18 = getelementptr inbounds i8, ptr %16, i64 200
-  %19 = load i32, ptr %18, align 8, !range !37, !noundef !5
-  %20 = icmp eq i32 %19, 1114120
+13:                                               ; preds = %7
+  %14 = load ptr, ptr %6, align 8, !nonnull !5, !align !34, !noundef !5
+  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %16 = getelementptr inbounds i8, ptr %14, i64 200
+  %17 = load i32, ptr %16, align 8, !range !37, !noundef !5
+  %18 = icmp eq i32 %17, 1114120
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %20, label %26, label %25
+  br i1 %18, label %24, label %23
 
-21:                                               ; preds = %7
-  %22 = getelementptr inbounds i8, ptr %6, i64 16
-  %23 = load i64, ptr %22, align 8, !noundef !5
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %28, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb193455a838ccce2E.llvm.16611923841924356903.exit"
+19:                                               ; preds = %7
+  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  %21 = load i64, ptr %20, align 8, !noundef !5
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %26, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb193455a838ccce2E.llvm.16611923841924356903.exit"
 
-25:                                               ; preds = %15
+23:                                               ; preds = %13
   store i64 0, ptr %0, align 8
-  store ptr %17, ptr %.sroa.42.0..sroa_idx, align 8
+  store ptr %15, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @anon.ee024262027212e939cdd9996d089225.2.llvm.16611923841924356903, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
-  br label %27
+  br label %25
 
-26:                                               ; preds = %15
+24:                                               ; preds = %13
   store i64 1, ptr %0, align 8
-  store ptr %17, ptr %.sroa.42.0..sroa_idx, align 8
-  br label %27
+  store ptr %15, ptr %.sroa.42.0..sroa_idx, align 8
+  br label %25
 
-27:                                               ; preds = %28, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb193455a838ccce2E.llvm.16611923841924356903.exit", %25, %26, %14, %12
+25:                                               ; preds = %26, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb193455a838ccce2E.llvm.16611923841924356903.exit", %23, %24, %12, %10
   ret void
 
-28:                                               ; preds = %21
+26:                                               ; preds = %19
   store i64 4, ptr %0, align 8
-  br label %27
+  br label %25
 
-"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb193455a838ccce2E.llvm.16611923841924356903.exit": ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %6, i64 8
-  %30 = load ptr, ptr %29, align 8, !noalias !5, !nonnull !5, !noundef !5
-  %31 = add i64 %23, -1
-  %32 = getelementptr inbounds i8, ptr %30, i64 160
+"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb193455a838ccce2E.llvm.16611923841924356903.exit": ; preds = %19
+  %27 = getelementptr inbounds i8, ptr %6, i64 8
+  %28 = load ptr, ptr %27, align 8, !noalias !5, !nonnull !5, !noundef !5
+  %29 = add i64 %21, -1
+  %30 = getelementptr inbounds i8, ptr %28, i64 160
   store i64 0, ptr %0, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %30, ptr %.sroa.45.0..sroa_idx, align 8
+  store ptr %28, ptr %.sroa.45.0..sroa_idx, align 8
   %.sroa.56.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %32, ptr %.sroa.56.0..sroa_idx, align 8
+  store ptr %30, ptr %.sroa.56.0..sroa_idx, align 8
   %.sroa.67.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %31, ptr %.sroa.67.0..sroa_idx, align 8
-  br label %27
+  store i64 %29, ptr %.sroa.67.0..sroa_idx, align 8
+  br label %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

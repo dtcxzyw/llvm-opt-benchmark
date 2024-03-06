@@ -313,7 +313,7 @@ list_length.exit:                                 ; preds = %13, %14
   unreachable
 
 95:                                               ; preds = %82
-  switch i32 %spec.store.select, label %96 [
+  switch i32 %41, label %96 [
     i32 116, label %109
     i32 111, label %109
   ]
@@ -432,24 +432,18 @@ list_length.exit:                                 ; preds = %13, %14
 
 .lr.ph:                                           ; preds = %.preheader212
   %143 = load ptr, ptr %26, align 8
-  switch i32 %spec.store.select, label %.lr.ph.split.split.preheader [
+  switch i32 %spec.store.select, label %.lr.ph.split [
     i32 118, label %.lr.ph.split.us
     i32 105, label %.lr.ph.split.us
-    i32 116, label %.lr.ph.split.split.us
-    i32 111, label %.lr.ph.split.split.us
   ]
 
-.lr.ph.split.split.preheader:                     ; preds = %.lr.ph
-  %wide.trip.count338 = zext nneg i32 %141 to i64
-  br label %.lr.ph.split.split
-
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph
-  %wide.trip.count333 = zext nneg i32 %141 to i64
+  %wide.trip.count = zext nneg i32 %141 to i64
   br label %144
 
 144:                                              ; preds = %161, %.lr.ph.split.us
-  %indvars.iv329 = phi i64 [ %indvars.iv.next330, %161 ], [ 0, %.lr.ph.split.us ]
-  %145 = getelementptr %union.ListCell, ptr %143, i64 %indvars.iv329
+  %indvars.iv = phi i64 [ %indvars.iv.next, %161 ], [ 0, %.lr.ph.split.us ]
+  %145 = getelementptr %union.ListCell, ptr %143, i64 %indvars.iv
   %146 = load ptr, ptr %145, align 8
   %147 = icmp eq ptr %146, %37
   br i1 %147, label %.thread209, label %148
@@ -467,7 +461,7 @@ list_length.exit:                                 ; preds = %13, %14
   ]
 
 152:                                              ; preds = %148, %148
-  switch i32 %spec.store.select, label %153 [
+  switch i32 %41, label %153 [
     i32 116, label %161
     i32 111, label %161
   ]
@@ -489,17 +483,27 @@ list_length.exit:                                 ; preds = %13, %14
   br i1 %160, label %.split.us, label %161
 
 161:                                              ; preds = %158, %156, %153, %152, %152, %148, %148
-  %indvars.iv.next330 = add nuw nsw i64 %indvars.iv329, 1
-  %exitcond334.not = icmp eq i64 %indvars.iv.next330, %wide.trip.count333
-  br i1 %exitcond334.not, label %.thread209, label %144, !llvm.loop !5
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.thread209, label %144, !llvm.loop !5
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph, %.lr.ph
-  %wide.trip.count = zext nneg i32 %141 to i64
+.lr.ph.split:                                     ; preds = %.lr.ph
+  switch i32 %41, label %.lr.ph.split.split.preheader [
+    i32 116, label %.lr.ph.split.split.us
+    i32 111, label %.lr.ph.split.split.us
+  ]
+
+.lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split
+  %wide.trip.count338 = zext nneg i32 %141 to i64
+  br label %.lr.ph.split.split
+
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split
+  %wide.trip.count333 = zext nneg i32 %141 to i64
   br label %162
 
 162:                                              ; preds = %178, %.lr.ph.split.split.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %178 ], [ 0, %.lr.ph.split.split.us ]
-  %163 = getelementptr %union.ListCell, ptr %143, i64 %indvars.iv
+  %indvars.iv329 = phi i64 [ %indvars.iv.next330, %178 ], [ 0, %.lr.ph.split.split.us ]
+  %163 = getelementptr %union.ListCell, ptr %143, i64 %indvars.iv329
   %164 = load ptr, ptr %163, align 8
   %165 = icmp eq ptr %164, %37
   br i1 %165, label %.thread209, label %166
@@ -531,9 +535,9 @@ list_length.exit:                                 ; preds = %13, %14
   br i1 %177, label %.split.us, label %178
 
 178:                                              ; preds = %166, %166, %175, %173, %170
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread209, label %162, !llvm.loop !5
+  %indvars.iv.next330 = add nuw nsw i64 %indvars.iv329, 1
+  %exitcond334.not = icmp eq i64 %indvars.iv.next330, %wide.trip.count333
+  br i1 %exitcond334.not, label %.thread209, label %162, !llvm.loop !5
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %194
   %indvars.iv335 = phi i64 [ 0, %.lr.ph.split.split.preheader ], [ %indvars.iv.next336, %194 ]
@@ -558,7 +562,7 @@ list_length.exit:                                 ; preds = %13, %14
   %189 = icmp eq i32 %188, 0
   br i1 %189, label %.split.us, label %194
 
-.split.us:                                        ; preds = %175, %158, %187
+.split.us:                                        ; preds = %158, %175, %187
   %190 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %190)
   %191 = tail call i32 @errcode(i32 noundef 50724996) #8
@@ -572,7 +576,7 @@ list_length.exit:                                 ; preds = %13, %14
   %exitcond339.not = icmp eq i64 %indvars.iv.next336, %wide.trip.count338
   br i1 %exitcond339.not, label %.thread209, label %.lr.ph.split.split, !llvm.loop !5
 
-.thread209:                                       ; preds = %162, %178, %144, %161, %.lr.ph.split.split, %194, %.preheader212
+.thread209:                                       ; preds = %144, %161, %162, %178, %.lr.ph.split.split, %194, %.preheader212
   %195 = tail call ptr @cstring_to_text(ptr noundef nonnull %138) #8
   %196 = ptrtoint ptr %195 to i64
   %197 = getelementptr i64, ptr %24, i64 %35
@@ -607,7 +611,7 @@ list_length.exit:                                 ; preds = %13, %14
   br i1 %.not202, label %229, label %211
 
 211:                                              ; preds = %208
-  switch i32 %spec.store.select, label %216 [
+  switch i32 %41, label %216 [
     i32 116, label %212
     i32 111, label %212
   ]
@@ -647,7 +651,7 @@ list_length.exit:                                 ; preds = %13, %14
   br label %242
 
 229:                                              ; preds = %208
-  switch i32 %spec.store.select, label %230 [
+  switch i32 %41, label %230 [
     i32 116, label %236
     i32 111, label %236
   ]

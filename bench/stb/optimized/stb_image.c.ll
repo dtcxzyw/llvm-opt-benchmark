@@ -5088,7 +5088,7 @@ if.else.i:                                        ; preds = %if.then.i94
 if.end.i:                                         ; preds = %if.else.i, %if.then7.i
   %mul20.i.sink = phi float [ %div.i, %if.then7.i ], [ %mul20.i, %if.else.i ]
   store float %mul20.i.sink, ptr %add.ptr99, align 4
-  switch i32 %spec.store.select, label %stbi__hdr_convert.exit [
+  switch i32 %req_comp, label %stbi__hdr_convert.exit [
     i32 2, label %if.then34.i
     i32 4, label %if.then39.i
   ]
