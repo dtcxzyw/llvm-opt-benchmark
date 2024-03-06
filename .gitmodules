@@ -370,3 +370,6 @@
 [submodule "bench/casadi/casadi"]
 	path = bench/casadi/casadi
 	url = git@github.com:casadi/casadi.git
+[submodule "bench/jq/jq"]
+	path = bench/jq/jq
+	url = git@github.com:jqlang/jq.git
