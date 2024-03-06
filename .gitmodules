@@ -376,3 +376,6 @@
 [submodule "bench/faiss/faiss"]
 	path = bench/faiss/faiss
 	url = git@github.com:facebookresearch/faiss.git
+[submodule "bench/minetest/minetest"]
+	path = bench/minetest/minetest
+	url = git@github.com:minetest/minetest.git
