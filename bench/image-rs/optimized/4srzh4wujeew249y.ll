@@ -1678,17 +1678,17 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 408:                                              ; preds = %.lr.ph2759
   %.val409 = load i64, ptr %281, align 8, !noundef !9
   %409 = icmp ult i64 %.sroa.8598.02785, %.val409
-  br i1 %409, label %458, label %.invoke3739, !prof !27
+  br i1 %409, label %455, label %.invoke3739, !prof !27
 
 410:                                              ; preds = %407
   %411 = load i8, ptr %390, align 1, !range !120, !noundef !9
   %.not359 = icmp eq i8 %411, 0
-  br i1 %.not359, label %457, label %416
+  br i1 %.not359, label %483, label %416
 
-.invoke3739:                                      ; preds = %805, %.thread866, %785, %755, %.lr.ph2791, %400, %645, %496, %493, %489, %486, %485, %484, %476, %460, %458, %432, %428, %426, %407, %408, %740, %734, %631, %607, %566, %563, %264
-  %412 = phi i64 [ 0, %264 ], [ %564, %563 ], [ %569, %566 ], [ %627, %607 ], [ %634, %631 ], [ %735, %734 ], [ %743, %740 ], [ %.sroa.8598.02785, %408 ], [ %.sroa.8598.02785, %407 ], [ %.sroa.8598.02785, %426 ], [ %.sroa.8598.02785, %428 ], [ %.sroa.8598.02785, %432 ], [ %.sroa.8598.02785, %458 ], [ %.sroa.8598.02785, %460 ], [ %477, %476 ], [ %.sroa.8598.02785, %484 ], [ %.sroa.8598.02785, %485 ], [ %487, %486 ], [ %.sroa.8598.02785, %489 ], [ %494, %493 ], [ %.sroa.8598.02785, %496 ], [ %646, %645 ], [ %.sroa.8598.02785, %400 ], [ %.sroa.8598.02785, %.lr.ph2791 ], [ 4, %755 ], [ %.sroa.8707.02826, %785 ], [ %.sroa.8707.02826, %.thread866 ], [ %807, %805 ]
-  %413 = phi i64 [ 0, %264 ], [ 64, %563 ], [ 64, %566 ], [ 64, %607 ], [ 64, %631 ], [ 64, %734 ], [ 64, %740 ], [ %.val409, %408 ], [ 4, %407 ], [ %.val411, %426 ], [ %.val413, %428 ], [ %.val395, %432 ], [ %.val415, %458 ], [ %68, %460 ], [ %.val397, %476 ], [ %.val423, %484 ], [ %.val425, %485 ], [ %.val387, %486 ], [ %.val425, %489 ], [ %.val389, %493 ], [ 4, %496 ], [ %.val391, %645 ], [ %.val407, %400 ], [ %.val405, %.lr.ph2791 ], [ 4, %755 ], [ %.val399, %785 ], [ %68, %.thread866 ], [ %.val435, %805 ]
-  %414 = phi ptr [ @anon.60689fdbfa59ae5f463a599edb886518.18, %264 ], [ @anon.60689fdbfa59ae5f463a599edb886518.8, %563 ], [ @anon.60689fdbfa59ae5f463a599edb886518.9, %566 ], [ @anon.60689fdbfa59ae5f463a599edb886518.11, %607 ], [ @anon.60689fdbfa59ae5f463a599edb886518.12, %631 ], [ @anon.60689fdbfa59ae5f463a599edb886518.115, %734 ], [ @anon.60689fdbfa59ae5f463a599edb886518.116, %740 ], [ @anon.60689fdbfa59ae5f463a599edb886518.38, %408 ], [ @anon.60689fdbfa59ae5f463a599edb886518.31, %407 ], [ @anon.60689fdbfa59ae5f463a599edb886518.34, %426 ], [ @anon.60689fdbfa59ae5f463a599edb886518.35, %428 ], [ @anon.60689fdbfa59ae5f463a599edb886518.36, %432 ], [ @anon.60689fdbfa59ae5f463a599edb886518.39, %458 ], [ @anon.60689fdbfa59ae5f463a599edb886518.40, %460 ], [ @anon.60689fdbfa59ae5f463a599edb886518.41, %476 ], [ @anon.60689fdbfa59ae5f463a599edb886518.44, %484 ], [ @anon.60689fdbfa59ae5f463a599edb886518.49, %485 ], [ @anon.60689fdbfa59ae5f463a599edb886518.45, %486 ], [ @anon.60689fdbfa59ae5f463a599edb886518.46, %489 ], [ @anon.60689fdbfa59ae5f463a599edb886518.47, %493 ], [ @anon.60689fdbfa59ae5f463a599edb886518.48, %496 ], [ @anon.60689fdbfa59ae5f463a599edb886518.50, %645 ], [ @anon.60689fdbfa59ae5f463a599edb886518.30, %400 ], [ @anon.60689fdbfa59ae5f463a599edb886518.29, %.lr.ph2791 ], [ @anon.60689fdbfa59ae5f463a599edb886518.51, %755 ], [ @anon.60689fdbfa59ae5f463a599edb886518.53, %785 ], [ @anon.60689fdbfa59ae5f463a599edb886518.55, %.thread866 ], [ @anon.60689fdbfa59ae5f463a599edb886518.56, %805 ]
+.invoke3739:                                      ; preds = %805, %.thread866, %785, %755, %.lr.ph2791, %400, %645, %496, %493, %489, %486, %485, %484, %473, %457, %455, %432, %428, %426, %407, %408, %740, %734, %631, %607, %566, %563, %264
+  %412 = phi i64 [ 0, %264 ], [ %564, %563 ], [ %569, %566 ], [ %627, %607 ], [ %634, %631 ], [ %735, %734 ], [ %743, %740 ], [ %.sroa.8598.02785, %408 ], [ %.sroa.8598.02785, %407 ], [ %.sroa.8598.02785, %426 ], [ %.sroa.8598.02785, %428 ], [ %.sroa.8598.02785, %432 ], [ %.sroa.8598.02785, %455 ], [ %.sroa.8598.02785, %457 ], [ %474, %473 ], [ %.sroa.8598.02785, %484 ], [ %.sroa.8598.02785, %485 ], [ %487, %486 ], [ %.sroa.8598.02785, %489 ], [ %494, %493 ], [ %.sroa.8598.02785, %496 ], [ %646, %645 ], [ %.sroa.8598.02785, %400 ], [ %.sroa.8598.02785, %.lr.ph2791 ], [ 4, %755 ], [ %.sroa.8707.02826, %785 ], [ %.sroa.8707.02826, %.thread866 ], [ %807, %805 ]
+  %413 = phi i64 [ 0, %264 ], [ 64, %563 ], [ 64, %566 ], [ 64, %607 ], [ 64, %631 ], [ 64, %734 ], [ 64, %740 ], [ %.val409, %408 ], [ 4, %407 ], [ %.val411, %426 ], [ %.val413, %428 ], [ %.val395, %432 ], [ %.val415, %455 ], [ %68, %457 ], [ %.val397, %473 ], [ %.val423, %484 ], [ %.val425, %485 ], [ %.val387, %486 ], [ %.val425, %489 ], [ %.val389, %493 ], [ 4, %496 ], [ %.val391, %645 ], [ %.val407, %400 ], [ %.val405, %.lr.ph2791 ], [ 4, %755 ], [ %.val399, %785 ], [ %68, %.thread866 ], [ %.val435, %805 ]
+  %414 = phi ptr [ @anon.60689fdbfa59ae5f463a599edb886518.18, %264 ], [ @anon.60689fdbfa59ae5f463a599edb886518.8, %563 ], [ @anon.60689fdbfa59ae5f463a599edb886518.9, %566 ], [ @anon.60689fdbfa59ae5f463a599edb886518.11, %607 ], [ @anon.60689fdbfa59ae5f463a599edb886518.12, %631 ], [ @anon.60689fdbfa59ae5f463a599edb886518.115, %734 ], [ @anon.60689fdbfa59ae5f463a599edb886518.116, %740 ], [ @anon.60689fdbfa59ae5f463a599edb886518.38, %408 ], [ @anon.60689fdbfa59ae5f463a599edb886518.31, %407 ], [ @anon.60689fdbfa59ae5f463a599edb886518.34, %426 ], [ @anon.60689fdbfa59ae5f463a599edb886518.35, %428 ], [ @anon.60689fdbfa59ae5f463a599edb886518.36, %432 ], [ @anon.60689fdbfa59ae5f463a599edb886518.39, %455 ], [ @anon.60689fdbfa59ae5f463a599edb886518.40, %457 ], [ @anon.60689fdbfa59ae5f463a599edb886518.41, %473 ], [ @anon.60689fdbfa59ae5f463a599edb886518.44, %484 ], [ @anon.60689fdbfa59ae5f463a599edb886518.49, %485 ], [ @anon.60689fdbfa59ae5f463a599edb886518.45, %486 ], [ @anon.60689fdbfa59ae5f463a599edb886518.46, %489 ], [ @anon.60689fdbfa59ae5f463a599edb886518.47, %493 ], [ @anon.60689fdbfa59ae5f463a599edb886518.48, %496 ], [ @anon.60689fdbfa59ae5f463a599edb886518.50, %645 ], [ @anon.60689fdbfa59ae5f463a599edb886518.30, %400 ], [ @anon.60689fdbfa59ae5f463a599edb886518.29, %.lr.ph2791 ], [ @anon.60689fdbfa59ae5f463a599edb886518.51, %755 ], [ @anon.60689fdbfa59ae5f463a599edb886518.53, %785 ], [ @anon.60689fdbfa59ae5f463a599edb886518.55, %.thread866 ], [ @anon.60689fdbfa59ae5f463a599edb886518.56, %805 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %412, i64 noundef %413, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %414) #23
           to label %.cont3740 unwind label %.loopexit.split-lp907.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1763,72 +1763,72 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   %451 = icmp ugt i64 %449, %.val417
   br i1 %451, label %.invoke3743, label %.sink.split
 
-.invoke3743:                                      ; preds = %809, %479, %434
-  %452 = phi i64 [ %449, %434 ], [ %481, %479 ], [ %811, %809 ]
-  %453 = phi i64 [ %.val417, %434 ], [ %.val419, %479 ], [ %.val437, %809 ]
-  %454 = phi ptr [ @anon.60689fdbfa59ae5f463a599edb886518.37, %434 ], [ @anon.60689fdbfa59ae5f463a599edb886518.42, %479 ], [ @anon.60689fdbfa59ae5f463a599edb886518.57, %809 ]
+.invoke3743:                                      ; preds = %809, %476, %434
+  %452 = phi i64 [ %449, %434 ], [ %478, %476 ], [ %811, %809 ]
+  %453 = phi i64 [ %.val417, %434 ], [ %.val419, %476 ], [ %.val437, %809 ]
+  %454 = phi ptr [ @anon.60689fdbfa59ae5f463a599edb886518.37, %434 ], [ @anon.60689fdbfa59ae5f463a599edb886518.42, %476 ], [ @anon.60689fdbfa59ae5f463a599edb886518.57, %809 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %452, i64 noundef %453, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %454) #23
           to label %.cont3744 unwind label %.loopexit.split-lp907.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .cont3744:                                        ; preds = %.invoke3743
   unreachable
 
-.sink.split:                                      ; preds = %434, %479
-  %.sink3746 = phi ptr [ %480, %479 ], [ %438, %434 ]
-  %.sink = phi i64 [ %475, %479 ], [ %448, %434 ]
-  %455 = getelementptr i8, ptr %.sink3746, i64 8
-  %.val418 = load ptr, ptr %455, align 8, !nonnull !9, !noundef !9
-  %456 = getelementptr inbounds i16, ptr %.val418, i64 %.sink
-  br label %457
-
-457:                                              ; preds = %.sink.split, %410
-  %.pn905 = phi ptr [ %62, %410 ], [ %456, %.sink.split ]
-  br i1 %290, label %484, label %485
-
-458:                                              ; preds = %408
+455:                                              ; preds = %408
   %.val415 = load i64, ptr %283, align 8, !noundef !9
-  %459 = icmp ult i64 %.sroa.8598.02785, %.val415
-  br i1 %459, label %460, label %.invoke3739, !prof !27
+  %456 = icmp ult i64 %.sroa.8598.02785, %.val415
+  br i1 %456, label %457, label %.invoke3739, !prof !27
 
-460:                                              ; preds = %458
+457:                                              ; preds = %455
   %.val414 = load ptr, ptr %282, align 8, !nonnull !9, !noundef !9
   %.val408 = load ptr, ptr %280, align 8, !nonnull !9, !noundef !9
-  %461 = getelementptr inbounds [0 x i16], ptr %.val408, i64 0, i64 %.sroa.8598.02785
-  %462 = load i16, ptr %461, align 2, !noundef !9
-  %463 = getelementptr inbounds [0 x i16], ptr %.val414, i64 0, i64 %.sroa.8598.02785
-  %464 = mul i16 %462, %.sroa.046.02834
-  %465 = add i16 %464, %.sroa.0100.02770
-  %466 = zext i16 %465 to i64
-  %467 = load i16, ptr %463, align 2, !noundef !9
-  %468 = mul i16 %467, %.sroa.053.02804
-  %469 = add i16 %468, %.sroa.0107.02757
-  %470 = zext i16 %469 to i64
-  %471 = load i16, ptr %392, align 4, !noundef !9
-  %472 = zext i16 %471 to i64
-  %473 = mul nuw nsw i64 %466, %472
-  %474 = add nuw nsw i64 %473, %470
-  %475 = shl nuw nsw i64 %474, 6
-  br i1 %393, label %476, label %.invoke3739, !prof !27
+  %458 = getelementptr inbounds [0 x i16], ptr %.val408, i64 0, i64 %.sroa.8598.02785
+  %459 = load i16, ptr %458, align 2, !noundef !9
+  %460 = getelementptr inbounds [0 x i16], ptr %.val414, i64 0, i64 %.sroa.8598.02785
+  %461 = mul i16 %459, %.sroa.046.02834
+  %462 = add i16 %461, %.sroa.0100.02770
+  %463 = zext i16 %462 to i64
+  %464 = load i16, ptr %460, align 2, !noundef !9
+  %465 = mul i16 %464, %.sroa.053.02804
+  %466 = add i16 %465, %.sroa.0107.02757
+  %467 = zext i16 %466 to i64
+  %468 = load i16, ptr %392, align 4, !noundef !9
+  %469 = zext i16 %468 to i64
+  %470 = mul nuw nsw i64 %463, %469
+  %471 = add nuw nsw i64 %470, %467
+  %472 = shl nuw nsw i64 %471, 6
+  br i1 %393, label %473, label %.invoke3739, !prof !27
 
-476:                                              ; preds = %460
-  %477 = load i64, ptr %394, align 8, !noundef !9
+473:                                              ; preds = %457
+  %474 = load i64, ptr %394, align 8, !noundef !9
   %.val397 = load i64, ptr %286, align 8, !noundef !9
-  %478 = icmp ult i64 %477, %.val397
-  br i1 %478, label %479, label %.invoke3739, !prof !27
+  %475 = icmp ult i64 %474, %.val397
+  br i1 %475, label %476, label %.invoke3739, !prof !27
 
-479:                                              ; preds = %476
+476:                                              ; preds = %473
   %.val396 = load ptr, ptr %287, align 8, !nonnull !9, !noundef !9
-  %480 = getelementptr inbounds [0 x { { i64, ptr }, i64 }], ptr %.val396, i64 0, i64 %477
-  %481 = add nuw nsw i64 %475, 64
-  %482 = getelementptr i8, ptr %480, i64 16
-  %.val419 = load i64, ptr %482, align 8, !noundef !9
-  %483 = icmp ugt i64 %481, %.val419
-  br i1 %483, label %.invoke3743, label %.sink.split
+  %477 = getelementptr inbounds [0 x { { i64, ptr }, i64 }], ptr %.val396, i64 0, i64 %474
+  %478 = add nuw nsw i64 %472, 64
+  %479 = getelementptr i8, ptr %477, i64 16
+  %.val419 = load i64, ptr %479, align 8, !noundef !9
+  %480 = icmp ugt i64 %478, %.val419
+  br i1 %480, label %.invoke3743, label %.sink.split
 
-484:                                              ; preds = %457
+.sink.split:                                      ; preds = %476, %434
+  %.sink3746 = phi ptr [ %438, %434 ], [ %477, %476 ]
+  %.sink = phi i64 [ %448, %434 ], [ %472, %476 ]
+  %481 = getelementptr i8, ptr %.sink3746, i64 8
+  %.val416 = load ptr, ptr %481, align 8, !nonnull !9, !noundef !9
+  %482 = getelementptr inbounds i16, ptr %.val416, i64 %.sink
+  br label %483
+
+483:                                              ; preds = %.sink.split, %410
+  %.pn905 = phi ptr [ %62, %410 ], [ %482, %.sink.split ]
+  br i1 %290, label %484, label %485
+
+484:                                              ; preds = %483
   br i1 %397, label %486, label %.invoke3739, !prof !27
 
-485:                                              ; preds = %457
+485:                                              ; preds = %483
   br i1 %395, label %645, label %.invoke3739, !prof !27
 
 486:                                              ; preds = %484
@@ -4288,12 +4288,12 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 405:                                              ; preds = %.lr.ph2717
   %.val409 = load i64, ptr %278, align 8, !noundef !9
   %406 = icmp ult i64 %.sroa.8589.02743, %.val409
-  br i1 %406, label %446, label %.invoke3665, !prof !27
+  br i1 %406, label %443, label %.invoke3665, !prof !27
 
 407:                                              ; preds = %404
   %408 = load i8, ptr %387, align 1, !range !120, !noundef !9
   %.not359 = icmp eq i8 %408, 0
-  br i1 %.not359, label %445, label %410
+  br i1 %.not359, label %471, label %410
 
 409:                                              ; preds = %948, %885
   unreachable
@@ -4353,62 +4353,62 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   %442 = icmp ugt i64 %440, %.val417
   br i1 %442, label %.invoke3663, label %.sink.split
 
-.sink.split:                                      ; preds = %425, %467
-  %.sink3668 = phi ptr [ %468, %467 ], [ %429, %425 ]
-  %.sink = phi i64 [ %463, %467 ], [ %439, %425 ]
-  %443 = getelementptr i8, ptr %.sink3668, i64 8
-  %.val418 = load ptr, ptr %443, align 8, !nonnull !9, !noundef !9
-  %444 = getelementptr inbounds i16, ptr %.val418, i64 %.sink
-  br label %445
-
-445:                                              ; preds = %.sink.split, %407
-  %.pn890 = phi ptr [ %59, %407 ], [ %444, %.sink.split ]
-  br i1 %287, label %472, label %473
-
-446:                                              ; preds = %405
+443:                                              ; preds = %405
   %.val415 = load i64, ptr %280, align 8, !noundef !9
-  %447 = icmp ult i64 %.sroa.8589.02743, %.val415
-  br i1 %447, label %448, label %.invoke3665, !prof !27
+  %444 = icmp ult i64 %.sroa.8589.02743, %.val415
+  br i1 %444, label %445, label %.invoke3665, !prof !27
 
-448:                                              ; preds = %446
+445:                                              ; preds = %443
   %.val414 = load ptr, ptr %279, align 8, !nonnull !9, !noundef !9
   %.val408 = load ptr, ptr %277, align 8, !nonnull !9, !noundef !9
-  %449 = getelementptr inbounds [0 x i16], ptr %.val408, i64 0, i64 %.sroa.8589.02743
-  %450 = load i16, ptr %449, align 2, !noundef !9
-  %451 = getelementptr inbounds [0 x i16], ptr %.val414, i64 0, i64 %.sroa.8589.02743
-  %452 = mul i16 %450, %.sroa.046.02792
-  %453 = add i16 %452, %.sroa.0100.02728
-  %454 = zext i16 %453 to i64
-  %455 = load i16, ptr %451, align 2, !noundef !9
-  %456 = mul i16 %455, %.sroa.053.02762
-  %457 = add i16 %456, %.sroa.0107.02715
-  %458 = zext i16 %457 to i64
-  %459 = load i16, ptr %389, align 4, !noundef !9
-  %460 = zext i16 %459 to i64
-  %461 = mul nuw nsw i64 %454, %460
-  %462 = add nuw nsw i64 %461, %458
-  %463 = shl nuw nsw i64 %462, 6
-  br i1 %390, label %464, label %.invoke3665, !prof !27
+  %446 = getelementptr inbounds [0 x i16], ptr %.val408, i64 0, i64 %.sroa.8589.02743
+  %447 = load i16, ptr %446, align 2, !noundef !9
+  %448 = getelementptr inbounds [0 x i16], ptr %.val414, i64 0, i64 %.sroa.8589.02743
+  %449 = mul i16 %447, %.sroa.046.02792
+  %450 = add i16 %449, %.sroa.0100.02728
+  %451 = zext i16 %450 to i64
+  %452 = load i16, ptr %448, align 2, !noundef !9
+  %453 = mul i16 %452, %.sroa.053.02762
+  %454 = add i16 %453, %.sroa.0107.02715
+  %455 = zext i16 %454 to i64
+  %456 = load i16, ptr %389, align 4, !noundef !9
+  %457 = zext i16 %456 to i64
+  %458 = mul nuw nsw i64 %451, %457
+  %459 = add nuw nsw i64 %458, %455
+  %460 = shl nuw nsw i64 %459, 6
+  br i1 %390, label %461, label %.invoke3665, !prof !27
 
-464:                                              ; preds = %448
-  %465 = load i64, ptr %391, align 8, !noundef !9
+461:                                              ; preds = %445
+  %462 = load i64, ptr %391, align 8, !noundef !9
   %.val397 = load i64, ptr %283, align 8, !noundef !9
-  %466 = icmp ult i64 %465, %.val397
-  br i1 %466, label %467, label %.invoke3665, !prof !27
+  %463 = icmp ult i64 %462, %.val397
+  br i1 %463, label %464, label %.invoke3665, !prof !27
 
-467:                                              ; preds = %464
+464:                                              ; preds = %461
   %.val396 = load ptr, ptr %284, align 8, !nonnull !9, !noundef !9
-  %468 = getelementptr inbounds [0 x { { i64, ptr }, i64 }], ptr %.val396, i64 0, i64 %465
-  %469 = add nuw nsw i64 %463, 64
-  %470 = getelementptr i8, ptr %468, i64 16
-  %.val419 = load i64, ptr %470, align 8, !noundef !9
-  %471 = icmp ugt i64 %469, %.val419
-  br i1 %471, label %.invoke3663, label %.sink.split
+  %465 = getelementptr inbounds [0 x { { i64, ptr }, i64 }], ptr %.val396, i64 0, i64 %462
+  %466 = add nuw nsw i64 %460, 64
+  %467 = getelementptr i8, ptr %465, i64 16
+  %.val419 = load i64, ptr %467, align 8, !noundef !9
+  %468 = icmp ugt i64 %466, %.val419
+  br i1 %468, label %.invoke3663, label %.sink.split
 
-472:                                              ; preds = %445
+.sink.split:                                      ; preds = %464, %425
+  %.sink3668 = phi ptr [ %429, %425 ], [ %465, %464 ]
+  %.sink = phi i64 [ %439, %425 ], [ %460, %464 ]
+  %469 = getelementptr i8, ptr %.sink3668, i64 8
+  %.val416 = load ptr, ptr %469, align 8, !nonnull !9, !noundef !9
+  %470 = getelementptr inbounds i16, ptr %.val416, i64 %.sink
+  br label %471
+
+471:                                              ; preds = %.sink.split, %407
+  %.pn890 = phi ptr [ %59, %407 ], [ %470, %.sink.split ]
+  br i1 %287, label %472, label %473
+
+472:                                              ; preds = %471
   br i1 %394, label %474, label %.invoke3665, !prof !27
 
-473:                                              ; preds = %445
+473:                                              ; preds = %471
   br i1 %392, label %633, label %.invoke3665, !prof !27
 
 474:                                              ; preds = %472
@@ -5304,10 +5304,10 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h0d0f82918c1cb
   %799 = icmp ult i64 %798, %.val435
   br i1 %799, label %803, label %.invoke3665, !prof !27
 
-.invoke3665:                                      ; preds = %796, %.thread857, %776, %746, %.lr.ph2749, %397, %633, %484, %481, %477, %474, %473, %472, %464, %448, %446, %423, %419, %417, %404, %405, %731, %725, %619, %595, %554, %551, %261
-  %800 = phi i64 [ 0, %261 ], [ %552, %551 ], [ %557, %554 ], [ %615, %595 ], [ %622, %619 ], [ %726, %725 ], [ %734, %731 ], [ %.sroa.8589.02743, %405 ], [ %.sroa.8589.02743, %404 ], [ %.sroa.8589.02743, %417 ], [ %.sroa.8589.02743, %419 ], [ %.sroa.8589.02743, %423 ], [ %.sroa.8589.02743, %446 ], [ %.sroa.8589.02743, %448 ], [ %465, %464 ], [ %.sroa.8589.02743, %472 ], [ %.sroa.8589.02743, %473 ], [ %475, %474 ], [ %.sroa.8589.02743, %477 ], [ %482, %481 ], [ %.sroa.8589.02743, %484 ], [ %634, %633 ], [ %.sroa.8589.02743, %397 ], [ %.sroa.8589.02743, %.lr.ph2749 ], [ 4, %746 ], [ %.sroa.8698.02784, %776 ], [ %.sroa.8698.02784, %.thread857 ], [ %798, %796 ]
-  %801 = phi i64 [ 0, %261 ], [ 64, %551 ], [ 64, %554 ], [ 64, %595 ], [ 64, %619 ], [ 64, %725 ], [ 64, %731 ], [ %.val409, %405 ], [ 4, %404 ], [ %.val411, %417 ], [ %.val413, %419 ], [ %.val395, %423 ], [ %.val415, %446 ], [ %65, %448 ], [ %.val397, %464 ], [ %.val423, %472 ], [ %.val425, %473 ], [ %.val387, %474 ], [ %.val425, %477 ], [ %.val389, %481 ], [ 4, %484 ], [ %.val391, %633 ], [ %.val407, %397 ], [ %.val405, %.lr.ph2749 ], [ 4, %746 ], [ %.val399, %776 ], [ %65, %.thread857 ], [ %.val435, %796 ]
-  %802 = phi ptr [ @anon.60689fdbfa59ae5f463a599edb886518.18, %261 ], [ @anon.60689fdbfa59ae5f463a599edb886518.8, %551 ], [ @anon.60689fdbfa59ae5f463a599edb886518.9, %554 ], [ @anon.60689fdbfa59ae5f463a599edb886518.11, %595 ], [ @anon.60689fdbfa59ae5f463a599edb886518.12, %619 ], [ @anon.60689fdbfa59ae5f463a599edb886518.115, %725 ], [ @anon.60689fdbfa59ae5f463a599edb886518.116, %731 ], [ @anon.60689fdbfa59ae5f463a599edb886518.38, %405 ], [ @anon.60689fdbfa59ae5f463a599edb886518.31, %404 ], [ @anon.60689fdbfa59ae5f463a599edb886518.34, %417 ], [ @anon.60689fdbfa59ae5f463a599edb886518.35, %419 ], [ @anon.60689fdbfa59ae5f463a599edb886518.36, %423 ], [ @anon.60689fdbfa59ae5f463a599edb886518.39, %446 ], [ @anon.60689fdbfa59ae5f463a599edb886518.40, %448 ], [ @anon.60689fdbfa59ae5f463a599edb886518.41, %464 ], [ @anon.60689fdbfa59ae5f463a599edb886518.44, %472 ], [ @anon.60689fdbfa59ae5f463a599edb886518.49, %473 ], [ @anon.60689fdbfa59ae5f463a599edb886518.45, %474 ], [ @anon.60689fdbfa59ae5f463a599edb886518.46, %477 ], [ @anon.60689fdbfa59ae5f463a599edb886518.47, %481 ], [ @anon.60689fdbfa59ae5f463a599edb886518.48, %484 ], [ @anon.60689fdbfa59ae5f463a599edb886518.50, %633 ], [ @anon.60689fdbfa59ae5f463a599edb886518.30, %397 ], [ @anon.60689fdbfa59ae5f463a599edb886518.29, %.lr.ph2749 ], [ @anon.60689fdbfa59ae5f463a599edb886518.51, %746 ], [ @anon.60689fdbfa59ae5f463a599edb886518.53, %776 ], [ @anon.60689fdbfa59ae5f463a599edb886518.55, %.thread857 ], [ @anon.60689fdbfa59ae5f463a599edb886518.56, %796 ]
+.invoke3665:                                      ; preds = %796, %.thread857, %776, %746, %.lr.ph2749, %397, %633, %484, %481, %477, %474, %473, %472, %461, %445, %443, %423, %419, %417, %404, %405, %731, %725, %619, %595, %554, %551, %261
+  %800 = phi i64 [ 0, %261 ], [ %552, %551 ], [ %557, %554 ], [ %615, %595 ], [ %622, %619 ], [ %726, %725 ], [ %734, %731 ], [ %.sroa.8589.02743, %405 ], [ %.sroa.8589.02743, %404 ], [ %.sroa.8589.02743, %417 ], [ %.sroa.8589.02743, %419 ], [ %.sroa.8589.02743, %423 ], [ %.sroa.8589.02743, %443 ], [ %.sroa.8589.02743, %445 ], [ %462, %461 ], [ %.sroa.8589.02743, %472 ], [ %.sroa.8589.02743, %473 ], [ %475, %474 ], [ %.sroa.8589.02743, %477 ], [ %482, %481 ], [ %.sroa.8589.02743, %484 ], [ %634, %633 ], [ %.sroa.8589.02743, %397 ], [ %.sroa.8589.02743, %.lr.ph2749 ], [ 4, %746 ], [ %.sroa.8698.02784, %776 ], [ %.sroa.8698.02784, %.thread857 ], [ %798, %796 ]
+  %801 = phi i64 [ 0, %261 ], [ 64, %551 ], [ 64, %554 ], [ 64, %595 ], [ 64, %619 ], [ 64, %725 ], [ 64, %731 ], [ %.val409, %405 ], [ 4, %404 ], [ %.val411, %417 ], [ %.val413, %419 ], [ %.val395, %423 ], [ %.val415, %443 ], [ %65, %445 ], [ %.val397, %461 ], [ %.val423, %472 ], [ %.val425, %473 ], [ %.val387, %474 ], [ %.val425, %477 ], [ %.val389, %481 ], [ 4, %484 ], [ %.val391, %633 ], [ %.val407, %397 ], [ %.val405, %.lr.ph2749 ], [ 4, %746 ], [ %.val399, %776 ], [ %65, %.thread857 ], [ %.val435, %796 ]
+  %802 = phi ptr [ @anon.60689fdbfa59ae5f463a599edb886518.18, %261 ], [ @anon.60689fdbfa59ae5f463a599edb886518.8, %551 ], [ @anon.60689fdbfa59ae5f463a599edb886518.9, %554 ], [ @anon.60689fdbfa59ae5f463a599edb886518.11, %595 ], [ @anon.60689fdbfa59ae5f463a599edb886518.12, %619 ], [ @anon.60689fdbfa59ae5f463a599edb886518.115, %725 ], [ @anon.60689fdbfa59ae5f463a599edb886518.116, %731 ], [ @anon.60689fdbfa59ae5f463a599edb886518.38, %405 ], [ @anon.60689fdbfa59ae5f463a599edb886518.31, %404 ], [ @anon.60689fdbfa59ae5f463a599edb886518.34, %417 ], [ @anon.60689fdbfa59ae5f463a599edb886518.35, %419 ], [ @anon.60689fdbfa59ae5f463a599edb886518.36, %423 ], [ @anon.60689fdbfa59ae5f463a599edb886518.39, %443 ], [ @anon.60689fdbfa59ae5f463a599edb886518.40, %445 ], [ @anon.60689fdbfa59ae5f463a599edb886518.41, %461 ], [ @anon.60689fdbfa59ae5f463a599edb886518.44, %472 ], [ @anon.60689fdbfa59ae5f463a599edb886518.49, %473 ], [ @anon.60689fdbfa59ae5f463a599edb886518.45, %474 ], [ @anon.60689fdbfa59ae5f463a599edb886518.46, %477 ], [ @anon.60689fdbfa59ae5f463a599edb886518.47, %481 ], [ @anon.60689fdbfa59ae5f463a599edb886518.48, %484 ], [ @anon.60689fdbfa59ae5f463a599edb886518.50, %633 ], [ @anon.60689fdbfa59ae5f463a599edb886518.30, %397 ], [ @anon.60689fdbfa59ae5f463a599edb886518.29, %.lr.ph2749 ], [ @anon.60689fdbfa59ae5f463a599edb886518.51, %746 ], [ @anon.60689fdbfa59ae5f463a599edb886518.53, %776 ], [ @anon.60689fdbfa59ae5f463a599edb886518.55, %.thread857 ], [ @anon.60689fdbfa59ae5f463a599edb886518.56, %796 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %800, i64 noundef %801, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %802) #23
           to label %.cont3666 unwind label %.loopexit.split-lp892.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -5323,10 +5323,10 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h0d0f82918c1cb
   %807 = icmp ugt i64 %805, %.val437
   br i1 %807, label %.invoke3663, label %811
 
-.invoke3663:                                      ; preds = %803, %467, %425
-  %808 = phi i64 [ %440, %425 ], [ %469, %467 ], [ %805, %803 ]
-  %809 = phi i64 [ %.val417, %425 ], [ %.val419, %467 ], [ %.val437, %803 ]
-  %810 = phi ptr [ @anon.60689fdbfa59ae5f463a599edb886518.37, %425 ], [ @anon.60689fdbfa59ae5f463a599edb886518.42, %467 ], [ @anon.60689fdbfa59ae5f463a599edb886518.57, %803 ]
+.invoke3663:                                      ; preds = %803, %464, %425
+  %808 = phi i64 [ %440, %425 ], [ %466, %464 ], [ %805, %803 ]
+  %809 = phi i64 [ %.val417, %425 ], [ %.val419, %464 ], [ %.val437, %803 ]
+  %810 = phi ptr [ @anon.60689fdbfa59ae5f463a599edb886518.37, %425 ], [ @anon.60689fdbfa59ae5f463a599edb886518.42, %464 ], [ @anon.60689fdbfa59ae5f463a599edb886518.57, %803 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %808, i64 noundef %809, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %810) #23
           to label %.cont3664 unwind label %.loopexit.split-lp892.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -6816,12 +6816,12 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
 405:                                              ; preds = %.lr.ph2717
   %.val409 = load i64, ptr %278, align 8, !noundef !9
   %406 = icmp ult i64 %.sroa.8589.02743, %.val409
-  br i1 %406, label %446, label %.invoke3665, !prof !27
+  br i1 %406, label %443, label %.invoke3665, !prof !27
 
 407:                                              ; preds = %404
   %408 = load i8, ptr %387, align 1, !range !120, !noundef !9
   %.not359 = icmp eq i8 %408, 0
-  br i1 %.not359, label %445, label %410
+  br i1 %.not359, label %471, label %410
 
 409:                                              ; preds = %948, %885
   unreachable
@@ -6881,62 +6881,62 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   %442 = icmp ugt i64 %440, %.val417
   br i1 %442, label %.invoke3663, label %.sink.split
 
-.sink.split:                                      ; preds = %425, %467
-  %.sink3668 = phi ptr [ %468, %467 ], [ %429, %425 ]
-  %.sink = phi i64 [ %463, %467 ], [ %439, %425 ]
-  %443 = getelementptr i8, ptr %.sink3668, i64 8
-  %.val418 = load ptr, ptr %443, align 8, !nonnull !9, !noundef !9
-  %444 = getelementptr inbounds i16, ptr %.val418, i64 %.sink
-  br label %445
-
-445:                                              ; preds = %.sink.split, %407
-  %.pn890 = phi ptr [ %59, %407 ], [ %444, %.sink.split ]
-  br i1 %287, label %472, label %473
-
-446:                                              ; preds = %405
+443:                                              ; preds = %405
   %.val415 = load i64, ptr %280, align 8, !noundef !9
-  %447 = icmp ult i64 %.sroa.8589.02743, %.val415
-  br i1 %447, label %448, label %.invoke3665, !prof !27
+  %444 = icmp ult i64 %.sroa.8589.02743, %.val415
+  br i1 %444, label %445, label %.invoke3665, !prof !27
 
-448:                                              ; preds = %446
+445:                                              ; preds = %443
   %.val414 = load ptr, ptr %279, align 8, !nonnull !9, !noundef !9
   %.val408 = load ptr, ptr %277, align 8, !nonnull !9, !noundef !9
-  %449 = getelementptr inbounds [0 x i16], ptr %.val408, i64 0, i64 %.sroa.8589.02743
-  %450 = load i16, ptr %449, align 2, !noundef !9
-  %451 = getelementptr inbounds [0 x i16], ptr %.val414, i64 0, i64 %.sroa.8589.02743
-  %452 = mul i16 %450, %.sroa.046.02792
-  %453 = add i16 %452, %.sroa.0100.02728
-  %454 = zext i16 %453 to i64
-  %455 = load i16, ptr %451, align 2, !noundef !9
-  %456 = mul i16 %455, %.sroa.053.02762
-  %457 = add i16 %456, %.sroa.0107.02715
-  %458 = zext i16 %457 to i64
-  %459 = load i16, ptr %389, align 4, !noundef !9
-  %460 = zext i16 %459 to i64
-  %461 = mul nuw nsw i64 %454, %460
-  %462 = add nuw nsw i64 %461, %458
-  %463 = shl nuw nsw i64 %462, 6
-  br i1 %390, label %464, label %.invoke3665, !prof !27
+  %446 = getelementptr inbounds [0 x i16], ptr %.val408, i64 0, i64 %.sroa.8589.02743
+  %447 = load i16, ptr %446, align 2, !noundef !9
+  %448 = getelementptr inbounds [0 x i16], ptr %.val414, i64 0, i64 %.sroa.8589.02743
+  %449 = mul i16 %447, %.sroa.046.02792
+  %450 = add i16 %449, %.sroa.0100.02728
+  %451 = zext i16 %450 to i64
+  %452 = load i16, ptr %448, align 2, !noundef !9
+  %453 = mul i16 %452, %.sroa.053.02762
+  %454 = add i16 %453, %.sroa.0107.02715
+  %455 = zext i16 %454 to i64
+  %456 = load i16, ptr %389, align 4, !noundef !9
+  %457 = zext i16 %456 to i64
+  %458 = mul nuw nsw i64 %451, %457
+  %459 = add nuw nsw i64 %458, %455
+  %460 = shl nuw nsw i64 %459, 6
+  br i1 %390, label %461, label %.invoke3665, !prof !27
 
-464:                                              ; preds = %448
-  %465 = load i64, ptr %391, align 8, !noundef !9
+461:                                              ; preds = %445
+  %462 = load i64, ptr %391, align 8, !noundef !9
   %.val397 = load i64, ptr %283, align 8, !noundef !9
-  %466 = icmp ult i64 %465, %.val397
-  br i1 %466, label %467, label %.invoke3665, !prof !27
+  %463 = icmp ult i64 %462, %.val397
+  br i1 %463, label %464, label %.invoke3665, !prof !27
 
-467:                                              ; preds = %464
+464:                                              ; preds = %461
   %.val396 = load ptr, ptr %284, align 8, !nonnull !9, !noundef !9
-  %468 = getelementptr inbounds [0 x { { i64, ptr }, i64 }], ptr %.val396, i64 0, i64 %465
-  %469 = add nuw nsw i64 %463, 64
-  %470 = getelementptr i8, ptr %468, i64 16
-  %.val419 = load i64, ptr %470, align 8, !noundef !9
-  %471 = icmp ugt i64 %469, %.val419
-  br i1 %471, label %.invoke3663, label %.sink.split
+  %465 = getelementptr inbounds [0 x { { i64, ptr }, i64 }], ptr %.val396, i64 0, i64 %462
+  %466 = add nuw nsw i64 %460, 64
+  %467 = getelementptr i8, ptr %465, i64 16
+  %.val419 = load i64, ptr %467, align 8, !noundef !9
+  %468 = icmp ugt i64 %466, %.val419
+  br i1 %468, label %.invoke3663, label %.sink.split
 
-472:                                              ; preds = %445
+.sink.split:                                      ; preds = %464, %425
+  %.sink3668 = phi ptr [ %429, %425 ], [ %465, %464 ]
+  %.sink = phi i64 [ %439, %425 ], [ %460, %464 ]
+  %469 = getelementptr i8, ptr %.sink3668, i64 8
+  %.val416 = load ptr, ptr %469, align 8, !nonnull !9, !noundef !9
+  %470 = getelementptr inbounds i16, ptr %.val416, i64 %.sink
+  br label %471
+
+471:                                              ; preds = %.sink.split, %407
+  %.pn890 = phi ptr [ %59, %407 ], [ %470, %.sink.split ]
+  br i1 %287, label %472, label %473
+
+472:                                              ; preds = %471
   br i1 %394, label %474, label %.invoke3665, !prof !27
 
-473:                                              ; preds = %445
+473:                                              ; preds = %471
   br i1 %392, label %633, label %.invoke3665, !prof !27
 
 474:                                              ; preds = %472
@@ -7832,10 +7832,10 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h3c40084dfd2bc
   %799 = icmp ult i64 %798, %.val435
   br i1 %799, label %803, label %.invoke3665, !prof !27
 
-.invoke3665:                                      ; preds = %796, %.thread857, %776, %746, %.lr.ph2749, %397, %633, %484, %481, %477, %474, %473, %472, %464, %448, %446, %423, %419, %417, %404, %405, %731, %725, %619, %595, %554, %551, %261
-  %800 = phi i64 [ 0, %261 ], [ %552, %551 ], [ %557, %554 ], [ %615, %595 ], [ %622, %619 ], [ %726, %725 ], [ %734, %731 ], [ %.sroa.8589.02743, %405 ], [ %.sroa.8589.02743, %404 ], [ %.sroa.8589.02743, %417 ], [ %.sroa.8589.02743, %419 ], [ %.sroa.8589.02743, %423 ], [ %.sroa.8589.02743, %446 ], [ %.sroa.8589.02743, %448 ], [ %465, %464 ], [ %.sroa.8589.02743, %472 ], [ %.sroa.8589.02743, %473 ], [ %475, %474 ], [ %.sroa.8589.02743, %477 ], [ %482, %481 ], [ %.sroa.8589.02743, %484 ], [ %634, %633 ], [ %.sroa.8589.02743, %397 ], [ %.sroa.8589.02743, %.lr.ph2749 ], [ 4, %746 ], [ %.sroa.8698.02784, %776 ], [ %.sroa.8698.02784, %.thread857 ], [ %798, %796 ]
-  %801 = phi i64 [ 0, %261 ], [ 64, %551 ], [ 64, %554 ], [ 64, %595 ], [ 64, %619 ], [ 64, %725 ], [ 64, %731 ], [ %.val409, %405 ], [ 4, %404 ], [ %.val411, %417 ], [ %.val413, %419 ], [ %.val395, %423 ], [ %.val415, %446 ], [ %65, %448 ], [ %.val397, %464 ], [ %.val423, %472 ], [ %.val425, %473 ], [ %.val387, %474 ], [ %.val425, %477 ], [ %.val389, %481 ], [ 4, %484 ], [ %.val391, %633 ], [ %.val407, %397 ], [ %.val405, %.lr.ph2749 ], [ 4, %746 ], [ %.val399, %776 ], [ %65, %.thread857 ], [ %.val435, %796 ]
-  %802 = phi ptr [ @anon.60689fdbfa59ae5f463a599edb886518.18, %261 ], [ @anon.60689fdbfa59ae5f463a599edb886518.8, %551 ], [ @anon.60689fdbfa59ae5f463a599edb886518.9, %554 ], [ @anon.60689fdbfa59ae5f463a599edb886518.11, %595 ], [ @anon.60689fdbfa59ae5f463a599edb886518.12, %619 ], [ @anon.60689fdbfa59ae5f463a599edb886518.115, %725 ], [ @anon.60689fdbfa59ae5f463a599edb886518.116, %731 ], [ @anon.60689fdbfa59ae5f463a599edb886518.38, %405 ], [ @anon.60689fdbfa59ae5f463a599edb886518.31, %404 ], [ @anon.60689fdbfa59ae5f463a599edb886518.34, %417 ], [ @anon.60689fdbfa59ae5f463a599edb886518.35, %419 ], [ @anon.60689fdbfa59ae5f463a599edb886518.36, %423 ], [ @anon.60689fdbfa59ae5f463a599edb886518.39, %446 ], [ @anon.60689fdbfa59ae5f463a599edb886518.40, %448 ], [ @anon.60689fdbfa59ae5f463a599edb886518.41, %464 ], [ @anon.60689fdbfa59ae5f463a599edb886518.44, %472 ], [ @anon.60689fdbfa59ae5f463a599edb886518.49, %473 ], [ @anon.60689fdbfa59ae5f463a599edb886518.45, %474 ], [ @anon.60689fdbfa59ae5f463a599edb886518.46, %477 ], [ @anon.60689fdbfa59ae5f463a599edb886518.47, %481 ], [ @anon.60689fdbfa59ae5f463a599edb886518.48, %484 ], [ @anon.60689fdbfa59ae5f463a599edb886518.50, %633 ], [ @anon.60689fdbfa59ae5f463a599edb886518.30, %397 ], [ @anon.60689fdbfa59ae5f463a599edb886518.29, %.lr.ph2749 ], [ @anon.60689fdbfa59ae5f463a599edb886518.51, %746 ], [ @anon.60689fdbfa59ae5f463a599edb886518.53, %776 ], [ @anon.60689fdbfa59ae5f463a599edb886518.55, %.thread857 ], [ @anon.60689fdbfa59ae5f463a599edb886518.56, %796 ]
+.invoke3665:                                      ; preds = %796, %.thread857, %776, %746, %.lr.ph2749, %397, %633, %484, %481, %477, %474, %473, %472, %461, %445, %443, %423, %419, %417, %404, %405, %731, %725, %619, %595, %554, %551, %261
+  %800 = phi i64 [ 0, %261 ], [ %552, %551 ], [ %557, %554 ], [ %615, %595 ], [ %622, %619 ], [ %726, %725 ], [ %734, %731 ], [ %.sroa.8589.02743, %405 ], [ %.sroa.8589.02743, %404 ], [ %.sroa.8589.02743, %417 ], [ %.sroa.8589.02743, %419 ], [ %.sroa.8589.02743, %423 ], [ %.sroa.8589.02743, %443 ], [ %.sroa.8589.02743, %445 ], [ %462, %461 ], [ %.sroa.8589.02743, %472 ], [ %.sroa.8589.02743, %473 ], [ %475, %474 ], [ %.sroa.8589.02743, %477 ], [ %482, %481 ], [ %.sroa.8589.02743, %484 ], [ %634, %633 ], [ %.sroa.8589.02743, %397 ], [ %.sroa.8589.02743, %.lr.ph2749 ], [ 4, %746 ], [ %.sroa.8698.02784, %776 ], [ %.sroa.8698.02784, %.thread857 ], [ %798, %796 ]
+  %801 = phi i64 [ 0, %261 ], [ 64, %551 ], [ 64, %554 ], [ 64, %595 ], [ 64, %619 ], [ 64, %725 ], [ 64, %731 ], [ %.val409, %405 ], [ 4, %404 ], [ %.val411, %417 ], [ %.val413, %419 ], [ %.val395, %423 ], [ %.val415, %443 ], [ %65, %445 ], [ %.val397, %461 ], [ %.val423, %472 ], [ %.val425, %473 ], [ %.val387, %474 ], [ %.val425, %477 ], [ %.val389, %481 ], [ 4, %484 ], [ %.val391, %633 ], [ %.val407, %397 ], [ %.val405, %.lr.ph2749 ], [ 4, %746 ], [ %.val399, %776 ], [ %65, %.thread857 ], [ %.val435, %796 ]
+  %802 = phi ptr [ @anon.60689fdbfa59ae5f463a599edb886518.18, %261 ], [ @anon.60689fdbfa59ae5f463a599edb886518.8, %551 ], [ @anon.60689fdbfa59ae5f463a599edb886518.9, %554 ], [ @anon.60689fdbfa59ae5f463a599edb886518.11, %595 ], [ @anon.60689fdbfa59ae5f463a599edb886518.12, %619 ], [ @anon.60689fdbfa59ae5f463a599edb886518.115, %725 ], [ @anon.60689fdbfa59ae5f463a599edb886518.116, %731 ], [ @anon.60689fdbfa59ae5f463a599edb886518.38, %405 ], [ @anon.60689fdbfa59ae5f463a599edb886518.31, %404 ], [ @anon.60689fdbfa59ae5f463a599edb886518.34, %417 ], [ @anon.60689fdbfa59ae5f463a599edb886518.35, %419 ], [ @anon.60689fdbfa59ae5f463a599edb886518.36, %423 ], [ @anon.60689fdbfa59ae5f463a599edb886518.39, %443 ], [ @anon.60689fdbfa59ae5f463a599edb886518.40, %445 ], [ @anon.60689fdbfa59ae5f463a599edb886518.41, %461 ], [ @anon.60689fdbfa59ae5f463a599edb886518.44, %472 ], [ @anon.60689fdbfa59ae5f463a599edb886518.49, %473 ], [ @anon.60689fdbfa59ae5f463a599edb886518.45, %474 ], [ @anon.60689fdbfa59ae5f463a599edb886518.46, %477 ], [ @anon.60689fdbfa59ae5f463a599edb886518.47, %481 ], [ @anon.60689fdbfa59ae5f463a599edb886518.48, %484 ], [ @anon.60689fdbfa59ae5f463a599edb886518.50, %633 ], [ @anon.60689fdbfa59ae5f463a599edb886518.30, %397 ], [ @anon.60689fdbfa59ae5f463a599edb886518.29, %.lr.ph2749 ], [ @anon.60689fdbfa59ae5f463a599edb886518.51, %746 ], [ @anon.60689fdbfa59ae5f463a599edb886518.53, %776 ], [ @anon.60689fdbfa59ae5f463a599edb886518.55, %.thread857 ], [ @anon.60689fdbfa59ae5f463a599edb886518.56, %796 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %800, i64 noundef %801, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %802) #23
           to label %.cont3666 unwind label %.loopexit.split-lp892.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -7851,10 +7851,10 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h3c40084dfd2bc
   %807 = icmp ugt i64 %805, %.val437
   br i1 %807, label %.invoke3663, label %811
 
-.invoke3663:                                      ; preds = %803, %467, %425
-  %808 = phi i64 [ %440, %425 ], [ %469, %467 ], [ %805, %803 ]
-  %809 = phi i64 [ %.val417, %425 ], [ %.val419, %467 ], [ %.val437, %803 ]
-  %810 = phi ptr [ @anon.60689fdbfa59ae5f463a599edb886518.37, %425 ], [ @anon.60689fdbfa59ae5f463a599edb886518.42, %467 ], [ @anon.60689fdbfa59ae5f463a599edb886518.57, %803 ]
+.invoke3663:                                      ; preds = %803, %464, %425
+  %808 = phi i64 [ %440, %425 ], [ %466, %464 ], [ %805, %803 ]
+  %809 = phi i64 [ %.val417, %425 ], [ %.val419, %464 ], [ %.val437, %803 ]
+  %810 = phi ptr [ @anon.60689fdbfa59ae5f463a599edb886518.37, %425 ], [ @anon.60689fdbfa59ae5f463a599edb886518.42, %464 ], [ @anon.60689fdbfa59ae5f463a599edb886518.57, %803 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %808, i64 noundef %809, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %810) #23
           to label %.cont3664 unwind label %.loopexit.split-lp892.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

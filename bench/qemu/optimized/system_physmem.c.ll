@@ -3833,9 +3833,9 @@ if.then23:                                        ; preds = %if.end19
 for.cond.preheader.i:                             ; preds = %if.then23
   %mul.i = shl nuw nsw i64 %div316.i, 3
   %add5.i = add nuw nsw i64 %mul.i, 16
-  %tobool.not.i75 = icmp eq i64 %last.0.lcssa.i, 0
   %mul9.i = shl nuw nsw i64 %div15.i, 3
   %conv.i = trunc i64 %div15.i to i32
+  %tobool.not.i75 = icmp eq i64 %last.0.lcssa.i, 0
   br i1 %tobool.not.i75, label %while.end.us.us.i, label %while.end.us.i
 
 while.end.us.us.i:                                ; preds = %for.cond.preheader.i, %for.inc33.us.us.i

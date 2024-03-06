@@ -189274,10 +189274,6 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal26gtest_suite_Mo
 entry:
   %val = alloca i32, align 4
   %m = alloca %"class.absl::flat_hash_set.387", align 8
-  %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp4 = alloca %"class.testing::Message", align 8
-  %ref.tmp7 = alloca %"class.testing::internal::AssertHelper", align 8
-  %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp24 = alloca %"class.testing::Message", align 8
   %ref.tmp27 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -189343,9 +189339,6 @@ if.end.thread:                                    ; preds = %if.then.i.i.i.i.i.i
   store i32 %11, ptr %add.ptr.i2.i.i.i.i.i.i, align 4, !noalias !4699
   %.pre17.i.i.i.i.i.i = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i, align 8, !noalias !4699
   %add.ptr3.i.i.i.i.i.i.i111 = getelementptr inbounds i32, ptr %.pre17.i.i.i.i.i.i, i64 %call38.i.i.i.i.i.i.i12
-  store i8 1, ptr %gtest_ar_, align 8
-  %message_.i112 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
-  store ptr null, ptr %message_.i112, align 8
   br label %invoke.cont18
 
 lpad:                                             ; preds = %if.then.i.i.i.i.i.i70, %if.end.i.i, %if.then.i.i, %if.then.i.i.i.i.i.i
@@ -189354,19 +189347,19 @@ lpad:                                             ; preds = %if.then.i.i.i.i.i.i
   br label %ehcleanup65
 
 if.else:                                          ; preds = %while.body.i.i.i.i.i.i.i
-  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) poison)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.else
-  invoke void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar_, ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155)
+  invoke void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) poison, ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef 49, ptr noundef poison)
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) poison, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef 49, ptr noundef poison)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
-  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) poison, ptr noundef nonnull align 8 dereferenceable(8) poison)
           to label %invoke.cont18 unwind label %lpad14
 
 lpad5:                                            ; preds = %if.else
@@ -189391,8 +189384,6 @@ lpad14:                                           ; preds = %invoke.cont13
 
 invoke.cont18:                                    ; preds = %invoke.cont13, %if.end.thread
   %add.ptr3.i.i.i.i.i.i.i114120 = phi ptr [ %add.ptr3.i.i.i.i.i.i.i111, %if.end.thread ], [ poison, %invoke.cont13 ]
-  %message_.i115119 = phi ptr [ %message_.i112, %if.end.thread ], [ poison, %invoke.cont13 ]
-  store ptr null, ptr %message_.i115119, align 8
   %17 = load i32, ptr %val, align 4, !noalias !4712
   %18 = load i32, ptr %add.ptr3.i.i.i.i.i.i.i114120, align 4, !noalias !4712
   %cmp.i.i = icmp eq i32 %17, %18
@@ -190893,10 +190884,6 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal26gtest_suite_Mo
 entry:
   %val = alloca i32, align 4
   %m = alloca %"class.absl::flat_hash_set.471", align 8
-  %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp4 = alloca %"class.testing::Message", align 8
-  %ref.tmp7 = alloca %"class.testing::internal::AssertHelper", align 8
-  %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp24 = alloca %"class.testing::Message", align 8
   %ref.tmp27 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -190969,9 +190956,6 @@ if.end.thread:                                    ; preds = %if.then.i.i.i.i.i.i
   store i32 %11, ptr %add.ptr.i2.i.i.i.i.i.i, align 4, !noalias !4765
   %.pre17.i.i.i.i.i.i = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i, align 8, !noalias !4765
   %add.ptr3.i.i.i.i.i.i.i111 = getelementptr inbounds i32, ptr %.pre17.i.i.i.i.i.i, i64 %call38.i.i.i.i.i.i.i12
-  store i8 1, ptr %gtest_ar_, align 8
-  %message_.i112 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
-  store ptr null, ptr %message_.i112, align 8
   br label %invoke.cont18
 
 lpad:                                             ; preds = %if.then.i.i.i.i.i.i70, %if.end.i.i, %if.then.i.i, %if.then.i.i.i.i.i.i
@@ -190980,19 +190964,19 @@ lpad:                                             ; preds = %if.then.i.i.i.i.i.i
   br label %ehcleanup65
 
 if.else:                                          ; preds = %while.body.i.i.i.i.i.i.i
-  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) poison)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.else
-  invoke void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar_, ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155)
+  invoke void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) poison, ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef 49, ptr noundef poison)
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) poison, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef 49, ptr noundef poison)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
-  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) poison, ptr noundef nonnull align 8 dereferenceable(8) poison)
           to label %invoke.cont18 unwind label %lpad14
 
 lpad5:                                            ; preds = %if.else
@@ -191017,8 +191001,6 @@ lpad14:                                           ; preds = %invoke.cont13
 
 invoke.cont18:                                    ; preds = %invoke.cont13, %if.end.thread
   %add.ptr3.i.i.i.i.i.i.i114120 = phi ptr [ %add.ptr3.i.i.i.i.i.i.i111, %if.end.thread ], [ poison, %invoke.cont13 ]
-  %message_.i115119 = phi ptr [ %message_.i112, %if.end.thread ], [ poison, %invoke.cont13 ]
-  store ptr null, ptr %message_.i115119, align 8
   %17 = load i32, ptr %val, align 4, !noalias !4778
   %18 = load i32, ptr %add.ptr3.i.i.i.i.i.i.i114120, align 4, !noalias !4778
   %cmp.i.i = icmp eq i32 %17, %18
@@ -191472,10 +191454,6 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal26gtest_suite_Mo
 entry:
   %val = alloca i64, align 8
   %m = alloca %"class.absl::flat_hash_set.520", align 8
-  %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp4 = alloca %"class.testing::Message", align 8
-  %ref.tmp7 = alloca %"class.testing::internal::AssertHelper", align 8
-  %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp24 = alloca %"class.testing::Message", align 8
   %ref.tmp27 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -191546,9 +191524,6 @@ if.end.thread:                                    ; preds = %if.then.i.i.i.i.i.i
   store i64 %9, ptr %add.ptr.i2.i.i.i.i.i.i, align 8, !noalias !4799
   %.pre17.i.i.i.i.i.i = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i, align 8, !noalias !4799
   %add.ptr3.i.i.i.i.i.i.i110 = getelementptr inbounds i64, ptr %.pre17.i.i.i.i.i.i, i64 %call38.i.i.i.i.i.i.i12
-  store i8 1, ptr %gtest_ar_, align 8
-  %message_.i111 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
-  store ptr null, ptr %message_.i111, align 8
   br label %invoke.cont18
 
 lpad:                                             ; preds = %if.then.i.i.i.i.i.i69, %if.end.i.i, %if.then.i.i, %if.then.i.i.i.i.i.i
@@ -191557,19 +191532,19 @@ lpad:                                             ; preds = %if.then.i.i.i.i.i.i
   br label %ehcleanup65
 
 if.else:                                          ; preds = %while.body.i.i.i.i.i.i.i
-  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) poison)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.else
-  invoke void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar_, ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155)
+  invoke void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) poison, ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef 49, ptr noundef poison)
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) poison, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef 49, ptr noundef poison)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
-  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) poison, ptr noundef nonnull align 8 dereferenceable(8) poison)
           to label %invoke.cont18 unwind label %lpad14
 
 lpad5:                                            ; preds = %if.else
@@ -191594,8 +191569,6 @@ lpad14:                                           ; preds = %invoke.cont13
 
 invoke.cont18:                                    ; preds = %invoke.cont13, %if.end.thread
   %add.ptr3.i.i.i.i.i.i.i113119 = phi ptr [ %add.ptr3.i.i.i.i.i.i.i110, %if.end.thread ], [ poison, %invoke.cont13 ]
-  %message_.i114118 = phi ptr [ %message_.i111, %if.end.thread ], [ poison, %invoke.cont13 ]
-  store ptr null, ptr %message_.i114118, align 8
   %15 = load i64, ptr %val, align 8, !noalias !4812
   %16 = load i64, ptr %add.ptr3.i.i.i.i.i.i.i113119, align 8, !noalias !4812
   %cmp.i.i = icmp eq i64 %15, %16
@@ -204983,10 +204956,6 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal26gtest_suite_Mo
 entry:
   %val = alloca i32, align 4
   %m = alloca %"class.absl::flat_hash_set.387", align 8
-  %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp4 = alloca %"class.testing::Message", align 8
-  %ref.tmp7 = alloca %"class.testing::internal::AssertHelper", align 8
-  %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp24 = alloca %"class.testing::Message", align 8
   %ref.tmp27 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -205055,9 +205024,6 @@ if.end.thread:                                    ; preds = %if.then.i.i.i.i.i
   store i32 %11, ptr %add.ptr.i2.i.i.i.i.i, align 4, !noalias !5294
   %.pre17.i.i.i.i.i = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i, align 8, !noalias !5294
   %add.ptr3.i.i.i.i.i.i142 = getelementptr inbounds i32, ptr %.pre17.i.i.i.i.i, i64 %call38.i.i.i.i.i.i15
-  store i8 1, ptr %gtest_ar_, align 8
-  %message_.i143 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
-  store ptr null, ptr %message_.i143, align 8
   br label %invoke.cont18
 
 lpad:                                             ; preds = %if.end.i.i105, %if.then.i.i106, %if.then.i.i.i.i.i73, %if.end.i.i, %if.then.i.i, %if.then.i.i.i.i.i
@@ -205066,19 +205032,19 @@ lpad:                                             ; preds = %if.end.i.i105, %if.
   br label %ehcleanup87
 
 if.else:                                          ; preds = %while.body.i.i.i.i.i.i
-  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) poison)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.else
-  invoke void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar_, ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155)
+  invoke void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) poison, ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef 114, ptr noundef poison)
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) poison, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef 114, ptr noundef poison)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
-  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) poison, ptr noundef nonnull align 8 dereferenceable(8) poison)
           to label %invoke.cont18 unwind label %lpad14
 
 lpad5:                                            ; preds = %if.else
@@ -205103,8 +205069,6 @@ lpad14:                                           ; preds = %invoke.cont13
 
 invoke.cont18:                                    ; preds = %invoke.cont13, %if.end.thread
   %add.ptr3.i.i.i.i.i.i145151 = phi ptr [ %add.ptr3.i.i.i.i.i.i142, %if.end.thread ], [ poison, %invoke.cont13 ]
-  %message_.i146150 = phi ptr [ %message_.i143, %if.end.thread ], [ poison, %invoke.cont13 ]
-  store ptr null, ptr %message_.i146150, align 8
   %17 = load i32, ptr %val, align 4, !noalias !5305
   %18 = load i32, ptr %add.ptr3.i.i.i.i.i.i145151, align 4, !noalias !5305
   %cmp.i.i = icmp eq i32 %17, %18
@@ -206825,10 +206789,6 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal26gtest_suite_Mo
 entry:
   %val = alloca i32, align 4
   %m = alloca %"class.absl::flat_hash_set.471", align 8
-  %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp4 = alloca %"class.testing::Message", align 8
-  %ref.tmp7 = alloca %"class.testing::internal::AssertHelper", align 8
-  %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp24 = alloca %"class.testing::Message", align 8
   %ref.tmp27 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -206904,9 +206864,6 @@ if.end.thread:                                    ; preds = %if.then.i.i.i.i.i
   store i32 %11, ptr %add.ptr.i2.i.i.i.i.i, align 4, !noalias !5357
   %.pre17.i.i.i.i.i = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i, align 8, !noalias !5357
   %add.ptr3.i.i.i.i.i.i142 = getelementptr inbounds i32, ptr %.pre17.i.i.i.i.i, i64 %call38.i.i.i.i.i.i15
-  store i8 1, ptr %gtest_ar_, align 8
-  %message_.i143 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
-  store ptr null, ptr %message_.i143, align 8
   br label %invoke.cont18
 
 lpad:                                             ; preds = %if.end.i.i105, %if.then.i.i106, %if.then.i.i.i.i.i73, %if.end.i.i, %if.then.i.i, %if.then.i.i.i.i.i
@@ -206915,19 +206872,19 @@ lpad:                                             ; preds = %if.end.i.i105, %if.
   br label %ehcleanup87
 
 if.else:                                          ; preds = %while.body.i.i.i.i.i.i
-  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) poison)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.else
-  invoke void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar_, ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155)
+  invoke void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) poison, ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef 114, ptr noundef poison)
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) poison, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef 114, ptr noundef poison)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
-  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) poison, ptr noundef nonnull align 8 dereferenceable(8) poison)
           to label %invoke.cont18 unwind label %lpad14
 
 lpad5:                                            ; preds = %if.else
@@ -206952,8 +206909,6 @@ lpad14:                                           ; preds = %invoke.cont13
 
 invoke.cont18:                                    ; preds = %invoke.cont13, %if.end.thread
   %add.ptr3.i.i.i.i.i.i145151 = phi ptr [ %add.ptr3.i.i.i.i.i.i142, %if.end.thread ], [ poison, %invoke.cont13 ]
-  %message_.i146150 = phi ptr [ %message_.i143, %if.end.thread ], [ poison, %invoke.cont13 ]
-  store ptr null, ptr %message_.i146150, align 8
   %17 = load i32, ptr %val, align 4, !noalias !5368
   %18 = load i32, ptr %add.ptr3.i.i.i.i.i.i145151, align 4, !noalias !5368
   %cmp.i.i = icmp eq i32 %17, %18
@@ -207521,10 +207476,6 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal26gtest_suite_Mo
 entry:
   %val = alloca i64, align 8
   %m = alloca %"class.absl::flat_hash_set.520", align 8
-  %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp4 = alloca %"class.testing::Message", align 8
-  %ref.tmp7 = alloca %"class.testing::internal::AssertHelper", align 8
-  %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp24 = alloca %"class.testing::Message", align 8
   %ref.tmp27 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -207598,9 +207549,6 @@ if.end.thread:                                    ; preds = %if.then.i.i.i.i.i
   store i64 %9, ptr %add.ptr.i2.i.i.i.i.i, align 8, !noalias !5392
   %.pre17.i.i.i.i.i = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i, align 8, !noalias !5392
   %add.ptr3.i.i.i.i.i.i141 = getelementptr inbounds i64, ptr %.pre17.i.i.i.i.i, i64 %call38.i.i.i.i.i.i15
-  store i8 1, ptr %gtest_ar_, align 8
-  %message_.i142 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
-  store ptr null, ptr %message_.i142, align 8
   br label %invoke.cont18
 
 lpad:                                             ; preds = %if.end.i.i104, %if.then.i.i105, %if.then.i.i.i.i.i72, %if.end.i.i, %if.then.i.i, %if.then.i.i.i.i.i
@@ -207609,19 +207557,19 @@ lpad:                                             ; preds = %if.end.i.i104, %if.
   br label %ehcleanup87
 
 if.else:                                          ; preds = %while.body.i.i.i.i.i.i
-  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) poison)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.else
-  invoke void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar_, ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155)
+  invoke void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) poison, ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef 114, ptr noundef poison)
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) poison, i32 noundef 1, ptr noundef nonnull @.str.79, i32 noundef 114, ptr noundef poison)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
-  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) poison, ptr noundef nonnull align 8 dereferenceable(8) poison)
           to label %invoke.cont18 unwind label %lpad14
 
 lpad5:                                            ; preds = %if.else
@@ -207646,8 +207594,6 @@ lpad14:                                           ; preds = %invoke.cont13
 
 invoke.cont18:                                    ; preds = %invoke.cont13, %if.end.thread
   %add.ptr3.i.i.i.i.i.i144150 = phi ptr [ %add.ptr3.i.i.i.i.i.i141, %if.end.thread ], [ poison, %invoke.cont13 ]
-  %message_.i145149 = phi ptr [ %message_.i142, %if.end.thread ], [ poison, %invoke.cont13 ]
-  store ptr null, ptr %message_.i145149, align 8
   %15 = load i64, ptr %val, align 8, !noalias !5403
   %16 = load i64, ptr %add.ptr3.i.i.i.i.i.i144150, align 8, !noalias !5403
   %cmp.i.i = icmp eq i64 %15, %16
