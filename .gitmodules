@@ -379,3 +379,6 @@
 [submodule "bench/minetest/minetest"]
 	path = bench/minetest/minetest
 	url = git@github.com:minetest/minetest.git
+[submodule "bench/nori/nori"]
+	path = bench/nori/nori
+	url = git@github.com:wjakob/nori.git
