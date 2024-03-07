@@ -2134,7 +2134,6 @@ Vec_PtrPush.exit37:
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %6, ptr %7, align 8
   %8 = tail call ptr @Ptr_AbcDeriveOutputs(ptr noundef nonnull %0)
-  store i32 3, ptr %2, align 4
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %8, ptr %9, align 8
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
@@ -2204,7 +2203,6 @@ Vec_PtrPush.exit:                                 ; preds = %1
   %29 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %28, ptr %29, align 8
   %30 = tail call ptr @Ptr_AbcDeriveOutputs(ptr noundef nonnull %22)
-  store i32 3, ptr %24, align 4
   %31 = getelementptr inbounds i8, ptr %25, i64 16
   store ptr %30, ptr %31, align 8
   %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
