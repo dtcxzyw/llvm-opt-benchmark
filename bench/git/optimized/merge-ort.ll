@@ -9056,8 +9056,7 @@ for.end.thread:                                   ; preds = %if.end
 
 for.body.lr.ph:                                   ; preds = %if.end
   %3 = load ptr, ptr %versions, align 8
-  %umax = tail call i32 @llvm.umax.i32(i32 %conv2, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext i32 %conv2 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -9080,8 +9079,7 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp21.not, label %for.end26, label %for.body13.preheader
 
 for.body13.preheader:                             ; preds = %for.end
-  %umax30 = call i32 @llvm.umax.i32(i32 %conv2, i32 1)
-  %wide.trip.count31 = zext i32 %umax30 to i64
+  %wide.trip.count30 = zext i32 %conv2 to i64
   br label %for.body13
 
 for.body13:                                       ; preds = %for.body13.preheader, %for.body13
@@ -9100,8 +9098,8 @@ for.body13:                                       ; preds = %for.body13.preheade
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.124, i32 noundef %conv18, ptr noundef %10, i32 noundef 0) #18
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %8, i64 noundef %hash_size) #18
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %exitcond32.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count31
-  br i1 %exitcond32.not, label %for.end26, label %for.body13, !llvm.loop !77
+  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
+  br i1 %exitcond31.not, label %for.end26, label %for.body13, !llvm.loop !77
 
 for.end26:                                        ; preds = %for.body13, %for.end.thread, %for.end
   %buf27 = getelementptr inbounds i8, ptr %buf, i64 16

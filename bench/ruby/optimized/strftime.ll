@@ -4875,12 +4875,9 @@ buffer_size_check.exit2844:                       ; preds = %resize_buffer.exit2
   br i1 %2184, label %2186, label %.preheader3131
 
 .preheader3131:                                   ; preds = %2182
-  %.not3494 = icmp eq i32 %spec.select2328, 9
-  br i1 %.not3494, label %._crit_edge, label %.lr.ph3469.preheader
-
-.lr.ph3469.preheader:                             ; preds = %.preheader3131
   %2185 = sub i32 9, %spec.select2328
-  br label %.lr.ph3469
+  %.not3494 = icmp eq i32 %spec.select2328, 9
+  br i1 %.not3494, label %._crit_edge, label %.lr.ph3469
 
 2186:                                             ; preds = %2182
   %2187 = ptrtoint ptr %2181 to i64
@@ -4895,9 +4892,9 @@ buffer_size_check.exit2844:                       ; preds = %resize_buffer.exit2
   %2195 = getelementptr i8, ptr %.26, i64 %2194
   br label %case_conv.exit2903
 
-.lr.ph3469:                                       ; preds = %.lr.ph3469.preheader, %.lr.ph3469
-  %.018693468 = phi i32 [ %2197, %.lr.ph3469 ], [ 0, %.lr.ph3469.preheader ]
-  %.018703467 = phi i64 [ %2196, %.lr.ph3469 ], [ %2183, %.lr.ph3469.preheader ]
+.lr.ph3469:                                       ; preds = %.preheader3131, %.lr.ph3469
+  %.018693468 = phi i32 [ %2197, %.lr.ph3469 ], [ 0, %.preheader3131 ]
+  %.018703467 = phi i64 [ %2196, %.lr.ph3469 ], [ %2183, %.preheader3131 ]
   %2196 = sdiv i64 %.018703467, 10
   %2197 = add nuw nsw i32 %.018693468, 1
   %exitcond3818.not = icmp eq i32 %2197, %2185

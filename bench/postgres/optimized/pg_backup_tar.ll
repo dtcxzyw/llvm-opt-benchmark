@@ -1389,21 +1389,17 @@ _tarWriteHeader.exit.i:                           ; preds = %26
 55:                                               ; preds = %52
   %56 = add i64 %.0.lcssa.i, 511
   %57 = and i64 %56, -512
-  %.not8.i = icmp eq i64 %57, %.0.lcssa.i
-  br i1 %.not8.i, label %_tarAddFile.exit, label %.lr.ph6.preheader.i
-
-.lr.ph6.preheader.i:                              ; preds = %55
   %58 = sub i64 %57, %.0.lcssa.i
-  %umax.i = call i64 @llvm.umax.i64(i64 %58, i64 1)
-  br label %.lr.ph6.i
+  %.not8.i = icmp eq i64 %57, %.0.lcssa.i
+  br i1 %.not8.i, label %_tarAddFile.exit, label %.lr.ph6.i
 
 59:                                               ; preds = %.lr.ph6.i
   %60 = add nuw i64 %.0284.i, 1
-  %exitcond.not.i = icmp eq i64 %60, %umax.i
+  %exitcond.not.i = icmp eq i64 %60, %58
   br i1 %exitcond.not.i, label %_tarAddFile.exit, label %.lr.ph6.i, !llvm.loop !15
 
-.lr.ph6.i:                                        ; preds = %59, %.lr.ph6.preheader.i
-  %.0284.i = phi i64 [ %60, %59 ], [ 0, %.lr.ph6.preheader.i ]
+.lr.ph6.i:                                        ; preds = %55, %59
+  %.0284.i = phi i64 [ %60, %59 ], [ 0, %55 ]
   %61 = load ptr, ptr %32, align 8
   %62 = call i32 @fputc(i32 noundef 0, ptr noundef %61)
   %63 = icmp eq i32 %62, -1
@@ -1823,9 +1819,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17

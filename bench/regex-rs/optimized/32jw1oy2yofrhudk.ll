@@ -9047,13 +9047,9 @@ define void @_ZN14regex_automata3nfa8thompson7builder7Builder17add_capture_start
           to label %83 unwind label %.body
 
 52:                                               ; preds = %45
-  %.not101 = icmp eq i64 %47, %29
-  br i1 %.not101, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %52
   %53 = sub nsw i64 %29, %47
-  %umax = tail call i64 @llvm.umax.i64(i64 %53, i64 1)
-  br label %.lr.ph
+  %.not101 = icmp eq i64 %47, %29
+  br i1 %.not101, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h828bb2bfe11cec52E.exit63"
   %.val41.pre = load i64, ptr %22, align 8
@@ -9064,8 +9060,8 @@ define void @_ZN14regex_automata3nfa8thompson7builder7Builder17add_capture_start
   %54 = icmp ugt i64 %.val41, %20
   br i1 %54, label %57, label %.invoke, !prof !81
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h828bb2bfe11cec52E.exit63"
-  %.sroa.015.0100 = phi i64 [ %55, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h828bb2bfe11cec52E.exit63" ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %52, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h828bb2bfe11cec52E.exit63"
+  %.sroa.015.0100 = phi i64 [ %55, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h828bb2bfe11cec52E.exit63" ], [ 0, %52 ]
   %55 = add nuw i64 %.sroa.015.0100, 1
   %.val39 = load i64, ptr %22, align 8, !noundef !4
   %56 = icmp ugt i64 %.val39, %20
@@ -9185,7 +9181,7 @@ define void @_ZN14regex_automata3nfa8thompson7builder7Builder17add_capture_start
   %103 = load i64, ptr %92, align 8, !alias.scope !1756, !noundef !4
   %104 = add i64 %103, 1
   store i64 %104, ptr %92, align 8, !alias.scope !1756
-  %exitcond.not = icmp eq i64 %55, %umax
+  %exitcond.not = icmp eq i64 %55, %53
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 
 105:                                              ; preds = %._crit_edge.i, %34
@@ -12230,9 +12226,6 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #21
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
