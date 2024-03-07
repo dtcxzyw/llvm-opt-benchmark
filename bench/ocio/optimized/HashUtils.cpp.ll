@@ -670,17 +670,13 @@ for.body.i6.i.i.i:                                ; preds = %for.body.i6.i.i.i, 
   %add.ptr.i7.i.i.i = getelementptr inbounds i64, ptr %acc.i.i.i, i64 %mul.i.i.i5.i
   %mul1.i.i.i.i = shl nuw nsw i64 %i.09.i.i.i.i, 4
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds ([192 x i8], ptr @_ZL12XXH3_kSecret, i64 0, i64 11), i64 %mul1.i.i.i.i
-  %add.ptr.val.i.i.i.i = load i64, ptr %add.ptr.i7.i.i.i, align 16
-  %63 = getelementptr i8, ptr %add.ptr.i7.i.i.i, i64 8
-  %add.ptr.val5.i.i.i.i = load i64, ptr %63, align 8
-  %add.ptr2.val.i.i.i.i = load i64, ptr %add.ptr2.i.i.i.i, align 1
-  %64 = getelementptr i8, ptr %add.ptr2.i.i.i.i, i64 8
-  %add.ptr2.val6.i.i.i.i = load i64, ptr %64, align 1
-  %xor.i.i.i.i6.i = xor i64 %add.ptr2.val.i.i.i.i, %add.ptr.val.i.i.i.i
-  %xor3.i.i.i.i.i = xor i64 %add.ptr2.val6.i.i.i.i, %add.ptr.val5.i.i.i.i
-  %conv.i.i.i.i.i.i7.i = zext i64 %xor.i.i.i.i6.i to i128
-  %conv1.i.i.i.i.i.i8.i = zext i64 %xor3.i.i.i.i.i to i128
-  %mul.i.i.i.i.i.i9.i = mul nuw i128 %conv1.i.i.i.i.i.i8.i, %conv.i.i.i.i.i.i7.i
+  %63 = load <2 x i64>, ptr %add.ptr.i7.i.i.i, align 16
+  %64 = load <2 x i64>, ptr %add.ptr2.i.i.i.i, align 1
+  %65 = xor <2 x i64> %64, %63
+  %66 = zext <2 x i64> %65 to <2 x i128>
+  %67 = extractelement <2 x i128> %66, i64 0
+  %68 = extractelement <2 x i128> %66, i64 1
+  %mul.i.i.i.i.i.i9.i = mul nuw i128 %68, %67
   %shr.i.i.i.i.i.i10.i = lshr i128 %mul.i.i.i.i.i.i9.i, 64
   %xor1.i.i.i.i.i11.i = xor i128 %shr.i.i.i.i.i.i10.i, %mul.i.i.i.i.i.i9.i
   %xor.i.i.i8.i.i.i = trunc i128 %xor1.i.i.i.i.i11.i to i64
@@ -701,17 +697,13 @@ for.body.i13.i.i.i:                               ; preds = %for.body.i13.i.i.i,
   %add.ptr.i17.i.i.i = getelementptr inbounds i64, ptr %acc.i.i.i, i64 %mul.i16.i.i.i
   %mul1.i18.i.i.i = shl nuw nsw i64 %i.09.i14.i.i.i, 4
   %add.ptr2.i19.i.i.i = getelementptr inbounds i8, ptr getelementptr inbounds ([192 x i8], ptr @_ZL12XXH3_kSecret, i64 0, i64 117), i64 %mul1.i18.i.i.i
-  %add.ptr.val.i20.i.i.i = load i64, ptr %add.ptr.i17.i.i.i, align 16
-  %65 = getelementptr i8, ptr %add.ptr.i17.i.i.i, i64 8
-  %add.ptr.val5.i21.i.i.i = load i64, ptr %65, align 8
-  %add.ptr2.val.i22.i.i.i = load i64, ptr %add.ptr2.i19.i.i.i, align 1
-  %66 = getelementptr i8, ptr %add.ptr2.i19.i.i.i, i64 8
-  %add.ptr2.val6.i23.i.i.i = load i64, ptr %66, align 1
-  %xor.i.i24.i.i.i = xor i64 %add.ptr2.val.i22.i.i.i, %add.ptr.val.i20.i.i.i
-  %xor3.i.i25.i.i.i = xor i64 %add.ptr2.val6.i23.i.i.i, %add.ptr.val5.i21.i.i.i
-  %conv.i.i.i.i26.i.i.i = zext i64 %xor.i.i24.i.i.i to i128
-  %conv1.i.i.i.i27.i.i.i = zext i64 %xor3.i.i25.i.i.i to i128
-  %mul.i.i.i.i28.i.i.i = mul nuw i128 %conv1.i.i.i.i27.i.i.i, %conv.i.i.i.i26.i.i.i
+  %69 = load <2 x i64>, ptr %add.ptr.i17.i.i.i, align 16
+  %70 = load <2 x i64>, ptr %add.ptr2.i19.i.i.i, align 1
+  %71 = xor <2 x i64> %70, %69
+  %72 = zext <2 x i64> %71 to <2 x i128>
+  %73 = extractelement <2 x i128> %72, i64 0
+  %74 = extractelement <2 x i128> %72, i64 1
+  %mul.i.i.i.i28.i.i.i = mul nuw i128 %74, %73
   %shr.i.i.i.i29.i.i.i = lshr i128 %mul.i.i.i.i28.i.i.i, 64
   %xor1.i.i.i30.i.i.i = xor i128 %shr.i.i.i.i29.i.i.i, %mul.i.i.i.i28.i.i.i
   %xor.i.i.i31.i.i13.i = trunc i128 %xor1.i.i.i30.i.i.i to i64
@@ -759,10 +751,10 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   ret void
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont2, %invoke.cont, %_ZL23XXH_INLINE_XXH3_128bitsPKvm.exit
-  %67 = landingpad { ptr, i32 }
+  %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %oss) #9
-  resume { ptr, i32 } %67
+  resume { ptr, i32 } %75
 }
 
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
