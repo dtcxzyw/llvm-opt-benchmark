@@ -415,3 +415,6 @@
 [submodule "bench/mini-lsm-rs/mini-lsm"]
 	path = bench/mini-lsm-rs/mini-lsm
 	url = git@github.com:skyzh/mini-lsm.git
+[submodule "bench/smol-rs/smol"]
+	path = bench/smol-rs/smol
+	url = git@github.com:smol-rs/smol.git
