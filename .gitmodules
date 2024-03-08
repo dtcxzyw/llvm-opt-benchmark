@@ -385,3 +385,6 @@
 [submodule "bench/draco/draco"]
 	path = bench/draco/draco
 	url = git@github.com:google/draco.git
+[submodule "bench/wireshark/wireshark"]
+	path = bench/wireshark/wireshark
+	url = git@github.com:wireshark/wireshark.git

@@ -1,0 +1,14466 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.access_mask_info = type { ptr, ptr, ptr, ptr }
+%struct.expert_field = type { i32, i32 }
+%struct.hf_register_info = type { ptr, %struct._header_field_info }
+%struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
+%struct._value_string = type { i32, ptr }
+%struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
+%struct.true_false_string = type { ptr, ptr }
+%struct.ei_register_info = type { ptr, %struct.expert_field_info }
+%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
+%struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
+%struct._dcerpc_sub_dissector = type { i16, ptr, ptr, ptr }
+%struct._dcerpc_info = type { ptr, i32, i64, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct.nstime_t = type { i64, i32 }
+%struct._address = type { i32, i32, ptr, ptr }
+%struct.anon = type { i8, [3 x i8] }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
+%struct._dcerpc_call_value = type { %struct._e_guid_t, i16, %struct._e_guid_t, i16, i32, %struct.nstime_t, i32, i32, ptr, ptr, ptr, i32 }
+%struct._frame_data = type { i32, i32, i32, i32, i64, ptr, ptr, ptr, i16, i16, %struct.nstime_t, %struct.nstime_t, i32, i32, i8 }
+%struct.BUFFER = type { ptr, ptr, ptr }
+%struct._e_ctx_hnd = type { i32, %struct._e_guid_t }
+
+@.str = private unnamed_addr constant [16 x i8] c"SPOOLSS printer\00", align 1
+@spoolss_printer_access_mask_info = hidden global %struct.access_mask_info { ptr @.str, ptr @spoolss_printer_specific_rights, ptr null, ptr null }, align 8
+@ett_DEVMODE_CTR = internal global i32 0, align 4
+@.str.1 = private unnamed_addr constant [21 x i8] c"Devicemode container\00", align 1
+@hf_devmodectr_size = internal global i32 0, align 4
+@.str.2 = private unnamed_addr constant [11 x i8] c"Devicemode\00", align 1
+@ett_USER_LEVEL_CTR = internal global i32 0, align 4
+@.str.3 = private unnamed_addr constant [21 x i8] c"User level container\00", align 1
+@hf_level = internal global i32 0, align 4
+@.str.4 = private unnamed_addr constant [13 x i8] c"User level 1\00", align 1
+@ei_level = internal global %struct.expert_field zeroinitializer, align 4
+@.str.5 = private unnamed_addr constant [26 x i8] c"Info level %d not decoded\00", align 1
+@hf_notify_options_version = internal global i32 0, align 4
+@hf_notify_options_count = internal global i32 0, align 4
+@.str.6 = private unnamed_addr constant [21 x i8] c"Notify Options Array\00", align 1
+@ett_SPOOL_PRINTER_INFO_LEVEL = internal global i32 0, align 4
+@.str.7 = private unnamed_addr constant [25 x i8] c"Spool printer info level\00", align 1
+@hf_spool_printer_info_devmode_ptr = internal global i32 0, align 4
+@hf_spool_printer_info_secdesc_ptr = internal global i32 0, align 4
+@ei_spool_printer_info_level = internal global %struct.expert_field zeroinitializer, align 4
+@.str.8 = private unnamed_addr constant [36 x i8] c"Unknown spool printer info level %d\00", align 1
+@ett_FORM_CTR = internal global i32 0, align 4
+@.str.9 = private unnamed_addr constant [15 x i8] c"Form container\00", align 1
+@hf_form_level = internal global i32 0, align 4
+@ei_form_level = internal global %struct.expert_field zeroinitializer, align 4
+@.str.10 = private unnamed_addr constant [27 x i8] c"Unknown form info level %d\00", align 1
+@ett_DOC_INFO_CTR = internal global i32 0, align 4
+@.str.11 = private unnamed_addr constant [24 x i8] c"Document info container\00", align 1
+@hf_notify_info_version = internal global i32 0, align 4
+@hf_notify_info_flags = internal global i32 0, align 4
+@hf_notify_info_count = internal global i32 0, align 4
+@.str.12 = private unnamed_addr constant [8 x i8] c", %d %s\00", align 1
+@proto_register_dcerpc_spoolss.hf = internal global [363 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_clientmajorversion, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 7, i32 1, ptr null, i64 0, ptr @.str.15, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_clientminorversion, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 7, i32 1, ptr null, i64 0, ptr @.str.18, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_servermajorversion, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 7, i32 1, ptr null, i64 0, ptr @.str.21, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_serverminorversion, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 7, i32 1, ptr null, i64 0, ptr @.str.24, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_driverpath, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_datafile, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_configfile, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 26, i32 0, ptr null, i64 0, ptr @.str.31, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_helpfile, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_monitorname, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_defaultdatatype, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_driverinfo_cversion, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 7, i32 1, ptr @driverinfo_cversion_vals, i64 0, ptr @.str.31, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dependentfiles, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_status, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 7, i32 513, ptr @printer_status_vals_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_previousdrivernames, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_color_profiles, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_core_driver_dependencies, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_driverdate, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 24, i32 18, ptr null, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_min_inbox_driverdate, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 24, i32 18, ptr null, i64 0, ptr @.str.55, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_padding, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 7, i32 2, ptr null, i64 0, ptr @.str.58, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_driver_version, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 11, i32 2, ptr null, i64 0, ptr @.str.61, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_driver_version_low, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 7, i32 2, ptr null, i64 0, ptr @.str.64, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_driver_version_high, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 7, i32 2, ptr null, i64 0, ptr @.str.67, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_min_inbox_driver_version_low, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 7, i32 2, ptr null, i64 0, ptr @.str.70, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_min_inbox_driver_version_high, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 7, i32 2, ptr null, i64 0, ptr @.str.73, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mfgname, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 26, i32 0, ptr null, i64 0, ptr @.str.76, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_oemurl, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 26, i32 0, ptr null, i64 0, ptr @.str.79, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_hardwareid, %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 26, i32 0, ptr null, i64 0, ptr @.str.82, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_provider, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 26, i32 0, ptr null, i64 0, ptr @.str.85, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_setprinter_cmd, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 7, i32 1, ptr @setprinter_cmd_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinters_flags, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinters_flags_local, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 2, i32 32, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinters_flags_name, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 2, i32 32, ptr @tfs_set_notset, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinters_flags_shared, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 2, i32 32, ptr @tfs_set_notset, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinters_flags_default, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 2, i32 32, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinters_flags_connections, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 2, i32 32, ptr @tfs_set_notset, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinters_flags_network, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 2, i32 32, ptr @tfs_set_notset, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinters_flags_remote, %struct._header_field_info { ptr @.str.102, ptr @.str.103, i32 2, i32 32, ptr @tfs_set_notset, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_start_time, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_end_time, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_elapsed_time, %struct._header_field_info { ptr @.str.108, ptr @.str.109, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_device_not_selected_timeout, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_transmission_retry_timeout, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opnum, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_hnd, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 30, i32 0, ptr null, i64 0, ptr @.str.118, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rc, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 7, i32 514, ptr @DOS_errors_ext, i64 0, ptr @.str.121, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_hresult, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 7, i32 514, ptr @HRES_errors_ext, i64 0, ptr @.str.124, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_offered, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 7, i32 1, ptr null, i64 0, ptr @.str.127, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_needed, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 7, i32 1, ptr null, i64 0, ptr @.str.130, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_returned, %struct._header_field_info { ptr @.str.131, ptr @.str.132, i32 7, i32 1, ptr null, i64 0, ptr @.str.133, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_buffer_size, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 7, i32 1, ptr null, i64 0, ptr @.str.136, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_buffer_data, %struct._header_field_info { ptr @.str.137, ptr @.str.138, i32 30, i32 0, ptr null, i64 0, ptr @.str.139, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_string_parm_size, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 7, i32 1, ptr null, i64 0, ptr @.str.142, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_string_parm_data, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 27, i32 0, ptr null, i64 0, ptr @.str.145, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_offset, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 7, i32 1, ptr null, i64 0, ptr @.str.148, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_level, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printername, %struct._header_field_info { ptr @.str.31, ptr @.str.151, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_machinename, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notifyname, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printerdesc, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printercomment, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_servername, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sharename, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_portname, %struct._header_field_info { ptr @.str.164, ptr @.str.165, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printerlocation, %struct._header_field_info { ptr @.str.166, ptr @.str.167, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_environment, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_drivername, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_username, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_documentname, %struct._header_field_info { ptr @.str.174, ptr @.str.175, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_outputfile, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_datatype, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_textstatus, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sepfile, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_parameters, %struct._header_field_info { ptr @.str.184, ptr @.str.185, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printprocessor, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_vendor_setup, %struct._header_field_info { ptr @.str.188, ptr @.str.189, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_inf_path, %struct._header_field_info { ptr @.str.190, ptr @.str.191, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_core_printer_driver_ids, %struct._header_field_info { ptr @.str.192, ptr @.str.193, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_core_driver_guid, %struct._header_field_info { ptr @.str.194, ptr @.str.195, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_core_driver_size, %struct._header_field_info { ptr @.str.196, ptr @.str.197, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_core_printer_driver_count, %struct._header_field_info { ptr @.str.198, ptr @.str.199, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_package_id, %struct._header_field_info { ptr @.str.200, ptr @.str.201, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_language, %struct._header_field_info { ptr @.str.202, ptr @.str.203, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_driver_package_cab_size, %struct._header_field_info { ptr @.str.204, ptr @.str.205, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printerdata, %struct._header_field_info { ptr @.str.206, ptr @.str.207, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printerdata_key, %struct._header_field_info { ptr @.str.208, ptr @.str.209, i32 26, i32 0, ptr null, i64 0, ptr @.str.210, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printerdata_value, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 26, i32 0, ptr null, i64 0, ptr @.str.213, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printerdata_type, %struct._header_field_info { ptr @.str.214, ptr @.str.215, i32 7, i32 513, ptr @reg_datatypes_ext, i64 0, ptr @.str.216, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printerdata_size, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 7, i32 1, ptr null, i64 0, ptr @.str.219, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printerdata_data, %struct._header_field_info { ptr @.str.206, ptr @.str.220, i32 30, i32 0, ptr null, i64 0, ptr @.str.221, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printerdata_data_dword, %struct._header_field_info { ptr @.str.222, ptr @.str.223, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printerdata_data_sz, %struct._header_field_info { ptr @.str.143, ptr @.str.224, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmodectr_size, %struct._header_field_info { ptr @.str.225, ptr @.str.226, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode, %struct._header_field_info { ptr @.str.2, ptr @.str.227, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_size, %struct._header_field_info { ptr @.str.217, ptr @.str.228, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_spec_version, %struct._header_field_info { ptr @.str.229, ptr @.str.230, i32 5, i32 1, ptr @devmode_specversion_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_driver_version, %struct._header_field_info { ptr @.str.38, ptr @.str.231, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_size2, %struct._header_field_info { ptr @.str.232, ptr @.str.233, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields, %struct._header_field_info { ptr @.str.234, ptr @.str.235, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_orientation, %struct._header_field_info { ptr @.str.236, ptr @.str.237, i32 5, i32 1, ptr @devmode_orientation_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_paper_size, %struct._header_field_info { ptr @.str.238, ptr @.str.239, i32 5, i32 513, ptr @devmode_papersize_vals_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_paper_width, %struct._header_field_info { ptr @.str.240, ptr @.str.241, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_paper_length, %struct._header_field_info { ptr @.str.242, ptr @.str.243, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_scale, %struct._header_field_info { ptr @.str.244, ptr @.str.245, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_copies, %struct._header_field_info { ptr @.str.246, ptr @.str.247, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_default_source, %struct._header_field_info { ptr @.str.248, ptr @.str.249, i32 5, i32 513, ptr @devmode_papersource_vals_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_print_quality, %struct._header_field_info { ptr @.str.250, ptr @.str.251, i32 5, i32 1, ptr @devmode_printquality_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_color, %struct._header_field_info { ptr @.str.252, ptr @.str.253, i32 5, i32 1, ptr @devmode_colour_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_duplex, %struct._header_field_info { ptr @.str.254, ptr @.str.255, i32 5, i32 1, ptr @devmode_duplex_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_y_resolution, %struct._header_field_info { ptr @.str.256, ptr @.str.257, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_tt_option, %struct._header_field_info { ptr @.str.258, ptr @.str.259, i32 5, i32 1, ptr @devmode_ttoption_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_collate, %struct._header_field_info { ptr @.str.260, ptr @.str.261, i32 5, i32 1, ptr @devmode_collate_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_log_pixels, %struct._header_field_info { ptr @.str.262, ptr @.str.263, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_bits_per_pel, %struct._header_field_info { ptr @.str.264, ptr @.str.265, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_pels_width, %struct._header_field_info { ptr @.str.266, ptr @.str.267, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_pels_height, %struct._header_field_info { ptr @.str.268, ptr @.str.269, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_display_flags, %struct._header_field_info { ptr @.str.270, ptr @.str.271, i32 7, i32 1, ptr @devmode_displayflags_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_display_freq, %struct._header_field_info { ptr @.str.272, ptr @.str.273, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_icm_method, %struct._header_field_info { ptr @.str.274, ptr @.str.275, i32 7, i32 1, ptr @devmode_icmmethod_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_icm_intent, %struct._header_field_info { ptr @.str.276, ptr @.str.277, i32 7, i32 1, ptr @devmode_icmintent_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_media_type, %struct._header_field_info { ptr @.str.278, ptr @.str.279, i32 7, i32 1, ptr @devmode_mediatype_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_dither_type, %struct._header_field_info { ptr @.str.280, ptr @.str.281, i32 7, i32 1, ptr @devmode_dithertype_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_reserved1, %struct._header_field_info { ptr @.str.282, ptr @.str.283, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_reserved2, %struct._header_field_info { ptr @.str.284, ptr @.str.285, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_panning_width, %struct._header_field_info { ptr @.str.286, ptr @.str.287, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_panning_height, %struct._header_field_info { ptr @.str.288, ptr @.str.289, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_driver_extra_len, %struct._header_field_info { ptr @.str.290, ptr @.str.291, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_driver_extra, %struct._header_field_info { ptr @.str.292, ptr @.str.293, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_orientation, %struct._header_field_info { ptr @.str.236, ptr @.str.294, i32 2, i32 32, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_papersize, %struct._header_field_info { ptr @.str.238, ptr @.str.295, i32 2, i32 32, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_paperlength, %struct._header_field_info { ptr @.str.242, ptr @.str.296, i32 2, i32 32, ptr @tfs_set_notset, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_paperwidth, %struct._header_field_info { ptr @.str.240, ptr @.str.297, i32 2, i32 32, ptr @tfs_set_notset, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_scale, %struct._header_field_info { ptr @.str.244, ptr @.str.298, i32 2, i32 32, ptr @tfs_set_notset, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_position, %struct._header_field_info { ptr @.str.299, ptr @.str.300, i32 2, i32 32, ptr @tfs_set_notset, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_nup, %struct._header_field_info { ptr @.str.301, ptr @.str.302, i32 2, i32 32, ptr @tfs_set_notset, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_copies, %struct._header_field_info { ptr @.str.246, ptr @.str.303, i32 2, i32 32, ptr @tfs_set_notset, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_defaultsource, %struct._header_field_info { ptr @.str.248, ptr @.str.304, i32 2, i32 32, ptr @tfs_set_notset, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_printquality, %struct._header_field_info { ptr @.str.250, ptr @.str.305, i32 2, i32 32, ptr @tfs_set_notset, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_color, %struct._header_field_info { ptr @.str.252, ptr @.str.306, i32 2, i32 32, ptr @tfs_set_notset, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_duplex, %struct._header_field_info { ptr @.str.254, ptr @.str.307, i32 2, i32 32, ptr @tfs_set_notset, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_yresolution, %struct._header_field_info { ptr @.str.256, ptr @.str.308, i32 2, i32 32, ptr @tfs_set_notset, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_ttoption, %struct._header_field_info { ptr @.str.258, ptr @.str.309, i32 2, i32 32, ptr @tfs_set_notset, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_collate, %struct._header_field_info { ptr @.str.260, ptr @.str.310, i32 2, i32 32, ptr @tfs_set_notset, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_formname, %struct._header_field_info { ptr @.str.311, ptr @.str.312, i32 2, i32 32, ptr @tfs_set_notset, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_logpixels, %struct._header_field_info { ptr @.str.262, ptr @.str.313, i32 2, i32 32, ptr @tfs_set_notset, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_bitsperpel, %struct._header_field_info { ptr @.str.264, ptr @.str.314, i32 2, i32 32, ptr @tfs_set_notset, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_pelswidth, %struct._header_field_info { ptr @.str.266, ptr @.str.315, i32 2, i32 32, ptr @tfs_set_notset, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_pelsheight, %struct._header_field_info { ptr @.str.268, ptr @.str.316, i32 2, i32 32, ptr @tfs_set_notset, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_displayflags, %struct._header_field_info { ptr @.str.270, ptr @.str.317, i32 2, i32 32, ptr @tfs_set_notset, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_displayfrequency, %struct._header_field_info { ptr @.str.272, ptr @.str.318, i32 2, i32 32, ptr @tfs_set_notset, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_icmmethod, %struct._header_field_info { ptr @.str.274, ptr @.str.319, i32 2, i32 32, ptr @tfs_set_notset, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_icmintent, %struct._header_field_info { ptr @.str.276, ptr @.str.320, i32 2, i32 32, ptr @tfs_set_notset, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_mediatype, %struct._header_field_info { ptr @.str.278, ptr @.str.321, i32 2, i32 32, ptr @tfs_set_notset, i64 33554432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_dithertype, %struct._header_field_info { ptr @.str.280, ptr @.str.322, i32 2, i32 32, ptr @tfs_set_notset, i64 67108864, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_panningwidth, %struct._header_field_info { ptr @.str.286, ptr @.str.323, i32 2, i32 32, ptr @tfs_set_notset, i64 134217728, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_fields_panningheight, %struct._header_field_info { ptr @.str.288, ptr @.str.324, i32 2, i32 32, ptr @tfs_set_notset, i64 268435456, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinterdata_enumindex, %struct._header_field_info { ptr @.str.325, ptr @.str.326, i32 7, i32 1, ptr null, i64 0, ptr @.str.327, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinterdata_value_offered, %struct._header_field_info { ptr @.str.328, ptr @.str.329, i32 7, i32 1, ptr null, i64 0, ptr @.str.330, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinterdata_data_offered, %struct._header_field_info { ptr @.str.331, ptr @.str.332, i32 7, i32 1, ptr null, i64 0, ptr @.str.333, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinterdata_value_len, %struct._header_field_info { ptr @.str.334, ptr @.str.335, i32 7, i32 1, ptr null, i64 0, ptr @.str.336, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinterdata_value_needed, %struct._header_field_info { ptr @.str.337, ptr @.str.338, i32 7, i32 1, ptr null, i64 0, ptr @.str.339, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinterdata_data_needed, %struct._header_field_info { ptr @.str.340, ptr @.str.341, i32 7, i32 1, ptr null, i64 0, ptr @.str.342, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_id, %struct._header_field_info { ptr @.str.343, ptr @.str.344, i32 7, i32 1, ptr null, i64 0, ptr @.str.345, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_status, %struct._header_field_info { ptr @.str.346, ptr @.str.347, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_status_paused, %struct._header_field_info { ptr @.str.348, ptr @.str.349, i32 2, i32 32, ptr @tfs_job_status_paused, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_status_error, %struct._header_field_info { ptr @.str.350, ptr @.str.351, i32 2, i32 32, ptr @tfs_job_status_error, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_status_deleting, %struct._header_field_info { ptr @.str.352, ptr @.str.353, i32 2, i32 32, ptr @tfs_job_status_deleting, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_status_spooling, %struct._header_field_info { ptr @.str.354, ptr @.str.355, i32 2, i32 32, ptr @tfs_job_status_spooling, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_status_printing, %struct._header_field_info { ptr @.str.356, ptr @.str.357, i32 2, i32 32, ptr @tfs_job_status_printing, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_status_offline, %struct._header_field_info { ptr @.str.358, ptr @.str.359, i32 2, i32 32, ptr @tfs_job_status_offline, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_status_paperout, %struct._header_field_info { ptr @.str.360, ptr @.str.361, i32 2, i32 32, ptr @tfs_job_status_paperout, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_status_printed, %struct._header_field_info { ptr @.str.362, ptr @.str.363, i32 2, i32 32, ptr @tfs_job_status_printed, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_status_deleted, %struct._header_field_info { ptr @.str.364, ptr @.str.365, i32 2, i32 32, ptr @tfs_job_status_deleted, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_status_blocked, %struct._header_field_info { ptr @.str.366, ptr @.str.367, i32 2, i32 32, ptr @tfs_job_status_blocked, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_status_user_intervention, %struct._header_field_info { ptr @.str.368, ptr @.str.369, i32 2, i32 32, ptr @tfs_job_status_user_intervention, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_priority, %struct._header_field_info { ptr @.str.370, ptr @.str.371, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_position, %struct._header_field_info { ptr @.str.372, ptr @.str.373, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_totalpages, %struct._header_field_info { ptr @.str.374, ptr @.str.375, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_totalbytes, %struct._header_field_info { ptr @.str.376, ptr @.str.377, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_bytesprinted, %struct._header_field_info { ptr @.str.378, ptr @.str.379, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_pagesprinted, %struct._header_field_info { ptr @.str.380, ptr @.str.381, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_size, %struct._header_field_info { ptr @.str.382, ptr @.str.383, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_form, %struct._header_field_info { ptr @.str.206, ptr @.str.384, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_form_level, %struct._header_field_info { ptr @.str.385, ptr @.str.386, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_form_name, %struct._header_field_info { ptr @.str.387, ptr @.str.388, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_form_flags, %struct._header_field_info { ptr @.str.88, ptr @.str.389, i32 7, i32 1, ptr @form_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_form_unknown, %struct._header_field_info { ptr @.str.390, ptr @.str.391, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_form_width, %struct._header_field_info { ptr @.str.392, ptr @.str.393, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_form_height, %struct._header_field_info { ptr @.str.394, ptr @.str.395, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_form_left_margin, %struct._header_field_info { ptr @.str.396, ptr @.str.397, i32 7, i32 1, ptr null, i64 0, ptr @.str.398, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_form_top_margin, %struct._header_field_info { ptr @.str.399, ptr @.str.400, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_form_horiz_len, %struct._header_field_info { ptr @.str.401, ptr @.str.402, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_form_vert_len, %struct._header_field_info { ptr @.str.403, ptr @.str.404, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumforms_num, %struct._header_field_info { ptr @.str.405, ptr @.str.406, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_options_version, %struct._header_field_info { ptr @.str.407, ptr @.str.408, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_options_flags, %struct._header_field_info { ptr @.str.88, ptr @.str.409, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_options_count, %struct._header_field_info { ptr @.str.410, ptr @.str.411, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_option_type, %struct._header_field_info { ptr @.str.214, ptr @.str.412, i32 5, i32 1, ptr @printer_notify_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_option_reserved1, %struct._header_field_info { ptr @.str.282, ptr @.str.413, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_option_reserved2, %struct._header_field_info { ptr @.str.284, ptr @.str.414, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_option_reserved3, %struct._header_field_info { ptr @.str.415, ptr @.str.416, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_option_count, %struct._header_field_info { ptr @.str.410, ptr @.str.417, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_option_data_count, %struct._header_field_info { ptr @.str.410, ptr @.str.418, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_options_flags_refresh, %struct._header_field_info { ptr @.str.419, ptr @.str.420, i32 2, i32 32, ptr @tfs_notify_options_flags_refresh, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_info_count, %struct._header_field_info { ptr @.str.410, ptr @.str.421, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_info_version, %struct._header_field_info { ptr @.str.407, ptr @.str.422, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_info_flags, %struct._header_field_info { ptr @.str.88, ptr @.str.423, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_info_data_type, %struct._header_field_info { ptr @.str.214, ptr @.str.424, i32 5, i32 1, ptr @printer_notify_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_field, %struct._header_field_info { ptr @.str.425, ptr @.str.426, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_info_data_count, %struct._header_field_info { ptr @.str.410, ptr @.str.427, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_info_data_id, %struct._header_field_info { ptr @.str.428, ptr @.str.429, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_info_data_value1, %struct._header_field_info { ptr @.str.430, ptr @.str.431, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_info_data_value2, %struct._header_field_info { ptr @.str.432, ptr @.str.433, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_info_data_bufsize, %struct._header_field_info { ptr @.str.134, ptr @.str.434, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_info_data_buffer, %struct._header_field_info { ptr @.str.435, ptr @.str.436, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_info_data_buffer_len, %struct._header_field_info { ptr @.str.437, ptr @.str.438, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_notify_info_data_buffer_data, %struct._header_field_info { ptr @.str.137, ptr @.str.439, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_options, %struct._header_field_info { ptr @.str.440, ptr @.str.441, i32 7, i32 1, ptr null, i64 0, ptr @.str.442, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printerlocal, %struct._header_field_info { ptr @.str.443, ptr @.str.444, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags, %struct._header_field_info { ptr @.str.445, ptr @.str.446, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_add_printer, %struct._header_field_info { ptr @.str.447, ptr @.str.448, i32 2, i32 32, ptr @tfs_rffpcnex_flags_add_printer, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_set_printer, %struct._header_field_info { ptr @.str.449, ptr @.str.450, i32 2, i32 32, ptr @tfs_rffpcnex_flags_set_printer, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_delete_printer, %struct._header_field_info { ptr @.str.451, ptr @.str.452, i32 2, i32 32, ptr @tfs_rffpcnex_flags_delete_printer, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_add_job, %struct._header_field_info { ptr @.str.453, ptr @.str.454, i32 2, i32 32, ptr @tfs_rffpcnex_flags_add_job, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_set_job, %struct._header_field_info { ptr @.str.455, ptr @.str.456, i32 2, i32 32, ptr @tfs_rffpcnex_flags_set_job, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_delete_job, %struct._header_field_info { ptr @.str.457, ptr @.str.458, i32 2, i32 32, ptr @tfs_rffpcnex_flags_delete_job, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_write_job, %struct._header_field_info { ptr @.str.459, ptr @.str.460, i32 2, i32 32, ptr @tfs_rffpcnex_flags_write_job, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_add_form, %struct._header_field_info { ptr @.str.461, ptr @.str.462, i32 2, i32 32, ptr @tfs_rffpcnex_flags_add_form, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_set_form, %struct._header_field_info { ptr @.str.463, ptr @.str.464, i32 2, i32 32, ptr @tfs_rffpcnex_flags_set_form, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_delete_form, %struct._header_field_info { ptr @.str.465, ptr @.str.466, i32 2, i32 32, ptr @tfs_rffpcnex_flags_delete_form, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_add_port, %struct._header_field_info { ptr @.str.467, ptr @.str.468, i32 2, i32 32, ptr @tfs_rffpcnex_flags_add_port, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_configure_port, %struct._header_field_info { ptr @.str.469, ptr @.str.470, i32 2, i32 32, ptr @tfs_rffpcnex_flags_configure_port, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_delete_port, %struct._header_field_info { ptr @.str.471, ptr @.str.472, i32 2, i32 32, ptr @tfs_rffpcnex_flags_delete_port, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_add_print_processor, %struct._header_field_info { ptr @.str.473, ptr @.str.474, i32 2, i32 32, ptr @tfs_rffpcnex_flags_add_print_processor, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_delete_print_processor, %struct._header_field_info { ptr @.str.475, ptr @.str.476, i32 2, i32 32, ptr @tfs_rffpcnex_flags_delete_print_processor, i64 67108864, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_add_driver, %struct._header_field_info { ptr @.str.477, ptr @.str.478, i32 2, i32 32, ptr @tfs_rffpcnex_flags_add_driver, i64 268435456, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_set_driver, %struct._header_field_info { ptr @.str.479, ptr @.str.480, i32 2, i32 32, ptr @tfs_rffpcnex_flags_set_driver, i64 536870912, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_delete_driver, %struct._header_field_info { ptr @.str.481, ptr @.str.482, i32 2, i32 32, ptr @tfs_rffpcnex_flags_delete_driver, i64 1073741824, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_timeout, %struct._header_field_info { ptr @.str.483, ptr @.str.484, i32 2, i32 32, ptr @tfs_rffpcnex_flags_timeout, i64 2147483648, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rffpcnex_flags_failed_printer_connection, %struct._header_field_info { ptr @.str.485, ptr @.str.486, i32 2, i32 32, ptr @tfs_rffpcnex_flags_failed_connection_printer, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rrpcn_changelow, %struct._header_field_info { ptr @.str.487, ptr @.str.488, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rrpcn_changehigh, %struct._header_field_info { ptr @.str.489, ptr @.str.490, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rrpcn_unk0, %struct._header_field_info { ptr @.str.491, ptr @.str.492, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rrpcn_unk1, %struct._header_field_info { ptr @.str.493, ptr @.str.494, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_replyopenprinter_unk0, %struct._header_field_info { ptr @.str.491, ptr @.str.495, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_replyopenprinter_unk1, %struct._header_field_info { ptr @.str.493, ptr @.str.496, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_devicename, %struct._header_field_info { ptr @.str.497, ptr @.str.498, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_devmode_form_name, %struct._header_field_info { ptr @.str.499, ptr @.str.500, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_relative_string, %struct._header_field_info { ptr @.str.501, ptr @.str.502, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_value_name, %struct._header_field_info { ptr @.str.503, ptr @.str.504, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_keybuffer, %struct._header_field_info { ptr @.str.208, ptr @.str.505, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_value_string, %struct._header_field_info { ptr @.str.211, ptr @.str.506, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_attributes, %struct._header_field_info { ptr @.str.507, ptr @.str.508, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_attributes_queued, %struct._header_field_info { ptr @.str.509, ptr @.str.510, i32 2, i32 32, ptr @tfs_printer_attributes_queued, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_attributes_direct, %struct._header_field_info { ptr @.str.511, ptr @.str.512, i32 2, i32 32, ptr @tfs_printer_attributes_direct, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_attributes_default, %struct._header_field_info { ptr @.str.513, ptr @.str.514, i32 2, i32 32, ptr @tfs_printer_attributes_default, i64 4, ptr @.str.515, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_attributes_shared, %struct._header_field_info { ptr @.str.516, ptr @.str.517, i32 2, i32 32, ptr @tfs_printer_attributes_shared, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_attributes_network, %struct._header_field_info { ptr @.str.518, ptr @.str.519, i32 2, i32 32, ptr @tfs_printer_attributes_network, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_attributes_hidden, %struct._header_field_info { ptr @.str.520, ptr @.str.521, i32 2, i32 32, ptr @tfs_printer_attributes_hidden, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_attributes_local, %struct._header_field_info { ptr @.str.522, ptr @.str.523, i32 2, i32 32, ptr @tfs_printer_attributes_local, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_attributes_enable_devq, %struct._header_field_info { ptr @.str.524, ptr @.str.525, i32 2, i32 32, ptr @tfs_printer_attributes_enable_devq, i64 128, ptr @.str.526, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_attributes_keep_printed_jobs, %struct._header_field_info { ptr @.str.527, ptr @.str.528, i32 2, i32 32, ptr @tfs_printer_attributes_keep_printed_jobs, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_attributes_do_complete_first, %struct._header_field_info { ptr @.str.529, ptr @.str.530, i32 2, i32 32, ptr @tfs_printer_attributes_do_complete_first, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_attributes_work_offline, %struct._header_field_info { ptr @.str.531, ptr @.str.532, i32 2, i32 32, ptr @tfs_printer_attributes_work_offline, i64 1024, ptr @.str.533, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_attributes_enable_bidi, %struct._header_field_info { ptr @.str.534, ptr @.str.535, i32 2, i32 32, ptr @tfs_printer_attributes_enable_bidi, i64 2048, ptr @.str.536, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_attributes_raw_only, %struct._header_field_info { ptr @.str.537, ptr @.str.538, i32 2, i32 32, ptr @tfs_printer_attributes_raw_only, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_attributes_published, %struct._header_field_info { ptr @.str.539, ptr @.str.540, i32 2, i32 32, ptr @tfs_printer_attributes_published, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_driver_attributes, %struct._header_field_info { ptr @.str.541, ptr @.str.542, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_driver_attributes_package_aware, %struct._header_field_info { ptr @.str.543, ptr @.str.544, i32 2, i32 32, ptr @tfs_printer_driver_attributes_package_aware, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_driver_attributes_xps, %struct._header_field_info { ptr @.str.545, ptr @.str.546, i32 2, i32 32, ptr @tfs_printer_driver_attributes_xps, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_driver_attributes_sandbox_enabled, %struct._header_field_info { ptr @.str.547, ptr @.str.548, i32 2, i32 32, ptr @tfs_printer_driver_attributes_sandbox_enabled, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_driver_attributes_class, %struct._header_field_info { ptr @.str.549, ptr @.str.550, i32 2, i32 32, ptr @tfs_printer_driver_attributes_class, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_driver_attributes_derived, %struct._header_field_info { ptr @.str.551, ptr @.str.552, i32 2, i32 32, ptr @tfs_printer_driver_attributes_derived, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_driver_attributes_not_shareable, %struct._header_field_info { ptr @.str.553, ptr @.str.554, i32 2, i32 32, ptr @tfs_printer_driver_attributes_not_shareable, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_driver_attributes_category_fax, %struct._header_field_info { ptr @.str.555, ptr @.str.556, i32 2, i32 32, ptr @tfs_printer_driver_attributes_category_fax, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_driver_attributes_category_file, %struct._header_field_info { ptr @.str.557, ptr @.str.558, i32 2, i32 32, ptr @tfs_printer_driver_attributes_category_file, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_driver_attributes_category_virtual, %struct._header_field_info { ptr @.str.559, ptr @.str.560, i32 2, i32 32, ptr @tfs_printer_driver_attributes_category_virtual, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_driver_attributes_category_service, %struct._header_field_info { ptr @.str.561, ptr @.str.562, i32 2, i32 32, ptr @tfs_printer_driver_attributes_category_service, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_driver_attributes_soft_reset_required, %struct._header_field_info { ptr @.str.563, ptr @.str.564, i32 2, i32 32, ptr @tfs_printer_driver_attributes_soft_reset_required, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_driver_attributes_category_3d, %struct._header_field_info { ptr @.str.565, ptr @.str.566, i32 2, i32 32, ptr @tfs_printer_driver_attributes_category_3d, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_time_year, %struct._header_field_info { ptr @.str.567, ptr @.str.568, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_time_month, %struct._header_field_info { ptr @.str.569, ptr @.str.570, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_time_dow, %struct._header_field_info { ptr @.str.571, ptr @.str.572, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_time_day, %struct._header_field_info { ptr @.str.573, ptr @.str.574, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_time_hour, %struct._header_field_info { ptr @.str.575, ptr @.str.576, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_time_minute, %struct._header_field_info { ptr @.str.577, ptr @.str.578, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_time_second, %struct._header_field_info { ptr @.str.579, ptr @.str.580, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_time_msec, %struct._header_field_info { ptr @.str.581, ptr @.str.582, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_userlevel_size, %struct._header_field_info { ptr @.str.217, ptr @.str.583, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_userlevel_client, %struct._header_field_info { ptr @.str.584, ptr @.str.585, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_userlevel_user, %struct._header_field_info { ptr @.str.586, ptr @.str.587, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_userlevel_build, %struct._header_field_info { ptr @.str.588, ptr @.str.589, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_userlevel_major, %struct._header_field_info { ptr @.str.590, ptr @.str.591, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_userlevel_minor, %struct._header_field_info { ptr @.str.592, ptr @.str.593, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_userlevel_processor, %struct._header_field_info { ptr @.str.594, ptr @.str.595, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinterdataex_name_offset, %struct._header_field_info { ptr @.str.596, ptr @.str.597, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinterdataex_name_len, %struct._header_field_info { ptr @.str.598, ptr @.str.599, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinterdataex_name, %struct._header_field_info { ptr @.str.387, ptr @.str.600, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinterdataex_val_offset, %struct._header_field_info { ptr @.str.601, ptr @.str.602, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinterdataex_val_len, %struct._header_field_info { ptr @.str.603, ptr @.str.604, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinterdataex_val_dword_high, %struct._header_field_info { ptr @.str.605, ptr @.str.606, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinterdataex_value_null, %struct._header_field_info { ptr @.str.211, ptr @.str.607, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinterdataex_value_uint, %struct._header_field_info { ptr @.str.211, ptr @.str.608, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinterdataex_value_binary, %struct._header_field_info { ptr @.str.211, ptr @.str.609, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinterdataex_value_multi_sz, %struct._header_field_info { ptr @.str.211, ptr @.str.610, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumprinterdataex_val_dword_low, %struct._header_field_info { ptr @.str.611, ptr @.str.612, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_routerreplyprinter_condition, %struct._header_field_info { ptr @.str.613, ptr @.str.614, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_routerreplyprinter_unknown1, %struct._header_field_info { ptr @.str.615, ptr @.str.616, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_routerreplyprinter_changeid, %struct._header_field_info { ptr @.str.617, ptr @.str.618, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_keybuffer_size, %struct._header_field_info { ptr @.str.619, ptr @.str.620, i32 7, i32 1, ptr null, i64 0, ptr @.str.136, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_setjob_cmd, %struct._header_field_info { ptr @.str.621, ptr @.str.622, i32 7, i32 1, ptr @setjob_commands, i64 0, ptr @.str.623, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumjobs_firstjob, %struct._header_field_info { ptr @.str.624, ptr @.str.625, i32 7, i32 1, ptr null, i64 0, ptr @.str.626, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enumjobs_numjobs, %struct._header_field_info { ptr @.str.627, ptr @.str.628, i32 7, i32 1, ptr null, i64 0, ptr @.str.629, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_secdescbuf_maxlen, %struct._header_field_info { ptr @.str.630, ptr @.str.631, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_secdescbuf_undoc, %struct._header_field_info { ptr @.str.632, ptr @.str.633, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_secdescbuf_len, %struct._header_field_info { ptr @.str.634, ptr @.str.635, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_spool_printer_info_devmode_ptr, %struct._header_field_info { ptr @.str.636, ptr @.str.637, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_spool_printer_info_secdesc_ptr, %struct._header_field_info { ptr @.str.638, ptr @.str.639, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_writeprinter_numwritten, %struct._header_field_info { ptr @.str.640, ptr @.str.641, i32 7, i32 1, ptr null, i64 0, ptr @.str.642, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_setprinterdataex_max_len, %struct._header_field_info { ptr @.str.630, ptr @.str.643, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_setprinterdataex_real_len, %struct._header_field_info { ptr @.str.644, ptr @.str.645, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_setprinterdataex_data, %struct._header_field_info { ptr @.str.206, ptr @.str.646, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_access_required, %struct._header_field_info { ptr @.str.647, ptr @.str.648, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_server_access_admin, %struct._header_field_info { ptr @.str.649, ptr @.str.650, i32 2, i32 32, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_server_access_enum, %struct._header_field_info { ptr @.str.651, ptr @.str.652, i32 2, i32 32, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_access_admin, %struct._header_field_info { ptr @.str.653, ptr @.str.654, i32 2, i32 32, ptr @tfs_set_notset, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_access_use, %struct._header_field_info { ptr @.str.655, ptr @.str.656, i32 2, i32 32, ptr @tfs_set_notset, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_job_access_admin, %struct._header_field_info { ptr @.str.657, ptr @.str.658, i32 2, i32 32, ptr @tfs_set_notset, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_cjobs, %struct._header_field_info { ptr @.str.659, ptr @.str.660, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_total_jobs, %struct._header_field_info { ptr @.str.661, ptr @.str.662, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_total_bytes, %struct._header_field_info { ptr @.str.663, ptr @.str.664, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_global_counter, %struct._header_field_info { ptr @.str.665, ptr @.str.666, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_total_pages, %struct._header_field_info { ptr @.str.667, ptr @.str.668, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_major_version, %struct._header_field_info { ptr @.str.669, ptr @.str.670, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_build_version, %struct._header_field_info { ptr @.str.671, ptr @.str.672, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_unk7, %struct._header_field_info { ptr @.str.673, ptr @.str.674, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_unk8, %struct._header_field_info { ptr @.str.675, ptr @.str.676, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_unk9, %struct._header_field_info { ptr @.str.677, ptr @.str.678, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_session_ctr, %struct._header_field_info { ptr @.str.679, ptr @.str.680, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_unk11, %struct._header_field_info { ptr @.str.681, ptr @.str.682, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_printer_errors, %struct._header_field_info { ptr @.str.683, ptr @.str.684, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_unk13, %struct._header_field_info { ptr @.str.685, ptr @.str.686, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_unk14, %struct._header_field_info { ptr @.str.687, ptr @.str.688, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_unk15, %struct._header_field_info { ptr @.str.689, ptr @.str.690, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_unk16, %struct._header_field_info { ptr @.str.691, ptr @.str.692, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_changeid, %struct._header_field_info { ptr @.str.617, ptr @.str.693, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_unk18, %struct._header_field_info { ptr @.str.694, ptr @.str.695, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_unk20, %struct._header_field_info { ptr @.str.696, ptr @.str.697, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_c_setprinter, %struct._header_field_info { ptr @.str.698, ptr @.str.699, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_unk22, %struct._header_field_info { ptr @.str.700, ptr @.str.701, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_unk23, %struct._header_field_info { ptr @.str.702, ptr @.str.703, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_unk24, %struct._header_field_info { ptr @.str.704, ptr @.str.705, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_unk25, %struct._header_field_info { ptr @.str.706, ptr @.str.707, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_unk26, %struct._header_field_info { ptr @.str.708, ptr @.str.709, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_unk27, %struct._header_field_info { ptr @.str.710, ptr @.str.711, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_unk28, %struct._header_field_info { ptr @.str.712, ptr @.str.713, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_unk29, %struct._header_field_info { ptr @.str.714, ptr @.str.715, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_flags, %struct._header_field_info { ptr @.str.88, ptr @.str.716, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_priority, %struct._header_field_info { ptr @.str.717, ptr @.str.718, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_default_priority, %struct._header_field_info { ptr @.str.719, ptr @.str.720, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_averageppm, %struct._header_field_info { ptr @.str.721, ptr @.str.722, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_jobs, %struct._header_field_info { ptr @.str.723, ptr @.str.724, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_guid, %struct._header_field_info { ptr @.str.725, ptr @.str.726, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_printer_action, %struct._header_field_info { ptr @.str.727, ptr @.str.728, i32 7, i32 1, ptr @getprinter_action_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@hf_clientmajorversion = internal global i32 0, align 4
+@.str.13 = private unnamed_addr constant [21 x i8] c"Client major version\00", align 1
+@.str.14 = private unnamed_addr constant [27 x i8] c"spoolss.clientmajorversion\00", align 1
+@.str.15 = private unnamed_addr constant [36 x i8] c"Client printer driver major version\00", align 1
+@hf_clientminorversion = internal global i32 0, align 4
+@.str.16 = private unnamed_addr constant [21 x i8] c"Client minor version\00", align 1
+@.str.17 = private unnamed_addr constant [27 x i8] c"spoolss.clientminorversion\00", align 1
+@.str.18 = private unnamed_addr constant [36 x i8] c"Client printer driver minor version\00", align 1
+@hf_servermajorversion = internal global i32 0, align 4
+@.str.19 = private unnamed_addr constant [21 x i8] c"Server major version\00", align 1
+@.str.20 = private unnamed_addr constant [27 x i8] c"spoolss.servermajorversion\00", align 1
+@.str.21 = private unnamed_addr constant [36 x i8] c"Server printer driver major version\00", align 1
+@hf_serverminorversion = internal global i32 0, align 4
+@.str.22 = private unnamed_addr constant [21 x i8] c"Server minor version\00", align 1
+@.str.23 = private unnamed_addr constant [27 x i8] c"spoolss.serverminorversion\00", align 1
+@.str.24 = private unnamed_addr constant [36 x i8] c"Server printer driver minor version\00", align 1
+@hf_driverpath = internal global i32 0, align 4
+@.str.25 = private unnamed_addr constant [12 x i8] c"Driver path\00", align 1
+@.str.26 = private unnamed_addr constant [19 x i8] c"spoolss.driverpath\00", align 1
+@hf_datafile = internal global i32 0, align 4
+@.str.27 = private unnamed_addr constant [10 x i8] c"Data file\00", align 1
+@.str.28 = private unnamed_addr constant [17 x i8] c"spoolss.datafile\00", align 1
+@hf_configfile = internal global i32 0, align 4
+@.str.29 = private unnamed_addr constant [12 x i8] c"Config file\00", align 1
+@.str.30 = private unnamed_addr constant [19 x i8] c"spoolss.configfile\00", align 1
+@.str.31 = private unnamed_addr constant [13 x i8] c"Printer name\00", align 1
+@hf_helpfile = internal global i32 0, align 4
+@.str.32 = private unnamed_addr constant [10 x i8] c"Help file\00", align 1
+@.str.33 = private unnamed_addr constant [17 x i8] c"spoolss.helpfile\00", align 1
+@hf_monitorname = internal global i32 0, align 4
+@.str.34 = private unnamed_addr constant [13 x i8] c"Monitor name\00", align 1
+@.str.35 = private unnamed_addr constant [20 x i8] c"spoolss.monitorname\00", align 1
+@hf_defaultdatatype = internal global i32 0, align 4
+@.str.36 = private unnamed_addr constant [18 x i8] c"Default data type\00", align 1
+@.str.37 = private unnamed_addr constant [24 x i8] c"spoolss.defaultdatatype\00", align 1
+@hf_driverinfo_cversion = internal global i32 0, align 4
+@.str.38 = private unnamed_addr constant [15 x i8] c"Driver version\00", align 1
+@.str.39 = private unnamed_addr constant [23 x i8] c"spoolss.drivercversion\00", align 1
+@driverinfo_cversion_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.790 }, %struct._value_string { i32 2, ptr @.str.791 }, %struct._value_string { i32 3, ptr @.str.792 }, %struct._value_string zeroinitializer], align 16
+@hf_dependentfiles = internal global i32 0, align 4
+@.str.40 = private unnamed_addr constant [16 x i8] c"Dependent files\00", align 1
+@.str.41 = private unnamed_addr constant [23 x i8] c"spoolss.dependentfiles\00", align 1
+@hf_printer_status = internal global i32 0, align 4
+@.str.42 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
+@.str.43 = private unnamed_addr constant [23 x i8] c"spoolss.printer_status\00", align 1
+@printer_status_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 26, ptr @printer_status_vals, ptr @.str.793 }, align 8
+@hf_previousdrivernames = internal global i32 0, align 4
+@.str.44 = private unnamed_addr constant [22 x i8] c"Previous Driver Names\00", align 1
+@.str.45 = private unnamed_addr constant [28 x i8] c"spoolss.previousdrivernames\00", align 1
+@hf_color_profiles = internal global i32 0, align 4
+@.str.46 = private unnamed_addr constant [15 x i8] c"Color Profiles\00", align 1
+@.str.47 = private unnamed_addr constant [22 x i8] c"spoolss.colorprofiles\00", align 1
+@hf_core_driver_dependencies = internal global i32 0, align 4
+@.str.48 = private unnamed_addr constant [25 x i8] c"Core Driver Dependencies\00", align 1
+@.str.49 = private unnamed_addr constant [31 x i8] c"spoolss.coredriverdependencies\00", align 1
+@hf_driverdate = internal global i32 0, align 4
+@.str.50 = private unnamed_addr constant [12 x i8] c"Driver Date\00", align 1
+@.str.51 = private unnamed_addr constant [19 x i8] c"spoolss.driverdate\00", align 1
+@.str.52 = private unnamed_addr constant [24 x i8] c"Date of driver creation\00", align 1
+@hf_min_inbox_driverdate = internal global i32 0, align 4
+@.str.53 = private unnamed_addr constant [22 x i8] c"Min Inbox Driver Date\00", align 1
+@.str.54 = private unnamed_addr constant [27 x i8] c"spoolss.mininboxdriverdate\00", align 1
+@.str.55 = private unnamed_addr constant [34 x i8] c"Min Inbox Date of driver creation\00", align 1
+@hf_padding = internal global i32 0, align 4
+@.str.56 = private unnamed_addr constant [8 x i8] c"Padding\00", align 1
+@.str.57 = private unnamed_addr constant [16 x i8] c"spoolss.padding\00", align 1
+@.str.58 = private unnamed_addr constant [47 x i8] c"Some padding - conveys no semantic information\00", align 1
+@hf_driver_version = internal global i32 0, align 4
+@.str.59 = private unnamed_addr constant [15 x i8] c"Driver Version\00", align 1
+@.str.60 = private unnamed_addr constant [22 x i8] c"spoolss.driverversion\00", align 1
+@.str.61 = private unnamed_addr constant [18 x i8] c"Driver Version ID\00", align 1
+@hf_driver_version_low = internal global i32 0, align 4
+@.str.62 = private unnamed_addr constant [21 x i8] c"Minor Driver Version\00", align 1
+@.str.63 = private unnamed_addr constant [27 x i8] c"spoolss.minordriverversion\00", align 1
+@.str.64 = private unnamed_addr constant [19 x i8] c"Driver Version Low\00", align 1
+@hf_driver_version_high = internal global i32 0, align 4
+@.str.65 = private unnamed_addr constant [21 x i8] c"Major Driver Version\00", align 1
+@.str.66 = private unnamed_addr constant [27 x i8] c"spoolss.majordriverversion\00", align 1
+@.str.67 = private unnamed_addr constant [20 x i8] c"Driver Version High\00", align 1
+@hf_min_inbox_driver_version_low = internal global i32 0, align 4
+@.str.68 = private unnamed_addr constant [31 x i8] c"Min Inbox Minor Driver Version\00", align 1
+@.str.69 = private unnamed_addr constant [35 x i8] c"spoolss.mininboxminordriverversion\00", align 1
+@.str.70 = private unnamed_addr constant [29 x i8] c"Min Inbox Driver Version Low\00", align 1
+@hf_min_inbox_driver_version_high = internal global i32 0, align 4
+@.str.71 = private unnamed_addr constant [31 x i8] c"Min Inbox Major Driver Version\00", align 1
+@.str.72 = private unnamed_addr constant [35 x i8] c"spoolss.mininboxmajordriverversion\00", align 1
+@.str.73 = private unnamed_addr constant [30 x i8] c"Min Inbox Driver Version High\00", align 1
+@hf_mfgname = internal global i32 0, align 4
+@.str.74 = private unnamed_addr constant [8 x i8] c"Mfgname\00", align 1
+@.str.75 = private unnamed_addr constant [16 x i8] c"spoolss.mfgname\00", align 1
+@.str.76 = private unnamed_addr constant [18 x i8] c"Manufacturer Name\00", align 1
+@hf_oemurl = internal global i32 0, align 4
+@.str.77 = private unnamed_addr constant [8 x i8] c"OEM URL\00", align 1
+@.str.78 = private unnamed_addr constant [15 x i8] c"spoolss.oemrul\00", align 1
+@.str.79 = private unnamed_addr constant [28 x i8] c"OEM URL - Website of Vendor\00", align 1
+@hf_hardwareid = internal global i32 0, align 4
+@.str.80 = private unnamed_addr constant [12 x i8] c"Hardware ID\00", align 1
+@.str.81 = private unnamed_addr constant [19 x i8] c"spoolss.hardwareid\00", align 1
+@.str.82 = private unnamed_addr constant [36 x i8] c"Hardware Identification Information\00", align 1
+@hf_provider = internal global i32 0, align 4
+@.str.83 = private unnamed_addr constant [9 x i8] c"Provider\00", align 1
+@.str.84 = private unnamed_addr constant [17 x i8] c"spoolss.provider\00", align 1
+@.str.85 = private unnamed_addr constant [19 x i8] c"Provider of Driver\00", align 1
+@hf_setprinter_cmd = internal global i32 0, align 4
+@.str.86 = private unnamed_addr constant [8 x i8] c"Command\00", align 1
+@.str.87 = private unnamed_addr constant [23 x i8] c"spoolss.setprinter_cmd\00", align 1
+@setprinter_cmd_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.815 }, %struct._value_string { i32 1, ptr @.str.816 }, %struct._value_string { i32 2, ptr @.str.817 }, %struct._value_string { i32 3, ptr @.str.818 }, %struct._value_string { i32 4, ptr @.str.819 }, %struct._value_string zeroinitializer], align 16
+@hf_enumprinters_flags = internal global i32 0, align 4
+@.str.88 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
+@.str.89 = private unnamed_addr constant [27 x i8] c"spoolss.enumprinters.flags\00", align 1
+@hf_enumprinters_flags_local = internal global i32 0, align 4
+@.str.90 = private unnamed_addr constant [11 x i8] c"Enum local\00", align 1
+@.str.91 = private unnamed_addr constant [38 x i8] c"spoolss.enumprinters.flags.enum_local\00", align 1
+@tfs_set_notset = external constant %struct.true_false_string, align 8
+@hf_enumprinters_flags_name = internal global i32 0, align 4
+@.str.92 = private unnamed_addr constant [10 x i8] c"Enum name\00", align 1
+@.str.93 = private unnamed_addr constant [37 x i8] c"spoolss.enumprinters.flags.enum_name\00", align 1
+@hf_enumprinters_flags_shared = internal global i32 0, align 4
+@.str.94 = private unnamed_addr constant [12 x i8] c"Enum shared\00", align 1
+@.str.95 = private unnamed_addr constant [39 x i8] c"spoolss.enumprinters.flags.enum_shared\00", align 1
+@hf_enumprinters_flags_default = internal global i32 0, align 4
+@.str.96 = private unnamed_addr constant [13 x i8] c"Enum default\00", align 1
+@.str.97 = private unnamed_addr constant [40 x i8] c"spoolss.enumprinters.flags.enum_default\00", align 1
+@hf_enumprinters_flags_connections = internal global i32 0, align 4
+@.str.98 = private unnamed_addr constant [17 x i8] c"Enum connections\00", align 1
+@.str.99 = private unnamed_addr constant [44 x i8] c"spoolss.enumprinters.flags.enum_connections\00", align 1
+@hf_enumprinters_flags_network = internal global i32 0, align 4
+@.str.100 = private unnamed_addr constant [13 x i8] c"Enum network\00", align 1
+@.str.101 = private unnamed_addr constant [40 x i8] c"spoolss.enumprinters.flags.enum_network\00", align 1
+@hf_enumprinters_flags_remote = internal global i32 0, align 4
+@.str.102 = private unnamed_addr constant [12 x i8] c"Enum remote\00", align 1
+@.str.103 = private unnamed_addr constant [39 x i8] c"spoolss.enumprinters.flags.enum_remote\00", align 1
+@hf_start_time = internal global i32 0, align 4
+@.str.104 = private unnamed_addr constant [11 x i8] c"Start time\00", align 1
+@.str.105 = private unnamed_addr constant [19 x i8] c"spoolss.start_time\00", align 1
+@hf_end_time = internal global i32 0, align 4
+@.str.106 = private unnamed_addr constant [9 x i8] c"End time\00", align 1
+@.str.107 = private unnamed_addr constant [17 x i8] c"spoolss.end_time\00", align 1
+@hf_elapsed_time = internal global i32 0, align 4
+@.str.108 = private unnamed_addr constant [13 x i8] c"Elapsed time\00", align 1
+@.str.109 = private unnamed_addr constant [21 x i8] c"spoolss.elapsed_time\00", align 1
+@hf_device_not_selected_timeout = internal global i32 0, align 4
+@.str.110 = private unnamed_addr constant [28 x i8] c"Device Not Selected Timeout\00", align 1
+@.str.111 = private unnamed_addr constant [36 x i8] c"spoolss.device_not_selected_timeout\00", align 1
+@hf_transmission_retry_timeout = internal global i32 0, align 4
+@.str.112 = private unnamed_addr constant [27 x i8] c"Transmission Retry Timeout\00", align 1
+@.str.113 = private unnamed_addr constant [35 x i8] c"spoolss.transmission_retry_timeout\00", align 1
+@hf_opnum = internal global i32 0, align 4
+@.str.114 = private unnamed_addr constant [10 x i8] c"Operation\00", align 1
+@.str.115 = private unnamed_addr constant [14 x i8] c"spoolss.opnum\00", align 1
+@hf_hnd = internal global i32 0, align 4
+@.str.116 = private unnamed_addr constant [15 x i8] c"Context handle\00", align 1
+@.str.117 = private unnamed_addr constant [12 x i8] c"spoolss.hnd\00", align 1
+@.str.118 = private unnamed_addr constant [22 x i8] c"SPOOLSS policy handle\00", align 1
+@hf_rc = internal global i32 0, align 4
+@.str.119 = private unnamed_addr constant [12 x i8] c"Return code\00", align 1
+@.str.120 = private unnamed_addr constant [11 x i8] c"spoolss.rc\00", align 1
+@DOS_errors_ext = external global %struct._value_string_ext, align 8
+@.str.121 = private unnamed_addr constant [20 x i8] c"SPOOLSS return code\00", align 1
+@hf_hresult = internal global i32 0, align 4
+@.str.122 = private unnamed_addr constant [20 x i8] c"HRESULT return code\00", align 1
+@.str.123 = private unnamed_addr constant [16 x i8] c"spoolss.hresult\00", align 1
+@HRES_errors_ext = external global %struct._value_string_ext, align 8
+@.str.124 = private unnamed_addr constant [28 x i8] c"SPOOLSS HRESULT return code\00", align 1
+@hf_offered = internal global i32 0, align 4
+@.str.125 = private unnamed_addr constant [8 x i8] c"Offered\00", align 1
+@.str.126 = private unnamed_addr constant [16 x i8] c"spoolss.offered\00", align 1
+@.str.127 = private unnamed_addr constant [39 x i8] c"Size of buffer offered in this request\00", align 1
+@hf_needed = internal global i32 0, align 4
+@.str.128 = private unnamed_addr constant [7 x i8] c"Needed\00", align 1
+@.str.129 = private unnamed_addr constant [15 x i8] c"spoolss.needed\00", align 1
+@.str.130 = private unnamed_addr constant [36 x i8] c"Size of buffer required for request\00", align 1
+@hf_returned = internal global i32 0, align 4
+@.str.131 = private unnamed_addr constant [9 x i8] c"Returned\00", align 1
+@.str.132 = private unnamed_addr constant [17 x i8] c"spoolss.returned\00", align 1
+@.str.133 = private unnamed_addr constant [25 x i8] c"Number of items returned\00", align 1
+@hf_buffer_size = internal global i32 0, align 4
+@.str.134 = private unnamed_addr constant [12 x i8] c"Buffer size\00", align 1
+@.str.135 = private unnamed_addr constant [20 x i8] c"spoolss.buffer.size\00", align 1
+@.str.136 = private unnamed_addr constant [15 x i8] c"Size of buffer\00", align 1
+@hf_buffer_data = internal global i32 0, align 4
+@.str.137 = private unnamed_addr constant [12 x i8] c"Buffer data\00", align 1
+@.str.138 = private unnamed_addr constant [20 x i8] c"spoolss.buffer.data\00", align 1
+@.str.139 = private unnamed_addr constant [19 x i8] c"Contents of buffer\00", align 1
+@hf_string_parm_size = internal global i32 0, align 4
+@.str.140 = private unnamed_addr constant [19 x i8] c"String buffer size\00", align 1
+@.str.141 = private unnamed_addr constant [26 x i8] c"spoolss.string.buffersize\00", align 1
+@.str.142 = private unnamed_addr constant [22 x i8] c"Size of string buffer\00", align 1
+@hf_string_parm_data = internal global i32 0, align 4
+@.str.143 = private unnamed_addr constant [12 x i8] c"String data\00", align 1
+@.str.144 = private unnamed_addr constant [20 x i8] c"spoolss.string.data\00", align 1
+@.str.145 = private unnamed_addr constant [19 x i8] c"Contents of string\00", align 1
+@hf_offset = internal global i32 0, align 4
+@.str.146 = private unnamed_addr constant [7 x i8] c"Offset\00", align 1
+@.str.147 = private unnamed_addr constant [15 x i8] c"spoolss.offset\00", align 1
+@.str.148 = private unnamed_addr constant [15 x i8] c"Offset of data\00", align 1
+@.str.149 = private unnamed_addr constant [11 x i8] c"Info level\00", align 1
+@.str.150 = private unnamed_addr constant [23 x i8] c"spoolss.enumjobs.level\00", align 1
+@hf_printername = internal global i32 0, align 4
+@.str.151 = private unnamed_addr constant [20 x i8] c"spoolss.printername\00", align 1
+@hf_machinename = internal global i32 0, align 4
+@.str.152 = private unnamed_addr constant [13 x i8] c"Machine name\00", align 1
+@.str.153 = private unnamed_addr constant [20 x i8] c"spoolss.machinename\00", align 1
+@hf_notifyname = internal global i32 0, align 4
+@.str.154 = private unnamed_addr constant [12 x i8] c"Notify name\00", align 1
+@.str.155 = private unnamed_addr constant [19 x i8] c"spoolss.notifyname\00", align 1
+@hf_printerdesc = internal global i32 0, align 4
+@.str.156 = private unnamed_addr constant [20 x i8] c"Printer description\00", align 1
+@.str.157 = private unnamed_addr constant [20 x i8] c"spoolss.printerdesc\00", align 1
+@hf_printercomment = internal global i32 0, align 4
+@.str.158 = private unnamed_addr constant [16 x i8] c"Printer comment\00", align 1
+@.str.159 = private unnamed_addr constant [23 x i8] c"spoolss.printercomment\00", align 1
+@hf_servername = internal global i32 0, align 4
+@.str.160 = private unnamed_addr constant [12 x i8] c"Server name\00", align 1
+@.str.161 = private unnamed_addr constant [19 x i8] c"spoolss.servername\00", align 1
+@hf_sharename = internal global i32 0, align 4
+@.str.162 = private unnamed_addr constant [11 x i8] c"Share name\00", align 1
+@.str.163 = private unnamed_addr constant [18 x i8] c"spoolss.sharename\00", align 1
+@hf_portname = internal global i32 0, align 4
+@.str.164 = private unnamed_addr constant [10 x i8] c"Port name\00", align 1
+@.str.165 = private unnamed_addr constant [17 x i8] c"spoolss.portname\00", align 1
+@hf_printerlocation = internal global i32 0, align 4
+@.str.166 = private unnamed_addr constant [17 x i8] c"Printer location\00", align 1
+@.str.167 = private unnamed_addr constant [24 x i8] c"spoolss.printerlocation\00", align 1
+@hf_environment = internal global i32 0, align 4
+@.str.168 = private unnamed_addr constant [17 x i8] c"Environment name\00", align 1
+@.str.169 = private unnamed_addr constant [20 x i8] c"spoolss.environment\00", align 1
+@hf_drivername = internal global i32 0, align 4
+@.str.170 = private unnamed_addr constant [12 x i8] c"Driver name\00", align 1
+@.str.171 = private unnamed_addr constant [19 x i8] c"spoolss.drivername\00", align 1
+@hf_username = internal global i32 0, align 4
+@.str.172 = private unnamed_addr constant [10 x i8] c"User name\00", align 1
+@.str.173 = private unnamed_addr constant [17 x i8] c"spoolss.username\00", align 1
+@hf_documentname = internal global i32 0, align 4
+@.str.174 = private unnamed_addr constant [14 x i8] c"Document name\00", align 1
+@.str.175 = private unnamed_addr constant [17 x i8] c"spoolss.document\00", align 1
+@hf_outputfile = internal global i32 0, align 4
+@.str.176 = private unnamed_addr constant [12 x i8] c"Output file\00", align 1
+@.str.177 = private unnamed_addr constant [19 x i8] c"spoolss.outputfile\00", align 1
+@hf_datatype = internal global i32 0, align 4
+@.str.178 = private unnamed_addr constant [9 x i8] c"Datatype\00", align 1
+@.str.179 = private unnamed_addr constant [17 x i8] c"spoolss.datatype\00", align 1
+@hf_textstatus = internal global i32 0, align 4
+@.str.180 = private unnamed_addr constant [12 x i8] c"Text status\00", align 1
+@.str.181 = private unnamed_addr constant [19 x i8] c"spoolss.textstatus\00", align 1
+@hf_sepfile = internal global i32 0, align 4
+@.str.182 = private unnamed_addr constant [15 x i8] c"Separator file\00", align 1
+@.str.183 = private unnamed_addr constant [17 x i8] c"spoolss.setpfile\00", align 1
+@hf_parameters = internal global i32 0, align 4
+@.str.184 = private unnamed_addr constant [11 x i8] c"Parameters\00", align 1
+@.str.185 = private unnamed_addr constant [19 x i8] c"spoolss.parameters\00", align 1
+@hf_printprocessor = internal global i32 0, align 4
+@.str.186 = private unnamed_addr constant [16 x i8] c"Print processor\00", align 1
+@.str.187 = private unnamed_addr constant [23 x i8] c"spoolss.printprocessor\00", align 1
+@hf_vendor_setup = internal global i32 0, align 4
+@.str.188 = private unnamed_addr constant [13 x i8] c"Vendor Setup\00", align 1
+@.str.189 = private unnamed_addr constant [20 x i8] c"spoolss.vendorsetup\00", align 1
+@hf_inf_path = internal global i32 0, align 4
+@.str.190 = private unnamed_addr constant [9 x i8] c"Inf Path\00", align 1
+@.str.191 = private unnamed_addr constant [16 x i8] c"spoolss.infpath\00", align 1
+@hf_core_printer_driver_ids = internal global i32 0, align 4
+@.str.192 = private unnamed_addr constant [24 x i8] c"Core Printer Driver IDs\00", align 1
+@.str.193 = private unnamed_addr constant [32 x i8] c"spoolss.core_printer_driver_ids\00", align 1
+@hf_core_driver_guid = internal global i32 0, align 4
+@.str.194 = private unnamed_addr constant [25 x i8] c"Core Printer Driver GUID\00", align 1
+@.str.195 = private unnamed_addr constant [25 x i8] c"spoolss.core_driver_guid\00", align 1
+@hf_core_driver_size = internal global i32 0, align 4
+@.str.196 = private unnamed_addr constant [25 x i8] c"Core Printer Driver Size\00", align 1
+@.str.197 = private unnamed_addr constant [25 x i8] c"spoolss.core_driver_size\00", align 1
+@hf_core_printer_driver_count = internal global i32 0, align 4
+@.str.198 = private unnamed_addr constant [26 x i8] c"Core Printer Driver Count\00", align 1
+@.str.199 = private unnamed_addr constant [34 x i8] c"spoolss.core_printer_driver_count\00", align 1
+@hf_package_id = internal global i32 0, align 4
+@.str.200 = private unnamed_addr constant [10 x i8] c"PackageId\00", align 1
+@.str.201 = private unnamed_addr constant [19 x i8] c"spoolss.package_id\00", align 1
+@hf_language = internal global i32 0, align 4
+@.str.202 = private unnamed_addr constant [14 x i8] c"Language name\00", align 1
+@.str.203 = private unnamed_addr constant [17 x i8] c"spoolss.language\00", align 1
+@hf_driver_package_cab_size = internal global i32 0, align 4
+@.str.204 = private unnamed_addr constant [28 x i8] c"Driver Package Cabinet Size\00", align 1
+@.str.205 = private unnamed_addr constant [32 x i8] c"spoolss.driver_package_cab_size\00", align 1
+@hf_printerdata = internal global i32 0, align 4
+@.str.206 = private unnamed_addr constant [5 x i8] c"Data\00", align 1
+@.str.207 = private unnamed_addr constant [20 x i8] c"spoolss.printerdata\00", align 1
+@hf_printerdata_key = internal global i32 0, align 4
+@.str.208 = private unnamed_addr constant [4 x i8] c"Key\00", align 1
+@.str.209 = private unnamed_addr constant [24 x i8] c"spoolss.printerdata.key\00", align 1
+@.str.210 = private unnamed_addr constant [17 x i8] c"Printer data key\00", align 1
+@hf_printerdata_value = internal global i32 0, align 4
+@.str.211 = private unnamed_addr constant [6 x i8] c"Value\00", align 1
+@.str.212 = private unnamed_addr constant [26 x i8] c"spoolss.printerdata.value\00", align 1
+@.str.213 = private unnamed_addr constant [19 x i8] c"Printer data value\00", align 1
+@hf_printerdata_type = internal global i32 0, align 4
+@.str.214 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
+@.str.215 = private unnamed_addr constant [25 x i8] c"spoolss.printerdata.type\00", align 1
+@reg_datatypes_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 11, ptr @reg_datatypes, ptr @.str.820 }, align 8
+@.str.216 = private unnamed_addr constant [18 x i8] c"Printer data type\00", align 1
+@hf_printerdata_size = internal global i32 0, align 4
+@.str.217 = private unnamed_addr constant [5 x i8] c"Size\00", align 1
+@.str.218 = private unnamed_addr constant [25 x i8] c"spoolss.printerdata.size\00", align 1
+@.str.219 = private unnamed_addr constant [18 x i8] c"Printer data size\00", align 1
+@hf_printerdata_data = internal global i32 0, align 4
+@.str.220 = private unnamed_addr constant [25 x i8] c"spoolss.printerdata.data\00", align 1
+@.str.221 = private unnamed_addr constant [13 x i8] c"Printer data\00", align 1
+@hf_printerdata_data_dword = internal global i32 0, align 4
+@.str.222 = private unnamed_addr constant [11 x i8] c"DWORD data\00", align 1
+@.str.223 = private unnamed_addr constant [31 x i8] c"spoolss.printerdata.data.dword\00", align 1
+@hf_printerdata_data_sz = internal global i32 0, align 4
+@.str.224 = private unnamed_addr constant [28 x i8] c"spoolss.printerdata.data.sz\00", align 1
+@.str.225 = private unnamed_addr constant [20 x i8] c"Devicemode ctr size\00", align 1
+@.str.226 = private unnamed_addr constant [27 x i8] c"spoolss.devicemodectr.size\00", align 1
+@hf_devmode = internal global i32 0, align 4
+@.str.227 = private unnamed_addr constant [16 x i8] c"spoolss.devmode\00", align 1
+@hf_devmode_size = internal global i32 0, align 4
+@.str.228 = private unnamed_addr constant [21 x i8] c"spoolss.devmode.size\00", align 1
+@hf_devmode_spec_version = internal global i32 0, align 4
+@.str.229 = private unnamed_addr constant [13 x i8] c"Spec version\00", align 1
+@.str.230 = private unnamed_addr constant [29 x i8] c"spoolss.devmode.spec_version\00", align 1
+@devmode_specversion_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 800, ptr @.str.832 }, %struct._value_string { i32 1024, ptr @.str.832 }, %struct._value_string { i32 1025, ptr @.str.832 }, %struct._value_string { i32 1037, ptr @.str.832 }, %struct._value_string zeroinitializer], align 16
+@hf_devmode_driver_version = internal global i32 0, align 4
+@.str.231 = private unnamed_addr constant [31 x i8] c"spoolss.devmode.driver_version\00", align 1
+@hf_devmode_size2 = internal global i32 0, align 4
+@.str.232 = private unnamed_addr constant [6 x i8] c"Size2\00", align 1
+@.str.233 = private unnamed_addr constant [22 x i8] c"spoolss.devmode.size2\00", align 1
+@hf_devmode_fields = internal global i32 0, align 4
+@.str.234 = private unnamed_addr constant [7 x i8] c"Fields\00", align 1
+@.str.235 = private unnamed_addr constant [23 x i8] c"spoolss.devmode.fields\00", align 1
+@hf_devmode_orientation = internal global i32 0, align 4
+@.str.236 = private unnamed_addr constant [12 x i8] c"Orientation\00", align 1
+@.str.237 = private unnamed_addr constant [28 x i8] c"spoolss.devmode.orientation\00", align 1
+@devmode_orientation_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.833 }, %struct._value_string { i32 2, ptr @.str.834 }, %struct._value_string zeroinitializer], align 16
+@hf_devmode_paper_size = internal global i32 0, align 4
+@.str.238 = private unnamed_addr constant [11 x i8] c"Paper size\00", align 1
+@.str.239 = private unnamed_addr constant [27 x i8] c"spoolss.devmode.paper_size\00", align 1
+@devmode_papersize_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 118, ptr @devmode_papersize_vals, ptr @.str.835 }, align 8
+@hf_devmode_paper_width = internal global i32 0, align 4
+@.str.240 = private unnamed_addr constant [12 x i8] c"Paper width\00", align 1
+@.str.241 = private unnamed_addr constant [28 x i8] c"spoolss.devmode.paper_width\00", align 1
+@hf_devmode_paper_length = internal global i32 0, align 4
+@.str.242 = private unnamed_addr constant [13 x i8] c"Paper length\00", align 1
+@.str.243 = private unnamed_addr constant [29 x i8] c"spoolss.devmode.paper_length\00", align 1
+@hf_devmode_scale = internal global i32 0, align 4
+@.str.244 = private unnamed_addr constant [6 x i8] c"Scale\00", align 1
+@.str.245 = private unnamed_addr constant [22 x i8] c"spoolss.devmode.scale\00", align 1
+@hf_devmode_copies = internal global i32 0, align 4
+@.str.246 = private unnamed_addr constant [7 x i8] c"Copies\00", align 1
+@.str.247 = private unnamed_addr constant [23 x i8] c"spoolss.devmode.copies\00", align 1
+@hf_devmode_default_source = internal global i32 0, align 4
+@.str.248 = private unnamed_addr constant [15 x i8] c"Default source\00", align 1
+@.str.249 = private unnamed_addr constant [31 x i8] c"spoolss.devmode.default_source\00", align 1
+@devmode_papersource_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 13, ptr @devmode_papersource_vals, ptr @.str.954 }, align 8
+@hf_devmode_print_quality = internal global i32 0, align 4
+@.str.250 = private unnamed_addr constant [14 x i8] c"Print quality\00", align 1
+@.str.251 = private unnamed_addr constant [30 x i8] c"spoolss.devmode.print_quality\00", align 1
+@devmode_printquality_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 -1, ptr @.str.968 }, %struct._value_string { i32 -2, ptr @.str.969 }, %struct._value_string { i32 -3, ptr @.str.970 }, %struct._value_string { i32 -4, ptr @.str.971 }, %struct._value_string zeroinitializer], align 16
+@hf_devmode_color = internal global i32 0, align 4
+@.str.252 = private unnamed_addr constant [6 x i8] c"Color\00", align 1
+@.str.253 = private unnamed_addr constant [22 x i8] c"spoolss.devmode.color\00", align 1
+@devmode_colour_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 2, ptr @.str.972 }, %struct._value_string { i32 1, ptr @.str.973 }, %struct._value_string zeroinitializer], align 16
+@hf_devmode_duplex = internal global i32 0, align 4
+@.str.254 = private unnamed_addr constant [7 x i8] c"Duplex\00", align 1
+@.str.255 = private unnamed_addr constant [23 x i8] c"spoolss.devmode.duplex\00", align 1
+@devmode_duplex_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.974 }, %struct._value_string { i32 2, ptr @.str.403 }, %struct._value_string { i32 3, ptr @.str.401 }, %struct._value_string zeroinitializer], align 16
+@hf_devmode_y_resolution = internal global i32 0, align 4
+@.str.256 = private unnamed_addr constant [13 x i8] c"Y resolution\00", align 1
+@.str.257 = private unnamed_addr constant [29 x i8] c"spoolss.devmode.y_resolution\00", align 1
+@hf_devmode_tt_option = internal global i32 0, align 4
+@.str.258 = private unnamed_addr constant [10 x i8] c"TT option\00", align 1
+@.str.259 = private unnamed_addr constant [26 x i8] c"spoolss.devmode.tt_option\00", align 1
+@devmode_ttoption_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.975 }, %struct._value_string { i32 1, ptr @.str.976 }, %struct._value_string { i32 2, ptr @.str.977 }, %struct._value_string { i32 4, ptr @.str.978 }, %struct._value_string { i32 3, ptr @.str.979 }, %struct._value_string zeroinitializer], align 16
+@hf_devmode_collate = internal global i32 0, align 4
+@.str.260 = private unnamed_addr constant [8 x i8] c"Collate\00", align 1
+@.str.261 = private unnamed_addr constant [24 x i8] c"spoolss.devmode.collate\00", align 1
+@devmode_collate_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.980 }, %struct._value_string { i32 1, ptr @.str.981 }, %struct._value_string zeroinitializer], align 16
+@hf_devmode_log_pixels = internal global i32 0, align 4
+@.str.262 = private unnamed_addr constant [11 x i8] c"Log pixels\00", align 1
+@.str.263 = private unnamed_addr constant [27 x i8] c"spoolss.devmode.log_pixels\00", align 1
+@hf_devmode_bits_per_pel = internal global i32 0, align 4
+@.str.264 = private unnamed_addr constant [13 x i8] c"Bits per pel\00", align 1
+@.str.265 = private unnamed_addr constant [29 x i8] c"spoolss.devmode.bits_per_pel\00", align 1
+@hf_devmode_pels_width = internal global i32 0, align 4
+@.str.266 = private unnamed_addr constant [11 x i8] c"Pels width\00", align 1
+@.str.267 = private unnamed_addr constant [27 x i8] c"spoolss.devmode.pels_width\00", align 1
+@hf_devmode_pels_height = internal global i32 0, align 4
+@.str.268 = private unnamed_addr constant [12 x i8] c"Pels height\00", align 1
+@.str.269 = private unnamed_addr constant [28 x i8] c"spoolss.devmode.pels_height\00", align 1
+@hf_devmode_display_flags = internal global i32 0, align 4
+@.str.270 = private unnamed_addr constant [14 x i8] c"Display flags\00", align 1
+@.str.271 = private unnamed_addr constant [30 x i8] c"spoolss.devmode.display_flags\00", align 1
+@devmode_displayflags_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.972 }, %struct._value_string { i32 1, ptr @.str.982 }, %struct._value_string { i32 2, ptr @.str.983 }, %struct._value_string zeroinitializer], align 16
+@hf_devmode_display_freq = internal global i32 0, align 4
+@.str.272 = private unnamed_addr constant [18 x i8] c"Display frequency\00", align 1
+@.str.273 = private unnamed_addr constant [29 x i8] c"spoolss.devmode.display_freq\00", align 1
+@hf_devmode_icm_method = internal global i32 0, align 4
+@.str.274 = private unnamed_addr constant [11 x i8] c"ICM method\00", align 1
+@.str.275 = private unnamed_addr constant [27 x i8] c"spoolss.devmode.icm_method\00", align 1
+@devmode_icmmethod_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.984 }, %struct._value_string { i32 2, ptr @.str.985 }, %struct._value_string { i32 3, ptr @.str.986 }, %struct._value_string { i32 4, ptr @.str.987 }, %struct._value_string zeroinitializer], align 16
+@hf_devmode_icm_intent = internal global i32 0, align 4
+@.str.276 = private unnamed_addr constant [11 x i8] c"ICM intent\00", align 1
+@.str.277 = private unnamed_addr constant [27 x i8] c"spoolss.devmode.icm_intent\00", align 1
+@devmode_icmintent_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.975 }, %struct._value_string { i32 1, ptr @.str.988 }, %struct._value_string { i32 2, ptr @.str.989 }, %struct._value_string { i32 3, ptr @.str.990 }, %struct._value_string { i32 4, ptr @.str.991 }, %struct._value_string zeroinitializer], align 16
+@hf_devmode_media_type = internal global i32 0, align 4
+@.str.278 = private unnamed_addr constant [11 x i8] c"Media type\00", align 1
+@.str.279 = private unnamed_addr constant [27 x i8] c"spoolss.devmode.media_type\00", align 1
+@devmode_mediatype_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.975 }, %struct._value_string { i32 1, ptr @.str.992 }, %struct._value_string { i32 2, ptr @.str.993 }, %struct._value_string { i32 3, ptr @.str.994 }, %struct._value_string zeroinitializer], align 16
+@hf_devmode_dither_type = internal global i32 0, align 4
+@.str.280 = private unnamed_addr constant [12 x i8] c"Dither type\00", align 1
+@.str.281 = private unnamed_addr constant [28 x i8] c"spoolss.devmode.dither_type\00", align 1
+@devmode_dithertype_vals = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.975 }, %struct._value_string { i32 1, ptr @.str.984 }, %struct._value_string { i32 2, ptr @.str.995 }, %struct._value_string { i32 3, ptr @.str.996 }, %struct._value_string { i32 4, ptr @.str.997 }, %struct._value_string { i32 5, ptr @.str.998 }, %struct._value_string { i32 6, ptr @.str.999 }, %struct._value_string { i32 7, ptr @.str.1000 }, %struct._value_string { i32 10, ptr @.str.982 }, %struct._value_string zeroinitializer], align 16
+@hf_devmode_reserved1 = internal global i32 0, align 4
+@.str.282 = private unnamed_addr constant [10 x i8] c"Reserved1\00", align 1
+@.str.283 = private unnamed_addr constant [26 x i8] c"spoolss.devmode.reserved1\00", align 1
+@hf_devmode_reserved2 = internal global i32 0, align 4
+@.str.284 = private unnamed_addr constant [10 x i8] c"Reserved2\00", align 1
+@.str.285 = private unnamed_addr constant [26 x i8] c"spoolss.devmode.reserved2\00", align 1
+@hf_devmode_panning_width = internal global i32 0, align 4
+@.str.286 = private unnamed_addr constant [14 x i8] c"Panning width\00", align 1
+@.str.287 = private unnamed_addr constant [30 x i8] c"spoolss.devmode.panning_width\00", align 1
+@hf_devmode_panning_height = internal global i32 0, align 4
+@.str.288 = private unnamed_addr constant [15 x i8] c"Panning height\00", align 1
+@.str.289 = private unnamed_addr constant [31 x i8] c"spoolss.devmode.panning_height\00", align 1
+@hf_devmode_driver_extra_len = internal global i32 0, align 4
+@.str.290 = private unnamed_addr constant [20 x i8] c"Driver extra length\00", align 1
+@.str.291 = private unnamed_addr constant [33 x i8] c"spoolss.devmode.driver_extra_len\00", align 1
+@hf_devmode_driver_extra = internal global i32 0, align 4
+@.str.292 = private unnamed_addr constant [13 x i8] c"Driver extra\00", align 1
+@.str.293 = private unnamed_addr constant [29 x i8] c"spoolss.devmode.driver_extra\00", align 1
+@hf_devmode_fields_orientation = internal global i32 0, align 4
+@.str.294 = private unnamed_addr constant [35 x i8] c"spoolss.devmode.fields.orientation\00", align 1
+@hf_devmode_fields_papersize = internal global i32 0, align 4
+@.str.295 = private unnamed_addr constant [34 x i8] c"spoolss.devmode.fields.paper_size\00", align 1
+@hf_devmode_fields_paperlength = internal global i32 0, align 4
+@.str.296 = private unnamed_addr constant [36 x i8] c"spoolss.devmode.fields.paper_length\00", align 1
+@hf_devmode_fields_paperwidth = internal global i32 0, align 4
+@.str.297 = private unnamed_addr constant [35 x i8] c"spoolss.devmode.fields.paper_width\00", align 1
+@hf_devmode_fields_scale = internal global i32 0, align 4
+@.str.298 = private unnamed_addr constant [29 x i8] c"spoolss.devmode.fields.scale\00", align 1
+@hf_devmode_fields_position = internal global i32 0, align 4
+@.str.299 = private unnamed_addr constant [9 x i8] c"Position\00", align 1
+@.str.300 = private unnamed_addr constant [32 x i8] c"spoolss.devmode.fields.position\00", align 1
+@hf_devmode_fields_nup = internal global i32 0, align 4
+@.str.301 = private unnamed_addr constant [5 x i8] c"N-up\00", align 1
+@.str.302 = private unnamed_addr constant [27 x i8] c"spoolss.devmode.fields.nup\00", align 1
+@hf_devmode_fields_copies = internal global i32 0, align 4
+@.str.303 = private unnamed_addr constant [30 x i8] c"spoolss.devmode.fields.copies\00", align 1
+@hf_devmode_fields_defaultsource = internal global i32 0, align 4
+@.str.304 = private unnamed_addr constant [38 x i8] c"spoolss.devmode.fields.default_source\00", align 1
+@hf_devmode_fields_printquality = internal global i32 0, align 4
+@.str.305 = private unnamed_addr constant [37 x i8] c"spoolss.devmode.fields.print_quality\00", align 1
+@hf_devmode_fields_color = internal global i32 0, align 4
+@.str.306 = private unnamed_addr constant [29 x i8] c"spoolss.devmode.fields.color\00", align 1
+@hf_devmode_fields_duplex = internal global i32 0, align 4
+@.str.307 = private unnamed_addr constant [30 x i8] c"spoolss.devmode.fields.duplex\00", align 1
+@hf_devmode_fields_yresolution = internal global i32 0, align 4
+@.str.308 = private unnamed_addr constant [36 x i8] c"spoolss.devmode.fields.y_resolution\00", align 1
+@hf_devmode_fields_ttoption = internal global i32 0, align 4
+@.str.309 = private unnamed_addr constant [33 x i8] c"spoolss.devmode.fields.tt_option\00", align 1
+@hf_devmode_fields_collate = internal global i32 0, align 4
+@.str.310 = private unnamed_addr constant [31 x i8] c"spoolss.devmode.fields.collate\00", align 1
+@hf_devmode_fields_formname = internal global i32 0, align 4
+@.str.311 = private unnamed_addr constant [10 x i8] c"Form name\00", align 1
+@.str.312 = private unnamed_addr constant [33 x i8] c"spoolss.devmode.fields.form_name\00", align 1
+@hf_devmode_fields_logpixels = internal global i32 0, align 4
+@.str.313 = private unnamed_addr constant [34 x i8] c"spoolss.devmode.fields.log_pixels\00", align 1
+@hf_devmode_fields_bitsperpel = internal global i32 0, align 4
+@.str.314 = private unnamed_addr constant [36 x i8] c"spoolss.devmode.fields.bits_per_pel\00", align 1
+@hf_devmode_fields_pelswidth = internal global i32 0, align 4
+@.str.315 = private unnamed_addr constant [34 x i8] c"spoolss.devmode.fields.pels_width\00", align 1
+@hf_devmode_fields_pelsheight = internal global i32 0, align 4
+@.str.316 = private unnamed_addr constant [35 x i8] c"spoolss.devmode.fields.pels_height\00", align 1
+@hf_devmode_fields_displayflags = internal global i32 0, align 4
+@.str.317 = private unnamed_addr constant [37 x i8] c"spoolss.devmode.fields.display_flags\00", align 1
+@hf_devmode_fields_displayfrequency = internal global i32 0, align 4
+@.str.318 = private unnamed_addr constant [41 x i8] c"spoolss.devmode.fields.display_frequency\00", align 1
+@hf_devmode_fields_icmmethod = internal global i32 0, align 4
+@.str.319 = private unnamed_addr constant [34 x i8] c"spoolss.devmode.fields.icm_method\00", align 1
+@hf_devmode_fields_icmintent = internal global i32 0, align 4
+@.str.320 = private unnamed_addr constant [34 x i8] c"spoolss.devmode.fields.icm_intent\00", align 1
+@hf_devmode_fields_mediatype = internal global i32 0, align 4
+@.str.321 = private unnamed_addr constant [34 x i8] c"spoolss.devmode.fields.media_type\00", align 1
+@hf_devmode_fields_dithertype = internal global i32 0, align 4
+@.str.322 = private unnamed_addr constant [35 x i8] c"spoolss.devmode.fields.dither_type\00", align 1
+@hf_devmode_fields_panningwidth = internal global i32 0, align 4
+@.str.323 = private unnamed_addr constant [37 x i8] c"spoolss.devmode.fields.panning_width\00", align 1
+@hf_devmode_fields_panningheight = internal global i32 0, align 4
+@.str.324 = private unnamed_addr constant [38 x i8] c"spoolss.devmode.fields.panning_height\00", align 1
+@hf_enumprinterdata_enumindex = internal global i32 0, align 4
+@.str.325 = private unnamed_addr constant [11 x i8] c"Enum index\00", align 1
+@.str.326 = private unnamed_addr constant [34 x i8] c"spoolss.enumprinterdata.enumindex\00", align 1
+@.str.327 = private unnamed_addr constant [31 x i8] c"Index for start of enumeration\00", align 1
+@hf_enumprinterdata_value_offered = internal global i32 0, align 4
+@.str.328 = private unnamed_addr constant [19 x i8] c"Value size offered\00", align 1
+@.str.329 = private unnamed_addr constant [38 x i8] c"spoolss.enumprinterdata.value_offered\00", align 1
+@.str.330 = private unnamed_addr constant [42 x i8] c"Buffer size offered for printerdata value\00", align 1
+@hf_enumprinterdata_data_offered = internal global i32 0, align 4
+@.str.331 = private unnamed_addr constant [18 x i8] c"Data size offered\00", align 1
+@.str.332 = private unnamed_addr constant [37 x i8] c"spoolss.enumprinterdata.data_offered\00", align 1
+@.str.333 = private unnamed_addr constant [41 x i8] c"Buffer size offered for printerdata data\00", align 1
+@hf_enumprinterdata_value_len = internal global i32 0, align 4
+@.str.334 = private unnamed_addr constant [13 x i8] c"Value length\00", align 1
+@.str.335 = private unnamed_addr constant [34 x i8] c"spoolss.enumprinterdata.value_len\00", align 1
+@.str.336 = private unnamed_addr constant [26 x i8] c"Size of printerdata value\00", align 1
+@hf_enumprinterdata_value_needed = internal global i32 0, align 4
+@.str.337 = private unnamed_addr constant [18 x i8] c"Value size needed\00", align 1
+@.str.338 = private unnamed_addr constant [37 x i8] c"spoolss.enumprinterdata.value_needed\00", align 1
+@.str.339 = private unnamed_addr constant [41 x i8] c"Buffer size needed for printerdata value\00", align 1
+@hf_enumprinterdata_data_needed = internal global i32 0, align 4
+@.str.340 = private unnamed_addr constant [17 x i8] c"Data size needed\00", align 1
+@.str.341 = private unnamed_addr constant [36 x i8] c"spoolss.enumprinterdata.data_needed\00", align 1
+@.str.342 = private unnamed_addr constant [40 x i8] c"Buffer size needed for printerdata data\00", align 1
+@hf_job_id = internal global i32 0, align 4
+@.str.343 = private unnamed_addr constant [7 x i8] c"Job ID\00", align 1
+@.str.344 = private unnamed_addr constant [15 x i8] c"spoolss.job.id\00", align 1
+@.str.345 = private unnamed_addr constant [26 x i8] c"Job identification number\00", align 1
+@hf_job_status = internal global i32 0, align 4
+@.str.346 = private unnamed_addr constant [11 x i8] c"Job status\00", align 1
+@.str.347 = private unnamed_addr constant [19 x i8] c"spoolss.job.status\00", align 1
+@hf_job_status_paused = internal global i32 0, align 4
+@.str.348 = private unnamed_addr constant [7 x i8] c"Paused\00", align 1
+@.str.349 = private unnamed_addr constant [26 x i8] c"spoolss.job.status.paused\00", align 1
+@tfs_job_status_paused = internal constant %struct.true_false_string { ptr @.str.1001, ptr @.str.1002 }, align 8
+@hf_job_status_error = internal global i32 0, align 4
+@.str.350 = private unnamed_addr constant [6 x i8] c"Error\00", align 1
+@.str.351 = private unnamed_addr constant [25 x i8] c"spoolss.job.status.error\00", align 1
+@tfs_job_status_error = internal constant %struct.true_false_string { ptr @.str.1003, ptr @.str.1004 }, align 8
+@hf_job_status_deleting = internal global i32 0, align 4
+@.str.352 = private unnamed_addr constant [9 x i8] c"Deleting\00", align 1
+@.str.353 = private unnamed_addr constant [28 x i8] c"spoolss.job.status.deleting\00", align 1
+@tfs_job_status_deleting = internal constant %struct.true_false_string { ptr @.str.1005, ptr @.str.1006 }, align 8
+@hf_job_status_spooling = internal global i32 0, align 4
+@.str.354 = private unnamed_addr constant [9 x i8] c"Spooling\00", align 1
+@.str.355 = private unnamed_addr constant [28 x i8] c"spoolss.job.status.spooling\00", align 1
+@tfs_job_status_spooling = internal constant %struct.true_false_string { ptr @.str.1007, ptr @.str.1008 }, align 8
+@hf_job_status_printing = internal global i32 0, align 4
+@.str.356 = private unnamed_addr constant [9 x i8] c"Printing\00", align 1
+@.str.357 = private unnamed_addr constant [28 x i8] c"spoolss.job.status.printing\00", align 1
+@tfs_job_status_printing = internal constant %struct.true_false_string { ptr @.str.1009, ptr @.str.1010 }, align 8
+@hf_job_status_offline = internal global i32 0, align 4
+@.str.358 = private unnamed_addr constant [8 x i8] c"Offline\00", align 1
+@.str.359 = private unnamed_addr constant [27 x i8] c"spoolss.job.status.offline\00", align 1
+@tfs_job_status_offline = internal constant %struct.true_false_string { ptr @.str.1011, ptr @.str.1012 }, align 8
+@hf_job_status_paperout = internal global i32 0, align 4
+@.str.360 = private unnamed_addr constant [9 x i8] c"Paperout\00", align 1
+@.str.361 = private unnamed_addr constant [28 x i8] c"spoolss.job.status.paperout\00", align 1
+@tfs_job_status_paperout = internal constant %struct.true_false_string { ptr @.str.1013, ptr @.str.1014 }, align 8
+@hf_job_status_printed = internal global i32 0, align 4
+@.str.362 = private unnamed_addr constant [8 x i8] c"Printed\00", align 1
+@.str.363 = private unnamed_addr constant [27 x i8] c"spoolss.job.status.printed\00", align 1
+@tfs_job_status_printed = internal constant %struct.true_false_string { ptr @.str.1015, ptr @.str.1016 }, align 8
+@hf_job_status_deleted = internal global i32 0, align 4
+@.str.364 = private unnamed_addr constant [8 x i8] c"Deleted\00", align 1
+@.str.365 = private unnamed_addr constant [27 x i8] c"spoolss.job.status.deleted\00", align 1
+@tfs_job_status_deleted = internal constant %struct.true_false_string { ptr @.str.1017, ptr @.str.1018 }, align 8
+@hf_job_status_blocked = internal global i32 0, align 4
+@.str.366 = private unnamed_addr constant [8 x i8] c"Blocked\00", align 1
+@.str.367 = private unnamed_addr constant [27 x i8] c"spoolss.job.status.blocked\00", align 1
+@tfs_job_status_blocked = internal constant %struct.true_false_string { ptr @.str.1019, ptr @.str.1020 }, align 8
+@hf_job_status_user_intervention = internal global i32 0, align 4
+@.str.368 = private unnamed_addr constant [18 x i8] c"User intervention\00", align 1
+@.str.369 = private unnamed_addr constant [37 x i8] c"spoolss.job.status.user_intervention\00", align 1
+@tfs_job_status_user_intervention = internal constant %struct.true_false_string { ptr @.str.1021, ptr @.str.1022 }, align 8
+@hf_job_priority = internal global i32 0, align 4
+@.str.370 = private unnamed_addr constant [13 x i8] c"Job priority\00", align 1
+@.str.371 = private unnamed_addr constant [21 x i8] c"spoolss.job.priority\00", align 1
+@hf_job_position = internal global i32 0, align 4
+@.str.372 = private unnamed_addr constant [13 x i8] c"Job position\00", align 1
+@.str.373 = private unnamed_addr constant [21 x i8] c"spoolss.job.position\00", align 1
+@hf_job_totalpages = internal global i32 0, align 4
+@.str.374 = private unnamed_addr constant [16 x i8] c"Job total pages\00", align 1
+@.str.375 = private unnamed_addr constant [23 x i8] c"spoolss.job.totalpages\00", align 1
+@hf_job_totalbytes = internal global i32 0, align 4
+@.str.376 = private unnamed_addr constant [16 x i8] c"Job total bytes\00", align 1
+@.str.377 = private unnamed_addr constant [23 x i8] c"spoolss.job.totalbytes\00", align 1
+@hf_job_bytesprinted = internal global i32 0, align 4
+@.str.378 = private unnamed_addr constant [18 x i8] c"Job bytes printed\00", align 1
+@.str.379 = private unnamed_addr constant [25 x i8] c"spoolss.job.bytesprinted\00", align 1
+@hf_job_pagesprinted = internal global i32 0, align 4
+@.str.380 = private unnamed_addr constant [18 x i8] c"Job pages printed\00", align 1
+@.str.381 = private unnamed_addr constant [25 x i8] c"spoolss.job.pagesprinted\00", align 1
+@hf_job_size = internal global i32 0, align 4
+@.str.382 = private unnamed_addr constant [9 x i8] c"Job size\00", align 1
+@.str.383 = private unnamed_addr constant [17 x i8] c"spoolss.job.size\00", align 1
+@hf_form = internal global i32 0, align 4
+@.str.384 = private unnamed_addr constant [13 x i8] c"spoolss.form\00", align 1
+@.str.385 = private unnamed_addr constant [6 x i8] c"Level\00", align 1
+@.str.386 = private unnamed_addr constant [19 x i8] c"spoolss.form.level\00", align 1
+@hf_form_name = internal global i32 0, align 4
+@.str.387 = private unnamed_addr constant [5 x i8] c"Name\00", align 1
+@.str.388 = private unnamed_addr constant [18 x i8] c"spoolss.form.name\00", align 1
+@hf_form_flags = internal global i32 0, align 4
+@.str.389 = private unnamed_addr constant [19 x i8] c"spoolss.form.flags\00", align 1
+@form_type_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.586 }, %struct._value_string { i32 1, ptr @.str.1023 }, %struct._value_string { i32 2, ptr @.str.1024 }, %struct._value_string zeroinitializer], align 16
+@hf_form_unknown = internal global i32 0, align 4
+@.str.390 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.391 = private unnamed_addr constant [21 x i8] c"spoolss.form.unknown\00", align 1
+@hf_form_width = internal global i32 0, align 4
+@.str.392 = private unnamed_addr constant [6 x i8] c"Width\00", align 1
+@.str.393 = private unnamed_addr constant [19 x i8] c"spoolss.form.width\00", align 1
+@hf_form_height = internal global i32 0, align 4
+@.str.394 = private unnamed_addr constant [7 x i8] c"Height\00", align 1
+@.str.395 = private unnamed_addr constant [20 x i8] c"spoolss.form.height\00", align 1
+@hf_form_left_margin = internal global i32 0, align 4
+@.str.396 = private unnamed_addr constant [12 x i8] c"Left margin\00", align 1
+@.str.397 = private unnamed_addr constant [18 x i8] c"spoolss.form.left\00", align 1
+@.str.398 = private unnamed_addr constant [5 x i8] c"Left\00", align 1
+@hf_form_top_margin = internal global i32 0, align 4
+@.str.399 = private unnamed_addr constant [4 x i8] c"Top\00", align 1
+@.str.400 = private unnamed_addr constant [17 x i8] c"spoolss.form.top\00", align 1
+@hf_form_horiz_len = internal global i32 0, align 4
+@.str.401 = private unnamed_addr constant [11 x i8] c"Horizontal\00", align 1
+@.str.402 = private unnamed_addr constant [19 x i8] c"spoolss.form.horiz\00", align 1
+@hf_form_vert_len = internal global i32 0, align 4
+@.str.403 = private unnamed_addr constant [9 x i8] c"Vertical\00", align 1
+@.str.404 = private unnamed_addr constant [18 x i8] c"spoolss.form.vert\00", align 1
+@hf_enumforms_num = internal global i32 0, align 4
+@.str.405 = private unnamed_addr constant [4 x i8] c"Num\00", align 1
+@.str.406 = private unnamed_addr constant [22 x i8] c"spoolss.enumforms.num\00", align 1
+@.str.407 = private unnamed_addr constant [8 x i8] c"Version\00", align 1
+@.str.408 = private unnamed_addr constant [31 x i8] c"spoolss.notify_options.version\00", align 1
+@hf_notify_options_flags = internal global i32 0, align 4
+@.str.409 = private unnamed_addr constant [29 x i8] c"spoolss.notify_options.flags\00", align 1
+@.str.410 = private unnamed_addr constant [6 x i8] c"Count\00", align 1
+@.str.411 = private unnamed_addr constant [29 x i8] c"spoolss.notify_options.count\00", align 1
+@hf_notify_option_type = internal global i32 0, align 4
+@.str.412 = private unnamed_addr constant [27 x i8] c"spoolss.notify_option.type\00", align 1
+@printer_notify_types = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1025 }, %struct._value_string { i32 1, ptr @.str.1026 }, %struct._value_string zeroinitializer], align 16
+@hf_notify_option_reserved1 = internal global i32 0, align 4
+@.str.413 = private unnamed_addr constant [32 x i8] c"spoolss.notify_option.reserved1\00", align 1
+@hf_notify_option_reserved2 = internal global i32 0, align 4
+@.str.414 = private unnamed_addr constant [32 x i8] c"spoolss.notify_option.reserved2\00", align 1
+@hf_notify_option_reserved3 = internal global i32 0, align 4
+@.str.415 = private unnamed_addr constant [10 x i8] c"Reserved3\00", align 1
+@.str.416 = private unnamed_addr constant [32 x i8] c"spoolss.notify_option.reserved3\00", align 1
+@hf_notify_option_count = internal global i32 0, align 4
+@.str.417 = private unnamed_addr constant [28 x i8] c"spoolss.notify_option.count\00", align 1
+@hf_notify_option_data_count = internal global i32 0, align 4
+@.str.418 = private unnamed_addr constant [33 x i8] c"spoolss.notify_option_data.count\00", align 1
+@hf_notify_options_flags_refresh = internal global i32 0, align 4
+@.str.419 = private unnamed_addr constant [8 x i8] c"Refresh\00", align 1
+@.str.420 = private unnamed_addr constant [37 x i8] c"spoolss.notify_options.flags.refresh\00", align 1
+@tfs_notify_options_flags_refresh = internal constant %struct.true_false_string { ptr @.str.1027, ptr @.str.1028 }, align 8
+@.str.421 = private unnamed_addr constant [26 x i8] c"spoolss.notify_info.count\00", align 1
+@.str.422 = private unnamed_addr constant [28 x i8] c"spoolss.notify_info.version\00", align 1
+@.str.423 = private unnamed_addr constant [26 x i8] c"spoolss.notify_info.flags\00", align 1
+@hf_notify_info_data_type = internal global i32 0, align 4
+@.str.424 = private unnamed_addr constant [30 x i8] c"spoolss.notify_info_data.type\00", align 1
+@hf_notify_field = internal global i32 0, align 4
+@.str.425 = private unnamed_addr constant [6 x i8] c"Field\00", align 1
+@.str.426 = private unnamed_addr constant [21 x i8] c"spoolss.notify_field\00", align 1
+@hf_notify_info_data_count = internal global i32 0, align 4
+@.str.427 = private unnamed_addr constant [31 x i8] c"spoolss.notify_info_data.count\00", align 1
+@hf_notify_info_data_id = internal global i32 0, align 4
+@.str.428 = private unnamed_addr constant [7 x i8] c"Job Id\00", align 1
+@.str.429 = private unnamed_addr constant [31 x i8] c"spoolss.notify_info_data.jobid\00", align 1
+@hf_notify_info_data_value1 = internal global i32 0, align 4
+@.str.430 = private unnamed_addr constant [7 x i8] c"Value1\00", align 1
+@.str.431 = private unnamed_addr constant [32 x i8] c"spoolss.notify_info_data.value1\00", align 1
+@hf_notify_info_data_value2 = internal global i32 0, align 4
+@.str.432 = private unnamed_addr constant [7 x i8] c"Value2\00", align 1
+@.str.433 = private unnamed_addr constant [32 x i8] c"spoolss.notify_info_data.value2\00", align 1
+@hf_notify_info_data_bufsize = internal global i32 0, align 4
+@.str.434 = private unnamed_addr constant [33 x i8] c"spoolss.notify_info_data.bufsize\00", align 1
+@hf_notify_info_data_buffer = internal global i32 0, align 4
+@.str.435 = private unnamed_addr constant [7 x i8] c"Buffer\00", align 1
+@.str.436 = private unnamed_addr constant [32 x i8] c"spoolss.notify_info_data.buffer\00", align 1
+@hf_notify_info_data_buffer_len = internal global i32 0, align 4
+@.str.437 = private unnamed_addr constant [14 x i8] c"Buffer length\00", align 1
+@.str.438 = private unnamed_addr constant [36 x i8] c"spoolss.notify_info_data.buffer.len\00", align 1
+@hf_notify_info_data_buffer_data = internal global i32 0, align 4
+@.str.439 = private unnamed_addr constant [37 x i8] c"spoolss.notify_info_data.buffer.data\00", align 1
+@hf_rffpcnex_options = internal global i32 0, align 4
+@.str.440 = private unnamed_addr constant [8 x i8] c"Options\00", align 1
+@.str.441 = private unnamed_addr constant [25 x i8] c"spoolss.rffpcnex.options\00", align 1
+@.str.442 = private unnamed_addr constant [17 x i8] c"RFFPCNEX options\00", align 1
+@hf_printerlocal = internal global i32 0, align 4
+@.str.443 = private unnamed_addr constant [14 x i8] c"Printer local\00", align 1
+@.str.444 = private unnamed_addr constant [22 x i8] c"spoolss.printer_local\00", align 1
+@hf_rffpcnex_flags = internal global i32 0, align 4
+@.str.445 = private unnamed_addr constant [15 x i8] c"RFFPCNEX flags\00", align 1
+@.str.446 = private unnamed_addr constant [23 x i8] c"spoolss.rffpcnex.flags\00", align 1
+@hf_rffpcnex_flags_add_printer = internal global i32 0, align 4
+@.str.447 = private unnamed_addr constant [12 x i8] c"Add printer\00", align 1
+@.str.448 = private unnamed_addr constant [35 x i8] c"spoolss.rffpcnex.flags.add_printer\00", align 1
+@tfs_rffpcnex_flags_add_printer = internal constant %struct.true_false_string { ptr @.str.1029, ptr @.str.1030 }, align 8
+@hf_rffpcnex_flags_set_printer = internal global i32 0, align 4
+@.str.449 = private unnamed_addr constant [12 x i8] c"Set printer\00", align 1
+@.str.450 = private unnamed_addr constant [35 x i8] c"spoolss.rffpcnex.flags.set_printer\00", align 1
+@tfs_rffpcnex_flags_set_printer = internal constant %struct.true_false_string { ptr @.str.1031, ptr @.str.1032 }, align 8
+@hf_rffpcnex_flags_delete_printer = internal global i32 0, align 4
+@.str.451 = private unnamed_addr constant [15 x i8] c"Delete printer\00", align 1
+@.str.452 = private unnamed_addr constant [38 x i8] c"spoolss.rffpcnex.flags.delete_printer\00", align 1
+@tfs_rffpcnex_flags_delete_printer = internal constant %struct.true_false_string { ptr @.str.1033, ptr @.str.1034 }, align 8
+@hf_rffpcnex_flags_add_job = internal global i32 0, align 4
+@.str.453 = private unnamed_addr constant [8 x i8] c"Add job\00", align 1
+@.str.454 = private unnamed_addr constant [31 x i8] c"spoolss.rffpcnex.flags.add_job\00", align 1
+@tfs_rffpcnex_flags_add_job = internal constant %struct.true_false_string { ptr @.str.1035, ptr @.str.1036 }, align 8
+@hf_rffpcnex_flags_set_job = internal global i32 0, align 4
+@.str.455 = private unnamed_addr constant [8 x i8] c"Set job\00", align 1
+@.str.456 = private unnamed_addr constant [31 x i8] c"spoolss.rffpcnex.flags.set_job\00", align 1
+@tfs_rffpcnex_flags_set_job = internal constant %struct.true_false_string { ptr @.str.1037, ptr @.str.1038 }, align 8
+@hf_rffpcnex_flags_delete_job = internal global i32 0, align 4
+@.str.457 = private unnamed_addr constant [11 x i8] c"Delete job\00", align 1
+@.str.458 = private unnamed_addr constant [34 x i8] c"spoolss.rffpcnex.flags.delete_job\00", align 1
+@tfs_rffpcnex_flags_delete_job = internal constant %struct.true_false_string { ptr @.str.1039, ptr @.str.1040 }, align 8
+@hf_rffpcnex_flags_write_job = internal global i32 0, align 4
+@.str.459 = private unnamed_addr constant [10 x i8] c"Write job\00", align 1
+@.str.460 = private unnamed_addr constant [33 x i8] c"spoolss.rffpcnex.flags.write_job\00", align 1
+@tfs_rffpcnex_flags_write_job = internal constant %struct.true_false_string { ptr @.str.1041, ptr @.str.1042 }, align 8
+@hf_rffpcnex_flags_add_form = internal global i32 0, align 4
+@.str.461 = private unnamed_addr constant [9 x i8] c"Add form\00", align 1
+@.str.462 = private unnamed_addr constant [32 x i8] c"spoolss.rffpcnex.flags.add_form\00", align 1
+@tfs_rffpcnex_flags_add_form = internal constant %struct.true_false_string { ptr @.str.1043, ptr @.str.1044 }, align 8
+@hf_rffpcnex_flags_set_form = internal global i32 0, align 4
+@.str.463 = private unnamed_addr constant [9 x i8] c"Set form\00", align 1
+@.str.464 = private unnamed_addr constant [32 x i8] c"spoolss.rffpcnex.flags.set_form\00", align 1
+@tfs_rffpcnex_flags_set_form = internal constant %struct.true_false_string { ptr @.str.1045, ptr @.str.1046 }, align 8
+@hf_rffpcnex_flags_delete_form = internal global i32 0, align 4
+@.str.465 = private unnamed_addr constant [12 x i8] c"Delete form\00", align 1
+@.str.466 = private unnamed_addr constant [35 x i8] c"spoolss.rffpcnex.flags.delete_form\00", align 1
+@tfs_rffpcnex_flags_delete_form = internal constant %struct.true_false_string { ptr @.str.1047, ptr @.str.1048 }, align 8
+@hf_rffpcnex_flags_add_port = internal global i32 0, align 4
+@.str.467 = private unnamed_addr constant [9 x i8] c"Add port\00", align 1
+@.str.468 = private unnamed_addr constant [32 x i8] c"spoolss.rffpcnex.flags.add_port\00", align 1
+@tfs_rffpcnex_flags_add_port = internal constant %struct.true_false_string { ptr @.str.1049, ptr @.str.1050 }, align 8
+@hf_rffpcnex_flags_configure_port = internal global i32 0, align 4
+@.str.469 = private unnamed_addr constant [15 x i8] c"Configure port\00", align 1
+@.str.470 = private unnamed_addr constant [38 x i8] c"spoolss.rffpcnex.flags.configure_port\00", align 1
+@tfs_rffpcnex_flags_configure_port = internal constant %struct.true_false_string { ptr @.str.1051, ptr @.str.1052 }, align 8
+@hf_rffpcnex_flags_delete_port = internal global i32 0, align 4
+@.str.471 = private unnamed_addr constant [12 x i8] c"Delete port\00", align 1
+@.str.472 = private unnamed_addr constant [35 x i8] c"spoolss.rffpcnex.flags.delete_port\00", align 1
+@tfs_rffpcnex_flags_delete_port = internal constant %struct.true_false_string { ptr @.str.1053, ptr @.str.1054 }, align 8
+@hf_rffpcnex_flags_add_print_processor = internal global i32 0, align 4
+@.str.473 = private unnamed_addr constant [14 x i8] c"Add processor\00", align 1
+@.str.474 = private unnamed_addr constant [37 x i8] c"spoolss.rffpcnex.flags.add_processor\00", align 1
+@tfs_rffpcnex_flags_add_print_processor = internal constant %struct.true_false_string { ptr @.str.1055, ptr @.str.1056 }, align 8
+@hf_rffpcnex_flags_delete_print_processor = internal global i32 0, align 4
+@.str.475 = private unnamed_addr constant [17 x i8] c"Delete processor\00", align 1
+@.str.476 = private unnamed_addr constant [40 x i8] c"spoolss.rffpcnex.flags.delete_processor\00", align 1
+@tfs_rffpcnex_flags_delete_print_processor = internal constant %struct.true_false_string { ptr @.str.1055, ptr @.str.1056 }, align 8
+@hf_rffpcnex_flags_add_driver = internal global i32 0, align 4
+@.str.477 = private unnamed_addr constant [11 x i8] c"Add driver\00", align 1
+@.str.478 = private unnamed_addr constant [34 x i8] c"spoolss.rffpcnex.flags.add_driver\00", align 1
+@tfs_rffpcnex_flags_add_driver = internal constant %struct.true_false_string { ptr @.str.1055, ptr @.str.1056 }, align 8
+@hf_rffpcnex_flags_set_driver = internal global i32 0, align 4
+@.str.479 = private unnamed_addr constant [11 x i8] c"Set driver\00", align 1
+@.str.480 = private unnamed_addr constant [34 x i8] c"spoolss.rffpcnex.flags.set_driver\00", align 1
+@tfs_rffpcnex_flags_set_driver = internal constant %struct.true_false_string { ptr @.str.1057, ptr @.str.1058 }, align 8
+@hf_rffpcnex_flags_delete_driver = internal global i32 0, align 4
+@.str.481 = private unnamed_addr constant [14 x i8] c"Delete driver\00", align 1
+@.str.482 = private unnamed_addr constant [37 x i8] c"spoolss.rffpcnex.flags.delete_driver\00", align 1
+@tfs_rffpcnex_flags_delete_driver = internal constant %struct.true_false_string { ptr @.str.1059, ptr @.str.1060 }, align 8
+@hf_rffpcnex_flags_timeout = internal global i32 0, align 4
+@.str.483 = private unnamed_addr constant [8 x i8] c"Timeout\00", align 1
+@.str.484 = private unnamed_addr constant [31 x i8] c"spoolss.rffpcnex.flags.timeout\00", align 1
+@tfs_rffpcnex_flags_timeout = internal constant %struct.true_false_string { ptr @.str.1061, ptr @.str.1062 }, align 8
+@hf_rffpcnex_flags_failed_printer_connection = internal global i32 0, align 4
+@.str.485 = private unnamed_addr constant [26 x i8] c"Failed printer connection\00", align 1
+@.str.486 = private unnamed_addr constant [49 x i8] c"spoolss.rffpcnex.flags.failed_connection_printer\00", align 1
+@tfs_rffpcnex_flags_failed_connection_printer = internal constant %struct.true_false_string { ptr @.str.1063, ptr @.str.1064 }, align 8
+@hf_rrpcn_changelow = internal global i32 0, align 4
+@.str.487 = private unnamed_addr constant [11 x i8] c"Change low\00", align 1
+@.str.488 = private unnamed_addr constant [24 x i8] c"spoolss.rrpcn.changelow\00", align 1
+@hf_rrpcn_changehigh = internal global i32 0, align 4
+@.str.489 = private unnamed_addr constant [12 x i8] c"Change high\00", align 1
+@.str.490 = private unnamed_addr constant [25 x i8] c"spoolss.rrpcn.changehigh\00", align 1
+@hf_rrpcn_unk0 = internal global i32 0, align 4
+@.str.491 = private unnamed_addr constant [10 x i8] c"Unknown 0\00", align 1
+@.str.492 = private unnamed_addr constant [19 x i8] c"spoolss.rrpcn.unk0\00", align 1
+@hf_rrpcn_unk1 = internal global i32 0, align 4
+@.str.493 = private unnamed_addr constant [10 x i8] c"Unknown 1\00", align 1
+@.str.494 = private unnamed_addr constant [19 x i8] c"spoolss.rrpcn.unk1\00", align 1
+@hf_replyopenprinter_unk0 = internal global i32 0, align 4
+@.str.495 = private unnamed_addr constant [30 x i8] c"spoolss.replyopenprinter.unk0\00", align 1
+@hf_replyopenprinter_unk1 = internal global i32 0, align 4
+@.str.496 = private unnamed_addr constant [30 x i8] c"spoolss.replyopenprinter.unk1\00", align 1
+@hf_devmode_devicename = internal global i32 0, align 4
+@.str.497 = private unnamed_addr constant [11 x i8] c"DeviceName\00", align 1
+@.str.498 = private unnamed_addr constant [27 x i8] c"spoolss.devmode.devicename\00", align 1
+@hf_devmode_form_name = internal global i32 0, align 4
+@.str.499 = private unnamed_addr constant [9 x i8] c"FormName\00", align 1
+@.str.500 = private unnamed_addr constant [26 x i8] c"spoolss.devmode.form_name\00", align 1
+@hf_relative_string = internal global i32 0, align 4
+@.str.501 = private unnamed_addr constant [7 x i8] c"String\00", align 1
+@.str.502 = private unnamed_addr constant [24 x i8] c"spoolss.relative_string\00", align 1
+@hf_value_name = internal global i32 0, align 4
+@.str.503 = private unnamed_addr constant [11 x i8] c"Value Name\00", align 1
+@.str.504 = private unnamed_addr constant [19 x i8] c"spoolss.value_name\00", align 1
+@hf_keybuffer = internal global i32 0, align 4
+@.str.505 = private unnamed_addr constant [21 x i8] c"spoolss.hf_keybuffer\00", align 1
+@hf_value_string = internal global i32 0, align 4
+@.str.506 = private unnamed_addr constant [21 x i8] c"spoolss.value_string\00", align 1
+@hf_printer_attributes = internal global i32 0, align 4
+@.str.507 = private unnamed_addr constant [11 x i8] c"Attributes\00", align 1
+@.str.508 = private unnamed_addr constant [27 x i8] c"spoolss.printer_attributes\00", align 1
+@hf_printer_attributes_queued = internal global i32 0, align 4
+@.str.509 = private unnamed_addr constant [7 x i8] c"Queued\00", align 1
+@.str.510 = private unnamed_addr constant [34 x i8] c"spoolss.printer_attributes.queued\00", align 1
+@tfs_printer_attributes_queued = internal constant %struct.true_false_string { ptr @.str.1065, ptr @.str.1066 }, align 8
+@hf_printer_attributes_direct = internal global i32 0, align 4
+@.str.511 = private unnamed_addr constant [7 x i8] c"Direct\00", align 1
+@.str.512 = private unnamed_addr constant [34 x i8] c"spoolss.printer_attributes.direct\00", align 1
+@tfs_printer_attributes_direct = internal constant %struct.true_false_string { ptr @.str.1067, ptr @.str.1068 }, align 8
+@hf_printer_attributes_default = internal global i32 0, align 4
+@.str.513 = private unnamed_addr constant [21 x i8] c"Default (9x/ME only)\00", align 1
+@.str.514 = private unnamed_addr constant [35 x i8] c"spoolss.printer_attributes.default\00", align 1
+@tfs_printer_attributes_default = internal constant %struct.true_false_string { ptr @.str.1069, ptr @.str.1070 }, align 8
+@.str.515 = private unnamed_addr constant [8 x i8] c"Default\00", align 1
+@hf_printer_attributes_shared = internal global i32 0, align 4
+@.str.516 = private unnamed_addr constant [7 x i8] c"Shared\00", align 1
+@.str.517 = private unnamed_addr constant [34 x i8] c"spoolss.printer_attributes.shared\00", align 1
+@tfs_printer_attributes_shared = internal constant %struct.true_false_string { ptr @.str.1071, ptr @.str.1072 }, align 8
+@hf_printer_attributes_network = internal global i32 0, align 4
+@.str.518 = private unnamed_addr constant [8 x i8] c"Network\00", align 1
+@.str.519 = private unnamed_addr constant [35 x i8] c"spoolss.printer_attributes.network\00", align 1
+@tfs_printer_attributes_network = internal constant %struct.true_false_string { ptr @.str.1073, ptr @.str.1074 }, align 8
+@hf_printer_attributes_hidden = internal global i32 0, align 4
+@.str.520 = private unnamed_addr constant [7 x i8] c"Hidden\00", align 1
+@.str.521 = private unnamed_addr constant [34 x i8] c"spoolss.printer_attributes.hidden\00", align 1
+@tfs_printer_attributes_hidden = internal constant %struct.true_false_string { ptr @.str.1075, ptr @.str.1076 }, align 8
+@hf_printer_attributes_local = internal global i32 0, align 4
+@.str.522 = private unnamed_addr constant [6 x i8] c"Local\00", align 1
+@.str.523 = private unnamed_addr constant [33 x i8] c"spoolss.printer_attributes.local\00", align 1
+@tfs_printer_attributes_local = internal constant %struct.true_false_string { ptr @.str.1077, ptr @.str.1078 }, align 8
+@hf_printer_attributes_enable_devq = internal global i32 0, align 4
+@.str.524 = private unnamed_addr constant [12 x i8] c"Enable devq\00", align 1
+@.str.525 = private unnamed_addr constant [39 x i8] c"spoolss.printer_attributes.enable_devq\00", align 1
+@tfs_printer_attributes_enable_devq = internal constant %struct.true_false_string { ptr @.str.1079, ptr @.str.1080 }, align 8
+@.str.526 = private unnamed_addr constant [11 x i8] c"Enable evq\00", align 1
+@hf_printer_attributes_keep_printed_jobs = internal global i32 0, align 4
+@.str.527 = private unnamed_addr constant [18 x i8] c"Keep printed jobs\00", align 1
+@.str.528 = private unnamed_addr constant [45 x i8] c"spoolss.printer_attributes.keep_printed_jobs\00", align 1
+@tfs_printer_attributes_keep_printed_jobs = internal constant %struct.true_false_string { ptr @.str.1081, ptr @.str.1082 }, align 8
+@hf_printer_attributes_do_complete_first = internal global i32 0, align 4
+@.str.529 = private unnamed_addr constant [18 x i8] c"Do complete first\00", align 1
+@.str.530 = private unnamed_addr constant [45 x i8] c"spoolss.printer_attributes.do_complete_first\00", align 1
+@tfs_printer_attributes_do_complete_first = internal constant %struct.true_false_string { ptr @.str.1083, ptr @.str.1084 }, align 8
+@hf_printer_attributes_work_offline = internal global i32 0, align 4
+@.str.531 = private unnamed_addr constant [26 x i8] c"Work offline (9x/ME only)\00", align 1
+@.str.532 = private unnamed_addr constant [40 x i8] c"spoolss.printer_attributes.work_offline\00", align 1
+@tfs_printer_attributes_work_offline = internal constant %struct.true_false_string { ptr @.str.1085, ptr @.str.1086 }, align 8
+@.str.533 = private unnamed_addr constant [13 x i8] c"Work offline\00", align 1
+@hf_printer_attributes_enable_bidi = internal global i32 0, align 4
+@.str.534 = private unnamed_addr constant [25 x i8] c"Enable bidi (9x/ME only)\00", align 1
+@.str.535 = private unnamed_addr constant [39 x i8] c"spoolss.printer_attributes.enable_bidi\00", align 1
+@tfs_printer_attributes_enable_bidi = internal constant %struct.true_false_string { ptr @.str.1087, ptr @.str.1088 }, align 8
+@.str.536 = private unnamed_addr constant [12 x i8] c"Enable bidi\00", align 1
+@hf_printer_attributes_raw_only = internal global i32 0, align 4
+@.str.537 = private unnamed_addr constant [9 x i8] c"Raw only\00", align 1
+@.str.538 = private unnamed_addr constant [36 x i8] c"spoolss.printer_attributes.raw_only\00", align 1
+@tfs_printer_attributes_raw_only = internal constant %struct.true_false_string { ptr @.str.1089, ptr @.str.1090 }, align 8
+@hf_printer_attributes_published = internal global i32 0, align 4
+@.str.539 = private unnamed_addr constant [10 x i8] c"Published\00", align 1
+@.str.540 = private unnamed_addr constant [37 x i8] c"spoolss.printer_attributes.published\00", align 1
+@tfs_printer_attributes_published = internal constant %struct.true_false_string { ptr @.str.1091, ptr @.str.1092 }, align 8
+@hf_printer_driver_attributes = internal global i32 0, align 4
+@.str.541 = private unnamed_addr constant [18 x i8] c"Driver Attributes\00", align 1
+@.str.542 = private unnamed_addr constant [34 x i8] c"spoolss.printer_driver_attributes\00", align 1
+@hf_printer_driver_attributes_package_aware = internal global i32 0, align 4
+@.str.543 = private unnamed_addr constant [14 x i8] c"Package Aware\00", align 1
+@.str.544 = private unnamed_addr constant [47 x i8] c"spoolss.printer_driver_attributes.packageaware\00", align 1
+@tfs_printer_driver_attributes_package_aware = internal constant %struct.true_false_string { ptr @.str.1093, ptr @.str.1094 }, align 8
+@hf_printer_driver_attributes_xps = internal global i32 0, align 4
+@.str.545 = private unnamed_addr constant [4 x i8] c"XPS\00", align 1
+@.str.546 = private unnamed_addr constant [38 x i8] c"spoolss.printer_driver_attributes.xps\00", align 1
+@tfs_printer_driver_attributes_xps = internal constant %struct.true_false_string { ptr @.str.1095, ptr @.str.1096 }, align 8
+@hf_printer_driver_attributes_sandbox_enabled = internal global i32 0, align 4
+@.str.547 = private unnamed_addr constant [16 x i8] c"Sandbox enabled\00", align 1
+@.str.548 = private unnamed_addr constant [49 x i8] c"spoolss.printer_driver_attributes.sandboxenabled\00", align 1
+@tfs_printer_driver_attributes_sandbox_enabled = internal constant %struct.true_false_string { ptr @.str.1097, ptr @.str.1098 }, align 8
+@hf_printer_driver_attributes_class = internal global i32 0, align 4
+@.str.549 = private unnamed_addr constant [13 x i8] c"Class Driver\00", align 1
+@.str.550 = private unnamed_addr constant [40 x i8] c"spoolss.printer_driver_attributes.class\00", align 1
+@tfs_printer_driver_attributes_class = internal constant %struct.true_false_string { ptr @.str.1099, ptr @.str.1100 }, align 8
+@hf_printer_driver_attributes_derived = internal global i32 0, align 4
+@.str.551 = private unnamed_addr constant [15 x i8] c"Derived Driver\00", align 1
+@.str.552 = private unnamed_addr constant [42 x i8] c"spoolss.printer_driver_attributes.derived\00", align 1
+@tfs_printer_driver_attributes_derived = internal constant %struct.true_false_string { ptr @.str.1101, ptr @.str.1102 }, align 8
+@hf_printer_driver_attributes_not_shareable = internal global i32 0, align 4
+@.str.553 = private unnamed_addr constant [14 x i8] c"Not Shareable\00", align 1
+@.str.554 = private unnamed_addr constant [47 x i8] c"spoolss.printer_driver_attributes.notshareable\00", align 1
+@tfs_printer_driver_attributes_not_shareable = internal constant %struct.true_false_string { ptr @.str.1103, ptr @.str.1104 }, align 8
+@hf_printer_driver_attributes_category_fax = internal global i32 0, align 4
+@.str.555 = private unnamed_addr constant [13 x i8] c"Category Fax\00", align 1
+@.str.556 = private unnamed_addr constant [46 x i8] c"spoolss.printer_driver_attributes.categoryfax\00", align 1
+@tfs_printer_driver_attributes_category_fax = internal constant %struct.true_false_string { ptr @.str.1105, ptr @.str.1106 }, align 8
+@hf_printer_driver_attributes_category_file = internal global i32 0, align 4
+@.str.557 = private unnamed_addr constant [14 x i8] c"Category File\00", align 1
+@.str.558 = private unnamed_addr constant [47 x i8] c"spoolss.printer_driver_attributes.categoryfile\00", align 1
+@tfs_printer_driver_attributes_category_file = internal constant %struct.true_false_string { ptr @.str.1107, ptr @.str.1108 }, align 8
+@hf_printer_driver_attributes_category_virtual = internal global i32 0, align 4
+@.str.559 = private unnamed_addr constant [17 x i8] c"Category Virtual\00", align 1
+@.str.560 = private unnamed_addr constant [50 x i8] c"spoolss.printer_driver_attributes.categoryvirtual\00", align 1
+@tfs_printer_driver_attributes_category_virtual = internal constant %struct.true_false_string { ptr @.str.1109, ptr @.str.1110 }, align 8
+@hf_printer_driver_attributes_category_service = internal global i32 0, align 4
+@.str.561 = private unnamed_addr constant [17 x i8] c"Category Service\00", align 1
+@.str.562 = private unnamed_addr constant [50 x i8] c"spoolss.printer_driver_attributes.categoryservice\00", align 1
+@tfs_printer_driver_attributes_category_service = internal constant %struct.true_false_string { ptr @.str.1111, ptr @.str.1112 }, align 8
+@hf_printer_driver_attributes_soft_reset_required = internal global i32 0, align 4
+@.str.563 = private unnamed_addr constant [20 x i8] c"Soft Reset Required\00", align 1
+@.str.564 = private unnamed_addr constant [52 x i8] c"spoolss.printer_driver_attributes.softresetrequired\00", align 1
+@tfs_printer_driver_attributes_soft_reset_required = internal constant %struct.true_false_string { ptr @.str.1113, ptr @.str.1114 }, align 8
+@hf_printer_driver_attributes_category_3d = internal global i32 0, align 4
+@.str.565 = private unnamed_addr constant [12 x i8] c"Category 3D\00", align 1
+@.str.566 = private unnamed_addr constant [45 x i8] c"spoolss.printer_driver_attributes.category3d\00", align 1
+@tfs_printer_driver_attributes_category_3d = internal constant %struct.true_false_string { ptr @.str.1115, ptr @.str.1116 }, align 8
+@hf_time_year = internal global i32 0, align 4
+@.str.567 = private unnamed_addr constant [5 x i8] c"Year\00", align 1
+@.str.568 = private unnamed_addr constant [18 x i8] c"spoolss.time.year\00", align 1
+@hf_time_month = internal global i32 0, align 4
+@.str.569 = private unnamed_addr constant [6 x i8] c"Month\00", align 1
+@.str.570 = private unnamed_addr constant [19 x i8] c"spoolss.time.month\00", align 1
+@hf_time_dow = internal global i32 0, align 4
+@.str.571 = private unnamed_addr constant [12 x i8] c"Day of week\00", align 1
+@.str.572 = private unnamed_addr constant [17 x i8] c"spoolss.time.dow\00", align 1
+@hf_time_day = internal global i32 0, align 4
+@.str.573 = private unnamed_addr constant [4 x i8] c"Day\00", align 1
+@.str.574 = private unnamed_addr constant [17 x i8] c"spoolss.time.day\00", align 1
+@hf_time_hour = internal global i32 0, align 4
+@.str.575 = private unnamed_addr constant [5 x i8] c"Hour\00", align 1
+@.str.576 = private unnamed_addr constant [18 x i8] c"spoolss.time.hour\00", align 1
+@hf_time_minute = internal global i32 0, align 4
+@.str.577 = private unnamed_addr constant [7 x i8] c"Minute\00", align 1
+@.str.578 = private unnamed_addr constant [20 x i8] c"spoolss.time.minute\00", align 1
+@hf_time_second = internal global i32 0, align 4
+@.str.579 = private unnamed_addr constant [7 x i8] c"Second\00", align 1
+@.str.580 = private unnamed_addr constant [20 x i8] c"spoolss.time.second\00", align 1
+@hf_time_msec = internal global i32 0, align 4
+@.str.581 = private unnamed_addr constant [12 x i8] c"Millisecond\00", align 1
+@.str.582 = private unnamed_addr constant [18 x i8] c"spoolss.time.msec\00", align 1
+@hf_userlevel_size = internal global i32 0, align 4
+@.str.583 = private unnamed_addr constant [23 x i8] c"spoolss.userlevel.size\00", align 1
+@hf_userlevel_client = internal global i32 0, align 4
+@.str.584 = private unnamed_addr constant [7 x i8] c"Client\00", align 1
+@.str.585 = private unnamed_addr constant [25 x i8] c"spoolss.userlevel.client\00", align 1
+@hf_userlevel_user = internal global i32 0, align 4
+@.str.586 = private unnamed_addr constant [5 x i8] c"User\00", align 1
+@.str.587 = private unnamed_addr constant [23 x i8] c"spoolss.userlevel.user\00", align 1
+@hf_userlevel_build = internal global i32 0, align 4
+@.str.588 = private unnamed_addr constant [6 x i8] c"Build\00", align 1
+@.str.589 = private unnamed_addr constant [24 x i8] c"spoolss.userlevel.build\00", align 1
+@hf_userlevel_major = internal global i32 0, align 4
+@.str.590 = private unnamed_addr constant [6 x i8] c"Major\00", align 1
+@.str.591 = private unnamed_addr constant [24 x i8] c"spoolss.userlevel.major\00", align 1
+@hf_userlevel_minor = internal global i32 0, align 4
+@.str.592 = private unnamed_addr constant [6 x i8] c"Minor\00", align 1
+@.str.593 = private unnamed_addr constant [24 x i8] c"spoolss.userlevel.minor\00", align 1
+@hf_userlevel_processor = internal global i32 0, align 4
+@.str.594 = private unnamed_addr constant [10 x i8] c"Processor\00", align 1
+@.str.595 = private unnamed_addr constant [28 x i8] c"spoolss.userlevel.processor\00", align 1
+@hf_enumprinterdataex_name_offset = internal global i32 0, align 4
+@.str.596 = private unnamed_addr constant [12 x i8] c"Name offset\00", align 1
+@.str.597 = private unnamed_addr constant [38 x i8] c"spoolss.enumprinterdataex.name_offset\00", align 1
+@hf_enumprinterdataex_name_len = internal global i32 0, align 4
+@.str.598 = private unnamed_addr constant [9 x i8] c"Name len\00", align 1
+@.str.599 = private unnamed_addr constant [35 x i8] c"spoolss.enumprinterdataex.name_len\00", align 1
+@hf_enumprinterdataex_name = internal global i32 0, align 4
+@.str.600 = private unnamed_addr constant [31 x i8] c"spoolss.enumprinterdataex.name\00", align 1
+@hf_enumprinterdataex_val_offset = internal global i32 0, align 4
+@.str.601 = private unnamed_addr constant [13 x i8] c"Value offset\00", align 1
+@.str.602 = private unnamed_addr constant [39 x i8] c"spoolss.enumprinterdataex.value_offset\00", align 1
+@hf_enumprinterdataex_val_len = internal global i32 0, align 4
+@.str.603 = private unnamed_addr constant [10 x i8] c"Value len\00", align 1
+@.str.604 = private unnamed_addr constant [36 x i8] c"spoolss.enumprinterdataex.value_len\00", align 1
+@hf_enumprinterdataex_val_dword_high = internal global i32 0, align 4
+@.str.605 = private unnamed_addr constant [19 x i8] c"DWORD value (high)\00", align 1
+@.str.606 = private unnamed_addr constant [41 x i8] c"spoolss.enumprinterdataex.val_dword.high\00", align 1
+@hf_enumprinterdataex_value_null = internal global i32 0, align 4
+@.str.607 = private unnamed_addr constant [35 x i8] c"spoolss.enumprinterdataex.val_null\00", align 1
+@hf_enumprinterdataex_value_uint = internal global i32 0, align 4
+@.str.608 = private unnamed_addr constant [35 x i8] c"spoolss.enumprinterdataex.val_uint\00", align 1
+@hf_enumprinterdataex_value_binary = internal global i32 0, align 4
+@.str.609 = private unnamed_addr constant [37 x i8] c"spoolss.enumprinterdataex.val_binary\00", align 1
+@hf_enumprinterdataex_value_multi_sz = internal global i32 0, align 4
+@.str.610 = private unnamed_addr constant [39 x i8] c"spoolss.enumprinterdataex.val_multi_sz\00", align 1
+@hf_enumprinterdataex_val_dword_low = internal global i32 0, align 4
+@.str.611 = private unnamed_addr constant [18 x i8] c"DWORD value (low)\00", align 1
+@.str.612 = private unnamed_addr constant [40 x i8] c"spoolss.enumprinterdataex.val_dword.low\00", align 1
+@hf_routerreplyprinter_condition = internal global i32 0, align 4
+@.str.613 = private unnamed_addr constant [10 x i8] c"Condition\00", align 1
+@.str.614 = private unnamed_addr constant [37 x i8] c"spoolss.routerreplyprinter.condition\00", align 1
+@hf_routerreplyprinter_unknown1 = internal global i32 0, align 4
+@.str.615 = private unnamed_addr constant [9 x i8] c"Unknown1\00", align 1
+@.str.616 = private unnamed_addr constant [36 x i8] c"spoolss.routerreplyprinter.unknown1\00", align 1
+@hf_routerreplyprinter_changeid = internal global i32 0, align 4
+@.str.617 = private unnamed_addr constant [10 x i8] c"Change id\00", align 1
+@.str.618 = private unnamed_addr constant [36 x i8] c"spoolss.routerreplyprinter.changeid\00", align 1
+@hf_keybuffer_size = internal global i32 0, align 4
+@.str.619 = private unnamed_addr constant [16 x i8] c"Key Buffer size\00", align 1
+@.str.620 = private unnamed_addr constant [23 x i8] c"spoolss.keybuffer.size\00", align 1
+@hf_setjob_cmd = internal global i32 0, align 4
+@.str.621 = private unnamed_addr constant [16 x i8] c"Set job command\00", align 1
+@.str.622 = private unnamed_addr constant [19 x i8] c"spoolss.setjob.cmd\00", align 1
+@setjob_commands = internal constant [6 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.816 }, %struct._value_string { i32 2, ptr @.str.817 }, %struct._value_string { i32 3, ptr @.str.1117 }, %struct._value_string { i32 4, ptr @.str.1118 }, %struct._value_string { i32 5, ptr @.str.1119 }, %struct._value_string zeroinitializer], align 16
+@.str.623 = private unnamed_addr constant [18 x i8] c"Printer data name\00", align 1
+@hf_enumjobs_firstjob = internal global i32 0, align 4
+@.str.624 = private unnamed_addr constant [10 x i8] c"First job\00", align 1
+@.str.625 = private unnamed_addr constant [26 x i8] c"spoolss.enumjobs.firstjob\00", align 1
+@.str.626 = private unnamed_addr constant [29 x i8] c"Index of first job to return\00", align 1
+@hf_enumjobs_numjobs = internal global i32 0, align 4
+@.str.627 = private unnamed_addr constant [9 x i8] c"Num jobs\00", align 1
+@.str.628 = private unnamed_addr constant [25 x i8] c"spoolss.enumjobs.numjobs\00", align 1
+@.str.629 = private unnamed_addr constant [25 x i8] c"Number of jobs to return\00", align 1
+@hf_secdescbuf_maxlen = internal global i32 0, align 4
+@.str.630 = private unnamed_addr constant [8 x i8] c"Max len\00", align 1
+@.str.631 = private unnamed_addr constant [27 x i8] c"spoolss.secdescbuf.max_len\00", align 1
+@hf_secdescbuf_undoc = internal global i32 0, align 4
+@.str.632 = private unnamed_addr constant [13 x i8] c"Undocumented\00", align 1
+@.str.633 = private unnamed_addr constant [25 x i8] c"spoolss.secdescbuf.undoc\00", align 1
+@hf_secdescbuf_len = internal global i32 0, align 4
+@.str.634 = private unnamed_addr constant [7 x i8] c"Length\00", align 1
+@.str.635 = private unnamed_addr constant [23 x i8] c"spoolss.secdescbuf.len\00", align 1
+@.str.636 = private unnamed_addr constant [16 x i8] c"Devmode pointer\00", align 1
+@.str.637 = private unnamed_addr constant [37 x i8] c"spoolss.spoolprinterinfo.devmode_ptr\00", align 1
+@.str.638 = private unnamed_addr constant [16 x i8] c"Secdesc pointer\00", align 1
+@.str.639 = private unnamed_addr constant [37 x i8] c"spoolss.spoolprinterinfo.secdesc_ptr\00", align 1
+@hf_writeprinter_numwritten = internal global i32 0, align 4
+@.str.640 = private unnamed_addr constant [12 x i8] c"Num written\00", align 1
+@.str.641 = private unnamed_addr constant [32 x i8] c"spoolss.writeprinter.numwritten\00", align 1
+@.str.642 = private unnamed_addr constant [24 x i8] c"Number of bytes written\00", align 1
+@hf_setprinterdataex_max_len = internal global i32 0, align 4
+@.str.643 = private unnamed_addr constant [33 x i8] c"spoolss.setprinterdataex.max_len\00", align 1
+@hf_setprinterdataex_real_len = internal global i32 0, align 4
+@.str.644 = private unnamed_addr constant [9 x i8] c"Real len\00", align 1
+@.str.645 = private unnamed_addr constant [34 x i8] c"spoolss.setprinterdataex.real_len\00", align 1
+@hf_setprinterdataex_data = internal global i32 0, align 4
+@.str.646 = private unnamed_addr constant [30 x i8] c"spoolss.setprinterdataex.data\00", align 1
+@hf_access_required = internal global i32 0, align 4
+@.str.647 = private unnamed_addr constant [16 x i8] c"Access required\00", align 1
+@.str.648 = private unnamed_addr constant [24 x i8] c"spoolss.access_required\00", align 1
+@hf_server_access_admin = internal global i32 0, align 4
+@.str.649 = private unnamed_addr constant [13 x i8] c"Server admin\00", align 1
+@.str.650 = private unnamed_addr constant [33 x i8] c"spoolss.access_mask.server_admin\00", align 1
+@hf_server_access_enum = internal global i32 0, align 4
+@.str.651 = private unnamed_addr constant [12 x i8] c"Server enum\00", align 1
+@.str.652 = private unnamed_addr constant [32 x i8] c"spoolss.access_mask.server_enum\00", align 1
+@hf_printer_access_admin = internal global i32 0, align 4
+@.str.653 = private unnamed_addr constant [14 x i8] c"Printer admin\00", align 1
+@.str.654 = private unnamed_addr constant [34 x i8] c"spoolss.access_mask.printer_admin\00", align 1
+@hf_printer_access_use = internal global i32 0, align 4
+@.str.655 = private unnamed_addr constant [12 x i8] c"Printer use\00", align 1
+@.str.656 = private unnamed_addr constant [32 x i8] c"spoolss.access_mask.printer_use\00", align 1
+@hf_job_access_admin = internal global i32 0, align 4
+@.str.657 = private unnamed_addr constant [10 x i8] c"Job admin\00", align 1
+@.str.658 = private unnamed_addr constant [30 x i8] c"spoolss.access_mask.job_admin\00", align 1
+@hf_printer_cjobs = internal global i32 0, align 4
+@.str.659 = private unnamed_addr constant [6 x i8] c"CJobs\00", align 1
+@.str.660 = private unnamed_addr constant [22 x i8] c"spoolss.printer.cjobs\00", align 1
+@hf_printer_total_jobs = internal global i32 0, align 4
+@.str.661 = private unnamed_addr constant [11 x i8] c"Total jobs\00", align 1
+@.str.662 = private unnamed_addr constant [27 x i8] c"spoolss.printer.total_jobs\00", align 1
+@hf_printer_total_bytes = internal global i32 0, align 4
+@.str.663 = private unnamed_addr constant [12 x i8] c"Total bytes\00", align 1
+@.str.664 = private unnamed_addr constant [28 x i8] c"spoolss.printer.total_bytes\00", align 1
+@hf_printer_global_counter = internal global i32 0, align 4
+@.str.665 = private unnamed_addr constant [15 x i8] c"Global counter\00", align 1
+@.str.666 = private unnamed_addr constant [31 x i8] c"spoolss.printer.global_counter\00", align 1
+@hf_printer_total_pages = internal global i32 0, align 4
+@.str.667 = private unnamed_addr constant [12 x i8] c"Total pages\00", align 1
+@.str.668 = private unnamed_addr constant [28 x i8] c"spoolss.printer.total_pages\00", align 1
+@hf_printer_major_version = internal global i32 0, align 4
+@.str.669 = private unnamed_addr constant [14 x i8] c"Major version\00", align 1
+@.str.670 = private unnamed_addr constant [30 x i8] c"spoolss.printer.major_version\00", align 1
+@hf_printer_build_version = internal global i32 0, align 4
+@.str.671 = private unnamed_addr constant [14 x i8] c"Build version\00", align 1
+@.str.672 = private unnamed_addr constant [30 x i8] c"spoolss.printer.build_version\00", align 1
+@hf_printer_unk7 = internal global i32 0, align 4
+@.str.673 = private unnamed_addr constant [10 x i8] c"Unknown 7\00", align 1
+@.str.674 = private unnamed_addr constant [25 x i8] c"spoolss.printer.unknown7\00", align 1
+@hf_printer_unk8 = internal global i32 0, align 4
+@.str.675 = private unnamed_addr constant [10 x i8] c"Unknown 8\00", align 1
+@.str.676 = private unnamed_addr constant [25 x i8] c"spoolss.printer.unknown8\00", align 1
+@hf_printer_unk9 = internal global i32 0, align 4
+@.str.677 = private unnamed_addr constant [10 x i8] c"Unknown 9\00", align 1
+@.str.678 = private unnamed_addr constant [25 x i8] c"spoolss.printer.unknown9\00", align 1
+@hf_printer_session_ctr = internal global i32 0, align 4
+@.str.679 = private unnamed_addr constant [16 x i8] c"Session counter\00", align 1
+@.str.680 = private unnamed_addr constant [28 x i8] c"spoolss.printer.session_ctr\00", align 1
+@hf_printer_unk11 = internal global i32 0, align 4
+@.str.681 = private unnamed_addr constant [11 x i8] c"Unknown 11\00", align 1
+@.str.682 = private unnamed_addr constant [26 x i8] c"spoolss.printer.unknown11\00", align 1
+@hf_printer_printer_errors = internal global i32 0, align 4
+@.str.683 = private unnamed_addr constant [15 x i8] c"Printer errors\00", align 1
+@.str.684 = private unnamed_addr constant [31 x i8] c"spoolss.printer.printer_errors\00", align 1
+@hf_printer_unk13 = internal global i32 0, align 4
+@.str.685 = private unnamed_addr constant [11 x i8] c"Unknown 13\00", align 1
+@.str.686 = private unnamed_addr constant [26 x i8] c"spoolss.printer.unknown13\00", align 1
+@hf_printer_unk14 = internal global i32 0, align 4
+@.str.687 = private unnamed_addr constant [11 x i8] c"Unknown 14\00", align 1
+@.str.688 = private unnamed_addr constant [26 x i8] c"spoolss.printer.unknown14\00", align 1
+@hf_printer_unk15 = internal global i32 0, align 4
+@.str.689 = private unnamed_addr constant [11 x i8] c"Unknown 15\00", align 1
+@.str.690 = private unnamed_addr constant [26 x i8] c"spoolss.printer.unknown15\00", align 1
+@hf_printer_unk16 = internal global i32 0, align 4
+@.str.691 = private unnamed_addr constant [11 x i8] c"Unknown 16\00", align 1
+@.str.692 = private unnamed_addr constant [26 x i8] c"spoolss.printer.unknown16\00", align 1
+@hf_printer_changeid = internal global i32 0, align 4
+@.str.693 = private unnamed_addr constant [25 x i8] c"spoolss.printer.changeid\00", align 1
+@hf_printer_unk18 = internal global i32 0, align 4
+@.str.694 = private unnamed_addr constant [11 x i8] c"Unknown 18\00", align 1
+@.str.695 = private unnamed_addr constant [26 x i8] c"spoolss.printer.unknown18\00", align 1
+@hf_printer_unk20 = internal global i32 0, align 4
+@.str.696 = private unnamed_addr constant [11 x i8] c"Unknown 20\00", align 1
+@.str.697 = private unnamed_addr constant [26 x i8] c"spoolss.printer.unknown20\00", align 1
+@hf_printer_c_setprinter = internal global i32 0, align 4
+@.str.698 = private unnamed_addr constant [12 x i8] c"Csetprinter\00", align 1
+@.str.699 = private unnamed_addr constant [29 x i8] c"spoolss.printer.c_setprinter\00", align 1
+@hf_printer_unk22 = internal global i32 0, align 4
+@.str.700 = private unnamed_addr constant [11 x i8] c"Unknown 22\00", align 1
+@.str.701 = private unnamed_addr constant [26 x i8] c"spoolss.printer.unknown22\00", align 1
+@hf_printer_unk23 = internal global i32 0, align 4
+@.str.702 = private unnamed_addr constant [11 x i8] c"Unknown 23\00", align 1
+@.str.703 = private unnamed_addr constant [26 x i8] c"spoolss.printer.unknown23\00", align 1
+@hf_printer_unk24 = internal global i32 0, align 4
+@.str.704 = private unnamed_addr constant [11 x i8] c"Unknown 24\00", align 1
+@.str.705 = private unnamed_addr constant [26 x i8] c"spoolss.printer.unknown24\00", align 1
+@hf_printer_unk25 = internal global i32 0, align 4
+@.str.706 = private unnamed_addr constant [11 x i8] c"Unknown 25\00", align 1
+@.str.707 = private unnamed_addr constant [26 x i8] c"spoolss.printer.unknown25\00", align 1
+@hf_printer_unk26 = internal global i32 0, align 4
+@.str.708 = private unnamed_addr constant [11 x i8] c"Unknown 26\00", align 1
+@.str.709 = private unnamed_addr constant [26 x i8] c"spoolss.printer.unknown26\00", align 1
+@hf_printer_unk27 = internal global i32 0, align 4
+@.str.710 = private unnamed_addr constant [11 x i8] c"Unknown 27\00", align 1
+@.str.711 = private unnamed_addr constant [26 x i8] c"spoolss.printer.unknown27\00", align 1
+@hf_printer_unk28 = internal global i32 0, align 4
+@.str.712 = private unnamed_addr constant [11 x i8] c"Unknown 28\00", align 1
+@.str.713 = private unnamed_addr constant [26 x i8] c"spoolss.printer.unknown28\00", align 1
+@hf_printer_unk29 = internal global i32 0, align 4
+@.str.714 = private unnamed_addr constant [11 x i8] c"Unknown 29\00", align 1
+@.str.715 = private unnamed_addr constant [26 x i8] c"spoolss.printer.unknown29\00", align 1
+@hf_printer_flags = internal global i32 0, align 4
+@.str.716 = private unnamed_addr constant [22 x i8] c"spoolss.printer.flags\00", align 1
+@hf_printer_priority = internal global i32 0, align 4
+@.str.717 = private unnamed_addr constant [9 x i8] c"Priority\00", align 1
+@.str.718 = private unnamed_addr constant [25 x i8] c"spoolss.printer.priority\00", align 1
+@hf_printer_default_priority = internal global i32 0, align 4
+@.str.719 = private unnamed_addr constant [17 x i8] c"Default Priority\00", align 1
+@.str.720 = private unnamed_addr constant [33 x i8] c"spoolss.printer.default_priority\00", align 1
+@hf_printer_averageppm = internal global i32 0, align 4
+@.str.721 = private unnamed_addr constant [12 x i8] c"Average PPM\00", align 1
+@.str.722 = private unnamed_addr constant [27 x i8] c"spoolss.printer.averageppm\00", align 1
+@hf_printer_jobs = internal global i32 0, align 4
+@.str.723 = private unnamed_addr constant [5 x i8] c"Jobs\00", align 1
+@.str.724 = private unnamed_addr constant [21 x i8] c"spoolss.printer.jobs\00", align 1
+@hf_printer_guid = internal global i32 0, align 4
+@.str.725 = private unnamed_addr constant [5 x i8] c"GUID\00", align 1
+@.str.726 = private unnamed_addr constant [21 x i8] c"spoolss.printer.guid\00", align 1
+@hf_printer_action = internal global i32 0, align 4
+@.str.727 = private unnamed_addr constant [7 x i8] c"Action\00", align 1
+@.str.728 = private unnamed_addr constant [23 x i8] c"spoolss.printer.action\00", align 1
+@getprinter_action_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.1120 }, %struct._value_string { i32 4, ptr @.str.1121 }, %struct._value_string { i32 2, ptr @.str.1122 }, %struct._value_string { i32 -2147483648, ptr @.str.1123 }, %struct._value_string { i32 8, ptr @.str.1124 }, %struct._value_string zeroinitializer], align 16
+@proto_register_dcerpc_spoolss.ett = internal global [48 x ptr] [ptr @ett_dcerpc_spoolss, ptr @ett_PRINTER_DATATYPE, ptr @ett_DEVMODE_CTR, ptr @ett_DEVMODE, ptr @ett_DEVMODE_fields, ptr @ett_USER_LEVEL_CTR, ptr @ett_USER_LEVEL_1, ptr @ett_BUFFER, ptr @ett_PRINTER_INFO, ptr @ett_SPOOL_PRINTER_INFO_LEVEL, ptr @ett_PRINTER_INFO_0, ptr @ett_PRINTER_INFO_1, ptr @ett_PRINTER_INFO_2, ptr @ett_PRINTER_INFO_3, ptr @ett_PRINTER_INFO_5, ptr @ett_PRINTER_INFO_7, ptr @ett_RELSTR, ptr @ett_RELSTR_ARRAY, ptr @ett_FORM_REL, ptr @ett_FORM_CTR, ptr @ett_FORM_1, ptr @ett_JOB_INFO_1, ptr @ett_JOB_INFO_2, ptr @ett_SEC_DESC_BUF, ptr @ett_SYSTEM_TIME, ptr @ett_DOC_INFO_1, ptr @ett_DOC_INFO, ptr @ett_DOC_INFO_CTR, ptr @ett_printerdata_value, ptr @ett_printerdata_data, ptr @ett_writeprinter_buffer, ptr @ett_DRIVER_INFO_1, ptr @ett_DRIVER_INFO_2, ptr @ett_DRIVER_INFO_3, ptr @ett_DRIVER_INFO_6, ptr @ett_DRIVER_INFO_8, ptr @ett_DRIVER_INFO_101, ptr @ett_CORE_PRINTER_DRIVER, ptr @ett_rffpcnex_flags, ptr @ett_notify_options_flags, ptr @ett_NOTIFY_INFO_DATA, ptr @ett_NOTIFY_OPTION, ptr @ett_printer_attributes, ptr @ett_printer_driver_attributes, ptr @ett_job_status, ptr @ett_enumprinters_flags, ptr @ett_PRINTER_DATA_CTR, ptr @ett_printer_enumdataex_value], align 16
+@ett_dcerpc_spoolss = internal global i32 0, align 4
+@ett_PRINTER_DATATYPE = internal global i32 0, align 4
+@ett_DEVMODE = internal global i32 0, align 4
+@ett_DEVMODE_fields = internal global i32 0, align 4
+@ett_USER_LEVEL_1 = internal global i32 0, align 4
+@ett_BUFFER = internal global i32 0, align 4
+@ett_PRINTER_INFO = internal global i32 0, align 4
+@ett_PRINTER_INFO_0 = internal global i32 0, align 4
+@ett_PRINTER_INFO_1 = internal global i32 0, align 4
+@ett_PRINTER_INFO_2 = internal global i32 0, align 4
+@ett_PRINTER_INFO_3 = internal global i32 0, align 4
+@ett_PRINTER_INFO_5 = internal global i32 0, align 4
+@ett_PRINTER_INFO_7 = internal global i32 0, align 4
+@ett_RELSTR = internal global i32 0, align 4
+@ett_RELSTR_ARRAY = internal global i32 0, align 4
+@ett_FORM_REL = internal global i32 0, align 4
+@ett_FORM_1 = internal global i32 0, align 4
+@ett_JOB_INFO_1 = internal global i32 0, align 4
+@ett_JOB_INFO_2 = internal global i32 0, align 4
+@ett_SEC_DESC_BUF = internal global i32 0, align 4
+@ett_SYSTEM_TIME = internal global i32 0, align 4
+@ett_DOC_INFO_1 = internal global i32 0, align 4
+@ett_DOC_INFO = internal global i32 0, align 4
+@ett_printerdata_value = internal global i32 0, align 4
+@ett_printerdata_data = internal global i32 0, align 4
+@ett_writeprinter_buffer = internal global i32 0, align 4
+@ett_DRIVER_INFO_1 = internal global i32 0, align 4
+@ett_DRIVER_INFO_2 = internal global i32 0, align 4
+@ett_DRIVER_INFO_3 = internal global i32 0, align 4
+@ett_DRIVER_INFO_6 = internal global i32 0, align 4
+@ett_DRIVER_INFO_8 = internal global i32 0, align 4
+@ett_DRIVER_INFO_101 = internal global i32 0, align 4
+@ett_CORE_PRINTER_DRIVER = internal global i32 0, align 4
+@ett_rffpcnex_flags = internal global i32 0, align 4
+@ett_notify_options_flags = internal global i32 0, align 4
+@ett_NOTIFY_INFO_DATA = internal global i32 0, align 4
+@ett_NOTIFY_OPTION = internal global i32 0, align 4
+@ett_printer_attributes = internal global i32 0, align 4
+@ett_printer_driver_attributes = internal global i32 0, align 4
+@ett_job_status = internal global i32 0, align 4
+@ett_enumprinters_flags = internal global i32 0, align 4
+@ett_PRINTER_DATA_CTR = internal global i32 0, align 4
+@ett_printer_enumdataex_value = internal global i32 0, align 4
+@proto_register_dcerpc_spoolss.ei = internal global [11 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_unimplemented_dissector, %struct.expert_field_info { ptr @.str.729, i32 83886080, i32 6291456, ptr @.str.730, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_unknown_data, %struct.expert_field_info { ptr @.str.731, i32 83886080, i32 6291456, ptr @.str.732, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_printer_info_level, %struct.expert_field_info { ptr @.str.733, i32 150994944, i32 6291456, ptr @.str.734, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_spool_printer_info_level, %struct.expert_field_info { ptr @.str.735, i32 150994944, i32 6291456, ptr @.str.736, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_form_level, %struct.expert_field_info { ptr @.str.737, i32 150994944, i32 6291456, ptr @.str.738, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_job_info_level, %struct.expert_field_info { ptr @.str.739, i32 150994944, i32 6291456, ptr @.str.740, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_driver_info_level, %struct.expert_field_info { ptr @.str.741, i32 150994944, i32 6291456, ptr @.str.742, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_level, %struct.expert_field_info { ptr @.str.743, i32 150994944, i32 6291456, ptr @.str.744, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_notify_info_data_type, %struct.expert_field_info { ptr @.str.745, i32 150994944, i32 6291456, ptr @.str.746, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_enumprinterdataex_value, %struct.expert_field_info { ptr @.str.747, i32 150994944, i32 6291456, ptr @.str.748, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_buffer_size_too_long, %struct.expert_field_info { ptr @.str.749, i32 150994944, i32 8388608, ptr @.str.750, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@ei_unimplemented_dissector = internal global %struct.expert_field zeroinitializer, align 4
+@.str.729 = private unnamed_addr constant [32 x i8] c"spoolss.unimplemented_dissector\00", align 1
+@.str.730 = private unnamed_addr constant [33 x i8] c"Unimplemented dissector: SPOOLSS\00", align 1
+@ei_unknown_data = internal global %struct.expert_field zeroinitializer, align 4
+@.str.731 = private unnamed_addr constant [21 x i8] c"spoolss.unknown_data\00", align 1
+@.str.732 = private unnamed_addr constant [21 x i8] c"Unknown data follows\00", align 1
+@ei_printer_info_level = internal global %struct.expert_field zeroinitializer, align 4
+@.str.733 = private unnamed_addr constant [24 x i8] c"spoolss.printer.unknown\00", align 1
+@.str.734 = private unnamed_addr constant [27 x i8] c"Unknown printer info level\00", align 1
+@.str.735 = private unnamed_addr constant [30 x i8] c"spoolss.spool_printer.unknown\00", align 1
+@.str.736 = private unnamed_addr constant [33 x i8] c"Unknown spool printer info level\00", align 1
+@.str.737 = private unnamed_addr constant [27 x i8] c"spoolss.form.level.unknown\00", align 1
+@.str.738 = private unnamed_addr constant [24 x i8] c"Unknown form info level\00", align 1
+@ei_job_info_level = internal global %struct.expert_field zeroinitializer, align 4
+@.str.739 = private unnamed_addr constant [31 x i8] c"spoolss.job_info.level.unknown\00", align 1
+@.str.740 = private unnamed_addr constant [23 x i8] c"Unknown job info level\00", align 1
+@ei_driver_info_level = internal global %struct.expert_field zeroinitializer, align 4
+@.str.741 = private unnamed_addr constant [34 x i8] c"spoolss.driver_info.level.unknown\00", align 1
+@.str.742 = private unnamed_addr constant [26 x i8] c"Unknown driver info level\00", align 1
+@.str.743 = private unnamed_addr constant [22 x i8] c"spoolss.level.unknown\00", align 1
+@.str.744 = private unnamed_addr constant [19 x i8] c"Info level unknown\00", align 1
+@ei_notify_info_data_type = internal global %struct.expert_field zeroinitializer, align 4
+@.str.745 = private unnamed_addr constant [38 x i8] c"spoolss.notify_info_data.type.unknown\00", align 1
+@.str.746 = private unnamed_addr constant [20 x i8] c"Unknown notify type\00", align 1
+@ei_enumprinterdataex_value = internal global %struct.expert_field zeroinitializer, align 4
+@.str.747 = private unnamed_addr constant [38 x i8] c"spoolss.enumprinterdataex.val_unknown\00", align 1
+@.str.748 = private unnamed_addr constant [19 x i8] c"Unknown value type\00", align 1
+@ei_buffer_size_too_long = internal global %struct.expert_field zeroinitializer, align 4
+@.str.749 = private unnamed_addr constant [28 x i8] c"spoolss.buffer.size.invalid\00", align 1
+@.str.750 = private unnamed_addr constant [21 x i8] c"Buffer size too long\00", align 1
+@.str.751 = private unnamed_addr constant [26 x i8] c"Microsoft Spool Subsystem\00", align 1
+@.str.752 = private unnamed_addr constant [8 x i8] c"SPOOLSS\00", align 1
+@.str.753 = private unnamed_addr constant [8 x i8] c"spoolss\00", align 1
+@proto_dcerpc_spoolss = internal global i32 0, align 4
+@uuid_dcerpc_spoolss = internal global %struct._e_guid_t { i32 305419896, i16 4660, i16 -21555, [8 x i8] c"\EF\00\01#Eg\89\AB" }, align 4
+@ver_dcerpc_spoolss = internal global i16 1, align 2
+@dcerpc_spoolss_dissectors = internal global [82 x %struct._dcerpc_sub_dissector] [%struct._dcerpc_sub_dissector { i16 0, ptr @.str.1125, ptr @SpoolssEnumPrinters_q, ptr @SpoolssEnumPrinters_r }, %struct._dcerpc_sub_dissector { i16 1, ptr @.str.1126, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 2, ptr @.str.1127, ptr @SpoolssSetJob_q, ptr @SpoolssSetJob_r }, %struct._dcerpc_sub_dissector { i16 3, ptr @.str.1128, ptr @SpoolssGetJob_q, ptr @SpoolssGetJob_r }, %struct._dcerpc_sub_dissector { i16 4, ptr @.str.1129, ptr @SpoolssEnumJobs_q, ptr @SpoolssEnumJobs_r }, %struct._dcerpc_sub_dissector { i16 5, ptr @.str.1130, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 6, ptr @.str.1131, ptr @SpoolssDeletePrinter_q, ptr @SpoolssDeletePrinter_r }, %struct._dcerpc_sub_dissector { i16 7, ptr @.str.1132, ptr @SpoolssSetPrinter_q, ptr @SpoolssSetPrinter_r }, %struct._dcerpc_sub_dissector { i16 8, ptr @.str.1133, ptr @SpoolssGetPrinter_q, ptr @SpoolssGetPrinter_r }, %struct._dcerpc_sub_dissector { i16 9, ptr @.str.1134, ptr null, ptr @SpoolssAddPrinterDriver_r }, %struct._dcerpc_sub_dissector { i16 10, ptr @.str.1135, ptr @SpoolssEnumPrinterDrivers_q, ptr @SpoolssEnumPrinterDrivers_r }, %struct._dcerpc_sub_dissector { i16 11, ptr @.str.1136, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 12, ptr @.str.1137, ptr @SpoolssGetPrinterDriverDirectory_q, ptr @SpoolssGetPrinterDriverDirectory_r }, %struct._dcerpc_sub_dissector { i16 13, ptr @.str.1138, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 14, ptr @.str.1139, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 15, ptr @.str.1140, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 16, ptr @.str.1141, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 17, ptr @.str.1142, ptr @SpoolssStartDocPrinter_q, ptr @SpoolssStartDocPrinter_r }, %struct._dcerpc_sub_dissector { i16 18, ptr @.str.1143, ptr @SpoolssStartPagePrinter_q, ptr @SpoolssStartPagePrinter_r }, %struct._dcerpc_sub_dissector { i16 19, ptr @.str.1144, ptr @SpoolssWritePrinter_q, ptr @SpoolssWritePrinter_r }, %struct._dcerpc_sub_dissector { i16 20, ptr @.str.1145, ptr @SpoolssEndPagePrinter_q, ptr @SpoolssEndPagePrinter_r }, %struct._dcerpc_sub_dissector { i16 21, ptr @.str.1146, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 22, ptr @.str.1147, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 23, ptr @.str.1148, ptr @SpoolssEndDocPrinter_q, ptr @SpoolssEndDocPrinter_r }, %struct._dcerpc_sub_dissector { i16 24, ptr @.str.1149, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 25, ptr @.str.1150, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 26, ptr @.str.1151, ptr @SpoolssGetPrinterData_q, ptr @SpoolssGetPrinterData_r }, %struct._dcerpc_sub_dissector { i16 27, ptr @.str.1152, ptr @SpoolssSetPrinterData_q, ptr @SpoolssSetPrinterData_r }, %struct._dcerpc_sub_dissector { i16 28, ptr @.str.1153, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 29, ptr @.str.1154, ptr @SpoolssClosePrinter_q, ptr @SpoolssClosePrinter_r }, %struct._dcerpc_sub_dissector { i16 30, ptr @.str.1155, ptr @SpoolssAddForm_q, ptr @SpoolssAddForm_r }, %struct._dcerpc_sub_dissector { i16 31, ptr @.str.1156, ptr @SpoolssDeleteForm_q, ptr @SpoolssDeleteForm_r }, %struct._dcerpc_sub_dissector { i16 32, ptr @.str.1157, ptr @SpoolssGetForm_q, ptr @SpoolssGetForm_r }, %struct._dcerpc_sub_dissector { i16 33, ptr @.str.1158, ptr @SpoolssSetForm_q, ptr @SpoolssSetForm_r }, %struct._dcerpc_sub_dissector { i16 34, ptr @.str.1159, ptr @SpoolssEnumForms_q, ptr @SpoolssEnumForms_r }, %struct._dcerpc_sub_dissector { i16 35, ptr @.str.1160, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 36, ptr @.str.1161, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 37, ptr @.str.1162, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 38, ptr @.str.1163, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 39, ptr @.str.1164, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 40, ptr @.str.1165, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 41, ptr @.str.1166, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 42, ptr @.str.1167, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 43, ptr @.str.1168, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 44, ptr @.str.1169, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 45, ptr @.str.1170, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 46, ptr @.str.1171, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 47, ptr @.str.1172, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 48, ptr @.str.1173, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 49, ptr @.str.1174, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 50, ptr @.str.1175, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 51, ptr @.str.1176, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 52, ptr @.str.1177, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 53, ptr @.str.1178, ptr @SpoolssGetPrinterDriver2_q, ptr @SpoolssGetPrinterDriver2_r }, %struct._dcerpc_sub_dissector { i16 54, ptr @.str.1179, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 55, ptr @.str.1180, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 56, ptr @.str.1181, ptr @SpoolssFCPN_q, ptr @SpoolssFCPN_r }, %struct._dcerpc_sub_dissector { i16 57, ptr @.str.1182, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 58, ptr @.str.1183, ptr @SpoolssReplyOpenPrinter_q, ptr @SpoolssReplyOpenPrinter_r }, %struct._dcerpc_sub_dissector { i16 59, ptr @.str.1184, ptr @SpoolssRouterReplyPrinter_q, ptr @SpoolssRouterReplyPrinter_r }, %struct._dcerpc_sub_dissector { i16 60, ptr @.str.1185, ptr @SpoolssReplyClosePrinter_q, ptr @SpoolssReplyClosePrinter_r }, %struct._dcerpc_sub_dissector { i16 61, ptr @.str.1186, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 62, ptr @.str.1187, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 63, ptr @.str.1188, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 64, ptr @.str.1189, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 65, ptr @.str.1190, ptr @SpoolssRFFPCNEX_q, ptr @SpoolssRFFPCNEX_r }, %struct._dcerpc_sub_dissector { i16 66, ptr @.str.1191, ptr @SpoolssRRPCN_q, ptr @SpoolssRRPCN_r }, %struct._dcerpc_sub_dissector { i16 67, ptr @.str.1192, ptr @SpoolssRFNPCNEX_q, ptr @SpoolssRFNPCNEX_r }, %struct._dcerpc_sub_dissector { i16 69, ptr @.str.1193, ptr @SpoolssOpenPrinterEx_q, ptr @SpoolssOpenPrinterEx_r }, %struct._dcerpc_sub_dissector { i16 70, ptr @.str.1194, ptr null, ptr @SpoolssAddPrinterEx_r }, %struct._dcerpc_sub_dissector { i16 72, ptr @.str.1195, ptr @SpoolssEnumPrinterData_q, ptr @SpoolssEnumPrinterData_r }, %struct._dcerpc_sub_dissector { i16 73, ptr @.str.1196, ptr @SpoolssDeletePrinterData_q, ptr @SpoolssDeletePrinterData_r }, %struct._dcerpc_sub_dissector { i16 78, ptr @.str.1197, ptr @SpoolssGetPrinterDataEx_q, ptr @SpoolssGetPrinterDataEx_r }, %struct._dcerpc_sub_dissector { i16 77, ptr @.str.1198, ptr @SpoolssSetPrinterDataEx_q, ptr @SpoolssSetPrinterDataEx_r }, %struct._dcerpc_sub_dissector { i16 79, ptr @.str.1199, ptr @SpoolssEnumPrinterDataEx_q, ptr @SpoolssEnumPrinterDataEx_r }, %struct._dcerpc_sub_dissector { i16 80, ptr @.str.1200, ptr @SpoolssEnumPrinterKey_q, ptr @SpoolssEnumPrinterKey_r }, %struct._dcerpc_sub_dissector { i16 81, ptr @.str.1201, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 84, ptr @.str.1202, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 89, ptr @.str.1203, ptr null, ptr @SpoolssGeneric_r }, %struct._dcerpc_sub_dissector { i16 102, ptr @.str.1204, ptr @SpoolssGetCorePrinterDrivers_q, ptr @SpoolssGetCorePrinterDrivers_r }, %struct._dcerpc_sub_dissector { i16 104, ptr @.str.1205, ptr @SpoolssGetPrinterDriverPackagePath_q, ptr @SpoolssGetPrinterDriverPackagePath_r }, %struct._dcerpc_sub_dissector zeroinitializer], align 16
+@.str.754 = private unnamed_addr constant [7 x i8] c"%d dpi\00", align 1
+@.str.755 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@dissect_DEVMODE_fields.hf_fields = internal constant [29 x ptr] [ptr @hf_devmode_fields_orientation, ptr @hf_devmode_fields_papersize, ptr @hf_devmode_fields_paperlength, ptr @hf_devmode_fields_paperwidth, ptr @hf_devmode_fields_scale, ptr @hf_devmode_fields_position, ptr @hf_devmode_fields_nup, ptr @hf_devmode_fields_copies, ptr @hf_devmode_fields_defaultsource, ptr @hf_devmode_fields_printquality, ptr @hf_devmode_fields_color, ptr @hf_devmode_fields_duplex, ptr @hf_devmode_fields_yresolution, ptr @hf_devmode_fields_ttoption, ptr @hf_devmode_fields_collate, ptr @hf_devmode_fields_formname, ptr @hf_devmode_fields_logpixels, ptr @hf_devmode_fields_bitsperpel, ptr @hf_devmode_fields_pelswidth, ptr @hf_devmode_fields_pelsheight, ptr @hf_devmode_fields_displayflags, ptr @hf_devmode_fields_displayfrequency, ptr @hf_devmode_fields_icmmethod, ptr @hf_devmode_fields_icmintent, ptr @hf_devmode_fields_mediatype, ptr @hf_devmode_fields_dithertype, ptr @hf_devmode_fields_panningwidth, ptr @hf_devmode_fields_panningheight, ptr null], align 16
+@dissect_notify_options_flags.hf_flags = internal constant [2 x ptr] [ptr @hf_notify_options_flags_refresh, ptr null], align 16
+@.str.756 = private unnamed_addr constant [14 x i8] c"Notify Option\00", align 1
+@.str.757 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
+@.str.758 = private unnamed_addr constant [13 x i8] c"Unknown (%d)\00", align 1
+@.str.759 = private unnamed_addr constant [19 x i8] c"Notify Option Data\00", align 1
+@printer_notify_option_data_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 26, ptr @printer_notify_option_data_vals, ptr @.str.761 }, align 8
+@job_notify_option_data_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 24, ptr @job_notify_option_data_vals, ptr @.str.773 }, align 8
+@.str.760 = private unnamed_addr constant [8 x i8] c"%s (%d)\00", align 1
+@printer_notify_option_data_vals = internal constant [27 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.160 }, %struct._value_string { i32 1, ptr @.str.31 }, %struct._value_string { i32 2, ptr @.str.162 }, %struct._value_string { i32 3, ptr @.str.164 }, %struct._value_string { i32 4, ptr @.str.170 }, %struct._value_string { i32 5, ptr @.str.762 }, %struct._value_string { i32 6, ptr @.str.763 }, %struct._value_string { i32 7, ptr @.str.764 }, %struct._value_string { i32 8, ptr @.str.765 }, %struct._value_string { i32 9, ptr @.str.186 }, %struct._value_string { i32 10, ptr @.str.184 }, %struct._value_string { i32 11, ptr @.str.178 }, %struct._value_string { i32 12, ptr @.str.766 }, %struct._value_string { i32 13, ptr @.str.507 }, %struct._value_string { i32 14, ptr @.str.717 }, %struct._value_string { i32 15, ptr @.str.767 }, %struct._value_string { i32 16, ptr @.str.104 }, %struct._value_string { i32 17, ptr @.str.768 }, %struct._value_string { i32 18, ptr @.str.42 }, %struct._value_string { i32 19, ptr @.str.769 }, %struct._value_string { i32 20, ptr @.str.770 }, %struct._value_string { i32 21, ptr @.str.721 }, %struct._value_string { i32 22, ptr @.str.667 }, %struct._value_string { i32 23, ptr @.str.771 }, %struct._value_string { i32 24, ptr @.str.663 }, %struct._value_string { i32 25, ptr @.str.772 }, %struct._value_string zeroinitializer], align 16
+@.str.761 = private unnamed_addr constant [32 x i8] c"printer_notify_option_data_vals\00", align 1
+@.str.762 = private unnamed_addr constant [8 x i8] c"Comment\00", align 1
+@.str.763 = private unnamed_addr constant [9 x i8] c"Location\00", align 1
+@.str.764 = private unnamed_addr constant [8 x i8] c"Devmode\00", align 1
+@.str.765 = private unnamed_addr constant [8 x i8] c"Sepfile\00", align 1
+@.str.766 = private unnamed_addr constant [20 x i8] c"Security descriptor\00", align 1
+@.str.767 = private unnamed_addr constant [17 x i8] c"Default priority\00", align 1
+@.str.768 = private unnamed_addr constant [11 x i8] c"Until time\00", align 1
+@.str.769 = private unnamed_addr constant [14 x i8] c"Status string\00", align 1
+@.str.770 = private unnamed_addr constant [6 x i8] c"Cjobs\00", align 1
+@.str.771 = private unnamed_addr constant [14 x i8] c"Pages printed\00", align 1
+@.str.772 = private unnamed_addr constant [14 x i8] c"Bytes printed\00", align 1
+@job_notify_option_data_vals = internal constant [25 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.31 }, %struct._value_string { i32 1, ptr @.str.152 }, %struct._value_string { i32 2, ptr @.str.164 }, %struct._value_string { i32 3, ptr @.str.172 }, %struct._value_string { i32 4, ptr @.str.154 }, %struct._value_string { i32 5, ptr @.str.774 }, %struct._value_string { i32 6, ptr @.str.186 }, %struct._value_string { i32 7, ptr @.str.184 }, %struct._value_string { i32 8, ptr @.str.170 }, %struct._value_string { i32 9, ptr @.str.764 }, %struct._value_string { i32 10, ptr @.str.42 }, %struct._value_string { i32 11, ptr @.str.769 }, %struct._value_string { i32 12, ptr @.str.766 }, %struct._value_string { i32 13, ptr @.str.775 }, %struct._value_string { i32 14, ptr @.str.717 }, %struct._value_string { i32 15, ptr @.str.299 }, %struct._value_string { i32 16, ptr @.str.776 }, %struct._value_string { i32 17, ptr @.str.104 }, %struct._value_string { i32 18, ptr @.str.768 }, %struct._value_string { i32 19, ptr @.str.777 }, %struct._value_string { i32 20, ptr @.str.667 }, %struct._value_string { i32 21, ptr @.str.771 }, %struct._value_string { i32 22, ptr @.str.663 }, %struct._value_string { i32 23, ptr @.str.772 }, %struct._value_string zeroinitializer], align 16
+@.str.773 = private unnamed_addr constant [28 x i8] c"job_notify_option_data_vals\00", align 1
+@.str.774 = private unnamed_addr constant [10 x i8] c"Data type\00", align 1
+@.str.775 = private unnamed_addr constant [9 x i8] c"Document\00", align 1
+@.str.776 = private unnamed_addr constant [10 x i8] c"Submitted\00", align 1
+@.str.777 = private unnamed_addr constant [5 x i8] c"Time\00", align 1
+@.str.778 = private unnamed_addr constant [27 x i8] c"Security descriptor buffer\00", align 1
+@.str.779 = private unnamed_addr constant [13 x i8] c"Form level 1\00", align 1
+@.str.780 = private unnamed_addr constant [14 x i8] c"Document info\00", align 1
+@.str.781 = private unnamed_addr constant [22 x i8] c"Document info level 1\00", align 1
+@.str.782 = private unnamed_addr constant [13 x i8] c"notification\00", align 1
+@.str.783 = private unnamed_addr constant [9 x i8] c"notifies\00", align 1
+@.str.784 = private unnamed_addr constant [14 x i8] c"Unknown field\00", align 1
+@.str.785 = private unnamed_addr constant [7 x i8] c"%s, %s\00", align 1
+@.str.786 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
+@dissect_printer_attributes.hf_attributes = internal constant [15 x ptr] [ptr @hf_printer_attributes_published, ptr @hf_printer_attributes_raw_only, ptr @hf_printer_attributes_enable_bidi, ptr @hf_printer_attributes_work_offline, ptr @hf_printer_attributes_do_complete_first, ptr @hf_printer_attributes_keep_printed_jobs, ptr @hf_printer_attributes_enable_devq, ptr @hf_printer_attributes_local, ptr @hf_printer_attributes_hidden, ptr @hf_printer_attributes_network, ptr @hf_printer_attributes_shared, ptr @hf_printer_attributes_default, ptr @hf_printer_attributes_direct, ptr @hf_printer_attributes_queued, ptr null], align 16
+@.str.787 = private unnamed_addr constant [15 x i8] c"Time submitted\00", align 1
+@.str.788 = private unnamed_addr constant [5 x i8] c": %d\00", align 1
+@dissect_job_status.hf_status = internal constant [12 x ptr] [ptr @hf_job_status_user_intervention, ptr @hf_job_status_blocked, ptr @hf_job_status_deleted, ptr @hf_job_status_printed, ptr @hf_job_status_paperout, ptr @hf_job_status_offline, ptr @hf_job_status_printing, ptr @hf_job_status_spooling, ptr @hf_job_status_deleting, ptr @hf_job_status_error, ptr @hf_job_status_paused, ptr null], align 16
+@.str.789 = private unnamed_addr constant [33 x i8] c"%d/%02d/%02d %02d:%02d:%02d.%03d\00", align 1
+@.str.790 = private unnamed_addr constant [17 x i8] c"Windows 95/98/Me\00", align 1
+@.str.791 = private unnamed_addr constant [15 x i8] c"Windows NT 4.0\00", align 1
+@.str.792 = private unnamed_addr constant [16 x i8] c"Windows 2000/XP\00", align 1
+@printer_status_vals = internal constant [27 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.794 }, %struct._value_string { i32 1, ptr @.str.348 }, %struct._value_string { i32 2, ptr @.str.350 }, %struct._value_string { i32 4, ptr @.str.795 }, %struct._value_string { i32 8, ptr @.str.796 }, %struct._value_string { i32 16, ptr @.str.797 }, %struct._value_string { i32 32, ptr @.str.798 }, %struct._value_string { i32 64, ptr @.str.799 }, %struct._value_string { i32 128, ptr @.str.358 }, %struct._value_string { i32 256, ptr @.str.800 }, %struct._value_string { i32 512, ptr @.str.801 }, %struct._value_string { i32 1024, ptr @.str.356 }, %struct._value_string { i32 2048, ptr @.str.802 }, %struct._value_string { i32 4096, ptr @.str.803 }, %struct._value_string { i32 8192, ptr @.str.804 }, %struct._value_string { i32 16384, ptr @.str.805 }, %struct._value_string { i32 32768, ptr @.str.806 }, %struct._value_string { i32 65536, ptr @.str.807 }, %struct._value_string { i32 131072, ptr @.str.808 }, %struct._value_string { i32 262144, ptr @.str.809 }, %struct._value_string { i32 524288, ptr @.str.810 }, %struct._value_string { i32 1048576, ptr @.str.368 }, %struct._value_string { i32 2097152, ptr @.str.811 }, %struct._value_string { i32 4194304, ptr @.str.812 }, %struct._value_string { i32 8388608, ptr @.str.813 }, %struct._value_string { i32 16777216, ptr @.str.814 }, %struct._value_string zeroinitializer], align 16
+@.str.793 = private unnamed_addr constant [20 x i8] c"printer_status_vals\00", align 1
+@.str.794 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
+@.str.795 = private unnamed_addr constant [17 x i8] c"Pending deletion\00", align 1
+@.str.796 = private unnamed_addr constant [10 x i8] c"Paper jam\00", align 1
+@.str.797 = private unnamed_addr constant [10 x i8] c"Paper out\00", align 1
+@.str.798 = private unnamed_addr constant [12 x i8] c"Manual feed\00", align 1
+@.str.799 = private unnamed_addr constant [14 x i8] c"Paper problem\00", align 1
+@.str.800 = private unnamed_addr constant [10 x i8] c"IO active\00", align 1
+@.str.801 = private unnamed_addr constant [5 x i8] c"Busy\00", align 1
+@.str.802 = private unnamed_addr constant [16 x i8] c"Output bin full\00", align 1
+@.str.803 = private unnamed_addr constant [14 x i8] c"Not available\00", align 1
+@.str.804 = private unnamed_addr constant [8 x i8] c"Waiting\00", align 1
+@.str.805 = private unnamed_addr constant [11 x i8] c"Processing\00", align 1
+@.str.806 = private unnamed_addr constant [13 x i8] c"Initialising\00", align 1
+@.str.807 = private unnamed_addr constant [11 x i8] c"Warming up\00", align 1
+@.str.808 = private unnamed_addr constant [10 x i8] c"Toner low\00", align 1
+@.str.809 = private unnamed_addr constant [9 x i8] c"No toner\00", align 1
+@.str.810 = private unnamed_addr constant [10 x i8] c"Page punt\00", align 1
+@.str.811 = private unnamed_addr constant [14 x i8] c"Out of memory\00", align 1
+@.str.812 = private unnamed_addr constant [10 x i8] c"Door open\00", align 1
+@.str.813 = private unnamed_addr constant [15 x i8] c"Server unknown\00", align 1
+@.str.814 = private unnamed_addr constant [11 x i8] c"Power save\00", align 1
+@.str.815 = private unnamed_addr constant [8 x i8] c"Unpause\00", align 1
+@.str.816 = private unnamed_addr constant [6 x i8] c"Pause\00", align 1
+@.str.817 = private unnamed_addr constant [7 x i8] c"Resume\00", align 1
+@.str.818 = private unnamed_addr constant [6 x i8] c"Purge\00", align 1
+@.str.819 = private unnamed_addr constant [11 x i8] c"Set status\00", align 1
+@reg_datatypes = internal constant [12 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.821 }, %struct._value_string { i32 1, ptr @.str.822 }, %struct._value_string { i32 2, ptr @.str.823 }, %struct._value_string { i32 3, ptr @.str.824 }, %struct._value_string { i32 4, ptr @.str.825 }, %struct._value_string { i32 5, ptr @.str.826 }, %struct._value_string { i32 6, ptr @.str.827 }, %struct._value_string { i32 7, ptr @.str.828 }, %struct._value_string { i32 8, ptr @.str.829 }, %struct._value_string { i32 9, ptr @.str.830 }, %struct._value_string { i32 10, ptr @.str.831 }, %struct._value_string zeroinitializer], align 16
+@.str.820 = private unnamed_addr constant [14 x i8] c"reg_datatypes\00", align 1
+@.str.821 = private unnamed_addr constant [9 x i8] c"REG_NONE\00", align 1
+@.str.822 = private unnamed_addr constant [7 x i8] c"REG_SZ\00", align 1
+@.str.823 = private unnamed_addr constant [14 x i8] c"REG_EXPAND_SZ\00", align 1
+@.str.824 = private unnamed_addr constant [11 x i8] c"REG_BINARY\00", align 1
+@.str.825 = private unnamed_addr constant [10 x i8] c"REG_DWORD\00", align 1
+@.str.826 = private unnamed_addr constant [13 x i8] c"REG_DWORD_BE\00", align 1
+@.str.827 = private unnamed_addr constant [9 x i8] c"REG_LINK\00", align 1
+@.str.828 = private unnamed_addr constant [13 x i8] c"REG_MULTI_SZ\00", align 1
+@.str.829 = private unnamed_addr constant [18 x i8] c"REG_RESOURCE_LIST\00", align 1
+@.str.830 = private unnamed_addr constant [29 x i8] c"REG_FULL_RESOURCE_DESCRIPTOR\00", align 1
+@.str.831 = private unnamed_addr constant [31 x i8] c"REG_RESOURCE_REQUIREMENTS_LIST\00", align 1
+@.str.832 = private unnamed_addr constant [9 x i8] c"Observed\00", align 1
+@.str.833 = private unnamed_addr constant [9 x i8] c"Portrait\00", align 1
+@.str.834 = private unnamed_addr constant [10 x i8] c"Landscape\00", align 1
+@devmode_papersize_vals = internal constant [119 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.836 }, %struct._value_string { i32 2, ptr @.str.837 }, %struct._value_string { i32 3, ptr @.str.838 }, %struct._value_string { i32 4, ptr @.str.839 }, %struct._value_string { i32 5, ptr @.str.840 }, %struct._value_string { i32 6, ptr @.str.841 }, %struct._value_string { i32 7, ptr @.str.842 }, %struct._value_string { i32 8, ptr @.str.843 }, %struct._value_string { i32 9, ptr @.str.844 }, %struct._value_string { i32 10, ptr @.str.845 }, %struct._value_string { i32 11, ptr @.str.846 }, %struct._value_string { i32 12, ptr @.str.847 }, %struct._value_string { i32 13, ptr @.str.848 }, %struct._value_string { i32 14, ptr @.str.849 }, %struct._value_string { i32 15, ptr @.str.850 }, %struct._value_string { i32 16, ptr @.str.851 }, %struct._value_string { i32 17, ptr @.str.852 }, %struct._value_string { i32 18, ptr @.str.853 }, %struct._value_string { i32 19, ptr @.str.854 }, %struct._value_string { i32 20, ptr @.str.855 }, %struct._value_string { i32 21, ptr @.str.856 }, %struct._value_string { i32 22, ptr @.str.857 }, %struct._value_string { i32 23, ptr @.str.858 }, %struct._value_string { i32 24, ptr @.str.859 }, %struct._value_string { i32 25, ptr @.str.860 }, %struct._value_string { i32 26, ptr @.str.861 }, %struct._value_string { i32 27, ptr @.str.862 }, %struct._value_string { i32 28, ptr @.str.863 }, %struct._value_string { i32 29, ptr @.str.864 }, %struct._value_string { i32 30, ptr @.str.865 }, %struct._value_string { i32 31, ptr @.str.866 }, %struct._value_string { i32 32, ptr @.str.867 }, %struct._value_string { i32 33, ptr @.str.868 }, %struct._value_string { i32 34, ptr @.str.869 }, %struct._value_string { i32 35, ptr @.str.870 }, %struct._value_string { i32 36, ptr @.str.871 }, %struct._value_string { i32 37, ptr @.str.872 }, %struct._value_string { i32 38, ptr @.str.873 }, %struct._value_string { i32 39, ptr @.str.874 }, %struct._value_string { i32 40, ptr @.str.875 }, %struct._value_string { i32 41, ptr @.str.876 }, %struct._value_string { i32 42, ptr @.str.877 }, %struct._value_string { i32 43, ptr @.str.878 }, %struct._value_string { i32 44, ptr @.str.879 }, %struct._value_string { i32 45, ptr @.str.880 }, %struct._value_string { i32 46, ptr @.str.881 }, %struct._value_string { i32 47, ptr @.str.882 }, %struct._value_string { i32 48, ptr @.str.883 }, %struct._value_string { i32 49, ptr @.str.884 }, %struct._value_string { i32 50, ptr @.str.885 }, %struct._value_string { i32 51, ptr @.str.886 }, %struct._value_string { i32 52, ptr @.str.887 }, %struct._value_string { i32 53, ptr @.str.888 }, %struct._value_string { i32 54, ptr @.str.889 }, %struct._value_string { i32 55, ptr @.str.890 }, %struct._value_string { i32 56, ptr @.str.891 }, %struct._value_string { i32 57, ptr @.str.892 }, %struct._value_string { i32 58, ptr @.str.893 }, %struct._value_string { i32 59, ptr @.str.894 }, %struct._value_string { i32 60, ptr @.str.895 }, %struct._value_string { i32 61, ptr @.str.896 }, %struct._value_string { i32 62, ptr @.str.897 }, %struct._value_string { i32 63, ptr @.str.898 }, %struct._value_string { i32 64, ptr @.str.899 }, %struct._value_string { i32 65, ptr @.str.900 }, %struct._value_string { i32 66, ptr @.str.901 }, %struct._value_string { i32 67, ptr @.str.902 }, %struct._value_string { i32 68, ptr @.str.903 }, %struct._value_string { i32 69, ptr @.str.904 }, %struct._value_string { i32 70, ptr @.str.905 }, %struct._value_string { i32 71, ptr @.str.906 }, %struct._value_string { i32 72, ptr @.str.907 }, %struct._value_string { i32 73, ptr @.str.908 }, %struct._value_string { i32 74, ptr @.str.909 }, %struct._value_string { i32 75, ptr @.str.910 }, %struct._value_string { i32 76, ptr @.str.911 }, %struct._value_string { i32 77, ptr @.str.912 }, %struct._value_string { i32 78, ptr @.str.913 }, %struct._value_string { i32 79, ptr @.str.914 }, %struct._value_string { i32 80, ptr @.str.915 }, %struct._value_string { i32 81, ptr @.str.916 }, %struct._value_string { i32 82, ptr @.str.917 }, %struct._value_string { i32 83, ptr @.str.918 }, %struct._value_string { i32 84, ptr @.str.919 }, %struct._value_string { i32 85, ptr @.str.920 }, %struct._value_string { i32 86, ptr @.str.921 }, %struct._value_string { i32 87, ptr @.str.922 }, %struct._value_string { i32 88, ptr @.str.923 }, %struct._value_string { i32 89, ptr @.str.924 }, %struct._value_string { i32 90, ptr @.str.925 }, %struct._value_string { i32 91, ptr @.str.926 }, %struct._value_string { i32 92, ptr @.str.927 }, %struct._value_string { i32 93, ptr @.str.928 }, %struct._value_string { i32 94, ptr @.str.929 }, %struct._value_string { i32 95, ptr @.str.930 }, %struct._value_string { i32 96, ptr @.str.931 }, %struct._value_string { i32 97, ptr @.str.932 }, %struct._value_string { i32 98, ptr @.str.933 }, %struct._value_string { i32 99, ptr @.str.934 }, %struct._value_string { i32 100, ptr @.str.935 }, %struct._value_string { i32 101, ptr @.str.936 }, %struct._value_string { i32 102, ptr @.str.937 }, %struct._value_string { i32 103, ptr @.str.938 }, %struct._value_string { i32 104, ptr @.str.939 }, %struct._value_string { i32 105, ptr @.str.940 }, %struct._value_string { i32 106, ptr @.str.941 }, %struct._value_string { i32 107, ptr @.str.942 }, %struct._value_string { i32 108, ptr @.str.943 }, %struct._value_string { i32 109, ptr @.str.944 }, %struct._value_string { i32 110, ptr @.str.945 }, %struct._value_string { i32 111, ptr @.str.946 }, %struct._value_string { i32 112, ptr @.str.947 }, %struct._value_string { i32 113, ptr @.str.948 }, %struct._value_string { i32 114, ptr @.str.949 }, %struct._value_string { i32 115, ptr @.str.950 }, %struct._value_string { i32 116, ptr @.str.951 }, %struct._value_string { i32 117, ptr @.str.952 }, %struct._value_string { i32 118, ptr @.str.953 }, %struct._value_string zeroinitializer], align 16
+@.str.835 = private unnamed_addr constant [23 x i8] c"devmode_papersize_vals\00", align 1
+@.str.836 = private unnamed_addr constant [7 x i8] c"Letter\00", align 1
+@.str.837 = private unnamed_addr constant [15 x i8] c"Letter (small)\00", align 1
+@.str.838 = private unnamed_addr constant [8 x i8] c"Tabloid\00", align 1
+@.str.839 = private unnamed_addr constant [7 x i8] c"Ledger\00", align 1
+@.str.840 = private unnamed_addr constant [6 x i8] c"Legal\00", align 1
+@.str.841 = private unnamed_addr constant [10 x i8] c"Statement\00", align 1
+@.str.842 = private unnamed_addr constant [10 x i8] c"Executive\00", align 1
+@.str.843 = private unnamed_addr constant [3 x i8] c"A3\00", align 1
+@.str.844 = private unnamed_addr constant [3 x i8] c"A4\00", align 1
+@.str.845 = private unnamed_addr constant [11 x i8] c"A4 (small)\00", align 1
+@.str.846 = private unnamed_addr constant [3 x i8] c"A5\00", align 1
+@.str.847 = private unnamed_addr constant [3 x i8] c"B4\00", align 1
+@.str.848 = private unnamed_addr constant [3 x i8] c"B5\00", align 1
+@.str.849 = private unnamed_addr constant [6 x i8] c"Folio\00", align 1
+@.str.850 = private unnamed_addr constant [7 x i8] c"Quarto\00", align 1
+@.str.851 = private unnamed_addr constant [6 x i8] c"10x14\00", align 1
+@.str.852 = private unnamed_addr constant [6 x i8] c"11x17\00", align 1
+@.str.853 = private unnamed_addr constant [5 x i8] c"Note\00", align 1
+@.str.854 = private unnamed_addr constant [12 x i8] c"Envelope #9\00", align 1
+@.str.855 = private unnamed_addr constant [13 x i8] c"Envelope #10\00", align 1
+@.str.856 = private unnamed_addr constant [13 x i8] c"Envelope #11\00", align 1
+@.str.857 = private unnamed_addr constant [13 x i8] c"Envelope #12\00", align 1
+@.str.858 = private unnamed_addr constant [13 x i8] c"Envelope #14\00", align 1
+@.str.859 = private unnamed_addr constant [8 x i8] c"C sheet\00", align 1
+@.str.860 = private unnamed_addr constant [8 x i8] c"D sheet\00", align 1
+@.str.861 = private unnamed_addr constant [8 x i8] c"E sheet\00", align 1
+@.str.862 = private unnamed_addr constant [12 x i8] c"Envelope DL\00", align 1
+@.str.863 = private unnamed_addr constant [12 x i8] c"Envelope C5\00", align 1
+@.str.864 = private unnamed_addr constant [12 x i8] c"Envelope C3\00", align 1
+@.str.865 = private unnamed_addr constant [12 x i8] c"Envelope C4\00", align 1
+@.str.866 = private unnamed_addr constant [12 x i8] c"Envelope C6\00", align 1
+@.str.867 = private unnamed_addr constant [13 x i8] c"Envelope C65\00", align 1
+@.str.868 = private unnamed_addr constant [12 x i8] c"Envelope B4\00", align 1
+@.str.869 = private unnamed_addr constant [12 x i8] c"Envelope B5\00", align 1
+@.str.870 = private unnamed_addr constant [12 x i8] c"Envelope B6\00", align 1
+@.str.871 = private unnamed_addr constant [17 x i8] c"Envelope (Italy)\00", align 1
+@.str.872 = private unnamed_addr constant [19 x i8] c"Envelope (Monarch)\00", align 1
+@.str.873 = private unnamed_addr constant [20 x i8] c"Envelope (Personal)\00", align 1
+@.str.874 = private unnamed_addr constant [13 x i8] c"Fanfold (US)\00", align 1
+@.str.875 = private unnamed_addr constant [21 x i8] c"Fanfold (Std German)\00", align 1
+@.str.876 = private unnamed_addr constant [23 x i8] c"Fanfold (Legal German)\00", align 1
+@.str.877 = private unnamed_addr constant [9 x i8] c"B4 (ISO)\00", align 1
+@.str.878 = private unnamed_addr constant [18 x i8] c"Japanese postcard\00", align 1
+@.str.879 = private unnamed_addr constant [5 x i8] c"9x11\00", align 1
+@.str.880 = private unnamed_addr constant [6 x i8] c"10x11\00", align 1
+@.str.881 = private unnamed_addr constant [6 x i8] c"15x11\00", align 1
+@.str.882 = private unnamed_addr constant [18 x i8] c"Envelope (Invite)\00", align 1
+@.str.883 = private unnamed_addr constant [14 x i8] c"Reserved (48)\00", align 1
+@.str.884 = private unnamed_addr constant [14 x i8] c"Reserved (49)\00", align 1
+@.str.885 = private unnamed_addr constant [15 x i8] c"Letter (Extra)\00", align 1
+@.str.886 = private unnamed_addr constant [14 x i8] c"Legal (Extra)\00", align 1
+@.str.887 = private unnamed_addr constant [16 x i8] c"Tabloid (Extra)\00", align 1
+@.str.888 = private unnamed_addr constant [11 x i8] c"A4 (Extra)\00", align 1
+@.str.889 = private unnamed_addr constant [20 x i8] c"Letter (Transverse)\00", align 1
+@.str.890 = private unnamed_addr constant [16 x i8] c"A4 (Transverse)\00", align 1
+@.str.891 = private unnamed_addr constant [27 x i8] c"Letter (Extra, Transverse)\00", align 1
+@.str.892 = private unnamed_addr constant [3 x i8] c"A+\00", align 1
+@.str.893 = private unnamed_addr constant [3 x i8] c"B+\00", align 1
+@.str.894 = private unnamed_addr constant [8 x i8] c"Letter+\00", align 1
+@.str.895 = private unnamed_addr constant [4 x i8] c"A4+\00", align 1
+@.str.896 = private unnamed_addr constant [16 x i8] c"A5 (Transverse)\00", align 1
+@.str.897 = private unnamed_addr constant [16 x i8] c"B5 (Transverse)\00", align 1
+@.str.898 = private unnamed_addr constant [11 x i8] c"A3 (Extra)\00", align 1
+@.str.899 = private unnamed_addr constant [11 x i8] c"A5 (Extra)\00", align 1
+@.str.900 = private unnamed_addr constant [11 x i8] c"B5 (Extra)\00", align 1
+@.str.901 = private unnamed_addr constant [3 x i8] c"A2\00", align 1
+@.str.902 = private unnamed_addr constant [16 x i8] c"A3 (Transverse)\00", align 1
+@.str.903 = private unnamed_addr constant [22 x i8] c"A3 (Extra, Transverse\00", align 1
+@.str.904 = private unnamed_addr constant [25 x i8] c"Double Japanese Postcard\00", align 1
+@.str.905 = private unnamed_addr constant [3 x i8] c"A6\00", align 1
+@.str.906 = private unnamed_addr constant [28 x i8] c"Japanese Envelope (Kaku #2)\00", align 1
+@.str.907 = private unnamed_addr constant [28 x i8] c"Japanese Envelope (Kaku #3)\00", align 1
+@.str.908 = private unnamed_addr constant [28 x i8] c"Japanese Envelope (Chou #3)\00", align 1
+@.str.909 = private unnamed_addr constant [28 x i8] c"Japanese Envelope (Chou #4)\00", align 1
+@.str.910 = private unnamed_addr constant [17 x i8] c"Letter (Rotated)\00", align 1
+@.str.911 = private unnamed_addr constant [13 x i8] c"A3 (Rotated)\00", align 1
+@.str.912 = private unnamed_addr constant [13 x i8] c"A4 (Rotated)\00", align 1
+@.str.913 = private unnamed_addr constant [13 x i8] c"A5 (Rotated)\00", align 1
+@.str.914 = private unnamed_addr constant [18 x i8] c"B4 (JIS, Rotated)\00", align 1
+@.str.915 = private unnamed_addr constant [18 x i8] c"B5 (JIS, Rotated)\00", align 1
+@.str.916 = private unnamed_addr constant [28 x i8] c"Japanese Postcard (Rotated)\00", align 1
+@.str.917 = private unnamed_addr constant [35 x i8] c"Double Japanese Postcard (Rotated)\00", align 1
+@.str.918 = private unnamed_addr constant [13 x i8] c"A6 (Rotated)\00", align 1
+@.str.919 = private unnamed_addr constant [37 x i8] c"Japanese Envelope (Kaku #2, Rotated)\00", align 1
+@.str.920 = private unnamed_addr constant [37 x i8] c"Japanese Envelope (Kaku #3, Rotated)\00", align 1
+@.str.921 = private unnamed_addr constant [37 x i8] c"Japanese Envelope (Chou #3, Rotated)\00", align 1
+@.str.922 = private unnamed_addr constant [37 x i8] c"Japanese Envelope (Chou #4, Rotated)\00", align 1
+@.str.923 = private unnamed_addr constant [9 x i8] c"B6 (JIS)\00", align 1
+@.str.924 = private unnamed_addr constant [18 x i8] c"B6 (JIS, Rotated)\00", align 1
+@.str.925 = private unnamed_addr constant [6 x i8] c"12x11\00", align 1
+@.str.926 = private unnamed_addr constant [27 x i8] c"Japanese Envelope (You #4)\00", align 1
+@.str.927 = private unnamed_addr constant [35 x i8] c"Japanese Envelope (You #4, Rotated\00", align 1
+@.str.928 = private unnamed_addr constant [8 x i8] c"PRC 16K\00", align 1
+@.str.929 = private unnamed_addr constant [8 x i8] c"PRC 32K\00", align 1
+@.str.930 = private unnamed_addr constant [11 x i8] c"P32K (Big)\00", align 1
+@.str.931 = private unnamed_addr constant [16 x i8] c"PRC Envelope #1\00", align 1
+@.str.932 = private unnamed_addr constant [16 x i8] c"PRC Envelope #2\00", align 1
+@.str.933 = private unnamed_addr constant [16 x i8] c"PRC Envelope #3\00", align 1
+@.str.934 = private unnamed_addr constant [16 x i8] c"PRC Envelope #4\00", align 1
+@.str.935 = private unnamed_addr constant [16 x i8] c"PRC Envelope #5\00", align 1
+@.str.936 = private unnamed_addr constant [16 x i8] c"PRC Envelope #6\00", align 1
+@.str.937 = private unnamed_addr constant [16 x i8] c"PRC Envelope #7\00", align 1
+@.str.938 = private unnamed_addr constant [16 x i8] c"PRC Envelope #8\00", align 1
+@.str.939 = private unnamed_addr constant [16 x i8] c"PRC Envelope #9\00", align 1
+@.str.940 = private unnamed_addr constant [17 x i8] c"PRC Envelope #10\00", align 1
+@.str.941 = private unnamed_addr constant [18 x i8] c"PRC 16K (Rotated)\00", align 1
+@.str.942 = private unnamed_addr constant [18 x i8] c"PRC 32K (Rotated)\00", align 1
+@.str.943 = private unnamed_addr constant [23 x i8] c"PRC 32K (Big, Rotated)\00", align 1
+@.str.944 = private unnamed_addr constant [26 x i8] c"PRC Envelope #1 (Rotated)\00", align 1
+@.str.945 = private unnamed_addr constant [26 x i8] c"PRC Envelope #2 (Rotated)\00", align 1
+@.str.946 = private unnamed_addr constant [26 x i8] c"PRC Envelope #3 (Rotated)\00", align 1
+@.str.947 = private unnamed_addr constant [26 x i8] c"PRC Envelope #4 (Rotated)\00", align 1
+@.str.948 = private unnamed_addr constant [26 x i8] c"PRC Envelope #5 (Rotated)\00", align 1
+@.str.949 = private unnamed_addr constant [26 x i8] c"PRC Envelope #6 (Rotated)\00", align 1
+@.str.950 = private unnamed_addr constant [26 x i8] c"PRC Envelope #7 (Rotated)\00", align 1
+@.str.951 = private unnamed_addr constant [26 x i8] c"PRC Envelope #8 (Rotated)\00", align 1
+@.str.952 = private unnamed_addr constant [26 x i8] c"PRC Envelope #9 (Rotated)\00", align 1
+@.str.953 = private unnamed_addr constant [27 x i8] c"PRC Envelope #10 (Rotated)\00", align 1
+@devmode_papersource_vals = internal constant [14 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.955 }, %struct._value_string { i32 2, ptr @.str.956 }, %struct._value_string { i32 3, ptr @.str.957 }, %struct._value_string { i32 4, ptr @.str.958 }, %struct._value_string { i32 5, ptr @.str.959 }, %struct._value_string { i32 6, ptr @.str.960 }, %struct._value_string { i32 7, ptr @.str.961 }, %struct._value_string { i32 8, ptr @.str.962 }, %struct._value_string { i32 9, ptr @.str.963 }, %struct._value_string { i32 10, ptr @.str.964 }, %struct._value_string { i32 11, ptr @.str.965 }, %struct._value_string { i32 12, ptr @.str.966 }, %struct._value_string { i32 13, ptr @.str.967 }, %struct._value_string zeroinitializer], align 16
+@.str.954 = private unnamed_addr constant [25 x i8] c"devmode_papersource_vals\00", align 1
+@.str.955 = private unnamed_addr constant [6 x i8] c"Upper\00", align 1
+@.str.956 = private unnamed_addr constant [6 x i8] c"Lower\00", align 1
+@.str.957 = private unnamed_addr constant [7 x i8] c"Middle\00", align 1
+@.str.958 = private unnamed_addr constant [7 x i8] c"Manual\00", align 1
+@.str.959 = private unnamed_addr constant [9 x i8] c"Envelope\00", align 1
+@.str.960 = private unnamed_addr constant [16 x i8] c"Envelope Manual\00", align 1
+@.str.961 = private unnamed_addr constant [5 x i8] c"Auto\00", align 1
+@.str.962 = private unnamed_addr constant [8 x i8] c"Tractor\00", align 1
+@.str.963 = private unnamed_addr constant [13 x i8] c"Small Format\00", align 1
+@.str.964 = private unnamed_addr constant [13 x i8] c"Large Format\00", align 1
+@.str.965 = private unnamed_addr constant [15 x i8] c"Large Capacity\00", align 1
+@.str.966 = private unnamed_addr constant [9 x i8] c"Cassette\00", align 1
+@.str.967 = private unnamed_addr constant [12 x i8] c"Form Source\00", align 1
+@.str.968 = private unnamed_addr constant [5 x i8] c"High\00", align 1
+@.str.969 = private unnamed_addr constant [7 x i8] c"Medium\00", align 1
+@.str.970 = private unnamed_addr constant [4 x i8] c"Low\00", align 1
+@.str.971 = private unnamed_addr constant [6 x i8] c"Draft\00", align 1
+@.str.972 = private unnamed_addr constant [7 x i8] c"Colour\00", align 1
+@.str.973 = private unnamed_addr constant [11 x i8] c"Monochrome\00", align 1
+@.str.974 = private unnamed_addr constant [8 x i8] c"Simplex\00", align 1
+@.str.975 = private unnamed_addr constant [8 x i8] c"Not set\00", align 1
+@.str.976 = private unnamed_addr constant [7 x i8] c"Bitmap\00", align 1
+@.str.977 = private unnamed_addr constant [9 x i8] c"Download\00", align 1
+@.str.978 = private unnamed_addr constant [17 x i8] c"Download outline\00", align 1
+@.str.979 = private unnamed_addr constant [24 x i8] c"Substitute device fonts\00", align 1
+@.str.980 = private unnamed_addr constant [6 x i8] c"False\00", align 1
+@.str.981 = private unnamed_addr constant [5 x i8] c"True\00", align 1
+@.str.982 = private unnamed_addr constant [10 x i8] c"Grayscale\00", align 1
+@.str.983 = private unnamed_addr constant [11 x i8] c"Interlaced\00", align 1
+@.str.984 = private unnamed_addr constant [5 x i8] c"None\00", align 1
+@.str.985 = private unnamed_addr constant [7 x i8] c"System\00", align 1
+@.str.986 = private unnamed_addr constant [7 x i8] c"Driver\00", align 1
+@.str.987 = private unnamed_addr constant [7 x i8] c"Device\00", align 1
+@.str.988 = private unnamed_addr constant [9 x i8] c"Saturate\00", align 1
+@.str.989 = private unnamed_addr constant [9 x i8] c"Contrast\00", align 1
+@.str.990 = private unnamed_addr constant [13 x i8] c"Colorimetric\00", align 1
+@.str.991 = private unnamed_addr constant [22 x i8] c"Absolute colorimetric\00", align 1
+@.str.992 = private unnamed_addr constant [9 x i8] c"Standard\00", align 1
+@.str.993 = private unnamed_addr constant [13 x i8] c"Transparency\00", align 1
+@.str.994 = private unnamed_addr constant [7 x i8] c"Glossy\00", align 1
+@.str.995 = private unnamed_addr constant [7 x i8] c"Coarse\00", align 1
+@.str.996 = private unnamed_addr constant [5 x i8] c"Line\00", align 1
+@.str.997 = private unnamed_addr constant [9 x i8] c"Line art\00", align 1
+@.str.998 = private unnamed_addr constant [16 x i8] c"Error diffusion\00", align 1
+@.str.999 = private unnamed_addr constant [11 x i8] c"Reserved 6\00", align 1
+@.str.1000 = private unnamed_addr constant [11 x i8] c"Reserved 7\00", align 1
+@.str.1001 = private unnamed_addr constant [14 x i8] c"Job is paused\00", align 1
+@.str.1002 = private unnamed_addr constant [18 x i8] c"Job is not paused\00", align 1
+@.str.1003 = private unnamed_addr constant [17 x i8] c"Job has an error\00", align 1
+@.str.1004 = private unnamed_addr constant [10 x i8] c"Job is OK\00", align 1
+@.str.1005 = private unnamed_addr constant [21 x i8] c"Job is being deleted\00", align 1
+@.str.1006 = private unnamed_addr constant [25 x i8] c"Job is not being deleted\00", align 1
+@.str.1007 = private unnamed_addr constant [21 x i8] c"Job is being spooled\00", align 1
+@.str.1008 = private unnamed_addr constant [25 x i8] c"Job is not being spooled\00", align 1
+@.str.1009 = private unnamed_addr constant [21 x i8] c"Job is being printed\00", align 1
+@.str.1010 = private unnamed_addr constant [25 x i8] c"Job is not being printed\00", align 1
+@.str.1011 = private unnamed_addr constant [15 x i8] c"Job is offline\00", align 1
+@.str.1012 = private unnamed_addr constant [19 x i8] c"Job is not offline\00", align 1
+@.str.1013 = private unnamed_addr constant [20 x i8] c"Job is out of paper\00", align 1
+@.str.1014 = private unnamed_addr constant [24 x i8] c"Job is not out of paper\00", align 1
+@.str.1015 = private unnamed_addr constant [27 x i8] c"Job has completed printing\00", align 1
+@.str.1016 = private unnamed_addr constant [31 x i8] c"Job has not completed printing\00", align 1
+@.str.1017 = private unnamed_addr constant [21 x i8] c"Job has been deleted\00", align 1
+@.str.1018 = private unnamed_addr constant [25 x i8] c"Job has not been deleted\00", align 1
+@.str.1019 = private unnamed_addr constant [21 x i8] c"Job has been blocked\00", align 1
+@.str.1020 = private unnamed_addr constant [25 x i8] c"Job has not been blocked\00", align 1
+@.str.1021 = private unnamed_addr constant [27 x i8] c"User intervention required\00", align 1
+@.str.1022 = private unnamed_addr constant [31 x i8] c"User intervention not required\00", align 1
+@.str.1023 = private unnamed_addr constant [8 x i8] c"Builtin\00", align 1
+@.str.1024 = private unnamed_addr constant [8 x i8] c"Printer\00", align 1
+@.str.1025 = private unnamed_addr constant [15 x i8] c"Printer notify\00", align 1
+@.str.1026 = private unnamed_addr constant [11 x i8] c"Job notify\00", align 1
+@.str.1027 = private unnamed_addr constant [41 x i8] c"Data for all monitored fields is present\00", align 1
+@.str.1028 = private unnamed_addr constant [42 x i8] c"Data for all monitored fields not present\00", align 1
+@.str.1029 = private unnamed_addr constant [22 x i8] c"Notify on add printer\00", align 1
+@.str.1030 = private unnamed_addr constant [28 x i8] c"Don't notify on add printer\00", align 1
+@.str.1031 = private unnamed_addr constant [22 x i8] c"Notify on set printer\00", align 1
+@.str.1032 = private unnamed_addr constant [28 x i8] c"Don't notify on set printer\00", align 1
+@.str.1033 = private unnamed_addr constant [25 x i8] c"Notify on delete printer\00", align 1
+@.str.1034 = private unnamed_addr constant [31 x i8] c"Don't notify on delete printer\00", align 1
+@.str.1035 = private unnamed_addr constant [18 x i8] c"Notify on add job\00", align 1
+@.str.1036 = private unnamed_addr constant [24 x i8] c"Don't notify on add job\00", align 1
+@.str.1037 = private unnamed_addr constant [18 x i8] c"Notify on set job\00", align 1
+@.str.1038 = private unnamed_addr constant [24 x i8] c"Don't notify on set job\00", align 1
+@.str.1039 = private unnamed_addr constant [21 x i8] c"Notify on delete job\00", align 1
+@.str.1040 = private unnamed_addr constant [27 x i8] c"Don't notify on delete job\00", align 1
+@.str.1041 = private unnamed_addr constant [19 x i8] c"Notify on writejob\00", align 1
+@.str.1042 = private unnamed_addr constant [26 x i8] c"Don't notify on write job\00", align 1
+@.str.1043 = private unnamed_addr constant [19 x i8] c"Notify on add form\00", align 1
+@.str.1044 = private unnamed_addr constant [25 x i8] c"Don't notify on add form\00", align 1
+@.str.1045 = private unnamed_addr constant [19 x i8] c"Notify on set form\00", align 1
+@.str.1046 = private unnamed_addr constant [25 x i8] c"Don't notify on set form\00", align 1
+@.str.1047 = private unnamed_addr constant [22 x i8] c"Notify on delete form\00", align 1
+@.str.1048 = private unnamed_addr constant [28 x i8] c"Don't notify on delete form\00", align 1
+@.str.1049 = private unnamed_addr constant [19 x i8] c"Notify on add port\00", align 1
+@.str.1050 = private unnamed_addr constant [25 x i8] c"Don't notify on add port\00", align 1
+@.str.1051 = private unnamed_addr constant [25 x i8] c"Notify on configure port\00", align 1
+@.str.1052 = private unnamed_addr constant [31 x i8] c"Don't notify on configure port\00", align 1
+@.str.1053 = private unnamed_addr constant [22 x i8] c"Notify on delete port\00", align 1
+@.str.1054 = private unnamed_addr constant [28 x i8] c"Don't notify on delete port\00", align 1
+@.str.1055 = private unnamed_addr constant [21 x i8] c"Notify on add driver\00", align 1
+@.str.1056 = private unnamed_addr constant [27 x i8] c"Don't notify on add driver\00", align 1
+@.str.1057 = private unnamed_addr constant [21 x i8] c"Notify on set driver\00", align 1
+@.str.1058 = private unnamed_addr constant [27 x i8] c"Don't notify on set driver\00", align 1
+@.str.1059 = private unnamed_addr constant [24 x i8] c"Notify on delete driver\00", align 1
+@.str.1060 = private unnamed_addr constant [30 x i8] c"Don't notify on delete driver\00", align 1
+@.str.1061 = private unnamed_addr constant [18 x i8] c"Notify on timeout\00", align 1
+@.str.1062 = private unnamed_addr constant [24 x i8] c"Don't notify on timeout\00", align 1
+@.str.1063 = private unnamed_addr constant [36 x i8] c"Notify on failed printer connection\00", align 1
+@.str.1064 = private unnamed_addr constant [42 x i8] c"Don't notify on failed printer connection\00", align 1
+@.str.1065 = private unnamed_addr constant [52 x i8] c"The printer starts printing after last page spooled\00", align 1
+@.str.1066 = private unnamed_addr constant [43 x i8] c"The printer starts printing while spooling\00", align 1
+@.str.1067 = private unnamed_addr constant [38 x i8] c"Jobs are sent directly to the printer\00", align 1
+@.str.1068 = private unnamed_addr constant [48 x i8] c"Jobs are spooled to the printer before printing\00", align 1
+@.str.1069 = private unnamed_addr constant [35 x i8] c"The printer is the default printer\00", align 1
+@.str.1070 = private unnamed_addr constant [39 x i8] c"The printer is not the default printer\00", align 1
+@.str.1071 = private unnamed_addr constant [22 x i8] c"The printer is shared\00", align 1
+@.str.1072 = private unnamed_addr constant [26 x i8] c"The printer is not shared\00", align 1
+@.str.1073 = private unnamed_addr constant [44 x i8] c"The printer is a network printer connection\00", align 1
+@.str.1074 = private unnamed_addr constant [48 x i8] c"The printer is not a network printer connection\00", align 1
+@.str.1075 = private unnamed_addr constant [53 x i8] c"The printer is hidden from some users on the network\00", align 1
+@.str.1076 = private unnamed_addr constant [57 x i8] c"The printer is not hidden from some users on the network\00", align 1
+@.str.1077 = private unnamed_addr constant [31 x i8] c"The printer is a local printer\00", align 1
+@.str.1078 = private unnamed_addr constant [35 x i8] c"The printer is not a local printer\00", align 1
+@.str.1079 = private unnamed_addr constant [49 x i8] c"The queue on the printer is enabled if available\00", align 1
+@.str.1080 = private unnamed_addr constant [40 x i8] c"The queue on the printer is not enabled\00", align 1
+@.str.1081 = private unnamed_addr constant [37 x i8] c"Jobs are kept after they are printed\00", align 1
+@.str.1082 = private unnamed_addr constant [40 x i8] c"Jobs are deleted after they are printed\00", align 1
+@.str.1083 = private unnamed_addr constant [75 x i8] c"Jobs that have completed spooling are scheduled before still spooling jobs\00", align 1
+@.str.1084 = private unnamed_addr constant [52 x i8] c"Jobs are scheduled in the order they start spooling\00", align 1
+@.str.1085 = private unnamed_addr constant [35 x i8] c"The printer is currently connected\00", align 1
+@.str.1086 = private unnamed_addr constant [39 x i8] c"The printer is currently not connected\00", align 1
+@.str.1087 = private unnamed_addr constant [43 x i8] c"Bidirectional communications are supported\00", align 1
+@.str.1088 = private unnamed_addr constant [47 x i8] c"Bidirectional communications are not supported\00", align 1
+@.str.1089 = private unnamed_addr constant [45 x i8] c"Only raw data type print jobs can be spooled\00", align 1
+@.str.1090 = private unnamed_addr constant [40 x i8] c"All data type print jobs can be spooled\00", align 1
+@.str.1091 = private unnamed_addr constant [42 x i8] c"The printer is published in the directory\00", align 1
+@.str.1092 = private unnamed_addr constant [46 x i8] c"The printer is not published in the directory\00", align 1
+@.str.1093 = private unnamed_addr constant [32 x i8] c"Printer Driver is package aware\00", align 1
+@.str.1094 = private unnamed_addr constant [36 x i8] c"Printer Driver is not package aware\00", align 1
+@.str.1095 = private unnamed_addr constant [28 x i8] c"Printer Driver is XPS based\00", align 1
+@.str.1096 = private unnamed_addr constant [32 x i8] c"Printer Driver is not XPS based\00", align 1
+@.str.1097 = private unnamed_addr constant [34 x i8] c"Printer Driver is sandbox enabled\00", align 1
+@.str.1098 = private unnamed_addr constant [38 x i8] c"Printer Driver is not sandbox enabled\00", align 1
+@.str.1099 = private unnamed_addr constant [41 x i8] c"Printer Driver is a Class Printer Driver\00", align 1
+@.str.1100 = private unnamed_addr constant [45 x i8] c"Printer Driver is not a Class Printer Driver\00", align 1
+@.str.1101 = private unnamed_addr constant [43 x i8] c"Printer Driver is a derived Printer Driver\00", align 1
+@.str.1102 = private unnamed_addr constant [47 x i8] c"Printer Driver is not a derived Printer Driver\00", align 1
+@.str.1103 = private unnamed_addr constant [50 x i8] c"Printer Driver is a not a sharable Printer Driver\00", align 1
+@.str.1104 = private unnamed_addr constant [45 x i8] c"Printer Driver is a shareable Printer Driver\00", align 1
+@.str.1105 = private unnamed_addr constant [39 x i8] c"Printer Driver is a Fax Printer Driver\00", align 1
+@.str.1106 = private unnamed_addr constant [43 x i8] c"Printer Driver is not a Fax Printer Driver\00", align 1
+@.str.1107 = private unnamed_addr constant [40 x i8] c"Printer Driver is a File Printer Driver\00", align 1
+@.str.1108 = private unnamed_addr constant [44 x i8] c"Printer Driver is not a File Printer Driver\00", align 1
+@.str.1109 = private unnamed_addr constant [43 x i8] c"Printer Driver is a Virtual Printer Driver\00", align 1
+@.str.1110 = private unnamed_addr constant [47 x i8] c"Printer Driver is not a Virtual Printer Driver\00", align 1
+@.str.1111 = private unnamed_addr constant [43 x i8] c"Printer Driver is a Service Printer Driver\00", align 1
+@.str.1112 = private unnamed_addr constant [47 x i8] c"Printer Driver is not a Service Printer Driver\00", align 1
+@.str.1113 = private unnamed_addr constant [47 x i8] c"Soft reset is required for this Printer Driver\00", align 1
+@.str.1114 = private unnamed_addr constant [50 x i8] c"No soft reset is required for this Printer Driver\00", align 1
+@.str.1115 = private unnamed_addr constant [38 x i8] c"Printer Driver is a 3D Printer Driver\00", align 1
+@.str.1116 = private unnamed_addr constant [42 x i8] c"Printer Driver is not a 3D Printer Driver\00", align 1
+@.str.1117 = private unnamed_addr constant [7 x i8] c"Cancel\00", align 1
+@.str.1118 = private unnamed_addr constant [8 x i8] c"Restart\00", align 1
+@.str.1119 = private unnamed_addr constant [7 x i8] c"Delete\00", align 1
+@.str.1120 = private unnamed_addr constant [8 x i8] c"Publish\00", align 1
+@.str.1121 = private unnamed_addr constant [10 x i8] c"Unpublish\00", align 1
+@.str.1122 = private unnamed_addr constant [7 x i8] c"Update\00", align 1
+@.str.1123 = private unnamed_addr constant [8 x i8] c"Pending\00", align 1
+@.str.1124 = private unnamed_addr constant [10 x i8] c"Republish\00", align 1
+@.str.1125 = private unnamed_addr constant [13 x i8] c"EnumPrinters\00", align 1
+@.str.1126 = private unnamed_addr constant [12 x i8] c"OpenPrinter\00", align 1
+@.str.1127 = private unnamed_addr constant [7 x i8] c"SetJob\00", align 1
+@.str.1128 = private unnamed_addr constant [7 x i8] c"GetJob\00", align 1
+@.str.1129 = private unnamed_addr constant [9 x i8] c"EnumJobs\00", align 1
+@.str.1130 = private unnamed_addr constant [11 x i8] c"AddPrinter\00", align 1
+@.str.1131 = private unnamed_addr constant [14 x i8] c"DeletePrinter\00", align 1
+@.str.1132 = private unnamed_addr constant [11 x i8] c"SetPrinter\00", align 1
+@.str.1133 = private unnamed_addr constant [11 x i8] c"GetPrinter\00", align 1
+@.str.1134 = private unnamed_addr constant [17 x i8] c"AddPrinterDriver\00", align 1
+@.str.1135 = private unnamed_addr constant [19 x i8] c"EnumPrinterDrivers\00", align 1
+@.str.1136 = private unnamed_addr constant [17 x i8] c"GetPrinterDriver\00", align 1
+@.str.1137 = private unnamed_addr constant [26 x i8] c"GetPrinterDriverDirectory\00", align 1
+@.str.1138 = private unnamed_addr constant [20 x i8] c"DeletePrinterDriver\00", align 1
+@.str.1139 = private unnamed_addr constant [18 x i8] c"AddPrintProcessor\00", align 1
+@.str.1140 = private unnamed_addr constant [19 x i8] c"EnumPrintProcessor\00", align 1
+@.str.1141 = private unnamed_addr constant [27 x i8] c"GetPrintProcessorDirectory\00", align 1
+@.str.1142 = private unnamed_addr constant [16 x i8] c"StartDocPrinter\00", align 1
+@.str.1143 = private unnamed_addr constant [17 x i8] c"StartPagePrinter\00", align 1
+@.str.1144 = private unnamed_addr constant [13 x i8] c"WritePrinter\00", align 1
+@.str.1145 = private unnamed_addr constant [15 x i8] c"EndPagePrinter\00", align 1
+@.str.1146 = private unnamed_addr constant [13 x i8] c"AbortPrinter\00", align 1
+@.str.1147 = private unnamed_addr constant [12 x i8] c"ReadPrinter\00", align 1
+@.str.1148 = private unnamed_addr constant [14 x i8] c"EndDocPrinter\00", align 1
+@.str.1149 = private unnamed_addr constant [7 x i8] c"AddJob\00", align 1
+@.str.1150 = private unnamed_addr constant [12 x i8] c"ScheduleJob\00", align 1
+@.str.1151 = private unnamed_addr constant [15 x i8] c"GetPrinterData\00", align 1
+@.str.1152 = private unnamed_addr constant [15 x i8] c"SetPrinterData\00", align 1
+@.str.1153 = private unnamed_addr constant [21 x i8] c"WaitForPrinterChange\00", align 1
+@.str.1154 = private unnamed_addr constant [13 x i8] c"ClosePrinter\00", align 1
+@.str.1155 = private unnamed_addr constant [8 x i8] c"AddForm\00", align 1
+@.str.1156 = private unnamed_addr constant [11 x i8] c"DeleteForm\00", align 1
+@.str.1157 = private unnamed_addr constant [8 x i8] c"GetForm\00", align 1
+@.str.1158 = private unnamed_addr constant [8 x i8] c"SetForm\00", align 1
+@.str.1159 = private unnamed_addr constant [10 x i8] c"EnumForms\00", align 1
+@.str.1160 = private unnamed_addr constant [10 x i8] c"EnumPorts\00", align 1
+@.str.1161 = private unnamed_addr constant [13 x i8] c"EnumMonitors\00", align 1
+@.str.1162 = private unnamed_addr constant [8 x i8] c"AddPort\00", align 1
+@.str.1163 = private unnamed_addr constant [14 x i8] c"ConfigurePort\00", align 1
+@.str.1164 = private unnamed_addr constant [11 x i8] c"DeletePort\00", align 1
+@.str.1165 = private unnamed_addr constant [16 x i8] c"CreatePrinterIC\00", align 1
+@.str.1166 = private unnamed_addr constant [24 x i8] c"PlayDiscriptOnPrinterIC\00", align 1
+@.str.1167 = private unnamed_addr constant [16 x i8] c"DeletePrinterIC\00", align 1
+@.str.1168 = private unnamed_addr constant [21 x i8] c"AddPrinterConnection\00", align 1
+@.str.1169 = private unnamed_addr constant [24 x i8] c"DeletePrinterConnection\00", align 1
+@.str.1170 = private unnamed_addr constant [18 x i8] c"PrinterMessageBox\00", align 1
+@.str.1171 = private unnamed_addr constant [11 x i8] c"AddMonitor\00", align 1
+@.str.1172 = private unnamed_addr constant [14 x i8] c"DeleteMonitor\00", align 1
+@.str.1173 = private unnamed_addr constant [21 x i8] c"DeletePrintProcessor\00", align 1
+@.str.1174 = private unnamed_addr constant [17 x i8] c"AddPrintProvider\00", align 1
+@.str.1175 = private unnamed_addr constant [20 x i8] c"DeletePrintProvider\00", align 1
+@.str.1176 = private unnamed_addr constant [23 x i8] c"EnumPrintProcDataTypes\00", align 1
+@.str.1177 = private unnamed_addr constant [13 x i8] c"ResetPrinter\00", align 1
+@.str.1178 = private unnamed_addr constant [18 x i8] c"GetPrinterDriver2\00", align 1
+@.str.1179 = private unnamed_addr constant [35 x i8] c"FindFirstPrinterChangeNotification\00", align 1
+@.str.1180 = private unnamed_addr constant [34 x i8] c"FindNextPrinterChangeNotification\00", align 1
+@.str.1181 = private unnamed_addr constant [5 x i8] c"FCPN\00", align 1
+@.str.1182 = private unnamed_addr constant [38 x i8] c"RouterFindFirstPrinterNotificationOld\00", align 1
+@.str.1183 = private unnamed_addr constant [17 x i8] c"ReplyOpenPrinter\00", align 1
+@.str.1184 = private unnamed_addr constant [19 x i8] c"RouterReplyPrinter\00", align 1
+@.str.1185 = private unnamed_addr constant [18 x i8] c"ReplyClosePrinter\00", align 1
+@.str.1186 = private unnamed_addr constant [10 x i8] c"AddPortEx\00", align 1
+@.str.1187 = private unnamed_addr constant [41 x i8] c"RemoteFindFirstPrinterChangeNotification\00", align 1
+@.str.1188 = private unnamed_addr constant [12 x i8] c"SpoolerInit\00", align 1
+@.str.1189 = private unnamed_addr constant [15 x i8] c"ResetPrinterEx\00", align 1
+@.str.1190 = private unnamed_addr constant [9 x i8] c"RFFPCNEX\00", align 1
+@.str.1191 = private unnamed_addr constant [6 x i8] c"RRPCN\00", align 1
+@.str.1192 = private unnamed_addr constant [9 x i8] c"RFNPCNEX\00", align 1
+@.str.1193 = private unnamed_addr constant [14 x i8] c"OpenPrinterEx\00", align 1
+@.str.1194 = private unnamed_addr constant [13 x i8] c"AddPrinterEx\00", align 1
+@.str.1195 = private unnamed_addr constant [16 x i8] c"EnumPrinterData\00", align 1
+@.str.1196 = private unnamed_addr constant [18 x i8] c"DeletePrinterData\00", align 1
+@.str.1197 = private unnamed_addr constant [17 x i8] c"GetPrinterDataEx\00", align 1
+@.str.1198 = private unnamed_addr constant [17 x i8] c"SetPrinterDataEx\00", align 1
+@.str.1199 = private unnamed_addr constant [18 x i8] c"EnumPrinterDataEx\00", align 1
+@.str.1200 = private unnamed_addr constant [15 x i8] c"EnumPrinterKey\00", align 1
+@.str.1201 = private unnamed_addr constant [20 x i8] c"DeletePrinterDataEx\00", align 1
+@.str.1202 = private unnamed_addr constant [22 x i8] c"DeletePrinterDriverEx\00", align 1
+@.str.1203 = private unnamed_addr constant [19 x i8] c"AddPrinterDriverEx\00", align 1
+@.str.1204 = private unnamed_addr constant [22 x i8] c"GetCorePrinterDrivers\00", align 1
+@.str.1205 = private unnamed_addr constant [28 x i8] c"GetPrinterDriverPackagePath\00", align 1
+@SpoolssEnumPrinters_q.hf_flags = internal constant [8 x ptr] [ptr @hf_enumprinters_flags_network, ptr @hf_enumprinters_flags_shared, ptr @hf_enumprinters_flags_remote, ptr @hf_enumprinters_flags_name, ptr @hf_enumprinters_flags_connections, ptr @hf_enumprinters_flags_local, ptr @hf_enumprinters_flags_default, ptr null], align 16
+@.str.1206 = private unnamed_addr constant [11 x i8] c", level %d\00", align 1
+@.str.1207 = private unnamed_addr constant [15 x i8] c"SPOOLSS buffer\00", align 1
+@.str.1208 = private unnamed_addr constant [20 x i8] c"Print info level %d\00", align 1
+@.str.1209 = private unnamed_addr constant [13 x i8] c"Unknown time\00", align 1
+@.str.1210 = private unnamed_addr constant [14 x i8] c", %s jobid %d\00", align 1
+@.str.1211 = private unnamed_addr constant [21 x i8] c", level %d, jobid %d\00", align 1
+@.str.1212 = private unnamed_addr constant [26 x i8] c"Unknown job info level %d\00", align 1
+@.str.1213 = private unnamed_addr constant [17 x i8] c"Job info level 1\00", align 1
+@.str.1214 = private unnamed_addr constant [20 x i8] c"Job Submission Time\00", align 1
+@.str.1215 = private unnamed_addr constant [17 x i8] c"Job info level 2\00", align 1
+@spoolss_job_access_mask_info = internal global %struct.access_mask_info { ptr @.str.1216, ptr @spoolss_job_specific_rights, ptr null, ptr null }, align 8
+@.str.1216 = private unnamed_addr constant [12 x i8] c"SPOOLSS job\00", align 1
+@.str.1217 = private unnamed_addr constant [12 x i8] c"Environment\00", align 1
+@.str.1218 = private unnamed_addr constant [29 x i8] c"Unknown driver info level %d\00", align 1
+@.str.1219 = private unnamed_addr constant [20 x i8] c"Driver info level 1\00", align 1
+@.str.1220 = private unnamed_addr constant [20 x i8] c"Driver info level 2\00", align 1
+@.str.1221 = private unnamed_addr constant [20 x i8] c"Driver info level 3\00", align 1
+@.str.1222 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
+@.str.1223 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str.1224 = private unnamed_addr constant [20 x i8] c"Driver info level 6\00", align 1
+@.str.1225 = private unnamed_addr constant [20 x i8] c"Driver info level 8\00", align 1
+@dissect_printer_driver_attributes.hf_attributes = internal constant [13 x ptr] [ptr @hf_printer_driver_attributes_package_aware, ptr @hf_printer_driver_attributes_xps, ptr @hf_printer_driver_attributes_sandbox_enabled, ptr @hf_printer_driver_attributes_class, ptr @hf_printer_driver_attributes_derived, ptr @hf_printer_driver_attributes_not_shareable, ptr @hf_printer_driver_attributes_category_fax, ptr @hf_printer_driver_attributes_category_file, ptr @hf_printer_driver_attributes_category_virtual, ptr @hf_printer_driver_attributes_category_service, ptr @hf_printer_driver_attributes_soft_reset_required, ptr @hf_printer_driver_attributes_category_3d, ptr null], align 16
+@.str.1226 = private unnamed_addr constant [22 x i8] c"Driver info level 101\00", align 1
+@.str.1227 = private unnamed_addr constant [10 x i8] c"Directory\00", align 1
+@.str.1228 = private unnamed_addr constant [5 x i8] c", %s\00", align 1
+@.str.1229 = private unnamed_addr constant [11 x i8] c", %d bytes\00", align 1
+@.str.1230 = private unnamed_addr constant [19 x i8] c", %d bytes written\00", align 1
+@.str.1231 = private unnamed_addr constant [5 x i8] c"????\00", align 1
+@.str.1232 = private unnamed_addr constant [6 x i8] c" = %s\00", align 1
+@.str.1233 = private unnamed_addr constant [9 x i8] c": 0x%08x\00", align 1
+@.str.1234 = private unnamed_addr constant [10 x i8] c" = 0x%08x\00", align 1
+@.str.1235 = private unnamed_addr constant [17 x i8] c" = <binary data>\00", align 1
+@.str.1236 = private unnamed_addr constant [5 x i8] c"Form\00", align 1
+@.str.1237 = private unnamed_addr constant [21 x i8] c"ReplyOpenPrinter(%s)\00", align 1
+@.str.1238 = private unnamed_addr constant [34 x i8] c"Unknown ReplyOpenPrinter() handle\00", align 1
+@SpoolssRFFPCNEX_q.hf_flags = internal constant [21 x ptr] [ptr @hf_rffpcnex_flags_timeout, ptr @hf_rffpcnex_flags_delete_driver, ptr @hf_rffpcnex_flags_set_driver, ptr @hf_rffpcnex_flags_add_driver, ptr @hf_rffpcnex_flags_delete_print_processor, ptr @hf_rffpcnex_flags_add_print_processor, ptr @hf_rffpcnex_flags_delete_port, ptr @hf_rffpcnex_flags_configure_port, ptr @hf_rffpcnex_flags_add_port, ptr @hf_rffpcnex_flags_delete_form, ptr @hf_rffpcnex_flags_set_form, ptr @hf_rffpcnex_flags_add_form, ptr @hf_rffpcnex_flags_write_job, ptr @hf_rffpcnex_flags_delete_job, ptr @hf_rffpcnex_flags_set_job, ptr @hf_rffpcnex_flags_add_job, ptr @hf_rffpcnex_flags_failed_printer_connection, ptr @hf_rffpcnex_flags_delete_printer, ptr @hf_rffpcnex_flags_set_printer, ptr @hf_rffpcnex_flags_add_printer, ptr null], align 16
+@.str.1239 = private unnamed_addr constant [7 x i8] c"Server\00", align 1
+@.str.1240 = private unnamed_addr constant [25 x i8] c"Notify Options Container\00", align 1
+@.str.1241 = private unnamed_addr constant [14 x i8] c", changeid %d\00", align 1
+@.str.1242 = private unnamed_addr constant [12 x i8] c"Notify Info\00", align 1
+@.str.1243 = private unnamed_addr constant [31 x i8] c"Notify Options Array Container\00", align 1
+@.str.1244 = private unnamed_addr constant [17 x i8] c"Printer datatype\00", align 1
+@spoolss_printserver_access_mask_info = internal global %struct.access_mask_info { ptr @.str.1245, ptr @spoolss_printserver_specific_rights, ptr null, ptr null }, align 8
+@.str.1245 = private unnamed_addr constant [21 x i8] c"SPOOLSS print server\00", align 1
+@.str.1246 = private unnamed_addr constant [18 x i8] c"OpenPrinterEx(%s)\00", align 1
+@.str.1247 = private unnamed_addr constant [31 x i8] c"Unknown OpenPrinterEx() handle\00", align 1
+@.str.1248 = private unnamed_addr constant [17 x i8] c"AddPrinterEx(%s)\00", align 1
+@.str.1249 = private unnamed_addr constant [30 x i8] c"Unknown AddPrinterEx() handle\00", align 1
+@.str.1250 = private unnamed_addr constant [11 x i8] c", index %d\00", align 1
+@.str.1251 = private unnamed_addr constant [7 x i8] c"%s==%s\00", align 1
+@.str.1252 = private unnamed_addr constant [8 x i8] c", %s/%s\00", align 1
+@.str.1253 = private unnamed_addr constant [9 x i8] c"Name: %s\00", align 1
+@.str.1254 = private unnamed_addr constant [7 x i8] c"(null)\00", align 1
+@.str.1255 = private unnamed_addr constant [12 x i8] c", Value: %d\00", align 1
+@.str.1256 = private unnamed_addr constant [12 x i8] c", Value: %s\00", align 1
+@.str.1257 = private unnamed_addr constant [14 x i8] c"<binary data>\00", align 1
+@.str.1258 = private unnamed_addr constant [31 x i8] c"<REG_MULTI_SZ not implemented>\00", align 1
+@.str.1259 = private unnamed_addr constant [20 x i8] c"%s: unknown type %d\00", align 1
+@.str.1260 = private unnamed_addr constant [3 x i8] c"\22\22\00", align 1
+@.str.1261 = private unnamed_addr constant [20 x i8] c"Core Printer Driver\00", align 1
+@.str.1262 = private unnamed_addr constant [9 x i8] c"Language\00", align 1
+@.str.1263 = private unnamed_addr constant [17 x i8] c"DriverPackageCab\00", align 1
+
+; Function Attrs: nounwind uwtable
+define internal void @spoolss_printer_specific_rights(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  %9 = load ptr, ptr %7, align 8
+  %10 = load i32, ptr @hf_printer_access_use, align 4
+  %11 = load ptr, ptr %5, align 8
+  %12 = load i32, ptr %6, align 4
+  %13 = load i32, ptr %8, align 4
+  %14 = zext i32 %13 to i64
+  %15 = call ptr @proto_tree_add_boolean(ptr noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, i32 noundef 4, i64 noundef %14)
+  %16 = load ptr, ptr %7, align 8
+  %17 = load i32, ptr @hf_printer_access_admin, align 4
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %6, align 4
+  %20 = load i32, ptr %8, align 4
+  %21 = zext i32 %20 to i64
+  %22 = call ptr @proto_tree_add_boolean(ptr noundef %16, i32 noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 4, i64 noundef %21)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @dissect_DEVMODE_CTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %10, align 8
+  %16 = load ptr, ptr %7, align 8
+  %17 = load i32, ptr %8, align 4
+  %18 = load i32, ptr @ett_DEVMODE_CTR, align 4
+  %19 = call ptr @proto_tree_add_subtree(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef 0, i32 noundef %18, ptr noundef null, ptr noundef @.str.1)
+  store ptr %19, ptr %13, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %13, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr @hf_devmodectr_size, align 4
+  %27 = call i32 @dissect_ndr_uint32(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef %14)
+  store i32 %27, ptr %8, align 4
+  %28 = load ptr, ptr %7, align 8
+  %29 = load i32, ptr %8, align 4
+  %30 = load ptr, ptr %9, align 8
+  %31 = load ptr, ptr %13, align 8
+  %32 = load ptr, ptr %11, align 8
+  %33 = load ptr, ptr %12, align 8
+  %34 = call i32 @dissect_ndr_pointer(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef @dissect_DEVMODE, i32 noundef 2, ptr noundef @.str.2, i32 noundef -1)
+  store i32 %34, ptr %8, align 4
+  %35 = load i32, ptr %8, align 4
+  ret i32 %35
+}
+
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+
+declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+
+declare i32 @dissect_ndr_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_DEVMODE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i16, align 2
+  %17 = alloca i16, align 2
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  %20 = load i32, ptr %9, align 4
+  store i32 %20, ptr %19, align 4
+  %21 = load ptr, ptr %12, align 8
+  %22 = getelementptr inbounds %struct._dcerpc_info, ptr %21, i32 0, i32 4
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %27
+
+25:                                               ; preds = %6
+  %26 = load i32, ptr %9, align 4
+  store i32 %26, ptr %7, align 4
+  br label %361
+
+27:                                               ; preds = %6
+  %28 = load ptr, ptr %11, align 8
+  %29 = load ptr, ptr %8, align 8
+  %30 = load i32, ptr %9, align 4
+  %31 = load i32, ptr @ett_DEVMODE, align 4
+  %32 = call ptr @proto_tree_add_subtree(ptr noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef 0, i32 noundef %31, ptr noundef %14, ptr noundef @.str.2)
+  store ptr %32, ptr %15, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = load i32, ptr %9, align 4
+  %35 = load ptr, ptr %10, align 8
+  %36 = load ptr, ptr %15, align 8
+  %37 = load ptr, ptr %12, align 8
+  %38 = load ptr, ptr %13, align 8
+  %39 = load i32, ptr @hf_devmode_size, align 4
+  %40 = call i32 @dissect_ndr_uint32(ptr noundef %33, i32 noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, i32 noundef %39, ptr noundef null)
+  store i32 %40, ptr %9, align 4
+  %41 = load ptr, ptr %8, align 8
+  %42 = load i32, ptr %9, align 4
+  %43 = load ptr, ptr %10, align 8
+  %44 = load ptr, ptr %15, align 8
+  %45 = load ptr, ptr %13, align 8
+  %46 = load i32, ptr @hf_devmode_devicename, align 4
+  %47 = call i32 @dissect_spoolss_uint16uni(ptr noundef %41, i32 noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef null, i32 noundef %46)
+  %48 = load i32, ptr %9, align 4
+  %49 = add i32 %48, 64
+  store i32 %49, ptr %9, align 4
+  %50 = load ptr, ptr %8, align 8
+  %51 = load i32, ptr %9, align 4
+  %52 = load ptr, ptr %10, align 8
+  %53 = load ptr, ptr %15, align 8
+  %54 = load ptr, ptr %12, align 8
+  %55 = load ptr, ptr %13, align 8
+  %56 = load i32, ptr @hf_devmode_spec_version, align 4
+  %57 = call i32 @dissect_ndr_uint16(ptr noundef %50, i32 noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef %55, i32 noundef %56, ptr noundef null)
+  store i32 %57, ptr %9, align 4
+  %58 = load ptr, ptr %8, align 8
+  %59 = load i32, ptr %9, align 4
+  %60 = load ptr, ptr %10, align 8
+  %61 = load ptr, ptr %15, align 8
+  %62 = load ptr, ptr %12, align 8
+  %63 = load ptr, ptr %13, align 8
+  %64 = load i32, ptr @hf_devmode_driver_version, align 4
+  %65 = call i32 @dissect_ndr_uint16(ptr noundef %58, i32 noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %62, ptr noundef %63, i32 noundef %64, ptr noundef null)
+  store i32 %65, ptr %9, align 4
+  %66 = load ptr, ptr %8, align 8
+  %67 = load i32, ptr %9, align 4
+  %68 = load ptr, ptr %10, align 8
+  %69 = load ptr, ptr %15, align 8
+  %70 = load ptr, ptr %12, align 8
+  %71 = load ptr, ptr %13, align 8
+  %72 = load i32, ptr @hf_devmode_size2, align 4
+  %73 = call i32 @dissect_ndr_uint16(ptr noundef %66, i32 noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef %70, ptr noundef %71, i32 noundef %72, ptr noundef null)
+  store i32 %73, ptr %9, align 4
+  %74 = load ptr, ptr %8, align 8
+  %75 = load i32, ptr %9, align 4
+  %76 = load ptr, ptr %10, align 8
+  %77 = load ptr, ptr %15, align 8
+  %78 = load ptr, ptr %12, align 8
+  %79 = load ptr, ptr %13, align 8
+  %80 = load i32, ptr @hf_devmode_driver_extra_len, align 4
+  %81 = call i32 @dissect_ndr_uint16(ptr noundef %74, i32 noundef %75, ptr noundef %76, ptr noundef %77, ptr noundef %78, ptr noundef %79, i32 noundef %80, ptr noundef %16)
+  store i32 %81, ptr %9, align 4
+  %82 = load ptr, ptr %8, align 8
+  %83 = load i32, ptr %9, align 4
+  %84 = load ptr, ptr %10, align 8
+  %85 = load ptr, ptr %15, align 8
+  %86 = load ptr, ptr %12, align 8
+  %87 = load ptr, ptr %13, align 8
+  %88 = call i32 @dissect_DEVMODE_fields(ptr noundef %82, i32 noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %18)
+  store i32 %88, ptr %9, align 4
+  %89 = load ptr, ptr %8, align 8
+  %90 = load i32, ptr %9, align 4
+  %91 = load ptr, ptr %10, align 8
+  %92 = load ptr, ptr %15, align 8
+  %93 = load ptr, ptr %12, align 8
+  %94 = load ptr, ptr %13, align 8
+  %95 = load i32, ptr @hf_devmode_orientation, align 4
+  %96 = call i32 @dissect_ndr_uint16(ptr noundef %89, i32 noundef %90, ptr noundef %91, ptr noundef %92, ptr noundef %93, ptr noundef %94, i32 noundef %95, ptr noundef null)
+  store i32 %96, ptr %9, align 4
+  %97 = load ptr, ptr %8, align 8
+  %98 = load i32, ptr %9, align 4
+  %99 = load ptr, ptr %10, align 8
+  %100 = load ptr, ptr %15, align 8
+  %101 = load ptr, ptr %12, align 8
+  %102 = load ptr, ptr %13, align 8
+  %103 = load i32, ptr @hf_devmode_paper_size, align 4
+  %104 = call i32 @dissect_ndr_uint16(ptr noundef %97, i32 noundef %98, ptr noundef %99, ptr noundef %100, ptr noundef %101, ptr noundef %102, i32 noundef %103, ptr noundef null)
+  store i32 %104, ptr %9, align 4
+  %105 = load ptr, ptr %8, align 8
+  %106 = load i32, ptr %9, align 4
+  %107 = load ptr, ptr %10, align 8
+  %108 = load ptr, ptr %15, align 8
+  %109 = load ptr, ptr %12, align 8
+  %110 = load ptr, ptr %13, align 8
+  %111 = load i32, ptr @hf_devmode_paper_length, align 4
+  %112 = call i32 @dissect_ndr_uint16(ptr noundef %105, i32 noundef %106, ptr noundef %107, ptr noundef %108, ptr noundef %109, ptr noundef %110, i32 noundef %111, ptr noundef null)
+  store i32 %112, ptr %9, align 4
+  %113 = load ptr, ptr %8, align 8
+  %114 = load i32, ptr %9, align 4
+  %115 = load ptr, ptr %10, align 8
+  %116 = load ptr, ptr %15, align 8
+  %117 = load ptr, ptr %12, align 8
+  %118 = load ptr, ptr %13, align 8
+  %119 = load i32, ptr @hf_devmode_paper_width, align 4
+  %120 = call i32 @dissect_ndr_uint16(ptr noundef %113, i32 noundef %114, ptr noundef %115, ptr noundef %116, ptr noundef %117, ptr noundef %118, i32 noundef %119, ptr noundef null)
+  store i32 %120, ptr %9, align 4
+  %121 = load ptr, ptr %8, align 8
+  %122 = load i32, ptr %9, align 4
+  %123 = load ptr, ptr %10, align 8
+  %124 = load ptr, ptr %15, align 8
+  %125 = load ptr, ptr %12, align 8
+  %126 = load ptr, ptr %13, align 8
+  %127 = load i32, ptr @hf_devmode_scale, align 4
+  %128 = call i32 @dissect_ndr_uint16(ptr noundef %121, i32 noundef %122, ptr noundef %123, ptr noundef %124, ptr noundef %125, ptr noundef %126, i32 noundef %127, ptr noundef null)
+  store i32 %128, ptr %9, align 4
+  %129 = load ptr, ptr %8, align 8
+  %130 = load i32, ptr %9, align 4
+  %131 = load ptr, ptr %10, align 8
+  %132 = load ptr, ptr %15, align 8
+  %133 = load ptr, ptr %12, align 8
+  %134 = load ptr, ptr %13, align 8
+  %135 = load i32, ptr @hf_devmode_copies, align 4
+  %136 = call i32 @dissect_ndr_uint16(ptr noundef %129, i32 noundef %130, ptr noundef %131, ptr noundef %132, ptr noundef %133, ptr noundef %134, i32 noundef %135, ptr noundef null)
+  store i32 %136, ptr %9, align 4
+  %137 = load ptr, ptr %8, align 8
+  %138 = load i32, ptr %9, align 4
+  %139 = load ptr, ptr %10, align 8
+  %140 = load ptr, ptr %15, align 8
+  %141 = load ptr, ptr %12, align 8
+  %142 = load ptr, ptr %13, align 8
+  %143 = load i32, ptr @hf_devmode_default_source, align 4
+  %144 = call i32 @dissect_ndr_uint16(ptr noundef %137, i32 noundef %138, ptr noundef %139, ptr noundef %140, ptr noundef %141, ptr noundef %142, i32 noundef %143, ptr noundef null)
+  store i32 %144, ptr %9, align 4
+  %145 = load ptr, ptr %8, align 8
+  %146 = load i32, ptr %9, align 4
+  %147 = load ptr, ptr %10, align 8
+  %148 = load ptr, ptr %12, align 8
+  %149 = load ptr, ptr %13, align 8
+  %150 = load i32, ptr @hf_devmode_print_quality, align 4
+  %151 = call i32 @dissect_ndr_uint16(ptr noundef %145, i32 noundef %146, ptr noundef %147, ptr noundef null, ptr noundef %148, ptr noundef %149, i32 noundef %150, ptr noundef %17)
+  store i32 %151, ptr %9, align 4
+  %152 = load i16, ptr %17, align 2
+  %153 = sext i16 %152 to i32
+  %154 = icmp slt i32 %153, 0
+  br i1 %154, label %155, label %169
+
+155:                                              ; preds = %27
+  %156 = load ptr, ptr %15, align 8
+  %157 = load i32, ptr @hf_devmode_print_quality, align 4
+  %158 = load ptr, ptr %8, align 8
+  %159 = load i32, ptr %9, align 4
+  %160 = sub i32 %159, 2
+  %161 = load ptr, ptr %13, align 8
+  %162 = getelementptr i8, ptr %161, i64 0
+  %163 = load i8, ptr %162, align 1
+  %164 = zext i8 %163 to i32
+  %165 = and i32 %164, 16
+  %166 = icmp ne i32 %165, 0
+  %167 = select i1 %166, i32 -2147483648, i32 0
+  %168 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %157, ptr noundef %158, i32 noundef %160, i32 noundef 2, i32 noundef %167)
+  br label %180
+
+169:                                              ; preds = %27
+  %170 = load ptr, ptr %15, align 8
+  %171 = load i32, ptr @hf_devmode_print_quality, align 4
+  %172 = load ptr, ptr %8, align 8
+  %173 = load i32, ptr %9, align 4
+  %174 = sub i32 %173, 4
+  %175 = load i16, ptr %17, align 2
+  %176 = sext i16 %175 to i32
+  %177 = load i16, ptr %17, align 2
+  %178 = sext i16 %177 to i32
+  %179 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %170, i32 noundef %171, ptr noundef %172, i32 noundef %174, i32 noundef 4, i32 noundef %176, ptr noundef @.str.754, i32 noundef %178)
+  br label %180
+
+180:                                              ; preds = %169, %155
+  %181 = load ptr, ptr %8, align 8
+  %182 = load i32, ptr %9, align 4
+  %183 = load ptr, ptr %10, align 8
+  %184 = load ptr, ptr %15, align 8
+  %185 = load ptr, ptr %12, align 8
+  %186 = load ptr, ptr %13, align 8
+  %187 = load i32, ptr @hf_devmode_color, align 4
+  %188 = call i32 @dissect_ndr_uint16(ptr noundef %181, i32 noundef %182, ptr noundef %183, ptr noundef %184, ptr noundef %185, ptr noundef %186, i32 noundef %187, ptr noundef null)
+  store i32 %188, ptr %9, align 4
+  %189 = load ptr, ptr %8, align 8
+  %190 = load i32, ptr %9, align 4
+  %191 = load ptr, ptr %10, align 8
+  %192 = load ptr, ptr %15, align 8
+  %193 = load ptr, ptr %12, align 8
+  %194 = load ptr, ptr %13, align 8
+  %195 = load i32, ptr @hf_devmode_duplex, align 4
+  %196 = call i32 @dissect_ndr_uint16(ptr noundef %189, i32 noundef %190, ptr noundef %191, ptr noundef %192, ptr noundef %193, ptr noundef %194, i32 noundef %195, ptr noundef null)
+  store i32 %196, ptr %9, align 4
+  %197 = load ptr, ptr %8, align 8
+  %198 = load i32, ptr %9, align 4
+  %199 = load ptr, ptr %10, align 8
+  %200 = load ptr, ptr %15, align 8
+  %201 = load ptr, ptr %12, align 8
+  %202 = load ptr, ptr %13, align 8
+  %203 = load i32, ptr @hf_devmode_y_resolution, align 4
+  %204 = call i32 @dissect_ndr_uint16(ptr noundef %197, i32 noundef %198, ptr noundef %199, ptr noundef %200, ptr noundef %201, ptr noundef %202, i32 noundef %203, ptr noundef null)
+  store i32 %204, ptr %9, align 4
+  %205 = load ptr, ptr %8, align 8
+  %206 = load i32, ptr %9, align 4
+  %207 = load ptr, ptr %10, align 8
+  %208 = load ptr, ptr %15, align 8
+  %209 = load ptr, ptr %12, align 8
+  %210 = load ptr, ptr %13, align 8
+  %211 = load i32, ptr @hf_devmode_tt_option, align 4
+  %212 = call i32 @dissect_ndr_uint16(ptr noundef %205, i32 noundef %206, ptr noundef %207, ptr noundef %208, ptr noundef %209, ptr noundef %210, i32 noundef %211, ptr noundef null)
+  store i32 %212, ptr %9, align 4
+  %213 = load ptr, ptr %8, align 8
+  %214 = load i32, ptr %9, align 4
+  %215 = load ptr, ptr %10, align 8
+  %216 = load ptr, ptr %15, align 8
+  %217 = load ptr, ptr %12, align 8
+  %218 = load ptr, ptr %13, align 8
+  %219 = load i32, ptr @hf_devmode_collate, align 4
+  %220 = call i32 @dissect_ndr_uint16(ptr noundef %213, i32 noundef %214, ptr noundef %215, ptr noundef %216, ptr noundef %217, ptr noundef %218, i32 noundef %219, ptr noundef null)
+  store i32 %220, ptr %9, align 4
+  %221 = load ptr, ptr %8, align 8
+  %222 = load i32, ptr %9, align 4
+  %223 = load ptr, ptr %10, align 8
+  %224 = load ptr, ptr %15, align 8
+  %225 = load ptr, ptr %13, align 8
+  %226 = load i32, ptr @hf_devmode_form_name, align 4
+  %227 = call i32 @dissect_spoolss_uint16uni(ptr noundef %221, i32 noundef %222, ptr noundef %223, ptr noundef %224, ptr noundef %225, ptr noundef null, i32 noundef %226)
+  %228 = load i32, ptr %9, align 4
+  %229 = add i32 %228, 64
+  store i32 %229, ptr %9, align 4
+  %230 = load ptr, ptr %8, align 8
+  %231 = load i32, ptr %9, align 4
+  %232 = load ptr, ptr %10, align 8
+  %233 = load ptr, ptr %15, align 8
+  %234 = load ptr, ptr %12, align 8
+  %235 = load ptr, ptr %13, align 8
+  %236 = load i32, ptr @hf_devmode_log_pixels, align 4
+  %237 = call i32 @dissect_ndr_uint16(ptr noundef %230, i32 noundef %231, ptr noundef %232, ptr noundef %233, ptr noundef %234, ptr noundef %235, i32 noundef %236, ptr noundef null)
+  store i32 %237, ptr %9, align 4
+  %238 = load ptr, ptr %8, align 8
+  %239 = load i32, ptr %9, align 4
+  %240 = load ptr, ptr %10, align 8
+  %241 = load ptr, ptr %15, align 8
+  %242 = load ptr, ptr %12, align 8
+  %243 = load ptr, ptr %13, align 8
+  %244 = load i32, ptr @hf_devmode_bits_per_pel, align 4
+  %245 = call i32 @dissect_ndr_uint32(ptr noundef %238, i32 noundef %239, ptr noundef %240, ptr noundef %241, ptr noundef %242, ptr noundef %243, i32 noundef %244, ptr noundef null)
+  store i32 %245, ptr %9, align 4
+  %246 = load ptr, ptr %8, align 8
+  %247 = load i32, ptr %9, align 4
+  %248 = load ptr, ptr %10, align 8
+  %249 = load ptr, ptr %15, align 8
+  %250 = load ptr, ptr %12, align 8
+  %251 = load ptr, ptr %13, align 8
+  %252 = load i32, ptr @hf_devmode_pels_width, align 4
+  %253 = call i32 @dissect_ndr_uint32(ptr noundef %246, i32 noundef %247, ptr noundef %248, ptr noundef %249, ptr noundef %250, ptr noundef %251, i32 noundef %252, ptr noundef null)
+  store i32 %253, ptr %9, align 4
+  %254 = load ptr, ptr %8, align 8
+  %255 = load i32, ptr %9, align 4
+  %256 = load ptr, ptr %10, align 8
+  %257 = load ptr, ptr %15, align 8
+  %258 = load ptr, ptr %12, align 8
+  %259 = load ptr, ptr %13, align 8
+  %260 = load i32, ptr @hf_devmode_pels_height, align 4
+  %261 = call i32 @dissect_ndr_uint32(ptr noundef %254, i32 noundef %255, ptr noundef %256, ptr noundef %257, ptr noundef %258, ptr noundef %259, i32 noundef %260, ptr noundef null)
+  store i32 %261, ptr %9, align 4
+  %262 = load ptr, ptr %8, align 8
+  %263 = load i32, ptr %9, align 4
+  %264 = load ptr, ptr %10, align 8
+  %265 = load ptr, ptr %15, align 8
+  %266 = load ptr, ptr %12, align 8
+  %267 = load ptr, ptr %13, align 8
+  %268 = load i32, ptr @hf_devmode_display_flags, align 4
+  %269 = call i32 @dissect_ndr_uint32(ptr noundef %262, i32 noundef %263, ptr noundef %264, ptr noundef %265, ptr noundef %266, ptr noundef %267, i32 noundef %268, ptr noundef null)
+  store i32 %269, ptr %9, align 4
+  %270 = load ptr, ptr %8, align 8
+  %271 = load i32, ptr %9, align 4
+  %272 = load ptr, ptr %10, align 8
+  %273 = load ptr, ptr %15, align 8
+  %274 = load ptr, ptr %12, align 8
+  %275 = load ptr, ptr %13, align 8
+  %276 = load i32, ptr @hf_devmode_display_freq, align 4
+  %277 = call i32 @dissect_ndr_uint32(ptr noundef %270, i32 noundef %271, ptr noundef %272, ptr noundef %273, ptr noundef %274, ptr noundef %275, i32 noundef %276, ptr noundef null)
+  store i32 %277, ptr %9, align 4
+  %278 = load ptr, ptr %8, align 8
+  %279 = load i32, ptr %9, align 4
+  %280 = load ptr, ptr %10, align 8
+  %281 = load ptr, ptr %15, align 8
+  %282 = load ptr, ptr %12, align 8
+  %283 = load ptr, ptr %13, align 8
+  %284 = load i32, ptr @hf_devmode_icm_method, align 4
+  %285 = call i32 @dissect_ndr_uint32(ptr noundef %278, i32 noundef %279, ptr noundef %280, ptr noundef %281, ptr noundef %282, ptr noundef %283, i32 noundef %284, ptr noundef null)
+  store i32 %285, ptr %9, align 4
+  %286 = load ptr, ptr %8, align 8
+  %287 = load i32, ptr %9, align 4
+  %288 = load ptr, ptr %10, align 8
+  %289 = load ptr, ptr %15, align 8
+  %290 = load ptr, ptr %12, align 8
+  %291 = load ptr, ptr %13, align 8
+  %292 = load i32, ptr @hf_devmode_icm_intent, align 4
+  %293 = call i32 @dissect_ndr_uint32(ptr noundef %286, i32 noundef %287, ptr noundef %288, ptr noundef %289, ptr noundef %290, ptr noundef %291, i32 noundef %292, ptr noundef null)
+  store i32 %293, ptr %9, align 4
+  %294 = load ptr, ptr %8, align 8
+  %295 = load i32, ptr %9, align 4
+  %296 = load ptr, ptr %10, align 8
+  %297 = load ptr, ptr %15, align 8
+  %298 = load ptr, ptr %12, align 8
+  %299 = load ptr, ptr %13, align 8
+  %300 = load i32, ptr @hf_devmode_media_type, align 4
+  %301 = call i32 @dissect_ndr_uint32(ptr noundef %294, i32 noundef %295, ptr noundef %296, ptr noundef %297, ptr noundef %298, ptr noundef %299, i32 noundef %300, ptr noundef null)
+  store i32 %301, ptr %9, align 4
+  %302 = load ptr, ptr %8, align 8
+  %303 = load i32, ptr %9, align 4
+  %304 = load ptr, ptr %10, align 8
+  %305 = load ptr, ptr %15, align 8
+  %306 = load ptr, ptr %12, align 8
+  %307 = load ptr, ptr %13, align 8
+  %308 = load i32, ptr @hf_devmode_dither_type, align 4
+  %309 = call i32 @dissect_ndr_uint32(ptr noundef %302, i32 noundef %303, ptr noundef %304, ptr noundef %305, ptr noundef %306, ptr noundef %307, i32 noundef %308, ptr noundef null)
+  store i32 %309, ptr %9, align 4
+  %310 = load ptr, ptr %8, align 8
+  %311 = load i32, ptr %9, align 4
+  %312 = load ptr, ptr %10, align 8
+  %313 = load ptr, ptr %15, align 8
+  %314 = load ptr, ptr %12, align 8
+  %315 = load ptr, ptr %13, align 8
+  %316 = load i32, ptr @hf_devmode_reserved1, align 4
+  %317 = call i32 @dissect_ndr_uint32(ptr noundef %310, i32 noundef %311, ptr noundef %312, ptr noundef %313, ptr noundef %314, ptr noundef %315, i32 noundef %316, ptr noundef null)
+  store i32 %317, ptr %9, align 4
+  %318 = load ptr, ptr %8, align 8
+  %319 = load i32, ptr %9, align 4
+  %320 = load ptr, ptr %10, align 8
+  %321 = load ptr, ptr %15, align 8
+  %322 = load ptr, ptr %12, align 8
+  %323 = load ptr, ptr %13, align 8
+  %324 = load i32, ptr @hf_devmode_reserved2, align 4
+  %325 = call i32 @dissect_ndr_uint32(ptr noundef %318, i32 noundef %319, ptr noundef %320, ptr noundef %321, ptr noundef %322, ptr noundef %323, i32 noundef %324, ptr noundef null)
+  store i32 %325, ptr %9, align 4
+  %326 = load ptr, ptr %8, align 8
+  %327 = load i32, ptr %9, align 4
+  %328 = load ptr, ptr %10, align 8
+  %329 = load ptr, ptr %15, align 8
+  %330 = load ptr, ptr %12, align 8
+  %331 = load ptr, ptr %13, align 8
+  %332 = load i32, ptr @hf_devmode_panning_width, align 4
+  %333 = call i32 @dissect_ndr_uint32(ptr noundef %326, i32 noundef %327, ptr noundef %328, ptr noundef %329, ptr noundef %330, ptr noundef %331, i32 noundef %332, ptr noundef null)
+  store i32 %333, ptr %9, align 4
+  %334 = load ptr, ptr %8, align 8
+  %335 = load i32, ptr %9, align 4
+  %336 = load ptr, ptr %10, align 8
+  %337 = load ptr, ptr %15, align 8
+  %338 = load ptr, ptr %12, align 8
+  %339 = load ptr, ptr %13, align 8
+  %340 = load i32, ptr @hf_devmode_panning_height, align 4
+  %341 = call i32 @dissect_ndr_uint32(ptr noundef %334, i32 noundef %335, ptr noundef %336, ptr noundef %337, ptr noundef %338, ptr noundef %339, i32 noundef %340, ptr noundef null)
+  store i32 %341, ptr %9, align 4
+  %342 = load i16, ptr %16, align 2
+  %343 = icmp ne i16 %342, 0
+  br i1 %343, label %344, label %355
+
+344:                                              ; preds = %180
+  %345 = load ptr, ptr %8, align 8
+  %346 = load i32, ptr %9, align 4
+  %347 = load ptr, ptr %10, align 8
+  %348 = load ptr, ptr %15, align 8
+  %349 = load ptr, ptr %12, align 8
+  %350 = load ptr, ptr %13, align 8
+  %351 = load i32, ptr @hf_devmode_driver_extra, align 4
+  %352 = load i16, ptr %16, align 2
+  %353 = zext i16 %352 to i32
+  %354 = call i32 @dissect_ndr_uint8s(ptr noundef %345, i32 noundef %346, ptr noundef %347, ptr noundef %348, ptr noundef %349, ptr noundef %350, i32 noundef %351, i32 noundef %353, ptr noundef null)
+  store i32 %354, ptr %9, align 4
+  br label %355
+
+355:                                              ; preds = %344, %180
+  %356 = load ptr, ptr %14, align 8
+  %357 = load i32, ptr %9, align 4
+  %358 = load i32, ptr %19, align 4
+  %359 = sub i32 %357, %358
+  call void @proto_item_set_len(ptr noundef %356, i32 noundef %359)
+  %360 = load i32, ptr %9, align 4
+  store i32 %360, ptr %7, align 4
+  br label %361
+
+361:                                              ; preds = %355, %25
+  %362 = load i32, ptr %7, align 4
+  ret i32 %362
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @dissect_USER_LEVEL_CTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  %17 = load ptr, ptr %12, align 8
+  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 4
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %6
+  %22 = load i32, ptr %9, align 4
+  store i32 %22, ptr %7, align 4
+  br label %53
+
+23:                                               ; preds = %6
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %8, align 8
+  %26 = load i32, ptr %9, align 4
+  %27 = load i32, ptr @ett_USER_LEVEL_CTR, align 4
+  %28 = call ptr @proto_tree_add_subtree(ptr noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef 0, i32 noundef %27, ptr noundef %15, ptr noundef @.str.3)
+  store ptr %28, ptr %14, align 8
+  %29 = load ptr, ptr %8, align 8
+  %30 = load i32, ptr %9, align 4
+  %31 = load ptr, ptr %10, align 8
+  %32 = load ptr, ptr %14, align 8
+  %33 = load ptr, ptr %12, align 8
+  %34 = load ptr, ptr %13, align 8
+  %35 = load i32, ptr @hf_level, align 4
+  %36 = call i32 @dissect_ndr_uint32(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, ptr noundef %16)
+  store i32 %36, ptr %9, align 4
+  %37 = load i32, ptr %16, align 4
+  switch i32 %37, label %46 [
+    i32 1, label %38
+  ]
+
+38:                                               ; preds = %23
+  %39 = load ptr, ptr %8, align 8
+  %40 = load i32, ptr %9, align 4
+  %41 = load ptr, ptr %10, align 8
+  %42 = load ptr, ptr %14, align 8
+  %43 = load ptr, ptr %12, align 8
+  %44 = load ptr, ptr %13, align 8
+  %45 = call i32 @dissect_ndr_pointer(ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef @dissect_USER_LEVEL_1, i32 noundef 2, ptr noundef @.str.4, i32 noundef -1)
+  store i32 %45, ptr %9, align 4
+  br label %51
+
+46:                                               ; preds = %23
+  %47 = load ptr, ptr %10, align 8
+  %48 = load ptr, ptr %15, align 8
+  %49 = load i32, ptr %16, align 4
+  %50 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %47, ptr noundef %48, ptr noundef @ei_level, ptr noundef @.str.5, i32 noundef %49)
+  br label %51
+
+51:                                               ; preds = %46, %38
+  %52 = load i32, ptr %9, align 4
+  store i32 %52, ptr %7, align 4
+  br label %53
+
+53:                                               ; preds = %51, %21
+  %54 = load i32, ptr %7, align 4
+  ret i32 %54
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_USER_LEVEL_1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i32, ptr %8, align 4
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = load ptr, ptr %12, align 8
+  %20 = load i32, ptr @hf_level, align 4
+  %21 = call i32 @dissect_ndr_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef %13)
+  store i32 %21, ptr %8, align 4
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %11, align 8
+  %27 = load ptr, ptr %12, align 8
+  %28 = load i32, ptr @hf_userlevel_size, align 4
+  %29 = call i32 @dissect_ndr_uint32(ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, i32 noundef %28, ptr noundef null)
+  store i32 %29, ptr %8, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_userlevel_client, align 4
+  %37 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef 2, ptr noundef @.str.584, i32 noundef %36, i32 noundef 0)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %7, align 8
+  %39 = load i32, ptr %8, align 4
+  %40 = load ptr, ptr %9, align 8
+  %41 = load ptr, ptr %10, align 8
+  %42 = load ptr, ptr %11, align 8
+  %43 = load ptr, ptr %12, align 8
+  %44 = load i32, ptr @hf_userlevel_user, align 4
+  %45 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %38, i32 noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, i32 noundef 2, ptr noundef @.str.586, i32 noundef %44, i32 noundef 0)
+  store i32 %45, ptr %8, align 4
+  %46 = load ptr, ptr %7, align 8
+  %47 = load i32, ptr %8, align 4
+  %48 = load ptr, ptr %9, align 8
+  %49 = load ptr, ptr %10, align 8
+  %50 = load ptr, ptr %11, align 8
+  %51 = load ptr, ptr %12, align 8
+  %52 = load i32, ptr @hf_userlevel_build, align 4
+  %53 = call i32 @dissect_ndr_uint32(ptr noundef %46, i32 noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, i32 noundef %52, ptr noundef null)
+  store i32 %53, ptr %8, align 4
+  %54 = load ptr, ptr %7, align 8
+  %55 = load i32, ptr %8, align 4
+  %56 = load ptr, ptr %9, align 8
+  %57 = load ptr, ptr %10, align 8
+  %58 = load ptr, ptr %11, align 8
+  %59 = load ptr, ptr %12, align 8
+  %60 = load i32, ptr @hf_userlevel_major, align 4
+  %61 = call i32 @dissect_ndr_uint32(ptr noundef %54, i32 noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef %58, ptr noundef %59, i32 noundef %60, ptr noundef null)
+  store i32 %61, ptr %8, align 4
+  %62 = load ptr, ptr %7, align 8
+  %63 = load i32, ptr %8, align 4
+  %64 = load ptr, ptr %9, align 8
+  %65 = load ptr, ptr %10, align 8
+  %66 = load ptr, ptr %11, align 8
+  %67 = load ptr, ptr %12, align 8
+  %68 = load i32, ptr @hf_userlevel_minor, align 4
+  %69 = call i32 @dissect_ndr_uint32(ptr noundef %62, i32 noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67, i32 noundef %68, ptr noundef null)
+  store i32 %69, ptr %8, align 4
+  %70 = load ptr, ptr %7, align 8
+  %71 = load i32, ptr %8, align 4
+  %72 = load ptr, ptr %9, align 8
+  %73 = load ptr, ptr %10, align 8
+  %74 = load ptr, ptr %11, align 8
+  %75 = load ptr, ptr %12, align 8
+  %76 = load i32, ptr @hf_userlevel_processor, align 4
+  %77 = call i32 @dissect_ndr_uint32(ptr noundef %70, i32 noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef %74, ptr noundef %75, i32 noundef %76, ptr noundef null)
+  store i32 %77, ptr %8, align 4
+  %78 = load i32, ptr %8, align 4
+  ret i32 %78
+}
+
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @dissect_NOTIFY_OPTIONS_ARRAY_CTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  %14 = load ptr, ptr %12, align 8
+  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 4
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %20
+
+18:                                               ; preds = %6
+  %19 = load i32, ptr %9, align 4
+  store i32 %19, ptr %7, align 4
+  br label %52
+
+20:                                               ; preds = %6
+  %21 = load ptr, ptr %8, align 8
+  %22 = load i32, ptr %9, align 4
+  %23 = load ptr, ptr %10, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load ptr, ptr %13, align 8
+  %27 = load i32, ptr @hf_notify_options_version, align 4
+  %28 = call i32 @dissect_ndr_uint32(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef null)
+  store i32 %28, ptr %9, align 4
+  %29 = load ptr, ptr %8, align 8
+  %30 = load i32, ptr %9, align 4
+  %31 = load ptr, ptr %10, align 8
+  %32 = load ptr, ptr %11, align 8
+  %33 = load ptr, ptr %12, align 8
+  %34 = load ptr, ptr %13, align 8
+  %35 = call i32 @dissect_notify_options_flags(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34)
+  store i32 %35, ptr %9, align 4
+  %36 = load ptr, ptr %8, align 8
+  %37 = load i32, ptr %9, align 4
+  %38 = load ptr, ptr %10, align 8
+  %39 = load ptr, ptr %11, align 8
+  %40 = load ptr, ptr %12, align 8
+  %41 = load ptr, ptr %13, align 8
+  %42 = load i32, ptr @hf_notify_options_count, align 4
+  %43 = call i32 @dissect_ndr_uint32(ptr noundef %36, i32 noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, i32 noundef %42, ptr noundef null)
+  store i32 %43, ptr %9, align 4
+  %44 = load ptr, ptr %8, align 8
+  %45 = load i32, ptr %9, align 4
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %11, align 8
+  %48 = load ptr, ptr %12, align 8
+  %49 = load ptr, ptr %13, align 8
+  %50 = call i32 @dissect_ndr_pointer(ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef @dissect_NOTIFY_OPTIONS_ARRAY, i32 noundef 2, ptr noundef @.str.6, i32 noundef -1)
+  store i32 %50, ptr %9, align 4
+  %51 = load i32, ptr %9, align 4
+  store i32 %51, ptr %7, align 4
+  br label %52
+
+52:                                               ; preds = %20, %18
+  %53 = load i32, ptr %7, align 4
+  ret i32 %53
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_notify_options_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i32, ptr %8, align 4
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = call i32 @dissect_ndr_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef null, ptr noundef %17, ptr noundef %18, i32 noundef -1, ptr noundef %13)
+  store i32 %19, ptr %8, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = sub i32 %22, 4
+  %24 = load i32, ptr @hf_notify_options_flags, align 4
+  %25 = load i32, ptr @ett_notify_options_flags, align 4
+  %26 = load i32, ptr %13, align 4
+  %27 = zext i32 %26 to i64
+  %28 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %20, ptr noundef %21, i32 noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef @dissect_notify_options_flags.hf_flags, i64 noundef %27, i32 noundef 1)
+  %29 = load i32, ptr %8, align 4
+  ret i32 %29
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_NOTIFY_OPTIONS_ARRAY(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = call i32 @dissect_ndr_ucarray(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dissect_NOTIFY_OPTION)
+  store i32 %19, ptr %8, align 4
+  %20 = load i32, ptr %8, align 4
+  ret i32 %20
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @dissect_SPOOL_PRINTER_INFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %18 = load ptr, ptr %10, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = load i32, ptr @ett_SPOOL_PRINTER_INFO_LEVEL, align 4
+  %22 = call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef 0, i32 noundef %21, ptr noundef %15, ptr noundef @.str.7)
+  store ptr %22, ptr %13, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = load ptr, ptr %9, align 8
+  %26 = load ptr, ptr %13, align 8
+  %27 = load ptr, ptr %11, align 8
+  %28 = load ptr, ptr %12, align 8
+  %29 = load i32, ptr @hf_level, align 4
+  %30 = call i32 @dissect_ndr_uint32(ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, i32 noundef %29, ptr noundef %14)
+  store i32 %30, ptr %8, align 4
+  %31 = load i32, ptr %14, align 4
+  switch i32 %31, label %72 [
+    i32 3, label %32
+    i32 2, label %71
+  ]
+
+32:                                               ; preds = %6
+  %33 = load ptr, ptr %7, align 8
+  %34 = load i32, ptr %8, align 4
+  %35 = load ptr, ptr %9, align 8
+  %36 = load ptr, ptr %13, align 8
+  %37 = load ptr, ptr %11, align 8
+  %38 = load ptr, ptr %12, align 8
+  %39 = load i32, ptr @hf_spool_printer_info_devmode_ptr, align 4
+  %40 = call i32 @dissect_ndr_uint32(ptr noundef %33, i32 noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, i32 noundef %39, ptr noundef %16)
+  store i32 %40, ptr %8, align 4
+  %41 = load ptr, ptr %7, align 8
+  %42 = load i32, ptr %8, align 4
+  %43 = load ptr, ptr %9, align 8
+  %44 = load ptr, ptr %13, align 8
+  %45 = load ptr, ptr %11, align 8
+  %46 = load ptr, ptr %12, align 8
+  %47 = load i32, ptr @hf_spool_printer_info_secdesc_ptr, align 4
+  %48 = call i32 @dissect_ndr_uint32(ptr noundef %41, i32 noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %47, ptr noundef %17)
+  store i32 %48, ptr %8, align 4
+  %49 = load i32, ptr %16, align 4
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %59
+
+51:                                               ; preds = %32
+  %52 = load ptr, ptr %7, align 8
+  %53 = load i32, ptr %8, align 4
+  %54 = load ptr, ptr %9, align 8
+  %55 = load ptr, ptr %13, align 8
+  %56 = load ptr, ptr %11, align 8
+  %57 = load ptr, ptr %12, align 8
+  %58 = call i32 @dissect_DEVMODE_CTR(ptr noundef %52, i32 noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %56, ptr noundef %57)
+  store i32 %58, ptr %8, align 4
+  br label %59
+
+59:                                               ; preds = %51, %32
+  %60 = load i32, ptr %17, align 4
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %70
+
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %7, align 8
+  %64 = load i32, ptr %8, align 4
+  %65 = load ptr, ptr %9, align 8
+  %66 = load ptr, ptr %13, align 8
+  %67 = load ptr, ptr %11, align 8
+  %68 = load ptr, ptr %12, align 8
+  %69 = call i32 @dissect_SEC_DESC_BUF(ptr noundef %63, i32 noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef %68)
+  store i32 %69, ptr %8, align 4
+  br label %70
+
+70:                                               ; preds = %62, %59
+  br label %77
+
+71:                                               ; preds = %6
+  br label %72
+
+72:                                               ; preds = %71, %6
+  %73 = load ptr, ptr %9, align 8
+  %74 = load ptr, ptr %15, align 8
+  %75 = load i32, ptr %14, align 4
+  %76 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %73, ptr noundef %74, ptr noundef @ei_spool_printer_info_level, ptr noundef @.str.8, i32 noundef %75)
+  br label %77
+
+77:                                               ; preds = %72, %70
+  %78 = load i32, ptr %8, align 4
+  ret i32 %78
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_SEC_DESC_BUF(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %10, align 8
+  %16 = load ptr, ptr %7, align 8
+  %17 = load i32, ptr %8, align 4
+  %18 = load i32, ptr @ett_SEC_DESC_BUF, align 4
+  %19 = call ptr @proto_tree_add_subtree(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef 0, i32 noundef %18, ptr noundef null, ptr noundef @.str.778)
+  store ptr %19, ptr %13, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %13, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr @hf_secdescbuf_maxlen, align 4
+  %27 = call i32 @dissect_ndr_uint32(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef null)
+  store i32 %27, ptr %8, align 4
+  %28 = load ptr, ptr %7, align 8
+  %29 = load i32, ptr %8, align 4
+  %30 = load ptr, ptr %9, align 8
+  %31 = load ptr, ptr %13, align 8
+  %32 = load ptr, ptr %11, align 8
+  %33 = load ptr, ptr %12, align 8
+  %34 = load i32, ptr @hf_secdescbuf_undoc, align 4
+  %35 = call i32 @dissect_ndr_uint32(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef null)
+  store i32 %35, ptr %8, align 4
+  %36 = load ptr, ptr %7, align 8
+  %37 = load i32, ptr %8, align 4
+  %38 = load ptr, ptr %9, align 8
+  %39 = load ptr, ptr %13, align 8
+  %40 = load ptr, ptr %11, align 8
+  %41 = load ptr, ptr %12, align 8
+  %42 = load i32, ptr @hf_secdescbuf_len, align 4
+  %43 = call i32 @dissect_ndr_uint32(ptr noundef %36, i32 noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, i32 noundef %42, ptr noundef %14)
+  store i32 %43, ptr %8, align 4
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load ptr, ptr %9, align 8
+  %47 = load ptr, ptr %13, align 8
+  %48 = load ptr, ptr %12, align 8
+  %49 = load i32, ptr %14, align 4
+  %50 = call i32 @dissect_nt_sec_desc(ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, i32 noundef 1, i32 noundef %49, ptr noundef @spoolss_printer_access_mask_info)
+  %51 = load i32, ptr %14, align 4
+  %52 = load i32, ptr %8, align 4
+  %53 = add i32 %52, %51
+  store i32 %53, ptr %8, align 4
+  %54 = load i32, ptr %8, align 4
+  ret i32 %54
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @dissect_FORM_CTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %8, align 4
+  %19 = load i32, ptr @ett_FORM_CTR, align 4
+  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 0, i32 noundef %19, ptr noundef %14, ptr noundef @.str.9)
+  store ptr %20, ptr %13, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %13, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_form_level, align 4
+  %28 = call i32 @dissect_ndr_uint32(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef %15)
+  store i32 %28, ptr %8, align 4
+  %29 = load i32, ptr %15, align 4
+  switch i32 %29, label %38 [
+    i32 1, label %30
+  ]
+
+30:                                               ; preds = %6
+  %31 = load ptr, ptr %7, align 8
+  %32 = load i32, ptr %8, align 4
+  %33 = load ptr, ptr %9, align 8
+  %34 = load ptr, ptr %13, align 8
+  %35 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %12, align 8
+  %37 = call i32 @dissect_FORM_1(ptr noundef %31, i32 noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36)
+  store i32 %37, ptr %8, align 4
+  br label %43
+
+38:                                               ; preds = %6
+  %39 = load ptr, ptr %9, align 8
+  %40 = load ptr, ptr %14, align 8
+  %41 = load i32, ptr %15, align 4
+  %42 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %39, ptr noundef %40, ptr noundef @ei_form_level, ptr noundef @.str.10, i32 noundef %41)
+  br label %43
+
+43:                                               ; preds = %38, %30
+  %44 = load i32, ptr %8, align 4
+  ret i32 %44
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_FORM_1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %10, align 8
+  %16 = load ptr, ptr %7, align 8
+  %17 = load i32, ptr %8, align 4
+  %18 = load i32, ptr @ett_FORM_1, align 4
+  %19 = call ptr @proto_tree_add_subtree(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef 0, i32 noundef %18, ptr noundef null, ptr noundef @.str.779)
+  store ptr %19, ptr %13, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %13, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr @hf_form_name, align 4
+  %27 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef 2, ptr noundef @.str.387, i32 noundef %26, i32 noundef 0)
+  store i32 %27, ptr %8, align 4
+  %28 = load ptr, ptr %7, align 8
+  %29 = load i32, ptr %8, align 4
+  %30 = call i32 @tvb_reported_length_remaining(ptr noundef %28, i32 noundef %29)
+  %31 = icmp sle i32 %30, 0
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %6
+  br label %98
+
+33:                                               ; preds = %6
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %8, align 4
+  %36 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %13, align 8
+  %38 = load ptr, ptr %11, align 8
+  %39 = load ptr, ptr %12, align 8
+  %40 = load i32, ptr @hf_form_flags, align 4
+  %41 = call i32 @dissect_ndr_uint32(ptr noundef %34, i32 noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, i32 noundef %40, ptr noundef %14)
+  store i32 %41, ptr %8, align 4
+  %42 = load ptr, ptr %7, align 8
+  %43 = load i32, ptr %8, align 4
+  %44 = load ptr, ptr %9, align 8
+  %45 = load ptr, ptr %13, align 8
+  %46 = load ptr, ptr %11, align 8
+  %47 = load ptr, ptr %12, align 8
+  %48 = load i32, ptr @hf_form_unknown, align 4
+  %49 = call i32 @dissect_ndr_uint32(ptr noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48, ptr noundef null)
+  store i32 %49, ptr %8, align 4
+  %50 = load ptr, ptr %7, align 8
+  %51 = load i32, ptr %8, align 4
+  %52 = load ptr, ptr %9, align 8
+  %53 = load ptr, ptr %13, align 8
+  %54 = load ptr, ptr %11, align 8
+  %55 = load ptr, ptr %12, align 8
+  %56 = load i32, ptr @hf_form_width, align 4
+  %57 = call i32 @dissect_ndr_uint32(ptr noundef %50, i32 noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef %55, i32 noundef %56, ptr noundef null)
+  store i32 %57, ptr %8, align 4
+  %58 = load ptr, ptr %7, align 8
+  %59 = load i32, ptr %8, align 4
+  %60 = load ptr, ptr %9, align 8
+  %61 = load ptr, ptr %13, align 8
+  %62 = load ptr, ptr %11, align 8
+  %63 = load ptr, ptr %12, align 8
+  %64 = load i32, ptr @hf_form_height, align 4
+  %65 = call i32 @dissect_ndr_uint32(ptr noundef %58, i32 noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %62, ptr noundef %63, i32 noundef %64, ptr noundef null)
+  store i32 %65, ptr %8, align 4
+  %66 = load ptr, ptr %7, align 8
+  %67 = load i32, ptr %8, align 4
+  %68 = load ptr, ptr %9, align 8
+  %69 = load ptr, ptr %13, align 8
+  %70 = load ptr, ptr %11, align 8
+  %71 = load ptr, ptr %12, align 8
+  %72 = load i32, ptr @hf_form_left_margin, align 4
+  %73 = call i32 @dissect_ndr_uint32(ptr noundef %66, i32 noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef %70, ptr noundef %71, i32 noundef %72, ptr noundef null)
+  store i32 %73, ptr %8, align 4
+  %74 = load ptr, ptr %7, align 8
+  %75 = load i32, ptr %8, align 4
+  %76 = load ptr, ptr %9, align 8
+  %77 = load ptr, ptr %13, align 8
+  %78 = load ptr, ptr %11, align 8
+  %79 = load ptr, ptr %12, align 8
+  %80 = load i32, ptr @hf_form_top_margin, align 4
+  %81 = call i32 @dissect_ndr_uint32(ptr noundef %74, i32 noundef %75, ptr noundef %76, ptr noundef %77, ptr noundef %78, ptr noundef %79, i32 noundef %80, ptr noundef null)
+  store i32 %81, ptr %8, align 4
+  %82 = load ptr, ptr %7, align 8
+  %83 = load i32, ptr %8, align 4
+  %84 = load ptr, ptr %9, align 8
+  %85 = load ptr, ptr %13, align 8
+  %86 = load ptr, ptr %11, align 8
+  %87 = load ptr, ptr %12, align 8
+  %88 = load i32, ptr @hf_form_horiz_len, align 4
+  %89 = call i32 @dissect_ndr_uint32(ptr noundef %82, i32 noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef %87, i32 noundef %88, ptr noundef null)
+  store i32 %89, ptr %8, align 4
+  %90 = load ptr, ptr %7, align 8
+  %91 = load i32, ptr %8, align 4
+  %92 = load ptr, ptr %9, align 8
+  %93 = load ptr, ptr %13, align 8
+  %94 = load ptr, ptr %11, align 8
+  %95 = load ptr, ptr %12, align 8
+  %96 = load i32, ptr @hf_form_vert_len, align 4
+  %97 = call i32 @dissect_ndr_uint32(ptr noundef %90, i32 noundef %91, ptr noundef %92, ptr noundef %93, ptr noundef %94, ptr noundef %95, i32 noundef %96, ptr noundef null)
+  store i32 %97, ptr %8, align 4
+  br label %98
+
+98:                                               ; preds = %33, %32
+  %99 = load i32, ptr %8, align 4
+  ret i32 %99
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @dissect_spoolss_doc_info_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %10, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load i32, ptr %8, align 4
+  %17 = load i32, ptr @ett_DOC_INFO_CTR, align 4
+  %18 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef 0, i32 noundef %17, ptr noundef null, ptr noundef @.str.11)
+  store ptr %18, ptr %13, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = load ptr, ptr %9, align 8
+  %22 = load ptr, ptr %13, align 8
+  %23 = load ptr, ptr %11, align 8
+  %24 = load ptr, ptr %12, align 8
+  %25 = load i32, ptr @hf_level, align 4
+  %26 = call i32 @dissect_ndr_uint32(ptr noundef %19, i32 noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, i32 noundef %25, ptr noundef null)
+  store i32 %26, ptr %8, align 4
+  %27 = load ptr, ptr %7, align 8
+  %28 = load i32, ptr %8, align 4
+  %29 = load ptr, ptr %9, align 8
+  %30 = load ptr, ptr %13, align 8
+  %31 = load ptr, ptr %11, align 8
+  %32 = load ptr, ptr %12, align 8
+  %33 = call i32 @dissect_spoolss_doc_info(ptr noundef %27, i32 noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32)
+  store i32 %33, ptr %8, align 4
+  %34 = load i32, ptr %8, align 4
+  ret i32 %34
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_spoolss_doc_info(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %10, align 8
+  %16 = load ptr, ptr %7, align 8
+  %17 = load i32, ptr %8, align 4
+  %18 = load i32, ptr @ett_DOC_INFO, align 4
+  %19 = call ptr @proto_tree_add_subtree(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef 0, i32 noundef %18, ptr noundef null, ptr noundef @.str.780)
+  store ptr %19, ptr %13, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %13, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr @hf_level, align 4
+  %27 = call i32 @dissect_ndr_uint32(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef %14)
+  store i32 %27, ptr %8, align 4
+  %28 = load ptr, ptr %7, align 8
+  %29 = load i32, ptr %8, align 4
+  %30 = load ptr, ptr %9, align 8
+  %31 = load ptr, ptr %13, align 8
+  %32 = load ptr, ptr %11, align 8
+  %33 = load ptr, ptr %12, align 8
+  %34 = call i32 @dissect_ndr_pointer(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef @dissect_spoolss_doc_info_data, i32 noundef 2, ptr noundef @.str.780, i32 noundef -1)
+  store i32 %34, ptr %8, align 4
+  %35 = load i32, ptr %8, align 4
+  ret i32 %35
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @dissect_NOTIFY_INFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i32, ptr %8, align 4
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = load ptr, ptr %12, align 8
+  %20 = load i32, ptr @hf_notify_info_version, align 4
+  %21 = call i32 @dissect_ndr_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef null)
+  store i32 %21, ptr %8, align 4
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %11, align 8
+  %27 = load ptr, ptr %12, align 8
+  %28 = load i32, ptr @hf_notify_info_flags, align 4
+  %29 = call i32 @dissect_ndr_uint32(ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, i32 noundef %28, ptr noundef null)
+  store i32 %29, ptr %8, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_notify_info_count, align 4
+  %37 = call i32 @dissect_ndr_uint32(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds %struct._dcerpc_info, ptr %38, i32 0, i32 4
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %49, label %42
+
+42:                                               ; preds = %6
+  %43 = load ptr, ptr %9, align 8
+  %44 = getelementptr inbounds %struct._packet_info, ptr %43, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8
+  %46 = load i32, ptr %13, align 4
+  %47 = load i32, ptr %13, align 4
+  %48 = call ptr @notify_plural(i32 noundef %47)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %45, i32 noundef 25, ptr noundef @.str.12, i32 noundef %46, ptr noundef %48)
+  br label %49
+
+49:                                               ; preds = %42, %6
+  %50 = load ptr, ptr %7, align 8
+  %51 = load i32, ptr %8, align 4
+  %52 = load ptr, ptr %9, align 8
+  %53 = load ptr, ptr %10, align 8
+  %54 = load ptr, ptr %11, align 8
+  %55 = load ptr, ptr %12, align 8
+  %56 = call i32 @dissect_ndr_ucarray(ptr noundef %50, i32 noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef @dissect_NOTIFY_INFO_DATA)
+  store i32 %56, ptr %8, align 4
+  %57 = load i32, ptr %8, align 4
+  ret i32 %57
+}
+
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+
+; Function Attrs: nounwind uwtable
+define internal ptr @notify_plural(i32 noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4
+  %5 = icmp eq i32 %4, 1
+  br i1 %5, label %6, label %7
+
+6:                                                ; preds = %1
+  store ptr @.str.782, ptr %2, align 8
+  br label %8
+
+7:                                                ; preds = %1
+  store ptr @.str.783, ptr %2, align 8
+  br label %8
+
+8:                                                ; preds = %7, %6
+  %9 = load ptr, ptr %2, align 8
+  ret ptr %9
+}
+
+declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_NOTIFY_INFO_DATA(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i16, align 2
+  %17 = alloca i16, align 2
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %19 = load ptr, ptr %10, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load i32, ptr @ett_NOTIFY_INFO_DATA, align 4
+  %23 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef 0, i32 noundef %22, ptr noundef %13, ptr noundef @.str.755)
+  store ptr %23, ptr %14, align 8
+  %24 = load ptr, ptr %7, align 8
+  %25 = load i32, ptr %8, align 4
+  %26 = load ptr, ptr %9, align 8
+  %27 = load ptr, ptr %14, align 8
+  %28 = load ptr, ptr %11, align 8
+  %29 = load ptr, ptr %12, align 8
+  %30 = load i32, ptr @hf_notify_info_data_type, align 4
+  %31 = call i32 @dissect_ndr_uint16(ptr noundef %24, i32 noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, i32 noundef %30, ptr noundef %16)
+  store i32 %31, ptr %8, align 4
+  %32 = load ptr, ptr %7, align 8
+  %33 = load i32, ptr %8, align 4
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %14, align 8
+  %36 = load ptr, ptr %11, align 8
+  %37 = load ptr, ptr %12, align 8
+  %38 = load i16, ptr %16, align 2
+  %39 = call i32 @dissect_notify_field(ptr noundef %32, i32 noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %37, i16 noundef zeroext %38, ptr noundef %17)
+  store i32 %39, ptr %8, align 4
+  %40 = load i16, ptr %16, align 2
+  %41 = zext i16 %40 to i32
+  switch i32 %41, label %50 [
+    i32 0, label %42
+    i32 1, label %46
+  ]
+
+42:                                               ; preds = %6
+  %43 = load i16, ptr %17, align 2
+  %44 = zext i16 %43 to i32
+  %45 = call ptr @val_to_str_ext(i32 noundef %44, ptr noundef @printer_notify_option_data_vals_ext, ptr noundef @.str.758)
+  store ptr %45, ptr %18, align 8
+  br label %51
+
+46:                                               ; preds = %6
+  %47 = load i16, ptr %17, align 2
+  %48 = zext i16 %47 to i32
+  %49 = call ptr @val_to_str_ext(i32 noundef %48, ptr noundef @job_notify_option_data_vals_ext, ptr noundef @.str.758)
+  store ptr %49, ptr %18, align 8
+  br label %51
+
+50:                                               ; preds = %6
+  store ptr @.str.784, ptr %18, align 8
+  br label %51
+
+51:                                               ; preds = %50, %46, %42
+  %52 = load ptr, ptr %13, align 8
+  %53 = load i16, ptr %16, align 2
+  %54 = zext i16 %53 to i32
+  %55 = call ptr @val_to_str(i32 noundef %54, ptr noundef @printer_notify_types, ptr noundef @.str.758)
+  %56 = load ptr, ptr %18, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef @.str.785, ptr noundef %55, ptr noundef %56)
+  %57 = load ptr, ptr %7, align 8
+  %58 = load i32, ptr %8, align 4
+  %59 = load ptr, ptr %9, align 8
+  %60 = load ptr, ptr %14, align 8
+  %61 = load ptr, ptr %11, align 8
+  %62 = load ptr, ptr %12, align 8
+  %63 = load i32, ptr @hf_notify_info_data_count, align 4
+  %64 = call i32 @dissect_ndr_uint32(ptr noundef %57, i32 noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %62, i32 noundef %63, ptr noundef %15)
+  store i32 %64, ptr %8, align 4
+  %65 = load ptr, ptr %7, align 8
+  %66 = load i32, ptr %8, align 4
+  %67 = load ptr, ptr %9, align 8
+  %68 = load ptr, ptr %14, align 8
+  %69 = load ptr, ptr %11, align 8
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr @hf_notify_info_data_id, align 4
+  %72 = call i32 @dissect_ndr_uint32(ptr noundef %65, i32 noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef %70, i32 noundef %71, ptr noundef null)
+  store i32 %72, ptr %8, align 4
+  %73 = load ptr, ptr %7, align 8
+  %74 = load i32, ptr %8, align 4
+  %75 = load ptr, ptr %9, align 8
+  %76 = load ptr, ptr %14, align 8
+  %77 = load ptr, ptr %11, align 8
+  %78 = load ptr, ptr %12, align 8
+  %79 = load i32, ptr @hf_notify_info_data_count, align 4
+  %80 = call i32 @dissect_ndr_uint32(ptr noundef %73, i32 noundef %74, ptr noundef %75, ptr noundef %76, ptr noundef %77, ptr noundef %78, i32 noundef %79, ptr noundef null)
+  store i32 %80, ptr %8, align 4
+  %81 = load i16, ptr %16, align 2
+  %82 = zext i16 %81 to i32
+  switch i32 %82, label %103 [
+    i32 0, label %83
+    i32 1, label %93
+  ]
+
+83:                                               ; preds = %51
+  %84 = load ptr, ptr %7, align 8
+  %85 = load i32, ptr %8, align 4
+  %86 = load ptr, ptr %9, align 8
+  %87 = load ptr, ptr %14, align 8
+  %88 = load ptr, ptr %13, align 8
+  %89 = load ptr, ptr %11, align 8
+  %90 = load ptr, ptr %12, align 8
+  %91 = load i16, ptr %17, align 2
+  %92 = call i32 @dissect_NOTIFY_INFO_DATA_printer(ptr noundef %84, i32 noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %88, ptr noundef %89, ptr noundef %90, i16 noundef zeroext %91)
+  store i32 %92, ptr %8, align 4
+  br label %107
+
+93:                                               ; preds = %51
+  %94 = load ptr, ptr %7, align 8
+  %95 = load i32, ptr %8, align 4
+  %96 = load ptr, ptr %9, align 8
+  %97 = load ptr, ptr %14, align 8
+  %98 = load ptr, ptr %13, align 8
+  %99 = load ptr, ptr %11, align 8
+  %100 = load ptr, ptr %12, align 8
+  %101 = load i16, ptr %17, align 2
+  %102 = call i32 @dissect_NOTIFY_INFO_DATA_job(ptr noundef %94, i32 noundef %95, ptr noundef %96, ptr noundef %97, ptr noundef %98, ptr noundef %99, ptr noundef %100, i16 noundef zeroext %101)
+  store i32 %102, ptr %8, align 4
+  br label %107
+
+103:                                              ; preds = %51
+  %104 = load ptr, ptr %9, align 8
+  %105 = load ptr, ptr %13, align 8
+  %106 = call ptr @expert_add_info(ptr noundef %104, ptr noundef %105, ptr noundef @ei_notify_info_data_type)
+  br label %107
+
+107:                                              ; preds = %103, %93, %83
+  %108 = load i32, ptr %8, align 4
+  ret i32 %108
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @proto_register_dcerpc_spoolss() #0 {
+  %1 = alloca ptr, align 8
+  %2 = call i32 @proto_register_protocol(ptr noundef @.str.751, ptr noundef @.str.752, ptr noundef @.str.753)
+  store i32 %2, ptr @proto_dcerpc_spoolss, align 4
+  %3 = load i32, ptr @proto_dcerpc_spoolss, align 4
+  call void @proto_register_field_array(i32 noundef %3, ptr noundef @proto_register_dcerpc_spoolss.hf, i32 noundef 363)
+  call void @proto_register_subtree_array(ptr noundef @proto_register_dcerpc_spoolss.ett, i32 noundef 48)
+  %4 = load i32, ptr @proto_dcerpc_spoolss, align 4
+  %5 = call ptr @expert_register_protocol(i32 noundef %4)
+  store ptr %5, ptr %1, align 8
+  %6 = load ptr, ptr %1, align 8
+  call void @expert_register_field_array(ptr noundef %6, ptr noundef @proto_register_dcerpc_spoolss.ei, i32 noundef 11)
+  ret void
+}
+
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+
+declare ptr @expert_register_protocol(i32 noundef) #1
+
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+
+; Function Attrs: nounwind uwtable
+define hidden void @proto_reg_handoff_dcerpc_spoolss() #0 {
+  %1 = load i32, ptr @proto_dcerpc_spoolss, align 4
+  %2 = load i32, ptr @ett_dcerpc_spoolss, align 4
+  %3 = load i16, ptr @ver_dcerpc_spoolss, align 2
+  %4 = load i32, ptr @hf_opnum, align 4
+  call void @dcerpc_init_uuid(i32 noundef %1, i32 noundef %2, ptr noundef @uuid_dcerpc_spoolss, i16 noundef zeroext %3, ptr noundef @dcerpc_spoolss_dissectors, i32 noundef %4)
+  ret void
+}
+
+declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #1
+
+declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_spoolss_uint16uni(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #0 {
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %9, align 8
+  store i32 %1, ptr %10, align 4
+  store ptr %2, ptr %11, align 8
+  store ptr %3, ptr %12, align 8
+  store ptr %4, ptr %13, align 8
+  store ptr %5, ptr %14, align 8
+  store i32 %6, ptr %15, align 4
+  %19 = load i32, ptr %10, align 4
+  %20 = srem i32 %19, 2
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %28
+
+22:                                               ; preds = %7
+  %23 = load i32, ptr %10, align 4
+  %24 = srem i32 %23, 2
+  %25 = sub i32 2, %24
+  %26 = load i32, ptr %10, align 4
+  %27 = add i32 %26, %25
+  store i32 %27, ptr %10, align 4
+  br label %28
+
+28:                                               ; preds = %22, %7
+  %29 = load ptr, ptr %9, align 8
+  %30 = load i32, ptr %10, align 4
+  %31 = call i32 @tvb_reported_length_remaining(ptr noundef %29, i32 noundef %30)
+  store i32 %31, ptr %17, align 4
+  %32 = load i32, ptr %17, align 4
+  %33 = icmp sle i32 %32, 0
+  br i1 %33, label %34, label %45
+
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %14, align 8
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %43
+
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds %struct._packet_info, ptr %38, i32 0, i32 50
+  %40 = load ptr, ptr %39, align 8
+  %41 = call noalias ptr @wmem_strdup(ptr noundef %40, ptr noundef @.str.755)
+  %42 = load ptr, ptr %14, align 8
+  store ptr %41, ptr %42, align 8
+  br label %43
+
+43:                                               ; preds = %37, %34
+  %44 = load i32, ptr %10, align 4
+  store i32 %44, ptr %8, align 4
+  br label %75
+
+45:                                               ; preds = %28
+  %46 = load ptr, ptr %11, align 8
+  %47 = getelementptr inbounds %struct._packet_info, ptr %46, i32 0, i32 50
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %9, align 8
+  %50 = load i32, ptr %10, align 4
+  %51 = load i32, ptr %17, align 4
+  %52 = call ptr @tvb_get_string_enc(ptr noundef %48, ptr noundef %49, i32 noundef %50, i32 noundef %51, i32 noundef -2147483644)
+  store ptr %52, ptr %18, align 8
+  %53 = load ptr, ptr %18, align 8
+  %54 = call i64 @strlen(ptr noundef %53) #4
+  %55 = trunc i64 %54 to i32
+  store i32 %55, ptr %16, align 4
+  %56 = load ptr, ptr %12, align 8
+  %57 = load i32, ptr %15, align 4
+  %58 = load ptr, ptr %9, align 8
+  %59 = load i32, ptr %10, align 4
+  %60 = load i32, ptr %16, align 4
+  %61 = mul i32 %60, 2
+  %62 = load ptr, ptr %18, align 8
+  %63 = call ptr @proto_tree_add_string(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef %61, ptr noundef %62)
+  %64 = load ptr, ptr %14, align 8
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %66, label %69
+
+66:                                               ; preds = %45
+  %67 = load ptr, ptr %18, align 8
+  %68 = load ptr, ptr %14, align 8
+  store ptr %67, ptr %68, align 8
+  br label %69
+
+69:                                               ; preds = %66, %45
+  %70 = load i32, ptr %10, align 4
+  %71 = load i32, ptr %16, align 4
+  %72 = add i32 %71, 1
+  %73 = mul i32 %72, 2
+  %74 = add i32 %70, %73
+  store i32 %74, ptr %8, align 4
+  br label %75
+
+75:                                               ; preds = %69, %43
+  %76 = load i32, ptr %8, align 4
+  ret i32 %76
+}
+
+declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_DEVMODE_fields(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  store ptr %6, ptr %14, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load i32, ptr @hf_devmode, align 4
+  %19 = load ptr, ptr %8, align 8
+  %20 = load i32, ptr %9, align 4
+  %21 = call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef 0, i32 noundef 1)
+  store ptr %21, ptr %16, align 8
+  %22 = load ptr, ptr %16, align 8
+  call void @proto_item_set_hidden(ptr noundef %22)
+  %23 = load ptr, ptr %8, align 8
+  %24 = load i32, ptr %9, align 4
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load ptr, ptr %13, align 8
+  %28 = call i32 @dissect_ndr_uint32(ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef null, ptr noundef %26, ptr noundef %27, i32 noundef -1, ptr noundef %15)
+  store i32 %28, ptr %9, align 4
+  %29 = load ptr, ptr %11, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = sub i32 %31, 4
+  %33 = load i32, ptr @hf_devmode_fields, align 4
+  %34 = load i32, ptr @ett_DEVMODE_fields, align 4
+  %35 = load i32, ptr %15, align 4
+  %36 = zext i32 %35 to i64
+  %37 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %29, ptr noundef %30, i32 noundef %32, i32 noundef %33, i32 noundef %34, ptr noundef @dissect_DEVMODE_fields.hf_fields, i64 noundef %36, i32 noundef 1)
+  %38 = load ptr, ptr %14, align 8
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %43
+
+40:                                               ; preds = %7
+  %41 = load i32, ptr %15, align 4
+  %42 = load ptr, ptr %14, align 8
+  store i32 %41, ptr %42, align 4
+  br label %43
+
+43:                                               ; preds = %40, %7
+  %44 = load i32, ptr %9, align 4
+  ret i32 %44
+}
+
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+
+declare i32 @dissect_ndr_uint8s(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+
+declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) #1
+
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+
+; Function Attrs: nounwind willreturn memory(read)
+declare i64 @strlen(ptr noundef) #2
+
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %24
+
+5:                                                ; preds = %1
+  br label %6
+
+6:                                                ; preds = %5
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %22
+
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %16 = load i32, ptr %15, align 4
+  %17 = or i32 %16, 1
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  store i32 %17, ptr %21, align 4
+  br label %22
+
+22:                                               ; preds = %11, %6
+  br label %23
+
+23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23, %1
+  ret void
+}
+
+declare ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef) #1
+
+declare i32 @dissect_ndr_str_pointer_item(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_NOTIFY_OPTION(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i16, align 2
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = getelementptr inbounds %struct._dcerpc_info, ptr %18, i32 0, i32 14
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %13, align 8
+  %21 = load ptr, ptr %10, align 8
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = load i32, ptr @ett_NOTIFY_OPTION, align 4
+  %25 = call ptr @proto_tree_add_subtree(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef 0, i32 noundef %24, ptr noundef %14, ptr noundef @.str.756)
+  store ptr %25, ptr %15, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = load ptr, ptr %9, align 8
+  %29 = load ptr, ptr %15, align 8
+  %30 = load ptr, ptr %11, align 8
+  %31 = load ptr, ptr %12, align 8
+  %32 = load i32, ptr @hf_notify_option_type, align 4
+  %33 = call i32 @dissect_ndr_uint16(ptr noundef %26, i32 noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, i32 noundef %32, ptr noundef %16)
+  store i32 %33, ptr %8, align 4
+  %34 = load ptr, ptr %14, align 8
+  %35 = load i16, ptr %16, align 2
+  %36 = zext i16 %35 to i32
+  %37 = call ptr @val_to_str(i32 noundef %36, ptr noundef @printer_notify_types, ptr noundef @.str.758)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %34, ptr noundef @.str.757, ptr noundef %37)
+  %38 = load ptr, ptr %7, align 8
+  %39 = load i32, ptr %8, align 4
+  %40 = load ptr, ptr %9, align 8
+  %41 = load ptr, ptr %15, align 8
+  %42 = load ptr, ptr %11, align 8
+  %43 = load ptr, ptr %12, align 8
+  %44 = load i32, ptr @hf_notify_option_reserved1, align 4
+  %45 = call i32 @dissect_ndr_uint16(ptr noundef %38, i32 noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, i32 noundef %44, ptr noundef null)
+  store i32 %45, ptr %8, align 4
+  %46 = load ptr, ptr %7, align 8
+  %47 = load i32, ptr %8, align 4
+  %48 = load ptr, ptr %9, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = load ptr, ptr %11, align 8
+  %51 = load ptr, ptr %12, align 8
+  %52 = load i32, ptr @hf_notify_option_reserved2, align 4
+  %53 = call i32 @dissect_ndr_uint32(ptr noundef %46, i32 noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, i32 noundef %52, ptr noundef null)
+  store i32 %53, ptr %8, align 4
+  %54 = load ptr, ptr %7, align 8
+  %55 = load i32, ptr %8, align 4
+  %56 = load ptr, ptr %9, align 8
+  %57 = load ptr, ptr %15, align 8
+  %58 = load ptr, ptr %11, align 8
+  %59 = load ptr, ptr %12, align 8
+  %60 = load i32, ptr @hf_notify_option_reserved3, align 4
+  %61 = call i32 @dissect_ndr_uint32(ptr noundef %54, i32 noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef %58, ptr noundef %59, i32 noundef %60, ptr noundef null)
+  store i32 %61, ptr %8, align 4
+  %62 = load ptr, ptr %7, align 8
+  %63 = load i32, ptr %8, align 4
+  %64 = load ptr, ptr %9, align 8
+  %65 = load ptr, ptr %15, align 8
+  %66 = load ptr, ptr %11, align 8
+  %67 = load ptr, ptr %12, align 8
+  %68 = load i32, ptr @hf_notify_option_count, align 4
+  %69 = call i32 @dissect_ndr_uint32(ptr noundef %62, i32 noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67, i32 noundef %68, ptr noundef %17)
+  store i32 %69, ptr %8, align 4
+  %70 = load ptr, ptr %14, align 8
+  %71 = load i32, ptr %17, align 4
+  %72 = load i32, ptr %17, align 4
+  %73 = call ptr @notify_plural(i32 noundef %72)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef @.str.12, i32 noundef %71, ptr noundef %73)
+  %74 = load i16, ptr %16, align 2
+  %75 = zext i16 %74 to i32
+  %76 = sext i32 %75 to i64
+  %77 = inttoptr i64 %76 to ptr
+  %78 = load ptr, ptr %13, align 8
+  %79 = getelementptr inbounds %struct._dcerpc_call_value, ptr %78, i32 0, i32 9
+  store ptr %77, ptr %79, align 8
+  %80 = load ptr, ptr %7, align 8
+  %81 = load i32, ptr %8, align 4
+  %82 = load ptr, ptr %9, align 8
+  %83 = load ptr, ptr %15, align 8
+  %84 = load ptr, ptr %11, align 8
+  %85 = load ptr, ptr %12, align 8
+  %86 = call i32 @dissect_ndr_pointer(ptr noundef %80, i32 noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef @dissect_NOTIFY_OPTION_DATA, i32 noundef 2, ptr noundef @.str.759, i32 noundef -1)
+  store i32 %86, ptr %8, align 4
+  %87 = load i32, ptr %8, align 4
+  ret i32 %87
+}
+
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_NOTIFY_OPTION_DATA(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i16, align 2
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = getelementptr inbounds %struct._dcerpc_info, ptr %18, i32 0, i32 14
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %14, align 8
+  %21 = load ptr, ptr %12, align 8
+  %22 = getelementptr inbounds %struct._dcerpc_info, ptr %21, i32 0, i32 4
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %27
+
+25:                                               ; preds = %6
+  %26 = load i32, ptr %9, align 4
+  store i32 %26, ptr %7, align 4
+  br label %60
+
+27:                                               ; preds = %6
+  %28 = load ptr, ptr %8, align 8
+  %29 = load i32, ptr %9, align 4
+  %30 = load ptr, ptr %10, align 8
+  %31 = load ptr, ptr %11, align 8
+  %32 = load ptr, ptr %12, align 8
+  %33 = load ptr, ptr %13, align 8
+  %34 = load i32, ptr @hf_notify_option_data_count, align 4
+  %35 = call i32 @dissect_ndr_uint32(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %15)
+  store i32 %35, ptr %9, align 4
+  %36 = load ptr, ptr %14, align 8
+  %37 = getelementptr inbounds %struct._dcerpc_call_value, ptr %36, i32 0, i32 9
+  %38 = load ptr, ptr %37, align 8
+  %39 = ptrtoint ptr %38 to i64
+  %40 = trunc i64 %39 to i32
+  %41 = trunc i32 %40 to i16
+  store i16 %41, ptr %17, align 2
+  store i32 0, ptr %16, align 4
+  br label %42
+
+42:                                               ; preds = %55, %27
+  %43 = load i32, ptr %16, align 4
+  %44 = load i32, ptr %15, align 4
+  %45 = icmp ult i32 %43, %44
+  br i1 %45, label %46, label %58
+
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %8, align 8
+  %48 = load i32, ptr %9, align 4
+  %49 = load ptr, ptr %10, align 8
+  %50 = load ptr, ptr %11, align 8
+  %51 = load ptr, ptr %12, align 8
+  %52 = load ptr, ptr %13, align 8
+  %53 = load i16, ptr %17, align 2
+  %54 = call i32 @dissect_notify_field(ptr noundef %47, i32 noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %52, i16 noundef zeroext %53, ptr noundef null)
+  store i32 %54, ptr %9, align 4
+  br label %55
+
+55:                                               ; preds = %46
+  %56 = load i32, ptr %16, align 4
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %16, align 4
+  br label %42, !llvm.loop !4
+
+58:                                               ; preds = %42
+  %59 = load i32, ptr %9, align 4
+  store i32 %59, ptr %7, align 4
+  br label %60
+
+60:                                               ; preds = %58, %25
+  %61 = load i32, ptr %7, align 4
+  ret i32 %61
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_notify_field(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i16 noundef zeroext %6, ptr noundef %7) #0 {
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i16, align 2
+  %16 = alloca ptr, align 8
+  %17 = alloca i16, align 2
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %9, align 8
+  store i32 %1, ptr %10, align 4
+  store ptr %2, ptr %11, align 8
+  store ptr %3, ptr %12, align 8
+  store ptr %4, ptr %13, align 8
+  store ptr %5, ptr %14, align 8
+  store i16 %6, ptr %15, align 2
+  store ptr %7, ptr %16, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = load i32, ptr %10, align 4
+  %21 = load ptr, ptr %11, align 8
+  %22 = load ptr, ptr %13, align 8
+  %23 = load ptr, ptr %14, align 8
+  %24 = load i32, ptr @hf_notify_field, align 4
+  %25 = call i32 @dissect_ndr_uint16(ptr noundef %19, i32 noundef %20, ptr noundef %21, ptr noundef null, ptr noundef %22, ptr noundef %23, i32 noundef %24, ptr noundef %17)
+  store i32 %25, ptr %10, align 4
+  %26 = load i16, ptr %15, align 2
+  %27 = zext i16 %26 to i32
+  switch i32 %27, label %36 [
+    i32 0, label %28
+    i32 1, label %32
+  ]
+
+28:                                               ; preds = %8
+  %29 = load i16, ptr %17, align 2
+  %30 = zext i16 %29 to i32
+  %31 = call ptr @val_to_str_ext_const(i32 noundef %30, ptr noundef @printer_notify_option_data_vals_ext, ptr noundef @.str.390)
+  store ptr %31, ptr %18, align 8
+  br label %37
+
+32:                                               ; preds = %8
+  %33 = load i16, ptr %17, align 2
+  %34 = zext i16 %33 to i32
+  %35 = call ptr @val_to_str_ext_const(i32 noundef %34, ptr noundef @job_notify_option_data_vals_ext, ptr noundef @.str.390)
+  store ptr %35, ptr %18, align 8
+  br label %37
+
+36:                                               ; preds = %8
+  store ptr @.str.746, ptr %18, align 8
+  br label %37
+
+37:                                               ; preds = %36, %32, %28
+  %38 = load ptr, ptr %12, align 8
+  %39 = load i32, ptr @hf_notify_field, align 4
+  %40 = load ptr, ptr %9, align 8
+  %41 = load i32, ptr %10, align 4
+  %42 = sub i32 %41, 2
+  %43 = load i16, ptr %17, align 2
+  %44 = zext i16 %43 to i32
+  %45 = load ptr, ptr %18, align 8
+  %46 = load i16, ptr %17, align 2
+  %47 = zext i16 %46 to i32
+  %48 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %42, i32 noundef 2, i32 noundef %44, ptr noundef @.str.760, ptr noundef %45, i32 noundef %47)
+  %49 = load ptr, ptr %16, align 8
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %54
+
+51:                                               ; preds = %37
+  %52 = load i16, ptr %17, align 2
+  %53 = load ptr, ptr %16, align 8
+  store i16 %52, ptr %53, align 2
+  br label %54
+
+54:                                               ; preds = %51, %37
+  %55 = load i32, ptr %10, align 4
+  ret i32 %55
+}
+
+declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) #1
+
+declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
+
+declare i32 @dissect_nt_sec_desc(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_spoolss_doc_info_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  %14 = load ptr, ptr %12, align 8
+  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 4
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %20
+
+18:                                               ; preds = %6
+  %19 = load i32, ptr %9, align 4
+  store i32 %19, ptr %7, align 4
+  br label %28
+
+20:                                               ; preds = %6
+  %21 = load ptr, ptr %8, align 8
+  %22 = load i32, ptr %9, align 4
+  %23 = load ptr, ptr %10, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load ptr, ptr %13, align 8
+  %27 = call i32 @dissect_spoolss_doc_info_1(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  store i32 %27, ptr %7, align 4
+  br label %28
+
+28:                                               ; preds = %20, %18
+  %29 = load i32, ptr %7, align 4
+  ret i32 %29
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_spoolss_doc_info_1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %10, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load i32, ptr %8, align 4
+  %17 = load i32, ptr @ett_DOC_INFO_1, align 4
+  %18 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef 0, i32 noundef %17, ptr noundef null, ptr noundef @.str.781)
+  store ptr %18, ptr %13, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = load ptr, ptr %9, align 8
+  %22 = load ptr, ptr %13, align 8
+  %23 = load ptr, ptr %11, align 8
+  %24 = load ptr, ptr %12, align 8
+  %25 = load i32, ptr @hf_documentname, align 4
+  %26 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %19, i32 noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, i32 noundef 2, ptr noundef @.str.174, i32 noundef %25, i32 noundef 0)
+  store i32 %26, ptr %8, align 4
+  %27 = load ptr, ptr %7, align 8
+  %28 = load i32, ptr %8, align 4
+  %29 = load ptr, ptr %9, align 8
+  %30 = load ptr, ptr %13, align 8
+  %31 = load ptr, ptr %11, align 8
+  %32 = load ptr, ptr %12, align 8
+  %33 = load i32, ptr @hf_outputfile, align 4
+  %34 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, i32 noundef 2, ptr noundef @.str.176, i32 noundef %33, i32 noundef 0)
+  store i32 %34, ptr %8, align 4
+  %35 = load ptr, ptr %7, align 8
+  %36 = load i32, ptr %8, align 4
+  %37 = load ptr, ptr %9, align 8
+  %38 = load ptr, ptr %13, align 8
+  %39 = load ptr, ptr %11, align 8
+  %40 = load ptr, ptr %12, align 8
+  %41 = load i32, ptr @hf_datatype, align 4
+  %42 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %35, i32 noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40, i32 noundef 2, ptr noundef @.str.774, i32 noundef %41, i32 noundef 0)
+  store i32 %42, ptr %8, align 4
+  %43 = load i32, ptr %8, align 4
+  ret i32 %43
+}
+
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_NOTIFY_INFO_DATA_printer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i16 noundef zeroext %7) #0 {
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i16, align 2
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %9, align 8
+  store i32 %1, ptr %10, align 4
+  store ptr %2, ptr %11, align 8
+  store ptr %3, ptr %12, align 8
+  store ptr %4, ptr %13, align 8
+  store ptr %5, ptr %14, align 8
+  store ptr %6, ptr %15, align 8
+  store i16 %7, ptr %16, align 2
+  %19 = load i16, ptr %16, align 2
+  %20 = zext i16 %19 to i32
+  switch i32 %20, label %94 [
+    i32 0, label %21
+    i32 1, label %21
+    i32 2, label %21
+    i32 4, label %21
+    i32 5, label %21
+    i32 6, label %21
+    i32 8, label %21
+    i32 9, label %21
+    i32 10, label %21
+    i32 11, label %21
+    i32 3, label %21
+    i32 13, label %43
+    i32 18, label %58
+    i32 12, label %77
+    i32 7, label %77
+  ]
+
+21:                                               ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8
+  %22 = load ptr, ptr %9, align 8
+  %23 = load i32, ptr %10, align 4
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load ptr, ptr %14, align 8
+  %27 = load ptr, ptr %15, align 8
+  %28 = load i32, ptr @hf_notify_info_data_bufsize, align 4
+  %29 = call i32 @dissect_ndr_uint32(ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, i32 noundef %28, ptr noundef %17)
+  store i32 %29, ptr %10, align 4
+  %30 = load ptr, ptr %9, align 8
+  %31 = load i32, ptr %10, align 4
+  %32 = load ptr, ptr %11, align 8
+  %33 = load ptr, ptr %12, align 8
+  %34 = load ptr, ptr %14, align 8
+  %35 = load ptr, ptr %15, align 8
+  %36 = load i32, ptr @hf_notify_info_data_buffer, align 4
+  %37 = load i16, ptr %16, align 2
+  %38 = zext i16 %37 to i32
+  %39 = call i32 @printer_notify_hf_index(i32 noundef %38)
+  %40 = sext i32 %39 to i64
+  %41 = inttoptr i64 %40 to ptr
+  %42 = call i32 @dissect_ndr_pointer_cb(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef @dissect_notify_info_data_buffer, i32 noundef 2, ptr noundef @.str.501, i32 noundef %36, ptr noundef @cb_notify_str_postprocess, ptr noundef %41)
+  store i32 %42, ptr %10, align 4
+  br label %111
+
+43:                                               ; preds = %8
+  %44 = load ptr, ptr %9, align 8
+  %45 = load i32, ptr %10, align 4
+  %46 = load ptr, ptr %11, align 8
+  %47 = load ptr, ptr %12, align 8
+  %48 = load ptr, ptr %14, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = call i32 @dissect_printer_attributes(ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49)
+  store i32 %50, ptr %10, align 4
+  %51 = load ptr, ptr %9, align 8
+  %52 = load i32, ptr %10, align 4
+  %53 = load ptr, ptr %11, align 8
+  %54 = load ptr, ptr %14, align 8
+  %55 = load ptr, ptr %15, align 8
+  %56 = load i32, ptr @hf_notify_info_data_value2, align 4
+  %57 = call i32 @dissect_ndr_uint32(ptr noundef %51, i32 noundef %52, ptr noundef %53, ptr noundef null, ptr noundef %54, ptr noundef %55, i32 noundef %56, ptr noundef null)
+  store i32 %57, ptr %10, align 4
+  br label %111
+
+58:                                               ; preds = %8
+  %59 = load ptr, ptr %9, align 8
+  %60 = load i32, ptr %10, align 4
+  %61 = load ptr, ptr %11, align 8
+  %62 = load ptr, ptr %12, align 8
+  %63 = load ptr, ptr %14, align 8
+  %64 = load ptr, ptr %15, align 8
+  %65 = load i32, ptr @hf_printer_status, align 4
+  %66 = call i32 @dissect_ndr_uint32(ptr noundef %59, i32 noundef %60, ptr noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %64, i32 noundef %65, ptr noundef %18)
+  store i32 %66, ptr %10, align 4
+  %67 = load ptr, ptr %9, align 8
+  %68 = load i32, ptr %10, align 4
+  %69 = load ptr, ptr %11, align 8
+  %70 = load ptr, ptr %14, align 8
+  %71 = load ptr, ptr %15, align 8
+  %72 = load i32, ptr @hf_notify_info_data_value2, align 4
+  %73 = call i32 @dissect_ndr_uint32(ptr noundef %67, i32 noundef %68, ptr noundef %69, ptr noundef null, ptr noundef %70, ptr noundef %71, i32 noundef %72, ptr noundef null)
+  store i32 %73, ptr %10, align 4
+  %74 = load ptr, ptr %13, align 8
+  %75 = load i32, ptr %18, align 4
+  %76 = call ptr @val_to_str_ext_const(i32 noundef %75, ptr noundef @printer_status_vals_ext, ptr noundef @.str.390)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %74, ptr noundef @.str.757, ptr noundef %76)
+  br label %111
+
+77:                                               ; preds = %8, %8
+  %78 = load ptr, ptr %9, align 8
+  %79 = load i32, ptr %10, align 4
+  %80 = load ptr, ptr %11, align 8
+  %81 = load ptr, ptr %12, align 8
+  %82 = load ptr, ptr %14, align 8
+  %83 = load ptr, ptr %15, align 8
+  %84 = load i32, ptr @hf_notify_info_data_bufsize, align 4
+  %85 = call i32 @dissect_ndr_uint32(ptr noundef %78, i32 noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef %82, ptr noundef %83, i32 noundef %84, ptr noundef %17)
+  store i32 %85, ptr %10, align 4
+  %86 = load ptr, ptr %9, align 8
+  %87 = load i32, ptr %10, align 4
+  %88 = load ptr, ptr %11, align 8
+  %89 = load ptr, ptr %12, align 8
+  %90 = load ptr, ptr %14, align 8
+  %91 = load ptr, ptr %15, align 8
+  %92 = load i32, ptr @hf_notify_info_data_buffer, align 4
+  %93 = call i32 @dissect_ndr_pointer(ptr noundef %86, i32 noundef %87, ptr noundef %88, ptr noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef @dissect_notify_info_data_buffer, i32 noundef 2, ptr noundef @.str.435, i32 noundef %92)
+  store i32 %93, ptr %10, align 4
+  br label %111
+
+94:                                               ; preds = %8
+  %95 = load ptr, ptr %9, align 8
+  %96 = load i32, ptr %10, align 4
+  %97 = load ptr, ptr %11, align 8
+  %98 = load ptr, ptr %12, align 8
+  %99 = load ptr, ptr %14, align 8
+  %100 = load ptr, ptr %15, align 8
+  %101 = load i32, ptr @hf_notify_info_data_value1, align 4
+  %102 = call i32 @dissect_ndr_uint32(ptr noundef %95, i32 noundef %96, ptr noundef %97, ptr noundef %98, ptr noundef %99, ptr noundef %100, i32 noundef %101, ptr noundef null)
+  store i32 %102, ptr %10, align 4
+  %103 = load ptr, ptr %9, align 8
+  %104 = load i32, ptr %10, align 4
+  %105 = load ptr, ptr %11, align 8
+  %106 = load ptr, ptr %12, align 8
+  %107 = load ptr, ptr %14, align 8
+  %108 = load ptr, ptr %15, align 8
+  %109 = load i32, ptr @hf_notify_info_data_value2, align 4
+  %110 = call i32 @dissect_ndr_uint32(ptr noundef %103, i32 noundef %104, ptr noundef %105, ptr noundef %106, ptr noundef %107, ptr noundef %108, i32 noundef %109, ptr noundef null)
+  store i32 %110, ptr %10, align 4
+  br label %111
+
+111:                                              ; preds = %94, %77, %58, %43, %21
+  %112 = load i32, ptr %10, align 4
+  ret i32 %112
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_NOTIFY_INFO_DATA_job(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i16 noundef zeroext %7) #0 {
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i16, align 2
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %9, align 8
+  store i32 %1, ptr %10, align 4
+  store ptr %2, ptr %11, align 8
+  store ptr %3, ptr %12, align 8
+  store ptr %4, ptr %13, align 8
+  store ptr %5, ptr %14, align 8
+  store ptr %6, ptr %15, align 8
+  store i16 %7, ptr %16, align 2
+  %20 = load i16, ptr %16, align 2
+  %21 = zext i16 %20 to i32
+  switch i32 %21, label %120 [
+    i32 0, label %22
+    i32 1, label %22
+    i32 2, label %22
+    i32 3, label %22
+    i32 4, label %22
+    i32 5, label %22
+    i32 6, label %22
+    i32 7, label %22
+    i32 8, label %22
+    i32 11, label %22
+    i32 13, label %22
+    i32 10, label %44
+    i32 16, label %59
+    i32 14, label %75
+    i32 15, label %75
+    i32 20, label %75
+    i32 21, label %75
+    i32 22, label %75
+    i32 23, label %75
+    i32 9, label %103
+  ]
+
+22:                                               ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8
+  %23 = load ptr, ptr %9, align 8
+  %24 = load i32, ptr %10, align 4
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load ptr, ptr %14, align 8
+  %28 = load ptr, ptr %15, align 8
+  %29 = load i32, ptr @hf_notify_info_data_bufsize, align 4
+  %30 = call i32 @dissect_ndr_uint32(ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, i32 noundef %29, ptr noundef %17)
+  store i32 %30, ptr %10, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load i32, ptr %10, align 4
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load ptr, ptr %14, align 8
+  %36 = load ptr, ptr %15, align 8
+  %37 = load i32, ptr @hf_notify_info_data_buffer, align 4
+  %38 = load i16, ptr %16, align 2
+  %39 = zext i16 %38 to i32
+  %40 = call i32 @job_notify_hf_index(i32 noundef %39)
+  %41 = sext i32 %40 to i64
+  %42 = inttoptr i64 %41 to ptr
+  %43 = call i32 @dissect_ndr_pointer_cb(ptr noundef %31, i32 noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef @dissect_notify_info_data_buffer, i32 noundef 2, ptr noundef @.str.501, i32 noundef %37, ptr noundef @cb_notify_str_postprocess, ptr noundef %42)
+  store i32 %43, ptr %10, align 4
+  br label %137
+
+44:                                               ; preds = %8
+  %45 = load ptr, ptr %9, align 8
+  %46 = load i32, ptr %10, align 4
+  %47 = load ptr, ptr %11, align 8
+  %48 = load ptr, ptr %12, align 8
+  %49 = load ptr, ptr %14, align 8
+  %50 = load ptr, ptr %15, align 8
+  %51 = call i32 @dissect_job_status(ptr noundef %45, i32 noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50)
+  store i32 %51, ptr %10, align 4
+  %52 = load ptr, ptr %9, align 8
+  %53 = load i32, ptr %10, align 4
+  %54 = load ptr, ptr %11, align 8
+  %55 = load ptr, ptr %14, align 8
+  %56 = load ptr, ptr %15, align 8
+  %57 = load i32, ptr @hf_notify_info_data_value2, align 4
+  %58 = call i32 @dissect_ndr_uint32(ptr noundef %52, i32 noundef %53, ptr noundef %54, ptr noundef null, ptr noundef %55, ptr noundef %56, i32 noundef %57, ptr noundef null)
+  store i32 %58, ptr %10, align 4
+  br label %137
+
+59:                                               ; preds = %8
+  %60 = load ptr, ptr %9, align 8
+  %61 = load i32, ptr %10, align 4
+  %62 = load ptr, ptr %11, align 8
+  %63 = load ptr, ptr %12, align 8
+  %64 = load ptr, ptr %14, align 8
+  %65 = load ptr, ptr %15, align 8
+  %66 = load i32, ptr @hf_notify_info_data_buffer_len, align 4
+  %67 = call i32 @dissect_ndr_uint32(ptr noundef %60, i32 noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65, i32 noundef %66, ptr noundef null)
+  store i32 %67, ptr %10, align 4
+  %68 = load ptr, ptr %9, align 8
+  %69 = load i32, ptr %10, align 4
+  %70 = load ptr, ptr %11, align 8
+  %71 = load ptr, ptr %12, align 8
+  %72 = load ptr, ptr %14, align 8
+  %73 = load ptr, ptr %15, align 8
+  %74 = call i32 @dissect_ndr_pointer_cb(ptr noundef %68, i32 noundef %69, ptr noundef %70, ptr noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef @dissect_SYSTEM_TIME_ptr, i32 noundef 2, ptr noundef @.str.787, i32 noundef -1, ptr noundef @notify_job_time_cb, ptr noundef null)
+  store i32 %74, ptr %10, align 4
+  br label %137
+
+75:                                               ; preds = %8, %8, %8, %8, %8, %8
+  %76 = load ptr, ptr %9, align 8
+  %77 = load i32, ptr %10, align 4
+  %78 = load ptr, ptr %11, align 8
+  %79 = load ptr, ptr %12, align 8
+  %80 = load ptr, ptr %14, align 8
+  %81 = load ptr, ptr %15, align 8
+  %82 = load i32, ptr @hf_notify_info_data_value1, align 4
+  %83 = call i32 @dissect_ndr_uint32(ptr noundef %76, i32 noundef %77, ptr noundef %78, ptr noundef %79, ptr noundef %80, ptr noundef %81, i32 noundef %82, ptr noundef %19)
+  store i32 %83, ptr %10, align 4
+  %84 = load ptr, ptr %9, align 8
+  %85 = load i32, ptr %10, align 4
+  %86 = load ptr, ptr %11, align 8
+  %87 = load ptr, ptr %12, align 8
+  %88 = load ptr, ptr %14, align 8
+  %89 = load ptr, ptr %15, align 8
+  %90 = load i32, ptr @hf_notify_info_data_value2, align 4
+  %91 = call i32 @dissect_ndr_uint32(ptr noundef %84, i32 noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %88, ptr noundef %89, i32 noundef %90, ptr noundef null)
+  store i32 %91, ptr %10, align 4
+  %92 = load ptr, ptr %13, align 8
+  %93 = load i32, ptr %19, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %92, ptr noundef @.str.788, i32 noundef %93)
+  %94 = load ptr, ptr %12, align 8
+  %95 = load i16, ptr %16, align 2
+  %96 = zext i16 %95 to i32
+  %97 = call i32 @job_notify_hf_index(i32 noundef %96)
+  %98 = load ptr, ptr %9, align 8
+  %99 = load i32, ptr %10, align 4
+  %100 = load i32, ptr %19, align 4
+  %101 = call ptr @proto_tree_add_uint(ptr noundef %94, i32 noundef %97, ptr noundef %98, i32 noundef %99, i32 noundef 4, i32 noundef %100)
+  store ptr %101, ptr %18, align 8
+  %102 = load ptr, ptr %18, align 8
+  call void @proto_item_set_hidden(ptr noundef %102)
+  br label %137
+
+103:                                              ; preds = %8
+  %104 = load ptr, ptr %9, align 8
+  %105 = load i32, ptr %10, align 4
+  %106 = load ptr, ptr %11, align 8
+  %107 = load ptr, ptr %12, align 8
+  %108 = load ptr, ptr %14, align 8
+  %109 = load ptr, ptr %15, align 8
+  %110 = load i32, ptr @hf_notify_info_data_bufsize, align 4
+  %111 = call i32 @dissect_ndr_uint32(ptr noundef %104, i32 noundef %105, ptr noundef %106, ptr noundef %107, ptr noundef %108, ptr noundef %109, i32 noundef %110, ptr noundef %17)
+  store i32 %111, ptr %10, align 4
+  %112 = load ptr, ptr %9, align 8
+  %113 = load i32, ptr %10, align 4
+  %114 = load ptr, ptr %11, align 8
+  %115 = load ptr, ptr %12, align 8
+  %116 = load ptr, ptr %14, align 8
+  %117 = load ptr, ptr %15, align 8
+  %118 = load i32, ptr @hf_notify_info_data_buffer, align 4
+  %119 = call i32 @dissect_ndr_pointer(ptr noundef %112, i32 noundef %113, ptr noundef %114, ptr noundef %115, ptr noundef %116, ptr noundef %117, ptr noundef @dissect_notify_info_data_buffer, i32 noundef 2, ptr noundef @.str.435, i32 noundef %118)
+  store i32 %119, ptr %10, align 4
+  br label %137
+
+120:                                              ; preds = %8
+  %121 = load ptr, ptr %9, align 8
+  %122 = load i32, ptr %10, align 4
+  %123 = load ptr, ptr %11, align 8
+  %124 = load ptr, ptr %12, align 8
+  %125 = load ptr, ptr %14, align 8
+  %126 = load ptr, ptr %15, align 8
+  %127 = load i32, ptr @hf_notify_info_data_value1, align 4
+  %128 = call i32 @dissect_ndr_uint32(ptr noundef %121, i32 noundef %122, ptr noundef %123, ptr noundef %124, ptr noundef %125, ptr noundef %126, i32 noundef %127, ptr noundef null)
+  store i32 %128, ptr %10, align 4
+  %129 = load ptr, ptr %9, align 8
+  %130 = load i32, ptr %10, align 4
+  %131 = load ptr, ptr %11, align 8
+  %132 = load ptr, ptr %12, align 8
+  %133 = load ptr, ptr %14, align 8
+  %134 = load ptr, ptr %15, align 8
+  %135 = load i32, ptr @hf_notify_info_data_value2, align 4
+  %136 = call i32 @dissect_ndr_uint32(ptr noundef %129, i32 noundef %130, ptr noundef %131, ptr noundef %132, ptr noundef %133, ptr noundef %134, i32 noundef %135, ptr noundef null)
+  store i32 %136, ptr %10, align 4
+  br label %137
+
+137:                                              ; preds = %120, %103, %75, %59, %44, %22
+  %138 = load i32, ptr %10, align 4
+  ret i32 %138
+}
+
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+
+declare i32 @dissect_ndr_pointer_cb(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_notify_info_data_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i32, ptr %8, align 4
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = load ptr, ptr %12, align 8
+  %20 = load i32, ptr @hf_notify_info_data_buffer_len, align 4
+  %21 = call i32 @dissect_ndr_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef %13)
+  store i32 %21, ptr %8, align 4
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %11, align 8
+  %27 = load ptr, ptr %12, align 8
+  %28 = load i32, ptr @hf_notify_info_data_buffer_data, align 4
+  %29 = load i32, ptr %13, align 4
+  %30 = call i32 @dissect_ndr_uint16s(ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %29)
+  store i32 %30, ptr %8, align 4
+  %31 = load i32, ptr %8, align 4
+  ret i32 %31
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @cb_notify_str_postprocess(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  store ptr %0, ptr %9, align 8
+  store ptr %1, ptr %10, align 8
+  store ptr %2, ptr %11, align 8
+  store ptr %3, ptr %12, align 8
+  store ptr %4, ptr %13, align 8
+  store i32 %5, ptr %14, align 4
+  store i32 %6, ptr %15, align 4
+  store ptr %7, ptr %16, align 8
+  %22 = load ptr, ptr %16, align 8
+  %23 = ptrtoint ptr %22 to i64
+  %24 = trunc i64 %23 to i32
+  store i32 %24, ptr %18, align 4
+  %25 = load i32, ptr %14, align 4
+  %26 = srem i32 %25, 4
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %34
+
+28:                                               ; preds = %8
+  %29 = load i32, ptr %14, align 4
+  %30 = srem i32 %29, 4
+  %31 = sub i32 4, %30
+  %32 = load i32, ptr %14, align 4
+  %33 = add i32 %32, %31
+  store i32 %33, ptr %14, align 4
+  br label %34
+
+34:                                               ; preds = %28, %8
+  %35 = load ptr, ptr %13, align 8
+  %36 = load i32, ptr %14, align 4
+  %37 = call i32 @tvb_get_letohl(ptr noundef %35, i32 noundef %36)
+  store i32 %37, ptr %19, align 4
+  %38 = load ptr, ptr %9, align 8
+  %39 = getelementptr inbounds %struct._packet_info, ptr %38, i32 0, i32 50
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %13, align 8
+  %42 = load i32, ptr %14, align 4
+  %43 = add i32 %42, 4
+  %44 = load i32, ptr %15, align 4
+  %45 = load i32, ptr %14, align 4
+  %46 = sub i32 %44, %45
+  %47 = sub i32 %46, 4
+  %48 = call ptr @tvb_get_string_enc(ptr noundef %40, ptr noundef %41, i32 noundef %43, i32 noundef %47, i32 noundef -2147483644)
+  store ptr %48, ptr %20, align 8
+  store i32 2, ptr %17, align 4
+  %49 = load i32, ptr %17, align 4
+  %50 = icmp sgt i32 %49, 0
+  br i1 %50, label %51, label %94
+
+51:                                               ; preds = %34
+  %52 = load ptr, ptr %11, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %94
+
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %20, align 8
+  %56 = icmp ne ptr %55, null
+  br i1 %56, label %57, label %94
+
+57:                                               ; preds = %54
+  %58 = load ptr, ptr %20, align 8
+  %59 = getelementptr i8, ptr %58, i64 0
+  %60 = load i8, ptr %59, align 1
+  %61 = sext i8 %60 to i32
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %63, label %94
+
+63:                                               ; preds = %57
+  %64 = load ptr, ptr %11, align 8
+  %65 = load ptr, ptr %20, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %64, ptr noundef @.str.757, ptr noundef %65)
+  %66 = load ptr, ptr %11, align 8
+  %67 = getelementptr inbounds %struct._proto_node, ptr %66, i32 0, i32 3
+  %68 = load ptr, ptr %67, align 8
+  store ptr %68, ptr %11, align 8
+  %69 = load i32, ptr %17, align 4
+  %70 = add i32 %69, -1
+  store i32 %70, ptr %17, align 4
+  %71 = load i32, ptr %17, align 4
+  %72 = icmp sgt i32 %71, 0
+  br i1 %72, label %73, label %93
+
+73:                                               ; preds = %63
+  %74 = load ptr, ptr %11, align 8
+  %75 = load ptr, ptr %20, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %74, ptr noundef @.str.757, ptr noundef %75)
+  %76 = load ptr, ptr %11, align 8
+  %77 = getelementptr inbounds %struct._proto_node, ptr %76, i32 0, i32 3
+  %78 = load ptr, ptr %77, align 8
+  store ptr %78, ptr %11, align 8
+  %79 = load i32, ptr %17, align 4
+  %80 = add i32 %79, -1
+  store i32 %80, ptr %17, align 4
+  br label %81
+
+81:                                               ; preds = %84, %73
+  %82 = load i32, ptr %17, align 4
+  %83 = icmp sgt i32 %82, 0
+  br i1 %83, label %84, label %92
+
+84:                                               ; preds = %81
+  %85 = load ptr, ptr %11, align 8
+  %86 = load ptr, ptr %20, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %85, ptr noundef @.str.786, ptr noundef %86)
+  %87 = load ptr, ptr %11, align 8
+  %88 = getelementptr inbounds %struct._proto_node, ptr %87, i32 0, i32 3
+  %89 = load ptr, ptr %88, align 8
+  store ptr %89, ptr %11, align 8
+  %90 = load i32, ptr %17, align 4
+  %91 = add i32 %90, -1
+  store i32 %91, ptr %17, align 4
+  br label %81, !llvm.loop !6
+
+92:                                               ; preds = %81
+  br label %93
+
+93:                                               ; preds = %92, %63
+  br label %94
+
+94:                                               ; preds = %93, %57, %54, %51, %34
+  %95 = load i32, ptr %18, align 4
+  %96 = icmp sgt i32 %95, 0
+  br i1 %96, label %97, label %106
+
+97:                                               ; preds = %94
+  %98 = load ptr, ptr %10, align 8
+  %99 = load i32, ptr %18, align 4
+  %100 = load ptr, ptr %13, align 8
+  %101 = load i32, ptr %14, align 4
+  %102 = load i32, ptr %19, align 4
+  %103 = load ptr, ptr %20, align 8
+  %104 = call ptr @proto_tree_add_string(ptr noundef %98, i32 noundef %99, ptr noundef %100, i32 noundef %101, i32 noundef %102, ptr noundef %103)
+  store ptr %104, ptr %21, align 8
+  %105 = load ptr, ptr %21, align 8
+  call void @proto_item_set_hidden(ptr noundef %105)
+  br label %106
+
+106:                                              ; preds = %97, %94
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @printer_notify_hf_index(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  store i32 -1, ptr %3, align 4
+  %4 = load i32, ptr %2, align 4
+  switch i32 %4, label %27 [
+    i32 0, label %5
+    i32 1, label %7
+    i32 2, label %9
+    i32 3, label %11
+    i32 4, label %13
+    i32 5, label %15
+    i32 6, label %17
+    i32 8, label %19
+    i32 9, label %21
+    i32 10, label %23
+    i32 11, label %25
+  ]
+
+5:                                                ; preds = %1
+  %6 = load i32, ptr @hf_servername, align 4
+  store i32 %6, ptr %3, align 4
+  br label %27
+
+7:                                                ; preds = %1
+  %8 = load i32, ptr @hf_printername, align 4
+  store i32 %8, ptr %3, align 4
+  br label %27
+
+9:                                                ; preds = %1
+  %10 = load i32, ptr @hf_sharename, align 4
+  store i32 %10, ptr %3, align 4
+  br label %27
+
+11:                                               ; preds = %1
+  %12 = load i32, ptr @hf_portname, align 4
+  store i32 %12, ptr %3, align 4
+  br label %27
+
+13:                                               ; preds = %1
+  %14 = load i32, ptr @hf_drivername, align 4
+  store i32 %14, ptr %3, align 4
+  br label %27
+
+15:                                               ; preds = %1
+  %16 = load i32, ptr @hf_printercomment, align 4
+  store i32 %16, ptr %3, align 4
+  br label %27
+
+17:                                               ; preds = %1
+  %18 = load i32, ptr @hf_printerlocation, align 4
+  store i32 %18, ptr %3, align 4
+  br label %27
+
+19:                                               ; preds = %1
+  %20 = load i32, ptr @hf_sepfile, align 4
+  store i32 %20, ptr %3, align 4
+  br label %27
+
+21:                                               ; preds = %1
+  %22 = load i32, ptr @hf_printprocessor, align 4
+  store i32 %22, ptr %3, align 4
+  br label %27
+
+23:                                               ; preds = %1
+  %24 = load i32, ptr @hf_parameters, align 4
+  store i32 %24, ptr %3, align 4
+  br label %27
+
+25:                                               ; preds = %1
+  %26 = load i32, ptr @hf_parameters, align 4
+  store i32 %26, ptr %3, align 4
+  br label %27
+
+27:                                               ; preds = %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %1
+  %28 = load i32, ptr %3, align 4
+  ret i32 %28
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_printer_attributes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i32, ptr %8, align 4
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = call i32 @dissect_ndr_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef null, ptr noundef %17, ptr noundef %18, i32 noundef -1, ptr noundef %13)
+  store i32 %19, ptr %8, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = sub i32 %22, 4
+  %24 = load i32, ptr @hf_printer_attributes, align 4
+  %25 = load i32, ptr @ett_printer_attributes, align 4
+  %26 = load i32, ptr %13, align 4
+  %27 = zext i32 %26 to i64
+  %28 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %20, ptr noundef %21, i32 noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef @dissect_printer_attributes.hf_attributes, i64 noundef %27, i32 noundef 1)
+  %29 = load i32, ptr %8, align 4
+  ret i32 %29
+}
+
+declare i32 @dissect_ndr_uint16s(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @job_notify_hf_index(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  store i32 -1, ptr %3, align 4
+  %4 = load i32, ptr %2, align 4
+  switch i32 %4, label %35 [
+    i32 0, label %5
+    i32 1, label %7
+    i32 2, label %9
+    i32 3, label %11
+    i32 4, label %13
+    i32 5, label %15
+    i32 6, label %17
+    i32 8, label %19
+    i32 13, label %21
+    i32 14, label %23
+    i32 15, label %25
+    i32 20, label %27
+    i32 21, label %29
+    i32 22, label %31
+    i32 23, label %33
+  ]
+
+5:                                                ; preds = %1
+  %6 = load i32, ptr @hf_printername, align 4
+  store i32 %6, ptr %3, align 4
+  br label %35
+
+7:                                                ; preds = %1
+  %8 = load i32, ptr @hf_machinename, align 4
+  store i32 %8, ptr %3, align 4
+  br label %35
+
+9:                                                ; preds = %1
+  %10 = load i32, ptr @hf_portname, align 4
+  store i32 %10, ptr %3, align 4
+  br label %35
+
+11:                                               ; preds = %1
+  %12 = load i32, ptr @hf_username, align 4
+  store i32 %12, ptr %3, align 4
+  br label %35
+
+13:                                               ; preds = %1
+  %14 = load i32, ptr @hf_notifyname, align 4
+  store i32 %14, ptr %3, align 4
+  br label %35
+
+15:                                               ; preds = %1
+  %16 = load i32, ptr @hf_datatype, align 4
+  store i32 %16, ptr %3, align 4
+  br label %35
+
+17:                                               ; preds = %1
+  %18 = load i32, ptr @hf_printprocessor, align 4
+  store i32 %18, ptr %3, align 4
+  br label %35
+
+19:                                               ; preds = %1
+  %20 = load i32, ptr @hf_drivername, align 4
+  store i32 %20, ptr %3, align 4
+  br label %35
+
+21:                                               ; preds = %1
+  %22 = load i32, ptr @hf_documentname, align 4
+  store i32 %22, ptr %3, align 4
+  br label %35
+
+23:                                               ; preds = %1
+  %24 = load i32, ptr @hf_job_priority, align 4
+  store i32 %24, ptr %3, align 4
+  br label %35
+
+25:                                               ; preds = %1
+  %26 = load i32, ptr @hf_job_position, align 4
+  store i32 %26, ptr %3, align 4
+  br label %35
+
+27:                                               ; preds = %1
+  %28 = load i32, ptr @hf_job_totalpages, align 4
+  store i32 %28, ptr %3, align 4
+  br label %35
+
+29:                                               ; preds = %1
+  %30 = load i32, ptr @hf_job_pagesprinted, align 4
+  store i32 %30, ptr %3, align 4
+  br label %35
+
+31:                                               ; preds = %1
+  %32 = load i32, ptr @hf_job_totalbytes, align 4
+  store i32 %32, ptr %3, align 4
+  br label %35
+
+33:                                               ; preds = %1
+  %34 = load i32, ptr @hf_job_bytesprinted, align 4
+  store i32 %34, ptr %3, align 4
+  br label %35
+
+35:                                               ; preds = %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %1
+  %36 = load i32, ptr %3, align 4
+  ret i32 %36
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_job_status(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i32, ptr %8, align 4
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = call i32 @dissect_ndr_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef null, ptr noundef %17, ptr noundef %18, i32 noundef -1, ptr noundef %13)
+  store i32 %19, ptr %8, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = sub i32 %22, 4
+  %24 = load i32, ptr @hf_job_status, align 4
+  %25 = load i32, ptr @ett_job_status, align 4
+  %26 = load i32, ptr %13, align 4
+  %27 = zext i32 %26 to i64
+  %28 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %20, ptr noundef %21, i32 noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef @dissect_job_status.hf_status, i64 noundef %27, i32 noundef 1)
+  %29 = load i32, ptr %8, align 4
+  ret i32 %29
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_SYSTEM_TIME_ptr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %11, align 8
+  %16 = getelementptr inbounds %struct._dcerpc_info, ptr %15, i32 0, i32 14
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %13, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = load i32, ptr %8, align 4
+  %20 = load ptr, ptr %9, align 8
+  %21 = load ptr, ptr %10, align 8
+  %22 = load ptr, ptr %11, align 8
+  %23 = load ptr, ptr %12, align 8
+  %24 = call i32 @dissect_SYSTEM_TIME(ptr noundef %18, i32 noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef null, i32 noundef 0, ptr noundef %14)
+  store i32 %24, ptr %8, align 4
+  %25 = call ptr @wmem_file_scope()
+  %26 = load ptr, ptr %14, align 8
+  %27 = call noalias ptr @wmem_strdup(ptr noundef %25, ptr noundef %26)
+  %28 = load ptr, ptr %13, align 8
+  %29 = getelementptr inbounds %struct._dcerpc_call_value, ptr %28, i32 0, i32 9
+  store ptr %27, ptr %29, align 8
+  %30 = load i32, ptr %8, align 4
+  ret i32 %30
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @notify_job_time_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %9, align 8
+  store ptr %1, ptr %10, align 8
+  store ptr %2, ptr %11, align 8
+  store ptr %3, ptr %12, align 8
+  store ptr %4, ptr %13, align 8
+  store i32 %5, ptr %14, align 4
+  store i32 %6, ptr %15, align 4
+  store ptr %7, ptr %16, align 8
+  %19 = load ptr, ptr %12, align 8
+  %20 = getelementptr inbounds %struct._dcerpc_info, ptr %19, i32 0, i32 14
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %17, align 8
+  %22 = load ptr, ptr %17, align 8
+  %23 = getelementptr inbounds %struct._dcerpc_call_value, ptr %22, i32 0, i32 9
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %18, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %18, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef @.str.757, ptr noundef %26)
+  %27 = load ptr, ptr %11, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %34
+
+29:                                               ; preds = %8
+  %30 = load ptr, ptr %11, align 8
+  %31 = getelementptr inbounds %struct._proto_node, ptr %30, i32 0, i32 3
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %18, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef @.str.757, ptr noundef %33)
+  br label %34
+
+34:                                               ; preds = %29, %8
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_SYSTEM_TIME(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8) #0 {
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i16, align 2
+  %22 = alloca i16, align 2
+  %23 = alloca i16, align 2
+  %24 = alloca i16, align 2
+  %25 = alloca i16, align 2
+  %26 = alloca i16, align 2
+  %27 = alloca i16, align 2
+  %28 = alloca ptr, align 8
+  store ptr %0, ptr %10, align 8
+  store i32 %1, ptr %11, align 4
+  store ptr %2, ptr %12, align 8
+  store ptr %3, ptr %13, align 8
+  store ptr %4, ptr %14, align 8
+  store ptr %5, ptr %15, align 8
+  store ptr %6, ptr %16, align 8
+  store i32 %7, ptr %17, align 4
+  store ptr %8, ptr %18, align 8
+  store ptr null, ptr %19, align 8
+  %29 = load ptr, ptr %13, align 8
+  store ptr %29, ptr %20, align 8
+  %30 = load i32, ptr %17, align 4
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %39
+
+32:                                               ; preds = %9
+  %33 = load ptr, ptr %13, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = load i32, ptr %11, align 4
+  %36 = load i32, ptr @ett_SYSTEM_TIME, align 4
+  %37 = load ptr, ptr %16, align 8
+  %38 = call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef 16, i32 noundef %36, ptr noundef %19, ptr noundef %37)
+  store ptr %38, ptr %20, align 8
+  br label %39
+
+39:                                               ; preds = %32, %9
+  %40 = load ptr, ptr %10, align 8
+  %41 = load i32, ptr %11, align 4
+  %42 = load ptr, ptr %12, align 8
+  %43 = load ptr, ptr %20, align 8
+  %44 = load ptr, ptr %14, align 8
+  %45 = load ptr, ptr %15, align 8
+  %46 = load i32, ptr @hf_time_year, align 4
+  %47 = call i32 @dissect_ndr_uint16(ptr noundef %40, i32 noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, i32 noundef %46, ptr noundef %21)
+  store i32 %47, ptr %11, align 4
+  %48 = load ptr, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  %50 = load ptr, ptr %12, align 8
+  %51 = load ptr, ptr %20, align 8
+  %52 = load ptr, ptr %14, align 8
+  %53 = load ptr, ptr %15, align 8
+  %54 = load i32, ptr @hf_time_month, align 4
+  %55 = call i32 @dissect_ndr_uint16(ptr noundef %48, i32 noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53, i32 noundef %54, ptr noundef %22)
+  store i32 %55, ptr %11, align 4
+  %56 = load ptr, ptr %10, align 8
+  %57 = load i32, ptr %11, align 4
+  %58 = load ptr, ptr %12, align 8
+  %59 = load ptr, ptr %20, align 8
+  %60 = load ptr, ptr %14, align 8
+  %61 = load ptr, ptr %15, align 8
+  %62 = load i32, ptr @hf_time_dow, align 4
+  %63 = call i32 @dissect_ndr_uint16(ptr noundef %56, i32 noundef %57, ptr noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef %61, i32 noundef %62, ptr noundef null)
+  store i32 %63, ptr %11, align 4
+  %64 = load ptr, ptr %10, align 8
+  %65 = load i32, ptr %11, align 4
+  %66 = load ptr, ptr %12, align 8
+  %67 = load ptr, ptr %20, align 8
+  %68 = load ptr, ptr %14, align 8
+  %69 = load ptr, ptr %15, align 8
+  %70 = load i32, ptr @hf_time_day, align 4
+  %71 = call i32 @dissect_ndr_uint16(ptr noundef %64, i32 noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69, i32 noundef %70, ptr noundef %23)
+  store i32 %71, ptr %11, align 4
+  %72 = load ptr, ptr %10, align 8
+  %73 = load i32, ptr %11, align 4
+  %74 = load ptr, ptr %12, align 8
+  %75 = load ptr, ptr %20, align 8
+  %76 = load ptr, ptr %14, align 8
+  %77 = load ptr, ptr %15, align 8
+  %78 = load i32, ptr @hf_time_hour, align 4
+  %79 = call i32 @dissect_ndr_uint16(ptr noundef %72, i32 noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef %76, ptr noundef %77, i32 noundef %78, ptr noundef %24)
+  store i32 %79, ptr %11, align 4
+  %80 = load ptr, ptr %10, align 8
+  %81 = load i32, ptr %11, align 4
+  %82 = load ptr, ptr %12, align 8
+  %83 = load ptr, ptr %20, align 8
+  %84 = load ptr, ptr %14, align 8
+  %85 = load ptr, ptr %15, align 8
+  %86 = load i32, ptr @hf_time_minute, align 4
+  %87 = call i32 @dissect_ndr_uint16(ptr noundef %80, i32 noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %85, i32 noundef %86, ptr noundef %25)
+  store i32 %87, ptr %11, align 4
+  %88 = load ptr, ptr %10, align 8
+  %89 = load i32, ptr %11, align 4
+  %90 = load ptr, ptr %12, align 8
+  %91 = load ptr, ptr %20, align 8
+  %92 = load ptr, ptr %14, align 8
+  %93 = load ptr, ptr %15, align 8
+  %94 = load i32, ptr @hf_time_second, align 4
+  %95 = call i32 @dissect_ndr_uint16(ptr noundef %88, i32 noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef %92, ptr noundef %93, i32 noundef %94, ptr noundef %26)
+  store i32 %95, ptr %11, align 4
+  %96 = load ptr, ptr %10, align 8
+  %97 = load i32, ptr %11, align 4
+  %98 = load ptr, ptr %12, align 8
+  %99 = load ptr, ptr %20, align 8
+  %100 = load ptr, ptr %14, align 8
+  %101 = load ptr, ptr %15, align 8
+  %102 = load i32, ptr @hf_time_msec, align 4
+  %103 = call i32 @dissect_ndr_uint16(ptr noundef %96, i32 noundef %97, ptr noundef %98, ptr noundef %99, ptr noundef %100, ptr noundef %101, i32 noundef %102, ptr noundef %27)
+  store i32 %103, ptr %11, align 4
+  %104 = load ptr, ptr %12, align 8
+  %105 = getelementptr inbounds %struct._packet_info, ptr %104, i32 0, i32 50
+  %106 = load ptr, ptr %105, align 8
+  %107 = load i16, ptr %21, align 2
+  %108 = zext i16 %107 to i32
+  %109 = load i16, ptr %22, align 2
+  %110 = zext i16 %109 to i32
+  %111 = load i16, ptr %23, align 2
+  %112 = zext i16 %111 to i32
+  %113 = load i16, ptr %24, align 2
+  %114 = zext i16 %113 to i32
+  %115 = load i16, ptr %25, align 2
+  %116 = zext i16 %115 to i32
+  %117 = load i16, ptr %26, align 2
+  %118 = zext i16 %117 to i32
+  %119 = load i16, ptr %27, align 2
+  %120 = zext i16 %119 to i32
+  %121 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %106, ptr noundef @.str.789, i32 noundef %108, i32 noundef %110, i32 noundef %112, i32 noundef %114, i32 noundef %116, i32 noundef %118, i32 noundef %120)
+  store ptr %121, ptr %28, align 8
+  %122 = load i32, ptr %17, align 4
+  %123 = icmp ne i32 %122, 0
+  br i1 %123, label %124, label %127
+
+124:                                              ; preds = %39
+  %125 = load ptr, ptr %19, align 8
+  %126 = load ptr, ptr %28, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %125, ptr noundef @.str.757, ptr noundef %126)
+  br label %127
+
+127:                                              ; preds = %124, %39
+  %128 = load ptr, ptr %18, align 8
+  %129 = icmp ne ptr %128, null
+  br i1 %129, label %130, label %133
+
+130:                                              ; preds = %127
+  %131 = load ptr, ptr %28, align 8
+  %132 = load ptr, ptr %18, align 8
+  store ptr %131, ptr %132, align 8
+  br label %133
+
+133:                                              ; preds = %130, %127
+  %134 = load i32, ptr %11, align 4
+  ret i32 %134
+}
+
+declare ptr @wmem_file_scope() #1
+
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssEnumPrinters_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %16 = load ptr, ptr %11, align 8
+  %17 = getelementptr inbounds %struct._dcerpc_info, ptr %16, i32 0, i32 14
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %15, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = load ptr, ptr %9, align 8
+  %22 = load ptr, ptr %11, align 8
+  %23 = load ptr, ptr %12, align 8
+  %24 = call i32 @dissect_ndr_uint32(ptr noundef %19, i32 noundef %20, ptr noundef %21, ptr noundef null, ptr noundef %22, ptr noundef %23, i32 noundef -1, ptr noundef %14)
+  store i32 %24, ptr %8, align 4
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = sub i32 %27, 4
+  %29 = load i32, ptr @hf_enumprinters_flags, align 4
+  %30 = load i32, ptr @ett_enumprinters_flags, align 4
+  %31 = load i32, ptr %14, align 4
+  %32 = zext i32 %31 to i64
+  %33 = call ptr @proto_tree_add_bitmask_value(ptr noundef %25, ptr noundef %26, i32 noundef %28, i32 noundef %29, i32 noundef %30, ptr noundef @SpoolssEnumPrinters_q.hf_flags, i64 noundef %32)
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %8, align 4
+  %36 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = load ptr, ptr %11, align 8
+  %39 = load ptr, ptr %12, align 8
+  %40 = load i32, ptr @hf_servername, align 4
+  %41 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %34, i32 noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, i32 noundef 2, ptr noundef @.str.160, i32 noundef %40, i32 noundef 0)
+  store i32 %41, ptr %8, align 4
+  %42 = load ptr, ptr %7, align 8
+  %43 = load i32, ptr %8, align 4
+  %44 = load ptr, ptr %9, align 8
+  %45 = load ptr, ptr %10, align 8
+  %46 = load ptr, ptr %11, align 8
+  %47 = load ptr, ptr %12, align 8
+  %48 = load i32, ptr @hf_level, align 4
+  %49 = call i32 @dissect_ndr_uint32(ptr noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48, ptr noundef %13)
+  store i32 %49, ptr %8, align 4
+  %50 = load ptr, ptr %9, align 8
+  %51 = getelementptr inbounds %struct._packet_info, ptr %50, i32 0, i32 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds %struct._frame_data, ptr %52, i32 0, i32 9
+  %54 = load i16, ptr %53, align 2
+  %55 = lshr i16 %54, 3
+  %56 = and i16 %55, 1
+  %57 = zext i16 %56 to i32
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %65, label %59
+
+59:                                               ; preds = %6
+  %60 = load i32, ptr %13, align 4
+  %61 = sext i32 %60 to i64
+  %62 = inttoptr i64 %61 to ptr
+  %63 = load ptr, ptr %15, align 8
+  %64 = getelementptr inbounds %struct._dcerpc_call_value, ptr %63, i32 0, i32 8
+  store ptr %62, ptr %64, align 8
+  br label %65
+
+65:                                               ; preds = %59, %6
+  %66 = load ptr, ptr %9, align 8
+  %67 = getelementptr inbounds %struct._packet_info, ptr %66, i32 0, i32 1
+  %68 = load ptr, ptr %67, align 8
+  %69 = load i32, ptr %13, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %68, i32 noundef 25, ptr noundef @.str.1206, i32 noundef %69)
+  %70 = load ptr, ptr %7, align 8
+  %71 = load i32, ptr %8, align 4
+  %72 = load ptr, ptr %9, align 8
+  %73 = load ptr, ptr %10, align 8
+  %74 = load ptr, ptr %11, align 8
+  %75 = load ptr, ptr %12, align 8
+  %76 = call i32 @dissect_spoolss_buffer(ptr noundef %70, i32 noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef null)
+  store i32 %76, ptr %8, align 4
+  %77 = load ptr, ptr %7, align 8
+  %78 = load i32, ptr %8, align 4
+  %79 = load ptr, ptr %9, align 8
+  %80 = load ptr, ptr %10, align 8
+  %81 = load ptr, ptr %11, align 8
+  %82 = load ptr, ptr %12, align 8
+  %83 = load i32, ptr @hf_offered, align 4
+  %84 = call i32 @dissect_ndr_uint32(ptr noundef %77, i32 noundef %78, ptr noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef %82, i32 noundef %83, ptr noundef null)
+  store i32 %84, ptr %8, align 4
+  %85 = load i32, ptr %8, align 4
+  ret i32 %85
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssEnumPrinters_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca i16, align 2
+  %16 = alloca %struct.BUFFER, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %19 = load ptr, ptr %11, align 8
+  %20 = getelementptr inbounds %struct._dcerpc_info, ptr %19, i32 0, i32 14
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %14, align 8
+  %22 = load ptr, ptr %14, align 8
+  %23 = getelementptr inbounds %struct._dcerpc_call_value, ptr %22, i32 0, i32 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = ptrtoint ptr %24 to i64
+  %26 = trunc i64 %25 to i32
+  %27 = trunc i32 %26 to i16
+  store i16 %27, ptr %15, align 2
+  store ptr null, ptr %18, align 8
+  %28 = load ptr, ptr %9, align 8
+  %29 = getelementptr inbounds %struct._packet_info, ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  %31 = load i16, ptr %15, align 2
+  %32 = sext i16 %31 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %30, i32 noundef 25, ptr noundef @.str.1206, i32 noundef %32)
+  %33 = load ptr, ptr %7, align 8
+  %34 = load i32, ptr %8, align 4
+  %35 = load ptr, ptr %9, align 8
+  %36 = load ptr, ptr %10, align 8
+  %37 = load ptr, ptr %11, align 8
+  %38 = load ptr, ptr %12, align 8
+  %39 = call i32 @dissect_spoolss_buffer(ptr noundef %33, i32 noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %16)
+  store i32 %39, ptr %8, align 4
+  %40 = getelementptr inbounds %struct.BUFFER, ptr %16, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %43, label %107
+
+43:                                               ; preds = %6
+  %44 = getelementptr inbounds %struct.BUFFER, ptr %16, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %struct.BUFFER, ptr %16, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
+  %48 = load i32, ptr @ett_PRINTER_INFO, align 4
+  %49 = load i16, ptr %15, align 2
+  %50 = sext i16 %49 to i32
+  %51 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %45, ptr noundef %47, i32 noundef 0, i32 noundef -1, i32 noundef %48, ptr noundef %17, ptr noundef @.str.1208, i32 noundef %50)
+  store ptr %51, ptr %18, align 8
+  %52 = load i16, ptr %15, align 2
+  %53 = sext i16 %52 to i32
+  switch i32 %53, label %102 [
+    i32 0, label %54
+    i32 1, label %62
+    i32 2, label %70
+    i32 3, label %78
+    i32 5, label %86
+    i32 7, label %94
+  ]
+
+54:                                               ; preds = %43
+  %55 = getelementptr inbounds %struct.BUFFER, ptr %16, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %9, align 8
+  %58 = load ptr, ptr %18, align 8
+  %59 = load ptr, ptr %11, align 8
+  %60 = load ptr, ptr %12, align 8
+  %61 = call i32 @dissect_PRINTER_INFO_0(ptr noundef %56, i32 noundef 0, ptr noundef %57, ptr noundef %58, ptr noundef %59, ptr noundef %60)
+  br label %106
+
+62:                                               ; preds = %43
+  %63 = getelementptr inbounds %struct.BUFFER, ptr %16, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %9, align 8
+  %66 = load ptr, ptr %18, align 8
+  %67 = load ptr, ptr %11, align 8
+  %68 = load ptr, ptr %12, align 8
+  %69 = call i32 @dissect_PRINTER_INFO_1(ptr noundef %64, i32 noundef 0, ptr noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef %68)
+  br label %106
+
+70:                                               ; preds = %43
+  %71 = getelementptr inbounds %struct.BUFFER, ptr %16, i32 0, i32 0
+  %72 = load ptr, ptr %71, align 8
+  %73 = load ptr, ptr %9, align 8
+  %74 = load ptr, ptr %18, align 8
+  %75 = load ptr, ptr %11, align 8
+  %76 = load ptr, ptr %12, align 8
+  %77 = call i32 @dissect_PRINTER_INFO_2(ptr noundef %72, i32 noundef 0, ptr noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef %76)
+  br label %106
+
+78:                                               ; preds = %43
+  %79 = getelementptr inbounds %struct.BUFFER, ptr %16, i32 0, i32 0
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %9, align 8
+  %82 = load ptr, ptr %18, align 8
+  %83 = load ptr, ptr %11, align 8
+  %84 = load ptr, ptr %12, align 8
+  %85 = call i32 @dissect_PRINTER_INFO_3(ptr noundef %80, i32 noundef 0, ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84)
+  br label %106
+
+86:                                               ; preds = %43
+  %87 = getelementptr inbounds %struct.BUFFER, ptr %16, i32 0, i32 0
+  %88 = load ptr, ptr %87, align 8
+  %89 = load ptr, ptr %9, align 8
+  %90 = load ptr, ptr %18, align 8
+  %91 = load ptr, ptr %11, align 8
+  %92 = load ptr, ptr %12, align 8
+  %93 = call i32 @dissect_PRINTER_INFO_5(ptr noundef %88, i32 noundef 0, ptr noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef %92)
+  br label %106
+
+94:                                               ; preds = %43
+  %95 = getelementptr inbounds %struct.BUFFER, ptr %16, i32 0, i32 0
+  %96 = load ptr, ptr %95, align 8
+  %97 = load ptr, ptr %9, align 8
+  %98 = load ptr, ptr %18, align 8
+  %99 = load ptr, ptr %11, align 8
+  %100 = load ptr, ptr %12, align 8
+  %101 = call i32 @dissect_PRINTER_INFO_7(ptr noundef %96, i32 noundef 0, ptr noundef %97, ptr noundef %98, ptr noundef %99, ptr noundef %100)
+  br label %106
+
+102:                                              ; preds = %43
+  %103 = load ptr, ptr %9, align 8
+  %104 = load ptr, ptr %17, align 8
+  %105 = call ptr @expert_add_info(ptr noundef %103, ptr noundef %104, ptr noundef @ei_printer_info_level)
+  br label %106
+
+106:                                              ; preds = %102, %94, %86, %78, %70, %62, %54
+  br label %107
+
+107:                                              ; preds = %106, %6
+  %108 = load ptr, ptr %7, align 8
+  %109 = load i32, ptr %8, align 4
+  %110 = load ptr, ptr %9, align 8
+  %111 = load ptr, ptr %10, align 8
+  %112 = load ptr, ptr %11, align 8
+  %113 = load ptr, ptr %12, align 8
+  %114 = load i32, ptr @hf_needed, align 4
+  %115 = call i32 @dissect_ndr_uint32(ptr noundef %108, i32 noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef %112, ptr noundef %113, i32 noundef %114, ptr noundef null)
+  store i32 %115, ptr %8, align 4
+  %116 = load ptr, ptr %7, align 8
+  %117 = load i32, ptr %8, align 4
+  %118 = load ptr, ptr %9, align 8
+  %119 = load ptr, ptr %10, align 8
+  %120 = load ptr, ptr %11, align 8
+  %121 = load ptr, ptr %12, align 8
+  %122 = load i32, ptr @hf_returned, align 4
+  %123 = call i32 @dissect_ndr_uint32(ptr noundef %116, i32 noundef %117, ptr noundef %118, ptr noundef %119, ptr noundef %120, ptr noundef %121, i32 noundef %122, ptr noundef %13)
+  store i32 %123, ptr %8, align 4
+  %124 = load ptr, ptr %7, align 8
+  %125 = load i32, ptr %8, align 4
+  %126 = load ptr, ptr %9, align 8
+  %127 = load ptr, ptr %10, align 8
+  %128 = load ptr, ptr %11, align 8
+  %129 = load ptr, ptr %12, align 8
+  %130 = load i32, ptr @hf_rc, align 4
+  %131 = call i32 @dissect_doserror(ptr noundef %124, i32 noundef %125, ptr noundef %126, ptr noundef %127, ptr noundef %128, ptr noundef %129, i32 noundef %130, ptr noundef null)
+  store i32 %131, ptr %8, align 4
+  %132 = load i32, ptr %8, align 4
+  ret i32 %132
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGeneric_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = call i32 @tvb_reported_length(ptr noundef %14)
+  store i32 %15, ptr %13, align 4
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = load i32, ptr %8, align 4
+  %20 = call ptr @proto_tree_add_expert(ptr noundef %16, ptr noundef %17, ptr noundef @ei_unimplemented_dissector, ptr noundef %18, i32 noundef %19, i32 noundef 0)
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %13, align 4
+  %23 = sub i32 %22, 4
+  %24 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %11, align 8
+  %27 = load ptr, ptr %12, align 8
+  %28 = load i32, ptr @hf_rc, align 4
+  %29 = call i32 @dissect_doserror(ptr noundef %21, i32 noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, i32 noundef %28, ptr noundef null)
+  store i32 %29, ptr %8, align 4
+  %30 = load i32, ptr %8, align 4
+  ret i32 %30
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssSetJob_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load i32, ptr %8, align 4
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %10, align 8
+  %19 = load ptr, ptr %11, align 8
+  %20 = load ptr, ptr %12, align 8
+  %21 = load i32, ptr @hf_hnd, align 4
+  %22 = call i32 @dissect_nt_policy_hnd(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, i32 noundef %21, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %22, ptr %8, align 4
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = load ptr, ptr %9, align 8
+  %26 = load ptr, ptr %10, align 8
+  %27 = load ptr, ptr %11, align 8
+  %28 = load ptr, ptr %12, align 8
+  %29 = load i32, ptr @hf_job_id, align 4
+  %30 = call i32 @dissect_ndr_uint32(ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, i32 noundef %29, ptr noundef %13)
+  store i32 %30, ptr %8, align 4
+  %31 = load ptr, ptr %7, align 8
+  %32 = load i32, ptr %8, align 4
+  %33 = load ptr, ptr %9, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %12, align 8
+  %37 = load i32, ptr @hf_level, align 4
+  %38 = call i32 @dissect_ndr_uint32(ptr noundef %31, i32 noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, i32 noundef %37, ptr noundef null)
+  store i32 %38, ptr %8, align 4
+  %39 = load ptr, ptr %7, align 8
+  %40 = load i32, ptr %8, align 4
+  %41 = load ptr, ptr %9, align 8
+  %42 = load ptr, ptr %10, align 8
+  %43 = load ptr, ptr %11, align 8
+  %44 = load ptr, ptr %12, align 8
+  %45 = load i32, ptr @hf_setjob_cmd, align 4
+  %46 = call i32 @dissect_ndr_uint32(ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef %44, i32 noundef %45, ptr noundef %14)
+  store i32 %46, ptr %8, align 4
+  %47 = load ptr, ptr %9, align 8
+  %48 = getelementptr inbounds %struct._packet_info, ptr %47, i32 0, i32 1
+  %49 = load ptr, ptr %48, align 8
+  %50 = load i32, ptr %14, align 4
+  %51 = call ptr @val_to_str(i32 noundef %50, ptr noundef @setjob_commands, ptr noundef @.str.758)
+  %52 = load i32, ptr %13, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %49, i32 noundef 25, ptr noundef @.str.1210, ptr noundef %51, i32 noundef %52)
+  %53 = load i32, ptr %8, align 4
+  ret i32 %53
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssSetJob_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_rc, align 4
+  %20 = call i32 @dissect_doserror(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null)
+  store i32 %20, ptr %8, align 4
+  %21 = load i32, ptr %8, align 4
+  ret i32 %21
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGetJob_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %16 = load ptr, ptr %11, align 8
+  %17 = getelementptr inbounds %struct._dcerpc_info, ptr %16, i32 0, i32 14
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %13, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = load ptr, ptr %9, align 8
+  %22 = load ptr, ptr %10, align 8
+  %23 = load ptr, ptr %11, align 8
+  %24 = load ptr, ptr %12, align 8
+  %25 = load i32, ptr @hf_hnd, align 4
+  %26 = call i32 @dissect_nt_policy_hnd(ptr noundef %19, i32 noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, i32 noundef %25, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %26, ptr %8, align 4
+  %27 = load ptr, ptr %7, align 8
+  %28 = load i32, ptr %8, align 4
+  %29 = load ptr, ptr %9, align 8
+  %30 = load ptr, ptr %10, align 8
+  %31 = load ptr, ptr %11, align 8
+  %32 = load ptr, ptr %12, align 8
+  %33 = load i32, ptr @hf_job_id, align 4
+  %34 = call i32 @dissect_ndr_uint32(ptr noundef %27, i32 noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, i32 noundef %33, ptr noundef %15)
+  store i32 %34, ptr %8, align 4
+  %35 = load ptr, ptr %7, align 8
+  %36 = load i32, ptr %8, align 4
+  %37 = load ptr, ptr %9, align 8
+  %38 = load ptr, ptr %10, align 8
+  %39 = load ptr, ptr %11, align 8
+  %40 = load ptr, ptr %12, align 8
+  %41 = load i32, ptr @hf_level, align 4
+  %42 = call i32 @dissect_ndr_uint32(ptr noundef %35, i32 noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40, i32 noundef %41, ptr noundef %14)
+  store i32 %42, ptr %8, align 4
+  %43 = load ptr, ptr %9, align 8
+  %44 = getelementptr inbounds %struct._packet_info, ptr %43, i32 0, i32 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %struct._frame_data, ptr %45, i32 0, i32 9
+  %47 = load i16, ptr %46, align 2
+  %48 = lshr i16 %47, 3
+  %49 = and i16 %48, 1
+  %50 = zext i16 %49 to i32
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %58, label %52
+
+52:                                               ; preds = %6
+  %53 = load i32, ptr %14, align 4
+  %54 = sext i32 %53 to i64
+  %55 = inttoptr i64 %54 to ptr
+  %56 = load ptr, ptr %13, align 8
+  %57 = getelementptr inbounds %struct._dcerpc_call_value, ptr %56, i32 0, i32 8
+  store ptr %55, ptr %57, align 8
+  br label %58
+
+58:                                               ; preds = %52, %6
+  %59 = load ptr, ptr %9, align 8
+  %60 = getelementptr inbounds %struct._packet_info, ptr %59, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8
+  %62 = load i32, ptr %14, align 4
+  %63 = load i32, ptr %15, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %61, i32 noundef 25, ptr noundef @.str.1211, i32 noundef %62, i32 noundef %63)
+  %64 = load ptr, ptr %7, align 8
+  %65 = load i32, ptr %8, align 4
+  %66 = load ptr, ptr %9, align 8
+  %67 = load ptr, ptr %10, align 8
+  %68 = load ptr, ptr %11, align 8
+  %69 = load ptr, ptr %12, align 8
+  %70 = call i32 @dissect_spoolss_buffer(ptr noundef %64, i32 noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef null)
+  store i32 %70, ptr %8, align 4
+  %71 = load ptr, ptr %7, align 8
+  %72 = load i32, ptr %8, align 4
+  %73 = load ptr, ptr %9, align 8
+  %74 = load ptr, ptr %10, align 8
+  %75 = load ptr, ptr %11, align 8
+  %76 = load ptr, ptr %12, align 8
+  %77 = load i32, ptr @hf_offered, align 4
+  %78 = call i32 @dissect_ndr_uint32(ptr noundef %71, i32 noundef %72, ptr noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef %76, i32 noundef %77, ptr noundef null)
+  store i32 %78, ptr %8, align 4
+  %79 = load i32, ptr %8, align 4
+  ret i32 %79
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGetJob_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %struct.BUFFER, align 8
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 14
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %13, align 8
+  %20 = load ptr, ptr %13, align 8
+  %21 = getelementptr inbounds %struct._dcerpc_call_value, ptr %20, i32 0, i32 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = ptrtoint ptr %22 to i64
+  %24 = trunc i64 %23 to i32
+  store i32 %24, ptr %14, align 4
+  %25 = load ptr, ptr %7, align 8
+  %26 = load i32, ptr %8, align 4
+  %27 = load ptr, ptr %9, align 8
+  %28 = load ptr, ptr %10, align 8
+  %29 = load ptr, ptr %11, align 8
+  %30 = load ptr, ptr %12, align 8
+  %31 = call i32 @dissect_spoolss_buffer(ptr noundef %25, i32 noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %15)
+  store i32 %31, ptr %8, align 4
+  %32 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %58
+
+35:                                               ; preds = %6
+  store i32 0, ptr %16, align 4
+  %36 = load i32, ptr %14, align 4
+  switch i32 %36, label %48 [
+    i32 1, label %37
+    i32 2, label %47
+  ]
+
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8
+  %40 = load i32, ptr %16, align 4
+  %41 = load ptr, ptr %9, align 8
+  %42 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %11, align 8
+  %45 = load ptr, ptr %12, align 8
+  %46 = call i32 @dissect_spoolss_JOB_INFO_1(ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %43, ptr noundef %44, ptr noundef %45)
+  br label %57
+
+47:                                               ; preds = %35
+  br label %48
+
+48:                                               ; preds = %47, %35
+  %49 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %9, align 8
+  %52 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8
+  %54 = load i32, ptr %16, align 4
+  %55 = load i32, ptr %14, align 4
+  %56 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %50, ptr noundef %51, ptr noundef @ei_job_info_level, ptr noundef %53, i32 noundef %54, i32 noundef -1, ptr noundef @.str.1212, i32 noundef %55)
+  br label %57
+
+57:                                               ; preds = %48, %37
+  br label %58
+
+58:                                               ; preds = %57, %6
+  %59 = load ptr, ptr %7, align 8
+  %60 = load i32, ptr %8, align 4
+  %61 = load ptr, ptr %9, align 8
+  %62 = load ptr, ptr %10, align 8
+  %63 = load ptr, ptr %11, align 8
+  %64 = load ptr, ptr %12, align 8
+  %65 = load i32, ptr @hf_needed, align 4
+  %66 = call i32 @dissect_ndr_uint32(ptr noundef %59, i32 noundef %60, ptr noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %64, i32 noundef %65, ptr noundef null)
+  store i32 %66, ptr %8, align 4
+  %67 = load ptr, ptr %7, align 8
+  %68 = load i32, ptr %8, align 4
+  %69 = load ptr, ptr %9, align 8
+  %70 = load ptr, ptr %10, align 8
+  %71 = load ptr, ptr %11, align 8
+  %72 = load ptr, ptr %12, align 8
+  %73 = load i32, ptr @hf_rc, align 4
+  %74 = call i32 @dissect_doserror(ptr noundef %67, i32 noundef %68, ptr noundef %69, ptr noundef %70, ptr noundef %71, ptr noundef %72, i32 noundef %73, ptr noundef null)
+  store i32 %74, ptr %8, align 4
+  %75 = load i32, ptr %8, align 4
+  ret i32 %75
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssEnumJobs_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %11, align 8
+  %16 = getelementptr inbounds %struct._dcerpc_info, ptr %15, i32 0, i32 14
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %13, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = load i32, ptr %8, align 4
+  %20 = load ptr, ptr %9, align 8
+  %21 = load ptr, ptr %10, align 8
+  %22 = load ptr, ptr %11, align 8
+  %23 = load ptr, ptr %12, align 8
+  %24 = load i32, ptr @hf_hnd, align 4
+  %25 = call i32 @dissect_nt_policy_hnd(ptr noundef %18, i32 noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, i32 noundef %24, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %25, ptr %8, align 4
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = load ptr, ptr %9, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = load ptr, ptr %11, align 8
+  %31 = load ptr, ptr %12, align 8
+  %32 = load i32, ptr @hf_enumjobs_firstjob, align 4
+  %33 = call i32 @dissect_ndr_uint32(ptr noundef %26, i32 noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, i32 noundef %32, ptr noundef null)
+  store i32 %33, ptr %8, align 4
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %8, align 4
+  %36 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = load ptr, ptr %11, align 8
+  %39 = load ptr, ptr %12, align 8
+  %40 = load i32, ptr @hf_enumjobs_numjobs, align 4
+  %41 = call i32 @dissect_ndr_uint32(ptr noundef %34, i32 noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, i32 noundef %40, ptr noundef null)
+  store i32 %41, ptr %8, align 4
+  %42 = load ptr, ptr %7, align 8
+  %43 = load i32, ptr %8, align 4
+  %44 = load ptr, ptr %9, align 8
+  %45 = load ptr, ptr %10, align 8
+  %46 = load ptr, ptr %11, align 8
+  %47 = load ptr, ptr %12, align 8
+  %48 = load i32, ptr @hf_level, align 4
+  %49 = call i32 @dissect_ndr_uint32(ptr noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48, ptr noundef %14)
+  store i32 %49, ptr %8, align 4
+  %50 = load ptr, ptr %9, align 8
+  %51 = getelementptr inbounds %struct._packet_info, ptr %50, i32 0, i32 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds %struct._frame_data, ptr %52, i32 0, i32 9
+  %54 = load i16, ptr %53, align 2
+  %55 = lshr i16 %54, 3
+  %56 = and i16 %55, 1
+  %57 = zext i16 %56 to i32
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %65, label %59
+
+59:                                               ; preds = %6
+  %60 = load i32, ptr %14, align 4
+  %61 = sext i32 %60 to i64
+  %62 = inttoptr i64 %61 to ptr
+  %63 = load ptr, ptr %13, align 8
+  %64 = getelementptr inbounds %struct._dcerpc_call_value, ptr %63, i32 0, i32 8
+  store ptr %62, ptr %64, align 8
+  br label %65
+
+65:                                               ; preds = %59, %6
+  %66 = load ptr, ptr %9, align 8
+  %67 = getelementptr inbounds %struct._packet_info, ptr %66, i32 0, i32 1
+  %68 = load ptr, ptr %67, align 8
+  %69 = load i32, ptr %14, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %68, i32 noundef 25, ptr noundef @.str.1206, i32 noundef %69)
+  %70 = load ptr, ptr %7, align 8
+  %71 = load i32, ptr %8, align 4
+  %72 = load ptr, ptr %9, align 8
+  %73 = load ptr, ptr %10, align 8
+  %74 = load ptr, ptr %11, align 8
+  %75 = load ptr, ptr %12, align 8
+  %76 = call i32 @dissect_spoolss_buffer(ptr noundef %70, i32 noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef null)
+  store i32 %76, ptr %8, align 4
+  %77 = load ptr, ptr %7, align 8
+  %78 = load i32, ptr %8, align 4
+  %79 = load ptr, ptr %9, align 8
+  %80 = load ptr, ptr %10, align 8
+  %81 = load ptr, ptr %11, align 8
+  %82 = load ptr, ptr %12, align 8
+  %83 = load i32, ptr @hf_offered, align 4
+  %84 = call i32 @dissect_ndr_uint32(ptr noundef %77, i32 noundef %78, ptr noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef %82, i32 noundef %83, ptr noundef null)
+  store i32 %84, ptr %8, align 4
+  %85 = load i32, ptr %8, align 4
+  ret i32 %85
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssEnumJobs_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i16, align 2
+  %15 = alloca %struct.BUFFER, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %19 = load ptr, ptr %11, align 8
+  %20 = getelementptr inbounds %struct._dcerpc_info, ptr %19, i32 0, i32 14
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %13, align 8
+  %22 = load ptr, ptr %13, align 8
+  %23 = getelementptr inbounds %struct._dcerpc_call_value, ptr %22, i32 0, i32 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = ptrtoint ptr %24 to i64
+  %26 = trunc i64 %25 to i32
+  %27 = trunc i32 %26 to i16
+  store i16 %27, ptr %14, align 2
+  %28 = load ptr, ptr %7, align 8
+  %29 = load i32, ptr %8, align 4
+  %30 = load ptr, ptr %9, align 8
+  %31 = load ptr, ptr %10, align 8
+  %32 = load ptr, ptr %11, align 8
+  %33 = load ptr, ptr %12, align 8
+  %34 = call i32 @dissect_spoolss_buffer(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %15)
+  store i32 %34, ptr %8, align 4
+  %35 = load ptr, ptr %7, align 8
+  %36 = load i32, ptr %8, align 4
+  %37 = load ptr, ptr %9, align 8
+  %38 = load ptr, ptr %10, align 8
+  %39 = load ptr, ptr %11, align 8
+  %40 = load ptr, ptr %12, align 8
+  %41 = load i32, ptr @hf_needed, align 4
+  %42 = call i32 @dissect_ndr_uint32(ptr noundef %35, i32 noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40, i32 noundef %41, ptr noundef null)
+  store i32 %42, ptr %8, align 4
+  %43 = load ptr, ptr %7, align 8
+  %44 = load i32, ptr %8, align 4
+  %45 = load ptr, ptr %9, align 8
+  %46 = load ptr, ptr %10, align 8
+  %47 = load ptr, ptr %11, align 8
+  %48 = load ptr, ptr %12, align 8
+  %49 = load i32, ptr @hf_enumjobs_numjobs, align 4
+  %50 = call i32 @dissect_ndr_uint32(ptr noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, i32 noundef %49, ptr noundef %16)
+  store i32 %50, ptr %8, align 4
+  store i32 0, ptr %18, align 4
+  store i32 0, ptr %17, align 4
+  br label %51
+
+51:                                               ; preds = %88, %6
+  %52 = load i32, ptr %17, align 4
+  %53 = load i32, ptr %16, align 4
+  %54 = icmp ult i32 %52, %53
+  br i1 %54, label %55, label %91
+
+55:                                               ; preds = %51
+  %56 = load i16, ptr %14, align 2
+  %57 = sext i16 %56 to i32
+  switch i32 %57, label %78 [
+    i32 1, label %58
+    i32 2, label %68
+  ]
+
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  %61 = load i32, ptr %18, align 4
+  %62 = load ptr, ptr %9, align 8
+  %63 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %11, align 8
+  %66 = load ptr, ptr %12, align 8
+  %67 = call i32 @dissect_spoolss_JOB_INFO_1(ptr noundef %60, i32 noundef %61, ptr noundef %62, ptr noundef %64, ptr noundef %65, ptr noundef %66)
+  store i32 %67, ptr %18, align 4
+  br label %87
+
+68:                                               ; preds = %55
+  %69 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8
+  %71 = load i32, ptr %18, align 4
+  %72 = load ptr, ptr %9, align 8
+  %73 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 1
+  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr %11, align 8
+  %76 = load ptr, ptr %12, align 8
+  %77 = call i32 @dissect_spoolss_JOB_INFO_2(ptr noundef %70, i32 noundef %71, ptr noundef %72, ptr noundef %74, ptr noundef %75, ptr noundef %76)
+  store i32 %77, ptr %18, align 4
+  br label %87
+
+78:                                               ; preds = %55
+  %79 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %9, align 8
+  %82 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 0
+  %83 = load ptr, ptr %82, align 8
+  %84 = load i16, ptr %14, align 2
+  %85 = sext i16 %84 to i32
+  %86 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %80, ptr noundef %81, ptr noundef @ei_job_info_level, ptr noundef %83, i32 noundef 0, i32 noundef -1, ptr noundef @.str.1212, i32 noundef %85)
+  br label %87
+
+87:                                               ; preds = %78, %68, %58
+  br label %88
+
+88:                                               ; preds = %87
+  %89 = load i32, ptr %17, align 4
+  %90 = add i32 %89, 1
+  store i32 %90, ptr %17, align 4
+  br label %51, !llvm.loop !7
+
+91:                                               ; preds = %51
+  %92 = load ptr, ptr %7, align 8
+  %93 = load i32, ptr %8, align 4
+  %94 = load ptr, ptr %9, align 8
+  %95 = load ptr, ptr %10, align 8
+  %96 = load ptr, ptr %11, align 8
+  %97 = load ptr, ptr %12, align 8
+  %98 = load i32, ptr @hf_rc, align 4
+  %99 = call i32 @dissect_doserror(ptr noundef %92, i32 noundef %93, ptr noundef %94, ptr noundef %95, ptr noundef %96, ptr noundef %97, i32 noundef %98, ptr noundef null)
+  store i32 %99, ptr %8, align 4
+  %100 = load i32, ptr %8, align 4
+  ret i32 %100
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssDeletePrinter_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_hnd, align 4
+  %20 = call i32 @dissect_nt_policy_hnd(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %20, ptr %8, align 4
+  %21 = load i32, ptr %8, align 4
+  ret i32 %21
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssDeletePrinter_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_hnd, align 4
+  %20 = call i32 @dissect_nt_policy_hnd(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %20, ptr %8, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_rc, align 4
+  %28 = call i32 @dissect_doserror(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef null)
+  store i32 %28, ptr %8, align 4
+  %29 = load i32, ptr %8, align 4
+  ret i32 %29
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssSetPrinter_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i32, ptr %8, align 4
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = load ptr, ptr %12, align 8
+  %20 = load i32, ptr @hf_hnd, align 4
+  %21 = call i32 @dissect_nt_policy_hnd(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %21, ptr %8, align 4
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %11, align 8
+  %27 = load ptr, ptr %12, align 8
+  %28 = load i32, ptr @hf_level, align 4
+  %29 = call i32 @dissect_ndr_uint32(ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, i32 noundef %28, ptr noundef %13)
+  store i32 %29, ptr %8, align 4
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds %struct._packet_info, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i32, ptr %13, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef @.str.1206, i32 noundef %33)
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %8, align 4
+  %36 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = load ptr, ptr %11, align 8
+  %39 = load ptr, ptr %12, align 8
+  %40 = call i32 @dissect_SPOOL_PRINTER_INFO(ptr noundef %34, i32 noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39)
+  store i32 %40, ptr %8, align 4
+  %41 = load ptr, ptr %7, align 8
+  %42 = load i32, ptr %8, align 4
+  %43 = load ptr, ptr %9, align 8
+  %44 = load ptr, ptr %10, align 8
+  %45 = load ptr, ptr %11, align 8
+  %46 = load ptr, ptr %12, align 8
+  %47 = load i32, ptr @hf_setprinter_cmd, align 4
+  %48 = call i32 @dissect_ndr_uint32(ptr noundef %41, i32 noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %47, ptr noundef null)
+  store i32 %48, ptr %8, align 4
+  %49 = load i32, ptr %8, align 4
+  ret i32 %49
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssSetPrinter_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_rc, align 4
+  %20 = call i32 @dissect_doserror(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null)
+  store i32 %20, ptr %8, align 4
+  %21 = load i32, ptr %8, align 4
+  ret i32 %21
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGetPrinter_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %11, align 8
+  %16 = getelementptr inbounds %struct._dcerpc_info, ptr %15, i32 0, i32 14
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %13, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = load i32, ptr %8, align 4
+  %20 = load ptr, ptr %9, align 8
+  %21 = load ptr, ptr %10, align 8
+  %22 = load ptr, ptr %11, align 8
+  %23 = load ptr, ptr %12, align 8
+  %24 = load i32, ptr @hf_hnd, align 4
+  %25 = call i32 @dissect_nt_policy_hnd(ptr noundef %18, i32 noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, i32 noundef %24, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %25, ptr %8, align 4
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = load ptr, ptr %9, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = load ptr, ptr %11, align 8
+  %31 = load ptr, ptr %12, align 8
+  %32 = load i32, ptr @hf_level, align 4
+  %33 = call i32 @dissect_ndr_uint32(ptr noundef %26, i32 noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, i32 noundef %32, ptr noundef %14)
+  store i32 %33, ptr %8, align 4
+  %34 = load ptr, ptr %9, align 8
+  %35 = getelementptr inbounds %struct._packet_info, ptr %34, i32 0, i32 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %struct._frame_data, ptr %36, i32 0, i32 9
+  %38 = load i16, ptr %37, align 2
+  %39 = lshr i16 %38, 3
+  %40 = and i16 %39, 1
+  %41 = zext i16 %40 to i32
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %49, label %43
+
+43:                                               ; preds = %6
+  %44 = load i32, ptr %14, align 4
+  %45 = sext i32 %44 to i64
+  %46 = inttoptr i64 %45 to ptr
+  %47 = load ptr, ptr %13, align 8
+  %48 = getelementptr inbounds %struct._dcerpc_call_value, ptr %47, i32 0, i32 8
+  store ptr %46, ptr %48, align 8
+  br label %49
+
+49:                                               ; preds = %43, %6
+  %50 = load ptr, ptr %9, align 8
+  %51 = getelementptr inbounds %struct._packet_info, ptr %50, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8
+  %53 = load i32, ptr %14, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %52, i32 noundef 25, ptr noundef @.str.1206, i32 noundef %53)
+  %54 = load ptr, ptr %7, align 8
+  %55 = load i32, ptr %8, align 4
+  %56 = load ptr, ptr %9, align 8
+  %57 = load ptr, ptr %10, align 8
+  %58 = load ptr, ptr %11, align 8
+  %59 = load ptr, ptr %12, align 8
+  %60 = call i32 @dissect_spoolss_buffer(ptr noundef %54, i32 noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef %58, ptr noundef %59, ptr noundef null)
+  store i32 %60, ptr %8, align 4
+  %61 = load ptr, ptr %7, align 8
+  %62 = load i32, ptr %8, align 4
+  %63 = load ptr, ptr %9, align 8
+  %64 = load ptr, ptr %10, align 8
+  %65 = load ptr, ptr %11, align 8
+  %66 = load ptr, ptr %12, align 8
+  %67 = load i32, ptr @hf_offered, align 4
+  %68 = call i32 @dissect_ndr_uint32(ptr noundef %61, i32 noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %66, i32 noundef %67, ptr noundef null)
+  store i32 %68, ptr %8, align 4
+  %69 = load i32, ptr %8, align 4
+  ret i32 %69
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGetPrinter_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca %struct.BUFFER, align 8
+  %15 = alloca i16, align 2
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = getelementptr inbounds %struct._dcerpc_info, ptr %18, i32 0, i32 14
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %13, align 8
+  %21 = load ptr, ptr %13, align 8
+  %22 = getelementptr inbounds %struct._dcerpc_call_value, ptr %21, i32 0, i32 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = ptrtoint ptr %23 to i64
+  %25 = trunc i64 %24 to i32
+  %26 = trunc i32 %25 to i16
+  store i16 %26, ptr %15, align 2
+  store ptr null, ptr %16, align 8
+  store ptr null, ptr %17, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i16, ptr %15, align 2
+  %31 = sext i16 %30 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.1206, i32 noundef %31)
+  %32 = load ptr, ptr %7, align 8
+  %33 = load i32, ptr %8, align 4
+  %34 = load ptr, ptr %9, align 8
+  %35 = load ptr, ptr %10, align 8
+  %36 = load ptr, ptr %11, align 8
+  %37 = load ptr, ptr %12, align 8
+  %38 = call i32 @dissect_spoolss_buffer(ptr noundef %32, i32 noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %14)
+  store i32 %38, ptr %8, align 4
+  %39 = getelementptr inbounds %struct.BUFFER, ptr %14, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %106
+
+42:                                               ; preds = %6
+  %43 = getelementptr inbounds %struct.BUFFER, ptr %14, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds %struct.BUFFER, ptr %14, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8
+  %47 = load i32, ptr @ett_PRINTER_INFO, align 4
+  %48 = load i16, ptr %15, align 2
+  %49 = sext i16 %48 to i32
+  %50 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %44, ptr noundef %46, i32 noundef 0, i32 noundef -1, i32 noundef %47, ptr noundef %16, ptr noundef @.str.1208, i32 noundef %49)
+  store ptr %50, ptr %17, align 8
+  %51 = load i16, ptr %15, align 2
+  %52 = sext i16 %51 to i32
+  switch i32 %52, label %101 [
+    i32 0, label %53
+    i32 1, label %61
+    i32 2, label %69
+    i32 3, label %77
+    i32 5, label %85
+    i32 7, label %93
+  ]
+
+53:                                               ; preds = %42
+  %54 = getelementptr inbounds %struct.BUFFER, ptr %14, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %9, align 8
+  %57 = load ptr, ptr %17, align 8
+  %58 = load ptr, ptr %11, align 8
+  %59 = load ptr, ptr %12, align 8
+  %60 = call i32 @dissect_PRINTER_INFO_0(ptr noundef %55, i32 noundef 0, ptr noundef %56, ptr noundef %57, ptr noundef %58, ptr noundef %59)
+  br label %105
+
+61:                                               ; preds = %42
+  %62 = getelementptr inbounds %struct.BUFFER, ptr %14, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8
+  %64 = load ptr, ptr %9, align 8
+  %65 = load ptr, ptr %17, align 8
+  %66 = load ptr, ptr %11, align 8
+  %67 = load ptr, ptr %12, align 8
+  %68 = call i32 @dissect_PRINTER_INFO_1(ptr noundef %63, i32 noundef 0, ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67)
+  br label %105
+
+69:                                               ; preds = %42
+  %70 = getelementptr inbounds %struct.BUFFER, ptr %14, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8
+  %72 = load ptr, ptr %9, align 8
+  %73 = load ptr, ptr %17, align 8
+  %74 = load ptr, ptr %11, align 8
+  %75 = load ptr, ptr %12, align 8
+  %76 = call i32 @dissect_PRINTER_INFO_2(ptr noundef %71, i32 noundef 0, ptr noundef %72, ptr noundef %73, ptr noundef %74, ptr noundef %75)
+  br label %105
+
+77:                                               ; preds = %42
+  %78 = getelementptr inbounds %struct.BUFFER, ptr %14, i32 0, i32 0
+  %79 = load ptr, ptr %78, align 8
+  %80 = load ptr, ptr %9, align 8
+  %81 = load ptr, ptr %17, align 8
+  %82 = load ptr, ptr %11, align 8
+  %83 = load ptr, ptr %12, align 8
+  %84 = call i32 @dissect_PRINTER_INFO_3(ptr noundef %79, i32 noundef 0, ptr noundef %80, ptr noundef %81, ptr noundef %82, ptr noundef %83)
+  br label %105
+
+85:                                               ; preds = %42
+  %86 = getelementptr inbounds %struct.BUFFER, ptr %14, i32 0, i32 0
+  %87 = load ptr, ptr %86, align 8
+  %88 = load ptr, ptr %9, align 8
+  %89 = load ptr, ptr %17, align 8
+  %90 = load ptr, ptr %11, align 8
+  %91 = load ptr, ptr %12, align 8
+  %92 = call i32 @dissect_PRINTER_INFO_5(ptr noundef %87, i32 noundef 0, ptr noundef %88, ptr noundef %89, ptr noundef %90, ptr noundef %91)
+  br label %105
+
+93:                                               ; preds = %42
+  %94 = getelementptr inbounds %struct.BUFFER, ptr %14, i32 0, i32 0
+  %95 = load ptr, ptr %94, align 8
+  %96 = load ptr, ptr %9, align 8
+  %97 = load ptr, ptr %17, align 8
+  %98 = load ptr, ptr %11, align 8
+  %99 = load ptr, ptr %12, align 8
+  %100 = call i32 @dissect_PRINTER_INFO_7(ptr noundef %95, i32 noundef 0, ptr noundef %96, ptr noundef %97, ptr noundef %98, ptr noundef %99)
+  br label %105
+
+101:                                              ; preds = %42
+  %102 = load ptr, ptr %9, align 8
+  %103 = load ptr, ptr %16, align 8
+  %104 = call ptr @expert_add_info(ptr noundef %102, ptr noundef %103, ptr noundef @ei_printer_info_level)
+  br label %105
+
+105:                                              ; preds = %101, %93, %85, %77, %69, %61, %53
+  br label %106
+
+106:                                              ; preds = %105, %6
+  %107 = load ptr, ptr %7, align 8
+  %108 = load i32, ptr %8, align 4
+  %109 = load ptr, ptr %9, align 8
+  %110 = load ptr, ptr %10, align 8
+  %111 = load ptr, ptr %11, align 8
+  %112 = load ptr, ptr %12, align 8
+  %113 = load i32, ptr @hf_needed, align 4
+  %114 = call i32 @dissect_ndr_uint32(ptr noundef %107, i32 noundef %108, ptr noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef %112, i32 noundef %113, ptr noundef null)
+  store i32 %114, ptr %8, align 4
+  %115 = load ptr, ptr %7, align 8
+  %116 = load i32, ptr %8, align 4
+  %117 = load ptr, ptr %9, align 8
+  %118 = load ptr, ptr %10, align 8
+  %119 = load ptr, ptr %11, align 8
+  %120 = load ptr, ptr %12, align 8
+  %121 = load i32, ptr @hf_rc, align 4
+  %122 = call i32 @dissect_doserror(ptr noundef %115, i32 noundef %116, ptr noundef %117, ptr noundef %118, ptr noundef %119, ptr noundef %120, i32 noundef %121, ptr noundef null)
+  store i32 %122, ptr %8, align 4
+  %123 = load i32, ptr %8, align 4
+  ret i32 %123
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssAddPrinterDriver_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_rc, align 4
+  %20 = call i32 @dissect_doserror(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null)
+  store i32 %20, ptr %8, align 4
+  %21 = load i32, ptr %8, align 4
+  ret i32 %21
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssEnumPrinterDrivers_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %11, align 8
+  %16 = getelementptr inbounds %struct._dcerpc_info, ptr %15, i32 0, i32 14
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %13, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = load i32, ptr %8, align 4
+  %20 = load ptr, ptr %9, align 8
+  %21 = load ptr, ptr %10, align 8
+  %22 = load ptr, ptr %11, align 8
+  %23 = load ptr, ptr %12, align 8
+  %24 = load i32, ptr @hf_servername, align 4
+  %25 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %18, i32 noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, i32 noundef 2, ptr noundef @.str.387, i32 noundef %24, i32 noundef 0)
+  store i32 %25, ptr %8, align 4
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = load ptr, ptr %9, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = load ptr, ptr %11, align 8
+  %31 = load ptr, ptr %12, align 8
+  %32 = load i32, ptr @hf_environment, align 4
+  %33 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %26, i32 noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, i32 noundef 2, ptr noundef @.str.1217, i32 noundef %32, i32 noundef 0)
+  store i32 %33, ptr %8, align 4
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %8, align 4
+  %36 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = load ptr, ptr %11, align 8
+  %39 = load ptr, ptr %12, align 8
+  %40 = load i32, ptr @hf_level, align 4
+  %41 = call i32 @dissect_ndr_uint32(ptr noundef %34, i32 noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, i32 noundef %40, ptr noundef %14)
+  store i32 %41, ptr %8, align 4
+  %42 = load ptr, ptr %9, align 8
+  %43 = getelementptr inbounds %struct._packet_info, ptr %42, i32 0, i32 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds %struct._frame_data, ptr %44, i32 0, i32 9
+  %46 = load i16, ptr %45, align 2
+  %47 = lshr i16 %46, 3
+  %48 = and i16 %47, 1
+  %49 = zext i16 %48 to i32
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %57, label %51
+
+51:                                               ; preds = %6
+  %52 = load i32, ptr %14, align 4
+  %53 = sext i32 %52 to i64
+  %54 = inttoptr i64 %53 to ptr
+  %55 = load ptr, ptr %13, align 8
+  %56 = getelementptr inbounds %struct._dcerpc_call_value, ptr %55, i32 0, i32 8
+  store ptr %54, ptr %56, align 8
+  br label %57
+
+57:                                               ; preds = %51, %6
+  %58 = load ptr, ptr %9, align 8
+  %59 = getelementptr inbounds %struct._packet_info, ptr %58, i32 0, i32 1
+  %60 = load ptr, ptr %59, align 8
+  %61 = load i32, ptr %14, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %60, i32 noundef 25, ptr noundef @.str.1206, i32 noundef %61)
+  %62 = load ptr, ptr %7, align 8
+  %63 = load i32, ptr %8, align 4
+  %64 = load ptr, ptr %9, align 8
+  %65 = load ptr, ptr %10, align 8
+  %66 = load ptr, ptr %11, align 8
+  %67 = load ptr, ptr %12, align 8
+  %68 = call i32 @dissect_spoolss_buffer(ptr noundef %62, i32 noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef null)
+  store i32 %68, ptr %8, align 4
+  %69 = load ptr, ptr %7, align 8
+  %70 = load i32, ptr %8, align 4
+  %71 = load ptr, ptr %9, align 8
+  %72 = load ptr, ptr %10, align 8
+  %73 = load ptr, ptr %11, align 8
+  %74 = load ptr, ptr %12, align 8
+  %75 = load i32, ptr @hf_offered, align 4
+  %76 = call i32 @dissect_ndr_uint32(ptr noundef %69, i32 noundef %70, ptr noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef %74, i32 noundef %75, ptr noundef null)
+  store i32 %76, ptr %8, align 4
+  %77 = load i32, ptr %8, align 4
+  ret i32 %77
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssEnumPrinterDrivers_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca %struct.BUFFER, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %19 = load ptr, ptr %11, align 8
+  %20 = getelementptr inbounds %struct._dcerpc_info, ptr %19, i32 0, i32 14
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %13, align 8
+  %22 = load ptr, ptr %13, align 8
+  %23 = getelementptr inbounds %struct._dcerpc_call_value, ptr %22, i32 0, i32 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = ptrtoint ptr %24 to i64
+  %26 = trunc i64 %25 to i32
+  store i32 %26, ptr %14, align 4
+  %27 = load ptr, ptr %7, align 8
+  %28 = load i32, ptr %8, align 4
+  %29 = load ptr, ptr %9, align 8
+  %30 = load ptr, ptr %10, align 8
+  %31 = load ptr, ptr %11, align 8
+  %32 = load ptr, ptr %12, align 8
+  %33 = call i32 @dissect_spoolss_buffer(ptr noundef %27, i32 noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %18)
+  store i32 %33, ptr %8, align 4
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %8, align 4
+  %36 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = load ptr, ptr %11, align 8
+  %39 = load ptr, ptr %12, align 8
+  %40 = load i32, ptr @hf_needed, align 4
+  %41 = call i32 @dissect_ndr_uint32(ptr noundef %34, i32 noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, i32 noundef %40, ptr noundef null)
+  store i32 %41, ptr %8, align 4
+  %42 = load ptr, ptr %7, align 8
+  %43 = load i32, ptr %8, align 4
+  %44 = load ptr, ptr %9, align 8
+  %45 = load ptr, ptr %10, align 8
+  %46 = load ptr, ptr %11, align 8
+  %47 = load ptr, ptr %12, align 8
+  %48 = load i32, ptr @hf_returned, align 4
+  %49 = call i32 @dissect_ndr_uint32(ptr noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48, ptr noundef %15)
+  store i32 %49, ptr %8, align 4
+  store i32 0, ptr %17, align 4
+  store i32 0, ptr %16, align 4
+  br label %50
+
+50:                                               ; preds = %126, %6
+  %51 = load i32, ptr %16, align 4
+  %52 = load i32, ptr %15, align 4
+  %53 = icmp ult i32 %51, %52
+  br i1 %53, label %54, label %129
+
+54:                                               ; preds = %50
+  %55 = load i32, ptr %14, align 4
+  switch i32 %55, label %116 [
+    i32 1, label %56
+    i32 2, label %66
+    i32 3, label %76
+    i32 6, label %86
+    i32 8, label %96
+    i32 101, label %106
+  ]
+
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds %struct.BUFFER, ptr %18, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8
+  %59 = load i32, ptr %17, align 4
+  %60 = load ptr, ptr %9, align 8
+  %61 = getelementptr inbounds %struct.BUFFER, ptr %18, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8
+  %63 = load ptr, ptr %11, align 8
+  %64 = load ptr, ptr %12, align 8
+  %65 = call i32 @dissect_DRIVER_INFO_1(ptr noundef %58, i32 noundef %59, ptr noundef %60, ptr noundef %62, ptr noundef %63, ptr noundef %64)
+  store i32 %65, ptr %17, align 4
+  br label %125
+
+66:                                               ; preds = %54
+  %67 = getelementptr inbounds %struct.BUFFER, ptr %18, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  %69 = load i32, ptr %17, align 4
+  %70 = load ptr, ptr %9, align 8
+  %71 = getelementptr inbounds %struct.BUFFER, ptr %18, i32 0, i32 1
+  %72 = load ptr, ptr %71, align 8
+  %73 = load ptr, ptr %11, align 8
+  %74 = load ptr, ptr %12, align 8
+  %75 = call i32 @dissect_DRIVER_INFO_2(ptr noundef %68, i32 noundef %69, ptr noundef %70, ptr noundef %72, ptr noundef %73, ptr noundef %74)
+  store i32 %75, ptr %17, align 4
+  br label %125
+
+76:                                               ; preds = %54
+  %77 = getelementptr inbounds %struct.BUFFER, ptr %18, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8
+  %79 = load i32, ptr %17, align 4
+  %80 = load ptr, ptr %9, align 8
+  %81 = getelementptr inbounds %struct.BUFFER, ptr %18, i32 0, i32 1
+  %82 = load ptr, ptr %81, align 8
+  %83 = load ptr, ptr %11, align 8
+  %84 = load ptr, ptr %12, align 8
+  %85 = call i32 @dissect_DRIVER_INFO_3(ptr noundef %78, i32 noundef %79, ptr noundef %80, ptr noundef %82, ptr noundef %83, ptr noundef %84)
+  store i32 %85, ptr %17, align 4
+  br label %125
+
+86:                                               ; preds = %54
+  %87 = getelementptr inbounds %struct.BUFFER, ptr %18, i32 0, i32 0
+  %88 = load ptr, ptr %87, align 8
+  %89 = load i32, ptr %17, align 4
+  %90 = load ptr, ptr %9, align 8
+  %91 = getelementptr inbounds %struct.BUFFER, ptr %18, i32 0, i32 1
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %11, align 8
+  %94 = load ptr, ptr %12, align 8
+  %95 = call i32 @dissect_DRIVER_INFO_6(ptr noundef %88, i32 noundef %89, ptr noundef %90, ptr noundef %92, ptr noundef %93, ptr noundef %94)
+  store i32 %95, ptr %17, align 4
+  br label %125
+
+96:                                               ; preds = %54
+  %97 = getelementptr inbounds %struct.BUFFER, ptr %18, i32 0, i32 0
+  %98 = load ptr, ptr %97, align 8
+  %99 = load i32, ptr %17, align 4
+  %100 = load ptr, ptr %9, align 8
+  %101 = getelementptr inbounds %struct.BUFFER, ptr %18, i32 0, i32 1
+  %102 = load ptr, ptr %101, align 8
+  %103 = load ptr, ptr %11, align 8
+  %104 = load ptr, ptr %12, align 8
+  %105 = call i32 @dissect_DRIVER_INFO_8(ptr noundef %98, i32 noundef %99, ptr noundef %100, ptr noundef %102, ptr noundef %103, ptr noundef %104)
+  store i32 %105, ptr %17, align 4
+  br label %125
+
+106:                                              ; preds = %54
+  %107 = getelementptr inbounds %struct.BUFFER, ptr %18, i32 0, i32 0
+  %108 = load ptr, ptr %107, align 8
+  %109 = load i32, ptr %17, align 4
+  %110 = load ptr, ptr %9, align 8
+  %111 = getelementptr inbounds %struct.BUFFER, ptr %18, i32 0, i32 1
+  %112 = load ptr, ptr %111, align 8
+  %113 = load ptr, ptr %11, align 8
+  %114 = load ptr, ptr %12, align 8
+  %115 = call i32 @dissect_DRIVER_INFO_101(ptr noundef %108, i32 noundef %109, ptr noundef %110, ptr noundef %112, ptr noundef %113, ptr noundef %114)
+  br label %130
+
+116:                                              ; preds = %54
+  %117 = getelementptr inbounds %struct.BUFFER, ptr %18, i32 0, i32 1
+  %118 = load ptr, ptr %117, align 8
+  %119 = load ptr, ptr %9, align 8
+  %120 = getelementptr inbounds %struct.BUFFER, ptr %18, i32 0, i32 0
+  %121 = load ptr, ptr %120, align 8
+  %122 = load i32, ptr %17, align 4
+  %123 = load i32, ptr %14, align 4
+  %124 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %118, ptr noundef %119, ptr noundef @ei_driver_info_level, ptr noundef %121, i32 noundef %122, i32 noundef -1, ptr noundef @.str.1218, i32 noundef %123)
+  br label %130
+
+125:                                              ; preds = %96, %86, %76, %66, %56
+  br label %126
+
+126:                                              ; preds = %125
+  %127 = load i32, ptr %16, align 4
+  %128 = add i32 %127, 1
+  store i32 %128, ptr %16, align 4
+  br label %50, !llvm.loop !8
+
+129:                                              ; preds = %50
+  br label %130
+
+130:                                              ; preds = %129, %116, %106
+  %131 = load ptr, ptr %7, align 8
+  %132 = load i32, ptr %8, align 4
+  %133 = load ptr, ptr %9, align 8
+  %134 = load ptr, ptr %10, align 8
+  %135 = load ptr, ptr %11, align 8
+  %136 = load ptr, ptr %12, align 8
+  %137 = load i32, ptr @hf_rc, align 4
+  %138 = call i32 @dissect_doserror(ptr noundef %131, i32 noundef %132, ptr noundef %133, ptr noundef %134, ptr noundef %135, ptr noundef %136, i32 noundef %137, ptr noundef null)
+  store i32 %138, ptr %8, align 4
+  %139 = load i32, ptr %8, align 4
+  ret i32 %139
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGetPrinterDriverDirectory_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i32, ptr %8, align 4
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = load ptr, ptr %12, align 8
+  %20 = load i32, ptr @hf_servername, align 4
+  %21 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, ptr noundef @.str.387, i32 noundef %20, i32 noundef 0)
+  store i32 %21, ptr %8, align 4
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %11, align 8
+  %27 = load ptr, ptr %12, align 8
+  %28 = load i32, ptr @hf_environment, align 4
+  %29 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, i32 noundef 2, ptr noundef @.str.1217, i32 noundef %28, i32 noundef 0)
+  store i32 %29, ptr %8, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_level, align 4
+  %37 = call i32 @dissect_ndr_uint32(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %7, align 8
+  %39 = load i32, ptr %8, align 4
+  %40 = load ptr, ptr %9, align 8
+  %41 = load ptr, ptr %10, align 8
+  %42 = load ptr, ptr %11, align 8
+  %43 = load ptr, ptr %12, align 8
+  %44 = call i32 @dissect_spoolss_buffer(ptr noundef %38, i32 noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef null)
+  store i32 %44, ptr %8, align 4
+  %45 = load ptr, ptr %7, align 8
+  %46 = load i32, ptr %8, align 4
+  %47 = load ptr, ptr %9, align 8
+  %48 = load ptr, ptr %10, align 8
+  %49 = load ptr, ptr %11, align 8
+  %50 = load ptr, ptr %12, align 8
+  %51 = load i32, ptr @hf_offered, align 4
+  %52 = call i32 @dissect_ndr_uint32(ptr noundef %45, i32 noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, i32 noundef %51, ptr noundef null)
+  store i32 %52, ptr %8, align 4
+  %53 = load i32, ptr %8, align 4
+  ret i32 %53
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGetPrinterDriverDirectory_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = call i32 @dissect_spoolss_string_parm(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @.str.1227)
+  store i32 %19, ptr %8, align 4
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %10, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr @hf_needed, align 4
+  %27 = call i32 @dissect_ndr_uint32(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef null)
+  store i32 %27, ptr %8, align 4
+  %28 = load ptr, ptr %7, align 8
+  %29 = load i32, ptr %8, align 4
+  %30 = load ptr, ptr %9, align 8
+  %31 = load ptr, ptr %10, align 8
+  %32 = load ptr, ptr %11, align 8
+  %33 = load ptr, ptr %12, align 8
+  %34 = load i32, ptr @hf_rc, align 4
+  %35 = call i32 @dissect_doserror(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef null)
+  store i32 %35, ptr %8, align 4
+  %36 = load i32, ptr %8, align 4
+  ret i32 %36
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssStartDocPrinter_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %struct._e_ctx_hnd, align 4
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load i32, ptr %8, align 4
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %10, align 8
+  %19 = load ptr, ptr %11, align 8
+  %20 = load ptr, ptr %12, align 8
+  %21 = load i32, ptr @hf_hnd, align 4
+  %22 = call i32 @dissect_nt_policy_hnd(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, i32 noundef %21, ptr noundef %13, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %22, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = getelementptr inbounds %struct._packet_info, ptr %23, i32 0, i32 3
+  %25 = load i32, ptr %24, align 4
+  %26 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef %13, ptr noundef %14, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %25)
+  %27 = load ptr, ptr %14, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %34
+
+29:                                               ; preds = %6
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds %struct._packet_info, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %14, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %33)
+  br label %34
+
+34:                                               ; preds = %29, %6
+  %35 = load ptr, ptr %7, align 8
+  %36 = load i32, ptr %8, align 4
+  %37 = load ptr, ptr %9, align 8
+  %38 = load ptr, ptr %10, align 8
+  %39 = load ptr, ptr %11, align 8
+  %40 = load ptr, ptr %12, align 8
+  %41 = call i32 @dissect_spoolss_doc_info_ctr(ptr noundef %35, i32 noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40)
+  store i32 %41, ptr %8, align 4
+  %42 = load i32, ptr %8, align 4
+  ret i32 %42
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssStartDocPrinter_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_job_id, align 4
+  %20 = call i32 @dissect_ndr_uint32(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null)
+  store i32 %20, ptr %8, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_rc, align 4
+  %28 = call i32 @dissect_doserror(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef null)
+  store i32 %28, ptr %8, align 4
+  %29 = load i32, ptr %8, align 4
+  ret i32 %29
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssStartPagePrinter_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %struct._e_ctx_hnd, align 4
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load i32, ptr %8, align 4
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %10, align 8
+  %19 = load ptr, ptr %11, align 8
+  %20 = load ptr, ptr %12, align 8
+  %21 = load i32, ptr @hf_hnd, align 4
+  %22 = call i32 @dissect_nt_policy_hnd(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, i32 noundef %21, ptr noundef %13, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %22, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = getelementptr inbounds %struct._packet_info, ptr %23, i32 0, i32 3
+  %25 = load i32, ptr %24, align 4
+  %26 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef %13, ptr noundef %14, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %25)
+  %27 = load ptr, ptr %14, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %34
+
+29:                                               ; preds = %6
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds %struct._packet_info, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %14, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %33)
+  br label %34
+
+34:                                               ; preds = %29, %6
+  %35 = load i32, ptr %8, align 4
+  ret i32 %35
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssStartPagePrinter_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_rc, align 4
+  %20 = call i32 @dissect_doserror(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null)
+  store i32 %20, ptr %8, align 4
+  %21 = load i32, ptr %8, align 4
+  ret i32 %21
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssWritePrinter_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %struct._e_ctx_hnd, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = load i32, ptr %8, align 4
+  %20 = load ptr, ptr %9, align 8
+  %21 = load ptr, ptr %10, align 8
+  %22 = load ptr, ptr %11, align 8
+  %23 = load ptr, ptr %12, align 8
+  %24 = load i32, ptr @hf_hnd, align 4
+  %25 = call i32 @dissect_nt_policy_hnd(ptr noundef %18, i32 noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, i32 noundef %24, ptr noundef %13, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %25, ptr %8, align 4
+  %26 = load ptr, ptr %9, align 8
+  %27 = getelementptr inbounds %struct._packet_info, ptr %26, i32 0, i32 3
+  %28 = load i32, ptr %27, align 4
+  %29 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef %13, ptr noundef %14, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %28)
+  %30 = load ptr, ptr %14, align 8
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %37
+
+32:                                               ; preds = %6
+  %33 = load ptr, ptr %9, align 8
+  %34 = getelementptr inbounds %struct._packet_info, ptr %33, i32 0, i32 1
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %14, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %35, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %36)
+  br label %37
+
+37:                                               ; preds = %32, %6
+  %38 = load ptr, ptr %7, align 8
+  %39 = load i32, ptr %8, align 4
+  %40 = load ptr, ptr %9, align 8
+  %41 = load ptr, ptr %10, align 8
+  %42 = load ptr, ptr %11, align 8
+  %43 = load ptr, ptr %12, align 8
+  %44 = load i32, ptr @hf_buffer_size, align 4
+  %45 = call i32 @dissect_ndr_uint32(ptr noundef %38, i32 noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, i32 noundef %44, ptr noundef %15)
+  store i32 %45, ptr %8, align 4
+  %46 = load ptr, ptr %9, align 8
+  %47 = getelementptr inbounds %struct._packet_info, ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i32, ptr %15, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef @.str.1229, i32 noundef %49)
+  %50 = load ptr, ptr %10, align 8
+  %51 = load ptr, ptr %7, align 8
+  %52 = load i32, ptr %8, align 4
+  %53 = load i32, ptr @ett_writeprinter_buffer, align 4
+  %54 = call ptr @proto_tree_add_subtree(ptr noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef 0, i32 noundef %53, ptr noundef %16, ptr noundef @.str.435)
+  store ptr %54, ptr %17, align 8
+  %55 = load ptr, ptr %7, align 8
+  %56 = load i32, ptr %8, align 4
+  %57 = load ptr, ptr %9, align 8
+  %58 = load ptr, ptr %17, align 8
+  %59 = load ptr, ptr %11, align 8
+  %60 = load ptr, ptr %12, align 8
+  %61 = load i32, ptr @hf_buffer_data, align 4
+  %62 = load i32, ptr %15, align 4
+  %63 = call i32 @dissect_ndr_uint8s(ptr noundef %55, i32 noundef %56, ptr noundef %57, ptr noundef %58, ptr noundef %59, ptr noundef %60, i32 noundef %61, i32 noundef %62, ptr noundef null)
+  store i32 %63, ptr %8, align 4
+  %64 = load ptr, ptr %7, align 8
+  %65 = load i32, ptr %8, align 4
+  %66 = load ptr, ptr %9, align 8
+  %67 = load ptr, ptr %17, align 8
+  %68 = load ptr, ptr %11, align 8
+  %69 = load ptr, ptr %12, align 8
+  %70 = load i32, ptr @hf_buffer_size, align 4
+  %71 = call i32 @dissect_ndr_uint32(ptr noundef %64, i32 noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69, i32 noundef %70, ptr noundef null)
+  store i32 %71, ptr %8, align 4
+  %72 = load ptr, ptr %16, align 8
+  %73 = load i32, ptr %15, align 4
+  %74 = add i32 %73, 4
+  call void @proto_item_set_len(ptr noundef %72, i32 noundef %74)
+  %75 = load i32, ptr %8, align 4
+  ret i32 %75
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssWritePrinter_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i32, ptr %8, align 4
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = load ptr, ptr %12, align 8
+  %20 = load i32, ptr @hf_writeprinter_numwritten, align 4
+  %21 = call i32 @dissect_ndr_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef %13)
+  store i32 %21, ptr %8, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = getelementptr inbounds %struct._packet_info, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = load i32, ptr %13, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef @.str.1230, i32 noundef %25)
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = load ptr, ptr %9, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = load ptr, ptr %11, align 8
+  %31 = load ptr, ptr %12, align 8
+  %32 = load i32, ptr @hf_rc, align 4
+  %33 = call i32 @dissect_doserror(ptr noundef %26, i32 noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, i32 noundef %32, ptr noundef null)
+  store i32 %33, ptr %8, align 4
+  %34 = load i32, ptr %8, align 4
+  ret i32 %34
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssEndPagePrinter_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %struct._e_ctx_hnd, align 4
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load i32, ptr %8, align 4
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %10, align 8
+  %19 = load ptr, ptr %11, align 8
+  %20 = load ptr, ptr %12, align 8
+  %21 = load i32, ptr @hf_hnd, align 4
+  %22 = call i32 @dissect_nt_policy_hnd(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, i32 noundef %21, ptr noundef %13, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %22, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = getelementptr inbounds %struct._packet_info, ptr %23, i32 0, i32 3
+  %25 = load i32, ptr %24, align 4
+  %26 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef %13, ptr noundef %14, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %25)
+  %27 = load ptr, ptr %14, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %34
+
+29:                                               ; preds = %6
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds %struct._packet_info, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %14, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %33)
+  br label %34
+
+34:                                               ; preds = %29, %6
+  %35 = load i32, ptr %8, align 4
+  ret i32 %35
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssEndPagePrinter_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_rc, align 4
+  %20 = call i32 @dissect_doserror(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null)
+  store i32 %20, ptr %8, align 4
+  %21 = load i32, ptr %8, align 4
+  ret i32 %21
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssEndDocPrinter_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %struct._e_ctx_hnd, align 4
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load i32, ptr %8, align 4
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %10, align 8
+  %19 = load ptr, ptr %11, align 8
+  %20 = load ptr, ptr %12, align 8
+  %21 = load i32, ptr @hf_hnd, align 4
+  %22 = call i32 @dissect_nt_policy_hnd(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, i32 noundef %21, ptr noundef %13, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %22, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = getelementptr inbounds %struct._packet_info, ptr %23, i32 0, i32 3
+  %25 = load i32, ptr %24, align 4
+  %26 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef %13, ptr noundef %14, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %25)
+  %27 = load ptr, ptr %14, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %34
+
+29:                                               ; preds = %6
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds %struct._packet_info, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %14, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %33)
+  br label %34
+
+34:                                               ; preds = %29, %6
+  %35 = load i32, ptr %8, align 4
+  ret i32 %35
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssEndDocPrinter_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_rc, align 4
+  %20 = call i32 @dissect_doserror(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null)
+  store i32 %20, ptr %8, align 4
+  %21 = load i32, ptr %8, align 4
+  ret i32 %21
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGetPrinterData_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %16 = load ptr, ptr %11, align 8
+  %17 = getelementptr inbounds %struct._dcerpc_info, ptr %16, i32 0, i32 14
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %13, align 8
+  %19 = load ptr, ptr %10, align 8
+  %20 = load i32, ptr @hf_printerdata, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef 0, i32 noundef 1)
+  store ptr %23, ptr %15, align 8
+  %24 = load ptr, ptr %15, align 8
+  call void @proto_item_set_hidden(ptr noundef %24)
+  %25 = load ptr, ptr %7, align 8
+  %26 = load i32, ptr %8, align 4
+  %27 = load ptr, ptr %9, align 8
+  %28 = load ptr, ptr %10, align 8
+  %29 = load ptr, ptr %11, align 8
+  %30 = load ptr, ptr %12, align 8
+  %31 = load i32, ptr @hf_hnd, align 4
+  %32 = call i32 @dissect_nt_policy_hnd(ptr noundef %25, i32 noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, i32 noundef %31, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %32, ptr %8, align 4
+  store ptr null, ptr %14, align 8
+  %33 = load ptr, ptr %7, align 8
+  %34 = load i32, ptr %8, align 4
+  %35 = load ptr, ptr %9, align 8
+  %36 = load ptr, ptr %10, align 8
+  %37 = load ptr, ptr %11, align 8
+  %38 = load ptr, ptr %12, align 8
+  %39 = load i32, ptr @hf_printerdata_value, align 4
+  %40 = call i32 @dissect_ndr_cvstring(ptr noundef %33, i32 noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, i32 noundef 2, i32 noundef %39, i32 noundef 1, ptr noundef %14)
+  store i32 %40, ptr %8, align 4
+  %41 = load ptr, ptr %9, align 8
+  %42 = getelementptr inbounds %struct._packet_info, ptr %41, i32 0, i32 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds %struct._frame_data, ptr %43, i32 0, i32 9
+  %45 = load i16, ptr %44, align 2
+  %46 = lshr i16 %45, 3
+  %47 = and i16 %46, 1
+  %48 = zext i16 %47 to i32
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %65, label %50
+
+50:                                               ; preds = %6
+  %51 = load ptr, ptr %13, align 8
+  %52 = getelementptr inbounds %struct._dcerpc_call_value, ptr %51, i32 0, i32 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %64, label %55
+
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %14, align 8
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %58, label %64
+
+58:                                               ; preds = %55
+  %59 = call ptr @wmem_file_scope()
+  %60 = load ptr, ptr %14, align 8
+  %61 = call noalias ptr @wmem_strdup(ptr noundef %59, ptr noundef %60)
+  %62 = load ptr, ptr %13, align 8
+  %63 = getelementptr inbounds %struct._dcerpc_call_value, ptr %62, i32 0, i32 8
+  store ptr %61, ptr %63, align 8
+  br label %64
+
+64:                                               ; preds = %58, %55, %50
+  br label %65
+
+65:                                               ; preds = %64, %6
+  %66 = load ptr, ptr %9, align 8
+  %67 = getelementptr inbounds %struct._packet_info, ptr %66, i32 0, i32 1
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %14, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %68, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %69)
+  %70 = load ptr, ptr %7, align 8
+  %71 = load i32, ptr %8, align 4
+  %72 = load ptr, ptr %9, align 8
+  %73 = load ptr, ptr %10, align 8
+  %74 = load ptr, ptr %11, align 8
+  %75 = load ptr, ptr %12, align 8
+  %76 = load i32, ptr @hf_offered, align 4
+  %77 = call i32 @dissect_ndr_uint32(ptr noundef %70, i32 noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef %74, ptr noundef %75, i32 noundef %76, ptr noundef null)
+  store i32 %77, ptr %8, align 4
+  %78 = load i32, ptr %8, align 4
+  ret i32 %78
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGetPrinterData_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 14
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %13, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = load i32, ptr @hf_printerdata, align 4
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef 0, i32 noundef 1)
+  store ptr %24, ptr %15, align 8
+  %25 = load ptr, ptr %15, align 8
+  call void @proto_item_set_hidden(ptr noundef %25)
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = load ptr, ptr %9, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = load ptr, ptr %11, align 8
+  %31 = load ptr, ptr %12, align 8
+  %32 = load i32, ptr @hf_printerdata_type, align 4
+  %33 = call i32 @dissect_ndr_uint32(ptr noundef %26, i32 noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, i32 noundef %32, ptr noundef %14)
+  store i32 %33, ptr %8, align 4
+  %34 = load ptr, ptr %13, align 8
+  %35 = getelementptr inbounds %struct._dcerpc_call_value, ptr %34, i32 0, i32 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %42
+
+38:                                               ; preds = %6
+  %39 = load ptr, ptr %13, align 8
+  %40 = getelementptr inbounds %struct._dcerpc_call_value, ptr %39, i32 0, i32 8
+  %41 = load ptr, ptr %40, align 8
+  br label %43
+
+42:                                               ; preds = %6
+  br label %43
+
+43:                                               ; preds = %42, %38
+  %44 = phi ptr [ %41, %38 ], [ @.str.1231, %42 ]
+  store ptr %44, ptr %16, align 8
+  %45 = load ptr, ptr %9, align 8
+  %46 = getelementptr inbounds %struct._packet_info, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %16, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %47, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %48)
+  %49 = load ptr, ptr %7, align 8
+  %50 = load i32, ptr %8, align 4
+  %51 = load ptr, ptr %9, align 8
+  %52 = load ptr, ptr %10, align 8
+  %53 = load ptr, ptr %11, align 8
+  %54 = load ptr, ptr %12, align 8
+  %55 = load i32, ptr %14, align 4
+  %56 = call i32 @dissect_printerdata_data(ptr noundef %49, i32 noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef %54, i32 noundef %55)
+  store i32 %56, ptr %8, align 4
+  %57 = load ptr, ptr %7, align 8
+  %58 = load i32, ptr %8, align 4
+  %59 = load ptr, ptr %9, align 8
+  %60 = load ptr, ptr %10, align 8
+  %61 = load ptr, ptr %11, align 8
+  %62 = load ptr, ptr %12, align 8
+  %63 = load i32, ptr @hf_needed, align 4
+  %64 = call i32 @dissect_ndr_uint32(ptr noundef %57, i32 noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %62, i32 noundef %63, ptr noundef null)
+  store i32 %64, ptr %8, align 4
+  %65 = load ptr, ptr %7, align 8
+  %66 = load i32, ptr %8, align 4
+  %67 = load ptr, ptr %9, align 8
+  %68 = load ptr, ptr %10, align 8
+  %69 = load ptr, ptr %11, align 8
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr @hf_rc, align 4
+  %72 = call i32 @dissect_doserror(ptr noundef %65, i32 noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef %70, i32 noundef %71, ptr noundef null)
+  store i32 %72, ptr %8, align 4
+  %73 = load i32, ptr %8, align 4
+  ret i32 %73
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssSetPrinterData_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 14
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %13, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = load i32, ptr @hf_printerdata, align 4
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef 0, i32 noundef 1)
+  store ptr %24, ptr %16, align 8
+  %25 = load ptr, ptr %16, align 8
+  call void @proto_item_set_hidden(ptr noundef %25)
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = load ptr, ptr %9, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = load ptr, ptr %11, align 8
+  %31 = load ptr, ptr %12, align 8
+  %32 = load i32, ptr @hf_hnd, align 4
+  %33 = call i32 @dissect_nt_policy_hnd(ptr noundef %26, i32 noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, i32 noundef %32, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %33, ptr %8, align 4
+  store ptr null, ptr %14, align 8
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %8, align 4
+  %36 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = load ptr, ptr %11, align 8
+  %39 = load ptr, ptr %12, align 8
+  %40 = load i32, ptr @hf_printerdata_value, align 4
+  %41 = call i32 @dissect_ndr_cvstring(ptr noundef %34, i32 noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, i32 noundef 2, i32 noundef %40, i32 noundef 1, ptr noundef %14)
+  store i32 %41, ptr %8, align 4
+  %42 = load ptr, ptr %9, align 8
+  %43 = getelementptr inbounds %struct._packet_info, ptr %42, i32 0, i32 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds %struct._frame_data, ptr %44, i32 0, i32 9
+  %46 = load i16, ptr %45, align 2
+  %47 = lshr i16 %46, 3
+  %48 = and i16 %47, 1
+  %49 = zext i16 %48 to i32
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %69, label %51
+
+51:                                               ; preds = %6
+  %52 = load ptr, ptr %13, align 8
+  %53 = getelementptr inbounds %struct._dcerpc_call_value, ptr %52, i32 0, i32 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %68, label %56
+
+56:                                               ; preds = %51
+  %57 = call ptr @wmem_file_scope()
+  %58 = load ptr, ptr %14, align 8
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %60, label %62
+
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %14, align 8
+  br label %63
+
+62:                                               ; preds = %56
+  br label %63
+
+63:                                               ; preds = %62, %60
+  %64 = phi ptr [ %61, %60 ], [ @.str.755, %62 ]
+  %65 = call noalias ptr @wmem_strdup(ptr noundef %57, ptr noundef %64)
+  %66 = load ptr, ptr %13, align 8
+  %67 = getelementptr inbounds %struct._dcerpc_call_value, ptr %66, i32 0, i32 8
+  store ptr %65, ptr %67, align 8
+  br label %68
+
+68:                                               ; preds = %63, %51
+  br label %69
+
+69:                                               ; preds = %68, %6
+  %70 = load ptr, ptr %13, align 8
+  %71 = getelementptr inbounds %struct._dcerpc_call_value, ptr %70, i32 0, i32 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = icmp ne ptr %72, null
+  br i1 %73, label %74, label %81
+
+74:                                               ; preds = %69
+  %75 = load ptr, ptr %9, align 8
+  %76 = getelementptr inbounds %struct._packet_info, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr %13, align 8
+  %79 = getelementptr inbounds %struct._dcerpc_call_value, ptr %78, i32 0, i32 8
+  %80 = load ptr, ptr %79, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %77, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %80)
+  br label %81
+
+81:                                               ; preds = %74, %69
+  %82 = load ptr, ptr %7, align 8
+  %83 = load i32, ptr %8, align 4
+  %84 = load ptr, ptr %9, align 8
+  %85 = load ptr, ptr %10, align 8
+  %86 = load ptr, ptr %11, align 8
+  %87 = load ptr, ptr %12, align 8
+  %88 = load i32, ptr @hf_printerdata_type, align 4
+  %89 = call i32 @dissect_ndr_uint32(ptr noundef %82, i32 noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef %87, i32 noundef %88, ptr noundef %15)
+  store i32 %89, ptr %8, align 4
+  %90 = load ptr, ptr %7, align 8
+  %91 = load i32, ptr %8, align 4
+  %92 = load ptr, ptr %9, align 8
+  %93 = load ptr, ptr %10, align 8
+  %94 = load ptr, ptr %11, align 8
+  %95 = load ptr, ptr %12, align 8
+  %96 = load i32, ptr %15, align 4
+  %97 = call i32 @dissect_printerdata_data(ptr noundef %90, i32 noundef %91, ptr noundef %92, ptr noundef %93, ptr noundef %94, ptr noundef %95, i32 noundef %96)
+  store i32 %97, ptr %8, align 4
+  %98 = load ptr, ptr %7, align 8
+  %99 = load i32, ptr %8, align 4
+  %100 = load ptr, ptr %9, align 8
+  %101 = load ptr, ptr %10, align 8
+  %102 = load ptr, ptr %11, align 8
+  %103 = load ptr, ptr %12, align 8
+  %104 = load i32, ptr @hf_offered, align 4
+  %105 = call i32 @dissect_ndr_uint32(ptr noundef %98, i32 noundef %99, ptr noundef %100, ptr noundef %101, ptr noundef %102, ptr noundef %103, i32 noundef %104, ptr noundef null)
+  store i32 %105, ptr %8, align 4
+  %106 = load i32, ptr %8, align 4
+  ret i32 %106
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssSetPrinterData_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %10, align 8
+  %15 = load i32, ptr @hf_printerdata, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = load i32, ptr %8, align 4
+  %18 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef 0, i32 noundef 1)
+  store ptr %18, ptr %13, align 8
+  %19 = load ptr, ptr %13, align 8
+  call void @proto_item_set_hidden(ptr noundef %19)
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %10, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr @hf_rc, align 4
+  %27 = call i32 @dissect_doserror(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef null)
+  store i32 %27, ptr %8, align 4
+  %28 = load i32, ptr %8, align 4
+  ret i32 %28
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssClosePrinter_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %struct._e_ctx_hnd, align 4
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load i32, ptr %8, align 4
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %10, align 8
+  %19 = load ptr, ptr %11, align 8
+  %20 = load ptr, ptr %12, align 8
+  %21 = load i32, ptr @hf_hnd, align 4
+  %22 = call i32 @dissect_nt_policy_hnd(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, i32 noundef %21, ptr noundef %13, ptr noundef null, i32 noundef 0, i32 noundef 1)
+  store i32 %22, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = getelementptr inbounds %struct._packet_info, ptr %23, i32 0, i32 3
+  %25 = load i32, ptr %24, align 4
+  %26 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef %13, ptr noundef %14, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %25)
+  %27 = load ptr, ptr %14, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %34
+
+29:                                               ; preds = %6
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds %struct._packet_info, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %14, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %33)
+  br label %34
+
+34:                                               ; preds = %29, %6
+  %35 = load i32, ptr %8, align 4
+  ret i32 %35
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssClosePrinter_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_hnd, align 4
+  %20 = call i32 @dissect_nt_policy_hnd(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %20, ptr %8, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_rc, align 4
+  %28 = call i32 @dissect_doserror(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef null)
+  store i32 %28, ptr %8, align 4
+  %29 = load i32, ptr %8, align 4
+  ret i32 %29
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssAddForm_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %16 = load ptr, ptr %11, align 8
+  %17 = getelementptr inbounds %struct._dcerpc_info, ptr %16, i32 0, i32 14
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %13, align 8
+  %19 = load ptr, ptr %10, align 8
+  %20 = load i32, ptr @hf_form, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef 0, i32 noundef 1)
+  store ptr %23, ptr %15, align 8
+  %24 = load ptr, ptr %15, align 8
+  call void @proto_item_set_hidden(ptr noundef %24)
+  %25 = load ptr, ptr %7, align 8
+  %26 = load i32, ptr %8, align 4
+  %27 = load ptr, ptr %9, align 8
+  %28 = load ptr, ptr %10, align 8
+  %29 = load ptr, ptr %11, align 8
+  %30 = load ptr, ptr %12, align 8
+  %31 = load i32, ptr @hf_hnd, align 4
+  %32 = call i32 @dissect_nt_policy_hnd(ptr noundef %25, i32 noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, i32 noundef %31, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %32, ptr %8, align 4
+  %33 = load ptr, ptr %7, align 8
+  %34 = load i32, ptr %8, align 4
+  %35 = load ptr, ptr %9, align 8
+  %36 = load ptr, ptr %10, align 8
+  %37 = load ptr, ptr %11, align 8
+  %38 = load ptr, ptr %12, align 8
+  %39 = load i32, ptr @hf_form_level, align 4
+  %40 = call i32 @dissect_ndr_uint32(ptr noundef %33, i32 noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, i32 noundef %39, ptr noundef %14)
+  store i32 %40, ptr %8, align 4
+  %41 = load ptr, ptr %9, align 8
+  %42 = getelementptr inbounds %struct._packet_info, ptr %41, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8
+  %44 = load i32, ptr %14, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %43, i32 noundef 25, ptr noundef @.str.1206, i32 noundef %44)
+  %45 = load ptr, ptr %9, align 8
+  %46 = getelementptr inbounds %struct._packet_info, ptr %45, i32 0, i32 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds %struct._frame_data, ptr %47, i32 0, i32 9
+  %49 = load i16, ptr %48, align 2
+  %50 = lshr i16 %49, 3
+  %51 = and i16 %50, 1
+  %52 = zext i16 %51 to i32
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %60, label %54
+
+54:                                               ; preds = %6
+  %55 = load i32, ptr %14, align 4
+  %56 = sext i32 %55 to i64
+  %57 = inttoptr i64 %56 to ptr
+  %58 = load ptr, ptr %13, align 8
+  %59 = getelementptr inbounds %struct._dcerpc_call_value, ptr %58, i32 0, i32 8
+  store ptr %57, ptr %59, align 8
+  br label %60
+
+60:                                               ; preds = %54, %6
+  %61 = load ptr, ptr %7, align 8
+  %62 = load i32, ptr %8, align 4
+  %63 = load ptr, ptr %9, align 8
+  %64 = load ptr, ptr %10, align 8
+  %65 = load ptr, ptr %11, align 8
+  %66 = load ptr, ptr %12, align 8
+  %67 = call i32 @dissect_FORM_CTR(ptr noundef %61, i32 noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %66)
+  store i32 %67, ptr %8, align 4
+  %68 = load i32, ptr %8, align 4
+  ret i32 %68
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssAddForm_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %10, align 8
+  %15 = load i32, ptr @hf_form, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = load i32, ptr %8, align 4
+  %18 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef 0, i32 noundef 1)
+  store ptr %18, ptr %13, align 8
+  %19 = load ptr, ptr %13, align 8
+  call void @proto_item_set_hidden(ptr noundef %19)
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %10, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr @hf_rc, align 4
+  %27 = call i32 @dissect_doserror(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef null)
+  store i32 %27, ptr %8, align 4
+  %28 = load i32, ptr %8, align 4
+  ret i32 %28
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssDeleteForm_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  store ptr null, ptr %14, align 8
+  %15 = load ptr, ptr %10, align 8
+  %16 = load i32, ptr @hf_form, align 4
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %8, align 4
+  %19 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 0, i32 noundef 1)
+  store ptr %19, ptr %13, align 8
+  %20 = load ptr, ptr %13, align 8
+  call void @proto_item_set_hidden(ptr noundef %20)
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_hnd, align 4
+  %28 = call i32 @dissect_nt_policy_hnd(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load i32, ptr @hf_form_name, align 4
+  %36 = call i32 @dissect_ndr_cvstring(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef 2, i32 noundef %35, i32 noundef 1, ptr noundef %14)
+  store i32 %36, ptr %8, align 4
+  %37 = load ptr, ptr %14, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %44
+
+39:                                               ; preds = %6
+  %40 = load ptr, ptr %9, align 8
+  %41 = getelementptr inbounds %struct._packet_info, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr %14, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %43)
+  br label %44
+
+44:                                               ; preds = %39, %6
+  %45 = load i32, ptr %8, align 4
+  ret i32 %45
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssDeleteForm_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %10, align 8
+  %15 = load i32, ptr @hf_form, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = load i32, ptr %8, align 4
+  %18 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef 0, i32 noundef 1)
+  store ptr %18, ptr %13, align 8
+  %19 = load ptr, ptr %13, align 8
+  call void @proto_item_set_hidden(ptr noundef %19)
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %10, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr @hf_rc, align 4
+  %27 = call i32 @dissect_doserror(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef null)
+  store i32 %27, ptr %8, align 4
+  %28 = load i32, ptr %8, align 4
+  ret i32 %28
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGetForm_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 14
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %13, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = load i32, ptr @hf_form, align 4
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef 0, i32 noundef 1)
+  store ptr %24, ptr %14, align 8
+  %25 = load ptr, ptr %14, align 8
+  call void @proto_item_set_hidden(ptr noundef %25)
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = load ptr, ptr %9, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = load ptr, ptr %11, align 8
+  %31 = load ptr, ptr %12, align 8
+  %32 = load i32, ptr @hf_hnd, align 4
+  %33 = call i32 @dissect_nt_policy_hnd(ptr noundef %26, i32 noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, i32 noundef %32, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %33, ptr %8, align 4
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %8, align 4
+  %36 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = load ptr, ptr %11, align 8
+  %39 = load ptr, ptr %12, align 8
+  %40 = load i32, ptr @hf_form_name, align 4
+  %41 = call i32 @dissect_ndr_cvstring(ptr noundef %34, i32 noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, i32 noundef 2, i32 noundef %40, i32 noundef 1, ptr noundef %16)
+  store i32 %41, ptr %8, align 4
+  %42 = load ptr, ptr %9, align 8
+  %43 = getelementptr inbounds %struct._packet_info, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8
+  %45 = load ptr, ptr %16, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %44, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %45)
+  %46 = load ptr, ptr %7, align 8
+  %47 = load i32, ptr %8, align 4
+  %48 = load ptr, ptr %9, align 8
+  %49 = load ptr, ptr %10, align 8
+  %50 = load ptr, ptr %11, align 8
+  %51 = load ptr, ptr %12, align 8
+  %52 = load i32, ptr @hf_form_level, align 4
+  %53 = call i32 @dissect_ndr_uint32(ptr noundef %46, i32 noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, i32 noundef %52, ptr noundef %15)
+  store i32 %53, ptr %8, align 4
+  %54 = load ptr, ptr %9, align 8
+  %55 = getelementptr inbounds %struct._packet_info, ptr %54, i32 0, i32 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds %struct._frame_data, ptr %56, i32 0, i32 9
+  %58 = load i16, ptr %57, align 2
+  %59 = lshr i16 %58, 3
+  %60 = and i16 %59, 1
+  %61 = zext i16 %60 to i32
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %69, label %63
+
+63:                                               ; preds = %6
+  %64 = load i32, ptr %15, align 4
+  %65 = sext i32 %64 to i64
+  %66 = inttoptr i64 %65 to ptr
+  %67 = load ptr, ptr %13, align 8
+  %68 = getelementptr inbounds %struct._dcerpc_call_value, ptr %67, i32 0, i32 8
+  store ptr %66, ptr %68, align 8
+  br label %69
+
+69:                                               ; preds = %63, %6
+  %70 = load ptr, ptr %9, align 8
+  %71 = getelementptr inbounds %struct._packet_info, ptr %70, i32 0, i32 1
+  %72 = load ptr, ptr %71, align 8
+  %73 = load i32, ptr %15, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %72, i32 noundef 25, ptr noundef @.str.1206, i32 noundef %73)
+  %74 = load ptr, ptr %7, align 8
+  %75 = load i32, ptr %8, align 4
+  %76 = load ptr, ptr %9, align 8
+  %77 = load ptr, ptr %10, align 8
+  %78 = load ptr, ptr %11, align 8
+  %79 = load ptr, ptr %12, align 8
+  %80 = call i32 @dissect_spoolss_buffer(ptr noundef %74, i32 noundef %75, ptr noundef %76, ptr noundef %77, ptr noundef %78, ptr noundef %79, ptr noundef null)
+  store i32 %80, ptr %8, align 4
+  %81 = load ptr, ptr %7, align 8
+  %82 = load i32, ptr %8, align 4
+  %83 = load ptr, ptr %9, align 8
+  %84 = load ptr, ptr %10, align 8
+  %85 = load ptr, ptr %11, align 8
+  %86 = load ptr, ptr %12, align 8
+  %87 = load i32, ptr @hf_offered, align 4
+  %88 = call i32 @dissect_ndr_uint32(ptr noundef %81, i32 noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef %86, i32 noundef %87, ptr noundef null)
+  store i32 %88, ptr %8, align 4
+  %89 = load i32, ptr %8, align 4
+  ret i32 %89
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGetForm_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca %struct.BUFFER, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %19 = load ptr, ptr %11, align 8
+  %20 = getelementptr inbounds %struct._dcerpc_info, ptr %19, i32 0, i32 14
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %13, align 8
+  %22 = load ptr, ptr %13, align 8
+  %23 = getelementptr inbounds %struct._dcerpc_call_value, ptr %22, i32 0, i32 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = ptrtoint ptr %24 to i64
+  %26 = trunc i64 %25 to i32
+  store i32 %26, ptr %15, align 4
+  %27 = load ptr, ptr %10, align 8
+  %28 = load i32, ptr @hf_form, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = call ptr @proto_tree_add_uint(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef 0, i32 noundef 1)
+  store ptr %31, ptr %16, align 8
+  %32 = load ptr, ptr %16, align 8
+  call void @proto_item_set_hidden(ptr noundef %32)
+  %33 = load ptr, ptr %7, align 8
+  %34 = load i32, ptr %8, align 4
+  %35 = load ptr, ptr %9, align 8
+  %36 = load ptr, ptr %10, align 8
+  %37 = load ptr, ptr %11, align 8
+  %38 = load ptr, ptr %12, align 8
+  %39 = call i32 @dissect_spoolss_buffer(ptr noundef %33, i32 noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %14)
+  store i32 %39, ptr %8, align 4
+  %40 = load ptr, ptr %7, align 8
+  %41 = load i32, ptr %8, align 4
+  %42 = load ptr, ptr %9, align 8
+  %43 = load ptr, ptr %10, align 8
+  %44 = load ptr, ptr %11, align 8
+  %45 = load ptr, ptr %12, align 8
+  %46 = load i32, ptr @hf_needed, align 4
+  %47 = call i32 @dissect_ndr_uint32(ptr noundef %40, i32 noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, i32 noundef %46, ptr noundef null)
+  store i32 %47, ptr %8, align 4
+  %48 = load ptr, ptr %9, align 8
+  %49 = getelementptr inbounds %struct._packet_info, ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8
+  %51 = load i32, ptr %15, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %50, i32 noundef 25, ptr noundef @.str.1206, i32 noundef %51)
+  %52 = getelementptr inbounds %struct.BUFFER, ptr %14, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %78
+
+55:                                               ; preds = %6
+  store i32 0, ptr %17, align 4
+  %56 = load i32, ptr %15, align 4
+  switch i32 %56, label %68 [
+    i32 1, label %57
+  ]
+
+57:                                               ; preds = %55
+  %58 = load i32, ptr %17, align 4
+  store i32 %58, ptr %18, align 4
+  %59 = getelementptr inbounds %struct.BUFFER, ptr %14, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  %61 = load i32, ptr %17, align 4
+  %62 = load ptr, ptr %9, align 8
+  %63 = load ptr, ptr %10, align 8
+  %64 = load ptr, ptr %11, align 8
+  %65 = load ptr, ptr %12, align 8
+  %66 = load i32, ptr %18, align 4
+  %67 = call i32 @dissect_FORM_REL(ptr noundef %60, i32 noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65, i32 noundef %66)
+  br label %77
+
+68:                                               ; preds = %55
+  %69 = getelementptr inbounds %struct.BUFFER, ptr %14, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8
+  %71 = load ptr, ptr %9, align 8
+  %72 = getelementptr inbounds %struct.BUFFER, ptr %14, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8
+  %74 = load i32, ptr %17, align 4
+  %75 = load i32, ptr %15, align 4
+  %76 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %70, ptr noundef %71, ptr noundef @ei_form_level, ptr noundef %73, i32 noundef %74, i32 noundef -1, ptr noundef @.str.10, i32 noundef %75)
+  br label %77
+
+77:                                               ; preds = %68, %57
+  br label %78
+
+78:                                               ; preds = %77, %6
+  %79 = load ptr, ptr %7, align 8
+  %80 = load i32, ptr %8, align 4
+  %81 = load ptr, ptr %9, align 8
+  %82 = load ptr, ptr %10, align 8
+  %83 = load ptr, ptr %11, align 8
+  %84 = load ptr, ptr %12, align 8
+  %85 = load i32, ptr @hf_rc, align 4
+  %86 = call i32 @dissect_doserror(ptr noundef %79, i32 noundef %80, ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84, i32 noundef %85, ptr noundef null)
+  store i32 %86, ptr %8, align 4
+  %87 = load i32, ptr %8, align 4
+  ret i32 %87
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssSetForm_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  store ptr null, ptr %13, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load i32, ptr @hf_form, align 4
+  %18 = load ptr, ptr %7, align 8
+  %19 = load i32, ptr %8, align 4
+  %20 = call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 0, i32 noundef 1)
+  store ptr %20, ptr %15, align 8
+  %21 = load ptr, ptr %15, align 8
+  call void @proto_item_set_hidden(ptr noundef %21)
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %11, align 8
+  %27 = load ptr, ptr %12, align 8
+  %28 = load i32, ptr @hf_hnd, align 4
+  %29 = call i32 @dissect_nt_policy_hnd(ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, i32 noundef %28, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %29, ptr %8, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_form_name, align 4
+  %37 = call i32 @dissect_ndr_cvstring(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef 2, i32 noundef %36, i32 noundef 1, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %13, align 8
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %45
+
+40:                                               ; preds = %6
+  %41 = load ptr, ptr %9, align 8
+  %42 = getelementptr inbounds %struct._packet_info, ptr %41, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %13, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %43, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %44)
+  br label %45
+
+45:                                               ; preds = %40, %6
+  %46 = load ptr, ptr %7, align 8
+  %47 = load i32, ptr %8, align 4
+  %48 = load ptr, ptr %9, align 8
+  %49 = load ptr, ptr %10, align 8
+  %50 = load ptr, ptr %11, align 8
+  %51 = load ptr, ptr %12, align 8
+  %52 = load i32, ptr @hf_form_level, align 4
+  %53 = call i32 @dissect_ndr_uint32(ptr noundef %46, i32 noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, i32 noundef %52, ptr noundef %14)
+  store i32 %53, ptr %8, align 4
+  %54 = load ptr, ptr %9, align 8
+  %55 = getelementptr inbounds %struct._packet_info, ptr %54, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8
+  %57 = load i32, ptr %14, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %56, i32 noundef 25, ptr noundef @.str.1206, i32 noundef %57)
+  %58 = load ptr, ptr %7, align 8
+  %59 = load i32, ptr %8, align 4
+  %60 = load ptr, ptr %9, align 8
+  %61 = load ptr, ptr %10, align 8
+  %62 = load ptr, ptr %11, align 8
+  %63 = load ptr, ptr %12, align 8
+  %64 = call i32 @dissect_FORM_CTR(ptr noundef %58, i32 noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %62, ptr noundef %63)
+  store i32 %64, ptr %8, align 4
+  %65 = load i32, ptr %8, align 4
+  ret i32 %65
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssSetForm_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %10, align 8
+  %15 = load i32, ptr @hf_form, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = load i32, ptr %8, align 4
+  %18 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef 0, i32 noundef 1)
+  store ptr %18, ptr %13, align 8
+  %19 = load ptr, ptr %13, align 8
+  call void @proto_item_set_hidden(ptr noundef %19)
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %10, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr @hf_rc, align 4
+  %27 = call i32 @dissect_doserror(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef null)
+  store i32 %27, ptr %8, align 4
+  %28 = load i32, ptr %8, align 4
+  ret i32 %28
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssEnumForms_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %16 = load ptr, ptr %11, align 8
+  %17 = getelementptr inbounds %struct._dcerpc_info, ptr %16, i32 0, i32 14
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %13, align 8
+  %19 = load ptr, ptr %10, align 8
+  %20 = load i32, ptr @hf_form, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef 0, i32 noundef 1)
+  store ptr %23, ptr %15, align 8
+  %24 = load ptr, ptr %15, align 8
+  call void @proto_item_set_hidden(ptr noundef %24)
+  %25 = load ptr, ptr %7, align 8
+  %26 = load i32, ptr %8, align 4
+  %27 = load ptr, ptr %9, align 8
+  %28 = load ptr, ptr %10, align 8
+  %29 = load ptr, ptr %11, align 8
+  %30 = load ptr, ptr %12, align 8
+  %31 = load i32, ptr @hf_hnd, align 4
+  %32 = call i32 @dissect_nt_policy_hnd(ptr noundef %25, i32 noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, i32 noundef %31, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %32, ptr %8, align 4
+  %33 = load ptr, ptr %7, align 8
+  %34 = load i32, ptr %8, align 4
+  %35 = load ptr, ptr %9, align 8
+  %36 = load ptr, ptr %10, align 8
+  %37 = load ptr, ptr %11, align 8
+  %38 = load ptr, ptr %12, align 8
+  %39 = load i32, ptr @hf_level, align 4
+  %40 = call i32 @dissect_ndr_uint32(ptr noundef %33, i32 noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, i32 noundef %39, ptr noundef %14)
+  store i32 %40, ptr %8, align 4
+  %41 = load ptr, ptr %9, align 8
+  %42 = getelementptr inbounds %struct._packet_info, ptr %41, i32 0, i32 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds %struct._frame_data, ptr %43, i32 0, i32 9
+  %45 = load i16, ptr %44, align 2
+  %46 = lshr i16 %45, 3
+  %47 = and i16 %46, 1
+  %48 = zext i16 %47 to i32
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %56, label %50
+
+50:                                               ; preds = %6
+  %51 = load i32, ptr %14, align 4
+  %52 = sext i32 %51 to i64
+  %53 = inttoptr i64 %52 to ptr
+  %54 = load ptr, ptr %13, align 8
+  %55 = getelementptr inbounds %struct._dcerpc_call_value, ptr %54, i32 0, i32 8
+  store ptr %53, ptr %55, align 8
+  br label %56
+
+56:                                               ; preds = %50, %6
+  %57 = load ptr, ptr %9, align 8
+  %58 = getelementptr inbounds %struct._packet_info, ptr %57, i32 0, i32 1
+  %59 = load ptr, ptr %58, align 8
+  %60 = load i32, ptr %14, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %59, i32 noundef 25, ptr noundef @.str.1206, i32 noundef %60)
+  %61 = load ptr, ptr %7, align 8
+  %62 = load i32, ptr %8, align 4
+  %63 = load ptr, ptr %9, align 8
+  %64 = load ptr, ptr %10, align 8
+  %65 = load ptr, ptr %11, align 8
+  %66 = load ptr, ptr %12, align 8
+  %67 = call i32 @dissect_spoolss_buffer(ptr noundef %61, i32 noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef null)
+  store i32 %67, ptr %8, align 4
+  %68 = load ptr, ptr %7, align 8
+  %69 = load i32, ptr %8, align 4
+  %70 = load ptr, ptr %9, align 8
+  %71 = load ptr, ptr %10, align 8
+  %72 = load ptr, ptr %11, align 8
+  %73 = load ptr, ptr %12, align 8
+  %74 = load i32, ptr @hf_offered, align 4
+  %75 = call i32 @dissect_ndr_uint32(ptr noundef %68, i32 noundef %69, ptr noundef %70, ptr noundef %71, ptr noundef %72, ptr noundef %73, i32 noundef %74, ptr noundef null)
+  store i32 %75, ptr %8, align 4
+  %76 = load i32, ptr %8, align 4
+  ret i32 %76
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssEnumForms_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca %struct.BUFFER, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca ptr, align 8
+  %20 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %21 = load ptr, ptr %11, align 8
+  %22 = getelementptr inbounds %struct._dcerpc_info, ptr %21, i32 0, i32 14
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %13, align 8
+  %24 = load ptr, ptr %13, align 8
+  %25 = getelementptr inbounds %struct._dcerpc_call_value, ptr %24, i32 0, i32 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = ptrtoint ptr %26 to i64
+  %28 = trunc i64 %27 to i32
+  store i32 %28, ptr %15, align 4
+  %29 = load ptr, ptr %10, align 8
+  %30 = load i32, ptr @hf_form, align 4
+  %31 = load ptr, ptr %7, align 8
+  %32 = load i32, ptr %8, align 4
+  %33 = call ptr @proto_tree_add_uint(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef 0, i32 noundef 1)
+  store ptr %33, ptr %19, align 8
+  %34 = load ptr, ptr %19, align 8
+  call void @proto_item_set_hidden(ptr noundef %34)
+  %35 = load ptr, ptr %7, align 8
+  %36 = load i32, ptr %8, align 4
+  %37 = load ptr, ptr %9, align 8
+  %38 = load ptr, ptr %10, align 8
+  %39 = load ptr, ptr %11, align 8
+  %40 = load ptr, ptr %12, align 8
+  %41 = call i32 @dissect_spoolss_buffer(ptr noundef %35, i32 noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %14)
+  store i32 %41, ptr %8, align 4
+  %42 = load ptr, ptr %7, align 8
+  %43 = load i32, ptr %8, align 4
+  %44 = load ptr, ptr %9, align 8
+  %45 = load ptr, ptr %10, align 8
+  %46 = load ptr, ptr %11, align 8
+  %47 = load ptr, ptr %12, align 8
+  %48 = load i32, ptr @hf_needed, align 4
+  %49 = call i32 @dissect_ndr_uint32(ptr noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48, ptr noundef null)
+  store i32 %49, ptr %8, align 4
+  %50 = load ptr, ptr %9, align 8
+  %51 = getelementptr inbounds %struct._packet_info, ptr %50, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8
+  %53 = load i32, ptr %15, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %52, i32 noundef 25, ptr noundef @.str.1206, i32 noundef %53)
+  %54 = load ptr, ptr %7, align 8
+  %55 = load i32, ptr %8, align 4
+  %56 = load ptr, ptr %9, align 8
+  %57 = load ptr, ptr %10, align 8
+  %58 = load ptr, ptr %11, align 8
+  %59 = load ptr, ptr %12, align 8
+  %60 = load i32, ptr @hf_enumforms_num, align 4
+  %61 = call i32 @dissect_ndr_uint32(ptr noundef %54, i32 noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef %58, ptr noundef %59, i32 noundef %60, ptr noundef %17)
+  store i32 %61, ptr %8, align 4
+  store i32 0, ptr %18, align 4
+  store i32 0, ptr %16, align 4
+  br label %62
+
+62:                                               ; preds = %78, %6
+  %63 = load i32, ptr %16, align 4
+  %64 = load i32, ptr %17, align 4
+  %65 = icmp ult i32 %63, %64
+  br i1 %65, label %66, label %81
+
+66:                                               ; preds = %62
+  %67 = load i32, ptr %18, align 4
+  store i32 %67, ptr %20, align 4
+  %68 = getelementptr inbounds %struct.BUFFER, ptr %14, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8
+  %70 = load i32, ptr %18, align 4
+  %71 = load ptr, ptr %9, align 8
+  %72 = getelementptr inbounds %struct.BUFFER, ptr %14, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8
+  %74 = load ptr, ptr %11, align 8
+  %75 = load ptr, ptr %12, align 8
+  %76 = load i32, ptr %20, align 4
+  %77 = call i32 @dissect_FORM_REL(ptr noundef %69, i32 noundef %70, ptr noundef %71, ptr noundef %73, ptr noundef %74, ptr noundef %75, i32 noundef %76)
+  store i32 %77, ptr %18, align 4
+  br label %78
+
+78:                                               ; preds = %66
+  %79 = load i32, ptr %16, align 4
+  %80 = add i32 %79, 1
+  store i32 %80, ptr %16, align 4
+  br label %62, !llvm.loop !9
+
+81:                                               ; preds = %62
+  %82 = load ptr, ptr %7, align 8
+  %83 = load i32, ptr %8, align 4
+  %84 = load ptr, ptr %9, align 8
+  %85 = load ptr, ptr %10, align 8
+  %86 = load ptr, ptr %11, align 8
+  %87 = load ptr, ptr %12, align 8
+  %88 = load i32, ptr @hf_rc, align 4
+  %89 = call i32 @dissect_doserror(ptr noundef %82, i32 noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef %87, i32 noundef %88, ptr noundef null)
+  store i32 %89, ptr %8, align 4
+  %90 = load i32, ptr %8, align 4
+  ret i32 %90
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGetPrinterDriver2_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca %struct._e_ctx_hnd, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 14
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %13, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %10, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr @hf_hnd, align 4
+  %27 = call i32 @dissect_nt_policy_hnd(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef %14, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %27, ptr %8, align 4
+  %28 = load ptr, ptr %9, align 8
+  %29 = getelementptr inbounds %struct._packet_info, ptr %28, i32 0, i32 3
+  %30 = load i32, ptr %29, align 4
+  %31 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef %14, ptr noundef %15, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %30)
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds %struct._packet_info, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %15, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %34, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %35)
+  %36 = load ptr, ptr %7, align 8
+  %37 = load i32, ptr %8, align 4
+  %38 = load ptr, ptr %9, align 8
+  %39 = load ptr, ptr %10, align 8
+  %40 = load ptr, ptr %11, align 8
+  %41 = load ptr, ptr %12, align 8
+  %42 = load i32, ptr @hf_environment, align 4
+  %43 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %36, i32 noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, i32 noundef 2, ptr noundef @.str.1217, i32 noundef %42, i32 noundef 0)
+  store i32 %43, ptr %8, align 4
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load ptr, ptr %9, align 8
+  %47 = load ptr, ptr %10, align 8
+  %48 = load ptr, ptr %11, align 8
+  %49 = load ptr, ptr %12, align 8
+  %50 = load i32, ptr @hf_level, align 4
+  %51 = call i32 @dissect_ndr_uint32(ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, i32 noundef %50, ptr noundef %16)
+  store i32 %51, ptr %8, align 4
+  %52 = load ptr, ptr %9, align 8
+  %53 = getelementptr inbounds %struct._packet_info, ptr %52, i32 0, i32 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds %struct._frame_data, ptr %54, i32 0, i32 9
+  %56 = load i16, ptr %55, align 2
+  %57 = lshr i16 %56, 3
+  %58 = and i16 %57, 1
+  %59 = zext i16 %58 to i32
+  %60 = icmp ne i32 %59, 0
+  br i1 %60, label %67, label %61
+
+61:                                               ; preds = %6
+  %62 = load i32, ptr %16, align 4
+  %63 = sext i32 %62 to i64
+  %64 = inttoptr i64 %63 to ptr
+  %65 = load ptr, ptr %13, align 8
+  %66 = getelementptr inbounds %struct._dcerpc_call_value, ptr %65, i32 0, i32 8
+  store ptr %64, ptr %66, align 8
+  br label %67
+
+67:                                               ; preds = %61, %6
+  %68 = load ptr, ptr %9, align 8
+  %69 = getelementptr inbounds %struct._packet_info, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8
+  %71 = load i32, ptr %16, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %70, i32 noundef 25, ptr noundef @.str.1206, i32 noundef %71)
+  %72 = load ptr, ptr %7, align 8
+  %73 = load i32, ptr %8, align 4
+  %74 = load ptr, ptr %9, align 8
+  %75 = load ptr, ptr %10, align 8
+  %76 = load ptr, ptr %11, align 8
+  %77 = load ptr, ptr %12, align 8
+  %78 = call i32 @dissect_spoolss_buffer(ptr noundef %72, i32 noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef %76, ptr noundef %77, ptr noundef null)
+  store i32 %78, ptr %8, align 4
+  %79 = load ptr, ptr %7, align 8
+  %80 = load i32, ptr %8, align 4
+  %81 = load ptr, ptr %9, align 8
+  %82 = load ptr, ptr %10, align 8
+  %83 = load ptr, ptr %11, align 8
+  %84 = load ptr, ptr %12, align 8
+  %85 = load i32, ptr @hf_offered, align 4
+  %86 = call i32 @dissect_ndr_uint32(ptr noundef %79, i32 noundef %80, ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84, i32 noundef %85, ptr noundef null)
+  store i32 %86, ptr %8, align 4
+  %87 = load ptr, ptr %7, align 8
+  %88 = load i32, ptr %8, align 4
+  %89 = load ptr, ptr %9, align 8
+  %90 = load ptr, ptr %10, align 8
+  %91 = load ptr, ptr %11, align 8
+  %92 = load ptr, ptr %12, align 8
+  %93 = load i32, ptr @hf_clientmajorversion, align 4
+  %94 = call i32 @dissect_ndr_uint32(ptr noundef %87, i32 noundef %88, ptr noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef %92, i32 noundef %93, ptr noundef null)
+  store i32 %94, ptr %8, align 4
+  %95 = load ptr, ptr %7, align 8
+  %96 = load i32, ptr %8, align 4
+  %97 = load ptr, ptr %9, align 8
+  %98 = load ptr, ptr %10, align 8
+  %99 = load ptr, ptr %11, align 8
+  %100 = load ptr, ptr %12, align 8
+  %101 = load i32, ptr @hf_clientminorversion, align 4
+  %102 = call i32 @dissect_ndr_uint32(ptr noundef %95, i32 noundef %96, ptr noundef %97, ptr noundef %98, ptr noundef %99, ptr noundef %100, i32 noundef %101, ptr noundef null)
+  store i32 %102, ptr %8, align 4
+  %103 = load i32, ptr %8, align 4
+  ret i32 %103
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGetPrinterDriver2_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %struct.BUFFER, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %16 = load ptr, ptr %11, align 8
+  %17 = getelementptr inbounds %struct._dcerpc_info, ptr %16, i32 0, i32 14
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %13, align 8
+  %19 = load ptr, ptr %13, align 8
+  %20 = getelementptr inbounds %struct._dcerpc_call_value, ptr %19, i32 0, i32 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = ptrtoint ptr %21 to i64
+  %23 = trunc i64 %22 to i32
+  store i32 %23, ptr %14, align 4
+  %24 = load ptr, ptr %7, align 8
+  %25 = load i32, ptr %8, align 4
+  %26 = load ptr, ptr %9, align 8
+  %27 = load ptr, ptr %10, align 8
+  %28 = load ptr, ptr %11, align 8
+  %29 = load ptr, ptr %12, align 8
+  %30 = call i32 @dissect_spoolss_buffer(ptr noundef %24, i32 noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %15)
+  store i32 %30, ptr %8, align 4
+  %31 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %99
+
+34:                                               ; preds = %6
+  %35 = load i32, ptr %14, align 4
+  switch i32 %35, label %90 [
+    i32 1, label %36
+    i32 2, label %45
+    i32 3, label %54
+    i32 6, label %63
+    i32 8, label %72
+    i32 101, label %81
+  ]
+
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %9, align 8
+  %40 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %11, align 8
+  %43 = load ptr, ptr %12, align 8
+  %44 = call i32 @dissect_DRIVER_INFO_1(ptr noundef %38, i32 noundef 0, ptr noundef %39, ptr noundef %41, ptr noundef %42, ptr noundef %43)
+  br label %98
+
+45:                                               ; preds = %34
+  %46 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %9, align 8
+  %49 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %11, align 8
+  %52 = load ptr, ptr %12, align 8
+  %53 = call i32 @dissect_DRIVER_INFO_2(ptr noundef %47, i32 noundef 0, ptr noundef %48, ptr noundef %50, ptr noundef %51, ptr noundef %52)
+  br label %98
+
+54:                                               ; preds = %34
+  %55 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %9, align 8
+  %58 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 1
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %11, align 8
+  %61 = load ptr, ptr %12, align 8
+  %62 = call i32 @dissect_DRIVER_INFO_3(ptr noundef %56, i32 noundef 0, ptr noundef %57, ptr noundef %59, ptr noundef %60, ptr noundef %61)
+  br label %98
+
+63:                                               ; preds = %34
+  %64 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr %9, align 8
+  %67 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 1
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %11, align 8
+  %70 = load ptr, ptr %12, align 8
+  %71 = call i32 @dissect_DRIVER_INFO_6(ptr noundef %65, i32 noundef 0, ptr noundef %66, ptr noundef %68, ptr noundef %69, ptr noundef %70)
+  br label %98
+
+72:                                               ; preds = %34
+  %73 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 0
+  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr %9, align 8
+  %76 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr %11, align 8
+  %79 = load ptr, ptr %12, align 8
+  %80 = call i32 @dissect_DRIVER_INFO_8(ptr noundef %74, i32 noundef 0, ptr noundef %75, ptr noundef %77, ptr noundef %78, ptr noundef %79)
+  br label %98
+
+81:                                               ; preds = %34
+  %82 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 0
+  %83 = load ptr, ptr %82, align 8
+  %84 = load ptr, ptr %9, align 8
+  %85 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 1
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %11, align 8
+  %88 = load ptr, ptr %12, align 8
+  %89 = call i32 @dissect_DRIVER_INFO_101(ptr noundef %83, i32 noundef 0, ptr noundef %84, ptr noundef %86, ptr noundef %87, ptr noundef %88)
+  br label %98
+
+90:                                               ; preds = %34
+  %91 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 1
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %9, align 8
+  %94 = getelementptr inbounds %struct.BUFFER, ptr %15, i32 0, i32 0
+  %95 = load ptr, ptr %94, align 8
+  %96 = load i32, ptr %14, align 4
+  %97 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %92, ptr noundef %93, ptr noundef @ei_driver_info_level, ptr noundef %95, i32 noundef 0, i32 noundef -1, ptr noundef @.str.1218, i32 noundef %96)
+  br label %98
+
+98:                                               ; preds = %90, %81, %72, %63, %54, %45, %36
+  br label %99
+
+99:                                               ; preds = %98, %6
+  %100 = load ptr, ptr %7, align 8
+  %101 = load i32, ptr %8, align 4
+  %102 = load ptr, ptr %9, align 8
+  %103 = load ptr, ptr %10, align 8
+  %104 = load ptr, ptr %11, align 8
+  %105 = load ptr, ptr %12, align 8
+  %106 = load i32, ptr @hf_needed, align 4
+  %107 = call i32 @dissect_ndr_uint32(ptr noundef %100, i32 noundef %101, ptr noundef %102, ptr noundef %103, ptr noundef %104, ptr noundef %105, i32 noundef %106, ptr noundef null)
+  store i32 %107, ptr %8, align 4
+  %108 = load ptr, ptr %7, align 8
+  %109 = load i32, ptr %8, align 4
+  %110 = load ptr, ptr %9, align 8
+  %111 = load ptr, ptr %10, align 8
+  %112 = load ptr, ptr %11, align 8
+  %113 = load ptr, ptr %12, align 8
+  %114 = load i32, ptr @hf_servermajorversion, align 4
+  %115 = call i32 @dissect_ndr_uint32(ptr noundef %108, i32 noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef %112, ptr noundef %113, i32 noundef %114, ptr noundef null)
+  store i32 %115, ptr %8, align 4
+  %116 = load ptr, ptr %7, align 8
+  %117 = load i32, ptr %8, align 4
+  %118 = load ptr, ptr %9, align 8
+  %119 = load ptr, ptr %10, align 8
+  %120 = load ptr, ptr %11, align 8
+  %121 = load ptr, ptr %12, align 8
+  %122 = load i32, ptr @hf_serverminorversion, align 4
+  %123 = call i32 @dissect_ndr_uint32(ptr noundef %116, i32 noundef %117, ptr noundef %118, ptr noundef %119, ptr noundef %120, ptr noundef %121, i32 noundef %122, ptr noundef null)
+  store i32 %123, ptr %8, align 4
+  %124 = load ptr, ptr %7, align 8
+  %125 = load i32, ptr %8, align 4
+  %126 = load ptr, ptr %9, align 8
+  %127 = load ptr, ptr %10, align 8
+  %128 = load ptr, ptr %11, align 8
+  %129 = load ptr, ptr %12, align 8
+  %130 = load i32, ptr @hf_rc, align 4
+  %131 = call i32 @dissect_doserror(ptr noundef %124, i32 noundef %125, ptr noundef %126, ptr noundef %127, ptr noundef %128, ptr noundef %129, i32 noundef %130, ptr noundef null)
+  store i32 %131, ptr %8, align 4
+  %132 = load i32, ptr %8, align 4
+  ret i32 %132
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssFCPN_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_hnd, align 4
+  %20 = call i32 @dissect_nt_policy_hnd(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %20, ptr %8, align 4
+  %21 = load i32, ptr %8, align 4
+  ret i32 %21
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssFCPN_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_rc, align 4
+  %20 = call i32 @dissect_doserror(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null)
+  store i32 %20, ptr %8, align 4
+  %21 = load i32, ptr %8, align 4
+  ret i32 %21
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssReplyOpenPrinter_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %16 = load ptr, ptr %11, align 8
+  %17 = getelementptr inbounds %struct._dcerpc_info, ptr %16, i32 0, i32 14
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %13, align 8
+  store ptr null, ptr %15, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = load ptr, ptr %9, align 8
+  %22 = load ptr, ptr %10, align 8
+  %23 = load ptr, ptr %11, align 8
+  %24 = load ptr, ptr %12, align 8
+  %25 = load i32, ptr @hf_servername, align 4
+  %26 = call i32 @dissect_ndr_cvstring(ptr noundef %19, i32 noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, i32 noundef 2, i32 noundef %25, i32 noundef 1, ptr noundef %15)
+  store i32 %26, ptr %8, align 4
+  %27 = load ptr, ptr %9, align 8
+  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds %struct._frame_data, ptr %29, i32 0, i32 9
+  %31 = load i16, ptr %30, align 2
+  %32 = lshr i16 %31, 3
+  %33 = and i16 %32, 1
+  %34 = zext i16 %33 to i32
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %52, label %36
+
+36:                                               ; preds = %6
+  %37 = load ptr, ptr %13, align 8
+  %38 = getelementptr inbounds %struct._dcerpc_call_value, ptr %37, i32 0, i32 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %51, label %41
+
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %15, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %50
+
+44:                                               ; preds = %41
+  %45 = call ptr @wmem_file_scope()
+  %46 = load ptr, ptr %15, align 8
+  %47 = call noalias ptr @wmem_strdup(ptr noundef %45, ptr noundef %46)
+  %48 = load ptr, ptr %13, align 8
+  %49 = getelementptr inbounds %struct._dcerpc_call_value, ptr %48, i32 0, i32 8
+  store ptr %47, ptr %49, align 8
+  br label %50
+
+50:                                               ; preds = %44, %41
+  br label %51
+
+51:                                               ; preds = %50, %36
+  br label %52
+
+52:                                               ; preds = %51, %6
+  %53 = load ptr, ptr %15, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %60
+
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %9, align 8
+  %57 = getelementptr inbounds %struct._packet_info, ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %15, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %58, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %59)
+  br label %60
+
+60:                                               ; preds = %55, %52
+  %61 = load ptr, ptr %7, align 8
+  %62 = load i32, ptr %8, align 4
+  %63 = load ptr, ptr %9, align 8
+  %64 = load ptr, ptr %10, align 8
+  %65 = load ptr, ptr %11, align 8
+  %66 = load ptr, ptr %12, align 8
+  %67 = load i32, ptr @hf_printerlocal, align 4
+  %68 = call i32 @dissect_ndr_uint32(ptr noundef %61, i32 noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %66, i32 noundef %67, ptr noundef %14)
+  store i32 %68, ptr %8, align 4
+  %69 = load ptr, ptr %7, align 8
+  %70 = load i32, ptr %8, align 4
+  %71 = load ptr, ptr %9, align 8
+  %72 = load ptr, ptr %10, align 8
+  %73 = load ptr, ptr %11, align 8
+  %74 = load ptr, ptr %12, align 8
+  %75 = load i32, ptr @hf_printerdata_type, align 4
+  %76 = call i32 @dissect_ndr_uint32(ptr noundef %69, i32 noundef %70, ptr noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef %74, i32 noundef %75, ptr noundef null)
+  store i32 %76, ptr %8, align 4
+  %77 = load ptr, ptr %7, align 8
+  %78 = load i32, ptr %8, align 4
+  %79 = load ptr, ptr %9, align 8
+  %80 = load ptr, ptr %10, align 8
+  %81 = load ptr, ptr %11, align 8
+  %82 = load ptr, ptr %12, align 8
+  %83 = load i32, ptr @hf_replyopenprinter_unk0, align 4
+  %84 = call i32 @dissect_ndr_uint32(ptr noundef %77, i32 noundef %78, ptr noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef %82, i32 noundef %83, ptr noundef null)
+  store i32 %84, ptr %8, align 4
+  %85 = load ptr, ptr %7, align 8
+  %86 = load i32, ptr %8, align 4
+  %87 = load ptr, ptr %9, align 8
+  %88 = load ptr, ptr %10, align 8
+  %89 = load ptr, ptr %11, align 8
+  %90 = load ptr, ptr %12, align 8
+  %91 = load i32, ptr @hf_replyopenprinter_unk1, align 4
+  %92 = call i32 @dissect_ndr_uint32(ptr noundef %85, i32 noundef %86, ptr noundef %87, ptr noundef %88, ptr noundef %89, ptr noundef %90, i32 noundef %91, ptr noundef null)
+  store i32 %92, ptr %8, align 4
+  %93 = load i32, ptr %8, align 4
+  ret i32 %93
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssReplyOpenPrinter_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca %struct._e_ctx_hnd, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = getelementptr inbounds %struct._dcerpc_info, ptr %18, i32 0, i32 14
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %13, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_hnd, align 4
+  %28 = call i32 @dissect_nt_policy_hnd(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef %14, ptr noundef %15, i32 noundef 1, i32 noundef 0)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load i32, ptr @hf_rc, align 4
+  %36 = call i32 @dissect_doserror(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, ptr noundef %16)
+  store i32 %36, ptr %8, align 4
+  %37 = load i32, ptr %16, align 4
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %73
+
+39:                                               ; preds = %6
+  %40 = load ptr, ptr %13, align 8
+  %41 = getelementptr inbounds %struct._dcerpc_call_value, ptr %40, i32 0, i32 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %52
+
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %9, align 8
+  %46 = getelementptr inbounds %struct._packet_info, ptr %45, i32 0, i32 50
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %13, align 8
+  %49 = getelementptr inbounds %struct._dcerpc_call_value, ptr %48, i32 0, i32 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %47, ptr noundef @.str.1237, ptr noundef %50)
+  store ptr %51, ptr %17, align 8
+  br label %53
+
+52:                                               ; preds = %39
+  store ptr @.str.1238, ptr %17, align 8
+  br label %53
+
+53:                                               ; preds = %52, %44
+  %54 = load ptr, ptr %9, align 8
+  %55 = getelementptr inbounds %struct._packet_info, ptr %54, i32 0, i32 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds %struct._frame_data, ptr %56, i32 0, i32 9
+  %58 = load i16, ptr %57, align 2
+  %59 = lshr i16 %58, 3
+  %60 = and i16 %59, 1
+  %61 = zext i16 %60 to i32
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %66, label %63
+
+63:                                               ; preds = %53
+  %64 = load ptr, ptr %9, align 8
+  %65 = load ptr, ptr %17, align 8
+  call void @dcerpc_store_polhnd_name(ptr noundef %14, ptr noundef %64, ptr noundef %65)
+  br label %66
+
+66:                                               ; preds = %63, %53
+  %67 = load ptr, ptr %15, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %72
+
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %15, align 8
+  %71 = load ptr, ptr %17, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef @.str.757, ptr noundef %71)
+  br label %72
+
+72:                                               ; preds = %69, %66
+  br label %73
+
+73:                                               ; preds = %72, %6
+  %74 = load i32, ptr %8, align 4
+  ret i32 %74
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssRouterReplyPrinter_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_hnd, align 4
+  %20 = call i32 @dissect_nt_policy_hnd(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %20, ptr %8, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_routerreplyprinter_condition, align 4
+  %28 = call i32 @dissect_ndr_uint32(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef null)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load i32, ptr @hf_routerreplyprinter_unknown1, align 4
+  %36 = call i32 @dissect_ndr_uint32(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, ptr noundef null)
+  store i32 %36, ptr %8, align 4
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = load ptr, ptr %9, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = load ptr, ptr %11, align 8
+  %42 = load ptr, ptr %12, align 8
+  %43 = load i32, ptr @hf_routerreplyprinter_changeid, align 4
+  %44 = call i32 @dissect_ndr_uint32(ptr noundef %37, i32 noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43, ptr noundef null)
+  store i32 %44, ptr %8, align 4
+  %45 = load i32, ptr %8, align 4
+  ret i32 %45
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssRouterReplyPrinter_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_rc, align 4
+  %20 = call i32 @dissect_doserror(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null)
+  store i32 %20, ptr %8, align 4
+  %21 = load i32, ptr %8, align 4
+  ret i32 %21
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssReplyClosePrinter_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_hnd, align 4
+  %20 = call i32 @dissect_nt_policy_hnd(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 1)
+  store i32 %20, ptr %8, align 4
+  %21 = load i32, ptr %8, align 4
+  ret i32 %21
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssReplyClosePrinter_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_hnd, align 4
+  %20 = call i32 @dissect_nt_policy_hnd(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %20, ptr %8, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_rc, align 4
+  %28 = call i32 @dissect_doserror(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef null)
+  store i32 %28, ptr %8, align 4
+  %29 = load i32, ptr %8, align 4
+  ret i32 %29
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssRFFPCNEX_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i32, ptr %8, align 4
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = load ptr, ptr %12, align 8
+  %20 = load i32, ptr @hf_hnd, align 4
+  %21 = call i32 @dissect_nt_policy_hnd(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %21, ptr %8, align 4
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = call i32 @dissect_ndr_uint32(ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef null, ptr noundef %25, ptr noundef %26, i32 noundef -1, ptr noundef %13)
+  store i32 %27, ptr %8, align 4
+  %28 = load ptr, ptr %10, align 8
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = sub i32 %30, 4
+  %32 = load i32, ptr @hf_rffpcnex_flags, align 4
+  %33 = load i32, ptr @ett_rffpcnex_flags, align 4
+  %34 = load i32, ptr %13, align 4
+  %35 = zext i32 %34 to i64
+  %36 = call ptr @proto_tree_add_bitmask_value(ptr noundef %28, ptr noundef %29, i32 noundef %31, i32 noundef %32, i32 noundef %33, ptr noundef @SpoolssRFFPCNEX_q.hf_flags, i64 noundef %35)
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = load ptr, ptr %9, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = load ptr, ptr %11, align 8
+  %42 = load ptr, ptr %12, align 8
+  %43 = load i32, ptr @hf_rffpcnex_options, align 4
+  %44 = call i32 @dissect_ndr_uint32(ptr noundef %37, i32 noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43, ptr noundef null)
+  store i32 %44, ptr %8, align 4
+  %45 = load ptr, ptr %7, align 8
+  %46 = load i32, ptr %8, align 4
+  %47 = load ptr, ptr %9, align 8
+  %48 = load ptr, ptr %10, align 8
+  %49 = load ptr, ptr %11, align 8
+  %50 = load ptr, ptr %12, align 8
+  %51 = load i32, ptr @hf_servername, align 4
+  %52 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %45, i32 noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, i32 noundef 2, ptr noundef @.str.1239, i32 noundef %51, i32 noundef 0)
+  store i32 %52, ptr %8, align 4
+  %53 = load ptr, ptr %7, align 8
+  %54 = load i32, ptr %8, align 4
+  %55 = load ptr, ptr %9, align 8
+  %56 = load ptr, ptr %10, align 8
+  %57 = load ptr, ptr %11, align 8
+  %58 = load ptr, ptr %12, align 8
+  %59 = load i32, ptr @hf_printerlocal, align 4
+  %60 = call i32 @dissect_ndr_uint32(ptr noundef %53, i32 noundef %54, ptr noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef %58, i32 noundef %59, ptr noundef null)
+  store i32 %60, ptr %8, align 4
+  %61 = load ptr, ptr %7, align 8
+  %62 = load i32, ptr %8, align 4
+  %63 = load ptr, ptr %9, align 8
+  %64 = load ptr, ptr %10, align 8
+  %65 = load ptr, ptr %11, align 8
+  %66 = load ptr, ptr %12, align 8
+  %67 = call i32 @dissect_ndr_pointer(ptr noundef %61, i32 noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef @dissect_NOTIFY_OPTIONS_ARRAY_CTR, i32 noundef 2, ptr noundef @.str.1240, i32 noundef -1)
+  store i32 %67, ptr %8, align 4
+  %68 = load i32, ptr %8, align 4
+  ret i32 %68
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssRFFPCNEX_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_rc, align 4
+  %20 = call i32 @dissect_doserror(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null)
+  store i32 %20, ptr %8, align 4
+  %21 = load i32, ptr %8, align 4
+  ret i32 %21
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssRRPCN_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i32, ptr %8, align 4
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = load ptr, ptr %12, align 8
+  %20 = load i32, ptr @hf_hnd, align 4
+  %21 = call i32 @dissect_nt_policy_hnd(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %21, ptr %8, align 4
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %11, align 8
+  %27 = load ptr, ptr %12, align 8
+  %28 = load i32, ptr @hf_rrpcn_changelow, align 4
+  %29 = call i32 @dissect_ndr_uint32(ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, i32 noundef %28, ptr noundef %13)
+  store i32 %29, ptr %8, align 4
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds %struct._packet_info, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i32, ptr %13, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef @.str.1241, i32 noundef %33)
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %8, align 4
+  %36 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = load ptr, ptr %11, align 8
+  %39 = load ptr, ptr %12, align 8
+  %40 = load i32, ptr @hf_rrpcn_changehigh, align 4
+  %41 = call i32 @dissect_ndr_uint32(ptr noundef %34, i32 noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, i32 noundef %40, ptr noundef null)
+  store i32 %41, ptr %8, align 4
+  %42 = load ptr, ptr %7, align 8
+  %43 = load i32, ptr %8, align 4
+  %44 = load ptr, ptr %9, align 8
+  %45 = load ptr, ptr %10, align 8
+  %46 = load ptr, ptr %11, align 8
+  %47 = load ptr, ptr %12, align 8
+  %48 = load i32, ptr @hf_rrpcn_unk0, align 4
+  %49 = call i32 @dissect_ndr_uint32(ptr noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48, ptr noundef null)
+  store i32 %49, ptr %8, align 4
+  %50 = load ptr, ptr %7, align 8
+  %51 = load i32, ptr %8, align 4
+  %52 = load ptr, ptr %9, align 8
+  %53 = load ptr, ptr %10, align 8
+  %54 = load ptr, ptr %11, align 8
+  %55 = load ptr, ptr %12, align 8
+  %56 = load i32, ptr @hf_rrpcn_unk1, align 4
+  %57 = call i32 @dissect_ndr_uint32(ptr noundef %50, i32 noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef %55, i32 noundef %56, ptr noundef null)
+  store i32 %57, ptr %8, align 4
+  %58 = load ptr, ptr %7, align 8
+  %59 = load i32, ptr %8, align 4
+  %60 = load ptr, ptr %9, align 8
+  %61 = load ptr, ptr %10, align 8
+  %62 = load ptr, ptr %11, align 8
+  %63 = load ptr, ptr %12, align 8
+  %64 = call i32 @dissect_ndr_pointer(ptr noundef %58, i32 noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef @dissect_NOTIFY_INFO, i32 noundef 2, ptr noundef @.str.1242, i32 noundef -1)
+  store i32 %64, ptr %8, align 4
+  %65 = load i32, ptr %8, align 4
+  ret i32 %65
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssRRPCN_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_rrpcn_unk0, align 4
+  %20 = call i32 @dissect_ndr_uint32(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null)
+  store i32 %20, ptr %8, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_rc, align 4
+  %28 = call i32 @dissect_doserror(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef null)
+  store i32 %28, ptr %8, align 4
+  %29 = load i32, ptr %8, align 4
+  ret i32 %29
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssRFNPCNEX_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i32, ptr %8, align 4
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = load ptr, ptr %12, align 8
+  %20 = load i32, ptr @hf_hnd, align 4
+  %21 = call i32 @dissect_nt_policy_hnd(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %21, ptr %8, align 4
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %11, align 8
+  %27 = load ptr, ptr %12, align 8
+  %28 = load i32, ptr @hf_rrpcn_changelow, align 4
+  %29 = call i32 @dissect_ndr_uint32(ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, i32 noundef %28, ptr noundef %13)
+  store i32 %29, ptr %8, align 4
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds %struct._packet_info, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i32, ptr %13, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef @.str.1241, i32 noundef %33)
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %8, align 4
+  %36 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = load ptr, ptr %11, align 8
+  %39 = load ptr, ptr %12, align 8
+  %40 = call i32 @dissect_ndr_pointer(ptr noundef %34, i32 noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef @dissect_NOTIFY_OPTIONS_ARRAY_CTR, i32 noundef 2, ptr noundef @.str.1243, i32 noundef -1)
+  store i32 %40, ptr %8, align 4
+  %41 = load i32, ptr %8, align 4
+  ret i32 %41
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssRFNPCNEX_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = call i32 @dissect_ndr_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dissect_NOTIFY_INFO, i32 noundef 2, ptr noundef @.str.1242, i32 noundef -1)
+  store i32 %19, ptr %8, align 4
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %10, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr @hf_rc, align 4
+  %27 = call i32 @dissect_doserror(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef null)
+  store i32 %27, ptr %8, align 4
+  %28 = load i32, ptr %8, align 4
+  ret i32 %28
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssOpenPrinterEx_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %11, align 8
+  %16 = getelementptr inbounds %struct._dcerpc_info, ptr %15, i32 0, i32 14
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %13, align 8
+  %18 = load ptr, ptr %13, align 8
+  %19 = getelementptr inbounds %struct._dcerpc_call_value, ptr %18, i32 0, i32 9
+  store ptr null, ptr %19, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %10, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr @hf_printername, align 4
+  %27 = call i32 @dissect_ndr_pointer_cb(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef @dissect_ndr_wchar_cvstring, i32 noundef 2, ptr noundef @.str.31, i32 noundef %26, ptr noundef @cb_wstr_postprocess, ptr noundef inttoptr (i64 805306369 to ptr))
+  store i32 %27, ptr %8, align 4
+  %28 = load ptr, ptr %13, align 8
+  %29 = getelementptr inbounds %struct._dcerpc_call_value, ptr %28, i32 0, i32 9
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %14, align 8
+  %31 = load ptr, ptr %9, align 8
+  %32 = getelementptr inbounds %struct._packet_info, ptr %31, i32 0, i32 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %struct._frame_data, ptr %33, i32 0, i32 9
+  %35 = load i16, ptr %34, align 2
+  %36 = lshr i16 %35, 3
+  %37 = and i16 %36, 1
+  %38 = zext i16 %37 to i32
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %58, label %40
+
+40:                                               ; preds = %6
+  %41 = load ptr, ptr %13, align 8
+  %42 = getelementptr inbounds %struct._dcerpc_call_value, ptr %41, i32 0, i32 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %57, label %45
+
+45:                                               ; preds = %40
+  %46 = call ptr @wmem_file_scope()
+  %47 = load ptr, ptr %14, align 8
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %49, label %51
+
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %14, align 8
+  br label %52
+
+51:                                               ; preds = %45
+  br label %52
+
+52:                                               ; preds = %51, %49
+  %53 = phi ptr [ %50, %49 ], [ @.str.755, %51 ]
+  %54 = call noalias ptr @wmem_strdup(ptr noundef %46, ptr noundef %53)
+  %55 = load ptr, ptr %13, align 8
+  %56 = getelementptr inbounds %struct._dcerpc_call_value, ptr %55, i32 0, i32 8
+  store ptr %54, ptr %56, align 8
+  br label %57
+
+57:                                               ; preds = %52, %40
+  br label %58
+
+58:                                               ; preds = %57, %6
+  %59 = load ptr, ptr %7, align 8
+  %60 = load i32, ptr %8, align 4
+  %61 = load ptr, ptr %9, align 8
+  %62 = load ptr, ptr %10, align 8
+  %63 = load ptr, ptr %11, align 8
+  %64 = load ptr, ptr %12, align 8
+  %65 = call i32 @dissect_ndr_pointer(ptr noundef %59, i32 noundef %60, ptr noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef @dissect_PRINTER_DATATYPE, i32 noundef 2, ptr noundef @.str.1244, i32 noundef -1)
+  store i32 %65, ptr %8, align 4
+  %66 = load ptr, ptr %7, align 8
+  %67 = load i32, ptr %8, align 4
+  %68 = load ptr, ptr %9, align 8
+  %69 = load ptr, ptr %10, align 8
+  %70 = load ptr, ptr %11, align 8
+  %71 = load ptr, ptr %12, align 8
+  %72 = call i32 @dissect_DEVMODE_CTR(ptr noundef %66, i32 noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef %70, ptr noundef %71)
+  store i32 %72, ptr %8, align 4
+  %73 = load ptr, ptr %13, align 8
+  %74 = getelementptr inbounds %struct._dcerpc_call_value, ptr %73, i32 0, i32 8
+  %75 = load ptr, ptr %74, align 8
+  store ptr %75, ptr %14, align 8
+  %76 = load ptr, ptr %14, align 8
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %78, label %116
+
+78:                                               ; preds = %58
+  %79 = load ptr, ptr %14, align 8
+  %80 = getelementptr i8, ptr %79, i64 0
+  %81 = load i8, ptr %80, align 1
+  %82 = sext i8 %81 to i32
+  %83 = icmp eq i32 %82, 92
+  br i1 %83, label %84, label %93
+
+84:                                               ; preds = %78
+  %85 = load ptr, ptr %14, align 8
+  %86 = getelementptr i8, ptr %85, i64 1
+  %87 = load i8, ptr %86, align 1
+  %88 = sext i8 %87 to i32
+  %89 = icmp eq i32 %88, 92
+  br i1 %89, label %90, label %93
+
+90:                                               ; preds = %84
+  %91 = load ptr, ptr %14, align 8
+  %92 = getelementptr i8, ptr %91, i64 2
+  store ptr %92, ptr %14, align 8
+  br label %93
+
+93:                                               ; preds = %90, %84, %78
+  %94 = load ptr, ptr %14, align 8
+  %95 = call ptr @strchr(ptr noundef %94, i32 noundef 92) #4
+  %96 = icmp ne ptr %95, null
+  br i1 %96, label %97, label %106
+
+97:                                               ; preds = %93
+  %98 = load ptr, ptr %7, align 8
+  %99 = load i32, ptr %8, align 4
+  %100 = load ptr, ptr %9, align 8
+  %101 = load ptr, ptr %10, align 8
+  %102 = load ptr, ptr %11, align 8
+  %103 = load ptr, ptr %12, align 8
+  %104 = load i32, ptr @hf_access_required, align 4
+  %105 = call i32 @dissect_nt_access_mask(ptr noundef %98, i32 noundef %99, ptr noundef %100, ptr noundef %101, ptr noundef %102, ptr noundef %103, i32 noundef %104, ptr noundef @spoolss_printer_access_mask_info, ptr noundef null)
+  store i32 %105, ptr %8, align 4
+  br label %115
+
+106:                                              ; preds = %93
+  %107 = load ptr, ptr %7, align 8
+  %108 = load i32, ptr %8, align 4
+  %109 = load ptr, ptr %9, align 8
+  %110 = load ptr, ptr %10, align 8
+  %111 = load ptr, ptr %11, align 8
+  %112 = load ptr, ptr %12, align 8
+  %113 = load i32, ptr @hf_access_required, align 4
+  %114 = call i32 @dissect_nt_access_mask(ptr noundef %107, i32 noundef %108, ptr noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef %112, i32 noundef %113, ptr noundef @spoolss_printserver_access_mask_info, ptr noundef null)
+  store i32 %114, ptr %8, align 4
+  br label %115
+
+115:                                              ; preds = %106, %97
+  br label %125
+
+116:                                              ; preds = %58
+  %117 = load ptr, ptr %7, align 8
+  %118 = load i32, ptr %8, align 4
+  %119 = load ptr, ptr %9, align 8
+  %120 = load ptr, ptr %10, align 8
+  %121 = load ptr, ptr %11, align 8
+  %122 = load ptr, ptr %12, align 8
+  %123 = load i32, ptr @hf_access_required, align 4
+  %124 = call i32 @dissect_nt_access_mask(ptr noundef %117, i32 noundef %118, ptr noundef %119, ptr noundef %120, ptr noundef %121, ptr noundef %122, i32 noundef %123, ptr noundef null, ptr noundef null)
+  store i32 %124, ptr %8, align 4
+  br label %125
+
+125:                                              ; preds = %116, %115
+  %126 = load ptr, ptr %7, align 8
+  %127 = load i32, ptr %8, align 4
+  %128 = load ptr, ptr %9, align 8
+  %129 = load ptr, ptr %10, align 8
+  %130 = load ptr, ptr %11, align 8
+  %131 = load ptr, ptr %12, align 8
+  %132 = call i32 @dissect_USER_LEVEL_CTR(ptr noundef %126, i32 noundef %127, ptr noundef %128, ptr noundef %129, ptr noundef %130, ptr noundef %131)
+  store i32 %132, ptr %8, align 4
+  %133 = load i32, ptr %8, align 4
+  ret i32 %133
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssOpenPrinterEx_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca %struct._e_ctx_hnd, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = getelementptr inbounds %struct._dcerpc_info, ptr %18, i32 0, i32 14
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %13, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_hnd, align 4
+  %28 = call i32 @dissect_nt_policy_hnd(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef %14, ptr noundef %15, i32 noundef 1, i32 noundef 0)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load i32, ptr @hf_rc, align 4
+  %36 = call i32 @dissect_doserror(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, ptr noundef %16)
+  store i32 %36, ptr %8, align 4
+  %37 = load i32, ptr %16, align 4
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %73
+
+39:                                               ; preds = %6
+  %40 = load ptr, ptr %13, align 8
+  %41 = getelementptr inbounds %struct._dcerpc_call_value, ptr %40, i32 0, i32 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %52
+
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %9, align 8
+  %46 = getelementptr inbounds %struct._packet_info, ptr %45, i32 0, i32 50
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %13, align 8
+  %49 = getelementptr inbounds %struct._dcerpc_call_value, ptr %48, i32 0, i32 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %47, ptr noundef @.str.1246, ptr noundef %50)
+  store ptr %51, ptr %17, align 8
+  br label %53
+
+52:                                               ; preds = %39
+  store ptr @.str.1247, ptr %17, align 8
+  br label %53
+
+53:                                               ; preds = %52, %44
+  %54 = load ptr, ptr %9, align 8
+  %55 = getelementptr inbounds %struct._packet_info, ptr %54, i32 0, i32 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds %struct._frame_data, ptr %56, i32 0, i32 9
+  %58 = load i16, ptr %57, align 2
+  %59 = lshr i16 %58, 3
+  %60 = and i16 %59, 1
+  %61 = zext i16 %60 to i32
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %66, label %63
+
+63:                                               ; preds = %53
+  %64 = load ptr, ptr %9, align 8
+  %65 = load ptr, ptr %17, align 8
+  call void @dcerpc_store_polhnd_name(ptr noundef %14, ptr noundef %64, ptr noundef %65)
+  br label %66
+
+66:                                               ; preds = %63, %53
+  %67 = load ptr, ptr %15, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %72
+
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %15, align 8
+  %71 = load ptr, ptr %17, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef @.str.757, ptr noundef %71)
+  br label %72
+
+72:                                               ; preds = %69, %66
+  br label %73
+
+73:                                               ; preds = %72, %6
+  %74 = load i32, ptr %8, align 4
+  ret i32 %74
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssAddPrinterEx_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca %struct._e_ctx_hnd, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = getelementptr inbounds %struct._dcerpc_info, ptr %18, i32 0, i32 14
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %13, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_hnd, align 4
+  %28 = call i32 @dissect_nt_policy_hnd(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef %14, ptr noundef %15, i32 noundef 1, i32 noundef 0)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load i32, ptr @hf_rc, align 4
+  %36 = call i32 @dissect_doserror(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, ptr noundef %16)
+  store i32 %36, ptr %8, align 4
+  %37 = load i32, ptr %16, align 4
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %73
+
+39:                                               ; preds = %6
+  %40 = load ptr, ptr %13, align 8
+  %41 = getelementptr inbounds %struct._dcerpc_call_value, ptr %40, i32 0, i32 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %52
+
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %9, align 8
+  %46 = getelementptr inbounds %struct._packet_info, ptr %45, i32 0, i32 50
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %13, align 8
+  %49 = getelementptr inbounds %struct._dcerpc_call_value, ptr %48, i32 0, i32 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %47, ptr noundef @.str.1248, ptr noundef %50)
+  store ptr %51, ptr %17, align 8
+  br label %53
+
+52:                                               ; preds = %39
+  store ptr @.str.1249, ptr %17, align 8
+  br label %53
+
+53:                                               ; preds = %52, %44
+  %54 = load ptr, ptr %9, align 8
+  %55 = getelementptr inbounds %struct._packet_info, ptr %54, i32 0, i32 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds %struct._frame_data, ptr %56, i32 0, i32 9
+  %58 = load i16, ptr %57, align 2
+  %59 = lshr i16 %58, 3
+  %60 = and i16 %59, 1
+  %61 = zext i16 %60 to i32
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %66, label %63
+
+63:                                               ; preds = %53
+  %64 = load ptr, ptr %9, align 8
+  %65 = load ptr, ptr %17, align 8
+  call void @dcerpc_store_polhnd_name(ptr noundef %14, ptr noundef %64, ptr noundef %65)
+  br label %66
+
+66:                                               ; preds = %63, %53
+  %67 = load ptr, ptr %15, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %72
+
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %15, align 8
+  %71 = load ptr, ptr %17, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef @.str.757, ptr noundef %71)
+  br label %72
+
+72:                                               ; preds = %69, %66
+  br label %73
+
+73:                                               ; preds = %72, %6
+  %74 = load i32, ptr %8, align 4
+  ret i32 %74
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssEnumPrinterData_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %10, align 8
+  %16 = load i32, ptr @hf_printerdata, align 4
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %8, align 4
+  %19 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 0, i32 noundef 1)
+  store ptr %19, ptr %14, align 8
+  %20 = load ptr, ptr %14, align 8
+  call void @proto_item_set_hidden(ptr noundef %20)
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_hnd, align 4
+  %28 = call i32 @dissect_nt_policy_hnd(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load i32, ptr @hf_enumprinterdata_enumindex, align 4
+  %36 = call i32 @dissect_ndr_uint32(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, ptr noundef %13)
+  store i32 %36, ptr %8, align 4
+  %37 = load ptr, ptr %9, align 8
+  %38 = getelementptr inbounds %struct._packet_info, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8
+  %40 = load i32, ptr %13, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %39, i32 noundef 25, ptr noundef @.str.1250, i32 noundef %40)
+  %41 = load ptr, ptr %7, align 8
+  %42 = load i32, ptr %8, align 4
+  %43 = load ptr, ptr %9, align 8
+  %44 = load ptr, ptr %10, align 8
+  %45 = load ptr, ptr %11, align 8
+  %46 = load ptr, ptr %12, align 8
+  %47 = load i32, ptr @hf_enumprinterdata_value_offered, align 4
+  %48 = call i32 @dissect_ndr_uint32(ptr noundef %41, i32 noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %47, ptr noundef null)
+  store i32 %48, ptr %8, align 4
+  %49 = load ptr, ptr %7, align 8
+  %50 = load i32, ptr %8, align 4
+  %51 = load ptr, ptr %9, align 8
+  %52 = load ptr, ptr %10, align 8
+  %53 = load ptr, ptr %11, align 8
+  %54 = load ptr, ptr %12, align 8
+  %55 = load i32, ptr @hf_enumprinterdata_data_offered, align 4
+  %56 = call i32 @dissect_ndr_uint32(ptr noundef %49, i32 noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef %54, i32 noundef %55, ptr noundef null)
+  store i32 %56, ptr %8, align 4
+  %57 = load i32, ptr %8, align 4
+  ret i32 %57
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssEnumPrinterData_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %19 = load ptr, ptr %10, align 8
+  %20 = load i32, ptr @hf_printerdata, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef 0, i32 noundef 1)
+  store ptr %23, ptr %18, align 8
+  %24 = load ptr, ptr %18, align 8
+  call void @proto_item_set_hidden(ptr noundef %24)
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = load i32, ptr @ett_printerdata_value, align 4
+  %29 = call ptr @proto_tree_add_subtree(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef 0, i32 noundef %28, ptr noundef %16, ptr noundef @.str.211)
+  store ptr %29, ptr %17, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %17, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_enumprinterdata_value_len, align 4
+  %37 = call i32 @dissect_ndr_uint32(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load i32, ptr %13, align 4
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %75
+
+40:                                               ; preds = %6
+  %41 = load ptr, ptr %7, align 8
+  %42 = load i32, ptr %8, align 4
+  %43 = load ptr, ptr %9, align 8
+  %44 = load ptr, ptr %17, align 8
+  %45 = load ptr, ptr %12, align 8
+  %46 = load i32, ptr @hf_value_name, align 4
+  %47 = call i32 @dissect_spoolss_uint16uni(ptr noundef %41, i32 noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %15, i32 noundef %46)
+  %48 = load i32, ptr %13, align 4
+  %49 = mul i32 %48, 2
+  %50 = load i32, ptr %8, align 4
+  %51 = add i32 %50, %49
+  store i32 %51, ptr %8, align 4
+  %52 = load ptr, ptr %15, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %65
+
+54:                                               ; preds = %40
+  %55 = load ptr, ptr %15, align 8
+  %56 = getelementptr i8, ptr %55, i64 0
+  %57 = load i8, ptr %56, align 1
+  %58 = sext i8 %57 to i32
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %60, label %65
+
+60:                                               ; preds = %54
+  %61 = load ptr, ptr %9, align 8
+  %62 = getelementptr inbounds %struct._packet_info, ptr %61, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8
+  %64 = load ptr, ptr %15, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %63, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %64)
+  br label %65
+
+65:                                               ; preds = %60, %54, %40
+  %66 = load ptr, ptr %16, align 8
+  %67 = load ptr, ptr %15, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %66, ptr noundef @.str.757, ptr noundef %67)
+  %68 = load ptr, ptr %10, align 8
+  %69 = load i32, ptr @hf_printerdata_value, align 4
+  %70 = load ptr, ptr %7, align 8
+  %71 = load i32, ptr %8, align 4
+  %72 = load ptr, ptr %15, align 8
+  %73 = call ptr @proto_tree_add_string(ptr noundef %68, i32 noundef %69, ptr noundef %70, i32 noundef %71, i32 noundef 0, ptr noundef %72)
+  store ptr %73, ptr %18, align 8
+  %74 = load ptr, ptr %18, align 8
+  call void @proto_item_set_hidden(ptr noundef %74)
+  br label %75
+
+75:                                               ; preds = %65, %6
+  %76 = load ptr, ptr %16, align 8
+  %77 = load i32, ptr %13, align 4
+  %78 = mul i32 %77, 2
+  %79 = add i32 %78, 4
+  call void @proto_item_set_len(ptr noundef %76, i32 noundef %79)
+  %80 = load ptr, ptr %7, align 8
+  %81 = load i32, ptr %8, align 4
+  %82 = load ptr, ptr %9, align 8
+  %83 = load ptr, ptr %17, align 8
+  %84 = load ptr, ptr %11, align 8
+  %85 = load ptr, ptr %12, align 8
+  %86 = load i32, ptr @hf_enumprinterdata_value_needed, align 4
+  %87 = call i32 @dissect_ndr_uint32(ptr noundef %80, i32 noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %85, i32 noundef %86, ptr noundef null)
+  store i32 %87, ptr %8, align 4
+  %88 = load ptr, ptr %7, align 8
+  %89 = load i32, ptr %8, align 4
+  %90 = load ptr, ptr %9, align 8
+  %91 = load ptr, ptr %10, align 8
+  %92 = load ptr, ptr %11, align 8
+  %93 = load ptr, ptr %12, align 8
+  %94 = load i32, ptr @hf_printerdata_type, align 4
+  %95 = call i32 @dissect_ndr_uint32(ptr noundef %88, i32 noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef %92, ptr noundef %93, i32 noundef %94, ptr noundef %14)
+  store i32 %95, ptr %8, align 4
+  %96 = load ptr, ptr %7, align 8
+  %97 = load i32, ptr %8, align 4
+  %98 = load ptr, ptr %9, align 8
+  %99 = load ptr, ptr %10, align 8
+  %100 = load ptr, ptr %11, align 8
+  %101 = load ptr, ptr %12, align 8
+  %102 = load i32, ptr %14, align 4
+  %103 = call i32 @dissect_printerdata_data(ptr noundef %96, i32 noundef %97, ptr noundef %98, ptr noundef %99, ptr noundef %100, ptr noundef %101, i32 noundef %102)
+  store i32 %103, ptr %8, align 4
+  %104 = load ptr, ptr %7, align 8
+  %105 = load i32, ptr %8, align 4
+  %106 = load ptr, ptr %9, align 8
+  %107 = load ptr, ptr %10, align 8
+  %108 = load ptr, ptr %11, align 8
+  %109 = load ptr, ptr %12, align 8
+  %110 = load i32, ptr @hf_enumprinterdata_data_needed, align 4
+  %111 = call i32 @dissect_ndr_uint32(ptr noundef %104, i32 noundef %105, ptr noundef %106, ptr noundef %107, ptr noundef %108, ptr noundef %109, i32 noundef %110, ptr noundef null)
+  store i32 %111, ptr %8, align 4
+  %112 = load ptr, ptr %7, align 8
+  %113 = load i32, ptr %8, align 4
+  %114 = load ptr, ptr %9, align 8
+  %115 = load ptr, ptr %10, align 8
+  %116 = load ptr, ptr %11, align 8
+  %117 = load ptr, ptr %12, align 8
+  %118 = load i32, ptr @hf_rc, align 4
+  %119 = call i32 @dissect_doserror(ptr noundef %112, i32 noundef %113, ptr noundef %114, ptr noundef %115, ptr noundef %116, ptr noundef %117, i32 noundef %118, ptr noundef null)
+  store i32 %119, ptr %8, align 4
+  %120 = load i32, ptr %8, align 4
+  ret i32 %120
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssDeletePrinterData_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %10, align 8
+  %16 = load i32, ptr @hf_printerdata, align 4
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %8, align 4
+  %19 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 0, i32 noundef 1)
+  store ptr %19, ptr %14, align 8
+  %20 = load ptr, ptr %14, align 8
+  call void @proto_item_set_hidden(ptr noundef %20)
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_hnd, align 4
+  %28 = call i32 @dissect_nt_policy_hnd(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load i32, ptr @hf_printerdata_value, align 4
+  %36 = call i32 @dissect_ndr_cvstring(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef 2, i32 noundef %35, i32 noundef 1, ptr noundef %13)
+  store i32 %36, ptr %8, align 4
+  %37 = load ptr, ptr %9, align 8
+  %38 = getelementptr inbounds %struct._packet_info, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %13, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %39, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %40)
+  %41 = load i32, ptr %8, align 4
+  ret i32 %41
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssDeletePrinterData_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %10, align 8
+  %15 = load i32, ptr @hf_printerdata, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = load i32, ptr %8, align 4
+  %18 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef 0, i32 noundef 1)
+  store ptr %18, ptr %13, align 8
+  %19 = load ptr, ptr %13, align 8
+  call void @proto_item_set_hidden(ptr noundef %19)
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %10, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr @hf_rc, align 4
+  %27 = call i32 @dissect_doserror(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef null)
+  store i32 %27, ptr %8, align 4
+  %28 = load i32, ptr %8, align 4
+  ret i32 %28
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGetPrinterDataEx_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 14
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %13, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = load i32, ptr @hf_printerdata, align 4
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef 0, i32 noundef 1)
+  store ptr %24, ptr %16, align 8
+  %25 = load ptr, ptr %16, align 8
+  call void @proto_item_set_hidden(ptr noundef %25)
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = load ptr, ptr %9, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = load ptr, ptr %11, align 8
+  %31 = load ptr, ptr %12, align 8
+  %32 = load i32, ptr @hf_hnd, align 4
+  %33 = call i32 @dissect_nt_policy_hnd(ptr noundef %26, i32 noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, i32 noundef %32, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %33, ptr %8, align 4
+  store ptr null, ptr %14, align 8
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %8, align 4
+  %36 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = load ptr, ptr %11, align 8
+  %39 = load ptr, ptr %12, align 8
+  %40 = load i32, ptr @hf_printerdata_key, align 4
+  %41 = call i32 @dissect_ndr_cvstring(ptr noundef %34, i32 noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, i32 noundef 2, i32 noundef %40, i32 noundef 1, ptr noundef %14)
+  store i32 %41, ptr %8, align 4
+  store ptr null, ptr %15, align 8
+  %42 = load ptr, ptr %7, align 8
+  %43 = load i32, ptr %8, align 4
+  %44 = load ptr, ptr %9, align 8
+  %45 = load ptr, ptr %10, align 8
+  %46 = load ptr, ptr %11, align 8
+  %47 = load ptr, ptr %12, align 8
+  %48 = load i32, ptr @hf_printerdata_value, align 4
+  %49 = call i32 @dissect_ndr_cvstring(ptr noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef 2, i32 noundef %48, i32 noundef 1, ptr noundef %15)
+  store i32 %49, ptr %8, align 4
+  %50 = load ptr, ptr %9, align 8
+  %51 = getelementptr inbounds %struct._packet_info, ptr %50, i32 0, i32 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds %struct._frame_data, ptr %52, i32 0, i32 9
+  %54 = load i16, ptr %53, align 2
+  %55 = lshr i16 %54, 3
+  %56 = and i16 %55, 1
+  %57 = zext i16 %56 to i32
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %84, label %59
+
+59:                                               ; preds = %6
+  %60 = load ptr, ptr %13, align 8
+  %61 = getelementptr inbounds %struct._dcerpc_call_value, ptr %60, i32 0, i32 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %83, label %64
+
+64:                                               ; preds = %59
+  %65 = call ptr @wmem_file_scope()
+  %66 = load ptr, ptr %14, align 8
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %68, label %70
+
+68:                                               ; preds = %64
+  %69 = load ptr, ptr %14, align 8
+  br label %71
+
+70:                                               ; preds = %64
+  br label %71
+
+71:                                               ; preds = %70, %68
+  %72 = phi ptr [ %69, %68 ], [ @.str.755, %70 ]
+  %73 = load ptr, ptr %15, align 8
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %75, label %77
+
+75:                                               ; preds = %71
+  %76 = load ptr, ptr %15, align 8
+  br label %78
+
+77:                                               ; preds = %71
+  br label %78
+
+78:                                               ; preds = %77, %75
+  %79 = phi ptr [ %76, %75 ], [ @.str.755, %77 ]
+  %80 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %65, ptr noundef @.str.1251, ptr noundef %72, ptr noundef %79)
+  %81 = load ptr, ptr %13, align 8
+  %82 = getelementptr inbounds %struct._dcerpc_call_value, ptr %81, i32 0, i32 8
+  store ptr %80, ptr %82, align 8
+  br label %83
+
+83:                                               ; preds = %78, %59
+  br label %84
+
+84:                                               ; preds = %83, %6
+  %85 = load ptr, ptr %13, align 8
+  %86 = getelementptr inbounds %struct._dcerpc_call_value, ptr %85, i32 0, i32 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = icmp ne ptr %87, null
+  br i1 %88, label %89, label %96
+
+89:                                               ; preds = %84
+  %90 = load ptr, ptr %9, align 8
+  %91 = getelementptr inbounds %struct._packet_info, ptr %90, i32 0, i32 1
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %13, align 8
+  %94 = getelementptr inbounds %struct._dcerpc_call_value, ptr %93, i32 0, i32 8
+  %95 = load ptr, ptr %94, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %92, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %95)
+  br label %96
+
+96:                                               ; preds = %89, %84
+  %97 = load ptr, ptr %7, align 8
+  %98 = load i32, ptr %8, align 4
+  %99 = load ptr, ptr %9, align 8
+  %100 = load ptr, ptr %10, align 8
+  %101 = load ptr, ptr %11, align 8
+  %102 = load ptr, ptr %12, align 8
+  %103 = load i32, ptr @hf_needed, align 4
+  %104 = call i32 @dissect_ndr_uint32(ptr noundef %97, i32 noundef %98, ptr noundef %99, ptr noundef %100, ptr noundef %101, ptr noundef %102, i32 noundef %103, ptr noundef null)
+  store i32 %104, ptr %8, align 4
+  %105 = load i32, ptr %8, align 4
+  ret i32 %105
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGetPrinterDataEx_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 14
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %13, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = load i32, ptr @hf_printerdata, align 4
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef 0, i32 noundef 1)
+  store ptr %24, ptr %16, align 8
+  %25 = load ptr, ptr %16, align 8
+  call void @proto_item_set_hidden(ptr noundef %25)
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = load ptr, ptr %9, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = load ptr, ptr %11, align 8
+  %31 = load ptr, ptr %12, align 8
+  %32 = load i32, ptr @hf_printerdata_type, align 4
+  %33 = call i32 @dissect_ndr_uint32(ptr noundef %26, i32 noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, i32 noundef %32, ptr noundef %15)
+  store i32 %33, ptr %8, align 4
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %8, align 4
+  %36 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = load ptr, ptr %11, align 8
+  %39 = load ptr, ptr %12, align 8
+  %40 = load i32, ptr @hf_returned, align 4
+  %41 = call i32 @dissect_ndr_uint32(ptr noundef %34, i32 noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, i32 noundef %40, ptr noundef %14)
+  store i32 %41, ptr %8, align 4
+  %42 = load ptr, ptr %13, align 8
+  %43 = getelementptr inbounds %struct._dcerpc_call_value, ptr %42, i32 0, i32 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %53
+
+46:                                               ; preds = %6
+  %47 = load ptr, ptr %9, align 8
+  %48 = getelementptr inbounds %struct._packet_info, ptr %47, i32 0, i32 1
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %13, align 8
+  %51 = getelementptr inbounds %struct._dcerpc_call_value, ptr %50, i32 0, i32 8
+  %52 = load ptr, ptr %51, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %49, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %52)
+  br label %53
+
+53:                                               ; preds = %46, %6
+  %54 = load i32, ptr %14, align 4
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %65
+
+56:                                               ; preds = %53
+  %57 = load ptr, ptr %7, align 8
+  %58 = load i32, ptr %8, align 4
+  %59 = load ptr, ptr %9, align 8
+  %60 = load ptr, ptr %10, align 8
+  %61 = load ptr, ptr %11, align 8
+  %62 = load ptr, ptr %12, align 8
+  %63 = load i32, ptr %15, align 4
+  %64 = call i32 @dissect_printerdata_data(ptr noundef %57, i32 noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %62, i32 noundef %63)
+  br label %65
+
+65:                                               ; preds = %56, %53
+  %66 = load i32, ptr %14, align 4
+  %67 = load i32, ptr %8, align 4
+  %68 = add i32 %67, %66
+  store i32 %68, ptr %8, align 4
+  %69 = load ptr, ptr %7, align 8
+  %70 = load i32, ptr %8, align 4
+  %71 = load ptr, ptr %9, align 8
+  %72 = load ptr, ptr %10, align 8
+  %73 = load ptr, ptr %11, align 8
+  %74 = load ptr, ptr %12, align 8
+  %75 = load i32, ptr @hf_needed, align 4
+  %76 = call i32 @dissect_ndr_uint32(ptr noundef %69, i32 noundef %70, ptr noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef %74, i32 noundef %75, ptr noundef null)
+  store i32 %76, ptr %8, align 4
+  %77 = load ptr, ptr %7, align 8
+  %78 = load i32, ptr %8, align 4
+  %79 = load ptr, ptr %9, align 8
+  %80 = load ptr, ptr %10, align 8
+  %81 = load ptr, ptr %11, align 8
+  %82 = load ptr, ptr %12, align 8
+  %83 = load i32, ptr @hf_rc, align 4
+  %84 = call i32 @dissect_doserror(ptr noundef %77, i32 noundef %78, ptr noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef %82, i32 noundef %83, ptr noundef null)
+  store i32 %84, ptr %8, align 4
+  %85 = load i32, ptr %8, align 4
+  ret i32 %85
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssSetPrinterDataEx_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %17 = load ptr, ptr %10, align 8
+  %18 = load i32, ptr @hf_printerdata, align 4
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef 0, i32 noundef 1)
+  store ptr %21, ptr %16, align 8
+  %22 = load ptr, ptr %16, align 8
+  call void @proto_item_set_hidden(ptr noundef %22)
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = load ptr, ptr %9, align 8
+  %26 = load ptr, ptr %10, align 8
+  %27 = load ptr, ptr %11, align 8
+  %28 = load ptr, ptr %12, align 8
+  %29 = load i32, ptr @hf_hnd, align 4
+  %30 = call i32 @dissect_nt_policy_hnd(ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, i32 noundef %29, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %30, ptr %8, align 4
+  %31 = load ptr, ptr %7, align 8
+  %32 = load i32, ptr %8, align 4
+  %33 = load ptr, ptr %9, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %12, align 8
+  %37 = load i32, ptr @hf_printerdata_key, align 4
+  %38 = call i32 @dissect_ndr_cvstring(ptr noundef %31, i32 noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, i32 noundef 2, i32 noundef %37, i32 noundef 1, ptr noundef %13)
+  store i32 %38, ptr %8, align 4
+  %39 = load ptr, ptr %7, align 8
+  %40 = load i32, ptr %8, align 4
+  %41 = load ptr, ptr %9, align 8
+  %42 = load ptr, ptr %10, align 8
+  %43 = load ptr, ptr %11, align 8
+  %44 = load ptr, ptr %12, align 8
+  %45 = load i32, ptr @hf_printerdata_value, align 4
+  %46 = call i32 @dissect_ndr_cvstring(ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef %44, i32 noundef 2, i32 noundef %45, i32 noundef 1, ptr noundef %14)
+  store i32 %46, ptr %8, align 4
+  %47 = load ptr, ptr %9, align 8
+  %48 = getelementptr inbounds %struct._packet_info, ptr %47, i32 0, i32 1
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %13, align 8
+  %51 = load ptr, ptr %14, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %49, i32 noundef 25, ptr noundef @.str.1252, ptr noundef %50, ptr noundef %51)
+  %52 = load ptr, ptr %7, align 8
+  %53 = load i32, ptr %8, align 4
+  %54 = load ptr, ptr %9, align 8
+  %55 = load ptr, ptr %10, align 8
+  %56 = load ptr, ptr %11, align 8
+  %57 = load ptr, ptr %12, align 8
+  %58 = load i32, ptr @hf_printerdata_type, align 4
+  %59 = call i32 @dissect_ndr_uint32(ptr noundef %52, i32 noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %56, ptr noundef %57, i32 noundef %58, ptr noundef null)
+  store i32 %59, ptr %8, align 4
+  %60 = load ptr, ptr %7, align 8
+  %61 = load i32, ptr %8, align 4
+  %62 = load ptr, ptr %9, align 8
+  %63 = load ptr, ptr %10, align 8
+  %64 = load ptr, ptr %11, align 8
+  %65 = load ptr, ptr %12, align 8
+  %66 = load i32, ptr @hf_setprinterdataex_max_len, align 4
+  %67 = call i32 @dissect_ndr_uint32(ptr noundef %60, i32 noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65, i32 noundef %66, ptr noundef %15)
+  store i32 %67, ptr %8, align 4
+  %68 = load ptr, ptr %7, align 8
+  %69 = load i32, ptr %8, align 4
+  %70 = load ptr, ptr %9, align 8
+  %71 = load ptr, ptr %10, align 8
+  %72 = load ptr, ptr %11, align 8
+  %73 = load ptr, ptr %12, align 8
+  %74 = load i32, ptr @hf_setprinterdataex_data, align 4
+  %75 = load i32, ptr %15, align 4
+  %76 = call i32 @dissect_ndr_uint8s(ptr noundef %68, i32 noundef %69, ptr noundef %70, ptr noundef %71, ptr noundef %72, ptr noundef %73, i32 noundef %74, i32 noundef %75, ptr noundef null)
+  store i32 %76, ptr %8, align 4
+  %77 = load ptr, ptr %7, align 8
+  %78 = load i32, ptr %8, align 4
+  %79 = load ptr, ptr %9, align 8
+  %80 = load ptr, ptr %10, align 8
+  %81 = load ptr, ptr %11, align 8
+  %82 = load ptr, ptr %12, align 8
+  %83 = load i32, ptr @hf_setprinterdataex_real_len, align 4
+  %84 = call i32 @dissect_ndr_uint32(ptr noundef %77, i32 noundef %78, ptr noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef %82, i32 noundef %83, ptr noundef null)
+  store i32 %84, ptr %8, align 4
+  %85 = load i32, ptr %8, align 4
+  ret i32 %85
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssSetPrinterDataEx_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %10, align 8
+  %15 = load i32, ptr @hf_printerdata, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = load i32, ptr %8, align 4
+  %18 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef 0, i32 noundef 1)
+  store ptr %18, ptr %13, align 8
+  %19 = load ptr, ptr %13, align 8
+  call void @proto_item_set_hidden(ptr noundef %19)
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %10, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr @hf_rc, align 4
+  %27 = call i32 @dissect_doserror(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef null)
+  store i32 %27, ptr %8, align 4
+  %28 = load i32, ptr %8, align 4
+  ret i32 %28
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssEnumPrinterDataEx_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %10, align 8
+  %16 = load i32, ptr @hf_printerdata, align 4
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %8, align 4
+  %19 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 0, i32 noundef 1)
+  store ptr %19, ptr %14, align 8
+  %20 = load ptr, ptr %14, align 8
+  call void @proto_item_set_hidden(ptr noundef %20)
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_hnd, align 4
+  %28 = call i32 @dissect_nt_policy_hnd(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load i32, ptr @hf_printerdata_key, align 4
+  %36 = call i32 @dissect_ndr_cvstring(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef 2, i32 noundef %35, i32 noundef 1, ptr noundef %13)
+  store i32 %36, ptr %8, align 4
+  %37 = load ptr, ptr %9, align 8
+  %38 = getelementptr inbounds %struct._packet_info, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %13, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %39, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %40)
+  %41 = load ptr, ptr %7, align 8
+  %42 = load i32, ptr %8, align 4
+  %43 = load ptr, ptr %9, align 8
+  %44 = load ptr, ptr %10, align 8
+  %45 = load ptr, ptr %11, align 8
+  %46 = load ptr, ptr %12, align 8
+  %47 = load i32, ptr @hf_offered, align 4
+  %48 = call i32 @dissect_ndr_uint32(ptr noundef %41, i32 noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %47, ptr noundef null)
+  store i32 %48, ptr %8, align 4
+  %49 = load i32, ptr %8, align 4
+  ret i32 %49
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssEnumPrinterDataEx_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %19 = load ptr, ptr %10, align 8
+  %20 = load i32, ptr @hf_printerdata, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef 0, i32 noundef 1)
+  store ptr %23, ptr %15, align 8
+  %24 = load ptr, ptr %15, align 8
+  call void @proto_item_set_hidden(ptr noundef %24)
+  %25 = load ptr, ptr %7, align 8
+  %26 = load i32, ptr %8, align 4
+  %27 = load ptr, ptr %9, align 8
+  %28 = load ptr, ptr %10, align 8
+  %29 = load ptr, ptr %11, align 8
+  %30 = load ptr, ptr %12, align 8
+  %31 = load i32, ptr @hf_buffer_size, align 4
+  %32 = call i32 @dissect_ndr_uint32(ptr noundef %25, i32 noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, i32 noundef %31, ptr noundef %13)
+  store i32 %32, ptr %8, align 4
+  %33 = load ptr, ptr %7, align 8
+  %34 = load i32, ptr %8, align 4
+  %35 = load i32, ptr %13, align 4
+  %36 = add i32 %34, %35
+  %37 = add i32 %36, 4
+  %38 = load ptr, ptr %9, align 8
+  %39 = load ptr, ptr %11, align 8
+  %40 = load ptr, ptr %12, align 8
+  %41 = load i32, ptr @hf_returned, align 4
+  %42 = call i32 @dissect_ndr_uint32(ptr noundef %33, i32 noundef %37, ptr noundef %38, ptr noundef null, ptr noundef %39, ptr noundef %40, i32 noundef %41, ptr noundef %14)
+  %43 = load i32, ptr %13, align 4
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %68
+
+45:                                               ; preds = %6
+  %46 = load i32, ptr %8, align 4
+  store i32 %46, ptr %17, align 4
+  %47 = load ptr, ptr %10, align 8
+  %48 = load ptr, ptr %7, align 8
+  %49 = load i32, ptr %8, align 4
+  %50 = load i32, ptr @ett_PRINTER_DATA_CTR, align 4
+  %51 = call ptr @proto_tree_add_subtree(ptr noundef %47, ptr noundef %48, i32 noundef %49, i32 noundef 0, i32 noundef %50, ptr noundef null, ptr noundef @.str.221)
+  store ptr %51, ptr %16, align 8
+  store i32 0, ptr %18, align 4
+  br label %52
+
+52:                                               ; preds = %64, %45
+  %53 = load i32, ptr %18, align 4
+  %54 = load i32, ptr %14, align 4
+  %55 = icmp ult i32 %53, %54
+  br i1 %55, label %56, label %67
+
+56:                                               ; preds = %52
+  %57 = load ptr, ptr %7, align 8
+  %58 = load i32, ptr %17, align 4
+  %59 = load ptr, ptr %9, align 8
+  %60 = load ptr, ptr %16, align 8
+  %61 = load ptr, ptr %11, align 8
+  %62 = load ptr, ptr %12, align 8
+  %63 = call i32 @dissect_spoolss_printer_enum_values(ptr noundef %57, i32 noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %62)
+  store i32 %63, ptr %17, align 4
+  br label %64
+
+64:                                               ; preds = %56
+  %65 = load i32, ptr %18, align 4
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %18, align 4
+  br label %52, !llvm.loop !10
+
+67:                                               ; preds = %52
+  br label %68
+
+68:                                               ; preds = %67, %6
+  %69 = load i32, ptr %13, align 4
+  %70 = load i32, ptr %8, align 4
+  %71 = add i32 %70, %69
+  store i32 %71, ptr %8, align 4
+  %72 = load ptr, ptr %7, align 8
+  %73 = load i32, ptr %8, align 4
+  %74 = load ptr, ptr %9, align 8
+  %75 = load ptr, ptr %10, align 8
+  %76 = load ptr, ptr %11, align 8
+  %77 = load ptr, ptr %12, align 8
+  %78 = load i32, ptr @hf_needed, align 4
+  %79 = call i32 @dissect_ndr_uint32(ptr noundef %72, i32 noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef %76, ptr noundef %77, i32 noundef %78, ptr noundef null)
+  store i32 %79, ptr %8, align 4
+  %80 = load ptr, ptr %7, align 8
+  %81 = load i32, ptr %8, align 4
+  %82 = load ptr, ptr %9, align 8
+  %83 = load ptr, ptr %10, align 8
+  %84 = load ptr, ptr %11, align 8
+  %85 = load ptr, ptr %12, align 8
+  %86 = load i32, ptr @hf_returned, align 4
+  %87 = call i32 @dissect_ndr_uint32(ptr noundef %80, i32 noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %85, i32 noundef %86, ptr noundef null)
+  store i32 %87, ptr %8, align 4
+  %88 = load ptr, ptr %7, align 8
+  %89 = load i32, ptr %8, align 4
+  %90 = load ptr, ptr %9, align 8
+  %91 = load ptr, ptr %10, align 8
+  %92 = load ptr, ptr %11, align 8
+  %93 = load ptr, ptr %12, align 8
+  %94 = load i32, ptr @hf_rc, align 4
+  %95 = call i32 @dissect_doserror(ptr noundef %88, i32 noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef %92, ptr noundef %93, i32 noundef %94, ptr noundef null)
+  store i32 %95, ptr %8, align 4
+  %96 = load i32, ptr %8, align 4
+  ret i32 %96
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssEnumPrinterKey_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i32, ptr %8, align 4
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = load ptr, ptr %12, align 8
+  %20 = load i32, ptr @hf_hnd, align 4
+  %21 = call i32 @dissect_nt_policy_hnd(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store i32 %21, ptr %8, align 4
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %11, align 8
+  %27 = load ptr, ptr %12, align 8
+  %28 = load i32, ptr @hf_printerdata_key, align 4
+  %29 = call i32 @dissect_ndr_cvstring(ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, i32 noundef 2, i32 noundef %28, i32 noundef 1, ptr noundef %13)
+  store i32 %29, ptr %8, align 4
+  %30 = load ptr, ptr %13, align 8
+  %31 = getelementptr i8, ptr %30, i64 0
+  %32 = load i8, ptr %31, align 1
+  %33 = icmp ne i8 %32, 0
+  br i1 %33, label %35, label %34
+
+34:                                               ; preds = %6
+  store ptr @.str.1260, ptr %13, align 8
+  br label %35
+
+35:                                               ; preds = %34, %6
+  %36 = load ptr, ptr %9, align 8
+  %37 = getelementptr inbounds %struct._packet_info, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %13, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %38, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %39)
+  %40 = load ptr, ptr %7, align 8
+  %41 = load i32, ptr %8, align 4
+  %42 = load ptr, ptr %9, align 8
+  %43 = load ptr, ptr %10, align 8
+  %44 = load ptr, ptr %11, align 8
+  %45 = load ptr, ptr %12, align 8
+  %46 = load i32, ptr @hf_needed, align 4
+  %47 = call i32 @dissect_ndr_uint32(ptr noundef %40, i32 noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, i32 noundef %46, ptr noundef null)
+  store i32 %47, ptr %8, align 4
+  %48 = load i32, ptr %8, align 4
+  ret i32 %48
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssEnumPrinterKey_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = call i32 @dissect_spoolss_keybuffer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18)
+  store i32 %19, ptr %8, align 4
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %10, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr @hf_needed, align 4
+  %27 = call i32 @dissect_ndr_uint32(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef null)
+  store i32 %27, ptr %8, align 4
+  %28 = load ptr, ptr %7, align 8
+  %29 = load i32, ptr %8, align 4
+  %30 = load ptr, ptr %9, align 8
+  %31 = load ptr, ptr %10, align 8
+  %32 = load ptr, ptr %11, align 8
+  %33 = load ptr, ptr %12, align 8
+  %34 = load i32, ptr @hf_rc, align 4
+  %35 = call i32 @dissect_doserror(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef null)
+  store i32 %35, ptr %8, align 4
+  %36 = load i32, ptr %8, align 4
+  ret i32 %36
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGetCorePrinterDrivers_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_servername, align 4
+  %20 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef 2, ptr noundef @.str.387, i32 noundef %19, i32 noundef 0)
+  store i32 %20, ptr %8, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_environment, align 4
+  %28 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef 1, ptr noundef @.str.1217, i32 noundef %27, i32 noundef 0)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load i32, ptr @hf_offered, align 4
+  %36 = call i32 @dissect_ndr_uint32(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, ptr noundef null)
+  store i32 %36, ptr %8, align 4
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = load ptr, ptr %9, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = load ptr, ptr %11, align 8
+  %42 = load ptr, ptr %12, align 8
+  %43 = call i32 @dissect_spoolss_keybuffer(ptr noundef %37, i32 noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42)
+  store i32 %43, ptr %8, align 4
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load ptr, ptr %9, align 8
+  %47 = load ptr, ptr %10, align 8
+  %48 = load ptr, ptr %11, align 8
+  %49 = load ptr, ptr %12, align 8
+  %50 = load i32, ptr @hf_core_printer_driver_count, align 4
+  %51 = call i32 @dissect_ndr_uint32(ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, i32 noundef %50, ptr noundef null)
+  store i32 %51, ptr %8, align 4
+  %52 = load i32, ptr %8, align 4
+  ret i32 %52
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGetCorePrinterDrivers_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load i32, ptr %8, align 4
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %10, align 8
+  %19 = load ptr, ptr %11, align 8
+  %20 = load ptr, ptr %12, align 8
+  %21 = load i32, ptr @hf_core_printer_driver_count, align 4
+  %22 = call i32 @dissect_ndr_uint32(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, i32 noundef %21, ptr noundef %13)
+  store i32 %22, ptr %8, align 4
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = load ptr, ptr %9, align 8
+  %26 = load ptr, ptr %10, align 8
+  %27 = load ptr, ptr %11, align 8
+  %28 = load ptr, ptr %12, align 8
+  %29 = load i32, ptr @hf_core_printer_driver_ids, align 4
+  %30 = call i32 @dissect_ndr_uint32(ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, i32 noundef %29, ptr noundef null)
+  store i32 %30, ptr %8, align 4
+  store i32 0, ptr %14, align 4
+  br label %31
+
+31:                                               ; preds = %43, %6
+  %32 = load i32, ptr %14, align 4
+  %33 = load i32, ptr %13, align 4
+  %34 = icmp ult i32 %32, %33
+  br i1 %34, label %35, label %46
+
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %7, align 8
+  %37 = load i32, ptr %8, align 4
+  %38 = load ptr, ptr %9, align 8
+  %39 = load ptr, ptr %10, align 8
+  %40 = load ptr, ptr %11, align 8
+  %41 = load ptr, ptr %12, align 8
+  %42 = call i32 @dissect_CORE_PRINTER_DRIVER(ptr noundef %36, i32 noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41)
+  store i32 %42, ptr %8, align 4
+  br label %43
+
+43:                                               ; preds = %35
+  %44 = load i32, ptr %14, align 4
+  %45 = add i32 %44, 1
+  store i32 %45, ptr %14, align 4
+  br label %31, !llvm.loop !11
+
+46:                                               ; preds = %31
+  %47 = load ptr, ptr %7, align 8
+  %48 = load i32, ptr %8, align 4
+  %49 = load ptr, ptr %9, align 8
+  %50 = load ptr, ptr %10, align 8
+  %51 = load ptr, ptr %11, align 8
+  %52 = load ptr, ptr %12, align 8
+  %53 = load i32, ptr @hf_hresult, align 4
+  %54 = call i32 @dissect_hresult(ptr noundef %47, i32 noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %52, i32 noundef %53, ptr noundef null)
+  store i32 %54, ptr %8, align 4
+  %55 = load i32, ptr %8, align 4
+  ret i32 %55
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGetPrinterDriverPackagePath_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_servername, align 4
+  %20 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef 2, ptr noundef @.str.387, i32 noundef %19, i32 noundef 0)
+  store i32 %20, ptr %8, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_environment, align 4
+  %28 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef 1, ptr noundef @.str.1217, i32 noundef %27, i32 noundef 0)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load i32, ptr @hf_language, align 4
+  %36 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef 2, ptr noundef @.str.1262, i32 noundef %35, i32 noundef 0)
+  store i32 %36, ptr %8, align 4
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = load ptr, ptr %9, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = load ptr, ptr %11, align 8
+  %42 = load ptr, ptr %12, align 8
+  %43 = load i32, ptr @hf_package_id, align 4
+  %44 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %37, i32 noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef 1, ptr noundef @.str.200, i32 noundef %43, i32 noundef 0)
+  store i32 %44, ptr %8, align 4
+  %45 = load ptr, ptr %7, align 8
+  %46 = load i32, ptr %8, align 4
+  %47 = load ptr, ptr %9, align 8
+  %48 = load ptr, ptr %10, align 8
+  %49 = load ptr, ptr %11, align 8
+  %50 = load ptr, ptr %12, align 8
+  %51 = call i32 @dissect_spoolss_buffer(ptr noundef %45, i32 noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef null)
+  store i32 %51, ptr %8, align 4
+  %52 = load ptr, ptr %7, align 8
+  %53 = load i32, ptr %8, align 4
+  %54 = load ptr, ptr %9, align 8
+  %55 = load ptr, ptr %10, align 8
+  %56 = load ptr, ptr %11, align 8
+  %57 = load ptr, ptr %12, align 8
+  %58 = load i32, ptr @hf_driver_package_cab_size, align 4
+  %59 = call i32 @dissect_ndr_uint32(ptr noundef %52, i32 noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %56, ptr noundef %57, i32 noundef %58, ptr noundef null)
+  store i32 %59, ptr %8, align 4
+  %60 = load i32, ptr %8, align 4
+  ret i32 %60
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @SpoolssGetPrinterDriverPackagePath_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = call i32 @dissect_spoolss_string_parm(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @.str.1263)
+  store i32 %19, ptr %8, align 4
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %10, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load i32, ptr @hf_needed, align 4
+  %27 = call i32 @dissect_ndr_uint32(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef null)
+  store i32 %27, ptr %8, align 4
+  %28 = load ptr, ptr %7, align 8
+  %29 = load i32, ptr %8, align 4
+  %30 = load ptr, ptr %9, align 8
+  %31 = load ptr, ptr %10, align 8
+  %32 = load ptr, ptr %11, align 8
+  %33 = load ptr, ptr %12, align 8
+  %34 = load i32, ptr @hf_hresult, align 4
+  %35 = call i32 @dissect_hresult(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef null)
+  store i32 %35, ptr %8, align 4
+  %36 = load i32, ptr %8, align 4
+  ret i32 %36
+}
+
+declare ptr @proto_tree_add_bitmask_value(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_spoolss_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  store ptr %6, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %7
+  %18 = load ptr, ptr %14, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %18, i8 0, i64 24, i1 false)
+  br label %19
+
+19:                                               ; preds = %17, %7
+  %20 = load ptr, ptr %14, align 8
+  %21 = load ptr, ptr %12, align 8
+  %22 = getelementptr inbounds %struct._dcerpc_info, ptr %21, i32 0, i32 16
+  store ptr %20, ptr %22, align 8
+  %23 = load ptr, ptr %8, align 8
+  %24 = load i32, ptr %9, align 4
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %11, align 8
+  %27 = load ptr, ptr %12, align 8
+  %28 = load ptr, ptr %13, align 8
+  %29 = call i32 @dissect_ndr_pointer(ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef @.str.435, i32 noundef -1)
+  store i32 %29, ptr %9, align 4
+  %30 = load i32, ptr %9, align 4
+  ret i32 %30
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_spoolss_buffer_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = getelementptr inbounds %struct._dcerpc_info, ptr %18, i32 0, i32 16
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %14, align 8
+  %21 = load ptr, ptr %12, align 8
+  %22 = getelementptr inbounds %struct._dcerpc_info, ptr %21, i32 0, i32 4
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %27
+
+25:                                               ; preds = %6
+  %26 = load i32, ptr %9, align 4
+  store i32 %26, ptr %7, align 4
+  br label %87
+
+27:                                               ; preds = %6
+  %28 = load ptr, ptr %8, align 8
+  %29 = load i32, ptr %9, align 4
+  %30 = load ptr, ptr %10, align 8
+  %31 = load ptr, ptr %11, align 8
+  %32 = load ptr, ptr %12, align 8
+  %33 = load ptr, ptr %13, align 8
+  %34 = load i32, ptr @hf_buffer_size, align 4
+  %35 = call i32 @dissect_ndr_uint32(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %16)
+  store i32 %35, ptr %9, align 4
+  %36 = load ptr, ptr %8, align 8
+  %37 = load i32, ptr %9, align 4
+  %38 = call i32 @tvb_reported_length_remaining(ptr noundef %36, i32 noundef %37)
+  %39 = load i32, ptr %16, align 4
+  %40 = icmp ult i32 %38, %39
+  br i1 %40, label %41, label %46
+
+41:                                               ; preds = %27
+  %42 = load ptr, ptr %10, align 8
+  %43 = load ptr, ptr %11, align 8
+  %44 = call ptr @expert_add_info(ptr noundef %42, ptr noundef %43, ptr noundef @ei_buffer_size_too_long)
+  %45 = load i32, ptr %9, align 4
+  store i32 %45, ptr %7, align 4
+  br label %87
+
+46:                                               ; preds = %27
+  %47 = load ptr, ptr %8, align 8
+  %48 = load i32, ptr %9, align 4
+  %49 = load ptr, ptr %10, align 8
+  %50 = load ptr, ptr %12, align 8
+  %51 = load ptr, ptr %13, align 8
+  %52 = load i32, ptr @hf_buffer_data, align 4
+  %53 = load i32, ptr %16, align 4
+  %54 = call i32 @dissect_ndr_uint8s(ptr noundef %47, i32 noundef %48, ptr noundef %49, ptr noundef null, ptr noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef %53, ptr noundef %17)
+  store i32 %54, ptr %9, align 4
+  %55 = load ptr, ptr %11, align 8
+  %56 = load i32, ptr @hf_buffer_data, align 4
+  %57 = load ptr, ptr %8, align 8
+  %58 = load i32, ptr %9, align 4
+  %59 = load i32, ptr %16, align 4
+  %60 = sub i32 %58, %59
+  %61 = load i32, ptr %16, align 4
+  %62 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %56, ptr noundef %57, i32 noundef %60, i32 noundef %61, i32 noundef 0)
+  store ptr %62, ptr %15, align 8
+  %63 = load ptr, ptr %14, align 8
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %85
+
+65:                                               ; preds = %46
+  %66 = load ptr, ptr %8, align 8
+  %67 = load ptr, ptr %17, align 8
+  %68 = load i32, ptr %16, align 4
+  %69 = load i32, ptr %16, align 4
+  %70 = call ptr @tvb_new_child_real_data(ptr noundef %66, ptr noundef %67, i32 noundef %68, i32 noundef %69)
+  %71 = load ptr, ptr %14, align 8
+  %72 = getelementptr inbounds %struct.BUFFER, ptr %71, i32 0, i32 0
+  store ptr %70, ptr %72, align 8
+  %73 = load ptr, ptr %10, align 8
+  %74 = load ptr, ptr %14, align 8
+  %75 = getelementptr inbounds %struct.BUFFER, ptr %74, i32 0, i32 0
+  %76 = load ptr, ptr %75, align 8
+  call void @add_new_data_source(ptr noundef %73, ptr noundef %76, ptr noundef @.str.1207)
+  %77 = load ptr, ptr %15, align 8
+  %78 = load ptr, ptr %14, align 8
+  %79 = getelementptr inbounds %struct.BUFFER, ptr %78, i32 0, i32 2
+  store ptr %77, ptr %79, align 8
+  %80 = load ptr, ptr %15, align 8
+  %81 = load i32, ptr @ett_BUFFER, align 4
+  %82 = call ptr @proto_item_add_subtree(ptr noundef %80, i32 noundef %81)
+  %83 = load ptr, ptr %14, align 8
+  %84 = getelementptr inbounds %struct.BUFFER, ptr %83, i32 0, i32 1
+  store ptr %82, ptr %84, align 8
+  br label %85
+
+85:                                               ; preds = %65, %46
+  %86 = load i32, ptr %9, align 4
+  store i32 %86, ptr %7, align 4
+  br label %87
+
+87:                                               ; preds = %85, %41, %25
+  %88 = load i32, ptr %7, align 4
+  ret i32 %88
+}
+
+declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+
+declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) #1
+
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_PRINTER_INFO_0(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_printername, align 4
+  %20 = call i32 @dissect_spoolss_relstr(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 0, ptr noundef null)
+  store i32 %20, ptr %8, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_servername, align 4
+  %28 = call i32 @dissect_spoolss_relstr(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef 0, ptr noundef null)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load i32, ptr @hf_printer_cjobs, align 4
+  %36 = call i32 @dissect_ndr_uint32(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, ptr noundef null)
+  store i32 %36, ptr %8, align 4
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = load ptr, ptr %9, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = load ptr, ptr %11, align 8
+  %42 = load ptr, ptr %12, align 8
+  %43 = load i32, ptr @hf_printer_total_jobs, align 4
+  %44 = call i32 @dissect_ndr_uint32(ptr noundef %37, i32 noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43, ptr noundef null)
+  store i32 %44, ptr %8, align 4
+  %45 = load ptr, ptr %7, align 8
+  %46 = load i32, ptr %8, align 4
+  %47 = load ptr, ptr %9, align 8
+  %48 = load ptr, ptr %10, align 8
+  %49 = load ptr, ptr %11, align 8
+  %50 = load ptr, ptr %12, align 8
+  %51 = load i32, ptr @hf_printer_total_bytes, align 4
+  %52 = call i32 @dissect_ndr_uint32(ptr noundef %45, i32 noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, i32 noundef %51, ptr noundef null)
+  store i32 %52, ptr %8, align 4
+  %53 = load ptr, ptr %7, align 8
+  %54 = load i32, ptr %8, align 4
+  %55 = load ptr, ptr %9, align 8
+  %56 = load ptr, ptr %10, align 8
+  %57 = load ptr, ptr %11, align 8
+  %58 = load ptr, ptr %12, align 8
+  %59 = call i32 @dissect_SYSTEM_TIME(ptr noundef %53, i32 noundef %54, ptr noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef %58, ptr noundef @.str.1209, i32 noundef 1, ptr noundef null)
+  store i32 %59, ptr %8, align 4
+  %60 = load ptr, ptr %7, align 8
+  %61 = load i32, ptr %8, align 4
+  %62 = load ptr, ptr %9, align 8
+  %63 = load ptr, ptr %10, align 8
+  %64 = load ptr, ptr %11, align 8
+  %65 = load ptr, ptr %12, align 8
+  %66 = load i32, ptr @hf_printer_global_counter, align 4
+  %67 = call i32 @dissect_ndr_uint32(ptr noundef %60, i32 noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65, i32 noundef %66, ptr noundef null)
+  store i32 %67, ptr %8, align 4
+  %68 = load ptr, ptr %7, align 8
+  %69 = load i32, ptr %8, align 4
+  %70 = load ptr, ptr %9, align 8
+  %71 = load ptr, ptr %10, align 8
+  %72 = load ptr, ptr %11, align 8
+  %73 = load ptr, ptr %12, align 8
+  %74 = load i32, ptr @hf_printer_total_pages, align 4
+  %75 = call i32 @dissect_ndr_uint32(ptr noundef %68, i32 noundef %69, ptr noundef %70, ptr noundef %71, ptr noundef %72, ptr noundef %73, i32 noundef %74, ptr noundef null)
+  store i32 %75, ptr %8, align 4
+  %76 = load ptr, ptr %7, align 8
+  %77 = load i32, ptr %8, align 4
+  %78 = load ptr, ptr %9, align 8
+  %79 = load ptr, ptr %10, align 8
+  %80 = load ptr, ptr %11, align 8
+  %81 = load ptr, ptr %12, align 8
+  %82 = load i32, ptr @hf_printer_major_version, align 4
+  %83 = call i32 @dissect_ndr_uint16(ptr noundef %76, i32 noundef %77, ptr noundef %78, ptr noundef %79, ptr noundef %80, ptr noundef %81, i32 noundef %82, ptr noundef null)
+  store i32 %83, ptr %8, align 4
+  %84 = load ptr, ptr %7, align 8
+  %85 = load i32, ptr %8, align 4
+  %86 = load ptr, ptr %9, align 8
+  %87 = load ptr, ptr %10, align 8
+  %88 = load ptr, ptr %11, align 8
+  %89 = load ptr, ptr %12, align 8
+  %90 = load i32, ptr @hf_printer_build_version, align 4
+  %91 = call i32 @dissect_ndr_uint16(ptr noundef %84, i32 noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %88, ptr noundef %89, i32 noundef %90, ptr noundef null)
+  store i32 %91, ptr %8, align 4
+  %92 = load ptr, ptr %7, align 8
+  %93 = load i32, ptr %8, align 4
+  %94 = load ptr, ptr %9, align 8
+  %95 = load ptr, ptr %10, align 8
+  %96 = load ptr, ptr %11, align 8
+  %97 = load ptr, ptr %12, align 8
+  %98 = load i32, ptr @hf_printer_unk7, align 4
+  %99 = call i32 @dissect_ndr_uint32(ptr noundef %92, i32 noundef %93, ptr noundef %94, ptr noundef %95, ptr noundef %96, ptr noundef %97, i32 noundef %98, ptr noundef null)
+  store i32 %99, ptr %8, align 4
+  %100 = load ptr, ptr %7, align 8
+  %101 = load i32, ptr %8, align 4
+  %102 = load ptr, ptr %9, align 8
+  %103 = load ptr, ptr %10, align 8
+  %104 = load ptr, ptr %11, align 8
+  %105 = load ptr, ptr %12, align 8
+  %106 = load i32, ptr @hf_printer_unk8, align 4
+  %107 = call i32 @dissect_ndr_uint32(ptr noundef %100, i32 noundef %101, ptr noundef %102, ptr noundef %103, ptr noundef %104, ptr noundef %105, i32 noundef %106, ptr noundef null)
+  store i32 %107, ptr %8, align 4
+  %108 = load ptr, ptr %7, align 8
+  %109 = load i32, ptr %8, align 4
+  %110 = load ptr, ptr %9, align 8
+  %111 = load ptr, ptr %10, align 8
+  %112 = load ptr, ptr %11, align 8
+  %113 = load ptr, ptr %12, align 8
+  %114 = load i32, ptr @hf_printer_unk9, align 4
+  %115 = call i32 @dissect_ndr_uint32(ptr noundef %108, i32 noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef %112, ptr noundef %113, i32 noundef %114, ptr noundef null)
+  store i32 %115, ptr %8, align 4
+  %116 = load ptr, ptr %7, align 8
+  %117 = load i32, ptr %8, align 4
+  %118 = load ptr, ptr %9, align 8
+  %119 = load ptr, ptr %10, align 8
+  %120 = load ptr, ptr %11, align 8
+  %121 = load ptr, ptr %12, align 8
+  %122 = load i32, ptr @hf_printer_session_ctr, align 4
+  %123 = call i32 @dissect_ndr_uint32(ptr noundef %116, i32 noundef %117, ptr noundef %118, ptr noundef %119, ptr noundef %120, ptr noundef %121, i32 noundef %122, ptr noundef null)
+  store i32 %123, ptr %8, align 4
+  %124 = load ptr, ptr %7, align 8
+  %125 = load i32, ptr %8, align 4
+  %126 = load ptr, ptr %9, align 8
+  %127 = load ptr, ptr %10, align 8
+  %128 = load ptr, ptr %11, align 8
+  %129 = load ptr, ptr %12, align 8
+  %130 = load i32, ptr @hf_printer_unk11, align 4
+  %131 = call i32 @dissect_ndr_uint32(ptr noundef %124, i32 noundef %125, ptr noundef %126, ptr noundef %127, ptr noundef %128, ptr noundef %129, i32 noundef %130, ptr noundef null)
+  store i32 %131, ptr %8, align 4
+  %132 = load ptr, ptr %7, align 8
+  %133 = load i32, ptr %8, align 4
+  %134 = load ptr, ptr %9, align 8
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %11, align 8
+  %137 = load ptr, ptr %12, align 8
+  %138 = load i32, ptr @hf_printer_printer_errors, align 4
+  %139 = call i32 @dissect_ndr_uint32(ptr noundef %132, i32 noundef %133, ptr noundef %134, ptr noundef %135, ptr noundef %136, ptr noundef %137, i32 noundef %138, ptr noundef null)
+  store i32 %139, ptr %8, align 4
+  %140 = load ptr, ptr %7, align 8
+  %141 = load i32, ptr %8, align 4
+  %142 = load ptr, ptr %9, align 8
+  %143 = load ptr, ptr %10, align 8
+  %144 = load ptr, ptr %11, align 8
+  %145 = load ptr, ptr %12, align 8
+  %146 = load i32, ptr @hf_printer_unk13, align 4
+  %147 = call i32 @dissect_ndr_uint32(ptr noundef %140, i32 noundef %141, ptr noundef %142, ptr noundef %143, ptr noundef %144, ptr noundef %145, i32 noundef %146, ptr noundef null)
+  store i32 %147, ptr %8, align 4
+  %148 = load ptr, ptr %7, align 8
+  %149 = load i32, ptr %8, align 4
+  %150 = load ptr, ptr %9, align 8
+  %151 = load ptr, ptr %10, align 8
+  %152 = load ptr, ptr %11, align 8
+  %153 = load ptr, ptr %12, align 8
+  %154 = load i32, ptr @hf_printer_unk14, align 4
+  %155 = call i32 @dissect_ndr_uint32(ptr noundef %148, i32 noundef %149, ptr noundef %150, ptr noundef %151, ptr noundef %152, ptr noundef %153, i32 noundef %154, ptr noundef null)
+  store i32 %155, ptr %8, align 4
+  %156 = load ptr, ptr %7, align 8
+  %157 = load i32, ptr %8, align 4
+  %158 = load ptr, ptr %9, align 8
+  %159 = load ptr, ptr %10, align 8
+  %160 = load ptr, ptr %11, align 8
+  %161 = load ptr, ptr %12, align 8
+  %162 = load i32, ptr @hf_printer_unk15, align 4
+  %163 = call i32 @dissect_ndr_uint32(ptr noundef %156, i32 noundef %157, ptr noundef %158, ptr noundef %159, ptr noundef %160, ptr noundef %161, i32 noundef %162, ptr noundef null)
+  store i32 %163, ptr %8, align 4
+  %164 = load ptr, ptr %7, align 8
+  %165 = load i32, ptr %8, align 4
+  %166 = load ptr, ptr %9, align 8
+  %167 = load ptr, ptr %10, align 8
+  %168 = load ptr, ptr %11, align 8
+  %169 = load ptr, ptr %12, align 8
+  %170 = load i32, ptr @hf_printer_unk16, align 4
+  %171 = call i32 @dissect_ndr_uint32(ptr noundef %164, i32 noundef %165, ptr noundef %166, ptr noundef %167, ptr noundef %168, ptr noundef %169, i32 noundef %170, ptr noundef null)
+  store i32 %171, ptr %8, align 4
+  %172 = load ptr, ptr %7, align 8
+  %173 = load i32, ptr %8, align 4
+  %174 = load ptr, ptr %9, align 8
+  %175 = load ptr, ptr %10, align 8
+  %176 = load ptr, ptr %11, align 8
+  %177 = load ptr, ptr %12, align 8
+  %178 = load i32, ptr @hf_printer_changeid, align 4
+  %179 = call i32 @dissect_ndr_uint32(ptr noundef %172, i32 noundef %173, ptr noundef %174, ptr noundef %175, ptr noundef %176, ptr noundef %177, i32 noundef %178, ptr noundef null)
+  store i32 %179, ptr %8, align 4
+  %180 = load ptr, ptr %7, align 8
+  %181 = load i32, ptr %8, align 4
+  %182 = load ptr, ptr %9, align 8
+  %183 = load ptr, ptr %10, align 8
+  %184 = load ptr, ptr %11, align 8
+  %185 = load ptr, ptr %12, align 8
+  %186 = load i32, ptr @hf_printer_unk18, align 4
+  %187 = call i32 @dissect_ndr_uint32(ptr noundef %180, i32 noundef %181, ptr noundef %182, ptr noundef %183, ptr noundef %184, ptr noundef %185, i32 noundef %186, ptr noundef null)
+  store i32 %187, ptr %8, align 4
+  %188 = load ptr, ptr %7, align 8
+  %189 = load i32, ptr %8, align 4
+  %190 = load ptr, ptr %9, align 8
+  %191 = load ptr, ptr %10, align 8
+  %192 = load ptr, ptr %11, align 8
+  %193 = load ptr, ptr %12, align 8
+  %194 = load i32, ptr @hf_printer_status, align 4
+  %195 = call i32 @dissect_ndr_uint32(ptr noundef %188, i32 noundef %189, ptr noundef %190, ptr noundef %191, ptr noundef %192, ptr noundef %193, i32 noundef %194, ptr noundef null)
+  store i32 %195, ptr %8, align 4
+  %196 = load ptr, ptr %7, align 8
+  %197 = load i32, ptr %8, align 4
+  %198 = load ptr, ptr %9, align 8
+  %199 = load ptr, ptr %10, align 8
+  %200 = load ptr, ptr %11, align 8
+  %201 = load ptr, ptr %12, align 8
+  %202 = load i32, ptr @hf_printer_unk20, align 4
+  %203 = call i32 @dissect_ndr_uint32(ptr noundef %196, i32 noundef %197, ptr noundef %198, ptr noundef %199, ptr noundef %200, ptr noundef %201, i32 noundef %202, ptr noundef null)
+  store i32 %203, ptr %8, align 4
+  %204 = load ptr, ptr %7, align 8
+  %205 = load i32, ptr %8, align 4
+  %206 = load ptr, ptr %9, align 8
+  %207 = load ptr, ptr %10, align 8
+  %208 = load ptr, ptr %11, align 8
+  %209 = load ptr, ptr %12, align 8
+  %210 = load i32, ptr @hf_printer_c_setprinter, align 4
+  %211 = call i32 @dissect_ndr_uint32(ptr noundef %204, i32 noundef %205, ptr noundef %206, ptr noundef %207, ptr noundef %208, ptr noundef %209, i32 noundef %210, ptr noundef null)
+  store i32 %211, ptr %8, align 4
+  %212 = load ptr, ptr %7, align 8
+  %213 = load i32, ptr %8, align 4
+  %214 = load ptr, ptr %9, align 8
+  %215 = load ptr, ptr %10, align 8
+  %216 = load ptr, ptr %11, align 8
+  %217 = load ptr, ptr %12, align 8
+  %218 = load i32, ptr @hf_printer_unk22, align 4
+  %219 = call i32 @dissect_ndr_uint16(ptr noundef %212, i32 noundef %213, ptr noundef %214, ptr noundef %215, ptr noundef %216, ptr noundef %217, i32 noundef %218, ptr noundef null)
+  store i32 %219, ptr %8, align 4
+  %220 = load ptr, ptr %7, align 8
+  %221 = load i32, ptr %8, align 4
+  %222 = load ptr, ptr %9, align 8
+  %223 = load ptr, ptr %10, align 8
+  %224 = load ptr, ptr %11, align 8
+  %225 = load ptr, ptr %12, align 8
+  %226 = load i32, ptr @hf_printer_unk23, align 4
+  %227 = call i32 @dissect_ndr_uint16(ptr noundef %220, i32 noundef %221, ptr noundef %222, ptr noundef %223, ptr noundef %224, ptr noundef %225, i32 noundef %226, ptr noundef null)
+  store i32 %227, ptr %8, align 4
+  %228 = load ptr, ptr %7, align 8
+  %229 = load i32, ptr %8, align 4
+  %230 = load ptr, ptr %9, align 8
+  %231 = load ptr, ptr %10, align 8
+  %232 = load ptr, ptr %11, align 8
+  %233 = load ptr, ptr %12, align 8
+  %234 = load i32, ptr @hf_printer_unk24, align 4
+  %235 = call i32 @dissect_ndr_uint16(ptr noundef %228, i32 noundef %229, ptr noundef %230, ptr noundef %231, ptr noundef %232, ptr noundef %233, i32 noundef %234, ptr noundef null)
+  store i32 %235, ptr %8, align 4
+  %236 = load ptr, ptr %7, align 8
+  %237 = load i32, ptr %8, align 4
+  %238 = load ptr, ptr %9, align 8
+  %239 = load ptr, ptr %10, align 8
+  %240 = load ptr, ptr %11, align 8
+  %241 = load ptr, ptr %12, align 8
+  %242 = load i32, ptr @hf_printer_unk25, align 4
+  %243 = call i32 @dissect_ndr_uint16(ptr noundef %236, i32 noundef %237, ptr noundef %238, ptr noundef %239, ptr noundef %240, ptr noundef %241, i32 noundef %242, ptr noundef null)
+  store i32 %243, ptr %8, align 4
+  %244 = load ptr, ptr %7, align 8
+  %245 = load i32, ptr %8, align 4
+  %246 = load ptr, ptr %9, align 8
+  %247 = load ptr, ptr %10, align 8
+  %248 = load ptr, ptr %11, align 8
+  %249 = load ptr, ptr %12, align 8
+  %250 = load i32, ptr @hf_printer_unk26, align 4
+  %251 = call i32 @dissect_ndr_uint16(ptr noundef %244, i32 noundef %245, ptr noundef %246, ptr noundef %247, ptr noundef %248, ptr noundef %249, i32 noundef %250, ptr noundef null)
+  store i32 %251, ptr %8, align 4
+  %252 = load ptr, ptr %7, align 8
+  %253 = load i32, ptr %8, align 4
+  %254 = load ptr, ptr %9, align 8
+  %255 = load ptr, ptr %10, align 8
+  %256 = load ptr, ptr %11, align 8
+  %257 = load ptr, ptr %12, align 8
+  %258 = load i32, ptr @hf_printer_unk27, align 4
+  %259 = call i32 @dissect_ndr_uint16(ptr noundef %252, i32 noundef %253, ptr noundef %254, ptr noundef %255, ptr noundef %256, ptr noundef %257, i32 noundef %258, ptr noundef null)
+  store i32 %259, ptr %8, align 4
+  %260 = load ptr, ptr %7, align 8
+  %261 = load i32, ptr %8, align 4
+  %262 = load ptr, ptr %9, align 8
+  %263 = load ptr, ptr %10, align 8
+  %264 = load ptr, ptr %11, align 8
+  %265 = load ptr, ptr %12, align 8
+  %266 = load i32, ptr @hf_printer_unk28, align 4
+  %267 = call i32 @dissect_ndr_uint16(ptr noundef %260, i32 noundef %261, ptr noundef %262, ptr noundef %263, ptr noundef %264, ptr noundef %265, i32 noundef %266, ptr noundef null)
+  store i32 %267, ptr %8, align 4
+  %268 = load ptr, ptr %7, align 8
+  %269 = load i32, ptr %8, align 4
+  %270 = load ptr, ptr %9, align 8
+  %271 = load ptr, ptr %10, align 8
+  %272 = load ptr, ptr %11, align 8
+  %273 = load ptr, ptr %12, align 8
+  %274 = load i32, ptr @hf_printer_unk29, align 4
+  %275 = call i32 @dissect_ndr_uint16(ptr noundef %268, i32 noundef %269, ptr noundef %270, ptr noundef %271, ptr noundef %272, ptr noundef %273, i32 noundef %274, ptr noundef null)
+  store i32 %275, ptr %8, align 4
+  %276 = load i32, ptr %8, align 4
+  ret i32 %276
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_PRINTER_INFO_1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_printer_flags, align 4
+  %20 = call i32 @dissect_ndr_uint32(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null)
+  store i32 %20, ptr %8, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_printerdesc, align 4
+  %28 = call i32 @dissect_spoolss_relstr(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef 0, ptr noundef null)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load i32, ptr @hf_printername, align 4
+  %36 = call i32 @dissect_spoolss_relstr(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef 0, ptr noundef null)
+  store i32 %36, ptr %8, align 4
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = load ptr, ptr %9, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = load ptr, ptr %11, align 8
+  %42 = load ptr, ptr %12, align 8
+  %43 = load i32, ptr @hf_printercomment, align 4
+  %44 = call i32 @dissect_spoolss_relstr(ptr noundef %37, i32 noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef 0, ptr noundef null)
+  store i32 %44, ptr %8, align 4
+  %45 = load i32, ptr %8, align 4
+  ret i32 %45
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_PRINTER_INFO_2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load i32, ptr %8, align 4
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %10, align 8
+  %19 = load ptr, ptr %11, align 8
+  %20 = load ptr, ptr %12, align 8
+  %21 = load i32, ptr @hf_servername, align 4
+  %22 = call i32 @dissect_spoolss_relstr(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef 0, ptr noundef null)
+  store i32 %22, ptr %8, align 4
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = load ptr, ptr %9, align 8
+  %26 = load ptr, ptr %10, align 8
+  %27 = load ptr, ptr %11, align 8
+  %28 = load ptr, ptr %12, align 8
+  %29 = load i32, ptr @hf_printername, align 4
+  %30 = call i32 @dissect_spoolss_relstr(ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef 0, ptr noundef null)
+  store i32 %30, ptr %8, align 4
+  %31 = load ptr, ptr %7, align 8
+  %32 = load i32, ptr %8, align 4
+  %33 = load ptr, ptr %9, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %12, align 8
+  %37 = load i32, ptr @hf_sharename, align 4
+  %38 = call i32 @dissect_spoolss_relstr(ptr noundef %31, i32 noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef 0, ptr noundef null)
+  store i32 %38, ptr %8, align 4
+  %39 = load ptr, ptr %7, align 8
+  %40 = load i32, ptr %8, align 4
+  %41 = load ptr, ptr %9, align 8
+  %42 = load ptr, ptr %10, align 8
+  %43 = load ptr, ptr %11, align 8
+  %44 = load ptr, ptr %12, align 8
+  %45 = load i32, ptr @hf_portname, align 4
+  %46 = call i32 @dissect_spoolss_relstr(ptr noundef %39, i32 noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef 0, ptr noundef null)
+  store i32 %46, ptr %8, align 4
+  %47 = load ptr, ptr %7, align 8
+  %48 = load i32, ptr %8, align 4
+  %49 = load ptr, ptr %9, align 8
+  %50 = load ptr, ptr %10, align 8
+  %51 = load ptr, ptr %11, align 8
+  %52 = load ptr, ptr %12, align 8
+  %53 = load i32, ptr @hf_drivername, align 4
+  %54 = call i32 @dissect_spoolss_relstr(ptr noundef %47, i32 noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef 0, ptr noundef null)
+  store i32 %54, ptr %8, align 4
+  %55 = load ptr, ptr %7, align 8
+  %56 = load i32, ptr %8, align 4
+  %57 = load ptr, ptr %9, align 8
+  %58 = load ptr, ptr %10, align 8
+  %59 = load ptr, ptr %11, align 8
+  %60 = load ptr, ptr %12, align 8
+  %61 = load i32, ptr @hf_printercomment, align 4
+  %62 = call i32 @dissect_spoolss_relstr(ptr noundef %55, i32 noundef %56, ptr noundef %57, ptr noundef %58, ptr noundef %59, ptr noundef %60, i32 noundef %61, i32 noundef 0, ptr noundef null)
+  store i32 %62, ptr %8, align 4
+  %63 = load ptr, ptr %7, align 8
+  %64 = load i32, ptr %8, align 4
+  %65 = load ptr, ptr %9, align 8
+  %66 = load ptr, ptr %10, align 8
+  %67 = load ptr, ptr %11, align 8
+  %68 = load ptr, ptr %12, align 8
+  %69 = load i32, ptr @hf_printerlocation, align 4
+  %70 = call i32 @dissect_spoolss_relstr(ptr noundef %63, i32 noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef %68, i32 noundef %69, i32 noundef 0, ptr noundef null)
+  store i32 %70, ptr %8, align 4
+  %71 = load ptr, ptr %7, align 8
+  %72 = load i32, ptr %8, align 4
+  %73 = load ptr, ptr %9, align 8
+  %74 = load ptr, ptr %11, align 8
+  %75 = load ptr, ptr %12, align 8
+  %76 = load i32, ptr @hf_offset, align 4
+  %77 = call i32 @dissect_ndr_uint32(ptr noundef %71, i32 noundef %72, ptr noundef %73, ptr noundef null, ptr noundef %74, ptr noundef %75, i32 noundef %76, ptr noundef %13)
+  store i32 %77, ptr %8, align 4
+  %78 = load ptr, ptr %7, align 8
+  %79 = load i32, ptr %13, align 4
+  %80 = sub i32 %79, 4
+  %81 = load ptr, ptr %9, align 8
+  %82 = load ptr, ptr %10, align 8
+  %83 = load ptr, ptr %11, align 8
+  %84 = load ptr, ptr %12, align 8
+  %85 = call i32 @dissect_DEVMODE(ptr noundef %78, i32 noundef %80, ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84)
+  %86 = load ptr, ptr %7, align 8
+  %87 = load i32, ptr %8, align 4
+  %88 = load ptr, ptr %9, align 8
+  %89 = load ptr, ptr %10, align 8
+  %90 = load ptr, ptr %11, align 8
+  %91 = load ptr, ptr %12, align 8
+  %92 = load i32, ptr @hf_sepfile, align 4
+  %93 = call i32 @dissect_spoolss_relstr(ptr noundef %86, i32 noundef %87, ptr noundef %88, ptr noundef %89, ptr noundef %90, ptr noundef %91, i32 noundef %92, i32 noundef 0, ptr noundef null)
+  store i32 %93, ptr %8, align 4
+  %94 = load ptr, ptr %7, align 8
+  %95 = load i32, ptr %8, align 4
+  %96 = load ptr, ptr %9, align 8
+  %97 = load ptr, ptr %10, align 8
+  %98 = load ptr, ptr %11, align 8
+  %99 = load ptr, ptr %12, align 8
+  %100 = load i32, ptr @hf_printprocessor, align 4
+  %101 = call i32 @dissect_spoolss_relstr(ptr noundef %94, i32 noundef %95, ptr noundef %96, ptr noundef %97, ptr noundef %98, ptr noundef %99, i32 noundef %100, i32 noundef 0, ptr noundef null)
+  store i32 %101, ptr %8, align 4
+  %102 = load ptr, ptr %7, align 8
+  %103 = load i32, ptr %8, align 4
+  %104 = load ptr, ptr %9, align 8
+  %105 = load ptr, ptr %10, align 8
+  %106 = load ptr, ptr %11, align 8
+  %107 = load ptr, ptr %12, align 8
+  %108 = load i32, ptr @hf_datatype, align 4
+  %109 = call i32 @dissect_spoolss_relstr(ptr noundef %102, i32 noundef %103, ptr noundef %104, ptr noundef %105, ptr noundef %106, ptr noundef %107, i32 noundef %108, i32 noundef 0, ptr noundef null)
+  store i32 %109, ptr %8, align 4
+  %110 = load ptr, ptr %7, align 8
+  %111 = load i32, ptr %8, align 4
+  %112 = load ptr, ptr %9, align 8
+  %113 = load ptr, ptr %10, align 8
+  %114 = load ptr, ptr %11, align 8
+  %115 = load ptr, ptr %12, align 8
+  %116 = load i32, ptr @hf_parameters, align 4
+  %117 = call i32 @dissect_spoolss_relstr(ptr noundef %110, i32 noundef %111, ptr noundef %112, ptr noundef %113, ptr noundef %114, ptr noundef %115, i32 noundef %116, i32 noundef 0, ptr noundef null)
+  store i32 %117, ptr %8, align 4
+  %118 = load ptr, ptr %7, align 8
+  %119 = load i32, ptr %8, align 4
+  %120 = load ptr, ptr %9, align 8
+  %121 = load ptr, ptr %11, align 8
+  %122 = load ptr, ptr %12, align 8
+  %123 = load i32, ptr @hf_offset, align 4
+  %124 = call i32 @dissect_ndr_uint32(ptr noundef %118, i32 noundef %119, ptr noundef %120, ptr noundef null, ptr noundef %121, ptr noundef %122, i32 noundef %123, ptr noundef %14)
+  store i32 %124, ptr %8, align 4
+  %125 = load ptr, ptr %7, align 8
+  %126 = load i32, ptr %14, align 4
+  %127 = load ptr, ptr %9, align 8
+  %128 = load ptr, ptr %10, align 8
+  %129 = load ptr, ptr %12, align 8
+  %130 = call i32 @dissect_nt_sec_desc(ptr noundef %125, i32 noundef %126, ptr noundef %127, ptr noundef %128, ptr noundef %129, i32 noundef 0, i32 noundef -1, ptr noundef @spoolss_printer_access_mask_info)
+  %131 = load ptr, ptr %7, align 8
+  %132 = load i32, ptr %8, align 4
+  %133 = load ptr, ptr %9, align 8
+  %134 = load ptr, ptr %10, align 8
+  %135 = load ptr, ptr %11, align 8
+  %136 = load ptr, ptr %12, align 8
+  %137 = call i32 @dissect_printer_attributes(ptr noundef %131, i32 noundef %132, ptr noundef %133, ptr noundef %134, ptr noundef %135, ptr noundef %136)
+  store i32 %137, ptr %8, align 4
+  %138 = load ptr, ptr %7, align 8
+  %139 = load i32, ptr %8, align 4
+  %140 = load ptr, ptr %9, align 8
+  %141 = load ptr, ptr %11, align 8
+  %142 = load ptr, ptr %12, align 8
+  %143 = load i32, ptr @hf_printer_priority, align 4
+  %144 = call i32 @dissect_ndr_uint32(ptr noundef %138, i32 noundef %139, ptr noundef %140, ptr noundef null, ptr noundef %141, ptr noundef %142, i32 noundef %143, ptr noundef null)
+  store i32 %144, ptr %8, align 4
+  %145 = load ptr, ptr %7, align 8
+  %146 = load i32, ptr %8, align 4
+  %147 = load ptr, ptr %9, align 8
+  %148 = load ptr, ptr %11, align 8
+  %149 = load ptr, ptr %12, align 8
+  %150 = load i32, ptr @hf_printer_default_priority, align 4
+  %151 = call i32 @dissect_ndr_uint32(ptr noundef %145, i32 noundef %146, ptr noundef %147, ptr noundef null, ptr noundef %148, ptr noundef %149, i32 noundef %150, ptr noundef null)
+  store i32 %151, ptr %8, align 4
+  %152 = load ptr, ptr %7, align 8
+  %153 = load i32, ptr %8, align 4
+  %154 = load ptr, ptr %9, align 8
+  %155 = load ptr, ptr %11, align 8
+  %156 = load ptr, ptr %12, align 8
+  %157 = load i32, ptr @hf_start_time, align 4
+  %158 = call i32 @dissect_ndr_uint32(ptr noundef %152, i32 noundef %153, ptr noundef %154, ptr noundef null, ptr noundef %155, ptr noundef %156, i32 noundef %157, ptr noundef null)
+  store i32 %158, ptr %8, align 4
+  %159 = load ptr, ptr %7, align 8
+  %160 = load i32, ptr %8, align 4
+  %161 = load ptr, ptr %9, align 8
+  %162 = load ptr, ptr %11, align 8
+  %163 = load ptr, ptr %12, align 8
+  %164 = load i32, ptr @hf_end_time, align 4
+  %165 = call i32 @dissect_ndr_uint32(ptr noundef %159, i32 noundef %160, ptr noundef %161, ptr noundef null, ptr noundef %162, ptr noundef %163, i32 noundef %164, ptr noundef null)
+  store i32 %165, ptr %8, align 4
+  %166 = load ptr, ptr %7, align 8
+  %167 = load i32, ptr %8, align 4
+  %168 = load ptr, ptr %9, align 8
+  %169 = load ptr, ptr %10, align 8
+  %170 = load ptr, ptr %11, align 8
+  %171 = load ptr, ptr %12, align 8
+  %172 = load i32, ptr @hf_printer_status, align 4
+  %173 = call i32 @dissect_ndr_uint32(ptr noundef %166, i32 noundef %167, ptr noundef %168, ptr noundef %169, ptr noundef %170, ptr noundef %171, i32 noundef %172, ptr noundef null)
+  store i32 %173, ptr %8, align 4
+  %174 = load ptr, ptr %7, align 8
+  %175 = load i32, ptr %8, align 4
+  %176 = load ptr, ptr %9, align 8
+  %177 = load ptr, ptr %11, align 8
+  %178 = load ptr, ptr %12, align 8
+  %179 = load i32, ptr @hf_printer_jobs, align 4
+  %180 = call i32 @dissect_ndr_uint32(ptr noundef %174, i32 noundef %175, ptr noundef %176, ptr noundef null, ptr noundef %177, ptr noundef %178, i32 noundef %179, ptr noundef null)
+  store i32 %180, ptr %8, align 4
+  %181 = load ptr, ptr %7, align 8
+  %182 = load i32, ptr %8, align 4
+  %183 = load ptr, ptr %9, align 8
+  %184 = load ptr, ptr %11, align 8
+  %185 = load ptr, ptr %12, align 8
+  %186 = load i32, ptr @hf_printer_averageppm, align 4
+  %187 = call i32 @dissect_ndr_uint32(ptr noundef %181, i32 noundef %182, ptr noundef %183, ptr noundef null, ptr noundef %184, ptr noundef %185, i32 noundef %186, ptr noundef null)
+  store i32 %187, ptr %8, align 4
+  %188 = load i32, ptr %8, align 4
+  ret i32 %188
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_PRINTER_INFO_3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_printer_flags, align 4
+  %20 = call i32 @dissect_ndr_uint32(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef null)
+  store i32 %20, ptr %8, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = call i32 @dissect_nt_sec_desc(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef 0, i32 noundef -1, ptr noundef @spoolss_printer_access_mask_info)
+  store i32 %26, ptr %8, align 4
+  %27 = load i32, ptr %8, align 4
+  ret i32 %27
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_PRINTER_INFO_5(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_printername, align 4
+  %20 = call i32 @dissect_spoolss_relstr(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 0, ptr noundef null)
+  store i32 %20, ptr %8, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_portname, align 4
+  %28 = call i32 @dissect_spoolss_relstr(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef 0, ptr noundef null)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = call i32 @dissect_printer_attributes(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34)
+  store i32 %35, ptr %8, align 4
+  %36 = load ptr, ptr %7, align 8
+  %37 = load i32, ptr %8, align 4
+  %38 = load ptr, ptr %9, align 8
+  %39 = load ptr, ptr %10, align 8
+  %40 = load ptr, ptr %11, align 8
+  %41 = load ptr, ptr %12, align 8
+  %42 = load i32, ptr @hf_device_not_selected_timeout, align 4
+  %43 = call i32 @dissect_ndr_uint32(ptr noundef %36, i32 noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, i32 noundef %42, ptr noundef null)
+  store i32 %43, ptr %8, align 4
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load ptr, ptr %9, align 8
+  %47 = load ptr, ptr %10, align 8
+  %48 = load ptr, ptr %11, align 8
+  %49 = load ptr, ptr %12, align 8
+  %50 = load i32, ptr @hf_transmission_retry_timeout, align 4
+  %51 = call i32 @dissect_ndr_uint32(ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, i32 noundef %50, ptr noundef null)
+  store i32 %51, ptr %8, align 4
+  %52 = load i32, ptr %8, align 4
+  ret i32 %52
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_PRINTER_INFO_7(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = load i32, ptr @hf_printer_guid, align 4
+  %20 = call i32 @dissect_spoolss_relstr(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 0, ptr noundef null)
+  store i32 %20, ptr %8, align 4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_printer_action, align 4
+  %28 = call i32 @dissect_ndr_uint32(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef null)
+  store i32 %28, ptr %8, align 4
+  %29 = load i32, ptr %8, align 4
+  ret i32 %29
+}
+
+declare i32 @dissect_doserror(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) #0 {
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca ptr, align 8
+  store ptr %0, ptr %10, align 8
+  store i32 %1, ptr %11, align 4
+  store ptr %2, ptr %12, align 8
+  store ptr %3, ptr %13, align 8
+  store ptr %4, ptr %14, align 8
+  store ptr %5, ptr %15, align 8
+  store i32 %6, ptr %16, align 4
+  store i32 %7, ptr %17, align 4
+  store ptr %8, ptr %18, align 8
+  %25 = load ptr, ptr %10, align 8
+  %26 = load i32, ptr %11, align 4
+  %27 = load ptr, ptr %12, align 8
+  %28 = load ptr, ptr %14, align 8
+  %29 = load ptr, ptr %15, align 8
+  %30 = load i32, ptr @hf_offset, align 4
+  %31 = call i32 @dissect_ndr_uint32(ptr noundef %25, i32 noundef %26, ptr noundef %27, ptr noundef null, ptr noundef %28, ptr noundef %29, i32 noundef %30, ptr noundef %21)
+  store i32 %31, ptr %11, align 4
+  %32 = load i32, ptr %21, align 4
+  %33 = load i32, ptr %17, align 4
+  %34 = add i32 %32, %33
+  store i32 %34, ptr %22, align 4
+  %35 = load i32, ptr %21, align 4
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %44
+
+37:                                               ; preds = %9
+  %38 = load ptr, ptr %10, align 8
+  %39 = load i32, ptr %22, align 4
+  %40 = load ptr, ptr %12, align 8
+  %41 = load ptr, ptr %15, align 8
+  %42 = load i32, ptr @hf_relative_string, align 4
+  %43 = call i32 @dissect_spoolss_uint16uni(ptr noundef %38, i32 noundef %39, ptr noundef %40, ptr noundef null, ptr noundef %41, ptr noundef %24, i32 noundef %42)
+  store i32 %43, ptr %23, align 4
+  br label %50
+
+44:                                               ; preds = %9
+  %45 = load ptr, ptr %12, align 8
+  %46 = getelementptr inbounds %struct._packet_info, ptr %45, i32 0, i32 50
+  %47 = load ptr, ptr %46, align 8
+  %48 = call noalias ptr @wmem_strdup(ptr noundef %47, ptr noundef @.str.755)
+  store ptr %48, ptr %24, align 8
+  %49 = load i32, ptr %22, align 4
+  store i32 %49, ptr %23, align 4
+  br label %50
+
+50:                                               ; preds = %44, %37
+  %51 = load ptr, ptr %13, align 8
+  %52 = load i32, ptr %16, align 4
+  %53 = load ptr, ptr %10, align 8
+  %54 = load i32, ptr %22, align 4
+  %55 = load i32, ptr %23, align 4
+  %56 = load i32, ptr %22, align 4
+  %57 = sub i32 %55, %56
+  %58 = load ptr, ptr %24, align 8
+  %59 = call ptr @proto_tree_add_string(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef %57, ptr noundef %58)
+  store ptr %59, ptr %19, align 8
+  %60 = load ptr, ptr %19, align 8
+  %61 = load i32, ptr @ett_RELSTR, align 4
+  %62 = call ptr @proto_item_add_subtree(ptr noundef %60, i32 noundef %61)
+  store ptr %62, ptr %20, align 8
+  %63 = load ptr, ptr %10, align 8
+  %64 = load i32, ptr %11, align 4
+  %65 = sub i32 %64, 4
+  %66 = load ptr, ptr %12, align 8
+  %67 = load ptr, ptr %20, align 8
+  %68 = load ptr, ptr %14, align 8
+  %69 = load ptr, ptr %15, align 8
+  %70 = load i32, ptr @hf_offset, align 4
+  %71 = call i32 @dissect_ndr_uint32(ptr noundef %63, i32 noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69, i32 noundef %70, ptr noundef null)
+  %72 = load i32, ptr %21, align 4
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %82
+
+74:                                               ; preds = %50
+  %75 = load ptr, ptr %10, align 8
+  %76 = load i32, ptr %22, align 4
+  %77 = load ptr, ptr %12, align 8
+  %78 = load ptr, ptr %20, align 8
+  %79 = load ptr, ptr %15, align 8
+  %80 = load i32, ptr @hf_relative_string, align 4
+  %81 = call i32 @dissect_spoolss_uint16uni(ptr noundef %75, i32 noundef %76, ptr noundef %77, ptr noundef %78, ptr noundef %79, ptr noundef null, i32 noundef %80)
+  br label %82
+
+82:                                               ; preds = %74, %50
+  %83 = load ptr, ptr %18, align 8
+  %84 = icmp ne ptr %83, null
+  br i1 %84, label %85, label %88
+
+85:                                               ; preds = %82
+  %86 = load ptr, ptr %24, align 8
+  %87 = load ptr, ptr %18, align 8
+  store ptr %86, ptr %87, align 8
+  br label %88
+
+88:                                               ; preds = %85, %82
+  %89 = load i32, ptr %11, align 4
+  ret i32 %89
+}
+
+declare i32 @tvb_reported_length(ptr noundef) #1
+
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+
+declare i32 @dissect_nt_policy_hnd(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_spoolss_JOB_INFO_1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %17 = load i32, ptr %8, align 4
+  store i32 %17, ptr %15, align 4
+  %18 = load ptr, ptr %10, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = load i32, ptr @ett_JOB_INFO_1, align 4
+  %22 = call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef 0, i32 noundef %21, ptr noundef %13, ptr noundef @.str.1213)
+  store ptr %22, ptr %14, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = load ptr, ptr %9, align 8
+  %26 = load ptr, ptr %14, align 8
+  %27 = load ptr, ptr %11, align 8
+  %28 = load ptr, ptr %12, align 8
+  %29 = load i32, ptr @hf_job_id, align 4
+  %30 = call i32 @dissect_ndr_uint32(ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, i32 noundef %29, ptr noundef null)
+  store i32 %30, ptr %8, align 4
+  %31 = load ptr, ptr %7, align 8
+  %32 = load i32, ptr %8, align 4
+  %33 = load ptr, ptr %9, align 8
+  %34 = load ptr, ptr %14, align 8
+  %35 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %12, align 8
+  %37 = load i32, ptr @hf_printername, align 4
+  %38 = load i32, ptr %15, align 4
+  %39 = call i32 @dissect_spoolss_relstr(ptr noundef %31, i32 noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef %38, ptr noundef null)
+  store i32 %39, ptr %8, align 4
+  %40 = load ptr, ptr %7, align 8
+  %41 = load i32, ptr %8, align 4
+  %42 = load ptr, ptr %9, align 8
+  %43 = load ptr, ptr %14, align 8
+  %44 = load ptr, ptr %11, align 8
+  %45 = load ptr, ptr %12, align 8
+  %46 = load i32, ptr @hf_servername, align 4
+  %47 = load i32, ptr %15, align 4
+  %48 = call i32 @dissect_spoolss_relstr(ptr noundef %40, i32 noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef %47, ptr noundef null)
+  store i32 %48, ptr %8, align 4
+  %49 = load ptr, ptr %7, align 8
+  %50 = load i32, ptr %8, align 4
+  %51 = load ptr, ptr %9, align 8
+  %52 = load ptr, ptr %14, align 8
+  %53 = load ptr, ptr %11, align 8
+  %54 = load ptr, ptr %12, align 8
+  %55 = load i32, ptr @hf_username, align 4
+  %56 = load i32, ptr %15, align 4
+  %57 = call i32 @dissect_spoolss_relstr(ptr noundef %49, i32 noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef %56, ptr noundef null)
+  store i32 %57, ptr %8, align 4
+  %58 = load ptr, ptr %7, align 8
+  %59 = load i32, ptr %8, align 4
+  %60 = load ptr, ptr %9, align 8
+  %61 = load ptr, ptr %14, align 8
+  %62 = load ptr, ptr %11, align 8
+  %63 = load ptr, ptr %12, align 8
+  %64 = load i32, ptr @hf_documentname, align 4
+  %65 = load i32, ptr %15, align 4
+  %66 = call i32 @dissect_spoolss_relstr(ptr noundef %58, i32 noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %62, ptr noundef %63, i32 noundef %64, i32 noundef %65, ptr noundef %16)
+  store i32 %66, ptr %8, align 4
+  %67 = load ptr, ptr %13, align 8
+  %68 = load ptr, ptr %16, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef @.str.757, ptr noundef %68)
+  %69 = load ptr, ptr %7, align 8
+  %70 = load i32, ptr %8, align 4
+  %71 = load ptr, ptr %9, align 8
+  %72 = load ptr, ptr %14, align 8
+  %73 = load ptr, ptr %11, align 8
+  %74 = load ptr, ptr %12, align 8
+  %75 = load i32, ptr @hf_datatype, align 4
+  %76 = load i32, ptr %15, align 4
+  %77 = call i32 @dissect_spoolss_relstr(ptr noundef %69, i32 noundef %70, ptr noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef %74, i32 noundef %75, i32 noundef %76, ptr noundef null)
+  store i32 %77, ptr %8, align 4
+  %78 = load ptr, ptr %7, align 8
+  %79 = load i32, ptr %8, align 4
+  %80 = load ptr, ptr %9, align 8
+  %81 = load ptr, ptr %14, align 8
+  %82 = load ptr, ptr %11, align 8
+  %83 = load ptr, ptr %12, align 8
+  %84 = load i32, ptr @hf_textstatus, align 4
+  %85 = load i32, ptr %15, align 4
+  %86 = call i32 @dissect_spoolss_relstr(ptr noundef %78, i32 noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef %82, ptr noundef %83, i32 noundef %84, i32 noundef %85, ptr noundef null)
+  store i32 %86, ptr %8, align 4
+  %87 = load ptr, ptr %7, align 8
+  %88 = load i32, ptr %8, align 4
+  %89 = load ptr, ptr %9, align 8
+  %90 = load ptr, ptr %14, align 8
+  %91 = load ptr, ptr %11, align 8
+  %92 = load ptr, ptr %12, align 8
+  %93 = call i32 @dissect_job_status(ptr noundef %87, i32 noundef %88, ptr noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef %92)
+  store i32 %93, ptr %8, align 4
+  %94 = load ptr, ptr %7, align 8
+  %95 = load i32, ptr %8, align 4
+  %96 = load ptr, ptr %9, align 8
+  %97 = load ptr, ptr %14, align 8
+  %98 = load ptr, ptr %11, align 8
+  %99 = load ptr, ptr %12, align 8
+  %100 = load i32, ptr @hf_job_priority, align 4
+  %101 = call i32 @dissect_ndr_uint32(ptr noundef %94, i32 noundef %95, ptr noundef %96, ptr noundef %97, ptr noundef %98, ptr noundef %99, i32 noundef %100, ptr noundef null)
+  store i32 %101, ptr %8, align 4
+  %102 = load ptr, ptr %7, align 8
+  %103 = load i32, ptr %8, align 4
+  %104 = load ptr, ptr %9, align 8
+  %105 = load ptr, ptr %14, align 8
+  %106 = load ptr, ptr %11, align 8
+  %107 = load ptr, ptr %12, align 8
+  %108 = load i32, ptr @hf_job_position, align 4
+  %109 = call i32 @dissect_ndr_uint32(ptr noundef %102, i32 noundef %103, ptr noundef %104, ptr noundef %105, ptr noundef %106, ptr noundef %107, i32 noundef %108, ptr noundef null)
+  store i32 %109, ptr %8, align 4
+  %110 = load ptr, ptr %7, align 8
+  %111 = load i32, ptr %8, align 4
+  %112 = load ptr, ptr %9, align 8
+  %113 = load ptr, ptr %14, align 8
+  %114 = load ptr, ptr %11, align 8
+  %115 = load ptr, ptr %12, align 8
+  %116 = load i32, ptr @hf_job_totalpages, align 4
+  %117 = call i32 @dissect_ndr_uint32(ptr noundef %110, i32 noundef %111, ptr noundef %112, ptr noundef %113, ptr noundef %114, ptr noundef %115, i32 noundef %116, ptr noundef null)
+  store i32 %117, ptr %8, align 4
+  %118 = load ptr, ptr %7, align 8
+  %119 = load i32, ptr %8, align 4
+  %120 = load ptr, ptr %9, align 8
+  %121 = load ptr, ptr %14, align 8
+  %122 = load ptr, ptr %11, align 8
+  %123 = load ptr, ptr %12, align 8
+  %124 = load i32, ptr @hf_job_pagesprinted, align 4
+  %125 = call i32 @dissect_ndr_uint32(ptr noundef %118, i32 noundef %119, ptr noundef %120, ptr noundef %121, ptr noundef %122, ptr noundef %123, i32 noundef %124, ptr noundef null)
+  store i32 %125, ptr %8, align 4
+  %126 = load ptr, ptr %7, align 8
+  %127 = load i32, ptr %8, align 4
+  %128 = load ptr, ptr %9, align 8
+  %129 = load ptr, ptr %14, align 8
+  %130 = load ptr, ptr %11, align 8
+  %131 = load ptr, ptr %12, align 8
+  %132 = call i32 @dissect_SYSTEM_TIME(ptr noundef %126, i32 noundef %127, ptr noundef %128, ptr noundef %129, ptr noundef %130, ptr noundef %131, ptr noundef @.str.1214, i32 noundef 1, ptr noundef null)
+  store i32 %132, ptr %8, align 4
+  %133 = load ptr, ptr %13, align 8
+  %134 = load i32, ptr %8, align 4
+  %135 = load i32, ptr %15, align 4
+  %136 = sub i32 %134, %135
+  call void @proto_item_set_len(ptr noundef %133, i32 noundef %136)
+  %137 = load i32, ptr %8, align 4
+  ret i32 %137
+}
+
+declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_spoolss_JOB_INFO_2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %15, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load i32, ptr @ett_JOB_INFO_2, align 4
+  %24 = call ptr @proto_tree_add_subtree(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef 0, i32 noundef %23, ptr noundef %13, ptr noundef @.str.1215)
+  store ptr %24, ptr %14, align 8
+  %25 = load ptr, ptr %7, align 8
+  %26 = load i32, ptr %8, align 4
+  %27 = load ptr, ptr %9, align 8
+  %28 = load ptr, ptr %14, align 8
+  %29 = load ptr, ptr %11, align 8
+  %30 = load ptr, ptr %12, align 8
+  %31 = load i32, ptr @hf_job_id, align 4
+  %32 = call i32 @dissect_ndr_uint32(ptr noundef %25, i32 noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, i32 noundef %31, ptr noundef null)
+  store i32 %32, ptr %8, align 4
+  %33 = load ptr, ptr %7, align 8
+  %34 = load i32, ptr %8, align 4
+  %35 = load ptr, ptr %9, align 8
+  %36 = load ptr, ptr %14, align 8
+  %37 = load ptr, ptr %11, align 8
+  %38 = load ptr, ptr %12, align 8
+  %39 = load i32, ptr @hf_printername, align 4
+  %40 = load i32, ptr %15, align 4
+  %41 = call i32 @dissect_spoolss_relstr(ptr noundef %33, i32 noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, i32 noundef %39, i32 noundef %40, ptr noundef null)
+  store i32 %41, ptr %8, align 4
+  %42 = load ptr, ptr %7, align 8
+  %43 = load i32, ptr %8, align 4
+  %44 = load ptr, ptr %9, align 8
+  %45 = load ptr, ptr %14, align 8
+  %46 = load ptr, ptr %11, align 8
+  %47 = load ptr, ptr %12, align 8
+  %48 = load i32, ptr @hf_machinename, align 4
+  %49 = load i32, ptr %15, align 4
+  %50 = call i32 @dissect_spoolss_relstr(ptr noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48, i32 noundef %49, ptr noundef null)
+  store i32 %50, ptr %8, align 4
+  %51 = load ptr, ptr %7, align 8
+  %52 = load i32, ptr %8, align 4
+  %53 = load ptr, ptr %9, align 8
+  %54 = load ptr, ptr %14, align 8
+  %55 = load ptr, ptr %11, align 8
+  %56 = load ptr, ptr %12, align 8
+  %57 = load i32, ptr @hf_username, align 4
+  %58 = load i32, ptr %15, align 4
+  %59 = call i32 @dissect_spoolss_relstr(ptr noundef %51, i32 noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %56, i32 noundef %57, i32 noundef %58, ptr noundef null)
+  store i32 %59, ptr %8, align 4
+  %60 = load ptr, ptr %7, align 8
+  %61 = load i32, ptr %8, align 4
+  %62 = load ptr, ptr %9, align 8
+  %63 = load ptr, ptr %14, align 8
+  %64 = load ptr, ptr %11, align 8
+  %65 = load ptr, ptr %12, align 8
+  %66 = load i32, ptr @hf_documentname, align 4
+  %67 = load i32, ptr %15, align 4
+  %68 = call i32 @dissect_spoolss_relstr(ptr noundef %60, i32 noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65, i32 noundef %66, i32 noundef %67, ptr noundef %16)
+  store i32 %68, ptr %8, align 4
+  %69 = load ptr, ptr %13, align 8
+  %70 = load ptr, ptr %16, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %69, ptr noundef @.str.757, ptr noundef %70)
+  %71 = load ptr, ptr %7, align 8
+  %72 = load i32, ptr %8, align 4
+  %73 = load ptr, ptr %9, align 8
+  %74 = load ptr, ptr %14, align 8
+  %75 = load ptr, ptr %11, align 8
+  %76 = load ptr, ptr %12, align 8
+  %77 = load i32, ptr @hf_notifyname, align 4
+  %78 = load i32, ptr %15, align 4
+  %79 = call i32 @dissect_spoolss_relstr(ptr noundef %71, i32 noundef %72, ptr noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef %78, ptr noundef null)
+  store i32 %79, ptr %8, align 4
+  %80 = load ptr, ptr %7, align 8
+  %81 = load i32, ptr %8, align 4
+  %82 = load ptr, ptr %9, align 8
+  %83 = load ptr, ptr %14, align 8
+  %84 = load ptr, ptr %11, align 8
+  %85 = load ptr, ptr %12, align 8
+  %86 = load i32, ptr @hf_datatype, align 4
+  %87 = load i32, ptr %15, align 4
+  %88 = call i32 @dissect_spoolss_relstr(ptr noundef %80, i32 noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %85, i32 noundef %86, i32 noundef %87, ptr noundef null)
+  store i32 %88, ptr %8, align 4
+  %89 = load ptr, ptr %7, align 8
+  %90 = load i32, ptr %8, align 4
+  %91 = load ptr, ptr %9, align 8
+  %92 = load ptr, ptr %14, align 8
+  %93 = load ptr, ptr %11, align 8
+  %94 = load ptr, ptr %12, align 8
+  %95 = load i32, ptr @hf_printprocessor, align 4
+  %96 = load i32, ptr %15, align 4
+  %97 = call i32 @dissect_spoolss_relstr(ptr noundef %89, i32 noundef %90, ptr noundef %91, ptr noundef %92, ptr noundef %93, ptr noundef %94, i32 noundef %95, i32 noundef %96, ptr noundef null)
+  store i32 %97, ptr %8, align 4
+  %98 = load ptr, ptr %7, align 8
+  %99 = load i32, ptr %8, align 4
+  %100 = load ptr, ptr %9, align 8
+  %101 = load ptr, ptr %14, align 8
+  %102 = load ptr, ptr %11, align 8
+  %103 = load ptr, ptr %12, align 8
+  %104 = load i32, ptr @hf_parameters, align 4
+  %105 = load i32, ptr %15, align 4
+  %106 = call i32 @dissect_spoolss_relstr(ptr noundef %98, i32 noundef %99, ptr noundef %100, ptr noundef %101, ptr noundef %102, ptr noundef %103, i32 noundef %104, i32 noundef %105, ptr noundef null)
+  store i32 %106, ptr %8, align 4
+  %107 = load ptr, ptr %7, align 8
+  %108 = load i32, ptr %8, align 4
+  %109 = load ptr, ptr %9, align 8
+  %110 = load ptr, ptr %14, align 8
+  %111 = load ptr, ptr %11, align 8
+  %112 = load ptr, ptr %12, align 8
+  %113 = load i32, ptr @hf_drivername, align 4
+  %114 = load i32, ptr %15, align 4
+  %115 = call i32 @dissect_spoolss_relstr(ptr noundef %107, i32 noundef %108, ptr noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef %112, i32 noundef %113, i32 noundef %114, ptr noundef null)
+  store i32 %115, ptr %8, align 4
+  %116 = load ptr, ptr %7, align 8
+  %117 = load i32, ptr %8, align 4
+  %118 = load ptr, ptr %9, align 8
+  %119 = load ptr, ptr %11, align 8
+  %120 = load ptr, ptr %12, align 8
+  %121 = load i32, ptr @hf_offset, align 4
+  %122 = call i32 @dissect_ndr_uint32(ptr noundef %116, i32 noundef %117, ptr noundef %118, ptr noundef null, ptr noundef %119, ptr noundef %120, i32 noundef %121, ptr noundef %17)
+  store i32 %122, ptr %8, align 4
+  %123 = load ptr, ptr %7, align 8
+  %124 = load i32, ptr %17, align 4
+  %125 = sub i32 %124, 4
+  %126 = load i32, ptr %15, align 4
+  %127 = add i32 %125, %126
+  %128 = load ptr, ptr %9, align 8
+  %129 = load ptr, ptr %14, align 8
+  %130 = load ptr, ptr %11, align 8
+  %131 = load ptr, ptr %12, align 8
+  %132 = call i32 @dissect_DEVMODE(ptr noundef %123, i32 noundef %127, ptr noundef %128, ptr noundef %129, ptr noundef %130, ptr noundef %131)
+  %133 = load ptr, ptr %7, align 8
+  %134 = load i32, ptr %8, align 4
+  %135 = load ptr, ptr %9, align 8
+  %136 = load ptr, ptr %14, align 8
+  %137 = load ptr, ptr %11, align 8
+  %138 = load ptr, ptr %12, align 8
+  %139 = load i32, ptr @hf_textstatus, align 4
+  %140 = load i32, ptr %15, align 4
+  %141 = call i32 @dissect_spoolss_relstr(ptr noundef %133, i32 noundef %134, ptr noundef %135, ptr noundef %136, ptr noundef %137, ptr noundef %138, i32 noundef %139, i32 noundef %140, ptr noundef null)
+  store i32 %141, ptr %8, align 4
+  %142 = load ptr, ptr %7, align 8
+  %143 = load i32, ptr %8, align 4
+  %144 = load ptr, ptr %9, align 8
+  %145 = load ptr, ptr %11, align 8
+  %146 = load ptr, ptr %12, align 8
+  %147 = load i32, ptr @hf_offset, align 4
+  %148 = call i32 @dissect_ndr_uint32(ptr noundef %142, i32 noundef %143, ptr noundef %144, ptr noundef null, ptr noundef %145, ptr noundef %146, i32 noundef %147, ptr noundef %18)
+  store i32 %148, ptr %8, align 4
+  %149 = load ptr, ptr %7, align 8
+  %150 = load i32, ptr %18, align 4
+  %151 = load ptr, ptr %9, align 8
+  %152 = load ptr, ptr %14, align 8
+  %153 = load ptr, ptr %12, align 8
+  %154 = call i32 @dissect_nt_sec_desc(ptr noundef %149, i32 noundef %150, ptr noundef %151, ptr noundef %152, ptr noundef %153, i32 noundef 0, i32 noundef -1, ptr noundef @spoolss_job_access_mask_info)
+  %155 = load ptr, ptr %7, align 8
+  %156 = load i32, ptr %8, align 4
+  %157 = load ptr, ptr %9, align 8
+  %158 = load ptr, ptr %14, align 8
+  %159 = load ptr, ptr %11, align 8
+  %160 = load ptr, ptr %12, align 8
+  %161 = call i32 @dissect_job_status(ptr noundef %155, i32 noundef %156, ptr noundef %157, ptr noundef %158, ptr noundef %159, ptr noundef %160)
+  store i32 %161, ptr %8, align 4
+  %162 = load ptr, ptr %7, align 8
+  %163 = load i32, ptr %8, align 4
+  %164 = load ptr, ptr %9, align 8
+  %165 = load ptr, ptr %14, align 8
+  %166 = load ptr, ptr %11, align 8
+  %167 = load ptr, ptr %12, align 8
+  %168 = load i32, ptr @hf_job_priority, align 4
+  %169 = call i32 @dissect_ndr_uint32(ptr noundef %162, i32 noundef %163, ptr noundef %164, ptr noundef %165, ptr noundef %166, ptr noundef %167, i32 noundef %168, ptr noundef null)
+  store i32 %169, ptr %8, align 4
+  %170 = load ptr, ptr %7, align 8
+  %171 = load i32, ptr %8, align 4
+  %172 = load ptr, ptr %9, align 8
+  %173 = load ptr, ptr %14, align 8
+  %174 = load ptr, ptr %11, align 8
+  %175 = load ptr, ptr %12, align 8
+  %176 = load i32, ptr @hf_job_position, align 4
+  %177 = call i32 @dissect_ndr_uint32(ptr noundef %170, i32 noundef %171, ptr noundef %172, ptr noundef %173, ptr noundef %174, ptr noundef %175, i32 noundef %176, ptr noundef null)
+  store i32 %177, ptr %8, align 4
+  %178 = load ptr, ptr %7, align 8
+  %179 = load i32, ptr %8, align 4
+  %180 = load ptr, ptr %9, align 8
+  %181 = load ptr, ptr %11, align 8
+  %182 = load ptr, ptr %12, align 8
+  %183 = load i32, ptr @hf_start_time, align 4
+  %184 = call i32 @dissect_ndr_uint32(ptr noundef %178, i32 noundef %179, ptr noundef %180, ptr noundef null, ptr noundef %181, ptr noundef %182, i32 noundef %183, ptr noundef null)
+  store i32 %184, ptr %8, align 4
+  %185 = load ptr, ptr %7, align 8
+  %186 = load i32, ptr %8, align 4
+  %187 = load ptr, ptr %9, align 8
+  %188 = load ptr, ptr %11, align 8
+  %189 = load ptr, ptr %12, align 8
+  %190 = load i32, ptr @hf_end_time, align 4
+  %191 = call i32 @dissect_ndr_uint32(ptr noundef %185, i32 noundef %186, ptr noundef %187, ptr noundef null, ptr noundef %188, ptr noundef %189, i32 noundef %190, ptr noundef null)
+  store i32 %191, ptr %8, align 4
+  %192 = load ptr, ptr %7, align 8
+  %193 = load i32, ptr %8, align 4
+  %194 = load ptr, ptr %9, align 8
+  %195 = load ptr, ptr %14, align 8
+  %196 = load ptr, ptr %11, align 8
+  %197 = load ptr, ptr %12, align 8
+  %198 = load i32, ptr @hf_job_totalpages, align 4
+  %199 = call i32 @dissect_ndr_uint32(ptr noundef %192, i32 noundef %193, ptr noundef %194, ptr noundef %195, ptr noundef %196, ptr noundef %197, i32 noundef %198, ptr noundef null)
+  store i32 %199, ptr %8, align 4
+  %200 = load ptr, ptr %7, align 8
+  %201 = load i32, ptr %8, align 4
+  %202 = load ptr, ptr %9, align 8
+  %203 = load ptr, ptr %14, align 8
+  %204 = load ptr, ptr %11, align 8
+  %205 = load ptr, ptr %12, align 8
+  %206 = load i32, ptr @hf_job_size, align 4
+  %207 = call i32 @dissect_ndr_uint32(ptr noundef %200, i32 noundef %201, ptr noundef %202, ptr noundef %203, ptr noundef %204, ptr noundef %205, i32 noundef %206, ptr noundef null)
+  store i32 %207, ptr %8, align 4
+  %208 = load ptr, ptr %7, align 8
+  %209 = load i32, ptr %8, align 4
+  %210 = load ptr, ptr %9, align 8
+  %211 = load ptr, ptr %14, align 8
+  %212 = load ptr, ptr %11, align 8
+  %213 = load ptr, ptr %12, align 8
+  %214 = call i32 @dissect_SYSTEM_TIME(ptr noundef %208, i32 noundef %209, ptr noundef %210, ptr noundef %211, ptr noundef %212, ptr noundef %213, ptr noundef @.str.1214, i32 noundef 1, ptr noundef null)
+  store i32 %214, ptr %8, align 4
+  %215 = load ptr, ptr %7, align 8
+  %216 = load i32, ptr %8, align 4
+  %217 = load ptr, ptr %9, align 8
+  %218 = load ptr, ptr %11, align 8
+  %219 = load ptr, ptr %12, align 8
+  %220 = load i32, ptr @hf_elapsed_time, align 4
+  %221 = call i32 @dissect_ndr_uint32(ptr noundef %215, i32 noundef %216, ptr noundef %217, ptr noundef null, ptr noundef %218, ptr noundef %219, i32 noundef %220, ptr noundef null)
+  store i32 %221, ptr %8, align 4
+  %222 = load ptr, ptr %7, align 8
+  %223 = load i32, ptr %8, align 4
+  %224 = load ptr, ptr %9, align 8
+  %225 = load ptr, ptr %14, align 8
+  %226 = load ptr, ptr %11, align 8
+  %227 = load ptr, ptr %12, align 8
+  %228 = load i32, ptr @hf_job_pagesprinted, align 4
+  %229 = call i32 @dissect_ndr_uint32(ptr noundef %222, i32 noundef %223, ptr noundef %224, ptr noundef %225, ptr noundef %226, ptr noundef %227, i32 noundef %228, ptr noundef null)
+  store i32 %229, ptr %8, align 4
+  %230 = load ptr, ptr %13, align 8
+  %231 = load i32, ptr %8, align 4
+  %232 = load i32, ptr %15, align 4
+  %233 = sub i32 %231, %232
+  call void @proto_item_set_len(ptr noundef %230, i32 noundef %233)
+  %234 = load i32, ptr %8, align 4
+  ret i32 %234
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @spoolss_job_specific_rights(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  %9 = load ptr, ptr %7, align 8
+  %10 = load i32, ptr @hf_job_access_admin, align 4
+  %11 = load ptr, ptr %5, align 8
+  %12 = load i32, ptr %6, align 4
+  %13 = load i32, ptr %8, align 4
+  %14 = zext i32 %13 to i64
+  %15 = call ptr @proto_tree_add_boolean(ptr noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, i32 noundef 4, i64 noundef %14)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_DRIVER_INFO_1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load i32, ptr %8, align 4
+  store i32 %15, ptr %14, align 4
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %8, align 4
+  %19 = load i32, ptr @ett_DRIVER_INFO_1, align 4
+  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 0, i32 noundef %19, ptr noundef null, ptr noundef @.str.1219)
+  store ptr %20, ptr %13, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %13, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_drivername, align 4
+  %28 = load i32, ptr %14, align 4
+  %29 = call i32 @dissect_spoolss_relstr(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef %28, ptr noundef null)
+  store i32 %29, ptr %8, align 4
+  %30 = load i32, ptr %8, align 4
+  ret i32 %30
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_DRIVER_INFO_2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load i32, ptr %8, align 4
+  store i32 %15, ptr %14, align 4
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %8, align 4
+  %19 = load i32, ptr @ett_DRIVER_INFO_2, align 4
+  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 0, i32 noundef %19, ptr noundef null, ptr noundef @.str.1220)
+  store ptr %20, ptr %13, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %13, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_driverinfo_cversion, align 4
+  %28 = call i32 @dissect_ndr_uint32(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef null)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %13, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load i32, ptr @hf_drivername, align 4
+  %36 = load i32, ptr %14, align 4
+  %37 = call i32 @dissect_spoolss_relstr(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %36, ptr noundef null)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %7, align 8
+  %39 = load i32, ptr %8, align 4
+  %40 = load ptr, ptr %9, align 8
+  %41 = load ptr, ptr %13, align 8
+  %42 = load ptr, ptr %11, align 8
+  %43 = load ptr, ptr %12, align 8
+  %44 = load i32, ptr @hf_environment, align 4
+  %45 = load i32, ptr %14, align 4
+  %46 = call i32 @dissect_spoolss_relstr(ptr noundef %38, i32 noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef %45, ptr noundef null)
+  store i32 %46, ptr %8, align 4
+  %47 = load ptr, ptr %7, align 8
+  %48 = load i32, ptr %8, align 4
+  %49 = load ptr, ptr %9, align 8
+  %50 = load ptr, ptr %13, align 8
+  %51 = load ptr, ptr %11, align 8
+  %52 = load ptr, ptr %12, align 8
+  %53 = load i32, ptr @hf_driverpath, align 4
+  %54 = load i32, ptr %14, align 4
+  %55 = call i32 @dissect_spoolss_relstr(ptr noundef %47, i32 noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef %54, ptr noundef null)
+  store i32 %55, ptr %8, align 4
+  %56 = load ptr, ptr %7, align 8
+  %57 = load i32, ptr %8, align 4
+  %58 = load ptr, ptr %9, align 8
+  %59 = load ptr, ptr %13, align 8
+  %60 = load ptr, ptr %11, align 8
+  %61 = load ptr, ptr %12, align 8
+  %62 = load i32, ptr @hf_datafile, align 4
+  %63 = load i32, ptr %14, align 4
+  %64 = call i32 @dissect_spoolss_relstr(ptr noundef %56, i32 noundef %57, ptr noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef %61, i32 noundef %62, i32 noundef %63, ptr noundef null)
+  store i32 %64, ptr %8, align 4
+  %65 = load ptr, ptr %7, align 8
+  %66 = load i32, ptr %8, align 4
+  %67 = load ptr, ptr %9, align 8
+  %68 = load ptr, ptr %13, align 8
+  %69 = load ptr, ptr %11, align 8
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr @hf_configfile, align 4
+  %72 = load i32, ptr %14, align 4
+  %73 = call i32 @dissect_spoolss_relstr(ptr noundef %65, i32 noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef %70, i32 noundef %71, i32 noundef %72, ptr noundef null)
+  store i32 %73, ptr %8, align 4
+  %74 = load i32, ptr %8, align 4
+  ret i32 %74
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_DRIVER_INFO_3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load i32, ptr %8, align 4
+  store i32 %15, ptr %14, align 4
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %8, align 4
+  %19 = load i32, ptr @ett_DRIVER_INFO_3, align 4
+  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 0, i32 noundef %19, ptr noundef null, ptr noundef @.str.1221)
+  store ptr %20, ptr %13, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %13, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_driverinfo_cversion, align 4
+  %28 = call i32 @dissect_ndr_uint32(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef null)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %13, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load i32, ptr @hf_drivername, align 4
+  %36 = load i32, ptr %14, align 4
+  %37 = call i32 @dissect_spoolss_relstr(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %36, ptr noundef null)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %7, align 8
+  %39 = load i32, ptr %8, align 4
+  %40 = load ptr, ptr %9, align 8
+  %41 = load ptr, ptr %13, align 8
+  %42 = load ptr, ptr %11, align 8
+  %43 = load ptr, ptr %12, align 8
+  %44 = load i32, ptr @hf_environment, align 4
+  %45 = load i32, ptr %14, align 4
+  %46 = call i32 @dissect_spoolss_relstr(ptr noundef %38, i32 noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef %45, ptr noundef null)
+  store i32 %46, ptr %8, align 4
+  %47 = load ptr, ptr %7, align 8
+  %48 = load i32, ptr %8, align 4
+  %49 = load ptr, ptr %9, align 8
+  %50 = load ptr, ptr %13, align 8
+  %51 = load ptr, ptr %11, align 8
+  %52 = load ptr, ptr %12, align 8
+  %53 = load i32, ptr @hf_driverpath, align 4
+  %54 = load i32, ptr %14, align 4
+  %55 = call i32 @dissect_spoolss_relstr(ptr noundef %47, i32 noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef %54, ptr noundef null)
+  store i32 %55, ptr %8, align 4
+  %56 = load ptr, ptr %7, align 8
+  %57 = load i32, ptr %8, align 4
+  %58 = load ptr, ptr %9, align 8
+  %59 = load ptr, ptr %13, align 8
+  %60 = load ptr, ptr %11, align 8
+  %61 = load ptr, ptr %12, align 8
+  %62 = load i32, ptr @hf_datafile, align 4
+  %63 = load i32, ptr %14, align 4
+  %64 = call i32 @dissect_spoolss_relstr(ptr noundef %56, i32 noundef %57, ptr noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef %61, i32 noundef %62, i32 noundef %63, ptr noundef null)
+  store i32 %64, ptr %8, align 4
+  %65 = load ptr, ptr %7, align 8
+  %66 = load i32, ptr %8, align 4
+  %67 = load ptr, ptr %9, align 8
+  %68 = load ptr, ptr %13, align 8
+  %69 = load ptr, ptr %11, align 8
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr @hf_configfile, align 4
+  %72 = load i32, ptr %14, align 4
+  %73 = call i32 @dissect_spoolss_relstr(ptr noundef %65, i32 noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef %70, i32 noundef %71, i32 noundef %72, ptr noundef null)
+  store i32 %73, ptr %8, align 4
+  %74 = load ptr, ptr %7, align 8
+  %75 = load i32, ptr %8, align 4
+  %76 = load ptr, ptr %9, align 8
+  %77 = load ptr, ptr %13, align 8
+  %78 = load ptr, ptr %11, align 8
+  %79 = load ptr, ptr %12, align 8
+  %80 = load i32, ptr @hf_helpfile, align 4
+  %81 = load i32, ptr %14, align 4
+  %82 = call i32 @dissect_spoolss_relstr(ptr noundef %74, i32 noundef %75, ptr noundef %76, ptr noundef %77, ptr noundef %78, ptr noundef %79, i32 noundef %80, i32 noundef %81, ptr noundef null)
+  store i32 %82, ptr %8, align 4
+  %83 = load ptr, ptr %7, align 8
+  %84 = load i32, ptr %8, align 4
+  %85 = load ptr, ptr %9, align 8
+  %86 = load ptr, ptr %13, align 8
+  %87 = load ptr, ptr %11, align 8
+  %88 = load ptr, ptr %12, align 8
+  %89 = load i32, ptr @hf_dependentfiles, align 4
+  %90 = load i32, ptr %14, align 4
+  %91 = call i32 @dissect_spoolss_relstrarray(ptr noundef %83, i32 noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %88, i32 noundef %89, i32 noundef %90, ptr noundef null)
+  store i32 %91, ptr %8, align 4
+  %92 = load ptr, ptr %7, align 8
+  %93 = load i32, ptr %8, align 4
+  %94 = load ptr, ptr %9, align 8
+  %95 = load ptr, ptr %13, align 8
+  %96 = load ptr, ptr %11, align 8
+  %97 = load ptr, ptr %12, align 8
+  %98 = load i32, ptr @hf_monitorname, align 4
+  %99 = load i32, ptr %14, align 4
+  %100 = call i32 @dissect_spoolss_relstr(ptr noundef %92, i32 noundef %93, ptr noundef %94, ptr noundef %95, ptr noundef %96, ptr noundef %97, i32 noundef %98, i32 noundef %99, ptr noundef null)
+  store i32 %100, ptr %8, align 4
+  %101 = load ptr, ptr %7, align 8
+  %102 = load i32, ptr %8, align 4
+  %103 = load ptr, ptr %9, align 8
+  %104 = load ptr, ptr %13, align 8
+  %105 = load ptr, ptr %11, align 8
+  %106 = load ptr, ptr %12, align 8
+  %107 = load i32, ptr @hf_defaultdatatype, align 4
+  %108 = load i32, ptr %14, align 4
+  %109 = call i32 @dissect_spoolss_relstr(ptr noundef %101, i32 noundef %102, ptr noundef %103, ptr noundef %104, ptr noundef %105, ptr noundef %106, i32 noundef %107, i32 noundef %108, ptr noundef null)
+  store i32 %109, ptr %8, align 4
+  %110 = load i32, ptr %8, align 4
+  ret i32 %110
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_DRIVER_INFO_6(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load i32, ptr %8, align 4
+  store i32 %15, ptr %14, align 4
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %8, align 4
+  %19 = load i32, ptr @ett_DRIVER_INFO_6, align 4
+  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 0, i32 noundef %19, ptr noundef null, ptr noundef @.str.1224)
+  store ptr %20, ptr %13, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %13, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_driverinfo_cversion, align 4
+  %28 = call i32 @dissect_ndr_uint32(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef null)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %13, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load i32, ptr @hf_drivername, align 4
+  %36 = load i32, ptr %14, align 4
+  %37 = call i32 @dissect_spoolss_relstr(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %36, ptr noundef null)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %7, align 8
+  %39 = load i32, ptr %8, align 4
+  %40 = load ptr, ptr %9, align 8
+  %41 = load ptr, ptr %13, align 8
+  %42 = load ptr, ptr %11, align 8
+  %43 = load ptr, ptr %12, align 8
+  %44 = load i32, ptr @hf_environment, align 4
+  %45 = load i32, ptr %14, align 4
+  %46 = call i32 @dissect_spoolss_relstr(ptr noundef %38, i32 noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef %45, ptr noundef null)
+  store i32 %46, ptr %8, align 4
+  %47 = load ptr, ptr %7, align 8
+  %48 = load i32, ptr %8, align 4
+  %49 = load ptr, ptr %9, align 8
+  %50 = load ptr, ptr %13, align 8
+  %51 = load ptr, ptr %11, align 8
+  %52 = load ptr, ptr %12, align 8
+  %53 = load i32, ptr @hf_driverpath, align 4
+  %54 = load i32, ptr %14, align 4
+  %55 = call i32 @dissect_spoolss_relstr(ptr noundef %47, i32 noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef %54, ptr noundef null)
+  store i32 %55, ptr %8, align 4
+  %56 = load ptr, ptr %7, align 8
+  %57 = load i32, ptr %8, align 4
+  %58 = load ptr, ptr %9, align 8
+  %59 = load ptr, ptr %13, align 8
+  %60 = load ptr, ptr %11, align 8
+  %61 = load ptr, ptr %12, align 8
+  %62 = load i32, ptr @hf_datafile, align 4
+  %63 = load i32, ptr %14, align 4
+  %64 = call i32 @dissect_spoolss_relstr(ptr noundef %56, i32 noundef %57, ptr noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef %61, i32 noundef %62, i32 noundef %63, ptr noundef null)
+  store i32 %64, ptr %8, align 4
+  %65 = load ptr, ptr %7, align 8
+  %66 = load i32, ptr %8, align 4
+  %67 = load ptr, ptr %9, align 8
+  %68 = load ptr, ptr %13, align 8
+  %69 = load ptr, ptr %11, align 8
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr @hf_configfile, align 4
+  %72 = load i32, ptr %14, align 4
+  %73 = call i32 @dissect_spoolss_relstr(ptr noundef %65, i32 noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef %70, i32 noundef %71, i32 noundef %72, ptr noundef null)
+  store i32 %73, ptr %8, align 4
+  %74 = load ptr, ptr %7, align 8
+  %75 = load i32, ptr %8, align 4
+  %76 = load ptr, ptr %9, align 8
+  %77 = load ptr, ptr %13, align 8
+  %78 = load ptr, ptr %11, align 8
+  %79 = load ptr, ptr %12, align 8
+  %80 = load i32, ptr @hf_helpfile, align 4
+  %81 = load i32, ptr %14, align 4
+  %82 = call i32 @dissect_spoolss_relstr(ptr noundef %74, i32 noundef %75, ptr noundef %76, ptr noundef %77, ptr noundef %78, ptr noundef %79, i32 noundef %80, i32 noundef %81, ptr noundef null)
+  store i32 %82, ptr %8, align 4
+  %83 = load ptr, ptr %7, align 8
+  %84 = load i32, ptr %8, align 4
+  %85 = load ptr, ptr %9, align 8
+  %86 = load ptr, ptr %13, align 8
+  %87 = load ptr, ptr %11, align 8
+  %88 = load ptr, ptr %12, align 8
+  %89 = load i32, ptr @hf_monitorname, align 4
+  %90 = load i32, ptr %14, align 4
+  %91 = call i32 @dissect_spoolss_relstr(ptr noundef %83, i32 noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %88, i32 noundef %89, i32 noundef %90, ptr noundef null)
+  store i32 %91, ptr %8, align 4
+  %92 = load ptr, ptr %7, align 8
+  %93 = load i32, ptr %8, align 4
+  %94 = load ptr, ptr %9, align 8
+  %95 = load ptr, ptr %13, align 8
+  %96 = load ptr, ptr %11, align 8
+  %97 = load ptr, ptr %12, align 8
+  %98 = load i32, ptr @hf_defaultdatatype, align 4
+  %99 = load i32, ptr %14, align 4
+  %100 = call i32 @dissect_spoolss_relstr(ptr noundef %92, i32 noundef %93, ptr noundef %94, ptr noundef %95, ptr noundef %96, ptr noundef %97, i32 noundef %98, i32 noundef %99, ptr noundef null)
+  store i32 %100, ptr %8, align 4
+  %101 = load ptr, ptr %7, align 8
+  %102 = load i32, ptr %8, align 4
+  %103 = load ptr, ptr %9, align 8
+  %104 = load ptr, ptr %13, align 8
+  %105 = load ptr, ptr %11, align 8
+  %106 = load ptr, ptr %12, align 8
+  %107 = load i32, ptr @hf_dependentfiles, align 4
+  %108 = load i32, ptr %14, align 4
+  %109 = call i32 @dissect_spoolss_relstrarray(ptr noundef %101, i32 noundef %102, ptr noundef %103, ptr noundef %104, ptr noundef %105, ptr noundef %106, i32 noundef %107, i32 noundef %108, ptr noundef null)
+  store i32 %109, ptr %8, align 4
+  %110 = load ptr, ptr %7, align 8
+  %111 = load i32, ptr %8, align 4
+  %112 = load ptr, ptr %9, align 8
+  %113 = load ptr, ptr %13, align 8
+  %114 = load ptr, ptr %11, align 8
+  %115 = load ptr, ptr %12, align 8
+  %116 = load i32, ptr @hf_previousdrivernames, align 4
+  %117 = load i32, ptr %14, align 4
+  %118 = call i32 @dissect_spoolss_relstrarray(ptr noundef %110, i32 noundef %111, ptr noundef %112, ptr noundef %113, ptr noundef %114, ptr noundef %115, i32 noundef %116, i32 noundef %117, ptr noundef null)
+  store i32 %118, ptr %8, align 4
+  %119 = load ptr, ptr %7, align 8
+  %120 = load i32, ptr %8, align 4
+  %121 = load ptr, ptr %9, align 8
+  %122 = load ptr, ptr %13, align 8
+  %123 = load ptr, ptr %11, align 8
+  %124 = load ptr, ptr %12, align 8
+  %125 = load i32, ptr @hf_driverdate, align 4
+  %126 = call i32 @dissect_ndr_nt_NTTIME(ptr noundef %119, i32 noundef %120, ptr noundef %121, ptr noundef %122, ptr noundef %123, ptr noundef %124, i32 noundef %125)
+  store i32 %126, ptr %8, align 4
+  %127 = load ptr, ptr %7, align 8
+  %128 = load i32, ptr %8, align 4
+  %129 = load ptr, ptr %9, align 8
+  %130 = load ptr, ptr %13, align 8
+  %131 = load ptr, ptr %11, align 8
+  %132 = load ptr, ptr %12, align 8
+  %133 = load i32, ptr @hf_padding, align 4
+  %134 = call i32 @dissect_ndr_uint32(ptr noundef %127, i32 noundef %128, ptr noundef %129, ptr noundef %130, ptr noundef %131, ptr noundef %132, i32 noundef %133, ptr noundef null)
+  store i32 %134, ptr %8, align 4
+  %135 = load ptr, ptr %7, align 8
+  %136 = load i32, ptr %8, align 4
+  %137 = load ptr, ptr %9, align 8
+  %138 = load ptr, ptr %13, align 8
+  %139 = load ptr, ptr %11, align 8
+  %140 = load ptr, ptr %12, align 8
+  %141 = load i32, ptr @hf_driver_version_low, align 4
+  %142 = call i32 @dissect_ndr_uint32(ptr noundef %135, i32 noundef %136, ptr noundef %137, ptr noundef %138, ptr noundef %139, ptr noundef %140, i32 noundef %141, ptr noundef null)
+  store i32 %142, ptr %8, align 4
+  %143 = load ptr, ptr %7, align 8
+  %144 = load i32, ptr %8, align 4
+  %145 = load ptr, ptr %9, align 8
+  %146 = load ptr, ptr %13, align 8
+  %147 = load ptr, ptr %11, align 8
+  %148 = load ptr, ptr %12, align 8
+  %149 = load i32, ptr @hf_driver_version_high, align 4
+  %150 = call i32 @dissect_ndr_uint32(ptr noundef %143, i32 noundef %144, ptr noundef %145, ptr noundef %146, ptr noundef %147, ptr noundef %148, i32 noundef %149, ptr noundef null)
+  store i32 %150, ptr %8, align 4
+  %151 = load ptr, ptr %7, align 8
+  %152 = load i32, ptr %8, align 4
+  %153 = load ptr, ptr %9, align 8
+  %154 = load ptr, ptr %13, align 8
+  %155 = load ptr, ptr %11, align 8
+  %156 = load ptr, ptr %12, align 8
+  %157 = load i32, ptr @hf_mfgname, align 4
+  %158 = load i32, ptr %14, align 4
+  %159 = call i32 @dissect_spoolss_relstr(ptr noundef %151, i32 noundef %152, ptr noundef %153, ptr noundef %154, ptr noundef %155, ptr noundef %156, i32 noundef %157, i32 noundef %158, ptr noundef null)
+  store i32 %159, ptr %8, align 4
+  %160 = load ptr, ptr %7, align 8
+  %161 = load i32, ptr %8, align 4
+  %162 = load ptr, ptr %9, align 8
+  %163 = load ptr, ptr %13, align 8
+  %164 = load ptr, ptr %11, align 8
+  %165 = load ptr, ptr %12, align 8
+  %166 = load i32, ptr @hf_oemurl, align 4
+  %167 = load i32, ptr %14, align 4
+  %168 = call i32 @dissect_spoolss_relstr(ptr noundef %160, i32 noundef %161, ptr noundef %162, ptr noundef %163, ptr noundef %164, ptr noundef %165, i32 noundef %166, i32 noundef %167, ptr noundef null)
+  store i32 %168, ptr %8, align 4
+  %169 = load ptr, ptr %7, align 8
+  %170 = load i32, ptr %8, align 4
+  %171 = load ptr, ptr %9, align 8
+  %172 = load ptr, ptr %13, align 8
+  %173 = load ptr, ptr %11, align 8
+  %174 = load ptr, ptr %12, align 8
+  %175 = load i32, ptr @hf_hardwareid, align 4
+  %176 = load i32, ptr %14, align 4
+  %177 = call i32 @dissect_spoolss_relstr(ptr noundef %169, i32 noundef %170, ptr noundef %171, ptr noundef %172, ptr noundef %173, ptr noundef %174, i32 noundef %175, i32 noundef %176, ptr noundef null)
+  store i32 %177, ptr %8, align 4
+  %178 = load ptr, ptr %7, align 8
+  %179 = load i32, ptr %8, align 4
+  %180 = load ptr, ptr %9, align 8
+  %181 = load ptr, ptr %13, align 8
+  %182 = load ptr, ptr %11, align 8
+  %183 = load ptr, ptr %12, align 8
+  %184 = load i32, ptr @hf_provider, align 4
+  %185 = load i32, ptr %14, align 4
+  %186 = call i32 @dissect_spoolss_relstr(ptr noundef %178, i32 noundef %179, ptr noundef %180, ptr noundef %181, ptr noundef %182, ptr noundef %183, i32 noundef %184, i32 noundef %185, ptr noundef null)
+  store i32 %186, ptr %8, align 4
+  %187 = load i32, ptr %8, align 4
+  ret i32 %187
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_DRIVER_INFO_8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load i32, ptr %8, align 4
+  store i32 %15, ptr %14, align 4
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %8, align 4
+  %19 = load i32, ptr @ett_DRIVER_INFO_8, align 4
+  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 0, i32 noundef %19, ptr noundef null, ptr noundef @.str.1225)
+  store ptr %20, ptr %13, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %13, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_driverinfo_cversion, align 4
+  %28 = call i32 @dissect_ndr_uint32(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef null)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %13, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load i32, ptr @hf_drivername, align 4
+  %36 = load i32, ptr %14, align 4
+  %37 = call i32 @dissect_spoolss_relstr(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %36, ptr noundef null)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %7, align 8
+  %39 = load i32, ptr %8, align 4
+  %40 = load ptr, ptr %9, align 8
+  %41 = load ptr, ptr %13, align 8
+  %42 = load ptr, ptr %11, align 8
+  %43 = load ptr, ptr %12, align 8
+  %44 = load i32, ptr @hf_environment, align 4
+  %45 = load i32, ptr %14, align 4
+  %46 = call i32 @dissect_spoolss_relstr(ptr noundef %38, i32 noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef %45, ptr noundef null)
+  store i32 %46, ptr %8, align 4
+  %47 = load ptr, ptr %7, align 8
+  %48 = load i32, ptr %8, align 4
+  %49 = load ptr, ptr %9, align 8
+  %50 = load ptr, ptr %13, align 8
+  %51 = load ptr, ptr %11, align 8
+  %52 = load ptr, ptr %12, align 8
+  %53 = load i32, ptr @hf_driverpath, align 4
+  %54 = load i32, ptr %14, align 4
+  %55 = call i32 @dissect_spoolss_relstr(ptr noundef %47, i32 noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef %54, ptr noundef null)
+  store i32 %55, ptr %8, align 4
+  %56 = load ptr, ptr %7, align 8
+  %57 = load i32, ptr %8, align 4
+  %58 = load ptr, ptr %9, align 8
+  %59 = load ptr, ptr %13, align 8
+  %60 = load ptr, ptr %11, align 8
+  %61 = load ptr, ptr %12, align 8
+  %62 = load i32, ptr @hf_datafile, align 4
+  %63 = load i32, ptr %14, align 4
+  %64 = call i32 @dissect_spoolss_relstr(ptr noundef %56, i32 noundef %57, ptr noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef %61, i32 noundef %62, i32 noundef %63, ptr noundef null)
+  store i32 %64, ptr %8, align 4
+  %65 = load ptr, ptr %7, align 8
+  %66 = load i32, ptr %8, align 4
+  %67 = load ptr, ptr %9, align 8
+  %68 = load ptr, ptr %13, align 8
+  %69 = load ptr, ptr %11, align 8
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr @hf_configfile, align 4
+  %72 = load i32, ptr %14, align 4
+  %73 = call i32 @dissect_spoolss_relstr(ptr noundef %65, i32 noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef %70, i32 noundef %71, i32 noundef %72, ptr noundef null)
+  store i32 %73, ptr %8, align 4
+  %74 = load ptr, ptr %7, align 8
+  %75 = load i32, ptr %8, align 4
+  %76 = load ptr, ptr %9, align 8
+  %77 = load ptr, ptr %13, align 8
+  %78 = load ptr, ptr %11, align 8
+  %79 = load ptr, ptr %12, align 8
+  %80 = load i32, ptr @hf_helpfile, align 4
+  %81 = load i32, ptr %14, align 4
+  %82 = call i32 @dissect_spoolss_relstr(ptr noundef %74, i32 noundef %75, ptr noundef %76, ptr noundef %77, ptr noundef %78, ptr noundef %79, i32 noundef %80, i32 noundef %81, ptr noundef null)
+  store i32 %82, ptr %8, align 4
+  %83 = load ptr, ptr %7, align 8
+  %84 = load i32, ptr %8, align 4
+  %85 = load ptr, ptr %9, align 8
+  %86 = load ptr, ptr %13, align 8
+  %87 = load ptr, ptr %11, align 8
+  %88 = load ptr, ptr %12, align 8
+  %89 = load i32, ptr @hf_dependentfiles, align 4
+  %90 = load i32, ptr %14, align 4
+  %91 = call i32 @dissect_spoolss_relstrarray(ptr noundef %83, i32 noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %88, i32 noundef %89, i32 noundef %90, ptr noundef null)
+  store i32 %91, ptr %8, align 4
+  %92 = load ptr, ptr %7, align 8
+  %93 = load i32, ptr %8, align 4
+  %94 = load ptr, ptr %9, align 8
+  %95 = load ptr, ptr %13, align 8
+  %96 = load ptr, ptr %11, align 8
+  %97 = load ptr, ptr %12, align 8
+  %98 = load i32, ptr @hf_monitorname, align 4
+  %99 = load i32, ptr %14, align 4
+  %100 = call i32 @dissect_spoolss_relstr(ptr noundef %92, i32 noundef %93, ptr noundef %94, ptr noundef %95, ptr noundef %96, ptr noundef %97, i32 noundef %98, i32 noundef %99, ptr noundef null)
+  store i32 %100, ptr %8, align 4
+  %101 = load ptr, ptr %7, align 8
+  %102 = load i32, ptr %8, align 4
+  %103 = load ptr, ptr %9, align 8
+  %104 = load ptr, ptr %13, align 8
+  %105 = load ptr, ptr %11, align 8
+  %106 = load ptr, ptr %12, align 8
+  %107 = load i32, ptr @hf_defaultdatatype, align 4
+  %108 = load i32, ptr %14, align 4
+  %109 = call i32 @dissect_spoolss_relstr(ptr noundef %101, i32 noundef %102, ptr noundef %103, ptr noundef %104, ptr noundef %105, ptr noundef %106, i32 noundef %107, i32 noundef %108, ptr noundef null)
+  store i32 %109, ptr %8, align 4
+  %110 = load ptr, ptr %7, align 8
+  %111 = load i32, ptr %8, align 4
+  %112 = load ptr, ptr %9, align 8
+  %113 = load ptr, ptr %13, align 8
+  %114 = load ptr, ptr %11, align 8
+  %115 = load ptr, ptr %12, align 8
+  %116 = load i32, ptr @hf_previousdrivernames, align 4
+  %117 = load i32, ptr %14, align 4
+  %118 = call i32 @dissect_spoolss_relstrarray(ptr noundef %110, i32 noundef %111, ptr noundef %112, ptr noundef %113, ptr noundef %114, ptr noundef %115, i32 noundef %116, i32 noundef %117, ptr noundef null)
+  store i32 %118, ptr %8, align 4
+  %119 = load ptr, ptr %7, align 8
+  %120 = load i32, ptr %8, align 4
+  %121 = load ptr, ptr %9, align 8
+  %122 = load ptr, ptr %13, align 8
+  %123 = load ptr, ptr %11, align 8
+  %124 = load ptr, ptr %12, align 8
+  %125 = load i32, ptr @hf_driverdate, align 4
+  %126 = call i32 @dissect_ndr_nt_NTTIME(ptr noundef %119, i32 noundef %120, ptr noundef %121, ptr noundef %122, ptr noundef %123, ptr noundef %124, i32 noundef %125)
+  store i32 %126, ptr %8, align 4
+  %127 = load ptr, ptr %7, align 8
+  %128 = load i32, ptr %8, align 4
+  %129 = load ptr, ptr %9, align 8
+  %130 = load ptr, ptr %13, align 8
+  %131 = load ptr, ptr %11, align 8
+  %132 = load ptr, ptr %12, align 8
+  %133 = load i32, ptr @hf_padding, align 4
+  %134 = call i32 @dissect_ndr_uint32(ptr noundef %127, i32 noundef %128, ptr noundef %129, ptr noundef %130, ptr noundef %131, ptr noundef %132, i32 noundef %133, ptr noundef null)
+  store i32 %134, ptr %8, align 4
+  %135 = load ptr, ptr %7, align 8
+  %136 = load i32, ptr %8, align 4
+  %137 = load ptr, ptr %9, align 8
+  %138 = load ptr, ptr %13, align 8
+  %139 = load ptr, ptr %11, align 8
+  %140 = load ptr, ptr %12, align 8
+  %141 = load i32, ptr @hf_driver_version_low, align 4
+  %142 = call i32 @dissect_ndr_uint32(ptr noundef %135, i32 noundef %136, ptr noundef %137, ptr noundef %138, ptr noundef %139, ptr noundef %140, i32 noundef %141, ptr noundef null)
+  store i32 %142, ptr %8, align 4
+  %143 = load ptr, ptr %7, align 8
+  %144 = load i32, ptr %8, align 4
+  %145 = load ptr, ptr %9, align 8
+  %146 = load ptr, ptr %13, align 8
+  %147 = load ptr, ptr %11, align 8
+  %148 = load ptr, ptr %12, align 8
+  %149 = load i32, ptr @hf_driver_version_high, align 4
+  %150 = call i32 @dissect_ndr_uint32(ptr noundef %143, i32 noundef %144, ptr noundef %145, ptr noundef %146, ptr noundef %147, ptr noundef %148, i32 noundef %149, ptr noundef null)
+  store i32 %150, ptr %8, align 4
+  %151 = load ptr, ptr %7, align 8
+  %152 = load i32, ptr %8, align 4
+  %153 = load ptr, ptr %9, align 8
+  %154 = load ptr, ptr %13, align 8
+  %155 = load ptr, ptr %11, align 8
+  %156 = load ptr, ptr %12, align 8
+  %157 = load i32, ptr @hf_mfgname, align 4
+  %158 = load i32, ptr %14, align 4
+  %159 = call i32 @dissect_spoolss_relstr(ptr noundef %151, i32 noundef %152, ptr noundef %153, ptr noundef %154, ptr noundef %155, ptr noundef %156, i32 noundef %157, i32 noundef %158, ptr noundef null)
+  store i32 %159, ptr %8, align 4
+  %160 = load ptr, ptr %7, align 8
+  %161 = load i32, ptr %8, align 4
+  %162 = load ptr, ptr %9, align 8
+  %163 = load ptr, ptr %13, align 8
+  %164 = load ptr, ptr %11, align 8
+  %165 = load ptr, ptr %12, align 8
+  %166 = load i32, ptr @hf_oemurl, align 4
+  %167 = load i32, ptr %14, align 4
+  %168 = call i32 @dissect_spoolss_relstr(ptr noundef %160, i32 noundef %161, ptr noundef %162, ptr noundef %163, ptr noundef %164, ptr noundef %165, i32 noundef %166, i32 noundef %167, ptr noundef null)
+  store i32 %168, ptr %8, align 4
+  %169 = load ptr, ptr %7, align 8
+  %170 = load i32, ptr %8, align 4
+  %171 = load ptr, ptr %9, align 8
+  %172 = load ptr, ptr %13, align 8
+  %173 = load ptr, ptr %11, align 8
+  %174 = load ptr, ptr %12, align 8
+  %175 = load i32, ptr @hf_hardwareid, align 4
+  %176 = load i32, ptr %14, align 4
+  %177 = call i32 @dissect_spoolss_relstr(ptr noundef %169, i32 noundef %170, ptr noundef %171, ptr noundef %172, ptr noundef %173, ptr noundef %174, i32 noundef %175, i32 noundef %176, ptr noundef null)
+  store i32 %177, ptr %8, align 4
+  %178 = load ptr, ptr %7, align 8
+  %179 = load i32, ptr %8, align 4
+  %180 = load ptr, ptr %9, align 8
+  %181 = load ptr, ptr %13, align 8
+  %182 = load ptr, ptr %11, align 8
+  %183 = load ptr, ptr %12, align 8
+  %184 = load i32, ptr @hf_provider, align 4
+  %185 = load i32, ptr %14, align 4
+  %186 = call i32 @dissect_spoolss_relstr(ptr noundef %178, i32 noundef %179, ptr noundef %180, ptr noundef %181, ptr noundef %182, ptr noundef %183, i32 noundef %184, i32 noundef %185, ptr noundef null)
+  store i32 %186, ptr %8, align 4
+  %187 = load ptr, ptr %7, align 8
+  %188 = load i32, ptr %8, align 4
+  %189 = load ptr, ptr %9, align 8
+  %190 = load ptr, ptr %13, align 8
+  %191 = load ptr, ptr %11, align 8
+  %192 = load ptr, ptr %12, align 8
+  %193 = load i32, ptr @hf_printprocessor, align 4
+  %194 = load i32, ptr %14, align 4
+  %195 = call i32 @dissect_spoolss_relstr(ptr noundef %187, i32 noundef %188, ptr noundef %189, ptr noundef %190, ptr noundef %191, ptr noundef %192, i32 noundef %193, i32 noundef %194, ptr noundef null)
+  store i32 %195, ptr %8, align 4
+  %196 = load ptr, ptr %7, align 8
+  %197 = load i32, ptr %8, align 4
+  %198 = load ptr, ptr %9, align 8
+  %199 = load ptr, ptr %13, align 8
+  %200 = load ptr, ptr %11, align 8
+  %201 = load ptr, ptr %12, align 8
+  %202 = load i32, ptr @hf_vendor_setup, align 4
+  %203 = load i32, ptr %14, align 4
+  %204 = call i32 @dissect_spoolss_relstr(ptr noundef %196, i32 noundef %197, ptr noundef %198, ptr noundef %199, ptr noundef %200, ptr noundef %201, i32 noundef %202, i32 noundef %203, ptr noundef null)
+  store i32 %204, ptr %8, align 4
+  %205 = load ptr, ptr %7, align 8
+  %206 = load i32, ptr %8, align 4
+  %207 = load ptr, ptr %9, align 8
+  %208 = load ptr, ptr %13, align 8
+  %209 = load ptr, ptr %11, align 8
+  %210 = load ptr, ptr %12, align 8
+  %211 = load i32, ptr @hf_color_profiles, align 4
+  %212 = load i32, ptr %14, align 4
+  %213 = call i32 @dissect_spoolss_relstrarray(ptr noundef %205, i32 noundef %206, ptr noundef %207, ptr noundef %208, ptr noundef %209, ptr noundef %210, i32 noundef %211, i32 noundef %212, ptr noundef null)
+  store i32 %213, ptr %8, align 4
+  %214 = load ptr, ptr %7, align 8
+  %215 = load i32, ptr %8, align 4
+  %216 = load ptr, ptr %9, align 8
+  %217 = load ptr, ptr %13, align 8
+  %218 = load ptr, ptr %11, align 8
+  %219 = load ptr, ptr %12, align 8
+  %220 = load i32, ptr @hf_inf_path, align 4
+  %221 = load i32, ptr %14, align 4
+  %222 = call i32 @dissect_spoolss_relstr(ptr noundef %214, i32 noundef %215, ptr noundef %216, ptr noundef %217, ptr noundef %218, ptr noundef %219, i32 noundef %220, i32 noundef %221, ptr noundef null)
+  store i32 %222, ptr %8, align 4
+  %223 = load ptr, ptr %7, align 8
+  %224 = load i32, ptr %8, align 4
+  %225 = load ptr, ptr %9, align 8
+  %226 = load ptr, ptr %13, align 8
+  %227 = load ptr, ptr %11, align 8
+  %228 = load ptr, ptr %12, align 8
+  %229 = call i32 @dissect_printer_driver_attributes(ptr noundef %223, i32 noundef %224, ptr noundef %225, ptr noundef %226, ptr noundef %227, ptr noundef %228)
+  store i32 %229, ptr %8, align 4
+  %230 = load ptr, ptr %7, align 8
+  %231 = load i32, ptr %8, align 4
+  %232 = load ptr, ptr %9, align 8
+  %233 = load ptr, ptr %13, align 8
+  %234 = load ptr, ptr %11, align 8
+  %235 = load ptr, ptr %12, align 8
+  %236 = load i32, ptr @hf_core_driver_dependencies, align 4
+  %237 = load i32, ptr %14, align 4
+  %238 = call i32 @dissect_spoolss_relstrarray(ptr noundef %230, i32 noundef %231, ptr noundef %232, ptr noundef %233, ptr noundef %234, ptr noundef %235, i32 noundef %236, i32 noundef %237, ptr noundef null)
+  store i32 %238, ptr %8, align 4
+  %239 = load ptr, ptr %7, align 8
+  %240 = load i32, ptr %8, align 4
+  %241 = load ptr, ptr %9, align 8
+  %242 = load ptr, ptr %13, align 8
+  %243 = load ptr, ptr %11, align 8
+  %244 = load ptr, ptr %12, align 8
+  %245 = load i32, ptr @hf_min_inbox_driverdate, align 4
+  %246 = call i32 @dissect_ndr_nt_NTTIME(ptr noundef %239, i32 noundef %240, ptr noundef %241, ptr noundef %242, ptr noundef %243, ptr noundef %244, i32 noundef %245)
+  store i32 %246, ptr %8, align 4
+  %247 = load ptr, ptr %7, align 8
+  %248 = load i32, ptr %8, align 4
+  %249 = load ptr, ptr %9, align 8
+  %250 = load ptr, ptr %13, align 8
+  %251 = load ptr, ptr %11, align 8
+  %252 = load ptr, ptr %12, align 8
+  %253 = load i32, ptr @hf_min_inbox_driver_version_low, align 4
+  %254 = call i32 @dissect_ndr_uint32(ptr noundef %247, i32 noundef %248, ptr noundef %249, ptr noundef %250, ptr noundef %251, ptr noundef %252, i32 noundef %253, ptr noundef null)
+  store i32 %254, ptr %8, align 4
+  %255 = load ptr, ptr %7, align 8
+  %256 = load i32, ptr %8, align 4
+  %257 = load ptr, ptr %9, align 8
+  %258 = load ptr, ptr %13, align 8
+  %259 = load ptr, ptr %11, align 8
+  %260 = load ptr, ptr %12, align 8
+  %261 = load i32, ptr @hf_min_inbox_driver_version_high, align 4
+  %262 = call i32 @dissect_ndr_uint32(ptr noundef %255, i32 noundef %256, ptr noundef %257, ptr noundef %258, ptr noundef %259, ptr noundef %260, i32 noundef %261, ptr noundef null)
+  store i32 %262, ptr %8, align 4
+  %263 = load i32, ptr %8, align 4
+  ret i32 %263
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_DRIVER_INFO_101(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load i32, ptr %8, align 4
+  store i32 %15, ptr %14, align 4
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %8, align 4
+  %19 = load i32, ptr @ett_DRIVER_INFO_101, align 4
+  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 0, i32 noundef %19, ptr noundef null, ptr noundef @.str.1226)
+  store ptr %20, ptr %13, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %13, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i32, ptr @hf_driverinfo_cversion, align 4
+  %28 = call i32 @dissect_ndr_uint32(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef null)
+  store i32 %28, ptr %8, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %13, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = load i32, ptr @hf_drivername, align 4
+  %36 = load i32, ptr %14, align 4
+  %37 = call i32 @dissect_spoolss_relstr(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %36, ptr noundef null)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %7, align 8
+  %39 = load i32, ptr %8, align 4
+  %40 = load ptr, ptr %9, align 8
+  %41 = load ptr, ptr %13, align 8
+  %42 = load ptr, ptr %11, align 8
+  %43 = load ptr, ptr %12, align 8
+  %44 = load i32, ptr @hf_environment, align 4
+  %45 = load i32, ptr %14, align 4
+  %46 = call i32 @dissect_spoolss_relstr(ptr noundef %38, i32 noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef %45, ptr noundef null)
+  store i32 %46, ptr %8, align 4
+  %47 = load ptr, ptr %13, align 8
+  %48 = load ptr, ptr %9, align 8
+  %49 = load ptr, ptr %7, align 8
+  %50 = load i32, ptr %8, align 4
+  %51 = call ptr @proto_tree_add_expert(ptr noundef %47, ptr noundef %48, ptr noundef @ei_unknown_data, ptr noundef %49, i32 noundef %50, i32 noundef 0)
+  %52 = load i32, ptr %8, align 4
+  ret i32 %52
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_spoolss_relstrarray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) #0 {
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca ptr, align 8
+  store ptr %0, ptr %10, align 8
+  store i32 %1, ptr %11, align 4
+  store ptr %2, ptr %12, align 8
+  store ptr %3, ptr %13, align 8
+  store ptr %4, ptr %14, align 8
+  store ptr %5, ptr %15, align 8
+  store i32 %6, ptr %16, align 4
+  store i32 %7, ptr %17, align 4
+  store ptr %8, ptr %18, align 8
+  %24 = load ptr, ptr %13, align 8
+  %25 = load i32, ptr %16, align 4
+  %26 = load ptr, ptr %10, align 8
+  %27 = load i32, ptr %11, align 4
+  %28 = call ptr @proto_tree_add_string(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef 4, ptr noundef @.str.755)
+  store ptr %28, ptr %19, align 8
+  %29 = load ptr, ptr %19, align 8
+  %30 = load i32, ptr @ett_RELSTR_ARRAY, align 4
+  %31 = call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30)
+  store ptr %31, ptr %20, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = load i32, ptr %11, align 4
+  %34 = load ptr, ptr %12, align 8
+  %35 = load ptr, ptr %20, align 8
+  %36 = load ptr, ptr %14, align 8
+  %37 = load ptr, ptr %15, align 8
+  %38 = load i32, ptr @hf_offset, align 4
+  %39 = call i32 @dissect_ndr_uint32(ptr noundef %32, i32 noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %37, i32 noundef %38, ptr noundef %21)
+  store i32 %39, ptr %11, align 4
+  %40 = load i32, ptr %21, align 4
+  %41 = load i32, ptr %17, align 4
+  %42 = add i32 %40, %41
+  store i32 %42, ptr %22, align 4
+  %43 = load i32, ptr %21, align 4
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %53
+
+45:                                               ; preds = %9
+  %46 = load ptr, ptr %10, align 8
+  %47 = load i32, ptr %22, align 4
+  %48 = load ptr, ptr %12, align 8
+  %49 = load ptr, ptr %20, align 8
+  %50 = load ptr, ptr %15, align 8
+  %51 = load i32, ptr @hf_relative_string, align 4
+  %52 = call i32 @dissect_spoolss_uint16uni(ptr noundef %46, i32 noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %23, i32 noundef %51)
+  br label %58
+
+53:                                               ; preds = %9
+  %54 = load ptr, ptr %12, align 8
+  %55 = getelementptr inbounds %struct._packet_info, ptr %54, i32 0, i32 50
+  %56 = load ptr, ptr %55, align 8
+  %57 = call noalias ptr @wmem_strdup(ptr noundef %56, ptr noundef @.str.1222)
+  store ptr %57, ptr %23, align 8
+  br label %58
+
+58:                                               ; preds = %53, %45
+  %59 = load ptr, ptr %19, align 8
+  %60 = load ptr, ptr %23, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %59, ptr noundef @.str.1223, ptr noundef %60)
+  %61 = load ptr, ptr %18, align 8
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %63, label %66
+
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %23, align 8
+  %65 = load ptr, ptr %18, align 8
+  store ptr %64, ptr %65, align 8
+  br label %66
+
+66:                                               ; preds = %63, %58
+  %67 = load i32, ptr %11, align 4
+  ret i32 %67
+}
+
+declare i32 @dissect_ndr_nt_NTTIME(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_printer_driver_attributes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i32, ptr %8, align 4
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = call i32 @dissect_ndr_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef null, ptr noundef %17, ptr noundef %18, i32 noundef -1, ptr noundef %13)
+  store i32 %19, ptr %8, align 4
+  %20 = load ptr, ptr %10, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = sub i32 %22, 4
+  %24 = load i32, ptr @hf_printer_driver_attributes, align 4
+  %25 = load i32, ptr @ett_printer_driver_attributes, align 4
+  %26 = load i32, ptr %13, align 4
+  %27 = zext i32 %26 to i64
+  %28 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %20, ptr noundef %21, i32 noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef @dissect_printer_driver_attributes.hf_attributes, i64 noundef %27, i32 noundef 1)
+  %29 = load i32, ptr %8, align 4
+  ret i32 %29
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_spoolss_string_parm(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  store ptr %6, ptr %14, align 8
+  %15 = load ptr, ptr %8, align 8
+  %16 = load i32, ptr %9, align 4
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = load ptr, ptr %12, align 8
+  %20 = load ptr, ptr %13, align 8
+  %21 = load ptr, ptr %14, align 8
+  %22 = call i32 @dissect_ndr_pointer(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef @dissect_spoolss_string_parm_data, i32 noundef 2, ptr noundef %21, i32 noundef -1)
+  store i32 %22, ptr %9, align 4
+  %23 = load i32, ptr %9, align 4
+  ret i32 %23
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_spoolss_string_parm_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  store ptr null, ptr %17, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = getelementptr inbounds %struct._dcerpc_info, ptr %18, i32 0, i32 4
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %6
+  %23 = load i32, ptr %9, align 4
+  store i32 %23, ptr %7, align 4
+  br label %85
+
+24:                                               ; preds = %6
+  %25 = load ptr, ptr %8, align 8
+  %26 = load i32, ptr %9, align 4
+  %27 = load ptr, ptr %10, align 8
+  %28 = load ptr, ptr %11, align 8
+  %29 = load ptr, ptr %12, align 8
+  %30 = load ptr, ptr %13, align 8
+  %31 = load i32, ptr @hf_string_parm_size, align 4
+  %32 = call i32 @dissect_ndr_uint32(ptr noundef %25, i32 noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, i32 noundef %31, ptr noundef %14)
+  store i32 %32, ptr %9, align 4
+  %33 = load ptr, ptr %10, align 8
+  %34 = getelementptr inbounds %struct._packet_info, ptr %33, i32 0, i32 50
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %8, align 8
+  %37 = load i32, ptr %9, align 4
+  %38 = call ptr @tvb_get_stringz_enc(ptr noundef %35, ptr noundef %36, i32 noundef %37, ptr noundef %15, i32 noundef -2147483644)
+  store ptr %38, ptr %16, align 8
+  %39 = load ptr, ptr %11, align 8
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %55
+
+41:                                               ; preds = %24
+  %42 = load i32, ptr %14, align 4
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %55
+
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %8, align 8
+  %46 = load i32, ptr %9, align 4
+  %47 = load i32, ptr %14, align 4
+  call void @tvb_ensure_bytes_exist(ptr noundef %45, i32 noundef %46, i32 noundef %47)
+  %48 = load ptr, ptr %11, align 8
+  %49 = load i32, ptr @hf_string_parm_data, align 4
+  %50 = load ptr, ptr %8, align 8
+  %51 = load i32, ptr %9, align 4
+  %52 = load i32, ptr %15, align 4
+  %53 = load ptr, ptr %16, align 8
+  %54 = call ptr @proto_tree_add_string(ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef %52, ptr noundef %53)
+  store ptr %54, ptr %17, align 8
+  br label %55
+
+55:                                               ; preds = %44, %41, %24
+  %56 = load i32, ptr %14, align 4
+  %57 = load i32, ptr %9, align 4
+  %58 = add i32 %57, %56
+  store i32 %58, ptr %9, align 4
+  %59 = load ptr, ptr %10, align 8
+  %60 = getelementptr inbounds %struct._packet_info, ptr %59, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %16, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %61, i32 noundef 25, ptr noundef @.str.1228, ptr noundef %62)
+  %63 = load ptr, ptr %11, align 8
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %83
+
+65:                                               ; preds = %55
+  %66 = load ptr, ptr %17, align 8
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %68, label %83
+
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %17, align 8
+  %70 = getelementptr inbounds %struct._proto_node, ptr %69, i32 0, i32 3
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp ne ptr %71, null
+  br i1 %72, label %73, label %77
+
+73:                                               ; preds = %68
+  %74 = load ptr, ptr %17, align 8
+  %75 = getelementptr inbounds %struct._proto_node, ptr %74, i32 0, i32 3
+  %76 = load ptr, ptr %75, align 8
+  br label %79
+
+77:                                               ; preds = %68
+  %78 = load ptr, ptr %17, align 8
+  br label %79
+
+79:                                               ; preds = %77, %73
+  %80 = phi ptr [ %76, %73 ], [ %78, %77 ]
+  store ptr %80, ptr %17, align 8
+  %81 = load ptr, ptr %17, align 8
+  %82 = load ptr, ptr %16, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %81, ptr noundef @.str.757, ptr noundef %82)
+  br label %83
+
+83:                                               ; preds = %79, %65, %55
+  %84 = load i32, ptr %9, align 4
+  store i32 %84, ptr %7, align 4
+  br label %85
+
+85:                                               ; preds = %83, %22
+  %86 = load i32, ptr %7, align 4
+  ret i32 %86
+}
+
+declare ptr @tvb_get_stringz_enc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+
+declare void @tvb_ensure_bytes_exist(ptr noundef, i32 noundef, i32 noundef) #1
+
+declare i32 @dcerpc_fetch_polhnd_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+
+declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_printerdata_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca ptr, align 8
+  %20 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  store i32 %6, ptr %14, align 4
+  %21 = load ptr, ptr %11, align 8
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i32, ptr %9, align 4
+  %24 = load i32, ptr @ett_printerdata_data, align 4
+  %25 = call ptr @proto_tree_add_subtree(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef 0, i32 noundef %24, ptr noundef %15, ptr noundef @.str.206)
+  store ptr %25, ptr %17, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = load i32, ptr %9, align 4
+  %28 = load ptr, ptr %10, align 8
+  %29 = load ptr, ptr %17, align 8
+  %30 = load ptr, ptr %12, align 8
+  %31 = load ptr, ptr %13, align 8
+  %32 = load i32, ptr @hf_printerdata_size, align 4
+  %33 = call i32 @dissect_ndr_uint32(ptr noundef %26, i32 noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, i32 noundef %32, ptr noundef %18)
+  store i32 %33, ptr %9, align 4
+  %34 = load i32, ptr %18, align 4
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %93
+
+36:                                               ; preds = %7
+  %37 = load ptr, ptr %8, align 8
+  %38 = load i32, ptr %9, align 4
+  %39 = load ptr, ptr %10, align 8
+  %40 = load ptr, ptr %17, align 8
+  %41 = load ptr, ptr %12, align 8
+  %42 = load ptr, ptr %13, align 8
+  %43 = load i32, ptr @hf_printerdata_data, align 4
+  %44 = load i32, ptr %18, align 4
+  %45 = call i32 @dissect_ndr_uint8s(ptr noundef %37, i32 noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef %44, ptr noundef null)
+  store i32 %45, ptr %9, align 4
+  %46 = load i32, ptr %14, align 4
+  switch i32 %46, label %91 [
+    i32 1, label %47
+    i32 4, label %66
+    i32 3, label %87
+  ]
+
+47:                                               ; preds = %36
+  %48 = load ptr, ptr %11, align 8
+  %49 = load i32, ptr @hf_printerdata_data_sz, align 4
+  %50 = load ptr, ptr %8, align 8
+  %51 = load i32, ptr %9, align 4
+  %52 = load i32, ptr %18, align 4
+  %53 = sub i32 %51, %52
+  %54 = load i32, ptr %18, align 4
+  %55 = load ptr, ptr %10, align 8
+  %56 = getelementptr inbounds %struct._packet_info, ptr %55, i32 0, i32 50
+  %57 = load ptr, ptr %56, align 8
+  %58 = call ptr @proto_tree_add_item_ret_string(ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef %53, i32 noundef %54, i32 noundef -2147483644, ptr noundef %57, ptr noundef %19)
+  store ptr %58, ptr %16, align 8
+  %59 = load ptr, ptr %16, align 8
+  call void @proto_item_set_hidden(ptr noundef %59)
+  %60 = load ptr, ptr %15, align 8
+  %61 = load ptr, ptr %19, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %60, ptr noundef @.str.757, ptr noundef %61)
+  %62 = load ptr, ptr %10, align 8
+  %63 = getelementptr inbounds %struct._packet_info, ptr %62, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %19, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %64, i32 noundef 25, ptr noundef @.str.1232, ptr noundef %65)
+  br label %92
+
+66:                                               ; preds = %36
+  %67 = load ptr, ptr %8, align 8
+  %68 = load i32, ptr %9, align 4
+  %69 = load i32, ptr %18, align 4
+  %70 = sub i32 %68, %69
+  %71 = call i32 @tvb_get_letohl(ptr noundef %67, i32 noundef %70)
+  store i32 %71, ptr %20, align 4
+  %72 = load ptr, ptr %15, align 8
+  %73 = load i32, ptr %20, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %72, ptr noundef @.str.1233, i32 noundef %73)
+  %74 = load ptr, ptr %10, align 8
+  %75 = getelementptr inbounds %struct._packet_info, ptr %74, i32 0, i32 1
+  %76 = load ptr, ptr %75, align 8
+  %77 = load i32, ptr %20, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %76, i32 noundef 25, ptr noundef @.str.1234, i32 noundef %77)
+  %78 = load ptr, ptr %11, align 8
+  %79 = load i32, ptr @hf_printerdata_data_dword, align 4
+  %80 = load ptr, ptr %8, align 8
+  %81 = load i32, ptr %9, align 4
+  %82 = load i32, ptr %18, align 4
+  %83 = sub i32 %81, %82
+  %84 = load i32, ptr %20, align 4
+  %85 = call ptr @proto_tree_add_uint(ptr noundef %78, i32 noundef %79, ptr noundef %80, i32 noundef %83, i32 noundef 4, i32 noundef %84)
+  store ptr %85, ptr %16, align 8
+  %86 = load ptr, ptr %16, align 8
+  call void @proto_item_set_hidden(ptr noundef %86)
+  br label %92
+
+87:                                               ; preds = %36
+  %88 = load ptr, ptr %10, align 8
+  %89 = getelementptr inbounds %struct._packet_info, ptr %88, i32 0, i32 1
+  %90 = load ptr, ptr %89, align 8
+  call void @col_append_str(ptr noundef %90, i32 noundef 25, ptr noundef @.str.1235)
+  br label %92
+
+91:                                               ; preds = %36
+  br label %92
+
+92:                                               ; preds = %91, %87, %66, %47
+  br label %93
+
+93:                                               ; preds = %92, %7
+  %94 = load ptr, ptr %15, align 8
+  %95 = load i32, ptr %18, align 4
+  %96 = add i32 %95, 4
+  call void @proto_item_set_len(ptr noundef %94, i32 noundef %96)
+  %97 = load i32, ptr %9, align 4
+  ret i32 %97
+}
+
+declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_FORM_REL(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  store i32 %6, ptr %14, align 4
+  %20 = load i32, ptr %9, align 4
+  store i32 %20, ptr %18, align 4
+  store ptr null, ptr %19, align 8
+  %21 = load ptr, ptr %11, align 8
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i32, ptr %9, align 4
+  %24 = load i32, ptr @ett_FORM_REL, align 4
+  %25 = call ptr @proto_tree_add_subtree(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef 0, i32 noundef %24, ptr noundef %15, ptr noundef @.str.1236)
+  store ptr %25, ptr %16, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = load i32, ptr %9, align 4
+  %28 = load ptr, ptr %10, align 8
+  %29 = load ptr, ptr %16, align 8
+  %30 = load ptr, ptr %12, align 8
+  %31 = load ptr, ptr %13, align 8
+  %32 = load i32, ptr @hf_form_flags, align 4
+  %33 = call i32 @dissect_ndr_uint32(ptr noundef %26, i32 noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, i32 noundef %32, ptr noundef %17)
+  store i32 %33, ptr %9, align 4
+  %34 = load ptr, ptr %8, align 8
+  %35 = load i32, ptr %9, align 4
+  %36 = load ptr, ptr %10, align 8
+  %37 = load ptr, ptr %16, align 8
+  %38 = load ptr, ptr %12, align 8
+  %39 = load ptr, ptr %13, align 8
+  %40 = load i32, ptr @hf_form_name, align 4
+  %41 = load i32, ptr %14, align 4
+  %42 = call i32 @dissect_spoolss_relstr(ptr noundef %34, i32 noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, i32 noundef %40, i32 noundef %41, ptr noundef %19)
+  store i32 %42, ptr %9, align 4
+  %43 = load ptr, ptr %19, align 8
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %48
+
+45:                                               ; preds = %7
+  %46 = load ptr, ptr %15, align 8
+  %47 = load ptr, ptr %19, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %46, ptr noundef @.str.757, ptr noundef %47)
+  br label %48
+
+48:                                               ; preds = %45, %7
+  %49 = load ptr, ptr %8, align 8
+  %50 = load i32, ptr %9, align 4
+  %51 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %16, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = load ptr, ptr %13, align 8
+  %55 = load i32, ptr @hf_form_width, align 4
+  %56 = call i32 @dissect_ndr_uint32(ptr noundef %49, i32 noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef %54, i32 noundef %55, ptr noundef null)
+  store i32 %56, ptr %9, align 4
+  %57 = load ptr, ptr %8, align 8
+  %58 = load i32, ptr %9, align 4
+  %59 = load ptr, ptr %10, align 8
+  %60 = load ptr, ptr %16, align 8
+  %61 = load ptr, ptr %12, align 8
+  %62 = load ptr, ptr %13, align 8
+  %63 = load i32, ptr @hf_form_height, align 4
+  %64 = call i32 @dissect_ndr_uint32(ptr noundef %57, i32 noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %62, i32 noundef %63, ptr noundef null)
+  store i32 %64, ptr %9, align 4
+  %65 = load ptr, ptr %8, align 8
+  %66 = load i32, ptr %9, align 4
+  %67 = load ptr, ptr %10, align 8
+  %68 = load ptr, ptr %16, align 8
+  %69 = load ptr, ptr %12, align 8
+  %70 = load ptr, ptr %13, align 8
+  %71 = load i32, ptr @hf_form_left_margin, align 4
+  %72 = call i32 @dissect_ndr_uint32(ptr noundef %65, i32 noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef %70, i32 noundef %71, ptr noundef null)
+  store i32 %72, ptr %9, align 4
+  %73 = load ptr, ptr %8, align 8
+  %74 = load i32, ptr %9, align 4
+  %75 = load ptr, ptr %10, align 8
+  %76 = load ptr, ptr %16, align 8
+  %77 = load ptr, ptr %12, align 8
+  %78 = load ptr, ptr %13, align 8
+  %79 = load i32, ptr @hf_form_top_margin, align 4
+  %80 = call i32 @dissect_ndr_uint32(ptr noundef %73, i32 noundef %74, ptr noundef %75, ptr noundef %76, ptr noundef %77, ptr noundef %78, i32 noundef %79, ptr noundef null)
+  store i32 %80, ptr %9, align 4
+  %81 = load ptr, ptr %8, align 8
+  %82 = load i32, ptr %9, align 4
+  %83 = load ptr, ptr %10, align 8
+  %84 = load ptr, ptr %16, align 8
+  %85 = load ptr, ptr %12, align 8
+  %86 = load ptr, ptr %13, align 8
+  %87 = load i32, ptr @hf_form_horiz_len, align 4
+  %88 = call i32 @dissect_ndr_uint32(ptr noundef %81, i32 noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef %86, i32 noundef %87, ptr noundef null)
+  store i32 %88, ptr %9, align 4
+  %89 = load ptr, ptr %8, align 8
+  %90 = load i32, ptr %9, align 4
+  %91 = load ptr, ptr %10, align 8
+  %92 = load ptr, ptr %16, align 8
+  %93 = load ptr, ptr %12, align 8
+  %94 = load ptr, ptr %13, align 8
+  %95 = load i32, ptr @hf_form_vert_len, align 4
+  %96 = call i32 @dissect_ndr_uint32(ptr noundef %89, i32 noundef %90, ptr noundef %91, ptr noundef %92, ptr noundef %93, ptr noundef %94, i32 noundef %95, ptr noundef null)
+  store i32 %96, ptr %9, align 4
+  %97 = load ptr, ptr %15, align 8
+  %98 = load i32, ptr %9, align 4
+  %99 = load i32, ptr %18, align 4
+  %100 = sub i32 %98, %99
+  call void @proto_item_set_len(ptr noundef %97, i32 noundef %100)
+  %101 = load i32, ptr %9, align 4
+  ret i32 %101
+}
+
+declare void @dcerpc_store_polhnd_name(ptr noundef, ptr noundef, ptr noundef) #1
+
+declare i32 @dissect_ndr_wchar_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+
+declare void @cb_wstr_postprocess(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_PRINTER_DATATYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  %14 = load ptr, ptr %12, align 8
+  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 4
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %20
+
+18:                                               ; preds = %6
+  %19 = load i32, ptr %9, align 4
+  store i32 %19, ptr %7, align 4
+  br label %30
+
+20:                                               ; preds = %6
+  %21 = load ptr, ptr %8, align 8
+  %22 = load i32, ptr %9, align 4
+  %23 = load ptr, ptr %10, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %12, align 8
+  %26 = load ptr, ptr %13, align 8
+  %27 = load i32, ptr @hf_datatype, align 4
+  %28 = call i32 @dissect_ndr_cvstring(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef 2, i32 noundef %27, i32 noundef 1, ptr noundef null)
+  store i32 %28, ptr %9, align 4
+  %29 = load i32, ptr %9, align 4
+  store i32 %29, ptr %7, align 4
+  br label %30
+
+30:                                               ; preds = %20, %18
+  %31 = load i32, ptr %7, align 4
+  ret i32 %31
+}
+
+; Function Attrs: nounwind willreturn memory(read)
+declare ptr @strchr(ptr noundef, i32 noundef) #2
+
+declare i32 @dissect_nt_access_mask(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+
+; Function Attrs: nounwind uwtable
+define internal void @spoolss_printserver_specific_rights(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  store i32 %3, ptr %8, align 4
+  %9 = load ptr, ptr %7, align 8
+  %10 = load i32, ptr @hf_server_access_enum, align 4
+  %11 = load ptr, ptr %5, align 8
+  %12 = load i32, ptr %6, align 4
+  %13 = load i32, ptr %8, align 4
+  %14 = zext i32 %13 to i64
+  %15 = call ptr @proto_tree_add_boolean(ptr noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, i32 noundef 4, i64 noundef %14)
+  %16 = load ptr, ptr %7, align 8
+  %17 = load i32, ptr @hf_server_access_admin, align 4
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %6, align 4
+  %20 = load i32, ptr %8, align 4
+  %21 = zext i32 %20 to i64
+  %22 = call ptr @proto_tree_add_boolean(ptr noundef %16, i32 noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 4, i64 noundef %21)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_spoolss_printer_enum_values(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca i32, align 4
+  %24 = alloca i16, align 2
+  %25 = alloca i16, align 2
+  %26 = alloca i32, align 4
+  %27 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  %28 = load i32, ptr %9, align 4
+  store i32 %28, ptr %14, align 4
+  %29 = load ptr, ptr %8, align 8
+  %30 = load i32, ptr %9, align 4
+  %31 = load ptr, ptr %10, align 8
+  %32 = load ptr, ptr %12, align 8
+  %33 = load ptr, ptr %13, align 8
+  %34 = load i32, ptr @hf_enumprinterdataex_name_offset, align 4
+  %35 = call i32 @dissect_ndr_uint32(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef null, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %15)
+  store i32 %35, ptr %9, align 4
+  %36 = load ptr, ptr %8, align 8
+  %37 = load i32, ptr %9, align 4
+  %38 = load ptr, ptr %10, align 8
+  %39 = load ptr, ptr %12, align 8
+  %40 = load ptr, ptr %13, align 8
+  %41 = load i32, ptr @hf_enumprinterdataex_name_len, align 4
+  %42 = call i32 @dissect_ndr_uint32(ptr noundef %36, i32 noundef %37, ptr noundef %38, ptr noundef null, ptr noundef %39, ptr noundef %40, i32 noundef %41, ptr noundef %16)
+  store i32 %42, ptr %9, align 4
+  %43 = load ptr, ptr %8, align 8
+  %44 = load i32, ptr %14, align 4
+  %45 = load i32, ptr %15, align 4
+  %46 = add i32 %44, %45
+  %47 = load ptr, ptr %10, align 8
+  %48 = load ptr, ptr %13, align 8
+  %49 = load i32, ptr @hf_enumprinterdataex_name, align 4
+  %50 = call i32 @dissect_spoolss_uint16uni(ptr noundef %43, i32 noundef %46, ptr noundef %47, ptr noundef null, ptr noundef %48, ptr noundef %20, i32 noundef %49)
+  %51 = load ptr, ptr %11, align 8
+  %52 = load ptr, ptr %8, align 8
+  %53 = load i32, ptr %9, align 4
+  %54 = load i32, ptr @ett_printer_enumdataex_value, align 4
+  %55 = load ptr, ptr %20, align 8
+  %56 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef 0, i32 noundef %54, ptr noundef %21, ptr noundef @.str.1253, ptr noundef %55)
+  store ptr %56, ptr %22, align 8
+  %57 = load ptr, ptr %22, align 8
+  %58 = load i32, ptr @hf_enumprinterdataex_name_offset, align 4
+  %59 = load ptr, ptr %8, align 8
+  %60 = load i32, ptr %9, align 4
+  %61 = sub i32 %60, 8
+  %62 = load i32, ptr %15, align 4
+  %63 = call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %61, i32 noundef 4, i32 noundef %62)
+  %64 = load ptr, ptr %22, align 8
+  %65 = load i32, ptr @hf_enumprinterdataex_name_len, align 4
+  %66 = load ptr, ptr %8, align 8
+  %67 = load i32, ptr %9, align 4
+  %68 = sub i32 %67, 4
+  %69 = load i32, ptr %16, align 4
+  %70 = call ptr @proto_tree_add_uint(ptr noundef %64, i32 noundef %65, ptr noundef %66, i32 noundef %68, i32 noundef 4, i32 noundef %69)
+  %71 = load ptr, ptr %22, align 8
+  %72 = load i32, ptr @hf_enumprinterdataex_name, align 4
+  %73 = load ptr, ptr %8, align 8
+  %74 = load i32, ptr %14, align 4
+  %75 = load i32, ptr %15, align 4
+  %76 = add i32 %74, %75
+  %77 = load ptr, ptr %20, align 8
+  %78 = call i64 @strlen(ptr noundef %77) #4
+  %79 = trunc i64 %78 to i32
+  %80 = add i32 %79, 1
+  %81 = mul i32 %80, 2
+  %82 = load ptr, ptr %20, align 8
+  %83 = call ptr @proto_tree_add_string(ptr noundef %71, i32 noundef %72, ptr noundef %73, i32 noundef %76, i32 noundef %81, ptr noundef %82)
+  %84 = load ptr, ptr %8, align 8
+  %85 = load i32, ptr %9, align 4
+  %86 = load ptr, ptr %10, align 8
+  %87 = load ptr, ptr %22, align 8
+  %88 = load ptr, ptr %12, align 8
+  %89 = load ptr, ptr %13, align 8
+  %90 = load i32, ptr @hf_printerdata_type, align 4
+  %91 = call i32 @dissect_ndr_uint32(ptr noundef %84, i32 noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %88, ptr noundef %89, i32 noundef %90, ptr noundef %19)
+  store i32 %91, ptr %9, align 4
+  %92 = load ptr, ptr %8, align 8
+  %93 = load i32, ptr %9, align 4
+  %94 = load ptr, ptr %10, align 8
+  %95 = load ptr, ptr %22, align 8
+  %96 = load ptr, ptr %12, align 8
+  %97 = load ptr, ptr %13, align 8
+  %98 = load i32, ptr @hf_enumprinterdataex_val_offset, align 4
+  %99 = call i32 @dissect_ndr_uint32(ptr noundef %92, i32 noundef %93, ptr noundef %94, ptr noundef %95, ptr noundef %96, ptr noundef %97, i32 noundef %98, ptr noundef %17)
+  store i32 %99, ptr %9, align 4
+  %100 = load ptr, ptr %8, align 8
+  %101 = load i32, ptr %9, align 4
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %22, align 8
+  %104 = load ptr, ptr %12, align 8
+  %105 = load ptr, ptr %13, align 8
+  %106 = load i32, ptr @hf_enumprinterdataex_val_len, align 4
+  %107 = call i32 @dissect_ndr_uint32(ptr noundef %100, i32 noundef %101, ptr noundef %102, ptr noundef %103, ptr noundef %104, ptr noundef %105, i32 noundef %106, ptr noundef %18)
+  store i32 %107, ptr %9, align 4
+  %108 = load i32, ptr %18, align 4
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %119
+
+110:                                              ; preds = %6
+  %111 = load ptr, ptr %22, align 8
+  %112 = load i32, ptr @hf_enumprinterdataex_value_null, align 4
+  %113 = load ptr, ptr %8, align 8
+  %114 = load i32, ptr %14, align 4
+  %115 = load i32, ptr %17, align 4
+  %116 = add i32 %114, %115
+  %117 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %111, i32 noundef %112, ptr noundef %113, i32 noundef %116, i32 noundef 4, i32 noundef 0, ptr noundef @.str.1254)
+  %118 = load i32, ptr %9, align 4
+  store i32 %118, ptr %7, align 4
+  br label %200
+
+119:                                              ; preds = %6
+  %120 = load i32, ptr %19, align 4
+  switch i32 %120, label %187 [
+    i32 4, label %121
+    i32 1, label %157
+    i32 3, label %169
+    i32 7, label %178
+  ]
+
+121:                                              ; preds = %119
+  %122 = load i32, ptr %14, align 4
+  %123 = load i32, ptr %17, align 4
+  %124 = add i32 %122, %123
+  store i32 %124, ptr %26, align 4
+  %125 = load ptr, ptr %8, align 8
+  %126 = load i32, ptr %26, align 4
+  %127 = load ptr, ptr %10, align 8
+  %128 = load ptr, ptr %22, align 8
+  %129 = load ptr, ptr %12, align 8
+  %130 = load ptr, ptr %13, align 8
+  %131 = load i32, ptr @hf_enumprinterdataex_val_dword_low, align 4
+  %132 = call i32 @dissect_ndr_uint16(ptr noundef %125, i32 noundef %126, ptr noundef %127, ptr noundef %128, ptr noundef %129, ptr noundef %130, i32 noundef %131, ptr noundef %24)
+  store i32 %132, ptr %26, align 4
+  %133 = load ptr, ptr %8, align 8
+  %134 = load i32, ptr %26, align 4
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %22, align 8
+  %137 = load ptr, ptr %12, align 8
+  %138 = load ptr, ptr %13, align 8
+  %139 = load i32, ptr @hf_enumprinterdataex_val_dword_high, align 4
+  %140 = call i32 @dissect_ndr_uint16(ptr noundef %133, i32 noundef %134, ptr noundef %135, ptr noundef %136, ptr noundef %137, ptr noundef %138, i32 noundef %139, ptr noundef %25)
+  %141 = load i16, ptr %25, align 2
+  %142 = zext i16 %141 to i32
+  %143 = shl i32 %142, 16
+  %144 = load i16, ptr %24, align 2
+  %145 = zext i16 %144 to i32
+  %146 = or i32 %143, %145
+  store i32 %146, ptr %23, align 4
+  %147 = load ptr, ptr %22, align 8
+  %148 = load i32, ptr @hf_enumprinterdataex_value_uint, align 4
+  %149 = load ptr, ptr %8, align 8
+  %150 = load i32, ptr %14, align 4
+  %151 = load i32, ptr %17, align 4
+  %152 = add i32 %150, %151
+  %153 = load i32, ptr %23, align 4
+  %154 = call ptr @proto_tree_add_uint(ptr noundef %147, i32 noundef %148, ptr noundef %149, i32 noundef %152, i32 noundef 4, i32 noundef %153)
+  %155 = load ptr, ptr %21, align 8
+  %156 = load i32, ptr %23, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %155, ptr noundef @.str.1255, i32 noundef %156)
+  br label %198
+
+157:                                              ; preds = %119
+  %158 = load ptr, ptr %8, align 8
+  %159 = load i32, ptr %14, align 4
+  %160 = load i32, ptr %17, align 4
+  %161 = add i32 %159, %160
+  %162 = load ptr, ptr %10, align 8
+  %163 = load ptr, ptr %22, align 8
+  %164 = load ptr, ptr %13, align 8
+  %165 = load i32, ptr @hf_value_string, align 4
+  %166 = call i32 @dissect_spoolss_uint16uni(ptr noundef %158, i32 noundef %161, ptr noundef %162, ptr noundef %163, ptr noundef %164, ptr noundef %27, i32 noundef %165)
+  %167 = load ptr, ptr %21, align 8
+  %168 = load ptr, ptr %27, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %167, ptr noundef @.str.1256, ptr noundef %168)
+  br label %198
+
+169:                                              ; preds = %119
+  %170 = load ptr, ptr %22, align 8
+  %171 = load i32, ptr @hf_enumprinterdataex_value_binary, align 4
+  %172 = load ptr, ptr %8, align 8
+  %173 = load i32, ptr %14, align 4
+  %174 = load i32, ptr %17, align 4
+  %175 = add i32 %173, %174
+  %176 = load i32, ptr %18, align 4
+  %177 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %170, i32 noundef %171, ptr noundef %172, i32 noundef %175, i32 noundef %176, ptr noundef null, ptr noundef @.str.1257)
+  br label %198
+
+178:                                              ; preds = %119
+  %179 = load ptr, ptr %22, align 8
+  %180 = load i32, ptr @hf_enumprinterdataex_value_multi_sz, align 4
+  %181 = load ptr, ptr %8, align 8
+  %182 = load i32, ptr %14, align 4
+  %183 = load i32, ptr %17, align 4
+  %184 = add i32 %182, %183
+  %185 = load i32, ptr %18, align 4
+  %186 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %179, i32 noundef %180, ptr noundef %181, i32 noundef %184, i32 noundef %185, ptr noundef null, ptr noundef @.str.1258)
+  br label %198
+
+187:                                              ; preds = %119
+  %188 = load ptr, ptr %22, align 8
+  %189 = load ptr, ptr %10, align 8
+  %190 = load ptr, ptr %8, align 8
+  %191 = load i32, ptr %14, align 4
+  %192 = load i32, ptr %17, align 4
+  %193 = add i32 %191, %192
+  %194 = load i32, ptr %18, align 4
+  %195 = load ptr, ptr %20, align 8
+  %196 = load i32, ptr %19, align 4
+  %197 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %188, ptr noundef %189, ptr noundef @ei_enumprinterdataex_value, ptr noundef %190, i32 noundef %193, i32 noundef %194, ptr noundef @.str.1259, ptr noundef %195, i32 noundef %196)
+  br label %198
+
+198:                                              ; preds = %187, %178, %169, %157, %121
+  %199 = load i32, ptr %9, align 4
+  store i32 %199, ptr %7, align 4
+  br label %200
+
+200:                                              ; preds = %198, %110
+  %201 = load i32, ptr %7, align 4
+  ret i32 %201
+}
+
+declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_spoolss_keybuffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  %16 = load ptr, ptr %12, align 8
+  %17 = getelementptr inbounds %struct._dcerpc_info, ptr %16, i32 0, i32 4
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %22
+
+20:                                               ; preds = %6
+  %21 = load i32, ptr %9, align 4
+  store i32 %21, ptr %7, align 4
+  br label %63
+
+22:                                               ; preds = %6
+  %23 = load ptr, ptr %8, align 8
+  %24 = load i32, ptr %9, align 4
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %11, align 8
+  %27 = load ptr, ptr %12, align 8
+  %28 = load ptr, ptr %13, align 8
+  %29 = load i32, ptr @hf_keybuffer_size, align 4
+  %30 = call i32 @dissect_ndr_uint32(ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, i32 noundef %29, ptr noundef %14)
+  store i32 %30, ptr %9, align 4
+  %31 = load i32, ptr %9, align 4
+  %32 = load i32, ptr %14, align 4
+  %33 = mul i32 %32, 2
+  %34 = add i32 %31, %33
+  store i32 %34, ptr %15, align 4
+  %35 = load i32, ptr %15, align 4
+  %36 = load i32, ptr %9, align 4
+  %37 = icmp slt i32 %35, %36
+  br i1 %37, label %38, label %43
+
+38:                                               ; preds = %22
+  %39 = load ptr, ptr %8, align 8
+  %40 = load i32, ptr %9, align 4
+  %41 = call i32 @tvb_reported_length_remaining(ptr noundef %39, i32 noundef %40)
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %15, align 4
+  br label %43
+
+43:                                               ; preds = %38, %22
+  br label %44
+
+44:                                               ; preds = %53, %43
+  %45 = load i32, ptr %9, align 4
+  %46 = icmp sgt i32 %45, 0
+  br i1 %46, label %47, label %51
+
+47:                                               ; preds = %44
+  %48 = load i32, ptr %9, align 4
+  %49 = load i32, ptr %15, align 4
+  %50 = icmp slt i32 %48, %49
+  br label %51
+
+51:                                               ; preds = %47, %44
+  %52 = phi i1 [ false, %44 ], [ %50, %47 ]
+  br i1 %52, label %53, label %61
+
+53:                                               ; preds = %51
+  %54 = load ptr, ptr %8, align 8
+  %55 = load i32, ptr %9, align 4
+  %56 = load ptr, ptr %10, align 8
+  %57 = load ptr, ptr %11, align 8
+  %58 = load ptr, ptr %13, align 8
+  %59 = load i32, ptr @hf_keybuffer, align 4
+  %60 = call i32 @dissect_spoolss_uint16uni(ptr noundef %54, i32 noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef %58, ptr noundef null, i32 noundef %59)
+  store i32 %60, ptr %9, align 4
+  br label %44, !llvm.loop !12
+
+61:                                               ; preds = %51
+  %62 = load i32, ptr %9, align 4
+  store i32 %62, ptr %7, align 4
+  br label %63
+
+63:                                               ; preds = %61, %20
+  %64 = load i32, ptr %7, align 4
+  ret i32 %64
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_CORE_PRINTER_DRIVER(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store i32 %1, ptr %8, align 4
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %14 = load ptr, ptr %11, align 8
+  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 14
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds %struct._dcerpc_call_value, ptr %16, i32 0, i32 11
+  %18 = load i32, ptr %17, align 8
+  %19 = and i32 %18, 1
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %36
+
+21:                                               ; preds = %6
+  %22 = load ptr, ptr %11, align 8
+  %23 = getelementptr inbounds %struct._dcerpc_info, ptr %22, i32 0, i32 4
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %35, label %26
+
+26:                                               ; preds = %21
+  %27 = load i32, ptr %8, align 4
+  %28 = and i32 %27, 7
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %34
+
+30:                                               ; preds = %26
+  %31 = load i32, ptr %8, align 4
+  %32 = and i32 %31, -8
+  %33 = add i32 %32, 8
+  store i32 %33, ptr %8, align 4
+  br label %34
+
+34:                                               ; preds = %30, %26
+  br label %35
+
+35:                                               ; preds = %34, %21
+  br label %51
+
+36:                                               ; preds = %6
+  %37 = load ptr, ptr %11, align 8
+  %38 = getelementptr inbounds %struct._dcerpc_info, ptr %37, i32 0, i32 4
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %50, label %41
+
+41:                                               ; preds = %36
+  %42 = load i32, ptr %8, align 4
+  %43 = and i32 %42, 3
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %49
+
+45:                                               ; preds = %41
+  %46 = load i32, ptr %8, align 4
+  %47 = and i32 %46, -4
+  %48 = add i32 %47, 4
+  store i32 %48, ptr %8, align 4
+  br label %49
+
+49:                                               ; preds = %45, %41
+  br label %50
+
+50:                                               ; preds = %49, %36
+  br label %51
+
+51:                                               ; preds = %50, %35
+  %52 = load ptr, ptr %10, align 8
+  %53 = load ptr, ptr %7, align 8
+  %54 = load i32, ptr %8, align 4
+  %55 = load i32, ptr @ett_CORE_PRINTER_DRIVER, align 4
+  %56 = call ptr @proto_tree_add_subtree(ptr noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef 0, i32 noundef %55, ptr noundef null, ptr noundef @.str.1261)
+  store ptr %56, ptr %13, align 8
+  %57 = load ptr, ptr %7, align 8
+  %58 = load i32, ptr %8, align 4
+  %59 = load ptr, ptr %9, align 8
+  %60 = load ptr, ptr %13, align 8
+  %61 = load ptr, ptr %11, align 8
+  %62 = load ptr, ptr %12, align 8
+  %63 = load i32, ptr @hf_core_driver_guid, align 4
+  %64 = call i32 @dissect_ndr_uuid_t(ptr noundef %57, i32 noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %62, i32 noundef %63, ptr noundef null)
+  store i32 %64, ptr %8, align 4
+  %65 = load ptr, ptr %7, align 8
+  %66 = load i32, ptr %8, align 4
+  %67 = load ptr, ptr %9, align 8
+  %68 = load ptr, ptr %13, align 8
+  %69 = load ptr, ptr %11, align 8
+  %70 = load ptr, ptr %12, align 8
+  %71 = load i32, ptr @hf_driverdate, align 4
+  %72 = call i32 @dissect_ndr_nt_NTTIME(ptr noundef %65, i32 noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef %70, i32 noundef %71)
+  store i32 %72, ptr %8, align 4
+  %73 = load ptr, ptr %7, align 8
+  %74 = load i32, ptr %8, align 4
+  %75 = load ptr, ptr %9, align 8
+  %76 = load ptr, ptr %13, align 8
+  %77 = load ptr, ptr %11, align 8
+  %78 = load ptr, ptr %12, align 8
+  %79 = load i32, ptr @hf_driver_version, align 4
+  %80 = call i32 @dissect_ndr_uint64(ptr noundef %73, i32 noundef %74, ptr noundef %75, ptr noundef %76, ptr noundef %77, ptr noundef %78, i32 noundef %79, ptr noundef null)
+  store i32 %80, ptr %8, align 4
+  %81 = load ptr, ptr %7, align 8
+  %82 = load i32, ptr %8, align 4
+  %83 = load ptr, ptr %9, align 8
+  %84 = load ptr, ptr %13, align 8
+  %85 = load ptr, ptr %12, align 8
+  %86 = load i32, ptr @hf_package_id, align 4
+  %87 = call i32 @dissect_spoolss_uint16uni(ptr noundef %81, i32 noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef null, i32 noundef %86)
+  %88 = load i32, ptr %8, align 4
+  %89 = add i32 %88, 520
+  store i32 %89, ptr %8, align 4
+  %90 = load ptr, ptr %11, align 8
+  %91 = getelementptr inbounds %struct._dcerpc_info, ptr %90, i32 0, i32 14
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds %struct._dcerpc_call_value, ptr %92, i32 0, i32 11
+  %94 = load i32, ptr %93, align 8
+  %95 = and i32 %94, 1
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %97, label %136
+
+97:                                               ; preds = %51
+  %98 = load ptr, ptr %11, align 8
+  %99 = getelementptr inbounds %struct._dcerpc_info, ptr %98, i32 0, i32 14
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds %struct._dcerpc_call_value, ptr %100, i32 0, i32 11
+  %102 = load i32, ptr %101, align 8
+  %103 = and i32 %102, 1
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %105, label %120
+
+105:                                              ; preds = %97
+  %106 = load ptr, ptr %11, align 8
+  %107 = getelementptr inbounds %struct._dcerpc_info, ptr %106, i32 0, i32 4
+  %108 = load i32, ptr %107, align 4
+  %109 = icmp ne i32 %108, 0
+  br i1 %109, label %119, label %110
+
+110:                                              ; preds = %105
+  %111 = load i32, ptr %8, align 4
+  %112 = and i32 %111, 7
+  %113 = icmp ne i32 %112, 0
+  br i1 %113, label %114, label %118
+
+114:                                              ; preds = %110
+  %115 = load i32, ptr %8, align 4
+  %116 = and i32 %115, -8
+  %117 = add i32 %116, 8
+  store i32 %117, ptr %8, align 4
+  br label %118
+
+118:                                              ; preds = %114, %110
+  br label %119
+
+119:                                              ; preds = %118, %105
+  br label %135
+
+120:                                              ; preds = %97
+  %121 = load ptr, ptr %11, align 8
+  %122 = getelementptr inbounds %struct._dcerpc_info, ptr %121, i32 0, i32 4
+  %123 = load i32, ptr %122, align 4
+  %124 = icmp ne i32 %123, 0
+  br i1 %124, label %134, label %125
+
+125:                                              ; preds = %120
+  %126 = load i32, ptr %8, align 4
+  %127 = and i32 %126, 3
+  %128 = icmp ne i32 %127, 0
+  br i1 %128, label %129, label %133
+
+129:                                              ; preds = %125
+  %130 = load i32, ptr %8, align 4
+  %131 = and i32 %130, -4
+  %132 = add i32 %131, 4
+  store i32 %132, ptr %8, align 4
+  br label %133
+
+133:                                              ; preds = %129, %125
+  br label %134
+
+134:                                              ; preds = %133, %120
+  br label %135
+
+135:                                              ; preds = %134, %119
+  br label %136
+
+136:                                              ; preds = %135, %51
+  %137 = load i32, ptr %8, align 4
+  ret i32 %137
+}
+
+declare i32 @dissect_hresult(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+
+declare i32 @dissect_ndr_uuid_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+
+declare i32 @dissect_ndr_uint64(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
