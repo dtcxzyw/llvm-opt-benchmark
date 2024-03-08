@@ -421,3 +421,6 @@
 [submodule "bench/tree-sitter-rs/tree-sitter"]
 	path = bench/tree-sitter-rs/tree-sitter
 	url = git@github.com:tree-sitter/tree-sitter.git
+[submodule "bench/base64-rs/rust-base64"]
+	path = bench/base64-rs/rust-base64
+	url = git@github.com:marshallpierce/rust-base64.git
