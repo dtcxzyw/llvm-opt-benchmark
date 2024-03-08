@@ -418,3 +418,6 @@
 [submodule "bench/smol-rs/smol"]
 	path = bench/smol-rs/smol
 	url = git@github.com:smol-rs/smol.git
+[submodule "bench/tree-sitter-rs/tree-sitter"]
+	path = bench/tree-sitter-rs/tree-sitter
+	url = git@github.com:tree-sitter/tree-sitter.git
