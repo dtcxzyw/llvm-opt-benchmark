@@ -406,3 +406,6 @@
 [submodule "bench/graphviz/graphviz"]
 	path = bench/graphviz/graphviz
 	url = https://gitlab.com/graphviz/graphviz.git
+[submodule "bench/tev/tev"]
+	path = bench/tev/tev
+	url = git@github.com:Tom94/tev.git
