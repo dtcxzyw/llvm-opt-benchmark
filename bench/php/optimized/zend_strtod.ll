@@ -2879,7 +2879,7 @@ define internal fastcc ptr @pow5mult(ptr noundef %0, i32 noundef %1) unnamed_add
 
 10:                                               ; preds = %4, %2
   %.021 = phi ptr [ %9, %4 ], [ %0, %2 ]
-  %11 = ashr i32 %1, 2
+  %11 = lshr i32 %1, 2
   %.not29 = icmp ult i32 %1, 4
   br i1 %.not29, label %.loopexit, label %12
 
@@ -2975,7 +2975,7 @@ Bfree.exit:                                       ; preds = %36, %35, %29, %27
   br i1 %.not32, label %.loopexit, label %40
 
 40:                                               ; preds = %Bfree.exit
-  %41 = ashr i32 %.023, 1
+  %41 = lshr i32 %.023, 1
   %42 = load ptr, ptr %.1, align 8
   %.not33 = icmp eq ptr %42, null
   br i1 %.not33, label %43, label %27

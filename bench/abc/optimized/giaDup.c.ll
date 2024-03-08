@@ -29874,8 +29874,8 @@ Gia_ManCoSuppSizeMax.exit:                        ; preds = %18
 
 24:                                               ; preds = %Gia_ManCoSuppSizeMax.exit
   store i32 %22, ptr %23, align 8
-  %25 = sext i32 %22 to i64
-  %26 = shl nsw i64 %25, 2
+  %25 = zext nneg i32 %22 to i64
+  %26 = shl nuw nsw i64 %25, 2
   br label %Vec_IntAlloc.exit.i
 
 Vec_IntAlloc.exit.i:                              ; preds = %24, %.thread
@@ -29892,8 +29892,8 @@ Vec_IntAlloc.exit.i:                              ; preds = %24, %.thread
   br i1 %.not.i69, label %Vec_IntStart.exit, label %33
 
 33:                                               ; preds = %Vec_IntAlloc.exit.i
-  %34 = sext i32 %28 to i64
-  %35 = shl nsw i64 %34, 2
+  %34 = zext nneg i32 %28 to i64
+  %35 = shl nuw nsw i64 %34, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %31, i8 0, i64 %35, i1 false)
   br label %Vec_IntStart.exit
 

@@ -158,19 +158,23 @@ if.else:                                          ; preds = %entry
   %div716 = udiv i64 %add6.neg, 1000
   %div716.neg = sub nsw i64 0, %div716
   %rem817 = urem i64 %div415, 1000
-  %1 = trunc i64 %rem817 to i32
-  %cmp10.not = icmp eq i32 %1, 0
-  %conv14 = sub nuw nsw i32 1000, %1
-  %spec.select = select i1 %cmp10.not, i32 0, i32 %conv14
+  %rem817.neg = sub nsw i64 0, %rem817
+  %1 = and i64 %rem817.neg, 2147483648
+  %cmp10.not = icmp eq i64 %1, 0
+  br i1 %cmp10.not, label %if.end15, label %if.then11
+
+if.then11:                                        ; preds = %if.else
+  %2 = trunc i64 %rem817.neg to i32
+  %conv14 = add nsw i32 %2, 1000
   br label %if.end15
 
-if.end15:                                         ; preds = %if.else, %if.then
-  %seconds.0 = phi i64 [ %div2, %if.then ], [ %div716.neg, %if.else ]
-  %millisecond.0 = phi i32 [ %conv, %if.then ], [ %spec.select, %if.else ]
+if.end15:                                         ; preds = %if.else, %if.then11, %if.then
+  %seconds.0 = phi i64 [ %div2, %if.then ], [ %div716.neg, %if.then11 ], [ %div716.neg, %if.else ]
+  %millisecond.0 = phi i32 [ %conv, %if.then ], [ %conv14, %if.then11 ], [ 0, %if.else ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %t.addr.i)
   store i64 %seconds.0, ptr %t.addr.i, align 8
-  %2 = load atomic volatile i64, ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE acquire, align 8
-  %tobool.not.i.i.i = icmp ult i64 %2, 2
+  %3 = load atomic volatile i64, ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE acquire, align 8
+  %tobool.not.i.i.i = icmp ult i64 %3, 2
   br i1 %tobool.not.i.i.i, label %land.lhs.true.i.i.i, label %_ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end15
@@ -183,9 +187,9 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   br label %_ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit.i
 
 _ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit.i: ; preds = %if.then.i.i.i, %land.lhs.true.i.i.i, %if.end15
-  %3 = load atomic volatile i64, ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE monotonic, align 8
-  %4 = inttoptr i64 %3 to ptr
-  tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
+  %4 = load atomic volatile i64, ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE monotonic, align 8
+  %5 = inttoptr i64 %4 to ptr
+  tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
   br i1 %is_local, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit.i
@@ -197,31 +201,31 @@ if.else.i:                                        ; preds = %_ZN4base12LazyInsta
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
-  invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
+  invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %_ZN12_GLOBAL__N_119SysTimeToTimeStructElP2tmb.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.end.i
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #13
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #13
   unreachable
 
 _ZN12_GLOBAL__N_119SysTimeToTimeStructElP2tmb.exit: ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.addr.i)
   %tm_mon = getelementptr inbounds i8, ptr %timestruct, i64 16
-  %7 = load <2 x i32>, ptr %tm_mon, align 16
-  %8 = add nsw <2 x i32> %7, <i32 1, i32 1900>
-  %9 = shufflevector <2 x i32> %8, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %9, ptr %exploded, align 4
+  %8 = load <2 x i32>, ptr %tm_mon, align 16
+  %9 = add nsw <2 x i32> %8, <i32 1, i32 1900>
+  %10 = shufflevector <2 x i32> %9, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x i32> %10, ptr %exploded, align 4
   %tm_wday = getelementptr inbounds i8, ptr %timestruct, i64 24
-  %10 = load i32, ptr %tm_wday, align 8
+  %11 = load i32, ptr %tm_wday, align 8
   %day_of_week = getelementptr inbounds i8, ptr %exploded, i64 8
-  store i32 %10, ptr %day_of_week, align 4
+  store i32 %11, ptr %day_of_week, align 4
   %day_of_month = getelementptr inbounds i8, ptr %exploded, i64 12
-  %11 = load <4 x i32>, ptr %timestruct, align 16
-  %12 = shufflevector <4 x i32> %11, <4 x i32> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i32> %12, ptr %day_of_month, align 4
+  %12 = load <4 x i32>, ptr %timestruct, align 16
+  %13 = shufflevector <4 x i32> %12, <4 x i32> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  store <4 x i32> %13, ptr %day_of_month, align 4
   %millisecond18 = getelementptr inbounds i8, ptr %exploded, i64 28
   store i32 %millisecond.0, ptr %millisecond18, align 4
   ret void

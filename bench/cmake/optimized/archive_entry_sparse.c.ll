@@ -34,19 +34,19 @@ define dso_local void @archive_entry_sparse_add_entry(ptr noundef %0, i64 nounde
   %5 = sub nuw nsw i64 9223372036854775807, %2
   %6 = icmp slt i64 %5, %1
   %or.cond = select i1 %or.cond.not, i1 true, i1 %6
-  br i1 %or.cond, label %40, label %7
+  br i1 %or.cond, label %38, label %7
 
 7:                                                ; preds = %3
   %8 = add nuw nsw i64 %2, %1
   %9 = tail call i64 @archive_entry_size(ptr noundef %0) #5
   %10 = icmp sgt i64 %8, %9
-  br i1 %10, label %40, label %11
+  br i1 %10, label %38, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %0, i64 1248
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %27, label %14
+  br i1 %.not, label %25, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %13, i64 8
@@ -55,54 +55,50 @@ define dso_local void @archive_entry_sparse_add_entry(ptr noundef %0, i64 nounde
   %18 = load i64, ptr %17, align 8
   %19 = add nsw i64 %18, %16
   %20 = icmp sgt i64 %19, %1
-  br i1 %20, label %40, label %21
+  br i1 %20, label %38, label %21
 
 21:                                               ; preds = %14
   %22 = icmp eq i64 %19, %1
-  br i1 %22, label %23, label %27
+  br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21
-  %24 = icmp slt i64 %8, 0
-  br i1 %24, label %40, label %25
+  %24 = add nsw i64 %18, %2
+  store i64 %24, ptr %17, align 8
+  br label %38
 
-25:                                               ; preds = %23
-  %26 = add nsw i64 %18, %2
-  store i64 %26, ptr %17, align 8
-  br label %40
+25:                                               ; preds = %21, %11
+  %26 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #6
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %38, label %28
 
-27:                                               ; preds = %21, %11
-  %28 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #6
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %40, label %30
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  store i64 %1, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %26, i64 16
+  store i64 %2, ptr %30, align 8
+  store ptr null, ptr %26, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 1240
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %35
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
-  store i64 %1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 16
-  store i64 %2, ptr %32, align 8
-  store ptr null, ptr %28, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 1240
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %37
+34:                                               ; preds = %28
+  store ptr %26, ptr %12, align 8
+  store ptr %26, ptr %31, align 8
+  br label %38
 
-36:                                               ; preds = %30
-  store ptr %28, ptr %12, align 8
-  store ptr %28, ptr %33, align 8
-  br label %40
+35:                                               ; preds = %28
+  br i1 %.not, label %37, label %36
 
-37:                                               ; preds = %30
-  br i1 %.not, label %39, label %38
+36:                                               ; preds = %35
+  store ptr %26, ptr %13, align 8
+  br label %37
 
-38:                                               ; preds = %37
-  store ptr %28, ptr %13, align 8
-  br label %39
+37:                                               ; preds = %36, %35
+  store ptr %26, ptr %12, align 8
+  br label %38
 
-39:                                               ; preds = %38, %37
-  store ptr %28, ptr %12, align 8
-  br label %40
-
-40:                                               ; preds = %27, %23, %14, %7, %3, %39, %36, %25
+38:                                               ; preds = %25, %14, %7, %3, %37, %34, %23
   ret void
 }
 

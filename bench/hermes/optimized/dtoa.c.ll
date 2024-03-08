@@ -5001,7 +5001,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %b.addr.0 = phi ptr [ %call, %if.then ], [ %b, %entry ]
-  %shr = ashr i32 %k, 2
+  %shr = lshr i32 %k, 2
   %tobool1.not = icmp ult i32 %k, 4
   br i1 %tobool1.not, label %return, label %if.end3
 
@@ -5069,7 +5069,7 @@ if.else.i:                                        ; preds = %if.then.i
 
 if.end15:                                         ; preds = %if.else.i, %if.then1.i, %if.then13, %for.cond
   %b.addr.2 = phi ptr [ %b.addr.1, %for.cond ], [ %call14, %if.then13 ], [ %call14, %if.then1.i ], [ %call14, %if.else.i ]
-  %shr16 = ashr i32 %k.addr.0, 1
+  %shr16 = lshr i32 %k.addr.0, 1
   %tobool17.not = icmp ult i32 %k.addr.0, 2
   br i1 %tobool17.not, label %return, label %if.end19
 

@@ -494,9 +494,9 @@ while.end73:                                      ; preds = %while.body71, %land
   br i1 %cmp82, label %for.end109, label %if.end85
 
 if.end85:                                         ; preds = %while.end73
-  %add86 = add nsw i32 %inc77, %hl.098
-  %add87 = add nsw i32 %add86, 9
-  %conv88 = sext i32 %add87 to i64
+  %add86 = add nuw nsw i32 %inc77, %hl.098
+  %add87 = add nuw nsw i32 %add86, 9
+  %conv88 = zext nneg i32 %add87 to i64
   %call89 = call i64 @BUF_MEM_grow(ptr noundef %call1, i64 noundef %conv88) #11
   %tobool90.not = icmp eq i64 %call89, 0
   br i1 %tobool90.not, label %if.then91, label %if.end92
@@ -512,11 +512,11 @@ if.end92:                                         ; preds = %if.end85
 
 if.end98:                                         ; preds = %if.end92
   %6 = load ptr, ptr %data52, align 8
-  %idxprom100 = sext i32 %hl.098 to i64
+  %idxprom100 = zext nneg i32 %hl.098 to i64
   %arrayidx101 = getelementptr inbounds i8, ptr %6, i64 %idxprom100
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx101, ptr nonnull align 16 %buf, i64 %idxprom78, i1 false)
   %7 = load ptr, ptr %data52, align 8
-  %idxprom106 = sext i32 %add86 to i64
+  %idxprom106 = zext nneg i32 %add86 to i64
   %arrayidx107 = getelementptr inbounds i8, ptr %7, i64 %idxprom106
   store i8 0, ptr %arrayidx107, align 1
   %call56 = call i32 @BIO_gets(ptr noundef %bp, ptr noundef nonnull %buf, i32 noundef 254) #11

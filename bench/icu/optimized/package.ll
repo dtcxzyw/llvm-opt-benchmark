@@ -2013,8 +2013,8 @@ define noundef i32 @_ZNK6icu_757Package8findItemEPKci(ptr nocapture noundef nonn
 entry:
   %itemCount = getelementptr inbounds i8, ptr %this, i64 1172
   %0 = load i32, ptr %itemCount, align 4
-  %cmp19 = icmp sgt i32 %0, 0
-  br i1 %cmp19, label %while.body.lr.ph, label %while.end31
+  %cmp20 = icmp sgt i32 %0, 0
+  br i1 %cmp20, label %while.body.lr.ph, label %while.end31
 
 while.body.lr.ph:                                 ; preds = %entry
   %cmp2 = icmp sgt i32 %length, -1
@@ -2024,11 +2024,11 @@ while.body.lr.ph:                                 ; preds = %entry
   br i1 %cmp2, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.else24.us
-  %limit.021.us = phi i32 [ %limit.1.us, %if.else24.us ], [ %0, %while.body.lr.ph ]
-  %start.020.us = phi i32 [ %start.1.us, %if.else24.us ], [ 0, %while.body.lr.ph ]
-  %add.us = add nsw i32 %limit.021.us, %start.020.us
-  %div.us = sdiv i32 %add.us, 2
-  %idxprom.us = sext i32 %div.us to i64
+  %limit.022.us = phi i32 [ %limit.1.us, %if.else24.us ], [ %0, %while.body.lr.ph ]
+  %start.021.us = phi i32 [ %start.1.us, %if.else24.us ], [ 0, %while.body.lr.ph ]
+  %add.us = add nuw nsw i32 %limit.022.us, %start.021.us
+  %div18.us = lshr i32 %add.us, 1
+  %idxprom.us = zext nneg i32 %div18.us to i64
   %arrayidx.us = getelementptr inbounds %"struct.icu_75::Item", ptr %1, i64 %idxprom.us
   %2 = load ptr, ptr %arrayidx.us, align 8
   %call.us = tail call i32 @strncmp(ptr noundef %name, ptr noundef %2, i64 noundef %conv) #23
@@ -2037,18 +2037,18 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
 
 if.else24.us:                                     ; preds = %while.body.us
   %cmp25.us = icmp slt i32 %call.us, 0
-  %add28.us = add nsw i32 %div.us, 1
-  %start.1.us = select i1 %cmp25.us, i32 %start.020.us, i32 %add28.us
-  %limit.1.us = select i1 %cmp25.us, i32 %div.us, i32 %limit.021.us
+  %add28.us = add nuw nsw i32 %div18.us, 1
+  %start.1.us = select i1 %cmp25.us, i32 %start.021.us, i32 %add28.us
+  %limit.1.us = select i1 %cmp25.us, i32 %div18.us, i32 %limit.022.us
   %cmp.us = icmp slt i32 %start.1.us, %limit.1.us
   br i1 %cmp.us, label %while.body.us, label %while.end31, !llvm.loop !13
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.else24
-  %limit.021 = phi i32 [ %limit.1, %if.else24 ], [ %0, %while.body.lr.ph ]
-  %start.020 = phi i32 [ %start.1, %if.else24 ], [ 0, %while.body.lr.ph ]
-  %add = add nsw i32 %limit.021, %start.020
-  %div = sdiv i32 %add, 2
-  %idxprom5 = sext i32 %div to i64
+  %limit.022 = phi i32 [ %limit.1, %if.else24 ], [ %0, %while.body.lr.ph ]
+  %start.021 = phi i32 [ %start.1, %if.else24 ], [ 0, %while.body.lr.ph ]
+  %add = add nuw nsw i32 %limit.022, %start.021
+  %div18 = lshr i32 %add, 1
+  %idxprom5 = zext nneg i32 %div18 to i64
   %arrayidx6 = getelementptr inbounds %"struct.icu_75::Item", ptr %1, i64 %idxprom5
   %3 = load ptr, ptr %arrayidx6, align 8
   %call8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %3) #23
@@ -2057,14 +2057,14 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then10:                                        ; preds = %while.body, %while.body.us
   %.us-phi = phi i32 [ %add.us, %while.body.us ], [ %add, %while.body ]
-  %.us-phi22 = phi i32 [ %div.us, %while.body.us ], [ %div, %while.body ]
-  %cmp14 = icmp sgt i32 %.us-phi, 1
+  %.us-phi23 = phi i32 [ %div18.us, %while.body.us ], [ %div18, %while.body ]
+  %cmp14 = icmp ugt i32 %.us-phi, 1
   %or.cond = and i1 %cmp2, %cmp14
   br i1 %or.cond, label %land.rhs.preheader, label %return
 
 land.rhs.preheader:                               ; preds = %if.then10
   %invariant.gep = getelementptr i8, ptr %1, i64 -24
-  %4 = sext i32 %.us-phi22 to i64
+  %4 = zext nneg i32 %.us-phi23 to i64
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body22
@@ -2082,9 +2082,9 @@ while.body22:                                     ; preds = %land.rhs
 
 if.else24:                                        ; preds = %while.body
   %cmp25 = icmp slt i32 %call8, 0
-  %add28 = add nsw i32 %div, 1
-  %start.1 = select i1 %cmp25, i32 %start.020, i32 %add28
-  %limit.1 = select i1 %cmp25, i32 %div, i32 %limit.021
+  %add28 = add nuw nsw i32 %div18, 1
+  %start.1 = select i1 %cmp25, i32 %start.021, i32 %add28
+  %limit.1 = select i1 %cmp25, i32 %div18, i32 %limit.022
   %cmp = icmp slt i32 %start.1, %limit.1
   br i1 %cmp, label %while.body, label %while.end31, !llvm.loop !13
 
@@ -2098,7 +2098,7 @@ return.loopexit.split.loop.exit:                  ; preds = %land.rhs
   br label %return
 
 return:                                           ; preds = %while.body22, %return.loopexit.split.loop.exit, %if.then10, %while.end31
-  %retval.0 = phi i32 [ %not, %while.end31 ], [ %.us-phi22, %if.then10 ], [ %6, %return.loopexit.split.loop.exit ], [ 0, %while.body22 ]
+  %retval.0 = phi i32 [ %not, %while.end31 ], [ %.us-phi23, %if.then10 ], [ %6, %return.loopexit.split.loop.exit ], [ 0, %while.body22 ]
   ret i32 %retval.0
 }
 
@@ -2466,8 +2466,8 @@ define void @_ZN6icu_757Package7addItemEPKcPhiac(ptr noundef nonnull align 8 der
 entry:
   %itemCount.i = getelementptr inbounds i8, ptr %this, i64 1172
   %0 = load i32, ptr %itemCount.i, align 4
-  %cmp19.i = icmp sgt i32 %0, 0
-  br i1 %cmp19.i, label %while.body.lr.ph.i, label %if.then
+  %cmp20.i = icmp sgt i32 %0, 0
+  br i1 %cmp20.i, label %while.body.lr.ph.i, label %if.then
 
 while.body.lr.ph.i:                               ; preds = %entry
   %items4.i = getelementptr inbounds i8, ptr %this, i64 1184
@@ -2475,39 +2475,30 @@ while.body.lr.ph.i:                               ; preds = %entry
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.else24.i, %while.body.lr.ph.i
-  %limit.021.i = phi i32 [ %limit.1.i, %if.else24.i ], [ %0, %while.body.lr.ph.i ]
-  %start.020.i = phi i32 [ %start.1.i, %if.else24.i ], [ 0, %while.body.lr.ph.i ]
-  %add.i = add nsw i32 %start.020.i, %limit.021.i
-  %div.i = sdiv i32 %add.i, 2
-  %idxprom5.i = sext i32 %div.i to i64
+  %limit.022.i = phi i32 [ %limit.1.i, %if.else24.i ], [ %0, %while.body.lr.ph.i ]
+  %start.021.i = phi i32 [ %start.1.i, %if.else24.i ], [ 0, %while.body.lr.ph.i ]
+  %add.i = add nuw nsw i32 %start.021.i, %limit.022.i
+  %div18.i = lshr i32 %add.i, 1
+  %idxprom5.i = zext nneg i32 %div18.i to i64
   %arrayidx6.i = getelementptr inbounds %"struct.icu_75::Item", ptr %1, i64 %idxprom5.i
   %2 = load ptr, ptr %arrayidx6.i, align 8
   %call8.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %2) #23
   %cmp9.i = icmp eq i32 %call8.i, 0
-  br i1 %cmp9.i, label %_ZNK6icu_757Package8findItemEPKci.exit, label %if.else24.i
+  br i1 %cmp9.i, label %if.else, label %if.else24.i
 
 if.else24.i:                                      ; preds = %while.body.i
   %cmp25.i = icmp slt i32 %call8.i, 0
-  %add28.i = add nsw i32 %div.i, 1
-  %start.1.i = select i1 %cmp25.i, i32 %start.020.i, i32 %add28.i
-  %limit.1.i = select i1 %cmp25.i, i32 %div.i, i32 %limit.021.i
+  %add28.i = add nuw nsw i32 %div18.i, 1
+  %start.1.i = select i1 %cmp25.i, i32 %start.021.i, i32 %add28.i
+  %limit.1.i = select i1 %cmp25.i, i32 %div18.i, i32 %limit.022.i
   %cmp.i = icmp slt i32 %start.1.i, %limit.1.i
-  br i1 %cmp.i, label %while.body.i, label %while.end31.i.loopexit, !llvm.loop !13
+  br i1 %cmp.i, label %while.body.i, label %if.then, !llvm.loop !13
 
-while.end31.i.loopexit:                           ; preds = %if.else24.i
-  %3 = xor i32 %start.1.i, -1
-  br label %_ZNK6icu_757Package8findItemEPKci.exit
-
-_ZNK6icu_757Package8findItemEPKci.exit:           ; preds = %while.body.i, %while.end31.i.loopexit
-  %retval.0.i = phi i32 [ %3, %while.end31.i.loopexit ], [ %div.i, %while.body.i ]
-  %cmp = icmp slt i32 %retval.0.i, 0
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry, %_ZNK6icu_757Package8findItemEPKci.exit
-  %retval.0.i26 = phi i32 [ %retval.0.i, %_ZNK6icu_757Package8findItemEPKci.exit ], [ -1, %entry ]
+if.then:                                          ; preds = %if.else24.i, %entry
+  %not = phi i32 [ 0, %entry ], [ %start.1.i, %if.else24.i ]
   %itemMax.i = getelementptr inbounds i8, ptr %this, i64 1176
-  %4 = load i32, ptr %itemMax.i, align 8
-  %cmp.not.i = icmp slt i32 %0, %4
+  %3 = load i32, ptr %itemMax.i, align 8
+  %cmp.not.i = icmp slt i32 %0, %3
   br i1 %cmp.not.i, label %_ZN6icu_757Package18ensureItemCapacityEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
@@ -2516,129 +2507,125 @@ if.then.i:                                        ; preds = %if.then
   %mul.i.i = mul nsw i64 %conv.i.i, 24
   %call.i.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i) #25
   %items.i.i = getelementptr inbounds i8, ptr %this, i64 1184
-  %5 = load ptr, ptr %items.i.i, align 8
+  %4 = load ptr, ptr %items.i.i, align 8
   %cmp2.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end7.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i
-  %6 = load ptr, ptr @stderr, align 8
-  %call6.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.35, i64 noundef %mul.i.i, i32 noundef %add3.i) #24
+  %5 = load ptr, ptr @stderr, align 8
+  %call6.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.35, i64 noundef %mul.i.i, i32 noundef %add3.i) #24
   tail call void @exit(i32 noundef 7) #21
   unreachable
 
 if.end7.i.i:                                      ; preds = %if.then.i
-  %tobool.not.i.i = icmp eq ptr %5, null
+  %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.end15.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end7.i.i
-  %7 = load i32, ptr %itemCount.i, align 4
-  %cmp9.i.i = icmp sgt i32 %7, 0
+  %6 = load i32, ptr %itemCount.i, align 4
+  %cmp9.i.i = icmp sgt i32 %6, 0
   br i1 %cmp9.i.i, label %do.body.i.i, label %if.end15.i.i
 
 do.body.i.i:                                      ; preds = %land.lhs.true.i.i
-  %conv13.i.i = zext nneg i32 %7 to i64
+  %conv13.i.i = zext nneg i32 %6 to i64
   %mul14.i.i = mul nuw nsw i64 %conv13.i.i, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i, ptr nonnull align 8 %5, i64 %mul14.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i.i, ptr nonnull align 8 %4, i64 %mul14.i.i, i1 false)
   br label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %do.body.i.i, %land.lhs.true.i.i, %if.end7.i.i
   store i32 %add3.i, ptr %itemMax.i, align 8
   store ptr %call.i.i, ptr %items.i.i, align 8
-  tail call void @uprv_free_75(ptr noundef %5)
+  tail call void @uprv_free_75(ptr noundef %4)
   %.pre = load i32, ptr %itemCount.i, align 4
   br label %_ZN6icu_757Package18ensureItemCapacityEv.exit
 
 _ZN6icu_757Package18ensureItemCapacityEv.exit:    ; preds = %if.then, %if.end15.i.i
-  %8 = phi i32 [ %0, %if.then ], [ %.pre, %if.end15.i.i ]
-  %not = xor i32 %retval.0.i26, -1
-  %cmp2 = icmp sgt i32 %8, %not
+  %7 = phi i32 [ %0, %if.then ], [ %.pre, %if.end15.i.i ]
+  %cmp2 = icmp sgt i32 %7, %not
   br i1 %cmp2, label %if.then3, label %_ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge
 
 _ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge: ; preds = %_ZN6icu_757Package18ensureItemCapacityEv.exit
-  %.pre23 = zext nneg i32 %not to i64
+  %.pre32 = zext nneg i32 %not to i64
   br label %if.end
 
 if.then3:                                         ; preds = %_ZN6icu_757Package18ensureItemCapacityEv.exit
   %items = getelementptr inbounds i8, ptr %this, i64 1184
-  %9 = load ptr, ptr %items, align 8
+  %8 = load ptr, ptr %items, align 8
   %idx.ext = zext nneg i32 %not to i64
-  %add.ptr = getelementptr inbounds %"struct.icu_75::Item", ptr %9, i64 %idx.ext
+  %add.ptr = getelementptr inbounds %"struct.icu_75::Item", ptr %8, i64 %idx.ext
   %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 24
-  %sub = sub nsw i32 %8, %not
+  %sub = sub nsw i32 %7, %not
   %conv = sext i32 %sub to i64
   %mul = mul nsw i64 %conv, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr4, ptr align 8 %add.ptr, i64 %mul, i1 false)
-  %.pre22 = load i32, ptr %itemCount.i, align 4
+  %.pre30 = load i32, ptr %itemCount.i, align 4
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge, %if.then3
-  %idx.ext11.pre-phi = phi i64 [ %.pre23, %_ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge ], [ %idx.ext, %if.then3 ]
-  %10 = phi i32 [ %8, %_ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge ], [ %.pre22, %if.then3 ]
-  %inc = add nsw i32 %10, 1
+  %idx.ext11.pre-phi = phi i64 [ %.pre32, %_ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge ], [ %idx.ext, %if.then3 ]
+  %9 = phi i32 [ %7, %_ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge ], [ %.pre30, %if.then3 ]
+  %inc = add nsw i32 %9, 1
   store i32 %inc, ptr %itemCount.i, align 4
   %items10 = getelementptr inbounds i8, ptr %this, i64 1184
-  %11 = load ptr, ptr %items10, align 8
-  %add.ptr12 = getelementptr inbounds %"struct.icu_75::Item", ptr %11, i64 %idx.ext11.pre-phi
+  %10 = load ptr, ptr %items10, align 8
+  %add.ptr12 = getelementptr inbounds %"struct.icu_75::Item", ptr %10, i64 %idx.ext11.pre-phi
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr12, i8 0, i64 24, i1 false)
   %call13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #23
   %conv14 = trunc i64 %call13 to i32
   %inStringTop.i = getelementptr inbounds i8, ptr %this, i64 1192
-  %12 = load i32, ptr %inStringTop.i, align 8
+  %11 = load i32, ptr %inStringTop.i, align 8
   %add.i18 = add nsw i32 %conv14, 1
-  %add5.i = add nsw i32 %add.i18, %12
+  %add5.i = add nsw i32 %add.i18, %11
   %cmp.i19 = icmp sgt i32 %add5.i, 100000
   br i1 %cmp.i19, label %if.then6.i, label %_ZN6icu_757Package11allocStringEai.exit
 
 if.then6.i:                                       ; preds = %if.end
-  %13 = load ptr, ptr @stderr, align 8
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 32, i64 1, ptr %13) #24
+  %12 = load ptr, ptr @stderr, align 8
+  %13 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 32, i64 1, ptr %12) #24
   tail call void @exit(i32 noundef 15) #21
   unreachable
 
 _ZN6icu_757Package11allocStringEai.exit:          ; preds = %if.end
   %inStrings.i = getelementptr inbounds i8, ptr %this, i64 1200
-  %idx.ext.i = sext i32 %12 to i64
+  %idx.ext.i = sext i32 %11 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %inStrings.i, i64 %idx.ext.i
   store i32 %add5.i, ptr %inStringTop.i, align 8
-  %15 = load ptr, ptr %items10, align 8
-  %arrayidx = getelementptr inbounds %"struct.icu_75::Item", ptr %15, i64 %idx.ext11.pre-phi
+  %14 = load ptr, ptr %items10, align 8
+  %arrayidx = getelementptr inbounds %"struct.icu_75::Item", ptr %14, i64 %idx.ext11.pre-phi
   store ptr %add.ptr.i, ptr %arrayidx, align 8
-  %16 = load ptr, ptr %items10, align 8
-  %arrayidx20 = getelementptr inbounds %"struct.icu_75::Item", ptr %16, i64 %idx.ext11.pre-phi
-  %17 = load ptr, ptr %arrayidx20, align 8
-  %call22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %name) #22
+  %15 = load ptr, ptr %items10, align 8
+  %arrayidx20 = getelementptr inbounds %"struct.icu_75::Item", ptr %15, i64 %idx.ext11.pre-phi
+  %16 = load ptr, ptr %arrayidx20, align 8
+  %call22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %name) #22
   br label %if.end33
 
-if.else:                                          ; preds = %_ZNK6icu_757Package8findItemEPKci.exit
-  %items23 = getelementptr inbounds i8, ptr %this, i64 1184
-  %18 = load ptr, ptr %items23, align 8
-  %idxprom24 = zext nneg i32 %retval.0.i to i64
-  %arrayidx25 = getelementptr inbounds %"struct.icu_75::Item", ptr %18, i64 %idxprom24
+if.else:                                          ; preds = %while.body.i
+  %arrayidx25 = getelementptr inbounds %"struct.icu_75::Item", ptr %1, i64 %idxprom5.i
   %isDataOwned26 = getelementptr inbounds i8, ptr %arrayidx25, i64 20
-  %19 = load i8, ptr %isDataOwned26, align 4
-  %tobool.not = icmp eq i8 %19, 0
+  %17 = load i8, ptr %isDataOwned26, align 4
+  %tobool.not = icmp eq i8 %17, 0
   br i1 %tobool.not, label %if.end33, label %if.then27
 
 if.then27:                                        ; preds = %if.else
   %data31 = getelementptr inbounds i8, ptr %arrayidx25, i64 8
-  %20 = load ptr, ptr %data31, align 8
-  tail call void @uprv_free_75(ptr noundef %20)
+  %18 = load ptr, ptr %data31, align 8
+  tail call void @uprv_free_75(ptr noundef %18)
   br label %if.end33
 
 if.end33:                                         ; preds = %if.else, %if.then27, %_ZN6icu_757Package11allocStringEai.exit
-  %idxprom35.pre-phi = phi i64 [ %idxprom24, %if.else ], [ %idxprom24, %if.then27 ], [ %idx.ext11.pre-phi, %_ZN6icu_757Package11allocStringEai.exit ]
+  %idxprom35.pre-phi = phi i64 [ %idxprom5.i, %if.else ], [ %idxprom5.i, %if.then27 ], [ %idx.ext11.pre-phi, %_ZN6icu_757Package11allocStringEai.exit ]
   %items34 = getelementptr inbounds i8, ptr %this, i64 1184
-  %21 = load ptr, ptr %items34, align 8
-  %data37 = getelementptr inbounds %"struct.icu_75::Item", ptr %21, i64 %idxprom35.pre-phi, i32 1
+  %19 = load ptr, ptr %items34, align 8
+  %data37 = getelementptr inbounds %"struct.icu_75::Item", ptr %19, i64 %idxprom35.pre-phi, i32 1
   store ptr %data, ptr %data37, align 8
-  %22 = load ptr, ptr %items34, align 8
-  %length41 = getelementptr inbounds %"struct.icu_75::Item", ptr %22, i64 %idxprom35.pre-phi, i32 2
+  %20 = load ptr, ptr %items34, align 8
+  %length41 = getelementptr inbounds %"struct.icu_75::Item", ptr %20, i64 %idxprom35.pre-phi, i32 2
   store i32 %length, ptr %length41, align 8
-  %23 = load ptr, ptr %items34, align 8
-  %isDataOwned45 = getelementptr inbounds %"struct.icu_75::Item", ptr %23, i64 %idxprom35.pre-phi, i32 3
+  %21 = load ptr, ptr %items34, align 8
+  %isDataOwned45 = getelementptr inbounds %"struct.icu_75::Item", ptr %21, i64 %idxprom35.pre-phi, i32 3
   store i8 %isDataOwned, ptr %isDataOwned45, align 4
-  %24 = load ptr, ptr %items34, align 8
-  %type49 = getelementptr inbounds %"struct.icu_75::Item", ptr %24, i64 %idxprom35.pre-phi, i32 4
+  %22 = load ptr, ptr %items34, align 8
+  %type49 = getelementptr inbounds %"struct.icu_75::Item", ptr %22, i64 %idxprom35.pre-phi, i32 4
   store i8 %type, ptr %type49, align 1
   ret void
 }
@@ -3241,8 +3228,8 @@ define void @_ZN6icu_757Package15checkDependencyEPvPKcS3_(ptr nocapture noundef 
 entry:
   %itemCount.i = getelementptr inbounds i8, ptr %context, i64 1172
   %0 = load i32, ptr %itemCount.i, align 4
-  %cmp19.i = icmp sgt i32 %0, 0
-  br i1 %cmp19.i, label %while.body.lr.ph.i, label %if.then
+  %cmp20.i = icmp sgt i32 %0, 0
+  br i1 %cmp20.i, label %while.body.lr.ph.i, label %if.then
 
 while.body.lr.ph.i:                               ; preds = %entry
   %items4.i = getelementptr inbounds i8, ptr %context, i64 1184
@@ -3250,42 +3237,33 @@ while.body.lr.ph.i:                               ; preds = %entry
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.else24.i, %while.body.lr.ph.i
-  %limit.021.i = phi i32 [ %limit.1.i, %if.else24.i ], [ %0, %while.body.lr.ph.i ]
-  %start.020.i = phi i32 [ %start.1.i, %if.else24.i ], [ 0, %while.body.lr.ph.i ]
-  %add.i = add nsw i32 %start.020.i, %limit.021.i
-  %div.i = sdiv i32 %add.i, 2
-  %idxprom5.i = sext i32 %div.i to i64
+  %limit.022.i = phi i32 [ %limit.1.i, %if.else24.i ], [ %0, %while.body.lr.ph.i ]
+  %start.021.i = phi i32 [ %start.1.i, %if.else24.i ], [ 0, %while.body.lr.ph.i ]
+  %add.i = add nuw nsw i32 %start.021.i, %limit.022.i
+  %div18.i = lshr i32 %add.i, 1
+  %idxprom5.i = zext nneg i32 %div18.i to i64
   %arrayidx6.i = getelementptr inbounds %"struct.icu_75::Item", ptr %1, i64 %idxprom5.i
   %2 = load ptr, ptr %arrayidx6.i, align 8
   %call8.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %targetName, ptr noundef nonnull dereferenceable(1) %2) #23
   %cmp9.i = icmp eq i32 %call8.i, 0
-  br i1 %cmp9.i, label %_ZNK6icu_757Package8findItemEPKci.exit, label %if.else24.i
+  br i1 %cmp9.i, label %if.end, label %if.else24.i
 
 if.else24.i:                                      ; preds = %while.body.i
   %cmp25.i = icmp slt i32 %call8.i, 0
-  %add28.i = add nsw i32 %div.i, 1
-  %start.1.i = select i1 %cmp25.i, i32 %start.020.i, i32 %add28.i
-  %limit.1.i = select i1 %cmp25.i, i32 %div.i, i32 %limit.021.i
+  %add28.i = add nuw nsw i32 %div18.i, 1
+  %start.1.i = select i1 %cmp25.i, i32 %start.021.i, i32 %add28.i
+  %limit.1.i = select i1 %cmp25.i, i32 %div18.i, i32 %limit.022.i
   %cmp.i = icmp slt i32 %start.1.i, %limit.1.i
-  br i1 %cmp.i, label %while.body.i, label %while.end31.i.loopexit, !llvm.loop !13
+  br i1 %cmp.i, label %while.body.i, label %if.then, !llvm.loop !13
 
-while.end31.i.loopexit:                           ; preds = %if.else24.i
-  %3 = xor i32 %start.1.i, -1
-  br label %_ZNK6icu_757Package8findItemEPKci.exit
-
-_ZNK6icu_757Package8findItemEPKci.exit:           ; preds = %while.body.i, %while.end31.i.loopexit
-  %retval.0.i = phi i32 [ %3, %while.end31.i.loopexit ], [ %div.i, %while.body.i ]
-  %cmp = icmp slt i32 %retval.0.i, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry, %_ZNK6icu_757Package8findItemEPKci.exit
+if.then:                                          ; preds = %if.else24.i, %entry
   %isMissingItems = getelementptr inbounds i8, ptr %context, i64 201236
   store i8 1, ptr %isMissingItems, align 4
-  %4 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.32, ptr noundef %itemName, ptr noundef %targetName) #24
+  %3 = load ptr, ptr @stderr, align 8
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.32, ptr noundef %itemName, ptr noundef %targetName) #24
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %_ZNK6icu_757Package8findItemEPKci.exit
+if.end:                                           ; preds = %while.body.i, %if.then
   ret void
 }
 

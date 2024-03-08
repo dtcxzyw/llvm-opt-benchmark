@@ -51,7 +51,7 @@ if.then12:                                        ; preds = %if.end6
 for.body.preheader:                               ; preds = %if.then12
   %6 = zext nneg i32 %5 to i64
   %7 = zext nneg i32 %div35 to i64
-  %invariant.gep50 = getelementptr i64, ptr %3, i64 %7
+  %invariant.gep52 = getelementptr i64, ptr %3, i64 %7
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -59,8 +59,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
   %arrayidx18 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.next46
   %8 = load i64, ptr %arrayidx18, align 8
-  %gep51 = getelementptr i64, ptr %invariant.gep50, i64 %indvars.iv.next46
-  store i64 %8, ptr %gep51, align 8
+  %gep53 = getelementptr i64, ptr %invariant.gep52, i64 %indvars.iv.next46
+  store i64 %8, ptr %gep53, align 8
   %cmp15 = icmp ugt i64 %indvars.iv45, 1
   br i1 %cmp15, label %for.body, label %if.end42, !llvm.loop !7
 
@@ -72,25 +72,28 @@ for.body27.lr.ph:                                 ; preds = %if.else
   %sh_prom34 = zext nneg i32 %rem to i64
   %9 = zext nneg i32 %5 to i64
   %10 = zext nneg i32 %div35 to i64
+  %11 = zext nneg i32 %div35 to i64
   %invariant.gep = getelementptr i64, ptr %3, i64 %10
+  %invariant.gep50 = getelementptr i64, ptr %3, i64 %11
+  %12 = add nuw nsw i64 %10, %9
+  %13 = shl nuw nsw i64 %12, 3
+  %scevgep = getelementptr i8, ptr %3, i64 %13
+  %load_initial = load i64, ptr %scevgep, align 8
   br label %for.body27
 
 for.body27:                                       ; preds = %for.body27.lr.ph, %for.body27
+  %store_forwarded = phi i64 [ %load_initial, %for.body27.lr.ph ], [ %shl, %for.body27 ]
   %indvars.iv = phi i64 [ %9, %for.body27.lr.ph ], [ %indvars.iv.next, %for.body27 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %arrayidx29 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.next
-  %11 = load i64, ptr %arrayidx29, align 8
-  %shr = lshr i64 %11, %sh_prom
-  %12 = trunc i64 %indvars.iv to i32
-  %13 = add i32 %div35, %12
-  %idxprom32 = sext i32 %13 to i64
-  %arrayidx33 = getelementptr inbounds i64, ptr %3, i64 %idxprom32
-  %14 = load i64, ptr %arrayidx33, align 8
-  %or = or i64 %14, %shr
-  store i64 %or, ptr %arrayidx33, align 8
-  %shl = shl i64 %11, %sh_prom34
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv.next
-  store i64 %shl, ptr %gep, align 8
+  %14 = load i64, ptr %arrayidx29, align 8
+  %shr = lshr i64 %14, %sh_prom
+  %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
+  %or = or i64 %store_forwarded, %shr
+  store i64 %or, ptr %gep, align 8
+  %shl = shl i64 %14, %sh_prom34
+  %gep51 = getelementptr i64, ptr %invariant.gep50, i64 %indvars.iv.next
+  store i64 %shl, ptr %gep51, align 8
   %cmp25 = icmp ugt i64 %indvars.iv, 1
   br i1 %cmp25, label %for.body27, label %if.end42, !llvm.loop !9
 

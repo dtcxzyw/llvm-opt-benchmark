@@ -2091,7 +2091,7 @@ for.end:                                          ; preds = %for.body.lr.ph, %if
 if.then128:                                       ; preds = %if.end49, %for.end
   %result.1111 = phi i32 [ %result.1, %for.end ], [ 1, %if.end49 ]
   %n_written.0.ph76110 = phi i32 [ %n_written.0.ph86, %for.end ], [ %add, %if.end49 ]
-  %conv129 = sext i32 %n_written.0.ph76110 to i64
+  %conv129 = zext nneg i32 %n_written.0.ph76110 to i64
   %call130 = call i32 @evbuffer_drain(ptr noundef %0, i64 noundef %conv129) #7
   %tobool131.not = icmp eq i32 %call130, 0
   br i1 %tobool131.not, label %if.end134, label %if.then132

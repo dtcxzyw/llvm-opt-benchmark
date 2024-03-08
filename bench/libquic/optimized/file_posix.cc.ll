@@ -250,7 +250,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 
 do.body:                                          ; preds = %do.body.preheader, %if.end18
   %bytes_read.0 = phi i32 [ %add19, %if.end18 ], [ 0, %do.body.preheader ]
-  %idx.ext = sext i32 %bytes_read.0 to i64
+  %idx.ext = zext nneg i32 %bytes_read.0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   %sub = sub nsw i32 %size, %bytes_read.0
   %conv8 = sext i32 %sub to i64
@@ -341,7 +341,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 
 do.body:                                          ; preds = %do.body.preheader, %if.end17
   %bytes_read.0 = phi i32 [ %add, %if.end17 ], [ 0, %do.body.preheader ]
-  %idx.ext = sext i32 %bytes_read.0 to i64
+  %idx.ext = zext nneg i32 %bytes_read.0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   %sub = sub nsw i32 %size, %bytes_read.0
   %conv8 = sext i32 %sub to i64
@@ -557,7 +557,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 
 do.body:                                          ; preds = %do.body.preheader, %if.end24
   %bytes_written.0 = phi i32 [ %add25, %if.end24 ], [ 0, %do.body.preheader ]
-  %idx.ext = sext i32 %bytes_written.0 to i64
+  %idx.ext = zext nneg i32 %bytes_written.0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   %sub = sub nsw i32 %size, %bytes_written.0
   %conv14 = sext i32 %sub to i64
@@ -642,7 +642,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 
 do.body:                                          ; preds = %do.body.preheader, %if.end17
   %bytes_written.0 = phi i32 [ %add, %if.end17 ], [ 0, %do.body.preheader ]
-  %idx.ext = sext i32 %bytes_written.0 to i64
+  %idx.ext = zext nneg i32 %bytes_written.0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   %sub = sub nsw i32 %size, %bytes_written.0
   %conv8 = sext i32 %sub to i64

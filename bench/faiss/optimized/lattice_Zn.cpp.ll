@@ -109,20 +109,20 @@ define void @_ZNK5faiss13ZnSphereCodec6decodeEmPf(ptr nocapture noundef nonnull 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.02936 = phi i32 [ %.029., %.lr.ph ], [ 0, %3 ]
   %.03135 = phi i32 [ %..031, %.lr.ph ], [ %5, %3 ]
-  %9 = add nsw i32 %.02936, %.03135
-  %10 = sdiv i32 %9, 2
-  %11 = sext i32 %10 to i64
+  %9 = add nuw nsw i32 %.02936, %.03135
+  %10 = lshr i32 %9, 1
+  %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds %"struct.faiss::ZnSphereCodec::CodeSegment", ptr %8, i64 %11, i32 1
   %13 = load i64, ptr %12, align 8
   %.not34 = icmp ugt i64 %13, %1
   %..031 = select i1 %.not34, i32 %10, i32 %.03135
   %.029. = select i1 %.not34, i32 %.02936, i32 %10
-  %14 = add nsw i32 %.029., 1
+  %14 = add nuw nsw i32 %.029., 1
   %15 = icmp slt i32 %14, %..031
   br i1 %15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !5
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %16 = sext i32 %.029. to i64
+  %16 = zext nneg i32 %.029. to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3, %._crit_edge.loopexit
@@ -399,15 +399,15 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.071113 = phi i32 [ %.071., %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.072112 = phi i32 [ %..072, %.lr.ph ], [ %45, %.lr.ph.preheader ]
-  %46 = add nsw i32 %.071113, %.072112
-  %47 = sdiv i32 %46, 2
-  %48 = sext i32 %47 to i64
+  %46 = add nuw nsw i32 %.071113, %.072112
+  %47 = lshr i32 %46, 1
+  %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds i64, ptr %43, i64 %48
   %50 = load i64, ptr %49, align 8
   %.not = icmp ugt i64 %50, %39
   %..072 = select i1 %.not, i32 %47, i32 %.072112
   %.071. = select i1 %.not, i32 %.071113, i32 %47
-  %51 = add nsw i32 %.071., 1
+  %51 = add nuw nsw i32 %.071., 1
   %52 = icmp sgt i32 %..072, %51
   br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
@@ -420,7 +420,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %13
 ._crit_edge:                                      ; preds = %.lr.ph, %35
   %.071.lcssa = phi i32 [ 0, %35 ], [ %.071., %.lr.ph ]
   %54 = sub nsw i32 %37, %.071.lcssa
-  %55 = sext i32 %.071.lcssa to i64
+  %55 = zext nneg i32 %.071.lcssa to i64
   %56 = getelementptr inbounds i64, ptr %43, i64 %55
   %57 = load i64, ptr %56, align 8
   %58 = sub i64 %39, %57
@@ -746,20 +746,20 @@ define void @_ZNK5faiss16ZnSphereCodecAlt6decodeEmPf(ptr nocapture noundef nonnu
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
   %.02936.i = phi i32 [ %.029..i, %.lr.ph.i ], [ 0, %7 ]
   %.03135.i = phi i32 [ %..031.i, %.lr.ph.i ], [ %9, %7 ]
-  %13 = add nsw i32 %.03135.i, %.02936.i
-  %14 = sdiv i32 %13, 2
-  %15 = sext i32 %14 to i64
+  %13 = add nuw nsw i32 %.03135.i, %.02936.i
+  %14 = lshr i32 %13, 1
+  %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds %"struct.faiss::ZnSphereCodec::CodeSegment", ptr %12, i64 %15, i32 1
   %17 = load i64, ptr %16, align 8
   %.not34.i = icmp ugt i64 %17, %1
   %..031.i = select i1 %.not34.i, i32 %14, i32 %.03135.i
   %.029..i = select i1 %.not34.i, i32 %.02936.i, i32 %14
-  %18 = add nsw i32 %.029..i, 1
+  %18 = add nuw nsw i32 %.029..i, 1
   %19 = icmp slt i32 %18, %..031.i
   br i1 %19, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !5
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %20 = sext i32 %.029..i to i64
+  %20 = zext nneg i32 %.029..i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %7

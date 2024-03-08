@@ -352,15 +352,15 @@ switch.lookup206:                                 ; preds = %switch.hole_check20
 .lr.ph:                                           ; preds = %186, %.lr.ph
   %.0174 = phi i32 [ %.0., %.lr.ph ], [ %187, %186 ]
   %.0125173 = phi i32 [ %..0125, %.lr.ph ], [ 1, %186 ]
-  %188 = add nsw i32 %.0174, %.0125173
-  %189 = sdiv i32 %188, 2
-  %190 = sext i32 %189 to i64
+  %188 = add nuw nsw i32 %.0174, %.0125173
+  %189 = lshr i32 %188, 1
+  %190 = zext nneg i32 %189 to i64
   %191 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucd_digit_sets_8, i64 0, i64 %190
   %192 = load i32, ptr %191, align 4
   %.not161 = icmp ugt i32 %.1141176, %192
   %..0125 = select i1 %.not161, i32 %189, i32 %.0125173
   %.0. = select i1 %.not161, i32 %.0174, i32 %189
-  %193 = add nsw i32 %..0125, 1
+  %193 = add nuw nsw i32 %..0125, 1
   %.not160 = icmp sgt i32 %.0., %193
   br i1 %.not160, label %.lr.ph, label %.loopexit
 

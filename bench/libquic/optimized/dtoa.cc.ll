@@ -2873,7 +2873,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %b.addr.0 = phi ptr [ %call, %if.then ], [ %b, %entry ]
-  %shr = ashr i32 %k, 2
+  %shr = lshr i32 %k, 2
   %tobool1.not = icmp ult i32 %k, 4
   br i1 %tobool1.not, label %return, label %if.end3
 
@@ -2977,7 +2977,7 @@ if.end12:                                         ; preds = %if.else.i, %if.then
   br i1 %tobool14.not, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end12
-  %shr13 = ashr i32 %k.addr.0, 1
+  %shr13 = lshr i32 %k.addr.0, 1
   %7 = load ptr, ptr %p5.1, align 8
   %tobool18.not = icmp eq ptr %7, null
   br i1 %tobool18.not, label %if.then19, label %for.cond, !llvm.loop !30

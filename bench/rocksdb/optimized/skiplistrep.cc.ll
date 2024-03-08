@@ -2547,10 +2547,11 @@ if.then7:                                         ; preds = %while.end
 while.body13:                                     ; preds = %while.body13.lr.ph, %if.end73
   %recompute_height.0150 = phi i32 [ 0, %while.body13.lr.ph ], [ %recompute_height.3, %if.end73 ]
   %13 = load ptr, ptr %prev_14, align 8
-  %idxprom15 = sext i32 %recompute_height.0150 to i64
+  %idxprom15 = zext nneg i32 %recompute_height.0150 to i64
   %arrayidx16 = getelementptr inbounds ptr, ptr %13, i64 %idxprom15
   %14 = load ptr, ptr %arrayidx16, align 8
-  %idx.neg.i = sub nsw i64 0, %idxprom15
+  %idx.ext.i = sext i32 %recompute_height.0150 to i64
+  %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr.i = getelementptr inbounds %"struct.std::atomic.29", ptr %14, i64 %idx.neg.i
   %15 = load atomic i64, ptr %add.ptr.i acquire, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %15 to ptr
@@ -2561,7 +2562,7 @@ while.body13:                                     ; preds = %while.body13.lr.ph,
   br i1 %cmp21.not, label %if.else23, label %if.then22
 
 if.then22:                                        ; preds = %while.body13
-  %inc = add nsw i32 %recompute_height.0150, 1
+  %inc = add nuw nsw i32 %recompute_height.0150, 1
   br label %if.end73
 
 if.else23:                                        ; preds = %while.body13
@@ -2606,7 +2607,7 @@ while.cond38:                                     ; preds = %while.cond38, %if.t
   %arrayidx41 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %arrayidx41, align 8
   %cmp42 = icmp eq ptr %25, %24
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %cmp42, label %while.cond38, label %if.end73.loopexit162, !llvm.loop !22
 
 if.else48:                                        ; preds = %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.if.else48_crit_edge, %if.else23
@@ -2636,7 +2637,7 @@ while.cond60:                                     ; preds = %while.cond60, %if.t
   %arrayidx63 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv166
   %31 = load ptr, ptr %arrayidx63, align 8
   %cmp64 = icmp eq ptr %31, %30
-  %indvars.iv.next167 = add i64 %indvars.iv166, 1
+  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   br i1 %cmp64, label %while.cond60, label %if.end73.loopexit, !llvm.loop !23
 
 if.end73.loopexit:                                ; preds = %while.cond60
@@ -2957,10 +2958,11 @@ if.then7:                                         ; preds = %while.end
 while.body13:                                     ; preds = %while.body13.lr.ph, %if.end73
   %recompute_height.0145 = phi i32 [ 0, %while.body13.lr.ph ], [ %recompute_height.3, %if.end73 ]
   %13 = load ptr, ptr %prev_14, align 8
-  %idxprom15 = sext i32 %recompute_height.0145 to i64
+  %idxprom15 = zext nneg i32 %recompute_height.0145 to i64
   %arrayidx16 = getelementptr inbounds ptr, ptr %13, i64 %idxprom15
   %14 = load ptr, ptr %arrayidx16, align 8
-  %idx.neg.i = sub nsw i64 0, %idxprom15
+  %idx.ext.i = sext i32 %recompute_height.0145 to i64
+  %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr.i = getelementptr inbounds %"struct.std::atomic.29", ptr %14, i64 %idx.neg.i
   %15 = load atomic i64, ptr %add.ptr.i acquire, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %15 to ptr
@@ -2971,7 +2973,7 @@ while.body13:                                     ; preds = %while.body13.lr.ph,
   br i1 %cmp21.not, label %if.else23, label %if.then22
 
 if.then22:                                        ; preds = %while.body13
-  %inc = add nsw i32 %recompute_height.0145, 1
+  %inc = add nuw nsw i32 %recompute_height.0145, 1
   br label %if.end73
 
 if.else23:                                        ; preds = %while.body13
@@ -3016,7 +3018,7 @@ while.cond38:                                     ; preds = %while.cond38, %if.t
   %arrayidx41 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %arrayidx41, align 8
   %cmp42 = icmp eq ptr %25, %24
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %cmp42, label %while.cond38, label %if.end73.loopexit166, !llvm.loop !31
 
 if.else48:                                        ; preds = %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE14KeyIsAfterNodeERKNS_5SliceEPNS5_4NodeE.exit.if.else48_crit_edge, %if.else23
@@ -3046,7 +3048,7 @@ while.cond60:                                     ; preds = %while.cond60, %if.t
   %arrayidx63 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv170
   %31 = load ptr, ptr %arrayidx63, align 8
   %cmp64 = icmp eq ptr %31, %30
-  %indvars.iv.next171 = add i64 %indvars.iv170, 1
+  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   br i1 %cmp64, label %while.cond60, label %if.end73.loopexit, !llvm.loop !32
 
 if.end73.loopexit:                                ; preds = %while.cond60

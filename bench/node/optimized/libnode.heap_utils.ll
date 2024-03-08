@@ -3691,7 +3691,7 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %offset.08 = phi i32 [ 0, %while.body.lr.ph ], [ %add, %if.end ]
-  %idx.ext = sext i32 %offset.08 to i64
+  %idx.ext = zext nneg i32 %offset.08 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   %sub = sub nsw i32 %size, %offset.08
   %call = call { ptr, i64 } @uv_buf_init(ptr noundef %add.ptr, i32 noundef %sub) #22

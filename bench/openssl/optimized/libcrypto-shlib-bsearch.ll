@@ -10,18 +10,18 @@ entry:
   br i1 %cmp1, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %cmp235 = icmp sgt i32 %num, 0
-  br i1 %cmp235, label %while.body, label %if.else13
+  %cmp236 = icmp sgt i32 %num, 0
+  br i1 %cmp236, label %while.body, label %if.else13
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end10
-  %h.037 = phi i32 [ %h.1, %if.end10 ], [ %num, %while.cond.preheader ]
-  %l.036 = phi i32 [ %l.1, %if.end10 ], [ 0, %while.cond.preheader ]
-  %add = add nsw i32 %h.037, %l.036
-  %div = sdiv i32 %add, 2
-  %mul = mul nsw i32 %div, %size
+  %h.038 = phi i32 [ %h.1, %if.end10 ], [ %num, %while.cond.preheader ]
+  %l.037 = phi i32 [ %l.1, %if.end10 ], [ 0, %while.cond.preheader ]
+  %add = add nuw nsw i32 %h.038, %l.037
+  %div21 = lshr i32 %add, 1
+  %mul = mul nsw i32 %div21, %size
   %idxprom = sext i32 %mul to i64
   %arrayidx = getelementptr inbounds i8, ptr %base, i64 %idxprom
-  %call = tail call i32 %cmp(ptr noundef %key, ptr noundef %arrayidx) #2
+  %call = tail call i32 %cmp(ptr noundef %key, ptr noundef %arrayidx) #1
   %cmp3 = icmp slt i32 %call, 0
   br i1 %cmp3, label %if.end10, label %if.else
 
@@ -30,12 +30,12 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp5.not, label %if.else13, label %if.then6
 
 if.then6:                                         ; preds = %if.else
-  %add7 = add nsw i32 %div, 1
+  %add7 = add nuw nsw i32 %div21, 1
   br label %if.end10
 
 if.end10:                                         ; preds = %while.body, %if.then6
-  %l.1 = phi i32 [ %add7, %if.then6 ], [ %l.036, %while.body ]
-  %h.1 = phi i32 [ %h.037, %if.then6 ], [ %div, %while.body ]
+  %l.1 = phi i32 [ %add7, %if.then6 ], [ %l.037, %while.body ]
+  %h.1 = phi i32 [ %h.038, %if.then6 ], [ %div21, %while.body ]
   %cmp2 = icmp slt i32 %l.1, %h.1
   br i1 %cmp2, label %while.body, label %while.end, !llvm.loop !4
 
@@ -45,18 +45,17 @@ while.end:                                        ; preds = %if.end10
   br i1 %tobool.not, label %return, label %if.else13
 
 if.else13:                                        ; preds = %if.else, %while.cond.preheader, %while.end
-  %cmp11.not31 = phi i1 [ true, %while.end ], [ false, %while.cond.preheader ], [ false, %if.else ]
-  %p.130 = phi ptr [ %arrayidx, %while.end ], [ null, %while.cond.preheader ], [ %arrayidx, %if.else ]
-  %i.129 = phi i32 [ %div, %while.end ], [ 0, %while.cond.preheader ], [ %div, %if.else ]
+  %cmp11.not32 = phi i1 [ true, %while.end ], [ false, %while.cond.preheader ], [ false, %if.else ]
+  %p.131 = phi ptr [ %arrayidx, %while.end ], [ null, %while.cond.preheader ], [ %arrayidx, %if.else ]
+  %i.130 = phi i32 [ %div21, %while.end ], [ 0, %while.cond.preheader ], [ %div21, %if.else ]
   %and16 = and i32 %flags, 2
   %tobool17.not = icmp eq i32 %and16, 0
-  %or.cond21 = or i1 %tobool17.not, %cmp11.not31
-  br i1 %or.cond21, label %return, label %while.cond19.preheader
+  %or.cond22 = or i1 %tobool17.not, %cmp11.not32
+  br i1 %or.cond22, label %return, label %while.cond19.preheader
 
 while.cond19.preheader:                           ; preds = %if.else13
-  %0 = sext i32 %i.129 to i64
+  %0 = zext nneg i32 %i.130 to i64
   %1 = sext i32 %size to i64
-  %smin = tail call i32 @llvm.smin.i32(i32 %i.129, i32 0)
   br label %while.cond19
 
 while.cond19:                                     ; preds = %while.cond19.preheader, %land.rhs
@@ -68,32 +67,28 @@ land.rhs:                                         ; preds = %while.cond19
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %2 = mul nsw i64 %indvars.iv.next, %1
   %arrayidx23 = getelementptr inbounds i8, ptr %base, i64 %2
-  %call24 = tail call i32 %cmp(ptr noundef %key, ptr noundef %arrayidx23) #2
+  %call24 = tail call i32 %cmp(ptr noundef %key, ptr noundef %arrayidx23) #1
   %cmp25 = icmp eq i32 %call24, 0
-  br i1 %cmp25, label %while.cond19, label %while.end27.split.loop.exit53, !llvm.loop !6
+  br i1 %cmp25, label %while.cond19, label %while.end27.split.loop.exit54, !llvm.loop !6
 
-while.end27.split.loop.exit53:                    ; preds = %land.rhs
+while.end27.split.loop.exit54:                    ; preds = %land.rhs
   %3 = trunc i64 %indvars.iv to i32
   br label %while.end27
 
-while.end27:                                      ; preds = %while.cond19, %while.end27.split.loop.exit53
-  %i.2.lcssa = phi i32 [ %3, %while.end27.split.loop.exit53 ], [ %smin, %while.cond19 ]
+while.end27:                                      ; preds = %while.cond19, %while.end27.split.loop.exit54
+  %i.2.lcssa = phi i32 [ %3, %while.end27.split.loop.exit54 ], [ 0, %while.cond19 ]
   %mul28 = mul nsw i32 %i.2.lcssa, %size
   %idxprom29 = sext i32 %mul28 to i64
   %arrayidx30 = getelementptr inbounds i8, ptr %base, i64 %idxprom29
   br label %return
 
 return:                                           ; preds = %while.end27, %if.else13, %while.end, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %arrayidx30, %while.end27 ], [ %p.130, %if.else13 ], [ null, %while.end ]
+  %retval.0 = phi ptr [ null, %entry ], [ %arrayidx30, %while.end27 ], [ %p.131, %if.else13 ], [ null, %while.end ]
   ret ptr %retval.0
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #1
-
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { nounwind }
+attributes #1 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

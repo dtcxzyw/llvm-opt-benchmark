@@ -6893,11 +6893,11 @@ define noundef ptr @_ZN3irr5scene18COBJMeshFileLoader9readColorEPKcRNS_5video6SC
   br i1 %62, label %63, label %56, !llvm.loop !253
 
 63:                                               ; preds = %56
-  %64 = icmp eq i64 %55, %49
+  %64 = icmp eq i32 %37, 8
   br i1 %64, label %.loopexit38, label %65
 
 65:                                               ; preds = %63, %47
-  %66 = phi i64 [ 0, %47 ], [ %55, %63 ]
+  %66 = phi i64 [ 0, %47 ], [ 8, %63 ]
   %67 = and i64 %49, 3
   %68 = icmp eq i64 %67, 0
   br i1 %68, label %.loopexit40, label %.preheader39
@@ -6921,7 +6921,7 @@ define noundef ptr @_ZN3irr5scene18COBJMeshFileLoader9readColorEPKcRNS_5video6SC
   br i1 %79, label %.loopexit38, label %.preheader37
 
 .loopexit38:                                      ; preds = %.preheader37, %.loopexit40, %63, %45
-  %80 = phi i64 [ 0, %45 ], [ %49, %63 ], [ %49, %.loopexit40 ], [ %49, %.preheader37 ]
+  %80 = phi i64 [ 0, %45 ], [ 8, %63 ], [ %49, %.loopexit40 ], [ %49, %.preheader37 ]
   %81 = getelementptr inbounds i8, ptr %8, i64 %80
   br label %88
 
@@ -7062,11 +7062,11 @@ define noundef ptr @_ZN3irr5scene18COBJMeshFileLoader9readColorEPKcRNS_5video6SC
   br i1 %153, label %154, label %147, !llvm.loop !256
 
 154:                                              ; preds = %147
-  %155 = icmp eq i64 %146, %140
+  %155 = icmp eq i32 %128, 8
   br i1 %155, label %.loopexit31, label %156
 
 156:                                              ; preds = %154, %138
-  %157 = phi i64 [ 0, %138 ], [ %146, %154 ]
+  %157 = phi i64 [ 0, %138 ], [ 8, %154 ]
   %158 = and i64 %140, 3
   %159 = icmp eq i64 %158, 0
   br i1 %159, label %.loopexit33, label %.preheader32
@@ -7090,7 +7090,7 @@ define noundef ptr @_ZN3irr5scene18COBJMeshFileLoader9readColorEPKcRNS_5video6SC
   br i1 %170, label %.loopexit31, label %.preheader30
 
 .loopexit31:                                      ; preds = %.preheader30, %.loopexit33, %154, %136
-  %171 = phi i64 [ 0, %136 ], [ %140, %154 ], [ %140, %.loopexit33 ], [ %140, %.preheader30 ]
+  %171 = phi i64 [ 0, %136 ], [ 8, %154 ], [ %140, %.loopexit33 ], [ %140, %.preheader30 ]
   %172 = getelementptr inbounds i8, ptr %8, i64 %171
   br label %179
 
@@ -7231,11 +7231,11 @@ define noundef ptr @_ZN3irr5scene18COBJMeshFileLoader9readColorEPKcRNS_5video6SC
   br i1 %244, label %245, label %238, !llvm.loop !259
 
 245:                                              ; preds = %238
-  %246 = icmp eq i64 %237, %231
+  %246 = icmp eq i32 %219, 8
   br i1 %246, label %.loopexit, label %247
 
 247:                                              ; preds = %245, %229
-  %248 = phi i64 [ 0, %229 ], [ %237, %245 ]
+  %248 = phi i64 [ 0, %229 ], [ 8, %245 ]
   %249 = and i64 %231, 3
   %250 = icmp eq i64 %249, 0
   br i1 %250, label %.loopexit26, label %.preheader25
@@ -7259,7 +7259,7 @@ define noundef ptr @_ZN3irr5scene18COBJMeshFileLoader9readColorEPKcRNS_5video6SC
   br i1 %261, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit26, %245, %227
-  %262 = phi i64 [ 0, %227 ], [ %231, %245 ], [ %231, %.loopexit26 ], [ %231, %.preheader ]
+  %262 = phi i64 [ 0, %227 ], [ 8, %245 ], [ %231, %.loopexit26 ], [ %231, %.preheader ]
   %263 = getelementptr inbounds i8, ptr %8, i64 %262
   br label %270
 
@@ -7409,11 +7409,11 @@ define noundef ptr @_ZN3irr5scene18COBJMeshFileLoader8readBoolEPKcRbS3_(ptr noca
   br i1 %59, label %60, label %53, !llvm.loop !262
 
 60:                                               ; preds = %53
-  %61 = icmp eq i64 %52, %46
+  %61 = icmp eq i32 %34, 4
   br i1 %61, label %.loopexit, label %62
 
 62:                                               ; preds = %60, %44
-  %63 = phi i64 [ 0, %44 ], [ %52, %60 ]
+  %63 = phi i64 [ 0, %44 ], [ 4, %60 ]
   %64 = and i64 %46, 3
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %.loopexit10, label %.preheader9
@@ -7437,7 +7437,7 @@ define noundef ptr @_ZN3irr5scene18COBJMeshFileLoader8readBoolEPKcRbS3_(ptr noca
   br i1 %76, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit10, %60, %42
-  %77 = phi i64 [ 0, %42 ], [ %46, %60 ], [ %46, %.loopexit10 ], [ %46, %.preheader ]
+  %77 = phi i64 [ 0, %42 ], [ 4, %60 ], [ %46, %.loopexit10 ], [ %46, %.preheader ]
   %78 = getelementptr inbounds i8, ptr %5, i64 %77
   br label %85
 

@@ -164,7 +164,7 @@ if.then21:                                        ; preds = %if.end18
 invoke.cont33:                                    ; preds = %if.then21
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #6, !srcloc !4
   %10 = load ptr, ptr %pos_, align 8
-  %idx.ext = sext i32 %length.0 to i64
+  %idx.ext = zext nneg i32 %length.0 to i64
   %add.ptr = getelementptr inbounds i16, ptr %10, i64 %idx.ext
   store ptr %add.ptr, ptr %pos_, align 8
   %11 = load i32, ptr %remainingMatchLength_, align 8

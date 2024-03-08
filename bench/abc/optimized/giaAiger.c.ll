@@ -5967,14 +5967,13 @@ Vec_StrPush.exit23:                               ; preds = %.Vec_StrGrow.exit10
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %71 ], [ 1, %.preheader40 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %.preheader40 ]
   %.11531 = phi i32 [ %75, %71 ], [ %.11531.ph, %.preheader40 ]
-  %72 = srem i32 %.11531, 10
+  %72 = urem i32 %.11531, 10
   %73 = trunc i32 %72 to i8
   %74 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %indvars.iv
   store i8 %73, ptr %74, align 1
-  %75 = sdiv i32 %.11531, 10
+  %75 = udiv i32 %.11531, 10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.11531.off = add i32 %.11531, 9
-  %.not = icmp ult i32 %.11531.off, 19
+  %.not = icmp ult i32 %.11531, 10
   %indvars.iv.next36 = add nuw i64 %indvars.iv35, 1
   br i1 %.not, label %.preheader, label %71, !llvm.loop !56
 

@@ -645,7 +645,7 @@ do.body.i:                                        ; preds = %if.end28.i, %if.the
   %jump.0.i = phi i32 [ 0, %if.then18 ], [ %jump.1.i, %if.end28.i ]
   %theIndex.0.i = phi i32 [ %rem.i, %if.then18 ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %if.then18 ], [ %firstDeleted.1.i, %if.end28.i ]
-  %idxprom.i36 = sext i32 %theIndex.0.i to i64
+  %idxprom.i36 = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i37 = getelementptr inbounds %struct.UHashElement, ptr %17, i64 %idxprom.i36
   %19 = load i32, ptr %arrayidx.i37, align 8
   %cmp.i38 = icmp eq i32 %19, %16
@@ -687,7 +687,7 @@ if.then25.i:                                      ; preds = %if.end23.i
 
 if.end28.i:                                       ; preds = %if.then25.i, %if.end23.i
   %jump.1.i = phi i32 [ %add.i, %if.then25.i ], [ %jump.0.i, %if.end23.i ]
-  %add29.i = add nsw i32 %jump.1.i, %theIndex.0.i
+  %add29.i = add nuw nsw i32 %jump.1.i, %theIndex.0.i
   %rem31.i = srem i32 %add29.i, %.pre.i
   %cmp32.not.i = icmp eq i32 %rem31.i, %rem.i
   br i1 %cmp32.not.i, label %do.end.i, label %do.body.i, !llvm.loop !10
@@ -706,7 +706,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
-  %idxprom40.i = sext i32 %theIndex.2.i to i64
+  %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
   %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %17, i64 %idxprom40.i
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
@@ -766,7 +766,7 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %idxprom.i = sext i32 %theIndex.0.i to i64
+  %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %3, %and.i
@@ -808,7 +808,7 @@ if.then25.i:                                      ; preds = %if.end23.i
 
 if.end28.i:                                       ; preds = %if.then25.i, %if.end23.i
   %jump.1.i = phi i32 [ %add.i, %if.then25.i ], [ %jump.0.i, %if.end23.i ]
-  %add29.i = add nsw i32 %jump.1.i, %theIndex.0.i
+  %add29.i = add nuw nsw i32 %jump.1.i, %theIndex.0.i
   %rem31.i = srem i32 %add29.i, %.pre.i
   %cmp32.not.i = icmp eq i32 %rem31.i, %rem.i
   br i1 %cmp32.not.i, label %do.end.i, label %do.body.i, !llvm.loop !10
@@ -827,7 +827,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
-  %idxprom40.i = sext i32 %theIndex.2.i to i64
+  %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end39.i
@@ -859,7 +859,7 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %idxprom.i = sext i32 %theIndex.0.i to i64
+  %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %2, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %4, %and.i
@@ -901,7 +901,7 @@ if.then25.i:                                      ; preds = %if.end23.i
 
 if.end28.i:                                       ; preds = %if.then25.i, %if.end23.i
   %jump.1.i = phi i32 [ %add.i, %if.then25.i ], [ %jump.0.i, %if.end23.i ]
-  %add29.i = add nsw i32 %jump.1.i, %theIndex.0.i
+  %add29.i = add nuw nsw i32 %jump.1.i, %theIndex.0.i
   %rem31.i = srem i32 %add29.i, %.pre.i
   %cmp32.not.i = icmp eq i32 %rem31.i, %rem.i
   br i1 %cmp32.not.i, label %do.end.i, label %do.body.i, !llvm.loop !10
@@ -920,7 +920,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
-  %idxprom40.i = sext i32 %theIndex.2.i to i64
+  %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end39.i
@@ -950,7 +950,7 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %idxprom.i = sext i32 %theIndex.0.i to i64
+  %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %3, %and.i
@@ -992,7 +992,7 @@ if.then25.i:                                      ; preds = %if.end23.i
 
 if.end28.i:                                       ; preds = %if.then25.i, %if.end23.i
   %jump.1.i = phi i32 [ %add.i, %if.then25.i ], [ %jump.0.i, %if.end23.i ]
-  %add29.i = add nsw i32 %jump.1.i, %theIndex.0.i
+  %add29.i = add nuw nsw i32 %jump.1.i, %theIndex.0.i
   %rem31.i = srem i32 %add29.i, %.pre.i
   %cmp32.not.i = icmp eq i32 %rem31.i, %rem.i
   br i1 %cmp32.not.i, label %do.end.i, label %do.body.i, !llvm.loop !10
@@ -1011,7 +1011,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
-  %idxprom40.i = sext i32 %theIndex.2.i to i64
+  %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end39.i
@@ -1043,7 +1043,7 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %idxprom.i = sext i32 %theIndex.0.i to i64
+  %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %2, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %4, %and.i
@@ -1085,7 +1085,7 @@ if.then25.i:                                      ; preds = %if.end23.i
 
 if.end28.i:                                       ; preds = %if.then25.i, %if.end23.i
   %jump.1.i = phi i32 [ %add.i, %if.then25.i ], [ %jump.0.i, %if.end23.i ]
-  %add29.i = add nsw i32 %jump.1.i, %theIndex.0.i
+  %add29.i = add nuw nsw i32 %jump.1.i, %theIndex.0.i
   %rem31.i = srem i32 %add29.i, %.pre.i
   %cmp32.not.i = icmp eq i32 %rem31.i, %rem.i
   br i1 %cmp32.not.i, label %do.end.i, label %do.body.i, !llvm.loop !10
@@ -1104,7 +1104,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
-  %idxprom40.i = sext i32 %theIndex.2.i to i64
+  %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end39.i
@@ -1134,7 +1134,7 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %idxprom.i = sext i32 %theIndex.0.i to i64
+  %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %3, %and.i
@@ -1176,7 +1176,7 @@ if.then25.i:                                      ; preds = %if.end23.i
 
 if.end28.i:                                       ; preds = %if.then25.i, %if.end23.i
   %jump.1.i = phi i32 [ %add.i, %if.then25.i ], [ %jump.0.i, %if.end23.i ]
-  %add29.i = add nsw i32 %jump.1.i, %theIndex.0.i
+  %add29.i = add nuw nsw i32 %jump.1.i, %theIndex.0.i
   %rem31.i = srem i32 %add29.i, %.pre.i
   %cmp32.not.i = icmp eq i32 %rem31.i, %rem.i
   br i1 %cmp32.not.i, label %do.end.i, label %do.body.i, !llvm.loop !10
@@ -1195,7 +1195,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
-  %idxprom40.i = sext i32 %theIndex.2.i to i64
+  %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
   %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom40.i
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
@@ -1232,7 +1232,7 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %idxprom.i = sext i32 %theIndex.0.i to i64
+  %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %2, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %4, %and.i
@@ -1274,7 +1274,7 @@ if.then25.i:                                      ; preds = %if.end23.i
 
 if.end28.i:                                       ; preds = %if.then25.i, %if.end23.i
   %jump.1.i = phi i32 [ %add.i, %if.then25.i ], [ %jump.0.i, %if.end23.i ]
-  %add29.i = add nsw i32 %jump.1.i, %theIndex.0.i
+  %add29.i = add nuw nsw i32 %jump.1.i, %theIndex.0.i
   %rem31.i = srem i32 %add29.i, %.pre.i
   %cmp32.not.i = icmp eq i32 %rem31.i, %rem.i
   br i1 %cmp32.not.i, label %do.end.i, label %do.body.i, !llvm.loop !10
@@ -1293,7 +1293,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
-  %idxprom40.i = sext i32 %theIndex.2.i to i64
+  %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
   %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %2, i64 %idxprom40.i
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
@@ -1377,7 +1377,7 @@ do.body.i:                                        ; preds = %if.end28.i, %if.end
   %jump.0.i = phi i32 [ 0, %if.end18 ], [ %jump.1.i, %if.end28.i ]
   %theIndex.0.i = phi i32 [ %rem.i, %if.end18 ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %if.end18 ], [ %firstDeleted.1.i, %if.end28.i ]
-  %idxprom.i = sext i32 %theIndex.0.i to i64
+  %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %7, i64 %idxprom.i
   %9 = load i32, ptr %arrayidx.i, align 8
   %cmp.i30 = icmp eq i32 %9, %and.i
@@ -1419,7 +1419,7 @@ if.then25.i:                                      ; preds = %if.end23.i
 
 if.end28.i:                                       ; preds = %if.then25.i, %if.end23.i
   %jump.1.i = phi i32 [ %add.i, %if.then25.i ], [ %jump.0.i, %if.end23.i ]
-  %add29.i = add nsw i32 %jump.1.i, %theIndex.0.i
+  %add29.i = add nuw nsw i32 %jump.1.i, %theIndex.0.i
   %rem31.i = srem i32 %add29.i, %.pre.i
   %cmp32.not.i = icmp eq i32 %rem31.i, %rem.i
   br i1 %cmp32.not.i, label %do.end.i, label %do.body.i, !llvm.loop !10
@@ -1438,7 +1438,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
-  %idxprom40.i = sext i32 %theIndex.2.i to i64
+  %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
   %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %7, i64 %idxprom40.i
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
@@ -1619,7 +1619,7 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %idxprom.i = sext i32 %theIndex.0.i to i64
+  %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %3, %and.i
@@ -1661,7 +1661,7 @@ if.then25.i:                                      ; preds = %if.end23.i
 
 if.end28.i:                                       ; preds = %if.then25.i, %if.end23.i
   %jump.1.i = phi i32 [ %add.i, %if.then25.i ], [ %jump.0.i, %if.end23.i ]
-  %add29.i = add nsw i32 %jump.1.i, %theIndex.0.i
+  %add29.i = add nuw nsw i32 %jump.1.i, %theIndex.0.i
   %rem31.i = srem i32 %add29.i, %.pre.i
   %cmp32.not.i = icmp eq i32 %rem31.i, %rem.i
   br i1 %cmp32.not.i, label %do.end.i, label %do.body.i, !llvm.loop !10
@@ -1680,7 +1680,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
-  %idxprom40.i = sext i32 %theIndex.2.i to i64
+  %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
   %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom40.i
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
@@ -1924,7 +1924,7 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %idxprom.i = sext i32 %theIndex.0.i to i64
+  %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %3, %and.i
@@ -1966,7 +1966,7 @@ if.then25.i:                                      ; preds = %if.end23.i
 
 if.end28.i:                                       ; preds = %if.then25.i, %if.end23.i
   %jump.1.i = phi i32 [ %add.i, %if.then25.i ], [ %jump.0.i, %if.end23.i ]
-  %add29.i = add nsw i32 %jump.1.i, %theIndex.0.i
+  %add29.i = add nuw nsw i32 %jump.1.i, %theIndex.0.i
   %rem31.i = srem i32 %add29.i, %.pre.i
   %cmp32.not.i = icmp eq i32 %rem31.i, %rem.i
   br i1 %cmp32.not.i, label %do.end.i, label %do.body.i, !llvm.loop !10
@@ -1985,7 +1985,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
-  %idxprom40.i = sext i32 %theIndex.2.i to i64
+  %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
   %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom40.i
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
@@ -2019,7 +2019,7 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %idxprom.i = sext i32 %theIndex.0.i to i64
+  %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %2, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %4, %and.i
@@ -2061,7 +2061,7 @@ if.then25.i:                                      ; preds = %if.end23.i
 
 if.end28.i:                                       ; preds = %if.then25.i, %if.end23.i
   %jump.1.i = phi i32 [ %add.i, %if.then25.i ], [ %jump.0.i, %if.end23.i ]
-  %add29.i = add nsw i32 %jump.1.i, %theIndex.0.i
+  %add29.i = add nuw nsw i32 %jump.1.i, %theIndex.0.i
   %rem31.i = srem i32 %add29.i, %.pre.i
   %cmp32.not.i = icmp eq i32 %rem31.i, %rem.i
   br i1 %cmp32.not.i, label %do.end.i, label %do.body.i, !llvm.loop !10
@@ -2080,7 +2080,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
-  %idxprom40.i = sext i32 %theIndex.2.i to i64
+  %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
   %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %2, i64 %idxprom40.i
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
@@ -2112,7 +2112,7 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %idxprom.i = sext i32 %theIndex.0.i to i64
+  %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %3, %and.i
@@ -2154,7 +2154,7 @@ if.then25.i:                                      ; preds = %if.end23.i
 
 if.end28.i:                                       ; preds = %if.then25.i, %if.end23.i
   %jump.1.i = phi i32 [ %add.i, %if.then25.i ], [ %jump.0.i, %if.end23.i ]
-  %add29.i = add nsw i32 %jump.1.i, %theIndex.0.i
+  %add29.i = add nuw nsw i32 %jump.1.i, %theIndex.0.i
   %rem31.i = srem i32 %add29.i, %.pre.i
   %cmp32.not.i = icmp eq i32 %rem31.i, %rem.i
   br i1 %cmp32.not.i, label %do.end.i, label %do.body.i, !llvm.loop !10
@@ -2173,7 +2173,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
-  %idxprom40.i = sext i32 %theIndex.2.i to i64
+  %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
   %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom40.i
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
@@ -2338,7 +2338,7 @@ do.body.i:                                        ; preds = %if.end28.i, %if.the
   %jump.0.i = phi i32 [ 0, %if.then.i ], [ %jump.1.i, %if.end28.i ]
   %theIndex.0.i = phi i32 [ %rem.i, %if.then.i ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %if.then.i ], [ %firstDeleted.1.i, %if.end28.i ]
-  %idxprom.i = sext i32 %theIndex.0.i to i64
+  %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i20 = getelementptr inbounds %struct.UHashElement, ptr %12, i64 %idxprom.i
   %14 = load i32, ptr %arrayidx.i20, align 8
   %cmp.i21 = icmp eq i32 %14, %and.i
@@ -2380,7 +2380,7 @@ if.then25.i:                                      ; preds = %if.end23.i
 
 if.end28.i:                                       ; preds = %if.then25.i, %if.end23.i
   %jump.1.i = phi i32 [ %add.i, %if.then25.i ], [ %jump.0.i, %if.end23.i ]
-  %add29.i = add nsw i32 %jump.1.i, %theIndex.0.i
+  %add29.i = add nuw nsw i32 %jump.1.i, %theIndex.0.i
   %rem31.i = srem i32 %add29.i, %.pre.i
   %cmp32.not.i = icmp eq i32 %rem31.i, %rem.i
   br i1 %cmp32.not.i, label %do.end.i, label %do.body.i, !llvm.loop !10
@@ -2399,7 +2399,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
-  %idxprom40.i = sext i32 %theIndex.2.i to i64
+  %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i23, %if.end39.i

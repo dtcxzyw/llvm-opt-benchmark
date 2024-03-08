@@ -9634,9 +9634,9 @@ while.body.lr.ph.i:                               ; preds = %if.then10
 while.body.i:                                     ; preds = %if.else.i, %while.body.lr.ph.i
   %h.011.i = phi i32 [ %sub.i, %while.body.lr.ph.i ], [ %h.1.i, %if.else.i ]
   %l.010.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %l.1.i, %if.else.i ]
-  %add.i95 = add nsw i32 %l.010.i, %h.011.i
-  %shr.i = ashr i32 %add.i95, 1
-  %idxprom.i96 = sext i32 %shr.i to i64
+  %add.i95 = add nuw nsw i32 %l.010.i, %h.011.i
+  %shr.i = lshr i32 %add.i95, 1
+  %idxprom.i96 = zext nneg i32 %shr.i to i64
   %arrayidx2.i = getelementptr inbounds i32, ptr %4, i64 %idxprom.i96
   %7 = load i32, ptr %arrayidx2.i, align 4
   %idxprom.i.i = zext i32 %7 to i64
@@ -9692,7 +9692,7 @@ while.end.i.i:                                    ; preds = %if.end.i.i, %while.
 
 if.else.i:                                        ; preds = %while.end.i.i
   %cmp4.i = icmp slt i32 %cond52.i.i, 0
-  %add7.i = add nsw i32 %shr.i, 1
+  %add7.i = add nuw nsw i32 %shr.i, 1
   %sub9.i = add nsw i32 %shr.i, -1
   %l.1.i = select i1 %cmp4.i, i32 %add7.i, i32 %l.010.i
   %h.1.i = select i1 %cmp4.i, i32 %h.011.i, i32 %sub9.i
@@ -17915,8 +17915,8 @@ for.inc613.i:                                     ; preds = %if.end606.i, %while
   %97 = phi i32 [ %shr608.us.i, %while.cond592.for.inc613_crit_edge.split.us.i ], [ %or589.i, %do.body576.i ], [ %shr608.i, %if.end606.i ]
   %98 = phi i32 [ %sub610.us.i, %while.cond592.for.inc613_crit_edge.split.us.i ], [ %add591.i, %do.body576.i ], [ %sub610.i, %if.end606.i ]
   %indvars.iv.next303.i = add nuw nsw i64 %indvars.iv302.i, 1
-  %exitcond306.i = icmp eq i64 %indvars.iv.next303.i, %wide.trip.count305.i
-  br i1 %exitcond306.i, label %for.cond616.preheader.i, label %do.body576.i, !llvm.loop !160
+  %exitcond306.not.i = icmp eq i64 %indvars.iv.next303.i, %wide.trip.count305.i
+  br i1 %exitcond306.not.i, label %for.cond616.preheader.i, label %do.body576.i, !llvm.loop !160
 
 for.body619.i:                                    ; preds = %if.end704.i, %for.body619.lr.ph.i
   %99 = phi i32 [ %97, %for.body619.lr.ph.i ], [ %126, %if.end704.i ]
@@ -18797,7 +18797,7 @@ while.cond121.preheader.i:                        ; preds = %while.cond121.prehe
   br i1 %cmp12274.i, label %land.rhs.preheader.i, label %while.end.i
 
 land.rhs.preheader.i:                             ; preds = %while.cond121.preheader.i
-  %27 = add nuw i32 %root.385.i, 1
+  %27 = add nuw nsw i32 %root.385.i, 1
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body130.i, %land.rhs.preheader.i

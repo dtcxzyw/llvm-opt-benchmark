@@ -2000,8 +2000,8 @@ define void @Abc_NtkFaninFanoutCounters(ptr nocapture noundef readonly %0, ptr n
   %24 = getelementptr inbounds i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not9.i.i = icmp eq ptr %25, null
-  %26 = sext i32 %21 to i64
-  %27 = shl nsw i64 %26, 2
+  %26 = zext nneg i32 %21 to i64
+  %27 = shl nuw nsw i64 %26, 2
   br i1 %.not9.i.i, label %30, label %28
 
 28:                                               ; preds = %23
@@ -2044,8 +2044,8 @@ Vec_IntFill.exit:                                 ; preds = %35
   %42 = getelementptr inbounds i8, ptr %2, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not9.i.i61 = icmp eq ptr %43, null
-  %44 = sext i32 %39 to i64
-  %45 = shl nsw i64 %44, 2
+  %44 = zext nneg i32 %39 to i64
+  %45 = shl nuw nsw i64 %44, 2
   br i1 %.not9.i.i61, label %48, label %46
 
 46:                                               ; preds = %41
@@ -2087,8 +2087,8 @@ Vec_IntFill.exit62:                               ; preds = %53
   %59 = getelementptr inbounds i8, ptr %3, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not9.i.i70 = icmp eq ptr %60, null
-  %61 = sext i32 %21 to i64
-  %62 = shl nsw i64 %61, 2
+  %61 = zext nneg i32 %21 to i64
+  %62 = shl nuw nsw i64 %61, 2
   br i1 %.not9.i.i70, label %65, label %63
 
 63:                                               ; preds = %58
@@ -2130,8 +2130,8 @@ Vec_IntFill.exit71:                               ; preds = %70
   %76 = getelementptr inbounds i8, ptr %4, i64 8
   %77 = load ptr, ptr %76, align 8
   %.not9.i.i79 = icmp eq ptr %77, null
-  %78 = sext i32 %39 to i64
-  %79 = shl nsw i64 %78, 2
+  %78 = zext nneg i32 %39 to i64
+  %79 = shl nuw nsw i64 %78, 2
   br i1 %.not9.i.i79, label %82, label %80
 
 80:                                               ; preds = %75
@@ -2300,8 +2300,8 @@ define void @Abc_NtkInputOutputCounters(ptr nocapture noundef readonly %0, ptr n
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not9.i.i = icmp eq ptr %33, null
-  %34 = sext i32 %29 to i64
-  %35 = shl nsw i64 %34, 2
+  %34 = zext nneg i32 %29 to i64
+  %35 = shl nuw nsw i64 %34, 2
   br i1 %.not9.i.i, label %38, label %36
 
 36:                                               ; preds = %31
@@ -2344,8 +2344,8 @@ Vec_IntFill.exit:                                 ; preds = %43
   %50 = getelementptr inbounds i8, ptr %2, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not9.i.i79 = icmp eq ptr %51, null
-  %52 = sext i32 %47 to i64
-  %53 = shl nsw i64 %52, 2
+  %52 = zext nneg i32 %47 to i64
+  %53 = shl nuw nsw i64 %52, 2
   br i1 %.not9.i.i79, label %56, label %54
 
 54:                                               ; preds = %49
@@ -2387,8 +2387,8 @@ Vec_IntFill.exit80:                               ; preds = %61
   %67 = getelementptr inbounds i8, ptr %3, i64 8
   %68 = load ptr, ptr %67, align 8
   %.not9.i.i88 = icmp eq ptr %68, null
-  %69 = sext i32 %29 to i64
-  %70 = shl nsw i64 %69, 2
+  %69 = zext nneg i32 %29 to i64
+  %70 = shl nuw nsw i64 %69, 2
   br i1 %.not9.i.i88, label %73, label %71
 
 71:                                               ; preds = %66
@@ -2430,8 +2430,8 @@ Vec_IntFill.exit89:                               ; preds = %78
   %84 = getelementptr inbounds i8, ptr %4, i64 8
   %85 = load ptr, ptr %84, align 8
   %.not9.i.i97 = icmp eq ptr %85, null
-  %86 = sext i32 %47 to i64
-  %87 = shl nsw i64 %86, 2
+  %86 = zext nneg i32 %47 to i64
+  %87 = shl nuw nsw i64 %86, 2
   br i1 %.not9.i.i97, label %90, label %88
 
 88:                                               ; preds = %83
@@ -7681,7 +7681,7 @@ Abc_ObjIsBarBuf.exit:                             ; preds = %31, %34, %37
   %86 = tail call i32 @Mio_GateReadProfile2(ptr noundef %85) #19
   %87 = sub nsw i32 %84, %86
   %88 = tail call i32 @llvm.abs.i32(i32 %87, i1 true)
-  %89 = add nsw i32 %88, %.0146222
+  %89 = add nuw nsw i32 %88, %.0146222
   br label %90
 
 90:                                               ; preds = %82, %78

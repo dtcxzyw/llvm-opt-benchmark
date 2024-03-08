@@ -291,24 +291,24 @@ declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef i32 @pmix_argv_delete(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %46, label %6
+  br i1 %5, label %45, label %6
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %1, align 8
   %8 = icmp eq ptr %7, null
   %9 = icmp eq i32 %3, 0
   %or.cond = or i1 %9, %8
-  br i1 %or.cond, label %46, label %10
+  br i1 %or.cond, label %45, label %10
 
 10:                                               ; preds = %6
   %11 = tail call i32 @PMIx_Argv_count(ptr noundef nonnull %7) #9
   %12 = icmp slt i32 %11, %2
-  br i1 %12, label %46, label %13
+  br i1 %12, label %45, label %13
 
 13:                                               ; preds = %10
   %14 = or i32 %3, %2
   %or.cond3.not = icmp sgt i32 %14, -1
-  br i1 %or.cond3.not, label %15, label %46
+  br i1 %or.cond3.not, label %15, label %45
 
 15:                                               ; preds = %13
   %16 = add i32 %3, %2
@@ -323,69 +323,65 @@ define noundef i32 @pmix_argv_delete(ptr nocapture noundef %0, ptr noundef %1, i
   br label %.lr.ph
 
 .critedge.preheader:                              ; preds = %.lr.ph, %15
+  %19 = add nsw i32 %spec.store.select, %2
   %.not55 = icmp slt i32 %17, 1
   br i1 %.not55, label %.critedge._crit_edge, label %.critedge.preheader56
 
 .critedge.preheader56:                            ; preds = %.critedge.preheader
-  %19 = add nsw i32 %spec.store.select, %2
-  %20 = sext i32 %2 to i64
-  %21 = sext i32 %3 to i64
-  %22 = sext i32 %19 to i64
+  %20 = zext i32 %2 to i64
+  %21 = zext i32 %3 to i64
   br label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %18, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8
-  tail call void @free(ptr noundef %25) #9
+  %22 = load ptr, ptr %1, align 8
+  %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
+  %24 = load ptr, ptr %23, align 8
+  tail call void @free(ptr noundef %24) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = trunc i64 %indvars.iv.next to i32
-  %or.cond50 = icmp sgt i32 %invariant.smin, %26
+  %25 = trunc i64 %indvars.iv.next to i32
+  %or.cond50 = icmp sgt i32 %invariant.smin, %25
   br i1 %or.cond50, label %.lr.ph, label %.critedge.preheader, !llvm.loop !10
 
 .critedge:                                        ; preds = %.critedge.preheader56, %.critedge
   %indvars.iv58 = phi i64 [ %20, %.critedge.preheader56 ], [ %indvars.iv.next59, %.critedge ]
-  %27 = load ptr, ptr %1, align 8
-  %28 = getelementptr ptr, ptr %27, i64 %indvars.iv58
-  %29 = getelementptr ptr, ptr %28, i64 %21
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv58
-  store ptr %30, ptr %31, align 8
-  %indvars.iv.next59 = add nsw i64 %indvars.iv58, 1
-  %32 = icmp slt i64 %indvars.iv.next59, %22
-  br i1 %32, label %.critedge, label %.critedge._crit_edge.loopexit, !llvm.loop !11
+  %26 = load ptr, ptr %1, align 8
+  %27 = getelementptr ptr, ptr %26, i64 %indvars.iv58
+  %28 = getelementptr ptr, ptr %27, i64 %21
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv58
+  store ptr %29, ptr %30, align 8
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %31 = trunc i64 %indvars.iv.next59 to i32
+  %32 = icmp sgt i32 %19, %31
+  br i1 %32, label %.critedge, label %.critedge._crit_edge, !llvm.loop !11
 
-.critedge._crit_edge.loopexit:                    ; preds = %.critedge
-  %33 = trunc i64 %indvars.iv.next59 to i32
-  br label %.critedge._crit_edge
+.critedge._crit_edge:                             ; preds = %.critedge, %.critedge.preheader
+  %.1.lcssa = phi i32 [ %2, %.critedge.preheader ], [ %31, %.critedge ]
+  %33 = load ptr, ptr %1, align 8
+  %34 = zext nneg i32 %.1.lcssa to i64
+  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %1, align 8
+  %37 = add nuw nsw i32 %.1.lcssa, 1
+  %38 = zext nneg i32 %37 to i64
+  %39 = shl nuw nsw i64 %38, 3
+  %40 = tail call ptr @realloc(ptr noundef %36, i64 noundef %39) #12
+  %.not = icmp eq ptr %40, null
+  br i1 %.not, label %42, label %41
 
-.critedge._crit_edge:                             ; preds = %.critedge._crit_edge.loopexit, %.critedge.preheader
-  %.1.lcssa = phi i32 [ %2, %.critedge.preheader ], [ %33, %.critedge._crit_edge.loopexit ]
-  %34 = load ptr, ptr %1, align 8
-  %35 = sext i32 %.1.lcssa to i64
-  %36 = getelementptr inbounds ptr, ptr %34, i64 %35
-  store ptr null, ptr %36, align 8
-  %37 = load ptr, ptr %1, align 8
-  %38 = add nsw i32 %.1.lcssa, 1
-  %39 = sext i32 %38 to i64
-  %40 = shl nsw i64 %39, 3
-  %41 = tail call ptr @realloc(ptr noundef %37, i64 noundef %40) #12
-  %.not = icmp eq ptr %41, null
-  br i1 %.not, label %43, label %42
+41:                                               ; preds = %.critedge._crit_edge
+  store ptr %40, ptr %1, align 8
+  br label %42
 
-42:                                               ; preds = %.critedge._crit_edge
-  store ptr %41, ptr %1, align 8
-  br label %43
+42:                                               ; preds = %41, %.critedge._crit_edge
+  %43 = load i32, ptr %0, align 4
+  %44 = sub nsw i32 %43, %3
+  store i32 %44, ptr %0, align 4
+  br label %45
 
-43:                                               ; preds = %42, %.critedge._crit_edge
-  %44 = load i32, ptr %0, align 4
-  %45 = sub nsw i32 %44, %3
-  store i32 %45, ptr %0, align 4
-  br label %46
-
-46:                                               ; preds = %13, %10, %4, %6, %43
-  %.0 = phi i32 [ 0, %43 ], [ 0, %6 ], [ 0, %4 ], [ 0, %10 ], [ -27, %13 ]
+45:                                               ; preds = %13, %10, %4, %6, %42
+  %.0 = phi i32 [ 0, %42 ], [ 0, %6 ], [ 0, %4 ], [ 0, %10 ], [ -27, %13 ]
   ret i32 %.0
 }
 

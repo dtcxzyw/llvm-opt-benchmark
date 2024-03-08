@@ -67,7 +67,7 @@ if.end23:                                         ; preds = %if.end23.preheader,
   %conv24 = trunc i64 %d.122 to i8
   %arrayidx = getelementptr inbounds [9 x i8], ptr %buf, i64 0, i64 %indvars.iv
   store i8 %conv24, ptr %arrayidx, align 1
-  %shr = ashr i64 %d.122, 8
+  %shr = lshr i64 %d.122, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp18 = icmp ugt i64 %indvars.iv, 6
   %cmp20 = icmp ult i64 %d.122, 256

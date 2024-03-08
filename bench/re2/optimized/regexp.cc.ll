@@ -1603,15 +1603,15 @@ lpad31:                                           ; preds = %invoke.cont29
   br label %ehcleanup
 
 for.end:                                          ; preds = %invoke.cont60.i
-  %mul43 = mul nsw i32 %sub36, 65535
-  %idx.ext44 = sext i32 %mul43 to i64
+  %mul43 = mul nuw nsw i32 %sub36, 65535
+  %idx.ext44 = zext nneg i32 %mul43 to i64
   %add.ptr45 = getelementptr inbounds ptr, ptr %sub.addr.0, i64 %idx.ext44
   %sub48 = sub nsw i32 %nsub.addr.0, %mul43
   %call50 = invoke noundef ptr @_ZN3re26Regexp17ConcatOrAlternateENS_8RegexpOpEPPS0_iNS0_10ParseFlagsEb(i32 noundef %op, ptr noundef %add.ptr45, i32 noundef %sub48, i32 noundef %flags, i1 noundef zeroext false)
           to label %invoke.cont49 unwind label %lpad11
 
 invoke.cont49:                                    ; preds = %for.end
-  %idxprom52 = sext i32 %sub36 to i64
+  %idxprom52 = zext nneg i32 %sub36 to i64
   %arrayidx53 = getelementptr inbounds ptr, ptr %call.i50, i64 %idxprom52
   store ptr %call50, ptr %arrayidx53, align 8
   br label %cleanup
@@ -4653,7 +4653,7 @@ for.body:                                         ; preds = %entry, %for.body
   %it.sroa.0.011 = phi ptr [ %call.i6, %for.body ], [ %1, %entry ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %it.sroa.0.011, i64 32
   %2 = load ptr, ptr %ranges_.i, align 8
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds %"struct.re2::RuneRange", ptr %2, i64 %indvars.iv
   %3 = load i64, ptr %_M_storage.i.i, align 4
   store i64 %3, ptr %arrayidx, align 4

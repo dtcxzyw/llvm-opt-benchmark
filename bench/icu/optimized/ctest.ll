@@ -1361,7 +1361,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.092 = phi i32 [ 1, %for.body.lr.ph ], [ %inc250, %for.inc ]
-  %idxprom = sext i32 %i.092 to i64
+  %idxprom = zext nneg i32 %i.092 to i64
   %arrayidx1 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
   %1 = load ptr, ptr %arrayidx1, align 8
   %2 = load i8, ptr %1, align 1
@@ -1450,13 +1450,13 @@ if.else72:                                        ; preds = %if.else65
 
 if.then78:                                        ; preds = %if.else72
   store i32 0, ptr %errorCode, align 4
-  %add = add nsw i32 %i.092, 1
+  %add = add nuw nsw i32 %i.092, 1
   %cmp79 = icmp slt i32 %add, %argc
   br i1 %cmp79, label %if.then81, label %if.end111
 
 if.then81:                                        ; preds = %if.then78
   store ptr null, ptr %endPtr, align 8
-  %idxprom82 = sext i32 %add to i64
+  %idxprom82 = zext nneg i32 %add to i64
   %arrayidx83 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom82
   %3 = load ptr, ptr %arrayidx83, align 8
   %call84 = call i64 @strtol(ptr noundef %3, ptr noundef nonnull %endPtr, i32 noundef 10) #23
@@ -1541,7 +1541,7 @@ if.else141:                                       ; preds = %if.else131
   br i1 %cmp145, label %if.then147, label %if.else160
 
 if.then147:                                       ; preds = %if.else141
-  %inc148 = add nsw i32 %i.092, 1
+  %inc148 = add nuw nsw i32 %i.092, 1
   %cmp149.not = icmp slt i32 %inc148, %argc
   br i1 %cmp149.not, label %if.end153, label %if.then151
 
@@ -1550,7 +1550,7 @@ if.then151:                                       ; preds = %if.then147
   br label %return
 
 if.end153:                                        ; preds = %if.then147
-  %idxprom154 = sext i32 %inc148 to i64
+  %idxprom154 = zext nneg i32 %inc148 to i64
   %arrayidx155 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom154
   %14 = load ptr, ptr %arrayidx155, align 8
   store ptr %14, ptr @XML_FILE_NAME, align 8
@@ -1652,7 +1652,7 @@ if.else224:                                       ; preds = %if.else216, %land.l
 
 for.inc:                                          ; preds = %if.end153, %if.then27, %if.then41, %if.then55, %if.then71, %if.then130, %if.then173, %if.then187, %if.then201, %if.then222, %if.then194, %if.then180, %if.then166, %if.then137, %if.then138, %if.end111, %if.then62, %if.then48, %if.else28, %if.else, %lor.lhs.false, %for.body
   %i.2 = phi i32 [ %i.092, %for.body ], [ %i.092, %if.else ], [ %i.092, %lor.lhs.false ], [ %i.092, %if.then27 ], [ %i.092, %if.else28 ], [ %i.092, %if.then41 ], [ %i.092, %if.then48 ], [ %i.092, %if.then55 ], [ %i.092, %if.then62 ], [ %i.092, %if.then71 ], [ %i.1, %if.end111 ], [ %i.092, %if.then130 ], [ %i.092, %if.then137 ], [ %i.092, %if.then138 ], [ %inc148, %if.end153 ], [ %i.092, %if.then166 ], [ %i.092, %if.then173 ], [ %i.092, %if.then180 ], [ %i.092, %if.then187 ], [ %i.092, %if.then194 ], [ %i.092, %if.then201 ], [ %add223, %if.then222 ]
-  %inc250 = add nsw i32 %i.2, 1
+  %inc250 = add nuw nsw i32 %i.2, 1
   %cmp = icmp slt i32 %inc250, %argc
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 

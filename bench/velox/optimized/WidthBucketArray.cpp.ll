@@ -3575,9 +3575,9 @@ if.end.i.i.i.i41:                                 ; preds = %_ZNK8facebook5velox
 while.body.i.i.i.i:                               ; preds = %if.end.i.i.i.i41, %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i.i.i
   %lower.04.i.i.i.i = phi i32 [ %lower.1.i.i.i.i, %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i.i.i ], [ 0, %if.end.i.i.i.i41 ]
   %upper.03.i.i.i.i = phi i32 [ %upper.1.i.i.i.i, %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i.i.i ], [ %conv.i.i.i.i, %if.end.i.i.i.i41 ]
-  %add.i.i.i.i = add nsw i32 %upper.03.i.i.i.i, %lower.04.i.i.i.i
-  %div.i.i.i.i = sdiv i32 %add.i.i.i.i, 2
-  %conv3.i.i.i.i = sext i32 %div.i.i.i.i to i64
+  %add.i.i.i.i = add nuw nsw i32 %upper.03.i.i.i.i, %lower.04.i.i.i.i
+  %div8.i.i.i.i = lshr i32 %add.i.i.i.i, 1
+  %conv3.i.i.i.i = zext nneg i32 %div8.i.i.i.i to i64
   %cmp.not.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i.i, %conv3.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
 
@@ -3592,14 +3592,14 @@ _ZNKSt6vectorIdSaIdEE2atEm.exit.i.i.i.i:          ; preds = %while.body.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds double, ptr %bins_.val.i.i.i, i64 %conv3.i.i.i.i
   %62 = load double, ptr %add.ptr.i.i.i.i.i.i, align 8
   %cmp5.i.i.i.i = fcmp ogt double %62, %59
-  %add7.i.i.i.i = add nsw i32 %div.i.i.i.i, 1
-  %upper.1.i.i.i.i = select i1 %cmp5.i.i.i.i, i32 %div.i.i.i.i, i32 %upper.03.i.i.i.i
+  %add7.i.i.i.i = add nuw nsw i32 %div8.i.i.i.i, 1
+  %upper.1.i.i.i.i = select i1 %cmp5.i.i.i.i, i32 %div8.i.i.i.i, i32 %upper.03.i.i.i.i
   %lower.1.i.i.i.i = select i1 %cmp5.i.i.i.i, i32 %lower.04.i.i.i.i, i32 %add7.i.i.i.i
   %cmp.i.i.i.i43 = icmp slt i32 %lower.1.i.i.i.i, %upper.1.i.i.i.i
   br i1 %cmp.i.i.i.i43, label %while.body.i.i.i.i, label %while.end.loopexit.i.i.i.i, !llvm.loop !25
 
 while.end.loopexit.i.i.i.i:                       ; preds = %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i.i.i
-  %63 = sext i32 %lower.1.i.i.i.i to i64
+  %63 = zext nneg i32 %lower.1.i.i.i.i to i64
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_136WidthBucketArrayFunctionConstantBins5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i.i
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_136WidthBucketArrayFunctionConstantBins5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i.i: ; preds = %while.end.loopexit.i.i.i.i, %if.end.i.i.i.i41
@@ -3888,9 +3888,9 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %_ZNK8facebook5velox
 while.body.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i.i.i.i.i.i.i
   %lower.04.i.i.i.i.i.i.i.i = phi i32 [ %lower.1.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i.i.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i.i.i.i ]
   %upper.03.i.i.i.i.i.i.i.i = phi i32 [ %upper.1.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i.i.i.i.i.i.i ], [ %conv.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
-  %add.i.i.i.i.i.i.i.i = add nsw i32 %upper.03.i.i.i.i.i.i.i.i, %lower.04.i.i.i.i.i.i.i.i
-  %div.i.i.i.i.i.i.i.i = sdiv i32 %add.i.i.i.i.i.i.i.i, 2
-  %conv3.i.i.i.i.i.i.i.i = sext i32 %div.i.i.i.i.i.i.i.i to i64
+  %add.i.i.i.i.i.i.i.i = add nuw nsw i32 %upper.03.i.i.i.i.i.i.i.i, %lower.04.i.i.i.i.i.i.i.i
+  %div8.i.i.i.i.i.i.i.i = lshr i32 %add.i.i.i.i.i.i.i.i, 1
+  %conv3.i.i.i.i.i.i.i.i = zext nneg i32 %div8.i.i.i.i.i.i.i.i to i64
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i, %conv3.i.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
@@ -3905,14 +3905,14 @@ _ZNKSt6vectorIdSaIdEE2atEm.exit.i.i.i.i.i.i.i.i:  ; preds = %while.body.i.i.i.i.
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %bins_.val.i.i.i.i.i.i.i, i64 %conv3.i.i.i.i.i.i.i.i
   %105 = load double, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp5.i.i.i.i.i.i.i.i = fcmp ogt double %105, %102
-  %add7.i.i.i.i.i.i.i.i = add nsw i32 %div.i.i.i.i.i.i.i.i, 1
-  %upper.1.i.i.i.i.i.i.i.i = select i1 %cmp5.i.i.i.i.i.i.i.i, i32 %div.i.i.i.i.i.i.i.i, i32 %upper.03.i.i.i.i.i.i.i.i
+  %add7.i.i.i.i.i.i.i.i = add nuw nsw i32 %div8.i.i.i.i.i.i.i.i, 1
+  %upper.1.i.i.i.i.i.i.i.i = select i1 %cmp5.i.i.i.i.i.i.i.i, i32 %div8.i.i.i.i.i.i.i.i, i32 %upper.03.i.i.i.i.i.i.i.i
   %lower.1.i.i.i.i.i.i.i.i = select i1 %cmp5.i.i.i.i.i.i.i.i, i32 %lower.04.i.i.i.i.i.i.i.i, i32 %add7.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i = icmp slt i32 %lower.1.i.i.i.i.i.i.i.i, %upper.1.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i, label %while.end.loopexit.i.i.i.i.i.i.i.i, !llvm.loop !25
 
 while.end.loopexit.i.i.i.i.i.i.i.i:               ; preds = %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i.i.i.i.i.i.i
-  %106 = sext i32 %lower.1.i.i.i.i.i.i.i.i to i64
+  %106 = zext nneg i32 %lower.1.i.i.i.i.i.i.i.i to i64
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_136WidthBucketArrayFunctionConstantBins5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clImEEDaSN_.exit.i.i.i.i.i.i
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_136WidthBucketArrayFunctionConstantBins5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clImEEDaSN_.exit.i.i.i.i.i.i: ; preds = %while.end.loopexit.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i
@@ -4101,9 +4101,9 @@ if.end.i.i45.i.i.i.i.i.i:                         ; preds = %_ZNK8facebook5velox
 while.body.i.i55.i.i.i.i.i.i:                     ; preds = %if.end.i.i45.i.i.i.i.i.i, %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i63.i.i.i.i.i.i
   %lower.04.i.i56.i.i.i.i.i.i = phi i32 [ %lower.1.i.i68.i.i.i.i.i.i, %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i63.i.i.i.i.i.i ], [ 0, %if.end.i.i45.i.i.i.i.i.i ]
   %upper.03.i.i57.i.i.i.i.i.i = phi i32 [ %upper.1.i.i67.i.i.i.i.i.i, %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i63.i.i.i.i.i.i ], [ %conv.i.i51.i.i.i.i.i.i, %if.end.i.i45.i.i.i.i.i.i ]
-  %add.i.i58.i.i.i.i.i.i = add nsw i32 %upper.03.i.i57.i.i.i.i.i.i, %lower.04.i.i56.i.i.i.i.i.i
-  %div.i.i59.i.i.i.i.i.i = sdiv i32 %add.i.i58.i.i.i.i.i.i, 2
-  %conv3.i.i60.i.i.i.i.i.i = sext i32 %div.i.i59.i.i.i.i.i.i to i64
+  %add.i.i58.i.i.i.i.i.i = add nuw nsw i32 %upper.03.i.i57.i.i.i.i.i.i, %lower.04.i.i56.i.i.i.i.i.i
+  %div8.i.i59.i.i.i.i.i.i = lshr i32 %add.i.i58.i.i.i.i.i.i, 1
+  %conv3.i.i60.i.i.i.i.i.i = zext nneg i32 %div8.i.i59.i.i.i.i.i.i to i64
   %cmp.not.i.i.i.i61.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i50.i.i.i.i.i.i, %conv3.i.i60.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i61.i.i.i.i.i.i, label %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i63.i.i.i.i.i.i, label %if.then.i.i.i.i62.i.i.i.i.i.i
 
@@ -4118,14 +4118,14 @@ _ZNKSt6vectorIdSaIdEE2atEm.exit.i.i63.i.i.i.i.i.i: ; preds = %while.body.i.i55.i
   %add.ptr.i.i.i.i64.i.i.i.i.i.i = getelementptr inbounds double, ptr %bins_.val.i44.i.i.i.i.i.i, i64 %conv3.i.i60.i.i.i.i.i.i
   %139 = load double, ptr %add.ptr.i.i.i.i64.i.i.i.i.i.i, align 8
   %cmp5.i.i65.i.i.i.i.i.i = fcmp ogt double %139, %136
-  %add7.i.i66.i.i.i.i.i.i = add nsw i32 %div.i.i59.i.i.i.i.i.i, 1
-  %upper.1.i.i67.i.i.i.i.i.i = select i1 %cmp5.i.i65.i.i.i.i.i.i, i32 %div.i.i59.i.i.i.i.i.i, i32 %upper.03.i.i57.i.i.i.i.i.i
+  %add7.i.i66.i.i.i.i.i.i = add nuw nsw i32 %div8.i.i59.i.i.i.i.i.i, 1
+  %upper.1.i.i67.i.i.i.i.i.i = select i1 %cmp5.i.i65.i.i.i.i.i.i, i32 %div8.i.i59.i.i.i.i.i.i, i32 %upper.03.i.i57.i.i.i.i.i.i
   %lower.1.i.i68.i.i.i.i.i.i = select i1 %cmp5.i.i65.i.i.i.i.i.i, i32 %lower.04.i.i56.i.i.i.i.i.i, i32 %add7.i.i66.i.i.i.i.i.i
   %cmp.i.i69.i.i.i.i.i.i = icmp slt i32 %lower.1.i.i68.i.i.i.i.i.i, %upper.1.i.i67.i.i.i.i.i.i
   br i1 %cmp.i.i69.i.i.i.i.i.i, label %while.body.i.i55.i.i.i.i.i.i, label %while.end.loopexit.i.i70.i.i.i.i.i.i, !llvm.loop !25
 
 while.end.loopexit.i.i70.i.i.i.i.i.i:             ; preds = %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i63.i.i.i.i.i.i
-  %140 = sext i32 %lower.1.i.i68.i.i.i.i.i.i to i64
+  %140 = zext nneg i32 %lower.1.i.i68.i.i.i.i.i.i to i64
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_136WidthBucketArrayFunctionConstantBins5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i.i.i.i.i.i
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_136WidthBucketArrayFunctionConstantBins5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i.i.i.i.i.i: ; preds = %while.end.loopexit.i.i70.i.i.i.i.i.i, %if.end.i.i45.i.i.i.i.i.i
@@ -5735,9 +5735,9 @@ if.end.i.i:                                       ; preds = %_ZNK8facebook5velox
 while.body.i.i:                                   ; preds = %if.end.i.i, %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i
   %lower.04.i.i = phi i32 [ %lower.1.i.i, %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i ], [ 0, %if.end.i.i ]
   %upper.03.i.i = phi i32 [ %upper.1.i.i, %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i ], [ %conv.i.i, %if.end.i.i ]
-  %add.i.i = add nsw i32 %upper.03.i.i, %lower.04.i.i
-  %div.i.i = sdiv i32 %add.i.i, 2
-  %conv3.i.i = sext i32 %div.i.i to i64
+  %add.i.i = add nuw nsw i32 %upper.03.i.i, %lower.04.i.i
+  %div8.i.i = lshr i32 %add.i.i, 1
+  %conv3.i.i = zext nneg i32 %div8.i.i to i64
   %cmp.not.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, %conv3.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i, label %if.then.i.i.i.i
 
@@ -5752,14 +5752,14 @@ _ZNKSt6vectorIdSaIdEE2atEm.exit.i.i:              ; preds = %while.body.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds double, ptr %bins_.val.i, i64 %conv3.i.i
   %25 = load double, ptr %add.ptr.i.i.i.i, align 8
   %cmp5.i.i = fcmp ogt double %25, %22
-  %add7.i.i = add nsw i32 %div.i.i, 1
-  %upper.1.i.i = select i1 %cmp5.i.i, i32 %div.i.i, i32 %upper.03.i.i
+  %add7.i.i = add nuw nsw i32 %div8.i.i, 1
+  %upper.1.i.i = select i1 %cmp5.i.i, i32 %div8.i.i, i32 %upper.03.i.i
   %lower.1.i.i = select i1 %cmp5.i.i, i32 %lower.04.i.i, i32 %add7.i.i
   %cmp.i.i = icmp slt i32 %lower.1.i.i, %upper.1.i.i
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.loopexit.i.i, !llvm.loop !25
 
 while.end.loopexit.i.i:                           ; preds = %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i
-  %26 = sext i32 %lower.1.i.i to i64
+  %26 = zext nneg i32 %lower.1.i.i to i64
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_136WidthBucketArrayFunctionConstantBins5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit
 
 _ZZNK8facebook5velox9functions12_GLOBAL__N_136WidthBucketArrayFunctionConstantBins5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit: ; preds = %if.end.i.i, %while.end.loopexit.i.i
@@ -7022,64 +7022,64 @@ while.body.lr.ph.i36.i.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i
   %indices_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %188, i64 8
   %193 = load ptr, ptr %indices_.i.i.i.i.i.i.i.i, align 8
   %constantIndex_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %188, i64 64
-  %invariant.gep66.i.i.i.i.i.i = getelementptr i8, ptr %193, i64 -4
+  %invariant.gep67.i.i.i.i.i.i = getelementptr i8, ptr %193, i64 -4
   %194 = load i32, ptr %constantIndex_.i.i.i.i.i.i.i.i, align 8
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %while.body.lr.ph.split.us.i.i.i.i.i.i, label %while.body.i37.i.i.i.i.i
 
 while.body.lr.ph.split.us.i.i.i.i.i.i:            ; preds = %while.body.lr.ph.i36.i.i.i.i.i
   %isConstantMapping_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %188, i64 59
   %195 = load i8, ptr %isConstantMapping_.i.i.i.i.i.i.i.i, align 1
-  %.fr129.i.i.i.i.i.i = freeze i8 %195
-  %196 = and i8 %.fr129.i.i.i.i.i.i, 1
+  %.fr130.i.i.i.i.i.i = freeze i8 %195
+  %196 = and i8 %.fr130.i.i.i.i.i.i, 1
   %tobool2.not.i.i.i.i.i.i.i.i = icmp eq i8 %196, 0
   br i1 %tobool2.not.i.i.i.i.i.i.i.i, label %while.body.us.us.i.i.i.i.i.i, label %while.body.lr.ph.split.us.split.split.split.i.i.i.i.i.i
 
 while.body.us.us.i.i.i.i.i.i:                     ; preds = %while.body.lr.ph.split.us.i.i.i.i.i.i, %if.end19.us.us.i.i.i.i.i.i
-  %lower.065.us.us.i.i.i.i.i.i = phi i32 [ %lower.1.us.us.i.i.i.i.i.i, %if.end19.us.us.i.i.i.i.i.i ], [ 0, %while.body.lr.ph.split.us.i.i.i.i.i.i ]
-  %upper.064.us.us.i.i.i.i.i.i = phi i32 [ %upper.1.us.us.i.i.i.i.i.i, %if.end19.us.us.i.i.i.i.i.i ], [ %158, %while.body.lr.ph.split.us.i.i.i.i.i.i ]
-  %add.us.us.i.i.i.i.i.i = add nsw i32 %lower.065.us.us.i.i.i.i.i.i, %161
+  %lower.066.us.us.i.i.i.i.i.i = phi i32 [ %lower.1.us.us.i.i.i.i.i.i, %if.end19.us.us.i.i.i.i.i.i ], [ 0, %while.body.lr.ph.split.us.i.i.i.i.i.i ]
+  %upper.065.us.us.i.i.i.i.i.i = phi i32 [ %upper.1.us.us.i.i.i.i.i.i, %if.end19.us.us.i.i.i.i.i.i ], [ %158, %while.body.lr.ph.split.us.i.i.i.i.i.i ]
+  %add.us.us.i.i.i.i.i.i = add nsw i32 %lower.066.us.us.i.i.i.i.i.i, %161
   %idxprom.i.i.us.us.i.i.i.i.i.i = sext i32 %add.us.us.i.i.i.i.i.i to i64
   %arrayidx.i.i.us.us.i.i.i.i.i.i = getelementptr inbounds i32, ptr %193, i64 %idxprom.i.i.us.us.i.i.i.i.i.i
   %retval.0.i.i.ph.us.us.i.i.i.i.i.i = load i32, ptr %arrayidx.i.i.us.us.i.i.i.i.i.i, align 4
-  %idxprom.i48.us.us.i.i.i.i.i.i = sext i32 %retval.0.i.i.ph.us.us.i.i.i.i.i.i to i64
-  %arrayidx.i49.us.us.i.i.i.i.i.i = getelementptr inbounds double, ptr %190, i64 %idxprom.i48.us.us.i.i.i.i.i.i
-  %197 = load double, ptr %arrayidx.i49.us.us.i.i.i.i.i.i, align 8
-  %add750.us.us.i.i.i.i.i.i = add nsw i32 %upper.064.us.us.i.i.i.i.i.i, %161
-  %198 = sext i32 %add750.us.us.i.i.i.i.i.i to i64
-  %gep67.us.us.i.i.i.i.i.i = getelementptr i32, ptr %invariant.gep66.i.i.i.i.i.i, i64 %198
-  %retval.0.i.i18.us.us.i.i.i.i.i.i = load i32, ptr %gep67.us.us.i.i.i.i.i.i, align 4
-  %idxprom.i19.us.us.i.i.i.i.i.i = sext i32 %retval.0.i.i18.us.us.i.i.i.i.i.i to i64
-  %arrayidx.i20.us.us.i.i.i.i.i.i = getelementptr inbounds double, ptr %190, i64 %idxprom.i19.us.us.i.i.i.i.i.i
-  %199 = load double, ptr %arrayidx.i20.us.us.i.i.i.i.i.i, align 8
+  %idxprom.i49.us.us.i.i.i.i.i.i = sext i32 %retval.0.i.i.ph.us.us.i.i.i.i.i.i to i64
+  %arrayidx.i50.us.us.i.i.i.i.i.i = getelementptr inbounds double, ptr %190, i64 %idxprom.i49.us.us.i.i.i.i.i.i
+  %197 = load double, ptr %arrayidx.i50.us.us.i.i.i.i.i.i, align 8
+  %add751.us.us.i.i.i.i.i.i = add nsw i32 %upper.065.us.us.i.i.i.i.i.i, %161
+  %198 = sext i32 %add751.us.us.i.i.i.i.i.i to i64
+  %gep68.us.us.i.i.i.i.i.i = getelementptr i32, ptr %invariant.gep67.i.i.i.i.i.i, i64 %198
+  %retval.0.i.i19.us.us.i.i.i.i.i.i = load i32, ptr %gep68.us.us.i.i.i.i.i.i, align 4
+  %idxprom.i20.us.us.i.i.i.i.i.i = sext i32 %retval.0.i.i19.us.us.i.i.i.i.i.i to i64
+  %arrayidx.i21.us.us.i.i.i.i.i.i = getelementptr inbounds double, ptr %190, i64 %idxprom.i20.us.us.i.i.i.i.i.i
+  %199 = load double, ptr %arrayidx.i21.us.us.i.i.i.i.i.i, align 8
   %cmp9.us.us.i.i.i.i.i.i = fcmp ugt double %197, %199
   br i1 %cmp9.us.us.i.i.i.i.i.i, label %if.then11.i.i.i.i.i.i, label %if.end12.us.us.i.i.i.i.i.i
 
 if.end12.us.us.i.i.i.i.i.i:                       ; preds = %while.body.us.us.i.i.i.i.i.i
-  %add13.us.us.i.i.i.i.i.i = add nsw i32 %upper.064.us.us.i.i.i.i.i.i, %lower.065.us.us.i.i.i.i.i.i
-  %div.us.us.i.i.i.i.i.i = sdiv i32 %add13.us.us.i.i.i.i.i.i, 2
-  %add14.us.us.i.i.i.i.i.i = add nsw i32 %div.us.us.i.i.i.i.i.i, %161
-  %idxprom.i.i44.us.us.i.i.i.i.i.i = sext i32 %add14.us.us.i.i.i.i.i.i to i64
-  %arrayidx.i.i45.us.us.i.i.i.i.i.i = getelementptr inbounds i32, ptr %193, i64 %idxprom.i.i44.us.us.i.i.i.i.i.i
-  %200 = load i32, ptr %arrayidx.i.i45.us.us.i.i.i.i.i.i, align 4
-  %idxprom.i35.us.us.i.i.i.i.i.i = sext i32 %200 to i64
-  %arrayidx.i36.us.us.i.i.i.i.i.i = getelementptr inbounds double, ptr %190, i64 %idxprom.i35.us.us.i.i.i.i.i.i
-  %201 = load double, ptr %arrayidx.i36.us.us.i.i.i.i.i.i, align 8
+  %add13.us.us.i.i.i.i.i.i = add nuw nsw i32 %upper.065.us.us.i.i.i.i.i.i, %lower.066.us.us.i.i.i.i.i.i
+  %div15.us.us.i.i.i.i.i.i = lshr i32 %add13.us.us.i.i.i.i.i.i, 1
+  %add14.us.us.i.i.i.i.i.i = add nsw i32 %div15.us.us.i.i.i.i.i.i, %161
+  %idxprom.i.i45.us.us.i.i.i.i.i.i = sext i32 %add14.us.us.i.i.i.i.i.i to i64
+  %arrayidx.i.i46.us.us.i.i.i.i.i.i = getelementptr inbounds i32, ptr %193, i64 %idxprom.i.i45.us.us.i.i.i.i.i.i
+  %200 = load i32, ptr %arrayidx.i.i46.us.us.i.i.i.i.i.i, align 4
+  %idxprom.i36.us.us.i.i.i.i.i.i = sext i32 %200 to i64
+  %arrayidx.i37.us.us.i.i.i.i.i.i = getelementptr inbounds double, ptr %190, i64 %idxprom.i36.us.us.i.i.i.i.i.i
+  %201 = load double, ptr %arrayidx.i37.us.us.i.i.i.i.i.i, align 8
   %202 = call double @llvm.fabs.f64(double %201)
   %203 = fcmp ueq double %202, 0x7FF0000000000000
   br i1 %203, label %if.then18.i.i.i.i.i.i, label %if.end19.us.us.i.i.i.i.i.i
 
 if.end19.us.us.i.i.i.i.i.i:                       ; preds = %if.end12.us.us.i.i.i.i.i.i
   %cmp20.us.us.i.i.i.i.i.i = fcmp ogt double %201, %172
-  %add22.us.us.i.i.i.i.i.i = add nsw i32 %div.us.us.i.i.i.i.i.i, 1
-  %upper.1.us.us.i.i.i.i.i.i = select i1 %cmp20.us.us.i.i.i.i.i.i, i32 %div.us.us.i.i.i.i.i.i, i32 %upper.064.us.us.i.i.i.i.i.i
-  %lower.1.us.us.i.i.i.i.i.i = select i1 %cmp20.us.us.i.i.i.i.i.i, i32 %lower.065.us.us.i.i.i.i.i.i, i32 %add22.us.us.i.i.i.i.i.i
+  %add22.us.us.i.i.i.i.i.i = add nuw nsw i32 %div15.us.us.i.i.i.i.i.i, 1
+  %upper.1.us.us.i.i.i.i.i.i = select i1 %cmp20.us.us.i.i.i.i.i.i, i32 %div15.us.us.i.i.i.i.i.i, i32 %upper.065.us.us.i.i.i.i.i.i
+  %lower.1.us.us.i.i.i.i.i.i = select i1 %cmp20.us.us.i.i.i.i.i.i, i32 %lower.066.us.us.i.i.i.i.i.i, i32 %add22.us.us.i.i.i.i.i.i
   %cmp5.us.us.i.i.i.i.i.i = icmp slt i32 %lower.1.us.us.i.i.i.i.i.i, %upper.1.us.us.i.i.i.i.i.i
   br i1 %cmp5.us.us.i.i.i.i.i.i, label %while.body.us.us.i.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_111widthBucketIdEEldRNS0_13DecodedVectorEii.exit.i.i.i.i.i, !llvm.loop !72
 
 while.body.lr.ph.split.us.split.split.split.i.i.i.i.i.i: ; preds = %while.body.lr.ph.split.us.i.i.i.i.i.i
-  %idxprom.i35.us.i.i.i.i.i.i = sext i32 %194 to i64
-  %arrayidx.i36.us.i.i.i.i.i.i = getelementptr inbounds double, ptr %190, i64 %idxprom.i35.us.i.i.i.i.i.i
-  %204 = load double, ptr %arrayidx.i36.us.i.i.i.i.i.i, align 8
+  %idxprom.i36.us.i.i.i.i.i.i = sext i32 %194 to i64
+  %arrayidx.i37.us.i.i.i.i.i.i = getelementptr inbounds double, ptr %190, i64 %idxprom.i36.us.i.i.i.i.i.i
+  %204 = load double, ptr %arrayidx.i37.us.i.i.i.i.i.i, align 8
   %.fr.i.i.i.i.i.i = freeze double %204
   %cmp9.us.i.i.i.i.i.i = fcmp uno double %.fr.i.i.i.i.i.i, 0.000000e+00
   br i1 %cmp9.us.i.i.i.i.i.i, label %if.then11.i.i.i.i.i.i, label %while.body.lr.ph.split.us.split.split.split.split.i.i.i.i.i.i
@@ -7094,11 +7094,11 @@ while.body.lr.ph.split.us.split.split.split.split.split.i.i.i.i.i.i: ; preds = %
   br i1 %cmp20.us.i.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_111widthBucketIdEEldRNS0_13DecodedVectorEii.exit.i.i.i.i.i, label %while.body.us.i.i.i.i.i.i
 
 while.body.us.i.i.i.i.i.i:                        ; preds = %while.body.lr.ph.split.us.split.split.split.split.split.i.i.i.i.i.i, %while.body.us.i.i.i.i.i.i
-  %lower.065.us.i.i.i.i.i.i = phi i32 [ %add22.us.i.i.i.i.i.i, %while.body.us.i.i.i.i.i.i ], [ 0, %while.body.lr.ph.split.us.split.split.split.split.split.i.i.i.i.i.i ]
-  %add13.us.i.i.i.i.i.i = add nsw i32 %lower.065.us.i.i.i.i.i.i, %158
-  %div.us.i.i.i.i.i.i = sdiv i32 %add13.us.i.i.i.i.i.i, 2
-  %add22.us.i.i.i.i.i.i = add nsw i32 %div.us.i.i.i.i.i.i, 1
-  %cmp5.us.i.i.i.i.i.i = icmp slt i32 %add22.us.i.i.i.i.i.i, %158
+  %lower.066.us.i.i.i.i.i.i = phi i32 [ %add22.us.i.i.i.i.i.i, %while.body.us.i.i.i.i.i.i ], [ 0, %while.body.lr.ph.split.us.split.split.split.split.split.i.i.i.i.i.i ]
+  %add13.us.i.i.i.i.i.i = add nuw nsw i32 %lower.066.us.i.i.i.i.i.i, %158
+  %div15.us.i.i.i.i.i.i = lshr i32 %add13.us.i.i.i.i.i.i, 1
+  %add22.us.i.i.i.i.i.i = add nuw nsw i32 %div15.us.i.i.i.i.i.i, 1
+  %cmp5.us.i.i.i.i.i.i = icmp ult i32 %add22.us.i.i.i.i.i.i, %158
   br i1 %cmp5.us.i.i.i.i.i.i, label %while.body.us.i.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_111widthBucketIdEEldRNS0_13DecodedVectorEii.exit.i.i.i.i.i, !llvm.loop !72
 
 if.then3.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
@@ -7106,26 +7106,26 @@ if.then3.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   unreachable
 
 while.body.i37.i.i.i.i.i:                         ; preds = %while.body.lr.ph.i36.i.i.i.i.i, %if.end19.i.i.i.i.i.i
-  %lower.065.i.i.i.i.i.i = phi i32 [ %lower.1.i.i.i.i.i.i, %if.end19.i.i.i.i.i.i ], [ 0, %while.body.lr.ph.i36.i.i.i.i.i ]
-  %upper.064.i.i.i.i.i.i = phi i32 [ %upper.1.i.i.i.i.i.i, %if.end19.i.i.i.i.i.i ], [ %158, %while.body.lr.ph.i36.i.i.i.i.i ]
-  %add.i38.i.i.i.i.i = add nsw i32 %lower.065.i.i.i.i.i.i, %161
+  %lower.066.i.i.i.i.i.i = phi i32 [ %lower.1.i.i.i.i.i.i, %if.end19.i.i.i.i.i.i ], [ 0, %while.body.lr.ph.i36.i.i.i.i.i ]
+  %upper.065.i.i.i.i.i.i = phi i32 [ %upper.1.i.i.i.i.i.i, %if.end19.i.i.i.i.i.i ], [ %158, %while.body.lr.ph.i36.i.i.i.i.i ]
+  %add.i38.i.i.i.i.i = add nsw i32 %lower.066.i.i.i.i.i.i, %161
   %idxprom.i.i39.i.i.i.i.i = sext i32 %add.i38.i.i.i.i.i to i64
   %arrayidx.i.i40.i.i.i.i.i = getelementptr inbounds double, ptr %190, i64 %idxprom.i.i39.i.i.i.i.i
   %207 = load double, ptr %arrayidx.i.i40.i.i.i.i.i, align 8
-  %add7.i.i.i.i.i.i = add nsw i32 %upper.064.i.i.i.i.i.i, %161
+  %add7.i.i.i.i.i.i = add nsw i32 %upper.065.i.i.i.i.i.i, %161
   %208 = sext i32 %add7.i.i.i.i.i.i to i64
   %gep.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i.i, i64 %208
   %209 = load double, ptr %gep.i.i.i.i.i.i, align 8
-  %cmp956.i.i.i.i.i.i = fcmp ugt double %207, %209
-  br i1 %cmp956.i.i.i.i.i.i, label %if.then11.i.i.i.i.i.i, label %if.end12.thread.i.i.i.i.i.i
+  %cmp957.i.i.i.i.i.i = fcmp ugt double %207, %209
+  br i1 %cmp957.i.i.i.i.i.i, label %if.then11.i.i.i.i.i.i, label %if.end12.thread.i.i.i.i.i.i
 
 if.end12.thread.i.i.i.i.i.i:                      ; preds = %while.body.i37.i.i.i.i.i
-  %add1357.i.i.i.i.i.i = add nsw i32 %upper.064.i.i.i.i.i.i, %lower.065.i.i.i.i.i.i
-  %div58.i.i.i.i.i.i = sdiv i32 %add1357.i.i.i.i.i.i, 2
-  %add1459.i.i.i.i.i.i = add nsw i32 %div58.i.i.i.i.i.i, %161
-  %idxprom.i35.i.i.i.i.i.i = sext i32 %add1459.i.i.i.i.i.i to i64
-  %arrayidx.i36.i.i.i.i.i.i = getelementptr inbounds double, ptr %190, i64 %idxprom.i35.i.i.i.i.i.i
-  %210 = load double, ptr %arrayidx.i36.i.i.i.i.i.i, align 8
+  %add1358.i.i.i.i.i.i = add nuw nsw i32 %upper.065.i.i.i.i.i.i, %lower.066.i.i.i.i.i.i
+  %div1559.i.i.i.i.i.i = lshr i32 %add1358.i.i.i.i.i.i, 1
+  %add1460.i.i.i.i.i.i = add nsw i32 %div1559.i.i.i.i.i.i, %161
+  %idxprom.i36.i.i.i.i.i.i = sext i32 %add1460.i.i.i.i.i.i to i64
+  %arrayidx.i37.i.i.i.i.i.i = getelementptr inbounds double, ptr %190, i64 %idxprom.i36.i.i.i.i.i.i
+  %210 = load double, ptr %arrayidx.i37.i.i.i.i.i.i, align 8
   %211 = call double @llvm.fabs.f64(double %210)
   %212 = fcmp ueq double %211, 0x7FF0000000000000
   br i1 %212, label %if.then18.i.i.i.i.i.i, label %if.end19.i.i.i.i.i.i
@@ -7140,15 +7140,15 @@ if.then18.i.i.i.i.i.i:                            ; preds = %while.body.lr.ph.sp
 
 if.end19.i.i.i.i.i.i:                             ; preds = %if.end12.thread.i.i.i.i.i.i
   %cmp20.i.i.i.i.i.i = fcmp ogt double %210, %172
-  %add22.i.i.i.i.i.i = add nsw i32 %div58.i.i.i.i.i.i, 1
-  %upper.1.i.i.i.i.i.i = select i1 %cmp20.i.i.i.i.i.i, i32 %div58.i.i.i.i.i.i, i32 %upper.064.i.i.i.i.i.i
-  %lower.1.i.i.i.i.i.i = select i1 %cmp20.i.i.i.i.i.i, i32 %lower.065.i.i.i.i.i.i, i32 %add22.i.i.i.i.i.i
+  %add22.i.i.i.i.i.i = add nuw nsw i32 %div1559.i.i.i.i.i.i, 1
+  %upper.1.i.i.i.i.i.i = select i1 %cmp20.i.i.i.i.i.i, i32 %div1559.i.i.i.i.i.i, i32 %upper.065.i.i.i.i.i.i
+  %lower.1.i.i.i.i.i.i = select i1 %cmp20.i.i.i.i.i.i, i32 %lower.066.i.i.i.i.i.i, i32 %add22.i.i.i.i.i.i
   %cmp5.i.i.i.i.i.i = icmp slt i32 %lower.1.i.i.i.i.i.i, %upper.1.i.i.i.i.i.i
   br i1 %cmp5.i.i.i.i.i.i, label %while.body.i37.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_111widthBucketIdEEldRNS0_13DecodedVectorEii.exit.i.i.i.i.i, !llvm.loop !72
 
 _ZN8facebook5velox9functions12_GLOBAL__N_111widthBucketIdEEldRNS0_13DecodedVectorEii.exit.i.i.i.i.i: ; preds = %if.end19.i.i.i.i.i.i, %while.body.us.i.i.i.i.i.i, %if.end19.us.us.i.i.i.i.i.i, %while.body.lr.ph.split.us.split.split.split.split.split.i.i.i.i.i.i
   %lower.0.lcssa.i.i.i.i.i.i = phi i32 [ 0, %while.body.lr.ph.split.us.split.split.split.split.split.i.i.i.i.i.i ], [ %lower.1.us.us.i.i.i.i.i.i, %if.end19.us.us.i.i.i.i.i.i ], [ %add22.us.i.i.i.i.i.i, %while.body.us.i.i.i.i.i.i ], [ %lower.1.i.i.i.i.i.i, %if.end19.i.i.i.i.i.i ]
-  %conv.i41.i.i.i.i.i = sext i32 %lower.0.lcssa.i.i.i.i.i.i to i64
+  %conv.i41.i.i.i.i.i = zext nneg i32 %lower.0.lcssa.i.i.i.i.i.i to i64
   %213 = load ptr, ptr %agg.tmp.sroa.4.0.agg.tmp65.sroa_idx, align 8
   %214 = load ptr, ptr %213, align 8
   %arrayidx11.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %214, i64 %idxprom.i37.i.i.i.i.i.i
@@ -8733,64 +8733,64 @@ while.body.lr.ph:                                 ; preds = %if.end
   %indices_.i.i = getelementptr inbounds i8, ptr %elementsHolder, i64 8
   %4 = load ptr, ptr %indices_.i.i, align 8
   %constantIndex_.i.i = getelementptr inbounds i8, ptr %elementsHolder, i64 64
-  %invariant.gep66 = getelementptr i8, ptr %4, i64 -4
+  %invariant.gep67 = getelementptr i8, ptr %4, i64 -4
   %5 = load i32, ptr %constantIndex_.i.i, align 8
   br i1 %tobool.not.i.i, label %while.body.lr.ph.split.us, label %while.body
 
 while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
   %isConstantMapping_.i.i = getelementptr inbounds i8, ptr %elementsHolder, i64 59
   %6 = load i8, ptr %isConstantMapping_.i.i, align 1
-  %.fr129 = freeze i8 %6
-  %7 = and i8 %.fr129, 1
+  %.fr130 = freeze i8 %6
+  %7 = and i8 %.fr130, 1
   %tobool2.not.i.i = icmp eq i8 %7, 0
   br i1 %tobool2.not.i.i, label %while.body.us.us, label %while.body.lr.ph.split.us.split.split.split
 
 while.body.us.us:                                 ; preds = %while.body.lr.ph.split.us, %if.end19.us.us
-  %lower.065.us.us = phi i32 [ %lower.1.us.us, %if.end19.us.us ], [ 0, %while.body.lr.ph.split.us ]
-  %upper.064.us.us = phi i32 [ %upper.1.us.us, %if.end19.us.us ], [ %binCount, %while.body.lr.ph.split.us ]
-  %add.us.us = add nsw i32 %lower.065.us.us, %offset
+  %lower.066.us.us = phi i32 [ %lower.1.us.us, %if.end19.us.us ], [ 0, %while.body.lr.ph.split.us ]
+  %upper.065.us.us = phi i32 [ %upper.1.us.us, %if.end19.us.us ], [ %binCount, %while.body.lr.ph.split.us ]
+  %add.us.us = add nsw i32 %lower.066.us.us, %offset
   %idxprom.i.i.us.us = sext i32 %add.us.us to i64
   %arrayidx.i.i.us.us = getelementptr inbounds i32, ptr %4, i64 %idxprom.i.i.us.us
   %retval.0.i.i.ph.us.us = load i32, ptr %arrayidx.i.i.us.us, align 4
-  %idxprom.i48.us.us = sext i32 %retval.0.i.i.ph.us.us to i64
-  %arrayidx.i49.us.us = getelementptr inbounds double, ptr %1, i64 %idxprom.i48.us.us
-  %8 = load double, ptr %arrayidx.i49.us.us, align 8
-  %add750.us.us = add nsw i32 %upper.064.us.us, %offset
-  %9 = sext i32 %add750.us.us to i64
-  %gep67.us.us = getelementptr i32, ptr %invariant.gep66, i64 %9
-  %retval.0.i.i18.us.us = load i32, ptr %gep67.us.us, align 4
-  %idxprom.i19.us.us = sext i32 %retval.0.i.i18.us.us to i64
-  %arrayidx.i20.us.us = getelementptr inbounds double, ptr %1, i64 %idxprom.i19.us.us
-  %10 = load double, ptr %arrayidx.i20.us.us, align 8
+  %idxprom.i49.us.us = sext i32 %retval.0.i.i.ph.us.us to i64
+  %arrayidx.i50.us.us = getelementptr inbounds double, ptr %1, i64 %idxprom.i49.us.us
+  %8 = load double, ptr %arrayidx.i50.us.us, align 8
+  %add751.us.us = add nsw i32 %upper.065.us.us, %offset
+  %9 = sext i32 %add751.us.us to i64
+  %gep68.us.us = getelementptr i32, ptr %invariant.gep67, i64 %9
+  %retval.0.i.i19.us.us = load i32, ptr %gep68.us.us, align 4
+  %idxprom.i20.us.us = sext i32 %retval.0.i.i19.us.us to i64
+  %arrayidx.i21.us.us = getelementptr inbounds double, ptr %1, i64 %idxprom.i20.us.us
+  %10 = load double, ptr %arrayidx.i21.us.us, align 8
   %cmp9.us.us = fcmp ugt double %8, %10
   br i1 %cmp9.us.us, label %if.then11, label %if.end12.us.us
 
 if.end12.us.us:                                   ; preds = %while.body.us.us
-  %add13.us.us = add nsw i32 %lower.065.us.us, %upper.064.us.us
-  %div.us.us = sdiv i32 %add13.us.us, 2
-  %add14.us.us = add nsw i32 %div.us.us, %offset
-  %idxprom.i.i44.us.us = sext i32 %add14.us.us to i64
-  %arrayidx.i.i45.us.us = getelementptr inbounds i32, ptr %4, i64 %idxprom.i.i44.us.us
-  %11 = load i32, ptr %arrayidx.i.i45.us.us, align 4
-  %idxprom.i35.us.us = sext i32 %11 to i64
-  %arrayidx.i36.us.us = getelementptr inbounds double, ptr %1, i64 %idxprom.i35.us.us
-  %12 = load double, ptr %arrayidx.i36.us.us, align 8
+  %add13.us.us = add nuw nsw i32 %lower.066.us.us, %upper.065.us.us
+  %div15.us.us = lshr i32 %add13.us.us, 1
+  %add14.us.us = add nsw i32 %div15.us.us, %offset
+  %idxprom.i.i45.us.us = sext i32 %add14.us.us to i64
+  %arrayidx.i.i46.us.us = getelementptr inbounds i32, ptr %4, i64 %idxprom.i.i45.us.us
+  %11 = load i32, ptr %arrayidx.i.i46.us.us, align 4
+  %idxprom.i36.us.us = sext i32 %11 to i64
+  %arrayidx.i37.us.us = getelementptr inbounds double, ptr %1, i64 %idxprom.i36.us.us
+  %12 = load double, ptr %arrayidx.i37.us.us, align 8
   %13 = tail call double @llvm.fabs.f64(double %12)
   %14 = fcmp ueq double %13, 0x7FF0000000000000
   br i1 %14, label %if.then18, label %if.end19.us.us
 
 if.end19.us.us:                                   ; preds = %if.end12.us.us
   %cmp20.us.us = fcmp ogt double %12, %operand
-  %add22.us.us = add nsw i32 %div.us.us, 1
-  %upper.1.us.us = select i1 %cmp20.us.us, i32 %div.us.us, i32 %upper.064.us.us
-  %lower.1.us.us = select i1 %cmp20.us.us, i32 %lower.065.us.us, i32 %add22.us.us
+  %add22.us.us = add nuw nsw i32 %div15.us.us, 1
+  %upper.1.us.us = select i1 %cmp20.us.us, i32 %div15.us.us, i32 %upper.065.us.us
+  %lower.1.us.us = select i1 %cmp20.us.us, i32 %lower.066.us.us, i32 %add22.us.us
   %cmp5.us.us = icmp slt i32 %lower.1.us.us, %upper.1.us.us
   br i1 %cmp5.us.us, label %while.body.us.us, label %while.end, !llvm.loop !72
 
 while.body.lr.ph.split.us.split.split.split:      ; preds = %while.body.lr.ph.split.us
-  %idxprom.i35.us = sext i32 %5 to i64
-  %arrayidx.i36.us = getelementptr inbounds double, ptr %1, i64 %idxprom.i35.us
-  %15 = load double, ptr %arrayidx.i36.us, align 8
+  %idxprom.i36.us = sext i32 %5 to i64
+  %arrayidx.i37.us = getelementptr inbounds double, ptr %1, i64 %idxprom.i36.us
+  %15 = load double, ptr %arrayidx.i37.us, align 8
   %.fr = freeze double %15
   %cmp9.us = fcmp uno double %.fr, 0.000000e+00
   br i1 %cmp9.us, label %if.then11, label %while.body.lr.ph.split.us.split.split.split.split
@@ -8805,11 +8805,11 @@ while.body.lr.ph.split.us.split.split.split.split.split: ; preds = %while.body.l
   br i1 %cmp20.us, label %while.end, label %while.body.us
 
 while.body.us:                                    ; preds = %while.body.lr.ph.split.us.split.split.split.split.split, %while.body.us
-  %lower.065.us = phi i32 [ %add22.us, %while.body.us ], [ 0, %while.body.lr.ph.split.us.split.split.split.split.split ]
-  %add13.us = add nsw i32 %lower.065.us, %binCount
-  %div.us = sdiv i32 %add13.us, 2
-  %add22.us = add nsw i32 %div.us, 1
-  %cmp5.us = icmp slt i32 %add22.us, %binCount
+  %lower.066.us = phi i32 [ %add22.us, %while.body.us ], [ 0, %while.body.lr.ph.split.us.split.split.split.split.split ]
+  %add13.us = add nuw nsw i32 %lower.066.us, %binCount
+  %div15.us = lshr i32 %add13.us, 1
+  %add22.us = add nuw nsw i32 %div15.us, 1
+  %cmp5.us = icmp ult i32 %add22.us, %binCount
   br i1 %cmp5.us, label %while.body.us, label %while.end, !llvm.loop !72
 
 if.then3:                                         ; preds = %if.end
@@ -8817,26 +8817,26 @@ if.then3:                                         ; preds = %if.end
   unreachable
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end19
-  %lower.065 = phi i32 [ %lower.1, %if.end19 ], [ 0, %while.body.lr.ph ]
-  %upper.064 = phi i32 [ %upper.1, %if.end19 ], [ %binCount, %while.body.lr.ph ]
-  %add = add nsw i32 %lower.065, %offset
+  %lower.066 = phi i32 [ %lower.1, %if.end19 ], [ 0, %while.body.lr.ph ]
+  %upper.065 = phi i32 [ %upper.1, %if.end19 ], [ %binCount, %while.body.lr.ph ]
+  %add = add nsw i32 %lower.066, %offset
   %idxprom.i = sext i32 %add to i64
   %arrayidx.i = getelementptr inbounds double, ptr %1, i64 %idxprom.i
   %18 = load double, ptr %arrayidx.i, align 8
-  %add7 = add nsw i32 %upper.064, %offset
+  %add7 = add nsw i32 %upper.065, %offset
   %19 = sext i32 %add7 to i64
   %gep = getelementptr double, ptr %invariant.gep, i64 %19
   %20 = load double, ptr %gep, align 8
-  %cmp956 = fcmp ugt double %18, %20
-  br i1 %cmp956, label %if.then11, label %if.end12.thread
+  %cmp957 = fcmp ugt double %18, %20
+  br i1 %cmp957, label %if.then11, label %if.end12.thread
 
 if.end12.thread:                                  ; preds = %while.body
-  %add1357 = add nsw i32 %lower.065, %upper.064
-  %div58 = sdiv i32 %add1357, 2
-  %add1459 = add nsw i32 %div58, %offset
-  %idxprom.i35 = sext i32 %add1459 to i64
-  %arrayidx.i36 = getelementptr inbounds double, ptr %1, i64 %idxprom.i35
-  %21 = load double, ptr %arrayidx.i36, align 8
+  %add1358 = add nuw nsw i32 %lower.066, %upper.065
+  %div1559 = lshr i32 %add1358, 1
+  %add1460 = add nsw i32 %div1559, %offset
+  %idxprom.i36 = sext i32 %add1460 to i64
+  %arrayidx.i37 = getelementptr inbounds double, ptr %1, i64 %idxprom.i36
+  %21 = load double, ptr %arrayidx.i37, align 8
   %22 = tail call double @llvm.fabs.f64(double %21)
   %23 = fcmp ueq double %22, 0x7FF0000000000000
   br i1 %23, label %if.then18, label %if.end19
@@ -8851,15 +8851,15 @@ if.then18:                                        ; preds = %if.end12.thread, %i
 
 if.end19:                                         ; preds = %if.end12.thread
   %cmp20 = fcmp ogt double %21, %operand
-  %add22 = add nsw i32 %div58, 1
-  %upper.1 = select i1 %cmp20, i32 %div58, i32 %upper.064
-  %lower.1 = select i1 %cmp20, i32 %lower.065, i32 %add22
+  %add22 = add nuw nsw i32 %div1559, 1
+  %upper.1 = select i1 %cmp20, i32 %div1559, i32 %upper.065
+  %lower.1 = select i1 %cmp20, i32 %lower.066, i32 %add22
   %cmp5 = icmp slt i32 %lower.1, %upper.1
   br i1 %cmp5, label %while.body, label %while.end, !llvm.loop !72
 
 while.end:                                        ; preds = %if.end19, %while.body.us, %if.end19.us.us, %while.body.lr.ph.split.us.split.split.split.split.split
   %lower.0.lcssa = phi i32 [ 0, %while.body.lr.ph.split.us.split.split.split.split.split ], [ %lower.1.us.us, %if.end19.us.us ], [ %add22.us, %while.body.us ], [ %lower.1, %if.end19 ]
-  %conv = sext i32 %lower.0.lcssa to i64
+  %conv = zext nneg i32 %lower.0.lcssa to i64
   ret i64 %conv
 }
 
@@ -10204,71 +10204,71 @@ while.body.lr.ph.i36.i.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i
   %indices_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %188, i64 8
   %193 = load ptr, ptr %indices_.i.i.i.i.i.i.i.i, align 8
   %constantIndex_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %188, i64 64
-  %invariant.gep65.i.i.i.i.i.i = getelementptr i8, ptr %193, i64 -4
+  %invariant.gep66.i.i.i.i.i.i = getelementptr i8, ptr %193, i64 -4
   %194 = load i32, ptr %constantIndex_.i.i.i.i.i.i.i.i, align 8
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %while.body.lr.ph.split.us.i.i.i.i.i.i, label %while.body.i37.i.i.i.i.i
 
 while.body.lr.ph.split.us.i.i.i.i.i.i:            ; preds = %while.body.lr.ph.i36.i.i.i.i.i
   %isConstantMapping_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %188, i64 59
   %195 = load i8, ptr %isConstantMapping_.i.i.i.i.i.i.i.i, align 1
-  %.fr128.i.i.i.i.i.i = freeze i8 %195
-  %196 = and i8 %.fr128.i.i.i.i.i.i, 1
+  %.fr129.i.i.i.i.i.i = freeze i8 %195
+  %196 = and i8 %.fr129.i.i.i.i.i.i, 1
   %tobool2.not.i.i.i.i.i.i.i.i = icmp eq i8 %196, 0
   br i1 %tobool2.not.i.i.i.i.i.i.i.i, label %while.body.us.us.i.i.i.i.i.i, label %while.body.lr.ph.split.us.split.split.split.split.i.i.i.i.i.i
 
 while.body.us.us.i.i.i.i.i.i:                     ; preds = %while.body.lr.ph.split.us.i.i.i.i.i.i, %if.end12.us.us.i.i.i.i.i.i
-  %lower.064.us.us.i.i.i.i.i.i = phi i32 [ %lower.1.us.us.i.i.i.i.i.i, %if.end12.us.us.i.i.i.i.i.i ], [ 0, %while.body.lr.ph.split.us.i.i.i.i.i.i ]
-  %upper.063.us.us.i.i.i.i.i.i = phi i32 [ %upper.1.us.us.i.i.i.i.i.i, %if.end12.us.us.i.i.i.i.i.i ], [ %158, %while.body.lr.ph.split.us.i.i.i.i.i.i ]
-  %add.us.us.i.i.i.i.i.i = add nsw i32 %lower.064.us.us.i.i.i.i.i.i, %161
+  %lower.065.us.us.i.i.i.i.i.i = phi i32 [ %lower.1.us.us.i.i.i.i.i.i, %if.end12.us.us.i.i.i.i.i.i ], [ 0, %while.body.lr.ph.split.us.i.i.i.i.i.i ]
+  %upper.064.us.us.i.i.i.i.i.i = phi i32 [ %upper.1.us.us.i.i.i.i.i.i, %if.end12.us.us.i.i.i.i.i.i ], [ %158, %while.body.lr.ph.split.us.i.i.i.i.i.i ]
+  %add.us.us.i.i.i.i.i.i = add nsw i32 %lower.065.us.us.i.i.i.i.i.i, %161
   %idxprom.i.i.us.us.i.i.i.i.i.i = sext i32 %add.us.us.i.i.i.i.i.i to i64
   %arrayidx.i.i.us.us.i.i.i.i.i.i = getelementptr inbounds i32, ptr %193, i64 %idxprom.i.i.us.us.i.i.i.i.i.i
   %retval.0.i.i.ph.us.us.i.i.i.i.i.i = load i32, ptr %arrayidx.i.i.us.us.i.i.i.i.i.i, align 4
-  %idxprom.i48.us.us.i.i.i.i.i.i = sext i32 %retval.0.i.i.ph.us.us.i.i.i.i.i.i to i64
-  %arrayidx.i49.us.us.i.i.i.i.i.i = getelementptr inbounds i64, ptr %190, i64 %idxprom.i48.us.us.i.i.i.i.i.i
-  %197 = load i64, ptr %arrayidx.i49.us.us.i.i.i.i.i.i, align 8
-  %add750.us.us.i.i.i.i.i.i = add nsw i32 %upper.063.us.us.i.i.i.i.i.i, %161
-  %198 = sext i32 %add750.us.us.i.i.i.i.i.i to i64
-  %gep66.us.us.i.i.i.i.i.i = getelementptr i32, ptr %invariant.gep65.i.i.i.i.i.i, i64 %198
-  %retval.0.i.i18.us.us.i.i.i.i.i.i = load i32, ptr %gep66.us.us.i.i.i.i.i.i, align 4
-  %idxprom.i19.us.us.i.i.i.i.i.i = sext i32 %retval.0.i.i18.us.us.i.i.i.i.i.i to i64
-  %arrayidx.i20.us.us.i.i.i.i.i.i = getelementptr inbounds i64, ptr %190, i64 %idxprom.i19.us.us.i.i.i.i.i.i
-  %199 = load i64, ptr %arrayidx.i20.us.us.i.i.i.i.i.i, align 8
+  %idxprom.i49.us.us.i.i.i.i.i.i = sext i32 %retval.0.i.i.ph.us.us.i.i.i.i.i.i to i64
+  %arrayidx.i50.us.us.i.i.i.i.i.i = getelementptr inbounds i64, ptr %190, i64 %idxprom.i49.us.us.i.i.i.i.i.i
+  %197 = load i64, ptr %arrayidx.i50.us.us.i.i.i.i.i.i, align 8
+  %add751.us.us.i.i.i.i.i.i = add nsw i32 %upper.064.us.us.i.i.i.i.i.i, %161
+  %198 = sext i32 %add751.us.us.i.i.i.i.i.i to i64
+  %gep67.us.us.i.i.i.i.i.i = getelementptr i32, ptr %invariant.gep66.i.i.i.i.i.i, i64 %198
+  %retval.0.i.i19.us.us.i.i.i.i.i.i = load i32, ptr %gep67.us.us.i.i.i.i.i.i, align 4
+  %idxprom.i20.us.us.i.i.i.i.i.i = sext i32 %retval.0.i.i19.us.us.i.i.i.i.i.i to i64
+  %arrayidx.i21.us.us.i.i.i.i.i.i = getelementptr inbounds i64, ptr %190, i64 %idxprom.i20.us.us.i.i.i.i.i.i
+  %199 = load i64, ptr %arrayidx.i21.us.us.i.i.i.i.i.i, align 8
   %cmp9.not.us.us.i.i.i.i.i.i = icmp sgt i64 %197, %199
   br i1 %cmp9.not.us.us.i.i.i.i.i.i, label %if.then11.i.i.i.i.i.i, label %if.end12.us.us.i.i.i.i.i.i
 
 if.end12.us.us.i.i.i.i.i.i:                       ; preds = %while.body.us.us.i.i.i.i.i.i
-  %add13.us.us.i.i.i.i.i.i = add nsw i32 %upper.063.us.us.i.i.i.i.i.i, %lower.064.us.us.i.i.i.i.i.i
-  %div.us.us.i.i.i.i.i.i = sdiv i32 %add13.us.us.i.i.i.i.i.i, 2
-  %add14.us.us.i.i.i.i.i.i = add nsw i32 %div.us.us.i.i.i.i.i.i, %161
-  %idxprom.i.i44.us.us.i.i.i.i.i.i = sext i32 %add14.us.us.i.i.i.i.i.i to i64
-  %arrayidx.i.i45.us.us.i.i.i.i.i.i = getelementptr inbounds i32, ptr %193, i64 %idxprom.i.i44.us.us.i.i.i.i.i.i
-  %200 = load i32, ptr %arrayidx.i.i45.us.us.i.i.i.i.i.i, align 4
-  %idxprom.i35.us.us.i.i.i.i.i.i = sext i32 %200 to i64
-  %arrayidx.i36.us.us.i.i.i.i.i.i = getelementptr inbounds i64, ptr %190, i64 %idxprom.i35.us.us.i.i.i.i.i.i
-  %201 = load i64, ptr %arrayidx.i36.us.us.i.i.i.i.i.i, align 8
+  %add13.us.us.i.i.i.i.i.i = add nuw nsw i32 %upper.064.us.us.i.i.i.i.i.i, %lower.065.us.us.i.i.i.i.i.i
+  %div15.us.us.i.i.i.i.i.i = lshr i32 %add13.us.us.i.i.i.i.i.i, 1
+  %add14.us.us.i.i.i.i.i.i = add nsw i32 %div15.us.us.i.i.i.i.i.i, %161
+  %idxprom.i.i45.us.us.i.i.i.i.i.i = sext i32 %add14.us.us.i.i.i.i.i.i to i64
+  %arrayidx.i.i46.us.us.i.i.i.i.i.i = getelementptr inbounds i32, ptr %193, i64 %idxprom.i.i45.us.us.i.i.i.i.i.i
+  %200 = load i32, ptr %arrayidx.i.i46.us.us.i.i.i.i.i.i, align 4
+  %idxprom.i36.us.us.i.i.i.i.i.i = sext i32 %200 to i64
+  %arrayidx.i37.us.us.i.i.i.i.i.i = getelementptr inbounds i64, ptr %190, i64 %idxprom.i36.us.us.i.i.i.i.i.i
+  %201 = load i64, ptr %arrayidx.i37.us.us.i.i.i.i.i.i, align 8
   %conv.us.us.i.i.i.i.i.i = sitofp i64 %201 to double
   %cmp20.us.us.i.i.i.i.i.i = fcmp olt double %172, %conv.us.us.i.i.i.i.i.i
-  %add22.us.us.i.i.i.i.i.i = add nsw i32 %div.us.us.i.i.i.i.i.i, 1
-  %upper.1.us.us.i.i.i.i.i.i = select i1 %cmp20.us.us.i.i.i.i.i.i, i32 %div.us.us.i.i.i.i.i.i, i32 %upper.063.us.us.i.i.i.i.i.i
-  %lower.1.us.us.i.i.i.i.i.i = select i1 %cmp20.us.us.i.i.i.i.i.i, i32 %lower.064.us.us.i.i.i.i.i.i, i32 %add22.us.us.i.i.i.i.i.i
+  %add22.us.us.i.i.i.i.i.i = add nuw nsw i32 %div15.us.us.i.i.i.i.i.i, 1
+  %upper.1.us.us.i.i.i.i.i.i = select i1 %cmp20.us.us.i.i.i.i.i.i, i32 %div15.us.us.i.i.i.i.i.i, i32 %upper.064.us.us.i.i.i.i.i.i
+  %lower.1.us.us.i.i.i.i.i.i = select i1 %cmp20.us.us.i.i.i.i.i.i, i32 %lower.065.us.us.i.i.i.i.i.i, i32 %add22.us.us.i.i.i.i.i.i
   %cmp5.us.us.i.i.i.i.i.i = icmp slt i32 %lower.1.us.us.i.i.i.i.i.i, %upper.1.us.us.i.i.i.i.i.i
   br i1 %cmp5.us.us.i.i.i.i.i.i, label %while.body.us.us.i.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_111widthBucketIlEEldRNS0_13DecodedVectorEii.exit.i.i.i.i.i, !llvm.loop !91
 
 while.body.lr.ph.split.us.split.split.split.split.i.i.i.i.i.i: ; preds = %while.body.lr.ph.split.us.i.i.i.i.i.i
-  %idxprom.i35.us.i.i.i.i.i.i = sext i32 %194 to i64
-  %arrayidx.i36.us.i.i.i.i.i.i = getelementptr inbounds i64, ptr %190, i64 %idxprom.i35.us.i.i.i.i.i.i
-  %202 = load i64, ptr %arrayidx.i36.us.i.i.i.i.i.i, align 8
+  %idxprom.i36.us.i.i.i.i.i.i = sext i32 %194 to i64
+  %arrayidx.i37.us.i.i.i.i.i.i = getelementptr inbounds i64, ptr %190, i64 %idxprom.i36.us.i.i.i.i.i.i
+  %202 = load i64, ptr %arrayidx.i37.us.i.i.i.i.i.i, align 8
   %.fr.i.i.i.i.i.i = freeze i64 %202
   %conv.us.i.i.i.i.i.i = sitofp i64 %.fr.i.i.i.i.i.i to double
   %cmp20.us.i.i.i.i.i.i = fcmp olt double %172, %conv.us.i.i.i.i.i.i
   br i1 %cmp20.us.i.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_111widthBucketIlEEldRNS0_13DecodedVectorEii.exit.i.i.i.i.i, label %while.body.us.i.i.i.i.i.i
 
 while.body.us.i.i.i.i.i.i:                        ; preds = %while.body.lr.ph.split.us.split.split.split.split.i.i.i.i.i.i, %while.body.us.i.i.i.i.i.i
-  %lower.064.us.i.i.i.i.i.i = phi i32 [ %add22.us.i.i.i.i.i.i, %while.body.us.i.i.i.i.i.i ], [ 0, %while.body.lr.ph.split.us.split.split.split.split.i.i.i.i.i.i ]
-  %add13.us.i.i.i.i.i.i = add nsw i32 %lower.064.us.i.i.i.i.i.i, %158
-  %div.us.i.i.i.i.i.i = sdiv i32 %add13.us.i.i.i.i.i.i, 2
-  %add22.us.i.i.i.i.i.i = add nsw i32 %div.us.i.i.i.i.i.i, 1
-  %cmp5.us.i.i.i.i.i.i = icmp slt i32 %add22.us.i.i.i.i.i.i, %158
+  %lower.065.us.i.i.i.i.i.i = phi i32 [ %add22.us.i.i.i.i.i.i, %while.body.us.i.i.i.i.i.i ], [ 0, %while.body.lr.ph.split.us.split.split.split.split.i.i.i.i.i.i ]
+  %add13.us.i.i.i.i.i.i = add nuw nsw i32 %lower.065.us.i.i.i.i.i.i, %158
+  %div15.us.i.i.i.i.i.i = lshr i32 %add13.us.i.i.i.i.i.i, 1
+  %add22.us.i.i.i.i.i.i = add nuw nsw i32 %div15.us.i.i.i.i.i.i, 1
+  %cmp5.us.i.i.i.i.i.i = icmp ult i32 %add22.us.i.i.i.i.i.i, %158
   br i1 %cmp5.us.i.i.i.i.i.i, label %while.body.us.i.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_111widthBucketIlEEldRNS0_13DecodedVectorEii.exit.i.i.i.i.i, !llvm.loop !91
 
 if.then3.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
@@ -10276,31 +10276,31 @@ if.then3.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   unreachable
 
 while.body.i37.i.i.i.i.i:                         ; preds = %while.body.lr.ph.i36.i.i.i.i.i, %if.end12.thread.i.i.i.i.i.i
-  %lower.064.i.i.i.i.i.i = phi i32 [ %lower.1.i.i.i.i.i.i, %if.end12.thread.i.i.i.i.i.i ], [ 0, %while.body.lr.ph.i36.i.i.i.i.i ]
-  %upper.063.i.i.i.i.i.i = phi i32 [ %upper.1.i.i.i.i.i.i, %if.end12.thread.i.i.i.i.i.i ], [ %158, %while.body.lr.ph.i36.i.i.i.i.i ]
-  %add.i38.i.i.i.i.i = add nsw i32 %lower.064.i.i.i.i.i.i, %161
+  %lower.065.i.i.i.i.i.i = phi i32 [ %lower.1.i.i.i.i.i.i, %if.end12.thread.i.i.i.i.i.i ], [ 0, %while.body.lr.ph.i36.i.i.i.i.i ]
+  %upper.064.i.i.i.i.i.i = phi i32 [ %upper.1.i.i.i.i.i.i, %if.end12.thread.i.i.i.i.i.i ], [ %158, %while.body.lr.ph.i36.i.i.i.i.i ]
+  %add.i38.i.i.i.i.i = add nsw i32 %lower.065.i.i.i.i.i.i, %161
   %idxprom.i.i39.i.i.i.i.i = sext i32 %add.i38.i.i.i.i.i to i64
   %arrayidx.i.i40.i.i.i.i.i = getelementptr inbounds i64, ptr %190, i64 %idxprom.i.i39.i.i.i.i.i
   %203 = load i64, ptr %arrayidx.i.i40.i.i.i.i.i, align 8
-  %add7.i.i.i.i.i.i = add nsw i32 %upper.063.i.i.i.i.i.i, %161
+  %add7.i.i.i.i.i.i = add nsw i32 %upper.064.i.i.i.i.i.i, %161
   %204 = sext i32 %add7.i.i.i.i.i.i to i64
   %gep.i.i.i.i.i.i = getelementptr i64, ptr %invariant.gep.i.i.i.i.i.i, i64 %204
   %205 = load i64, ptr %gep.i.i.i.i.i.i, align 8
-  %cmp9.not56.i.i.i.i.i.i = icmp sgt i64 %203, %205
-  br i1 %cmp9.not56.i.i.i.i.i.i, label %if.then11.i.i.i.i.i.i, label %if.end12.thread.i.i.i.i.i.i
+  %cmp9.not57.i.i.i.i.i.i = icmp sgt i64 %203, %205
+  br i1 %cmp9.not57.i.i.i.i.i.i, label %if.then11.i.i.i.i.i.i, label %if.end12.thread.i.i.i.i.i.i
 
 if.end12.thread.i.i.i.i.i.i:                      ; preds = %while.body.i37.i.i.i.i.i
-  %add1357.i.i.i.i.i.i = add nsw i32 %upper.063.i.i.i.i.i.i, %lower.064.i.i.i.i.i.i
-  %div58.i.i.i.i.i.i = sdiv i32 %add1357.i.i.i.i.i.i, 2
-  %add1459.i.i.i.i.i.i = add nsw i32 %div58.i.i.i.i.i.i, %161
-  %idxprom.i35.i.i.i.i.i.i = sext i32 %add1459.i.i.i.i.i.i to i64
-  %arrayidx.i36.i.i.i.i.i.i = getelementptr inbounds i64, ptr %190, i64 %idxprom.i35.i.i.i.i.i.i
-  %206 = load i64, ptr %arrayidx.i36.i.i.i.i.i.i, align 8
+  %add1358.i.i.i.i.i.i = add nuw nsw i32 %upper.064.i.i.i.i.i.i, %lower.065.i.i.i.i.i.i
+  %div1559.i.i.i.i.i.i = lshr i32 %add1358.i.i.i.i.i.i, 1
+  %add1460.i.i.i.i.i.i = add nsw i32 %div1559.i.i.i.i.i.i, %161
+  %idxprom.i36.i.i.i.i.i.i = sext i32 %add1460.i.i.i.i.i.i to i64
+  %arrayidx.i37.i.i.i.i.i.i = getelementptr inbounds i64, ptr %190, i64 %idxprom.i36.i.i.i.i.i.i
+  %206 = load i64, ptr %arrayidx.i37.i.i.i.i.i.i, align 8
   %conv.i41.i.i.i.i.i = sitofp i64 %206 to double
   %cmp20.i.i.i.i.i.i = fcmp olt double %172, %conv.i41.i.i.i.i.i
-  %add22.i.i.i.i.i.i = add nsw i32 %div58.i.i.i.i.i.i, 1
-  %upper.1.i.i.i.i.i.i = select i1 %cmp20.i.i.i.i.i.i, i32 %div58.i.i.i.i.i.i, i32 %upper.063.i.i.i.i.i.i
-  %lower.1.i.i.i.i.i.i = select i1 %cmp20.i.i.i.i.i.i, i32 %lower.064.i.i.i.i.i.i, i32 %add22.i.i.i.i.i.i
+  %add22.i.i.i.i.i.i = add nuw nsw i32 %div1559.i.i.i.i.i.i, 1
+  %upper.1.i.i.i.i.i.i = select i1 %cmp20.i.i.i.i.i.i, i32 %div1559.i.i.i.i.i.i, i32 %upper.064.i.i.i.i.i.i
+  %lower.1.i.i.i.i.i.i = select i1 %cmp20.i.i.i.i.i.i, i32 %lower.065.i.i.i.i.i.i, i32 %add22.i.i.i.i.i.i
   %cmp5.i.i.i.i.i.i = icmp slt i32 %lower.1.i.i.i.i.i.i, %upper.1.i.i.i.i.i.i
   br i1 %cmp5.i.i.i.i.i.i, label %while.body.i37.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_111widthBucketIlEEldRNS0_13DecodedVectorEii.exit.i.i.i.i.i, !llvm.loop !91
 
@@ -10310,7 +10310,7 @@ if.then11.i.i.i.i.i.i:                            ; preds = %while.body.i37.i.i.
 
 _ZN8facebook5velox9functions12_GLOBAL__N_111widthBucketIlEEldRNS0_13DecodedVectorEii.exit.i.i.i.i.i: ; preds = %if.end12.thread.i.i.i.i.i.i, %while.body.us.i.i.i.i.i.i, %if.end12.us.us.i.i.i.i.i.i, %while.body.lr.ph.split.us.split.split.split.split.i.i.i.i.i.i
   %lower.0.lcssa.i.i.i.i.i.i = phi i32 [ 0, %while.body.lr.ph.split.us.split.split.split.split.i.i.i.i.i.i ], [ %lower.1.us.us.i.i.i.i.i.i, %if.end12.us.us.i.i.i.i.i.i ], [ %add22.us.i.i.i.i.i.i, %while.body.us.i.i.i.i.i.i ], [ %lower.1.i.i.i.i.i.i, %if.end12.thread.i.i.i.i.i.i ]
-  %conv24.i.i.i.i.i.i = sext i32 %lower.0.lcssa.i.i.i.i.i.i to i64
+  %conv24.i.i.i.i.i.i = zext nneg i32 %lower.0.lcssa.i.i.i.i.i.i to i64
   %207 = load ptr, ptr %agg.tmp.sroa.4.0.agg.tmp65.sroa_idx, align 8
   %208 = load ptr, ptr %207, align 8
   %arrayidx11.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %208, i64 %idxprom.i37.i.i.i.i.i.i
@@ -10664,71 +10664,71 @@ while.body.lr.ph:                                 ; preds = %if.end
   %indices_.i.i = getelementptr inbounds i8, ptr %elementsHolder, i64 8
   %4 = load ptr, ptr %indices_.i.i, align 8
   %constantIndex_.i.i = getelementptr inbounds i8, ptr %elementsHolder, i64 64
-  %invariant.gep65 = getelementptr i8, ptr %4, i64 -4
+  %invariant.gep66 = getelementptr i8, ptr %4, i64 -4
   %5 = load i32, ptr %constantIndex_.i.i, align 8
   br i1 %tobool.not.i.i, label %while.body.lr.ph.split.us, label %while.body
 
 while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
   %isConstantMapping_.i.i = getelementptr inbounds i8, ptr %elementsHolder, i64 59
   %6 = load i8, ptr %isConstantMapping_.i.i, align 1
-  %.fr128 = freeze i8 %6
-  %7 = and i8 %.fr128, 1
+  %.fr129 = freeze i8 %6
+  %7 = and i8 %.fr129, 1
   %tobool2.not.i.i = icmp eq i8 %7, 0
   br i1 %tobool2.not.i.i, label %while.body.us.us, label %while.body.lr.ph.split.us.split.split.split.split
 
 while.body.us.us:                                 ; preds = %while.body.lr.ph.split.us, %if.end12.us.us
-  %lower.064.us.us = phi i32 [ %lower.1.us.us, %if.end12.us.us ], [ 0, %while.body.lr.ph.split.us ]
-  %upper.063.us.us = phi i32 [ %upper.1.us.us, %if.end12.us.us ], [ %binCount, %while.body.lr.ph.split.us ]
-  %add.us.us = add nsw i32 %lower.064.us.us, %offset
+  %lower.065.us.us = phi i32 [ %lower.1.us.us, %if.end12.us.us ], [ 0, %while.body.lr.ph.split.us ]
+  %upper.064.us.us = phi i32 [ %upper.1.us.us, %if.end12.us.us ], [ %binCount, %while.body.lr.ph.split.us ]
+  %add.us.us = add nsw i32 %lower.065.us.us, %offset
   %idxprom.i.i.us.us = sext i32 %add.us.us to i64
   %arrayidx.i.i.us.us = getelementptr inbounds i32, ptr %4, i64 %idxprom.i.i.us.us
   %retval.0.i.i.ph.us.us = load i32, ptr %arrayidx.i.i.us.us, align 4
-  %idxprom.i48.us.us = sext i32 %retval.0.i.i.ph.us.us to i64
-  %arrayidx.i49.us.us = getelementptr inbounds i64, ptr %1, i64 %idxprom.i48.us.us
-  %8 = load i64, ptr %arrayidx.i49.us.us, align 8
-  %add750.us.us = add nsw i32 %upper.063.us.us, %offset
-  %9 = sext i32 %add750.us.us to i64
-  %gep66.us.us = getelementptr i32, ptr %invariant.gep65, i64 %9
-  %retval.0.i.i18.us.us = load i32, ptr %gep66.us.us, align 4
-  %idxprom.i19.us.us = sext i32 %retval.0.i.i18.us.us to i64
-  %arrayidx.i20.us.us = getelementptr inbounds i64, ptr %1, i64 %idxprom.i19.us.us
-  %10 = load i64, ptr %arrayidx.i20.us.us, align 8
+  %idxprom.i49.us.us = sext i32 %retval.0.i.i.ph.us.us to i64
+  %arrayidx.i50.us.us = getelementptr inbounds i64, ptr %1, i64 %idxprom.i49.us.us
+  %8 = load i64, ptr %arrayidx.i50.us.us, align 8
+  %add751.us.us = add nsw i32 %upper.064.us.us, %offset
+  %9 = sext i32 %add751.us.us to i64
+  %gep67.us.us = getelementptr i32, ptr %invariant.gep66, i64 %9
+  %retval.0.i.i19.us.us = load i32, ptr %gep67.us.us, align 4
+  %idxprom.i20.us.us = sext i32 %retval.0.i.i19.us.us to i64
+  %arrayidx.i21.us.us = getelementptr inbounds i64, ptr %1, i64 %idxprom.i20.us.us
+  %10 = load i64, ptr %arrayidx.i21.us.us, align 8
   %cmp9.not.us.us = icmp sgt i64 %8, %10
   br i1 %cmp9.not.us.us, label %if.then11, label %if.end12.us.us
 
 if.end12.us.us:                                   ; preds = %while.body.us.us
-  %add13.us.us = add nsw i32 %lower.064.us.us, %upper.063.us.us
-  %div.us.us = sdiv i32 %add13.us.us, 2
-  %add14.us.us = add nsw i32 %div.us.us, %offset
-  %idxprom.i.i44.us.us = sext i32 %add14.us.us to i64
-  %arrayidx.i.i45.us.us = getelementptr inbounds i32, ptr %4, i64 %idxprom.i.i44.us.us
-  %11 = load i32, ptr %arrayidx.i.i45.us.us, align 4
-  %idxprom.i35.us.us = sext i32 %11 to i64
-  %arrayidx.i36.us.us = getelementptr inbounds i64, ptr %1, i64 %idxprom.i35.us.us
-  %12 = load i64, ptr %arrayidx.i36.us.us, align 8
+  %add13.us.us = add nuw nsw i32 %lower.065.us.us, %upper.064.us.us
+  %div15.us.us = lshr i32 %add13.us.us, 1
+  %add14.us.us = add nsw i32 %div15.us.us, %offset
+  %idxprom.i.i45.us.us = sext i32 %add14.us.us to i64
+  %arrayidx.i.i46.us.us = getelementptr inbounds i32, ptr %4, i64 %idxprom.i.i45.us.us
+  %11 = load i32, ptr %arrayidx.i.i46.us.us, align 4
+  %idxprom.i36.us.us = sext i32 %11 to i64
+  %arrayidx.i37.us.us = getelementptr inbounds i64, ptr %1, i64 %idxprom.i36.us.us
+  %12 = load i64, ptr %arrayidx.i37.us.us, align 8
   %conv.us.us = sitofp i64 %12 to double
   %cmp20.us.us = fcmp ogt double %conv.us.us, %operand
-  %add22.us.us = add nsw i32 %div.us.us, 1
-  %upper.1.us.us = select i1 %cmp20.us.us, i32 %div.us.us, i32 %upper.063.us.us
-  %lower.1.us.us = select i1 %cmp20.us.us, i32 %lower.064.us.us, i32 %add22.us.us
+  %add22.us.us = add nuw nsw i32 %div15.us.us, 1
+  %upper.1.us.us = select i1 %cmp20.us.us, i32 %div15.us.us, i32 %upper.064.us.us
+  %lower.1.us.us = select i1 %cmp20.us.us, i32 %lower.065.us.us, i32 %add22.us.us
   %cmp5.us.us = icmp slt i32 %lower.1.us.us, %upper.1.us.us
   br i1 %cmp5.us.us, label %while.body.us.us, label %while.end, !llvm.loop !91
 
 while.body.lr.ph.split.us.split.split.split.split: ; preds = %while.body.lr.ph.split.us
-  %idxprom.i35.us = sext i32 %5 to i64
-  %arrayidx.i36.us = getelementptr inbounds i64, ptr %1, i64 %idxprom.i35.us
-  %13 = load i64, ptr %arrayidx.i36.us, align 8
+  %idxprom.i36.us = sext i32 %5 to i64
+  %arrayidx.i37.us = getelementptr inbounds i64, ptr %1, i64 %idxprom.i36.us
+  %13 = load i64, ptr %arrayidx.i37.us, align 8
   %.fr = freeze i64 %13
   %conv.us = sitofp i64 %.fr to double
   %cmp20.us = fcmp ogt double %conv.us, %operand
   br i1 %cmp20.us, label %while.end, label %while.body.us
 
 while.body.us:                                    ; preds = %while.body.lr.ph.split.us.split.split.split.split, %while.body.us
-  %lower.064.us = phi i32 [ %add22.us, %while.body.us ], [ 0, %while.body.lr.ph.split.us.split.split.split.split ]
-  %add13.us = add nsw i32 %lower.064.us, %binCount
-  %div.us = sdiv i32 %add13.us, 2
-  %add22.us = add nsw i32 %div.us, 1
-  %cmp5.us = icmp slt i32 %add22.us, %binCount
+  %lower.065.us = phi i32 [ %add22.us, %while.body.us ], [ 0, %while.body.lr.ph.split.us.split.split.split.split ]
+  %add13.us = add nuw nsw i32 %lower.065.us, %binCount
+  %div15.us = lshr i32 %add13.us, 1
+  %add22.us = add nuw nsw i32 %div15.us, 1
+  %cmp5.us = icmp ult i32 %add22.us, %binCount
   br i1 %cmp5.us, label %while.body.us, label %while.end, !llvm.loop !91
 
 if.then3:                                         ; preds = %if.end
@@ -10736,31 +10736,31 @@ if.then3:                                         ; preds = %if.end
   unreachable
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end12.thread
-  %lower.064 = phi i32 [ %lower.1, %if.end12.thread ], [ 0, %while.body.lr.ph ]
-  %upper.063 = phi i32 [ %upper.1, %if.end12.thread ], [ %binCount, %while.body.lr.ph ]
-  %add = add nsw i32 %lower.064, %offset
+  %lower.065 = phi i32 [ %lower.1, %if.end12.thread ], [ 0, %while.body.lr.ph ]
+  %upper.064 = phi i32 [ %upper.1, %if.end12.thread ], [ %binCount, %while.body.lr.ph ]
+  %add = add nsw i32 %lower.065, %offset
   %idxprom.i = sext i32 %add to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %1, i64 %idxprom.i
   %14 = load i64, ptr %arrayidx.i, align 8
-  %add7 = add nsw i32 %upper.063, %offset
+  %add7 = add nsw i32 %upper.064, %offset
   %15 = sext i32 %add7 to i64
   %gep = getelementptr i64, ptr %invariant.gep, i64 %15
   %16 = load i64, ptr %gep, align 8
-  %cmp9.not56 = icmp sgt i64 %14, %16
-  br i1 %cmp9.not56, label %if.then11, label %if.end12.thread
+  %cmp9.not57 = icmp sgt i64 %14, %16
+  br i1 %cmp9.not57, label %if.then11, label %if.end12.thread
 
 if.end12.thread:                                  ; preds = %while.body
-  %add1357 = add nsw i32 %lower.064, %upper.063
-  %div58 = sdiv i32 %add1357, 2
-  %add1459 = add nsw i32 %div58, %offset
-  %idxprom.i35 = sext i32 %add1459 to i64
-  %arrayidx.i36 = getelementptr inbounds i64, ptr %1, i64 %idxprom.i35
-  %17 = load i64, ptr %arrayidx.i36, align 8
+  %add1358 = add nuw nsw i32 %lower.065, %upper.064
+  %div1559 = lshr i32 %add1358, 1
+  %add1460 = add nsw i32 %div1559, %offset
+  %idxprom.i36 = sext i32 %add1460 to i64
+  %arrayidx.i37 = getelementptr inbounds i64, ptr %1, i64 %idxprom.i36
+  %17 = load i64, ptr %arrayidx.i37, align 8
   %conv = sitofp i64 %17 to double
   %cmp20 = fcmp ogt double %conv, %operand
-  %add22 = add nsw i32 %div58, 1
-  %upper.1 = select i1 %cmp20, i32 %div58, i32 %upper.063
-  %lower.1 = select i1 %cmp20, i32 %lower.064, i32 %add22
+  %add22 = add nuw nsw i32 %div1559, 1
+  %upper.1 = select i1 %cmp20, i32 %div1559, i32 %upper.064
+  %lower.1 = select i1 %cmp20, i32 %lower.065, i32 %add22
   %cmp5 = icmp slt i32 %lower.1, %upper.1
   br i1 %cmp5, label %while.body, label %while.end, !llvm.loop !91
 
@@ -10770,7 +10770,7 @@ if.then11:                                        ; preds = %while.body, %while.
 
 while.end:                                        ; preds = %if.end12.thread, %while.body.us, %if.end12.us.us, %while.body.lr.ph.split.us.split.split.split.split
   %lower.0.lcssa = phi i32 [ 0, %while.body.lr.ph.split.us.split.split.split.split ], [ %lower.1.us.us, %if.end12.us.us ], [ %add22.us, %while.body.us ], [ %lower.1, %if.end12.thread ]
-  %conv24 = sext i32 %lower.0.lcssa to i64
+  %conv24 = zext nneg i32 %lower.0.lcssa to i64
   ret i64 %conv24
 }
 
@@ -11114,7 +11114,7 @@ attributes #26 = { noreturn }
 !60 = distinct !{!60, !"_ZSt19__relocate_object_aISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
 !61 = !{!62}
 !62 = distinct !{!62, !60, !"_ZSt19__relocate_object_aISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: %__orig"}
-!63 = !{i64 -1073741823, i64 1073741825}
+!63 = !{i64 0, i64 1073741825}
 !64 = distinct !{!64, !5}
 !65 = distinct !{!65, !5}
 !66 = !{!67}

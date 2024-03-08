@@ -998,8 +998,8 @@ define noundef i32 @If_CluHashFindMedian(ptr nocapture noundef readonly %0, i32 
 
 29:                                               ; preds = %28
   %.not9.i.i.i = icmp eq ptr %storemerge45, null
-  %30 = sext i32 %23 to i64
-  %31 = shl nsw i64 %30, 2
+  %30 = zext nneg i32 %23 to i64
+  %31 = shl nuw nsw i64 %30, 2
   br i1 %.not9.i.i.i, label %34, label %32
 
 32:                                               ; preds = %29
@@ -1015,8 +1015,8 @@ define noundef i32 @If_CluHashFindMedian(ptr nocapture noundef readonly %0, i32 
 
 37:                                               ; preds = %36
   %.not9.i21.i.i = icmp eq ptr %storemerge45, null
-  %38 = sext i32 %27 to i64
-  %39 = shl nsw i64 %38, 2
+  %38 = zext nneg i32 %27 to i64
+  %39 = shl nuw nsw i64 %38, 2
   br i1 %.not9.i21.i.i, label %42, label %40
 
 40:                                               ; preds = %37

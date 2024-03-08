@@ -12473,7 +12473,7 @@ define internal fastcc i32 @stbtt_GetGlyphShape(ptr nocapture noundef readonly %
   %7 = getelementptr inbounds i8, ptr %0, i64 76
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %526
+  br i1 %.not, label %9, label %525
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -13128,10 +13128,10 @@ stbtt__close_shape.exit:                          ; preds = %339, %356, %360
   %367 = getelementptr inbounds i8, ptr %87, i64 10
   br label %368
 
-368:                                              ; preds = %366, %524
-  %.0267.i32 = phi ptr [ null, %366 ], [ %.1.i, %524 ]
-  %.5.i31 = phi i32 [ 0, %366 ], [ %.6.i, %524 ]
-  %.0284.i30 = phi ptr [ %367, %366 ], [ %.2286.i, %524 ]
+368:                                              ; preds = %366, %523
+  %.0267.i32 = phi ptr [ null, %366 ], [ %.1.i, %523 ]
+  %.5.i31 = phi i32 [ 0, %366 ], [ %.6.i, %523 ]
+  %.0284.i30 = phi ptr [ %367, %366 ], [ %.2286.i, %523 ]
   store ptr null, ptr %6, align 8
   %369 = getelementptr i8, ptr %.0284.i30, i64 1
   %.0284.val378.i = load i8, ptr %369, align 1
@@ -13289,7 +13289,7 @@ stbtt__close_shape.exit:                          ; preds = %339, %356, %360
   %475 = shufflevector <2 x float> %474, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %476 = call fastcc i32 @stbtt_GetGlyphShape(ptr noundef %0, i32 noundef %376, ptr noundef nonnull %6)
   %477 = icmp sgt i32 %476, 0
-  br i1 %477, label %.preheader26, label %524
+  br i1 %477, label %.preheader26, label %523
 
 .preheader26:                                     ; preds = %469
   %478 = load ptr, ptr %6, align 8
@@ -13327,9 +13327,9 @@ stbtt__close_shape.exit:                          ; preds = %339, %356, %360
   br i1 %exitcond.not, label %503, label %481
 
 503:                                              ; preds = %481
-  %504 = add nsw i32 %476, %.5.i31
-  %505 = sext i32 %504 to i64
-  %506 = mul nsw i64 %505, 14
+  %504 = add nuw nsw i32 %476, %.5.i31
+  %505 = zext nneg i32 %504 to i64
+  %506 = mul nuw nsw i64 %505, 14
   %507 = tail call noalias ptr @malloc(i64 noundef %506) #44
   %.not334.i = icmp eq ptr %507, null
   br i1 %.not334.i, label %508, label %511
@@ -13350,89 +13350,88 @@ stbtt__close_shape.exit:                          ; preds = %339, %356, %360
   %512 = icmp sgt i32 %.5.i31, 0
   %513 = icmp ne ptr %.0267.i32, null
   %or.cond.i = select i1 %512, i1 %513, i1 false
+  %514 = zext nneg i32 %.5.i31 to i64
   br i1 %or.cond.i, label %.thread, label %518
 
 .thread:                                          ; preds = %511
-  %514 = zext nneg i32 %.5.i31 to i64
   %515 = mul nuw nsw i64 %514, 14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %507, ptr nonnull align 2 %.0267.i32, i64 %515, i1 false)
   %516 = getelementptr inbounds %struct.stbtt_vertex, ptr %507, i64 %514
   %517 = mul nuw nsw i64 %wide.trip.count, 14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %516, ptr nonnull align 2 %478, i64 %517, i1 false)
-  br label %522
+  br label %521
 
 518:                                              ; preds = %511
-  %519 = sext i32 %.5.i31 to i64
-  %520 = getelementptr inbounds %struct.stbtt_vertex, ptr %507, i64 %519
-  %521 = mul nuw nsw i64 %wide.trip.count, 14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %520, ptr nonnull align 2 %478, i64 %521, i1 false)
-  br i1 %513, label %522, label %523
+  %519 = getelementptr inbounds %struct.stbtt_vertex, ptr %507, i64 %514
+  %520 = mul nuw nsw i64 %wide.trip.count, 14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %519, ptr nonnull align 2 %478, i64 %520, i1 false)
+  br i1 %513, label %521, label %522
 
-522:                                              ; preds = %.thread, %518
+521:                                              ; preds = %.thread, %518
   tail call void @free(ptr noundef nonnull %.0267.i32) #42
+  br label %522
+
+522:                                              ; preds = %521, %518
+  tail call void @free(ptr noundef nonnull %478) #42
   br label %523
 
-523:                                              ; preds = %522, %518
-  tail call void @free(ptr noundef nonnull %478) #42
-  br label %524
-
-524:                                              ; preds = %523, %469
-  %.6.i = phi i32 [ %504, %523 ], [ %.5.i31, %469 ]
-  %.1.i = phi ptr [ %507, %523 ], [ %.0267.i32, %469 ]
-  %525 = and i32 %370, 32
-  %.not.i = icmp eq i32 %525, 0
+523:                                              ; preds = %522, %469
+  %.6.i = phi i32 [ %504, %522 ], [ %.5.i31, %469 ]
+  %.1.i = phi ptr [ %507, %522 ], [ %.0267.i32, %469 ]
+  %524 = and i32 %370, 32
+  %.not.i = icmp eq i32 %524, 0
   br i1 %.not.i, label %.loopexit, label %368
 
-.loopexit:                                        ; preds = %524, %364, %stbtt__close_shape.exit
-  %.7.i = phi i32 [ %.1.i11, %stbtt__close_shape.exit ], [ 0, %364 ], [ %.6.i, %524 ]
-  %.2.i = phi ptr [ %110, %stbtt__close_shape.exit ], [ null, %364 ], [ %.1.i, %524 ]
+.loopexit:                                        ; preds = %523, %364, %stbtt__close_shape.exit
+  %.7.i = phi i32 [ %.1.i11, %stbtt__close_shape.exit ], [ 0, %364 ], [ %.6.i, %523 ]
+  %.2.i = phi ptr [ %110, %stbtt__close_shape.exit ], [ null, %364 ], [ %.1.i, %523 ]
   store ptr %.2.i, ptr %2, align 8
   br label %stbtt__GetGlyphShapeTT.exit
 
 stbtt__GetGlyphShapeTT.exit:                      ; preds = %stbtt__GetGlyfOffset.exit.thread, %stbtt__GetGlyfOffset.exit, %94, %510, %.loopexit
   %.0.i = phi i32 [ %.7.i, %.loopexit ], [ 0, %stbtt__GetGlyfOffset.exit ], [ 0, %94 ], [ 0, %510 ], [ 0, %stbtt__GetGlyfOffset.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %540
+  br label %539
 
-526:                                              ; preds = %3
+525:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store i32 1, ptr %4, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %527 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %4), !range !15
-  %.not.i7 = icmp eq i32 %527, 0
-  br i1 %.not.i7, label %539, label %528
+  %526 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %4), !range !15
+  %.not.i7 = icmp eq i32 %526, 0
+  br i1 %.not.i7, label %538, label %527
 
-528:                                              ; preds = %526
-  %529 = getelementptr inbounds i8, ptr %4, i64 48
-  %530 = load i32, ptr %529, align 8
-  %531 = sext i32 %530 to i64
-  %532 = mul nsw i64 %531, 14
-  %533 = tail call noalias ptr @malloc(i64 noundef %532) #44
-  store ptr %533, ptr %2, align 8
-  %534 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr %533, ptr %534, align 8
-  %535 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %5), !range !15
-  %.not7.i = icmp eq i32 %535, 0
-  br i1 %.not7.i, label %539, label %536
+527:                                              ; preds = %525
+  %528 = getelementptr inbounds i8, ptr %4, i64 48
+  %529 = load i32, ptr %528, align 8
+  %530 = sext i32 %529 to i64
+  %531 = mul nsw i64 %530, 14
+  %532 = tail call noalias ptr @malloc(i64 noundef %531) #44
+  store ptr %532, ptr %2, align 8
+  %533 = getelementptr inbounds i8, ptr %5, i64 40
+  store ptr %532, ptr %533, align 8
+  %534 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %5), !range !15
+  %.not7.i = icmp eq i32 %534, 0
+  br i1 %.not7.i, label %538, label %535
 
-536:                                              ; preds = %528
-  %537 = getelementptr inbounds i8, ptr %5, i64 48
-  %538 = load i32, ptr %537, align 8
+535:                                              ; preds = %527
+  %536 = getelementptr inbounds i8, ptr %5, i64 48
+  %537 = load i32, ptr %536, align 8
   br label %stbtt__GetGlyphShapeT2.exit
 
-539:                                              ; preds = %528, %526
+538:                                              ; preds = %527, %525
   store ptr null, ptr %2, align 8
   br label %stbtt__GetGlyphShapeT2.exit
 
-stbtt__GetGlyphShapeT2.exit:                      ; preds = %536, %539
-  %.0.i8 = phi i32 [ %538, %536 ], [ 0, %539 ]
+stbtt__GetGlyphShapeT2.exit:                      ; preds = %535, %538
+  %.0.i8 = phi i32 [ %537, %535 ], [ 0, %538 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
-  br label %540
+  br label %539
 
-540:                                              ; preds = %stbtt__GetGlyphShapeT2.exit, %stbtt__GetGlyphShapeTT.exit
+539:                                              ; preds = %stbtt__GetGlyphShapeT2.exit, %stbtt__GetGlyphShapeTT.exit
   %.0 = phi i32 [ %.0.i8, %stbtt__GetGlyphShapeT2.exit ], [ %.0.i, %stbtt__GetGlyphShapeTT.exit ]
   ret i32 %.0
 }

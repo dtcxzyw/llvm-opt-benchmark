@@ -185,7 +185,7 @@ for.body41:                                       ; preds = %for.cond35.preheade
   br i1 %cmp45, label %if.then47, label %if.else
 
 if.then47:                                        ; preds = %for.body41
-  %add = add nsw i32 %call44, %len.030
+  %add = add nuw nsw i32 %call44, %len.030
   br label %for.inc
 
 if.else:                                          ; preds = %for.body41
@@ -200,7 +200,7 @@ if.else:                                          ; preds = %for.body41
 
 for.inc:                                          ; preds = %if.then47, %if.else
   %len.1 = phi i32 [ %add, %if.then47 ], [ %len.030, %if.else ]
-  %conv36 = sext i32 %len.1 to i64
+  %conv36 = zext nneg i32 %len.1 to i64
   %cmp37 = icmp ne i32 %len.1, 10
   %10 = and i1 %cmp37, %cmp39
   br i1 %10, label %for.body41, label %for.end, !llvm.loop !7
@@ -222,7 +222,7 @@ for.body73:                                       ; preds = %for.end, %for.inc10
   br i1 %cmp81, label %if.then83, label %if.else85
 
 if.then83:                                        ; preds = %for.body73
-  %add84 = add nsw i32 %call80, %len.233
+  %add84 = add nuw nsw i32 %call80, %len.233
   br label %for.inc102
 
 if.else85:                                        ; preds = %for.body73
@@ -238,7 +238,7 @@ if.else85:                                        ; preds = %for.body73
 for.inc102:                                       ; preds = %if.then83, %if.else85
   %len.3 = phi i32 [ %add84, %if.then83 ], [ %len.233, %if.else85 ]
   %inc103 = add nuw nsw i64 %i.132, 1
-  %conv66 = sext i32 %len.3 to i64
+  %conv66 = zext nneg i32 %len.3 to i64
   %cmp67 = icmp ne i32 %len.3, 10
   %cmp70 = icmp ult i64 %i.132, 99
   %15 = select i1 %cmp67, i1 %cmp70, i1 false

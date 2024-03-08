@@ -379,7 +379,7 @@ if.end18.thread:                                  ; preds = %if.then9
 
 while.body22.us:                                  ; preds = %if.end18, %if.end54.us
   %rx_pos.0142.us = phi i32 [ %rx_pos.1.us, %if.end54.us ], [ 0, %if.end18 ]
-  %idxprom.us = sext i32 %rx_pos.0142.us to i64
+  %idxprom.us = zext nneg i32 %rx_pos.0142.us to i64
   %arrayidx.us = getelementptr inbounds i8, ptr %call, i64 %idxprom.us
   %sub23.us = sub nsw i32 %cond.i, %rx_pos.0142.us
   %call24.us = call i32 @wolfSSL_read(ptr noundef %ssl, ptr noundef %arrayidx.us, i32 noundef %sub23.us) #23
@@ -387,7 +387,7 @@ while.body22.us:                                  ; preds = %if.end18, %if.end54
   br i1 %cmp25.us, label %if.then27.us, label %if.else50.us
 
 if.else50.us:                                     ; preds = %while.body22.us
-  %add.us = add nsw i32 %call24.us, %rx_pos.0142.us
+  %add.us = add nuw nsw i32 %call24.us, %rx_pos.0142.us
   br label %if.end54.us
 
 if.then27.us:                                     ; preds = %while.body22.us

@@ -374,12 +374,12 @@ if.else.us:                                       ; preds = %if.end79.us
   br i1 %or.cond.us, label %if.then92, label %for.inc.us
 
 if.then85.us:                                     ; preds = %if.end79.us
-  %add.us = add nsw i32 %call82.us, %len.0160.us
+  %add.us = add nuw nsw i32 %call82.us, %len.0160.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then85.us, %if.else.us
   %len.1.us = phi i32 [ %add.us, %if.then85.us ], [ %len.0160.us, %if.else.us ]
-  %conv12.us = sext i32 %len.1.us to i64
+  %conv12.us = zext nneg i32 %len.1.us to i64
   %cmp13.us = icmp ne i32 %len.1.us, 10
   %39 = and i1 %cmp13.us, %cmp15.us
   br i1 %39, label %for.body17.us, label %for.end, !llvm.loop !8
@@ -396,7 +396,7 @@ for.body17:                                       ; preds = %for.cond11.preheade
   br i1 %cmp83, label %if.then85, label %if.else
 
 if.then85:                                        ; preds = %for.body17
-  %add = add nsw i32 %call82, %len.0160
+  %add = add nuw nsw i32 %call82, %len.0160
   br label %for.inc
 
 if.else:                                          ; preds = %for.body17
@@ -412,7 +412,7 @@ if.then92:                                        ; preds = %if.else, %if.else.u
 
 for.inc:                                          ; preds = %if.then85, %if.else
   %len.1 = phi i32 [ %add, %if.then85 ], [ %len.0160, %if.else ]
-  %conv12 = sext i32 %len.1 to i64
+  %conv12 = zext nneg i32 %len.1 to i64
   %cmp13 = icmp ne i32 %len.1, 10
   %43 = and i1 %cmp13, %cmp15
   br i1 %43, label %for.body17, label %for.end, !llvm.loop !8
@@ -623,7 +623,7 @@ if.end172:                                        ; preds = %for.body108, %if.en
   br i1 %cmp180, label %if.then182, label %if.else184
 
 if.then182:                                       ; preds = %if.end172
-  %add183 = add nsw i32 %call179, %len.2163
+  %add183 = add nuw nsw i32 %call179, %len.2163
   br label %for.inc195
 
 if.else184:                                       ; preds = %if.end172
@@ -640,7 +640,7 @@ if.then192:                                       ; preds = %if.else184
 for.inc195:                                       ; preds = %if.then182, %if.else184
   %len.3 = phi i32 [ %add183, %if.then182 ], [ %len.2163, %if.else184 ]
   %inc196 = add nuw nsw i64 %i.1162, 1
-  %conv101 = sext i32 %len.3 to i64
+  %conv101 = zext nneg i32 %len.3 to i64
   %cmp102 = icmp ne i32 %len.3, 10
   %cmp105 = icmp ult i64 %i.1162, 99
   %79 = select i1 %cmp102, i1 %cmp105, i1 false

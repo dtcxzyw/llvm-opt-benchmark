@@ -15529,7 +15529,6 @@ if.end.i.i.thread:                                ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %1, ptr %agg.result, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #35
-  store i64 0, ptr %__dnew.i.i, align 8, !tbaa !63
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -15667,14 +15666,16 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.thread6, %if.end.i.i
   %20 = phi ptr [ %call2.i12.i, %if.end.i.i.thread6 ], [ %17, %if.end.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr nonnull align 1 %.pre, i64 %0, i1 false)
+  %.pre8 = load i64, ptr %__dnew.i.i, align 8, !tbaa !63
+  %.pre9 = load ptr, ptr %agg.result, align 8, !tbaa !29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.end.i.i.thread
-  %21 = load i64, ptr %__dnew.i.i, align 8, !tbaa !63
+  %21 = phi ptr [ %.pre9, %if.end.i.i.i.i.i ], [ %17, %if.then.i.i.i.i ], [ %1, %if.end.i.i.thread ]
+  %22 = phi i64 [ %.pre8, %if.end.i.i.i.i.i ], [ 1, %if.then.i.i.i.i ], [ 0, %if.end.i.i.thread ]
   %_M_string_length.i.i.i.i26 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 %21, ptr %_M_string_length.i.i.i.i26, align 8, !tbaa !30
-  %22 = load ptr, ptr %agg.result, align 8, !tbaa !29
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %22, i64 %21
+  store i64 %22, ptr %_M_string_length.i.i.i.i26, align 8, !tbaa !30
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %21, i64 %22
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #35
   br label %return

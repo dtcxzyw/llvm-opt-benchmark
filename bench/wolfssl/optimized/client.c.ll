@@ -1791,7 +1791,7 @@ current_time.exit101.i:                           ; preds = %if.then69.i
 while.body74.i:                                   ; preds = %current_time.exit101.i, %if.end96.i
   %rx_pos.043.i = phi i32 [ %rx_pos.1.i, %if.end96.i ], [ 0, %current_time.exit101.i ]
   %err.342.i = phi i32 [ %err.4.i, %if.end96.i ], [ %err.28.i, %current_time.exit101.i ]
-  %idxprom.i306 = sext i32 %rx_pos.043.i to i64
+  %idxprom.i306 = zext nneg i32 %rx_pos.043.i to i64
   %arrayidx.i307 = getelementptr inbounds i8, ptr %call20.i, i64 %idxprom.i306
   %sub75.i = sub nsw i32 %cond.i.i, %rx_pos.043.i
   %call76.i = call i32 @wolfSSL_read(ptr noundef nonnull %call1.i, ptr noundef nonnull %arrayidx.i307, i32 noundef %sub75.i) #20
@@ -1818,7 +1818,7 @@ do.end93.i:                                       ; preds = %if.then89.i, %do.bo
   unreachable
 
 if.else.i308:                                     ; preds = %while.body74.i
-  %add95.i = add nsw i32 %call76.i, %rx_pos.043.i
+  %add95.i = add nuw nsw i32 %call76.i, %rx_pos.043.i
   br label %if.end96.i
 
 if.end96.i:                                       ; preds = %if.else.i308, %if.then79.i

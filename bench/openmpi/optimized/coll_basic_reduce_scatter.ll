@@ -260,34 +260,34 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br i1 %130, label %.lr.ph387.preheader, label %.lr.ph391.preheader
 
 .lr.ph387.preheader:                              ; preds = %129
-  %131 = sext i32 %128 to i64
-  %132 = sext i32 %.0256395 to i64
+  %131 = zext i32 %128 to i64
   br label %.lr.ph387
 
 .lr.ph391.preheader:                              ; preds = %.lr.ph387, %129
-  %.0251.lcssa = phi i32 [ 0, %129 ], [ %137, %.lr.ph387 ]
-  %133 = sext i32 %.0257394 to i64
-  %134 = sext i32 %128 to i64
+  %.0251.lcssa = phi i32 [ 0, %129 ], [ %136, %.lr.ph387 ]
+  %132 = sext i32 %.0257394 to i64
+  %133 = sext i32 %128 to i64
   br label %.lr.ph391
 
 .lr.ph387:                                        ; preds = %.lr.ph387.preheader, %.lr.ph387
   %indvars.iv424 = phi i64 [ %131, %.lr.ph387.preheader ], [ %indvars.iv.next425, %.lr.ph387 ]
-  %.0251385 = phi i32 [ 0, %.lr.ph387.preheader ], [ %137, %.lr.ph387 ]
-  %135 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv424
-  %136 = load i32, ptr %135, align 4
-  %137 = add nsw i32 %136, %.0251385
-  %indvars.iv.next425 = add nsw i64 %indvars.iv424, 1
-  %138 = icmp slt i64 %indvars.iv.next425, %132
+  %.0251385 = phi i32 [ 0, %.lr.ph387.preheader ], [ %136, %.lr.ph387 ]
+  %134 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv424
+  %135 = load i32, ptr %134, align 4
+  %136 = add nsw i32 %135, %.0251385
+  %indvars.iv.next425 = add nuw nsw i64 %indvars.iv424, 1
+  %137 = trunc i64 %indvars.iv.next425 to i32
+  %138 = icmp sgt i32 %.0256395, %137
   br i1 %138, label %.lr.ph387, label %.lr.ph391.preheader, !llvm.loop !9
 
 .lr.ph391:                                        ; preds = %.lr.ph391.preheader, %.lr.ph391
-  %indvars.iv427 = phi i64 [ %133, %.lr.ph391.preheader ], [ %indvars.iv.next428, %.lr.ph391 ]
+  %indvars.iv427 = phi i64 [ %132, %.lr.ph391.preheader ], [ %indvars.iv.next428, %.lr.ph391 ]
   %.0390 = phi i32 [ 0, %.lr.ph391.preheader ], [ %141, %.lr.ph391 ]
   %139 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv427
   %140 = load i32, ptr %139, align 4
   %141 = add nsw i32 %140, %.0390
   %indvars.iv.next428 = add nsw i64 %indvars.iv427, 1
-  %142 = icmp slt i64 %indvars.iv.next428, %134
+  %142 = icmp slt i64 %indvars.iv.next428, %133
   br i1 %142, label %.lr.ph391, label %.loopexit, !llvm.loop !10
 
 .lr.ph378.preheader:                              ; preds = %.lr.ph397
@@ -300,41 +300,41 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br i1 %145, label %.lr.ph382.preheader, label %.loopexit.thread
 
 .lr.ph382.preheader:                              ; preds = %.preheader361
-  %146 = sext i32 %128 to i64
-  %147 = sext i32 %.0256395 to i64
+  %146 = zext i32 %128 to i64
   br label %.lr.ph382
 
 .lr.ph378:                                        ; preds = %.lr.ph378.preheader, %.lr.ph378
   %indvars.iv418 = phi i64 [ %143, %.lr.ph378.preheader ], [ %indvars.iv.next419, %.lr.ph378 ]
-  %.1252376 = phi i32 [ 0, %.lr.ph378.preheader ], [ %150, %.lr.ph378 ]
-  %148 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv418
-  %149 = load i32, ptr %148, align 4
-  %150 = add nsw i32 %149, %.1252376
+  %.1252376 = phi i32 [ 0, %.lr.ph378.preheader ], [ %149, %.lr.ph378 ]
+  %147 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv418
+  %148 = load i32, ptr %147, align 4
+  %149 = add nsw i32 %148, %.1252376
   %indvars.iv.next419 = add nsw i64 %indvars.iv418, 1
-  %151 = icmp slt i64 %indvars.iv.next419, %144
-  br i1 %151, label %.lr.ph378, label %.preheader361, !llvm.loop !11
+  %150 = icmp slt i64 %indvars.iv.next419, %144
+  br i1 %150, label %.lr.ph378, label %.preheader361, !llvm.loop !11
 
 .lr.ph382:                                        ; preds = %.lr.ph382.preheader, %.lr.ph382
   %indvars.iv421 = phi i64 [ %146, %.lr.ph382.preheader ], [ %indvars.iv.next422, %.lr.ph382 ]
-  %.1381 = phi i32 [ 0, %.lr.ph382.preheader ], [ %154, %.lr.ph382 ]
-  %152 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv421
-  %153 = load i32, ptr %152, align 4
-  %154 = add nsw i32 %153, %.1381
-  %indvars.iv.next422 = add nsw i64 %indvars.iv421, 1
-  %155 = icmp slt i64 %indvars.iv.next422, %147
+  %.1381 = phi i32 [ 0, %.lr.ph382.preheader ], [ %153, %.lr.ph382 ]
+  %151 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv421
+  %152 = load i32, ptr %151, align 4
+  %153 = add nsw i32 %152, %.1381
+  %indvars.iv.next422 = add nuw nsw i64 %indvars.iv421, 1
+  %154 = trunc i64 %indvars.iv.next422 to i32
+  %155 = icmp sgt i32 %.0256395, %154
   br i1 %155, label %.lr.ph382, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph382, %.lr.ph391
   %.1260 = phi i32 [ %128, %.lr.ph391 ], [ %.0257394, %.lr.ph382 ]
   %.1258 = phi i32 [ %.0257394, %.lr.ph391 ], [ %128, %.lr.ph382 ]
-  %.2253 = phi i32 [ %.0251.lcssa, %.lr.ph391 ], [ %150, %.lr.ph382 ]
-  %.2 = phi i32 [ %141, %.lr.ph391 ], [ %154, %.lr.ph382 ]
+  %.2253 = phi i32 [ %.0251.lcssa, %.lr.ph391 ], [ %149, %.lr.ph382 ]
+  %.2 = phi i32 [ %141, %.lr.ph391 ], [ %153, %.lr.ph382 ]
   %156 = icmp sgt i32 %.2, 0
   br i1 %156, label %157, label %.loopexit.thread
 
 157:                                              ; preds = %.loopexit
   %158 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
-  %159 = sext i32 %.1258 to i64
+  %159 = zext nneg i32 %.1258 to i64
   %160 = getelementptr inbounds i32, ptr %95, i64 %159
   %161 = load i32, ptr %160, align 4
   %162 = sext i32 %161 to i64
@@ -353,7 +353,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 .loopexit.thread:                                 ; preds = %.preheader361, %157, %.loopexit
   %168 = phi i1 [ true, %157 ], [ false, %.loopexit ], [ false, %.preheader361 ]
   %.2437 = phi i32 [ %.2, %157 ], [ %.2, %.loopexit ], [ 0, %.preheader361 ]
-  %.2253436 = phi i32 [ %.2253, %157 ], [ %.2253, %.loopexit ], [ %150, %.preheader361 ]
+  %.2253436 = phi i32 [ %.2253, %157 ], [ %.2253, %.loopexit ], [ %149, %.preheader361 ]
   %.1258435 = phi i32 [ %.1258, %157 ], [ %.1258, %.loopexit ], [ %128, %.preheader361 ]
   %.1260434 = phi i32 [ %.1260, %157 ], [ %.1260, %.loopexit ], [ %.0257394, %.preheader361 ]
   %169 = icmp sgt i32 %.2253436, 0
@@ -361,7 +361,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 
 170:                                              ; preds = %.loopexit.thread
   %171 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
-  %172 = sext i32 %.1260434 to i64
+  %172 = zext nneg i32 %.1260434 to i64
   %173 = getelementptr inbounds i32, ptr %95, i64 %172
   %174 = load i32, ptr %173, align 4
   %175 = sext i32 %174 to i64
@@ -392,7 +392,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br label %260
 
 186:                                              ; preds = %182
-  %187 = sext i32 %.1258435 to i64
+  %187 = zext nneg i32 %.1258435 to i64
   %188 = getelementptr inbounds i32, ptr %95, i64 %187
   %189 = load i32, ptr %188, align 4
   %190 = sext i32 %189 to i64
@@ -404,7 +404,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br label %195
 
 195:                                              ; preds = %186, %181
-  %196 = add nsw i32 %.1258435, %.0261393
+  %196 = add nuw nsw i32 %.1258435, %.0261393
   %197 = lshr i32 %.0261393, 1
   %.not399 = icmp ult i32 %.0261393, 2
   br i1 %.not399, label %._crit_edge398, label %.lr.ph397, !llvm.loop !13

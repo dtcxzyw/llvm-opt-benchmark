@@ -3647,10 +3647,10 @@ define noundef double @_ZNK5faiss15OperatingPoints10t_for_perfEd(ptr nocapture n
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.01520 = phi i32 [ %.015., %.lr.ph ], [ %16, %8 ]
   %.01619 = phi i32 [ %..016, %.lr.ph ], [ -1, %8 ]
-  %18 = add nsw i32 %.01619, 1
+  %18 = add i32 %.01619, 1
   %19 = add i32 %18, %.01520
-  %20 = sdiv i32 %19, 2
-  %21 = sext i32 %20 to i64
+  %20 = lshr i32 %19, 1
+  %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds %"struct.faiss::OperatingPoint", ptr %10, i64 %21
   %23 = load double, ptr %22, align 8
   %24 = fcmp olt double %23, %1
@@ -7518,8 +7518,8 @@ _ZNK5faiss14ParameterSpace13update_boundsEmRKNS_14OperatingPointEPdS4_.exit: ; p
   %.01619.i = phi i32 [ %..016.i, %.lr.ph.i148 ], [ -1, %276 ]
   %285 = add i32 %.01520.i, 1
   %286 = add i32 %285, %.01619.i
-  %287 = sdiv i32 %286, 2
-  %288 = sext i32 %287 to i64
+  %287 = lshr i32 %286, 1
+  %288 = zext nneg i32 %287 to i64
   %289 = getelementptr inbounds %"struct.faiss::OperatingPoint", ptr %277, i64 %288
   %290 = load double, ptr %289, align 8
   %291 = fcmp olt double %290, %.0.lcssa

@@ -1041,23 +1041,22 @@ for.body.preheader:                               ; preds = %if.end.thread, %if.
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %ptr.119 = phi ptr [ %incdec.ptr4, %for.body ], [ %ptr.119.ph, %for.body.preheader ]
   %val.addr.118 = phi i64 [ %div, %for.body ], [ %val.addr.118.ph, %for.body.preheader ]
-  %rem = srem i64 %val.addr.118, 10
+  %rem = urem i64 %val.addr.118, 10
   %arrayidx = getelementptr inbounds [11 x i8], ptr @.str.1, i64 0, i64 %rem
   %0 = load i8, ptr %arrayidx, align 1
   %incdec.ptr4 = getelementptr inbounds i8, ptr %ptr.119, i64 -1
   store i8 %0, ptr %incdec.ptr4, align 1
-  %div = sdiv i64 %val.addr.118, 10
-  %1 = add i64 %val.addr.118, -10
-  %tobool = icmp ult i64 %1, -19
+  %div = udiv i64 %val.addr.118, 10
+  %tobool = icmp ugt i64 %val.addr.118, 9
   %cmp3 = icmp ugt ptr %incdec.ptr4, %buf
-  %2 = and i1 %tobool, %cmp3
-  br i1 %2, label %for.body, label %for.body9, !llvm.loop !24
+  %1 = and i1 %tobool, %cmp3
+  br i1 %1, label %for.body, label %for.body9, !llvm.loop !24
 
 for.body9:                                        ; preds = %for.body, %for.body9
   %str.021 = phi ptr [ %incdec.ptr12, %for.body9 ], [ %out, %for.body ]
   %ptr.220 = phi ptr [ %incdec.ptr11, %for.body9 ], [ %incdec.ptr4, %for.body ]
-  %3 = phi i8 [ %.pr, %for.body9 ], [ %0, %for.body ]
-  store i8 %3, ptr %str.021, align 1
+  %2 = phi i8 [ %.pr, %for.body9 ], [ %0, %for.body ]
+  store i8 %2, ptr %str.021, align 1
   %incdec.ptr11 = getelementptr inbounds i8, ptr %ptr.220, i64 1
   %incdec.ptr12 = getelementptr inbounds i8, ptr %str.021, i64 1
   %.pr = load i8, ptr %incdec.ptr11, align 1
@@ -1125,23 +1124,22 @@ for.body.i.i.preheader:                           ; preds = %if.end.i.i, %if.end
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
   %ptr.119.i.i = phi ptr [ %incdec.ptr4.i.i, %for.body.i.i ], [ %ptr.119.i.i.ph, %for.body.i.i.preheader ]
   %val.addr.118.i.i = phi i64 [ %div.i.i, %for.body.i.i ], [ %val.addr.118.i.i.ph, %for.body.i.i.preheader ]
-  %rem.i.i = srem i64 %val.addr.118.i.i, 10
+  %rem.i.i = urem i64 %val.addr.118.i.i, 10
   %arrayidx.i.i = getelementptr inbounds [11 x i8], ptr @.str.1, i64 0, i64 %rem.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %ptr.119.i.i, i64 -1
   store i8 %1, ptr %incdec.ptr4.i.i, align 1
-  %div.i.i = sdiv i64 %val.addr.118.i.i, 10
-  %2 = add i64 %val.addr.118.i.i, -10
-  %tobool.i.i = icmp ult i64 %2, -19
+  %div.i.i = udiv i64 %val.addr.118.i.i, 10
+  %tobool.i.i = icmp ugt i64 %val.addr.118.i.i, 9
   %cmp3.i.i = icmp ugt ptr %incdec.ptr4.i.i, %buf.i.i
-  %3 = and i1 %cmp3.i.i, %tobool.i.i
-  br i1 %3, label %for.body.i.i, label %for.body9.i.i, !llvm.loop !24
+  %2 = and i1 %tobool.i.i, %cmp3.i.i
+  br i1 %2, label %for.body.i.i, label %for.body9.i.i, !llvm.loop !24
 
 for.body9.i.i:                                    ; preds = %for.body.i.i, %for.body9.i.i
   %str.021.i.i = phi ptr [ %incdec.ptr12.i.i, %for.body9.i.i ], [ %add.ptr.i, %for.body.i.i ]
   %ptr.220.i.i = phi ptr [ %incdec.ptr11.i.i, %for.body9.i.i ], [ %incdec.ptr4.i.i, %for.body.i.i ]
-  %4 = phi i8 [ %.pr.i.i, %for.body9.i.i ], [ %1, %for.body.i.i ]
-  store i8 %4, ptr %str.021.i.i, align 1
+  %3 = phi i8 [ %.pr.i.i, %for.body9.i.i ], [ %1, %for.body.i.i ]
+  store i8 %3, ptr %str.021.i.i, align 1
   %incdec.ptr11.i.i = getelementptr inbounds i8, ptr %ptr.220.i.i, i64 1
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %str.021.i.i, i64 1
   %.pr.i.i = load i8, ptr %incdec.ptr11.i.i, align 1
@@ -1195,23 +1193,22 @@ for.body.i43.i.preheader:                         ; preds = %if.end.i38.i, %if.e
 for.body.i43.i:                                   ; preds = %for.body.i43.i.preheader, %for.body.i43.i
   %ptr.119.i44.i = phi ptr [ %incdec.ptr4.i48.i, %for.body.i43.i ], [ %ptr.119.i44.i.ph, %for.body.i43.i.preheader ]
   %val.addr.118.i45.i = phi i64 [ %div.i49.i, %for.body.i43.i ], [ %val.addr.118.i45.i.ph, %for.body.i43.i.preheader ]
-  %rem.i46.i = srem i64 %val.addr.118.i45.i, 10
+  %rem.i46.i = urem i64 %val.addr.118.i45.i, 10
   %arrayidx.i47.i = getelementptr inbounds [11 x i8], ptr @.str.1, i64 0, i64 %rem.i46.i
-  %5 = load i8, ptr %arrayidx.i47.i, align 1
+  %4 = load i8, ptr %arrayidx.i47.i, align 1
   %incdec.ptr4.i48.i = getelementptr inbounds i8, ptr %ptr.119.i44.i, i64 -1
-  store i8 %5, ptr %incdec.ptr4.i48.i, align 1
-  %div.i49.i = sdiv i64 %val.addr.118.i45.i, 10
-  %6 = add i64 %val.addr.118.i45.i, -10
-  %tobool.i50.i = icmp ult i64 %6, -19
+  store i8 %4, ptr %incdec.ptr4.i48.i, align 1
+  %div.i49.i = udiv i64 %val.addr.118.i45.i, 10
+  %tobool.i50.i = icmp ugt i64 %val.addr.118.i45.i, 9
   %cmp3.i51.i = icmp ugt ptr %incdec.ptr4.i48.i, %buf.i35.i
-  %7 = and i1 %cmp3.i51.i, %tobool.i50.i
-  br i1 %7, label %for.body.i43.i, label %for.body9.i53.i, !llvm.loop !24
+  %5 = and i1 %tobool.i50.i, %cmp3.i51.i
+  br i1 %5, label %for.body.i43.i, label %for.body9.i53.i, !llvm.loop !24
 
 for.body9.i53.i:                                  ; preds = %for.body.i43.i, %for.body9.i53.i
   %str.021.i54.i = phi ptr [ %incdec.ptr12.i57.i, %for.body9.i53.i ], [ %add.ptr9.i, %for.body.i43.i ]
   %ptr.220.i55.i = phi ptr [ %incdec.ptr11.i56.i, %for.body9.i53.i ], [ %incdec.ptr4.i48.i, %for.body.i43.i ]
-  %8 = phi i8 [ %.pr.i58.i, %for.body9.i53.i ], [ %5, %for.body.i43.i ]
-  store i8 %8, ptr %str.021.i54.i, align 1
+  %6 = phi i8 [ %.pr.i58.i, %for.body9.i53.i ], [ %4, %for.body.i43.i ]
+  store i8 %6, ptr %str.021.i54.i, align 1
   %incdec.ptr11.i56.i = getelementptr inbounds i8, ptr %ptr.220.i55.i, i64 1
   %incdec.ptr12.i57.i = getelementptr inbounds i8, ptr %str.021.i54.i, i64 1
   %.pr.i58.i = load i8, ptr %incdec.ptr11.i56.i, align 1
@@ -1269,23 +1266,22 @@ for.body.i79.i.preheader:                         ; preds = %if.end.i74.i, %if.e
 for.body.i79.i:                                   ; preds = %for.body.i79.i.preheader, %for.body.i79.i
   %ptr.119.i80.i = phi ptr [ %incdec.ptr4.i84.i, %for.body.i79.i ], [ %ptr.119.i80.i.ph, %for.body.i79.i.preheader ]
   %val.addr.118.i81.i = phi i64 [ %div.i85.i, %for.body.i79.i ], [ %val.addr.118.i81.i.ph, %for.body.i79.i.preheader ]
-  %rem.i82.i = srem i64 %val.addr.118.i81.i, 10
+  %rem.i82.i = urem i64 %val.addr.118.i81.i, 10
   %arrayidx.i83.i = getelementptr inbounds [11 x i8], ptr @.str.1, i64 0, i64 %rem.i82.i
-  %9 = load i8, ptr %arrayidx.i83.i, align 1
+  %7 = load i8, ptr %arrayidx.i83.i, align 1
   %incdec.ptr4.i84.i = getelementptr inbounds i8, ptr %ptr.119.i80.i, i64 -1
-  store i8 %9, ptr %incdec.ptr4.i84.i, align 1
-  %div.i85.i = sdiv i64 %val.addr.118.i81.i, 10
-  %10 = add i64 %val.addr.118.i81.i, -10
-  %tobool.i86.i = icmp ult i64 %10, -19
+  store i8 %7, ptr %incdec.ptr4.i84.i, align 1
+  %div.i85.i = udiv i64 %val.addr.118.i81.i, 10
+  %tobool.i86.i = icmp ugt i64 %val.addr.118.i81.i, 9
   %cmp3.i87.i = icmp ugt ptr %incdec.ptr4.i84.i, %buf.i71.i
-  %11 = and i1 %cmp3.i87.i, %tobool.i86.i
-  br i1 %11, label %for.body.i79.i, label %for.body9.i89.i, !llvm.loop !24
+  %8 = and i1 %tobool.i86.i, %cmp3.i87.i
+  br i1 %8, label %for.body.i79.i, label %for.body9.i89.i, !llvm.loop !24
 
 for.body9.i89.i:                                  ; preds = %for.body.i79.i, %for.body9.i89.i
   %str.021.i90.i = phi ptr [ %incdec.ptr12.i93.i, %for.body9.i89.i ], [ %add.ptr18.i, %for.body.i79.i ]
   %ptr.220.i91.i = phi ptr [ %incdec.ptr11.i92.i, %for.body9.i89.i ], [ %incdec.ptr4.i84.i, %for.body.i79.i ]
-  %12 = phi i8 [ %.pr.i94.i, %for.body9.i89.i ], [ %9, %for.body.i79.i ]
-  store i8 %12, ptr %str.021.i90.i, align 1
+  %9 = phi i8 [ %.pr.i94.i, %for.body9.i89.i ], [ %7, %for.body.i79.i ]
+  store i8 %9, ptr %str.021.i90.i, align 1
   %incdec.ptr11.i92.i = getelementptr inbounds i8, ptr %ptr.220.i91.i, i64 1
   %incdec.ptr12.i93.i = getelementptr inbounds i8, ptr %str.021.i90.i, i64 1
   %.pr.i94.i = load i8, ptr %incdec.ptr11.i92.i, align 1
@@ -1339,23 +1335,22 @@ for.body.i115.i.preheader:                        ; preds = %if.end.i110.i, %if.
 for.body.i115.i:                                  ; preds = %for.body.i115.i.preheader, %for.body.i115.i
   %ptr.119.i116.i = phi ptr [ %incdec.ptr4.i120.i, %for.body.i115.i ], [ %ptr.119.i116.i.ph, %for.body.i115.i.preheader ]
   %val.addr.118.i117.i = phi i64 [ %div.i121.i, %for.body.i115.i ], [ %val.addr.118.i117.i.ph, %for.body.i115.i.preheader ]
-  %rem.i118.i = srem i64 %val.addr.118.i117.i, 10
+  %rem.i118.i = urem i64 %val.addr.118.i117.i, 10
   %arrayidx.i119.i = getelementptr inbounds [11 x i8], ptr @.str.1, i64 0, i64 %rem.i118.i
-  %13 = load i8, ptr %arrayidx.i119.i, align 1
+  %10 = load i8, ptr %arrayidx.i119.i, align 1
   %incdec.ptr4.i120.i = getelementptr inbounds i8, ptr %ptr.119.i116.i, i64 -1
-  store i8 %13, ptr %incdec.ptr4.i120.i, align 1
-  %div.i121.i = sdiv i64 %val.addr.118.i117.i, 10
-  %14 = add i64 %val.addr.118.i117.i, -10
-  %tobool.i122.i = icmp ult i64 %14, -19
+  store i8 %10, ptr %incdec.ptr4.i120.i, align 1
+  %div.i121.i = udiv i64 %val.addr.118.i117.i, 10
+  %tobool.i122.i = icmp ugt i64 %val.addr.118.i117.i, 9
   %cmp3.i123.i = icmp ugt ptr %incdec.ptr4.i120.i, %buf.i107.i
-  %15 = and i1 %cmp3.i123.i, %tobool.i122.i
-  br i1 %15, label %for.body.i115.i, label %for.body9.i125.i, !llvm.loop !24
+  %11 = and i1 %tobool.i122.i, %cmp3.i123.i
+  br i1 %11, label %for.body.i115.i, label %for.body9.i125.i, !llvm.loop !24
 
 for.body9.i125.i:                                 ; preds = %for.body.i115.i, %for.body9.i125.i
   %str.021.i126.i = phi ptr [ %incdec.ptr12.i129.i, %for.body9.i125.i ], [ %add.ptr35.i, %for.body.i115.i ]
   %ptr.220.i127.i = phi ptr [ %incdec.ptr11.i128.i, %for.body9.i125.i ], [ %incdec.ptr4.i120.i, %for.body.i115.i ]
-  %16 = phi i8 [ %.pr.i130.i, %for.body9.i125.i ], [ %13, %for.body.i115.i ]
-  store i8 %16, ptr %str.021.i126.i, align 1
+  %12 = phi i8 [ %.pr.i130.i, %for.body9.i125.i ], [ %10, %for.body.i115.i ]
+  store i8 %12, ptr %str.021.i126.i, align 1
   %incdec.ptr11.i128.i = getelementptr inbounds i8, ptr %ptr.220.i127.i, i64 1
   %incdec.ptr12.i129.i = getelementptr inbounds i8, ptr %str.021.i126.i, i64 1
   %.pr.i130.i = load i8, ptr %incdec.ptr11.i128.i, align 1
@@ -1399,8 +1394,8 @@ if.then45.i:                                      ; preds = %if.end38.i
   %spec.select.i = call i64 @llvm.umin.i64(i64 %sub47.i, i64 %funclen)
   %add.ptr57.i = getelementptr inbounds i8, ptr %buf.i, i64 %conv.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr57.i, ptr nonnull align 1 %func, i64 %spec.select.i, i1 false)
-  %17 = trunc i64 %spec.select.i to i32
-  %conv60.i = add i32 %inc.i, %17
+  %13 = trunc i64 %spec.select.i to i32
+  %conv60.i = add i32 %inc.i, %13
   br label %xdl_format_hunk_hdr.exit
 
 xdl_format_hunk_hdr.exit:                         ; preds = %if.end38.i, %if.then45.i
@@ -1414,22 +1409,22 @@ xdl_format_hunk_hdr.exit:                         ; preds = %if.end38.i, %if.the
   %size.i = getelementptr inbounds i8, ptr %mb.i, i64 8
   store i64 %conv66.i, ptr %size.i, align 8
   %out_line.i = getelementptr inbounds i8, ptr %ecb, i64 16
-  %18 = load ptr, ptr %out_line.i, align 8
-  %19 = load ptr, ptr %ecb, align 8
-  %call67.i = call i32 %18(ptr noundef %19, ptr noundef nonnull %mb.i, i32 noundef 1) #18
+  %14 = load ptr, ptr %out_line.i, align 8
+  %15 = load ptr, ptr %ecb, align 8
+  %call67.i = call i32 %14(ptr noundef %15, ptr noundef nonnull %mb.i, i32 noundef 1) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %mb.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %buf.i)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %20 = load ptr, ptr %ecb, align 8
+  %16 = load ptr, ptr %ecb, align 8
   %tobool2.not = icmp eq i64 %c1, 0
   %sub = sext i1 %tobool2.not to i64
   %cond = add nsw i64 %sub, %s1
   %tobool3.not = icmp eq i64 %c2, 0
   %sub6 = sext i1 %tobool3.not to i64
   %cond8 = add nsw i64 %sub6, %s2
-  %call9 = tail call i32 %0(ptr noundef %20, i64 noundef %cond, i64 noundef %c1, i64 noundef %cond8, i64 noundef %c2, ptr noundef %func, i64 noundef %funclen) #18
+  %call9 = tail call i32 %0(ptr noundef %16, i64 noundef %cond, i64 noundef %c1, i64 noundef %cond8, i64 noundef %c2, ptr noundef %func, i64 noundef %funclen) #18
   br label %return
 
 return:                                           ; preds = %if.end, %xdl_format_hunk_hdr.exit

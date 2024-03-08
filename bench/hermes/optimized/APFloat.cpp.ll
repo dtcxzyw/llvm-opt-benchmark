@@ -10353,7 +10353,7 @@ if.end71:                                         ; preds = %if.then69, %while.c
   br i1 %tobool72.not, label %while.end, label %if.end74
 
 if.end74:                                         ; preds = %if.end71
-  %shr = ashr i32 %texp.0, 1
+  %shr = lshr i32 %texp.0, 1
   %call75 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntmLERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %five_to_the_i, ptr noundef nonnull align 8 dereferenceable(12) %five_to_the_i) #26
   br label %while.cond, !llvm.loop !70
 

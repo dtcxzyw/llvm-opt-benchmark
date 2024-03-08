@@ -111,11 +111,11 @@ if.else27:                                        ; preds = %if.then17
 
 if.else36:                                        ; preds = %if.then15
   %add37.neg = sub nuw i32 -2147483648, %v2
-  %div39 = sdiv i32 %add37.neg, %v2
-  %rem43 = srem i32 %add37.neg, %v2
+  %div39 = udiv i32 %add37.neg, %v2
+  %rem43 = urem i32 %add37.neg, %v2
   %tobool44.not = icmp eq i32 %rem43, 0
   %cond45 = select i1 %tobool44.not, i32 -1, i32 -2
-  %add46 = sub i32 %cond45, %div39
+  %add46 = sub nuw i32 %cond45, %div39
   br label %return
 
 if.else47:                                        ; preds = %if.end
@@ -182,9 +182,9 @@ if.else35:                                        ; preds = %if.else10
 
 if.then37:                                        ; preds = %if.else35
   %add.neg = sub nuw i32 -2147483648, %v2
-  %div39 = sdiv i32 %add.neg, %v2
+  %div39 = udiv i32 %add.neg, %v2
   %sub41 = xor i32 %div39, -1
-  %rem44 = srem i32 %add.neg, %v2
+  %rem44 = urem i32 %add.neg, %v2
   br label %if.end63
 
 if.else46:                                        ; preds = %if.else35
@@ -202,7 +202,7 @@ if.then48:                                        ; preds = %if.else46
 if.end63:                                         ; preds = %if.then23, %if.then14, %if.then48, %if.then37
   %q.0 = phi i32 [ %sub17, %if.then14 ], [ %div26, %if.then23 ], [ %sub41, %if.then37 ], [ %add53, %if.then48 ]
   %rem19.pn = phi i32 [ %rem19, %if.then14 ], [ %rem29, %if.then23 ], [ %rem44, %if.then37 ], [ %rem57, %if.then48 ]
-  %cmp64 = icmp slt i32 %rem19.pn, 1
+  %cmp64 = icmp eq i32 %rem19.pn, 0
   br i1 %cmp64, label %return, label %if.else66
 
 if.else66:                                        ; preds = %if.end63

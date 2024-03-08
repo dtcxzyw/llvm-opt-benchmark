@@ -89,7 +89,7 @@ if.then9.i:                                       ; preds = %while.cond.i
   ]
 
 if.end16.i:                                       ; preds = %if.then9.i, %if.then9.i
-  %mul.i = shl nsw i32 %mem_length.0.i, 1
+  %mul.i = shl nuw nsw i32 %mem_length.0.i, 1
   br label %if.end17.i
 
 if.else.i:                                        ; preds = %while.cond.i
@@ -102,7 +102,7 @@ if.end17.i:                                       ; preds = %if.else.i, %if.end1
   br i1 %cmp18.i, label %cleanup41thread-pre-split.i, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end17.i
-  %conv21.i = sext i32 %mem_length.1.i to i64
+  %conv21.i = zext nneg i32 %mem_length.1.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #12
   invoke void @_ZNSt6vectorIcSaIcEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %mem_buf.i, i64 noundef %conv21.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont29.i unwind label %lpad22.i

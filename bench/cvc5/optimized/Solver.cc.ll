@@ -5620,7 +5620,7 @@ for.inc189:                                       ; preds = %land.lhs.true161, %
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.cond
   %indvars.iv1151 = phi i64 [ %35, %while.cond.preheader ], [ %indvars.iv.next1152, %while.cond ]
-  %indvars.iv.next1152 = add i64 %indvars.iv1151, -1
+  %indvars.iv.next1152 = add nsw i64 %indvars.iv1151, -1
   %arrayidx.i673 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %33, i64 %indvars.iv1151
   %agg.tmp202.sroa.0.0.copyload = load i32, ptr %arrayidx.i673, align 4
   %shr.i674 = ashr i32 %agg.tmp202.sroa.0.0.copyload, 1
@@ -10771,19 +10771,19 @@ if.end.i.i:                                       ; preds = %if.end.i
   %sub.i.i = add nsw i32 %shr.i.i, 2
   %add3.i.i = sub i32 %sub.i.i, %37
   %and.i.i = and i32 %add3.i.i, -2
-  %shr.i.i110 = ashr i32 %37, 1
-  %46 = and i32 %shr.i.i110, -2
-  %and6.i.i = add nsw i32 %46, 2
+  %shr.i.i110 = lshr i32 %37, 1
+  %46 = and i32 %shr.i.i110, 2147483646
+  %and6.i.i = add nuw nsw i32 %46, 2
   %add.i.i.i = tail call noundef i32 @llvm.smax.i32(i32 %and6.i.i, i32 %and.i.i)
-  %sub8.i.i = sub nsw i32 2147483647, %37
-  %cmp9.i.i = icmp sgt i32 %add.i.i.i, %sub8.i.i
+  %sub8.i.i = sub nuw nsw i32 2147483647, %37
+  %cmp9.i.i = icmp ugt i32 %add.i.i.i, %sub8.i.i
   br i1 %cmp9.i.i, label %if.then17.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
-  %add11.i.i = add nsw i32 %add.i.i.i, %37
+  %add11.i.i = add nuw nsw i32 %add.i.i.i, %37
   store i32 %add11.i.i, ptr %cap.i.i101, align 4
-  %conv.i.i = sext i32 %add11.i.i to i64
-  %mul.i.i = shl nsw i64 %conv.i.i, 2
+  %conv.i.i = zext nneg i32 %add11.i.i to i64
+  %mul.i.i = shl nuw nsw i64 %conv.i.i, 2
   %call12.i.i = tail call ptr @realloc(ptr noundef %38, i64 noundef %mul.i.i) #30
   store ptr %call12.i.i, ptr %map, align 8
   %cmp14.i.i = icmp eq ptr %call12.i.i, null
@@ -12585,7 +12585,7 @@ for.cond.i:                                       ; preds = %entry
   br i1 %cmp.not10.i, label %lor.lhs.false3, label %for.body.i8
 
 for.cond.i13:                                     ; preds = %for.body.i8
-  %indvars.iv.next.i14 = add nuw i64 %indvars.iv.i9, 1
+  %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i9, 1
   %arrayidx.i15 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next.i14
   %3 = load i8, ptr %arrayidx.i15, align 1
   %cmp.not.i16 = icmp eq i8 %3, 0
@@ -12803,7 +12803,7 @@ for.cond.i:                                       ; preds = %entry
   br i1 %cmp.not10.i, label %lor.lhs.false3, label %for.body.i4
 
 for.cond.i9:                                      ; preds = %for.body.i4
-  %indvars.iv.next.i10 = add nuw i64 %indvars.iv.i5, 1
+  %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i5, 1
   %arrayidx.i11 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next.i10
   %3 = load i8, ptr %arrayidx.i11, align 1
   %cmp.not.i12 = icmp eq i8 %3, 0
@@ -13678,7 +13678,7 @@ do.body.us.preheader:                             ; preds = %for.cond
 
 do.body.us:                                       ; preds = %do.body.us.backedge, %do.body.us.preheader
   %indvars.iv116 = phi i64 [ %22, %do.body.us.preheader ], [ %indvars.iv.next117, %do.body.us.backedge ]
-  %indvars.iv.next117 = add i64 %indvars.iv116, 1
+  %indvars.iv.next117 = add nsw i64 %indvars.iv116, 1
   %arrayidx4.us = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %array.tr108, i64 %indvars.iv.next117
   %agg.tmp2.sroa.0.0.copyload.us = load i32, ptr %arrayidx4.us, align 4
   %shr.i.i.i.us = ashr i32 %agg.tmp2.sroa.0.0.copyload.us, 1
@@ -13730,7 +13730,7 @@ do.body8.preheader.thread:                        ; preds = %for.cond.split
   br label %do.body8.preheader112
 
 do.body:                                          ; preds = %land.lhs.true.i
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx4 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %array.tr108, i64 %indvars.iv.next
   %agg.tmp2.sroa.0.0.copyload = load i32, ptr %arrayidx4, align 4
   %shr.i.i.i = ashr i32 %agg.tmp2.sroa.0.0.copyload, 1
@@ -13803,7 +13803,7 @@ if.then32.i48.us:                                 ; preds = %if.end28.i44.us
   br i1 %cmp.i52.us, label %do.body8.backedge.us, label %do.end17.loopexit.split.loop.exit143
 
 do.body8.backedge.us:                             ; preds = %if.then32.i48.us, %if.else.i46.us
-  %indvars.iv.next125 = add i64 %indvars.iv124, -1
+  %indvars.iv.next125 = add nsw i64 %indvars.iv124, -1
   %dec.us = add nsw i32 %dec.us94, -1
   %arrayidx13.us = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %array.tr108, i64 %indvars.iv.next125
   %agg.tmp11.sroa.0.0.copyload.us = load i32, ptr %arrayidx13.us, align 4
@@ -13820,7 +13820,7 @@ do.body8.backedge.us:                             ; preds = %if.then32.i48.us, %
 
 do.body8:                                         ; preds = %do.body8.preheader112, %do.body8
   %indvars.iv120 = phi i64 [ %33, %do.body8.preheader112 ], [ %indvars.iv.next121, %do.body8 ]
-  %indvars.iv.next121 = add i64 %indvars.iv120, -1
+  %indvars.iv.next121 = add nsw i64 %indvars.iv120, -1
   %arrayidx13 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %array.tr108, i64 %indvars.iv.next121
   %agg.tmp11.sroa.0.0.copyload = load i32, ptr %arrayidx13, align 4
   %shr.i.i4.i32 = ashr i32 %agg.tmp11.sroa.0.0.copyload, 1
@@ -13955,7 +13955,7 @@ do.body6.preheader:                               ; preds = %do.body
 
 do.body6:                                         ; preds = %do.body6.preheader, %do.body6
   %indvars.iv34 = phi i64 [ %5, %do.body6.preheader ], [ %indvars.iv.next35, %do.body6 ]
-  %indvars.iv.next35 = add i64 %indvars.iv34, -1
+  %indvars.iv.next35 = add nsw i64 %indvars.iv34, -1
   %arrayidx11 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %array.tr30, i64 %indvars.iv.next35
   %agg.tmp9.sroa.0.0.copyload = load i32, ptr %arrayidx11, align 4
   %cmp.i.i28 = icmp slt i32 %pivot.sroa.0.0.copyload, %agg.tmp9.sroa.0.0.copyload
@@ -14102,7 +14102,7 @@ land.rhs.i.lr.ph:                                 ; preds = %for.cond
 
 land.rhs.i.us:                                    ; preds = %land.rhs.i.lr.ph, %land.rhs.i.us
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %land.rhs.i.us ], [ %idxprom253, %land.rhs.i.lr.ph ]
-  %indvars.iv.next109 = add i64 %indvars.iv108, 1
+  %indvars.iv.next109 = add nsw i64 %indvars.iv108, 1
   %arrayidx3.us = getelementptr inbounds i32, ptr %array.tr97, i64 %indvars.iv.next109
   %17 = load i32, ptr %arrayidx3.us, align 4
   %idxprom.i.i.i27.us = zext i32 %17 to i64
@@ -14137,7 +14137,7 @@ land.rhs.i:                                       ; preds = %do.body.backedge
 
 do.body.backedge:                                 ; preds = %land.rhs.i.lr.ph.split, %land.rhs.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %land.rhs.i ], [ %idxprom253, %land.rhs.i.lr.ph.split ]
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx3 = getelementptr inbounds i32, ptr %array.tr97, i64 %indvars.iv.next
   %25 = load i32, ptr %arrayidx3, align 4
   %idxprom.i.i.i27 = zext i32 %25 to i64
@@ -14197,7 +14197,7 @@ lor.rhs.i39.us:                                   ; preds = %land.rhs.i33.us
   br i1 %cmp13.i46.us, label %do.body4.backedge.us, label %do.end9.loopexit
 
 do.body4.backedge.us:                             ; preds = %lor.rhs.i39.us, %land.rhs.i33.us
-  %indvars.iv.next112 = add i64 %indvars.iv111, -1
+  %indvars.iv.next112 = add nsw i64 %indvars.iv111, -1
   %arrayidx7.us = getelementptr inbounds i32, ptr %array.tr97, i64 %indvars.iv.next112
   %36 = load i32, ptr %arrayidx7.us, align 4
   br label %land.rhs.i33.us

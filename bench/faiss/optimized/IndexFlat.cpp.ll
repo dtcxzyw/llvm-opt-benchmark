@@ -2210,8 +2210,8 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
 .lr.ph:                                           ; preds = %.preheader123, %.lr.ph
   %.095130 = phi i64 [ %.095., %.lr.ph ], [ 0, %.preheader123 ]
   %.096129 = phi i64 [ %..096, %.lr.ph ], [ %37, %.preheader123 ]
-  %61 = add nsw i64 %.095130, %.096129
-  %62 = sdiv i64 %61, 2
+  %61 = add nuw nsw i64 %.095130, %.096129
+  %62 = lshr i64 %61, 1
   %63 = getelementptr inbounds i64, ptr %47, i64 %62
   %64 = load i64, ptr %63, align 8
   %65 = getelementptr inbounds float, ptr %46, i64 %64
@@ -2219,7 +2219,7 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   %67 = fcmp ugt float %66, %31
   %..096 = select i1 %67, i64 %62, i64 %.096129
   %.095. = select i1 %67, i64 %.095130, i64 %62
-  %68 = add nsw i64 %.095., 1
+  %68 = add nuw nsw i64 %.095., 1
   %69 = icmp slt i64 %68, %..096
   br i1 %69, label %.lr.ph, label %.preheader119, !llvm.loop !7
 

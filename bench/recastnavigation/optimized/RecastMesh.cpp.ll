@@ -163,7 +163,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %10, %15
   br label %_ZN14rcScopedDeleteIhED2Ev.exit436
 
 59:                                               ; preds = %53
-  %60 = add nsw i32 %55, %.0323535
+  %60 = add nuw nsw i32 %55, %.0323535
   %61 = add i32 %.0325534, -2
   %62 = add i32 %61, %55
   %63 = tail call noundef i32 @llvm.smax.i32(i32 %.0331533, i32 %55)
@@ -189,7 +189,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %10, %15
   %.0323.lcssa695 = phi i32 [ %.1324, %._crit_edge ], [ 0, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ]
   %.0325.lcssa694 = phi i32 [ %.1326, %._crit_edge ], [ 0, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ]
   %.0331.lcssa693 = phi i32 [ %.1332, %._crit_edge ], [ 0, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ]
-  %67 = sext i32 %.0323.lcssa695 to i64
+  %67 = zext nneg i32 %.0323.lcssa695 to i64
   %68 = invoke noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef %67, i32 noundef 1)
           to label %69 unwind label %57
 
@@ -204,7 +204,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %10, %15
 
 72:                                               ; preds = %69
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %68, i8 0, i64 %67, i1 false)
-  %73 = mul nsw i64 %67, 6
+  %73 = mul nuw nsw i64 %67, 6
   %74 = invoke noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef %73, i32 noundef 0)
           to label %75 unwind label %70
 
@@ -214,8 +214,8 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %10, %15
   br i1 %.not383, label %.invoke, label %76
 
 76:                                               ; preds = %75
-  %77 = sext i32 %.0325.lcssa694 to i64
-  %78 = shl nsw i64 %77, 1
+  %77 = zext nneg i32 %.0325.lcssa694 to i64
+  %78 = shl nuw nsw i64 %77, 1
   %79 = sext i32 %2 to i64
   %80 = shl nsw i64 %79, 1
   %81 = mul i64 %80, %78
@@ -276,7 +276,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %10, %15
   tail call void @llvm.memset.p0.i64(ptr align 2 %105, i8 0, i64 %78, i1 false)
   %106 = load ptr, ptr %95, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %106, i8 0, i64 %77, i1 false)
-  %107 = shl nsw i64 %67, 2
+  %107 = shl nuw nsw i64 %67, 2
   %108 = invoke noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef %107, i32 noundef 1)
           to label %109 unwind label %70
 
@@ -352,8 +352,8 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %10, %15
 
 134:                                              ; preds = %129
   %135 = add nuw nsw i32 %.0331.lcssa693, 1
-  %136 = sext i32 %135 to i64
-  %137 = mul i64 %80, %136
+  %136 = zext nneg i32 %135 to i64
+  %137 = mul nsw i64 %80, %136
   %138 = invoke noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef %137, i32 noundef 1)
           to label %139 unwind label %132
 

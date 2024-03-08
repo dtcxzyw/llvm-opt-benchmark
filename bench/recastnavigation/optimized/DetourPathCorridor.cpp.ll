@@ -207,7 +207,7 @@ define noundef i32 @_Z23dtMergeCorridorEndMovedPjiiPKji(ptr nocapture noundef %0
 34:                                               ; preds = %33
   %35 = sext i32 %24 to i64
   %36 = getelementptr inbounds i32, ptr %0, i64 %35
-  %37 = sext i32 %25 to i64
+  %37 = zext nneg i32 %25 to i64
   %38 = getelementptr inbounds i32, ptr %3, i64 %37
   %39 = sext i32 %28 to i64
   %40 = shl nsw i64 %39, 2
@@ -1342,7 +1342,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor18moveTargetPositionEPKfP14dtNavMe
 64:                                               ; preds = %63
   %65 = sext i32 %54 to i64
   %66 = getelementptr inbounds i32, ptr %31, i64 %65
-  %67 = sext i32 %55 to i64
+  %67 = zext nneg i32 %55 to i64
   %68 = getelementptr inbounds i32, ptr %6, i64 %67
   %69 = sext i32 %58 to i64
   %70 = shl nsw i64 %69, 2

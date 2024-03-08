@@ -4902,8 +4902,8 @@ for.body8.i:                                      ; preds = %for.body8.i, %for.b
 
 if.then.i.i.i60:                                  ; preds = %for.body8.i
   store i32 %mul2, ptr %m_size.i.i, align 4
-  %conv.i.i.i.i61 = sext i32 %maxidx.0.lcssa to i64
-  %mul.i.i.i.i = shl nsw i64 %conv.i.i.i.i61, 4
+  %conv.i.i.i.i61 = zext nneg i32 %maxidx.0.lcssa to i64
+  %mul.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i61, 4
   %call.i.i.i.i83 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %mul.i.i.i.i, i32 noundef 16)
           to label %for.body11.preheader unwind label %lpad3.loopexit.split-lp.loopexit.split-lp
 

@@ -511,13 +511,9 @@ for.body.i:                                       ; preds = %for.cond.i
   %1 = load ptr, ptr %call7.i, align 8
   %call8.i = tail call i32 @OBJ_cmp(ptr noundef %1, ptr noundef %obj) #3
   %cmp9.i = icmp eq i32 %call8.i, 0
-  br i1 %cmp9.i, label %X509at_get_attr_by_OBJ.exit, label %for.cond.i, !llvm.loop !4
+  br i1 %cmp9.i, label %if.end, label %for.cond.i, !llvm.loop !4
 
-X509at_get_attr_by_OBJ.exit:                      ; preds = %for.body.i
-  %cmp = icmp eq i32 %lastpos.addr.0.i, -1
-  br i1 %cmp, label %return, label %if.end
-
-if.end:                                           ; preds = %X509at_get_attr_by_OBJ.exit
+if.end:                                           ; preds = %for.body.i
   %cmp1 = icmp slt i32 %lastpos, -1
   br i1 %cmp1, label %if.end.i10, label %if.end5.thread
 
@@ -532,7 +528,7 @@ if.end.i10:                                       ; preds = %if.end
 
 for.cond.i12:                                     ; preds = %for.body.i17, %if.end.i10
   %lastpos.addr.0.in.i13 = phi i32 [ %2, %if.end.i10 ], [ %lastpos.addr.0.i14, %for.body.i17 ]
-  %lastpos.addr.0.i14 = add nsw i32 %lastpos.addr.0.in.i13, 1
+  %lastpos.addr.0.i14 = add nuw nsw i32 %lastpos.addr.0.in.i13, 1
   %cmp5.i15 = icmp slt i32 %lastpos.addr.0.i14, %call4.i11
   br i1 %cmp5.i15, label %for.body.i17, label %if.end5
 
@@ -541,13 +537,9 @@ for.body.i17:                                     ; preds = %for.cond.i12
   %3 = load ptr, ptr %call7.i18, align 8
   %call8.i19 = tail call i32 @OBJ_cmp(ptr noundef %3, ptr noundef %obj) #3
   %cmp9.i20 = icmp eq i32 %call8.i19, 0
-  br i1 %cmp9.i20, label %X509at_get_attr_by_OBJ.exit21, label %for.cond.i12, !llvm.loop !4
+  br i1 %cmp9.i20, label %return, label %for.cond.i12, !llvm.loop !4
 
-X509at_get_attr_by_OBJ.exit21:                    ; preds = %for.body.i17
-  %cmp3.not = icmp eq i32 %lastpos.addr.0.i14, -1
-  br i1 %cmp3.not, label %if.end5, label %return
-
-if.end5:                                          ; preds = %for.cond.i12, %X509at_get_attr_by_OBJ.exit21
+if.end5:                                          ; preds = %for.cond.i12
   %call6 = tail call ptr @X509at_get_attr(ptr noundef nonnull %x, i32 noundef %lastpos.addr.0.i)
   %cmp7.not = icmp eq i32 %lastpos, -2
   br i1 %cmp7.not, label %if.end12, label %land.lhs.true8
@@ -568,8 +560,8 @@ if.end12:                                         ; preds = %if.end5.thread, %X5
   %call13 = tail call ptr @X509_ATTRIBUTE_get0_data(ptr noundef %call631, i32 noundef 0, i32 noundef %type, ptr poison)
   br label %return
 
-return:                                           ; preds = %for.cond.i, %land.lhs.true8, %entry, %X509_ATTRIBUTE_count.exit, %X509at_get_attr_by_OBJ.exit21, %X509at_get_attr_by_OBJ.exit, %if.end12
-  %retval.0 = phi ptr [ %call13, %if.end12 ], [ null, %X509at_get_attr_by_OBJ.exit ], [ null, %X509at_get_attr_by_OBJ.exit21 ], [ null, %X509_ATTRIBUTE_count.exit ], [ null, %entry ], [ null, %land.lhs.true8 ], [ null, %for.cond.i ]
+return:                                           ; preds = %for.cond.i, %for.body.i17, %land.lhs.true8, %entry, %X509_ATTRIBUTE_count.exit, %if.end12
+  %retval.0 = phi ptr [ %call13, %if.end12 ], [ null, %X509_ATTRIBUTE_count.exit ], [ null, %entry ], [ null, %land.lhs.true8 ], [ null, %for.body.i17 ], [ null, %for.cond.i ]
   ret ptr %retval.0
 }
 

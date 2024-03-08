@@ -5036,7 +5036,7 @@ lpad:                                             ; preds = %_ZNK4cvc58internal1
 
 for.end.loopexit:                                 ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %26 = add nsw i32 %spec.select, 1
-  %27 = sext i32 %26 to i64
+  %27 = zext nneg i32 %26 to i64
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %_ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6theory20TermDepthAttributeIdEmEEEEbRKT_.exit

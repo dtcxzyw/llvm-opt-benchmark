@@ -2680,7 +2680,7 @@ if.end122:                                        ; preds = %invoke.cont107
           to label %invoke.cont126 unwind label %lpad33.loopexit.loopexit
 
 invoke.cont126:                                   ; preds = %if.end122
-  %indvars.iv.next = add i64 %indvars.iv, %24
+  %indvars.iv.next = add nsw i64 %indvars.iv, %24
   %44 = load ptr, ptr %_data, align 8
   %currentScanLine129 = getelementptr inbounds i8, ptr %44, i64 120
   %45 = load i32, ptr %currentScanLine129, align 8
@@ -4784,7 +4784,7 @@ cond.false5.i.i:                                  ; preds = %for.body18
 
 cond.true7.i.i:                                   ; preds = %cond.false5.i.i
   %sub9.i.i = add nuw i32 %14, %12
-  %div10.i.i = sdiv i32 %sub9.i.i, %14
+  %div10.i.i = udiv i32 %sub9.i.i, %14
   %sub11.i.i = sub nsw i32 0, %div10.i.i
   br label %_ZN9Imath_3_24modpEii.exit
 
@@ -4829,7 +4829,7 @@ cond.false5.i:                                    ; preds = %if.end26
 cond.true7.i:                                     ; preds = %cond.false5.i
   %17 = xor i32 %15, -1
   %sub9.i = add nuw i32 %16, %17
-  %div10.i = sdiv i32 %sub9.i, %16
+  %div10.i = udiv i32 %sub9.i, %16
   %sub11.i = sub nsw i32 0, %div10.i
   br label %_ZN9Imath_3_24divpEii.exit
 
@@ -4866,7 +4866,7 @@ cond.false5.i34:                                  ; preds = %_ZN9Imath_3_24divpE
 cond.true7.i41:                                   ; preds = %cond.false5.i34
   %19 = xor i32 %18, -1
   %sub9.i42 = add nuw i32 %16, %19
-  %div10.i43 = sdiv i32 %sub9.i42, %16
+  %div10.i43 = udiv i32 %sub9.i42, %16
   %sub11.i44 = sub nsw i32 0, %div10.i43
   br label %_ZN9Imath_3_24divpEii.exit52
 
@@ -4985,7 +4985,7 @@ cond.false5.i55:                                  ; preds = %if.else37
 
 cond.true7.i62:                                   ; preds = %cond.false5.i55
   %sub9.i63 = add nuw i32 %14, %12
-  %div10.i64 = sdiv i32 %sub9.i63, %14
+  %div10.i64 = udiv i32 %sub9.i63, %14
   %sub11.i65 = sub nsw i32 0, %div10.i64
   br label %_ZN9Imath_3_24divpEii.exit73
 
@@ -5200,7 +5200,7 @@ cond.false5.i.i.i:                                ; preds = %for.body4.i
 
 cond.true7.i.i.i:                                 ; preds = %cond.false5.i.i.i
   %sub9.i.i.i = add nuw i32 %73, %72
-  %div10.i.i.i = sdiv i32 %sub9.i.i.i, %73
+  %div10.i.i.i = udiv i32 %sub9.i.i.i, %73
   %sub11.i.i.i = sub nsw i32 0, %div10.i.i.i
   br label %_ZN9Imath_3_24modpEii.exit.i
 
@@ -5244,7 +5244,7 @@ cond.false5.i.i78:                                ; preds = %if.end.i
 cond.true7.i.i85:                                 ; preds = %cond.false5.i.i78
   %76 = xor i32 %74, -1
   %sub9.i.i86 = add nuw i32 %75, %76
-  %div10.i.i87 = sdiv i32 %sub9.i.i86, %75
+  %div10.i.i87 = udiv i32 %sub9.i.i86, %75
   %sub11.i.i88 = sub nsw i32 0, %div10.i.i87
   br label %_ZN9Imath_3_24divpEii.exit.i
 
@@ -5280,7 +5280,7 @@ cond.false5.i16.i:                                ; preds = %_ZN9Imath_3_24divpE
 cond.true7.i23.i:                                 ; preds = %cond.false5.i16.i
   %78 = xor i32 %77, -1
   %sub9.i24.i = add nuw i32 %75, %78
-  %div10.i25.i = sdiv i32 %sub9.i24.i, %75
+  %div10.i25.i = udiv i32 %sub9.i24.i, %75
   %sub11.i26.i = sub nsw i32 0, %div10.i25.i
   br label %_ZN9Imath_3_24divpEii.exit34.i
 
@@ -5606,7 +5606,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_26HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49), ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #14
 
 declare void @_ZN7Iex_3_27TypeExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) unnamed_addr #0
@@ -5870,7 +5870,7 @@ attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind memory(read) }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

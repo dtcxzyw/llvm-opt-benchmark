@@ -72,7 +72,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.end4
   %add.masked.i.i = and i64 %add.i14.i, 9007199254740991
   %add.masked.numleadingzeros.i.i = tail call i64 @llvm.ctlz.i64(i64 %add.masked.i.i, i1 true), !range !5
   %add.masked.leadingonepos.i.i = xor i64 %add.masked.numleadingzeros.i.i, 63
-  %while.body.tripcount.i.i = sub nsw i64 53, %add.masked.leadingonepos.i.i
+  %while.body.tripcount.i.i = sub nuw nsw i64 53, %add.masked.leadingonepos.i.i
   %shl5.i.i = shl i64 %add.i14.i, %while.body.tripcount.i.i
   %3 = trunc i64 %add.masked.numleadingzeros.i.i to i32
   %4 = sub nuw nsw i32 -1064, %3
@@ -90,7 +90,7 @@ get_normalized_boundaries.exit.i:                 ; preds = %while.body.lr.ph.i.
   %sub24.i.i = sub nsw i32 %reass.sub.i, %storemerge.in.lcssa.i.i
   %fp.promoted.masked.numleadingzeros.i.i = tail call i64 @llvm.ctlz.i64(i64 %and4.i, i1 true), !range !6
   %fp.promoted.masked.leadingonepos.i.i = xor i64 %fp.promoted.masked.numleadingzeros.i.i, 63
-  %while.body.tripcount.i19.i = sub nsw i64 52, %fp.promoted.masked.leadingonepos.i.i
+  %while.body.tripcount.i19.i = sub nuw nsw i64 52, %fp.promoted.masked.leadingonepos.i.i
   %shl.i20.i = shl i64 %and4.i, %while.body.tripcount.i19.i
   %sub.i21.i = sub nsw i32 -76, %storemerge.in.lcssa.i.i
   %conv.i22.i = sitofp i32 %sub.i21.i to double
@@ -427,14 +427,16 @@ if.then67.i:                                      ; preds = %if.end50.i
 
 if.end78.i:                                       ; preds = %if.then67.i, %if.end50.i
   %idx.0.i = phi i32 [ %add77.i, %if.then67.i ], [ 1, %if.end50.i ]
-  %idxprom80.i = sext i32 %idx.0.i to i64
+  %idxprom80.i = zext nneg i32 %idx.0.i to i64
   %arrayidx81.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom80.i
   store i8 101, ptr %arrayidx81.i, align 1
   %add82.i = add nsw i32 %cond61.i, %K.0
   %cmp84.i = icmp slt i32 %add82.i, 1
   %conv87.i = select i1 %cmp84.i, i8 45, i8 43
   %inc88.i = add nuw nsw i32 %idx.0.i, 2
-  %arrayidx90.i = getelementptr i8, ptr %arrayidx81.i, i64 1
+  %21 = sext i32 %idx.0.i to i64
+  %22 = getelementptr i8, ptr %add.ptr, i64 %21
+  %arrayidx90.i = getelementptr i8, ptr %22, i64 1
   store i8 %conv87.i, ptr %arrayidx90.i, align 1
   %cmp91.i = icmp slt i32 %cond.i, 100
   br i1 %cmp91.i, label %if.end100.i, label %if.end100.thread.i
@@ -445,10 +447,10 @@ if.end100.i:                                      ; preds = %if.end78.i
 
 if.end100.thread.i:                               ; preds = %if.end78.i
   %div.i = udiv i32 %cond.i, 100
-  %21 = trunc i32 %div.i to i8
-  %conv95.i = add i8 %21, 48
+  %23 = trunc i32 %div.i to i8
+  %conv95.i = add i8 %23, 48
   %inc96.i = add nuw nsw i32 %idx.0.i, 3
-  %idxprom97.i = sext i32 %inc88.i to i64
+  %idxprom97.i = zext nneg i32 %inc88.i to i64
   %arrayidx98.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom97.i
   store i8 %conv95.i, ptr %arrayidx98.i, align 1
   %mul.neg.i = mul nsw i32 %div.i, -100
@@ -460,10 +462,10 @@ if.then103.i:                                     ; preds = %if.end100.thread.i,
   %idx.188.i = phi i32 [ %inc96.i, %if.end100.thread.i ], [ %inc88.i, %if.end100.i ]
   %exp.086.i = phi i32 [ %sub99.i, %if.end100.thread.i ], [ %cond.i, %if.end100.i ]
   %div104.i = udiv i32 %exp.086.i, 10
-  %22 = trunc i32 %div104.i to i8
-  %conv106.i = add i8 %22, 48
-  %inc107.i = add nsw i32 %idx.188.i, 1
-  %idxprom108.i = sext i32 %idx.188.i to i64
+  %24 = trunc i32 %div104.i to i8
+  %conv106.i = add i8 %24, 48
+  %inc107.i = add nuw nsw i32 %idx.188.i, 1
+  %idxprom108.i = zext nneg i32 %idx.188.i to i64
   %arrayidx109.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom108.i
   store i8 %conv106.i, ptr %arrayidx109.i, align 1
   %mul110.neg.i = mul nsw i32 %div104.i, -10
@@ -471,8 +473,8 @@ if.then103.i:                                     ; preds = %if.end100.thread.i,
   br label %if.end119.i
 
 if.then114.i:                                     ; preds = %if.end100.thread.i
-  %inc115.i = add nsw i32 %idx.0.i, 4
-  %idxprom116.i = sext i32 %inc96.i to i64
+  %inc115.i = add nuw nsw i32 %idx.0.i, 4
+  %idxprom116.i = zext nneg i32 %inc96.i to i64
   %arrayidx117.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom116.i
   store i8 48, ptr %arrayidx117.i, align 1
   br label %if.end119.i
@@ -481,10 +483,10 @@ if.end119.i:                                      ; preds = %if.then114.i, %if.t
   %exp.1.i = phi i32 [ %sub111.i, %if.then103.i ], [ %sub99.i, %if.then114.i ], [ %cond.i, %if.end100.i ]
   %idx.2.i = phi i32 [ %inc107.i, %if.then103.i ], [ %inc115.i, %if.then114.i ], [ %inc88.i, %if.end100.i ]
   %rem.i = srem i32 %exp.1.i, 10
-  %23 = trunc i32 %rem.i to i8
-  %conv121.i = add nsw i8 %23, 48
-  %inc122.i = add nsw i32 %idx.2.i, 1
-  %idxprom123.i = sext i32 %idx.2.i to i64
+  %25 = trunc i32 %rem.i to i8
+  %conv121.i = add nsw i8 %25, 48
+  %inc122.i = add nuw nsw i32 %idx.2.i, 1
+  %idxprom123.i = zext nneg i32 %idx.2.i to i64
   %arrayidx124.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom123.i
   store i8 %conv121.i, ptr %arrayidx124.i, align 1
   br label %return

@@ -3668,7 +3668,7 @@ Vec_WecStart.exit210:                             ; preds = %Vec_BitStart.exit19
   %or.cond.i.i = icmp ult i32 %.0.lcssa.i, 7
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 8, i32 %54
   store i32 %spec.store.select.i.i, ptr %55, align 8
-  %56 = sext i32 %spec.store.select.i.i to i64
+  %56 = zext nneg i32 %spec.store.select.i.i to i64
   %57 = tail call noalias ptr @calloc(i64 noundef %56, i64 noundef 16) #24
   %58 = getelementptr i8, ptr %55, i64 4
   %59 = getelementptr i8, ptr %55, i64 8
@@ -3678,7 +3678,7 @@ Vec_WecStart.exit210:                             ; preds = %Vec_BitStart.exit19
   store ptr %55, ptr %60, align 8
   %61 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   store i32 %spec.store.select.i.i, ptr %61, align 8
-  %62 = sext i32 %spec.store.select.i.i to i64
+  %62 = zext nneg i32 %spec.store.select.i.i to i64
   %63 = tail call noalias ptr @calloc(i64 noundef %62, i64 noundef 16) #24
   %64 = getelementptr inbounds i8, ptr %61, i64 4
   %65 = getelementptr inbounds i8, ptr %61, i64 8
@@ -3691,7 +3691,7 @@ Vec_WecStart.exit210:                             ; preds = %Vec_BitStart.exit19
   %or.cond.i.i207 = icmp ult i32 %.0.lcssa.i, 6
   %spec.store.select.i.i208 = select i1 %or.cond.i.i207, i32 8, i32 %67
   store i32 %spec.store.select.i.i208, ptr %68, align 8
-  %69 = sext i32 %spec.store.select.i.i208 to i64
+  %69 = zext nneg i32 %spec.store.select.i.i208 to i64
   %70 = tail call noalias ptr @calloc(i64 noundef %69, i64 noundef 16) #24
   %71 = getelementptr inbounds i8, ptr %68, i64 4
   %72 = getelementptr inbounds i8, ptr %68, i64 8

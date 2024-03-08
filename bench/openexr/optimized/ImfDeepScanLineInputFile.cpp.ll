@@ -4523,7 +4523,7 @@ invoke.cont64:                                    ; preds = %call66.i.noexc
           to label %for.inc67 unwind label %lpad63
 
 for.inc67:                                        ; preds = %invoke.cont64
-  %indvars.iv.next145 = add i64 %indvars.iv144, %.183
+  %indvars.iv.next145 = add nsw i64 %indvars.iv144, %.183
   %121 = trunc i64 %indvars.iv.next145 to i32
   %cmp60.not = icmp eq i32 %sub56, %121
   br i1 %cmp60.not, label %for.end69, label %for.body61, !llvm.loop !23
@@ -5439,7 +5439,7 @@ cond.false5.i.i:                                  ; preds = %if.end128
 
 cond.true7.i.i:                                   ; preds = %cond.false5.i.i
   %sub9.i.i = add nuw i32 %42, %34
-  %div10.i.i = sdiv i32 %sub9.i.i, %42
+  %div10.i.i = udiv i32 %sub9.i.i, %42
   %sub11.i.i = sub nsw i32 0, %div10.i.i
   br label %_ZN9Imath_3_24modpEii.exit
 
@@ -5489,7 +5489,7 @@ for.inc164:                                       ; preds = %_ZN9Imath_3_24modpE
   br label %for.cond69, !llvm.loop !27
 
 for.inc168:                                       ; preds = %invoke.cont75
-  %indvars.iv.next = add i64 %indvars.iv, %dy.0
+  %indvars.iv.next = add nsw i64 %indvars.iv, %dy.0
   %53 = trunc i64 %indvars.iv.next to i32
   %cmp55.not = icmp eq i32 %yStop.0, %53
   br i1 %cmp55.not, label %for.end170, label %for.body, !llvm.loop !28
@@ -7855,7 +7855,7 @@ cond.false5.i.i:                                  ; preds = %for.body174
 
 cond.true7.i.i:                                   ; preds = %cond.false5.i.i
   %sub9.i.i = add nuw i32 %74, %71
-  %div10.i.i = sdiv i32 %sub9.i.i, %74
+  %div10.i.i = udiv i32 %sub9.i.i, %74
   %sub11.i.i = sub nsw i32 0, %div10.i.i
   br label %_ZN9Imath_3_24modpEii.exit
 

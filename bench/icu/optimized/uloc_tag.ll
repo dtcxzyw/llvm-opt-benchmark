@@ -5082,7 +5082,7 @@ if.then58.i:                                      ; preds = %if.then50.i
 
 invoke.cont59.i:                                  ; preds = %if.then58.i
   %add60.i = add nuw nsw i32 %sub.i, 1
-  %conv61.i = sext i32 %add60.i to i64
+  %conv61.i = zext nneg i32 %add60.i to i64
   %call63.i = invoke noalias ptr @uprv_malloc_75(i64 noundef %conv61.i) #14
           to label %invoke.cont62.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 

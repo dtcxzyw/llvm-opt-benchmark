@@ -42,7 +42,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %maxlen.0.lcssa = phi i32 [ 2, %entry ], [ %4, %for.end.loopexit ]
   %width = getelementptr inbounds i8, ptr %dc, i64 4
   store i32 %maxlen.0.lcssa, ptr %width, align 4
-  %div = sdiv i32 79, %maxlen.0.lcssa
+  %div = udiv i32 79, %maxlen.0.lcssa
   store i32 %div, ptr %dc, align 4
   ret void
 }

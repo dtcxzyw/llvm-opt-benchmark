@@ -106,8 +106,8 @@ define void @Rwt_Man4ExplorePrint() local_unnamed_addr #0 {
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.024.lcssa)
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.0.lcssa)
   %17 = add nuw i32 %.027.lcssa, 1
-  %18 = sext i32 %17 to i64
-  %19 = shl nsw i64 %18, 2
+  %18 = zext i32 %17 to i64
+  %19 = shl nuw nsw i64 %18, 2
   %calloc = tail call ptr @calloc(i64 1, i64 %19)
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #18
   %21 = load ptr, ptr @s_pManRwrExp4, align 8
@@ -141,14 +141,10 @@ define void @Rwt_Man4ExplorePrint() local_unnamed_addr #0 {
   %36 = sub nsw i32 2288, %.0.lcssa
   %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 0, i32 noundef %36)
   %.not53 = icmp slt i32 %.027.lcssa, 1
-  br i1 %.not53, label %._crit_edge57, label %.lr.ph56.preheader
+  br i1 %.not53, label %._crit_edge57, label %.lr.ph56
 
-.lr.ph56.preheader:                               ; preds = %._crit_edge52
-  %wide.trip.count = zext i32 %17 to i64
-  br label %.lr.ph56
-
-.lr.ph56:                                         ; preds = %.lr.ph56.preheader, %45
-  %indvars.iv70 = phi i64 [ 1, %.lr.ph56.preheader ], [ %indvars.iv.next71, %45 ]
+.lr.ph56:                                         ; preds = %._crit_edge52, %45
+  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %45 ], [ 1, %._crit_edge52 ]
   %38 = getelementptr inbounds i32, ptr %calloc, i64 %indvars.iv70
   %39 = load i32, ptr %38, align 4
   %.not42 = icmp eq i32 %39, 0
@@ -165,7 +161,7 @@ define void @Rwt_Man4ExplorePrint() local_unnamed_addr #0 {
 
 45:                                               ; preds = %.lr.ph56, %40
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next71, %18
   br i1 %exitcond.not, label %._crit_edge57.thread, label %.lr.ph56, !llvm.loop !7
 
 ._crit_edge57:                                    ; preds = %._crit_edge52
@@ -325,8 +321,8 @@ Abc_Clock.exit:
   %14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %13)
   %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.073.lcssa)
   %16 = add nuw i32 %.073.lcssa, 1
-  %17 = sext i32 %16 to i64
-  %18 = shl nsw i64 %17, 2
+  %17 = zext i32 %16 to i64
+  %18 = shl nuw nsw i64 %17, 2
   %calloc = call ptr @calloc(i64 1, i64 %18)
   %19 = call noalias ptr @malloc(i64 noundef %18) #18
   %20 = load ptr, ptr @s_pManRwrExp5.body, align 8
@@ -348,11 +344,7 @@ Abc_Clock.exit:
 ._crit_edge118:                                   ; preds = %.critedge2, %._crit_edge
   call void @stmm_free_gen(ptr noundef %21) #17
   %.not80119 = icmp slt i32 %.073.lcssa, 1
-  br i1 %.not80119, label %._crit_edge122, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %._crit_edge118
-  %wide.trip.count = zext i32 %16 to i64
-  br label %.lr.ph
+  br i1 %.not80119, label %._crit_edge122, label %.lr.ph
 
 .critedge2:                                       ; preds = %._crit_edge, %.critedge2
   %26 = load i32, ptr %3, align 4
@@ -368,8 +360,8 @@ Abc_Clock.exit:
   %.not79 = icmp eq i32 %33, 0
   br i1 %.not79, label %._crit_edge118, label %.critedge2, !llvm.loop !10
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %41
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
+.lr.ph:                                           ; preds = %._crit_edge118, %41
+  %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 1, %._crit_edge118 ]
   %34 = getelementptr inbounds i32, ptr %calloc, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %.not86 = icmp eq i32 %35, 0
@@ -386,7 +378,7 @@ Abc_Clock.exit:
 
 41:                                               ; preds = %.lr.ph, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %17
   br i1 %exitcond.not, label %._crit_edge122.thread, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge122:                                   ; preds = %._crit_edge118

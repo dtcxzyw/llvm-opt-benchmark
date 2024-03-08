@@ -5024,7 +5024,7 @@ while.body.i:                                     ; preds = %if.then13.i
 
 if.then13.i:                                      ; preds = %while.body.preheader.i, %while.body.i
   %indvars.iv.i93 = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ %40, %while.body.preheader.i ]
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i93, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i93, 1
   %51 = trunc i64 %indvars.iv.next.i to i32
   %cmp.i = icmp ugt i32 %39, %51
   br i1 %cmp.i, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !33
@@ -7821,7 +7821,7 @@ while.cond.i.preheader:                           ; preds = %for.body.i
 
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %land.rhs.i
   %indvars.iv = phi i64 [ %idxprom.i, %while.cond.i.preheader ], [ %indvars.iv.next, %land.rhs.i ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = trunc i64 %indvars.iv.next to i32
   %cmp13.i = icmp ugt i32 %10, %17
   br i1 %cmp13.i, label %land.rhs.i, label %while.end.i
@@ -9537,12 +9537,12 @@ if.end:                                           ; preds = %entry
 while.body.lr.ph:                                 ; preds = %if.end
   %4 = load ptr, ptr %istate, align 8
   %conv = sext i32 %len to i64
-  %5 = sext i32 %spec.select to i64
+  %5 = zext i32 %spec.select to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end27
   %indvars.iv = phi i64 [ %5, %while.body.lr.ph ], [ %indvars.iv.next, %if.end27 ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx, align 8
   %name = getelementptr inbounds i8, ptr %6, i64 108
@@ -9570,9 +9570,9 @@ land.lhs.true:                                    ; preds = %if.end17
   br i1 %cmp24, label %return, label %if.end27
 
 if.end27:                                         ; preds = %if.end17, %land.lhs.true
-  %9 = trunc i64 %indvars.iv.next to i32
-  %cmp5 = icmp ugt i32 %3, %9
-  br i1 %cmp5, label %while.body, label %return, !llvm.loop !68
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %3, %lftr.wideiv
+  br i1 %exitcond.not, label %return, label %while.body, !llvm.loop !68
 
 return:                                           ; preds = %if.end17, %land.lhs.true, %if.end9, %while.body, %if.end27, %if.end, %if.end4.i, %land.lhs.true.i, %if.then
   %retval.0 = phi i32 [ 0, %if.end4.i ], [ 1, %if.then ], [ 2, %land.lhs.true.i ], [ 0, %if.end ], [ 1, %if.end17 ], [ 2, %land.lhs.true ], [ 0, %if.end9 ], [ 0, %while.body ], [ 0, %if.end27 ]

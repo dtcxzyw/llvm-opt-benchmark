@@ -4943,7 +4943,7 @@ for.cond430.preheader:                            ; preds = %if.end423, %for.con
 
 for.body433:                                      ; preds = %for.cond430.preheader, %if.end452
   %j.2237 = phi i32 [ 0, %for.cond430.preheader ], [ %j.3, %if.end452 ]
-  %idxprom434 = sext i32 %j.2237 to i64
+  %idxprom434 = zext nneg i32 %j.2237 to i64
   %arrayidx435 = getelementptr inbounds i8, ptr %call, i64 %idxprom434
   %sub436 = sub nsw i32 %call425240, %j.2237
   %call437 = tail call i32 @BIO_write(ptr noundef %call2, ptr noundef %arrayidx435, i32 noundef %sub436) #14
@@ -4966,7 +4966,7 @@ if.else447:                                       ; preds = %land.lhs.true443, %
   br label %if.end452
 
 if.else450:                                       ; preds = %for.body433
-  %add451 = add nsw i32 %call437, %j.2237
+  %add451 = add nuw nsw i32 %call437, %j.2237
   br label %if.end452
 
 if.end452:                                        ; preds = %if.else450, %if.else447

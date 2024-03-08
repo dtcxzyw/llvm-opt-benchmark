@@ -4608,7 +4608,7 @@ cond.false5.i.i:                                  ; preds = %for.body122
 
 cond.true7.i.i:                                   ; preds = %cond.false5.i.i
   %sub9.i.i = add nuw i32 %60, %52
-  %div10.i.i = sdiv i32 %sub9.i.i, %60
+  %div10.i.i = udiv i32 %sub9.i.i, %60
   %sub11.i.i = sub nsw i32 0, %div10.i.i
   br label %_ZN9Imath_3_24modpEii.exit
 
@@ -9426,7 +9426,7 @@ _ZN7Imf_3_211ChannelListD2Ev.exit:                ; preds = %invoke.cont
   br i1 %cmp80.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN7Imf_3_211ChannelListD2Ev.exit
-  %mul55 = shl i64 %mul41, 1
+  %mul55 = shl nsw i64 %mul41, 1
   %mul48 = mul i64 %mul, 252
   %add49 = add i64 %mul48, 65536
   br label %for.body
@@ -11426,7 +11426,7 @@ cond.false5.i.i:                                  ; preds = %for.body298
 
 cond.true7.i.i:                                   ; preds = %cond.false5.i.i
   %sub9.i.i = add nuw i32 %94, %86
-  %div10.i.i = sdiv i32 %sub9.i.i, %94
+  %div10.i.i = udiv i32 %sub9.i.i, %94
   %sub11.i.i = sub nsw i32 0, %div10.i.i
   br label %_ZN9Imath_3_24modpEii.exit
 
@@ -11993,7 +11993,7 @@ cond.false5.i.i298:                               ; preds = %for.body469
 cond.true7.i.i307:                                ; preds = %cond.false5.i.i298
   %173 = xor i32 %y466.0540, -1
   %sub9.i.i308 = add nuw i32 %172, %173
-  %div10.i.i309 = sdiv i32 %sub9.i.i308, %172
+  %div10.i.i309 = udiv i32 %sub9.i.i308, %172
   %sub11.i.i310 = sub nsw i32 0, %div10.i.i309
   br label %_ZN9Imath_3_24modpEii.exit318
 
@@ -12345,7 +12345,7 @@ cond.false5.i.i326:                               ; preds = %for.body530
 cond.true7.i.i335:                                ; preds = %cond.false5.i.i326
   %230 = xor i32 %y527.0530, -1
   %sub9.i.i336 = add nuw i32 %229, %230
-  %div10.i.i337 = sdiv i32 %sub9.i.i336, %229
+  %div10.i.i337 = udiv i32 %sub9.i.i336, %229
   %sub11.i.i338 = sub nsw i32 0, %div10.i.i337
   br label %_ZN9Imath_3_24modpEii.exit346
 

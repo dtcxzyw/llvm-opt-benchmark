@@ -204,7 +204,7 @@ define void @Wlc_NtkPrintInvStats(ptr noundef %0, ptr nocapture noundef readonly
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
   %21 = add nuw nsw i32 %20, 1
   %.val40 = load ptr, ptr %8, align 8
-  %22 = sext i32 %.053 to i64
+  %22 = zext nneg i32 %.053 to i64
   %smax = tail call i32 @llvm.abs.i32(i32 %19, i1 false)
   %23 = add nuw i32 %smax, 1
   %wide.trip.count = zext i32 %23 to i64
@@ -230,7 +230,7 @@ define void @Wlc_NtkPrintInvStats(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %27
-  %30 = add nsw i32 %21, %.053
+  %30 = add nuw nsw i32 %21, %.053
   br label %47
 
 31:                                               ; preds = %27
@@ -261,7 +261,7 @@ define void @Wlc_NtkPrintInvStats(ptr noundef %0, ptr nocapture noundef readonly
 
 45:                                               ; preds = %44
   %putchar = tail call i32 @putchar(i32 10)
-  %46 = add nsw i32 %21, %.053
+  %46 = add nuw nsw i32 %21, %.053
   %.val.pre = load i32, ptr %4, align 4
   br label %47
 
@@ -420,7 +420,7 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly %
   %70 = call i32 @llvm.abs.i32(i32 %69, i1 true)
   %71 = add nuw nsw i32 %70, 1
   %.val97 = load ptr, ptr %16, align 8
-  %72 = sext i32 %.082117 to i64
+  %72 = zext nneg i32 %.082117 to i64
   %smax = call i32 @llvm.abs.i32(i32 %69, i1 false)
   %73 = add nuw i32 %smax, 1
   %wide.trip.count = zext i32 %73 to i64
@@ -450,7 +450,7 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly %
   br label %82
 
 80:                                               ; preds = %77
-  %81 = add nsw i32 %71, %.082117
+  %81 = add nuw nsw i32 %71, %.082117
   br label %100
 
 82:                                               ; preds = %.preheader, %97
@@ -481,7 +481,7 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly %
   br i1 %exitcond135.not, label %98, label %82, !llvm.loop !14
 
 98:                                               ; preds = %97
-  %99 = add nsw i32 %71, %.082117
+  %99 = add nuw nsw i32 %71, %.082117
   %.val95.pre = load i32, ptr %12, align 4
   br label %100
 

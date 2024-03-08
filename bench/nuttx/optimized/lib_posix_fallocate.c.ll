@@ -11,36 +11,32 @@ define i32 @posix_fallocate(i32 noundef %0, i32 noundef %1, i32 noundef %2) loca
   %4 = alloca %struct.stat, align 8
   %5 = or i32 %2, %1
   %or.cond.not = icmp sgt i32 %5, -1
-  br i1 %or.cond.not, label %6, label %19
+  br i1 %or.cond.not, label %6, label %17
 
 6:                                                ; preds = %3
   %7 = add nuw nsw i32 %2, %1
-  %8 = icmp slt i32 %7, 0
-  br i1 %8, label %19, label %9
+  %8 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %4)
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %9, label %.sink.split
 
 9:                                                ; preds = %6
-  %10 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %4)
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %.sink.split
+  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp slt i32 %11, %7
+  br i1 %12, label %13, label %17
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %4, i64 28
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp slt i32 %13, %7
-  br i1 %14, label %15, label %19
+13:                                               ; preds = %9
+  %14 = tail call i32 @ftruncate(i32 noundef %0, i32 noundef %7) #3
+  %.not14 = icmp eq i32 %14, 0
+  br i1 %.not14, label %17, label %.sink.split
 
-15:                                               ; preds = %11
-  %16 = tail call i32 @ftruncate(i32 noundef %0, i32 noundef %7) #3
-  %.not14 = icmp eq i32 %16, 0
-  br i1 %.not14, label %19, label %.sink.split
+.sink.split:                                      ; preds = %13, %6
+  %15 = tail call ptr @__errno() #3
+  %16 = load i32, ptr %15, align 4
+  br label %17
 
-.sink.split:                                      ; preds = %15, %9
-  %17 = tail call ptr @__errno() #3
-  %18 = load i32, ptr %17, align 4
-  br label %19
-
-19:                                               ; preds = %.sink.split, %11, %15, %6, %3
-  %.0 = phi i32 [ 22, %3 ], [ 27, %6 ], [ 0, %15 ], [ 0, %11 ], [ %18, %.sink.split ]
+17:                                               ; preds = %.sink.split, %9, %13, %3
+  %.0 = phi i32 [ 22, %3 ], [ 0, %13 ], [ 0, %9 ], [ %16, %.sink.split ]
   ret i32 %.0
 }
 

@@ -2325,107 +2325,104 @@ declare i32 @vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @__cvt(double noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
-  %7 = icmp slt i32 %1, 0
-  %8 = sub i32 1, %1
-  %9 = sext i32 %8 to i64
-  %10 = add nuw nsw i32 %1, 1
-  %11 = zext nneg i32 %10 to i64
-  %.0 = select i1 %7, i64 %9, i64 %11
-  %12 = fcmp oeq double %0, 0.000000e+00
-  br i1 %12, label %13, label %20
+  %.0.in.p = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
+  %.0.in = add nuw i32 %.0.in.p, 1
+  %.0 = zext i32 %.0.in to i64
+  %7 = fcmp oeq double %0, 0.000000e+00
+  br i1 %7, label %8, label %15
 
-13:                                               ; preds = %5
-  %14 = sub nuw nsw i32 1, %4
-  store i32 %14, ptr %2, align 4
+8:                                                ; preds = %5
+  %9 = sub nuw nsw i32 1, %4
+  store i32 %9, ptr %2, align 4
   store i8 0, ptr %3, align 1
   %.not48 = icmp eq i32 %1, 0
-  %15 = select i1 %.not48, i64 2, i64 %.0
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #22
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %54, label %18
+  %10 = select i1 %.not48, i64 2, i64 %.0
+  %11 = tail call noalias ptr @malloc(i64 noundef %10) #22
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %49, label %13
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %16, i64 1
-  store ptr %19, ptr %6, align 8
-  store i8 48, ptr %16, align 1
-  store i8 0, ptr %19, align 1
-  br i1 %.not48, label %54, label %43
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds i8, ptr %11, i64 1
+  store ptr %14, ptr %6, align 8
+  store i8 48, ptr %11, align 1
+  store i8 0, ptr %14, align 1
+  br i1 %.not48, label %49, label %38
 
-20:                                               ; preds = %5
-  %21 = add nuw nsw i32 %4, 2
-  %22 = call ptr @zend_dtoa(double noundef %0, i32 noundef %21, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %6) #19
-  %23 = load i32, ptr %2, align 4
-  %24 = icmp eq i32 %23, 9999
-  br i1 %24, label %25, label %30
+15:                                               ; preds = %5
+  %16 = add nuw nsw i32 %4, 2
+  %17 = call ptr @zend_dtoa(double noundef %0, i32 noundef %16, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %6) #19
+  %18 = load i32, ptr %2, align 4
+  %19 = icmp eq i32 %18, 9999
+  br i1 %19, label %20, label %25
 
-25:                                               ; preds = %20
+20:                                               ; preds = %15
   store i32 0, ptr %2, align 4
-  %26 = load i8, ptr %22, align 1
-  call void @zend_freedtoa(ptr noundef nonnull %22) #19
-  %27 = icmp eq i8 %26, 73
-  %28 = select i1 %27, ptr @.str, ptr @.str.1
-  %29 = call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull %28) #19
-  br label %54
+  %21 = load i8, ptr %17, align 1
+  call void @zend_freedtoa(ptr noundef nonnull %17) #19
+  %22 = icmp eq i8 %21, 73
+  %23 = select i1 %22, ptr @.str, ptr @.str.1
+  %24 = call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull %23) #19
+  br label %49
 
-30:                                               ; preds = %20
+25:                                               ; preds = %15
   %.not = icmp eq i32 %4, 0
-  %narrow = select i1 %.not, i32 0, i32 %23
-  %31 = sext i32 %narrow to i64
-  %.1 = add nsw i64 %.0, %31
-  %32 = add nsw i64 %.1, 1
-  %33 = call noalias ptr @malloc(i64 noundef %32) #22
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %36
+  %narrow = select i1 %.not, i32 0, i32 %18
+  %26 = sext i32 %narrow to i64
+  %.1 = add nsw i64 %26, %.0
+  %27 = add nsw i64 %.1, 1
+  %28 = call noalias ptr @malloc(i64 noundef %27) #22
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %31
 
-35:                                               ; preds = %30
-  call void @zend_freedtoa(ptr noundef %22) #19
-  br label %54
+30:                                               ; preds = %25
+  call void @zend_freedtoa(ptr noundef %17) #19
+  br label %49
 
-36:                                               ; preds = %30
-  %37 = call i64 @php_strlcpy(ptr noundef nonnull %33, ptr noundef %22, i64 noundef %.1) #19
-  %38 = load ptr, ptr %6, align 8
-  %39 = ptrtoint ptr %38 to i64
-  %40 = ptrtoint ptr %22 to i64
-  %41 = sub i64 %39, %40
-  %42 = getelementptr inbounds i8, ptr %33, i64 %41
-  store ptr %42, ptr %6, align 8
-  call void @zend_freedtoa(ptr noundef %22) #19
+31:                                               ; preds = %25
+  %32 = call i64 @php_strlcpy(ptr noundef nonnull %28, ptr noundef %17, i64 noundef %.1) #19
+  %33 = load ptr, ptr %6, align 8
+  %34 = ptrtoint ptr %33 to i64
+  %35 = ptrtoint ptr %17 to i64
+  %36 = sub i64 %34, %35
+  %37 = getelementptr inbounds i8, ptr %28, i64 %36
+  store ptr %37, ptr %6, align 8
+  call void @zend_freedtoa(ptr noundef %17) #19
   %.pre = load ptr, ptr %6, align 8
-  br label %43
+  br label %38
 
-43:                                               ; preds = %36, %18
-  %44 = phi ptr [ %19, %18 ], [ %.pre, %36 ]
-  %.040 = phi ptr [ %16, %18 ], [ %33, %36 ]
-  %.2 = phi i64 [ %.0, %18 ], [ %.1, %36 ]
-  %45 = ptrtoint ptr %44 to i64
-  %46 = ptrtoint ptr %.040 to i64
-  %.neg = add i64 %.2, %46
-  %47 = xor i64 %45, -1
-  %48 = add i64 %.neg, %47
-  %.not4951 = icmp eq i64 %48, 0
+38:                                               ; preds = %31, %13
+  %39 = phi ptr [ %14, %13 ], [ %.pre, %31 ]
+  %.040 = phi ptr [ %11, %13 ], [ %28, %31 ]
+  %.2 = phi i64 [ %.0, %13 ], [ %.1, %31 ]
+  %40 = ptrtoint ptr %39 to i64
+  %41 = ptrtoint ptr %.040 to i64
+  %.neg = add i64 %.2, %41
+  %42 = xor i64 %40, -1
+  %43 = add i64 %.neg, %42
+  %.not4951 = icmp eq i64 %43, 0
   br i1 %.not4951, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %43, %.lr.ph
-  %49 = phi i64 [ %52, %.lr.ph ], [ %48, %43 ]
-  %50 = load ptr, ptr %6, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1
-  store ptr %51, ptr %6, align 8
-  store i8 48, ptr %50, align 1
-  %52 = add i64 %49, -1
-  %.not49 = icmp eq i64 %52, 0
+.lr.ph:                                           ; preds = %38, %.lr.ph
+  %44 = phi i64 [ %47, %.lr.ph ], [ %43, %38 ]
+  %45 = load ptr, ptr %6, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 1
+  store ptr %46, ptr %6, align 8
+  store i8 48, ptr %45, align 1
+  %47 = add i64 %44, -1
+  %.not49 = icmp eq i64 %47, 0
   br i1 %.not49, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre52 = load ptr, ptr %6, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %43
-  %53 = phi ptr [ %.pre52, %._crit_edge.loopexit ], [ %44, %43 ]
-  store i8 0, ptr %53, align 1
-  br label %54
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %38
+  %48 = phi ptr [ %.pre52, %._crit_edge.loopexit ], [ %39, %38 ]
+  store i8 0, ptr %48, align 1
+  br label %49
 
-54:                                               ; preds = %18, %13, %._crit_edge, %35, %25
-  %.039 = phi ptr [ %.040, %._crit_edge ], [ %29, %25 ], [ null, %35 ], [ null, %13 ], [ %16, %18 ]
+49:                                               ; preds = %13, %8, %._crit_edge, %30, %20
+  %.039 = phi ptr [ %.040, %._crit_edge ], [ %24, %20 ], [ null, %30 ], [ null, %8 ], [ %11, %13 ]
   ret ptr %.039
 }
 
@@ -2477,10 +2474,10 @@ declare i32 @llvm.umax.i32(i32, i32) #14
 declare i64 @llvm.abs.i64(i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #14
+declare i32 @llvm.abs.i32(i32, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #14
+declare i32 @llvm.usub.sat.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15

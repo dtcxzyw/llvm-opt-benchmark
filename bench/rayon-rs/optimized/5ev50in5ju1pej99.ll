@@ -2403,27 +2403,27 @@ _ZN10rayon_core8registry12WorkerThread22wait_until_out_of_work17hee0b3f7a77fabe2
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN10rayon_core8registry14XorShift64Star3new17h1be674125d91d43cE.llvm.14976363794789945401() unnamed_addr #9 personality ptr @rust_eh_personality {
-  br label %.lr.ph.i
+  br label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %0, %.lr.ph.i
+._crit_edge.i:                                    ; preds = %0, %._crit_edge.i
   %1 = atomicrmw add ptr @_ZN10rayon_core8registry14XorShift64Star3new7COUNTER17hc83b4adf245ca9b1E, i64 1 monotonic, align 8
   %2 = xor i64 %1, 8387220255154660723
   %3 = add i64 %2, 7816392313619706465
   %4 = tail call i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 16)
   %5 = xor i64 %3, %4
   %6 = add i64 %5, -2389207006547353658
-  %7 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 21)
+  %7 = xor i64 %6, %1
   %8 = add i64 %2, -6481707427168261424
-  %9 = xor i64 %8, -2011800112340241627
-  %10 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 32)
-  %11 = xor i64 %6, %1
-  %12 = xor i64 %6, %7
+  %9 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 32)
+  %10 = xor i64 %8, -2011800112340241627
+  %11 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 21)
+  %12 = xor i64 %6, %11
   %13 = xor i64 %12, 576460752303423488
-  %14 = add i64 %11, %9
-  %15 = tail call i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 13)
+  %14 = add i64 %7, %10
+  %15 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 13)
   %16 = xor i64 %14, %15
   %17 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 32)
-  %18 = add i64 %13, %10
+  %18 = add i64 %13, %9
   %19 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 16)
   %20 = xor i64 %19, %18
   %21 = add i64 %20, %17
@@ -2477,9 +2477,9 @@ define hidden noundef i64 @_ZN10rayon_core8registry14XorShift64Star3new17h1be674
   %69 = xor i64 %68, %67
   %70 = xor i64 %69, %65
   %71 = icmp eq i64 %70, 0
-  br i1 %71, label %.lr.ph.i, label %72
+  br i1 %71, label %._crit_edge.i, label %72
 
-72:                                               ; preds = %.lr.ph.i
+72:                                               ; preds = %._crit_edge.i
   ret i64 %70
 }
 

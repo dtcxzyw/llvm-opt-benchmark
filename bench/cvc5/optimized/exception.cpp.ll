@@ -185,7 +185,7 @@ delete.notnull:                                   ; preds = %for.body
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
-  %conv = sext i32 %n.013 to i64
+  %conv = zext nneg i32 %n.013 to i64
   %call = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #18
   call void @llvm.va_copy(ptr nonnull %args_copy, ptr nonnull %args)
   %call5 = call i32 @vsnprintf(ptr noundef nonnull %call, i64 noundef %conv, ptr noundef %format, ptr noundef nonnull %args) #16
@@ -194,10 +194,11 @@ delete.end:                                       ; preds = %delete.notnull, %fo
   br i1 %cmp7.not, label %for.end, label %if.then
 
 if.then:                                          ; preds = %delete.end
-  %0 = getelementptr i8, ptr %call, i64 %conv
-  %arrayidx = getelementptr i8, ptr %0, i64 -1
+  %0 = sext i32 %n.013 to i64
+  %1 = getelementptr i8, ptr %call, i64 %0
+  %arrayidx = getelementptr i8, ptr %1, i64 -1
   store i8 0, ptr %arrayidx, align 1
-  %add = add nsw i32 %call5, 1
+  %add = add nuw nsw i32 %call5, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %delete.end, %if.then
@@ -210,7 +211,7 @@ call.i.noexc:                                     ; preds = %for.end
           to label %if.end.i unwind label %lpad
 
 lpad.i:                                           ; preds = %if.end.i
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #16
   br label %lpad.body
@@ -228,12 +229,12 @@ delete.end10:                                     ; preds = %if.end.i
   ret void
 
 lpad:                                             ; preds = %call.i.noexc, %for.end
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -474,11 +475,11 @@ entry.split.us:                                   ; preds = %entry
 if.else8.us:                                      ; preds = %entry.split.us, %if.else8.us
   %call3.us26 = phi i32 [ %call3.us, %if.else8.us ], [ %call3.us23, %entry.split.us ]
   %call.us25 = phi ptr [ %call.us, %if.else8.us ], [ %call.us22, %entry.split.us ]
-  %add.us = add nsw i32 %call3.us26, 1
+  %add.us = add nuw nsw i32 %call3.us26, 1
   tail call void @_ZdaPv(ptr noundef nonnull %call.us25) #17
-  %conv.us = sext i32 %add.us to i64
+  %conv.us = zext nneg i32 %add.us to i64
   %call.us = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv.us) #18
-  %call3.us = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %call.us, i64 noundef %conv.us, ptr noundef nonnull @.str.5, ptr noundef %header, ptr noundef %function, ptr noundef %tail) #16
+  %call3.us = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %call.us, i64 noundef %conv.us, ptr noundef nonnull @.str.5, ptr noundef %header, ptr noundef %function, ptr noundef %tail) #16
   %cmp6.us.not = icmp sgt i32 %call3.us, %call3.us26
   br i1 %cmp6.us.not, label %if.else8.us, label %for.end, !llvm.loop !9
 
@@ -490,11 +491,11 @@ entry.split:                                      ; preds = %entry
 if.else8:                                         ; preds = %entry.split, %if.else8
   %call521 = phi i32 [ %call5, %if.else8 ], [ %call518, %entry.split ]
   %call20 = phi ptr [ %call, %if.else8 ], [ %call.us22, %entry.split ]
-  %add = add nsw i32 %call521, 1
+  %add = add nuw nsw i32 %call521, 1
   tail call void @_ZdaPv(ptr noundef nonnull %call20) #17
-  %conv = sext i32 %add to i64
+  %conv = zext nneg i32 %add to i64
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #18
-  %call5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %call, i64 noundef %conv, ptr noundef nonnull @.str.6, ptr noundef %header, ptr noundef %function, ptr noundef nonnull %extra, ptr noundef %tail) #16
+  %call5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %call, i64 noundef %conv, ptr noundef nonnull @.str.6, ptr noundef %header, ptr noundef %function, ptr noundef nonnull %extra, ptr noundef %tail) #16
   %cmp6.not = icmp sgt i32 %call5, %call521
   br i1 %cmp6.not, label %if.else8, label %for.end, !llvm.loop !9
 
@@ -568,11 +569,11 @@ entry.split.us:                                   ; preds = %entry
 if.else8.us:                                      ; preds = %entry.split.us, %if.else8.us
   %call3.us25 = phi i32 [ %call3.us, %if.else8.us ], [ %call3.us22, %entry.split.us ]
   %call.us24 = phi ptr [ %call.us, %if.else8.us ], [ %call.us21, %entry.split.us ]
-  %add.us = add nsw i32 %call3.us25, 1
+  %add.us = add nuw nsw i32 %call3.us25, 1
   tail call void @_ZdaPv(ptr noundef nonnull %call.us24) #17
-  %conv.us = sext i32 %add.us to i64
+  %conv.us = zext nneg i32 %add.us to i64
   %call.us = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv.us) #18
-  %call3.us = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %call.us, i64 noundef %conv.us, ptr noundef nonnull @.str.7, ptr noundef %header, ptr noundef %function) #16
+  %call3.us = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %call.us, i64 noundef %conv.us, ptr noundef nonnull @.str.7, ptr noundef %header, ptr noundef %function) #16
   %cmp6.us.not = icmp sgt i32 %call3.us, %call3.us25
   br i1 %cmp6.us.not, label %if.else8.us, label %for.end, !llvm.loop !10
 
@@ -584,11 +585,11 @@ entry.split:                                      ; preds = %entry
 if.else8:                                         ; preds = %entry.split, %if.else8
   %call520 = phi i32 [ %call5, %if.else8 ], [ %call517, %entry.split ]
   %call19 = phi ptr [ %call, %if.else8 ], [ %call.us21, %entry.split ]
-  %add = add nsw i32 %call520, 1
+  %add = add nuw nsw i32 %call520, 1
   tail call void @_ZdaPv(ptr noundef nonnull %call19) #17
-  %conv = sext i32 %add to i64
+  %conv = zext nneg i32 %add to i64
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #18
-  %call5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %call, i64 noundef %conv, ptr noundef nonnull @.str.8, ptr noundef %header, ptr noundef %function, ptr noundef nonnull %extra) #16
+  %call5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %call, i64 noundef %conv, ptr noundef nonnull @.str.8, ptr noundef %header, ptr noundef %function, ptr noundef nonnull %extra) #16
   %cmp6.not = icmp sgt i32 %call5, %call520
   br i1 %cmp6.not, label %if.else8, label %for.end, !llvm.loop !10
 

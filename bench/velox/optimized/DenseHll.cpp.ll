@@ -1116,25 +1116,15 @@ if.end9.i.i:                                      ; preds = %if.then6.i.i, %if.t
   %high.1.i.i = phi i32 [ %high.02.i.i, %if.then.i.i30 ], [ %sub7.i.i, %if.then6.i.i ]
   %low.1.i.i = phi i32 [ %add4.i.i, %if.then.i.i30 ], [ %low.03.i.i, %if.then6.i.i ]
   %cmp.not.i.i = icmp ugt i32 %low.1.i.i, %high.1.i.i
-  br i1 %cmp.not.i.i, label %_ZN8facebook5velox6common3hll12_GLOBAL__N_16searchEdRKSt6vectorIdSaIdEE.exit.i, label %while.body.i.i, !llvm.loop !13
+  br i1 %cmp.not.i.i, label %if.else.i, label %while.body.i.i, !llvm.loop !13
 
-_ZN8facebook5velox6common3hll12_GLOBAL__N_16searchEdRKSt6vectorIdSaIdEE.exit.i: ; preds = %if.end9.i.i
-  %cmp12.i = icmp slt i32 %low.1.i.i, 0
-  br i1 %cmp12.i, label %_ZN8facebook5velox6common3hll12_GLOBAL__N_16searchEdRKSt6vectorIdSaIdEE.exit.if.then13_crit_edge.i, label %if.else.i
-
-_ZN8facebook5velox6common3hll12_GLOBAL__N_16searchEdRKSt6vectorIdSaIdEE.exit.if.then13_crit_edge.i: ; preds = %_ZN8facebook5velox6common3hll12_GLOBAL__N_16searchEdRKSt6vectorIdSaIdEE.exit.i
-  %sub11.i.i = xor i32 %low.1.i.i, -1
-  %.pre.i = zext nneg i32 %sub11.i.i to i64
-  br label %if.then13.i
-
-if.then13.i:                                      ; preds = %if.else.i.i, %_ZN8facebook5velox6common3hll12_GLOBAL__N_16searchEdRKSt6vectorIdSaIdEE.exit.if.then13_crit_edge.i
-  %conv14.pre-phi.i = phi i64 [ %.pre.i, %_ZN8facebook5velox6common3hll12_GLOBAL__N_16searchEdRKSt6vectorIdSaIdEE.exit.if.then13_crit_edge.i ], [ %conv1.i.i, %if.else.i.i ]
+if.then13.i:                                      ; preds = %if.else.i.i
   %29 = load ptr, ptr %add.ptr.i23.i, align 8
-  %add.ptr.i24.i = getelementptr inbounds double, ptr %29, i64 %conv14.pre-phi.i
+  %add.ptr.i24.i = getelementptr inbounds double, ptr %29, i64 %conv1.i.i
   %30 = load double, ptr %add.ptr.i24.i, align 8
   br label %if.end31.i
 
-if.else.i:                                        ; preds = %_ZN8facebook5velox6common3hll12_GLOBAL__N_16searchEdRKSt6vectorIdSaIdEE.exit.i
+if.else.i:                                        ; preds = %if.end9.i.i
   %sub17.i = add nsw i32 %low.1.i.i, -1
   %conv18.i = zext nneg i32 %sub17.i to i64
   %add.ptr.i25.i = getelementptr inbounds double, ptr %21, i64 %conv18.i

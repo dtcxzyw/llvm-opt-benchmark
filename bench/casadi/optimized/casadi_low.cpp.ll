@@ -1762,8 +1762,8 @@ _ZNK6casadi6MXNode3depEx.exit8:                   ; preds = %21
 
 .preheader52.i:                                   ; preds = %.preheader52.i.outer, %63
   %.043.i = phi i64 [ %59, %63 ], [ %.043.i.ph, %.preheader52.i.outer ]
-  %58 = add nsw i64 %.043.i, %.044.i.ph
-  %59 = sdiv i64 %58, 2
+  %58 = add nuw nsw i64 %.043.i, %.044.i.ph
+  %59 = lshr i64 %58, 1
   %60 = getelementptr inbounds double, ptr %25, i64 %59
   %61 = load double, ptr %60, align 8
   %62 = fcmp ogt double %61, %24

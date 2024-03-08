@@ -490,8 +490,8 @@ if.end10.i:                                       ; preds = %if.then5.i, %if.the
   %sval.0.i = phi i32 [ %sub.i, %if.then.i16 ], [ %add.i, %if.then5.i ]
   %conv11.i = sext i32 %sval.0.i to i64
   %sub12.i = sub nsw i64 9223372036854775807, %conv11.i
-  %div1819.i = lshr i64 %sub12.i, 4
-  %cmp.i = icmp sgt i64 %v.0.i, %div1819.i
+  %div18.i = lshr i64 %sub12.i, 4
+  %cmp.i = icmp sgt i64 %v.0.i, %div18.i
   br i1 %cmp.i, label %if.then14.i, label %if.end15.i
 
 if.then14.i:                                      ; preds = %if.end10.i
@@ -565,7 +565,7 @@ if.then37:                                        ; preds = %land.lhs.true33
   br label %do.body.i26
 
 do.body.i26:                                      ; preds = %if.end13.i33, %if.then37
-  %16 = phi i8 [ %.pre.i, %if.then37 ], [ %.pre21.i, %if.end13.i33 ]
+  %16 = phi i8 [ %.pre.i, %if.then37 ], [ %.pre22.i, %if.end13.i33 ]
   %s.0.i27 = phi ptr [ %arrayidx23, %if.then37 ], [ %incdec.ptr.i37, %if.end13.i33 ]
   %v.0.i28 = phi i64 [ 0, %if.then37 ], [ %add.i36, %if.end13.i33 ]
   %17 = and i8 %16, -2
@@ -588,8 +588,8 @@ if.end.i32:                                       ; preds = %lor.lhs.false5.i
   %18 = load i8, ptr %s.0.i27, align 1
   %conv7.i = sext i8 %18 to i64
   %sub9.i = sub i64 -9223372036854775761, %conv7.i
-  %div.i = sdiv i64 %sub9.i, 8
-  %cmp10.i = icmp sgt i64 %v.0.i28, %div.i
+  %div19.i = lshr i64 %sub9.i, 3
+  %cmp10.i = icmp sgt i64 %v.0.i28, %div19.i
   br i1 %cmp10.i, label %if.then12.i, label %if.end13.i33
 
 if.then12.i:                                      ; preds = %if.end.i32
@@ -607,14 +607,14 @@ if.end13.i33:                                     ; preds = %if.end.i32
   %conv17.i = sext i8 %19 to i32
   %call18.i = tail call i32 @ossl_isdigit(i32 noundef %conv17.i) #9
   %tobool19.not.i = icmp eq i32 %call18.i, 0
-  %.pre21.i = load i8, ptr %incdec.ptr.i37, align 1
-  %20 = and i8 %.pre21.i, -2
-  %switch20.i = icmp eq i8 %20, 56
-  %or.cond.i38 = select i1 %tobool19.not.i, i1 true, i1 %switch20.i
+  %.pre22.i = load i8, ptr %incdec.ptr.i37, align 1
+  %20 = and i8 %.pre22.i, -2
+  %switch21.i = icmp eq i8 %20, 56
+  %or.cond.i38 = select i1 %tobool19.not.i, i1 true, i1 %switch21.i
   br i1 %or.cond.i38, label %do.end.i39, label %do.body.i26
 
 do.end.i39:                                       ; preds = %if.end13.i33
-  %conv26.i = sext i8 %.pre21.i to i32
+  %conv26.i = sext i8 %.pre22.i to i32
   %call27.i = tail call i32 @ossl_ctype_check(i32 noundef %conv26.i, i32 noundef 8) #9
   %tobool28.not.i = icmp eq i32 %call27.i, 0
   br i1 %tobool28.not.i, label %land.lhs.true29.i, label %while.cond.i.i40.preheader
@@ -1899,7 +1899,7 @@ if.end:                                           ; preds = %do.body
   %3 = load i8, ptr %s.0, align 1
   %conv1 = sext i8 %3 to i64
   %sub3 = sub i64 -9223372036854775761, %conv1
-  %div = sdiv i64 %sub3, 10
+  %div = udiv i64 %sub3, 10
   %cmp = icmp sgt i64 %v.0, %div
   br i1 %cmp, label %if.then5, label %if.end6
 
