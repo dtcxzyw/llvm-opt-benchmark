@@ -412,3 +412,6 @@
 [submodule "bench/ipopt/Ipopt"]
 	path = bench/ipopt/Ipopt
 	url = git@github.com:coin-or/Ipopt.git
+[submodule "bench/mini-lsm-rs/mini-lsm"]
+	path = bench/mini-lsm-rs/mini-lsm
+	url = git@github.com:skyzh/mini-lsm.git
