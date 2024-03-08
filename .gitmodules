@@ -397,3 +397,6 @@
 [submodule "bench/meshlab/meshlab"]
 	path = bench/meshlab/meshlab
 	url = git@github.com:cnr-isti-vclab/meshlab.git
+[submodule "bench/bdwgc/bdwgc"]
+	path = bench/bdwgc/bdwgc
+	url = git@github.com:ivmai/bdwgc.git
