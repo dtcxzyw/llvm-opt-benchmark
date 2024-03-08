@@ -391,3 +391,6 @@
 [submodule "bench/lief/LIEF"]
 	path = bench/lief/LIEF
 	url = git@github.com:lief-project/LIEF.git
+[submodule "bench/cjson/cJSON"]
+	path = bench/cjson/cJSON
+	url = git@github.com:DaveGamble/cJSON.git
