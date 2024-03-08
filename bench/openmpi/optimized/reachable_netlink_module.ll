@@ -125,8 +125,8 @@ define internal ptr @netlink_reachable(ptr noundef %0, ptr noundef %1) #1 {
   %49 = sitofp i32 %48 to double
   %50 = sub nsw i32 %45, %47
   %51 = call i32 @llvm.abs.i32(i32 %50, i1 true)
-  %52 = sitofp i32 %51 to double
-  %53 = fadd double %52, 1.000000e+00
+  %52 = add nuw i32 %51, 1
+  %53 = uitofp i32 %52 to double
   %54 = fdiv double 1.000000e+00, %53
   %55 = fadd double %54, %49
   %56 = fmul double %55, 1.000000e+02
@@ -150,8 +150,8 @@ define internal ptr @netlink_reachable(ptr noundef %0, ptr noundef %1) #1 {
   %70 = sitofp i32 %69 to double
   %71 = sub nsw i32 %66, %68
   %72 = call i32 @llvm.abs.i32(i32 %71, i1 true)
-  %73 = sitofp i32 %72 to double
-  %74 = fadd double %73, 1.000000e+00
+  %73 = add nuw i32 %72, 1
+  %74 = uitofp i32 %73 to double
   %75 = fdiv double 1.000000e+00, %74
   %76 = fadd double %75, %70
   br i1 %65, label %77, label %80

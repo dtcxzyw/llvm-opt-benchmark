@@ -10194,8 +10194,8 @@ define i32 @Mf_ManSetMapRefs(ptr nocapture noundef readonly %0) local_unnamed_ad
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, 1
   %5 = mul nsw i32 %4, %4
-  %6 = sitofp i32 %5 to double
-  %7 = fadd double %6, 1.000000e+00
+  %6 = add nuw i32 %5, 1
+  %7 = uitofp i32 %6 to double
   %8 = fdiv double 1.000000e+00, %7
   %9 = fptrunc double %8 to float
   %10 = getelementptr inbounds i8, ptr %0, i64 8
