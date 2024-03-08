@@ -388,3 +388,6 @@
 [submodule "bench/wireshark/wireshark"]
 	path = bench/wireshark/wireshark
 	url = git@github.com:wireshark/wireshark.git
+[submodule "bench/lief/LIEF"]
+	path = bench/lief/LIEF
+	url = git@github.com:lief-project/LIEF.git

@@ -1,0 +1,439 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%"class.LIEF::MachO::SymbolCommand" = type { %"class.LIEF::MachO::LoadCommand", i32, i32, i32, i32, i32, i32, %"class.tcb::span", %"class.tcb::span" }
+%"class.LIEF::MachO::LoadCommand" = type { %"class.LIEF::Object", %"class.std::vector", i64, i32, i64 }
+%"class.LIEF::Object" = type { ptr }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
+%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.tcb::span" = type { %"struct.tcb::detail::span_storage" }
+%"struct.tcb::detail::span_storage" = type { ptr, i64 }
+%"struct.LIEF::MachO::details::symtab_command" = type { i32, i32, i32, i32, i32, i32 }
+
+$_ZN3tcb4spanIhLm18446744073709551615EEC2ILm18446744073709551615ETnNSt9enable_ifIXooeqT_L_ZNS_14dynamic_extentEEleT_Li0EEiE4typeELi0EEEv = comdat any
+
+$_ZNK4LIEF6ObjectneERKS0_ = comdat any
+
+$_ZN3tcb6detail12span_storageIhLm18446744073709551615EEC2Ev = comdat any
+
+@_ZTVN4LIEF5MachO13SymbolCommandE = unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr @_ZTIN4LIEF5MachO13SymbolCommandE, ptr @_ZNK4LIEF6ObjecteqERKS0_, ptr @_ZNK4LIEF6ObjectneERKS0_, ptr @_ZN4LIEF5MachO13SymbolCommandD1Ev, ptr @_ZN4LIEF5MachO13SymbolCommandD0Ev, ptr @_ZNK4LIEF5MachO13SymbolCommand6acceptERNS_7VisitorE, ptr @_ZNK4LIEF5MachO13SymbolCommand5cloneEv, ptr @_ZNK4LIEF5MachO13SymbolCommand5printERSo] }, align 8
+@_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
+@_ZTSN4LIEF5MachO13SymbolCommandE = constant [29 x i8] c"N4LIEF5MachO13SymbolCommandE\00", align 1
+@_ZTIN4LIEF5MachO11LoadCommandE = external constant ptr
+@_ZTIN4LIEF5MachO13SymbolCommandE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4LIEF5MachO13SymbolCommandE, ptr @_ZTIN4LIEF5MachO11LoadCommandE }, align 8
+
+@_ZN4LIEF5MachO13SymbolCommandC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4LIEF5MachO13SymbolCommandC2Ev
+@_ZN4LIEF5MachO13SymbolCommandC1ERKS1_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN4LIEF5MachO13SymbolCommandC2ERKS1_
+@_ZN4LIEF5MachO13SymbolCommandD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4LIEF5MachO13SymbolCommandD2Ev
+@_ZN4LIEF5MachO13SymbolCommandC1ERKNS0_7details14symtab_commandE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4LIEF5MachO13SymbolCommandC2ERKNS0_7details14symtab_commandE
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN4LIEF5MachO13SymbolCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO13SymbolCommandE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %3, i32 0, i32 1
+  store i32 0, ptr %4, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %3, i32 0, i32 2
+  store i32 0, ptr %5, align 4
+  %6 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %3, i32 0, i32 3
+  store i32 0, ptr %6, align 8
+  %7 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %3, i32 0, i32 4
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %3, i32 0, i32 5
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %3, i32 0, i32 6
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %3, i32 0, i32 7
+  call void @_ZN3tcb4spanIhLm18446744073709551615EEC2ILm18446744073709551615ETnNSt9enable_ifIXooeqT_L_ZNS_14dynamic_extentEEleT_Li0EEiE4typeELi0EEEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #8
+  %11 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %3, i32 0, i32 8
+  call void @_ZN3tcb4spanIhLm18446744073709551615EEC2ILm18446744073709551615ETnNSt9enable_ifIXooeqT_L_ZNS_14dynamic_extentEEleT_Li0EEiE4typeELi0EEEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #8
+  ret void
+}
+
+declare void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN3tcb4spanIhLm18446744073709551615EEC2ILm18446744073709551615ETnNSt9enable_ifIXooeqT_L_ZNS_14dynamic_extentEEleT_Li0EEiE4typeELi0EEEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.tcb::span", ptr %3, i32 0, i32 0
+  call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 16, i1 false)
+  call void @_ZN3tcb6detail12span_storageIhLm18446744073709551615EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef nonnull align 8 dereferenceable(112) ptr @_ZN4LIEF5MachO13SymbolCommandaSERKS1_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.LIEF::MachO::LoadCommand", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = load ptr, ptr %4, align 8
+  call void @_ZN4LIEF5MachO11LoadCommandC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %9)
+  %10 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN4LIEF5MachO11LoadCommandaSES1_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef %5)
+          to label %11 unwind label %15
+
+11:                                               ; preds = %2
+  call void @_ZN4LIEF5MachO11LoadCommandD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #8
+  %12 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %8, i32 0, i32 1
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %13, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %14, i64 56, i1 false)
+  ret ptr %8
+
+15:                                               ; preds = %2
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %6, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %7, align 4
+  call void @_ZN4LIEF5MachO11LoadCommandD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #8
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %6, align 8
+  %21 = load i32, ptr %7, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
+}
+
+declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN4LIEF5MachO11LoadCommandaSES1_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) #1
+
+declare void @_ZN4LIEF5MachO11LoadCommandC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: nounwind
+declare void @_ZN4LIEF5MachO11LoadCommandD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #3
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN4LIEF5MachO13SymbolCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO13SymbolCommandE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %8, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 56, i1 false)
+  ret void
+}
+
+declare void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN4LIEF5MachO13SymbolCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #8
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #3
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN4LIEF5MachO13SymbolCommandD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4LIEF5MachO13SymbolCommandD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #8
+  call void @_ZdlPv(ptr noundef %3) #9
+  ret void
+}
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPv(ptr noundef) #5
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN4LIEF5MachO13SymbolCommandC2ERKNS0_7details14symtab_commandE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 4 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds %"struct.LIEF::MachO::details::symtab_command", ptr %6, i32 0, i32 0
+  %8 = load i32, ptr %7, align 4
+  %9 = zext i32 %8 to i64
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"struct.LIEF::MachO::details::symtab_command", ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 4
+  call void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56) %5, i64 noundef %9, i32 noundef %12)
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO13SymbolCommandE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  %13 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %5, i32 0, i32 1
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds %"struct.LIEF::MachO::details::symtab_command", ptr %14, i32 0, i32 2
+  %16 = load i32, ptr %15, align 4
+  store i32 %16, ptr %13, align 8
+  %17 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %5, i32 0, i32 2
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds %"struct.LIEF::MachO::details::symtab_command", ptr %18, i32 0, i32 3
+  %20 = load i32, ptr %19, align 4
+  store i32 %20, ptr %17, align 4
+  %21 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %5, i32 0, i32 3
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %"struct.LIEF::MachO::details::symtab_command", ptr %22, i32 0, i32 4
+  %24 = load i32, ptr %23, align 4
+  store i32 %24, ptr %21, align 8
+  %25 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %5, i32 0, i32 4
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %"struct.LIEF::MachO::details::symtab_command", ptr %26, i32 0, i32 5
+  %28 = load i32, ptr %27, align 4
+  store i32 %28, ptr %25, align 4
+  %29 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %5, i32 0, i32 5
+  store i32 0, ptr %29, align 8
+  %30 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %5, i32 0, i32 6
+  store i32 0, ptr %30, align 4
+  %31 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %5, i32 0, i32 7
+  call void @_ZN3tcb4spanIhLm18446744073709551615EEC2ILm18446744073709551615ETnNSt9enable_ifIXooeqT_L_ZNS_14dynamic_extentEEleT_Li0EEiE4typeELi0EEEv(ptr noundef nonnull align 8 dereferenceable(16) %31) #8
+  %32 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %5, i32 0, i32 8
+  call void @_ZN3tcb4spanIhLm18446744073709551615EEC2ILm18446744073709551615ETnNSt9enable_ifIXooeqT_L_ZNS_14dynamic_extentEEleT_Li0EEiE4typeELi0EEEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #8
+  ret void
+}
+
+declare void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56), i64 noundef, i32 noundef) unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define noundef ptr @_ZNK4LIEF5MachO13SymbolCommand5cloneEv(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 112) #10
+  invoke void @_ZN4LIEF5MachO13SymbolCommandC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(112) %6, ptr noundef nonnull align 8 dereferenceable(112) %5)
+          to label %7 unwind label %8
+
+7:                                                ; preds = %1
+  ret ptr %6
+
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
+          cleanup
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %3, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %6) #9
+  br label %12
+
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %3, align 8
+  %14 = load i32, ptr %4, align 4
+  %15 = insertvalue { ptr, i32 } poison, ptr %13, 0
+  %16 = insertvalue { ptr, i32 } %15, i32 %14, 1
+  resume { ptr, i32 } %16
+}
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) #6
+
+; Function Attrs: mustprogress nounwind uwtable
+define noundef i32 @_ZNK4LIEF5MachO13SymbolCommand13symbol_offsetEv(ptr noundef nonnull align 8 dereferenceable(112) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define noundef i32 @_ZNK4LIEF5MachO13SymbolCommand16numberof_symbolsEv(ptr noundef nonnull align 8 dereferenceable(112) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 4
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define noundef i32 @_ZNK4LIEF5MachO13SymbolCommand14strings_offsetEv(ptr noundef nonnull align 8 dereferenceable(112) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %3, i32 0, i32 3
+  %5 = load i32, ptr %4, align 8
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define noundef i32 @_ZNK4LIEF5MachO13SymbolCommand12strings_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %3, i32 0, i32 4
+  %5 = load i32, ptr %4, align 4
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN4LIEF5MachO13SymbolCommand13symbol_offsetEj(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  %7 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %5, i32 0, i32 1
+  store i32 %6, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN4LIEF5MachO13SymbolCommand16numberof_symbolsEj(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  %7 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %5, i32 0, i32 2
+  store i32 %6, ptr %7, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN4LIEF5MachO13SymbolCommand14strings_offsetEj(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  %7 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %5, i32 0, i32 3
+  store i32 %6, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN4LIEF5MachO13SymbolCommand12strings_sizeEj(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  %7 = getelementptr inbounds %"class.LIEF::MachO::SymbolCommand", ptr %5, i32 0, i32 4
+  store i32 %6, ptr %7, align 4
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZNK4LIEF5MachO13SymbolCommand6acceptERNS_7VisitorE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds ptr, ptr %7, i64 111
+  %9 = load ptr, ptr %8, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(112) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN4LIEF5MachO13SymbolCommand7classofEPKNS0_11LoadCommandE(ptr noundef %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = call noundef i64 @_ZNK4LIEF5MachO11LoadCommand7commandEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
+  store i64 %5, ptr %3, align 8
+  %6 = load i64, ptr %3, align 8
+  %7 = icmp eq i64 %6, 2
+  ret i1 %7
+}
+
+declare noundef i64 @_ZNK4LIEF5MachO11LoadCommand7commandEv(ptr noundef nonnull align 8 dereferenceable(56)) #1
+
+; Function Attrs: mustprogress uwtable
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4LIEF5MachO13SymbolCommand5printERSo(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4LIEF5MachO11LoadCommand5printERSo(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %8 = load ptr, ptr %4, align 8
+  ret ptr %8
+}
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4LIEF5MachO11LoadCommand5printERSo(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
+
+declare noundef zeroext i1 @_ZNK4LIEF6ObjecteqERKS0_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK4LIEF6ObjectneERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = getelementptr inbounds ptr, ptr %7, i64 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %11 = xor i1 %10, true
+  ret i1 %11
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN3tcb6detail12span_storageIhLm18446744073709551615EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.tcb::detail::span_storage", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8
+  %5 = getelementptr inbounds %"struct.tcb::detail::span_storage", ptr %3, i32 0, i32 1
+  store i64 0, ptr %5, align 8
+  ret void
+}
+
+attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind }
+attributes #9 = { builtin nounwind }
+attributes #10 = { builtin allocsize(0) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
