@@ -403,3 +403,6 @@
 [submodule "bench/cmake/CMake"]
 	path = bench/cmake/CMake
 	url = git@github.com:Kitware/CMake.git
+[submodule "bench/graphviz/graphviz"]
+	path = bench/graphviz/graphviz
+	url = https://gitlab.com/graphviz/graphviz.git
