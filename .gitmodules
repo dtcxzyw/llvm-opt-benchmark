@@ -424,3 +424,6 @@
 [submodule "bench/base64-rs/rust-base64"]
 	path = bench/base64-rs/rust-base64
 	url = git@github.com:marshallpierce/rust-base64.git
+[submodule "bench/tls-rs/rustls"]
+	path = bench/tls-rs/rustls
+	url = git@github.com:rustls/rustls.git
